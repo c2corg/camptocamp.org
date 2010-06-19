@@ -1492,9 +1492,10 @@ a.close_btn {
 
 .license_box .cc
 {
-  width: 99px;
-  height: 33px;
+  width: 90px;
+  height: 31px;
   margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 .picto.cc-by-sa, .picto.cc-by-nc-nd

@@ -26,12 +26,8 @@ _menu:
   lifetime: 86400
 
 _mobile_menu:
-  enabled: off
-  
-_menu_content:
   enabled: on
-  lifetime: 86400
-
+  
 # we do not cache this partials since it varies much :
 _header:
   enabled: off

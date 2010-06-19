@@ -1661,6 +1661,12 @@ msgstr "Résultats de la recherche"
 msgid "Search with google"
 msgstr "Recherche sur le document en entier&nbsp;:"
 
+# [general comment]
+# version mobile, titre du menu permettant d'accéder aux listes
+# [WARNING] needs_review
+msgid "See"
+msgstr "Consulter"
+
 msgid "Select a name to use in guidebook"
 msgstr "Selectionnez votre nom à utiliser dans le topoguide"
 
@@ -2694,7 +2700,7 @@ msgstr "<h3>Type de transport en commun</h3>Type de transport en commun desserva
 
 # [WARNING] needs_review
 msgid "_publication_date_info"
-msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente ou bien l'on indiquera la première et la dernière édition séparées par un tiret (par exemple 1983 - 2010). Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pluie</h3>Exposition du site/secteur à la pluie.<br />Utile si le temps est incertain."
@@ -4031,8 +4037,9 @@ msgstr "Carte initiale"
 msgid "inline"
 msgstr "au fil du texte"
 
+# [WARNING] needs_review
 msgid "insert image tag help"
-msgstr "Sélectionnez l'image que vous souhaitez insérer, ainsi que les options associées.<br />Seules les images associées au document sont disponibles. Pour un document collaboratif, seules les images collaboratives sont autorisées. Si une image n'apparait pas dans la liste, vérifiez que ces critères sont bien respectés."
+msgstr "Cet outil permet d'insérer dans le texte une image <b>préalablement associée au document</b>.<br /><br />Sélectionnez l'image que vous souhaitez insérer, ainsi que les options associées.<br />Seules les images associées au document sont disponibles. Pour un document collaboratif, seules les images collaboratives sont autorisées. Si une image n'apparait pas dans la liste, vérifiez que ces critères sont bien respectés."
 
 msgid "institution"
 msgstr "institution ou organisme divers"

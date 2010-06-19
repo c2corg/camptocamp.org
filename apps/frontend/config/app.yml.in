@@ -423,6 +423,7 @@ all:
 
   mobile_version:
      host: @MOBILE_VERSION_HOST@
+     ads:  @MOBILE_VERSION_ADS@
   
   # For each module, fields that are displayed in tooltips
   # Note: right now, there is none, but let's keep this block and the 

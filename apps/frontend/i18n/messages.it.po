@@ -1674,6 +1674,12 @@ msgstr "Risultati della ricerca"
 msgid "Search with google"
 msgstr "Ricerca nel documento intero:"
 
+# [general comment]
+# version mobile, titre du menu permettant d'accéder aux listes
+# [WARNING] fr translation used
+msgid "See"
+msgstr "Consulter"
+
 msgid "Select a name to use in guidebook"
 msgstr "Scegli il nome da usare nella guida interattiva"
 
@@ -4062,6 +4068,7 @@ msgstr "Mappa iniziale"
 msgid "inline"
 msgstr "nel testo"
 
+# [WARNING] needs_update
 msgid "insert image tag help"
 msgstr "Seleziona l'immagine che vuoi inserire.<br />Solo le immagini associate al documento sono disponibili. Per un documento collaborativo, solo le immagini collaborative possono essere inserite."
 

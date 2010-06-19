@@ -36,7 +36,7 @@ if ($has_geom || $show_map)
     echo '<div class="section" id="map_container_section_container">';
 
     // TODO test maps and areas
-    $map_url = 'http://maps.google.com/maps/api/staticmap?size=295x295&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;';
+    $map_url = 'http://maps.google.com/maps/api/staticmap?size=310x310&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;';
     $map_options = array();
 
     

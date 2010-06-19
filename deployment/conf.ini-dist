@@ -86,6 +86,8 @@ METAENGINE_KEY = <meta_engine_key>
 
 ; Mobile version hostname (eg 'm.camptocamp.org')
 MOBILE_VERSION_HOST = 
+; enable or disable ads in mobile version
+MOBILE_VERSION_ADS = true
 
 ; Minification config (see ticket #404)
 MINIFY_DEBUG =  false

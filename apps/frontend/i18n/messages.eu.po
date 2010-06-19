@@ -1791,6 +1791,12 @@ msgstr "Bilaketaren emaitza"
 msgid "Search with google"
 msgstr "Búsqueda en todo el documento:"
 
+# [general comment]
+# version mobile, titre du menu permettant d'accéder aux listes
+# [WARNING] fr translation used
+msgid "See"
+msgstr "Consulter"
+
 msgid "Select a name to use in guidebook"
 msgstr "Ibilbide gidarako erabiltzaile izena aukeratu"
 

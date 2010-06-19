@@ -1,41 +1,68 @@
 <?php
-use_helper('General');
+use_helper('General', 'Forum');
+
+$menu_search = array(
+    '@filter?module=outings' => __('outings'),
+    '@filter?module=routes' => __('routes'),
+    '@filter?module=images' => __('images'),
+    '@filter?module=summits' => __('summits'),
+    '@filter?module=sites' => __('sites'),
+    '@filter?module=parkings' => __('parkings'),
+    '@filter?module=huts' => __('huts'),
+    '@filter?module=articles' => __('articles'),
+    '@filter?module=areas' => __('areas'),
+    '@filter?module=maps' => __('maps'),
+    '@filter?module=products' => __('products'),
+    '@filter?module=users' => __('users'),
+);
+
+$menu_see = array(
+    '@default_index?module=outings&orderby=date&order=desc' => __('outings'),
+    '@default_index?module=routes' => __('routes'),
+    '@default_index?module=images' => __('images'),
+    '@default_index?module=summits' => __('summits'),
+    '@default_index?module=sites' => __('sites'),
+    '@default_index?module=parings' => __('parkings'),
+    '@default_index?module=huts' => __('huts'),
+    '@default_index?module=articles' => __('articles'),
+    '@default_index?module=areas' => __('areas'),
+    '@default_index?module=maps' => __('maps'),
+    '@default_index?module=products' => __('products'),
+    '@default_index?module=users' => __('users')
+);
+
+$menu_more = array(
+    getMetaArticleRoute('association') => __('Association'),
+    getMetaArticleRoute('help', false) => __('Global help'),
+    getMetaArticleRoute('home_guide') => __('Help').__(' :').' '.__('Guidebook'),
+    getMetaArticleRoute('help_forum', false) => __('Help').__(' :').' '.__('Forums')
+);
 ?>
 <div id="mobile_menu">
-    <?php
-    $perso = c2cPersonalization::getInstance();
-    $act_filter = $perso->getActivitiesFilter();
-    $main_filter_switch_on = $perso->isMainFilterSwitchOn();
-    $static_base_url = sfConfig::get('app_static_url');
-    $alist = sfConfig::get('app_activities_list');
-    array_shift($alist);
-    $light = array(1 => '', 2 => '', 3 => '', 4 => '', 5 => '', 6 => '');
-    $activities_class = array();
-
-    if ($main_filter_switch_on && count($act_filter))
-    {
-        $unselected_act = array_diff(array(1, 2, 3, 4, 5, 6), $act_filter);
-        foreach ($unselected_act as $act_id)
-        {
-            $light[$act_id] = '_light';
-        }
-        foreach ($act_filter as $act_id)
-        {
-            $activities_class[] = 'act' . $act_id;
-        }
-    }
-    ?>
-    <div id="quick_switch<?php echo empty($activities_class) ? '' : '" class="' . implode(' ', $activities_class) ?>">
-        <?php
-        foreach ($alist as $id => $activity)
-        {
-            $act_id = $id + 1;
-            $alt = ($act_filter == array($act_id))
-                   ? __('switch_off_activity_personalisation')
-                   : __('switch_to_' . $alist[$act_id-1]) ;
-            $image_tag = picto_tag('bigactivity_' . $act_id . $light[$act_id], $alt);
-            echo link_to($image_tag, '@quick_activity?activity=' . ($act_id), array('class' => 'qck_sw'));
-        }
-        ?>
+  <div id="menu_items">
+    <div class="menu_entry">
+      <div class="menu_item left">
+        <?php echo f_link_to('<span class="select_button">' . __('Forums') . '</span>',
+                           '?lang='.$lang); ?>
+      </div>
     </div>
+    <div class="menu_entry middle">
+      <div class="menu_item">
+        <span class="select_button"><?php echo __('Search') ?></span>
+        <?php echo select_tag('menu_select', options_for_select($menu_search), array('class' => 'menu_select', 'id' => 'menu_select1')) ?>
+      </div>
+    </div>
+    <div class="menu_entry">
+      <div class="menu_item middle">
+        <span class="select_button"><?php echo __('See') ?></span>
+        <?php echo select_tag('menu_select', options_for_select($menu_see), array('class' => 'menu_select', 'id' => 'menu_select2')) ?>
+      </div>
+    </div>
+    <div class="menu_entry">
+      <div class="menu_item right">
+        <span class="select_button"><?php echo __('More...') ?></span>
+        <?php echo select_tag('menu_select', options_for_select($menu_more), array('class' => 'menu_select', 'id' => 'menu_select3')) ?>
+      </div>
+    </div>
+  </div>
 </div>

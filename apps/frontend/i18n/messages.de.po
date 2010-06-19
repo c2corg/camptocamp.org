@@ -1721,6 +1721,12 @@ msgstr "Ergebnis der Suche"
 msgid "Search with google"
 msgstr "Suche auf das gesamte Dokument:"
 
+# [general comment]
+# version mobile, titre du menu permettant d'accéder aux listes
+# [WARNING] fr translation used
+msgid "See"
+msgstr "Consulter"
+
 msgid "Select a name to use in guidebook"
 msgstr "Wählen Sie den Namen aus, den Sie im Tourenführer benutzen möchten "
 

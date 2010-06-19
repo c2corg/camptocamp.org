@@ -21,12 +21,15 @@ html, body, #holder
   width: 47%;
 }
 
-div#quick_switch
+#quick_switch
 {
-  left: 2px;
-  position: relative;
-  width: 220px;
-  padding-bottom: 3px;
+  padding-bottom: 2px;
+}
+
+.qck_sw span
+{
+  height: 19px;
+  margin-right: 10px;
 }
 
 #path
@@ -338,7 +341,7 @@ div.postlinkst .conr, div.postlinksb .conr
 
 #footer
 {
-  margin: 0 1px;
+  margin: 0;
   height: 120px;
 }
 #footer_cc
@@ -368,41 +371,112 @@ div.postlinkst .conr, div.postlinksb .conr
   width: 98%;
 }
 
-.picto.bigactivity_1, .picto.bigactivity_1_light, .picto.bigactivity_2, .picto.bigactivity_2_light,
-.picto.bigactivity_3, .picto.bigactivity_3_light, .picto.bigactivity_4, .picto.bigactivity_4_light,
-.picto.bigactivity_5, .picto.bigactivity_5_light, .picto.bigactivity_6, .picto.bigactivity_6_light
+.select_button
 {
-  width: 32px;
-  height: 32px;
-  background: url(/static/images/picto/activities.png) no-repeat;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
 }
 
-.picto.bigactivity_1
+#menu
 {
-  background-position: -10px -210px;
+  clear:both;
 }
 
-.picto.bigactivity_2
+select.menu_select
 {
-  background-position: -10px -260px;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.picto.bigactivity_3
+.menu_item
 {
-  background-position: -10px -110px;
+  border-top: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+  position: relative;
+  text-align: center;
+  background-color: #ff9933;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.picto.bigactivity_4
+.menu_item.left
 {
-  background-position: -10px -160px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  border-left: 1px solid #999999;
 }
 
-.picto.bigactivity_5
+.menu_item.right
 {
-  background-position: -10px -61px;
+  border-top-right-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  border-right: 1px solid #999999;
 }
 
-.picto.bigactivity_6
+.menu_entry
 {
-  background-position: -10px -10px;
+  float: left;
+  width: 25%;
+}
+
+#mobile_home
+{
+  width: 82px;
+  height: 40px;
+  float: left;
+  background: url("/static/images/borders_and_logos.png") no-repeat scroll -130px -225px transparent;
+  margin-top: 8px;
+}
+
+#mobile_home span
+{
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+#mobile_home a, .menu_item a
+{
+  text-decoration: none;
+}
+
+.log_elt
+{
+  padding-bottom: 2px;
+  padding-top: 1px;
+  margin-left: 82px;
+}
+
+#user_mngt
+{
+  height: 16px;
+}
+
+a.logged_as
+{
+  background: none;
+  padding:0;
+}
+
+/* blocks must be all in a row */
+#article_gauche_5050, .article_gauche_5050
+{
+  width: auto;
 }

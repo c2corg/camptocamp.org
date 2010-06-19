@@ -34,7 +34,10 @@ if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 
 {
     $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/easy_bbcode.js');
 }
-$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/modalbox.js');
+if (!c2cTools::mobileVersion())
+{
+    $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/modalbox.js');
+}
 
 $debug = defined('PUN_DEBUG');
 minify_include_body_javascripts(!$debug, $debug);

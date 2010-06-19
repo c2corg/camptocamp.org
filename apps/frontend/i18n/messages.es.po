@@ -1669,6 +1669,12 @@ msgstr "Resultados de la búsqueda"
 msgid "Search with google"
 msgstr "Búsqueda en todo el documento:"
 
+# [general comment]
+# version mobile, titre du menu permettant d'accéder aux listes
+# [WARNING] fr translation used
+msgid "See"
+msgstr "Consulter"
+
 msgid "Select a name to use in guidebook"
 msgstr "Seleccione el nombre que quiere utilizar en la topo-guía"
 
@@ -2706,7 +2712,7 @@ msgstr "<h3>Accesibilidad en transportes públicos</h3>Calidad del acceso en tra
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_publication_date_info"
 msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima. Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
@@ -4047,6 +4053,7 @@ msgstr "Initial map"
 msgid "inline"
 msgstr "alineado con el texto"
 
+# [WARNING] needs_update
 msgid "insert image tag help"
 msgstr "Seleccione la imagen que quiere insertar, así como las opciones asociadas.<br />Solo están disponibles las imágenes asociadas al documento. Para un documento colaborativo, solo se permite la inserción de imágenes colaborativas. Si una imagen no aparece en la lista, fíjese si se cumplen estos requisitos."
 

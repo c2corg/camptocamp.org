@@ -1662,6 +1662,12 @@ msgstr "Search results"
 msgid "Search with google"
 msgstr "Search on the whole document:"
 
+# [general comment]
+# version mobile, titre du menu permettant d'accéder aux listes
+# [WARNING] fr translation used
+msgid "See"
+msgstr "Consulter"
+
 msgid "Select a name to use in guidebook"
 msgstr "Select your name to use in guidebook"
 
@@ -2719,7 +2725,7 @@ msgstr "<h3>Public transport access</h3>Reliability and quality of public transp
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_publication_date_info"
 msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent. This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
 
@@ -4060,6 +4066,7 @@ msgstr "Initial map"
 msgid "inline"
 msgstr "in-line position"
 
+# [WARNING] needs_update
 msgid "insert image tag help"
 msgstr "Select the picture you wish to include and its options.<br />Only pictures associated to the documents are listed. Moreover, a collaborative document will not allow personal pictures. If a picture does not appear below, please check the above criterions."
 
