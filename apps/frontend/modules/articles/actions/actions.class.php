@@ -137,6 +137,8 @@ class articlesActions extends documentsActions
     {
         $out = array();
 
+        $this->addListParam($out, 'areas');
+        
         $this->addNameParam($out, 'cnam');
         $this->addListParam($out, 'ccat');
         $this->addListParam($out, 'act');
