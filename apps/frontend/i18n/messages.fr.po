@@ -4440,6 +4440,10 @@ msgstr "divers, inclassable"
 msgid "mixed_rating"
 msgstr "Cotation mixte&nbsp;:"
 
+# [WARNING] needs_review
+msgid "mobile version"
+msgstr "Version mobile"
+
 # [general comment]
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
 # 

@@ -4470,6 +4470,10 @@ msgstr "miscelaneous"
 msgid "mixed_rating"
 msgstr "Mixed grade:"
 
+# [WARNING] needs_review
+msgid "mobile version"
+msgstr "Mobile version"
+
 # [general comment]
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
 # 

@@ -4810,6 +4810,10 @@ msgstr "divers"
 msgid "mixed_rating"
 msgstr "Cotació mixt:"
 
+# [WARNING] en translation used
+msgid "mobile version"
+msgstr "Mobile version"
+
 # [general comment]
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
 # 

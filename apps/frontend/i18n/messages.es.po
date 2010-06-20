@@ -4462,6 +4462,10 @@ msgstr "varios"
 msgid "mixed_rating"
 msgstr "Cotación mixto:"
 
+# [WARNING] en translation used
+msgid "mobile version"
+msgstr "Mobile version"
+
 # [general comment]
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
 # 

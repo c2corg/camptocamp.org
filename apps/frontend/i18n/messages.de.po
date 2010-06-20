@@ -4766,6 +4766,10 @@ msgstr "verschiedenes"
 msgid "mixed_rating"
 msgstr "Mix Schwierigkeitsgrad:"
 
+# [WARNING] needs_review
+msgid "mobile version"
+msgstr "Mobile Version"
+
 # [general comment]
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
 # 

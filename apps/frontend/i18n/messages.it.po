@@ -4477,6 +4477,10 @@ msgstr "miscellanea"
 msgid "mixed_rating"
 msgstr "Difficoltà su misto:"
 
+# [WARNING] needs_review
+msgid "mobile version"
+msgstr "Versione Mobile"
+
 # [general comment]
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
 # 
