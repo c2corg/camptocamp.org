@@ -539,6 +539,7 @@ all:
     articles_abstract_characters_limit: 400
     outings_limit: 30
     images_limit: 10
+    images_mobile_limit: 4
     threads_limit: 25
     metaengine_limit: 10
     mountain_news_limit: 8

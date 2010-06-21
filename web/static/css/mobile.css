@@ -47,6 +47,11 @@ html, body, #holder
   padding: 5px 1px;
 }
 
+.home_article
+{
+  margin-top: 0;
+}
+
 h1 .article_title_img
 {
   margin-left: 0;

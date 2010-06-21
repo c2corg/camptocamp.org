@@ -761,6 +761,8 @@ class documentsActions extends c2cActions
      */
     public function executeHome()
     {
+        $mobile_version = c2cTools::mobileVersion();
+
         // user filters:
         $perso = c2cPersonalization::getInstance();
         if ($perso->isMainFilterSwitchOn())
@@ -784,10 +786,12 @@ class documentsActions extends c2cActions
         $this->latest_articles = Article::listLatest(sfConfig::get('app_recent_documents_articles_limit'),
                                                      $langs, $activities);
         
-        $latest_images = Image::listLatest(sfConfig::get('app_recent_documents_images_limit'),
-                                                 $langs, $ranges, $activities);
+        $latest_images = Image::listLatest($mobile_version ? sfConfig::get('app_recent_documents_images_mobile_limit')
+                                                           : sfConfig::get('app_recent_documents_images_limit'),
+                                           $langs, $ranges, $activities);
         $this->latest_images = Language::getTheBest($latest_images, 'Image');
         
+        if (!$mobile_version):
         // outings from metaengine:
         $region_ids     = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
         $activity_ids   = c2cTools::convertC2cActivityIdsToMetaIds($activities);
@@ -810,6 +814,7 @@ class documentsActions extends c2cActions
             // for instance if metaengine is down.
             $this->meta_items = array();
         }
+        endif; // mobile version
 
         // forum latest active threads
         $this->latest_threads = PunbbTopics::listLatest(sfConfig::get('app_recent_documents_threads_limit'),
@@ -819,6 +824,7 @@ class documentsActions extends c2cActions
         $this->latest_mountain_news = PunbbTopics::listLatestMountainNews(sfConfig::get('app_recent_documents_mountain_news_limit'),
                                                                           $langs, $activities);
 
+        if (!$mobile_version):
         // c2c news
         $this->latest_c2c_news = PunbbTopics::listLatestC2cNews(sfConfig::get('app_recent_documents_c2c_news_limit'), $langs);
         
@@ -827,6 +833,7 @@ class documentsActions extends c2cActions
         $this->message = Message::find($prefered_langs[0]);
 
         $this->figures = sfConfig::get('app_figures_list');
+        endif; // mobile version
 
         $this->getResponse()->addMeta('robots', 'index, follow');
     }

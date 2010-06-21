@@ -34,16 +34,26 @@ echo start_content_tag('home_article', true);
         <div id="home_background_content">
             <div id="home_left_content">
                 <?php
-                include_partial('common/edit_in_place', array('message' => $sf_data->getRaw('message')));
+                if (!$mobile_version)
+                {
+                    include_partial('common/edit_in_place', array('message' => $sf_data->getRaw('message')));
+                }
                 include_partial('outings/latest', array('items' => $latest_outings, 'culture' => $culture, 'default_open' => true));
-                include_partial('documents/latest_meta', array('items' => $meta_items, 'culture' => $culture, 'default_open' => false));
-                include_partial('articles/latest', array('items' => $latest_articles, 'culture' => $culture, 'default_open' => true));
+                if (!$mobile_version)
+                {
+                    include_partial('documents/latest_meta', array('items' => $meta_items, 'culture' => $culture, 'default_open' => false));
+                    include_partial('articles/latest', array('items' => $latest_articles, 'culture' => $culture, 'default_open' => true));
+                }
                 ?>
             </div>
             <div id="home_right_content">
                 <?php
                 include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'culture' => $culture, 'default_open' => true));
                 include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => true));
+                if ($mobile_version)
+                {
+                    include_partial('articles/latest', array('items' => $latest_articles, 'culture' => $culture, 'default_open' => true));
+                }
                 include_partial('documents/latest_docs', array('culture' => $culture, 'default_open' => true));
                 ?>
             </div>
