@@ -1210,7 +1210,11 @@ class documentsActions extends c2cActions
             $item_i18n = $item[$model . 'I18n'][0];
             
             sfLoader::loadHelpers(array('General'));
-            $this->redirect('@document_by_id_lang_slug?module=' . $item['module'] . 
+            if ($module == 'documents')
+            {
+                $module = $item['module'];
+            }
+            $this->redirect('@document_by_id_lang_slug?module=' . $module . 
                             '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
                             '&slug=' . make_slug($item_i18n['name']));
         }
