@@ -31,7 +31,7 @@ if ($has_associated_docs)
     $is_first = true;
     $reduce_name = (isset($reduce_name) && $reduce_name);
     $is_extra = (isset($is_extra) && $is_extra);
-    $has_route_list_link = (isset($route_list_module) && !empty($route_list_ids));
+    $has_route_list_link = (isset($route_list_module) && !empty($route_list_ids) && !c2cTools::mobileVersion());
 
     if ($has_route_list_link)
     {

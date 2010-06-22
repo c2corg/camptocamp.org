@@ -578,6 +578,8 @@ function field_url_data_if_set($document, $name, $raw = false, $link_text = '', 
 
 function field_export($module, $id, $lang, $version = null)
 {
+    if (c2cTools::mobileVersion()) return '';
+
     $route_suffix = !empty($version) ? "_version?version=$version&" : '?';
     $route_suffix .= "module=$module&id=$id&lang=$lang";
                   

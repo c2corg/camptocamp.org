@@ -213,6 +213,7 @@ input.long_input
   max-width: auto;
 }
 
+/* try to make forums more compact */
 #punwrap
 {
   margin-left: 0;
@@ -265,6 +266,7 @@ div.postmsg h4
 {
   margin-bottom: 0.4em;
 }
+
 .pun blockquote, #article blockquote, div.codebox
 {
   margin: 5px 0.4em 0.4em 0.4em;
@@ -290,11 +292,36 @@ div.postmsg h4
   text-align: left;
 }
 
+div.icon
+{
+  border-width: 0.5em;
+  margin-left: 0;
+}
+td div.tclcon
+{
+  margin-left: 0;
+}
+
+td div.tclcon h3
+{
+  margin-left: 1.3em;
+}
+td div.tclcon a
+{
+   margin-left: 0.4em;
+}
+td div.tclcon h3 a
+{
+   margin-left: 0;
+}
+
+/* footer */
 #footer
 {
   margin: 0;
   height: 120px;
 }
+
 #footer_cc
 {
   left: 0;
@@ -302,6 +329,7 @@ div.postmsg h4
   margin-top: 5px;
   padding-left: 10px;
 }
+
 #footer_partners
 {
   left: 0;
@@ -309,6 +337,7 @@ div.postmsg h4
   width: auto;
 }
 
+/* image pages */
 .picture
 {
   width: 100%;
@@ -318,10 +347,12 @@ div.postmsg h4
   margin-top: 5px;
   text-align: center;
 }
+
 .picture img{
   max-width: 98%;
 }
 
+/* mobile header and menu */
 .select_button
 {
   color: #ffffff;
@@ -432,7 +463,7 @@ a.logged_as
   padding:0;
 }
 
-/* TODO TODO */
+/* Do not use multi columns display  */
 .all_associations,
 .col, .col_left, .col_right,
 .article .col, .col_left, .article .col_left,
@@ -456,7 +487,7 @@ a.logged_as
 .article .col_left.alone, .article .col_right.alone,
 .article .col.top,
 #article_gauche_5050, .article_gauche_5050,
-#article_droite_5050, .article_droite_5050,
+#article_droite_5050, .article_droite_5050
 {
   width: auto;
   margin-left: 0;

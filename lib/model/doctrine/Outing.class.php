@@ -707,7 +707,7 @@ class Outing extends BaseOuting
 
         // db request fetching array with all requested fields
         $results = Doctrine_Query::create()
-                          ->select('v.document_id, u.topo_name')
+                          ->select('v.document_id, hm.user_id, u.topo_name')
                           ->from('DocumentVersion v')
                           ->leftJoin('v.history_metadata hm')
                           ->leftJoin('hm.user_private_data u')

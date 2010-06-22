@@ -10,7 +10,6 @@ else
     $has_gps_track = '';
 }
 $item_i18n = $item['OutingI18n'][0];
-
 ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <td><?php

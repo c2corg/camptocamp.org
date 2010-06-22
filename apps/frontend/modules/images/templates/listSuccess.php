@@ -1,11 +1,15 @@
 <?php 
 use_helper('Pagination', 'MyImage', 'Lightbox', 'Javascript', 'Link', 'Viewer', 'General');
 
-// add lightbox ressources
-addLbMinimalRessources();
-
+$mobile_version = c2cTools::mobileVersion();
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
+
+if (!$mobile_version)
+{
+    // add lightbox ressources
+    addLbMinimalRessources();
+}
 
 echo display_title(__('images list'), $sf_params->get('module'), false);
 
@@ -19,7 +23,10 @@ if (!c2cTools::mobileVersion())
 echo display_content_top('list_content');
 echo start_content_tag('images_content');
 
-echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
+if (!$mobile_version)
+{
+    echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
+}
 
 echo '<p class="list_header">' . __('images presentation');
 
@@ -50,13 +57,13 @@ else:
     $thumb_url = image_url($filename, 'small');
     $image_route = '@document_by_id_lang_slug?module=images&id=' . $item['id'] . '&lang=' . $i18n_item['culture'] . '&slug=' . make_slug($i18n_item['name']);
     echo link_to(image_tag($thumb_url, array('class' => 'img', 'alt' => $title)),
-                 absolute_link(image_url($filename, 'big', true), true),
+                 ($mobile_version ? $image_route : absolute_link(image_url($filename, 'big', true), true)),
                  array('title' => $title,
                        'rel' => 'lightbox[document_images]',
                        'class' => 'view_big',
                        'id' => 'lightbox_' . $item['id'] . '_' . $image_type));
     ?>
-    <div class="image_license <?php echo 'license_'.$image_type ?>" style="display:none;"></div>
+    <div class="image_license <?php echo 'license_'.$image_type ?>" <?php echo $mobile_version ? '' : 'style="display:none"' ?>></div>
     </div>
     <?php
     echo $title . '<br />';
@@ -73,12 +80,14 @@ else:
 <?php endforeach ?>
 <div style="clear:both"><?php echo $pager_navigation; ?></div>
 <?php
-echo javascript_tag("
-Event.observe(window, 'load', function(){
+if (!$mobile_version)
+{
+    echo javascript_tag("Event.observe(window, 'load', function(){
 $$('.thumb_data_img').each(function(obj){
 obj.observe('mouseover', function(e){obj.down('.image_license').show();});
 obj.observe('mouseout', function(e){obj.down('.image_license').hide();});
 });});");
+}
 
 endif;
 
