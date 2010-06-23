@@ -1,5 +1,5 @@
 <?php
-use_helper('MobileMap');
+use_helper('Mobile');
 
 if (!isset($has_geom))
 {
