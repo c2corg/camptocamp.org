@@ -6,11 +6,13 @@ $lang = $sf_params->get('lang');
 $module = $sf_context->getModuleName();
 $table_list_even_odd = 0;
 
+$mobile_version = c2cTools::mobileVersion();
+
 echo display_title(__($module . ' list'), $module, false, 'list_nav');
 
 if ($layout != 'light'):
 
-if (!c2cTools::mobileVersion())
+if (!$mobile_version)
 {
     echo '<div id="nav_space">&nbsp;</div>';
     include_partial("$module/nav4list");
@@ -42,7 +44,8 @@ else:
         echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
     }
     
-    if ($layout != 'light' && in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
+    if ($layout != 'light' && !$mobile_version &&
+        in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
     {
         $result_types = sfConfig::get('app_list_result_types');
         if ($module == 'outings')
@@ -101,9 +104,15 @@ else:
         <?php endforeach ?>
     </tbody>
 </table>
+<?php if ($mobile_version): ?>
+<div id="table_slider" class="slider">
+    <div class="handle"></div>
+</div>
+<?php endif ?>
 <?php
     echo $pager_navigation;
-    if (in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
+    if (!$mobile_version &&
+        in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
     {
         echo $result_types_filter_2;
         echo '</form>';

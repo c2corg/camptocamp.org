@@ -1173,7 +1173,14 @@ class documentsActions extends c2cActions
         if ($layout == 'light')
         {
             $this->setLayout('layout_light');
-        } ;
+        };
+
+        if (c2cTools::mobileVersion())
+        {
+            $static_base_url = sfConfig::get('app_static_url');
+            $this->getResponse()->addJavascript($static_base_url . '/static/js/slider.js', 'head_last');
+            $this->getResponse()->addJavascript($static_base_url . '/static/js/mslider.js', 'last');
+        }
         
         $format = $this->getRequestParameter('format', null);
         $this->format = $format;

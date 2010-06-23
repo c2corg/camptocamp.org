@@ -497,4 +497,29 @@ a.logged_as
 }
 
 /* mobile slider */
-
+div.slider
+{
+  width: 100%;
+  background-color: #E2DFD8;
+  height: 11px;
+  position: relative;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  margin-bottom: 8px;
+}
+div.slider div.handle
+{
+  width: 30px;
+  height: 15px;
+  background-color: #FF9933;
+  border: 1px solid #999999;
+  position: absolute;
+  top: -3px;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  text-align: center;
+  color: #999999;
+  font-weight: bold;
+}
