@@ -309,7 +309,7 @@ msgid "Buy the book"
 msgstr "Das Buch erwerben"
 
 msgid "CNIL declaration #"
-msgstr "CNIL Deklaration"
+msgstr "CNIL Deklaration "
 
 # [WARNING] en translation used
 msgid "Camptocamp on Facebook"
