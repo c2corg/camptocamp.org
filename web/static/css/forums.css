@@ -672,7 +672,7 @@ have a 6px space beneath them */
 
 DIV.block DIV.inbox, DIV.forum_desc DIV.inbox, DIV.blockmenu DIV.inbox {PADDING: 3px 6px}
 .pun P, .pun UL, .pun DL, DIV.blockmenu LI, .pun LABEL, #announce DIV.inbox DIV {PADDING: 3px 0}
-.pun H2 {PADDING: 1px 6px}
+.pun H2 {PADDING: 1px 6px; MIN-HEIGHT:16px;}
 
 /* 6.2 Special spacing for various elements */
 

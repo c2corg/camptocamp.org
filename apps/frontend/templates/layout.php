@@ -42,11 +42,6 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
         echo auto_discovery_link_tag('rss', $rss);
         minify_include_main_stylesheets($combine, $debug);
         minify_include_custom_stylesheets($combine, $debug);
-    ?>
-    <!--[if !IE]>-->
-    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo $static_base_url; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
-    <!--<![endif]-->
-    <?php
         minify_include_head_javascripts($combine, $debug);
         echo include_meta_links();
     ?>

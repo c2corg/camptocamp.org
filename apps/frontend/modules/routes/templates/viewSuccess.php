@@ -8,7 +8,7 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
-$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
+$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 $activities = $document->getRaw('activities');
 
 if (!isset($highest_summit_name)) {
@@ -117,7 +117,7 @@ if ($is_not_archive)
                               'display_info' => true,
                               'title' => 'variants'));
         
-        if ($show_link_tool)
+        if ($show_link_tool && !$mobile_version)
         {
             $modules_list = array('summits', 'sites', 'huts', 'parkings', 'routes', 'books', 'articles');
             

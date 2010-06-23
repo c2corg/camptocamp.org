@@ -157,6 +157,19 @@ if ($is_not_archive && $is_not_merged)
                           'is_protected' => $document->get('is_protected')));
 }
 
+if ($mobile_version)
+{
+    $lang = $document->getCulture();
+    $version = $document->getVersion();
+    $txt = __('Edit');
+    echo '<div id="edit_outing_button" class="add_content">',
+         link_to(picto_tag('picto_tools', $txt) . $txt,
+                 "@document_edit_archive?module=outings&id=$id&lang=$lang&version=$version"),
+         '</div>';
+    
+    echo javascript_tag("if (!user_is_author) $('edit_outing_button').hide();");
+}
+
 include_partial('documents/license', array('license' => 'by-nc-nd'));
 
 echo end_content_tag();

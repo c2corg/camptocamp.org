@@ -1,5 +1,6 @@
 <?php
 use_helper('Form', 'Viewer', 'WikiTabs', 'MyForm', 'Javascript', 'Ajax', 'SmartFormat');
+$mobile_version = c2cTools::mobileVersion();
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
 $version = $sf_params->get('version');
@@ -20,14 +21,20 @@ else
 if (!$new_document)
 {
     echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
-    echo '<div id="nav_space">&nbsp;</div>';
-    echo tabs_list_tag($id, $lang, $document->isAvailable(), 'edit', $version, get_slug($document));
+    if (!$mobile_version)
+    {
+        echo '<div id="nav_space">&nbsp;</div>';
+        echo tabs_list_tag($id, $lang, $document->isAvailable(), 'edit', $version, get_slug($document));
+    }
 }
 else
 {
     echo display_title(__("Creating new $module"), $module);
-    echo '<div id="nav_space">&nbsp;</div>';
-    echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), '', NULL, get_slug($document));
+    if (!$mobile_version)
+    {
+        echo '<div id="nav_space">&nbsp;</div>';
+        echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), '', NULL, get_slug($document));
+    }
 }
 
 echo display_content_top('doc_content');

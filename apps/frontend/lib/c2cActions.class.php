@@ -39,7 +39,6 @@ abstract class c2cActions extends sfAction
         else
         {
             $this->getResponse()->addStylesheet($app_static_url . '/static/css/menu.css', '', array('media' => 'all'));
-            $this->getResponse()->addStylesheet($app_static_url . '/static/css/handheld.css', 'last', array('media' => 'handheld'));
             $this->getResponse()->addStylesheet($app_static_url . '/static/css/print.css', 'last', array('media' => 'print'));
         }
         // end
