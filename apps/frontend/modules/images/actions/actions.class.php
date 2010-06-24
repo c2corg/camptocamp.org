@@ -83,7 +83,8 @@ class imagesActions extends documentsActions
         if (!empty($request_array))
         {
             $ids = array_shift($request_array);
-            $this->pager = new c2cDoctrinePager('Image', sfConfig::get('app_list_maxline_number'));
+            $this->pager = new c2cDoctrinePager('Image', (c2cTools::mobileVersion ? sfConfig::get('app_list_mobile_maxline_number')
+                                                                                  : sfConfig::get('app_list_maxline_number')));
             $q = $this->pager->getQuery();
             $q->select('DISTINCT i.id, i.image_type, i.filename, ii.name, ii.culture, ii.search_name')
               ->from('Image i')

@@ -1337,7 +1337,8 @@ class documentsActions extends c2cActions
         $orderby = $this->getRequestParameter('orderby', NULL);
         if (empty($default_npp))
         {
-            $default_npp = sfConfig::get('app_list_maxline_number');
+            $default_npp = c2cTools::mobileVersion() ? sfConfig::get('app_list_mobile_maxline_number')
+                                                     : sfConfig::get('app_list_maxline_number');
         }
         $npp = $this->getRequestParameter('npp', $default_npp);
         if (!empty($max_npp))
@@ -1734,7 +1735,8 @@ class documentsActions extends c2cActions
         $sort = array();
 
         if (($npp = $this->getRequestParameter('npp')) && 
-             $npp != sfConfig::get('app_list_maxline_number'))
+             $npp != (c2cTools::mobileVersion() ? sfConfig::get('app_list_mobile_maxline_number')
+                                                : sfConfig::get('app_list_maxline_number')))
         {
             $sort[] = "npp=$npp";
         }
