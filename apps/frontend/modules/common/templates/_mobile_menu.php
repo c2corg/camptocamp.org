@@ -25,7 +25,7 @@ $menu_see = array(
     url_for('@default_index?module=images') => __('images'),
     url_for('@default_index?module=summits') => __('summits'),
     url_for('@default_index?module=sites') => __('sites'),
-    url_for('@default_index?module=parings') => __('parkings'),
+    url_for('@default_index?module=parkings') => __('parkings'),
     url_for('@default_index?module=huts') => __('huts'),
     url_for('@default_index?module=articles') => __('articles'),
     url_for('@default_index?module=areas') => __('areas'),
