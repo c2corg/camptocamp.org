@@ -51,6 +51,7 @@ class PolylineEncoder
 	 */
 	public function encode($points) 
 	{
+          $dists = array();
     if(count($points) > 2) 
     {
       $stack[] = array(0, count($points)-1);
