@@ -77,14 +77,14 @@ h1 .article_title
 
 #home_left_content
 {
-  width: 100%;
+  width: 100% !important;
   padding-right: 0;
   min-height: 0;
 }
 
 #home_right_content
 {
-  width: 100%;
+  width: 100% !important;
   float: left;
   padding-top: 0;
 }
@@ -452,11 +452,6 @@ select.menu_select
   margin-left: 82px;
 }
 
-#user_mngt
-{
-  height: 16px;
-}
-
 a.logged_as
 {
   background: none;
@@ -494,6 +489,11 @@ a.logged_as
   margin-right: 0;
   clear: both;
   float: none;
+}
+
+.one_kind_association:last-child, ul.data:last-child
+{
+  margin-bottom: 0.9em !important;
 }
 
 /* mobile slider */
