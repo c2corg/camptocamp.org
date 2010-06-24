@@ -295,7 +295,6 @@ msgstr "Favorito / Compartir"
 msgid "Bookmark current document"
 msgstr "Poner el documento corriente en mis registros"
 
-# [WARNING] needs_review
 msgid "Buy the book"
 msgstr "Conseguir este libro"
 
@@ -451,9 +450,8 @@ msgstr "Añadir una salida"
 msgid "Create new parkings"
 msgstr "Añadir un acceso"
 
-# [WARNING] needs_review
 msgid "Create new portals"
-msgstr "Crear una portada"
+msgstr "Crear un portal"
 
 # [WARNING] needs_review
 msgid "Create new products"
@@ -692,7 +690,7 @@ msgid "Enlarge the bar"
 msgstr "Cliquear para ver la barra de menús de la izquierda"
 
 msgid "Enlarge the list"
-msgstr "Alargar la lista"
+msgstr "Agrandar la lista"
 
 msgid "Enlarge the text box"
 msgstr "Aumentar la zona de texto"
@@ -750,7 +748,6 @@ msgstr "Álbum"
 
 # [general comment]
 # text for widget generator in left menu of list pages
-# [WARNING] needs_review
 msgid "Generate widget"
 msgstr "Generar un widget"
 
@@ -764,7 +761,7 @@ msgid "Get Help"
 msgstr "Obtener ayuda"
 
 msgid "Get current list in RSS format"
-msgstr "Fijar esta lista en formato RSS"
+msgstr "Obtener esta lista en formato RSS"
 
 msgid "Get directions:"
 msgstr "Visualizar el recorrido carretero hacia el acceso:"
@@ -1076,7 +1073,6 @@ msgstr "Refugios y campamentos asociados"
 msgid "Linked outings"
 msgstr "Salidas asociadas"
 
-# [WARNING] needs_review
 msgid "Linked products"
 msgstr "Productos locales asociados"
 
@@ -1671,9 +1667,9 @@ msgstr "Búsqueda en todo el documento:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "See"
-msgstr "Consulter"
+msgstr "View"
 
 msgid "Select a name to use in guidebook"
 msgstr "Seleccione el nombre que quiere utilizar en la topo-guía"
@@ -1920,7 +1916,6 @@ msgstr "Cima:"
 
 # [general comment]
 # mobile version : we cannot translate
-# [WARNING] needs_review
 msgid "Switch lang short:"
 msgstr "Leer en:"
 
@@ -2195,7 +2190,6 @@ msgstr "¿Con qué documento \"blanco\" quiere fusionar este?"
 msgid "Widget code"
 msgstr "Code"
 
-# [WARNING] needs_review
 msgid "Widget title"
 msgstr "Titulo"
 
@@ -2667,7 +2661,6 @@ msgstr "<h3>Moderación</h3>Si el usuario tiene estatus de moderador, entonces e
 msgid "_name_info"
 msgstr "<h3>Nom</h3>Nombre o título del objeto o del documento.<br /><br /><strong>Punto cardinal</strong>:<br />Para un documento del topoguía, todo punto cardinal tiene que estar notado exclusivamente con las iniciales internacionales en mayúscula: N , E , S , W , NW , NE , SW , SE. La única excepción es para un nombre de cima: Pico Occidental o Arista Meridional (y Oriental, Septentrional) están aceptados en lugar de Pico W y Arista S.<br /><br /><strong>Nombre de un itinerario</strong>:<br />- Solo tiene el nombre de la vía. El nombre de la cima está añadido a la visualización.<br />- Tiene que estar el más neutro y el más discrimante dentro de lo posible.<br />- Tiene que estar compuesto con preferencia de la orientación de la vertiente, cara, pilar o arista donde se desarrollan las dificultades.<br />- Si el itinerario sigue una vía conocida con un nombre propio, éste puede ser utilizado.<br />- El título de \"vía normal\" tiene que estar evitado en general, porque pueden existir varias vías normales (desde 2 valles) y la vía normal puede cambiar entre el principio y el fin de la temporada. Sin embargo si mencionarla es útil, tiene que estar añadida entre paréntesis depués de la vertiente: <i>Arista S (vía normal)</i>.<br /><br /><strong>Nombre de una salida</strong>:<br />El nombre es libre. Por defecto, está fijado a <i>nombre de la cima: nombre del itinerario</i>, pero no está puesto al día si el itinerario está modificado o si la salida está trasladada."
 
-# [WARNING] needs_review
 msgid "_nb_pages_info"
 msgstr "<h3>Numero de paginas</h3>Numero de paginas del libro. Si un libro tiene varias ediciones entonces se trata de la ultima edición."
 
@@ -3081,9 +3074,9 @@ msgstr "Poner el texto seleccionado en negrilla"
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "back"
-msgstr "retour"
+msgstr "back"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
@@ -3777,17 +3770,17 @@ msgstr "desde"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for linked routes"
-msgstr "des itinéraires associés"
+msgstr "of associated routes"
 
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for outings"
-msgstr "des sorties"
+msgstr "of outings"
 
 msgid "forum and topoguide names"
 msgstr "Nombres en el foro y la topo-guía"
@@ -4356,7 +4349,7 @@ msgstr "Grado mediano:"
 msgid "mediterranee"
 msgstr "Mediterráneo"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "menu"
 msgstr "menu"
 
@@ -4576,9 +4569,9 @@ msgstr "página siguiente"
 msgid "next parking"
 msgstr "Acceso siguiente"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "next portal"
-msgstr "Portail suivant"
+msgstr "Next portal"
 
 # [WARNING] needs_review
 msgid "next product"
@@ -5434,7 +5427,6 @@ msgstr "Número de camas durante los períodos de guardia:"
 # Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
 # [comment]
 # été = verano
-# [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Ver."
 
@@ -5750,7 +5742,6 @@ msgstr "Usar los mismos criterios que en esta lista"
 # [general comment]
 # TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
 # 
-# [WARNING] needs_review
 msgid "widget generator help"
 msgstr "Camptocamp le ofrece la posibilidad de inserir un widget en su sitio web o blog para mostrar una lista de contenido de la topo-guía. Puede por ejemplo mostrar sus más recientes salidas, las últimas cimas añadidas a la topo-guía o cualquier otra lista que se le ocurre. <br /><br />Debe dar un titulo y copiar el código propuesto en su página web. ¡Nada más complicado que esto!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Mas información</a>"
 

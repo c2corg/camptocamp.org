@@ -462,7 +462,7 @@ msgstr "Abiagune bat gehitu"
 
 # [WARNING] es translation used
 msgid "Create new portals"
-msgstr "Crear una portada"
+msgstr "Crear un portal"
 
 # [WARNING] es translation used
 msgid "Create new products"
@@ -717,7 +717,7 @@ msgstr "Cliquear para ver la barra de menús de la izquierda"
 # copié-collé de ES
 # [WARNING] es translation used
 msgid "Enlarge the list"
-msgstr "Alargar la lista"
+msgstr "Agrandar la lista"
 
 # [WARNING] es translation used
 msgid "Enlarge the text box"
@@ -798,7 +798,7 @@ msgstr "Laguntza lortu"
 
 # [WARNING] es translation used
 msgid "Get current list in RSS format"
-msgstr "Fijar esta lista en formato RSS"
+msgstr "Obtener esta lista en formato RSS"
 
 # [WARNING] es translation used
 msgid "Get directions:"
@@ -1793,9 +1793,9 @@ msgstr "Búsqueda en todo el documento:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "See"
-msgstr "Consulter"
+msgstr "View"
 
 msgid "Select a name to use in guidebook"
 msgstr "Ibilbide gidarako erabiltzaile izena aukeratu"
@@ -3310,9 +3310,9 @@ msgstr "Aukeratutako testua lodian jarri"
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "back"
-msgstr "retour"
+msgstr "back"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
@@ -4046,17 +4046,17 @@ msgstr "desde"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for linked routes"
-msgstr "des itinéraires associés"
+msgstr "of associated routes"
 
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for outings"
-msgstr "des sorties"
+msgstr "of outings"
 
 # [WARNING] es translation used
 msgid "forum and topoguide names"
@@ -4667,7 +4667,7 @@ msgstr "Batazbesteko zailtasuna:"
 msgid "mediterranee"
 msgstr "Mediterráneo"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "menu"
 msgstr "menu"
 
@@ -4907,9 +4907,9 @@ msgstr "hurrengo orria"
 msgid "next parking"
 msgstr "Acceso siguiente"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "next portal"
-msgstr "Portail suivant"
+msgstr "Next portal"
 
 # [WARNING] es translation used
 msgid "next product"
@@ -5853,7 +5853,6 @@ msgstr "Zaintzailea dagoenean dauden tokiak:"
 
 # [general comment]
 # Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
-# [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Uda"
 

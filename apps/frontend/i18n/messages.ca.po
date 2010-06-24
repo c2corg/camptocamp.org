@@ -165,7 +165,6 @@ msgstr "La supressió dels objectes tipus regió no està autoritzada"
 msgid "Areas merging is prohibited"
 msgstr "La fusió dels objectes tipus regió no està autoritzada"
 
-# [WARNING] needs_review
 msgid "Article"
 msgstr "Article"
 
@@ -312,24 +311,20 @@ msgstr "Favorito / Compartir"
 msgid "Bookmark current document"
 msgstr "Posar el document en curs en els meus favorits"
 
-# [WARNING] needs_review
 msgid "Buy the book"
 msgstr "Obtingueu aquest llibre"
 
 msgid "CNIL declaration #"
 msgstr "Declaració CNIL n°"
 
-# [WARNING] en translation used
 msgid "Camptocamp on Facebook"
-msgstr "Camptocamp on Facebook"
+msgstr "Camptocamp al Facebook"
 
-# [WARNING] en translation used
 msgid "Camptocamp on Twitter"
-msgstr "Camptocamp on Twitter"
+msgstr "Camptocamp al Twitter"
 
-# [WARNING] es translation used
 msgid "Camptocamp-Association"
-msgstr "Asociación Camptocamp"
+msgstr "Associació Camptocamp"
 
 msgid "Camptocamp.org is about:"
 msgstr "Camptocamp és:"
@@ -376,9 +371,8 @@ msgstr "Prémeu per modificar el text"
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] es translation used
 msgid "Close all sections"
-msgstr "Cerrar todas las secciones"
+msgstr "Tancar totes les seccions"
 
 msgid "Comment:"
 msgstr "comentari:"
@@ -470,9 +464,8 @@ msgstr "Afegir una sortida"
 msgid "Create new parkings"
 msgstr "Afegir un pàrquing"
 
-# [WARNING] es translation used
 msgid "Create new portals"
-msgstr "Crear una portada"
+msgstr "Crear un portal"
 
 # [WARNING] es translation used
 msgid "Create new products"
@@ -513,9 +506,8 @@ msgstr "Creació d'una nova sortida"
 msgid "Creating new parkings"
 msgstr "Creació d'un nou pàrquing"
 
-# [WARNING] es translation used
 msgid "Creating new portals"
-msgstr "Creación de una portada"
+msgstr "Creació d'un portal"
 
 # [WARNING] es translation used
 msgid "Creating new products"
@@ -542,9 +534,8 @@ msgstr "Aquest document ha estat fusionat amb el document %1%."
 msgid "Current version"
 msgstr "Versió actual"
 
-# [WARNING] es translation used
 msgid "Custom legend"
-msgstr "Leyenda personalizada:"
+msgstr "Llegenda personalitzada:"
 
 # [WARNING] needs_update
 msgid "Customize"
@@ -653,9 +644,8 @@ msgstr "Aquest document està protegit"
 msgid "Document not found"
 msgstr "Document no trobat"
 
-# [WARNING] es translation used
 msgid "Document title"
-msgstr "Título del documento"
+msgstr "Títol del document"
 
 msgid "Document types differ, thus cannot be merged"
 msgstr "Els documents no són del mateix tipus, i no poden doncs ser fusionats"
@@ -699,11 +689,9 @@ msgstr "Abonament a les llistes de difusió dels butlletins nivològics"
 msgid "Editing preview"
 msgstr "Previsualització:"
 
-# [WARNING] es translation used
 msgid "Edition of \"%1%\""
-msgstr "Edición de \"%1%\""
+msgstr "Edició de \"%1%\""
 
-# [WARNING] es translation used
 msgid "Editor:"
 msgstr "Editor:"
 
@@ -718,38 +706,29 @@ msgstr "Coordenades buides: actualitza si et plau els camps latitud i longitud"
 
 # [general comment]
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
-# [WARNING] es translation used
 msgid "Enlarge the bar"
-msgstr "Cliquear para ver la barra de menús de la izquierda"
+msgstr "Cliqueu aquí per veure la barra de menús de l'esquerra"
 
-# [comment]
-# copié-collé de ES
-# [WARNING] es translation used
 msgid "Enlarge the list"
-msgstr "Alargar la lista"
+msgstr "Fer més gran la lista"
 
-# [WARNING] es translation used
 msgid "Enlarge the text box"
-msgstr "Aumentar la zona de texto"
+msgstr "Augmentar la zona de text"
 
-# [WARNING] es translation used
 msgid "Expand map"
 msgstr "Ampliar el mapa"
 
 msgid "Export:"
 msgstr "Exporta:"
 
-# [WARNING] es translation used
 msgid "Extract"
-msgstr "Extracto"
+msgstr "Extracte"
 
-# [WARNING] es translation used
 msgid "FAQ"
-msgstr "Preguntas frecuentes"
+msgstr "Preguntes més freqüents"
 
-# [WARNING] es translation used
 msgid "FAQ short"
-msgstr "FAQ"
+msgstr "PMF"
 
 msgid "Failed moving uploaded file"
 msgstr "El canvi de nom d'un fitxer a fracassat. Intenta-ho de nou, si et plau."
@@ -780,9 +759,8 @@ msgstr "Fòrums"
 msgid "From:"
 msgstr "Du:"
 
-# [WARNING] es translation used
 msgid "Fullname"
-msgstr "Nombre y apellido"
+msgstr "Nom complet"
 
 msgid "GPS data:"
 msgstr "Traça GPS (.gpx, .kml):"
@@ -792,13 +770,11 @@ msgstr "Àlbum"
 
 # [general comment]
 # text for widget generator in left menu of list pages
-# [WARNING] es translation used
 msgid "Generate widget"
-msgstr "Generar un widget"
+msgstr "Crear un widget"
 
-# [WARNING] es translation used
 msgid "Geoassociations refreshed"
-msgstr "Las regiones (y mapas) asociadas han sido actualizadas"
+msgstr "Les regions (i mapes) associats han estat actualitzats"
 
 msgid "Geometry has been deleted"
 msgstr "La geometria d'aquest document ha estat esborrada"
@@ -806,9 +782,8 @@ msgstr "La geometria d'aquest document ha estat esborrada"
 msgid "Get Help"
 msgstr "Obtenir ajuda"
 
-# [WARNING] es translation used
 msgid "Get current list in RSS format"
-msgstr "Fijar esta lista en formato RSS"
+msgstr "Obtenir la llista en format RSS"
 
 # [WARNING] es translation used
 msgid "Get directions:"
@@ -820,93 +795,73 @@ msgstr "Obtenir ajuda"
 msgid "Give me a name"
 msgstr "Dona'm un nom!"
 
-# [WARNING] es translation used
 msgid "Global help"
-msgstr "Ayuda global"
+msgstr "Ajuda global"
 
-# [WARNING] es translation used
 msgid "Go back to form"
-msgstr "Volver al formulario"
+msgstr "Tornar al formulari"
 
-# [WARNING] es translation used
 msgid "Go to next area"
-msgstr "Ir a la siguiente región"
+msgstr "Anar a la següent regió"
 
-# [WARNING] es translation used
 msgid "Go to next article"
-msgstr "Ir al siguiente articulo"
+msgstr "Anar a l'article següent"
 
-# [WARNING] es translation used
 msgid "Go to next book"
-msgstr "Ir al siguiente libro"
+msgstr "Anar al llibre següent"
 
 # [WARNING] es translation used
 msgid "Go to next hut"
 msgstr "Ir al siguiente refugio o campamento"
 
-# [WARNING] es translation used
 msgid "Go to next image"
-msgstr "Ir a la siguiente imagen"
+msgstr "Anar a la imatge següent"
 
-# [WARNING] es translation used
 msgid "Go to next map"
-msgstr "Ir al siguiente mapa"
+msgstr "Anar al mapa següent "
 
-# [WARNING] es translation used
 msgid "Go to next outing"
-msgstr "Ir a la siguiente salida"
+msgstr "Anar a la següent sortida"
 
-# [WARNING] es translation used
 msgid "Go to next parking"
-msgstr "Ir al siguiente acceso"
+msgstr "Anar al següent accés "
 
-# [WARNING] es translation used
 msgid "Go to next portal"
-msgstr "Ir a la portada siguiente"
+msgstr "Anar al següent portal"
 
 # [WARNING] es translation used
 msgid "Go to next product"
 msgstr "Ir al siguiente documento \"productos locales\""
 
-# [WARNING] es translation used
 msgid "Go to next route"
-msgstr "Ir al siguiente itinerario"
+msgstr "Anar al següent itinerari"
 
-# [WARNING] es translation used
 msgid "Go to next summit"
-msgstr "Ir a la cima siguiente"
+msgstr "Anar al cim següent"
 
-# [WARNING] es translation used
 msgid "Go to preview"
-msgstr "Ir a la previsualización"
+msgstr "Anar a la previsualizació"
 
-# [WARNING] es translation used
 msgid "Go to previous area"
-msgstr "Ir a la región anterior"
+msgstr "Anar a la regió anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous article"
-msgstr "Ir al articulo anterior"
+msgstr "Anar a l'article anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous book"
-msgstr "Ir al libro anterior"
+msgstr "Anar al llibre anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous hut"
-msgstr "Ir al refugio o campamento anterior"
+msgstr "Anar al refugi o bivac anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous image"
-msgstr "Ir a la imagen anterior"
+msgstr "Anar a l'imatge anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous map"
-msgstr "Ir al mapa anterior"
+msgstr "Anar al mapa anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous outing"
-msgstr "Ir a la salida anterior"
+msgstr "Anar a la sortida anterior"
 
 # [WARNING] es translation used
 msgid "Go to previous parking"
@@ -1690,7 +1645,6 @@ msgstr "La versió del document sol.licitada no s'ha trobat"
 msgid "Reserved to logged users"
 msgstr "Reservado para miembros conectados"
 
-# [WARNING] needs_review
 msgid "Results %1% - %2% of %3%"
 msgstr "<p>Resultats <b>%1%</b> - <b>%2%</b> de <b>%3%</b></p>"
 
@@ -1805,9 +1759,9 @@ msgstr "Búsqueda en todo el documento:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "See"
-msgstr "Consulter"
+msgstr "View"
 
 msgid "Select a name to use in guidebook"
 msgstr "Selecciona el teu nom per utilitzar a la topo-guia"
@@ -2072,7 +2026,6 @@ msgstr "Cim:"
 
 # [general comment]
 # mobile version : we cannot translate
-# [WARNING] needs_review
 msgid "Switch lang short:"
 msgstr "Llegir en:"
 
@@ -3344,9 +3297,9 @@ msgstr "Posar el text seleccionat en negreta"
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "back"
-msgstr "retour"
+msgstr "back"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
@@ -4079,17 +4032,17 @@ msgstr "desde"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for linked routes"
-msgstr "des itinéraires associés"
+msgstr "of associated routes"
 
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for outings"
-msgstr "des sorties"
+msgstr "of outings"
 
 # [WARNING] es translation used
 msgid "forum and topoguide names"
@@ -4702,7 +4655,7 @@ msgstr "Cotació mitjana:"
 msgid "mediterranee"
 msgstr "Mediterráneo"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "menu"
 msgstr "menu"
 
@@ -4941,9 +4894,9 @@ msgstr "pàgina següent"
 msgid "next parking"
 msgstr "Acceso siguiente"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "next portal"
-msgstr "Portail suivant"
+msgstr "Next portal"
 
 # [WARNING] es translation used
 msgid "next product"
@@ -5890,7 +5843,6 @@ msgstr "Nombre de places en període guardat:"
 
 # [general comment]
 # Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
-# [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Estiu"
 
@@ -6101,7 +6053,6 @@ msgstr "Per deseleccionar una opció o fer una selecció múltiple, prémeu la t
 msgid "unstaffed_capacity"
 msgstr "Nombre de places en període no guardat.:"
 
-# [WARNING] needs_review
 msgid "unstaffed_capacity short"
 msgstr "Hivern"
 

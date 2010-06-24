@@ -1108,9 +1108,8 @@ msgstr "Verknüpften Hütten und Biwaks"
 msgid "Linked outings"
 msgstr "Verbundene Touren "
 
-# [WARNING] en translation used
 msgid "Linked products"
-msgstr "Associated local products"
+msgstr ""
 
 msgid "Linked routes"
 msgstr "Verbundene Routen "
@@ -1723,9 +1722,9 @@ msgstr "Suche auf das gesamte Dokument:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "See"
-msgstr "Consulter"
+msgstr "View"
 
 msgid "Select a name to use in guidebook"
 msgstr "Wählen Sie den Namen aus, den Sie im Tourenführer benutzen möchten "
@@ -2263,7 +2262,6 @@ msgstr "Mit welchem Dokument möchten Sie diesen Zusammenschliessen?"
 msgid "Widget code"
 msgstr "Kode"
 
-# [WARNING] needs_review
 msgid "Widget title"
 msgstr "Titel"
 
@@ -3287,9 +3285,9 @@ msgstr "Den ausgewählten Text fett schreiben "
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "back"
-msgstr "retour"
+msgstr "back"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
@@ -4024,17 +4022,17 @@ msgstr "Seit"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for linked routes"
-msgstr "des itinéraires associés"
+msgstr "of associated routes"
 
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for outings"
-msgstr "des sorties"
+msgstr "of outings"
 
 # [WARNING] en translation used
 msgid "forum and topoguide names"
@@ -4653,7 +4651,7 @@ msgstr "Mittlerer Schwierigkeitsgrad:"
 msgid "mediterranee"
 msgstr "Mediterranen"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "menu"
 msgstr "menu"
 
@@ -4887,9 +4885,9 @@ msgstr "nächste Seite"
 msgid "next parking"
 msgstr "Nächste Zufahrt"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "next portal"
-msgstr "Portail suivant"
+msgstr "Next portal"
 
 # [WARNING] en translation used
 msgid "next product"
@@ -5813,7 +5811,6 @@ msgstr "Zahl der Plätze in der bewirtschafteten Zeit:"
 # Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
 # [comment]
 # trad ok
-# [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Sommer"
 

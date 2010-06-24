@@ -448,7 +448,6 @@ msgstr "Aggiungi una gita"
 msgid "Create new parkings"
 msgstr "Aggiungi un accesso"
 
-# [WARNING] needs_review
 msgid "Create new portals"
 msgstr "Creare un portale"
 
@@ -747,7 +746,6 @@ msgstr "Galleria"
 
 # [general comment]
 # text for widget generator in left menu of list pages
-# [WARNING] needs_review
 msgid "Generate widget"
 msgstr "Creare un widget"
 
@@ -1079,7 +1077,6 @@ msgstr "Rifugi associati"
 msgid "Linked outings"
 msgstr "Gite associate"
 
-# [WARNING] needs_review
 msgid "Linked products"
 msgstr "Prodotti locali associati"
 
@@ -1676,9 +1673,9 @@ msgstr "Ricerca nel documento intero:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "See"
-msgstr "Consulter"
+msgstr "View"
 
 msgid "Select a name to use in guidebook"
 msgstr "Scegli il nome da usare nella guida interattiva"
@@ -2199,7 +2196,6 @@ msgstr "Quale documento si vuole unire a questo?"
 msgid "Widget code"
 msgstr "Codice"
 
-# [WARNING] needs_review
 msgid "Widget title"
 msgstr "Titolo"
 
@@ -3094,9 +3090,9 @@ msgstr "grassetto"
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "back"
-msgstr "retour"
+msgstr "back"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
@@ -3792,17 +3788,17 @@ msgstr "da"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for linked routes"
-msgstr "des itinéraires associés"
+msgstr "of associated routes"
 
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "for outings"
-msgstr "des sorties"
+msgstr "of outings"
 
 msgid "forum and topoguide names"
 msgstr "Nome nella guida e nickname forum"
@@ -4370,7 +4366,7 @@ msgstr "Grado medio:"
 msgid "mediterranee"
 msgstr "Mediterraneo"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "menu"
 msgstr "menu"
 
@@ -5451,7 +5447,6 @@ msgstr "Numero di posti quando custodito:"
 
 # [general comment]
 # Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
-# [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Estate"
 
@@ -5639,7 +5634,6 @@ msgstr "Per deselezionare una scelta o fare una selezione multipla, mantenere il
 msgid "unstaffed_capacity"
 msgstr "Numero di posti quando non custodito:"
 
-# [WARNING] needs_review
 msgid "unstaffed_capacity short"
 msgstr "Inverno"
 
@@ -5767,7 +5761,6 @@ msgstr "Usare gli stessi criteri che per questa lista"
 # [general comment]
 # TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
 # 
-# [WARNING] needs_review
 msgid "widget generator help"
 msgstr "Camptocamp ti offre la possibilità di integrare al tuo sito internet o al tuo blog un widget per mostrare una lista di documenti della guida di c2c. Per esempio, puoi avere la lista delle tue ultime gite o delle ultime gite nella tua regione preferita...<br /><br />Dai un titolo al tuo widget, e copia il codice seguente nella tua pagina web.<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Informazione di più.</a>"
 

@@ -448,7 +448,6 @@ msgstr "Ajouter une sortie"
 msgid "Create new parkings"
 msgstr "Ajouter un accès"
 
-# [WARNING] needs_review
 msgid "Create new portals"
 msgstr "Créer un portail"
 
@@ -747,7 +746,6 @@ msgstr "Album"
 
 # [general comment]
 # text for widget generator in left menu of list pages
-# [WARNING] needs_review
 msgid "Generate widget"
 msgstr "Créer un widget"
 
@@ -1073,7 +1071,6 @@ msgstr "Refuges et bivouacs associés"
 msgid "Linked outings"
 msgstr "Sorties associées"
 
-# [WARNING] needs_review
 msgid "Linked products"
 msgstr "Produits locaux associés"
 
@@ -2184,7 +2181,6 @@ msgstr "Avec quel document cible souhaitez vous fusionner celui-ci&nbsp;?"
 msgid "Widget code"
 msgstr "Code"
 
-# [WARNING] needs_review
 msgid "Widget title"
 msgstr "Titre"
 
@@ -2653,7 +2649,6 @@ msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique
 msgid "_name_info"
 msgstr "<h3>Intitulé</h3>Nom ou titre de l'objet ou du document.<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Pour un document du topoguide, tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Nom d'un itinéraire</strong>&nbsp;:<br />- Il comporte le nom de la voie seulement. Le nom du sommet est ajouté à l'affichage.<br />- Il doit être le plus neutre et le plus discriminant possible.<br />- Il doit être composé préférentiellement par l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Le titre \"voie normale\" est généralement à éviter, car il peut y avoir plusieurs voies normales (depuis 2 vallées) et la voie normale peut varier entre le début et la fin de la saison. S'il est tout de même utile de la mentionner, elle doit être ajoutée entre parenthèses au versant&nbsp;: <em>Arête S (voie normale)</em>.<br /><br /><strong>Nom d'une sortie</strong>&nbsp;:<br />Le nom est libre. Par défaut, il est fixé à <em>nom du sommet&nbsp;: nom de l'itinéraire</em>, mais il n'est pas mis à jour si l'itinéraire est modifié ou si la sortie est déplacée."
 
-# [WARNING] needs_review
 msgid "_nb_pages_info"
 msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
 
@@ -3946,7 +3941,6 @@ msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade,
 msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
 
-# [WARNING] needs_review
 msgid "hours"
 msgstr "Horaires d'ouverture&nbsp;:"
 
@@ -5411,7 +5405,6 @@ msgstr "Nombre de places en période de gardiennage&nbsp;:"
 
 # [general comment]
 # Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
-# [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Eté"
 
@@ -5598,7 +5591,6 @@ msgstr "Pour déselectionner un choix ou faire une sélection multiple, pressez 
 msgid "unstaffed_capacity"
 msgstr "Nombre de places hors période de gardiennage&nbsp;:"
 
-# [WARNING] needs_review
 msgid "unstaffed_capacity short"
 msgstr "Hiver"
 
@@ -5726,7 +5718,6 @@ msgstr "Utiliser les même critères que cette liste"
 # [general comment]
 # TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
 # 
-# [WARNING] needs_review
 msgid "widget generator help"
 msgstr "Camptocamp vous offre la possibilité d'intégrer à votre site internet ou blog un widget qui affiche une liste de contenus du topoguide. Vous pouvez ainsi par exemple afficher vos dernières sorties, les derniers sommets ajoutés au topoguide, ou toute autre liste qui vous trotte dans la tête.<br /><br />Spécifiez le titre que vous voulez donner à votre widget, puis copiez le code ci-dessous dans votre page web. C'est tout !<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Plus d'information</a>"
 
