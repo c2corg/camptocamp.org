@@ -138,19 +138,20 @@ class gisQuery
                         ->fetchAll(); 
     }
 
-    public static function getEWKT($id, $trim = false, $module = null, $version = null)
+    public static function getEWKT($id, $trim = false, $module = null, $version = null, $simplify_tolerance = null)
     {
         $values[] = $id;
         $table = !empty($module) ? $module : 'documents';
+        $geom = is_int($simplify_tolerance) ? 'Simplify(geom, '.$simplify_tolerance.')' : 'geom';
         if (!empty($version))
         {
             $table = 'app_' . $table . '_archives';
-            $sql = "SELECT asEWKT(Transform(geom, 4326)) AS ewkt FROM $table AS d, app_documents_versions AS v WHERE d.document_archive_id = v.document_archive_id AND d.id = ? AND v.version = ?";
+            $sql = "SELECT asEWKT(Transform($geom, 4326)) AS ewkt FROM $table AS d, app_documents_versions AS v WHERE d.document_archive_id = v.document_archive_id AND d.id = ? AND v.version = ?";
             $values[] = $version;
         }
         else
         {
-            $sql = "SELECT asEWKT(Transform(geom, 4326)) AS ewkt FROM $table AS d WHERE d.id = ?";
+            $sql = "SELECT asEWKT(Transform($geom, 4326)) AS ewkt FROM $table AS d WHERE d.id = ?";
         }
         
         $rs = sfDoctrine::connection()

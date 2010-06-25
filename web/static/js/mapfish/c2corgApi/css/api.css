@@ -125,3 +125,8 @@ strong {
 em {
   font-style: italic;
 }
+
+#map_container_section_container .x-tree-node-icon
+{
+  height: 16px;
+}
