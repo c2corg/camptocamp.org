@@ -418,6 +418,11 @@ select.menu_select
   border-left: 1px solid #999999;
 }
 
+#user_mngt
+{
+  min-height: 16px;
+}
+
 .menu_entry
 {
   float: left;
