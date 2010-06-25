@@ -35,7 +35,6 @@ if ($has_geom || $show_map)
     echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, false);
     echo '<div class="section" id="map_container_section_container">';
 
-    // TODO test maps and areas
     $map_url = 'http://maps.google.com/maps/api/staticmap?size=310x310&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;';
     $map_options = array();
 
@@ -50,13 +49,15 @@ if ($has_geom || $show_map)
     elseif ($document->get('geom_wkt') && ($module == 'outings' || $module == 'routes')) // TODO use simplify?
     {
         $enc_polyline = _polyline_encode(gisQuery::getEWKT($document->id, true, $module));
-        $map_options[] = 'path=weight:2|color:0xffff00cc|enc:'.$enc_polyline;
+        $map_options[] = 'path=weight:2|color:0xff0c|enc:'.$enc_polyline;
     }
-    elseif ($document->get('geom_wkt') && ($module == 'maps' || $module == 'areas')) // TODO MULTI Polygons
+    elseif ($document->get('geom_wkt') && ($module == 'maps' || $module == 'areas')) // TODO check multi Polygons
     {
-        $enc_polyline = _polyline_encode(substr(gisQuery::getEWKT($document->id, true, $module), 1, -1));
-        var_dump(substr(gisQuery::getEWKT($document->id, true, $module), 1, -1));
-        $map_options[] = 'path=weight:2|color:0xffff00cc|fillcolor:0xFFFF0033|enc:'.$enc_polyline;
+        $geoms = gisQuery::getEWKT($document->id, true, $module, null, 2500)); // TODO how to determine tolerance to be used...
+        foreach($geoms as $geom) {
+            $map_options[] = 'path=weight:2|color:0xff0c|fillcolor:0xff03|enc:'.
+                             polyline_encode(str_replace(array('(', ')'), '', $geom));
+        }
     }
 
     // routes : display linked summits, parkings and huts
