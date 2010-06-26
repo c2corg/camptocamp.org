@@ -53,7 +53,7 @@ if ($has_geom || $show_map)
     }
     elseif ($document->get('geom_wkt') && ($module == 'maps' || $module == 'areas')) // TODO check multi Polygons
     {
-        $geoms = gisQuery::getEWKT($document->id, true, $module, null, 2500)); // TODO how to determine tolerance to be used...
+        $geoms = gisQuery::getEWKT($document->id, true, $module, null, 2500); // TODO how to determine tolerance to be used...
         foreach($geoms as $geom) {
             $map_options[] = 'path=weight:2|color:0xff0c|fillcolor:0xff03|enc:'.
                              polyline_encode(str_replace(array('(', ')'), '', $geom));
