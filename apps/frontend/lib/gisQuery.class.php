@@ -173,6 +173,23 @@ class gisQuery
         }
     }
 
+    public static function getBox2d($id, $module = null)
+    {
+        $values[] = $id;
+        $table = !empty($module) ? $module : 'documents';
+        $sql = "SELECT Box2D(geom) FROM $table AS d WHERE d.id = ?";
+
+        $rs = sfDoctrine::connection()
+                        ->standaloneQuery($sql, $values)
+                        ->fetchObject();
+
+        $out = $rs->box2d;
+
+        $begin = strpos($out, '(') + 1;
+        $end = strrpos($out, ')');
+        return substr($out, $begin, $end - $begin);
+    }
+
     // creates geographic associations of document $id with maps and areas
     // if $delete_old is true, then delete previous geo associations concerning doc $id
     public static function createGeoAssociations($id, $delete_old = true, $associate_with_maps = true)

@@ -1695,6 +1695,7 @@ span.picto
 input.picto, .form-row input.picto
 {
   padding: 1px 1px 1px 23px;
+  min-height: 18px;
 }
 
 /* action images */

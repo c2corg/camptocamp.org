@@ -46,17 +46,20 @@ if ($has_geom || $show_map)
         $map_options[] = 'markers=shadow:false|icon:'._marker_url($module).'|'.$document['lat'].','.$document['lon'];
         $map_options[] = 'zoom=12';
     }
-    elseif ($document->get('geom_wkt') && ($module == 'outings' || $module == 'routes')) // TODO use simplify?
+    elseif ($document->get('geom_wkt') && ($module == 'outings' || $module == 'routes'))
     {
-        $enc_polyline = _polyline_encode(gisQuery::getEWKT($document->id, true, $module));
+        $tolerance = _compute_tolerance(gisQuery::getBox2d($document->id, $module));
+        $enc_polyline = _polyline_encode(gisQuery::getEWKT($document->id, true, $module, null, $tolerance));
         $map_options[] = 'path=weight:2|color:0xff0c|enc:'.$enc_polyline;
     }
     elseif ($document->get('geom_wkt') && ($module == 'maps' || $module == 'areas')) // TODO check multi Polygons
     {
-        $geoms = gisQuery::getEWKT($document->id, true, $module, null, 2500); // TODO how to determine tolerance to be used...
+        $tolerance = _compute_tolerance(gisQuery::getBox2d($document->id, $module));
+        $geoms = gisQuery::getEWKT($document->id, true, $module, null, $tolerance);
+        $geoms = explode(')),((', $geoms);
         foreach($geoms as $geom) {
             $map_options[] = 'path=weight:2|color:0xff0c|fillcolor:0xff03|enc:'.
-                             polyline_encode(str_replace(array('(', ')'), '', $geom));
+                             _polyline_encode(str_replace(array('(', ')'), '', $geom));
         }
     }
 

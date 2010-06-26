@@ -36,3 +36,14 @@ function _polyline_encode($geom)
     $encoder = new PolylineEncoder();
     return $encoder->encode($points)->rawPoints;
 }
+
+/**
+ * empirical function to determine which tolerance to apply
+ * to simplify for a geometry, given the box2d
+ */
+function _compute_tolerance($box2d)
+{
+    $bounds = explode(' ', str_replace(',', ' ', $box2d));
+    $max = max(abs(intval($bounds[2])-intval($bounds[0])), abs(intval($bounds[3])-intval($bounds[1])));
+    return intval($max * 1.5 / 100);
+}
