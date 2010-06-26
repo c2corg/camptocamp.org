@@ -48,9 +48,9 @@ if ($has_geom || $show_map)
     }
     elseif ($document->get('geom_wkt') && ($module == 'outings' || $module == 'routes'))
     {
-        $tolerance = _compute_tolerance(gisQuery::getBox2d($document->id, $module));
+        $tolerance = _compute_tolerance(gisQuery::getBox2d($document->id, $module), true);
         $enc_polyline = _polyline_encode(gisQuery::getEWKT($document->id, true, $module, null, $tolerance));
-        $map_options[] = 'path=weight:2|color:0xff0c|enc:'.$enc_polyline;
+        $map_options[] = 'path=weight:2|color:0xffff00cc|enc:'.$enc_polyline;
     }
     elseif ($document->get('geom_wkt') && ($module == 'maps' || $module == 'areas')) // TODO check multi Polygons
     {
@@ -58,7 +58,7 @@ if ($has_geom || $show_map)
         $geoms = gisQuery::getEWKT($document->id, true, $module, null, $tolerance);
         $geoms = explode(')),((', $geoms);
         foreach($geoms as $geom) {
-            $map_options[] = 'path=weight:2|color:0xff0c|fillcolor:0xff03|enc:'.
+            $map_options[] = 'path=weight:2|color:0xffff00cc|fillcolor:0xffff0033|enc:'.
                              _polyline_encode(str_replace(array('(', ')'), '', $geom));
         }
     }

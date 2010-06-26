@@ -41,9 +41,16 @@ function _polyline_encode($geom)
  * empirical function to determine which tolerance to apply
  * to simplify for a geometry, given the box2d
  */
-function _compute_tolerance($box2d)
+function _compute_tolerance($box2d, $track = false)
 {
     $bounds = explode(' ', str_replace(',', ' ', $box2d));
     $max = max(abs(intval($bounds[2])-intval($bounds[0])), abs(intval($bounds[3])-intval($bounds[1])));
-    return intval($max * 1.5 / 100);
+    if ($track) // gps track
+    {
+        return intval($max * 0.8 / 100);
+    }
+    else // area, map
+    {
+        return intval($max * 1.5 / 100);
+    }
 }
