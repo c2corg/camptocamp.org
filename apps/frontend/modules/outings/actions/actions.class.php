@@ -700,6 +700,7 @@ class outingsActions extends documentsActions
 
         if (count($outings) == 0) return;
 
+        $outings = Outing::getAssociatedUserData($outings); // retrieve outing creator names
         $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
         $outings = Language::getTheBestForAssociatedAreas($outings);
         $this->items = Language::parseListItems($outings, 'Outing');
