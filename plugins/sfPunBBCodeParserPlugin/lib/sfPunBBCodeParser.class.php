@@ -665,7 +665,7 @@ class sfPunBBCodeParser
             $class .= ' top';
         }
 
-        $result = '<div class="' . $class . '"><p>' . $text . '</p></div>';
+        $result = '<div class="' . $class . '"><p>' . stripslashes($text) . '</p></div>';
         if (!$alone)
         {
             $result = '</p>' . $result . '<p>';
