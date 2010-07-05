@@ -4728,7 +4728,7 @@ th.order_desc a, th.order_asc a
 .article_titre_bg .title .go_up
 {
   position: absolute;
-  margin: 2px 0 0 0;
+  margin: 0;
   right: 16px;
 }
 

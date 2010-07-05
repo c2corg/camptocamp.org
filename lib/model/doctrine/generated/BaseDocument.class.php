@@ -1204,12 +1204,15 @@ class BaseDocument extends sfDoctrineRecordI18n
                $hm_k[] = $hm_to_keep['history_metadata_id'];
 
             $hm = array_diff($hm, $hm_k);
-            $question = implode(', ', array_fill(0, count($hm), '?'));
+            if (count($hm))
+            {
+                $question = implode(', ', array_fill(0, count($hm), '?'));
 
-            Doctrine_Query::create()->delete('HistoryMetadata')
-                                    ->from('HistoryMetadata hm')
-                                    ->where("hm.history_metadata_id IN ( $question )", $hm)
-                                    ->execute();
+                Doctrine_Query::create()->delete('HistoryMetadata')
+                                        ->from('HistoryMetadata hm')
+                                        ->where("hm.history_metadata_id IN ( $question )", $hm)
+                                        ->execute();
+            }
 
             $conn->commit();
         }
