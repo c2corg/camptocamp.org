@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /
+
+## Following robots are for mobile websites
+User-agent: Googlebot-Mobile 
+Disallow:
+
+User-Agent: KPN-Googlebot-Mobile
+Disallow: 
+
+User-Agent: botmobi
+Disallow: 
+
+User-Agent: YahooSeeker/M1A1-R2D2
+Disallow:
