@@ -39,25 +39,27 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     RewriteCond %{QUERY_STRING} ^([0-9]+|debug)$
     RewriteRule ^(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$1&%{QUERY_STRING} [L,NC]
 
-    # we skip all files with .something
+    # robots.txt
+    RewriteCond %{HTTP_HOST} =@MOBILE_VERSION_HOST@
+    RewriteRule ^robots.txt$ /mobile_robots.txt [L]
+
+    # we skip all files with .something, except for .html, .rss, .gpx etc
     RewriteCond %{REQUEST_URI} \..+$
     RewriteCond %{REQUEST_URI} !\.html$
     RewriteCond %{REQUEST_URI} !(.*\.(rss|gpx|kml|json))$
     RewriteRule .* - [L]
-  
-    # RSS feed:
+
+    # RSS feed
     RewriteCond %{REQUEST_URI} \.rss$
     RewriteRule ^(.rss)$ index.php [QSA,L]
-  
-    # we check if the .html version is here (caching)
-    #RewriteRule ^$ index.html [QSA]
-    #RewriteRule ^([^.]+)$ $1.html [QSA]
-    
+
+    # forums
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_URI} !^/forums/
-    
-    # no, so we redirect to our front web controller
+
+    # if none of the above, we redirect to our front web controller
     RewriteRule ^(.*)$ index.php [QSA,L]
+
   </Directory>
 </IfModule>
 
