@@ -5,9 +5,6 @@ Disallow: /
 User-agent: Googlebot-Mobile 
 Disallow:
 
-User-Agent: KPN-Googlebot-Mobile
-Disallow: 
-
 User-Agent: botmobi
 Disallow: 
 
