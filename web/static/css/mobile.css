@@ -346,7 +346,7 @@ td div.tclcon h3 a
   width: auto;
 }
 
-/* image pages */
+/* images */
 .picture
 {
   width: 100%;
@@ -359,6 +359,12 @@ td div.tclcon h3 a
 
 .picture img{
   max-width: 98%;
+}
+
+.thumb_data {
+  width: 148px;
+  height: 215px;
+  margin: 0;
 }
 
 /* mobile header and menu */
