@@ -315,6 +315,15 @@ td div.tclcon h3 a
    margin-left: 0;
 }
 
+.pun td.tcr, .pun td.tcl
+{
+  width: auto;
+}
+.pun .tc2, .pun .tc3
+{
+  display: none;
+}
+
 /* footer */
 #footer
 {
