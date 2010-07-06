@@ -70,6 +70,18 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
         include_partial($header_partial, array('lang_code' => $lang_code));
         ?>
         </div>
+<?php //////////////////////////////// TRANSITION CODE FOR MAKING MOBILE VERSION OF THE SITE OBVIOUS ////////////////////////
+      //////////////////////////////// TO USERS USING A MOBILE PHONE ////////////////////////////////////////////////////////
+      //////////////////////////////// TO BE REMOVED AFTER SOME WEEKS ///////////////////////////////////////////////////////
+      if ($_SERVER['REQUEST_URI'] == '/' &&
+          preg_match('/(Mobile|DoCoMo|NetFront|Symbian|Nokia|SAMSUNG|BlackBerry|J-PHONE|KDDI|UP.Browser|DDIPOCKET|Symbian)/i',
+                     $_SERVER['HTTP_USER_AGENT'])): ?> 
+        <div style="text-align:center; margin: 0 15px 15px 15px; padding: 10px 0; border-radius: 8px;
+                    -moz-border-radius: 8px; -khtml-border-radius: 8px;-webkit-border-radius: 8px;
+                    border: 4px solid #ff0016">
+        <?php echo link_to(__('Discover mobile version'), 'http://'.sfConfig::get('app_mobile_version_host')) ?>
+        </div>
+<?php endif ///////////////////////// END OF TRANSITION CODE //////////////////////// ?>
         <div id="content_box">
             <?php echo $sf_data->getRaw('sf_content') ?>
             </div> <!-- Fin wrapper_context -->

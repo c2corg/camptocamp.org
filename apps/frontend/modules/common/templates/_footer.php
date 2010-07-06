@@ -58,8 +58,7 @@ endif;
             $mobile_version = sfConfig::get('app_mobile_version_host');
             if (!empty($mobile_version))
             {
-                echo ' | ' . link_to(__('mobile version'), 'http://'.$mobile_version,
-                                     array('rel' => 'nofollow'));
+                echo ' | ' . link_to(__('mobile version'), 'http://'.$mobile_version);
             }
             ?>
             </p>

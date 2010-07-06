@@ -572,6 +572,11 @@ msgstr "Développeurs"
 msgid "Diffing versions of %1% in %2%."
 msgstr "Différences entre les versions de %1% en %2%."
 
+# [general comment]
+# Lien temporaire vers la version mobile du site (n'apparait que si quelqu'un regarde la page d'accueil standard avec un mobile)
+msgid "Discover mobile version"
+msgstr "Essayez la version mobile de camptocamp !"
+
 msgid "Display"
 msgstr "Afficher"
 
