@@ -1,8 +1,12 @@
+# robots.txt for mobile version fo the site
+
+## Disallow access to generic robots
 User-agent: *
 Disallow: /
 
-## Following robots are for mobile websites
+## Following robots are specific for mobile websites
 User-agent: Googlebot-Mobile 
+Crawl-delay: 120
 # dev frontend
 Disallow: /frontend_dev.php
 # documents edition
@@ -109,6 +113,7 @@ Disallow: /static/rss/latest_docs.rss
 Disallow: /widgetgenerator
 
 User-Agent: botmobi
+Crawl-delay: 120
 # dev frontend
 Disallow: /frontend_dev.php
 # documents edition
@@ -215,6 +220,115 @@ Disallow: /static/rss/latest_docs.rss
 Disallow: /widgetgenerator
 
 User-Agent: YahooSeeker/M1A1-R2D2
+Crawl-delay: 120
+# dev frontend
+Disallow: /frontend_dev.php
+# documents edition
+Disallow: /areas/edit
+Disallow: /articles/edit
+Disallow: /books/edit
+Disallow: /documents/edit
+Disallow: /huts/edit
+Disallow: /images/edit
+Disallow: /maps/edit
+Disallow: /outings/edit
+Disallow: /parkings/edit
+Disallow: /portals/edit
+Disallow: /products/edit
+Disallow: /routes/edit
+Disallow: /sites/edit
+Disallow: /summits/edit
+# documents versions
+Disallow: /areas/history/
+Disallow: /articles/history/
+Disallow: /books/history/
+Disallow: /documents/history/
+Disallow: /huts/history/
+Disallow: /images/history/
+Disallow: /maps/history/
+Disallow: /outings/history/
+Disallow: /parkings/history/
+Disallow: /portals/history/
+Disallow: /products/history/
+Disallow: /routes/history/
+Disallow: /sites/history/
+Disallow: /summits/history/
+# documents diffs
+Disallow: /areas/diff/
+Disallow: /articles/diff/
+Disallow: /books/diff/
+Disallow: /documents/diff/
+Disallow: /huts/diff/
+Disallow: /images/diff/
+Disallow: /maps/diff/
+Disallow: /outings/diff/
+Disallow: /parkings/diff/
+Disallow: /portals/diff/
+Disallow: /products/diff/
+Disallow: /routes/diff/
+Disallow: /sites/diff/
+Disallow: /summits/diff/
+# documents queries
+Disallow: /areas/query
+Disallow: /articles/query
+Disallow: /books/query
+Disallow: /documents/query
+Disallow: /huts/query
+Disallow: /images/query
+Disallow: /maps/query
+Disallow: /outings/query
+Disallow: /parkings/query
+Disallow: /portals/query
+Disallow: /products/query
+Disallow: /routes/query
+Disallow: /sites/query
+Disallow: /summits/query
+# outings conditions
+Disallow: /outings/conditions/
+# documents updates
+Disallow: /whatsnew
+Disallow: /areas/whatsnew
+Disallow: /articles/whatsnew
+Disallow: /books/whatsnew
+Disallow: /documents/whatsnew
+Disallow: /huts/whatsnew
+Disallow: /images/whatsnew
+Disallow: /maps/whatsnew
+Disallow: /outings/whatsnew
+Disallow: /parkings/whatsnew
+Disallow: /portals/whatsnew
+Disallow: /products/whatsnew
+Disallow: /routes/whatsnew
+Disallow: /sites/whatsnew
+Disallow: /summits/whatsnew
+# forum
+Disallow: /forums/extern.php
+Disallow: /forums/misc.php
+Disallow: /forums/post.php
+Disallow: /stats/admin.php
+# rss
+Disallow: /areas/rss
+Disallow: /articles/rss
+Disallow: /books/rss
+Disallow: /documents/rss
+Disallow: /huts/rss
+Disallow: /images/rss
+Disallow: /maps/rss
+Disallow: /outings/rss
+Disallow: /parkings/rss
+Disallow: /portals/rss
+Disallow: /products/rss
+Disallow: /routes/rss
+Disallow: /sites/rss
+Disallow: /summits/rss
+Disallow: /static/rss
+Disallow: /static/rss/latest_docs.rss
+# widget
+Disallow: /widgetgenerator
+
+
+User-agent: Mediapartners-Google*
+Crawl-delay: 120
 # dev frontend
 Disallow: /frontend_dev.php
 # documents edition
