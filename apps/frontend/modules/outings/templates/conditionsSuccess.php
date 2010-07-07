@@ -1,10 +1,14 @@
 <?php 
 use_helper('Pagination', 'Field', 'SmartDate', 'SmartFormat', 'sfBBCode', 'Viewer');
+$mobile_version =  c2cTools::mobileVersion();
 
 echo display_title(__('recent conditions'), 'outings', false);
 
-echo '<div id="nav_space">&nbsp;</div>';
-include_partial('nav4list');
+if (!$mobile_version)
+{
+    echo '<div id="nav_space">&nbsp;</div>';
+    include_partial('nav4list');
+}
 $conditions_statuses = sfConfig::get('mod_outings_conditions_statuses_list');
 
 echo display_content_top('list_content');

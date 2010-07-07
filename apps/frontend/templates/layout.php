@@ -74,7 +74,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
       //////////////////////////////// TO USERS USING A MOBILE PHONE ////////////////////////////////////////////////////////
       //////////////////////////////// TO BE REMOVED AFTER SOME WEEKS ///////////////////////////////////////////////////////
       if ($_SERVER['REQUEST_URI'] == '/' &&
-          preg_match('/(Mobile|DoCoMo|NetFront|Symbian|Nokia|SAMSUNG|BlackBerry|J-PHONE|KDDI|UP.Browser|DDIPOCKET|Symbian)/i',
+          preg_match('/(Mobi|DoCoMo|NetFront|Symbian|Nokia|SAMSUNG|BlackBerry|J-PHONE|KDDI|UP.Browser|DDIPOCKET|Mini)/i',
                      $_SERVER['HTTP_USER_AGENT'])): ?> 
         <div style="text-align:center; margin: 0 15px 15px 15px; padding: 10px 0; border-radius: 8px;
                     -moz-border-radius: 8px; -khtml-border-radius: 8px;-webkit-border-radius: 8px;
