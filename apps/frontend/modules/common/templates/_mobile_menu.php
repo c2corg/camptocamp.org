@@ -2,7 +2,7 @@
 use_helper('General', 'Forum');
 
 $menu_search = array(
-    '#' => __('back'),
+    '#' => ' ',
     url_for('@filter?module=outings') => __('outings'),
     url_for('@filter?module=routes') => __('routes'),
     url_for('@filter?module=images') => __('images'),
@@ -18,7 +18,7 @@ $menu_search = array(
 );
 
 $menu_see = array(
-    '#' => __('back'),
+    '#' => ' ',
     url_for('@default_index?module=outings&orderby=date&order=desc') => __('outings'),
     url_for('outings/conditions') =>  __('cond short'),
     url_for('@default_index?module=routes') => __('routes'),
@@ -35,7 +35,7 @@ $menu_see = array(
 );
 
 $menu_more = array(
-    '#' => __('back'),
+    '#' => ' ',
     url_for(getMetaArticleRoute('association')) => __('Association'),
     url_for(getMetaArticleRoute('help', false)) => __('Global help'),
     url_for(getMetaArticleRoute('home_guide')) => __('Help').__(' :').' '.__('Guidebook'),

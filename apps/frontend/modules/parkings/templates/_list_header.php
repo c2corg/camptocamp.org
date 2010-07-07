@@ -1,5 +1,5 @@
 <?php
-echo select_all_header_list_tag();
+if (!c2cTools::mobileVersion()) echo select_all_header_list_tag();
 echo header_list_tag('pnam', 'name');
 echo header_list_tag('palt', 'elevation short');
 echo header_list_tag('tp', 'public_transportation_rating short');

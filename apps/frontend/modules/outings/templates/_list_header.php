@@ -4,7 +4,7 @@ use_helper('Field');
 $request = sfContext::getInstance()->getRequest();
 $orderby = $request->getParameter('orderby');
 
-echo select_all_header_list_tag();
+if (!c2cTools::mobileVersion()) echo select_all_header_list_tag();
 echo header_list_tag('onam', 'name');
 echo header_list_tag('date', 'date short', 'desc');
 echo header_list_tag('act', 'activities short');

@@ -204,6 +204,15 @@ input.long_input
   float: right;
 }
 
+.pages_navigation a, .pages_navigation span
+{
+  margin-right: 1.5em;
+}
+.pages_navigation a span
+{
+  margin-right: 0;
+}
+
 #fields_tooltip
 {
   left: 0;
@@ -526,7 +535,7 @@ div.slider
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 div.slider div.handle
 {

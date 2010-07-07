@@ -10,8 +10,9 @@ else
     $has_gps_track = '';
 }
 $item_i18n = $item['OutingI18n'][0];
-?>
+if (!c2cTools::mobileVersion()): ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
+<?php endif ?>
 <td><?php
 echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=outings&id=' . $item_i18n['id']
                                                         . '&lang=' . $item_i18n['culture']

@@ -1,7 +1,8 @@
 <?php
 $item_i18n = $item['AreaI18n'][0];
-?>
+if (!c2cTools::mobileVersion()): ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
+<?php endif ?>
 <td><?php echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=areas&id=' . $item_i18n['id']
                                                      . '&lang=' . $item_i18n['culture'] 
                                                      . '&slug=' . make_slug($item_i18n['name'])) ?></td>

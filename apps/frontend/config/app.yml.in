@@ -1503,18 +1503,18 @@ all:
   
   figures:
     list:
-      summits:  11'000
-      routes:   18'900
-      outings:  70'300
-      images:   78'600
-      sites:    1'850
+      summits:  11'200
+      routes:   19'200
+      outings:  71'800
+      images:   83'000
+      sites:    1'900
       huts:     1'200
-      parkings: 2'700
-      books:    670
-      users:    23'600
+      parkings: 2'800
+      books:    690
+      users:    24'000
       articles: 400
-      topics:   175'500
-      posts:    1'280'000
+      topics:   178'500
+      posts:    1'300'000
 
   profile_cookies:
     list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages' ]

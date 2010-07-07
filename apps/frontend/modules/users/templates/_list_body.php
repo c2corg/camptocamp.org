@@ -1,7 +1,8 @@
 <?php
 $item_i18n = $item['UserI18n'][0];
-?>
+if (!c2cTools::mobileVersion()): ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
+<?php endif ?>
 <td><?php echo link_to($item['private_data']['topo_name'], '@document_by_id_lang?module=users&id=' . $item_i18n['id']
                                                            . '&lang=' . $item_i18n['culture']) ?></td>
 <td><?php echo $item['private_data']['username'] ?></td>
