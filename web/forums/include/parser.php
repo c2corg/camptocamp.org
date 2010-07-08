@@ -419,15 +419,20 @@ function handle_url_tag($url, $link = '')
     }
 
     // Check if internal or external link
-    if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#i', $full_url))
-    {
+    $class = ' class="external_link"';
+
+    if (strpos("#/", $full_url[0]) !== false) 
+    { 
         $class = '';
     }
-    else
+
+    $short_url = preg_replace('#^http://((m|www)\.)?camptocamp\.org/?(.*)#', '/${3}', $full_url);
+    if ($short_url != $full_url)
     {
-        $class = ' class="external_link"';
+        $full_url = $short_url;
+        $class = '';
     }
-    
+  
     return '<a' . $class . ' href="'.$full_url.'"'.$rel.'>'.$link.'</a>' . $suffix;
 }
 

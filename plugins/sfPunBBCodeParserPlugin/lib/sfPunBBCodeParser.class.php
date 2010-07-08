@@ -332,18 +332,19 @@ class sfPunBBCodeParser
             $suffix = '';
         }
 
-        // Translate urls between classical and mobile version if needed
-        $bad_host = c2cTools::mobileVersion() ? sfConfig::get('app_classic_version_host') : sfConfig::get('app_mobile_version_host');
-        $full_url = preg_replace('#^(https?://)'.$bad_host.'(.*)#', '${1}'.$_SERVER['SERVER_NAME'].'${2}', $full_url);
-
         // Check if internal or external link
-        if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
+        $class = ' class="external_link"';
+
+        if (strpos("#/", $full_url[0]) !== false)
         {
             $class = '';
         }
-        else
+
+        $short_url = preg_replace('#^http://((m|www)\.)?camptocamp\.org/?(.*)#', '/${3}', $full_url);
+        if ($short_url != $full_url)
         {
-            $class = ' class="external_link"';
+            $full_url = $short_url;
+            $class = '';
         }
 
         return '<a' . $class . ' href="' . $full_url . '"' . $target . '>' . $link . '</a>' . $suffix;
