@@ -332,6 +332,10 @@ class sfPunBBCodeParser
             $suffix = '';
         }
 
+        // Translate urls between classical and mobile version if needed
+        $bad_host = c2cTools::mobileVersion() ? sfConfig::get('app_classic_version_host') : sfConfig::get('app_mobile_version_host');
+        $full_url = preg_replace('#^(https?://)'.$bad_host.'(.*)#', '${1}'.$_SERVER['SERVER_NAME'].'${2}', $full_url);
+
         // Check if internal or external link
         if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
         {
