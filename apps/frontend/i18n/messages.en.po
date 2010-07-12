@@ -912,6 +912,8 @@ msgstr "IGN map"
 # dans l'arbre des couches de l'appli carto
 # [comment]
 # aerials ou aerial photographs ?
+# I would suggest "aerial imagery.
+# [WARNING] needs_review
 msgid "IGN orthos"
 msgstr "IGN aerials"
 
@@ -1702,6 +1704,7 @@ msgstr "Set languages preferences"
 msgid "Set your prefered language order"
 msgstr "Set your prefered language order"
 
+# [WARNING] needs_review
 msgid "Shop"
 msgstr "Shop"
 

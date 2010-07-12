@@ -22,9 +22,9 @@ msgstr " für die Lokalisierung. Um Schweizerkoordinaten umzurechnen, benützen 
 
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} item(s). Click to show info."
+msgstr "${nb_items} Objekt(e). Klicken Sie für weitere Informationen. "
 
 msgid "%1% days ago, at %2%"
 msgstr "vor %1% Tagen, um %2%"
@@ -87,19 +87,19 @@ msgid "Add your outing"
 msgstr "Ihre Tour beifügen"
 
 msgid "Add your route"
-msgstr "Eine Route beifügen"
+msgstr "Eine Route hinzufügen"
 
 msgid "Add your summit"
-msgstr "Ein Gipfel beifügen"
+msgstr "Ein Gipfel hinzufügen"
 
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
-msgstr "Wenn sie das nachfolgendes Formular ausgefüllt haben, erhalten sie eine e-mail mit Ihren Passwort. Sie müssen sich dann innerhalb %1% Tage auf der Seite einloggen, damit Ihr Account endgültig aktiviert wird."
+msgstr "Wenn sie das nachfolgendes Formular ausgefüllt haben, erhalten sie eine E-mail mit Ihren Passwort. Sie müssen sich dann innerhalb %1% Tage auf der Seite einloggen, um Ihr Benutzerkonto zu aktivieren."
 
 msgid "Alignment"
 msgstr "Ausrichtung:"
 
 msgid "All fields are mandatory"
-msgstr "Alle Felder müssen ausgefüllt werden."
+msgstr "Es müssen alle Datenfelder ausgefüllt werden."
 
 # [comment]
 # trad de collaboratif?
@@ -114,19 +114,19 @@ msgid "An user can not be linked to a collaborative article"
 msgstr "Ein Beiträger kann nicht an einem kollaborativen Bericht verbunden werden"
 
 msgid "Are you sure you want to delete this document in ca"
-msgstr "Sind sie sicher die katalanische Fassung dieses Dokument löschen zu wollen?"
+msgstr "Sind sie sicher die katalanische Fassung dieses Dokuments löschen zu wollen?"
 
 msgid "Are you sure you want to delete this document in de"
-msgstr "Sind sie sicher die deutsche Fassung dieses Dokument löschen zu wollen?"
+msgstr "Sind sie sicher die deutsche Fassung dieses Dokuments löschen zu wollen?"
 
 msgid "Are you sure you want to delete this document in en"
-msgstr "Sind sie sicher die englische Fassung dieses Dokument löschen zu wollen?"
+msgstr "Sind sie sicher die englische Fassung dieses Dokuments löschen zu wollen?"
 
 msgid "Are you sure you want to delete this document in es"
-msgstr "Sind sie sicher die spanische Fassung dieses Dokument löschen zu wollen?"
+msgstr "Sind sie sicher die spanische Fassung dieses Dokuments löschen zu wollen?"
 
 msgid "Are you sure you want to delete this document in eu"
-msgstr "Sind sie sicher die baskische Fassung dieses Dokument löschen zu wollen?"
+msgstr "Sind sie sicher die baskische Fassung dieses Dokuments löschen zu wollen?"
 
 # [general comment]
 # Msg used in js -> no &nbsp;
@@ -135,10 +135,10 @@ msgstr "Sind sie sicher dieses Dokument in allen Sprachen löschen zu wollen?\n"
 "Stellen Sie es sicher dass er zuerst mit einem anderem Dokument zusammengeschlossen würde wenn es verknüpfte Dokumente hat."
 
 msgid "Are you sure you want to delete this document in fr"
-msgstr "Sind sie sicher die französische Fassung dieses Dokument löschen zu wollen?"
+msgstr "Sind sie sicher die französische Fassung dieses Dokuments löschen zu wollen?"
 
 msgid "Are you sure you want to delete this document in it"
-msgstr "Sind sie sicher die italienische Fassung dieses Dokument löschen zu wollen?"
+msgstr "Sind sie sicher, dass Sie die italienische Fassung dieses Dokuments löschen wollen?"
 
 # [general comment]
 # Msg in js -> no &nbsp;
@@ -146,15 +146,15 @@ msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Sind Sie sicher, daß sie die Geometrie dieses Dokumentes entfernen möchten?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
-msgstr "Sind Sie sicher das Bild %1%, dass \"%2%\" genannt ist, trennen zu wollen?"
+msgstr "Sind Sie sicher, dass Sie das Bild %1% mit dem Namen \"%2%\" trennen wollen?"
 
 # [general comment]
 # Msg in js -> no &nbsp;
 msgid "Are you sure?"
-msgstr "Sind sie sicher?"
+msgstr "Sind sie sicher, dass Sie dies tun wollen?"
 
 msgid "Area creation is prohibited"
-msgstr "Es ist nicht erlaubt Regionen zu gründen"
+msgstr "Es ist nicht erlaubt Regionen zu erstellen"
 
 msgid "Area not found"
 msgstr "Diese Region existiert nicht."
@@ -216,9 +216,9 @@ msgstr "mindestens eine Datei hat ein zu kleinen Mass (Minimum: 16x16 px)"
 msgid "At least one image type is not given"
 msgstr "Mindestens bei einem Bild ist der Typ nicht angegeben"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "At least one name field is empty"
-msgstr "At least one picture title is missing"
+msgstr "Mindestens ein Bildtitel fehlt"
 
 msgid "Author"
 msgstr "Autor"
@@ -271,13 +271,13 @@ msgstr "Zurück zur Tourenliste"
 msgid "Back to parkings list"
 msgstr "Zurück zur Zufahrtenliste"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Back to portals list"
-msgstr "Go back to the list of portals"
+msgstr "Zurück zur Portalliste"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Back to products list"
-msgstr "Go back to the list of \"local products\" documents"
+msgstr "Zurück zur Dokumentenliste der \"lokalen Produkte\""
 
 msgid "Back to routes list"
 msgstr "Zurück zur Routenliste"
@@ -311,13 +311,13 @@ msgstr "Das Buch erwerben"
 msgid "CNIL declaration #"
 msgstr "CNIL Deklaration "
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Camptocamp on Facebook"
-msgstr "Camptocamp on Facebook"
+msgstr "Camptocamp auf Facebook"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Camptocamp on Twitter"
-msgstr "Camptocamp on Twitter"
+msgstr "Camptocamp auf Twitter"
 
 msgid "Camptocamp-Association"
 msgstr "Der Camptocamp Verband"
@@ -462,13 +462,13 @@ msgstr "Tour beifügen"
 msgid "Create new parkings"
 msgstr "Zufahrt beifügen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Create new portals"
-msgstr "Create a portal"
+msgstr "Erstellen eines Portals"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Create new products"
-msgstr "Add a \"local products\" document"
+msgstr "Hinzufügen eines Dokuments \"lokales Produkt\""
 
 msgid "Create new routes"
 msgstr "Route beifügen"
@@ -508,13 +508,13 @@ msgstr "Eine neue Tour eintragen"
 msgid "Creating new parkings"
 msgstr "Eine neue Zufahrt eintragen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Creating new portals"
-msgstr "Portal creation"
+msgstr "Erstellung eines Portals"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Creating new products"
-msgstr "Creation of a \"local products\" document"
+msgstr "Erstellung eines Dokuments \"lokales Produkt\""
 
 msgid "Creating new routes"
 msgstr "Eine neue Route eintragen"
@@ -618,9 +618,9 @@ msgstr "Das Dokument konnte nicht gelöscht werden"
 
 # [general comment]
 # %1% displays the list of the 'would be' orphean route ID
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "The summit cannot be deleted as it would create orphan routes"
+msgstr "Der Gipfel kann nicht gelöscht werden, da sonst folgende Routen keinen Bezug mehr haben: %1%"
 
 msgid "Document culture deleted"
 msgstr "Die sprachliche Fassung des Dokuments wurde gelöscht"
@@ -775,9 +775,9 @@ msgstr "Album"
 
 # [general comment]
 # text for widget generator in left menu of list pages
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Generate widget"
-msgstr "Generate a widget"
+msgstr "Erstellen eines Widgets"
 
 msgid "Geoassociations refreshed"
 msgstr "Die Regionen (und die Karten) wurden aktualisiert"
@@ -801,7 +801,7 @@ msgid "Give me a name"
 msgstr "Geben Sie mir einen Namen!"
 
 msgid "Global help"
-msgstr "allgemeine Hilfe"
+msgstr "Allgemeine Hilfe"
 
 msgid "Go back to form"
 msgstr "Zurück zum Formular"
@@ -832,13 +832,13 @@ msgstr "Zur nächste Tour"
 msgid "Go to next parking"
 msgstr "Zur nächste Zufahrt"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Go to next portal"
-msgstr "Go to the next portal"
+msgstr "Gehe zum nächsten Portal"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Go to next product"
-msgstr "Go to the next \"local products\" document"
+msgstr "Gehe zum nächsten Dokument der \"lokalen Produkte\""
 
 msgid "Go to next route"
 msgstr "Zur nächste Route"
@@ -874,13 +874,13 @@ msgstr "Zur vorige Tour"
 msgid "Go to previous parking"
 msgstr "Zur vorige Zufahrt"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Go to previous portal"
-msgstr "Go to the previous portal"
+msgstr "Gehe zum vorhergehenden Portal"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Go to previous product"
-msgstr "Go to the previous \"local products\" document"
+msgstr "Gehe zum vorangehenden Dokument der \"lokalen Produkte\""
 
 msgid "Go to previous route"
 msgstr "Zur vorige Route"
@@ -897,9 +897,9 @@ msgstr "Zur Seitenübersicht gehen"
 
 # [general comment]
 # texte par défaut du formulaire de recentrage de l'outil carto
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Go to..."
-msgstr "Go to..."
+msgstr "Gehe nach..."
 
 msgid "Google Book Search"
 msgstr "Google Buchsuche"
@@ -944,9 +944,9 @@ msgstr "IGN Karte"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "IGN orthos"
-msgstr "IGN aerials"
+msgstr "Orthofotos IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Dieses neuen Passwort wird erst gültig, wenn Sie es das erste Mal benutzen. Sie können es anschließend in Ihrem persönlichen Profil verändern. Wenn Sie kein neues Passwort angefordert haben, können Sie diese Nachricht einfach ignorieren."
@@ -1078,9 +1078,9 @@ msgstr "Neueste Gipfel"
 msgid "Latest threads"
 msgstr "Neueste Forenbeiträge"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest videos"
-msgstr "Latest videos"
+msgstr "Neueste Videos"
 
 msgid "Legend:"
 msgstr "Legende:"
@@ -1222,9 +1222,9 @@ msgstr "Diese Karte existiert nicht."
 
 # [general comment]
 # Intitulé du lien vers la page carto
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Map tool"
-msgstr "Map Tool"
+msgstr "Kartenwerkzeug"
 
 msgid "Maps deletion is prohibited"
 msgstr "Das Löschen von Karten ist nicht erlaubt "
@@ -1374,9 +1374,9 @@ msgstr "Keine Tour ist mit diese Route verknüpft."
 msgid "No linked outing to this site"
 msgstr "Keine Tour ist mit diesem Klettersektor verbunden"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "No linked product"
-msgstr "No \"local products\" document is associated to this document"
+msgstr "Kein \"lokales Produkt\" nimmt Bezug auf dieses Dokument."
 
 msgid "No linked route"
 msgstr "Keine Route ist mit diesem Dokument verknüpft."
@@ -1396,9 +1396,9 @@ msgstr "Keine neue Änderung verfügbar."
 msgid "No recent images available"
 msgstr "Keine neue Bilder verfügbar"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "No recent videos available"
-msgstr "There are no recent videos"
+msgstr "Es gibt kein neues Video."
 
 msgid "No result"
 msgstr "Keine Ergebnisse für Ihre Suche"
@@ -1493,10 +1493,10 @@ msgid "Prefered language successfully saved"
 msgstr "Ihre bevorzugte Sprache wurde erfolgreich gespeichert."
 
 msgid "Prepare outing"
-msgstr "Seine Tour vorbereiten"
+msgstr "Tourenplanung"
 
 msgid "Prepare outing links"
-msgstr "Links für sein Tour vorbereiten"
+msgstr "Links für die Tourenplanung"
 
 msgid "Preview"
 msgstr "Vorschau"
@@ -1513,13 +1513,13 @@ msgstr "Das aktuelle Dokument drucken"
 msgid "Private message"
 msgstr "Privatnachricht senden"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Product not found"
-msgstr "This \"local products\" document does not exist."
+msgstr "Dieses Dokument \"Lokales Produkt\" existiert nicht."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Product:"
-msgstr "Local products:"
+msgstr "Lokale Produkte:"
 
 msgid "Protect"
 msgstr "Schützen"
@@ -1695,9 +1695,9 @@ msgstr "Eine Tour suchen"
 msgid "Search a parkings"
 msgstr "Eine Zufahrt suchen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Search a portals"
-msgstr "Search for a portal"
+msgstr "Suche ein Portal"
 
 # [WARNING] en translation used
 msgid "Search a products"
@@ -1728,9 +1728,9 @@ msgstr "Suche auf das gesamte Dokument:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "See"
-msgstr "View"
+msgstr "Anzeigen"
 
 msgid "Select a name to use in guidebook"
 msgstr "Wählen Sie den Namen aus, den Sie im Tourenführer benutzen möchten "
@@ -1767,7 +1767,7 @@ msgid "Set your prefered language order"
 msgstr "Reihenfolge der Sprachen verändern "
 
 msgid "Shop"
-msgstr "Kaufladen"
+msgstr "Shop"
 
 msgid "Short description: "
 msgstr "Kurzbeschreibung: "
@@ -1833,13 +1833,13 @@ msgstr "Lawinenbulletin"
 msgid "Soft mobility"
 msgstr "Sanfte Mobilität"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Soft mobility articles"
-msgstr "Articles on ecotourism and ecomobility"
+msgstr "Artikel über nachhaltigen Tourismus und nachhaltige Mobilität"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Soft mobility outings"
-msgstr "Latest ecomobile outings"
+msgstr "Neueste Touren, welche mit nachhaltiger Moblität durchgeführt wurden"
 
 msgid "Step 1: choose a summit"
 msgstr "Schritt 1: Ein Gipfel auswählen"
@@ -1924,21 +1924,21 @@ msgstr "Die neusten Einträge von Zufahrten verfolgen"
 msgid "Subscribe to latest parkings editions"
 msgstr "Die letzten Änderungen von Zufahrten verfolgen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest portals creations"
-msgstr "Follow recent portal creations"
+msgstr "Die neuesten Portaleinträge anzeigen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest portals editions"
-msgstr "Follow the latest changes to portals"
+msgstr "Die neuesten Portaländerungen anzeigen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest products creations"
-msgstr "Follow the recent creations of \"local products\" documents"
+msgstr "Den neuesten Einträge von \"Lokalen Produkten\" folgen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest products editions"
-msgstr "Follow the lastest changes to \"local products\" documents"
+msgstr "Den neuesten Änderungen von \"lokalen Produkten\" folgen"
 
 msgid "Subscribe to latest routes creations"
 msgstr "Die neusten Einträge von Routen verfolgen"
@@ -2118,9 +2118,9 @@ msgstr "Werkzeuge"
 
 # [general comment]
 # 'outils' (première entrée du menu topoguide, permettant d'accéder au cotomètre, à la carte, la conversion des coordonnées etc)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Topoguide tools"
-msgstr "Tools"
+msgstr "Werkzeuge"
 
 msgid "Try a site search:"
 msgstr "Eine Suche auf der Website machen"
@@ -2164,7 +2164,7 @@ msgid "User creation"
 msgstr "Erstellung des Benutzers "
 
 msgid "User image management"
-msgstr "Verwaltung der eigene Bilder"
+msgstr "Verwaltung der eigenen Bilder"
 
 msgid "User not found"
 msgstr "Dieser Benutzer existiert nicht!"
@@ -2386,9 +2386,9 @@ msgstr "Sie haben nicht genügend Rechte um einen Beiträger mit diesem Dokument
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "You have not subscribed to any list"
-msgstr "You haven't subscribed to any list yet."
+msgstr "Sie haben keine E-mailliste abonniert."
 
 msgid "You must specify an email"
 msgstr "Sie müssen eine e-mail Adresse angeben."
@@ -5267,7 +5267,7 @@ msgstr "Selected ranges"
 # Traduire DDE -> informations routières
 # [WARNING] needs_update
 msgid "prepare_outing_box"
-msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSchweiz</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul> <p>Lawinenbulletin</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a>&nbsp;: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email bekommen</a></li></ul> <p>Landeskarten</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Schweiz)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italie)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Espagne)</a></li></ul> <p>Verkehr</p><ul><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsche Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com\">TER (Frankreich)</a></li><li><a href=\"http://www.cff.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li></ul> <p>Autres</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Website mit verhältnissen</a></li></ul>"
+msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSchweiz</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul> <p>Lawinenbulletin</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a>&nbsp;: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email bekommen</a></li></ul> <p>Kartenmaterial</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Schweiz)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italie)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Espagne)</a></li></ul> <p>Verkehr</p><ul><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsche Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com\">TER (Frankreich)</a></li><li><a href=\"http://www.cff.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li></ul> <p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Website mit Verhältnissen</a></li></ul>"
 
 msgid "previous area"
 msgstr "Vorige Region"
@@ -5331,9 +5331,8 @@ msgstr "Merchant's website"
 msgid "product_type"
 msgstr "Type de produits locaux&nbsp;:"
 
-# [WARNING] en translation used
 msgid "products"
-msgstr "local products"
+msgstr "Lokale Produkte"
 
 # [WARNING] en translation used
 msgid "products list"
@@ -5427,9 +5426,8 @@ msgstr "Massive"
 msgid "ratings"
 msgstr "Schwierigkeitsgrad"
 
-# [WARNING] en translation used
 msgid "recent conditions"
-msgstr "Recent conditions"
+msgstr "Akteulle Verhältnisse"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
@@ -5681,9 +5679,9 @@ msgstr "<strong>Climbing site or particular crag:</strong> Both a site and a par
 # catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
 # [comment]
 # vs
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "site info"
-msgstr "Leben der Webseite"
+msgstr "Hilfe, Infromationen zur Website"
 
 msgid "site supported by:"
 msgstr "Diese Website wurde entwickelt mit der Unterstützung von:"
