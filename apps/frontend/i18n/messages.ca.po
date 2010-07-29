@@ -594,9 +594,9 @@ msgstr "Diferències entre les versions de %1% en %2%."
 
 # [general comment]
 # Lien temporaire vers la version mobile du site (n'apparait que si quelqu'un regarde la page d'accueil standard avec un mobile)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Discover mobile version"
-msgstr "Try the mobile version of camptocamp!"
+msgstr "Pruebe la versión móvil de camptocamp!"
 
 msgid "Display"
 msgstr "Mostrar"
@@ -1765,9 +1765,9 @@ msgstr "Búsqueda en todo el documento:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "See"
-msgstr "View"
+msgstr "Ver"
 
 msgid "Select a name to use in guidebook"
 msgstr "Selecciona el teu nom per utilitzar a la topo-guia"
@@ -2733,6 +2733,8 @@ msgstr "<h3>Horarios de apertura</h3>Fechas y horarios de apertura."
 msgid "_hut_comments_info"
 msgstr "<h3>Comentaris sobre el refugi</h3>Informacions complementàries sobre l'estat del refugi: accés, llits, gas, material cuina, frequentació."
 
+# [general comment]
+# - what about huts, which are closed, but the key can be obtained in advance?
 msgid "_hut_status_info"
 msgstr "<h3>Refugi</h3>Obertura del refugi: obert/tancat i gurdat/no guardat.<br />El camp <i>Comentaris sobre el refugi</i> permet afegir aclariments."
 
@@ -2902,6 +2904,8 @@ msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: product
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accés en transports públics</h3>Informacions necessàries per acedir en aquest punt de partida, en transports públics&nbsp;: companyia qe assegura el transport (adressa d'internet si existeix), N° de la línia, frequències, horaris, preu."
 
+# [general comment]
+# Why not introduce a threshold for a reasonable walking distance - e.g. 30 or 60minutes walking?
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Accessibilitat en transports públics </h3>Qualitat de laccés en transports públics, eventualment necessitant una caminata raonable.<br />El camp <i>Accés en tranports públics</i> permet permet donar informacions complementàries."
 
@@ -2999,9 +3003,9 @@ msgstr "<h3>Compatibilitat amb</h3>Aquest camp indica amb quines sub-activitats 
 msgid "_summit_type_info"
 msgstr "<h3>Tipus de \"cim\"</h3>Tipus de punt geogràfic que pugui constituir un objectiu de sortida:<br /><br /><strong>punt culminant</strong>: cim, avant-cim, gendarme<br /><br /><strong>coll</strong>: coll, bretxa<br /><br /><strong>llac</strong>: llac de muntanya<br /><br /><strong>vall</strong>: punt remarcable al fons d'una vall: cascada, llengua de glaciar, monòlit"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_swiss coords_info"
-msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
+msgstr "<h3>Coordenadas suizas</h3>Coordenadas de un lugar geográfico en el sistema suizo de coordenadas (normativa CH1903).<br />Un enlace llevara al mapa de Swisstopo centrado en el lugar geográfico."
 
 msgid "_timing_info"
 msgstr "<h3>Hora de partida / horari</h3>Permet indicar els horaris de la sortida, com per exemple;:<br />- hores de partida i de retorn<br />- hora d'arrivada al cim o durada de la pujada<br />- perl'esquí: hora de l'inici de la baixada<br /><br /><i>ATENCIÓ: aquest horari és el que ha realitzat l'autor de la sortida! Pot haver fortes variacions en funció de les condicions en aquell moment, de la forma física i del nivell tècnic de cadascu.</i>"
@@ -3303,15 +3307,15 @@ msgstr "Posar el text seleccionat en negreta"
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "back"
-msgstr "back"
+msgstr "volver"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "backgrounds"
-msgstr "Background:"
+msgstr "Fondo:"
 
 # [general comment]
 # Titre pour les liens vers les articles "Le contenu du sac".
@@ -4038,9 +4042,9 @@ msgstr "desde"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "for linked routes"
-msgstr "of associated routes"
+msgstr "de las rutas asociadas"
 
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
@@ -4661,9 +4665,9 @@ msgstr "Cotació mitjana:"
 msgid "mediterranee"
 msgstr "Mediterráneo"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "menu"
-msgstr "menu"
+msgstr "menú"
 
 # [WARNING] needs_update
 msgid "meta_description"
@@ -4769,9 +4773,9 @@ msgstr "divers"
 msgid "mixed_rating"
 msgstr "Cotació mixt:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "mobile version"
-msgstr "Mobile version"
+msgstr "Versión móvil"
 
 # [general comment]
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
@@ -5463,9 +5467,9 @@ msgstr "Condicions recents"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "recenter"
-msgstr "Recenter"
+msgstr "Centrar"
 
 msgid "region_name"
 msgstr "Regions"
@@ -6176,9 +6180,9 @@ msgstr "tiempo"
 
 # [general comment]
 # Version mobile - lien vers la version 'standard'
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "web version of the site"
-msgstr "Accès à la version classique du site"
+msgstr "Acceder a la versión clásica del sitio"
 
 # [WARNING] es translation used
 msgid "week"
@@ -6193,7 +6197,7 @@ msgid "whole list"
 msgstr "Usar los mismos criterios que en esta lista"
 
 # [general comment]
-# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
+# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN, IT & DE
 # 
 # [WARNING] es translation used
 msgid "widget generator help"

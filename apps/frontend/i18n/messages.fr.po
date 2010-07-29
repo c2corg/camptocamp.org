@@ -266,7 +266,6 @@ msgstr "Revenir à la liste des accès"
 msgid "Back to portals list"
 msgstr "Revenir à la liste des portails"
 
-# [WARNING] needs_review
 msgid "Back to products list"
 msgstr "Revenir à la liste des documents \"produits locaux\""
 
@@ -2530,6 +2529,8 @@ msgstr "<h3>Dénivelé négatif</h3><em><u>Sortie</u>&nbsp;:</em><br />Dénivel�
 msgid "_height_diff_up_height_diff_down_info"
 msgstr "<h3>Dénivelé</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
 
+# [comment]
+# Dénivelé positif me semble d'être un voccabulaire assez technique - pourquoi pas "Montée totale"?
 msgid "_height_diff_up_info"
 msgstr "<h3>Dénivelé positif</h3><em><u>Sortie</u>&nbsp;:</em><br />Dénivelé positif cumulé lors de la sortie.<br />Si une trace GPX est associée à la sortie et que le champ n'est pas renseigné, le dénivelé positif est calculé automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, le dénivelé positif est calculé automatiquement à partir de celle-ci."
 
@@ -2543,6 +2544,8 @@ msgstr "<h3>Horaires d'ouverture</h3>Dates et horaires d'ouverture."
 msgid "_hut_comments_info"
 msgstr "<h3>Commentaires sur le refuge</h3>Informations complémentaires sur l'état du refuge&nbsp;: accès, couchage, chauffage, gaz, matériel de cuisine, fréquentation."
 
+# [general comment]
+# - what about huts, which are closed, but the key can be obtained in advance?
 msgid "_hut_status_info"
 msgstr "<h3>Refuge</h3>Ouverture du refuge&nbsp;: ouvert/fermé et gardé/non gardé.<br />Le champ <em>Commentaires sur le refuge</em> permet d'ajouter une remarque."
 
@@ -2692,6 +2695,8 @@ msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accès en transports en commun</h3>Informations nécessaires pour accéder à ce point de départ en transports en commun&nbsp;: compagnie assurant le transport (site web s'il existe), N° de la ligne, fréquences, horaires, prix."
 
+# [general comment]
+# Why not introduce a threshold for a reasonable walking distance - e.g. 30 or 60minutes walking?
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Accessibilité en transports en commun</h3>Qualité de l'accès en transport en commun, éventuellement moyennant une marche raisonnable.<br />Le champ <em>Accès en transports en commun</em> permet de donner des informations complémentaires.<br /><br /><strong>service régulier</strong>&nbsp;: L'accès est desservi par au moins un aller-retour par jour, 7 jours sur 7, 12 mois sur 12.<br /><br /><strong>service saisonnier</strong>&nbsp;: L'accès est desservi par au moins un aller-retour par jour, 7 jours sur 7, mais sur une partie de l'année seulement.<br /><br /><strong>service réduit</strong>&nbsp;: L'accès est desservi seulement certains jours de la semaine, et pas forcément toute l'année. Des précisions sont souhaitables dans le champ <em>Accès en transports en commun</em>.<br /><br /><strong>service à proximité</strong>&nbsp;: L'accès n'est pas desservi directement par un transport public, mais un arrêt à proximité permet de le rejoindre moyennant une marche raisonnable. Un lien vers l'accès situé à proximité est souhaitable dans le champ <em>Accès en transports en commun</em>.<br /><br /><strong>pas de service</strong>&nbsp;: L'accès n'est pas desservi par un transport en commun."
 
@@ -5721,7 +5726,7 @@ msgid "whole list"
 msgstr "Utiliser les même critères que cette liste"
 
 # [general comment]
-# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
+# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN, IT & DE
 # 
 msgid "widget generator help"
 msgstr "Camptocamp vous offre la possibilité d'intégrer à votre site internet ou blog un widget qui affiche une liste de contenus du topoguide. Vous pouvez ainsi par exemple afficher vos dernières sorties, les derniers sommets ajoutés au topoguide, ou toute autre liste qui vous trotte dans la tête.<br /><br />Spécifiez le titre que vous voulez donner à votre widget, puis copiez le code ci-dessous dans votre page web. C'est tout !<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Plus d'information</a>"

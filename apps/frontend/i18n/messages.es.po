@@ -301,13 +301,11 @@ msgstr "Conseguir este libro"
 msgid "CNIL declaration #"
 msgstr "Declaración CNIL n°"
 
-# [WARNING] en translation used
 msgid "Camptocamp on Facebook"
-msgstr "Camptocamp on Facebook"
+msgstr "Camptocamp en Facebook"
 
-# [WARNING] en translation used
 msgid "Camptocamp on Twitter"
-msgstr "Camptocamp on Twitter"
+msgstr "Camptocamp en Twitter"
 
 msgid "Camptocamp-Association"
 msgstr "Asociación Camptocamp"
@@ -576,9 +574,8 @@ msgstr "Diferencias entre las versiones de %1% en %2%."
 
 # [general comment]
 # Lien temporaire vers la version mobile du site (n'apparait que si quelqu'un regarde la page d'accueil standard avec un mobile)
-# [WARNING] en translation used
 msgid "Discover mobile version"
-msgstr "Try the mobile version of camptocamp!"
+msgstr "Pruebe la versión móvil de camptocamp!"
 
 msgid "Display"
 msgstr "Mostrar"
@@ -1673,9 +1670,9 @@ msgstr "Búsqueda en todo el documento:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "See"
-msgstr "View"
+msgstr "Ver"
 
 msgid "Select a name to use in guidebook"
 msgstr "Seleccione el nombre que quiere utilizar en la topo-guía"
@@ -2556,6 +2553,8 @@ msgstr "<h3>Horarios de apertura</h3>Fechas y horarios de apertura."
 msgid "_hut_comments_info"
 msgstr "<h3>Comentarios sobre el refugio</h3>Informaciones complementarias sobre el estado del refugio: acceso, camas, gas, necesario para cocina, frecuentación."
 
+# [general comment]
+# - what about huts, which are closed, but the key can be obtained in advance?
 msgid "_hut_status_info"
 msgstr "<h3>Refugio</h3>Apertura del refugio: abierto/cerrado y guardado/no guardado.<br />El campo <i>Comentarios sobre el refugio</i> permite ampliar la información."
 
@@ -2705,6 +2704,8 @@ msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: product
 msgid "_public_transportation_description_info"
 msgstr "<h3>Acceso en transportes públicos</h3>Informaciones necesarias para ir a este punto de salida con transportes públicos: companía de transporte (sitio web si existe), N° de la línea, frecuencia, horarios, precio..."
 
+# [general comment]
+# Why not introduce a threshold for a reasonable walking distance - e.g. 30 or 60minutes walking?
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Accesibilidad en transportes públicos</h3>Calidad del acceso en transportes públicos, a veces asociado con una caminata razonable.<br />El campo <i>Acceso en transportes públicos</i> permite acceder a informaciones complementarias.<br /><br /><strong>Servicio frecuente</strong>: Hay por lo menos una ida y vuelta diaria hacia el acceso, todos los días, todo el ano. <br /><br /><strong>Servicio reducido</strong>: Hay servicio en temporada o solo algunos dias de la semana. Conviene dar detalles en el campo <em>Acceso en transporte público </em>.<br /><br /><strong>Servicio a proximidad</strong>: Se puede llegar al acceso mediante una aproximación razonable desde un lugar accesible en transporte público. Conviene agregar un enlace al acceso más cercano en el campo <em>Acceso en transporte público </em>.<br /><br /><strong>Ningún servicio </strong>: No se puede llegar al acceso en transporte público."
 
@@ -2794,9 +2795,9 @@ msgstr "<h3>Compatible con</h3>Este campo indica cuales son las subactividades c
 msgid "_summit_type_info"
 msgstr "<h3>Tipo de \"cima\"</h3>Tipo del punto geográfico que puede constituir un objetivo de salida:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>collado</strong>: abra, portezuelo, col, collado, brecha<br /><br /><strong>lago</strong>: lago de montaña<br /><br /><strong>valle / acantilado</strong>: punto notable en el fondo de un valle o de una quebrada como una cascada, una lengua de glaciar, un monolito o lugares con cascadas de hielo o vías de escalada de varios largos<br /><br /><strong>raid</strong>: permite describir y buscar itinerarios de tipo <i>raid</i>, asociando itinerarios correspondientes a cada etapa del <i>raid<i> (o un solo itinerario describiendo todas las etapas) a una\"cima\" de tipo <em>raid</em>"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_swiss coords_info"
-msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
+msgstr "<h3>Coordenadas suizas</h3>Coordenadas de un lugar geográfico en el sistema suizo de coordenadas (normativa CH1903).<br />Un enlace llevara al mapa de Swisstopo centrado en el lugar geográfico."
 
 msgid "_timing_info"
 msgstr "<h3>Hora de salida / horarios</h3>Permite indicar los horarios de la salida, como por ejemplo:<br />- horarios de salida y de vuelta<br />- horario de llegada a la cima, o tiempo de subida<br />- para el esquí: horario de principio de bajada<br /><br /><i>CUIDADO: este horario es aquel realizado por el autor de la salida. Se pueden encontrar variaciones importantes según las condiciones del momento, el estado físico y el nivel técnico de cada uno.</i>"
@@ -3080,15 +3081,14 @@ msgstr "Poner el texto seleccionado en negrilla"
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "back"
-msgstr "back"
+msgstr "volver"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
-# [WARNING] en translation used
 msgid "backgrounds"
-msgstr "Background:"
+msgstr "Fondo:"
 
 # [general comment]
 # Titre pour les liens vers les articles "Le contenu du sac".
@@ -3776,9 +3776,9 @@ msgstr "desde"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "for linked routes"
-msgstr "of associated routes"
+msgstr "de las rutas asociadas"
 
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
@@ -4355,9 +4355,8 @@ msgstr "Grado mediano:"
 msgid "mediterranee"
 msgstr "Mediterráneo"
 
-# [WARNING] en translation used
 msgid "menu"
-msgstr "menu"
+msgstr "menú"
 
 msgid "meta_description"
 msgstr "La comunidad de montaña. Un lugar de intercambio multilingüe sobre alpinismo, escalada, cascada de hielo, esquí de travesía, raquetas, trekking y excursionismo. Encontrara miles de itinerarios, cimas, refugios así como descripciones de condiciones encontradas en salidas recientes a la montana, artículos, foros y una galleria de fotos."
@@ -4461,9 +4460,9 @@ msgstr "varios"
 msgid "mixed_rating"
 msgstr "Cotación mixto:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "mobile version"
-msgstr "Mobile version"
+msgstr "Versión móvil"
 
 # [general comment]
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
@@ -5080,9 +5079,8 @@ msgstr "Condiciones recientes"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
-# [WARNING] en translation used
 msgid "recenter"
-msgstr "Recenter"
+msgstr "Centrar"
 
 msgid "region_name"
 msgstr "Regiones"
@@ -5731,9 +5729,9 @@ msgstr "tiempo"
 
 # [general comment]
 # Version mobile - lien vers la version 'standard'
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "web version of the site"
-msgstr "Accès à la version classique du site"
+msgstr "Acceder a la versión clásica del sitio"
 
 msgid "week"
 msgstr "semana"
@@ -5746,7 +5744,7 @@ msgid "whole list"
 msgstr "Usar los mismos criterios que en esta lista"
 
 # [general comment]
-# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
+# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN, IT & DE
 # 
 msgid "widget generator help"
 msgstr "Camptocamp le ofrece la posibilidad de inserir un widget en su sitio web o blog para mostrar una lista de contenido de la topo-guía. Puede por ejemplo mostrar sus más recientes salidas, las últimas cimas añadidas a la topo-guía o cualquier otra lista que se le ocurre. <br /><br />Debe dar un titulo y copiar el código propuesto en su página web. ¡Nada más complicado que esto!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Mas información</a>"

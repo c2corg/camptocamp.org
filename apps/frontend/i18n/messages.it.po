@@ -2566,6 +2566,8 @@ msgstr "<h3>Opening hours</h3>Opening hours and days."
 msgid "_hut_comments_info"
 msgstr "<h3>Commenti sul rifugio</h3>Informazioni complementari sullo stato del rifugio: accesso, letti, riscaldamento, gaz, legno, frequentazione."
 
+# [general comment]
+# - what about huts, which are closed, but the key can be obtained in advance?
 msgid "_hut_status_info"
 msgstr "<h3>Rifugio</h3>Apertura del rifugio: aperto/chiuso e custodito/non custodito.<br />Il campo <i>Commenti sul rifugio</i> permette di aggiungere delle note."
 
@@ -2722,6 +2724,8 @@ msgstr "<h3>Type of local products</h3><strong>direct sale by the producer </str
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accesso con i mezzi pubblici</h3>Informazioni necessarie per accedere alla partenza con i mezzi pubblici: aziende di trasporto (sito web se esiste), numero della linea, frequenze, orari, prezzi."
 
+# [general comment]
+# Why not introduce a threshold for a reasonable walking distance - e.g. 30 or 60minutes walking?
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i mezzi pubblici, con eventualmente une avvicinamento ragionevole fino alla partenza dell'itinerario.<br />Il campo <i>Accesso con i mezzi pubblici</i> permette di dare informazioni complementari. <br /><br /><strong>servizio regolare</strong>: C'è almeno un andata-ritorno per giorno (con orari ragionevoli), tutti i giorni.<br /><br /><strong>servizio stagionale</strong>: C'è almeno un andata-ritorno per giorno (con orari ragionevoli), tutti i giorni ma su una parte dell'anno solamente.<br /><br /><strong>servizio ridotto</strong>: L'accesso è raggiungibile solo alcuni giorni o con orari poco comodi. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>servizio a prossimità</strong>: L'accesso non è direttamente raggiungibile con i servizi pubblici, ma c'è una fermata a prossimità che consente di raggiungerlo con un tempo di marcia ragionevole. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>nessun servizio</strong: L'accesso non è raggiungibile con i mezzi pubblici."
 
@@ -2812,9 +2816,9 @@ msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività poss
 msgid "_summit_type_info"
 msgstr "<h3>Tipo di \"cima\"</h3>Tipo di punto geografico che può essere costituito dalla meta della gita:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>colle</strong>: colle, forcella<br /><br /><strong>lago</strong>: lago di montagna<br /><br /><strong>vallone</strong>: punto specifico di fondovalle: cascata, lingua del ghiacciaio, monolite o masso erratico e anche settori di arrampicata su vie lunghe o su cascate di ghiaccio"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_swiss coords_info"
-msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
+msgstr "<h3>Swiss coordinates</h3>Coordinates of a geographical location in the Swiss coordinates system (CH1903 standard).<br />A link displays the Swisstopo map centred on the geographical location."
 
 msgid "_timing_info"
 msgstr "<h3>Ora di partenza / orario</h3>Consente di indicare gli orari della gita, come per esempio<br />- ora di partenza e di ritorno<br />- ora di arrivo alla cima o durata della salita<br />- per lo sci: ora del inizio della discesa<br /><br /><i>ATTENZIONE: questo orario è quello dell'autore della gita. Possono esistere grande differenze a secondo delle condizioni e della forma fisica e tecnica.</i>"
@@ -5750,9 +5754,9 @@ msgstr "meteo"
 
 # [general comment]
 # Version mobile - lien vers la version 'standard'
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "web version of the site"
-msgstr "Accès à la version classique du site"
+msgstr "Access the standard version of the website"
 
 msgid "week"
 msgstr "settimana"
@@ -5765,7 +5769,7 @@ msgid "whole list"
 msgstr "Usare gli stessi criteri che per questa lista"
 
 # [general comment]
-# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
+# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN, IT & DE
 # 
 msgid "widget generator help"
 msgstr "Camptocamp ti offre la possibilità di integrare al tuo sito internet o al tuo blog un widget per mostrare una lista di documenti della guida di c2c. Per esempio, puoi avere la lista delle tue ultime gite o delle ultime gite nella tua regione preferita...<br /><br />Dai un titolo al tuo widget, e copia il codice seguente nella tua pagina web.<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Informazione di più.</a>"

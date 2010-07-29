@@ -1923,7 +1923,7 @@ msgstr "Summit:"
 # [general comment]
 # mobile version : we cannot translate
 msgid "Switch lang short:"
-msgstr "Switch lang:"
+msgstr "Available in:"
 
 msgid "Switch lang:"
 msgstr "Switch lang:"
@@ -2573,6 +2573,8 @@ msgstr "<h3>Opening hours</h3>Opening hours and days."
 msgid "_hut_comments_info"
 msgstr "<h3>Comments on the hut</h3>Supplementary information on the hut's condition: access, bedding, gas, crockery, frequentation."
 
+# [general comment]
+# - what about huts, which are closed, but the key can be obtained in advance?
 msgid "_hut_status_info"
 msgstr "<h3>Hut</h3>Opening of the hut: opened/closed and staffed/unstaffed.<br />The <i>Comments on the hut</i> field allows to fill in additional information."
 
@@ -2666,6 +2668,8 @@ msgstr "<h3>Min&nbsp;/ max altitude</h3>Minimum and maximum altitude reached on 
 msgid "_min_height_info"
 msgstr "<h3>Minimum height</h3>Height of the shortest route in the climbing site or particular crag."
 
+# [comment]
+# Shouldn't it be plural:"Heights" since it is refered to the shortest AND the longest route.
 msgid "_min_height_max_height_info"
 msgstr "<h3>Height</h3>Height of the shortest and longest routes in the climbing site or particular crag."
 
@@ -2722,6 +2726,8 @@ msgstr "<h3>Type of local products</h3><strong>direct sale by the producer </str
 msgid "_public_transportation_description_info"
 msgstr "<h3>Public transport access</h3>Necessary information for reaching the access point with public transport: Company offering transport (website if it exists), line, frequency, schedule, price."
 
+# [general comment]
+# Why not introduce a threshold for a reasonable walking distance - e.g. 30 or 60minutes walking?
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Public transport access</h3>Reliability and quality of public transport access within a reasonable walking distance.<br />The field <i>Public transport access</i> allows for additional information.<br/><br/><strong>regular service</strong>: at least one round trip per day, every day and at any season.<br/><br/><strong>poor service</strong>: service only for some periods of the year, or only few days a week.<br/><br/><strong>service close-by</strong>: no direct public transport access, but a nearby stop is within reasonnable walking range.<br/><br/><strong>no service</strong>: no public transport for this access point."
 
@@ -2811,9 +2817,9 @@ msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are co
 msgid "_summit_type_info"
 msgstr "<h3>\"Summit\" type</h3>Type of the geographical point that could serve as a goal for a tour or climb:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarkable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search for multi-day <i>raids</i>, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_swiss coords_info"
-msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
+msgstr "<h3>Swiss coordinates</h3>Coordinates of a geographical location in the Swiss coordinates system (CH1903 standard).<br />A link displays the Swisstopo map centred on the geographical location."
 
 msgid "_timing_info"
 msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br />- time of departure and return<br />- time when summit was reached, or duration of the climb<br />- for skiing: time when descent was initiated<br /><br /><i>WARNING: this schedule is that of the outing's author. There may be huge variations depending on weather conditions and the physical and technical skills of each participant.</i>"
@@ -4006,6 +4012,7 @@ msgstr "List of huts, usual bivi sites and other accomodation"
 msgid "huts presentation"
 msgstr "A \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a base camp or an accomodation option in a valley. A \"hut\" may be associated to access points and/or routes."
 
+# [WARNING] needs_review
 msgid "hybrid"
 msgstr "mixed"
 
@@ -5743,9 +5750,9 @@ msgstr "weather"
 
 # [general comment]
 # Version mobile - lien vers la version 'standard'
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "web version of the site"
-msgstr "Accès à la version classique du site"
+msgstr "Access the standard version of the website"
 
 msgid "week"
 msgstr "week"
@@ -5758,7 +5765,7 @@ msgid "whole list"
 msgstr "Use the same criteria as in this list"
 
 # [general comment]
-# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
+# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN, IT & DE
 # 
 msgid "widget generator help"
 msgstr "Camptocamp offers you the possibility to insert a widget to your website or blog that displays a list of contents of the guidebook. This way you can for example display your latest outings, the most recent summits added to the guidebook, or any other list you may think of.<br /><br />Specify the title you wish to use, then copy the code displayed below in your web page. That's all there is to it!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">More help</a>"

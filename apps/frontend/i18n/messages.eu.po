@@ -309,13 +309,13 @@ msgstr "Conseguir este libro"
 msgid "CNIL declaration #"
 msgstr "CNIL deklarazio zenbakia: "
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Camptocamp on Facebook"
-msgstr "Camptocamp on Facebook"
+msgstr "Camptocamp en Facebook"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Camptocamp on Twitter"
-msgstr "Camptocamp on Twitter"
+msgstr "Camptocamp en Twitter"
 
 msgid "Camptocamp-Association"
 msgstr "Camptocamp elkartea"
@@ -592,9 +592,9 @@ msgstr "%1% en bertsioaren desberdintasunak %2%-n."
 
 # [general comment]
 # Lien temporaire vers la version mobile du site (n'apparait que si quelqu'un regarde la page d'accueil standard avec un mobile)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Discover mobile version"
-msgstr "Try the mobile version of camptocamp!"
+msgstr "Pruebe la versión móvil de camptocamp!"
 
 msgid "Display"
 msgstr "Erakutsi"
@@ -1799,9 +1799,9 @@ msgstr "Búsqueda en todo el documento:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "See"
-msgstr "View"
+msgstr "Ver"
 
 msgid "Select a name to use in guidebook"
 msgstr "Ibilbide gidarako erabiltzaile izena aukeratu"
@@ -2752,6 +2752,8 @@ msgstr "<h3>Horarios de apertura</h3>Fechas y horarios de apertura."
 msgid "_hut_comments_info"
 msgstr "<h3>Mendi bordaren azalpenak</h3>Medi aterpearen inguruko xehetasun osagarriak: gerturabidea, logelak, gasa, sukaldeko materila, jendetza. "
 
+# [general comment]
+# - what about huts, which are closed, but the key can be obtained in advance?
 msgid "_hut_status_info"
 msgstr "<h3>Mendi aterpea</h3>Aterpearren irekiera: irekia/itxia et zaindua/zaindu gabe.<br /> <i>Aterpearekiko azalpenak</i> eremuan aterpeari loturiko iritziak gehitu daitezke. "
 
@@ -2917,6 +2919,8 @@ msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: product
 msgid "_public_transportation_description_info"
 msgstr "<h3>Garraio publikoz iristeko gaitasuna</h3>Abiapuntu honetara garraio publikoz iristeko beharrezko informazioa: garraio publikoa ematen duen empresa (webgunea izan ezgero), linea zenbakia, frekuentzia, ordutegia, prezioa"
 
+# [general comment]
+# Why not introduce a threshold for a reasonable walking distance - e.g. 30 or 60minutes walking?
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Garraio publikoz iristeko gaitasuna</h3>Garraio publikoz iristeko gaitasunaren kalitatea, behar izan ezgero ohinezko zati batekin.<br /> <i> kampoak garraio publikoz iristeko</i> gehigarrizko informazioa ematen du."
 
@@ -3017,9 +3021,9 @@ msgstr "<h3>Zein ekintza dira konpatible</h3>Eremu honetan <i>eskia, surfa, erra
 msgid "_summit_type_info"
 msgstr "<h3> Gailurraren\" izaera</h3>Ibilaldiaren helburu izan daiteken puntu geografikoaren izaera:<br /><br /><strong>goreneko puntua</strong>: gailurra, aurre-gailurra, gendarme<br /><br /><strong>mendi-lepo</strong>: mendi-lepo, bretxa<br /><br /><strong>lakua</strong>: mendi lakua<br /><br /><strong>bailara</strong>: puntu adierazgarria bailararen barnean: ur-jauzi, glaziarraren mihia, monolitoa"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_swiss coords_info"
-msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
+msgstr "<h3>Coordenadas suizas</h3>Coordenadas de un lugar geográfico en el sistema suizo de coordenadas (normativa CH1903).<br />Un enlace llevara al mapa de Swisstopo centrado en el lugar geográfico."
 
 msgid "_timing_info"
 msgstr "<h3> Irteera ordua / denbora </h3>Irteeraren ordutegia adierazi daiteke hemen, adibidez:<br />- irtendako eta itzulitako ordua<br />- gailurrera heldutako ordua, edo ibilbidearen iraupena<br />- eskiaren kasuan: jeisten hasitako ordua <br /><br /><i>KONTUZ: ordutegi hau irteeran egileak eginikoa da. Norberaren egoera fisikoa, maila teknikoa edo aurkitutako egoeren arabera aldaketa haundiak izan daitezke.</i>"
@@ -3316,15 +3320,15 @@ msgstr "Aukeratutako testua lodian jarri"
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "back"
-msgstr "back"
+msgstr "volver"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "backgrounds"
-msgstr "Background:"
+msgstr "Fondo:"
 
 # [general comment]
 # Titre pour les liens vers les articles "Le contenu du sac".
@@ -4052,9 +4056,9 @@ msgstr "desde"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "for linked routes"
-msgstr "of associated routes"
+msgstr "de las rutas asociadas"
 
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
@@ -4673,9 +4677,9 @@ msgstr "Batazbesteko zailtasuna:"
 msgid "mediterranee"
 msgstr "Mediterráneo"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "menu"
-msgstr "menu"
+msgstr "menú"
 
 # [WARNING] needs_update
 msgid "meta_description"
@@ -4781,9 +4785,9 @@ msgstr "era askotakoak"
 msgid "mixed_rating"
 msgstr "Mixtoan zailtasuna:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "mobile version"
-msgstr "Mobile version"
+msgstr "Versión móvil"
 
 # [general comment]
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
@@ -5472,9 +5476,9 @@ msgstr "Azken egoerak mendian"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "recenter"
-msgstr "Recenter"
+msgstr "Centrar"
 
 msgid "region_name"
 msgstr "Eskualdeak"
@@ -6177,9 +6181,9 @@ msgstr "tiempo"
 
 # [general comment]
 # Version mobile - lien vers la version 'standard'
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "web version of the site"
-msgstr "Accès à la version classique du site"
+msgstr "Acceder a la versión clásica del sitio"
 
 # [WARNING] es translation used
 msgid "week"
@@ -6194,7 +6198,7 @@ msgid "whole list"
 msgstr "Usar los mismos criterios que en esta lista"
 
 # [general comment]
-# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
+# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN, IT & DE
 # 
 # [WARNING] es translation used
 msgid "widget generator help"
