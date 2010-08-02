@@ -1360,7 +1360,7 @@ msgid "No route matching your search?"
 msgstr "Your route isn't referenced? Maybe it is associated to another summit? If not, create a new route and then add your outing."
 
 msgid "No summit matching your search?"
-msgstr "No summit matches your search? Not even in another language? Create it and then add your route and only later add your outing."
+msgstr "No summit matches your search? Have you checked searching the summit name in another language?<br />If the summit is not yet inlcuded in the guidebook create it, add your route and just add your outing."
 
 msgid "Notice: associations will also be merged"
 msgstr "Note: links will also be transfered to the merged document"
@@ -1944,7 +1944,7 @@ msgid "Thanks for signing up. You should receive an email with your password soo
 msgstr "Thanks for signing up. You should receive an email with your password soon"
 
 msgid "Thanks for using Camptocamp.org!"
-msgstr "Thanks for using Camptocamp!"
+msgstr "Thanks for contributing to Camptocamp!"
 
 msgid "The Camptocamp.org team"
 msgstr "The Camptocamp team"
@@ -2712,9 +2712,9 @@ msgstr "<h3>Unregistered participants</h3>List of participants to the outing who
 msgid "_password_info"
 msgstr "<h3>Password</h3><em><u>At login</u>:</em><br />Enter your username for Camptocamp.org.<br />If you forgot your username and/or your password, you can ask for a new password by clicking on <em>forgot your password?</em>.<br /><br /><em><u>Personnal preferences</u>:</em><br />If you wish to modify your password, enter the new one. Otherwise, keep this field empty."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_pedestrian_access_info"
-msgstr "<h3>Pedestrian access</h3>Route for accessing a climbing site, a particular crag or a hut from the access point.<br />Indicate any relevant information on arrangements with private landowners."
+msgstr "<h3>Pedestrian access</h3>Route for accessing a climbing site, a particular crag or a hut from the access point.<br />Indicate any relevant information on arrangements with private landowners.<br /><br />For an accommodation in the valley: In case they are associated with an access, just describe how to get from the access point to the accommodation. Otherwise, describe the whole access."
 
 msgid "_phone_info"
 msgstr "<h3>Phone</h3>Hut's phone number."

@@ -2373,7 +2373,7 @@ msgid "_aid_rating_info"
 msgstr "<h3>Cotation escalade artificielle</h3>Cotation des difficultés d'escalade artificielle.<br />La cotation artif correspond à la difficulté maximale de l'escalade artificielle rocheuse, c'est à dire l'escalade consistant à utiliser des points d'aide pour progresser sur un passage donné.<br />L'échelle va de A0 à A6.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/131454/fr\">cotations en artif</a>."
 
 msgid "_area_type_info"
-msgstr "<h3>Type de région</h3>Type de la région&nbsp;: massif montagneux, région administrative ou pays."
+msgstr "<h3>Type de région</h3>Type de la région&nbsp;: massif montagneux, région administrative ou pay."
 
 msgid "_article_type_info"
 msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <em>encyclopédie</em> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <em>récit</em>."
@@ -3714,7 +3714,7 @@ msgid "file"
 msgstr "Fichier&nbsp;:"
 
 msgid "file cannot contain scripts"
-msgstr "Les fichiers SVG ne doivent pas contenir de scripts"
+msgstr "Les fichiers SVG ne doivent pas contenir des scripts"
 
 msgid "file failed to upload"
 msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite de poids autorisée (2 Mo)"
