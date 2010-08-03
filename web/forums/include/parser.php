@@ -828,12 +828,19 @@ function do_video($text)
         );
 
         $replacements = array(
-            '<object width="$2" height="$3"><param name="movie" value="http://www.youtube.com/v/$5&amp;fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/$5&amp;fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
+            // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html TODO Possibility to use <object> instead of <iframe>?
+            '<iframe class="youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$5" frameborder="0"></iframe>',
+            // dailymotion
             '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
+            // googlevideo
             '<object width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            // vimeo
             '<object width="$2" height="$3"><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=$5&amp;fullscreen=1"></param><param name="allowfullscreen" value="true"></param><embed src="http://vimeo.com/moogaloop.swf?clip_id=$5&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
+            // megavideo
             '<object width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            // metacafe
             '<object width="$2" height="$3"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf"></param><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            // sevenload
             '<object width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true"></param></param><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash"></embed></object>',
         );
 
