@@ -3977,7 +3977,7 @@ msgstr "Show and compare different versions of the document"
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 msgid "home_description"
-msgstr "It's a multi-language site dedicated to mountaineering, rock and ice climbing, ski-touring, snowshoeing and hiking. You'll find a <a href=\"http://www.camptocamp.org/articles/117868\">guidebook</a> with more than 18&nbsp;000 routes described, outings describing recent <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>, <a href=\"http://www.camptocamp.org/articles\">articles</a>, <a href=\"http://www.camptocamp.org/forums/?lang=en\">forums</a>, an <a href=\"http://www.camptocamp.org/images\">album</a>...<br />The website is a collaborative endeavour managed by a not-for-profit <a href=\"http://www.camptocamp.org/articles/106726\">organization</a> focusing on <a href=\"http://www.camptocamp.org/articles/106728\">free content</a>. Do not hesitate: <a href=\"http://www.camptocamp.org/signUp\">subscribe</a> (it's free) and start contributing!"
+msgstr "It's a multi-language site dedicated to mountaineering, rock and ice climbing, ski-touring, snowshoeing and hiking. You'll find a <a href=\"http://www.camptocamp.org/articles/117868\">guidebook</a> with more than 19&nbsp;000 routes described, outings describing recent <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>, <a href=\"http://www.camptocamp.org/articles\">articles</a>, <a href=\"http://www.camptocamp.org/forums/?lang=en\">forums</a>, an <a href=\"http://www.camptocamp.org/images\">album</a>...<br />The website is a collaborative endeavour managed by a not-for-profit <a href=\"http://www.camptocamp.org/articles/106726\">organization</a> focusing on <a href=\"http://www.camptocamp.org/articles/106728\">free content</a>. Do not hesitate: <a href=\"http://www.camptocamp.org/signUp\">subscribe</a> (it's free) and start contributing!"
 
 msgid "home_welcome"
 msgstr "Welcome to camptocamp.org!"
@@ -5004,9 +5004,9 @@ msgstr "local products"
 msgid "product website"
 msgstr "Merchant's website"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "product_type"
-msgstr "Type de produits locaux&nbsp;:"
+msgstr "Type of local product:"
 
 # [WARNING] needs_review
 msgid "products"
@@ -5040,7 +5040,6 @@ msgstr "protect"
 msgid "protected from the rain"
 msgstr "protected from the rain"
 
-# [WARNING] fr translation used
 msgid "pub"
 msgstr "bar"
 
@@ -5326,7 +5325,7 @@ msgstr "<strong>Climbing site or particular crag:</strong> Both a site and a par
 
 # [general comment]
 # catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "site info"
 msgstr "help, website info"
 

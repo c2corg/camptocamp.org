@@ -5363,9 +5363,9 @@ msgstr "productos locales"
 msgid "product website"
 msgstr "Merchant's website"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "product_type"
-msgstr "Type de produits locaux&nbsp;:"
+msgstr "Type of local product:"
 
 # [WARNING] es translation used
 msgid "products"
@@ -5401,7 +5401,7 @@ msgstr "protegir"
 msgid "protected from the rain"
 msgstr "protegit de la pluja"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pub"
 msgstr "bar"
 
