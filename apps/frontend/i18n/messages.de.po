@@ -2551,7 +2551,7 @@ msgstr "<h3>Datum und Zeit</h3>Das Datum and die Uhrzeit, wann das Bild aufgenom
 
 # [WARNING] needs_review
 msgid "_description_info"
-msgstr "<h3>Beschreibung</h3>Textteil des Dokuments. Für den Tourenführer gelten die folgendenRegeln:<br /><br /><strong>Textstruktur</strong>:<br />Der Text kann mittels Untertitel in verschiedene Abschnitteuntergliedert werden. Bilder aus Alben können dem Text hinzugefügtwerden. Mehr Informationen hierzu in der <ahref=\"../../articles/151910/fr\">Hilfe</a>.<br /><br /><strong>Himmelsrichtungen</strong>:<br />Sämtliche Angaben von Himmelsrichtungen erfolgen in den internationalenBezeichnungen der Himmelsrichtungen in Grossbuchstaben: N , E , S , W ,NW , NE , SW , SE. Die einzige Ausnahme sind Gipfelnamen: \"Nordend\",\"Osteggpfeiler\", oder \"Südlicher Tiefensattel\" können anstelle von\"Nend\", \"Oeggpfeiler\", oder\"S Tiefensattel\" verwendet werden. <br /><br /><br /><strong>Nummerische Daten und physische Mengen</strong>:<br />Im Tourenführer werden nummerische Daten wenn möglich mit Nummerngeschrieben. Die Einheiten werden mit ihrer gebräuchlichen Abkürzungbezeichnet:<br />- m , km: Meter , Kilometer<br />- h , mn , s: Stunde, Minute, Sekunde<br />- m/h , km/h: Meter pro Stunde, Kilometer pro Stunde<br />- kg: kilogram<br />- °C: Grad Celsius<br />- °: Neigung in Grad<br />Die Nummern und die Einheiten werden nicht durch einen Leerschlaggetrennt, um zu vermeiden, dass darin ein Zeilenumbruch erzwungen wird:100m und nicht 100 Meter, einhundert Meter, oder 100 m; -15°C und nicht- 15°C."
+msgstr "<h3>Beschreibung</h3>Textteil des Dokuments. Für den Tourenführer gelten die folgendenRegeln:<br /><br /><strong>Textstruktur</strong>:<br />Der Text kann mittels Untertitel in verschiedene Abschnitteuntergliedert werden. Bilder aus Alben können dem Text hinzugefügtwerden. Mehr Informationen hierzu in der <ahref=\"../../articles/151910/fr\">Hilfe</a>.<br /><br /><strong>Himmelsrichtungen</strong>:<br />Sämtliche Angaben von Himmelsrichtungen erfolgen in den internationalenBezeichnungen der Himmelsrichtungen in Grossbuchstaben: N , E , S , W ,NW , NE , SW , SE. Die einzige Ausnahme sind Gipfelnamen: \"Nordend\", \"Osteggpfeiler\", oder \"Südlicher Tiefensattel\" können anstelle von\"Nend\", \"Oeggpfeiler\", oder\"S Tiefensattel\" verwendet werden. <br /><br /><br /><strong>Nummerische Daten und physische Mengen</strong>:<br />Im Tourenführer werden nummerische Daten wenn möglich mit Nummerngeschrieben. Die Einheiten werden mit ihrer gebräuchlichen Abkürzung bezeichnet:<br />- m , km: Meter , Kilometer<br />- h , mn , s: Stunde, Minute, Sekunde<br />- m/h , km/h: Meter pro Stunde, Kilometer pro Stunde<br />- kg: kilogram<br />- °C: Grad Celsius<br />- °: Neigung in Grad<br />Die Nummern und die Einheiten werden nicht durch einen Leerschlag getrennt, um zu vermeiden, dass zwischen Nummer und Einheit ein Zeilenumbruch erzwungen wird: 100m und nicht 100 Meter, einhundert Meter, oder 100 m; -15°C und nicht- 15°C."
 
 # [WARNING] needs_review
 msgid "_difficulties_height_info"
@@ -6174,7 +6174,7 @@ msgid "translate"
 msgstr "Mit Google übersetzen"
 
 msgid "traverse"
-msgstr "Durchquerung"
+msgstr "Überschreitung"
 
 msgid "type route name here"
 msgstr "Geben Sie den Namen der neuen Route ein"
