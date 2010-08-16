@@ -72,6 +72,15 @@ msgstr "No se puede asociar un documento asimismo"
 msgid "A new password has been asked for your account."
 msgstr "Has demanat la creació d'una nova contrasenya pel teu compte Camptocamp.org. Ja pots identificar-te utilitzant les següents dades de connexió."
 
+msgid "AD"
+msgstr "AD"
+
+msgid "AD+"
+msgstr "AD+"
+
+msgid "AD-"
+msgstr "AD-"
+
 # [WARNING] es translation used
 msgid "Access point:"
 msgstr "Acceso:"
@@ -545,6 +554,15 @@ msgstr "Personalitzar"
 msgid "Customize the site"
 msgstr "Personalitzar segons les teves preferències"
 
+msgid "D"
+msgstr "D"
+
+msgid "D+"
+msgstr "D+"
+
+msgid "D-"
+msgstr "D-"
+
 msgid "Date"
 msgstr "Data"
 
@@ -662,6 +680,24 @@ msgstr "Fes un donatiu a Camptocamp Association"
 msgid "E"
 msgstr "E"
 
+msgid "ED"
+msgstr "ED"
+
+msgid "ED+"
+msgstr "ED+"
+
+msgid "ED-"
+msgstr "ED-"
+
+msgid "ED4"
+msgstr "ED4"
+
+msgid "ED5"
+msgstr "ED5"
+
+msgid "ED6"
+msgstr "ED6"
+
 msgid "Edit"
 msgstr "Modificar"
 
@@ -729,6 +765,11 @@ msgstr "Exporta:"
 
 msgid "Extract"
 msgstr "Extracte"
+
+# [general comment]
+# facile (cotation globale)
+msgid "F"
+msgstr "F"
 
 msgid "FAQ"
 msgstr "Preguntes més freqüents"
@@ -1471,6 +1512,17 @@ msgstr "Assistent de sortida "
 msgid "Outing not found"
 msgstr "La sortida no existeix"
 
+msgid "PD"
+msgstr "PD"
+
+msgid "PD+"
+msgstr "PD+"
+
+# [general comment]
+# peu difficile inf (cotation globale)
+msgid "PD-"
+msgstr "PD-"
+
 msgid "PM"
 msgstr "MP"
 
@@ -2045,6 +2097,15 @@ msgstr "Modificar la licencia"
 # [WARNING] es translation used
 msgid "Switch to collaborative license"
 msgstr "Pasar a licencia colaborativa"
+
+msgid "TD"
+msgstr "TD"
+
+msgid "TD+"
+msgstr "TD+"
+
+msgid "TD-"
+msgstr "TD-"
 
 msgid "Text only"
 msgstr "Només texts"
@@ -3257,6 +3318,9 @@ msgstr "<strong>Restricciones:</strong> Algunos tipos de contenido no están aut
 
 msgid "article_type"
 msgstr "Tipus d'article:"
+
+msgid "articles"
+msgstr "articles"
 
 msgid "articles list"
 msgstr "Llista d'articles"

@@ -73,6 +73,15 @@ msgstr "Dokumentu bat ezin da dokumentu berberari lotu"
 msgid "A new password has been asked for your account."
 msgstr "Pasa hitz berri bat eskatu da zure Camptocamp.org-eko konturako. Ondorengo koneksio datuak erabiliz konektatu zaitezke hemendik aurrera."
 
+msgid "AD"
+msgstr "AD"
+
+msgid "AD+"
+msgstr "AD+"
+
+msgid "AD-"
+msgstr "AD-"
+
 msgid "Access point:"
 msgstr "Abiagunea:"
 
@@ -542,6 +551,15 @@ msgstr "Pertsonalizatu / filtratu"
 msgid "Customize the site"
 msgstr "Web gunea zure gustura pertsonalizatu hizkuntza, ekintza edota eskualdeak aukeratuz"
 
+msgid "D"
+msgstr "D"
+
+msgid "D+"
+msgstr "D+"
+
+msgid "D-"
+msgstr "D-"
+
 msgid "Date"
 msgstr "Eguna"
 
@@ -663,6 +681,24 @@ msgstr "CamptoCamp elkarteari donazioa bat egin"
 msgid "E"
 msgstr "E"
 
+msgid "ED"
+msgstr "ED"
+
+msgid "ED+"
+msgstr "ED+"
+
+msgid "ED-"
+msgstr "ED-"
+
+msgid "ED4"
+msgstr "ED4"
+
+msgid "ED5"
+msgstr "ED5"
+
+msgid "ED6"
+msgstr "ED6"
+
 msgid "Edit"
 msgstr "Aldatu"
 
@@ -739,6 +775,11 @@ msgstr "Exportatu:"
 # [WARNING] es translation used
 msgid "Extract"
 msgstr "Extracto"
+
+# [general comment]
+# facile (cotation globale)
+msgid "F"
+msgstr "F"
 
 # [WARNING] es translation used
 msgid "FAQ"
@@ -1506,6 +1547,17 @@ msgstr "Irteera sortzeko laguntzailea"
 msgid "Outing not found"
 msgstr "Ez dago halako irteerarik."
 
+msgid "PD"
+msgstr "PD"
+
+msgid "PD+"
+msgstr "PD+"
+
+# [general comment]
+# peu difficile inf (cotation globale)
+msgid "PD-"
+msgstr "PD-"
+
 msgid "PM"
 msgstr "MP"
 
@@ -2081,6 +2133,15 @@ msgstr "Modificar la licencia"
 # [WARNING] es translation used
 msgid "Switch to collaborative license"
 msgstr "Pasar a licencia colaborativa"
+
+msgid "TD"
+msgstr "TD"
+
+msgid "TD+"
+msgstr "TD+"
+
+msgid "TD-"
+msgstr "TD-"
 
 msgid "Text only"
 msgstr "Testuak bakarrik"
@@ -3271,6 +3332,9 @@ msgstr "<strong>Restricciones:</strong> Algunos tipos de contenido no están aut
 
 msgid "article_type"
 msgstr "Artikulu mota:"
+
+msgid "articles"
+msgstr "artikuluak"
 
 msgid "articles list"
 msgstr "Artikulu zerrenda"

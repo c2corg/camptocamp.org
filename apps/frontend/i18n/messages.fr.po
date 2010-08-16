@@ -72,6 +72,15 @@ msgstr "Un document ne peut pas être associé à lui-même"
 msgid "A new password has been asked for your account."
 msgstr "La génération d'un nouveau mot de passe a été demandée pour votre compte Camptocamp.org. Vous pouvez à présent vous identifier en utilisant les informations de connexion ci dessous."
 
+msgid "AD"
+msgstr "AD"
+
+msgid "AD+"
+msgstr "AD+"
+
+msgid "AD-"
+msgstr "AD-"
+
 msgid "Access point:"
 msgstr "Accès&nbsp;:"
 
@@ -524,6 +533,15 @@ msgstr "Personnaliser / filtrer"
 msgid "Customize the site"
 msgstr "Personnaliser le site en sélectionnant : langues, activités, régions"
 
+msgid "D"
+msgstr "D"
+
+msgid "D+"
+msgstr "D+"
+
+msgid "D-"
+msgstr "D-"
+
 msgid "Date"
 msgstr "Date"
 
@@ -636,6 +654,24 @@ msgstr "Faire un don a Camptocamp Association"
 msgid "E"
 msgstr "E"
 
+msgid "ED"
+msgstr "ED"
+
+msgid "ED+"
+msgstr "ED+"
+
+msgid "ED-"
+msgstr "ED-"
+
+msgid "ED4"
+msgstr "ED4"
+
+msgid "ED5"
+msgstr "ED5"
+
+msgid "ED6"
+msgstr "ED6"
+
 msgid "Edit"
 msgstr "Modifier"
 
@@ -703,6 +739,11 @@ msgstr "Export&nbsp;:"
 
 msgid "Extract"
 msgstr "Extrait"
+
+# [general comment]
+# facile (cotation globale)
+msgid "F"
+msgstr "F"
 
 msgid "FAQ"
 msgstr "Foire Aux Questions"
@@ -1386,6 +1427,17 @@ msgstr "Assistant de création de sortie"
 msgid "Outing not found"
 msgstr "Cette sortie n'existe pas."
 
+msgid "PD"
+msgstr "PD"
+
+msgid "PD+"
+msgstr "PD+"
+
+# [general comment]
+# peu difficile inf (cotation globale)
+msgid "PD-"
+msgstr "PD-"
+
 msgid "PM"
 msgstr "MP"
 
@@ -1910,6 +1962,15 @@ msgstr "Changer la licence"
 
 msgid "Switch to collaborative license"
 msgstr "Passage en licence collaborative"
+
+msgid "TD"
+msgstr "TD"
+
+msgid "TD+"
+msgstr "TD+"
+
+msgid "TD-"
+msgstr "TD-"
 
 msgid "Text only"
 msgstr "Textes seuls"
@@ -2998,6 +3059,9 @@ msgstr "<strong>Restrictions&nbsp;:</strong> Certains types de contenu ne sont p
 
 msgid "article_type"
 msgstr "Type d'article&nbsp;:"
+
+msgid "articles"
+msgstr "articles"
 
 msgid "articles list"
 msgstr "Liste des articles"

@@ -18,7 +18,7 @@ msgid " loading..."
 msgstr " am laden..."
 
 msgid " to point location"
-msgstr " für die Lokalisierung. Um Schweizerkoordinaten umzurechnen, benützen sie dieses <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">Tool von Swisstopo</a>"
+msgstr " für die Lokalisierung. Um schweizerische Koordinaten umzurechnen, benützen sie dieses <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">Tool von Swisstopo</a>."
 
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
@@ -71,6 +71,15 @@ msgstr "Ein Dokument kann nicht mit sich selbst verbunden werden"
 msgid "A new password has been asked for your account."
 msgstr "Ein neues Passwort wurde für Ihr camptocamp.org-Profil angefordert. Sie können sich jetzt einloggen, indem sie die untenstehenden Anmeldedaten benutzen."
 
+msgid "AD"
+msgstr "ZS"
+
+msgid "AD+"
+msgstr "ZS+"
+
+msgid "AD-"
+msgstr "ZS-"
+
 msgid "Access point:"
 msgstr "Zugang:"
 
@@ -78,13 +87,13 @@ msgid "Activate map search"
 msgstr "Die Suche mit die Kartegrenzen begrenzen"
 
 msgid "Add"
-msgstr "Beifügen"
+msgstr "Hinzufügen"
 
 msgid "Add associated summit :"
 msgstr "Einen neuen Gipfel erstellen:"
 
 msgid "Add your outing"
-msgstr "Ihre Tour beifügen"
+msgstr "Ihre Tour hinzufügen"
 
 msgid "Add your route"
 msgstr "Eine Route hinzufügen"
@@ -173,8 +182,9 @@ msgstr "Dieser Artikel ist schreibgeschützt "
 msgid "Article not found"
 msgstr "Dieser Artikel konnte nicht gefunden werden."
 
+# [WARNING] needs_review
 msgid "Articles"
-msgstr "Beiträge"
+msgstr "Artikel"
 
 msgid "Associate new outing"
 msgstr "Eine neue Tour zu dieser Route hinzufügen "
@@ -265,7 +275,7 @@ msgid "Back to outings list"
 msgstr "Zurück zur Tourenliste"
 
 msgid "Back to parkings list"
-msgstr "Zurück zur Zufahrtenliste"
+msgstr "Zurück zur Liste der Zugangsorte"
 
 msgid "Back to portals list"
 msgstr "Zurück zur Portalliste"
@@ -369,7 +379,7 @@ msgid "Comment:"
 msgstr "Kommentar:"
 
 msgid "Comments"
-msgstr "Kommentieren"
+msgstr "Kommentare"
 
 msgid "Compare"
 msgstr "Die ausgewählten Fassungen vergleichen"
@@ -429,13 +439,13 @@ msgid "Create it!"
 msgstr "Erstelle ihn!"
 
 msgid "Create new areas"
-msgstr "Region beifügen"
+msgstr "Region hinzufügen"
 
 msgid "Create new articles"
 msgstr "Einen Artikel hinzufügen"
 
 msgid "Create new books"
-msgstr "Buch beifügen"
+msgstr "Buch hinzufügen"
 
 msgid "Create new huts"
 msgstr "Eine Hütte hinzufügen"
@@ -463,16 +473,16 @@ msgid "Create new products"
 msgstr "Hinzufügen eines Dokuments \"lokales Produkt\""
 
 msgid "Create new routes"
-msgstr "Route beifügen"
+msgstr "Route hinzufügen"
 
 msgid "Create new sites"
-msgstr "Klettersektor beifügen"
+msgstr "Klettersektor hinzufügen"
 
 msgid "Create new summits"
-msgstr "Gipfel beifügen"
+msgstr "Gipfel hinzufügen"
 
 msgid "Creating new areas"
-msgstr "Eine neue Region gründen"
+msgstr "Eine neue Region erstellen"
 
 # [comment]
 # 
@@ -538,6 +548,15 @@ msgstr "Personalisieren / filtern"
 
 msgid "Customize the site"
 msgstr "Die Website nach Ihren Wünschen personalisieren: Sprache, Aktivität, Region "
+
+msgid "D"
+msgstr "S"
+
+msgid "D+"
+msgstr "S+"
+
+msgid "D-"
+msgstr "S-"
 
 msgid "Date"
 msgstr "Datum"
@@ -653,6 +672,24 @@ msgstr "Eine Spende an den Camptocamp-Verein machen"
 msgid "E"
 msgstr "O"
 
+msgid "ED"
+msgstr "AS"
+
+msgid "ED+"
+msgstr "AS+"
+
+msgid "ED-"
+msgstr "AS-"
+
+msgid "ED4"
+msgstr "AS4"
+
+msgid "ED5"
+msgstr "AS5"
+
+msgid "ED6"
+msgstr "AS6"
+
 msgid "Edit"
 msgstr "Ändern"
 
@@ -721,6 +758,11 @@ msgstr "Exportieren:"
 
 msgid "Extract"
 msgstr "Exzerpt"
+
+# [general comment]
+# facile (cotation globale)
+msgid "F"
+msgstr "L"
 
 msgid "FAQ"
 msgstr "Häufig gestellte Fragen"
@@ -899,7 +941,7 @@ msgid "Guidebook contribs:"
 msgstr "Beiträge im Tourenführer:"
 
 msgid "Guidebook help"
-msgstr "Hilfe des Tourenführer"
+msgstr "Hilfe zum Tourenführer"
 
 msgid "Has this outing really been done today?"
 msgstr "Wurde diese Tour wirklich heute gemacht?"
@@ -911,7 +953,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 msgid "History"
-msgstr "Fassungen"
+msgstr "Versionen"
 
 msgid "Home"
 msgstr "Startseite"
@@ -1427,6 +1469,17 @@ msgstr "Toureneingabessistent"
 msgid "Outing not found"
 msgstr "Diese Tour existiert nicht."
 
+msgid "PD"
+msgstr "WS"
+
+msgid "PD+"
+msgstr "WS+"
+
+# [general comment]
+# peu difficile inf (cotation globale)
+msgid "PD-"
+msgstr "WS-"
+
 msgid "PM"
 msgstr "PN"
 
@@ -1576,7 +1629,7 @@ msgid "Refresh the geoassociations of this document"
 msgstr "Die verknüpften Regionen (und Karten) diese Dokument und der 'Söhne'-Dokumente erneuern"
 
 msgid "Regions are detected automatically according to coordinates"
-msgstr "Die verknüpften Regionen werden automatisch durch die unterstehenden Koordinaten gefunden"
+msgstr "Die verknüpften Regionen werden automatisch durch die untenstehenden Koordinaten gefunden."
 
 msgid "Remember me ?"
 msgstr "Sich an mich erinnern?"
@@ -1677,7 +1730,7 @@ msgid "Search a outings"
 msgstr "Eine Tour suchen"
 
 msgid "Search a parkings"
-msgstr "Eine Zufahrt suchen"
+msgstr "Einen Zugangsort suchen"
 
 # [WARNING] needs_review
 msgid "Search a portals"
@@ -1760,7 +1813,7 @@ msgid "Show as a list"
 msgstr "In eine Liste anzeigen"
 
 msgid "Show conditions"
-msgstr "Die Verhältnissen anzeigen"
+msgstr "Die Verhältnisse anzeigen"
 
 msgid "Show differences between selected versions"
 msgstr "Unterschiede zwischen den ausgewählten Fassungen anzeigen"
@@ -1901,10 +1954,10 @@ msgid "Subscribe to latest outings from MetaEngine"
 msgstr "Sich an der MetaMotor-Tourenliste anmelden"
 
 msgid "Subscribe to latest parkings creations"
-msgstr "Die neusten Einträge von Zufahrten verfolgen"
+msgstr "Die neusten Einträge der Zugangsorte verfolgen"
 
 msgid "Subscribe to latest parkings editions"
-msgstr "Die letzten Änderungen von Zufahrten verfolgen"
+msgstr "Die letzten Änderungen der Zugangsorte verfolgen"
 
 # [WARNING] needs_review
 msgid "Subscribe to latest portals creations"
@@ -1983,6 +2036,15 @@ msgstr "Die Lizenz ändern"
 
 msgid "Switch to collaborative license"
 msgstr "In kollaborative Lizenz umstellen"
+
+msgid "TD"
+msgstr "SS"
+
+msgid "TD+"
+msgstr "SS+"
+
+msgid "TD-"
+msgstr "SS-"
 
 msgid "Text only"
 msgstr "Nur Text"
@@ -2430,7 +2492,7 @@ msgid "_access_info"
 msgstr "<h33>Zugang<h3>Beschreibung des Zugangs zu einem Verkaufspunkt eines lokalen Produkts.<br />Falls das Dokument mit einem Zugangspunkt (öV oder ind. Verkehr) verbunden ist, dann beschreiben sie nur den Zugang ab diesem Ort."
 
 msgid "_access_status_info"
-msgstr "<h3>Zugang</h3>Zustand der Zufahrtsstrasse am Tag der Tour: frei, Schnee bedeckt oder gesperrt.<br />Das Feld <i>Kommentar über den Strassenzugang oder die öV</i> erlaubt zusätzliche Bemerkungen einzutragen."
+msgstr "<h3>Zugang</h3>Zustand der Zufahrtsstrasse am Tag der Tour: geräumt, schneebedeckt oder gesperrt.<br />Im Feld <i>Kommentar zum Strassenzugang oder den öV</i> können zusätztliche Informationen eingetragen werden."
 
 msgid "_accommodation_info"
 msgstr "<h3>Unterkunft und Gaststättengewerbe in der Nähe</h3>Informationen über Ess-, Trink- und Schlafmöglichkeiten in der Nähe des Zuganges."
@@ -2564,7 +2626,7 @@ msgstr "<h3>Höhe, wo die Schwierigkeiten beginnen</h3>Einstiegshöhe der Route 
 
 # [WARNING] needs_review
 msgid "_document_type_info"
-msgstr "<h3>Art des Dokuments</h3>Es gibt folgende unterschiedliche Dokumententypen::<br />- Touren<br />- Routen<br />- Gipfel<br />- Zufahrten<br />- Hütten<br />- Klettersektoren<br />- Regionen<br />- Karten<br />- Bücher<br />- Bilder<br />- Beiträge<br />- Benutzer"
+msgstr "<h3>Art des Dokuments</h3>Es gibt folgende unterschiedliche Dokumententypen::<br />- Touren<br />- Routen<br />- Gipfel<br />- Zugangsorte<br />- Hütten<br />- Klettersektoren<br />- Regionen<br />- Karten<br />- Bücher<br />- Bilder<br />- Artikel<br />- Benutzer"
 
 # [WARNING] needs_review
 msgid "_down_snow_elevation_info"
@@ -2949,7 +3011,7 @@ msgstr "<h3>Passwort</h3><em><u>Beim Einloggen</u></em><br />Geben sie ihren Ben
 
 # [WARNING] needs_review
 msgid "_pedestrian_access_info"
-msgstr "<h3>Zugang zu Fuss</h3>Beschreibung des Zustiegs von einem Zugangsort zu einem Klettergebiet/-sektor.<br />Erläutern sie jegliche Abmachungen, welche mit den privaten  Landbesitzern getroffen wurden.<br /><br />Bei Herbergen: Falls diese mit einem Zufahrtsort (öV oder Auto) verbunden ist schildern sie lediglich den Zustieg zur Herberge ab dem Zufahrtsort. Ansonsten ist die gesamte Anreise zu beschreiben."
+msgstr "<h3>Zugang zu Fuss</h3>Beschreibung des Zustiegs von einem Zugangsort zu einem Klettergebiet/-sektor.<br />Erläutern sie jegliche Abmachungen, welche mit den privaten  Landbesitzern getroffen wurden.<br /><br />Bei Herbergen: Falls diese mit einem Zugangssort (öV oder Auto) verbunden ist schildern sie lediglich den Zustieg zur Herberge ab dem Zugangssort. Ansonsten ist die gesamte Anreise zu beschreiben."
 
 # [WARNING] needs_review
 msgid "_phone_info"
@@ -3043,7 +3105,7 @@ msgstr "<h3>Kartenmassstab</h3>Massstab der Landeskarte"
 
 # [WARNING] needs_review
 msgid "_shelter_type_info"
-msgstr "<h3>Typ der Unterkunft</h3> Es werden folgende Arten von Unterkünften unterschieden:<br /><br /><strong>Hütte</strong>Gebäude mit permanenter Struktur, welche vollständig vor Wind und Niederschlag schützt. Eine Hütte kann bewartet, unbewartet oder typischerweise nur während gewisser Zeiträume bewartet sein.<br /><br /><strong>Herberge</strong>: Einfache Unterkunft im Dorf, am Tourenanfang, oder ein Etappenort. Eine Herberge ist ein einfaches Hotel, welches von Personal geführt wird, Zimmer und zumeist Mahlzeiten anbietet. Zumeist sind Herbergen verkehrstechnisch gut erschlossen.<br /><br /><strong>Biwak oder Schutzhütte</strong>: Entweder ein Gebäude mit permanenter Struktur oder ein eingerichteter Ort unter Felsen, wenig komfortabel für einen längeren Aufenthalt<br /><br /><strong>Biwakplatz</strong>: Dauerhaft eingerichteter Platz, welcher sich zum biwakieren (ohne Zelt) oder campieren (mit Zelt) eignet. Ein Biwakplatz ist flach (natürlicherweise oder terrassiert) und etvl. durch Mauern vom Wind etwas geschützt.<br />Eine sogenannte “Biwakschachtel” oder “italienisches Biwak” (Metallcontainer) ist entweder als “Hütte” oder als “Biwak oder Schutzhütte” zu klassifizieren.<br /><br /><strong>Basislager</strong>: Platz, welcher üblicherweise regelmäsig als Ausgangspunkt für längere Touren mit Nachschublogistik (Basislager) verwendet wird. Kann Gebäude oder Einrichtungen enthalten, welche nicht zum Übernachten dienen (z.B. Toiletten, etc.)"
+msgstr "<h3>Typ der Unterkunft</h3> Es werden folgende Arten von Unterkünften unterschieden:<br /><br /><strong>Hütte: </strong>Gebäude mit permanenter Struktur, welche vollständig vor Wind und Niederschlag schützt. Eine Hütte kann bewartet, unbewartet oder typischerweise nur während gewisser Zeiträume bewartet sein.<br /><br /><strong>Herberge</strong>: Einfache Unterkunft im Dorf, am Tourenanfang, oder ein Etappenort. Eine Herberge ist ein einfaches Hotel, welches von Personal geführt wird, Zimmer und zumeist Mahlzeiten anbietet. Zumeist sind Herbergen verkehrstechnisch gut erschlossen.<br /><br /><strong>Biwak oder Schutzhütte</strong>: Entweder ein Gebäude mit permanenter Struktur oder ein eingerichteter Ort unter Felsen, wenig komfortabel für einen längeren Aufenthalt<br /><br /><strong>Biwakplatz</strong>: Dauerhaft eingerichteter Platz, welcher sich zum biwakieren (ohne Zelt) oder campieren (mit Zelt) eignet. Ein Biwakplatz ist flach (natürlicherweise oder terrassiert) und etvl. durch Mauern vom Wind etwas geschützt.<br /><br /><strong>Basislager</strong>: Platz, welcher üblicherweise regelmäsig als Ausgangspunkt für längere Touren mit Nachschublogistik (Basislager) verwendet wird. Kann Gebäude oder Einrichtungen enthalten, welche nicht zum Übernachten dienen (z.B. Toiletten, etc.)<br /><br />Eine sogenannte “Biwakschachtel” oder “italienisches Biwak” (Metallcontainer) ist entweder als “Hütte” oder als “Biwak oder Schutzhütte” zu klassifizieren."
 
 # [WARNING] needs_review
 msgid "_site_history_info"
@@ -3183,7 +3245,7 @@ msgid "access_status"
 msgstr "Zugang:"
 
 msgid "accommodation"
-msgstr "Unterkunft und Restauration in der Nähe:"
+msgstr "Unterkunft und Verpflegung in der Nähe:"
 
 msgid "action"
 msgstr "Aktionen"
@@ -3351,6 +3413,10 @@ msgstr "<strong>Einschränkungen:</strong>Während gewisse Inhalte in Artikeln n
 msgid "article_type"
 msgstr "Artikeltyp:"
 
+# [WARNING] needs_review
+msgid "articles"
+msgstr "Artikel"
+
 msgid "articles list"
 msgstr "Liste der Artikel"
 
@@ -3391,7 +3457,7 @@ msgid "avalanche.en ML title"
 msgstr "Schweiz (englisch)"
 
 msgid "awful conditions"
-msgstr "furchtbare "
+msgstr "furchtbar"
 
 msgid "b button title"
 msgstr "Den ausgewählten Text fett schreiben "
@@ -3820,10 +3886,8 @@ msgstr "Konglomerat"
 msgid "contact"
 msgstr "Kontakt"
 
-# [comment]
-# vs
 msgid "content license"
-msgstr "Lizenz des Inhalt"
+msgstr "Lizenz des Inhalts"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3893,7 +3957,7 @@ msgid "date short"
 msgstr "Datum"
 
 msgid "date_time"
-msgstr "Datum Zeit:"
+msgstr "Datum und Zeit:"
 
 msgid "day"
 msgstr "Tag"
@@ -4004,7 +4068,7 @@ msgid "duration"
 msgstr "Dauer:"
 
 msgid "easy crossing"
-msgstr "Spalten nicht sichtbar - keine Probleme"
+msgstr "Spalten gut zugedeckt - keine Probleme"
 
 msgid "edit ?"
 msgstr "ändern?"
@@ -4078,7 +4142,7 @@ msgid "events"
 msgstr "Ereignisse"
 
 msgid "excellent conditions"
-msgstr "sehr gut "
+msgstr "hervorragend"
 
 msgid "expeditions"
 msgstr "Expeditionen und Fernreisen"
@@ -4266,7 +4330,7 @@ msgid "gneiss"
 msgstr "Gneis"
 
 msgid "good conditions"
-msgstr "gute "
+msgstr "gut"
 
 msgid "good equipment"
 msgstr "P1 (gut eingerichtet)"
@@ -4363,7 +4427,7 @@ msgstr "Verschiedene Versionen des Dokuments anzeigen und vergleichen"
 # etwas freiere Übersetzung um die Attraktivität der Einstiegsseite zu erhöhen.
 # [WARNING] needs_review
 msgid "home_description"
-msgstr "c2c ist ein mehrsprachiger Austauschort zum Alpinismus aller Spielarten wie z.B. Hochtouren, Klettern, Wandern, Skitouren, und Eisklettern. Stöbern sie im <a href=\"/articles/117868\">Tourenführer</a>, welcher mehr als 19&nbsp;000 Routen enhält, oder informieren sie sich über die <a href=\"/outings/conditions\">aktuellen Verhältnisse</a> der letzten Touren. Diskutieren sie im <a href=\"/forums/?lang=de\">Forum</a> mit, oder bestaunen sie Bilder eines <a href=\"/images\">Fotoalbums</a>.<br />c2c versteht sich als gemeinschaftlicher Ort und bevorzugt und fördert<a href=\"/articles/106728\">Copyright-freie Inhalte</a>. Zögern sie nicht und machen sie <a href=\"http://www.camptocamp.org/signUp\">mit</a>!"
+msgstr "c2c ist ein mehrsprachiger Austauschort zum Alpinismus aller Spielarten wie z.B. Hochtouren, Klettern, Wandern, Skitouren, und Eisklettern.<br /> Stöbern sie im <a href=\"/articles/117868\">Tourenführer</a>, welcher mehr als 19&nbsp;000 Routen enhält, oder informieren sie sich über die <a href=\"/outings/conditions\">aktuellen Verhältnisse</a> der letzten Touren. Diskutieren sie im <a href=\"/forums/?lang=de\">Forum</a> mit, oder bestaunen sie Bilder eines <a href=\"/images\">Fotoalbums</a>.<br />c2c versteht sich als gemeinschaftlicher Ort und bevorzugt und fördert <a href=\"/articles/106728\">Copyright-freie Inhalte</a>. Zögern sie nicht und machen sie <a href=\"http://www.camptocamp.org/signUp\">mit</a>!"
 
 msgid "home_welcome"
 msgstr "«Willkommen auf Camptocamp.org!»"
@@ -4438,7 +4502,7 @@ msgid "image_file"
 msgstr "Bilder:"
 
 msgid "image_new_version"
-msgstr "Neue Ausgabe des Bildes"
+msgstr "Neue Version des Bilds"
 
 msgid "image_type"
 msgstr "Bildtyp:"
@@ -4451,7 +4515,7 @@ msgstr "Liste der Bilder"
 
 # [WARNING] needs_review
 msgid "images presentation"
-msgstr "Ein Bild kann auf der Bilderseite mit einem oder mehreren Dokumenten verbunden werden. Um ein neues Bild, welche noch nicht zur Website hochgeladen wurde, einem Dokument hinzuzufügen, öffnen sie das Dokument und klicken sie “Bilder hinzufügen”."
+msgstr "Ein Bild kann auf der Bilderseite mit einem oder mehreren Dokumenten verbunden werden. Um ein neues Bild, welches noch nicht zur Website hochgeladen wurde, einem Dokument hinzuzufügen, öffnen sie das Dokument und klicken auf “Bilder hinzufügen”."
 
 msgid "img button title"
 msgstr "Ein Bild einfügen"
@@ -4614,9 +4678,8 @@ msgstr "Liftanlagen:"
 msgid "limousin"
 msgstr "Limousin"
 
-# [WARNING] needs_review
 msgid "link contributors in view page"
-msgstr "Die erste Linie des Felds wird auf derselben Linie wie die registrierten Benutzer angezeigt. Die folgenden Linien werden darunter angezeigt.<br />Registrierte camptocamp.org-Benutzer können der Tour direkt im Tourendokumenthinzugefügt werden. Dies erlaubt den registrierten Tourenteilnehmern die Tourenbeschreibung zu ändern, Bilder hinzuzufügen, und andere, registrierte Tourenteilnehmer hinzuzufügen."
+msgstr "Die erste Linie des Felds wird auf derselben Linie wie die registrierten Benutzer angezeigt. Die folgenden Linien werden darunter angezeigt.<br />Registrierte camptocamp.org-Benutzer können der Tour direkt im Tourendokument hinzugefügt werden. Dies erlaubt den registrierten Tourenteilnehmern die Tourenbeschreibung zu ändern, Bilder hinzuzufügen, und andere, registrierte Tourenteilnehmer hinzuzufügen."
 
 # [WARNING] needs_review
 msgid "local_product"
@@ -4682,7 +4745,7 @@ msgstr "Hier können sie einfach die Lizenzbedingugen ändern, unter welchen sie
 
 # [WARNING] needs_review
 msgid "mandatory_fields"
-msgstr "<strong>Plagiat:</strong> Kopieren sie keinen Text einer anderen Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt dies explizit.</li><li><strong>Himmelsrichtungen:</strong> Verwenden sie die internationalen Abkürzugenen der Himmelsrichtugen in Grossbuchstaben: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Kontextuelle Hilfe:</strong> Jedes Feld verfügt über eine Hilfe, welche sie darstellen können indem die den Titel anklicken.</li><li><strong>Formatieren des Texts:</strong> Der Text kann formatiert werden und mit Untertiteln gegliedert werden. Bilder können aus Alben hinzugefügt werden (<a href=\"/articles/151910/de\">Hilfe zu Bildern</a>.</li><li><strong>Pflichtfelder:</strong>Die Felder, welche mit einem Stern (*) gekennzeichnet sind, müssen ausgefüllt werden.</li><li><strong>Änderungen:</strong> Nach der Erstellung eines Dokuments, können Sie dies ändern indem Sie auf das Register \"Ändern\" (links) klicken. Verwenden sie während der Bearbeitung nicht den “Zurück”-Knopf ihres Browsers.</li><li><strong>Löschung eines Dokuments beantragen:</strong> Um die Löschung eines Dokuments durch die Moderatoren zu beantragen verwenden sie den Knopf “Ein Problem melden” im linken Menu.</li><li><strong>Fotos und Grafiken:</strong> Die Fotos und Grafiken können einem Dokument nach dessen Erstellung hinzugefügt werden. Dazu verwenden sie den Link <em>Bilder hinzufügen</em>)  in der Fusszeile des Dokuments. Um ein verkleinertes Bild dem Text hinzuzufügen, verwenden sie den <input type=\"button\" value=\"img\" />-Knop der Werkzeugleiste des Feldes. Ebenso können sie mit dem vorhandenen Code auf der Bildseite das Bild einem Dokument hinzufügen. Bilder müssen mit einem Dokument verbunden sein um sie einem Text hinzuzufügen. In gemeinschaftliche Dokumenten können ausschliesslich gemeinschaftliche Bilder hinzugefügt werden."
+msgstr "<strong>Plagiat:</strong> Kopieren sie keinen Text einer anderen Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt dies explizit.</li><li><strong>Himmelsrichtungen:</strong> Verwenden sie die internationalen Abkürzugenen der Himmelsrichtungen in Grossbuchstaben: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Kontextuelle Hilfe:</strong> Jedes Feld verfügt über eine Hilfe, welche sie darstellen können indem die den Titel anklicken.</li><li><strong>Formatieren des Texts:</strong> Der Text kann formatiert werden und mit Untertiteln gegliedert werden. Bilder können aus Alben hinzugefügt werden (<a href=\"/articles/151910/de\">Hilfe zu Bildern</a>.</li><li><strong>Pflichtfelder:</strong>Die Felder, welche mit einem Stern (*) gekennzeichnet sind, müssen ausgefüllt werden.</li><li><strong>Änderungen:</strong> Nach der Erstellung eines Dokuments, können Sie dies ändern indem Sie auf das Register \"Ändern\" (links) klicken. Verwenden sie während der Bearbeitung nicht den “Zurück”-Knopf ihres Browsers.</li><li><strong>Löschung eines Dokuments beantragen:</strong> Um die Löschung eines Dokuments durch die Moderatoren zu beantragen verwenden sie den Knopf “Ein Problem melden” im linken Menu.</li><li><strong>Fotos und Grafiken:</strong> Die Fotos und Grafiken können einem Dokument nach dessen Erstellung hinzugefügt werden. Dazu verwenden sie den Link <em>Bilder hinzufügen</em>)  in der Fusszeile des Dokuments. Um ein verkleinertes Bild dem Text hinzuzufügen, verwenden sie den <input type=\"button\" value=\"img\" />-Knop der Werkzeugleiste des Feldes. Ebenso können sie mit dem vorhandenen Code auf der Bildseite das Bild einem Dokument hinzufügen. Bilder müssen mit einem Dokument verbunden sein um sie einem Text hinzuzufügen. Gemeinschaftliche Dokumente können ausschliesslich gemeinschaftliche Bilder hinzugefügt werden."
 
 msgid "map"
 msgstr "Karte"
@@ -4783,7 +4846,7 @@ msgid "max_rating"
 msgstr "Maximaler Schwierigkeitsgrad:"
 
 msgid "mean conditions"
-msgstr "mittelmäßige "
+msgstr "mittelmäßig"
 
 msgid "mean track"
 msgstr "mittelmäßig"
@@ -5033,7 +5096,7 @@ msgid "next page"
 msgstr "nächste Seite"
 
 msgid "next parking"
-msgstr "Nächste Zufahrt"
+msgstr "Nächster Zugangsort"
 
 # [WARNING] needs_review
 msgid "next portal"
@@ -5204,7 +5267,7 @@ msgstr "Liste der Touren"
 
 # [WARNING] needs_review
 msgid "outings presentation"
-msgstr "Mit einem Tourendokument kann ein Benutzer die auf einer Route angetroffenen Verhältnisse zu beschreiben. Eine Tour muss mit einem oder mehreren Benutzern, und einer oder mehreren Routen oder Klettergebieten verbunden sein.<br /> Nur die mit einer Tour verbundenen Benutzer können an dieser Änderungen vornehmen."
+msgstr "In einem Tourendokument kann ein Benutzer die auf einer Route angetroffenen Verhältnisse beschreiben. Eine Tour muss mit einem oder mehreren Benutzern, und mit einer oder mehreren Routen oder Klettergebieten verbunden sein.<br /> Nur die mit einer Tour verbundenen Benutzer können an dieser Tour Änderungen vornehmen."
 
 msgid "outings using PT from this access point"
 msgstr "Die ab diesen Zugang mit öV gemachten Touren."
@@ -5244,13 +5307,13 @@ msgid "pan"
 msgstr "Die Karte verschieben"
 
 msgid "parking"
-msgstr "Zufahrt"
+msgstr "Zugangsort"
 
 msgid "parkings"
-msgstr "Zufahrten"
+msgstr "Zugangsorte"
 
 msgid "parkings list"
-msgstr "Liste der Zufahrten"
+msgstr "Liste der Zugangsorte"
 
 # [WARNING] needs_review
 msgid "parkings presentation"
@@ -5333,7 +5396,7 @@ msgid "poitou_charente"
 msgstr "Poitou-Charentes"
 
 msgid "poor conditions"
-msgstr "schlechte "
+msgstr "schlecht"
 
 msgid "poor service"
 msgstr "unzureichender Dienst"
@@ -5357,7 +5420,7 @@ msgid "portals presentation"
 msgstr "Ein Portal ist ein Einstiegsort für einen spezifischen Teil eines Tourenführers oder eines Forums."
 
 msgid "possible crossing"
-msgstr "delikat - Durchgang möglich"
+msgstr "Brücken unsicher - heikel"
 
 msgid "posts"
 msgstr "Beitr&auml;ge"
@@ -5567,7 +5630,7 @@ msgid "ratings"
 msgstr "Schwierigkeitsgrad"
 
 msgid "recent conditions"
-msgstr "Akteulle Verhältnisse"
+msgstr "Aktuelle Verhältnisse"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
@@ -5638,7 +5701,7 @@ msgid "rise pic"
 msgstr "Aufstieg"
 
 msgid "road access"
-msgstr "Straßenzufahrt:"
+msgstr "Straßenzugang:"
 
 # [WARNING] needs_review
 msgid "rock_climbing"
@@ -5799,7 +5862,7 @@ msgid "shelter"
 msgstr "Notunterkunft"
 
 msgid "shelter_type"
-msgstr "Art der Notunterkunft:"
+msgstr "Art der Unterkunft:"
 
 # [WARNING] needs_review
 msgid "show conditions of the outings"
@@ -5822,11 +5885,8 @@ msgstr "<strong>Klettergebiet oder ein bestimmter Klettersektor:</strong> Sowohl
 
 # [general comment]
 # catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
-# [comment]
-# vs
-# [WARNING] needs_review
 msgid "site info"
-msgstr "Hilfe, Infromationen zur Website"
+msgstr "Hilfe und Informationen zur Website"
 
 msgid "site supported by:"
 msgstr "Diese Website wurde entwickelt mit der Unterstützung von:"
@@ -5884,7 +5944,7 @@ msgid "skiabilite02"
 msgstr "sehr wild (Stufen, Verengungen, Grate, etc.)"
 
 msgid "skitouring"
-msgstr "Skitouren, Snowboard, Schneeschuhe"
+msgstr "Ski-, Snow-, Schneeschuhtouren"
 
 msgid "slab"
 msgstr "Platte"
@@ -5914,7 +5974,7 @@ msgstr "Schneeräumungszustand:"
 
 # [WARNING] needs_review
 msgid "snow_ice_mixed"
-msgstr "Schnee-, Eis-, kombinierte Kletterei "
+msgstr "Hochtouren"
 
 msgid "snowboard"
 msgstr "Snowboard"
@@ -6025,29 +6085,24 @@ msgstr "Schweizerische Koordinaten:"
 msgid "switch_off_activity_personalisation"
 msgstr "Das personalisierte Filtern auf diese Aktivität aufheben"
 
-# [WARNING] needs_review
 msgid "switch_to_hiking"
-msgstr "Nur wandern anzeigen"
+msgstr "Nur Wandern anzeigen"
 
-# [WARNING] needs_review
 msgid "switch_to_ice_climbing"
 msgstr "Nur Eisklettern anzeigen"
 
 # [WARNING] needs_review
 msgid "switch_to_mountain_climbing"
-msgstr "Nur alpines Felsklettern anzeigen"
+msgstr "Nur Alpinklettern anzeigen"
 
-# [WARNING] needs_review
 msgid "switch_to_rock_climbing"
-msgstr "Nur Felsklettern anzeigen"
+msgstr "Nur Sportklettern anzeigen"
 
-# [WARNING] needs_review
 msgid "switch_to_skitouring"
-msgstr "Nur Skisport anzeigen (Ski-, Snowboard- und Schneeschuhtouren)"
+msgstr "Nur Ski-, Snowboard- und Schneeschuhtouren anzeigen"
 
-# [WARNING] needs_review
 msgid "switch_to_snow_ice_mixed"
-msgstr "Nur Gletscher-, Eis- und kombinierte Touren anzeigen"
+msgstr "Nur Hochtouren anzeigen"
 
 msgid "technics"
 msgstr "Technik"
@@ -6190,7 +6245,7 @@ msgid "unselect dropdown tip"
 msgstr "Um eine Auswahl rückgängig zu machen oder mehrere Einträge auszuwählen, drücken sie die Taste \"Strg\" (\"Cmd\" bei Apple) und klicken Sie auf die Einträge Ihrer Wahl."
 
 msgid "unstaffed_capacity"
-msgstr "Zahl der Plätze außerhalb der bewirtschafteten Zeit:"
+msgstr "Platzanzahl außerhalb der bewirtschafteten Zeit:"
 
 msgid "unstaffed_capacity short"
 msgstr "Winter"
