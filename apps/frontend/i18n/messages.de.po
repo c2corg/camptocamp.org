@@ -245,7 +245,7 @@ msgid "Back to areas list"
 msgstr "Zurück zur Regionenliste"
 
 msgid "Back to articles list"
-msgstr "Zurück zur Beiträgeliste"
+msgstr "Zurück zur Artikelliste"
 
 msgid "Back to books list"
 msgstr "Zurück zur Bücherliste"
@@ -323,7 +323,7 @@ msgid "Camptocamp on Twitter"
 msgstr "Camptocamp auf Twitter"
 
 msgid "Camptocamp-Association"
-msgstr "Der Camptocamp-Verband"
+msgstr "Camptocamp-Verein"
 
 msgid "Camptocamp.org is about:"
 msgstr "Einige Zahlen"
@@ -5898,7 +5898,7 @@ msgid "site_types"
 msgstr "Art des Klettersektors:"
 
 msgid "sites"
-msgstr "Klettergebiete (Klettergärten,-hallen, Bouldern)"
+msgstr "Klettergärten, -hallen, Boulderngebiete"
 
 msgid "sites list"
 msgstr "Liste der Klettergebiete (Klettergärten, -hallen, Bouldern)"
