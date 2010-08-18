@@ -1273,8 +1273,8 @@ class sfPunBBCodeParser
                 '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
                 // googlevideo
                 '<object width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
-                // vimeo
-                '<object width="$2" height="$3"><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=$5&amp;fullscreen=1"></param><param name="allowfullscreen" value="true"></param><embed src="http://vimeo.com/moogaloop.swf?clip_id=$5&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
+                // vimeo - This version should support iPhone, Flash, HTML5 etc TODO Possibility to use <object> instead of <iframe>?
+                '<iframe src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3" frameborder="0"></iframe>',
                 // megavideo
                 '<object width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
                 // metacafe
