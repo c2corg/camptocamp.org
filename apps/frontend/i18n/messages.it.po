@@ -676,6 +676,11 @@ msgstr "ED5"
 msgid "ED6"
 msgstr "ED6"
 
+# [general comment]
+# Cotation globale : niveau ED7
+msgid "ED7"
+msgstr "ED7"
+
 msgid "Edit"
 msgstr "Modifica"
 
@@ -2586,8 +2591,7 @@ msgid "_glacier_status_info"
 msgstr "<h3>Ghiacciaio</h3>Stato del ghiaccio percorso lungo l'itinerario: chiuso – passaggio facile, delicato - passaggio possibile, aperto - passaggio difficile, insuperabile - passaggio impossibile.<br />Il campo <i>Condizioni incontrate</i> permette di dare informazioni supplementari."
 
 # [general comment]
-# Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
-# Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
+# Aide contextuelle sur la cotation globale.
 msgid "_global_rating_info"
 msgstr "<h3>Valutazione globale alpinistica</h3>La valutazione globale alpinistica rappresenta anzitutto le difficoltà massimale incontrate e la continuità delle difficoltà. Tiene anche conto della quota e della lunghezza dell'itinerario.<br /> La scala va da F (facile) a ED (estremamente difficile). L'ultimo grado è aperto: ED- o ED1, ED o ED2, ED+ o ED3, e poi ED4, ED5, ED6, ED7... <br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/188413\">gradi di difficoltà in roccia</a>."
 
@@ -2668,8 +2672,10 @@ msgstr "<h3>Sensibilità</h3>Sensibilità ISO della foto.<br />Questa informazio
 msgid "_issn_info"
 msgstr "<h3>ISSN</h3>ISSN number of the newspaper or magazine"
 
+# [general comment]
+# Aide contextuelle sur la cotation globale ski.
 msgid "_labande_global_rating_info"
-msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino a ED (estremamente difficile). L'ultimo grado è aperto: ED- o ED1, ED o ED2, ED+ o ED3, e poi ED4, ED5, ED6, ED7...<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_labande_ski_rating_info"
 msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili con tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da 40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675/it\">valutazione delle difficoltà in sci, surf, ciaspole</a>."

@@ -699,6 +699,11 @@ msgstr "ED5"
 msgid "ED6"
 msgstr "ED6"
 
+# [general comment]
+# Cotation globale : niveau ED7
+msgid "ED7"
+msgstr "ED7"
+
 msgid "Edit"
 msgstr "Aldatu"
 
@@ -2769,8 +2774,7 @@ msgid "_glacier_status_info"
 msgstr "<h3>Glaziarrea</h3>Ibilbideak pasatzen dituen glaziareen egoera: ondo itxia eta errez gainditzen da, irekia, zailtasunez gainditzen da, edo ezinezkoa da gainditzea.<br /> <i>Aurkitutako egoera</i> eremuan informazio osagarriak gehitu daitezke."
 
 # [general comment]
-# Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
-# Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
+# Aide contextuelle sur la cotation globale.
 msgid "_global_rating_info"
 msgstr "<h3>Alpinismoko zailtasun orokorra</h3>Alpinismoko zailtasun orokorrak alde batetik zailtasun maximoak eta bestalde zailtasunen jarraitasuna akotatzen du. Ibilbidearen luzera eta altitudea ere kontuan hartzen ditu. <br /> Eskala F-tik (erreza) ED-ra (\"extrêmement difficile\"). Azken gradua irekia da, adibidez: ED- edo ED1, ED edo ED2, ED+ edo ED3, hortik aurrera ED4, ED5, ED6, ED7,...<br /><br />Zehazpen gehiago <a href=\"/articles/188413/eu\">zailtasun orokorra</a> artikuluan begiratu."
 
@@ -2855,6 +2859,8 @@ msgstr "<h3>Sensibilitatea</h3>ISO sensibilitatea argazkia hartzerakoan.<br />In
 msgid "_issn_info"
 msgstr "<h3>ISSN</h3>Numero ISSN de la revista"
 
+# [general comment]
+# Aide contextuelle sur la cotation globale ski.
 msgid "_labande_global_rating_info"
 msgstr "<h3>Eski zailtasun globala</h3>Eski ibilbide baten zailtasun globala akotatzen du (Labande).<br />Labanda eski zailtasun globala batasbesteko eski zailtasunen maila adierazten du. Bere barne altitudea eta gogortasuna hartzen ditu.<br /> Alpinismoko zailtasun global berbera erabiltzen du, F (erraza) eta ABO (Izurgarri zaila).<br /><br /><i><b>KONTUZ !</b> Eskirako zailtasuna da eta ez alpinismorako: korredore bat eskiekin beharbada D zailtasuna izan dezake, baina alpinismoan ez du PD-tik edo AD-tik pasatzen.</i>"
 

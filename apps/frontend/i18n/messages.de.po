@@ -522,7 +522,7 @@ msgid "Creating new routes"
 msgstr "Eine neue Route eintragen"
 
 msgid "Creating new sites"
-msgstr "Ein neuen Klettersektor eintragen"
+msgstr "Ein neues Klettergebiet eintragen"
 
 msgid "Creating new summits"
 msgstr "Ein neuen Gipfel eintragen"
@@ -689,6 +689,11 @@ msgstr "AS5"
 
 msgid "ED6"
 msgstr "AS6"
+
+# [general comment]
+# Cotation globale : niveau ED7
+msgid "ED7"
+msgstr "AS7"
 
 msgid "Edit"
 msgstr "Ändern"
@@ -2495,14 +2500,12 @@ msgid "_access_status_info"
 msgstr "<h3>Zugang</h3>Zustand der Zufahrtsstrasse am Tag der Tour: geräumt, schneebedeckt oder gesperrt.<br />Im Feld <i>Kommentar zum Strassenzugang oder den öV</i> können zusätztliche Informationen eingetragen werden."
 
 msgid "_accommodation_info"
-msgstr "<h3>Unterkunft und Gaststättengewerbe in der Nähe</h3>Informationen über Ess-, Trink- und Schlafmöglichkeiten in der Nähe des Zuganges."
+msgstr "<h3>Unterkunft und Verpflegung in der Nähe</h3>Informationen über Ess-, Trink- und Schlafmöglichkeiten in der Nähe des Zugangsorts."
 
-# [comment]
-# trad de mixte? Fels?
 # [WARNING] needs_review
 msgid "_activities_info"
-msgstr "<h3>Aktivitäten</h3>Aktivität Typ: Um die Bedeutung der Piktogramme zu kennen schieben Sie die Maus darüber.<br />Ein Dokument kann mit mehre Aktivitäten verbunden sein:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>Ski, Snowboard, Schneeschue</strong>&nbsp;: Ski-, Snowboard- und/oder Schneeschutouren<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>Bergsteigen Schnee, Eis, Fels</strong>&nbsp;: Bergsteigen auf Schnee, Eis und Fels im Hochgebirge<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>Klettern Hochgebirge </strong>&nbsp;: Alpinesklettern Mehrseillängen Routen im Hochgebirge eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>Klettern</strong>&nbsp;: Boulern, Ein- oder Mehrseillängen Routen in Felswänden eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>Eisklettern</strong>&nbsp;: Eisklettern ausserhalb des Hochgebirge, Dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Wandern</strong>&nbsp;: Wandern im Gebirge (und nicht im Flachland), auf markierte Wege oder nicht, oder ausserhalb<br /><br />\n"
-"Den unterschied zwischen den Aktivitäten <strong>Klettern</strong> und <strong>Klettern Hochgebirge</strong> machte sich hauptsächlich mit die Höhe des Gipfel der Route, aber nicht mit die Ausrüstung der Route. In Europa, gelten folgende Regeln: <br />- Höhe < 2100m : Klettern<br />- Höhe zwischen 2100m und 2400m : Klettern oder Kletterhochgebirge, aber hauptsächlich Klettern<br />- Höhe zwischen 2400m und 2700m : Klettern oder Kletterhochgebirge, aber hauptsächlich Klettern Hochgebirge<br />- Höhe > 2700m : Klettern Hochgebirge<br />Für eine Höhe zwischen 2100m und 2700m, beide Aktivitäten könne angewählt werden."
+msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren sie mit der Maus darüber.<br />Ein Dokument kann mit mehreren Aktivitäten verbunden sein:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>Ski-, Snowboard-, Schneeschuhtouren</strong>&nbsp;: Ski-, Snowboard- und/oder Schneeschutouren<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>Hochtouren</strong>&nbsp;: Bergsteigen auf Schnee, Eis, Geltscher und kombiniertem Gelände im Hochgebirge<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>Alpinklettern</strong>&nbsp;: Alpines Klettern von Mehrseillängen-Routen im Hochgebirge; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>Sportklettern</strong>&nbsp;: Bouldern, Ein- oder Mehrseillängen-Routen an Felswänden; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>Eisklettern</strong>&nbsp;: Eisklettern ausserhalb des Hochgebirges, Dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Wandern</strong>&nbsp;: Wandern im Gebirge (und nicht im Flachland); auf markierten Wege oder nicht<br /><br />\n"
+"Der Unterschied zwischen den Aktivitäten <strong>Sportklettern</strong> und <strong>Alpinklettern</strong> ist hauptsächlich die Höhe der Route, nicht aber die Einrichtung der Route. In Europa gelten folgenden Regeln: <br />- Höhe < 2100m : Sportklettern<br />- Höhe zwischen 2100m und 2400m : Sportklettern oder Alpinklettern, aber hauptsächlich Sportklettern<br />- Höhe zwischen 2400m und 2700m : Sportklettern oder Alpinklettern, aber hauptsächlich Alpinklettern<br />- Höhe > 2700m : Alpinklettern<br />Für eine Höhe zwischen 2100m und 2700m, können beide Aktivitäten gewählt werden."
 
 # [WARNING] needs_review
 msgid "_aid_rating_info"
@@ -2534,7 +2537,7 @@ msgid "_avalanche_bulletin_info"
 msgstr "<h3>Lawinenbulletin</h3>Link zum aktuellen Lawinenbulletin der Region des Dokuments.<br />Achtung: für eine Tour, es ist nicht den Bulletin am Tag am welchem die Tour gemacht würde."
 
 msgid "_best_periods_info"
-msgstr "<h3>Bessere Periode</h3>Liste der Monate in welcher das Klettern möglich ist. Die andere Monate sind geeignet oder sind verboten zum klettern. (Brandgefahr, Vogelschutz, ...)."
+msgstr "<h3>Geeignete Jahreszeit</h3>Liste der Monate, in welchen das Klettern möglich ist. Die anderen Monate sind nicht zum Klettern empfohlen oder es ist verboten in dieser Jahreszeit zu klettern (Brandgefahr, Vogelschutz, etc.)."
 
 msgid "_book_types_info"
 msgstr "<h3>Typ des Buches</h3>Typ des Buchs<br />Mehrere Typ können ausgewählt werden."
@@ -2567,9 +2570,8 @@ msgstr "<h3>Kategorie eines Beitrags</h3>\n"
 "<strong>Website-Info</strong>: Beiträge über die camptocamp.org-Website<br>\n"
 "<strong>Verein</strong>: Beiträge zum <em>camptocamp-Verein</em>"
 
-# [WARNING] needs_review
 msgid "_category_info"
-msgstr "<h3>Benutzerkategorie</h3>Mit diesem optionalen Feld kann der Benutzer einfacher gefunden werden, indem Suchabfragen nach Kategorien gemacht werden können. Dies ist besonders nützlich, wenn nach Clubs oder professionellen Fachleuten (Führer, Instruktoren) einer bestimmten Region (falls sie georeferenziert sind) gesucht wird.<br /><br /><strong>Amateur</strong>:Leute, welche zum Vergnügen in die Berge fahren und nicht zum beruflichen Erwerb. Die meisten Berggänger gehören in diese Kategorie.<strong>Profi</strong>: Leute, welche Bergsportaktivitäten im Rahmen der beruflichen Erwerbsarbeit nachgehen (Führer, Instruktoren) und entsprechend ausgebildet sind. Im Feld <em>Aktivitäten</em> können die beruflich angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Club oder Gruppe, welche Touren organisiert</strong>: Club oder eine Gruppe von Leuten, welche Bergsporttouren (Skitouren, Bergsteigen, Klettern, Wandern, etc) organisiert und durchführt. Im Feld <em>Aktivitäten</em> können die angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Andere Organisation</strong>: Öffentliche oder private Organisation, welche andere bergrelevante Aktivitäten als ein Club anbietet und durchführt, wie z.B. Bergrettung, Hüttenbetrieb, Nationalparkverwaltung, Wetterdienstleistungen, Touristeninformationen, Umweltfürsprache, etc."
+msgstr "<h3>Benutzerkategorie</h3>Mit diesem optionalen Feld kann der Benutzer einfacher gefunden werden, indem Suchabfragen nach Kategorien gemacht werden können. Dies ist besonders nützlich, wenn nach Clubs oder professionellen Fachleuten (Führer, Instruktoren) einer bestimmten Region (falls sie georeferenziert sind) gesucht wird.<br /><br /><strong>Amateur</strong>:Leute, welche zum Vergnügen in die Berge fahren und nicht zum beruflichen Erwerb. Die meisten Berggänger gehören in diese Kategorie.<br /><br /><strong>Profi</strong>: Leute, welche Bergsportaktivitäten im Rahmen der beruflichen Erwerbsarbeit nachgehen (Führer, Instruktoren) und entsprechend ausgebildet sind. Im Feld <em>Aktivitäten</em> können die beruflich angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Club oder Gruppe, welche Touren organisiert</strong>: Club oder eine Gruppe von Leuten, welche Bergsporttouren (Skitouren, Bergsteigen, Klettern, Wandern, etc) organisiert und durchführt. Im Feld <em>Aktivitäten</em> können die angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Andere Organisation</strong>: Öffentliche oder private Organisation, welche andere bergrelevante Aktivitäten als ein Club anbietet und durchführt, wie z.B. Bergrettung, Hüttenbetrieb, Nationalparkverwaltung, Wetterdienstleistungen, Touristeninformationen, Umweltfürsprache, etc."
 
 # [WARNING] needs_review
 msgid "_children_proof_info"
@@ -2611,9 +2613,8 @@ msgstr "<h3>Datum der Beobachtungen</h3>Datum an welchem die Tour gemacht wurde"
 msgid "_date_time_info"
 msgstr "<h3>Datum und Zeit</h3>Das Datum and die Uhrzeit, wann das Bild aufgenommen wurde.<br />Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds erzeugt. Mit einem Foto- oder Bildbearbeitungsprogram können sie diese Information entfernen, bevor sie das Bild hochladen. "
 
-# [WARNING] needs_review
 msgid "_description_info"
-msgstr "<h3>Beschreibung</h3>Textteil des Dokuments. Für den Tourenführer gelten die folgendenRegeln:<br /><br /><strong>Textstruktur</strong>:<br />Der Text kann mittels Untertitel in verschiedene Abschnitteuntergliedert werden. Bilder aus Alben können dem Text hinzugefügtwerden. Mehr Informationen hierzu in der <ahref=\"../../articles/151910/fr\">Hilfe</a>.<br /><br /><strong>Himmelsrichtungen</strong>:<br />Sämtliche Angaben von Himmelsrichtungen erfolgen in den internationalenBezeichnungen der Himmelsrichtungen in Grossbuchstaben: N , E , S , W ,NW , NE , SW , SE. Die einzige Ausnahme sind Gipfelnamen: \"Nordend\", \"Osteggpfeiler\", oder \"Südlicher Tiefensattel\" können anstelle von\"Nend\", \"Oeggpfeiler\", oder\"S Tiefensattel\" verwendet werden. <br /><br /><br /><strong>Nummerische Daten und physische Mengen</strong>:<br />Im Tourenführer werden nummerische Daten wenn möglich mit Nummerngeschrieben. Die Einheiten werden mit ihrer gebräuchlichen Abkürzung bezeichnet:<br />- m , km: Meter , Kilometer<br />- h , mn , s: Stunde, Minute, Sekunde<br />- m/h , km/h: Meter pro Stunde, Kilometer pro Stunde<br />- kg: kilogram<br />- °C: Grad Celsius<br />- °: Neigung in Grad<br />Die Nummern und die Einheiten werden nicht durch einen Leerschlag getrennt, um zu vermeiden, dass zwischen Nummer und Einheit ein Zeilenumbruch erzwungen wird: 100m und nicht 100 Meter, einhundert Meter, oder 100 m; -15°C und nicht- 15°C."
+msgstr "<h3>Beschreibung</h3>Textteil des Dokuments. Für den Tourenführer gelten die folgenden Regeln:<br /><br /><strong>Textstruktur</strong>:<br />Der Text kann mittels Untertitel in verschiedene Abschnitte untergliedert werden. Bilder aus Alben können dem Text hinzugefügt werden. Mehr Informationen hierzu in der <ahref=\"../../articles/151910/fr\">Hilfe</a>.<br /><br /><strong>Himmelsrichtungen</strong>:<br />Sämtliche Angaben von Himmelsrichtungen erfolgen in den internationalen Bezeichnungen der Himmelsrichtungen in Grossbuchstaben: N , E , S , W ,NW , NE , SW , SE.<br />Die einzige Ausnahme sind Gipfelnamen: \"Nordend\", \"Osteggpfeiler\", oder \"Südlicher Tiefensattel\" können anstelle von \"Nend\", \"Oeggpfeiler\", oder \"S Tiefensattel\" verwendet werden. <br /><br /><br /><strong>Nummerische Daten und physische Mengen</strong>:<br />Im Tourenführer werden nummerische Daten wenn möglich mit Nummern geschrieben. Die Einheiten werden mit ihrer gebräuchlichen Abkürzung bezeichnet:<br />- m , km: Meter , Kilometer<br />- h , mn , s: Stunde, Minute, Sekunde<br />- m/h , km/h: Meter pro Stunde, Kilometer pro Stunde<br />- kg: Kilogram<br />- °C: Grad Celsius<br />- °: Neigung in Grad<br />Die Nummern und die Einheiten werden nicht durch einen Leerschlag getrennt, um zu vermeiden, dass zwischen Nummer und Einheit ein Zeilenumbruch erzwungen wird: \"100m\" und nicht \"100 Meter\", \"einhundert Meter\", oder \"100 m\"; -15°C und nicht \"- 15°C\"."
 
 # [WARNING] needs_review
 msgid "_difficulties_height_info"
@@ -2749,14 +2750,12 @@ msgid "_glacier_status_info"
 msgstr "<h3>Gletscher</h3>Verhältnisse des auf der Tour begangenen Gletschers: gut eingeschneit und einfach zu begehen, offene Spalten aber passierbar, offene Spalten und schwierig zu begehen, oder unmöglich passierbar.<br />Im Feld<i>Bedingungen</i> können zusätzliche Informationen beigefügt werden."
 
 # [general comment]
-# Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
-# Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
+# Aide contextuelle sur la cotation globale.
 # [WARNING] needs_review
 msgid "_global_rating_info"
 msgstr "<h3>Bewertung der Schwierigkeiten von Hochtouren</h3>Die Skala zur Bewertung von Hochtouren beurteilt einerseits die\n"
 "vorhandenen Schwierigkeiten und andererseits wie anhaltend diese sind. Weiter fliessen die Höhe und die Länge einer Tour in die Beurteilung\n"
-"der Tour ein.<br /><br />Die Skala reicht von L (leicht), WS (wenig schwierig), ZS (ziemlich schwierig), S (schwierig), SS (sehr schwierig), AS (ausserordentlich schwierig) bis EX (extrem schwierig). Dabei können die Schwierigkeiten mit \"+\" und \"-\" abgestuft werden. Der letzte Schwierigkeitsgrad ist nach oben offen und wird wie folgt verwendet: ED- ou ED1, ED ou ED2, ED+ ou ED3, puis ED4, ED5, ED6, ED7,...<br /><br />Mehr Informationen zur Skala finden sie zur unter <a href=\"/articles/188413/de\">Bewertung von Hochtouren</a>\n"
-"."
+"der Tour ein.<br /><br />Die Skala reicht von L (leicht), WS (wenig schwierig), ZS (ziemlich schwierig), S (schwierig), SS (sehr schwierig) bis AS (ausserordentlich schwierig). Dabei können die Schwierigkeiten mit \"+\" und \"-\" abgestuft werden. Der letzte Schwierigkeitsgrad ist nach oben offen und wird wie folgt verwendet: AS- oder AS1, AS oder AS2, AS+ oder AS3, dann AS4, AS5, AS6, AS7,...<br /><br />Mehr Informationen zur Skala finden sie zur unter <a href=\"/articles/188413\">Bewertung von Hochtouren</a>."
 
 # [WARNING] needs_review
 msgid "_gps_data_info"
@@ -2864,7 +2863,7 @@ msgid "_is_profile_public_info"
 msgstr "<h3>Anonymen Besuchern den Zugang zu ihrer persönlichen Seiten erlauben</h3>Wenn sie dieses Kästchen aktivieren erlauben sie nicht angemeldeteten Besuchern auf ihrer persönlichen Seiten zuzugreifen. Ebenso erlauben sie damit Suchmaschinen auf ihre persönliche Seite zuzugreifen und dies zu indexieren.<br />Andernfalls können nur angemeldete Benutzer den Inhalt ihrer persönlichen Seite ansehen.<br />Ihre persönliche Seite enhält folgendes:<br />- einige Worte über sie selbst (optional)<br />- eine Liste ihrer Touren<br />- eine Liste ihrer Beiträge zum Tourenführer (Routen, Beiträge, etc.)<br />- eine Liste ihrer Bilder<br />- eine Liste ihrer Forenbeiträge"
 
 msgid "_is_staffed_info"
-msgstr "<h3>Bewirtet</h3>Weist das die Hütte ein Teil des Jahres bewirtet ist."
+msgstr "<h3>Bewartung</h3>Gibt an, ob die Hütten während eines Teil des Jahres bewirtschaftet ist."
 
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>ISBN Nummer des Buches."
@@ -2881,9 +2880,25 @@ msgstr "<h3>Empfindlichkeit</h3>Die eingestellte ISO-Empfindlichkeit während de
 msgid "_issn_info"
 msgstr "<h3>ISSN</h3>ISSN-Nummer der Zeitung oder Zeitschrift"
 
+# [general comment]
+# Aide contextuelle sur la cotation globale ski.
 # [WARNING] needs_review
 msgid "_labande_global_rating_info"
-msgstr "<h3>Globale Ski-Schwierigkeitsskala</h3> Bewertung der globalen Skischwierigkeiten (Labande).<br /> Die globale Ski-Schwierigkeitsskala bewertet die Gesamtschwierigkeit einer Route, die Konstanz der Schwierigkeiten, sowie die Höhe und die normale Dauer einer Route. <br /> <br /> Die verwendetet Skala ist dieselbe wie bei Alpintouren, welche von L (leicht) bis EX (extrem schwierig) reicht:<br /> <br /> <strong>F</strong>: leicht<br /> <br /> <strong>WS</strong>: wenig schwierig<br /> <br /> <strong>ZS</strong>: ziemlich schwierig<br /> <br /> <strong>S</strong>: schwierig<br /> <br /> <strong>SS</strong>: sehr schwierig<br /> <br /> AS: ausserordentlich schwierig<br /> <br /> <strong>EX</strong>: extrem schwierig<br /> <br /> <b>WARNUNG!</b> Obschon die globale Skiskala dieselben Schwierigkeitsbezeichnungen wie die Alpinskala verwendendt, <span style=\"font-style: italic;\">sind die beiden Skalen nicht gleichbedeutend</span>: Während z.B. ein Couloir mit den Skis als S bewertet wird, entspricht dasselbe Couloir nicht mehr als eine PD oder AD auf der Alpinskala.<br /> <br /> Für weitere Informationen siehe auch in der Hilfe zu <a href=\"/articles/107675/de\">Bewertungen von Ski-, Snowboard und Schneeschuhtouren.</a> "
+msgstr "<h3>Globale Ski-Schwierigkeitsskala</h3> Bewertung der globalen Skischwierigkeiten (Labande).<br />\n"
+"Die globale Ski-Schwierigkeitsskala bewertet die Gesamtschwierigkeit einer Route, die Konstanz der Schwierigkeiten, sowie die Höhe und die normale Dauer einer Route.<br />\n"
+"<br />\n"
+"Die verwendetet Skala ist dieselbe wie bei Alpintouren, welche von L (leicht) bis AS (ausserordentlich schwierig) reicht:<br /><br />\n"
+"<strong>L</strong>: leicht<br /><br />\n"
+"<strong>WS</strong>: wenig schwierig<br /><br />\n"
+"<strong>ZS</strong>: ziemlich schwierig<br /><br />\n"
+"<strong>S</strong>: schwierig<br /><br />\n"
+"<strong>SS</strong>: sehr schwierig<br /><br />\n"
+"<strong>AS</strong>: ausserordentlich schwierig<br />\n"
+"Der letzte Schwierigkeitsgrad ist nach oben offen und wird wie folgt verwendet: AS- oder AS1, AS oder AS2, AS+ oder AS3, dann AS4, AS5, AS6, AS7,...<br />\n"
+"<br />\n"
+"<b>WARNUNG!</b> Obschon die globale Skiskala dieselben Schwierigkeitsbezeichnungen wie die Alpinskala verwendendt, <span style=\"font-style: italic;\">sind die beiden Skalen nicht gleichbedeutend</span>: Während z.B. ein Couloir mit den Skis als S bewertet wird, entspricht dasselbe Couloir nicht mehr als eine WS oder ZS auf der Alpinskala.<br />\n"
+"<br />\n"
+"Für weitere Informationen siehe auch in der Hilfe zu <a href=\"/articles/107675\">Bewertungen von Ski-, Snowboard und Schneeschuhtouren.</a> "
 
 # [WARNING] needs_review
 msgid "_labande_ski_rating_info"
@@ -2918,9 +2933,8 @@ msgstr "<h3>Geografische Länge</h3>Geographische Länge eines Orts in Dezimalgr
 msgid "_lowest_elevation_info"
 msgstr "<h3>Minimale Höhe des Ausgangspunktes</h3>Minimale Höhe, welche ganzjährig zugänglich ist; korrespondiert üblicherweise mit Höhe der mechanischen Schneeräumung auf der Zugangsstrasse"
 
-# [WARNING] needs_review
 msgid "_maps_info_info"
-msgstr "<h3>Kartenmaterial</h3>Zusätzliches Kartenmaterial neben den schweizerischen Swisstopo und den französischen IGN-Karten.<br /><br />Geben sie die Quelle, den Namen und den Massstab der Kare an.<br />Falls es sich um mehrere Karten handelt, trennen sie diese mit einem doppelten Backslash (\\\\).<br /><br />Für einen in der Schweiz oder in Frankreich georeferenzierten Ort werden die Swisstopo und/oder IGN-Kartenblätter automatisch hinzugefügt. Folglich ist es bei diesen Orten nicht nicht notwendig die Karten manuell einzugeben."
+msgstr "<h3>Kartenmaterial</h3>Zusätzliches Kartenmaterial neben den schweizerischen Swisstopo und den französischen IGN-Karten.<br /><br />Geben sie die Quelle, den Namen und den Massstab der Kare an.<br />Falls es sich um mehrere Karten handelt, trennen sie diese mit einem doppelten Backslash (\\\\).<br /><br />Für einen in der Schweiz oder in Frankreich georeferenzierten Ort werden die Swisstopo und/oder IGN-Kartenblätter automatisch hinzugefügt. Folglich müssen sie bei Orten in der Schweiz und Frankreich das Kartenmaterial nicht manuell eingeben."
 
 # [WARNING] needs_review
 msgid "_max_elevation_info"
@@ -2975,7 +2989,7 @@ msgstr "<h3>Moderation</h3>: Falls der Benutzer Moderations-Status hat, bedeutet
 
 # [WARNING] needs_review
 msgid "_name_info"
-msgstr "<h3>Titel</h3>Name oder Titel eines Objekts oder Dokuments.<br /><br /><strong>Haupthimmelsrichtungen</strong>: In allen Dokumenten des Tourenführers werden die Haupthimmelsrichtungen in Grossbuchstaben gemäss den Abkürzungen der internationalen Bezeichnungen angegeben: N, E, S, W, NW, NE, SW, SE. Die einzige Ausnahme davon sind die Gipfelnamen: zum Beispiel Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Routenname</strong>:<br />- beinhaltet auschliesslich den Routennamen. Der Gipfelname wird mit dem Abschliessen der Änderung angezeigt.<br />- muss so neutral und undiskriminierend wie möglich sein.<br />-Sollte nach der Orientierung des Hangs, der Wand, Pfeiler oder Grat erfolgen, an welchem die Hauptschwierigkeiten der Route zu überwinden sind.<br />- Falls die Route einer bekannten Route mit einem Namen folgt, kann dieser Name verwendet werden.<br />- Der Routenname “Normalroute” oder “Normalweg sollte grundsätzlich vermieden werden, weil eine Gipfel mehrere Normalrouten (z.B. von zwei verschiedenen Tälern) haben kann und sogenannte Normalrouten im Verlauf der Saison ändern können. Falls “Normalroute” nichtsdestotrotz genannt wird, dann sollte dies in Klammern nach dem Namen erfolgen: S-Grat (Normalroute).<br /><br /><strong>Tourenname</strong>: Der Name kann frei gewählt werden. Standartmässig wird der Tourenname wie folgt erzeugt: <em>Gipfelname: Routenname</em>. Bei einer Veränderung oder Löschung des Gipfel- oder Routennamens wird der Tourenname aber nicht geändert."
+msgstr "<h3>Titel</h3>Name oder Titel eines Objekts oder Dokuments.<br /><br /><strong>Himmelsrichtungen</strong>: In allen Dokumenten des Tourenführers werden die Haupthimmelsrichtungen in Grossbuchstaben gemäss den Abkürzungen der internationalen Bezeichnungen angegeben: N, E, S, W, NW, NE, SW, SE. Die einzige Ausnahme davon sind die Gipfelnamen: zum Beispiel Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Routenname</strong>:<br />- beinhaltet auschliesslich den Routennamen. Der Gipfelname wird mit dem Abschliessen der Änderung angezeigt.<br />- muss so neutral und undiskriminierend wie möglich sein.<br />-Sollte nach der Orientierung des Hangs, der Wand, Pfeiler oder Grat erfolgen, an welchem die Hauptschwierigkeiten der Route zu überwinden sind.<br />- Falls die Route einer bekannten Route mit einem Namen folgt, kann dieser Name verwendet werden.<br />- Der Routenname “Normalroute” oder “Normalweg sollte grundsätzlich vermieden werden, weil eine Gipfel mehrere Normalrouten (z.B. von zwei verschiedenen Tälern) haben kann und sogenannte Normalrouten im Verlauf der Saison ändern können. Falls “Normalroute” nichtsdestotrotz genannt wird, dann sollte dies in Klammern nach dem Namen erfolgen: S-Grat (Normalroute).<br /><br /><strong>Tourenname</strong>: Der Name kann frei gewählt werden. Standartmässig wird der Tourenname wie folgt erzeugt: <em>\"Gipfelname: Routenname\"</em>. Bei einer Veränderung oder Löschung des Gipfel- oder Routennamens wird der Tourenname aber nicht angepasst."
 
 # [WARNING] needs_review
 msgid "_nb_pages_info"
@@ -3029,7 +3043,7 @@ msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Notwendige Info
 # Why not introduce a threshold for a reasonable walking distance - e.g. 30 or 60minutes walking?
 # [WARNING] needs_review
 msgid "_public_transportation_rating_info"
-msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Einfachheit der Erreichbarkeit mit öffentlichen Verkehrsmitteln, etvl. durch eine verhältnismässige Gehdistanz.<br />Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> können zusätzliche Informationen angegeben werden.<br /><br /><strong>Regelmässiger Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen und ganzjährig gewährleistet.<br /><br /><strong>Saisonale Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen gewährleistet, aber zu gewissen Jahreszeiten<br /><br /><strong>Eingeschränkte Erschliessung</strong>: Verbindungen nur während gewissen Tagen und eventuell nur während gewissen Jahreszeiten gewährleistet. Details zu der Erschliessung sollten im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> angegeben werden.<strong>Erschliessung in der Nähe</strong>:Der Ort ist nicht direkt erschlossen, kann aber mit einem verhältnismässigen Fussmarsch erreicht werden. Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> kann der Fussmarsch und die Haltestelle näher beschrieben werden.<br /><br /><strong>Keine Erschliessung</strong>: Keine Verbindung mit öffentlichen Verkehrsmitteln, d.h. der Ort kann mit öV nicht mit verhältnismässigem Aufwand erreicht werden."
+msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Einfachheit der Erreichbarkeit mit öffentlichen Verkehrsmitteln, etvl. durch eine verhältnismässige Gehdistanz.<br />Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> können zusätzliche Informationen angegeben werden.<br /><br /><strong>Regelmässiger Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen und ganzjährig gewährleistet.<br /><br /><strong>Saisonale Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen gewährleistet, aber zu gewissen Jahreszeiten<br /><br /><strong>Eingeschränkte Erschliessung</strong>: Verbindungen nur während gewissen Tagen und eventuell nur während gewissen Jahreszeiten gewährleistet. Details zu der Erschliessung sollten im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> angegeben werden.<br /><br /><strong>Erschliessung in der Nähe</strong>: Der Ort ist nicht direkt erschlossen, kann aber mit einem verhältnismässigen Fussmarsch erreicht werden. Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> kann der Fussmarsch und die Haltestelle näher beschrieben werden.<br /><br /><strong>Keine Erschliessung</strong>: Keine Verbindung mit öffentlichen Verkehrsmitteln, d.h. der Ort kann mit öV nicht mit verhältnismässigem Aufwand erreicht werden."
 
 # [WARNING] needs_review
 msgid "_public_transportation_types_info"
@@ -3055,11 +3069,11 @@ msgstr "<h3>An mich erinnern?</h3>Wenn sie diesen Kasten ankreuzen werden beim n
 
 # [WARNING] needs_review
 msgid "_rev_comment_info"
-msgstr "<h3>Information zu den Änderungen</h3>Beschreiben sie kurz die Änderungen, welch sie im Dokument vorgenommen haben.<br />Falls sie eine Textmaterial (aus einer Quelle mit einer kompatiblen Lizenz) kopiert oder verwendet haben, geben sie bitte den Autor und/oder den Link zur Quelle an."
+msgstr "<h3>Information zu den Änderungen</h3>Beschreiben sie kurz die Änderungen, welche sie im Dokument vorgenommen haben.<br />Falls sie Textmaterial (aus einer Quelle mit einer kompatiblen Lizenz) kopiert oder verwendet haben, geben sie bitte den Autor und/oder den Link zur Quelle an."
 
 # [WARNING] needs_review
 msgid "_rev_is_minor_info"
-msgstr "<h3>Unwesentliche Änderung</h3>Aktivieren sie dieses Kästchen, wenn es sich nicht um wesentliche Änderungen des Dokuments handelt:<br /><br /><strong>Text:</strong> Verbesserung der Orthographie, Grammatik oder stilistische Textanpassungen.<br /><br /><strong>- Höhe und Höhenunterschiede:</strong> Änderungen &lt; 50m<br /><br /><strong>Bewertungen:</strong> Veränderungen innerhalb eines Grades (ZS+ anstelle von ZS, 3.3. anstelle von 3.2.)<br /><br /><strong>Routen- oder Ortsbeschreibung:</strong> Kleine Anmerkungen oder Neuformulierung von Sätzen. Das Hinzufügen von Varianten oder das komplette Neuschreiben von Dokumenten sind keine unwesentlichen Änderungen."
+msgstr "<h3>Unwesentliche Änderung</h3>Aktivieren sie dieses Kästchen, wenn sie lediglich unwesentliche Änderungen am Dokument vorgenommen haben:<br /><br /><strong>Text:</strong> Verbesserung der Orthographie, Grammatik oder stilistische Textanpassungen.<br /><br /><strong>Höhe und Höhenunterschiede:</strong> Änderungen &lt; 50m<br /><br /><strong>Bewertungen:</strong> Veränderungen innerhalb eines Grades (ZS+ anstelle von ZS, 3.3. anstelle von 3.2.)<br /><br /><strong>Routen- oder Ortsbeschreibung:</strong> Kleine Anmerkungen oder Neuformulierung von Sätzen. Das Hinzufügen von Varianten oder das komplette Neuschreiben von Dokumenten sind keine unwesentlichen Änderungen."
 
 # [WARNING] needs_review
 msgid "_rock_free_rating_info"
@@ -3148,11 +3162,9 @@ msgstr "<h3>Bewartungszeitraum</h3>Ungefährer Zeitraum, wann die Hütte üblich
 msgid "_sub_activities_info"
 msgstr "<h3>Ausführbar mit</h>Dieses Feld führt aus, mit welchen Unter-Aktivitäten eine <Ski-, Snowboard-, Schneeschuhroute</em> ausführbar ist. Die Unter-Aktivitäten werden nur ungefähr angegeben.<br />Mehrere Unter-Aktivitäten können angegeben werden.<br /><br /><strong>Ski</strong>: Trifft auf die meisten Routen zu.<br /><br /><strong>Snowboard</strong>: Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen. Alle <em>Snowboard</em>touren sind auch <em>Ski</em>touren.<br /><br /><strong>Schneeschuhe</strong>: Die Route verläuft durch dichte Waldabschnitte in relativ flachem Terrain und/oder enthält nur wenige steile Abschnitte.<br /><br /><strong>Anfänger</strong>: Die Route ist geeignet um eine Unter-Aktivität (bitte auch auswählen) zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewalteten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr. Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
 
-# [comment]
-# Macht die Kategorie "Mehrtagestouren" wirklich Sinn?
 # [WARNING] needs_review
 msgid "_summit_type_info"
-msgstr "<h3>”Gipfel”-Typ</h3>Typ eines geographischen Punktes, welcher als Tourenziel verwendet werden kann: :<br /><br /><strong>Kulminationspunkt</strong>: Gipfel, Nebengipfel, Gendarme:<br /><br /><strong>Pass</strong>: Pass, Übergang, Sattel, Scharte<br /><br /><strong>See</strong>: Bergsee<br /><br /><strong> Tal / Felswand</strong>: Auffälliger Punkt im Talgrund, oder eine auffällige Felswand, wie z.B. Wasser-/Eisfall, Monolith, Eisaufwölbung eines Gletschers. Darin enthalten sind auch Felsen in tiefen Lagen, an welchen sich Mehrseillängenklettereien (Fels, Eis oder Mix) befinden.<br /><br /><strong>Mehrtagestouren</strong>: Wird verwendet um Mehrtagestouren zu beschreiben und suchen, indem die Route jeder Etappe (oder eine einzelne Route für alle Etappen) mit einem Gipfel des Typs “Mehrtagestouren” verbunden wird."
+msgstr "<h3>Gipfeltyp</h3>Typ eines geographischen Punktes, welcher als Tourenziel verwendet werden kann:<br /><br /><strong>Kulminationspunkt</strong>: Gipfel, Nebengipfel, Gendarme:<br /><br /><strong>Pass</strong>: Pass, Übergang, Sattel, Scharte<br /><br /><strong>See</strong>: Bergsee<br /><br /><strong> Tal / Felswand</strong>: Auffälliger Punkt im Talgrund, oder eine auffällige Felswand, wie z.B. Wasser-/Eisfall, Monolith, Eisaufwölbung eines Gletschers. Darin enthalten sind auch Felsen in tiefen Lagen, an welchen sich Mehrseillängenklettereien (Fels, Eis oder Mix) befinden.<br /><br /><strong>Mehrtagestouren</strong>: Wird verwendet um Mehrtagesrouten zu beschreiben und suchen, indem die Route jeder Etappe (oder eine einzelne Route für alle Etappen) mit einem Gipfel des Typs “Mehrtagesroute” verbunden wird."
 
 # [WARNING] needs_review
 msgid "_swiss coords_info"
@@ -3350,9 +3362,8 @@ msgstr "Amateur"
 # [general comment]
 # quelle est l'utilisation de cette chaine ?
 # -> le pluriel du type de contributeur (amateur -> amateurs)
-# [WARNING] needs_review
 msgid "amateurs"
-msgstr "Hobbymässig"
+msgstr "Freizeitberggänger"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -3505,7 +3516,7 @@ msgid "belongs to range:"
 msgstr "gehört zum Gebirgsmassiv: "
 
 msgid "best_periods"
-msgstr "Beste Zeit:"
+msgstr "Geeignete Jahreszeiten:"
 
 msgid "between"
 msgstr "zwischen"
@@ -3675,7 +3686,7 @@ msgstr "Kategorien (Mehrfachauswahl möglich):"
 
 # [WARNING] needs_review
 msgid "category"
-msgstr "Kategorie:"
+msgstr "Benutzerkategorie:"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
@@ -4372,7 +4383,7 @@ msgid "has_unstaffed_matress"
 msgstr "Matratzen:"
 
 msgid "has_unstaffed_wood"
-msgstr "Holz:"
+msgstr "Heizung:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4570,7 +4581,7 @@ msgid "is_profile_public"
 msgstr "Den Zugang zu ihrer persönlichen Seite nicht registrierten Beuschern erlauben:"
 
 msgid "is_staffed"
-msgstr "Bewirtschaftung:"
+msgstr "Bewartung:"
 
 msgid "isbn"
 msgstr "ISBN:"
@@ -4745,7 +4756,7 @@ msgstr "Hier können sie einfach die Lizenzbedingugen ändern, unter welchen sie
 
 # [WARNING] needs_review
 msgid "mandatory_fields"
-msgstr "<strong>Plagiat:</strong> Kopieren sie keinen Text einer anderen Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt dies explizit.</li><li><strong>Himmelsrichtungen:</strong> Verwenden sie die internationalen Abkürzugenen der Himmelsrichtungen in Grossbuchstaben: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Kontextuelle Hilfe:</strong> Jedes Feld verfügt über eine Hilfe, welche sie darstellen können indem die den Titel anklicken.</li><li><strong>Formatieren des Texts:</strong> Der Text kann formatiert werden und mit Untertiteln gegliedert werden. Bilder können aus Alben hinzugefügt werden (<a href=\"/articles/151910/de\">Hilfe zu Bildern</a>.</li><li><strong>Pflichtfelder:</strong>Die Felder, welche mit einem Stern (*) gekennzeichnet sind, müssen ausgefüllt werden.</li><li><strong>Änderungen:</strong> Nach der Erstellung eines Dokuments, können Sie dies ändern indem Sie auf das Register \"Ändern\" (links) klicken. Verwenden sie während der Bearbeitung nicht den “Zurück”-Knopf ihres Browsers.</li><li><strong>Löschung eines Dokuments beantragen:</strong> Um die Löschung eines Dokuments durch die Moderatoren zu beantragen verwenden sie den Knopf “Ein Problem melden” im linken Menu.</li><li><strong>Fotos und Grafiken:</strong> Die Fotos und Grafiken können einem Dokument nach dessen Erstellung hinzugefügt werden. Dazu verwenden sie den Link <em>Bilder hinzufügen</em>)  in der Fusszeile des Dokuments. Um ein verkleinertes Bild dem Text hinzuzufügen, verwenden sie den <input type=\"button\" value=\"img\" />-Knop der Werkzeugleiste des Feldes. Ebenso können sie mit dem vorhandenen Code auf der Bildseite das Bild einem Dokument hinzufügen. Bilder müssen mit einem Dokument verbunden sein um sie einem Text hinzuzufügen. Gemeinschaftliche Dokumente können ausschliesslich gemeinschaftliche Bilder hinzugefügt werden."
+msgstr "<strong>Plagiat:</strong> Kopieren sie keinen Text einer anderen Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt dies explizit.</li><li><strong>Himmelsrichtungen:</strong> Verwenden sie die internationalen Abkürzungen der Himmelsrichtungen in Grossbuchstaben: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Kontexthilfe:</strong> Jedes Feld verfügt über eine Hilfe, welche sie darstellen können indem die den Titel anklicken.</li><li><strong>Formatieren des Texts:</strong> Der Text kann formatiert werden und mit Untertiteln gegliedert werden. Bilder können aus Alben hinzugefügt werden (<a href=\"/articles/151910/de\">Hilfe zu Bildern</a>).</li><li><strong>Pflichtfelder:</strong> Die Felder, welche mit einem Stern (*) gekennzeichnet sind, müssen ausgefüllt werden.</li><li><strong>Änderungen:</strong> Nach der Erstellung eines Dokuments, können Sie dies ändern indem Sie auf das Register \"Ändern\" (links) klicken. Verwenden sie während der Bearbeitung nicht den “Zurück”-Knopf ihres Browsers.</li><li><strong>Löschung eines Dokuments beantragen:</strong> Um die Löschung eines Dokuments durch die Moderatoren zu beantragen verwenden sie den Knopf “Ein Problem melden” im linken Menu.</li><li><strong>Fotos und Grafiken:</strong> Die Fotos und Grafiken können einem Dokument nach dessen Erstellung hinzugefügt werden. Dazu verwenden sie den Link <em>Bilder hinzufügen</em> in der Fusszeile des Dokuments. Um ein verkleinertes Bild dem Text hinzuzufügen, verwenden sie den <input type=\"button\" value=\"img\" />-Knopf der Werkzeugleiste des Felds. Ebenso können sie mit dem vorhandenen Code auf der Bildseite das Bild einem Dokument hinzufügen. Bilder müssen mit einem Dokument verbunden sein um sie einem Text hinzuzufügen. Gemeinschaftlichen Dokumenten können ausschliesslich gemeinschaftliche Bilder hinzugefügt werden."
 
 msgid "map"
 msgstr "Karte"
@@ -4829,7 +4840,7 @@ msgid "maps presentation"
 msgstr "Eine Karte ist durch ihre Umrisse definiert. Eine Karte wird automatisch mit allen georeferenzierten Dokumenten verbunden, welche sich im Kartenbereich befinden."
 
 msgid "maps_info"
-msgstr "Kartierung:"
+msgstr "Kartenmaterial:"
 
 # [general comment]
 # Infobulle dans la toolbar de l'outil carto
@@ -5466,10 +5477,11 @@ msgstr "Bevorzugte Gebirgsmassive"
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
 # [comment]
-# Traduire DDE -> informations routières
+# - Traduire DDE -> informations routières
+# - I removed the links to french departments BRAs, since it's not very usefull for german speaking people
 # [WARNING] needs_review
 msgid "prepare_outing_box"
-msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><ahref=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET(Spanien)</a></li></ul><p>Lawinenbulletin</p><ul><li><a href=\"http://www.slf.ch/lawineninfo/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRAMétéo France</a>&nbsp;: <ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a><ahref=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA(Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://www.mapplus.ch/\">MapPlus (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portalecartografico (Italie)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Espagne)</a></li></ul><p>Verkehr</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa) <br /></a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <ahref=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE(Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Websitemit Verhältnissen</a></li></ul>"
+msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><a href=\"http://www.dwd.de/\">Deutscher Wetterdienst</a></li><li><a href=\"http://www.wetter.at/wetter/oesterreich/\">Wetter.at (Österreich)</li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul><p>Lawinenbulletin</p><ul><li><a href=\"http://www.slf.ch/lawineninfo/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.lawinenwarndienst-bayern.de/index.php\">Lawinenwarndienst Bayern</a></li><a href=\"http://www.lawinen.at/austria/\">Österreich</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://www.mapplus.ch/\">MapPlus (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portalecartografico (Italien)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spanien)</a></li></ul><p>Verkehr</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa) <br /></a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Website mit Verhältnissen</a></li></ul>"
 
 msgid "previous area"
 msgstr "Vorige Region"
@@ -5518,7 +5530,7 @@ msgid "previous summit"
 msgstr "Voriger Gipfel"
 
 msgid "pro"
-msgstr "berufsmässig"
+msgstr "Berufsberggänger"
 
 # [WARNING] needs_review
 msgid "product"
@@ -5612,7 +5624,7 @@ msgstr "ziemlich besucht"
 
 # [WARNING] needs_review
 msgid "raid"
-msgstr "Mehrtagestour"
+msgstr "Mehrtagesroute"
 
 msgid "rain_proof"
 msgstr "Regen:"
@@ -5718,7 +5730,7 @@ msgstr "Freier und obligatorischer Schwierigkeitsgrad"
 
 # [WARNING] needs_review
 msgid "rock_free_rating"
-msgstr "UIAA Schwierigkeitsgrad:"
+msgstr "Schwierigkeitsgrad:"
 
 # [WARNING] needs_review
 msgid "rock_required_rating"
@@ -5970,7 +5982,7 @@ msgid "snow_clearance_comment"
 msgstr "Details zur Schneeräumung:"
 
 msgid "snow_clearance_rating"
-msgstr "Schneeräumungszustand:"
+msgstr "Schneeräumung:"
 
 # [WARNING] needs_review
 msgid "snow_ice_mixed"
@@ -6058,7 +6070,7 @@ msgid "summit_id"
 msgstr "Gipfel:"
 
 msgid "summit_type"
-msgstr "Typ:"
+msgstr "Gipfeltyp:"
 
 # [comment]
 # vs
@@ -6072,7 +6084,7 @@ msgstr "Liste der Gipfel, Pässe, Seen, Felswände"
 
 # [WARNING] needs_review
 msgid "summits presentation"
-msgstr "A \"Gipfel\" kann ein Kulminationspunkt, ein Pass, ein See, ein bemerkenswerter Punkt in einem Tal, eine Felswand (nützlich beim Eisklettern und langen Mehrseillängenrouten), oder eine Mehrtagestour sein."
+msgstr "A \"Gipfel\" kann ein Kulminationspunkt, ein Pass, ein See, ein bemerkenswerter Punkt in einem Tal, eine Felswand (nützlich beim Eisklettern und langen Mehrseillängenrouten), oder eine Mehrtagesroute sein."
 
 # [WARNING] needs_review
 msgid "svg file"

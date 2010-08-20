@@ -673,6 +673,11 @@ msgstr "ED5"
 msgid "ED6"
 msgstr "ED6"
 
+# [general comment]
+# Cotation globale : niveau ED7
+msgid "ED7"
+msgstr "ED7"
+
 msgid "Edit"
 msgstr "Edit"
 
@@ -2591,10 +2596,9 @@ msgid "_glacier_status_info"
 msgstr "<h3>Glacier</h3>Condition of the glacier followed by the route: covered and easty to cross, delicate but travel is possible, open and difficult to cross or clearly imposible to cross.<br />The <i>Conditions</i> field allows to fill in additional information."
 
 # [general comment]
-# Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
-# Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
+# Aide contextuelle sur la cotation globale.
 msgid "_global_rating_info"
-msgstr "<h3>Global alpine grade</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). Le last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/188413/en\">rock climbing grades</a>."
+msgstr "<h3>Global alpine grade</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). The last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/188413/en\">rock climbing grades</a>."
 
 msgid "_gps_data_info"
 msgstr "<h3>Track (.gpx)</h3>Easily upload a GPX format track to ilustrate a route or an outing.<br />This will allow subsequent downloading of a KML file for temporal navigation.<br /><br />If your GPS exports files with a NMEA format, use <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> to convert them to GPX."
@@ -2672,8 +2676,16 @@ msgstr "<h3>Sensitivity</h3>ISO sensitivity when the picture was taken.<br />Thi
 msgid "_issn_info"
 msgstr "<h3>ISSN</h3>ISSN number of the newspaper or magazine"
 
+# [general comment]
+# Aide contextuelle sur la cotation globale ski.
+# [WARNING] needs_review
 msgid "_labande_global_rating_info"
-msgstr "<h3>Labande global ski grade</h3>Global ski grade (Labande).<br />The global grade offers an overall estimation of the difficulties of an itinerary and how sustained they are, as well as altitude and the normal duration of the itinerary. <b>WARNING!</b> The grade uses the same letter coding as the global alpine climbing grade but <u>they do not overlap</u>: A snow couloir can easily be graded D for skiing while it’s mountaineering grade would not exceed PD or AD.<br /><br /><strong>F</strong>: Easy<br /><br /><strong>PD</strong>: Slightly difficult<br /><br /><br /><strong>AD</strong>: Somewhat difficult<br /><br /><strong>D</strong>: Difficult<br /><br /><strong>TD</strong>: Very difficult<br /><br /><br /><strong>ES</strong>: Extremely difficult<br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
+msgstr "<h3>Labande global ski grade</h3>Global ski grade (Labande).<br />The global grade offers an overall estimation of the difficulties of an itinerary and how sustained they are, as well as altitude and the normal duration of the itinerary. <b>WARNING!</b> The grade uses the same letter coding as the global alpine climbing grade but <u>they do not overlap</u>: A snow couloir can easily be graded D for skiing while it’s mountaineering grade would not exceed PD or AD.<br /><br /><strong>F</strong>: Easy<br /><br /><strong>PD</strong>: Slightly difficult<br /><br /><br /><strong>AD</strong>: Somewhat difficult<br /><br /><strong>D</strong>: Difficult<br /><br /><strong>TD</strong>: Very difficult<br /><br /><br /><strong>ED</strong>: Extremely difficult<br />\n"
+"The last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6.<br /><br />\n"
+"<br />\n"
+"<em><b>BE CAREFUL!</b> It is a rating for ski touring, not for alpine climbing: a couloir can easily be rated D for ski touring, whatever its alpine global rating doesn't exceed PD ou AD for rising.</em><br />\n"
+"<br />\n"
+"See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
 
 msgid "_labande_ski_rating_info"
 msgstr "<h3>Labande descent grade</h3>The Labande S grade.<br />The Labande descent grade is complementary to the global grade. It evaluates the most difficult passage for the ski downhill. It is mostly tied to the slope but also takes exposure into account.<br /><br /><strong>S1</strong>: Easy descent which does not require any particular technical abilities such as forest tracks for example.<br /><br /><strong>S2</strong>: Wide slopes which are easy to manoeuvre, maybe fairly steep (25°).<br /><br /><strong>S3</strong>: Slopes up to 35° (equivalent to the steepest runs in ski resorts, on hard snow). Requires good skiing abilities in all snow conditions.<br /><br /><strong>S4</strong>: Slopes up to 45°, if exposure is low (between 30 and 40° if it is high or the passage is narrow). Very good skiing abilities are required.<br /><br /><strong>S5</strong>: Slopes between 45 and 50° or more if exposure remains low. From 40° upwards if exposure is high. As well as a perfect downhill skiing technique, control of nerves becomes very important at this level of difficulty.<br /><br /><strong>S6</strong>: Above 50° if exposure is high (which is often the case) or short stretches above 55° with little exposure.<br /><br /><strong>S7</strong>: Stretches at 60° or more, high rock bands to jump or more generally very steep or exposed terrain.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
