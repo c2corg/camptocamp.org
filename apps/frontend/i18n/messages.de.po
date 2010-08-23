@@ -2787,7 +2787,7 @@ msgstr "<h3>Höhendifferenz</h3>Kummulierte positive und negative Höhenuntersch
 
 # [comment]
 # sollten wir dies nicht als "Totale Aufstiegshöhe" oder "Totaler Aufstieg" bezeichnen?
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_height_diff_up_info"
 msgstr "<h3>Positive Höhendifferenz</h3><u>Tour</u>: Kummulierter positiver Höhenunterschied (Aufstieg) während der Tour.<br />Falls ein GPX-Track hochgeladen wurde und das Feld nicht ausgefüllt wurde, wird die negative Höhendifferenz automatisch aus dem GPX-Track berechnet.<br />br /><u>Route</u>: Für eine Route, bei welcher sich der Zustieg klar von der eigentlichen Route unterscheidet, wird die positive Höhendifferenz wie folgt berechnet: Zustieg + Route + Abstieg (falls Gegenanstiege enthalten sind).<br />Falls die Route üblicherweise von einer Hütte aus begangen wird, berechnet sich der positive Höhenunterschied wie folgt: Zustieg ab der Hütte + Route + Abstieg (falls Gegenanstieg enthalten sind)."
 
@@ -3138,7 +3138,7 @@ msgstr "<h3>Neigung</h3>Maximale Neigung und Länge des Hangs."
 
 # [comment]
 # What is meant by "location of mechanical snow clearing"?
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Details über die Schneeräumung</h3>Informationen zur Schneeräumung der Zugangsstrasse: Ort der mechanischen Schneeräumung und üblicher Zeitpunkt der Schneeschmelze."
 
@@ -5301,9 +5301,9 @@ msgstr "Eisklettern und Dry-Tooling"
 msgid "pack_mountain_climbing_easy"
 msgstr "Alpines Felsklettern von L bis ZS"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "pack_rock_climbing_bolted"
-msgstr "Klettern in sportlicher Mehrseillängenroute"
+msgstr "Mehrseillängensportkletterei"
 
 msgid "pack_skitouring"
 msgstr "Ski, Snowboard, Schneeschuh "
@@ -5476,12 +5476,14 @@ msgstr "Bevorzugte Gebirgsmassive"
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
+# 
+# Do not hesitate to customize links to your language
 # [comment]
 # - Traduire DDE -> informations routières
 # - I removed the links to french departments BRAs, since it's not very usefull for german speaking people
 # [WARNING] needs_review
 msgid "prepare_outing_box"
-msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><a href=\"http://www.dwd.de/\">Deutscher Wetterdienst</a></li><li><a href=\"http://www.wetter.at/wetter/oesterreich/\">Wetter.at (Österreich)</li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul><p>Lawinenbulletin</p><ul><li><a href=\"http://www.slf.ch/lawineninfo/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.lawinenwarndienst-bayern.de/index.php\">Lawinenwarndienst Bayern</a></li><a href=\"http://www.lawinen.at/austria/\">Österreich</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://www.mapplus.ch/\">MapPlus (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portalecartografico (Italien)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spanien)</a></li></ul><p>Verkehr</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa) <br /></a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Website mit Verhältnissen</a></li></ul>"
+msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><a href=\"http://www.dwd.de/\">Deutscher Wetterdienst</a></li><li><a href=\"http://www.wetter.at/wetter/oesterreich/\">Wetter.at (Österreich)</li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul><p>Lawinenbulletin</p><ul><li><a href=\"http://www.slf.ch/lawineninfo/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.lawinenwarndienst-bayern.de/index.php\">Lawinenwarndienst Bayern</a></li><li><a href=\"http://www.lawinen.at/austria/\">Österreich</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://www.mapplus.ch/\">MapPlus (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portalecartografico (Italien)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spanien)</a></li></ul><p>Verkehr</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa) <br /></a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Website mit Verhältnissen</a></li></ul>"
 
 msgid "previous area"
 msgstr "Vorige Region"

@@ -4947,6 +4947,8 @@ msgstr "Massifs préférés"
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
+# 
+# Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
 msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
 "<ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espagne)</a></li></ul>\n"

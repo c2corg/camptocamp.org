@@ -5370,6 +5370,8 @@ msgstr "Macizos elegidos"
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
+# 
+# Do not hesitate to customize links to your language
 # [WARNING] needs_update
 msgid "prepare_outing_box"
 msgstr "donotshow"

@@ -5017,6 +5017,8 @@ msgstr "Massicci preferiti"
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
+# 
+# Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
 msgstr "<p><a href=\"/articles/107228/it/link-utili#meteo\">Meteo</a></p>\n"
 "<ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul>\n"
