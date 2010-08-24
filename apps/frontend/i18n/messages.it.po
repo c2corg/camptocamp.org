@@ -5025,7 +5025,7 @@ msgstr "<p><a href=\"/articles/107228/it/link-utili#meteo\">Meteo</a></p>\n"
 "<p><a href=\"/articles/107228/it/link-utili#bollettini-valanghe\">Valanghe</a></p>\n"
 "<ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#carto\">Cartografia</a></p>\n"
-"<ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul>\n"
+"<ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://map.geo.admin.ch/?lang=it\">map.geo.admin.ch (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#rifugi\">Rifugi</a></p>\n"
 "<ul><li><a href=\"/huts/filter\">Cerca un rifugio</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Rifugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Rifugi CAF</a></li></ul>"
 
