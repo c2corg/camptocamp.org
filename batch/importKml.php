@@ -359,6 +359,7 @@ try
     foreach ($results as $d)
     {
         $a = new GeoAssociation();
+        // check but area - maps links are of dr, dc, dd etc... and not dm (teh other way...) // TODO TODO TODO TODO
         $a->doSaveWithValues($d['id'], $document_id, $a_type);
 
         // inherited docs
