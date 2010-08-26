@@ -5340,7 +5340,7 @@ msgid "participants"
 msgstr "Nicht eingeschriebene Teilnehmer:"
 
 msgid "partly protected"
-msgstr "teilweise gesichert"
+msgstr "teilweise regensicher"
 
 msgid "pass"
 msgstr "Pass"
@@ -5578,7 +5578,7 @@ msgid "protect"
 msgstr "schützen"
 
 msgid "protected from the rain"
-msgstr "vorm Regen geschützt "
+msgstr "regensicher"
 
 # [WARNING] needs_review
 msgid "pub"
@@ -5805,7 +5805,7 @@ msgid "routes presentation"
 msgstr "Eine Route verbindet zwei oder mehrere geographische Orte. Eine Route muss mit mindestens einem Gipfel verbunden sein, kann aber auch mit Zugangsorten und Hütten verbunden werden."
 
 msgid "routes_quantity"
-msgstr "Zahl der Kletterrouten:"
+msgstr "Anzahl der Kletterrouten:"
 
 msgid "routes_quantity short"
 msgstr "Routen"
@@ -5909,7 +5909,7 @@ msgid "site_history"
 msgstr "Geschichte des Klettersektors:"
 
 msgid "site_types"
-msgstr "Art des Klettersektors:"
+msgstr "Art des Klettergebiets:"
 
 msgid "sites"
 msgstr "Klettergärten, -hallen, Boulderngebiete"
