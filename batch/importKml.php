@@ -2,8 +2,10 @@
 
 /**
  * This script is used to import or update regions and maps
- * @todo  auto (re)compute geo-associations + factorize
- * @todo  clear cache
+ * @todo factorize geoassociations computation with refreshGeoassociations function (but in sfActions...)
+ * @todo clear cache?
+ * @todo get rid of punbb headers warning when updating a document
+ * @todo try to reduce number of separate transactions (but seems like some things do not work anymore if...)
  *
  * KML format: use placemarks with polygon or linestring inside. Use multigeometry if
  * you have multipolygons. Donut geometry : open question...
@@ -260,27 +262,32 @@ if (!$is_new_document)
         $conn->rollback();
         throw $e;
     }
+    echo "Old geometry deleted\n";
 
-    // delete all geo associations TODO
+    // delete all geo associations
     // find all docs associated to current area or map
-    $geoassociations = GeoAssociation::findAllAssociations($document_id, null, 'linked');
+    $geoassociations = GeoAssociation::findAllAssociations($document_id, null, 'both');
 
     $conn = sfDoctrine::Connection();
+    echo "Deleting old geoassociations...\n";
     try
     {
         $conn->beginTransaction();
-        foreach ($geoassociations as $geoassociation)
+        $tot = count($geoassociations);
+        foreach ($geoassociations as $i => $geoassociation)
         {
+            echo "\r   " . ($i+1) . " out of $tot";
             $geoassociation->delete();
         }
         $conn->commit();
     }
     catch (exception $e)
     {
-        $conn->rollback(); // TODO
+        $conn->rollback();
+        throw $e;
     }
+    echo "\n";
 }
-
 
 // import new geometry into database
 try
@@ -311,6 +318,7 @@ try
     }
     else
     {
+        // FIXME this will launch somehow cookies from Punbb and create a php warning..
         $doc = Document::find($is_map ? 'Map' : 'Area', $document_id);
         $name = $doc->get('name');
     }
@@ -323,9 +331,8 @@ try
         $document_id = $doc->get('id');
     }
 
-    $conn->commit();
-
-    $conn->beginTransaction(); // FIXME why do we have o change transaction..
+    // $conn->commit();
+    // $conn->beginTransaction();
 
     if ($is_map)
     {
@@ -356,11 +363,35 @@ try
                         ->standaloneQuery($query, array($document_id))
                         ->fetchAll();
 
-    foreach ($results as $d)
+    echo "Create new associations (+ inherited docs)...\n";
+    $tot = count($results);
+    foreach ($results as $i => $d)
     {
+        echo "\r   " . ($i+1) . " out of $tot";
         $a = new GeoAssociation();
-        // check but area - maps links are of dr, dc, dd etc... and not dm (teh other way...) // TODO TODO TODO TODO
-        $a->doSaveWithValues($d['id'], $document_id, $a_type);
+
+        // for map - area geoassociations, links must not be dm but dr, dc, dd...
+        if ($is_map && $d['module'] == 'areas')
+        {
+            $area = Document::find('Area', $d['id']);
+            switch ($area->get('area_type'))
+            {
+                case 1: // range
+                    $t_a_type = 'dr';
+                    break;
+                case 2: // country
+                    $t_a_type = 'dc';
+                    break;
+                case 3: // dept
+                    $t_a_type = 'dd';
+                    break;
+            }
+            $a->doSaveWithValues($document_id, $d['id'], $t_a_type);
+        }
+        else // default case
+        {
+            $a->doSaveWithValues($d['id'], $document_id, $a_type);
+        }
 
         // inherited docs
         // FIXME factorize with refreshGeoassociations functions (but protected in sfActions...)
@@ -388,7 +419,10 @@ try
                 }
                 break;
             case 'summits':
-                // TODO summits raid
+                // if summit is of type raid, we should not try to update its routes and outings summit_type=5
+                $summit = Document::find('Summit', $d['id']);
+                if ($summit->get('summit_type') != 5) break;
+
                 $associated_routes = Association::findAllAssociatedDocs($d['id'], array('id', 'geom_wkt'), 'sr');
                 if (count($associated_routes))
                 {
@@ -404,7 +438,6 @@ try
                             // replicate geoassoces from doc $id to outing $i and delete previous ones
                             // (because there might be geoassociations created by this same process)
                             $nb_created = GeoAssociation::replicateGeoAssociations($geoassociations, $i, true, true);
-                            c2cTools::log("created $nb_created geo associations for route N° $i");
                             $associated_outings = Association::findAllAssociatedDocs($i, array('id', 'geom_wkt'), 'ro');
                             if (count($associated_outings))
                             {
@@ -426,19 +459,20 @@ try
                             }
                         }
                     }
-            }
+                }
         }
     }
+    echo "\n";
    
     $conn->commit();
 
     if ($is_new_document)
     {
-        echo "Added new map/area $name\n";
+        echo "Added new map / area $name\n";
     }
     else
     {
-        echo "Updated map/area $document_id ($name)\n";
+        echo "Updated map / area $document_id ($name)\n";
     }
 }
 catch (Exception $e)
