@@ -3,6 +3,7 @@ all:
     list:
       1: IGN
       2: Swisstopo
+      3: "L'Escursionista"
   scales:
     list:
       1: 1/25000

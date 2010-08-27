@@ -1,10 +1,43 @@
-<?php 
-$points = $sf_data->getRaw('points');
-$nbpts = count($points);
+<?php
 $id = $sf_params->get('id');
-$resource_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $sf_context->getModuleName() . "/$id/" . $sf_params->get('lang') . "/$slug"; 
+$module = $sf_params->get('module');
+
+$points = $sf_data->getRaw('points');
+if (!in_array($module, array('maps', 'areas')))
+{
+    $points = explode(',', $points);
+    $nbpts = count($points);
+}
+else
+{
+    $geoms = explode(')),((', $points);
+    foreach($geoms as &$geom) {
+        $geom = explode(',', str_replace(array('(', ')'), '', $geom));
+    }
+}
+
+$resource_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $sf_context->getModuleName() . "/$id/" . $sf_params->get('lang') . "/$slug";
+$popup_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $sf_context->getModuleName() . "/popup/$id/" . $sf_params->get('lang');
+switch ($module)
+{
+    case 'summits':
+    case 'hust':
+    case 'products':
+    case 'sites':
+    case 'parkings':
+    case 'images':
+    case 'users':
+        $icon = '/static/images/modules/'.$module.'.png';
+        $scale = 0.6;
+        break;
+    default:
+        $icon = '/static/images/picto/puce.png';
+        $scale = 0.3;
+        break;
+}
+
+echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
-<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://earth.google.com/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
     <Style id="allstyle">
@@ -13,92 +46,29 @@ $resource_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $sf_context->getModule
             <color>ff0099ee</color>
         </LineStyle>
         <PolyStyle>
-            <color>900099ee</color>
+            <color>700099ee</color>
         </PolyStyle>
         <IconStyle>
-            <scale>0.3</scale>
+            <scale><?php echo $scale ?></scale>
             <Icon>
-                <href>http://<?php echo $_SERVER['HTTP_HOST'] ?>/static/images/picto/puce.png</href>
+                <href>http://<?php echo $_SERVER['HTTP_HOST'].$icon ?></href>
             </Icon>
         </IconStyle>
     </Style>
     
-    <ExtendedData>
-        <Data name="module">
-            <value><?php echo $sf_context->getModuleName() ?></value>
-        </Data>
-        <Data name="id">
-            <value><?php echo $id ?></value>
-        </Data>
-        <Data name="culture">
-            <value><?php echo $sf_params->get('lang') ?></value>
-        </Data>
-        <Data name="name">
-            <value><?php echo $sf_data->getRaw('name') ?></value>
-        </Data>
-    </ExtendedData>    
-
     <atom:link><?php echo $resource_url ?></atom:link>
-    <name><?php echo $sf_data->getRaw('name') ?></name>
+    <name><![CDATA[<?php echo $sf_data->getRaw('name') ?>]]></name>
 
-<?php if ($nbpts > 1): ?>
-    <Folder>
-        <name>Tracks</name>
-        <Folder>
-            <name><?php echo $sf_data->getRaw('name') ?></name>
-            <Folder>
-                <name>Points</name>
-<?php $i = 0; 
-                foreach ($points as $point):
-                $_point = explode(' ', trim($point)); 
-                $lon = number_format($_point[0], 6, '.', '');
-                $lat = number_format($_point[1], 6, '.', ''); ?>
-                <Placemark>
-                    <name><?php echo $i ?></name>
-                    <description><![CDATA[
-                        <table>
-                            <?php if (count($_point) > 2 && abs($_point[2])>1): ?><tr><td><b>Altitude:</b> <?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); ?>  m </td></tr><?php endif; ?> 
-                            <?php if (count($_point) > 3 && ($_point[3]!=0)): ?><tr><td><b>Time:</b> <?php echo date('G:i:s', $_point[3]) ?> </td></tr><?php endif; ?>
-                        </table>
-                 ]]></description>
-                    <LookAt>
-                        <longitude><?php echo $lon ?></longitude>
-                        <latitude><?php echo $lat ?></latitude>
-<?php if (count($_point) > 2 && abs($_point[2])>1): ?>
-                        <elevation><?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); ?></elevation><?php endif; echo "\n"; ?>
-                        <tilt>66</tilt>
-                    </LookAt>
-<?php if (count($_point) > 3): ?>
-                    <TimeStamp><when><?php echo date('c', $_point[3]); ?></when></TimeStamp><?php endif; echo "\n"; ?>
-                    <styleUrl>#allstyle</styleUrl>
-                    <Point>
-                        <coordinates><?php echo $lon ?>,<?php echo $lat; if (count($_point) > 2): ?>,<?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); endif; ?></coordinates>
-                    </Point>
-                </Placemark>
-<?php $i++; endforeach ?>
-            </Folder>
-            <Placemark>
-                <name>Path</name>
-                <description><![CDATA[<?php echo $sf_data->getRaw('description') ?><br /><a href="<?php echo $resource_url ?>"><?php echo $resource_url ?></a>]]></description>
-                <styleUrl>#allstyle</styleUrl>
-                <LineString>
-                    <coordinates>
-<?php foreach ($points as $point):
-                        $_point = explode(' ', trim($point)); ?>
-                        <?php echo number_format($_point[0], 6, '.', '') ?>,<?php echo number_format($_point[1], 6, '.', ''); 
-                        if (count($_point) > 2): ?>,<?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); endif; echo "\n"; 
-endforeach ?>
-                    </coordinates>
-                </LineString>
-            </Placemark>
-        </Folder>
-    </Folder>
-<?php elseif ($nbpts = 1): ?>
+<?php if (in_array($module, array('summits', 'sites', 'huts', 'products', 'users', 'parkings', 'images'))): ?>
     <Placemark id="<?php echo $id ?>">
-        <name><?php echo $sf_data->getRaw('name') ?></name>
-        <description><![CDATA[<?php echo $sf_data->getRaw('description') ?><br /><a href="<?php echo $resource_url ?>"><?php echo $resource_url ?></a>]]></description>
+        <name><![CDATA[<?php echo $sf_data->getRaw('name') ?>]]></name>
+        <description><![CDATA[
+            <iframe frameborder="0" src="<?php echo $popup_url ?>" width="420" height="300">
+            <a href="<?php echo $resource_url ?>"><?php echo $sf_data->get('name') ?></a>
+            </iframe>
+        ]]></description>
         <styleUrl>#allstyle</styleUrl>
-<?php $_point = explode(' ', trim($points[0])); ?>
+        <?php $_point = explode(' ', trim($points[0])); ?>
         <Point>
             <coordinates>
                 <?php echo number_format($_point[0], 6, '.', '') ?>,<?php echo number_format($_point[1], 6, '.', '');
@@ -106,9 +76,97 @@ endforeach ?>
             </coordinates>
         </Point>
     </Placemark>
+<?php elseif (in_array($module, array('maps', 'areas'))): ?>
+    <Placemark>
+        <name><![CDATA[<?php echo $sf_data->getRaw('name') ?>]]></name>
+        <description><![CDATA[
+            <iframe frameborder="0" src="<?php echo $popup_url ?>" width="420" height="300">
+            <a href="<?php echo $resource_url ?>"><?php echo $sf_data->get('name') ?></a>
+            </iframe>
+        ]]></description>
+        <styleUrl>#allstyle</styleUrl>
+        <MultiGeometry>
+            <?php foreach ($geoms as $points): ?>
+            <Polygon>
+                <outerBoundaryIs>
+                    <LinearRing>
+                        <tessellate>1</tessellate>
+                        <altitudeMode>clampToGround</altitudeMode>
+                        <coordinates>
+                        <?php foreach ($points as $point):
+                            $_point = explode(' ', trim($point));
+                            echo number_format($_point[0], 6, '.', '') ?>,<?php echo number_format($_point[1], 6, '.', '');
+                            if (count($_point) > 2): ?>,<?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); endif; echo "\n";
+                        endforeach; ?>
+                        </coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+            <?php endforeach; ?>
+        </MultiGeometry>
+    </Placemark>
+<?php elseif (in_array($module, array('routes', 'outings'))): ?>
+    <Folder>
+        <name><![CDATA[<?php echo $sf_data->getRaw('name') ?>]]></name>
+        <Placemark>
+            <name>Path</name>
+            <styleUrl>#allstyle</styleUrl>
+            <description><![CDATA[
+                <iframe frameborder="0" src="<?php echo $popup_url ?>" width="420" height="300">
+                <a href="<?php echo $resource_url ?>"><?php echo $sf_data->get('name') ?></a>
+                </iframe>
+            ]]></description>
+            <LineString>
+                    <coordinates>
+                    <?php foreach ($points as $point):
+                        $_point = explode(' ', trim($point));
+                        echo number_format($_point[0], 6, '.', '') ?>,<?php echo number_format($_point[1], 6, '.', '');
+                        if (count($_point) > 2): ?>,<?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); endif; echo "\n";
+                    endforeach; ?>
+                    </coordinates>
+            </LineString>
+        </Placemark>
+        <Folder>
+            <name>Points</name>
+            <styleUrl>#allstyle</styleUrl>
+        <?php $i = 0;
+        foreach ($points as $point):
+            $_point = explode(' ', trim($point));
+            $lon = number_format($_point[0], 6, '.', '');
+            $lat = number_format($_point[1], 6, '.', ''); ?>
+            <Placemark>
+                <name><?php echo $i ?></name>
+                <styleUrl>#allstyle</styleUrl>
+                <ExtendedData><?php // TODO check ?>
+                    <?php if (count($_point) > 2 && abs($_point[2])>1): ?>
+                    <Data name="Altitude">
+                        <value><?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); ?>  m</value>
+                    </Data>
+                    <?php endif;
+                    if (count($_point) > 3 && ($_point[3]!=0)): ?>
+                    <Data name="Time">
+                        <value><?php echo date('G:i:s', $_point[3]) ?></value>
+                    </Data>
+                    <?php endif; ?>
+                </ExtendedData>
+                <LookAt>
+                    <longitude><?php echo $lon ?></longitude>
+                    <latitude><?php echo $lat ?></latitude>
+                    <?php if (count($_point) > 2 && abs($_point[2])>1): ?>
+                    <elevation><?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); ?></elevation>
+                    <?php endif; echo "\n"; ?>
+                    <tilt>66</tilt>
+                </LookAt>
+                <?php if (count($_point) > 3): ?>
+                <TimeStamp><when><?php echo date('c', $_point[3]); ?></when></TimeStamp>
+                <?php endif; echo "\n"; ?>
+                <Point>
+                        <coordinates><?php echo $lon ?>,<?php echo $lat; if (count($_point) > 2): ?>,<?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); endif; ?></coordinates>
+                </Point>
+            </Placemark>
+        <?php  $i++; endforeach; ?>
+        </Folder>
+    </Folder>
 <?php endif ?>
   </Document>
 </kml>
-
-
-
