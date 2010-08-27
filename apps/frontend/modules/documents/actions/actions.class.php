@@ -3367,7 +3367,6 @@ class documentsActions extends c2cActions
                 $this->slug = "";
             }
             
-            $this->points = explode(',', gisQuery::getEWKT($id, true, $module, $version));
             $response = $this->getResponse();
             
             switch ($format)
