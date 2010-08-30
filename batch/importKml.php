@@ -8,7 +8,7 @@
  * @todo try to reduce number of separate transactions (but seems like some things do not work anymore if...)
  *
  * KML format: use placemarks with polygon or linestring inside. Use multigeometry if
- * you have multipolygons. Donut geometry : open question...
+ * you have multipolygons.
  * Define the placemark's name (which will be document's name)
  *
  * this script is not bullet proof : don't try to give odd kml files or wrong arguments
@@ -172,31 +172,8 @@ $context = sfContext::getInstance();
 // Construct geometry from kml file
 ///////////////////////////////////////////////////////////////////////////////////
 
-$xml = simplexml_load_file($filepath);
-$region = $xml->Document->Placemark;
-
-$name = $region->name;
-
-// detect if polygon or multipolygon
-$is_multi = !empty($region->MultiGeometry);
-if ($is_multi)
+function get_coordinates($border, $is_line = false)
 {
-    $region = $region->MultiGeometry;
-}
-
-$vertexes_list = array();
-$is_line = empty($region->Polygon);
-$polygons = $is_line ? $region->LineString : $region->Polygon;
-for ($i = 0; $i < count($polygons); $i++) // warning: foreach won't work
-{
-    if (!$is_line)
-    {
-        $border = $polygons[$i]->outerBoundaryIs->LinearRing->coordinates;
-    }
-    else
-    {
-        $border = $polygons[$i]->coordinates;
-    }
     $border = preg_split("/[\s]+/", trim($border));
 
     $vertexes = array();
@@ -210,21 +187,52 @@ for ($i = 0; $i < count($polygons); $i++) // warning: foreach won't work
         $vertexes[] = $vertexes[0]; // closes line to make a polygon
     }
 
-    $vertexes_list[] = $vertexes;
+    return implode(', ', $vertexes);
 }
 
-foreach ($vertexes_list as &$vertexes)
+$xml = simplexml_load_file($filepath);
+$region = $xml->Document->Placemark;
+
+$name = $region->name;
+
+// detect if polygon or multipolygon
+$is_multi = !empty($region->MultiGeometry);
+if ($is_multi)
 {
-    $vertexes = implode(', ', $vertexes);
+    $region = $region->MultiGeometry;
+}
+
+$polygons_list = array();
+$is_line = empty($region->Polygon);
+$polygons = $is_line ? $region->LineString : $region->Polygon;
+for ($i = 0; $i < count($polygons); $i++) // warning: foreach won't work
+{
+    // retrieve polygon outer boundary points
+    $outerboundary = '(' . get_coordinates($is_line ? $polygons[$i]->coordinates : 
+                                                      $polygons[$i]->outerBoundaryIs->LinearRing->coordinates,
+                                           $is_line) . ')';
+
+    // Check if they are som inner rings
+    if (!$is_line)
+    {
+        $innerboundaries = array();
+        $innerrings = $polygons[$i]->innerBoundaryIs;
+        for ($j=0; $j < count($innerrings); $j++)
+        {
+            $innerboundaries[] = '(' . get_coordinates($innerrings[$j]->LinearRing->coordinates) . ')';
+        }
+    }
+
+    $polygons_list[] = $outerboundary . (count($innerboundaries) ? ',' . implode(',', $innerboundaries) : '');
 }
 
 if (!$is_multi)
 {
-    $geom = 'POLYGON((' . $vertexes_list[0] . '))';
+    $geom = 'POLYGON(' . $polygons_list[0] . ')';
 }
 else
 {
-    $geom = 'MULTIPOLYGON(((' . implode(')),((', $vertexes_list) . ')))';
+    $geom = 'MULTIPOLYGON((' . implode('),(', $polygons_list) . '))';
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

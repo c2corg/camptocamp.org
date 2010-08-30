@@ -12,7 +12,13 @@ else
 {
     $geoms = explode(')),((', $points);
     foreach($geoms as &$geom) {
-        $geom = explode(',', str_replace(array('(', ')'), '', $geom));
+        $geom = explode('),(', $geom);
+        $boundaries = array();
+        foreach ($geom as $boundary)
+        {
+            $boundaries[] = explode(',', str_replace(array('(', ')'), '', $boundary));
+        }
+        $geom = $boundaries;
     }
 }
 
@@ -86,9 +92,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
         ]]></description>
         <styleUrl>#allstyle</styleUrl>
         <MultiGeometry>
-            <?php foreach ($geoms as $points): ?>
+            <?php foreach ($geoms as $geom): ?>
             <Polygon>
-                <outerBoundaryIs>
+                <?php foreach ($geom as $key => $points):
+                echo (($key == 0) ? '<outerBoundaryIs>' : '<innerBoundaryIs>') ?>
                     <LinearRing>
                         <tessellate>1</tessellate>
                         <altitudeMode>clampToGround</altitudeMode>
@@ -100,7 +107,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
                         endforeach; ?>
                         </coordinates>
                     </LinearRing>
-                </outerBoundaryIs>
+                <?php echo (($key == 0) ? '</outerBoundaryIs>' : '</innerBoundaryIs>');
+                endforeach; ?>
             </Polygon>
             <?php endforeach; ?>
         </MultiGeometry>
