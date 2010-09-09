@@ -1129,12 +1129,12 @@ msgid "Link an existing document"
 msgstr "Ein existierendes Dokument verknüpfen"
 
 msgid "Linked books"
-msgstr "Verknüpfte Bücher"
+msgstr "Verbundene Bücher"
 
 # [general comment]
 # vs: singulier ou pluriel?
 msgid "Linked document"
-msgstr "Verknüpfte Dokumente"
+msgstr "Verbundenes Dokument"
 
 msgid "Linked document does not exist"
 msgstr "Das Dokument, welches sie verknüpfen wollen, existiert nicht"
@@ -1155,22 +1155,22 @@ msgid "Linked routes"
 msgstr "Verbundene Routen "
 
 msgid "Linked sites"
-msgstr "Verknüpften Klettersektoren"
+msgstr "Verbundene Klettergebiete"
 
 msgid "Linked summits"
-msgstr "Verknüpften Gipfeln"
+msgstr "Verbundene Gipfel"
 
 msgid "List all images of associated outings"
-msgstr "Alle Bilder der verknüpften Touren anzeigen"
+msgstr "Alle Bilder der verbundenen Touren anzeigen"
 
 msgid "List all images of associated routes"
-msgstr "Alle Bilder der verknüpften Routen anzeigen"
+msgstr "Alle Bilder der verbundenen Routen anzeigen"
 
 msgid "List all linked images"
 msgstr "Alle verbundene Bilder auflisten"
 
 msgid "List all linked outings"
-msgstr "Alle verknüpften Touren anzeigen"
+msgstr "Alle verbundenen Touren anzeigen"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
@@ -1210,7 +1210,7 @@ msgid "MP"
 msgstr "PN"
 
 msgid "Mailing lists link"
-msgstr "Lawinenbericht (Abo)"
+msgstr "Lawinenbulletins (Abo)"
 
 msgid "Main document"
 msgstr "Hauptdokument"
@@ -2017,7 +2017,7 @@ msgid "Successfully logged out"
 msgstr "Sie sind nun abgemeldet"
 
 msgid "Summary"
-msgstr "Inhalt"
+msgstr "Inhaltsverzeichnis"
 
 msgid "Summit : "
 msgstr "Gipfel: "
@@ -2353,10 +2353,10 @@ msgid "You can associate this article with any existing document using the follo
 msgstr "Dieser Artikel kann mittels diesem Tool mit irgendeinem Dokument verbunden werden:"
 
 msgid "You can associate this book with existing document using the following tool:"
-msgstr "Es ist möglich diesen Buch mit einem Dokument mit Hilfe dieses Tool zu verbinden:"
+msgstr "Dieses Buch kann mit diesem Tool mit irgendeinem Dokument verbunden werden:"
 
 msgid "You can associate this picture with any existing document using the following tool:"
-msgstr "Es ist möglich dieses Bild mit irgend einem Dokument zu verbinden mit Hilfe dieses Tool:"
+msgstr "Dieses Bild kann mit diesem Tool mir irgendeinem Dokument verbunden werdern:"
 
 msgid "You can:"
 msgstr "Sie können:"
