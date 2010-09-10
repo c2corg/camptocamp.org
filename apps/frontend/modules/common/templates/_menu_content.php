@@ -33,8 +33,6 @@ show_select=function()
                 <?php echo link_to(__('Home') . $sublevel_ie7, '@homepage') ?><?php echo $sublevel_start ?>
                 <ul>
                     <li><?php echo link_to(__('Kesako?'), getMetaArticleRoute('know_more', false), array('class' => 'img_action_informations')) ?></li>
-                    <li><?php echo picto_tag('action_help')
-                                 . link_to(__('Customize'), getMetaArticleRoute('customize', false), array('class' => 'ie7m')) ?></li>
                     <li><?php echo link_to(__('FAQ short'), getMetaArticleRoute('faq', false), array('class' => 'img_action_help')) ?></li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
@@ -42,7 +40,7 @@ show_select=function()
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li>
-                <?php echo link_to(__('Guidebook') . $sublevel_ie7, getMetaArticleRoute('home_guide')); ?><?php echo $sublevel_start ?>
+                <?php echo link_to(__('Guidebook') . $sublevel_ie7, getMetaArticleRoute('help_guide', false)) ?><?php echo $sublevel_start ?>
                 <ul>
 	                <li>
                         <?php echo picto_tag('picto_maps')
@@ -131,20 +129,6 @@ show_select=function()
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li>
-                        <?php echo link_to(__('areas') . $sublevel_ie7, '@default_index?module=areas', array('class' => 'img_module_areas')) ?>
-                        <?php echo $sublevel_start ?>
-                        <ul>
-                            <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=areas', array('class' => 'img_action_search')) ?></li>
-                        </ul><?php echo $sublevel_end ?>
-                    </li>
-                    <li>
-                        <?php echo link_to(__('maps') . $sublevel_ie7, '@default_index?module=maps', array('class' => 'img_module_maps')) ?>
-                        <?php echo $sublevel_start ?>
-                        <ul>
-                            <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=maps', array('class' => 'img_action_search')) ?></li>
-                        </ul> <?php echo $sublevel_end ?>
-                    </li>
-                    <li>
                         <?php echo link_to(__('books') . $sublevel_ie7, '@default_index?module=books', array('class' => 'img_module_books')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
@@ -155,20 +139,6 @@ show_select=function()
                         </ul> <?php echo $sublevel_end ?>
                     </li>
                     <li class="lilast"><?php echo link_to(__('Help'), getMetaArticleRoute('help_guide', false), array('class' => 'img_action_help')) ?></li>
-                </ul><?php echo $sublevel_end ?>
-            </li>
-            <li>
-                <?php echo f_link_to(__('Forum') . $sublevel_ie7, '?lang='. $lang); ?><?php echo $sublevel_start ?>
-                <ul>
-                    <?php foreach (Language::getAll() as $key => $value): ?>
-                    <li><?php echo f_link_to(__($value), '?lang=' . $key,  array('class' => 'img_action_comment')) ?></li>
-                    <?php endforeach ?>
-                    <li><?php echo f_link_to(__('Search'), 'search.php',  array('class' => 'img_action_search')) ?></li>
-                    <?php if ($is_connected): ?>
-                        <li><?php echo f_link_to(__('User profile'), 'profile.php?section=personality',  array('class' => 'img_action_edit')) ?></li>
-                    <?php endif ?>
-                    <li><?php echo link_to(__('Help'), getMetaArticleRoute('help_forum', false), array('class' => 'img_action_help')) ?></li>
-                    <li class="lilast"><?php echo link_to(__('Charte'), getMetaArticleRoute('charte_forum', false), array('class' => 'img_action_help')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li>
@@ -187,8 +157,6 @@ show_select=function()
                                  . link_to(__('expeditions'), 'articles/list?ccat=8', array('class'=>'ie7m')) ?></li>
                     <li><?php echo picto_tag('picto_articles')
                                  . link_to(__('stories'), 'articles/list?ccat=3', array('class'=>'ie7m')) ?></li>
-                    <li><?php echo picto_tag('picto_articles')
-                                 . link_to(__('site info'), 'articles/list?ccat=5', array('class'=>'ie7m')) ?></li>
                     <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=articles', array('class' => 'img_action_search')) ?></li>
                     <?php if ($is_connected): ?>
                     <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=articles&id=&lang=', array('class' => 'img_action_create')) ?></li>
@@ -202,25 +170,50 @@ show_select=function()
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li>
-                <?php echo link_to(__('Association'), getMetaArticleRoute('association')); ?>
+                <?php echo link_to(__('Comunity'), getMetaArticleRoute('association')) ?>
                 <ul>
-                    <li><?php echo link_to(__('Summary'), 'articles/list?ccat=6', array('class' => 'img_action_list')) ?></li>
-                    <?php if ($c2c_news_forum): ?>
-                    <li><?php echo picto_tag('action_comment')
-                                 . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum, array('class'=>'ie7m')) ?></li>
+                    <li><?php echo link_to(__('Association') . $sublevel_ie7, getMetaArticleRoute('association')) ?><?php echo $sublevel_start ?>
+                        <ul>
+                            <li class="lilast"><?php echo picto_tag('action_comment')
+                               . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum, array('class'=>'ie7m')) ?></li>
+                        </ul><?php echo $sublevel_end ?>
+                    </li>
+                    <li><?php echo link_to(ucfirst(__('users')) . $sublevel_ie7, '@default_index?module=users', array('class' => 'img_module_users')), $sublevel_start ?>
+                        <ul>
+                            <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=users', array('class' => 'img_action_search')) ?></li>
+                        </ul><?php echo $sublevel_end ?>
+                    </li>
+                    <li><?php echo link_to(__('Shop'), getMetaArticleRoute('shop'), array('class' => 'img_action_list')) ?></li>
+                    <!--<li>Le site c2c todo</li>--><?php //TODO ?>
+                    <li class="lilast"><?php echo link_to(__('credits'), getMetaArticleRoute('credits'), array('class' => 'img_action_list')) ?></li>
+                </ul>
+            </li>
+            <li>
+                <?php echo link_to(__('My Camptocamp'), '#') // TODO ?>
+                <ul>
+                    <li><?php echo link_to(__('Customize'), 'users/customize', array('class' => 'img_action_tools')) ?></li>
+                    <?php if ($is_connected): ?>
+                        <li><?php echo link_to(__('Set languages preferences'), 'users/sortPreferedLanguages', array('class' => 'img_action_tools')) ?></li>
+                        <li><?php echo f_link_to(__('User profile'), 'profile.php?section=personality',  array('class' => 'img_action_edit')) ?></li>
                     <?php endif ?>
-                    <li class="lilast"><?php echo link_to(__('Shop'), getMetaArticleRoute('shop'), array('class' => 'img_action_list')) ?></li>
+                    <li><?php echo picto_tag('action_contact')
+                        . link_to(__('Mailing lists link'), 'users/mailinglists', array('class'=>'ie7m')) ?></li>
+                    <li class="lilast"><?php echo picto_tag('action_cc')
+                        . link_to(__('User image management'), 'users/manageimages', array('class'=>'ie7m')) ?></li>
                 </ul>
             </li>
             <li id="menulast">
-                <?php echo link_to(ucfirst(__('users')) . $sublevel_ie7, '@default_index?module=users') ?><?php echo $sublevel_start ?>
+                <?php echo f_link_to(__('Forum') . $sublevel_ie7, '?lang='. $lang); ?><?php echo $sublevel_start ?>
                 <ul>
-                    <li><?php echo link_to(__('Search'), '@filter?module=users', array('class' => 'img_action_search')) ?></li>
-                    <li><?php echo picto_tag('action_cc')
-                                 . link_to(__('User image management'), 'users/manageimages', array('class'=>'ie7m')) ?></li>
-                    <li class="lilast"><?php
-                        echo picto_tag('action_contact')
-                           . link_to(__('Mailing lists link'), 'users/mailinglists', array('class'=>'ie7m')) ?></li>
+                    <?php foreach (Language::getAll() as $key => $value): ?>
+                    <li><?php echo f_link_to(__($value), '?lang=' . $key,  array('class' => 'img_action_comment')) ?></li>
+                    <?php endforeach ?>
+                    <li><?php echo f_link_to(__('Search'), 'search.php',  array('class' => 'img_action_search')) ?></li>
+                    <?php if ($is_connected): ?>
+                        <li><?php echo f_link_to(__('User profile'), 'profile.php?section=personality',  array('class' => 'img_action_edit')) ?></li>
+                    <?php endif ?>
+                    <li><?php echo link_to(__('Help'), getMetaArticleRoute('help_forum', false), array('class' => 'img_action_help')) ?></li>
+                    <li class="lilast"><?php echo link_to(__('Charte'), getMetaArticleRoute('charte_forum', false), array('class' => 'img_action_help')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
         </ul>
