@@ -385,6 +385,10 @@ msgstr "Azalpenak:"
 msgid "Comments"
 msgstr "Eztabaida"
 
+# [WARNING] es translation used
+msgid "Community"
+msgstr "Comunidad"
+
 msgid "Compare"
 msgstr "Hautaturiko bertsioak komparatu"
 
@@ -1398,6 +1402,10 @@ msgstr "Más..."
 msgid "Move"
 msgstr "Mugitu"
 
+# [WARNING] en translation used
+msgid "My Camptocamp"
+msgstr "My Camptocamp"
+
 msgid "My outing: "
 msgstr "Nire irteera: "
 
@@ -1894,6 +1902,9 @@ msgstr "Hizkuntza lehentasunak"
 msgid "Set your prefered language order"
 msgstr "Hizkuntzen lehentasunak aldatu"
 
+# [general comment]
+# Call it 'c2c products' , 'shop' or whatever you like. Use the expression that applies best to your language. It is a link to tshirts and other products with c2c logo on it
+# [WARNING] needs_update
 msgid "Shop"
 msgstr "Denda"
 
@@ -3552,6 +3563,10 @@ msgstr "Camptocamp.org-ek ez du inongo filtrorik ekintzetarako"
 msgid "c2c map data"
 msgstr "Objetos C2C"
 
+# [WARNING] en translation used
+msgid "c2c website"
+msgstr "C2C website"
+
 # [WARNING] needs_update
 msgid "c2corg intro"
 msgstr "Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Denoi zabalduriko elkartrukerako tokia da.!"
@@ -3805,6 +3820,10 @@ msgstr "arbela"
 
 msgid "create a custom nickname"
 msgstr "ezizen personalisatu bat sortu"
+
+# [WARNING] en translation used
+msgid "create an account?"
+msgstr "Create an account?"
 
 msgid "created_at"
 msgstr "sortua"
@@ -5269,6 +5288,10 @@ msgstr "Contenido personal"
 # [WARNING] es translation used
 msgid "personal image"
 msgstr "imagen personal"
+
+# [WARNING] en translation used
+msgid "personal page"
+msgstr "My personal page"
 
 msgid "phone"
 msgstr "Telefonoa:"

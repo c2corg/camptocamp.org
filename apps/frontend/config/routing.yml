@@ -214,11 +214,15 @@ user_manage_images:
 
 user_save_pref:
   url: /users/savepref
-  param: { module : users, action: savePref }
+  param: { module: users, action: savePref }
 
 user_edit:
   url: /users/editprivatedata
-  param: { module : users, action: editPrivateData }
+  param: { module: users, action: editPrivateData }
+
+mypage:
+  url: /users/mypage
+  param: { module: users, action: myPage }
 
 document_edit_archive:
   url: /:module/edit/:id/:lang/:version

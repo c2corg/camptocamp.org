@@ -121,7 +121,7 @@ class usersActions extends documentsActions
 
     protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
     {
-        // no redirection since users URL do not contain slug
+        // no redirection since users URL do not contain slug
     }
 
     public function executeDiff()
@@ -356,6 +356,21 @@ class usersActions extends documentsActions
         // some code for template if needed
         $this->password = $this->getRequest()->getAttribute('password');
         $this->login_name = $this->getRequest()->getAttribute('login_name');
+    }
+
+    public function executeMyPage()
+    {
+       // redirect to user page if connected
+       if($this->getUser()->isConnected())
+       {
+           $user_id = $this->getUser()->getId();
+           $this->redirect('users/'.$user_id);
+       }
+       else
+       {
+           $this->forward404('Operation not allowed');
+       }
+       
     }
 
     /**

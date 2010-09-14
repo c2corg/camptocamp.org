@@ -583,6 +583,8 @@ all:
     pack_hiking: @PACK_HIKING_ARTICLE_ID@
     pack_ice: @PACK_ICE_HARD_ARTICLE_ID@
     cda_know_more: @CDA_KNOW_MORE@
+    create_account: @WHY_CREATE_ACCOUNT_ARTICLE_ID@
+    website_presentation: @SITE_PRESENTATION_ARTICLE_ID@
 
 
   moderator_user_id: @TOPO_MODERATOR_USER_ID@

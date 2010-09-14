@@ -1705,7 +1705,7 @@ input.picto, .form-row input.picto
 .action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
 .action_report, .action_rm, .action_help, .action_informations, .action_description,
 .action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc,
-.action_json, .action_kml
+.action_json, .action_kml, .action_people
 {
   background: url(/static/images/picto/actions.png) no-repeat;
 }
@@ -1871,6 +1871,15 @@ input.action_up
 input.action_down
 {
   background-position: -6px -1341px;
+}
+
+.action_people
+{
+  background-position: -8px -1375px;
+}
+input.action_people
+{
+  background-position: -6px -1373px;
 }
 
 .action_contact

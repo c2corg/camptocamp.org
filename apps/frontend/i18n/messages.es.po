@@ -373,6 +373,10 @@ msgstr "Comentario:"
 msgid "Comments"
 msgstr "Comentar"
 
+# [WARNING] needs_review
+msgid "Community"
+msgstr "Comunidad"
+
 msgid "Compare"
 msgstr "Comparar les versiones seleccionadas"
 
@@ -1297,6 +1301,10 @@ msgstr "Más..."
 msgid "Move"
 msgstr "Mover"
 
+# [WARNING] en translation used
+msgid "My Camptocamp"
+msgstr "My Camptocamp"
+
 msgid "My outing: "
 msgstr "Mi salida: "
 
@@ -1763,6 +1771,9 @@ msgstr "Preferencias de idiomas"
 msgid "Set your prefered language order"
 msgstr "Modificar el orden de preferencia de los idiomas"
 
+# [general comment]
+# Call it 'c2c products' , 'shop' or whatever you like. Use the expression that applies best to your language. It is a link to tshirts and other products with c2c logo on it
+# [WARNING] needs_update
 msgid "Shop"
 msgstr "Tienda"
 
@@ -3303,6 +3314,10 @@ msgstr "Camptocamp.org no está filtrado por actividades en este momento"
 msgid "c2c map data"
 msgstr "Objetos C2C"
 
+# [WARNING] en translation used
+msgid "c2c website"
+msgstr "C2C website"
+
 msgid "c2corg intro"
 msgstr "Camptocamp.org es una web colaborativa dedicada a los deportes de montaña como el alpinismo, la escalada, el esquí de montaña y las excursiones con raquetas o a pie. Es un lugar de intercambio abierto a todos!"
 
@@ -3543,6 +3558,10 @@ msgstr "yeso"
 
 msgid "create a custom nickname"
 msgstr "crear un seudónimo personificado"
+
+# [WARNING] en translation used
+msgid "create an account?"
+msgstr "Create an account?"
 
 msgid "created_at"
 msgstr "creado el"
@@ -4898,6 +4917,10 @@ msgstr "Contenido personal"
 
 msgid "personal image"
 msgstr "imagen personal"
+
+# [WARNING] en translation used
+msgid "personal page"
+msgstr "My personal page"
 
 msgid "phone"
 msgstr "Teléfono:"

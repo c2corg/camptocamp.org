@@ -389,6 +389,10 @@ msgstr "comentari:"
 msgid "Comments"
 msgstr "Comentar"
 
+# [WARNING] needs_review
+msgid "Community"
+msgstr "Comunitat"
+
 msgid "Compare"
 msgstr "Comparar les versions seleccionades"
 
@@ -1363,6 +1367,10 @@ msgstr "Más..."
 msgid "Move"
 msgstr "Mou"
 
+# [WARNING] en translation used
+msgid "My Camptocamp"
+msgstr "My Camptocamp"
+
 msgid "My outing: "
 msgstr "La meva sortida: "
 
@@ -1860,6 +1868,9 @@ msgstr "Preferènces de llengües"
 msgid "Set your prefered language order"
 msgstr "Modificar l'ordre de preferències de llengües"
 
+# [general comment]
+# Call it 'c2c products' , 'shop' or whatever you like. Use the expression that applies best to your language. It is a link to tshirts and other products with c2c logo on it
+# [WARNING] needs_update
 msgid "Shop"
 msgstr "Tenda"
 
@@ -3537,6 +3548,10 @@ msgstr "Camptocamp.org no filtra per activitats en aquest moment"
 msgid "c2c map data"
 msgstr "Objetos C2C"
 
+# [WARNING] en translation used
+msgid "c2c website"
+msgstr "C2C website"
+
 msgid "c2corg intro"
 msgstr "Camptocamp.org és un web col.laboratiu dedicat als esports de muntanya com l'alpinisme, l'escalada, l'esquí de muntanya i les excursions amb raquetes o a peu. És un lloc d'intercanvi obert a tothom!"
 
@@ -3791,6 +3806,10 @@ msgstr "creta"
 
 msgid "create a custom nickname"
 msgstr "crear un pseudònim personalitzat"
+
+# [WARNING] en translation used
+msgid "create an account?"
+msgstr "Create an account?"
 
 msgid "created_at"
 msgstr "creat el"
@@ -5258,6 +5277,10 @@ msgstr "Contenido personal"
 # [WARNING] es translation used
 msgid "personal image"
 msgstr "imagen personal"
+
+# [WARNING] en translation used
+msgid "personal page"
+msgstr "My personal page"
 
 msgid "phone"
 msgstr "Telèfon:"

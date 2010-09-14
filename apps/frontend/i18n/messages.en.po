@@ -371,6 +371,10 @@ msgstr "Comment:"
 msgid "Comments"
 msgstr "Comments"
 
+# [WARNING] needs_review
+msgid "Community"
+msgstr "Community"
+
 msgid "Compare"
 msgstr "Compare selected versions"
 
@@ -1296,6 +1300,10 @@ msgstr "More..."
 msgid "Move"
 msgstr "Move"
 
+# [WARNING] needs_review
+msgid "My Camptocamp"
+msgstr "My Camptocamp"
+
 msgid "My outing: "
 msgstr "My outing: "
 
@@ -1761,7 +1769,9 @@ msgstr "Set languages preferences"
 msgid "Set your prefered language order"
 msgstr "Set your prefered language order"
 
-# [WARNING] needs_review
+# [general comment]
+# Call it 'c2c products' , 'shop' or whatever you like. Use the expression that applies best to your language. It is a link to tshirts and other products with c2c logo on it
+# [WARNING] needs_update
 msgid "Shop"
 msgstr "Shop"
 
@@ -3329,6 +3339,10 @@ msgstr "Camptocamp.org is no longer customized by activity"
 msgid "c2c map data"
 msgstr "C2C items"
 
+# [WARNING] needs_review
+msgid "c2c website"
+msgstr "C2C website"
+
 msgid "c2corg intro"
 msgstr "Camptocamp.org is a collaborative website providing information on outdoor activities such alpine climbing, rock and ice climbing, ski-touring or hiking. It is a place open to all!"
 
@@ -3570,6 +3584,10 @@ msgstr "chalk"
 
 msgid "create a custom nickname"
 msgstr "create a custom nickname"
+
+# [WARNING] needs_review
+msgid "create an account?"
+msgstr "Create an account?"
 
 msgid "created_at"
 msgstr "created at"
@@ -4923,6 +4941,10 @@ msgstr "Personal content"
 
 msgid "personal image"
 msgstr "personal picture"
+
+# [WARNING] needs_review
+msgid "personal page"
+msgstr "My personal page"
 
 msgid "phone"
 msgstr "Phone:"
