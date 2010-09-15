@@ -29,11 +29,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
             {
                 $geom = str_replace(array('MULTIPOLYGON', '((', '))'), array('MULTILINESTRING', '(', ')'), $geom);
             }
-            $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}",
-                                      $document->get('id'), $document->get('module'),
-                                      str_replace(array('MULTIPOLYGON(', 'POLYGON', ')))'),
-                                                  array('MULTILINESTRING', 'MULTILINESTRING', '))'),
-                                                  $document->get('geom_wkt')));
+            $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}", $document->get('id'), $document->get('module'), $geom)
         }
     }
     if ($document->get('module') == 'routes')
