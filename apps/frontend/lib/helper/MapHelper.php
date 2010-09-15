@@ -21,15 +21,15 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
             // multipolygons.
             // Eventually we directly modify this helper to replace MULTIPOLYGON by MULTINLINESTRINGS
             $geom = $document->get('geom_wkt');
-            if (substr($geom, 7) == 'POLYGON')
+            if (substr($geom, 0, 7) == 'POLYGON')
             {
                 $geom = str_replace('POLYGON', 'MULTILINESTRING', $geom);
             }
-            if (substr($geom, 12) == 'MULTIPOLYGON')
+            if (substr($geom, 0, 12) == 'MULTIPOLYGON')
             {
                 $geom = str_replace(array('MULTIPOLYGON', '((', '))'), array('MULTILINESTRING', '(', ')'), $geom);
             }
-            $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}", $document->get('id'), $document->get('module'), $geom)
+            $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}", $document->get('id'), $document->get('module'), $geom);
         }
     }
     if ($document->get('module') == 'routes')
