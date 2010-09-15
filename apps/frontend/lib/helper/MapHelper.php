@@ -14,8 +14,26 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     {
         if ($document->get('geom_wkt') != null)
         {
+            // FIXME
+            // When using polygons in openlayers, we have a bug preventing to pan the map when mouse cursor is above
+            // a polygon object
+            // As a workaround, we have replaced polygons by linestrings in javascript code. This was not working well with
+            // multipolygons.
+            // Eventually we directly modify this helper to replace MULTIPOLYGON by MULTINLINESTRINGS
+            $geom = $document->get('geom_wkt');
+            if (substr($geom, 7) == 'POLYGON')
+            {
+                $geom = str_replace('POLYGON', 'MULTILINESTRING', $geom);
+            }
+            if (substr($geom, 12) == 'MULTIPOLYGON')
+            {
+                $geom = str_replace(array('MULTIPOLYGON', '((', '))'), array('MULTILINESTRING', '(', ')'), $geom);
+            }
             $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}",
-                                      $document->get('id'), $document->get('module'), $document->get('geom_wkt'));
+                                      $document->get('id'), $document->get('module'),
+                                      str_replace(array('MULTIPOLYGON(', 'POLYGON', ')))'),
+                                                  array('MULTILINESTRING', 'MULTILINESTRING', '))'),
+                                                  $document->get('geom_wkt')));
         }
     }
     if ($document->get('module') == 'routes')

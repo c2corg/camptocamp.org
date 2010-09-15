@@ -16,21 +16,10 @@ c2corg.embeddedMap = (function() {
         for (var i = 0, len = objectsToShow.length; i < len; i++) {
             var obj = objectsToShow[i];
             if (!obj.wkt) continue;
-            
+
             // TODO: use simplified WKT?
             var f = wkt_parser.read(obj.wkt);
 
-            // replace polygons by linestrings to avoid the bug preventing to pan the map when
-            // mouse cursor is above a polygon object.
-            // FIXME: it's a workaround. It should work even with polygon objects
-            if (f.geometry instanceof OpenLayers.Geometry.Polygon ||
-                f.geometry instanceof OpenLayers.Geometry.MultiPolygon) {
-                // FIXME: will it really work with real multipolygons (with several polygons)?
-                var vertices = f.geometry.getVertices();
-                vertices.push(vertices[0]);
-                f.geometry = new OpenLayers.Geometry.LineString(vertices);
-            };
-            
             f.fid = obj.id;
             f.attributes = {type: obj.type};
             if (obj.type == "routes" || obj.type == "outings" || obj.type == "areas" || obj.type == "maps") {
@@ -88,9 +77,9 @@ c2corg.embeddedMap = (function() {
         
         var extent;
         if (features.length > 1 || !(features[0].geometry instanceof OpenLayers.Geometry.Point)) {
-            api.map.zoomToExtent(drawingLayer.getDataExtent());
-            extent = api.map.getExtent();
-            // see init() function below
+            //api.map.zoomToExtent(drawingLayer.getDataExtent());
+            extent = drawingLayer.getDataExtent();
+            // FIXME see init() function below
         }
     }
 
