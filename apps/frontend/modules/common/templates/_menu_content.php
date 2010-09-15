@@ -203,8 +203,10 @@ show_select=function()
                     <?php else: ?>
                         <li><?php echo link_to(__('create an account?'), getMetaArticleRoute('create_account'), array('class' => 'img_action_edit')) ?></li>
                     <?php endif ?>
+                    <?php if ($is_connected): ?>
                     <li class="lilast"><?php echo picto_tag('action_cc')
                         . link_to(__('User image management'), 'users/manageimages', array('class'=>'ie7m')) ?></li>
+                    <?php endif ?>
                 </ul>
             </li>
             <li id="menulast">
