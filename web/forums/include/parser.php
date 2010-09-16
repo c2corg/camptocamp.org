@@ -687,12 +687,12 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
                      '#\[c\](.*?)\[/c\]#s',
 					 '#\[url\]([^\[<]*?)\[/url\]#e',
 					 '#\[url=([^\[<]*?)\](.*?)\[/url\]#e',
-                     '#\[center\](.*?)\[/center\]\s?#s',
-                     '#\[right\](.*?)\[/right\]\s?#s',
-                     '#\[justify\](.*?)\[/justify\]\s?#s',
+                     '#\[center\]\s*(.*?)\s*\[/center\]\s?#s',
+                     '#\[right\]\s*(.*?)\s*\[/right\]\s?#s',
+                     '#\[justify\]\s*(.*?)\s*\[/justify\]\s?#s',
 					 '#\[email\]([^\[<]*?)\[/email\]#e',
 					 '#\[email=([^\[<]*?)\](.*?)\[/email\]#e',
-					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s?#s',
+					 '#\[spoiler(=([^\[]*?)|)\](.*?)\s*\[/spoiler\]\s?#s',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
                      '#\[---+(.*?)\]#s',
                      '#\s?\[p\]\s?#s');
@@ -755,6 +755,8 @@ function do_clickable($text)
     $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
     $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
     $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#(p|t)\d+\+?)[\>\]]*/';
+    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/?((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)/((?![,.:;\>\<](\s|\Z))[^"\s\(\)\[\]])*)[/\>\]]*#';
+    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)(?=[,.:;\>\<"\s\Z\(\)\[\]]))[\>\]]*#';
     $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')
@@ -762,13 +764,17 @@ function do_clickable($text)
         $replace[] = '[url]$2://$3[/url]';
         $replace[] = '[url]$2.$3[/url]';
         $replace[] = '[url]$2[/url]';
+        $replace[] = '[url]/$2[/url]';
+        $replace[] = '[url]$2[/url]';
         $replace[] = '[email]$2@$4[/email]';
     }
     else
     {
         $replace[] = '$2://$3 ';
         $replace[] = '$2.$3 ';
+        $replace[] = '/$2 ';
         $replace[] = '$2 ';
+        $replace[] = '$2/ ';
         $replace[] = '$2 _@_ $4 ';
     }
     

@@ -66,17 +66,17 @@ class sfPunBBCodeParser
                     '#\s*\[/img\]#i',
                     '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
                     '#\[/colou?r\]#i',
-                    '#\[(cent(er|re|ré)|<>)\]\s*#i',
-                    '#\[/(cent(er|re|ré)|<>)\]\s?#i',
-                    '#\[(right|rigth|ritgh|rithg|droite?|>)\]\s*#i',
-                    '#\[/(right|rigth|ritgh|rithg|droite?|>)\]\s?#i',
-                    '#\[(justif(y|ie|ié|)|=)\]\s*#i',
-                    '#\[/(justif(y|ie|ié|)|=)\]\s?#i',
+                    '#\s?\[(cent(er|re|ré)|<>)\]\s*#i',
+                    '#\s*\[/(cent(er|re|ré)|<>)\]\s?#i',
+                    '#\s?\[(right|rigth|ritgh|rithg|droite?|>)\]\s*#i',
+                    '#\s*\[/(right|rigth|ritgh|rithg|droite?|>)\]\s?#i',
+                    '#\s?\[(justif(y|ie|ié|)|=)\]\s*#i',
+                    '#\s*\[/(justif(y|ie|ié|)|=)\]\s?#i',
                     '#\[p\]\s?#s',
-                    '#\[quote=(&quot;|"|\'|)(.*?)\\1\]\s*#i',
-                    '#\[quote(=\]|\])\s*#i',
-                    '#\s*\[/quote\]\s?#i',
-                    '#\[code\][\r\n]*(.*?)\s*\[/code\]\s?#is'
+                    '#\s?\[quote=(&quot;|"|\'|)(.*?)\\1\]#i',
+                    '#\s?\[quote(=\]|\])#i',
+                    '#\[/quote\]\s?#i',
+                    '#\s?\[code\]\s*(.*?)\s*\[/code\]\s?#is'
                 );
 
     	$b = array( '[url=$2]',
@@ -91,16 +91,17 @@ class sfPunBBCodeParser
                     '[color=$2]',
                     '[/color]',
                     '[center]',
-                    '[/center]'."\n",
-                    '[right]',
-                    '[/right]'."\n",
-                    '[justify]',
-                    '[/justify]'."\n",
-                    '[p]'."\n",
-                    '[quote=$1$2$1]',
-                    '[quote]',
-                    '[/quote]'."\n",
-                    '[code]$1[/code]'."\n"
+                    "\n[center]\n",
+                    "\n[/center]\n",
+                    "\n[right]\n",
+                    "\n[/right]\n",
+                    "\n[justify]\n",
+                    "\n[/justify]\n",
+                    "[p]\n",
+                    "\n[quote=$1$2$1]\n",
+                    "\n[quote]\n",
+                    "\n[/quote]\n",
+                    "\n[code]\n$1\n[/code]\n"
                 );
     
         $a[] = '#(?<!^|\n)([ \t]*)(\[(center|right|justify|quote|code|spoiler|video))#i';
@@ -289,6 +290,23 @@ class sfPunBBCodeParser
     		$full_url = 'ftp://'.$full_url;
     	else if ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
     		$full_url = 'http://'.$full_url;
+        elseif (preg_match('/^#(p|t)(\d+)(\+?)/', $url, $params))
+        {
+            $post_id = $params[2];
+            if ($params[1] == 't')
+            {
+                $full_url = '/forums/viewtopic.php?id='.$post_id;
+                if ($params[3] == '+')
+                {
+                    $full_url .= '&action=new';
+                }
+            }
+            else
+            {
+                $full_url = '/forums/viewtopic.php?pid='.$post_id.'#p'.$post_id;
+                $rel = ' rel="nofollow"';
+            }
+        }
     
         if ($link == '' || $link == $url)
         {
@@ -705,14 +723,14 @@ class sfPunBBCodeParser
                          '#\[acr(onym)?=([^\[]*?)\](.*?)\[/acr(onym)?\]#',
     					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
                          '#\s?\[p\]\s?#s',
-                         '#\[center\]\s*(.*?)\[/center\]\s?#s',
-                         '#\[right\]\s*(.*?)\[/right\]\s?#s',
-                         '#\[left\]\s*(.*?)\[/left\]\s?#s',
-                         '#\[justify\]\s*(.*?)\[/justify\]\s?#s',
-                         '#\[abs(tract)?\]\s*(.*?)\[/abs(tract)?\]\s{0,2}#s',
-                         '#\[imp(ortant)?\]\s*(.*?)\[/imp(ortant)?\]\s?#s',
-                         '#\[warn(ing)?\]\s*(.*?)\[/warn(ing)?\]\s?#s',
-                         '#\s?\[col(\s+)([\w\s]*)\]\s*(.*?)\[/col\]\s?#se'
+                         '#\[center\]\s*(.*?)\s*\[/center\]\s?#s',
+                         '#\[right\]\s*(.*?)\s*\[/right\]\s?#s',
+                         '#\[left\]\s*(.*?)\s*\[/left\]\s?#s',
+                         '#\[justify\]\s*(.*?)\s*\[/justify\]\s?#s',
+                         '#\[abs(tract)?\]\s*(.*?)\s*\[/abs(tract)?\]\s{0,2}#s',
+                         '#\[imp(ortant)?\]\s*(.*?)\s*\[/imp(ortant)?\]\s?#s',
+                         '#\[warn(ing)?\]\s*(.*?)\s*\[/warn(ing)?\]\s?#s',
+                         '#\s?\[col(\s+)([\w\s]*)\]\s*(.*?)\s*\[/col\]\s?#se'
 );
     
     	$target = $force_external_links ? '_blank' : '';
@@ -774,11 +792,17 @@ class sfPunBBCodeParser
         $pattern[] ='#\[\[http://[\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?/([^\|\]]*)#i';
         $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
         $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
+        $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#(p|t)\d+\+?)[\>\]]*/';
+        $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/?((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)/((?![,.:;\>\<](\s|\Z))[^"\s\(\)\[\]])*)[/\>\]]*#';
+        $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)(?=[,.:;\>\<"\s\Z\(\)\[\]]))[\>\]]*#';
         $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
         $replace[] = '[[$3';
         $replace[] = '[url]$2://$3[/url]';
         $replace[] = '[url]$2.$3[/url]';
+        $replace[] = '[url]$2[/url]';
+        $replace[] = '[url]/$2[/url]';
+        $replace[] = '[url]$2[/url]';
         $replace[] = '[email]$2@$4[/email]';
         
     	$text = preg_replace($pattern, $replace, $text);
@@ -1329,7 +1353,7 @@ class sfPunBBCodeParser
     public static function extract_abstract($text)
     {
         $abstract = array();
-        $pattern = '#\[abs(tract)?\]\s*(.*?)\[/abs(tract)?\]#s';
+        $pattern = '#\[abs(tract)?\]\s*(.*?)\s*\[/abs(tract)?\]#s';
         $has_abstract = preg_match($pattern, $text, $abstract);
         if ($has_abstract)
         {
