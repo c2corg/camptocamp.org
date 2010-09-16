@@ -121,7 +121,8 @@ class usersActions extends documentsActions
 
     protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
     {
-        // no redirection since users URL do not contain slug
+        // users URL do not contain slug, but we need to add lang if not present
+        $this->redirect("@document_by_id_lang?module=users&id=$id&lang=$lang", 301);
     }
 
     public function executeDiff()
