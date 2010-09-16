@@ -1027,12 +1027,18 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     /**
      * Gets a list of documents filtering on the name field.
-     * seems to be used only by autocomplete.
+     * Only used for autocomplete
+     *
+     * If name appears to be an integer, we use it as document id
      */
     public static function searchByName($name, $model = 'Document', $user_id = 0, $filter_personal_content = false)
     {
         $model_i18n = $model . 'I18n';
-        $where_clause = "m.redirects_to IS NULL AND mi.search_name LIKE '%'||make_search_name(?)||'%'";
+        $use_docid = (intval($name) > 1);
+        $name = $use_docid ? intval($name) : $name;
+
+        $where_clause = $use_docid ? "m.redirects_to IS NULL AND mi.id = ?"
+                                : "m.redirects_to IS NULL AND mi.search_name LIKE '%'||make_search_name(?)||'%'";
 
         if ($model == 'Outing')
         {
@@ -1062,8 +1068,8 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $select = 'mi.name, m.id, m.module, mu.username';
             $from = 'User m, m.UserI18n mi, m.private_data mu';
-            $where_clause = "m.redirects_to IS NULL AND (mi.search_name LIKE '%'||make_search_name(?)||'%' OR mu.search_username LIKE '%'||make_search_name(?)||'%')";
-            $where_vars = array($name, $name);
+            if (!$use_docid) $where_clause = "m.redirects_to IS NULL AND (mi.search_name LIKE '%'||make_search_name(?)||'%' OR mu.search_username LIKE '%'||make_search_name(?)||'%')";
+            $where_vars = $use_docid ? array($name) : array($name, $name);
         }
         else
         {

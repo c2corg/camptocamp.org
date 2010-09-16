@@ -2338,6 +2338,7 @@ class documentsActions extends c2cActions
         $this->setPageTitle($this->__('Recent associations'));
     }
 
+    // quick search box in the header
     public function executeSearch()
     {
         if ($query_string = $this->getRequestParameter('q'))
@@ -2429,6 +2430,7 @@ class documentsActions extends c2cActions
     }
 
     // ajax autocomplete version of the above function
+    // this is only used in the header
     public function executeQuicksearch()
     {
         $query_string = $this->getRequestParameter('q');
