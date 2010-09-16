@@ -794,7 +794,7 @@ class sfPunBBCodeParser
         $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
         $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#(p|t)\d+\+?)[\>\]]*/';
         $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/?((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)/((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
-        $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)(?=[,.:;\>\<"\s\Z\(\)\[\]]))[\>\]]*#';
+        $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
         $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
         $replace[] = '[[$3';
@@ -802,7 +802,7 @@ class sfPunBBCodeParser
         $replace[] = '[url]$2.$3[/url]';
         $replace[] = '[url]$2[/url]';
         $replace[] = '[url]/$2[/url]';
-        $replace[] = '[url]$2[/url]';
+        $replace[] = '[url]/$2[/url]';
         $replace[] = '[email]$2@$4[/email]';
         
     	$text = preg_replace($pattern, $replace, $text);
