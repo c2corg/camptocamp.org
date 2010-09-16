@@ -790,10 +790,10 @@ class sfPunBBCodeParser
     	$text = ' '.$text;
 
         $pattern[] ='#\[\[http://[\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?/([^\|\]]*)#i';
-        $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
-        $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
+        $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+        $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
         $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#(p|t)\d+\+?)[\>\]]*/';
-        $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/?((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)/((?![,.:;\>\<](\s|\Z))[^"\s\(\)\[\]])*)[/\>\]]*#';
+        $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/?((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)/((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
         $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)(?=[,.:;\>\<"\s\Z\(\)\[\]]))[\>\]]*#';
         $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
