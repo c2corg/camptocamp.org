@@ -1031,14 +1031,15 @@ class BaseDocument extends sfDoctrineRecordI18n
      *
      * If name appears to be an integer, we use it as document id
      */
-    public static function searchByName($name, $model = 'Document', $user_id = 0, $filter_personal_content = false)
+    public static function searchByName($name, $model = 'Document', $user_id = 0, $filter_personal_content = false, $exact_match = false)
     {
         $model_i18n = $model . 'I18n';
         $use_docid = (intval($name) > 1);
         $name = $use_docid ? intval($name) : $name;
 
-        $where_clause = $use_docid ? "m.redirects_to IS NULL AND mi.id = ?"
-                                : "m.redirects_to IS NULL AND mi.search_name LIKE '%'||make_search_name(?)||'%'";
+        $operator = $exact_match ? '= ?' : "LIKE '%'||make_search_name(?)||'%'";
+        $where_clause = $use_docid ? 'm.redirects_to IS NULL AND mi.id = ?'
+                                   : 'm.redirects_to IS NULL AND mi.search_name ' . $operator;
 
         if ($model == 'Outing')
         {
@@ -1068,7 +1069,10 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $select = 'mi.name, m.id, m.module, mu.username';
             $from = 'User m, m.UserI18n mi, m.private_data mu';
-            if (!$use_docid) $where_clause = "m.redirects_to IS NULL AND (mi.search_name LIKE '%'||make_search_name(?)||'%' OR mu.search_username LIKE '%'||make_search_name(?)||'%')";
+            if (!$use_docid)
+            {
+                $where_clause = 'm.redirects_to IS NULL AND (mi.search_name ' . $operator . ' OR mu.search_username ' . $operator . ')';
+            }
             $where_vars = $use_docid ? array($name) : array($name, $name);
         }
         else

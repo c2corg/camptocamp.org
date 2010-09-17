@@ -2886,9 +2886,10 @@ class documentsActions extends c2cActions
             return $this->ajax_feedback_autocomplete('no results');
         }
 
-        if ($nb_results > sfConfig::get('app_autocomplete_max_results')) // typically 15
+        if ($nb_results > sfConfig::get('app_autocomplete_max_results') && $nb_results < sfConfig::get('app_list_maxline_number'))
         {
-            // if they are too many results but we have one (or more) perfect matches, we display them though
+            // if they are too many results to display, but if there is at least one exact match, it is in the results return by the db query
+            // we display the exact matches, if any. We translate some special chars and capital letters
             sfLoader::loadHelpers(array('General'));
             $simple_string = remove_accents($string);
             $exact_matches = array();
@@ -2910,6 +2911,25 @@ class documentsActions extends c2cActions
                 return $this->ajax_feedback_autocomplete('Too many results. Please go on typing...');
             }
         }
+        elseif ($nb_results == sfConfig::get('app_list_maxline_number'))
+        {
+            // we have the maximum number of results returned by the db query, so we assume they are more
+            // we try to make an exact search directly to the db (they might not be in the few returned by the previous query)
+            // Note that in this case, we don't try to simplify accents or capital letters
+            $exact_results = Document::searchByName($string, $model, $user->getId(), $filter_personal_content, true);
+            $nb_exact_results = count($exact_results);
+
+            if ($nb_exact_results)
+            {
+                $results = $exact_results;
+                $exact_matches = true;
+            }
+            else
+            {
+                return $this->ajax_feedback_autocomplete('Too many results. Please go on typing...');
+            }
+        }
+        
 
         // build the actual results based on the user's prefered language
         $items = Language::getTheBest($results, $model);
