@@ -360,21 +360,25 @@ function handle_url_tag($url, $link = '')
 		$full_url = 'ftp://'.$full_url;
 	elseif ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
 		$full_url = 'http://'.$full_url;
-    elseif (preg_match('/^#(p|t)(\d+)(\+?)/', $url, $params) && !empty($showed_post_list))
+    elseif (preg_match('/^#([fpt])(\d+)(\+?)/', $url, $params) && !empty($showed_post_list))
     {
-        $post_id = $params[2];
+        $id = $params[2];
         if ($params[1] == 't')
         {
-            $full_url = '/forums/viewtopic.php?id='.$post_id;
+            $full_url = '/forums/viewtopic.php?id='.$id;
             if ($params[3] == '+')
             {
                 $full_url .= '&action=new';
             }
         }
-        elseif (!in_array($post_id, $showed_post_list))
+        elseif ($params[1] == 'p' && !in_array($id, $showed_post_list))
         {
-            $full_url = '/forums/viewtopic.php?pid='.$post_id.'#p'.$post_id;
+            $full_url = '/forums/viewtopic.php?pid='.$id.'#p'.$id;
             $rel = ' rel="nofollow"';
+        }
+        elseif ($params[1] == 'f')
+        {
+            $full_url = '/forums/viewforum.php?id='.$id;
         }
     }
 
@@ -754,7 +758,7 @@ function do_clickable($text)
 
     $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-    $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#(p|t)\d+\+?)[\>\]]*/';
+    $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
     $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/?((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)/((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
     $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|forums)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
     $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
