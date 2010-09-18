@@ -1063,6 +1063,18 @@ msgstr "More"
 msgid "Last bulletin"
 msgstr "Last bulletin"
 
+# [general comment]
+# titre flux rss d'éditions
+# [WARNING] fr translation used
+msgid "Latest %1% editions feed"
+msgstr "%1% - Dernières éditions"
+
+# [general comment]
+# description flux rss d'éditions
+# [WARNING] fr translation used
+msgid "Latest %1% editions feed description"
+msgstr "camptocamp.org - dernières éditions des documents %1%"
+
 msgid "Latest articles"
 msgstr "Latest articles"
 
