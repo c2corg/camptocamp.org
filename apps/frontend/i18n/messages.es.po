@@ -1301,9 +1301,9 @@ msgstr "Más..."
 msgid "Move"
 msgstr "Mover"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "My Camptocamp"
-msgstr "My Camptocamp"
+msgstr "Mi Camptocamp"
 
 msgid "My outing: "
 msgstr "Mi salida: "
@@ -2756,6 +2756,7 @@ msgstr "<h3>Seudo foro</h3>Nombre que aparece en los foros del sitio.<br /><br /
 msgid "_outing_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traza GPX asociada a la salida.<br />Esta información es calculada automáticamente a partir del archivo GPX asociado, y no está disponible para un documento que no incluya una traza GPX.<br />La longitud será substituida si una nueva traza GPX es asociada al documento."
 
+# [WARNING] needs_update
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común o ecomobilidad para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
 
@@ -4918,9 +4919,9 @@ msgstr "Contenido personal"
 msgid "personal image"
 msgstr "imagen personal"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "personal page"
-msgstr "My personal page"
+msgstr "Mi página personal"
 
 msgid "phone"
 msgstr "Teléfono:"

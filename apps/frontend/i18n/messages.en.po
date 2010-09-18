@@ -1300,7 +1300,6 @@ msgstr "More..."
 msgid "Move"
 msgstr "Move"
 
-# [WARNING] needs_review
 msgid "My Camptocamp"
 msgstr "My Camptocamp"
 
@@ -2783,6 +2782,7 @@ msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br 
 msgid "_outing_length_info"
 msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
+# [WARNING] needs_update
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation or ecomobility, which is a helpful search criterion. Ski lifts are not taken into account.<br />The field is optional, and can be unchecked although PT were used."
 

@@ -1291,7 +1291,6 @@ msgstr "Plus..."
 msgid "Move"
 msgstr "Déplacer"
 
-# [WARNING] needs_review
 msgid "My Camptocamp"
 msgstr "Mon Camptocamp"
 
@@ -2735,7 +2734,10 @@ msgid "_outing_length_info"
 msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire emprunté au cours de la sortie.<br />Si une trace GPX est associée à la sortie, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Sortie en mobilité douce</h3>Indique si la sortie a été réalisée en utilisant des transports en commun, permettant de la retrouver facilement. Les remontées mécaniques ne doivent pas être prises en compte.<br />Ce champ n'est pas obligatoire, et peut être non coché bien que l'on ait utilisé les transports en commun."
+msgstr "<h3>Sortie en mobilité douce</h3>\n"
+"Indique si la sortie a été réalisée en utilisant des transports en commun ou le vélo pour accéder au point de départ. Les remontées mécaniques ne doivent pas être prises en compte.<br />\n"
+"Si cette case est cochée, la sortie apparaitra sur le portail <a href=\"http://www.changerdapproche.org\">Changer d'approche</a>.<br />\n"
+"Ce champ n'est pas obligatoire, et peut être non coché bien que l'on ait utilisé les transports en commun."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Parcours partiel</h3>Indique si l'itinéraire n'a été parcouru que partiellement lors de la sortie."

@@ -3018,7 +3018,7 @@ msgstr "<h3>Forumpseudonym</h3>Name, welcher im Forum der Website verwendet wird
 msgid "_outing_length_info"
 msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verknüpft ist.<br />Dieser Wert ist aus dem verknüpften GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Benützung des öV</h3>Gibt an, ob die An- und Abreise einer Tour mit öffentlichen Verkehrsmitteln gemacht wurde, was ein praktisches Suchkriterium ist. Skilifte werden dabei nicht berücksichtigt.<br />Das Feld ist optional und kann unbeantwortet belassen werden, obschon der öV verwendet wurde."
 
@@ -5398,9 +5398,9 @@ msgstr "Persönlicher Inhalt"
 msgid "personal image"
 msgstr "persönliches Bild"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "personal page"
-msgstr "My personal page"
+msgstr "Meine persönliche Seite"
 
 msgid "phone"
 msgstr "Telefon:"

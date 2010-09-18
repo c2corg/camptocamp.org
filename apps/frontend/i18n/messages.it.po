@@ -1309,9 +1309,9 @@ msgstr "Più..."
 msgid "Move"
 msgstr "Spostare"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "My Camptocamp"
-msgstr "My Camptocamp"
+msgstr "Il mio Camptocamp"
 
 msgid "My outing: "
 msgstr "La mia gita: "
@@ -2776,6 +2776,7 @@ msgstr "<h3>Nickname forum</h3>Nome visibile sul forum.<br /><br />Può essere m
 msgid "_outing_length_info"
 msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata alla gita.<br />Questa informazione è calcolata dalla traccia GPS, non è disponibile per un documento senza traccia GPS.<br />Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
 
+# [WARNING] needs_update
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Gita in ecomobilità</h3> Indica se la gita è stata fatta usando i mezzi pubblici. Consente di fare una ricerca per trovare più facilmente questo tipo di gite. (Gli impianti di risalita non devono essere considerati come mezzi pubblici)"
 
@@ -4941,9 +4942,9 @@ msgstr "Contenuto personale"
 msgid "personal image"
 msgstr "immagine personale"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "personal page"
-msgstr "My personal page"
+msgstr "La mia pagina personale"
 
 msgid "phone"
 msgstr "Telefono:"

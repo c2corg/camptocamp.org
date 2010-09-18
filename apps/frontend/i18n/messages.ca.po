@@ -1367,9 +1367,9 @@ msgstr "Más..."
 msgid "Move"
 msgstr "Mou"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "My Camptocamp"
-msgstr "My Camptocamp"
+msgstr "El meu Camptocamp"
 
 msgid "My outing: "
 msgstr "La meva sortida: "
@@ -5278,9 +5278,9 @@ msgstr "Contenido personal"
 msgid "personal image"
 msgstr "imagen personal"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "personal page"
-msgstr "My personal page"
+msgstr "La meva pàgina personal"
 
 msgid "phone"
 msgstr "Telèfon:"
