@@ -3012,24 +3012,16 @@ class documentsActions extends c2cActions
         $id = $this->getRequestParameter('id');
         $mode = $this->getRequestParameter('mode');
 
-        // FIXME
-        // We set culture of user to the one in url (lang)
-        // This could be frustrating for the user if he clicks
-        // on an rss link with an other culture, but in most cases, this shouldn't happen:
-        // - We don't care about changing the culture for an external rss aggregator
-        // - User who click on an RSS link from the browser should only see links with the right culture
-        $this->getUser()->setCulture($lang);
-        
         switch ($mode)
         {
             case 'editions':
-                $description = $this->__("Latest %1% editions feed description", array('%1%' => $this->__($module)));
-                $title = $this->__("Latest %1% editions feed", array('%1%' => $this->__($module)));
+                $description = "Latest $module editions in $lang"; // FIXME : offer translation of these texts in $lang 
+                $title = "Camptocamp.org $module feed";
                 $link = "@feed?module=$module&lang=$lang";
                 break;
             case 'creations':
-                $description = $this->__("Latest %1% creations feed description", array('%1%' => $this->__($module)));
-                $title = $this->__("Latest %1% creations feed", array('%1%' => $this->__($module)));
+                $description = "Latest $module creations in $lang";
+                $title = "Camptocamp.org $module feed";
                 $link = "@creations_feed?module=$module&lang=$lang";
                 break;
             default :
@@ -3039,21 +3031,19 @@ class documentsActions extends c2cActions
                     $this->setNotFoundAndRedirect();
                 }
                 $name = $document->get('name');
-                $description = "Latest editions for $name in $lang"; // TODO i18n
+                $description = "Latest editions for $name in $lang";
                 $title = "Camptocamp.org $name feed";
                 $link = "@document_feed?module=$module&id=$id&lang=$lang";
                 break;
         }
 
+        // TODO: i18n?
         $feed->setTitle($title);
         $feed->setLink($link);
         $feed->setDescription($description);
-        $feed->setLanguage($lang);
         $feed->setAuthorName('Camptocamp.org');
 
         $max_number = 30; // FIXME: config ?
-
-        // TODO i18n is not correctly handled + links
 
         //usage: listRecent($model, $limit, $user_id = null, $lang = null, $doc_id = null, $mode = 'editions')
         $items = Document::listRecent($this->model_class, $max_number, null, $lang, $id, $mode);
@@ -3068,7 +3058,7 @@ class documentsActions extends c2cActions
             $items[$key]['name'] = $item['i18narchive']['name'];
             $items[$key]['search_name'] = $item['i18narchive']['search_name'];
         }
-        $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(' :') . ' ');
+        $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(': '));
         foreach ($routes as $key => $route)
         {
             $items[$key] = $route;
@@ -3104,6 +3094,7 @@ class documentsActions extends c2cActions
                 $feedItem->setLink("@document_by_id_lang_version?module=$module_name&id=$item_id&lang=$lang&version=$new");
             }
             $feedItem->setAuthorName($item['history_metadata']['user_private_data']['topo_name']);
+            //$feedItem->setAuthorEmail($item['history_metadata']['user_private_data']['email']);
             $feedItem->setPubdate(strtotime($item['created_at']));
             $feedItem->setUniqueId("$item_id-$lang-$new");
             $feedItem->setLongitude($item['archive']['lon']);

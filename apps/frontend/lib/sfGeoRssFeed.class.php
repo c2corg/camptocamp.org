@@ -22,22 +22,19 @@ class sfGeoRssFeed extends sfRssFeed
     $xml = array();
     $xml[] = '<?xml version="1.0" encoding="'.$this->getEncoding().'" ?>';
     //$xml[] = '<rss version="'.$this->getVersion().'" xmlns:content="http://purl.org/rss/1.0/modules/content/">';
-    $xml[] = '<rss version="'.$this->getVersion().'" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-                   xmlns:dc="http://purl.org/dc/elements/1.1/"
-                   xmlns:atom="http://www.w3.org/2005/Atom">';
+    $xml[] = '<rss version="'.$this->getVersion().'" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">';
     $xml[] = '  <channel>';
-    $xml[] = '    <atom:link href="'.$this->context->getController()->genUrl($this->getLink(), true).'" rel="self" type="application/rss+xml" />';
     $xml[] = '    <title>'.$this->getTitle().'</title>';
     $xml[] = '    <link>'.$this->context->getController()->genUrl($this->getLink(), true).'</link>';
     $xml[] = '    <description>'.$this->getDescription().'</description>';
-    $xml[] = '    <pubDate>'.strftime('%a, %d %b %Y %H:%M:%S %z', $this->getLatestPostDate()).'</pubDate>';
+    $xml[] = '    <pubDate>'.strftime('%Y-%m-%dT%H:%M:%SZ', $this->getLatestPostDate()).'</pubDate>';
     if ($this->getAuthorEmail())
     {
       $xml[] = '    <managingEditor>'.$this->getAuthorEmail().($this->getAuthorName() ? ' ('.$this->getAuthorName().')' : '').'</managingEditor>';
     }
     if (!$this->getAuthorEmail() && $this->getAuthorName())
     {
-      $xml[] = '    <dc:creator>'.$this->getAuthorName().'</dc:creator>';
+      $xml[] = '    <managingEditor>'.$this->getAuthorName().'</managingEditor>';
     }    if ($this->getLanguage())
     {
       $xml[] = '    <language>'.$this->getLanguage().'</language>';
@@ -84,7 +81,7 @@ class sfGeoRssFeed extends sfRssFeed
       {
         if ($item->getUniqueId())
         {
-          $xml[] = '      <guid isPermaLink="false">'.$item->getUniqueId().'</guid>';
+          $xml[] = '      <guid isPermalink="false">'.$item->getUniqueId().'</guid>';
         }
   
         // author information
@@ -92,13 +89,9 @@ class sfGeoRssFeed extends sfRssFeed
         {
           $xml[] = sprintf('      <author>%s%s</author>', $item->getAuthorEmail(), ($item->getAuthorName()) ? ' ('.$item->getAuthorName().')' : '');
         }
-        elseif ($item->getAuthorName())
-        {
-          $xml[] = sprintf('      <dc:creator>%s</dc:creator>', $item->getAuthorName());
-        }
         if ($item->getPubdate())
         {
-          $xml[] = '      <pubDate>'.strftime('%a, %d %b %Y %H:%M:%S %z', $item->getPubdate()).'</pubDate>';
+          $xml[] = '      <pubDate>'.strftime('%Y-%m-%dT%H:%M:%SZ', $item->getPubdate()).'</pubDate>';
         }
         if (is_string($item->getComments()))
         {
@@ -122,13 +115,12 @@ class sfGeoRssFeed extends sfRssFeed
         }
         
         // added for GeoRSS:
-        $lat = $item->getLatitude();
-        if (!$lat instanceof Doctrine_Null)
+        if ($item->getLatitude())
         {
             $xml[] = '      <geo:lat>'.$item->getLatitude().'</geo:lat>';
         }
-        $lon = $item->getLongitude();
-        if (!$lon instanceof Doctrine_Null)
+        
+        if ($item->getLongitude())
         {
             $xml[] = '      <geo:long>'.$item->getLongitude().'</geo:long>';
         }

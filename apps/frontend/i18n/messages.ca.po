@@ -1105,18 +1105,6 @@ msgstr "sepa más"
 msgid "Last bulletin"
 msgstr "Ultimo boletín"
 
-# [general comment]
-# titre flux rss d'éditions
-# [WARNING] fr translation used
-msgid "Latest %1% editions feed"
-msgstr "%1% - Dernières éditions"
-
-# [general comment]
-# description flux rss d'éditions
-# [WARNING] fr translation used
-msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - dernières éditions des documents %1%"
-
 msgid "Latest articles"
 msgstr "Darrers articles"
 
