@@ -3058,7 +3058,7 @@ class documentsActions extends c2cActions
             $items[$key]['name'] = $item['i18narchive']['name'];
             $items[$key]['search_name'] = $item['i18narchive']['search_name'];
         }
-        $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(': '));
+        $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(' :') . ' ');
         foreach ($routes as $key => $route)
         {
             $items[$key] = $route;
