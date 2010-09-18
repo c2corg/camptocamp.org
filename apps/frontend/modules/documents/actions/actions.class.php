@@ -3041,6 +3041,7 @@ class documentsActions extends c2cActions
         $feed->setTitle($title);
         $feed->setLink($link);
         $feed->setDescription($description);
+        $feed->setLanguage($lang);
         $feed->setAuthorName('Camptocamp.org');
 
         $max_number = 30; // FIXME: config ?
