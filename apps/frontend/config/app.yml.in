@@ -593,6 +593,7 @@ all:
 
   # Google Analytics account key
   ganalytics_key: @GANALYTICS_KEY@
+  mobile_ganalytics_key: @MOBILE_GANALYTICS_KEY@
     
 
 # module specific conf, put here because it is not accessible from every module   

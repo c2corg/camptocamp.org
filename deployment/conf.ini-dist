@@ -82,6 +82,7 @@ FORUM_MODERATOR_USER_ID = 107261
 
 ; Google Analytics
 GANALYTICS_KEY = 
+MOBILE_GANALYTICS_KEY =
 
 ; Metaengine conection settings
 METAENGINE_URL = <http://meta.engine.url/>
