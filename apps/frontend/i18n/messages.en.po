@@ -371,7 +371,6 @@ msgstr "Comment:"
 msgid "Comments"
 msgstr "Comments"
 
-# [WARNING] needs_review
 msgid "Community"
 msgstr "Community"
 
@@ -1065,15 +1064,15 @@ msgstr "Last bulletin"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed"
-msgstr "%1% - Dernières éditions"
+msgstr "%1% - Latest editions"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - dernières éditions des documents %1%"
+msgstr "camptocamp.org - latest document edits %1%"
 
 msgid "Latest articles"
 msgstr "Latest articles"
@@ -1782,9 +1781,8 @@ msgstr "Set your prefered language order"
 
 # [general comment]
 # Call it 'c2c products' , 'shop' or whatever you like. Use the expression that applies best to your language. It is a link to tshirts and other products with c2c logo on it
-# [WARNING] needs_update
 msgid "Shop"
-msgstr "Shop"
+msgstr "c2c products"
 
 msgid "Short description: "
 msgstr "Short description: "
@@ -2794,9 +2792,8 @@ msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br 
 msgid "_outing_length_info"
 msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
-# [WARNING] needs_update
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation or ecomobility, which is a helpful search criterion. Ski lifts are not taken into account.<br />The field is optional, and can be unchecked although PT were used."
+msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation or ecomobility (including access by bike), which is a helpful search criterion. Ski lifts are not taken into account. Checking the field will make the outing appear in the <a href=\"http://www.changerdapproche.org\">drop your car portal</a>.<br />The field is optional, and can be unchecked even if PT were used."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered partially during the outing."
@@ -3351,9 +3348,8 @@ msgstr "Camptocamp.org is no longer customized by activity"
 msgid "c2c map data"
 msgstr "C2C items"
 
-# [WARNING] needs_review
 msgid "c2c website"
-msgstr "C2C website"
+msgstr "The c2c website"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org is a collaborative website providing information on outdoor activities such alpine climbing, rock and ice climbing, ski-touring or hiking. It is a place open to all!"
@@ -3599,7 +3595,7 @@ msgstr "create a custom nickname"
 
 # [WARNING] needs_review
 msgid "create an account?"
-msgstr "Create an account?"
+msgstr "Open an account?"
 
 msgid "created_at"
 msgstr "created at"
@@ -4954,7 +4950,6 @@ msgstr "Personal content"
 msgid "personal image"
 msgstr "personal picture"
 
-# [WARNING] needs_review
 msgid "personal page"
 msgstr "My personal page"
 

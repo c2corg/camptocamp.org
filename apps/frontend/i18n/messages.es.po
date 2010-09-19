@@ -373,7 +373,6 @@ msgstr "Comentario:"
 msgid "Comments"
 msgstr "Comentar"
 
-# [WARNING] needs_review
 msgid "Community"
 msgstr "Comunidad"
 
@@ -1063,15 +1062,15 @@ msgstr "Ultimo boletín"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed"
-msgstr "%1% - Dernières éditions"
+msgstr "%1% - Ultimas ediciones"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - dernières éditions des documents %1%"
+msgstr "camptocamp.org - ultimas ediciones de documentos %1%"
 
 msgid "Latest articles"
 msgstr "Últimos artículos"
@@ -1313,7 +1312,6 @@ msgstr "Más..."
 msgid "Move"
 msgstr "Mover"
 
-# [WARNING] needs_review
 msgid "My Camptocamp"
 msgstr "Mi Camptocamp"
 
@@ -1785,9 +1783,8 @@ msgstr "Modificar el orden de preferencia de los idiomas"
 
 # [general comment]
 # Call it 'c2c products' , 'shop' or whatever you like. Use the expression that applies best to your language. It is a link to tshirts and other products with c2c logo on it
-# [WARNING] needs_update
 msgid "Shop"
-msgstr "Tienda"
+msgstr "Productos c2c"
 
 msgid "Short description: "
 msgstr "Descripción rápida: "
@@ -2768,9 +2765,8 @@ msgstr "<h3>Seudo foro</h3>Nombre que aparece en los foros del sitio.<br /><br /
 msgid "_outing_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traza GPX asociada a la salida.<br />Esta información es calculada automáticamente a partir del archivo GPX asociado, y no está disponible para un documento que no incluya una traza GPX.<br />La longitud será substituida si una nueva traza GPX es asociada al documento."
 
-# [WARNING] needs_update
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común o ecomobilidad para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
+msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común o ecomobilidad (incluyendo bicicleta) para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Tachar la casilla hará aparecer su salida en el <a href=\"http://www.changerdapproche.org\">portal de las montañas sin coche</a>.<br />Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Recorrido parcialmente</h3>Indica si el itinerario no ha sido recorrido en su totalidad durante la salida."
@@ -3327,9 +3323,8 @@ msgstr "Camptocamp.org no está filtrado por actividades en este momento"
 msgid "c2c map data"
 msgstr "Objetos C2C"
 
-# [WARNING] en translation used
 msgid "c2c website"
-msgstr "C2C website"
+msgstr "La pagina c2c"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org es una web colaborativa dedicada a los deportes de montaña como el alpinismo, la escalada, el esquí de montaña y las excursiones con raquetas o a pie. Es un lugar de intercambio abierto a todos!"
@@ -3572,9 +3567,9 @@ msgstr "yeso"
 msgid "create a custom nickname"
 msgstr "crear un seudónimo personificado"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "create an account?"
-msgstr "Create an account?"
+msgstr "¿Abrir su cuenta?"
 
 msgid "created_at"
 msgstr "creado el"
@@ -4931,7 +4926,6 @@ msgstr "Contenido personal"
 msgid "personal image"
 msgstr "imagen personal"
 
-# [WARNING] needs_review
 msgid "personal page"
 msgstr "Mi página personal"
 

@@ -1069,15 +1069,15 @@ msgstr "Ultimo bollettino"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Latest %1% editions feed"
-msgstr "%1% - Dernières éditions"
+msgstr "%1% - Latest editions"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - dernières éditions des documents %1%"
+msgstr "camptocamp.org - latest document edits %1%"
 
 msgid "Latest articles"
 msgstr "Ultimi articoli"
@@ -3351,7 +3351,7 @@ msgstr "Oggetti C2C"
 
 # [WARNING] en translation used
 msgid "c2c website"
-msgstr "C2C website"
+msgstr "The c2c website"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org è un sito collaborativo dedicato agli sporti di montagna come l’alpinismo, lo scialpinismo, l’arrampicata, le ciaspole... é uno spazio interattivo"
@@ -3598,7 +3598,7 @@ msgstr "Crea un nickname personalizzato"
 
 # [WARNING] en translation used
 msgid "create an account?"
-msgstr "Create an account?"
+msgstr "Open an account?"
 
 msgid "created_at"
 msgstr "creato il"

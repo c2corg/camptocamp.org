@@ -1143,15 +1143,15 @@ msgstr "Ultimo boletín"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Latest %1% editions feed"
-msgstr "%1% - Dernières éditions"
+msgstr "%1% - Ultimas ediciones"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - dernières éditions des documents %1%"
+msgstr "camptocamp.org - ultimas ediciones de documentos %1%"
 
 msgid "Latest articles"
 msgstr "Azken artikuluak"
@@ -2983,7 +2983,7 @@ msgstr "<h3>Luzeera</h3>Ibilbide edo irteerara loturiko GPX aztarnaren luzeera.<
 
 # [WARNING] es translation used
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común o ecomobilidad para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
+msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común o ecomobilidad (incluyendo bicicleta) para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Tachar la casilla hará aparecer su salida en el <a href=\"http://www.changerdapproche.org\">portal de las montañas sin coche</a>.<br />Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Ibilbide partziala</h3>Ibilbidea osoa egin ezean adierazi behar da."
@@ -3575,9 +3575,9 @@ msgstr "Camptocamp.org-ek ez du inongo filtrorik ekintzetarako"
 msgid "c2c map data"
 msgstr "Objetos C2C"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "c2c website"
-msgstr "C2C website"
+msgstr "La pagina c2c"
 
 # [WARNING] needs_update
 msgid "c2corg intro"
@@ -3833,9 +3833,9 @@ msgstr "arbela"
 msgid "create a custom nickname"
 msgstr "ezizen personalisatu bat sortu"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "create an account?"
-msgstr "Create an account?"
+msgstr "¿Abrir su cuenta?"
 
 msgid "created_at"
 msgstr "sortua"

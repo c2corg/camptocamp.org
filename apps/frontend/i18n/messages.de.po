@@ -1088,15 +1088,15 @@ msgstr "Neuestes Bulletin"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Latest %1% editions feed"
-msgstr "%1% - Dernières éditions"
+msgstr "%1% - Latest editions"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - dernières éditions des documents %1%"
+msgstr "camptocamp.org - latest document edits %1%"
 
 msgid "Latest articles"
 msgstr "Neueste Artikel"
@@ -3972,7 +3972,7 @@ msgstr "Ein Pseudonym erstellen"
 
 # [WARNING] en translation used
 msgid "create an account?"
-msgstr "Create an account?"
+msgstr "Open an account?"
 
 msgid "created_at"
 msgstr "erstellt am"
