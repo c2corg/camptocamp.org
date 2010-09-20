@@ -1538,7 +1538,6 @@ msgstr "Print current document"
 msgid "Private message"
 msgstr "Private message"
 
-# [WARNING] needs_review
 msgid "Product not found"
 msgstr "This \"local products\" document does not exist."
 

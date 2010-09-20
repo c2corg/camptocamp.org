@@ -381,9 +381,8 @@ msgstr "Kommentar:"
 msgid "Comments"
 msgstr "Kommentare"
 
-# [WARNING] needs_review
 msgid "Community"
-msgstr "Gemeinshaft"
+msgstr "Gemeinschaft"
 
 msgid "Compare"
 msgstr "Die ausgewählten Fassungen vergleichen"
@@ -546,7 +545,6 @@ msgstr "Aktuelle Fassung"
 msgid "Custom legend"
 msgstr "Benutzerdefinierte Legende:"
 
-# [WARNING] needs_review
 msgid "Customize"
 msgstr "Personalisieren / filtern"
 
@@ -609,9 +607,8 @@ msgstr "Unterschiede der Fassungen von %1% nach %2%."
 
 # [general comment]
 # Lien temporaire vers la version mobile du site (n'apparait que si quelqu'un regarde la page d'accueil standard avec un mobile)
-# [WARNING] needs_review
 msgid "Discover mobile version"
-msgstr "Testen Sie die mobile Website von camptocamp!"
+msgstr "Testen Sie die Version für Mobilgeräte von camptocamp!"
 
 msgid "Display"
 msgstr "Anzeigen"
@@ -758,7 +755,6 @@ msgstr "Die Liste vergrössern"
 msgid "Enlarge the text box"
 msgstr "Die Textzone vergrössern"
 
-# [WARNING] needs_review
 msgid "Expand map"
 msgstr "Karte vergrößern"
 
@@ -782,9 +778,8 @@ msgstr "FAQ"
 msgid "Failed moving uploaded file"
 msgstr "Die Umbenennung der Datei schlug fehl. Bitte versuchen Sie es erneut."
 
-# [WARNING] needs_review
 msgid "Failed rasterizing svg file"
-msgstr "Rasterung des Bildes ist fehlgeschlagen"
+msgstr "Die Rasterung der Vektordatei ist fehlgeschlagen."
 
 msgid "Favorite language:"
 msgstr "Bevorzugte Sprachen:"
@@ -877,7 +872,6 @@ msgstr "Zur nächsten Zufahrt"
 msgid "Go to next portal"
 msgstr "Gehe zum nächsten Portal"
 
-# [WARNING] needs_review
 msgid "Go to next product"
 msgstr "Gehe zum nächsten Dokument der \"lokalen Produkte\""
 
@@ -917,16 +911,14 @@ msgstr "Zur vorherigen Zufahrt"
 msgid "Go to previous portal"
 msgstr "Gehe zum vorhergehenden Portal"
 
-# [WARNING] needs_review
 msgid "Go to previous product"
 msgstr "Gehe zum vorangehenden Dokument der \"lokalen Produkte\""
 
 msgid "Go to previous route"
 msgstr "Zur vorige Route"
 
-# [WARNING] needs_review
 msgid "Go to previous summit"
-msgstr "den vorherigen Gipfel sehen"
+msgstr "Zum vorangehenden Gipfel gehen"
 
 msgid "Go to the homepage"
 msgstr "Zur Startseite gehen"
@@ -983,7 +975,6 @@ msgstr "IGN Karte"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] needs_review
 msgid "IGN orthos"
 msgstr "Orthofotos IGN"
 
@@ -998,9 +989,8 @@ msgstr "Es ist unmöglich das Bild anzuzeigen"
 
 # [comment]
 # Il faut traduire l'article.
-# [WARNING] needs_review
 msgid "Image could not be loaded long"
-msgstr "Um angezeigt zu werden muss das Bild mit diesem Dokument verbunden sein.<br /><a href=\"/articles/151910#pictures\">Mehr Informationen</a>"
+msgstr "Um angezeigt zu werden, muss das Bild mit diesem Dokument verbunden sein.<br /><a href=\"/articles/151910#pictures\">Mehr Informationen</a>"
 
 msgid "Image does not exist"
 msgstr "Dieses Bild existiert nicht"
@@ -1088,15 +1078,15 @@ msgstr "Neuestes Bulletin"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed"
-msgstr "%1% - Latest editions"
+msgstr "%1% - Neueste Änderungen"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - latest document edits %1%"
+msgstr "camptocamp.org - neueste Dokumentenänderungen %1%"
 
 msgid "Latest articles"
 msgstr "Neueste Artikel"
@@ -1128,7 +1118,6 @@ msgstr "Neueste Gipfel"
 msgid "Latest threads"
 msgstr "Neueste Forenbeiträge"
 
-# [WARNING] needs_review
 msgid "Latest videos"
 msgstr "Neueste Videos"
 
@@ -1255,13 +1244,14 @@ msgstr "URL des aktuellen Kartenausschnitts:"
 msgid "Map creation is prohibited"
 msgstr "Das Erstellen von Karten ist nicht erlaubt"
 
+# [comment]
+# Ebenen (deutsch) oder Layers (denglish)?
 # [WARNING] needs_review
 msgid "Map data"
 msgstr "Layers"
 
 # [general comment]
 # message d'attente sur la page carto
-# [WARNING] needs_review
 msgid "Map is loading..."
 msgstr "Karte wird geladen. Bitte warten..."
 
@@ -1270,7 +1260,6 @@ msgstr "Diese Karte existiert nicht."
 
 # [general comment]
 # Intitulé du lien vers la page carto
-# [WARNING] needs_review
 msgid "Map tool"
 msgstr "Kartenwerkzeug"
 
@@ -1322,7 +1311,7 @@ msgstr "Unwesentliche Änderung:"
 
 # [WARNING] needs_review
 msgid "Minsize is %1% x %2%"
-msgstr "Die minimale Grösse ist %1% x %2% Pixel.<br /><strong>Wenn sie Bildmaterial auf camptocamp.org publizieren, erklären sie sich damit einverstanden dieses unter einer <a href=\"/articles/106728#cc-by-nc-nd\">Creative Commons BY-NC-ND</a> (persönlicher Inhalt) oder einer <a href=\"/articles/106728#cc-by-sa\">Creative Commons BY-SA</a>-Lizenz (gemeinschaftlicher Inhalt) zu veröffentlichen.</strong> Urheberrichtlich geschütztes Bildmaterial ist nicht zulässig und wird von den Moderatoren gelöscht (z.B. Bilder von Google Earth, Geoportail oder Scans von geschützten Karten- und Führerwerken).<br />Wenn sie die obere, rechte Ecke des Vorschaubildes anklicken, kommen sie zur Seite des Bildes, wo sie folgendes tun können:<br />- Ändern des Titels und der Beschreibung: Klicken sie auf den “Bearbeiten”-Knopf (im linken Menu)<br />- Verbinden eines Bilds zu anderen Dokumenten: Verwenden sie das Werkzeug am Ende der Seite.<br />- Die Löschung des Bilds durch die Moderatoren verlangen: Klicken sie auf “Ein Problem melden” (am Ende der linken Spalte) um eine Mitteilung an die Moderatoren zu senden.<br /><span style=\"color: red\">Wenn sie mindestens eine Bildkategorie mit einem Stern (*) auswählen wird das Bild auf der Homepage angezeigt.</span> Für mehr Informationen übe Bilder, siehe <a href=\"/articles/107005\">Album Hilfe</a>."
+msgstr "Die minimale Grösse ist %1% x %2% Pixel.<br /><strong>Wenn sie Bildmaterial auf camptocamp.org publizieren, erklären sie sich damit einverstanden dieses unter einer <a href=\"/articles/106728#cc-by-nc-nd\">Creative Commons BY-NC-ND</a> (persönlicher Inhalt) oder einer <a href=\"/articles/106728#cc-by-sa\">Creative Commons BY-SA</a>-Lizenz (gemeinschaftlicher Inhalt) zu veröffentlichen.</strong> Urheberrichtlich geschütztes Bildmaterial ist nicht zulässig und wird von den Moderatoren gelöscht (z.B. Bilder von Google Earth, Geoportail oder Scans von geschützten Karten- und Führerwerken).<br />Wenn sie die obere, rechte Ecke des Vorschaubildes anklicken, kommen sie zur Seite des Bildes, wo sie folgendes tun können:<br />- Ändern des Titels und der Beschreibung: Klicken sie auf den “Bearbeiten”-Knopf (im linken Menu)<br />- Verbinden eines Bilds zu anderen Dokumenten: Verwenden sie das Werkzeug am Ende der Seite.<br />- Die Löschung des Bilds durch die Moderatoren verlangen: Klicken sie auf “Ein Problem melden” (am Ende der linken Spalte) um eine Mitteilung an die Moderatoren zu senden.<br /><span style=\"color: red\">Wenn sie mindestens eine Bildkategorie mit einem Stern (*) auswählen wird das Bild auf der Homepage angezeigt.</span> Für mehr Informationen über Bilder, siehe <a href=\"/articles/107005\">Album Hilfe</a>."
 
 msgid "Missing id parameter"
 msgstr "Es fehlt eine ID-Nummer "
@@ -1341,7 +1330,6 @@ msgstr "Mehr..."
 msgid "Move"
 msgstr "Verschieben"
 
-# [WARNING] needs_review
 msgid "My Camptocamp"
 msgstr "Mein Camptocamp"
 
@@ -1395,9 +1383,8 @@ msgstr "Keine Unterschiede."
 
 # [comment]
 # vs: Quel qu'un à mieux, ça me parle pas!
-# [WARNING] needs_review
 msgid "No document uses this picture."
-msgstr "Diese Bild ist verwaist"
+msgstr "Dieses Bild ist verwaist und mit keinem Dokument verbunden."
 
 msgid "No file was uploaded"
 msgstr "keine Datei wurde hochgeladen "
@@ -1428,7 +1415,7 @@ msgstr "Keine Tour ist mit diesem Klettersektor verbunden"
 
 # [WARNING] needs_review
 msgid "No linked product"
-msgstr "Kein \"lokales Produkt\" nimmt Bezug auf dieses Dokument."
+msgstr "Kein \"lokales Produkt\" ist mit diesem Dokument verbunden."
 
 msgid "No linked route"
 msgstr "Keine Route ist mit diesem Dokument verknüpft."
@@ -1448,7 +1435,6 @@ msgstr "Keine neue Änderung verfügbar."
 msgid "No recent images available"
 msgstr "Keine neue Bilder verfügbar"
 
-# [WARNING] needs_review
 msgid "No recent videos available"
 msgstr "Es gibt kein neues Video."
 
@@ -1536,13 +1522,11 @@ msgstr "Passwort:"
 msgid "Period:"
 msgstr "Zeitraum:"
 
-# [WARNING] needs_review
 msgid "Permalink.openlink"
-msgstr "Link offnen"
+msgstr "Link öffnen"
 
-# [WARNING] needs_review
 msgid "Personal articles"
-msgstr "Selbst verfasste Artikel"
+msgstr "Persönliche Artikel"
 
 msgid "Personal information"
 msgstr "Persönliche Informationen"
@@ -1577,11 +1561,9 @@ msgstr "Das aktuelle Dokument drucken"
 msgid "Private message"
 msgstr "Privatnachricht senden"
 
-# [WARNING] needs_review
 msgid "Product not found"
 msgstr "Dieses Dokument der \"Lokalen Produkte\" existiert nicht."
 
-# [WARNING] needs_review
 msgid "Product:"
 msgstr "Lokale Produkte:"
 
@@ -1632,7 +1614,6 @@ msgstr "Liste der neusten Änderungen in der Kategorie %1%"
 msgid "Recent posts"
 msgstr "Letzte Mitteilungen"
 
-# [WARNING] needs_review
 msgid "Reduce map"
 msgstr "Karte verkleinern"
 
@@ -1679,7 +1660,7 @@ msgstr "Nur für die angemeldeten Benutzer bestimmt"
 
 # [WARNING] needs_review
 msgid "Results %1% - %2% of %3%"
-msgstr "<p>Ergebnisse <b>%1%</b> - <b>%2%</b> von <b>%3%</b></p>"
+msgstr "<p>Ergebnisse <b>%1%</b> - <b>%2%</b> von insgesamt <b>%3%</b></p>"
 
 msgid "Results from google for %1%"
 msgstr "Google Suchergebnis für \"%1%\""
@@ -1757,7 +1738,6 @@ msgstr "Eine Tour suchen"
 msgid "Search a parkings"
 msgstr "Einen Zugangsort suchen"
 
-# [WARNING] needs_review
 msgid "Search a portals"
 msgstr "Suche ein Portal"
 
@@ -1789,7 +1769,6 @@ msgstr "Suche auf das gesamte Dokument:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] needs_review
 msgid "See"
 msgstr "Anzeigen"
 
@@ -1870,17 +1849,14 @@ msgstr "Den Gipfel anzeigen"
 msgid "Show/Hide map"
 msgstr "Karte anzeigen/verstecken"
 
-# [WARNING] needs_review
 msgid "Sign up failed, please try again"
-msgstr "Leider hat ihre Registrierung nicht geklappt. Bitte bitte versuchen Sie es nochmals."
+msgstr "Leider hat ihre Registrierung nicht geklappt. Bitte bitte versuchen sie es nochmals."
 
 # [comment]
 # von "anmelden" zu "registieren" geändert, da anmelden auch einloggen bedeuten kann
-# [WARNING] needs_review
 msgid "Signup"
 msgstr "Registrieren"
 
-# [WARNING] needs_review
 msgid "Signup Form"
 msgstr "Bei camptocamp.org als Benutzer registrieren"
 
@@ -1889,7 +1865,6 @@ msgstr "Dieser Klettersektor existiert nicht."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] needs_review
 msgid "Snow list"
 msgstr "Lawinenbulletin"
 
@@ -1900,11 +1875,9 @@ msgstr "Lawinenbulletin"
 msgid "Soft mobility"
 msgstr "Sanfte Mobilität"
 
-# [WARNING] needs_review
 msgid "Soft mobility articles"
 msgstr "Artikel über nachhaltigen Tourismus und nachhaltige Mobilität"
 
-# [WARNING] needs_review
 msgid "Soft mobility outings"
 msgstr "Neueste Touren, welche mit nachhaltiger Moblität durchgeführt wurden"
 
@@ -1987,17 +1960,15 @@ msgstr "Die neusten Einträge der Zugangsorte verfolgen"
 msgid "Subscribe to latest parkings editions"
 msgstr "Die letzten Änderungen der Zugangsorte verfolgen"
 
-# [WARNING] needs_review
 msgid "Subscribe to latest portals creations"
 msgstr "Die neuesten Portaleinträge anzeigen"
 
-# [WARNING] needs_review
 msgid "Subscribe to latest portals editions"
 msgstr "Die neuesten Portaländerungen anzeigen"
 
 # [WARNING] needs_review
 msgid "Subscribe to latest products creations"
-msgstr "Den neuesten Einträge von \"Lokalen Produkten\" folgen"
+msgstr "Die neuesten Einträge der \"Lokalen Produkten\" abonnieren"
 
 # [WARNING] needs_review
 msgid "Subscribe to latest products editions"
@@ -2133,7 +2104,6 @@ msgstr "Es gibt keinen Verlauf von %1% nach %2%."
 msgid "This document has no geometry"
 msgstr "Mit diesem Dokument ist keine Geometrie verbunden"
 
-# [WARNING] needs_review
 msgid "This document is already at the end of the list"
 msgstr "Dieses Dokument ist das letzte oder das erste Dokument der Liste."
 
@@ -2190,7 +2160,6 @@ msgstr "Werkzeuge"
 
 # [general comment]
 # 'outils' (première entrée du menu topoguide, permettant d'accéder au cotomètre, à la carte, la conversion des coordonnées etc)
-# [WARNING] needs_review
 msgid "Topoguide tools"
 msgstr "Werkzeuge"
 
@@ -2350,7 +2319,6 @@ msgstr "Dieser Typ von Verbindung ist nicht erlaubt"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
-# [WARNING] needs_review
 msgid "Wrong image type"
 msgstr "Bald wird es nicht mehr möglich sein, persönliche Bilder in ein gemeinschaftliches Dokument einzufügen\n"
 "(<a href=\"/articles/151910#image\">mehr Informationen</a>)."
@@ -3970,9 +3938,9 @@ msgstr "Kreide"
 msgid "create a custom nickname"
 msgstr "Ein Pseudonym erstellen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "create an account?"
-msgstr "Open an account?"
+msgstr "Ein Benutzerprofil erstellen?"
 
 msgid "created_at"
 msgstr "erstellt am"
