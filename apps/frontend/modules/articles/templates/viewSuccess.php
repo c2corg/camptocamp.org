@@ -46,7 +46,7 @@ if ($is_not_archive && $is_not_merged):
     $static_base_url = sfConfig::get('app_static_url');
 
     echo start_section_tag('Linked documents', 'associated_docs');
-    include_partial('articles/association', array( 'document' => $document, 'associated_documents' => $associated_documents) );
+    include_partial('articles/association', array('document' => $document, 'associated_documents' => $associated_documents));
     echo end_section_tag();
 
     include_partial('documents/images', array('images' => $associated_images,
