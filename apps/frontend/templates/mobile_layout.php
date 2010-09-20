@@ -17,7 +17,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_code ?>">
 <head>
     <?php
