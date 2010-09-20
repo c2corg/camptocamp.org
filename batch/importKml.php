@@ -334,6 +334,8 @@ try
     $doc->set('geom_wkt', $geom);
     $doc->save();
 
+    echo "Geometry uploaded.\n";
+
     if ($is_new_document)
     {
         $document_id = $doc->get('id');
