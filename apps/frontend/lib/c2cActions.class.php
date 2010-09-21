@@ -7,48 +7,8 @@
  * @version    SVN: $Id: $
  */
 
-abstract class c2cActions extends sfAction
+abstract class c2cActions extends sfActions
 {
-    // FIXME is it really compulsory to copy code from sfActions?
-    // extending sfActions (not sfAction) and calling mobile detection before parent::execute
-    // breaks xmlhttprequests
-    public function execute()
-    {
-        // dispatch action
-        $actionToRun = 'execute'.ucfirst($this->getActionName());
-        if (!is_callable(array($this, $actionToRun)))
-        {
-            // action not found
-            $error = 'sfAction initialization failed for module "%s", action "%s". You must create a "%s" method.';
-            $error = sprintf($error, $this->getModuleName(), $this->getActionName(), $actionToRun);
-            throw new sfInitializationException($error);
-        }
-
-        if (sfConfig::get('sf_logging_enabled'))
-        {
-            $this->getContext()->getLogger()->info('{sfAction} call "'.get_class($this).'->'.$actionToRun.'()'.'"');
-        }
-
-        // added - mobile hostname detection
-        $app_static_url = sfConfig::get('app_static_url');
-        if (c2cTools::mobileVersion())
-        {
-            $this->setLayout('mobile_layout');
-            $this->getResponse()->addStylesheet($app_static_url . '/static/css/mobile.css', 'last', array('media' => 'all'));
-        }
-        else
-        {
-            $this->getResponse()->addStylesheet($app_static_url . '/static/css/menu.css', '', array('media' => 'all'));
-            $this->getResponse()->addStylesheet($app_static_url . '/static/css/print.css', 'last', array('media' => 'print'));
-        }
-        // end
-
-        // run action 
-        $ret = $this->$actionToRun();
-
-        return $ret;
-    }
-
     protected function setMessage($name, $message, $vars = NULL, $persist = true)
     {
         c2cTools::log('{' . $name . '} ' . $message);

@@ -32,6 +32,10 @@ common:    ~
 
 flash:     ~
 
+# switch between regular and mobile version of the site
+MobileFilter:
+  class: MobileFilter
+
 MyExecutionFilter:
   class: MyExecutionFilter
   param:
