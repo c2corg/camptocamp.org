@@ -25,14 +25,17 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
         $combine = !$debug;
         echo include_http_metas();
         echo include_metas();
+    ?>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <?php
         echo include_title();
         minify_include_main_stylesheets($combine, $debug);
         minify_include_custom_stylesheets($combine, $debug);
         minify_include_head_javascripts($combine, $debug);
         echo include_meta_links();
     ?>
-    <meta name ="viewport" content = "width=device-width; initial-scale=1.0; maximum-scale=2.0; user-scalable=1;" />
     <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
 </head>
 <body>
     <div id="holder">
