@@ -273,9 +273,8 @@ msgstr "Torna alla lista degli accessi"
 msgid "Back to portals list"
 msgstr "Tornare alla lista dei portali"
 
-# [WARNING] needs_review
 msgid "Back to products list"
-msgstr "Tornare alla liste dei documenti \"prodotti locali\""
+msgstr "Tornare alla lista dei documenti \"prodotti locali\""
 
 msgid "Back to routes list"
 msgstr "Torna alla lista degli itinerari"
@@ -309,13 +308,11 @@ msgstr "Trova questo libro"
 msgid "CNIL declaration #"
 msgstr "Dichiarazione CNIL n°"
 
-# [WARNING] en translation used
 msgid "Camptocamp on Facebook"
-msgstr "Camptocamp on Facebook"
+msgstr "Camptocamp su Facebook"
 
-# [WARNING] en translation used
 msgid "Camptocamp on Twitter"
-msgstr "Camptocamp on Twitter"
+msgstr "Camptocamp su Twitter"
 
 msgid "Camptocamp-Association"
 msgstr "L'associazione Camptocamp"
@@ -373,7 +370,6 @@ msgstr "Commento:"
 msgid "Comments"
 msgstr "Commenti"
 
-# [WARNING] needs_review
 msgid "Community"
 msgstr "Comunità"
 
@@ -464,7 +460,6 @@ msgstr "Aggiungi un accesso"
 msgid "Create new portals"
 msgstr "Creare un portale"
 
-# [WARNING] needs_review
 msgid "Create new products"
 msgstr "Aggiungere un documento \"prodotto locale\""
 
@@ -506,7 +501,6 @@ msgstr "Aggiungi un nuovo accesso"
 msgid "Creating new portals"
 msgstr "Creazione di un portale"
 
-# [WARNING] needs_review
 msgid "Creating new products"
 msgstr "Creazione di un documento \"prodotti locali\""
 
@@ -596,9 +590,8 @@ msgstr "Differenze tra le versioni di %1% in %2%."
 
 # [general comment]
 # Lien temporaire vers la version mobile du site (n'apparait que si quelqu'un regarde la page d'accueil standard avec un mobile)
-# [WARNING] en translation used
 msgid "Discover mobile version"
-msgstr "Try the mobile version of camptocamp!"
+msgstr "Prova la nuova versione mobile di camptocamp.org !"
 
 msgid "Display"
 msgstr "Mostrare"
@@ -860,7 +853,6 @@ msgstr "Andare all'accesso seguente"
 msgid "Go to next portal"
 msgstr "Andare al portale seguente"
 
-# [WARNING] needs_review
 msgid "Go to next product"
 msgstr "Andare al documento \"prodotti locali\" seguente"
 
@@ -900,9 +892,8 @@ msgstr "Andare all'accesso precedente"
 msgid "Go to previous portal"
 msgstr "Andare al portale precedente"
 
-# [WARNING] needs_review
 msgid "Go to previous product"
-msgstr "andare al documento \"Prodotti locali\" precedente"
+msgstr "Andare al documento \"Prodotti locali\" precedente"
 
 msgid "Go to previous route"
 msgstr "Andare all'itinerario precedente"
@@ -977,9 +968,6 @@ msgstr "Immagine"
 msgid "Image could not be loaded"
 msgstr "Impossibile di vedere l'immagine"
 
-# [comment]
-# Il faut traduire l'article.
-# [WARNING] needs_review
 msgid "Image could not be loaded long"
 msgstr "Per essere visibile, l'immagine deve essere associata a questo documento.<br /><a href=\"/articles/151910#images\">Per maggiori informazioni</a>"
 
@@ -1069,15 +1057,15 @@ msgstr "Ultimo bollettino"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed"
-msgstr "%1% - Latest editions"
+msgstr "%1% - Ultime modifiche"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - latest document edits %1%"
+msgstr "camptocamp.org - ultime modifiche dei documenti %1%"
 
 msgid "Latest articles"
 msgstr "Ultimi articoli"
@@ -1109,7 +1097,6 @@ msgstr "Ultime cime"
 msgid "Latest threads"
 msgstr "Ultime discussioni"
 
-# [WARNING] needs_review
 msgid "Latest videos"
 msgstr "Ultimi video"
 
@@ -1182,7 +1169,6 @@ msgstr "Elencare tutte le gite di questo utente"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailing lists
-# [WARNING] needs_review
 msgid "Lists you have subscribed to"
 msgstr "Bollettini a cui hai sotto sottoscritto"
 
@@ -1299,9 +1285,8 @@ msgstr "Altitudine minima:"
 msgid "Minor change?"
 msgstr "Modifiche minori:"
 
-# [WARNING] needs_update
 msgid "Minsize is %1% x %2%"
-msgstr "La dimensione minimale è %1% x %2% px.<br /><strong>Caricando questa immagine, accetti di diffonderla sotto la licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728/it#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che sia un contenuto personale o collaborativo.</strong> Le immagini con un copyright non sono accettate.<br />Devi verificare che la pagina corrente corrisponde al documento al quale l'immagine deve essere associata.<br />Dopo avere trasferito l'immagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti. <br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span>"
+msgstr "La dimensione minimale è %1% x %2% px.<br /><strong>Caricando questa immagine, accetti di diffonderla sotto la licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728/it#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che sia un contenuto personale o collaborativo.</strong> Le immagini con un copyright non sono accettate.<br />Dopo avere trasferito l'immagine, puoi cliccare nell'angolo superiore destra dell'immaginetta per vedere/modificare le informazioni relative all'immagine. In particolare puoi:<br />- Modificare il titolo o la descrizione dell'immagine.<br />- Associare l'immagine ad altri documenti (gite, itinerari, rifugi...) : lo strumento di associazione si trova in basso della pagina.<br />- Chiedere la cancellazione di un immagine: cliccare su \"Segnala un problema\".<br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span> Leggere l'aiuto sulla<a href=\"/articles/107005\">galleria</a>."
 
 msgid "Missing id parameter"
 msgstr "manca un ID"
@@ -1321,7 +1306,6 @@ msgstr "Più..."
 msgid "Move"
 msgstr "Spostare"
 
-# [WARNING] needs_review
 msgid "My Camptocamp"
 msgstr "Il mio Camptocamp"
 
@@ -1355,7 +1339,6 @@ msgstr "Messaggi non letti"
 msgid "New route"
 msgstr "Aggiungi un itinerario"
 
-# [WARNING] needs_review
 msgid "New routes article"
 msgstr "Aperture di nuovi itinerari "
 
@@ -1404,9 +1387,8 @@ msgstr "Non ci sono gite collegate con quest’itinerario."
 msgid "No linked outing to this site"
 msgstr "Nessuna gita è associata a questa falesia"
 
-# [WARNING] needs_review
 msgid "No linked product"
-msgstr "Nessun documento \"prodotti locali\" è associato a questo documento"
+msgstr "Nessun documento \"prodotti locali\" è associato a questo documento."
 
 msgid "No linked route"
 msgstr "Non ci sono itinerari collegati con questo documento."
@@ -1550,11 +1532,9 @@ msgstr "Stampa il documento corrente"
 msgid "Private message"
 msgstr "Messaggio privato"
 
-# [WARNING] needs_review
 msgid "Product not found"
-msgstr "Questo documento \"prodotti locali\" non esiste"
+msgstr "Questo documento \"prodotti locali\" non esiste."
 
-# [WARNING] needs_review
 msgid "Product:"
 msgstr "Prodotti locali:"
 
@@ -1647,9 +1627,8 @@ msgstr "La versione del documento richiesta non è stata trovata"
 msgid "Reserved to logged users"
 msgstr "Riservato agli utenti registrati"
 
-# [WARNING] needs_review
 msgid "Results %1% - %2% of %3%"
-msgstr "<p>Risultati <b>%1%</b> - <b>%2%</b> su <b>%3%</b></p>"
+msgstr "<p>Risultati <b>%1%</b> a <b>%2%</b> su <b>%3%</b></p>"
 
 msgid "Results from google for %1%"
 msgstr "Risultati di Google per \"%1%\""
@@ -1729,7 +1708,6 @@ msgstr "Cerca un accesso"
 msgid "Search a portals"
 msgstr "Cercare un portale"
 
-# [WARNING] needs_review
 msgid "Search a products"
 msgstr "Cercare un documento \"prodotti locali\""
 
@@ -1756,9 +1734,8 @@ msgstr "Ricerca nel documento intero:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] en translation used
 msgid "See"
-msgstr "View"
+msgstr "Consulta"
 
 msgid "Select a name to use in guidebook"
 msgstr "Scegli il nome da usare nella guida interattiva"
@@ -1795,9 +1772,8 @@ msgstr "Decidi l’ordine di preferenza delle lingue"
 
 # [general comment]
 # Call it 'c2c products' , 'shop' or whatever you like. Use the expression that applies best to your language. It is a link to tshirts and other products with c2c logo on it
-# [WARNING] needs_update
 msgid "Shop"
-msgstr "Boutique"
+msgstr "Prodotti c2c"
 
 msgid "Short description: "
 msgstr "Breve descrizione: "
@@ -1857,15 +1833,12 @@ msgstr "Bollettino valanghe"
 
 # [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
-# [WARNING] needs_review
 msgid "Soft mobility"
-msgstr "Eco-mobilità"
+msgstr "Ecomobilità"
 
-# [WARNING] needs_review
 msgid "Soft mobility articles"
 msgstr "Articoli ecoturismo e ecomobilità"
 
-# [WARNING] needs_review
 msgid "Soft mobility outings"
 msgstr "Ultime gite con ecomobilità"
 
@@ -1952,13 +1925,11 @@ msgstr "Seguire le recente creazioni di portali"
 msgid "Subscribe to latest portals editions"
 msgstr "Seguire le ultime modificazioni dei portali"
 
-# [WARNING] needs_review
 msgid "Subscribe to latest products creations"
-msgstr "Seguire le recente creazioni di documenti \"prodotti locali\""
+msgstr "Seguire le creazioni recenti di documenti \"prodotti locali\""
 
-# [WARNING] needs_review
 msgid "Subscribe to latest products editions"
-msgstr "Seguire le ultime modificazioni di documenti \"prodotti locali\""
+msgstr "Seguire le ultime modificazioni dei documenti \"prodotti locali\""
 
 msgid "Subscribe to latest routes creations"
 msgstr "Segui gli ultimi itinerari aggiunti"
@@ -2453,9 +2424,8 @@ msgstr "[0] Nessun risultato trovato. <br />Verifica l'ortografia, la sintassi o
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Modifica della geometria"
 
-# [WARNING] needs_update
 msgid "_abstract_info"
-msgstr "<h3>Riepilogo / introduzione</h3>Scrivere qualche riga per riassumere o introdurre l'argomento dell'articolo. <br />Le righe saranno visualizzate in testa all'articolo."
+msgstr "<h3>Riepilogo / introduzione</h3>Scrivere qualche riga per riassumere o introdurre l'argomento dell'articolo. Queste righe compariranno in alcune liste <br />Le righe saranno visualizzate in testa all'articolo."
 
 msgid "_access_comments_info"
 msgstr "<h3>Commenti sull'accesso</h3>Precisazioni sulle condizioni di innevamento della strada oppure note sui trasporti pubblici utilizzati."
@@ -2463,9 +2433,8 @@ msgstr "<h3>Commenti sull'accesso</h3>Precisazioni sulle condizioni di innevamen
 msgid "_access_elevation_info"
 msgstr "<h3>Quota della partenza</h3>Quota del punto di partenza della gita. Utile in inverno quanto la quota cambia secondo lo stato di sgombero neve dalla strada."
 
-# [WARNING] en translation used
 msgid "_access_info"
-msgstr "<h3>Access</h3>Description of how to reach the place where a local product can be purchased.<br />If the document is associated to an access point, with or without public transport or ecomobility, the description should start at that access point."
+msgstr "<h3>Accesso</h3>Descrizione dell'accesso a un punto di vendita di prodotti locali.<br />Se il documento è associato a un documento 'accesso stradale' inserire solo l'itinerario da questo accesso."
 
 msgid "_access_status_info"
 msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il giorno della gita: sgombera, innevata, o chiusa<br />Il campo <i>Commenti sull'accesso</i> permette di aggiungere una nota."
@@ -2547,9 +2516,8 @@ msgstr "<h3>Data, Ora</h3>Data e ora della foto.<br />Questa informazione viene 
 msgid "_description_info"
 msgstr "<h3>Descrizione</h3>Parte testuale del documento. Per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: Cima Occidentale o Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Dati numerici</strong>:<br />I dati numerici devono essere scritti in cifre.<br />Le unità devono essere scritte con le abbreviazione:<br />- m , km, h , mn ,s , m/h , km/h, kg, °C<br />I numeri e unita non devono essere separate con uno spazio per evitare un capo linea tra i due, per esempio: 100m"
 
-# [WARNING] needs_update
 msgid "_difficulties_height_info"
-msgstr "<h3>Dislivello delle difficoltà</h3>Dislivello delle difficoltà principali di un itinerario dove si distingue l'avvicinamento dalla via vera e propria."
+msgstr "<h3>Dislivello delle difficoltà</h3>Dislivello delle difficoltà principali di un itinerario dove si distingue l'avvicinamento dalla via vera e propria.<br />Non confondere con lo sviluppo della via! (lo sviluppo è sempre maggiore del dislivello)"
 
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Quota dell'inizio delle difficoltà</h3>Quota della partenza della via nel caso di un itinerario dov'è è logico distinguere l'approccio dalla via stessa.<br />Inutile compilare questo campo nel caso contrario."
@@ -2637,9 +2605,8 @@ msgstr "<h3>Riscaldamento</h3>Indica la presenza di un riscaldamento (stufa a le
 msgid "_height_diff_down_info"
 msgstr "<h3>Dislivello negativo cumulato</h3>Se un rifugio è di solito usato lungo l'itinerario, il dislivello negativo è quello per raggiungere il parcheggio (e non il rifugio).<br /><br />Utile essenzialmente in scialpinismo e escursionismo, non è necessario compilare la rubrica per le altre attività."
 
-# [WARNING] en translation used
 msgid "_height_diff_up_height_diff_down_info"
-msgstr "<h3>Height diff</h3>Cumulated positive and/or negative elevation gain.<br /><br /><em><u>Routes</u>:</em><br />For routes with a distinguishable approach, the positive elevation gain will be calculated as the sum of the approache and the route proper (+ the descent if it involves substantial gains).<br />If an hut is frequently associated to the route, the elevation gain will be calculated for an approach from the refuge.<br /><br />If a GPX track is uploaded and no data was previously indicated, altitude changes will be automatically calculated from the track.<br />"
+msgstr "<h3>Dislivello</h3>Dislivello cumulato.<br /><br /><em><u>Gita</u>:</em><br />Se una tracia GPX è associata alla gita e che il campo dislivello è vuoto, il valore sarà calcolata automaticamente usando la traccia GPX.<br /><br /><em><u>Itinerario</u>:</em><br />Per un itinerario dov'è l'avvicinamento e la via sono distinti, il dislivello sarà quello del totale : avvicinamento + via + ritorno (se ci sono delle salite).<br />Se un rifugio viene solitamente usato il dislivello sarà calcolato dal rifugio.<br />Se una tracia GPX è associata alla gita e che il campo dislivello è vuoto, il valore sarà calcolata automaticamente usando la traccia GPX."
 
 msgid "_height_diff_up_info"
 msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampicata...) dove si distingue l'approccio dalla via stessa, il dislivello positivo è calcolato: dislivello dell'approccio più quello della via (+ il rientro).<br /><br />Se un rifugio è usato di solito per raggiungere l'itinerario, il dislivello positivo è calcolato a partire del rifugio."
@@ -2647,9 +2614,8 @@ msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampi
 msgid "_hiking_rating_info"
 msgstr "<h3>Difficoltà dell'escursione</h3>La scala va da T1 a T6.<br /> <strong>T1 - Escursione:</strong> Sentiero ben tracciato. Terreno pianeggiante o poco inclinato, senza pericolo di cadute esposte. Requisiti: Nessuno, anche con scarpe da ginnastica, orientamento facile, percorribile anche senza cartina topografica.<br /> <strong>T2 - Escursione di montagna:</strong> Sentiero con tracciato evidente e salite regolari. Terreno talvolta ripido, pericolo di cadute esposte non escluso. Requisiti: Passo sicuro, scarponcini da trekking consigliati. Capacità elementari d'orientamento<br /> <strong>T3 - Escursione di montagna impegnativa:</strong> Di regola traccia visibile sul terreno, passaggi esposti possono essere assicurati con corde o catene, eventualmente bisogna servirsi delle mani per l'equilibrio. Singoli passaggi con pericolo di cadute esposte, pietraie, versanti erbosi senza traccia e cosparsi di roccette. Requisiti: Passo sicuro, buoni scarponi da trekking. Discrete capacità d'orientamento Conoscenze base dell'ambiente alpino.<br /> <strong>T4 - Itinerario alpino:</strong> Sentiero non sempre individuabile, itinerario a tratti senza tracciato, talvolta bisogna servirsi delle mani per la progressione. Terreno abbastanza esposto, pendii erbosi delicati, versanti erbosi cosparsi di roccette, facili ghiacciai senza neve. Requisiti: Dimestichezza con terreni esposti, scarponi da trekking robusti. Buone capacità l'orientamento e di valutazione del terreno. Conoscenze dell'ambiente alpino.<br /> <strong>T5 - Itinerario alpino impegnativo:</strong> Spesso senza traccia, singoli facili passaggi d'arrampicata fino al II grado. Terreno esposto e impegnativo, ripidi versanti erbosi cosparsi di roccette, ghiacciai e nevai poco pericolosi. Requisiti: Scarponi da montagna. Ottime capacità d'orientamento e sicurezza nella valutazione del terreno. Buone conoscenze dell'ambiente alpino e conoscenze base dell'impiego di piccozza e corda.<br /> <strong>T6 - Itinerario alpino difficile:</strong> Generalmente senza traccia, passaggi d'arrampicata fino al II grado. Di regola non segnalato. Terreno spesso molto esposto, versanti erbosi e rocciosi molto delicati, ghiacciai con rischio di slittamento. Requisiti: Eccellenti capacità d'orientamento. Ottime conoscenze dell'ambiente alpino e dimestichezza nell'uso di materiale tecnico d'alpinismo."
 
-# [WARNING] en translation used
 msgid "_hours_info"
-msgstr "<h3>Opening hours</h3>Opening hours and days."
+msgstr "<h3>Orari d'apertura</h3>Date e orari d'apertura."
 
 msgid "_hut_comments_info"
 msgstr "<h3>Commenti sul rifugio</h3>Informazioni complementari sullo stato del rifugio: accesso, letti, riscaldamento, gaz, legno, frequentazione."
@@ -2684,16 +2650,14 @@ msgstr "<h3>Custodito</h3>Indica se il rifugio è custodito una parte dell'anno.
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>Numero ISBN del libro."
 
-# [WARNING] en translation used
 msgid "_isbn_or_issn_info"
-msgstr "<h3>ISBN or ISSN</h3>ISBN number of the book of ISSN number of the newspaper or magazine"
+msgstr "<h3>ISBN o ISSN</h3>Numero ISBN del libro, o numero ISSN di una rivista."
 
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilità</h3>Sensibilità ISO della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
 
-# [WARNING] en translation used
 msgid "_issn_info"
-msgstr "<h3>ISSN</h3>ISSN number of the newspaper or magazine"
+msgstr "<h3>ISSN</h3>Numero ISSN della rivista"
 
 # [general comment]
 # Aide contextuelle sur la cotation globale ski.
@@ -3000,7 +2964,6 @@ msgstr "Att."
 msgid "activities_to_display"
 msgstr "Attività da vedere"
 
-# [WARNING] needs_review
 msgid "activity and area filters applied"
 msgstr "<br /><span style=\"color:red\">Attenzione: i tuoi filtri di personalizzazione (attività o regione) sono stati applicati alla ricerca</span>"
 
@@ -3194,9 +3157,9 @@ msgstr "grassetto"
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "back"
-msgstr "back"
+msgstr "indietro"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
@@ -3319,9 +3282,9 @@ msgstr "Attribuzione - Condividi allo stesso modo"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "c button title"
-msgstr "Use a monospaced font type for the selected text"
+msgstr "Usare caratteri di larghezza fissa per il testo selezionato."
 
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org ... solo escursionismo!"
@@ -3349,9 +3312,8 @@ msgstr "Camptocamp.org non è più filtrato sulle attività"
 msgid "c2c map data"
 msgstr "Oggetti C2C"
 
-# [WARNING] en translation used
 msgid "c2c website"
-msgstr "The c2c website"
+msgstr "Il sito c2c"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org è un sito collaborativo dedicato agli sporti di montagna come l’alpinismo, lo scialpinismo, l’arrampicata, le ciaspole... é uno spazio interattivo"
@@ -3394,9 +3356,9 @@ msgstr "Categoria:"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "cda map help text"
-msgstr "The map shows access points that can be reached in public transport. Click on an access point and a list of routes will be displayed."
+msgstr "Sono visibili sulla carta i punti di partenza degli  itinerari accessibili con i mezzi pubblici. Cliccare su un accesso per vedere la lista degli itinerari associati"
 
 # [general comment]
 # Portail "Changer d'approche" : titre de la section comportant la carte.
@@ -3404,9 +3366,8 @@ msgstr "The map shows access points that can be reached in public transport. Cli
 msgid "cda map title"
 msgstr "Trovare un itinerario accessibile con i mezzi pubblici"
 
-# [WARNING] needs_review
 msgid "cda sub title"
-msgstr "il portale della montagna senza machina"
+msgstr "il portale della montagna senza macchina"
 
 # [WARNING] en translation used
 msgid "cda_prepare_outing_box"
@@ -3596,9 +3557,9 @@ msgstr "gesso"
 msgid "create a custom nickname"
 msgstr "Crea un nickname personalizzato"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "create an account?"
-msgstr "Open an account?"
+msgstr "Creare il suo account?"
 
 msgid "created_at"
 msgstr "creato il"
@@ -3900,17 +3861,17 @@ msgstr "da"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "for linked routes"
-msgstr "of associated routes"
+msgstr "degli itinerari associati"
 
 # [general comment]
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "for outings"
-msgstr "of outings"
+msgstr "delle gite"
 
 msgid "forum and topoguide names"
 msgstr "Nome nella guida e nickname forum"
@@ -4478,7 +4439,6 @@ msgstr "Grado medio:"
 msgid "mediterranee"
 msgstr "Mediterraneo"
 
-# [WARNING] en translation used
 msgid "menu"
 msgstr "menu"
 
@@ -4703,7 +4663,6 @@ msgstr "Accesso seguente"
 msgid "next portal"
 msgstr "Portale seguente"
 
-# [WARNING] needs_review
 msgid "next product"
 msgstr "\"Prodotti locali\" seguente"
 
@@ -4816,9 +4775,8 @@ msgstr "altri accessi"
 # 
 # etc
 # 
-# [WARNING] needs_review
 msgid "other admin_limits"
-msgstr "Altri limiti amministrative"
+msgstr "Altre regioni amministrative"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
@@ -4954,7 +4912,6 @@ msgstr "Contenuto personale"
 msgid "personal image"
 msgstr "immagine personale"
 
-# [WARNING] needs_review
 msgid "personal page"
 msgstr "La mia pagina personale"
 
@@ -5039,7 +4996,6 @@ msgstr "Regioni amministrative preferite"
 # Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
 # Cet item est le titre qui apparait dans la liste.
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] needs_review
 msgid "prefered country"
 msgstr "Paesi preferiti"
 
@@ -5098,7 +5054,6 @@ msgstr "Accesso precedente"
 msgid "previous portal"
 msgstr "Portale precedente"
 
-# [WARNING] needs_review
 msgid "previous product"
 msgstr "\"Prodotti locali\" precedente"
 
@@ -5114,7 +5069,6 @@ msgstr "Cima precedente"
 msgid "pro"
 msgstr "professionale"
 
-# [WARNING] needs_review
 msgid "product"
 msgstr "prodotti locali"
 
@@ -5129,11 +5083,9 @@ msgstr "Tipo di prodotti locali:"
 msgid "products"
 msgstr "prodotti locali"
 
-# [WARNING] needs_review
 msgid "products list"
 msgstr "Lista dei prodotti locali"
 
-# [WARNING] needs_review
 msgid "products presentation"
 msgstr "Un documento \"prodotti locali\" può essere un produttore, un ristorante, un bar. Un documento \"prodotto locali\" può essere associato ad un accesso."
 
@@ -5234,7 +5186,6 @@ msgstr "Osservazioni:"
 msgid "report_type"
 msgstr "Tipo di rapporto:"
 
-# [WARNING] needs_review
 msgid "restaurant"
 msgstr "ristorante"
 
@@ -5440,9 +5391,8 @@ msgstr "<strong>Falesia e settori:</strong> Una falesia e un settore di falesia 
 
 # [general comment]
 # catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
-# [WARNING] needs_update
 msgid "site info"
-msgstr "ayuto, sito web"
+msgstr "aiuto, il sito c2c"
 
 msgid "site supported by:"
 msgstr "questo sito è stato realizzato con il contributo di:"
@@ -5499,9 +5449,9 @@ msgstr "placca"
 msgid "slope"
 msgstr "Pendenza:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "small pillar"
-msgstr "columns"
+msgstr "colonnette"
 
 msgid "snow lists explanation"
 msgstr "I seguenti bollettini nivologici sono generalmente pubblicati una volta al giorno, durante la stagione invernale, da parte dell’SLF in Svizzera e da Météo-France in Francia. I bollettini nivologici di Météo-France sono disponibili solo in lingua francese."
@@ -5529,7 +5479,6 @@ msgstr "ciaspole"
 msgid "snowy road"
 msgstr "innevata"
 
-# [WARNING] needs_review
 msgid "soft mobility"
 msgstr "ecomobilità"
 
@@ -5861,9 +5810,8 @@ msgstr "meteo"
 
 # [general comment]
 # Version mobile - lien vers la version 'standard'
-# [WARNING] en translation used
 msgid "web version of the site"
-msgstr "Access the standard version of the website"
+msgstr "Accesso alla versione classica del sito"
 
 msgid "week"
 msgstr "settimana"
@@ -5871,7 +5819,6 @@ msgstr "settimana"
 msgid "weeks"
 msgstr "settimane"
 
-# [WARNING] needs_review
 msgid "whole list"
 msgstr "Usare gli stessi criteri che per questa lista"
 
