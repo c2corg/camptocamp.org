@@ -549,7 +549,7 @@ class usersActions extends documentsActions
             $this->setErrorAndRedirect('You need to login to access this page', $referer);
         }
         $user_id = $this->getUser()->getId(); // logged user id
-        $this->pager = new c2cDoctrinePager('Image', (c2cTools::mobileVerision() ? sfConfig::get('app_list_mobile_maxline_number')
+        $this->pager = new c2cDoctrinePager('Image', (c2cTools::mobileVersion() ? sfConfig::get('app_list_mobile_maxline_number')
                                                                                  : sfConfig::get('app_list_maxline_number')));
         $q = $this->pager->getQuery();
         $q->select('i.id, i.filename, i.image_type, ii.name, ii.culture')
