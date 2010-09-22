@@ -5,7 +5,6 @@ $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/main.css');
 if (!$mobile_version)
 {
     $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/menu.css');
-    $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/handheld.css', array('media' => 'handheld'));
     $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/modalbox.css');
 }
 else
@@ -34,5 +33,8 @@ if (!$mobile_version):
 <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie7.css?<?php echo sfSVN::getHeadRevision('ie7.css') ?>" />
 <![endif]-->
+<?php else: ?>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<link rel="apple-touch-icon" href="<?php echo PUN_STATIC_URL; ?>/static/images/apple-touch-icon.png" />
+<?php endif; ?>
 <link href="<?php echo PUN_STATIC_URL; ?>/static/images/favicon.ico" rel="shortcut icon"/>
-<?php endif;
