@@ -240,7 +240,22 @@ class usersActions extends documentsActions
             }
 
             // redirect to requested page
-            $this->redirect($this->getRequest()->getReferer());
+            if (c2ctools::mobileVersion())
+            {
+                $referer = $this->getRequestParameter('referer');
+                if ($referer && !empty($referer))
+                {
+                    $this->redirect($referer);
+                }
+                else
+                {
+                    $this->redirect($this->getRequest()->getReferer());
+                }
+            }
+            else
+            {
+                $this->redirect($this->getRequest()->getReferer());
+            }
         }
     }
 
