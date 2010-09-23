@@ -249,7 +249,7 @@ class usersActions extends documentsActions
                 }
                 else
                 {
-                    $this->redirect($this->getRequest()->getReferer());
+                    $this->redirect('@homepage');
                 }
             }
             else
