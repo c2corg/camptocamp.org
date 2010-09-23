@@ -5,6 +5,9 @@ if (!function_exists('use_helper'))
 }
 use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum to work
 
+$mobile_hostname = sfConfig::get('app_mobile_version_host');
+$classic_hostname = sfConfig::get('app_classic_version_host');
+
 $is_map = ($footer_type == 'map');
 $is_cda = ($footer_type == 'cda');
 if ($footer_type != 'normal')
@@ -55,10 +58,10 @@ endif;
             <?php echo link_to(__('content license'), getMetaArticleRoute('licenses')) ?> |
             <?php echo link_to(__('Developers'), 'http://dev.camptocamp.org/') ?> |
             <?php echo link_to(__('credits'), getMetaArticleRoute('credits'));
-            $mobile_version = sfConfig::get('app_mobile_version_host');
-            if (!empty($mobile_version))
+            if (!empty($mobile_hostname) && !$is_cda && !$is_map)
             {
-                echo ' | ' . link_to(__('mobile version'), 'http://'.$mobile_version);
+                echo ' | ' . link_to(__('mobile version'), 'http://'.$mobile_hostname,
+                                     array('onclick' => "document.location.href = document.location.href.replace('$classic_hostname', '$mobile_hostname'); return false;"));
             }
             ?>
             </p>
