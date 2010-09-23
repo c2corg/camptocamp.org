@@ -1030,10 +1030,10 @@ function format_book_data($books, $type, $main_id, $is_moderator = false)
         if (isset($book['author']) && trim($book['author']) != '')
         {
             $html .= ' - ' . $book['author'];
-	    if (isset($book['publication_date']) && trim($book['publication_date']) != '')
-            {
-                $html .= ' (' . $book['publication_date'] .')';
-            }
+        }
+        if (isset($book['publication_date']) && trim($book['publication_date']) != '')
+        {
+            $html .= ' - ' . $book['publication_date'];
         }
         if ($is_moderator && $main_id)
         {
