@@ -1263,6 +1263,10 @@ msgstr "Diese Karte existiert nicht."
 msgid "Map tool"
 msgstr "Kartenwerkzeug"
 
+# [WARNING] en translation used
+msgid "Mapquest/OSM"
+msgstr "Mapquest with OSM"
+
 msgid "Maps deletion is prohibited"
 msgstr "Das Löschen von Karten ist nicht erlaubt "
 

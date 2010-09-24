@@ -1246,6 +1246,10 @@ msgstr "This map doesn’t exist."
 msgid "Map tool"
 msgstr "Map Tool"
 
+# [WARNING] needs_review
+msgid "Mapquest/OSM"
+msgstr "Mapquest with OSM"
+
 msgid "Maps deletion is prohibited"
 msgstr "Maps cannot be deleted"
 

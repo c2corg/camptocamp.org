@@ -1241,6 +1241,10 @@ msgstr "Questa mappa non è stata trovata."
 msgid "Map tool"
 msgstr "Strumenti mappa"
 
+# [WARNING] en translation used
+msgid "Mapquest/OSM"
+msgstr "Mapquest with OSM"
+
 msgid "Maps deletion is prohibited"
 msgstr "Non è possibile cancellare una carta"
 

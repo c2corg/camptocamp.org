@@ -1239,6 +1239,10 @@ msgstr "Cette carte n'existe pas."
 msgid "Map tool"
 msgstr "Outil carto"
 
+# [WARNING] needs_review
+msgid "Mapquest/OSM"
+msgstr "Mapquest / OSM"
+
 msgid "Maps deletion is prohibited"
 msgstr "La suppression des objets de type carte n'est pas autorisée"
 

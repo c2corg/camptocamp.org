@@ -1343,6 +1343,10 @@ msgstr "Ez dago halako maparik."
 msgid "Map tool"
 msgstr "Map Tool"
 
+# [WARNING] en translation used
+msgid "Mapquest/OSM"
+msgstr "Mapquest with OSM"
+
 msgid "Maps deletion is prohibited"
 msgstr "Mapa motako objetuak ezin dira ezabatu"
 

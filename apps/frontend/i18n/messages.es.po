@@ -1248,6 +1248,10 @@ msgstr "El mapa no existe."
 msgid "Map tool"
 msgstr "Map Tool"
 
+# [WARNING] en translation used
+msgid "Mapquest/OSM"
+msgstr "Mapquest with OSM"
+
 msgid "Maps deletion is prohibited"
 msgstr "La supresión de objetos de tipo mapa no está autorizada"
 
