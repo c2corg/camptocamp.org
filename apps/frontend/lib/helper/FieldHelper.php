@@ -599,19 +599,16 @@ function field_export($module, $id, $lang, $version = null)
 function field_getdirections($id)
 {
     $title = 'Use %1% to see directions to this parking';
-    return '<div class="no_print"><span class="section_subtitle" id="get_directions">' . __('Get directions:') . '</span>'
-           . ' ' .
-           link_to('Google', "@getdirections?id=$id&service=gmaps",
-                   array('title' => __($title, array('%1%' => 'Google Maps')),
-                         'class' => 'external_link'))
-           . ' ' .
-           link_to('Yahoo!', "@getdirections?id=$id&service=yahoo",
-                   array('title' => __($title, array('%1%' => __('Yahoo! Maps'))),
-                         'class' => 'external_link'))
-           . ' ' .
-           link_to('Bing Maps', "@getdirections?id=$id&service=livesearch",
-                   array('title' => __($title, array('%1%' => 'Bing Maps')),
-                         'class' => 'external_link')) . '</div>';
+    $services_list = array(
+        '#' => __('Choose maps service...'),
+        url_for("@getdirections?id=$id&service=gmaps") => 'Google Maps',
+        url_for("@getdirections?id=$id&service=yahoo") => __('Yahoo! Maps'),
+        url_for("@getdirections?id=$id&service=livesearch") => 'Bing Maps',
+        url_for("@getdirections?id=$id&service=openmapquest") => __('Mapquest/OSM')
+    );
+    return '<div class="no_print"><span class="section_subtitle" id="get_directions">' . __('Get directions:') . '</span> '.
+           select_tag('directions_select', options_for_select($services_list)).
+           javascript_tag('$(\'directions_select\').observe(\'change\', function(e) { window.location=this.options[this.selectedIndex].value; } );') . '</div>';
 }
 
 function field_coord_data_if_set($document, $name) 

@@ -4226,6 +4226,8 @@ class documentsActions extends c2cActions
             case 'livesearch':
                  $url = live_search_maps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name);
                  break;
+            case 'openmapquest':
+                 $url = openmapquest_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $lang); 
             case 'gmaps':
             default:
                  $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name, $lang);

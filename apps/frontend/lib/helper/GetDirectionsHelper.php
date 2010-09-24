@@ -37,5 +37,25 @@ function live_search_maps_direction_link($from_lat, $from_lon, $to_lat, $to_lon,
     $from_code = (empty($from_lat) || empty($from_lon)) ? '' : "pos.${from_lat}_${from_lon}";
     $to_code = "pos.${to_lat}_${to_lon}" . (empty($to_name) ? '' : "_${to_name}");
     $zoom_code = empty($from_code) ? "&lvl=12&cp=${to_lat}_${to_lon}" : '';
+
     return "$baseurl?rtp=$from_code~$to_code$zoom_code";
+}
+
+function openmapquest_direction_link($from_lat, $from_lon, $to_lat, $to_lon, $lang)
+{
+    switch ($lang)
+    {
+        case 'fr': $baseurl = "http://open.mapquest.fr"; break;
+        case 'ca':
+        case 'es': $baseurl = "http://open.mapquest.es"; break;
+        case 'de': $baseurl = "http://open.mapquest.de"; break;
+        case 'it': $baseurl = "http://open.mapquest.it"; break;
+        case 'eu':
+        case 'en':
+        default  : $baseurl = "http://open.mapquest.co.uk/"; break;
+    }
+    $from_code = (empty($from_lat) || empty($from_lon)) ? '' : "$from_lat,$from_lon+to:+";
+    $to_code = "$to_lat,$to_lon";
+
+    return "$baseurl?q=$from_code$to_code&maptype=map&vs=directions";
 }
