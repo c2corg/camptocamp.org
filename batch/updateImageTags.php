@@ -36,7 +36,9 @@ $lookup = array('Area'     => array(),
                 'Site'     => array('remarks', 'pedestrian_access', 'way_back', 'external_resources', 'site_history'),
                 'Parking'  => array('accommodation'),
                 'Hut'      => array('pedestrian_access'),
-                'Route'    => array('remarks', 'gear', 'external_resources', 'route_history'));
+                'Route'    => array('remarks', 'gear', 'external_resources', 'route_history'),
+                'Portal'   => array(),
+                'Product'  => array());
 
 foreach($lookup as $table => $fields)
 {
@@ -54,6 +56,8 @@ foreach($lookup as $table => $fields)
         case 'Parking': $association_type = 'pi'; break;
         case 'Hut':     $association_type = 'hi'; break;
         case 'Route':   $association_type = 'ri'; break;
+        case 'Portal':  $association_type = 'wi'; break;
+        case 'Product': $association_type = 'fi'; break;
     }
 
     // retrieve all documents with an image tag
