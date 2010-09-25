@@ -333,6 +333,21 @@ td div.tclcon h3 a
   display: none;
 }
 
+div.blockform form, div.fakeform
+{
+  padding: 20px 0 15px 0
+}
+
+.pun div > fieldset
+{
+  border: 0;
+}
+
+.pun fieldset
+{
+  padding: 0 5px 0 5px 0;
+}
+
 /* footer */
 #footer
 {
