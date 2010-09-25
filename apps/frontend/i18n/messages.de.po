@@ -348,6 +348,15 @@ msgstr "Untergipfel wurde gelöscht (es war Dokument "
 msgid "Child summit set to document "
 msgstr "Der Üntergifel ist jetzt das Dokument "
 
+# [general comment]
+# Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
+# NOT USED for the moment
+# [comment]
+# ??
+# [WARNING] needs_review
+msgid "Choose maps service..."
+msgstr "Wählen sie einen Routinganbieter..."
+
 msgid "Choose..."
 msgstr "Wählen Sie..."
 
@@ -1263,9 +1272,9 @@ msgstr "Diese Karte existiert nicht."
 msgid "Map tool"
 msgstr "Kartenwerkzeug"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Mapquest/OSM"
-msgstr "Mapquest with OSM"
+msgstr "Mapquest und OpenStreetMap-Daten"
 
 msgid "Maps deletion is prohibited"
 msgstr "Das Löschen von Karten ist nicht erlaubt "

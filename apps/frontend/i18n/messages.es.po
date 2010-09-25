@@ -340,6 +340,13 @@ msgstr "Supresión de una sub-cima (era el documento "
 msgid "Child summit set to document "
 msgstr "La sub-cima es desde ahora el documento "
 
+# [general comment]
+# Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
+# NOT USED for the moment
+# [WARNING] en translation used
+msgid "Choose maps service..."
+msgstr "Select a routing service..."
+
 msgid "Choose..."
 msgstr "Elija..."
 
@@ -1250,7 +1257,7 @@ msgstr "Map Tool"
 
 # [WARNING] en translation used
 msgid "Mapquest/OSM"
-msgstr "Mapquest with OSM"
+msgstr "Mapquest and OpenStreetMap data"
 
 msgid "Maps deletion is prohibited"
 msgstr "La supresión de objetos de tipo mapa no está autorizada"

@@ -340,6 +340,13 @@ msgstr "Suppression d'un sommet fils (il s'agissait du document "
 msgid "Child summit set to document "
 msgstr "Le sommet fils est désormais le document "
 
+# [general comment]
+# Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
+# NOT USED for the moment
+# [WARNING] needs_review
+msgid "Choose maps service..."
+msgstr "Choisissez un service..."
+
 msgid "Choose..."
 msgstr "Choisissez..."
 
@@ -1239,9 +1246,8 @@ msgstr "Cette carte n'existe pas."
 msgid "Map tool"
 msgstr "Outil carto"
 
-# [WARNING] needs_review
 msgid "Mapquest/OSM"
-msgstr "Mapquest / OSM"
+msgstr "Mapquest et données OpenStreetMap"
 
 msgid "Maps deletion is prohibited"
 msgstr "La suppression des objets de type carte n'est pas autorisée"

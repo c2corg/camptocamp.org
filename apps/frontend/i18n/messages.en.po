@@ -339,6 +339,13 @@ msgstr "Sub summit removed (was "
 msgid "Child summit set to document "
 msgstr "Sub summit is the document "
 
+# [general comment]
+# Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
+# NOT USED for the moment
+# [WARNING] needs_review
+msgid "Choose maps service..."
+msgstr "Select a routing service..."
+
 msgid "Choose..."
 msgstr "Choose..."
 
@@ -1248,7 +1255,7 @@ msgstr "Map Tool"
 
 # [WARNING] needs_review
 msgid "Mapquest/OSM"
-msgstr "Mapquest with OSM"
+msgstr "Mapquest and OpenStreetMap data"
 
 msgid "Maps deletion is prohibited"
 msgstr "Maps cannot be deleted"

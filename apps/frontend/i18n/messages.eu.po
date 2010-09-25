@@ -350,6 +350,13 @@ msgstr "Azpi-gailurra ezabaturik (ongorengo dokumentua zen "
 msgid "Child summit set to document "
 msgstr "Azpi-gailurra ondorengo dokumentua da "
 
+# [general comment]
+# Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
+# NOT USED for the moment
+# [WARNING] en translation used
+msgid "Choose maps service..."
+msgstr "Select a routing service..."
+
 msgid "Choose..."
 msgstr "Aukera ezazu..."
 
@@ -1345,7 +1352,7 @@ msgstr "Map Tool"
 
 # [WARNING] en translation used
 msgid "Mapquest/OSM"
-msgstr "Mapquest with OSM"
+msgstr "Mapquest and OpenStreetMap data"
 
 msgid "Maps deletion is prohibited"
 msgstr "Mapa motako objetuak ezin dira ezabatu"

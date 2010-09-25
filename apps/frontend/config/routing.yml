@@ -291,7 +291,7 @@ ordered_list:
 getdirections:
   url: /getdirections/to/:id/with/:service
   param: { module: parkings, action: getdirections }
-  requirements: { id: \d+, service: (?:gmaps|yahoo|livesearch) }
+  requirements: { id: \d+, service: (?:gmaps|yahoo|livesearch|openmapquest) }
 
 default:
   url:   /:module/:action/*

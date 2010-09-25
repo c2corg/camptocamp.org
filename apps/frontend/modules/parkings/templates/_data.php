@@ -21,7 +21,6 @@
         if ($document->get('geom_wkt'))
         {
             li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')), true);
-            li(field_getdirections($sf_params->get('id')));
         }
         ?>
     </ul>

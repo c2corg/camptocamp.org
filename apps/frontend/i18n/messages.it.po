@@ -338,6 +338,13 @@ msgstr "Soppressione di una cima figlia (era il documento "
 msgid "Child summit set to document "
 msgstr "La cima figlia è diventata il documento "
 
+# [general comment]
+# Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
+# NOT USED for the moment
+# [WARNING] en translation used
+msgid "Choose maps service..."
+msgstr "Select a routing service..."
+
 msgid "Choose..."
 msgstr "Scegliere..."
 
@@ -1243,7 +1250,7 @@ msgstr "Strumenti mappa"
 
 # [WARNING] en translation used
 msgid "Mapquest/OSM"
-msgstr "Mapquest with OSM"
+msgstr "Mapquest and OpenStreetMap data"
 
 msgid "Maps deletion is prohibited"
 msgstr "Non è possibile cancellare una carta"
