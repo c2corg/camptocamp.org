@@ -23,7 +23,7 @@ function minify_get_body_javascripts($combine = true, $debug = false)
   $response->setParameter('javascripts_included', true, 'symfony/view/asset');
 
   // prototype is added with position='' by JavascriptHelper. We don't want it here (added in head)
-  $my_already_seen = array(sfConfig::get('app_static_url').sfConfig::get('sf_prototype_web_dir').'/js/prototype' => 1);
+  $my_already_seen = array(sfConfig::get('sf_prototype_web_dir').'/js/prototype' => 1);
 
   return minify_get_javascripts(array('first', '', 'last'), $debug, $my_already_seen);
 }
@@ -31,6 +31,8 @@ function minify_get_body_javascripts($combine = true, $debug = false)
 function minify_get_javascripts($position_array = array('first', '', 'last'), $debug = false, $my_already_seen = array())
 {
   $response = sfContext::getInstance()->getResponse();
+  $app_static_url = sfConfig::get('app_static_url');
+
   $already_seen = $my_already_seen;
   $minify_files = array();
   $external_files = array();
@@ -94,7 +96,7 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
         array_push($filenames, end($file_parts));
       }
       $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
-      $options['src'] = join($files, ',').(!empty($max_rev) ? '?'.$max_rev : '');
+      $options['src'] = $app_static_url . join($files, ',').(!empty($max_rev) ? '?'.$max_rev : '');
     }
     $html .= content_tag('script', '', $options)."\n";
   }
@@ -106,6 +108,7 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
     with minify + combine */
 function nominify_get_javascripts()
 {
+  $app_static_url = sfConfig::get('app_static_url');
   $html = '';
 
   $response = sfContext::getInstance()->getResponse();
@@ -119,7 +122,7 @@ function nominify_get_javascripts()
     foreach ($files as $file)
     {
       $file = javascript_path($file) . '?nominify';
-      $html .= javascript_include_tag($file);
+      $html .= javascript_include_tag($app_static_url . $file);
     }
   }
   return $html;
@@ -166,6 +169,7 @@ function minify_get_stylesheets($position_array = array('first', '', 'last'), $d
   $response = sfContext::getInstance()->getResponse();
   $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
 
+  $app_static_url = sfConfig::get('app_static_url');
   $already_seen = $my_already_seen;
   $minify_files = array();
   foreach ($position_array as $position)
@@ -220,7 +224,7 @@ function minify_get_stylesheets($position_array = array('first', '', 'last'), $d
     $options = unserialize($options);
     if ($debug)
     {
-      $options['href'] = join($files, ',').'?debug';
+      $options['href'] = $app_static_url . join($files, ',').'?debug';
     }
     else
     {
@@ -231,7 +235,7 @@ function minify_get_stylesheets($position_array = array('first', '', 'last'), $d
         array_push($filenames, end($file_parts));
       }
       $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
-      $options['href'] = join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
+      $options['href'] = $app_static_url . join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
     }
     $html .= tag('link', $options)."\n";
   }

@@ -118,15 +118,14 @@
     $response = sfContext::getInstance()->getResponse();
     //$response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/prototype', 'head_first');
     //$response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/effects', 'head_last');
-    $static_base_url = sfConfig::get('app_static_url');
 
     // Lightbox specific
-    $response->addJavascript($static_base_url . '/static/js/lightbox.js');
-    $response->addStylesheet($static_base_url . '/static/css/lightbox.css');      
+    $response->addJavascript('/static/js/lightbox.js');
+    $response->addStylesheet('/static/css/lightbox.css');      
 
     if ($modal) {
-        $response->addJavascript($static_base_url . '/static/js/modalbox.js');
-        $response->addStylesheet($static_base_url . '/static/js/modalbox.css');      	
+        $response->addJavascript('/static/js/modalbox.js');
+        $response->addStylesheet('/static/js/modalbox.css');      	
     }
   }
   
@@ -137,7 +136,7 @@
   {
     $static_base_url = sfConfig::get('app_static_url');
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript($static_base_url . '/static/js/lightbox.js');
-    $response->addStylesheet($static_base_url . '/static/css/lightbox.css');
+    $response->addJavascript('/static/js/lightbox.js');
+    $response->addStylesheet('/static/css/lightbox.css');
   }
 ?>

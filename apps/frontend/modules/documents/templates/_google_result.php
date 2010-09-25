@@ -5,7 +5,7 @@
 use_helper('Form');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('http://www.google.com/jsapi', 'last');
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/google_search.js', 'last');
+$response->addJavascript('/static/js/google_search.js', 'last');
 ?>
 <span id="google_search_branding" style="float:left"></span><?php echo __('Results from google for %1%', array('%1%' => $query_string)); ?><br /><br />
 <div id="google_search_results"></div>

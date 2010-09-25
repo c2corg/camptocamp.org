@@ -5,11 +5,9 @@
 
 function loadTooltipsViewRessources()
 {
-    $static_base_url = sfConfig::get('app_static_url');
-
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript($static_base_url . '/static/js/tooltips.js', 'last');
-    $response->addJavascript($static_base_url . '/static/js/tooltips_view.js', 'last');
+    $response->addJavascript('/static/js/tooltips.js', 'last');
+    $response->addJavascript('/static/js/tooltips_view.js', 'last');
 }
 
 loadTooltipsViewRessources();

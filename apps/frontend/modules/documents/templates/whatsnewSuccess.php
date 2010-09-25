@@ -1,6 +1,6 @@
 <?php use_helper('Javascript', 'Pagination', 'MyForm', 'Viewer', 'General');
 
-use_javascript(sfConfig::get('app_static_url') . '/static/js/history_tools.js', 'last');
+use_javascript('/static/js/history_tools.js', 'last');
 
 $module = $sf_context->getModuleName();
 $table_list_even_odd = 0;
@@ -51,7 +51,6 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
     </thead>
     <tbody>
     <?php 
-    $static_base_url = sfConfig::get('app_static_url');
     foreach ($items as $item):
         $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd'; ?>
         <tr class="<?php echo $table_class; if($item['history_metadata']['is_minor']) echo ' minor_revision'; ?>">

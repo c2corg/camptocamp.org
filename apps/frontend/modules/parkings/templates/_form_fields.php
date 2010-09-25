@@ -1,7 +1,7 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'Javascript', 'Escaping');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/parkings.js', 'last');
+$response->addJavascript('/static/js/parkings.js', 'last');
 
 javascript_tag('field_default = new Array();field_default[0] = Array(\'public_transportation_description\', "'
                . __('public_transportation_description_default') . '");');

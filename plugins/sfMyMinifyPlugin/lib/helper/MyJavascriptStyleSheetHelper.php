@@ -13,6 +13,7 @@ function include_head_javascripts($debug = false)
     $response = sfContext::getInstance()->getResponse();
     //$response->setParameter('javascripts_included', true, 'symfony/view/asset'); this is done in _body function
 
+    $static_base_url = sfConfig::get('app_static_url');
     $already_seen = array();
     $html = '';
 
@@ -46,7 +47,7 @@ function include_head_javascripts($debug = false)
                     }
                 }
 
-                $html .= javascript_include_tag($file);
+                $html .= javascript_include_tag($static_base_url . $file);
             }
         }
     }
@@ -58,14 +59,14 @@ function include_body_javascripts($debug = false)
     $response = sfContext::getInstance()->getResponse();
     $response->setParameter('javascripts_included', true, 'symfony/view/asset');
 
+    $static_base_url = sfConfig::get('app_static_url');
     $already_seen = array();
 
     // prototype, effects and controls are added with position='' by JavascriptHelper. We don't want it here (added in head)
     // FIXME we could probably do that a cleaner way by lokking if already present in head javascripts (but this way is maybe quicker)
-    $static_base_url = sfConfig::get('app_static_url');
-    $already_seen[javascript_path($static_base_url . '/static/js/prototype.js')] = 1;
-    $already_seen[javascript_path($static_base_url . '/static/js/effects.js')] = 1;
-    $already_seen[javascript_path($static_base_url . '/static/js/controls.js')] = 1;
+    $already_seen[javascript_path('/static/js/prototype.js')] = 1;
+    $already_seen[javascript_path('/static/js/effects.js')] = 1;
+    $already_seen[javascript_path('/static/js/controls.js')] = 1;
 
     $html = '';
 
@@ -100,7 +101,7 @@ function include_body_javascripts($debug = false)
                 }
 
 
-                $html .= javascript_include_tag($file);
+                $html .= javascript_include_tag($static_base_url . $file);
             }
         }
     }
@@ -116,6 +117,7 @@ function get_all_stylesheets()
   $response = sfContext::getInstance()->getResponse();
   $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
 
+  $static_base_url = sfConfig::get('app_static_url');
   $already_seen = array();
   $html = '';
 
@@ -135,7 +137,7 @@ function get_all_stylesheets()
         if (isset($already_seen[$file])) continue;
 
         $already_seen[$file] = 1;
-        $html .= stylesheet_tag($file, $options);
+        $html .= stylesheet_tag($static_base_url . $file, $options);
       }
     }
   }

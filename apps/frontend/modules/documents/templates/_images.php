@@ -129,7 +129,7 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
     <div id="add_images_button" class="add_content">
     <?php
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/image_upload.js', 'last');
+    $response->addJavascript('/static/js/image_upload.js', 'last');
     $add = __('add an image');
     $js = 'if (!Prototype.Browser.IE || (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) > 7)) { url = \'' .
           url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .

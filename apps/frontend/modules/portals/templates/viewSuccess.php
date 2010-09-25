@@ -17,13 +17,12 @@ $design_files = $document->get('design_file');
 $design_files = explode(',', $design_files);
 if (count($design_files))
 {
-    $app_static_url = sfConfig::get('app_static_url');
     foreach ($design_files as $file)
     {
         $file = trim($file);
         if (!empty($file))
         {
-            use_stylesheet($app_static_url . '/static/css/' . $file . '.css', 'custom');
+            use_stylesheet('/static/css/' . $file . '.css', 'custom');
         }
     }
 }

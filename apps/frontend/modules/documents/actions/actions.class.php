@@ -965,9 +965,8 @@ class documentsActions extends c2cActions
         $response = $this->getResponse();
         if ($this->needs_translation)
         {
-            $static_base_url = sfConfig::get('app_static_url');
             $response->addJavascript('http://www.google.com/jsapi', 'last');
-            $response->addJavascript($static_base_url . '/static/js/translation.js', 'last');
+            $response->addJavascript('/static/js/translation.js', 'last');
         }
 
         if (!in_array($module, array('summits', 'routes', 'sites', 'huts', 'products')))
@@ -1177,9 +1176,8 @@ class documentsActions extends c2cActions
 
         if (c2cTools::mobileVersion())
         {
-            $static_base_url = sfConfig::get('app_static_url');
-            $this->getResponse()->addJavascript($static_base_url . '/static/js/slider.js', 'head_last');
-            $this->getResponse()->addJavascript($static_base_url . '/static/js/mslider.js', 'last');
+            $this->getResponse()->addJavascript('/static/js/slider.js', 'head_last');
+            $this->getResponse()->addJavascript('/static/js/mslider.js', 'last');
         }
         
         $format = $this->getRequestParameter('format', null);

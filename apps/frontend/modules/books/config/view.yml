@@ -6,9 +6,9 @@ querySuccess:
 # does not work for historySuccess for an unknown reason
 
 editSuccess:
-  javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js ]
+  javascripts:    [ /static/js/bbcode.js ]
 
 viewSuccess:
-  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js ] 
+  javascripts:    [ /static/js/fold.js ] 
   
 # warning (FIXME ?) : if we specify : {position: last} they do not appear at all.

@@ -7,11 +7,11 @@ querySuccess:
 
 editSuccess:
   javascripts:
-    - %APP_STATIC_URL%/static/js/bbcode.js
-    - %APP_STATIC_URL%/static/js/routes.js
+    - /static/js/bbcode.js
+    - /static/js/routes.js
 
 viewSuccess:
-  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js ] 
+  javascripts:    [ /static/js/fold.js ] 
 
 # warning (FIXME ?) : if we specify : {position: last} they do not appear at all.
 

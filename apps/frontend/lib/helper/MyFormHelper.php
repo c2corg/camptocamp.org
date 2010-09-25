@@ -16,12 +16,10 @@ else // action
 
 function loadTooltipsEditRessources()
 {
-    $static_base_url = sfConfig::get('app_static_url');
-
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript($static_base_url . '/static/js/tooltips.js', 'last');
-    $response->addJavascript($static_base_url . '/static/js/tooltips_edit.js', 'last');
-    $response->addJavascript($static_base_url . '/static/js/submit.js', 'last');
+    $response->addJavascript('/static/js/tooltips.js', 'last');
+    $response->addJavascript('/static/js/tooltips_edit.js', 'last');
+    $response->addJavascript('/static/js/submit.js', 'last');
 }
 
 loadTooltipsEditRessources();
@@ -392,9 +390,8 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
 {
     use_helper('Button');
 
-    $static_base_url = sfConfig::get('app_static_url');
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript($static_base_url . '/static/js/bbcode.js', 'last');
+    $response->addJavascript('/static/js/bbcode.js', 'last');
 
     $img_tag = !isset($options['no_img']);
     $abs_tag = isset($options['abstract']);

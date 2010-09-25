@@ -40,16 +40,15 @@ function _loadJsOamTools()
 {
     $response = sfContext::getInstance()->getResponse();
 
-    $static_base_url = sfConfig::get('app_static_url');
 
     // OpenLayers
-    $response->addJavascript($static_base_url . '/static/js/openlayers_sfl/OpenLayers.js', 'first');
-    //$response->addJavascript($static_base_url . '/static/js/openlayers/lib/OpenLayers.js', 'first'); // for debugging purpose
+    $response->addJavascript('/static/js/openlayers_sfl/OpenLayers.js', 'first');
+    //$response->addJavascript('/static/js/openlayers/lib/OpenLayers.js', 'first'); // for debugging purpose
     
     // App-specific
-    $response->addJavascript($static_base_url . '/static/js/oam_mapping.js', 'first');
+    $response->addJavascript('/static/js/oam_mapping.js', 'first');
     
-    $response->addStyleSheet($static_base_url . '/static/css/openlayers.css', '', array('media' => 'all'));
+    $response->addStyleSheet('/static/css/openlayers.css', '', array('media' => 'all'));
 }
 
 _loadJsOamTools();

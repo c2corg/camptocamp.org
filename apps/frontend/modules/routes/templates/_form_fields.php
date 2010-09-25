@@ -1,7 +1,7 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'Button', 'ModalBox');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js', 'last');
+$response->addJavascript('/static/js/routes.js', 'last');
 
 javascript_tag('field_default = new Array();field_default[0] = Array(\'gear\', "' .
                __('gear_default') . '");field_default[1] = Array(\'route_history\', "' .

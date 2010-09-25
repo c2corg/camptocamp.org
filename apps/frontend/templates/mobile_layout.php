@@ -13,7 +13,7 @@ use_helper('MyMinify', 'MetaLink');
 
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js', 'head_last');
+$response->addJavascript('/static/js/fold.js', 'head_last');
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>

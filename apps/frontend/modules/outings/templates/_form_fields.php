@@ -1,10 +1,8 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript', 'Escaping', 'General');
 
-$static_base_url = sfConfig::get('app_static_url');
-
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript($static_base_url . '/static/js/outings.js', 'last');
+$response->addJavascript('/static/js/outings.js', 'last');
 
 echo javascript_tag("var confirm_outing_date_message = '" . addslashes(__('Has this outing really been done today?')) . "';
 var outing_date_already_tested = false;");
