@@ -4,6 +4,7 @@ use_helper('Language', 'Sections', 'Viewer');
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $sf_params->get('id');
+$lang = $document->getCulture();
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
@@ -144,6 +145,8 @@ if ($is_not_archive && $is_not_merged)
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',
                                               'is_protected' => $document->get('is_protected')));
+
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
 }
 
 include_partial('documents/license', array('license' => 'by-sa'));

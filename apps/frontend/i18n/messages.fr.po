@@ -2211,6 +2211,14 @@ msgstr "Les paramètres de version de ce document sont incomplets."
 msgid "View"
 msgstr "Consulter"
 
+# [general comment]
+# Link to the document page from a comment page in mobile version
+# [comment]
+# mouais, si qqun a une meilleure idée....
+# [WARNING] needs_review
+msgid "View comments document"
+msgstr "Voir le document original"
+
 msgid "View current"
 msgstr "Afficher la version actuelle"
 
@@ -2425,6 +2433,9 @@ msgstr "Votre session a expiré. Veuillez vous reconnecter."
 
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Aucun résultat trouvé.<br />Vérifiez l'orthographe, la syntaxe ou réduisez le nombre de mots en ne gardant par exemple qu'un mot caractéristique (ou une partie du mot)|(1,+Inf]%nb_result% résultats trouvés pour %researched_word%"
+
+msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
+msgstr "[0]Il n'y a pas de commentaires associés à ce document.|[1]Il y a un commentaire associé à ce document.|(1,+Inf]Il y a %1% commentaires associés à ce document."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition avec insertion d'une nouvelle géométrie"

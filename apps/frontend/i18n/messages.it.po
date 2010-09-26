@@ -2217,6 +2217,12 @@ msgstr "I parametri di versione di questo documento sono incompleti."
 msgid "View"
 msgstr "Consulta"
 
+# [general comment]
+# Link to the document page from a comment page in mobile version
+# [WARNING] en translation used
+msgid "View comments document"
+msgstr "back to the original document"
+
 msgid "View current"
 msgstr "Vedi la versione attuale"
 
@@ -2431,6 +2437,10 @@ msgstr "Sessione scaduta. Per favore connettersi di nuovo."
 
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Nessun risultato trovato. <br />Verifica l'ortografia, la sintassi oppure riduci il numero di parole utilizzando una parola caratteristica (o una parte)|(1,+Inf]%nb_result% risultati trovati per %researched_word%"
+
+# [WARNING] en translation used
+msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
+msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Modifica della geometria"

@@ -106,6 +106,8 @@ if ($is_not_archive && $is_not_merged):
                                               'dissociation' => 'moderator',
                                               'is_protected' => $document->get('is_protected')));
 
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+
 endif;
 
 $licenses_array = sfConfig::get('app_licenses_list');

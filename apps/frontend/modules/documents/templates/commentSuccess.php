@@ -31,6 +31,7 @@ $pun_user['show_img_sig'] = '0';
 $module = $sf_context->getModuleName();
 $lang = $sf_params->get('lang');
 $id = $sf_params->get('id');
+$mobile_version = c2cTools::mobileVersion();
 
 require_once PUN_ROOT . 'include/parser.php';
 
@@ -39,8 +40,11 @@ $nb_comments = $comments->count();
 $document_name = isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name;
 echo display_title($document_name, $module);
 
-echo '<div id="nav_space">&nbsp;</div>';
-echo tabs_list_tag($id, $lang, $exists_in_lang, 'comments', NULL, ($module != 'users') ? make_slug($document_name) : '', $nb_comments);
+if (!$mobile_version)
+{
+    echo '<div id="nav_space">&nbsp;</div>';
+    echo tabs_list_tag($id, $lang, $exists_in_lang, 'comments', NULL, ($module != 'users') ? make_slug($document_name) : '', $nb_comments);
+}
 
 echo display_content_top('doc_content');
 echo start_content_tag($module . '_content');
@@ -63,11 +67,14 @@ if (count($uri_anchor) > 1)
 $is_new = ($post_id > 0) && isset($_GET['new']);
 $bg_switch = true;	// Used for switching background color in posts
 $counter = 1;
-use_stylesheet('/static/css/forums.css');
+use_stylesheet('/static/css/forums.css', '', array('media' => 'all'));
 ?>
 
 <div class="linkst">
   <div class="inbox">
+    <?php if ($mobile_version): ?>
+    <p class="postlink conl"><?php echo link_to(__('View comments document'), "@document_by_id_lang?module=$module&id=$id&lang=$lang"); ?></p>
+    <?php endif; ?>
     <p class="postlink conl"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?></p>
     <p class="pagelink conr"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
   </div>

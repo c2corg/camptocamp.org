@@ -2398,6 +2398,12 @@ msgstr "Dokumentu honen bertsio parametroak osatugabeak daude."
 msgid "View"
 msgstr "Begiratu"
 
+# [general comment]
+# Link to the document page from a comment page in mobile version
+# [WARNING] en translation used
+msgid "View comments document"
+msgstr "back to the original document"
+
 msgid "View current"
 msgstr "Oraingo bertsioa erakutsi"
 
@@ -2636,6 +2642,10 @@ msgstr "Zure saioaren epea amaitu da. Mesedez berriro konektatu."
 
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Ez da emaitzik aurkitu.<br /> Ortografia edo joskera egiaztatu edota hitz kopurua murriztu hitz ezaugarriak erabiliz (hitzaren zati bat ere onartzen da)|(1,+Inf]%nb_result% emaitz aurkituak %researched_word%-(en)tzako"
+
+# [WARNING] en translation used
+msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
+msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Geometria berridun sarreraren edizioa"

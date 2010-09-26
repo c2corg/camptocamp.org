@@ -10,6 +10,7 @@ $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 $activities = $document->getRaw('activities');
+$lang = $document->getCulture();
 
 if (!isset($highest_summit_name)) {
     // TODO: always get summit name even in archive pages
@@ -210,6 +211,8 @@ if ($is_not_archive && $is_not_merged)
                           'document_id' => $id,
                           'dissociation' => 'moderator',
                           'is_protected' => $document->get('is_protected')));
+
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
 }
 
 include_partial('documents/license', array('license' => 'by-sa'));

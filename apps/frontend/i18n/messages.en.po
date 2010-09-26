@@ -2233,6 +2233,12 @@ msgstr "Version parameters of this document are not complete."
 msgid "View"
 msgstr "View"
 
+# [general comment]
+# Link to the document page from a comment page in mobile version
+# [WARNING] needs_review
+msgid "View comments document"
+msgstr "back to the original document"
+
 msgid "View current"
 msgstr "View current version"
 
@@ -2449,6 +2455,10 @@ msgstr "Your session is over. Please login again."
 
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] No result found.<br />You can check spelling and syntax or reduce the number of words so as to use only characteristic words (or parts of words)|(1,+Inf]Found %nb_result% results for %researched_word%"
+
+# [WARNING] needs_review
+msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
+msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition with new geometry"

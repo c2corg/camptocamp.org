@@ -2265,6 +2265,12 @@ msgstr "Die Parameter dieser Fassung sind unvollständig."
 msgid "View"
 msgstr "Ansehen"
 
+# [general comment]
+# Link to the document page from a comment page in mobile version
+# [WARNING] needs_review
+msgid "View comments document"
+msgstr "zürck zum Ursprungsdokument"
+
 msgid "View current"
 msgstr "Die aktuelle Fassung anzeigen"
 
@@ -2482,6 +2488,10 @@ msgstr "Ihre Sitzung ist abgelaufen. Bitte melden sie sich erneut an."
 # [WARNING] needs_review
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Es wurde kein passendes Ergebnis gefunden.<br />Überprüfen sie die Rechtschreibung und den Syntax oder reduzieren sie die Anzahl der Suchbegriffe, z.B. auf einen einzigen charakteristischen Wortteil.|(1,+Inf]%nb_result% Ergebnisse gefunden für %researched_word%"
+
+# [WARNING] en translation used
+msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
+msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Änderung mit Angabe einer neuen Geometrie"

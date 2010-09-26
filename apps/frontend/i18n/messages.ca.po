@@ -2363,6 +2363,12 @@ msgstr "Els paràmetres de versió d'aquest document són incomplets."
 msgid "View"
 msgstr "Consultar"
 
+# [general comment]
+# Link to the document page from a comment page in mobile version
+# [WARNING] en translation used
+msgid "View comments document"
+msgstr "back to the original document"
+
 msgid "View current"
 msgstr "Mostrar la versió actual"
 
@@ -2603,6 +2609,10 @@ msgstr "La teva sessió ha expirat. Connecta't de nou si et plau."
 # [WARNING] needs_update
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Cap resultat trobat|(1,+Inf]%nb_result% resultats trobats per %researched_word%"
+
+# [WARNING] en translation used
+msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
+msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edició amb inserció d'una nova geometria"

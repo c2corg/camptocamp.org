@@ -160,6 +160,9 @@ if ($is_not_archive && $is_not_merged)
 if ($mobile_version)
 {
     $lang = $document->getCulture();
+
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+
     $version = $document->getVersion();
     $txt = __('Edit');
     echo '<div id="edit_outing_button" class="add_content">',

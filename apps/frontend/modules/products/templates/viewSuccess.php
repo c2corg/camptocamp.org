@@ -4,6 +4,7 @@ use_helper('Language', 'Sections', 'Viewer');
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $sf_params->get('id');
+$lang = $document->getCulture();
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
@@ -74,16 +75,18 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
                                                 'needs_translation' => $needs_translation, 'images' => $associated_images));
 echo end_section_tag();
 
-include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
-
 if ($is_not_archive && $is_not_merged)
 {
+    include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
+
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',
                                               'is_protected' => $document->get('is_protected')));
-}
 
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+
+}
 include_partial('documents/license', array('license' => 'by-sa'));
 
 echo end_content_tag();
