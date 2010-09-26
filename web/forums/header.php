@@ -86,10 +86,10 @@ if (!isset($page_description))
 <title><?php echo $page_title ?></title>
 <?php
 
-$sf_response->addStylesheet('/static/css/forums.css');
+$sf_response->addStylesheet('/static/css/forums.css', '', array('media' => 'all'));
 
 if (defined('PUN_ADMIN_CONSOLE'))
-        $sf_response->addStylesheet('/forums/style/imports/base_admin.css');
+        $sf_response->addStylesheet('/forums/style/imports/base_admin.css', '', array('media' => 'all'));
 
 if (defined('FORUM_FEED') && FORUM_FEED != 'all') {
         echo '<link rel="alternate" type="application/rss+xml" href="extern.php?type=rss&amp;action=active&amp;fid='.FORUM_FEED.'" />'."\n";

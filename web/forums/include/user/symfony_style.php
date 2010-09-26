@@ -1,15 +1,15 @@
 <?php
 $mobile_version = c2cTools::mobileVersion();
  
-$sf_response->addStylesheet('/static/css/main.css');
+$sf_response->addStylesheet('/static/css/main.css', 'first', array('media' => 'all'));
 if (!$mobile_version)
 {
-    $sf_response->addStylesheet('/static/css/menu.css');
+    $sf_response->addStylesheet('/static/css/menu.css', '', array('media' => 'all'));
     $sf_response->addStylesheet('/static/css/modalbox.css');
 }
 else
 {
-    $sf_response->addStylesheet('/static/css/mobile.css');
+    $sf_response->addStylesheet('/static/css/mobile.css', 'last', array('media' => 'all'));
 }
 
 $sf_response->addJavascript('/static/js/prototype.js', 'head_first');
@@ -24,9 +24,6 @@ minify_include_head_javascripts(!$debug, $debug);
 
 if (!$mobile_version):
 ?>
-<!--[if !IE]>-->
-<link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo PUN_STATIC_URL; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
-<!--<![endif]-->
 <!--[if lt IE 7]>
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie.css?<?php echo sfSVN::getHeadRevision('ie.css') ?>" />
 <![endif]-->
