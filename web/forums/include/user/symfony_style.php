@@ -1,21 +1,21 @@
 <?php
 $mobile_version = c2cTools::mobileVersion();
  
-$sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/main.css');
+$sf_response->addStylesheet('/static/css/main.css');
 if (!$mobile_version)
 {
-    $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/menu.css');
-    $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/modalbox.css');
+    $sf_response->addStylesheet('/static/css/menu.css');
+    $sf_response->addStylesheet('/static/css/modalbox.css');
 }
 else
 {
-    $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/mobile.css');
+    $sf_response->addStylesheet('/static/css/mobile.css');
 }
 
-$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/prototype.js', 'head_first');
-$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/effects.js', 'head');
-$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/controls.js', 'head');
-$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/submit.js');
+$sf_response->addJavascript('/static/js/prototype.js', 'head_first');
+$sf_response->addJavascript('/static/js/effects.js', 'head');
+$sf_response->addJavascript('/static/js/controls.js', 'head');
+$sf_response->addJavascript('/static/js/submit.js');
 
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
 $debug = defined('PUN_DEBUG');

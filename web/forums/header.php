@@ -62,7 +62,7 @@ if (empty($sf_response))
 {
     $sf_response = sfContext::getInstance()->getResponse();
 }
-$sf_response->addJavascript(PUN_STATIC_URL.'/static/js/fold.js');
+$sf_response->addJavascript('/static/js/fold.js');
 
 // Is this a page that we want search index spiders to index?
 if (!defined('PUN_ALLOW_INDEX'))
@@ -86,10 +86,10 @@ if (!isset($page_description))
 <title><?php echo $page_title ?></title>
 <?php
 
-$sf_response->addStylesheet(PUN_STATIC_URL.'/static/css/forums.css');
+$sf_response->addStylesheet('/static/css/forums.css');
 
 if (defined('PUN_ADMIN_CONSOLE'))
-        $sf_response->addStylesheet(PUN_STATIC_URL.'/forums/style/imports/base_admin.css');
+        $sf_response->addStylesheet('/forums/style/imports/base_admin.css');
 
 if (defined('FORUM_FEED') && FORUM_FEED != 'all') {
         echo '<link rel="alternate" type="application/rss+xml" href="extern.php?type=rss&amp;action=active&amp;fid='.FORUM_FEED.'" />'."\n";
@@ -144,12 +144,12 @@ function process_form(the_form)
 
 if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
 {
-$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/dyncat.js');
+$sf_response->addJavascript('/static/js/dyncat.js');
 }
 
 $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : '';
 if (strpos($user_agent, 'msie') !== false && strpos($user_agent, 'windows') !== false && strpos($user_agent, 'opera') === false)
-        $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/minmax.js');
+        $sf_response->addJavascript('/static/js/minmax.js');
 
 $tpl_temp = trim(ob_get_contents());
 $tpl_main = str_replace('<pun_head>', $tpl_temp, $tpl_main);
