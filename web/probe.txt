@@ -1,0 +1,2 @@
+# Ce fichier sert de témoin pour haproxy.
+# Renommé ou supprimé, tout le traffic sera dirigé sur reverse-proxy.
