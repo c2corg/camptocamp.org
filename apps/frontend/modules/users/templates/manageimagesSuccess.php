@@ -17,12 +17,12 @@ echo start_content_tag('images_content');
 
 echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
 
-echo '<p class="mandatory_fields_warning">' . __('manage images presentation') . '</p>';
+echo '<p class="mandatory_fields_warning">' . __('manage images presentation');
 
 $items = $pager->getResults('array', ESC_RAW);
 
 if (count($items) == 0):
-    echo '<br /><br /><p>' . __('All your images are already collaborative') . '</p>';
+    echo '<br /><br />' . __('All your images are already collaborative') . '</p>';
 else:
     echo '</p>';
     $pager_navigation = pager_navigation($pager);
@@ -62,9 +62,9 @@ else:
     </div>
 <?php endforeach;
 
-echo input_hidden_tag('page', $page);
+//echo input_hidden_tag('page', $page);
 ?>
-<div style="clear:both"><?php echo $pager_navigation; ?></div>
+<div style="clear:both"><?php echo input_hidden_tag('page', $page); ?><?php echo $pager_navigation; ?></div>
 <ul class="action_buttons">
     <li><?php echo submit_tag(__('Switch license'), array('class' => 'picto action_edit')); ?></li>
     <li><?php echo button_tag(__('Select all'), __('Select all'), array('onclick' => "$$('form#editform div.manageimages_info input[type=checkbox]').each(function(obj){obj.checked=true;});",
