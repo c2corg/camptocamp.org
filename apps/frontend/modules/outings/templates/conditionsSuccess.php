@@ -60,23 +60,8 @@ else:
             <?php
             endif;
             ?>
-            <li><?php
-                // get the first one that created the outing (whatever the culture) and grant him as author
-                // smaller document version id = older one
-                $documents_versions_id = null;
-                foreach ($item['versions'] as $version)
-                {
-                    if (!$documents_versions_id || $version['documents_versions_id'] < $documents_versions_id)
-                    {
-                        $documents_versions_id = $version['documents_versions_id'];
-                        $author_info_name = $version['history_metadata']['user_private_data']['topo_name'];
-                        $author_info_id = $version['history_metadata']['user_private_data']['id'];
-                    }
-                }
-                echo _format_data('author', link_to($author_info_name, '@document_by_id?module=users&id=' . $author_info_id));
-                ?></li>
+            <li><?php echo _format_data('author', link_to($item['creator'], '@document_by_id?module=users&id=' . $item['creator_id'])); ?></li>
             <?php
-
             // FIXME sfOutputEscaperObjectDecorator shouldn't be used..
             $access_elevation = check_not_empty($item['access_elevation']) && !($item['access_elevation'] instanceof sfOutputEscaperObjectDecorator) ? $item['access_elevation'] : 0;
             $up_snow_elevation = check_not_empty($item['up_snow_elevation']) && !($item['up_snow_elevation'] instanceof sfOutputEscaperObjectDecorator) ? $item['up_snow_elevation'] : 0;

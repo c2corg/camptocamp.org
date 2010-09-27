@@ -700,7 +700,7 @@ class outingsActions extends documentsActions
 
         if (count($outings) == 0) return;
 
-        $outings = Outing::getAssociatedUserData($outings); // retrieve outing creator names
+        $outings = Outing::getAssociatedCreatorData($outings); // retrieve outing creator names
         $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
         $outings = Language::getTheBestForAssociatedAreas($outings);
         $this->items = Language::parseListItems($outings, 'Outing');
@@ -720,7 +720,7 @@ class outingsActions extends documentsActions
         
         $outings = $this->pager->getResults('array');
 
-        $outings = Outing::getAssociatedUserData($outings); // retrieve outing creator names
+        $outings = Outing::getAssociatedCreatorData($outings); // retrieve outing creator names
         $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
         if (!empty($this->format) && $this->format != 'list')
         {

@@ -465,7 +465,10 @@ function get_paginated_areas($geoassociations)
     $areas = array();
     foreach ($geoassociations as $geo_id => $geoP)
     {
-        $areas[] = $geoP['AreaI18n'][0]['name'];
+        if ($geoP['type'] == 'dr') // only areas, not maps
+        {
+            $areas[] = $geoP['AreaI18n'][0]['name'];
+        }
     }
     return implode(', ', $areas);
 }

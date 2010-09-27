@@ -7,6 +7,9 @@ $feedItem->setTitle($i18n['name']);
 $id = $item['id'];
 $lang = $i18n['culture'];
 $feedItem->setLink("@document_by_id_lang_slug?module=maps&id=$id&lang=$lang&slug=" . make_slug($i18n['name']));
+$feedItem->setUniqueId(sfRouting::getInstance()->getCurrentInternalUri().'_'.$id);
+$feedItem->setAuthorName($item['creator']);
+$feedItem->setPubdate(strtotime($item['creation_date']));
 
 $data = array();
 $data[] = $item['code'];

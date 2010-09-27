@@ -688,53 +688,6 @@ class Outing extends BaseOuting
         return $out;
     }
 
-    public static function getAssociatedUserData($objects)
-    {
-        if (!count($objects)) 
-        {   
-            return array();
-        }
-    
-        $ids = array();
-        $q = array();
-
-        // build ids list
-        foreach ($objects as $object)
-        {
-            $ids[] = $object['id'];
-            $q[] = '?';
-        }
-
-        // db request fetching array with all requested fields
-        $results = Doctrine_Query::create()
-                          ->select('v.document_id, hm.user_id, u.topo_name')
-                          ->from('DocumentVersion v')
-                          ->leftJoin('v.history_metadata hm')
-                          ->leftJoin('hm.user_private_data u')
-                          ->where('v.document_id IN ( '. implode(', ', $q) .' )', $ids)
-                          ->addWhere('v.version = 1')
-                          ->execute(array(), Doctrine::FETCH_ARRAY);
-        
-        $out = array();
-        // merge array 'results' into array '$objects' on the basis of same 'id' key
-        foreach ($objects as $object)
-        {
-            $versions = array();
-            $id = $object['id'];
-            foreach ($results as $result)
-            {
-                if ($result['document_id'] == $id)
-                {
-                    $versions[] = $result;
-                }
-            }
-            $object['versions'] = $versions;
-            $out[] = $object;
-        }
-
-        return $out;
-    }
-    
     public static function getAssociatedRoutesData($outings)
     {
         if (count($outings) == 0)

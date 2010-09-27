@@ -1260,6 +1260,15 @@ class documentsActions extends c2cActions
         $this->setLayout(false);
         $this->setTemplate('../../documents/templates/rss');
         $this->setCacheControl();
+
+        $items = $this->pager->getResults('array', 'ESC_RAW');
+        if (isset($items[0]['geoassociations']))
+        {
+            $items = Language::getTheBestForAssociatedAreas($items);
+        }
+        // Retrieve creator and creation date.
+        $items = Outing::getAssociatedCreatorData($items);
+        $this->items = $items;
     }
 
     public function executeWidget()

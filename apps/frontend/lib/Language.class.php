@@ -215,18 +215,18 @@ class Language
         $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
         $parsed_array = array();
 
-        foreach ($array as $outing_id => $outing)
+        foreach ($array as $document_id => $document)
         {
-            $parsed_array[$outing_id] = $outing;
-            $outing_geoassociations = $outing['geoassociations'];
-            $parsed_array[$outing_id]['geoassociations'] = array();
+            $parsed_array[$document_id] = $document;
+            $document_geoassociations = $document['geoassociations'];
+            $parsed_array[$document_id]['geoassociations'] = array();
 
-            foreach ($outing_geoassociations as $geoassociation)
+            foreach ($document_geoassociations as $geoassociation)
             {
                 $iI18n = $geoassociation['AreaI18n'];
                 $i_id = $geoassociation['linked_id'];
 
-                $parsed_array[$outing_id]['geoassociations'][$i_id] = $geoassociation;
+                $parsed_array[$document_id]['geoassociations'][$i_id] = $geoassociation;
                 $old_lang = 200;
                 $area_type = null;
 
@@ -243,11 +243,11 @@ class Language
                         if ($lang_pos < $old_lang)
                         {
                             $old_lang = $lang_pos;
-                            unset($parsed_array[$outing_id]['geoassociations'][$i_id]['AreaI18n']);
-                            $parsed_array[$outing_id]['geoassociations'][$i_id]['AreaI18n'][0] = $itemI18n;
+                            unset($parsed_array[$document_id]['geoassociations'][$i_id]['AreaI18n']);
+                            $parsed_array[$document_id]['geoassociations'][$i_id]['AreaI18n'][0] = $itemI18n;
                         }
                     }
-                    $parsed_array[$outing_id]['geoassociations'][$i_id]['AreaI18n'][0]['Area'] = $area_type;
+                    $parsed_array[$document_id]['geoassociations'][$i_id]['AreaI18n'][0]['Area'] = $area_type;
                 }
             }
         }

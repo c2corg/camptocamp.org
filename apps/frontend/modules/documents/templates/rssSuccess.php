@@ -14,9 +14,8 @@ $feed->setLink($path);
 $feed->setAuthorName('Camptocamp.org');
 $feed->setLanguage($lang);
 
-foreach ($pager->getResults('array', ESC_RAW) as $item)
+foreach ($items as $item)
 {
    get_partial("$module/rss_item", array('feed' => &$feed, 'item' => $item)); 
 }
-
 echo $feed->asXml(ESC_RAW);

@@ -1420,6 +1420,73 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $creator;
     }
 
+    // retrieves the creator of the document
+    public static function getAssociatedCreatorData($objects)
+    {
+        if (!count($objects))
+        {
+            return array();
+        }
+
+        $ids = array();
+        $q = array();
+
+        // build ids list
+        foreach ($objects as $object)
+        {
+            $ids[] = $object['id'];
+            $q[] = '?';
+        }
+
+        // db request fetching array with all requested fields
+        $results = Doctrine_Query::create()
+                          ->select('v.document_id, hm.user_id, hm.written_at, u.topo_name')
+                          ->from('DocumentVersion v')
+                          ->leftJoin('v.history_metadata hm')
+                          ->leftJoin('hm.user_private_data u')
+                          ->where('v.document_id IN ( '. implode(', ', $q) .' )', $ids)
+                          ->addWhere('v.version = 1')
+                          ->execute(array(), Doctrine::FETCH_ARRAY);
+
+        $out = array();
+        // merge array 'results' into array '$objects' on the basis of same 'id' key
+        foreach ($objects as $object)
+        {
+            $versions = array();
+            $id = $object['id'];
+            foreach ($results as $result)
+            {
+                if ($result['document_id'] == $id)
+                {
+                    $versions[] = $result;
+                }
+            }
+            $object['versions'] = $versions;
+
+            // get the first one that created the outing (whatever the culture) and grant him as author
+            // smaller document version id = older one - because we have the creator for each linguistic version
+            // TODO creation date is not lang dependent. Is it possible to do it?
+            $documents_versions_id = null;
+            foreach ($object['versions'] as $version)
+            {
+                if (!$documents_versions_id || $version['documents_versions_id'] < $documents_versions_id)
+                {
+                    $documents_versions_id = $version['documents_versions_id'];
+                    $author_info_name = $version['history_metadata']['user_private_data']['topo_name'];
+                    $author_info_id = $version['history_metadata']['user_private_data']['id'];
+                    $date_info = $version['history_metadata']['written_at'];
+                }
+            }
+            $object['creator'] = $author_info_name;
+            $object['creator_id'] = $author_info_id;
+            $object['creation_date'] = $date_info;
+
+            $out[] = $object;
+        }
+
+        return $out;
+    }
+
     public static function fetchAdditionalFieldsFor($objects, $model, $fields)
     {   
         if (!count($objects)) 

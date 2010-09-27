@@ -11,13 +11,19 @@ $id = $item['id'];
 $lang = $i18n['culture'];
 $feedItem->setLink("@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=" . 
                    make_slug($summit_i18n['name'] . '-' . $i18n['name']));
+$feedItem->setUniqueId(sfRouting::getInstance()->getCurrentInternalUri().'_'.$id);
+$feedItem->setAuthorName($item['creator']);
+$feedItem->setPubdate(strtotime($item['creation_date']));
 
 $data = array();
-$data[] = get_paginated_activities($item['activities'], true);
+$²data[] = get_paginated_activities($item['activities'], true);
 $data[] = get_paginated_value($item['facing'], 'app_routes_facings');
 $data[] = $item['height_diff_up'] . __('meters');
 $data[] = field_route_ratings_data($item, false);
-$data[] = get_paginated_areas($item['geoassociations']);
+if (isset($item['geoassociations']) && count($item['geoassociations']))
+{
+    $data[] = get_paginated_areas($item['geoassociations']);
+}
 $feedItem->setDescription(implode(' - ', $data));
 
 // FIXME: relevant? if yes, add lon/lat fields in model call

@@ -123,14 +123,14 @@ class sfGeoRssFeed extends sfRssFeed
         
         // added for GeoRSS:
         $lat = $item->getLatitude();
-        if (!empty($lat) && !$lat instanceof Doctrine_Null)
+        if (!empty($lat) && is_numeric($lat))
         {
-            $xml[] = '      <geo:lat>'.$item->getLatitude().'</geo:lat>';
+            $xml[] = '      <geo:lat>'.$lat.'</geo:lat>';
         }
         $lon = $item->getLongitude();
-        if (!empty($lon) && !$lon instanceof Doctrine_Null)
+        if (!empty($lon) && is_numeric($lon))
         {
-            $xml[] = '      <geo:long>'.$item->getLongitude().'</geo:long>';
+            $xml[] = '      <geo:long>'.$lon.'</geo:long>';
         }
         
       }

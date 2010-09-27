@@ -30,18 +30,4 @@ echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=outings&id=' 
     link_to($item['nb_comments'], '@document_comment?module=outings&id='
         . $item_i18n['id'] . '&lang=' . $item_i18n['culture'])
     : '' ;?></td>
-<td><?php
-// get the first one that created the outing (whatever the culture) and grant him as author
-// smaller document version id = older one
-$documents_versions_id = null;
-foreach ($item['versions'] as $version)
-{
-    if (!$documents_versions_id || $version['documents_versions_id'] < $documents_versions_id)
-    {
-        $documents_versions_id = $version['documents_versions_id'];
-        $author_info_name = $version['history_metadata']['user_private_data']['topo_name'];
-        $author_info_id = $version['history_metadata']['user_private_data']['id'];
-    }
-}
-echo link_to($author_info_name, '@document_by_id?module=users&id=' . $author_info_id);
-?></td>
+<td><?php echo link_to($item['creator'], '@document_by_id?module=users&id=' . $item['creator_id']); ?></td>
