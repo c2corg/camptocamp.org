@@ -11,8 +11,6 @@ $menu_search = array(
     url_for('@filter?module=parkings') => __('parkings'),
     url_for('@filter?module=huts') => __('huts'),
     url_for('@filter?module=articles') => __('articles'),
-    url_for('@filter?module=areas') => __('areas'),
-    url_for('@filter?module=maps') => __('maps'),
     url_for('@filter?module=products') => __('products'),
     url_for('@filter?module=users') => __('users'),
 );
@@ -28,8 +26,6 @@ $menu_see = array(
     url_for('@default_index?module=parkings') => __('parkings'),
     url_for('@default_index?module=huts') => __('huts'),
     url_for('@default_index?module=articles') => __('articles'),
-    url_for('@default_index?module=areas') => __('areas'),
-    url_for('@default_index?module=maps') => __('maps'),
     url_for('@default_index?module=products') => __('products'),
     url_for('@default_index?module=users') => __('users')
 );
@@ -41,6 +37,10 @@ $menu_more = array(
     url_for(getMetaArticleRoute('home_guide')) => __('Help').__(' :').' '.__('Guidebook'),
     url_for(getMetaArticleRoute('help_forum', false)) => __('Help').__(' :').' '.__('Forums')
 );
+if ($is_connected)
+{
+    $menu_more[url_for('users/mypage')] = __('personal page');
+}
 ?>
 <div id="mobile_menu">
   <div id="menu_items">

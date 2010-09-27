@@ -194,7 +194,7 @@ show_select=function()
                     <?php if ($is_connected): ?>
                     <li><?php echo link_to(__('personal page'), 'users/mypage', array('class' => 'img_module_users')) ?></li>
                     <?php endif ?>
-                    <li><?php echo m_link_to(__('Customize'), 'users/customize', array('class' => 'img_action_tools', 'title' => __('Customize the site')), array('width' => 700)) ?></li>
+                    <li><?php echo picto_tag('picto_tools') .  m_link_to(__('Customize'), 'users/customize', array('class' => 'ie7m', 'title' => __('Customize the site')), array('width' => 700)) ?></li>
                     <?php if ($is_connected): ?>
                         <li><?php echo picto_tag('picto_tools') . m_link_to(__('Set languages preferences'), 'users/sortPreferedLanguages', array('class' => 'ie7m'), array('width' => 700)) ?></li>
                         <li><?php echo f_link_to(__('User profile'), 'profile.php?section=personality',  array('class' => 'img_action_edit')) ?></li>
