@@ -24,7 +24,9 @@ class sfGeoRssFeed extends sfRssFeed
     //$xml[] = '<rss version="'.$this->getVersion().'" xmlns:content="http://purl.org/rss/1.0/modules/content/">';
     $xml[] = '<rss version="'.$this->getVersion().'" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
                    xmlns:dc="http://purl.org/dc/elements/1.1/"
-                   xmlns:atom="http://www.w3.org/2005/Atom">';
+                   xmlns:atom="http://www.w3.org/2005/Atom"
+                   xmlns:content="http://purl.org/rss/1.0/modules/content/"
+                   >';
     $xml[] = '  <channel>';
     $xml[] = '    <atom:link href="'.$this->context->getController()->genUrl($this->getLink(), true).'" rel="self" type="application/rss+xml" />';
     $xml[] = '    <title>'.$this->getTitle().'</title>';

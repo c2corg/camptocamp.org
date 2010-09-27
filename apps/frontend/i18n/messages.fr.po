@@ -2222,6 +2222,11 @@ msgstr "Voir le document original"
 msgid "View current"
 msgstr "Afficher la version actuelle"
 
+# [general comment]
+# used for edition rss feeds rich content
+msgid "View difference between version %1% and %2%"
+msgstr "Voir les différences entre les versions %1% et %2%"
+
 msgid "View image details"
 msgstr "Voir les informations de l'image"
 

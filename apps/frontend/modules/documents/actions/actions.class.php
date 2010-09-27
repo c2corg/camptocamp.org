@@ -3107,7 +3107,15 @@ class documentsActions extends c2cActions
             $feedItem->setUniqueId("$item_id-$lang-$new");
             $feedItem->setLongitude($item['archive']['lon']);
             $feedItem->setLatitude($item['archive']['lat']);
-            $feedItem->setDescription(smart_format($item['history_metadata']['comment']));
+            $comment = smart_format($item['history_metadata']['comment']);
+            $feedItem->setDescription($comment);
+            if ($mode != 'creations')
+            {
+                $link = ($new > 1) ? ' - ' . link_to(__('View difference between version %1% and %2%', array('%1%' => ($new-1), '%2%' => $new)),
+                                                     "@document_diff?module=$module_name&id=$item_id&lang=$lang&new=$new&old=".($new-1),
+                                                     array('absolute' => true)) : '';
+                $feedItem->setContent($comment . $link);
+            }
 
             $feed->addItem($feedItem);
         }
