@@ -60,10 +60,7 @@ else:
         ?>
         </div>
     </div>
-<?php endforeach;
-
-//echo input_hidden_tag('page', $page);
-?>
+<?php endforeach; ?>
 <div style="clear:both"><?php echo input_hidden_tag('page', $page); ?><?php echo $pager_navigation; ?></div>
 <ul class="action_buttons">
     <li><?php echo submit_tag(__('Switch license'), array('class' => 'picto action_edit')); ?></li>
