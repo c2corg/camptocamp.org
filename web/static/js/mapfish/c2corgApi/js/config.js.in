@@ -6,8 +6,8 @@ Ext.namespace("c2corg");
 
 c2corg.config = {
 
-    baseUrl: 'http://@SERVER_NAME@@SERVER_PORT@/',
-    wmsUrl: 'http://@SERVER_NAME@@SERVER_PORT@/cgi-bin/c2corg_wms',
-    gpKey: '@GEOPORTAIL_KEY@',
-    gmKey: '@GMAPS_KEY@'
+    baseUrl: '@STATIC_BASE_URL@',
+    wmsUrl:  '/cgi-bin/c2corg_wms',
+    gpKey:   '@GEOPORTAIL_KEY@',
+    gmKey:   '@GMAPS_KEY@'
 };
