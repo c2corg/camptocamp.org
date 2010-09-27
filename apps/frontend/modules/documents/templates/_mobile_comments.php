@@ -9,7 +9,7 @@ $module = sfContext::getInstance()->getModuleName();
 echo '<p>'.format_number_choice('[0]No comment|[1]1 comment|(1,+Inf]%1% comments', array('%1%' => $nb_comments), $nb_comments).'</p>';
 if ($nb_comments)
 {
-  $link = '<p>'.link_to(__('comments_tab_help'), "@document_comment?module=$module&id=$id&lang=$lang").'</p>';
+  $link = '<p>'.content_tag('a', __('comments_tab_help'), array('href' => "@document_comment?module=$module&id=$id&lang=$lang")).'</p>';
 }
 else
 {
