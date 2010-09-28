@@ -3031,7 +3031,7 @@ class documentsActions extends c2cActions
                 $title = "Camptocamp.org $module feed";
                 $link = "@creations_feed?module=$module&lang=$lang";
                 break;
-            default :
+            default : // editions of a specific document
                 // check that document $id exists in lang $lang, and retrieve its name.
                 if (!$document = DocumentI18n::findName($id, $lang, $this->model_class))
                 {
@@ -3080,7 +3080,7 @@ class documentsActions extends c2cActions
             $module_name = $item['archive']['module'];
             $name = $item['name'];
             $lang = $item['culture'];
-            $feedItemTitle = ($id) ? "$name - revision $new" : $name;
+            $feedItemTitle = ($mode != 'creations') ? "$name - revision $new" : $name;
 
             $feedItem = new sfGeoFeedItem();
             $feedItem->setTitle($feedItemTitle);
