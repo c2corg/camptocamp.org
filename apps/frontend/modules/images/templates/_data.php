@@ -27,8 +27,14 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         ?>
         <?php li(field_data_from_list_if_set($document, 'image_type', 'mod_images_type_list', false)); ?>
         <li><div class="section_subtitle" id="_license"><?php echo __('Image license') ?></div>
-        <a href="<?php echo $license_url ?>" rel="license" title="<?php echo __("$license title") ?>">Creative Commons <?php echo __($license) ?></a></li>
         <?php
+        // TODO maybe we should put the MI version in about field (since the big image is not in the page)
+        $about = c2cTools::mobileVersion() ? '' : 'about="/'.$document->get('filename').'" ';
+        $license_link_opt = array('title' => __("$license title"),
+                                  'rel' => 'license');
+        if (!c2cTools::mobileVersion()) $license_link_opt['about'] = '/'.$document->get('filename');
+        echo link_to('Creative Commons '.__($license), $license_url, $license_link_opt).'</li>';
+
         if ($document->get('has_svg'))
         {
             $svg_url = image_url($document->get('filename'), null, false, false, '.svg');
