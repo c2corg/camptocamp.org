@@ -29,7 +29,7 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
     $style = $hide ? '" style="display:none' : '';
 
     $html  = '<div class="' . $class . '" id="' . $container_id . '_tbg' . $style . '">'
-           . '<a name="' . $container_id . '"></a>'
+           . '<a id="' . $container_id . '"></a>'
            . '<div class="title" id="' . $container_id . '_section_title" title="' . $status . '">'
            . link_to_function($label, $toggle)
            . $up
