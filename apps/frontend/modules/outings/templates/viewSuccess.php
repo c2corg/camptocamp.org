@@ -143,7 +143,7 @@ include_partial('documents/i18n_section', array('document' => $document,
                                                 'languages' => $sf_data->getRaw('languages'),
                                                 'needs_translation' => $needs_translation,
                                                 'images' => $associated_images,
-                                                'associated_areas' => $associated_areas));
+                                                'associated_areas' => isset($associated_areas) ? $associated_areas : null));
 echo end_section_tag();
 
 include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));

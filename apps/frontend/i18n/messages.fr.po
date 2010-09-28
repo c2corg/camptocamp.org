@@ -1847,6 +1847,9 @@ msgstr "Articles écotourisme et mobilité douce"
 msgid "Soft mobility outings"
 msgstr "Dernières sorties réalisées en mobilité douce"
 
+msgid "Static map"
+msgstr "Carte"
+
 msgid "Step 1: choose a summit"
 msgstr "Étape 1&nbsp;: choisissez un sommet"
 

@@ -2011,6 +2011,9 @@ msgstr "Artículos sobre ecoturismo y ecomobilidad"
 msgid "Soft mobility outings"
 msgstr "Ultimas salidas ecomobiles"
 
+msgid "Static map"
+msgstr "Mapa"
+
 msgid "Step 1: choose a summit"
 msgstr "1. pausua: aukeratu gailur bat"
 

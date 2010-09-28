@@ -1867,6 +1867,9 @@ msgstr "Articles on ecotourism and ecomobility"
 msgid "Soft mobility outings"
 msgstr "Latest ecomobile outings"
 
+msgid "Static map"
+msgstr "Map"
+
 msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
 

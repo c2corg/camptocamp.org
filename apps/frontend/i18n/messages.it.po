@@ -1853,6 +1853,9 @@ msgstr "Articoli ecoturismo e ecomobilità"
 msgid "Soft mobility outings"
 msgstr "Ultime gite con ecomobilità"
 
+msgid "Static map"
+msgstr "Mappa"
+
 msgid "Step 1: choose a summit"
 msgstr "Passo 1&nbsp;: scegliere una cima"
 

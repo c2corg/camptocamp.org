@@ -29,7 +29,7 @@ if ($has_geom || $show_map)
 {
     if (!isset($section_title))
     {
-        $section_title = 'Interactive map';
+        $section_title = 'Static map';
     }
     
     echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, false);

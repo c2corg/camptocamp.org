@@ -1894,6 +1894,9 @@ msgstr "Artikel über nachhaltigen Tourismus und nachhaltige Mobilität"
 msgid "Soft mobility outings"
 msgstr "Neueste Touren, welche mit nachhaltiger Moblität durchgeführt wurden"
 
+msgid "Static map"
+msgstr "Karte"
+
 msgid "Step 1: choose a summit"
 msgstr "Schritt 1: Einen Gipfel auswählen"
 
