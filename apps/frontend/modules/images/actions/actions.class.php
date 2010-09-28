@@ -643,4 +643,66 @@ class imagesActions extends documentsActions
         }
         return $default_license;
     }
+
+    protected function doMerge($from_id, $document_from, $to_id, $document_to)
+    {
+        // fetch associated documents before doing the merging as associations will be transferred
+        $associations = Association::findAllAssociations($from_id);
+
+        parent::doMerge($from_id, $document_from, $to_id, $document_to);
+        // search documents in which from is inserted, and replace the insertion with to
+
+        foreach ($associations as $a)
+        {
+            $check_id = ($a['main_id'] == $from_id) ? $a['linked_id'] : $check_id = $a['main_id'];
+            $check_model = c2cTools::Letter2Model(substr($a['type'],0,1));
+            $check_module = c2cTools::Model2Module($check_model);
+
+            $check_doc = Document::find($check_model, $check_id);
+            $fields = sfConfig::get('mod_images_bbcode_fields_' . $check_module);
+
+            $languages = $check_doc->getLanguages();
+            foreach ($languages as $language)
+            {
+                $modified = false;
+                $conn = sfDoctrine::Connection();
+                $conn->beginTransaction();
+
+                $check_doc->setCulture($language);
+
+                foreach ($fields as $field)
+                {
+                    $text = $check_doc[$field];
+                    $edited = preg_replace('#(\[img=\s*)' . $from_id . '([\w\s]*\].*?\[/img\])\n?#is', '${1}' . $to_id . '${2}', $text);
+                    $edited = preg_replace('#(\[img=\s*)' . $from_id . '([\w\s]*\/\])\n?#is', '${1}' . $to_id . '${2}', $edited);
+
+                    if ($edited != $text)
+                    {
+                        $modified = true;
+                        $check_doc->set($field, $edited);
+                    }
+                }
+
+                if ($modified)
+                {
+                    $history_metadata = new HistoryMetadata();
+                    $history_metadata->setComment('Updated image tags');
+                    $history_metadata->set('is_minor', true);
+                    $history_metadata->set('user_id', sfConfig::get('app_moderator_user_id'));
+                    $history_metadata->save();
+
+                    c2cTools::log('After merge of image ' . $from_id . ' into ' . $to_id . ': update image tag for '
+                        . strtolower($check_model) . ' ' . $check_id . ' (' . $language . ')');
+                    $check_doc->save();
+                    $conn->commit();
+                    $this->clearCache($check_module, $check_id);
+                    $this->clearCache($check_module, $check_id, false, 'view');
+                }
+                else
+                {
+                    $conn->rollback();
+                }
+            }
+        }
+    }
 }

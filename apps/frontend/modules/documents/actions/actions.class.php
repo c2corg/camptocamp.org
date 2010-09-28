@@ -2722,9 +2722,6 @@ class documentsActions extends c2cActions
         $from_id = $this->getRequestParameter('from_id');
         $to_id = $this->getRequestParameter('document_id');
         
-        
-        $user_id = $this->getUser()->getId();
-        
         if (!($from_id))
         {
             $this->setErrorAndRedirect('Could not understand your request', $referer);
@@ -2732,7 +2729,7 @@ class documentsActions extends c2cActions
         
         if ($from_id == $to_id)
         {
-            $this->setErrorAndRedirect('Could not perform association with itself', $referer);
+            $this->setErrorAndRedirect('Could not perform merge with itself', $referer);
         }
             
         // test whether the document_from is protected
@@ -2770,66 +2767,8 @@ class documentsActions extends c2cActions
 
             // if we are here, both documents are of the same type.
             $document_from = Document::find($this->model_class, $from_id, array('is_protected', 'redirects_to')); 
-            // merging consists of a redirection and an edition blocking :
-            $document_from->set('redirects_to', $to_id);
-            $document_from->set('is_protected', true);
-                
-            $conn = sfDoctrine::Connection();
-            try
-            {
-                $conn->beginTransaction();
 
-                // it also consists in a merging of document associations with the destination document
-                // thus, we have to replace all allusions of $from_id (in both columns) into $to_id in DocumentAssociation table.
-                $associations = Association::findAllAssociations($from_id);
-                foreach ($associations as $a)
-                {
-                    if ($a['main_id'] == $from_id)
-                    {
-                        c2cTools::log("Merging association: [$from_id, " . $a['linked_id'] . ', ' . $a['type'] . "] into [$to_id, " . $a['linked_id'] . ', ' . $a['type'] . ']');
-                        // create new association (only if it does not pre-exist)
-                        if (!Association::find($to_id, $a['linked_id'], $a['type']) && ($to_id != $a['linked_id']))
-                        {
-                            $b = new Association;
-                            $b->doSaveWithValues($to_id, $a['linked_id'], $a['type'], $user_id);
-                            c2cTools::log('done');
-                        }
-                        
-                        // delete old association
-                        $old = Association::find($from_id, $a['linked_id'], $a['type']);
-                        
-                    }
-                    elseif ($a['linked_id'] == $from_id)
-                    {
-                        c2cTools::log('Merging association: [' . $a['main_id'] . ", $from_id, " . $a['type'] . '] into [' . $a['main_id'] . ", $to_id, " . $a['type'] . ']');
-                        // create new association
-                        if (!Association::find($a['main_id'], $to_id, $a['type']) && ($to_id != $a['main_id']))
-                        {
-                            $b = new Association;
-                            $b->doSaveWithValues($a['main_id'], $to_id, $a['type'], $user_id);
-                            c2cTools::log('done');
-                        }
-                        
-                        // delete old association
-                        $old = Association::find($a['main_id'], $from_id, $a['type']);
-                    }
-                    $old->delete();
-                    // log this ?
-                }
-            
-                // we update the document_from
-                $document_from->doSaveWithMetadata($user_id, 
-                                                false, 
-                                                "Merged with document [[$module/$to_id|$to_id]]");
-
-                $conn->commit();
-            
-            }
-            catch (Exception $e)
-            {
-                $conn->rollback();
-                throw $e;
-            }
+            $this->doMerge($from_id, $document_from, $to_id, $document_to);
 
             // cache clearing:
             $this->clearCache($module, $from_id);
@@ -2842,6 +2781,71 @@ class documentsActions extends c2cActions
         }
             
         $this->setTemplate('../../documents/templates/merge');
+    }
+
+    protected function doMerge($from_id, $document_from, $to_id, $document_to)
+    {
+        $module = $this->getModuleName();
+        $user_id = $this->getUser()->getId();
+        $conn = sfDoctrine::Connection();
+        try
+        {
+            $conn->beginTransaction();
+
+            // merging consists of a redirection and an edition blocking :
+            $document_from->set('redirects_to', $to_id);
+            $document_from->set('is_protected', true);
+
+            // it also consists in a merging of document associations with the destination document
+            // thus, we have to replace all allusions of $from_id (in both columns) into $to_id in DocumentAssociation table.
+            $associations = Association::findAllAssociations($from_id);
+            foreach ($associations as $a)
+            {
+                if ($a['main_id'] == $from_id)
+                {
+                    c2cTools::log("Merging association: [$from_id, " . $a['linked_id'] . ', ' . $a['type'] . "] into [$to_id, " . $a['linked_id'] . ', ' . $a['type'] . ']');
+                    // create new association (only if it does not pre-exist)
+                    if (!Association::find($to_id, $a['linked_id'], $a['type']) && ($to_id != $a['linked_id']))
+                    {
+                        $b = new Association;
+                        $b->doSaveWithValues($to_id, $a['linked_id'], $a['type'], $user_id);
+                        c2cTools::log('done');
+                    }
+
+                    // delete old association
+                    $old = Association::find($from_id, $a['linked_id'], $a['type']);
+
+                }
+                elseif ($a['linked_id'] == $from_id)
+                {
+                    c2cTools::log('Merging association: [' . $a['main_id'] . ", $from_id, " . $a['type'] . '] into [' . $a['main_id'] . ", $to_id, " . $a['type'] . ']');
+                    // create new association
+                    if (!Association::find($a['main_id'], $to_id, $a['type']) && ($to_id != $a['main_id']))
+                    {
+                        $b = new Association;
+                        $b->doSaveWithValues($a['main_id'], $to_id, $a['type'], $user_id);
+                        c2cTools::log('done');
+                    }
+
+                    // delete old association
+                    $old = Association::find($a['main_id'], $from_id, $a['type']);
+                }
+                $old->delete();
+                // log this ?
+            }
+
+            // we update the document_from
+            $document_from->doSaveWithMetadata($user_id, 
+                                            false, 
+                                            "Merged with document [[$module/$to_id|$to_id]]");
+
+            $conn->commit();
+        }
+        catch (Exception $e)
+        {
+            $conn->rollback();
+            throw $e;
+        }
     }
 
     /**

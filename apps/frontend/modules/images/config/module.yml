@@ -32,3 +32,20 @@ all:
     list:
       1: collaborative image
       2: personal image
+
+  # used to know which fields contain rich content, i.e. bbcode
+  bbcode_fields:
+    areas:    ['description']
+    articles: ['description']
+    books:    ['description']
+    huts:     ['description', 'pedestrian_access']
+    images:   ['description']
+    maps:     ['description']
+    outings:  ['description', 'weather', 'conditions', 'hut_comments', 'access_comments']
+    parkings: ['description', 'accommodation']
+    portals:  ['description']
+    products: ['description']
+    routes:   ['description', 'remarks', 'gear', 'external_resources', 'route_history']
+    sites:    ['description', 'remarks', 'pedestrian_access', 'way_back', 'external_resources', 'site_history']
+    summits:  ['description']
+    users:    ['description']
