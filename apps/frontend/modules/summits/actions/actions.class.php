@@ -146,7 +146,7 @@ class summitsActions extends documentsActions
                                         array('filename', 'image_type', 'date_time'));
             
             $cab = count($associated_books);
-            $this->section_list = array('books' => ($cab != 0));
+            $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)$this->document->get('geom'));
     
             $summit_type_list = sfConfig::get('app_summits_summit_types');
             $summit_type_list[1] = 'summit';

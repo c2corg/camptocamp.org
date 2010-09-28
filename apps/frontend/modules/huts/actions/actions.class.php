@@ -98,7 +98,7 @@ class hutsActions extends documentsActions
             $this->associated_books = $associated_books;
             
             $cab = count($associated_books);
-            $this->section_list = array('books' => ($cab != 0));
+            $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)($this->document->get('geom_wkt')));
     
             $hut_type_list = sfConfig::get('mod_huts_shelter_types_list');
             $hut_type_index = $this->document->get('shelter_type');

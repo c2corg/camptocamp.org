@@ -10,8 +10,9 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
+$section_list = array('map' => (boolean)($document->get('geom_wkt')));
 
-display_page_header('products', $document, $id, $metadata, $current_version);
+display_page_header('products', $document, $id, $metadata, $current_version, '', '', $section_list);
 
 // lang-independent content starts here
 

@@ -11,8 +11,9 @@ $mobile_version =  c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $activities = $document->getRaw('activities');
+$section_list = array('map' => (boolean)($document->get('geom_wkt')));
 
-display_page_header('outings', $document, $id, $metadata, $current_version, $date, ', ');
+display_page_header('outings', $document, $id, $metadata, $current_version, $date, ', ', $section_list);
 
 // lang-independent content starts here
 
