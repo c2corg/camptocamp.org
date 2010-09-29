@@ -331,14 +331,19 @@ function button_know_more()
 
 function button_share()
 {
+    // addthis / analytics integration with asynchronous snippet, see:
+    // - http://www.addthis.com/forum/viewtopic.php?f=6&t=22352&sid=e7e11184e55eece3e4fa2780397d963a
+    // - http://jochen.kirstaetter.name/blog/community/addthis-google-analytics-asynchronous-tracking-code-integration.html
     sfContext::getInstance()->getResponse()->setParameter('addthis', true, 'helper/asset/addthis');
-    return '<script type="text/javascript">'
-           . 'var addthis_config = {services_exclude: \'print, favorites\',ui_header_color: "#000000",'
-           . 'ui_header_background: "#d2cabc", data_ga_tracker: "pageTracker"};'
-           . 'var addthis_localize = {share_caption:"'.__('Bookmark & Share').'",more:"'.__('More...').'"};'
-           . '</script>'
-           . '<a href="http://www.addthis.com/bookmark.php" class="addthis_button">'
-           . '<span class="share_bookmark '.__('meta_language') .'"></span></a>';
+    $addthis_js = '<script type="text/javascript">
+var pageTracker;
+_gaq.push(function() {pageTracker = _gat._getTracker(\''.sfConfig::get('app_ganalytics_key').'\');
+var addthis_config = {services_exclude: \'print, favorites\',ui_header_color: "#000000",ui_header_background: "#d2cabc",data_ga_tracker: "pageTracker"};
+var addthis_localize = {share_caption:"'.__('Bookmark & Share').'",more:"'.__('More...').'"};
+</script>';
+    return $addthis_js.link_to('<span class="share_bookmark '.__('meta_language') .'"></span>',
+                               'http://www.addthis.com/bookmark.php',
+                                array('class' => 'addthis_button'));
 }
 
 function button_widget($parameters)

@@ -54,6 +54,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
           title="Camptocamp.org" />
     <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
+    <?php include_partial('common/tracker') ?>
 </head>
 <body>
     <div id="holder">
@@ -94,13 +95,14 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
 
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
 
-    <?php minify_include_body_javascripts($combine, $debug);
-          minify_include_unminified_javascripts(); ?>
-
-    <?php include_partial('common/tracker') ?>
-
-    <?php // addthis script must be added after ga tracker for google analytics integration
-          if (sfContext::getInstance()->getResponse()->hasParameter('addthis', 'helper/asset/addthis'))
-              echo '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>'; ?>
+    <?php
+    minify_include_body_javascripts($combine, $debug);
+    minify_include_unminified_javascripts();
+    // addthis script must be added after ga tracker for google analytics integration
+    if (sfContext::getInstance()->getResponse()->hasParameter('addthis', 'helper/asset/addthis'))
+    {
+        echo '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>';
+    }
+    ?>
 </body>
 </html>
