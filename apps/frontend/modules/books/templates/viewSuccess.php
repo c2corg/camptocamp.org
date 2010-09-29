@@ -122,7 +122,7 @@ if ($is_not_archive && $is_not_merged)
     {
         // TODO checks on ISBN value (multiple isbns?)
         $response = sfContext::getInstance()->getResponse();
-        $response->addJavascript(sfConfig::get('/static/js/books.js');
+        $response->addJavascript(sfConfig::get('/static/js/books.js'));
 
         $isbn_or_issn = 'ISBN:';
         foreach ($document['book_types'] as $type)
