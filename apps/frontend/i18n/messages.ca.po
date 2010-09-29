@@ -44,6 +44,8 @@ msgstr "fa %1% setmanes"
 msgid "%1% years ago"
 msgstr "fa %1% anys"
 
+# [general comment]
+# Concerne les ':' avec &nbsp; devant ou non selon la langue.
 msgid "&nbsp;:"
 msgstr ":"
 
@@ -531,7 +533,7 @@ msgstr "Creació d'un portal"
 
 # [WARNING] es translation used
 msgid "Creating new products"
-msgstr "Creacion de un documento \"productos locales\""
+msgstr "Creación de un documento \"productos locales\""
 
 msgid "Creating new routes"
 msgstr "Creació d'un nou itinerari"
@@ -850,7 +852,7 @@ msgstr "Obtenir la llista en format RSS"
 
 # [WARNING] es translation used
 msgid "Get directions:"
-msgstr "Visualizar el recorrido carretero hacia el acceso:"
+msgstr "Visualizar el recorrido por carretera hasta el acceso:"
 
 msgid "Get help"
 msgstr "Obtenir ajuda"
@@ -1238,7 +1240,7 @@ msgstr "Veure totes les sortides d'aquest participant"
 # dans l'interface d'abonnement aux mailing lists
 # [WARNING] es translation used
 msgid "Lists you have subscribed to"
-msgstr "Boletines suscritos"
+msgstr "Boletines a los cuales estas inscrito"
 
 msgid "Localize on map"
 msgstr "Localitzar en el mapa"
@@ -1480,7 +1482,7 @@ msgstr "Ninguna salida es asociada a este sitio de escalada."
 
 # [WARNING] es translation used
 msgid "No linked product"
-msgstr "Ningún documento \"productos locales\" es asociado a ese documento"
+msgstr "no hay ningún documento \"productos locales\" asociado a este documento"
 
 msgid "No linked route"
 msgstr "No hi ha itineraris associats a aquest cim."
@@ -1855,7 +1857,7 @@ msgstr "Búsqueda en todo el documento:"
 # version mobile, titre du menu permettant d'accéder aux listes
 # [WARNING] es translation used
 msgid "See"
-msgstr "Ver"
+msgstr "Consultar"
 
 msgid "Select a name to use in guidebook"
 msgstr "Selecciona el teu nom per utilitzar a la topo-guia"
@@ -2576,7 +2578,7 @@ msgstr "No tens els drets necessaris per associar un usuari a aquest document."
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] es translation used
 msgid "You have not subscribed to any list"
-msgstr "Todavía no ha suscrito a ninguna lista"
+msgstr "Todavía no te as inscrito a ninguna lista"
 
 msgid "You must specify an email"
 msgstr "Has d'especificar una adreça email."
@@ -2638,7 +2640,7 @@ msgstr "<h3>Altitud de l'accés</h3>Altitud del punt de partida durant la sortid
 
 # [WARNING] es translation used
 msgid "_access_info"
-msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comprar el producto local.<br />Si el documento es asociado a un acceso, que sea accesible en transporte en común o no, conviene empezar la descripción en ese acceso."
+msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comprar el producto local.<br />Si el documento esta asociado a un acceso, que sea accesible en transporte en común o no, conviene empezar la descripción desde ese acceso."
 
 msgid "_access_status_info"
 msgstr "<h3>Accés</h3>Estat de la carretera d'accés fins al punt de partida de la sortida aquell dia&nbsp;: neta, nevada, tancada<br />El camp <i>Comentaris sobre l'accés</i> permet afegir aclariments."
@@ -2846,7 +2848,7 @@ msgstr "<h3>Cotació trekking</h3>Cotació de les dificultats d'un itinerari de 
 
 # [WARNING] es translation used
 msgid "_hours_info"
-msgstr "<h3>Horarios de apertura</h3>Fechas y horarios de apertura."
+msgstr "<h3>Horario de apertura</h3>Fechas y horas de apertura."
 
 msgid "_hut_comments_info"
 msgstr "<h3>Comentaris sobre el refugi</h3>Informacions complementàries sobre l'estat del refugi: accés, llits, gas, material cuina, frequentació."

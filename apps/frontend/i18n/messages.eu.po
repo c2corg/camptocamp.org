@@ -24,9 +24,8 @@ msgstr " kokalekua sartzeko. Suizako koordenatuak itzultzeko <a href=\"http://ww
 
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
-# [WARNING] en translation used
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} item(s). Click to show info."
+msgstr "${nb_items} objektu. Klikatu xehetasunak ikusteko."
 
 msgid "%1% days ago, at %2%"
 msgstr "orain dela %1% egun, %2%-tan"
@@ -46,6 +45,8 @@ msgstr "orain dela %1% aste"
 msgid "%1% years ago"
 msgstr "orain dela %1% urte"
 
+# [general comment]
+# Concerne les ':' avec &nbsp; devant ou non selon la langue.
 msgid "&nbsp;:"
 msgstr ":"
 
@@ -220,9 +221,8 @@ msgstr "fitxero batek gutxienez neurri txikiegiak ditu (16x16 px)"
 msgid "At least one image type is not given"
 msgstr "Irudi bat gutxienez ez da adierazia izan"
 
-# [WARNING] es translation used
 msgid "At least one name field is empty"
-msgstr "Falta al menos un titulo de imagen"
+msgstr "Irudi bat edo batzuen titulua faltan da"
 
 msgid "Author"
 msgstr "Egilea"
@@ -274,13 +274,11 @@ msgstr "Irteeren zerrendara itzuli"
 msgid "Back to parkings list"
 msgstr "Abiaguneen zerrendara itzuli"
 
-# [WARNING] es translation used
 msgid "Back to portals list"
-msgstr "Volver a la lista de portadas"
+msgstr "Portale zerrendara itzuli"
 
-# [WARNING] es translation used
 msgid "Back to products list"
-msgstr "Volver a la lista de documentos \"productos locales\""
+msgstr "\"Bertako produktuen\" zerrendara itzuli"
 
 msgid "Back to routes list"
 msgstr "Ibilbideen zerrendara itzuli"
@@ -302,29 +300,23 @@ msgstr "Gustokoenetan sartu"
 
 # [general comment]
 # Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
-# [comment]
-# ?Partager?
-# [WARNING] needs_review
 msgid "Bookmark & Share"
-msgstr "Gostokoen / Partekatuen artean gorde"
+msgstr "Gostokoa / Elkar-banatu"
 
 msgid "Bookmark current document"
 msgstr "Dokumentu hau gustokoenetan sartu"
 
-# [WARNING] es translation used
 msgid "Buy the book"
-msgstr "Conseguir este libro"
+msgstr "Liburu hau lortu"
 
 msgid "CNIL declaration #"
 msgstr "CNIL deklarazio zenbakia: "
 
-# [WARNING] es translation used
 msgid "Camptocamp on Facebook"
-msgstr "Camptocamp en Facebook"
+msgstr "Camptocamp Facebook-en"
 
-# [WARNING] es translation used
 msgid "Camptocamp on Twitter"
-msgstr "Camptocamp en Twitter"
+msgstr "Camptocamp Twitter-en"
 
 msgid "Camptocamp-Association"
 msgstr "Camptocamp elkartea"
@@ -353,25 +345,23 @@ msgstr "Azpi-gailurra ondorengo dokumentua da "
 # [general comment]
 # Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
 # NOT USED for the moment
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Choose maps service..."
-msgstr "Select a routing service..."
+msgstr "Aukeratu ibilbide zerbitzu bat"
 
 msgid "Choose..."
 msgstr "Aukera ezazu..."
 
 # [general comment]
 # Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
-# [WARNING] en translation used
 msgid "Clear"
-msgstr "Clear items"
+msgstr "Hautaketa ezabatu"
 
 msgid "Clear document cache"
 msgstr "Dokumentu honen katxe-a eguneratu"
 
-# [WARNING] needs_review
 msgid "Clear document cache (short)"
-msgstr "Katxe-a freskatu"
+msgstr "Katxe-a eguneratu"
 
 msgid "Click to display original image"
 msgstr "Irudian klikatu bere berezko neurrian ikusteko "
@@ -382,9 +372,8 @@ msgstr "Klikatu testua aldatzeko"
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] es translation used
 msgid "Close all sections"
-msgstr "Cerrar todas las secciones"
+msgstr "Atal guztiak itxi"
 
 msgid "Comment:"
 msgstr "Azalpenak:"
@@ -392,9 +381,8 @@ msgstr "Azalpenak:"
 msgid "Comments"
 msgstr "Eztabaida"
 
-# [WARNING] es translation used
 msgid "Community"
-msgstr "Comunidad"
+msgstr "Elkartea"
 
 msgid "Compare"
 msgstr "Hautaturiko bertsioak komparatu"
@@ -480,13 +468,11 @@ msgstr "Irteera bat gehitu"
 msgid "Create new parkings"
 msgstr "Abiagune bat gehitu"
 
-# [WARNING] es translation used
 msgid "Create new portals"
-msgstr "Crear un portal"
+msgstr "Portale bat sortu"
 
-# [WARNING] es translation used
 msgid "Create new products"
-msgstr "Añadir un documento \"productos locales\""
+msgstr "\"Bertako produktua\" dokumentu bat sortu"
 
 msgid "Create new routes"
 msgstr "Ibilbide bat gehitu"
@@ -523,13 +509,11 @@ msgstr "Irteera berri bat sortu"
 msgid "Creating new parkings"
 msgstr "Abiagune berri bat sortu"
 
-# [WARNING] es translation used
 msgid "Creating new portals"
-msgstr "Creación de una portada"
+msgstr "Portale baten sorrera"
 
-# [WARNING] es translation used
 msgid "Creating new products"
-msgstr "Creacion de un documento \"productos locales\""
+msgstr "\"Bertako Produktua\" dokumentu baten sorrera"
 
 msgid "Creating new routes"
 msgstr "Ibilbide berri bat sortu"
@@ -552,9 +536,8 @@ msgstr "Dokumentu hau %1% rekin bateratua izan da."
 msgid "Current version"
 msgstr "Oraingo bertsioa"
 
-# [WARNING] es translation used
 msgid "Custom legend"
-msgstr "Leyenda personalizada:"
+msgstr "Irudi-testua pertsonalizatu:"
 
 msgid "Customize"
 msgstr "Pertsonalizatu / filtratu"
@@ -577,9 +560,8 @@ msgstr "Eguna"
 msgid "Delete"
 msgstr "Ezabatu"
 
-# [WARNING] es translation used
 msgid "Delete culture"
-msgstr "Suprimir en ese idioma"
+msgstr "Hizkuntza ezabatu"
 
 msgid "Delete geometry"
 msgstr "Geometria ezabatu"
@@ -590,9 +572,8 @@ msgstr "Lotura hau ezabatu"
 msgid "Delete this document"
 msgstr "Dokumentu hau ezabatu"
 
-# [WARNING] es translation used
 msgid "Delete this document culture"
-msgstr "Suprimir esta versión lingüística del documento"
+msgstr "Dokumentuaren hizkuntza bertsio hau ezabatu"
 
 msgid "Delete this documents geometry"
 msgstr "Dokumentu honen geometria ezabatu"
@@ -603,9 +584,8 @@ msgstr "Babesik gabe"
 msgid "Description"
 msgstr "Deskribapena"
 
-# [WARNING] es translation used
 msgid "Deselect all"
-msgstr "De-seleccione todo"
+msgstr "Aukeraketa guztia desegin"
 
 msgid "Detailed search criteria"
 msgstr "Bilaketarako irispide zehatzak"
@@ -621,9 +601,8 @@ msgstr "%1% en bertsioaren desberdintasunak %2%-n."
 
 # [general comment]
 # Lien temporaire vers la version mobile du site (n'apparait que si quelqu'un regarde la page d'accueil standard avec un mobile)
-# [WARNING] es translation used
 msgid "Discover mobile version"
-msgstr "Pruebe la versión móvil de camptocamp!"
+msgstr "Camptocamp-en bertsio mugikorra saiatu!"
 
 msgid "Display"
 msgstr "Erakutsi"
@@ -631,29 +610,25 @@ msgstr "Erakutsi"
 msgid "Display OpenStreetMap data"
 msgstr "<a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> Errepide datuak erakutsi"
 
-# [WARNING] es translation used
 msgid "Distance"
-msgstr "Distancia"
+msgstr "Distantzia"
 
 msgid "Document %1% has been merged into document %2%"
 msgstr "%1% dokumentua %2% rekin bateratua izan da."
 
-# [WARNING] es translation used
 msgid "Document cache has been cleared"
-msgstr "El cache del documento ha sido borrado"
+msgstr "Dokumenturen katxea ezabatu egin da"
 
 msgid "Document could not be deleted"
 msgstr "Dokumentua ezin izan da ezabatu"
 
 # [general comment]
 # %1% displays the list of the 'would be' orphean route ID
-# [WARNING] es translation used
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "La cima no se puede borrar por que dejaría rutas huérfanas"
+msgstr "Gailur hau ezin da ezabatu ibilbideak umezurtz bihurtuko baitira"
 
-# [WARNING] es translation used
 msgid "Document culture deleted"
-msgstr "La versión lingüística del documento ha sido suprimida."
+msgstr "Dokumentuaren hizkuntza bertsioa ezabatu egin da"
 
 msgid "Document deleted"
 msgstr "Dokumentua ezabatua izan da"
@@ -679,9 +654,8 @@ msgstr "Dokumentu hau babestua dago"
 msgid "Document not found"
 msgstr "Ez da dokumentua aurkitu"
 
-# [WARNING] es translation used
 msgid "Document title"
-msgstr "Título del documento"
+msgstr "Dokumentuaren titulua"
 
 msgid "Document types differ, thus cannot be merged"
 msgstr "Dokumentuak ez dira mota berdinekoak, ondorioz ezin dira bateratu"
@@ -748,16 +722,14 @@ msgstr "Edur iragarpenen zabaltze zerrendan abonatu"
 msgid "Editing preview"
 msgstr "Aurre ikusketa:"
 
-# [WARNING] es translation used
 msgid "Edition of \"%1%\""
-msgstr "Edición de \"%1%\""
+msgstr "\"%1%\"-ko edizioa"
 
-# [WARNING] es translation used
 msgid "Editor:"
-msgstr "Editor:"
+msgstr "Argitaratzailea:"
 
 msgid "Email short"
-msgstr "E-mail-a"
+msgstr "E-mail"
 
 msgid "Email:"
 msgstr "Helbide elektronikoa:"
@@ -767,50 +739,41 @@ msgstr "Koordenadak hutsik daude: latitute eta lonjitude eremuak bete itzazu mes
 
 # [general comment]
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
-# [WARNING] es translation used
 msgid "Enlarge the bar"
-msgstr "Cliquear para ver la barra de menús de la izquierda"
+msgstr "Egin klik ezkerraldeko menua ikusteko"
 
-# [comment]
-# copié-collé de ES
-# [WARNING] es translation used
 msgid "Enlarge the list"
-msgstr "Agrandar la lista"
+msgstr "Zerrenda luzatu"
 
-# [WARNING] es translation used
 msgid "Enlarge the text box"
-msgstr "Aumentar la zona de texto"
+msgstr "Testuaren eremua handitu"
 
-# [WARNING] es translation used
 msgid "Expand map"
-msgstr "Ampliar el mapa"
+msgstr "Mapa handitu"
 
 msgid "Export:"
 msgstr "Exportatu:"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Extract"
-msgstr "Extracto"
+msgstr "Laburpena"
 
 # [general comment]
 # facile (cotation globale)
 msgid "F"
 msgstr "F"
 
-# [WARNING] es translation used
 msgid "FAQ"
-msgstr "Preguntas frecuentes"
+msgstr "Ohizko galderak"
 
-# [WARNING] es translation used
 msgid "FAQ short"
 msgstr "FAQ"
 
 msgid "Failed moving uploaded file"
 msgstr "Fitxeroaren izen aldaketak oker bat eman du. Berriro saiatu."
 
-# [WARNING] es translation used
 msgid "Failed rasterizing svg file"
-msgstr "La rasterización de la imagen falló"
+msgstr "irudi bektoriala ezin izan da bihurtu"
 
 msgid "Favorite language:"
 msgstr "Edukinaren hizkuntzen lehentasun ordena:"
@@ -845,13 +808,11 @@ msgstr "Albuma"
 
 # [general comment]
 # text for widget generator in left menu of list pages
-# [WARNING] es translation used
 msgid "Generate widget"
-msgstr "Generar un widget"
+msgstr "Widget bat sortu"
 
-# [WARNING] es translation used
 msgid "Geoassociations refreshed"
-msgstr "Las regiones (y mapas) asociadas han sido actualizadas"
+msgstr "Eskualdeak (eta mapak) eguneratu dira"
 
 msgid "Geometry has been deleted"
 msgstr "Dokumentu honen geometria ezabatua izan da"
@@ -859,13 +820,11 @@ msgstr "Dokumentu honen geometria ezabatua izan da"
 msgid "Get Help"
 msgstr "Laguntza lortu"
 
-# [WARNING] es translation used
 msgid "Get current list in RSS format"
-msgstr "Obtener esta lista en formato RSS"
+msgstr "Zerrenda hau RSS formatuan erakutsi"
 
-# [WARNING] es translation used
 msgid "Get directions:"
-msgstr "Visualizar el recorrido carretero hacia el acceso:"
+msgstr "Errepidezko iristea erakutsi:"
 
 msgid "Get help"
 msgstr "Laguntza lortu"
@@ -873,113 +832,87 @@ msgstr "Laguntza lortu"
 msgid "Give me a name"
 msgstr "Eman izen bat!"
 
-# [WARNING] es translation used
 msgid "Global help"
-msgstr "Ayuda global"
+msgstr "Laguntza orokorra"
 
-# [WARNING] es translation used
 msgid "Go back to form"
-msgstr "Volver al formulario"
+msgstr "Formulariora itzuli"
 
-# [WARNING] es translation used
 msgid "Go to next area"
-msgstr "Ir a la siguiente región"
+msgstr "Hurrengo eskualdera joan"
 
-# [WARNING] es translation used
 msgid "Go to next article"
-msgstr "Ir al siguiente articulo"
+msgstr "Hurrengo artikulura joan"
 
-# [WARNING] es translation used
 msgid "Go to next book"
-msgstr "Ir al siguiente libro"
+msgstr "Hurrengo liburura joan"
 
-# [WARNING] es translation used
 msgid "Go to next hut"
-msgstr "Ir al siguiente refugio o campamento"
+msgstr "Hurrengo mendi borda edo aterpera joan"
 
-# [WARNING] es translation used
 msgid "Go to next image"
-msgstr "Ir a la siguiente imagen"
+msgstr "Hurrengo irudira joan"
 
-# [WARNING] es translation used
 msgid "Go to next map"
-msgstr "Ir al siguiente mapa"
+msgstr "Hurrengo mapara joan"
 
-# [WARNING] es translation used
 msgid "Go to next outing"
-msgstr "Ir a la siguiente salida"
+msgstr "Hurrengo irteerara joan"
 
-# [WARNING] es translation used
 msgid "Go to next parking"
-msgstr "Ir al siguiente acceso"
+msgstr "Hurrengo abiapuntura joan"
 
-# [WARNING] es translation used
 msgid "Go to next portal"
-msgstr "Ir a la portada siguiente"
+msgstr "Hurrengo portalera joan"
 
-# [WARNING] es translation used
 msgid "Go to next product"
-msgstr "Ir al siguiente documento \"productos locales\""
+msgstr "Hurrengo \"Bertako produktua\" dokumentura joan"
 
-# [WARNING] es translation used
 msgid "Go to next route"
-msgstr "Ir al siguiente itinerario"
+msgstr "Hurrengo ibilbidera joan"
 
-# [WARNING] es translation used
 msgid "Go to next summit"
-msgstr "Ir a la cima siguiente"
+msgstr "Hurrengo gailurrera joan"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Go to preview"
-msgstr "Ir a la previsualización"
+msgstr "Aurreikusi"
 
-# [WARNING] es translation used
 msgid "Go to previous area"
-msgstr "Ir a la región anterior"
+msgstr "Aurreko eskualdera joan"
 
-# [WARNING] es translation used
 msgid "Go to previous article"
-msgstr "Ir al articulo anterior"
+msgstr "Aurreko artikulura joan"
 
-# [WARNING] es translation used
 msgid "Go to previous book"
-msgstr "Ir al libro anterior"
+msgstr "Aurreko liburura liburura joan"
 
-# [WARNING] es translation used
 msgid "Go to previous hut"
-msgstr "Ir al refugio o campamento anterior"
+msgstr "Aurreko mendi borda edo aterpera joan"
 
-# [WARNING] es translation used
 msgid "Go to previous image"
-msgstr "Ir a la imagen anterior"
+msgstr "Aurreko irudira joan"
 
-# [WARNING] es translation used
 msgid "Go to previous map"
-msgstr "Ir al mapa anterior"
+msgstr "Aurreko mapara joan"
 
-# [WARNING] es translation used
 msgid "Go to previous outing"
-msgstr "Ir a la salida anterior"
+msgstr "Aurreko irteerara joan"
 
-# [WARNING] es translation used
 msgid "Go to previous parking"
-msgstr "Ir al acceso anterior"
+msgstr "Aurreko abiapuntura joan"
 
-# [WARNING] es translation used
 msgid "Go to previous portal"
-msgstr "Ir a la portada anterior"
+msgstr "Aurreko portalera joan"
 
-# [WARNING] es translation used
 msgid "Go to previous product"
-msgstr "Ir al anterior documento \"productos locales\""
+msgstr "Aurreko \"Bertako produktua\" dokumentura joan"
 
-# [WARNING] es translation used
 msgid "Go to previous route"
-msgstr "Ir al itinerario anterior"
+msgstr "Aurreko ibilbidera joan"
 
-# [WARNING] es translation used
 msgid "Go to previous summit"
-msgstr "Ir a la cima anterior"
+msgstr "Aurreko gailurrera joan"
 
 msgid "Go to the homepage"
 msgstr "Sarrera orrira itzuli"
@@ -989,13 +922,12 @@ msgstr "Web gunearen antolakuntza ikusi"
 
 # [general comment]
 # texte par défaut du formulaire de recentrage de l'outil carto
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Go to..."
-msgstr "Ir a..."
+msgstr "joan"
 
-# [WARNING] es translation used
 msgid "Google Book Search"
-msgstr "Búsqueda de libros de Google"
+msgstr "Google liburu bilaketa"
 
 msgid "Guidebook"
 msgstr "Ibilbide gida"
@@ -1003,9 +935,8 @@ msgstr "Ibilbide gida"
 msgid "Guidebook contribs:"
 msgstr "Ibilbide gidako ekarpenak:"
 
-# [WARNING] es translation used
 msgid "Guidebook help"
-msgstr "Manual de ayuda"
+msgstr "Topo-gida laguntza"
 
 msgid "Has this outing really been done today?"
 msgstr "Irteera hau benetan gaur egina izan da?"
@@ -1022,28 +953,24 @@ msgstr "Bertsioak"
 msgid "Home"
 msgstr "Sarrera orria"
 
-# [WARNING] es translation used
 msgid "How to customize"
-msgstr "Como personalizar la web"
+msgstr "Web orrialdea nola pertsonalizatu"
 
 msgid "Hut not found"
 msgstr "Ez dago halako mendi-aterperik."
 
-# [WARNING] es translation used
 msgid "Hut:"
-msgstr "Refugio:"
+msgstr "Mendi borda:"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] es translation used
 msgid "IGN maps"
-msgstr "Mapa IGN"
+msgstr "IGN mapa"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] es translation used
 msgid "IGN orthos"
-msgstr "fotos aéreas IGN"
+msgstr "IGN aireko irudiak"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Pasa hitz berria, zure lehenengo koneksiorako baliagarria izango da. Ondoren zure datu pertsonaletan aldatu ahalko duzu. Ez baduzu pasa hitz berririk eskatu, mezua ez haintzakotzat hartu."
@@ -1051,13 +978,11 @@ msgstr "Pasa hitz berria, zure lehenengo koneksiorako baliagarria izango da. Ond
 msgid "Image"
 msgstr "Irudia"
 
-# [WARNING] es translation used
 msgid "Image could not be loaded"
-msgstr "No se puede mostrar la imagen"
+msgstr "Ezin da irudia erakutsi"
 
-# [WARNING] es translation used
 msgid "Image could not be loaded long"
-msgstr "Para verse, la imagen debe ser asociada al documento.<br /><a href=\"/articles/151910#imagenes\">Explicación detallada</a>"
+msgstr "Irudia erakutsi ahal izateko dokumentu honi atsikia egon behar da.<br /><a href=\"/articles/151910#imagenes\">Azalpen zehatzak</a>"
 
 msgid "Image does not exist"
 msgstr "Irudi hau ez da existitzen"
@@ -1275,7 +1200,7 @@ msgstr "Erabiltzaile honen irteera guztiak zerrendatu"
 # dans l'interface d'abonnement aux mailing lists
 # [WARNING] es translation used
 msgid "Lists you have subscribed to"
-msgstr "Boletines suscritos"
+msgstr "Boletines a los cuales estas inscrito"
 
 msgid "Localize on map"
 msgstr "Mapan kokatu"
@@ -1515,7 +1440,7 @@ msgstr "Ninguna salida es asociada a este sitio de escalada."
 
 # [WARNING] es translation used
 msgid "No linked product"
-msgstr "Ningún documento \"productos locales\" es asociado a ese documento"
+msgstr "no hay ningún documento \"productos locales\" asociado a este documento"
 
 msgid "No linked route"
 msgstr "Ez dago ibilbiderik dokumentu honi loturik."
@@ -1889,7 +1814,7 @@ msgstr "Búsqueda en todo el documento:"
 # version mobile, titre du menu permettant d'accéder aux listes
 # [WARNING] es translation used
 msgid "See"
-msgstr "Ver"
+msgstr "Consultar"
 
 msgid "Select a name to use in guidebook"
 msgstr "Ibilbide gidarako erabiltzaile izena aukeratu"
@@ -2610,7 +2535,7 @@ msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honi lotzeko"
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] es translation used
 msgid "You have not subscribed to any list"
-msgstr "Todavía no ha suscrito a ninguna lista"
+msgstr "Todavía no te as inscrito a ninguna lista"
 
 msgid "You must specify an email"
 msgstr "Helbide elektroniko bat eman behar duzu."
@@ -2671,7 +2596,7 @@ msgstr "<h3>Abiapuntuaren altitudea </h3>Irteeraren hasiera puntuaren altitudea.
 
 # [WARNING] es translation used
 msgid "_access_info"
-msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comprar el producto local.<br />Si el documento es asociado a un acceso, que sea accesible en transporte en común o no, conviene empezar la descripción en ese acceso."
+msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comprar el producto local.<br />Si el documento esta asociado a un acceso, que sea accesible en transporte en común o no, conviene empezar la descripción desde ese acceso."
 
 msgid "_access_status_info"
 msgstr "<h3>Abiapuntua</h3>Ibilbidearen abiapuntura heltzeko ereepideetan aurkituriko egoera: garbitua, elurtua edo itxia.<br /> <i>Abiapuntuarekiko azalpenak</i> eremuak abiapuntuaren araberako iritziak gehitu daitezke."
@@ -2865,7 +2790,7 @@ msgstr "<h3>Txangoaren zailtasuna</h3>Oinezko txagoaren zailtasuna akotatzen du.
 
 # [WARNING] es translation used
 msgid "_hours_info"
-msgstr "<h3>Horarios de apertura</h3>Fechas y horarios de apertura."
+msgstr "<h3>Horario de apertura</h3>Fechas y horas de apertura."
 
 msgid "_hut_comments_info"
 msgstr "<h3>Mendi bordaren azalpenak</h3>Medi aterpearen inguruko xehetasun osagarriak: gerturabidea, logelak, gasa, sukaldeko materila, jendetza. "

@@ -44,6 +44,8 @@ msgstr "vor %1% Wochen"
 msgid "%1% years ago"
 msgstr "vor %1% Jahren"
 
+# [general comment]
+# Concerne les ':' avec &nbsp; devant ou non selon la langue.
 msgid "&nbsp;:"
 msgstr ":"
 

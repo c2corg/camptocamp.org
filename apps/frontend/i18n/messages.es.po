@@ -44,6 +44,8 @@ msgstr "hace %1% semanas"
 msgid "%1% years ago"
 msgstr "hace %1% años"
 
+# [general comment]
+# Concerne les ':' avec &nbsp; devant ou non selon la langue.
 msgid "&nbsp;:"
 msgstr ":"
 
@@ -274,7 +276,6 @@ msgstr "Volver a la lista de accesos"
 msgid "Back to portals list"
 msgstr "Volver a la lista de portadas"
 
-# [WARNING] needs_review
 msgid "Back to products list"
 msgstr "Volver a la lista de documentos \"productos locales\""
 
@@ -470,7 +471,6 @@ msgstr "Añadir un acceso"
 msgid "Create new portals"
 msgstr "Crear un portal"
 
-# [WARNING] needs_review
 msgid "Create new products"
 msgstr "Añadir un documento \"productos locales\""
 
@@ -512,9 +512,8 @@ msgstr "Creación de un nuevo acceso"
 msgid "Creating new portals"
 msgstr "Creación de una portada"
 
-# [WARNING] needs_review
 msgid "Creating new products"
-msgstr "Creacion de un documento \"productos locales\""
+msgstr "Creación de un documento \"productos locales\""
 
 msgid "Creating new routes"
 msgstr "Creación de un nuevo itinerario"
@@ -823,7 +822,7 @@ msgid "Get current list in RSS format"
 msgstr "Obtener esta lista en formato RSS"
 
 msgid "Get directions:"
-msgstr "Visualizar el recorrido carretero hacia el acceso:"
+msgstr "Visualizar el recorrido por carretera hasta el acceso:"
 
 msgid "Get help"
 msgstr "Obtener ayuda"
@@ -864,7 +863,6 @@ msgstr "Ir al siguiente acceso"
 msgid "Go to next portal"
 msgstr "Ir a la portada siguiente"
 
-# [WARNING] needs_review
 msgid "Go to next product"
 msgstr "Ir al siguiente documento \"productos locales\""
 
@@ -904,7 +902,6 @@ msgstr "Ir al acceso anterior"
 msgid "Go to previous portal"
 msgstr "Ir a la portada anterior"
 
-# [WARNING] needs_review
 msgid "Go to previous product"
 msgstr "Ir al anterior documento \"productos locales\""
 
@@ -1181,11 +1178,8 @@ msgstr "Listar todas las salidas de este usuario"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailing lists
-# [comment]
-# Traduction à vérifier...
-# [WARNING] needs_review
 msgid "Lists you have subscribed to"
-msgstr "Boletines suscritos"
+msgstr "Boletines a los cuales estas inscrito"
 
 msgid "Localize on map"
 msgstr "Localizar en el mapa"
@@ -1404,9 +1398,8 @@ msgstr "No hay salidas asociadas con este itinerario."
 msgid "No linked outing to this site"
 msgstr "Ninguna salida es asociada a este sitio de escalada."
 
-# [WARNING] needs_review
 msgid "No linked product"
-msgstr "Ningún documento \"productos locales\" es asociado a ese documento"
+msgstr "no hay ningún documento \"productos locales\" asociado a este documento"
 
 msgid "No linked route"
 msgstr "No hay itinerarios asociados con esta cima."
@@ -1551,11 +1544,9 @@ msgstr "Imprimir el documento actual"
 msgid "Private message"
 msgstr "Mensaje privado"
 
-# [WARNING] needs_review
 msgid "Product not found"
 msgstr "Este documento \"productos locales\" no existe."
 
-# [WARNING] needs_review
 msgid "Product:"
 msgstr "Productos locales:"
 
@@ -1729,7 +1720,6 @@ msgstr "Buscar un acceso"
 msgid "Search a portals"
 msgstr "Buscar una portada"
 
-# [WARNING] needs_review
 msgid "Search a products"
 msgstr "Buscar un documento \"productos locales\""
 
@@ -1756,9 +1746,8 @@ msgstr "Búsqueda en todo el documento:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] needs_review
 msgid "See"
-msgstr "Ver"
+msgstr "Consultar"
 
 msgid "Select a name to use in guidebook"
 msgstr "Seleccione el nombre que quiere utilizar en la topo-guía"
@@ -1956,7 +1945,6 @@ msgstr "Seguir las ultimas modificaciones de portadas"
 msgid "Subscribe to latest products creations"
 msgstr "Seguir las recientes creaciones de \"productos locales\""
 
-# [WARNING] needs_review
 msgid "Subscribe to latest products editions"
 msgstr "Seguir las ultimas modificaciones de documentos \"productos locales\""
 
@@ -2422,9 +2410,8 @@ msgstr "No tiene los derechos necesarios para asociar un usuario a este document
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] needs_review
 msgid "You have not subscribed to any list"
-msgstr "Todavía no ha suscrito a ninguna lista"
+msgstr "Todavía no te as inscrito a ninguna lista"
 
 msgid "You must specify an email"
 msgstr "Tienes que especificar una dirección de email."
@@ -2481,9 +2468,8 @@ msgstr "<h3>Comentarios sobre el acceso en vehiculo o en transporte en común</h
 msgid "_access_elevation_info"
 msgstr "<h3>Altitud del acceso</h3>Altitud del punto de partida el día de la salida. Útil en invierno cuando la altitud del punto de partida depende de la cantidad de nieve encontrada en la carretera."
 
-# [WARNING] needs_review
 msgid "_access_info"
-msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comprar el producto local.<br />Si el documento es asociado a un acceso, que sea accesible en transporte en común o no, conviene empezar la descripción en ese acceso."
+msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comprar el producto local.<br />Si el documento esta asociado a un acceso, que sea accesible en transporte en común o no, conviene empezar la descripción desde ese acceso."
 
 msgid "_access_status_info"
 msgstr "<h3>Acceso</h3>Estado de la carretera el día de la salida (seca, nevada, o cerrada) o datos sobre transportes en comun (horarios & precios).<br />El campo <i>Comentarios sobre el acceso</i> permite ampliar la información."
@@ -2661,9 +2647,8 @@ msgstr "<h3>Desnivel positivo</h3><em><u>Salida</u>:</em><br />Desnivel acumulad
 msgid "_hiking_rating_info"
 msgstr "<h3>Cotación trekking</h3>Cotación de las dificultades sobre un itinerario de caminata pedestre.<br />La escala va de T1 a T6. <br /><br /><strong>T1</strong>: Sendero bien marcado. Terreno llano o de pendiente moderada sin riesgo de caída. El itinerario se puede realizar con zapatillas comunes.<br /><br /><strong>T2</strong>: Sendero siempre marcado. Terreno a veces empinado con posibles riesgos de caída.<br /><br /><strong>T3</strong>: Sendero no siempre visible. Hay tramos expuestos (posiblemente con cadena o cuerda de ayuda), acarreos o zonas de bloques/rocas donde desaparece la huella. Puede haber riesgos de caída de piedras en algunos tramos. Puede hacer falta apoyarse con las manos.<br /><br /><strong>T4</strong>: A veces desaparece la huella. A veces, hace falta usar las manos para superar algún tramo. El terreno ya es bastante expuesto: pendientes de pasto delicadas de transitar, pendientes donde alternan rocas, nevé fácil o algún tramo de glaciar no recubierto de nieve (no hace falta encordarse).<br /><br /><strong>T5</strong>: Suele no haber huella. Terreno expuesto y exigente con pendientes fuertes y algunos pasos de escalada fácil y/o nieve/hielo con riesgo de caída.<br /><br /><strong>T6</strong>: En general no hay huella y hay pasos de escalada que requieren posicionamiento de manos y pies (hasta el 2 en grados franceses). Suelen ser itinerarios muy expuestos, con alto riesgo de caída (en roca o en nieve).<br /><br />Véase también la ayuda sobre <a href=\"/articles/106859/es\">grados en caminata y trekking</a>."
 
-# [WARNING] needs_review
 msgid "_hours_info"
-msgstr "<h3>Horarios de apertura</h3>Fechas y horarios de apertura."
+msgstr "<h3>Horario de apertura</h3>Fechas y horas de apertura."
 
 msgid "_hut_comments_info"
 msgstr "<h3>Comentarios sobre el refugio</h3>Informaciones complementarias sobre el estado del refugio: acceso, camas, gas, necesario para cocina, frecuentación."
