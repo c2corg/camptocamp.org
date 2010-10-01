@@ -18,8 +18,11 @@ $id = $sf_params->get('id');
             {
                 echo li(button_anchor('Interactive map', 'map_container', 'picto_maps', $module, $id, $lang));
             }
+            if ($section_list['images'])
+            {
+                echo li(button_anchor('Images', 'images', 'picto_images', $module, $id, $lang));
+            }
             ?>
-            <li><?php echo button_anchor('Images', 'images', 'picto_images', $module, $id, $lang); ?></li>
         </ul>
     </div>
     <div id="nav_anchor_down"></div>

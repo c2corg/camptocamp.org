@@ -11,7 +11,8 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
-$section_list = array('map' => (boolean)($document->get('geom_wkt')));
+$section_list = array('map' => (boolean)($document->get('geom_wkt')),
+                      'images' => (boolean)count($associated_images));
 
 display_page_header('images', $document, $id, $metadata, $current_version, '', '', $section_list);
 
@@ -102,10 +103,15 @@ if ($is_not_archive && $is_not_merged):
     
     echo end_section_tag();
 
-    include_partial('documents/images', array('images' => $associated_images,
-                                              'document_id' => $id,
-                                              'dissociation' => 'moderator',
-                                              'is_protected' => $document->get('is_protected')));
+    // only display images section if they are some images
+    // (since we don't propose the link to add images to an image anyway)
+    if (count($associated_images))
+    {
+        include_partial('documents/images', array('images' => $associated_images,
+                                                  'document_id' => $id,
+                                                  'dissociation' => 'moderator',
+                                                  'is_protected' => $document->get('is_protected')));
+    }
 
     if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
 
