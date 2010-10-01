@@ -181,7 +181,7 @@ function minify_get_stylesheets($position_array = array('first', '', 'last'), $d
         $files = array($files);
       }
 
-      $options = array_merge(array('rel' => 'stylesheet', 'type' => 'text/css', 'media' => 'screen'), $options);
+      $options = array_merge(array('rel' => 'stylesheet', 'type' => 'text/css', 'media' => 'all'), $options);
       foreach ($files as $file)
       {
         if (isset($already_seen[$file])) continue;

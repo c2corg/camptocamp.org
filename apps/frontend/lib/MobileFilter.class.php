@@ -13,11 +13,11 @@ class MobileFilter extends sfFilter
         {
             // change layout for mobile_layout
             $context->getResponse()->setParameter($context->getModuleName().'_'.$context->getActionName().'_layout', 'mobile_layout', 'symfony/action/view');
-            $context->getResponse()->addStylesheet('/static/css/mobile.css', 'last', array('media' => 'all'));
+            $context->getResponse()->addStylesheet('/static/css/mobile.css', 'last');
         }
         else
         {
-            $context->getResponse()->addStylesheet('/static/css/menu.css', '', array('media' => 'all'));
+            $context->getResponse()->addStylesheet('/static/css/menu.css');
             $context->getResponse()->addStylesheet('/static/css/print.css', 'last', array('media' => 'print'));
         }
 

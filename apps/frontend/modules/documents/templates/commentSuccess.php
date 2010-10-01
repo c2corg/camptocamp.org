@@ -67,7 +67,7 @@ if (count($uri_anchor) > 1)
 $is_new = ($post_id > 0) && isset($_GET['new']);
 $bg_switch = true;	// Used for switching background color in posts
 $counter = 1;
-use_stylesheet('/static/css/forums.css', '', array('media' => 'all'));
+use_stylesheet('/static/css/forums.css');
 ?>
 
 <div class="linkst">

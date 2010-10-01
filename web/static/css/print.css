@@ -81,6 +81,8 @@ p {
 /* carto */
 #ext-gen50, .olControlOverviewMapMaximizeButton,
 #ext-gen28, .olControlPanZoom, .gpControlPermanentLogo
+/* lightbox, modalbox */
+#lightbox, #overlay, #MB_overlay, #MB_window
 {
   display: none !important;
   clear: none !important;

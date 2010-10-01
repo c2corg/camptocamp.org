@@ -48,7 +48,7 @@ function _loadJsOamTools()
     // App-specific
     $response->addJavascript('/static/js/oam_mapping.js', 'first');
     
-    $response->addStyleSheet('/static/css/openlayers.css', '', array('media' => 'all'));
+    $response->addStyleSheet('/static/css/openlayers.css');
 }
 
 _loadJsOamTools();

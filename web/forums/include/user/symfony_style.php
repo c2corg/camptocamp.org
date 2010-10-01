@@ -1,15 +1,15 @@
 <?php
 $mobile_version = c2cTools::mobileVersion();
  
-$sf_response->addStylesheet('/static/css/main.css', 'first', array('media' => 'all'));
+$sf_response->addStylesheet('/static/css/main.css', 'first');
 if (!$mobile_version)
 {
-    $sf_response->addStylesheet('/static/css/menu.css', '', array('media' => 'all'));
+    $sf_response->addStylesheet('/static/css/menu.css';
     $sf_response->addStylesheet('/static/css/modalbox.css');
 }
 else
 {
-    $sf_response->addStylesheet('/static/css/mobile.css', 'last', array('media' => 'all'));
+    $sf_response->addStylesheet('/static/css/mobile.css', 'last');
 }
 
 $sf_response->addJavascript('/static/js/prototype.js', 'head_first');
