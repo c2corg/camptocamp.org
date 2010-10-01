@@ -1088,6 +1088,21 @@ msgid "Last bulletin"
 msgstr "Neuestes Bulletin"
 
 # [general comment]
+# titre d'un flux rss
+# %1% -> module
+# [WARNING] fr translation used
+msgid "Latest %1% creations"
+msgstr "Dernières créations - %1%"
+
+# [WARNING] fr translation used
+msgid "Latest %1% creations in %2%"
+msgstr "Dernières créations - %1% - %2%"
+
+# [WARNING] fr translation used
+msgid "Latest %1% editions"
+msgstr "Dernières éditions - %1%"
+
+# [general comment]
 # titre flux rss d'éditions
 # [WARNING] needs_review
 msgid "Latest %1% editions feed"
@@ -1099,11 +1114,26 @@ msgstr "%1% - Neueste Änderungen"
 msgid "Latest %1% editions feed description"
 msgstr "camptocamp.org - neueste Dokumentenänderungen %1%"
 
+# [general comment]
+# %1% -> module
+# %2% -> langue
+# [WARNING] fr translation used
+msgid "Latest %1% editions in %2%"
+msgstr "Dernières éditions - %1% - %2%"
+
 msgid "Latest articles"
 msgstr "Neueste Artikel"
 
 msgid "Latest documents"
 msgstr "Neueste Dokumente"
+
+# [general comment]
+# titre de flux rss
+# %1% -> nom du doc
+# %2% -> langue
+# [WARNING] fr translation used
+msgid "Latest editions for \"%1%\" - %2%"
+msgstr "Dernières éditions de \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Neueste Bilder"
@@ -2551,7 +2581,7 @@ msgstr "<h3>Regionentypen</h3>\n"
 msgid "_article_type_info"
 msgstr "<h3>Typ des Beitrags</h3><strong>gemeinschaftlicher Beitrag:</strong> <br />Ein gemeinschaftlicher Beitrag kann von allen camptocamp.org-Benutzern geändert werden. Dies ist besonders bei <em>enzyklopädischen</em> Beiträgen angebracht, da sie gleich wie Wikipediaartikel ergänzt werden können. <br /><br /><strong>persönlicher Beitrag</strong>:<br />Ein persönlicher Beitrag kann nur durch den Autor geändert werden. Diese Form ist besonders bei <em>Erlebnisberichten</em> angebracht."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_association_tool_info"
 msgstr "<h3>Vorhandene Dokumente verbinden</h3>- Klicken sie auf das Verbinden-Werkzeug<br />- Wählen sie den Dokumententyp aus, welchen sie verbinden wollen.<br />- Geben sie einen Teil des Dokumentennamen aus. Bei einer Route istdies der Name des verbundenen Gipfels.<br />- Eine Liste der verfügbaren Dokumente wird angezeigt: Klicken sie aufdas gewünschte Dokument, auch wenn nur ein Dokument zur Auswahl steht.<br />- Bei einer Route enthält die Dokumentenliste die Routen, welche mitdem gewählten Gipfel verbunden sind. Wählen sie die gewünschte Route.<br />- Klicken sie auf <input value=\"Verbinden\" type=\"button\"> um denVorgangabzuschliessen.<br /><br />Bevor sie den Vorgang abschliessen können sie die Auswahl des Dokumentsändern: Löschen sie den Dokumentenname und beginnen sie von vorne.<br />Falls sie ein Dokument fälschlicherweise verbunden haben, können siedies nicht nicht selbst rückgängig machen. Sie müssen einen Moderatordes Tourenführers damit beauftragen:<br />- Klicken sie auf den Link <img src=\"/static/images/picto/report.png\"><strong>Ein Problem melden</strong> im linken Menu.<br />- Beschreiben sie ihr Problem und senden sie die Meldung ab.<br />Es ist wichtig das Problem vom Dokument aus zu senden, welchesfälschlicherweise verbunden wurde. Dadurch erhalten die Moderatoreneine vorausgefüllte Mitteilung mit einem Link auf das Dokument."
 
@@ -4281,7 +4311,6 @@ msgstr "Seit"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] needs_review
 msgid "for linked routes"
 msgstr "von verbundenen Routen"
 

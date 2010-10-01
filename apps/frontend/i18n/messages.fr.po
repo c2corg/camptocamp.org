@@ -1065,6 +1065,21 @@ msgid "Last bulletin"
 msgstr "Dernier bulletin"
 
 # [general comment]
+# titre d'un flux rss
+# %1% -> module
+# [WARNING] needs_review
+msgid "Latest %1% creations"
+msgstr "Dernières créations - %1%"
+
+# [WARNING] needs_review
+msgid "Latest %1% creations in %2%"
+msgstr "Dernières créations - %1% - %2%"
+
+# [WARNING] needs_review
+msgid "Latest %1% editions"
+msgstr "Dernières éditions - %1%"
+
+# [general comment]
 # titre flux rss d'éditions
 # [WARNING] needs_review
 msgid "Latest %1% editions feed"
@@ -1076,11 +1091,26 @@ msgstr "%1% - Dernières éditions"
 msgid "Latest %1% editions feed description"
 msgstr "camptocamp.org - dernières éditions des documents %1%"
 
+# [general comment]
+# %1% -> module
+# %2% -> langue
+# [WARNING] needs_review
+msgid "Latest %1% editions in %2%"
+msgstr "Dernières éditions - %1% - %2%"
+
 msgid "Latest articles"
 msgstr "Derniers articles"
 
 msgid "Latest documents"
 msgstr "Derniers documents"
+
+# [general comment]
+# titre de flux rss
+# %1% -> nom du doc
+# %2% -> langue
+# [WARNING] needs_review
+msgid "Latest editions for \"%1%\" - %2%"
+msgstr "Dernières éditions de \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Dernières images"
@@ -2481,7 +2511,19 @@ msgid "_article_type_info"
 msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <em>encyclopédie</em> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <em>récit</em>."
 
 msgid "_association_tool_info"
-msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />- Sélectionnez le type du document à associer.<br />- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br /><br />Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
+msgstr "<h3>Associer des documents existant</h3>\n"
+"- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />\n"
+"- Sélectionnez le type du document à associer.<br />\n"
+"- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />\n"
+"Il est aussi possible de saisir le n° du document (figurant dans son URL).<br />\n"
+"- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />\n"
+"- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />\n"
+"- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br />\n"
+"<br />\n"
+"Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />\n"
+"En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />\n"
+"- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />\n"
+"- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
 
 msgid "_author_info"
 msgstr "<h3>Auteur</h3>Noms du ou des auteur(s) du livre ou de l'image.<br />Pour séparer les noms des différents auteurs, utilisez une virgule. N'utilisez pas de termes français tels que \"et\" ou \"avec\"."
@@ -3878,7 +3920,6 @@ msgstr "depuis"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] needs_review
 msgid "for linked routes"
 msgstr "des itinéraires associés"
 

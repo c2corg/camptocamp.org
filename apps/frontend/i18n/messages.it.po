@@ -1065,6 +1065,21 @@ msgid "Last bulletin"
 msgstr "Ultimo bollettino"
 
 # [general comment]
+# titre d'un flux rss
+# %1% -> module
+# [WARNING] fr translation used
+msgid "Latest %1% creations"
+msgstr "Dernières créations - %1%"
+
+# [WARNING] fr translation used
+msgid "Latest %1% creations in %2%"
+msgstr "Dernières créations - %1% - %2%"
+
+# [WARNING] fr translation used
+msgid "Latest %1% editions"
+msgstr "Dernières éditions - %1%"
+
+# [general comment]
 # titre flux rss d'éditions
 # [WARNING] needs_review
 msgid "Latest %1% editions feed"
@@ -1076,11 +1091,26 @@ msgstr "%1% - Ultime modifiche"
 msgid "Latest %1% editions feed description"
 msgstr "camptocamp.org - ultime modifiche dei documenti %1%"
 
+# [general comment]
+# %1% -> module
+# %2% -> langue
+# [WARNING] fr translation used
+msgid "Latest %1% editions in %2%"
+msgstr "Dernières éditions - %1% - %2%"
+
 msgid "Latest articles"
 msgstr "Ultimi articoli"
 
 msgid "Latest documents"
 msgstr "Ultimi documenti"
+
+# [general comment]
+# titre de flux rss
+# %1% -> nom du doc
+# %2% -> langue
+# [WARNING] fr translation used
+msgid "Latest editions for \"%1%\" - %2%"
+msgstr "Dernières éditions de \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Ultime immagini"
@@ -2486,6 +2516,7 @@ msgstr "<h3>Tipo di regione</h3>Il tipo della regione può essere: massiccio mon
 msgid "_article_type_info"
 msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipedia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato solo dall'autore. E' adatto ad un articolo specifico della categoria <i>raconto</i>."
 
+# [WARNING] needs_update
 msgid "_association_tool_info"
 msgstr "<h3>Associare dei documenti esistenti</h3>- Cliccare su <img src=\"/static/images/picto/plus.png\" /> per vedere lo strumento.<br />- Selezionare il tipo di documento da associare.<br />- Digitare una parte significativa del nome del documento. Per un itinerario, digitare il nome della cima.<br />- cliccare sul documento da associare all'interno della lista di proposte.<br />- Cliccare su <input type=\"button\" value=\"Associare\" /> per confermare.<br /><br />Nel caso di errore di associazione, bisogna chiedere agli moderatori di cancellare l'associazione :<br />- Cliccare sul link <img src=\"/static/images/picto/report.png\" /> <strong>Segnalare un problema</strong> nel menu di sinistra."
 
@@ -3893,7 +3924,6 @@ msgstr "da"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] needs_review
 msgid "for linked routes"
 msgstr "degli itinerari associati"
 

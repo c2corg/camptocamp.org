@@ -1074,6 +1074,21 @@ msgid "Last bulletin"
 msgstr "Ultimo boletín"
 
 # [general comment]
+# titre d'un flux rss
+# %1% -> module
+# [WARNING] fr translation used
+msgid "Latest %1% creations"
+msgstr "Dernières créations - %1%"
+
+# [WARNING] fr translation used
+msgid "Latest %1% creations in %2%"
+msgstr "Dernières créations - %1% - %2%"
+
+# [WARNING] fr translation used
+msgid "Latest %1% editions"
+msgstr "Dernières éditions - %1%"
+
+# [general comment]
 # titre flux rss d'éditions
 # [WARNING] es translation used
 msgid "Latest %1% editions feed"
@@ -1085,12 +1100,27 @@ msgstr "%1% - Ultimas ediciones"
 msgid "Latest %1% editions feed description"
 msgstr "camptocamp.org - ultimas ediciones de documentos %1%"
 
+# [general comment]
+# %1% -> module
+# %2% -> langue
+# [WARNING] fr translation used
+msgid "Latest %1% editions in %2%"
+msgstr "Dernières éditions - %1% - %2%"
+
 msgid "Latest articles"
 msgstr "Azken artikuluak"
 
 # [WARNING] es translation used
 msgid "Latest documents"
 msgstr "Últimos documentos"
+
+# [general comment]
+# titre de flux rss
+# %1% -> nom du doc
+# %2% -> langue
+# [WARNING] fr translation used
+msgid "Latest editions for \"%1%\" - %2%"
+msgstr "Dernières éditions de \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Azken irudiak"

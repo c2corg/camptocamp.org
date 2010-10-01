@@ -1072,6 +1072,21 @@ msgid "Last bulletin"
 msgstr "Last bulletin"
 
 # [general comment]
+# titre d'un flux rss
+# %1% -> module
+# [WARNING] fr translation used
+msgid "Latest %1% creations"
+msgstr "Dernières créations - %1%"
+
+# [WARNING] fr translation used
+msgid "Latest %1% creations in %2%"
+msgstr "Dernières créations - %1% - %2%"
+
+# [WARNING] fr translation used
+msgid "Latest %1% editions"
+msgstr "Dernières éditions - %1%"
+
+# [general comment]
 # titre flux rss d'éditions
 # [WARNING] needs_review
 msgid "Latest %1% editions feed"
@@ -1083,11 +1098,26 @@ msgstr "%1% - Latest editions"
 msgid "Latest %1% editions feed description"
 msgstr "camptocamp.org - latest document edits %1%"
 
+# [general comment]
+# %1% -> module
+# %2% -> langue
+# [WARNING] fr translation used
+msgid "Latest %1% editions in %2%"
+msgstr "Dernières éditions - %1% - %2%"
+
 msgid "Latest articles"
 msgstr "Latest articles"
 
 msgid "Latest documents"
 msgstr "Latest documents"
+
+# [general comment]
+# titre de flux rss
+# %1% -> nom du doc
+# %2% -> langue
+# [WARNING] fr translation used
+msgid "Latest editions for \"%1%\" - %2%"
+msgstr "Dernières éditions de \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Latest pictures"
@@ -2505,8 +2535,21 @@ msgstr "<h3>Type of area</h3>Type of area: mountain massif, administrative regio
 msgid "_article_type_info"
 msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
 
+# [WARNING] needs_review
 msgid "_association_tool_info"
-msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document's name. For a route, this includes the name of the summit(s) associated to the route.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left-hand menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document that is wrongly associated as the message the moderators receive is pre-filled with a link to the document."
+msgstr "<h3>Associate existing documents</h3>\n"
+"- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />\n"
+"- Select the type of document you want to associate.<br />\n"
+"- Enter a discriminatory part of the document's name. For a route, this includes the name of the summit(s) associated to the route.<br />\n"
+"- A list of documents is shown: click on the document to associate, even if there is only one result.<br />\n"
+"- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />\n"
+"It is also possible to enter the document number (appearing in its URL).<br />\n"
+"- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br />\n"
+"<br />\n"
+"Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />\n"
+"- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left-hand menu.<br />\n"
+"- Describe your problem, and send the report.<br />\n"
+"It is important that you send the report from the document that is wrongly associated as the message the moderators receive is pre-filled with a link to the document."
 
 # [comment]
 # J'ai laissé "in review" car la version FR est toujours ainsi.
@@ -3930,7 +3973,6 @@ msgstr "for"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les itinéraires associés]
-# [WARNING] needs_review
 msgid "for linked routes"
 msgstr "of associated routes"
 
