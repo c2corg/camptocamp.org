@@ -253,7 +253,7 @@ while($cur_subforum = $db->fetch_assoc($subforum_result))
 
 ?>
 <h1>
-    <span class="article_title_img action_comment"></span><span class="article_title"/><?php echo $forum_name ?></span>
+    <span class="article_title_img action_comment"></span><span class="article_title"><?php echo $forum_name ?></span>
 </h1>
 <?php
 if($cur_forum['forum_desc'] != ''):
