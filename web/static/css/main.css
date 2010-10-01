@@ -1583,24 +1583,16 @@ span.share_bookmark.eu
   margin-bottom: 10px;
 }
 
-ul#doc_lang
+#doc_lang
 {
   display: inline;
   list-style-type: none;
   margin-left: 10px;
 }
 
-ul#doc_lang li
+#doc_lang li
 {
   display: inline;
-}
-
-ul#doc_lang li a, ul#doc_lang li span
-{
-}
-
-ul#doc_lang li span
-{
 }
 
 a.not_translated, span.not_translated
