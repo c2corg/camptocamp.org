@@ -19,9 +19,10 @@ class sfGeoRssFeed extends sfRssFeed
   public function toXml()
   {
     $this->initContext();
+    $static_url = sfConfig::get('app_static_url');
+    $classic_url = 'http://'.sfConfig::get('app_classic_version_host');
     $xml = array();
     $xml[] = '<?xml version="1.0" encoding="'.$this->getEncoding().'" ?>';
-    //$xml[] = '<rss version="'.$this->getVersion().'" xmlns:content="http://purl.org/rss/1.0/modules/content/">';
     $xml[] = '<rss version="'.$this->getVersion().'" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
                    xmlns:dc="http://purl.org/dc/elements/1.1/"
                    xmlns:atom="http://www.w3.org/2005/Atom"
@@ -36,6 +37,11 @@ class sfGeoRssFeed extends sfRssFeed
     $xml[] = '    <link>'.$this->context->getController()->genUrl($this->getLink(), true).'</link>';
     $xml[] = '    <description>'.$this->getDescription().'</description>';
     $xml[] = '    <pubDate>'.strftime('%a, %d %b %Y %H:%M:%S %z', $this->getLatestPostDate()).'</pubDate>';
+    $xml[] = '    <image>';
+    $xml[] = '      <title>'.$this->getTitle().'</title>';
+    $xml[] = '      <link>'.$this->context->getController()->genUrl($this->getLink(), true).'</link>';
+    $xml[] = '      <url>'.(!empty($static_url) ? $static_url : $classic_url).'/static/images/logo_mini.png</url>';
+    $xml[] = '    </image>';
     if ($this->getAuthorEmail())
     {
       $xml[] = '    <managingEditor>'.$this->getAuthorEmail().($this->getAuthorName() ? ' ('.$this->getAuthorName().')' : '').'</managingEditor>';
