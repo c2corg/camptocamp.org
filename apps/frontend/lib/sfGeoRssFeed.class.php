@@ -28,7 +28,10 @@ class sfGeoRssFeed extends sfRssFeed
                    xmlns:content="http://purl.org/rss/1.0/modules/content/"
                    >';
     $xml[] = '  <channel>';
-    $xml[] = '    <atom:link href="'.$this->context->getController()->genUrl($this->getLink(), true).'" rel="self" type="application/rss+xml" />';
+    if ($this->getFeedUrl())
+    {
+        $xml[] = '    <atom:link href="'.$this->context->getController()->genUrl($this->getFeedUrl(), true).'" rel="self" type="application/rss+xml" />';
+    }
     $xml[] = '    <title>'.$this->getTitle().'</title>';
     $xml[] = '    <link>'.$this->context->getController()->genUrl($this->getLink(), true).'</link>';
     $xml[] = '    <description>'.$this->getDescription().'</description>';

@@ -3016,24 +3016,31 @@ class documentsActions extends c2cActions
      */
     public function executeFeed()
     {
-        //$feed = new sfRss201Feed();
         $feed = new sfGeoRssFeed();
         $lang = $this->getRequestParameter('lang');
         $module = $this->getModuleName();
         $id = $this->getRequestParameter('id');
         $mode = $this->getRequestParameter('mode');
+        if ($lang)
+        {
+            $languages = sfConfig::get('app_languages_c2c');
+        }
 
         switch ($mode)
         {
             case 'editions':
-                $description = "Latest $module editions in $lang"; // FIXME : offer translation of these texts in $lang 
-                $title = "Camptocamp.org $module feed";
-                $link = "@feed?module=$module&lang=$lang";
+                $description = $this->__($lang ? "Latest %1% editions in %2%" : "Latest %1% editions",
+                                         array('%1%' => $this->__($module), '%2%' => $lang ? $this->__($languages[$lang]) : null));
+                $title = $description; // TODO Provide better description, different from title
+                $link = "@module_whatsnew?module=$module"; // TODO maybe we should propose lang filters for whatsnew url?
+                $self_link = $lang ? "@feed_lang?module=$module&lang=$lang" : "@feed?module=$module";
                 break;
             case 'creations':
-                $description = "Latest $module creations in $lang";
-                $title = "Camptocamp.org $module feed";
-                $link = "@creations_feed?module=$module&lang=$lang";
+                $description = $this->__($lng ? "Latest %1% creations in %2%" : "Latest %1% creations",
+                                        array('%1%' => $this->__($module), '%2%' => $lang ? $this->__($languages[$lang]) : null));
+                $title = $description; // TODO Provide better description, different from title
+                $link = "@default_index?module=$module"; // TODO can we redirect to list with lang filter once it is done?
+                $self_link = $lang ? "@creations_feed_lang?module=$module&lang=$lang" : "@creations_feed?module=$module";
                 break;
             default : // editions of a specific document
                 // check that document $id exists in lang $lang, and retrieve its name.
@@ -3042,20 +3049,21 @@ class documentsActions extends c2cActions
                     $this->setNotFoundAndRedirect();
                 }
                 $name = $document->get('name');
-                $description = "Latest editions for $name in $lang";
-                $title = "Camptocamp.org $name feed";
-                $link = "@document_feed?module=$module&id=$id&lang=$lang";
+                $description = $this->____("Latest editions for \"%1%\" - %2%", array('%1%' => $name, '%2%' => $this->__($languages[$lang])));
+                $title = $description; // TODO Provide better description, different from title
+                $link = "@document_history?module=$module&id=$id&lang=$lang";
+                $self_link = "@document_feed?module=$module&id=$id&lang=$lang";
                 break;
         }
 
-        // TODO: i18n?
         $feed->setTitle($title);
         $feed->setLink($link);
+        $feed->setFeedUrl($self_link);
         $feed->setDescription($description);
         $feed->setLanguage($lang);
         $feed->setAuthorName('Camptocamp.org');
 
-        $max_number = 30; // FIXME: config ?
+        $max_number = sfConfig::get('app_feeds_items_limit');
 
         //usage: listRecent($model, $limit, $user_id = null, $lang = null, $doc_id = null, $mode = 'editions')
         $items = Document::listRecent($this->model_class, $max_number, null, $lang, $id, $mode);
@@ -3083,8 +3091,8 @@ class documentsActions extends c2cActions
             $new = $item['version'];
             $module_name = $item['archive']['module'];
             $name = $item['name'];
-            $lang = $item['culture'];
-            $feedItemTitle = ($mode != 'creations') ? "$name - revision $new" : $name;
+            $doc_lang = $item['culture'];
+            $feedItemTitle = $name . (($mode != 'creations') ? (" - r$new" . ($lang ? '' : "/$doc_lang")) : '');
 
             $feedItem = new sfGeoFeedItem();
             $feedItem->setTitle($feedItemTitle);
@@ -3093,22 +3101,22 @@ class documentsActions extends c2cActions
             {
                 if ($module_name == 'users')
                 {
-                    $feedItem->setLink("@document_by_id_lang?module=$module_name&id=$item_id&lang=$lang");
+                    $feedItem->setLink("@document_by_id_lang?module=$module_name&id=$item_id&lang=$doc_lang");
                 }
                 else
                 {
-                    $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$lang&slug=" .
+                    $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$doc_lang&slug=" .
                                        make_slug($item['name']));
                 }
             }
             else
             {
-                $feedItem->setLink("@document_by_id_lang_version?module=$module_name&id=$item_id&lang=$lang&version=$new");
+                $feedItem->setLink("@document_by_id_lang_version?module=$module_name&id=$item_id&lang=$doc_lang&version=$new");
             }
             $feedItem->setAuthorName($item['history_metadata']['user_private_data']['topo_name']);
             //$feedItem->setAuthorEmail($item['history_metadata']['user_private_data']['email']);
             $feedItem->setPubdate(strtotime($item['created_at']));
-            $feedItem->setUniqueId("$item_id-$lang-$new");
+            $feedItem->setUniqueId("$item_id-$doc_lang-$new");
             $feedItem->setLongitude($item['archive']['lon']);
             $feedItem->setLatitude($item['archive']['lat']);
             $comment = smart_format($item['history_metadata']['comment']);
@@ -3116,7 +3124,7 @@ class documentsActions extends c2cActions
             if ($mode != 'creations')
             {
                 $link = ($new > 1) ? ' - ' . link_to(__('View difference between version %1% and %2%', array('%1%' => ($new-1), '%2%' => $new)),
-                                                     "@document_diff?module=$module_name&id=$item_id&lang=$lang&new=$new&old=".($new-1),
+                                                     "@document_diff?module=$module_name&id=$item_id&lang=$doc_lang&new=$new&old=".($new-1),
                                                      array('absolute' => true)) : '';
                 $feedItem->setContent($comment . $link);
             }

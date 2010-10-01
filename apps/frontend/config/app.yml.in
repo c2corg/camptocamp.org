@@ -556,6 +556,10 @@ all:
     outings_limit: 10 
     # number of outings displayed on other document page
 
+  feeds:
+    items_limit: 30
+    # number of items in a feed
+
   meta_articles:
     association: @ASSOCIATION_ARTICLE_ID@
     contact:     @CONTACT_ARTICLE_ID@
