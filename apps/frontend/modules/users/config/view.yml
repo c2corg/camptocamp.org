@@ -4,13 +4,5 @@ messageResetPasswordSuccess:
 messageSignupPasswordSuccess:
   has_layout: no
   
-editSuccess:
-  javascripts:    [ /static/js/bbcode.js ]
-  
-viewSuccess:
-  javascripts:    [ /static/js/fold.js ] 
-  metas:
-    robots:       noindex, follow
-
 popupSuccess:
   layout: popup

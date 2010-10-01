@@ -1,17 +1,5 @@
 querySuccess:
   javascripts: [ /static/js/openlayers_sfl/OpenLayers, /static/js/cartoweb/lib/CartoWeb, /static/js/cartoweb/lib/Search, /static/js/cartoweb/lib/SearchForm, /static/js/search, /static/js/fold ]
   
-#historySuccess:
-#  javascripts:    [ %APP_STATIC_URL%/static/js/diff.js ]
-# does not work for historySuccess for an unknown reason
-
-editSuccess:
-  javascripts:    [ /static/js/bbcode.js ]
-
-viewSuccess:
-  javascripts:    [ /static/js/fold.js ] 
-  
-# warning (FIXME ?) : if we specify : {position: last} they do not appear at all.
-
 popupSuccess:
   layout: popup
