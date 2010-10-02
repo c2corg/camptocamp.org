@@ -4,7 +4,7 @@ $mobile_version = c2cTools::mobileVersion();
 $sf_response->addStylesheet('/static/css/main.css', 'first');
 if (!$mobile_version)
 {
-    $sf_response->addStylesheet('/static/css/menu.css';
+    $sf_response->addStylesheet('/static/css/menu.css');
     $sf_response->addStylesheet('/static/css/modalbox.css');
 }
 else
@@ -25,10 +25,10 @@ minify_include_head_javascripts(!$debug, $debug);
 if (!$mobile_version):
 ?>
 <!--[if lt IE 7]>
-    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie.css?<?php echo sfSVN::getHeadRevision('ie.css') ?>" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL . '/' . sfSVN::getHeadRevision('ie.css'); ?>/static/css/ie.css" />
 <![endif]-->
 <!--[if IE 7]>
-    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie7.css?<?php echo sfSVN::getHeadRevision('ie7.css') ?>" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL . '/' . sfSVN::getHeadRevision('ie7.css'); ?>/static/css/ie7.css" />
 <![endif]-->
 <?php else: ?>
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />

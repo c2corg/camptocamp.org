@@ -46,10 +46,10 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         echo include_meta_links();
     ?>
     <!--[if IE 6]>
-        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie.css?<?php echo sfSVN::getHeadRevision('ie.css') ?>" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url . '/' . sfSVN::getHeadRevision('ie.css'); ?>/static/css/ie.css" />
     <![endif]-->
     <!--[if IE 7]>
-        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie7.css?<?php echo sfSVN::getHeadRevision('ie7.css') ?>" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url. '/' . sfSVN::getHeadRevision('ie7.css'); ?>/static/css/ie7.css" />
     <![endif]-->
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
           title="Camptocamp.org" />
