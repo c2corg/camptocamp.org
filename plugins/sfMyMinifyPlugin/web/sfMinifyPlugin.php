@@ -81,6 +81,6 @@ if (isset($_GET['f']))
     }
   }
 }
-$s = $_SERVER["SERVER_PROTOCOL"]." 404 Not Found"
+$s = $_SERVER["SERVER_PROTOCOL"]." 404 Not Found";
 header($s);
 echo $s;
