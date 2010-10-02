@@ -28,6 +28,17 @@ SERVER_NAME = <server_name>
 ; web URL port number (leave empty if 80, else add ":" before port number)
 SERVER_PORT =
 
+; Mobile version hostname (eg m.camptocamp.org)
+; do not put the hostname inside ' ' if you want
+; robots.txt to work with apache config
+MOBILE_VERSION_HOST =
+; enable or disable ads in mobile version
+MOBILE_VERSION_ADS = true
+; Classic version hostname (eg www.camptocamp.org)
+CLASSIC_VERSION_HOST =
+; Static host (eg s.camptocamp.org)
+; this has to be the same hostname than for STATIC_BASE_URL (FIXME: factorize)
+STATIC_HOST =
 ; static content server base URL (leave empty if same than dymamic pages)
 STATIC_BASE_URL =
 
@@ -87,15 +98,6 @@ MOBILE_GANALYTICS_KEY =
 ; Metaengine conection settings
 METAENGINE_URL = <http://meta.engine.url/>
 METAENGINE_KEY = <meta_engine_key>
-
-; Mobile version hostname (eg m.camptocamp.org)
-; do not put the hostname inside ' ' if you want
-; robots.txt to work with apache config
-MOBILE_VERSION_HOST = 
-; enable or disable ads in mobile version
-MOBILE_VERSION_ADS = true
-; Classic version hostname (eg www.camptocamp.org)
-CLASSIC_VERSION_HOST = 
 
 ; Minification config (see ticket #404)
 MINIFY_DEBUG =  false

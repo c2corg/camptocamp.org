@@ -35,6 +35,14 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     #RewriteCond %{REMOTE_ADDR} !10\.27.*
     #RewriteRule ^(.*).(html|php)$ maintenance.html [L]
 
+    # static urls should only serve css, js, images, svg, xml
+    # last condition is because of next rule :)
+    # nb: also works if STATIC_HOST is empty
+    RewriteCond %{HTTP_HOST} =@STATIC_HOST@
+    RewriteCond %{REQUEST_URI} !(.*\.(js|css|png|jpg|gif|ico|xml|svg|swf))$
+    RewriteCond %{REQUEST_URI} !sfMinifyPlugin.php$
+    RewriteRule .* - [F,L]
+
     # Combine and minify JavaScript and CSS
     # possible url styles:
     # 12345/path_to_js_or_css (minimized, long ttl)
@@ -44,7 +52,7 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     RewriteCond %{REQUEST_URI} \.(css|js)$
     RewriteRule ^(([0-9]*)/?(no)?/)?(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$4&$3&$2 [L,NC]
 
-    # robots.txt
+    # robots.txt for mobile version
     RewriteCond %{HTTP_HOST} =@MOBILE_VERSION_HOST@
     RewriteRule ^robots.txt$ /mobile_robots.txt [L]
 
