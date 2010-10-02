@@ -36,8 +36,13 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     #RewriteRule ^(.*).(html|php)$ maintenance.html [L]
 
     # Combine and minify JavaScript and CSS
-    RewriteCond %{QUERY_STRING} ^([0-9]+|debug)$
-    RewriteRule ^(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$1&%{QUERY_STRING} [L,NC]
+    # possible url styles:
+    # 12345/path_to_js_or_css (minimized, long ttl)
+    # 12345/no/path_to_js_or_css (not minimized, long ttl)
+    # /path_to_js_or_css (minimized, short ttl)
+    # /no/path_to_js_or_css (not minimized, short ttl)
+    RewriteCond %{REQUEST_URI} \.(css|js)$
+    RewriteRule ^(([0-9]*)/?(no)?/)?(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$4&$3&$2 [L,NC]
 
     # robots.txt
     RewriteCond %{HTTP_HOST} =@MOBILE_VERSION_HOST@
@@ -53,7 +58,7 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     RewriteCond %{REQUEST_URI} \.rss$
     RewriteRule ^(.rss)$ index.php [QSA,L]
 
-    # forums
+    # forums are not handle by symfony
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_URI} !^/forums/
 

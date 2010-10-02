@@ -83,21 +83,18 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
   foreach ($minify_files as $options => $files)
   {
     $options = unserialize($options);
-    if ($debug)
+
+
+    $prefix = $debug ? '/no' : '';
+    $filenames = array();
+    foreach ($files as $file)
     {
-      $options['src'] = join($files, ',').'?debug';
+      $file_parts = explode('/', $file);
+      array_push($filenames, end($file_parts));
     }
-    else
-    {
-      $filenames = array();
-      foreach ($files as $file)
-      {
-        $file_parts = explode('/', $file);
-        array_push($filenames, end($file_parts));
-      }
-      $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
-      $options['src'] = $app_static_url . join($files, ',').(!empty($max_rev) ? '?'.$max_rev : '');
-    }
+    $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
+    $prefix = empty($max_rev) ? $prefix : '/' . $max_rev . $prefix;
+    $options['src'] = $app_static_url . $prefix . join($files, ',');
     $html .= content_tag('script', '', $options)."\n";
   }
 
@@ -121,8 +118,11 @@ function nominify_get_javascripts()
 
     foreach ($files as $file)
     {
-      $file = javascript_path($file) . '?nominify';
-      $html .= javascript_include_tag($app_static_url . $file);
+      $filename = end(explode('/', $file));
+      $rev = sfSVN::getHeadRevision($filename);
+      $prefix = empty($rev) ? '/no' : '/' . $rev . '/no';
+      $file = javascript_path($file);
+      $html .= javascript_include_tag($app_static_url . $prefix . $file);
     }
   }
   return $html;
@@ -148,7 +148,7 @@ function minify_get_main_stylesheets($combine = true, $debug = false)
   if (!$combine)
   {
     use_helper('MyJavascriptStyleSheet');
-    return get_all_stylesheets();
+    return get_all_stylesheets($debug);
   }
 
   return minify_get_stylesheets(array('first', '', 'last'), $debug); 
@@ -222,21 +222,17 @@ function minify_get_stylesheets($position_array = array('first', '', 'last'), $d
   foreach($minify_files as $options => $files)
   {
     $options = unserialize($options);
-    if ($debug)
+
+    $prefix = $debug ? '/no' : '';
+    $filenames = array();
+    foreach ($files as $file)
     {
-      $options['href'] = $app_static_url . join($files, ',').'?debug';
+      $file_parts = explode('/', $file);
+      array_push($filenames, end($file_parts));
     }
-    else
-    {
-      $filenames = array();
-      foreach ($files as $file)
-      {
-        $file_parts = explode('/', $file);
-        array_push($filenames, end($file_parts));
-      }
-      $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
-      $options['href'] = $app_static_url . join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
-    }
+    $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
+    $prefix = empty($max_rev) ? $prefix : '/' . $max_rev . $prefix;
+    $options['href'] = $app_static_url . $prefix . join($files, ',');
     $html .= tag('link', $options)."\n";
   }
   return $html;

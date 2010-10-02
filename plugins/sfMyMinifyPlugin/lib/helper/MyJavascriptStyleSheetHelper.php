@@ -34,17 +34,12 @@ function include_head_javascripts($debug = false)
 
                 $already_seen[$file] = 1;
 
-                if ($debug)
+                $filename = end(explode('/', $file));
+                $prefix = $debug ? '/no' : '';
+                $rev = sfSVN::getHeadRevision($filename);
+                if (!empty($rev))
                 {
-                    $file = $file . '?debug';
-                }
-                else
-                {
-                    $rev = sfSVN::getHeadRevision($filenames);
-                    if (!empty($rev))
-                    {
-                        $file = $file . '?' . $rev;
-                    }
+                    $file = '/' . $rev . $prefix . $file;
                 }
 
                 $html .= javascript_include_tag($static_base_url . $file);
@@ -87,19 +82,13 @@ function include_body_javascripts($debug = false)
 
                 $already_seen[$file] = 1;
 
-                if ($debug)
+                $filename = end(explode('/', $file));
+                $prefix = $debug ? '/no' : '';
+                $rev = sfSVN::getHeadRevision($filename);
+                if (!empty($rev))
                 {
-                    $file = $file . '?debug';
+                    $file = '/' . $rev . $prefix . $file;
                 }
-                else
-                {
-                    $rev = sfSVN::getHeadRevision($filenames);
-                    if (!empty($rev))
-                    {
-                        $file = $file . '?' . $rev;
-                    }
-                }
-
 
                 $html .= javascript_include_tag($static_base_url . $file);
             }
@@ -112,7 +101,7 @@ function include_body_javascripts($debug = false)
 /**
  * This one is a copy from get_stylesheets from symfony except that it also looks for custom css
  */
-function get_all_stylesheets()
+function get_all_stylesheets($debug = false)
 {
   $response = sfContext::getInstance()->getResponse();
   $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
@@ -137,7 +126,11 @@ function get_all_stylesheets()
         if (isset($already_seen[$file])) continue;
 
         $already_seen[$file] = 1;
-        $html .= stylesheet_tag($static_base_url . $file, $options);
+        $filename = end(explode('/', $file));
+        $rev = sfSVN::getHeadRevision($filename);
+        $prefix = $debug ? '/no' : '';
+        $prefix = empty($rev) ? $prefix : '/' . $rev . $prefix;
+        $html .= stylesheet_tag($static_base_url . $prefix . $file, $options);
       }
     }
   }
