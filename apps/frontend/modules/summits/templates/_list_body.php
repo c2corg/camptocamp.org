@@ -14,4 +14,4 @@ if (!c2cTools::mobileVersion()): ?>
     link_to($item['nb_comments'], '@document_comment?module=summits&id='
         . $item_i18n['id'] . '&lang=' . $item_i18n['culture'])
     : '' ;?></td>
-<td><?php echo (isset($item['nb_linked_docs'])) ?  $item['nb_linked_docs'] : '' ;?></td>
+<td><?php echo ($item['nb_linked_docs']) ?  $item['nb_linked_docs'] : '' ;?></td>

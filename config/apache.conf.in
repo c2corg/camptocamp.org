@@ -39,7 +39,7 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     # last condition is because of next rule :)
     # nb: also works if STATIC_HOST is empty
     RewriteCond %{HTTP_HOST} =@STATIC_HOST@
-    RewriteCond %{REQUEST_URI} !(.*\.(js|css|png|jpg|gif|ico|xml|svg|swf))$
+    RewriteCond %{REQUEST_URI} !(.*\.(js|css|png|jpg|jpeg|gif|ico|xml|svg|swf))$
     RewriteCond %{REQUEST_URI} !sfMinifyPlugin.php$
     RewriteRule .* - [F,L]
 
@@ -66,7 +66,7 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     RewriteCond %{REQUEST_URI} \.rss$
     RewriteRule ^(.rss)$ index.php [QSA,L]
 
-    # forums are not handle by symfony
+    # forums are not handled by symfony
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_URI} !^/forums/
 

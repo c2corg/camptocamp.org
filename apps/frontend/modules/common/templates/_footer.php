@@ -51,7 +51,7 @@ if (!$is_map):
 endif;
 ?>
         <div id="footer_cc_text">
-            <p>&copy; 1997-2010
+            <p>&copy; 1997-<?php echo date('Y') ?>
             <?php echo link_to('Camptocamp-Association', getMetaArticleRoute('association')) ?> |
             <?php echo link_to(__('contact'), getMetaArticleRoute('contact')) ?> |
             <?php echo link_to(__('terms of use'), getMetaArticleRoute('conditions')) ?> |

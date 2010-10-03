@@ -12,7 +12,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
     show_select = function() {}
 //--></script>
 <!--[if lt IE 7]>
-<script type="text/javascript" src="/static/js/menus.js?<?php echo sfSVN::getHeadRevision('menus.js') ?>"></script>
+<script type="text/javascript" src="<?php echo sfConfig::get('app_static_url') . '/' . sfSVN::getHeadRevision('menus.js') ?>/static/js/menus.js"></script>
 <script>
 Event.observe(window,'load',startList);var selectList=document.getElementsByTagName('select');hide_select=function()
 {if(selectList)
