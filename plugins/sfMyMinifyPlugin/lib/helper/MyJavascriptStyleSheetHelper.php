@@ -34,7 +34,8 @@ function include_head_javascripts($debug = false)
 
                 $already_seen[$file] = 1;
 
-                $filename = end(explode('/', $file));
+                $file_parts = explode('/', $file);
+                $filename = end($file_parts);
                 $prefix = $debug ? '/no' : '';
                 $rev = sfSVN::getHeadRevision($filename);
                 if (!empty($rev))
@@ -82,7 +83,8 @@ function include_body_javascripts($debug = false)
 
                 $already_seen[$file] = 1;
 
-                $filename = end(explode('/', $file));
+                $file_parts = explode('/', $file);
+                $filename = end($file_parts);
                 $prefix = $debug ? '/no' : '';
                 $rev = sfSVN::getHeadRevision($filename);
                 if (!empty($rev))
@@ -126,7 +128,8 @@ function get_all_stylesheets($debug = false)
         if (isset($already_seen[$file])) continue;
 
         $already_seen[$file] = 1;
-        $filename = end(explode('/', $file));
+        $file_parts = explode('/', $file);
+        $filename = end($file_parts);
         $rev = sfSVN::getHeadRevision($filename);
         $prefix = $debug ? '/no' : '';
         $prefix = empty($rev) ? $prefix : '/' . $rev . $prefix;

@@ -118,7 +118,8 @@ function nominify_get_javascripts()
 
     foreach ($files as $file)
     {
-      $filename = end(explode('/', $file));
+      $file_parts = explode('/', $file);
+      $filename = end($file_parts);
       $rev = sfSVN::getHeadRevision($filename);
       $prefix = empty($rev) ? '/no' : '/' . $rev . '/no';
       $file = javascript_path($file);
