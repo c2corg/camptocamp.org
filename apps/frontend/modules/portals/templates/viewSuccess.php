@@ -69,6 +69,9 @@ if (!$mobile_version) // left navigation menus are only for web version
                               'custom_rss_link' => $custom_rss_link,
                               'home_section' => false));
     }
+
+    include_partial('portals/prepare', array('culture' => $culture,
+                                             'default_open' => true));
     
     echo '<div id="nav_share">' . button_share() . '</div>';
     
