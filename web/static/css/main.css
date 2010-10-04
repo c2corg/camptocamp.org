@@ -3190,6 +3190,13 @@ ul.list404 li
   color: #666666;
 }
 
+
+.nav_box_text .image_list
+{
+  margin-left: 27px;
+}
+
+
 #nav_anchor_content, #nav_tools_content, #nav_license_content
 {
   height:100%;
