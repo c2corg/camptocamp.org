@@ -357,7 +357,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if  (is_null($activities))
         {
-            $langs = c2cPersonalization::getInstance()->getActivitiesFilter();
+            $activities = c2cPersonalization::getInstance()->getActivitiesFilter();
         }
         if (!empty($activities))
         {
