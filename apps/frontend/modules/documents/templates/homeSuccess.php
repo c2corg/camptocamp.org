@@ -10,7 +10,8 @@ echo init_js_var(true, 'home_nav', $connected);
 if (!$mobile_version)
 {
 
-    include_partial('documents/welcome', array('default_open' => true));
+    include_partial('documents/welcome', array('sf_cache_key' => 'home_' . $culture,
+                                               'default_open' => true));
 
     if ($connected)
     {

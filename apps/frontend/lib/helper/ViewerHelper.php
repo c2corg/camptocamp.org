@@ -6,7 +6,7 @@
 
 sfLoader::loadHelpers('Javascript');
 
-function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_anchor_options = null)
+function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_options = null)
 {
     $is_archive = $document->isArchive();
     $mobile_version = c2cTools::mobileVersion();
@@ -24,19 +24,23 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         echo '<div id="nav_space">&nbsp;</div>';
 
         sfLoader::loadHelpers('WikiTabs');
-        echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
-                           $is_archive ? $document->getVersion() : NULL,
-                           get_slug($document));
-                                                                                        
+        
+        $tabs = tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
+                              $is_archive ? $document->getVersion() : NULL,
+                              get_slug($document));
+        
+        echo $tabs;
+        
         include_partial("$module/nav", array('id'  => $id, 'document' => $document));
-        if ($nav_anchor_options == null)
+        if ($nav_options == null)
         {
             include_partial("$module/nav_anchor");
         }
         else
         {
-            include_partial("$module/nav_anchor", array('section_list' => $nav_anchor_options));
+            include_partial("$module/nav_anchor", array('section_list' => $nav_options));
         }
+        
         if ($module != 'users')
         {
             sfLoader::loadHelpers('Button');

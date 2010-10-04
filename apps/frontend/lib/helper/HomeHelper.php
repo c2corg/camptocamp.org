@@ -3,7 +3,7 @@
  * Home helpers
  */
 
-function nav_title($id, $title, $icon)
+function nav_title($id, $title, $icon, $link = '', $rss_link = '', $rss_tips = '')
 {
     $cookie_position = array_search('nav_'.$id, sfConfig::get('app_personalization_cookie_fold_positions'));
     $option1 = __('section close');
@@ -11,6 +11,17 @@ function nav_title($id, $title, $icon)
     $html = '<div id="nav_' . $id . '_section_title" class="nav_box_title" title="' . $option1 .
             '" onclick="toggleHomeSectionView(\'nav_' . $id . '\', ' . $cookie_position . '); return false;">';
     $html .= '<div id="nav_' . $id . '_toggle" class="nav_box_image picto_' . $icon . '"></div>';
+    if (!empty($rss_link))
+    {
+        $html .= link_to('', $rss_link,
+                         array('class' => 'nav_title_right picto_rss',
+                               'title' => $rss_tips,
+                               'rel' => 'nofollow'));
+    }
+    if (!empty($link))
+    {
+        $title = link_to($title, $link);
+    }
     $html .= '<div class="nav_box_title_text">' . $title . '</div>';
     $html .= '</div>';
     return $html;

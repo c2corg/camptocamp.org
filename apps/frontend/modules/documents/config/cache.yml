@@ -127,9 +127,6 @@ _license:
 _regions4list:
   enabled: off
   
-_welcome:
-  enabled: off
-  
 _oam_coords:
   enabled: off
 

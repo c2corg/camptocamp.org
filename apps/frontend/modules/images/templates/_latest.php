@@ -1,5 +1,5 @@
 <?php
-use_helper('Link', 'MyImage', 'Javascript');
+use_helper('Link', 'MyImage', 'Javascript', 'Home');
 
 if (!isset($default_open))
 {
@@ -32,16 +32,35 @@ else
 {
     $custom_rss_link = '';
 }
+if (!isset($home_section))
+{
+    $home_section = true;
+}
 
-include_partial('documents/home_section_title',
-                array('module' => 'images',
-                      'custom_title_text' => $custom_title_text,
-                      'custom_title_link' => $custom_title_link,
-                      'custom_rss_link' => $custom_rss_link)); ?>
-<div class="home_container_text" id="last_images_section_container">
-<?php if (count($items) == 0): ?>
+if ($home_section)
+{
+    include_partial('documents/home_section_title',
+                    array('module' => 'images',
+                          'custom_title_text' => $custom_title_text,
+                          'custom_title_link' => $custom_title_link,
+                          'custom_rss_link' => $custom_rss_link));
+?>
+    <div class="home_container_text" id="last_images_section_container"><?php
+}
+else
+{
+?>
+<div id="nav_images" class="nav_box">
+    <div class="nav_box_top"></div>
+    <div class="nav_box_content">
+        <?php
+    nav_title('images', __('Latest images'), 'images', $custom_title_link, $custom_rss_link, __("Subscribe to latest images creations"));
+}
+
+if (count($items) == 0): ?>
     <p><?php echo __('No recent images available') ?></p>
-<?php else: ?>
+<?php
+else: ?>
     <div id="image_list">
     <?php foreach ($items as $item): ?>
         <div class="image">
@@ -61,9 +80,22 @@ include_partial('documents/home_section_title',
         </div>
     <?php endforeach ?>
     </div>
-<?php endif;?>
+<?php
+endif;
+
+if ($home_section)
+{
+?>
 </div>
 <?php
 $cookie_position = array_search('last_images', sfConfig::get('app_personalization_cookie_fold_positions'));
 echo javascript_tag('setHomeFolderStatus(\'last_images\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
+}
+else
+{
 ?>
+    </div>
+    <div class="nav_box_down"></div>
+</div>
+<?php
+}

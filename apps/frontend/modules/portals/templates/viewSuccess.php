@@ -1,5 +1,5 @@
 <?php
-use_helper('Home', 'Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete'); 
+use_helper('Home', 'Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete', ,'Button' 'WikiTabs'); 
 
 $culture = $sf_user->getCulture();
 $is_connected = $sf_user->isConnected();
@@ -27,18 +27,75 @@ if (count($design_files))
     }
 }
 
-display_page_header('portals', $document, $id, $metadata, $current_version);
+//display_page_header('portals', $document, $id, $metadata, $current_version);
 
-// lang-independent content starts here
+echo display_title($document->get('name'), 'portals', true, 'home_nav');
 
-echo start_section_tag('portal', 'intro');
-echo field_text_data_if_set($document, 'abstract', null, array('needs_translation' => $needs_translation, 'show_images' => false));
-
-if ($is_not_archive)
+if (!$mobile_version) // left navigation menus are only for web version
 {
-    include_partial('portals/inside_search_form', array('document' => $document));
+    echo '<div id="nav_space">&nbsp;</div>';
+    
+    // TODO : change after creation of text field in portal doc
+    // $title = $document->get('abstract_title');
+    $title = __('home_welcome');
+    $abstract = $document->get('abstract');
+    $abstract = parse_links(parse_bbcode_abstract($abstract));
+    include_partial('documents/welcome', array('sf_cache_key' => $id . '_' . $culture,
+                                               'title' => $title,
+                                               'description' => $abstract,
+                                               'default_open' => true));
+    
+    if ($is_connected)
+    {
+        include_partial('portals/wizard_button', array('sf_cache_key' => $culture));
+    }
+
+    if ($has_images)
+    {
+        $image_url_params = $sf_data->getRaw('image_url_params');
+        $image_url_params = implode('&', $image_url_params);
+        $custom_title_link = 'images/list';
+        $custom_rss_link = 'images/rss';
+        if (!empty($image_url_params))
+        {
+            $custom_title_link .= '?' . $image_url_params;
+            $custom_rss_link .= '?' . $image_url_params;
+        }
+        include_partial('images/latest',
+                        array('items' => $latest_images,
+                              'culture' => $culture,
+                              'default_open' => true,
+                              'custom_title_link' => $custom_title_link,
+                              'custom_rss_link' => $custom_rss_link,
+                              'home_section' => false));
+    }
+    
+    echo '<div id="nav_share">' . button_share() . '</div>';
+    
+    $tabs = tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
+                          $is_not_archive ? NULL : $document->getVersion(),
+                          get_slug($document));
+    echo $tabs;
+    
+    include_partial('portals/nav', array('id'  => $id, 'document' => $document));
 }
-echo end_section_tag();
+
+echo display_content_top('doc_content');
+
+echo start_content_tag('portals_content');
+
+if ($merged_into = $document->get('redirects_to'))
+{
+    include_partial('documents/merged_warning', array('merged_into' => $merged_into));
+}
+
+if (!$is_not_archive)
+{
+    include_partial('documents/versions_browser', array('id'      => $id,
+                                                        'document' => $document,
+                                                        'metadata' => $metadata,
+                                                        'current_version' => $current_version));
+}
 
 if ($has_map)
 {
@@ -54,35 +111,14 @@ if ($has_map)
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');
+if ($is_not_archive)
+{
+    include_partial('portals/inside_search_form', array('document' => $document));
+}
+
 include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                                                 'needs_translation' => $needs_translation, 'images' => $associated_images));
 echo end_section_tag();
-
-
-
-if ($has_images):
-?>
-        <div id="last_images">
-            <?php
-    $image_url_params = $sf_data->getRaw('image_url_params');
-    $image_url_params = implode('&', $image_url_params);
-    $custom_title_link = 'images/list';
-    $custom_rss_link = 'images/rss';
-    if (!empty($image_url_params))
-    {
-        $custom_title_link .= '?' . $image_url_params;
-        $custom_rss_link .= '?' . $image_url_params;
-    }
-    include_partial('images/latest',
-                    array('items' => $latest_images,
-                          'culture' => $culture,
-                          'default_open' => true,
-                          'custom_title_link' => $custom_title_link,
-                          'custom_rss_link' => $custom_rss_link));
-            ?>
-        </div>
-<?php
-endif;
 
 ?>
         <div id="home_background_content">
