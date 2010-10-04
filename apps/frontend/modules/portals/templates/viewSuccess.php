@@ -1,5 +1,5 @@
 <?php
-use_helper('Home', 'Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete', 'Button', 'WikiTabs'); 
+use_helper('Home', 'Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete', 'Button', 'WikiTabs', 'sfBBCode', 'SmartFormat');
 
 $culture = $sf_user->getCulture();
 $is_connected = $sf_user->isConnected();
