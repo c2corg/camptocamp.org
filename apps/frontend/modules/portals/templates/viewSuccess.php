@@ -70,7 +70,7 @@ if (!$mobile_version) // left navigation menus are only for web version
                               'home_section' => false));
     }
 
-    include_partial('ducuments/prepare', array('culture' => $culture,
+    include_partial('documents/prepare', array('culture' => $culture,
                                              'default_open' => true));
     
     echo '<div id="nav_share">' . button_share() . '</div>';
