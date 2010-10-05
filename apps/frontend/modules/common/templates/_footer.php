@@ -81,6 +81,8 @@ if (!$is_map):
             </div></form>
 <?php
 endif;
+// following is needed for lightbox.js to load images from static host
+echo javascript_tag('var _static_url = \'' . sfConfig::get('app_static_url') . '\';');
 ?>
         </div>
     </div>

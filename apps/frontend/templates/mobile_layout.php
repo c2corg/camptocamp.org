@@ -53,12 +53,9 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
                                                'footer_type' => $footer_type));
         ?>
     </div>
-
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
-
     <?php minify_include_body_javascripts($combine, $debug);
-          minify_include_unminified_javascripts(); ?>
-
-    <?php include_partial('common/tracker') ?>
+          minify_include_unminified_javascripts();
+          include_partial('common/tracker') ?>
 </body>
 </html>

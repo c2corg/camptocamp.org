@@ -54,7 +54,6 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
           title="Camptocamp.org" />
     <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
-    <?php include_partial('common/tracker') ?>
 </head>
 <body>
     <div id="holder">
@@ -92,12 +91,11 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
                                                'footer_type' => $footer_type));
         ?>
     </div>
-
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
-
     <?php
     minify_include_body_javascripts($combine, $debug);
     minify_include_unminified_javascripts();
+    include_partial('common/tracker');
     // addthis script must be added after ga tracker for google analytics integration
     if (sfContext::getInstance()->getResponse()->hasParameter('addthis', 'helper/asset/addthis'))
     {

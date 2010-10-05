@@ -337,7 +337,6 @@ function button_share()
     sfContext::getInstance()->getResponse()->setParameter('addthis', true, 'helper/asset/addthis');
     $addthis_js = '<script type="text/javascript">
 var pageTracker;
-_gaq.push(function() {pageTracker = _gat._getTracker(\''.sfConfig::get('app_ganalytics_key').'\')});
 var addthis_config = {services_exclude: \'print, favorites\',ui_header_color: "#000000",ui_header_background: "#d2cabc",data_ga_tracker: "pageTracker"};
 var addthis_localize = {share_caption:"'.__('Bookmark & Share').'",more:"'.__('More...').'"};
 </script>';
