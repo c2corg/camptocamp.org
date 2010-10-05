@@ -541,7 +541,7 @@ class usersActions extends documentsActions
         else
         {
             $expire = time() + 31536000; // FIXME: good value?
-            setcookie('language', Language::translateForPunBB($lang), $expire, '/');
+            setcookie('language', Language::translateForPunBB($lang), $expire, '/forums/');
         }
 
         // redirect

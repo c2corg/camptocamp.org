@@ -271,6 +271,8 @@ class myUser extends sfBasicSecurityUser
                 {
                     $this->setCulture($user_culture);
                 }
+                // be sure to update punbb language cookie
+                Punbb::setLanguage($user_culture);
 
                 // Restore pref cookies
                 c2cPersonalization::restorePrefCookies($user_id);
@@ -445,13 +447,7 @@ class myUser extends sfBasicSecurityUser
      */
     public function isConnected()
     {
-        if (!$this->isAuthenticated())
-        {
-            // if user is not authenticated, delete PunBB cookie if any.
-            Punbb::signOut();
-            return false;
-        }
-        return true;
+        return $this->isAuthenticated();
     }
 
     /**

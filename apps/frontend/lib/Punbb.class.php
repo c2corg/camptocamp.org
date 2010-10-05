@@ -16,7 +16,8 @@ class Punbb
 
     public static function setLanguage($lang)
     {
-        setcookie('language', Language::translateForPunBB($lang), time() + 86400, '/');
+        self::loadConfig();
+        setcookie('language', Language::translateForPunBB($lang), time() + 86400, self::$cookie_path);
     }
     
     /**
@@ -28,15 +29,16 @@ class Punbb
      */
     public static function signIn($user_id, $password_hash)
     {
-  		self::punSetcookie($user_id, $password_hash, time() + 31536000);
-  		return true;
+        self::punSetcookie($user_id, $password_hash, 0);
+        return true;
     }
 
     public static function signOut()
     {
-        self::punSetcookie(1, self::randomPass(8), time() + 31536000);
+        self::loadConfig();
+        sfContext::getInstance()->getResponse()->setCookie(self::$cookie_name, '', null, self::$cookie_path);
     }
-    
+
     
     // BRIDGE FILES
 
@@ -62,11 +64,11 @@ class Punbb
     {
         if (function_exists('sha1'))
         {
-    	    return sha1($str);
+            return sha1($str);
         }
-    	elseif (function_exists('mhash')) // Only if Mhash library is loaded
+        elseif (function_exists('mhash')) // Only if Mhash library is loaded
         {
-    	    return bin2hex(mhash(MHASH_SHA1, $str));
+            return bin2hex(mhash(MHASH_SHA1, $str));
         }
 
         return md5($str);
@@ -74,8 +76,8 @@ class Punbb
 
     private static function punSetcookie($user_id, $password_hash, $expire)
     {
-  	    // the global from punbb original function
-  	    self::loadConfig();
+          // the global from punbb original function
+          self::loadConfig();
 
         // Enable sending of a P3P header by removing // from the following line
         // (try this if login is failing in IE6)
@@ -83,7 +85,7 @@ class Punbb
 
         if (version_compare(PHP_VERSION, '5.2.0', '>='))
         {
-    	    setcookie(self::$cookie_name,
+            setcookie(self::$cookie_name,
                       serialize(array($user_id, md5(self::$cookie_seed . $password_hash))),
                       $expire,
                       self::$cookie_path,
@@ -91,9 +93,9 @@ class Punbb
                       self::$cookie_secure,
                       true);
         }
-    	else
+        else
         {
-    		setcookie(self::$cookie_name,
+            setcookie(self::$cookie_name,
                       serialize(array($user_id, md5(self::$cookie_seed . $password_hash))),
                       $expire,
                       self::$cookie_path . '; HttpOnly',

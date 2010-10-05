@@ -28,7 +28,10 @@ use_helper('MyMinify', 'MetaLink');
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/fold.js', 'head_last');
-
+/////////////////////////// TRANSITION CODE TO BE REMOVED AFTER A WHILE ///////////////////////
+$response->setCookie('punbb_cookie', '', null, '/');
+$response->setCookie('language', '', null, '/');
+///////////////////////////////////////////////////////////////////////////////////////////////
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_code ?>">

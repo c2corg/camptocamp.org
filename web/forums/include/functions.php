@@ -28,7 +28,7 @@
 function check_cookie(&$pun_user)
 {
     # hacked to change interface language without a logged user
-	global $db, $pun_config, $cookie_name, $cookie_seed, $tmplang;
+	global $db, $pun_config, $cookie_name, $cookie_path, $cookie_seed, $tmplang;
 
 	$now = time();
 	$expire = $now + 31536000;	// The cookie expires after a year
@@ -113,8 +113,6 @@ function check_cookie(&$pun_user)
         set_default_user();
                 if (!@file_exists(PUN_ROOT.'lang/'.$pun_user['language']))
                     $pun_user['language'] = $pun_config['o_default_lang'];
-                
-                setcookie('language', $pun_user['language'], $expire,'/');
                 
 		if ($pun_user['read_topics'])
         {

@@ -15,7 +15,7 @@ $p_connect = false;
 
 $cookie_name = 'punbb_cookie';
 $cookie_domain = '';
-$cookie_path = '/';
+$cookie_path = '/forums/';
 $cookie_secure = 0;
 $cookie_seed = '498c9e30';
 
