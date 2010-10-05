@@ -47,7 +47,7 @@ if (!$mobile_version) // left navigation menus are only for web version
     
     if ($is_connected)
     {
-        include_partial('portals/wizard_button', array('sf_cache_key' => $culture));
+        include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
     }
 
     if ($has_images)
@@ -70,7 +70,7 @@ if (!$mobile_version) // left navigation menus are only for web version
                               'home_section' => false));
     }
 
-    include_partial('portals/prepare', array('culture' => $culture,
+    include_partial('ducuments/prepare', array('culture' => $culture,
                                              'default_open' => true));
     
     echo '<div id="nav_share">' . button_share() . '</div>';
@@ -83,7 +83,7 @@ if (!$mobile_version) // left navigation menus are only for web version
     include_partial('portals/nav', array('id'  => $id, 'document' => $document));
 }
 
-echo display_content_top('doc_content');
+echo display_content_top('home');
 
 echo start_content_tag('portals_content');
 
@@ -112,16 +112,17 @@ if ($has_map)
                            'has_geom' => $has_geom));
 }
 
-// lang-dependent content
-echo start_section_tag('Description', 'description');
 if ($is_not_archive)
 {
     include_partial('portals/inside_search_form', array('document' => $document));
 }
 
+// lang-dependent content
+echo '<div class="article_contenu">';
+
 include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                                                 'needs_translation' => $needs_translation, 'images' => $associated_images));
-echo end_section_tag();
+echo '</div>';
 
 ?>
         <div id="home_background_content">
