@@ -761,7 +761,18 @@ function pun_hash($str)
 //
 function get_remote_address()
 {
-	return $_SERVER['REMOTE_ADDR'];
+	// modified in order to take into account possible presence
+	// of varnish on production server
+	if (isset($_SERVER['HTTP_X_VARNISH']) && isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+	{
+		$x_forwarded_for = explode(', ', $_SERVER['HTTP_X_FORWARDED_FOR']);
+		$last_ip = end($x_forwarded_for);
+		return prev($x_forwarded_for);
+	}
+	else
+	{
+		return $_SERVER['REMOTE_ADDR'];
+	}
 }
 
 
