@@ -343,9 +343,9 @@ msgstr "La cima figlia è diventata il documento "
 # [general comment]
 # Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
 # NOT USED for the moment
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Choose maps service..."
-msgstr "Select a routing service..."
+msgstr "Scegliere un servizio..."
 
 msgid "Choose..."
 msgstr "Scegliere..."
@@ -1067,17 +1067,17 @@ msgstr "Ultimo bollettino"
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% creations"
-msgstr "Dernières créations - %1%"
+msgstr "Ultime creazioni - %1%"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% creations in %2%"
-msgstr "Dernières créations - %1% - %2%"
+msgstr "Ultime creazioni - %1% - %2% "
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions"
-msgstr "Dernières éditions - %1%"
+msgstr "Ultime edizioni - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
@@ -1094,9 +1094,9 @@ msgstr "camptocamp.org - ultime modifiche dei documenti %1%"
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
-msgstr "Dernières éditions - %1% - %2%"
+msgstr "Ultime edizioni - %1% - %2% "
 
 msgid "Latest articles"
 msgstr "Ultimi articoli"
@@ -1108,9 +1108,9 @@ msgstr "Ultimi documenti"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
-msgstr "Dernières éditions de \"%1%\" - %2%"
+msgstr "Ultime edizioni da \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Ultime immagini"
@@ -1280,9 +1280,8 @@ msgstr "Questa mappa non è stata trovata."
 msgid "Map tool"
 msgstr "Strumenti mappa"
 
-# [WARNING] en translation used
 msgid "Mapquest/OSM"
-msgstr "Mapquest and OpenStreetMap data"
+msgstr "Mapquest e dati OpenStreetMap"
 
 msgid "Maps deletion is prohibited"
 msgstr "Non è possibile cancellare una carta"
@@ -2254,18 +2253,17 @@ msgstr "Consulta"
 
 # [general comment]
 # Link to the document page from a comment page in mobile version
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "View comments document"
-msgstr "back to the original document"
+msgstr "Vedere il documento originale"
 
 msgid "View current"
 msgstr "Vedi la versione attuale"
 
 # [general comment]
 # used for edition rss feeds rich content
-# [WARNING] en translation used
 msgid "View difference between version %1% and %2%"
-msgstr "View the differences between version %1% and %2%"
+msgstr "Vedere le differenze tra le versioni %1% e %2%"
 
 msgid "View image details"
 msgstr "Visualizza le informazioni dell'immagine"
@@ -2479,9 +2477,8 @@ msgstr "Sessione scaduta. Per favore connettersi di nuovo."
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Nessun risultato trovato. <br />Verifica l'ortografia, la sintassi oppure riduci il numero di parole utilizzando una parola caratteristica (o una parte)|(1,+Inf]%nb_result% risultati trovati per %researched_word%"
 
-# [WARNING] en translation used
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
-msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
+msgstr "[0]Non ci sono commenti associati a questo documento.|[1]C'è un commento associato a questo documento.|(1,+Inf]Ci sono %1% commenti associati a questo documento."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Modifica della geometria"

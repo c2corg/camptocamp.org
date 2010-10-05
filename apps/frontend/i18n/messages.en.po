@@ -470,9 +470,8 @@ msgstr "Add an access point"
 msgid "Create new portals"
 msgstr "Create a portal"
 
-# [WARNING] needs_review
 msgid "Create new products"
-msgstr "Add a \"local products\" document"
+msgstr "Add a \"local product\" document"
 
 msgid "Create new routes"
 msgstr "Add a route"
@@ -512,9 +511,8 @@ msgstr "Creating a new access point"
 msgid "Creating new portals"
 msgstr "Portal creation"
 
-# [WARNING] needs_review
 msgid "Creating new products"
-msgstr "Creation of a \"local products\" document"
+msgstr "Creation of a \"local product\" document"
 
 msgid "Creating new routes"
 msgstr "Creating a new route"
@@ -866,7 +864,7 @@ msgstr "Go to the next portal"
 
 # [WARNING] needs_review
 msgid "Go to next product"
-msgstr "Go to the next \"local products\" document"
+msgstr "Go to the next document of the \"local products\" "
 
 msgid "Go to next route"
 msgstr "Go to the next route"
@@ -973,7 +971,7 @@ msgstr "IGN map"
 # I would suggest "aerial imagery.
 # [WARNING] needs_review
 msgid "IGN orthos"
-msgstr "IGN aerials"
+msgstr "IGN aerial imagery"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "This new password will only be valid after the first use. You   will then be able to modify it in your personal profile. Ignore this mail if you have not asked for a new password."
@@ -1323,7 +1321,7 @@ msgstr "MeteoSwiss"
 # Titre html des popups c2c.
 # [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
-msgstr "Snapshot - Camptocamp.org"
+msgstr "Tooltip - Camptocamp.org"
 
 msgid "Mini:"
 msgstr "Min:"
@@ -1435,9 +1433,8 @@ msgstr "No outing is linked to the route."
 msgid "No linked outing to this site"
 msgstr "No outing is associated to this climbing site."
 
-# [WARNING] needs_review
 msgid "No linked product"
-msgstr "No \"local products\" document is associated to this document"
+msgstr "No \"local product\" is associated to this document"
 
 msgid "No linked route"
 msgstr "No route is linked to the summit"
@@ -1584,7 +1581,6 @@ msgstr "Private message"
 msgid "Product not found"
 msgstr "This \"local products\" document does not exist."
 
-# [WARNING] needs_review
 msgid "Product:"
 msgstr "Local products:"
 
@@ -1760,7 +1756,7 @@ msgstr "Search for a portal"
 
 # [WARNING] needs_review
 msgid "Search a products"
-msgstr "Look for a \"local products\" document"
+msgstr "Look for a document within \"local products\""
 
 msgid "Search a routes"
 msgstr "Search for a route"
@@ -1785,7 +1781,6 @@ msgstr "Search on the whole document:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] needs_review
 msgid "See"
 msgstr "View"
 
@@ -1897,7 +1892,7 @@ msgstr "Articles on ecotourism and ecomobility"
 
 # [WARNING] needs_review
 msgid "Soft mobility outings"
-msgstr "Latest ecomobile outings"
+msgstr "Latest outings carried out by ecomobility"
 
 msgid "Static map"
 msgstr "Map"
@@ -1987,7 +1982,7 @@ msgstr "Follow the latest changes to portals"
 
 # [WARNING] needs_review
 msgid "Subscribe to latest products creations"
-msgstr "Follow the recent creations of \"local products\" documents"
+msgstr "Follow the recent creations of \"local products\""
 
 # [WARNING] needs_review
 msgid "Subscribe to latest products editions"

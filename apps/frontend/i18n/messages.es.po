@@ -1877,7 +1877,6 @@ msgstr "Boletín de aludes"
 msgid "Soft mobility"
 msgstr "Ecomobilidad"
 
-# [WARNING] needs_review
 msgid "Soft mobility articles"
 msgstr "Artículos sobre ecoturismo y ecomobilidad"
 

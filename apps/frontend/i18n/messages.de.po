@@ -1340,10 +1340,9 @@ msgstr "MeteoSchweiz"
 
 # [general comment]
 # Titre html des popups c2c.
-# [comment]
-# c'est de l'allemand ça?
+# [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
-msgstr "Information - Camptocamp.org"
+msgstr "Tooltip - Camptocamp.org"
 
 msgid "Mini:"
 msgstr "Min:"
@@ -2016,7 +2015,7 @@ msgstr "Die neuesten Portaländerungen anzeigen"
 
 # [WARNING] needs_review
 msgid "Subscribe to latest products creations"
-msgstr "Die neuesten Einträge der \"Lokalen Produkten\" abonnieren"
+msgstr "Die neuesten Einträge der \"Lokalen Produkte\" abonnieren"
 
 # [WARNING] needs_review
 msgid "Subscribe to latest products editions"
@@ -2581,9 +2580,8 @@ msgstr "<h3>Regionentypen</h3>\n"
 msgid "_article_type_info"
 msgstr "<h3>Typ des Beitrags</h3><strong>gemeinschaftlicher Beitrag:</strong> <br />Ein gemeinschaftlicher Beitrag kann von allen camptocamp.org-Benutzern geändert werden. Dies ist besonders bei <em>enzyklopädischen</em> Beiträgen angebracht, da sie gleich wie Wikipediaartikel ergänzt werden können. <br /><br /><strong>persönlicher Beitrag</strong>:<br />Ein persönlicher Beitrag kann nur durch den Autor geändert werden. Diese Form ist besonders bei <em>Erlebnisberichten</em> angebracht."
 
-# [WARNING] needs_update
 msgid "_association_tool_info"
-msgstr "<h3>Vorhandene Dokumente verbinden</h3>- Klicken sie auf das Verbinden-Werkzeug<br />- Wählen sie den Dokumententyp aus, welchen sie verbinden wollen.<br />- Geben sie einen Teil des Dokumentennamen aus. Bei einer Route istdies der Name des verbundenen Gipfels.<br />- Eine Liste der verfügbaren Dokumente wird angezeigt: Klicken sie aufdas gewünschte Dokument, auch wenn nur ein Dokument zur Auswahl steht.<br />- Bei einer Route enthält die Dokumentenliste die Routen, welche mitdem gewählten Gipfel verbunden sind. Wählen sie die gewünschte Route.<br />- Klicken sie auf <input value=\"Verbinden\" type=\"button\"> um denVorgangabzuschliessen.<br /><br />Bevor sie den Vorgang abschliessen können sie die Auswahl des Dokumentsändern: Löschen sie den Dokumentenname und beginnen sie von vorne.<br />Falls sie ein Dokument fälschlicherweise verbunden haben, können siedies nicht nicht selbst rückgängig machen. Sie müssen einen Moderatordes Tourenführers damit beauftragen:<br />- Klicken sie auf den Link <img src=\"/static/images/picto/report.png\"><strong>Ein Problem melden</strong> im linken Menu.<br />- Beschreiben sie ihr Problem und senden sie die Meldung ab.<br />Es ist wichtig das Problem vom Dokument aus zu senden, welchesfälschlicherweise verbunden wurde. Dadurch erhalten die Moderatoreneine vorausgefüllte Mitteilung mit einem Link auf das Dokument."
+msgstr "<h3>Vorhandene Dokumente verbinden</h3>- Klicken sie auf das Verbinden-Werkzeug.<br />- Wählen sie den Dokumententyp aus, welchen sie verbinden wollen.<br />- Geben sie einen Teil des Dokumentennamen ein. Bei einer Route ist dies der Name des verbundenen Gipfels. Alternativ kann auch die Dokumentennummer (wie in der URL angezeigt) eingegeben werden.<br />- Eine Liste der verfügbaren Dokumente wird angezeigt: Klicken sie auf das gewünschte Dokument, auch wenn die Liste nur ein Dokument zur Auswahl enthält.<br />- Bei einer Route enthält die Dokumentenliste die Routen, welche mit dem gewählten Gipfel verbunden sind. Wählen sie die gewünschte Route aus.<br />- Klicken sie auf <input value=\"Verbinden\" type=\"button\"> um denVorgang abzuschliessen.<br /><br />Bevor sie den Vorgang abschliessen können sie die Auswahl des Dokuments ändern: Löschen sie den Dokumentenname und beginnen sie von vorne.<br />Falls sie ein Dokument fälschlicherweise verbunden haben, können sie dies nicht nicht selbst rückgängig machen. Sie müssen einen Moderator des Tourenführers damit beauftragen:<br />- Klicken sie auf den Link <img src=\"/static/images/picto/report.png\"><strong>Ein Problem melden</strong> im linken Menu.<br />- Beschreiben sie ihr Problem und senden sie die Meldung ab.<br />Es ist wichtig das Problem vom Dokument aus zu senden, welches fälschlicherweise verbunden wurde. Dadurch erhalten die Moderatoren eine vorausgefüllte Mitteilung mit einem Link auf das entsprechende Dokument."
 
 msgid "_author_info"
 msgstr "<h3>Autor</h3>Name des Autor des Buches oder Bildes<br /> Benützen Sie ein Komma um verschiedene Autoren zu trennen. Keine Deutsche Wörter benützen wie \"mit\" oder \"und\"."
@@ -3062,9 +3060,8 @@ msgstr "<h3>Forumpseudonym</h3>Name, welcher im Forum der Website verwendet wird
 msgid "_outing_length_info"
 msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verknüpft ist.<br />Dieser Wert ist aus dem verknüpften GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
 
-# [WARNING] needs_update
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Benützung des öV</h3>Gibt an, ob die An- und Abreise einer Tour mit öffentlichen Verkehrsmitteln gemacht wurde, was ein praktisches Suchkriterium ist. Skilifte werden dabei nicht berücksichtigt.<br />Das Feld ist optional und kann unbeantwortet belassen werden, obschon der öV verwendet wurde."
+msgstr "<h3>Benützung des öV</h3>Gibt an, ob die An- und Abreise einer Tour mit öffentlichen Verkehrsmitteln (oder per Velo) gemacht wurde, was ein praktisches Suchkriterium ist. Skilifte werden dabei nicht berücksichtigt.<br />Wenn dieses Feld angekreuzt wird, erscheint die Tour auf auf dem <a href=\"http://www.changerdapproche.org\">Changer d'approche</a>-Portal.<br />Das Feld ist optional und kann unbeantwortet belassen werden, obschon der öV verwendet wurde."
 
 # [WARNING] needs_review
 msgid "_partial_trip_info"
