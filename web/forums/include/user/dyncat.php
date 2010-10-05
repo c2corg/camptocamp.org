@@ -32,5 +32,5 @@ if (!defined('PUN'))
 <script type="text/javascript">
 var pun_static_url = '<?php echo PUN_STATIC_URL; ?>';
 </script>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat/cookie.js?<?php echo sfSVN::getHeadRevision('cookie.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat/common.js?<?php echo sfSVN::getHeadRevision('common.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo PUN_STATIC_URL . '/' . sfSVN::getHeadRevision('cookie.js'); ?>/forums/js/dyncat/cookie.js"></script>
+<script type="text/javascript" src="<?php echo PUN_STATIC_URL . '/' . sfSVN::getHeadRevision('common.js'); ?>/forums/js/dyncat/common.js"></script>
