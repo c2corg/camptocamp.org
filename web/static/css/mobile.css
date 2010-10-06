@@ -3,6 +3,11 @@ html, body, #holder
   min-width: 240px;
 }
 
+body
+{
+  -webkit-text-size-adjust: none;
+}
+
 #header
 {
   height: auto;
