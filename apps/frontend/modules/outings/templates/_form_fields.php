@@ -5,7 +5,9 @@ $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/outings.js', 'last');
 
 echo javascript_tag("var confirm_outing_date_message = '" . addslashes(__('Has this outing really been done today?')) . "';
-var outing_date_already_tested = false;");
+var outing_date_already_tested = false;
+var confirm_outing_activities_message = '" . addslashes(__('Is really a multi-activity outing?')) . "';
+var outing_activities_already_tested = false;");
 
 // Here document = outing
 $link_with = $linked_doc ? $linked_doc->get('id') : 0; 
@@ -39,8 +41,12 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 echo object_group_tag($document, 'partial_trip', 'object_checkbox_tag');
 echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input'));
+?>
+<div id="outings_height_diff_down">
+<?php
 echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input'));
 ?>
+</div>
 <div id="outings_length">
 <?php
 echo object_group_tag($document, 'outing_length', null, 'kilometers', array('class' => 'short_input'));

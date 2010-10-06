@@ -1,6 +1,13 @@
-var max_elevation_old, height_diff_up_old, height_diff_down_old, access_elevation_old,
-    up_snow_elevation_old, down_snow_elevation_old, height_diff_up_enable, height_diff_down_enable,
-    up_snow_elevation_enable, down_snow_elevation_enable;
+var max_elevation_old,
+    height_diff_up_old,
+    height_diff_down_old,
+    access_elevation_old,
+    up_snow_elevation_old,
+    down_snow_elevation_old,
+    height_diff_up_enable,
+    height_diff_down_enable,
+    up_snow_elevation_enable,
+    down_snow_elevation_enable;
 
 function hide_outings_unrelated_fields()
 {
@@ -10,10 +17,15 @@ function hide_outings_unrelated_fields()
         'outings_snow_elevation',
         'outings_track',
         'outings_conditions_levels',
-        'outings_length'
+        'outings_length',
+        'outings_height_diff_down'
     ];
-    var show_outings_glacier, show_outings_snow_elevation, show_outings_track,
-        show_outings_conditions_levels, show_outings_length;
+    var show_outings_glacier,
+        show_outings_snow_elevation,
+        show_outings_track,
+        show_outings_conditions_levels,
+        show_outings_length,
+        show_outings_height_diff_down;
 
     show_flags.each(function(flag)
     {
@@ -23,20 +35,23 @@ function hide_outings_unrelated_fields()
     var activities = $A($F($('activities')));
     activities.each(function(activity)
     {
-        // 1: skitouring, 2: snow_ice_mixed, 5: ice
         if (activity == 1 || activity == 2 || activity == 5)
         {
             show_outings_snow_elevation = true;
             show_outings_track = true;
             show_outings_conditions_levels = true;
         }
-        if (activity == 1 || activity == 2 || activity == 3 || activity == 5)
+        if (activity == 1 || activity == 2 || activity == 3)
         {
             show_outings_glacier = true;
         }
-        if (activity == 1 || activity == 6)
+        if (activity == 1 || activity == 6 || activity == 7)
         {
             show_outings_length = true;
+            if (Math.round($('height_diff_down').value) > 0)
+            {
+                show_outings_height_diff_down == true;
+            }
         }
     });
 
@@ -53,9 +68,28 @@ function hide_outings_unrelated_fields()
     });
 }
 
+function check_outing_activities(e)
+{
+    if (outing_activities_already_tested)
+    {
+        // no need to check activities twice
+        return;
+    }
+
+    // ask for confirmation if nb activities is > 1
+    if ($('revision').value.length == 0 &&
+        $A($F($('activities'))).length > 1 &&
+        !confirm(confirm_outing_activities_message))
+    {
+        Event.stop(e);
+        switchFormButtonsStatus($('editform'), false);
+        outing_activities_already_tested = true;
+    }
+}
+
 function check_outing_date(e)
 {
-    if (outing_date_already_tested) 
+    if (outing_date_already_tested)
     {
         // no need to check date twice
         return;
@@ -82,6 +116,7 @@ function check_outing_date(e)
 
 Event.observe(window, 'load', hide_outings_unrelated_fields);
 Event.observe(window, 'load', function() {
+    Event.observe('editform', 'submit', check_outing_activities);
     Event.observe('editform', 'submit', check_outing_date);
 });
 
