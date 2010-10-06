@@ -81,12 +81,6 @@ use_stylesheet('/static/css/forums.css');
 </div>
 
 <?php
-$post_id_list = array();
-foreach ($comments as $comment)
-{
-    $post_id_list[] = $comment['id'];
-}
-
 foreach ($comments as $comment):
     // Switch the background color for every message.
     $bg_switch = ($bg_switch) ? $bg_switch = false : $bg_switch = true;
@@ -146,8 +140,8 @@ foreach ($comments as $comment):
                         <p>
                         <?php
                             $text = $comment->message;
-                            $text = parse_message($text, false, $post_id_list);
-                            $text = htmlspecialchars_decode($text); // parse_message always use html_special_chars, and so does retrieval of the text
+                            $text = parse_message($text);
+                            $text = htmlspecialchars_decode($text, ENT_NOQUOTES); // parse_message always use html_special_chars, and so does retrieval of the text
                             echo $text;
                             ?>
                         </p>
