@@ -29,7 +29,7 @@ if ((bool)sfConfig::get('app_mobile_version_ads'))
         <div id="footer_cc_text">
             <p><?php echo link_to(__('web version of the site'), 'http://'.$classic_hostname,
                                   array('onclick' => "document.location.href = document.location.href.replace('$mobile_hostname', '$classic_hostname'); return false;")) ?></p>
-            <p>&copy; 1997-2010 <?php echo link_to('Camptocamp-Association', getMetaArticleRoute('association')) ?></p>
+            <p>&copy; 1997-<?php echo date('Y') . ' ' . link_to('Camptocamp-Association', getMetaArticleRoute('association')) ?></p>
             <p><?php echo __('CNIL declaration #') ?>1175560 - <?php echo __('disclaimer notice') ?></p>
         </div>
         <div id="footer_partners">
