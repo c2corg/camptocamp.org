@@ -17,7 +17,7 @@ $needs_delete_geom_action = $needs_protect_action && $document->get('geom_wkt');
 $needs_refresh_geoassociations_action = $needs_protect_action;
 ?>
 
-<div id="nav_tools">
+<div id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>

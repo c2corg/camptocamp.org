@@ -14,7 +14,7 @@ $needs_merge_action = $needs_protect_action;
 $needs_delete_geom_action = $needs_protect_action && $document->get('geom_wkt');
 ?>
 
-<div id="nav_tools">
+<div id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>

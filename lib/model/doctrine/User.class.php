@@ -222,6 +222,7 @@ class User extends BaseUser
         }
         elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
+            self::filterOnActivities($q);
             self::filterOnRegions($q);
         }
         else
@@ -234,7 +235,7 @@ class User extends BaseUser
 
     protected static function buildFieldsList()
     {   
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList(),
                            parent::buildGeoFieldsList(),
                            array('pd.login_name', 'pd.topo_name', 'pd.username', 
                                  'm.lon', 'm.lat', 'm.activities', 'm.category'));

@@ -7,7 +7,7 @@ $is_connected = $sf_user->isConnected();
 $has_rights = $sf_user->hasCredential('moderator');
 ?>
 
-<div id="nav_tools">
+<div id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>

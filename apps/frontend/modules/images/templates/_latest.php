@@ -54,7 +54,7 @@ else
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
         <?php
-    nav_title('images', __('Latest images'), 'images', $custom_title_link, $custom_rss_link, __("Subscribe to latest images creations"));
+    nav_title('images', __('Latest images'), 'images', 'last', $custom_title_link, $custom_rss_link, __("Subscribe to latest images creations"));
 }
 
 if (count($items) == 0): ?>

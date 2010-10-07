@@ -33,7 +33,7 @@ echo display_title($document->get('name'), 'portals', true, 'home_nav');
 
 if (!$mobile_version) // left navigation menus are only for web version
 {
-    echo '<div id="nav_space">&nbsp;</div>';
+    echo '<div id="nav_space" class="nav_box">&nbsp;</div>';
     
     // TODO : change after creation of text field in portal doc
     // $title = $document->get('abstract_title');
@@ -73,7 +73,7 @@ if (!$mobile_version) // left navigation menus are only for web version
     include_partial('documents/prepare', array('culture' => $culture,
                                              'default_open' => true));
     
-    echo '<div id="nav_share">' . button_share() . '</div>';
+    echo '<div id="nav_share" class="nav_box">' . button_share() . '</div>';
     
     $tabs = tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
                           $is_not_archive ? NULL : $document->getVersion(),

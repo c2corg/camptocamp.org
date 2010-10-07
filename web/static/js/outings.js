@@ -50,7 +50,7 @@ function hide_outings_unrelated_fields()
             show_outings_length = true;
             if (Math.round($('height_diff_down').value) > 0)
             {
-                show_outings_height_diff_down == true;
+                show_outings_height_diff_down = true;
             }
         }
     });
@@ -76,9 +76,27 @@ function check_outing_activities(e)
         return;
     }
 
+    var activities = $A($F($('activities')));
+    if (activities.length == 2)
+    {
+        activities.sortBy(function(s){return Math.round(s);});
+        var act_0 = activities[0];
+        var act_1 = activities[1];
+        if ((act_0 == 2 && act_1 == 3) ||
+            (act_0 == 2 && act_1 == 5) ||
+            (act_0 == 2 && act_1 == 7) ||
+            (act_0 == 3 && act_1 == 4) ||
+            (act_0 == 3 && act_1 == 6) ||
+            (act_0 == 4 && act_1 == 6))
+        {
+            // no need to check activities for these pairs
+            return;
+        }
+    }
+    
     // ask for confirmation if nb activities is > 1
     if ($('revision').value.length == 0 &&
-        $A($F($('activities'))).length > 1 &&
+        activities.length > 1 &&
         !confirm(confirm_outing_activities_message))
     {
         Event.stop(e);
@@ -102,7 +120,8 @@ function check_outing_date(e)
     var now = new Date();
 
     // ask for confirmation if outing date is today and if it is sooner than 14:00
-    if (year == now.getFullYear() &&
+    if ($('revision').value.length == 0 &&
+        year == now.getFullYear() &&
         month == (now.getMonth() + 1) &&
         day == now.getDate() &&
         now.getHours() <= 14 &&

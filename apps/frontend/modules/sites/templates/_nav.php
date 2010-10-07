@@ -17,7 +17,7 @@ $needs_refresh_geoassociations_action = $needs_protect_action;
 $needs_add_outing = $sf_user->isConnected() && !$redirected && !$is_archive && !$is_protected;
 ?>
 
-<div id="nav_tools">
+<div id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>

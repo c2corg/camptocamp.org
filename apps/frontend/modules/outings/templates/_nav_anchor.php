@@ -5,7 +5,7 @@ $lang = $sf_user->getCulture();
 $id = $sf_params->get('id');
 ?>
 
-<div id="nav_anchor">
+<div id="nav_anchor" class="nav_box">
     <div id="nav_anchor_top"></div>
     <div id="nav_anchor_content">
         <ul>

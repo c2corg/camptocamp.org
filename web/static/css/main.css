@@ -3254,6 +3254,11 @@ ul.list404 li
   border-left:2px solid #e4e1da;
 }
 
+#nav_images .nav_box_content
+{
+  padding-left: 30px;
+}
+
 .nav_box_top
 {
   height:5px;

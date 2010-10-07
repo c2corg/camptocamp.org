@@ -4,7 +4,7 @@ use_helper('Button', 'Ajax', 'Javascript');
 $module = $sf_context->getModuleName();
 ?>
 
-<div id="nav_tools">
+<div id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>

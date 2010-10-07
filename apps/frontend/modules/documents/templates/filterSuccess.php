@@ -39,6 +39,7 @@ switch($module)
     case 'huts':
     case 'routes':
     case 'outings':
+    case 'user':
         $msg = __('activity and area filters applied');
         if ($perso->isMainFilterSwitchOn() &&
             (count($perso->getActivitiesFilter()) || count($perso->getPlacesFilter())))
@@ -56,7 +57,6 @@ switch($module)
     // We do not use personalization for the following modules
     case 'areas':
     case 'images':
-    case 'user':
     case 'articles':
     default:
         break;
