@@ -40,7 +40,7 @@ if (!$document->isArchive()): ?>
         
         include_partial('i18n', $i18n_args);
         
-        if (isset($needs_translation) && $needs_translation)
+        if (isset($needs_translation) && $needs_translation && !c2cTools::mobileVersion())
         {
             echo javascript_tag("var translate_params=['".__('translate')."','".__('untranslate')."','".__(' loading...')
                      ."','".$document->getCulture()."','".__('meta_language')."'];");
