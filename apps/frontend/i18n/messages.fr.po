@@ -1048,6 +1048,10 @@ msgstr "Est associé à ces sommets&nbsp;:"
 msgid "Is parent of summits:"
 msgstr "Est associé aux sous-sommets suivants&nbsp;:"
 
+# [WARNING] needs_review
+msgid "Is really a multi-activity outing?"
+msgstr "Cette sortie est-elle vraiment multi-activité ?"
+
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Il semble que vous ayez oublié de renseigner un nom ou un fichier."
 

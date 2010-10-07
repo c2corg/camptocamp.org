@@ -1048,6 +1048,10 @@ msgstr "è collegato con queste cime:"
 msgid "Is parent of summits:"
 msgstr "E collegato alle sotto-cime seguenti:"
 
+# [WARNING] en translation used
+msgid "Is really a multi-activity outing?"
+msgstr "Is this outing really composed of multiple activities?"
+
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Si è dimenticato un nome oppure il file"
 
