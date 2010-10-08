@@ -1877,7 +1877,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif (preg_match('/^([0-9!]*)(-[0-9!]*)*$/', $param, $regs))
         {
-            buildListCondition(&$conditions, &$values, $field, $param);
+            self::buildListCondition(&$conditions, &$values, $field, $param);
         }
         else
         {
@@ -2225,11 +2225,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         if ($param == 'yes')
         {
-            $conditions[] = "($field IS NULL OR $field = 0)";
+            $conditions[] = "$field IS NOT NULL";
         }
         else
         {
-            $conditions[] = "($field IS NOT NULL AND $field != 0)";
+            $conditions[] = "$field IS NULL";
         } 
     }
 
