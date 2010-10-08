@@ -69,8 +69,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             Ext.apply(this.baseConfig, config);
         }
 
-        Ext.BLANK_IMAGE_URL = this.baseConfig.baseUrl + '/static/js/mapfish/mfbase/ext/resources/images/default/s.gif';
-        OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/js/mapfish/mfbase/openlayers/img/';
+        Ext.BLANK_IMAGE_URL = this.baseConfig.staticBaseUrl + '/static/js/mapfish/mfbase/ext/resources/images/default/s.gif';
+        OpenLayers.ImgPath = this.baseConfig.staticBaseUrl + '/static/js/mapfish/mfbase/openlayers/img/';
         this.updateOpenLayersImgPath(false);
         
         // addition of the app translations
@@ -630,9 +630,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 
     getPictoUrl: function(name, alt) {
         if (alt) {
-            return this.baseConfig.baseUrl + '/static/images/picto/' + name + '.png';
+            return this.baseConfig.staticBaseUrl + '/static/images/picto/' + name + '.png';
         }
-        return this.baseConfig.baseUrl + '/static/images/modules/' + name + '_mini.png';
+        return this.baseConfig.staticBaseUrl + '/static/images/modules/' + name + '_mini.png';
     },
 
     getDrawingLayer: function() {
@@ -640,7 +640,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
            var context = { 
                 getIcon: function(feature) {
                     if (feature.geometry instanceof OpenLayers.Geometry.Point) {
-                        //return this.baseConfig.baseUrl + "static/images/mapmarker.png"; // FIXME: "this" is not defined
+                        //return this.baseConfig.staticBaseUrl + "static/images/mapmarker.png"; // FIXME: "this" is not defined
                         return "/static/images/mapmarker.png";
                     }
                     return null;
@@ -707,7 +707,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     },
 
     updateOpenLayersImgPath: function(isTrunk) {
-        OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/';
+        OpenLayers.ImgPath = this.baseConfig.staticBaseUrl + '/static/';
         OpenLayers.ImgPath += (isTrunk) ? 'js/mapfish/mfbase/openlayers/img/' : 'images/openlayers/';
     },
     
@@ -856,7 +856,7 @@ c2corg.API.GpLogo = OpenLayers.Class(Geoportal.Control.PermanentLogo, {
         Geoportal.Control.PermanentLogo.prototype.initialize.apply(this, arguments);
         if (options.api) {
             this.api = options.api;
-            this.permaLogo = this.api.baseConfig.baseUrl + 'static/js/mapfish/geoportal/img/logo_gp.gif';
+            this.permaLogo = this.api.baseConfig.staticBaseUrl + 'static/js/mapfish/geoportal/img/logo_gp.gif';
         }
     },
     
