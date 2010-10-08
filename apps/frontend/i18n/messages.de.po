@@ -4755,6 +4755,10 @@ msgstr "Limousin"
 msgid "link contributors in view page"
 msgstr "Die erste Linie des Felds wird auf derselben Linie wie die registrierten Benutzer angezeigt. Die folgenden Linien werden darunter angezeigt.<br />Registrierte camptocamp.org-Benutzer können der Tour direkt im Tourendokument hinzugefügt werden. Dies erlaubt den registrierten Tourenteilnehmern die Tourenbeschreibung zu ändern, Bilder hinzuzufügen, und andere, registrierte Tourenteilnehmer hinzuzufügen."
 
+# [WARNING] en translation used
+msgid "linked routes activities"
+msgstr "Activities of associated routes:"
+
 # [WARNING] needs_review
 msgid "local_product"
 msgstr "Direktverkauf beim Produzenten"

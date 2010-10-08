@@ -4392,7 +4392,7 @@ msgstr "The first line of this field will be displayed on the same line as the r
 
 # [WARNING] needs_review
 msgid "linked routes activities"
-msgstr "Activities of associated routes"
+msgstr "Activities of associated routes:"
 
 # [WARNING] needs_review
 msgid "local_product"

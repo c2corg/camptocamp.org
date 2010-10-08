@@ -4597,6 +4597,10 @@ msgstr "Limousin"
 msgid "link contributors in view page"
 msgstr "Bazkide diren partehartzaileak kontsulta orrialdean bertan gehituko dira."
 
+# [WARNING] en translation used
+msgid "linked routes activities"
+msgstr "Activities of associated routes:"
+
 # [WARNING] es translation used
 msgid "local_product"
 msgstr "venta directa por el productor"

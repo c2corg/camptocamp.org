@@ -4341,6 +4341,10 @@ msgid "link contributors in view page"
 msgstr "La prima linea di questa rubrica comparirà al seguito dei partecipanti registrati. \n"
 "<br />I partecipanti alla gita che sono registrati su C2C si associano direttamente dalla pagina di consultazione della gita. Cosi, potranno modificare la gita, aggiungere delle foto..."
 
+# [WARNING] en translation used
+msgid "linked routes activities"
+msgstr "Activities of associated routes:"
+
 # [WARNING] needs_review
 msgid "local_product"
 msgstr "vendita dal produttore"

@@ -4341,6 +4341,10 @@ msgstr "Lemosín"
 msgid "link contributors in view page"
 msgstr "La primera línea de este campo se mostrara en la misma línea que los participantes registrados. Las líneas siguientes se mostraran debajo. <br />Los participantes registrados en camptocamp.org pueden estar directamente vinculados con la salida, lo que les da el derecho de modificarla, de añadirle fotos y participantes registrados."
 
+# [WARNING] en translation used
+msgid "linked routes activities"
+msgstr "Activities of associated routes:"
+
 # [WARNING] needs_review
 msgid "local_product"
 msgstr "venta directa por el productor"

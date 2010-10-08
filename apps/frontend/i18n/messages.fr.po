@@ -4337,7 +4337,7 @@ msgid "link contributors in view page"
 msgstr "La 1ère ligne de ce champ sera affichée sur la même ligne que les participants membres. Les lignes suivantes seront affichées en dessous.<br />Les participants membres de camptocamp.org doivent être associés dans la page de consultation de la sortie, une fois la sortie créée. Cela leur donne le droit de modifier la sortie, d'ajouter des photos, et d'associer d'autres participants membres."
 
 msgid "linked routes activities"
-msgstr "Activités des itinéraires associés"
+msgstr "Activités des itinéraires associés&nbsp;:"
 
 msgid "local_product"
 msgstr "vente chez le producteur"

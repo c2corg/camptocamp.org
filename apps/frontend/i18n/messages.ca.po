@@ -4662,6 +4662,10 @@ msgstr "Llemosí"
 msgid "link contributors in view page"
 msgstr "Els participants membres s'associen directament a la pàgina de consulta de la sortida."
 
+# [WARNING] en translation used
+msgid "linked routes activities"
+msgstr "Activities of associated routes:"
+
 # [WARNING] es translation used
 msgid "local_product"
 msgstr "venta directa por el productor"
