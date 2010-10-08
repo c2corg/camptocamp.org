@@ -52,7 +52,7 @@ function hide_outings_unrelated_fields()
         }
         else
         {
-            if (Math.round($('outings_length').value) > 0)
+            if (Math.round($('outing_length').value) > 0)
             {
                 show_outings_length = true;
             }

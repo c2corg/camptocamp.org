@@ -305,50 +305,6 @@ class BaseDocument extends sfDoctrineRecordI18n
             self::buildConditionItem($conditions, $values, 'Around', 'm.geom', 'around', null, false, $params_list);
         }
     }
-
-    public static function buildListCriteria($params_list)
-    {
-        $conditions = $values = array();
-
-        // criteria for disabling personal filter
-        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
-        if (isset($conditions['all']))
-        {
-            return array($conditions, $values);
-        }
-        
-        // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
-        
-        // document ID criteria
-        $has_id_criteria = self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
-        if ($has_id_criteria)
-        {
-            return array($conditions, $values);
-        }
-        
-        // document criteria
-        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', 'name', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.elevation', 'dalt', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'm.module', 'dtyp', null, false, $params_list);
-    //    self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'auth');
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'i', 'categories'), 'icat', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'i', 'activities'), 'act', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Date', 'date_time', 'date', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Item', 'm.image_type', 'ityp', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
-        
-        // linked document criteria
-        self::buildConditionItem($conditions, $values, 'List', 'd.linked_id', 'mdoc', 'join_doc', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'mdoc', 'join_doc', false, $params_list);
-
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
-    }
     
     /**
      * Lists documents of current model taking into account search criteria or filters if any.
@@ -356,7 +312,8 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function browse($sort, $criteria, $format = null)
     {
-        $field_list = self::buildFieldsList($format, $sort, array('m.module'));
+        $field_list = self::buildFieldsList();
+        $field_list[] = 'm.module';
         $pager = self::createPager('Document', $field_list, $sort);
         $q = $pager->getQuery();
         
@@ -409,19 +366,9 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $pager;
     }
 
-    protected static function buildFieldsList($format = null, $sort, $field_list = array())
+    protected static function buildFieldsList()
     {
-        return ;
-        $field_list = array_merge(array('m.id', 'mi.culture', 'mi.name'),
-                                  $fields_list);
-        
-        $orderby = $sort['order_by'];
-        if (!empty($orderby) && !in_array($orderby, $field_list))
-        {
-            $field_list[] = $orderby;
-        }
-        
-        return $field_list;
+        return array('m.id', 'mi.culture', 'mi.name');
     }
 
     protected static function buildGeoFieldsList()
