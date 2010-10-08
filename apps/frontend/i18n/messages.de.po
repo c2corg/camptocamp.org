@@ -1073,7 +1073,7 @@ msgstr "Ist mit folgenden Unter-Gipfeln verbunden:"
 
 # [WARNING] en translation used
 msgid "Is really a multi-activity outing?"
-msgstr "Is this outing really composed of multiple activities?"
+msgstr "Does this outing really mix multiple activities?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Sie haben vergessen, einen Namen oder eine Datei anzugeben."

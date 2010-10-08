@@ -1055,7 +1055,7 @@ msgstr "Is associated to the sub summits:"
 
 # [WARNING] needs_review
 msgid "Is really a multi-activity outing?"
-msgstr "Is this outing really composed of multiple activities?"
+msgstr "Does this outing really mix multiple activities?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "It seems you have forgotten a name, or a file"
@@ -4390,7 +4390,6 @@ msgstr "Limousin"
 msgid "link contributors in view page"
 msgstr "The first line of this field will be displayed on the same line as the registered participants. The following lines will be displayed underneath.<br />Registered participants can be directly associated to the outing, thus allowing them to modify the outing, add pictures, and associate other registered participants."
 
-# [WARNING] needs_review
 msgid "linked routes activities"
 msgstr "Activities of associated routes:"
 

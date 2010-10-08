@@ -1055,9 +1055,9 @@ msgstr "Gailur hauetara loturik dago:"
 msgid "Is parent of summits:"
 msgstr "Ondorengo gaillurren aurre-gailurra da:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Is really a multi-activity outing?"
-msgstr "Is this outing really composed of multiple activities?"
+msgstr "¿Su salida realmente incluye varias actividades?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Itxura denez, izen edo fitxero bat ematea ahaztu zaizu."
@@ -4597,9 +4597,9 @@ msgstr "Limousin"
 msgid "link contributors in view page"
 msgstr "Bazkide diren partehartzaileak kontsulta orrialdean bertan gehituko dira."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "linked routes activities"
-msgstr "Activities of associated routes:"
+msgstr "Actividades de las rutas asociadas:"
 
 # [WARNING] es translation used
 msgid "local_product"

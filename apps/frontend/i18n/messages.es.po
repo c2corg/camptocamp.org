@@ -1048,9 +1048,9 @@ msgstr "Está asociado con estas cimas:"
 msgid "Is parent of summits:"
 msgstr "Esta asociado a las sub-cimas siguientes:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Is really a multi-activity outing?"
-msgstr "Is this outing really composed of multiple activities?"
+msgstr "¿Su salida realmente incluye varias actividades?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Parece que olvidó completar un nombre o un fichero."
@@ -4341,9 +4341,8 @@ msgstr "Lemosín"
 msgid "link contributors in view page"
 msgstr "La primera línea de este campo se mostrara en la misma línea que los participantes registrados. Las líneas siguientes se mostraran debajo. <br />Los participantes registrados en camptocamp.org pueden estar directamente vinculados con la salida, lo que les da el derecho de modificarla, de añadirle fotos y participantes registrados."
 
-# [WARNING] en translation used
 msgid "linked routes activities"
-msgstr "Activities of associated routes:"
+msgstr "Actividades de las rutas asociadas:"
 
 # [WARNING] needs_review
 msgid "local_product"
