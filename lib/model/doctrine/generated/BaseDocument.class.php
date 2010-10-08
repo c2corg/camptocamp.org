@@ -313,7 +313,6 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function browse($sort, $criteria, $format = null)
     {
         $field_list = self::buildFieldsList();
-        $field_list[] = 'm.module';
         $pager = self::createPager('Document', $field_list, $sort);
         $q = $pager->getQuery();
         
@@ -368,7 +367,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     protected static function buildFieldsList()
     {
-        return array('m.id', 'mi.culture', 'mi.name');
+        return array('m.id', 'mi.culture', 'mi.name', 'm.module');
     }
 
     protected static function buildGeoFieldsList()
