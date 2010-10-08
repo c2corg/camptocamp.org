@@ -48,6 +48,14 @@ function hide_outings_unrelated_fields()
         if (activity == 1 || activity == 6 || activity == 7)
         {
             show_outings_length = true;
+            show_outings_height_diff_down = true;
+        }
+        else
+        {
+            if (Math.round($('outings_length').value) > 0)
+            {
+                show_outings_length = true;
+            }
             if (Math.round($('height_diff_down').value) > 0)
             {
                 show_outings_height_diff_down = true;

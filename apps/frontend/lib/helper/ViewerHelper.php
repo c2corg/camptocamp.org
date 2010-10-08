@@ -44,7 +44,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         if ($module != 'users')
         {
             sfLoader::loadHelpers('Button');
-            echo '<div id="nav_share">' . button_share() . '</div>';
+            echo '<div id="nav_share" class="nav_box">' . button_share() . '</div>';
         }
     }
 

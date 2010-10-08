@@ -37,8 +37,7 @@ if (!isset($home_section))
     $home_section = true;
 }
 
-if ($home_section)
-{
+if ($home_section):
     include_partial('documents/home_section_title',
                     array('module' => 'images',
                           'custom_title_text' => $custom_title_text,
@@ -46,16 +45,16 @@ if ($home_section)
                           'custom_rss_link' => $custom_rss_link));
 ?>
     <div class="home_container_text" id="last_images_section_container"><?php
-}
-else
-{
+
+else:
+
 ?>
 <div id="nav_images" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
         <?php
     nav_title('images', __('Latest images'), 'images', 'last', $custom_title_link, $custom_rss_link, __("Subscribe to latest images creations"));
-}
+endif;
 
 if (count($items) == 0): ?>
     <p><?php echo __('No recent images available') ?></p>

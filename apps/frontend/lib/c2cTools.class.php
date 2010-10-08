@@ -34,6 +34,13 @@ class c2cTools
         return $request->getParameterHolder()->getAll();
     }
     
+    public static function getCriteriaRequestParameters()
+    {
+        $criteria = self::getAllRequestParameters();
+        $others = array_fill_keys(array('module', 'action', 'orderby', 'order', 'npp', 'page', 'format', 'layout'), 0);
+        return array_diff_key($criteria, $others);
+    }
+    
     public static function log($message = null)
     {
         if (sfConfig::get('sf_logging_enabled'))

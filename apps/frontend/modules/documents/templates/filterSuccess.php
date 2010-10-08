@@ -39,7 +39,7 @@ switch($module)
     case 'huts':
     case 'routes':
     case 'outings':
-    case 'user':
+    case 'users':
         $msg = __('activity and area filters applied');
         if ($perso->isMainFilterSwitchOn() &&
             (count($perso->getActivitiesFilter()) || count($perso->getPlacesFilter())))

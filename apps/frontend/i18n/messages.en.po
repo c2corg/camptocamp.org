@@ -4391,6 +4391,10 @@ msgid "link contributors in view page"
 msgstr "The first line of this field will be displayed on the same line as the registered participants. The following lines will be displayed underneath.<br />Registered participants can be directly associated to the outing, thus allowing them to modify the outing, add pictures, and associate other registered participants."
 
 # [WARNING] needs_review
+msgid "linked routes activities"
+msgstr "Activities of associated routes"
+
+# [WARNING] needs_review
 msgid "local_product"
 msgstr "direct sale by the producer"
 

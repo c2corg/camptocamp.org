@@ -10,4 +10,8 @@ echo georef_selector();
 <br /><br />
 <?php
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
+?>
+<br />
+<?php
+echo  __('linked routes activities') . ' ' . activities_selector();
 include_partial('documents/filter_sort');

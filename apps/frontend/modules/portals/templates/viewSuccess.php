@@ -50,7 +50,7 @@ if (!$mobile_version) // left navigation menus are only for web version
         include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
     }
 
-    if ($has_images)
+    if ($has_images && $has_map)
     {
         $image_url_params = $sf_data->getRaw('image_url_params');
         $image_url_params = implode('&', $image_url_params);
@@ -111,6 +111,26 @@ if ($has_map)
                            'show_map' => true,
                            'has_geom' => $has_geom));
 }
+elseif ($has_images)
+{
+    echo '<div id="last_images">';
+    $image_url_params = $sf_data->getRaw('image_url_params');
+    $image_url_params = implode('&', $image_url_params);
+    $custom_title_link = 'images/list';
+    $custom_rss_link = 'images/rss';
+    if (!empty($image_url_params))
+    {
+        $custom_title_link .= '?' . $image_url_params;
+        $custom_rss_link .= '?' . $image_url_params;
+    }
+    include_partial('images/latest',
+                    array('items' => $latest_images,
+                          'culture' => $culture,
+                          'default_open' => true,
+                          'custom_title_link' => $custom_title_link,
+                          'custom_rss_link' => $custom_rss_link));
+    echo '</div>';
+}
 
 if ($is_not_archive)
 {
@@ -119,7 +139,6 @@ if ($is_not_archive)
 
 // lang-dependent content
 echo '<div class="article_contenu">';
-
 include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                                                 'needs_translation' => $needs_translation, 'images' => $associated_images));
 echo '</div>';

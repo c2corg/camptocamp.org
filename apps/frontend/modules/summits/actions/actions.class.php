@@ -412,6 +412,7 @@ class summitsActions extends documentsActions
         $this->addCompareParam($out, 'salt');
         $this->addListParam($out, 'styp');
         $this->addParam($out, 'geom');
+        $this->addListParam($out, 'act');
         $this->addParam($out, 'bbox');
         
         return $out;

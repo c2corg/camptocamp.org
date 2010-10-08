@@ -12,7 +12,7 @@ if (!isset($default_open))
 <div id="nav_news" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
-        <?php echo nav_title('news', __('c2corg news'), 'list', $default_open); ?>
+        <?php echo nav_title('news', __('c2corg news'), 'list'); ?>
         <div class="nav_box_text" id="nav_news_section_container">
             <ul>
             <?php foreach ($items as $item): 

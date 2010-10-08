@@ -194,7 +194,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $value = c2cTools::getArrayElement($params_list, $param);
         }
         
-        if ($value)
+        if (!is_null($value))
         {
         /*    call_user_func_array
             (
@@ -251,6 +251,42 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $conditions[$join_id.'_i18n'] = true;
                 }
             }
+            
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static function buildPersoCriteria(&$conditions, &$values, $params_list)
+    {
+        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
+        if (isset($conditions['all']))
+        {
+            if ($conditions['all'])
+            {
+                return;
+            }
+            else
+            {
+                unset($conditions['all']);
+            }
+        }
+        
+        $perso = c2cTools::getArrayElement($params_list, 'perso');
+        if (c2cTools::getArrayElement($params_list, 'perso'))
+        {
+            self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
+        }
+        elseif (c2cTools::getArrayElement($params_list, 'bbox'))
+        {
+            self::buildConditionItem($conditions, $values, 'Bbox', 'm.geom', 'bbox', null, false, $params_list);
+        }
+        elseif (c2cTools::getArrayElement($params_list, 'around'))
+        {
+            self::buildConditionItem($conditions, $values, 'Around', 'm.geom', 'around', null, false, $params_list);
         }
     }
 
@@ -269,6 +305,50 @@ class BaseDocument extends sfDoctrineRecordI18n
             self::buildConditionItem($conditions, $values, 'Around', 'm.geom', 'around', null, false, $params_list);
         }
     }
+
+    public static function buildListCriteria($params_list)
+    {
+        $conditions = $values = array();
+
+        // criteria for disabling personal filter
+        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
+        if (isset($conditions['all']))
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
+        self::buildAreaCriteria($conditions, $values, $params_list);
+        
+        // document ID criteria
+        $has_id_criteria = self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
+        if ($has_id_criteria)
+        {
+            return array($conditions, $values);
+        }
+        
+        // document criteria
+        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', 'name', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Compare', 'm.elevation', 'dalt', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'm.module', 'dtyp', null, false, $params_list);
+    //    self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'auth');
+        self::buildConditionItem($conditions, $values, 'Array', array('m', 'i', 'categories'), 'icat', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', array('m', 'i', 'activities'), 'act', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Date', 'date_time', 'date', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Item', 'm.image_type', 'ityp', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
+        
+        // linked document criteria
+        self::buildConditionItem($conditions, $values, 'List', 'd.linked_id', 'mdoc', 'join_doc', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'mdoc', 'join_doc', false, $params_list);
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
     
     /**
      * Lists documents of current model taking into account search criteria or filters if any.
@@ -276,8 +356,7 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function browse($sort, $criteria, $format = null)
     {
-        $field_list = self::buildFieldsList();
-        $field_list[] = 'm.module';
+        $field_list = self::buildFieldsList($format, $sort, array('m.module'));
         $pager = self::createPager('Document', $field_list, $sort);
         $q = $pager->getQuery();
         
@@ -330,9 +409,19 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $pager;
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($format = null, $sort, $field_list = array())
     {
-        return array('m.id', 'mi.culture', 'mi.name');
+        return ;
+        $field_list = array_merge(array('m.id', 'mi.culture', 'mi.name'),
+                                  $fields_list);
+        
+        $orderby = $sort['order_by'];
+        if (!empty($orderby) && !in_array($orderby, $field_list))
+        {
+            $field_list[] = $orderby;
+        }
+        
+        return $field_list;
     }
 
     protected static function buildGeoFieldsList()
@@ -476,7 +565,8 @@ class BaseDocument extends sfDoctrineRecordI18n
             $field_2 = "$alias_2.$field_2";
         }
         $query_string = array();
-        $query_string[] = $field_1 . ' IS NULL';
+        // Uncomment to add "no activity" criteria
+        // $query_string[] = $field_1 . ' IS NULL';
         foreach ($activities as $a)
         {
             $query_string[] = '? = ANY (' . $field_2 . ')';
@@ -1744,11 +1834,11 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($param == '-')
         {
-            $conditions[] = "$field IS NULL";
+            $conditions[] = "($field IS NULL OR $field = 0)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field IS NOT NULL";
+            $conditions[] = "($field IS NOT NULL AND $field != 0)";
         }
         else
         {
@@ -1761,11 +1851,11 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($param == '-')
         {
-            $conditions[] = "$field IS NULL";
+            $conditions[] = "($field IS NULL OR $field = 0)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field IS NOT NULL";
+            $conditions[] = "($field IS NOT NULL AND $field != 0)";
         }
         else
         {
@@ -1778,11 +1868,11 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($param == '-')
         {
-            $conditions[] = "$field IS NULL";
+            $conditions[] = "($field IS NULL OR $field = 0)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field IS NOT NULL";
+            $conditions[] = "($field IS NOT NULL AND $field != 0)";
         }
         elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         {
@@ -1838,6 +1928,10 @@ class BaseDocument extends sfDoctrineRecordI18n
                     break;
             }
         }
+        elseif (preg_match('/^([0-9!]*)(-[0-9!]*)*$/', $param, $regs))
+        {
+            buildListCondition(&$conditions, &$values, $field, $param);
+        }
         else
         {
             return;
@@ -1848,38 +1942,85 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($param == '-')
         {
-            $conditions[] = "$field IS NULL";
+            $conditions[] = "($field IS NULL OR $field = 0)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field IS NOT NULL";
+            $conditions[] = "($field IS NOT NULL AND $field != 0)";
         }
         else
         {
             $items = explode('-', $param);
             $condition_array = array();
+            $not_condition_array = array();
+            $not_values = array();
             $is_null = '';
+            $condition = array();
+            $conditions_groups = array();
             foreach ($items as $item)
             {
-                if (strval($item) != '0')
+                if ($item == '')
                 {
-                    $condition_array[] = '?';
-                    $values[] = $item;
+                    continue;
                 }
-                else
+                $not_items = explode('!', $item);
+                $item = array_shift($not_items);
+                if ($item != '')
                 {
-                    $is_null = " OR $field IS NULL";
+                    if (strval($item) != '0')
+                    {
+                        $condition_array[] = '?';
+                        $values[] = $item;
+                    }
+                    else
+                    {
+                        $is_null = "$field IS NULL OR $field = 0";
+                    }
+                }
+                if (count($not_items))
+                {
+                    foreach ($not_items as $not_item)
+                    {
+                        $not_condition_array[] = '?';
+                        $not_values[] = $not_item;
+                    }
                 }
             }
-            if (count($condition_array) == 1)
+            if ($nb_conditions = count($condition_array))
             {
-                $condition = ' = ?';
+                if ($nb_conditions == 1)
+                {
+                    $condition[] = $field . ' = ?';
+                }
+                elseif ($nb_conditions > 1)
+                {
+                    $condition[] = $field . ' IN ( ' . implode(', ', $condition_array) . ' )';
+                }
             }
-            else
+            if (!empty($is_null))
             {
-                $condition = ' IN ( ' . implode(', ', $condition_array) . ' )';
+                $condition[] = $is_null;
             }
-            $conditions[] = $field . $condition . $is_null;
+            if (count($condition))
+            {
+                $conditions_groups[] = '(' . implode (') OR (', $condition) . ')';
+            }
+            if ($nb_not_conditions = count($not_condition_array))
+            {
+                if ($nb_not_conditions == 1)
+                {
+                    $conditions_groups[] = $field . ' != ?';
+                }
+                elseif ($nb_not_conditions > 1)
+                {
+                    $conditions_groups[] = $field . ' NOT IN ( ' . implode(', ', $not_condition_array) . ' )';
+                }
+                foreach ($not_values as $value)
+                {
+                    $values[] = $value;
+                }
+            }
+            $conditions[] = '(' . implode(') AND (', $conditions_groups) . ')' . $is_null;
         }
     }
 
@@ -1890,11 +2031,11 @@ class BaseDocument extends sfDoctrineRecordI18n
             $field_1 = $field[0] . '1.' . $field[1];
             if ($param == '-')
             {
-                $conditions[] = "$field_1 IS NULL";
+                $conditions[] = "($field_1 IS NULL OR $field_1 = 0)";
             }
             elseif ($param == ' ')
             {
-                $conditions[] = "$field_1 IS NOT NULL";
+                $conditions[] = "($field_1 IS NOT NULL AND $field_1 != 0)";
             }
             
             return 1;
@@ -1910,29 +2051,69 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $field_n = $field[0] . $group_id . '.' . $field[1];
                 $items = explode('-', $group);
                 $condition_array = array();
+                $not_condition_array = array();
+                $not_values = array();
+                $condition = array();
                 $is_null = '';
                 foreach ($items as $item)
                 {
-                    if (strval($item) != '0')
+                    $not_items = explode('!', $item);
+                    $item = array_shift($not_items);
+                    if ($item != '')
                     {
-                        $condition_array[] = '?';
-                        $values[] = $item;
+                        if (strval($item) != '0')
+                        {
+                            $condition_array[] = '?';
+                            $values[] = $item;
+                        }
+                        else
+                        {
+                            $is_null = "$field_n IS NULL OR $field_n = 0";
+                        }
                     }
-                    else
+                    if (count($not_items))
                     {
-                        $is_null = " OR $field_n IS NULL";
+                        foreach ($not_items as $not_item)
+                        {
+                            $not_condition_array[] = '?';
+                            $not_values[] = $not_item;
+                        }
                     }
                 }
-                if (count($condition_array) == 1)
+                if ($nb_conditions = count($condition_array))
                 {
-                    $condition = ' = ?';
+                    if ($nb_conditions == 1)
+                    {
+                        $condition[] = $field_n . ' = ?';
+                    }
+                    elseif ($nb_conditions > 1)
+                    {
+                        $condition[] = $field_n . ' IN ( ' . implode(', ', $condition_array) . ' )';
+                    }
                 }
-                else
+                if (!empty($is_null))
                 {
-                    $condition = ' IN ( ' . implode(', ', $condition_array) . ' )';
+                    $condition[] = $is_null;
                 }
-                $conditions_groups[] = $field_n . $condition . $is_null;
-                
+                if (count($condition))
+                {
+                    $conditions_groups[] = '(' . implode (') OR (', $condition) . ')';
+                }
+                if ($nb_not_conditions = count($not_condition_array))
+                {
+                    if ($nb_not_conditions == 1)
+                    {
+                        $conditions_groups[] = $field_n . ' != ?';
+                    }
+                    elseif ($nb_not_conditions > 1)
+                    {
+                        $conditions_groups[] = $field_n . ' NOT IN ( ' . implode(', ', $not_condition_array) . ' )';
+                    }
+                    foreach ($not_values as $value)
+                    {
+                        $values[] = $value;
+                    }
+                }
             }
             
             $conditions[] = '(' . implode(') AND (', $conditions_groups) . ')';
@@ -1948,11 +2129,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if ($param == '-')
         {
-            $conditions[] = "$field_1 IS NULL";
+            $conditions[] = "($field_1 IS NULL OR $field_1 = 0)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field_1 IS NOT NULL";
+            $conditions[] = "($field_1 IS NOT NULL AND $field_1 != 0)";
         }
         else
         {
@@ -2010,11 +2191,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         if ($param == '-')
         {
-            $conditions[] = "$field_1 IS NULL";
+            $conditions[] = "($field_1 IS NULL OR $field_1 = 0)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field_1 IS NOT NULL";
+            $conditions[] = "($field_1 IS NOT NULL AND $field_1 != 0)";
         }
         else
         {
@@ -2028,18 +2209,34 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $cond = "(? = ANY ($field_2))";
                 foreach ($items as $item)
                 {
-                    if (strval($item) != '0')
+                    $not_items = explode('!', $item);
+                    $item = array_shift($not_items);
+                    if ($item != '')
                     {
-                        $condition_array[] = $cond;
-                        $values[] = $item;
+                        if (strval($item) != '0')
+                        {
+                            $condition_array[] = "(? = ANY ($field_2))";
+                            $values[] = $item;
+                        }
+                        elseif (!$is_null)
+                        {
+                            $conditions_groups[] = "$field_1 IS NULL OR $field_1 = 0";
+                            $is_null = true;
+                        }
                     }
-                    elseif (!$is_null)
+                    if (count($not_items))
                     {
-                        $conditions_groups[] = "$field_1 IS NULL";
-                        $is_null = true;
+                        foreach ($not_items as $not_item)
+                        {
+                            $condition_array[] = "NOT (? = ANY ($field_2))";
+                            $values[] = $not_item;
+                        }
                     }
                 }
-                $conditions_groups[] = implode(' AND ', $condition_array);
+                if (count($condition_array))
+                {
+                    $conditions_groups[] = implode(' AND ', $condition_array);
+                }
             }
             $conditions[] = '((' . implode (') OR (', $conditions_groups) . '))';
         }
@@ -2081,11 +2278,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         if ($param == 'yes')
         {
-            $conditions[] = $field . ' IS NOT NULL';
+            $conditions[] = "($field IS NULL OR $field = 0)";
         }
         else
         {
-            $conditions[] = $field . ' IS NULL';
+            $conditions[] = "($field IS NOT NULL AND $field != 0)";
         } 
     }
 
@@ -2096,11 +2293,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             if ($facings = '-')
             {
-                $conditions[] = "$field IS NULL";
+                $conditions[] = "($field IS NULL OR $field = 0)";
             }
             elseif ($param == ' ')
             {
-                $conditions[] = "$field IS NOT NULL";
+                $conditions[] = "($field IS NOT NULL AND $field != 0)";
             }
             else
             {
@@ -2137,11 +2334,11 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($param == '-')
         {
-            $conditions[] = "$field IS NULL";
+            $conditions[] = "($field IS NULL OR $field = 0)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field IS NOT NULL";
+            $conditions[] = "($field IS NOT NULL AND $field != 0)";
         }
         elseif (preg_match('/[YMWD]/', $param, $regs)) // 'since'
         {
