@@ -856,7 +856,7 @@ c2corg.API.GpLogo = OpenLayers.Class(Geoportal.Control.PermanentLogo, {
         Geoportal.Control.PermanentLogo.prototype.initialize.apply(this, arguments);
         if (options.api) {
             this.api = options.api;
-            this.permaLogo = this.api.baseConfig.staticBaseUrl + 'static/js/mapfish/geoportal/img/logo_gp.gif';
+            this.permaLogo = this.api.baseConfig.staticBaseUrl + '/static/js/mapfish/geoportal/img/logo_gp.gif';
         }
     },
     
