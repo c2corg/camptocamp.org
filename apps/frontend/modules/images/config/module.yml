@@ -29,9 +29,13 @@ all:
       'ityp': image_type
 
   type:
-    list:
+    list: # list does not contain copyright images
       1: collaborative image
       2: personal image
+    full_list:
+      1: collaborative image
+      2: personal image
+      3: copyright image # for book-associated images only
 
   # used to know which fields contain rich content, i.e. bbcode
   bbcode_fields:

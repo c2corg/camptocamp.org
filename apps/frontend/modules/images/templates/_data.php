@@ -25,7 +25,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         }
         li(field_data_if_set($document, 'author'));
         ?>
-        <?php li(field_data_from_list_if_set($document, 'image_type', 'mod_images_type_list', false)); ?>
+        <?php li(field_data_from_list_if_set($document, 'image_type', 'mod_images_type_full_list', false)); ?>
         <li><div class="section_subtitle" id="_license"><?php echo __('Image license') ?></div>
         <?php
         // TODO maybe we should put the BI version in about field (since the big image is not in the page)

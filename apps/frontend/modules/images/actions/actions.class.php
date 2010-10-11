@@ -514,6 +514,16 @@ class imagesActions extends documentsActions
         // display form
     }
 
+    public function executeEdit()
+    {
+        parent::executeEdit();
+
+        // check if the image is already associated to a book (required to decide whether "copyright" is allowed or not)
+        $id = $this->document['id'];
+        $assocations = Association::findAllAssociations($id, 'bi');
+        $this->is_associated_book = !empty($association);
+    }
+
     /**
      * filter edits which must require additional parameters 
      * overrides the one in parent class.

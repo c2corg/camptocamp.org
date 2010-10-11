@@ -561,7 +561,7 @@ class Association extends BaseAssociation
             $this->linked_id = $linked_id;
             $this->type = $type;
             $this->save();
-            
+
             // and we log this:
             $al = new AssociationLog();
             $al->main_id = $main_id;
@@ -570,9 +570,47 @@ class Association extends BaseAssociation
             $al->user_id = $user_id;
             $al->is_creation = true;
             $al->save();
-            
+
             $conn->commit();
-            
+
+            // send an email to moderators if a picture is associated to a book
+            if ($type == 'bi')
+            {
+                try
+                {
+                    // retrieve moderators email
+                    $moderator_id = sfConfig::get('app_moderator_user_id'); // currently send to topo-fr only
+                    $conn->beginTransaction();
+                    $rows = $conn->standaloneQuery('SELECT email FROM app_users_private_data d WHERE id = ' . $moderator_id)->fetchAll();
+                    $conn->commit();
+                    $email_recipient = $rows[0]['email'];
+                    $mail = new sfMail();
+                    $mail->setCharset('utf-8');
+
+                    // definition of the required parameters
+                    $mail->setSender(sfConfig::get('app_outgoing_emails_sender'));
+                    $mail->setFrom(sfConfig::get('app_outgoing_emails_from'));
+                    $mail->addReplyTo(sfConfig::get('app_outgoing_emails_reply_to'));
+
+                    $mail->addAddress($email_recipient);
+
+                    $mail->setSubject('New image associated to book');
+                    $body = "A new image has been associated to book $main_id.\n"
+                        . "Stuff to check:\n"
+                        . " * image is not too big (max 800px width or height)\n"
+                        . " * image may require a copyright license. If so, ensure the owner is correctly aknowledged in the author field\n"
+                    $mail->setBody($body);
+
+                    // send the email
+                    $mail->send();
+                }
+                catch (exception $e)
+                {
+                    $conn->rollback();
+                    c2cTools::log("Association::doSaveWithValues($main_id, $linked_id, $type, $user_id) failed sending email for image associated to book");
+                }
+            }
+
             return true;
         }
         catch (exception $e)

@@ -442,6 +442,7 @@ all:
     list:
       1: by-sa
       2: by-nc-nd
+      3: copyright
 
   meta_engine:
     base_url: '@METAENGINE_URL@'
