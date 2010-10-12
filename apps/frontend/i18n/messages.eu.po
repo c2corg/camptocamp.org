@@ -3780,6 +3780,10 @@ msgstr "Harremana"
 msgid "content license"
 msgstr "Edukinaren lizentzia"
 
+# [WARNING] en translation used
+msgid "copyright image"
+msgstr "copyright image"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -4120,6 +4124,12 @@ msgstr "Irudia:"
 # [WARNING] es translation used
 msgid "filled in"
 msgstr "llenado"
+
+# [general comment]
+# Filter to select only docs available in a specific language
+# [WARNING] fr translation used
+msgid "filter language"
+msgstr "Uniquement les documents disponibles en"
 
 msgid "filter successfully saved"
 msgstr "Zure filtroa ongi gorde da."

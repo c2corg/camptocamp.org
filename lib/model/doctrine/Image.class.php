@@ -381,6 +381,7 @@ class Image extends BaseImage
         self::buildConditionItem($conditions, $values, 'Item', 'm.image_type', 'ityp', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Item', 'mi.culture', 'icult', null, false, $params_list);
         
         // linked document criteria
         self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc', false, $params_list);

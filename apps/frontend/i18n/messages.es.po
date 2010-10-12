@@ -1001,6 +1001,7 @@ msgstr "Imagen cargada"
 msgid "Images"
 msgstr "Imágenes"
 
+# [WARNING] needs_update
 msgid "Images are under license specified in the original document of each image"
 msgstr "Las imágenes en esta pagina están disponibles bajo la licencia Creative Commons indicada en el documento de origen de cada imagen."
 
@@ -3574,6 +3575,10 @@ msgstr "Contacto"
 msgid "content license"
 msgstr "Licencia de los contenidos"
 
+# [WARNING] en translation used
+msgid "copyright image"
+msgstr "copyright image"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -3899,6 +3904,12 @@ msgstr "Imagen:"
 # Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
 msgid "filled in"
 msgstr "llenado"
+
+# [general comment]
+# Filter to select only docs available in a specific language
+# [WARNING] fr translation used
+msgid "filter language"
+msgstr "Uniquement les documents disponibles en"
 
 msgid "filter successfully saved"
 msgstr "Su filtro ha sido registrado con éxito."

@@ -76,6 +76,7 @@ class Book extends BaseBook
         self::buildConditionItem($conditions, $values, 'Array', array('m', 'b', 'langs'), 'lang', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', array('m', 'b', 'activities'), 'act', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Item', 'mi.culture', 'bcult', null, false, $params_list);
         
         // linked document criteria
         self::buildConditionItem($conditions, $values, 'List', 'd.linked_id', 'documents', 'join_doc', false, $params_list);

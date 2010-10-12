@@ -56,6 +56,7 @@ class Summit extends BaseSummit
         self::buildConditionItem($conditions, $values, 'List', 'm.summit_type', 'styp', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Item', 'si.culture', 'scult', 'join_summit_i18n', false, $params_list);
 
         // route criteria
         self::buildConditionItem($conditions, $values, 'Array', 'r.activities', 'act', 'join_route', false, $params_list);

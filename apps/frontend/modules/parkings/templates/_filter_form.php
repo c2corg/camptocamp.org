@@ -8,9 +8,8 @@ include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personal
 include_partial('parkings_filter');
 ?>
 <br />
-<?php
-echo georef_selector();
-?>
+<?php echo georef_selector(); ?>
 <br />
-<?php
-include_partial('documents/filter_sort');
+<?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('pcult') ?>
+<br />
+<?php include_partial('documents/filter_sort');

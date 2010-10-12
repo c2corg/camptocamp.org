@@ -10,6 +10,10 @@ echo '<br />' . __('activities') . ' ' . activities_selector(false, true);
 
 echo '<br />' . georef_selector();
 ?>
+<br />
+<?php
+echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('wcult');
+?>
 <br /><br />
 <?php
 include_partial('documents/filter_sort');

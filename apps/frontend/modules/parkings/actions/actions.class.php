@@ -159,6 +159,7 @@ class parkingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Array', array('m', 'p', 'public_transportation_types'), 'tpty');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
+        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'pcult');
 
         if (!empty($conditions))
         {
@@ -178,6 +179,7 @@ class parkingsActions extends documentsActions
         $this->addListParam($out, 'tp');
         $this->addListParam($out, 'tpty');
         $this->addParam($out, 'geom');
+        $this->addParam($out, 'pcult');
         
         return $out;
     }

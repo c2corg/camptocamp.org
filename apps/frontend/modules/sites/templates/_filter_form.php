@@ -57,4 +57,8 @@ include_partial('parkings/parkings_filter');
 ?>
 <br />
 <?php
+echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('tcult');
+?>
+<br />
+<?php
 include_partial('documents/filter_sort');

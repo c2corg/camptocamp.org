@@ -11,4 +11,8 @@ include_partial('routes_filter');
 ?>
 <br />
 <?php
+echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('rcult');
+?>
+<br />
+<?php
 include_partial('documents/filter_sort');

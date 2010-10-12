@@ -16,4 +16,8 @@ include_partial('parkings/parkings_filter');
 <br /><br />
 <?php
 echo __('activities') . ' ' . activities_selector(false, true);
+echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('hcult');
+?>
+<br />
+<?php
 include_partial('documents/filter_sort');

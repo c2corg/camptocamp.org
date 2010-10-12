@@ -73,6 +73,7 @@ class Article extends BaseArticle
         self::buildConditionItem($conditions, $values, 'Item', 'm.article_type', 'ctyp', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', array('m', 'a', 'activities'), 'act', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Item', 'mi.culture', 'ccult', null, false, $params_list);
         
         // linked document criteria
         self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc', false, $params_list);

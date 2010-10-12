@@ -100,6 +100,7 @@ class productsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Array', array('m', 'p', 'product_type'), 'ftyp');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
+        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'fcult');
 
         if (!empty($conditions))
         {
@@ -128,6 +129,7 @@ class productsActions extends documentsActions
         $this->addCompareParam($out, 'falt');
         $this->addListParam($out, 'ftyp');
         $this->addParam($out, 'geom');
+        $this->addParam($out, 'fcult');
 
         return $out;
     }

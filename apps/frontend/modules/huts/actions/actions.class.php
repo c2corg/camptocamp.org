@@ -173,7 +173,6 @@ class hutsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'parking', 'join_parking_id');
 
         // hut criteria
-
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('hnam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'halt');
         $this->buildCondition($conditions, $values, 'Bool', 'm.is_staffed', 'hsta');
@@ -187,6 +186,7 @@ class hutsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Bool', 'm.has_unstaffed_wood', 'hwoo');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
+        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'hcult');
 
         if (!empty($conditions))
         {
@@ -223,6 +223,7 @@ class hutsActions extends documentsActions
         $this->addParam($out, 'hwoo');
         $this->addListParam($out, 'act');
         $this->addParam($out, 'geom');
+        $this->addParam($out, 'hcult');
 
         return $out;
     }

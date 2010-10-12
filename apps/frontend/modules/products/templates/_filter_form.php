@@ -10,9 +10,9 @@ include_partial('products_filter');
 echo '<br />' . georef_selector();
 ?>
 <br />
-<?php
-include_partial('parkings/parkings_filter');
-?>
+<?php include_partial('parkings/parkings_filter') ?>
+<br />
+<?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('fcult') ?>
 <br /><br />
 <?php
 include_partial('documents/filter_sort');

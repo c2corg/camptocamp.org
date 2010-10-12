@@ -908,6 +908,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Bool', 'm.is_on_glacier', 'glac');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
+        $this->buildCondition($conditions, $values, 'Item', 'ri.culture', 'rcult', 'join_route_i18n');
 
         // book criteria
         $this->buildCondition($conditions, $values, 'String', 'bi.search_name', 'bnam', 'join_book', true);
@@ -968,6 +969,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'rlen');
         $this->addParam($out, 'glac');
         $this->addParam($out, 'geom');
+        $this->addParam($out, 'rcult');
 
         return $out;
     }

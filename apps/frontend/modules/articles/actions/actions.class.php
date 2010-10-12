@@ -141,6 +141,7 @@ class articlesActions extends documentsActions
         $this->addListParam($out, 'ccat');
         $this->addListParam($out, 'act');
         $this->addParam($out, 'ctyp');
+        $this->addParam($out, 'ccult');
 
         return $out;
     }

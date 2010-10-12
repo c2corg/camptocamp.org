@@ -296,3 +296,13 @@ function georef_selector($title = '')
     $out .= bool_selector('geom');
     return $out;
 }
+
+function lang_selector($field)
+{
+    $options = array();
+    foreach (sfConfig::get('app_languages_c2c') as $key => $lang)
+    {
+        $options[$key] = __($lang);
+    }
+    return select_tag($field, options_for_select($options, '', array('include_blank' => true)));
+}

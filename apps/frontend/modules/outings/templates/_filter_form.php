@@ -18,8 +18,10 @@ include_partial('routes_filter');
 ?>
 <br />
 <?php
-echo __('Date:') . ' ' . date_selector(array('month' => false, 'year' => true, 'day' => true));
+echo __('Date') . __('&nbsp;:') . ' ' . date_selector(array('month' => false, 'year' => true, 'day' => true));
 ?>
+<br />
+<?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('ocult') ?>
 <br />
 <?php
 include_partial('documents/filter_sort');

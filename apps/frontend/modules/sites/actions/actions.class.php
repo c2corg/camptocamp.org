@@ -629,6 +629,7 @@ class sitesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'm.children_proof', 'chil');
         $this->buildCondition($conditions, $values, 'List', 'm.rain_proof', 'rain');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
+        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'tcult');
 
         if (!empty($conditions))
         {   
@@ -666,6 +667,7 @@ class sitesActions extends documentsActions
         $this->addListParam($out, 'chil');
         $this->addListParam($out, 'rain');
         $this->addParam($out, 'geom');
+        $this->addParam($out, 'tcult');
 
         return $out;
     }

@@ -591,6 +591,7 @@ class imagesActions extends documentsActions
         $this->addDateParam($out, 'date');
         $this->addParam($out, 'geom');
         $this->addParam($out, 'ityp');
+        $this->addParam($out, 'icult');
 
         return $out;
     }

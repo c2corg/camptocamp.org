@@ -165,6 +165,7 @@ class Outing extends BaseOuting
         self::buildConditionItem($conditions, $values, 'List', 'm.lift_status', 'olift', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.hut_status', 'ohut', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Item', 'oi.culture', 'ocult', 'join_outing_i18n', false, $params_list);
 
         // summit criteria
         self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit_i18n', false, $params_list);

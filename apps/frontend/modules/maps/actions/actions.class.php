@@ -78,6 +78,7 @@ class mapsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Item', 'm.scale', 'scal');
         $this->buildCondition($conditions, $values, 'Item', 'm.editor', 'edit');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
+        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'mcult');
 
         if (!empty($conditions))
         {
@@ -97,6 +98,7 @@ class mapsActions extends documentsActions
         $this->addParam($out, 'edit');
         $this->addNameParam($out, 'code');
         $this->addParam($out, 'scal');
+        $this->addParam($out, 'mcult');
 
         return $out;
     }

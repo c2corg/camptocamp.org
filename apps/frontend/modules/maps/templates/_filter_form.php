@@ -15,4 +15,8 @@ echo __('Code:') . ' ' . input_tag('code');
 <?php
 echo __('Scale:') . ' ' . field_value_selector('scal', 'mod_maps_scales_list', true);
 echo __('Editor:') . ' ' . field_value_selector('edit', 'mod_maps_editors_list', true);
+?>
+<br />
+<?php
+echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('mcult');
 include_partial('documents/filter_sort');
