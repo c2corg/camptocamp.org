@@ -598,7 +598,7 @@ class Association extends BaseAssociation
                     $body = "A new image has been associated to book $main_id.\n"
                         . "Stuff to check:\n"
                         . " * image is not too big (max 800px width or height)\n"
-                        . " * image may require a copyright license. If so, ensure the owner is correctly aknowledged in the author field\n"
+                        . " * image may require a copyright license. If so, ensure the owner is correctly aknowledged in the author field\n";
                     $mail->setBody($body);
 
                     // send the email
