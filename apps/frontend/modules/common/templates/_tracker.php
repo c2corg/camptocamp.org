@@ -1,8 +1,8 @@
 <script type="text/javascript">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', '<?php echo c2cTools::mobileVersion() ? sfConfig::get('app_mobile_ganalytics_key') : sfConfig::get('app_ganalytics_key') ?>']);
+_gaq.push(['_setDomainName', 'none']);
 _gaq.push(['_trackPageview']);
-_gaq.push(['_setDomainName', '.<?php echo c2cTools::mobileVersion() ? sfConfig::get('app_mobile_version_host') : sfConfig::get('app_classic_version_host') ?>']);
 _gaq.push(function() {pageTracker = _gat._getTracker('<?php echo sfConfig::get('app_ganalytics_key') ?>')});
 (function() {
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
