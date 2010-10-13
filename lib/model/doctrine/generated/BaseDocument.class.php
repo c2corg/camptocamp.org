@@ -2137,11 +2137,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         if ($param == '-')
         {
-            $conditions[] = "($field_1 IS NULL OR (0 = ANY ($field_1)))";
+            $conditions[] = "($field_1 IS NULL OR 0 = ANY ($field_2))";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field_1 IS NOT NULL AND NOT (0 = ANY ($field_1)))";
+            $conditions[] = "($field_1 IS NOT NULL AND NOT (0 = ANY ($field_2)))";
         }
         else
         {
@@ -2166,7 +2166,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                         }
                         elseif (!$is_null)
                         {
-                            $conditions_groups[] = "$field_1 IS NULL OR (0 = ANY ($field_1))";
+                            $conditions_groups[] = "$field_1 IS NULL OR 0 = ANY ($field_2)";
                             $is_null = true;
                         }
                     }

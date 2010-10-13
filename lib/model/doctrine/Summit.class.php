@@ -60,6 +60,29 @@ class Summit extends BaseSummit
 
         // route criteria
         self::buildConditionItem($conditions, $values, 'Array', 'r.activities', 'act', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.max_elevation', 'malt', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.height_diff_up', 'hdif', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.elevation', 'ralt', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.difficulties_height', 'dhei', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 'r.configuration', 'conf', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Facing', 'r.facing', 'fac', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'r.route_type', 'rtyp', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.equipment_rating', 'prat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.duration', 'time', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.toponeige_technical_rating', 'trat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.toponeige_exposition_rating', 'expo', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.labande_global_rating', 'lrat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.labande_ski_rating', 'srat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.ice_rating', 'irat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.mixed_rating', 'mrat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.rock_free_rating', 'frat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.rock_required_rating', 'rrat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.aid_rating', 'arat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.global_rating', 'grat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.engagement_rating', 'erat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.hiking_rating', 'hrat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route', false, $params_list);
 
         if (!empty($conditions))
         {

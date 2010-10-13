@@ -168,83 +168,104 @@ class Outing extends BaseOuting
         self::buildConditionItem($conditions, $values, 'Item', 'oi.culture', 'ocult', 'join_outing_i18n', false, $params_list);
 
         // summit criteria
-        self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit_i18n', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 's.summit_type', 'styp', 'join_summit', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'l2.main_id', 'summits', 'join_summit_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Order', array('lat', 'lon'), 'orderby', 'join_summit', false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l2.main_id', 'summits', 'join_summit_id', false, $params_list);
+        if (!$has_id)
+        {
+            self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 's.summit_type', 'styp', 'join_summit', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Order', array('lat', 'lon'), 'orderby', 'join_summit', false, $params_list);
+        }
 
         // hut criteria
-        self::buildConditionItem($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut_i18n', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'h.shelter_type', 'htyp', 'join_hut', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'h.staffed_capacity', 'hscap', 'join_hut', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'h.unstaffed_capacity', 'hucap', 'join_hut', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Bool', 'h.has_unstaffed_matress', 'hmat', 'join_hut', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Bool', 'h.has_unstaffed_blanket', 'hbla', 'join_hut', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Bool', 'h.has_unstaffed_gas', 'hgas', 'join_hut', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Bool', 'h.has_unstaffed_wood', 'hwoo', 'join_hut', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'l3.main_id', 'huts', 'join_hut_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'l3.main_id', 'hut', 'join_hut_id', false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l3.main_id', 'huts', 'join_hut_id', false, $params_list);
+        $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', 'l3.main_id', 'hut', 'join_hut_id', false, $params_list);
+        if (!$has_id)
+        {
+            self::buildConditionItem($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'h.shelter_type', 'htyp', 'join_hut', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'h.staffed_capacity', 'hscap', 'join_hut', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'h.unstaffed_capacity', 'hucap', 'join_hut', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', 'h.has_unstaffed_matress', 'hmat', 'join_hut', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', 'h.has_unstaffed_blanket', 'hbla', 'join_hut', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', 'h.has_unstaffed_gas', 'hgas', 'join_hut', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', 'h.has_unstaffed_wood', 'hwoo', 'join_hut', false, $params_list);
+        }
 
         // parking criteria
-        self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking_i18n', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'l4.main_id', 'parkings', 'join_parking_id', false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l4.main_id', 'parkings', 'join_parking_id', false, $params_list);
+        if (!$has_id)
+        {
+            self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking', false, $params_list);
+        }
 
         // route criteria
-        self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', 'rnam', 'join_route_i18n', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 'r.activities', 'ract', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.max_elevation', 'malt', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.height_diff_up', 'hdif', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.elevation', 'ralt', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.difficulties_height', 'dhei', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 'r.configuration', 'conf', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Facing', 'r.facing', 'fac', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'r.route_type', 'rtyp', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.equipment_rating', 'prat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.duration', 'time', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 'r.activities', 'ract', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.toponeige_technical_rating', 'trat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.toponeige_exposition_rating', 'expo', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.labande_global_rating', 'lrat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.labande_ski_rating', 'srat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.ice_rating', 'irat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.mixed_rating', 'mrat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.rock_free_rating', 'frat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.rock_required_rating', 'rrat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.aid_rating', 'arat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.global_rating', 'grat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.engagement_rating', 'erat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'r.hiking_rating', 'hrat', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'l.main_id', 'routes', 'join_route_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', 'join_route', false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l.main_id', 'routes', 'join_route_id', false, $params_list);
+        if (!$has_id)
+        {
+            self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', 'rnam', 'join_route_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 'r.activities', 'ract', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.max_elevation', 'malt', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.height_diff_up', 'hdif', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.elevation', 'ralt', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.difficulties_height', 'dhei', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 'r.configuration', 'conf', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Facing', 'r.facing', 'fac', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'r.route_type', 'rtyp', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.equipment_rating', 'prat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.duration', 'time', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 'r.activities', 'ract', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.toponeige_technical_rating', 'trat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.toponeige_exposition_rating', 'expo', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.labande_global_rating', 'lrat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.labande_ski_rating', 'srat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.ice_rating', 'irat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.mixed_rating', 'mrat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.rock_free_rating', 'frat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.rock_required_rating', 'rrat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.aid_rating', 'arat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.global_rating', 'grat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.engagement_rating', 'erat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 'r.hiking_rating', 'hrat', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', 'join_route', false, $params_list);
+        }
 
         // site criteria
-        self::buildConditionItem($conditions, $values, 'String', 'ti.search_name', 'tnam', 'join_site_i18n', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 't.elevation', 'talt', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 't.site_types', 'ttyp', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 't.climbing_styles', 'tcsty', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 't.equipment_rating', 'prat', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 't.routes_quantity', 'rqua', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 't.mean_height', 'mhei', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 't.mean_rating', 'mrat', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 't.facings', 'tfac', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 't.rock_types', 'trock', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 't.children_proof', 'chil', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 't.rain_proof', 'rain', 'join_site', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'l5.main_id', 'sites', 'join_site_id', false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l5.main_id', 'sites', 'join_site_id', false, $params_list);
+        if (!$has_id)
+        {
+            self::buildConditionItem($conditions, $values, 'String', 'ti.search_name', 'tnam', 'join_site_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 't.elevation', 'talt', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 't.site_types', 'ttyp', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 't.climbing_styles', 'tcsty', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 't.equipment_rating', 'prat', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 't.routes_quantity', 'rqua', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 't.mean_height', 'mhei', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', 't.mean_rating', 'mrat', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 't.facings', 'tfac', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 't.rock_types', 'trock', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 't.children_proof', 'chil', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 't.rain_proof', 'rain', 'join_site', false, $params_list);
+        }
 
         // user criteria
-        self::buildConditionItem($conditions, $values, 'String', 'ui.search_name', 'unam', 'join_user_i18n', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'u.category', 'ucat', 'join_user', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id', false, $params_list);
+        $has_id = $has_id || self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
+        if (!$has_id)
+        {
+            self::buildConditionItem($conditions, $values, 'String', 'ui.search_name', 'unam', 'join_user_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'u.category', 'ucat', 'join_user', false, $params_list);
+        }
+
+        // article criteria
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l6.main_id', 'articles', 'join_article_id', false, $params_list);
 
         if (!empty($conditions))
         {
@@ -256,7 +277,7 @@ class Outing extends BaseOuting
 
     public static function browse($sort, $criteria, $format = null)
     {
-        $field_list = self::buildOutingFieldsList($format, $sort);
+        $field_list = self::buildFieldsList($format, $sort);
         $pager = self::createPager('Outing', $field_list, $sort);
         $q = $pager->getQuery();
 
@@ -486,13 +507,33 @@ class Outing extends BaseOuting
             }
         }
 
+        if (isset($conditions['join_article_id']) || isset($conditions['join_article']))
+        {
+            $q->leftJoin("m.associations l6");
+            
+            if (isset($conditions['join_article_id']))
+            {
+                unset($conditions['join_article_id']);
+            }
+            else
+            {
+                $q->addWhere("l6.type = 'oc'");
+            }
+            
+            if (isset($conditions['join_article']))
+            {
+                $q->leftJoin('l6.Article c');
+                unset($conditions['join_article']);
+            }
+        }
+
         if (!empty($conditions))
         {
             $q->addWhere(implode(' AND ', $conditions), $criteria);
         }
     }
 
-    protected static function buildOutingFieldsList($format = null, $sort)
+    protected static function buildFieldsList($format = null, $sort, $field_list = array())
     {
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation',
@@ -510,45 +551,19 @@ class Outing extends BaseOuting
                                   'mi.participants', 'mi.timing', 'mi.access_comments', 'mi.hut_comments', 'mi.description')
                             : array();
         
-        $extra_fields = array();
-        if (isset($sort['orderby_param']))
+        $field_list = array_merge(parent::buildGeoFieldsList(),
+                                  $outings_fields_list,
+                                  $conditions_fields_list,
+                                  $full_fields_list,
+                                  $field_list);
+        
+        $orderby = $sort['order_by'];
+        if (!empty($orderby) && !in_array($orderby, $field_list))
         {
-            $orderby = $sort['orderby_param'];
-            
-            if (in_array($orderby, sfConfig::get('mod_outings_sort_route_criteria')))
-            {
-                switch ($orderby)
-                {
-                    case 'fac':  $extra_fields[] = 'r.facing'; break;
-                    case 'ralt': $extra_fields[] = 'r.elevation'; break;
-                    case 'dhei': $extra_fields[] = 'r.difficulties_height'; break;
-                    case 'grat': $extra_fields[] = 'r.global_rating'; break;
-                    case 'erat': $extra_fields[] = 'r.engagement_rating'; break;
-                    case 'prat': $extra_fields[] = 'r.equipment_rating'; break;
-                    case 'frat': $extra_fields[] = 'r.rock_free_rating'; break;
-                    case 'arat': $extra_fields[] = 'r.aid_rating'; break;
-                    case 'irat': $extra_fields[] = 'r.ice_rating'; break;
-                    case 'mrat': $extra_fields[] = 'r.mixed_rating'; break;
-                    case 'trat': $extra_fields[] = 'r.toponeige_technical_rating'; break;
-                    case 'expo': $extra_fields[] = 'r.toponeige_exposition_rating'; break;
-                    case 'lrat': $extra_fields[] = 'r.labande_global_rating'; break;
-                    case 'srat': $extra_fields[] = 'r.labande_ski_rating'; break;
-                    case 'hrat': $extra_fields[] = 'r.hiking_rating'; break;
-                    default: break;
-                }
-            }
-            elseif (in_array($orderby, array('lat', 'lon')))
-            {
-                $extra_fields = array('s.lat', 's.lon');
-            }
+            $field_list[] = $orderby;
         }
         
-        return array_merge(parent::buildFieldsList(),
-                           parent::buildGeoFieldsList(),
-                           $outings_fields_list,
-                           $conditions_fields_list,
-                           $full_fields_list,
-                           $extra_fields);
+        return parent::buildFieldsList($format, $sort, $field_list);
     }
 
     public static function retrieveConditions($days)

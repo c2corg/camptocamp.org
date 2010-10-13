@@ -93,7 +93,7 @@ class booksActions extends documentsActions
         $this->addListParam($out, 'act');
         $this->addNameParam($out, 'auth');
         $this->addNameParam($out, 'edit');
-        $this->addNameParam($out, 'bcult');
+        $this->addListParam($out, 'bcult');
 
         return $out;
     }
