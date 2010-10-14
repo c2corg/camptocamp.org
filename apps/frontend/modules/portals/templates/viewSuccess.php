@@ -132,17 +132,6 @@ elseif ($has_images)
     echo '</div>';
 }
 
-if ($is_not_archive)
-{
-    include_partial('portals/inside_search_form', array('document' => $document));
-}
-
-// lang-dependent content
-echo '<div class="article_contenu">';
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
-                                                'needs_translation' => $needs_translation, 'images' => $associated_images));
-echo '</div>';
-
 ?>
         <div id="home_background_content">
             <div id="home_left_content">
@@ -160,6 +149,18 @@ if ($has_outings)
                           'custom_title_link' => $custom_title_link,
                           'custom_rss_link' => $custom_rss_link));
 }
+
+if ($is_not_archive)
+{
+    include_partial('portals/inside_search_form', array('document' => $document));
+}
+
+// lang-dependent content
+echo '<div class="article_contenu">';
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
+                                                'needs_translation' => $needs_translation, 'images' => $associated_images));
+echo '</div>';
+
 if ($has_articles)
 {
     $article_url_params = $sf_data->getRaw('article_url_params');

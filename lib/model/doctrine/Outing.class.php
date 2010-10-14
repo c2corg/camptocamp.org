@@ -509,7 +509,7 @@ class Outing extends BaseOuting
 
         if (isset($conditions['join_article_id']) || isset($conditions['join_article']))
         {
-            $q->leftJoin("m.associations l6");
+            $q->leftJoin("m.LinkedAssociation l7");
             
             if (isset($conditions['join_article_id']))
             {
@@ -517,12 +517,12 @@ class Outing extends BaseOuting
             }
             else
             {
-                $q->addWhere("l6.type = 'oc'");
+                $q->addWhere("l7.type = 'oc'");
             }
             
             if (isset($conditions['join_article']))
             {
-                $q->leftJoin('l6.Article c');
+                $q->leftJoin('l7.Article c');
                 unset($conditions['join_article']);
             }
         }

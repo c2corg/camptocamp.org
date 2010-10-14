@@ -483,7 +483,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         return self::joinOnMulti($q, $conditions, 'join_area', 'm.geoassociations g', 3);
     }
 
-    protected static function joinOnLinkedDocMultiRegions($q, $conditions, $types = array())
+    protected static function joinOnLinkedDocMultiRegions($q, $conditions, $types = array(), $use_main_geo_association = true)
     {
         if (isset($conditions['join_area']))
         {
@@ -494,7 +494,15 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $q->addWhere("l.type IN ('" . implode($types, "', '") . "')");
             }
             
-            $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'l.MainGeoassociations g', 3);
+            if ($use_main_geo_association)
+            {
+                $geo_association = 'MainGeoassociations';
+            }
+            else
+            {
+                $geo_association = 'LinkedGeoassociations';
+            }
+            $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'l.' . $geo_association . ' g', 3);
         }
         return $conditions;
     }
