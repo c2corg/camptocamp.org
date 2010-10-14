@@ -995,6 +995,12 @@ msgstr "Licence de l'image&nbsp;:"
 msgid "Image not found"
 msgstr "Cette image n'existe pas."
 
+# [general comment]
+# Currently, copyright pictures are only of book covers
+# [WARNING] needs_review
+msgid "Image under copyright license"
+msgstr "Cette image illustre la couverture d'un livre et est la propriété de son éditeur et/ou de son auteur. Elle n'est présente qu'à titre indicatif."
+
 msgid "Image uploaded"
 msgstr "Image uploadée"
 
@@ -5915,11 +5921,19 @@ msgstr "oui"
 msgid "yesterday, at %1%"
 msgstr "hier, à %1%"
 
+# [WARNING] needs_review
+msgid "you have no right to switch from collaborative picture"
+msgstr "Vous n'avez pas le droit de modifier le type de cette image collaborative"
+
 msgid "you have no right to switch from collaborative to personal article"
 msgstr "Vous n'avez pas le droit de modifier le type de cet article de collaboratif à personnel"
 
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "Vous n'avez pas le droit de modifier le type de cette image de collaboratif à personnel"
+
+# [WARNING] needs_review
+msgid "you have no right to switch from copyright picture"
+msgstr "Vous n'avez pas le droit de modifier le type de cette image sous copyrigth"
 
 msgid "zoom in"
 msgstr "Zoomer"

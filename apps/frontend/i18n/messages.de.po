@@ -1018,6 +1018,12 @@ msgstr "Lizenz des Bildes:"
 msgid "Image not found"
 msgstr "Dieses Bild existiert nicht."
 
+# [general comment]
+# Currently, copyright pictures are only of book covers
+# [WARNING] en translation used
+msgid "Image under copyright license"
+msgstr "This picture depicts a book cover. It is the property of its editor and/or author. It is presented here only for the sake of illustration."
+
 msgid "Image uploaded"
 msgstr "Bild wurde hochgeladen"
 
@@ -6510,6 +6516,10 @@ msgstr "ja"
 msgid "yesterday, at %1%"
 msgstr "gestern, um %1%"
 
+# [WARNING] en translation used
+msgid "you have no right to switch from collaborative picture"
+msgstr "You do not have the rights to switch the type of this collaborative picture"
+
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative to personal article"
 msgstr "Sie verfügen nicht über hinreichende Zugriffsrechte um den Dokumententyp von \"gemeinschaftlich\" auf \"persönlich\" zu ändern."
@@ -6517,6 +6527,10 @@ msgstr "Sie verfügen nicht über hinreichende Zugriffsrechte um den Dokumentent
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "Sie verfügen nicht über die hinreichenden Zugriffsrechte, um ein gemeinschaftliches Bild in ein persönliches Bild zu ändern."
+
+# [WARNING] en translation used
+msgid "you have no right to switch from copyright picture"
+msgstr "You do not have the rights to switch the type of this copyrighted picture"
 
 msgid "zoom in"
 msgstr "Zoomen"

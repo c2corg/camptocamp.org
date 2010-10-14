@@ -1039,6 +1039,12 @@ msgstr "Llicència de l'imatge:"
 msgid "Image not found"
 msgstr "La imatge no existeix."
 
+# [general comment]
+# Currently, copyright pictures are only of book covers
+# [WARNING] en translation used
+msgid "Image under copyright license"
+msgstr "This picture depicts a book cover. It is the property of its editor and/or author. It is presented here only for the sake of illustration."
+
 msgid "Image uploaded"
 msgstr "Imatge carregada"
 
@@ -6422,6 +6428,10 @@ msgstr "si"
 msgid "yesterday, at %1%"
 msgstr "ahir, a les %1%"
 
+# [WARNING] en translation used
+msgid "you have no right to switch from collaborative picture"
+msgstr "You do not have the rights to switch the type of this collaborative picture"
+
 # [WARNING] es translation used
 msgid "you have no right to switch from collaborative to personal article"
 msgstr "No tiene el derecho de pasar el articulo de colaborativo a personal"
@@ -6429,6 +6439,10 @@ msgstr "No tiene el derecho de pasar el articulo de colaborativo a personal"
 # [WARNING] es translation used
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "No tiene el derecho de pasar la imagen de colaborativa a personal"
+
+# [WARNING] en translation used
+msgid "you have no right to switch from copyright picture"
+msgstr "You do not have the rights to switch the type of this copyrighted picture"
 
 # [WARNING] en translation used
 msgid "zoom in"

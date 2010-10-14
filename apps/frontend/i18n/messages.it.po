@@ -995,6 +995,12 @@ msgstr "Licenza dell'immagine:"
 msgid "Image not found"
 msgstr "Quest’immagine non è stata trovata."
 
+# [general comment]
+# Currently, copyright pictures are only of book covers
+# [WARNING] en translation used
+msgid "Image under copyright license"
+msgstr "This picture depicts a book cover. It is the property of its editor and/or author. It is presented here only for the sake of illustration."
+
 msgid "Image uploaded"
 msgstr "Immagine caricata"
 
@@ -5934,11 +5940,19 @@ msgstr "si"
 msgid "yesterday, at %1%"
 msgstr "ieri, alle %1%"
 
+# [WARNING] en translation used
+msgid "you have no right to switch from collaborative picture"
+msgstr "You do not have the rights to switch the type of this collaborative picture"
+
 msgid "you have no right to switch from collaborative to personal article"
 msgstr "Non sei autorizzato a modificare il tipo di questo articolo"
 
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "Non sei autorizzato a modificare il tipo di questa immagine"
+
+# [WARNING] en translation used
+msgid "you have no right to switch from copyright picture"
+msgstr "You do not have the rights to switch the type of this copyrighted picture"
 
 msgid "zoom in"
 msgstr "Zoomare"
