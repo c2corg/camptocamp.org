@@ -1006,9 +1006,9 @@ msgstr "Picture uploaded"
 msgid "Images"
 msgstr "Pictures"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Images are under license specified in the original document of each image"
-msgstr "Pictures are under the license specified in the original document of each picture."
+msgstr "The images associated to this page are available under the license specified in the original document of each image."
 
 msgid "Images names are missing"
 msgstr "Picture title is missing"
@@ -1056,7 +1056,7 @@ msgstr "Is associated to the sub summits:"
 
 # [WARNING] needs_review
 msgid "Is really a multi-activity outing?"
-msgstr "Does this outing really mix multiple activities?"
+msgstr "Does this outing really consist of multiple activities?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "It seems you have forgotten a name, or a file"
@@ -1077,17 +1077,17 @@ msgstr "Last bulletin"
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% creations"
-msgstr "Dernières créations - %1%"
+msgstr "Latest creations - %1%"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% creations in %2%"
-msgstr "Dernières créations - %1% - %2%"
+msgstr "Latest creations - %1% - %2%"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions"
-msgstr "Dernières éditions - %1%"
+msgstr "Latest changes - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
@@ -1104,9 +1104,9 @@ msgstr "camptocamp.org - latest document edits %1%"
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
-msgstr "Dernières éditions - %1% - %2%"
+msgstr "Latest changes - %1% - %2%"
 
 msgid "Latest articles"
 msgstr "Latest articles"
@@ -1118,9 +1118,9 @@ msgstr "Latest documents"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
-msgstr "Dernières éditions de \"%1%\" - %2%"
+msgstr "Latest changes of \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Latest pictures"
@@ -1685,7 +1685,7 @@ msgid "Results from google for %1%"
 msgstr "Google results for \"%1%\""
 
 msgid "Retrieve Forgotten Password"
-msgstr "Retrieve Forgotten Password"
+msgstr "Retrieve forgotten password"
 
 msgid "Retype your password:"
 msgstr "Type again your password:"
@@ -2279,9 +2279,8 @@ msgstr "View current version"
 
 # [general comment]
 # used for edition rss feeds rich content
-# [WARNING] needs_review
 msgid "View difference between version %1% and %2%"
-msgstr "View the differences between version %1% and %2%"
+msgstr "View the differences between versions %1% and %2%"
 
 msgid "View image details"
 msgstr "View picture information"
@@ -2497,7 +2496,6 @@ msgstr "Your session is over. Please login again."
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] No result found.<br />You can check spelling and syntax or reduce the number of words so as to use only characteristic words (or parts of words)|(1,+Inf]Found %nb_result% results for %researched_word%"
 
-# [WARNING] needs_review
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
 msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
 
@@ -3627,7 +3625,7 @@ msgstr "Content license"
 
 # [WARNING] needs_review
 msgid "copyright image"
-msgstr "copyright image"
+msgstr "copyrighted image"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

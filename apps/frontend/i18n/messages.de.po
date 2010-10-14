@@ -1024,9 +1024,9 @@ msgstr "Bild wurde hochgeladen"
 msgid "Images"
 msgstr "Bilder"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Images are under license specified in the original document of each image"
-msgstr "Die Bilder dieser Seite sind unter der im Originaldokument jedes Bildes angegebenen Creative Commons Lizenz verfügbar."
+msgstr "Die mit dieser Seite verbundenen Bilder unterliegen den Lizenzbedingungen, wie sie im Originaldokument jedes Bildes angegeben sind."
 
 msgid "Images names are missing"
 msgstr "die Namen der hochgeladenen Bilder fehlen "
@@ -1072,9 +1072,9 @@ msgstr "Ist den folgenden Gipfeln zugeordnet:"
 msgid "Is parent of summits:"
 msgstr "Ist mit folgenden Unter-Gipfeln verbunden:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Is really a multi-activity outing?"
-msgstr "Does this outing really mix multiple activities?"
+msgstr "Besteht diese Tour wirklich aus mehreren Aktivitätstypen?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Sie haben vergessen, einen Namen oder eine Datei anzugeben."
@@ -1095,17 +1095,17 @@ msgstr "Neuestes Bulletin"
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% creations"
-msgstr "Dernières créations - %1%"
+msgstr "Neueste Erstellungen - %1%"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% creations in %2%"
-msgstr "Dernières créations - %1% - %2%"
+msgstr "Neueste Erstellungen - %1% - %2%"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions"
-msgstr "Dernières éditions - %1%"
+msgstr "Neueste Änderungen - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
@@ -1122,9 +1122,9 @@ msgstr "camptocamp.org - neueste Dokumentenänderungen %1%"
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
-msgstr "Dernières éditions - %1% - %2%"
+msgstr "Neueste Änderungen - %1% - %2%"
 
 msgid "Latest articles"
 msgstr "Neueste Artikel"
@@ -1136,9 +1136,9 @@ msgstr "Neueste Dokumente"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
-msgstr "Dernières éditions de \"%1%\" - %2%"
+msgstr "Neueste Änderungen von \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Neueste Bilder"
@@ -1497,7 +1497,7 @@ msgid "No summit matching your search?"
 msgstr "Der von ihnen gesuchte Gipfel konnte nicht gefunden werden. Versuchen sie den Gipfelnamen in einer anderen Sprache zu suchen.<br />Falls der Gipfel nicht eingetragen ist, erstellen sie erst den Gipfel und die entsprechende Tour, und fügen sie dann ihre Tour bei."
 
 msgid "Notice: associations will also be merged"
-msgstr "Bemerkung: Die Verknüpfungen werden auch zum ziel Dokument übertragen"
+msgstr "Hinweis: Die Verbindungen werden auch zum Zieldokument übertragen"
 
 msgid "Number of comments: "
 msgstr "Zahl der Kommentare:"
@@ -1584,7 +1584,7 @@ msgid "Personal page"
 msgstr "Persönliche Seite"
 
 msgid "Please enter a valid summit"
-msgstr "Bitte geben Sie einen gültigen Gipfelname ein"
+msgstr "Bitte geben Sie einen gültigen Gipfelnamen ein"
 
 msgid "Prefered language successfully saved"
 msgstr "Ihre bevorzugte Sprache wurde erfolgreich gespeichert."
@@ -1620,7 +1620,7 @@ msgid "Protect"
 msgstr "Schützen"
 
 msgid "Protect this document"
-msgstr "Keine Veränderungen an diesem Dokument erlauben "
+msgstr "Keine Änderungen an diesem Dokument erlauben "
 
 msgid "Quick creation of a route"
 msgstr "Eine Route rasch anlegen"
@@ -1647,10 +1647,10 @@ msgid "Received merging from document "
 msgstr "Hat die Daten vom Dokument erhalten"
 
 msgid "Recent associations"
-msgstr "Neueste Verlinkungen"
+msgstr "Neueste Verbindungen"
 
 msgid "Recent associations list"
-msgstr "Alle bei den Beiträger eingetragene Verknüpfungen."
+msgstr "Alle Verbindungen des Benutzers"
 
 msgid "Recent changes"
 msgstr "Neuste Änderungen"
@@ -1675,13 +1675,13 @@ msgid "Reduce the list"
 msgstr "Die Liste verkleinern"
 
 msgid "Reduce the text box"
-msgstr "Die Textzone verkleinern"
+msgstr "Das Textfeld verkleinern"
 
 msgid "Refresh geoassociations"
-msgstr "Regionen: erfrischen"
+msgstr "Regionen: aktualisieren"
 
 msgid "Refresh the geoassociations of this document"
-msgstr "Die verknüpften Regionen (und Karten) diese Dokument und der 'Söhne'-Dokumente erneuern"
+msgstr "Die verknüpften Regionen (und Karten) dieses Dokuments und damit verbundene Dokumente erneuern"
 
 msgid "Regions are detected automatically according to coordinates"
 msgstr "Die verknüpften Regionen werden automatisch durch die untenstehenden Koordinaten gefunden."
@@ -1715,7 +1715,7 @@ msgid "Results from google for %1%"
 msgstr "Google Suchergebnis für \"%1%\""
 
 msgid "Retrieve Forgotten Password"
-msgstr "Vergessenes Passwort finden"
+msgstr "Vergessenes Passwort wiederherstellen"
 
 msgid "Retype your password:"
 msgstr "Passwort nochmals eingeben:"
@@ -1828,7 +1828,7 @@ msgid "Select all"
 msgstr "Alles auswählen"
 
 msgid "Selected versions do not exist"
-msgstr "Die erfragten Fassungen existieren nicht."
+msgstr "Die gewählten Versionen existieren nicht."
 
 # [general comment]
 # Texte de bouton dans un formulaire.
@@ -1851,7 +1851,7 @@ msgid "Set languages preferences"
 msgstr "Spracheinstellungen"
 
 msgid "Set your prefered language order"
-msgstr "Reihenfolge der Sprachen verändern "
+msgstr "Sprachreihenfolge ändern "
 
 # [general comment]
 # Call it 'c2c products' , 'shop' or whatever you like. Use the expression that applies best to your language. It is a link to tshirts and other products with c2c logo on it
@@ -1872,7 +1872,7 @@ msgid "Show conditions"
 msgstr "Die Verhältnisse anzeigen"
 
 msgid "Show differences between selected versions"
-msgstr "Unterschiede zwischen den ausgewählten Fassungen anzeigen"
+msgstr "Unterschiede zwischen den ausgewählten Versionen anzeigen"
 
 msgid "Show document"
 msgstr "Das Dokument anzeigen"
@@ -1884,7 +1884,7 @@ msgid "Show filtered routes"
 msgstr "Die gefilterten Routen anzeigen"
 
 msgid "Show outings linked to selected docs"
-msgstr "Die verbundene Verhältnissen der ausgewählten Dokumenten anzeigen "
+msgstr "Die verbundenen Verhältnisse der ausgewählten Dokumente anzeigen "
 
 msgid "Show selected outings"
 msgstr "Die Verhältnissen der ausgewählten Touren anzeigen "
@@ -2315,9 +2315,9 @@ msgstr "Die aktuelle Fassung anzeigen"
 
 # [general comment]
 # used for edition rss feeds rich content
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "View difference between version %1% and %2%"
-msgstr "View the differences between version %1% and %2%"
+msgstr "Zeige die Unterschiede zwischen den Versionen %1% und %2% an"
 
 msgid "View image details"
 msgstr "Die Informationen über das Bild abrufen "
@@ -2534,9 +2534,9 @@ msgstr "Ihre Sitzung ist abgelaufen. Bitte melden sie sich erneut an."
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Es wurde kein passendes Ergebnis gefunden.<br />Überprüfen sie die Rechtschreibung und den Syntax oder reduzieren sie die Anzahl der Suchbegriffe, z.B. auf einen einzigen charakteristischen Wortteil.|(1,+Inf]%nb_result% Ergebnisse gefunden für %researched_word%"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
-msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
+msgstr "[0]Es sind keine Kommentare mit diesem Dokument verbunden.|[1]Es ist ein Kommentar mit diesem Dokument verbunden.|(1,+Inf]Es sind %1% Kommentare mit diesem Dokument verbunden."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Änderung mit Angabe einer neuen Geometrie"
@@ -3961,9 +3961,9 @@ msgstr "Kontakt"
 msgid "content license"
 msgstr "Lizenz des Inhalts"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "copyright image"
-msgstr "copyright image"
+msgstr "Copyright-geschütztes Bild"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4766,9 +4766,9 @@ msgstr "Limousin"
 msgid "link contributors in view page"
 msgstr "Die erste Linie des Felds wird auf derselben Linie wie die registrierten Benutzer angezeigt. Die folgenden Linien werden darunter angezeigt.<br />Registrierte camptocamp.org-Benutzer können der Tour direkt im Tourendokument hinzugefügt werden. Dies erlaubt den registrierten Tourenteilnehmern die Tourenbeschreibung zu ändern, Bilder hinzuzufügen, und andere, registrierte Tourenteilnehmer hinzuzufügen."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "linked routes activities"
-msgstr "Activities of associated routes:"
+msgstr "Aktivitäten der verbundenen Routen:"
 
 # [WARNING] needs_review
 msgid "local_product"

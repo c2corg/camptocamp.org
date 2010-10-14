@@ -1121,17 +1121,17 @@ msgstr "Ultimo boletín"
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Latest %1% creations"
-msgstr "Dernières créations - %1%"
+msgstr "Latest creations - %1%"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Latest %1% creations in %2%"
-msgstr "Dernières créations - %1% - %2%"
+msgstr "Latest creations - %1% - %2%"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Latest %1% editions"
-msgstr "Dernières éditions - %1%"
+msgstr "Latest changes - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
@@ -1148,9 +1148,9 @@ msgstr "camptocamp.org - ultimas ediciones de documentos %1%"
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Latest %1% editions in %2%"
-msgstr "Dernières éditions - %1% - %2%"
+msgstr "Latest changes - %1% - %2%"
 
 msgid "Latest articles"
 msgstr "Darrers articles"
@@ -1163,9 +1163,9 @@ msgstr "Últimos documentos"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Latest editions for \"%1%\" - %2%"
-msgstr "Dernières éditions de \"%1%\" - %2%"
+msgstr "Latest changes of \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Darreres imatges"
@@ -2415,7 +2415,7 @@ msgstr "Mostrar la versió actual"
 # used for edition rss feeds rich content
 # [WARNING] en translation used
 msgid "View difference between version %1% and %2%"
-msgstr "View the differences between version %1% and %2%"
+msgstr "View the differences between versions %1% and %2%"
 
 msgid "View image details"
 msgstr "Veure les informacions de la imatge"
@@ -3845,7 +3845,7 @@ msgstr "Llicència dels continguts"
 
 # [WARNING] en translation used
 msgid "copyright image"
-msgstr "copyright image"
+msgstr "copyrighted image"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

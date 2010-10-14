@@ -1051,7 +1051,7 @@ msgstr "E collegato alle sotto-cime seguenti:"
 
 # [WARNING] en translation used
 msgid "Is really a multi-activity outing?"
-msgstr "Does this outing really mix multiple activities?"
+msgstr "Does this outing really consist of multiple activities?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Si è dimenticato un nome oppure il file"
@@ -3582,7 +3582,7 @@ msgstr "Licenza dei contenuti"
 
 # [WARNING] en translation used
 msgid "copyright image"
-msgstr "copyright image"
+msgstr "copyrighted image"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
