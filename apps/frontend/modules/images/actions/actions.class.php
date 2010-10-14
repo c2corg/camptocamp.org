@@ -286,7 +286,7 @@ class imagesActions extends documentsActions
                 // custom validation here (in order to only reject images that
                 // do not validate)
                 $error = '';
-                if (!Outing::validate_image($uploaded_files['image_file'], $error, $i))
+                if (!Image::validate_image($uploaded_files['image_file'], $error, $i))
                 {
                     $images[$i]['error'] = array('field' => 'image_file', 'msg' => $error);
                     $images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
