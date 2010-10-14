@@ -221,13 +221,6 @@ class imagesActions extends documentsActions
         }
     }
 
-    public function handleErrorAddtempimage()
-    {
-        $uploaded_files = $this->getRequest()->getFiles();
-        $this->image_name = $uploaded_files['image_file']['name'];
-        $this->setlayout(false);
-    }
-
     public function handleErrorJsupload()
     {
         // we discard the images, and do redirect to document
@@ -237,7 +230,7 @@ class imagesActions extends documentsActions
         return $this->setErrorAndRedirect('image upload failed', $redir_route . '#images');
     }
 
-    // first step of image js upload: upload the image on the server
+    // first step of image js upload: upload the images on the server
     public function executeAddtempimage()
     {
         $document_id = $this->getRequestParameter('document_id');
@@ -274,90 +267,107 @@ class imagesActions extends documentsActions
                     break;
             }
 
-            if (!$user_valid && !$user->hasCredential('moderator'))
+            if ((!$user_valid && !$user->hasCredential('moderator'))
+                || !$request->hasFiles())
             {
                 return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
             }
 
-            // copy the image to the temp directory
             $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
                         sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
             $uploaded_files = $request->getFiles();
-            $filename = $uploaded_files['image_file']['tmp_name'];
-            $unique_filename = c2cTools::generateUniqueName();
-            $file_ext = Images::detectExtension($filename);
 
-            $new_location = $temp_dir . $unique_filename . $file_ext;
-            if (!move_uploaded_file($filename, $new_location))
+            // We may have more than one image at a time
+            $nb_images = count($uploaded_files['image_file']['name']);
+            $images = array();
+            for ($i=0; $i<$nb_images; $i++)
             {
-                $uploaded_files = $this->getRequest()->getFiles();
-                $this->image_name = $uploaded_files['image_file']['name'];
-                $this->setlayout(false);
-                $this->getRequest()->setError('image_file', 'Failed moving uploaded file');
-                return sfView::ERROR;
-            }
-
-            if ($file_ext == '.svg')
-            {
-                if (!SVG::rasterize($temp_dir, $unique_filename, $file_ext))
+                $images[$i] = array();
+                // custom validation here (in order to only reject images that
+                // do not validate)
+                $error = '';
+                if (!Outing::validate_image($uploaded_files['image_file'], $error, $i))
                 {
-                    $uploaded_files = $this->getRequest()->getFiles();
-                    $this->image_name = $uploaded_files['image_file']['name'];
-                    $this->setlayout(false);
-                    $this->getRequest()->setError('image_file', 'Failed rasterizing svg file');
-                    return sfView::ERROR;
+                    $images[$i]['error'] = array('field' => 'image_file', 'msg' => $error);
+                    $images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
+                    continue;
                 }
-            }
 
-            // generate thumbnails
-            Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
+                // copy the image to the temp directory
+                $filename = $uploaded_files['image_file']['tmp_name'][$i];
+                $unique_filename = c2cTools::generateUniqueName();
+                $file_ext = Images::detectExtension($filename);
 
-            // look iptc for a possible title (jpeg only)
-            if ($file_ext == '.jpg')
-            {
-                $size = getimagesize($new_location, $info);
-                if (isset($info['APP13']))
+                $new_location = $temp_dir . $unique_filename . $file_ext;
+                if (!move_uploaded_file($filename, $new_location))
                 {
-                    $iptc = iptcparse($info['APP13']);
-                    if (isset($iptc['2#105'])) // title
+                    $images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
+                    $images[$i]['error'] = array('field' => 'image_file', 'msg' => 'Failed moving uploaded file');
+                    continue;
+                }
+
+                if ($file_ext == '.svg')
+                {
+                    if (!SVG::rasterize($temp_dir, $unique_filename, $file_ext))
                     {
-                        $image_title = $iptc['2#105'][0];
-                    }
-                    else if (isset($iptc['2#120'])) // comment
-                    {
-                       $image_title = $iptc['2#120'][0];
+                        $uploaded_files = $this->getRequest()->getFiles();
+                        $images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
+                        $images[$i]['error'] = array('field' => 'image_file', 'msg' => 'Failed rasterizing svg file');
+                        continue;
                     }
                 }
-            }
 
-            if (isset($image_title))
-            {
-                $encoding = mb_detect_encoding($image_title, "UTF-8, ISO-8859-1, ISO-8859-15", true);
+                // generate thumbnails
+                Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
 
-                if ($encoding !== false)
+                // look iptc for a possible title (jpeg only)
+                if ($file_ext == '.jpg')
                 {
-                    if ($encoding != 'UTF-8')
+                    $size = getimagesize($new_location, $info);
+                    if (isset($info['APP13']))
                     {
-                        $this->image_title = mb_convert_encoding($image_title, 'UTF-8', $encoding);
-                    }
-                    else
-                    {
-                        $this->image_title = $image_title;
+                        $iptc = iptcparse($info['APP13']);
+                        if (isset($iptc['2#105'])) // title
+                        {
+                            $image_title = $iptc['2#105'][0];
+                        }
+                        else if (isset($iptc['2#120'])) // comment
+                        {
+                           $image_title = $iptc['2#120'][0];
+                        }
                     }
                 }
-                // if encoding could not be detected, rather not try to put it as prefilled title
-            }
 
-            $this->image_filename = $unique_filename . $file_ext;
-            $this->default_license = $this->getDefaultImageLicense($document_id, $mod);
-            $this->image_number = $this->getRequestparameter('image_number');
+                if (isset($image_title))
+                {
+                    $encoding = mb_detect_encoding($image_title, "UTF-8, ISO-8859-1, ISO-8859-15", true);
+
+                    if ($encoding !== false)
+                    {
+                        if ($encoding != 'UTF-8')
+                        {
+                            $images[$i]['image_title'] = mb_convert_encoding($image_title, 'UTF-8', $encoding);
+                        }
+                        else
+                        {
+                            $images[$i]['image_title'] = $image_title;
+                        }
+                    }
+                    // if encoding could not be detected, rather not try to put it as prefilled title
+                }
+
+                $images[$i]['image_filename'] = $unique_filename . $file_ext;
+                $images[$i]['default_license'] = $this->getDefaultImageLicense($document_id, $mod);
+                $images[$i]['image_number'] = (intval($this->getRequestparameter('image_number'))+1)*1000+$i;
+            }
+            $this->images = $images;
             $this->setLayout(false);
         }
         else
         {
             return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
         }
-    }
+}
 
     /**
      * Executes easy upload action

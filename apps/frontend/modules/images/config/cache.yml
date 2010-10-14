@@ -25,3 +25,9 @@ filter:
 
 addtempimage:
   enabled: off
+
+_temp_image_success:
+  enabled: off
+
+_temp_image_error:
+  enabled: off

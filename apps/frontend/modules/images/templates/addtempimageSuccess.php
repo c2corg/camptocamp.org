@@ -1,43 +1,27 @@
 <?php
-use_helper('Form', 'MyImage', 'Button', 'Javascript');
-
-echo link_to_function(picto_tag('action_cancel', __('close')),
-                                'new Effect.BlindUp($(this).up());',
-                                 array('style' => 'float:right;'));
-echo image_tag(image_url($image_filename, 'small', false, true), array('class' => 'temp'));
-echo __('categories (multiple selection allowed)');
+$images = array_reverse($sf_data->getRaw('images'));
+foreach ($images as $image):
 ?>
-<div class="file_to_upload_categories">
+<div class="image_upload_entry">
 <?php
-  $home_categories = sfConfig::get('app_images_home_categories');
-  $choices = array_map('__', sfConfig::get('mod_images_categories_list'));
-  foreach($home_categories as $cat)
-  {
-      if (array_key_exists($cat, $choices))
-      {
-          $choices[$cat] .= ' *';
-      }
-  }
-  echo select_tag("categories[$image_number]", options_for_select($choices), array('multiple' => true, 'size' => 6));
+    if (isset($image['error']))
+    {
+        // FIXME bad trick in order not to rewrite the global_form_errors_tag function
+        sfContext::getInstance()->getRequest()->setError($image['error']['field'], $image['error']['msg']);
+        include_partial('images/temp_image_error',
+                        array('image_name' => $image['image_name']));
+        sfContext::getInstance()->getRequest()->removeError($image['error']['field']);
+    }
+    else
+    {
+        include_partial('images/temp_image_success',
+                        array('image_filename' => $image['image_filename'],
+                              'default_license' => $image['default_license'],
+                              'image_number' => $image['image_number'],
+                              'image_title' => isset($image['image_title']) ? $image['image_title'] : null)
+                        );
+    }
 ?>
 </div>
-<br />
-<div class="image_form_error"<?php echo isset($image_title) ? ' style="display:none"' : ''?>>
-↓&nbsp;<?php echo __('this name is too short (4 characters minimum)') ?> &nbsp;↓</div>
 <?php
-$image_title = isset($image_title) ? $image_title : '';
-echo __('name'), ' ',
-     input_tag("name[$image_number]", $image_title, array('maxlength' => '150', 'class' => 'large_input')), ' ';
-echo input_hidden_tag("image_unique_filename[$image_number]", $image_filename);
-
-$license_choices = array_map('__', sfConfig::get('mod_images_type_list'));
-if ($default_license == 1) // collaborative licence is mandatory if it is the one proposed by default
-{
-    $types = sfConfig::get('mod_images_type_list');
-    echo __('image_type') . ' ' . __($types[1]) . '&nbsp;' . link_to(picto_tag('cc-by-sa-mini', 'CC-by-sa'), getMetaArticleRoute('licenses', false, 'cc-by-sa'));
-    echo input_hidden_tag("image_type[$image_number]", 1);
-}
-else
-{
-    echo __('image_type') . ' ' . select_tag("image_type[$image_number]", options_for_select($license_choices, $default_license));
-}
+endforeach;

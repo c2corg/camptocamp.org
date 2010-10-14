@@ -25,7 +25,7 @@ echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' 
 ↓&nbsp;<?php echo __('wrong file type') ?> &nbsp;↓</div>
 <?php
 echo label_for('image_file', __('select an image file'));
-echo input_file_tag('image_file', array('onchange' => 'ImageUpload.onchangeCallback()'));
+echo input_file_tag('image_file[]', array('onchange' => 'ImageUpload.onchangeCallback()', 'multiple' => 'multiple'));
 echo '&nbsp;&nbsp;';
 echo button_to_function(__('save'), "this.hide(); $('images_validate_form').submit()", array('disabled' => 'disabled', 'id' => 'images_submit'));
 echo input_hidden_tag('action', 'addtempimage');

@@ -1,5 +1,6 @@
 <?php
 
+/** be sure that no unauthorized user will change the license of an image TODO copyrigtht*/
 class myImageTypeValidator extends sfValidator
 {
   public function execute (&$value, &$error)

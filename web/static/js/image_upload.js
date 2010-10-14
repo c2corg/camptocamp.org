@@ -23,7 +23,7 @@ ImageUpload = {
 
   // submit the form
   submit : function(f, c) {
-    if (!ImageUpload.validateFilename($F('image_file'))) {
+    if (!ImageUpload.validateFilename()) {
       $('image_selection').down('.image_form_error').show();
       return false;
     }
@@ -58,10 +58,20 @@ ImageUpload = {
     }
   },
 
-  validateFilename : function(name) {
-    if (name == '') { return false; }
+  validateFilename : function() {
     var reg = /\.(png|jpeg|jpg|gif|svg)$/i;
-    return reg.test(name);
+    // test if file api is implemented
+    if ($('image_file').files) {
+      var files = $('image_file').files;
+      for (var i = 0; i < files.length; i++) {
+        if (!reg.test(files[i].name)) return false;
+      }
+      return true;
+    } else {
+      $name = $F('image_file');
+      if (name == '') { return false; }
+      return reg.test(name);
+    }
   },
 
   validateImageForms : function(pe) {
@@ -98,8 +108,18 @@ ImageUpload = {
     // create entry for the image
     var loadingImg = new Element('img', { src: '/static/images/indicator.gif' });
     var fileText = new Element('span');
-    fileText.update($F('image_file')+' ');
-    var imageDiv = new Element('div', { id: 'u'+upload_id, className: 'image_upload_entry' });
+    // file names
+    if ($('image_file').files) {
+      var fa = [];
+      for (var i = 0; i < $('image_file').files.length; i++) {
+        fa[i] = $('image_file').files[i].name;
+      }
+      var filenames = fa.join(', ');
+    } else {
+      var filenames = $F('image_file')
+    }
+    fileText.update(filenames+' ');
+    var imageDiv = new Element('div', { id: 'u'+upload_id });
 
     imageDiv.appendChild(fileText);
     imageDiv.appendChild(loadingImg);

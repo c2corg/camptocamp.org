@@ -4,7 +4,6 @@
  * This script is used to import or update regions and maps
  * @todo factorize geoassociations computation with refreshGeoassociations function (but in sfActions...)
  * @todo clear cache?
- * @todo get rid of punbb headers warning when updating a document
  * @todo try to reduce number of separate transactions (but seems like some things do not work anymore if...)
  *
  * KML format: use placemarks with polygon or linestring inside. Use multigeometry if
