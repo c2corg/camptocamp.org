@@ -524,6 +524,21 @@ class imagesActions extends documentsActions
         // display form
     }
 
+    public function executeDiff()
+    {
+        $id = $this->getRequestParameter('id');
+        $user = $this->getUser();
+        $lang = $this->getRequestParameter('lang');
+        $document = $this->getDocument($id, $lang);
+        $copyright_image = ($document->get('image_type') == 3);
+        if (!$user->hasCredential('moderator') && $copyright_image)
+        {
+            $referer = $this->getRequest()->getReferer();
+            $this->setErrorAndRedirect('You do not have the rights to edit this picture', $referer);
+        }
+        parent::executeDiff();
+    }
+
     public function executeEdit()
     {
         parent::executeEdit();
@@ -532,6 +547,21 @@ class imagesActions extends documentsActions
         $id = $this->document['id'];
         $assocations = Association::findAllAssociations($id, 'bi');
         $this->is_associated_book = !empty($association);
+    }
+
+    public function executeHistory()
+    {
+        $id = $this->getRequestParameter('id');
+        $user = $this->getUser();
+        $lang = $this->getRequestParameter('lang');
+        $document = $this->getDocument($id, $lang);
+        $copyright_image = ($document->get('image_type') == 3);
+        if (!$user->hasCredential('moderator') && $copyright_image)
+        {
+            $referer = $this->getRequest()->getReferer();
+            $this->setErrorAndRedirect('You do not have the rights to edit this picture', $referer);
+        }
+        parent::executeHistory();
     }
 
     /**
