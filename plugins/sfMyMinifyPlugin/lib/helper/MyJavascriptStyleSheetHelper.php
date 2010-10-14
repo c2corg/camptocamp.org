@@ -91,6 +91,10 @@ function include_body_javascripts($debug = false)
                 {
                     $file = '/' . $rev . $prefix . $file;
                 }
+                else
+                {
+                    $file = $prefix . $file;
+                }
 
                 $html .= javascript_include_tag($static_base_url . $file);
             }
