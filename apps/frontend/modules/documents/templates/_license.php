@@ -16,8 +16,15 @@ if (isset($large) && $large)
 echo '<div class="cc">' . link_to(picto_tag(($iscopyright ? '' : 'cc-') . $license),
              getMetaArticleRoute('licenses', false, ($iscopyright ? '' : 'cc-') . $license), array('title' => ($license != 'copyright' ? 'Creative Commons' : 'Copyright'))) . '</div>';
 echo ' ';
-echo __('Page under %1% license',
-        array('%1%' => $iscopyright ? 'copyright' : "<a rel=\"license\" href=\"$license_url\" title=\"$license_title\">$license_name</a>"));
+if ($iscopyright)
+{
+    echo __('Image under copyright license');
+}
+else
+{
+    echo __('Page under %1% license',
+        array('%1%' => "<a rel=\"license\" href=\"$license_url\" title=\"$license_title\">$license_name</a>"));
+}
 echo '<br />' . __('Images are under license specified in the original document of each image');
 ?>
 </div>

@@ -1,15 +1,22 @@
 <?php
 
-/** be sure that no unauthorized user will change the license of an image TODO copyrigtht*/
+/** be sure that no unauthorized user will change the license of an image */
 class myImageTypeValidator extends sfValidator
 {
   public function execute (&$value, &$error)
   {
-    $error = 'you have no right to switch from collaborative to personal picture';
-    $was_collaborative = $this->getParameter('was_collaborative');
+    $was = $this->getParameter('was');
     $is_moderator = $this->getParameter('is_moderator');
-    if (!$is_moderator && $was_collaborative && $value == 2)
+    if (!$is_moderator && $was != 2 && $value != $was)
     {
+      if ($was == 1) // (collaborative)
+      {
+        $error = 'you have no right to switch from collaborative picture';
+      }
+      else // $was == 3 (copyright)
+      {
+        $error = 'you have no right to switch from copyright picture';
+      }
       return false;
     }
     return true;
@@ -23,9 +30,9 @@ class myImageTypeValidator extends sfValidator
     $id = $context->getRequest()->getParameter('id');
     $lang = $context->getRequest()->getParameter('lang');
     $document = Document::find('Image', $id);
-    $collaborative_image = ($document->get('image_type') == 1);
+    $type = $document->get('image_type');
     $this->setParameter('is_moderator', $user->hasCredential('moderator'));
-    $this->setParameter('was_collaborative', $collaborative_image);
+    $this->setParameter('was', $type);
 
     $this->getParameterHolder()->add($parameters);
   }
