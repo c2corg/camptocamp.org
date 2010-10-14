@@ -265,7 +265,7 @@ class Outing extends BaseOuting
         }
 
         // article criteria
-        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l6.main_id', 'articles', 'join_article_id', false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l7.main_id', 'articles', 'join_article_id', false, $params_list);
 
         if (!empty($conditions))
         {
