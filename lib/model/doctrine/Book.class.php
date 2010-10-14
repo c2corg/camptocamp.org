@@ -126,7 +126,7 @@ class Book extends BaseBook
     
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
-        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, false);
+        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array(), false);
 
         if (isset($conditions['join_doc']))
         {
