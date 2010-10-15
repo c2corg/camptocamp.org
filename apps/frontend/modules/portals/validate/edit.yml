@@ -48,6 +48,9 @@ fields:
       min_error:    this name is too short (4 characters minimum)
       max:          150
       max_error:    this name is too long (150 characters maximum)
+  activities:
+    required:
+      msg:          field cannot be left blank
   nb_outings:
     nbItemsValidator:
   nb_images:

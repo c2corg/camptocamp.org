@@ -165,7 +165,7 @@ class Outing extends BaseOuting
         self::buildConditionItem($conditions, $values, 'List', 'm.lift_status', 'olift', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.hut_status', 'ohut', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Item', 'oi.culture', 'ocult', 'join_outing_i18n', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'oi.culture', 'ocult', 'join_outing_i18n', false, $params_list);
 
         // summit criteria
         $has_id = self::buildConditionItem($conditions, $values, 'List', 'l2.main_id', 'summits', 'join_summit_id', false, $params_list);
@@ -266,6 +266,9 @@ class Outing extends BaseOuting
 
         // article criteria
         $has_id = self::buildConditionItem($conditions, $values, 'List', 'l7.main_id', 'articles', 'join_article_id', false, $params_list);
+
+        // image doc criteria
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l82.main_id', 'imagedocs', 'join_imagedoc_id', false, $params_list);
 
         if (!empty($conditions))
         {
@@ -411,7 +414,7 @@ class Outing extends BaseOuting
         
         if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']) || isset($conditions['join_hut_i18n']))
         {
-            $q->leftJoin("l.MainAssociation l3");
+            $q->leftJoin("l.LinkedAssociation l3");
             
             if (isset($conditions['join_hut_id']))
             {
@@ -437,7 +440,7 @@ class Outing extends BaseOuting
         
         if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']) || isset($conditions['join_parking_i18n']))
         {
-            $q->leftJoin("l.MainAssociation l4");
+            $q->leftJoin("l.LinkedAssociation l4");
             
             if (isset($conditions['join_parking_id']))
             {
@@ -524,6 +527,18 @@ class Outing extends BaseOuting
             {
                 $q->leftJoin('l7.Article c');
                 unset($conditions['join_article']);
+            }
+        }
+
+        if (isset($conditions['join_imagedoc_id']))
+        {
+            $q->leftJoin("m.LinkedAssociation l8")
+              ->leftJoin("l8.MainAssociation l82")
+              ->addWhere("l8.type = 'oi'");
+            
+            if (isset($conditions['join_imagedoc_id']))
+            {
+                unset($conditions['join_imagedoc_id']);
             }
         }
 

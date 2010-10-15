@@ -680,7 +680,7 @@ class outingsActions extends documentsActions
         $this->addDateParam($out, 'date');
 
         $this->addParam($out, 'geom');
-        $this->addParam($out, 'ocult');
+        $this->addListParam($out, 'ocult');
 
         return $out;
     }
