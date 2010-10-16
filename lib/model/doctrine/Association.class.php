@@ -595,10 +595,15 @@ class Association extends BaseAssociation
                     $mail->addAddress($email_recipient);
 
                     $mail->setSubject('New image associated to book');
-                    $body = "A new image has been associated to book $main_id.\n"
-                        . "Stuff to check:\n"
-                        . " * image is not too big (max 800px width or height)\n"
-                        . " * image may require a copyright license. If so, ensure the owner is correctly aknowledged in the author field\n";
+
+                    $mail->setContentType('text/html');
+                    $server = 'http://www.camptocamp.org'; // FIXME
+                    $body = "<p>A <a href=\"$server/images/$linked_id\">new image</a> has been associated to <a href=\"$server/books/$main_id\">book $main_id</a>.</p>"
+                        . "<p>The image may require a copyright license. If so, please ensure that:</p>"
+                        . "<ul>"
+                        . "<li>the owner is correctly aknowledged in the author field;</li>";
+                        . "<li>the image is not too big (max 800px width or height).</li>"
+                        . "</ul>"
                     $mail->setBody($body);
 
                     // send the email
