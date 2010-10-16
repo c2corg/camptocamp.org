@@ -20,6 +20,8 @@ class BaseAssociation extends sfDoctrineRecord
         // dangerous but more performant than fetching on documents view for 'sr' association type:
         $this->hasMany('Association as MainAssociation', array('local' => 'main_id', 'foreign' => 'linked_id'));
         $this->hasMany('Association as LinkedAssociation', array('local' => 'linked_id', 'foreign' => 'main_id'));
+        $this->hasMany('Association as MainMainAssociation', array('local' => 'linked_id', 'foreign' => 'linked_id'));
+        $this->hasMany('Association as LinkedLinkedAssociation', array('local' => 'main_id', 'foreign' => 'main_id'));
         $this->hasMany('GeoAssociation as MainGeoassociations', array('local' => 'main_id', 'foreign' => 'main_id')); 
         $this->hasMany('GeoAssociation as LinkedGeoassociations', array('local' => 'linked_id', 'foreign' => 'main_id')); 
         $this->hasMany('Document as MainDocument', array('local' => 'main_id', 'foreign' => 'id'));

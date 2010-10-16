@@ -85,7 +85,7 @@ if (!$mobile_version) // left navigation menus are only for web version
 
 echo display_content_top('home');
 
-echo start_content_tag('portals_content');
+echo start_content_tag('portals_content', true);
 
 if ($merged_into = $document->get('redirects_to'))
 {

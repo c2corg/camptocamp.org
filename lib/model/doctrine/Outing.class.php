@@ -255,6 +255,14 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, 'List', 't.rain_proof', 'rain', 'join_site', false, $params_list);
         }
 
+        // book criteria
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l6.main_id', 'books', 'join_book_id', false, $params_list);
+        if (!$has_id)
+        {
+            self::buildConditionItem($conditions, $values, 'String', 'bi.search_name', 'bnam', 'join_book', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', 'b.book_types', 'btyp', 'join_book', false, $params_list);
+        }
+
         // user criteria
         $has_id = self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id', false, $params_list);
         $has_id = $has_id || self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
@@ -264,11 +272,15 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, 'List', 'u.category', 'ucat', 'join_user', false, $params_list);
         }
 
-        // article criteria
-        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l7.main_id', 'articles', 'join_article_id', false, $params_list);
-
-        // image doc criteria
-        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l82.main_id', 'imagedocs', 'join_imagedoc_id', false, $params_list);
+        // tags criteria
+        self::buildConditionItem($conditions, $values, 'List', 'l8.linked_id', 'otags', 'join_otag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'l92.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'l102.linked_id', 'stags', 'join_stag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'l112.linked_id', 'htags', 'join_htag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'l122.linked_id', 'ptags', 'join_ptag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'l132.linked_id', 'ttags', 'join_ttag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'l142.linked_id', 'rdoctags', 'join_rdoctag_id', false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l152.main_id', 'itags', 'join_itag_id', false, $params_list);
 
         if (!empty($conditions))
         {
@@ -349,7 +361,11 @@ class Outing extends BaseOuting
             isset($conditions['join_hut_i18n']) ||
             isset($conditions['join_parking_id']) ||
             isset($conditions['join_parking']) ||
-            isset($conditions['join_parking_i18n']))
+            isset($conditions['join_parking_i18n']) ||
+            isset($conditions['join_stag_id']) ||
+            isset($conditions['join_htag_id']) ||
+            isset($conditions['join_ptag_id']) ||
+            isset($conditions['join_rdoctag_id']))
         {
             $q->leftJoin("m.associations l");
             
@@ -414,7 +430,7 @@ class Outing extends BaseOuting
         
         if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']) || isset($conditions['join_hut_i18n']))
         {
-            $q->leftJoin("l.LinkedAssociation l3");
+            $q->leftJoin("l.MainAssociation l3");
             
             if (isset($conditions['join_hut_id']))
             {
@@ -440,7 +456,7 @@ class Outing extends BaseOuting
         
         if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']) || isset($conditions['join_parking_i18n']))
         {
-            $q->leftJoin("l.LinkedAssociation l4");
+            $q->leftJoin("l.MainAssociation l4");
             
             if (isset($conditions['join_parking_id']))
             {
@@ -494,51 +510,123 @@ class Outing extends BaseOuting
 
         if (isset($conditions['join_user']) || isset($conditions['join_user_i18n']))
         {
-            $q->leftJoin("m.associations l6")
-              ->addWhere("l6.type = 'uo'");
+            $q->leftJoin("m.associations l7")
+              ->addWhere("l7.type = 'uo'");
             
             if (isset($conditions['join_user']))
             {
-                $q->leftJoin('l6.User u');
+                $q->leftJoin('l7.User u');
                 unset($conditions['join_user']);
             }
 
             if (isset($conditions['join_user_i18n']))
             {
-                $q->leftJoin('l6.UserI18n ui');
+                $q->leftJoin('l7.UserI18n ui');
                 unset($conditions['join_user_i18n']);
             }
         }
 
-        if (isset($conditions['join_article_id']) || isset($conditions['join_article']))
+        if (isset($conditions['join_otag_id']) || isset($conditions['join_otag']))
         {
-            $q->leftJoin("m.LinkedAssociation l7");
+            $q->leftJoin("m.LinkedAssociation l8");
             
-            if (isset($conditions['join_article_id']))
+            if (isset($conditions['join_otag_id']))
             {
-                unset($conditions['join_article_id']);
+                unset($conditions['join_otag_id']);
             }
             else
             {
-                $q->addWhere("l7.type = 'oc'");
+                $q->addWhere("l8.type = 'oc'");
             }
             
-            if (isset($conditions['join_article']))
+            if (isset($conditions['join_otag']))
             {
-                $q->leftJoin('l7.Article c');
-                unset($conditions['join_article']);
+                $q->leftJoin('l8.Article c');
+                unset($conditions['join_otag']);
             }
         }
 
-        if (isset($conditions['join_imagedoc_id']))
+        if (isset($conditions['join_rtag_id']))
         {
-            $q->leftJoin("m.LinkedAssociation l8")
-              ->leftJoin("l8.MainAssociation l82")
-              ->addWhere("l8.type = 'oi'");
+            $q->leftJoin("m.associations l9")
+              ->leftJoin("l9.LinkedLinkedAssociation l92")
+              ->addWhere("l9.type = 'ro'");
             
-            if (isset($conditions['join_imagedoc_id']))
+            if (isset($conditions['join_rtag_id']))
             {
-                unset($conditions['join_imagedoc_id']);
+                unset($conditions['join_rtag_id']);
+            }
+        }
+
+        if (isset($conditions['join_stag_id']))
+        {
+            $q->leftJoin("l.MainAssociation l10")
+              ->leftJoin("l10.LinkedLinkedAssociation l102")
+              ->addWhere("l10.type = 'sr'");
+            
+            if (isset($conditions['join_stag_id']))
+            {
+                unset($conditions['join_stag_id']);
+            }
+        }
+
+        if (isset($conditions['join_htag_id']))
+        {
+            $q->leftJoin("l.MainAssociation l11")
+              ->leftJoin("l11.LinkedLinkedAssociation l112")
+              ->addWhere("l11.type = 'hr'");
+            
+            if (isset($conditions['join_htag_id']))
+            {
+                unset($conditions['join_htag_id']);
+            }
+        }
+
+        if (isset($conditions['join_ptag_id']))
+        {
+            $q->leftJoin("l.MainAssociation l12")
+              ->leftJoin("l12.LinkedLinkedAssociation l122")
+              ->addWhere("l12.type = 'pr'");
+            
+            if (isset($conditions['join_ptag_id']))
+            {
+                unset($conditions['join_ptag_id']);
+            }
+        }
+
+        if (isset($conditions['join_ttag_id']))
+        {
+            $q->leftJoin("m.associations l3")
+              ->leftJoin("l3.LinkedLinkedAssociation l32")
+              ->addWhere("l3.type = 'to'");
+            
+            if (isset($conditions['join_ttag_id']))
+            {
+                unset($conditions['join_ttag_id']);
+            }
+        }
+
+        if (isset($conditions['join_rdoctag_id']))
+        {
+            $q->leftJoin("l.MainAssociation l14")
+              ->leftJoin("l14.LinkedLinkedAssociation l142")
+              ->addWhere("l14.type IN ('sr', 'hr', 'pr')");
+            
+            if (isset($conditions['join_rdoctag_id']))
+            {
+                unset($conditions['join_rdoctag_id']);
+            }
+        }
+
+        if (isset($conditions['join_itag_id']))
+        {
+            $q->leftJoin("m.LinkedAssociation l15")
+              ->leftJoin("l15.MainMainAssociation l152")
+              ->addWhere("l15.type = 'oi'");
+            
+            if (isset($conditions['join_itag_id']))
+            {
+                unset($conditions['join_itag_id']);
             }
         }
 

@@ -206,7 +206,7 @@ class Summit extends BaseSummit
         
         if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']) || isset($conditions['join_hut_i18n']))
         {
-            $q->leftJoin("l.LinkedAssociation l3");
+            $q->leftJoin("l.MainMainAssociation l3");
             
             if (isset($conditions['join_hut_id']))
             {
@@ -232,7 +232,7 @@ class Summit extends BaseSummit
         
         if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']) || isset($conditions['join_parking_i18n']))
         {
-            $q->leftJoin("l.LinkedAssociation l4");
+            $q->leftJoin("l.MainMainAssociation l4");
             
             if (isset($conditions['join_parking_id']))
             {

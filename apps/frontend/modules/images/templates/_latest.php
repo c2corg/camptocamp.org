@@ -37,7 +37,8 @@ if (!isset($home_section))
     $home_section = true;
 }
 
-if ($home_section):
+if ($home_section)
+{
     include_partial('documents/home_section_title',
                     array('module' => 'images',
                           'custom_title_text' => $custom_title_text,
@@ -45,25 +46,31 @@ if ($home_section):
                           'custom_rss_link' => $custom_rss_link));
 ?>
     <div class="home_container_text" id="last_images_section_container"><?php
-
-else:
-
+}
+else
+{
 ?>
 <div id="nav_images" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
         <?php
-    nav_title('images', __('Latest images'), 'images', 'last', $custom_title_link, $custom_rss_link, __("Subscribe to latest images creations"));
-endif;
+    echo nav_title('images', __('Latest images'), 'images', 'last', $custom_title_link, $custom_rss_link, __("Subscribe to latest images creations"));
+}
 
-if (count($items) == 0): ?>
-    <p><?php echo __('No recent images available') ?></p>
-<?php
-else: ?>
-    <div id="image_list">
-    <?php foreach ($items as $item): ?>
+if (count($items) == 0)
+{
+    ?>
+    <p><?php echo __('No recent images available') ?></p><?php
+}
+else
+{
+    ?>
+    <div id="image_list"><?php
+    foreach ($items as $item)
+    {
+        ?>
         <div class="image">
-        <?php 
+            <?php 
             $id = $item['id'];
             $filename = $item['filename'];
             
@@ -75,12 +82,12 @@ else: ?>
             $image_tag = image_tag(image_url($filename, 'small'),
                                    array('title' => $title, 'alt' => $title));
             echo link_to($image_tag, "@document_by_id_lang_slug?module=images&id=$id&lang=$lang&slug=" . make_slug($i18n['name']));
-        ?>    
-        </div>
-    <?php endforeach ?>
-    </div>
-<?php
-endif;
+        ?>
+        </div><?php
+    }
+    ?>
+    </div><?php
+}
 
 if ($home_section)
 {
