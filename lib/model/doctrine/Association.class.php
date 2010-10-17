@@ -597,7 +597,7 @@ class Association extends BaseAssociation
                     $mail->setSubject('New image associated to book');
 
                     $mail->setContentType('text/html');
-                    $server = 'http://www.camptocamp.org'; // FIXME
+                    $server = $_SERVER['SERVER_NAME'];
                     $body = "<p>A <a href=\"$server/images/$linked_id\">new image</a> has been associated to <a href=\"$server/books/$main_id\">book $main_id</a>.</p>"
                         . "<p>The image may require a copyright license. If so, please ensure that:</p>"
                         . "<ul>"
