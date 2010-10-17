@@ -603,7 +603,7 @@ class Association extends BaseAssociation
                         . "<ul>"
                         . "<li>the owner is correctly aknowledged in the author field;</li>";
                         . "<li>the image is not too big (max 800px width or height).</li>"
-                        . "</ul>"
+                        . "</ul>";
                     $mail->setBody($body);
 
                     // send the email
