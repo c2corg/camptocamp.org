@@ -260,7 +260,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildPersoCriteria(&$conditions, &$values, $params_list)
+    public static function buildPersoCriteria(&$conditions, &$values, &$params_list, $culture_param)
     {
         self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
         if (isset($conditions['all']))
@@ -276,17 +276,44 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         
         $perso = c2cTools::getArrayElement($params_list, 'perso');
-        if (c2cTools::getArrayElement($params_list, 'perso'))
+        if (!empty($perso))
         {
-            self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
-        }
-        elseif (c2cTools::getArrayElement($params_list, 'bbox'))
-        {
-            self::buildConditionItem($conditions, $values, 'Bbox', 'm.geom', 'bbox', null, false, $params_list);
-        }
-        elseif (c2cTools::getArrayElement($params_list, 'around'))
-        {
-            self::buildConditionItem($conditions, $values, 'Around', 'm.geom', 'around', null, false, $params_list);
+            $perso = explode('-', $perso);
+            $params = array_keys($params_list);
+            
+            if (!array_intersect(array('areas', 'bbox', 'around'), $params) && array_intersect(array('areas', 'yes', 'all'), $perso))
+            {
+                
+                $areas = c2cPersonalization::getInstance()->getPlacesFilter();
+                if (count($areas))
+                {
+                    $params_list['areas'] = implode('-', $areas);
+                }
+            }
+            
+            if (!in_array('act', $params) && array_intersect(array('act', 'yes', 'all'), $perso))
+            {
+                $activities = c2cPersonalization::getInstance()->getActivitiesFilter();
+                if (count($activities))
+                {
+                    $params_list['act'] = implode('-', $activities);
+                }
+            }
+            
+            if (!in_array($culture_param, $params) && array_intersect(array('cult', 'yes', 'all'), $perso))
+            {
+                $cultures = c2cPersonalization::getInstance()->getLanguagesFilter();
+                if (count($cultures))
+                {
+                    $params_list[$culture_param] = implode('-', $cultures);
+                }
+            }
+            
+            unset($params_list['perso']);
+            if (empty($params_list))
+            {
+                $conditions['all'] = true;
+            }
         }
     }
 
