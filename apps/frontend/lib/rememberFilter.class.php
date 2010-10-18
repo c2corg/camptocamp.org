@@ -33,14 +33,22 @@ class rememberFilter extends sfFilter
                     $session_user->signIn($user->get('private_data')->getLoginName(), 
                                           $user->get('private_data')->getPassword(), true, true);
                 }
+
+                // User has signed in, and is now correctly in symfony session. However, forums
+                // and several personnalization functions rely on cookies, that will be sent with the request,
+                // but are not yet 'available'
+                // easiest solution is to force the browser to reload the current page
+                // FIXME this is a bit hacky. There is possibly a better way to do this (eg by using the request
+                // object, but we need this to be done as quickly as possible)
+                c2cTools::log('{rememberFilter} forcing user to reload current page');
+                $request = $this->getContext()->getRequest();
+                header("location: ".$request->getUri());
+                exit();
             }
             else
             {
                 // delete cookie value in client so that no more requests are made to the db
-                $expiration_age = sfConfig::get('app_remember_key_expiration_age', 30 * 24 * 3600);
-                sfContext::getInstance()
-                                 ->getResponse()
-                                 ->setCookie($cookie_name, null, time() + $expiration_age);
+                sfContext::getInstance()->getResponse()->setCookie($cookie_name, '');
             }
         }
         

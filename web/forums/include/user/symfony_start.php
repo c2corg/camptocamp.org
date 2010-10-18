@@ -24,6 +24,7 @@ $sf_user = $context->getUser();
 
 if (!$sf_user->isConnected() && !is_null($cookie))
 {
+    // see rememberFilter from symfony to understand what happens here
     c2cTools::log('{fake rememberFilter in forum} user has a cookie, trying to auto login');
     $remember_key = Doctrine_Query::create()
                                           ->from('RememberKey rk')
@@ -40,13 +41,15 @@ if (!$sf_user->isConnected() && !is_null($cookie))
         {
             $private_data = $dbuser->get('private_data');
             $sf_user->signIn($private_data->getLoginName(), $private_data->getPassword(), true, true);
+            c2cTools::log('{fake rememberFilter in forum} forcing user to reload current page');
+            header("location: ".$request->getUri());
+            exit();
         }
     }
     else
     {
         // delete cookie value in client so that no more requests are made to the db
-        $expiration_age = sfConfig::get('app_remember_key_expiration_age', 30 * 24 * 3600);
-        $response->setCookie($remember_cookie, null, time() + $expiration_age);
+        $response->setCookie($remember_cookie, '');
     }
 }
 
