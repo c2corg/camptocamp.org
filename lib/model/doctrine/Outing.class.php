@@ -357,8 +357,7 @@ class Outing extends BaseOuting
             unset($conditions['join_outing_i18n']);
         }
 
-        if (
-               isset($conditions['join_route_id'])
+        if (   isset($conditions['join_route_id'])
             || isset($conditions['join_route'])
             || isset($conditions['join_route_i18n'])
             || isset($conditions['join_summit_id'])
@@ -418,8 +417,7 @@ class Outing extends BaseOuting
                 unset($conditions['join_rdoctag_id']);
             }
             
-            if (
-                   isset($conditions['join_rbook_id'])
+            if (   isset($conditions['join_rbook_id'])
                 || isset($conditions['join_rbook'])
                 || isset($conditions['join_rbook_i18n'])
                 || isset($conditions['join_rbtag_id'])
@@ -443,8 +441,7 @@ class Outing extends BaseOuting
             }
         }
 
-        if (
-            isset($conditions['join_summit_id'])
+        if (   isset($conditions['join_summit_id'])
             || isset($conditions['join_summit'])
             || isset($conditions['join_oversummit'])
             || isset($conditions['join_summit_i18n'])
@@ -493,8 +490,7 @@ class Outing extends BaseOuting
                 unset($conditions['join_stag_id']);
             }
             
-            if (
-                   isset($conditions['join_sbook_id'])
+            if (   isset($conditions['join_sbook_id'])
                 || isset($conditions['join_sbtag_id'])
             )
             {
@@ -516,8 +512,7 @@ class Outing extends BaseOuting
             }
         }
         
-        if (
-                isset($conditions['join_hut_id'])
+        if (   isset($conditions['join_hut_id'])
             || isset($conditions['join_hut'])
             || isset($conditions['join_hut_i18n'])
             || isset($conditions['join_hbook_id'])
@@ -554,8 +549,7 @@ class Outing extends BaseOuting
                 unset($conditions['join_htag_id']);
             }
             
-            if (
-                   isset($conditions['join_hbook_id'])
+            if (   isset($conditions['join_hbook_id'])
                 || isset($conditions['join_hbtag_id'])
             )
             {
@@ -577,8 +571,7 @@ class Outing extends BaseOuting
             }
         }
         
-        if (
-                isset($conditions['join_parking_id'])
+        if (   isset($conditions['join_parking_id'])
             || isset($conditions['join_parking'])
             || isset($conditions['join_parking_i18n'])
             || isset($conditions['join_ptag_id'])
@@ -614,8 +607,7 @@ class Outing extends BaseOuting
             }
         }
 
-        if (
-                isset($conditions['join_site_id'])
+        if (   isset($conditions['join_site_id'])
             || isset($conditions['join_site'])
             || isset($conditions['join_site_i18n'])
             || isset($conditions['join_tbook_id'])
@@ -652,8 +644,7 @@ class Outing extends BaseOuting
                 unset($conditions['join_ttag_id']);
             }
             
-            if (
-                   isset($conditions['join_tbook_id'])
+            if (   isset($conditions['join_tbook_id'])
                 || isset($conditions['join_tbtag_id'])
             )
             {
@@ -675,8 +666,7 @@ class Outing extends BaseOuting
             }
         }
         
-        if (
-            || isset($conditions['join_rbook'])
+        if (   isset($conditions['join_rbook'])
             || isset($conditions['join_rbook_i18n'])
         )
         {
@@ -695,8 +685,7 @@ class Outing extends BaseOuting
 
         $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
 
-        if (
-               isset($conditions['join_user'])
+        if (   isset($conditions['join_user'])
             || isset($conditions['join_user_i18n'])
         )
         {
