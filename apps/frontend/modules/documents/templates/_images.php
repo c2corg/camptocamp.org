@@ -129,11 +129,27 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
     <div id="add_images_button" class="add_content">
     <?php
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript('/static/js/image_upload.js', 'last');
+
     $add = __('add an image');
-    $js = 'if (!Prototype.Browser.IE || (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) > 7)) { url = \'' .
-          url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .
-          '\' } else { url = this.href; } Modalbox.show(url, {title:this.title, width:700}); return false;';
+
+    $upload_method = sfConfig::get('app_images_upload_method', 'js');
+    switch ($upload_method)
+    {
+        case 'js':
+            $response->addJavascript('/static/js/image_upload.js', 'last');
+            $js = 'if (!Prototype.Browser.IE || (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) > 7)) { url = \'' .
+                  url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .
+                  '\' } else { url = this.href; } Modalbox.show(url, {title:this.title, width:700}); return false;';
+            break;
+        case 'plupload':
+            $response->addJavascript('/static/js/plupload.full.min.js', 'last');
+            $response->addJavascript('/static/js/plupload.wrapper.js', 'last');
+            $js = 'Modalbox.show(\''.url_for("@image_jsupload?mod=$module_name&document_id=$document_id").'?plupload=true\', {title:this.title, width:700}); return false;';
+            break;
+        default:
+            $js = 'Modalbox.show(\''.url_for("@image_upload?mod=$module_name&document_id=$document_id").'\', {title:this.title, width:700}); return false;';
+            break;
+    }
     echo link_to(picto_tag('picto_add', $add) . $add,
                  "@image_upload?mod=$module_name&document_id=$document_id",
                  array('onclick' => $js));

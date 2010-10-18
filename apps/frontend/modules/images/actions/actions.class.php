@@ -217,6 +217,7 @@ class imagesActions extends documentsActions
         }
         else
         {
+            if ($request->hasParameter('plupload')) $this->plupload = true;
             // display form
         }
     }
@@ -231,7 +232,7 @@ class imagesActions extends documentsActions
     }
 
     // first step of image js upload: upload the images on the server
-    public function executeAddtempimage()
+    public function executeAddtempimages()
     {
         $document_id = $this->getRequestParameter('document_id');
         $mod = $this->getRequestParameter('mod');
@@ -241,34 +242,7 @@ class imagesActions extends documentsActions
 
         if ($request->getMethod() == sfRequest::POST)
         {
-            // check if user has the rights to upload images to the document
-            $user = $this->getUser();
-            $user_id = $user->getId();
-            $user_valid = true;
-            switch ($mod)
-            {
-                case 'users':
-                    if ($user_id != $document_id) $user_valid = false;
-                    break;
-                case 'outings':
-                    if (!Association::find($user_id, $document_id, 'uo')) $user_valid = false;
-                    break;
-                case 'images':
-                    $image = Document::find('Image', $document_id, array('image_type'));
-                    if (!$image) break;
-                    $creator = $image->getCreator();
-                    if (($image->get('image_type') == 2) && ($creator['id'] != $user_id)) $user_valid = false;
-                    break;
-                case 'articles':
-                    $article = Document::find('Article', $document_id, array('article_type'));
-                    if (($article->get('article_type') == 2) && !Association::find($user_id, $document_id, 'uc')) $user_valid = false;
-                    break;
-                default:
-                    break;
-            }
-
-            if ((!$user_valid && !$user->hasCredential('moderator'))
-                || !$request->hasFiles())
+            if (!self::checkUploadRights())
             {
                 return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
             }
@@ -283,8 +257,7 @@ class imagesActions extends documentsActions
             for ($i=0; $i<$nb_images; $i++)
             {
                 $images[$i] = array();
-                // custom validation here (in order to only reject images that
-                // do not validate)
+                // custom validation here (in order to only reject images that do not validate)
                 $error = '';
                 if (!Image::validate_image($uploaded_files['image_file'], $error, $i))
                 {
@@ -293,72 +266,26 @@ class imagesActions extends documentsActions
                     continue;
                 }
 
-                // copy the image to the temp directory
-                $filename = $uploaded_files['image_file']['tmp_name'][$i];
-                $unique_filename = c2cTools::generateUniqueName();
-                $file_ext = Images::detectExtension($filename);
+                $img_data = self::handleImage($uploaded_files['image_file']['name'][$i],
+                                              $uploaded_files['image_file']['tmp_name'][$i],
+                                              $temp_dir, $i);
 
-                $new_location = $temp_dir . $unique_filename . $file_ext;
-                if (!move_uploaded_file($filename, $new_location))
+                if (isset($img_data['error']))
                 {
+                    $images[$i]['error'] = $img_data['error'];
                     $images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
-                    $images[$i]['error'] = array('field' => 'image_file', 'msg' => 'Failed moving uploaded file');
                     continue;
                 }
-
-                if ($file_ext == '.svg')
+                else // everything went fine
                 {
-                    if (!SVG::rasterize($temp_dir, $unique_filename, $file_ext))
+                    $images[$i]['image_filename'] = $img_data['image_filename'];
+                    $images[$i]['default_license'] = $img_data['default_license'];
+                    $images[$i]['image_number'] = $img_data['image_number'];
+                    if (!empty($img_data['image_title']))
                     {
-                        $uploaded_files = $this->getRequest()->getFiles();
-                        $images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
-                        $images[$i]['error'] = array('field' => 'image_file', 'msg' => 'Failed rasterizing svg file');
-                        continue;
+                        $images[$i]['image_title'] = $img_data['image_title'];
                     }
                 }
-
-                // generate thumbnails
-                Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
-
-                // look iptc for a possible title (jpeg only)
-                if ($file_ext == '.jpg')
-                {
-                    $size = getimagesize($new_location, $info);
-                    if (isset($info['APP13']))
-                    {
-                        $iptc = iptcparse($info['APP13']);
-                        if (isset($iptc['2#105'])) // title
-                        {
-                            $image_title = $iptc['2#105'][0];
-                        }
-                        else if (isset($iptc['2#120'])) // comment
-                        {
-                           $image_title = $iptc['2#120'][0];
-                        }
-                    }
-                }
-
-                if (isset($image_title))
-                {
-                    $encoding = mb_detect_encoding($image_title, "UTF-8, ISO-8859-1, ISO-8859-15", true);
-
-                    if ($encoding !== false)
-                    {
-                        if ($encoding != 'UTF-8')
-                        {
-                            $images[$i]['image_title'] = mb_convert_encoding($image_title, 'UTF-8', $encoding);
-                        }
-                        else
-                        {
-                            $images[$i]['image_title'] = $image_title;
-                        }
-                    }
-                    // if encoding could not be detected, rather not try to put it as prefilled title
-                }
-
-                $images[$i]['image_filename'] = $unique_filename . $file_ext;
-                $images[$i]['default_license'] = $this->getDefaultImageLicense($document_id, $mod);
-                $images[$i]['image_number'] = (intval($this->getRequestparameter('image_number'))+1)*1000+$i;
             }
             $this->images = $images;
             $this->setLayout(false);
@@ -367,7 +294,63 @@ class imagesActions extends documentsActions
         {
             return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
         }
-}
+    }
+
+    public function handleErrorAddpltempimage()
+    {
+        $uploaded_files = $this->getRequest()->getFiles();
+        $this->image_name = $uploaded_files['image_file']['name'][0];
+        $this->setlayout(false);
+    }
+
+    /** image uplaod with plupload tool */
+    public function executeAddpltempimage()
+    {
+        $document_id = $this->getRequestParameter('document_id');
+        $mod = $this->getRequestParameter('mod');
+        $redir_route = "@document_by_id?module=$mod&id=$document_id";
+
+        $request = $this->getRequest();
+
+        if ($request->getMethod() == sfRequest::POST)
+        {
+            if (!self::checkUploadRights())
+            {
+                return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
+            }
+
+            $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
+                        sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
+
+            // validation has been done with validator
+
+            $uploaded_file = $request->getFile('image_file');
+            $img_data = self::handleImage($this->getRequestParameter('name'),
+                                          $uploaded_file['tmp_name'][0],
+                                          $temp_dir, 0); // TODO i // TODO
+
+            if (isset($img_data['error']))
+            {
+                $this->image_name = $this->getRequestParameter('name');
+                $this->setlayout(false);
+                $this->getRequest()->setError('image_file', $img_data['error']);
+                return sfView::ERROR;
+            }
+
+            $this->image_filename = $img_data['image_filename'];
+            $this->default_license = $img_data['default_license'];
+            $this->image_number = $img_data['image_number'];
+            if (!empty($img_data['image_title']))
+            {
+                $this->image_title = $img_data['image_title'];
+            }
+            $this->setLayout(false);
+        }
+        else
+        {
+            return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
+        }
+    }
 
     /**
      * Executes easy upload action
@@ -755,5 +738,119 @@ class imagesActions extends documentsActions
                 }
             }
         }
+    }
+
+    private function handleImage($image_name, $tmp_name, $temp_dir, $index = 1)
+    {
+        // copy the image to the temp directory
+        $filename = $tmp_name;
+        $unique_filename = c2cTools::generateUniqueName();
+        $file_ext = Images::detectExtension($filename);
+
+        $new_location = $temp_dir . $unique_filename . $file_ext;
+        if (!move_uploaded_file($filename, $new_location))
+        {
+            //$images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
+            //$images[$i]['error'] = array('field' => 'image_file', 'msg' => 'Failed moving uploaded file');
+            //continue;
+            return array('error' => array('field' => 'image_file', 'msg' => 'Failed moving uploaded file'));
+        }
+
+        if ($file_ext == '.svg')
+        {
+            if (!SVG::rasterize($temp_dir, $unique_filename, $file_ext))
+            {
+                //$uploaded_files = $this->getRequest()->getFiles();
+                //$images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
+                //$images[$i]['error'] = array('field' => 'image_file', 'msg' => 'Failed rasterizing svg file');
+                //continue;
+                return array('error' => array('field' => 'image_file', 'msg' => 'Failed rasterizing svg file'));
+            }
+        }
+
+        // generate thumbnails
+        Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
+
+        // look iptc for a possible title (jpeg only)
+        if ($file_ext == '.jpg')
+        {
+            $size = getimagesize($new_location, $info);
+            if (isset($info['APP13']))
+            {
+                $iptc = iptcparse($info['APP13']);
+                if (isset($iptc['2#105'])) // title
+                {
+                    $image_title = $iptc['2#105'][0];
+                }
+                else if (isset($iptc['2#120'])) // comment
+                {
+                    $image_title = $iptc['2#120'][0];
+                }
+            }
+        }
+
+        if (isset($image_title))
+        {
+            $encoding = mb_detect_encoding($image_title, "UTF-8, ISO-8859-1, ISO-8859-15", true);
+
+            if ($encoding !== false)
+            {
+                if ($encoding != 'UTF-8')
+                {
+                    $image_title = mb_convert_encoding($image_title, 'UTF-8', $encoding);
+                }
+                else
+                {
+                    $image_title = $image_title;
+                }
+            }
+            // if encoding could not be detected, rather not try to put it as prefilled title
+        }
+
+        return array('image_filename' => $unique_filename . $file_ext,
+                     'default_license' => $this->getDefaultImageLicense($this->getRequestParameter('document_id'), 
+                                                                        $this->getRequestParameter('mod')),
+                     'image_number' => (intval($this->getRequestparameter('image_number'))+1)*1000+$index,
+                     'image_title' => isset($image_title) ? $image_title : null);
+    }
+
+    // check if user has the rights to upload images to the document
+    private function checkUploadRights()
+    {
+        $document_id = $this->getRequestParameter('document_id');
+        $mod = $this->getRequestParameter('mod');
+
+        $request = $this->getRequest();
+
+        $user = $this->getUser();
+        $user_id = $user->getId();
+        $user_valid = true;
+        switch ($mod)
+        {
+            case 'users':
+                if ($user_id != $document_id) $user_valid = false;
+                break;
+            case 'outings':
+                if (!Association::find($user_id, $document_id, 'uo')) $user_valid = false;
+                break;
+            case 'images':
+                $image = Document::find('Image', $document_id, array('image_type'));
+                if (!$image) break;
+                $creator = $image->getCreator();
+                if (($image->get('image_type') == 2) && ($creator['id'] != $user_id)) $user_valid = false;
+                break;
+            case 'articles':
+                $article = Document::find('Article', $document_id, array('article_type'));
+                if (($article->get('article_type') == 2) && !Association::find($user_id, $document_id, 'uc')) $user_valid = false;
+                break;
+            default:
+                break;
+        }
+        if ((!$user_valid && !$user->hasCredential('moderator'))
+            || !$request->hasFiles())
+        {
+            return false;
+        }
+        return true;
     }
 }
