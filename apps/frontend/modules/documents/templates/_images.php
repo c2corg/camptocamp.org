@@ -142,7 +142,7 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
                   '\' } else { url = this.href; } Modalbox.show(url, {title:this.title, width:700}); return false;';
             break;
         case 'plupload':
-            $response->addJavascript('/static/js/plupload.full.js', 'last');
+            $response->addJavascript('/static/js/plupload.c2c.js', 'last');
             $response->addJavascript('/static/js/plupload.wrapper.js', 'last');
             $js = 'Modalbox.show(\''.url_for("@image_jsupload?mod=$module_name&document_id=$document_id").'?plupload=true\', {title:this.title, width:700}); return false;';
             break;
