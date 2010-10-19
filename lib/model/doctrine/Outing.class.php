@@ -150,10 +150,12 @@ class Outing extends BaseOuting
         // outing criteria
         self::buildConditionItem($conditions, $values, 'String', 'oi.search_name', array('onam', 'name'), 'join_outing_i18n', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', array('m', 'o', 'activities'), 'act', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', array('m', 'o', 'activities'), 'oact', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.max_elevation', 'oalt', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.height_diff_up', 'odif', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.outing_length', 'olen', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Date', 'date', 'date', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Date', 'date', 'odate', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Bool', 'm.partial_trip', 'ptri', null, false, $params_list);
@@ -278,7 +280,7 @@ class Outing extends BaseOuting
         // tags criteria
         self::buildConditionItem($conditions, $values, 'List', 'l7.linked_id', 'otags', 'join_otag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l101.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'l103.linked_id', 'rdoctags', 'join_rdoctag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'l103.linked_id', 'rdtags', 'join_rdtag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l202.linked_id', 'stags', 'join_stag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l301.linked_id', 'htags', 'join_htag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l401.linked_id', 'ptags', 'join_ptag_id', false, $params_list);
@@ -300,7 +302,7 @@ class Outing extends BaseOuting
 
     public static function browse($sort, $criteria, $format = null)
     {
-        $field_list = self::buildFieldsList($format, $sort);
+        $field_list = self::buildOutingFieldsList($format, $sort);
         $pager = self::createPager('Outing', $field_list, $sort);
         $q = $pager->getQuery();
 
@@ -376,7 +378,7 @@ class Outing extends BaseOuting
             || isset($conditions['join_stag_id'])
             || isset($conditions['join_htag_id'])
             || isset($conditions['join_ptag_id'])
-            || isset($conditions['join_rdoctag_id'])
+            || isset($conditions['join_rdtag_id'])
             || isset($conditions['join_rbtag_id'])
         )
         {
@@ -409,12 +411,12 @@ class Outing extends BaseOuting
                 unset($conditions['join_rtag_id']);
             }
 
-            if (isset($conditions['join_rdoctag_id']))
+            if (isset($conditions['join_rdtag_id']))
             {
                 $q->leftJoin("l.MainAssociation l102")
                   ->leftJoin("l102.LinkedLinkedAssociation l103")
                   ->addWhere("l102.type IN ('sr', 'hr', 'pr', 'br')");
-                unset($conditions['join_rdoctag_id']);
+                unset($conditions['join_rdtag_id']);
             }
             
             if (   isset($conditions['join_rbook_id'])
@@ -725,7 +727,7 @@ class Outing extends BaseOuting
         }
     }
 
-    protected static function buildFieldsList($format = null, $sort, $field_list = array())
+    protected static function buildOutingFieldsList($format = null, $sort)
     {
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation',
@@ -743,19 +745,45 @@ class Outing extends BaseOuting
                                   'mi.participants', 'mi.timing', 'mi.access_comments', 'mi.hut_comments', 'mi.description')
                             : array();
         
-        $field_list = array_merge(parent::buildGeoFieldsList(),
-                                  $outings_fields_list,
-                                  $conditions_fields_list,
-                                  $full_fields_list,
-                                  $field_list);
-        
-        $orderby = $sort['order_by'];
-        if (!empty($orderby) && !in_array($orderby, $field_list))
+        $extra_fields = array();
+        if (isset($sort['orderby_param']))
         {
-            $field_list[] = $orderby;
+            $orderby = $sort['orderby_param'];
+            
+            if (in_array($orderby, sfConfig::get('mod_outings_sort_route_criteria')))
+            {
+                switch ($orderby)
+                {
+                    case 'fac':  $extra_fields[] = 'r.facing'; break;
+                    case 'ralt': $extra_fields[] = 'r.elevation'; break;
+                    case 'dhei': $extra_fields[] = 'r.difficulties_height'; break;
+                    case 'grat': $extra_fields[] = 'r.global_rating'; break;
+                    case 'erat': $extra_fields[] = 'r.engagement_rating'; break;
+                    case 'prat': $extra_fields[] = 'r.equipment_rating'; break;
+                    case 'frat': $extra_fields[] = 'r.rock_free_rating'; break;
+                    case 'arat': $extra_fields[] = 'r.aid_rating'; break;
+                    case 'irat': $extra_fields[] = 'r.ice_rating'; break;
+                    case 'mrat': $extra_fields[] = 'r.mixed_rating'; break;
+                    case 'trat': $extra_fields[] = 'r.toponeige_technical_rating'; break;
+                    case 'expo': $extra_fields[] = 'r.toponeige_exposition_rating'; break;
+                    case 'lrat': $extra_fields[] = 'r.labande_global_rating'; break;
+                    case 'srat': $extra_fields[] = 'r.labande_ski_rating'; break;
+                    case 'hrat': $extra_fields[] = 'r.hiking_rating'; break;
+                    default: break;
+                }
+            }
+            elseif (in_array($orderby, array('lat', 'lon')))
+            {
+                $extra_fields = array('s.lat', 's.lon');
+            }
         }
         
-        return parent::buildFieldsList($format, $sort, $field_list);
+        return array_merge(parent::buildFieldsList(),
+                           parent::buildGeoFieldsList(),
+                           $outings_fields_list,
+                           $conditions_fields_list,
+                           $full_fields_list,
+                           $extra_fields);
     }
 
     public static function retrieveConditions($days)
