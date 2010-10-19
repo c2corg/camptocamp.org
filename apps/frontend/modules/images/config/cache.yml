@@ -4,6 +4,9 @@ _inline_form:
 
 upload:
   enabled: off
+
+jsupload:
+  enabled: off
   
 _file_form:
   enabled: off
@@ -24,6 +27,15 @@ filter:
   enabled: off
 
 addtempimage:
+  enabled: off
+
+addpltempimage:
+  enabled: off
+
+_plupload:
+  enabled: off
+
+_jsupload:
   enabled: off
 
 _temp_image_success:
