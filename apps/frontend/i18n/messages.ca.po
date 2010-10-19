@@ -4196,9 +4196,9 @@ msgstr "llenado"
 
 # [general comment]
 # Filter to select only docs available in a specific language
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "filter language"
-msgstr "Uniquement les documents disponibles en"
+msgstr "Only documents available in"
 
 msgid "filter successfully saved"
 msgstr "El vostre filtre ha estat enregistrar amb èxit."
@@ -5988,7 +5988,7 @@ msgstr "Els butlletins nivològics a continuació són generalment publicats di�
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
 # [WARNING] es translation used
 msgid "snow pic"
-msgstr "nieve y aludes"
+msgstr "nivología y aludes"
 
 msgid "snow_clearance_comment"
 msgstr "Precisions sobre la neteja de la neu:"

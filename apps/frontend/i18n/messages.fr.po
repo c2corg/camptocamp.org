@@ -5525,7 +5525,7 @@ msgstr "Les bulletins nivologiques ci-dessous sont généralement publiés une f
 # [general comment]
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
 msgid "snow pic"
-msgstr "neige et avalanche"
+msgstr "nivologie et avalanche"
 
 msgid "snow_clearance_comment"
 msgstr "Précisions sur le déneigement&nbsp;:"
@@ -5654,7 +5654,7 @@ msgid "the list is sorted by id"
 msgstr "La liste est triée par date de création des documents."
 
 msgid "there is no %1% to show"
-msgstr "Il n'y a aucuns résultats dans la liste des %1%. Peut-être que vos filtres sont trop restrictifs&nbsp;? Pensez à vérifier l'orthographe des mots recherchés ou à n'en saisir qu'une partie caractéristique."
+msgstr "Il n'y a aucun résultat dans la liste des %1%. Peut-être que vos filtres sont trop restrictifs&nbsp;? Pensez à vérifier l'orthographe des mots recherchés ou à n'en saisir qu'une partie caractéristique."
 
 msgid "this data is too long (100 characters maximum)"
 msgstr "cette information doit faire moins de 100 caractères"

@@ -4133,9 +4133,9 @@ msgstr "llenado"
 
 # [general comment]
 # Filter to select only docs available in a specific language
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "filter language"
-msgstr "Uniquement les documents disponibles en"
+msgstr "Only documents available in"
 
 msgid "filter successfully saved"
 msgstr "Zure filtroa ongi gorde da."
@@ -5920,7 +5920,7 @@ msgstr "ENA-k suitzan eta Météo-France-k frantzian ondorengo edur iragarpena e
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
 # [WARNING] es translation used
 msgid "snow pic"
-msgstr "nieve y aludes"
+msgstr "nivología y aludes"
 
 msgid "snow_clearance_comment"
 msgstr "Elur garbiketari buruzko zehaztasunak:"

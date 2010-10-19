@@ -3961,9 +3961,9 @@ msgstr "filled-in"
 
 # [general comment]
 # Filter to select only docs available in a specific language
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "filter language"
-msgstr "Uniquement les documents disponibles en"
+msgstr "Only documents available in"
 
 msgid "filter successfully saved"
 msgstr "Filter successfully saved."
@@ -5591,7 +5591,7 @@ msgstr "The avalanche bulletins below are generally issued once per day in winte
 # [general comment]
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
 msgid "snow pic"
-msgstr "snow and avalanches"
+msgstr "nivology and avalanches"
 
 msgid "snow_clearance_comment"
 msgstr "Snow clearing:"

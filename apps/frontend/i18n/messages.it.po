@@ -3916,9 +3916,9 @@ msgstr "compilato"
 
 # [general comment]
 # Filter to select only docs available in a specific language
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "filter language"
-msgstr "Uniquement les documents disponibles en"
+msgstr "Solo documenti disponibile in"
 
 msgid "filter successfully saved"
 msgstr "Filtro correttamente registrato."
@@ -5543,7 +5543,7 @@ msgstr "I seguenti bollettini nivologici sono generalmente pubblicati una volta 
 # [general comment]
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
 msgid "snow pic"
-msgstr "neve e valanghe"
+msgstr "nivologia e valanghe"
 
 msgid "snow_clearance_comment"
 msgstr "Commenti sullo stato della strada:"

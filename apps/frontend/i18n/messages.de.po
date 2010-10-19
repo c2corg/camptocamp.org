@@ -4303,7 +4303,7 @@ msgstr "eingetragen"
 
 # [general comment]
 # Filter to select only docs available in a specific language
-# [WARNING] needs_review
+# [WARNING] en translation used
 msgid "filter language"
 msgstr "Only documents available in"
 
@@ -6065,7 +6065,7 @@ msgstr "Die untenstehenden Lawinenbulletins werden in der Wintersaison üblicher
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
 # [WARNING] needs_review
 msgid "snow pic"
-msgstr "Schnee und Lawinen"
+msgstr "Nivology und Lawinen"
 
 # [WARNING] needs_review
 msgid "snow_clearance_comment"
