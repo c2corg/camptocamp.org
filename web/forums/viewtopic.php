@@ -663,7 +663,7 @@ foreach ($posts_list as $cur_post)
 	$cur_post['message'] = parse_message($cur_post['message'], $cur_post['hide_smilies'], $post_id_list);
 
 	// Do signature parsing/caching
-	if ($poster_data['signature'] != '' && $pun_user['show_sig'] != '0')
+	if ($poster_data['signature'] != '' && $pun_user['show_sig'] != '0' && !c2cTools::mobileVersion())
 	{
 		if (isset($signature_cache[$cur_post['poster_id']]))
 			$signature = $signature_cache[$cur_post['poster_id']];
