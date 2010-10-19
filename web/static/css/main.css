@@ -3196,12 +3196,6 @@ ul.list404 li
 }
 
 
-.nav_box_text .image_list
-{
-  margin-left: 27px;
-}
-
-
 #nav_anchor_content, #nav_tools_content, #nav_license_content
 {
   height:100%;
@@ -3259,9 +3253,9 @@ ul.list404 li
   border-left:2px solid #e4e1da;
 }
 
-#nav_images .nav_box_content
+#nav_images #image_list
 {
-  padding-left: 30px;
+  padding-left: 31px;
 }
 
 .nav_box_top

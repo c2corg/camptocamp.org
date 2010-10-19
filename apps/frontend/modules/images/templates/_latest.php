@@ -55,6 +55,8 @@ else
     <div class="nav_box_content">
         <?php
     echo nav_title('images', __('Latest images'), 'images', 'last', $custom_title_link, $custom_rss_link, __("Subscribe to latest images creations"));
+        ?>
+        <div class="nav_box_text" id="nav_images_section_container"><?php
 }
 
 if (count($items) == 0)
@@ -100,6 +102,7 @@ echo javascript_tag('setHomeFolderStatus(\'last_images\', '.$cookie_position.', 
 else
 {
 ?>
+        </div>
     </div>
     <div class="nav_box_down"></div>
 </div>
