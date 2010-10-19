@@ -4,17 +4,10 @@
  */
 class myImageValidator extends sfValidator
 {
-    /* when used in conjunction with plupload, value is the first entry of an array,
-       so we have that convenience function */
-    private function _($value)
-    {
-        return is_array($value) ? $value[0] : $value;
-    }
-
     public function execute (&$value, &$error)
     {
         // file upload check
-        if (self::_($value['error']))
+        if ($value['error'])
         {
             $error = $this->getParameter('upload_error');
             return false;
@@ -22,17 +15,17 @@ class myImageValidator extends sfValidator
 
         $validation = sfConfig::get('app_images_validation');
 
-        if (self::_($value['size']) > $validation['weight'])
+        if ($value['size'] > $validation['weight'])
         {
             $error = $this->getParameter('weight_error');
             return false;
         }
 
         // type check
-        // FIXME with symfony 1.0, the type is the one given by the browser
+        // with symfony 1.0, the type is the one given by the browser
         // we prefer to use or own mime type checker (this is what is done in further
         // versions of symfony, using system file check)
-        $mime_type = c2cTools::getMimeType(self::_($value['tmp_name']));
+        $mime_type = c2cTools::getMimeType($value['tmp_name']);
         if (!in_array($mime_type, $validation['mime_types']))
         {
             $error = $this->getParameter('type_error');
@@ -41,19 +34,19 @@ class myImageValidator extends sfValidator
 
         if ($mime_type != 'image/svg+xml')
         {
-            list($width, $height) = getimagesize(self::_($value['tmp_name']));
+            list($width, $height) = getimagesize($value['tmp_name']);
         }
         else
         {
             // are there any script?
-            if (SVG::hasScript(self::_($value['tmp_name'])))
+            if (SVG::hasScript($value['tmp_name']))
             {
                 $error = $this->getParameter('svg_script_error');
                 return false;
             }
 
             // dimensions
-            $dimensions = SVG::getSize(self::_($value['tmp_name']));
+            $dimensions = SVG::getSize($value['tmp_name']);
             if ($dimensions === false)
             {
                 $error = $this->getParameter('svg_error');

@@ -326,8 +326,8 @@ class imagesActions extends documentsActions
 
             $uploaded_file = $request->getFile('image_file');
             $img_data = self::handleImage($this->getRequestParameter('name'),
-                                          $uploaded_file['tmp_name'][0],
-                                          $temp_dir, 0); // TODO i // TODO
+                                          $uploaded_file['tmp_name'],
+                                          $temp_dir);
 
             if (isset($img_data['error']))
             {

@@ -63,6 +63,7 @@ ImageUpload = {
     // test if file api is implemented
     if ($('image_file').files) {
       var files = $('image_file').files;
+      if (files.length > 4) return false;
       for (var i = 0; i < files.length; i++) {
         if (!reg.test(files[i].name)) return false;
       }
@@ -106,7 +107,7 @@ ImageUpload = {
 
   startCallback : function(upload_id, f) {
     // create entry for the image
-    var loadingImg = new Element('img', { src: '/static/images/indicator.gif' });
+    var loadingImg = new Element('img', { src: _static_url + '/static/images/indicator.gif' });
     var fileText = new Element('span');
     // file names
     if ($('image_file').files) {
