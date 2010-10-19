@@ -349,6 +349,20 @@ div.blockform form, div.fakeform
   padding: 0 5px 0 5px 0;
 }
 
+.postlink
+{
+  width: auto !important;
+  float: none !important;
+  text-align: left !important;
+  clear: none !important;
+}
+
+.pagelink
+{
+  width: auto !important;
+  float: none !important;
+}
+
 /* footer */
 #footer
 {
