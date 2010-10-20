@@ -6,10 +6,22 @@ class myImageValidator extends sfValidator
 {
     public function execute (&$value, &$error)
     {
+        // whether the image was sent via plupload or not
+        $plupload = (bool)$this->getContext()->getRequest()->getParameter('plupload', false);
+
         // file upload check
         if ($value['error'])
         {
-            $error = $this->getParameter('upload_error');
+            // if plupload was used, most probably the resized image
+            // was too big, so provide custom error message
+            if ($plupload)
+            {
+                $error = $this->getParameter('upload_resize_error');
+            }
+            else
+            {
+                $error = $this->getParameter('upload_error');
+            }
             return false;
         }
 
@@ -17,7 +29,15 @@ class myImageValidator extends sfValidator
 
         if ($value['size'] > $validation['weight'])
         {
-            $error = $this->getParameter('weight_error');
+            // same as above (in this case, max_file_size from php.ini is bigger than $validation['weight'])
+            if ($plupload)
+            {
+                $error = $this->getParameter('weight_resize_error');
+            }
+            else
+            {
+                $error = $this->getParameter('weight_error');
+            }
             return false;
         }
 

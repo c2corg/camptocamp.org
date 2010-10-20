@@ -3,7 +3,9 @@ fields:
     file:           True
     myImageValidator:
       upload_error:          file failed to upload
+      upload_resize_error:   file failed to upload, probable resize error
       weight_error:          file is too big
+      weight_resize_error:   file is too big, probable resize error
       type_error:            file has incorrect type
       max_dim_error:         file is too large
       min_dim_error:         file is too small

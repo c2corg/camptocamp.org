@@ -29,7 +29,8 @@ echo button_to_function(__('save'), "this.hide(); $('images_validate_form').subm
 $backup_url = url_for("@image_jsupload?mod=$mod&document_id=$document_id");
 $backup_js = '/'.sfSVN::getHeadRevision('image_upload.js').javascript_path('/static/js/image_upload.js');
 echo javascript_tag("
+var plupload_i18n = { badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."' };
 new PeriodicalExecuter(PlUploadWrapper.validateImageForms, 1);
-PlUploadWrapper.init('/images/addpltempimage/$mod/$document_id', '$backup_url', '$backup_js');");
+PlUploadWrapper.init('/images/addpltempimage/$mod/$document_id', '$backup_url', '$backup_js', plupload_i18n);");
 ?>
 </form>

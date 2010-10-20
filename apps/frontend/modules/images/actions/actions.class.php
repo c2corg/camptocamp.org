@@ -299,7 +299,7 @@ class imagesActions extends documentsActions
     public function handleErrorAddpltempimage()
     {
         $uploaded_files = $this->getRequest()->getFiles();
-        $this->image_name = $uploaded_files['image_file']['name'][0];
+        $this->image_name = $uploaded_files['image_file']['name'];
         $this->setlayout(false);
     }
 
@@ -333,7 +333,7 @@ class imagesActions extends documentsActions
             {
                 $this->image_name = $this->getRequestParameter('name');
                 $this->setlayout(false);
-                $this->getRequest()->setError('image_file', $img_data['error']);
+                $this->getRequest()->setError('image_file', $img_data['error']['msg']);
                 return sfView::ERROR;
             }
 
@@ -750,9 +750,6 @@ class imagesActions extends documentsActions
         $new_location = $temp_dir . $unique_filename . $file_ext;
         if (!move_uploaded_file($filename, $new_location))
         {
-            //$images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
-            //$images[$i]['error'] = array('field' => 'image_file', 'msg' => 'Failed moving uploaded file');
-            //continue;
             return array('error' => array('field' => 'image_file', 'msg' => 'Failed moving uploaded file'));
         }
 
@@ -760,10 +757,6 @@ class imagesActions extends documentsActions
         {
             if (!SVG::rasterize($temp_dir, $unique_filename, $file_ext))
             {
-                //$uploaded_files = $this->getRequest()->getFiles();
-                //$images[$i]['image_name'] = $uploaded_files['image_file']['name'][$i];
-                //$images[$i]['error'] = array('field' => 'image_file', 'msg' => 'Failed rasterizing svg file');
-                //continue;
                 return array('error' => array('field' => 'image_file', 'msg' => 'Failed rasterizing svg file'));
             }
         }
