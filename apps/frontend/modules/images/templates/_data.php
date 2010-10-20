@@ -40,6 +40,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
           echo link_to('Creative Commons '.__($license), $license_url, $license_link_opt).'</li>';
         }
 
+        li(field_image_details($document));
         if ($document->get('has_svg'))
         {
             $svg_url = image_url($document->get('filename'), null, false, false, '.svg');

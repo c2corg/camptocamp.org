@@ -41,6 +41,9 @@ msgstr "%1% resultats, %2% mostrats, afineu la vostra cerca."
 msgid "%1% weeks ago"
 msgstr "fa %1% setmanes"
 
+msgid "%1% x %2% px, %3% Mo"
+msgstr "%1% x %2% px, %3% Mo"
+
 msgid "%1% years ago"
 msgstr "fa %1% anys"
 
@@ -2901,6 +2904,10 @@ msgstr "<h3>Refugi</h3>Obertura del refugi: obert/tancat i gurdat/no guardat.<br
 msgid "_ice_rating_info"
 msgstr "<h3>Cotació glaç</h3>Cotació de les dificultats en glaç.<br />La cotació glaç avalua la dificultat màxima de l'escalada glaciar.<br />L'escala va de 1 a 7"
 
+# [WARNING] fr translation used
+msgid "_image details_info"
+msgstr "<h3>Propriétés de l'image</h3>Dimensions et taille de l'image"
+
 # [WARNING] es translation used
 msgid "_image_categories_info"
 msgstr "<h3>Categorías para imágenes</h3><br /><span style=\"color: red\">La selección de por lo menos una categoría marcada con un asterisco (*) llevara a que la imagen se vea en la pagina de inicio.</span><br /><br /><strong>paisaje</strong>: foto que muestra gran parte de uno o varias cimas, foto panorámica <br /><strong>detalle, zoom </strong>: foto ilustrando parte de un itinerario, de una cima o de un lugar (el contrario de un <em>paisaje</em>)<br/><strong>diagrama, topo</strong>: foto de una cima con el itinerario marcado, esquema o diagrama del itinerario <br /><strong>acción</strong>: foto mostrando un personaje en acción <br /><strong>huella, sendero </strong>: foto mostrando claramente la huella de subida o bajada en nieve o terreno blando, o un sendero <br /><strong>subida</strong> y <strong>bajada</strong>: fotos tomadas al subir o al bajar un itinerario. Es útil para precisar la categorías <em>detalle, zoom, acción, huella, sendero </em><br /><strong>personajes</strong>: foto cuyo sujeto principal es una o varias personas sacados de cerca <br /><strong>fauna</strong> y <strong>flora</strong>: fotos o dibujos de fauna o flora <br /><strong>nieve y aludes</strong>&nbsp;*: fotos o dubujos relacionados con la nivologia: cristales o estructuras de la nieve, del manto nevado, de un alud o una avalancha...<br /><strong>geología</strong>: fotos o dibujos de minerales, glaciares o estructuras geológicas <br /><strong>alojamiento</strong>: foto mostrando el exterior o el interior de un refugio, de un campamento o de un lugar de vivac <br /><strong>equipo</strong>: foto o dibujo mostrando equipo usado en la montaña, de cerca o en uso <br /><strong>tapa de libro</strong>:tapa de libro<br /><strong>varios </strong>: imagen que no se puede clasificar en las demás categorías: afiche para un acontecimiento, imagen abstracta etc."
@@ -4484,6 +4491,12 @@ msgstr "Illa de França"
 
 msgid "image"
 msgstr "imatge"
+
+# [general comment]
+# to specify image size and dimensions
+# [WARNING] fr translation used
+msgid "image details"
+msgstr "Propriétés de l'image&nbsp;:"
 
 msgid "image successfully uploaded"
 msgstr "La transmissió d'imatges ha estat un èxit."

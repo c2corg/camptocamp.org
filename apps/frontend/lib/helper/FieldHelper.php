@@ -679,6 +679,19 @@ function field_exposure_time_if_set($document, $name = 'exposure_time', $prefix 
     return _format_data($name, round(1/$value), false, $prefix, $suffix);
 }
 
+function field_image_details($document)
+{
+    $filename = $document->get('filename');
+    $file = sfConfig::get('app_upload_dir') . DIRECTORY_SEPARATOR .
+            sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR . $filename;
+    $dimensions = getimagesize($file);
+    $size = round(filesize($file) / 1048576, 2);
+    return _format_data('image details', __('%1% x %2% px, %3% Mo', 
+                                            array('%1%' => $dimensions[0],
+                                                  '%2%' => $dimensions[1],
+                                                  '%3%' => $size)));
+}
+
 function field_months_data($document, $name)
 {
     use_helper('DateForm');
