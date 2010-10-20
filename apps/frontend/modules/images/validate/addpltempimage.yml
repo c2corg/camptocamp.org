@@ -1,0 +1,9 @@
+fields:
+  image_file:
+    file:           True
+    myImageValidator:
+      upload_error:          file failed to upload
+      weight_error:          file is too big
+      type_error:            file has incorrect type
+      max_dim_error:         file is too large
+      min_dim_error:         file is too small
