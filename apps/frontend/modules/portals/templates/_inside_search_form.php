@@ -13,7 +13,7 @@ foreach ($params_fields as $key => $field)
     $value = $document->getRaw($field);
     if (!empty($value))
     {
-        $params[$key] = $value;
+        $params[$key] = str_replace('+', ' ', $value);
     }
 };
 

@@ -28,7 +28,6 @@ class portalsActions extends documentsActions
             $document = $this->document;
             $id = $this->document->get('id');
             $topo_filter = $this->document->get('topo_filter');
-            $topo_filter = str_replace('+', ' ', $topo_filter);
             $url_params = array();
             $main_params = unpackUrlParameters($topo_filter, $main_url_params);
             
@@ -130,7 +129,6 @@ class portalsActions extends documentsActions
             {
                 $outing_url_params = array();
                 $outing_params = $this->document->get('outing_filter');
-                $outing_params = str_replace('+', ' ', $outing_params);
                 $outing_params = unpackUrlParameters($outing_params, $outing_url_params);
                 $latest_outings = Outing::listLatest($nb_outings, $langs, $ranges, $activities, $outing_params);
                 // choose best language for outings and regions names
@@ -147,7 +145,6 @@ class portalsActions extends documentsActions
             {
                 $article_url_params = array();
                 $article_params = $this->document->get('article_filter');
-                $article_params = str_replace('+', ' ', $article_params);
                 $article_params = unpackUrlParameters($article_params, $article_url_params);
                 $this->latest_articles = Article::listLatest($nb_articles, $langs, $activities, $article_params);
                 $this->article_url_params = $article_url_params;
@@ -161,7 +158,6 @@ class portalsActions extends documentsActions
             {
                 $image_url_params = array();
                 $image_params = $this->document->get('image_filter');
-                $image_params = str_replace('+', ' ', $image_params);
                 $image_params = unpackUrlParameters($image_params, $image_url_params);
                 $latest_images = Image::listLatest($nb_images, $langs, $ranges, $activities, $image_params);
                 $this->latest_images = Language::getTheBest($latest_images, 'Image');
@@ -175,7 +171,6 @@ class portalsActions extends documentsActions
             {
                 $video_url_params = array();
                 $video_params = $this->document->get('video_filter');
-                $video_params = str_replace('+', ' ', $video_params);
                 $video_params = explode('|', $video_params, 3);
                 if (count($video_params) == 3)
                 {
