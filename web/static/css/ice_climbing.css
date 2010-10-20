@@ -57,19 +57,18 @@ a.close_btn, div.selected_image,
 
 #banner_logo
 {
-  background: url(/static/images/portals/ice_logo.png) no-repeat;
+  background-image: url(/static/images/portals/ice_logo.png);
   background-position: 0;
 }
 
 .article_title_img
 {
-  background: url(/static/images/portals/ice_modules.png) no-repeat;
+  background-image: url(/static/images/portals/ice_modules.png);
 }
 
 a.logged_as
 {
-    background: url(/static/images/portals/ice_modules_mini.png) -8px -392px no-repeat;
-    padding: 0 0 3px 20px;
+    background-image: url(/static/images/portals/ice_modules_mini.png);
 }
 
 .picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images,
@@ -80,7 +79,7 @@ a.logged_as
 .img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images, .img_module_portals, .img_module_products,
 .img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users
 {
-  background: url(/static/images/portals/ice_modules_mini.png) no-repeat;
+  background-image: url(/static/images/portals/ice_modules_mini.png);
 }
 
 .action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
@@ -97,6 +96,6 @@ a.logged_as
 .img_action_query, .img_action_edit, .img_action_help, .img_action_informations, .img_action_cc,
 .img_action_tools, .img_action_people
 {
-  background: url(/static/images/portals/ice_actions.png) no-repeat;
+  background-image: url(/static/images/portals/ice_actions.png);
 }
 

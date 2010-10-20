@@ -161,6 +161,23 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
                                                 'needs_translation' => $needs_translation, 'images' => $associated_images));
 echo '</div>';
 
+                ?>
+            </div>
+            <div id="home_right_content">
+                <?php
+if ($has_videos)
+{
+    include_partial('portals/latest_videos', array('items' => $latest_videos, 'culture' => $culture, 'default_open' => true));
+}
+if ($has_news)
+{
+    include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'culture' => $culture, 'default_open' => true));
+}
+if ($has_topics)
+{
+    include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => true));
+}
+
 if ($has_articles)
 {
     $article_url_params = $sf_data->getRaw('article_url_params');
@@ -181,22 +198,6 @@ if ($has_articles)
 }
                 ?>
             </div>
-            <div id="home_right_content">
-                <?php
-if ($has_videos)
-{
-    include_partial('portals/latest_videos', array('items' => $latest_videos, 'culture' => $culture, 'default_open' => true));
-}
-if ($has_news)
-{
-    include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'culture' => $culture, 'default_open' => true));
-}
-if ($has_topics)
-{
-    include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => true));
-}
-                ?>
-            </div>
         </div>
 
 <?php
@@ -209,7 +210,6 @@ if ($is_not_archive && $is_not_merged)
 {
     $document->associated_areas = $associated_areas;
 }
-include_partial('data', array('document' => $document));
 
 if ($is_not_archive)
 {
@@ -233,6 +233,9 @@ if ($is_not_archive)
     
     echo '</div>';
 }
+
+include_partial('data', array('document' => $document));
+
 echo end_section_tag();
 
 if ($is_not_archive && $is_not_merged)

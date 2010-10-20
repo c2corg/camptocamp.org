@@ -280,7 +280,7 @@ class Outing extends BaseOuting
         // tags criteria
         self::buildConditionItem($conditions, $values, 'List', 'l7.linked_id', 'otags', 'join_otag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l101.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'l103.linked_id', 'rdtags', 'join_rdtag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'lrdlinked.linked_id', 'rdtags', 'join_rdtag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l202.linked_id', 'stags', 'join_stag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l301.linked_id', 'htags', 'join_htag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l401.linked_id', 'ptags', 'join_ptag_id', false, $params_list);
@@ -413,9 +413,9 @@ class Outing extends BaseOuting
 
             if (isset($conditions['join_rdtag_id']))
             {
-                $q->leftJoin("l.MainAssociation l102")
-                  ->leftJoin("l102.LinkedLinkedAssociation l103")
-                  ->addWhere("l102.type IN ('sr', 'hr', 'pr', 'br')");
+                $q->leftJoin("l.MainAssociation lrd")
+                  ->leftJoin("lrd.LinkedLinkedAssociation lrdlinked")
+                  ->addWhere("lrd.type IN ('sr', 'hr', 'pr', 'br')");
                 unset($conditions['join_rdtag_id']);
             }
             
@@ -717,7 +717,7 @@ class Outing extends BaseOuting
         {
             $q->leftJoin("m.LinkedAssociation l8")
               ->leftJoin("l8.MainMainAssociation l801")
-              ->addWhere("l801.type = 'oi'");
+              ->addWhere("l8.type = 'oi'");
             unset($conditions['join_itag_id']);
         }
 

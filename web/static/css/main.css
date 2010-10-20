@@ -555,7 +555,7 @@ a.logged_as
 .article .sbox
 {
   clear: left;
-  padding-top: 2em;
+  padding-top: 1em;
 }
 
 .sbox input
@@ -4884,4 +4884,14 @@ span.license_mini_bysa {
 
 span.cotometre_result {
   font-size: 3em;
+}
+
+.portals_content .all_associations
+{
+  width: auto;
+}
+
+.portals_content .switch_lang
+{
+  margin-top: 1em;
 }
