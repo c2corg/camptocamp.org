@@ -6,7 +6,7 @@
 
 #menu_up
 {
-  background: #ffad5c;
+  background: #ffba4f;
   border: 1px solid #999;
   border-radius: 8px;
   -moz-border-radius: 8px;
@@ -89,7 +89,7 @@
   list-style-type: none;
   float: left;
   display: block;
-  background-color: #ffad5c;
+  background-color: #ffba4f;
   padding: 0 1.5em 0 0;
 }
 #menu_content li li
