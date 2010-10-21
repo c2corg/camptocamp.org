@@ -125,6 +125,7 @@ ImageUpload = {
     imageDiv.appendChild(fileText);
     imageDiv.appendChild(loadingImg);
     $('files_to_upload').insert({ top: imageDiv });
+    Modalbox.resizeToContent();
 
     return true;
   },
@@ -132,11 +133,13 @@ ImageUpload = {
   completeCallback : function(upload_id, response) {
     $('u'+upload_id).update(response);
     new Effect.Highlight('u'+upload_id);
+    Modalbox.resizeToContent();
   },
 
   showNewInputFile : function(image_number) {
     $('image_number').writeAttribute('value', image_number);
     new Effect.Appear('image_selection');
+    Modalbox.resizeToContent();
   },
 
   onchangeCallback: function() {

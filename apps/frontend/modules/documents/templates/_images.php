@@ -152,7 +152,7 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
     }
     echo link_to(picto_tag('picto_add', $add) . $add,
                  "@image_upload?mod=$module_name&document_id=$document_id",
-                 array('onclick' => $js));
+                 array('onclick' => $js, 'title' => $add));
     if (isset($author_specific) && $author_specific)
     {
         echo javascript_tag("if (!user_is_author) $('add_images_button').hide();");

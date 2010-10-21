@@ -16,7 +16,7 @@ echo __('You can add %1%, with %3% x %2% px and %4% mo',
 ?>
 </p>
 <div id="container">
-<input type="button" value="Select files" id="pickfiles" />
+<input type="button" value="Select files" id="pickfiles" disabled="disabled" />
 <span id="filelist">No runtime found</span>
 <?php
 echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, array('id' => 'images_validate_form'));

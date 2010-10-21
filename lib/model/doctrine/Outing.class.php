@@ -750,7 +750,7 @@ class Outing extends BaseOuting
         }
     }
 
-    protected static function buildOutingFieldsList($format = $join, $sort)
+    protected static function buildOutingFieldsList($format = null, $sort)
     {
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation',

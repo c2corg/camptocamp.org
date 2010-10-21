@@ -25,6 +25,8 @@ PlUploadWrapper = {
     uploader.bind('Init', function(up, params) {
       if ($('filelist'))
         $('filelist').update("<div>Current runtime: " + params.runtime + "</div>");
+      Modalbox.resizeToContent();
+      $('pickfiles').disabled = false;
     });
 
     uploader.bind('Error', function(up, err) {
@@ -89,6 +91,7 @@ PlUploadWrapper = {
       });
       up.refresh(); // Reposition Flash/Silverlight
       uploader.start(); // automatically begin upload
+      Modalbox.resizeToContent();
     });
 
     //uploader.bind('StateChanged', function(up) { alert(up.state); });
@@ -108,6 +111,7 @@ PlUploadWrapper = {
       var elt = $(file.id);
       elt.update(response.response);
       new Effect.Highlight(elt);
+      Modalbox.resizeToContent();
     });
   },
 
@@ -115,7 +119,7 @@ PlUploadWrapper = {
   displayError : function(file, errormsg) {
     var div = new Element('div', { 'class' : 'image_upload_entry' });
     var picto = new Element('span', { 'class' : 'picto action_cancel' });
-    var link = new Element('a', { onclick : 'new Effect.BlindUp($(this).up()); return false;',
+    var link = new Element('a', { onclick : 'new Effect.BlindUp($(this).up()); Modalbox.resizeToContent(); return false;',
                                   href : '#',
                                   style : 'float: right;'});
     link.appendChild(picto);
@@ -129,6 +133,7 @@ PlUploadWrapper = {
     div.appendChild(errorDiv);
 
     $('files_to_upload').insert({ top: div });
+    Modalbox.resizeToContent();
   },
 
   // same function as in images_upload.js
