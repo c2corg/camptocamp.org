@@ -568,7 +568,8 @@ a.logged_as
 .article .sbox input[type=text]
 {
   margin-left: 0.5em;
-  width: 20em;
+  padding-left: 2px;
+  width: 15em;
 }
 .article .sbox input[type=submit]
 {
@@ -583,9 +584,13 @@ a.logged_as
   margin-right:2px;
   margin-bottom:4px;
   height:1.8em;
+}
+#header .sbox select
+{
   width: 50%;
   max-width: 20em;
 }
+
 select.picto
 {
   padding-left: 19px;
@@ -2383,6 +2388,27 @@ input, select {
   font-size: 12px;
 }
 
+input[type=submit], input[type=reset]
+{
+  border-width: 2px;
+  border-radius:6px;
+  -moz-border-radius:6px;
+  -khtml-border-radius:6px;
+  -webkit-border-radius:6px;
+}
+
+#filterform input, #filterform select, #filterform textarea, #google_search input,
+.form-row input, .form-row select, .form-row textarea,
+.article .sbox input, .article .sbox select
+{
+  background-color: #F4F4F4;
+}
+
+input.main_button
+{
+  background-color:#B0FFD0 !important;
+}
+
 input[type=submit]:hover, input[type=reset]:hover {
   cursor: pointer;
 }
@@ -2611,13 +2637,6 @@ input.long_input
 
 input[type=file] {
   height:2em;
-}
-
-#filterform input, #filterform select, #filterform textarea, #google_search input,
-.form-row input, .form-row select, .form-row textarea,
-.article .sbox input, .article .sbox select
-{
-  background-color: #F4F4F4;
 }
 
 

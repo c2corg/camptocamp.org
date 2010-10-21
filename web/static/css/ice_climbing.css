@@ -10,17 +10,17 @@
 .nav_box_title, .wizard_title,
 .link_nav_news, .home_link_list a
 {
-  color: #596de5;
+  color: #56A9E3;
 }
 
 .htext .hcolor
 {
-  color: #596de5 !important;
+  color: #56A9E3 !important;
 }
 
 #splitter.hl, div.selected_image
 {
-  border-color: #596de5;
+  border-color: #56A9E3;
 }
 
 a.close_btn, div.selected_image,
@@ -28,7 +28,7 @@ a.close_btn, div.selected_image,
 #menu_up, #menu_content li,
 #wizard_button_content
 {
-  background-color: #596de5;
+  background-color: #7FC2F2;
 }
 
 #wizard_button_top, #wizard_button_down

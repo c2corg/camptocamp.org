@@ -70,9 +70,10 @@ include_partial("$module/filter_form", array('ranges' => $ranges));
 ?>
 <br />
 <br />
-<?php echo submit_tag(__('Search'), array('class' => 'picto action_filter')); ?>
-
-<?php echo reset_tag(__('Cancel'), array('class' => 'picto action_cancel')); ?>
+<?php
+echo reset_tag(__('Cancel'), array('class' => 'picto action_cancel'));
+echo submit_tag(__('Search'), array('class' => 'picto action_filter main_button'));
+?>
 </form>
 
 <?php include_partial("documents/google_search", array('module' => $module));

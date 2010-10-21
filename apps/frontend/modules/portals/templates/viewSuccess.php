@@ -73,12 +73,15 @@ if (!$mobile_version) // left navigation menus are only for web version
     include_partial('documents/prepare', array('culture' => $culture,
                                              'default_open' => true));
     
-    echo '<div id="nav_share" class="nav_box">' . button_share() . '</div>';
+    if ($is_moderator)
+    {
+        $tabs = tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
+                              $is_not_archive ? NULL : $document->getVersion(),
+                              get_slug($document));
+        echo $tabs;
+    }
     
-    $tabs = tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
-                          $is_not_archive ? NULL : $document->getVersion(),
-                          get_slug($document));
-    echo $tabs;
+    echo '<div id="nav_share" class="nav_box">' . button_share() . '</div>';
     
     include_partial('portals/nav', array('id'  => $id, 'document' => $document));
 }
@@ -238,7 +241,7 @@ include_partial('data', array('document' => $document));
 
 echo end_section_tag();
 
-if ($is_not_archive && $is_not_merged)
+if ($is_not_archive && $is_not_merged && $is_moderator)
 {
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,

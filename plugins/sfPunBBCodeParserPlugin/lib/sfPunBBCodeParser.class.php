@@ -726,7 +726,7 @@ class sfPunBBCodeParser
                          '#\[email=([^\[]*?)\](.*?)\[/email\]#e',
                          '#\[acr(onym)?=([^\[]*?)\](.*?)\[/acr(onym)?\]#',
                          '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
-                         '#\[picto=?(\s*)([\w]+)\/\]#s',
+                         '#\[picto=?\s*([\w]+)\s*\/\]#s',
                          '#\s?\[p\]\s?#s',
                          '#\[center\]\s*(.*?)\s*\[/center\]\s?#s',
                          '#\[right\]\s*(.*?)\s*\[/right\]\s?#s',
@@ -754,7 +754,7 @@ class sfPunBBCodeParser
                          'self::handle_email_tag(\'$1\', \'$2\')',
                          '<acronym title="$2">$3</acronym>',
                          '<span style="color: $1">$2</span>',
-                         '<span class="picto $2"> </span>'
+                         '<span class="picto $1"> </span>'
                         );
         if ($extended)
         {

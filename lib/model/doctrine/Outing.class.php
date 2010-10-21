@@ -133,8 +133,57 @@ class Outing extends BaseOuting
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
+    public static function buildOutingListCriteria(&$conditions, &$values, $params_list, $is_module = false)
+    {
+        if ($is_module)
+        {
+            $m = 'm';
+            $join = null;
+            $join_id = null;
+        }
+        else
+        {
+            $m = 'o';
+            $join = 'join_outing';
+            $join_id = 'join_outing_id';
+        }
+        
+        $has_id = self::buildConditionItem($conditions, $values, 'List', $m . '.id', 'outings', $join_id, false, $params_list);
+        if ($is_module)
+        {
+            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', $join_id, false, $params_list);
+        }
+        
+        if ($has_id)
+        {
+            if ($is_module)
+            {
+                self::buildConditionItem($conditions, $values, 'Array', array($m, 'o', 'activities'), 'act', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Date', 'date', 'date', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+            }
+            self::buildConditionItem($conditions, $values, 'String', 'oi.search_name', ($is_module ? array('onam', 'name') : 'onam'), 'join_outing_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, 'o', 'activities'), 'oact', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.max_elevation', 'oalt', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_up', 'odif', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.outing_length', 'olen', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Date', 'date', $m . '.odate', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', $m . '.outing_with_public_transportation', 'owtp', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', $m . '.partial_trip', 'ptri', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $m . '.frequentation_status', 'ofreq', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.conditions_status', 'ocond', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.glacier_status', 'oglac', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.track_status', 'otrack', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.access_status', 'opark', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $m . '.lift_status', 'olift', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.hut_status', 'ohut', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'oi.culture', 'ocult', 'join_outing_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'l7.linked_id', 'otags', 'join_otag_id', false, $params_list);
+        }
+    }
+
     public static function buildListCriteria($params_list)
-    {   
+    {
         $conditions = $values = array();
 
         // criteria for enabling/disabling personal filter
@@ -148,36 +197,11 @@ class Outing extends BaseOuting
         self::buildAreaCriteria($conditions, $values, $params_list);
         
         // outing criteria
-        self::buildConditionItem($conditions, $values, 'String', 'oi.search_name', array('onam', 'name'), 'join_outing_i18n', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'o', 'activities'), 'act', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'o', 'activities'), 'oact', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.max_elevation', 'oalt', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.height_diff_up', 'odif', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.outing_length', 'olen', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Date', 'date', 'date', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Date', 'date', 'odate', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Bool', 'm.partial_trip', 'ptri', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'm.frequentation_status', 'ofreq', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.conditions_status', 'ocond', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.glacier_status', 'oglac', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.track_status', 'otrack', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.access_status', 'opark', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'm.lift_status', 'olift', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.hut_status', 'ohut', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'oi.culture', 'ocult', 'join_outing_i18n', false, $params_list);
+        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, true);
 
         // summit criteria
-        $has_id = self::buildConditionItem($conditions, $values, 'List', 'l2.main_id', 'summits', 'join_summit_id', false, $params_list);
-        if (!$has_id)
-        {
-            self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 's.summit_type', 'styp', 'join_summit', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Order', array('lat', 'lon'), 'orderby', 'join_summit', false, $params_list);
-        }
+        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list);
+        self::buildConditionItem($conditions, $values, 'Order', array('lat', 'lon'), 'orderby', 'join_summit', false, $params_list);
 
         // hut criteria
         $has_id =   self::buildConditionItem($conditions, $values, 'List', 'l3.main_id', 'huts', 'join_hut_id', false, $params_list)
@@ -278,7 +302,6 @@ class Outing extends BaseOuting
         }
 
         // tags criteria
-        self::buildConditionItem($conditions, $values, 'List', 'l7.linked_id', 'otags', 'join_otag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l101.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'lrdlinked.linked_id', 'rdtags', 'join_rdtag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l202.linked_id', 'stags', 'join_stag_id', false, $params_list);
@@ -727,7 +750,7 @@ class Outing extends BaseOuting
         }
     }
 
-    protected static function buildOutingFieldsList($format = null, $sort)
+    protected static function buildOutingFieldsList($format = $join, $sort)
     {
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation',

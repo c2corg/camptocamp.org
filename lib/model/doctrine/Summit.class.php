@@ -36,6 +36,41 @@ class Summit extends BaseSummit
         return self::returnNullIfEmpty($value);
     }
 
+    public static function buildSummitListCriteria(&$conditions, &$values, $params_list, $is_module = false)
+    {
+        if ($is_module)
+        {
+            $m = 'm';
+            $mid = 'm.id'
+            $join = null;
+            $join_id = null;
+        }
+        else
+        {
+            $m = 's';
+            $mid = 'l2.main_id'
+            $join = 'join_summit';
+            $join_id = 'join_summit_id';
+        }
+        
+        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'summits', $join_id, false, $params_list);
+        if ($is_module)
+        {
+            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', $join_id, false, $params_list);
+        }
+        if (!$has_id)
+        {
+            if ($is_module)
+            {
+                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+            }
+            self::buildConditionItem($conditions, $values, 'String', 'si.search_name', ($is_module ? array('snam', 'name') : 'snam'), 'join_summit_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'salt', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $m . '.summit_type', 'styp', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'si.culture', 'scult', 'join_summit_i18n', false, $params_list);
+        }
+    }
+
     public static function buildListCriteria($params_list)
     {   
         $conditions = $values = array();
@@ -51,12 +86,7 @@ class Summit extends BaseSummit
         self::buildAreaCriteria($conditions, $values, $params_list);
 
         // summit criteria
-        self::buildConditionItem($conditions, $values, 'String', 'si.search_name', array('snam', 'name'), 'join_summit_i18n', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Compare', 'm.elevation', 'salt', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'm.summit_type', 'styp', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'si.culture', 'scult', 'join_summit_i18n', false, $params_list);
+        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, true);
 
         // route criteria
         $has_id = self::buildConditionItem($conditions, $values, 'List', 'l.main_id', 'routes', 'join_route_id', false, $params_list);
