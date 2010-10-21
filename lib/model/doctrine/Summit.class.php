@@ -41,7 +41,7 @@ class Summit extends BaseSummit
         if ($is_module)
         {
             $m = 'm';
-            $mid = 'm.id'
+            $mid = 'm.id';
             $join = null;
             $join_id = null;
         }
