@@ -48,7 +48,7 @@ class Summit extends BaseSummit
         else
         {
             $m = 's';
-            $mid = 'l2.main_id'
+            $mid = 'l2.main_id';
             $join = 'join_summit';
             $join_id = 'join_summit_id';
         }
