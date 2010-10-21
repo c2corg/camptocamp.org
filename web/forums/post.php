@@ -1208,7 +1208,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 				</div>
 			</div>
 			<div class="clearer"></div>
-			<div class="postfootright"><ul><li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote('<?php echo $cur_post['poster'].'|'.$cur_post['id'] ?>');"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
+			<div class="postfootright"><ul><li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote('<?php echo pun_jsspecialchars($cur_post['poster']).'|'.$cur_post['id'] ?>');"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
 		</div>
 	</div>
 <?php
