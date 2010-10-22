@@ -36,19 +36,17 @@ class Summit extends BaseSummit
         return self::returnNullIfEmpty($value);
     }
 
-    public static function buildSummitListCriteria(&$conditions, &$values, $params_list, $is_module = false)
+    public static function buildSummitListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
     {
         if ($is_module)
         {
             $m = 'm';
-            $mid = 'm.id';
             $join = null;
             $join_id = null;
         }
         else
         {
             $m = 's';
-            $mid = 'l2.main_id';
             $join = 'join_summit';
             $join_id = 'join_summit_id';
         }
@@ -56,7 +54,7 @@ class Summit extends BaseSummit
         $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'summits', $join_id, false, $params_list);
         if ($is_module)
         {
-            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', $join_id, false, $params_list);
+            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
         }
         if (!$has_id)
         {
@@ -76,8 +74,8 @@ class Summit extends BaseSummit
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
-        if (isset($conditions['all']) && $conditions['all'])
+        self::buildPersoCriteria($conditions, $values, $params_list, 'scult');
+        if (isset($conditions['all']))
         {
             return array($conditions, $values);
         }
