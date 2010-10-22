@@ -81,9 +81,9 @@ if (!$mobile_version) // left navigation menus are only for web version
         echo $tabs;
     }
     
-    echo '<div id="nav_share" class="nav_box">' . button_share() . '</div>';
-    
     include_partial('portals/nav', array('id'  => $id, 'document' => $document));
+    
+    echo '<div id="nav_share" class="nav_box">' . button_share() . '</div>';
 }
 
 echo display_content_top('home');

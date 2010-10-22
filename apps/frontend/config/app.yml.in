@@ -62,12 +62,12 @@ all:
       n: 
       o: Outing
       p: Parking
-      q: 
+      q: # Parapente
       r: Route
       s: Summit
       t: Site
       u: User
-      v: 
+      v: # Article (ouvreur)
       w: Portal
       x: # Route (approche)
       y: # Route (retour)
@@ -1238,14 +1238,14 @@ all:
       14067: [ 'www.meteosuisse.ch/', 'www.meteocentrale.ch' ]
       14267: 'www.aemet.es/es/eltiempo/prediccion/montana'
       14270: 'www.nimbus.it/italiameteo/italiameteo.htm'
-      14295: [ 'www.meteo-alpes.fr/prevision-meteo-savoie.html', 'meteo-chamonix.org/previ.htm' ]
+      14295: [ 'www.meteo-alpes.fr/prevision-meteo-savoie.html', 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord' ]
       14328: [ 'www.meteo-alpes.fr/prevision-meteo-isere.html', 'mto38.free.fr/frog.html' ]
       14361: 'www.meteo-alpes.fr/prevision-meteo-hautes-alpes.html'
       14362: 'www.meteo-alpes.fr/prevision-meteo-alpes-haute-provence.html'
-      14366: [ 'www.meteo-alpes.fr/prevision-meteo-haute-savoie.html', 'meteo-chamonix.org/previ.htm', 'meteo.chamonix.com/MetPre.php3' ]
-      14384: [ 'www.meteo-valais.ch', 'meteo-chamonix.org/previ.htm' ]
-      14397: 'meteo-chamonix.org/previ.htm'
-      14405: 'meteo-chamonix.org/previ.htm'
+      14366: [ 'www.meteo-alpes.fr/prevision-meteo-haute-savoie.html', 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord', 'meteo.chamonix.com/MetPre.php3' ]
+      14384: [ 'www.meteo-valais.ch', 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord' ]
+      14397: 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord'
+      14405: 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord'
 
   summits:
     summit_types:

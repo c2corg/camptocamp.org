@@ -67,7 +67,7 @@ if (count($items) == 0)
 else
 {
     ?>
-    <div id="image_list"><?php
+    <div id="last_image_list"><?php
     foreach ($items as $item)
     {
         ?>

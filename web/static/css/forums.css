@@ -18,8 +18,6 @@
 .pun TABLE, .pun DIV, .pun FORM, .pun P, .pun H1, .pun H2, .pun H3,
 .pun H4, .pun PRE, .pun BLOCKQUOTE, .pun UL, .pun OL, .pun LI, .pun DL,
 .pun DT, .pun DD, .pun TH, .pun TD, .pun FIELDSET, .pun IMG {
-    MARGIN: 0px;
-    PADDING: 0px;
     FONT-WEIGHT: normal;
     LIST-STYLE: none;
 }

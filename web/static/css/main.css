@@ -2388,8 +2388,9 @@ input, select {
   font-size: 12px;
 }
 
-input[type=submit], input[type=reset]
+input[type=submit], input[type=reset], .action_buttons input[type=button]
 {
+  border-color: #c0c0c0;
   border-width: 2px;
   border-radius:6px;
   -moz-border-radius:6px;
@@ -3272,7 +3273,7 @@ ul.list404 li
   border-left:2px solid #e4e1da;
 }
 
-#nav_images #image_list
+#nav_images #last_image_list
 {
   padding-left: 31px;
 }
@@ -3594,7 +3595,7 @@ div.selected_image
   background-color: #fff;
 }
 
-#last_images #image_list
+#last_images #last_image_list
 {
   overflow: hidden;
   height: 130px;

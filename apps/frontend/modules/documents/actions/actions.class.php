@@ -1712,17 +1712,22 @@ class documentsActions extends c2cActions
     protected function listSearchParameters($result_type = null, $linked_docs = 0)
     {
         $out = array();
+        $module = $this->getModuleName();
 
         if ($linked_docs == 1)
         {
             sfLoader::loadHelpers(array('Pagination'));
             $params = $this->getRequestParameter('params');
             unpackUrlParameters($params, $out);
+            if (isset($out['id']) && $module != $result_type)
+            {
+                $out[$module] = $out['id'];
+                unset($out['id']);
+            }
         }
         elseif ($linked_docs == 2)
         {
             $rename = '';
-            $module = $this->getModuleName();
             if ($module != $result_type)
             {
                 $rename = $module;
