@@ -66,6 +66,17 @@ function get_quote_text()
 			{
 				nickname = nickname.innerHTML;
 			}
+			if (nickname.indexOf('[') != -1 || nickname.indexOf(']') != -1)
+			{
+				if (nickname.indexOf('"') == -1)
+				{
+					nickname = '"'+nickname+'"';
+				}
+				else
+				{
+					nickname = "'"+nickname+"'";
+				}
+			}
 
                         var postid = parseInt(blockpost.up('.inbox').id.substring(1), 10);
                         if (isNaN(postid))

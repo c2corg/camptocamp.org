@@ -1189,6 +1189,16 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 ?>
 	<div class="box<?php
     echo $vtbg;
+
+    $q_poster = $cur_post['poster'];
+    if (strpos($q_poster, '[') !== false || strpos($q_poster, ']') !== false)
+    {
+        if (strpos($q_poster, '"') !== false)
+            $q_poster = '\''.$q_poster.'\'';
+        else
+            $q_poster = '"'.$q_poster.'"';
+    }
+
     if ($show_new && ($cur_post['posted'] > $last_read))
     {
         echo ' new';
@@ -1208,7 +1218,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 				</div>
 			</div>
 			<div class="clearer"></div>
-			<div class="postfootright"><ul><li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote('<?php echo pun_jsspecialchars($cur_post['poster']).'|'.$cur_post['id'] ?>');"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
+			<div class="postfootright"><ul><li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote('<?php echo pun_jsspecialchars($q_poster).'|'.$cur_post['id'] ?>');"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
 		</div>
 	</div>
 <?php
