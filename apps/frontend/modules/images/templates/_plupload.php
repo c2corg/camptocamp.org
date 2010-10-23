@@ -31,6 +31,6 @@ $backup_js = '/'.sfSVN::getHeadRevision('image_upload.js').javascript_path('/sta
 echo javascript_tag("
 var plupload_i18n = { badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."' };
 new PeriodicalExecuter(PlUploadWrapper.validateImageForms, 1);
-PlUploadWrapper.init('/images/addpltempimage/$mod/$document_id', '$backup_url', '$backup_js', plupload_i18n);");
+PlUploadWrapper.init('/frontend_dev.php/images/addpltempimage/mod/$mod/document_id/$document_id', '$backup_url', '$backup_js', plupload_i18n);");
 ?>
 </form>
