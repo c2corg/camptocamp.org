@@ -101,7 +101,8 @@ if ($is_not_archive && $is_not_merged)
         }
         if ($show_link_tool)
         {
-            echo '<div id="association_tool" class="plus">',
+            echo '<ul id="list_associated_docs"><li style="display:none"></li></ul>',
+                 '<div id="association_tool" class="plus">',
                  '<p>', __('You can associate this book with existing document using the following tool:'), '</p>';
             
             $modules_list = array('summits', 'sites', 'routes', 'huts', 'articles');

@@ -23,9 +23,9 @@ if (!count($associated_documents))
     echo '<p class="default_text"  id="', $id_no_associated_docs.'">', __('No associated document found'), '</p>';
 }
 
-echo '<ul id="'.$id_list_associated_docs.'">';
 if (count($associated_documents))
 {
+    echo '<ul id="'.$id_list_associated_docs.'">';
     foreach ($associated_documents as $doc)
     {
         $doc_id = $doc->get('id');
@@ -47,8 +47,13 @@ if (count($associated_documents))
         echo '</li>';
 
     }
+    echo '</ul>';
 }
-echo '</ul>';
+elseif ($show_link_tool)
+{
+    echo  '<ul id="list_associated_docs"><li style="display:none"></li></ul>';
+}
+
 if ($show_link_tool)
 {
 ?>

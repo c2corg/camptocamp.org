@@ -176,6 +176,11 @@ input.srch_submit
   width: auto;
 }
 
+.home_title_text
+{
+  height: 1.3em;
+}
+
 /* Style for Lists */
 table.list
 {

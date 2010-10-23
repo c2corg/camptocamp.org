@@ -32,9 +32,11 @@ echo end_section_tag();
 
 if ($is_not_archive && $is_not_merged):
 
+    $is_personal_article = ($document->get('article_type') == 2);
+    
     // if the user is not a moderator, and personal article, use javascript to distinguish
     // between document author(s) and others
-    $author_specific = !$is_moderator && $is_connected && ($document->get('article_type') == 2);
+    $author_specific = !$is_moderator && $is_connected && $is_personal_article;
     if ($author_specific)
     {
         $associated_users_ids = array();
@@ -51,12 +53,15 @@ if ($is_not_archive && $is_not_merged):
     include_partial('articles/association', array('document' => $document, 'associated_documents' => $associated_documents));
     echo end_section_tag();
 
-    include_partial('documents/images', array('images' => $associated_images,
-                                              'document_id' => $id,
-                                              'dissociation' => 'moderator',
-                                              'author_specific' => $author_specific,
-                                              'is_protected' => $document->get('is_protected'))); 
-
+    if (!$is_personal_article || count($associated_images) || $is_connected)
+    {
+        include_partial('documents/images', array('images' => $associated_images,
+                                                  'document_id' => $id,
+                                                  'dissociation' => 'moderator',
+                                                  'author_specific' => $author_specific,
+                                                  'is_protected' => $document->get('is_protected'))); 
+    }
+    
     if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
 
 endif;

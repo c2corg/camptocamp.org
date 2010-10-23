@@ -148,7 +148,7 @@ echo end_section_tag();
 
 include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
 
-if ($is_not_archive && $is_not_merged)
+if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_connected))
 {
     include_partial('documents/images',
                     array('images' => $associated_images,

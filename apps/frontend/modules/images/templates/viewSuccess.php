@@ -60,7 +60,7 @@ if ($is_not_archive && $is_not_merged):
         echo '<p class="default_text">' . __("No document uses this picture.") . '</p>';
     }
 
-    if (count($associated_documents)>0)
+    if (count($associated_documents) > 0)
     {
         echo '<ul id="list_associated_docs">';
         foreach ($associated_documents as $doc)
@@ -84,6 +84,10 @@ if ($is_not_archive && $is_not_merged):
             echo '</li>';
         }
         echo '</ul>';
+    }
+    elseif ($show_link_tool)
+    {
+        echo  '<ul id="list_associated_docs"><li style="display:none"></li></ul>';
     }
 
     if ($show_link_tool)
