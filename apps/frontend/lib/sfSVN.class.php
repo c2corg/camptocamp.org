@@ -28,6 +28,6 @@ class sfSVN
                 if (!$counter) return $max;
             }
         }
-        return ($max == 0) ? '' : $max;
+        return ($max == 0) ? self::getHeadRevision('head') : $max;
     }
 }
