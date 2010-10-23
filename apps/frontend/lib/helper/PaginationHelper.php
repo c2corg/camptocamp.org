@@ -80,7 +80,7 @@ function unpackUrlParameters($params, &$out, $rename = array())
     {
         if ($is_name)
         {
-            if (isset($rename[$param])
+            if (isset($rename[$param]))
             {
                 $param = $rename[$param];
             }
