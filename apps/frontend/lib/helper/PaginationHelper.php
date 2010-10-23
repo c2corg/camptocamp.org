@@ -71,7 +71,7 @@ function packUrlParameters($uri = '', $params_to_ignore = array(), $condensed = 
     return $uri . $params;
 }
 
-function unpackUrlParameters($params, &$out)
+function unpackUrlParameters($params, &$out, $rename = array())
 {
     $params = explode('/', $params);
     $names = $values = $criteria = array();
@@ -80,6 +80,10 @@ function unpackUrlParameters($params, &$out)
     {
         if ($is_name)
         {
+            if (isset($rename[$param])
+            {
+                $param = $rename[$param];
+            }
             $names[] = $param;
         }
         else

@@ -7,9 +7,8 @@ $license = $licenses_array[$image_type];
 $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get('app_licenses_url_suffix') . $sf_user->getCulture();
 ?>
 
-    <ul id="article_gauche_5050" class="data">
+    <ul class="data col_left col_66">
         <?php
-        disp_doc_type('image');
         if (!empty($user) && count($user))
         {
             $author = $document->get('author');
@@ -41,32 +40,33 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         }
 
         li(field_image_details($document));
-        if ($document->get('has_svg'))
-        {
-            $svg_url = image_url($document->get('filename'), null, false, false, '.svg');
-            echo li(_format_data('source file', absolute_link_to(__('svg file'), $svg_url)));
-        }
+        li(field_data_if_set($document, 'date_time'));
         li(field_data_if_set($document, 'elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
         li(field_swiss_coords($document));
         li(field_activities_data_if_set($document));
         li(field_data_from_list_if_set($document, 'categories', 'mod_images_categories_list', true, false, '', '', '', 'image_categories'));
-        
-        if ($document->get('geom_wkt'))
-        {
-            li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')));
-        }
 
-        li(field_data_if_set($document, 'camera_name'));
-        li(field_data_if_set($document, 'date_time'));
+        li(field_data_if_set($document, 'camera_name'), true);
         li(field_data_if_set($document, 'focal_length', '', 'mm'));
         li(field_data_if_set($document, 'fnumber', 'F/'));
         li(field_exposure_time_if_set($document));
         li(field_data_if_set($document, 'iso_speed', '', ' ISO'));
+        
         li(field_data_if_set($document, 'id', '<input type="text" class="code" value="[img=',
-                             ' right]'.$document->get('name').'[/img]"/>', 'topoguide_code'));
+                             ' right]'.$document->get('name').'[/img]"/>', 'topoguide_code'), true);
         li(field_data_if_set($document, 'filename', '<input type="text" class="code" value="[img=',
                              ' '.$sf_params->get('id').' inline]'.$document->get('name').'[/img]"/>', 'forum_code'));
+        
+        if ($document->get('has_svg'))
+        {
+            $svg_url = image_url($document->get('filename'), null, false, false, '.svg');
+            echo li(_format_data('source file', absolute_link_to(__('svg file'), $svg_url)));
+        }
+        if ($document->get('geom_wkt'))
+        {
+            li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')));
+        }
         ?>
     </ul>

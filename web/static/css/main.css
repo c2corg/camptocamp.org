@@ -979,6 +979,21 @@ span.default_text, p.default_text
   margin-bottom: 10px;
 }
 
+#article_gauche_5050, .article_gauche_5050
+{
+  height:auto;
+  width:49.5%;
+  clear:left;
+  float:left;
+}
+
+#article_droite_5050, .article_droite_5050
+{
+  height:auto;
+  width:49.5%;
+  float:left;
+}
+
 .all_associations
 {
   float: left;
@@ -1098,21 +1113,6 @@ span.default_text, p.default_text
 .article .col.top
 {
   margin-top: 0 !important;
-}
-
-#article_gauche_5050, .article_gauche_5050
-{
-  height:auto;
-  width:49.5%;
-  clear:left;
-  float:left;
-}
-
-#article_droite_5050, .article_droite_5050
-{
-  height:auto;
-  width:49.5%;
-  float:left;
 }
 
 #article_gauche_boxs
@@ -1240,7 +1240,7 @@ div#preview
   margin-left: 0;
 }
 
-#preview #article_gauche_5050
+#preview #article_gauche_5050, #preview .article_gauche_5050
 {
   float:none;
 }
@@ -4909,7 +4909,7 @@ span.cotometre_result {
 
 .portals_content .all_associations
 {
-  width: auto;
+  width: 100%;
 }
 
 .portals_content .switch_lang

@@ -1717,13 +1717,13 @@ class documentsActions extends c2cActions
         if ($linked_docs == 1)
         {
             sfLoader::loadHelpers(array('Pagination'));
-            $params = $this->getRequestParameter('params');
-            unpackUrlParameters($params, $out);
-            if (isset($out['id']) && $module != $result_type)
+            $rename = array();
+            if ($module != $result_type)
             {
-                $out[$module] = $out['id'];
-                unset($out['id']);
+                $rename['id'] = $module;
             }
+            $params = $this->getRequestParameter('params');
+            unpackUrlParameters($params, $out, $rename);
         }
         elseif ($linked_docs == 2)
         {

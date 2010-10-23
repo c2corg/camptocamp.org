@@ -44,7 +44,7 @@ include_partial('data', array('document' => $document, 'user' => $creator));
 include_partial('documents/geom_warning', array('document' => $document));
 if ($is_not_archive)
 {
-    echo '<div class="all_associations">';
+    echo '<div class="all_associations col_right col_66">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     echo '</div>';
