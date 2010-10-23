@@ -100,9 +100,13 @@ $response->setCookie('language', '', null, '/');
     minify_include_unminified_javascripts();
     include_partial('common/tracker');
     // addthis script must be added after ga tracker for google analytics integration
+    // it will be loaded asynchronously
     if (sfContext::getInstance()->getResponse()->hasParameter('addthis', 'helper/asset/addthis'))
     {
-        echo '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>';
+        echo javascript_tag('(function() {var head = $$(\'head\')[0]; var script = new Element(\'script\', {type: \'text/javascript\','.
+                            'async: true, src: \'http://s7.addthis.com/js/250/addthis_widget.js#domready=1\'});'.
+                            'head.appendChild(script);})();');
+
     }
     ?>
 </body>
