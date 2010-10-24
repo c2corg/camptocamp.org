@@ -33,8 +33,7 @@ $static_base_url = sfConfig::get('app_static_url');
            endif ?>
         | <?php echo customize_link_to() ?>
       </div>
-      <div class="log_elt" id="quick_switch">
-        <?php
+      <?php
         $perso = c2cPersonalization::getInstance();
         $act_filter = $perso->getActivitiesFilter();
         $main_filter_switch_on = $perso->isMainFilterSwitchOn();
@@ -56,7 +55,9 @@ $static_base_url = sfConfig::get('app_static_url');
                 $activities_class[] = 'act' . $act_id;
             }
         }
-
+      ?>
+      <div class="log_elt" id="quick_switch<?php echo empty($activities_class) ? '' : '" class="' . implode(' ', $activities_class) ?>">
+      <?php
         foreach ($alist as $id => $activity)
         {
             $act_id = $id + 1;
