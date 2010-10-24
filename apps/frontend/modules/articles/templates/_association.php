@@ -20,7 +20,7 @@ $id_list_associated_docs = "list_associated_docs";
 
 if (!count($associated_documents))
 {
-    echo '<p class="default_text"  id="', $id_no_associated_docs.'">', __('No associated document found'), '</p>';
+    echo '<p class="default_text" id="', $id_no_associated_docs.'">', __('No associated document found'), '</p>';
 }
 
 if (count($associated_documents))
@@ -51,7 +51,7 @@ if (count($associated_documents))
 }
 elseif ($show_link_tool)
 {
-    echo  '<ul id="list_associated_docs"><li style="display:none"></li></ul>';
+    echo  '<ul id="' . $id_list_associated_docs . '"><li style="display:none"></li></ul>';
 }
 
 if ($show_link_tool)

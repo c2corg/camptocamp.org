@@ -95,19 +95,22 @@ if ($is_not_archive && $is_not_merged)
     if ($section_list['docs'] || $show_link_tool)
     {
         echo start_section_tag('Linked documents', 'associated_docs');
+        
+        $id_no_associated_docs = "no_associated_docs";
+        $id_list_associated_docs = "list_associated_docs";
         if ($section_list['docs'])
         {
-            echo '<p class="default_text">' . __('No associated document found') . '</p>';
+            echo '<p class="default_text" id="' . $id_no_associated_docs . '">' . __('No associated document found') . '</p>';
         }
         if ($show_link_tool)
         {
-            echo '<ul id="list_associated_docs"><li style="display:none"></li></ul>',
+            echo '<ul id="' . $id_list_associated_docs . '"><li style="display:none"></li></ul>',
                  '<div id="association_tool" class="plus">',
                  '<p>', __('You can associate this book with existing document using the following tool:'), '</p>';
             
             $modules_list = array('summits', 'sites', 'routes', 'huts', 'articles');
             
-            echo c2c_form_add_multi_module('books', $id, $modules_list, 13, 'list_associated_docs', false);
+            echo c2c_form_add_multi_module('books', $id, $modules_list, 13, $id_list_associated_docs, false, 'indicator', $id_no_associated_docs);
             
             echo '</div>';
         }

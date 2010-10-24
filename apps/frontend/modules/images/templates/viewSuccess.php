@@ -44,7 +44,7 @@ include_partial('data', array('document' => $document, 'user' => $creator));
 include_partial('documents/geom_warning', array('document' => $document));
 if ($is_not_archive)
 {
-    echo '<div class="all_associations col_right col_66">';
+    echo '<div class="all_associations col_right col_33">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     echo '</div>';
@@ -55,14 +55,17 @@ include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/ma
 
 if ($is_not_archive && $is_not_merged):
     echo start_section_tag('Linked documents', 'associated_docs');
+    
+    $id_no_associated_docs = "no_associated_docs";
+    $id_list_associated_docs = "list_associated_docs";
     if (!count($associated_documents))
     {
-        echo '<p class="default_text">' . __("No document uses this picture.") . '</p>';
+        echo '<p class="default_text" id="' . $id_no_associated_docs . '">' . __("No document uses this picture.") . '</p>';
     }
 
     if (count($associated_documents) > 0)
     {
-        echo '<ul id="list_associated_docs">';
+        echo '<ul id="' . $id_list_associated_docs . '">';
         foreach ($associated_documents as $doc)
         {
             $doc_id = $doc['id'];
@@ -87,7 +90,7 @@ if ($is_not_archive && $is_not_merged):
     }
     elseif ($show_link_tool)
     {
-        echo  '<ul id="list_associated_docs"><li style="display:none"></li></ul>';
+        echo  '<ul id="' . $id_list_associated_docs . '"><li style="display:none"></li></ul>';
     }
 
     if ($show_link_tool)
@@ -99,7 +102,7 @@ if ($is_not_archive && $is_not_merged):
         $linkable_modules = sfConfig::get('app_modules_list');
         unset($linkable_modules[1]); // documents
 
-        echo c2c_form_add_multi_module('images', $id, $linkable_modules, 3, 'list_associated_docs', false);
+        echo c2c_form_add_multi_module('images', $id, $linkable_modules, 3, $id_list_associated_docs, false, 'indicator', $id_no_associated_docs);
 ?>
         </div>
 <?php
