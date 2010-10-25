@@ -1115,9 +1115,17 @@ class BaseDocument extends sfDoctrineRecordI18n
         if ($model == 'Outing')
         {
             // autocomplete on outings must only return those for which the current user is linked to
+            // #181: if an outing id is given, and user is moderator, we don't put this restriction
             $select = 'mi.name, m.id, m.module, m.date';
-            $where_clause = $where_clause . " AND m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uo' AND a.main_id = ?)";
-            $where_vars = array($name, $user_id);
+            if ($use_docid && sfContext::getInstance()->getUser()->hasCredential('moderator'))
+            {
+                $where_vars = array($name);
+            }
+            else
+            {
+                $where_clause = $where_clause . " AND m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uo' AND a.main_id = ?)";
+                $where_vars = array($name, $user_id);
+            }
         }
         else if (($model == 'Article') && $filter_personal_content)
         {
