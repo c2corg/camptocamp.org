@@ -212,7 +212,6 @@ class Outing extends BaseOuting
         // route criteria
         Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.main_id');
         self::buildConditionItem($conditions, $values, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', 'join_route', false, $params_list);
-        }
 
         // site criteria
         $has_id = self::buildConditionItem($conditions, $values, 'List', 'lt.main_id', 'sites', 'join_site_id', false, $params_list);
