@@ -10,44 +10,9 @@
 
 function include_head_javascripts($debug = false)
 {
-    $response = sfContext::getInstance()->getResponse();
     //$response->setParameter('javascripts_included', true, 'symfony/view/asset'); this is done in _body function
 
-    $static_base_url = sfConfig::get('app_static_url');
-    $already_seen = array();
-    $html = '';
-
-    foreach (array('head_first', 'head', 'head_last') as $position)
-    {
-        foreach ($response->getJavascripts($position) as $files)
-        {
-            if (!is_array($files))
-            {
-                $files = array($files);
-            }
-
-            foreach ($files as $file)
-            {
-                $file = javascript_path($file);
-
-                if (isset($already_seen[$file])) continue;
-
-                $already_seen[$file] = 1;
-
-                $file_parts = explode('/', $file);
-                $filename = end($file_parts);
-                $prefix = $debug ? '/no' : '';
-                $rev = sfSVN::getHeadRevision($filename);
-                if (!empty($rev))
-                {
-                    $file = '/' . $rev . $prefix . $file;
-                }
-
-                $html .= javascript_include_tag($static_base_url . $file);
-            }
-        }
-    }
-    echo $html;
+    return _include_javascripts(array('head_first', 'head', 'head_last'), $debug);
 }
 
 function include_body_javascripts($debug = false)
@@ -59,14 +24,24 @@ function include_body_javascripts($debug = false)
     $already_seen = array();
 
     // prototype, effects and controls are added with position='' by JavascriptHelper. We don't want it here (added in head)
-    // FIXME we could probably do that a cleaner way by lokking if already present in head javascripts (but this way is maybe quicker)
-    $already_seen[javascript_path('/static/js/prototype.js')] = 1;
-    $already_seen[javascript_path('/static/js/effects.js')] = 1;
-    $already_seen[javascript_path('/static/js/controls.js')] = 1;
+    // FIXME we could probably do that a cleaner way by looking if already present in head javascripts (but this way is maybe quicker)
+    $already_seen['/static/js/prototype.js'] = 1;
+    $already_seen['/static/js/effects.js'] = 1;
+    $already_seen['/static/js/controls.js'] = 1;
 
-    $html = '';
+    return _include_javascripts(array('first', '', 'last'), $debug, $already_seen);
+}
 
-    foreach (array('first', '', 'last') as $position)
+function _include_javascripts($position_array = array('first', '', 'last'), $debug = false, $my_already_seen = array())
+{
+    $response = sfContext::getInstance()->getResponse();
+    $static_base_url = sfConfig::get('app_static_url');
+
+    $already_seen = $my_already_seen;
+    $internal_files = array();
+    $external_files = array();
+
+    foreach ($position_array as $position)
     {
         foreach ($response->getJavascripts($position) as $files)
         {
@@ -77,30 +52,50 @@ function include_body_javascripts($debug = false)
 
             foreach ($files as $file)
             {
-                $file = javascript_path($file);
-
                 if (isset($already_seen[$file])) continue;
 
                 $already_seen[$file] = 1;
 
-                $file_parts = explode('/', $file);
-                $filename = end($file_parts);
-                $prefix = $debug ? '/no' : '';
-                $rev = sfSVN::getHeadRevision($filename);
-                if (!empty($rev))
+                // check if the javascript is on this server // TODO better handle + what if user wants to precisely place the call??
+                if (preg_match('/http(s)?:\/\//', $file))
                 {
-                    $file = '/' . $rev . $prefix . $file;
-                }
-                else
-                {
-                    $file = $prefix . $file;
+                    $external_files[] = $file;
+                    break;
                 }
 
-                $html .= javascript_include_tag($static_base_url . $file);
+                $file = javascript_path($file);
+
+                $internal_files[] = $file;
             }
         }
     }
-    echo $html;
+
+    $html = '';
+
+    foreach ($external_files as $file)
+    {
+        $html .= javascript_include_tag($file);
+    }
+
+    foreach ($internal_files as $file)
+    {
+        $file_parts = explode('/', $file);
+        $filename = end($file_parts);
+        $prefix = $debug ? '/no' : '';
+        $rev = sfSVN::getHeadRevision($filename);
+        if (!empty($rev))
+        {
+            $file = '/' . $rev . $prefix . $file;
+        }
+        else
+        {
+            $file = $prefix . $file;
+        }
+
+        $html .= javascript_include_tag($static_base_url . $file);
+    }
+
+    return $html;
 }
 
 
