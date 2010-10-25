@@ -176,6 +176,10 @@ input.srch_submit
   width: auto;
 }
 
+input, select {
+  height: auto;
+}
+
 .home_title_text
 {
   height: 1.3em;
@@ -190,6 +194,10 @@ table.list
 div.sbox
 {
   width: 100%;
+}
+
+.sbox input {
+  height: 1.3em;
 }
 
 #article_droite_boxs input
@@ -245,6 +253,10 @@ div.file_to_upload_categories select
 #banner_title
 {
   display: inline;
+}
+
+.log_elt {
+  padding-bottom: 3px;
 }
 
 #cda_logo
