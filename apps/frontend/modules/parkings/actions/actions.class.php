@@ -133,40 +133,9 @@ class parkingsActions extends documentsActions
 
     protected function getListCriteria()
     {   
-        $conditions = $values = array();
-
-        // criteria for disabling personal filter
-        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
-        if (isset($conditions['all']) && $conditions['all'])
-        {
-            return array($conditions, $values);
-        }
+        $params_list = c2cTools::getAllRequestParameters();
         
-        // area criteria
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
-        }
-        elseif ($bbox = $this->getRequestParameter('bbox'))
-        {
-            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
-        }
-        
-        // parking criteria
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('pnam', 'name'));
-        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'palt');
-        $this->buildCondition($conditions, $values, 'List', 'm.public_transportation_rating', 'tp');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 'p', 'public_transportation_types'), 'tpty');
-        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
-        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'pcult');
-
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        return Parking::buildListCriteria($params_list);
     }
 
     protected function filterSearchParameters()

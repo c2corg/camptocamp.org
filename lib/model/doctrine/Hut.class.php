@@ -54,6 +54,72 @@ class Hut extends BaseHut
         return self::returnNullIfEmpty($value);
     }
 
+    public static function buildHutListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
+    {
+        if ($is_module)
+        {
+            $m = 'm';
+            $join = null;
+            $join_id = null;
+        }
+        else
+        {
+            $m = 'h';
+            $join = 'join_summit';
+            $join_id = 'join_summit_id';
+        }
+        
+        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'huts', $join_id, false, $params_list);
+        if ($is_module)
+        {
+            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+        }
+        if (!$has_id)
+        {
+            if ($is_module)
+            {
+                self::buildConditionItem($conditions, $values, 'Array', array($m, 'h', 'activities'), 'act', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+            }
+            self::buildConditionItem($conditions, $values, 'String', 'hi.search_name', ($is_module ? array('hnam', 'name') : 'hnam'), 'join_hut_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, 'h', 'activities'), 'hact', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'halt', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $m . '.shelter_type', 'htyp', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', $m . '.is_staffed', 'hsta', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.staffed_capacity', 'hscap', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.unstaffed_capacity', 'hucap', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', $m . '.has_unstaffed_matress', 'hmat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', $m . '.has_unstaffed_blanket', 'hbla', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', $m . '.has_unstaffed_gas', 'hgas', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', $m . '.has_unstaffed_wood', 'hwoo', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'hi.culture', 'hcult', 'join_hut_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'lhb.main_id', 'hbooks', 'join_hbook_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'lhc.linked_id', 'htags', 'join_htag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'lhbc.linked_id', 'hbtags', 'join_hbtag_id', false, $params_list);
+        }
+    }
+    
+    public static function buildListCriteria($params_list)
+    {
+        $conditions = $values = array();
+
+        // criteria for disabling personal filter
+        self::buildPersoCriteria($conditions, $values, $params_list, 'rcult');
+        if (isset($conditions['all']))
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
+        self::buildAreaCriteria($conditions, $values, $params_list);
+
+        // hut criteria
+        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, true);
+
+        // parking criteria
+        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+    }
+    
     public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Hut', self::buildFieldsList(), $sort);
@@ -75,40 +141,7 @@ class Hut extends BaseHut
         
         if (!$all && !empty($conditions))
         {
-            // some criteria have been defined => filter list on these criteria.
-            // In that case, personalization is not taken into account.
-            $associations = array();
-            
-            $conditions = self::joinOnMultiRegions($q, $conditions);
-
-            // join with parkings tables only if needed 
-            if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
-            {
-                $q->leftJoin('m.associations l');
-                if (isset($conditions['join_parking_id']))
-                {
-                    unset($conditions['join_parking_id']);
-                }
-                
-                if (isset($conditions['join_parking']))
-                {
-                    $q->leftJoin('l.Parking p')
-                      ->addWhere("l.type = 'ph'");
-                    unset($conditions['join_parking']);
-
-                    if (isset($conditions['join_parking_i18n']))
-                    {
-                        $q->leftJoin('p.ParkingI18n pi');
-                        unset($conditions['join_parking_i18n']);
-                    }
-                }
-            }
-
-            if (!empty($associations))
-            {
-                $q->addWhere("l.type IN ('" . implode("', '", $associations) . "')");
-            }
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
         elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
@@ -121,6 +154,39 @@ class Hut extends BaseHut
 
         return $pager;
     }   
+    
+    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    {
+        $conditions = self::joinOnMultiRegions($q, $conditions);
+
+        // join with parkings tables only if needed 
+        if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
+        {
+            $q->leftJoin('m.associations l');
+            if (isset($conditions['join_parking_id']))
+            {
+                unset($conditions['join_parking_id']);
+            }
+            
+            if (isset($conditions['join_parking']))
+            {
+                $q->leftJoin('l.Parking p')
+                  ->addWhere("l.type = 'ph'");
+                unset($conditions['join_parking']);
+
+                if (isset($conditions['join_parking_i18n']))
+                {
+                    $q->leftJoin('p.ParkingI18n pi');
+                    unset($conditions['join_parking_i18n']);
+                }
+            }
+        }
+
+        if (!empty($conditions))
+        {
+            $q->addWhere(implode(' AND ', $conditions), $criteria);
+        }
+    }
 
     protected static function buildFieldsList()
     {   

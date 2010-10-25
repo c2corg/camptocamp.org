@@ -699,6 +699,7 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 					 '#\[spoiler(=([^\[]*?)|)\](.*?)\s*\[/spoiler\]\s?#s',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
                      '#\[---+(.*?)\]#s',
+                     '#\[picto=?\s*([\w]+)\s*\/\]#s',
                      '#\s?\[p\]\s?#s');
 
 	$replace = array('<strong>$1</strong>',
@@ -717,6 +718,7 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 					 '</p><blockquote><div class="incqbox" onclick="toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><div style="visibility:hidden; display:none; height:0;"><p>$3</p></div></div></blockquote><p>',
                      '<acronym title="$1">$2</acronym>',
                      '</p><hr /><p>',
+                     '<span class="picto $1"> </span>',
                      '</p><div class="clearer"></div><p>');
 
     if (!$is_signature)

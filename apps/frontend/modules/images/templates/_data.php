@@ -40,7 +40,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         }
 
         li(field_image_details($document));
-        li(field_data_if_set($document, 'date_time'));
+        li(field_data_if_set($document, 'date_time'), true);
         li(field_data_if_set($document, 'elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));

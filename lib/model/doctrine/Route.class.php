@@ -311,6 +311,112 @@ class Route extends BaseRoute
         return self::returnPosIntOrNull($value);
     }
 
+    public static function buildRouteListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
+    {
+        if ($is_module)
+        {
+            $m = 'm';
+            $join = null;
+            $join_id = null;
+        }
+        else
+        {
+            $m = 'r';
+            $join = 'join_route';
+            $join_id = $join . '_id';
+        }
+        
+        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'routes', $join_id, false, $params_list);
+        if ($is_module)
+        {
+            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+        }
+        
+        if ($has_id)
+        {
+            if ($is_module)
+            {
+                self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'activities'), 'act', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+            }
+            self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', array('rnam', 'name'), 'join_route_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Mstring', array('mi.search_name', 'si.search_name'), 'srnam', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'activities'), 'ract', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.max_elevation', 'malt', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_up', 'hdif', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'ralt', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.difficulties_height', 'dhei', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'configuration'), 'conf', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Facing', $m . '.facing', 'fac', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $m . '.route_type', 'rtyp', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.equipment_rating', 'prat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.duration', 'time', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.toponeige_technical_rating', 'trat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.toponeige_exposition_rating', 'expo', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.labande_global_rating', 'lrat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.labande_ski_rating', 'srat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.ice_rating', 'irat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.mixed_rating', 'mrat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.rock_free_rating', 'frat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.rock_required_rating', 'rrat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.aid_rating', 'arat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.global_rating', 'grat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.engagement_rating', 'erat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.hiking_rating', 'hrat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.route_length', 'rlen', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'sub_activities'), 'sub', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bool', $m . '.is_on_glacier', 'glac', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Item', 'ri.culture', 'rcult', 'join_route_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'lrb.main_id', 'rbooks', 'join_rbook_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'lrc.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'lrdc.linked_id', 'rdtags', 'join_rdtag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'lrbc.linked_id', 'rbtags', 'join_rbtag_id', false, $params_list);
+        }
+    }
+    
+    public static function buildListCriteria($params_list)
+    {
+        $conditions = $values = array();
+
+        // criteria for disabling personal filter
+        self::buildPersoCriteria($conditions, $values, $params_list, 'rcult');
+        if (isset($conditions['all']))
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
+        self::buildAreaCriteria($conditions, $values, $params_list);
+
+        // summit criteria
+        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+
+        // hut criteria
+        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.main_id');
+
+        // parking criteria
+        self::buildConditionItem($conditions, $values, 'Config', '', 'haspark', 'join_hasparking', false, $params_list);
+        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+
+        // route criteria
+        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, true);
+
+        // book criteria
+        self::buildConditionItem($conditions, $values, 'List', 'lrb.main_id', 'books', 'join_rbook_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'String', 'bi.search_name', 'rbnam', 'join_rbook_i18n', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', 'b.book_types', 'rbtyp', 'join_rbook', false, $params_list);
+        
+        // outing criteria
+        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
     public static function browse($sort, $criteria, $format = null)
     {
         $pager = self::createPager('Route', self::buildFieldsList(), $sort);
@@ -319,10 +425,10 @@ class Route extends BaseRoute
         self::joinOnRegions($q);
 
         // to get summit info:
-        $q->leftJoin('m.associations l')
-          ->leftJoin('l.Summit s')
-          ->leftJoin('s.SummitI18n si')
-          ->addWhere("l.type = 'sr'");
+        $q->leftJoin('m.associations lsname')
+          ->leftJoin('lsname.Summit sname')
+          ->leftJoin('sname.SummitI18n snamei')
+          ->addWhere("lsname.type = 'sr'");
 
         $conditions = array();
         $all = false;
@@ -338,140 +444,294 @@ class Route extends BaseRoute
         
         if (!$all && !empty($conditions))
         {
-            $conditions = self::joinOnMultiRegions($q, $conditions);
-            
-            if (isset($conditions['join_route_i18n']))
-            {
-                $q->leftJoin('m.RouteI18n ri');
-                unset($conditions['join_route_i18n']);
-            }
-
-            if (isset($conditions['join_summit_id']) || isset($conditions['join_summit']) || isset($conditions['join_oversummit']) || isset($conditions['join_summit_i18n']))
-            {
-                $q->leftJoin("m.associations l2")
-                  ->addWhere("l2.type = 'sr'");
-                
-                if (isset($conditions['join_summit_id']))
-                {
-                    unset($conditions['join_summit_id']);
-                }
-                
-                if (isset($conditions['join_summit']))
-                {
-                    $q->leftJoin('l2.Summit s2');
-                    if (isset($conditions['join_summit']))
-                    {
-                        unset($conditions['join_summit']);
-                    }
-                }
-                
-                if (isset($conditions['join_summit_i18n']))
-                {
-                    $q->leftJoin('l2.SummitI18n si2');
-                    unset($conditions['join_summit_i18n']);
-                }
-            }
-            
-            // join with huts tables only if needed 
-            if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']))
-            {
-                $q->leftJoin('m.associations l3');
-                if (isset($conditions['join_hut_id']))
-                {
-                    unset($conditions['join_hut_id']);
-                }
-                
-                if (isset($conditions['join_hut']))
-                {
-                    $q->leftJoin('l3.Hut h')
-                      ->addWhere("l3.type = 'hr'");
-                    unset($conditions['join_hut']);
-                    
-                    if (isset($conditions['join_hut_i18n']))
-                    {
-                        $q->leftJoin('h.HutI18n hi');
-                        unset($conditions['join_hut_i18n']);
-                    }
-                }
-            }
-            
-            // join with parkings tables only if needed 
-            if (isset($conditions['join_hasparking']))
-            {
-                if ($conditions['join_hasparking'])
-                {
-                    $is_null = 'IS NOT NULL';
-                }
-                else
-                {
-                    $is_null = 'IS NULL';
-                }
-                $q->leftJoin('m.associations l4')
-                  ->addWhere("l4.type = 'pr' AND l4 $is_null");
-                
-                unset($conditions['join_hasparking']);
-            }
-            elseif (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
-            {
-                $q->leftJoin('m.associations l4');
-                if (isset($conditions['join_parking_id']))
-                {
-                    unset($conditions['join_parking_id']);
-                }
-                
-                if (isset($conditions['join_parking']))
-                {
-                    $q->leftJoin('l4.Parking p')
-                      ->addWhere("l4.type = 'pr'");
-                    unset($conditions['join_parking']);
-
-                    if (isset($conditions['join_parking_i18n']))
-                    {
-                        $q->leftJoin('p.ParkingI18n pi');
-                        unset($conditions['join_parking_i18n']);
-                    }
-                }
-            }
-            
-            // join with books tables only if needed 
-            if (isset($conditions['join_book_id']) || isset($conditions['join_book']))
-            {
-                $q->leftJoin('m.associations l5');
-                if (isset($conditions['join_book_id']))
-                {
-                    unset($conditions['join_book_id']);
-                }
-                
-                if (isset($conditions['join_book']))
-                {
-                    $q->leftJoin('l5.Book b')
-                      ->addWhere("l5.type = 'br'");
-                    unset($conditions['join_book']);
-                    
-                    if (isset($conditions['join_book_i18n']))
-                    {
-                        $q->leftJoin('b.HutI18n bi');
-                        unset($conditions['join_book_i18n']);
-                    }
-                }
-            }
-
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            self::buildPagerConditions($q, $conditions, $criteria[1]);
+        }
+        elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        {
+            self::filterOnActivities($q);
+            self::filterOnRegions($q);
         }
         else
         {
-            if (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
-            {
-                self::filterOnActivities($q);
-                self::filterOnRegions($q);
-            }
-            else
-            {
-                $pager->simplifyCounter();
-            }
+            $pager->simplifyCounter();
         }
 
         return $pager;
+    }
+    
+    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    {
+        $conditions = self::joinOnMultiRegions($q, $conditions);
+        
+        if (isset($conditions['join_route_i18n']))
+        {
+            $q->leftJoin('m.RouteI18n ri');
+            unset($conditions['join_route_i18n']);
+        }
+
+        if (isset($conditions['join_rtag_id']))
+        {
+            $q->leftJoin("m.LinkedAssociation lrc");
+            unset($conditions['join_rtag_id']);
+        }
+
+        if (   isset($conditions['join_summit_id'])
+            || isset($conditions['join_summit'])
+            || isset($conditions['join_oversummit'])
+            || isset($conditions['join_summit_i18n'])
+            || isset($conditions['join_sbook_id'])
+            || isset($conditions['join_stag_id'])
+            || isset($conditions['join_sbtag_id'])
+        )
+        {
+            $q->leftJoin("m.associations ls");
+            
+            if (isset($conditions['join_summit_id']))
+            {
+                unset($conditions['join_summit_id']);
+            }
+            else
+            {
+                $q->addWhere("ls.type = 'sr'");
+            }
+            
+            if (isset($conditions['join_summit']))
+            {
+                $q->leftJoin('ls.Summit s');
+                if (isset($conditions['join_summit']))
+                {
+                    unset($conditions['join_summit']);
+                }
+            }
+            
+            if (isset($conditions['join_summit_i18n']))
+            {
+                $q->leftJoin('ls.SummitI18n si');
+                unset($conditions['join_summit_i18n']);
+            }
+            
+            if (isset($conditions['join_stag_id']))
+            {
+                $q->leftJoin("ls.LinkedLinkedAssociation lsc");
+                unset($conditions['join_stag_id']);
+            }
+            
+            if (   isset($conditions['join_sbook_id'])
+                || isset($conditions['join_sbtag_id'])
+            )
+            {
+                $q->leftJoin("ls.MainAssociation lsb");
+                
+                if (isset($conditions['join_sbook_id']))
+                {
+                    unset($conditions['join_sbook_id']);
+                }
+                else
+                {
+                    $q->addWhere("lsb.type = 'bs'");
+                }
+                if (isset($conditions['join_sbtag_id']))
+                {
+                    $q->leftJoin("lsb.LinkedLinkedAssociation lsbc");
+                    unset($conditions['join_sbtag_id']);
+                }
+            }
+        }
+        
+        // join with huts tables only if needed 
+        if (   isset($conditions['join_hut_id'])
+            || isset($conditions['join_hut'])
+            || isset($conditions['join_hut_i18n'])
+            || isset($conditions['join_hbook_id'])
+            || isset($conditions['join_htag_id'])
+            || isset($conditions['join_hbtag_id'])
+        )
+        {
+            $q->leftJoin('m.associations lh');
+            if (isset($conditions['join_hut_id']))
+            {
+                unset($conditions['join_hut_id']);
+            }
+            else
+            {
+                $q->addWhere("lh.type = 'hr'");
+            }
+            
+            if (isset($conditions['join_hut']))
+            {
+                $q->leftJoin('lh.Hut h');
+                unset($conditions['join_hut']);
+            }
+            
+            if (isset($conditions['join_hut_i18n']))
+            {
+                $q->leftJoin('lh.HutI18n hi');
+                unset($conditions['join_hut_i18n']);
+            }
+            
+            if (isset($conditions['join_htag_id']))
+            {
+                $q->leftJoin("lh.LinkedLinkedAssociation lhc");
+                unset($conditions['join_htag_id']);
+            }
+            
+            if (   isset($conditions['join_hbook_id'])
+                || isset($conditions['join_hbtag_id'])
+            )
+            {
+                $q->leftJoin("lh.MainAssociation lhb");
+                
+                if (isset($conditions['join_hbook_id']))
+                {
+                    unset($conditions['join_hbook_id']);
+                }
+                else
+                {
+                    $q->addWhere("lhb.type = 'bh'");
+                }
+                if (isset($conditions['join_hbtag_id']))
+                {
+                    $q->leftJoin("lhb.LinkedLinkedAssociation lhbc");
+                    unset($conditions['join_hbtag_id']);
+                }
+            }
+        }
+        
+        // join with parkings tables only if needed 
+        if (isset($conditions['join_hasparking']))
+        {
+            if ($conditions['join_hasparking'])
+            {
+                $is_null = 'IS NOT NULL';
+            }
+            else
+            {
+                $is_null = 'IS NULL';
+            }
+            $q->leftJoin('m.associations l4')
+              ->addWhere("l4.type = 'pr' AND l4 $is_null");
+            
+            unset($conditions['join_hasparking']);
+        }
+        elseif (   isset($conditions['join_parking_id'])
+                || isset($conditions['join_parking'])
+                || isset($conditions['join_parking_i18n'])
+                || isset($conditions['join_ptag_id'])
+        )
+        {
+            $q->leftJoin('m.associations lp');
+            if (isset($conditions['join_parking_id']))
+            {
+                unset($conditions['join_parking_id']);
+            }
+            else
+            {
+                $q->addWhere("lp.type = 'pr'");
+            }
+            
+            if (isset($conditions['join_parking']))
+            {
+                $q->leftJoin('lp.Parking p');
+                unset($conditions['join_parking']);
+            }
+
+            if (isset($conditions['join_parking_i18n']))
+            {
+                $q->leftJoin('lp.ParkingI18n pi');
+                unset($conditions['join_parking_i18n']);
+            }
+            
+            if (isset($conditions['join_ptag_id']))
+            {
+                $q->leftJoin("lp.LinkedLinkedAssociation lpc");
+                unset($conditions['join_ptag_id']);
+            }
+        }
+        
+        // join with books tables only if needed 
+        if (   isset($conditions['join_rbook_id'])
+            || isset($conditions['join_rbook'])
+            || isset($conditions['join_rbook_i18n'])
+            || isset($conditions['join_rbtag_id'])
+        )
+        {
+            $q->leftJoin('m.associations lrb');
+            
+            if (isset($conditions['join_rbook_id']))
+            {
+                unset($conditions['join_rbook_id']);
+            }
+            else
+            {
+                $q->addWhere("lrb.type = 'br'");
+            }
+            if (isset($conditions['join_rbtag_id']))
+            {
+                $q->leftJoin("lrb.LinkedLinkedAssociation lrbc");
+                unset($conditions['join_rbtag_id']);
+            }
+            
+            if (isset($conditions['join_rbook']))
+            {
+                $q->leftJoin('lrb.Book b');
+                unset($conditions['join_rbook']);
+            }
+
+            if (isset($conditions['join_rbook_i18n']))
+            {
+                $q->leftJoin('lrb.BookI18n bi');
+                unset($conditions['join_rbook_i18n']);
+            }
+        }
+        
+        // join with outings tables only if needed 
+        if (   isset($conditions['join_outing_id'])
+                || isset($conditions['join_outing'])
+                || isset($conditions['join_outing_i18n'])
+                || isset($conditions['join_otag_id'])
+        )
+        {
+            $q->leftJoin('m.LinkedAssociation lo');
+            if (isset($conditions['join_outing_id']))
+            {
+                unset($conditions['join_outing_id']);
+            }
+            else
+            {
+                $q->addWhere("lo.type = 'ro'");
+            }
+            
+            if (isset($conditions['join_outing']))
+            {
+                $q->leftJoin('lo.Outing o');
+                unset($conditions['join_outing']);
+            }
+
+            if (isset($conditions['join_outing_i18n']))
+            {
+                $q->leftJoin('lo.OutingI18n oi');
+                unset($conditions['join_outing_i18n']);
+            }
+            
+            if (isset($conditions['join_otag_id']))
+            {
+                $q->leftJoin("lo.MainAssociation loc");
+                unset($conditions['join_otag_id']);
+            }
+        }
+
+        if (isset($conditions['join_itag_id']))
+        {
+            $q->leftJoin("m.LinkedAssociation li")
+              ->leftJoin("li.MainMainAssociation lic")
+              ->addWhere("li.type = 'ri'");
+            unset($conditions['join_itag_id']);
+        }
+
+        if (!empty($conditions))
+        {
+            $q->addWhere(implode(' AND ', $conditions), $criteria);
+        }
     }
 
     protected static function buildFieldsList()
