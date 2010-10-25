@@ -30,7 +30,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
                               get_slug($document));
         
         echo $tabs;
-        
+
         include_partial("$module/nav", array('id'  => $id, 'document' => $document));
         if ($nav_options == null)
         {

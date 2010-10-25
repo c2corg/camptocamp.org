@@ -6,7 +6,6 @@ $lang = $document->getCulture();
 $is_connected = $sf_user->isConnected();
 $has_rights = $sf_user->hasCredential('moderator');
 ?>
-
 <div id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
@@ -28,7 +27,7 @@ $has_rights = $sf_user->hasCredential('moderator');
                 <?php if ($has_rights && $document->get('geom_wkt')): ?>
                     <li><?php echo button_delete_geom($module, $id) ?></li>
                 <?php endif ?>
-                <?php if ($has_rights): ?>
+                <?php if ($has_rights && !$is_archive): ?>
                     <li><?php echo button_clear_cache($module, $id) ?></li>
                 <?php endif ?>
             <?php endif ?>
