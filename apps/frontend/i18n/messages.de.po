@@ -3216,6 +3216,10 @@ msgstr "<h3>Details über die Schneeräumung</h3>Informationen zur Schneeräumun
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Schneeräumung</h3>Häufigkeit der Schneeräumung einer Strasse. Im Feld <em>Details zur Schneeräumung</em> können weitere Angaben gemacht werden."
 
+# [WARNING] fr translation used
+msgid "_snowshoeing_rating_info"
+msgstr "<h3>Cotation raquette</h3>"
+
 # [WARNING] needs_review
 msgid "_source file_info"
 msgstr "<h3>SVG-Datei</h3>Link zur Vektordatei im SVG-Format, aus welcher die Graphik erstellt wurde."
@@ -6094,6 +6098,14 @@ msgstr "Hochtouren"
 msgid "snowboard"
 msgstr "Snowboard"
 
+# [WARNING] en translation used
+msgid "snowshoeing"
+msgstr "snowshoeing"
+
+# [WARNING] en translation used
+msgid "snowshoeing_rating"
+msgstr "Snowshoeing grade:"
+
 msgid "snowshoes"
 msgstr "Schneeschuhe"
 
@@ -6218,6 +6230,10 @@ msgstr "Nur Ski-, Snowboard- und Schneeschuhtouren anzeigen"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Nur Hochtouren anzeigen"
+
+# [WARNING] en translation used
+msgid "switch_to_snowshoeing"
+msgstr "Show only snowshoeing"
 
 msgid "technics"
 msgstr "Technik"

@@ -41,7 +41,7 @@ msgid "%1% weeks ago"
 msgstr "%1% settimane fa"
 
 msgid "%1% x %2% px, %3% Mo"
-msgstr "%1% x %2% px, %3% Mo"
+msgstr "%1% x %2% px, %3% Mio"
 
 msgid "%1% years ago"
 msgstr "%1% anni fa"
@@ -2361,7 +2361,7 @@ msgid "You are not connected"
 msgstr "Disconnessione effettuata"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Puoi aggiungere '%1%', dimensione (%3% x %2% px) e %4% Mo al massimo."
+msgstr "Puoi aggiungere '%1%', dimensione (%3% x %2% px) e %4% Mio al massimo."
 
 msgid "You can associate this article with any existing document using the following tool:"
 msgstr "E' possibile associare questo articolo a qualsiasi documento usando questo strumento:"
@@ -2931,6 +2931,10 @@ msgstr "<h3>Precisazioni sullo sgombero della neve</h3>Informazioni sullo sgombe
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
+
+# [WARNING] fr translation used
+msgid "_snowshoeing_rating_info"
+msgstr "<h3>Cotation raquette</h3>"
 
 # [WARNING] needs_review
 msgid "_source file_info"
@@ -5570,6 +5574,14 @@ msgstr "alpinismo neve, ghiaccio, misto"
 msgid "snowboard"
 msgstr "snowboard"
 
+# [WARNING] en translation used
+msgid "snowshoeing"
+msgstr "snowshoeing"
+
+# [WARNING] en translation used
+msgid "snowshoeing_rating"
+msgstr "Snowshoeing grade:"
+
 msgid "snowshoes"
 msgstr "ciaspole"
 
@@ -5669,6 +5681,10 @@ msgstr "Mostrare sollo l'attività sci"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Mostrare sollo l'attività alpinismo"
+
+# [WARNING] en translation used
+msgid "switch_to_snowshoeing"
+msgstr "Show only snowshoeing"
 
 msgid "technics"
 msgstr "tecnica"

@@ -42,7 +42,7 @@ msgid "%1% weeks ago"
 msgstr "hace %1% semanas"
 
 msgid "%1% x %2% px, %3% Mo"
-msgstr "%1% x %2% px, %3% Mo"
+msgstr "%1% x %2% px, %3% Mio"
 
 msgid "%1% years ago"
 msgstr "hace %1% años"
@@ -2365,7 +2365,7 @@ msgid "You are not connected"
 msgstr "No está conectado/a"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Puedes añadir '%1%', dimensiones (%3% x %2% px) y %4% Mo máximo."
+msgstr "Puedes añadir '%1%', dimensiones (%3% x %2% px) y %4% Mio máximo."
 
 msgid "You can associate this article with any existing document using the following tool:"
 msgstr "Puede asociar este artículo a cualquier otro documento usando esta herramienta:"
@@ -2928,6 +2928,10 @@ msgstr "<h3>Detalles sobre el limpiado de la nieve </h3>Datos sobre el limpiado 
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Limpiado de la nieve</h3>Frecuencia del limpiado del acceso por carretera. El campo <i> Datos sobre el limpiado de la nieve <i> permite acceder a informaciones complementarias."
+
+# [WARNING] fr translation used
+msgid "_snowshoeing_rating_info"
+msgstr "<h3>Cotation raquette</h3>"
 
 msgid "_source file_info"
 msgstr "<h3>Fuente</h3>Enlace hacia la imagen vectorial (svg) en base a la cual fue creada la imagen"
@@ -5571,6 +5575,14 @@ msgstr "alpinismo nieve, hielo, mixto"
 msgid "snowboard"
 msgstr "snowboard"
 
+# [WARNING] en translation used
+msgid "snowshoeing"
+msgstr "snowshoeing"
+
+# [WARNING] en translation used
+msgid "snowshoeing_rating"
+msgstr "Snowshoeing grade:"
+
 msgid "snowshoes"
 msgstr "raquetas"
 
@@ -5674,6 +5686,10 @@ msgstr "Mostrar únicamente la actividad esquí/surf/raquetas"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Mostrar únicamente la actividad alpisnimo en nievve, hielo & mixto"
+
+# [WARNING] en translation used
+msgid "switch_to_snowshoeing"
+msgstr "Show only snowshoeing"
 
 msgid "technics"
 msgstr "técnica"

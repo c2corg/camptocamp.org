@@ -42,7 +42,7 @@ msgid "%1% weeks ago"
 msgstr "fa %1% setmanes"
 
 msgid "%1% x %2% px, %3% Mo"
-msgstr "%1% x %2% px, %3% Mo"
+msgstr "%1% x %2% px, %3% Mio"
 
 msgid "%1% years ago"
 msgstr "fa %1% anys"
@@ -2516,7 +2516,7 @@ msgid "You are not connected"
 msgstr "No estàs connectat"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Podeu afegir '%1%', dimensions (%3% x %2% px) i %4% Mo màxim."
+msgstr "Podeu afegir '%1%', dimensions (%3% x %2% px) i %4% Mio màxim."
 
 # [WARNING] es translation used
 msgid "You can associate this article with any existing document using the following tool:"
@@ -3150,6 +3150,10 @@ msgstr "<h3>Precisions sobre la retirada de la neu</h3>Informacions sobre la ret
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Retirada de la neu</h3>Frequència de la retirada de la neu de l'accés per carretera. El camp <i>Precisions sobre la retirada de la neu</i> permet donar informacions complementàries."
+
+# [WARNING] fr translation used
+msgid "_snowshoeing_rating_info"
+msgstr "<h3>Cotation raquette</h3>"
 
 # [WARNING] es translation used
 msgid "_source file_info"
@@ -6015,6 +6019,14 @@ msgstr "neu, glaç, mixt"
 msgid "snowboard"
 msgstr "snowboard"
 
+# [WARNING] en translation used
+msgid "snowshoeing"
+msgstr "snowshoeing"
+
+# [WARNING] en translation used
+msgid "snowshoeing_rating"
+msgstr "Snowshoeing grade:"
+
 msgid "snowshoes"
 msgstr "raquetes"
 
@@ -6125,6 +6137,10 @@ msgstr "Mostrar únicament l'activitat esquí de muntanya"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Mostrar únicament l'activitat alpinisme"
+
+# [WARNING] en translation used
+msgid "switch_to_snowshoeing"
+msgstr "Show only snowshoeing"
 
 msgid "technics"
 msgstr "tècnic"

@@ -43,7 +43,7 @@ msgid "%1% weeks ago"
 msgstr "orain dela %1% aste"
 
 msgid "%1% x %2% px, %3% Mo"
-msgstr "%1% x %2% px, %3% Mo"
+msgstr "%1% x %2% px, %3% Mio"
 
 msgid "%1% years ago"
 msgstr "orain dela %1% urte"
@@ -2473,7 +2473,7 @@ msgid "You are not connected"
 msgstr "Ez zaude konektatua"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "'%1%' gehitu zenezake, neurriak (%3% x %2% px) eta %4% Mo gehienez."
+msgstr "'%1%' gehitu zenezake, neurriak (%3% x %2% px) eta %4% Mio gehienez."
 
 # [WARNING] es translation used
 msgid "You can associate this article with any existing document using the following tool:"
@@ -3090,6 +3090,10 @@ msgstr "<h3>Elur garbiketari buruzko xehetasunak</h3>Neguan, errepideko elur gar
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Elurgabetua</h3>Abiapuntura iristeko bidearen elurgabetze frekentzia. <i>Précisions sur le déneigement</i> kampoak gehigarrizko informazioa ematen du."
+
+# [WARNING] fr translation used
+msgid "_snowshoeing_rating_info"
+msgstr "<h3>Cotation raquette</h3>"
 
 # [WARNING] es translation used
 msgid "_source file_info"
@@ -5947,6 +5951,14 @@ msgstr "alpinismoa edur, izotz, mixto"
 msgid "snowboard"
 msgstr "snowboard"
 
+# [WARNING] en translation used
+msgid "snowshoeing"
+msgstr "snowshoeing"
+
+# [WARNING] en translation used
+msgid "snowshoeing_rating"
+msgstr "Snowshoeing grade:"
+
 msgid "snowshoes"
 msgstr "raketak"
 
@@ -6058,6 +6070,10 @@ msgstr "Bakarrik eski ekintzak erakutsi"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Bakarrik alpinismoko ekintzak erakutsi"
+
+# [WARNING] en translation used
+msgid "switch_to_snowshoeing"
+msgstr "Show only snowshoeing"
 
 msgid "technics"
 msgstr "teknika"

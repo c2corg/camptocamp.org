@@ -2978,6 +2978,10 @@ msgstr "<h3>Details on snow clearing</h3>Information on snow clearing of access 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Snow clearing</h3>Frequency of snow clearing of the road. The field <i>Details on snow clearnig</i> allows for more detailed information."
 
+# [WARNING] fr translation used
+msgid "_snowshoeing_rating_info"
+msgstr "<h3>Cotation raquette</h3>"
+
 msgid "_source file_info"
 msgstr "<h3>Source file</h3>Link to the vector image (svg) with which the image was produced (if relevant)"
 
@@ -5618,6 +5622,14 @@ msgstr "alpine snow, ice, mixed climbing"
 msgid "snowboard"
 msgstr "snowboarding"
 
+# [WARNING] needs_review
+msgid "snowshoeing"
+msgstr "snowshoeing"
+
+# [WARNING] needs_review
+msgid "snowshoeing_rating"
+msgstr "Snowshoeing grade:"
+
 msgid "snowshoes"
 msgstr "snowshoes"
 
@@ -5722,6 +5734,10 @@ msgstr "Show only ski/snowboard touring & snowshoing"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Show only snow, ice & mixed climbing"
+
+# [WARNING] needs_review
+msgid "switch_to_snowshoeing"
+msgstr "Show only snowshoeing"
 
 msgid "technics"
 msgstr "techniques"

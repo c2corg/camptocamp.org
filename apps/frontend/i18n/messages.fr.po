@@ -43,7 +43,7 @@ msgid "%1% weeks ago"
 msgstr "il y a %1% semaines"
 
 msgid "%1% x %2% px, %3% Mo"
-msgstr "%1% x %2% px, %3% Mo"
+msgstr "%1% x %2% px, %3% Mio"
 
 msgid "%1% years ago"
 msgstr "il y a %1% ans"
@@ -1002,7 +1002,7 @@ msgstr "Cette image n'existe pas."
 # Currently, copyright pictures are only of book covers
 # [WARNING] needs_review
 msgid "Image under copyright license"
-msgstr "Cette image illustre la couverture d'un livre et est la propriété de son éditeur et/ou de son auteur. Elle n'est présente qu'à titre indicatif."
+msgstr "Cette image reprend la couverture d'un livre et est la propriété de son éditeur et/ou de son auteur. Elle n'est présente qu'à titre illustratif."
 
 msgid "Image uploaded"
 msgstr "Image uploadée"
@@ -2358,7 +2358,7 @@ msgid "You are not connected"
 msgstr "Vous n'êtes pas connecté"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Vous pouvez ajouter des '%1%', dimensions (%3% x %2% px) et %4% Mo maximum."
+msgstr "Vous pouvez ajouter des '%1%', dimensions (%3% x %2% px) et %4% Mio maximum."
 
 msgid "You can associate this article with any existing document using the following tool:"
 msgstr "Il est possible d'associer cet article à un document quelconque en utilisant cet outil&nbsp;:"
@@ -2936,6 +2936,10 @@ msgstr "<h3>Précisions sur le déneigement</h3>Informations sur le déneigement
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champ <em>Précisions sur le déneigement</em> permet de donner des informations complémentaires."
+
+# [WARNING] needs_update
+msgid "_snowshoeing_rating_info"
+msgstr "<h3>Cotation raquette</h3>"
 
 # [comment]
 # la formulation est moche
@@ -5550,6 +5554,14 @@ msgstr "alpinisme neige, glace, mixte"
 msgid "snowboard"
 msgstr "snowboard"
 
+# [WARNING] needs_review
+msgid "snowshoeing"
+msgstr "raquette"
+
+# [WARNING] needs_review
+msgid "snowshoeing_rating"
+msgstr "Cotation raquette&nbsp;:"
+
 msgid "snowshoes"
 msgstr "raquettes"
 
@@ -5649,6 +5661,10 @@ msgstr "Afficher uniquement l'activité ski, surf, raquette"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Afficher uniquement l'activité neige, glace, mixte"
+
+# [WARNING] needs_review
+msgid "switch_to_snowshoeing"
+msgstr "Afficher uniquement l'activité raquette"
 
 msgid "technics"
 msgstr "technique"
