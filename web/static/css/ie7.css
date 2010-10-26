@@ -263,3 +263,8 @@ div.file_to_upload_categories select
 {
   display: inline;
 }
+
+.form-row input
+{
+  height: 1.3em;
+}
