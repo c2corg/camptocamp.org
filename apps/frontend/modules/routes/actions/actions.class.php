@@ -797,9 +797,9 @@ class routesActions extends documentsActions
     {
         switch ($orderby)
         {
-            case 'rnam': return 'snamei.name';
+            case 'rnam': return 'snamei.search_name';
             case 'act':  return 'm.activities';
-            case 'anam': return 'ai.name';
+            case 'anam': return 'ai.search_name';
             case 'maxa': return 'm.max_elevation';
             case 'fac':  return 'm.facing';
             case 'hdif': return 'm.height_diff_up';

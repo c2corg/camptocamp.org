@@ -51,7 +51,7 @@ class Parking extends BaseParking
         return self::returnPosIntOrNull($value);
     }
 
-    public static function buildRouteListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
+    public static function buildParkingListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
     {
         if ($is_module)
         {
@@ -61,8 +61,8 @@ class Parking extends BaseParking
         }
         else
         {
-            $m = '';
-            $join = 'join_route';
+            $m = 'p';
+            $join = 'join_parking';
             $join_id = $join . '_id';
         }
         
@@ -93,7 +93,7 @@ class Parking extends BaseParking
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $params_list, 'rcult');
+        self::buildPersoCriteria($conditions, $values, $params_list, 'pcult');
         if (isset($conditions['all']))
         {
             return array($conditions, $values);

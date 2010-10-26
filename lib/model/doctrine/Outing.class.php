@@ -229,16 +229,15 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, 'Array', 't.rock_types', 'trock', 'join_site', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 't.children_proof', 'chil', 'join_site', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 't.rain_proof', 'rain', 'join_site', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'ltc.linked_id', 'ttags', 'join_ttag_id', false, $params_list);
         }
 
         // book criteria
-        $has_id =    self::buildConditionItem($conditions, $values, 'List', 'ltb.main_id', 'tbooks', 'join_tbook_id', false, $params_list);
-        if (!$has_id)
-        {
-            self::buildConditionItem($conditions, $values, 'String', 'bi.search_name', 'rbnam', 'join_rbook_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', 'b.book_types', 'rbtyp', 'join_rbook', false, $params_list);
-        }
-
+        self::buildConditionItem($conditions, $values, 'List', 'ltb.main_id', 'tbooks', 'join_tbook_id', false, $params_list);
+        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
+        self::buildConditionItem($conditions, $values, 'List', 'lrbc.linked_id', 'btags', 'join_rbtag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'ltbc.linked_id', 'tbtags', 'join_tbtag_id', false, $params_list);
+        
         // user criteria
         $has_id =    self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id', false, $params_list)
                   || self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
@@ -248,10 +247,7 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, 'List', 'u.category', 'ucat', 'join_user', false, $params_list);
         }
 
-        // tags criteria
-        self::buildConditionItem($conditions, $values, 'List', 'ltc.linked_id', 'ttags', 'join_ttag_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'lrbc.linked_id', 'btags', 'join_rbtag_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'ltbc.linked_id', 'tbtags', 'join_tbtag_id', false, $params_list);
+        // image criteria
         $has_id = self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'itags', 'join_itag_id', false, $params_list);
 
         if (!empty($conditions))

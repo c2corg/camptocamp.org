@@ -394,12 +394,12 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     protected static function buildFieldsList()
     {
-        return array('m.id', 'mi.culture', 'mi.name', 'm.module');
+        return array('m.id', 'mi.culture', 'mi.name', 'm.module', 'mi.search_name');
     }
 
     protected static function buildGeoFieldsList()
     {
-        return array('g0.type', 'g0.linked_id', 'ai.name', 'm.geom_wkt');
+        return array('g0.type', 'g0.linked_id', 'ai.name', 'm.geom_wkt', 'ai.search_name');
     }
 
     protected static function filterOnLanguages($q, $langs = null, $alias = 'mi')

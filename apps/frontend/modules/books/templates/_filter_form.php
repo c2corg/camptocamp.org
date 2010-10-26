@@ -14,7 +14,7 @@ echo '<br /><br /><div class="fieldname">' . __('editor') . ' </div>' . input_ta
 </div>
 <?php
 echo __('book_types') . ' ' . field_value_selector('btyp', 'mod_books_book_types_list', false, false, true);
-echo __('langs') . ' ' . field_value_selector('lang', 'app_languages_book', false, false, true);
+echo __('langs') . ' ' . field_value_selector('blang', 'app_languages_book', false, false, true);
 ?>
 <br />
 <?php

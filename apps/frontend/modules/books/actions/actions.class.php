@@ -70,7 +70,7 @@ class booksActions extends documentsActions
             case 'auth': return 'm.author';
             case 'edit': return 'm.editor';
             case 'btyp': return 'm.book_type';
-            case 'lang': return 'm.langs';
+            case 'blang': return 'm.langs';
             default: return NULL;
         }
     }
@@ -89,7 +89,7 @@ class booksActions extends documentsActions
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'bnam');
         $this->addListParam($out, 'btyp');
-        $this->addListParam($out, 'lang');
+        $this->addListParam($out, 'blang');
         $this->addListParam($out, 'act');
         $this->addNameParam($out, 'auth');
         $this->addNameParam($out, 'edit');

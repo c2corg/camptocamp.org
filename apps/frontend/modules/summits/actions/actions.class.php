@@ -388,10 +388,10 @@ class summitsActions extends documentsActions
     {
         switch ($orderby)
         {
-            case 'snam': return 'mi.name';
+            case 'snam': return 'mi.search_name';
             case 'salt': return 'm.elevation';
             case 'styp': return 'm.summit_type';
-            case 'anam': return 'ai.name';
+            case 'anam': return 'ai.search_name';
             case 'geom': return 'm.geom_wkt';
             case 'lat': return 'm.lat';
             case 'lon': return 'm.lon';

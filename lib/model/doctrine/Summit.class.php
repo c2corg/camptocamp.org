@@ -99,11 +99,9 @@ class Summit extends BaseSummit
         Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
 
         // book criteria
-        self::buildConditionItem($conditions, $values, 'List', 'lrb.main_id', 'books', 'join_sbook_id');
-        self::buildConditionItem($conditions, $values, 'String', 'bi.search_name', 'sbnam', 'join_sbook', true);
-        self::buildConditionItem($conditions, $values, 'Array', 'b.book_types', 'sbtyp', 'join_sbook');
-        self::buildConditionItem($conditions, $values, 'String', 'bi.search_name', 'rbnam', 'join_rbook', true);
-        self::buildConditionItem($conditions, $values, 'Array', 'b.book_types', 'rbtyp', 'join_rbook');
+        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 's');
+        self::buildConditionItem($conditions, $values, 'List', 'lsb.main_id', 'books', 'join_sbook_id', false, $params_list);
+        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
 
         if (!empty($conditions))
         {
@@ -242,6 +240,18 @@ class Summit extends BaseSummit
                     $q->leftJoin("lrb.LinkedLinkedAssociation lrbc");
                     unset($conditions['join_rbtag_id']);
                 }
+                
+                if (isset($conditions['join_rbook']))
+                {
+                    $q->leftJoin('lrb.Book rb');
+                    unset($conditions['join_rbook']);
+                }
+
+                if (isset($conditions['join_rbook_i18n']))
+                {
+                    $q->leftJoin('lrb.BookI18n rbi');
+                    unset($conditions['join_rbook_i18n']);
+                }
             }
         }
         
@@ -343,23 +353,6 @@ class Summit extends BaseSummit
         }
         
         // join with books tables only if needed 
-        if (   isset($conditions['join_rbook'])
-            || isset($conditions['join_rbook_i18n'])
-        )
-        {
-            if (isset($conditions['join_rbook']))
-            {
-                $q->leftJoin('lrb.Book b');
-                unset($conditions['join_rbook']);
-            }
-
-            if (isset($conditions['join_rbook_i18n']))
-            {
-                $q->leftJoin('lrb.BookI18n bi');
-                unset($conditions['join_rbook_i18n']);
-            }
-        }
-        
         if (   isset($conditions['join_sbook_id'])
             || isset($conditions['join_sbook'])
             || isset($conditions['join_sbook_i18n'])
@@ -384,13 +377,13 @@ class Summit extends BaseSummit
             
             if (isset($conditions['join_sbook']))
             {
-                $q->leftJoin('lsb.Book b');
+                $q->leftJoin('lsb.Book sb');
                 unset($conditions['join_sbook']);
             }
 
             if (isset($conditions['join_sbook_i18n']))
             {
-                $q->leftJoin('lsb.BookI18n bi');
+                $q->leftJoin('lsb.BookI18n sbi');
                 unset($conditions['join_sbook_i18n']);
             }
         }

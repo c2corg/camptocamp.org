@@ -272,7 +272,7 @@ class portalsActions extends documentsActions
             case 'wnam': return 'mi.search_name';
             case 'walt': return 'm.elevation';
             case 'act':  return 'm.activities';
-            case 'anam': return 'ai.name';
+            case 'anam': return 'ai.search_name';
             case 'geom': return 'm.geom_wkt';
             case 'lat': return 'm.lat';
             case 'lon': return 'm.lon';

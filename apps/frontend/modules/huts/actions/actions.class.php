@@ -130,13 +130,13 @@ class hutsActions extends documentsActions
     {
         switch ($orderby)
         {
-            case 'hnam': return 'mi.name';
+            case 'hnam': return 'mi.search_name';
             case 'halt': return 'm.elevation';
             case 'styp': return 'm.shelter_type';
             case 'hscap': return 'm.staffed_capacity';
             case 'hucap': return 'm.unstaffed_capacity';
             case 'act':  return 'm.activities';
-            case 'anam': return 'ai.name';
+            case 'anam': return 'ai.search_name';
             case 'geom': return 'm.geom_wkt';
             case 'lat': return 'm.lat';
             case 'lon': return 'm.lon';

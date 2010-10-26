@@ -402,10 +402,9 @@ class Route extends BaseRoute
         Route::buildRouteListCriteria(&$conditions, &$values, $params_list, true);
 
         // book criteria
+        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
         self::buildConditionItem($conditions, $values, 'List', 'lrb.main_id', 'books', 'join_rbook_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'String', 'bi.search_name', 'rbnam', 'join_rbook_i18n', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 'b.book_types', 'rbtyp', 'join_rbook', false, $params_list);
-        
+       
         // outing criteria
         Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
 
@@ -673,13 +672,13 @@ class Route extends BaseRoute
             
             if (isset($conditions['join_rbook']))
             {
-                $q->leftJoin('lrb.Book b');
+                $q->leftJoin('lrb.Book rb');
                 unset($conditions['join_rbook']);
             }
 
             if (isset($conditions['join_rbook_i18n']))
             {
-                $q->leftJoin('lrb.BookI18n bi');
+                $q->leftJoin('lrb.BookI18n rbi');
                 unset($conditions['join_rbook_i18n']);
             }
         }

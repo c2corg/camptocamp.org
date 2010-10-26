@@ -54,13 +54,50 @@ class Book extends BaseBook
         return self::returnNullIfEmpty($value);
     }
 
+    public static function buildBookListCriteria(&$conditions, &$values, $params_list, $is_module = false, $prefix = '')
+    {
+        $m2 = $prefix . 'b';
+        if ($is_module)
+        {
+            $m = 'm';
+            $join = null;
+            $join_i18n = null;
+        }
+        else
+        {
+            $m = $m2;
+            $join = 'join_' . $prefix . 'book';
+            $join_i18n = $join . '_i18n';
+        }
+        
+        $has_id = ;
+        if ($is_module)
+        {
+            $has_id = self::buildConditionItem($conditions, $values, 'List', 'm.id', array('books', 'id'), null, false, $params_list);
+        }
+        
+        if ($has_id)
+        {
+            if ($is_module)
+            {
+                self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'activities'), 'act', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'List', 'lbc.linked_id', 'btags', 'join_btag_id', false, $params_list);
+            }
+            self::buildConditionItem($conditions, $values, 'String', $prefix . 'bi.search_name', ($is_module ? array('bnam', 'name') : $prefix . 'bnam'), $join_i18n, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'activities'), $prefix . 'bact', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'book_types'), $prefix . 'btyp', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'langs'), $prefix . 'blang', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Item', $prefix . 'bi.culture', $prefix . 'bcult', $join_i18n, false, $params_list);
+        }
+    }
+
     public static function buildListCriteria($params_list)
     {
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
-        if (isset($conditions['all']) && $conditions['all'])
+        self::buildPersoCriteria($conditions, $values, $params_list, 'rcult');
+        if (isset($conditions['all']))
         {
             return array($conditions, $values);
         }
@@ -69,17 +106,12 @@ class Book extends BaseBook
         self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
         
         // book criteria
-        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('bnam', 'name'), null, false, $params_list);
+        Book::buildBookListCriteria(&$conditions, &$values, $params_list, true);
         self::buildConditionItem($conditions, $values, 'Istring', 'm.author', 'auth', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Istring', 'm.editor', 'edit', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'b', 'book_types'), 'btyp', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'b', 'langs'), 'lang', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'b', 'activities'), 'act', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'mi.culture', 'bcult', null, false, $params_list);
         
-        // linked document criteria
-        self::buildConditionItem($conditions, $values, 'List', 'd.linked_id', 'documents', 'join_doc', false, $params_list);
+        // linked doc criteria
+        self::buildConditionItem($conditions, $values, 'List', 'lbd.linked_id', $prefix . 'bdocs', 'join_bdocs_id', false, $params_list);
 
         if (!empty($conditions))
         {
@@ -128,10 +160,22 @@ class Book extends BaseBook
     {
         $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array(), false);
 
-        if (isset($conditions['join_doc']))
+        if (isset($conditions['join_book_i18n']))
         {
-            $q->leftJoin('m.associations d');
-            unset($conditions['join_doc']);
+            $q->leftJoin('m.BookI18n bi');
+            unset($conditions['join_book_i18n']);
+        }
+
+        if (isset($conditions['join_bdocs_id']))
+        {
+            $q->leftJoin('m.associations lbd');
+            unset($conditions['join_bdocs_id']);
+        }
+
+        if (isset($conditions['join_btags_id']))
+        {
+            $q->leftJoin('m.associations lbc');
+            unset($conditions['join_btags_id']);
         }
         
         $q->addWhere(implode(' AND ', $conditions), $criteria);

@@ -588,7 +588,7 @@ class imagesActions extends documentsActions
             case 'act':  return 'm.activities';
             case 'icat':  return 'm.categories';
             case 'auth': return 'm.author';
-            case 'anam': return 'ai.name';
+            case 'anam': return 'ai.search_name';
             case 'date': return 'm.date_time';
             case 'ityp': return 'm.image_type';
             default: return NULL;

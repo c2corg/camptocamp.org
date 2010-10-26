@@ -611,7 +611,7 @@ class outingsActions extends documentsActions
             case 'lrat': return 'r.labande_global_rating';
             case 'srat': return 'r.labande_ski_rating';
             case 'hrat': return 'r.hiking_rating';
-            case 'anam': return 'ai.name';
+            case 'anam': return 'ai.search_name';
             case 'lat': return 's.lat';
             case 'lon': return 's.lon';
             default: return NULL;

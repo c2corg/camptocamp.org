@@ -65,8 +65,8 @@ class Hut extends BaseHut
         else
         {
             $m = 'h';
-            $join = 'join_summit';
-            $join_id = 'join_summit_id';
+            $join = 'join_hut';
+            $join_id = 'join_hut_id';
         }
         
         $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'huts', $join_id, false, $params_list);
@@ -104,7 +104,7 @@ class Hut extends BaseHut
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $params_list, 'rcult');
+        self::buildPersoCriteria($conditions, $values, $params_list, 'hcult');
         if (isset($conditions['all']))
         {
             return array($conditions, $values);
@@ -118,6 +118,10 @@ class Hut extends BaseHut
 
         // parking criteria
         Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+
+        // book criteria
+        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'h');
+        self::buildConditionItem($conditions, $values, 'List', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
     }
     
     public static function browse($sort, $criteria, $format = null)
@@ -160,25 +164,75 @@ class Hut extends BaseHut
         $conditions = self::joinOnMultiRegions($q, $conditions);
 
         // join with parkings tables only if needed 
-        if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
+        if (   isset($conditions['join_parking_id'])
+            || isset($conditions['join_parking'])
+            || isset($conditions['join_parking_i18n'])
+            || isset($conditions['join_ptag_id'])
+        )
         {
-            $q->leftJoin('m.associations l');
+            $q->leftJoin('m.associations lp');
+            
             if (isset($conditions['join_parking_id']))
             {
                 unset($conditions['join_parking_id']);
             }
+            else
+            {
+                $q->addWhere("lp.type = 'ph'");
+            }
             
             if (isset($conditions['join_parking']))
             {
-                $q->leftJoin('l.Parking p')
-                  ->addWhere("l.type = 'ph'");
+                $q->leftJoin('lp.Parking p');
                 unset($conditions['join_parking']);
+            }
 
-                if (isset($conditions['join_parking_i18n']))
-                {
-                    $q->leftJoin('p.ParkingI18n pi');
-                    unset($conditions['join_parking_i18n']);
-                }
+            if (isset($conditions['join_parking_i18n']))
+            {
+                $q->leftJoin('lp.ParkingI18n pi');
+                unset($conditions['join_parking_i18n']);
+            }
+            
+            if (isset($conditions['join_ptag_id']))
+            {
+                $q->leftJoin("lp.LinkedLinkedAssociation lpc");
+                unset($conditions['join_ptag_id']);
+            }
+        }
+        
+        // join with books tables only if needed 
+        if (   isset($conditions['join_hbook_id'])
+            || isset($conditions['join_hbook'])
+            || isset($conditions['join_hbook_i18n'])
+            || isset($conditions['join_hbtag_id'])
+        )
+        {
+            $q->leftJoin('m.associations lhb');
+            
+            if (isset($conditions['join_hbook_id']))
+            {
+                unset($conditions['join_hbook_id']);
+            }
+            else
+            {
+                $q->addWhere("lhb.type = 'bh'");
+            }
+            if (isset($conditions['join_hbtag_id']))
+            {
+                $q->leftJoin("lhb.LinkedLinkedAssociation lhbc");
+                unset($conditions['join_hbtag_id']);
+            }
+            
+            if (isset($conditions['join_hbook']))
+            {
+                $q->leftJoin('lhb.Book hb');
+                unset($conditions['join_hbook']);
+            }
+
+            if (isset($conditions['join_hbook_i18n']))
+            {
+                $q->leftJoin('lhb.BookI18n hbi');
+                unset($conditions['join_hbook_i18n']);
             }
         }
 

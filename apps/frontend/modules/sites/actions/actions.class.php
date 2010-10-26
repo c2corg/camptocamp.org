@@ -575,7 +575,7 @@ class sitesActions extends documentsActions
             case 'rqty': return 'm.routes_quantity';
             case 'ttyp': return 'm.site_types';
             case 'trock': return 'm.rock_types';
-            case 'anam': return 'ai.name';
+            case 'anam': return 'ai.search_name';
             case 'geom': return 'm.geom_wkt';
             case 'lat': return 'm.lat';
             case 'lon': return 'm.lon';

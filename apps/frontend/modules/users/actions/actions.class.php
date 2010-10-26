@@ -771,7 +771,7 @@ class usersActions extends documentsActions
         {
             case 'unam': return 'mi.search_name';
             case 'fnam': return 'pd.search_username';
-            case 'anam': return 'ai.name';
+            case 'anam': return 'ai.search_name';
             case 'act':  return 'm.activities';
             case 'ucat':  return 'm.category';
             case 'lat': return 'm.lat';

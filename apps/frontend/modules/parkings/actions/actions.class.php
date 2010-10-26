@@ -118,12 +118,12 @@ class parkingsActions extends documentsActions
     {
         switch ($orderby)
         {
-            case 'pnam': return 'mi.name';
+            case 'pnam': return 'mi.search_name';
             case 'palt': return 'm.elevation';
             case 'tp':  return 'm.public_transportation_rating';
             case 'tpty':  return 'm.public_transportation_types';
             case 'scle':  return 'm.snow_clearance_rating';
-            case 'anam': return 'ai.name';
+            case 'anam': return 'ai.search_name';
             case 'geom': return 'm.geom_wkt';
             case 'lat': return 'm.lat';
             case 'lon': return 'm.lon';

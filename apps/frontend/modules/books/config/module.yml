@@ -18,4 +18,4 @@ all:
       'auth': author
       'edit': editor
       'btyp': book_types
-      'lang': langs
+      'blang': langs
