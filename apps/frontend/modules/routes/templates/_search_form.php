@@ -72,4 +72,5 @@
     echo object_group_dropdown_tag(null, 'rock_free_rating', 'app_routes_rock_free_ratings', $options, false);
     echo object_group_dropdown_tag(null, 'aid_rating', 'app_routes_aid_ratings', $options, false);
     echo object_group_dropdown_tag(null, 'hiking_rating', 'app_routes_hiking_ratings', $options, false);
+    echo object_group_dropdown_tag(null, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings', $options, false);
 ?>

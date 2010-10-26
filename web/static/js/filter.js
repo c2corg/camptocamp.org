@@ -72,10 +72,11 @@ function hide_unrelated_filter_fields(current_activity)
         'snow_ice',
         'snow_mountain_rock_ice',
         'rock_mountain',
-        'hiking'
+        'hiking',
+        'snowshoeing'
     ];
     var show_ski, show_ski_snow_mountain, show_ski_snow_mountain_rock, show_ski_snow_mountain_rock_ice,
-        show_snow_ice, show_snow_mountain_rock_ice, show_rock_mountain, show_hiking;
+        show_snow_ice, show_snow_mountain_rock_ice, show_rock_mountain, show_hiking, show_snowshoeing;
 
     show_flags.each(function(flag)
     {
@@ -126,6 +127,10 @@ function hide_unrelated_filter_fields(current_activity)
 
             case 6: // hiking
                 show_hiking = true;
+                break;
+
+            case 7:
+                show_snowshoeing = true;
         }
     });
 

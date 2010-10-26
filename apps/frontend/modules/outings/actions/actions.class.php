@@ -611,6 +611,7 @@ class outingsActions extends documentsActions
             case 'lrat': return 'r.labande_global_rating';
             case 'srat': return 'r.labande_ski_rating';
             case 'hrat': return 'r.hiking_rating';
+            case 'wrat': return 'r.snowshoeing_rating';
             case 'anam': return 'ai.search_name';
             case 'lat': return 's.lat';
             case 'lon': return 's.lon';
@@ -676,6 +677,7 @@ class outingsActions extends documentsActions
         $this->addCompareParam($out, 'rrat');
         $this->addCompareParam($out, 'arat');
         $this->addCompareParam($out, 'hrat');
+        $this->addCompareParam($out, 'wrat');
         $this->addParam($out, 'glac');
         $this->addDateParam($out, 'date');
 

@@ -76,6 +76,12 @@ echo __('labande_ski_rating') . ' ' . range_selector('srat', 'app_routes_labande
 echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_routes_sub_activities_list', false, false, true);
 ?>
 </div>
+<div id="snowshoeing_fields" style="display:none">
+<br />
+<?php
+echo __('snowshoeing_rating') . ' ' . range_selector('wrat', 'app_routes_snowshoeing_ratings');
+?>
+</div>
 <div id="hiking_fields" style="display:none">
 <br />
 <?php

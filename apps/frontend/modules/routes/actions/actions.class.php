@@ -665,6 +665,18 @@ class routesActions extends documentsActions
                 $where_params = $tmp;
             }
         }
+        if ($this->hasRequestParameter('snowshoeing_rating'))
+        {
+            $snowshoeing_ratings = $this->getRequestParameter('snowshoeing_rating');
+            $where = $this->getWhereClause(
+                $snowshoeing_ratings, 'mod_routes_snowshoeing_ratings_list', 'routes.snowshoeing_rating = ?');
+            if (!is_null($where))
+            {
+                $where_array[] = $where['where_string'];
+                $tmp = array_merge($where_params, $where['where_params']);
+                $where_params = $tmp;
+            }
+        }
         $params = array(
             'select' => array(
                 'routes.min_elevation',
@@ -689,7 +701,8 @@ class routesActions extends documentsActions
                 'routes.mixed_rating',
                 'routes.rock_free_rating',
                 'routes.aid_rating',
-                'routes.hiking_rating'
+                'routes.hiking_rating',
+                'routes.snowshoeing_rating'
             ),
             'where'  => array(
                 'where_array'  => $where_array,
@@ -730,7 +743,7 @@ class routesActions extends documentsActions
         $fields = array('activities', 'facing', 'height_diff_up', 'global_rating', 'engagement_rating',
                         'toponeige_technical_rating', 'toponeige_exposition_rating', 'labande_ski_rating',
                         'labande_global_rating', 'rock_free_rating', 'ice_rating', 'mixed_rating', 
-                        'aid_rating', 'hiking_rating');
+                        'aid_rating', 'hiking_rating', 'snowshoeing_rating');
          
         $this->data = Document::find('Route', $id, $fields);
         if (!$this->data)
@@ -818,6 +831,7 @@ class routesActions extends documentsActions
             case 'lrat': return 'm.labande_global_rating';
             case 'srat': return 'm.labande_ski_rating';
             case 'hrat': return 'm.hiking_rating';
+            case 'wrat': return 'm.snowshoeing_rating';
             case 'rlen': return 'm.route_length';
             case 'geom': return 'm.geom_wkt';
             case 'lat': return 'sname.lat';
@@ -827,11 +841,10 @@ class routesActions extends documentsActions
     }
 
     protected function getListCriteria()
-    {   
+    {
         $params_list = c2cTools::getAllRequestParameters();
-        
         return Route::buildListCriteria($params_list);
-    } 
+    }
 
     protected function filterSearchParameters()
     {
@@ -876,6 +889,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'rrat');
         $this->addCompareParam($out, 'arat');
         $this->addCompareParam($out, 'hrat');
+        $this->addCompareParam($out, 'wrat');
         $this->addCompareParam($out, 'rlen');
         $this->addParam($out, 'glac');
         $this->addParam($out, 'geom');

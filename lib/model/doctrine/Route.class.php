@@ -363,6 +363,7 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.global_rating', 'grat', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.engagement_rating', 'erat', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.hiking_rating', 'hrat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.snowshoeing_rating', 'wrat', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.route_length', 'rlen', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'sub_activities'), 'sub', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.is_on_glacier', 'glac', $join, false, $params_list);

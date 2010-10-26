@@ -120,6 +120,13 @@ echo object_group_dropdown_tag($document, 'sub_activities', 'mod_routes_sub_acti
 echo object_group_dropdown_tag($document, 'hiking_rating', 'app_routes_hiking_ratings');
 ?>
 </div>
+
+<div id="snowshoeing_fields">
+<?php
+echo object_group_dropdown_tag($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings');
+?>
+</div>
+
 </div>
 <div class="clear"></div>
 <?php

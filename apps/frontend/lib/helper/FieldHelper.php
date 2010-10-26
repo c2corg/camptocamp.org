@@ -744,6 +744,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $add_tooltips),
         _filter_ratings_data($document, 'equipment_rating', 'app_equipment_ratings_list', $add_tooltips, true, 'P'),
         _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings', $add_tooltips),
         $activities,
         $show_activities
         );
@@ -802,8 +803,9 @@ function _filter_ratings_rock($document, $add_tooltips = false, $use_raw_value =
     return $string_rock_free_value . $string_rock_required_value;
 }
 
+// FIXME handle snowshoeing
 function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
-                               $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $activities = array(), $show_activities = true)
+                               $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing, $activities = array(), $show_activities = true)
 {
     $groups = $ski1 = $ski2 = $main_climbing = $climbing = array();
 

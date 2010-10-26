@@ -150,8 +150,10 @@ all:
       4: rock_climbing
       5: ice_climbing
       6: hiking
+      7: snowshoeing
     form: # order use in filter form
       1: skitouring
+      7: snowshoeing
       6: hiking
       2: snow_ice_mixed
       5: ice_climbing
@@ -1444,6 +1446,13 @@ all:
       4: T4
       5: T5
       6: T6
+    snowshoeing_ratings:
+      0:
+      1: WT1
+      2: WT2
+      3: WT3
+      4: WT4
+      5: WT5
 
   parkings:
     public_transportation_ratings:

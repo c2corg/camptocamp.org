@@ -38,6 +38,7 @@ class BaseRoute extends BaseDocument
         $this->hasColumn('rock_required_rating', 'smallint', null);
         $this->hasColumn('aid_rating', 'smallint', null);
         $this->hasColumn('hiking_rating', 'smallint', null);
+        $this->hasColumn('snowshoeing_rating', 'smallint', null);
     }
 
     public function setUp()

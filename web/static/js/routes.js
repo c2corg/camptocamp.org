@@ -23,7 +23,8 @@ function hide_unrelated_fields()
         'pack_mountain_easy',
         'pack_rock_bolted',
         'pack_ice',
-        'pack_hiking'
+        'pack_hiking',
+        'snowshoeing'
     ];
     
     show_flags.each(function(flag)
@@ -95,7 +96,9 @@ function hide_unrelated_fields()
                 show_hiking2 = true;
                 show_pack_hiking = true;
                 break;
-            
+            case '7': // snowshoeing
+                show_snowshoeing = true;
+                break;
             default :
                 show_data = false;
         }
