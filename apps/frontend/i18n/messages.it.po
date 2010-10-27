@@ -2702,9 +2702,9 @@ msgstr "<h3>Rifugio</h3>Apertura del rifugio: aperto/chiuso e custodito/non cust
 msgid "_ice_rating_info"
 msgstr "<h3>Valutazione ghiaccio</h3>La valutazione delle difficoltà ghiaccio tiene in conto diversi fattori quali la pendenza, la lunghezza della sezione più ripida, la conformazione del percorso (parete, colonna, goulotte) o anche la tecnicità del ghiaccio stesso (ghiaccio fine o spesso, ghiaccio poroso o compatto, etc...).<br /><br /><strong>Grado 3:</strong> Arrampicata poco inclinata (75°) con numerosi risalti. Il ghiaccio è spesso e compatto.<br /><strong>Grado 3+:</strong> Come il grado 3 ma con risalti più ripidi (80°).<br /><strong>Grado 4:</strong> Arrampicata con un passaggio ripido (85°) fino a 10 m di lunghezza. Il ghiaccio è spesso e compatto.<br /><strong>Grado 4+:</strong> Come il grado 4. Il passaggio ripido può essere quai verticale e più lungo, fino ad arrivare a 15m di lunghezza.<br /><strong>Grado 5:</strong> Arrampicata con una sezione verticale di circa 20m. Il ghiaccio comincia ad essere poroso e con forme particolari: cavolfiori o altre asperità. Su cascate di ghiaccio si tratta normalmente di di colonne.<br /><strong>Grado 5+:</strong> Arrampicata con una sezione verticale di circa 30m. L'arrampicata diventa abbastanza tecnica.<br /><strong>Grado 6:</strong> Arrampicata con una sezione verticale da 40 a 50m circa . Arrampicata tecnica. Il ghiaccio può essere particolarmente poroso.<br /><strong>Grado 6+:</strong> Arrampicata totalmente verticale e può presentare piccoli strapiombi, per esempio per passare da una struttura all'altra.<br /><strong>Grado 7:</strong> Arrampicata estrema. Molto ripida, può essere strapiombante su molti metri. La tecnica (di solito gestuale) utilizzata dall'alpinista è simile a quella di un arrampicatore su roccia."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_image details_info"
-msgstr "<h3>Propriétés de l'image</h3>Dimensions et taille de l'image"
+msgstr "<h3>Image properties</h3>Dimensions and size of the image"
 
 # [WARNING] needs_review
 msgid "_image_categories_info"
@@ -2932,9 +2932,9 @@ msgstr "<h3>Precisazioni sullo sgombero della neve</h3>Informazioni sullo sgombe
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>Cotation raquette</h3>"
+msgstr "<h3>Ciaspole difficoltà</h3>"
 
 # [WARNING] needs_review
 msgid "_source file_info"
@@ -4191,9 +4191,9 @@ msgstr "immagine"
 
 # [general comment]
 # to specify image size and dimensions
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "image details"
-msgstr "Propriétés de l'image&nbsp;:"
+msgstr "Image properties:"
 
 msgid "image successfully uploaded"
 msgstr "L’immagine è stata caricata correttamente."
@@ -5574,13 +5574,13 @@ msgstr "alpinismo neve, ghiaccio, misto"
 msgid "snowboard"
 msgstr "snowboard"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "snowshoeing"
-msgstr "snowshoeing"
+msgstr "ciaspole"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "snowshoeing_rating"
-msgstr "Snowshoeing grade:"
+msgstr "Difficoltà ciaspole:"
 
 msgid "snowshoes"
 msgstr "ciaspole"
@@ -5682,9 +5682,8 @@ msgstr "Mostrare sollo l'attività sci"
 msgid "switch_to_snow_ice_mixed"
 msgstr "Mostrare sollo l'attività alpinismo"
 
-# [WARNING] en translation used
 msgid "switch_to_snowshoeing"
-msgstr "Show only snowshoeing"
+msgstr "Mostrare solo l'attività ciaspole"
 
 msgid "technics"
 msgstr "tecnica"
@@ -5971,7 +5970,7 @@ msgstr "ieri, alle %1%"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from collaborative picture"
-msgstr "You do not have the rights to switch the type of this collaborative picture"
+msgstr "You do not have sufficient rights to switch the type of this collaborative picture"
 
 msgid "you have no right to switch from collaborative to personal article"
 msgstr "Non sei autorizzato a modificare il tipo di questo articolo"
@@ -5981,7 +5980,7 @@ msgstr "Non sei autorizzato a modificare il tipo di questa immagine"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from copyright picture"
-msgstr "You do not have the rights to switch the type of this copyrighted picture"
+msgstr "You do not have sufficient rights to switch the type of this copyrighted picture"
 
 msgid "zoom in"
 msgstr "Zoomare"

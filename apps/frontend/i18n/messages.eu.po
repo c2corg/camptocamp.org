@@ -2846,9 +2846,9 @@ msgstr "<h3>Mendi aterpea</h3>Aterpearren irekiera: irekia/itxia et zaindua/zain
 msgid "_ice_rating_info"
 msgstr "<h3>Izotzeko zailtasuna</h3>Izotzetako zailtasunen akotazioa.<br />Izotzetako zailtasunak, ibilbideko zailtasun maximoa adierazten du.<br />Eskala 1-tik 7+-ra doa"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_image details_info"
-msgstr "<h3>Propriétés de l'image</h3>Dimensions et taille de l'image"
+msgstr "<h3>Image properties</h3>Dimensions and size of the image"
 
 msgid "_image_categories_info"
 msgstr "<h3>Irudien kategoriak</h3><br /><span style=\"color: red\">Izartxoa (*) duen kategoria bat aukeratu ezkero (gutxienez), argazkia sarrera horrialdean ageraraziko du.</span><br /><br /><strong>Paisaia</strong>&nbsp;*&nbsp;: Gailur bat edo batzuen zati haundi bat agertzen duen irudia, argazki panoramikoa <br /><strong>zehazpena, zoom</strong>&nbsp;*&nbsp;: Gailur, ibilbide edo leku baten zati txiki bat agertzen duen irudia (<em>paisaia-ren</em> aurkakoa)<br /><strong>ibilbidea, eskema</strong>&nbsp;*&nbsp;: Gailur baten argazkia non ibilbidearen jarduna agertzen den<br /><strong>akzioa</strong>&nbsp;*&nbsp;: Mendizalea akzioan agertzen duen argazkia<br /><strong>urratsa, bidezidor</strong>&nbsp;*&nbsp;: Elurrean igoera/jeitsierako urratsak edo bidezidur bat agertzen dituen irudia<br /><strong>montée</strong> et <strong>jeitsiera</strong>&nbsp;: jeitsiera erakusten duen argazkia, igoeran edo jeitsieran ateratakoa - <em>zehazpena, akzioa, urratsa, bidezidorra</em>kategoriak zehazteko erabilgarria<br /><strong>pertsonaiak</strong>&nbsp;: pertsonai bat edo batzuen argazkia<br /><strong>fauna</strong>&nbsp;* eta <strong>flora</strong>&nbsp;*&nbsp;: fauna edo flora-ren argazki edo marrazkia<br /><strong>elur eta elurjausiak</strong>&nbsp;*&nbsp;: nibologiarekin zerikusia duen argazkia&nbsp;: elurraren kristal edo estruktura, plaka, elurjausia, etabar...<br /><strong>geologia</strong>&nbsp;*&nbsp;: minerale, glaziar edo beste estruktura geologikoen argazki edo marrazkia<br /><strong>aterpeak</strong>&nbsp;: aterpe, borda edo gaba pasatzeko lekuen argazkiak<br /><strong>materiala</strong>&nbsp;: mendian erabiltzen den materialeen argazki edo marrazkia, planu nagusian edo erabileran<br /><strong>liburu azala</strong>&nbsp;: liburuen azala edo titulu horrialdea<br /><strong>bestelakoak, klasifikagabeak</strong>&nbsp;: beste edozein kategorian klasifikatzeko zaila den irudia&nbsp;: ospakizun baten kartela, irudi abstraktoa, etabar."
@@ -3091,9 +3091,9 @@ msgstr "<h3>Elur garbiketari buruzko xehetasunak</h3>Neguan, errepideko elur gar
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Elurgabetua</h3>Abiapuntura iristeko bidearen elurgabetze frekentzia. <i>Précisions sur le déneigement</i> kampoak gehigarrizko informazioa ematen du."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>Cotation raquette</h3>"
+msgstr "<h3>Snowshoeing grade</h3>"
 
 # [WARNING] es translation used
 msgid "_source file_info"
@@ -4433,9 +4433,9 @@ msgstr "irudia"
 
 # [general comment]
 # to specify image size and dimensions
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "image details"
-msgstr "Propriétés de l'image&nbsp;:"
+msgstr "Image properties:"
 
 msgid "image successfully uploaded"
 msgstr "Irudiak ongi jaso dira."
@@ -6382,7 +6382,7 @@ msgstr "atzo, %1%-tan"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from collaborative picture"
-msgstr "You do not have the rights to switch the type of this collaborative picture"
+msgstr "You do not have sufficient rights to switch the type of this collaborative picture"
 
 # [WARNING] es translation used
 msgid "you have no right to switch from collaborative to personal article"
@@ -6394,7 +6394,7 @@ msgstr "No tiene el derecho de pasar la imagen de colaborativa a personal"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from copyright picture"
-msgstr "You do not have the rights to switch the type of this copyrighted picture"
+msgstr "You do not have sufficient rights to switch the type of this copyrighted picture"
 
 # [WARNING] en translation used
 msgid "zoom in"

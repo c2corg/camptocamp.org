@@ -2904,9 +2904,9 @@ msgstr "<h3>Refugi</h3>Obertura del refugi: obert/tancat i gurdat/no guardat.<br
 msgid "_ice_rating_info"
 msgstr "<h3>Cotació glaç</h3>Cotació de les dificultats en glaç.<br />La cotació glaç avalua la dificultat màxima de l'escalada glaciar.<br />L'escala va de 1 a 7"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_image details_info"
-msgstr "<h3>Propriétés de l'image</h3>Dimensions et taille de l'image"
+msgstr "<h3>Image properties</h3>Dimensions and size of the image"
 
 # [WARNING] es translation used
 msgid "_image_categories_info"
@@ -3151,9 +3151,9 @@ msgstr "<h3>Precisions sobre la retirada de la neu</h3>Informacions sobre la ret
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Retirada de la neu</h3>Frequència de la retirada de la neu de l'accés per carretera. El camp <i>Precisions sobre la retirada de la neu</i> permet donar informacions complementàries."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>Cotation raquette</h3>"
+msgstr "<h3>Snowshoeing grade</h3>"
 
 # [WARNING] es translation used
 msgid "_source file_info"
@@ -4498,9 +4498,9 @@ msgstr "imatge"
 
 # [general comment]
 # to specify image size and dimensions
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "image details"
-msgstr "Propriétés de l'image&nbsp;:"
+msgstr "Image properties:"
 
 msgid "image successfully uploaded"
 msgstr "La transmissió d'imatges ha estat un èxit."
@@ -6459,7 +6459,7 @@ msgstr "ahir, a les %1%"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from collaborative picture"
-msgstr "You do not have the rights to switch the type of this collaborative picture"
+msgstr "You do not have sufficient rights to switch the type of this collaborative picture"
 
 # [WARNING] es translation used
 msgid "you have no right to switch from collaborative to personal article"
@@ -6471,7 +6471,7 @@ msgstr "No tiene el derecho de pasar la imagen de colaborativa a personal"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from copyright picture"
-msgstr "You do not have the rights to switch the type of this copyrighted picture"
+msgstr "You do not have sufficient rights to switch the type of this copyrighted picture"
 
 # [WARNING] en translation used
 msgid "zoom in"
