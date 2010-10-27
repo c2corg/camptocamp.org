@@ -64,7 +64,7 @@ if (isset($_GET['f']))
       if ($debug and count($files) == 1)
       {
         $options['debug'] = false;
-        $options['minifiers'] = array(Minify::TYPE_JS => '');
+        $options['minifiers'] = array(Minify::TYPE_JS => '', Minify::TYPE_CSS => '');
       }
 
       if (sfConfig::get('sf_cache'))
