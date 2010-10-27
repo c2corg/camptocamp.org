@@ -35,7 +35,7 @@ input, select, textarea{
 }
 
 input, select {
-  min-height: 22px;
+  height: 1.9em;
   vertical-align: middle;
 }
 
@@ -1762,7 +1762,7 @@ span.picto
 input.picto, .form-row input.picto
 {
   padding: 1px 1px 1px 20px;
-  min-height: 22px;
+  height: 1.9em;
   vertical-align: middle;
 }
 
@@ -2470,7 +2470,7 @@ input, select {
 input[type=submit], input[type=reset], .action_buttons input[type=button]
 {
   border-color: #c0c0c0;
-  border-width: 1px;
+  border-width: 2px;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -khtml-border-radius: 4px;
