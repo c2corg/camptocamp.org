@@ -373,6 +373,21 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $order_by .= ', m.id';
                 $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
             }
+            elseif ($sort['order_by'] == 'snamei.search_name')
+            {
+                $order_by .= ', mi.search_name';
+                $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+            }
+            elseif ($sort['order_by'] == 'ai.search_name')
+            {
+                if ($model == 'Route')
+                {
+                    $order_by .= ', snamei.search_name';
+                    $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+                }
+                $order_by .= ', mi.search_name';
+                $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+            }
         }
         else
         {

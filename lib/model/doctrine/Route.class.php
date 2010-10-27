@@ -338,9 +338,12 @@ class Route extends BaseRoute
             {
                 self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'activities'), 'act', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+                if (self::buildConditionItem($conditions, $values, 'Mstring', array('ri.search_name', 'si.search_name'), 'srnam', 'join_route_i18n', false, $params_list))
+                {
+                    $conditions['join_summit_i18n'] = true;
+                }
             }
             self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', array('rnam', 'name'), 'join_route_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Mstring', array('mi.search_name', 'si.search_name'), 'srnam', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'activities'), 'ract', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.max_elevation', 'malt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_up', 'hdif', $join, false, $params_list);
@@ -369,6 +372,7 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.is_on_glacier', 'glac', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Item', 'ri.culture', 'rcult', 'join_route_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrb.main_id', 'rbooks', 'join_rbook_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'lrd.main_id', 'rdocs', 'join_rdoc_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrc.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrdc.linked_id', 'rdtags', 'join_rdtag_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrbc.linked_id', 'rbtags', 'join_rbtag_id', false, $params_list);
@@ -459,6 +463,87 @@ class Route extends BaseRoute
         return $pager;
     }
     
+    public static function buildRoutePagerConditions(&$q, &$conditions, $ltype, $is_linked = false)
+    {
+        if (isset($conditions['join_route_id']))
+        {
+            unset($conditions['join_route_id']);
+        }
+        else
+        {
+            $q->addWhere("lr.type = '$ltype'");
+        }
+        
+        $linked = ($is_linked ? 'Linked' : '');
+        
+        if (isset($conditions['join_route']))
+        {
+            $q->leftJoin('lr.' . $linked . 'Route r');
+            unset($conditions['join_route']);
+        }
+
+        if (isset($conditions['join_route_i18n']))
+        {
+            $q->leftJoin('lr.' . $linked . 'RouteI18n ri');
+            unset($conditions['join_route_i18n']);
+        }
+        
+        if (isset($conditions['join_rdoc_id']))
+        {
+            $q->leftJoin("lr.associations lrd");
+            unset($conditions['join_rdoc_id']);
+        }
+        
+        if (isset($conditions['join_rtag_id']))
+        {
+            $q->leftJoin("lr.LinkedLinkedAssociation lrc");
+            unset($conditions['join_rtag_id']);
+        }
+
+        if (isset($conditions['join_rdtag_id']))
+        {
+            $q->leftJoin("lr.MainAssociation lrd")
+              ->leftJoin("lrd.LinkedLinkedAssociation lrdc")
+              ->addWhere("lrd.type IN ('sr', 'hr', 'pr', 'br')");
+            unset($conditions['join_rdtag_id']);
+        }
+        
+        if (   isset($conditions['join_rbook_id'])
+            || isset($conditions['join_rbook'])
+            || isset($conditions['join_rbook_i18n'])
+            || isset($conditions['join_rbtag_id'])
+        )
+        {
+            $q->leftJoin("lr.MainAssociation lrb");
+            
+            if (isset($conditions['join_rbook_id']))
+            {
+                unset($conditions['join_rbook_id']);
+            }
+            else
+            {
+                $q->addWhere("lrb.type = 'br'");
+            }
+            if (isset($conditions['join_rbtag_id']))
+            {
+                $q->leftJoin("lrb.LinkedLinkedAssociation lrbc");
+                unset($conditions['join_rbtag_id']);
+            }
+            
+            if (isset($conditions['join_rbook']))
+            {
+                $q->leftJoin('lrb.Book rb');
+                unset($conditions['join_rbook']);
+            }
+
+            if (isset($conditions['join_rbook_i18n']))
+            {
+                $q->leftJoin('lrb.BookI18n rbi');
+                unset($conditions['join_rbook_i18n']);
+            }
+        }
+    }
+    
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
@@ -467,6 +552,12 @@ class Route extends BaseRoute
         {
             $q->leftJoin('m.RouteI18n ri');
             unset($conditions['join_route_i18n']);
+        }
+
+        if (isset($conditions['join_rdoc_id']))
+        {
+            $q->leftJoin("m.associations lrd");
+            unset($conditions['join_rdoc_id']);
         }
 
         if (isset($conditions['join_rtag_id']))
@@ -620,32 +711,8 @@ class Route extends BaseRoute
         )
         {
             $q->leftJoin('m.associations lp');
-            if (isset($conditions['join_parking_id']))
-            {
-                unset($conditions['join_parking_id']);
-            }
-            else
-            {
-                $q->addWhere("lp.type = 'pr'");
-            }
             
-            if (isset($conditions['join_parking']))
-            {
-                $q->leftJoin('lp.Parking p');
-                unset($conditions['join_parking']);
-            }
-
-            if (isset($conditions['join_parking_i18n']))
-            {
-                $q->leftJoin('lp.ParkingI18n pi');
-                unset($conditions['join_parking_i18n']);
-            }
-            
-            if (isset($conditions['join_ptag_id']))
-            {
-                $q->leftJoin("lp.LinkedLinkedAssociation lpc");
-                unset($conditions['join_ptag_id']);
-            }
+            Parking::buildParkingPagerConditions($q, $conditions, 'pr', false);
         }
         
         // join with books tables only if needed 
@@ -745,8 +812,9 @@ class Route extends BaseRoute
                                  'm.labande_ski_rating', 'm.labande_global_rating',
                                  'm.rock_free_rating', 'm.rock_required_rating',
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
-                                 'm.hiking_rating', 'm.route_length', 'l.type',
-                                 's.elevation', 's.lon', 's.lat', 'si.name', 'si.search_name'));
+                                 'm.hiking_rating', 'm.snowshoeing_rating',
+                                 'm.route_length', 'l.type',
+                                 'sname.elevation', 'sname.lon', 'sname.lat', 'snamei.name', 'snamei.search_name'));
     }
 
     protected function addPrevNextIdFilters($q, $model)

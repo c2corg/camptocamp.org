@@ -35,7 +35,7 @@ input, select, textarea{
 }
 
 input, select {
-  height: 22px;
+  min-height: 22px;
   vertical-align: middle;
 }
 

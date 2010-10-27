@@ -176,6 +176,8 @@ class Summit extends BaseSummit
             || isset($conditions['join_rbook_id'])
             || isset($conditions['join_rbook'])
             || isset($conditions['join_rbook_i18n'])
+            || isset($conditions['join_rdoc_id'])
+            || isset($conditions['join_rtag_id'])
             || isset($conditions['join_htag_id'])
             || isset($conditions['join_ptag_id'])
             || isset($conditions['join_rdtag_id'])
@@ -184,75 +186,7 @@ class Summit extends BaseSummit
         {
             $q->leftJoin("m.LinkedAssociation lr");
             
-            if (isset($conditions['join_route_id']))
-            {
-                unset($conditions['join_route_id']);
-            }
-            else
-            {
-                $q->addWhere("l.type = 'sr'");
-            }
-            
-            if (isset($conditions['join_route']))
-            {
-                $q->leftJoin('lr.LinkedRoute r');
-                unset($conditions['join_route']);
-            }
-
-            if (isset($conditions['join_route_i18n']))
-            {
-                $q->leftJoin('lr.LinkedRouteI18n ri');
-                unset($conditions['join_route_i18n']);
-            }
-            
-            if (isset($conditions['join_rtag_id']))
-            {
-                $q->leftJoin("lr.LinkedLinkedAssociation lrc");
-                unset($conditions['join_rtag_id']);
-            }
-
-            if (isset($conditions['join_rdtag_id']))
-            {
-                $q->leftJoin("lr.MainAssociation lrd")
-                  ->leftJoin("lrd.LinkedLinkedAssociation lrdc")
-                  ->addWhere("lrd.type IN ('sr', 'hr', 'pr', 'br')");
-                unset($conditions['join_rdtag_id']);
-            }
-            
-            if (   isset($conditions['join_rbook_id'])
-                || isset($conditions['join_rbook'])
-                || isset($conditions['join_rbook_i18n'])
-                || isset($conditions['join_rbtag_id'])
-            )
-            {
-                $q->leftJoin("lr.MainAssociation lrb");
-                
-                if (isset($conditions['join_rbook_id']))
-                {
-                    unset($conditions['join_rbook_id']);
-                }
-                else
-                {
-                    $q->addWhere("lrb.type = 'br'");
-                }
-                if (isset($conditions['join_rbtag_id']))
-                {
-                    $q->leftJoin("lrb.LinkedLinkedAssociation lrbc");
-                    unset($conditions['join_rbtag_id']);
-                }
-                
-                if (isset($conditions['join_rbook']))
-                {
-                    $q->leftJoin('lrb.Book rb');
-                    unset($conditions['join_rbook']);
-                }
-
-                if (isset($conditions['join_rbook_i18n']))
-                {
-                    $q->leftJoin('lrb.BookI18n rbi');
-                    unset($conditions['join_rbook_i18n']);
-                }
-            }
+            Route::buildRoutePagerConditions($q, $conditions, 'sr', true);
         }
         
         // join with huts tables only if needed 
@@ -266,53 +200,7 @@ class Summit extends BaseSummit
         {
             $q->leftJoin("lr.MainMainAssociation lh");
             
-            if (isset($conditions['join_hut_id']))
-            {
-                unset($conditions['join_hut_id']);
-            }
-            else
-            {
-                $q->addWhere("lh.type = 'hr'");
-            }
-            
-            if (isset($conditions['join_hut']))
-            {
-                $q->leftJoin('lh.Hut h');
-                unset($conditions['join_hut']);
-            }
-            
-            if (isset($conditions['join_hut_i18n']))
-            {
-                $q->leftJoin('lh.HutI18n hi');
-                unset($conditions['join_hut_i18n']);
-            }
-            
-            if (isset($conditions['join_htag_id']))
-            {
-                $q->leftJoin("lh.LinkedLinkedAssociation lhc");
-                unset($conditions['join_htag_id']);
-            }
-            
-            if (   isset($conditions['join_hbook_id'])
-                || isset($conditions['join_hbtag_id'])
-            )
-            {
-                $q->leftJoin("lh.MainAssociation lhb");
-                
-                if (isset($conditions['join_hbook_id']))
-                {
-                    unset($conditions['join_hbook_id']);
-                }
-                else
-                {
-                    $q->addWhere("lhb.type = 'bh'");
-                }
-                if (isset($conditions['join_hbtag_id']))
-                {
-                    $q->leftJoin("lhb.LinkedLinkedAssociation lhbc");
-                    unset($conditions['join_hbtag_id']);
-                }
-            }
+            Hut::buildHutPagerConditions($q, $conditions, 'hr', false);
         }
         
         // join with parkings tables only if needed 
@@ -324,32 +212,7 @@ class Summit extends BaseSummit
         {
             $q->leftJoin("lr.MainMainAssociation lp");
             
-            if (isset($conditions['join_parking_id']))
-            {
-                unset($conditions['join_parking_id']);
-            }
-            else
-            {
-                $q->addWhere("lp.type = 'pr'");
-            }
-            
-            if (isset($conditions['join_parking']))
-            {
-                $q->leftJoin('lp.Parking p');
-                unset($conditions['join_parking']);
-            }
-
-            if (isset($conditions['join_parking_i18n']))
-            {
-                $q->leftJoin('lp.ParkingI18n pi');
-                unset($conditions['join_parking_i18n']);
-            }
-            
-            if (isset($conditions['join_ptag_id']))
-            {
-                $q->leftJoin("lp.LinkedLinkedAssociation lpc");
-                unset($conditions['join_ptag_id']);
-            }
+            Parking::buildParkingPagerConditions($q, $conditions, 'pr', false);
         }
         
         // join with books tables only if needed 

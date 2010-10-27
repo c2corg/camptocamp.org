@@ -119,6 +119,9 @@ class Hut extends BaseHut
         // parking criteria
         Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
 
+        // route criteria
+        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.linked_id');
+
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'h');
         self::buildConditionItem($conditions, $values, 'List', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
@@ -159,6 +162,59 @@ class Hut extends BaseHut
         return $pager;
     }   
     
+    public static function buildHutPagerConditions(&$q, &$conditions, $ltype, $is_linked = false)
+    {
+        if (isset($conditions['join_hut_id']))
+        {
+            unset($conditions['join_hut_id']);
+        }
+        else
+        {
+            $q->addWhere("lh.type = '$ltype'");
+        }
+        
+        $linked = ($is_linked ? 'Linked' : '');
+        
+        if (isset($conditions['join_hut']))
+        {
+            $q->leftJoin('lh.' . $linked . 'Hut h');
+            unset($conditions['join_hut']);
+        }
+        
+        if (isset($conditions['join_hut_i18n']))
+        {
+            $q->leftJoin('lh.' . $linked . 'HutI18n hi');
+            unset($conditions['join_hut_i18n']);
+        }
+        
+        if (isset($conditions['join_htag_id']))
+        {
+            $q->leftJoin("lh.LinkedLinkedAssociation lhc");
+            unset($conditions['join_htag_id']);
+        }
+        
+        if (   isset($conditions['join_hbook_id'])
+            || isset($conditions['join_hbtag_id'])
+        )
+        {
+            $q->leftJoin("lh.MainAssociation lhb");
+            
+            if (isset($conditions['join_hbook_id']))
+            {
+                unset($conditions['join_hbook_id']);
+            }
+            else
+            {
+                $q->addWhere("lhb.type = 'bh'");
+            }
+            if (isset($conditions['join_hbtag_id']))
+            {
+                $q->leftJoin("lhb.LinkedLinkedAssociation lhbc");
+                unset($conditions['join_hbtag_id']);
+            }
+        }
+    }
+    
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
@@ -172,32 +228,23 @@ class Hut extends BaseHut
         {
             $q->leftJoin('m.associations lp');
             
-            if (isset($conditions['join_parking_id']))
-            {
-                unset($conditions['join_parking_id']);
-            }
-            else
-            {
-                $q->addWhere("lp.type = 'ph'");
-            }
-            
-            if (isset($conditions['join_parking']))
-            {
-                $q->leftJoin('lp.Parking p');
-                unset($conditions['join_parking']);
-            }
+            Parking::buildParkingPagerConditions($q, $conditions, 'ph', false);
+        }
 
-            if (isset($conditions['join_parking_i18n']))
-            {
-                $q->leftJoin('lp.ParkingI18n pi');
-                unset($conditions['join_parking_i18n']);
-            }
+        // join with routes tables only if needed 
+        if (   isset($conditions['join_route_id'])
+            || isset($conditions['join_route'])
+            || isset($conditions['join_route_i18n'])
+            || isset($conditions['join_rbook_id'])
+            || isset($conditions['join_rdoc_id'])
+            || isset($conditions['join_rtag_id'])
+            || isset($conditions['join_rdtag_id'])
+            || isset($conditions['join_rbtag_id'])
+        )
+        {
+            $q->leftJoin("m.LinkedAssociation lr");
             
-            if (isset($conditions['join_ptag_id']))
-            {
-                $q->leftJoin("lp.LinkedLinkedAssociation lpc");
-                unset($conditions['join_ptag_id']);
-            }
+            Route::buildRoutePagerConditions($q, $conditions, 'hr', true);
         }
         
         // join with books tables only if needed 

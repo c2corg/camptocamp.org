@@ -70,7 +70,6 @@ class Book extends BaseBook
             $join_i18n = $join . '_i18n';
         }
         
-        $has_id = ;
         if ($is_module)
         {
             $has_id = self::buildConditionItem($conditions, $values, 'List', 'm.id', array('books', 'id'), null, false, $params_list);
@@ -96,7 +95,7 @@ class Book extends BaseBook
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $params_list, 'rcult');
+        self::buildPersoCriteria($conditions, $values, $params_list, 'bcult');
         if (isset($conditions['all']))
         {
             return array($conditions, $values);
