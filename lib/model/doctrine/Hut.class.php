@@ -122,6 +122,9 @@ class Hut extends BaseHut
         // parking criteria
         Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
 
+        // summit criteria
+        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'h');
         self::buildConditionItem($conditions, $values, 'List', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
@@ -283,16 +286,35 @@ class Hut extends BaseHut
         if (   isset($conditions['join_route_id'])
             || isset($conditions['join_route'])
             || isset($conditions['join_route_i18n'])
-            || isset($conditions['join_rbook_id'])
             || isset($conditions['join_rdoc_id'])
             || isset($conditions['join_rtag_id'])
             || isset($conditions['join_rdtag_id'])
+            || isset($conditions['join_rbook_id'])
             || isset($conditions['join_rbtag_id'])
+            || isset($conditions['join_summit_id'])
+            || isset($conditions['join_summit'])
+            || isset($conditions['join_summit_i18n'])
+            || isset($conditions['join_stag_id'])
+            || isset($conditions['join_sbook_id'])
+            || isset($conditions['join_sbtag_id'])
         )
         {
             $q->leftJoin("m.LinkedAssociation lr");
             
             Route::buildRoutePagerConditions($q, $conditions, false, true, 'hr');
+
+            if (   isset($conditions['join_summit_id'])
+                || isset($conditions['join_summit'])
+                || isset($conditions['join_summit_i18n'])
+                || isset($conditions['join_stag_id'])
+                || isset($conditions['join_sbook_id'])
+                || isset($conditions['join_sbtag_id'])
+            )
+            {
+                $q->leftJoin("lr.MainAssociation ls");
+                
+                Summit::buildSummitPagerConditions($q, $conditions, false, false, 'sr');
+            }
         }
 
         if (!empty($conditions))

@@ -372,85 +372,73 @@ class Outing extends BaseOuting
         {
             Outing::buildOutingPagerConditions($q, $conditions, true);
         }
-        
-        if (isset($conditions['join_outing_i18n']))
-        {
-            $q->leftJoin('m.OutingI18n oi');
-            unset($conditions['join_outing_i18n']);
-        }
-
-        if (isset($conditions['join_otag_id']))
-        {
-            $q->leftJoin("m.LinkedAssociation loc");
-            unset($conditions['join_otag_id']);
-        }
 
         if (   isset($conditions['join_route_id'])
             || isset($conditions['join_route'])
             || isset($conditions['join_route_i18n'])
-            || isset($conditions['join_summit_id'])
-            || isset($conditions['join_summit'])
-            || isset($conditions['join_summit_i18n'])
-            || isset($conditions['join_oversummit'])
-            || isset($conditions['join_hut_id'])
-            || isset($conditions['join_hut'])
-            || isset($conditions['join_hut_i18n'])
-            || isset($conditions['join_parking_id'])
-            || isset($conditions['join_parking'])
-            || isset($conditions['join_parking_i18n'])
+            || isset($conditions['join_rdoc_id'])
+            || isset($conditions['join_rtag_id'])
+            || isset($conditions['join_rdtag_id'])
             || isset($conditions['join_rbook_id'])
             || isset($conditions['join_rbook'])
             || isset($conditions['join_rbook_i18n'])
-            || isset($conditions['join_rdoc_id'])
-            || isset($conditions['join_stag_id'])
-            || isset($conditions['join_htag_id'])
-            || isset($conditions['join_ptag_id'])
-            || isset($conditions['join_rtag_id'])
-            || isset($conditions['join_rdtag_id'])
             || isset($conditions['join_rbtag_id'])
+            || isset($conditions['join_summit_id'])
+            || isset($conditions['join_summit'])
+            || isset($conditions['join_summit_i18n'])
+            || isset($conditions['join_stag_id'])
+            || isset($conditions['join_sbook_id'])
+            || isset($conditions['join_sbtag_id'])
+            || isset($conditions['join_hut_id'])
+            || isset($conditions['join_hut'])
+            || isset($conditions['join_hut_i18n'])
+            || isset($conditions['join_htag_id'])
+            || isset($conditions['join_parking_id'])
+            || isset($conditions['join_parking'])
+            || isset($conditions['join_parking_i18n'])
+            || isset($conditions['join_ptag_id'])
         )
         {
             $q->leftJoin("m.associations lr");
             
             Route::buildRoutePagerConditions($q, $conditions, false, false, 'ro');
-        }
 
-        if (   isset($conditions['join_summit_id'])
-            || isset($conditions['join_summit'])
-            || isset($conditions['join_oversummit'])
-            || isset($conditions['join_summit_i18n'])
-            || isset($conditions['join_stag_id'])
-            || isset($conditions['join_sbook_id'])
-            || isset($conditions['join_sbtag_id'])
-        )
-        {
-            $q->leftJoin("lr.MainAssociation ls");
+            if (   isset($conditions['join_summit_id'])
+                || isset($conditions['join_summit'])
+                || isset($conditions['join_summit_i18n'])
+                || isset($conditions['join_stag_id'])
+                || isset($conditions['join_sbook_id'])
+                || isset($conditions['join_sbtag_id'])
+            )
+            {
+                $q->leftJoin("lr.MainAssociation ls");
+                
+                Summit::buildSummitPagerConditions($q, $conditions, false, false, 'sr');
+            }
             
-            Summit::buildSummitPagerConditions($q, $conditions, false, false, 'sr');
-        }
-        
-        if (   isset($conditions['join_hut_id'])
-            || isset($conditions['join_hut'])
-            || isset($conditions['join_hut_i18n'])
-            || isset($conditions['join_hbook_id'])
-            || isset($conditions['join_htag_id'])
-            || isset($conditions['join_hbtag_id'])
-        )
-        {
-            $q->leftJoin("lr.MainAssociation lh");
+            if (   isset($conditions['join_hut_id'])
+                || isset($conditions['join_hut'])
+                || isset($conditions['join_hut_i18n'])
+                || isset($conditions['join_hbook_id'])
+                || isset($conditions['join_htag_id'])
+                || isset($conditions['join_hbtag_id'])
+            )
+            {
+                $q->leftJoin("lr.MainAssociation lh");
+                
+                Hut::buildHutPagerConditions($q, $conditions, false, false, 'hr');
+            }
             
-            Hut::buildHutPagerConditions($q, $conditions, false, false, 'hr');
-        }
-        
-        if (   isset($conditions['join_parking_id'])
-            || isset($conditions['join_parking'])
-            || isset($conditions['join_parking_i18n'])
-            || isset($conditions['join_ptag_id'])
-        )
-        {
-            $q->leftJoin("lr.MainAssociation lp");
-            
-            Parking::buildParkingPagerConditions($q, $conditions, false, false, 'pr');
+            if (   isset($conditions['join_parking_id'])
+                || isset($conditions['join_parking'])
+                || isset($conditions['join_parking_i18n'])
+                || isset($conditions['join_ptag_id'])
+            )
+            {
+                $q->leftJoin("lr.MainAssociation lp");
+                
+                Parking::buildParkingPagerConditions($q, $conditions, false, false, 'pr');
+            }
         }
 
         if (   isset($conditions['join_site_id'])

@@ -278,32 +278,32 @@ class Summit extends BaseSummit
             $q->leftJoin("m.LinkedAssociation lr");
             
             Route::buildRoutePagerConditions($q, $conditions, false, true, 'sr');
-        }
-        
-        // join with huts tables only if needed 
-        if (   isset($conditions['join_hut_id'])
-            || isset($conditions['join_hut'])
-            || isset($conditions['join_hut_i18n'])
-            || isset($conditions['join_htag_id'])
-            || isset($conditions['join_hbook_id'])
-            || isset($conditions['join_hbtag_id'])
-        )
-        {
-            $q->leftJoin("lr.MainMainAssociation lh");
             
-            Hut::buildHutPagerConditions($q, $conditions, false, false, 'hr');
-        }
-        
-        // join with parkings tables only if needed 
-        if (   isset($conditions['join_parking_id'])
-            || isset($conditions['join_parking'])
-            || isset($conditions['join_parking_i18n'])
-            || isset($conditions['join_ptag_id'])
-        )
-        {
-            $q->leftJoin("lr.MainMainAssociation lp");
+            // join with huts tables only if needed 
+            if (   isset($conditions['join_hut_id'])
+                || isset($conditions['join_hut'])
+                || isset($conditions['join_hut_i18n'])
+                || isset($conditions['join_htag_id'])
+                || isset($conditions['join_hbook_id'])
+                || isset($conditions['join_hbtag_id'])
+            )
+            {
+                $q->leftJoin("lr.MainMainAssociation lh");
+                
+                Hut::buildHutPagerConditions($q, $conditions, false, false, 'hr');
+            }
             
-            Parking::buildParkingPagerConditions($q, $conditions, false, false, 'pr');
+            // join with parkings tables only if needed 
+            if (   isset($conditions['join_parking_id'])
+                || isset($conditions['join_parking'])
+                || isset($conditions['join_parking_i18n'])
+                || isset($conditions['join_ptag_id'])
+            )
+            {
+                $q->leftJoin("lr.MainMainAssociation lp");
+                
+                Parking::buildParkingPagerConditions($q, $conditions, false, false, 'pr');
+            }
         }
         
         if (!empty($conditions))
