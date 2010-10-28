@@ -70,12 +70,13 @@ class Book extends BaseBook
             $join_i18n = $join . '_i18n';
         }
         
+        $has_id = false;
         if ($is_module)
         {
             $has_id = self::buildConditionItem($conditions, $values, 'List', 'm.id', array('books', 'id'), null, false, $params_list);
         }
         
-        if ($has_id)
+        if (!$has_id)
         {
             if ($is_module)
             {

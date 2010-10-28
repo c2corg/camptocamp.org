@@ -72,7 +72,7 @@ class Parking extends BaseParking
             $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
         }
         
-        if ($has_id)
+        if (!$has_id)
         {
             if ($is_module)
             {
@@ -158,32 +158,54 @@ class Parking extends BaseParking
     
     public static function buildParkingPagerConditions(&$q, &$conditions, $ltype, $is_linked = false)
     {
-        if (isset($conditions['join_parking_id']))
+        if ($is_module)
         {
-            unset($conditions['join_parking_id']);
+            $m = 'm.';
+            $linked = '';
+            $linked2 = '';
+            $main = $m . 'associations';
         }
         else
         {
-            $q->addWhere("lp.type = '$ltype'");
-        }
-        
-        $linked = ($is_linked ? 'Linked' : '');
-        
-        if (isset($conditions['join_parking']))
-        {
-            $q->leftJoin('lp.' . $linked . 'Parking p');
-            unset($conditions['join_parking']);
+            $m = 'lp.';
+            if ($is_linked)
+            {
+                $linked = 'Linked';
+                $linked2 = '';
+                $main = $m . 'MainMainAssociation';
+            }
+            else
+            {
+                $linked = '';
+                $linked2 = 'Linked';
+                $main = $m . 'MainAssociation';
+            }
+                
+            if (isset($conditions['join_parking_id']))
+            {
+                unset($conditions['join_parking_id']);
+            }
+            else
+            {
+                $q->addWhere($m . "type = '$ltype'");
+            }
+            
+            if (isset($conditions['join_parking']))
+            {
+                $q->leftJoin($m . $linked . 'Parking p');
+                unset($conditions['join_parking']);
+            }
         }
 
         if (isset($conditions['join_parking_i18n']))
         {
-            $q->leftJoin('lp.' . $linked . 'ParkingI18n pi');
+            $q->leftJoin($m . $linked . 'ParkingI18n pi');
             unset($conditions['join_parking_i18n']);
         }
         
         if (isset($conditions['join_ptag_id']))
         {
-            $q->leftJoin("lp.LinkedLinkedAssociation lpc");
+            $q->leftJoin($m . $linked2 . "LinkedAssociation lpc");
             unset($conditions['join_ptag_id']);
         }
     }
@@ -192,16 +214,12 @@ class Parking extends BaseParking
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
         
-        if (isset($conditions['join_parking_i18n']))
+        // join with parking tables only if needed 
+        if (   isset($conditions['join_parking_i18n'])
+            || isset($conditions['join_ptag_id'])
+        )
         {
-            $q->leftJoin('m.ParkingI18n pi');
-            unset($conditions['join_parking_i18n']);
-        }
-
-        if (isset($conditions['join_ptag_id']))
-        {
-            $q->leftJoin("m.LinkedAssociation lpc");
-            unset($conditions['join_ptag_id']);
+            Parking::buildParkingPagerConditions($q, $conditions, true);
         }
         
         // join with huts tables only if needed 
@@ -215,7 +233,7 @@ class Parking extends BaseParking
         {
             $q->leftJoin('m.LinkedAssociation lh');
             
-            Hut::buildHutPagerConditions($q, $conditions, 'ph', true);
+            Hut::buildHutPagerConditions($q, $conditions, false, true, 'ph');
         }
 
         // join with routes tables only if needed 
@@ -231,7 +249,7 @@ class Parking extends BaseParking
         {
             $q->leftJoin("m.LinkedAssociation lr");
             
-            Route::buildRoutePagerConditions($q, $conditions, 'pr', true);
+            Route::buildRoutePagerConditions($q, $conditions, false, true, 'pr');
         }
 
         if (isset($conditions['join_itag_id']))

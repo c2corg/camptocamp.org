@@ -32,11 +32,12 @@ if (!$is_map):
     if ($is_cda):
 ?>
                 <li id="europesengage"><a href="http://europa.eu/" title="Europe"></a></li>
+                <li id="europa"><a href="http://europa.eu/" title="Europe"></a></li>
                 <li id="rhonealpes"><a href="http://www.rhonealpes.fr/" title="Rhône-Alpes"></a></li>
                 <li id="c2csa"><a href="http://www.camptocamp.com/" title="Camptocamp SA"></a></li>
                 <li id="paca"><a href="http://www.regionpaca.fr/" title="PACA"></a></li>
                 <li id="languedoc"><a href="http://www.laregion.fr/" title="Languedoc-Roussillon"></a></li>
-<?php
+                <li id="partners_tips"><?php__('cda partners tips')?></li><?php
     else:
 ?>
                 <li id="rhonealpes"><a href="http://www.rhonealpes.fr/" title="Rhône-Alpes"></a></li>

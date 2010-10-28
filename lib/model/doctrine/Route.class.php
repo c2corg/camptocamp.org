@@ -332,7 +332,7 @@ class Route extends BaseRoute
             $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
         }
         
-        if ($has_id)
+        if (!$has_id)
         {
             if ($is_module)
             {
@@ -463,50 +463,78 @@ class Route extends BaseRoute
         return $pager;
     }
     
-    public static function buildRoutePagerConditions(&$q, &$conditions, $ltype, $is_linked = false)
+    public static function buildRoutePagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $ltype)
     {
-        if (isset($conditions['join_route_id']))
+        if ($is_module)
         {
-            unset($conditions['join_route_id']);
+            $m = 'm.';
+            $linked = '';
+            $linked2 = '';
+            $main = $m . 'associations';
         }
         else
         {
-            $q->addWhere("lr.type = '$ltype'");
-        }
-        
-        $linked = ($is_linked ? 'Linked' : '');
-        
-        if (isset($conditions['join_route']))
-        {
-            $q->leftJoin('lr.' . $linked . 'Route r');
-            unset($conditions['join_route']);
+            $m = 'lr.';
+            if ($is_linked)
+            {
+                $linked = 'Linked';
+                $linked2 = '';
+                $main = $m . 'MainMainAssociation';
+            }
+            else
+            {
+                $linked = '';
+                $linked2 = 'Linked';
+                $main = $m . 'MainAssociation';
+            }
+                
+            if (isset($conditions['join_route_id']))
+            {
+                unset($conditions['join_route_id']);
+            }
+            else
+            {
+                $q->addWhere($m . "type = '$ltype'");
+            }
+            
+            if (isset($conditions['join_route']))
+            {
+                $q->leftJoin($m . $linked . 'Route r');
+                unset($conditions['join_route']);
+            }
         }
 
         if (isset($conditions['join_route_i18n']))
         {
-            $q->leftJoin('lr.' . $linked . 'RouteI18n ri');
+            $q->leftJoin($m . $linked . 'RouteI18n ri');
             unset($conditions['join_route_i18n']);
         }
         
-        if (isset($conditions['join_rdoc_id']))
+        if (   isset($conditions['join_rdoc_id'])
+            || isset($conditions['join_rdtag_id'])
+        )
         {
-            $q->leftJoin("lr.associations lrd");
-            unset($conditions['join_rdoc_id']);
+            $q->leftJoin($main . " lrd");
+            
+            if (isset($conditions['join_rdoc_id']))
+            {
+                unset($conditions['join_rdoc_id']);
+            }
+            
+            if (isset($conditions['join_rdtag_id']))
+            {
+                $q->leftJoin("lrd.LinkedLinkedAssociation lrdc")
+                  ->addWhere("lrd.type IN ('sr', 'hr', 'pr', 'br')");
+                unset($conditions['join_rdtag_id']);
+            }
         }
         
         if (isset($conditions['join_rtag_id']))
         {
-            $q->leftJoin("lr.LinkedLinkedAssociation lrc");
+            $q->leftJoin($m . $linked2 . "LinkedAssociation lrc");
             unset($conditions['join_rtag_id']);
         }
 
-        if (isset($conditions['join_rdtag_id']))
-        {
-            $q->leftJoin("lr.MainAssociation lrd")
-              ->leftJoin("lrd.LinkedLinkedAssociation lrdc")
-              ->addWhere("lrd.type IN ('sr', 'hr', 'pr', 'br')");
-            unset($conditions['join_rdtag_id']);
-        }
         
         if (   isset($conditions['join_rbook_id'])
             || isset($conditions['join_rbook'])
@@ -514,7 +542,7 @@ class Route extends BaseRoute
             || isset($conditions['join_rbtag_id'])
         )
         {
-            $q->leftJoin("lr.MainAssociation lrb");
+            $q->leftJoin($main . " lrb");
             
             if (isset($conditions['join_rbook_id']))
             {
@@ -548,85 +576,31 @@ class Route extends BaseRoute
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
         
-        if (isset($conditions['join_route_i18n']))
+        // join with route / book tables only if needed 
+        if (   isset($conditions['join_route_i18n'])
+            || isset($conditions['join_rdoc_id'])
+            || isset($conditions['join_rtag_id'])
+            || isset($conditions['join_rbook_id'])
+            || isset($conditions['join_rbook'])
+            || isset($conditions['join_rbook_i18n'])
+            || isset($conditions['join_rbtag_id'])
+        )
         {
-            $q->leftJoin('m.RouteI18n ri');
-            unset($conditions['join_route_i18n']);
-        }
-
-        if (isset($conditions['join_rdoc_id']))
-        {
-            $q->leftJoin("m.associations lrd");
-            unset($conditions['join_rdoc_id']);
-        }
-
-        if (isset($conditions['join_rtag_id']))
-        {
-            $q->leftJoin("m.LinkedAssociation lrc");
-            unset($conditions['join_rtag_id']);
+            Route::buildRoutePagerConditions($q, $conditions, true);
         }
 
         if (   isset($conditions['join_summit_id'])
             || isset($conditions['join_summit'])
             || isset($conditions['join_oversummit'])
             || isset($conditions['join_summit_i18n'])
-            || isset($conditions['join_sbook_id'])
             || isset($conditions['join_stag_id'])
+            || isset($conditions['join_sbook_id'])
             || isset($conditions['join_sbtag_id'])
         )
         {
             $q->leftJoin("m.associations ls");
             
-            if (isset($conditions['join_summit_id']))
-            {
-                unset($conditions['join_summit_id']);
-            }
-            else
-            {
-                $q->addWhere("ls.type = 'sr'");
-            }
-            
-            if (isset($conditions['join_summit']))
-            {
-                $q->leftJoin('ls.Summit s');
-                if (isset($conditions['join_summit']))
-                {
-                    unset($conditions['join_summit']);
-                }
-            }
-            
-            if (isset($conditions['join_summit_i18n']))
-            {
-                $q->leftJoin('ls.SummitI18n si');
-                unset($conditions['join_summit_i18n']);
-            }
-            
-            if (isset($conditions['join_stag_id']))
-            {
-                $q->leftJoin("ls.LinkedLinkedAssociation lsc");
-                unset($conditions['join_stag_id']);
-            }
-            
-            if (   isset($conditions['join_sbook_id'])
-                || isset($conditions['join_sbtag_id'])
-            )
-            {
-                $q->leftJoin("ls.MainAssociation lsb");
-                
-                if (isset($conditions['join_sbook_id']))
-                {
-                    unset($conditions['join_sbook_id']);
-                }
-                else
-                {
-                    $q->addWhere("lsb.type = 'bs'");
-                }
-                if (isset($conditions['join_sbtag_id']))
-                {
-                    $q->leftJoin("lsb.LinkedLinkedAssociation lsbc");
-                    unset($conditions['join_sbtag_id']);
-                }
-            }
+            Summit::buildSummitPagerConditions($q, $conditions, false, false, 'sr');
         }
         
         // join with huts tables only if needed 
@@ -639,53 +613,8 @@ class Route extends BaseRoute
         )
         {
             $q->leftJoin('m.associations lh');
-            if (isset($conditions['join_hut_id']))
-            {
-                unset($conditions['join_hut_id']);
-            }
-            else
-            {
-                $q->addWhere("lh.type = 'hr'");
-            }
             
-            if (isset($conditions['join_hut']))
-            {
-                $q->leftJoin('lh.Hut h');
-                unset($conditions['join_hut']);
-            }
-            
-            if (isset($conditions['join_hut_i18n']))
-            {
-                $q->leftJoin('lh.HutI18n hi');
-                unset($conditions['join_hut_i18n']);
-            }
-            
-            if (isset($conditions['join_htag_id']))
-            {
-                $q->leftJoin("lh.LinkedLinkedAssociation lhc");
-                unset($conditions['join_htag_id']);
-            }
-            
-            if (   isset($conditions['join_hbook_id'])
-                || isset($conditions['join_hbtag_id'])
-            )
-            {
-                $q->leftJoin("lh.MainAssociation lhb");
-                
-                if (isset($conditions['join_hbook_id']))
-                {
-                    unset($conditions['join_hbook_id']);
-                }
-                else
-                {
-                    $q->addWhere("lhb.type = 'bh'");
-                }
-                if (isset($conditions['join_hbtag_id']))
-                {
-                    $q->leftJoin("lhb.LinkedLinkedAssociation lhbc");
-                    unset($conditions['join_hbtag_id']);
-                }
-            }
+            Hut::buildHutPagerConditions($q, $conditions, false, false, 'hr');
         }
         
         // join with parkings tables only if needed 
@@ -712,43 +641,7 @@ class Route extends BaseRoute
         {
             $q->leftJoin('m.associations lp');
             
-            Parking::buildParkingPagerConditions($q, $conditions, 'pr', false);
-        }
-        
-        // join with books tables only if needed 
-        if (   isset($conditions['join_rbook_id'])
-            || isset($conditions['join_rbook'])
-            || isset($conditions['join_rbook_i18n'])
-            || isset($conditions['join_rbtag_id'])
-        )
-        {
-            $q->leftJoin('m.associations lrb');
-            
-            if (isset($conditions['join_rbook_id']))
-            {
-                unset($conditions['join_rbook_id']);
-            }
-            else
-            {
-                $q->addWhere("lrb.type = 'br'");
-            }
-            if (isset($conditions['join_rbtag_id']))
-            {
-                $q->leftJoin("lrb.LinkedLinkedAssociation lrbc");
-                unset($conditions['join_rbtag_id']);
-            }
-            
-            if (isset($conditions['join_rbook']))
-            {
-                $q->leftJoin('lrb.Book rb');
-                unset($conditions['join_rbook']);
-            }
-
-            if (isset($conditions['join_rbook_i18n']))
-            {
-                $q->leftJoin('lrb.BookI18n rbi');
-                unset($conditions['join_rbook_i18n']);
-            }
+            Parking::buildParkingPagerConditions($q, $conditions, false, false, 'pr');
         }
         
         // join with outings tables only if needed 
@@ -759,32 +652,8 @@ class Route extends BaseRoute
         )
         {
             $q->leftJoin('m.LinkedAssociation lo');
-            if (isset($conditions['join_outing_id']))
-            {
-                unset($conditions['join_outing_id']);
-            }
-            else
-            {
-                $q->addWhere("lo.type = 'ro'");
-            }
             
-            if (isset($conditions['join_outing']))
-            {
-                $q->leftJoin('lo.Outing o');
-                unset($conditions['join_outing']);
-            }
-
-            if (isset($conditions['join_outing_i18n']))
-            {
-                $q->leftJoin('lo.OutingI18n oi');
-                unset($conditions['join_outing_i18n']);
-            }
-            
-            if (isset($conditions['join_otag_id']))
-            {
-                $q->leftJoin("lo.MainAssociation loc");
-                unset($conditions['join_otag_id']);
-            }
+            Outing::buildOutingPagerConditions($q, $conditions, false, true, 'ro');
         }
 
         if (isset($conditions['join_itag_id']))
