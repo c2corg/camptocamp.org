@@ -74,7 +74,7 @@ foreach ($latest_outings as $outing)
         // fetch additional fields :
         if (count($associated_routes) == 1)
         {
-            $single_route = Document::find('Route', $route['id'], array('global_rating', 'facing', 'engagement_rating', 'equipment_rating', 'toponeige_technical_rating', 'toponeige_exposition_rating', 'labande_ski_rating', 'labande_global_rating', 'ice_rating', 'mixed_rating', 'rock_free_rating', 'rock_required_rating', 'aid_rating', 'hiking_rating'));
+            $single_route = Document::find('Route', $route['id'], array('global_rating', 'facing', 'engagement_rating', 'equipment_rating', 'toponeige_technical_rating', 'toponeige_exposition_rating', 'labande_ski_rating', 'labande_global_rating', 'ice_rating', 'mixed_rating', 'rock_free_rating', 'rock_required_rating', 'aid_rating', 'hiking_rating', 'snowshoeing_rating'));
             if ($rating = trim(field_route_ratings_data($single_route, false, false, true))) 
                 $item->addChild('rating', $rating);
             if ($facing = $single_route['facing']) 

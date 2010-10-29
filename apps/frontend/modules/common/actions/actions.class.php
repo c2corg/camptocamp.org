@@ -82,7 +82,7 @@ class commonActions extends c2cActions
 
         if ($this->hasRequestParameter('activity'))
         {
-            $activity = $this->getRequestParameter('activity', 0) - 1; // comprised between 0 and 5
+            $activity = $this->getRequestParameter('activity', 0) - 1; // comprised between 0 and 6
             /*
             1: skitouring
             2: snow_ice_mixed
@@ -90,6 +90,7 @@ class commonActions extends c2cActions
             4: rock_climbing
             5: ice_climbing
             6: hiking
+            7: snowshoeing
             */
         }
         else if ($this->hasRequestParameter('activity_name')) // got here by activity_name

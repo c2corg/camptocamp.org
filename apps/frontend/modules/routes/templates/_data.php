@@ -83,7 +83,7 @@ $activities = $document->getRaw('activities');
         li(field_data_from_list($document, 'hiking_rating', 'app_routes_hiking_ratings'), true);
     }
 
-    if (in_array(7, $activities)) // hiking
+    if (in_array(7, $activities)) // snowshoeing
     {
         li(field_data_from_list($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings'), true);
     }

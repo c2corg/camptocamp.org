@@ -275,7 +275,7 @@ doc_merge:
 homepage_by_activity:
   url:   /:activity_name
   param: { module: common, action: customize }
-  requirements: { activity_name: (?:skitouring|snow_ice_mixed|mountain_climbing|rock_climbing|ice_climbing|hiking) }
+  requirements: { activity_name: (?:skitouring|snow_ice_mixed|mountain_climbing|rock_climbing|ice_climbing|hiking|snowshoeing) }
 
 culture_delete:
   url:   /:module/delete/:id/:lang
