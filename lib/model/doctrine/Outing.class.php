@@ -582,6 +582,7 @@ class Outing extends BaseOuting
                     case 'lrat': $extra_fields[] = 'r.labande_global_rating'; break;
                     case 'srat': $extra_fields[] = 'r.labande_ski_rating'; break;
                     case 'hrat': $extra_fields[] = 'r.hiking_rating'; break;
+                    case 'wrat': $extra_fields[] = 'r.snowshoeing_rating'; break;
                     default: break;
                 }
             }
@@ -784,7 +785,8 @@ class Outing extends BaseOuting
                                         'aid_rating',
                                         'equipment_rating');
         $route_hiking_fields = array ('hiking_rating');
-        $route_fields = array_merge($route_ski_fields, $route_climbing_fields, $route_hiking_fields);
+        $route_snowshoeing_fields = array ('snowshoeing_rating');
+        $route_fields = array_merge($route_ski_fields, $route_climbing_fields, $route_hiking_fields, $route_snowshoeing_fields);
         $routes =  Document::findIn('Route', $route_ids);
 
         foreach ($outings as &$outing)
@@ -831,6 +833,7 @@ class Outing extends BaseOuting
             if (!count(array_intersect($activities_to_show, array(1)))) foreach($route_ski_fields as $field) $outing[$field] = null;
             if (!count(array_intersect($activities_to_show, array(2, 3, 4, 5)))) foreach($route_climbing_fields as $field) $outing[$field] = null;
             if (!count(array_intersect($activities_to_show, array(6)))) foreach($route_hiking_fields as $field) $outing[$field] = null;
+            if (!count(array_intersect($activities_to_show, array(7)))) foreach($route_snowshoeing_fields as $field) $outing[$field] = null;
         }
 
         return $outings;
