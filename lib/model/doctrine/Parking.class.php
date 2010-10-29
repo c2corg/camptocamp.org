@@ -78,12 +78,12 @@ class Parking extends BaseParking
             {
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
-            self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', array('pnam', 'name'), 'join_parking_i18n', true, $params_list);
+            self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', ($is_module ? array('pnam', 'name') : 'pnam'), 'join_parking_i18n', true, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'palt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.difficulties_height', 'dhei', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.public_transportation_rating', 'tp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', $m . '.public_transportation_types', 'tpty', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Item', 'pi.culture', 'pcult', 'join_parking_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'pi.culture', 'pcult', 'join_parking_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lpc.linked_id', 'ptags', 'join_ptag_id', false, $params_list);
         }
     }
@@ -94,7 +94,9 @@ class Parking extends BaseParking
 
         // criteria for disabling personal filter
         self::buildPersoCriteria($conditions, $values, $params_list, 'pcult');
-        if (isset($conditions['all']))
+        
+        // return if no criteria
+        if (isset($conditions['all']) || empty(c2cTools::getCriteriaRequestParameters(array('perso'))))
         {
             return array($conditions, $values);
         }

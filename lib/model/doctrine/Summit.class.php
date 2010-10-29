@@ -78,7 +78,9 @@ class Summit extends BaseSummit
 
         // criteria for disabling personal filter
         self::buildPersoCriteria($conditions, $values, $params_list, 'scult');
-        if (isset($conditions['all']))
+        
+        // return if no criteria
+        if (isset($conditions['all']) || empty(c2cTools::getCriteriaRequestParameters(array('perso'))))
         {
             return array($conditions, $values);
         }

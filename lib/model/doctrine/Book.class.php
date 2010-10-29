@@ -87,7 +87,7 @@ class Book extends BaseBook
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'activities'), $prefix . 'bact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'book_types'), $prefix . 'btyp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'langs'), $prefix . 'blang', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Item', $prefix . 'bi.culture', $prefix . 'bcult', $join_i18n, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $prefix . 'bi.culture', $prefix . 'bcult', $join_i18n, false, $params_list);
         }
     }
 
@@ -97,7 +97,9 @@ class Book extends BaseBook
 
         // criteria for disabling personal filter
         self::buildPersoCriteria($conditions, $values, $params_list, 'bcult');
-        if (isset($conditions['all']))
+        
+        // return if no criteria
+        if (isset($conditions['all']) || empty(c2cTools::getCriteriaRequestParameters(array('perso'))))
         {
             return array($conditions, $values);
         }
@@ -111,7 +113,7 @@ class Book extends BaseBook
         self::buildConditionItem($conditions, $values, 'Istring', 'm.editor', 'edit', null, false, $params_list);
         
         // linked doc criteria
-        self::buildConditionItem($conditions, $values, 'List', 'lbd.linked_id', $prefix . 'bdocs', 'join_bdocs_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'lbd.linked_id', 'bdocs', 'join_bdocs_id', false, $params_list);
 
         if (!empty($conditions))
         {

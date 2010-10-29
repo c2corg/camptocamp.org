@@ -145,7 +145,7 @@ class areasActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
         $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'atyp');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-        $this->buildCondition($conditions, $values, 'Item', 'mi.search_name', 'acult');
+        $this->buildCondition($conditions, $values, 'List', 'mi.search_name', 'acult');
 
         if (!empty($conditions))
         {

@@ -307,7 +307,7 @@ class portalsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Array', array('m', 'p', 'activities'), 'act');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'wcult');
+        $this->buildCondition($conditions, $values, 'List', 'mi.culture', 'wcult');
 
         if (!empty($conditions))
         {

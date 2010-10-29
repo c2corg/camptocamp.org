@@ -37,7 +37,7 @@ if (!$is_map):
                 <li id="c2csa"><a href="http://www.camptocamp.com/" title="Camptocamp SA"></a></li>
                 <li id="paca"><a href="http://www.regionpaca.fr/" title="PACA"></a></li>
                 <li id="languedoc"><a href="http://www.laregion.fr/" title="Languedoc-Roussillon"></a></li>
-                <li id="partners_tips"><?php__('cda partners tips')?></li><?php
+                <li id="partners_tips"><?php echo __('cda partners tips') ?></li><?php
     else:
 ?>
                 <li id="rhonealpes"><a href="http://www.rhonealpes.fr/" title="Rhône-Alpes"></a></li>

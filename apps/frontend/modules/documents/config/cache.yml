@@ -147,3 +147,6 @@ _feature:
 
 _mobile_comments:
   enabled: off
+
+_geom_warning:
+  enabled: off

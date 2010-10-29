@@ -34,10 +34,10 @@ class c2cTools
         return $request->getParameterHolder()->getAll();
     }
     
-    public static function getCriteriaRequestParameters()
+    public static function getCriteriaRequestParameters($extra_others = array())
     {
         $criteria = self::getAllRequestParameters();
-        $others = array_fill_keys(array('module', 'action', 'orderby', 'order', 'npp', 'page', 'format', 'layout'), 0);
+        $others = array_fill_keys(array_merge(array('module', 'action', 'orderby', 'order', 'npp', 'page', 'format', 'layout'), $extra_others), 0);
         return array_diff_key($criteria, $others);
     }
     

@@ -105,7 +105,9 @@ class Hut extends BaseHut
 
         // criteria for disabling personal filter
         self::buildPersoCriteria($conditions, $values, $params_list, 'hcult');
-        if (isset($conditions['all']))
+        
+        // return if no criteria
+        if (isset($conditions['all']) || empty(c2cTools::getCriteriaRequestParameters(array('perso'))))
         {
             return array($conditions, $values);
         }

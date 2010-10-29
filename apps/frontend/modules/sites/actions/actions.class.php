@@ -629,7 +629,7 @@ class sitesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'm.children_proof', 'chil');
         $this->buildCondition($conditions, $values, 'List', 'm.rain_proof', 'rain');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'tcult');
+        $this->buildCondition($conditions, $values, 'List', 'mi.culture', 'tcult');
 
         if (!empty($conditions))
         {   

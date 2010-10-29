@@ -343,7 +343,7 @@ class Route extends BaseRoute
                     $conditions['join_summit_i18n'] = true;
                 }
             }
-            self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', array('rnam', 'name'), 'join_route_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', ($is_module ? array('rnam', 'name') : 'rnam'), 'join_route_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'activities'), 'ract', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.max_elevation', 'malt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_up', 'hdif', $join, false, $params_list);
@@ -370,7 +370,7 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.route_length', 'rlen', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'sub_activities'), 'sub', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.is_on_glacier', 'glac', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Item', 'ri.culture', 'rcult', 'join_route_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'ri.culture', 'rcult', 'join_route_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrb.main_id', 'rbooks', 'join_rbook_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrd.main_id', 'rdocs', 'join_rdoc_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrc.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
@@ -385,7 +385,9 @@ class Route extends BaseRoute
 
         // criteria for disabling personal filter
         self::buildPersoCriteria($conditions, $values, $params_list, 'rcult');
-        if (isset($conditions['all']))
+        
+        // return if no criteria
+        if (isset($conditions['all']) || empty(c2cTools::getCriteriaRequestParameters(array('perso'))))
         {
             return array($conditions, $values);
         }

@@ -803,7 +803,6 @@ function _filter_ratings_rock($document, $add_tooltips = false, $use_raw_value =
     return $string_rock_free_value . $string_rock_required_value;
 }
 
-// FIXME handle snowshoeing
 function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
                                $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing, $activities = array(), $show_activities = true)
 {
@@ -846,6 +845,14 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
             $groups[] = _activities_data($hiking_activities);
         }
         $groups[] = $hiking;
+    }
+    if ($snowshoeing_activities = array_intersect(array(7), $activities))
+    {
+        if ($show_activities)
+        {
+            $groups[] = _activities_data($snowshoeing_activities);
+        }
+        $groups[] = $snowshoeing;
     }
     return implode(' ', $groups);
 }
