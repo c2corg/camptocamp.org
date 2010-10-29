@@ -95,7 +95,7 @@ class sfGeoRssFeed extends sfRssFeed
       {
         if ($item->getUniqueId())
         {
-          $xml[] = '      <guid isPermaLink="false">'.$item->getUniqueId().'</guid>';
+          $xml[] = '      <guid isPermaLink="false">'.htmlspecialchars($item->getUniqueId()).'</guid>';
         }
   
         // author information
