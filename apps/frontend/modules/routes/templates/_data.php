@@ -82,7 +82,12 @@ $activities = $document->getRaw('activities');
     {
         li(field_data_from_list($document, 'hiking_rating', 'app_routes_hiking_ratings'), true);
     }
-    
+
+    if (in_array(7, $activities)) // hiking
+    {
+        li(field_data_from_list($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings'), true);
+    }
+
     if ($document->get('geom_wkt'))
     {
         li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')), true);
