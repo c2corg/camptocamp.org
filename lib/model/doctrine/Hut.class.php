@@ -107,7 +107,8 @@ class Hut extends BaseHut
         self::buildPersoCriteria($conditions, $values, $params_list, 'hcult');
         
         // return if no criteria
-        if (isset($conditions['all']) || empty(c2cTools::getCriteriaRequestParameters(array('perso'))))
+        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($conditions['all']) || empty($citeria_temp))
         {
             return array($conditions, $values);
         }

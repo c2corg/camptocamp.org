@@ -96,7 +96,8 @@ class Parking extends BaseParking
         self::buildPersoCriteria($conditions, $values, $params_list, 'pcult');
         
         // return if no criteria
-        if (isset($conditions['all']) || empty(c2cTools::getCriteriaRequestParameters(array('perso'))))
+        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($conditions['all']) || empty($citeria_temp))
         {
             return array($conditions, $values);
         }

@@ -194,7 +194,8 @@ class Outing extends BaseOuting
         self::buildConditionItem($conditions, $values, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', 'join_route', false, $params_list);
         
         // return if no criteria
-        if (isset($conditions['all']) || empty(c2cTools::getCriteriaRequestParameters(array('perso'))))
+        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($conditions['all']) || empty($citeria_temp))
         {
             return array($conditions, $values);
         }
