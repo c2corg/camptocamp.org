@@ -2248,7 +2248,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildBoolCondition(&$conditions, &$values, $field, $param)
     {
-        if ($param == 'yes')
+        if ($param == 'yes' || $param == '1')
         {
             $conditions[] = $field;
         }

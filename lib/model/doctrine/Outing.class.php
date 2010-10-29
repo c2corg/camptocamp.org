@@ -311,7 +311,7 @@ class Outing extends BaseOuting
         return $pager;
     }
     
-    public static function buildOutingPagerConditions(&$q, &$conditions, $ltype, $is_linked = false)
+    public static function buildOutingPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $ltype)
     {
         if ($is_module)
         {

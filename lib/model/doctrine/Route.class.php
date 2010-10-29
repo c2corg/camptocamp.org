@@ -311,6 +311,11 @@ class Route extends BaseRoute
         return self::returnPosIntOrNull($value);
     }
 
+    public static function filterSetSnowshoeing_rating($value)
+    {
+        return self::returnPosIntOrNull($value);
+    }
+
     public static function buildRouteListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
     {
         if ($is_module)
