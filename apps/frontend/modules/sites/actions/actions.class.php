@@ -587,56 +587,7 @@ class sitesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        // criteria for disabling personal filter
-        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
-        if (isset($conditions['all']) && $conditions['all'])
-        {
-            return array($conditions, $values);
-        }
-        
-        // area criteria
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
-        }
-        elseif ($bbox = $this->getRequestParameter('bbox'))
-        {
-            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
-        }
-
-        // summit criteria
-        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'summits', 'join_summit_id');
-        
-        // parking criteria
-        $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
-        $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
-        $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'l2.main_id', 'parking', 'join_parking_id');
-
-        // site criteria
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('tnam', 'name'));
-        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'talt');
-        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 's', 'site_types'), 'ttyp');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 's', 'climbing_styles'), 'tcsty');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.routes_quantity', 'rqua');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.mean_height', 'mhei');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.mean_rating', 'mrat');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 's', 'facings'), 'tfac');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 's', 'rock_types'), 'trock');
-        $this->buildCondition($conditions, $values, 'List', 'm.children_proof', 'chil');
-        $this->buildCondition($conditions, $values, 'List', 'm.rain_proof', 'rain');
-        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-        $this->buildCondition($conditions, $values, 'List', 'mi.culture', 'tcult');
-
-        if (!empty($conditions))
-        {   
-            return array($conditions, $values);
-        }
-
-        return array();
+        return Site::buildListCriteria($params_list);
     }
 
     /**

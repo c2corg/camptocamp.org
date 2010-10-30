@@ -219,23 +219,7 @@ class Outing extends BaseOuting
         Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.main_id');
 
         // site criteria
-        $has_id = self::buildConditionItem($conditions, $values, 'List', 'lt.main_id', 'sites', 'join_site_id', false, $params_list);
-        if (!$has_id)
-        {
-            self::buildConditionItem($conditions, $values, 'String', 'ti.search_name', 'tnam', 'join_site_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', 't.elevation', 'talt', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', 't.site_types', 'ttyp', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', 't.climbing_styles', 'tcsty', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', 't.equipment_rating', 'prat', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', 't.routes_quantity', 'rqua', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', 't.mean_height', 'mhei', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', 't.mean_rating', 'mrat', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', 't.facings', 'tfac', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', 't.rock_types', 'trock', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 't.children_proof', 'chil', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 't.rain_proof', 'rain', 'join_site', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'ltc.linked_id', 'ttags', 'join_ttag_id', false, $params_list);
-        }
+        Site::buildSiteListCriteria(&$conditions, &$values, $params_list, false, 'lt.main_id');
 
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
@@ -455,53 +439,7 @@ class Outing extends BaseOuting
         {
             $q->leftJoin("m.associations lt");
             
-            if (isset($conditions['join_site_id']))
-            {
-                unset($conditions['join_site_id']);
-            }
-            else
-            {
-                $q->addWhere("lt.type = 'to'");
-            }
-            
-            if (isset($conditions['join_site']))
-            {
-                $q->leftJoin('lt.Site t');
-                unset($conditions['join_site']);
-            }
-
-            if (isset($conditions['join_site_i18n']))
-            {
-                $q->leftJoin('lt.SiteI18n ti');
-                unset($conditions['join_site_i18n']);
-            }
-            
-            if (isset($conditions['join_ttag_id']))
-            {
-                $q->leftJoin("lt.LinkedLinkedAssociation ltc");
-                unset($conditions['join_ttag_id']);
-            }
-            
-            if (   isset($conditions['join_tbook_id'])
-                || isset($conditions['join_tbtag_id'])
-            )
-            {
-                $q->leftJoin("lt.MainAssociation ltb");
-                
-                if (isset($conditions['join_tbook_id']))
-                {
-                    unset($conditions['join_tbook_id']);
-                }
-                else
-                {
-                    $q->addWhere("ltb.type = 'bt'");
-                }
-                if (isset($conditions['join_tbtag_id']))
-                {
-                    $q->leftJoin("ltb.LinkedLinkedAssociation ltbc");
-                    unset($conditions['join_tbtag_id']);
-                }
-            }
+            Site::buildSitePagerConditions($q, $conditions, false, false, 'to');
         }
 
         $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);

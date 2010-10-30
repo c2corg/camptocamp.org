@@ -458,6 +458,7 @@ all:
       4: 4 # escalade
       5: 3 # glace
       6: 7 # rando
+      7: 8 # raquette
     regions:
       14420: 1 # Adamello
       14421: 2 # Alpes Vaudoises

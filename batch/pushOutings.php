@@ -34,7 +34,7 @@ $meta_activities = sfConfig::get('app_meta_engine_activities');
 $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><outings xmlns="http://meta.camptocamp.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://meta.camptocamp.org/metaengineschema.xsd"></outings>');
 
 // get (id, lang) of outings created in the last hour:
-$latest_outings = Outing::listRecentInTime(3600);
+$latest_outings = Outing::listRecentInTime(900);
 
 // fetch info for those (id, lang) : 
 foreach ($latest_outings as $outing)
