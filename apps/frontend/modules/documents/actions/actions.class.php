@@ -3054,7 +3054,7 @@ class documentsActions extends c2cActions
                     $this->setNotFoundAndRedirect();
                 }
                 $name = $document->get('name');
-                $description = $this->____("Latest editions for \"%1%\" - %2%", array('%1%' => $name, '%2%' => $this->__($languages[$lang])));
+                $description = $this->__("Latest editions for \"%1%\" - %2%", array('%1%' => $name, '%2%' => $this->__($languages[$lang])));
                 $title = $description; // TODO Provide better description, different from title
                 $link = "@document_history?module=$module&id=$id&lang=$lang";
                 $self_link = "@document_feed?module=$module&id=$id&lang=$lang";
