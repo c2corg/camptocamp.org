@@ -78,9 +78,8 @@ class Parking extends BaseParking
             {
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
-            self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', ($is_module ? array('pnam', 'name') : 'pnam'), 'join_parking_i18n', true, $params_list);
+            self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', ($is_module ? array('pnam', 'name') : 'pnam'), 'join_parking_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'palt', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', $m . '.difficulties_height', 'dhei', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.public_transportation_rating', 'tp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', $m . '.public_transportation_types', 'tpty', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'pi.culture', 'pcult', 'join_parking_i18n', false, $params_list);
@@ -93,7 +92,7 @@ class Parking extends BaseParking
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $params_list, 'pcult');
+        self::buildPersoCriteria($conditions, $values, $params_list, 'pcult', 'ract');
         
         // return if no criteria
         $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
@@ -116,6 +115,12 @@ class Parking extends BaseParking
 
         // summit criteria
         Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+       
+        // outing criteria
+        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
+        
+        // image criteria
+        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {
@@ -124,7 +129,6 @@ class Parking extends BaseParking
 
         return array();
     }
-
 
     public static function browse($sort, $criteria, $format = null)
     {   
@@ -162,14 +166,13 @@ class Parking extends BaseParking
         return $pager;
     }   
     
-    public static function buildParkingPagerConditions(&$q, &$conditions, $ltype, $is_linked = false)
+    public static function buildParkingPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join, $ltype)
     {
         if ($is_module)
         {
             $m = 'm.';
             $linked = '';
             $linked2 = '';
-            $main = $m . 'associations';
         }
         else
         {
@@ -178,18 +181,20 @@ class Parking extends BaseParking
             {
                 $linked = 'Linked';
                 $linked2 = '';
-                $main = $m . 'MainMainAssociation';
             }
             else
             {
                 $linked = '';
                 $linked2 = 'Linked';
-                $main = $m . 'MainAssociation';
             }
                 
+            $q->leftJoin($first_join . ' lp');
+            
             if (isset($conditions['join_parking_id']))
             {
                 unset($conditions['join_parking_id']);
+                
+                return;
             }
             else
             {
@@ -232,14 +237,12 @@ class Parking extends BaseParking
         if (   isset($conditions['join_hut_id'])
             || isset($conditions['join_hut'])
             || isset($conditions['join_hut_i18n'])
-            || isset($conditions['join_hbook_id'])
             || isset($conditions['join_htag_id'])
+            || isset($conditions['join_hbook_id'])
             || isset($conditions['join_hbtag_id'])
         )
         {
-            $q->leftJoin('m.LinkedAssociation lh');
-            
-            Hut::buildHutPagerConditions($q, $conditions, false, true, 'ph');
+            Hut::buildHutPagerConditions($q, $conditions, false, true,'m.LinkedAssociation', 'ph');
         }
 
         // join with routes tables only if needed 
@@ -257,11 +260,13 @@ class Parking extends BaseParking
             || isset($conditions['join_stag_id'])
             || isset($conditions['join_sbook_id'])
             || isset($conditions['join_sbtag_id'])
+            || isset($conditions['join_outing_id'])
+            || isset($conditions['join_outing'])
+            || isset($conditions['join_outing_i18n'])
+            || isset($conditions['join_otag_id'])
         )
         {
-            $q->leftJoin("m.LinkedAssociation lr");
-            
-            Route::buildRoutePagerConditions($q, $conditions, false, true, 'pr');
+            Route::buildRoutePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'pr');
 
             if (   isset($conditions['join_summit_id'])
                 || isset($conditions['join_summit'])
@@ -271,18 +276,26 @@ class Parking extends BaseParking
                 || isset($conditions['join_sbtag_id'])
             )
             {
-                $q->leftJoin("lr.MainAssociation ls");
-                
-                Summit::buildSummitPagerConditions($q, $conditions, false, false, 'sr');
+                Summit::buildSummitPagerConditions($q, $conditions, false, false, 'lr.MainAssociation', 'sr');
+            }
+            
+            if (   isset($conditions['join_outing_id'])
+                || isset($conditions['join_outing'])
+                || isset($conditions['join_outing_i18n'])
+                || isset($conditions['join_otag_id'])
+            )
+            {
+                Outing::buildOutingPagerConditions($q, $conditions, false, true, 'lr.LinkedAssociation', 'ro');
             }
         }
 
-        if (isset($conditions['join_itag_id']))
+        // join with image tables only if needed 
+        if (   isset($conditions['join_image_id'])
+            || isset($conditions['join_image'])
+            || isset($conditions['join_image_i18n'])
+            || isset($conditions['join_itag_id']))
         {
-            $q->leftJoin("m.LinkedAssociation li")
-              ->leftJoin("li.MainMainAssociation lic")
-              ->addWhere("li.type = 'pi'");
-            unset($conditions['join_itag_id']);
+            Image::buildImagePagerConditions($q, $conditions, false, 'pi');
         }
 
         if (!empty($conditions))

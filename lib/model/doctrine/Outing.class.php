@@ -167,7 +167,7 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.max_elevation', 'oalt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_up', 'odif', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.outing_length', 'olen', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Date', 'date', $m . '.odate', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Date', $m . '.date', 'odate', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.outing_with_public_transportation', 'owtp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.partial_trip', 'ptri', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.frequentation_status', 'ofreq', $join, false, $params_list);
@@ -223,20 +223,13 @@ class Outing extends BaseOuting
 
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
-        self::buildConditionItem($conditions, $values, 'List', 'ltb.main_id', 'tbooks', 'join_tbook_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'ltbc.linked_id', 'tbtags', 'join_tbtag_id', false, $params_list);
+);
         
         // user criteria
-        $has_id =    self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id', false, $params_list)
-                  || self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
-        if (!$has_id)
-        {
-            self::buildConditionItem($conditions, $values, 'String', 'ui.search_name', 'unam', 'join_user_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'u.category', 'ucat', 'join_user', false, $params_list);
-        }
+        User::buildUserListCriteria(&$conditions, &$values, $params_list, false, 'lu.main_id');
 
         // image criteria
-        $has_id = self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'itags', 'join_itag_id', false, $params_list);
+        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {
@@ -295,7 +288,7 @@ class Outing extends BaseOuting
         return $pager;
     }
     
-    public static function buildOutingPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $ltype)
+    public static function buildOutingPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join, $ltype)
     {
         if ($is_module)
         {
@@ -320,9 +313,13 @@ class Outing extends BaseOuting
                 $main = $m . 'MainAssociation';
             }
                 
+            $q->leftJoin($first_join . ' lo');
+            
             if (isset($conditions['join_outing_id']))
             {
                 unset($conditions['join_outing_id']);
+                
+                return;
             }
             else
             {
@@ -429,6 +426,7 @@ class Outing extends BaseOuting
             }
         }
 
+        // join with site tables only if needed 
         if (   isset($conditions['join_site_id'])
             || isset($conditions['join_site'])
             || isset($conditions['join_site_i18n'])
@@ -442,34 +440,24 @@ class Outing extends BaseOuting
             Site::buildSitePagerConditions($q, $conditions, false, false, 'to');
         }
 
-        $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
-
-        if (   isset($conditions['join_user'])
+        // join with user tables only if needed 
+        if (   isset($conditions['join_user_id'])
+            || isset($conditions['join_user'])
             || isset($conditions['join_user_i18n'])
+            || isset($conditions['join_user_pd'])
+            || isset($conditions['join_utag_id'])
         )
         {
-            $q->leftJoin("m.associations lu")
-              ->addWhere("lu.type = 'uo'");
-            
-            if (isset($conditions['join_user']))
-            {
-                $q->leftJoin('lu.User u');
-                unset($conditions['join_user']);
-            }
-
-            if (isset($conditions['join_user_i18n']))
-            {
-                $q->leftJoin('lu.UserI18n ui');
-                unset($conditions['join_user_i18n']);
-            }
+            User::buildUserPagerConditions($q, $conditions, false, false, 'm.associations', 'uo');
         }
 
-        if (isset($conditions['join_itag_id']))
+        // join with image tables only if needed 
+        if (   isset($conditions['join_image_id'])
+            || isset($conditions['join_image'])
+            || isset($conditions['join_image_i18n'])
+            || isset($conditions['join_itag_id']))
         {
-            $q->leftJoin("m.LinkedAssociation li")
-              ->leftJoin("li.MainMainAssociation lic")
-              ->addWhere("li.type = 'oi'");
-            unset($conditions['join_itag_id']);
+            Image::buildImagePagerConditions($q, $conditions, false, 'oi');
         }
 
         if (!empty($conditions))

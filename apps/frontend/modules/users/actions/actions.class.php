@@ -770,7 +770,7 @@ class usersActions extends documentsActions
         switch ($orderby)
         {
             case 'unam': return 'mi.search_name';
-            case 'fnam': return 'pd.search_username';
+            case 'ufnam': return 'pd.search_username';
             case 'anam': return 'ai.search_name';
             case 'act':  return 'm.activities';
             case 'ucat':  return 'm.category';
@@ -782,45 +782,9 @@ class usersActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $conditions = $values = array();
-
-        // criteria for disabling personal filter
-        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
-        if (isset($conditions['all']) && $conditions['all'])
-        {
-            return array($conditions, $values);
-        }
+        $params_list = c2cTools::getAllRequestParameters();
         
-        // area criteria
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
-        }
-        elseif ($bbox = $this->getRequestParameter('bbox'))
-        {
-            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
-        }
-        
-        // user criteria
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
-        $this->buildCondition($conditions, $values, 'String', 'pd.search_username', 'fnam');
-        $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'pd.search_username'), 'ufnam');
-        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
-        $this->buildCondition($conditions, $values, 'List', 'm.category', 'ucat');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 'u', 'activities'), 'act');
-        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-
-        if (!$this->getUser()->isConnected())
-        {
-            $conditions[] = 'pd.is_profile_public IS TRUE';
-        }
-
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        return User::buildListCriteria($params_list);
     }
 
     protected function filterSearchParameters()
@@ -829,8 +793,8 @@ class usersActions extends documentsActions
 
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'unam');
-        $this->addNameParam($out, 'fnam');
         $this->addNameParam($out, 'ufnam');
+        $this->addNameParam($out, 'utfnam');
         $this->addListParam($out, 'act');
         $this->addListParam($out, 'ucat');
         $this->addParam($out, 'geom');

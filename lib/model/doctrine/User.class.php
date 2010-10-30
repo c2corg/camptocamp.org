@@ -192,13 +192,100 @@ class User extends BaseUser
         return $this->allPermissions;
     }
 
+    public static function buildUserListCriteria(&$conditions, &$values, $params_list, $is_module = false)
+    {
+        if ($is_module)
+        {
+            $m = 'm';
+            $join = null;
+            $join_id = null;
+            $join_i18n = null;
+        }
+        else
+        {
+            $m = 'u';
+            $join = 'join_user';
+            $join_id = 'join_user_id';
+            $join_i18n = 'join_user_i18n';
+        }
+        
+        if ($is_module)
+        {
+            $has_id = self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', $join_id, false, $params_list);
+        }
+        else
+        {
+            $has_id = self::buildConditionItem($conditions, $values, 'Multilist', array('lu', 'main_id'), 'users', $join_id, false, $params_list);
+        }
+        if (!$has_id)
+        {
+            if ($is_module)
+            {
+                self::buildConditionItem($conditions, $values, 'Array', array($m, 'u', 'activities'), 'act', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Mstring', array('mi.search_name', 'upd.search_username'), 'utfnam', null, false, $params_list);
+            }
+            self::buildConditionItem($conditions, $values, 'String', $m . 'i.search_name', ($is_module ? array('unam', 'name') : 'unam'), $join_i18n, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'String', 'upd.search_username', 'ufnam', 'join_user_pd', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, 'u', 'activities'), 'uact', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $m . '.category', 'ucat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'ui.culture', 'ucult', $join_i18n, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'luc.linked_id', 'utags', 'join_utag_id', false, $params_list);
+        }
+    }
+    
+    public static function buildListCriteria($params_list)
+    {
+        $conditions = $values = array();
+
+        // criteria for disabling personal filter
+        self::buildPersoCriteria($conditions, $values, $params_list, 'ucult');
+        
+        // return if no criteria
+        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($conditions['all']) || empty($citeria_temp))
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
+        self::buildAreaCriteria($conditions, $values, $params_list);
+        
+        // outing criteria
+        User::buildUserListCriteria(&$conditions, &$values, $params_list, true);
+       
+        // outing criteria
+        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
+
+        // route criteria
+        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.main_id');
+
+        // summit criteria
+        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+        
+        // image criteria
+        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+
+        if (!sfContext::getInstance()->getUser()->isConnected())
+        {
+            $conditions[] = 'upd.is_profile_public IS TRUE';
+        }
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
     public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('User', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
     
         self::joinOnRegions($q);
-        $q->leftJoin('m.private_data pd');
+        $q->leftJoin('m.private_data upd');
 
         $conditions = array();
         $all = false;
@@ -214,11 +301,7 @@ class User extends BaseUser
         
         if (!$all && !empty($conditions))
         {
-            // some criteria have been defined => filter list on these criteria.
-            // In that case, personalization is not taken into account.
-            $conditions = self::joinOnMultiRegions($q, $conditions);
-            
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
         elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
@@ -231,7 +314,162 @@ class User extends BaseUser
         }
 
         return $pager;
-    }   
+    }
+    
+    public static function buildUserPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join, $ltype)
+    {
+        if ($is_module)
+        {
+            $m = 'm.';
+            $linked = '';
+            $linked2 = '';
+        }
+        else
+        {
+            $m = 'lu.';
+            if ($is_linked)
+            {
+                $linked = 'Linked';
+                $linked2 = '';
+            }
+            else
+            {
+                $linked = '';
+                $linked2 = 'Linked';
+            }
+                
+            if (isset($conditions['join_user_id']))
+            {
+                $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', $first_join . ' lu', 4);
+                
+                return;
+            }
+            else
+            {
+                $q->leftJoin($first_join . ' lu')
+                  ->addWhere($m . "type = '$ltype'");
+            }
+            
+            if (isset($conditions['join_user']))
+            {
+                $q->leftJoin($m . $linked . 'User u');
+                unset($conditions['join_user']);
+            }
+
+            if (isset($conditions['join_user_i18n']))
+            {
+                $q->leftJoin($m . $linked . 'UserI18n ui');
+                unset($conditions['join_user_i18n']);
+            }
+
+            if (isset($conditions['join_user_pd']))
+            {
+                $q->leftJoin($m . $linked . 'UserPrivateData upd');
+                unset($conditions['join_user_pd']);
+            }
+        }
+        
+        if (isset($conditions['join_utag_id']))
+        {
+            $q->leftJoin($m . $linked2 . "LinkedAssociation luc");
+            unset($conditions['join_utag_id']);
+        }
+    }
+    
+    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    {
+        $conditions = self::joinOnMultiRegions($q, $conditions);
+        
+        // join with parking tables only if needed 
+        if (   isset($conditions['join_utag_id'])
+        )
+        {
+            User::buildUserPagerConditions($q, $conditions, true);
+        }
+        
+        // join with huts tables only if needed 
+        if (   isset($conditions['join_hut_id'])
+            || isset($conditions['join_hut'])
+            || isset($conditions['join_hut_i18n'])
+            || isset($conditions['join_htag_id'])
+            || isset($conditions['join_hbook_id'])
+            || isset($conditions['join_hbtag_id'])
+        )
+        {
+            $q->leftJoin('m.LinkedAssociation lh');
+            
+            Hut::buildHutPagerConditions($q, $conditions, false, true, 'ph');
+        }
+
+        // join with outings tables only if needed 
+        if (   isset($conditions['join_route_id'])
+            || isset($conditions['join_route'])
+            || isset($conditions['join_route_i18n'])
+            || isset($conditions['join_rdoc_id'])
+            || isset($conditions['join_rtag_id'])
+            || isset($conditions['join_rdtag_id'])
+            || isset($conditions['join_rbook_id'])
+            || isset($conditions['join_rbtag_id'])
+            || isset($conditions['join_summit_id'])
+            || isset($conditions['join_summit'])
+            || isset($conditions['join_summit_i18n'])
+            || isset($conditions['join_stag_id'])
+            || isset($conditions['join_sbook_id'])
+            || isset($conditions['join_sbtag_id'])
+            || isset($conditions['join_outing_id'])
+            || isset($conditions['join_outing'])
+            || isset($conditions['join_outing_i18n'])
+            || isset($conditions['join_otag_id'])
+        )
+        {
+            $q->leftJoin("m.LinkedAssociation lo");
+            
+            Outing::buildOutingPagerConditions($q, $conditions, false, true, 'uo');
+            
+
+            if (   isset($conditions['join_route_id'])
+                || isset($conditions['join_route'])
+                || isset($conditions['join_route_i18n'])
+                || isset($conditions['join_rdoc_id'])
+                || isset($conditions['join_rtag_id'])
+                || isset($conditions['join_rdtag_id'])
+                || isset($conditions['join_rbook_id'])
+                || isset($conditions['join_rbtag_id'])
+            )
+            {
+                $q->leftJoin('lo.MainMainAssociation lr');
+                
+                Route::buildRoutePagerConditions($q, $conditions, false, false, 'pr');
+                
+                if (   isset($conditions['join_summit_id'])
+                    || isset($conditions['join_summit'])
+                    || isset($conditions['join_summit_i18n'])
+                    || isset($conditions['join_stag_id'])
+                    || isset($conditions['join_sbook_id'])
+                    || isset($conditions['join_sbtag_id'])
+                )
+                {
+                    $q->leftJoin("lr.MainAssociation ls");
+                    
+                    Summit::buildSummitPagerConditions($q, $conditions, false, false, 'sr');
+                }
+            }
+        }
+
+        // join with image tables only if needed 
+        if (   isset($conditions['join_image_id'])
+            || isset($conditions['join_image'])
+            || isset($conditions['join_image_i18n'])
+            || isset($conditions['join_itag_id']))
+        {
+            Image::buildImagePagerConditions($q, $conditions, false, 'pi');
+        }
+
+        if (!empty($conditions))
+        {
+            $q->addWhere(implode(' AND ', $conditions), $criteria);
+        }
+    }
 
     protected static function buildFieldsList()
     {   

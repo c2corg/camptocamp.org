@@ -68,46 +68,9 @@ class productsActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $conditions = $values = array();
-
-        // criteria for disabling personal filter
-        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
-        if (isset($conditions['all']) && $conditions['all'])
-        {
-            return array($conditions, $values);
-        }
+        $params_list = c2cTools::getAllRequestParameters();
         
-        // area criteria
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
-        }
-        elseif ($bbox = $this->getRequestParameter('bbox'))
-        {
-            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
-        }
-
-        // parking criteria
-        $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
-        $this->buildCondition($conditions, $values, 'Compare', 'q.elevation', 'palt', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'q.public_transportation_rating', 'tp', 'join_parking');
-        $this->buildCondition($conditions, $values, 'Array', 'q.public_transportation_types', 'tpty', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'parking', 'join_parking_id');
-
-        // product criteria
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('fnam', 'name'));
-        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'falt');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 'p', 'product_type'), 'ftyp');
-        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
-        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'fcult');
-
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        return Product::buildListCriteria($params_list);
     }
 
     /**

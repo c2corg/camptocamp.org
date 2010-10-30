@@ -183,7 +183,6 @@ class BaseDocument extends sfDoctrineRecordI18n
     // this function is used to build DB request from query formatted in HTML
     public static function buildConditionItem(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false, $params_list = array())
     {
-        
         if (is_array($param))
         {
             list($param1, $param2) = $param;
@@ -260,7 +259,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildPersoCriteria(&$conditions, &$values, &$params_list, $culture_param)
+    public static function buildPersoCriteria(&$conditions, &$values, &$params_list, $culture_param, $activity_param = 'act')
     {
         self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
         if (isset($conditions['all']))
@@ -291,12 +290,12 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
             }
             
-            if (!in_array('act', $params) && array_intersect(array('act', 'yes', 'all'), $perso))
+            if (!in_array($activity_param, $params) && array_intersect(array('act', 'yes', 'all'), $perso))
             {
                 $activities = c2cPersonalization::getInstance()->getActivitiesFilter();
                 if (count($activities))
                 {
-                    $params_list['act'] = implode('-', $activities);
+                    $params_list[$activity_param] = implode('-', $activities);
                 }
             }
             

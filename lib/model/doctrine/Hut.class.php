@@ -127,10 +127,23 @@ class Hut extends BaseHut
 
         // summit criteria
         Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+       
+        // outing criteria
+        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
 
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'h');
         self::buildConditionItem($conditions, $values, 'List', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
+        
+        // image criteria
+        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
     }
     
     public static function browse($sort, $criteria, $format = null)
@@ -168,7 +181,7 @@ class Hut extends BaseHut
         return $pager;
     }   
     
-    public static function buildHutPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $ltype)
+    public static function buildHutPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join, $ltype)
     {
         if ($is_module)
         {
@@ -193,9 +206,13 @@ class Hut extends BaseHut
                 $main = $m . 'MainAssociation';
             }
             
+            $q->leftJoin($first_join . ' lh');
+            
             if (isset($conditions['join_hut_id']))
             {
                 unset($conditions['join_hut_id']);
+                
+                return;
             }
             else
             {
@@ -280,9 +297,7 @@ class Hut extends BaseHut
             || isset($conditions['join_ptag_id'])
         )
         {
-            $q->leftJoin('m.associations lp');
-            
-            Parking::buildParkingPagerConditions($q, $conditions, false, false, 'ph');
+            Parking::buildParkingPagerConditions($q, $conditions, false, false, 'm.associations', 'ph');
         }
 
         // join with routes tables only if needed 
@@ -300,11 +315,13 @@ class Hut extends BaseHut
             || isset($conditions['join_stag_id'])
             || isset($conditions['join_sbook_id'])
             || isset($conditions['join_sbtag_id'])
+            || isset($conditions['join_outing_id'])
+            || isset($conditions['join_outing'])
+            || isset($conditions['join_outing_i18n'])
+            || isset($conditions['join_otag_id'])
         )
         {
-            $q->leftJoin("m.LinkedAssociation lr");
-            
-            Route::buildRoutePagerConditions($q, $conditions, false, true, 'hr');
+            Route::buildRoutePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'hr');
 
             if (   isset($conditions['join_summit_id'])
                 || isset($conditions['join_summit'])
@@ -314,10 +331,26 @@ class Hut extends BaseHut
                 || isset($conditions['join_sbtag_id'])
             )
             {
-                $q->leftJoin("lr.MainAssociation ls");
-                
-                Summit::buildSummitPagerConditions($q, $conditions, false, false, 'sr');
+                Summit::buildSummitPagerConditions($q, $conditions, false, false, 'lr.MainAssociation', 'sr');
             }
+            
+            if (   isset($conditions['join_outing_id'])
+                || isset($conditions['join_outing'])
+                || isset($conditions['join_outing_i18n'])
+                || isset($conditions['join_otag_id'])
+            )
+            {
+                Outing::buildOutingPagerConditions($q, $conditions, false, true, 'lr.LinkedAssociation', 'ro');
+            }
+        }
+
+        // join with image tables only if needed 
+        if (   isset($conditions['join_image_id'])
+            || isset($conditions['join_image'])
+            || isset($conditions['join_image_i18n'])
+            || isset($conditions['join_itag_id']))
+        {
+            Image::buildImagePagerConditions($q, $conditions, false, 'hi');
         }
 
         if (!empty($conditions))

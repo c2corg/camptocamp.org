@@ -115,6 +115,9 @@ class Book extends BaseBook
         
         // linked doc criteria
         self::buildConditionItem($conditions, $values, 'List', 'lbd.linked_id', 'bdocs', 'join_bdocs_id', false, $params_list);
+        
+        // image criteria
+        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {
@@ -179,6 +182,15 @@ class Book extends BaseBook
         {
             $q->leftJoin('m.associations lbc');
             unset($conditions['join_btags_id']);
+        }
+
+        // join with image tables only if needed 
+        if (   isset($conditions['join_image_id'])
+            || isset($conditions['join_image'])
+            || isset($conditions['join_image_i18n'])
+            || isset($conditions['join_itag_id']))
+        {
+            Image::buildImagePagerConditions($q, $conditions, false, 'bi');
         }
         
         $q->addWhere(implode(' AND ', $conditions), $criteria);

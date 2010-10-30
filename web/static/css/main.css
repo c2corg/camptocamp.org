@@ -37,9 +37,12 @@ input, select, textarea{
 input, select {
   height: 1.9em;
   vertical-align: middle;
+  border: 1px solid #ddd;
+  font-size: 12px;
 }
 
-select[multiple="multiple"] {
+select[multiple="multiple"], input[type="checkbox"]
+{
   height: auto;
 }
 
@@ -2461,11 +2464,6 @@ option.act_0
 }
 
 /* Forms */
-
-input, select {
-  border: 1px solid #ddd;
-  font-size: 12px;
-}
 
 input[type=submit], input[type=reset], .action_buttons input[type=button]
 {

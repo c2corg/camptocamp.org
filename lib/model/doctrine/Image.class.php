@@ -358,13 +358,58 @@ class Image extends BaseImage
         }
     }
 
+    public static function buildImageListCriteria(&$conditions, &$values, $params_list, $is_module = false)
+    {
+        if ($is_module)
+        {
+            $m = 'm';
+            $mid = 'm.id';
+            $join = null;
+            $join_id = null;
+        }
+        else
+        {
+            $m = 'i';
+            $mid = 'li.linked_id';
+            $join = 'join_image';
+            $join_id = $join . '_id';
+        }
+        
+        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'images', $join_id, false, $params_list);
+        if ($is_module)
+        {
+            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+        }
+        
+        if (!$has_id)
+        {
+            if ($is_module)
+            {
+                self::buildConditionItem($conditions, $values, 'Array', array($m, 'i', 'activities'), 'act', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Date', 'date_time', 'date', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+            }
+            self::buildConditionItem($conditions, $values, 'String', 'ii.search_name', ($is_module ? array('inam', 'name') : 'inam'), 'join_image_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, 'i', 'activities'), 'iact', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'ialt', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, 'i', 'categories'), 'icat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Item', $m . '.image_type', 'ityp', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Date', $m . '.date_time', 'idate', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'ii.culture', 'icult', 'join_image_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'itags', 'join_itag_id', false, $params_list);
+        }
+    }
+
     public static function buildListCriteria($params_list)
     {
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
-        if (isset($conditions['all']) && $conditions['all'])
+        self::buildPersoCriteria($conditions, $values, $params_list, 'icult');
+        
+        // return if no criteria
+        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($conditions['all']) || empty($citeria_temp))
         {
             return array($conditions, $values);
         }
@@ -373,21 +418,20 @@ class Image extends BaseImage
         self::buildAreaCriteria($conditions, $values, $params_list);
         
         // image criteria
-        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'), null, false, $params_list);
-    //    self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'auth');
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'i', 'categories'), 'icat', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'i', 'activities'), 'act', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Date', 'date_time', 'date', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Item', 'm.image_type', 'ityp', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'mi.culture', 'icult', null, false, $params_list);
-        
-        // linked document criteria
-        self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc', false, $params_list);
+        Images::buildImageListCriteria(&$conditions, &$values, $params_list, true);
+        self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'documents', 'join_itag_id', false, $params_list);
+
+        // summit criteria
+        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+
+        // route criteria
+        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.main_id');
+
+        // site criteria
+        Site::buildSiteListCriteria(&$conditions, &$values, $params_list, false, 'lt.main_id');
         
         // outing criteria
-        self::buildConditionItem($conditions, $values, 'Bool', 'o.outing_with_public_transportation', 'owtp', 'join_outing', false, $params_list);
+        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.main_id');
         
         // user criteria
         self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
@@ -435,22 +479,114 @@ class Image extends BaseImage
         return $pager;
     }
     
+    public static function buildImagePagerConditions(&$q, &$conditions, $is_module = false, $ltype)
+    {
+        if ($is_module)
+        {
+            $m = 'm.';
+            $main = $m . 'associations';
+        }
+        else
+        {
+            $m = 'li.';
+            $main = $m . 'MainMainAssociation';
+            
+            $q->leftJoin("m.LinkedAssociation li");
+            
+            if (isset($conditions['join_image_id']))
+            {
+                unset($conditions['join_image_id']);
+                
+                return;
+            }
+            else
+            {
+                $q->addWhere($m . "type = '$ltype'");
+            }
+            
+            if (isset($conditions['join_image']))
+            {
+                $q->leftJoin($m . 'Image i');
+                unset($conditions['join_image']);
+            }
+        }
+
+        if (isset($conditions['join_image_i18n']))
+        {
+            $q->leftJoin($m . 'ImageI18n ii');
+            unset($conditions['join_image_i18n']);
+        }
+        
+        if (isset($conditions['join_itag_id']))
+        {
+            $q->leftJoin($main . ' lic');
+            unset($conditions['join_itag_id']);
+        }
+    }
+    
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
         $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions);
 
-        if (isset($conditions['join_doc']))
+        // join with image tables only if needed 
+        if (   isset($conditions['join_image_i18n'])
+            || isset($conditions['join_itag_id'])
+        )
         {
-            $q->leftJoin('m.associations d');
-            unset($conditions['join_doc']);
+            Image::buildImagePagerConditions($q, $conditions, true);
         }
 
-        if (isset($conditions['join_outing']))
+        if (   isset($conditions['join_summit_id'])
+            || isset($conditions['join_summit'])
+            || isset($conditions['join_summit_i18n'])
+            || isset($conditions['join_stag_id'])
+            || isset($conditions['join_sbook_id'])
+            || isset($conditions['join_sbtag_id'])
+        )
         {
-            $q->leftJoin('m.associations l')
-              ->leftJoin('l.Outing o')
-              ->addWhere("l.type = 'oi'");
-            unset($conditions['join_outing']);
+            $q->leftJoin("m.associations ls");
+            
+            Summit::buildSummitPagerConditions($q, $conditions, false, false, 'si');
+        }
+
+        if (   isset($conditions['join_route_id'])
+            || isset($conditions['join_route'])
+            || isset($conditions['join_route_i18n'])
+            || isset($conditions['join_rdoc_id'])
+            || isset($conditions['join_rtag_id'])
+            || isset($conditions['join_rdtag_id'])
+            || isset($conditions['join_rbook_id'])
+            || isset($conditions['join_rbook'])
+            || isset($conditions['join_rbook_i18n'])
+            || isset($conditions['join_rbtag_id'])
+        )
+        {
+            $q->leftJoin("m.associations lr");
+            
+            Route::buildRoutePagerConditions($q, $conditions, false, false, 'ri');
+        }
+
+        if (   isset($conditions['join_site_id'])
+            || isset($conditions['join_site'])
+            || isset($conditions['join_site_i18n'])
+            || isset($conditions['join_tbook_id'])
+            || isset($conditions['join_ttag_id'])
+            || isset($conditions['join_tbtag_id'])
+        )
+        {
+            $q->leftJoin("m.associations lt");
+            
+            Site::buildSitePagerConditions($q, $conditions, false, false, 'ti');
+        }
+        
+        // join with outings tables only if needed 
+        if (   isset($conditions['join_outing_id'])
+            || isset($conditions['join_outing'])
+            || isset($conditions['join_outing_i18n'])
+            || isset($conditions['join_otag_id'])
+        )
+        {
+            Outing::buildOutingPagerConditions($q, $conditions, false, false, 'm.associations', 'oi');
         }
 
         if (isset($conditions['join_user']))
@@ -459,7 +595,7 @@ class Image extends BaseImage
               ->leftJoin('v.history_metadata hm')
               ->addWhere('v.version = 1');
              unset($conditions['join_user']);
-       }
+        }
         
         $q->addWhere(implode(' AND ', $conditions), $criteria);
     }

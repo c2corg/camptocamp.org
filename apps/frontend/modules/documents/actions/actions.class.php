@@ -1227,8 +1227,7 @@ class documentsActions extends c2cActions
         // if there is no result + only criterias are on the name, redirect to a page wich loads google search
         if ($nb_results == 0)
         {
-            $params_list = array_keys(c2cTools::getAllRequestParameters());
-            $params_list = array_diff($params_list, array('module', 'action', 'orderby', 'order', 'npp', 'page', 'format', 'layout'));
+            $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
             
             if (count($params_list) == 1)
             {
@@ -1677,7 +1676,7 @@ class documentsActions extends c2cActions
                     $order = '';
                     break;
                 case 'users' :
-                    $field = 'ufnam'; // ufnam = unam + fnam
+                    $field = 'utfnam'; // utfnam = unam + ufnam
                     $order = 'orderby=unam&order=asc';
                     break;
                 default :
@@ -2424,7 +2423,7 @@ class documentsActions extends c2cActions
                     $order = '';
                     break;
                 case 'users' :
-                    $field = 'ufnam'; // ufnam = unam + fnam
+                    $field = 'utfnam'; // utfnam = unam + ufnam
                     $order = '&orderby=unam&order=asc';
                     break;
                 default :

@@ -77,7 +77,7 @@ class Summit extends BaseSummit
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $params_list, 'scult');
+        self::buildPersoCriteria($conditions, $values, $params_list, 'scult', 'ract');
         
         // return if no criteria
         $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
@@ -100,11 +100,20 @@ class Summit extends BaseSummit
 
         // parking criteria
         Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+       
+        // outing criteria
+        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
+        
+        // user criteria
+        User::buildUserListCriteria(&$conditions, &$values, $params_list, false, 'lu.main_id');
 
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 's');
         self::buildConditionItem($conditions, $values, 'List', 'lsb.main_id', 'books', 'join_sbook_id', false, $params_list);
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
+        
+        // image criteria
+        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {
@@ -150,7 +159,7 @@ class Summit extends BaseSummit
         return $pager;
     }
     
-    public static function buildSummitPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $ltype)
+    public static function buildSummitPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join, $ltype)
     {
         if ($is_module)
         {
@@ -175,9 +184,13 @@ class Summit extends BaseSummit
                 $main = $m . 'MainAssociation';
             }
             
+            $q->leftJoin($first_join . ' ls');
+            
             if (isset($conditions['join_summit_id']))
             {
                 unset($conditions['join_summit_id']);
+                
+                return;
             }
             else
             {
@@ -276,11 +289,18 @@ class Summit extends BaseSummit
             || isset($conditions['join_parking'])
             || isset($conditions['join_parking_i18n'])
             || isset($conditions['join_ptag_id'])
+            || isset($conditions['join_outing_id'])
+            || isset($conditions['join_outing'])
+            || isset($conditions['join_outing_i18n'])
+            || isset($conditions['join_otag_id'])
+            || isset($conditions['join_user_id'])
+            || isset($conditions['join_user'])
+            || isset($conditions['join_user_i18n'])
+            || isset($conditions['join_user_pd'])
+            || isset($conditions['join_utag_id'])
         )
         {
-            $q->leftJoin("m.LinkedAssociation lr");
-            
-            Route::buildRoutePagerConditions($q, $conditions, false, true, 'sr');
+            Route::buildRoutePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'sr');
             
             // join with huts tables only if needed 
             if (   isset($conditions['join_hut_id'])
@@ -291,9 +311,7 @@ class Summit extends BaseSummit
                 || isset($conditions['join_hbtag_id'])
             )
             {
-                $q->leftJoin("lr.MainMainAssociation lh");
-                
-                Hut::buildHutPagerConditions($q, $conditions, false, false, 'hr');
+                Hut::buildHutPagerConditions($q, $conditions, false, false, 'lr.MainMainAssociation', 'hr');
             }
             
             // join with parkings tables only if needed 
@@ -303,10 +321,41 @@ class Summit extends BaseSummit
                 || isset($conditions['join_ptag_id'])
             )
             {
-                $q->leftJoin("lr.MainMainAssociation lp");
-                
-                Parking::buildParkingPagerConditions($q, $conditions, false, false, 'pr');
+                Parking::buildParkingPagerConditions($q, $conditions, false, false, 'lr.MainMainAssociation', 'pr');
             }
+            
+            if (   isset($conditions['join_outing_id'])
+                || isset($conditions['join_outing'])
+                || isset($conditions['join_outing_i18n'])
+                || isset($conditions['join_otag_id'])
+                || isset($conditions['join_user_id'])
+                || isset($conditions['join_user'])
+                || isset($conditions['join_user_i18n'])
+                || isset($conditions['join_user_pd'])
+                || isset($conditions['join_utag_id'])
+            )
+            {
+                Outing::buildOutingPagerConditions($q, $conditions, false, true, 'lr.LinkedAssociation', 'ro');
+                
+                if (   isset($conditions['join_user_id'])
+                    || isset($conditions['join_user'])
+                    || isset($conditions['join_user_i18n'])
+                    || isset($conditions['join_user_pd'])
+                    || isset($conditions['join_utag_id'])
+                )
+                {
+                    User::buildUserPagerConditions($q, $conditions, false, false, 'lo.MainMainAssociation', 'uo');
+                }
+            }
+        }
+
+        // join with image tables only if needed 
+        if (   isset($conditions['join_image_id'])
+            || isset($conditions['join_image'])
+            || isset($conditions['join_image_i18n'])
+            || isset($conditions['join_itag_id']))
+        {
+            Image::buildImagePagerConditions($q, $conditions, false, 'si');
         }
         
         if (!empty($conditions))
