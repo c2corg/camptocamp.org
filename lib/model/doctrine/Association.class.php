@@ -370,25 +370,35 @@ class Association extends BaseAssociation
             }
         }
         
-        if ($type != 'pp')
+        $child_docs = c2cTools::sortArray($child_docs, $sort_field, null, $order);
+        if ($type != 'ss')
         {
-            $child_docs = c2cTools::sortArray($child_docs, $sort_field, null, $order);
-        }
-        else
-        {
-        
+            $child_top = $child_bottom = array();
+            foreach ($child_docs as $child_key => $child)
+            {
+                $parent_ids = $child['parent_id'];
+                if (count($parent_ids) > 1)
+                {
+                    $child_top[$child_key] = $child;
+                }
+                else
+                {
+                    $child_bottom[$child_key] = $child;
+                }
+            }
+            $child_docs = array_merge($child_top, $child_bottom);
         }
         
         $all_docs = array();
         $parent_level = 0;
         foreach ($parent_docs as $parent_key => $parent)
         {
-            foreach ($child_docs as  $child_key => $child)
+            foreach ($child_docs as $child_key => $child)
             {
                 $parent_ids = $child['parent_id'];
                 if (in_array($parent['id'], $parent_ids))
                 {
-                    if (($type == 'ss' && $parent['elevation'] < $child['elevation']) || ($type != 'ss' && count($parent_ids) > 1) || ($type == 'pp' && count($parent_ids) == 1 && $parent['elevation'] > $child['elevation']))
+                    if (($type == 'ss' && $parent['elevation'] < $child['elevation']) || ($type != 'ss' && count($parent_ids) > 1))
                     {
                         if (!$parent_level)
                         {
