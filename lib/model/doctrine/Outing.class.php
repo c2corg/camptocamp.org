@@ -223,8 +223,7 @@ class Outing extends BaseOuting
 
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
-);
-        
+
         // user criteria
         User::buildUserListCriteria(&$conditions, &$values, $params_list, false, 'lu.main_id');
 
