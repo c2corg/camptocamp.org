@@ -3444,6 +3444,12 @@ msgstr "The map shows access points that can be reached in public transport. Cli
 msgid "cda map title"
 msgstr "Encontrar una ruta accesible con transporte en común o ecomobilidad"
 
+# [general comment]
+# Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
+# [WARNING] fr translation used
+msgid "cda partners tips"
+msgstr "Le portail Changer d'approche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
+
 msgid "cda sub title"
 msgstr "Las montañas sin coche"
 

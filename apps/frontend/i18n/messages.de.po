@@ -3778,6 +3778,12 @@ msgstr "Die Karte zeigt Ausgangsorte von Routen, welche mit öffentlichen Verkeh
 msgid "cda map title"
 msgstr "Eine Route finden, welche mit öffentlichen oder nachhaltigen Verkehrsmitteln erreichbar ist"
 
+# [general comment]
+# Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
+# [WARNING] fr translation used
+msgid "cda partners tips"
+msgstr "Le portail Changer d'approche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
+
 # [WARNING] needs_review
 msgid "cda sub title"
 msgstr "Das Portal für Berge ohne Autos"
