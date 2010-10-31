@@ -2570,7 +2570,7 @@ msgstr "<h3>Zugang</h3>Zustand der Zufahrtsstrasse am Tag der Tour: geräumt, sc
 msgid "_accommodation_info"
 msgstr "<h3>Unterkunft und Verpflegung in der Nähe</h3>Informationen über Ess-, Trink- und Schlafmöglichkeiten in der Nähe des Zugangsorts."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren sie mit der Maus darüber.<br />Ein Dokument kann mit mehreren Aktivitäten verbunden sein:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>Ski-, Snowboard-, Schneeschuhtouren</strong>&nbsp;: Ski-, Snowboard- und/oder Schneeschutouren<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>Hochtouren</strong>&nbsp;: Bergsteigen auf Schnee, Eis, Geltscher und kombiniertem Gelände im Hochgebirge<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>Alpinklettern</strong>&nbsp;: Alpines Klettern von Mehrseillängen-Routen im Hochgebirge; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>Sportklettern</strong>&nbsp;: Bouldern, Ein- oder Mehrseillängen-Routen an Felswänden; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>Eisklettern</strong>&nbsp;: Eisklettern ausserhalb des Hochgebirges, Dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Wandern</strong>&nbsp;: Wandern im Gebirge (und nicht im Flachland); auf markierten Wege oder nicht<br /><br />\n"
 "Der Unterschied zwischen den Aktivitäten <strong>Sportklettern</strong> und <strong>Alpinklettern</strong> ist hauptsächlich die Höhe der Route, nicht aber die Einrichtung der Route. In Europa gelten folgenden Regeln: <br />- Höhe < 2100m : Sportklettern<br />- Höhe zwischen 2100m und 2400m : Sportklettern oder Alpinklettern, aber hauptsächlich Sportklettern<br />- Höhe zwischen 2400m und 2700m : Sportklettern oder Alpinklettern, aber hauptsächlich Alpinklettern<br />- Höhe > 2700m : Alpinklettern<br />Für eine Höhe zwischen 2100m und 2700m, können beide Aktivitäten gewählt werden."
@@ -2969,7 +2969,7 @@ msgstr "<h3>Globale Ski-Schwierigkeitsskala</h3> Bewertung der globalen Skischwi
 "<br />\n"
 "<b>WARNUNG!</b> Obschon die globale Skiskala dieselben Schwierigkeitsbezeichnungen wie die Alpinskala verwendendt, <span style=\"font-style: italic;\">sind die beiden Skalen nicht gleichbedeutend</span>: Während z.B. ein Couloir mit den Skis als S bewertet wird, entspricht dasselbe Couloir nicht mehr als eine WS oder ZS auf der Alpinskala.<br />\n"
 "<br />\n"
-"Für weitere Informationen siehe auch in der Hilfe zu <a href=\"/articles/107675\">Bewertungen von Ski-, Snowboard und Schneeschuhtouren.</a> "
+"Für weitere Informationen siehe auch in der Hilfe zu <a href=\"/articles/107675\">Bewertungen von Ski- und SnowboardTouren.</a> "
 
 # [WARNING] needs_review
 msgid "_labande_ski_rating_info"
@@ -3234,7 +3234,7 @@ msgstr "<h3>Bewartungszeitraum</h3>Ungefährer Zeitraum, wann die Hütte üblich
 
 # [WARNING] needs_review
 msgid "_sub_activities_info"
-msgstr "<h3>Ausführbar mit</h>Dieses Feld führt aus, mit welchen Unter-Aktivitäten eine <Ski-, Snowboard-, Schneeschuhroute</em> ausführbar ist. Die Unter-Aktivitäten werden nur ungefähr angegeben.<br />Mehrere Unter-Aktivitäten können angegeben werden.<br /><br /><strong>Ski</strong>: Trifft auf die meisten Routen zu.<br /><br /><strong>Snowboard</strong>: Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen. Alle <em>Snowboard</em>touren sind auch <em>Ski</em>touren.<br /><br /><strong>Schneeschuhe</strong>: Die Route verläuft durch dichte Waldabschnitte in relativ flachem Terrain und/oder enthält nur wenige steile Abschnitte.<br /><br /><strong>Anfänger</strong>: Die Route ist geeignet um eine Unter-Aktivität (bitte auch auswählen) zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewalteten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr. Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
+msgstr "<h3>Ausführbar mit</h>Dieses Feld führt aus, mit welchen Unter-Aktivitäten eine <Ski-, Snowboardroute</em> ausführbar ist. Die Unter-Aktivitäten werden nur ungefähr angegeben.<br />Mehrere Unter-Aktivitäten können angegeben werden.<br /><br /><strong>Ski</strong>: Trifft auf die meisten Routen zu.<br /><br /><strong>Snowboard</strong>: Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen. Alle <em>Snowboard</em>touren sind auch <em>Ski</em>touren.<br /><br /><strong>Anfänger</strong>: Die Route ist geeignet um eine Unter-Aktivität (bitte auch auswählen) zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewalteten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr. Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
 
 # [WARNING] needs_review
 msgid "_summit_type_info"
@@ -3257,11 +3257,11 @@ msgstr "<h3>Code um ein Bild in den Tourenführer einzufügen<br /></h3>Um diese
 
 # [WARNING] needs_review
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Ausgesetztheit</h3> Bewertung der Ausgesetztheit bei der Skiabfahrt (toponeige).<br /> Die Ausgesetztheit beschreibt das Verletzungsrisiko bei einem Sturz und nimmt dabei die objektiven Gefahren (Steinschlag, Eisabruch, etc.) nicht in Betracht.<br /> <br /> <strong>E1</strong>: Die Ausgesetztheit basiert ausschliesslich auf der Hangneigung. Das Verletzungsrisiko ist demnach vor allem bei Hartschnee und/oder grosser Steilheit gegeben.<br /> <br /> <strong>E2</strong>&nbsp; Zur Hangneigung kommen Hindernisse, welche das Verletzungsrisiko erhöhen, z.B. kleine Felsbarierren.<br /> <br /> <strong>E3</strong>: Bei einem Sturz, Absturz über eine grosse Felsbarierre, durch ein gefährliches Couloir. Der Tod ist wahrscheinlich.<br /> <br /> <strong>E4</strong>: Bei einem Sturz, Absturz über eine grosse Wand oder ein enges Couloir. Der Tod ist quasi sicher.<br /> <br /> Siehe auch in der Hilfe zu <a href=\"../../articles/107675\">Bewertungen von Ski-, Snowboard- und Schneeschuhrouten.</a>"
+msgstr "<h3>Ausgesetztheit</h3> Bewertung der Ausgesetztheit bei der Skiabfahrt (toponeige).<br /> Die Ausgesetztheit beschreibt das Verletzungsrisiko bei einem Sturz und nimmt dabei die objektiven Gefahren (Steinschlag, Eisabruch, etc.) nicht in Betracht.<br /> <br /> <strong>E1</strong>: Die Ausgesetztheit basiert ausschliesslich auf der Hangneigung. Das Verletzungsrisiko ist demnach vor allem bei Hartschnee und/oder grosser Steilheit gegeben.<br /> <br /> <strong>E2</strong>&nbsp; Zur Hangneigung kommen Hindernisse, welche das Verletzungsrisiko erhöhen, z.B. kleine Felsbarierren.<br /> <br /> <strong>E3</strong>: Bei einem Sturz, Absturz über eine grosse Felsbarierre, durch ein gefährliches Couloir. Der Tod ist wahrscheinlich.<br /> <br /> <strong>E4</strong>: Bei einem Sturz, Absturz über eine grosse Wand oder ein enges Couloir. Der Tod ist quasi sicher.<br /> <br /> Siehe auch in der Hilfe zu <a href=\"../../articles/107675\">Bewertungen von Ski- und Snowboardrouten.</a>"
 
 # [WARNING] needs_review
 msgid "_toponeige_technical_rating_info"
-msgstr "<h3>Technischer Schwierigkeitsgrad Skiabfahrt</h3> Bewertung der technischen Schwierigkeiten bei der Skiabfahrt (toponeige).<br /> Es handelt sich nicht um eine punktuell Bewertung, sondern die Länge und Morphologie der Schwierigkeiten fliessen in die Beurteilung ein. Die Skala beinhaltet 5 Grade. Jeder Grad ist in drei Untergrade unterteilt: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Der fünfte Grad ist nach oben offen: 5.4, 5.5, 5.6. etc.<br /> <br /> <strong>1.x</strong>: Anfängerniveau. Neigung überschreitet 30° nicht. Die Passagen sind nicht zu eng, der Höhenunterschied ist unterhalb 800m.<br /> <br /> <strong>2.x</strong>: Wenig technische Schwierigkeiten. Die Neigung überschreitet 35° nicht.<br /> <br /> <strong>3.x</strong>: Einige technische Abschnitte. Lange Hänge bis 35° mit sehr kurzen Abschnitten von 40-45°.<br /> <br /> <strong>4.x</strong>: Coulouir- oder Steilabfahrten or steep skiing : Neigung zwischen 40 und 45° über mehr als 200 Höhenmeter.<br /> <br /> <strong>5.x</strong>: Neigung zwischen 45 und 50° über mehr als 300 Höhenmeter oder steiler als 50° über mehr als 100 Höhenmeter.<br /> <br /> Siehe auch in der Hilfe zu <a href=\"../../articles/107675\">Bewertungen von Ski-, Snowboard- und Schneeschuhrouten</a>."
+msgstr "<h3>Technischer Schwierigkeitsgrad Skiabfahrt</h3> Bewertung der technischen Schwierigkeiten bei der Skiabfahrt (toponeige).<br /> Es handelt sich nicht um eine punktuell Bewertung, sondern die Länge und Morphologie der Schwierigkeiten fliessen in die Beurteilung ein. Die Skala beinhaltet 5 Grade. Jeder Grad ist in drei Untergrade unterteilt: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Der fünfte Grad ist nach oben offen: 5.4, 5.5, 5.6. etc.<br /> <br /> <strong>1.x</strong>: Anfängerniveau. Neigung überschreitet 30° nicht. Die Passagen sind nicht zu eng, der Höhenunterschied ist unterhalb 800m.<br /> <br /> <strong>2.x</strong>: Wenig technische Schwierigkeiten. Die Neigung überschreitet 35° nicht.<br /> <br /> <strong>3.x</strong>: Einige technische Abschnitte. Lange Hänge bis 35° mit sehr kurzen Abschnitten von 40-45°.<br /> <br /> <strong>4.x</strong>: Coulouir- oder Steilabfahrten or steep skiing : Neigung zwischen 40 und 45° über mehr als 200 Höhenmeter.<br /> <br /> <strong>5.x</strong>: Neigung zwischen 45 und 50° über mehr als 300 Höhenmeter oder steiler als 50° über mehr als 100 Höhenmeter.<br /> <br /> Siehe auch in der Hilfe zu <a href=\"../../articles/107675\">Bewertungen von Ski- und Snowboardrouten</a>."
 
 # [WARNING] needs_review
 msgid "_track_status_info"
@@ -3704,11 +3704,15 @@ msgstr "Camptocamp.org ... jetzt auschliesslich aufs Sportklettern zugeschnitten
 
 # [WARNING] needs_review
 msgid "c2c customized for skitouring !"
-msgstr "Camptocamp.org ... jetzt auschliesslich auf Ski-/Snowboardtouren und aufs Schneeschulaufen zugeschnitten!"
+msgstr "Camptocamp.org ... jetzt auschliesslich auf Ski-/Snowboardtouren zugeschnitten!"
 
 # [WARNING] needs_review
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org ... jetzt auschliesslich auf Gletscher-/Eistouren und kombiniertes Klettern zugeschnitten!"
+
+# [WARNING] en translation used
+msgid "c2c customized for snowshoeing !"
+msgstr "Camptocamp.org now customized for snowshoeing!"
 
 # [WARNING] needs_review
 msgid "c2c is no more customized with activies"
@@ -5413,7 +5417,7 @@ msgid "pack_rock_climbing_bolted"
 msgstr "Mehrseillängensportkletterei"
 
 msgid "pack_skitouring"
-msgstr "Ski, Snowboard, Schneeschuh "
+msgstr "Ski, Snowboard"
 
 # [WARNING] needs_review
 msgid "pack_snow_ice_mixed_easy"
@@ -5970,7 +5974,7 @@ msgstr "[anzeigen]"
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 # [WARNING] needs_review
 msgid "select activities according to outing"
-msgstr "Wählen sie nur diejenigen Aktivitäten aus, welche sie während ihrer Tour unternommen haben: <ul class=\"text\"><li>Falls die Route mehreren Aktivitätstypen zugewiesen ist, werden diese vorausgewählt, d.h. sie müssen eventuell gewisse Aktivitäten deaktivieren.</li> <li>Wenn sie andere Routen mit der Route verbinden stellen sie sicher, dass deren Aktivitätstypen auf ihre Tour zutreffen.</li> <li>Für eine Schneeschuhtour wählen sie die Aktivitätstypen \"Ski\" und \"Wandern\".</li> "
+msgstr "<ul class=\"text\"><li>Wählen sie nur diejenigen Aktivitäten aus, welche sie während ihrer Tour unternommen haben: <ul class=\"text\"><li>Falls die Route mehreren Aktivitätstypen zugewiesen ist, werden diese vorausgewählt, d.h. sie müssen eventuell gewisse Aktivitäten deaktivieren.</li> <li>Wenn sie andere Routen mit der Route verbinden stellen sie sicher, dass deren Aktivitätstypen auf ihre Tour zutreffen.</li></li></ul></ul> "
 
 # [WARNING] needs_review
 msgid "select an image file"
@@ -6069,7 +6073,7 @@ msgid "skiabilite02"
 msgstr "sehr wild (Stufen, Verengungen, Grate, etc.)"
 
 msgid "skitouring"
-msgstr "Ski-, Snow-, Schneeschuhtouren"
+msgstr "Ski-, Snowtouren"
 
 msgid "slab"
 msgstr "Platte"
@@ -6232,7 +6236,7 @@ msgid "switch_to_rock_climbing"
 msgstr "Nur Sportklettern anzeigen"
 
 msgid "switch_to_skitouring"
-msgstr "Nur Ski-, Snowboard- und Schneeschuhtouren anzeigen"
+msgstr "Nur Ski- und Snowboardtouren anzeigen"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Nur Hochtouren anzeigen"

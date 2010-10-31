@@ -2530,6 +2530,7 @@ msgstr "<h3>Access</h3>Condition ot the access road the day of the outing: clear
 msgid "_accommodation_info"
 msgstr "<h3>Nearby accomodation and restaurants</h3>Information on food and accomodation close to the access point."
 
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Activities</h3>Activity type: position your mouse on the pictograms to reveal their meaning.<br />A document can be associated to one or more activities:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski- and snowboard-touring, snowshoing</strong>: ski-touring and ski-mountaineering, snowboard-touring and/or snowshoing<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpine snow, ice and mixed climbing</strong>: alpinism with snow, ice or mixed climbing (in high mountain terrain)<br /><br /><<img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;strong>alpine rock climbing</strong>: alpinism on rock, big-wall climbs in the moutain (bolted or not)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>rock climbing</strong>: bouldering, single or multi-pitch climbing (bolted or not) on lowland cliffs and crags<br /><br />img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>ice climbing</strong>: lowland ice-falls, dry-tooling crags<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Hiking</strong>: scrambling, hiking and trekking in the mountains (not in the lowlands), on or away from marked tracks and trails.<br /><br />The difference between <strong>rock climbing</strong> and <strong>alpine rock climbing</strong> is mainly based on the altitude of the summit, not on the type of equipment. In the Alps, the following rules apply:<br />- altitude < 2000m: rock climbing<br />- altitude between 2100m and 2400m: rock climbing or alpine rock climbing, but generally the former<br />- altitude between 2400m and 2700m: rock climbing or alpine rock climbing, but generally the latter<br />- altitude > 2700m: alpine rock climbing<br />For altitudes between 2100m and 2700m, both activities can be selected in case of doubt."
 
@@ -2789,7 +2790,7 @@ msgstr "<h3>Labande global ski grade</h3>Global ski grade (Labande).<br />The gl
 "<br />\n"
 "<em><b>BE CAREFUL!</b> It is a rating for ski touring, not for alpine climbing: a couloir can easily be rated D for ski touring, whatever its alpine global rating doesn't exceed PD ou AD for rising.</em><br />\n"
 "<br />\n"
-"See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
+"See also the help on <a href=\"/articles/107675/en\">grades for ski-touring and ski-mountaineering</a>."
 
 msgid "_labande_ski_rating_info"
 msgstr "<h3>Labande descent grade</h3>The Labande S grade.<br />The Labande descent grade is complementary to the global grade. It evaluates the most difficult passage for the ski downhill. It is mostly tied to the slope but also takes exposure into account.<br /><br /><strong>S1</strong>: Easy descent which does not require any particular technical abilities such as forest tracks for example.<br /><br /><strong>S2</strong>: Wide slopes which are easy to manoeuvre, maybe fairly steep (25°).<br /><br /><strong>S3</strong>: Slopes up to 35° (equivalent to the steepest runs in ski resorts, on hard snow). Requires good skiing abilities in all snow conditions.<br /><br /><strong>S4</strong>: Slopes up to 45°, if exposure is low (between 30 and 40° if it is high or the passage is narrow). Very good skiing abilities are required.<br /><br /><strong>S5</strong>: Slopes between 45 and 50° or more if exposure remains low. From 40° upwards if exposure is high. As well as a perfect downhill skiing technique, control of nerves becomes very important at this level of difficulty.<br /><br /><strong>S6</strong>: Above 50° if exposure is high (which is often the case) or short stretches above 55° with little exposure.<br /><br /><strong>S7</strong>: Stretches at 60° or more, high rock bands to jump or more generally very steep or exposed terrain.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -2992,7 +2993,7 @@ msgid "_staffed_period_info"
 msgstr "<h3>Periods staffed</h3>Approximate periods when staffed.<br />Example: <em>April and May week-ends, end of June. Every day from mid-june to mid-september.</em>"
 
 msgid "_sub_activities_info"
-msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding, snowshoing</em>). They are given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>skiing</strong>: Most routes are compatible with skiing.<br /><br /><strong>snowboard</strong>: Route with few flat sections or level traverses. All <em>snowboarding</em> routes should also be <em>skiing</em> routes.<br /><br /><strong>snowshoeing</strong>: Route in dense forest or on even or not too steep ground.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent. Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
+msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding</em>). They are given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>skiing</strong>: Most routes are compatible with skiing.<br /><br /><strong>snowboard</strong>: Route with few flat sections or level traverses. All <em>snowboarding</em> routes should also be <em>skiing</em> routes.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent. Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
 
 # [WARNING] needs_review
 msgid "_summit_type_info"
@@ -3012,10 +3013,10 @@ msgid "_topoguide_code_info"
 msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modify the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />By default, the picture is placed on the right within a frame with its legend. The attributes given with the opening tag allow to choose the picture's presentation:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br />- <strong>no_border</strong>: picture with its legend below, but without surrounding frame<br />- <strong>no_legend</strong>: picture with its legend as tooltip only, without frame<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
+msgstr "<h3>Exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring and ski-mountaineering</a>."
 
 msgid "_toponeige_technical_rating_info"
-msgstr "<h3>Toponeige technical skiing grade</h3>Technical grade for downhill skiing difficulties (toponeige).<br />This is not a punctual rating: it depends on the length and configuration of the difficulties rather than the hardest section only.<br />It includes 5 levels. Each level is divided into 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. The 5th level is open-ended: 5.4, 5.5, 5.6...<br /><br /><strong>1.x</strong>: Initiation. Slopes do not exceed 30° with no narrow sections. Vertical descent is less than 800m.<br /><br /><strong>2.x</strong>: Few technical difficulties. Slopes do no exceed 35°.<br /><br /><strong>3.x</strong>: Some technical sections. Long slopes at 35° with very short sections at 40-45°.<br /><br /><strong>4.x</strong>: Couloir or steep skiing : slopes between 40 and 45° over more than 200m vertical.<br /><br /><strong>5.x</strong>: Starts with slopes of 45°-50° during more than 300m vertical or above 50° for more than 100m vertical.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
+msgstr "<h3>Toponeige technical skiing grade</h3>Technical grade for downhill skiing difficulties (toponeige).<br />This is not a punctual rating: it depends on the length and configuration of the difficulties rather than the hardest section only.<br />It includes 5 levels. Each level is divided into 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. The 5th level is open-ended: 5.4, 5.5, 5.6...<br /><br /><strong>1.x</strong>: Initiation. Slopes do not exceed 30° with no narrow sections. Vertical descent is less than 800m.<br /><br /><strong>2.x</strong>: Few technical difficulties. Slopes do no exceed 35°.<br /><br /><strong>3.x</strong>: Some technical sections. Long slopes at 35° with very short sections at 40-45°.<br /><br /><strong>4.x</strong>: Couloir or steep skiing : slopes between 40 and 45° over more than 200m vertical.<br /><br /><strong>5.x</strong>: Starts with slopes of 45°-50° during more than 300m vertical or above 50° for more than 100m vertical.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring and ski-mountaineering</a>."
 
 msgid "_track_status_info"
 msgstr "<h3>Track</h3>Quality or state of the track. The <i>Conditions</i> field allows to fill in additional information."
@@ -3424,10 +3425,14 @@ msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org now customized for rock climbing!"
 
 msgid "c2c customized for skitouring !"
-msgstr "Camptocamp.org now customized for ski/snowboard touring & snowshoing!"
+msgstr "Camptocamp.org now customized for ski/snowboard touring!"
 
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org now customized for snow, ice & mixed climbing!"
+
+# [WARNING] needs_review
+msgid "c2c customized for snowshoeing !"
+msgstr "Camptocamp.org now customized for snowshoeing!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org is no longer customized by activity"
@@ -4994,7 +4999,7 @@ msgid "pack_rock_climbing_bolted"
 msgstr "Multipitch sport climbing"
 
 msgid "pack_skitouring"
-msgstr "Ski- and snowboard-touring/mountaineering, snowshoing"
+msgstr "Ski- and snowboard-touring/mountaineering"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpine snow, ice and mixed climbing from F to PD+"
@@ -5597,7 +5602,7 @@ msgid "skiabilite02"
 msgstr "Very complex (steps, narrow sections, ridges...)"
 
 msgid "skitouring"
-msgstr "ski/snowboard touring, snowshoing"
+msgstr "ski/snowboard touring"
 
 msgid "slab"
 msgstr "slab"
@@ -5735,7 +5740,7 @@ msgid "switch_to_rock_climbing"
 msgstr "Show only rock climbing"
 
 msgid "switch_to_skitouring"
-msgstr "Show only ski/snowboard touring & snowshoing"
+msgstr "Show only ski/snowboard touring"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Show only snow, ice & mixed climbing"

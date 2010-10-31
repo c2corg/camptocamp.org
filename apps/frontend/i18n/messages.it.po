@@ -2515,6 +2515,7 @@ msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il gi
 msgid "_accommodation_info"
 msgstr "<h3>Vitto e alloggio nelle vicinanze</h3>Informazioni sulle possibilità di vitto e alloggio nei dintorni del punto di partenza."
 
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Attività</h3>Tipo di attività: passare il mouse sulle icone per conoscerne il contenuto.<br />Un documento può essere associato a una o a molte attività:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp; <strong>sci, snowboard, ciaspole</strong>: sci alpinismo, snowboard e/o ciaspole<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinismo neve, ghiaccio, misto</strong>: alpinismo su neve, ghiaccio o misto (in alta montagna)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>roccia in alta montagna</strong>: alpinismo su roccia, lunghe vie in montagna (protette e non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate e non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>escursionismo</strong>: gite a piedi (e non in piano), su sentieri segnalati e non, oppure fuori dai sentieri<br /><br />La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio, nelle Alpi, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considera necessario conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
 
@@ -2740,7 +2741,7 @@ msgstr "<h3>ISSN</h3>Numero ISSN della rivista"
 # [general comment]
 # Aide contextuelle sur la cotation globale ski.
 msgid "_labande_global_rating_info"
-msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino a ED (estremamente difficile). L'ultimo grado è aperto: ED- o ED1, ED o ED2, ED+ o ED3, e poi ED4, ED5, ED6, ED7...<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino a ED (estremamente difficile). L'ultimo grado è aperto: ED- o ED1, ED o ED2, ED+ o ED3, e poi ED4, ED5, ED6, ED7...<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf</a>."
 
 msgid "_labande_ski_rating_info"
 msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili con tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da 40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675/it\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
@@ -2947,7 +2948,7 @@ msgid "_staffed_period_info"
 msgstr "<h3>Periodo di presenza del gestore</h3>Periodo approssimative durante il quale il rifugio è custodito.<br />"
 
 msgid "_sub_activities_info"
-msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf, ciaspole</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br /><br /><strong>sci</strong>: corrisponde allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere lo<i>sci</i>.<br /><br /><strong>ciaspole</strong>: itinerari in bosco fitto o su terreno piatto o poco pendente.<br /><br /><strong>principianti</strong>: itinerario adatto all'inizio attività, che deve pure essere selezionato. In sci/surf un itinerario per principianti è di solito facile, sciabile dall'inizio alla fine (nessun tratto a piedi), con la possibilità di tornare indietro da qualsiasi punto del percorso."
+msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br /><br /><strong>sci</strong>: corrisponde allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere lo<i>sci</i>.<br /><br /><strong>principianti</strong>: itinerario adatto all'inizio attività, che deve pure essere selezionato. In sci/surf un itinerario per principianti è di solito facile, sciabile dall'inizio alla fine (nessun tratto a piedi), con la possibilità di tornare indietro da qualsiasi punto del percorso."
 
 # [WARNING] needs_update
 msgid "_summit_type_info"
@@ -3381,10 +3382,14 @@ msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org ... solo arrampicata!"
 
 msgid "c2c customized for skitouring !"
-msgstr "Camptocamp.org... solo sci, surf, ciaspole!"
+msgstr "Camptocamp.org... solo sci, surf!"
 
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org... solo alpinismo su neve, ghiaccio e misto!"
+
+# [WARNING] en translation used
+msgid "c2c customized for snowshoeing !"
+msgstr "Camptocamp.org now customized for snowshoeing!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org non è più filtrato sulle attività"
@@ -4948,7 +4953,7 @@ msgid "pack_rock_climbing_bolted"
 msgstr "Arrampicata su vie sportive"
 
 msgid "pack_skitouring"
-msgstr "Sci, surf, ciaspole"
+msgstr "Sci, surf"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpinismo su neve, ghiaccio, misto (F a PD+)"
@@ -5464,7 +5469,7 @@ msgstr "[vedere]"
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
-msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></li></ul><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
+msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></li></ul></ul>"
 
 msgid "select an image file"
 msgstr "Scegliere un'immagine:&nbsp;"
@@ -5548,7 +5553,7 @@ msgid "skiabilite02"
 msgstr "Molto complicato: risalti, strettoie, creste"
 
 msgid "skitouring"
-msgstr "scialpinismo, snowboard, ciaspole"
+msgstr "scialpinismo, snowboard"
 
 msgid "slab"
 msgstr "placca"

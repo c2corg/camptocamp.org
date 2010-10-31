@@ -3110,7 +3110,7 @@ msgstr "<h3>Gordetako sasoia</h3>Gordeta dagoen denboraldia gutxi gora behera.<b
 # [comment]
 # h3 mal placé + majuscule au début
 msgid "_sub_activities_info"
-msgstr "<h3>Zein ekintza dira konpatible</h3>Eremu honetan <i>eskia, surfa, erraketak</i> zein beste ekintzarekin konpatible diren adierazten du. Ekintza horiek adibide bezala emanak dira.<br />Ekintza bat baino gehiago aukeratu daitezke.<br /><br /><strong>eskia</strong>: ibilbide gehienetarako balio du.<br /><br /><strong>surfa</strong>: lautada eta zeharkapen gutxiko ibilbideak dira - <i>surfa</i>-ko aktibitate guztiak <i>eski</i>-n ere adieraziak izan beharko dira.<br /><br /><strong>erraketak</strong>: ibilbideak baso itxia, lautada edo malda txikiak zeharkatzen ditu .<br /><br /><strong>Hastapenerako ibilbidea</strong>: ekintza baten hastapen ikastaroak emateko egokia, ekintza mota auekeratu behar da. Eskian edo surfean, hastapenerako ibilbide batek 3.2 zailtasuna baino errezagoa behar du, expisiziorik gabe (E1) eta ibilbide guztian zehar ondo eskiatzeko aukera duena. Igoeran zehar ibilbidea edozein puntutan utzi behar bada, jetsiera atsegin bat izan dadin.\n"
+msgstr "<h3>Zein ekintza dira konpatible</h3>Eremu honetan <i>eskia, surfa</i> zein beste ekintzarekin konpatible diren adierazten du. Ekintza horiek adibide bezala emanak dira.<br />Ekintza bat baino gehiago aukeratu daitezke.<br /><br /><strong>eskia</strong>: ibilbide gehienetarako balio du.<br /><br /><strong>surfa</strong>: lautada eta zeharkapen gutxiko ibilbideak dira - <i>surfa</i>-ko aktibitate guztiak <i>eski</i>-n ere adieraziak izan beharko dira.<br /><br /><strong>Hastapenerako ibilbidea</strong>: ekintza baten hastapen ikastaroak emateko egokia, ekintza mota auekeratu behar da. Eskian edo surfean, hastapenerako ibilbide batek 3.2 zailtasuna baino errezagoa behar du, expisiziorik gabe (E1) eta ibilbide guztian zehar ondo eskiatzeko aukera duena. Igoeran zehar ibilbidea edozein puntutan utzi behar bada, jetsiera atsegin bat izan dadin.\n"
 "<em>Hastapen</em> ezaugarria zaitasun desberdinetara ezarri daitekenez, zein zailtasunera egokitzen den aipatzea erabilgarria da."
 
 # [WARNING] needs_update
@@ -3571,6 +3571,10 @@ msgstr "Camptocamp.org... mendi eskia!"
 # [WARNING] needs_update
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org... alpinismoa!"
+
+# [WARNING] en translation used
+msgid "c2c customized for snowshoeing !"
+msgstr "Camptocamp.org now customized for snowshoeing!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org-ek ez du inongo filtrorik ekintzetarako"
@@ -5257,7 +5261,7 @@ msgstr "Escalada deportiva de varios largos"
 
 # [WARNING] es translation used
 msgid "pack_skitouring"
-msgstr "Esquí y snowboard de montaña, raquetas"
+msgstr "Esquí y snowboard de montaña"
 
 # [WARNING] es translation used
 msgid "pack_snow_ice_mixed_easy"
@@ -5822,7 +5826,7 @@ msgstr "[ver]"
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 # [WARNING] es translation used
 msgid "select activities according to outing"
-msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul class=\"text\"><li>Si el o los itinerario(s) que recorrió incluye múltiples actividades, quedaran preseleccionadas. Combinaciones de [esquí + caminata] o [esquí + alpinismo en nieve] suelen necesitar que elige cual fue su actividad.</li><li>Para una salida con raquetas, elige esquí y caminata.</li><li>Tome también en cuenta las actividades correspondientes a otras rutas que pueda asociar a su salida una vez creada. Por ejemplo si realizo una aproximación con esquíes para luego escalar una arista rocosa.</li></ul>"
+msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul class=\"text\"><li>Si el o los itinerario(s) que recorrió incluye múltiples actividades, quedaran preseleccionadas. Combinaciones de [esquí + caminata] o [esquí + alpinismo en nieve] suelen necesitar que elige cual fue su actividad.</li><li>Tome también en cuenta las actividades correspondientes a otras rutas que pueda asociar a su salida una vez creada. Por ejemplo si realizo una aproximación con esquíes para luego escalar una arista rocosa.</li></ul>"
 
 # [WARNING] en translation used
 msgid "select an image file"
@@ -5925,7 +5929,7 @@ msgstr "Muy complejo (resaltes, secciones angostas, aristas...)"
 
 # [WARNING] needs_update
 msgid "skitouring"
-msgstr "eskia, surfa, raketak"
+msgstr "eskia, surfa"
 
 msgid "slab"
 msgstr "plaka"

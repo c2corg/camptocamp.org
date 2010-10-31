@@ -3170,7 +3170,7 @@ msgid "_staffed_period_info"
 msgstr "<h3>Periodos de guardia</h3>Periodos generales de guardia.<br />Por ejemplo: <em>Fines de semana de abril, mayo y septiembre. Todos los días de junio a agosto.</em>"
 
 msgid "_sub_activities_info"
-msgstr "<h3>Compatibilitat amb</h3>Aquest camp indica amb quines sub-activitats un itinerari <i>esquí, surf, raquees</i> és compatible. Les sub-activitats són donades a títol indicatiu.<br />Es poden seleccionar més d'una activitat.<br /><br /><strong>esquí</strong>&nbsp;: corespon a la majoria d'itineraris.<br /><br /><strong>surf</strong>&nbsp;: itinerari comportant molt poc pla o flanqueig - tots els itineraris <i>surf</i> han d'estar també indicats com <i>esquí</i>.<br /><br /><strong>raquetes</strong>&nbsp;: itinerari en bosc dens o en terreny pla o poc inclinat.<br /><br /><strong>iniciació</strong>&nbsp;: itinerari propici a l'iniciació en una subactivitat, que ha des er també seleccionada. En esquí/surf, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
+msgstr "<h3>Compatibilitat amb</h3>Aquest camp indica amb quines sub-activitats un itinerari <i>esquí, surf</i> és compatible. Les sub-activitats són donades a títol indicatiu.<br />Es poden seleccionar més d'una activitat.<br /><br /><strong>esquí</strong>&nbsp;: corespon a la majoria d'itineraris.<br /><br /><strong>surf</strong>&nbsp;: itinerari comportant molt poc pla o flanqueig - tots els itineraris <i>surf</i> han d'estar també indicats com <i>esquí</i>.<br /><br /><strong>iniciació</strong>&nbsp;: itinerari propici a l'iniciació en una subactivitat, que ha des er també seleccionada. En esquí/surf, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
 
 # [WARNING] needs_update
 msgid "_summit_type_info"
@@ -3629,10 +3629,14 @@ msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org... pura escalada esportiva!"
 
 msgid "c2c customized for skitouring !"
-msgstr "Camptocamp.org... pur esquí, surf i raquetes!"
+msgstr "Camptocamp.org... pur esquí i surf!"
 
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org... només neu, glaç i mixte!"
+
+# [WARNING] en translation used
+msgid "c2c customized for snowshoeing !"
+msgstr "Camptocamp.org now customized for snowshoeing!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org no filtra per activitats en aquest moment"
@@ -5322,7 +5326,7 @@ msgstr "Escalada deportiva de varios largos"
 
 # [WARNING] es translation used
 msgid "pack_skitouring"
-msgstr "Esquí y snowboard de montaña, raquetas"
+msgstr "Esquí y snowboard de montaña"
 
 # [WARNING] es translation used
 msgid "pack_snow_ice_mixed_easy"
@@ -5894,7 +5898,7 @@ msgstr "[ver]"
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 # [WARNING] es translation used
 msgid "select activities according to outing"
-msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul class=\"text\"><li>Si el o los itinerario(s) que recorrió incluye múltiples actividades, quedaran preseleccionadas. Combinaciones de [esquí + caminata] o [esquí + alpinismo en nieve] suelen necesitar que elige cual fue su actividad.</li><li>Para una salida con raquetas, elige esquí y caminata.</li><li>Tome también en cuenta las actividades correspondientes a otras rutas que pueda asociar a su salida una vez creada. Por ejemplo si realizo una aproximación con esquíes para luego escalar una arista rocosa.</li></ul>"
+msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul class=\"text\"><li>Si el o los itinerario(s) que recorrió incluye múltiples actividades, quedaran preseleccionadas. Combinaciones de [esquí + caminata] o [esquí + alpinismo en nieve] suelen necesitar que elige cual fue su actividad.</li><li>Tome también en cuenta las actividades correspondientes a otras rutas que pueda asociar a su salida una vez creada. Por ejemplo si realizo una aproximación con esquíes para luego escalar una arista rocosa.</li></ul>"
 
 # [WARNING] en translation used
 msgid "select an image file"
