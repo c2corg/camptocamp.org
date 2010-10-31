@@ -94,7 +94,7 @@ class Article extends BaseArticle
     
     public static function browse($sort, $criteria, $format = null)
     {
-        $field_list = self::buildFieldsList($format, $sort);
+        $field_list = self::buildFieldsList();
         $pager = self::createPager('Article', $field_list, $sort);
         $q = $pager->getQuery();
     
@@ -142,25 +142,10 @@ class Article extends BaseArticle
         $q->addWhere(implode(' AND ', $conditions), $criteria);
     }
 
-    protected static function buildFieldsList($format = null, $sort)
+    protected static function buildFieldsList()
     {   
-        $extra_fields = array();
-        if (isset($sort['orderby_param']))
-        {
-            $orderby = $sort['orderby_param'];
-            switch ($orderby)
-            {
-                case 'cnam':  $extra_fields[] = 'r.facing'; break;
-        $field_list = array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList(), 
                            array('m.categories', 'm.activities', 'm.article_type'));
-        
-        $orderby = $sort['order_by'];
-        if (!empty($orderby) && !in_array($orderby, $field_list))
-        {
-            $field_list[] = $orderby;
-        }
-        
-        return $field_list;
     } 
 
     protected function addPrevNextIdFilters($q, $model)
