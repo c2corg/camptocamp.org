@@ -370,7 +370,14 @@ class Association extends BaseAssociation
             }
         }
         
+        if ($type != 'pp')
+        {
             $child_docs = c2cTools::sortArray($child_docs, $sort_field, null, $order);
+        }
+        else
+        {
+        
+        }
         
         $all_docs = array();
         $parent_level = 0;
@@ -520,7 +527,7 @@ class Association extends BaseAssociation
         $wherein_clause = array();
         foreach ($types as $type)
         {
-            $wherein_clause[] =  '?';
+            $wherein_clause[] = '?';
             $where_array[] = $type;
         }
         $where .= '( ' . implode(', ', $wherein_clause) . ' )';

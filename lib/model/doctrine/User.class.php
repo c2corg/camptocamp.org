@@ -264,7 +264,7 @@ class User extends BaseUser
         Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
         
         // image criteria
-        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!sfContext::getInstance()->getUser()->isConnected())
         {

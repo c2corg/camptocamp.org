@@ -117,7 +117,7 @@ class Book extends BaseBook
         self::buildConditionItem($conditions, $values, 'List', 'lbd.linked_id', 'bdocs', 'join_bdocs_id', false, $params_list);
         
         // image criteria
-        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {

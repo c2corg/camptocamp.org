@@ -58,8 +58,11 @@ class Article extends BaseArticle
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
-        if (isset($conditions['all']) && $conditions['all'])
+        self::buildPersoCriteria($conditions, $values, $params_list, 'ccult');
+        
+        // return if no criteria
+        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($conditions['all']) || empty($citeria_temp))
         {
             return array($conditions, $values);
         }
@@ -73,13 +76,12 @@ class Article extends BaseArticle
         self::buildConditionItem($conditions, $values, 'Item', 'm.article_type', 'ctyp', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', array('m', 'a', 'activities'), 'act', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Item', 'mi.culture', 'ccult', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'mi.culture', 'ccult', null, false, $params_list);
         
         // linked document criteria
-        self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'cdocs', 'join_doc', false, $params_list);
 
         // user criteria
-        self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
 
         if (!empty($conditions))
@@ -92,7 +94,8 @@ class Article extends BaseArticle
     
     public static function browse($sort, $criteria, $format = null)
     {
-        $pager = self::createPager('Article', self::buildFieldsList(), $sort);
+        $field_list = self::buildFieldsList($format, $sort);
+        $pager = self::createPager('Article', $field_list, $sort);
         $q = $pager->getQuery();
     
         $conditions = array();
@@ -139,10 +142,25 @@ class Article extends BaseArticle
         $q->addWhere(implode(' AND ', $conditions), $criteria);
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($format = null, $sort)
     {   
-        return array_merge(parent::buildFieldsList(), 
+        $extra_fields = array();
+        if (isset($sort['orderby_param']))
+        {
+            $orderby = $sort['orderby_param'];
+            switch ($orderby)
+            {
+                case 'cnam':  $extra_fields[] = 'r.facing'; break;
+        $field_list = array_merge(parent::buildFieldsList(), 
                            array('m.categories', 'm.activities', 'm.article_type'));
+        
+        $orderby = $sort['order_by'];
+        if (!empty($orderby) && !in_array($orderby, $field_list))
+        {
+            $field_list[] = $orderby;
+        }
+        
+        return $field_list;
     } 
 
     protected function addPrevNextIdFilters($q, $model)

@@ -113,7 +113,7 @@ class Summit extends BaseSummit
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
         
         // image criteria
-        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {

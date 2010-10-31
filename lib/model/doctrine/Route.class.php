@@ -425,7 +425,7 @@ class Route extends BaseRoute
         self::buildConditionItem($conditions, $values, 'List', 'lrb.main_id', 'books', 'join_rbook_id', false, $params_list);
         
         // image criteria
-        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {

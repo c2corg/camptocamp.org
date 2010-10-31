@@ -228,7 +228,7 @@ class Outing extends BaseOuting
         User::buildUserListCriteria(&$conditions, &$values, $params_list, false, 'lu.main_id');
 
         // image criteria
-        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {

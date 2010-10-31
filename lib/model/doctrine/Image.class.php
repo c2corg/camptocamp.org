@@ -418,7 +418,7 @@ class Image extends BaseImage
         self::buildAreaCriteria($conditions, $values, $params_list);
         
         // image criteria
-        Images::buildImageListCriteria(&$conditions, &$values, $params_list, true);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, true);
         self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'documents', 'join_itag_id', false, $params_list);
 
         // summit criteria

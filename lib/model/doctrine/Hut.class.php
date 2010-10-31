@@ -136,7 +136,7 @@ class Hut extends BaseHut
         self::buildConditionItem($conditions, $values, 'List', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
         
         // image criteria
-        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {

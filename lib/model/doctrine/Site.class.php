@@ -214,7 +214,7 @@ class Site extends BaseSite
         self::buildConditionItem($conditions, $values, 'List', 'ltb.main_id', 'books', 'join_tbook_id', false, $params_list);
         
         // image criteria
-        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {

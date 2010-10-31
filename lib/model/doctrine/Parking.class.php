@@ -120,7 +120,7 @@ class Parking extends BaseParking
         Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
         
         // image criteria
-        Images::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
 
         if (!empty($conditions))
         {
