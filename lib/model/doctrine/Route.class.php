@@ -636,14 +636,14 @@ class Route extends BaseRoute
         {
             if ($conditions['join_hasparking'])
             {
-                $is_null = 'IS NOT NULL';
+                $is_null = 'lp.main_id IS NOT NULL AND lp.main_id != 0';
             }
             else
             {
-                $is_null = 'IS NULL';
+                $is_null = '(lp.main_id IS NULL OR lp.main_id = 0)';
             }
-            $q->leftJoin('m.associations l4')
-              ->addWhere("l4.type = 'pr' AND l4 $is_null");
+            $q->leftJoin('m.associations lp')
+              ->addWhere("lp.type = 'pr' AND $is_null");
             
             unset($conditions['join_hasparking']);
         }
