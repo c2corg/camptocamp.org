@@ -214,7 +214,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'List':    self::buildListCondition(&$conditions, &$values, $field, $value); break;
                 case 'Id':
                     self::buildListCondition(&$conditions, &$values, $field, $value);
-                    if ($join_id && (($param == '-') || ($param == ' ')))
+                    if ($join_id && (($value == '-') || ($value == ' ')))
                     {
                         $conditions[$join_id . '_has'] = true;
                     }
