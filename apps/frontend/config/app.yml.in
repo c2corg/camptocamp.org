@@ -1449,11 +1449,11 @@ all:
       6: T6
     snowshoeing_ratings:
       0:
-      1: WT1
-      2: WT2
-      3: WT3
-      4: WT4
-      5: WT5
+      1: R1
+      2: R2
+      3: R3
+      4: R4
+      5: R5
 
   parkings:
     public_transportation_ratings:
