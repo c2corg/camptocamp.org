@@ -148,7 +148,7 @@ class Outing extends BaseOuting
             $join_id = $join . '_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'outings', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'outings', $join_id, false, $params_list);
         if ($is_module)
         {
             $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
@@ -314,15 +314,19 @@ class Outing extends BaseOuting
                 
             $q->leftJoin($first_join . ' lo');
             
+            if (!isset($conditions['join_outing_id']) || isset($conditions['join_outing_id_has']))
+            {
+                $q->addWhere($m . "type = '$ltype'");
+                if (isset($conditions['join_outing_id_has']))
+                {
+                    unset($conditions['join_outing_id_has']);
+                }
+            }
             if (isset($conditions['join_outing_id']))
             {
                 unset($conditions['join_outing_id']);
                 
                 return;
-            }
-            else
-            {
-                $q->addWhere($m . "type = '$ltype'");
             }
             
             if (isset($conditions['join_outing']))
@@ -383,9 +387,7 @@ class Outing extends BaseOuting
             || isset($conditions['join_ptag_id'])
         )
         {
-            $q->leftJoin("m.associations lr");
-            
-            Route::buildRoutePagerConditions($q, $conditions, false, false, 'ro');
+            Route::buildRoutePagerConditions($q, $conditions, false, false, 'm.associations', 'ro');
 
             if (   isset($conditions['join_summit_id'])
                 || isset($conditions['join_summit'])
@@ -395,9 +397,7 @@ class Outing extends BaseOuting
                 || isset($conditions['join_sbtag_id'])
             )
             {
-                $q->leftJoin("lr.MainAssociation ls");
-                
-                Summit::buildSummitPagerConditions($q, $conditions, false, false, 'sr');
+                Summit::buildSummitPagerConditions($q, $conditions, false, false, 'lr.MainAssociation', 'sr');
             }
             
             if (   isset($conditions['join_hut_id'])
@@ -408,9 +408,7 @@ class Outing extends BaseOuting
                 || isset($conditions['join_hbtag_id'])
             )
             {
-                $q->leftJoin("lr.MainAssociation lh");
-                
-                Hut::buildHutPagerConditions($q, $conditions, false, false, 'hr');
+                Hut::buildHutPagerConditions($q, $conditions, false, false, 'lr.MainAssociation', 'hr');
             }
             
             if (   isset($conditions['join_parking_id'])
@@ -419,9 +417,7 @@ class Outing extends BaseOuting
                 || isset($conditions['join_ptag_id'])
             )
             {
-                $q->leftJoin("lr.MainAssociation lp");
-                
-                Parking::buildParkingPagerConditions($q, $conditions, false, false, 'pr');
+                Parking::buildParkingPagerConditions($q, $conditions, false, false, 'lr.MainAssociation', 'pr');
             }
         }
 
@@ -434,9 +430,7 @@ class Outing extends BaseOuting
             || isset($conditions['join_tbtag_id'])
         )
         {
-            $q->leftJoin("m.associations lt");
-            
-            Site::buildSitePagerConditions($q, $conditions, false, false, 'to');
+            Site::buildSitePagerConditions($q, $conditions, false, false, 'm.associations', 'to');
         }
 
         // join with user tables only if needed 
