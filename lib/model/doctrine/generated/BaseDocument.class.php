@@ -218,6 +218,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     {
                         $conditions[$join_id . '_has'] = true;
                     }
+                    break;
                 case 'Multilist': $nb_join = self::buildMultilistCondition(&$conditions, &$values, $field, $value); break;
                 case 'Linkedlist': self::buildLinkedlistCondition(&$conditions, &$values, $field, $value); break;
                 case 'Array':   self::buildArrayCondition(&$conditions, &$values, $field, $value); break;
