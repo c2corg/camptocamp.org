@@ -544,9 +544,7 @@ class Image extends BaseImage
             || isset($conditions['join_sbtag_id'])
         )
         {
-            $q->leftJoin("m.associations ls");
-            
-            Summit::buildSummitPagerConditions($q, $conditions, false, false, 'si');
+            Summit::buildSummitPagerConditions($q, $conditions, false, false, 'm.associations', 'si');
         }
 
         if (   isset($conditions['join_route_id'])
@@ -561,9 +559,7 @@ class Image extends BaseImage
             || isset($conditions['join_rbtag_id'])
         )
         {
-            $q->leftJoin("m.associations lr");
-            
-            Route::buildRoutePagerConditions($q, $conditions, false, false, 'ri');
+            Route::buildRoutePagerConditions($q, $conditions, false, false, 'm.associations', 'ri');
         }
 
         if (   isset($conditions['join_site_id'])
@@ -574,9 +570,7 @@ class Image extends BaseImage
             || isset($conditions['join_tbtag_id'])
         )
         {
-            $q->leftJoin("m.associations lt");
-            
-            Site::buildSitePagerConditions($q, $conditions, false, false, 'ti');
+            Site::buildSitePagerConditions($q, $conditions, false, false, 'm.associations', 'ti');
         }
         
         // join with outings tables only if needed 
