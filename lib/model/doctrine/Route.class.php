@@ -477,7 +477,7 @@ class Route extends BaseRoute
         return $pager;
     }
     
-    public static function buildRoutePagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join, $ltype)
+    public static function buildRoutePagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
         if ($is_module)
         {

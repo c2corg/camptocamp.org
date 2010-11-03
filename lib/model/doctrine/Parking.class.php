@@ -166,7 +166,7 @@ class Parking extends BaseParking
         return $pager;
     }   
     
-    public static function buildParkingPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join, $ltype)
+    public static function buildParkingPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
         if ($is_module)
         {

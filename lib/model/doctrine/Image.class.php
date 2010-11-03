@@ -479,7 +479,7 @@ class Image extends BaseImage
         return $pager;
     }
     
-    public static function buildImagePagerConditions(&$q, &$conditions, $is_module = false, $ltype)
+    public static function buildImagePagerConditions(&$q, &$conditions, $is_module = false, $ltype = null)
     {
         if ($is_module)
         {

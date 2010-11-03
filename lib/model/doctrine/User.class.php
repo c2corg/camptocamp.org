@@ -316,7 +316,7 @@ class User extends BaseUser
         return $pager;
     }
     
-    public static function buildUserPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join, $ltype)
+    public static function buildUserPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
         if ($is_module)
         {
@@ -396,9 +396,7 @@ class User extends BaseUser
             || isset($conditions['join_hbtag_id'])
         )
         {
-            $q->leftJoin('m.LinkedAssociation lh');
-            
-            Hut::buildHutPagerConditions($q, $conditions, false, true, 'ph');
+            Hut::buildHutPagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'ph');
         }
 
         // join with outings tables only if needed 
@@ -422,9 +420,7 @@ class User extends BaseUser
             || isset($conditions['join_otag_id'])
         )
         {
-            $q->leftJoin("m.LinkedAssociation lo");
-            
-            Outing::buildOutingPagerConditions($q, $conditions, false, true, 'uo');
+            Outing::buildOutingPagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'uo');
             
 
             if (   isset($conditions['join_route_id'])
@@ -437,9 +433,7 @@ class User extends BaseUser
                 || isset($conditions['join_rbtag_id'])
             )
             {
-                $q->leftJoin('lo.MainMainAssociation lr');
-                
-                Route::buildRoutePagerConditions($q, $conditions, false, false, 'pr');
+                Route::buildRoutePagerConditions($q, $conditions, false, false, 'lo.MainMainAssociation', 'pr');
                 
                 if (   isset($conditions['join_summit_id'])
                     || isset($conditions['join_summit'])
@@ -449,9 +443,7 @@ class User extends BaseUser
                     || isset($conditions['join_sbtag_id'])
                 )
                 {
-                    $q->leftJoin("lr.MainAssociation ls");
-                    
-                    Summit::buildSummitPagerConditions($q, $conditions, false, false, 'sr');
+                    Summit::buildSummitPagerConditions($q, $conditions, false, false, 'lr.MainAssociation', 'sr');
                 }
             }
         }

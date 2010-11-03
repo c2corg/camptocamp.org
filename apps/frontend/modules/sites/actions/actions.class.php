@@ -585,7 +585,7 @@ class sitesActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $conditions = $values = array();
+        $params_list = c2cTools::getAllRequestParameters();
 
         return Site::buildListCriteria($params_list);
     }

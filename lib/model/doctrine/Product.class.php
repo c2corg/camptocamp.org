@@ -125,7 +125,7 @@ class Product extends BaseProduct
         return $pager;
     }   
     
-    public static function buildProductPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join, $ltype)
+    public static function buildProductPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
         if ($is_module)
         {

@@ -61,7 +61,7 @@ class Book extends BaseBook
         {
             $m = 'm';
             $join = null;
-            $join_i18n = null;
+            $join_i18n = 'join_book_i18n';
         }
         else
         {
