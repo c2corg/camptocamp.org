@@ -1,33 +1,39 @@
-<?php if(in_array($module, array('areas', 'articles', 'books', 'huts', 'outings', 'parkings', 'routes', 'sites', 'summits'))): ?>
+<?php
+if(in_array($module, array('areas', 'articles', 'books', 'huts', 'outings', 'parkings', 'routes', 'sites', 'summits'))): ?>
 <br />
 <br />
 <hr />
 <br />
 <script type="text/javascript">
 //<![CDATA[
-module_url = "www.camptocamp.org/<?php echo $module ?>/";
-google_i18n = new Array('<?php
-$google_i18n = array('first page', 'previous page', 'next page', 'last page', 'More results on Google...', 'Document title', 'Extract', 'No result');
+Event.observe(window, 'load', function() {
+GoogleSearch.i18n = new Array('<?php
+$google_i18n = array('first page', 'previous page', 'next page', 'Document title', 'Extract', 'No result');
 $google_i18n = array_map('__', $google_i18n);
 echo implode('\', \'', $google_i18n);
 ?>');
+<?php $cse = sfConfig::get('app_images_gcse'); ?>
+GoogleSearch.base_url = 'https://www.googleapis.com/customsearch/v1?key=<?php echo $cse['key'] ?>&cx=<?php echo $cse[$module] ?>&callback=GoogleSearch.handleResponse';
+});
 //]]>
 </script>
 <div id="google_search">
 <?php
 use_helper('Form');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('http://www.google.com/jsapi', 'last');
 $response->addJavascript('/static/js/google_search.js', 'last');
 echo __('Search with google');
-echo form_tag('http://www.google.com/search', array('method'=>'get', 'onsubmit' => 'siteSearch.execute($F(google_search_input)); return false;'));
-?>
-<span id="google_search_branding" style="float:left"></span>
-<?php echo input_tag('q', null, array('id'=>'google_search_input')); ?>
-<?php echo input_hidden_tag('sitesearch', "camptocamp.org/$module"); ?>
-
-<?php echo submit_tag(__('Search'), array('name'=>'google_search_submit', 'class' => 'picto action_filter')); ?>
+echo form_tag('http://www.google.com/search', array('method'=>'get', 'onsubmit' => 'GoogleSearch.q=$F(google_search_input); GoogleSearch.search(); return false;'));
+$gwm = 'url(http://www.google.com/coop/intl/'.__('meta_language').'/images/google_custom_search_watermark.gif) no-repeat scroll left center #fff';
+$nogwm = "none repeat scroll 0 0 #fff";
+echo input_tag('q', null, array('id'=>'google_search_input',
+                                'onblur' => "if (this.value == '') this.style.background = '$gwm';",
+                                'onfocus' => "this.style.background = '$nogwm';",
+                                'style' => 'background: '.$gwm));
+echo input_hidden_tag('sitesearch', "camptocamp.org/$module");
+echo '&nbsp;';
+echo submit_tag(__('Search'), array('name'=>'google_search_submit', 'class' => 'picto action_filter')); ?>
 </form>
 <div id="google_search_results"></div>
 </div>
-<?php endif; ?>
+<?php endif;
