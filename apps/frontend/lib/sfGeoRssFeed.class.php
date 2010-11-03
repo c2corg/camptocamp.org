@@ -48,7 +48,7 @@ class sfGeoRssFeed extends sfRssFeed
     }
     if (!$this->getAuthorEmail() && $this->getAuthorName())
     {
-      $xml[] = '    <dc:creator>'.$this->getAuthorName().'</dc:creator>';
+      $xml[] = '    <dc:creator><![CDATA['.$this->getAuthorName().']]></dc:creator>';
     }    if ($this->getLanguage())
     {
       $xml[] = '    <language>'.$this->getLanguage().'</language>';
