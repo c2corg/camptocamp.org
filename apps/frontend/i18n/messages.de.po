@@ -204,7 +204,7 @@ msgid "Association deletion failed"
 msgstr "Die Trennung ist gescheitert"
 
 msgid "Association failed"
-msgstr "Die Verknüpfung ist gescheitert"
+msgstr "Das Verbinden ist gescheitert"
 
 msgid "Association not allowed"
 msgstr "Diese Verbindung ist nicht erlaubt"
@@ -1183,10 +1183,10 @@ msgid "Line %1%:"
 msgstr "Linie %1%:"
 
 msgid "Link"
-msgstr "Verknüpfen"
+msgstr "Verbinden"
 
 msgid "Link an existing document"
-msgstr "Ein existierendes Dokument verknüpfen"
+msgstr "Ein existierendes Dokument verbinden"
 
 msgid "Linked books"
 msgstr "Verbundene Bücher"
@@ -1197,7 +1197,7 @@ msgid "Linked document"
 msgstr "Verbundenes Dokument"
 
 msgid "Linked document does not exist"
-msgstr "Das Dokument, welches sie verknüpfen wollen, existiert nicht"
+msgstr "Das Dokument, welches sie verbinden wollen, existiert nicht"
 
 msgid "Linked documents"
 msgstr "Verbundene Dokumente"
@@ -1338,7 +1338,7 @@ msgid "Merge"
 msgstr "Zusammenschliessen"
 
 msgid "Merge this document into another one"
-msgstr "Dieses Dokument mit einem Ziel Dokument Zusammenschliessen (Die Verknüpfungen werden im Ziel Dokument übertragen)"
+msgstr "Dieses Dokument mit einem Zieldokument zusammenschliessen (Die Verbindungen werden ins Zieldokument übertragen)"
 
 msgid "Merge two documents"
 msgstr "Zwei Dokumente zusammenschliessen"
@@ -1397,6 +1397,10 @@ msgstr "Meine Tour: "
 msgid "My preferences"
 msgstr "Persönliche Einstellungen"
 
+# [WARNING] en translation used
+msgid "My topics"
+msgstr "My topics"
+
 msgid "N"
 msgstr "N"
 
@@ -1425,7 +1429,7 @@ msgid "New routes article"
 msgstr "Geschichte der Eröffnungen"
 
 msgid "No associated document found"
-msgstr "Kein Verknüpfte Dokumente gefunden"
+msgstr "Kein verknüpftes Dokument wurde gefunden"
 
 msgid "No associated route found"
 msgstr "Keine Route ist mit diesem Gipfel verbunden "
@@ -1460,44 +1464,43 @@ msgid "No image linked to this document"
 msgstr "Kein Bild ist mit dieser Datei verbunden."
 
 msgid "No linked book"
-msgstr "Kein Buch ist mit diesem Dokument verknüpft"
+msgstr "Kein Buch ist mit diesem Dokument verbunden"
 
 msgid "No linked hut"
-msgstr "Keine Hütte ist mit diesem Dokument verknüpft."
+msgstr "Keine Hütte ist mit diesem Dokument verbunden."
 
 msgid "No linked outing"
-msgstr "Keine Tour ist mit diese Route verknüpft."
+msgstr "Keine Tour ist mit dieser Route verbunden."
 
 msgid "No linked outing to this site"
-msgstr "Keine Tour ist mit diesem Klettersektor verbunden"
+msgstr "Keine Tour ist mit diesem Klettersektor verbunden."
 
-# [WARNING] needs_review
 msgid "No linked product"
 msgstr "Kein \"lokales Produkt\" ist mit diesem Dokument verbunden."
 
 msgid "No linked route"
-msgstr "Keine Route ist mit diesem Dokument verknüpft."
+msgstr "Keine Route ist mit diesem Dokument verbunden."
 
 msgid "No linked site"
-msgstr "Kein Klettersektor ist mit diesem Dokument verknüpft."
+msgstr "Kein Klettersektor ist mit diesem Dokument verbunden."
 
 msgid "No linked summit"
-msgstr "Kein Gipfel ist mit diesem Dokument verknüpft."
+msgstr "Kein Gipfel ist mit diesem Dokument verbunden."
 
 msgid "No message defined. Click to edit"
-msgstr "<i>Keine definierte Nachricht. Anklicken zum ändern.</i>"
+msgstr "<i>Keine definierte Nachricht. Klicken sie hier um diese zu ändern.</i>"
 
 msgid "No recent changes available"
-msgstr "Keine neue Änderung verfügbar."
+msgstr "Keine neue Änderung ist verfügbar."
 
 msgid "No recent images available"
-msgstr "Keine neue Bilder verfügbar"
+msgstr "Keine neuen Bilder sind verfügbar"
 
 msgid "No recent videos available"
 msgstr "Es gibt kein neues Video."
 
 msgid "No result"
-msgstr "Keine Ergebnisse für Ihre Suche"
+msgstr "Es konnten keine Ergebnisse für Ihre Suche gefunden werden."
 
 msgid "No route matching your search?"
 msgstr "Ist die von ihnen gewünschte Route nicht eingetragen? Haben sie versucht die Route unter einem anderen Gipfel zu suchen?<br />Falls die Route noch nicht im Tourenführer enthalten ist, fügen sie erst die neue Route hinzu und machen sie anschliessend ihren Toureneintrag."
@@ -1524,7 +1527,7 @@ msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Diese Operation ist verboten: eine Route muß mit mindestem einem Gipfel verbunden werden "
 
 msgid "Operation forbidden: last association"
-msgstr "Nicht erlaubte Aktion: Es ist die letzte Verknüpfung dieser Art"
+msgstr "Nicht erlaubte Aktion: Es handelt sich um die letzte Verbindung dieser Art"
 
 msgid "Operation not allowed"
 msgstr "Nicht erlaubte Aktion."
@@ -1537,6 +1540,12 @@ msgstr "Toureneingabessistent"
 
 msgid "Outing not found"
 msgstr "Diese Tour existiert nicht."
+
+# [general comment]
+# Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
+# [WARNING] en translation used
+msgid "Outings linked to these images"
+msgstr "Outings linked to these images"
 
 msgid "PD"
 msgstr "WS"
@@ -1690,10 +1699,10 @@ msgid "Refresh geoassociations"
 msgstr "Regionen: aktualisieren"
 
 msgid "Refresh the geoassociations of this document"
-msgstr "Die verknüpften Regionen (und Karten) dieses Dokuments und damit verbundene Dokumente erneuern"
+msgstr "Die verbundenen Regionen (und Karten) dieses Dokuments und damit verbundene Dokumente erneuern"
 
 msgid "Regions are detected automatically according to coordinates"
-msgstr "Die verknüpften Regionen werden automatisch durch die untenstehenden Koordinaten gefunden."
+msgstr "Die verbundenen Regionen werden automatisch durch die untenstehenden Koordinaten gefunden."
 
 msgid "Remember me ?"
 msgstr "Sich an mich erinnern?"
@@ -2128,7 +2137,7 @@ msgid "The data you entered seems to be incorrect. Please correct the following 
 msgstr "Ihre Daten scheinen fehlerhaft zu sein. Bitte korrigieren Sie die Fehler und versuchen Sie es erneut."
 
 msgid "The document is already linked to the current document"
-msgstr "Das Dokument wurde schon mit diesem Dokument verknüpft"
+msgstr "Das Dokument wurde schon mit dem aktuellen Dokument verbunden"
 
 msgid "The field is %1% characters max"
 msgstr "Dieses Feld ist zu lang (maximal %1% Buchstaben)"
@@ -2921,9 +2930,9 @@ msgstr "<h3>Bildtyp</h3><br />\n"
 "<tr><td>Lizenz, welcher das Bild untersteht</td><td><a href=\"/articles/106728/de#cc-by-sa\">Creative Common by-sa</a></td><td><a href=\"/articles/106728/de#cc-by-nc-nd\">Creative Common by-nc-nd</a></td></tr>\n"
 "<tr><td>Das Bild darf kopiert werden?</td><td>ja</td><td>ja</ja></tr>\n"
 "<tr><td>Das Bild darf verändert werden?</td><td>ja</td><td>nein (resp. nur durch den Autor)</ja></tr>\n"
-"<tr><td>Verwendung im Tourenführer</td></tr><tr><td>Speicherung in einem gemeinschaftlichen Dokument</td><td>ja</td><td>nein</ja></tr><tr><td>Verknüpfung mit einem gemeinschaftlichen Dokument</td><td>ja</td><td>ja (nachdem das Bild in einem persönlichen Dokument gespeichert wurde)</ja></tr>\n"
+"<tr><td>Verwendung im Tourenführer</td></tr><tr><td>Speicherung in einem gemeinschaftlichen Dokument</td><td>ja</td><td>nein</ja></tr><tr><td>Verbindung mit einem gemeinschaftlichen Dokument</td><td>ja</td><td>ja (nachdem das Bild in einem persönlichen Dokument gespeichert wurde)</ja></tr>\n"
 "<tr><td>Einfügen in einen Text eines gemeinschaftlichen Dokuments</td><td>ja</td><td>nein</ja></tr>\n"
-"<tr><td>Speicherung, Verknüpfung oder Einfügen in/mit ein/em persönliches/m Dokument</td><td>Dem/den Autoren vorbehalten</td><td>Dem/den Autoren vorbehalten</ja></tr>\n"
+"<tr><td>Speicherung, Verbinden oder Einfügen in/mit ein/em persönliches/m Dokument</td><td>Dem/den Autoren vorbehalten</td><td>Dem/den Autoren vorbehalten</ja></tr>\n"
 "</table><br />"
 
 msgid "_is_on_glacier_info"
@@ -3026,9 +3035,8 @@ msgstr "<h3>Mediane Höhe</h3>Mediane Höhe der interessanten Routen im Gebiet/S
 msgid "_mean_rating_info"
 msgstr "<h3>Mittlerer Schwierigkeitsgrad</h3>Most represented grade in the climbing site or particular crag.<br /><br />The median height is obtained by ranking routes by increasing grade and cutting the list into two equal halves. The grade of the split is the median grade.<br />The standard French grades are used, from 2 to 9b."
 
-# [WARNING] needs_review
 msgid "_min_elevation_info"
-msgstr "<h3>Minimale Höhe</h3><em><u>Touren</u>:</em><br />Falls für die Tour ein GPX-Track hochgeladen wurde und vorgängig keine Höheninformation eingegeben wurde, wird die minimale Höhe automatisch aus dem Track berechnet. Falls kein Track hochgeladen wurde, wird die minimale Höhe aus der verknüpften Route verwendet.<br /><br /><em><u>Routes</u>:</em><br />Falls die Route üblicherweise von einer Hütte aus begangen wird, ist die minimale Höhe abhängig vom Routentype:<br />- Für eine Route, bei welcher auf dem Abstieg eine Hütte passiert wird, sollte die Höhe der Hütte verwendet werden.<br />- Für eine Traverse mit keiner anderen Hütte auf der Route, sollte die Höhe der ersten Hütte verwendet werden.<br />- Bei einer Traverse mit mehreren Etappen (z.B. Hütte-zu-Hütte-Wanderung) ist die minimale Höhe die tiefste Stelle zwischen den beiden Hütten."
+msgstr "<h3>Minimale Höhe</h3><em><u>Touren</u>:</em><br />Falls für die Tour ein GPX-Track hochgeladen wurde und vorgängig keine Höheninformation eingegeben wurde, wird die minimale Höhe automatisch aus dem Track berechnet. Falls kein Track hochgeladen wurde, wird die minimale Höhe aus der verbundenen Route verwendet.<br /><br /><em><u>Routes</u>:</em><br />Falls die Route üblicherweise von einer Hütte aus begangen wird, ist die minimale Höhe abhängig vom Routentype:<br />- Für eine Route, bei welcher auf dem Abstieg eine Hütte passiert wird, sollte die Höhe der Hütte verwendet werden.<br />- Für eine Traverse mit keiner anderen Hütte auf der Route, sollte die Höhe der ersten Hütte verwendet werden.<br />- Bei einer Traverse mit mehreren Etappen (z.B. Hütte-zu-Hütte-Wanderung) ist die minimale Höhe die tiefste Stelle zwischen den beiden Hütten."
 
 # [WARNING] needs_review
 msgid "_min_elevation_max_elevation_info"
@@ -3076,7 +3084,7 @@ msgstr "<h3>Forumpseudonym</h3>Name, welcher im Forum der Website verwendet wird
 
 # [WARNING] needs_review
 msgid "_outing_length_info"
-msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verknüpft ist.<br />Dieser Wert ist aus dem verknüpften GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
+msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verbunden ist.<br />Dieser Wert ist aus dem verbundenen GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
 
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Benützung des öV</h3>Gibt an, ob die An- und Abreise einer Tour mit öffentlichen Verkehrsmitteln (oder per Velo) gemacht wurde, was ein praktisches Suchkriterium ist. Skilifte werden dabei nicht berücksichtigt.<br />Wenn dieses Feld angekreuzt wird, erscheint die Tour auf auf dem <a href=\"http://www.changerdapproche.org\">Changer d'approche</a>-Portal.<br />Das Feld ist optional und kann unbeantwortet belassen werden, obschon der öV verwendet wurde."
@@ -3232,7 +3240,7 @@ msgstr "<h3>Platzkapazität während der bewarteten Zeit</h3>Anzahl der “norma
 msgid "_staffed_period_info"
 msgstr "<h3>Bewartungszeitraum</h3>Ungefährer Zeitraum, wann die Hütte üblicherweise bewartet ist.<br />Beispiel: <em>Wochenende im April, Mai und Ende September. Täglich von Mitte Juni bis Mitte September.</em>"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_sub_activities_info"
 msgstr "<h3>Ausführbar mit</h>Dieses Feld führt aus, mit welchen Unter-Aktivitäten eine <Ski-, Snowboardroute</em> ausführbar ist. Die Unter-Aktivitäten werden nur ungefähr angegeben.<br />Mehrere Unter-Aktivitäten können angegeben werden.<br /><br /><strong>Ski</strong>: Trifft auf die meisten Routen zu.<br /><br /><strong>Snowboard</strong>: Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen. Alle <em>Snowboard</em>touren sind auch <em>Ski</em>touren.<br /><br /><strong>Anfänger</strong>: Die Route ist geeignet um eine Unter-Aktivität (bitte auch auswählen) zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewalteten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr. Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
 
@@ -3289,7 +3297,7 @@ msgstr "<h3>URL</h3>Link auf die Hütte, auf Website des Autors, auf ein herunte
 
 # [WARNING] needs_review
 msgid "_variants_info"
-msgstr "<h3>Verbundene Routen</h3> Miteinander verbundene Routen sind Routen, welche einen teilweisen identischen Routenverlauf haben oder über dieselben Schwierigkeiten verlaufen.<br /> <br /> Zum Beispiel, eine Überschreitung eines Gipfels, welche durch ein bestimmtes Couloir abgestiegen wird, muss mit der Route verbunden werden, welche das Couloir an sich beschreibt.<br /> Andererseits werden Varianten innerhalb einer Schwierigkeit (z.B. ein Couloir mit zwei Ausstiegen, ein Pfeiler, welcher über den Hauptgrad oder wenig davon Abweichend in der Flanke begangen werden kann, etc.) in derselben Route beschrieben.<br /> <br /> Die auf dieser Seite angezeigten Liste der Touren enthält die Touren, welche mit der Route verbunden sind, sowie die Touren, welche mit den verbundenen Routen verknüpft sind. Dies erlaubt einerseits unterschiedliche, spezifische Routenbeschreibungen, aber andererseits auch gemeinsame Informationen der Verhältnisse."
+msgstr "<h3>Verbundene Routen</h3> Miteinander verbundene Routen sind Routen, welche einen teilweisen identischen Routenverlauf haben oder über dieselben Schwierigkeiten verlaufen.<br /> <br /> Zum Beispiel, eine Überschreitung eines Gipfels, welche durch ein bestimmtes Couloir abgestiegen wird, muss mit der Route verbunden werden, welche das Couloir an sich beschreibt.<br /> Andererseits werden Varianten innerhalb einer Schwierigkeit (z.B. ein Couloir mit zwei Ausstiegen, ein Pfeiler, welcher über den Hauptgrad oder wenig davon Abweichend in der Flanke begangen werden kann, etc.) in derselben Route beschrieben.<br /> <br /> Die auf dieser Seite angezeigten Liste der Touren enthält die Touren, welche mit der Route verbunden sind, sowie die Touren, welche mit den verbundenen Routen verbunden sind. Dies erlaubt einerseits unterschiedliche, spezifische Routenbeschreibungen, aber andererseits auch gemeinsame Informationen über die Verhältnisse."
 
 # [WARNING] needs_review
 msgid "_way_back_info"
@@ -3506,7 +3514,7 @@ msgid "articles list"
 msgstr "Liste der Artikel"
 
 msgid "articles presentation"
-msgstr "Ein Artikel kann gemeinschaftlich oder persönlich sein. Ein Artikel kann mit anderen Dokumenten verknüpft werden."
+msgstr "Ein Artikel kann gemeinschaftlich oder persönlich sein. Ein Artikel kann mit anderen Dokumenten verbunden werden."
 
 # [WARNING] needs_review
 msgid "artificial"
@@ -5369,7 +5377,7 @@ msgstr "Tour"
 
 # [WARNING] needs_review
 msgid "outing form warning"
-msgstr "<strong>Warnung!</strong> Geben sie auf dieser Seite ausschliesslich Informationen an, welche spezifisch zu ihrer Tour sind (spezifische Verhältnisse, persönliche Kommentare). Nicht-vergängliche Informationen über eine Route müssen auf der entsprechenden Seite der Route angegeben werden.<li>Mehr Informationen über den Aufbau und die Struktur des Tourenführers finden sie in der entsprechenden <a href=\"/articles/117868/de\">Hilfe</a>.</li><br /><li><strong>Typ der Tour:</strong> Heliskitouren oder Touren im Skigebiet sind nicht zugelassen. Verwenden sie das <a href=\"../../forums/viewforum.php?id=2\">Forum \"Verhältnisse: Schnee und Lawinen\"</a> um ihre Beobachtungen während dieser Touren zu beschreiben.</li><br /><li><strong>Name der Tour: </strong>Standardmässig werden Touren wie folgt benannt: \"Gipfel: Route\", aber sie können den Namen ändern um eine Variation oder einen Begehungsversuch zu beschreiben.</li> <li><strong>Verknüpfung mit anderen Dokumenten:</strong> Nachdem sie das Tourendokument erstellt haben können sie es mit anderen Routen oder Klettergebieten (bei Verwendung mehrerer Klettergebiete), sowie mit anderen, bei c2c registrierten Benutzern verbinden (und diesen dabei die Berechtigung erteilen die das Tourendokument zu ändern und ihre eigenen Kommentare hinzuzufügen).</li> "
+msgstr "<strong>Warnung!</strong> Geben sie auf dieser Seite ausschliesslich Informationen an, welche spezifisch zu ihrer Tour sind (spezifische Verhältnisse, persönliche Kommentare). Nicht-vergängliche Informationen über eine Route müssen auf der entsprechenden Seite der Route angegeben werden.<li>Mehr Informationen über den Aufbau und die Struktur des Tourenführers finden sie in der entsprechenden <a href=\"/articles/117868/de\">Hilfe</a>.</li><br /><li><strong>Typ der Tour:</strong> Heliskitouren oder Touren im Skigebiet sind nicht zugelassen. Verwenden sie das <a href=\"../../forums/viewforum.php?id=2\">Forum \"Verhältnisse: Schnee und Lawinen\"</a> um ihre Beobachtungen während dieser Touren zu beschreiben.</li><br /><li><strong>Name der Tour: </strong>Standardmässig werden Touren wie folgt benannt: \"Gipfel: Route\", aber sie können den Namen ändern um eine Variation oder einen Begehungsversuch zu beschreiben.</li> <li><strong>Verbindung mit anderen Dokumenten:</strong> Nachdem sie das Tourendokument erstellt haben können sie es mit anderen Routen oder Klettergebieten (bei Verwendung mehrerer Klettergebiete), sowie mit anderen, bei c2c registrierten Benutzern verbinden (und diesen dabei die Berechtigung erteilen die das Tourendokument zu ändern und ihre eigenen Kommentare hinzuzufügen).</li> "
 
 msgid "outing_length"
 msgstr "Länge:"
@@ -5437,9 +5445,8 @@ msgstr "Zugangsorte"
 msgid "parkings list"
 msgstr "Liste der Zugangsorte"
 
-# [WARNING] needs_review
 msgid "parkings presentation"
-msgstr "Ein Zugangsort ist ein Start- oder Endpunkt einer Route. Ein Zugangsort kann ein Parkplatz, eine Bushaltestelle, ein Bahnhof oder eine Berg- oder Talstation einr Seilbahn sein. Ein Zugangsort kann mit Routen und/oder Hütten verknüpft werden."
+msgstr "Ein Zugangsort ist ein Start- oder Endpunkt einer Route. Ein Zugangsort kann ein Parkplatz, eine Bushaltestelle, ein Bahnhof oder eine Berg- oder Talstation einer Seilbahn sein. Ein Zugangsort kann mit Routen und/oder Hütten verbunden werden."
 
 msgid "partial equipment"
 msgstr "P2 (teilweise eingerichtet)"
@@ -5867,7 +5874,7 @@ msgstr "Route"
 
 # [WARNING] needs_review
 msgid "route form warning"
-msgstr "<strong>Achtung!</strong> Geben sie auf dieser Seite ausschliesslich nicht-ändernde (permanente) Informationen zur Route an. Informationen, welche spezifisch auf eine Tour Bezug nehmen (vorgefundene Verhältnisse, persönliche Kommentare) müssen in der Seite einer \"Tour\"gemacht werden. <br /> Mehr Informationen über den Aufbau und die Struktur des Tourenführers finden sie in der entsprechenden <a href=\"../../articles/117868/de\">Hilfe</a>.<br /> <li><strong>Name:</strong><br /> - Der Routenname soll den Gipfelnamen nicht beinhalten. Letzterer wird bei Bedarf angezeigt.<br /> - Neutral und präzise Benennung: Nennen sie die Ausrichtung der Wand, des Grats oder des Pfeilers, welche/r die Route folgt.<br /> - Falls die Route üblicherweise einen spezifischen Namen trägt, kann dieser verwendet werden.<br /> - Vermeiden sie die Bezeichnung \"Normalroute\", wenn schon diese Bezeichnung verwendet wird, dann nur in Klammern: S-Grat (Normalroute).</li> <li><strong>Verknüpfung zu anderen Dokumenten: </strong>Nachdem sie die Route erstellt haben, können sie diese mit anderen Gipfeln (im Fall einer Route, welche Passübergängen folgt), mit einem oder mehreren Zugansorten, Hütten oder Büchern verknüpfen.</li> "
+msgstr "<strong>Achtung!</strong> Geben sie auf dieser Seite ausschliesslich nicht-ändernde (permanente) Informationen zur Route an. Informationen, welche spezifisch auf eine Tour Bezug nehmen (vorgefundene Verhältnisse, persönliche Kommentare) müssen in der Seite einer \"Tour\"gemacht werden. <br /> Mehr Informationen über den Aufbau und die Struktur des Tourenführers finden sie in der entsprechenden <a href=\"../../articles/117868/de\">Hilfe</a>.<br /> <li><strong>Name:</strong><br /> - Der Routenname soll den Gipfelnamen nicht beinhalten. Letzterer wird bei Bedarf angezeigt.<br /> - Neutral und präzise Benennung: Nennen sie die Ausrichtung der Wand, des Grats oder des Pfeilers, welche/r die Route folgt.<br /> - Falls die Route üblicherweise einen spezifischen Namen trägt, kann dieser verwendet werden.<br /> - Vermeiden sie die Bezeichnung \"Normalroute\", wenn schon diese Bezeichnung verwendet wird, dann nur in Klammern: S-Grat (Normalroute).</li> <li><strong>Verbindung zu anderen Dokumenten: </strong>Nachdem sie die Route erstellt haben, können sie diese mit anderen Gipfeln (im Fall einer Route, welche Passübergängen folgt), mit einem oder mehreren Zugansorten, Hütten oder Büchern verbinden.</li> "
 
 # [WARNING] needs_review
 msgid "route linked with"
@@ -5908,9 +5915,8 @@ msgstr "mit diesem Zugangsort und dieser Hütte verbundene Routen"
 msgid "routes linked to parkings and summits"
 msgstr "mit diesem Zugangsort und diesem Gipfel verbundene Routen"
 
-# [WARNING] needs_review
 msgid "routes linked to summits and parkings"
-msgstr "mit diesem Gipfel und diesem Zugangsort verknüpfte Routen"
+msgstr "mit diesem Gipfel und diesem Zugangsort verbundene Routen"
 
 msgid "routes list"
 msgstr "Liste der Routen"

@@ -1375,6 +1375,10 @@ msgstr "My outing: "
 msgid "My preferences"
 msgstr "My preferences"
 
+# [WARNING] needs_review
+msgid "My topics"
+msgstr "My topics"
+
 msgid "N"
 msgstr "N"
 
@@ -1512,6 +1516,12 @@ msgstr "Outing Wizard"
 
 msgid "Outing not found"
 msgstr "This outing doesn’t exist"
+
+# [general comment]
+# Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
+# [WARNING] needs_review
+msgid "Outings linked to these images"
+msgstr "Outings linked to these images"
 
 msgid "PD"
 msgstr "PD"
@@ -2992,6 +3002,7 @@ msgstr "<h3>Staffed capacity</h3>Number of \"normal\" bedding places when staffe
 msgid "_staffed_period_info"
 msgstr "<h3>Periods staffed</h3>Approximate periods when staffed.<br />Example: <em>April and May week-ends, end of June. Every day from mid-june to mid-september.</em>"
 
+# [WARNING] needs_update
 msgid "_sub_activities_info"
 msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding</em>). They are given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>skiing</strong>: Most routes are compatible with skiing.<br /><br /><strong>snowboard</strong>: Route with few flat sections or level traverses. All <em>snowboarding</em> routes should also be <em>skiing</em> routes.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent. Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
 

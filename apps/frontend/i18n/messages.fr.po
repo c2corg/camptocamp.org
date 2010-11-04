@@ -1367,6 +1367,9 @@ msgstr "Ma sortie&nbsp;: "
 msgid "My preferences"
 msgstr "Préférences personnelles"
 
+msgid "My topics"
+msgstr "Mes discussions"
+
 msgid "N"
 msgstr "N"
 
@@ -1504,6 +1507,12 @@ msgstr "Assistant de création de sortie"
 
 msgid "Outing not found"
 msgstr "Cette sortie n'existe pas."
+
+# [general comment]
+# Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
+# [WARNING] needs_review
+msgid "Outings linked to these images"
+msgstr "Sorties associées à ces images"
 
 msgid "PD"
 msgstr "PD"
@@ -2972,7 +2981,12 @@ msgid "_staffed_period_info"
 msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<br />Exemple&nbsp;: <em>WE d'avril, mai et fin septembre. Tous les jours de mi-juin à mi-septembre</em>"
 
 msgid "_sub_activities_info"
-msgstr "<h3>Compatible avec</h3>Ce champ indique avec quelles sous activités un itinéraire <em>ski, surf</em> est compatible. Les sous activités sont données à titre indicatif.<br />Plusieurs sous activités peuvent être sélectionnées.<br /><br /><strong>ski</strong>&nbsp;: Correspond à la plupart des itinéraires.<br /><br /><strong>surf</strong>&nbsp;: Itinéraire comportant très peu de plat ou de traversée. Tous les itinéraires <em>surf</em> doivent aussi être mis en <em>ski</em>.<br /><br /><strong>initiation</strong>&nbsp;: Itinéraire propice à l'initiation d'une sous activité, qui doit être aussi sélectionnée. En ski/surf, un itinéraire d'initiation est un itinéraire de niveau inférieur ou égale à 3.2 (piste noire), non exposé (E1) et skiant de haut en bas (pas de portage, peu de plat, pas de forêt), permettant de profiter de la descente quel que soit le point où l'on abandonne. Comme le caractère <em>initiation</em> regroupe une plage de difficulté assez large, lors d'une recherche il est utile de préciser la difficulté."
+msgstr "<h3>Compatible avec</h3>\n"
+"Ce champ indique avec quelles sous activités un itinéraire <em>ski, surf</em> est compatible. Les sous activités sont données à titre indicatif.<br />Plusieurs sous activités peuvent être sélectionnées.<br />\n"
+"<br />\n"
+"<strong>surf</strong>&nbsp;: Itinéraire comportant très peu de plat ou de traversée.<br />\n"
+"<br />\n"
+"<strong>initiation</strong>&nbsp;: Itinéraire propice à l'initiation. En ski/surf, un itinéraire d'initiation est un itinéraire de niveau inférieur ou égale à 3.2 (piste noire), non exposé (E1) et skiant de haut en bas (pas de portage, peu de plat, pas de forêt), permettant de profiter de la descente quel que soit le point où l'on abandonne. Comme le caractère <em>initiation</em> regroupe une plage de difficulté assez large, lors d'une recherche il est utile de préciser la difficulté."
 
 msgid "_summit_type_info"
 msgstr "<h3>Type du \"sommet\"</h3>Type du point géographique pouvant constituer un but de sortie&nbsp;:<br /><br /><strong>point culminant</strong>&nbsp;: sommet, antécime, gendarme<br /><br /><strong>col</strong>&nbsp;: col, brèche<br /><br /><strong>lac</strong>&nbsp;: lac de montagne<br /><br /><strong>falaise / vallon</strong>&nbsp;: secteur de cascade de glace et de grandes voies, ou point remarquable en fond de vallon ou à flanc de montagne&nbsp;: cascade, langue de glacier, monolithe<br /><br /><strong>raid</strong>&nbsp;: un \"sommet\" de type <em>raid</em> est utile pour y associer un itinéraire-raid<br />Voir l'<a href=\"/articles/106920#raid\">aide sur les raids</a>"

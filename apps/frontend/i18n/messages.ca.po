@@ -1445,6 +1445,10 @@ msgstr "La meva sortida: "
 msgid "My preferences"
 msgstr "Preferències personals"
 
+# [WARNING] en translation used
+msgid "My topics"
+msgstr "My topics"
+
 msgid "N"
 msgstr "N"
 
@@ -1592,6 +1596,12 @@ msgstr "Assistent de sortida "
 
 msgid "Outing not found"
 msgstr "La sortida no existeix"
+
+# [general comment]
+# Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
+# [WARNING] en translation used
+msgid "Outings linked to these images"
+msgstr "Outings linked to these images"
 
 msgid "PD"
 msgstr "PD"
@@ -3169,6 +3179,7 @@ msgstr "<h3> Número de camas durante los períodos de guardia</h3>Numero de cam
 msgid "_staffed_period_info"
 msgstr "<h3>Periodos de guardia</h3>Periodos generales de guardia.<br />Por ejemplo: <em>Fines de semana de abril, mayo y septiembre. Todos los días de junio a agosto.</em>"
 
+# [WARNING] needs_update
 msgid "_sub_activities_info"
 msgstr "<h3>Compatibilitat amb</h3>Aquest camp indica amb quines sub-activitats un itinerari <i>esquí, surf</i> és compatible. Les sub-activitats són donades a títol indicatiu.<br />Es poden seleccionar més d'una activitat.<br /><br /><strong>esquí</strong>&nbsp;: corespon a la majoria d'itineraris.<br /><br /><strong>surf</strong>&nbsp;: itinerari comportant molt poc pla o flanqueig - tots els itineraris <i>surf</i> han d'estar també indicats com <i>esquí</i>.<br /><br /><strong>iniciació</strong>&nbsp;: itinerari propici a l'iniciació en una subactivitat, que ha des er també seleccionada. En esquí/surf, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
 

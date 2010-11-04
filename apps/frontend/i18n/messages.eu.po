@@ -1403,6 +1403,10 @@ msgstr "Nire irteera: "
 msgid "My preferences"
 msgstr "Preferentzia pertsonalak"
 
+# [WARNING] en translation used
+msgid "My topics"
+msgstr "My topics"
+
 msgid "N"
 msgstr "N"
 
@@ -1550,6 +1554,12 @@ msgstr "Irteera sortzeko laguntzailea"
 
 msgid "Outing not found"
 msgstr "Ez dago halako irteerarik."
+
+# [general comment]
+# Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
+# [WARNING] en translation used
+msgid "Outings linked to these images"
+msgstr "Outings linked to these images"
 
 msgid "PD"
 msgstr "PD"
@@ -3109,6 +3119,7 @@ msgstr "<h3>Gordetako sasoia</h3>Gordeta dagoen denboraldia gutxi gora behera.<b
 
 # [comment]
 # h3 mal placé + majuscule au début
+# [WARNING] needs_update
 msgid "_sub_activities_info"
 msgstr "<h3>Zein ekintza dira konpatible</h3>Eremu honetan <i>eskia, surfa</i> zein beste ekintzarekin konpatible diren adierazten du. Ekintza horiek adibide bezala emanak dira.<br />Ekintza bat baino gehiago aukeratu daitezke.<br /><br /><strong>eskia</strong>: ibilbide gehienetarako balio du.<br /><br /><strong>surfa</strong>: lautada eta zeharkapen gutxiko ibilbideak dira - <i>surfa</i>-ko aktibitate guztiak <i>eski</i>-n ere adieraziak izan beharko dira.<br /><br /><strong>Hastapenerako ibilbidea</strong>: ekintza baten hastapen ikastaroak emateko egokia, ekintza mota auekeratu behar da. Eskian edo surfean, hastapenerako ibilbide batek 3.2 zailtasuna baino errezagoa behar du, expisiziorik gabe (E1) eta ibilbide guztian zehar ondo eskiatzeko aukera duena. Igoeran zehar ibilbidea edozein puntutan utzi behar bada, jetsiera atsegin bat izan dadin.\n"
 "<em>Hastapen</em> ezaugarria zaitasun desberdinetara ezarri daitekenez, zein zailtasunera egokitzen den aipatzea erabilgarria da."

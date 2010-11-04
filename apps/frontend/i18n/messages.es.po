@@ -1370,6 +1370,10 @@ msgstr "Mi salida: "
 msgid "My preferences"
 msgstr "Preferencias personales"
 
+# [WARNING] en translation used
+msgid "My topics"
+msgstr "My topics"
+
 msgid "N"
 msgstr "N"
 
@@ -1507,6 +1511,12 @@ msgstr "Ayuda Salida"
 
 msgid "Outing not found"
 msgstr "La salida no existe"
+
+# [general comment]
+# Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
+# [WARNING] en translation used
+msgid "Outings linked to these images"
+msgstr "Outings linked to these images"
 
 msgid "PD"
 msgstr "PD"
@@ -2943,6 +2953,7 @@ msgstr "<h3> Número de camas durante los períodos de guardia</h3>Numero de cam
 msgid "_staffed_period_info"
 msgstr "<h3>Periodos de guardia</h3>Periodos generales de guardia.<br />Por ejemplo: <em>Fines de semana de abril, mayo y septiembre. Todos los días de junio a agosto.</em>"
 
+# [WARNING] needs_update
 msgid "_sub_activities_info"
 msgstr "<h3>Compatible con</h3>Este campo indica cuales son las subactividades con las que un itinerario de <i> esquí, surf</i> es compatible. Las subactividades se dan a título indicativo.<br />Varias subactividades pueden ser mencionadas.<br /><br /><strong>esquí</strong>: corresponde a la mayor parte de itinerarios.<br /><br /><strong>surf</strong>: itinerario que no comporte mucho llano o travesía - todos los itinerarios <i>surf</i> deben también señalarse compatibles con <i>esquí</i>.<br /><br /><strong>iniciación</strong>: itinerario propicio a la iniciación de una subactividad, que debe también ser mencionada. En esquí y snowboard, un itinerario de iniciación tiene un grado de dificultad inferior a 3.2 (dificultad máxima que se puede encontrar en un centro de esquí), sin exposición (E1) y ofreciendo buen esquí a lo largo del itinerario (ninguna obligación de cargar los esquíes a la espalda, pocas zonas planas, ningún bosque que atravesar), lo que permite aprovechar el descenso desde cualquier punto en el que el principiante abandone el ascenso. Como la característica <em>iniciación</em> se aplica a un amplio rango de dificultades, es útil al buscar un itinerario de iniciación precisar en que nivel de dificultad se busca."
 

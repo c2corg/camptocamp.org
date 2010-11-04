@@ -1371,6 +1371,10 @@ msgstr "La mia gita: "
 msgid "My preferences"
 msgstr "Impostazioni personali"
 
+# [WARNING] en translation used
+msgid "My topics"
+msgstr "My topics"
+
 msgid "N"
 msgstr "N"
 
@@ -1508,6 +1512,12 @@ msgstr "Aiuto inserimento nuova gita"
 
 msgid "Outing not found"
 msgstr "Questa gita non è stata trovata."
+
+# [general comment]
+# Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
+# [WARNING] en translation used
+msgid "Outings linked to these images"
+msgstr "Outings linked to these images"
 
 msgid "PD"
 msgstr "PD"
@@ -2947,6 +2957,7 @@ msgstr "<h3>Numero di posti quando custodito</h3>Numero di posti per dormire in 
 msgid "_staffed_period_info"
 msgstr "<h3>Periodo di presenza del gestore</h3>Periodo approssimative durante il quale il rifugio è custodito.<br />"
 
+# [WARNING] needs_update
 msgid "_sub_activities_info"
 msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br /><br /><strong>sci</strong>: corrisponde allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere lo<i>sci</i>.<br /><br /><strong>principianti</strong>: itinerario adatto all'inizio attività, che deve pure essere selezionato. In sci/surf un itinerario per principianti è di solito facile, sciabile dall'inizio alla fine (nessun tratto a piedi), con la possibilità di tornare indietro da qualsiasi punto del percorso."
 
