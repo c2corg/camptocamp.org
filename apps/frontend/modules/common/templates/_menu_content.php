@@ -79,7 +79,7 @@ show_select=function()
                                 echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=routes') ?></li>
                             <li><?php
-                                echo picto_tag('action_tools')
+                                echo picto_tag('picto_tools')
                                    . m_link_to(__('cotometre'), '@tool?action=cotometre',
                                                array('title'=> __('cotometre long')),
                                                array('width' => 600)) ?></li>
@@ -286,14 +286,13 @@ show_select=function()
                 </ul>
             </li>
             <li id="menulast"><?php
-                echo f_link_to(__('Forum') . $sublevel_ie7, '?lang='. $lang)
-                   . $sublevel_start ?>
+                echo f_link_to(__('Forum') . $sublevel_ie7, '?lang='. $lang), $sublevel_start ?>
                 <ul>
                     <li><?php
                         $languages = Language::getAll();
-                        echo picto_tag('action_comment')
-                           . f_link_to(__($languages[$lang]), '?lang=' . $lang)
-                           . $sublevel_start ?>
+                        echo picto_tag('action_comment'),
+                             f_link_to(__($languages[$lang]), '?lang=' . $lang),
+                             $sublevel_start ?>
                         <ul>
                             <?php unset($languages[$lang]);
                             $last_item = end($languages);
@@ -302,9 +301,9 @@ show_select=function()
                             <li<?php if ($value == $last_item): ?> class="lilast"<?php endif ?>><?php
                                 echo picto_tag('action_comment')
                                    . f_link_to(__($value), '?lang=' . $key) ?></li>
+                            <?php endforeach ?>
                         </ul><?php echo $sublevel_end ?>
                     </li>
-                    <?php endforeach ?>
                     <li><?php
                         echo picto_tag('action_query')
                            . f_link_to(__('Search'), 'search.php') ?></li>
