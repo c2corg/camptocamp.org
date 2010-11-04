@@ -467,7 +467,7 @@ class User extends BaseUser
     {   
         return array_merge(parent::buildFieldsList(),
                            parent::buildGeoFieldsList(),
-                           array('pd.login_name', 'pd.topo_name', 'pd.username', 
+                           array('upd.login_name', 'upd.topo_name', 'upd.username', 
                                  'm.lon', 'm.lat', 'm.activities', 'm.category'));
     } 
 

@@ -60,7 +60,7 @@ show_select=function()
                                 echo picto_tag('action_list')
                                    . link_to(__('cond short'), 'outings/conditions') ?></li>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
-                                echo picto_tag('action_search')
+                                echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=outings') ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
@@ -76,7 +76,7 @@ show_select=function()
                                  . $sublevel_start ?>
                         <ul>
                             <li class="lilast"><?php
-                                echo picto_tag('action_search')
+                                echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=routes') ?></li>
                             <li><?php
                                 echo picto_tag('action_tools')
@@ -90,7 +90,7 @@ show_select=function()
                                  . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
-                                echo picto_tag('action_search')
+                                echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=summits') ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
@@ -105,7 +105,7 @@ show_select=function()
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
-                                echo picto_tag('action_search')
+                                echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=sites') ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
@@ -120,7 +120,7 @@ show_select=function()
                            . $sublevel_start ?>
                         <ul>
                             <li><?php
-                                echo picto_tag('action_search')
+                                echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=parkings') ?></li>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
                                 echo picto_tag('picto_portals')
@@ -138,7 +138,7 @@ show_select=function()
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
-                                echo picto_tag('action_search')
+                                echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=huts') ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
@@ -153,7 +153,7 @@ show_select=function()
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
-                                echo picto_tag('action_search')
+                                echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=products') ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
@@ -168,7 +168,7 @@ show_select=function()
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
-                                echo picto_tag('action_search')
+                                echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=books') ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
@@ -201,7 +201,7 @@ show_select=function()
                     <li><?php echo picto_tag('picto_articles')
                                  . link_to(ucfirst(__('stories')), 'articles/list?ccat=3', array('class'=>'ie7m')) ?></li>
                     <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
-                        echo picto_tag('action_search')
+                        echo picto_tag('action_query')
                            . link_to(__('Search'), '@filter?module=articles') ?></li>
                     <?php if ($is_connected): ?>
                     <li class="lilast"><?php
@@ -215,7 +215,7 @@ show_select=function()
                    . $sublevel_start ?>
                 <ul>
                     <li class="lilast"><?php
-                        echo picto_tag('action_search')
+                        echo picto_tag('action_query')
                            . link_to(__('Search'), '@filter?module=images') ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
@@ -237,7 +237,7 @@ show_select=function()
                            . link_to(ucfirst(__('users')) . $sublevel_ie7, '@default_index?module=users'), $sublevel_start ?>
                         <ul>
                             <li class="lilast"><?php
-                                echo picto_tag('action_search')
+                                echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=users') ?></li>
                         </ul><?php echo $sublevel_end ?>
                     </li>
@@ -286,17 +286,43 @@ show_select=function()
                 </ul>
             </li>
             <li id="menulast"><?php
-                echo f_link_to(__('Forum') . $sublevel_ie7, '?lang='. $lang); ?><?php echo $sublevel_start ?>
+                echo f_link_to(__('Forum') . $sublevel_ie7, '?lang='. $lang)
+                   . $sublevel_start ?>
                 <ul>
-                    <?php foreach (Language::getAll() as $key => $value): ?>
                     <li><?php
+                        $languages = Language::getAll();
                         echo picto_tag('action_comment')
-                           . f_link_to(__($value), '?lang=' . $key) ?></li>
+                           . f_link_to(__($languages[$lang]), '?lang=' . $lang)
+                           . $sublevel_start ?>
+                        <ul>
+                            <?php unset($languages[$lang]);
+                            $last_item = end($languages);
+                            reset($languages);
+                            foreach ($languages as $key => $value): ?>
+                            <li<?php if ($value == $last_item): ?> class="lilast"<?php endif ?>><?php
+                                echo picto_tag('action_comment')
+                                   . f_link_to(__($value), '?lang=' . $key) ?></li>
+                        </ul><?php echo $sublevel_end ?>
+                    </li>
                     <?php endforeach ?>
                     <li><?php
-                        echo picto_tag('action_search')
+                        echo picto_tag('action_query')
                            . f_link_to(__('Search'), 'search.php') ?></li>
+                    <li><?php
+                        echo picto_tag('action_list');
+                        if ($connected)
+                        {
+                            echo f_link_to(__('New posts'), 'search.php?action=show_new&lang='.$lang);
+                        }
+                        else
+                        {
+                           echo f_link_to(__('Recent posts'), 'search.php?action=show_24h&lang='.$lang);
+                        }
+                    ?></li>
                     <?php if ($is_connected): ?>
+                    <li><?php
+                        echo picto_tag('action_list')
+                           . f_link_to(__('My topics'), 'search.php?action=show_user') ?></li>
                     <li><?php
                         echo picto_tag('action_edit')
                            . f_link_to(__('User profile'), 'profile.php?section=personality') ?></li>

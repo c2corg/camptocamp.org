@@ -189,9 +189,22 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	// If it's a user search (by id)
 	else if ($action == 'show_user')
 	{
-		$user_id = intval($_GET['user_id']);
-		if ($user_id < 2)
-			message($lang_common['Bad request']);
+		if (isset($_GET['user_id']))
+        {
+            $user_id = intval($_GET['user_id']);
+            if ($user_id < 2)
+            {
+                message($lang_common['Bad request']);
+            }
+        }
+        elseif (!$pun_user['is_guest'])
+        {
+            $user_id = $pun_user['id'];
+        }
+        else
+        {
+            message($lang_common['Bad request']);
+        }
 	}
 	else
 	{

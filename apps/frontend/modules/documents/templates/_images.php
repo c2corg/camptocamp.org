@@ -115,14 +115,23 @@ if (!$mobile_version)
         $module_url = 'documents';
         $text = 'List all linked images';
     }
-}
 
-if (isset($text))
-{
-    echo '<p class="list_link">' .
-        picto_tag('picto_images') . ' ' .
-        link_to(__($text), "images/list?$module_url=" . (isset($list_ids) ? $list_ids : $document_id), array('rel' => 'nofollow')) .
-        '</p>';
+    if (isset($text))
+    {
+        if (!isset($list_ids))
+        {
+            $list_ids = $document_id;
+        }
+        echo '<p class="list_link">'
+           . picto_tag('picto_images') . ' '
+           . link_to(__($text), "images/list?$module_url=$list_ids", array('rel' => 'nofollow'));
+        if (in_array($module_name, array('summits', 'routes', 'sites', 'articles')))
+        {
+            echo ' - ' . picto_tag('picto_outings') . ' '
+               . link_to(__('Outings linked to these images'), "outings/list?itags=$list_ids", array('rel' => 'nofollow'));
+        }
+        echo '</p>';
+    }
 }
 
 if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protected || $moderator)): ?>

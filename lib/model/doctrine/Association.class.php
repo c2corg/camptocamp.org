@@ -390,9 +390,9 @@ class Association extends BaseAssociation
         }
         
         $all_docs = array();
-        $parent_level = 0;
         foreach ($parent_docs as $parent_key => $parent)
         {
+            $parent_level = 0;
             foreach ($child_docs as $child_key => $child)
             {
                 $parent_ids = $child['parent_id'];
