@@ -484,3 +484,26 @@ div.img_box
 {
   width: 180px;
 }
+
+/* ie6 and ie7 don't support data uris */
+a.external_link, .htext .hextra a.external_link {
+  background: transparent url(/static/images/extlink.gif) left center no-repeat;
+}
+#order li
+{
+  background: url(/static/images/drag.gif) no-repeat 5px;
+}
+input.action_create
+{
+  background: url(/static/images/ie/add.gif) no-repeat 2px;
+}
+
+input.action_filter
+{
+  background: url(/static/images/ie/search.gif) no-repeat 2px;
+}
+
+input.action_cancel
+{
+  background: url(/static/images/ie/cancel.gif) no-repeat 2px;
+}

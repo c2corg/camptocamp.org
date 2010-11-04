@@ -146,7 +146,8 @@ a:hover
 }
 
 a.external_link, .htext .hextra a.external_link {
-  background: transparent url(/static/images/extlink.gif) left center no-repeat;
+  /* uri encode /static/images/extlink.gif */
+  background: transparent url(data:image/gif;base64,R0lGODlhDQAHAMIEAJiolKKmkrm8rdLXv////////////////yH5BAEAAAQALAAAAAANAAcAAAMfOBIsQwRAIiYMEEiCrdUcNGhk2XmZVFkdSChM4GRTAgA7) left center no-repeat;
   padding-left: 14px;
 }  
 
@@ -1781,302 +1782,169 @@ input.picto, .form-row input.picto
   background: url(/static/images/picto/actions.png) no-repeat;
 }
 
-/* position: 2px center */
 .action_edit span, .action_edit
 {
   background-position: -8px -295px;
-}
-input.action_edit
-{
-  background-position: -6px -293px;
 }
 
 .action_list span, .action_list
 {
   background-position: -8px -418px;
 }
-input.action_list
-{
-  background-position: -6px -416px;
-}
 
 .action_filter span, .action_filter
 {
   background-position: -8px -674px;
-}
-input.action_filter
-{
-  background-position: -6px -672px;
 }
 
 .action_delete
 {
   background-position: -8px -232px;
 }
-input.action_delete
-{
-  background-position: -6px -230px;
-}
 
 .action_del_light
 {
   background-position: -8px -1215px;
-}
-input.action_del_light
-{
-  background-position: -6px -1213px;
 }
 
 .action_protect
 {
   background-position: -8px -547px;
 }
-input.action_protect
-{
-  background-position: -6px -545px;
-}
 
 .action_unprotect
 {
   background-position: -8px -739px;
-}
-input.action_unprotect
-{
-  background-position: -6px -737px;
 }
 
 .action_merge
 {
   background-position: -8px -451px;
 }
-input.action_merge
-{
-  background-position: -6px -449px;
-}
 
 .action_rss, .action_rss_new
 {
   background-position: -8px -643px;
-}
-input.action_rss
-{
-  background-position: -6px -641px;
 }
 
 .action_query
 {
   background-position: -8px -675px;
 }
-input.action_query
-{
-  background-position: -6px -673px;
-}
 
 .action_create
 {
   background-position: -8px -8px;
-}
-input.action_create
-{
-  background-position: -6px -6px;
 }
 
 .action_cancel
 {
   background-position: -8px -104px;
 }
-input.action_cancel
-{
-  background-position: -6px -102px;
-}
 
 .action_back
 {
   background-position: -8px -40px;
-}
-input.action_back
-{
-  background-position: -6px -38px;
 }
 
 .action_next
 {
   background-position: -8px -827px;
 }
-input.action_next
-{
-  background-position: -6px -825px;
-}
 
 .action_first
 {
   background-position: -8px -859px;
-}
-input.action_first
-{
-  background-position: -6px -857px;
 }
 
 .action_last
 {
   background-position: -8px -891px;
 }
-input.action_last
-{
-  background-position: -6px -889px;
-}
 
 .action_up
 {
   background-position: -8px -1311px;
-}
-input.action_up
-{
-  background-position: -6px -1309px;
 }
 
 .action_down
 {
   background-position: -8px -1343px;
 }
-input.action_down
-{
-  background-position: -6px -1341px;
-}
 
 .action_people
 {
   background-position: -8px -1375px;
-}
-input.action_people
-{
-  background-position: -6px -1373px;
 }
 
 .action_contact
 {
   background-position: -8px -326px;
 }
-input.action_contact
-{
-  background-position: -6px -324px;
-}
 
 .action_view
 {
   background-position: -8px -200px;
-}
-input.action_view
-{
-  background-position: -6px -198px;
 }
 
 .action_print
 {
   background-position: -8px -515px;
 }
-input.action_print
-{
-  background-position: -6px -513px;
-}
 
 .action_bookmark
 {
   background-position: -8px -72px;
-}
-input.action_bookmark
-{
-  background-position: -6px -70px;
 }
 
 .action_tag
 {
   background-position: -8px -957px;
 }
-input.action_tag
-{
-  background-position: -6px -955px;
-}
 
 .action_report
 {
   background-position: -8px -579px;
-}
-input.action_report
-{
-  background-position: -6px -581px;
 }
 
 .action_rm
 {
   background-position: -8px -611px;
 }
-input.action_rm
-{
-  background-position: -6px -609px;
-}
 
 .action_help
 {
   background-position: -8px -355px;
-}
-input.action_help
-{
-  background-position: -6px -353px;
 }
 
 .action_informations
 {
   background-position: -8px -387px;
 }
-input.action_informations
-{
-  background-position: -6px -385px;
-}
 
 .action_description
 {
   background-position: -8px -264px;
-}
-input.action_description
-{
-  background-position: -6px -262px;
 }
 
 .action_comment span, .action_comment
 {
   background-position: -8px -167px;
 }
-input.action_comment
-{
-  background-position: -6px -165px;
-}
 
 .action_gps
 {
   background-position: -8px -923px;
-}
-input.action_gps
-{
-  background-position: -6px -921px;
 }
 
 .action_kml
 {
   background-position: -8px -1115px;
 }
-input.action_kml
-{
-  background-position: -6px -1113px;
-}
 
 .action_json
 {
   background-position: -8px -1083px;
-}
-input.action_json
-{
-  background-position: -6px -1081px;
 }
 
 .action_on
@@ -2098,20 +1966,24 @@ span.action_on
 {
   background-position: -8px -1055px;
 }
-input.action_cc
+
+/* those are input buttons with backgrounds. We use uri encoded images because
+   - using css sprites raises some rendering issues when changing font size
+   - image sizes are small, so better uri encode it and avoid extra request */
+input.action_create
 {
-  background-position: -6px -1053px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAllBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXWdxzWdx3WeSDXfinXgC3egSjegirhk0jilUvjhCvljjznm1LooF3rjTTunlPwkjnwlT/wqmbxmUXxqmfynUzzoVTzpVzzqWHzt3/0qmP0rWn1rmv2s3P3t3r4u4H4voj5wo36xJL////yX/jFAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAACVSURBVBgZBcHBUsIwFADAbXmUIOi1/v/XeXSYYpNp0uduwHy5hn6ME8F0e5Tn3b7Vd0thKl/fpFL8vGqG5XNNwJpni/mxJkLH2o9YSgIJZYnLkkBCiZjv6QYLzW0KYwZwOkXuxcbTBjWj9wQSeo+jfgAJ9Yixv574Bds+QpvyAXi/m5A1e4nZ2ffWUpC1/10vxjEG/gE/jE8zA9+T8QAAAABJRU5ErkJggg%3D%3D) no-repeat 2px;
 }
 
-/* FIXME : these images don't exist !?
-.action_ok
+input.action_filter
 {
-  background: url(/static/images/ok.png) no-repeat 2px center;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABIFBMVEX///+lXjHPcBWmXzOlXjKnYDSlXjKoYja0ajHPcBXPcBXPcBXIjEPOmEnPcBXPcBXOlEXFfzaqZTetajuybzqxcD3PcBXLfCrJdiWbWDDOkkHIgzbLeCXPhTHNgC3OgCrKdyWdVCKuZTTOdh+vaDTLcRzOcRnOchnOcxvPdBvPdRzPdh3DbCLOcRfPchelXDO8hFG9fUDBjljJdijLcR/NcRrPcBXPcRfSgzDSiz3UeiPVfCfVkEPXfinZgzHagy/biDfclVLdkkvdl1TelVDfnVzhoWTip2/mhijnjznpkjvskDfukjnwvo7xwZLz07L117r5mTj6mTn74Mb84cj9tGz/nj3/pUz/rlz/t2//wYT/zJn/167/4cP/6tb/8+aYhV1/AAAAL3RSTlMACAkKDBIUFxwePEJFRUVISlFdXV1fZm97hISJs9jb4eLl6O7v9ff9/f39/f7+/kBWP4AAAAClSURBVBjTTc7VFoJQEIXhsbsVuxu7jt0BdoKt7/8WyoGFfnfzX+w1AGDwZxAiA3oQeEh6z7IHOuXlb3N6ecZWSQsOwflFsAjhkGeuAiYn5UL3JuprudC7iwY6LrQeoraGC9H1U7CJ41Hn6PjCTpOqHRffdPv+2s0QqqhxcSWGFDWuNRBCWRX/rZEgTI5y51vCMhDZik1Uj8l/AayFUkQJ/xRuCcAHG/grCN1LJi0AAAAASUVORK5CYII%3D) no-repeat 2px;
 }
-.action_edit_pd
+
+input.action_cancel
 {
-  background: url(/static/images/preferences-system.png) no-repeat 3px center;
-}*/
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABEVBMVEXJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDRSBrRSRvSSRrSShzSSx3bYjnbYzrcaUHdakThdE7id1LjdE/kfFnqj2/rkXLsk3TukXHum33vm3/vnYDwnYDwnoLwn4PwpInxnYDxn4LxoYXxpYvxp43ynYDynoLyn4PypInypYvzpInzqI7zr5j0oIP0rJL0rZP0sJf0sJj0spv1r5f1uaT1vqr2w7H2yLf2y7v3spv3x7f3y7z4y7v4y7z4zLz4z8H40MP40sX50cP50sX51Mj639b749v75t787Ob87Of87un97+v98Ov98Oz98u7+9vP+9/T++fj//fz///9XxfgxAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAADTSURBVBgZBcHNTsJAFIDR785PKVIKRIkmLljo+z+RbkwkkkKCQtvpdOaO5wiAsd6R5qyAgCxW9cMr30Pop4IgdfsGAHz+hWJZtAfWg2pZjZsxZWuaQ3ne2Jvf7PPQ3qOrlplidxq3sutYBmdd5Oiax+SGS8Q7WzdF42/rzfR1VmU0FFXzVMOiUdWCrSrL+96MsWrdlTmYlESiid3Hja1ISraY1txXp4v2y3Mw1yDUzQtGAT/zcw+WXOY1IiIqp37CUULJtd/TzeM4FQTAGW/Jc87AP3NMaxnYCArMAAAAAElFTkSuQmCC) no-repeat 2px;
+}
 
 /* picto images */
 .picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images,
@@ -2929,9 +2801,14 @@ div#feedback
 {
   margin: 0.3em 0;
   border: 1px solid #000;
+  border-radius:4px;
+  -moz-border-radius:4px;
+  -khtml-border-radius:4px;
+  -webkit-border-radius:4px;
   padding: 0.2em 0.2em 0.2em 35px;
   list-style-type: none;
-  background: url(/static/images/picto/drag.jpg) no-repeat 5px center;
+  /* uri encode /static/images/drag.gif */
+  background: url(data:image/gif;base64,R0lGODlhGQALAKEAAAAAAP///wAAAAAAACH5BAEKAAIALAAAAAAZAAsAAAIpFI6pe8YPo2ShnhqQvTtlkH3hBUIiuGFjp5FjWZ4KRsY1O+W65OyLUAAAOw==) no-repeat 5px;
 }
 #order li:hover
 {

@@ -32,10 +32,8 @@ if (!c2cTools::mobileVersion()): ?>
 <td><?php $url = strval($item['url']);
           if (check_not_empty($url))
           {
-              echo '<a href="' . $url . '">', 
-                   image_tag(sfConfig::get('app_static_url').'/static/images/extlink.gif',
-                             array('alt'=>__('hut website'), 'title'=>__('hut website'))),
-                   '</a>';
+              echo link_to('<span></span>', $url, array('class' => 'external_link',
+                                                        'title' => __('hut website')));
           }
  ?></td>
 <td><?php if (isset($item['linked_docs']))
