@@ -18,7 +18,7 @@ echo __('langs') . ' ' . field_value_selector('blang', 'app_languages_book', fal
 ?>
 <br />
 <?php
-echo __('activities') . ' ' . activities_selector(false, true);
+echo __('activities') . ' ' . activities_selector(false, true, $activities);
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('bcult');
 ?>
 <br /><br />

@@ -4,6 +4,16 @@ $module = $sf_context->getModuleName();
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/filter.js', 'last');
 
+$activities = $this->getRequestParameter('act', null);
+if (preg_match('/^([0-9])(-[0-9])*$/', $activities, $regs))
+{
+    $activities = explode('-', $activities);
+}
+else
+{
+    $activities = array();
+}
+
 echo display_title(__('Search a ' . $module), $module);
 
 if (!c2cTools::mobileVersion()):
@@ -32,6 +42,9 @@ echo form_tag("/$module/filterredirect", array('id' => 'filterform'));
 
 $perso = c2cPersonalization::getInstance();
 $personalization_applied = false;
+$perso_on = $perso->isMainFilterSwitchOn();
+$has_perso_activities = count($perso->getActivitiesFilter());
+$has_perso_areas = count($perso->getPlacesFilter());
 switch($module)
 {
     // We use activities and areas personalization for the following modules
@@ -40,10 +53,19 @@ switch($module)
     case 'routes':
     case 'outings':
     case 'users':
-        $msg = __('activity and area filters applied');
-        if ($perso->isMainFilterSwitchOn() &&
-            (count($perso->getActivitiesFilter()) || count($perso->getPlacesFilter())))
-            $personalization_applied = true;
+        if ($perso_on)
+        {
+            if (!count($activities) && $has_perso_activities || $has_perso_areas)
+            {
+                $msg = __('activity and area filters applied');
+                $personalization_applied = true;
+            }
+            elseif (count($activities) || $has_perso_areas)
+            {
+                $msg = __('area filters applied');
+                $personalization_applied = true;
+            }
+        }
         break;
     // We use areas personalization only for the following modules
     case 'maps':
@@ -51,7 +73,7 @@ switch($module)
     case 'sites':
     case 'summits':
         $msg = __('area filters applied');
-        if ($perso->isMainFilterSwitchOn() && count($perso->getPlacesFilter()))
+        if ($perso_on && $has_perso_areas)
             $personalization_applied = true;
         break;
     // We do not use personalization for the following modules
@@ -66,7 +88,7 @@ $msg = ($personalization_applied) ? $msg : '';
 echo '<p class="list_header">', __('Filter presentation'), $msg, '</p>';
 
 if (!isset($ranges)) $ranges = array();
-include_partial("$module/filter_form", array('ranges' => $ranges));
+include_partial("$module/filter_form", array('ranges' => $ranges, 'activities' => $activities));
 ?>
 <br />
 <br />

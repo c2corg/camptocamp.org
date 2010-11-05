@@ -112,7 +112,7 @@ if (!$mobile_version)
     }
     elseif ($nb_images)
     {
-        $module_url = 'documents';
+        $module_url = 'itags';
         $text = 'List all linked images';
     }
 
@@ -125,7 +125,7 @@ if (!$mobile_version)
         echo '<p class="list_link">'
            . picto_tag('picto_images') . ' '
            . link_to(__($text), "images/list?$module_url=$list_ids", array('rel' => 'nofollow'));
-        if (in_array($module_name, array('summits', 'routes', 'sites', 'articles')))
+        if ($nb_images && in_array($module_name, array('summits', 'routes', 'sites', 'articles')))
         {
             echo ' - ' . picto_tag('picto_outings') . ' '
                . link_to(__('Outings linked to these images'), "outings/list?itags=$list_ids", array('rel' => 'nofollow'));

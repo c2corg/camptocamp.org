@@ -114,13 +114,12 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $
     return select_tag($fieldname, $option_tags);
 }
 
-function activities_selector($onclick = false, $use_personalization = false)
+function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array())
 {
     $out = array();
     $col = 0;
 
-    $filtered_activities = array();
-    if ($use_personalization)
+    if (!count($filtered_activities) && $use_personalization)
     {
         $perso = c2cPersonalization::getInstance();
         if ($perso->isMainFilterSwitchOn()) $filtered_activities = $perso->getActivitiesFilter();

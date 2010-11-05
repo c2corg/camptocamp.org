@@ -8,7 +8,7 @@ echo georef_selector('With GPS track:');
 ?>
 <br /><br />
 <?php
-echo __('activities') . ' ' . activities_selector(true, true);
+echo __('activities') . ' ' . activities_selector(true, true, $activities);
 echo __('max_elevation') . ' ' . elevation_selector('malt');
 echo __('height_diff_up') . ' ' . elevation_selector('hdif');
 ?>

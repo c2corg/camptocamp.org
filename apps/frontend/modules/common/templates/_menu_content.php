@@ -309,7 +309,7 @@ show_select=function()
                            . f_link_to(__('Search'), 'search.php') ?></li>
                     <li><?php
                         echo picto_tag('action_list');
-                        if ($connected)
+                        if ($is_connected)
                         {
                             echo f_link_to(__('New posts'), 'search.php?action=show_new&lang='.$lang);
                         }

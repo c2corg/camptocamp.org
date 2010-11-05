@@ -26,6 +26,6 @@ echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('icult');
 ?>
 <br />
 <?php
-echo  __('activities') . ' ' . activities_selector();
+echo  __('activities') . ' ' . activities_selector(false, false, $activities);
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 include_partial('documents/filter_sort');

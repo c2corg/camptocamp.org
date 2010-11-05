@@ -47,6 +47,6 @@ if (!c2cTools::mobileVersion()): ?>
 <td><?php
 if ($item['shelter_type'] != 5)
 {
-    echo (isset($item['nb_linked_docs'])) ?  $item['nb_linked_docs'] : '' ;
+    echo (isset($item['nb_linked_docs'])) ? $item['nb_linked_docs'] : '' ;
 }
 ?></td>
