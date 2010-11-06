@@ -65,6 +65,10 @@ class sitesActions extends documentsActions
                 {
                     $summit_ids[] = $summit['id'];
                 }
+                foreach ($associated_sites as $site)
+                {
+                    $sites_ids[] = $site['id'];
+                }
                 $summit_docs_ids = array_merge($sites_ids, array($current_doc_id));
                 $associated_summits_sites = Association::findWithBestName($summit_ids, $prefered_cultures, 'st', true, true, $summit_docs_ids);
                 $associated_sites = array_merge($associated_sites, $associated_summits_sites);
