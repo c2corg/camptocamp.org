@@ -4,12 +4,7 @@ $module = $sf_context->getModuleName();
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/filter.js', 'last');
 
-$activities = $this->getRequestParameter('act', null);
-if (preg_match('/^([0-9])(-[0-9])*$/', $activities, $regs))
-{
-    $activities = explode('-', $activities);
-}
-else
+if (!isset($activities))
 {
     $activities = array();
 }

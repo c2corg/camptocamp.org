@@ -291,11 +291,10 @@ show_select=function()
                     <li><?php
                         $languages = Language::getAll();
                         echo picto_tag('action_comment'),
-                             f_link_to(__($languages[$lang]), '?lang=' . $lang),
+                             f_link_to(__('All topics'), ''),
                              $sublevel_start ?>
                         <ul>
-                            <?php unset($languages[$lang]);
-                            $last_item = end($languages);
+                            <?php $last_item = end($languages);
                             reset($languages);
                             foreach ($languages as $key => $value): ?>
                             <li<?php if ($value == $last_item): ?> class="lilast"<?php endif ?>><?php

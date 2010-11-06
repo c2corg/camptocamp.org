@@ -1516,6 +1516,17 @@ class documentsActions extends c2cActions
 
         $this->ranges = $ranges;
 
+        $activities = $this->getRequestParameter('act', null);
+        if (preg_match('/^([0-9])(-[0-9])*$/', $activities, $regs))
+        {
+            $activities = explode('-', $activities);
+        }
+        else
+        {
+            $activities = array();
+        }
+        $this->activities = $activities;
+
         $this->setPageTitle($this->__('Search a ' . $this->getModuleName()));
         $this->setTemplate('../../documents/templates/filter');
     }
