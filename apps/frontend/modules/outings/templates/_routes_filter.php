@@ -7,8 +7,9 @@ echo '<div class="fieldname">' . picto_tag('picto_routes') . __('Route:') . ' </
 ?>
 <br /><br />
 <?php
+$activities_raw = $sf_data->getRaw('activities');
 echo __('activities') . ' ' . field_value_selector('acttyp', 'mod_outings_activities_type_list', false, false, false, 0, false);
-echo activities_selector(true, true, $activities);
+echo activities_selector(true, true, $activities_raw);
 echo __('max_elevation') . ' ' . elevation_selector('oalt');
 echo __('height_diff_up') . ' ' . elevation_selector('odif');
 ?>
@@ -69,6 +70,7 @@ echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_outings_sub_a
 <?php
 echo __('snowshoeing_rating') . ' ' . range_selector('wrat', 'app_routes_snowshoeing_ratings');
 ?>
+</div>
 <div id="hiking_fields" style="display:none">
 <br />
 <?php

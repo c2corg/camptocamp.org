@@ -18,7 +18,8 @@ echo __('langs') . ' ' . field_value_selector('blang', 'app_languages_book', fal
 ?>
 <br />
 <?php
-echo __('activities') . ' ' . activities_selector(false, true, $activities);
+$activities_raw = $sf_data->getRaw('activities');
+echo __('activities') . ' ' . activities_selector(false, true, $activities_raw);
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('bcult');
 ?>
 <br /><br />

@@ -15,7 +15,9 @@ echo '<br /><br /><div class="fieldname">' . __('article_type') . ' </div>' . fi
 echo __('categories') . ' ' . field_value_selector('ccat', 'mod_articles_categories_list', false, false, true, 9);
 ?>
 <br />
-<?php echo __('activities') . ' ' . activities_selector(false, false, $activities);
+<?php
+$activities_raw = $sf_data->getRaw('activities');
+echo __('activities') . ' ' . activities_selector(false, false, $activities_raw);
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('ccult');
 ?><br /><?php

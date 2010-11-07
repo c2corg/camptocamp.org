@@ -15,7 +15,8 @@ include_partial('parkings/parkings_filter');
 ?>
 <br /><br />
 <?php
-echo __('activities') . ' ' . activities_selector(false, true, $activities);
+$activities_raw = $sf_data->getRaw('activities');
+echo __('activities') . ' ' . activities_selector(false, true, $activities_raw);
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('hcult');
 ?>
 <br />

@@ -55,7 +55,7 @@ switch($module)
                 $msg = __('activity and area filters applied');
                 $personalization_applied = true;
             }
-            elseif (count($activities) || $has_perso_areas)
+            elseif (count($activities) && $has_perso_areas)
             {
                 $msg = __('area filters applied');
                 $personalization_applied = true;

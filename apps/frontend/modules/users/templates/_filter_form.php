@@ -16,6 +16,7 @@ echo georef_selector();
 ?>
 <br />
 <?php
-echo __('activities') . ' ' . activities_selector(false, true, $activities);
+$activities_raw = $sf_data->getRaw('activities');
+echo __('activities') . ' ' . activities_selector(false, true, $activities_raw);
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 include_partial('documents/filter_sort');

@@ -65,6 +65,7 @@ class sitesActions extends documentsActions
                 {
                     $summit_ids[] = $summit['id'];
                 }
+                $sites_ids = array();
                 foreach ($associated_sites as $site)
                 {
                     $sites_ids[] = $site['id'];

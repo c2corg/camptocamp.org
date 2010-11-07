@@ -13,7 +13,8 @@ include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personal
 ?>
 <br />
 <?php
-echo  __('linked routes activities') . ' ' . activities_selector(false, false, $activities);
+$activities_raw = $sf_data->getRaw('activities');
+echo  __('linked routes activities') . ' ' . activities_selector(false, false, $activities_raw);
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('scult');
 ?>
 <br />
