@@ -8,6 +8,11 @@ if (!isset($activities))
 {
     $activities = array();
 }
+else
+{
+    $activities_raw = $sf_data->getRaw('activities');
+    $activities = $activities_raw;
+}
 
 echo display_title(__('Search a ' . $module), $module);
 
