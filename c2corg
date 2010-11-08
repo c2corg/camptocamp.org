@@ -192,9 +192,9 @@ function processArgs() {
             //installPlugins();
             generateMoFiles();
             launchSfCleanCache();
+            buildMapJsFiles(); // must be doen before revision info
             updateRevisionInfo();
             execWrapper('symfony fix-perms');
-            buildMapJsFiles();
 
             info('Installation done.');
             break;
@@ -206,10 +206,10 @@ function processArgs() {
             replaceDotIn();
             generateMoFiles();
             makeMapservWrapperExecutable();
+            buildMapJsFiles(); // must be doen before revision info
             updateRevisionInfo();
             launchSfCleanCache();
             //execWrapper('symfony fix-perms');
-            buildMapJsFiles();
 
             info('Refreshing done.');
             break;
@@ -661,53 +661,63 @@ function updateRevisionInfo() {
         return;
     }
 
-    if (file_exists('VERSION')) {
-        unlink('VERSION');
-    }
+    $file = 'apps/frontend/config/app.yml';
 
-    $handle = fopen('VERSION', 'w');
+//    if (file_exists($file)) {
+//        unlink($file);
+//    }
 
-    $dirs = array(/* guidebook */
-                  'web/static/css' => 'css',
+    $handle = fopen($file, 'a+');
+
+    $dirs = array('web/static/css' => 'css',
                   'web/static/js' => 'js',
-                  /* forums */
+                  /* forums TODO CHECK should not be here anymore */
                   'web/forums/style' => 'css',
                   'web/forums/style/imports' => 'css',
                   'web/static/js/dyncat' => 'js',
-                  /* openlayers and cartoweb*/
+                  /* TODO are those ones still used? */
                   'web/static/js/openlayers_sfl' => 'js',
                   'web/static/js/cartoweb/lib' => 'js',
-                  'web/static/js/cartoweb/lib/Query' => 'js');
+                  'web/static/js/cartoweb/lib/Query' => 'js',
+                  /* mapfish */
+                  'web/static/js/mapfish/mfbase/ext/adapter/ext' => 'js',
+                  'web/static/js/mapfish/mfbase/ext' => 'js',
+                  'web/static/js/mapfish/build' => 'js',
+                  'web/static/js/mapfish/c2corgApi/js' => 'js',
+                  'web/static/js/mapfish/mfbase/openlayers/lib' => 'js',
+                  'web/static/js/mapfish/mfbase/geoext/lib' => 'js',
+                  'web/static/js/mapfish/mfbase/mapfish' => 'js',
+                  'web/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang' => 'js',
+                  'web/static/js/mapfish/mfbase/ext/source/locale' => 'js',
+                  'web/static/js/mapfish/mfbase/mapfish/lang' => 'js',
+                  'web/static/js/mapfish/geoportal' => 'js',
+                  'web/static/js/mapfish/MapFishApi/js' => 'js',
+                  'web/static/js/mapfish/c2corgApi/js' => 'js',
+                  'web/static/js/mapfish/app' => 'js');
 
-    fwrite($handle, getFileRevisionInfo() . "\n");
+    fwrite($handle, "\n  # auto generated\n");
+    fwrite($handle, "  versions:\n");
+
+    fwrite($handle, '    ' . getFileRevisionInfo() . "\n");
 
     foreach ($dirs as $dir => $filetype) {
-        foreach (getDirRevisionInfo($dir, '.'.$filetype) as $line) {
-            fwrite($handle, "$line\n");
+        foreach (getDirTimestampInfo($dir, '.'.$filetype) as $line) {
+            fwrite($handle, "    $line\n");
         }
     }
 
     fclose($handle);
 }
 
-function getDirRevisionInfo($dir, $pattern) {
-    $list = array();
-    $files = array();
-    if ($handle = opendir($dir)) {
-        while (false !== ($file = readdir($handle))) {
-            if (stripos($file, $pattern) !== false) {
-                $files[] = $file;
-            }
-        }
-    }
-    closedir($handle);
+function getDirTimestampInfo($dir, $pattern) {
+    $files = glob($dir.'/*'.$pattern);
     foreach ($files as $file) {
-        $list[] = getFileRevisionInfo($dir, $file);
+        $list[] = substr($file, 3) . ': ' . (filemtime($file) - 1200000000);
     }
     return $list;
 }
 
-function getFileRevisionInfo($dir = '.', $file = 'head') {
+function getFileRevisionInfo($file = 'head') {
     $tmp = 'tmp_svninfo';
     if (file_exists($tmp)) {
         unlink($tmp);
@@ -716,20 +726,20 @@ function getFileRevisionInfo($dir = '.', $file = 'head') {
         if ($file === 'head') {
             $cmd = 'svn info > ' . $tmp;
         } else {
-            $cmd = 'svn info ' . $dir . '/' . $file . ' > ' . $tmp;
+            $cmd = 'svn info ' . $file . ' > ' . $tmp;
         }
         execWrapper($cmd);
         if ($version_info = file_get_contents($tmp)) {
             $info = explode("\n", $version_info);
             $revision_string = $info[$file === 'head' ? 4 : 9];
             $revision_array = explode(': ', $revision_string);
-            $line = (empty($file) ? 'head' : $file) . ': ' . $revision_array[1];
+            $line = (empty($file) ? "head" : "$file") . ': ' . $revision_array[1];
         } else {
             info('Failed updating revision info');
             return;
         }
     } catch (InstallException $e) {
-        $line = $file . ': unknown';
+        $line = "$file" . ": unknown";
     }
     if (file_exists($tmp)) {
         unlink($tmp);

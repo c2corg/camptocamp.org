@@ -79,13 +79,14 @@ function _include_javascripts($position_array = array('first', '', 'last'), $deb
 
     foreach ($internal_files as $file)
     {
-        $file_parts = explode('/', $file);
-        $filename = end($file_parts);
+        //$file_parts = explode('/', $file);
+        //$filename = end($file_parts);
         $prefix = $debug ? '/no' : '';
-        $rev = sfSVN::getHeadRevision($filename);
-        if (!empty($rev))
+        //$rev = sfSVN::getHeadRevision($filename);
+        $ts = sfTimestamp::getTimestamp($file);
+        if (!empty($ts))
         {
-            $file = '/' . $rev . $prefix . $file;
+            $file = '/' . $ts . $prefix . $file;
         }
         else
         {
@@ -127,11 +128,12 @@ function get_all_stylesheets($debug = false)
         if (isset($already_seen[$file])) continue;
 
         $already_seen[$file] = 1;
-        $file_parts = explode('/', $file);
-        $filename = end($file_parts);
-        $rev = sfSVN::getHeadRevision($filename);
+        //$file_parts = explode('/', $file);
+        //$filename = end($file_parts);
+        //$rev = sfSVN::getHeadRevision($filename);
+        $ts = sfTimestamp::getTimestamp($file);
         $prefix = $debug ? '/no' : '';
-        $prefix = empty($rev) ? $prefix : '/' . $rev . $prefix;
+        $prefix = empty($ts) ? $prefix : '/' . $ts . $prefix;
         $html .= stylesheet_tag($static_base_url . $prefix . $file, $options);
       }
     }

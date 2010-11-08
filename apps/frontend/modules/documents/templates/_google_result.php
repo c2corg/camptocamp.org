@@ -23,5 +23,4 @@ GoogleSearch.q = '<?php echo urlencode($query_string) ?>';
 GoogleSearch.search();
 });
 //]]></script>
-<!-- TODO asynchronous load, escape for query string??  language (cf lr param)-->
 <?php endif; ?>

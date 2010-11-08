@@ -27,7 +27,7 @@ echo button_to_function(__('save'), "this.hide(); $('images_validate_form').subm
 </div>
 <?php
 $backup_url = url_for("@image_jsupload?mod=$mod&document_id=$document_id");
-$backup_js = '/'.sfSVN::getHeadRevision('image_upload.js').javascript_path('/static/js/image_upload.js');
+$backup_js = '/'.sfTimestamp::getTimestamp('/static/js/image_upload.js').javascript_path('/static/js/image_upload.js');
 echo javascript_tag("
 var plupload_i18n = { badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."' };
 new PeriodicalExecuter(PlUploadWrapper.validateImageForms, 1);

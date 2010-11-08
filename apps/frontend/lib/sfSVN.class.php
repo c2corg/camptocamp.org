@@ -4,7 +4,7 @@ class sfSVN
     /**
      * This function is used to compute the latest revision of
      * the $files given as input.
-     * If none of the file is versionned, an empty string
+     * If none of the file is versionned, the head revision
      * is returned
      */
     public static function getHeadRevision($files)

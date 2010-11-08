@@ -86,14 +86,15 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
 
 
     $prefix = $debug ? '/no' : '';
-    $filenames = array();
-    foreach ($files as $file)
+    //$filenames = array();
+    /*foreach ($files as $file)
     {
       $file_parts = explode('/', $file);
       array_push($filenames, end($file_parts));
-    }
-    $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
-    $prefix = empty($max_rev) ? $prefix : '/' . $max_rev . $prefix;
+    }*/
+    //$max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
+    $ts = sfTimestamp::getTimestamp($files);
+    $prefix = empty($ts) ? $prefix : '/' . $ts . $prefix;
     $options['src'] = $app_static_url . $prefix . join($files, ',');
     $html .= content_tag('script', '', $options)."\n";
   }
@@ -118,10 +119,8 @@ function nominify_get_javascripts()
 
     foreach ($files as $file)
     {
-      $file_parts = explode('/', $file);
-      $filename = end($file_parts);
-      $rev = sfSVN::getHeadRevision($filename);
-      $prefix = empty($rev) ? '/no' : '/' . $rev . '/no';
+      $ts = sfTimestamp::getTimestamp($file);
+      $prefix = empty($ts) ? '/no' : '/' . $ts . '/no';
       $file = javascript_path($file);
       $html .= javascript_include_tag($app_static_url . $prefix . $file);
     }
@@ -225,13 +224,16 @@ function minify_get_stylesheets($position_array = array('first', '', 'last'), $d
     $options = unserialize($options);
 
     $prefix = $debug ? '/no' : '';
-    $filenames = array();
+/*    $filenames = array();
     foreach ($files as $file)
     {
       $file_parts = explode('/', $file);
       array_push($filenames, end($file_parts));
     }
     $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
+*/
+    $ts = sfTimestamp::getTimestamp($files);
+    $prefix = empty($ts) ? $prefix : '/' . $ts . $prefix;
     $prefix = empty($max_rev) ? $prefix : '/' . $max_rev . $prefix;
     $options['href'] = $app_static_url . $prefix . join($files, ',');
     $html .= tag('link', $options)."\n";
