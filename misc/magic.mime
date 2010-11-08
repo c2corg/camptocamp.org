@@ -20,6 +20,9 @@
 # other possible SVG
 38      string          \<\!DOCTYPE\040svg                    image/svg+xml
 
+# other possible GPX, without XML header
+0	string		\<gpx\                                application/gpx+xml
+
 # KMZ (zipped kml)
 0       string          PK\003\004
 >4      byte            0x14
