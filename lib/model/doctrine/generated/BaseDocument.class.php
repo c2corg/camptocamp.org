@@ -1735,7 +1735,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         if ($has_name)
         {
             $user_prefered_langs = sfContext::getInstance()->getUser()->getCulturesForDocuments();
-            $linked_docs_info = Language::getTheBest($linked_docs_info, 'Parking');
+            $linked_docs_info = Language::getTheBest($linked_docs_info, $model);
         }
 
         // add linked docs info into $docs

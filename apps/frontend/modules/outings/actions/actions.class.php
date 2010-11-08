@@ -689,24 +689,7 @@ class outingsActions extends documentsActions
 
     public function executeConditions()
     {
-        $criteria = $this->getListCriteria();
-        $npp = empty($criteria) ? 20 : 10;
-        $max_npp = sfConfig::get('app_list_conditions_max_npp');
-        $this->pager = Outing::browse($this->getListSortCriteria($npp, $max_npp),
-                                      $criteria,
-                                      'cond');
-        $this->pager->setPage($this->getRequestParameter('page', 1));
-        $this->pager->init();
-        $this->setPageTitle($this->__('recent conditions'));
-
-        $outings = $this->pager->getResults('array');
-
-        if (count($outings) == 0) return;
-
-        $outings = Outing::getAssociatedCreatorData($outings); // retrieve outing creator names
-        $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
-        $outings = Language::getTheBestForAssociatedAreas($outings);
-        $this->items = Language::parseListItems($outings, 'Outing');
+        self::executeList();
     }
 
     /**
@@ -725,10 +708,22 @@ class outingsActions extends documentsActions
 
         $outings = Outing::getAssociatedCreatorData($outings); // retrieve outing creator names
         $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
-        if (!empty($this->format) && $this->format != 'list')
+        if (!in_array('list', $format))
         {
             $outings = Language::getTheBestForAssociatedAreas($outings);
         }
+        if (in_array('cond', $format))
+        {
+            $this->setTemplate('conditions');
+            $this->setPageTitle($this->__('recent conditions'));
+        }
+        
+        // add images infos
+        if (in_array('img', $format))
+        {
+            Image::addAssociatedImages($outings, 'oi');
+        }
+        
         $this->items = Language::parseListItems($outings, 'Outing');
     }
 

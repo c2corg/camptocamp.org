@@ -3537,7 +3537,7 @@ div.selected_image
   border: 1px solid #FF9933;
 }
 
-#image_list div.image_actions
+.image_list div.image_actions
 {
   position: absolute;
   top: 2px;
@@ -3545,7 +3545,7 @@ div.selected_image
   background-color: silver;
 }
 
-#image_list .image_actions a:hover, #image_list .image_actions span:hover
+.image_list .image_actions a:hover, .image_list .image_actions span:hover
 {
   background-color: #fff;
 }
@@ -3556,7 +3556,7 @@ div.selected_image
   height: 130px;
 }
 
-#image_list .image_actions a, #image_list .image_actions span
+.image_list .image_actions a, .image_list .image_actions span
 {
   float: right;
   height: 20px;
@@ -3566,31 +3566,31 @@ div.selected_image
   background-repeat: no-repeat;
 }
 
-#image_list .image_actions span.move
+.image_list .image_actions span.move
 {
   background-image: url(/static/images/picto/move.gif);
   cursor: move;
 }
 
-#image_list a.view_details
+.image_list a.view_details
 {
   background: url(/static/images/modules/modules_mini.png) no-repeat -1px -166px;
   float: right;
 }
 
-#image_list a.view_original
+.image_list a.view_original
 {
   background: url(/static/images/picto/actions.png) no-repeat -2px -673px;
   float: left;
 }
 
-#image_list a.unlink
+.image_list a.unlink
 {
   background: url(/static/images/picto/actions.png) no-repeat -1px -609px;
   float: left;
 }
 
-#image_list div.image_license
+.image_list div.image_license
 {
   position: absolute;
   top: 107px;
@@ -3599,21 +3599,21 @@ div.selected_image
   height: 15px;
 }
 
-#image_list img
+.image_list img
 {
   width: 120px;
   height: 120px;
 }
 
-.thumb_data_img div.license_1, #image_list div.license_1 {
+.thumb_data_img div.license_1, .image_list div.license_1 {
   background-position: -266px -15px;
 }
 
-.thumb_data_img div.license_2, #image_list div.license_2 {
+.thumb_data_img div.license_2, .image_list div.license_2 {
   background-position: -266px 0;
 }
 
-.thumb_data_img div.license_3, #image_list div.license_3 {
+.thumb_data_img div.license_3, .image_list div.license_3 {
   background-position: -210px -279px;
 }
 
@@ -4356,14 +4356,14 @@ ol.text ol.text ol.text
   margin-bottom: 10px;
 }
 
-.latest li, .contribs li, #list_associated_docs li, .children_docs li, .children_lists li, .recent_conditions > li
+.latest li, .contribs li, #list_associated_docs li, .children_docs li, .children_lists li
 {
   margin: 0 0 0 22px;
 }
 
 .recent_conditions > li
 {
-  margin-bottom: 3em;
+  margin: 0 0 3em 0;
 }
 
 .recent_conditions ul

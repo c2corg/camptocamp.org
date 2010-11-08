@@ -38,7 +38,7 @@ if ($nb_images == 0): ?>
     ?>
     <div id="sortable_feedback" class="<?php echo sfConfig::get('app_ajax_feedback_div_style_inline') ?>" style="display:none;"></div>
     <p class="tips"><?php if (!$mobile_version) echo __('click thumbnails top-right corner to see image details') ?></p>
-    <div id="image_list">
+    <div class="image_list">
     <?php
     // we order them by datetime (oldest first), then by id if no datetime
     // it is already order by id
@@ -177,7 +177,7 @@ if ($nb_images > 0 && !$mobile_version)
 // FIXME: find and delete sortable_feedback div + don't use javascript for non-ie browsers
 echo javascript_tag("
 Event.observe(window, 'load', function(){
-$$('#image_list .image').each(function(obj){
+$$('.image_list .image').each(function(obj){
 obj.observe('mouseover', function(e){obj.down('.image_actions').show();obj.down('.image_license').show();});
 obj.observe('mouseout', function(e){obj.down('.image_actions').hide();obj.down('.image_license').hide();});
 });});");

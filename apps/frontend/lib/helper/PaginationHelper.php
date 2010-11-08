@@ -189,7 +189,7 @@ function pager_nb_results($pager)
     }
     else
     {
-        return '';
+        return __('%1% results', array('%1%' => $pager->getNbResults()));
     }
 }
 

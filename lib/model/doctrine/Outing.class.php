@@ -268,13 +268,13 @@ class Outing extends BaseOuting
             self::filterOnActivities($q);
             self::filterOnRegions($q);
             
-            if ($format == 'cond')
+            if (in_array('cond', $format))
             {
                 $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '15D');
                 $q->addWhere("age(date) < interval '$default_max_age'");
             }
         }
-        elseif ($format == 'cond')
+        elseif (in_array('cond', $format))
         {
             $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '15D');
             $q->addWhere("age(date) < interval '$default_max_age'");
@@ -466,12 +466,12 @@ class Outing extends BaseOuting
                                      'v.version', 'hm.user_id', 'u.topo_name', 
                                      'm.geom_wkt', 'm.conditions_status', 'm.frequentation_status');
         
-        $conditions_fields_list = (in_array($format, array('cond', 'full'))) ?
+        $conditions_fields_list = (array_intersect($format, array('cond', 'full'))) ?
                                   array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
                                         'mi.conditions', 'mi.conditions_levels', 'mi.weather', 'mi.timing')
                                   : array();
         
-        $full_fields_list = ($format == 'full') ?
+        $full_fields_list = (in_array('full', $format)) ?
                             array('m.partial_trip', 'm.min_elevation', 'm.height_diff_down', 'm.outing_length', 'm.outing_with_public_transportation',
                                   'm.access_status', 'm.glacier_status', 'm.track_status', 'm.hut_status', 'm.lift_status',
                                   'mi.participants', 'mi.timing', 'mi.access_comments', 'mi.hut_comments', 'mi.description')

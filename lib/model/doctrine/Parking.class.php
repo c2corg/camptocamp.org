@@ -14,7 +14,7 @@ class Parking extends BaseParking
         return $parkings;
     }
 
-    public static function addAssociatedParkings(&$docs, $type) // le & obligatoire ?????? a virer plutot
+    public static function addAssociatedParkings(&$docs, $type)
     {
         Document::addAssociatedDocuments($docs, $type, false,
                                          array('elevation', 'lowest_elevation', 'public_transportation_rating', 'public_transportation_types'),

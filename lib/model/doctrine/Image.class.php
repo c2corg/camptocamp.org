@@ -680,4 +680,11 @@ class Image extends BaseImage
 
         return true;
     }
+
+    public static function addAssociatedImages(&$docs, $type)
+    {
+        Document::addAssociatedDocuments($docs, $type, true,
+                                         array('filename', 'image_type', 'date_time'),
+                                         array('name'));
+    }
 }

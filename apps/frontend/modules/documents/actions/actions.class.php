@@ -1167,6 +1167,9 @@ class documentsActions extends c2cActions
     {
         $criteria = $this->getListCriteria();
         
+        $module = $this->getModuleName();
+        
+        // deal with layout
         $layout = $this->getRequestParameter('layout', null);
         $this->layout = $layout;
         if ($layout == 'light')
@@ -1180,13 +1183,22 @@ class documentsActions extends c2cActions
             $this->getResponse()->addJavascript('/static/js/mslider.js', 'last');
         }
         
-        $format = $this->getRequestParameter('format', null);
+        // deal with format
+        $format = $this->getRequestParameter('format', 'list');
+        $format = explode('-', $format);
         $this->format = $format;
-        if ($format == 'full')
+        $this->show_images = in_array('img', $format);
+        $this->setPageTitle($this->__($module . ' list'));
+        if (in_array('full', $format))
         {
             $default_npp = empty($criteria) ? 20 : 10;
             $max_npp = sfConfig::get('app_list_full_max_npp');
             $this->setTemplate('../../documents/templates/listfull');
+        }
+        elseif (in_array('cond', $format))
+        {
+            $default_npp = empty($criteria) ? 20 : 10;
+            $max_npp = sfConfig::get('app_list_conditions_max_npp');
         }
         else
         {
@@ -1194,6 +1206,8 @@ class documentsActions extends c2cActions
             $max_npp = 100;
             $this->setTemplate('../../documents/templates/list');
         }
+        
+        // DB request
         $this->pager = call_user_func(array($this->model_class, 'browse'),
                                       $this->getListSortCriteria($default_npp, $max_npp),
                                       $criteria,
@@ -1201,10 +1215,9 @@ class documentsActions extends c2cActions
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
         
-        $module = $this->getModuleName();
         $nb_results = $this->pager->getNbResults();
         $this->nb_results = $nb_results;
-        if ($nb_results == 1)
+        if (in_array('list', $format) && $nb_results == 1)
         {
             // if only one document matches, redirect automatically towards it
             $results = $this->pager->getResults('array');
@@ -1239,8 +1252,6 @@ class documentsActions extends c2cActions
                 }
             }
         }
-        
-        $this->setPageTitle($this->__($module . ' list'));
     }
 
     /**
