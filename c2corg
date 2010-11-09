@@ -192,7 +192,7 @@ function processArgs() {
             //installPlugins();
             generateMoFiles();
             launchSfCleanCache();
-            buildMapJsFiles(); // must be doen before revision info
+            buildMapJsFiles(); // must be done before revision info
             updateRevisionInfo();
             execWrapper('symfony fix-perms');
 
@@ -206,7 +206,7 @@ function processArgs() {
             replaceDotIn();
             generateMoFiles();
             makeMapservWrapperExecutable();
-            buildMapJsFiles(); // must be doen before revision info
+            buildMapJsFiles(); // must be done before revision info
             updateRevisionInfo();
             launchSfCleanCache();
             //execWrapper('symfony fix-perms');
@@ -655,6 +655,10 @@ function makeMapservWrapperExecutable() {
     }
 }
 
+/*
+ * Retrieve last revision from head and last modification timestamps
+ * of js and css files
+ */
 function updateRevisionInfo() {
     if (isWin32() || !hasCommand('svn --help')) {
         debug('Updating revision info failed.');
@@ -662,10 +666,6 @@ function updateRevisionInfo() {
     }
 
     $file = 'apps/frontend/config/app.yml';
-
-//    if (file_exists($file)) {
-//        unlink($file);
-//    }
 
     $handle = fopen($file, 'a+');
 
