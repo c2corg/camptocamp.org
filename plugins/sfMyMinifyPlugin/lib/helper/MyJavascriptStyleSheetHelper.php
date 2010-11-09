@@ -11,7 +11,6 @@
 function include_head_javascripts($debug = false)
 {
     //$response->setParameter('javascripts_included', true, 'symfony/view/asset'); this is done in _body function
-
     return _include_javascripts(array('head_first', 'head', 'head_last'), $debug);
 }
 
@@ -79,10 +78,7 @@ function _include_javascripts($position_array = array('first', '', 'last'), $deb
 
     foreach ($internal_files as $file)
     {
-        //$file_parts = explode('/', $file);
-        //$filename = end($file_parts);
         $prefix = $debug ? '/no' : '';
-        //$rev = sfSVN::getHeadRevision($filename);
         $ts = sfTimestamp::getTimestamp($file);
         if (!empty($ts))
         {
@@ -128,9 +124,6 @@ function get_all_stylesheets($debug = false)
         if (isset($already_seen[$file])) continue;
 
         $already_seen[$file] = 1;
-        //$file_parts = explode('/', $file);
-        //$filename = end($file_parts);
-        //$rev = sfSVN::getHeadRevision($filename);
         $ts = sfTimestamp::getTimestamp($file);
         $prefix = $debug ? '/no' : '';
         $prefix = empty($ts) ? $prefix : '/' . $ts . $prefix;

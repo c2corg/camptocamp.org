@@ -86,13 +86,6 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
 
 
     $prefix = $debug ? '/no' : '';
-    //$filenames = array();
-    /*foreach ($files as $file)
-    {
-      $file_parts = explode('/', $file);
-      array_push($filenames, end($file_parts));
-    }*/
-    //$max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
     $ts = sfTimestamp::getTimestamp($files);
     $prefix = empty($ts) ? $prefix : '/' . $ts . $prefix;
     $options['src'] = $app_static_url . $prefix . join($files, ',');
@@ -224,14 +217,6 @@ function minify_get_stylesheets($position_array = array('first', '', 'last'), $d
     $options = unserialize($options);
 
     $prefix = $debug ? '/no' : '';
-/*    $filenames = array();
-    foreach ($files as $file)
-    {
-      $file_parts = explode('/', $file);
-      array_push($filenames, end($file_parts));
-    }
-    $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
-*/
     $ts = sfTimestamp::getTimestamp($files);
     $prefix = empty($ts) ? $prefix : '/' . $ts . $prefix;
     $prefix = empty($max_rev) ? $prefix : '/' . $max_rev . $prefix;
