@@ -1184,9 +1184,16 @@ class documentsActions extends c2cActions
         }
         
         // deal with format
-        $format = $this->getRequestParameter('format', 'list');
-        $format = explode('-', $format);
-        $this->format = $format;
+        if (isset($this->format))
+        {
+            $format = $this->format;
+        }
+        else
+        {
+            $format = $this->getRequestParameter('format', 'list');
+            $format = explode('-', $format);
+            $this->format = $format;
+        }
         $this->show_images = in_array('img', $format);
         $this->setPageTitle($this->__($module . ' list'));
         if (in_array('full', $format))

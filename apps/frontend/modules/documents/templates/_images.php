@@ -30,74 +30,24 @@ else if ($dissociation == 'moderator')
 // For the moment only moderators can dissociate images
 $user_can_dissociate = $sf_user->isConnected() && $specifics_rights;
 
-if ($nb_images == 0): ?>
+if ($nb_images == 0)
+{
+?>
     <p class="default_text"><?php echo __('No image linked to this document') ?></p>
-<?php else:
+<?php
+}
+else
+{
     echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
     // param for ajax reorder
     ?>
     <div id="sortable_feedback" class="<?php echo sfConfig::get('app_ajax_feedback_div_style_inline') ?>" style="display:none;"></div>
     <p class="tips"><?php if (!$mobile_version) echo __('click thumbnails top-right corner to see image details') ?></p>
-    <div class="image_list">
     <?php
-    // we order them by datetime (oldest first), then by id if no datetime
-    // it is already order by id
-    $images = $images->getRawValue();
-    usort($images, array('c2cTools', 'cmpDateTimeDesc'));
-
-    foreach($images as $image):
-        
-        $caption = $image['name'];
-        $slug = make_slug($image['name']);
-        $lang = $image['culture'];
-        $image_id = $image['id'];
-        $image_type = $image['image_type'];
-
-        $image_tag = image_tag(image_url($image['filename'], 'small'),
-                               array('alt' => $caption));
-                               
-        $view_details = link_to('details', "@document_by_id_lang_slug?module=images&id=$image_id&lang=$lang&slug=$slug", 
-                                array('class' => 'view_details', 'title' => __('View image details')));
-
-        $view_original = link_to('original', absolute_link(image_url($image['filename'], null, true), true),
-                                 array('class' => 'view_original', 'title' => __('View original image')));
-
-        if ($user_can_dissociate)
-        {
-            $type = c2cTools::Model2Letter(c2cTools::module2model($module_name)).'i';
-            $strict = (int)($type == 'ii');
-            $link = '@default?module=documents&action=removeAssociation&main_' . $type . '_id=' . $document_id
-                  . '&linked_id=' . $image_id . '&type=' . $type . '&strict=' . $strict . '&reload=1';
-            $remove_association = link_to('unlink', $link,
-                                          array('class' => 'unlink',
-                                            'confirm' => __("Are you sure you want to unlink image %1% named \"%2%\" ?", array('%1%' => $image_id, '%2%' => $caption)),
-                                            'title' => __('Unlink this association')));
-        }
-        else
-        {
-            $remove_association = '';
-        }
-
-        $view_big = link_to($image_tag,
-                            ($mobile_version ? "@document_by_id_lang_slug?module=images&id=$image_id&lang=$lang&slug=$slug"
-                                               : absolute_link(image_url($image['filename'], 'big', true), true)),
-                            array('title' => $caption,
-                                  'rel' => 'lightbox[document_images]',
-                                  'class' => 'view_big',
-                                  'id' => 'lightbox_' . $image_id . '_' . $image_type));
-    ?>
-        <div class="image" id="image_id_<?php echo $image_id ?>">
-            <?php echo $view_big;
-            if (!$mobile_version): ?>
-            <div class="image_actions" style="display:none">
-                <?php echo $view_details . $view_original . $remove_association ?>
-            </div>
-            <?php endif ?>
-            <div class="image_license <?php echo 'license_'.$image_type ?>" <?php echo $mobile_version ? '' : 'style="display:none"' ?>></div>
-        </div>
-    <?php endforeach; ?>
-    </div>
-<?php endif;
+    
+    include_partial('images/linked_images', array('images' => $images,
+                                               'user_can_dissociate' => $user_can_dissociate));
+}
 
 $module_url = $module_name;
 if (!$mobile_version)

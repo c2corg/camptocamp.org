@@ -43,3 +43,6 @@ _temp_image_success:
 
 _temp_image_error:
   enabled: off
+
+_linked_images:
+  enabled: off

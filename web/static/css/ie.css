@@ -44,7 +44,7 @@
 .action_report, .action_help, .action_informations, .action_description,
 .action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc,
 .picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_open_light, .picto_close, .picto_close_light, .picto_add, .picto_rm,
-th.order_desc, th.order_asc, #image_list a.view_original, #lightbox_view_original, #image_list a.unlink
+th.order_desc, th.order_asc, .image_list a.view_original, #lightbox_view_original, .image_list a.unlink
 {
   background-image: url(/static/images/ie/actions.gif);
 }
@@ -54,7 +54,7 @@ th.order_desc, th.order_asc, #image_list a.view_original, #lightbox_view_origina
 .picto_summits, .picto_users, .picto_documents, .picto_products, .picto_portals,
 .picto_1, .picto_4, .picto_3, .picto_13, .picto_7, .picto_9, .picto_10, .picto_5,
 .picto_8, .picto_11, .picto_12, .picto_6, .picto_2, .picto_14, .picto_15,
-#image_list a.view_details, #lightbox_view_details
+.image_list a.view_details, #lightbox_view_details
 {
   background-image: url(/static/images/ie/modules_mini.gif);
 }
@@ -213,7 +213,7 @@ a.link_nav_anchor, a.nav_edit
 {
   width: 150px;
 }
-#image_list div.image_actions
+.image_list div.image_actions
 {
   position: absolute;
   top: 2px;

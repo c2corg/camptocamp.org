@@ -1,5 +1,5 @@
 <?php 
-use_helper('Pagination', 'Field', 'SmartDate', 'SmartFormat', 'sfBBCode', 'Viewer');
+use_helper('Pagination', 'Field', 'SmartDate', 'SmartFormat', 'sfBBCode', 'Viewer', 'ModalBox', 'Lightbox', 'Javascript', 'MyImage');
 $mobile_version =  c2cTools::mobileVersion();
 
 echo display_title(__('recent conditions'), 'outings', false);
@@ -21,9 +21,17 @@ else:
     
     $pager_navigation = pager_navigation($pager, array('list_header'));
     echo $pager_navigation;
+    
+    $class = 'recent_conditions';
+    if ($show_images)
+    {
+        $class .= ' condimg';
+        echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
+    }
 ?>
-<ul class="recent_conditions">
-    <?php foreach ($items as $item): ?>
+<ul class="<?php echo $class ?>">
+    <?php
+    foreach ($items as $item): ?>
     <li><?php
         $i18n = $item['OutingI18n'][0];
         echo '<span class="item_title">' .
@@ -105,20 +113,39 @@ else:
             if (check_not_empty($timing) && !($timing instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
                 <li><div class="section_subtitle" id="_weather"><?php echo __('timing') ?></div><?php echo parse_links(parse_bbcode($timing, null, false, false)) ?></li>
             <?php endif; ?>
-    </ul>
+        </ul>
     <?php
     $conditions_levels = unserialize($item['OutingI18n'][0]->get('conditions_levels', ESC_RAW));
     if (!empty($conditions_levels) && count($conditions_levels))
     {
         echo conditions_levels_data($conditions_levels);
     }
+    
+    if ($show_images && isset($item['linked_docs']))
+    {
+        include_partial('images/linked_images', array('images' => $item['linked_docs'],
+                                                   'user_can_dissociate' => false));
+    }
     ?>
     </li>
-    <?php endforeach ?>
+    <?php
+    endforeach ?>
 </ul>
 <?php
     echo $pager_navigation;
 endif;
+
+if ($show_images && $nb_images > 0 && !$mobile_version)
+{
+// FIXME: find and delete sortable_feedback div + don't use javascript for non-ie browsers
+echo javascript_tag("
+Event.observe(window, 'load', function(){
+$$('.image_list .image').each(function(obj){
+obj.observe('mouseover', function(e){obj.down('.image_actions').show();obj.down('.image_license').show();});
+obj.observe('mouseout', function(e){obj.down('.image_actions').hide();obj.down('.image_license').hide();});
+});});");
+// FIXME: do a separate JS file for that, and dynamically include it in the response.
+}
 
 echo end_content_tag();
 

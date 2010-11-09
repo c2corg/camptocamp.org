@@ -16,18 +16,56 @@ else
     $custom_title_text = '';
 }
 
+if (isset($custom_url_params))
+{
+    $custom_url_params = $sf_data->getRaw('custom_url_params');
+}
+else
+{
+    $custom_url_params = '';
+}
+
 if (isset($custom_title_link))
 {
     $custom_title_link = $sf_data->getRaw('custom_title_link');
 }
 else
 {
-    $custom_title_link = '@ordered_list?module=outings&orderby=date&order=desc';
+    $url_params = $custom_url_params;
+    if (!empty($url_params))
+    {
+        $url_params .= '&'; 
+    }
+    $custom_link = 'outings/list?' . $url_params . 'orderby=date&order=desc';
+    $custom_title_link = $custom_link;
+}
+
+if (isset($custom_footer_link))
+{
+    $custom_footer_link = $sf_data->getRaw('custom_footer_link');
+}
+elseif (!empty($custom_url_params))
+{
+    $custom_footer_link = 'outings/list?' . $custom_url_params;
+}
+else
+{
+    $custom_footer_link = $custom_link;
+}
+
+$conditions_link = 'outings/conditions';
+if (!empty($custom_url_params))
+{
+    $conditions_link = '?' . $custom_url_params;
 }
 
 if (isset($custom_rss_link))
 {
     $custom_rss_link = $sf_data->getRaw('custom_rss_link');
+}
+elseif (!empty($custom_url_params))
+{
+    $custom_rss_link = 'outings/rss?' . $custom_url_params;
 }
 else
 {
@@ -95,9 +133,9 @@ include_partial('documents/home_section_title',
     </ul>
 <?php endif;?>
 <div class="home_link_list">
-<?php echo link_to(__('outings list'), '@ordered_list?module=outings&orderby=date&order=desc')
+<?php echo link_to(__('outings list'), $custom_footer_link)
            . ' - ' .
-           link_to(__('recent conditions'), 'outings/conditions')
+           link_to(__('recent conditions'), $conditions_link)
            . ' - ' .
            link_to(__('Prepare outing'), getMetaArticleRoute('prepare_outings'));
       if ($sf_user->isConnected())

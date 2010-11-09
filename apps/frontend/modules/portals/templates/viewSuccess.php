@@ -142,15 +142,12 @@ elseif ($has_images)
 if ($has_outings)
 {
     $outing_url_params = $sf_data->getRaw('outing_url_params');
-    $outing_url_params = implode('&', $outing_url_params) . '&orderby=date&order=desc';
-    $custom_title_link = 'outings/list?' . $outing_url_params;
-    $custom_rss_link = 'outings/rss?' . $outing_url_params;
+    $outing_url_params = implode('&', $outing_url_params);
     include_partial('outings/latest',
                     array('items' => $latest_outings,
                           'culture' => $culture,
                           'default_open' => true,
-                          'custom_title_link' => $custom_title_link,
-                          'custom_rss_link' => $custom_rss_link));
+                          'custom_url_params' => $outing_url_params));
 }
 
 if ($is_not_archive)

@@ -4361,9 +4361,28 @@ ol.text ol.text ol.text
   margin: 0 0 0 22px;
 }
 
+ul.recent_conditions
+{
+  margin-top: 1em;
+  clear: both;
+}
+
 .recent_conditions > li
 {
-  margin: 0 0 3em 0;
+  padding: 0 0 1em 0;
+  margin: 0 0 2em 0;
+}
+
+.recent_conditions.condimg > li
+{
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.recent_conditions .image_list
+{
+  display: -moz-inline-box;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .recent_conditions ul
@@ -4376,12 +4395,6 @@ ol.text ol.text ol.text
 {
   list-style-type:square;
   margin-bottom: 0.2em;
-}
-
-ul.recent_conditions
-{
-  margin-top: 1em;
-  clear: both;
 }
 
 .children_lists li {

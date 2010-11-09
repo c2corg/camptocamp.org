@@ -689,6 +689,10 @@ class outingsActions extends documentsActions
 
     public function executeConditions()
     {
+        $format = $this->getRequestParameter('format', 'cond');
+        $format = explode('-', $format);
+        $this->format = $format;
+        
         self::executeList();
     }
 
@@ -703,6 +707,8 @@ class outingsActions extends documentsActions
 
         $nb_results = $this->nb_results;
         if ($nb_results == 0) return;
+        
+        $format = $this->format;
         
         $outings = $this->pager->getResults('array');
 
