@@ -764,8 +764,7 @@ function get_remote_address()
 	if (isset($_SERVER['HTTP_X_VARNISH']) && isset($_SERVER['HTTP_X_FORWARDED_FOR']))
 	{
 		$x_forwarded_for = explode(', ', $_SERVER['HTTP_X_FORWARDED_FOR']);
-		$last_ip = end($x_forwarded_for);
-		return prev($x_forwarded_for);
+		return $x_forwarded_for[0];
 	}
 	else
 	{
