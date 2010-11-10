@@ -27,7 +27,7 @@ function _addParameters($uri, $params = array())
     return $uri;
 }
 
-function _addUrlParameters($uri, $params_to_ignore = array())
+function _addUrlParameters($uri, $params_to_ignore = array(), $params = array())
 {
     $request = sfContext::getInstance()->getRequest();
     $request_parameters = $request->getParameterHolder()->getAll();
@@ -38,6 +38,7 @@ function _addUrlParameters($uri, $params_to_ignore = array())
     {
         unset($request_parameters[$param]);
     }
+    $request_parameters = array_merge($request_parameters, $params);
     
     $uri = _addParameters($uri, $request_parameters);
     
@@ -123,19 +124,9 @@ function pager_navigation($pager, $class = array())
      
         $orderby = $request->getParameter('orderby');
         $order = $request->getParameter('order');
+        $params = array('orderby' => $orderby, 'order' => $order);
      
-        $uri = _getBaseUri();
-        $uri .= _addUrlParameters($uri);
-     
-        if (!is_null($orderby))
-        {
-            $uri .= _getSeparator($uri) . 'orderby=' . $orderby;
-        }
-     
-        if (!is_null($order))
-        {
-            $uri .= _getSeparator($uri) . 'order=' . $order;
-        }
+        $uri = _addUrlParameters(_getBaseUri(), array(), $params);
      
         $uri .= _getSeparator($uri) . 'page=';
 
@@ -181,7 +172,7 @@ function pager_nb_results($pager)
 {
     if ($pager->haveToPaginate())
     {
-        return __('Results %1% - %2% of %3%', array('%1%' => ($pager->getMaxPerPage() * ($pager->getPage() - 1) + 1),
+        $out = __('Results %1% - %2% of %3%', array('%1%' => ($pager->getMaxPerPage() * ($pager->getPage() - 1) + 1),
                                                     '%2%' => ($pager->getPage() != $pager->getLastPage()) ?
                                                                   $pager->getMaxPerPage() * $pager->getPage() :
                                                                   $pager->getNbResults(),
@@ -189,8 +180,10 @@ function pager_nb_results($pager)
     }
     else
     {
-        return __('%1% results', array('%1%' => $pager->getNbResults()));
+        $out = __('%1% results', array('%1%' => $pager->getNbResults()));
     }
+    
+    return '<p>' . $out . '</p>';
 }
 
 /* simple pager that will show the current div and display the selected one instead */
@@ -245,8 +238,8 @@ function link_to_default_order($label, $default_label)
     
     if (isset($param_orderby))
     {
-        $uri = _addUrlParameters('', array('orderby', 'order', 'page'));
-        return link_to($label, _getBaseUri() . $uri);
+        $uri = _addUrlParameters(_getBaseUri(), array('orderby', 'order', 'page'));
+        return link_to($label, $uri);
     }
     else
     {
@@ -256,10 +249,8 @@ function link_to_default_order($label, $default_label)
 
 function link_to_conditions($label)
 {
-    $uri = '/outings/conditions';
-    $uri .= _addUrlParameters($uri, array('order', 'page', 'orderby'));
     $params = array('orderby' => 'date', 'order' => 'desc');
-    $uri = _addParameters($uri, $params);
+    $uri = _addUrlParameters('/outings/conditions', array('order', 'page', 'orderby'), $params);
     
     return link_to($label, $uri);
 }
@@ -313,8 +304,7 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
         $params['page'] = $param_page;
     }
     
-    $uri = _addUrlParameters(_getBaseUri(), array('order', 'page', 'orderby'));
-    $uri = _addParameters($uri, $params);
+    $uri = _addUrlParameters(_getBaseUri(), array('order', 'page', 'orderby'), $params);
 
     if (!empty($label))
     {

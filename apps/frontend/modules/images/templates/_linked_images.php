@@ -30,7 +30,7 @@ foreach($images as $image)
 
     if ($user_can_dissociate)
     {
-        $type = c2cTools::Model2Letter(c2cTools::module2model($module_name)).'i';
+        $type = c2cTools::Module2Letter($module_name).'i';
         $strict = (int)($type == 'ii');
         $link = '@default?module=documents&action=removeAssociation&main_' . $type . '_id=' . $document_id
               . '&linked_id=' . $image_id . '&type=' . $type . '&strict=' . $strict . '&reload=1';

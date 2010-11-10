@@ -36,7 +36,7 @@ class Language
     }
 
     // gets the best lang for each item + for the associated range(s) !
-    public static function parseListItems($array, $modelName)
+    public static function parseListItems($array, $modelName, $count_images = true)
     {
         $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
 
@@ -102,7 +102,7 @@ class Language
             }
         }
         
-        if ($modelName != 'Image')
+        if ($count_images && $modelName != 'Image')
         {
             // Count all images linked
             $image_links = Association::countAllLinked(array_flip($_str), c2cTools::Model2Letter($modelName).'i');

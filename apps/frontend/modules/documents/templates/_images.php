@@ -46,7 +46,9 @@ else
     <?php
     
     include_partial('images/linked_images', array('images' => $images,
-                                               'user_can_dissociate' => $user_can_dissociate));
+                                                  'module_name' => $module_name,
+                                                  'document_id' => $document_id,
+                                                  'user_can_dissociate' => $user_can_dissociate));
 }
 
 $module_url = $module_name;

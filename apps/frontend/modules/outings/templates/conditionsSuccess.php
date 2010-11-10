@@ -15,12 +15,22 @@ echo display_content_top('list_content');
 echo start_content_tag('outings_content');
 
 if (!isset($items) || count($items) == 0):
+
     echo __('there is no %1% to show', array('%1%' => __('outings')));
+
 else:
-    echo '<p class="list_header">' . link_to_outings(__('Show as a list')) . '</p>';
+    
+    echo '<p class="list_header">'
+       . link_to_outings(__('Show as a list'));
+    if ($show_images)
+    {
+        echo '';
+    }
+    echo '</p>';
     
     $pager_navigation = pager_navigation($pager, array('list_header'));
     echo $pager_navigation;
+    echo pager_nb_results($pager);
     
     $class = 'recent_conditions';
     if ($show_images)
@@ -34,11 +44,12 @@ else:
     foreach ($items as $item): ?>
     <li><?php
         $i18n = $item['OutingI18n'][0];
+        $item_id = $i18n['id'];
         echo '<span class="item_title">' .
              format_date($item['date'], 'dd/MM/yyyy') . ' - ' .
              get_paginated_activities($item['activities']) . ' - ' .
              link_to($i18n['name'],
-                     '@document_by_id_lang_slug?module=outings&id=' . $i18n['id'] . '&lang=' . $i18n['culture'] . '&slug=' . make_slug($i18n['name'])) . ' - ' .
+                     '@document_by_id_lang_slug?module=outings&id=' . $item_id . '&lang=' . $i18n['culture'] . '&slug=' . make_slug($i18n['name'])) . ' - ' .
              displayWithSuffix($item['max_elevation'], 'meters') . ' - ' .
              field_route_ratings_data($item, false, true);
         if (isset($item['nb_images']))
@@ -48,7 +59,7 @@ else:
         if (isset($item['nb_comments']))
         {
             echo ' - ' . picto_tag('action_comment', __('nb_comments')) . '&nbsp;' . link_to($item['nb_comments'], '@document_comment?module=outings&id='
-        . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']);
+        . $item_id . '&lang=' . $i18n['culture']);
         }
         echo '</span>';
         ?>
@@ -87,7 +98,7 @@ else:
             endif;
             
             
-            $conditions = $item['OutingI18n'][0]['conditions'];
+            $conditions = $i18n['conditions'];
             $conditions_status = $item['conditions_status'];
             $has_conditions_status = is_integer($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
             $has_conditions = check_not_empty($conditions) && !($conditions instanceof sfOutputEscaperObjectDecorator);
@@ -105,17 +116,17 @@ else:
                 ?></li>
             <?php endif;
 
-            $weather = $item['OutingI18n'][0]['weather'];
+            $weather = $i18n['weather'];
             if (check_not_empty($weather) && !($weather instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
                 <li><div class="section_subtitle" id="_weather"><?php echo __('weather') ?></div><?php echo parse_links(parse_bbcode($weather, null, false, false)) ?></li>
             <?php endif;
-            $timing = $item['OutingI18n'][0]['timing'];
+            $timing = $i18n['timing'];
             if (check_not_empty($timing) && !($timing instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
                 <li><div class="section_subtitle" id="_weather"><?php echo __('timing') ?></div><?php echo parse_links(parse_bbcode($timing, null, false, false)) ?></li>
             <?php endif; ?>
         </ul>
     <?php
-    $conditions_levels = unserialize($item['OutingI18n'][0]->get('conditions_levels', ESC_RAW));
+    $conditions_levels = unserialize($i18n->get('conditions_levels', ESC_RAW));
     if (!empty($conditions_levels) && count($conditions_levels))
     {
         echo conditions_levels_data($conditions_levels);
@@ -124,7 +135,9 @@ else:
     if ($show_images && isset($item['linked_docs']))
     {
         include_partial('images/linked_images', array('images' => $item['linked_docs'],
-                                                   'user_can_dissociate' => false));
+                                                      'module_name' => 'outings',
+                                                      'document_id' => $item_id,
+                                                      'user_can_dissociate' => false));
     }
     ?>
     </li>

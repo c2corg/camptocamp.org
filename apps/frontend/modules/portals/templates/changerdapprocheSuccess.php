@@ -106,7 +106,8 @@ if ($has_outings)
                     array('items' => $latest_outings,
                           'culture' => $culture,
                           'default_open' => true,
-                          'custom_title_text' => __('Soft mobility outings'),
+                          'custom_title_text' => __('Last soft mobility outings'),
+                          'custom_footer_text' => __('Soft mobility outings'),
                           'custom_url_params' => $outing_url_params));
 }
 if ($has_articles)
@@ -124,7 +125,8 @@ if ($has_articles)
                     array('items' => $latest_articles,
                           'culture' => $culture,
                           'default_open' => true,
-                          'custom_title_text' => __('Soft mobility articles'),
+                          'custom_title_text' => __('Last soft mobility articles'),
+                          'custom_footer_text' => __('Soft mobility articles'),
                           'custom_title_link' => $custom_title_link,
                           'custom_rss_link' => $custom_rss_link));
 }

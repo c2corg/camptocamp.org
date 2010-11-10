@@ -16,6 +16,15 @@ else
     $custom_title_text = '';
 }
 
+if (isset($custom_footer_text))
+{
+    $custom_footer_text = $sf_data->getRaw('custom_footer_text');
+}
+else
+{
+    $custom_footer_text = __('outings list');
+}
+
 if (isset($custom_url_params))
 {
     $custom_url_params = $sf_data->getRaw('custom_url_params');
@@ -56,7 +65,7 @@ else
 $conditions_link = 'outings/conditions';
 if (!empty($custom_url_params))
 {
-    $conditions_link = '?' . $custom_url_params;
+    $conditions_link .= '?' . $custom_url_params;
 }
 
 if (isset($custom_rss_link))
@@ -133,7 +142,7 @@ include_partial('documents/home_section_title',
     </ul>
 <?php endif;?>
 <div class="home_link_list">
-<?php echo link_to(__('outings list'), $custom_footer_link)
+<?php echo link_to($custom_footer_text, $custom_footer_link)
            . ' - ' .
            link_to(__('recent conditions'), $conditions_link)
            . ' - ' .

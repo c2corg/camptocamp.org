@@ -15,13 +15,22 @@ else
     $custom_title_text = '';
 }
 
+if (isset($custom_footer_text))
+{
+    $custom_footer_text = $sf_data->getRaw('custom_footer_text');
+}
+else
+{
+    $custom_footer_text = __('articles list');
+}
+
 if (isset($custom_title_link))
 {
     $custom_title_link = $sf_data->getRaw('custom_title_link');
 }
 else
 {
-    $custom_title_link = '';
+    $custom_title_link = '@default_index?module=articles';
 }
 
 if (isset($custom_rss_link))
@@ -71,7 +80,7 @@ include_partial('documents/home_section_title',
     </ul>
 <?php endif; ?>
 <div class="home_link_list">
-<?php echo link_to(__('articles list'), '@default_index?module=articles')
+<?php echo link_to($custom_footer_text, $custom_title_link)
            . ' - ' .  link_to(__('Summary'), getMetaArticleRoute('home_articles')); ?>
 </div>
 </div>

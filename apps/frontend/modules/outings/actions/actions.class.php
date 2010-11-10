@@ -709,6 +709,7 @@ class outingsActions extends documentsActions
         if ($nb_results == 0) return;
         
         $format = $this->format;
+        $show_images = $this->show_images;
         
         $outings = $this->pager->getResults('array');
 
@@ -725,12 +726,12 @@ class outingsActions extends documentsActions
         }
         
         // add images infos
-        if (in_array('img', $format))
+        if ($show_images)
         {
             Image::addAssociatedImages($outings, 'oi');
         }
         
-        $this->items = Language::parseListItems($outings, 'Outing');
+        $this->items = Language::parseListItems($outings, 'Outing', !$show_images);
     }
 
     public function handleErrorFilterredirect()
