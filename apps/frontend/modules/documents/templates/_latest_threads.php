@@ -85,7 +85,7 @@ else
 <div class="home_link_list">
 <?php
 $connected = $sf_user->isConnected();
-echo f_link_to(__('Forum'), '?lang='. $sf_user->getCulture()) . ' - ';
+echo f_link_to(__('Forum'), $custom_title_link) . ' - ';
 if ($connected)
 {
     echo f_link_to(__('New posts'), 'search.php?action=show_new&lang='.$culture);

@@ -691,6 +691,10 @@ class outingsActions extends documentsActions
     {
         $format = $this->getRequestParameter('format', 'cond');
         $format = explode('-', $format);
+        if (!in_array('cond', $format))
+        {
+            $format[] = 'cond';
+        }
         $this->format = $format;
         
         self::executeList();
@@ -705,6 +709,12 @@ class outingsActions extends documentsActions
 
         parent::executeList();
 
+        if (in_array('cond', $format))
+        {
+            $this->setTemplate('conditions');
+            $this->setPageTitle($this->__('recent conditions'));
+        }
+        
         $nb_results = $this->nb_results;
         if ($nb_results == 0) return;
         
@@ -718,11 +728,6 @@ class outingsActions extends documentsActions
         if (!in_array('list', $format))
         {
             $outings = Language::getTheBestForAssociatedAreas($outings);
-        }
-        if (in_array('cond', $format))
-        {
-            $this->setTemplate('conditions');
-            $this->setPageTitle($this->__('recent conditions'));
         }
         
         // add images infos

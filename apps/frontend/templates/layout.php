@@ -58,9 +58,18 @@ $response->setCookie('__utmz', '', null, '/', '.camptocamp.org');
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url. '/' . sfTimestamp::getTimestamp('/static/css/ie7.css'); ?>/static/css/ie7.css" />
     <![endif]-->
-    <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
-          title="Camptocamp.org" />
-    <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
+    <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" title="Camptocamp.org" />
+    <link rel="shortcut icon" href="<?php
+    if ($footer_type == 'cda')
+    {
+        $favicon = 'portals/cda_favico.ico';
+    }
+    else
+    {
+        $favicon = 'favicon.ico';
+    }
+    echo $static_base_url . '/static/images/' . $favicon;
+    ?>" />
 </head>
 <body>
     <div id="holder">
