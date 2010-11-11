@@ -143,7 +143,7 @@ if ($has_news)
 }
 if ($has_topics)
 {
-    $custom_title_link = 'forums/viewforum.php?id=42';
+    $custom_title_link = 'viewforum.php?id=42';
     include_partial('documents/latest_threads',
                     array('items' => $latest_threads,
                           'culture' => $culture,

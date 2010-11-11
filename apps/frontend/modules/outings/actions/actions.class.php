@@ -709,6 +709,7 @@ class outingsActions extends documentsActions
 
         parent::executeList();
 
+        $format = $this->format;
         if (in_array('cond', $format))
         {
             $this->setTemplate('conditions');
@@ -718,7 +719,6 @@ class outingsActions extends documentsActions
         $nb_results = $this->nb_results;
         if ($nb_results == 0) return;
         
-        $format = $this->format;
         $show_images = $this->show_images;
         
         $outings = $this->pager->getResults('array');

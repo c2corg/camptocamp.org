@@ -62,7 +62,7 @@ $response->setCookie('__utmz', '', null, '/', '.camptocamp.org');
     <link rel="shortcut icon" href="<?php
     if ($footer_type == 'cda')
     {
-        $favicon = 'portals/cda_favico.ico';
+        $favicon = 'portals/cda_favicon.ico';
     }
     else
     {

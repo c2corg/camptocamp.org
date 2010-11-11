@@ -94,7 +94,8 @@ class Summit extends BaseSummit
 
         // route criteria
         Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.linked_id');
-
+        self::buildConditionItem($conditions, $values, 'Array', array('r', 'r', 'activities'), 'act', 'join_route', false, $params_list);
+ 
         // hut criteria
         Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.main_id');
 

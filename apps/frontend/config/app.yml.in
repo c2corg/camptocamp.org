@@ -19,28 +19,28 @@ all:
       2: users
   languages:
     c2c:
-      fr: francais   
+      fr: francais
       it: italiano
-      de: deutsch   
-      en: english   
-      es: espanol     
-      ca: catalan   
+      de: deutsch
+      en: english
+      es: espanol
+      ca: catalan
       eu: euskara
     book:
-      fr: francais   
+      fr: francais
       it: italiano
-      de: deutsch   
-      en: english   
-      es: espanol     
-      ca: catalan   
+      de: deutsch
+      en: english
+      es: espanol
+      ca: catalan
       eu: euskara
       ot: other
     punbb:
-      fr: French   
+      fr: French
       it: Italian
-      de: German   
-      en: English   
-      es: Spanish       
+      de: German
+      en: English
+      es: Spanish
       ca: Catalan
       eu: Euskara
   # allowed association types for quick associations:
@@ -181,6 +181,7 @@ all:
       4: [ 10, 22, 79, 59, 62, 65, 68, 83 ]
       5: [ 5, 8, 21, 60, 63, 66, 69, 81 ] # same as 2
       6: [ 6, 23, 60, 63, 66, 69, 81 ]
+      7: [ 2, 7, 20, 58, 61, 64, 67, 80 ]
       misc: [ 4, 9, 11, 18, 24, 25, 41, 42, 50, 51, 55, 70, 72 ]
     mountain_news: [ 18, 85, 86, 87, 89, 48, 90, 91, 92, 93, 94 ]
     mountain_news_by_lang:
@@ -198,6 +199,7 @@ all:
       4: [ 87 ]
       5: [ 87 ] # same as 2
       6: [ 89 ]
+      7: [ 85 ]
       misc: [ 18, 48, 90, 91, 92, 93, 94 ]
     c2c_news: [ 31, 71 ]
     c2c_news_by_lang:
