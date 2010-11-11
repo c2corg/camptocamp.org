@@ -34,6 +34,9 @@ msgstr "%1% minutes ago"
 msgid "%1% months ago"
 msgstr "%1% months ago"
 
+msgid "%1% results"
+msgstr "<b>%1%</b> results"
+
 msgid "%1% results, %2% displayed, restrict your search"
 msgstr "%1% results, %2% displayed, restrict your search."
 
@@ -113,6 +116,10 @@ msgstr "Alignment:"
 
 msgid "All fields are mandatory"
 msgstr "All fields are necessary"
+
+# [WARNING] needs_review
+msgid "All topics"
+msgstr "All topics"
 
 msgid "All your images are already collaborative"
 msgstr "All your images are already collaborative."
@@ -1083,6 +1090,14 @@ msgstr "More"
 msgid "Last bulletin"
 msgstr "Last bulletin"
 
+# [WARNING] needs_review
+msgid "Last soft mobility articles"
+msgstr "Articles on ecotourism and ecomobility"
+
+# [WARNING] needs_review
+msgid "Last soft mobility outings"
+msgstr "Latest outings carried out by ecomobility"
+
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
@@ -1698,7 +1713,7 @@ msgid "Reserved to logged users"
 msgstr "Reserved to logged users"
 
 msgid "Results %1% - %2% of %3%"
-msgstr "<p>Results <b>%1%</b> - <b>%2%</b> of <b>%3%</b></p>"
+msgstr "Results <b>%1%</b> - <b>%2%</b> of <b>%3%</b>"
 
 msgid "Results from google for %1%"
 msgstr "Google results for \"%1%\""
@@ -1910,13 +1925,13 @@ msgstr "Avalanche bulletin"
 msgid "Soft mobility"
 msgstr "Ecomobility"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "Soft mobility articles"
 msgstr "Articles on ecotourism and ecomobility"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "Soft mobility outings"
-msgstr "Latest outings carried out by ecomobility"
+msgstr "Outings carried out by ecomobility"
 
 msgid "Static map"
 msgstr "Map"

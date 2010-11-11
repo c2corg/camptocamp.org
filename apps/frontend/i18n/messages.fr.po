@@ -36,6 +36,9 @@ msgstr "il y a %1% minutes"
 msgid "%1% months ago"
 msgstr "il y a %1% mois"
 
+msgid "%1% results"
+msgstr "<b>%1%</b> résultats"
+
 msgid "%1% results, %2% displayed, restrict your search"
 msgstr "%1% résultats, %2% affichés, affinez votre recherche."
 
@@ -115,6 +118,16 @@ msgstr "Alignement&nbsp;:"
 
 msgid "All fields are mandatory"
 msgstr "Tous les champs sont obligatoires."
+
+# [comment]
+# autres possibilités :
+# - Tous les sujets
+# - Tous les posts
+# - Tous les messages
+# - Tous
+# [WARNING] needs_review
+msgid "All topics"
+msgstr "Toutes discussions"
 
 msgid "All your images are already collaborative"
 msgstr "Toutes vos images sont déjà collaboratives."
@@ -1077,6 +1090,12 @@ msgstr "En savoir plus"
 msgid "Last bulletin"
 msgstr "Dernier bulletin"
 
+msgid "Last soft mobility articles"
+msgstr "Articles écotourisme et mobilité douce"
+
+msgid "Last soft mobility outings"
+msgstr "Dernières sorties réalisées en mobilité douce"
+
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
@@ -1689,7 +1708,7 @@ msgid "Reserved to logged users"
 msgstr "Réservé aux membres connectés"
 
 msgid "Results %1% - %2% of %3%"
-msgstr "<p>Résultats <b>%1%</b> à <b>%2%</b> sur un total de <b>%3%</b></p>"
+msgstr "Résultats <b>%1%</b> à <b>%2%</b> sur un total de <b>%3%</b>"
 
 msgid "Results from google for %1%"
 msgstr "Résultats de Google pour \"%1%\""
@@ -1896,10 +1915,10 @@ msgid "Soft mobility"
 msgstr "Mobilité douce"
 
 msgid "Soft mobility articles"
-msgstr "Articles écotourisme et mobilité douce"
+msgstr "Liste des articles écotourisme et mobilité douce"
 
 msgid "Soft mobility outings"
-msgstr "Dernières sorties réalisées en mobilité douce"
+msgstr "Liste des sorties en mobilité douce"
 
 msgid "Static map"
 msgstr "Carte"
@@ -3494,7 +3513,7 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#bera\">Avalanches</a></p>\n"
 "<ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a>&nbsp;: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">SLF (Suisse)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li><li><a href=\"/users/mailinglists\">Recevoir les bulletins par email</a></li></ul>\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p>\n"
-"<ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (France)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul>\n"
+"<ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (France)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoie)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Hautes-Alpes)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul>\n"
 "<p>Autres</p>\n"
 "<ul><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 

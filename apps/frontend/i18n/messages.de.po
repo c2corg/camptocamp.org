@@ -35,6 +35,9 @@ msgstr "vor %1% Minuten"
 msgid "%1% months ago"
 msgstr "vor %1% Monaten"
 
+msgid "%1% results"
+msgstr "<b>%1%</b> Ergebnisse"
+
 msgid "%1% results, %2% displayed, restrict your search"
 msgstr "%1% Ergebnisse, %2% angezeigt, Ihre Suche verfeinern."
 
@@ -115,13 +118,17 @@ msgstr "Ausrichtung:"
 msgid "All fields are mandatory"
 msgstr "Alle Datenfelder müssen ausgefüllt werden."
 
+# [WARNING] en translation used
+msgid "All topics"
+msgstr "All topics"
+
 # [WARNING] needs_review
 msgid "All your images are already collaborative"
 msgstr "Alle ihre Bilder sind schon gemeinschaftlich."
 
 # [WARNING] needs_review
 msgid "An user can not be linked to a collaborative article"
-msgstr "Ein Benutzer kann nicht mit einem gemeinschafltichn Artikel verbunden werden"
+msgstr "Ein Benutzer kann nicht mit einem gemeinschafltichen Artikel verbunden werden"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Sind sie sicher die katalanische Fassung dieses Dokuments löschen zu wollen?"
@@ -187,7 +194,6 @@ msgstr "Dieser Artikel ist schreibgeschützt "
 msgid "Article not found"
 msgstr "Dieser Artikel konnte nicht gefunden werden."
 
-# [WARNING] needs_review
 msgid "Articles"
 msgstr "Artikel"
 
@@ -1101,6 +1107,13 @@ msgstr "Mehr"
 msgid "Last bulletin"
 msgstr "Neuestes Bulletin"
 
+# [WARNING] needs_review
+msgid "Last soft mobility articles"
+msgstr "Artikel über nachhaltigen Tourismus und nachhaltige Mobilität"
+
+msgid "Last soft mobility outings"
+msgstr "Neueste Touren, welche mit nachhaltiger Moblität durchgeführt wurden"
+
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
@@ -1725,9 +1738,8 @@ msgstr "Die Fassung des gewünschten Dokument wurde nicht gefunden"
 msgid "Reserved to logged users"
 msgstr "Nur für die angemeldeten Benutzer bestimmt"
 
-# [WARNING] needs_review
 msgid "Results %1% - %2% of %3%"
-msgstr "<p>Ergebnisse <b>%1%</b> - <b>%2%</b> von insgesamt <b>%3%</b></p>"
+msgstr "Ergebnisse <b>%1%</b> - <b>%2%</b> von ingesamt <b>%3%</b>"
 
 msgid "Results from google for %1%"
 msgstr "Google Suchergebnis für \"%1%\""
@@ -1942,11 +1954,13 @@ msgstr "Lawinenbulletin"
 msgid "Soft mobility"
 msgstr "Sanfte Mobilität"
 
+# [WARNING] needs_update
 msgid "Soft mobility articles"
 msgstr "Artikel über nachhaltigen Tourismus und nachhaltige Mobilität"
 
+# [WARNING] needs_update
 msgid "Soft mobility outings"
-msgstr "Neueste Touren, welche mit nachhaltiger Moblität durchgeführt wurden"
+msgstr "Touren, welche mit nachhaltiger Moblität durchgeführt wurden"
 
 msgid "Static map"
 msgstr "Karte"
@@ -2333,9 +2347,8 @@ msgstr "Die aktuelle Fassung anzeigen"
 
 # [general comment]
 # used for edition rss feeds rich content
-# [WARNING] needs_review
 msgid "View difference between version %1% and %2%"
-msgstr "Zeige die Unterschiede zwischen den Versionen %1% und %2% an"
+msgstr "Die Unterschiede zwischen den Versionen %1% und %2% anzeigen"
 
 msgid "View image details"
 msgstr "Die Informationen über das Bild abrufen "
@@ -3817,9 +3830,9 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Wetter</a></p>\n"
 "<li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET\n"
 "(Spanien)</a></li>\n"
 "</ul>\n"
-"&nbsp;<a href=\"/articles/107228/fr/liens-utiles#bera\">Schnee- und\n"
+"<p><a href=\"/articles/107228/fr/liens-utiles#bera\">Schnee- und\n"
 "Lawinenverhältnisse</a>\n"
-"<br>\n"
+"</p>\n"
 "<ul>\n"
 "<li><a href=\"http://www.slf.ch/lawineninfo/index_DE\">SLF (Schweiz)</a></li>\n"
 "<li><a\n"
@@ -3833,8 +3846,8 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Wetter</a></p>\n"
 "<li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA\n"
 "(Italie)</a></li>\n"
 "<li><a href=\"../../users/mailinglists\">Bulletins per Email abonnieren</a></li>\n"
-"</ul>\n"
-"<a href=\"/articles/107228/fr/liens-utiles#transport\">Mobilität</a>\n"
+"</ul><p>\n"
+"<a href=\"/articles/107228/fr/liens-utiles#transport\">Mobilität</a></p>\n"
 "<ul>\n"
 "<li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li>\n"
 "<li><a href=\"http://www.sbb.ch/\">ÖBB (Österreich)</a></li>\n"
