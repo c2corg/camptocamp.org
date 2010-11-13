@@ -105,7 +105,7 @@ class sfGeoRssFeed extends sfRssFeed
         }
         elseif ($item->getAuthorName())
         {
-          $xml[] = sprintf('      <dc:creator>%s</dc:creator>', $item->getAuthorName());
+          $xml[] = sprintf('      <dc:creator><![CDATA[%s]]</dc:creator>', $item->getAuthorName());
         }
         if ($item->getPubdate())
         {
