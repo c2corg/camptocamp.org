@@ -2225,7 +2225,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     {
                         if (strval($item) != '0')
                         {
-                            $condition_array[] = "(? = ANY ($field_2))";
+                            $condition_array[] = $cond;
                             $values[] = $item;
                         }
                         elseif (!$is_null)
@@ -2238,7 +2238,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     {
                         foreach ($not_items as $not_item)
                         {
-                            $condition_array[] = "NOT (? = ANY ($field_2))";
+                            $condition_array[] = "NOT $cond";
                             $values[] = $not_item;
                         }
                     }

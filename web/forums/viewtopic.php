@@ -492,6 +492,7 @@ foreach ($posts_list as $cur_post)
 foreach ($posts_list as $cur_post)
 {
 	$post_count++;
+    $is_first_post = (($post_count + $start_from) == 1);
 	$user_avatar = '';
 	$user_nb_posts = '';
 	$user_info = array();
@@ -633,7 +634,7 @@ foreach ($posts_list as $cur_post)
 		{
 			if ($cur_post['poster_id'] == $pun_user['id'])
 			{
-				if ((($start_from + $post_count) == 1 && $pun_user['g_delete_topics'] == '1') || (($start_from + $post_count) > 1 && $pun_user['g_delete_posts'] == '1'))
+				if (($is_first_post && $pun_user['g_delete_topics'] == '1') || (!$is_first_post && $pun_user['g_delete_posts'] == '1'))
 					$post_actions[] = '<li class="postdelete"><a href="delete.php?id='.$cur_post['id'].'">'.$lang_topic['Delete'].'</a>';
 				if ($pun_user['g_edit_posts'] == '1')
 					$post_actions[] = '<li class="postedit"><a href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a>';
@@ -648,16 +649,26 @@ foreach ($posts_list as $cur_post)
 		}
 	}
 	else
-		$post_actions[] = '<li class="postreport"><a href="misc.php?report='.$cur_post['id'].'">'.$lang_topic['Report'].'</a>'.$lang_topic['Link separator'].'</li><li class="movepost"><a href="movepost.php?id='.$cur_post['id'].'">'.$lang_topic['Move'].'</a>'.$lang_topic['Link separator'].'</li><li class="postedit"><a href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a>'.$lang_topic['Link separator'].'</li><li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'">'.$lang_topic['Quoted reply'].'</a>'.$lang_topic['Link separator'].'<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
+    {
+		$post_actions[] = '<li class="postreport"><a href="misc.php?report='.$cur_post['id'].'">'.$lang_topic['Report'].'</a>';
+        if ($is_first_post)
+        {
+            $post_actions[] = '<li class="movepost"><a href="moderate.php?fid='.$forum_id.'&amp;movetopics='.$cur_post['id'].'">'.$lang_topic['Move'].'</a>';
+        }
+        else
+        {
+            $post_actions[] = '<li class="movepost"><a href="movepost.php?id='.$cur_post['id'].'">'.$lang_topic['Move'].'</a>';
+        }
+        $post_actions[] = '<li class="postedit"><a href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a>';
+        $post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'">'.$lang_topic['Quoted reply'].'</a>';
+        $post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
     //  Remove '<li class="postdelete"><a href="delete.php?id='.$cur_post['id'].'">'.$lang_topic['Delete'].'</a>'.$lang_topic['Link separator'].'</li>' because delete function occurs high server load.
     // To be put back when this function will be corrected. (bad english but titise fait expres !)
-
-
+    }
 
 	// Switch the background color for every message.
 	$bg_switch = ($bg_switch) ? $bg_switch = false : $bg_switch = true;
 	$vtbg = ($bg_switch) ? ' roweven' : ' rowodd';
-
 
 	// Perform the main parsing of the message (BBCode, smilies, censor words etc)
 	$cur_post['message'] = parse_message($cur_post['message'], $cur_post['hide_smilies'], $post_id_list);
@@ -678,7 +689,7 @@ foreach ($posts_list as $cur_post)
 <div id="p<?php echo $cur_post['id'] ?>" class="blockpost<?php
     echo $vtbg;
     if (!$pun_user['is_guest'] && ($cur_post['posted'] > $last_read) && ($cur_post['poster_id'] != $pun_user['id'])) echo ' new';
-    if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
+    if ($is_first_post) echo ' firstpost'; ?>">
 	<h2><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>" rel="nofollow"><?php echo format_time($cur_post['posted']) ?></a></h2>
 	<div class="box">
 		<div class="inbox">
@@ -693,7 +704,7 @@ if (count($user_contacts)) echo "\t\t\t\t\t".'<dd class="usercontacts">'.implode
 				</dl>
 			</div>
 			<div class="postright">
-				<h3><?php if (($post_count + $start_from) > 1) echo ' Re: '; ?><?php echo $subject ?></h3>
+				<h3><?php if (!$is_first_post) echo ' Re: '; ?><?php echo $subject ?></h3>
 				<div class="postmsg">
 					<?php echo $cur_post['message']."\n" ?>
 <?php if ($cur_post['edited'] != '') echo "\t\t\t\t\t".'<p class="postedit"><em>'.$lang_topic['Last edit'].' '.pun_htmlspecialchars($cur_post['edited_by']).' ('.format_time($cur_post['edited']).')</em></p>'."\n"; ?>

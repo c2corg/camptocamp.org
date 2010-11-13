@@ -134,12 +134,14 @@ class Site extends BaseSite
         if ($is_module)
         {
             $m = 'm';
+            $m2 = 's';
             $join = null;
             $join_id = null;
         }
         else
         {
             $m = 't';
+            $m2 = $m;
             $join = 'join_site';
             $join_id = 'join_site_id';
         }
@@ -157,14 +159,14 @@ class Site extends BaseSite
             }
             self::buildConditionItem($conditions, $values, 'String', 'ti.search_name', ($is_module ? array('tnam', 'name') : 'tnam'), 'join_site_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'talt', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, 't', 'site_types'), 'ttyp', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, 't', 'climbing_styles'), 'tcsty', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'site_types'), 'ttyp', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'climbing_styles'), 'tcsty', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.equipment_rating', 'prat', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.routes_quantity', 'rqua', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.mean_height', 'mhei', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.mean_rating', 'mrat', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, 't', 'facings'), 'tfac', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, 't', 'rock_types'), 'trock', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'facings'), 'tfac', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'rock_types'), 'trock', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.children_proof', 'chil', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.rain_proof', 'rain', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ti.culture', 'tcult', 'join_site_i18n', false, $params_list);

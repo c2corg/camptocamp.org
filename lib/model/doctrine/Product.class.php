@@ -22,12 +22,14 @@ class Product extends BaseProduct
         if ($is_module)
         {
             $m = 'm';
+            $m2 = 'p';
             $join = null;
             $join_id = null;
         }
         else
         {
             $m = 'f';
+            $m2 = $m;
             $join = 'join_product';
             $join_id = $join . '_id';
         }
@@ -46,7 +48,7 @@ class Product extends BaseProduct
             }
             self::buildConditionItem($conditions, $values, 'String', 'fi.search_name', ($is_module ? array('fnam', 'name') : 'fnam'), 'join_product_i18n', true, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'falt', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, 'f', 'product_type'), 'tpty', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'product_type'), 'fpty', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'fi.culture', 'fcult', 'join_product_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lfc.linked_id', 'ftags', 'join_ftag_id', false, $params_list);
         }
@@ -69,7 +71,7 @@ class Product extends BaseProduct
         // area criteria
         self::buildAreaCriteria($conditions, $values, $params_list);
 
-        // parking criteria
+        // product criteria
         Product::buildProductListCriteria(&$conditions, &$values, $params_list, true);
 
         // parking criteria
