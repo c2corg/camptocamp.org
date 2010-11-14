@@ -51,6 +51,7 @@ fields:
   activities:
     required:
       msg:          field cannot be left blank
+    myActivitiesValidator:
   nb_outings:
     nbItemsValidator:
   nb_images:

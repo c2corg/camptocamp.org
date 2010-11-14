@@ -38,6 +38,7 @@ fields:
   activities:
     required:
       msg:          field cannot be left blank
+    myActivitiesValidator:
   height_diff_up:
     heightDiffValidator:
   height_diff_down:

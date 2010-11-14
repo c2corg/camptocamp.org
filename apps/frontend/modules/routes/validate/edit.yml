@@ -43,6 +43,7 @@ fields:
   activities:
     required:
       msg:          field cannot be left blank
+    myActivitiesValidator:
   slope:
     sfStringValidator:
       max: 100
