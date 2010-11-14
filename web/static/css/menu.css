@@ -150,7 +150,7 @@
 {
   visibility: visible;
 }
-div#quick_switch
+#quick_switch
 {
   position:absolute;
   left:30px;
@@ -158,7 +158,7 @@ div#quick_switch
   line-height:1.8em;
   height:1.8em;
 }
-div#quick_switch .qck_sw
+#quick_switch .qck_sw
 {
   margin: 0 8px 0 0;
   padding-top: 6px;
