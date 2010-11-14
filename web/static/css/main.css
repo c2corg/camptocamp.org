@@ -4804,7 +4804,11 @@ td.history_buttons {
   width: 82px;
   height: 17px;
   background-position: -130px -266px;
-  border: 1px solid white;
+  border: 1px solid white !important;
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -khtml-border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
 }
 
 iframe.embedded_ppt_pdf
