@@ -25,19 +25,21 @@ body
   color:#000;
 }
 
-input, select, textarea{
+/* rounded inputs */
+input, select, textarea {
   font-size: 100%;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -khtml-border-radius: 4px;
   -webkit-border-radius: 4px;
   padding: 1px;
+  border: 1px solid #ddd;
 }
+
 
 input, select {
   height: 1.9em;
   vertical-align: middle;
-  border: 1px solid #ddd;
   font-size: 12px;
 }
 
@@ -46,12 +48,22 @@ select[multiple="multiple"], input[type="checkbox"]
   height: auto;
 }
 
+
 input[type="text"], input[type="password"]
 {
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
+}
+
+/* outline focused input elements */
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus
+{
+  box-shadow: 0 0 6px #ccc;
+  -moz-box-shadow: 0 0 6px #ccc;
+  -webkit-box-shadow: 0 0 6px #ccc;
+  outline: none;
 }
 
 input[type="checkbox"] {
@@ -2534,7 +2546,6 @@ input#remember
 
 .content_article textarea
 {
-  border: 1px solid #ddd;
   width: 80%;
   height: 5em;
 }
