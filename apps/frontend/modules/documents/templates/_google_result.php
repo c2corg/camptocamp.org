@@ -5,8 +5,8 @@
 use_helper('Form');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/google_search.js', 'last');
-echo image_tag('http://www.google.com/coop/intl/'.__('meta_language').'/images/google_custom_search_watermark.gif');
-echo __('Results from google for %1%', array('%1%' => $query_string)); ?><br /><br />
+echo image_tag('http://www.google.com/uds/css/small-logo.png');
+echo __('Results from google for %1%', array('%1%' => $query_string)); ?>
 <div id="google_search_results"></div>
 </div>
 <script type="text/javascript">
@@ -17,8 +17,8 @@ $google_i18n = array('first page', 'previous page', 'next page', 'Document title
 $google_i18n = array_map('__', $google_i18n);
 echo implode('\', \'', $google_i18n);
 ?>');
-<?php $cse = sfConfig::get('app_images_gcse'); ?>
-GoogleSearch.base_url = 'https://www.googleapis.com/customsearch/v1?key=<?php echo $cse['key'] ?>&cx=<?php echo $cse[$module] ?>&callback=GoogleSearch.handleResponse';
+<?php $cse = sfConfig::get('app_google_cse'); ?>
+GoogleSearch.base_url = 'https://www.googleapis.com/customsearch/v1?key=<?php echo sfConfig::get('app_google_api_key') ?>&cx=<?php echo $cse[$module] ?>&callback=GoogleSearch.handleResponse';
 GoogleSearch.q = '<?php echo urlencode($query_string) ?>';
 GoogleSearch.search();
 });

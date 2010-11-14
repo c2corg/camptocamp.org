@@ -12,8 +12,8 @@ $google_i18n = array('first page', 'previous page', 'next page', 'Document title
 $google_i18n = array_map('__', $google_i18n);
 echo implode('\', \'', $google_i18n);
 ?>');
-<?php $cse = sfConfig::get('app_images_gcse'); ?>
-GoogleSearch.base_url = 'https://www.googleapis.com/customsearch/v1?key=<?php echo $cse['key'] ?>&cx=<?php echo $cse[$module] ?>&callback=GoogleSearch.handleResponse';
+<?php $cse = sfConfig::get('app_google_cse'); ?>
+GoogleSearch.base_url = 'https://www.googleapis.com/customsearch/v1?key=<?php echo sfConfig::get('app_google_api_key') ?>&cx=<?php echo $cse[$module] ?>&callback=GoogleSearch.handleResponse';
 });
 //]]>
 </script>

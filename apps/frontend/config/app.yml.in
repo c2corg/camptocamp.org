@@ -294,9 +294,6 @@ all:
     cookie_name:    c2c_remember
     random:         899cfcae74ca2beb07b3c8420ad9667b
     
-  gmaps_key: @GMAPS_KEY@
-  geoportail_key: @GEOPORTAIL_KEY@
-  
   ajax_feedback:
     div_name_success:  ajax_feedback_success
     div_name_failure:  ajax_feedback_failure
@@ -413,11 +410,18 @@ all:
         inflate:       false
     home_categories: [ 1, 3, 4, 6, 7, 10, 11, 12, 16 ]
     default_meta:   '/static/images/logo.png'
+
+  google:
+    # google maps key
+    maps_key: @GMAPS_KEY@
+    # google apis key
+    # see https://code.google.com/apis/console
+    # this one is configured to be used from *.camptocamp.org,
+    # c2cpc23.camptocamp.com and localhost only
+    api_key: 'AIzaSyDXFlFziDDG2ThH47z1V3-KmAS6_vA5GUg'
     # google custom search engines
-    # see http://www.google.com/cse and https://code.google.com/apis/console
-    # configured to be used from m.c2c, c2c and localhost only
-    gcse:
-      key: 'AIzaSyDXFlFziDDG2ThH47z1V3-KmAS6_vA5GUg'
+    # see http://www.google.com/cse
+    cse:
       areas: '013271627684039046788:huvxgkczhj8'
       articles: '013271627684039046788:7n5u8y3oqtw'
       books: '013271627684039046788:u-ja11saiaw'
@@ -427,6 +431,8 @@ all:
       routes: '013271627684039046788:jtvuby91jxu'
       sites: '013271627684039046788:jd9auebpqn8'
       summits: '013271627684039046788:rwdwo7bxyyy'
+
+  geoportail_key: @GEOPORTAIL_KEY@
 
   # this section is used to set group names that are stored in bdd
   # easy management :D
