@@ -1266,7 +1266,7 @@ p.default_text div.add_content
 
 /* preview */
 
-div#preview
+#preview
 {
   margin-top: 15px;
   text-align: justify;
@@ -2438,7 +2438,7 @@ fieldset .select_title
   margin: 2px 0.3em;
 }
 
-div#actform
+#actform
 {
   margin-bottom: 1.5em;
   min-height: 1em;
@@ -2777,7 +2777,7 @@ ul.docs_changes li img
 
 /* User language list selection */
 
-div#feedback
+#feedback
 {
   width: 250px;
   position: absolute;
@@ -2998,7 +2998,7 @@ ul.list404 li
 
 /* when a MB link is opened without calling to MB function */
 
-#content_box div#fake_div, #content_box div#image_upload
+#content_box #fake_div, #content_box #image_upload
 {
   margin: 2em 20px;
 }
@@ -3525,7 +3525,7 @@ div.image
   text-align: center;
 }
 
-div#insertimagetag_list
+#insertimagetag_list
 {
   max-height: 340px;
   overflow: auto;
@@ -3633,7 +3633,7 @@ div.img_box a.view_details
   cursor: pointer;
 }
 
-div#files_to_upload
+#files_to_upload
 {
   max-height: 400px;
   overflow: auto;
