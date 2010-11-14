@@ -136,12 +136,6 @@
   visibility:visible;
   display:block;
 }
-#menu_content li#menulast
-{
-}
-#menu_content li.lilast
-{
-}
 #menu_content a:hover
 {
   color: #fff;
@@ -163,19 +157,6 @@
   margin: 0 8px 0 0;
   padding-top: 6px;
 }
-
-/* \*//*/
-#menu_content li
-{
-  float: none;
-  display: inline-block;
-}
-#menu_content li li
-{
-  display: block;
-}
-/**/
-
 
 #menu_content ul ul a:hover
 {
