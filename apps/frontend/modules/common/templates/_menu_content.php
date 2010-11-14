@@ -123,7 +123,7 @@ show_select=function()
                                    . link_to(__('Search'), '@filter?module=parkings') ?></li>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
                                 echo picto_tag('picto_portals')
-                                ?><a href="http://<?php echo sfConfig::get('app_changerdapproche_host') ?>/" class="ie7m"><?php echo __('changerdapproche') ?></a></li>
+                                ?><a href="http://<?php echo sfConfig::get('app_portals_cda_host') ?>/" class="ie7m"><?php echo __('changerdapproche') ?></a></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
                                 echo picto_tag('action_create')

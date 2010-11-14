@@ -9,7 +9,7 @@ if ($action == 'map')
 {
     $footer_type = 'map';
 }
-elseif ($id == sfConfig::get('app_changerdapproche_id'))
+elseif ($id == sfConfig::get('app_portals_cda_id'))
 {
     $footer_type = 'cda';
 }

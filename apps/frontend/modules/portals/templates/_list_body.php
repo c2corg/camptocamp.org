@@ -7,9 +7,9 @@ if (!c2cTools::mobileVersion()): ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <?php endif ?>
 <td><?php
-if ($item_id == sfConfig::get('app_changerdapproche_id'))
+if ($item_id == sfConfig::get('app_portals_cda_id'))
 {
-    echo '<a href="http://' . sfConfig::get('app_changerdapproche_host') . '/' . $item_i18n['culture'] . '">' . $item_i18n['name'] . '</a>';
+    echo '<a href="http://' . sfConfig::get('app_portals_cda_host') . '/' . $item_i18n['culture'] . '">' . $item_i18n['name'] . '</a>';
 }
 else
 {

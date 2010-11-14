@@ -2,9 +2,6 @@
 all:
   modules: 
     list: 
-      1: documents
-      15: portals
-      4: areas
       3: summits
       13: sites
       7: routes
@@ -15,8 +12,11 @@ all:
       8: images
       11: articles
       12: books
-      6: maps
       2: users
+      4: areas
+      15: portals
+      6: maps
+      1: documents
   languages:
     c2c:
       fr: francais
@@ -1559,6 +1559,13 @@ all:
   minify:
     debug: @MINIFY_DEBUG@
   
-  changerdapproche:
-    id: @CDA_ID@
-    host: 'changerdapproche.org'
+  portals:
+    cda:
+      id: @CDA_ID@
+      name: 'changerdapproche'
+      host: 'changerdapproche.org'
+    ice:
+      id: @ICE_ID@
+      name: 'ice climbing portal'
+  
+  

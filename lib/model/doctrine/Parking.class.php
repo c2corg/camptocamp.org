@@ -56,12 +56,14 @@ class Parking extends BaseParking
         if ($is_module)
         {
             $m = 'm';
+            $m2 = 'p';
             $join = null;
             $join_id = null;
         }
         else
         {
-            $m = 'p';
+            $m = 'pp';
+            $m2 = $m;
             $join = 'join_parking';
             $join_id = $join . '_id';
         }
@@ -81,7 +83,7 @@ class Parking extends BaseParking
             self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', ($is_module ? array('pnam', 'name') : 'pnam'), 'join_parking_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'palt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.public_transportation_rating', 'tp', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', $m . '.public_transportation_types', 'tpty', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'public_transportation_types'), 'tpty', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'pi.culture', 'pcult', 'join_parking_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lpc.linked_id', 'ptags', 'join_ptag_id', false, $params_list);
         }
@@ -203,7 +205,7 @@ class Parking extends BaseParking
             
             if (isset($conditions['join_parking']))
             {
-                $q->leftJoin($m . $linked . 'Parking p');
+                $q->leftJoin($m . $linked . 'Parking pp');
                 unset($conditions['join_parking']);
             }
         }

@@ -653,7 +653,7 @@ foreach ($posts_list as $cur_post)
 		$post_actions[] = '<li class="postreport"><a href="misc.php?report='.$cur_post['id'].'">'.$lang_topic['Report'].'</a>';
         if ($is_first_post)
         {
-            $post_actions[] = '<li class="movepost"><a href="moderate.php?fid='.$forum_id.'&amp;movetopics='.$cur_post['id'].'">'.$lang_topic['Move'].'</a>';
+            $post_actions[] = '<li class="movepost"><a href="moderate.php?fid='.$forum_id.'&amp;movetopics='.$id.'">'.$lang_topic['Move'].'</a>';
         }
         else
         {

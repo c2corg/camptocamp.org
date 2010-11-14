@@ -539,9 +539,9 @@ function portal_search_box_tag($params, $current_module)
     }
     $selected = 'routes';
     $options = options_with_classes_for_select($list, $selected, array(), 'picto picto_');
-    $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
+    $select_js = 'var c=this.classNames().each(function(i){$(\'wtype\').removeClassName(i)});this.addClassName(\'picto picto_\'+($F(this).split('/'))[0]);';
     $html = '<input type="hidden" value="' . $main_filter . '" name="params" />';
-    $html .= select_tag('type', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected)); 
+    $html .= select_tag('wtype', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected)); 
     $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox'));
     $html .= submit_tag(__('Search'), array('class' => 'picto action_filter'));
     return $html;
@@ -721,7 +721,8 @@ function options_with_classes_for_select($options = array(), $selected = '', $ht
             $option_options = array('value' => $key);
             if (!empty($class_prefix))
             {
-                $option_options['class'] = $class_prefix . $key;
+                $suffix = explode('/', $key, 2)[0];
+                $option_options['class'] = $class_prefix . $suffix;
             }
 
             if (

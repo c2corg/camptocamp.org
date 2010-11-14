@@ -8,7 +8,7 @@ $static_base_url = sfConfig::get('app_static_url');
   <div id="cda_logo">&nbsp;</div>
     <div id="banner_title">
         <h1><?php echo __('changerdapproche') ?></h1>
-        <p id="cda_title"><a href="http://<?php echo sfConfig::get('app_changerdapproche_host') ?>/">changer<strong>dapproche.org</strong></a></p>
+        <p id="cda_title"><a href="http://<?php echo sfConfig::get('app_portals_cda_host') ?>/">changer<strong>dapproche.org</strong></a></p>
         <p id="cda_sub_title"><?php echo __('cda sub title') ?></p>
     </div>
     <div id="c2c_mw_logos">
