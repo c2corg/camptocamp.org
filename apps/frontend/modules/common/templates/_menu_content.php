@@ -40,7 +40,7 @@ show_select=function()
                            . link_to(__('FAQ short'), getMetaArticleRoute('faq', false)) ?></li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
-                           . link_to(__('Global help'), getMetaArticleRoute('help', false), array('class'=>'ie7m')) ?></li>
+                           . link_to(__('Global help'), getMetaArticleRoute('help', false)) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li><?php
@@ -85,7 +85,7 @@ show_select=function()
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li><?php echo picto_tag('picto_summits')
-                                 . link_to(__('summits') . $sublevel_ie7, '@default_index?module=summits', array('class'=>'ie7m'))
+                                 . link_to(__('summits') . $sublevel_ie7, '@default_index?module=summits')
                                  . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -100,7 +100,7 @@ show_select=function()
                     </li>
                     <li><?php
                         echo picto_tag('picto_sites')
-                           . link_to(__('sites') . $sublevel_ie7, '@default_index?module=sites', array('class'=>'ie7m'))
+                           . link_to(__('sites') . $sublevel_ie7, '@default_index?module=sites')
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -123,7 +123,7 @@ show_select=function()
                                    . link_to(__('Search'), '@filter?module=parkings') ?></li>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
                                 echo picto_tag('picto_portals')
-                                ?><a href="http://<?php echo sfConfig::get('app_portals_cda_host') ?>/" class="ie7m"><?php echo __('changerdapproche') ?></a></li>
+                                ?><a href="http://<?php echo sfConfig::get('app_portals_cda_host') ?>/"><?php echo __('changerdapproche') ?></a></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
                                 echo picto_tag('action_create')
@@ -133,7 +133,7 @@ show_select=function()
                     </li>
                     <li><?php
                         echo picto_tag('picto_huts')
-                           . link_to(__('huts') . $sublevel_ie7, '@default_index?module=huts', array('class'=>'ie7m'))
+                           . link_to(__('huts') . $sublevel_ie7, '@default_index?module=huts')
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -148,7 +148,7 @@ show_select=function()
                     </li>
                     <li><?php
                         echo picto_tag('picto_products')
-                           . link_to(__('products') . $sublevel_ie7, '@default_index?module=products', array('class'=>'ie7m'))
+                           . link_to(__('products') . $sublevel_ie7, '@default_index?module=products')
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -188,17 +188,17 @@ show_select=function()
                     <li><?php echo picto_tag('action_list')
                                  . link_to(ucfirst(__('Summary')), getMetaArticleRoute('home_articles', false)) ?></li>
                     <li><?php echo picto_tag('picto_articles')
-                                 . link_to(ucfirst(__('mountain environment')), 'articles/list?ccat=1', array('class'=>'ie7m')) ?></li>
+                                 . link_to(ucfirst(__('mountain environment')), 'articles/list?ccat=1') ?></li>
                     <li><?php echo picto_tag('picto_articles')
-                                 . link_to(ucfirst(__('gear and technique')), 'articles/list?ccat=2', array('class'=>'ie7m')) ?></li>
+                                 . link_to(ucfirst(__('gear and technique')), 'articles/list?ccat=2') ?></li>
                     <li><?php echo picto_tag('picto_articles')
-                                 . link_to(ucfirst(__('topoguide supplements')), 'articles/list?ccat=4', array('class'=>'ie7m')) ?></li>
+                                 . link_to(ucfirst(__('topoguide supplements')), 'articles/list?ccat=4') ?></li>
                     <li><?php echo picto_tag('picto_articles')
-                                 . link_to(ucfirst(__('soft mobility')), 'articles/list?ccat=7', array('class'=>'ie7m')) ?></li>
+                                 . link_to(ucfirst(__('soft mobility')), 'articles/list?ccat=7') ?></li>
                     <li><?php echo picto_tag('picto_articles')
-                                 . link_to(ucfirst(__('expeditions')), 'articles/list?ccat=8', array('class'=>'ie7m')) ?></li>
+                                 . link_to(ucfirst(__('expeditions')), 'articles/list?ccat=8') ?></li>
                     <li><?php echo picto_tag('picto_articles')
-                                 . link_to(ucfirst(__('stories')), 'articles/list?ccat=3', array('class'=>'ie7m')) ?></li>
+                                 . link_to(ucfirst(__('stories')), 'articles/list?ccat=3') ?></li>
                     <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
                         echo picto_tag('action_query')
                            . link_to(__('Search'), '@filter?module=articles') ?></li>
@@ -228,7 +228,7 @@ show_select=function()
                         <ul>
                             <li class="lilast"><?php
                             echo picto_tag('action_comment')
-                               . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum, array('class'=>'ie7m')) ?></li>
+                               . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum) ?></li>
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li><?php
@@ -261,17 +261,17 @@ show_select=function()
                     <?php endif ?>
                     <li><?php
                         echo picto_tag('picto_tools')
-                           . m_link_to(__('Customize'), 'users/customize', array('class' => 'ie7m', 'title' => __('Customize the site')), array('width' => 700)) ?></li>
+                           . m_link_to(__('Customize'), 'users/customize', array('title' => __('Customize the site')), array('width' => 700)) ?></li>
                     <?php if ($is_connected): ?>
                     <li><?php
                         echo picto_tag('picto_tools')
-                           . m_link_to(__('Set languages preferences'), 'users/sortPreferedLanguages', array('class' => 'ie7m'), array('width' => 700)) ?></li>
+                           . m_link_to(__('Set languages preferences'), 'users/sortPreferedLanguages', null, array('width' => 700)) ?></li>
                     <li><?php
                         echo picto_tag('action_edit')
                            . f_link_to(__('User profile'), 'profile.php?section=personality') ?></li>
                     <li><?php
                         echo picto_tag('action_contact')
-                           . link_to(__('Mailing lists link'), 'users/mailinglists', array('class'=>'ie7m')) ?></li>
+                           . link_to(__('Mailing lists link'), 'users/mailinglists') ?></li>
                 <?php else: ?>
                     <li><?php
                         echo picto_tag('action_edit')
@@ -280,7 +280,7 @@ show_select=function()
                     if ($is_connected): ?>
                     <li class="lilast"><?php
                         echo picto_tag('action_cc')
-                           . link_to(__('User image management'), 'users/manageimages', array('class'=>'ie7m')) ?></li>
+                           . link_to(__('User image management'), 'users/manageimages') ?></li>
                     <?php endif ?>
                 </ul>
             </li>

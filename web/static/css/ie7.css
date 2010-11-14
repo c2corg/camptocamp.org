@@ -164,9 +164,15 @@ tr
   display: block;
 }
 
-#menu_content li li a.ie7m
+#menu_content li li a
 {
   padding-left: 5px;
+}
+
+#menu_content li li li a
+{
+  width: 80%; 
+  display: inline-block;
 }
 
 input.srch_submit
