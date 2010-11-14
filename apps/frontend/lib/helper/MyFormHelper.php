@@ -721,7 +721,8 @@ function options_with_classes_for_select($options = array(), $selected = '', $ht
             $option_options = array('value' => $key);
             if (!empty($class_prefix))
             {
-                $suffix = explode('/', $key, 2)[0];
+                $tmp = explode('/', $key, 2);
+                $suffix = $tmp[0];
                 $option_options['class'] = $class_prefix . $suffix;
             }
 
