@@ -135,6 +135,12 @@ msgstr "Toutes vos images sont déjà collaboratives."
 msgid "An user can not be linked to a collaborative article"
 msgstr "Un contributeur ne peut pas être associé à un article collaboratif"
 
+# [general comment]
+# Titre de la section des documents annexes.
+# [WARNING] needs_review
+msgid "Annex"
+msgstr "Annexes"
+
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Êtes-vous sûr de vouloir supprimer la version catalane de ce document ?"
 
@@ -2476,6 +2482,11 @@ msgstr "Vous n'avez pas les droits nécessaires pour lier un utilisateur à ce d
 msgid "You have not subscribed to any list"
 msgstr "Vous n'êtes abonné à aucune liste."
 
+# [general comment]
+# this message is displayed when editing a document without providing a required activity
+msgid "You must select at least one activity"
+msgstr "vous devez choisir au moins une activité pour ce document"
+
 msgid "You must specify an email"
 msgstr "Vous devez spécifier une adresse email."
 
@@ -2539,6 +2550,9 @@ msgstr "<h3>Accès</h3>Etat de la route d'accès au point de départ le jour de 
 msgid "_accommodation_info"
 msgstr "<h3>Hébergement et restauration à proximité</h3>Informations sur les possibilités de restauration et d'hébergement à proximité du point d'accès."
 
+# [comment]
+# insert snowshoeing in the activities list
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Activités</h3>Type d'activités&nbsp;: dans une liste ou un document, passez la souris sur les pictogrammes pour connaître leur signification.<br />Un document peut être associé à une ou plusieurs activités&nbsp;:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski, surf</strong>&nbsp;: randonnée à ski et/ou surf<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinisme neige, glace, mixte</strong>&nbsp;: alpinisme sur neige, glace ou mixte (en haute montagne)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>rocher haute montagne</strong>&nbsp;: alpinisme sur rocher, grandes voies en montagne (équipées ou non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>escalade</strong>&nbsp;: bloc, voies d'une ou plusieurs longueurs en falaise (équipées ou non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascade</strong>&nbsp;: cascade de glace hors haute montagne, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>randonnée pédestre</strong>&nbsp;: randonnée pédestre en terrain montagneux (et non en plaine), sur sentier balisé ou non, ou hors sentier<br /><br />La différence entre les activités <strong>escalade</strong> et <strong>rocher haute montagne</strong> se fait principalement sur l'altitude du sommet de la voie, mais pas sur l'équipement. En Europe, les règles suivantes s'appliquent :<br />- altitude < 2100m : escalade<br />- altitude entre 2100m et 2400m : escalade ou rocher haute montagne, mais majoritairement escalade<br />- altitude entre 2400m et 2700m : escalade ou rocher haute montagne, mais majoritairement rocher haute montagne<br />- altitude > 2700m : rocher haute montagne<br />Pour une altitude entre 2100m et 2700m, les 2 activités peuvent être sélectionnées en cas de doute."
 
@@ -4226,6 +4240,11 @@ msgstr "mixte"
 
 msgid "i button title"
 msgstr "Mettre le texte sélectionné en italique"
+
+# [general comment]
+# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+msgid "ice climbing portal"
+msgstr "Camptocamp Cascade"
 
 msgid "ice_climbing"
 msgstr "cascade de glace"

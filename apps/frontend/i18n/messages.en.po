@@ -127,6 +127,12 @@ msgstr "All your images are already collaborative."
 msgid "An user can not be linked to a collaborative article"
 msgstr "You cannot assocate a user to a collaborative document"
 
+# [general comment]
+# Titre de la section des documents annexes.
+# [WARNING] needs_review
+msgid "Annex"
+msgstr "Annex"
+
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Are you sure you want to delete the catalan version of this document?"
 
@@ -1925,13 +1931,11 @@ msgstr "Avalanche bulletin"
 msgid "Soft mobility"
 msgstr "Ecomobility"
 
-# [WARNING] needs_update
 msgid "Soft mobility articles"
-msgstr "Articles on ecotourism and ecomobility"
+msgstr "List of articles on ecotourism and ecomobility"
 
-# [WARNING] needs_update
 msgid "Soft mobility outings"
-msgstr "Outings carried out by ecomobility"
+msgstr "List of outings carried out by ecomobility"
 
 msgid "Static map"
 msgstr "Map"
@@ -2490,6 +2494,12 @@ msgstr "You do not have the necessary rights to link a user to this document"
 # dans l'interface d'abonnement aux mailings lists
 msgid "You have not subscribed to any list"
 msgstr "You haven't subscribed to any list yet."
+
+# [general comment]
+# this message is displayed when editing a document without providing a required activity
+# [WARNING] fr translation used
+msgid "You must select at least one activity"
+msgstr "vous devez choisir au moins une activité pour ce document"
 
 msgid "You must specify an email"
 msgstr "Vous devez spécifier une adresse email."
@@ -4255,6 +4265,12 @@ msgstr "mixed"
 
 msgid "i button title"
 msgstr "Set selected text to italic"
+
+# [general comment]
+# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+# [WARNING] fr translation used
+msgid "ice climbing portal"
+msgstr "Camptocamp Cascade"
 
 msgid "ice_climbing"
 msgstr "ice climbing"

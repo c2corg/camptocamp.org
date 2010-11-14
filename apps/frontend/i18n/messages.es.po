@@ -128,6 +128,12 @@ msgstr "Todas sus imágenes ya son colaborativas."
 msgid "An user can not be linked to a collaborative article"
 msgstr "No se puede asociar un usuario a un documento colaborativo"
 
+# [general comment]
+# Titre de la section des documents annexes.
+# [WARNING] en translation used
+msgid "Annex"
+msgstr "Annex"
+
 msgid "Are you sure you want to delete this document in ca"
 msgstr "¿Estás seguro de que quieres suprimir la versión catalana de este documento?"
 
@@ -2481,6 +2487,12 @@ msgstr "No tiene los derechos necesarios para asociar un usuario a este document
 msgid "You have not subscribed to any list"
 msgstr "Todavía no te as inscrito a ninguna lista"
 
+# [general comment]
+# this message is displayed when editing a document without providing a required activity
+# [WARNING] fr translation used
+msgid "You must select at least one activity"
+msgstr "vous devez choisir au moins une activité pour ce document"
+
 msgid "You must specify an email"
 msgstr "Tienes que especificar una dirección de email."
 
@@ -3486,7 +3498,7 @@ msgstr "Las montañas sin coche"
 
 # [WARNING] needs_review
 msgid "cda_prepare_outing_box"
-msgstr "<p>Tiempo</p><ul><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espana)</a></li><li>href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Suiza)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li></ul> <p>Aludes</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin francés </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Boletin suizo</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Boletin italiano</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Transporte</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trenes en Europa)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (Francia)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suiza)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italia)</a></li></ul> <p>Otros</p><ul><li><a href=\"http://veloski.fr/\">bici+esquí (en francés)</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (en francés)</li></ul>"
+msgstr "<p>Tiempo</p><ul><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espana)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Suiza)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li></ul> <p>Aludes</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin francés </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Boletin suizo</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Boletin italiano</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Transporte</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trenes en Europa)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (Francia)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suiza)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italia)</a></li></ul> <p>Otros</p><ul><li><a href=\"http://veloski.fr/\">bici+esquí (en francés)</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (en francés)</li></ul>"
 
 msgid "center"
 msgstr "centrar"
@@ -4202,6 +4214,12 @@ msgstr "mixto"
 
 msgid "i button title"
 msgstr "Poner el texto seleccionado en cursiva"
+
+# [general comment]
+# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+# [WARNING] fr translation used
+msgid "ice climbing portal"
+msgstr "Camptocamp Cascade"
 
 msgid "ice_climbing"
 msgstr "cascada de hielo"

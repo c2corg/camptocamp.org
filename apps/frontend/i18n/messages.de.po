@@ -118,9 +118,9 @@ msgstr "Ausrichtung:"
 msgid "All fields are mandatory"
 msgstr "Alle Datenfelder müssen ausgefüllt werden."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "All topics"
-msgstr "All topics"
+msgstr "Alle Themen"
 
 # [WARNING] needs_review
 msgid "All your images are already collaborative"
@@ -129,6 +129,12 @@ msgstr "Alle ihre Bilder sind schon gemeinschaftlich."
 # [WARNING] needs_review
 msgid "An user can not be linked to a collaborative article"
 msgstr "Ein Benutzer kann nicht mit einem gemeinschafltichen Artikel verbunden werden"
+
+# [general comment]
+# Titre de la section des documents annexes.
+# [WARNING] en translation used
+msgid "Annex"
+msgstr "Annex"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Sind sie sicher die katalanische Fassung dieses Dokuments löschen zu wollen?"
@@ -1410,9 +1416,9 @@ msgstr "Meine Tour: "
 msgid "My preferences"
 msgstr "Persönliche Einstellungen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "My topics"
-msgstr "My topics"
+msgstr "Meine Themen"
 
 msgid "N"
 msgstr "N"
@@ -1556,9 +1562,9 @@ msgstr "Diese Tour existiert nicht."
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Outings linked to these images"
-msgstr "Outings linked to these images"
+msgstr "Mit diesen Bildern verbundene Touren"
 
 msgid "PD"
 msgstr "WS"
@@ -1739,7 +1745,7 @@ msgid "Reserved to logged users"
 msgstr "Nur für die angemeldeten Benutzer bestimmt"
 
 msgid "Results %1% - %2% of %3%"
-msgstr "Ergebnisse <b>%1%</b> - <b>%2%</b> von ingesamt <b>%3%</b>"
+msgstr "Ergebnisse <b>%1%</b> - <b>%2%</b> von insgesamt <b>%3%</b>"
 
 msgid "Results from google for %1%"
 msgstr "Google Suchergebnis für \"%1%\""
@@ -1954,13 +1960,11 @@ msgstr "Lawinenbulletin"
 msgid "Soft mobility"
 msgstr "Sanfte Mobilität"
 
-# [WARNING] needs_update
 msgid "Soft mobility articles"
-msgstr "Artikel über nachhaltigen Tourismus und nachhaltige Mobilität"
+msgstr "Liste der Artikel über nachhaltigen Tourismus und nachhaltige Mobilität"
 
-# [WARNING] needs_update
 msgid "Soft mobility outings"
-msgstr "Touren, welche mit nachhaltiger Moblität durchgeführt wurden"
+msgstr "Liste der Touren, welche mit nachhaltiger Moblität durchgeführt wurden"
 
 msgid "Static map"
 msgstr "Karte"
@@ -2525,6 +2529,12 @@ msgstr "Sie verfügen nicht über die notwendigen Zugriffsrechte, um einen Benut
 msgid "You have not subscribed to any list"
 msgstr "Sie haben keine Mailing-Liste abonniert."
 
+# [general comment]
+# this message is displayed when editing a document without providing a required activity
+# [WARNING] fr translation used
+msgid "You must select at least one activity"
+msgstr "vous devez choisir au moins une activité pour ce document"
+
 msgid "You must specify an email"
 msgstr "Sie müssen eine Email-Adresse angeben."
 
@@ -2592,9 +2602,9 @@ msgstr "<h3>Zugang</h3>Zustand der Zufahrtsstrasse am Tag der Tour: geräumt, sc
 msgid "_accommodation_info"
 msgstr "<h3>Unterkunft und Verpflegung in der Nähe</h3>Informationen über Ess-, Trink- und Schlafmöglichkeiten in der Nähe des Zugangsorts."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_activities_info"
-msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren sie mit der Maus darüber.<br />Ein Dokument kann mit mehreren Aktivitäten verbunden sein:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>Ski-, Snowboard-, Schneeschuhtouren</strong>&nbsp;: Ski-, Snowboard- und/oder Schneeschutouren<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>Hochtouren</strong>&nbsp;: Bergsteigen auf Schnee, Eis, Geltscher und kombiniertem Gelände im Hochgebirge<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>Alpinklettern</strong>&nbsp;: Alpines Klettern von Mehrseillängen-Routen im Hochgebirge; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>Sportklettern</strong>&nbsp;: Bouldern, Ein- oder Mehrseillängen-Routen an Felswänden; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>Eisklettern</strong>&nbsp;: Eisklettern ausserhalb des Hochgebirges, Dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Wandern</strong>&nbsp;: Wandern im Gebirge (und nicht im Flachland); auf markierten Wege oder nicht<br /><br />\n"
+msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren sie mit der Maus darüber.<br />Ein Dokument kann mit mehreren Aktivitäten verbunden sein:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>Ski-, Snowboardtouren</strong>: Ski- und/oder Snowboardtouren<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp<strong>Hochtouren</strong>: Bergsteigen auf Schnee, Eis, Geltscher und kombiniertem Gelände im Hochgebirge<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>Alpinklettern</strong>: Alpines Klettern von Mehrseillängen-Routen im Hochgebirge; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>Sportklettern</strong>: Bouldern, Ein- oder Mehrseillängen-Routen an Felswänden; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>Eisklettern</strong>&nbsp;: Eisklettern ausserhalb des Hochgebirges, Dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Wandern</strong>: Wandern im Gebirge (und nicht im Flachland); auf markierten Wege oder nicht<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>Schneeschuhlaufen</strong>: Wandern im Gebirge mit Schneeschuhen; auf markierten Routen oder nicht.<br /><br />\n"
 "Der Unterschied zwischen den Aktivitäten <strong>Sportklettern</strong> und <strong>Alpinklettern</strong> ist hauptsächlich die Höhe der Route, nicht aber die Einrichtung der Route. In Europa gelten folgenden Regeln: <br />- Höhe < 2100m : Sportklettern<br />- Höhe zwischen 2100m und 2400m : Sportklettern oder Alpinklettern, aber hauptsächlich Sportklettern<br />- Höhe zwischen 2400m und 2700m : Sportklettern oder Alpinklettern, aber hauptsächlich Alpinklettern<br />- Höhe > 2700m : Alpinklettern<br />Für eine Höhe zwischen 2100m und 2700m, können beide Aktivitäten gewählt werden."
 
 # [WARNING] needs_review
@@ -3253,9 +3263,8 @@ msgstr "<h3>Platzkapazität während der bewarteten Zeit</h3>Anzahl der “norma
 msgid "_staffed_period_info"
 msgstr "<h3>Bewartungszeitraum</h3>Ungefährer Zeitraum, wann die Hütte üblicherweise bewartet ist.<br />Beispiel: <em>Wochenende im April, Mai und Ende September. Täglich von Mitte Juni bis Mitte September.</em>"
 
-# [WARNING] needs_update
 msgid "_sub_activities_info"
-msgstr "<h3>Ausführbar mit</h>Dieses Feld führt aus, mit welchen Unter-Aktivitäten eine <Ski-, Snowboardroute</em> ausführbar ist. Die Unter-Aktivitäten werden nur ungefähr angegeben.<br />Mehrere Unter-Aktivitäten können angegeben werden.<br /><br /><strong>Ski</strong>: Trifft auf die meisten Routen zu.<br /><br /><strong>Snowboard</strong>: Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen. Alle <em>Snowboard</em>touren sind auch <em>Ski</em>touren.<br /><br /><strong>Anfänger</strong>: Die Route ist geeignet um eine Unter-Aktivität (bitte auch auswählen) zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewalteten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr. Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
+msgstr "<h3>Kompatibel mit</h3>Dieses Feld führt aus, mit welchen Unter-Aktivitäten eine <Ski- oder Snowboardroute</em> ausführbar ist. Die Unter-Aktivitäten werden nur ungefähr angegeben.<br />Mehrere Unter-Aktivitäten können angegeben werden.<br /><br /><strong>Snowboard</strong>: Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen.<br /><br /><strong>Anfänger</strong>: Die Route ist geeignet um eine Aktivität zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewaldeten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr. Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
 
 # [WARNING] needs_review
 msgid "_summit_type_info"
@@ -3731,9 +3740,9 @@ msgstr "Camptocamp.org ... jetzt auschliesslich auf Ski-/Snowboardtouren zugesch
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org ... jetzt auschliesslich auf Gletscher-/Eistouren und kombiniertes Klettern zugeschnitten!"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "c2c customized for snowshoeing !"
-msgstr "Camptocamp.org now customized for snowshoeing!"
+msgstr "Camptocamp.org... jetzt nur für's Schneeschuhlaufen!"
 
 # [WARNING] needs_review
 msgid "c2c is no more customized with activies"
@@ -3805,9 +3814,9 @@ msgstr "Eine Route finden, welche mit öffentlichen oder nachhaltigen Verkehrsmi
 
 # [general comment]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda partners tips"
-msgstr "Le portail Changer d'approche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
+msgstr "Das Portal \"Changer d'approche\" wurde von der Europäischen Union mitfinanziert. Die Europäische Union engagiert sich in den Alpen durch den Europäischen Fonds für regionale Entwicklung."
 
 # [WARNING] needs_review
 msgid "cda sub title"
@@ -4603,6 +4612,12 @@ msgstr "kombiniert"
 
 msgid "i button title"
 msgstr "Den ausgewählten Text kursiv schreiben "
+
+# [general comment]
+# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+# [WARNING] fr translation used
+msgid "ice climbing portal"
+msgstr "Camptocamp Cascade"
 
 msgid "ice_climbing"
 msgstr "Eisklettern"

@@ -127,6 +127,12 @@ msgstr "Tutte le tue immagini sono già di tipo collaborativo."
 msgid "An user can not be linked to a collaborative article"
 msgstr "Un utente non può essere associato ad un articolo collaborativo"
 
+# [general comment]
+# Titre de la section des documents annexes.
+# [WARNING] en translation used
+msgid "Annex"
+msgstr "Annex"
+
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Sei sicuro di volere cancellare la versione catalana di questo documento?"
 
@@ -2473,6 +2479,12 @@ msgstr "You do not have the rights to link a user to this document"
 msgid "You have not subscribed to any list"
 msgstr "Non hai sottoscritto alcuna lista di distribuzione"
 
+# [general comment]
+# this message is displayed when editing a document without providing a required activity
+# [WARNING] fr translation used
+msgid "You must select at least one activity"
+msgstr "vous devez choisir au moins une activité pour ce document"
+
 msgid "You must specify an email"
 msgstr "Usa un‘altra email."
 
@@ -2536,6 +2548,9 @@ msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il gi
 msgid "_accommodation_info"
 msgstr "<h3>Vitto e alloggio nelle vicinanze</h3>Informazioni sulle possibilità di vitto e alloggio nei dintorni del punto di partenza."
 
+# [comment]
+# insert snowshoeing in the activities list
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Attività</h3>Tipo di attività: passare il mouse sulle icone per leggere l'attività corrispondente.<br />Un documento può essere associato a una o più attività:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp; <strong>sci, snowboard</strong>: sci alpinismo o snowboard<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinismo neve, ghiaccio, misto</strong>: alpinismo su neve, ghiaccio o misto (in alta montagna)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>roccia in alta montagna</strong>: alpinismo su roccia, lunghe vie in montagna (protette e non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate e non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>escursionismo</strong>: gite a piedi (e non in piano), su sentieri segnalati e non, oppure fuori dai sentieri<br /><br />La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio, nelle Alpi, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considera necessario conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
 
@@ -4203,6 +4218,12 @@ msgstr "misto"
 # [WARNING] needs_review
 msgid "i button title"
 msgstr "corsivo"
+
+# [general comment]
+# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+# [WARNING] fr translation used
+msgid "ice climbing portal"
+msgstr "Camptocamp Cascade"
 
 msgid "ice_climbing"
 msgstr "cascata"
