@@ -31,6 +31,13 @@ function include_body_javascripts($debug = false)
     return _include_javascripts(array('first', '', 'last'), $debug, $already_seen);
 }
 
+// those javascripts are never minified (aka $debug = true)
+// see other helper
+function include_maps_javascripts()
+{
+    return _include_javascripts(array('maps'), true);
+}
+
 function _include_javascripts($position_array = array('first', '', 'last'), $debug = false, $my_already_seen = array())
 {
     $response = sfContext::getInstance()->getResponse();

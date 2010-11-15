@@ -95,30 +95,17 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
   return $html;
 }
 
-/** files with position 'nominify' are placed after 'last' files, but unmininified (used for maps that do not go well
-    with minify + combine */
-function nominify_get_javascripts()
+/** TODO those javascripts for maps break with ie when trying to minify them, so that we just combine them
+    TODO see what happens if we use an other minifier like yuicompressor? */
+function minify_get_maps_javascripts($combine = true)
 {
-  $app_static_url = sfConfig::get('app_static_url');
-  $html = '';
-
-  $response = sfContext::getInstance()->getResponse();
-  foreach ($response->getJavascripts('nominify') as $files)
+  if (!$combine)
   {
-    if (!is_array($files))
-    {
-      $files = array($files);
-    }
-
-    foreach ($files as $file)
-    {
-      $ts = sfTimestamp::getTimestamp($file);
-      $prefix = empty($ts) ? '/no' : '/' . $ts . '/no';
-      $file = javascript_path($file);
-      $html .= javascript_include_tag($app_static_url . $prefix . $file);
-    }
+    use_helper('MyJavascriptStyleSheet');
+    return include_maps_javascripts();
   }
-  return $html;
+
+  return minify_get_javascripts(array('maps'), true);
 }
 
 function minify_include_head_javascripts($combine = true, $debug = false)
@@ -131,9 +118,9 @@ function minify_include_body_javascripts($combine = true, $debug = false)
   echo minify_get_body_javascripts($combine, $debug);
 }
 
-function minify_include_unminified_javascripts()
+function minify_include_maps_javascripts($combine = true)
 {
-  echo nominify_get_javascripts();
+  echo minify_get_maps_javascripts($combine);
 }
 
 function minify_get_main_stylesheets($combine = true, $debug = false)

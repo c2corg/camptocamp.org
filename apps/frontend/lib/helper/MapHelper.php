@@ -124,13 +124,13 @@ function _loadJsMapTools()
     use_javascript('http://maps.google.com/maps?file=api&v=3&key=' . sfConfig::get('app_google_maps_key'));
     use_javascript('http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
     
-    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'nominify');
-    use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'nominify');
+    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
+    use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');
     //use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'last');
     
-    use_javascript('/static/js/mapfish/build/c2corgApi.js', 'nominify');
+    use_javascript('/static/js/mapfish/build/c2corgApi.js', 'maps');
     use_javascript('/static/js/popup.js', 'last');
-    use_javascript('/static/js/docmap.js', 'nominify');
+    use_javascript('/static/js/docmap.js', 'maps');
 }
 
 _loadJsMapTools();

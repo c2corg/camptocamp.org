@@ -110,7 +110,7 @@ $response->setCookie('__utmz', '', null, '/', '.camptocamp.org');
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
     <?php
     minify_include_body_javascripts($combine, $debug);
-    minify_include_unminified_javascripts();
+    minify_include_maps_javascripts($combine);
     include_partial('common/tracker');
     // addthis script must be added after ga tracker for google analytics integration
     // it will be loaded asynchronously
