@@ -582,3 +582,11 @@ div.slider div.handle
   color: #999999;
   font-weight: bold;
 }
+
+/* image thumbnails hover */
+.image_list .image .image_actions,
+.image_list .image .image_license,
+.thumb_data_img .image_license
+{
+  display: block !important;
+}

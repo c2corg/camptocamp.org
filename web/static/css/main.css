@@ -3542,13 +3542,13 @@ div.image
   overflow: auto;
 }
 
-div.selected_image
+.selected_image
 {
   background-color: #FF9933;
   border: 1px solid #FF9933;
 }
 
-.image_list div.image_actions
+.image_list .image_actions
 {
   position: absolute;
   top: 2px;
@@ -4896,4 +4896,19 @@ span.cotometre_result {
 .portals_content .switch_lang
 {
   margin-top: 1em;
+}
+
+/* hover of images TODO inefficient selectors*/
+.image_list .image .image_actions,
+.image_list .image .image_license,
+.thumb_data_img .image_license
+{
+  display: none;
+}
+
+.image_list .image:hover .image_actions,
+.image_list .image:hover .image_license,
+.thumb_data_img:hover .image_license
+{
+  display: block;
 }

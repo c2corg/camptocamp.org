@@ -63,7 +63,7 @@ else:
                        'class' => 'view_big',
                        'id' => 'lightbox_' . $item['id'] . '_' . $image_type));
     ?>
-    <div class="image_license <?php echo 'license_'.$image_type ?>" <?php echo $mobile_version ? '' : 'style="display:none"' ?>></div>
+    <div class="image_license <?php echo 'license_'.$image_type ?>"></div>
     </div>
     <?php
     echo $title . '<br />';
@@ -82,11 +82,13 @@ else:
 <?php
 if (!$mobile_version)
 {
-    echo javascript_tag("Event.observe(window, 'load', function(){
+    echo '<!--[if IE 6]>', javascript_tag("
+Event.observe(window, 'load', function(){
 $$('.thumb_data_img').each(function(obj){
+obj.down('.image_license').hide();
 obj.observe('mouseover', function(e){obj.down('.image_license').show();});
 obj.observe('mouseout', function(e){obj.down('.image_license').hide();});
-});});");
+});});"), '<![endif]-->';
 }
 
 endif;

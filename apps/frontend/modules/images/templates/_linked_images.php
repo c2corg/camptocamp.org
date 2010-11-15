@@ -56,14 +56,11 @@ foreach($images as $image)
         . $view_big;
     if (!$mobile_version)
     {
-        echo '<div class="image_actions" style="display:none">'
+        echo '<div class="image_actions">'
             . $view_details . $view_original . $remove_association
             . '</div>';
     }
-    echo '<div class="image_license license_' . $image_type . '" '
-        . ($mobile_version ? '' : 'style="display:none"')
-        . '></div>'
-        . '</div>';
+    echo '<div class="image_license license_' . $image_type . '"></div></div>';
 }
 
 echo '</div>';
