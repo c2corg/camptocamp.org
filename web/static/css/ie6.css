@@ -1,5 +1,4 @@
 /* CSS patch for IE 6 */
-/* $Id: main.css 1409 2007-08-23 15:00:54Z jbaubort $ */
 
 /**
  * IMAGES GIF
@@ -277,7 +276,7 @@ a.link_nav_anchor, a.nav_edit
   list-style-type: none;
   float: left;
   display: block;
-  background-color: #ff9933;
+  background-color: #ffa146;
 }
 #menu_content li
 {

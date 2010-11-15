@@ -53,7 +53,7 @@ $response->setCookie('__utmz', '', null, '/', '.camptocamp.org');
         echo include_meta_links();
     ?>
     <!--[if IE 6]>
-        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url . '/' . sfTimestamp::getTimestamp('/static/css/ie.css'); ?>/static/css/ie.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url . '/' . sfTimestamp::getTimestamp('/static/css/ie6.css'); ?>/static/css/ie6.css" />
     <![endif]-->
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url. '/' . sfTimestamp::getTimestamp('/static/css/ie7.css'); ?>/static/css/ie7.css" />

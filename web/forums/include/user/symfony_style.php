@@ -24,8 +24,8 @@ minify_include_head_javascripts(!$debug, $debug);
 
 if (!$mobile_version):
 ?>
-<!--[if lt IE 7]>
-    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL . '/' . sfSVN::getHeadRevision('ie.css'); ?>/static/css/ie.css" />
+<!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL . '/' . sfSVN::getHeadRevision('ie6.css'); ?>/static/css/ie6.css" />
 <![endif]-->
 <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL . '/' . sfSVN::getHeadRevision('ie7.css'); ?>/static/css/ie7.css" />
