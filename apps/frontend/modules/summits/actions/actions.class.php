@@ -94,6 +94,7 @@ class summitsActions extends documentsActions
             $associated_huts = array();
             $associated_parkings = array();
             $associated_routes_books = array();
+            $has_ice_route = false;
             if (count($associated_routes) || count($associated_sites))
             {
                 foreach ($associated_routes as $route)
@@ -101,6 +102,16 @@ class summitsActions extends documentsActions
                     if ($route['duration'] instanceof Doctrine_Null || $route['duration'] <= 4)
                     {
                         $doc_ids[] = $route['id'];
+                    }
+                    
+                    $activities = $route['activities'];
+                    if (!$activities instanceof Doctrine_Null)
+                    {
+                        $has_ice_rating = (!$route['ice_rating'] instanceof Doctrine_Null && $route['ice_rating'] > 0);
+                        if (in_array(5, $activities) || (in_array(2, $activities) && $has_ice_rating))
+                        {
+                            $has_ice_route = true;
+                        }
                     }
                 }
                 
@@ -147,6 +158,14 @@ class summitsActions extends documentsActions
             
             $cab = count($associated_books);
             $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)$this->document->get('geom_wkt'));
+            
+            $related_portals = array();
+            $activities = $this->document->get('activities');
+            if ($has_ice_route))
+            {
+                $related_portals[] = 'ice';
+            }
+            $this->related_portals = $related_portals;
     
             $summit_type_list = sfConfig::get('app_summits_summit_types');
             $summit_type_list[1] = 'summit';

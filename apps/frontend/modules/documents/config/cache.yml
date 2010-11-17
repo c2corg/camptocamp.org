@@ -150,3 +150,6 @@ _mobile_comments:
 
 _geom_warning:
   enabled: off
+
+_annex_docs:
+  enabled: off

@@ -41,9 +41,11 @@ echo display_content_top('doc_content');
 echo start_content_tag($module . '_content');
 
 // display warning if editing from an archive version
-if (!empty($editing_archive)): ?>
-    <p class="warning_message"><?php echo __('Warning: you are editing an archive version!') ?></p>
-<?php endif;
+if (!empty($editing_archive))
+{
+    $warning_archive = '<p class="warning_message">' . __('Warning: you are editing an archive version!') . '</p>';
+    echo $warning_archive;
+}
 
 if ($linked_with): ?>
     <p class="warning_message">
@@ -85,6 +87,12 @@ $concurrent_edition = isset($concurrent_edition) ? $concurrent_edition : false;
 include_partial('documents/preview', array('concurrent_edition' => $concurrent_edition,
                                            'id'   => $id,
                                            'lang' => $lang));
+
+                                           // display warning if editing from an archive version
+if (!empty($editing_archive))
+{
+    echo $warning_archive;
+}
 ?>
 <div id="form_buttons_down">
 <?php

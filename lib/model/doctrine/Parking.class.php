@@ -62,7 +62,7 @@ class Parking extends BaseParking
         }
         else
         {
-            $m = 'pp';
+            $m = 'k';
             $m2 = $m;
             $join = 'join_parking';
             $join_id = $join . '_id';
@@ -205,7 +205,7 @@ class Parking extends BaseParking
             
             if (isset($conditions['join_parking']))
             {
-                $q->leftJoin($m . $linked . 'Parking pp');
+                $q->leftJoin($m . $linked . 'Parking k');
                 unset($conditions['join_parking']);
             }
         }

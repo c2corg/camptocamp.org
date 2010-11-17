@@ -174,6 +174,8 @@ if ($mobile_version)
     echo javascript_tag("if (!user_is_author) $('edit_outing_button').hide();");
 }
 
+include_partial('documents/annex_docs', array('related_portals' => $related_portals);
+
 include_partial('documents/license', array('license' => 'by-nc-nd'));
 
 echo end_content_tag();

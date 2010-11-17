@@ -63,6 +63,7 @@ class outingsActions extends documentsActions
             $associated_summits = array();
             $associated_huts = array();
             $associated_parkings = array();
+            $has_ice_route = false;
             if (count($associated_routes))
             {
                 $associated_routes = c2cTools::sortArray($associated_routes, 'duration');
@@ -75,6 +76,10 @@ class outingsActions extends documentsActions
                     else
                     {
                         $other_ids[] = $route['id'];
+                    }
+                    if (!$route['ice_rating'] instanceof Doctrine_Null && $route['ice_rating'] > 0)
+                    {
+                        $has_ice_route = true;
                     }
                 }
                 if (!count($parent_ids))
@@ -114,6 +119,19 @@ class outingsActions extends documentsActions
                 $associated_users = c2cTools::sortArrayByName($associated_users);
             }
             $this->associated_users = $associated_users;
+            
+            $related_portals = array();
+            $activities = $this->document->get('activities');
+            $outing_with_public_transportation = $this->document->get('outing_with_public_transportation');
+            if (!$outing_with_public_transportation instanceof Doctrine_Null && $outing_with_public_transportation)
+            {
+                $related_portals[] = 'cda';
+            }
+            if (in_array(5, $activities) || (in_array(2, $activities) && $has_ice_route))
+            {
+                $related_portals[] = 'ice';
+            }
+            $this->related_portals = $related_portals;
     
             $description = array($title, $this->getActivitiesList(), $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));

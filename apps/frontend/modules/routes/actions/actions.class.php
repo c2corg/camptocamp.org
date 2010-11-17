@@ -148,6 +148,15 @@ class routesActions extends documentsActions
             }
             $a[] = array_slice($associated_outings, $i * $outings_limit);
             $this->associated_outings = $a;
+            
+            $related_portals = array();
+            $activities = $this->document->get('activities');
+            $ice_rating = $this->document->get('ice_rating');
+            if (in_array(5, $activities) || (in_array(2, $activities) && $ice_rating > 0))
+            {
+                $related_portals[] = 'ice';
+            }
+            $this->related_portals = $related_portals;
     
             // extract highest associated summit, and prepend its name to display this route's name.
             $this->highest_summit_name = c2cTools::extractHighestName($main_associated_summits);
