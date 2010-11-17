@@ -760,12 +760,10 @@ function pun_hash($str)
 function get_remote_address()
 {
 	// modified in order to take into account possible presence
-	// of varnish on production server
-	if (isset($_SERVER['HTTP_X_VARNISH']) && isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+	// of varnish / haproxy on production server
+	if (isset($_SERVER['HTTP_X_ORIGIN_IP']))
 	{
-		$x_forwarded_for = explode(', ', $_SERVER['HTTP_X_FORWARDED_FOR']);
-		$last_ip = end($x_forwarded_for);
-		return prev($x_forwarded_for);
+		return $_SERVER['HTTP_X_ORIGIN_IP'];
 	}
 	else
 	{
