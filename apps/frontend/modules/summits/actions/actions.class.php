@@ -161,7 +161,7 @@ class summitsActions extends documentsActions
             
             $related_portals = array();
             $activities = $this->document->get('activities');
-            if ($has_ice_route))
+            if ($has_ice_route)
             {
                 $related_portals[] = 'ice';
             }
