@@ -187,6 +187,7 @@ Lightbox.prototype = {
         this.updateImageList = Prototype.emptyFunction;
 
         document.observe('click', (function(event){
+            if (Event.element(event).tagName.toUpperCase() == 'SVG') return; // xbrrr - findElement will fail if called on svg tag
             var target = event.findElement('a[rel^=lightbox]') || event.findElement('area[rel^=lightbox]');
             if (target) {
                 event.stop();
