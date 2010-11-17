@@ -44,6 +44,7 @@ STATIC_BASE_URL =
 
 ; mapping config
 ; for locahost, use: ABQIAAAAfTZbNLTbUMrBtZ9eB3FzsBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxT9k2f3y-8CR69y-OvQTy4Befc8Yg
+; not needed when using gmaps api v3
 GMAPS_KEY = <gmaps_key>
 
 ; IGN API key

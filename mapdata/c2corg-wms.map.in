@@ -1,5 +1,7 @@
 MAP
 
+# legacy c2c wms, still available, bot not used anymore
+
 STATUS ON
 SYMBOLSET symbols.txt
 EXTENT -20037508 -136554022 20037508 136554022

@@ -86,12 +86,30 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     
     $html .= '<div class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
     $html .= '<div id="map" style="height:' . $height . 'px;width:100%">';
-    $html .= '<div id="mapLoading"><img src="' . $app_static_url . '/static/images/indicator.gif" alt="" />';
+    $html .= '<div id="mapLoading">'.image_tag($app_static_url . '/static/images/indicator.gif');
     $html .= __('Map is loading...') . '</div>';
     $html .= '</div>';
     $html .= '<div id="scale"></div>';
     $html .= '<div id="fake_clear"></div>';
     $html .= '</div></div>';
+
+    if (sfConfig::get('app_async_map', true))
+    {
+        use_helper('MyMinify');
+        $ign_script_url = 'http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false';
+        // $debug is set to true, because minifying them currently breaks ie
+        $c2c_script_url = minify_get_combined_files_url(array('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js',
+                                                              '/static/js/mapfish/mfbase/ext/ext-all.js',
+                                                              '/static/js/mapfish/build/c2corgApi.js',
+                                                              '/static/js/popup.js',
+                                                              '/static/js/docmap.js'), true);
+
+        // FIXME put c2c_asyncload in external js? (the same kind of function is used to load analytics and addthis)
+        $html .= javascript_tag('
+var c2corgloadMapAsync = true;
+function c2c_asyncload(jsurl) { var head = $$(\'head\')[0]; head.appendChild(new Element(\'script\', { type: \'text/javascript\', async: true, src: jsurl })); }
+function asyncloadmap() { c2c_asyncload(\''.$c2c_script_url.'\'); c2c_asyncload(\''.$ign_script_url.'\'); }');
+    }
 
     return $html;
 }
@@ -112,7 +130,6 @@ function _loadJsMapTools()
 {
     $response = sfContext::getInstance()->getResponse();
 
-    /* css */
     use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/ext-all.css', 'last');
     use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/xtheme-gray.css', 'last');
     use_stylesheet('/static/js/mapfish/mfbase/geoext/resources/css/gxtheme-gray.css', 'last');
@@ -122,18 +139,22 @@ function _loadJsMapTools()
     use_stylesheet('/static/js/mapfish/MapFishApi/css/api.css', 'last');
     use_stylesheet('/static/js/mapfish/c2corgApi/css/api.css', 'last');
 
-    /* javascripts */
-    use_javascript('http://maps.google.com/maps?file=api&v=3&key=' . sfConfig::get('app_google_maps_key'));
-    use_javascript('http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
+    // it is not possible to load google maps api v2 asynchronously since it uses document.write
+    // upgrade to v3 to enable (using &callback=some_function param)
+    use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
+
+    if (!sfConfig::get('app_async_map', true))
+    {
+        use_javascript('http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
     
-    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
-    use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');
-    //use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'last');
+        use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
+        use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');
+        //use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'last');
     
-    use_javascript('/static/js/mapfish/build/c2corgApi.js', 'maps');
-    use_javascript('/static/js/popup.js', 'last');
-    use_javascript('/static/js/docmap.js', 'maps');
+        use_javascript('/static/js/mapfish/build/c2corgApi.js', 'maps');
+        use_javascript('/static/js/popup.js', 'last');
+        use_javascript('/static/js/docmap.js', 'maps');
+    }
 }
 
 _loadJsMapTools();
-?>

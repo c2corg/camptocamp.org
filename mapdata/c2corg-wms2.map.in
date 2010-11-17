@@ -1,5 +1,7 @@
 MAP
 
+# current c2c wms
+
 # FIXME: replace TRANSPARENCY by OPACITY when Mapserver is upgraded to version 5.x
 # FIXME: use AGG in OUTPUTFORMAT instead of GD
 

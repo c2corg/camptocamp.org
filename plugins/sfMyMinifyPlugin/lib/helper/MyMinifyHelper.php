@@ -84,18 +84,31 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
   {
     $options = unserialize($options);
 
-
-    $prefix = $debug ? '/no' : '';
-    $ts = sfTimestamp::getTimestamp($files);
-    $prefix = empty($ts) ? $prefix : '/' . $ts . $prefix;
-    $options['src'] = $app_static_url . $prefix . join($files, ',');
+    $options['src'] = minify_get_combined_files_url($files, $debug);
     $html .= content_tag('script', '', $options)."\n";
   }
 
   return $html;
 }
 
-/** TODO those javascripts for maps break with ie when trying to minify them, so that we just combine them
+// returns a combined url for a list of javascripts or css
+function minify_get_combined_files_url($files, $debug = false)
+{
+  $response = sfContext::getInstance()->getResponse();
+  $app_static_url = sfConfig::get('app_static_url');
+
+  if (!is_array($files))
+  {
+    $files = array($files);
+  }
+
+  $prefix = $debug ? '/no' : '';
+  $ts = sfTimestamp::getTimestamp($files);
+  $prefix = empty($ts) ? $prefix : '/' . $ts . $prefix;
+  return $app_static_url . $prefix . join($files, ',');
+}
+
+/** Those javascripts for maps break with ie when trying to minify them, so that we just combine them
     TODO see what happens if we use an other minifier like yuicompressor? */
 function minify_get_maps_javascripts($combine = true)
 {
@@ -203,11 +216,7 @@ function minify_get_stylesheets($position_array = array('first', '', 'last'), $d
   {
     $options = unserialize($options);
 
-    $prefix = $debug ? '/no' : '';
-    $ts = sfTimestamp::getTimestamp($files);
-    $prefix = empty($ts) ? $prefix : '/' . $ts . $prefix;
-    $prefix = empty($max_rev) ? $prefix : '/' . $max_rev . $prefix;
-    $options['href'] = $app_static_url . $prefix . join($files, ',');
+    $options['href'] = minify_get_combined_files_url($files, $debug);
     $html .= tag('link', $options)."\n";
   }
   return $html;

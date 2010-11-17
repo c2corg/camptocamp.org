@@ -161,4 +161,8 @@ c2corg.embeddedMap = (function() {
     };
 })();
 
-Ext.onReady(c2corg.embeddedMap.init);
+if (typeof(c2corgloadMapAsync) != 'undefined' && c2corgloadMapAsync) {
+  c2corg.embeddedMap.init();
+} else {
+  Ext.onReady(c2corg.embeddedMap.init);
+}

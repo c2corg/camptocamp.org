@@ -222,7 +222,11 @@ function toggleView(container_id)
 
         // load map if needed
         if (!div.visible() && $('mapLoading')) {
-            c2corg.embeddedMap.init.delay(0.6);
+            if (typeof(c2corgloadMapAsync) != 'undefined' && c2corgloadMapAsync) {
+                asyncloadmap.delay(0.6);
+            } else {
+                c2corg.embeddedMap.init.delay(0.6);
+            }
         }
     }
 }
@@ -243,6 +247,13 @@ function setSectionStatus(container_id, position, default_opened)
         tip.innerHTML = '[' + alt_down + ']';
     };
 
+    // FIXME specific behaviour for the map, can we avoid this?
+    var g = function() {
+        if (container_id == 'map_container' && typeof(c2corgloadMapAsync) != 'undefined' && c2corgloadMapAsync) {
+            Event.observe(window, 'load', asyncloadmap);
+        }
+    };
+
     var img = $(container_id + '_toggle');
     var div = $(container_id + '_section_container');
     var tip = $('tip_' + container_id);
@@ -259,6 +270,7 @@ function setSectionStatus(container_id, position, default_opened)
             var opened = getCookieValue(j)[position];
             if (opened == 't')
             {
+                g();
                 return;
             }
             else if (opened == 'f')
@@ -278,6 +290,10 @@ function setSectionStatus(container_id, position, default_opened)
     if (!default_opened)
     {
         f();
+    }
+    else
+    {
+        g();
     }
 }
 
