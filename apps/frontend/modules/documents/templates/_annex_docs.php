@@ -7,7 +7,7 @@ if (count($related_portals))
     
     echo '<ul id="list_associated_docs">';
     
-    $portals_definition = sfConfig::get('app_portals')
+    $portals_definition = sfConfig::get('app_portals');
     foreach ($related_portals as $portal)
     {
         $text = __($portals_definition['cda']['name']);

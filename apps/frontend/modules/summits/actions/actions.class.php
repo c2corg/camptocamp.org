@@ -104,7 +104,7 @@ class summitsActions extends documentsActions
                         $doc_ids[] = $route['id'];
                     }
                     
-                    $activities = $route['activities'];
+                    $activities = Document::convertStringToArray($route['activities']);
                     if (!$activities instanceof Doctrine_Null)
                     {
                         $has_ice_rating = (!$route['ice_rating'] instanceof Doctrine_Null && $route['ice_rating'] > 0);
@@ -160,7 +160,6 @@ class summitsActions extends documentsActions
             $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)$this->document->get('geom_wkt'));
             
             $related_portals = array();
-            $activities = $this->document->get('activities');
             if ($has_ice_route)
             {
                 $related_portals[] = 'ice';
