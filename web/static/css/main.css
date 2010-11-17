@@ -607,7 +607,7 @@ a.logged_as
 
 .sbox input
 {
-  padding: 2px 2px 2px 23px;
+  padding: 2px 2px 2px 23px !important;
   margin-bottom: 4px;
   height: 1.8em;
   width: 40%;
@@ -4514,17 +4514,12 @@ table.list th, table#pagehistory th
 
 tr.table_list_even
 {
-  background-color: white;
+  background-color: #fff;
 }
 
 tr.table_list_odd
 {
   background-color: #E2DFD8;
-}
-
-tr.table_list_odd input
-{
-  border: 1px solid #FFFFFF;
 }
 
 table.list th, table#pagehistory th
