@@ -60,8 +60,8 @@ if (isset($_GET['f']))
 
       $options = array('files' => $files, 'maxAge' => $maxAge, 'debug' => $debug);
 
-      // debug and single file => do not minify at all
-      if ($debug and count($files) == 1)
+      // debug = we don't minify. But we don't add /* line numbers */
+      if ($debug)
       {
         $options['debug'] = false;
         $options['minifiers'] = array(Minify::TYPE_JS => '', Minify::TYPE_CSS => '');
