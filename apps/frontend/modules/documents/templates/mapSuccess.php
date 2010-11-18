@@ -17,48 +17,48 @@ use_javascript('/static/js/popup.js', 'last');
 
 echo javascript_tag("lang = '$lang';");
 
-use_javascript('http://maps.google.com/maps?file=api&v=3&key=' . sfConfig::get('app_gmaps_key'));
+use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
 use_javascript('http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');     
 
 if ($debug) {
-    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'nominify');
-    use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'nominify');
-    use_javascript('/static/js/mapfish/c2corgApi/js/config.js', 'nominify');
-    use_javascript('/static/js/mapfish/c2corgApi/js/firefoxfix.js', 'nominify');
+    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
+    use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'maps');
+    use_javascript('/static/js/mapfish/c2corgApi/js/config.js', 'maps');
+    use_javascript('/static/js/mapfish/c2corgApi/js/firefoxfix.js', 'maps');
 
-    use_javascript('/static/js/mapfish/mfbase/openlayers/lib/OpenLayers.js', 'nominify');
-    use_javascript('/static/js/mapfish/mfbase/geoext/lib/GeoExt.js', 'nominify');
-    use_javascript('/static/js/mapfish/mfbase/mapfish/MapFish.js', 'nominify');
+    use_javascript('/static/js/mapfish/mfbase/openlayers/lib/OpenLayers.js', 'maps');
+    use_javascript('/static/js/mapfish/mfbase/geoext/lib/GeoExt.js', 'maps');
+    use_javascript('/static/js/mapfish/mfbase/mapfish/MapFish.js', 'maps');
     
     if ($lang != 'eu') {
-        use_javascript("/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang/$lang.js", 'nominify');
-        use_javascript("/static/js/mapfish/mfbase/ext/source/locale/ext-lang-$lang.js", 'nominify');
+        use_javascript("/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang/$lang.js", 'maps');
+        use_javascript("/static/js/mapfish/mfbase/ext/source/locale/ext-lang-$lang.js", 'maps');
     }
     if (!in_array($lang, array('ca', 'eu'))) {
-        use_javascript("/static/js/mapfish/mfbase/mapfish/lang/$lang.js", 'nominify');
+        use_javascript("/static/js/mapfish/mfbase/mapfish/lang/$lang.js", 'maps');
     }
 
-    use_javascript('/static/js/mapfish/geoportal/GeoportalMin.js', 'nominify');
-    use_javascript('/static/js/mapfish/geoportal/Logo.js', 'nominify');
+    use_javascript('/static/js/mapfish/geoportal/GeoportalMin.js', 'maps');
+    use_javascript('/static/js/mapfish/geoportal/Logo.js', 'maps');
     
-    use_javascript('/static/js/mapfish/MapFishApi/js/mapfish_api.js', 'nominify');
-    use_javascript('/static/js/mapfish/MapFishApi/js/Measure.js', 'nominify');
-    use_javascript('/static/js/mapfish/MapFishApi/js/ZoomToExtent.js', 'nominify');
-    use_javascript('/static/js/mapfish/MapFishApi/js/Permalink.js', 'nominify');
-    use_javascript('/static/js/mapfish/MapFishApi/js/ArgParser.js', 'nominify');
-    use_javascript('/static/js/mapfish/MapFishApi/js/GeonamesSearchCombo.js', 'nominify');
-    use_javascript('/static/js/mapfish/c2corgApi/js/c2corg_api.js', 'nominify');
-    use_javascript('/static/js/mapfish/c2corgApi/js/ArgParser.js', 'nominify');
-    use_javascript('/static/js/mapfish/c2corgApi/js/Permalink.js', 'nominify');
-    use_javascript('/static/js/mapfish/c2corgApi/js/tooltip.js', 'nominify');
-    use_javascript('/static/js/mapfish/app/layout.js', 'nominify');
-    use_javascript('/static/js/mapfish/app/query.js', 'nominify');
+    use_javascript('/static/js/mapfish/MapFishApi/js/mapfish_api.js', 'maps');
+    use_javascript('/static/js/mapfish/MapFishApi/js/Measure.js', 'maps');
+    use_javascript('/static/js/mapfish/MapFishApi/js/ZoomToExtent.js', 'maps');
+    use_javascript('/static/js/mapfish/MapFishApi/js/Permalink.js', 'maps');
+    use_javascript('/static/js/mapfish/MapFishApi/js/ArgParser.js', 'maps');
+    use_javascript('/static/js/mapfish/MapFishApi/js/GeonamesSearchCombo.js', 'maps');
+    use_javascript('/static/js/mapfish/c2corgApi/js/c2corg_api.js', 'maps');
+    use_javascript('/static/js/mapfish/c2corgApi/js/ArgParser.js', 'maps');
+    use_javascript('/static/js/mapfish/c2corgApi/js/Permalink.js', 'maps');
+    use_javascript('/static/js/mapfish/c2corgApi/js/tooltip.js', 'maps');
+    use_javascript('/static/js/mapfish/app/layout.js', 'maps');
+    use_javascript('/static/js/mapfish/app/query.js', 'maps');
 } else {
-    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'nominify');
-    use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'nominify');
+    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
+    use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');
     
-    use_javascript('/static/js/mapfish/build/c2corgApi.js', 'nominify');
-    use_javascript('/static/js/mapfish/build/app.js', 'nominify');
+    use_javascript('/static/js/mapfish/build/c2corgApi.js', 'maps');
+    use_javascript('/static/js/mapfish/build/app.js', 'maps');
 }
 
 include_partial('documents/map_i18n');
