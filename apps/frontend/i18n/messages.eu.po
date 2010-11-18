@@ -1421,6 +1421,12 @@ msgstr "Nire Camptocamp"
 msgid "My outing: "
 msgstr "Nire irteera: "
 
+# [general comment]
+# link in the map tool to center on user position (if supported)
+# [WARNING] en translation used
+msgid "My position"
+msgstr "My position"
+
 msgid "My preferences"
 msgstr "Preferentzia pertsonalak"
 
@@ -2613,9 +2619,9 @@ msgstr "Todavía no te as inscrito a ninguna lista"
 
 # [general comment]
 # this message is displayed when editing a document without providing a required activity
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "You must select at least one activity"
-msgstr "vous devez choisir au moins une activité pour ce document"
+msgstr "you have to chose at least one activity for this document"
 
 msgid "You must specify an email"
 msgstr "Helbide elektroniko bat eman behar duzu."

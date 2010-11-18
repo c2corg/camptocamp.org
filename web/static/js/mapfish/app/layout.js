@@ -142,6 +142,20 @@ c2corg.layout = (function() {
 
         items.push('->');
 
+        // center on my position
+        if (navigator.geolocation) {
+            items.push(new Ext.Button({
+                text: OpenLayers.i18n('My position'),
+                handler: function() {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        var myposition = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude);
+                        myposition.transform(new OpenLayers.Projection("EPSG:4326"), api.map.getProjectionObject());
+                        api.map.setCenter(myposition)
+                    });
+                }
+            }));
+        }
+
         // permalink
         setLinkWindow();
         api.addPermalinkControl();

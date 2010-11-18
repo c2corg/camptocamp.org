@@ -1393,6 +1393,11 @@ msgstr "My Camptocamp"
 msgid "My outing: "
 msgstr "My outing: "
 
+# [general comment]
+# link in the map tool to center on user position (if supported)
+msgid "My position"
+msgstr "My position"
+
 msgid "My preferences"
 msgstr "My preferences"
 
@@ -2497,12 +2502,13 @@ msgstr "You haven't subscribed to any list yet."
 
 # [general comment]
 # this message is displayed when editing a document without providing a required activity
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "You must select at least one activity"
-msgstr "vous devez choisir au moins une activité pour ce document"
+msgstr "you have to chose at least one activity for this document"
 
+# [WARNING] needs_review
 msgid "You must specify an email"
-msgstr "Vous devez spécifier une adresse email."
+msgstr "You must specify an email address."
 
 msgid "You must specify an username"
 msgstr "You must specify an username"

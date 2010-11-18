@@ -47,6 +47,7 @@ c2corg_map_translations = {
     'See next item': \"" . __('next page') . "\",
     'See previous item': \"" . __('previous page') . "\",
     'length measure': \"" . __('length measure') . "\",
+    'My position': \"" . __('My position') . "\",
     'Measure': \"" . __('Distance') . "\",
     'map query': \"" . __('map query') . "\",
     'Go to...': \"" . __('Go to...') . "\",

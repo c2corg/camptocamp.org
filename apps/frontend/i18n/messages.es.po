@@ -1387,6 +1387,12 @@ msgstr "Mi Camptocamp"
 msgid "My outing: "
 msgstr "Mi salida: "
 
+# [general comment]
+# link in the map tool to center on user position (if supported)
+# [WARNING] en translation used
+msgid "My position"
+msgstr "My position"
+
 msgid "My preferences"
 msgstr "Preferencias personales"
 
@@ -2489,9 +2495,9 @@ msgstr "Todavía no te as inscrito a ninguna lista"
 
 # [general comment]
 # this message is displayed when editing a document without providing a required activity
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "You must select at least one activity"
-msgstr "vous devez choisir au moins une activité pour ce document"
+msgstr "you have to chose at least one activity for this document"
 
 msgid "You must specify an email"
 msgstr "Tienes que especificar una dirección de email."

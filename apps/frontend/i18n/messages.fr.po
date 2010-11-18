@@ -1389,6 +1389,11 @@ msgstr "Mon Camptocamp"
 msgid "My outing: "
 msgstr "Ma sortie&nbsp;: "
 
+# [general comment]
+# link in the map tool to center on user position (if supported)
+msgid "My position"
+msgstr "Ma position"
+
 msgid "My preferences"
 msgstr "Préférences personnelles"
 
