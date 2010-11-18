@@ -54,6 +54,14 @@ class booksActions extends documentsActions
                                         'huts' => ($cah != 0),
                                         'sites' => ($cab != 0),
                                         'docs' => ($cas + $car + $cah +$cab == 0));
+            
+            $related_portals = array();
+            $activities = $this->document->get('activities');
+            if (in_array(5, $activities))
+            {
+                $related_portals[] = 'ice';
+            }
+            $this->related_portals = $related_portals;
     
             $description = array($this->__('book') . ' :: ' . $this->document->get('name'),
                                  $this->getActivitiesList());

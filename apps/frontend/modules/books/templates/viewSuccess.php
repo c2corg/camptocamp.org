@@ -147,6 +147,7 @@ if ($is_not_archive && $is_not_merged)
 
     if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
 
+    include_partial('documents/annex_docs', array('related_portals' => $related_portals));
 }
 
 include_partial('documents/license', array('license' => 'by-sa'));

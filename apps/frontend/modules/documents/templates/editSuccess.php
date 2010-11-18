@@ -76,6 +76,10 @@ $editing_archive = isset($editing_archive) ? $editing_archive : false;
 ?>
 <div id="form_buttons_up" style="display:none">
 <?php
+if (!empty($editing_archive))
+{
+    echo $warning_archive;
+}
 echo input_hidden_tag('editing_archive', $editing_archive);
 include_partial('documents/form_buttons', array('document'     => $document,
                                                 'new_document' => $new_document));
@@ -89,13 +93,13 @@ include_partial('documents/preview', array('concurrent_edition' => $concurrent_e
                                            'lang' => $lang));
 
                                            // display warning if editing from an archive version
+?>
+<div id="form_buttons_down">
+<?php
 if (!empty($editing_archive))
 {
     echo $warning_archive;
 }
-?>
-<div id="form_buttons_down">
-<?php
 include_partial('documents/form_buttons', array('document'     => $document,
                                                 'new_document' => $new_document));
 ?>
