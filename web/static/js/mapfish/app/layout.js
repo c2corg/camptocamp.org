@@ -150,7 +150,7 @@ c2corg.layout = (function() {
                     navigator.geolocation.getCurrentPosition(function(position) {
                         var myposition = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude);
                         myposition.transform(new OpenLayers.Projection("EPSG:4326"), api.map.getProjectionObject());
-                        api.map.setCenter(myposition)
+                        api.map.setCenter(myposition);
                     });
                 }
             }));
