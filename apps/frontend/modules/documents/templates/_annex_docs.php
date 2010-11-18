@@ -10,7 +10,7 @@ if (count($related_portals))
     $portals_definition = sfConfig::get('app_portals');
     foreach ($related_portals as $portal)
     {
-        $text = __($portals_definition['cda']['name']);
+        $text = __($portals_definition[$portal]['name']);
         if ($portal == 'cda')
         {
             $html = '<a href="http://' . $portals_definition['cda']['host'] . '">' . $text . '</a>';
