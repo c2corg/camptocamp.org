@@ -75,7 +75,7 @@ class Product extends BaseProduct
         Product::buildProductListCriteria(&$conditions, &$values, $params_list, true);
 
         // parking criteria
-        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id', 'q');
 
         // hut criteria
         Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.linked_id');
@@ -209,7 +209,7 @@ class Product extends BaseProduct
             || isset($conditions['join_hbtag_id'])
         )
         {
-            Parking::buildParkingPagerConditions($q, $conditions, false, false, 'm.associations', 'pf');
+            Parking::buildParkingPagerConditions($q, $conditions, false, false, 'm.associations', 'pf', 'q');
         
             // join with huts tables only if needed 
             if (   isset($conditions['join_hut_id'])

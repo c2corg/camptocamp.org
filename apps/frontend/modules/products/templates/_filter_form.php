@@ -10,7 +10,9 @@ include_partial('products_filter');
 echo '<br />' . georef_selector();
 ?>
 <br />
-<?php include_partial('parkings/parkings_filter') ?>
+<?php
+// FIXME : dont show tpty select due to Doctrine bug - see ticket #687
+include_partial('parkings/parkings_filter', array('show_tpty' => false)) ?>
 <br />
 <?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('fcult') ?>
 <br /><br />

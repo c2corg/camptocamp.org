@@ -57,7 +57,8 @@ class booksActions extends documentsActions
             
             $related_portals = array();
             $activities = $this->document->get('activities');
-            if (in_array(5, $activities))
+            $book_types = $this->document->get('book_types');
+            if (array_intersect(array(1, 4, 10, 14, 18), $book_types) && in_array(5, $activities))
             {
                 $related_portals[] = 'ice';
             }

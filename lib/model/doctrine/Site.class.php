@@ -140,7 +140,7 @@ class Site extends BaseSite
         }
         else
         {
-            $m = 't';
+            $m = 's';
             $m2 = $m;
             $join = 'join_site';
             $join_id = 'join_site_id';
@@ -301,7 +301,7 @@ class Site extends BaseSite
             
             if (isset($conditions['join_site']))
             {
-                $q->leftJoin($m . $linked . 'Site t');
+                $q->leftJoin($m . $linked . 'Site s');
                 unset($conditions['join_hut']);
             }
         }

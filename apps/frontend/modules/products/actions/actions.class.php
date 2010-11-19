@@ -86,7 +86,8 @@ class productsActions extends documentsActions
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
         $this->addListParam($out, 'tp');
-        $this->addListParam($out, 'tpty');
+    // FIXME : Doctrine bug - see ticket #687
+    //    $this->addListParam($out, 'tpty');
 
         $this->addNameParam($out, 'fnam');
         $this->addCompareParam($out, 'falt');

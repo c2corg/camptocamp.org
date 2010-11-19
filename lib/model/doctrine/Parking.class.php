@@ -51,7 +51,7 @@ class Parking extends BaseParking
         return self::returnPosIntOrNull($value);
     }
 
-    public static function buildParkingListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
+    public static function buildParkingListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id', $m = 'p')
     {
         if ($is_module)
         {
@@ -62,7 +62,6 @@ class Parking extends BaseParking
         }
         else
         {
-            $m = 'p0';
             $m2 = $m;
             $join = 'join_parking';
             $join_id = $join . '_id';
@@ -168,7 +167,7 @@ class Parking extends BaseParking
         return $pager;
     }   
     
-    public static function buildParkingPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
+    public static function buildParkingPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join = null, $ltype = null, $p = 'p')
     {
         if ($is_module)
         {
@@ -205,7 +204,7 @@ class Parking extends BaseParking
             
             if (isset($conditions['join_parking']))
             {
-                $q->leftJoin($m . $linked . 'Parking p0');
+                $q->leftJoin($m . $linked . 'Parking ' . $p);
                 unset($conditions['join_parking']);
             }
         }

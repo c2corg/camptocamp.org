@@ -149,8 +149,9 @@ c2corg.layout = (function() {
                 handler: function() {
                     navigator.geolocation.getCurrentPosition(function(position) {
                         var myposition = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude);
+                        var myzoom = Math.max(11, api.map.getZoom());
                         myposition.transform(new OpenLayers.Projection("EPSG:4326"), api.map.getProjectionObject());
-                        api.map.setCenter(myposition);
+                        api.map.setCenter(myposition, myzoom);
                     });
                 }
             }));
