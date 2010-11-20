@@ -33,8 +33,13 @@ class productsActions extends documentsActions
             $this->associated_parkings = $associated_parkings;
     
             $product_type_list = sfConfig::get('mod_products_types_list');
-            $product_type_index = $this->document->get('product_type');
-            $product_type = $this->__($product_type_list[$product_type_index]);
+            $product_type_index_list = $this->document->get('product_type');
+            $product_type_name_list = array();
+            foreach($product_type_index_list as $product_type_index)
+            {
+                $product_type_name_list[] = $this->__($product_type_list[$product_type_index]);
+            }
+            $product_types = implode(', ', $product_type_name_list);
             $doc_name = $this->document->get('name');
             
             $title = $doc_name;
@@ -43,10 +48,10 @@ class productsActions extends documentsActions
                 $version = $this->getRequestParameter('version');
                 $title .= ' :: ' . $this->__('revision') . ' ' . $version ;
             }
-            $title .= ' :: ' . $product_type;
+            $title .= ' :: ' . $product_types;
             $this->setPageTitle($title);
 
-            $description = array($product_type . ' :: ' . $doc_name, $this->getAreasList());
+            $description = array($product_types . ' :: ' . $doc_name, $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
         }
     }
