@@ -2502,7 +2502,6 @@ msgstr "You haven't subscribed to any list yet."
 
 # [general comment]
 # this message is displayed when editing a document without providing a required activity
-# [WARNING] needs_review
 msgid "You must select at least one activity"
 msgstr "you have to chose at least one activity for this document"
 

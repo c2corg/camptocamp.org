@@ -132,9 +132,9 @@ msgstr "Ein Benutzer kann nicht mit einem gemeinschafltichen Artikel verbunden w
 
 # [general comment]
 # Titre de la section des documents annexes.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Annex"
-msgstr "Annex"
+msgstr "Anhänge"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Sind sie sicher die katalanische Fassung dieses Dokuments löschen zu wollen?"
@@ -1415,9 +1415,9 @@ msgstr "Meine Tour: "
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "My position"
-msgstr "My position"
+msgstr "Mein Standort"
 
 msgid "My preferences"
 msgstr "Persönliche Einstellungen"
@@ -2537,9 +2537,8 @@ msgstr "Sie haben keine Mailing-Liste abonniert."
 
 # [general comment]
 # this message is displayed when editing a document without providing a required activity
-# [WARNING] en translation used
 msgid "You must select at least one activity"
-msgstr "you have to chose at least one activity for this document"
+msgstr "sie müssen mindestens eine Aktivität für dieses Dokument auswählen"
 
 msgid "You must specify an email"
 msgstr "Sie müssen eine Email-Adresse angeben."
@@ -4621,9 +4620,9 @@ msgstr "Den ausgewählten Text kursiv schreiben "
 
 # [general comment]
 # Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "ice climbing portal"
-msgstr "Camptocamp Cascade"
+msgstr "Camptocamp Eisklettern"
 
 msgid "ice_climbing"
 msgstr "Eisklettern"
