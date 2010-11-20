@@ -5,10 +5,15 @@ $version = ($new_document->getVersion() != $current_version) ? $new_document->ge
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
 $module = $sf_context->getModuleName();
+$mobile_version = c2cTools::mobileVersion();
 
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$new_document->get('name') : $new_document->get('name'), $module);
-echo '<div id="nav_space">&nbsp;</div>';
-echo tabs_list_tag($id, $lang, 1, 'history', $version, get_slug($new_document));
+
+if (!$mobile_version)
+{
+    echo '<div id="nav_space">&nbsp;</div>';
+    echo tabs_list_tag($id, $lang, 1, 'history', $version, get_slug($new_document));
+}
 
 echo display_content_top('doc_content');
 echo start_content_tag($module . '_content');

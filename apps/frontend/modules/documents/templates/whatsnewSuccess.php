@@ -3,12 +3,16 @@
 use_javascript('/static/js/history_tools.js', 'last');
 
 $module = $sf_context->getModuleName();
+$mobile_version = c2cTools::mobileVersion();
 $table_list_even_odd = 0;
 
 echo display_title(__('Recent changes'), $module, false);
 
-echo '<div id="nav_space">&nbsp;</div>';
-include_partial('documents/nav');
+if (!$mobile_version)
+{
+    echo '<div id="nav_space">&nbsp;</div>';
+    include_partial('documents/nav');
+}
 
 echo display_content_top('list_content');
 echo start_content_tag($module . '_content');
