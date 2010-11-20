@@ -1,6 +1,7 @@
 <?php
 use_helper('Sections', 'Field');
 
+$related_portals = $sf_data->getRaw('related_portals');
 if (count($related_portals))
 {
     echo start_section_tag('Annex', 'annex');
