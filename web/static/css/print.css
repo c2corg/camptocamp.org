@@ -79,10 +79,10 @@ p {
 #hiking_routes .picto,
 #mountain_climbing_routes .picto,
 /* carto */
-#ext-gen40, /* left tree panel */
-#ext-gen18, /* panel to change layers */
-.olControlOverviewMapMaximizeButton,
-.olControlPanZoom, .gpControlPermanentLogo
+#ext-gen40, #c2c_layers-xtree, /* left tree panel */
+#emb_layer_select, /* panel to change layers */
+.olControlOverviewMapMaximizeButton, .olControlPanZoom, /* openlayers controls */
+.gpControlPermanentLogoActive,
 /* lightbox, modalbox */
 #lightbox, #overlay, #MB_overlay, #MB_window
 {
@@ -90,13 +90,19 @@ p {
   clear: none !important;
 }
 
+/* carto */
 #mappanel {
   left: 0 !important;
 }
 
-.gpControlPermanentLogoActive {
-  margin-left: 40px !important;
+.olControlScaleLine {
+  bottom: 5px !important;
 }
+
+.gpControlLogo, .olLayerGoogleCopyright, .olControlAttribution {
+  left: 70px !important;
+}
+/* fin carto */
 
 .license_box {
   margin: 0 !important;

@@ -86,7 +86,7 @@ c2corg.embeddedMap = (function() {
     var initialCenter = api.map.getCenter();
     var initialZoom = api.map.getZoom();
     
-    var bbar = api.createBbar();
+    var bbar = api.createBbar({id: 'emb_layer_select'});
     
     var addPermalinkButton = function() {
         var permalinkDiv = document.createElement("div");
@@ -120,6 +120,7 @@ c2corg.embeddedMap = (function() {
     });
     
     var treeOptions = (layersList.length > 0) ? {layers: layersList} : {};
+    treeOptions.id = 'c2c_layers';
     var layertree = Ext.apply(api.createLayerTree(treeOptions), {
         region: 'west',
         width: 250,
