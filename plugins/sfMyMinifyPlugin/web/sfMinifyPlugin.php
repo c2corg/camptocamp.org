@@ -58,12 +58,11 @@ if (isset($_GET['f']))
         $maxAge = 86400;
       }
 
-      $options = array('files' => $files, 'maxAge' => $maxAge, 'debug' => $debug);
-
       // debug = we don't minify. But we don't add /* line numbers */
+      $options = array('files' => $files, 'maxAge' => $maxAge, 'debug' => false);
+
       if ($debug)
       {
-        $options['debug'] = false;
         $options['minifiers'] = array(Minify::TYPE_JS => '', Minify::TYPE_CSS => '');
       }
 
