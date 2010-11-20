@@ -10,6 +10,7 @@ $menu_search = array(
     url_for('@filter?module=sites') => __('sites'),
     url_for('@filter?module=parkings') => __('parkings'),
     url_for('@filter?module=huts') => __('huts'),
+    url_for('@filter?module=books') => __('books'),
     url_for('@filter?module=articles') => __('articles'),
     url_for('@filter?module=products') => __('products'),
     url_for('@filter?module=users') => __('users'),
@@ -25,6 +26,7 @@ $menu_see = array(
     url_for('@default_index?module=sites') => __('sites'),
     url_for('@default_index?module=parkings') => __('parkings'),
     url_for('@default_index?module=huts') => __('huts'),
+    url_for('@default_index?module=books') => __('books'),
     url_for('@default_index?module=articles') => __('articles'),
     url_for('@default_index?module=products') => __('products'),
     url_for('@default_index?module=users') => __('users')
@@ -40,6 +42,7 @@ $menu_more = array(
 if ($is_connected)
 {
     $menu_more[url_for('users/mypage')] = __('personal page');
+    $menu_more[url_for('/forums/message_list.php')] =__('mailbox');
 }
 ?>
 <div id="mobile_menu">

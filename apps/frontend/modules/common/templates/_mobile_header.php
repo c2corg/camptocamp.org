@@ -40,12 +40,12 @@ $static_base_url = sfConfig::get('app_static_url');
         $static_base_url = sfConfig::get('app_static_url');
         $alist = sfConfig::get('app_activities_list');
         array_shift($alist);
-        $light = array(1 => '', 2 => '', 3 => '', 4 => '', 5 => '', 6 => '');
+        $light = array(1 => '', 2 => '', 3 => '', 4 => '', 5 => '', 6 => '', 7 => '');
         $activities_class = array();
 
         if ($main_filter_switch_on && count($act_filter))
         {
-            $unselected_act = array_diff(array(1, 2, 3, 4, 5, 6), $act_filter);
+            $unselected_act = array_diff(array(1, 2, 3, 4, 5, 6, 7), $act_filter);
             foreach ($unselected_act as $act_id)
             {
                 $light[$act_id] = '_light';
