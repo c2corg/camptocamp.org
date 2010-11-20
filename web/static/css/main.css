@@ -1413,7 +1413,7 @@ a.close_btn {
 #footer
 {
   clear: both;
-  height: 140px;
+  height: 110px;
   position: relative;
   bottom: 0; left: 0;
   border: none;
@@ -1995,6 +1995,11 @@ input.action_filter
 input.action_cancel
 {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABEVBMVEXJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDRSBrRSRvSSRrSShzSSx3bYjnbYzrcaUHdakThdE7id1LjdE/kfFnqj2/rkXLsk3TukXHum33vm3/vnYDwnYDwnoLwn4PwpInxnYDxn4LxoYXxpYvxp43ynYDynoLyn4PypInypYvzpInzqI7zr5j0oIP0rJL0rZP0sJf0sJj0spv1r5f1uaT1vqr2w7H2yLf2y7v3spv3x7f3y7z4y7v4y7z4zLz4z8H40MP40sX50cP50sX51Mj639b749v75t787Ob87Of87un97+v98Ov98Oz98u7+9vP+9/T++fj//fz///9XxfgxAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAADTSURBVBgZBcHNTsJAFIDR785PKVIKRIkmLljo+z+RbkwkkkKCQtvpdOaO5wiAsd6R5qyAgCxW9cMr30Pop4IgdfsGAHz+hWJZtAfWg2pZjZsxZWuaQ3ne2Jvf7PPQ3qOrlplidxq3sutYBmdd5Oiax+SGS8Q7WzdF42/rzfR1VmU0FFXzVMOiUdWCrSrL+96MsWrdlTmYlESiid3Hja1ISraY1txXp4v2y3Mw1yDUzQtGAT/zcw+WXOY1IiIqp37CUULJtd/TzeM4FQTAGW/Jc87AP3NMaxnYCArMAAAAAElFTkSuQmCC) no-repeat 2px;
+}
+
+input.action_list
+{
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAeFBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXYgS/po2Drp2fsjjXskTrtlD/umEbvm03vn1TwkjnwlT/wo1rxmUXxp2Hxq2jynUzyr27zoVTzpVzzsnTztXr0qmP0uH/1rmv1uoP2s3P3t3r4u4H4voj5wo36xJL///9MExISAAAAB3RSTlMANj/Y4fD2r5S8ygAAAGRJREFUGBkFwSEOAkEQBMASHYLCYEju/z87gcGAIWR3mqpIAMwa4XEBONuGKcBxzg5TAPen0AawStgF6CZMfwBD6FwB3xJmAGYIe38ANqG9Ad4ldACmhO4XQAkdACW0AEpYCwD+oe86x6o0B08AAAAASUVORK5CYII=) no-repeat 2px;
 }
 
 /* picto images */
@@ -4806,7 +4811,7 @@ td.history_buttons {
 }
 .pp_button_mini
 {
-  display: block;
+  margin-left: 20px;
   width: 82px;
   height: 17px;
   background-position: -130px -266px;

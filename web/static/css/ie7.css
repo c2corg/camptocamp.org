@@ -297,3 +297,8 @@ input.action_cancel
 {
   background: url(/static/images/picto/cancel.png) no-repeat 2px;
 }
+
+input.action_list
+{
+  background: url(/static/images/picto/list.png) no-repeat 2px;
+}
