@@ -318,7 +318,7 @@ all:
   
   list:
     maxline_number: 30
-    mobile_maxline_number: 10
+    mobile_maxline_number: 15
     full_max_npp: 50
     conditions_max_npp: 50
     default_order:  asc
@@ -432,7 +432,7 @@ all:
       sites: '013271627684039046788:jd9auebpqn8'
       summits: '013271627684039046788:rwdwo7bxyyy'
 
-  geoportail_key: @GEOPORTAIL_KEY@
+  geoportail_key: '@GEOPORTAIL_KEY@'
   async_map: true
 
   # this section is used to set group names that are stored in bdd

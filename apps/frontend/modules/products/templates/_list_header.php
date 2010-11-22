@@ -1,5 +1,5 @@
 <?php
-if (!c2cTools::mobileVersion()) echo select_all_header_list_tag();
+echo select_all_header_list_tag();
 echo header_list_tag('fnam', 'name');
 echo header_list_tag('falt', 'elevation short');
 echo header_list_tag('ftyp', 'type short');

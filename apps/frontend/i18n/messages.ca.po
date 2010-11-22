@@ -41,6 +41,11 @@ msgstr "<b>%1%</b> resultats"
 msgid "%1% results, %2% displayed, restrict your search"
 msgstr "%1% resultats, %2% mostrats, afineu la vostra cerca."
 
+# [general comment]
+# number of routes for a crag
+msgid "%1% routes_quantity"
+msgstr "%1% vies"
+
 msgid "%1% weeks ago"
 msgstr "fa %1% setmanes"
 

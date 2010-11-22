@@ -64,6 +64,9 @@ _i18n:
 _list_header:
   enabled: off
 
+_mobile_list_body:
+  enabled: off
+
 _list_body:
   enabled: off
   

@@ -3,9 +3,8 @@
 $item_i18n = $item['RouteI18n'][0];
 $item_id = $item_i18n['id'];
 $item_culture = $item_i18n['culture'];
-if (!c2cTools::mobileVersion()): ?>
+?>
 <td><input type="checkbox" value="<?php echo $item_id ;?>" name="id[]"/></td>
-<?php endif ?>
 <td><?php
 if(strlen($item['geom_wkt']))
 {

@@ -92,7 +92,7 @@ else:
         echo pager_nb_results($pager);
     }
 
-?>
+if (!$mobile_version): ?>
 <table class="list">
     <thead>
         <tr><?php include_partial($module . '/list_header'); ?></tr>
@@ -104,12 +104,19 @@ else:
         <?php endforeach ?>
     </tbody>
 </table>
-<?php if ($mobile_version): ?>
-<div id="table_slider" class="slider">
+<?php else: ?>
+<ul class="list">
+<?php foreach ($items as $item): ?>
+    <?php $item_class = ($table_list_even_odd++ % 2 == 0) ? 'list_even' : 'list_odd'; ?>
+    <li class="<?php echo $item_class ?>"><?php include_partial($module . '/mobile_list_body', array('item' => $item, 'item_class' => $item_class)); ?></li>
+<?php endforeach ?>
+</ul>
+<!--<div id="table_slider" class="slider">
     <div class="handle"></div>
-</div>
-<?php endif ?>
+</div>-->
 <?php
+    endif; 
+
     echo $pager_navigation;
     if (!$mobile_version &&
         in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))

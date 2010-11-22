@@ -42,6 +42,12 @@ msgstr "<b>%1%</b> erantzun"
 msgid "%1% results, %2% displayed, restrict your search"
 msgstr "%1% erantzun, %2% orrialde hontan, egin bilaketa zehatzagoa."
 
+# [general comment]
+# number of routes for a crag
+# [WARNING] needs_review
+msgid "%1% routes_quantity"
+msgstr "%1% bideak"
+
 msgid "%1% weeks ago"
 msgstr "orain dela %1% aste"
 

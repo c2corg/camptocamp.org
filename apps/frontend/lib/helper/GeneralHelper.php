@@ -82,4 +82,14 @@ function picto_tag($picto_name, $title = '', $options = null)
     return content_tag('span', '', $options);
 }
 
-
+function _implode($glue, $items)
+{
+    foreach($items as $key => $item)
+    {
+        if (empty($item))
+        {
+            unset($items[$key]);
+        }
+    }
+    return implode($glue, $items);
+}

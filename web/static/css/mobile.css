@@ -211,7 +211,7 @@ input.long_input
 
 .pages_navigation a, .pages_navigation span
 {
-  margin-right: 1.4em;
+  margin-right: 1.2em;
 }
 .pages_navigation a span
 {
@@ -361,6 +361,22 @@ div.blockform form, div.fakeform
 {
   width: auto !important;
   float: none !important;
+}
+
+/* MP */
+.blockmenu {
+  width: auto !important;
+  float: none !important;
+  margin-bottom: 12px; /* compensate the -12px margin-top from linkst */
+}
+.inbox li {
+  display: inline;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.blocktable {
+  width: auto !important;
+  margin-left: 0 !important;
 }
 
 /* footer */
@@ -589,4 +605,31 @@ div.slider div.handle
 .thumb_data_img .image_license
 {
   display: block !important;
+}
+
+/* documents lists */
+ul.list
+{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+ul.list .right
+{
+  float: right;
+}
+
+li.list_even, li.list_odd
+{
+  padding: 5px 3px;
+}
+
+li.list_even
+{
+  background-color: #e2dfd8;
+}
+
+li.list_odd
+{
+  background-color: #fff;
 }

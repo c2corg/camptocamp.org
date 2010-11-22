@@ -1,5 +1,5 @@
 <?php
-if (!c2cTools::mobileVersion()) echo select_all_header_list_tag();
+echo select_all_header_list_tag();
 echo header_list_tag('snam', 'name');
 echo header_list_tag('salt', 'elevation short');
 echo header_list_tag('styp', 'summit_type');
