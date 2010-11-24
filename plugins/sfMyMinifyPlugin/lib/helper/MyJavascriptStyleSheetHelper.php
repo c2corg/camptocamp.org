@@ -38,6 +38,11 @@ function include_maps_javascripts()
     return _include_javascripts(array('maps'), true);
 }
 
+function include_ie_javascripts()
+{
+    return _include_javascripts(array('ie'), true);
+}
+
 function _include_javascripts($position_array = array('first', '', 'last'), $debug = false, $my_already_seen = array())
 {
     $response = sfContext::getInstance()->getResponse();

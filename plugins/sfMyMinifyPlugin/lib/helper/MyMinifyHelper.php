@@ -121,6 +121,19 @@ function minify_get_maps_javascripts($combine = true)
   return minify_get_javascripts(array('maps'), true);
 }
 
+/** used for ie/extjs that doesn't support async load. Those javascripts must only be loaded by ie */
+function minify_get_ie_javascripts($combine = true)
+{
+  if (!$combine)
+  {
+    use_helper('MyJavascriptStyleSheet');
+    return include_ie_javascripts();
+  }
+
+  return minify_get_javascripts(array('ie'), true);
+
+}
+
 function minify_include_head_javascripts($combine = true, $debug = false)
 {
   echo minify_get_head_javascripts($combine, $debug);
@@ -134,6 +147,11 @@ function minify_include_body_javascripts($combine = true, $debug = false)
 function minify_include_maps_javascripts($combine = true)
 {
   echo minify_get_maps_javascripts($combine);
+}
+
+function minify_include_ie_javascripts($combine = true)
+{
+  echo minify_get_ie_javascripts($combine);
 }
 
 function minify_get_main_stylesheets($combine = true, $debug = false)

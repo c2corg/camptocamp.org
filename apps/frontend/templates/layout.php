@@ -111,6 +111,11 @@ $response->setCookie('__utmz', '', null, '/', '.camptocamp.org');
     <?php
     minify_include_body_javascripts($combine, $debug);
     minify_include_maps_javascripts($combine);
+    ?>
+    <!--[if IE]>
+    <?php minify_include_ie_javascripts($combine); ?>
+    <![endif]-->
+    <?php
     include_partial('common/tracker');
     // addthis script must be added after ga tracker for google analytics integration
     // it will be loaded asynchronously
@@ -119,7 +124,6 @@ $response->setCookie('__utmz', '', null, '/', '.camptocamp.org');
         echo javascript_tag('(function() {var head = $$(\'head\')[0]; var script = new Element(\'script\', {type: \'text/javascript\','.
                             'async: true, src: \'http://s7.addthis.com/js/250/addthis_widget.js#domready=1\'});'.
                             'head.appendChild(script);})();');
-
     }
     ?>
 </body>
