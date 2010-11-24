@@ -738,7 +738,6 @@ class outingsActions extends documentsActions
 
         $show_images = $this->show_images;
 
-var_dump($this->pager->getQuery()->getDql());
         $outings = $this->pager->getResults('array');
 
         $outings = Outing::getAssociatedCreatorData($outings); // retrieve outing creator names
