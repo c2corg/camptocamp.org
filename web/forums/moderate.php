@@ -399,7 +399,17 @@ if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
     }
 
 	$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
-	if (empty($topics) || count($topics)<2)
+	$extra_id = isset($_POST['extra_id']) ? $_POST['extra_id'] : '';
+    if (!empty($extra_id))
+    {
+        $extra_id = preg_replace('#[^\d]+#', ',', $extra_id);
+        $extra_id = explode(',', $topics);
+        $topics = array_merge($topics, $extra_id);
+    }
+    if (@preg_match('/[^0-9,]/', $topics) || count($topics_list)<2)
+        message($lang_common['Bad request']);
+    
+    if (empty($topics) || count($topics)<2)
 		message($lang_misc['No topics to merge']);
 	
     $topics = implode(',', array_keys($topics));
@@ -502,6 +512,13 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 	if (isset($_POST['move_topics']))
 	{
 		$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
+        $extra_id = isset($_POST['extra_id']) ? $_POST['extra_id'] : '';
+        if (!empty($extra_id))
+        {
+            $extra_id = preg_replace('#[^\d]+#', ',', $extra_id);
+            $extra_id = explode(',', $topics);
+            $topics = array_merge($topics, $extra_id);
+        }
 		if (empty($topics))
 			message($lang_misc['No topics selected']);
 
@@ -649,6 +666,13 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 	}
 
 	$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
+	$extra_id = isset($_POST['extra_id']) ? $_POST['extra_id'] : '';
+    if (!empty($extra_id))
+    {
+        $extra_id = preg_replace('#[^\d]+#', ',', $extra_id);
+        $extra_id = explode(',', $topics);
+        $topics = array_merge($topics, $extra_id);
+    }
 	if (empty($topics))
 		message($lang_misc['No topics selected']);
 
@@ -929,7 +953,10 @@ else
 <div class="linksb">
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
-		<p class="conr">
+        <p class="conr">
+            <input type="text" name="extra_id" size="60">
+        </p>
+        <p class="conr">
 		    <input type="button" class="picto action_create" onclick="$$('#punmoderate form .tcmod input[type=checkbox]').each(function(obj){obj.checked=true;});" alt="<?php echo $lang_misc['Select all'] ?>" title="" value="<?php echo $lang_misc['Select all'] ?>" name="<?php echo $lang_misc['Select all'] ?>"/>&nbsp;&nbsp;
 		    <input type="button" class="picto action_rm" onclick="$$('#punmoderate form .tcmod input[type=checkbox]').each(function(obj){obj.checked=false;});" alt="<?php echo $lang_misc['Deselect all'] ?>" title="" value="<?php echo $lang_misc['Deselect all'] ?>" name="<?php echo $lang_misc['Deselect all'] ?>"/>&nbsp;&nbsp;
 		    <input type="submit" class="picto action_merge" name="merge_topics" value="<?php echo $lang_misc['Merge'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
