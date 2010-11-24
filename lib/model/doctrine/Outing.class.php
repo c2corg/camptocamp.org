@@ -508,7 +508,7 @@ class Outing extends BaseOuting
             }
             elseif (in_array($orderby, array('lat', 'lon')))
             {
-                $extra_fields = array('s.lat', 's.lon');
+                $extra_fields = array('lr.type', 'ls.type', 's.lat', 's.lon');
             }
         }
         

@@ -404,7 +404,7 @@ if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
     {
         $extra_id = preg_replace('#[^\d]+#', ',', $extra_id);
         $extra_id = trim($extra_id, ',');
-        $extra_id = explode(',', $topics);
+        $extra_id = explode(',', $extra_id);
         $topics = array_merge($topics, $extra_id);
     }
     if (@preg_match('/[^0-9,]/', $topics) || count($topics_list)<2)
@@ -518,7 +518,7 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
         {
             $extra_id = preg_replace('#[^\d]+#', ',', $extra_id);
             $extra_id = trim($extra_id, ',');
-            $extra_id = explode(',', $topics);
+            $extra_id = explode(',', $extra_id);
             $topics = array_merge($topics, $extra_id);
         }
 		if (empty($topics))
@@ -673,7 +673,7 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
     {
         $extra_id = preg_replace('#[^\d]+#', ',', $extra_id);
         $extra_id = trim($extra_id, ',');
-        $extra_id = explode(',', $topics);
+        $extra_id = explode(',', $extra_id);
         $topics = array_merge($topics, $extra_id);
     }
 	if (empty($topics))

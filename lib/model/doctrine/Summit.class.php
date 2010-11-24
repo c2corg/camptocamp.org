@@ -201,7 +201,7 @@ class Summit extends BaseSummit
             if (isset($conditions['join_summit']))
             {
                 $q->leftJoin($m . $linked . 'Summit s');
-                unset($conditions['join_hut']);
+                unset($conditions['join_summit']);
             }
         }
         

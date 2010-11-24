@@ -709,7 +709,7 @@ class Route extends BaseRoute
                                  'm.rock_free_rating', 'm.rock_required_rating',
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
                                  'm.hiking_rating', 'm.snowshoeing_rating',
-                                 'm.route_length', 'l.type',
+                                 'm.route_length',
                                  'lsname.type', // we don't need this, but if we make JOIN chains, and we don't include every element of the chain, doctrine blocks
                                  'sname.elevation', 'sname.lon', 'sname.lat',
                                  'snamei.name', 'snamei.search_name'));
