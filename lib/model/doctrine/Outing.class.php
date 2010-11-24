@@ -484,6 +484,7 @@ class Outing extends BaseOuting
             
             if (in_array($orderby, sfConfig::get('mod_outings_sort_route_criteria')))
             {
+                $extra_fields[] = 'lr.type'; // if we don't include it, doctrine blocks (chain of join?)
                 switch ($orderby)
                 {
                     case 'fac':  $extra_fields[] = 'r.facing'; break;

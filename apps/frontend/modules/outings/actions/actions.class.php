@@ -724,7 +724,6 @@ class outingsActions extends documentsActions
     public function executeList()
     {
         // TODO something to do if outings where filtered on route ratings?
-
         parent::executeList();
 
         $format = $this->format;
@@ -733,12 +732,13 @@ class outingsActions extends documentsActions
             $this->setTemplate('conditions');
             $this->setPageTitle($this->__('recent conditions'));
         }
-        
+
         $nb_results = $this->nb_results;
         if ($nb_results == 0) return;
-        
+
         $show_images = $this->show_images;
-        
+
+var_dump($this->pager->getQuery()->getDql());
         $outings = $this->pager->getResults('array');
 
         $outings = Outing::getAssociatedCreatorData($outings); // retrieve outing creator names
