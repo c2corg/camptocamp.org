@@ -86,7 +86,7 @@ function _implode($glue, $items)
 {
     foreach($items as $key => $item)
     {
-        if (empty($item))
+        if (empty($item) || !is_string($item))
         {
             unset($items[$key]);
         }

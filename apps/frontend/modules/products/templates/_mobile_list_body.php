@@ -10,9 +10,9 @@ $item_i18n = $item['ProductI18n'][0];
                 get_paginated_value_from_list($item['product_type'], 'mod_products_types_list'); ?>
 <?php if (isset($item['linked_docs']))
 {
-    echo '<div>', __('access'), ' ',
-         include_partial('parkings/parkings4list', array('parkings' => $item['linked_docs'])),
-         '</div>';
+    echo '<div>', __('access'), ' ';
+    include_partial('parkings/parkings4list', array('parkings' => $item['linked_docs']));
+    echo '</div>';
 }
 ?>
 <div><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></div>

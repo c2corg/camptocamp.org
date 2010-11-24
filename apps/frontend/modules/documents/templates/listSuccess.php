@@ -111,9 +111,6 @@ if (!$mobile_version): ?>
     <li class="<?php echo $item_class ?>"><?php include_partial($module . '/mobile_list_body', array('item' => $item, 'item_class' => $item_class)); ?></li>
 <?php endforeach ?>
 </ul>
-<!--<div id="table_slider" class="slider">
-    <div class="handle"></div>
-</div>-->
 <?php
     endif; 
 
