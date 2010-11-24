@@ -392,8 +392,8 @@ class Route extends BaseRoute
         self::buildPersoCriteria($conditions, $values, $params_list, 'rcult');
         
         // return if no criteria
-        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
-        if (isset($conditions['all']) || empty($citeria_temp))
+        $criteria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($conditions['all']) || empty($criteria_temp))
         {
             return array($conditions, $values);
         }
@@ -442,6 +442,7 @@ class Route extends BaseRoute
         
         self::joinOnRegions($q);
 
+// TODO TODO TODO the following lines make it crash
         // to get summit info:
         $q->leftJoin('m.associations lsname')
           ->leftJoin('lsname.Summit sname')
@@ -709,7 +710,9 @@ class Route extends BaseRoute
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
                                  'm.hiking_rating', 'm.snowshoeing_rating',
                                  'm.route_length', 'l.type',
-                                 'sname.elevation', 'sname.lon', 'sname.lat', 'snamei.name', 'snamei.search_name'));
+                                 'lsname.type', // we don't need this, but if we make JOIN chains, and we don't include every element of the chain, doctrine blocks
+                                 'sname.elevation', 'sname.lon', 'sname.lat',
+                                 'snamei.name', 'snamei.search_name'));
     }
 
     protected function addPrevNextIdFilters($q, $model)
