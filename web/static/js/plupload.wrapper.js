@@ -13,8 +13,8 @@ PlUploadWrapper = {
       file_data_name : 'image_file',
       multipart : true, // TODO maybe disable because of chrome? Then use headers instead of multipart_params
       url : upload_url,
-      flash_swf_url : '/static/js/plupload/plupload.flash.swf', // TODO would be great to use _static_url. Need to wait for 1.2.5
-      silverlight_xap_url : '/static/js/plupload/plupload.silverlight.xap',
+      flash_swf_url : _static_url + '/static/js/plupload/plupload.flash.swf',
+      silverlight_xap_url : _static_url + '/static/js/plupload/plupload.silverlight.xap',
       filters : [
         { title : PlUploadWrapper.i18n.extensions, extensions : "JPEG,jpeg,JPG,jpg,GIF,gif,PNG,png,SVG,svg" }
       ],
