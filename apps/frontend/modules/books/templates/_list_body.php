@@ -3,6 +3,7 @@
                                                      . '&slug=' . make_slug($item['BookI18n'][0]['name'])) ?></td>
 <td><?php echo $item['author'] ?></td>
 <td><?php echo $item['editor'] ?></td>
+<td><?php echo $item['publication_date'] ?></td>
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php echo get_paginated_value_from_list($item['book_types'], 'mod_books_book_types_list') ?></td>
 <td><?php echo get_paginated_value_from_list($item['langs'], 'app_languages_book') ?></td>
