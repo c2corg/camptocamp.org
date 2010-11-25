@@ -957,7 +957,7 @@ else
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
         <p class="conr">
-            <input type="text" name="extra_id" size="60">
+            <input type="text" name="extra_id" value="" size="60" />
         </p>
         <p class="conr">
 		    <input type="button" class="picto action_create" onclick="$$('#punmoderate form .tcmod input[type=checkbox]').each(function(obj){obj.checked=true;});" alt="<?php echo $lang_misc['Select all'] ?>" title="" value="<?php echo $lang_misc['Select all'] ?>" name="<?php echo $lang_misc['Select all'] ?>"/>&nbsp;&nbsp;
