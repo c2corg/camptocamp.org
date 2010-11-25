@@ -367,8 +367,8 @@ TD.tc2, TD.tc3, TD.tcmod, #viewprofile DD, DIV.forminfo,
 {
   BACKGROUND-COLOR: #FFBA4F;
   COLOR: #FFF;
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFA146), to(#FFD78A));
-  background: -moz-linear-gradient(center top , #FFA146, #FFD78A 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#FF9834), to(#FFBE80));
+  background: -moz-linear-gradient(center top , #FF9834, #FFBE80 100%);
 }
 
 /* 1.4 Table header rows */
