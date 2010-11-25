@@ -260,9 +260,18 @@ if ($is_admmod)
 {
     $result_header = $db->query('SELECT COUNT(id) FROM '.$db->prefix.'reports WHERE zapped IS NULL') or error('Unable to fetch reports info', __FILE__, __LINE__, $db->error());
 
-    if ($db->result($result_header))
+    $nb_reports = $db->result($result_header);
+    if ($nb_reports)
     {
-        $tpl_temp .= "\n\t\t\t\t".'<li class="reportlink"><strong><a href="admin_reports.php">Il y a de nouveaux signalements</a></strong></li>';
+        if ($nb_reports == 1)
+        {
+            $report_text = 'nouveau signalement';
+        }
+        else
+        {
+            $report_text = 'nouveaux signalements';
+        }
+        $tpl_temp .= "\n\t\t\t\t".'<li class="reportlink"><strong><a href="admin_reports.php">' . $nb_reports . ' ' . $report_text . '</a></strong></li>';
     }
 
     if ($pun_config['o_maintenance'] == '1')
