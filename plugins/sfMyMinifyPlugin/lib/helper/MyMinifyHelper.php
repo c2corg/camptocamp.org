@@ -118,20 +118,14 @@ function minify_get_maps_javascripts($combine = true)
     return include_maps_javascripts();
   }
 
-  return minify_get_javascripts(array('maps'), true);
-}
-
-/** used for ie/extjs that doesn't support async load. Those javascripts must only be loaded by ie */
-function minify_get_ie_javascripts($combine = true)
-{
-  if (!$combine)
+  if (sfConfig::get('app_async_map', true))
   {
-    use_helper('MyJavascriptStyleSheet');
-    return include_ie_javascripts();
+    return '<!--[if IE]>' . minify_get_javascripts(array('maps'), true) . '<![endif]-->';
   }
-
-  return minify_get_javascripts(array('ie'), true);
-
+  else
+  {
+    return minify_get_javascripts(array('maps'), true);
+  }
 }
 
 function minify_include_head_javascripts($combine = true, $debug = false)
@@ -147,11 +141,6 @@ function minify_include_body_javascripts($combine = true, $debug = false)
 function minify_include_maps_javascripts($combine = true)
 {
   echo minify_get_maps_javascripts($combine);
-}
-
-function minify_include_ie_javascripts($combine = true)
-{
-  echo minify_get_ie_javascripts($combine);
 }
 
 function minify_get_main_stylesheets($combine = true, $debug = false)

@@ -97,7 +97,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     {
         use_helper('MyMinify');
         $ign_script_url = 'http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false';
-        // FIXME if using ie for async load, set $debug to true, because minifying them currently breaks ie
+        // FIXME if using ie for async load, set $debug to true, because minifying the js currently breaks ie
         $c2c_script_url = minify_get_combined_files_url(array('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js',
                                                               '/static/js/mapfish/mfbase/ext/ext-all.js',
                                                               '/static/js/mapfish/build/c2corgApi.js',
@@ -105,10 +105,10 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
                                                               '/static/js/docmap.js'),
                                                         (bool)sfConfig::get('app_minify_debug'));
 
-        // FIXME put c2c_asyncload in external js? (the same kind of function is used to load analytics and addthis)
+        // TODO put c2c_asyncload in external js? (the same kind of function is used to load analytics and addthis)
         // FIXME extjs uses document.write with ie, so we cannot for the moment use async loading with ie
         $html .= javascript_tag('
-var c2corgloadMapAsync = true;
+if (!Prototype.Browser.IE) { var c2corgloadMapAsync = true; }
 function c2c_asyncload(jsurl) { var head = $$(\'head\')[0]; head.appendChild(new Element(\'script\', { type: \'text/javascript\', async: true, src: jsurl })); }
 function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); } c2c_asyncload(\''.$ign_script_url.'\'); }');
     }
@@ -145,24 +145,20 @@ function _loadJsMapTools()
     // upgrade to v3 to enable (using &callback=some_function param)
     use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
 
-    // FIXME following files must only be loaded by internet explorer when in async mode (extjs cannot be loaded async with ie)
-    if (sfConfig::get('app_async_map', true))
+    if (!sfConfig::get('app_async_map', true))
     {
-        $js_target = 'ie';
-    }
-    else
-    {
-        $js_target = 'maps';
         use_javascript('http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
     }
 
-    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', $js_target);
-    use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', $js_target);
-    //use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'last');
+    // FIXME following files will only be loaded by internet explorer when in async mode (extjs cannot be loaded async with ie)
+    // using conditional comments
+    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
+    use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');
+    //use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'maps');
     
-    use_javascript('/static/js/mapfish/build/c2corgApi.js', $js_target);
-    use_javascript('/static/js/popup.js', $js_target);
-    use_javascript('/static/js/docmap.js', $js_target);
+    use_javascript('/static/js/mapfish/build/c2corgApi.js', 'maps');
+    use_javascript('/static/js/popup.js', 'maps');
+    use_javascript('/static/js/docmap.js', 'maps');
 }
 
 _loadJsMapTools();

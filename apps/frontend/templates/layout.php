@@ -111,11 +111,6 @@ $response->setCookie('__utmz', '', null, '/', '.camptocamp.org');
     <?php
     minify_include_body_javascripts($combine, $debug);
     minify_include_maps_javascripts($combine);
-    ?>
-    <!--[if IE]>
-    <?php minify_include_ie_javascripts($combine); ?>
-    <![endif]-->
-    <?php
     include_partial('common/tracker');
     // addthis script must be added after ga tracker for google analytics integration
     // it will be loaded asynchronously

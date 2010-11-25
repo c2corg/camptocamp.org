@@ -73,14 +73,13 @@ if (!$is_map):
             <p id="disclaimer"><?php echo __('disclaimer notice') ?></p>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
             <p><?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => sfTimestamp::getTimestamp('head'))) ?><!--</p>-->
-            <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><div>-->
             <input name="cmd" value="_xclick" type="hidden" />
             <input name="business" value="registration@camptocamp.org" type="hidden" />
             <input name="currency_code" value="EUR" type="hidden" />
             <input type="hidden" name="item_name" value="Soutenir/supporting Camptocamp Association" />
             <input type="hidden" name="return" value="http://camptocamp.org/" />
             <input type="submit" class="pp_button_mini" title="<?php echo __('Donate to Camptocamp Association'); ?>" value="" />
-            <!--</div>--></p></form>
+            </p></form>
 <?php
 endif;
 // following is needed for lightbox.js to load images from static host

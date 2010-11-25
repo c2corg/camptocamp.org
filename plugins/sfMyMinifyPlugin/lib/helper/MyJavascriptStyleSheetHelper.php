@@ -35,12 +35,14 @@ function include_body_javascripts($debug = false)
 // see other helper
 function include_maps_javascripts()
 {
-    return _include_javascripts(array('maps'), true);
-}
-
-function include_ie_javascripts()
-{
-    return _include_javascripts(array('ie'), true);
+    if (sfConfig::get('app_async_map', true))
+    {
+        return '<!--[if IE]>' . _include_javascripts(array('maps'), true) . '<![endif]-->';
+    }
+    else
+    {
+        return _include_javascripts(array('maps'), true);
+    }
 }
 
 function _include_javascripts($position_array = array('first', '', 'last'), $debug = false, $my_already_seen = array())
