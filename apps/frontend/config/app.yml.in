@@ -431,6 +431,7 @@ all:
       routes: '013271627684039046788:jtvuby91jxu'
       sites: '013271627684039046788:jd9auebpqn8'
       summits: '013271627684039046788:rwdwo7bxyyy'
+      forums: '013271627684039046788:rqqb4ydcfim'
 
   geoportail_key: '@GEOPORTAIL_KEY@'
   async_map: true

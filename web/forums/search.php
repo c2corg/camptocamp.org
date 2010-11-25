@@ -891,113 +891,119 @@ if (isset($_GET['lang']))
 {
     $form_action .='?lang='.$_GET['lang'];
 }
-
 ?>
 <div id="searchform" class="blockform">
 	<h2><span><?php echo $lang_search['Search'] ?></span></h2>
 	<div class="box">
 <!-- embedded google search -->
-<script src="http://www.google.com/jsapi" type="text/javascript"></script> <!-- TODO put this somewhere else? Use loader api? -->
 <script type="text/javascript">
-//<![CDATA[
-google.load('search', '1');
+//<![CDATA[ 
+var GoogleSearch = {
 
-var siteSearch;
+  base_url: 'https://www.googleapis.com/customsearch/v1?key=AIzaSyDXFlFziDDG2ThH47z1V3-KmAS6_vA5GUg&cx=013271627684039046788:rqqb4ydcfim&callback=GoogleSearch.handleResponse',
 
-function google_search_pager() {
-  var cursor = siteSearch.cursor;
-  var curPage = cursor.currentPageIndex;
-  var pagesP = document.createElement('p');
-  pagesP.setAttribute('class', 'pagelink conl');
-  $(pagesP).update('<?php echo $lang_common['Pages'].': ' ?>');
+  displayPager: function(response) {
+    var link, img, url_params;
 
-  var pages = '';
+    var pagesP = new Element('p', { 'class': 'pagelink conl' });
 
-  for (var i = 0; i < cursor.pages.length; i++) {
-    var page = cursor.pages[i];
-    if (curPage == i) {
-      var labelstr = document.createElement('strong');
-      var label = document.createTextNode(' ' + page.label + ' ');
-      labelstr.appendChild(label);
-      pagesP.appendChild(labelstr);
-    } else {
-      var link = document.createElement('a');
-      link.href = 'javascript:siteSearch.gotoPage('+i+');';
-      link.innerHTML = ' ' + page.label + ' ';
+    // previous page
+    if (response.queries.previousPage) {
+      link = new Element('a', { href: 'javascript:GoogleSearch.search()' }).update('<<');
+      pagesP.appendChild(link);
+
+      pagesP.appendChild(document.createTextNode('\u00a0\u00a0'));
+
+      url_params = '&start=' + response.queries.previousPage[0].startIndex;
+      link = new Element('a', { href: 'javascript:GoogleSearch.search(\''+url_params+'\')' }).update('<');
       pagesP.appendChild(link);
     }
-  }
 
-  if (cursor.pages.length == 8) {
-      link = document.createElement('a');
-      link.href = cursor.moreResultsUrl;
-      link.innerHTML = ' &hellip; ';
+    // current results
+    if (response.queries.previousPage || response.queries.nextPage) {
+      var start = response.queries.request[0].startIndex;
+      var end = start + response.queries.request[0].count;
+      pagesP.appendChild(document.createTextNode('\u00a0\u00a0' + start + '\u00a0-\u00a0' + end + '\u00a0\u00a0'));
+    }
+
+    // next page
+    if (response.queries.nextPage) {
+      url_params = '&start=' + response.queries.nextPage[0].startIndex;
+      link = new Element('a', { href: 'javascript:GoogleSearch.search(\''+url_params+'\')' }).update('>');
       pagesP.appendChild(link);
-  }
+    }
 
-  var contentDiv = $('google_search_results');
-  contentDiv.appendChild(pagesP); 
-}
-
-function google_search_complete() {
-
-  if (siteSearch.results && siteSearch.results.length > 0) {
     var contentDiv = $('google_search_results');
-    $(contentDiv).update('');
-    var results = siteSearch.results;
+    contentDiv.appendChild(pagesP);
+  },
 
-    var table = document.createElement('table');
-    table.setAttribute('cellspacing', '0');
-    table.setAttribute('style', 'border-style:solid; border-width:1px; border-color:#ff9933;');
+  handleResponse: function(response) {
 
-    var tbody = document.createElement('tbody');
-
-    for (var i = 0; i < results.length; i++) {
-      var result = results[i];
-
-      var tr = document.createElement('tr');
-
-      var title = document.createElement('td');
-      title.innerHTML = '<a href="' + result.unescapedUrl + '">' + result.titleNoFormatting + '</a>';
-      title.setAttribute('style', 'background-color:#e2e2e2');
-      var content = document.createElement('td');
-      content.innerHTML = result.content;
-
-      tr.appendChild(title);
-      tr.appendChild(content);
-      tbody.appendChild(tr);
+    if (response.error) {
+      $('google_search_results').update('An error has occured, please contact <a href="mailto:dev'+'@'
+                                        +'camptocamp.org">us</a> ('+response.error.message+')');
+      return;
     }
-    table.appendChild(tbody);
-    contentDiv.appendChild(table);
 
-    google_search_pager();
+    if (response.items && response.items.length > 0) {
+      var contentDiv = $('google_search_results');
+      $(contentDiv).update('');
+      var results = response.items;
 
-  } else {
-    $('google_search_results').update('<?php echo __('No result') ?>');
+      var table = new Element('table', { cellspacing: 0,
+                                         style: 'border-style:solid; border-width:1px; border-color:#ff9933;' });
+
+
+      var tbody = new Element('tbody');
+
+      for (var i = 0; i < results.length; i++) {
+        var result = results[i];
+
+        var tr = new Element('tr');
+
+        var title = new Element('td', { style: 'background-color:#e2e2e2' });
+        title.innerHTML = '<a href="' + result.link + '">' + result.title + '</a>';
+
+        var content = new Element('td');
+        content.innerHTML = result.htmlSnippet;
+
+        tr.appendChild(title);
+        tr.appendChild(content);
+        tbody.appendChild(tr);
+      }
+      table.appendChild(tbody);
+      contentDiv.appendChild(table);
+
+      this.displayPager(response);
+    } else {
+      $('google_search_results').update('<?php echo __('No result') ?>');
+    }
+  },
+
+  search: function(params) {
+    // load script asynchronously
+    // once loaded, it will call handleResponse()
+    var url = this.base_url + '&q=' + $F('google_search_input');
+    if (params) url += params;
+    var head = $$('head')[0];
+    var script = new Element('script', { type: 'text/javascript',
+                                         async: true,
+                                         src:   url });
+    head.appendChild(script);
   }
-
-}
-
-function init_google_search() {
-  google.search.Search.getBranding($("google_search_branding"));
-
-  siteSearch = new google.search.WebSearch();
-  siteSearch.setResultSetSize(google.search.Search.LARGE_RESULTSET);
-  siteSearch.setUserDefinedClassSuffix("siteSearch");
-  siteSearch.setSiteRestriction("www.camptocamp.org/forums/"); // TODO maybe c2c.org shouldn't be hardcoded
-  siteSearch.setSearchCompleteCallback(this, google_search_complete, null);
-}
-
-google.setOnLoadCallback(init_google_search, true);
+};
 //]]>
 </script>
 <!-- end embedded google search -->
-        <form id="gsearch" method="get" action="http://www.google.com/search" onsubmit="siteSearch.execute($F(q)); return false;">
+        <form id="gsearch" method="get" action="http://www.google.com/search" onsubmit="GoogleSearch.search(); return false;">
 			<div class="inform">
                 <fieldset>
                     <legend><?php echo $lang_search['Google Search'] ?></legend>
 					<div class="infldset"><div id="google_search_branding"></div>
-                        <input type="text" name="q" value="" size="40" />
+                        <input type="text" id="google_search_input" name="q" value="" size="40"
+                               style="background: url(http://www.google.com/coop/intl/en/images/google_custom_search_watermark.gif) no-repeat scroll left center #fff"
+                               onblur="if (this.value == '') this.style.background = 'url(http://www.google.com/coop/intl/en/images/google_custom_search_watermark.gif) no-repeat scroll left center #fff';"
+                               onfocus="this.style.background = 'none repeat scroll 0 0 #fff'" />
                         <label class="conl"><input type="hidden" name="sitesearch" value="camptocamp.org/forums" /></label>
                         <input type="submit" value="OK" />
                     </div>

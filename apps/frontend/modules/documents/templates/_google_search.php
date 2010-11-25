@@ -23,7 +23,7 @@ use_helper('Form');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/google_search.js', 'last');
 echo __('Search with google');
-echo form_tag('http://www.google.com/search', array('method'=>'get', 'onsubmit' => 'GoogleSearch.q=$F(google_search_input); GoogleSearch.search(); return false;'));
+echo form_tag('http://www.google.com/search', array('method'=>'get', 'onsubmit' => 'GoogleSearch.q=$F(\'google_search_input\'); GoogleSearch.search(); return false;'));
 $gwm = 'url(http://www.google.com/coop/intl/'.__('meta_language').'/images/google_custom_search_watermark.gif) no-repeat scroll left center #fff';
 $nogwm = "none repeat scroll 0 0 #fff";
 echo input_tag('q', null, array('id'=>'google_search_input',
