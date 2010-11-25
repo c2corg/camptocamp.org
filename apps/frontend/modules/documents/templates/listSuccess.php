@@ -22,7 +22,11 @@ if (!$mobile_version)
 echo display_content_top('list_content');
 echo start_content_tag($module . '_content');
 
-echo '<p class="list_header">' . __($module . ' presentation').'</p>';
+if (!$mobile_version)
+{
+    echo '<p class="list_header">' . __($module . ' presentation').'</p>';
+}
+
 if (!isset($items) && $nb_results > 0)
 {
     $items = $pager->getResults('array', ESC_RAW);
@@ -40,7 +44,10 @@ else:
     
     if ($layout != 'light')
     {
-        echo __('to sort by one column, click once or twice in its title') . '</p>';
+        if (!$mobile_version)
+        {
+            echo __('to sort by one column, click once or twice in its title') . '</p>';
+        }
         echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
     }
     
