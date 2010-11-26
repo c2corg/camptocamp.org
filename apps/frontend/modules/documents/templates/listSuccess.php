@@ -33,12 +33,10 @@ if (!isset($items) && $nb_results > 0)
     $items = Language::parseListItems($items, c2cTools::module2model($module));
 }
 
-echo '<p class="list_header">';
-
 endif;
 
 if ($nb_results == 0):
-    echo __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
+    echo '<p class="list_header">' . __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
 else:
     $pager_navigation = pager_navigation($pager);
     
@@ -46,7 +44,7 @@ else:
     {
         if (!$mobile_version)
         {
-            echo __('to sort by one column, click once or twice in its title') . '</p>';
+            echo '<p class="list_header">' . __('to sort by one column, click once or twice in its title') . '</p>';
         }
         echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
     }

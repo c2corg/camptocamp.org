@@ -1913,16 +1913,17 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
 
             $value2 = !empty($regs[4]) ? $regs[4] : 0;
+            $not_null = "$field IS NOT NULL AND $field != 0";
 
-            switch ($compare) 
+            switch ($compare)
             {   
                 case '>':
-                    $conditions[] = "$field >= ?";
+                    $conditions[] = "$field >= ? AND $not_null";
                     $values[] = $value1;
                     break;
 
                 case '<':
-                    $conditions[] = "$field <= ?";
+                    $conditions[] = "$field <= ? AND $not_null";
                     $values[] = $value1;
                     break;
 
