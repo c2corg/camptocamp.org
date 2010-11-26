@@ -280,7 +280,7 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
         $default_order = sfConfig::get('app_list_default_order', 'asc');
     }
     
-    if (isset($param_order))
+    if (!empty($param_order))
     {
         if ($param_orderby == $field_name)
         {
@@ -299,7 +299,7 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
         $class = '';
     }
     
-    if (isset($param_page))
+    if (!empty($param_page))
     {
         $params['page'] = $param_page;
     }

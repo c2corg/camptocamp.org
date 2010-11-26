@@ -399,6 +399,7 @@ if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
     }
 
 	$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
+    $topics = array_keys($topics);
 	$extra_id = isset($_POST['extra_id']) ? $_POST['extra_id'] : '';
     if (!empty($extra_id))
     {
@@ -407,13 +408,11 @@ if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
         $extra_id = explode(',', $extra_id);
         $topics = array_merge($topics, $extra_id);
     }
-    if (@preg_match('/[^0-9,]/', $topics) || count($topics_list)<2)
-        message($lang_common['Bad request']);
     
     if (empty($topics) || count($topics)<2)
 		message($lang_misc['No topics to merge']);
 	
-    $topics = implode(',', array_keys($topics));
+    $topics = implode(',', $topics);
 
     // Get topic subjects
     $result = $db->query('SELECT id, subject, moved_to FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
@@ -513,6 +512,7 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 	if (isset($_POST['move_topics']))
 	{
 		$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
+        $topics = array_keys($topics);
         $extra_id = isset($_POST['extra_id']) ? $_POST['extra_id'] : '';
         if (!empty($extra_id))
         {
@@ -524,7 +524,7 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 		if (empty($topics))
 			message($lang_misc['No topics selected']);
 
-		$topics = implode(',', array_keys($topics));
+		$topics = implode(',', $topics);
 		$action = 'multi';
 	}
 	else
@@ -668,6 +668,7 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 	}
 
 	$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
+    $topics = array_keys($topics);
 	$extra_id = isset($_POST['extra_id']) ? $_POST['extra_id'] : '';
     if (!empty($extra_id))
     {
@@ -679,7 +680,7 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 	if (empty($topics))
 		message($lang_misc['No topics selected']);
 
-    $topics = implode(',', array_keys($topics));
+    $topics = implode(',', $topics);
 
     // Get topic subjects
     $result = $db->query('SELECT id, subject, moved_to FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
