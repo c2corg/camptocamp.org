@@ -268,6 +268,12 @@ function setSectionStatus(container_id, position, default_opened)
         if (document.cookie.substring(i, j)==cookie_name)
         {
             var opened = getCookieValue(j)[position];
+            // IE7...
+            if (Prototype.Browser.IE &&
+                (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7))
+            {
+                opened = getCookieValue(j).substring(position, position + 1);
+            }
             if (opened == 't')
             {
                 g();
