@@ -4257,19 +4257,24 @@ class documentsActions extends c2cActions
             $name = urlencode(DocumentI18n::findBestName($dest_id, $this->getUser()->getCulturesForDocuments(), 'Document'));
         }
 
-        // user coords
-        $user_coords = empty($user_id) ? null : Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
- 
-        if (empty($user_coords) ||
-            $user_coords[0]['lat'] instanceOf Doctrine_Null ||
-            $user_coords[0]['lon'] instanceOf Doctrine_Null)
+        // user coords - they can be either given as parameters, retrieved from user profile or inexistent
+        $user_lon = floatval($this->getRequestParameter('lon'));
+        $user_lat = floatval($this->getRequestParameter('lat'));
+        if (!$user_lon || !$user_lat)
         {
-            $user_lat = $user_lon = null;
-        }
-        else
-        {
-            $user_lat = $user_coords[0]['lat'];
-            $user_lon = $user_coords[0]['lon'];
+            $user_coords = empty($user_id) ? null : Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
+
+            if (empty($user_coords) ||
+                $user_coords[0]['lat'] instanceOf Doctrine_Null ||
+                $user_coords[0]['lon'] instanceOf Doctrine_Null)
+            {
+                $user_lat = $user_lon = null;
+            }
+            else
+            {
+                $user_lat = $user_coords[0]['lat'];
+                $user_lon = $user_coords[0]['lon'];
+            }
         }
 
         switch ($service)

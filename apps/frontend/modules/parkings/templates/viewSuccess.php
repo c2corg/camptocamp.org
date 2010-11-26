@@ -141,5 +141,14 @@ include_partial('documents/license', array('license' => 'by-sa'));
 
 echo end_content_tag();
 
+if ($mobile_version)
+{
+  $js = 'if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(function(position) {
+$(\'get_directions\').nextSiblings().each(function(link) {
+link.href = link.href + \'?lon=\' + position.coords.longitude + \'&lat=\' + position.coords.latitude})})}';
+  echo javascript_tag($js);
+}
+
 include_partial('common/content_bottom');
 ?>
