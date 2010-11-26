@@ -124,7 +124,7 @@ $BODY$
             NEW.geom:=null;
             NEW.lon:=null; -- of centroid
             NEW.lat:=null; -- of centroid
-            NEW.elevation:=OLD.elevation; -- don't touch to route elevation, used for another purpose
+            -- nb don't touch to route elevation, used for another purpose
         END IF;
         IF NEW.geom_wkt IS NOT NULL AND ndims(NEW.geom_wkt) > 2 THEN -- new data is entered via a 3D WKT -- FIXME : entered data can be 2D for routes !!!!
             NEW.geom:=Transform(GeometryFromText(NEW.geom_wkt, 4326), 900913);  -- storage of 3D 4326 WKT into a 3D 900913 WKB
@@ -138,7 +138,7 @@ $BODY$
             geomT = Centroid(Transform(NEW.geom, 4326));
             NEW.lon:=X(geomT); -- of centroid
             NEW.lat:=Y(geomT); -- of centroid
-            NEW.elevation:=OLD.elevation; -- don't touch to route elevation, used for another purpose
+            -- nb don't touch to route elevation, used for another purpose
             -- we automatically update the following fields from the geom generated via GPX or KML upload:
             NEW.route_length := round(length3D(NEW.geom));
             b = box3D(NEW.geom);
