@@ -35,7 +35,7 @@ function include_body_javascripts($debug = false)
 // see other helper
 function include_maps_javascripts()
 {
-    if (sfConfig::get('app_async_map', true))
+    if (sfConfig::get('app_async_map', true) && sfContext::getInstance()->getRequest()->getparameter('action') != 'map')
     {
         return '<!--[if IE]>' . _include_javascripts(array('maps'), true) . '<![endif]-->';
     }
