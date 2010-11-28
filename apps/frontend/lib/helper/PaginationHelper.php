@@ -269,9 +269,9 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
     $params = array();
     $order = $page = '';
     
-    $param_page = $request->getParameter('page');
-    $param_order = $request->getParameter('order');
-    $param_orderby = $request->getParameter('orderby');
+    $param_page = $request->getParameter('page', '');
+    $param_order = $request->getParameter('order', '');
+    $param_orderby = $request->getParameter('orderby', '');
     
     $params['orderby'] = $field_name;
     

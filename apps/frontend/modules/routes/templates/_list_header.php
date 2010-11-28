@@ -2,7 +2,7 @@
 use_helper('Field');
 
 $request = sfContext::getInstance()->getRequest();
-$orderby = $request->getParameter('orderby');
+$orderby = $request->getParameter('orderby', '');
 
 echo select_all_header_list_tag();
 echo header_list_tag('rnam', 'name');
