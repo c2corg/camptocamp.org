@@ -213,7 +213,7 @@ msgid "Articles"
 msgstr "Articles"
 
 msgid "Associate new outing"
-msgstr "Ajouter une sortie"
+msgstr "Ajouter votre sortie"
 
 msgid "Associate new route"
 msgstr "Créer un nouvel itinéraire lié"
