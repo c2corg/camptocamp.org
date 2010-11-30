@@ -1,7 +1,6 @@
 <?php
 use_helper('Sections', 'Field');
 
-$related_portals = $sf_data->getRaw('related_portals');
 if (count($related_portals))
 {
     echo start_section_tag('Annex', 'annex');
@@ -10,14 +9,16 @@ if (count($related_portals))
     
     foreach ($related_portals as $portal)
     {
-        $text = __(sfConfig::get('app_portals_' . $portal . '_name'));
+        $config = sfConfig::get('app_portals_' . $portal);
+
+        $text = __($config['name']);
         if ($portal == 'cda')
         {
-            $html = '<a href="http://' . sfConfig::get('app_portals_cda_host') . '">' . $text . '</a>';
+            $html = '<a href="http://' . $config['host'] . '">' . $text . '</a>';
         }
         else
         {
-            $html = link_to($text, '@document_by_id?module=portals&id=' . sfConfig::get('app_portals_' . $portal . '_id'));
+            $html = link_to($text, '@document_by_id?module=portals&id=' . $config['id']);
         }
         echo li(picto_tag('picto_portals') . ' ' . $html);
     }
