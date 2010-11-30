@@ -21,7 +21,7 @@ if (isset($item['linked_docs']))
 <div><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></div>
 <div><?php echo picto_tag('picto_images', __('nb_linked_images')), ' ', (isset($item['nb_images'])) ?  $item['nb_images'] : '0', ' ',
                 picto_tag('action_comment', __('nb_comments')), ' ', (isset($item['nb_comments'])) ?
-                    link_to($item['nb_comments'], '@document_comment?module=summits&id='
+                    link_to($item['nb_comments'], '@document_comment?module=sites&id='
                     . $item_i18n['id'] . '&lang=' . $item_i18n['culture']) : '0', ' ',
                 picto_tag('picto_outings', __('nb_outings')), ' ', (isset($item['nb_linked_docs'])) ?  $item['nb_linked_docs'] : '0';?>
 </div>

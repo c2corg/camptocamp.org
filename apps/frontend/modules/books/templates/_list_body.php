@@ -1,6 +1,11 @@
-<td><?php echo link_to($item['BookI18n'][0]['name'], '@document_by_id_lang_slug?module=books&id=' . $item['BookI18n'][0]['id']
-                                                     . '&lang=' . $item['BookI18n'][0]['culture']
-                                                     . '&slug=' . make_slug($item['BookI18n'][0]['name'])) ?></td>
+<?php
+use_helper('Field');
+
+$item_i18n = $item['BookI18n'][0];
+?>
+<td><?php echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=books&id=' . $item_i18n['id']
+                                                     . '&lang=' . $item_i18n['culture']
+                                                     . '&slug=' . make_slug($item_i18n['name'])) ?></td>
 <td><?php echo $item['author'] ?></td>
 <td><?php echo $item['editor'] ?></td>
 <td><?php echo $item['publication_date'] ?></td>
@@ -10,5 +15,5 @@
 <td><?php echo (isset($item['nb_images'])) ?  $item['nb_images'] : '' ;?></td>
 <td><?php echo (isset($item['nb_comments'])) ?
     link_to($item['nb_comments'], '@document_comment?module=books&id='
-        . $item['BookI18n'][0]['id'] . '&lang=' . $item['BookI18n'][0]['culture'])
+        . $item_i18n['id'] . '&lang=' . $item_i18n['culture'])
     : '' ;?></td>

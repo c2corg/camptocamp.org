@@ -20,7 +20,7 @@ else
     }
     else
     {
-        $link = '<p>'.content_tag('a', __('comments_tab_help'), array('href' => 'post.php?fid=1&subject=' . $id . '_' . $lang)).'</p>';
+        $link = '<p>'.content_tag('a', __('comments_tab_help'), array('href' => '/forums/post.php?fid=1&subject=' . $id . '_' . $lang)).'</p>';
     }
 }
 

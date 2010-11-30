@@ -3,9 +3,8 @@ use_helper('Field');
 
 $item_i18n = $item['PortalI18n'][0];
 $item_id = $item_i18n['id'];
-if (!c2cTools::mobileVersion()): ?>
+?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
-<?php endif ?>
 <td><?php
 if ($item_id == sfConfig::get('app_portals_cda_id'))
 {
