@@ -13,18 +13,26 @@ $item_i18n = $item['HutI18n'][0];
 $staffed_capacity = $item['staffed_capacity'];
 if (is_scalar($staffed_capacity) && $staffed_capacity > 0)
 {
-    echo $staffed_capacity;
+    $staffed_capacity = __('staffed_capacity short') . __('&nbsp;:') . ' ' . $staffed_capacity;
+}
+else
+{
+    $staffed_capacity = '';
 }
 $unstaffed_capacity = $item['unstaffed_capacity'];
 if (is_scalar($unstaffed_capacity) && $unstaffed_capacity > 0)
 {
-    echo $unstaffed_capacity;
+    $unstaffed_capacity = __('unstaffed_capacity short') . __('&nbsp;:') . ' ' . $unstaffed_capacity;
+}
+else
+{
+    $unstaffed_capacity = '';
 }
 $phone = $item['phone'];
-if (!empty($phone))
-{
-    echo $phone;
-}
+echo _implode(' - ', array($staffed_capacity,
+                           $unstaffed_capacity,
+                           $phone));
+?></div><?php
 if (isset($item['linked_docs']))
 {
     echo '<div>', __('access'), ' ';

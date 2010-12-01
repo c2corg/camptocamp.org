@@ -4,11 +4,22 @@ $item_i18n = $item['SiteI18n'][0];
 <div><?php echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=sites&id=' . $item_i18n['id']
                                                      . '&lang=' . $item_i18n['culture']
                                                      . '&slug=' . make_slug($item_i18n['name'])) ?></div>
-<div><?php echo _implode(' - ',
-                         array(displayWithSuffix($item['elevation'], 'meters'),
-                        get_paginated_value_from_list($item['site_types'], 'app_sites_site_types'),
-                        !empty($item['routes_quantity']) ? __('%1% routes_quantity', array('%1%' => $item['routes_quantity'])) : '',
-                        get_paginated_value_from_list($item['rock_types'], 'mod_sites_rock_types_list'))); ?></div>
+<div><?php
+$routes_quantity = $item['routes_quantity'];
+if (is_scalar($routes_quantity) && $routes_quantity > 0)
+{
+    $routes_quantity = __('%1% routes_quantity', array('%1%' => $routes_quantity));
+}
+else
+{
+    $routes_quantity = '';
+}
+
+echo _implode(' - ', array(displayWithSuffix($item['elevation'], 'meters'),
+                           get_paginated_value_from_list($item['site_types'], 'app_sites_site_types'),
+                           $routes_quantity,
+                           get_paginated_value_from_list($item['rock_types'], 'mod_sites_rock_types_list')));
+?></div>
 
 
 <div><?php

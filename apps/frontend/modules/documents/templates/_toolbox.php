@@ -15,6 +15,7 @@ if (!isset($default_open))
                 <li><?php echo link_to(__('Search a routes'), '@filter?module=routes') ?></li>
                 <li><?php echo link_to(__('Map tool'), '@map') ?></li>
                 <li><a href="http://<?php echo sfConfig::get('app_portals_cda_host') ?>/"><?php echo __('changerdapproche') ?></a></li>
+                <li><?php echo link_to(__('ice climbing portal'), '@document_by_id?module=portals&id=' . sfConfig::get('app_portals_ice_id')) ?></li>
                 <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
                                          array('title'=> __('cotometre long')),
                                          array('width' => 600)) ?></li>
