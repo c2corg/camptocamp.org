@@ -5048,7 +5048,7 @@ msgid "pack_rock_climbing_bolted"
 msgstr "Multipitch sport climbing"
 
 msgid "pack_skitouring"
-msgstr "Ski- and snowboard-touring/mountaineering"
+msgstr "Ski and snowboard touring"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpine snow, ice and mixed climbing from F to PD+"
