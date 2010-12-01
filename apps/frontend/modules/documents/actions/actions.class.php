@@ -993,7 +993,8 @@ class documentsActions extends c2cActions
     protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
     {
         $module = empty($module) ? $this->getModuleName() : $module;
-        if ($id == sfConfig::get('app_portals_cda_id'))
+        $cda_config = sfConfig::get('app_portals_cda');
+        if ($id == $cda_config['id'])
         {
             $redirection_type = 302;
         }

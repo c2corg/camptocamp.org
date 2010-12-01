@@ -6,9 +6,10 @@ $item_id = $item_i18n['id'];
 ?>
 <div class="right"><?php echo get_paginated_activities($item['activities']) ?></div>
 <div><?php
-if ($item_id == sfConfig::get('app_portals_cda_id'))
+$cda_config = sfConfig::get('app_portals_cda');
+if ($item_id == $cda_config['id'])
 {
-    echo '<a href="http://' . sfConfig::get('app_portals_cda_host') . '/' . $item_i18n['culture'] . '">' . $item_i18n['name'] . '</a>';
+    echo '<a href="http://' . $cda_config['host'] . '/' . $item_i18n['culture'] . '">' . $item_i18n['name'] . '</a>';
 }
 else
 {

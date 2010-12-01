@@ -230,8 +230,9 @@ class portalsActions extends documentsActions
                                                                                   $langs, $activities,
                                                                                   $news_filter);
             }
-            
-            if ($id == sfConfig::get('app_portals_cda_id'))
+
+            $cda_config = sfConfig::get('app_portals_cda');
+            if ($id == $cda_config['id'])
             {
                 $description = $this->document->get('description');
                 $has_description = !empty($description);
@@ -254,7 +255,8 @@ class portalsActions extends documentsActions
     //    FIXME : only moderators can edit a portal, waiting for correct edition right management :
     //      - for common portals, the members con edit only text fields, and data fields are editable only by moderators
     //      - for cda portal, the moderators only can edit it
-    //    if ($is_moderator || $id != sfConfig::get('app_portals_cda_id'))
+    //    $cda_config = sfConfig::get('app_portals_cda');
+    //    if ($is_moderator || $id != $cda_config['id'])
         if ($is_moderator)
         {
             parent::executeEdit();

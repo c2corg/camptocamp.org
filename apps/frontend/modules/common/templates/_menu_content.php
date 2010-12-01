@@ -122,8 +122,9 @@ show_select=function()
                                 echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=parkings') ?></li>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
+                                $cda_config = sfConfig::get('app_portals_cda');
                                 echo picto_tag('picto_portals')
-                                ?><a href="http://<?php echo sfConfig::get('app_portals_cda_host') ?>/"><?php echo __('changerdapproche') ?></a></li>
+                                ?><a href="http://<?php echo $cda_config['host'] ?>/"><?php echo __('changerdapproche') ?></a></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
                                 echo picto_tag('action_create')
