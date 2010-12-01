@@ -3541,6 +3541,12 @@ div.image
   text-align: center;
 }
 
+div.image img
+{
+  width: 120px;
+  height: 120px;
+}
+
 #insertimagetag_list
 {
   max-height: 340px;
