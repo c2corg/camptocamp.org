@@ -381,7 +381,10 @@ class User extends BaseUser
         $conditions = self::joinOnMultiRegions($q, $conditions);
         
         // join with parking tables only if needed 
-        if (   isset($conditions['join_utag_id'])
+        if (   isset($conditions['join_user_id'])
+            || isset($conditions['join_user'])
+            || isset($conditions['join_user_i18n'])
+            || isset($conditions['join_utag_id'])
         )
         {
             User::buildUserPagerConditions($q, $conditions, true);

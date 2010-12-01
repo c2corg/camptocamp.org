@@ -393,7 +393,7 @@ class Image extends BaseImage
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'i', 'activities'), 'iact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'ialt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'i', 'categories'), 'icat', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Item', $m . '.image_type', 'ityp', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $m . '.image_type', 'ityp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Date', $m . '.date_time', 'idate', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ii.culture', 'icult', 'join_image_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'itags', 'join_itag_id', false, $params_list);
