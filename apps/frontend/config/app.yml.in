@@ -58,7 +58,7 @@ all:
       j: 
       k: Article # article as category
       l: # Link (web doc)
-      m: 
+      m: Map
       n: 
       o: Outing
       p: Parking
@@ -82,6 +82,7 @@ all:
       Hut: h
       Image: i
       #Link: l
+      Map: m
       Outing: o
       Parking: p
       Route: r
