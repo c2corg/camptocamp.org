@@ -134,9 +134,9 @@ msgstr "Un utente non può essere associato ad un articolo collaborativo"
 
 # [general comment]
 # Titre de la section des documents annexes.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Annex"
-msgstr "Annex"
+msgstr "Appendici"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Sei sicuro di volere cancellare la versione catalana di questo documento?"
@@ -1030,7 +1030,7 @@ msgstr "Immagini"
 
 # [WARNING] needs_review
 msgid "Images are under license specified in the original document of each image"
-msgstr "Le immagine di questa pagina sono disponibili con la licenza Creative indicata nel documento di origine di ogni immagine."
+msgstr "Le immagine di questa pagina sono disponibili con la licenza indicata nel documento di origine di ogni immagine."
 
 msgid "Images names are missing"
 msgstr "Mancano i nomi delle immagini registrate"
@@ -1393,9 +1393,8 @@ msgstr "La mia gita: "
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
-# [WARNING] en translation used
 msgid "My position"
-msgstr "My position"
+msgstr "La mia posizione"
 
 msgid "My preferences"
 msgstr "Impostazioni personali"
@@ -2307,7 +2306,7 @@ msgstr "Consulta"
 # Link to the document page from a comment page in mobile version
 # [WARNING] needs_review
 msgid "View comments document"
-msgstr "Vedere il documento originale"
+msgstr "Vedere il documento"
 
 msgid "View current"
 msgstr "Vedi la versione attuale"
@@ -2492,9 +2491,8 @@ msgstr "Non hai sottoscritto alcuna lista di distribuzione"
 
 # [general comment]
 # this message is displayed when editing a document without providing a required activity
-# [WARNING] en translation used
 msgid "You must select at least one activity"
-msgstr "you have to chose at least one activity for this document"
+msgstr "devi selezionare al meno una attività per questo documento"
 
 msgid "You must specify an email"
 msgstr "Usa un‘altra email."
@@ -2866,9 +2864,8 @@ msgstr "<h3>Moderazione</h3>Indica se l'utente è moderatore della guida e / o d
 msgid "_name_info"
 msgstr "<h3>Nome</h3>Nome o titolo dell'oggetto o del documento.<br /><br /><strong>Punto cardinale</strong>:<br />per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: cima Occidentale o Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Nome dell'itinerario</strong>:<br />- E' unicamente il nome della via. Il nome della cima viene aggiunto automaticamente.<br />- Deve essere il più neutro ed al tempo stesso specifico possibile.<br />- Deve essere composto, preferibilmente, con l'esposizione del versante, della parete o della cresta che determina le difficoltà.<br />- Si usa il nome proprio se l'itinerario percorre una via conosciuta.<br />- Il titolo \"via normale\" deve essere generalmente evitato dal momento che ci sono molte vie normali (di solito almeno due da due diverse vallate) inoltre le vie normali possono cambiare tra l'inizio e la fine della stagione. Nonostante sia utile menzionarla, meglio sarebbe metterla tra parentesi, indicando anche il versante): <i>Cresta S (via normale)</i>.<br /><br /><strong>Nome della gita</strong>:<br />Il nome è libero. Di default è fissato in <i>nome della cima: nome dell'itinerario</i>, ma non viene aggiornato se l'itinerario viene modificato oppure la gita viene spostata."
 
-# [WARNING] en translation used
 msgid "_nb_pages_info"
-msgstr "<h3>Number of pages</h3>Number of pages of the book. If the book has several editions, it refers to the latest edition."
+msgstr "<h3>Numero di pagine</h3>Se ci sono più edizioni del libro, indicare il numero di pagine dell'edizione la più recente."
 
 msgid "_new_password_info"
 msgstr "Per confermazione, inserire di nuovo la password."
@@ -2915,7 +2912,7 @@ msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di ra
 
 # [WARNING] en translation used
 msgid "_publication_date_info"
-msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent. This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
+msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pioggia</h3>Esposizione della falesia alla pioggia.<br />Utile se il tempo è incerto !"
@@ -2979,7 +2976,7 @@ msgstr "<h3>Precisazioni sullo sgombero della neve</h3>Informazioni sullo sgombe
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Difficoltà ciaspole</h3>"
 
@@ -4232,9 +4229,8 @@ msgstr "corsivo"
 
 # [general comment]
 # Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
-# [WARNING] fr translation used
 msgid "ice climbing portal"
-msgstr "Camptocamp Cascade"
+msgstr "Camptocamp Cascata"
 
 msgid "ice_climbing"
 msgstr "cascata"

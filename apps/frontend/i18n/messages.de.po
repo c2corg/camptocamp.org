@@ -3257,7 +3257,7 @@ msgstr "<h3>Details über die Schneeräumung</h3>Informationen zur Schneeräumun
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Schneeräumung</h3>Häufigkeit der Schneeräumung einer Strasse. Im Feld <em>Details zur Schneeräumung</em> können weitere Angaben gemacht werden."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Schneeschuhtouren Schwierigkeit</h3>"
 

@@ -22,9 +22,8 @@ msgstr " para entrar la localización. Para convertir coordenadas suizas, utiliz
 
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
-# [WARNING] en translation used
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} item(s). Click to show info."
+msgstr "${nb_items} objeto(s). Haga clic para ver la información."
 
 msgid "%1% days ago, at %2%"
 msgstr "hace %1% días, a las "
@@ -123,9 +122,9 @@ msgstr "Alineamiento:"
 msgid "All fields are mandatory"
 msgstr "Todos los campos son obligatorios."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "All topics"
-msgstr "All topics"
+msgstr "Todos los temas"
 
 msgid "All your images are already collaborative"
 msgstr "Todas sus imágenes ya son colaborativas."
@@ -135,9 +134,9 @@ msgstr "No se puede asociar un usuario a un documento colaborativo"
 
 # [general comment]
 # Titre de la section des documents annexes.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Annex"
-msgstr "Annex"
+msgstr "Apéndice"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "¿Estás seguro de que quieres suprimir la versión catalana de este documento?"
@@ -206,7 +205,7 @@ msgid "Articles"
 msgstr "Artículos"
 
 msgid "Associate new outing"
-msgstr "Añadir una salida sobre este itinerario"
+msgstr "Añadir su salida sobre este itinerario"
 
 msgid "Associate new route"
 msgstr "Crear un nuevo itinerario vinculado"
@@ -365,18 +364,17 @@ msgstr "La sub-cima es desde ahora el documento "
 # [general comment]
 # Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
 # NOT USED for the moment
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Choose maps service..."
-msgstr "Select a routing service..."
+msgstr "Seleccione un servicio..."
 
 msgid "Choose..."
 msgstr "Elija..."
 
 # [general comment]
 # Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
-# [WARNING] en translation used
 msgid "Clear"
-msgstr "Clear items"
+msgstr "Cancelar la selección"
 
 msgid "Clear document cache"
 msgstr "Actualizar el caché del documento"
@@ -1018,9 +1016,9 @@ msgstr "La imagen no existe."
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Image under copyright license"
-msgstr "This picture depicts a book cover. It is the property of its editor and/or author. It is presented here only for the sake of illustration."
+msgstr "Esta imagen representa una cobertura de libro. Es propiedad de la editorial y/o de su autor. Solo se presenta aquí para ilustrar el documento."
 
 msgid "Image uploaded"
 msgstr "Imagen cargada"
@@ -1028,9 +1026,9 @@ msgstr "Imagen cargada"
 msgid "Images"
 msgstr "Imágenes"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Images are under license specified in the original document of each image"
-msgstr "Las imágenes en esta pagina están disponibles bajo la licencia Creative Commons indicada en el documento de origen de cada imagen."
+msgstr "Las imágenes en esta pagina están disponibles bajo la licencia indicada en el documento de origen de cada imagen."
 
 msgid "Images names are missing"
 msgstr "los nombres de las imágenes transmitidas faltan"
@@ -1076,7 +1074,6 @@ msgstr "Está asociado con estas cimas:"
 msgid "Is parent of summits:"
 msgstr "Esta asociado a las sub-cimas siguientes:"
 
-# [WARNING] needs_review
 msgid "Is really a multi-activity outing?"
 msgstr "¿Su salida realmente incluye varias actividades?"
 
@@ -1099,43 +1096,42 @@ msgstr "Ultimo boletín"
 msgid "Last soft mobility articles"
 msgstr "Artículos sobre ecoturismo y ecomobilidad"
 
-# [WARNING] needs_review
 msgid "Last soft mobility outings"
-msgstr "Ultimas salidas ecomobiles"
+msgstr "Ultimas salidas realizadas con ecomobilidad"
 
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest %1% creations"
-msgstr "Latest creations - %1%"
+msgstr "Últimas creaciones - %1%"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest %1% creations in %2%"
-msgstr "Latest creations - %1% - %2%"
+msgstr "Últimas creaciones - %1% - %2%"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions"
-msgstr "Latest changes - %1%"
+msgstr "Últimas ediciones - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
 # [WARNING] needs_review
 msgid "Latest %1% editions feed"
-msgstr "%1% - Ultimas ediciones"
+msgstr "%1% - Últimas ediciones"
 
 # [general comment]
 # description flux rss d'éditions
 # [WARNING] needs_review
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - ultimas ediciones de documentos %1%"
+msgstr "camptocamp.org - últimas ediciones de documentos %1%"
 
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
-msgstr "Latest changes - %1% - %2%"
+msgstr "Últimas ediciones - %1% - %2%"
 
 msgid "Latest articles"
 msgstr "Últimos artículos"
@@ -1147,9 +1143,9 @@ msgstr "Últimos documentos"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
-msgstr "Latest changes of \"%1%\" - %2%"
+msgstr "Últimas ediciones de \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Últimas imagenes"
@@ -1314,13 +1310,11 @@ msgstr "El mapa no existe."
 
 # [general comment]
 # Intitulé du lien vers la page carto
-# [WARNING] en translation used
 msgid "Map tool"
-msgstr "Map Tool"
+msgstr "Herramienta cartográfica"
 
-# [WARNING] en translation used
 msgid "Mapquest/OSM"
-msgstr "Mapquest and OpenStreetMap data"
+msgstr "Datos Mapquest y OpenStreetMap"
 
 msgid "Maps deletion is prohibited"
 msgstr "La supresión de objetos de tipo mapa no está autorizada"
@@ -1394,16 +1388,14 @@ msgstr "Mi salida: "
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
-# [WARNING] en translation used
 msgid "My position"
-msgstr "My position"
+msgstr "Mi posición"
 
 msgid "My preferences"
 msgstr "Preferencias personales"
 
-# [WARNING] en translation used
 msgid "My topics"
-msgstr "My topics"
+msgstr "Mis temas"
 
 msgid "N"
 msgstr "N"
@@ -1545,9 +1537,9 @@ msgstr "La salida no existe"
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Outings linked to these images"
-msgstr "Outings linked to these images"
+msgstr "Salidas asociadas a estas imágenes"
 
 msgid "PD"
 msgstr "PD"
@@ -1589,9 +1581,8 @@ msgstr "Contraseña:"
 msgid "Period:"
 msgstr "Período:"
 
-# [WARNING] en translation used
 msgid "Permalink.openlink"
-msgstr "Open link"
+msgstr "Abre el enlace"
 
 msgid "Personal articles"
 msgstr "Articulos personales"
@@ -1801,7 +1792,6 @@ msgstr "Buscar una salida"
 msgid "Search a parkings"
 msgstr "Buscar un acceso"
 
-# [WARNING] needs_review
 msgid "Search a portals"
 msgstr "Buscar una portada"
 
@@ -1932,13 +1922,11 @@ msgstr "Boletín de aludes"
 msgid "Soft mobility"
 msgstr "Ecomobilidad"
 
-# [WARNING] needs_update
 msgid "Soft mobility articles"
-msgstr "Artículos sobre ecoturismo y ecomobilidad"
+msgstr "Lista de artículos sobre ecoturismo y ecomobilidad"
 
-# [WARNING] needs_update
 msgid "Soft mobility outings"
-msgstr "Salidas ecomobiles"
+msgstr "Lista de salidas realizadas con ecomobilidad"
 
 msgid "Static map"
 msgstr "Mapa"
@@ -2026,7 +2014,6 @@ msgstr "Seguir la creación reciente de portadas"
 msgid "Subscribe to latest portals editions"
 msgstr "Seguir las ultimas modificaciones de portadas"
 
-# [WARNING] needs_review
 msgid "Subscribe to latest products creations"
 msgstr "Seguir las recientes creaciones de \"productos locales\""
 
@@ -2216,9 +2203,8 @@ msgstr "Caja de herramientas"
 
 # [general comment]
 # 'outils' (première entrée du menu topoguide, permettant d'accéder au cotomètre, à la carte, la conversion des coordonnées etc)
-# [WARNING] en translation used
 msgid "Topoguide tools"
-msgstr "Tools"
+msgstr "Herramientas"
 
 msgid "Try a site search:"
 msgstr "Lanzar una búsqueda en el sitio"
@@ -2311,18 +2297,16 @@ msgstr "Consultar"
 
 # [general comment]
 # Link to the document page from a comment page in mobile version
-# [WARNING] en translation used
 msgid "View comments document"
-msgstr "back to the original document"
+msgstr "Volver al documento"
 
 msgid "View current"
 msgstr "Mostrar la versión actual"
 
 # [general comment]
 # used for edition rss feeds rich content
-# [WARNING] en translation used
 msgid "View difference between version %1% and %2%"
-msgstr "View the differences between versions %1% and %2%"
+msgstr "Ver las diferencias entre las versiones %1% y %2%"
 
 msgid "View image details"
 msgstr "Ver las informaciones de la imagen"
@@ -2374,9 +2358,9 @@ msgstr "¡Bienvenido/a a camptocamp.org!"
 msgid "Which document would you like to redirect the current one to?"
 msgstr "¿Con qué documento \"blanco\" quiere fusionar este?"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Widget code"
-msgstr "Code"
+msgstr "Código"
 
 msgid "Widget title"
 msgstr "Titulo"
@@ -2500,9 +2484,8 @@ msgstr "Todavía no te as inscrito a ninguna lista"
 
 # [general comment]
 # this message is displayed when editing a document without providing a required activity
-# [WARNING] en translation used
 msgid "You must select at least one activity"
-msgstr "you have to chose at least one activity for this document"
+msgstr "debe seleccionar al menos una actividad para este documento"
 
 msgid "You must specify an email"
 msgstr "Tienes que especificar una dirección de email."
@@ -2543,9 +2526,8 @@ msgstr "Su sesión ha expirado. Debe conectarse de nuevo."
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] No se encontró ningún resultado.<br />Puede averiguar la ortografía o gramática, o disminuir el numero de palabras para conservar solamente una palabra característica (o parte de una palabra)|(1,+Inf]%nb_result% resultados encontrados para %researched_word%"
 
-# [WARNING] en translation used
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
-msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
+msgstr "[0]No hay comentarios asociados a este documento.|[1]Hay un comentario asociado a este documento.|(1,+Inf]Hay %1% comentarios asociados a este documento."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edición con inserción de una nueva geometría"
@@ -2581,9 +2563,9 @@ msgstr "<h3>Tipo de zona</h3>Tipo de la zona: macizo, departamento/cantón o pa�
 msgid "_article_type_info"
 msgstr "<h3>Clase de artículo</h3><strong>artículo colaborativo</strong>: <br />Un artículo colaborativo puede estar modificado por todos los usuarios de camptocamp.org. Esto es especialmente útil para que los artículos de la categoria <i>enciclopedia</i> se enriquezcan con el mismo modo de funcionamiento que Wikipedia.<br /><br /><strong>artículo personal</strong>:<br />Un artículo personal solo puede estar modificado por su autor. Esto es conveniente, por ejemplo, para un artículo de la categoria <i>historia</i>."
 
-# [WARNING] needs_update
 msgid "_association_tool_info"
-msgstr "<h3>Asociar un documento existente</h3>- Haga clic en <img src=\"/static/images/picto/plus.png\" /> para que aparezca la herramienta de asociación.<br />- Seleccione el tipo de documento que quiere asociar.<br />- Entra una parte discriminante del nombre del documento. Para un itinerario, esto incluye el nombre de la(s) cima(s) asociada(s).<br />- Se le presentara una lista de documentos: Haga clic en el documento a asociar, aunque haya uno solo en la lista.<br />- Para un itinerario, la lista de documentos contiene los itinerarios asociados a las cimas seleccionadas o sus sub-cimas. Seleccione el itinerario deseado.<br />- Haga clic en <input type=\"button\" value=\"Link\" /> para validar.<br /><br />Antes de validar, puede cambiar de documento borrando el nombre y empezando de vuelta.<br />Si se equivoco y no asocio el documento correcto, no lo puede desasociar y tiene que comunicar el error a la moderación:<br />- Haga clic en donde dice <img src=\"/static/images/picto/report.png\" /> <strong>Señalar un problema</strong> en el menu de izquierda.<br />- Describe el error y manda el mensaje.<br />Es importante señalar el problema a partir de la pagina donde se encuentra la asociación errónea ya que el mensaje que reciben los moderadores incluye un enlace hacia el documento."
+msgstr "<h3>Asociar un documento existente</h3>- Haga clic en <img src=\"/static/images/picto/plus.png\" /> para que aparezca la herramienta de asociación.<br />- Seleccione el tipo de documento que quiere asociar.<br />- Entra una parte discriminante del nombre del documento. Para un itinerario, esto incluye el nombre de la(s) cima(s) asociada(s).<br />- Se le presentara una lista de documentos: Haga clic en el documento a asociar, aunque haya uno solo en la lista.<br />- Para un itinerario, la lista de documentos contiene los itinerarios asociados a las cimas seleccionadas o sus sub-cimas. Seleccione el itinerario deseado.<br />\n"
+"También es posible entrar el numero del documento (el que figura en su URL).<br />- Haga clic en <input type=\"button\" value=\"Link\" /> para validar.<br /><br />Antes de validar, puede cambiar de documento borrando el nombre y empezando de vuelta.<br />Si se equivoco y no asocio el documento correcto, no lo puede desasociar y tiene que comunicar el error a la moderación:<br />- Haga clic en donde dice <img src=\"/static/images/picto/report.png\" /> <strong>Señalar un problema</strong> en el menu de izquierda.<br />- Describe el error y manda el mensaje.<br />Es importante señalar el problema a partir de la pagina donde se encuentra la asociación errónea ya que el mensaje que reciben los moderadores incluye un enlace hacia el documento."
 
 # [comment]
 # J'ai laissé "in review" car la version FR est toujours ainsi.
@@ -2754,9 +2736,8 @@ msgstr "<h3>Refugio</h3>Apertura del refugio: abierto/cerrado y guardado/no guar
 msgid "_ice_rating_info"
 msgstr "<h3>Cotación hielo</h3>Cotación de las dificultades en hielo.<br />La cotación hielo evalúa las dificultades máximas de la escalada en hielo.<br />La escala va de 1 a 7.<br /><br /><strong>Grado 1</strong>: Hielo de poca inclinación (<35°).<br /><br /><strong>Grado 2</strong>: Hielo algo mas empinado(<60°).<br /><br /><strong>Grado 3</strong>: Escalada de inclinación moderada (<75°) con numerosos resaltes. El hielo es espeso y compacto.<br /><br /><strong>Grado 3+</strong>: Igual que el grado 3 pero con un resalte mas empinado (hasta 80°).<br /><br /><strong>Grado 4</strong>: Escalada con un tramo empinado (<85°) que puede alcanzar hasta unos 10m de alto. El hielo es espeso y compacto.<br /><br /><strong>Grado 4+</strong>: Igual que el grado 4 pero el tramo empinado puede ser casi-vertical y mas largo, hasta unos 15m.<br /><br /><strong>Grado 5</strong>: Escalada con un tramo vertical de unos 20m. El hielo empieza a ser mas aireado y a tomar formas particulares. En cascadas de hielo, suelen ser columnas colgantes.<br /><br /><strong>Grado 5+</strong>: Escalada con una sección vertical de unos 30m. La escalada se hace bastante técnica.<br /><br /><strong>Grado 6</strong>: Escalada con una sección vertical de 40 a 50m. La escalada es técnica y el hielo puede ser particularmente aireado.<br /><br /><strong>Grado 6+</strong>: Escalada totalmente vertical que incluso puede ofrecer algunos desplomes, por ejemplo para pasar de una cortina a otra.<br /><br /><strong>Grado 7</strong>: Escalada extrema. Muy empinada, puede ser desplomada durante varios metros. La técnica requerida es mas parecida a la del escalador en roca.<br /><br />Véase también la ayuda sobre <a href=\"/articles/106871/es\">grados en nieve, hielo y mixto</a>."
 
-# [WARNING] en translation used
 msgid "_image details_info"
-msgstr "<h3>Image properties</h3>Dimensions and size of the image"
+msgstr "<h3>Propiedades de la imagen</h3>Tamaño y peso de la imagen"
 
 msgid "_image_categories_info"
 msgstr "<h3>Categorías para imágenes</h3><br /><span style=\"color: red\">La selección de por lo menos una categoría marcada con un asterisco (*) llevara a que la imagen se vea en la pagina de inicio.</span><br /><br /><strong>paisaje</strong>: foto que muestra gran parte de uno o varias cimas, foto panorámica <br /><strong>detalle, zoom </strong>: foto ilustrando parte de un itinerario, de una cima o de un lugar (el contrario de un <em>paisaje</em>)<br/><strong>diagrama, topo</strong>: foto de una cima con el itinerario marcado, esquema o diagrama del itinerario <br /><strong>acción</strong>: foto mostrando un personaje en acción <br /><strong>huella, sendero </strong>: foto mostrando claramente la huella de subida o bajada en nieve o terreno blando, o un sendero <br /><strong>subida</strong> y <strong>bajada</strong>: fotos tomadas al subir o al bajar un itinerario. Es útil para precisar la categorías <em>detalle, zoom, acción, huella, sendero </em><br /><strong>personajes</strong>: foto cuyo sujeto principal es una o varias personas sacados de cerca <br /><strong>fauna</strong> y <strong>flora</strong>: fotos o dibujos de fauna o flora <br /><strong>nieve y aludes</strong>&nbsp;*: fotos o dubujos relacionados con la nivologia: cristales o estructuras de la nieve, del manto nevado, de un alud o una avalancha...<br /><strong>geología</strong>: fotos o dibujos de minerales, glaciares o estructuras geológicas <br /><strong>alojamiento</strong>: foto mostrando el exterior o el interior de un refugio, de un campamento o de un lugar de vivac <br /><strong>equipo</strong>: foto o dibujo mostrando equipo usado en la montaña, de cerca o en uso <br /><strong>tapa de libro</strong>:tapa de libro<br /><strong>varios </strong>: imagen que no se puede clasificar en las demás categorías: afiche para un acontecimiento, imagen abstracta etc."
@@ -2791,7 +2772,7 @@ msgstr "<h3>ISSN</h3>Numero ISSN de la revista"
 # [general comment]
 # Aide contextuelle sur la cotation globale ski.
 msgid "_labande_global_rating_info"
-msgstr "<h3>Cotación global esquí</h3>Cotación global de un itinerario a esquí (cotación Labande).<br />La cotación Labande global de esquí es una estimación del nivel general de las dificultades encontradas y de su continuidad. Toma en cuenta también el altitud y la duracion del itinerario.<br />La escala, calcada de la cotación global de alpinismo, va de F (fácil) a ABO (abominablemente difícil).<br /><br /><strong>F</strong> (Fácil): Relativamente plano, sin obstáculos. No hay peligro de resbalar o perder el control durante la subida y no hay pendientes fuertes en la bajada (aprox. < 25°).<br /><br /><strong>PD</strong> (Poco Difícil): Laderas abiertas con tramos empinados y algunos obstáculos pero los tramos con pendiente son cortos en la subida y no empinados en la bajada (aprox. 30°).<br /><br /><strong>AD</strong> (Algo Difícil): El ascenso requiere hacer zig-zag y hay pasos empinados que no pueden evitarse. Los tramos de pendiente son largos y con riesgo de heridas en caso de resbalarse. En la bajada, los crux son cortos pero empinados (giros cortos necesarios, aprox 35°).<br /><br /><strong>D</strong> (Difícil): Ascenso empinado con obstáculos. La bajada ofrece tramos empinados largos, entre rocas y/o árboles con riesgo fatal en caso de hielo. Los crux son cortos y estrechos o largos y empinados (aprox 40°).<br /><br /><strong>TD</strong> (Muy Difícil): Ascenso con pendiente empinada, precipicios y muchos obstáculos. Hay tramos con pasos muy empinados (aprox 45°) y desfiladeros con riesgo fatal en caso de caída. La bajada propone crux largos y empinados donde giros en saltos y derrape son necesarios.<br /><br /><strong>ED</strong> (Extremadamente difícil): Pendiente sumamente empinada sin puntos seguros de detención. Itinerario muy expuesto. Crux largos y muy empinados en la bajada (aprox. 50°). Solo es posible hacer giros en salto y derrape.<br /><br /><em><b>CUIDADO!</b> Se trata de una cotación para el esquí, y no para el alpinismo: un corredor puede fácilmente merecer un D para el esquí, mientras que su cotación de alpinismo no pasa de PD o AD.</em><br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí y surf</a>."
+msgstr "<h3>Cotación global esquí</h3>Cotación global de un itinerario a esquí (cotación Labande).<br />La cotación Labande global de esquí es una estimación del nivel general de las dificultades encontradas y de su continuidad. Toma en cuenta también el altitud y la duracion del itinerario.<br />La escala, calcada de la cotación global de alpinismo, va de F (fácil) a ABO (abominablemente difícil).<br /><br /><strong>F</strong> (Fácil): Relativamente plano, sin obstáculos. No hay peligro de resbalar o perder el control durante la subida y no hay pendientes fuertes en la bajada (aprox. < 25°).<br /><br /><strong>PD</strong> (Poco Difícil): Laderas abiertas con tramos empinados y algunos obstáculos pero los tramos con pendiente son cortos en la subida y no empinados en la bajada (aprox. 30°).<br /><br /><strong>AD</strong> (Algo Difícil): El ascenso requiere hacer zig-zag y hay pasos empinados que no pueden evitarse. Los tramos de pendiente son largos y con riesgo de heridas en caso de resbalarse. En la bajada, los crux son cortos pero empinados (giros cortos necesarios, aprox 35°).<br /><br /><strong>D</strong> (Difícil): Ascenso empinado con obstáculos. La bajada ofrece tramos empinados largos, entre rocas y/o árboles con riesgo fatal en caso de hielo. Los crux son cortos y estrechos o largos y empinados (aprox 40°).<br /><br /><strong>TD</strong> (Muy Difícil): Ascenso con pendiente empinada, precipicios y muchos obstáculos. Hay tramos con pasos muy empinados (aprox 45°) y desfiladeros con riesgo fatal en caso de caída. La bajada propone crux largos y empinados donde giros en saltos y derrape son necesarios.<br /><br /><strong>ED</strong> (Extremadamente difícil): Pendiente sumamente empinada sin puntos seguros de detención. Itinerario muy expuesto. Crux largos y muy empinados en la bajada (aprox. 50°). Solo es posible hacer giros en salto y derrape.<br /><br /><em><b>CUIDADO!</b> Se trata de una cotación para el esquí, y no para el alpinismo: un corredor puede fácilmente merecer un D para el esquí, mientras que su cotación de alpinismo no pasa de PD o AD.</em><br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí y snowboard</a>."
 
 msgid "_labande_ski_rating_info"
 msgstr "<h3>Cotación puntual esquí</h3>Cotación puntual de descenso a esquí (cotación Labande).<br />La cotación puntual Labande de esquí es complementaria de la cotación global. Evalúa la dificultad del paso más delicado del descenso con esquí. Está esencialmente ligada a la inclinación de la pendiente, pero toma en consideración también la exposición.<br />La escala va de S1 a S7:<br /><br /><strong>S1</strong>: itinerario fácil que no requiere técnicas particulares. Un camino vehicular por ejemplo.<br /><br /><strong>S2</strong>: Pendientes algo empinadas (25°) pero amplias (hay mucho lugar para girar).<br /><br /><strong>S3</strong>: Pendientes hasta 35° (igual que las pistas negras mas empinadas de los centros de esquí). El esquiador debe poder bajar por cualquier tipo de nieve sin dificultad técnica.<br /><br /><strong>S4</strong>: Pendientes hasta 45° si la exposición no es elevada. A partir de 30° y hasta 40° si la exposición es fuerte o el tramo estrecho. Una muy buena técnica de esquí es indispensable.<br /><br /><strong>S5</strong>: Pendientes de 45 a 50° o mas si la exposición es baja. A partir de 40° si es elevada. Además de una técnica perfecta, requiere mucha concentración y control emocional.<br /><br /><strong>S6</strong>: Mas allá de los 50° de pendiente si la exposición es fuerte (¡suele ser!). Si no, a partir de 50° en tramos cortos y poco expuestos.<br /><br /><strong>S7</strong>: Tramos de 60° o más o saltos de acantilados rocosos en terreno muy empinado y/o expuesto.<br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí, surf y raquetas</a>."
@@ -2889,14 +2870,12 @@ msgstr "<h3>Participantes no registrados</h3>Lista de los participantes a la sal
 msgid "_password_info"
 msgstr "<h3>Contraseña</h3><em><u>Al conectarse </u>:</em><br />Teclear la contraseña de su cuenta en Camptocamp.org.<br />Si olvido su login y/o su contraseña, puede pedir una nueva contraseña pulsando <em>¿olvidó su contraseña? </em><br /><br /><em><u>Preferencias personales</u>:</em><br />Si quiere modificar su contraseña, teclea uno nuevo. Si no, deje el campo vacío."
 
-# [WARNING] needs_update
 msgid "_pedestrian_access_info"
-msgstr "<h3>Acceso a pie</h3>Itinerario que permite llegar al sitio/lugar de escalada o al refugio, partiendo del punto de acceso.<br />Si es posible, indique informaciones relativas al respecto de la propiedad privada."
+msgstr "<h3>Acceso a pie</h3>Itinerario que permite llegar al sitio/lugar de escalada o al refugio, partiendo del punto de acceso.<br />Si es posible, indique informaciones relativas al respecto de la propiedad privada.<br /><br />Para un hospedaje en valle, se trata del acceso pedestre y por carretera. Si el hospedaje es asociado a un punto de acceso, detallar solo el acceso desde allí."
 
 msgid "_phone_info"
 msgstr "<h3>Teléfono</h3>Numero de teléfono del refugio."
 
-# [WARNING] needs_review
 msgid "_product_type_info"
 msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: productos vendidos directamente por el productor<br /><br /><strong>restaurante</strong>: restaurante, bar o alojamiento que ofrece comida<br /><br /><strong>tienda</strong>: venta de productos locales<br /><br /><strong>bar</strong>: bar o café"
 
@@ -2911,9 +2890,8 @@ msgstr "<h3>Accesibilidad en transportes públicos</h3>Calidad del acceso en tra
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
 
-# [WARNING] needs_update
 msgid "_publication_date_info"
-msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima. Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Lluvia</h3>Exposición del sitio/sector a la lluvia.<br />útil en caso de tiempo inseguro."
@@ -2978,9 +2956,24 @@ msgstr "<h3>Detalles sobre el limpiado de la nieve </h3>Datos sobre el limpiado 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Limpiado de la nieve</h3>Frecuencia del limpiado del acceso por carretera. El campo <i> Datos sobre el limpiado de la nieve <i> permite acceder a informaciones complementarias."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>Snowshoeing grade</h3>"
+msgstr "<h3>Grado en raquetas</h3>\n"
+"Graduación de la dificultad en raquetas.<br /> \n"
+"<br /> \n"
+"<strong>R1</strong>: Pendientes suaves (< 20°) y rutas marcadas que suelen recorrer mucha gente.<br /> \n"
+"<br /> \n"
+"<strong>R2</strong>: Rutas no marcadas con pendientes suaves (<20°). No se requieren zig-zags para superar pendientes fuertes.<br /> \n"
+"<br /> \n"
+"<strong>R3</strong>: Rutas sobre pendientes mas pronunciadas y mas expuestas (<30°), donde puede ser necesario realizar zig-zags. <br /> \n"
+"<br /> \n"
+"<strong>R4</strong>: Similar a R3 pero más empinado (<40°). En nieve dura, puede ser necesario dejar las raquetas o usar crampones apropiados.<br /> \n"
+"<br /> \n"
+"<strong>R5</strong: Rutas sobre pendientes fuertes (secciones cortas >40° o largas >35°) que requieren crampones, piquetas o cuerda para superar obstáculos (corredores, aristas estrechas o expuestas, acantilados, etc.). Pendientes largas y homogéneas de >35° sin obstáculos se consideran también R5.<br /> \n"
+"<br /> \n"
+"<strong>¡Cuidado!</strong>: Si la mayor parte del itinerario es demasiado difícil para raquetas, o que las raquetas solo se usan para aproximación, entonces se debe <a href=\"/articles/188413 \"> graduar el itinerario como una ruta de alpinismo</a> (y seleccionar la actividad que corresponde). Si hay dudas, se pueden seleccionar ambas actividades.<br /> \n"
+"<br /> \n"
+"Fíjese en la <a href=\"/articles/239491\">ayuda sobre la graduación de itinearios en raquetas</a>."
 
 msgid "_source file_info"
 msgstr "<h3>Fuente</h3>Enlace hacia la imagen vectorial (svg) en base a la cual fue creada la imagen"
@@ -3432,9 +3425,8 @@ msgstr "Camptocamp.org... ¡solo esquí, surf!"
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org... ¡solo nieve, hielo y mixto!"
 
-# [WARNING] en translation used
 msgid "c2c customized for snowshoeing !"
-msgstr "Camptocamp.org now customized for snowshoeing!"
+msgstr "Camptocamp.org... ¡solo raquetas!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org no está filtrado por actividades en este momento"
@@ -3488,9 +3480,9 @@ msgstr "Categoria:"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "cda map help text"
-msgstr "The map shows access points that can be reached in public transport. Click on an access point and a list of routes will be displayed."
+msgstr "Este mapa muestra puntos de acceso que se puede alcanzar en transporte publico. Haga clic en un punto de acceso para ver la lista de itinerarios."
 
 # [general comment]
 # Portail "Changer d'approche" : titre de la section comportant la carte.
@@ -3500,9 +3492,8 @@ msgstr "Encontrar una ruta accesible con transporte en común o ecomobilidad"
 
 # [general comment]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
-# [WARNING] fr translation used
 msgid "cda partners tips"
-msgstr "Le portail Changer d'approche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
+msgstr "El portal Changer d'Approche es co-financiado por la Unión Europea. Europa se compromete con los Alpes con el Fondo Europeo de Desarrollo Regional"
 
 msgid "cda sub title"
 msgstr "Las montañas sin coche"
@@ -4228,9 +4219,8 @@ msgstr "Poner el texto seleccionado en cursiva"
 
 # [general comment]
 # Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
-# [WARNING] fr translation used
 msgid "ice climbing portal"
-msgstr "Camptocamp Cascade"
+msgstr "Camptocamp Hielo"
 
 msgid "ice_climbing"
 msgstr "cascada de hielo"

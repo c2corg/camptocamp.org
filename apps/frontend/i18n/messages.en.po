@@ -136,7 +136,7 @@ msgstr "You cannot assocate a user to a collaborative document"
 # Titre de la section des documents annexes.
 # [WARNING] needs_review
 msgid "Annex"
-msgstr "Annex"
+msgstr "Appendix"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Are you sure you want to delete the catalan version of this document?"
@@ -205,7 +205,7 @@ msgid "Articles"
 msgstr "Articles"
 
 msgid "Associate new outing"
-msgstr "Create new outing"
+msgstr "Create your outing"
 
 msgid "Associate new route"
 msgstr "Create new associated route"
@@ -296,7 +296,6 @@ msgstr "Back to access points list"
 msgid "Back to portals list"
 msgstr "Go back to the list of portals"
 
-# [WARNING] needs_review
 msgid "Back to products list"
 msgstr "Go back to the list of \"local products\" documents"
 
@@ -1025,7 +1024,7 @@ msgstr "This picture doesn’t exist."
 # Currently, copyright pictures are only of book covers
 # [WARNING] needs_review
 msgid "Image under copyright license"
-msgstr "This picture depicts a book cover. It is the property of its editor and/or author. It is presented here only for the sake of illustration."
+msgstr "This picture depicts a book cover. It is the property of its editor and/or author. It is presented here only for illustration purposes."
 
 msgid "Image uploaded"
 msgstr "Picture uploaded"
@@ -1081,7 +1080,6 @@ msgstr "Is associated with summits:"
 msgid "Is parent of summits:"
 msgstr "Is associated to the sub summits:"
 
-# [WARNING] needs_review
 msgid "Is really a multi-activity outing?"
 msgstr "Does this outing really consist of multiple activities?"
 
@@ -1105,7 +1103,6 @@ msgstr "Last bulletin"
 msgid "Last soft mobility articles"
 msgstr "Articles on ecotourism and ecomobility"
 
-# [WARNING] needs_review
 msgid "Last soft mobility outings"
 msgstr "Latest outings carried out by ecomobility"
 
@@ -1323,7 +1320,6 @@ msgstr "This map doesn’t exist."
 msgid "Map tool"
 msgstr "Map Tool"
 
-# [WARNING] needs_review
 msgid "Mapquest/OSM"
 msgstr "Mapquest and OpenStreetMap data"
 
@@ -1406,7 +1402,6 @@ msgstr "My position"
 msgid "My preferences"
 msgstr "My preferences"
 
-# [WARNING] needs_review
 msgid "My topics"
 msgstr "My topics"
 
@@ -1805,7 +1800,6 @@ msgstr "Search for an outing"
 msgid "Search a parkings"
 msgstr "Search for an access point"
 
-# [WARNING] needs_review
 msgid "Search a portals"
 msgstr "Search for a portal"
 
@@ -2033,7 +2027,6 @@ msgstr "Follow recent portal creations"
 msgid "Subscribe to latest portals editions"
 msgstr "Follow the latest changes to portals"
 
-# [WARNING] needs_review
 msgid "Subscribe to latest products creations"
 msgstr "Follow the recent creations of \"local products\""
 
@@ -2318,9 +2311,8 @@ msgstr "View"
 
 # [general comment]
 # Link to the document page from a comment page in mobile version
-# [WARNING] needs_review
 msgid "View comments document"
-msgstr "back to the original document"
+msgstr "Back to the document"
 
 msgid "View current"
 msgstr "View current version"
@@ -2588,7 +2580,6 @@ msgstr "<h3>Type of area</h3>Type of area: mountain massif, administrative regio
 msgid "_article_type_info"
 msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
 
-# [WARNING] needs_review
 msgid "_association_tool_info"
 msgstr "<h3>Associate existing documents</h3>\n"
 "- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />\n"
@@ -2777,7 +2768,6 @@ msgstr "<h3>Positive elevation gain</h3>Cumulated positive elevation gain.<br />
 msgid "_hiking_rating_info"
 msgstr "<h3>Hiking grade</h3>Rating of difficulties for a hiking route. The scale is inspired from that of the Swiss Alpine Club.<br /><br /><strong>T1</strong>: Footpath is well marked. Terrain is even and flat, or slightly sloped. There is no risk of falling.<br /><em>Requirements:</em> None, you could also follow the itinerary in running shoes. Orientation is not a problem, usually even without a map.<br /><br /><strong>T2</strong>: Parts of the path can lack markings. Terrain sometimes steep. Falls are not to be excluded.<br /><em>Requirements:</em> Good footing. Hiking boots are recommended. Basic orientation know-how.<br /><br /><strong>T3</strong>: Path is sometimes invisible. Hands might be needed for balance. Some stretches might be exposed to stone fall o cross moderately steep scree or rocky slopes where exposed stretches might be equipped with ropes or chains.<br /><em>Requirements:</em> Very good footing. Good hiking boots. Average orientation capabilities. Basic experience in the mountains is advisable.<br /><br /><strong>T4</strong>: At times there is no path. Hands might be needed for overcoming certain difficulties. Terrain is somewhat exposed with delicate grassy slopes or slopes mixing rocks, easy nevés or glacier which are not snow covered (no crevasse danger).<br /><em>Requirements:</em> Familiarity with exposure. Rigid soled hiking boots. Ability to evaluate terrain and good orientation capabilities. Alpine experience is advisable. In case of bad weather, retreat could be complicated.<br /><br /><strong>T5</strong>: There is often no path and some easy climbing. Terrain is exposed and demanding with steep slopes and rocks. Glaciers and nevés increase the risk of slipping and falling.<br /><em>Requirements:</em> Mountaineering boots. Confident evaluation of terrain and very good orientation capabilities. A good experience of the high mountains and basic use of ice axe an rope are required.<br /><br /><strong>T6</strong>: Mostly no path (and no marking) and some climbing (up to French grade 2). Often very exposed with steep slopes and delicate rock sections. Steeper glaciers and nevés with increased risk.<br /><em>Requirements:</em> Excellent capabilities for orientation. Confirmed alpine experience and familiarity with the use of technical mountaineering equipment.<br /><br />See also help on the <a href=\"/articles/106859/en\">hiking grades</a>."
 
-# [WARNING] needs_review
 msgid "_hours_info"
 msgstr "<h3>Opening hours</h3>Opening hours and days."
 
@@ -2792,7 +2782,6 @@ msgstr "<h3>Hut</h3>Opening of the hut: opened/closed and staffed/unstaffed.<br 
 msgid "_ice_rating_info"
 msgstr "<h3>Ice climbing grade</h3>Ice climbing difficulties rating.<br />The ice rating represents the maximum difficulty of the ice climbing.<br />The scale goes from 1 to 7+.<br /><br /><strong>3</strong>: Esay leaning climb (75°) with many steep pitches. The ice is abundante and compact.<br /><br /><strong>3+</strong>: Same as grade 3 but offers a stiffer steep pitch (80°).<br /><br /><strong>4</strong>: Climb with a stiff sequence (85°) of maximum 10m high. The ice is abundant and compact.<br /><br /><strong>4+</strong>: Same as grade 4. The stiff sequence may be almost vertical et lengthier, up to 15m high.<br /><br /><strong>5</strong>: Climb with a vertical section of 20m or so. The ice is more spaced out and take specific shapes: cauliflowers and other ruggednesses. For waterfalls, these are generally cigars.<br /><br /><strong>5+</strong>: Climbing with a vertical section of 30m or so. Climbing becomes pretty technical.<br /><br /><strong>6</strong>: Climb with a vertical section of nearly 40 to 50m. Climb is technical. The ice may become really spaced out.<br /><br /><strong>6+</strong>: Totally vertical climb possibly with short overhangs, e.g. to join two curtains.<br /><br /><strong>7-7+</strong>: Extreme climb. Really stiff, it may be overhanging for several meters. The technique (among which gestural) used by the alpinist is similar to that of a rock climber.<br /><br />See also the help on <a href=\"/articles/106871/en\">snow, ice and mixed climbing grades</a>."
 
-# [WARNING] needs_review
 msgid "_image details_info"
 msgstr "<h3>Image properties</h3>Dimensions and size of the image"
 
@@ -2828,14 +2817,13 @@ msgstr "<h3>ISSN</h3>ISSN number of the newspaper or magazine"
 
 # [general comment]
 # Aide contextuelle sur la cotation globale ski.
-# [WARNING] needs_review
 msgid "_labande_global_rating_info"
 msgstr "<h3>Labande global ski grade</h3>Global ski grade (Labande).<br />The global grade offers an overall estimation of the difficulties of an itinerary and how sustained they are, as well as altitude and the normal duration of the itinerary. <b>WARNING!</b> The grade uses the same letter coding as the global alpine climbing grade but <u>they do not overlap</u>: A snow couloir can easily be graded D for skiing while it’s mountaineering grade would not exceed PD or AD.<br /><br /><strong>F</strong>: Easy<br /><br /><strong>PD</strong>: Slightly difficult<br /><br /><br /><strong>AD</strong>: Somewhat difficult<br /><br /><strong>D</strong>: Difficult<br /><br /><strong>TD</strong>: Very difficult<br /><br /><br /><strong>ED</strong>: Extremely difficult<br />\n"
 "The last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6.<br /><br />\n"
 "<br />\n"
 "<em><b>BE CAREFUL!</b> It is a rating for ski touring, not for alpine climbing: a couloir can easily be rated D for ski touring, whatever its alpine global rating doesn't exceed PD ou AD for rising.</em><br />\n"
 "<br />\n"
-"See also the help on <a href=\"/articles/107675/en\">grades for ski-touring and ski-mountaineering</a>."
+"See also the help on <a href=\"/articles/107675/en\">grades for ski/snowboard-touring and ski/snowboard-mountaineering</a>."
 
 msgid "_labande_ski_rating_info"
 msgstr "<h3>Labande descent grade</h3>The Labande S grade.<br />The Labande descent grade is complementary to the global grade. It evaluates the most difficult passage for the ski downhill. It is mostly tied to the slope but also takes exposure into account.<br /><br /><strong>S1</strong>: Easy descent which does not require any particular technical abilities such as forest tracks for example.<br /><br /><strong>S2</strong>: Wide slopes which are easy to manoeuvre, maybe fairly steep (25°).<br /><br /><strong>S3</strong>: Slopes up to 35° (equivalent to the steepest runs in ski resorts, on hard snow). Requires good skiing abilities in all snow conditions.<br /><br /><strong>S4</strong>: Slopes up to 45°, if exposure is low (between 30 and 40° if it is high or the passage is narrow). Very good skiing abilities are required.<br /><br /><strong>S5</strong>: Slopes between 45 and 50° or more if exposure remains low. From 40° upwards if exposure is high. As well as a perfect downhill skiing technique, control of nerves becomes very important at this level of difficulty.<br /><br /><strong>S6</strong>: Above 50° if exposure is high (which is often the case) or short stretches above 55° with little exposure.<br /><br /><strong>S7</strong>: Stretches at 60° or more, high rock bands to jump or more generally very steep or exposed terrain.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -2935,14 +2923,12 @@ msgstr "<h3>Unregistered participants</h3>List of participants to the outing who
 msgid "_password_info"
 msgstr "<h3>Password</h3><em><u>At login</u>:</em><br />Enter your username for Camptocamp.org.<br />If you forgot your username and/or your password, you can ask for a new password by clicking on <em>forgot your password?</em>.<br /><br /><em><u>Personnal preferences</u>:</em><br />If you wish to modify your password, enter the new one. Otherwise, keep this field empty."
 
-# [WARNING] needs_review
 msgid "_pedestrian_access_info"
 msgstr "<h3>Pedestrian access</h3>Route for accessing a climbing site, a particular crag or a hut from the access point.<br />Indicate any relevant information on arrangements with private landowners.<br /><br />For an accommodation in the valley: In case they are associated with an access, just describe how to get from the access point to the accommodation. Otherwise, describe the whole access."
 
 msgid "_phone_info"
 msgstr "<h3>Phone</h3>Hut's phone number."
 
-# [WARNING] needs_review
 msgid "_product_type_info"
 msgstr "<h3>Type of local products</h3><strong>direct sale by the producer </strong>: products sold by the producer itself<br /><br /><strong>restaurant</strong>: restaurant, bar or valley accommodation that offers food<br /><br /><strong>shop</strong>: sale of local products <br /><br /><strong>bar</strong>: bar or café"
 
@@ -2957,9 +2943,8 @@ msgstr "<h3>Public transport access</h3>Reliability and quality of public transp
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
-# [WARNING] needs_update
 msgid "_publication_date_info"
-msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent. This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
+msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Rain</h3>Exposure of the climbing site or particular crag to rainfall.<br />Useful if weather is uncertain."
@@ -3026,7 +3011,22 @@ msgstr "<h3>Snow clearing</h3>Frequency of snow clearing of the road. The field 
 
 # [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>Snowshoeing grade</h3>"
+msgstr "<h3>Snowshoeing grade</h3>\n"
+"Snowshoeing difficulty grading.<br /> \n"
+"<br /> \n"
+"<strong>R1</strong>: Gentle slopes(< 20°), with frequent and/or specific markers on established, well-traveled routes.<br /> \n"
+"<br /> \n"
+"<strong>R2</strong>: Unmarked, less-traveled routes on gentle slopes (<20°). No switchbacks required to move uphill.<br /> \n"
+"<br /> \n"
+"<strong>R3</strong>: Routes on steeper, more exposed slopes (<30°), which may require switchbacks in the trail.<br /> \n"
+"<br /> \n"
+"<strong>R4</strong>: Similar as R3 but steeper (<40)°. On harder snowpacks it may be necessary to remove the snowshoes, or use snowshoe crampons.<br /> \n"
+"<br /> \n"
+"<strong>R5</strong>: Routes on very steep slopes (short sections >40° or longer sections >35°), requiring crampons, ice axes, or rope to progress upward over obstacles (couloirs, thin or exposed ridges, cliffs, etc.). Long homogeneous slopes >35° without obstacles are considered R5 as well.<br /> \n"
+"<br /> \n"
+"<strong>Caution !</strong>&nbsp;: If most of the route is too difficult for snowshoes, or if snowshoeing is used for approach purposes, then the route should be graded as an <a href=\"/articles/188413 \">alpine route</a> (select the appropriate activity as well). If the route is borderline, both activities can be selected.<br /> \n"
+"<br /> \n"
+"Read the help on <a href=\"/articles/239491\">snowshoeing grading</a>."
 
 msgid "_source file_info"
 msgstr "<h3>Source file</h3>Link to the vector image (svg) with which the image was produced (if relevant)"
@@ -3476,7 +3476,6 @@ msgstr "Camptocamp.org now customized for ski/snowboard touring!"
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org now customized for snow, ice & mixed climbing!"
 
-# [WARNING] needs_review
 msgid "c2c customized for snowshoeing !"
 msgstr "Camptocamp.org now customized for snowshoeing!"
 
@@ -3544,9 +3543,8 @@ msgstr "Find a route accessible by public transportation"
 
 # [general comment]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
-# [WARNING] fr translation used
 msgid "cda partners tips"
-msgstr "Le portail Changer d'approche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
+msgstr "The Changer d'Approche portal is co-financed by the European Union. Europe is commited to the Alps through the European Regional Development Fund"
 
 msgid "cda sub title"
 msgstr "Mountains without your car"
@@ -4278,9 +4276,8 @@ msgstr "Set selected text to italic"
 
 # [general comment]
 # Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
-# [WARNING] fr translation used
 msgid "ice climbing portal"
-msgstr "Camptocamp Cascade"
+msgstr "Camptocamp Ice"
 
 msgid "ice_climbing"
 msgstr "ice climbing"

@@ -132,7 +132,7 @@ msgstr "Tous les champs sont obligatoires."
 # - Tous
 # [WARNING] needs_review
 msgid "All topics"
-msgstr "Toutes discussions"
+msgstr "Toutes les discussions"
 
 msgid "All your images are already collaborative"
 msgstr "Toutes vos images sont déjà collaboratives."
@@ -2306,10 +2306,9 @@ msgstr "Consulter"
 # [general comment]
 # Link to the document page from a comment page in mobile version
 # [comment]
-# mouais, si qqun a une meilleure idée....
-# [WARNING] needs_review
+# voir cette discussion : http://www.camptocamp.org/forums/viewtopic.php?pid=1359435#p1359435
 msgid "View comments document"
-msgstr "Voir le document original"
+msgstr "Retourner au document"
 
 msgid "View current"
 msgstr "Afficher la version actuelle"
@@ -3008,9 +3007,24 @@ msgstr "<h3>Précisions sur le déneigement</h3>Informations sur le déneigement
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champ <em>Précisions sur le déneigement</em> permet de donner des informations complémentaires."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>Cotation raquette</h3>"
+msgstr "<h3>Cotation raquette</h3>\n"
+"Cotation des difficultés d'un itinéraire de randonnée en raquettes à neige.<br />\n"
+"<br />\n"
+"<strong>R1</strong>&nbsp;: Pentes faibles (< 20°) et balisage serré sur des itinéraires souvent tracés et bénéficiant d'un balisage spécifique rapproché.<br />\n"
+"<br />\n"
+"<strong>R2</strong>&nbsp;: Itinéraires non balisés sur des pentes faibles (<20°) ne nécessitant pas de progresser en lacets ni de faire de traversée sur flancs raides.<br />\n"
+"<br />\n"
+"<strong>R3</strong>&nbsp;: Itinéraires sur pentes assez raides (<30°) pouvant nécessiter de progresser en lacets ou de traverser des flancs raides et exposés.<br />\n"
+"<br />\n"
+"<strong>R4</strong>&nbsp;: Idem que R3 mais plus raide (<40°). En neige dure, certains passages peuvent nécessiter de déchausser ou d'utiliser des couteaux.<br />\n"
+"<br />\n"
+"<strong>R5</strong>&nbsp;: Itinéraires sur pentes très fortes (passages >40° ou sections soutenues à plus de 35°) nécessitant l'utilisation de crampons, piolet ou corde pour franchir des difficultés tels qu'un couloir, une arête effilée et très exposée, une barre rocheuse. A partir de 35°, une longue pente sans obstacle particulier sera considérée comme très forte et l'itinéraire coté R5.<br />\n"
+"<br />\n"
+"<strong>Attention</strong>&nbsp;: Si les difficultés imposant une progression sans les raquettes sont longues ou constituent l'objectif principal, alors l'itinéraire devra être <a href=\"/articles/188413/fr\">coté en tant qu'itinéraire d'alpinisme</a> et non comme itinéraire raquette, après avoir sélectionné l'activité adéquate. Un itinéraire situé à la limite entre raquette et alpinisme pourra être affecté aux 2 activités.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur la <a href=\"/articles/239491/fr\">cotation raquette</a>."
 
 # [comment]
 # la formulation est moche

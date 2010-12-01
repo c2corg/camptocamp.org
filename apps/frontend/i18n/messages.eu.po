@@ -125,9 +125,9 @@ msgstr "Lerrokadura:"
 msgid "All fields are mandatory"
 msgstr "Eremu guztiak nahitaezkoak dira."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "All topics"
-msgstr "All topics"
+msgstr "Todos los temas"
 
 msgid "All your images are already collaborative"
 msgstr "Zure irudi guztiak elkarlanekoak dira"
@@ -137,9 +137,9 @@ msgstr "Erabiltzaile bat ezin da elkarlaneko dukumentu bati loturik egon"
 
 # [general comment]
 # Titre de la section des documents annexes.
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Annex"
-msgstr "Annex"
+msgstr "Apéndice"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Zihur al zaude dokumentu honen bertsio katalana ezabatu nahi duzula?"
@@ -1023,9 +1023,9 @@ msgstr "Ez dago halako irudirik."
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Image under copyright license"
-msgstr "This picture depicts a book cover. It is the property of its editor and/or author. It is presented here only for the sake of illustration."
+msgstr "Esta imagen representa una cobertura de libro. Es propiedad de la editorial y/o de su autor. Solo se presenta aquí para ilustrar el documento."
 
 msgid "Image uploaded"
 msgstr "Irudia zintzilikatu da"
@@ -1035,7 +1035,7 @@ msgstr "Irudiak"
 
 # [WARNING] es translation used
 msgid "Images are under license specified in the original document of each image"
-msgstr "Las imágenes en esta pagina están disponibles bajo la licencia Creative Commons indicada en el documento de origen de cada imagen."
+msgstr "Las imágenes en esta pagina están disponibles bajo la licencia indicada en el documento de origen de cada imagen."
 
 msgid "Images names are missing"
 msgstr "Emandako irudien izenak falta dira"
@@ -1111,41 +1111,41 @@ msgstr "Artículos sobre ecoturismo y ecomobilidad"
 
 # [WARNING] es translation used
 msgid "Last soft mobility outings"
-msgstr "Ultimas salidas ecomobiles"
+msgstr "Ultimas salidas realizadas con ecomobilidad"
 
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Latest %1% creations"
-msgstr "Latest creations - %1%"
+msgstr "Últimas creaciones - %1%"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Latest %1% creations in %2%"
-msgstr "Latest creations - %1% - %2%"
+msgstr "Últimas creaciones - %1% - %2%"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Latest %1% editions"
-msgstr "Latest changes - %1%"
+msgstr "Últimas ediciones - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
 # [WARNING] es translation used
 msgid "Latest %1% editions feed"
-msgstr "%1% - Ultimas ediciones"
+msgstr "%1% - Últimas ediciones"
 
 # [general comment]
 # description flux rss d'éditions
 # [WARNING] es translation used
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - ultimas ediciones de documentos %1%"
+msgstr "camptocamp.org - últimas ediciones de documentos %1%"
 
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Latest %1% editions in %2%"
-msgstr "Latest changes - %1% - %2%"
+msgstr "Últimas ediciones - %1% - %2%"
 
 msgid "Latest articles"
 msgstr "Azken artikuluak"
@@ -1158,9 +1158,9 @@ msgstr "Últimos documentos"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Latest editions for \"%1%\" - %2%"
-msgstr "Latest changes of \"%1%\" - %2%"
+msgstr "Últimas ediciones de \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Azken irudiak"
@@ -1341,13 +1341,13 @@ msgstr "Ez dago halako maparik."
 
 # [general comment]
 # Intitulé du lien vers la page carto
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Map tool"
-msgstr "Map Tool"
+msgstr "Herramienta cartográfica"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Mapquest/OSM"
-msgstr "Mapquest and OpenStreetMap data"
+msgstr "Datos Mapquest y OpenStreetMap"
 
 msgid "Maps deletion is prohibited"
 msgstr "Mapa motako objetuak ezin dira ezabatu"
@@ -1429,16 +1429,16 @@ msgstr "Nire irteera: "
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "My position"
-msgstr "My position"
+msgstr "Mi posición"
 
 msgid "My preferences"
 msgstr "Preferentzia pertsonalak"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "My topics"
-msgstr "My topics"
+msgstr "Mis temas"
 
 msgid "N"
 msgstr "N"
@@ -1590,9 +1590,9 @@ msgstr "Ez dago halako irteerarik."
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Outings linked to these images"
-msgstr "Outings linked to these images"
+msgstr "Salidas asociadas a estas imágenes"
 
 msgid "PD"
 msgstr "PD"
@@ -1636,9 +1636,9 @@ msgstr "Pasa hitza:"
 msgid "Period:"
 msgstr "Garaia:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Permalink.openlink"
-msgstr "Open link"
+msgstr "Abre el enlace"
 
 # [WARNING] es translation used
 msgid "Personal articles"
@@ -2016,11 +2016,11 @@ msgstr "Ecomobilidad"
 
 # [WARNING] es translation used
 msgid "Soft mobility articles"
-msgstr "Artículos sobre ecoturismo y ecomobilidad"
+msgstr "Lista de artículos sobre ecoturismo y ecomobilidad"
 
 # [WARNING] es translation used
 msgid "Soft mobility outings"
-msgstr "Salidas ecomobiles"
+msgstr "Lista de salidas realizadas con ecomobilidad"
 
 msgid "Static map"
 msgstr "Mapa"
@@ -2315,9 +2315,9 @@ msgstr "Caja de herramientas"
 
 # [general comment]
 # 'outils' (première entrée du menu topoguide, permettant d'accéder au cotomètre, à la carte, la conversion des coordonnées etc)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Topoguide tools"
-msgstr "Tools"
+msgstr "Herramientas"
 
 msgid "Try a site search:"
 msgstr "Web gunean bilaketa egin"
@@ -2414,18 +2414,18 @@ msgstr "Begiratu"
 
 # [general comment]
 # Link to the document page from a comment page in mobile version
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "View comments document"
-msgstr "back to the original document"
+msgstr "Volver al documento"
 
 msgid "View current"
 msgstr "Oraingo bertsioa erakutsi"
 
 # [general comment]
 # used for edition rss feeds rich content
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "View difference between version %1% and %2%"
-msgstr "View the differences between versions %1% and %2%"
+msgstr "Ver las diferencias entre las versiones %1% y %2%"
 
 msgid "View image details"
 msgstr "Irudiaren informazioak ikusi"
@@ -2479,9 +2479,9 @@ msgstr "Ongi etorri camptocamp.org-era!"
 msgid "Which document would you like to redirect the current one to?"
 msgstr "ciZe dokumenturekin bateratu nai duzu ondorengo dokumentuarekin?"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Widget code"
-msgstr "Code"
+msgstr "Código"
 
 # [WARNING] es translation used
 msgid "Widget title"
@@ -2625,9 +2625,9 @@ msgstr "Todavía no te as inscrito a ninguna lista"
 
 # [general comment]
 # this message is displayed when editing a document without providing a required activity
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You must select at least one activity"
-msgstr "you have to chose at least one activity for this document"
+msgstr "debe seleccionar al menos una actividad para este documento"
 
 msgid "You must specify an email"
 msgstr "Helbide elektroniko bat eman behar duzu."
@@ -2669,9 +2669,9 @@ msgstr "Zure saioaren epea amaitu da. Mesedez berriro konektatu."
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Ez da emaitzik aurkitu.<br /> Ortografia edo joskera egiaztatu edota hitz kopurua murriztu hitz ezaugarriak erabiliz (hitzaren zati bat ere onartzen da)|(1,+Inf]%nb_result% emaitz aurkituak %researched_word%-(en)tzako"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
-msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
+msgstr "[0]No hay comentarios asociados a este documento.|[1]Hay un comentario asociado a este documento.|(1,+Inf]Hay %1% comentarios asociados a este documento."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Geometria berridun sarreraren edizioa"
@@ -2711,7 +2711,8 @@ msgstr "<h3>Artikulu mota</h3><strong>laguntza artikulua</strong>: <br />Laguntz
 
 # [WARNING] es translation used
 msgid "_association_tool_info"
-msgstr "<h3>Asociar un documento existente</h3>- Haga clic en <img src=\"/static/images/picto/plus.png\" /> para que aparezca la herramienta de asociación.<br />- Seleccione el tipo de documento que quiere asociar.<br />- Entra una parte discriminante del nombre del documento. Para un itinerario, esto incluye el nombre de la(s) cima(s) asociada(s).<br />- Se le presentara una lista de documentos: Haga clic en el documento a asociar, aunque haya uno solo en la lista.<br />- Para un itinerario, la lista de documentos contiene los itinerarios asociados a las cimas seleccionadas o sus sub-cimas. Seleccione el itinerario deseado.<br />- Haga clic en <input type=\"button\" value=\"Link\" /> para validar.<br /><br />Antes de validar, puede cambiar de documento borrando el nombre y empezando de vuelta.<br />Si se equivoco y no asocio el documento correcto, no lo puede desasociar y tiene que comunicar el error a la moderación:<br />- Haga clic en donde dice <img src=\"/static/images/picto/report.png\" /> <strong>Señalar un problema</strong> en el menu de izquierda.<br />- Describe el error y manda el mensaje.<br />Es importante señalar el problema a partir de la pagina donde se encuentra la asociación errónea ya que el mensaje que reciben los moderadores incluye un enlace hacia el documento."
+msgstr "<h3>Asociar un documento existente</h3>- Haga clic en <img src=\"/static/images/picto/plus.png\" /> para que aparezca la herramienta de asociación.<br />- Seleccione el tipo de documento que quiere asociar.<br />- Entra una parte discriminante del nombre del documento. Para un itinerario, esto incluye el nombre de la(s) cima(s) asociada(s).<br />- Se le presentara una lista de documentos: Haga clic en el documento a asociar, aunque haya uno solo en la lista.<br />- Para un itinerario, la lista de documentos contiene los itinerarios asociados a las cimas seleccionadas o sus sub-cimas. Seleccione el itinerario deseado.<br />\n"
+"También es posible entrar el numero del documento (el que figura en su URL).<br />- Haga clic en <input type=\"button\" value=\"Link\" /> para validar.<br /><br />Antes de validar, puede cambiar de documento borrando el nombre y empezando de vuelta.<br />Si se equivoco y no asocio el documento correcto, no lo puede desasociar y tiene que comunicar el error a la moderación:<br />- Haga clic en donde dice <img src=\"/static/images/picto/report.png\" /> <strong>Señalar un problema</strong> en el menu de izquierda.<br />- Describe el error y manda el mensaje.<br />Es importante señalar el problema a partir de la pagina donde se encuentra la asociación errónea ya que el mensaje que reciben los moderadores incluye un enlace hacia el documento."
 
 msgid "_author_info"
 msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak.<br />Autore desberdinen izenak banatzeko kakotxa (,) erabili. Ez jarri euskal hitzik."
@@ -2895,9 +2896,9 @@ msgstr "<h3>Mendi aterpea</h3>Aterpearren irekiera: irekia/itxia et zaindua/zain
 msgid "_ice_rating_info"
 msgstr "<h3>Izotzeko zailtasuna</h3>Izotzetako zailtasunen akotazioa.<br />Izotzetako zailtasunak, ibilbideko zailtasun maximoa adierazten du.<br />Eskala 1-tik 7+-ra doa"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "_image details_info"
-msgstr "<h3>Image properties</h3>Dimensions and size of the image"
+msgstr "<h3>Propiedades de la imagen</h3>Tamaño y peso de la imagen"
 
 msgid "_image_categories_info"
 msgstr "<h3>Irudien kategoriak</h3><br /><span style=\"color: red\">Izartxoa (*) duen kategoria bat aukeratu ezkero (gutxienez), argazkia sarrera horrialdean ageraraziko du.</span><br /><br /><strong>Paisaia</strong>&nbsp;*&nbsp;: Gailur bat edo batzuen zati haundi bat agertzen duen irudia, argazki panoramikoa <br /><strong>zehazpena, zoom</strong>&nbsp;*&nbsp;: Gailur, ibilbide edo leku baten zati txiki bat agertzen duen irudia (<em>paisaia-ren</em> aurkakoa)<br /><strong>ibilbidea, eskema</strong>&nbsp;*&nbsp;: Gailur baten argazkia non ibilbidearen jarduna agertzen den<br /><strong>akzioa</strong>&nbsp;*&nbsp;: Mendizalea akzioan agertzen duen argazkia<br /><strong>urratsa, bidezidor</strong>&nbsp;*&nbsp;: Elurrean igoera/jeitsierako urratsak edo bidezidur bat agertzen dituen irudia<br /><strong>montée</strong> et <strong>jeitsiera</strong>&nbsp;: jeitsiera erakusten duen argazkia, igoeran edo jeitsieran ateratakoa - <em>zehazpena, akzioa, urratsa, bidezidorra</em>kategoriak zehazteko erabilgarria<br /><strong>pertsonaiak</strong>&nbsp;: pertsonai bat edo batzuen argazkia<br /><strong>fauna</strong>&nbsp;* eta <strong>flora</strong>&nbsp;*&nbsp;: fauna edo flora-ren argazki edo marrazkia<br /><strong>elur eta elurjausiak</strong>&nbsp;*&nbsp;: nibologiarekin zerikusia duen argazkia&nbsp;: elurraren kristal edo estruktura, plaka, elurjausia, etabar...<br /><strong>geologia</strong>&nbsp;*&nbsp;: minerale, glaziar edo beste estruktura geologikoen argazki edo marrazkia<br /><strong>aterpeak</strong>&nbsp;: aterpe, borda edo gaba pasatzeko lekuen argazkiak<br /><strong>materiala</strong>&nbsp;: mendian erabiltzen den materialeen argazki edo marrazkia, planu nagusian edo erabileran<br /><strong>liburu azala</strong>&nbsp;: liburuen azala edo titulu horrialdea<br /><strong>bestelakoak, klasifikagabeak</strong>&nbsp;: beste edozein kategorian klasifikatzeko zaila den irudia&nbsp;: ospakizun baten kartela, irudi abstraktoa, etabar."
@@ -2935,6 +2936,7 @@ msgstr "<h3>ISSN</h3>Numero ISSN de la revista"
 
 # [general comment]
 # Aide contextuelle sur la cotation globale ski.
+# [WARNING] needs_update
 msgid "_labande_global_rating_info"
 msgstr "<h3>Eski zailtasun globala</h3>Eski ibilbide baten zailtasun globala akotatzen du (Labande).<br />Labanda eski zailtasun globala batasbesteko eski zailtasunen maila adierazten du. Bere barne altitudea eta gogortasuna hartzen ditu.<br /> Alpinismoko zailtasun global berbera erabiltzen du, F (erraza) eta ABO (Izurgarri zaila).<br /><br /><i><b>KONTUZ !</b> Eskirako zailtasuna da eta ez alpinismorako: korredore bat eskiekin beharbada D zailtasuna izan dezake, baina alpinismoan ez du PD-tik edo AD-tik pasatzen.</i>"
 
@@ -3048,7 +3050,7 @@ msgstr "<h3>Pasa-hitza</h3><em><u>Konekzio baten</u>:</em><br />Zure Camptocamp.
 
 # [WARNING] es translation used
 msgid "_pedestrian_access_info"
-msgstr "<h3>Acceso a pie</h3>Itinerario que permite llegar al sitio/lugar de escalada o al refugio, partiendo del punto de acceso.<br />Si es posible, indique informaciones relativas al respecto de la propiedad privada."
+msgstr "<h3>Acceso a pie</h3>Itinerario que permite llegar al sitio/lugar de escalada o al refugio, partiendo del punto de acceso.<br />Si es posible, indique informaciones relativas al respecto de la propiedad privada.<br /><br />Para un hospedaje en valle, se trata del acceso pedestre y por carretera. Si el hospedaje es asociado a un punto de acceso, detallar solo el acceso desde allí."
 
 msgid "_phone_info"
 msgstr "<h3>Telefono</h3>Aterpeko telefono zenbakia."
@@ -3071,7 +3073,7 @@ msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le
 
 # [WARNING] es translation used
 msgid "_publication_date_info"
-msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima. Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Euria</h3>Eskalada gunearen esposizioa euriarekiko.<br />Egokia eguraldia ezegonkorra bada."
@@ -3140,9 +3142,24 @@ msgstr "<h3>Elur garbiketari buruzko xehetasunak</h3>Neguan, errepideko elur gar
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Elurgabetua</h3>Abiapuntura iristeko bidearen elurgabetze frekentzia. <i>Précisions sur le déneigement</i> kampoak gehigarrizko informazioa ematen du."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>Snowshoeing grade</h3>"
+msgstr "<h3>Grado en raquetas</h3>\n"
+"Graduación de la dificultad en raquetas.<br /> \n"
+"<br /> \n"
+"<strong>R1</strong>: Pendientes suaves (< 20°) y rutas marcadas que suelen recorrer mucha gente.<br /> \n"
+"<br /> \n"
+"<strong>R2</strong>: Rutas no marcadas con pendientes suaves (<20°). No se requieren zig-zags para superar pendientes fuertes.<br /> \n"
+"<br /> \n"
+"<strong>R3</strong>: Rutas sobre pendientes mas pronunciadas y mas expuestas (<30°), donde puede ser necesario realizar zig-zags. <br /> \n"
+"<br /> \n"
+"<strong>R4</strong>: Similar a R3 pero más empinado (<40°). En nieve dura, puede ser necesario dejar las raquetas o usar crampones apropiados.<br /> \n"
+"<br /> \n"
+"<strong>R5</strong: Rutas sobre pendientes fuertes (secciones cortas >40° o largas >35°) que requieren crampones, piquetas o cuerda para superar obstáculos (corredores, aristas estrechas o expuestas, acantilados, etc.). Pendientes largas y homogéneas de >35° sin obstáculos se consideran también R5.<br /> \n"
+"<br /> \n"
+"<strong>¡Cuidado!</strong>: Si la mayor parte del itinerario es demasiado difícil para raquetas, o que las raquetas solo se usan para aproximación, entonces se debe <a href=\"/articles/188413 \"> graduar el itinerario como una ruta de alpinismo</a> (y seleccionar la actividad que corresponde). Si hay dudas, se pueden seleccionar ambas actividades.<br /> \n"
+"<br /> \n"
+"Fíjese en la <a href=\"/articles/239491\">ayuda sobre la graduación de itinearios en raquetas</a>."
 
 # [WARNING] es translation used
 msgid "_source file_info"
@@ -3622,9 +3639,9 @@ msgstr "Camptocamp.org... mendi eskia!"
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org... alpinismoa!"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "c2c customized for snowshoeing !"
-msgstr "Camptocamp.org now customized for snowshoeing!"
+msgstr "Camptocamp.org... ¡solo raquetas!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org-ek ez du inongo filtrorik ekintzetarako"
@@ -3684,9 +3701,9 @@ msgstr "Kategoria:"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "cda map help text"
-msgstr "The map shows access points that can be reached in public transport. Click on an access point and a list of routes will be displayed."
+msgstr "Este mapa muestra puntos de acceso que se puede alcanzar en transporte publico. Haga clic en un punto de acceso para ver la lista de itinerarios."
 
 # [general comment]
 # Portail "Changer d'approche" : titre de la section comportant la carte.
@@ -3696,9 +3713,9 @@ msgstr "Encontrar una ruta accesible con transporte en común o ecomobilidad"
 
 # [general comment]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "cda partners tips"
-msgstr "Le portail Changer d'approche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
+msgstr "El portal Changer d'Approche es co-financiado por la Unión Europea. Europa se compromete con los Alpes con el Fondo Europeo de Desarrollo Regional"
 
 # [WARNING] es translation used
 msgid "cda sub title"
@@ -4474,9 +4491,9 @@ msgstr "Aukeratutako testua etzan eran jarri"
 
 # [general comment]
 # Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "ice climbing portal"
-msgstr "Camptocamp Cascade"
+msgstr "Camptocamp Hielo"
 
 msgid "ice_climbing"
 msgstr "izotz eskalada"
