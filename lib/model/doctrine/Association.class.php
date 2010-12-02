@@ -618,7 +618,7 @@ class Association extends BaseAssociation
                     $body = "<p>A <a href=\"$server/images/$linked_id\">new image</a> has been associated to <a href=\"$server/books/$main_id\">book $main_id</a>.</p>"
                         . "<p>The image may require a copyright license. If so, please ensure that:</p>"
                         . "<ul>"
-                        . "<li>the owner is correctly aknowledged in the author field;</li>"
+                        . "<li>the owner is correctly acknowledged in the author field;</li>"
                         . "<li>the image is not too big (max 800px width or height).</li>"
                         . "</ul>";
                     $mail->setBody($body);
