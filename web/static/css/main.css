@@ -43,7 +43,7 @@ input, select {
   font-size: 12px;
 }
 
-select[multiple="multiple"], input[type="checkbox"]
+select[multiple="multiple"], input[type="checkbox"], input[type="image"]
 {
   height: auto;
 }
