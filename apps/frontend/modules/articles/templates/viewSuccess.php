@@ -69,6 +69,8 @@ if ($is_not_archive && $is_not_merged):
 
 endif;
 
+include_partial('documents/annex_docs', array('related_portals' => $related_portals));
+
 $licenses_array = sfConfig::get('app_licenses_list');
 $license = $licenses_array[$document->get('article_type')];
 include_partial('documents/license', array('license' => $license, 'large' => $show_link_tool));

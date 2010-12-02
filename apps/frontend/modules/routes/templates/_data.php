@@ -75,7 +75,7 @@ $activities = $document->getRaw('activities');
         li(field_data_from_list($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings'));
         li(field_data_from_list($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings'));
         li(field_data_from_list($document, 'labande_global_rating', 'app_routes_global_ratings'));
-        li(field_data_from_list_if_set($document, 'sub_activities', 'mod_routes_sub_activities_list'));
+        li(field_data_from_list_if_set($document, 'sub_activities', 'mod_routes_sub_activities_list', true));
     }
 
     if (in_array(6, $activities)) // hiking

@@ -110,7 +110,7 @@ function field_data_from_list($document, $name, $config, $multiple = false, $raw
         $title = $name;
     }
 
-    return _format_data_from_list($title, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix, $title_id);
+    return _format_data_from_list($title, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix, $title_id, false);
 }
 
 function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '', $title_id = null)
@@ -134,7 +134,7 @@ function field_data_from_list_if_set($document, $name, $config, $multiple = fals
         $title = $name;
     }
 
-    return _format_data_from_list($title, $value, $config, $multiple, $raw, $prefix, $suffix, $title_id);
+    return _format_data_from_list($title, $value, $config, $multiple, $raw, $prefix, $suffix, $title_id, true);
 }
 
 function field_data_range_from_list($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
@@ -378,7 +378,7 @@ function _format_data_range($name, $value_min, $value_max, $raw = false, $separa
     return $text;
 }
 
-function _format_data_from_list($name, $value, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $id = null)
+function _format_data_from_list($name, $value, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $id = null, $ifset = false)
 {
     $list = sfConfig::get($config);
     if (!empty($value))
@@ -397,11 +397,20 @@ function _format_data_from_list($name, $value, $config, $multiple = false, $raw 
         {
             $value = _get_field_value_in_list($list, $value);
         }
-    } else {
+    }
+    else
+    {
         $value = '';
     }
-
-    return _format_data($name, $value, $raw, $prefix, $suffix, $id);
+    
+    if ($ifset && empty($value))
+    {
+        return '';
+    }
+    else
+    {
+        return _format_data($name, $value, $raw, $prefix, $suffix, $id);
+    }
 }
 
 function _format_data_range_from_list($name, $value_min, $value_max, $separator = ' / ', $config, $raw = false, $prefix = '', $suffix = '')

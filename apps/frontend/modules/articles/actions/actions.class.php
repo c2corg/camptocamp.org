@@ -60,6 +60,14 @@ class articlesActions extends documentsActions
                 $associated_areas = GeoAssociation::findWithBestName($parent_ids, $prefered_cultures, array('dr', 'dd', 'dc'));
             }
             $this->associated_areas = Area::getAssociatedAreasData($associated_areas);
+            
+            $related_portals = array();
+            $categories = $this->document->get('categories');
+            if (in_array(7, $categories))
+            {
+                $related_portals[] = 'cda';
+            }
+            $this->related_portals = $related_portals;
     
             sfLoader::loadHelpers(array('sfBBCode', 'SmartFormat'));
             $abstract = strip_tags(parse_links(parse_bbcode_abstract($this->document->get('abstract'))));

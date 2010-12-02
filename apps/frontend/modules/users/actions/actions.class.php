@@ -283,7 +283,9 @@ class usersActions extends documentsActions
             if ($this->getRequest()->getMethod() == sfRequest::POST)
             {
                 $login_name = $this->getRequestParameter('login_name');
+                $login_name = trim($login_name);
                 $email = $this->getRequestParameter('email');
+                $email = trim($email);
 
                 // generate password
                 $password = UserPrivateData::generatePwd();
@@ -328,6 +330,7 @@ class usersActions extends documentsActions
         else
         {
             $loginNameOrEmail = $this->getRequestParameter('loginNameOrEmail');
+            $loginNameOrEmail = trim($loginNameOrEmail);
 
             // attend to retrieve user
             $user_private_data = UserPrivateData::retrieveByLoginNameOrEmail($loginNameOrEmail);
@@ -405,9 +408,13 @@ class usersActions extends documentsActions
         {
             // user private data update
             $email = $this->getRequestParameter('email');
+            $email = trim($email);
             $password = $this->getRequestParameter('password');
+            $password = trim($password);
             $nickname = $this->getRequestParameter('edit_nickname');
+            $nickname = trim($edit_nickname);
             $toponame = $this->getRequestParameter('edit_topo_name');
+            $toponame = trim($edit_topo_name);
             $is_profile_public = $this->getRequestParameter('is_profile_public');
 
             $conn = sfDoctrine::Connection();
