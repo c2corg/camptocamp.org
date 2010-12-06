@@ -69,7 +69,7 @@ ImageUpload = {
       }
       return true;
     } else {
-      $name = $F('image_file');
+      name = $F('image_file');
       if (name == '') { return false; }
       return reg.test(name);
     }
