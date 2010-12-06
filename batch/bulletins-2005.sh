@@ -30,7 +30,7 @@ for DPT in $LIST; do
     if w3m -dump_head -no-cookie $URL | egrep --quiet '200 OK$'; then
 
         # dump bulletin to a file
-        curl -s $URL | grep "onlyText bulletinText" | perl -pe 's/.*bulletinText">N(.+?)<\/div.*/$1/' | w3m -M -dump -T "text/html" -I "utf-8" -cols 74 > $FILE.txt
+        curl -s -L -b mfcookie $URL | grep "onlyText bulletinText" | perl -pe 's/.*bulletinText">N(.+?)<\/div.*/$1/' | w3m -M -dump -T "text/html" -I "utf-8" -cols 74 > $FILE.txt
 # debug
 #        cp $FILE.txt $WORKDIR/debug/$DPT-$TYPE.$NOW.curl.txt
 
