@@ -96,7 +96,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     if (sfConfig::get('app_async_map', true))
     {
         use_helper('MyMinify');
-        $ign_script_url = 'http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false';
+        $ign_script_url = 'http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false';
         // FIXME if using ie for async load, set $debug to true, because minifying the js currently breaks ie
         $c2c_script_url = minify_get_combined_files_url(array('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js',
                                                               '/static/js/mapfish/mfbase/ext/ext-all.js',
@@ -147,7 +147,7 @@ function _loadJsMapTools()
 
     if (!sfConfig::get('app_async_map', true))
     {
-        use_javascript('http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
+        use_javascript('http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
     }
 
     // FIXME following files will only be loaded by internet explorer when in async mode (extjs cannot be loaded async with ie)
