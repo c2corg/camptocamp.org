@@ -51,7 +51,7 @@ class Summit extends BaseSummit
             $join_id = 'join_summit_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'summits', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'summits', $join_id, false, $params_list);
         if ($is_module)
         {
             $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
@@ -66,7 +66,7 @@ class Summit extends BaseSummit
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'salt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.summit_type', 'styp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'si.culture', 'scult', 'join_summit_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'lsb.main_id', 'sbooks', 'join_sbook_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'lsb.main_id', 'sbooks', 'join_sbook_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lsc.linked_id', 'stags', 'join_stag_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lsbc.linked_id', 'sbtags', 'join_sbtag_id', false, $params_list);
         }
@@ -110,7 +110,7 @@ class Summit extends BaseSummit
 
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 's');
-        self::buildConditionItem($conditions, $values, 'List', 'lsb.main_id', 'books', 'join_sbook_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Id', 'lsb.main_id', 'books', 'join_sbook_id', false, $params_list);
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
         
         // image criteria
@@ -187,15 +187,19 @@ class Summit extends BaseSummit
             
             $q->leftJoin($first_join . ' ls');
             
+            if (!isset($conditions['join_summit_id']) || isset($conditions['join_summit_id_has']))
+            {
+                $q->addWhere($m . "type = '$ltype'");
+                if (isset($conditions['join_summit_id_has']))
+                {
+                    unset($conditions['join_summit_id_has']);
+                }
+            }
             if (isset($conditions['join_summit_id']))
             {
                 unset($conditions['join_summit_id']);
                 
                 return;
-            }
-            else
-            {
-                $q->addWhere($m . "type = '$ltype'");
             }
             
             if (isset($conditions['join_summit']))
@@ -225,13 +229,17 @@ class Summit extends BaseSummit
         {
             $q->leftJoin($main . " lsb");
             
+            if (!isset($conditions['join_sbook_id']) || isset($conditions['join_sbook_id_has']))
+            {
+                $q->addWhere("lsb.type = 'bs'");
+                if (isset($conditions['join_sbook_id_has']))
+                {
+                    unset($conditions['join_sbook_id_has']);
+                }
+            }
             if (isset($conditions['join_sbook_id']))
             {
                 unset($conditions['join_sbook_id']);
-            }
-            else
-            {
-                $q->addWhere("lsb.type = 'bs'");
             }
             if (isset($conditions['join_sbtag_id']))
             {

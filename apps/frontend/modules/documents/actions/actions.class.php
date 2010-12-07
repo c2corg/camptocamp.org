@@ -3064,7 +3064,7 @@ class documentsActions extends c2cActions
                 $self_link = $lang ? "@feed_lang?module=$module&lang=$lang" : "@feed?module=$module";
                 break;
             case 'creations':
-                $description = $this->__($lng ? "Latest %1% creations in %2%" : "Latest %1% creations",
+                $description = $this->__($lang ? "Latest %1% creations in %2%" : "Latest %1% creations",
                                         array('%1%' => $this->__($module), '%2%' => $lang ? $this->__($languages[$lang]) : null));
                 $title = $description; // TODO Provide better description, different from title
                 $link = "@default_index?module=$module"; // TODO can we redirect to list with lang filter once it is done?

@@ -146,7 +146,7 @@ class Site extends BaseSite
             $join_id = 'join_site_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'sites', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'sites', $join_id, false, $params_list);
         if ($is_module)
         {
             $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
@@ -170,7 +170,7 @@ class Site extends BaseSite
             self::buildConditionItem($conditions, $values, 'List', $m . '.children_proof', 'chil', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.rain_proof', 'rain', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ti.culture', 'tcult', 'join_site_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'ltb.main_id', 'tbooks', 'join_tbook_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'ltb.main_id', 'tbooks', 'join_tbook_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ltc.linked_id', 'ttags', 'join_ttag_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ltbc.linked_id', 'tbtags', 'join_tbtag_id', false, $params_list);
         }
@@ -213,7 +213,7 @@ class Site extends BaseSite
 
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 't');
-        self::buildConditionItem($conditions, $values, 'List', 'ltb.main_id', 'books', 'join_tbook_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Id', 'ltb.main_id', 'books', 'join_tbook_id', false, $params_list);
         
         // image criteria
         Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
@@ -288,15 +288,19 @@ class Site extends BaseSite
             
             $q->leftJoin($first_join . ' lt');
             
+            if (!isset($conditions['join_site_id']) || isset($conditions['join_site_id_has']))
+            {
+                $q->addWhere($m . "type = '$ltype'");
+                if (isset($conditions['join_site_id_has']))
+                {
+                    unset($conditions['join_site_id_has']);
+                }
+            }
             if (isset($conditions['join_site_id']))
             {
                 unset($conditions['join_site_id']);
                 
                 return;
-            }
-            else
-            {
-                $q->addWhere($m . "type = '$ltype'");
             }
             
             if (isset($conditions['join_site']))
@@ -326,13 +330,17 @@ class Site extends BaseSite
         {
             $q->leftJoin($main . " ltb");
             
+            if (!isset($conditions['join_tbook_id']) || isset($conditions['join_tbook_id_has']))
+            {
+                $q->addWhere("ltb.type = 'bt'");
+                if (isset($conditions['join_tbook_id_has']))
+                {
+                    unset($conditions['join_tbook_id_has']);
+                }
+            }
             if (isset($conditions['join_tbook_id']))
             {
                 unset($conditions['join_tbook_id']);
-            }
-            else
-            {
-                $q->addWhere("ltb.type = 'bt'");
             }
             if (isset($conditions['join_tbtag_id']))
             {

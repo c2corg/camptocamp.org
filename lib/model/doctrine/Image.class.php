@@ -375,7 +375,7 @@ class Image extends BaseImage
             $join_id = $join . '_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'images', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'images', $join_id, false, $params_list);
         if ($is_module)
         {
             $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
@@ -493,15 +493,19 @@ class Image extends BaseImage
             
             $q->leftJoin("m.LinkedAssociation li");
             
+            if (!isset($conditions['join_image_id']) || isset($conditions['join_image_id_has']))
+            {
+                $q->addWhere($m . "type = '$ltype'");
+                if (isset($conditions['join_image_id_has']))
+                {
+                    unset($conditions['join_image_id_has']);
+                }
+            }
             if (isset($conditions['join_image_id']))
             {
                 unset($conditions['join_image_id']);
                 
                 return;
-            }
-            else
-            {
-                $q->addWhere($m . "type = '$ltype'");
             }
             
             if (isset($conditions['join_image']))

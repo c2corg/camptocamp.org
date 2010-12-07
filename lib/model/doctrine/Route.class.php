@@ -331,7 +331,7 @@ class Route extends BaseRoute
             $join_id = $join . '_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'routes', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'routes', $join_id, false, $params_list);
         if ($is_module)
         {
             $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
@@ -376,7 +376,7 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'sub_activities'), 'sub', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.is_on_glacier', 'glac', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ri.culture', 'rcult', 'join_route_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'lrb.main_id', 'rbooks', 'join_rbook_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'lrb.main_id', 'rbooks', 'join_rbook_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrd.main_id', 'rdocs', 'join_rdoc_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrc.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrdc.linked_id', 'rdtags', 'join_rdtag_id', false, $params_list);
@@ -422,7 +422,7 @@ class Route extends BaseRoute
 
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
-        self::buildConditionItem($conditions, $values, 'List', 'lrb.main_id', 'books', 'join_rbook_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Id', 'lrb.main_id', 'books', 'join_rbook_id', false, $params_list);
         
         // image criteria
         Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
@@ -505,15 +505,19 @@ class Route extends BaseRoute
                 
             $q->leftJoin($first_join . ' lr');
             
+            if (!isset($conditions['join_route_id']) || isset($conditions['join_route_id_has']))
+            {
+                $q->addWhere($m . "type = '$ltype'");
+                if (isset($conditions['join_route_id_has']))
+                {
+                    unset($conditions['join_route_id_has']);
+                }
+            }
             if (isset($conditions['join_route_id']))
             {
                 unset($conditions['join_route_id']);
                 
                 return;
-            }
-            else
-            {
-                $q->addWhere($m . "type = '$ltype'");
             }
             
             if (isset($conditions['join_route']))
@@ -563,13 +567,17 @@ class Route extends BaseRoute
         {
             $q->leftJoin($main . " lrb");
             
+            if (!isset($conditions['join_rbook_id']) || isset($conditions['join_rbook_id_has']))
+            {
+                $q->addWhere("lrb.type = 'br'");
+                if (isset($conditions['join_rbook_id_has']))
+                {
+                    unset($conditions['join_rbook_id_has']);
+                }
+            }
             if (isset($conditions['join_rbook_id']))
             {
                 unset($conditions['join_rbook_id']);
-            }
-            else
-            {
-                $q->addWhere("lrb.type = 'br'");
             }
             if (isset($conditions['join_rbtag_id']))
             {

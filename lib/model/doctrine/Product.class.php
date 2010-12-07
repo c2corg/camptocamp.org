@@ -34,7 +34,7 @@ class Product extends BaseProduct
             $join_id = $join . '_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'products', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'products', $join_id, false, $params_list);
         if ($is_module)
         {
             $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
@@ -153,15 +153,19 @@ class Product extends BaseProduct
                 
             $q->leftJoin($first_join . ' lf');
             
+            if (!isset($conditions['join_product_id']) || isset($conditions['join_product_id_has']))
+            {
+                $q->addWhere($m . "type = '$ltype'");
+                if (isset($conditions['join_product_id_has']))
+                {
+                    unset($conditions['join_product_id_has']);
+                }
+            }
             if (isset($conditions['join_product_id']))
             {
                 unset($conditions['join_product_id']);
                 
                 return;
-            }
-            else
-            {
-                $q->addWhere($m . "type = '$ltype'");
             }
             
             if (isset($conditions['join_product']))

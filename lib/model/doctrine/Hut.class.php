@@ -69,7 +69,7 @@ class Hut extends BaseHut
             $join_id = 'join_hut_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'huts', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'huts', $join_id, false, $params_list);
         if ($is_module)
         {
             $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
@@ -93,7 +93,7 @@ class Hut extends BaseHut
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.has_unstaffed_gas', 'hgas', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.has_unstaffed_wood', 'hwoo', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'hi.culture', 'hcult', 'join_hut_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'lhb.main_id', 'hbooks', 'join_hbook_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'lhb.main_id', 'hbooks', 'join_hbook_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lhc.linked_id', 'htags', 'join_htag_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lhbc.linked_id', 'hbtags', 'join_hbtag_id', false, $params_list);
         }
@@ -133,7 +133,7 @@ class Hut extends BaseHut
 
         // book criteria
         Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'h');
-        self::buildConditionItem($conditions, $values, 'List', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Id', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
         
         // image criteria
         Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
@@ -208,15 +208,19 @@ class Hut extends BaseHut
             
             $q->leftJoin($first_join . ' lh');
             
+            if (!isset($conditions['join_hut_id']) || isset($conditions['join_hut_id_has']))
+            {
+                $q->addWhere($m . "type = '$ltype'");
+                if (isset($conditions['join_hut_id_has']))
+                {
+                    unset($conditions['join_hut_id_has']);
+                }
+            }
             if (isset($conditions['join_hut_id']))
             {
                 unset($conditions['join_hut_id']);
                 
                 return;
-            }
-            else
-            {
-                $q->addWhere($m . "type = '$ltype'");
             }
             
             if (isset($conditions['join_hut']))
@@ -246,13 +250,17 @@ class Hut extends BaseHut
         {
             $q->leftJoin($main . " lhb");
             
+            if (!isset($conditions['join_hbook_id']) || isset($conditions['join_hbook_id_has']))
+            {
+                $q->addWhere("lhb.type = 'bh'");
+                if (isset($conditions['join_hbook_id_has']))
+                {
+                    unset($conditions['join_hbook_id_has']);
+                }
+            }
             if (isset($conditions['join_hbook_id']))
             {
                 unset($conditions['join_hbook_id']);
-            }
-            else
-            {
-                $q->addWhere("lhb.type = 'bh'");
             }
             if (isset($conditions['join_hbtag_id']))
             {
