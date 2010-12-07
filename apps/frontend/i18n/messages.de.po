@@ -5462,8 +5462,9 @@ msgstr "Alpines Felsklettern von L bis ZS"
 msgid "pack_rock_climbing_bolted"
 msgstr "Mehrseillängensportkletterei"
 
+# [WARNING] needs_review
 msgid "pack_skitouring"
-msgstr "Ski, Snowboard"
+msgstr "Ski, Snowboard, Schneeschuh"
 
 # [WARNING] needs_review
 msgid "pack_snow_ice_mixed_easy"

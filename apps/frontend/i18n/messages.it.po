@@ -4995,8 +4995,9 @@ msgstr "Alpinismo su roccia (F a AD)"
 msgid "pack_rock_climbing_bolted"
 msgstr "Arrampicata su vie sportive"
 
+# [WARNING] needs_review
 msgid "pack_skitouring"
-msgstr "Sci, surf"
+msgstr "Sci, surf, ciaspole"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpinismo su neve, ghiaccio, misto (F a PD+)"

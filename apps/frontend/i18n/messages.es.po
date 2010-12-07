@@ -4996,8 +4996,9 @@ msgstr "Alpinismo en roca de F a AD"
 msgid "pack_rock_climbing_bolted"
 msgstr "Escalada deportiva de varios largos"
 
+# [WARNING] needs_review
 msgid "pack_skitouring"
-msgstr "Esquí y snowboard de montaña"
+msgstr "Esquí y snowboard de montaña, raquetas"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpinismo de nieve, hielo y mixto de F a PD+"

@@ -1,6 +1,6 @@
 <?php
 /**
- * Layout for the mobile version (under construction....)
+ * Layout for the mobile version
  */
 $lang_code = __('meta_language');
 $module = $sf_context->getModuleName();

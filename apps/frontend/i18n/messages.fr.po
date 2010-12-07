@@ -2204,7 +2204,7 @@ msgid "Too many results"
 msgstr "Trop de résultats"
 
 msgid "Too many results. Please go on typing..."
-msgstr "Résultats trop nombreux. Continuer à taper..."
+msgstr "Résultats trop nombreux. Continuez de taper..."
 
 msgid "Toolbox"
 msgstr "Boîte à outils"
@@ -2559,11 +2559,9 @@ msgstr "<h3>Accès</h3>Etat de la route d'accès au point de départ le jour de 
 msgid "_accommodation_info"
 msgstr "<h3>Hébergement et restauration à proximité</h3>Informations sur les possibilités de restauration et d'hébergement à proximité du point d'accès."
 
-# [comment]
-# insert snowshoeing in the activities list
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_activities_info"
-msgstr "<h3>Activités</h3>Type d'activités&nbsp;: dans une liste ou un document, passez la souris sur les pictogrammes pour connaître leur signification.<br />Un document peut être associé à une ou plusieurs activités&nbsp;:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski, surf</strong>&nbsp;: randonnée à ski et/ou surf<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinisme neige, glace, mixte</strong>&nbsp;: alpinisme sur neige, glace ou mixte (en haute montagne)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>rocher haute montagne</strong>&nbsp;: alpinisme sur rocher, grandes voies en montagne (équipées ou non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>escalade</strong>&nbsp;: bloc, voies d'une ou plusieurs longueurs en falaise (équipées ou non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascade</strong>&nbsp;: cascade de glace hors haute montagne, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>randonnée pédestre</strong>&nbsp;: randonnée pédestre en terrain montagneux (et non en plaine), sur sentier balisé ou non, ou hors sentier<br /><br />La différence entre les activités <strong>escalade</strong> et <strong>rocher haute montagne</strong> se fait principalement sur l'altitude du sommet de la voie, mais pas sur l'équipement. En Europe, les règles suivantes s'appliquent :<br />- altitude < 2100m : escalade<br />- altitude entre 2100m et 2400m : escalade ou rocher haute montagne, mais majoritairement escalade<br />- altitude entre 2400m et 2700m : escalade ou rocher haute montagne, mais majoritairement rocher haute montagne<br />- altitude > 2700m : rocher haute montagne<br />Pour une altitude entre 2100m et 2700m, les 2 activités peuvent être sélectionnées en cas de doute."
+msgstr "<h3>Activités</h3>Type d'activités&nbsp;: dans une liste ou un document, passez la souris sur les pictogrammes pour connaître leur signification.<br />Un document peut être associé à une ou plusieurs activités&nbsp;:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski, surf</strong>&nbsp;: randonnée à ski et/ou surf<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>raquette</strong>&nbsp;: randonnée en raquettes<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinisme neige, glace, mixte</strong>&nbsp;: alpinisme sur neige, glace ou mixte (en haute montagne)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>rocher haute montagne</strong>&nbsp;: alpinisme sur rocher, grandes voies en montagne (équipées ou non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>escalade</strong>&nbsp;: bloc, voies d'une ou plusieurs longueurs en falaise (équipées ou non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascade</strong>&nbsp;: cascade de glace hors haute montagne, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>randonnée pédestre</strong>&nbsp;: randonnée pédestre en terrain montagneux (et non en plaine), sur sentier balisé ou non, ou hors sentier<br /><br />La différence entre les activités <strong>escalade</strong> et <strong>rocher haute montagne</strong> se fait principalement sur l'altitude du sommet de la voie, mais pas sur l'équipement. En Europe, les règles suivantes s'appliquent :<br />- altitude < 2100m : escalade<br />- altitude entre 2100m et 2400m : escalade ou rocher haute montagne, mais majoritairement escalade<br />- altitude entre 2400m et 2700m : escalade ou rocher haute montagne, mais majoritairement rocher haute montagne<br />- altitude > 2700m : rocher haute montagne<br />Pour une altitude entre 2100m et 2700m, les 2 activités peuvent être sélectionnées en cas de doute."
 
 msgid "_aid_rating_info"
 msgstr "<h3>Cotation escalade artificielle</h3>Cotation des difficultés d'escalade artificielle.<br />La cotation artif correspond à la difficulté maximale de l'escalade artificielle rocheuse, c'est à dire l'escalade consistant à utiliser des points d'aide pour progresser sur un passage donné.<br />L'échelle va de A0 à A6.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/131454/fr\">cotations en artif</a>."
@@ -5029,8 +5027,13 @@ msgstr "Alpinisme rocheux de F à AD"
 msgid "pack_rock_climbing_bolted"
 msgstr "Escalade en grande voie sportive"
 
+# [comment]
+# Était : ski, surf
+# 
+# Autre possibilité : randonnée hivernale
+# [WARNING] needs_review
 msgid "pack_skitouring"
-msgstr "Ski, surf"
+msgstr "Ski, surf, raquette"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpinisme neige/glace/mixte de F à PD+"

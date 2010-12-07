@@ -5398,7 +5398,7 @@ msgstr "Escalada deportiva de varios largos"
 
 # [WARNING] es translation used
 msgid "pack_skitouring"
-msgstr "Esquí y snowboard de montaña"
+msgstr "Esquí y snowboard de montaña, raquetas"
 
 # [WARNING] es translation used
 msgid "pack_snow_ice_mixed_easy"
