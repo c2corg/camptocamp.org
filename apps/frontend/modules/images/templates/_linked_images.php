@@ -20,7 +20,7 @@ foreach($images as $image)
     $image_type = $image['image_type'];
 
     $image_tag = image_tag(image_url($image['filename'], 'small'),
-                           array('alt' => $caption));
+                           array('alt' => $caption, 'title' => $caption));
                            
     $view_details = link_to('details', "@document_by_id_lang_slug?module=images&id=$image_id&lang=$lang&slug=$slug", 
                             array('class' => 'view_details', 'title' => __('View image details')));

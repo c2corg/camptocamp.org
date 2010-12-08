@@ -30,12 +30,13 @@ function image_url($image, $type = null, $force_no_base = false, $use_temp = fal
     return $base_path . $image_name . $suffix . (isset($new_ext) ? $new_ext : $image_ext);
 }
 
-function display_picture($filename, $size = 'big', $target_size = NULL, $title = 'Click to display original image')
+function display_picture($filename, $size = 'big', $target_size = null, $image_title = null, $link_title = 'Click to display original image')
 {
     $image_url = image_url($filename, $size);
     $target_image_url = image_url($filename, $target_size, true);
     $absolute_url = absolute_link($target_image_url, true);
+    $image_options = empty($image_title) ? null : array('title' => $image_title, 'alt' => $image_title);
 
-    return '<div class="picture"><a title="' . __($title) . '" href="' . $absolute_url . '">' . 
-           image_tag($image_url) . '</a></div><div class="picture_right"></div>';
+    return '<div class="picture"><a title="' . __($link_title) . '" href="' . $absolute_url . '">' . 
+           image_tag($image_url, $image_options) . '</a></div><div class="picture_right"></div>';
 }
