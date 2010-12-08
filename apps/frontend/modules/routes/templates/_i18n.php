@@ -9,7 +9,7 @@ $is_on_glacier = $document->getRaw('is_on_glacier');
 $backpack_content_list = array();
 $backpack_content_links = array();
 
-if (in_array(1, $activities))
+if (array_intersect(array(1,7), $activities))
 {
     $backpack_content_list[] = 'pack_skitouring';
 }
@@ -42,7 +42,7 @@ if (in_array(6, $activities))
 {
     $backpack_content_list[] = 'pack_hiking';
 }
-if (array_intersect(array(1,2,3), $activities) && $is_on_glacier == 1)
+if (array_intersect(array(1,2,3,7), $activities) && $is_on_glacier == 1)
 {
     $backpack_content_list[] = 'glacier gear';
 }
