@@ -1332,7 +1332,7 @@ function get_is_admmod($forum_id, $moderator_list, $pun_user)
     {
         $mods_array = unserialize($moderator_list);
     }
-    $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && array_key_exists($pun_user['username'], $mods_array))) ? true : false;
+    $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && in_array($pun_user['id'], $mods_array))) ? true : false;
     $is_c2c_board = ($forum_id != C2C_BOARD_FORUM || $is_admmod || $pun_user['g_id'] > PUN_GUEST) ? true : false;
 
     return array($is_admmod, $is_c2c_board);

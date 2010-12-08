@@ -133,6 +133,31 @@ $replace = array(' ', ' ', ' ', ' ', ' ');
 $page_description = str_replace($pattern, $replace, $page_description);
 $page_description = pun_htmlspecialchars($page_description);
 
+if ($pun_user['g_id'] < PUN_GUEST)
+{
+    $mods_array = unserialize($cur_forum['moderators']);
+    if (!empty($mods_array))
+    {
+        $moderator_list = array();
+        while (list($mod_username, $mod_id) = @each($mods_array))
+        {
+            $moderator_list[] = '<a href="/users/'.$mod_id.'">'.pun_htmlspecialchars($mod_username).'</a>';
+        }
+        $moderator_list = '<div class="forum_desc">'
+                        . $lang_common['Moderated by'] . ' : '
+                        . implode(', ', $moderator_list)
+                        . '</div>';
+    }
+    else
+    {
+        $moderator_list = '';
+    }
+}
+else
+{
+    $moderator_list = '';
+}
+
 $footer_style = 'viewforum';
 $forum_id = $id;
 define('PUN_ALLOW_INDEX', 1);
@@ -528,7 +553,8 @@ else
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
 		<p class="postlink conr"><?php echo $post_link ?></p>
-		<?php echo $forum_links ?>
+		<?php echo $forum_links;
+        echo $moderator_list ?>
 		<div class="clearer"></div>
 	</div>
 </div>

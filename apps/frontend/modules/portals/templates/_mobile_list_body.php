@@ -9,7 +9,7 @@ $item_id = $item_i18n['id'];
 $cda_config = sfConfig::get('app_portals_cda');
 if ($item_id == $cda_config['id'])
 {
-    echo '<a href="http://' . $cda_config['host'] . '/' . $item_i18n['culture'] . '">' . $item_i18n['name'] . '</a>';
+    echo '<a href="http://' . $cda_config['host'] . '">' . $item_i18n['name'] . '</a>';
 }
 else
 {

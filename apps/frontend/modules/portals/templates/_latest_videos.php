@@ -30,7 +30,7 @@ include_partial('documents/home_section_title',
 <?php if (count($items) == 0): ?>
     <p><?php echo __('No recent videos available') ?></p>
 <?php else: ?>
-    <div id="video_list">
+    <div id="last_video_list">
     <?php foreach ($items as $item): ?>
         <div class="video">
         <?php 

@@ -219,6 +219,31 @@ if (!$pun_user['is_guest'] && $pun_config['o_subscriptions'] == '1')
 else
 	$subscraction = '<div class="clearer"></div>'."\n";
 
+if ($pun_user['g_id'] < PUN_GUEST)
+{
+    $mods_array = unserialize($cur_topic['moderators']);
+    if (!empty($mods_array))
+    {
+        $moderator_list = array();
+        while (list($mod_username, $mod_id) = @each($mods_array))
+        {
+            $moderator_list[] = '<a href="/users/'.$mod_id.'">'.pun_htmlspecialchars($mod_username).'</a>';
+        }
+        $moderator_list = '<div class="forum_desc">'
+                        . $lang_common['Moderated by'] . ' : '
+                        . implode(', ', $moderator_list)
+                        . '</div>';
+    }
+    else
+    {
+        $moderator_list = '';
+    }
+}
+else
+{
+    $moderator_list = '';
+}
+    
 if ($cur_topic['question'])
 	$cur_topic_question = $cur_topic['question'].' - ';
 else
@@ -728,7 +753,8 @@ if (count($user_contacts)) echo "\t\t\t\t\t".'<dd class="usercontacts">'.implode
 		<p class="postlink conr"><?php echo $post_link ?></p>
 		<?php
 echo $topic_links;
-echo "\t\t".$subscraction ?>
+echo "\n".$subscraction;
+echo $moderator_list ?>
 	</div>
 </div>
 
