@@ -35,13 +35,13 @@ function hide_outings_unrelated_fields()
     var activities = $A($F($('activities')));
     activities.each(function(activity)
     {
-        if (activity == 1 || activity == 2 || activity == 5)
+        if (activity == 1 || activity == 2 || activity == 5 || activity == 7)
         {
             show_outings_snow_elevation = true;
             show_outings_track = true;
             show_outings_conditions_levels = true;
         }
-        if (activity == 1 || activity == 2 || activity == 3)
+        if (activity == 1 || activity == 2 || activity == 3 || activity == 7)
         {
             show_outings_glacier = true;
         }
