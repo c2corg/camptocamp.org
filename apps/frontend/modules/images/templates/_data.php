@@ -62,7 +62,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         if ($document->get('has_svg'))
         {
             $svg_url = image_url($document->get('filename'), null, false, false, '.svg');
-            echo li(_format_data('source file', absolute_link_to(__('svg file'), $svg_url)));
+            echo li(_format_data('source file', link_to(__('svg file'), $svg_url)));
         }
         if ($document->get('geom_wkt'))
         {
