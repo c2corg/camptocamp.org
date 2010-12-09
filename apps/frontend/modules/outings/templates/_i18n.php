@@ -8,7 +8,6 @@ $timing = $document->get('timing');
 $access_comments = $document->get('access_comments');
 $hut_comments = $document->get('hut_comments');
 $has_conditions = !empty($conditions);
-$has_conditions_levels = (!empty($conditions_levels) && count($conditions_levels));
 $has_weather_or_timing = (!empty($weather) || !empty($timing));
 $has_access_or_hut = (!empty($access_comments) || !empty($hut_comments));
 
@@ -17,6 +16,7 @@ if (!array_intersect(array(1,2,5,7), $document->getRaw('activities')))
 {
     $conditions_levels = NULL;
 }
+$has_conditions_levels = (!empty($conditions_levels) && count($conditions_levels));
 
 $other_conditions = '';
 if (!empty($associated_areas))
