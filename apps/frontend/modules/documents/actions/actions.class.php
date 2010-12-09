@@ -3709,9 +3709,10 @@ class documentsActions extends c2cActions
         {
             // send an email to warn the new user associated
             $email_recipient = UserPrivateData::find($user_id)->getEmail();
-            c2cTools::log($email_recipient);
             $email_subject = $this->__('You have been associated to an outing');
-            $htmlBody = $this->__('You have been associated to an outing details');
+            $server = $_SERVER['SERVER_NAME'];
+            $outing_link = "$server/outings/$linked_id";
+            $htmlBody = $this->__('You have been associated to outing %1% details', array('%1%' => '<a href="' . $outing_link . '">' . $outing_link . '</a>'));
 
             $mail = new sfMail();
             $mail->setCharset('utf-8');

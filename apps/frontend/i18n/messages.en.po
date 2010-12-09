@@ -2493,6 +2493,19 @@ msgid "You do not have the rights to link a user to this document"
 msgstr "You do not have the necessary rights to link a user to this document"
 
 # [general comment]
+# Title of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to an outing"
+msgstr "Vous avez été associé à une nouvelle sortie"
+
+# [general comment]
+# Details of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to outing %1% details"
+msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+
+# [general comment]
 # dans l'interface d'abonnement aux mailings lists
 msgid "You have not subscribed to any list"
 msgstr "You haven't subscribed to any list yet."
@@ -2791,6 +2804,7 @@ msgstr "<h3>Picture categories</h3>More than one category may be selected, espec
 msgid "_image_new_version_info"
 msgstr "<h3>New picture version</h3>Use this field to upload a newer version of a picture (e.g. an updated diagram)."
 
+# [WARNING] needs_update
 msgid "_image_type_info"
 msgstr "<h3>Type of picture</h3><strong>Collaborative picture:</strong> <br />A collaborative picture can be copied and edited by all users of camptocamp.org. This is particularly useful for improving the guide book, as routes or summits can be added to the picture.<br /><br /><strong>Personal picture</strong>:<br />A personal picture can only be modified by its author. This type is most adapted to pictures of people and associated to outings."
 

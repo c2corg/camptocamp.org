@@ -2485,6 +2485,19 @@ msgid "You do not have the rights to link a user to this document"
 msgstr "You do not have the rights to link a user to this document"
 
 # [general comment]
+# Title of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to an outing"
+msgstr "Vous avez été associé à une nouvelle sortie"
+
+# [general comment]
+# Details of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to outing %1% details"
+msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+
+# [general comment]
 # dans l'interface d'abonnement aux mailings lists
 msgid "You have not subscribed to any list"
 msgstr "Non hai sottoscritto alcuna lista di distribuzione"
@@ -2762,6 +2775,7 @@ msgstr "<h3>Categorie di un immagine</h3>Più categorie possono essere seleziona
 msgid "_image_new_version_info"
 msgstr "<h3>Nuova versione dell'immagine</h3>Puoi usare questo campo per caricare una nuova versione dell'immagine (per esempio una versione aggiornata di uno schizzo d'itinerario)"
 
+# [WARNING] needs_update
 msgid "_image_type_info"
 msgstr "<h3>Tipo d'immagine</h3><strong>immagine collaborativa:</strong> <br />Un immagine collaborativa può essere modificata dagli altri utenti di camptocamp.org. Questo è utile per migliorare gli schizzi d'itinerario della guida.<br /><br /><strong>immagine personale</strong>:<br />Un immagine personale può essere modificata sola dall'autore. Questo tipo è ben adattato per le immagini associate alle gite."
 

@@ -2535,6 +2535,19 @@ msgid "You do not have the rights to link a user to this document"
 msgstr "Sie verfügen nicht über die notwendigen Zugriffsrechte, um einen Benutzer mit diesem Dokument zu verbinden."
 
 # [general comment]
+# Title of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to an outing"
+msgstr "Vous avez été associé à une nouvelle sortie"
+
+# [general comment]
+# Details of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to outing %1% details"
+msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+
+# [general comment]
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] needs_review
 msgid "You have not subscribed to any list"
@@ -2955,7 +2968,7 @@ msgstr "<h3>Neue Version des Bildes</h3>Mit diesem Feld können sie eine neuere 
 
 # [comment]
 # Constructed a table for better display
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_image_type_info"
 msgstr "<h3>Bildtyp</h3><br />\n"
 "Es gibt bei camptocamp.org zwei verschiedene Typen von Bildern, das sog. 				<strong>gemeinschaftliche Bild</strong> und das <strong>persönliche Bild</strong>. Die beiden Bildtypen unterscheiden sich vor allem in der Lizenz, welcher sie unterstehen, und den daraus resultierenden Konsequenzen für die Verwendung innerhalb von camptocamp.org. Die folgende Tabelle gibt einen Überblick über die Unterschiede.<br /><br />\n"
@@ -3257,9 +3270,17 @@ msgstr "<h3>Details über die Schneeräumung</h3>Informationen zur Schneeräumun
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Schneeräumung</h3>Häufigkeit der Schneeräumung einer Strasse. Im Feld <em>Details zur Schneeräumung</em> können weitere Angaben gemacht werden."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>Schneeschuhtouren Schwierigkeit</h3>"
+msgstr "<h3>Schneeschuhtouren Schwierigkeit</h3>\n"
+"Bewertung der Schwierigkeiten einer Schneeschuhroute<br /><br />\n"
+"<strong>R1</strong>: Geringe Neigung (<20°), markierter Routenverlauf und oft begangen.<br /><br />\n"
+"<strong>R2</strong>: Unmarkierter Routenverlauf, weniger frequentiert, aber im wenig geneigten Gelände (<20°). Im Aufstieg sind keine Spitzkehren notwendig.<br /><br />\n"
+"<strong>R3</strong>: Route verläuft in steilem und ausgesetzten Gelände (<30°); der Aufstieg kann z.T. in Spitzkehren erfolgen und etvl. müssen steile und ausgesetzte Flanken traversiert werden.<br /><br />\n"
+"<strong>R4</strong>: Gleich wie R3, aber steiler (<40°). Bei Hartschnee kann es bei gewissen Passagen notwendig sein die Schneeschuhe auszuziehen und/oder Steigeisen zu verwenden.<br /><br />\n"
+"<strong>R5</strong>: Routenverlauf in sehr steilem Gelände (kurze Passagen >40°, längere Hänge >35°), erfordert Steigeisen, Pickel oder Seil um gewisse Hindernisse, wie z.B. ein Coulouir oder einen schmalen, ausgesetzten Grat zu überwinden. Lange, gleichmässig sehr steile Hänge (>35°) werden ebenfalls als R5 eingestuft.<br /><br />\n"
+"<strong>Achtung!</strong>: Falls der Hauptteil der Route zu schwierig ist, um mit Schneeschuhen begangen zu werden, oder falls Schneeschuhe lediglich für den Zugang verwendet werden sollte eine Route als <a href=\"/articles/188413/fr\">Hochtour</a> klassifiziert werden (und nicht als Schneeschuhtour). Falls diese Abschätzung nicht klar vorgenommen werden kann, können auch beide Aktivitäten angegeben werden. <br /><br />\n"
+"Mehr Informationen finden sie in der Hilfe zur <a href=\"/articles/239491\">Schwierigkeitsbewertungen von Schneeschuhtouren</a>."
 
 # [WARNING] needs_review
 msgid "_source file_info"

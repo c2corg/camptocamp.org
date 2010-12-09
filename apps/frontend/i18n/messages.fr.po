@@ -2487,6 +2487,19 @@ msgid "You do not have the rights to link a user to this document"
 msgstr "Vous n'avez pas les droits nécessaires pour lier un utilisateur à ce document"
 
 # [general comment]
+# Title of email sent when a user is associated to an outing
+# [WARNING] needs_review
+msgid "You have been associated to an outing"
+msgstr "Vous avez été associé à une nouvelle sortie"
+
+# [general comment]
+# Details of email sent when a user is associated to an outing
+# [WARNING] needs_review
+msgid "You have been associated to outing %1% details"
+msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+
+# [general comment]
 # dans l'interface d'abonnement aux mailings lists
 msgid "You have not subscribed to any list"
 msgstr "Vous n'êtes abonné à aucune liste."
@@ -2784,8 +2797,10 @@ msgstr "<h3>Catégories d'une image</h3>Plusieurs catégories peuvent être sél
 msgid "_image_new_version_info"
 msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour charger une version plus récente d'une image (typiquement une version complétée ou mise à jour d'un schéma de voie(s))"
 
+# [WARNING] needs_review
 msgid "_image_type_info"
-msgstr "<h3>Type d'image</h3><strong>image collaborative</strong>&nbsp;:<br />Une image collaborative est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a>. Elle peut être copiée et modifiée.<br />Dans le topoguide, une image collaborative (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>oui</strong><br />- association à un document collaboratif : <strong>oui</strong><br />- insertion dans le texte d'un document collaboratif : <strong>oui</strong><br />- L'enregistrement, l'association ou l'insertion d'une image collaborative sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement.<br /><br /><strong>image personnelle</strong>&nbsp;:<br />Une image personnelle est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Elle peut être copiée, mais pas modifiée, sauf par l'auteur.<br />Dans le topoguide, une image personnelle (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>non</strong><br />- association à un document collaboratif : <strong>oui</strong> (après enregistrement sur un document personnel)<br />- insertion dans le texte d'un document collaboratif : <strong>non</strong><br />- L'enregistrement, l'association ou l'insertion d'une image personnelle sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement."
+msgstr "<h3>Type d'image</h3><strong>image collaborative</strong>&nbsp;:<br />Une image collaborative est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a>. Elle peut être copiée et modifiée.<br />Dans le topoguide, une image collaborative (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>oui</strong><br />- association à un document collaboratif : <strong>oui</strong><br />- insertion dans le texte d'un document collaboratif : <strong>oui</strong><br />- L'enregistrement, l'association ou l'insertion d'une image collaborative sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement.<br /><br /><strong>image personnelle</strong>&nbsp;:<br />Une image personnelle est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Elle peut être copiée, mais pas modifiée, sauf par l'auteur.<br />Dans le topoguide, une image personnelle (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>non</strong><br />- association à un document collaboratif : <strong>oui</strong> (après enregistrement sur un document personnel)<br />- insertion dans le texte d'un document collaboratif : <strong>non</strong><br />- L'enregistrement, l'association ou l'insertion d'une image personnelle sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement.\n"
+"<strong>image sous copyright</strong>&nbsp;:<br />Une image peut exceptionnellement ne pas être diffusée sous licence Creative Commons. Les images sous copyright correspondent à certaines couvertures de livre, et la propriété de celles-ci est à l'auteur et/ou l'éditeur de l'ouvrage. Elles ne sont présentes dans camptocamp qu'à titre d'illustration. Il n'est pas possible d'utiliser ces images sans en requérir au préalable à l'ayant droit."
 
 msgid "_is_on_glacier_info"
 msgstr "<h3>Nécessite le matériel de glacier</h3>Itinéraire passant sur des glaciers pouvant être crevassés."

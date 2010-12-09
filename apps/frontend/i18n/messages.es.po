@@ -2478,6 +2478,19 @@ msgid "You do not have the rights to link a user to this document"
 msgstr "No tiene los derechos necesarios para asociar un usuario a este documento"
 
 # [general comment]
+# Title of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to an outing"
+msgstr "Vous avez été associé à une nouvelle sortie"
+
+# [general comment]
+# Details of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to outing %1% details"
+msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+
+# [general comment]
 # dans l'interface d'abonnement aux mailings lists
 msgid "You have not subscribed to any list"
 msgstr "Todavía no te as inscrito a ninguna lista"
@@ -2745,6 +2758,7 @@ msgstr "<h3>Categorías para imágenes</h3><br /><span style=\"color: red\">La s
 msgid "_image_new_version_info"
 msgstr "<h3>Nueva versión de la imagen</h3>Puedes utilizar este campo para cargar una versión actualizada de la imagen (típicamente una versión mejorada o a la que hayas añadido el trayecto de una vía)"
 
+# [WARNING] needs_update
 msgid "_image_type_info"
 msgstr "<h3>Tipo de imagen</h3><strong>imagenes colaborativas </strong>:<br />Una imagen colaborativa se difunde bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">Creative Common by-sa</a>. Se puede copiar y modificar.<br />En la topo-guía, el uso de una imagen colaborativa (que uno sea el autor o no) permite:<br />- grabarla en documento colaborativo: <strong>sí</strong><br />- asociarla a un documento colaborativo: <strong>sí</strong><br />- insertarla en el texto de un documento colaborativo: <strong>sí</strong><br />- La grabación, la asociación o la inserción de una imagen colaborativa en un documento personal queda reservado a el o los autores del documento personal.<br /><br /><strong>imagen personal</strong>:<br />Una imagen personal se difunde bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Se puede copiar pero no modificar, salvo por el autor.<br /> En la topo-guía, el uso de una imagen personal (que uno sea el autor o no) permite:<br />- grabarla en documento colaborativo: <strong>noí</strong> <br />- asociarla a un documento colaborativo: <strong>sí</strong> (luego de haberla grabado en un documento colaborativo) <br />- insertarla en el texto de un documento colaborativo: <strong>no</strong><br />- La grabación, la asociación o la inserción de una imagen colaborativa en un documento personal queda reservado a el o los autores del documento personal."
 

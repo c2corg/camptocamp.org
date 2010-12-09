@@ -2618,6 +2618,19 @@ msgid "You do not have the rights to link a user to this document"
 msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honi lotzeko"
 
 # [general comment]
+# Title of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to an outing"
+msgstr "Vous avez été associé à une nouvelle sortie"
+
+# [general comment]
+# Details of email sent when a user is associated to an outing
+# [WARNING] fr translation used
+msgid "You have been associated to outing %1% details"
+msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+
+# [general comment]
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] es translation used
 msgid "You have not subscribed to any list"
