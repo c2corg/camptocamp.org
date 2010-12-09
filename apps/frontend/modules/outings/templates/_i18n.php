@@ -12,8 +12,8 @@ $has_conditions_levels = (!empty($conditions_levels) && count($conditions_levels
 $has_weather_or_timing = (!empty($weather) || !empty($timing));
 $has_access_or_hut = (!empty($access_comments) || !empty($hut_comments));
 
-// hide condition levels if ski, snow or ice_climbing are not among outing activities
-if (!array_intersect(array(1,2,5), $document->getRaw('activities')))
+// hide condition levels if ski, snow, ice_climbing or snowshoeing are not among outing activities
+if (!array_intersect(array(1,2,5,7), $document->getRaw('activities')))
 {
     $conditions_levels = NULL;
 }

@@ -97,6 +97,7 @@ function hide_unrelated_fields()
                 show_pack_hiking = true;
                 break;
             case '7': // snowshoeing
+                show_ski_snow_mountain = true;
                 show_snowshoeing = true;
                 break;
             default :
