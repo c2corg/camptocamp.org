@@ -105,7 +105,10 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
         case 'plupload':
             $response->addJavascript('/static/js/plupload.c2c.js', 'last');
             $response->addJavascript('/static/js/plupload.wrapper.js', 'last');
-            $js = 'Modalbox.show(\''.url_for("@image_jsupload?mod=$module_name&document_id=$document_id").'?plupload=true\', {title:this.title, width:700}); return false;';
+            $js = 'if (!Prototype.Browser.IE || (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) > 7)) { url = \'' .
+                  url_for("@image_jsupload?mod=$module_name&document_id=$document_id").'?plupload=true' .
+                  '\' } else { url = this.href; } Modalbox.show(url, {title:this.title, width:700}); return false;';
+            break;
             break;
         default:
             $js = 'Modalbox.show(\''.url_for("@image_upload?mod=$module_name&document_id=$document_id").'\', {title:this.title, width:700}); return false;';

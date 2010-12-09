@@ -7,7 +7,7 @@ PlUploadWrapper = {
     PlUploadWrapper.backup_js = backup_js;
     PlUploadWrapper.i18n = i18n;
     var uploader = new plupload.Uploader({
-      runtimes : 'silverlight,html5,flash',
+      runtimes : 'html5', //'silverlight,html5,flash', FIXME reenable flash and silverlight runtimes once they support exif
       browse_button : 'pickfiles',
       container : 'container',
       file_data_name : 'image_file',
@@ -18,7 +18,7 @@ PlUploadWrapper = {
       filters : [
         { title : PlUploadWrapper.i18n.extensions, extensions : "JPEG,jpeg,JPG,jpg,GIF,gif,PNG,png,SVG,svg" }
       ],
-      required_features : 'pngresize,jpgresize,progress,multipart', // a runtime that doesn't have one of this feature will fail
+      required_features : 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have one of this feature will fail
       // TODO add some server side work to enhance images quality?
     });
 
