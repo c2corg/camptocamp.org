@@ -276,6 +276,8 @@ class sfPunBBCodeParser
      */
     public static function handle_url_tag($url, $link = '', $viewer = true, $target = '')
     {
+        $rel = '';
+        
         $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
         if ($url == '')
         {
@@ -357,19 +359,23 @@ class sfPunBBCodeParser
         // Check if internal or external link
         $class = ' class="external_link"';
 
-        if (strpos("#/", $full_url[0]) !== false)
-        {
-            $class = '';
-        }
-
         $short_url = preg_replace('#^http://((m|www)\.)?camptocamp\.org/?(.*)#', '/${3}', $full_url);
         if ($short_url != $full_url)
         {
             $full_url = $short_url;
-            $class = '';
         }
 
-        return '<a' . $class . ' href="' . $full_url . '"' . $target . '>' . $link . '</a>' . $suffix;
+        if (strpos("#/", $full_url[0]) !== false)
+        {
+            $class = '';
+            
+            if (preg_match('#(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/(.*)name?/#i', $full_url))
+            {
+                $rel = ' rel="nofollow"';
+            }
+        }
+
+        return '<a' . $class . ' href="' . $full_url . '"' . $target . $rel . '>' . $link . '</a>' . $suffix;
     }
     
     public static function handle_static_img_tag($filename, $extension, $align, $legend = '')

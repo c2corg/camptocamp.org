@@ -9,6 +9,9 @@ User-agent: Googlebot-Mobile
 Crawl-delay: 120
 # dev frontend
 Disallow: /frontend_dev.php
+# generic documents
+Disallow: /documents
+Disallow: /documents/
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit
@@ -116,6 +119,9 @@ User-Agent: botmobi
 Crawl-delay: 120
 # dev frontend
 Disallow: /frontend_dev.php
+# generic documents
+Disallow: /documents
+Disallow: /documents/
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit
@@ -223,6 +229,9 @@ User-Agent: YahooSeeker/M1A1-R2D2
 Crawl-delay: 120
 # dev frontend
 Disallow: /frontend_dev.php
+# generic documents
+Disallow: /documents
+Disallow: /documents/
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit
@@ -331,6 +340,9 @@ User-agent: Mediapartners-Google*
 Crawl-delay: 120
 # dev frontend
 Disallow: /frontend_dev.php
+# generic documents
+Disallow: /documents
+Disallow: /documents/
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit

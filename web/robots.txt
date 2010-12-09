@@ -1,6 +1,9 @@
 User-agent: *
 # dev frontend
 Disallow: /frontend_dev.php
+# generic documents
+Disallow: /documents
+Disallow: /documents/
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit
@@ -109,6 +112,9 @@ Disallow: /widgetgenerator
 User-agent: Googlebot
 # dev frontend
 Disallow: /frontend_dev.php/
+# generic documents
+Disallow: /documents
+Disallow: /documents/
 # documents edition
 Disallow: /areas/edit/
 Disallow: /articles/edit/
@@ -242,6 +248,9 @@ Disallow: /summits/*/new.rss$
 User-agent: Slurp
 # dev frontend
 Disallow: /frontend_dev.php/
+# generic documents
+Disallow: /documents
+Disallow: /documents/
 # documents edition
 Disallow: /areas/edit/
 Disallow: /articles/edit/
@@ -375,6 +384,9 @@ Disallow: /summits/*/new.rss$
 User-agent: msnbot
 # dev frontend
 Disallow: /frontend_dev.php/
+# generic documents
+Disallow: /documents
+Disallow: /documents/
 # documents edition
 Disallow: /areas/edit/
 Disallow: /articles/edit/

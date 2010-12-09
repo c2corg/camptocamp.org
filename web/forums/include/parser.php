@@ -425,16 +425,20 @@ function handle_url_tag($url, $link = '')
     // Check if internal or external link
     $class = ' class="external_link"';
 
-    if (strpos("#/", $full_url[0]) !== false) 
-    { 
-        $class = '';
-    }
-
     $short_url = preg_replace('#^http://((m|www)\.)?camptocamp\.org/?(.*)#', '/${3}', $full_url);
     if ($short_url != $full_url)
     {
         $full_url = $short_url;
+    }
+
+    if (strpos("#/", $full_url[0]) !== false) 
+    { 
         $class = '';
+        
+        if (preg_match('#(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/(.*)name?/#i', $full_url))
+        {
+            $rel = ' rel="nofollow"';
+        }
     }
   
     return '<a' . $class . ' href="'.$full_url.'"'.$rel.'>'.$link.'</a>' . $suffix;
