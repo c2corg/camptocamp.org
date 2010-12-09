@@ -18,7 +18,7 @@ PlUploadWrapper = {
       filters : [
         { title : PlUploadWrapper.i18n.extensions, extensions : "JPEG,jpeg,JPG,jpg,GIF,gif,PNG,png,SVG,svg" }
       ],
-      required_features : 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have one of this feature will fail
+      required_features : 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have one of these features will fail
       // TODO add some server side work to enhance images quality?
     });
 
