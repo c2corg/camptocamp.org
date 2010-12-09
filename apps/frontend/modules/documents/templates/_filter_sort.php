@@ -2,7 +2,7 @@
 <?php echo '<span class="lineform">' . __('Display') ?>
 
 <?php
-$npp_options = options_for_select(array('10' => 10, '20' => 20, '30' => 30, '40' => 40, '50' => 50, '100' => 100), 30);
+$npp_options = options_for_select(array('10' => 10, '20' => 20, '30' => 30, '40' => 40, '50' => 50, '100' => 100), c2cTools::mobileVersion() ? 10 : 30);
 echo select_tag('npp', $npp_options);
 ?>
 
