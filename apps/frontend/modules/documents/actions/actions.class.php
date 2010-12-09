@@ -3705,6 +3705,31 @@ class documentsActions extends c2cActions
             return $this->ajax_feedback('The document is already linked to the current document');
         }
 
+        if ($linked_module_new == 'outings' && $main_module_new == 'users' && $main_id != $user_id)
+        {
+            // send an email to warn the new user associated
+            $email_recipient = UserPrivateData::find($user_id)->getEmail();
+            c2cTools::log($email_recipient);
+            $email_subject = $this->__('You have been associated to an outing');
+            $htmlBody = $this->__('You have been associated to an outing details');
+
+            $mail = new sfMail();
+            $mail->setCharset('utf-8');
+
+            // definition of the required parameters
+            $mail->setSender(sfConfig::get('app_outgoing_emails_sender'));
+            $mail->setFrom(sfConfig::get('app_outgoing_emails_from'));
+            $mail->addReplyTo(sfConfig::get('app_outgoing_emails_reply_to'));
+            $mail->addAddress($email_recipient);
+            $mail->setSubject($email_subject);
+            $mail->setContentType('text/html');
+            $mail->setBody($htmlBody);
+            $mail->setAltBody(strip_tags($htmlBody));
+
+            // send the email
+            $mail->send();
+        }
+
         // Perform association
         $a = new Association;
         $status = $a->doSaveWithValues($main_id_new, $linked_id_new, $type, $user_id);
