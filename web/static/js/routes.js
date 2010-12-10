@@ -98,6 +98,7 @@ function hide_unrelated_fields()
                 break;
             case '7': // snowshoeing
                 show_ski_snow_mountain = true;
+                show_ski_snow_mountain_rock = true;
                 show_snowshoeing = true;
                 show_ski_snow = true;
                 break;

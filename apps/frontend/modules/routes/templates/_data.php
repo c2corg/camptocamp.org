@@ -18,7 +18,7 @@ $activities = $document->getRaw('activities');
         li(field_data_if_set($document, 'difficulties_height', '', 'meters'));
     }
 
-    if (array_intersect(array(1,2,3,4), $activities)) // ski, snow or mountain or rock_climbing
+    if (array_intersect(array(1,2,3,4,7), $activities)) // ski, snow or mountain or rock_climbing
     {
         li(field_data_from_list_if_set($document, 'configuration', 'mod_routes_configurations_list', true));
     }
