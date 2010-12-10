@@ -40,7 +40,7 @@ $activities = $document->getRaw('activities');
         li($duration . ' ' . __('days'));
     }
 
-    if (array_intersect(array(1,2), $activities)) // ski or snow
+    if (array_intersect(array(1,2,7), $activities)) // ski or snow or snowshoeing
     {
         li(field_data_if_set($document, 'slope'));
     }

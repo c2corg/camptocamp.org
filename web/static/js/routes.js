@@ -99,6 +99,7 @@ function hide_unrelated_fields()
             case '7': // snowshoeing
                 show_ski_snow_mountain = true;
                 show_snowshoeing = true;
+                show_ski_snow = true;
                 break;
             default :
                 show_data = false;
