@@ -240,6 +240,10 @@ class portalsActions extends documentsActions
                 
                 $this->setTemplate('changerdapproche');
             }
+            
+            sfLoader::loadHelpers(array('sfBBCode', 'SmartFormat'));
+            $abstract = strip_tags(parse_links(parse_bbcode_abstract($this->document->get('abstract'))));
+            $this->getResponse()->addMeta('description', $abstract);
         }
     }
 

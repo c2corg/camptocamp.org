@@ -206,10 +206,13 @@ class BaseDocument extends sfDoctrineRecordI18n
             switch ($criteria_type)
             {
                 case 'String': //self::buildStringCondition(&$conditions, &$values, $field, $value);
+                    $nb_join = 0;
                     break;
                 case 'Istring': //self::buildIstringCondition(&$conditions, &$values, $field, $value);
+                    $nb_join = 0;
                     break;
                 case 'Mstring': //self::buildMstringCondition(&$conditions, &$values, $field, $value);
+                    $nb_join = 0;
                     break;
                 case 'Item':    self::buildItemCondition(&$conditions, &$values, $field, $value); break;
                 case 'Multi':   self::buildMultiCondition(&$conditions, &$values, $field, $value); break;
