@@ -48,6 +48,9 @@ msgstr "%1% vías"
 msgid "%1% weeks ago"
 msgstr "hace %1% semanas"
 
+msgid "%1% x %2% px, %3% Ko"
+msgstr "%1% x %2% px, %3% Kio"
+
 msgid "%1% x %2% px, %3% Mo"
 msgstr "%1% x %2% px, %3% Mio"
 
@@ -2481,13 +2484,13 @@ msgstr "No tiene los derechos necesarios para asociar un usuario a este document
 # Title of email sent when a user is associated to an outing
 # [WARNING] fr translation used
 msgid "You have been associated to an outing"
-msgstr "Vous avez été associé à une nouvelle sortie"
+msgstr "Vous avez été associé à une sortie de Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
 # [WARNING] fr translation used
 msgid "You have been associated to outing %1% details"
-msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+msgstr "Vous avez été associé comme participant à une sortie sur Camptocamp.org.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
 "<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
 
 # [general comment]
@@ -2563,6 +2566,8 @@ msgstr "<h3>Acceso</h3>Estado de la carretera el día de la salida (seca, nevada
 msgid "_accommodation_info"
 msgstr "<h3>Alojamiento y comida en las cercanías </h3>Información sobre las posibilidades de comer y alojarse cerca del punto de acceso."
 
+# [comment]
+# insert snowshoeing in the activities list
 # [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Actividades</h3>Tipo de actividades: pasar el ratón por los pictogramas para conocer su significado.<br />Un documento puede estar asociado a una o más actividades:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>esquí, snowboard, raqueta</strong>: esquí de montaña, snowboard y/o raquetas<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinismo en nieve, hielo, mixto</strong>: alpinismo en nieve, hielo y mixto (en alta montaña)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>roca alta montaña</strong>: alpinismo sobre roca, grandes vías en montaña (equipadas o no)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>escalada</strong>: bloque, vías de uno o varios largos en escuelas o paredes fuera de las montañas (equipadas o no)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>escalada en hielo</strong>: cascada de hielo fuera de la alta montaña, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp; <strong>caminata pedestre</strong>: excursiones y trekking en terreno montañoso (no en llanuras), en sendero balizado o no, o fuera de todo sendero.<br /><br />La diferencia entre <strong>escalada</strong> y <strong>alpinismo en roca</strong> se hace principalmente en base a la altitud del objetivo, y no en base al equipamiento de la vía. En los Alpes, se aplican las siguientes reglas:<br />- altitud < 2000m: escalada en roca<br />- altitud entre 2100m y 2400m: escalada o alpinismo en roca pero en general escalada<br />- altitud entre 2400m y 2700m: escalada o alpinismo en roca pero en general alpinismo<br />- altitud > 2700m: alpinismo en roca<br />En caso de duda para rutas entre 2100m y 2700m, se pueden seleccionar ambas actividades."

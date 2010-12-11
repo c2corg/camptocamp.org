@@ -48,6 +48,9 @@ msgstr "%1% vie"
 msgid "%1% weeks ago"
 msgstr "%1% settimane fa"
 
+msgid "%1% x %2% px, %3% Ko"
+msgstr "%1% x %2% px, %3% Kio"
+
 msgid "%1% x %2% px, %3% Mo"
 msgstr "%1% x %2% px, %3% Mio"
 
@@ -2486,16 +2489,16 @@ msgstr "You do not have the rights to link a user to this document"
 
 # [general comment]
 # Title of email sent when a user is associated to an outing
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "You have been associated to an outing"
-msgstr "Vous avez été associé à une nouvelle sortie"
+msgstr "Sei stato associato a una gita di Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "You have been associated to outing %1% details"
-msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
-"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+msgstr "Sei stato associato come partecipante a una gita di camptocamp.org.<br /><br />Questa gita si trova qua %1%. Come autore di questa gita, puoi modificarla e associarci altri documenti.<br /><br />--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> email automatica<br />(Non rispondere a questo messaggio)"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -2570,11 +2573,9 @@ msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il gi
 msgid "_accommodation_info"
 msgstr "<h3>Vitto e alloggio nelle vicinanze</h3>Informazioni sulle possibilità di vitto e alloggio nei dintorni del punto di partenza."
 
-# [comment]
-# insert snowshoeing in the activities list
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_activities_info"
-msgstr "<h3>Attività</h3>Tipo di attività: passare il mouse sulle icone per leggere l'attività corrispondente.<br />Un documento può essere associato a una o più attività:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp; <strong>sci, snowboard</strong>: sci alpinismo o snowboard<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinismo neve, ghiaccio, misto</strong>: alpinismo su neve, ghiaccio o misto (in alta montagna)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>roccia in alta montagna</strong>: alpinismo su roccia, lunghe vie in montagna (protette e non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate e non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>escursionismo</strong>: gite a piedi (e non in piano), su sentieri segnalati e non, oppure fuori dai sentieri<br /><br />La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio, nelle Alpi, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considera necessario conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
+msgstr "<h3>Attività</h3>Tipo di attività: passare il mouse sulle icone per leggere l'attività corrispondente.<br />Un documento può essere associato a una o più attività:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp; <strong>sci, snowboard</strong>: sci alpinismo o snowboard<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>ciaspole</strong>&nbsp;: escursionismo con le ciaspole<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinismo neve, ghiaccio, misto</strong>: alpinismo su neve, ghiaccio o misto (in alta montagna)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>roccia in alta montagna</strong>: alpinismo su roccia, lunghe vie in montagna (protette e non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate e non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>escursionismo</strong>: gite a piedi (e non in piano), su sentieri segnalati e non, oppure fuori dai sentieri<br /><br />La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio, nelle Alpi, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considera necessario conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
 
 msgid "_aid_rating_info"
 msgstr "<h3>Valutazione della difficoltà in artificiale</h3>Valutazione delle difficoltà in arrampicata artificiale.<br />La valutazione artificiale corrisponde alla difficoltà massima della scalata artificiale su roccia, cioè la scalata che utilizza dei punti d'aiuto per la progressione su un determinato passaggio.<br />La scala va da A0 a A6.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/131454\">gradi di difficoltà in artificiale</a>."
@@ -3694,10 +3695,9 @@ msgstr "Stima della difficoltà tecnica di un itinerario sciistico"
 # cotometre
 # 
 # texte 'introductif'
-# [WARNING] fr translation used
 msgid "cotometre tips"
-msgstr "Cet outil, développé et gracieusement mis à disposition par le BLMS, permet d'estimer la cotation technique à ski d'un itinéraire (cotation toponeige). Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
-"Chacun peut vérifier que le résultat est souvent correct : la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques itinéraires classiques, particulièrement ceux possédant une pente suffisamment longue et dont l'inclinaison précise est connue. Pour les pentes plus courtes style couennes belledoniennes, la skiabilité difficile permet d'atteindre la cotation escomptée."
+msgstr "Questo strumento è stato gentilmente messo a disposizione dal gruppo di scialpinisti 'BLMS', consente di stimare il grado di difficoltà sciistica (toponeige). Attualmente, è limitato agli itinerari ripidi, quindi <strong>il grado stimato è al minimo 4.1</strong>.<br />\n"
+"In generale il risultato è abbastanza affidabile, particolarmente quando la lunghezza delle difficoltà è importante, per i pendii più corti con un difficoltà più puntuali ci possono essere una piccola differenza con il grado 'vero' di solito ritenuto."
 
 msgid "countries"
 msgstr "paesi"

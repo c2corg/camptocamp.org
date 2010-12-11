@@ -48,6 +48,9 @@ msgstr "%1% routes"
 msgid "%1% weeks ago"
 msgstr "%1% weeks ago"
 
+msgid "%1% x %2% px, %3% Ko"
+msgstr "%1% x %2% px, %3% kB"
+
 msgid "%1% x %2% px, %3% Mo"
 msgstr "%1% x %2% px, %3% MB"
 
@@ -2496,13 +2499,13 @@ msgstr "You do not have the necessary rights to link a user to this document"
 # Title of email sent when a user is associated to an outing
 # [WARNING] fr translation used
 msgid "You have been associated to an outing"
-msgstr "Vous avez été associé à une nouvelle sortie"
+msgstr "Vous avez été associé à une sortie de Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
 # [WARNING] fr translation used
 msgid "You have been associated to outing %1% details"
-msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+msgstr "Vous avez été associé comme participant à une sortie sur Camptocamp.org.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
 "<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
 
 # [general comment]

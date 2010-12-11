@@ -49,6 +49,9 @@ msgstr "%1% vies"
 msgid "%1% weeks ago"
 msgstr "fa %1% setmanes"
 
+msgid "%1% x %2% px, %3% Ko"
+msgstr "%1% x %2% px, %3% Kio"
+
 msgid "%1% x %2% px, %3% Mo"
 msgstr "%1% x %2% px, %3% Mio"
 
@@ -2663,13 +2666,13 @@ msgstr "No tens els drets necessaris per associar un usuari a aquest document."
 # Title of email sent when a user is associated to an outing
 # [WARNING] fr translation used
 msgid "You have been associated to an outing"
-msgstr "Vous avez été associé à une nouvelle sortie"
+msgstr "Vous avez été associé à une sortie de Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
 # [WARNING] fr translation used
 msgid "You have been associated to outing %1% details"
-msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+msgstr "Vous avez été associé comme participant à une sortie sur Camptocamp.org.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
 "<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
 
 # [general comment]
@@ -2752,6 +2755,8 @@ msgstr "<h3>Accés</h3>Estat de la carretera d'accés fins al punt de partida de
 msgid "_accommodation_info"
 msgstr "<h3>Allotjament o restauració a proximitat</h3>Informacions sobre les possibilitats de restauració o d'allotjament a proximitat del punt d'accés."
 
+# [comment]
+# insert snowshoeing in the activities list
 # [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Activitats</h3>Tipus d'activitats&nbsp;: passa el ratolí sobre els pictogrames per conèixer la significació.<br />Un document pot estar associat a una o més activitats&nbsp;:<br /><br /><strong>esquí, surf, raquetes</strong>&nbsp;: esquí de muntanya, surf i/o rquetes<br /><br /><strong>alpinisme neu, glaç, mixte</strong>&nbsp;: alpinisme en neu, glaç o mixte (en alta muntanya)<br /><br /><strong>roca alta muntanya</strong>&nbsp;: alpinisme sobre roca, grans víes en muntanya (equipades o no)<br /><br /><strong>escalada</strong>&nbsp;: bloc, víes d'un o més llargs en paret (equipades o no)<br /><br /><strong>cascada</strong>&nbsp;: cascade de gel no en alta muntanya, dry-tooling<br /><br /><strong>trekking</strong>&nbsp;: trekking en terreny muntanyós (i no en plana), en sender balisat o no, o fora de sender"

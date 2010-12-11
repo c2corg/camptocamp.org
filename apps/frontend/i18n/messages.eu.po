@@ -51,6 +51,9 @@ msgstr "%1% bideak"
 msgid "%1% weeks ago"
 msgstr "orain dela %1% aste"
 
+msgid "%1% x %2% px, %3% Ko"
+msgstr "%1% x %2% px, %3% Kio"
+
 msgid "%1% x %2% px, %3% Mo"
 msgstr "%1% x %2% px, %3% Mio"
 
@@ -2621,13 +2624,13 @@ msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honi lotzeko"
 # Title of email sent when a user is associated to an outing
 # [WARNING] fr translation used
 msgid "You have been associated to an outing"
-msgstr "Vous avez été associé à une nouvelle sortie"
+msgstr "Vous avez été associé à une sortie de Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
 # [WARNING] fr translation used
 msgid "You have been associated to outing %1% details"
-msgstr "Vous avez été associé comme participant à une sortie.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
+msgstr "Vous avez été associé comme participant à une sortie sur Camptocamp.org.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
 "<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
 
 # [general comment]
@@ -2709,6 +2712,8 @@ msgstr "<h3>Abiapuntua</h3>Ibilbidearen abiapuntura heltzeko ereepideetan aurkit
 msgid "_accommodation_info"
 msgstr "<h3>Inguruetako lo eta jateko tokiak</h3>Abiapuntu inguruko lo egiteko eta jateko tokieri buruzko informazio gehigarria."
 
+# [comment]
+# insert snowshoeing in the activities list
 # [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Jarduerak</h3> Jarduera moetak:.pasa arratoia irudien gainetik hauen esanahia jakiteko.<br /> Dokumentu bat hainbat jarduerari lotu daiteke:<br /><br /><strong>eski, erraketa</strong>: trabesia eskia, /eta/edo erraketa<br /><br /><strong> alpinismoa elur, izotz, mixto</strong>: alpinismoa elurretan, izotzetan edo mixtoan (goi mendian)<br /><br /><strong>harkaitza goi mendian</strong>: alpinismoa harkaitzean, bide luzeak goi mendian (ekipaturik edo ez)<br /><br /><strong>eskalada</strong>: bulderra, luze bat edo gehiagoko bideak eskalada eskolan (ekipaturik edo ez)<br /><br /><strong>izotz ur-jauzia</strong>: izotz ur-jauzia goi menditik at, <br /><br /><strong> oinezko txangoa</strong>: oinezko txangoa mendialdean (baina ez lautadan), bidezidor baten zehar edo ez."
