@@ -2622,16 +2622,15 @@ msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honi lotzeko"
 
 # [general comment]
 # Title of email sent when a user is associated to an outing
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "You have been associated to an outing"
-msgstr "Vous avez été associé à une sortie de Camptocamp.org"
+msgstr "You were added to a description of an outing on Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "You have been associated to outing %1% details"
-msgstr "Vous avez été associé comme participant à une sortie sur Camptocamp.org.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
-"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+msgstr "You have been added as a participant on a description of an outing on Camptocamp.org.<br /> The description of the outing is available here: %1%. Just as the author of the outing's description you have the necessary access rights to modify the document and its links.<br /><br />--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br />This message was automatically generated, so please do not answer to it."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists

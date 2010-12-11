@@ -2539,16 +2539,15 @@ msgstr "Sie verfügen nicht über die notwendigen Zugriffsrechte, um einen Benut
 
 # [general comment]
 # Title of email sent when a user is associated to an outing
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "You have been associated to an outing"
-msgstr "Vous avez été associé à une sortie de Camptocamp.org"
+msgstr "Sie wurden mit einer Tourenbeschreibung auf Camptocamp.org verbunden"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "You have been associated to outing %1% details"
-msgstr "Vous avez été associé comme participant à une sortie sur Camptocamp.org.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
-"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
+msgstr "Sie wurden als Teilnehmer einer Tourenbeschreibung auf Camptocamp.org hinzugefügt.<br />Die Tourenbeschreibung können sie unter folgender URL abrufen: %1%. Wie der Autor der Beschreibung verfügen sie über die notwendigen Zugriffsrechte um das Dokument und dessen Verbindungen gemäss ihren Wünschen zu ändern.<br /><br />--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br /> Diese Email wurde automatisch generiert, bitte antworten sie nicht darauf."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
