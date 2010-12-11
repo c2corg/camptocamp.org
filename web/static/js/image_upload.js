@@ -99,9 +99,13 @@ ImageUpload = {
           }
         }
       });
-      $('images_submit').disabled = !allow_submit;
+      if (allow_submit) {
+        $$('.images_submit').invoke('enable');
+      } else {
+        $$('.images_submit').invoke('disable');
+      }
     } else {
-      $('images_submit').disabled = true;
+      $$('.images_submit').invoke('disable');
     }
   },
 

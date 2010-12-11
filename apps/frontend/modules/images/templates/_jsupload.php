@@ -27,7 +27,7 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id,
 echo label_for('image_file', __('select an image file'));
 echo input_file_tag('image_file[]', array('onchange' => 'ImageUpload.onchangeCallback()', 'multiple' => 'multiple'));
 echo '&nbsp;&nbsp;';
-echo button_to_function(__('save'), "this.hide(); $('images_validate_form').submit()", array('disabled' => 'disabled', 'id' => 'images_submit'));
+echo button_to_function(__('save'), "$$('.images_submit').invoke('hide'); $('images_validate_form').submit()", array('disabled' => 'disabled', 'class' => 'images_submit'));
 echo input_hidden_tag('action', 'addtempimages');
 echo input_hidden_tag('image_number', 0);
 ?>
@@ -43,6 +43,9 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 <div>
 </div>
 <div id="files_to_upload">
+</div>
+<div>
+<?php echo button_to_function(__('save'), "$$('.images_submit').invoke('hide'); $('images_validate_form').submit()", array('disabled' => 'disabled', 'class' => 'images_submit')); ?>
 </div>
 <?php
 echo javascript_tag('new PeriodicalExecuter(ImageUpload.validateImageForms, 1)');
