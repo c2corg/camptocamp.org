@@ -1,5 +1,13 @@
 PlUploadWrapper = {
 
+  /**
+   * TODO / notes:
+   * - html5 runtime is currently only available for firefox 3.5+, since other browser don't support multipart and image resizing
+   * - flash and silverlight runtimes disables as long as they do not support exif
+   * - add some server side work to enhance image quality? (resized images are somewhat ugly)
+   * - better behaviour for SVGs (eg enable chunking for file >2mB)
+   */
+
   image_number : 0,
 
   init : function(upload_url, backup_url, backup_js, i18n) {
@@ -7,11 +15,11 @@ PlUploadWrapper = {
     PlUploadWrapper.backup_js = backup_js;
     PlUploadWrapper.i18n = i18n;
     var uploader = new plupload.Uploader({
-      runtimes : 'html5', //'silverlight,html5,flash', FIXME reenable flash and silverlight runtimes once they support exif
+      runtimes : 'html5', //'silverlight,html5,flash',
       browse_button : 'pickfiles',
       container : 'container',
       file_data_name : 'image_file',
-      multipart : true, // TODO maybe disable because of chrome? Then use headers instead of multipart_params
+      multipart : true,
       url : upload_url,
       flash_swf_url : _static_url + '/static/js/plupload/plupload.flash.swf',
       silverlight_xap_url : _static_url + '/static/js/plupload/plupload.silverlight.xap',
@@ -19,7 +27,6 @@ PlUploadWrapper = {
         { title : PlUploadWrapper.i18n.extensions, extensions : "JPEG,jpeg,JPG,jpg,GIF,gif,PNG,png,SVG,svg" }
       ],
       required_features : 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have one of these features will fail
-      // TODO add some server side work to enhance images quality?
     });
 
     uploader.bind('Init', function(up, params) {
@@ -71,7 +78,6 @@ PlUploadWrapper = {
       // gif and svg are not resizable, prevent uploading too big files
       else if (/\.(gif|svg)$/i.test(file.name)) {
         up.settings.max_file_size = '2mb';
-        // TODO better behaviour for SVGs? (eg use chunking and allow files up to xx mb)
       }
     });
 
