@@ -948,17 +948,16 @@ class documentsActions extends c2cActions
                                             array('filename', 'image_type', 'date_time'));
             }
             // display geo associated docs:
-            $geo_associated_docs = GeoAssociation::findAllWithBestName($id, $prefered_cultures);
-            if ($module != 'areas')
+            if (!in_array($module, array('articles', 'books')))
             {
-                $this->associated_areas = Area::getAssociatedAreasData(array_filter($geo_associated_docs, array('c2cTools', 'is_area')));
+                $associated_areas = GeoAssociation::findAreasWithBestName($id, $prefered_cultures);
+                $this->associated_areas = $associated_areas;
             }
-            else
+            if (!in_array($module, array('articles', 'books', 'portals')))
             {
-                $this->associated_areas = array_filter($geo_associated_docs, array('c2cTools', 'is_area'));
+                $associated_maps = GeoAssociation::findMapsWithBestName($id, $prefered_cultures);
+                $this->associated_maps = $associated_maps;
             }
-            $maps = Map::getAssociatedMapsData(array_filter($geo_associated_docs, array('c2cTools', 'is_map')));
-            $this->associated_maps = $maps;
         }
 
         $this->needs_translation = ($lang == $user->getCulture()) ? false : true;

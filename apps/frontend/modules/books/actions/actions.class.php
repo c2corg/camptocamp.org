@@ -39,10 +39,9 @@ class booksActions extends documentsActions
                 {
                     $parent_ids[] = $doc['id'];
                 }
-                $associated_areas = GeoAssociation::findWithBestName($parent_ids, $prefered_cultures, array('dr', 'dd', 'dc'));
+                $associated_areas = GeoAssociation::findAreasWithBestName($parent_ids, $prefered_cultures);
             }
-            $associated_areas = array_merge($this->associated_areas, $associated_areas);
-            $this->associated_areas = Area::getAssociatedAreasData($associated_areas);
+            $this->associated_areas = $associated_areas;
             
             $cas = count($this->associated_summits);
             $car = count($this->associated_routes);

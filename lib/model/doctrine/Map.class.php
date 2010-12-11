@@ -6,18 +6,13 @@
 
 class Map extends BaseMap
 {
-    public static function getAssociatedMapsData($associated_docs)
+    public static function getAssociatedMapsData($maps)
     {
-        if (!count($associated_docs)) 
+        if (!count($maps)) 
         {
             return array();
         }
         
-        $maps = Document::fetchAdditionalFieldsFor(
-                                            array_filter($associated_docs, array('c2cTools', 'is_map')),
-                                            'Map',
-                                            array('code', 'editor'));
-
         $editor_list = sfConfig::get('app_maps_editors');
         foreach ($maps as $key => $map)
         {

@@ -163,7 +163,7 @@ class GeoAssociation extends BaseGeoAssociation
         if ($type)
         {
             $query = 'SELECT m.module, mi.id, mi.culture, mi.name, mi.search_name ' .
-                 'FROM documents_i18n mi LEFT JOIN documents m m ON mi.id = m.id ' .
+                 'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
                  'WHERE mi.id IN '. 
                  '((SELECT a.main_id FROM app_geo_associations a WHERE a.linked_id = ? AND type = ?) '.
                  'UNION (SELECT a.linked_id FROM app_geo_associations a WHERE a.main_id = ? AND type = ?)) '.
@@ -188,6 +188,62 @@ class GeoAssociation extends BaseGeoAssociation
         }
         
         $out = self::setBestName($results, $user_prefered_langs);
+        return $out;
+    }  
+    
+    public static function findAreasWithBestName($ids, $user_prefered_langs)
+    {
+        if (!is_array($ids))
+        {
+            $where = '= ?';
+            $values = array($ids);
+        }
+        elseif (count($ids))
+        {
+            $where = array();
+            foreach ($ids as $id)
+            {
+                $where[] = '?';
+            }
+            $where = 'IN (' . implode(', ', $where) . ')';
+            $values = $ids;
+        }
+        else
+        {
+            return array();
+        }
+        $value[] = 'dm';
+
+        $query = 'SELECT mi.id, mi.culture, mi.name, m.area_type ' .
+             'FROM areas_i18n mi LEFT JOIN areas m ON mi.id = m.id ' .
+             'WHERE mi.id IN '. 
+             '(SELECT a.linked_id FROM app_geo_associations a WHERE a.main_id ' . $where . ' AND type != ?) '.
+             'ORDER BY mi.id ASC';
+
+        $results = sfDoctrine::connection()
+                    ->standaloneQuery($query, $values) 
+                    ->fetchAll();
+        
+        $out = self::setBestName($results, $user_prefered_langs);
+        $out = c2cTools::sortArrayByName($out);
+        return $out;
+    }  
+    
+    public static function findMapsWithBestName($id, $user_prefered_langs)
+    {
+
+        $query = 'SELECT mi.id, mi.culture, mi.name, m.code, m.editor ' .
+             'FROM maps_i18n mi LEFT JOIN maps m ON mi.id = m.id ' .
+             'WHERE mi.id IN '. 
+             '(SELECT a.linked_id FROM app_geo_associations a WHERE a.main_id = ? AND type = ?) '.
+             'ORDER BY mi.id ASC';
+
+        $results = sfDoctrine::connection()
+                    ->standaloneQuery($query, array($id, 'dm')) 
+                    ->fetchAll();
+        
+        $out = self::setBestName($results, $user_prefered_langs);
+        $out = c2cTools::sortArrayByName($out);
         return $out;
     }  
 

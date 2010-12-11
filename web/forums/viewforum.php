@@ -143,10 +143,10 @@ if ($pun_user['g_id'] < PUN_GUEST)
         {
             $moderator_list[] = '<a href="/users/'.$mod_id.'">'.pun_htmlspecialchars($mod_username).'</a>';
         }
-        $moderator_list = '<div class="forum_desc">'
+        $moderator_list = '<div class="forum_desc"><div class="inbox">'
                         . $lang_common['Moderated by'] . ' : '
                         . implode(', ', $moderator_list)
-                        . '</div>';
+                        . '</div></div>';
     }
     else
     {

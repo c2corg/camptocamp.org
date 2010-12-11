@@ -57,9 +57,9 @@ class articlesActions extends documentsActions
             if (count($parent_ids))
             {
                 $prefered_cultures = $this->getUser()->getCulturesForDocuments();
-                $associated_areas = GeoAssociation::findWithBestName($parent_ids, $prefered_cultures, array('dr', 'dd', 'dc'));
+                $associated_areas = GeoAssociation::findAreasWithBestName($parent_ids, $prefered_cultures);
             }
-            $this->associated_areas = Area::getAssociatedAreasData($associated_areas);
+            $this->associated_areas = $associated_areas;
             
             $related_portals = array();
             $categories = $this->document->get('categories');
