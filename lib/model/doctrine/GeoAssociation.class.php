@@ -212,7 +212,7 @@ class GeoAssociation extends BaseGeoAssociation
         {
             return array();
         }
-        $value[] = 'dm';
+        $values[] = 'dm';
 
         $query = 'SELECT mi.id, mi.culture, mi.name, m.area_type ' .
              'FROM areas_i18n mi LEFT JOIN areas m ON mi.id = m.id ' .
