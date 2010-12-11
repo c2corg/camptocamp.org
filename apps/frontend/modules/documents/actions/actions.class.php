@@ -956,7 +956,7 @@ class documentsActions extends c2cActions
             if (!in_array($module, array('articles', 'books', 'portals')))
             {
                 $associated_maps = GeoAssociation::findMapsWithBestName($id, $prefered_cultures);
-                $this->associated_maps = $associated_maps;
+                $this->associated_maps = Map::getAssociatedMapsData($associated_maps);
             }
         }
 
