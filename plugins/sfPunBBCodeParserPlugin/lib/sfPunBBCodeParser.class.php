@@ -369,7 +369,7 @@ class sfPunBBCodeParser
         {
             $class = '';
             
-            if (preg_match('#(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/(.*)name?/#i', $full_url))
+            if (preg_match('#^/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/(.*)name?/#i', $full_url))
             {
                 $rel = ' rel="nofollow"';
             }
