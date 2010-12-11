@@ -694,14 +694,23 @@ h1 .logo_mini
 
 .article_title
 {
-  color: #535354;
   display: block;
-  font-family:Georgia, "Times New Roman", Times, serif;
-  font-size: 26px;
-  font-weight: normal;
   margin-top: 0;
   padding-left: 245px;
 }
+.article_title, .article_title a
+{
+  color: #535354;
+  font-family:Georgia, "Times New Roman", Times, serif;
+  font-size: 26px;
+  font-weight: normal;
+  text-decoration: none;
+}
+.article_title a:hover
+{
+  text-decoration: underline;
+}
+
 .wide h1 .article_title
 {
   padding-left: 72px;

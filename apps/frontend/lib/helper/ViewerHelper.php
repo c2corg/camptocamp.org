@@ -11,13 +11,25 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     $is_archive = $document->isArchive();
     $mobile_version = c2cTools::mobileVersion();
     $content_class = $module . '_content';
+    $lang = $document->getCulture();
+    $version = ($is_archive ? $document->getVersion() : NULL);
+    $slug = get_slug($document));
+    
+    if (!$is_archive)
+    {
+        $url = "@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug";
+    }
+    else
+    {
+        $url = "@document_by_id_lang_version?module=$module&id=$id&lang=$lang&version=$version";
+    }
     
     if ($prepend != '')
     {
         $prepend .=  $separator;
     }
 
-    echo display_title($prepend . $document->get('name'), $module, true);
+    echo display_title($prepend . $document->get('name'), $module, true, 'default_nav', $url);
 
     if (!$mobile_version) // left navigation menus are only for web version
     {
@@ -25,9 +37,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
 
         sfLoader::loadHelpers('WikiTabs');
         
-        $tabs = tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
-                              $is_archive ? $document->getVersion() : NULL,
-                              get_slug($document));
+        $tabs = tabs_list_tag($id, $lang, $document->isAvailable(), 'view', $version, $slug);
         
         echo $tabs;
 
@@ -77,10 +87,15 @@ function init_js_var($default_nav_status = true, $nav_status_pref = 'default_nav
     return $js_var;
 }
 
-function display_title($title_name = '', $module = null, $nav_status = true, $nav_status_pref = 'default_nav')
+function display_title($title_name = '', $module = null, $nav_status = true, $nav_status_pref = 'default_nav', $url = '')
 {
     $connected = true; //$this->getContext()->getUser()->isConnected();
     $js_var = init_js_var($nav_status, $nav_status_pref, $connected);
+    
+    if (!empty($url))
+    {
+        $title_name = link_to($title_name, $url);
+    }
     
     if(!empty($title_name))
     {

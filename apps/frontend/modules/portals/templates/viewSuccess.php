@@ -27,9 +27,22 @@ if (count($design_files))
     }
 }
 
+$lang = $document->getCulture();
+$version = ($is_not_archive ? null : $document->getVersion());
+$slug = get_slug($document));
+if ($is_not_archive)
+{
+    $url = "@document_by_id_lang_slug?module=portals&id=$id&lang=$lang&slug=$slug";
+}
+else
+{
+    $url = "@document_by_id_lang_version?module=portals&id=$id&lang=$lang&version=$version";
+}
+
+
 //display_page_header('portals', $document, $id, $metadata, $current_version);
 
-echo display_title($document->get('name'), 'portals', true, 'home_nav');
+echo display_title($document->get('name'), 'portals', true, 'home_nav', $url);
 
 if (!$mobile_version) // left navigation menus are only for web version
 {

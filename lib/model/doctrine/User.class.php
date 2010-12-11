@@ -265,6 +265,9 @@ class User extends BaseUser
         
         // image criteria
         Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        
+        // user criteria
+        self::buildConditionItem($conditions, $values, 'List', 'lr.main_id', 'friends', 'join_route_id', false, $params_list);
 
         if (!sfContext::getInstance()->getUser()->isConnected())
         {
@@ -389,18 +392,6 @@ class User extends BaseUser
         {
             User::buildUserPagerConditions($q, $conditions, true);
         }
-        
-        // join with huts tables only if needed 
-        if (   isset($conditions['join_hut_id'])
-            || isset($conditions['join_hut'])
-            || isset($conditions['join_hut_i18n'])
-            || isset($conditions['join_htag_id'])
-            || isset($conditions['join_hbook_id'])
-            || isset($conditions['join_hbtag_id'])
-        )
-        {
-            Hut::buildHutPagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'ph');
-        }
 
         // join with outings tables only if needed 
         if (   isset($conditions['join_route_id'])
@@ -436,7 +427,7 @@ class User extends BaseUser
                 || isset($conditions['join_rbtag_id'])
             )
             {
-                Route::buildRoutePagerConditions($q, $conditions, false, false, 'lo.MainMainAssociation', 'pr');
+                Route::buildRoutePagerConditions($q, $conditions, false, false, 'lo.MainMainAssociation', 'ro');
                 
                 if (   isset($conditions['join_summit_id'])
                     || isset($conditions['join_summit'])
@@ -457,7 +448,7 @@ class User extends BaseUser
             || isset($conditions['join_image_i18n'])
             || isset($conditions['join_itag_id']))
         {
-            Image::buildImagePagerConditions($q, $conditions, false, 'pi');
+            Image::buildImagePagerConditions($q, $conditions, false, 'ui');
         }
 
         if (!empty($conditions))

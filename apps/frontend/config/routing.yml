@@ -166,6 +166,14 @@ document_list_by_page:
   param: { action: list }
   requirements: { page: \d+ }
   
+document_list_all_1:
+  url: /:module/all
+  param: { action: list, all: 1 }
+  
+document_list_all_2:
+  url: /:module/list/all
+  param: { action: list, all: 1 }
+  
 document_by_id:
   url: /:module/:id
   param: { action: view }
