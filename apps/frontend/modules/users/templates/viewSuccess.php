@@ -80,7 +80,10 @@ if ($is_not_archive && $is_not_merged)
     {
         include_partial('documents/list_changes', array('items' => $contribs,
                                                         'needs_username' => false)); 
-        echo '<p><span class="picto action_list"></span> ' . link_to(__('List all user contribs'), "documents/whatsnew?user=$id") . '</p>';
+        if (!$mobile_version)
+        {
+            echo '<p><span class="picto action_list"></span> ' . link_to(__('List all user contribs'), "documents/whatsnew?user=$id") . '</p>';
+        }
     }
     else
     {
