@@ -329,7 +329,7 @@ class Image extends BaseImage
 
         self::filterOnActivities($q, $activities, 'm', 'i');
         self::filterOnLanguages($q, $langs, 'n');
-        self::filterOnRegions($q, $ranges, 'g2');
+        //self::filterOnRegions($q, $ranges, 'g2');
         
         if (!empty($params))
         {
