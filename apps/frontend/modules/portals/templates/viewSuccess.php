@@ -29,7 +29,7 @@ if (count($design_files))
 
 $lang = $document->getCulture();
 $version = ($is_not_archive ? null : $document->getVersion());
-$slug = get_slug($document));
+$slug = get_slug($document);
 if ($is_not_archive)
 {
     $url = "@document_by_id_lang_slug?module=portals&id=$id&lang=$lang&slug=$slug";

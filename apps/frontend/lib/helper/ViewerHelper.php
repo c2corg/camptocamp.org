@@ -13,7 +13,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     $content_class = $module . '_content';
     $lang = $document->getCulture();
     $version = ($is_archive ? $document->getVersion() : NULL);
-    $slug = get_slug($document));
+    $slug = get_slug($document);
     
     if (!$is_archive)
     {
