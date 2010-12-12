@@ -85,7 +85,7 @@ ImageUpload = {
     var images = $$('.image_upload_entry input');
     if (images.length > 0) {
       $$('.image_upload_entry').each(function(obj) {
-        // if not displayed, removed it from dom (because BlindUp doesn't removes from dom)
+        // if not displayed, remove it from dom (because BlindUp doesn't remove from dom)
         if (obj.style.display == 'none') {
           obj.remove();
           return;

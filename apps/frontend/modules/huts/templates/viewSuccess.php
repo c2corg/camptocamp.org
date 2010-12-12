@@ -93,6 +93,11 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
                                                 'needs_translation' => $needs_translation, 'images' => $associated_images));
 echo end_section_tag();
 
+if ($is_not_archive && $is_not_merged)
+{
+    $document->parkings = $associated_parkings;
+}
+
 include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
 
 if ($is_not_archive && $is_not_merged)

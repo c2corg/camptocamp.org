@@ -63,33 +63,30 @@ if ($has_geom || $show_map)
         }
     }
 
-    // routes : display linked summits, parkings and huts
-    if ($module == 'routes')
+    // display linked summits, parkings and huts, if any
+    $nb_printed_docs = 0;
+    foreach(array('summits', 'parkings', 'huts') as $type)
     {
-        $nb_printed_docs = 0;
-        foreach(array('summits', 'parkings', 'huts') as $type)
+        if (!isset($document->$type)) continue;
+        $markers = array();
+        foreach ($document->$type as $doc)
         {
-            if (!isset($document->$type)) continue;
-            $markers = array();
-            foreach ($document->$type as $doc)
+            if (!empty($doc['pointwkt']))
             {
-                if (!empty($doc['pointwkt']))
-                {
-                    $nb_printed_docs++;
-                    $coords = explode(' ', gisQuery::getEWKT($doc['id'], true, $type));
-                    $markers[] = substr($coords[1], 0, 6).','.substr($coords[0], 0, 6);
-                }
-            }
-            if (count($markers))
-            {
-                $map_options[] = 'markers=shadow:false|icon:'._marker_url($type).'|'.implode('|', $markers);
+                $nb_printed_docs++;
+                $coords = explode(' ', gisQuery::getEWKT($doc['id'], true, $type));
+                $markers[] = substr($coords[1], 0, 6).','.substr($coords[0], 0, 6);
             }
         }
-        // if only one linked doc is displayed, without any trace, set zoom
-        if ($nb_printed_docs == 1 && !(boolean)($document->get('geom_wkt')))
+        if (count($markers))
         {
-            $map_options[] = 'zoom=12';
+            $map_options[] = 'markers=shadow:false|icon:'._marker_url($type).'|'.implode('|', $markers);
         }
+    }
+    // if only one linked doc is displayed, without any trace, set zoom
+    if ($nb_printed_docs <= 1 && !(boolean)($document->get('geom_wkt')))
+    {
+        $map_options[] = 'zoom=12';
     }
 
     $map_url .= implode('&amp;', $map_options);

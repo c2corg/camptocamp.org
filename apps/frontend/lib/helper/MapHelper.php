@@ -32,19 +32,20 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
             $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}", $document->get('id'), $document->get('module'), $geom);
         }
     }
-    if ($document->get('module') == 'routes')
+
+    // we display possible associated docs
+    foreach(array('summits', 'parkings', 'huts') as $type)
     {
-        foreach(array('summits', 'parkings', 'huts') as $type)
-        {
-            if (!isset($document->$type)) continue;
-            _addAssociatedDocsWithGeom($document->$type, $objects_list);
-        }
+        if (!isset($document->$type)) continue;
+        _addAssociatedDocsWithGeom($document->$type, $objects_list);
     }
     
     if (is_null($layers_list))
     {
         $layers_list = '[]';
-    } else {
+    }
+    else
+    {
         if (!is_array($layers_list))
         {
             $layers_list = str_replace(' ', '', $layers_list);

@@ -4,6 +4,8 @@ if (!isset($has_geom))
 {
     $has_geom = (boolean)($document->get('geom_wkt'));
 }
+
+// we display map if route has no gpx track, but geolocalized linked docs (summit, parking, hut)
 if (!$has_geom && $document->module == 'routes')
 {
     foreach (array('summits', 'parkings', 'huts') as $type)
