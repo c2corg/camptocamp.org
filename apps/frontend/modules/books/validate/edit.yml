@@ -9,7 +9,9 @@ fields:
       max_error:    this name is too long (150 characters maximum)
   isbn:
     sfStringValidator:
-      max:17
+      min:          10
+      min_error:    this isbn is too long (10 charaters minimum)
+      max:          17
       max_error:    this isbn is too long (17 charaters maximum)
   url:
     sfUrlValidator:
