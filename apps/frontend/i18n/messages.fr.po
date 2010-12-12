@@ -5809,6 +5809,18 @@ msgstr "Il n'y a aucun résultat dans la liste des %1%. Peut-être que vos filtr
 msgid "this data is too long (100 characters maximum)"
 msgstr "cette information doit faire moins de 100 caractères"
 
+# [general comment]
+# error message when input for ISBN or ISSN is too long
+# [WARNING] needs_review
+msgid "this isbn is too long (17 charaters maximum)"
+msgstr "Cet ISBN ou ISSN est trop long (maximum 17 caractères)"
+
+# [general comment]
+# error message when input for ISBN or ISSN is too short
+# [WARNING] needs_review
+msgid "this isbn is too short (7 charaters minimum)"
+msgstr "Cet ISBN ou ISSN est trop court (au moins 7 caractères pour un ISSN, 10 pour un ISBN)"
+
 msgid "this name is too long (150 characters maximum)"
 msgstr "ce nom est trop long (150 caractères maximum)"
 

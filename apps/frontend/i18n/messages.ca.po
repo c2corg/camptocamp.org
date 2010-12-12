@@ -6267,6 +6267,18 @@ msgstr "No hi ha cap resultat en la llista dels %1%. Potser els teus filtres só
 msgid "this data is too long (100 characters maximum)"
 msgstr "esta información debe tener menos de 100 caracteres"
 
+# [general comment]
+# error message when input for ISBN or ISSN is too long
+# [WARNING] en translation used
+msgid "this isbn is too long (17 charaters maximum)"
+msgstr "This ISBN or ISSN is too long (maximum 17 characters)"
+
+# [general comment]
+# error message when input for ISBN or ISSN is too short
+# [WARNING] en translation used
+msgid "this isbn is too short (7 charaters minimum)"
+msgstr "This ISBN or ISSN is too short (at least 7 characters for ISSN, 10 for ISBN)"
+
 msgid "this name is too long (150 characters maximum)"
 msgstr "aquest nom és massa llarg (150 caràcters màxim)"
 
