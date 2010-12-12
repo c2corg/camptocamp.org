@@ -32,7 +32,7 @@ c2corg.embeddedMap = (function() {
             } else {
                 f.style = {
                     pointRadius: 10,
-                    externalGraphic: '/static/images/modules/' + obj.type + '_mini.png'
+                    externalGraphic: c2corg.config.staticBaseUrl + '/static/images/modules/' + obj.type + '_mini.png'
                     // FIXME: ${type} syntax seems not to work
                 };
             }
