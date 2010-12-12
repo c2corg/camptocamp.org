@@ -10,7 +10,7 @@ fields:
   isbn:
     sfStringValidator:
       min:          7
-      min_error:    this isbn is too long (7 charaters minimum)
+      min_error:    this isbn is too short (7 charaters minimum)
       max:          17
       max_error:    this isbn is too long (17 charaters maximum)
   url:
