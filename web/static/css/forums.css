@@ -290,7 +290,7 @@ DIV.postfootright LI, UL.bblinks LI {
 
 DIV.txtarea {WIDTH: 75%}
 
-DIV.txtarea TEXTAREA, INPUT.longinput {WIDTH: 100%}
+DIV.txtarea TEXTAREA, INPUT.longinput {WIDTH: 100%;  -ms-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-sizing: border-box;}
 
 .pun LABEL {DISPLAY: block}
 .pun .bblinks LABEL {DISPLAY: inline}

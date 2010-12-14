@@ -212,6 +212,8 @@ input.long_input
 .pages_navigation a, .pages_navigation span
 {
   margin-right: 1.2em;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .pages_navigation a span
 {
@@ -605,6 +607,11 @@ div.slider div.handle
 .thumb_data_img .image_license
 {
   display: block !important;
+}
+
+div.image
+{
+  margin: 4px 14px 4px 14px;
 }
 
 /* documents lists */
