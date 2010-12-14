@@ -583,6 +583,28 @@ function field_url_data_if_set($document, $name, $raw = false, $link_text = '', 
     return field_url_data($document, $name, $raw, $link_text, $prefix, $suffix, true);
 }
 
+function field_phone($document, $name, $prefix = '', $suffix = '', $title = '', $ifset = false)
+{
+    use_helper('Link');
+
+    $value = $document->get($name);
+    if ($value)
+    {
+        $value = phone_link($value);
+    }
+    elseif ($ifset)
+    {
+        return '';
+    }
+
+    return  _format_data($name, $value, false, $prefix, $suffix);
+}
+
+function field_phone_if_set($document, $name, $prefix = '', $suffix = '', $title = '')
+{
+    return field_phone($document, $name, $prefix = '', $suffix = '', $title = '', true);
+}
+
 function field_export($module, $id, $lang, $version = null)
 {
     if (c2cTools::mobileVersion()) return '';

@@ -1,5 +1,5 @@
 <?php
-use_helper('Field');
+use_helper('Field', 'Link');
 
 $item_i18n = $item['HutI18n'][0];
 ?>
@@ -28,7 +28,7 @@ else
 {
     $unstaffed_capacity = '';
 }
-$phone = $item['phone'];
+$phone = phone_link($item['phone']);
 echo _implode(' - ', array($staffed_capacity,
                            $unstaffed_capacity,
                            $phone));

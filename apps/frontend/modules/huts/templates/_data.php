@@ -14,7 +14,7 @@
         li(field_bool_data($document, 'has_unstaffed_blanket', true));
         li(field_bool_data($document, 'has_unstaffed_gas', true));
         li(field_bool_data($document, 'has_unstaffed_wood', true));
-        li(field_data_if_set($document, 'phone'));
+        li(field_phone_if_set($document, 'phone'));
         li(field_url_data_if_set($document, 'url'));
         li(field_activities_data($document)); 
         

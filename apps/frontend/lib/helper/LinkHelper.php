@@ -86,6 +86,41 @@ function absolute_link_to($name, $url = null, $html_options = null)
     return link_to($name, $url, $html_options);
 }
 
+// TODO this can probably be enhanced
+function phone_link($phone = '')
+{
+    if (!empty($phone) && c2cTools::mobileVersion())
+    {
+        $simple_phone = preg_replace('/\(0\)/', '', str_replace(array(' ', '.'), '', $phone));
+
+        // if number is not only digits,+,- do not try to present it as a link
+        if (!ereg('[0-9\+-]+', $simple_phone)) return $phone;
+
+        $link = content_tag('a', $phone, array('href' => 'tel:'.$simple_phone));
+        if (sfContext::getInstance()->getRequest()->isXmlHttpRequest())
+        {
+            return $link;
+        }
+        else // same kind of protection as for emails
+        {
+            $js = '';
+            $string = str_split($link, 12);
+            foreach ($string as $part)
+            {
+                $s = array('<', '>');
+                $r = array('%3C', '%3E');
+                $part = str_replace($s, $r, addslashes($part));
+                $js .= "document.write(unescape('$part'));";
+            }
+            return javascript_tag($js);
+        }
+    }
+    else
+    {
+        return $phone;
+    }
+}
+
 function generate_path()
 {
     $sf_context = sfContext::getInstance();
