@@ -96,9 +96,9 @@ class CaptchaBox {
 
 	// all variables are private
 	var $boxPosX;
-	var $boxPosy; 
-	var $boxX = 20;
-	var $boxY = 20;
+	var $boxPosy;
+	var $boxX;
+	var $boxY;
 	
 	/**
 	 * Constructor of CaptchaBox. 
@@ -107,11 +107,14 @@ class CaptchaBox {
 	 * @access public
 	 */
 	function CaptchaBox() {
+                $mobile_version = c2cTools::mobileVersion();
+                $this->boxX = $mobile_version ? 40 : 20;
+                $this->boxY = $mobile_version ? 40 : 20;
 		$this->background = Array(255,255,255);
 		$this->foreground = Array(0,0,128);
 		$this->boxPosX = ($_SESSION["x"]?$_SESSION["x"]:null);
 		$this->boxPosY = ($_SESSION["y"]?$_SESSION["y"]:null);
-		$this->imageX = 200;
+		$this->imageX = $mobile_version ? 292 : 200;
 		$this->imageY = 150;
 		
 	}
