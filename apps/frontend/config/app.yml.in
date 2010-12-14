@@ -319,7 +319,7 @@ all:
   
   list:
     maxline_number: 30
-    mobile_maxline_number: 15
+    mobile_maxline_number: 20
     full_max_npp: 50
     conditions_max_npp: 50
     default_order:  asc
