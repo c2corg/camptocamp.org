@@ -16,7 +16,7 @@ class imagesComponents extends sfComponents
         $associations = Association::findAllAssociations($id, 'bi');
 
         $this->hide_image_type_edit = (!$this->moderator && $image_type != 2)
-                             || (!$this->moderator && $sf_user->getId() != $creator['id']);
+                             || (!$this->moderator && $this->getContext()->getUser()->getId() != $creator['id']);
 
         // allow copyright license only for images associated to books, and only to moderators
         $this->allow_copyright = $this->moderator && (count($associations) > 0 || $image_type == 3);
