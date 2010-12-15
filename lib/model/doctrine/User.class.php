@@ -264,7 +264,7 @@ class User extends BaseUser
         Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
         
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false, 'li.document_id');
         
         // user criteria
         self::buildConditionItem($conditions, $values, 'List', 'lr.main_id', 'friends', 'join_route_id', false, $params_list);
@@ -385,7 +385,6 @@ class User extends BaseUser
         
         // join with parking tables only if needed 
         if (   isset($conditions['join_user_id'])
-            || isset($conditions['join_user'])
             || isset($conditions['join_user_i18n'])
             || isset($conditions['join_utag_id'])
         )
@@ -448,7 +447,7 @@ class User extends BaseUser
             || isset($conditions['join_image_i18n'])
             || isset($conditions['join_itag_id']))
         {
-            Image::buildImagePagerConditions($q, $conditions, false, 'ui');
+            Image::buildImagePagerConditions($q, $conditions, false, 'ui', true);
         }
 
         if (!empty($conditions))

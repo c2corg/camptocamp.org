@@ -205,14 +205,14 @@ class BaseDocument extends sfDoctrineRecordI18n
             
             switch ($criteria_type)
             {
-                case 'String': //self::buildStringCondition(&$conditions, &$values, $field, $value);
-                    $nb_join = 0;
+                case 'String': self::buildStringCondition(&$conditions, &$values, $field, $value);
+                    //$nb_join = 0;
                     break;
-                case 'Istring': //self::buildIstringCondition(&$conditions, &$values, $field, $value);
-                    $nb_join = 0;
+                case 'Istring': self::buildIstringCondition(&$conditions, &$values, $field, $value);
+                    //$nb_join = 0;
                     break;
-                case 'Mstring': //self::buildMstringCondition(&$conditions, &$values, $field, $value);
-                    $nb_join = 0;
+                case 'Mstring': self::buildMstringCondition(&$conditions, &$values, $field, $value);
+                    //$nb_join = 0;
                     break;
                 case 'Item':    self::buildItemCondition(&$conditions, &$values, $field, $value); break;
                 case 'Multi':   self::buildMultiCondition(&$conditions, &$values, $field, $value); break;
@@ -235,6 +235,9 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'Bbox':    self::buildBboxCondition(&$conditions, &$values, $field, $value); break;
                 case 'Around':    self::buildAroundCondition(&$conditions, &$values, $field, $value); break;
                 case 'Config':    self::buildConfigCondition(&$conditions, &$values, $join_id, $value);
+                    $join_id = '';
+                    break;
+                case 'Join':    self::buildJoinCondition(&$conditions, &$values, $join_id, $value);
                     $join_id = '';
                     break;
                 case 'Order': $nb_join = self::buildOrderCondition($value, $field); break;
@@ -2284,6 +2287,21 @@ class BaseDocument extends sfDoctrineRecordI18n
         elseif (!empty($param))
         {
             $conditions[$join] = $param;
+        }
+    }
+
+    public static function buildJoinCondition(&$conditions, &$values, $join, $param)
+    {
+        if (!empty($param))
+        {
+            $join_key = array('join');
+            $join_key[] = $param;
+            if (!empty($join))
+            {
+                $join_key[] = $join;
+            }
+            $join_key = implode('_', $join_key);
+            $conditions[$join_key] = true;
         }
     }
 

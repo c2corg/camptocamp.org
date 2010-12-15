@@ -36,9 +36,13 @@ class BaseDocumentVersion extends sfDoctrineRecord
             $model = ucfirst(substr($module, 0, strlen($module)-1));
             $this->hasOne($model.'Archive as '.$model.'Archive', 'DocumentVersion.document_archive_id');
             $this->hasOne($model.'I18nArchive as '.$model.'I18nArchive', 'DocumentVersion.document_i18n_archive_id');
+            $this->hasOne($model.' as '.$model, 'DocumentVersion.document_archive_id');
+            $this->hasOne($model.' as '.$model, 'DocumentVersion.document_i18n_archive_id');
         }
         
         // used for filtering 'recent' lists on associated regions (ranges):
         $this->hasMany('GeoAssociation as geoassociations', array('local' => 'document_id', 'foreign' => 'main_id'));        
+        $this->hasMany('Association as MainAssociation', array('local' => 'document_id', 'foreign' => 'linked_id'));
+        $this->hasMany('Association as LinkedAssociation', array('local' => 'document_id', 'foreign' => 'main_id'));
     }
 }

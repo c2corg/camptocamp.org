@@ -358,7 +358,7 @@ class Image extends BaseImage
         }
     }
 
-    public static function buildImageListCriteria(&$conditions, &$values, $params_list, $is_module = false)
+    public static function buildImageListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'li.linked_id')
     {
         if ($is_module)
         {
@@ -370,7 +370,7 @@ class Image extends BaseImage
         else
         {
             $m = 'i';
-            $mid = 'li.linked_id';
+            //$mid = 'li.linked_id';
             $join = 'join_image';
             $join_id = $join . '_id';
         }
@@ -420,9 +420,16 @@ class Image extends BaseImage
         // image criteria
         Image::buildImageListCriteria(&$conditions, &$values, $params_list, true);
         self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'documents', 'join_itag_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Config', '', 'join', 'id_has', false, $params_list);
 
         // summit criteria
         Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+
+        // hut criteria
+        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.main_id');
+
+        // parking criteria
+        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
 
         // route criteria
         Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.main_id');
@@ -434,8 +441,7 @@ class Image extends BaseImage
         Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.main_id');
         
         // user criteria
-        self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
-        self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
+        self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user_id', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
 
         if (!empty($conditions))
         {
@@ -479,7 +485,7 @@ class Image extends BaseImage
         return $pager;
     }
     
-    public static function buildImagePagerConditions(&$q, &$conditions, $is_module = false, $ltype = null)
+    public static function buildImagePagerConditions(&$q, &$conditions, $is_module = false, $ltype = null, $from_users = false)
     {
         if ($is_module)
         {
@@ -489,15 +495,34 @@ class Image extends BaseImage
         else
         {
             $m = 'li.';
-            $main = $m . 'MainMainAssociation';
             
-            $q->leftJoin("m.LinkedAssociation li");
+            if (!$from_users)
+            {
+                $main = $m . 'MainMainAssociation';
+                $q->leftJoin("m.LinkedAssociation li");
+            }
+            else
+            {
+                $main = $m . 'MainAssociation';
+                $q->leftJoin("m.history_metadata hm")
+                  ->leftJoin('hm.versions li')
+                  ->addWhere('li.version = 1');
+            }
+            
             
             if (!isset($conditions['join_image_id']) || isset($conditions['join_image_id_has']))
             {
-                $q->addWhere($m . "type = '$ltype'");
+                if (!$from_users)
+                {
+                    $q->addWhere($m . "type = '$ltype'");
+                }
                 if (isset($conditions['join_image_id_has']))
                 {
+                    if ($from_users)
+                    {
+                        $q->leftJoin("li.LinkedAssociation li2")
+                          ->addWhere("li2.type = '$ltype'");
+                    }
                     unset($conditions['join_image_id_has']);
                 }
             }
@@ -530,6 +555,17 @@ class Image extends BaseImage
     
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
+        $route_join = 'm.associations';
+        $route_ltype = 'ri';
+        $summit_join = 'm.associations';
+        $summit_ltype = 'si';
+        $hut_join = 'm.associations';
+        $hut_ltype = 'hi';
+        $parking_join = 'm.associations';
+        $parking_ltype = 'pi';
+        $site_join = 'm.associations';
+        $site_ltype = 'ti';
+        
         $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions);
 
         // join with image tables only if needed 
@@ -540,15 +576,26 @@ class Image extends BaseImage
             Image::buildImagePagerConditions($q, $conditions, true);
         }
 
-        if (   isset($conditions['join_summit_id'])
-            || isset($conditions['join_summit'])
-            || isset($conditions['join_summit_i18n'])
-            || isset($conditions['join_stag_id'])
-            || isset($conditions['join_sbook_id'])
-            || isset($conditions['join_sbtag_id'])
+        // join with outings tables only if needed 
+        if (   isset($conditions['join_outing_id'])
+            || isset($conditions['join_outing_id_has'])
+            || isset($conditions['join_outing'])
+            || isset($conditions['join_outing_i18n'])
+            || isset($conditions['join_otag_id'])
         )
         {
-            Summit::buildSummitPagerConditions($q, $conditions, false, false, 'm.associations', 'si');
+            Outing::buildOutingPagerConditions($q, $conditions, false, false, 'm.associations', 'oi');
+            
+            $route_join = 'lo.MainAssociation';
+            $route_ltype = 'ro';
+            $summit_join = 'lr.MainAssociation';
+            $summit_ltype = 'sr';
+            $hut_join = 'lr.MainAssociation';
+            $hut_ltype = 'hr';
+            $parking_join = 'lr.MainAssociation';
+            $parking_ltype = 'pr';
+            $site_join = 'lo.MainAssociation';
+            $site_ltype = 'to';
         }
 
         if (   isset($conditions['join_route_id'])
@@ -563,7 +610,45 @@ class Image extends BaseImage
             || isset($conditions['join_rbtag_id'])
         )
         {
-            Route::buildRoutePagerConditions($q, $conditions, false, false, 'm.associations', 'ri');
+            Route::buildRoutePagerConditions($q, $conditions, false, false, $route_join, $route_ltype);
+            
+            $summit_join = 'lr.MainAssociation';
+            $summit_ltype = 'sr';
+            $hut_join = 'lr.MainAssociation';
+            $hut_ltype = 'hr';
+            $parking_join = 'lr.MainAssociation';
+            $parking_ltype = 'pr';
+        }
+
+        if (   isset($conditions['join_summit_id'])
+            || isset($conditions['join_summit'])
+            || isset($conditions['join_summit_i18n'])
+            || isset($conditions['join_stag_id'])
+            || isset($conditions['join_sbook_id'])
+            || isset($conditions['join_sbtag_id'])
+        )
+        {
+            Summit::buildSummitPagerConditions($q, $conditions, false, false, $summit_join, $summit_ltype);
+        }
+        
+        if (   isset($conditions['join_hut_id'])
+            || isset($conditions['join_hut'])
+            || isset($conditions['join_hut_i18n'])
+            || isset($conditions['join_hbook_id'])
+            || isset($conditions['join_htag_id'])
+            || isset($conditions['join_hbtag_id'])
+        )
+        {
+            Hut::buildHutPagerConditions($q, $conditions, false, false, $hut_join, $hut_ltype);
+        }
+        
+        if (   isset($conditions['join_parking_id'])
+            || isset($conditions['join_parking'])
+            || isset($conditions['join_parking_i18n'])
+            || isset($conditions['join_ptag_id'])
+        )
+        {
+            Parking::buildParkingPagerConditions($q, $conditions, false, false, $parking_join, $parking_ltype);
         }
 
         if (   isset($conditions['join_site_id'])
@@ -574,25 +659,15 @@ class Image extends BaseImage
             || isset($conditions['join_tbtag_id'])
         )
         {
-            Site::buildSitePagerConditions($q, $conditions, false, false, 'm.associations', 'ti');
+            Site::buildSitePagerConditions($q, $conditions, false, false, $site_join, $site_ltype);
         }
         
-        // join with outings tables only if needed 
-        if (   isset($conditions['join_outing_id'])
-            || isset($conditions['join_outing'])
-            || isset($conditions['join_outing_i18n'])
-            || isset($conditions['join_otag_id'])
-        )
-        {
-            Outing::buildOutingPagerConditions($q, $conditions, false, false, 'm.associations', 'oi');
-        }
-
-        if (isset($conditions['join_user']))
+        if (isset($conditions['join_user_id']))
         {
             $q->leftJoin('m.versions v')
               ->leftJoin('v.history_metadata hm')
               ->addWhere('v.version = 1');
-             unset($conditions['join_user']);
+             unset($conditions['join_user_id']);
         }
         
         $q->addWhere(implode(' AND ', $conditions), $criteria);
