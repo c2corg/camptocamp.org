@@ -110,10 +110,6 @@ include_partial('documents/home_section_title',
                 $date = $timedate;
             }
             echo get_paginated_activities($item['activities']) . ' ';
-            if (isset($item['nb_images']))
-            {
-                echo picto_tag('picto_images', $item['nb_images'] . ' ' . __('images')) . ' ';
-            }
 
             $i18n = $item['OutingI18n'][0];
             $id = $item['id'];
@@ -124,6 +120,12 @@ include_partial('documents/home_section_title',
             
             $outing_data = array();
             
+            $images = isset($item['nb_images']) ? picto_tag('picto_images', 
+                                                            format_number_choice('[1]1 image|(1,+Inf]%1% images',
+                                                                                 array('%1%' => $item['nb_images']),
+                                                                                 $item['nb_images'])) . ' '
+                                                : '';
+
             $max_elevation = displayWithSuffix($item['max_elevation'], 'meters');
             if (!empty($max_elevation))
             {
@@ -138,7 +140,11 @@ include_partial('documents/home_section_title',
 
             if (count($outing_data) > 0)
             {
-                echo ' <span class="meta">(' .  implode(' - ', $outing_data) . ')</span>';
+                echo ' <span class="meta">(' . $images . implode(' - ', $outing_data) . ')</span>';
+            }
+            else if (!empty($images))
+            {
+                echo ' <span class="meta">(' . $images . ')</span>';
             }
             ?>
             </li>

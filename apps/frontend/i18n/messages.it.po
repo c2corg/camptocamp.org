@@ -2552,6 +2552,10 @@ msgstr "[0] Nessun risultato trovato. <br />Verifica l'ortografia, la sintassi o
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
 msgstr "[0]Non ci sono commenti associati a questo documento.|[1]C'è un commento associato a questo documento.|(1,+Inf]Ci sono %1% commenti associati a questo documento."
 
+# [WARNING] en translation used
+msgid "[1]1 image|(1,+Inf]%1% images"
+msgstr "[1]1 picture|(1,+Inf]%1% pictures"
+
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Modifica della geometria"
 

@@ -2731,6 +2731,10 @@ msgstr "[0] Cap resultat trobat|(1,+Inf]%nb_result% resultats trobats per %resea
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
 msgstr "[0]No hay comentarios asociados a este documento.|[1]Hay un comentario asociado a este documento.|(1,+Inf]Hay %1% comentarios asociados a este documento."
 
+# [WARNING] en translation used
+msgid "[1]1 image|(1,+Inf]%1% images"
+msgstr "[1]1 picture|(1,+Inf]%1% pictures"
+
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edició amb inserció d'una nova geometria"
 

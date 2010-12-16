@@ -2729,6 +2729,12 @@ ul.dated_changes .picto
   margin-left: 0.3em;
 }
 
+ul.dated_changes .picto.picto_images
+{
+  float: none;
+  margin-left: 0;
+}
+
 #last_outings li {
   min-height:16px;
 }

@@ -2560,6 +2560,9 @@ msgstr "[0] No result found.<br />You can check spelling and syntax or reduce th
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
 msgstr "[0]There is no comment for this document.|[1]There is one comment for this document.|(1,+Inf]There are %1% comments for this document."
 
+msgid "[1]1 image|(1,+Inf]%1% images"
+msgstr "[1]1 picture|(1,+Inf]%1% pictures"
+
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition with new geometry"
 

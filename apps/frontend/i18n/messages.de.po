@@ -2604,6 +2604,10 @@ msgstr "[0] Es wurde kein passendes Ergebnis gefunden.<br />Überprüfen sie die
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
 msgstr "[0]Es sind keine Kommentare mit diesem Dokument verbunden.|[1]Es ist ein Kommentar mit diesem Dokument verbunden.|(1,+Inf]Es sind %1% Kommentare mit diesem Dokument verbunden."
 
+# [WARNING] needs_review
+msgid "[1]1 image|(1,+Inf]%1% images"
+msgstr "[1]1 Bild|(1,+Inf]%1% Bilder"
+
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Änderung mit Angabe einer neuen Geometrie"
 

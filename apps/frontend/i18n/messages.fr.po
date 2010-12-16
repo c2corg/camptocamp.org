@@ -2554,6 +2554,9 @@ msgstr "[0] Aucun résultat trouvé.<br />Vérifiez l'orthographe, la syntaxe ou
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
 msgstr "[0]Il n'y a pas de commentaires associés à ce document.|[1]Il y a un commentaire associé à ce document.|(1,+Inf]Il y a %1% commentaires associés à ce document."
 
+msgid "[1]1 image|(1,+Inf]%1% images"
+msgstr "[1]1 image|(1,+Inf]%1% images"
+
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition avec insertion d'une nouvelle géométrie"
 
