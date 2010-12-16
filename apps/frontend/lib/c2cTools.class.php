@@ -31,7 +31,20 @@ class c2cTools
         sfLoader::loadHelpers(array('Pagination'));
 
         $request = sfContext::getInstance()->getRequest();
-        return $request->getParameterHolder()->getAll();
+        $param_list = $request->getParameterHolder()->getAll();
+        
+        if (in_array($param_list['action'], array('rss', 'widget')))
+        {
+            foreach ($param_list as $param => $value)
+            {
+                if (strpos($param, 'nam') !== false)
+                {
+                    unset($param_list[$param]);
+                }
+            }
+        }
+        
+        return $param_list;
     }
     
     public static function getCriteriaRequestParameters($extra_others = array())

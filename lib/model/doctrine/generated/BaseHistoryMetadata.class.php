@@ -20,6 +20,6 @@ class BaseHistoryMetadata extends sfDoctrineRecord
     public function setUp()
     {
         $this->hasOne('UserPrivateData as user_private_data', 'HistoryMetadata.user_id');
-        $this->hasMany('DocumentVersion as versions', array('local' => 'history_metadata_id', 'foreign' => 'document_id'));
+        $this->hasMany('DocumentVersion as versions', array('local' => 'history_metadata_id', 'foreign' => 'documents_versions_id'));
     }
 }

@@ -130,7 +130,11 @@ class Outing extends BaseOuting
             }
         }
 
-        return $q->execute(array(), Doctrine::FETCH_ARRAY);
+        $outings = $q->execute(array(), Doctrine::FETCH_ARRAY);
+        
+        $outings = Outing::fetchAdditionalFields($outings, false, true);
+        
+        return $outings;
     }
 
     public static function buildOutingListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
@@ -586,7 +590,7 @@ class Outing extends BaseOuting
         self::filterOnRegions($q);
     }
 
-    public static function fetchAdditionalFields($objects, $images_count = false)
+    public static function fetchAdditionalFields($objects, $ratings = true, $images_count = false)
     {
         if (!count($objects)) 
         {   
@@ -595,6 +599,7 @@ class Outing extends BaseOuting
     
         $ids = array();
         $q = array();
+        $out = array();
 
         // build ids list
         foreach ($objects as $object)
@@ -603,30 +608,36 @@ class Outing extends BaseOuting
             $q[] = '?';
         }
 
-        // db request fetching array with all requested fields
-        $results = Doctrine_Query::create()
-                          ->select('m.activities, m.date, m.geom_wkt, v.version, hm.user_id, u.topo_name')
-                          ->from('Outing m')
-                          ->leftJoin('m.versions v')
-                          ->leftJoin('v.history_metadata hm')
-                          ->leftJoin('hm.user_private_data u')
-                          ->where('m.id IN ( '. implode(', ', $q) .' )', $ids)
-                          ->addWhere('v.version = 1')
-                          ->orderBy('m.date DESC')
-                          ->execute(array(), Doctrine::FETCH_ARRAY);
-        
-        $out = array();
-        // merge array 'results' into array '$objects' on the basis of same 'id' key
-        foreach ($objects as $object)
+        if ($ratings)
         {
-            $id = $object['id'];
-            foreach ($results as $result)
+            // db request fetching array with all requested fields
+            $results = Doctrine_Query::create()
+                              ->select('m.activities, m.date, m.geom_wkt, v.version, hm.user_id, u.topo_name')
+                              ->from('Outing m')
+                              ->leftJoin('m.versions v')
+                              ->leftJoin('v.history_metadata hm')
+                              ->leftJoin('hm.user_private_data u')
+                              ->where('m.id IN ( '. implode(', ', $q) .' )', $ids)
+                              ->addWhere('v.version = 1')
+                              ->orderBy('m.date DESC')
+                              ->execute(array(), Doctrine::FETCH_ARRAY);
+            
+            // merge array 'results' into array '$objects' on the basis of same 'id' key
+            foreach ($objects as $object)
             {
-                if ($result['id'] == $id)
+                $id = $object['id'];
+                foreach ($results as $result)
                 {
-                    $out[] = array_merge($object, $result);
+                    if ($result['id'] == $id)
+                    {
+                        $out[] = array_merge($object, $result);
+                    }
                 }
             }
+        }
+        else
+        {
+            $out = $objects;
         }
 
         if ($images_count)
@@ -652,7 +663,6 @@ class Outing extends BaseOuting
                     $outing['nb_images'] = $image_counts[$outing['id']];
                 }
             }
-            
         }
 
         return $out;

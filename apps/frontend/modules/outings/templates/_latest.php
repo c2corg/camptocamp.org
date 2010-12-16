@@ -109,7 +109,11 @@ include_partial('documents/home_section_title',
                 echo '<span class="date">' . format_date($timedate, 'dd/MM') . '</span>';
                 $date = $timedate;
             }
-            echo get_paginated_activities($item['activities']) . ' '; 
+            echo get_paginated_activities($item['activities']) . ' ';
+            if (isset($item['nb_images']))
+            {
+                echo picto_tag('picto_images', $item['nb_images'] . ' ' . __('images')) . ' ';
+            }
 
             $i18n = $item['OutingI18n'][0];
             $id = $item['id'];

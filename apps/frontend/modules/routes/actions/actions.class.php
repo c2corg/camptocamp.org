@@ -133,7 +133,7 @@ class routesActions extends documentsActions
             {
                 $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
             }
-            $associated_outings = Outing::fetchAdditionalFields($associated_outings, true);
+            $associated_outings = Outing::fetchAdditionalFields($associated_outings, true, true);
             $this->nb_outings = count($associated_outings);
             // sort outings
             usort($associated_outings, array('c2cTools', 'cmpDate'));
