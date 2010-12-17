@@ -674,7 +674,7 @@ class Association extends BaseAssociation
             $where[] = '?';
         }
         $where = 'a.linked_id IN ( ' . implode(', ', $where) . ' )';
-        $where_array = $main_ids;
+        $where_array = $linked_ids;
         
         if ($type)
         {
