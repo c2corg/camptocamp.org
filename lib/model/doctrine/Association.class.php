@@ -645,7 +645,13 @@ class Association extends BaseAssociation
     
     public static function countAllLinked($main_ids, $type = null)
     {
-        $where = 'a.main_id IN ( ' . "'" . implode($main_ids, "', '") . "'" . ' )';
+        $where = array();
+        foreach ($main_ids as $main_id)
+        {
+            $where[] = '?';
+        }
+        $where = 'a.main_id IN ( ' . implode(', ', $where) . ' )';
+        $where_array = $main_ids;
         
         if ($type)
         {
@@ -662,7 +668,13 @@ class Association extends BaseAssociation
     
     public static function countAllMain($linked_ids, $type = null)
     {
-        $where = 'a.linked_id IN ( ' . "'" . implode($linked_ids, "', '") . "'" . ' )';
+        $where = array();
+        foreach ($linked_ids as $linked_id)
+        {
+            $where[] = '?';
+        }
+        $where = 'a.linked_id IN ( ' . implode(', ', $where) . ' )';
+        $where_array = $main_ids;
         
         if ($type)
         {
@@ -679,8 +691,13 @@ class Association extends BaseAssociation
     
     public static function countAll($ids, $types = null, $current_doc_ids = null)
     {
-        $where_array = array();
-        $where_ids = '( ' . "'" . implode($ids, "', '") . "'" . ' )';
+        $where_array = $ids;
+        $where = $where_ids = array();
+        foreach ($ids as $id)
+        {
+            $where_ids[] = '?';
+        }
+        $where_ids = '( ' . implode(', ', $where_ids) . ' )';
         
         if (empty($current_doc_ids))
         {
@@ -705,8 +722,9 @@ class Association extends BaseAssociation
             $where2 = implode(' AND ', $where2 );
             $where3 = implode(' AND ', $where3 );
             $where = "( ( a.linked_id IN $where_ids AND $where2 ) OR ( a.main_id IN $where_ids AND $where3 ) )";
-            $where_array = array_merge($where_array, $where_array);
         }
+        
+        $where_array = array_merge($where_array, $where_array);
         
         if ($types)
         {

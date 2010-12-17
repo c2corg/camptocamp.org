@@ -120,10 +120,7 @@ include_partial('documents/home_section_title',
             
             $outing_data = array();
             
-            $images = isset($item['nb_images']) ? picto_tag('picto_images', 
-                                                            format_number_choice('[1]1 image|(1,+Inf]%1% images',
-                                                                                 array('%1%' => $item['nb_images']),
-                                                                                 $item['nb_images'])) . ' '
+            $images = isset($item['nb_images']) ? picto_tag('picto_images', __('images')) . ' ' . $item['nb_images']
                                                 : '';
 
             $max_elevation = displayWithSuffix($item['max_elevation'], 'meters');
@@ -140,12 +137,9 @@ include_partial('documents/home_section_title',
 
             if (count($outing_data) > 0)
             {
-                echo ' <span class="meta">(' . $images . implode(' - ', $outing_data) . ')</span>';
+                echo ' <span class="meta">(' . implode(' - ', $outing_data) . ')</span>';
             }
-            else if (!empty($images))
-            {
-                echo ' <span class="meta">(' . $images . ')</span>';
-            }
+            echo $images;
             ?>
             </li>
     <?php endforeach ?>

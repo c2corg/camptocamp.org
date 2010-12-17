@@ -590,7 +590,7 @@ class Outing extends BaseOuting
         self::filterOnRegions($q);
     }
 
-    public static function fetchAdditionalFields($objects, $ratings = true, $images_count = false)
+    public static function fetchAdditionalFields($objects, $add_fields = true, $add_images_count = false)
     {
         if (!count($objects)) 
         {   
@@ -608,7 +608,7 @@ class Outing extends BaseOuting
             $q[] = '?';
         }
 
-        if ($ratings)
+        if ($add_fields)
         {
             // db request fetching array with all requested fields
             $results = Doctrine_Query::create()
@@ -640,7 +640,7 @@ class Outing extends BaseOuting
             $out = $objects;
         }
 
-        if ($images_count)
+        if ($add_images_count)
         {
             $image_links = Association::countAllLinked($ids, 'oi');
             $image_counts = array();
