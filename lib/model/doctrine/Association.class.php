@@ -187,10 +187,16 @@ class Association extends BaseAssociation
         {
             return array();
         }
-        $where_array = array();
 
         if (!$get_associated_ids)
         {
+            $where_array = $ids;
+            $where_ids = array();
+            foreach ($ids as $id)
+            {
+                $where_ids[] = '?';
+            }
+            
             if ($get_linked)
             {
                 $select_id = 'linked_id';
@@ -201,7 +207,7 @@ class Association extends BaseAssociation
                 $select_id = 'main_id';
                 $where_id = 'linked_id';
             }
-            $where = "a.$where_id IN ( '" . implode($ids, "', '") . "' )";
+            $where = "a.$where_id IN ( " . implode($where_ids, ', ') . " )";
             
             if ($types)
             {
@@ -228,8 +234,14 @@ class Association extends BaseAssociation
                 {
                     $current_doc_ids = array($current_doc_ids);
                 }
+                $where_ids = array();
+                foreach ($current_doc_ids as $current_doc_id)
+                {
+                    $where_ids[] = '?';
+                    $where_array[] = $current_doc_id;
+                }
 
-                $where .= " AND a.$select_id NOT IN ( '" . implode($current_doc_ids, "', '") . "' )";
+                $where .= " AND a.$select_id NOT IN ( " . implode(', ', $where_ids) . " )";
             }
             
             $doc_ids = "SELECT a.$select_id FROM app_documents_associations a WHERE $where";
@@ -243,7 +255,7 @@ class Association extends BaseAssociation
             }
             
             $doc_associations_norm = array();
-            $doc_ids = array();
+            $where_ids = $where_array = array();
             foreach ($doc_associations as $association)
             {
                 $association_norm = array();
@@ -258,9 +270,10 @@ class Association extends BaseAssociation
                     $association_norm['id'] = $association['main_id'];
                 }
                 $doc_associations_norm[] = $association_norm;
-                $doc_ids[] = $association_norm['id'];
+                $where_ids[] = '?';
+                $where_array[] = $association_norm['id'];
             }
-            $doc_ids = " '" . implode($doc_ids, "', '") . "' ";
+            $doc_ids = implode(', ', $where_ids);
         }
 
         $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' . // elevation field is used to guess most important associated doc
@@ -692,7 +705,7 @@ class Association extends BaseAssociation
     public static function countAll($ids, $types = null, $current_doc_ids = null)
     {
         $where_array = $ids;
-        $where = $where_ids = array();
+        $where_ids = array();
         foreach ($ids as $id)
         {
             $where_ids[] = '?';

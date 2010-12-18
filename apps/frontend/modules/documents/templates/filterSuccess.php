@@ -83,9 +83,11 @@ switch($module)
     default:
         break;
 }
-$msg = ($personalization_applied) ? $msg : '';
 
-echo '<p class="list_header">', __('Filter presentation'), $msg, '</p>';
+if ($personalization_applied)
+{
+    echo '<p class="list_header">', $msg, '</p>';
+}
 
 if (!isset($ranges)) $ranges = array();
 include_partial("$module/filter_form", array('ranges' => $ranges, 'activities' => $activities));

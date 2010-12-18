@@ -22,11 +22,6 @@ if (!$mobile_version)
 echo display_content_top('list_content');
 echo start_content_tag($module . '_content');
 
-if (!$mobile_version)
-{
-    echo '<p class="list_header">' . __($module . ' presentation').'</p>';
-}
-
 if (!isset($items) && $nb_results > 0)
 {
     $items = $pager->getResults('array', ESC_RAW);
@@ -130,6 +125,11 @@ endif;
 
 if ($layout != 'light')
 {
+    if (!$mobile_version)
+    {
+        echo '<p class="list_footer">' . __($module . ' presentation').'</p>';
+    }
+    
     echo end_content_tag();
     
     include_partial('common/content_bottom');

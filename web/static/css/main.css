@@ -2732,7 +2732,6 @@ ul.dated_changes .picto
 ul.dated_changes .picto.picto_images
 {
   float: none;
-  margin-left: 0;
 }
 
 #last_outings li {
@@ -4467,6 +4466,10 @@ ul.recent_conditions
 .list_header, p.list_header
 {
   margin-bottom: 1em;
+}
+.list_footer, p.list_footer
+{
+  padding-top: 1em;
 }
 
 #minor_revision_checkbox
