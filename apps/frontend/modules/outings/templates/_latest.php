@@ -109,6 +109,21 @@ include_partial('documents/home_section_title',
                 echo '<span class="date">' . format_date($timedate, 'dd/MM') . '</span>';
                 $date = $timedate;
             }
+            
+            if (isset($item['nb_images']))
+            {
+                $images = picto_tag('picto_images_light',
+                                    format_number_choice('[1]1 image|(1,+Inf]%1% images',
+                                                         array('%1%' => $item['nb_images']),
+                                                         $item['nb_images']))
+                        . ' ';
+            }
+            else
+            {
+                $images = picto_tag('');
+            }
+            echo $images;
+                                                : '';
             echo get_paginated_activities($item['activities']) . ' ';
 
             $i18n = $item['OutingI18n'][0];
@@ -119,9 +134,6 @@ include_partial('documents/home_section_title',
                          ($lang != $culture) ? array('hreflang' => $lang) : null);
             
             $outing_data = array();
-            
-            $images = isset($item['nb_images']) ? picto_tag('picto_images', __('images')) . ' ' . $item['nb_images']
-                                                : '';
 
             $max_elevation = displayWithSuffix($item['max_elevation'], 'meters');
             if (!empty($max_elevation))
