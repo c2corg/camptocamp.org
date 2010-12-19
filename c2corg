@@ -717,6 +717,7 @@ function updateRevisionInfo() {
 
 function getDirTimestampInfo($dir, $pattern) {
     $files = glob($dir.'/*'.$pattern);
+    $list = array();
     foreach ($files as $file) {
         $list[] = substr($file, 3) . ': ' . (filemtime($file) - 1200000000);
     }
