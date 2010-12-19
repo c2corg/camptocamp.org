@@ -1204,7 +1204,15 @@ class documentsActions extends c2cActions
         else
         {
             $default_npp = null;
-            $max_npp = 100;
+            if ($user->hasCredential(sfConfig::get('app_credentials_moderator')))
+            {
+                $max_npp = 1000;
+            }
+            else
+            {
+                $max_npp = 100;
+            }
+            
             $this->setTemplate('../../documents/templates/list');
         }
         

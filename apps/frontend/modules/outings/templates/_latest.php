@@ -110,20 +110,6 @@ include_partial('documents/home_section_title',
                 $date = $timedate;
             }
             
-            if (isset($item['nb_images']))
-            {
-                $images = picto_tag('picto_images_light',
-                                    format_number_choice('[1]1 image|(1,+Inf]%1% images',
-                                                         array('%1%' => $item['nb_images']),
-                                                         $item['nb_images']))
-                        . ' ';
-            }
-            else
-            {
-                $images = picto_tag('');
-            }
-            echo $images;
-                                                : '';
             echo get_paginated_activities($item['activities']) . ' ';
 
             $i18n = $item['OutingI18n'][0];
@@ -151,7 +137,17 @@ include_partial('documents/home_section_title',
             {
                 echo ' <span class="meta">(' . implode(' - ', $outing_data) . ')</span>';
             }
-            echo $images;
+            
+            if (isset($item['nb_images']))
+            {
+                $images = picto_tag('picto_images_light',
+                                    format_number_choice('[1]1 image|(1,+Inf]%1% images',
+                                                         array('%1%' => $item['nb_images']),
+                                                         $item['nb_images']))
+                        . ' ';
+                echo $images;
+            }
+            
             ?>
             </li>
     <?php endforeach ?>
