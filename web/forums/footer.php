@@ -50,15 +50,15 @@ require(PUN_ROOT.'include/pms/footer_links.php');
 $select_forum = isset($forum_id) ? '?fid='.$forum_id : '';
 $search_link = '<a href="search.php'.$select_forum.'">'.$lang_common['Search'].'</a>';
 $lang = get_lang_code();
+$is_admmod = isset($is_admmod) ? $is_admmod : false;
+$is_admmod_2 = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
 
 if ($footer_style == 'index' || $footer_style == 'search')
 {
     if (!$pun_user['is_guest'])
 	{
-		$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
-
 		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$lang_common['all'].']</a></dd>'."\n";
-		if ($is_admmod)
+		if ($is_admmod_2)
         {
             echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
         }
@@ -70,7 +70,7 @@ if ($footer_style == 'index' || $footer_style == 'search')
 
 		echo "\t\t\t".'</dl>'."\n";
 		
-		if ($is_admmod)
+		if ($is_admmod_2)
         {
 			echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
         }
@@ -106,16 +106,17 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
     
     echo "\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t".'</dl>'."\n";
 	
+    $p_temp = isset($p) ? '&amp;p='.$p : '';
     if ($footer_style == 'viewforum' && $is_admmod)
     {
-		echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="moderate.php?fid='.$forum_id.'&amp;p='.$p.'">'.$lang_common['Moderate forum'].'</a></dd>';
+		echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="moderate.php?fid='.$forum_id.$p_temp.'">'.$lang_common['Moderate forum'].'</a></dd>';
 		echo "\n\t\t\t".'<dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
 	}
     else if ($footer_style == 'viewtopic' && $is_admmod)
 	{
-		echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.'&amp;p='.$p.'">'.$lang_common['Delete posts'].'</a></dd>'."\n";
+		echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.$p_temp.'">'.$lang_common['Delete posts'].'</a></dd>'."\n";
 		echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a></dd>'."\n";
-		echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.'&amp;p='.$p.'">'.$lang_common['Move posts'].'</a></dd>'."\n";
+		echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.$p_temp.'">'.$lang_common['Move posts'].'</a></dd>'."\n";
 
 		if ($cur_topic['closed'] == '1')
         {
@@ -135,7 +136,7 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;stick='.$id.'">'.$lang_common['Stick topic'].'</a></dd>';
 		}
         
-		echo "\n\t\t\t".'<dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
+		echo "\n\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.$p_temp.'">'.$lang_common['Moderate forum'].'</a></dd><dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
 	}
 
 	echo "\t\t\t".'</div>'."\n";

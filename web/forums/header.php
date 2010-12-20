@@ -189,7 +189,8 @@ $tpl_main = str_replace('<pun_navlinks>','<div id="brdmenu" class="inbox">'."\n\
 // START SUBST - <pun_status>
 // If no header style has been specified, we use the default
 $footer_style = isset($footer_style) ? $footer_style : NULL;
-$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
+$is_admmod = isset($is_admmod) ? $is_admmod : false;
+$is_admmod_2 = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
 if (!isset($forum_id))
 {
     switch($pun_user['language'])
@@ -256,7 +257,7 @@ else
 
 require(PUN_ROOT.'include/pms/header_new_messages.php');
 
-if ($is_admmod)
+if ($is_admmod_2)
 {
     $result_header = $db->query('SELECT COUNT(id) FROM '.$db->prefix.'reports WHERE zapped IS NULL') or error('Unable to fetch reports info', __FILE__, __LINE__, $db->error());
 
@@ -280,13 +281,17 @@ if ($is_admmod)
     }
     
     $tpl_temp .= "\n\t\t\t\t".'<li>';
-    if ($footer_style == 'viewtopic')
+    if ($is_admmod)
     {
-        $tpl_temp .= '<a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a> | ';
-    }
-    else if ($footer_style == 'viewforum')
-    {
-		$tpl_temp .= '<a href="moderate.php?fid='.$forum_id.'&amp;p='.$p.'">'.$lang_common['Moderate forum'].'</a> | ';
+        if ($footer_style == 'viewtopic')
+        {
+            $tpl_temp .= '<a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a> | ';
+        }
+        else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
+        {
+            $p_temp = isset($p) ? '&amp;p='.$p : '';
+            $tpl_temp .= '<a href="moderate.php?fid='.$forum_id.$p_temp.'">'.$lang_common['Moderate forum'].'</a> | ';
+        }
     }
     $tpl_temp .= '<a href="admin_users.php">Admin</a></li>';
 }
