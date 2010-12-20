@@ -1,0 +1,94 @@
+# @BLURB@
+
+<Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
+   Order allow,deny
+   Allow from all
+</Directory>
+
+
+AddType application/vnd.google-earth.kmz .kmz
+AddType application/vnd.google-earth.kml+xml .kml
+AddType application/gpx+xml .gpx
+AddType application/json .json
+
+ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
+<Directory "@SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/">
+  AllowOverride None
+  Options ExecCGI -MultiViews +SymLinksIfOwnerMatch
+  Order allow,deny
+  Allow from all
+</Directory>
+
+#Alias /sf/ @SF_DATA_DIR@/web/sf/
+
+<IfModule mod_deflate.c>
+  <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript
+  </Directory>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
+    RewriteEngine On
+
+    # Uncomment next line to neutralize site 
+    #RewriteCond %{REMOTE_ADDR} !10\.27.*
+    #RewriteRule ^(.*).(html|php)$ maintenance.html [L]
+
+    # static urls should only serve css, js, images, svg, xml
+    # last condition is because of next rule :)
+    # nb: also works if STATIC_HOST is empty
+    RewriteCond %{HTTP_HOST} =@STATIC_HOST@
+    RewriteCond %{REQUEST_URI} !(.*\.(js|css|png|jpg|jpeg|gif|ico|xml|svg|swf|xap))$
+    RewriteCond %{REQUEST_URI} !sfMinifyPlugin.php$
+    RewriteRule .* - [F,L]
+
+    # Combine and minify JavaScript and CSS
+    # possible url styles:
+    # 12345/path_to_js_or_css (minimized, long ttl)
+    # 12345/no/path_to_js_or_css (not minimized, long ttl)
+    # /path_to_js_or_css (minimized, short ttl)
+    # /no/path_to_js_or_css (not minimized, short ttl)
+    RewriteCond %{REQUEST_URI} \.(css|js)$
+    RewriteRule ^(([0-9]*)/?(no)?/)?(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$4&$3&$2 [L,NC]
+
+    # robots.txt for mobile version
+    RewriteCond %{HTTP_HOST} =@MOBILE_VERSION_HOST@
+    RewriteRule ^robots.txt$ /mobile_robots.txt [L]
+
+    # we skip all files with .something, except for .html, .rss, .gpx etc
+    RewriteCond %{REQUEST_URI} \..+$
+    RewriteCond %{REQUEST_URI} !\.html$
+    RewriteCond %{REQUEST_URI} !(.*\.(rss|gpx|kml|json))$
+    RewriteRule .* - [L]
+
+    # RSS feed
+    RewriteCond %{REQUEST_URI} \.rss$
+    RewriteRule ^(.rss)$ index.php [QSA,L]
+
+    # forums are not handled by symfony
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !^/forums/
+
+    # if none of the above, we redirect to our front web controller
+    RewriteRule ^(.*)$ index.php [QSA,L]
+
+  </Directory>
+</IfModule>
+
+# remove etags to enable better client-side caching
+<IfModule mod_headers.c>
+    Header unset ETag
+    FileETag None
+</IfModule>
+
+# makes images, css and js expire one week later in client cache
+<IfModule mod_expires.c>
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|svg|js|css)$">
+        ExpiresActive On
+        ExpiresDefault "access plus 1 week"
+    </FilesMatch>
+</IfModule>
+
+# big crash from our front web controller
+ErrorDocument 500 "<h2>Application error</h2>Symfony application failed to start properly"
