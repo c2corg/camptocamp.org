@@ -4651,7 +4651,7 @@ msgid "i button title"
 msgstr "Den ausgewählten Text kursiv schreiben "
 
 # [general comment]
-# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+# Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
 # [WARNING] needs_review
 msgid "ice climbing portal"
 msgstr "Camptocamp Eisklettern"

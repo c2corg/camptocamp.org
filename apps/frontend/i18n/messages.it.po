@@ -4246,7 +4246,7 @@ msgid "i button title"
 msgstr "corsivo"
 
 # [general comment]
-# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+# Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
 msgid "ice climbing portal"
 msgstr "Camptocamp Cascata"
 

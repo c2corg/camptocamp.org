@@ -2499,13 +2499,13 @@ msgstr "You do not have the necessary rights to link a user to this document"
 # Title of email sent when a user is associated to an outing
 # [WARNING] needs_review
 msgid "You have been associated to an outing"
-msgstr "You were added to a description of an outing on Camptocamp.org"
+msgstr "You were added as a participant to an outing published on Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
 # [WARNING] needs_review
 msgid "You have been associated to outing %1% details"
-msgstr "You have been added as a participant on a description of an outing on Camptocamp.org.<br /> The description of the outing is available here: %1%. Just as the author of the outing's description you have the necessary access rights to modify the document and its links.<br /><br />--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br />This message was automatically generated, so please do not answer to it."
+msgstr "You have been added as a participant to an outing published on Camptocamp.org.<br /> The description of the outing is available here: %1%. Just as the author of the outing you have the necessary rights to edit its contents and associations to other documents.<br /><br />--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br />This message was automatically generated, so please do not reply to it."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -4294,9 +4294,9 @@ msgid "i button title"
 msgstr "Set selected text to italic"
 
 # [general comment]
-# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+# Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
 msgid "ice climbing portal"
-msgstr "Camptocamp Ice"
+msgstr "Camptocamp Ice Climbing"
 
 msgid "ice_climbing"
 msgstr "ice climbing"
@@ -5839,6 +5839,7 @@ msgstr "this text must be shorter than 100 characters"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too long
+# [WARNING] needs_review
 msgid "this isbn is too long (17 charaters maximum)"
 msgstr "This ISBN or ISSN is too long (maximum 17 characters)"
 

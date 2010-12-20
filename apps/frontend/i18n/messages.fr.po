@@ -4285,9 +4285,9 @@ msgid "i button title"
 msgstr "Mettre le texte sélectionné en italique"
 
 # [general comment]
-# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+# Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
 msgid "ice climbing portal"
-msgstr "Camptocamp Cascade"
+msgstr "Camptocamp Cascade de glace"
 
 msgid "ice_climbing"
 msgstr "cascade de glace"

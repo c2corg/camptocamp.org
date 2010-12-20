@@ -2664,15 +2664,15 @@ msgstr "No tens els drets necessaris per associar un usuari a aquest document."
 
 # [general comment]
 # Title of email sent when a user is associated to an outing
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You have been associated to an outing"
-msgstr "You were added to a description of an outing on Camptocamp.org"
+msgstr "Fue añadido como participante a una salida publicada en Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You have been associated to outing %1% details"
-msgstr "You have been added as a participant on a description of an outing on Camptocamp.org.<br /> The description of the outing is available here: %1%. Just as the author of the outing's description you have the necessary access rights to modify the document and its links.<br /><br />--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br />This message was automatically generated, so please do not answer to it."
+msgstr "Fue añadido como participante a una salida publicada en Camptocamp.org.<br /> La descripción de la salida es accesible aquí: %1%. Tal como el autor de la salida, tiene los derechos necesarios para modificar su contenido y sus asociaciones a otros documentos.<br /><br />--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br />Este mensaje fue generado automáticamente. Por favor no contestarle."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -2731,9 +2731,9 @@ msgstr "[0] Cap resultat trobat|(1,+Inf]%nb_result% resultats trobats per %resea
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
 msgstr "[0]No hay comentarios asociados a este documento.|[1]Hay un comentario asociado a este documento.|(1,+Inf]Hay %1% comentarios asociados a este documento."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "[1]1 image|(1,+Inf]%1% images"
-msgstr "[1]1 picture|(1,+Inf]%1% pictures"
+msgstr "[1]1 imagen|(1,+Inf]%1% imágenes"
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edició amb inserció d'una nova geometria"
@@ -4575,7 +4575,7 @@ msgid "i button title"
 msgstr "Posar el text seleccionat en cursiva"
 
 # [general comment]
-# Nom du portail "Cascade de glace" pour les liens "annexes" dans les documents.
+# Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
 # [WARNING] needs_review
 msgid "ice climbing portal"
 msgstr "Camptocamp Glaç"
@@ -6273,15 +6273,15 @@ msgstr "esta información debe tener menos de 100 caracteres"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too long
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "this isbn is too long (17 charaters maximum)"
-msgstr "This ISBN or ISSN is too long (maximum 17 characters)"
+msgstr "Este ISBN o ISSN es demasiado largo (máximo 17 caracteres)"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too short
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "this isbn is too short (7 charaters minimum)"
-msgstr "This ISBN or ISSN is too short (at least 7 characters for an ISSN, 10 for an ISBN)"
+msgstr "Este ISBN o ISSN es demasiado corto (mínimo 7 caracteres para un ISSN, 10 para un ISBN)"
 
 msgid "this name is too long (150 characters maximum)"
 msgstr "aquest nom és massa llarg (150 caràcters màxim)"
