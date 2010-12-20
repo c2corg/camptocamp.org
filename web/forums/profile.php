@@ -267,7 +267,8 @@ else if (isset($_POST['update_forums']))
 		// If the user shouldn't have moderator access (and he/she already has it)
 		else if (!in_array($cur_forum['id'], $moderator_in) && in_array($id, $cur_moderators))
 		{
-			unset($cur_moderators[$username]);
+            $username_old = array_search($id, $cur_moderators);
+			unset($cur_moderators[$username_old]);
 			$cur_moderators = (!empty($cur_moderators)) ? '\''.$db->escape(serialize($cur_moderators)).'\'' : 'NULL';
 
 			$db->query('UPDATE '.$db->prefix.'forums SET moderators='.$cur_moderators.' WHERE id='.$cur_forum['id']) or error('Unable to update forum', __FILE__, __LINE__, $db->error());
