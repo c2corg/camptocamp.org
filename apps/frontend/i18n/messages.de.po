@@ -6340,15 +6340,15 @@ msgstr "Dieser Text muss kürzer als 100 Zeichen lang sein"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too long
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "this isbn is too long (17 charaters maximum)"
-msgstr "This ISBN or ISSN is too long (maximum 17 characters)"
+msgstr "Die eingegebene ISBN oder ISSN ist zu lang (maximal 17 Zeichen)."
 
 # [general comment]
 # error message when input for ISBN or ISSN is too short
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "this isbn is too short (7 charaters minimum)"
-msgstr "This ISBN or ISSN is too short (at least 7 characters for ISSN, 10 for ISBN)"
+msgstr "Die eingebene ISBN oder ISSN ist zu kurz (mindestens sieben Zeichen bei einer ISSN, mindestens zehn Zeichen bei einer ISBN)"
 
 # [WARNING] needs_review
 msgid "this name is too long (150 characters maximum)"

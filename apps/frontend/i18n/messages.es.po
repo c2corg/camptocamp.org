@@ -5800,7 +5800,7 @@ msgstr "This ISBN or ISSN is too long (maximum 17 characters)"
 # error message when input for ISBN or ISSN is too short
 # [WARNING] en translation used
 msgid "this isbn is too short (7 charaters minimum)"
-msgstr "This ISBN or ISSN is too short (at least 7 characters for ISSN, 10 for ISBN)"
+msgstr "This ISBN or ISSN is too short (at least 7 characters for an ISSN, 10 for an ISBN)"
 
 msgid "this name is too long (150 characters maximum)"
 msgstr "este nombre es demasiado largo (150 letras como máximo)"
