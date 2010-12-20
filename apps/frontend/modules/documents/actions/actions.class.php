@@ -1204,7 +1204,7 @@ class documentsActions extends c2cActions
         else
         {
             $default_npp = null;
-            if ($user->hasCredential(sfConfig::get('app_credentials_moderator')))
+            if ($this->getUser()->hasCredential(sfConfig::get('app_credentials_moderator')))
             {
                 $max_npp = 1000;
             }
