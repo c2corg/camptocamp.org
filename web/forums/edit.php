@@ -46,16 +46,15 @@ if (!$db->num_rows($result))
 	message($lang_common['Bad request']);
 
 $cur_post = $db->fetch_assoc($result);
+$forum_id = $cur_post['fid'];
 
 // Sort out who the moderators are and if we are currently a moderator (or an admin)
-$mods_array = ($cur_post['moderators'] != '') ? unserialize($cur_post['moderators']) : array();
-$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && array_key_exists($pun_user['username'], $mods_array))) ? true : false;
+list($is_admmod, $is_c2c_board) = get_is_admmod($forum_id, $cur_post['moderators'], $pun_user);
 
 // Determine whether this post is the "topic post" or not
 $result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id='.$cur_post['tid'].' ORDER BY posted LIMIT 1') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 $topic_post_id = $db->result($result);
 
-$forum_id = $cur_post['fid'];
 $is_comment = get_is_comment($forum_id);
 $can_edit_subject = ($id == $topic_post_id && (($pun_user['g_edit_subjects_interval'] == '0' || (time() - $cur_post['posted']) < $pun_user['g_edit_subjects_interval']) || $is_admmod)) ? true : false;
 $hidden_subject = $is_comment && !$is_admmod;

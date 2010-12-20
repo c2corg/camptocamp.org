@@ -58,17 +58,22 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 		$post_id = intval($_GET['id']);
 	
 	//Find the information from the original post
-	$result = $db->query('SELECT p.message, t.id, t.subject, t.forum_id, f.forum_name FROM '.$db->prefix.'posts as p INNER JOIN '.$db->prefix.'topics as t ON p.topic_id=t.id INNER JOIN '.$db->prefix.'forums as f ON t.forum_id=f.id WHERE p.id='.$post_id) or error('Unable to find information for the post', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT p.message, t.id, t.subject, t.forum_id, f.forum_name, f.moderators FROM '.$db->prefix.'posts as p INNER JOIN '.$db->prefix.'topics as t ON p.topic_id=t.id INNER JOIN '.$db->prefix.'forums as f ON t.forum_id=f.id WHERE p.id='.$post_id) or error('Unable to find information for the post', __FILE__, __LINE__, $db->error());
 	if (!$db->num_rows($result))
 		message($lang_common['Bad request']);
 		
-	list($message, $old_topic_id, $subject, $old_fid, $forum_name) = $db->fetch_row($result);
+	list($message, $old_topic_id, $subject, $old_fid, $forum_name, $moderators) = $db->fetch_row($result);
+    
+    list($is_admmod, $is_c2c_board) = get_is_admmod($old_fid, $moderators, $pun_user);
+
+    if (!$is_admmod)
+        message($lang_common['No permission']);
 	
 	
 	//Same forum or new one ?
 	if (isset($_GET['new_fid']))
 	{
-		$fid =$new_fid = intval($_GET['new_fid']);
+		$fid = $new_fid = intval($_GET['new_fid']);
 		
 		if ($new_fid != $old_fid)
 			$new_forum = TRUE;

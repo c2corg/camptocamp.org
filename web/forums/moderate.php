@@ -67,9 +67,9 @@ $footer_style = 'moderate';
 $result = $db->query('SELECT moderators FROM '.$db->prefix.'forums WHERE id='.$fid) or error('Unable to fetch forum info', __FILE__, __LINE__, $db->error());
 
 $moderators = $db->result($result);
-$mods_array = ($moderators != '') ? unserialize($moderators) : array();
+list($is_admmod, $is_c2c_board) = get_is_admmod($forum_id, $moderators, $pun_user);
 
-if ($pun_user['g_id'] != PUN_ADMIN && ($pun_user['g_id'] != PUN_MOD || !array_key_exists($pun_user['username'], $mods_array)))
+if (!$is_admmod)
 	message($lang_common['No permission']);
 
 
