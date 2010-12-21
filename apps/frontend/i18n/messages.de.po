@@ -4604,9 +4604,8 @@ msgstr "Verschiedene Versionen des Dokuments anzeigen und vergleichen"
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 # [comment]
 # etwas freiere Übersetzung um die Attraktivität der Einstiegsseite zu erhöhen.
-# [WARNING] needs_review
 msgid "home_description"
-msgstr "c2c ist ein mehrsprachiger Austauschort zum Alpinismus aller Spielarten wie z.B. Hochtouren, Klettern, Wandern, Skitouren, und Eisklettern.<br /> Stöbern sie im <a href=\"/articles/117868\">Tourenführer</a>, welcher mehr als 19&nbsp;000 Routen enhält, oder informieren sie sich über die <a href=\"/outings/conditions\">aktuellen Verhältnisse</a> der letzten Touren. Diskutieren sie im <a href=\"/forums/?lang=de\">Forum</a> mit, oder bestaunen sie Bilder eines <a href=\"/images\">Fotoalbums</a>.<br />c2c versteht sich als gemeinschaftlicher Ort und bevorzugt und fördert <a href=\"/articles/106728\">Copyright-freie Inhalte</a>. Zögern sie nicht und machen sie <a href=\"http://www.camptocamp.org/signUp\">mit</a>!"
+msgstr "c2c ist ein mehrsprachiger Austauschort zum Alpinismus aller Spielarten wie z.B. Hochtouren, Klettern, Wandern, Skitouren, und Eisklettern.<br /> Stöbern sie im <a href=\"/articles/117868\">Tourenführer</a>, welcher mehr als 20&nbsp;000 Routen enhält, oder informieren sie sich über die <a href=\"/outings/conditions\">aktuellen Verhältnisse</a> der letzten Touren. Diskutieren sie im <a href=\"/forums/?lang=de\">Forum</a> mit, oder bestaunen sie Bilder eines <a href=\"/images\">Fotoalbums</a>.<br />c2c versteht sich als gemeinschaftlicher Ort und bevorzugt und fördert <a href=\"/articles/106728\">Copyright-freie Inhalte</a>. Zögern sie nicht und machen sie <a href=\"http://www.camptocamp.org/signUp\">mit</a>!"
 
 msgid "home_welcome"
 msgstr "«Willkommen auf Camptocamp.org!»"

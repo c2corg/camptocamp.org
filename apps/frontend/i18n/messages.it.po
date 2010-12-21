@@ -2552,9 +2552,9 @@ msgstr "[0] Nessun risultato trovato. <br />Verifica l'ortografia, la sintassi o
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
 msgstr "[0]Non ci sono commenti associati a questo documento.|[1]C'è un commento associato a questo documento.|(1,+Inf]Ci sono %1% commenti associati a questo documento."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "[1]1 image|(1,+Inf]%1% images"
-msgstr "[1]1 picture|(1,+Inf]%1% pictures"
+msgstr "[1]1 immagine|(1,+Inf]%1% immagini"
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Modifica della geometria"
@@ -4206,7 +4206,7 @@ msgstr "Mostrare e confrontare le differenti versione del documento"
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 msgid "home_description"
-msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 19&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
+msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 20&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
 
 msgid "home_welcome"
 msgstr "Benvenuto!"
