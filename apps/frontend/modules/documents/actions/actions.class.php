@@ -887,7 +887,7 @@ class documentsActions extends c2cActions
         // no need to test whether document has been found :
         // already done in getDocument method.
 
-        if (empty($version) && (empty($slug) || $slug != get_slug($document))&& $module != 'users')
+        if (empty($version) && empty($slug) && $module != 'users')
         {
             $this->redirectIfSlugMissing($document, $id, $lang, $module);
         }
