@@ -13,11 +13,19 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     $content_class = $module . '_content';
     $lang = $document->getCulture();
     $version = ($is_archive ? $document->getVersion() : NULL);
-    $slug = get_slug($document);
+    $slug = '';
     
     if (!$is_archive)
     {
-        $url = "@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug";
+        if ($module != 'users')
+        {
+            $slug = get_slug($document);
+            $url = "@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug";
+        }
+        else
+        {
+            $url = "@document_by_id_lang?module=$module&id=$id&lang=$lang";
+        }
     }
     else
     {
