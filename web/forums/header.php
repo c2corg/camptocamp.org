@@ -287,7 +287,7 @@ if ($is_admmod_2)
         {
             $tpl_temp .= '<a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a> | ';
         }
-        else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
+        if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
         {
             $p_temp = isset($p) ? '&amp;p='.$p : '';
             $tpl_temp .= '<a href="moderate.php?fid='.$forum_id.$p_temp.'">'.$lang_common['Moderate forum'].'</a> | ';
