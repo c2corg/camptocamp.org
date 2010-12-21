@@ -43,6 +43,14 @@ class imagesActions extends documentsActions
                 array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
             }
             $this->associated_documents = $associated_docs;
+            
+            $related_portals = array();
+            $activities = $this->document->get('activities');
+            if (in_array(5, $activities))
+            {
+                $related_portals[] = 'ice';
+            }
+            $this->related_portals = $related_portals;
 
             // link for facebook
             list($image_name, $image_ext) = Images::getFileNameParts($this->document['filename']);
