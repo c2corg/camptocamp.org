@@ -235,7 +235,7 @@ msgid "At least one file is too big"
 msgstr "Almeno un file è troppo grande (max 2Mo)."
 
 msgid "At least one file is too large"
-msgstr "Almeno un immagine oltrepassa le dimensioni autorizzate (8000x2000 px)"
+msgstr "Almeno un immagine oltrepassa le dimensioni autorizzate (8192x2048 px)"
 
 msgid "At least one file is too small"
 msgstr "al meno un immagine ha dimensioni troppo piccole (minimo: 16x16 px)"

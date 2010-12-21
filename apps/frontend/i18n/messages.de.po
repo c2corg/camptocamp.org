@@ -239,7 +239,7 @@ msgid "At least one file is too big"
 msgstr "mindestens eine Datei hat die maximal erlaubte Dateigröße überschritten (2MB)"
 
 msgid "At least one file is too large"
-msgstr "mindestens eine Datei überschreitet die maximal mögliche Dimension (8000x2000 px)"
+msgstr "mindestens eine Datei überschreitet die maximal mögliche Dimension (8192x2048 px)"
 
 msgid "At least one file is too small"
 msgstr "mindestens eine Datei hat ein zu kleines Mass (Minimum: 16x16 Pixel)"

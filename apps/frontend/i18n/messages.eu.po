@@ -238,7 +238,7 @@ msgid "At least one file is too big"
 msgstr "fitxero batek gutxienez onartutako neurria gainditzen du (2 Mb)"
 
 msgid "At least one file is too large"
-msgstr "fitxero batek gutxienez baimendutako neurriak gainditzen ditu (8000x2000 px)"
+msgstr "fitxero batek gutxienez baimendutako neurriak gainditzen ditu (8192x2048 px)"
 
 msgid "At least one file is too small"
 msgstr "fitxero batek gutxienez neurri txikiegiak ditu (16x16 px)"
