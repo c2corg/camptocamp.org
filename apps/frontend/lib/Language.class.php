@@ -105,7 +105,7 @@ class Language
         if ($count_images && $modelName != 'Image')
         {
             // Count all images linked
-            $image_links = Association::countAllLinked(array_flip($_str), c2cTools::Model2Letter($modelName).'i');
+            $image_links = Association::countAllLinked(array_keys($_str), c2cTools::Model2Letter($modelName).'i');
             // merge this info into $parsed_array
             foreach ($image_links as $image_link)
             {

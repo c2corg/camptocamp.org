@@ -383,7 +383,7 @@ function button_map($module)
                          'rel' => 'nofollow'));
 }
 
-function getMetaArticleRoute($name, $use_lang = true, $anchor = null)
+function getMetaArticleRoute($name, $use_lang = false, $anchor = null)
 {
     if (is_int($name))
     {

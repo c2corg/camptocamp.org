@@ -243,7 +243,7 @@ if ($footer_style != NULL && $footer_style != 'index')
 	}
 }
 
-$tpl_temp .= '<ul class="conl">';
+$tpl_temp .= '<ul>';
 
 if ($footer_style == 'search_form')
 {

@@ -41,7 +41,10 @@ use_helper('Forum','Button', 'ModalBox', 'General');
         ?>
     </div>
     <?php
-    include_partial('common/menu_content', array('lang' => $lang, 'is_connected' => $is_connected));
+    include_partial('common/menu_content',
+                    array('sf_cache_key' => ($is_connected ? 'connected' : 'not_connected') . '_' . $lang,
+                          'lang' => $lang,
+                          'is_connected' => $is_connected));
     ?>
 </div>
 

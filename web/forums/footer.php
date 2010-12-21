@@ -38,7 +38,6 @@ ob_start();
 
 ?>
 <div id="brdfooter" class="block">
-	<h2><span><?php echo $lang_common['Board footer'] ?></span></h2>
 	<div class="box">
 		<div class="inbox">
 <?php

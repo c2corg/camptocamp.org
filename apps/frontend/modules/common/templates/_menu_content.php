@@ -34,13 +34,13 @@ show_select=function()
                 <ul>
                     <li><?php
                         echo picto_tag('action_informations')
-                           . link_to(__('Kesako?'), getMetaArticleRoute('know_more', false)) ?></li>
+                           . link_to(__('Kesako?'), getMetaArticleRoute('know_more')) ?></li>
                     <li><?php
                         echo picto_tag('action_help')
-                           . link_to(__('FAQ short'), getMetaArticleRoute('faq', false)) ?></li>
+                           . link_to(__('FAQ short'), getMetaArticleRoute('faq')) ?></li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
-                           . link_to(__('Global help'), getMetaArticleRoute('help', false)) ?></li>
+                           . link_to(__('Global help'), getMetaArticleRoute('help')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li><?php
@@ -118,13 +118,9 @@ show_select=function()
                            . link_to(__('parkings') . $sublevel_ie7, '@default_index?module=parkings')
                            . $sublevel_start ?>
                         <ul>
-                            <li><?php
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
                                 echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=parkings') ?></li>
-                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
-                                $cda_config = sfConfig::get('app_portals_cda');
-                                echo picto_tag('picto_portals')
-                                ?><a href="http://<?php echo $cda_config['host'] ?>/"><?php echo __('changerdapproche') ?></a></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php
                                 echo picto_tag('action_create')
@@ -177,9 +173,24 @@ show_select=function()
                             <?php endif ?>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
+                    <li><?php
+                        echo picto_tag('picto_portals')
+                           . link_to(__('portals') . $sublevel_ie7, '@default_index?module=portals') ?>
+                        <?php echo $sublevel_start ?>
+                        <ul>
+                            <li><?php
+                                $cda_config = sfConfig::get('app_portals_cda');
+                                echo picto_tag('picto_portals')
+                                ?><a href="http://<?php echo $cda_config['host'] ?>/"><?php echo __('changerdapproche') ?></a></li>
+                            <li class="lilast"><?php
+                                $ice_config = sfConfig::get('app_portals_ice');
+                                echo picto_tag('picto_portals')
+                                   . link_to(__($ice_config['name']), '@document_by_id?module=portals&id=' . $ice_config['id']) ?></li>
+                        </ul> <?php echo $sublevel_end ?>
+                    </li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
-                           . link_to(__('Help'), getMetaArticleRoute('help_guide', false)) ?></li>
+                           . link_to(__('Help'), getMetaArticleRoute('help_guide')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li><?php
@@ -187,7 +198,7 @@ show_select=function()
                    . $sublevel_start ?>
                 <ul>
                     <li><?php echo picto_tag('action_list')
-                                 . link_to(ucfirst(__('Summary')), getMetaArticleRoute('home_articles', false)) ?></li>
+                                 . link_to(ucfirst(__('Summary')), getMetaArticleRoute('home_articles')) ?></li>
                     <li><?php echo picto_tag('picto_articles')
                                  . link_to(ucfirst(__('mountain environment')), 'articles/list?ccat=1') ?></li>
                     <li><?php echo picto_tag('picto_articles')
@@ -200,9 +211,12 @@ show_select=function()
                                  . link_to(ucfirst(__('expeditions')), 'articles/list?ccat=8') ?></li>
                     <li><?php echo picto_tag('picto_articles')
                                  . link_to(ucfirst(__('stories')), 'articles/list?ccat=3') ?></li>
-                    <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
+                    <li><?php
                         echo picto_tag('action_query')
                            . link_to(__('Search'), '@filter?module=articles') ?></li>
+                    <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
+                        echo picto_tag('action_help')
+                           . link_to(__('Help'), getMetaArticleRoute('help_articles')) ?></li>
                     <?php if ($is_connected): ?>
                     <li class="lilast"><?php
                         echo picto_tag('action_create')
@@ -214,9 +228,12 @@ show_select=function()
                 echo link_to(__('Gallery') . $sublevel_ie7, '@default_index?module=images')
                    . $sublevel_start ?>
                 <ul>
-                    <li class="lilast"><?php
+                    <li><?php
                         echo picto_tag('action_query')
                            . link_to(__('Search'), '@filter?module=images') ?></li>
+                    <li class="lilast"><?php
+                        echo picto_tag('action_help')
+                           . link_to(__('Help'), getMetaArticleRoute('help_images')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li><?php
@@ -264,6 +281,9 @@ show_select=function()
                         echo picto_tag('picto_tools')
                            . m_link_to(__('Customize'), 'users/customize', array('title' => __('Customize the site')), array('width' => 700)) ?></li>
                     <?php if ($is_connected): ?>
+                    <li><?php
+                        echo picto_tag('picto_tools')
+                           . m_link_to(__('My preferences'), 'users/editprivatedata', null, array('width' => 700)) ?></li>
                     <li><?php
                         echo picto_tag('picto_tools')
                            . m_link_to(__('Set languages preferences'), 'users/sortPreferedLanguages', null, array('width' => 700)) ?></li>
@@ -327,10 +347,10 @@ show_select=function()
                     <?php endif ?>
                     <li><?php
                         echo picto_tag('action_help')
-                           . link_to(__('Help'), getMetaArticleRoute('help_forum', false)) ?></li>
+                           . link_to(__('Help'), getMetaArticleRoute('help_forum')) ?></li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
-                           . link_to(__('Charte'), getMetaArticleRoute('charte_forum', false)) ?></li>
+                           . link_to(__('Charte'), getMetaArticleRoute('charte_forum')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
         </ul>

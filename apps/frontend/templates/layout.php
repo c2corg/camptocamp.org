@@ -93,7 +93,8 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
             </div> <!-- Fin wrapper_context -->
         </div>
         <?php
-        include_partial('common/footer', array('lang_code' => $lang_code,
+        include_partial('common/footer', array('sf_cache_key' => $footer_type . '_' . $lang,
+                                               'lang_code' => $lang_code,
                                                'footer_type' => $footer_type));
         ?>
     </div>
