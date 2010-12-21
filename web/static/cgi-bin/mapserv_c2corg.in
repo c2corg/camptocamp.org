@@ -1,3 +1,0 @@
-#!/bin/sh
-
-MS_MAPFILE=@SF_PROJECTS_DIR@/@PROJECT_NAME@/mapdata/c2corg-wms.map @MAPSERV@

@@ -11,14 +11,6 @@ AddType application/vnd.google-earth.kml+xml .kml
 AddType application/gpx+xml .gpx
 AddType application/json .json
 
-ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
-<Directory "@SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/">
-  AllowOverride None
-  Options ExecCGI -MultiViews +SymLinksIfOwnerMatch
-  Order allow,deny
-  Allow from all
-</Directory>
-
 #Alias /sf/ @SF_DATA_DIR@/web/sf/
 
 <IfModule mod_deflate.c>
@@ -28,8 +20,14 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
 </IfModule>
 
 <IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{REQUEST_URI} ^/cgi-bin/
+  RewriteRule /cgi-bin/c2corg4osm     @MAPSERV@ [handler=cgi-script,env=MS_MAPFILE:@SF_PROJECTS_DIR@/@PROJECT_NAME@/mapdata/osm-wms.map,last]
+  RewriteRule /cgi-bin/c2corg_wms     @MAPSERV@ [handler=cgi-script,env=MS_MAPFILE:@SF_PROJECTS_DIR@/@PROJECT_NAME@/mapdata/c2corg-wms2.map,last]
+  RewriteRule /cgi-bin/mapserv_c2corg @MAPSERV@ [handler=cgi-script,env=MS_MAPFILE:@SF_PROJECTS_DIR@/@PROJECT_NAME@/mapdata/c2corg-wms.map,last]
+
   <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
-    RewriteEngine On
 
     # Uncomment next line to neutralize site 
     #RewriteCond %{REMOTE_ADDR} !10\.27.*

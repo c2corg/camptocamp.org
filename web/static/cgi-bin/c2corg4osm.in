@@ -1,3 +1,0 @@
-#!/bin/sh
-
-MS_MAPFILE=@SF_PROJECTS_DIR@/@PROJECT_NAME@/mapdata/osm-wms.map @MAPSERV@
