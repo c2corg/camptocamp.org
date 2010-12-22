@@ -958,6 +958,10 @@ msgstr "Google Recherche de Livres"
 msgid "Guidebook"
 msgstr "Topoguide"
 
+# [WARNING] needs_review
+msgid "Guidebook / Map"
+msgstr "Topos / Carto"
+
 msgid "Guidebook contribs:"
 msgstr "Contributions dans le topoguide&nbsp;:"
 
@@ -1403,7 +1407,7 @@ msgid "My position"
 msgstr "Ma position"
 
 msgid "My preferences"
-msgstr "Préférences personnelles"
+msgstr "Paramètre du compte"
 
 msgid "My topics"
 msgstr "Mes discussions"

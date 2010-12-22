@@ -950,6 +950,10 @@ msgstr "Búsqueda de libros de Google"
 msgid "Guidebook"
 msgstr "Topo-guía"
 
+# [WARNING] needs_review
+msgid "Guidebook / Map"
+msgstr "Topo-guía / Mapa"
+
 msgid "Guidebook contribs:"
 msgstr "Contribuciones en la topo-guía:"
 

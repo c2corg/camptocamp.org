@@ -44,7 +44,7 @@ show_select=function()
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li><?php
-                echo link_to(__('Guidebook') . $sublevel_ie7, getMetaArticleRoute('help_guide', false))
+                echo link_to(__('Guidebook / Map') . $sublevel_ie7, getMetaArticleRoute('help_guide', false))
                    . $sublevel_start ?>
                 <ul>
 	                <li><?php

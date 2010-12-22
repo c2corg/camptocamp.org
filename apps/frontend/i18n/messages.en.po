@@ -952,6 +952,10 @@ msgstr "Google Book Search"
 msgid "Guidebook"
 msgstr "Guidebook"
 
+# [WARNING] needs_review
+msgid "Guidebook / Map"
+msgstr "Guidebook / Map"
+
 msgid "Guidebook contribs:"
 msgstr "Contributions to the guidebook:"
 

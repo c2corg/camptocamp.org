@@ -957,6 +957,10 @@ msgstr "Google liburu bilaketa"
 msgid "Guidebook"
 msgstr "Ibilbide gida"
 
+# [WARNING] needs_review
+msgid "Guidebook / Map"
+msgstr "Ibilbide gida / Mapa"
+
 msgid "Guidebook contribs:"
 msgstr "Ibilbide gidako ekarpenak:"
 
