@@ -1,6 +1,7 @@
 <?php
 use_helper('AutoComplete', 'Field', 'General');
 
+$id = $document->get('id');
 $is_connected = $sf_user->isConnected();
 $is_mobile_version = c2cTools::mobileVersion();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
@@ -41,6 +42,7 @@ if (!isset($fixed_type))
 if (count($associated_documents))
 {
     echo '<ul id="'.$id_list_associated_docs.'">';
+    
     foreach ($associated_documents as $doc)
     {
         $doc_id = $doc->get('id');
@@ -63,7 +65,14 @@ if (count($associated_documents))
         if ($show_link_to_delete)
         {
             $strict = ($type == 'cc') ? 0 : 1;
-            echo c2c_link_to_delete_element($type, $doc_id, $document->get('id'), false, $strict);
+            if (empty($fixed_type))
+            {
+                echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
+            }
+            else
+            {
+                echo c2c_link_to_delete_element($type, $id, $doc_id, true, $strict);
+            }
         }
 
         echo '</li>';
@@ -89,7 +98,7 @@ if ($show_link_tool)
     }
 
     echo c2c_form_add_multi_module('articles',
-        $document->get('id'), $modules_list, 11, 
+        $id, $modules_list, 11, 
         $id_list_associated_docs, false, 'indicator', $id_no_associated_docs);
 
     if (!$is_moderator && $is_connected && ($document->get('article_type') == 2))
