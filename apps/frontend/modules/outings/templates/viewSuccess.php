@@ -166,11 +166,15 @@ if ($mobile_version)
     echo javascript_tag("if (!user_is_author) $('edit_outing_button').hide();");
 }
 
-include_partial('documents/annex_docs',
-                array('document' => $document,
-                      'related_articles' => $associated_articles,
-                      'related_portals' => $related_portals,
-                      'show_link_to_delete' => $show_link_to_delete));
+
+if ($is_not_archive)
+{
+    include_partial('documents/annex_docs',
+                    array('document' => $document,
+                          'related_articles' => $associated_articles,
+                          'related_portals' => $related_portals,
+                          'show_link_to_delete' => $show_link_to_delete));
+}
 
 include_partial('documents/license', array('license' => 'by-nc-nd'));
 

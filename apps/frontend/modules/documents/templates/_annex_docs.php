@@ -13,12 +13,15 @@ if (count($related_articles) || count($related_portals))
     
     if (count($related_articles))
     {
+        $module = $document->get('module');
+        $fixed_type = c2cTools::Module2Letter($module) . 'c';
         include_partial('articles/association',
                         array('document' => $document,
                               'associated_documents' => $related_articles,
                               'show_link_to_delete' => $show_link_to_delete,
                               'show_link_tool' => false,
                               'show_default_text' => false,
+                              'fixed_type' => $fixed_type,
                               'id_list_associated_docs' => 'list_associated_articles'));
     }
     

@@ -20,9 +20,9 @@ if (!isset($show_default_text))
 }
 
 // We'll need the id of this html objerct to update it through ajax
-    $id_no_associated_docs = "no_associated_docs";
+$id_no_associated_docs = "no_associated_docs";
 
-    // We'll need the id of this html objerct to update it through ajax
+// We'll need the id of this html objerct to update it through ajax
 if (!isset($id_list_associated_docs))
 {
     $id_list_associated_docs = "list_associated_docs";
@@ -33,6 +33,11 @@ if (!count($associated_documents) && $show_default_text)
     echo '<p class="default_text" id="', $id_no_associated_docs.'">', __('No associated document found'), '</p>';
 }
 
+if (!isset($fixed_type))
+{
+    $fixed_type = '';
+}
+
 if (count($associated_documents))
 {
     echo '<ul id="'.$id_list_associated_docs.'">';
@@ -40,7 +45,14 @@ if (count($associated_documents))
     {
         $doc_id = $doc->get('id');
         $module = $doc['module'];
-        $type = c2cTools::Module2Letter($module) . 'c';
+        if (empty($fixed_type))
+        {
+            $type = c2cTools::Module2Letter($module) . 'c';
+        }
+        else
+        {
+            $type = $fixed_type;
+        }
         $idstring = $type . '_' . $doc_id;
 
         echo '<li id="'.$idstring.'">';
