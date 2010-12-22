@@ -11,7 +11,7 @@ $item_i18n = $item['BookI18n'][0];
 <?php echo _implode(' - ',
                     array($item['author'],
                           $item['editor'],
-                          $item['publication_date'])); ?>
+                          $item['publication_date'])); ?></div>
 <div>
 <?php echo _implode(' - ',
                     array(get_paginated_value_from_list($item['book_types'], 'mod_books_book_types_list'),
