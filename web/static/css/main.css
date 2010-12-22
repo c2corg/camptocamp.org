@@ -3767,7 +3767,7 @@ p.file_to_upload_categories_title
   padding-left: 25px;
 }
 
-div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
+div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data, #annex_section_container ul
 {
   float: left;
   clear: left;

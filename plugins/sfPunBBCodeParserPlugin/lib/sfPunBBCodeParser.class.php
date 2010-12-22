@@ -1273,7 +1273,7 @@ class sfPunBBCodeParser
         return $text;
     }
 
-    public static function do_videos($text)
+    public static function do_videos($text, $show_videos = true)
     {
         if (stripos($text, '[/video]') !== false)
         {
@@ -1284,40 +1284,48 @@ class sfPunBBCodeParser
             // first replace all [video] by [video $width,$height]
             $text = preg_replace('#\[video\]#', "[video $width,$height]", $text);
 
-            $patterns = array(
-                // youtube http://www.youtube.com/watch?v=3xMk3RNSbcc(&something)
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtube.com/watch\?([=&\w]+&)?v=([-\w]+)(&.+)?\[/video\]#isU',
-                // dailymotion http://www.dailymotion.com/video/x28z33_chinese-man-records-skank-in-the-ai_music
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.dailymotion.com/video/([\da-zA-Z]+)_[-&;\w]+\[/video\]#isU',
-                // googlevideo http://video.google.com/videoplay?docid=3340274697167011147#
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://video.google.com/videoplay\?docid=(\d+)\#\[/video\]#isU',
-                // vimeo http://vimeo.com/8654134
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://(www.)?vimeo.com/(\d+)\[/video\]#isU',
-                // megavideo http://www.megavideo.com/?v=C06JVLTB
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.megavideo.com/\?v=(\w+)\[/video\]#isU',
-                // metacafe http://www.metacafe.com/watch/4003782/best_shot_of_movie_troy(/|.swf)
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.metacafe.com/watch/(\d+/[_a-z]+)(/|\.swf)\[/video\]#isU',
-                // sevenload http://fr.sevenload.com/emissions/La-Chaine-Techno/episodes/aPsY9N8-Le-Talk-iPhone-Episode-08
-                //           http://de.sevenload.com/sendungen/zoom-in/folgen/1AtoCcG-Der-Schneeleopard-startet-fuer-Ghana-in-Vancouver
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://[a-z]{2}.sevenload.com/(.*/)(\w+)-[-\w]*\[/video\]#isU',
-            );
+            if ($show_videos)
+            {
+                $patterns = array(
+                    // youtube http://www.youtube.com/watch?v=3xMk3RNSbcc(&something)
+                    '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtube.com/watch\?([=&\w]+&)?v=([-\w]+)(&.+)?\[/video\]#isU',
+                    // dailymotion http://www.dailymotion.com/video/x28z33_chinese-man-records-skank-in-the-ai_music
+                    '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.dailymotion.com/video/([\da-zA-Z]+)_[-&;\w]+\[/video\]#isU',
+                    // googlevideo http://video.google.com/videoplay?docid=3340274697167011147#
+                    '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://video.google.com/videoplay\?docid=(\d+)\#\[/video\]#isU',
+                    // vimeo http://vimeo.com/8654134
+                    '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://(www.)?vimeo.com/(\d+)\[/video\]#isU',
+                    // megavideo http://www.megavideo.com/?v=C06JVLTB
+                    '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.megavideo.com/\?v=(\w+)\[/video\]#isU',
+                    // metacafe http://www.metacafe.com/watch/4003782/best_shot_of_movie_troy(/|.swf)
+                    '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.metacafe.com/watch/(\d+/[_a-z]+)(/|\.swf)\[/video\]#isU',
+                    // sevenload http://fr.sevenload.com/emissions/La-Chaine-Techno/episodes/aPsY9N8-Le-Talk-iPhone-Episode-08
+                    //           http://de.sevenload.com/sendungen/zoom-in/folgen/1AtoCcG-Der-Schneeleopard-startet-fuer-Ghana-in-Vancouver
+                    '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://[a-z]{2}.sevenload.com/(.*/)(\w+)-[-\w]*\[/video\]#isU',
+                );
 
-            $replacements = array(
-                // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html TODO Possibility to use <object> instead of <iframe>?
-                '<iframe class="youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$5" frameborder="0"></iframe>',
-                // dailymotion
-                '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
-                // googlevideo
-                '<object width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
-                // vimeo - This version should support iPhone, Flash, HTML5 etc TODO Possibility to use <object> instead of <iframe>?
-                '<iframe src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3" frameborder="0"></iframe>',
-                // megavideo
-                '<object width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
-                // metacafe
-                '<object width="$2" height="$3"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf"></param><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
-                // sevenload
-                '<object width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true"></param></param><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash"></embed></object>',
-            );
+                $replacements = array(
+                    // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html TODO Possibility to use <object> instead of <iframe>?
+                    '<iframe class="youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$5" frameborder="0"></iframe>',
+                    // dailymotion
+                    '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
+                    // googlevideo
+                    '<object width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+                    // vimeo - This version should support iPhone, Flash, HTML5 etc TODO Possibility to use <object> instead of <iframe>?
+                    '<iframe src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3" frameborder="0"></iframe>',
+                    // megavideo
+                    '<object width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+                    // metacafe
+                    '<object width="$2" height="$3"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf"></param><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+                    // sevenload
+                    '<object width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true"></param></param><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash"></embed></object>',
+                );
+            }
+            else
+            {
+                $patterns = array('#\[video(.*?)\](.*)\[/video\]\n?#s');
+                $replacements = array('');
+            }
 
             $text = preg_replace($patterns, $replacements, $text);
         }
@@ -1383,7 +1391,6 @@ class sfPunBBCodeParser
      */
     public static function parse_message($text, $images = null, $collaborative_doc = true, $show_images = true)
     {
-
         global $list_level;
         $list_level = 0;
         
@@ -1410,10 +1417,7 @@ class sfPunBBCodeParser
         $text = self::do_lists($text);
         $text = self::do_bbcode($text, true);
         $text = self::do_images($text, $images, $collaborative_doc, $show_images);
-        if (!$collaborative_doc)
-        {
-            $text = self::do_videos($text);
-        }
+        $text = self::do_videos($text, !$collaborative_doc);
         $text = self::do_spaces($text, true);
     
         // If we split up the message before we have to concatenate it together again (code tags)
@@ -1454,6 +1458,7 @@ class sfPunBBCodeParser
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, false, false);
         $text = self::do_images($text, null, false, false);
+        $text = self::do_videos($text, false);
         $text = preg_replace(array('/(?<!&)#+((c\d?)[ ])?[ ]?/', '#\[toc[ ]*(\d*)[ ]*(right)?\]#i'), array('', ''), $text);
         $text = self::do_spaces($text, false);
     
@@ -1466,6 +1471,7 @@ class sfPunBBCodeParser
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, true);
         $text = self::do_images($text, null, false, false);
+        $text = self::do_videos($text, false);
         $text = self::do_spaces($text, true);
     
         // Make sure there are no empty paragraphs

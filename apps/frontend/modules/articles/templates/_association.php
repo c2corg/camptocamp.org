@@ -6,19 +6,29 @@ $is_mobile_version = c2cTools::mobileVersion();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
-$show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$is_mobile_version);
-$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$is_mobile_version);
 if (!isset($show_link_to_delete))
 {
-    $show_link_to_delete = false;
+    $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$is_mobile_version);
+}
+if (!isset($show_link_tool))
+{
+    $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$is_mobile_version);
+}
+if (!isset($show_default_text))
+{
+    $show_default_text = true;
 }
 
 // We'll need the id of this html objerct to update it through ajax
-$id_no_associated_docs = "no_associated_docs";
-// We'll need the id of this html objerct to update it through ajax
-$id_list_associated_docs = "list_associated_docs";
+    $id_no_associated_docs = "no_associated_docs";
 
-if (!count($associated_documents))
+    // We'll need the id of this html objerct to update it through ajax
+if (!isset($id_list_associated_docs))
+{
+    $id_list_associated_docs = "list_associated_docs";
+}
+
+if (!count($associated_documents) && $show_default_text)
 {
     echo '<p class="default_text" id="', $id_no_associated_docs.'">', __('No associated document found'), '</p>';
 }

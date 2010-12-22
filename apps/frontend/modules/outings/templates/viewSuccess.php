@@ -107,14 +107,6 @@ if ($is_not_archive)
         include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits', 'is_extra' => true));
         include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts', 'is_extra' => true));
         include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
-        
-        include_partial('documents/association',
-                        array('associated_docs' => $associated_articles, 
-                              'module' => 'articles',
-                              'document' => $document,
-                              'show_link_to_delete' => $show_link_to_delete,
-                              'type' => 'oc',
-                              'strict' => true));
     }
     echo '</div>';
 }
@@ -174,7 +166,11 @@ if ($mobile_version)
     echo javascript_tag("if (!user_is_author) $('edit_outing_button').hide();");
 }
 
-include_partial('documents/annex_docs', array('related_portals' => $related_portals));
+include_partial('documents/annex_docs',
+                array('document' => $document,
+                      'related_articles' => $associated_articles,
+                      'related_portals' => $related_portals,
+                      'show_link_to_delete' => $show_link_to_delete));
 
 include_partial('documents/license', array('license' => 'by-nc-nd'));
 
