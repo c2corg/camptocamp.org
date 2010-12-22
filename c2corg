@@ -188,7 +188,7 @@ function processArgs() {
             checkCacheDir();
             makeDirs();
             replaceDotIn();
-            makeMapservWrapperExecutable();
+            //makeMapservWrapperExecutable();
             //installPlugins();
             generateMoFiles();
             launchSfCleanCache();
@@ -205,7 +205,7 @@ function processArgs() {
             checkCacheDir();
             replaceDotIn();
             generateMoFiles();
-            makeMapservWrapperExecutable();
+            //makeMapservWrapperExecutable();
             buildMapJsFiles(); // must be done before revision info
             updateRevisionInfo();
             launchSfCleanCache();

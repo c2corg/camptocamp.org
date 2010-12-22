@@ -28,6 +28,7 @@ AddType application/json .json
   RewriteRule /cgi-bin/mapserv_c2corg @MAPSERV@ [handler=cgi-script,env=MS_MAPFILE:@SF_PROJECTS_DIR@/@PROJECT_NAME@/mapdata/c2corg-wms.map,last]
 
   <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
+    RewriteEngine On
 
     # Uncomment next line to neutralize site 
     #RewriteCond %{REMOTE_ADDR} !10\.27.*
