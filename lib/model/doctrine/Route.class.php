@@ -465,7 +465,7 @@ class Route extends BaseRoute
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(false, true, true))
         {
             self::filterOnActivities($q);
             self::filterOnRegions($q);

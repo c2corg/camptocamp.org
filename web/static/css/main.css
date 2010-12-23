@@ -4118,6 +4118,7 @@ span.hextra, .article span.hextra
 span.hextra a, .article span.hextra a
 {
   font-weight: normal;
+  font-style: italic;
   text-decoration: underline;
   color: #666666;
 }

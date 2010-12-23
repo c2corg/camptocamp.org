@@ -114,7 +114,7 @@ class Article extends BaseArticle
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(true, false, true))
         {
             self::filterOnActivities($q);
             self::filterOnLanguages($q);

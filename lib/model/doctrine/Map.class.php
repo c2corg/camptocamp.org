@@ -61,7 +61,7 @@ class Map extends BaseMap
             
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(false, true, false))
         {
             self::filterOnRegions($q);
         }

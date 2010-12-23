@@ -179,6 +179,18 @@ class c2cPersonalization
         }
         return $is_default_filter;
     }
+
+    /**
+     * Tells if user has some filters activated and if main filter is activated.
+     * @return boolean
+     */
+    public function areFiltersActiveAndOn($langs = true, $areas = true, $activities = true)
+    {
+        return      $this->isMainFilterSwitchOn()
+                &&  (!$langs || (bool)$this->getLanguagesFilter())
+                &&  (!$areas || (bool)$this->getPlacesFilter())
+                &&  (!$activities || (bool)$this->getActivitiesFilter());
+    }
     
     /**
      * Sets the FilterSwitch cookie to ON or OFF

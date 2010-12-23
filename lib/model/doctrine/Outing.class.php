@@ -266,7 +266,7 @@ class Outing extends BaseOuting
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(true, true, true))
         {
             self::filterOnLanguages($q);
             self::filterOnActivities($q);
