@@ -74,7 +74,7 @@ if ($has_images):
 <?php
 endif;
 
-include_partial('portals/prepare', array('culture' => $culture,
+include_partial('portals/prepare', array('sf_cache_key' => $culture,
                                          'content_id' => 'cda_prepare_outing_box',
                                          'default_open' => true));
 
