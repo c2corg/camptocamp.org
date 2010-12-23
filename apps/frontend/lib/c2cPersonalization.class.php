@@ -187,9 +187,11 @@ class c2cPersonalization
     public function areFiltersActiveAndOn($langs = true, $areas = true, $activities = true)
     {
         return      $this->isMainFilterSwitchOn()
-                &&  (!$langs || (bool)$this->getLanguagesFilter())
-                &&  (!$areas || (bool)$this->getPlacesFilter())
-                &&  (!$activities || (bool)$this->getActivitiesFilter());
+                && (
+                        ($langs && (bool)$this->getLanguagesFilter())
+                    ||  ($areas && (bool)$this->getPlacesFilter())
+                    ||  ($activities && (bool)$this->getActivitiesFilter())
+                   );
     }
     
     /**
