@@ -5,7 +5,7 @@
 $lon = $document->get('lon') ? $document->get('lon') : 0;
 $lat = $document->get('lat') ? $document->get('lat') : 0;
 echo __('Regions are detected automatically according to coordinates')."\n".
-    link_to_function(__('Use map'), "init_mapping($lon,$lat)").
+    link_to_function(__('Use map'), "c2corg.docGeoref.init($lon,$lat)").
     __(' to point location'); 
 ?></p>
 <?php 
@@ -13,8 +13,6 @@ echo object_coord_tag($document, 'lon', '°E');
 echo object_coord_tag($document, 'lat', '°N');
 ?>
 </div>
-<div id="mapping" style="float:left; width: 100%; display: none;">
 <?php 
-echo show_oam($lon, $lat);
+echo show_georef_map($lon, $lat, $sf_params->get('lang'), $document->get('module'));
 ?>
-</div>

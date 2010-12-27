@@ -190,10 +190,10 @@ function object_coord_tag($object, $fieldname, $suffix)
     $out .= form_error($fieldname) . ' <div style="display:inline">';
     $out .= input_tag($fieldname, $degdec,
                       array('class' => 'medium_input',
-                            'onkeyup' => "update_degminsec('$fieldname');toggle_update_btn()"));
+                            'onkeyup' => "update_degminsec('$fieldname');"));
     $out .= '</div>';
     $out .= '&nbsp;' . __($suffix) . ' &nbsp; / &nbsp; ';
-    $options = array('class' => 'short_input', 'onkeyup' => "update_decimal_coord('$fieldname');toggle_update_btn()");
+    $options = array('class' => 'short_input', 'onkeyup' => "update_decimal_coord('$fieldname');");
     $out .= input_tag($fieldname . '_deg', $deg, $options) . ' ' .  __($suffix) . ' ';
     $out .= input_tag($fieldname . '_min', $min, $options) . " ' ";
     $out .= input_tag($fieldname . '_sec', $sec, $options) . ' "';

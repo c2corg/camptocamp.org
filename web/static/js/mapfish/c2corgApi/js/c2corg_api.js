@@ -22,7 +22,9 @@
  * @requires OpenLayers/Layer/Vector.js
  * @requires OpenLayers/Layer/WMS.js
  * @requires OpenLayers/Layer/XYZ.js
+ * @requires OpenLayers/Layer/Markers.js
  * @requires OpenLayers/Map.js
+ * @requires OpenLayers/Marker.js
  * @requires OpenLayers/Projection.js
  * @requires OpenLayers/Style.js
  * @requires OpenLayers/StyleMap.js
