@@ -62,7 +62,7 @@ endif;
             if (!empty($mobile_hostname) && !$is_cda && !$is_map)
             {
                 echo ' | ' . link_to(__('mobile version'), 'http://'.$mobile_hostname,
-                                     array('onclick' => "document.location.href = document.location.href.replace('$classic_hostname', '$mobile_hostname'); return false;"));
+                                     array('onclick' => "document.cookie='nomobile=; expires=Thu, 01-Jan-70 00:00:01 GMT;'; document.location.href = document.location.href.replace('$classic_hostname', '$mobile_hostname'); return false;"));
             }
             ?>
             </p>
