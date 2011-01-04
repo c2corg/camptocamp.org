@@ -19,8 +19,8 @@
 
 function usage()
 {
-    echo "Usage: php $argv[0] area <kml file> [<region id (0)> [<region type (1)> [<culture (fr)>]]]\n" .
-         "   or: php $argv[0] map <kml file> [<map id (0)> [<scale (1)> [<editor (1)> [<code (unknown)> [<culture (fr)>]]]]]\n";
+    echo "Usage: php <script> area <kml file> [<region id (0)> [<region type (1)> [<culture (fr)>]]]\n" .
+         "   or: php <script> map <kml file> [<map id (0)> [<scale (1)> [<editor (1)> [<code (unknown)> [<culture (fr)>]]]]]\n";
     exit;
 }
 
@@ -363,6 +363,8 @@ try
         }
     }
 
+    // this query is far too complex, and too slow
+/*
     $query = 'SELECT id, module FROM documents WHERE intersects(buffer(documents.geom, 200), (SELECT Force_2d(geom) FROM '
            . ($is_map ? 'maps' : 'areas') . ' WHERE ' . ($is_map ? 'maps' : 'areas') . '.id = ?))'
            . ($is_map ? "AND module NOT IN('outings', 'maps', 'users')" : "AND module NOT IN('areas')");
@@ -370,6 +372,23 @@ try
 
     $results = sfDoctrine::connection()
                         ->standaloneQuery($query, array($document_id))
+                        ->fetchAll();
+*/
+
+    // working only with bbox of the geometry
+    // this strategy might recompute geoassociations for a lot of unnecessary docs, but might work better (spatial index)
+    $query = 'SELECT ST_Extent(geom) FROM ' . ($is_map ? 'maps' : 'areas') . ' WHERE id=?;';
+    $results = sfDoctrine::connection()
+                        ->standaloneQuery($query, array($document_id))
+                        ->fetchAll();
+    $bounding_box = $results[0][0];
+
+    $query = "SELECT id, module FROM documents WHERE geom && SETSRID('$bounding_box'::box2d,900913) AND MODULE IN "
+             . ($is_map ? "('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images', 'routes', 'areas')"
+                        : "('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images', 'outings', 'routes', 'users', 'maps')");
+
+    $results = sfDoctrine::connection()
+                        ->standaloneQuery($query)
                         ->fetchAll();
 
     echo "Create new associations (+ inherited docs)...\n";
