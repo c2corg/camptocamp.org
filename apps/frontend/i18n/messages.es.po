@@ -3313,7 +3313,7 @@ msgstr "volver"
 # [general comment]
 # label du dropdown de selection des fonds carto
 msgid "backgrounds"
-msgstr "Fondo:"
+msgstr "Seleccione el fondo cartográfico:"
 
 # [general comment]
 # Titre pour les liens vers les articles "Le contenu du sac".

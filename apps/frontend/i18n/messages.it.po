@@ -3317,6 +3317,8 @@ msgstr "indietro"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
+# [comment]
+# back to background only since it seems it was the 'italian word' for it
 # [WARNING] needs_review
 msgid "backgrounds"
 msgstr "Background:"
