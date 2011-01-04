@@ -1138,7 +1138,15 @@ class BaseDocument extends sfDoctrineRecordI18n
         $use_docid = (intval($name) > 1);
         $name = $use_docid ? intval($name) : $name;
 
-        $operator = $exact_match ? '= ?' : "LIKE '%'||make_search_name(?)||'%'";
+        // FIXME change the diff between users and other modules once performance problems have been resolved
+        if ($model == 'User')
+        {
+            $operator = $exact_match ? '= ?' : "LIKE make_search_name(?)||'%'";
+        }
+        else
+        {
+            $operator = $exact_match ? '= ?' : "LIKE '%'||make_search_name(?)||'%'";
+        }
         $where_clause = $use_docid ? 'm.redirects_to IS NULL AND mi.id = ?'
                                    : 'm.redirects_to IS NULL AND mi.search_name ' . $operator;
 

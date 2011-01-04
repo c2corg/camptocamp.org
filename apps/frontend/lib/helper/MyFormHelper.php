@@ -469,7 +469,7 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
         $current_module = $sf_context->getModuleName();
         if (in_array($current_module, array('documents', 'common', 'portals')))
         {
-            $selected = 'routes';
+            $selected = 'summits'; // FIXME should be routes, but we use summits until performance are improved
         }
         else if(empty($current_module))
         {
