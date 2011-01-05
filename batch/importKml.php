@@ -19,8 +19,8 @@
 
 function usage()
 {
-    echo "Usage: php <script> area <kml file> [<region id (0)> [<region type (1)> [<culture (fr)>]]]\n" .
-         "   or: php <script> map <kml file> [<map id (0)> [<scale (1)> [<editor (1)> [<code (unknown)> [<culture (fr)>]]]]]\n";
+    echo "Usage: php " . basename(__FILE__) . " area <kml file> [<region id (0)> [<region type (1)> [<culture (fr)> [<comment>]]]]\n" .
+         "   or: php " . basename(__FILE__) . " map <kml file> [<map id (0)> [<scale (1)> [<editor (1)> [<code (unknown)> [<culture (fr)> [<comment>]]]]]]\n";
     exit;
 }
 
@@ -89,6 +89,12 @@ else
     $culture = 'fr';
 }
 
+// region comment
+if (!$is_map && $argc >= 7)
+{
+    $comment = $argv[6];
+}
+
 // map scale
 if ($is_map && $argc >= 5)
 {
@@ -150,6 +156,12 @@ if ($is_map && $argc >= 8)
 else
 {
     $culture = 'fr';
+}
+
+// map comment
+if ($is_map && $argc >= 9)
+{
+    $comment = $argv[8];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -222,7 +234,7 @@ for ($i = 0; $i < count($polygons); $i++) // warning: foreach won't work
         }
     }
 
-    $polygons_list[] = $outerboundary . (count($innerboundaries) ? ',' . implode(',', $innerboundaries) : '');
+    $polygons_list[] = $outerboundary . (isset($innerboundaries) && count($innerboundaries) ? ',' . implode(',', $innerboundaries) : '');
 }
 
 if (!$is_multi)
@@ -302,7 +314,7 @@ try
     $conn->beginTransaction();
 
     $history_metadata = new HistoryMetadata();
-    $history_metadata->setComment($is_new_document ? 'Imported new ' . ($is_map ? 'map' : 'area') : 'Updated geometry');
+    $history_metadata->setComment(isset($comment) ? $comment : ($is_new_document ? 'Imported new ' . ($is_map ? 'map' : 'area') : 'Updated geometry'));
     $history_metadata->set('is_minor', false);
     $history_metadata->set('user_id', 2); // C2C user
     $history_metadata->save();
@@ -325,7 +337,6 @@ try
     }
     else
     {
-        // FIXME this will launch somehow cookies from Punbb and create a php warning..
         $doc = Document::find($is_map ? 'Map' : 'Area', $document_id);
         $name = $doc->get('name');
     }
@@ -363,32 +374,22 @@ try
         }
     }
 
-    // this query is far too complex, and too slow
-/*
+    /*
+    // very inefficient query, following one is much better (spatial index)
     $query = 'SELECT id, module FROM documents WHERE intersects(buffer(documents.geom, 200), (SELECT Force_2d(geom) FROM '
            . ($is_map ? 'maps' : 'areas') . ' WHERE ' . ($is_map ? 'maps' : 'areas') . '.id = ?))'
            . ($is_map ? "AND module NOT IN('outings', 'maps', 'users')" : "AND module NOT IN('areas')");
+    */
+
     // rq: no maps are linked to outings, users and other maps ; areas are not linked together
-
-    $results = sfDoctrine::connection()
-                        ->standaloneQuery($query, array($document_id))
-                        ->fetchAll();
-*/
-
-    // working only with bbox of the geometry
-    // this strategy might recompute geoassociations for a lot of unnecessary docs, but might work better (spatial index)
-    $query = 'SELECT ST_Extent(geom) FROM ' . ($is_map ? 'maps' : 'areas') . ' WHERE id=?;';
-    $results = sfDoctrine::connection()
-                        ->standaloneQuery($query, array($document_id))
-                        ->fetchAll();
-    $bounding_box = $results[0][0];
-
-    $query = "SELECT id, module FROM documents WHERE geom && SETSRID('$bounding_box'::box2d,900913) AND MODULE IN "
+    $query = 'SELECT id, module FROM documents WHERE geom && '
+             . '(SELECT buffer(geom, 200) FROM ' . ($is_map ? 'maps' : 'areas') . ' WHERE id=?)' 
+             . ' AND MODULE IN'
              . ($is_map ? "('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images', 'routes', 'areas')"
                         : "('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images', 'outings', 'routes', 'users', 'maps')");
-
+    
     $results = sfDoctrine::connection()
-                        ->standaloneQuery($query)
+                        ->standaloneQuery($query, array($document_id))
                         ->fetchAll();
 
     echo "Create new associations (+ inherited docs)...\n";
@@ -496,11 +497,11 @@ try
 
     if ($is_new_document)
     {
-        echo "Added new map / area $name\n";
+        echo 'Added new ' . ($is_map ? 'map' : 'area') . " $name\n";
     }
     else
     {
-        echo "Updated map / area $document_id ($name)\n";
+        echo 'Updated ' . ($is_map ? 'map' : 'area') . " $document_id ($name)\n";
     }
 }
 catch (Exception $e)
