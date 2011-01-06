@@ -1498,6 +1498,7 @@ all:
     editors:
       1: IGN
       2: Swisstopo
+      3: L'Escursionista
     scales:
       1: 1/25000
       2: 1/50000
