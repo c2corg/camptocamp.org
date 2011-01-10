@@ -2,7 +2,6 @@
 
 /**
  * This script is used to import or update regions and maps
- * @todo factorize geoassociations computation with refreshGeoassociations function (but in sfActions...)
  * @todo clear cache?
  * @todo try to reduce number of separate transactions (but seems like some things do not work anymore if...)
  *
@@ -374,23 +373,48 @@ try
         }
     }
 
-    /*
-    // very inefficient query, following one is much better (spatial index)
-    $query = 'SELECT id, module FROM documents WHERE intersects(buffer(documents.geom, 200), (SELECT Force_2d(geom) FROM '
-           . ($is_map ? 'maps' : 'areas') . ' WHERE ' . ($is_map ? 'maps' : 'areas') . '.id = ?))'
-           . ($is_map ? "AND module NOT IN('outings', 'maps', 'users')" : "AND module NOT IN('areas')");
-    */
+    // Some explanation for the following queries:
+    // - && operator is used to limit docs to the one whose bouding boxes overlap (it uses spatial index)
+    // - ST_Within and ST_Intersects are used to work on the actual geometries
+    // - ST_Within apears to be faster, so we use it for 'points' (like summits, huts etc), but we have
+    //   to use ST_Intersects for 'geometries' (like outings, maps etc)
+    // - we only use a buffer of 200m for areas (because of boundaries imprecision), but not for maps
+    // - areas are not linked together
+    // - maps are not linked to outings, users, and other maps
 
-    // rq: no maps are linked to outings, users and other maps ; areas are not linked together
-    $query = 'SELECT id, module FROM documents WHERE geom && '
-             . '(SELECT buffer(geom, 200) FROM ' . ($is_map ? 'maps' : 'areas') . ' WHERE id=?)' 
-             . ' AND MODULE IN'
-             . ($is_map ? "('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images', 'routes', 'areas')"
-                        : "('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images', 'outings', 'routes', 'users', 'maps')");
+    // todo in some cases, the bounding box of the area could be very big (US?) and the query could be far too slow
+    //      especially if it is a multigeometry...
+
+    $geom = $is_map ? '(SELECT geom FROM maps WHERE id=?)' : '(SELECT buffer(geom, 200) FROM areas WHERE id=?)';
+
+    $query1 = 'SELECT id, module FROM documents WHERE geom && ' . $geom
+            . 'AND ST_Within(geom, ' . $geom . ')'
+            . "AND MODULE IN('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images'"
+            . ($is_map ? '' : ", 'users'") . ')';
+
+    $query2 = 'SELECT id, module FROM documents WHERE geom && ' . $geom 
+            . 'AND ST_Intersects(geom, ' . $geom . ') '
+            . 'AND MODULE IN'
+            . ($is_map ? "('routes', 'areas')"
+                       : "('outings', 'routes', 'maps')");
     
-    $results = sfDoctrine::connection()
-                        ->standaloneQuery($query, array($document_id))
+    $results1 = sfDoctrine::connection()
+                        ->standaloneQuery($query1, array($document_id, $document_id))
                         ->fetchAll();
+
+    $results2 = sfDoctrine::connection()
+                        ->standaloneQuery($query2, array($document_id, $document_id))
+                        ->fetchAll();
+
+    $results = array();
+    foreach ($results1 as $d)
+    {
+        $results[] = $d;
+    }
+    foreach ($results2 as $d)
+    {
+        $results[] = $d;
+    }
 
     echo "Create new associations (+ inherited docs)...\n";
     $tot = count($results);
@@ -422,27 +446,23 @@ try
             $a->doSaveWithValues($d['id'], $document_id, $a_type);
         }
 
-        // inherited docs
-        // FIXME factorize with refreshGeoassociations functions (but protected in sfActions...)
+        // inherited docs: we add geoassociations for the 'inherited docs' from sites, routes and summits
+        // but not if they already have a geometry (gps track)
         switch ($d['module'])
         {
             case 'sites':
             case 'routes':
+                if ($is_map) break; // we do not link maps to outings
                 $associated_outings = Association::findAllAssociatedDocs($d['id'], array('id', 'geom_wkt'), ($d['module'] == 'routes' ? 'ro' : 'to'));
                 if (count($associated_outings))
                 {
-                    $geoassociations = GeoAssociation::findAllAssociations($d['id'], null, 'main');
-                    // we create new associations :
-                    //  (and delete old associations before creating the new ones)
-                    //  (and do not create outings-maps associations)
                     foreach ($associated_outings as $outing)
                     {
-                        $i = $outing['id'];
                         if (!$outing['geom_wkt']) // proof that there is no pre-existing geoassociation due to a GPX upload
                         {
-                            // replicate geoassoces from doc $id to outing $i and delete previous ones
-                            // (because there might be geoassociations created by this same process)
-                            $nb_created = GeoAssociation::replicateGeoAssociations($geoassociations, $i, true, false);
+                             // we create geoassociation (if it already existed, it has been deleted before in the script)
+                             $a = new GeoAssociation();
+                             $a->doSaveWithValues($outing['id'], $document_id, $a_type);
                         }
                     }
                 }
@@ -450,45 +470,39 @@ try
             case 'summits':
                 // if summit is of type raid, we should not try to update its routes and outings summit_type=5
                 $summit = Document::find('Summit', $d['id']);
-                if ($summit->get('summit_type') != 5) break;
+                if ($summit->get('summit_type') == 5) break;
 
                 $associated_routes = Association::findAllAssociatedDocs($d['id'], array('id', 'geom_wkt'), 'sr');
                 if (count($associated_routes))
                 {
-                    $geoassociations = GeoAssociation::findAllAssociations($d['id'], null, 'main');
-                    // we create new associations :
-                    //  (and delete old associations before creating the new ones)
-                    //  (and do not create outings-maps associations)
                     foreach ($associated_routes as $route)
                     {
                         $i = $route['id'];
                         if (!$route['geom_wkt']) // proof that there is no pre-existing geoassociation due to a GPX upload
                         {
-                            // replicate geoassoces from doc $id to outing $i and delete previous ones
-                            // (because there might be geoassociations created by this same process)
-                            $nb_created = GeoAssociation::replicateGeoAssociations($geoassociations, $i, true, true);
-                            $associated_outings = Association::findAllAssociatedDocs($i, array('id', 'geom_wkt'), 'ro');
-                            if (count($associated_outings))
+                            $a = new GeoAssociation();
+                            $a->doSaveWithValues($i, $document_id, $a_type);
+
+                            if (!$is_map) // We do not link maps to outings
                             {
-                                $geoassociations2 = GeoAssociation::findAllAssociations($i, null, 'main');
-                                // we create new associations :
-                                //  (and delete old associations before creating the new ones)
-                                //  (and do not create outings-maps associations)
-                                foreach ($associated_outings as $outing)
+                                $associated_outings = Association::findAllAssociatedDocs($i, array('id', 'geom_wkt'), 'ro');
+                                if (count($associated_outings))
                                 {
-                                    $j = $outing['id'];
-        
-                                    if (!$outing['geom_wkt']) // proof that there is no pre-existing geoassociation due to a GPX upload
+                                    foreach ($associated_outings as $outing)
                                     {
-                                        // replicate geoassoces from doc $id to outing $i and delete previous ones
-                                        // (because there might be geoassociations created by this same process)
-                                        $nb_created = GeoAssociation::replicateGeoAssociations($geoassociations2, $j, true, false);
+                                        $j = $outing['id'];
+                                        if (!$outing['geom_wkt']) // proof that there is no pre-existing geoassociation due to a GPX upload
+                                        {
+                                            $a = new GeoAssociation();
+                                            $a->doSaveWithValues($j, $document_id, $a_type);
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+                break;
         }
     }
     echo "\n";
