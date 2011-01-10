@@ -56,8 +56,10 @@ GoogleSearch = {
         window.location = url;
       } else {
         // we don't want to redirect (e.g. because google search was launched automatically)
-        $('google_search_results').update('An error has occured, please <a href="mailto:dev'+'@'
-                                          +'camptocamp.org">contact us</a> ('+response.error.message+')');
+        // but we hide the error
+        $('google_search').hide();
+        /*$('google_search_results').update('An error has occured, please <a href="mailto:dev'+'@'
+                                          +'camptocamp.org">contact us</a> ('+response.error.message+')');*/
       }
       return;
     }
