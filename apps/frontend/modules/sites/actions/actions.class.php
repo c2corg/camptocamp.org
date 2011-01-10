@@ -577,8 +577,11 @@ class sitesActions extends documentsActions
         {
             case 'tnam': return 'mi.search_name';
             case 'talt': return 'm.elevation';
-            case 'rqty': return 'm.routes_quantity';
+            case 'rqua': return 'm.routes_quantity';
             case 'ttyp': return 'm.site_types';
+            case 'mhei': return 'm.mean_height';
+            case 'mrat': return 'm.mean_rating';
+            case 'tprat': return 'm.equipment_rating';
             case 'trock': return 'm.rock_types';
             case 'anam': return 'ai.search_name';
             case 'geom': return 'm.geom_wkt';
@@ -614,7 +617,7 @@ class sitesActions extends documentsActions
         $this->addCompareParam($out, 'talt');
         $this->addListParam($out, 'ttyp');
         $this->addListParam($out, 'tcsty');
-        $this->addCompareParam($out, 'prat');
+        $this->addCompareParam($out, 'tprat');
         $this->addCompareParam($out, 'rqua');
         $this->addCompareParam($out, 'mhei');
         $this->addCompareParam($out, 'mrat');

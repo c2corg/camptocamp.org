@@ -31,7 +31,7 @@ echo __('rock_types') . ' ' . field_value_selector('trock', 'app_rock_types_list
 ?>
 <br />
 <?php
-echo __('equipment_rating') . ' ' . range_selector('prat', 'app_equipment_ratings_list', null, true);
+echo __('equipment_rating') . ' ' . range_selector('tprat', 'app_equipment_ratings_list', null, true);
 ?>
 <br />
 <?php

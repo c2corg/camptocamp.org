@@ -99,8 +99,11 @@ all:
     criteria:
       'tnam': name
       'talt': elevation
-      'rqty': routes_quantity
+      'rqua': routes_quantity
       'ttyp': site_types
+      'mhei': mean_height
+      'mrat': mean_rating
+      'tprat': equipment_rating
       'trock': rock_types
       'anam': region_name
       'lat': 'location S >> N'

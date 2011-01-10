@@ -161,7 +161,7 @@ class Site extends BaseSite
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'talt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'site_types'), 'ttyp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'climbing_styles'), 'tcsty', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', $m . '.equipment_rating', 'prat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.equipment_rating', 'tprat', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.routes_quantity', 'rqua', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.mean_height', 'mhei', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.mean_rating', 'mrat', $join, false, $params_list);
@@ -306,7 +306,7 @@ class Site extends BaseSite
             if (isset($conditions['join_site']))
             {
                 $q->leftJoin($m . $linked . 'Site s');
-                unset($conditions['join_hut']);
+                unset($conditions['join_site']);
             }
         }
         
