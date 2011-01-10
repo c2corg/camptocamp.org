@@ -33,7 +33,7 @@ $is_protected = $document->get('is_protected');
             <?php if ($has_rights && !$is_archive): ?>
                 <li><?php echo button_clear_cache($module, $id) ?></li>
             <?php endif ?>
-            <?php if ($needs_delete_action && !$redirected): ?>
+            <?php if ($has_rights && !$is_archive && !$redirected): ?>
                 <li><?php echo button_refresh_geo_associations($module, $id) ?></li>
             <?php endif ?>
             <?php if ($sf_user->isConnected() && !$redirected && !$is_archive && !$is_protected): ?>
