@@ -789,6 +789,7 @@ all:
         14188: 101 # Islande
         14270: 101 # Italie
         14177: 101 # Jan Mayen
+        250165: 101 # Kosovo
         14165: 101 # Lettonie
         14160: 101 # Liechtenstein
         14159: 101 # Lituanie
@@ -797,6 +798,7 @@ all:
         14151: 101 # Malta
         14146: 101 # Moldova
         14268: 101 # Monaco
+        250166: 101 # Montenegro
         14132: 101 # Norvège
         14139: 101 # Pays-Bas
         14124: 101 # Pologne
@@ -811,7 +813,7 @@ all:
         14099: 101 # Svalbard
         14097: 101 # Sweden
         14083: 101 # Ukraine
-        14071: 101 # Yugoslavia
+        14071: 101 # Serbie
       america_s:
         14260: 101 # Argentine
         14247: 101 # Bolivie
