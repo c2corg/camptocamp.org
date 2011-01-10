@@ -809,7 +809,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $subquery = array();
             foreach ($activities as $activity)
             {
-                $subquery[] = '? = ANY (a.activities)';
+                $subquery[] = '? = ANY (a4.activities)';
                 $arguments[] = $activity;
             }
             $query[] = '( ' . implode($subquery, ' OR ') . ' )';
@@ -843,7 +843,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $subquery = array();
             foreach ($areas as $area)
             {
-                $subquery[] = 'g0.linked_id = ?';
+                $subquery[] = 'g.linked_id = ?';
                 $arguments[] = $area;
             }
             $query[] = ' ( ' . implode($subquery, ' OR ') . ' )';
@@ -874,9 +874,9 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         $model_i18n = $model . 'I18n';
 
-        $query_params = self::queryRecent('editions', $model, $lang, $areas, $activities, $doc_ids, $user_id, $user_doc_id);
+        $query_params = self::queryRecent('editions', $model, $langs, $areas, $activities, $doc_ids, $user_id, $user_doc_id);
 
-        $pager = new sfDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
+        $pager = new c2cDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
 
         $q = $pager->getQuery();
         $q->select('d.document_id, d.culture, d.version, d.nature, d.created_at, u.id, u.topo_name, i.name, a.module, h.comment, h.is_minor')
@@ -888,7 +888,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
         if (!empty($ranges))
         {
-            $q->leftJoin('d.geoassociations g0');
+            $q->leftJoin('d.geoassociations g');
         }
 
         if (!empty($user_doc_id))
@@ -941,14 +941,21 @@ class BaseDocument extends sfDoctrineRecordI18n
             $model_i18n_archive = 'i18narchive';
         }
         
-        $q->from('DocumentVersion d')
+        $q->select('d.document_id, d.culture, d.version, d.created_at, i.name, i.search_name, a.module, a.lon, a.lat, h.comment')
+          ->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
-          ->leftJoin('d.geoassociations g0')
           ->leftJoin("d.$model_archive a")
           ->leftJoin("d.$model_i18n_archive i");
+        
+        if ($ranges)
+        {
+            $q->leftJoin('d.geoassociations g');
+        }
+        
         if ($show_user)
         {
-            $q->leftJoin('h.user_private_data u');
+            $q->select('u.id, u.topo_name')
+              ->leftJoin('h.user_private_data u');
         }
        
 
