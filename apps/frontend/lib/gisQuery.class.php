@@ -38,14 +38,14 @@ class gisQuery
         );
     }
     
-    public static function getQueryByBbox($bbox)
+    public static function getQueryByBbox($bbox, $field = 'geom')
     {
         /* reformat the bbox, from "minx,miny,maxx,maxy" to "minx miny, maxx maxy" */
         $bbox_array = explode(",", $bbox);
         $reformatted_bbox = "$bbox_array[0] $bbox_array[1], $bbox_array[2] $bbox_array[3]";
         // ? doesn't work because of the simple quotes around BOX3D()
         return array(
-            'where_string' => "geom && setSRID('BOX3D($reformatted_bbox)'::box3d, 900913)",
+            'where_string' => $field . " && setSRID('BOX3D($reformatted_bbox)'::box3d, 900913)",
             'where_params' => array()
         );
     }

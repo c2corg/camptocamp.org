@@ -2296,9 +2296,13 @@ class documentsActions extends c2cActions
     public function executeWhatsnew()
     {
         $user_id = $this->getRequestParameter('user', null);
+        $user_doc_id = $this->getRequestParameter('userdoc', null);
         $lang = $this->getRequestParameter('lang', null);
+        $areas = $this->getRequestParameter('areas', null);
+        $activities = $this->getRequestParameter('act', null);
+        $doc_id = $this->getRequestParameter('id', null);
     
-        $this->pager = Document::listRecentChangesPager($this->model_class, $user_id, $lang);
+        $this->pager = Document::listRecentChangesPager($this->model_class, $lang, $areas, $activities, $doc_id, $user_id, $user_doc_id);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 

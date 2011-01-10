@@ -782,14 +782,15 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $languages;
     }
 
-    protected static function queryRecent($model, $user_id, $langs, $doc_id, $mode = 'editions', $ranges = null, $activities = null)
+    protected static function queryRecent($mode = 'editions', $model, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
     {
         $query = array();
         $arguments = array();
         
-        $langs = ($langs && !is_array($langs)) ? array($langs) : $langs;
-        $ranges = ($ranges && !is_array($ranges)) ? array($ranges) : $ranges;
-        $activities = ($activities && !is_array($activities)) ? array($activities) : $activities;
+        $langs = ($langs && !is_array($langs)) ? explode('-', $langs) : $langs;
+        $areas = ($areas && !is_array($areas)) ? explode('-', $areas) : $areas;
+        $activities = ($activities && !is_array($activities)) ? explode('-', $activities) : $activities;
+        $doc_ids = ($doc_ids && !is_array($doc_ids)) ? explode('-', $doc_ids) : $doc_ids;
         
         if ($mode == 'creations')
         {
@@ -808,7 +809,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $subquery = array();
             foreach ($activities as $activity)
             {
-                $subquery[] = '? = ANY (activities)';
+                $subquery[] = '? = ANY (a.activities)';
                 $arguments[] = $activity;
             }
             $query[] = '( ' . implode($subquery, ' OR ') . ' )';
@@ -818,6 +819,12 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $query[] = "h.user_id = ?";
             $arguments[] = $user_id;
+        }
+
+        if ($user_doc_id)
+        {
+            $query[] = "h2.user_id = ?";
+            $arguments[] = $user_doc_id;
         }
 
         if (!empty($langs))
@@ -831,24 +838,26 @@ class BaseDocument extends sfDoctrineRecordI18n
             $query[] = '( ' . implode($subquery, ' OR ') . ' )';
         }
         
-        if (!empty($ranges))
+        if (!empty($areas))
         {
             $subquery = array();
-            foreach ($ranges as $range_id)
+            foreach ($areas as $area)
             {
                 $subquery[] = 'g0.linked_id = ?';
-                $arguments[] = $range_id;
+                $arguments[] = $area;
             }
-            $query[] = '( ' . implode($subquery, ' OR ') . ' )';
-            
-            $query[] = 'g0.type = ?';
-            $arguments[] = 'dr'; // document_range association
+            $query[] = ' ( ' . implode($subquery, ' OR ') . ' )';
         }
-
-        if ($doc_id)
+        
+        if (!empty($doc_ids))
         {
-            $query[] = "d.document_id = ?";
-            $arguments[] = $doc_id;
+            $subquery = array();
+            foreach ($doc_ids as $doc_id)
+            {
+                $subquery[] = 'd.document_id = ?';
+                $arguments[] = $doc_id;
+            }
+            $query[] = ' ( ' . implode($subquery, ' OR ') . ' )';
         }
 
         $query = implode($query, ' AND ');
@@ -861,12 +870,11 @@ class BaseDocument extends sfDoctrineRecordI18n
      * @param string model name
      * @return Pager
      */
-    public static function listRecentChangesPager($model, $user_id = null, $lang = null, $doc_id = null)
+    public static function listRecentChangesPager($model, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
     {
-        // TODO: filter on lang, activities, regions
         $model_i18n = $model . 'I18n';
 
-        $query_params = self::queryRecent($model, $user_id, $lang, $doc_id);
+        $query_params = self::queryRecent('editions', $model, $lang, $areas, $activities, $doc_ids, $user_id, $user_doc_id);
 
         $pager = new sfDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
 
@@ -878,9 +886,24 @@ class BaseDocument extends sfDoctrineRecordI18n
           ->leftJoin('d.archive a')
           ->leftJoin('d.i18narchive i');
 
+        if (!empty($ranges))
+        {
+            $q->leftJoin('d.geoassociations g0');
+        }
+
+        if (!empty($user_doc_id))
+        {
+            $q->leftJoin('h.versions d2')
+              ->leftJoin('d2.history_metadata h2');
+        }
+        
         if (!empty($query_params['query']))
         {
             $q->where($query_params['query'], $query_params['arguments']);
+        }
+        else
+        {
+            $pager->countQuery = $pager->simpleQuery;
         }
 
         $q->orderBy('d.created_at DESC');
@@ -898,11 +921,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                                       $mode = 'editions', $use_model_archives = false, $ranges = null,
                                       $whattoselect = null, $activities = null, $show_user = true)
     {
-        $langs = ($langs && !is_array($langs)) ? array($langs) : $langs;
-        $ranges = ($ranges && !is_array($ranges)) ? array($ranges) : $ranges;
-        $activities = ($activities && !is_array($activities)) ? array($activities) : $activities;
-
-        $query_params = self::queryRecent($model, $user_id, $langs, $doc_id, $mode, $ranges, $activities);
+        $query_params = self::queryRecent($mode, $model, $langs, $ranges, $activities, $doc_id, $user_id);
 
         $q = Doctrine_Query::create();
         
@@ -2557,7 +2576,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $conditions[] = "get_bbox('$reformatted_field', '$reformatted_bbox')";
         */
         $param = str_replace(array('-', '~'), array(',', ','), $param);
-        $where = gisQuery::getQueryByBbox($param);
+        $where = gisQuery::getQueryByBbox($param, $field);
         $conditions[] = $where['where_string'];
     }
 
@@ -2567,13 +2586,13 @@ class BaseDocument extends sfDoctrineRecordI18n
         $param = explode(',', $param);
         if (count($param) == 3)
         {
-            self::buildXYCondition(&$conditions, &$values, $param[0], $param[1], $param[2]);
+            self::buildXYCondition(&$conditions, &$values, $param[0], $param[1], $param[2], $field);
         }
     }
 
-    public static function buildXYCondition(&$conditions, &$values, $x, $y, $tolerance)
+    public static function buildXYCondition(&$conditions, &$values, $x, $y, $tolerance, $field = 'geom')
     {
-        $conditions[] = 'DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), geom) < ?';
+        $conditions[] = 'DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), ' . $field . ') < ?';
         array_push($values, $x, $y, round($tolerance));
     }
 
