@@ -901,6 +901,7 @@ if (isset($_GET['lang']))
 var GoogleSearch = {
 
   base_url: 'https://www.googleapis.com/customsearch/v1?key=AIzaSyDXFlFziDDG2ThH47z1V3-KmAS6_vA5GUg&cx=013271627684039046788:rqqb4ydcfim&callback=GoogleSearch.handleResponse',
+  alternate_url: 'http://www.google.com/cse?cx=013271627684039046788:rqqb4ydcfim',
 
   displayPager: function(response) {
     var link, img, url_params;
@@ -940,8 +941,9 @@ var GoogleSearch = {
   handleResponse: function(response) {
 
     if (response.error) {
-      $('google_search_results').update('An error has occured, please contact <a href="mailto:dev'+'@'
-                                        +'camptocamp.org">us</a> ('+response.error.message+')');
+      // redirect to the google cse page
+      var url = this.alternate_url + '&q=' + $F('google_search_input');
+      window.location = url;
       return;
     }
 
@@ -952,7 +954,6 @@ var GoogleSearch = {
 
       var table = new Element('table', { cellspacing: 0,
                                          style: 'border-style:solid; border-width:1px; border-color:#ff9933;' });
-
 
       var tbody = new Element('tbody');
 
