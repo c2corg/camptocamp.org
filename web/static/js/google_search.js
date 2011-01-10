@@ -49,8 +49,16 @@ GoogleSearch = {
   handleResponse: function(response) {
 
     if (response.error) {
-      $('google_search_results').update('An error has occured, please contact <a href="mailto:dev'+'@'
-                                        +'camptocamp.org">us</a> ('+response.error.message+')');
+      if (this.alternate_url) {
+        // an error has occured (most probably daily quota exceeded), we redirect to google custom search page
+        // (outside c2c, but not submitted to quotas)
+        var url = this.alternate_url + '&q=' + this.q;
+        window.location = url;
+      } else {
+        // we don't want to redirect (e.g. because google search was launched automatically)
+        $('google_search_results').update('An error has occured, please <a href="mailto:dev'+'@'
+                                          +'camptocamp.org">contact us</a> ('+response.error.message+')');
+      }
       return;
     }
 
@@ -107,7 +115,7 @@ GoogleSearch = {
   search: function(params) {
     // load script asynchronously
     // once loaded, it will call handleResponse()
-    var url = this.base_url + '&q=' + this.q
+    var url = this.base_url + '&q=' + this.q;
     if (params) url += params;
     var head = $$('head')[0];
     var script = new Element('script', { type: 'text/javascript',
