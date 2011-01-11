@@ -2139,7 +2139,7 @@ class documentsActions extends c2cActions
     /** nothing by default, overriden in child classes */
     public function executeRefreshgeoassociations()
     {
-        /* nothig */
+        /* nothing */
     }
 
     /**

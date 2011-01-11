@@ -4,6 +4,7 @@ use_helper('Button', 'Ajax', 'Javascript');
 $module = $sf_context->getModuleName();
 $lang = $document->getCulture();
 $is_connected = $sf_user->isConnected();
+$is_archive = $document->isArchive();
 $has_rights = $sf_user->hasCredential('moderator');
 ?>
 <div id="nav_tools" class="nav_box">
