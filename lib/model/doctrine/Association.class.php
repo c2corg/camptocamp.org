@@ -628,7 +628,7 @@ class Association extends BaseAssociation
 
                     $mail->setContentType('text/html');
                     $server = $_SERVER['SERVER_NAME'];
-                    $body = "<p>A <a href=\"$server/images/$linked_id\">new image</a> has been associated to <a href=\"$server/books/$main_id\">book $main_id</a>.</p>"
+                    $body = "<p>A <a href=\"http://$server/images/$linked_id\">new image</a> has been associated to <a href=\"http://$server/books/$main_id\">book $main_id</a>.</p>"
                         . "<p>The image may require a copyright license. If so, please ensure that:</p>"
                         . "<ul>"
                         . "<li>the owner is correctly acknowledged in the author field;</li>"
