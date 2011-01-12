@@ -934,8 +934,8 @@ class BaseDocument extends sfDoctrineRecordI18n
         $q->select('d.document_id, d.culture, d.version, d.created_at, i.name, i.search_name, a.module, a.lon, a.lat, h.comment')
           ->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
-          ->leftJoin("d.$model_i18n i");
-          ->leftJoin("d.$model a")
+          ->leftJoin("d.$model_i18n i")
+          ->leftJoin("d.$model a");
         
         if ($ranges)
         {
