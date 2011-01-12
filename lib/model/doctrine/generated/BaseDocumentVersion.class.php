@@ -44,5 +44,7 @@ class BaseDocumentVersion extends sfDoctrineRecord
         $this->hasMany('GeoAssociation as geoassociations', array('local' => 'document_id', 'foreign' => 'main_id'));        
         $this->hasMany('Association as MainAssociation', array('local' => 'document_id', 'foreign' => 'linked_id'));
         $this->hasMany('Association as LinkedAssociation', array('local' => 'document_id', 'foreign' => 'main_id'));
+        
+        $this->hasMany('DocumentVersion as versions', array('local' => 'document_id', 'foreign' => 'document_id'));
     }
 }

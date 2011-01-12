@@ -797,12 +797,6 @@ class BaseDocument extends sfDoctrineRecordI18n
             $query[] = "d.version = ?";
             $arguments[] = 1;
         }
-
-        if ($model != 'Document')
-        {
-            $query[] = "a.module = ?";
-            $arguments[] = strtolower($model) . 's';
-        }
         
         if (!empty($activities))
         {
@@ -879,12 +873,17 @@ class BaseDocument extends sfDoctrineRecordI18n
         $pager = new c2cDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
 
         $q = $pager->getQuery();
-        $q->select('d.document_id, d.culture, d.version, d.nature, d.created_at, u.id, u.topo_name, i.name, a.module, h.comment, h.is_minor')
+        $q->select('d.document_id, d.culture, d.version, d.nature, d.created_at, u.id, u.topo_name, i.name, h.comment, h.is_minor')
           ->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
           ->leftJoin('h.user_private_data u')
-          ->leftJoin('d.archive a')
-          ->leftJoin('d.i18narchive i');
+          ->leftJoin("d.$model_i18n i");
+        
+        if ($model == 'Document')
+        {
+            $q->select('a.module')
+              ->leftJoin("d.$model a");
+        }
 
         if (!empty($ranges))
         {
@@ -893,7 +892,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
         if (!empty($user_doc_id))
         {
-            $q->leftJoin('h.versions d2')
+            $q->leftJoin('d.versions d2')
               ->leftJoin('d2.history_metadata h2');
         }
         
@@ -903,7 +902,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
-            $pager->countQuery = $pager->simpleQuery;
+            $pager->simplifyBaseCounter();
         }
 
         $q->orderBy('d.created_at DESC');
@@ -918,7 +917,7 @@ class BaseDocument extends sfDoctrineRecordI18n
      * @return Document
      */
     public static function listRecent($model, $limit, $user_id = null, $langs = null, $doc_id = null,
-                                      $mode = 'editions', $use_model_archives = false, $ranges = null,
+                                      $mode = 'editions',$ranges = null,
                                       $whattoselect = null, $activities = null, $show_user = true)
     {
         $query_params = self::queryRecent($mode, $model, $langs, $ranges, $activities, $doc_id, $user_id);
@@ -930,22 +929,13 @@ class BaseDocument extends sfDoctrineRecordI18n
             $q->select($whattoselect); 
         }
         
-        if ($use_model_archives)
-        {
-            $model_archive = $model . 'Archive';
-            $model_i18n_archive = $model . 'I18nArchive';
-        }
-        else
-        {
-            $model_archive = 'archive';
-            $model_i18n_archive = 'i18narchive';
-        }
+        $model_i18n = $model . 'I18n';
         
         $q->select('d.document_id, d.culture, d.version, d.created_at, i.name, i.search_name, a.module, a.lon, a.lat, h.comment')
           ->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
-          ->leftJoin("d.$model_archive a")
-          ->leftJoin("d.$model_i18n_archive i");
+          ->leftJoin("d.$model_i18n i");
+          ->leftJoin("d.$model a")
         
         if ($ranges)
         {

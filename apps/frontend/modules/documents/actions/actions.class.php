@@ -2301,8 +2301,10 @@ class documentsActions extends c2cActions
         $areas = $this->getRequestParameter('areas', null);
         $activities = $this->getRequestParameter('act', null);
         $doc_id = $this->getRequestParameter('id', null);
+        $model = $this->model_class;
+        $model_i18n = $model . 'I18n';
     
-        $this->pager = Document::listRecentChangesPager($this->model_class, $lang, $areas, $activities, $doc_id, $user_id, $user_doc_id);
+        $this->pager = Document::listRecentChangesPager($model, $lang, $areas, $activities, $doc_id, $user_id, $user_doc_id);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 
@@ -2316,8 +2318,8 @@ class documentsActions extends c2cActions
             foreach ($items as $key => $item)
             {
                 $items[$key]['id'] = $item['document_id'];
-                $items[$key]['name'] = $item['i18narchive']['name'];
-                $items[$key]['module'] = $item['archive']['module'];
+                $items[$key]['name'] = $item[$model_i18n]['name'];
+                $items[$key]['module'] = ($module == 'routes') ? 'routes' : $item[$model]['module'];
             }
 
             if ($module == 'routes')
@@ -2335,7 +2337,7 @@ class documentsActions extends c2cActions
 
             foreach ($items as $key => $item)
             {
-                $items[$key]['i18narchive']['name'] = $item['name'];
+                $items[$key][$model_i18n]['name'] = $item['name'];
             }
         }
         
@@ -3108,14 +3110,16 @@ class documentsActions extends c2cActions
         $items = Document::listRecent($this->model_class, $max_number, null, $lang, $id, $mode);
 
         sfLoader::loadHelpers(array('General', 'SmartFormat'));
+        
+        $model_i18n = $model . 'I18n';
 
         // Add best summit name for routes
         foreach ($items as $key => $item)
         {
-            $items[$key]['module'] = $item['archive']['module'];
+            $items[$key]['module'] = $item[$model]['module'];
             $items[$key]['id'] = $item['document_id'];
-            $items[$key]['name'] = $item['i18narchive']['name'];
-            $items[$key]['search_name'] = $item['i18narchive']['search_name'];
+            $items[$key]['name'] = $item[$model_i18n]['name'];
+            $items[$key]['search_name'] = $item[$model_i18n]['search_name'];
         }
         $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(' :') . ' ');
         foreach ($routes as $key => $route)
@@ -3128,7 +3132,7 @@ class documentsActions extends c2cActions
         {
             $item_id = $item['document_id'];
             $new = $item['version'];
-            $module_name = $item['archive']['module'];
+            $module_name = $item[$model]['module'];
             $name = $item['name'];
             $doc_lang = $item['culture'];
             $feedItemTitle = $name . (($mode != 'creations') ? (" - r$new" . ($lang ? '' : "/$doc_lang")) : '');
@@ -3156,8 +3160,8 @@ class documentsActions extends c2cActions
             //$feedItem->setAuthorEmail($item['history_metadata']['user_private_data']['email']);
             $feedItem->setPubdate(strtotime($item['created_at']));
             $feedItem->setUniqueId("$item_id-$doc_lang-$new");
-            $feedItem->setLongitude($item['archive']['lon']);
-            $feedItem->setLatitude($item['archive']['lat']);
+            $feedItem->setLongitude($item[$model]['lon']);
+            $feedItem->setLatitude($item[$model]['lat']);
             $comment = smart_format($item['history_metadata']['comment']);
             $feedItem->setDescription($comment);
             if ($mode != 'creations')
