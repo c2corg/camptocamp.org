@@ -13,7 +13,7 @@ function show_georef_map($lon, $lat, $lang, $layer)
     
     $html .= '<div class="section" id="georef_container" style="display:none;">';
     $html .= '<div id="map" style="height:400px;width:100%">';
-    $html .= '<div id="mapLoading">'.image_tag($app_static_url . '/static/images/indicator.gif');
+    $html .= '<div id="mapLoading">'.image_tag(sfConfig::get('app_static_url') . '/static/images/indicator.gif');
     $html .= __('Map is loading...') . '</div>';
     $html .= '</div>';
     $html .= '<div id="scale"></div>';

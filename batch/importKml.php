@@ -458,7 +458,9 @@ try
                 {
                     foreach ($associated_outings as $outing)
                     {
-                        if (!$outing['geom_wkt']) // proof that there is no pre-existing geoassociation due to a GPX upload
+                        if (!$outing['geom_wkt'] && // proof that there is no pre-existing geoassociation due to a GPX upload
+                            GeoAssociation::find($outing['id'], $document_id, $a_type) === false) // we need to check because we can have one-to-many associations
+                                                                                                  // e.g. 1 route, 2 summits
                         {
                              // we create geoassociation (if it already existed, it has been deleted before in the script)
                              $a = new GeoAssociation();
@@ -478,7 +480,8 @@ try
                     foreach ($associated_routes as $route)
                     {
                         $i = $route['id'];
-                        if (!$route['geom_wkt']) // proof that there is no pre-existing geoassociation due to a GPX upload
+                        if (!$route['geom_wkt'] &&
+                            GeoAssociation::find($i, $document_id, $a_type) === false)
                         {
                             $a = new GeoAssociation();
                             $a->doSaveWithValues($i, $document_id, $a_type);
@@ -491,7 +494,8 @@ try
                                     foreach ($associated_outings as $outing)
                                     {
                                         $j = $outing['id'];
-                                        if (!$outing['geom_wkt']) // proof that there is no pre-existing geoassociation due to a GPX upload
+                                        if (!$outing['geom_wkt'] && // proof that there is no pre-existing geoassociation due to a GPX upload
+                                            GeoAssociation::find($j, $document_id, $a_type) === false)
                                         {
                                             $a = new GeoAssociation();
                                             $a->doSaveWithValues($j, $document_id, $a_type);
