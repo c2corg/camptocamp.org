@@ -519,7 +519,7 @@ try
     }
     else
     {
-        echo 'Updated ' . ($is_map ? 'map' : 'area') . " $document_id ($name)\n";
+        echo 'Updated ' . ($is_map ? 'map' : 'area') . " $document_id\n";
     }
 }
 catch (Exception $e)
