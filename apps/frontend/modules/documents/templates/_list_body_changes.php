@@ -1,6 +1,5 @@
 <?php use_helper('History', 'SmartDate', 'SmartFormat', 'sfBBCode');
 
-$module_name = $item['archive']['module'];
 $id = $item['document_id'];
 $lang = $item['culture'];
 $version = $item['version'];
@@ -8,7 +7,7 @@ $version = $item['version'];
 $link = '@document_by_id?module=users&id=' . $item['history_metadata']['user_private_data']['id'];
 ?>
 <td>
-<?php echo link_to($item['i18narchive']['name'], "@document_by_id_lang_version?module=$module_name&id=$id&lang=$lang&version=$version") ?>
+<?php echo link_to($item[$model_i18n]['name'], "@document_by_id_lang_version?module=$module_name&id=$id&lang=$lang&version=$version") ?>
 </td><td>
 <?php echo smart_date($item['created_at']) ?>
 </td><td>

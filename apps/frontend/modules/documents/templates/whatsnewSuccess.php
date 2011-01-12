@@ -2,7 +2,9 @@
 
 use_javascript('/static/js/history_tools.js', 'last');
 
-$module = $sf_context->getModuleName();
+$module = $module_name = $sf_context->getModuleName();
+$model = c2cTools::module2model($module);
+$model_i18n = $model . 'I18n';
 $mobile_version = c2cTools::mobileVersion();
 $table_list_even_odd = 0;
 
@@ -60,11 +62,11 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
         <tr class="<?php echo $table_class; if($item['history_metadata']['is_minor']) echo ' minor_revision'; ?>">
         <?php if ($module == 'documents'): ?>
             <td class="cell_image"><?php
-                $module_name = $item['archive']['module'];
+                $module_name = $item[$model]['module'];
                 echo picto_tag('picto_' . $module_name, __($module_name));
                 ?></td>
         <?php endif; ?>
-        <?php echo include_partial('documents/list_body_changes', array('item' => $item, 'table_class' => $table_class, 'needs_username' => true)); ?>
+        <?php echo include_partial('documents/list_body_changes', array('item' => $item, 'table_class' => $table_class, 'needs_username' => true, 'module_name' => $module_name, 'model_i18n' => $model_i18n)); ?>
         </tr>
     <?php endforeach ?>
     </tbody>
