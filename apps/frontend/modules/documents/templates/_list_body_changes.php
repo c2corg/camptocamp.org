@@ -1,5 +1,6 @@
 <?php use_helper('History', 'SmartDate', 'SmartFormat', 'sfBBCode');
 
+$model_i18n = $sf_data->getRaw('model_i18n');
 $id = $item['document_id'];
 $lang = $item['culture'];
 $version = $item['version'];
