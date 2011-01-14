@@ -964,7 +964,6 @@ class documentsActions extends c2cActions
         $response = $this->getResponse();
         if ($this->needs_translation)
         {
-            $response->addJavascript('http://www.google.com/jsapi', 'last');
             $response->addJavascript('/static/js/translation.js', 'last');
         }
 
@@ -983,6 +982,12 @@ class documentsActions extends c2cActions
         if ($module != 'images' && !count($this->associated_images))
         {
             addMetaLink('image_src', sfConfig::get('app_images_default_meta'));
+        }
+
+        /* small js code to append QR code when printing page */
+        if (!$document->isArchive() && !c2cTools::mobileVersion())
+        {
+            $response->addJavascript('/static/js/qrcode.js', 'last');
         }
 
         $this->document = $document;

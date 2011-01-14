@@ -318,3 +318,8 @@ img.embedded_right
   margin: 0 !important;
   font-size: 0.9em;
 }
+
+.qrcode
+{
+  display: block !important;
+}
