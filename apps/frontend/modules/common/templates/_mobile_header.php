@@ -8,7 +8,7 @@ $static_base_url = sfConfig::get('app_static_url');
   <div id="banner_middle">
     <div id="log">
         <div id="mobile_home">
-        <?php echo link_to('<span>&nbsp;</span>', '@homepage'); ?>
+        <?php echo link_to('<span>&nbsp;</span>', '@homepage', array('title' => 'Camptocamp.org')); ?>
         </div>
       <div class="log_elt">
       <?php

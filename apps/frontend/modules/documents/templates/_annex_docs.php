@@ -27,7 +27,7 @@ if (count($related_articles) || count($related_portals))
     
     if (count($related_portals))
     {
-        echo '<ul id="list_related_portals">';
+        echo '<ul id="list_related_portals" class="no_print">';
         
         foreach ($related_portals as $portal)
         {

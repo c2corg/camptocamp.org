@@ -818,12 +818,15 @@ function do_video($text)
 {
     if (stripos($text, '[/video]') !== FALSE)
     {
-        $width = 400;
-        $height = 300;
+        $mobile_version = c2cTools::mobileVersion();
+        $width = $mobile_version ? 310 : 400;
+        $height = $mobile_version ? 232 : 300;
         $alternatif = '<strong>Flash plugin needed</strong>';
 
         // first replace all [video] by [video $width,$height]
-        $text = preg_replace('#\[video\]#', "[video $width,$height]", $text);
+        // for mobile version, we force the dimensions
+        $text = $mobile_version ? preg_replace('#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]#', "[video $width,$height]", $text)
+                                : preg_replace('#\[video\]#', "[video $width,$height]", $text);
 
         $patterns = array(
             // youtube http://www.youtube.com/watch?v=3xMk3RNSbcc(&something)
@@ -845,19 +848,21 @@ function do_video($text)
 
         $replacements = array(
             // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html TODO Possibility to use <object> instead of <iframe>?
-            '<iframe class="youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$5" frameborder="0"></iframe>',
-            // dailymotion
-            '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
+            '<iframe class="video youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$5" frameborder="0"></iframe>',
+            // dailymotion - No html5 embed code yet. But some js https://gist.github.com/484762 to add in mobile version
+            // FIXME the js code should be only added once, but seems to work anyway
+            '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>' .
+            ($mobile_version ? '<script type="text/javascript">(function(){try{var m = navigator.mimeTypes, t = \'application/x-shockwave-flash\', a = \'ShockwaveFlash.ShockwaveFlash\';if (m && m.length ? !m[t] : !(function(){try{return new ActiveXObject(a)}catch(e){}})()){var e = document.createElement(\'script\'); e.type = \'text/javascript\'; e.async = true;e.src = \'http://www.dailymotion.com/js/external/embedcompat.js\';var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(e, s);}}catch(e){}})();</script>' : ''),
             // googlevideo
-            '<object width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object class="video" width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
             // vimeo - This version should support iPhone, Flash, HTML5 etc TODO Possibility to use <object> instead of <iframe>?
-            '<iframe src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3" frameborder="0"></iframe>',
+            '<iframe class="video" src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3" frameborder="0"></iframe>',
             // megavideo
-            '<object width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object class="video" width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
             // metacafe
-            '<object width="$2" height="$3"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf"></param><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object class="video" width="$2" height="$3"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf"></param><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
             // sevenload
-            '<object width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true"></param></param><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash"></embed></object>',
+            '<object class="video" width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true"></param></param><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash"></embed></object>',
         );
 
         $text = preg_replace($patterns, $replacements, $text);

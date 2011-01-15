@@ -84,7 +84,9 @@ p {
 .olControlOverviewMapMaximizeButton, .olControlPanZoom, /* openlayers controls */
 .gpControlPermanentLogoActive,
 /* lightbox, modalbox */
-#lightbox, #overlay, #MB_overlay, #MB_window
+#lightbox, #overlay, #MB_overlay, #MB_window,
+/* embedded videos */
+.video
 {
   display: none !important;
   clear: none !important;
@@ -169,6 +171,10 @@ body, html, #holder,
 }
 .content_article {
   border: 0;
+}
+
+.content_article .article {
+  min-height: 0;
 }
 
 #banner_logo {
