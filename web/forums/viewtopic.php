@@ -659,8 +659,8 @@ foreach ($posts_list as $cur_post)
 		{
 			if ($cur_post['poster_id'] == $pun_user['id'])
 			{
-				if (($is_first_post && $pun_user['g_delete_topics'] == '1') || (!$is_first_post && $pun_user['g_delete_posts'] == '1'))
-					$post_actions[] = '<li class="postdelete"><a href="delete.php?id='.$cur_post['id'].'">'.$lang_topic['Delete'].'</a>';
+			//	if (($is_first_post && $pun_user['g_delete_topics'] == '1') || (!$is_first_post && $pun_user['g_delete_posts'] == '1'))
+			//		$post_actions[] = '<li class="postdelete"><a href="delete.php?id='.$cur_post['id'].'">'.$lang_topic['Delete'].'</a>';
 				if ($pun_user['g_edit_posts'] == '1')
 					$post_actions[] = '<li class="postedit"><a href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a>';
 			}
