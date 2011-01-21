@@ -566,6 +566,7 @@ all:
       14445: 79 # Wienner Alpen
       14439: 80 # Zentral Graubünden
       14457: 81 # Zillertaler Alpen
+      252522: 82 # Cerces - Thabor - Mont-Cenis TODO report to metaengine
 
   recent_documents:
     articles_limit: 6
@@ -684,6 +685,7 @@ all:
         14466: 43 # Mercantour - Argentera
         14433: 58 # Queyras S - Parpaillon - Ubaye - Oronaye
         14432: 57 # Queyras N - Briançonnais - Cozie
+        252522: 82 # Cerces - Thabor - Mont-Cenis
       alpes_n:
         14403: 30 # Ecrins
         14402: 26 # Dévoluy
@@ -967,6 +969,7 @@ all:
         14082: 101 # United Arab Emirates
         14075: 101 # Vietnam
         14072: 101 # Yemen
+        252647: 101 # Russia
       oceania:
         14258: 101 # Australie
         14209: 101 # Fiji
@@ -1129,6 +1132,70 @@ all:
         14395: ZH
         14396: GE
         14397: VD
+      us_states:
+        250183: 'AL' # Alabama
+        250184: AK # Alaska
+        250185: AZ # etc
+        250186: AR
+        250187: CA
+        250188: CO
+        250189: CT
+        250190: DE
+        250191: FL
+        250192: GA
+        250193: HI
+        250194: ID
+        250195: IL
+        250196: IN
+        250197: IA
+        250198: KS
+        250199: KY
+        250200: LA
+        250201: ME
+        250202: MD
+        250203: MA
+        250204: MI
+        250205: MN
+        250206: MS
+        250207: MO
+        250208: MT
+        250209: NE
+        250210: NV
+        250211: NH
+        250212: NJ
+        250213: NM
+        250214: NY
+        250215: NC
+        250216: ND
+        250217: OH
+        250218: OK
+        250219: OR
+        250220: PA
+        250221: RI
+        250222: SC
+        250223: SD
+        250224: TN
+        250225: TX
+        250226: UT
+        250227: VT
+        250228: VA
+        250229: WA
+        250230: WV
+        250231: WI
+        250232: WY
+      canada_provinces:
+        252273: 'AB' # Alberta
+        252274: MB # Manitoba
+        252275: NB # New Brunswick
+        252276: NL # Newfoundland and Labrador
+        252277: NT # Northwest Territories
+        252278: NS # Nova Scotia
+        252279: NU # Nunavut
+        252280: ON # Ontario
+        252281: PE # Prince Edward Island
+        252282: QC # Quebec
+        252283: SK # Saskatchewan
+        252284: YT # Yukon
     suffix_france:
       14370: '01'
       14364: '02'
