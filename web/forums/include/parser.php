@@ -381,22 +381,14 @@ function handle_url_tag($url, $link = '')
             $full_url = '/forums/viewforum.php?id='.$id;
         }
     }
-
+    
     if ($link == '' || $link == $url)
     {
         // Truncate link text if its an internal URL
-        $base_url = 'http://'.$_SERVER['SERVER_NAME'].'/';
-        if ((strlen($full_url) > strlen($base_url)) && (stripos($full_url, $base_url) === 0))
+        $link = preg_replace('#^http://((m|www)\.)?camptocamp\.org/(.+)#', '${3}', $full_url);
+        if (strpos("#/", $link[0]) !== false)
         {
-            $link = substr($full_url, strlen($base_url));
-        }
-        else
-        {
-            $link = $url;
-            if (strpos("#/", $link[0]) !== false)
-            {
-                $link = substr($link, 1);
-            }
+            $link = substr($link, 1);
         }
 
         // Truncate URL if longer than 55 characters
