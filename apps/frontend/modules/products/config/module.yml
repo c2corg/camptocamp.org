@@ -6,6 +6,7 @@ all:
       2: restaurant
       3: products_shop
       4: pub
+      5: gear_shop
 
   sort:
     criteria:
