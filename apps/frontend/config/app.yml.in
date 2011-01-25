@@ -62,7 +62,7 @@ all:
       n: 
       o: Outing
       p: Parking
-      q: # Parapente
+      q: # Paragliding
       r: Route
       s: Summit
       t: Site
@@ -71,7 +71,7 @@ all:
       w: Portal
       x: # Route (approche)
       y: # Route (retour)
-      z: 
+      z: # Pitch
     model2letter:
       Area: a
       Book: b
@@ -81,15 +81,17 @@ all:
       #Gear: g
       Hut: h
       Image: i
-      #Link: l
+      # Link: l
       Map: m
       Outing: o
       Parking: p
+      # Paragliding: q
       Route: r
       Summit: s
       Site: t
       User: u
       Portal: w
+      # Pitch: z
     types:
       1: sr
       2: ro
@@ -487,6 +489,7 @@ all:
     regions:
       14420: 1 # Adamello
       14421: 2 # Alpes Vaudoises
+      14424: 82 # Alpes Grees - Charbonnel
       14454: 3 # Alpi Giulie
       14461: 4 # Alpi Liguri
       14422: 5 # Alpi Ticinesi - Conches - Goms
@@ -504,7 +507,7 @@ all:
       14416: 17 # Cadi Puigmal Garrotxa
       14415: 18 # Capcir Corbières
       14451: 19 # Carinthia
-      14424: 20 # Cerces - Thabor - Mt.Cenis
+      252522: 20 # Cerces - Thabor - Mt.Cenis
       14411: 21 # Chablais
       14401: 22 # Chartreuse
       14448: 23 # Chiemgauer Alpen - Kitzbühler Alpen
@@ -673,6 +676,7 @@ all:
     area_types:
       0:
       1: range
+    #  4: valley
       3: admin_limits
       2: country
     range:
@@ -685,14 +689,14 @@ all:
         14466: 43 # Mercantour - Argentera
         14433: 58 # Queyras S - Parpaillon - Ubaye - Oronaye
         14432: 57 # Queyras N - Briançonnais - Cozie
-        252522: 82 # Cerces - Thabor - Mont-Cenis
       alpes_n:
+        252522: 20 # Cerces - Thabor - Mont-Cenis
         14403: 30 # Ecrins
         14402: 26 # Dévoluy
         14459: 75 # Vercors
         14408: 68 # Taillefer
         14407: 59 # Rousses
-        14424: 20 # Alpes Grees - Charbonnel
+        14424: 82 # Alpes Grees - Charbonnel
         14409: 74 # Vanoise
         14398: 13 # Belledonne
         14406: 40 # Lauzière
