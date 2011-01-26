@@ -869,11 +869,17 @@ class BaseDocument extends sfDoctrineRecordI18n
         $model_i18n = $model . 'I18n';
 
         $query_params = self::queryRecent('editions', $model, $langs, $areas, $activities, $doc_ids, $user_id, $user_doc_id);
+        
+        $field_list = 'd.document_id, d.culture, d.version, d.nature, d.created_at, u.id, u.topo_name, i.name, h.comment, h.is_minor';
+        if ($model == 'Document')
+        {
+            $field_list .= ', a.module';
+        }
 
         $pager = new c2cDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
 
         $q = $pager->getQuery();
-        $q->select('d.document_id, d.culture, d.version, d.nature, d.created_at, u.id, u.topo_name, i.name, h.comment, h.is_minor')
+        $q->select($field_list)
           ->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
           ->leftJoin('h.user_private_data u')
@@ -881,8 +887,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if ($model == 'Document')
         {
-            $q->select('a.module')
-              ->leftJoin("d.$model a");
+            $q->leftJoin("d.$model a");
         }
 
         if (!empty($ranges))
@@ -930,8 +935,13 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         
         $model_i18n = $model . 'I18n';
+        $field_list = 'd.document_id, d.culture, d.version, d.created_at, i.name, i.search_name, a.module, a.lon, a.lat, h.comment';
+        if ($show_user)
+        {
+            $field_list .= ', u.id, u.topo_name';
+        }
         
-        $q->select('d.document_id, d.culture, d.version, d.created_at, i.name, i.search_name, a.module, a.lon, a.lat, h.comment')
+        $q->select($field_list)
           ->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
           ->leftJoin("d.$model_i18n i")
@@ -944,8 +954,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if ($show_user)
         {
-            $q->select('u.id, u.topo_name')
-              ->leftJoin('h.user_private_data u');
+            $q->leftJoin('h.user_private_data u');
         }
        
 

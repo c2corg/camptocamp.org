@@ -36,8 +36,8 @@ class BaseDocumentVersion extends sfDoctrineRecord
             $model = ucfirst(substr($module, 0, strlen($module)-1));
             $this->hasOne($model.'Archive as '.$model.'Archive', 'DocumentVersion.document_archive_id');
             $this->hasOne($model.'I18nArchive as '.$model.'I18nArchive', 'DocumentVersion.document_i18n_archive_id');
-            $this->hasOne($model.' as '.$model, 'DocumentVersion.document_id');
-            $this->hasOne($model.'I18n as '.$model.'I18n', 'DocumentVersion.document_i18n_archive_id');
+            $this->hasOne($model.' as '.$model, array('local' => 'id', 'foreign' => 'document_id'));
+            $this->hasOne($model.'I18n as '.$model.'I18n', array('local' => 'id', 'foreign' => 'document_id'));
         }
         
         // used for filtering 'recent' lists on associated regions (ranges):
