@@ -3698,6 +3698,10 @@ msgstr "Argazki makina:"
 msgid "camping area"
 msgstr "bivouac-a"
 
+# [WARNING] needs_review
+msgid "canada_provinces"
+msgstr "Kanadaren banaketa administratiboa"
+
 msgid "cancel"
 msgstr "Ezeztatu"
 
@@ -4340,6 +4344,10 @@ msgstr "material y técnicas"
 # [WARNING] es translation used
 msgid "gear_default"
 msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \\\"raro\\\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\\n- esquí, snowboard, raquetas: ARVA, pala, sonda\\n- nieve, hielo & mixto: crampones, piqueta\\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \\\"itinerario glaciar\\\" es suficiente)\\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
+
+# [WARNING] fr translation used
+msgid "gear_shop"
+msgstr "Magasin de sport"
 
 # [WARNING] needs_update
 msgid "geo_export_info"
@@ -6356,6 +6364,10 @@ msgstr "URL:"
 
 msgid "url button title"
 msgstr "Kanpoko link bat sartu"
+
+# [WARNING] needs_review
+msgid "us_states"
+msgstr "Ameriketako Estatu Batuetako estatu"
 
 msgid "user"
 msgstr "erabiltzailea"

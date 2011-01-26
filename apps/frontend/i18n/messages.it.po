@@ -3489,6 +3489,9 @@ msgstr "Marca apparecchiatura:"
 msgid "camping area"
 msgstr "piazzola per tende"
 
+msgid "canada_provinces"
+msgstr "Province e territori del Canada"
+
 msgid "cancel"
 msgstr "Cancella"
 
@@ -4090,6 +4093,10 @@ msgstr "materiale e tecnica"
 # Respecter les \n et \"
 msgid "gear_default"
 msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE:\\n- per lo sci: ARVA, pala, sonda\\n- alpinismo neve, ghiaccio, misto: ramponi, piccozza\\n- itinerari su ghiacciai: materiale di sicurezza su ghiaccio"
+
+# [WARNING] fr translation used
+msgid "gear_shop"
+msgstr "Magasin de sport"
 
 # [WARNING] needs_update
 msgid "geo_export_info"
@@ -5927,6 +5934,10 @@ msgstr "URL:"
 
 msgid "url button title"
 msgstr "Inserire un link esterno"
+
+# [WARNING] needs_review
+msgid "us_states"
+msgstr "Stati degli USA"
 
 msgid "user"
 msgstr "utente"

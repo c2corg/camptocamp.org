@@ -2949,9 +2949,14 @@ msgstr "<h3>Accès pédestre</h3>Itinéraire permettant d'accéder au site/secte
 msgid "_phone_info"
 msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
 
+# [WARNING] needs_review
 msgid "_product_type_info"
-msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong>&nbsp;: produits vendus directement chez le producteur<br /><br /><strong>restaurant\n"
-"</strong>&nbsp;: restaurant, ou gite et bar proposant des repas<br /><br /><strong>épicerie</strong>&nbsp;: point de vente de produits locaux<br /><br /><strong>bar</strong>&nbsp;: bar ou café"
+msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong>&nbsp;: produits vendus directement chez le producteur<br /><br />\n"
+"<strong>restaurant\n"
+"</strong>&nbsp;: restaurant, ou gite et bar proposant des repas<br /><br />\n"
+"<strong>épicerie</strong>&nbsp;: point de vente de produits locaux<br /><br />\n"
+"<strong>bar</strong>&nbsp;: bar ou café<br /><br />\n"
+"<strong>magasin de sport</strong>&nbsp;: point de vente et/ou de réparation de matériel de sport"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accès en transports en commun</h3>Informations nécessaires pour accéder à ce point de départ en transports en commun&nbsp;: compagnie assurant le transport (site web s'il existe), N° de la ligne, fréquences, horaires, prix."
@@ -3522,6 +3527,9 @@ msgstr "Appareil photo&nbsp;:"
 
 msgid "camping area"
 msgstr "emplacement de bivouac"
+
+msgid "canada_provinces"
+msgstr "Provinces et territoires du Canada"
 
 msgid "cancel"
 msgstr "Annuler"
@@ -4128,6 +4136,10 @@ msgstr "matériel et techniques"
 # Respecter les \n et \"
 msgid "gear_default"
 msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Seul le matériel \\\"exotique\\\" (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles:\\n- ARVA, pelle, sonde\\n- crampons, piolets\\n- matériel de glacier (la case \\\"nécessite le matériel de glacier\\\" suffit)\\n- coinceurs et sangles sans plus de précision."
+
+# [WARNING] needs_review
+msgid "gear_shop"
+msgstr "Magasin de sport"
 
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Les coordonnées géographiques du document peuvent être téléchargées dans l'un des formats suivant&nbsp;:<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML de données géographiques, accepté par de plus en plus de GPS, ou facilement convertible grace à <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en ligne) ou <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de données géographiques utilisé principalement par Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'échange de données JavaScript, utilisé par des applications web"
@@ -5960,6 +5972,9 @@ msgstr "URL&nbsp;:"
 
 msgid "url button title"
 msgstr "Insérer un lien externe"
+
+msgid "us_states"
+msgstr "États des USA"
 
 msgid "user"
 msgstr "contributeur"

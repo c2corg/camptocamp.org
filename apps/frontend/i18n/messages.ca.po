@@ -3758,6 +3758,10 @@ msgstr "Aparell foto:"
 msgid "camping area"
 msgstr "emplaçament de bivac"
 
+# [WARNING] needs_review
+msgid "canada_provinces"
+msgstr "Províncies i territoris del Canadà"
+
 msgid "cancel"
 msgstr "Anular"
 
@@ -4402,6 +4406,10 @@ msgstr "material y técnicas"
 # [WARNING] es translation used
 msgid "gear_default"
 msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \\\"raro\\\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\\n- esquí, snowboard, raquetas: ARVA, pala, sonda\\n- nieve, hielo & mixto: crampones, piqueta\\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \\\"itinerario glaciar\\\" es suficiente)\\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
+
+# [WARNING] fr translation used
+msgid "gear_shop"
+msgstr "Magasin de sport"
 
 msgid "geo_export_info"
 msgstr "<h3>Exportació</h3>Les coordenades geogràfiques del document poden ser telecarregades en un dels formats proposats.\n"
@@ -6431,6 +6439,10 @@ msgstr "URL:"
 
 msgid "url button title"
 msgstr "Inserir un enllaç extern"
+
+# [WARNING] needs_review
+msgid "us_states"
+msgstr "Estats dels Estats Units"
 
 msgid "user"
 msgstr "participant"

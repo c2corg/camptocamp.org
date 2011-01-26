@@ -3165,7 +3165,7 @@ msgstr "<h3>Zugang zu Fuss</h3>Beschreibung des Zustiegs von einem Zugangsort zu
 msgid "_phone_info"
 msgstr "<h3>Telefon</h3>Die Telefonnummer einer Hütte."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_product_type_info"
 msgstr "<h3>Typen lokaler Produkte</h3><strong>Verkauf beim Produzenten</strong>: Die Produkte werden direkt beim Produzenten verkauft.<br /><strong>Restaurant</strong>: Restaurant, Unterkunft oder Bar, welche Mahlzeiten anbieten<br /><strong>Laden</strong>: Verkauf von lokalen Produkten in einem Laden<br /><strong>Bar</strong>: Bar oder Café, welche lokale Produkte anbieten."
 
@@ -3812,6 +3812,9 @@ msgstr "Kamera:"
 
 msgid "camping area"
 msgstr "Biwakplatz"
+
+msgid "canada_provinces"
+msgstr "Provinzen und Territorien Kanadas"
 
 msgid "cancel"
 msgstr "Abbrechen"
@@ -4481,6 +4484,10 @@ msgstr "Ausrüstung und Technik"
 # [WARNING] needs_review
 msgid "gear_default"
 msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung benötigt wird. Nur das zusätzliche, \"exotische\" Material (Qualität und Menge) soll genannt werden. <br /> Beispiele von unnötigen Aufzählungen: \\n- Bei Skitouren: LVS, Felle, Lawinensonde, etc. (in der üblichen Skitourenausrüstung enthalten) \\n- Bei Alpintouren mit Gletscherbegehung: Steigeisen, Pickel (in entsprechender Standartausrüstung enthalten und dort aufgeführt). \\n- Bei Gletschertouren: Gletscherausrüstung (ankreuzen des Felds \"benötigt Gletscherausrüstung\" genügt) \\n- Beim Klettern: Friends, Keile und Schlingen ohne genauere Angabe des Typs und der Menge (bitte Nummern und Anzahl angeben).  "
+
+# [WARNING] fr translation used
+msgid "gear_shop"
+msgstr "Magasin de sport"
 
 # [WARNING] needs_review
 msgid "geo_export_info"
@@ -6501,6 +6508,9 @@ msgstr "URL:"
 
 msgid "url button title"
 msgstr "Einen externen Link einfügen "
+
+msgid "us_states"
+msgstr "Bundesstaat der Vereinigten Staaten"
 
 msgid "user"
 msgstr "Benutzer"

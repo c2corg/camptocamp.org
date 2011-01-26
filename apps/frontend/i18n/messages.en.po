@@ -2952,6 +2952,7 @@ msgstr "<h3>Pedestrian access</h3>Route for accessing a climbing site, a particu
 msgid "_phone_info"
 msgstr "<h3>Phone</h3>Hut's phone number."
 
+# [WARNING] needs_update
 msgid "_product_type_info"
 msgstr "<h3>Type of local products</h3><strong>direct sale by the producer </strong>: products sold by the producer itself<br /><br /><strong>restaurant</strong>: restaurant, bar or valley accommodation that offers food<br /><br /><strong>shop</strong>: sale of local products <br /><br /><strong>bar</strong>: bar or café"
 
@@ -3527,6 +3528,9 @@ msgstr "Camera:"
 
 msgid "camping area"
 msgstr "camp site"
+
+msgid "canada_provinces"
+msgstr "Provinces and territories of Canada"
 
 msgid "cancel"
 msgstr "Cancel"
@@ -4134,6 +4138,10 @@ msgstr "gear and techniques"
 # Respecter les \n et \"
 msgid "gear_default"
 msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. Only \\\"exotic\\\" gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned:\\n- ARVA beeper, shovel, probe\\n- crampons, ice axe or tools\\n- crevasse rescue gear (ticking the box \\\"requires glacier gear\\\" is enough)\\n- friends, stoppers and slings with no detail on number and sizes."
+
+# [WARNING] fr translation used
+msgid "gear_shop"
+msgstr "Magasin de sport"
 
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Geographical coordinates of the document can be downloaded in one of the following formats:<br />standard XML format for geographical coordinates, supported by more and more GPS devices, or easily transformed using tools such as <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (online) or <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (software)<br /><br /><strong>KML</strong>:<br />geographical data format mainly used in Google Earth, Google Map and World Wind<br /><br /><strong>JSON</strong>:<br />JavaScript data exchange format, used by web applications"
@@ -5985,6 +5993,9 @@ msgstr "Url:"
 
 msgid "url button title"
 msgstr "Insert an external url"
+
+msgid "us_states"
+msgstr "US states"
 
 msgid "user"
 msgstr "user"
