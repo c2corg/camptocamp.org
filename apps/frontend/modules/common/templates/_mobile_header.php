@@ -56,7 +56,7 @@ $static_base_url = sfConfig::get('app_static_url');
             }
         }
       ?>
-      <div class="log_elt" id="quick_switch<?php echo empty($activities_class) ? '' : '" class="' . implode(' ', $activities_class) ?>">
+      <div id="quick_switch<?php echo empty($activities_class) ? '' : '" class="' . implode(' ', $activities_class) ?>">
       <?php
         foreach ($alist as $id => $activity)
         {

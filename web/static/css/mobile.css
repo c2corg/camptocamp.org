@@ -522,7 +522,7 @@ select.menu_select
   text-decoration: none;
 }
 
-.log_elt
+.log_elt, #quick_switch
 {
   padding-bottom: 2px;
   padding-top: 1px;
