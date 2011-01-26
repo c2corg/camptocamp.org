@@ -1,5 +1,9 @@
 <?php
 use_helper('AutoComplete');
+$mobile_version = c2cTools::mobileVersion();
+$is_moderator = $sf_user->hasCredential('moderator');
+
+
 if (count($associated_products) == 0): ?>
     <p><?php echo __('No linked product') ?></p>
 <?php else :
@@ -15,7 +19,7 @@ if (count($associated_products) == 0): ?>
             <?php
             echo link_to($product->get('name'), '@document_by_id?module=products&id=' . $product_id)
                         . ' - ' . $product['elevation'] . ' ' . __('meters');
-            if ($sf_user->hasCredential('moderator'))
+            if ($is_moderator && !$mobile_version)
             {
                 $idstring = $type . '_' . $product_id;
                 echo c2c_link_to_delete_element($type, $doc_id, $product_id, true, $strict);

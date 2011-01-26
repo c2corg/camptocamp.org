@@ -1,5 +1,8 @@
 <?php
 use_helper('AutoComplete');
+$mobile_version = c2cTools::mobileVersion();
+$is_moderator = $sf_user->hasCredential('moderator');
+
 if (count($associated_summits) == 0): ?>
     <p><?php echo __('No linked summit') ?></p>
 <?php
@@ -16,7 +19,7 @@ else :
             <?php
             echo link_to($summit->get('name'), '@document_by_id?module=summits&id=' . $summit_id)
                         . ' - ' . $summit['elevation'] . __('meters');
-            if ($sf_user->hasCredential('moderator'))
+            if ($is_moderator && !$mobile_version)
             {
                 $idstring = $type . '_' . $summit_id;
                 echo c2c_link_to_delete_element($type, $doc_id, $summit_id, true, $strict);

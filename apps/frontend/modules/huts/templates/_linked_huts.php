@@ -1,5 +1,8 @@
 <?php
 use_helper('AutoComplete');
+$mobile_version = c2cTools::mobileVersion();
+$is_moderator = $sf_user->hasCredential('moderator');
+
 if (count($associated_huts) == 0): ?>
     <p><?php echo __('No linked hut') ?></p>
 <?php else :
@@ -15,7 +18,7 @@ if (count($associated_huts) == 0): ?>
             <?php
             echo link_to($hut->get('name'), '@document_by_id?module=huts&id=' . $hut_id)
                         . ' - ' . $hut['elevation'] . ' ' . __('meters');
-            if ($sf_user->hasCredential('moderator'))
+            if ($is_moderator && !$mobile_version)
             {
                 $idstring = $type . '_' . $hut_id;
                 echo c2c_link_to_delete_element($type, $doc_id, $hut_id, true, $strict);

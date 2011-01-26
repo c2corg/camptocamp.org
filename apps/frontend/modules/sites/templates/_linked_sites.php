@@ -1,5 +1,8 @@
 <?php
 use_helper('AutoComplete');
+$mobile_version = c2cTools::mobileVersion();
+$is_moderator = $sf_user->hasCredential('moderator');
+
 if (count($associated_sites) == 0): ?>
     <p><?php echo __('No linked site') ?></p>
 <?php else :
@@ -16,7 +19,7 @@ if (count($associated_sites) == 0): ?>
             echo link_to($site->get('name'), '@document_by_id?module=sites&id=' . $site_id)
                         . ' - ' . field_data_from_list_if_set($site, 'site_types', 'app_sites_site_types', true, true);
 
-            if ($sf_user->hasCredential('moderator'))
+            if ($is_moderator && !$mobile_version)
             {
                 $idstring = $type . '_' . $site_id;
                 echo c2c_link_to_delete_element($type, $doc_id, $site_id, true, $strict);

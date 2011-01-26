@@ -1,5 +1,7 @@
 <?php
 use_helper('AutoComplete');
+$mobile_version = c2cTools::mobileVersion();
+$is_moderator = $sf_user->hasCredential('moderator');
 
 if (count($associated_books) == 0 && !$needs_add_display): ?>
     <p><?php echo __('No linked book') ?></p>
@@ -30,7 +32,7 @@ else :
             {
                 echo ' - ' . $book['publication_date'];
             }
-            if (!isset($book['parent_id']) && $sf_user->hasCredential('moderator'))
+            if (!isset($book['parent_id']) && $is_moderator && !$mobile_version)
             {
                 $idstring = $type . '_' . $book_id;
                 echo c2c_link_to_delete_element($type, $book_id, $doc_id, false, $strict);
