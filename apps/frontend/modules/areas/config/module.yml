@@ -5,7 +5,7 @@ all:
       1: range
       2: country
       3: admin_limits
-      4: valley
+      4: valley_area
 
   sort:
     criteria:
