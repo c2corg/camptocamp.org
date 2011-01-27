@@ -1044,8 +1044,9 @@ class documentsActions extends c2cActions
     public function executeHistory()
     {
         $id = $this->getRequestParameter('id');
+        $model = $this->model_class;
 
-        if (!Document::checkExistence($this->model_class, $id))
+        if (!Document::checkExistence($model, $id))
         {
             $this->setNotFoundAndRedirect();
         }
@@ -1064,7 +1065,7 @@ class documentsActions extends c2cActions
 
         if ($this->current_version > 0)
         {
-            $documents = Document::getHistoryFromIdAndCulture($id, $lang);
+            $documents = Document::getHistoryFromIdAndCulture($model, $id, $lang);
         }
         else
         {
@@ -1078,7 +1079,7 @@ class documentsActions extends c2cActions
         $this->document = $document;
         $this->versions = $documents;
         $this->exists_in_lang = 1;
-        $this->document_name = $document['i18narchive']['name'];
+        $this->document_name = $document[$model . 'I18nArchive']['name'];
 
         // set template and title
         $this->setTemplate('../../documents/templates/history');
@@ -3523,7 +3524,7 @@ class documentsActions extends c2cActions
             $document->doSaveWithMetadata($this->getUser()->getId(), false, "Geometry has been deleted");
 
             // also delete geom associations with maps and areas:
-            $nb_deleted = GeoAssociation::deleteAllFor($id, array('dm', 'dr', 'dd', 'dc'));
+            $nb_deleted = GeoAssociation::deleteAllFor($id, array('dm', 'dr', 'dd', 'dc', 'dv'));
             c2cTools::log("executeDeletegeom: deleted $nb_deleted associated areas and maps with document $id");
         }
         else

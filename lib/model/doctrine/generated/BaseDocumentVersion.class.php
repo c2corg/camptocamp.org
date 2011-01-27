@@ -23,21 +23,16 @@ class BaseDocumentVersion extends sfDoctrineRecord
     public function setUp()
     {
         $this->hasOne('HistoryMetadata as history_metadata', 'DocumentVersion.history_metadata_id');
-    
-        // FIXME: shortname for archives should be DocumentArchive and DocumentI18nArchive as for other kinds of objects !!!
-        $this->hasOne('DocumentArchive as archive', 'DocumentVersion.document_archive_id');
-        $this->hasOne('DocumentI18nArchive as i18narchive', 'DocumentVersion.document_i18n_archive_id');
 
         $modules = array(sfConfig::get('app_modules_list'));
-        $modules = array_shift($modules); // to remove "documents" module
 
         foreach ($modules as $module)
         {
             $model = ucfirst(substr($module, 0, strlen($module)-1));
             $this->hasOne($model.'Archive as '.$model.'Archive', 'DocumentVersion.document_archive_id');
             $this->hasOne($model.'I18nArchive as '.$model.'I18nArchive', 'DocumentVersion.document_i18n_archive_id');
-            $this->hasOne($model.' as '.$model, array('local' => 'id', 'foreign' => 'document_id'));
-            $this->hasOne($model.'I18n as '.$model.'I18n', array('local' => 'id', 'foreign' => 'document_id'));
+            $this->hasOne($model.' as '.$model, array('local' => 'document_id', 'foreign' => 'id'));
+            $this->hasOne($model.'I18n as '.$model.'I18n', array('local' => 'document_id', 'foreign' => 'id'));
         }
         
         // used for filtering 'recent' lists on associated regions (ranges):

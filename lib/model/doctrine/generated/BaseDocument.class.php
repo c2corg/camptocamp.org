@@ -1046,19 +1046,19 @@ class BaseDocument extends sfDoctrineRecordI18n
      * @param int $document_id
      * @return object document
      */
-    public static function getHistoryFromId($document_id)
+    public static function getHistoryFromId($model, $document_id)
     {
-        return self::getHistoryFromIdAndCulture($document_id, sfContext::getInstance()
+        return self::getHistoryFromIdAndCulture($model, $document_id, sfContext::getInstance()
                    ->getUser()
                    ->getPreferedLanguage());
     }
 
-    public static function getHistoryFromIdAndCulture($document_id, $culture)
+    public static function getHistoryFromIdAndCulture($model, $document_id, $culture)
     {
         return Doctrine_Query::create()
                              ->from('DocumentVersion d ' .
-                                    'LEFT JOIN d.archive ' .
-                                    'LEFT JOIN d.i18narchive ' .
+                                    'LEFT JOIN d.' . $model . 'Archive ' .
+                                    'LEFT JOIN d.' . $model . 'I18nArchive ' .
                                     'LEFT JOIN d.history_metadata h ' .
                                     'LEFT JOIN h.user_private_data u')
                              ->where('d.document_id = ? AND d.culture = ?',

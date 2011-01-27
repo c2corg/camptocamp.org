@@ -325,7 +325,7 @@ class routesActions extends documentsActions
             if ($this->new_document && $summit_id && !$this->document->get('geom_wkt'))
             {
                 // get all associated regions (3+maps) with this summit:
-                $associations = GeoAssociation::findAllAssociations($summit_id, array('dr', 'dc', 'dd', 'dm'));
+                $associations = GeoAssociation::findAllAssociations($summit_id, array('dr', 'dc', 'dd', 'dv', 'dm'));
                 // replicate them with route_id instead of summit_id:
                 foreach ($associations as $ea)
                 {

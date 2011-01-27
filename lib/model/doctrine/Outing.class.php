@@ -164,7 +164,7 @@ class Outing extends BaseOuting
             {
                 self::buildConditionItem($conditions, $values, 'Array', array($m, 'o', 'activities'), 'act', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Date', 'date', 'date', $join, false, $params_list);
-                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', $join, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'String', 'oi.search_name', ($is_module ? array('onam', 'name') : 'onam'), 'join_outing_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'o', 'activities'), 'oact', $join, false, $params_list);
@@ -181,6 +181,7 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.access_status', 'opark', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.lift_status', 'olift', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.hut_status', 'ohut', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Georef', $m . '.geom_wkt', 'ogeom', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'oi.culture', 'ocult', 'join_outing_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'loc.linked_id', 'otags', 'join_otag_id', false, $params_list);
         }

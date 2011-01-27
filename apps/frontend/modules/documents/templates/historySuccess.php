@@ -5,10 +5,12 @@ use_javascript('/static/js/diff.js', 'last');
 use_javascript('/static/js/history_tools.js', 'last');
 
 $module = $sf_context->getModuleName();
+$model = c2cTools::module2model($module);
+$i18n_archive = $model . 'I18nArchive';
 $lang = $sf_params->get('lang');
 $id = $sf_params->get('id');
 $table_list_even_odd = 0;
-$slug = make_slug($document['i18narchive']['name']);
+$slug = make_slug($document[$i18n_archive]['name']);
 
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
 echo '<div id="nav_space">&nbsp;</div>';
@@ -73,13 +75,13 @@ foreach ($versions as $version):
   {
       $current_label = '*';
       $view_link = "@document_by_id_lang_slug?module=$module&id=" . $version['document_id'] .
-                   '&lang=' . $version['i18narchive']['culture'] . '&slug=' . $slug;
+                   '&lang=' . $version[$i18n_archive]['culture'] . '&slug=' . $slug;
   }
   else
   {
       $current_label = '';
       $view_link = "@document_by_id_lang_version?module=$module&version=" . $version['version'] . '&id=' .
-                   $version['document_id'] . '&lang=' . $version['i18narchive']['culture'];
+                   $version['document_id'] . '&lang=' . $version[$i18n_archive]['culture'];
   }
 
   ?>

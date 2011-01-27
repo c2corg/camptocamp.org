@@ -98,6 +98,7 @@ COMMENT ON TABLE app_geo_association_types IS 'This table is meant to keep a rec
 INSERT INTO app_geo_association_types (type) VALUES ('dr'); -- 'dr' = document-range (main = left column) thus = map-range (in that case, map is main !) -> we should thus prevent maps from being associated with ranges, dept, and countries with types 'dr', 'dd', 'dc' : only 'dm' type should handle these cases
 INSERT INTO app_geo_association_types (type) VALUES ('dd'); -- 'dd' = document-department (main = left column) thus = area-map
 INSERT INTO app_geo_association_types (type) VALUES ('dc'); -- 'dc' = document-country (main = left column) thus = area-map
+INSERT INTO app_geo_association_types (type) VALUES ('dv'); -- 'dv' = document-valley (main = left column) thus = area-map
 INSERT INTO app_geo_association_types (type) VALUES ('dm'); -- 'dm' = document-map (main = document, in that case, map is linked)
 
 CREATE TABLE app_geo_associations (

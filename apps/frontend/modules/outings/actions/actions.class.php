@@ -194,7 +194,7 @@ class outingsActions extends documentsActions
                     if ($this->new_document && $associated_id && !$this->document->get('geom_wkt'))
                     {
                         // get all associated regions (only regions, countries, depts, no maps !) with this summit:
-                        $associations = GeoAssociation::findAllAssociations($associated_id, array('dr', 'dc', 'dd'));
+                        $associations = GeoAssociation::findAllAssociations($associated_id, array('dr', 'dc', 'dd', 'dv'));
                         // replicate them with outing_id instead of (route_id or site_id):
                         foreach ($associations as $ea)
                         {

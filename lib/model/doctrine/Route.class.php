@@ -342,7 +342,7 @@ class Route extends BaseRoute
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'activities'), 'act', $join, false, $params_list);
-                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', $join, false, $params_list);
                 if (self::buildConditionItem($conditions, $values, 'Mstring', array('ri.search_name', 'si.search_name'), 'srnam', 'join_route_i18n', false, $params_list))
                 {
                     $conditions['join_summit_i18n'] = true;
@@ -376,6 +376,7 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'sub_activities'), 'sub', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.is_on_glacier', 'glac', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ri.culture', 'rcult', 'join_route_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Georef', $m . '.geom_wkt', 'rgeom', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Id', 'lrb.main_id', 'rbooks', 'join_rbook_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrd.main_id', 'rdocs', 'join_rdoc_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrc.linked_id', 'rtags', 'join_rtag_id', false, $params_list);

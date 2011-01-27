@@ -199,7 +199,7 @@ class gisQuery
         // if associations with areas for current doc already existed, delete them
         if ($delete_old)
         {
-            $deleted = GeoAssociation::deleteAllFor($id, array('dr', 'dc', 'dd', 'dm'));
+            $deleted = GeoAssociation::deleteAllFor($id, array('dr', 'dc', 'dd', 'dv', 'dm'));
             c2cTools::log("executeEdit: deleted $deleted geom associations for document $id");
         }
                     
@@ -218,6 +218,9 @@ class gisQuery
                     break;
                 case 3: // dept
                     $type = 'dd';
+                    break;
+                case 4: // valley
+                    $type = 'dv';
                     break;
             }
                         

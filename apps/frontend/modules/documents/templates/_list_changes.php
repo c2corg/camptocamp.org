@@ -1,7 +1,12 @@
 <?php use_helper('History', 'SmartDate', 'SmartFormat', 'General', 'sfBBCode') ?>
 
-<?php $current_module = $sf_context->getModuleName(); ?>
-<?php if (count($items) == 0): ?>
+<?php
+$current_module = $sf_context->getModuleName();
+$model = c2cTools::module2model($current_module);
+$archive = $model . 'Archive';
+$i18n_archive = $model . 'I18nArchive';
+
+if (count($items) == 0): ?>
     <p id="recent-changes"><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
     <ul id="recent-changes">
@@ -9,7 +14,7 @@
     $static_base_url = sfConfig::get('app_static_url');
     foreach ($items as $item): ?>
         <li><?php 
-            $module_name = $item['archive']['module'];
+            $module_name = $item[$archive]['module'];
             $id = $item['document_id'];
             $lang = $item['culture'];
             $version = $item['version'];
@@ -18,7 +23,7 @@
 
             echo picto_tag('picto_' . $module_name, __($module_name));
             echo ' ';
-            echo link_to($item['i18narchive']['name'], "@document_by_id_lang_version?module=$module_name&id=$id&lang=$lang&version=$version") . ' - ';
+            echo link_to($item[$i18n_archive]['name'], "@document_by_id_lang_version?module=$module_name&id=$id&lang=$lang&version=$version") . ' - ';
             echo smart_date($item['created_at']) . ' - ';
             if ($needs_username)
             {
