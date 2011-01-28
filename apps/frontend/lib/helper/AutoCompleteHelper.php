@@ -86,7 +86,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     $select_modules = select_tag('dropdown_modules', options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
                                  array('onchange' => $select_js, 'class' => 'picto picto_' . $default_selected));
     
-    $picto_add = ($hide) ? '' : picto_tag('picto_add', __('Link an existing document')) . ' ';
+    $picto_add = ($hide) ? '' : picto_tag('picto_add', (in_array('users', $modules_list) ? __('Link an existing user or document') : __('Link an existing document'))) . ' ';
     
     $out = $picto_add . $select_modules;
 
@@ -118,7 +118,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
                    . '<span class="assoc_img picto_rm" title="' . __('hide form') . '"></span>';
         $picto_add_rm = link_to_function($picto_add_rm, "toggleForm('${field_prefix}_form')");
         
-        $title = '<div id="_association_tool" class="section_subtitle extra">' . __('Link an existing document') . __('&nbsp;:') . '</div> ';
+        $title = '<div id="_association_tool" class="section_subtitle extra">' . (in_array('users', $modules_list) ? __('Link an existing user or document') : __('Link an existing document')) . __('&nbsp;:') . '</div> ';
         
         $pictos = ' ';
         foreach ($modules_list as $module)
