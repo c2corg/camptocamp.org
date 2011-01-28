@@ -1195,6 +1195,12 @@ msgstr "Associare"
 msgid "Link an existing document"
 msgstr "Associare un documento esistente"
 
+# [general comment]
+# more specific message when a user can be associated
+# [WARNING] needs_update
+msgid "Link an existing user or document"
+msgstr "Associare un documento esistente"
+
 msgid "Linked books"
 msgstr "Libri associati"
 
@@ -5959,6 +5965,10 @@ msgstr "Svizzera (italiano))"
 
 msgid "valley"
 msgstr "falesia / vallone"
+
+# [WARNING] en translation used
+msgid "valley_area"
+msgstr "valley"
 
 msgid "value must an integer"
 msgstr "il valore deve essere un numero intero"

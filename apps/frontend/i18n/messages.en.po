@@ -1200,6 +1200,12 @@ msgstr "Link"
 msgid "Link an existing document"
 msgstr "Link an existing document"
 
+# [general comment]
+# more specific message when a user can be associated
+# [WARNING] needs_review
+msgid "Link an existing user or document"
+msgstr "Link an existing user or document"
+
 msgid "Linked books"
 msgstr "Associated books"
 
@@ -6017,6 +6023,9 @@ msgstr "Switzerland (italian)"
 
 msgid "valley"
 msgstr "cliff / valley"
+
+msgid "valley_area"
+msgstr "valley"
 
 msgid "value must an integer"
 msgstr "value must be an integer"

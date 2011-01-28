@@ -1219,6 +1219,12 @@ msgstr "Verbinden"
 msgid "Link an existing document"
 msgstr "Ein existierendes Dokument verbinden"
 
+# [general comment]
+# more specific message when a user can be associated
+# [WARNING] needs_update
+msgid "Link an existing user or document"
+msgstr "Ein existierendes Dokument verbinden"
+
 msgid "Linked books"
 msgstr "Verbundene Bücher"
 
@@ -6535,6 +6541,10 @@ msgstr "Schweiz (italienisch)"
 # vs
 msgid "valley"
 msgstr "Felswand / Tal"
+
+# [WARNING] en translation used
+msgid "valley_area"
+msgstr "valley"
 
 # [WARNING] needs_review
 msgid "value must an integer"

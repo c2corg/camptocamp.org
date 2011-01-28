@@ -1210,6 +1210,12 @@ msgstr "Gehitu"
 msgid "Link an existing document"
 msgstr "Existitzen den dokumentu bat Gehitu "
 
+# [general comment]
+# more specific message when a user can be associated
+# [WARNING] needs_update
+msgid "Link an existing user or document"
+msgstr "Existitzen den dokumentu bat Gehitu "
+
 # [WARNING] es translation used
 msgid "Linked books"
 msgstr "Libros asociados"
@@ -6392,6 +6398,10 @@ msgstr "Suitza (italieran)"
 # [WARNING] needs_update
 msgid "valley"
 msgstr "arana"
+
+# [WARNING] en translation used
+msgid "valley_area"
+msgstr "valley"
 
 # [WARNING] es translation used
 msgid "value must an integer"
