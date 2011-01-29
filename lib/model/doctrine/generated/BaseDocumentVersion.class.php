@@ -24,7 +24,7 @@ class BaseDocumentVersion extends sfDoctrineRecord
     {
         $this->hasOne('HistoryMetadata as history_metadata', 'DocumentVersion.history_metadata_id');
 
-        $modules = array(sfConfig::get('app_modules_list'));
+        $modules = sfConfig::get('app_modules_list');
 
         foreach ($modules as $module)
         {
