@@ -883,7 +883,7 @@ class BaseDocument extends sfDoctrineRecordI18n
           ->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
           ->leftJoin('h.user_private_data u')
-          ->leftJoin("d.$model_i18n i");
+          ->innerJoin("d.$model_i18n i");
         
         if ($model == 'Document')
         {
