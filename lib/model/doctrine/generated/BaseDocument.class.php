@@ -944,8 +944,8 @@ class BaseDocument extends sfDoctrineRecordI18n
         $q->select($field_list)
           ->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
-          ->leftJoin("d.$model_i18n i")
-          ->leftJoin("d.$model a");
+          ->innerJoin("d.$model_i18n i")
+          ->innerJoin("d.$model a");
         
         if ($ranges)
         {
