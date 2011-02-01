@@ -406,18 +406,25 @@ if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
         $extra_id = preg_replace('#[^\d]+#', ',', $extra_id);
         $extra_id = trim($extra_id, ',');
         $extra_id = explode(',', $extra_id);
-        $topics = array_merge($topics, $extra_id);
+        $topics = array_unique(array_merge($topics, $extra_id));
     }
     
-    if (empty($topics) || count($topics)<2)
+    if (empty($topics) || count($topics) < 2)
 		message($lang_misc['No topics to merge']);
 	
     $topics = implode(',', $topics);
 
     // Get topic subjects
     $result = $db->query('SELECT id, subject, moved_to FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
-    if (!$db->num_rows($result))
+    $nb_results = $db->num_rows($result);
+    if (!$nb_results)
+    {
         message($lang_common['Bad request']);
+    }
+    elseif ($nb_results < 2)
+    {
+		message($lang_misc['No topics to merge']);
+    }
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_misc['Moderate'];
 	require PUN_ROOT.'header.php';
