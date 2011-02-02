@@ -784,7 +784,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     protected static function queryRecent($mode = 'editions', $model, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
     {
-        $query = array();
+        $query = array('d.culture = i.culture');
         $arguments = array();
         
         $langs = ($langs && !is_array($langs)) ? explode('-', $langs) : $langs;
@@ -794,7 +794,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if ($mode == 'creations')
         {
-            $query[] = "d.version = ?";
+            $query[] = 'd.version = ?';
             $arguments[] = 1;
         }
         
