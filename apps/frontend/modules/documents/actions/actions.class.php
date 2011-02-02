@@ -3065,6 +3065,7 @@ class documentsActions extends c2cActions
     {
         $feed = new sfGeoRssFeed();
         $lang = $this->getRequestParameter('lang');
+        $model = $this->model_class;
         $module = $this->getModuleName();
         $id = $this->getRequestParameter('id');
         $mode = $this->getRequestParameter('mode');
