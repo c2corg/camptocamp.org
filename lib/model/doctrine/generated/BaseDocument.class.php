@@ -782,7 +782,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $languages;
     }
 
-    protected static function queryRecent($mode = 'editions', $model, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
+    protected static function queryRecent($mode = 'editions', $m, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
     {
         $query = array('d.culture = i.culture');
         $arguments = array();
@@ -794,7 +794,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if ($mode == 'creations')
         {
-            $query[] = 'd.version = ?';
+            $query[] = 'dv.version = ?';
             $arguments[] = 1;
         }
         
@@ -803,7 +803,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $subquery = array();
             foreach ($activities as $activity)
             {
-                $subquery[] = '? = ANY (a4.activities)';
+                $subquery[] = "? = ANY ($m.activities)";
                 $arguments[] = $activity;
             }
             $query[] = '( ' . implode($subquery, ' OR ') . ' )';
@@ -811,13 +811,13 @@ class BaseDocument extends sfDoctrineRecordI18n
 
         if ($user_id)
         {
-            $query[] = "h.user_id = ?";
+            $query[] = "hm.user_id = ?";
             $arguments[] = $user_id;
         }
 
         if ($user_doc_id)
         {
-            $query[] = "h2.user_id = ?";
+            $query[] = "hm2.user_id = ?";
             $arguments[] = $user_doc_id;
         }
 
@@ -826,7 +826,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $subquery = array();
             foreach ($langs as $lang)
             {
-                $subquery[] = 'd.culture = ?';
+                $subquery[] = 'dv.culture = ?';
                 $arguments[] = $lang;
             }
             $query[] = '( ' . implode($subquery, ' OR ') . ' )';
@@ -837,7 +837,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $subquery = array();
             foreach ($areas as $area)
             {
-                $subquery[] = 'g.linked_id = ?';
+                $subquery[] = 'geo.linked_id = ?';
                 $arguments[] = $area;
             }
             $query[] = ' ( ' . implode($subquery, ' OR ') . ' )';
@@ -848,7 +848,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $subquery = array();
             foreach ($doc_ids as $doc_id)
             {
-                $subquery[] = 'd.document_id = ?';
+                $subquery[] = 'dv.document_id = ?';
                 $arguments[] = $doc_id;
             }
             $query[] = ' ( ' . implode($subquery, ' OR ') . ' )';
@@ -866,39 +866,46 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function listRecentChangesPager($model, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
     {
+        $m = strtolower(substr($model, 0, 1));
+        $mi = $m . 'i';
+        if ($model == 'Article')
+        {
+            $m = 'a5';
+        }
+        
         $model_i18n = $model . 'I18n';
 
-        $query_params = self::queryRecent('editions', $model, $langs, $areas, $activities, $doc_ids, $user_id, $user_doc_id);
+        $query_params = self::queryRecent('editions', $m, $langs, $areas, $activities, $doc_ids, $user_id, $user_doc_id);
         
-        $field_list = 'd.document_id, d.culture, d.version, d.nature, d.created_at, u.id, u.topo_name, i.name, h.comment, h.is_minor';
+        $field_list = "dv.document_id, dv.culture, dv.version, dv.nature, dv.created_at, up.id, up.topo_name, $mi.name, hm.comment, hm.is_minor";
         if ($model == 'Document')
         {
-            $field_list .= ', a.module';
+            $field_list .= ", $m.module";
         }
 
         $pager = new c2cDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
 
         $q = $pager->getQuery();
         $q->select($field_list)
-          ->from('DocumentVersion d')
-          ->leftJoin('d.history_metadata h')
-          ->leftJoin('h.user_private_data u')
-          ->innerJoin("d.$model_i18n i");
+          ->from('DocumentVersion dv')
+          ->leftJoin('dv.history_metadata hm')
+          ->leftJoin('hm.user_private_data up')
+          ->innerJoin("dv.$model_i18n $mi");
         
-        if ($model == 'Document')
+        if ($model == 'Document' || !empty($activities))
         {
-            $q->leftJoin("d.$model a");
+            $q->innerJoin("dv.$model $m");
         }
 
-        if (!empty($ranges))
+        if (!empty($areas))
         {
-            $q->leftJoin('d.geoassociations g');
+            $q->leftJoin('dv.geoassociations geo');
         }
 
         if (!empty($user_doc_id))
         {
-            $q->leftJoin('d.versions d2')
-              ->leftJoin('d2.history_metadata h2');
+            $q->leftJoin('dv.versions dv2')
+              ->leftJoin('dv2.history_metadata hm2');
         }
         
         if (!empty($query_params['query']))
@@ -910,7 +917,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $pager->simplifyBaseCounter();
         }
 
-        $q->orderBy('d.created_at DESC');
+        $q->orderBy('dv.created_at DESC');
 
         return $pager;
     }
@@ -922,39 +929,49 @@ class BaseDocument extends sfDoctrineRecordI18n
      * @return Document
      */
     public static function listRecent($model, $limit, $user_id = null, $langs = null, $doc_id = null,
-                                      $mode = 'editions',$ranges = null,
+                                      $mode = 'editions', $ranges = null,
                                       $whattoselect = null, $activities = null, $show_user = true)
     {
-        $query_params = self::queryRecent($mode, $model, $langs, $ranges, $activities, $doc_id, $user_id);
+        $m = strtolower(substr($model, 0, 1));
+        $mi = $m . 'i';
+        if ($model == 'Article')
+        {
+            $m = 'a4';
+        }
+        
+        $model_i18n = $model . 'I18n';
+        
+        $query_params = self::queryRecent($mode, $m, $langs, $ranges, $activities, $doc_id, $user_id);
 
         $q = Doctrine_Query::create();
         
         if ($whattoselect)
         {
-            $q->select($whattoselect); 
+            $field_list = $whattoselect; 
         }
-        
-        $model_i18n = $model . 'I18n';
-        $field_list = 'd.document_id, d.culture, d.version, d.created_at, i.name, i.search_name, a.module, a.lon, a.lat, h.comment';
-        if ($show_user)
+        else
         {
-            $field_list .= ', u.id, u.topo_name';
+            $field_list = "dv.document_id, dv.culture, dv.version, dv.created_at, $mi.name, $mi.search_name, $m.module, $m.lon, $m.lat, hm.comment";
+            if ($show_user)
+            {
+                $field_list .= ', up.id, up.topo_name';
+            }
         }
         
         $q->select($field_list)
-          ->from('DocumentVersion d')
-          ->leftJoin('d.history_metadata h')
-          ->innerJoin("d.$model_i18n i")
-          ->innerJoin("d.$model a");
+          ->from('DocumentVersion dv')
+          ->leftJoin('dv.history_metadata hm')
+          ->innerJoin("dv.$model_i18n $mi")
+          ->innerJoin("dv.$model $m");
         
         if ($ranges)
         {
-            $q->leftJoin('d.geoassociations g');
+            $q->leftJoin('dv.geoassociations geo');
         }
         
         if ($show_user)
         {
-            $q->leftJoin('h.user_private_data u');
+            $q->leftJoin('hm.user_private_data up');
         }
        
 
@@ -963,7 +980,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $q->where($query_params['query'], $query_params['arguments']);
         }
 
-        $objects = $q->orderBy('d.created_at DESC')
+        $objects = $q->orderBy('dv.created_at DESC')
                     ->limit($limit)
                     ->execute(array(), Doctrine::FETCH_ARRAY);
 

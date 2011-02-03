@@ -43,12 +43,12 @@ class usersActions extends documentsActions
             {
                 $this->getResponse()->addMeta('robots', 'index, follow');
 
-                $whattoselect = 'd.document_id, d.culture, d.version, d.nature, d.created_at, ' .
-                                'i.name, a.module, ' .
-                                'h.comment, h.is_minor';
+                $whattoselect = 'dv.document_id, dv.culture, dv.version, dv.nature, dv.created_at, ' .
+                                'di.name, d.module, ' .
+                                'hm.comment, hm.is_minor';
                 $contribs = Document::listRecent('Document', 10,
                                                        $id, null, null, 'editions',
-                                                       false, null, $whattoselect, null, false);
+                                                       null, $whattoselect, null, false);
                 // prepend summit name to routes
                 foreach ($contribs as $key => $contrib)
                 {
