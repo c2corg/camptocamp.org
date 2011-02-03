@@ -782,9 +782,9 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $languages;
     }
 
-    protected static function queryRecent($mode = 'editions', $m, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
+    protected static function queryRecent($mode = 'editions', $m, $mi, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
     {
-        $query = array('d.culture = i.culture');
+        $query = array("dv.culture = $mi.culture");
         $arguments = array();
         
         $langs = ($langs && !is_array($langs)) ? explode('-', $langs) : $langs;
@@ -875,7 +875,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $model_i18n = $model . 'I18n';
 
-        $query_params = self::queryRecent('editions', $m, $langs, $areas, $activities, $doc_ids, $user_id, $user_doc_id);
+        $query_params = self::queryRecent('editions', $m, $mi, $langs, $areas, $activities, $doc_ids, $user_id, $user_doc_id);
         
         $field_list = "dv.document_id, dv.culture, dv.version, dv.nature, dv.created_at, up.id, up.topo_name, $mi.name, hm.comment, hm.is_minor";
         if ($model == 'Document')
@@ -941,7 +941,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $model_i18n = $model . 'I18n';
         
-        $query_params = self::queryRecent($mode, $m, $langs, $ranges, $activities, $doc_id, $user_id);
+        $query_params = self::queryRecent($mode, $m, $mi, $langs, $ranges, $activities, $doc_id, $user_id);
 
         $q = Doctrine_Query::create();
         
