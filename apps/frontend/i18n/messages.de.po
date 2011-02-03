@@ -4491,9 +4491,9 @@ msgstr "Ausrüstung und Technik"
 msgid "gear_default"
 msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung benötigt wird. Nur das zusätzliche, \"exotische\" Material (Qualität und Menge) soll genannt werden. <br /> Beispiele von unnötigen Aufzählungen: \\n- Bei Skitouren: LVS, Felle, Lawinensonde, etc. (in der üblichen Skitourenausrüstung enthalten) \\n- Bei Alpintouren mit Gletscherbegehung: Steigeisen, Pickel (in entsprechender Standartausrüstung enthalten und dort aufgeführt). \\n- Bei Gletschertouren: Gletscherausrüstung (ankreuzen des Felds \"benötigt Gletscherausrüstung\" genügt) \\n- Beim Klettern: Friends, Keile und Schlingen ohne genauere Angabe des Typs und der Menge (bitte Nummern und Anzahl angeben).  "
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "gear_shop"
-msgstr "Magasin de sport"
+msgstr "sports shop"
 
 # [WARNING] needs_review
 msgid "geo_export_info"

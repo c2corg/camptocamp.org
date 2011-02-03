@@ -44,7 +44,7 @@ show_select=function()
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li><?php
-                echo link_to(__('Guidebook') . $sublevel_ie7, getMetaArticleRoute('help_guide', false))
+                echo link_to(__('Guidebook / Map') . $sublevel_ie7, getMetaArticleRoute('help_guide', false))
                    . $sublevel_start ?>
                 <ul>
 	                <li><?php
@@ -52,7 +52,7 @@ show_select=function()
                            . link_to(__('Map tool'), '@map') ?></li>
                     <li><?php
                         echo picto_tag('picto_outings')
-                           . link_to(__('outings') . $sublevel_ie7, '@default_index?module=outings')
+                           . link_to(ucfirst(__('outings')) . $sublevel_ie7, '@default_index?module=outings')
                            . $sublevel_start ?>
                         <ul>
                             <li><?php
@@ -71,7 +71,7 @@ show_select=function()
                         </ul> <?php echo $sublevel_end ?>
                     </li>
                     <li><?php echo picto_tag('picto_routes')
-                                 . link_to(__('routes') . $sublevel_ie7, '@default_index?module=routes')
+                                 . link_to(ucfirst(__('routes')) . $sublevel_ie7, '@default_index?module=routes')
                                  . $sublevel_start ?>
                         <ul>
                             <li class="lilast"><?php
@@ -85,7 +85,7 @@ show_select=function()
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li><?php echo picto_tag('picto_summits')
-                                 . link_to(__('summits') . $sublevel_ie7, '@default_index?module=summits')
+                                 . link_to(ucfirst(__('summits')) . $sublevel_ie7, '@default_index?module=summits')
                                  . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -100,7 +100,7 @@ show_select=function()
                     </li>
                     <li><?php
                         echo picto_tag('picto_sites')
-                           . link_to(__('sites') . $sublevel_ie7, '@default_index?module=sites')
+                           . link_to(ucfirst(__('sites')) . $sublevel_ie7, '@default_index?module=sites')
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -115,7 +115,7 @@ show_select=function()
                     </li>
                     <li><?php
                         echo picto_tag('picto_parkings')
-                           . link_to(__('parkings') . $sublevel_ie7, '@default_index?module=parkings')
+                           . link_to(ucfirst(__('parkings')) . $sublevel_ie7, '@default_index?module=parkings')
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -130,7 +130,7 @@ show_select=function()
                     </li>
                     <li><?php
                         echo picto_tag('picto_huts')
-                           . link_to(__('huts') . $sublevel_ie7, '@default_index?module=huts')
+                           . link_to(ucfirst(__('huts')) . $sublevel_ie7, '@default_index?module=huts')
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -145,7 +145,7 @@ show_select=function()
                     </li>
                     <li><?php
                         echo picto_tag('picto_products')
-                           . link_to(__('products') . $sublevel_ie7, '@default_index?module=products')
+                           . link_to(ucfirst(__('products')) . $sublevel_ie7, '@default_index?module=products')
                            . $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -160,7 +160,7 @@ show_select=function()
                     </li>
                     <li><?php
                         echo picto_tag('picto_books')
-                           . link_to(__('books') . $sublevel_ie7, '@default_index?module=books') ?>
+                           . link_to(ucfirst(__('books')) . $sublevel_ie7, '@default_index?module=books') ?>
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
@@ -175,7 +175,7 @@ show_select=function()
                     </li>
                     <li><?php
                         echo picto_tag('picto_portals')
-                           . link_to(__('portals') . $sublevel_ie7, '@default_index?module=portals') ?>
+                           . link_to(ucfirst(__('portals')) . $sublevel_ie7, '@default_index?module=portals') ?>
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li><?php

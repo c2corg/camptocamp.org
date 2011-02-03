@@ -53,9 +53,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
     
     $a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[url(=\]|\])\s*#i',
-				'#\[url(=|\])(http://)?((m|www)\.)?camptocamp\.org(/([^\[\]]+))#i',
+				'#\[url(=|\])(http://)?(m|www)\.camptocamp\.org(/([^\[\]]+))#i',
 				'#\s*\[/url\]#i',
-                '#(http://)?((m|www)\.)?camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums))#i'
+                '#http://(m|www)\.camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums))#i',
 				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[email(=\]|\])\s*#i',
 				'#\s*\[/email\]#i',
@@ -75,9 +75,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 
 	$b = array(	'[url=$2]',
 				'[url]',
-                '[url$1$5',
+                '[url$1$4',
 				'[/url]',
-                '$4',
+                '$2',
 				'[email=$2]',
 				'[email]',
 				'[/email]',

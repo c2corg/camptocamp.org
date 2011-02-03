@@ -870,7 +870,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         $mi = $m . 'i';
         if ($model == 'Article')
         {
-            $m = 'a5';
+            $m .= '5';
+        }
+        else
+        {
+            $m .= '2';
         }
         
         $model_i18n = $model . 'I18n';
@@ -936,7 +940,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         $mi = $m . 'i';
         if ($model == 'Article')
         {
-            $m = 'a4';
+            $m .= '4';
+        }
+        else
+        {
+            $m .= '2';
         }
         
         $model_i18n = $model . 'I18n';

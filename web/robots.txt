@@ -104,6 +104,34 @@ Disallow: /sites/rss
 Disallow: /summits/rss
 Disallow: /static/rss
 Disallow: /static/rss/latest_docs.rss
+Disallow: /areas/feed.rss
+Disallow: /articles/feed.rss
+Disallow: /books/feed.rss
+Disallow: /documents/feed.rss
+Disallow: /huts/feed.rss
+Disallow: /images/feed.rss
+Disallow: /maps/feed.rss
+Disallow: /outings/feed.rss
+Disallow: /parkings/feed.rss
+Disallow: /portals/feed.rss
+Disallow: /products/feed.rss
+Disallow: /routes/feed.rss
+Disallow: /sites/feed.rss
+Disallow: /summits/feed.rss
+Disallow: /areas/new.rss
+Disallow: /articles/new.rss
+Disallow: /books/new.rss
+Disallow: /documents/new.rss
+Disallow: /huts/new.rss
+Disallow: /images/new.rss
+Disallow: /maps/new.rss
+Disallow: /outings/new.rss
+Disallow: /parkings/new.rss
+Disallow: /portals/new.rss
+Disallow: /products/new.rss
+Disallow: /routes/new.rss
+Disallow: /sites/new.rss
+Disallow: /summits/new.rss
 # widget
 Disallow: /widgetgenerator
 
@@ -216,6 +244,7 @@ Disallow: /summits/rss
 Disallow: /static/rss
 Disallow: /static/rss/latest_docs.rss
 # wildcards
+Disallow: /*/feed.rss$
 Disallow: /areas/*/feed.rss$
 Disallow: /articles/*/feed.rss$
 Disallow: /books/*/feed.rss$
@@ -230,6 +259,7 @@ Disallow: /products/*/feed.rss$
 Disallow: /routes/*/feed.rss$
 Disallow: /sites/*/feed.rss$
 Disallow: /summits/*/feed.rss$
+Disallow: /*/new.rss$
 Disallow: /areas/*/new.rss$
 Disallow: /articles/*/new.rss$
 Disallow: /books/*/new.rss$
@@ -352,6 +382,7 @@ Disallow: /summits/rss
 Disallow: /static/rss
 Disallow: /static/rss/latest_docs.rss
 #wildcards
+Disallow: /*/feed.rss$
 Disallow: /areas/*/feed.rss$
 Disallow: /articles/*/feed.rss$
 Disallow: /books/*/feed.rss$
@@ -366,6 +397,7 @@ Disallow: /products/*/feed.rss$
 Disallow: /routes/*/feed.rss$
 Disallow: /sites/*/feed.rss$
 Disallow: /summits/*/feed.rss$
+Disallow: /*/new.rss$
 Disallow: /areas/*/new.rss$
 Disallow: /articles/*/new.rss$
 Disallow: /books/*/new.rss$
@@ -488,6 +520,7 @@ Disallow: /summits/rss
 Disallow: /static/rss
 Disallow: /static/rss/latest_docs.rss
 # wildcards
+Disallow: /*/feed.rss$
 Disallow: /areas/*/feed.rss$
 Disallow: /articles/*/feed.rss$
 Disallow: /books/*/feed.rss$
@@ -502,6 +535,7 @@ Disallow: /products/*/feed.rss$
 Disallow: /routes/*/feed.rss$
 Disallow: /sites/*/feed.rss$
 Disallow: /summits/*/feed.rss$
+Disallow: /*/new.rss$
 Disallow: /areas/*/new.rss$
 Disallow: /articles/*/new.rss$
 Disallow: /books/*/new.rss$

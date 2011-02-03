@@ -2,7 +2,10 @@
 
 <?php
 $current_module = $sf_context->getModuleName();
-$model = c2cTools::module2model($current_module);
+if (!isset($model))
+{
+    $model = c2cTools::module2model($current_module);
+}
 $archive = $model . 'Archive';
 $i18n_archive = $model . 'I18nArchive';
 

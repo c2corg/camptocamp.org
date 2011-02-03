@@ -3149,7 +3149,7 @@ msgstr "<h3>Teléfono</h3>Numero de teléfono del refugio."
 
 # [WARNING] es translation used
 msgid "_product_type_info"
-msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: productos vendidos directamente por el productor<br /><br /><strong>restaurante</strong>: restaurante, bar o alojamiento que ofrece comida<br /><br /><strong>tienda</strong>: venta de productos locales<br /><br /><strong>bar</strong>: bar o café"
+msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: productos vendidos directamente por el productor<br /><br /><strong>restaurante</strong>: restaurante, bar o alojamiento que ofrece comida<br /><br /><strong>tienda</strong>: venta de productos locales<br /><br /><strong>bar</strong>: bar o café <br /><br /><strong>tienda de deportes</strong>: lugar donde se puede comprar, alquilar o arreglar material"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accés en transports públics</h3>Informacions necessàries per acedir en aquest punt de partida, en transports públics&nbsp;: companyia qe assegura el transport (adressa d'internet si existeix), N° de la línia, frequències, horaris, preu."
@@ -4413,9 +4413,9 @@ msgstr "material y técnicas"
 msgid "gear_default"
 msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \\\"raro\\\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\\n- esquí, snowboard, raquetas: ARVA, pala, sonda\\n- nieve, hielo & mixto: crampones, piqueta\\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \\\"itinerario glaciar\\\" es suficiente)\\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "gear_shop"
-msgstr "Magasin de sport"
+msgstr "tienda de deportes"
 
 msgid "geo_export_info"
 msgstr "<h3>Exportació</h3>Les coordenades geogràfiques del document poden ser telecarregades en un dels formats proposats.\n"

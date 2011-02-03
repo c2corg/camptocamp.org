@@ -78,7 +78,8 @@ if ($is_not_archive && $is_not_merged)
     <?php
     if (count($contribs) > 0)
     {
-        include_partial('documents/list_changes', array('items' => $contribs,
+        include_partial('documents/list_changes', array('model' => 'Document',
+                                                        'items' => $contribs,
                                                         'needs_username' => false)); 
         if (!$mobile_version)
         {

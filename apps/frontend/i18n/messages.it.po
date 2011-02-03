@@ -1197,9 +1197,8 @@ msgstr "Associare un documento esistente"
 
 # [general comment]
 # more specific message when a user can be associated
-# [WARNING] needs_update
 msgid "Link an existing user or document"
-msgstr "Associare un documento esistente"
+msgstr "Associare un utente o un documento"
 
 msgid "Linked books"
 msgstr "Libri associati"
@@ -2926,7 +2925,7 @@ msgstr "<h3>Telefono</h3>Numero de telefono del rifugio."
 
 # [WARNING] en translation used
 msgid "_product_type_info"
-msgstr "<h3>Type of local products</h3><strong>direct sale by the producer </strong>: products sold by the producer itself<br /><br /><strong>restaurant</strong>: restaurant, bar or valley accommodation that offers food<br /><br /><strong>shop</strong>: sale of local products <br /><br /><strong>bar</strong>: bar or café"
+msgstr "<h3>Type of local products</h3><strong>direct sale by the producer </strong>: products sold by the producer itself<br /><br /><strong>restaurant</strong>: restaurant, bar or valley accommodation that offers food<br /><br /><strong>shop</strong>: sale of local products <br /><br /><strong>bar</strong>: bar or café <br /><br /><strong>sports shop</strong>: place where gear can be bought, rent or repaired"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accesso con i mezzi pubblici</h3>Informazioni necessarie per accedere alla partenza con i mezzi pubblici: aziende di trasporto (sito web se esiste), numero della linea, frequenze, orari, prezzi."
@@ -4100,9 +4099,8 @@ msgstr "materiale e tecnica"
 msgid "gear_default"
 msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE:\\n- per lo sci: ARVA, pala, sonda\\n- alpinismo neve, ghiaccio, misto: ramponi, piccozza\\n- itinerari su ghiacciai: materiale di sicurezza su ghiaccio"
 
-# [WARNING] fr translation used
 msgid "gear_shop"
-msgstr "Magasin de sport"
+msgstr "negozio di sport"
 
 # [WARNING] needs_update
 msgid "geo_export_info"
@@ -5798,15 +5796,15 @@ msgstr "questa informazione deve essere lunga di almeno 100 caratteri"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too long
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "this isbn is too long (17 charaters maximum)"
-msgstr "This ISBN or ISSN is too long (maximum 17 characters)"
+msgstr "Questo ISBN o ISSN è troppo lungo (17 caratteri massimo)"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too short
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "this isbn is too short (7 charaters minimum)"
-msgstr "This ISBN or ISSN is too short (at least 7 characters for an ISSN, 10 for an ISBN)"
+msgstr "Questo ISBN o ISSN è troppo corto (almeno 7 caratteri per l'ISSN, 10 per l'ISBN)"
 
 msgid "this name is too long (150 characters maximum)"
 msgstr "questo nome è troppo lungo (massimo 150 caratteri)"

@@ -21,7 +21,6 @@ if ($is_not_archive)
     echo '<div class="all_associations">';
     
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
-    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     if ($is_not_merged)
     {

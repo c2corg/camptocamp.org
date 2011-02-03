@@ -2907,9 +2907,9 @@ msgstr "<h3>Acceso a pie</h3>Itinerario que permite llegar al sitio/lugar de esc
 msgid "_phone_info"
 msgstr "<h3>Teléfono</h3>Numero de teléfono del refugio."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_product_type_info"
-msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: productos vendidos directamente por el productor<br /><br /><strong>restaurante</strong>: restaurante, bar o alojamiento que ofrece comida<br /><br /><strong>tienda</strong>: venta de productos locales<br /><br /><strong>bar</strong>: bar o café"
+msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: productos vendidos directamente por el productor<br /><br /><strong>restaurante</strong>: restaurante, bar o alojamiento que ofrece comida<br /><br /><strong>tienda</strong>: venta de productos locales<br /><br /><strong>bar</strong>: bar o café <br /><br /><strong>tienda de deportes</strong>: lugar donde se puede comprar, alquilar o arreglar material"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Acceso en transportes públicos</h3>Informaciones necesarias para ir a este punto de salida con transportes públicos: companía de transporte (sitio web si existe), N° de la línea, frecuencia, horarios, precio..."
@@ -4094,9 +4094,9 @@ msgstr "material y técnicas"
 msgid "gear_default"
 msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \\\"raro\\\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\\n- esquí, snowboard, raquetas: ARVA, pala, sonda\\n- nieve, hielo & mixto: crampones, piqueta\\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \\\"itinerario glaciar\\\" es suficiente)\\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "gear_shop"
-msgstr "Magasin de sport"
+msgstr "tienda de deportes"
 
 msgid "geo_export_info"
 msgstr "<h3>Exportar</h3>Las coordenadas geográficas del documento pueden estar telecargadas en uno de los formatos propuestos.\n"

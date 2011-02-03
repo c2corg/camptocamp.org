@@ -3088,7 +3088,7 @@ msgstr "<h3>Telefono</h3>Aterpeko telefono zenbakia."
 
 # [WARNING] es translation used
 msgid "_product_type_info"
-msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: productos vendidos directamente por el productor<br /><br /><strong>restaurante</strong>: restaurante, bar o alojamiento que ofrece comida<br /><br /><strong>tienda</strong>: venta de productos locales<br /><br /><strong>bar</strong>: bar o café"
+msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: productos vendidos directamente por el productor<br /><br /><strong>restaurante</strong>: restaurante, bar o alojamiento que ofrece comida<br /><br /><strong>tienda</strong>: venta de productos locales<br /><br /><strong>bar</strong>: bar o café <br /><br /><strong>tienda de deportes</strong>: lugar donde se puede comprar, alquilar o arreglar material"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Garraio publikoz iristeko gaitasuna</h3>Abiapuntu honetara garraio publikoz iristeko beharrezko informazioa: garraio publikoa ematen duen empresa (webgunea izan ezgero), linea zenbakia, frekuentzia, ordutegia, prezioa"
@@ -4351,9 +4351,9 @@ msgstr "material y técnicas"
 msgid "gear_default"
 msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \\\"raro\\\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\\n- esquí, snowboard, raquetas: ARVA, pala, sonda\\n- nieve, hielo & mixto: crampones, piqueta\\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \\\"itinerario glaciar\\\" es suficiente)\\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "gear_shop"
-msgstr "Magasin de sport"
+msgstr "tienda de deportes"
 
 # [WARNING] needs_update
 msgid "geo_export_info"
