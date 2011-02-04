@@ -44,7 +44,7 @@ class usersActions extends documentsActions
                 $this->getResponse()->addMeta('robots', 'index, follow');
 
                 $whattoselect = 'dv.document_id, dv.culture, dv.version, dv.nature, dv.created_at, ' .
-                                'di.name, d.module, ' .
+                                'di.name, d2.module, ' .
                                 'hm.comment, hm.is_minor';
                 $contribs = Document::listRecent('Document', 10,
                                                        $id, null, null, 'editions',
