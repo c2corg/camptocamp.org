@@ -53,8 +53,8 @@ class usersActions extends documentsActions
                 foreach ($contribs as $key => $contrib)
                 {
                     $contribs[$key]['id'] = $contrib['document_id'];
-                    $contribs[$key]['name'] = $contrib['DocumentI18nArchive']['name'];
-                    $contribs[$key]['module'] = $contrib['DocumentArchive']['module'];
+                    $contribs[$key]['name'] = $contrib['DocumentI18n']['name'];
+                    $contribs[$key]['module'] = $contrib['Document']['module'];
                 }
                 $routes = Route::addBestSummitName(array_filter($contribs, array('c2cTools', 'is_route')), $this->__(' :').' ');
                 foreach ($routes as $key => $route)
@@ -63,7 +63,7 @@ class usersActions extends documentsActions
                 }
                 foreach ($contribs as $key => $contrib)
                 {
-                    $contribs[$key]['DocumentI18nArchive']['name'] = $contrib['name'];
+                    $contribs[$key]['DocumentI18n']['name'] = $contrib['name'];
                 }
                 $this->contribs = $contribs;
                                                     

@@ -6,8 +6,8 @@ if (!isset($model))
 {
     $model = c2cTools::module2model($current_module);
 }
-$archive = $model . 'Archive';
-$i18n_archive = $model . 'I18nArchive';
+$archive = $model;
+$i18n_archive = $model . 'I18n';
 
 if (count($items) == 0): ?>
     <p id="recent-changes"><?php echo __('No recent changes available') ?></p>
