@@ -3113,8 +3113,15 @@ class documentsActions extends c2cActions
 
         $max_number = sfConfig::get('app_feeds_items_limit');
 
-        //usage: listRecent($model, $limit, $user_id = null, $lang = null, $doc_id = null, $mode = 'editions')
-        $items = Document::listRecent($this->model_class, $max_number, null, $lang, $id, $mode);
+        if ($module != 'documents' || !empty($id))
+        {
+            //usage: listRecent($model, $limit, $user_id = null, $lang = null, $doc_id = null, $mode = 'editions')
+            $items = Document::listRecent($this->model_class, $max_number, null, $lang, $id, $mode);
+        }
+        else
+        {
+            $items = array();
+        }
 
         sfLoader::loadHelpers(array('General', 'SmartFormat'));
         
