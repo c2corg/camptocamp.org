@@ -4,7 +4,7 @@
  * - plupload.flash.js
  * - plupload.silverlight.js
  * - plupload.html5.js
- * from plupload 1.3.0
+ * from plupload 1.4.1
  *
  * c2c doesn't use other runtimes (gears, browserplus, html4...),
  * so we don't include them in order to minmize js size
@@ -26,7 +26,10 @@
 (function() {
 	var count = 0, runtimes = [], i18n = {}, mimes = {},
 		xmlEncodeChars = {'<' : 'lt', '>' : 'gt', '&' : 'amp', '"' : 'quot', '\'' : '#39'},
-		xmlEncodeRegExp = /[<>&\"\']/g, undef, delay = window.setTimeout;
+		xmlEncodeRegExp = /[<>&\"\']/g, undef, delay = window.setTimeout,
+		// A place to store references to event handlers
+		eventhash = {},
+		uid;
 
 	// IE W3C like event funcs
 	function preventDefault() {
@@ -61,6 +64,7 @@
 		"application/vnd.openxmlformats,docx pptx xlsx," +
 		"audio/mpeg,mpga mpega mp2 mp3," +
 		"audio/x-wav,wav," +
+		"audio/mp4,m4a," +
 		"image/bmp,bmp," +
 		"image/gif,gif," +
 		"image/jpeg,jpeg jpg jpe," +
@@ -71,6 +75,8 @@
 		"text/rtf,rtf," +
 		"video/mpeg,mpeg mpg mpe," +
 		"video/quicktime,qt mov," +
+		"video/mp4,mp4," +
+		"video/x-m4v,m4v," +
 		"video/x-flv,flv," +
 		"video/vnd.rn-realvideo,rv," +
 		"text/plain,asc txt text diff log," +
@@ -91,6 +97,11 @@
 	 * @class plupload
 	 */
 	var plupload = {
+		/**
+		 * Plupload version will be replaced on build.
+		 */
+		VERSION : '1.4.1',
+
 		/**
 		 * Inital state of the queue and also the state ones it's finished all it's uploads.
 		 *
@@ -238,7 +249,7 @@
 
 			// Replace diacritics
 			lookup = [
-				/[\300-\306]/g, 'A', /[\340-\346]/g, 'a',
+				/[\300-\306]/g, 'A', /[\340-\346]/g, 'a', 
 				/\307/g, 'C', /\347/g, 'c',
 				/[\310-\313]/g, 'E', /[\350-\353]/g, 'e',
 				/[\314-\317]/g, 'I', /[\354-\357]/g, 'i',
@@ -267,7 +278,7 @@
 		 * @param {String} name Runtime name for example flash.
 		 * @param {Object} obj Object containing init/destroy method.
 		 */
-		addRuntime : function(name, runtime) {
+		addRuntime : function(name, runtime) {			
 			runtime.name = name;
 			runtimes[name] = runtime;
 			runtimes.push(runtime);
@@ -357,8 +368,13 @@
 		 * @return {String} Formatted size string.
 		 */
 		formatSize : function(size) {
-			if (size === undef) {
+			if (size === undef || /\D/.test(size)) {
 				return plupload.translate('N/A');
+			}
+			
+			// GB
+			if (size > 1073741824) {
+				return Math.round(size / 1073741824, 1) + " GB";
 			}
 
 			// MB
@@ -406,7 +422,7 @@
 			}
 
 			// Use getBoundingClientRect on IE 6 and IE 7 but not on IE 8 in standards mode
-			if (node.getBoundingClientRect && (navigator.userAgent.indexOf('MSIE') > 0 && doc.documentMode !== 8)) {
+			if (node && node.getBoundingClientRect && (navigator.userAgent.indexOf('MSIE') > 0 && doc.documentMode !== 8)) {
 				nodeRect = getIEPos(node);
 				rootRect = getIEPos(root);
 
@@ -444,8 +460,8 @@
 		 */
 		getSize : function(node) {
 			return {
-				w : node.clientWidth || node.offsetWidth,
-				h : node.clientHeight || node.offsetHeight
+				w : node.offsetWidth || node.clientWidth,
+				h : node.offsetHeight || node.clientHeight
 			};
 		},
 
@@ -529,17 +545,79 @@
 		translate : function(str) {
 			return i18n[str] || str;
 		},
+			
+		
+		/**
+		 * Checks if specified DOM element has specified class.
+		 *
+		 * @param {Object} obj DOM element like object to add handler to.
+		 * @param {String} name Class name
+		 */
+		hasClass : function(obj, name) {
+			var regExp;
+		
+			if (obj.className == '') {
+				return false;
+			}
+
+			regExp = new RegExp("(^|\\s+)"+name+"(\\s+|$)");
+
+			return regExp.test(obj.className);
+		},
+		
+		/**
+		 * Adds specified className to specified DOM element.
+		 *
+		 * @param {Object} obj DOM element like object to add handler to.
+		 * @param {String} name Class name
+		 */
+		addClass : function(obj, name) {
+			if (!plupload.hasClass(obj, name)) {
+				obj.className = obj.className == '' ? name : obj.className.replace(/\s+$/, '')+' '+name;
+			}
+		},
+		
+		/**
+		 * Removes specified className from specified DOM element.
+		 *
+		 * @param {Object} obj DOM element like object to add handler to.
+		 * @param {String} name Class name
+		 */
+		removeClass : function(obj, name) {
+			var regExp = new RegExp("(^|\\s+)"+name+"(\\s+|$)");
+			
+			obj.className = obj.className.replace(regExp, function($0, $1, $2) {
+				return $1 === ' ' && $2 === ' ' ? ' ' : '';
+			});
+		},
+		
 
 		/**
-		 * Adds an event handler to the specified object.
+		 * Adds an event handler to the specified object and store reference to the handler
+		 * in objects internal Plupload registry (@see removeEvent).
 		 *
 		 * @param {Object} obj DOM element like object to add handler to.
 		 * @param {String} name Name to add event listener to.
-		 * @param {function} callback Function to call when event occurs.
+		 * @param {Function} callback Function to call when event occurs.
+		 * @param {String} (optional) key that might be used to add specifity to the event record.
 		 */
 		addEvent : function(obj, name, callback) {
+			var func, events, types, key;
+			
+			// if passed in, event will be locked with this key - one would need to provide it to removeEvent
+			key = arguments[3];
+						
+			name = name.toLowerCase();
+						
+			// Initialize unique identifier if needed
+			if (uid === undef) {
+				uid = 'Plupload_' + plupload.guid();
+			}
+
+			// Add event listener
 			if (obj.attachEvent) {
-				obj.attachEvent('on' + name, function() {
+				
+				func = function() {
 					var evt = window.event;
 
 					if (!evt.target) {
@@ -550,12 +628,133 @@
 					evt.stopPropagation = stopPropagation;
 
 					callback(evt);
-				});
+				};
+				obj.attachEvent('on' + name, func);
+				
 			} else if (obj.addEventListener) {
-				obj.addEventListener(name, callback, false);
+				func = callback;
+				
+				obj.addEventListener(name, func, false);
 			}
-		}
+			
+			// Log event handler to objects internal Plupload registry
+			if (obj[uid] === undef) {
+				obj[uid] = plupload.guid();
+			}
+			
+			if (!eventhash.hasOwnProperty(obj[uid])) {
+				eventhash[obj[uid]] = {};
+			}
+			
+			events = eventhash[obj[uid]];
+			
+			if (!events.hasOwnProperty(name)) {
+				events[name] = [];
+			}
+					
+			events[name].push({
+				func: func,
+				orig: callback, // store original callback for IE
+				key: key
+			});
+		},
+		
+		
+		/**
+		 * Remove event handler from the specified object. If third argument (callback)
+		 * is not specified remove all events with the specified name.
+		 *
+		 * @param {Object} obj DOM element to remove event listener(s) from.
+		 * @param {String} name Name of event listener to remove.
+		 * @param {Function|String} (optional) might be a callback or unique key to match.
+		 */
+		removeEvent: function(obj, name) {
+			var type, callback, key,
+				
+				// check if object is empty
+				isEmptyObj = function(obj) {
+					for (var prop in obj) {
+						return false;	
+					}
+					return true;
+				};
+			
+			// match the handler either by callback or by key	
+			if (typeof(arguments[2]) == "function") {
+				callback = arguments[2];
+			} else {
+				key = arguments[2];
+			}
+						
+			name = name.toLowerCase();
+			
+			if (obj[uid] && eventhash[obj[uid]] && eventhash[obj[uid]][name]) {
+				type = eventhash[obj[uid]][name];
+			} else {
+				return;
+			}
+			
+				
+			for (var i=type.length-1; i>=0; i--) {
+				// undefined or not, key should match			
+				if (type[i].key === key || type[i].orig === callback) {
+										
+					if (obj.detachEvent) {
+						obj.detachEvent('on'+name, type[i].func);
+					} else if (obj.removeEventListener) {
+						obj.removeEventListener(name, type[i].func, false);		
+					}
+					
+					type[i].orig = null;
+					type[i].func = null;
+					
+					type.splice(i, 1);
+					
+					// If callback was passed we are done here, otherwise proceed
+					if (callback !== undef) {
+						break;
+					}
+				}			
+			}	
+			
+			// If event array got empty, remove it
+			if (!type.length) {
+				delete eventhash[obj[uid]][name];
+			}
+			
+			// If Plupload registry has become empty, remove it
+			if (isEmptyObj(eventhash[obj[uid]])) {
+				delete eventhash[obj[uid]];
+				
+				// IE doesn't let you remove DOM object property with - delete
+				try {
+					delete obj[uid];
+				} catch(e) {
+					obj[uid] = undef;
+				}
+			}
+		},
+		
+		
+		/**
+		 * Remove all kind of events from the specified object
+		 *
+		 * @param {Object} obj DOM element to remove event listeners from.
+		 * @param {String} (optional) unique key to match, when removing events.
+		 */
+		removeAllEvents: function(obj) {
+			var key = arguments[1];
+			
+			if (obj[uid] === undef || !obj[uid]) {
+				return;
+			}
+			
+			plupload.each(eventhash[obj[uid]], function(events, name) {
+				plupload.removeEvent(obj, name, key);
+			});		
+		}		
 	};
+	
 
 	/**
 	 * Uploader class, an instance of this class will be created for each upload field.
@@ -591,7 +790,7 @@
 	 * @param {Object} settings Initialization settings, to be used by the uploader instance and runtimes.
 	 */
 	plupload.Uploader = function(settings) {
-		var events = {}, total, files = [], fileIndex, startTime;
+		var events = {}, total, files = [], startTime;
 
 		// Inital total state
 		total = new plupload.QueueProgress();
@@ -607,20 +806,26 @@
 
 		// Private methods
 		function uploadNext() {
-			var file;
+			var file, count = 0, i;
 
-			if (this.state == plupload.STARTED && fileIndex < files.length) {
-				file = files[fileIndex++];
-
-				if (file.status == plupload.QUEUED) {
-					file.status = plupload.UPLOADING;
-					this.trigger('BeforeUpload', file);
-					this.trigger("UploadFile", file);
-				} else {
-					uploadNext.call(this);
+			if (this.state == plupload.STARTED) {
+				// Find first QUEUED file
+				for (i = 0; i < files.length; i++) {
+					if (!file && files[i].status == plupload.QUEUED) {
+						file = files[i];
+						file.status = plupload.UPLOADING;
+						this.trigger("BeforeUpload", file);
+						this.trigger("UploadFile", file);
+					} else {
+						count++;
+					}
 				}
-			} else {
-				this.stop();
+
+				// All files are DONE or FAILED
+				if (count == files.length) {
+					this.trigger("UploadComplete", files);
+					this.stop();
+				}
 			}
 		}
 
@@ -669,6 +874,14 @@
 			 * @type Number
 			 */
 			state : plupload.STOPPED,
+			
+			/**
+			 * Current runtime name.
+			 *
+			 * @property runtime
+			 * @type String
+			 */
+			runtime: '',
 
 			/**
 			 * Map of features that are available for the uploader runtime. Features will be filled
@@ -767,7 +980,7 @@
 						if (extensionsRegExp && !extensionsRegExp.test(file.name)) {
 							up.trigger('Error', {
 								code : plupload.FILE_EXTENSION_ERROR,
-								message : 'File extension error.',
+								message : plupload.translate('File extension error.'),
 								file : file
 							});
 
@@ -778,7 +991,7 @@
 						if (file.size !== undef && file.size > settings.max_file_size) {
 							up.trigger('Error', {
 								code : plupload.FILE_SIZE_ERROR,
-								message : 'File size error.',
+								message : plupload.translate('File size error.'),
 								file : file
 							});
 
@@ -795,7 +1008,7 @@
 						delay(function() {
 							self.trigger("QueueChanged");
 							self.refresh();
-						});
+						}, 1);
 					} else {
 						return false; // Stop the FilesAdded event from immediate propagation
 					}
@@ -836,9 +1049,11 @@
 
 						// Upload next file but detach it from the error event
 						// since other custom listeners might want to stop the queue
-						delay(function() {
-							uploadNext.call(self);
-						});
+						if (up.state == plupload.STARTED) {
+							delay(function() {
+								uploadNext.call(self);
+							}, 1);
+						}
 					}
 				});
 
@@ -851,7 +1066,7 @@
 					// since other custom listeners might want to stop the queue
 					delay(function() {
 						uploadNext.call(self);
-					});
+					}, 1);
 				});
 
 				// Setup runtimeList
@@ -894,6 +1109,7 @@
 							if (res && res.success) {
 								// Successful initialization
 								self.features = features;
+								self.runtime = runtime.name;
 								self.trigger('Init', {runtime : runtime.name});
 								self.trigger('PostInit');
 								self.refresh();
@@ -905,7 +1121,7 @@
 						// Trigger an init error if we run out of runtimes
 						self.trigger('Error', {
 							code : plupload.INIT_ERROR,
-							message : 'Init error.'
+							message : plupload.translate('Init error.')
 						});
 					}
 				}
@@ -938,8 +1154,6 @@
 			 */
 			start : function() {
 				if (this.state != plupload.STARTED) {
-					fileIndex = 0;
-
 					this.state = plupload.STARTED;
 					this.trigger("StateChanged");
 
@@ -1066,16 +1280,53 @@
 			 * @param {String} name Name of event to remove.
 			 * @param {function} func Function to remove from listener.
 			 */
-			unbind : function(name, func) {
-				var list = events[name.toLowerCase()], i;
+			unbind : function(name) {
+				name = name.toLowerCase();
+
+				var list = events[name], i, func = arguments[1];
 
 				if (list) {
-					for (i = list.length - 1; i >= 0; i--) {
-						if (list[i].func === func) {
-							list.splice(i, 1);
+					if (func !== undef) {
+						for (i = list.length - 1; i >= 0; i--) {
+							if (list[i].func === func) {
+								list.splice(i, 1);
+									break;
+							}
 						}
+					} else {
+						list = [];
+					}
+
+					// delete event list if it has become empty
+					if (!list.length) {
+						delete events[name];
 					}
 				}
+			},
+
+			/**
+			 * Removes all event listeners.
+			 *
+			 * @method unbindAll
+			 */
+			unbindAll : function() {
+				var self = this;
+				
+				plupload.each(events, function(list, name) {
+					self.unbind(name);
+				});
+			},
+			
+			/**
+			 * Destroys Plupload instance and cleans after itself.
+			 *
+			 * @method destroy
+			 */
+			destroy : function() {							
+				this.trigger('Destroy');
+				
+				// Clean-up after uploader itself
+				this.unbindAll();
 			}
 
 			/**
@@ -1173,11 +1424,26 @@
 			 */
 
 			/**
+			 * Fires when all files in a queue are uploaded.
+			 *
+			 * @event UploadComplete
+			 * @param {plupload.Uploader} uploader Uploader instance sending the event.
+			 * @param {Array} files Array of file objects that was added to queue/selected by the user.
+			 */
+
+			/**
 			 * Fires when a error occurs.
 			 *
 			 * @event Error
 			 * @param {plupload.Uploader} uploader Uploader instance sending the event.
 			 * @param {Object} error Contains code, message and sometimes file and other details.
+			 */
+			 
+			 /**
+			 * Fires when destroy method is called.
+			 *
+			 * @event Destroy
+			 * @param {plupload.Uploader} uploader Uploader instance sending the event.
 			 */
 		});
 	};
@@ -1377,10 +1643,10 @@
  */
 
 // JSLint defined globals
-/*global plupload:false, ActiveXObject:false, escape:false */
+/*global window:false, document:false, plupload:false, ActiveXObject:false, escape:false */
 
-(function(plupload) {
-	var uploadInstances = {};
+(function(window, document, plupload, undef) {
+	var uploadInstances = {}, initialized = {};
 
 	function getFlashVersion() {
 		var version;
@@ -1410,6 +1676,7 @@
 		 * @param {Object} obj Parameters to be passed with event.
 		 */
 		trigger : function(id, name, obj) {
+					
 			// Detach the call so that error handling in the browser is presented correctly
 			setTimeout(function() {
 				var uploader = uploadInstances[id], i, args;
@@ -1429,6 +1696,7 @@
 	 * @extends plupload.Runtime
 	 */
 	plupload.runtimes.Flash = plupload.addRuntime("flash", {
+		
 		/**
 		 * Returns a list of supported features for the runtime.
 		 *
@@ -1452,13 +1720,14 @@
 		 * @param {function} callback Callback to execute when the runtime initializes or fails to initialize. If it succeeds an object with a parameter name success will be set to true.
 		 */
 		init : function(uploader, callback) {
-			var browseButton, flashContainer, flashVars, initialized, waitCount = 0, container = document.body;
+			var browseButton, flashContainer, flashVars, waitCount = 0, container = document.body;
 
 			if (getFlashVersion() < 10) {
 				callback({success : false});
 				return;
 			}
 
+			initialized[uploader.id] = false;
 			uploadInstances[uploader.id] = uploader;
 
 			// Find browse button and set to to be relative
@@ -1500,13 +1769,14 @@
 			}
 
 			function waitLoad() {
+								
 				// Wait for 5 sec
 				if (waitCount++ > 5000) {
 					callback({success : false});
 					return;
 				}
 
-				if (!initialized) {
+				if (!initialized[uploader.id]) {
 					setTimeout(waitLoad, 1);
 				}
 			}
@@ -1517,11 +1787,17 @@
 			browseButton = flashContainer = null;
 
 			// Wait for Flash to send init event
-			uploader.bind("Flash:Init", function() {
+			uploader.bind("Flash:Init", function() {	
 				var lookup = {}, i, resize = uploader.settings.resize || {};
 
-				initialized = true;
 				getFlashObj().setFileFilters(uploader.settings.filters, uploader.settings.multi_selection);
+
+				// Prevent eventual reinitialization of the instance
+				if (initialized[uploader.id]) {
+					return;
+				}
+
+				initialized[uploader.id] = true;
 
 				uploader.bind("UploadFile", function(up, file) {
 					var settings = up.settings;
@@ -1541,6 +1817,7 @@
 						urlstream_upload : settings.urlstream_upload
 					});
 				});
+
 
 				uploader.bind("Flash:UploadProcess", function(up, flash_file) {
 					var file = up.getFile(lookup[flash_file.id]);
@@ -1603,7 +1880,7 @@
 				uploader.bind("Flash:SecurityError", function(up, err) {
 					uploader.trigger('Error', {
 						code : plupload.SECURITY_ERROR,
-						message : 'Security error.',
+						message : plupload.translate('Security error.'),
 						details : err.message,
 						file : uploader.getFile(lookup[err.id])
 					});
@@ -1612,7 +1889,7 @@
 				uploader.bind("Flash:GenericError", function(up, err) {
 					uploader.trigger('Error', {
 						code : plupload.GENERIC_ERROR,
-						message : 'Generic error.',
+						message : plupload.translate('Generic error.'),
 						details : err.message,
 						file : uploader.getFile(lookup[err.id])
 					});
@@ -1621,10 +1898,59 @@
 				uploader.bind("Flash:IOError", function(up, err) {
 					uploader.trigger('Error', {
 						code : plupload.IO_ERROR,
-						message : 'IO error.',
+						message : plupload.translate('IO error.'),
 						details : err.message,
 						file : uploader.getFile(lookup[err.id])
 					});
+				});
+				
+				uploader.bind('Flash:StageEvent:rollOver', function(up) {
+					var browseButton, hoverClass;
+						
+					browseButton = document.getElementById(uploader.settings.browse_button);
+					hoverClass = up.settings.browse_button_hover;
+					
+					if (browseButton && hoverClass) {
+						plupload.addClass(browseButton, hoverClass);
+					}
+				});
+				
+				uploader.bind('Flash:StageEvent:rollOut', function(up) {
+					var browseButton, hoverClass;
+						
+					browseButton = document.getElementById(uploader.settings.browse_button);
+					hoverClass = up.settings.browse_button_hover;
+					
+					if (browseButton && hoverClass) {
+						plupload.removeClass(browseButton, hoverClass);
+					}
+				});
+				
+				uploader.bind('Flash:StageEvent:mouseDown', function(up) {
+					var browseButton, activeClass;
+						
+					browseButton = document.getElementById(uploader.settings.browse_button);
+					activeClass = up.settings.browse_button_active;
+					
+					if (browseButton && activeClass) {
+						plupload.addClass(browseButton, activeClass);
+						
+						// Make sure that browse_button has active state removed from it
+						plupload.addEvent(document.body, 'mouseup', function() {
+							plupload.removeClass(browseButton, activeClass);	
+						}, up.id);
+					}
+				});
+				
+				uploader.bind('Flash:StageEvent:mouseUp', function(up) {
+					var browseButton, activeClass;
+						
+					browseButton = document.getElementById(uploader.settings.browse_button);
+					activeClass = up.settings.browse_button_active;
+					
+					if (browseButton && activeClass) {
+						plupload.removeClass(browseButton, activeClass);
+					}
 				});
 
 				uploader.bind("QueueChanged", function(up) {
@@ -1650,22 +1976,38 @@
 					getFlashObj().setFileFilters(uploader.settings.filters, uploader.settings.multi_selection);
 
 					browseButton = document.getElementById(up.settings.browse_button);
-					browsePos = plupload.getPos(browseButton, document.getElementById(up.settings.container));
-					browseSize = plupload.getSize(browseButton);
-
-					plupload.extend(document.getElementById(up.id + '_flash_container').style, {
-						top : browsePos.y + 'px',
-						left : browsePos.x + 'px',
-						width : browseSize.w + 'px',
-						height : browseSize.h + 'px'
-					});
+					if (browseButton) {
+						browsePos = plupload.getPos(browseButton, document.getElementById(up.settings.container));
+						browseSize = plupload.getSize(browseButton);
+	
+						plupload.extend(document.getElementById(up.id + '_flash_container').style, {
+							top : browsePos.y + 'px',
+							left : browsePos.x + 'px',
+							width : browseSize.w + 'px',
+							height : browseSize.h + 'px'
+						});
+					}
 				});
-
+				
+				uploader.bind("Destroy", function(up) {
+					var flashContainer;
+					
+					plupload.removeAllEvents(document.body, up.id);
+					
+					delete initialized[up.id];
+					delete uploadInstances[up.id];
+					
+					flashContainer = document.getElementById(up.id + '_flash_container');
+					if (flashContainer) {
+						container.removeChild(flashContainer);
+					}
+				});
+							
 				callback({success : true});
 			});
 		}
 	});
-})(plupload);
+})(window, document, plupload);
 
 /**
  * plupload.silverlight.js
@@ -1678,13 +2020,13 @@
  */
 
 // JSLint defined globals
-/*global plupload:false, ActiveXObject:false, window:false */
+/*global window:false, document:false, plupload:false, ActiveXObject:false */
 
-(function(plupload) {
-	var uploadInstances = {};
+(function(window, document, plupload, undef) {
+	var uploadInstances = {}, initialized = {};
 
 	function jsonSerialize(obj) {
-		var value, type = typeof obj, undef, isArray, i, key;
+		var value, type = typeof obj, isArray, i, key;
 
 		// Encode strings
 		if (type === 'string') {
@@ -1804,7 +2146,7 @@
 	plupload.silverlight = {
 		trigger : function(id, name) {
 			var uploader = uploadInstances[id], i, args;
-
+			
 			if (uploader) {
 				args = plupload.toArray(arguments).slice(1);
 				args[0] = 'Silverlight:' + name;
@@ -1855,7 +2197,8 @@
 				callback({success : false});
 				return;
 			}
-
+			
+			initialized[uploader.id] = false;
 			uploadInstances[uploader.id] = uploader;
 
 			// Create silverlight container and insert it at an absolute position within the browse button
@@ -1892,7 +2235,7 @@
 				'<param name="background" value="Transparent"/>' +
 				'<param name="windowless" value="true"/>' +
 				'<param name="enablehtmlaccess" value="true"/>' +
-				'<param name="initParams" value="id=' + uploader.id + ',filter=' + filter + '"/>' +
+				'<param name="initParams" value="id=' + uploader.id + ',filter=' + filter + ',multiselect=' + uploader.settings.multi_selection + '"/>' +
 				'</object>';
 
 			function getSilverlightObj() {
@@ -1901,6 +2244,13 @@
 
 			uploader.bind("Silverlight:Init", function() {
 				var selectedFiles, lookup = {};
+				
+				// Prevent eventual reinitialization of the instance
+				if (initialized[uploader.id]) {
+					return;
+				}
+					
+				initialized[uploader.id] = true;
 
 				uploader.bind("Silverlight:StartSelectFiles", function(up) {
 					selectedFiles = [];
@@ -1949,15 +2299,17 @@
 					var browseButton, browsePos, browseSize;
 
 					browseButton = document.getElementById(up.settings.browse_button);
-					browsePos = plupload.getPos(browseButton, document.getElementById(up.settings.container));
-					browseSize = plupload.getSize(browseButton);
-
-					plupload.extend(document.getElementById(up.id + '_silverlight_container').style, {
-						top : browsePos.y + 'px',
-						left : browsePos.x + 'px',
-						width : browseSize.w + 'px',
-						height : browseSize.h + 'px'
-					});
+					if (browseButton) {
+						browsePos = plupload.getPos(browseButton, document.getElementById(up.settings.container));
+						browseSize = plupload.getSize(browseButton);
+	
+						plupload.extend(document.getElementById(up.id + '_silverlight_container').style, {
+							top : browsePos.y + 'px',
+							left : browsePos.x + 'px',
+							width : browseSize.w + 'px',
+							height : browseSize.h + 'px'
+						});
+					}
 				});
 
 				uploader.bind("Silverlight:UploadChunkSuccessful", function(up, sl_id, chunk, chunks, text) {
@@ -2023,12 +2375,76 @@
 						})
 					);
 				});
+				
+				
+				uploader.bind('Silverlight:MouseEnter', function(up) {
+					var browseButton, hoverClass;
+						
+					browseButton = document.getElementById(uploader.settings.browse_button);
+					hoverClass = up.settings.browse_button_hover;
+					
+					if (browseButton && hoverClass) {
+						plupload.addClass(browseButton, hoverClass);
+					}
+				});
+				
+				uploader.bind('Silverlight:MouseLeave', function(up) {
+					var browseButton, hoverClass;
+						
+					browseButton = document.getElementById(uploader.settings.browse_button);
+					hoverClass = up.settings.browse_button_hover;
+					
+					if (browseButton && hoverClass) {
+						plupload.removeClass(browseButton, hoverClass);
+					}
+				});
+				
+				uploader.bind('Silverlight:MouseLeftButtonDown', function(up) {
+					var browseButton, activeClass;
+						
+					browseButton = document.getElementById(uploader.settings.browse_button);
+					activeClass = up.settings.browse_button_active;
+					
+					if (browseButton && activeClass) {
+						plupload.addClass(browseButton, activeClass);
+						
+						// Make sure that browse_button has active state removed from it
+						plupload.addEvent(document.body, 'mouseup', function() {
+							plupload.removeClass(browseButton, activeClass);	
+						});
+					}
+				});
+				
+				uploader.bind('Sliverlight:StartSelectFiles', function(up) {
+					var browseButton, activeClass;
+						
+					browseButton = document.getElementById(uploader.settings.browse_button);
+					activeClass = up.settings.browse_button_active;
+					
+					if (browseButton && activeClass) {
+						plupload.removeClass(browseButton, activeClass);
+					}
+				});
+				
+				uploader.bind("Destroy", function(up) {
+					var silverlightContainer;
+					
+					plupload.removeAllEvents(document.body, up.id);
+					
+					delete initialized[up.id];
+					delete uploadInstances[up.id];
+					
+					silverlightContainer = document.getElementById(up.id + '_silverlight_container');
+					if (silverlightContainer) {
+						container.removeChild(silverlightContainer);
+					}
+				});
 
 				callback({success : true});
 			});
 		}
 	});
-})(plupload);
+})(window, document, plupload);
 
 /**
  * plupload.html5.js
@@ -2041,9 +2457,9 @@
  */
 
 // JSLint defined globals
-/*global plupload:false, File:false, window:false, atob:false, FormData:false, FileReader:false */
+/*global plupload:false, File:false, window:false, atob:false, FormData:false, FileReader:false, ArrayBuffer:false, Uint8Array:false, BlobBuilder:false, unescape:false */
 
-(function(plupload) {
+(function(window, document, plupload, undef) {
 	var fakeSafariDragDrop, ExifParser;
 
 	function readFile(file, callback) {
@@ -2134,6 +2550,28 @@
 			var xhr, hasXhrSupport, hasProgress, dataAccessSupport, sliceSupport, win = window;
 
 			hasXhrSupport = hasProgress = dataAccessSupport = sliceSupport = false;
+			
+			/* Introduce sendAsBinary for cutting edge WebKit builds that have support for BlobBuilder and typed arrays:
+			credits: http://javascript0.org/wiki/Portable_sendAsBinary, 
+			more info: http://code.google.com/p/chromium/issues/detail?id=35705 
+			*/			
+			if (win.Uint8Array && win.ArrayBuffer && !XMLHttpRequest.prototype.sendAsBinary) {
+				XMLHttpRequest.prototype.sendAsBinary = function(datastr) {
+					var data, ui8a, bb, blob;
+					
+					data = new ArrayBuffer(datastr.length);
+					ui8a = new Uint8Array(data, 0);
+					
+					for (var i=0; i<datastr.length; i++) {
+						ui8a[i] = (datastr.charCodeAt(i) & 0xff);
+					}
+					
+					bb = new BlobBuilder();
+					bb.append(data);
+					blob = bb.getBlob();
+					this.send(blob);
+				};
+			}
 
 			if (win.XMLHttpRequest) {
 				xhr = new XMLHttpRequest();
@@ -2143,23 +2581,28 @@
 
 			// Check for support for various features
 			if (hasXhrSupport) {
-				// Set dataAccessSupport only for Gecko since BlobBuilder and XHR doesn't handle binary data correctly
+				// Set dataAccessSupport only for Gecko since BlobBuilder and XHR doesn't handle binary data correctly				
 				dataAccessSupport = !!(File && (File.prototype.getAsDataURL || win.FileReader) && xhr.sendAsBinary);
 				sliceSupport = !!(File && File.prototype.slice);
 			}
 
 			// Sniff for Safari and fake drag/drop
-			fakeSafariDragDrop = navigator.userAgent.indexOf('Safari') > 0;
+			fakeSafariDragDrop = navigator.userAgent.indexOf('Safari') > 0 && navigator.vendor.indexOf('Apple') !== -1;
 
 			return {
 				// Detect drag/drop file support by sniffing, will try to find a better way
 				html5: hasXhrSupport, // This is a special one that we check inside the init call
-				dragdrop: win.mozInnerScreenX !== undefined || sliceSupport || fakeSafariDragDrop,
+				dragdrop: win.mozInnerScreenX !== undef || sliceSupport || fakeSafariDragDrop,
 				jpgresize: dataAccessSupport,
 				pngresize: dataAccessSupport,
 				multipart: dataAccessSupport || !!win.FileReader || !!win.FormData,
 				progress: hasProgress,
-				chunking: sliceSupport || dataAccessSupport
+				chunking: sliceSupport || dataAccessSupport,
+				
+				/* WebKit let you trigger file dialog programmatically while FF and Opera - do not, so we
+				sniff for it here... probably not that good idea, but impossibillity of controlling cursor style  
+				on top of add files button obviously feels even worse */
+				canOpenDialog: navigator.userAgent.indexOf('WebKit') !== -1
 			};
 		},
 
@@ -2174,11 +2617,18 @@
 			var html5files = {}, features;
 
 			function addSelectedFiles(native_files) {
-				var file, i, files = [], id;
+				var file, i, files = [], id, fileNames = {};
 
 				// Add the selected files to the file queue
 				for (i = 0; i < native_files.length; i++) {
 					file = native_files[i];
+					
+					// Safari on Windows will add first file from dragged set multiple times
+					// @see: https://bugs.webkit.org/show_bug.cgi?id=37957
+					if (fileNames[file.name]) {
+						continue;
+					}
+					fileNames[file.name] = true;
 
 					// Store away gears blob internally
 					id = plupload.guid();
@@ -2202,7 +2652,7 @@
 			}
 
 			uploader.bind("Init", function(up) {
-				var inputContainer, mimes = [], i, y, filters = up.settings.filters, ext, type, container = document.body;
+				var inputContainer, browseButton, mimes = [], i, y, filters = up.settings.filters, ext, type, container = document.body, inputFile;
 
 				// Create input container and insert it at an absolute position within the browse button
 				inputContainer = document.createElement('div');
@@ -2240,18 +2690,56 @@
 
 				container.appendChild(inputContainer);
 
-				// Insert the input inide the input container
+				// Insert the input inside the input container
 				inputContainer.innerHTML = '<input id="' + uploader.id + '_html5" ' +
-											'style="width:100%;" type="file" accept="' + mimes.join(',') + '" ' +
+											'style="width:100%;height:100%;" type="file" accept="' + mimes.join(',') + '" ' +
 											(uploader.settings.multi_selection ? 'multiple="multiple"' : '') + ' />';
-
-				document.getElementById(uploader.id + '_html5').onchange = function() {
+				
+				inputFile = document.getElementById(uploader.id + '_html5');
+				inputFile.onchange = function() {
 					// Add the selected files from file input
 					addSelectedFiles(this.files);
 
 					// Clearing the value enables the user to select the same file again if they want to
 					this.value = '';
 				};
+				
+				/* Since we have to place input[type=file] on top of the browse_button for some browsers (FF, Opera),
+				browse_button loses interactivity, here we try to neutralize this issue highlighting browse_button
+				with a special class
+				TODO: needs to be revised as things will change */
+				browseButton = document.getElementById(up.settings.browse_button);
+				if (browseButton) {				
+					var hoverClass = up.settings.browse_button_hover,
+						activeClass = up.settings.browse_button_active,
+						topElement = up.features.canOpenDialog ? browseButton : inputContainer;
+					
+					if (hoverClass) {
+						plupload.addEvent(topElement, 'mouseover', function() {
+							plupload.addClass(browseButton, hoverClass);	
+						}, up.id);
+						plupload.addEvent(topElement, 'mouseout', function() {
+							plupload.removeClass(browseButton, hoverClass);	
+						}, up.id);
+					}
+					
+					if (activeClass) {
+						plupload.addEvent(topElement, 'mousedown', function() {
+							plupload.addClass(browseButton, activeClass);	
+						}, up.id);
+						plupload.addEvent(document.body, 'mouseup', function() {
+							plupload.removeClass(browseButton, activeClass);	
+						}, up.id);
+					}
+
+					// Route click event to the input[type=file] element for supporting browsers
+					if (up.features.canOpenDialog) {
+						plupload.addEvent(browseButton, 'click', function(e) {
+							document.getElementById(up.id + '_html5').click();
+							e.preventDefault();
+						}, up.id); 
+					}
+				}
 			});
 
 			// Add drop handler
@@ -2259,7 +2747,7 @@
 				var dropElm = document.getElementById(uploader.settings.drop_element);
 
 				if (dropElm) {
-					// Lets fake drag/drop on Safari by moving a inpit type file in front of the mouse pointer when we drag into the drop zone
+					// Lets fake drag/drop on Safari by moving a input type file in front of the mouse pointer when we drag into the drop zone
 					// TODO: Remove this logic once Safari has official drag/drop support
 					if (fakeSafariDragDrop) {
 						plupload.addEvent(dropElm, 'dragenter', function(e) {
@@ -2273,30 +2761,35 @@
 								dropInputElm.setAttribute('id', uploader.id + "_drop");
 								dropInputElm.setAttribute('multiple', 'multiple');
 
-								dropInputElm.onchange = function() {
+								plupload.addEvent(dropInputElm, 'change', function() {
 									// Add the selected files from file input
 									addSelectedFiles(this.files);
-
-									// Clearing the value enables the user to select the same file again if they want to
-									this.value = '';
-								};
+									
+									// Remove input element
+									plupload.removeEvent(dropInputElm, 'change', uploader.id);
+									dropInputElm.parentNode.removeChild(dropInputElm);									
+								}, uploader.id);
+								
+								dropElm.appendChild(dropInputElm);
 							}
 
 							dropPos = plupload.getPos(dropElm, document.getElementById(uploader.settings.container));
 							dropSize = plupload.getSize(dropElm);
+							
+							plupload.extend(dropElm.style, {
+								position : 'relative'
+							});
 
 							plupload.extend(dropInputElm.style, {
 								position : 'absolute',
 								display : 'block',
-								top : dropPos.y + 'px',
-								left : dropPos.x + 'px',
+								top : 0,
+								left : 0,
 								width : dropSize.w + 'px',
 								height : dropSize.h + 'px',
 								opacity : 0
-							});
-
-							dropElm.appendChild(dropInputElm);
-						});
+							});							
+						}, uploader.id);
 
 						return;
 					}
@@ -2304,7 +2797,7 @@
 					// Block browser default drag over
 					plupload.addEvent(dropElm, 'dragover', function(e) {
 						e.preventDefault();
-					});
+					}, uploader.id);
 
 					// Attach drop handler and grab files
 					plupload.addEvent(dropElm, 'drop', function(e) {
@@ -2316,23 +2809,45 @@
 						}
 
 						e.preventDefault();
-					});
+					}, uploader.id);
 				}
 			});
 
 			uploader.bind("Refresh", function(up) {
-				var browseButton, browsePos, browseSize;
-
+				var browseButton, browsePos, browseSize, inputContainer, pzIndex;
+					
 				browseButton = document.getElementById(uploader.settings.browse_button);
-				browsePos = plupload.getPos(browseButton, document.getElementById(up.settings.container));
-				browseSize = plupload.getSize(browseButton);
-
-				plupload.extend(document.getElementById(uploader.id + '_html5_container').style, {
-					top : browsePos.y + 'px',
-					left : browsePos.x + 'px',
-					width : browseSize.w + 'px',
-					height : browseSize.h + 'px'
-				});
+				if (browseButton) {
+					browsePos = plupload.getPos(browseButton, document.getElementById(up.settings.container));
+					browseSize = plupload.getSize(browseButton);
+					inputContainer = document.getElementById(uploader.id + '_html5_container');
+	
+					plupload.extend(inputContainer.style, {
+						top : browsePos.y + 'px',
+						left : browsePos.x + 'px',
+						width : browseSize.w + 'px',
+						height : browseSize.h + 'px'
+					});
+					
+					// for IE and WebKit place input element underneath the browse button and route onclick event 
+					// TODO: revise when browser support for this feature will change
+					if (uploader.features.canOpenDialog) {
+						pzIndex = parseInt(browseButton.parentNode.style.zIndex, 10);
+	
+						if (isNaN(pzIndex)) {
+							pzIndex = 0;
+						}
+							
+						plupload.extend(browseButton.style, {
+							position : 'relative',
+							zIndex : pzIndex
+						});
+											
+						plupload.extend(inputContainer.style, {
+							zIndex : pzIndex - 1
+						});
+					}
+				}
 			});
 
 			uploader.bind("UploadFile", function(up, file) {
@@ -2412,7 +2927,7 @@
 								if (httpStatus >= 400) {
 									up.trigger('Error', {
 										code : plupload.HTTP_ERROR,
-										message : 'HTTP Error.',
+										message : plupload.translate('HTTP Error.'),
 										file : file,
 										status : httpStatus
 									});
@@ -2544,6 +3059,33 @@
 				} else {
 					sendBinaryBlob(nativeFile);
 				}
+			});
+			
+			
+			uploader.bind('Destroy', function(up) {
+				var name, element, container = document.body,
+					elements = {
+						inputContainer: up.id + '_html5_container',
+						inputFile: up.id + '_html5',
+						browseButton: up.settings.browse_button,
+						dropElm: up.settings.drop_element
+					};
+
+				// Unbind event handlers
+				for (name in elements) {
+					element = document.getElementById(elements[name]);
+					if (element) {
+						plupload.removeAllEvents(element, up.id);
+					}
+				}
+				plupload.removeAllEvents(document.body, up.id);
+				
+				if (up.settings.container) {
+					container = document.getElementById(up.settings.container);
+				}
+				
+				// Remove mark-up
+				container.removeChild(document.getElementById(elements.inputContainer));
 			});
 
 			callback({success : true});
@@ -3078,4 +3620,4 @@
 			}
 		};
 	};
-})(plupload);
+})(window, document, plupload);
