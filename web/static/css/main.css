@@ -4941,3 +4941,29 @@ span.cotometre_result {
 {
   display: block;
 }
+
+/* plupload */
+.plupload_progress_bar
+{
+  width: 102px;
+  height: 7px;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.plupload_progress
+{
+  background-color: #f93;
+  height: 100%;
+  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.plupload_text
+{
+  position: relative;
+}

@@ -3,9 +3,11 @@ PlUploadWrapper = {
   /**
    * TODO / notes:
    * - html5 runtime is currently only available for firefox 3.5+, since other browser don't support multipart and image resizing
-   * - flash and silverlight runtimes disables as long as they do not support exif
+   * - flash and silverlight runtimes disabled as long as they do not support exif
    * - add some server side work to enhance image quality? (resized images are somewhat ugly)
    * - better behaviour for SVGs (eg enable chunking for file >2mB)
+   * - propose events for resize start and end to plupload
+   * - drag & drop
    */
 
   image_number : 0,
@@ -24,7 +26,7 @@ PlUploadWrapper = {
       flash_swf_url : _static_url + '/static/js/plupload/plupload.flash.swf',
       silverlight_xap_url : _static_url + '/static/js/plupload/plupload.silverlight.xap',
       filters : [
-        { title : PlUploadWrapper.i18n.extensions, extensions : "JPEG,jpeg,JPG,jpg,GIF,gif,PNG,png,SVG,svg" }
+        { title : PlUploadWrapper.i18n.extensions, extensions : "jpeg,jpg,gif,png,svg" }
       ],
       required_features : 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have one of these features will fail
     });
@@ -46,7 +48,7 @@ PlUploadWrapper = {
           Modalbox.show(PlUploadWrapper.backup_url);
           return;
 
-        // file is with wrong extension, or too big (svg and gifs)
+        // file is with wrong extension, or too big (svg and gif files cannot be resized)
         case plupload.FILE_SIZE_ERROR:
         case plupload.FILE_EXTENSION_ERROR:
           PlUploadWrapper.displayError(err.file, PlUploadWrapper.i18n.badselect);
@@ -57,7 +59,7 @@ PlUploadWrapper = {
           PlUploadWrapper.displayError(err.file, PlUploadWrapper.i18n.unknownerror + ' (' + err.message + ')');
           break;
       }
-      up.refresh(); // Reposition Flash/Silverlight
+      up.refresh(); // reposition Flash/Silverlight
     });
 
     uploader.init();
@@ -85,12 +87,14 @@ PlUploadWrapper = {
       files.each(function(file, i) {
         // do not display files that have been rejected
         if (file.status != plupload.FAILED) {
-          var loadingImg = new Element('img', { src: _static_url + '/static/images/indicator.gif' }); // TODO find some better graphics..
-          var loadingText = new Element('span').update(
+          var progressBarDiv = new Element('div', { 'class': 'plupload_progress_bar' });
+          var progressDiv = new Element('div', { 'class': 'plupload_progress' });
+          var loadingText = new Element('span', { 'class': 'plupload_text' }).update(
                 file.name + ' (' + plupload.formatSize(file.size) +
-                ') <b>0%</b>' + '</div>');
+                ') <b>0%</b>');
           var loadingDiv = new Element('div', { id: file.id });
-          loadingDiv.appendChild(loadingImg);
+          progressBarDiv.appendChild(progressDiv);
+          loadingDiv.appendChild(progressBarDiv);
           loadingDiv.appendChild(loadingText);
           $('files_to_upload').insert({ top: loadingDiv });
         }
@@ -106,6 +110,9 @@ PlUploadWrapper = {
     uploader.bind('UploadProgress', function(up, file) {
       if ($(file.id).down('b')) {
         $(file.id).down('b').replace('<b>' + file.percent + '%</b>');
+      }
+      if ($(file.id).down('.plupload_progress')) {
+        $(file.id).down('.plupload_progress').style.width = file.percent + 'px';
       }
     });
 
@@ -153,7 +160,7 @@ PlUploadWrapper = {
     var images = $$('.image_upload_entry input');
     if (images.length > 0) {
       $$('.image_upload_entry').each(function(obj) {
-        // if not displayed, removed it from dom (because BlindUp doesn't removes from dom)
+        // if not displayed, remove it from dom (because BlindUp doesn't remove from DOM)
         if (obj.style.display == 'none') {
           obj.remove();
           return;
