@@ -1,8 +1,10 @@
-<?php if (isset($banner['type']) && $banner['type'] == 'flash'): //// CUSTOM FLASH BANNER //// ?>
-    <?php
+<?php 
+$culture = __('meta_language');
+
+if (isset($banner['type']) && $banner['type'] == 'flash'): //// CUSTOM FLASH BANNER ////
     $width = $banner['width'];
     $height = $banner['height'];
-    $file = sfConfig::get('app_static_url') . '/static/images/pub/' . $banner['file'];
+    $file = sfConfig::get('app_static_url') . '/static/images/pub/' . (isset($banner['file_'.$culture]) ? $banner['file_'.$culture] : $banner['file']);
     if (isset($banner['id']))
     {
         $file .= '?clickTAG=' . $sf_request->getUriPrefix() . sfConfig::get('mod_common_counter_base_url') . $banner['id'];
@@ -14,6 +16,7 @@
         <param name="quality" value="high" />
     </object>
 
+
 <?php elseif (isset($banner['type']) && $banner['type'] == 'adsense'): //// GOOGLE ADSENSE //// ?>
 <script type="text/javascript"><!--
 google_ad_client = "pub-8662990478599655";
@@ -22,6 +25,8 @@ google_ad_width = 468;
 google_ad_height = 60;
 //--></script>
 <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+
+
 <?php elseif (isset($banner['type']) && $banner['type'] == 'netaffiliation'): //// NETAFFILIATION //// ?>
 <!--[if !IE]><!-->
 <object data="http://action.metaffiliation.com/emplacement.php?emp=45475Ie8475b6313ea8b6e" type="text/html" width="468" height="60"></object>
@@ -29,9 +34,12 @@ google_ad_height = 60;
 <!--[if IE]>
 <iframe src="http://action.metaffiliation.com/emplacement.php?emp=45475Ie8475b6313ea8b6e" width="468" height="60" scrolling="no" frameborder="0"></iframe>
 <![endif]-->
+
+
 <?php else: //// CUSTOM IMAGE BANNER //// ?>
     <a href="<?php echo $counter_base_url . $banner['id'] ?>"><?php
-    echo image_tag(sfConfig::get('app_static_url') . '/static/images/pub/' . $banner['image'],
+    $image = isset($banner['image_'.$culture]) ? $banner['image_'.$culture] : $banner['image'];
+    echo image_tag(sfConfig::get('app_static_url') . '/static/images/pub/' . $image,
                    array('id' => 'banner', 'alt' => $banner['alt'], 'title' => $banner['alt'])) ;
     ?></a>
 <?php endif ?>
