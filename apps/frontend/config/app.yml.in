@@ -388,7 +388,7 @@ all:
     directory_name:      images
     temp_directory_name: images_temp
     svg_rasterizer:      rsvg # batik, convert, inkscape or rsvg
-    upload_method:       js # js, plupload, trad
+    upload_method:       plupload # js, plupload, trad
     validation:
       weight:          2097152                                 #in o | = 2mo
       mime_types:      ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/svg+xml']
@@ -1623,18 +1623,18 @@ all:
   
   figures:
     list:
-      summits:  11'900
-      routes:   20'100
-      outings:  76'500
-      images:   97'000
-      sites:    1'970
-      huts:     1'330
+      summits:  12'000
+      routes:   20'300
+      outings:  78'000
+      images:   101'000
+      sites:    2'000
+      huts:     1'300
       parkings: 3'000
-      books:    790
-      users:    25'900
-      articles: 490
-      topics:   189'000
-      posts:    1'380'000
+      books:    800
+      users:    26'000
+      articles: 500
+      topics:   191'000
+      posts:    1'400'000
 
   profile_cookies:
     list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages' ]
