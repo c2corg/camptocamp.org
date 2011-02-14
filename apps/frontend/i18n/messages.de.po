@@ -409,6 +409,10 @@ msgstr "Anklicken um diesen Text zu andern"
 msgid "Close all sections"
 msgstr "Alle Abschnitte schliessen"
 
+# [WARNING] en translation used
+msgid "Collaborative images"
+msgstr "Collaborative images"
+
 msgid "Comment:"
 msgstr "Kommentar:"
 

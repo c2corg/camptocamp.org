@@ -405,6 +405,9 @@ msgstr "Cliquez pour modifier ce texte"
 msgid "Close all sections"
 msgstr "Fermer toutes les sections"
 
+msgid "Collaborative images"
+msgstr "Images collaboratives"
+
 msgid "Comment:"
 msgstr "Commentaire&nbsp;:"
 

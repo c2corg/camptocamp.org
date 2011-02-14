@@ -397,6 +397,10 @@ msgstr "Click to modify this text"
 msgid "Close all sections"
 msgstr "Close all sections"
 
+# [WARNING] needs_review
+msgid "Collaborative images"
+msgstr "Collaborative images"
+
 msgid "Comment:"
 msgstr "Comment:"
 

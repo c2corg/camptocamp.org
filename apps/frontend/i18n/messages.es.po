@@ -397,6 +397,10 @@ msgstr "Pulse para editar este texto"
 msgid "Close all sections"
 msgstr "Cerrar todas las secciones"
 
+# [WARNING] en translation used
+msgid "Collaborative images"
+msgstr "Collaborative images"
+
 msgid "Comment:"
 msgstr "Comentario:"
 

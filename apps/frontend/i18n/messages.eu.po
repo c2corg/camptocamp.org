@@ -400,6 +400,10 @@ msgstr "Klikatu testua aldatzeko"
 msgid "Close all sections"
 msgstr "Atal guztiak itxi"
 
+# [WARNING] en translation used
+msgid "Collaborative images"
+msgstr "Collaborative images"
+
 msgid "Comment:"
 msgstr "Azalpenak:"
 

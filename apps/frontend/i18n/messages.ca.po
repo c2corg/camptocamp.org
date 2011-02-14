@@ -416,6 +416,10 @@ msgstr "Prémeu per modificar el text"
 msgid "Close all sections"
 msgstr "Tancar totes les seccions"
 
+# [WARNING] en translation used
+msgid "Collaborative images"
+msgstr "Collaborative images"
+
 msgid "Comment:"
 msgstr "comentari:"
 
