@@ -4945,12 +4945,14 @@ span.cotometre_result {
 /* plupload */
 .plupload_progress_bar
 {
-  width: 102px;
+  width: 100px;
   height: 7px;
   border: 1px solid #ccc;
   padding: 0;
   margin: 0;
+  margin-right: 5px;
   position: relative;
+  display: inline-block;
 }
 
 .plupload_progress
@@ -4966,4 +4968,9 @@ span.cotometre_result {
 .plupload_text
 {
   position: relative;
+}
+
+#form_file_input
+{
+  margin-bottom: 2px;
 }

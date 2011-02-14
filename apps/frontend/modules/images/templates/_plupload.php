@@ -16,14 +16,22 @@ echo __('You can add %1%, with %3% x %2% px and %4% mo',
 ?>
 </p>
 <div id="container">
-<input type="button" value="Select files" id="pickfiles" disabled="disabled" />
-<span id="filelist">No runtime found</span>
 <?php
-echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, array('id' => 'images_validate_form'));
-echo button_to_function(__('save'), "this.hide(); $('images_validate_form').submit()", array('disabled' => 'disabled', 'id' => 'images_submit'));
+echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, array('id' => 'form_file_input'));
 ?>
+<input type="button" value="Select files" id="pickfiles" disabled="disabled" />
+<?php echo button_to_function(__('save'), "$$('.images_submit').invoke('hide'); $('images_validate_form').submit()",
+                              array('style' => 'display:none', 'disabled' => 'disabled', 'class' => 'images_submit')); ?>
+</form>
 <div id="files_to_upload">
 </div>
+<div>
+<?php
+echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, array('id' => 'images_validate_form'));
+?>
+<div>
+<?php echo button_to_function(__('save'), "$$('.images_submit').invoke('hide'); $('images_validate_form').submit()",
+                              array('style' => 'display:none', 'disabled' => 'disabled', 'class' => 'images_submit')); ?>
 </div>
 <?php
 $backup_url = url_for("@image_jsupload?mod=$mod&document_id=$document_id");

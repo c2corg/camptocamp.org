@@ -17,23 +17,22 @@ PlUploadWrapper = {
     PlUploadWrapper.backup_js = backup_js;
     PlUploadWrapper.i18n = i18n;
     var uploader = new plupload.Uploader({
-      runtimes : 'html5', //'silverlight,html5,flash',
-      browse_button : 'pickfiles',
-      container : 'container',
-      file_data_name : 'image_file',
-      multipart : true,
-      url : upload_url,
-      flash_swf_url : _static_url + '/static/js/plupload/plupload.flash.swf',
-      silverlight_xap_url : _static_url + '/static/js/plupload/plupload.silverlight.xap',
-      filters : [
-        { title : PlUploadWrapper.i18n.extensions, extensions : "jpeg,jpg,gif,png,svg" }
+      runtimes: 'html5', //'silverlight,html5,flash',
+      browse_button: 'pickfiles',
+      container: 'container',
+      drop_element: 'image_upload',
+      file_data_name: 'image_file',
+      multipart: true,
+      url: upload_url,
+      flash_swf_url: _static_url + '/static/js/plupload/plupload.flash.swf',
+      silverlight_xap_url: _static_url + '/static/js/plupload/plupload.silverlight.xap',
+      filters: [
+        { title: PlUploadWrapper.i18n.extensions, extensions: "jpeg,jpg,gif,png,svg" }
       ],
-      required_features : 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have one of these features will fail
+      required_features: 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have one of these features will fail
     });
 
     uploader.bind('Init', function(up, params) {
-      if ($('filelist'))
-        $('filelist').update("<div>Current runtime: " + params.runtime + "</div>");
       Modalbox.resizeToContent();
       $('pickfiles').disabled = false;
     });
@@ -100,11 +99,10 @@ PlUploadWrapper = {
         }
       });
       up.refresh(); // Reposition Flash/Silverlight
-      uploader.start(); // automatically begin upload
       Modalbox.resizeToContent();
+      uploader.start();
+//      uploader.start.delay(1); // automatically begin upload TODO
     });
-
-    //uploader.bind('StateChanged', function(up) { alert(up.state); });
 
     // display upload progress
     uploader.bind('UploadProgress', function(up, file) {
@@ -118,6 +116,7 @@ PlUploadWrapper = {
 
     // show server response
     uploader.bind('FileUploaded', function(up, file, response) {
+      $$('.images_submit').invoke('show');
       if ($(file.id).down('b')) {
         $(file.id).down('b').replace('<b>100%</b>');
       }
@@ -150,6 +149,7 @@ PlUploadWrapper = {
   },
 
   // same function as in images_upload.js
+  // used to validate with javascript that image information is correct
   // factorize? (is it worth it?)
   validateImageForms : function(pe) {
     if ($('MB_content') === null) {
@@ -174,13 +174,13 @@ PlUploadWrapper = {
           }
         }
       });
-      if ($('images_submit')) {
-        $('images_submit').disabled = !allow_submit;
+      if (allow_submit) {
+        $$('.images_submit').invoke('enable');
+      } else {
+        $$('.images_submit').invoke('disable');
       }
     } else {
-      if ($('images_submit')) {
-        $('images_submit').disabled = true;
-      }
+      $$('.images_submit').invoke('disable');
     }
   }
 }
