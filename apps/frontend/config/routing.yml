@@ -173,6 +173,11 @@ document_list_all_1:
 document_list_all_2:
   url: /:module/list/all
   param: { action: list, all: 1 }
+
+document_short:
+  url: /:id
+  param: { action: view, module: documents }
+  requirements: { id: \d+ }
   
 document_by_id:
   url: /:module/:id
