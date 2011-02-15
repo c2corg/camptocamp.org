@@ -107,6 +107,10 @@ msgstr "Add"
 msgid "Add associated summit :"
 msgstr "Add associated summit:"
 
+# [WARNING] fr translation used
+msgid "Add images"
+msgstr "Ajouter des images"
+
 msgid "Add your outing"
 msgstr "Add your outing"
 
@@ -397,7 +401,6 @@ msgstr "Click to modify this text"
 msgid "Close all sections"
 msgstr "Close all sections"
 
-# [WARNING] needs_review
 msgid "Collaborative images"
 msgstr "Collaborative images"
 
@@ -5184,6 +5187,35 @@ msgstr "Region to display"
 
 msgid "please enter a number"
 msgstr "please enter a number"
+
+# [general comment]
+# Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
+# [WARNING] fr translation used
+msgid "plupload bad selection"
+msgstr "Le fichier est n\\'est pas d\\'un type autorisé, ou il ne peut être redimensionné et est trop gros."
+
+msgid "plupload extension"
+msgstr "Image files"
+
+# [general comment]
+# Affiché pendant que le fichier est envoyé au serveur
+# [WARNING] fr translation used
+msgid "plupload sending"
+msgstr "Envoi..."
+
+# [WARNING] fr translation used
+msgid "plupload serverop"
+msgstr "Traitement par le serveur"
+
+# [general comment]
+# Erreur non prévue dans plupload
+# [WARNING] fr translation used
+msgid "plupload unknown"
+msgstr "Le fichier n\\'a pas pu être chargé"
+
+# [WARNING] fr translation used
+msgid "plupload waiting"
+msgstr "En attente"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

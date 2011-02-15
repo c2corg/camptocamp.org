@@ -108,6 +108,10 @@ msgstr "Hinzufügen"
 msgid "Add associated summit :"
 msgstr "Einen neuen Gipfel erstellen:"
 
+# [WARNING] fr translation used
+msgid "Add images"
+msgstr "Ajouter des images"
+
 msgid "Add your outing"
 msgstr "Ihre Tour hinzufügen"
 
@@ -409,9 +413,8 @@ msgstr "Anklicken um diesen Text zu andern"
 msgid "Close all sections"
 msgstr "Alle Abschnitte schliessen"
 
-# [WARNING] en translation used
 msgid "Collaborative images"
-msgstr "Collaborative images"
+msgstr "Gemeinschaftliche Bilder"
 
 msgid "Comment:"
 msgstr "Kommentar:"
@@ -1225,9 +1228,9 @@ msgstr "Ein existierendes Dokument verbinden"
 
 # [general comment]
 # more specific message when a user can be associated
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Link an existing user or document"
-msgstr "Ein existierendes Dokument verbinden"
+msgstr "Einen vorhandenen Benutzer oder ein existierendes Dokument verbinden"
 
 msgid "Linked books"
 msgstr "Verbundene Bücher"
@@ -1919,9 +1922,8 @@ msgstr "Sprachreihenfolge ändern "
 
 # [general comment]
 # Call it 'c2c products' , 'shop' or whatever you like. Use the expression that applies best to your language. It is a link to tshirts and other products with c2c logo on it
-# [WARNING] needs_update
 msgid "Shop"
-msgstr "Shop"
+msgstr "c2c Produkte"
 
 msgid "Short description: "
 msgstr "Kurzbeschreibung: "
@@ -4495,9 +4497,9 @@ msgstr "Ausrüstung und Technik"
 msgid "gear_default"
 msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung benötigt wird. Nur das zusätzliche, \"exotische\" Material (Qualität und Menge) soll genannt werden. <br /> Beispiele von unnötigen Aufzählungen: \\n- Bei Skitouren: LVS, Felle, Lawinensonde, etc. (in der üblichen Skitourenausrüstung enthalten) \\n- Bei Alpintouren mit Gletscherbegehung: Steigeisen, Pickel (in entsprechender Standartausrüstung enthalten und dort aufgeführt). \\n- Bei Gletschertouren: Gletscherausrüstung (ankreuzen des Felds \"benötigt Gletscherausrüstung\" genügt) \\n- Beim Klettern: Friends, Keile und Schlingen ohne genauere Angabe des Typs und der Menge (bitte Nummern und Anzahl angeben).  "
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "gear_shop"
-msgstr "sports shop"
+msgstr "Sportgeschäft"
 
 # [WARNING] needs_review
 msgid "geo_export_info"
@@ -5609,6 +5611,36 @@ msgid "please enter a number"
 msgstr "dieses Feld muß eine Zahl enthalten"
 
 # [general comment]
+# Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
+# [WARNING] fr translation used
+msgid "plupload bad selection"
+msgstr "Le fichier est n\\'est pas d\\'un type autorisé, ou il ne peut être redimensionné et est trop gros."
+
+# [WARNING] en translation used
+msgid "plupload extension"
+msgstr "Image files"
+
+# [general comment]
+# Affiché pendant que le fichier est envoyé au serveur
+# [WARNING] fr translation used
+msgid "plupload sending"
+msgstr "Envoi..."
+
+# [WARNING] fr translation used
+msgid "plupload serverop"
+msgstr "Traitement par le serveur"
+
+# [general comment]
+# Erreur non prévue dans plupload
+# [WARNING] fr translation used
+msgid "plupload unknown"
+msgstr "Le fichier n\\'a pas pu être chargé"
+
+# [WARNING] fr translation used
+msgid "plupload waiting"
+msgstr "En attente"
+
+# [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "poitou_charente"
@@ -6546,9 +6578,8 @@ msgstr "Schweiz (italienisch)"
 msgid "valley"
 msgstr "Felswand / Tal"
 
-# [WARNING] en translation used
 msgid "valley_area"
-msgstr "valley"
+msgstr "Tal"
 
 # [WARNING] needs_review
 msgid "value must an integer"

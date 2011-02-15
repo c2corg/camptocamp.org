@@ -7,7 +7,7 @@ PlUploadWrapper = {
    * - add some server side work to enhance image quality? (resized images are somewhat ugly)
    * - better behaviour for SVGs (eg enable chunking for file >2mB)
    * - propose events for resize start and end to plupload
-   * - drag & drop
+   * - make drag & drop visible? (not sure it is possible with plupload)
    */
 
   image_number : 0,
@@ -66,6 +66,12 @@ PlUploadWrapper = {
     uploader.bind('BeforeUpload', function(up, file) {
       // increment image_number
       PlUploadWrapper.image_number++;
+
+      if ($(file.id).down('b')) {
+        $(file.id).down('b').replace('<b>' + PlUploadWrapper.i18n.sending + '</b>');
+      }
+
+
       up.settings.multipart_params = { plupload : true, image_number: PlUploadWrapper.image_number };
       // png and jpg images <2M will get resized only if they exceed c2c limits (8192x2048)
       // images >2M will be resized to max 4096x1024
@@ -89,8 +95,7 @@ PlUploadWrapper = {
           var progressBarDiv = new Element('div', { 'class': 'plupload_progress_bar' });
           var progressDiv = new Element('div', { 'class': 'plupload_progress' });
           var loadingText = new Element('span', { 'class': 'plupload_text' }).update(
-                file.name + ' (' + plupload.formatSize(file.size) +
-                ') <b>0%</b>');
+                file.name + ' <b>' + PlUploadWrapper.i18n.waiting + '</b>');
           var loadingDiv = new Element('div', { id: file.id });
           progressBarDiv.appendChild(progressDiv);
           loadingDiv.appendChild(progressBarDiv);
@@ -106,9 +111,10 @@ PlUploadWrapper = {
 
     // display upload progress
     uploader.bind('UploadProgress', function(up, file) {
-      if ($(file.id).down('b')) {
-        $(file.id).down('b').replace('<b>' + file.percent + '%</b>');
+      if ($(file.id).down('b') && file.percent >= 95) {
+        $(file.id).down('b').replace('<b>' + PlUploadWrapper.i18n.serverop + '</b>');
       }
+
       if ($(file.id).down('.plupload_progress')) {
         $(file.id).down('.plupload_progress').style.width = file.percent + 'px';
       }
@@ -117,9 +123,6 @@ PlUploadWrapper = {
     // show server response
     uploader.bind('FileUploaded', function(up, file, response) {
       $$('.images_submit').invoke('show');
-      if ($(file.id).down('b')) {
-        $(file.id).down('b').replace('<b>100%</b>');
-      }
       var elt = $(file.id);
       elt.update(response.response);
       new Effect.Highlight(elt);
@@ -131,7 +134,7 @@ PlUploadWrapper = {
   displayError : function(file, errormsg) {
     var div = new Element('div', { 'class' : 'image_upload_entry' });
     var picto = new Element('span', { 'class' : 'picto action_cancel' });
-    var link = new Element('a', { onclick : 'new Effect.BlindUp($(this).up()); Modalbox.resizeToContent(); return false;',
+    var link = new Element('a', { onclick : 'new Effect.BlindUp($(this).up()); Modalbox.resizeToContent(); return false;', // TODO
                                   href : '#',
                                   style : 'float: right;'});
     link.appendChild(picto);
@@ -167,10 +170,16 @@ PlUploadWrapper = {
         }
         if (obj.down('input')) {
           if (obj.down('input').value.length < 4) {
-            obj.down('.image_form_error').show();
+            if (!obj.down('.image_form_error').visible()) {
+              obj.down('.image_form_error').show();
+              Modalbox.resizeToContent();
+            }
             allow_submit = false;
           } else {
-            obj.down('.image_form_error').hide();
+            if (obj.down('.image_form_error').visible()) {
+              obj.down('.image_form_error').hide();
+              Modalbox.resizeToContent();
+            }
           }
         }
       });

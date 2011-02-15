@@ -328,5 +328,5 @@ img.embedded_right
 .qrcode
 {
   display: block !important;
-  float: left;
+  float: right;
 }

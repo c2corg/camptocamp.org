@@ -109,6 +109,10 @@ msgstr "Ajouter"
 msgid "Add associated summit :"
 msgstr "Ajouter un sommet lié&nbsp;:"
 
+# [WARNING] needs_review
+msgid "Add images"
+msgstr "Ajouter des images"
+
 msgid "Add your outing"
 msgstr "Ajoutez votre sortie"
 
@@ -5170,6 +5174,35 @@ msgstr "Régions à afficher"
 
 msgid "please enter a number"
 msgstr "ce champ doit être numérique"
+
+# [general comment]
+# Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
+# [WARNING] needs_review
+msgid "plupload bad selection"
+msgstr "Le fichier est n\\'est pas d\\'un type autorisé, ou il ne peut être redimensionné et est trop gros."
+
+msgid "plupload extension"
+msgstr "Fichiers image"
+
+# [general comment]
+# Affiché pendant que le fichier est envoyé au serveur
+# [WARNING] needs_review
+msgid "plupload sending"
+msgstr "Envoi..."
+
+# [WARNING] needs_review
+msgid "plupload serverop"
+msgstr "Traitement par le serveur"
+
+# [general comment]
+# Erreur non prévue dans plupload
+# [WARNING] needs_review
+msgid "plupload unknown"
+msgstr "Le fichier n\\'a pas pu être chargé"
+
+# [WARNING] needs_review
+msgid "plupload waiting"
+msgstr "En attente"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
