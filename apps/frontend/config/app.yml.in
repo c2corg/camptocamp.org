@@ -1188,7 +1188,8 @@ all:
         250231: WI
         250232: WY
       canada_provinces:
-        252273: 'AB' # Alberta
+        252272: 'BC' # British Columbia
+        252273: AB # Alberta
         252274: MB # Manitoba
         252275: NB # New Brunswick
         252276: NL # Newfoundland and Labrador

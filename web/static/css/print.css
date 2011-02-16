@@ -70,7 +70,7 @@ p {
 .empty_content,
 .section .section_subtitle.no_print,
 .tips, .cc, .go_up, .title .picto,
-.list_link, #weather_box_title,
+.list_link, #weather_box_title, #weather_box, .sbox,
 /* routes ordered by activity */
 #skitouring_routes .picto,
 #snow_ice_mixed_routes .picto,
