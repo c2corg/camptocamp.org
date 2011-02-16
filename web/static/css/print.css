@@ -320,7 +320,7 @@ img.embedded_right
 #footer
 {
   background: none;
-  height: 3em;
+  height: auto;
   margin: 0 !important;
   font-size: 0.9em;
 }
