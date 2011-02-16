@@ -103,10 +103,9 @@ PlUploadWrapper = {
           $('files_to_upload').insert({ top: loadingDiv });
         }
       });
-      up.refresh(); // Reposition Flash/Silverlight
       Modalbox.resizeToContent();
-      uploader.start();
-//      uploader.start.delay(1); // automatically begin upload TODO
+      up.refresh();  // Reposition Flash/Silverlight
+      window.setTimeout(function() { up.start(); }, 500);
     });
 
     // display upload progress
@@ -134,7 +133,7 @@ PlUploadWrapper = {
   displayError : function(file, errormsg) {
     var div = new Element('div', { 'class' : 'image_upload_entry' });
     var picto = new Element('span', { 'class' : 'picto action_cancel' });
-    var link = new Element('a', { onclick : 'new Effect.BlindUp($(this).up()); Modalbox.resizeToContent(); return false;', // TODO
+    var link = new Element('a', { onclick : '$(this).up().hide(); Modalbox.resizeToContent(); return false;',
                                   href : '#',
                                   style : 'float: right;'});
     link.appendChild(picto);
