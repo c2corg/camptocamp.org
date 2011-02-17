@@ -114,7 +114,7 @@ class Hut extends BaseHut
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
+        self::buildAreaCriteria($conditions, $values, $params_list, 'h');
 
         // hut criteria
         Hut::buildHutListCriteria(&$conditions, &$values, $params_list, true);

@@ -191,7 +191,7 @@ class Site extends BaseSite
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
+        self::buildAreaCriteria($conditions, $values, $params_list, 's');
 
         // site criteria
         Site::buildSiteListCriteria(&$conditions, &$values, $params_list, true);

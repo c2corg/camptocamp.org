@@ -68,7 +68,7 @@ class Article extends BaseArticle
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
+        self::buildAreaCriteria($conditions, $values, $params_list, 'a');
         
         // article criteria
         self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'), null, false, $params_list);

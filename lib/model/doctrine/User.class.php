@@ -249,7 +249,7 @@ class User extends BaseUser
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
+        self::buildAreaCriteria($conditions, $values, $params_list, 'u');
         
         // outing criteria
         User::buildUserListCriteria(&$conditions, &$values, $params_list, true);

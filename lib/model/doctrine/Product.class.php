@@ -69,7 +69,7 @@ class Product extends BaseProduct
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
+        self::buildAreaCriteria($conditions, $values, $params_list, 'p');
 
         // product criteria
         Product::buildProductListCriteria(&$conditions, &$values, $params_list, true);

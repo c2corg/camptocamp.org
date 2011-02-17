@@ -206,7 +206,7 @@ class Outing extends BaseOuting
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
+        self::buildAreaCriteria($conditions, $values, $params_list, 'o');
         
         // outing criteria
         Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, true);

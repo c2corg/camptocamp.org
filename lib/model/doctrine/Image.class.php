@@ -415,7 +415,7 @@ class Image extends BaseImage
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
+        self::buildAreaCriteria($conditions, $values, $params_list, 'i');
         
         // image criteria
         Image::buildImageListCriteria(&$conditions, &$values, $params_list, true);

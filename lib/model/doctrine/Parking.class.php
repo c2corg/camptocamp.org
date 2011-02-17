@@ -103,7 +103,7 @@ class Parking extends BaseParking
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
+        self::buildAreaCriteria($conditions, $values, $params_list, 'p');
 
         // parking criteria
         Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, true);

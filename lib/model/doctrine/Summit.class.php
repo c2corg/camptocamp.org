@@ -87,7 +87,7 @@ class Summit extends BaseSummit
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list);
+        self::buildAreaCriteria($conditions, $values, $params_list, 's');
 
         // summit criteria
         Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, true);
