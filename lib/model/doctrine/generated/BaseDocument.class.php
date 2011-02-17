@@ -340,7 +340,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif (c2cTools::getArrayElement($params_list, 'bbox'))
         {
-            self::buildConditionItem($conditions, $values, 'Bbox', $m . '.geom', 'bbox', null, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Bbox', 'm.geom', 'bbox', null, false, $params_list);
         }
         elseif (c2cTools::getArrayElement($params_list, 'around'))
         {
