@@ -49,9 +49,12 @@ echo _implode(' - ', array(displayWithSuffix($item['max_elevation'], 'meters'),
                            get_paginated_value($item['facing'], 'app_routes_facings'),
                            $height_diff_up,
                            field_route_ratings_data($item, false))); ?></div>
-<div><?php if (isset($item['linked_docs'])) // FIXME warning
-              echo __('access'), ' ';
-              include_partial('parkings/parkings4list', array('parkings' => $item['linked_docs'])) ?></div>
+<div><?php
+if (isset($item['linked_docs']))
+{
+    echo __('access'), ' ';
+    include_partial('parkings/parkings4list', array('parkings' => $item['linked_docs'])); 
+} ?></div>
 <div><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></div>
 <div><?php echo picto_tag('picto_images', __('nb_linked_images')), ' ', (isset($item['nb_images'])) ?  $item['nb_images'] : '0', ' ',
                 picto_tag('action_comment', __('nb_comments')), ' ', (isset($item['nb_comments'])) ?
