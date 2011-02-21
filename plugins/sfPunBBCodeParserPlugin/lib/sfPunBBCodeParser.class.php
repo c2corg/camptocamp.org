@@ -480,7 +480,8 @@ class sfPunBBCodeParser
             $img_class[] = 'no_border';
         }
         
-        if (in_array('big', $options))
+        // big images are not used in mobile version (replaced by medium version)
+        if (in_array('big', $options) && !c2cTools::mobileVersion())
         {
             $size = 'BI.';
         }
@@ -595,10 +596,16 @@ class sfPunBBCodeParser
               }
               $image_tag = $image_tag . $legend . '</div>';
         }
+
         if ($centered)
         {
             $image_tag = '<div class="center">'.$image_tag.'</div>';
         }
+        else if (c2cTools::mobileVersion()) /* needed in order to center images for smartphones in portrait mode */
+        {
+            $image_tag = '<div class="img_mobile">'.$image_tag.'</div>';
+        }
+
         if (!$inline)
         {
             $image_tag = '</p>'.$image_tag.'<p>';

@@ -640,3 +640,29 @@ li.list_odd
 {
   background-color: #fff;
 }
+
+/* images for smartphones in portrait mode,
+   we make them all centered and cleared */
+@media screen and (max-width:320px)
+{
+  .embedded_left, img.embedded_left,
+  .embedded_right, img.embedded_right,
+  .embedded_center, img.embedded_center,
+  .embedded_inline, img.embedded_inline,
+  .embedded_inline_left, img.embedded_inline_left,
+  .embedded_inline_right, img.embedded_inline_right,
+  .embedded_inline_0, img.embedded_inline_0
+  {
+    display: -moz-inline-box;
+    display: inline-block;
+    float: none;
+    text-align: left;
+    clear: both;
+    margin: 5px;
+  }
+
+  .img_mobile
+  {
+    text-align: center;
+  }
+}
