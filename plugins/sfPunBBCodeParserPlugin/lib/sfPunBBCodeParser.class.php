@@ -312,6 +312,10 @@ class sfPunBBCodeParser
             {
                 $full_url = '/forums/viewforum.php?id='.$id;
             }
+            if (empty($link))
+            {
+                $link = substr($url, 1);
+            }
         }
     
         if ($link == '' || $link == $url)
