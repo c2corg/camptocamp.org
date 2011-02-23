@@ -5616,6 +5616,12 @@ msgstr "dieses Feld muß eine Zahl enthalten"
 msgid "plupload bad selection"
 msgstr "Le fichier est n\\'est pas d\\'un type autorisé, ou il ne peut être redimensionné et est trop gros."
 
+# [general comment]
+# Drag & drop pour l'upload d'images
+# [WARNING] needs_review
+msgid "plupload drop"
+msgstr "Ziehen Sie die Dateien hier hin"
+
 # [WARNING] en translation used
 msgid "plupload extension"
 msgstr "Image files"

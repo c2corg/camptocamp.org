@@ -2819,10 +2819,9 @@ msgstr "<h3>Catégories d'une image</h3>Plusieurs catégories peuvent être sél
 msgid "_image_new_version_info"
 msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour charger une version plus récente d'une image (typiquement une version complétée ou mise à jour d'un schéma de voie(s))"
 
-# [WARNING] needs_review
 msgid "_image_type_info"
 msgstr "<h3>Type d'image</h3><strong>image collaborative</strong>&nbsp;:<br />Une image collaborative est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a>. Elle peut être copiée et modifiée.<br />Dans le topoguide, une image collaborative (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>oui</strong><br />- association à un document collaboratif : <strong>oui</strong><br />- insertion dans le texte d'un document collaboratif : <strong>oui</strong><br />- L'enregistrement, l'association ou l'insertion d'une image collaborative sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement.<br /><br /><strong>image personnelle</strong>&nbsp;:<br />Une image personnelle est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Elle peut être copiée, mais pas modifiée, sauf par l'auteur.<br />Dans le topoguide, une image personnelle (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>non</strong><br />- association à un document collaboratif : <strong>oui</strong> (après enregistrement sur un document personnel)<br />- insertion dans le texte d'un document collaboratif : <strong>non</strong><br />- L'enregistrement, l'association ou l'insertion d'une image personnelle sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement.\n"
-"<strong>image sous copyright</strong>&nbsp;:<br />Une image peut exceptionnellement ne pas être diffusée sous licence Creative Commons. Les images sous copyright correspondent à certaines couvertures de livre, et la propriété de celles-ci est à l'auteur et/ou l'éditeur de l'ouvrage. Elles ne sont présentes dans camptocamp qu'à titre d'illustration. Il n'est pas possible d'utiliser ces images sans en requérir au préalable à l'ayant droit."
+"<br /><br /><strong>image sous copyright</strong>&nbsp;:<br />Une image peut exceptionnellement ne pas être diffusée sous licence Creative Commons. Les images sous copyright correspondent à certaines couvertures de livre, et la propriété de celles-ci est à l'auteur et/ou l'éditeur de l'ouvrage. Elles ne sont présentes dans camptocamp qu'à titre d'illustration. Il n'est pas possible d'utiliser ces images sans en requérir au préalable à l'ayant droit."
 
 msgid "_is_on_glacier_info"
 msgstr "<h3>Nécessite le matériel de glacier</h3>Itinéraire passant sur des glaciers pouvant être crevassés."
@@ -5180,6 +5179,11 @@ msgstr "ce champ doit être numérique"
 # [WARNING] needs_review
 msgid "plupload bad selection"
 msgstr "Le fichier est n\\'est pas d\\'un type autorisé, ou il ne peut être redimensionné et est trop gros."
+
+# [general comment]
+# Drag & drop pour l'upload d'images
+msgid "plupload drop"
+msgstr "Déposez des images ici"
 
 msgid "plupload extension"
 msgstr "Fichiers image"
