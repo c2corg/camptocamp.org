@@ -4877,6 +4877,22 @@ span.license_mini_bysa {
   background-position: -266px -15px;
 }
 
+#plupload_ondrag {
+  font-size: 2em;
+  font-style: normal;
+  font-weight: bold;
+  background-color: white;
+  border: 6px solid #f93;
+  text-align: center;
+  position: absolute;
+}
+#plupload_ondrag p {
+  margin-top: 1.5em;
+}
+#plupload_tips {
+  position: relative;
+}
+
 .image_upload_entry {
   padding: 10px;
   border-top: solid 1px black;

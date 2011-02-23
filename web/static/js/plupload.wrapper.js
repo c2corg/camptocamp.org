@@ -7,7 +7,6 @@ PlUploadWrapper = {
    * - add some server side work to enhance image quality? (resized images are somewhat ugly)
    * - better behaviour for SVGs (eg enable chunking for file >2mB)
    * - propose events for resize start and end to plupload
-   * - make drag & drop visible? (not sure it is possible with plupload)
    */
 
   image_number : 0,
@@ -20,7 +19,7 @@ PlUploadWrapper = {
       runtimes: 'html5', //'silverlight,html5,flash',
       browse_button: 'pickfiles',
       container: 'container',
-      drop_element: 'image_upload',
+      drop_element: 'plupload_tips',
       file_data_name: 'image_file',
       multipart: true,
       url: upload_url,
@@ -35,6 +34,18 @@ PlUploadWrapper = {
     uploader.bind('Init', function(up, params) {
       Modalbox.resizeToContent();
       $('pickfiles').disabled = false;
+
+      // drag&drop look&feel
+      if (up.features.dragdrop) {
+        var delt = $('plupload_ondrag');
+        var nelt = $('plupload_normal');
+        delt.style.height = (nelt.getHeight() - 12) + 'px';
+        delt.style.width = (nelt.getWidth() - 12) + 'px';
+        plupload.addEvent(window, 'dragenter',
+                          function() { delt.style.visibility = 'visible'; });
+        plupload.addEvent(window, 'dragleave',
+                          function() { delt.style.visibility = 'hidden'; });
+      }
     });
 
     uploader.bind('Error', function(up, err) {
@@ -146,7 +157,9 @@ PlUploadWrapper = {
     errorDiv.appendChild(ul);
     div.appendChild(errorDiv);
 
-    $('files_to_upload').insert({ top: div });
+    var elt = $(file.id);
+    elt.update(div);
+    new Effect.Highlight(elt);
     Modalbox.resizeToContent();
   },
 

@@ -4,8 +4,11 @@ use_helper('Ajax', 'Form', 'Javascript', 'MyForm', 'Escaping');
 $validation = sfConfig::get('app_images_validation');
 ?>
 <div id="image_upload">
-<p class="tips">
+<div id="plupload_tips" class="tips">
+<div id="plupload_ondrag" style="visibility:hidden;"><p><?php echo __('plupload drop') ?></p></div>
+<div id="plupload_normal">
 <?php
+// TODO
 echo __('You can add %1%, with %3% x %2% px and %4% mo',
               array('%1%' => implode(', ', $validation['file_extensions']),
                     '%2%' => $validation['max_size']['height'],
@@ -14,7 +17,7 @@ echo __('You can add %1%, with %3% x %2% px and %4% mo',
     . ' ' .
     __('Minsize is %1% x %2%', array('%1%' => $validation['min_size']['height'], '%2%' => $validation['min_size']['width']));
 ?>
-</p>
+</div></div>
 <div id="container">
 <?php
 echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, array('id' => 'form_file_input'));
