@@ -386,7 +386,7 @@ class Image extends BaseImage
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, 'Array', array($m, 'i', 'activities'), 'act', $join, false, $params_list);
-                self::buildConditionItem($conditions, $values, 'Date', 'date_time', 'date', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, 'Date', 'date_time::date', 'date', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'String', 'ii.search_name', ($is_module ? array('inam', 'name') : 'inam'), 'join_image_i18n', false, $params_list);

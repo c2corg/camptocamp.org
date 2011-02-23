@@ -2512,34 +2512,34 @@ class BaseDocument extends sfDoctrineRecordI18n
                     switch ($compare)
                     {
                         case '>':
-                            $conditions[] = "date_part('month', date) > ? OR (date_part('month', date) = ? AND date_part('day', date) >= ?)";
+                            $conditions[] = "date_part('month', $field) > ? OR (date_part('month', $field) = ? AND date_part('day', $field) >= ?)";
                             $month = substr($value1, 0, 2);
                             $values[] = $month;
                             $values[] = $month;
                             $values[] = substr($value1, 2, 2);
                             break;
                         case '<':
-                            $conditions[] = "date_part('month', date) < ? OR (date_part('month', date) = ? AND date_part('day', date) <= ?)";
+                            $conditions[] = "date_part('month', $field) < ? OR (date_part('month', $field) = ? AND date_part('day', $field) <= ?)";
                             $month = substr($value1, 0, 2);
                             $values[] = $month;
                             $values[] = $month;
                             $values[] = substr($value1, 2, 2);
                             break;
                         case '=':
-                            $conditions[] = "date_part('month', date) = ? AND date_part('day', date) = ?";
+                            $conditions[] = "date_part('month', $field) = ? AND date_part('day', $field) = ?";
                             $values[] = substr($value1, 0, 2);
                             $values[] = substr($value1, 2, 2);
                             break;
                         case '~': // youpi
                             if ($value1 <= $value2)
                             {
-                                $conditions[] = "(date_part('month', date) > ? OR (date_part('month', date) = ? AND date_part('day', date) >= ?)) AND ".
-                                                "date_part('month', date) < ? OR (date_part('month', date) = ? AND date_part('day', date) <= ?)";
+                                $conditions[] = "(date_part('month', $field) > ? OR (date_part('month', $field) = ? AND date_part('day', $field) >= ?)) AND ".
+                                                "date_part('month', $field) < ? OR (date_part('month', $field) = ? AND date_part('day', $field) <= ?)";
                             }
                             else
                             {
-                                $conditions[] = "(date_part('month', date) > ? OR (date_part('month', date) = ? AND date_part('day', date) >= ?)) OR ".
-                                                "date_part('month', date) < ? OR (date_part('month', date) = ? AND date_part('day', date) <= ?)";
+                                $conditions[] = "(date_part('month', $field) > ? OR (date_part('month', $field) = ? AND date_part('day', $field) >= ?)) OR ".
+                                                "date_part('month', $field) < ? OR (date_part('month', $field) = ? AND date_part('day', $field) <= ?)";
                             }
                             $month = substr($value1, 0, 2);
                             $day = substr($value1, 2, 2);
@@ -2561,25 +2561,25 @@ class BaseDocument extends sfDoctrineRecordI18n
                         switch ($compare)
                         {
                             case '>':
-                                $conditions[] = "date_part('month', date) >= ?";
+                                $conditions[] = "date_part('month', $field) >= ?";
                                 $values[] = $value1;
                                 break;
                             case '<':
-                                $conditions[] = "date_part('month', date) <= ?";
+                                $conditions[] = "date_part('month', $field) <= ?";
                                 $values[] = $value1;
                                 break;
                             case '=':
-                                $conditions[] = "date_part('month', date) = ?";
+                                $conditions[] = "date_part('month', $field) = ?";
                                 $values[] = $value1;
                                 break;
                             case '~':
                                 if ($value1 <= $value2) // like between july and august
                                 {
-                                    $conditions[] = "date_part('month', date) BETWEEN ? AND ?";
+                                    $conditions[] = "date_part('month', $field) BETWEEN ? AND ?";
                                 }
                                 else // like between november and march
                                 {
-                                    $conditions[] = "(date_part('month', date) >= ? OR date_part('month', date) <= ?)";
+                                    $conditions[] = "(date_part('month', $field) >= ? OR date_part('month', $field) <= ?)";
                                 }
                                 $values[] = $value1;
                                 $values[] = $value2;
