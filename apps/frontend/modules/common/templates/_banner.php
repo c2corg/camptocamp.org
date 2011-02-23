@@ -36,8 +36,9 @@ google_ad_height = 60;
 <![endif]-->
 
 
-<?php else: //// CUSTOM IMAGE BANNER //// ?>
-    <a href="<?php echo $counter_base_url . $banner['id'] ?>"><?php
+<?php else: //// CUSTOM IMAGE BANNER ////
+    $id = isset($banner['id_'.$culture]) ? $banner['id_'.$culture] : $banner['id']; ?>
+    <a href="<?php echo $counter_base_url . $id ?>"><?php
     $image = isset($banner['image_'.$culture]) ? $banner['image_'.$culture] : $banner['image'];
     echo image_tag(sfConfig::get('app_static_url') . '/static/images/pub/' . $image,
                    array('id' => 'banner', 'alt' => $banner['alt'], 'title' => $banner['alt'])) ;
