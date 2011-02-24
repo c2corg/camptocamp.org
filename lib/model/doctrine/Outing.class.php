@@ -456,6 +456,7 @@ class Outing extends BaseOuting
               ->leftJoin('lu.LinkedLinkedAssociation lo')
               ->addWhere("lo.type = 'uo'")
               ->leftJoin('lo.MainMainAssociation lu2');
+            unset($conditions['join_friend']);
         }
 
         // join with image tables only if needed 
