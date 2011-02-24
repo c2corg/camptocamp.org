@@ -110,7 +110,7 @@ if ($has_weather || $has_avalanche_bulletin)
     if ($has_weather_link || $has_avalanche_link)
     {
 ?>
-<div class="one_kind_association">
+<div class="one_kind_association no_print">
 <div class="association_content">
 <?php
         if ($has_box)

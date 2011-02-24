@@ -70,17 +70,6 @@ if (count($items) == 0): ?>
     <?php endforeach ?>
     </ul>
 <?php endif; ?>
-<div class="home_link_list">
-<?php
-echo link_to(__('Modifications'), '@whatsnew', array('title' => __('Recent changes'))) . ' ' .
-     link_to(picto_tag('picto_rss'),
-             '@feed?module=documents&lang=' . $culture,
-             array('title' => __('Subscribe to latest documents editions'))) . ' - ' .
-     link_to(__('Associations'),
-             '@latestassociations',
-             array('title' => __('Recent associations')));
-?>
-</div>
 </div>
 <?php
 $cookie_position = array_search('last_docs', sfConfig::get('app_personalization_cookie_fold_positions'));

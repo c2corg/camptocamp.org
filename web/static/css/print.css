@@ -245,6 +245,11 @@ table.list {
   display: inline-block !important;
 }
 
+ul.data, .all_associations
+{
+  margin-bottom: 1em;
+}
+
 .linked_elt {
   clear: left !important;
 }

@@ -23,8 +23,9 @@ $ice = sfConfig::get('app_portals_ice');
                                          array('width' => 600)) ?></li>
                 <?php if ($sf_user->getCulture() == 'fr'): ?>
                     <li><?php echo link_to(__('New routes article'), getMetaArticleRoute('home_articles', false, 'chroniques-ouvertures')) ?></li>
-		<?php endif; ?>
+                <?php endif; ?>
                 <li><?php echo link_to(__('Camptocamp-Association'), getMetaArticleRoute('association', false)) ?></li>
+                <li><?php echo link_to(__('Incidents and accidents database'), getMetaArticleRoute('accidents_database', false)) ?></li>
                 <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize', false)) ?></li>
                 <li><?php echo link_to(__('Shop'), getMetaArticleRoute('shop', false)) ?></li>
                 <li><?php echo link_to(__('Global help'), getMetaArticleRoute('help', false)) ?></li>

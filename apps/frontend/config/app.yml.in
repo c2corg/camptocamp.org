@@ -57,12 +57,12 @@ all:
       i: Image
       j: 
       k: Article # article as category
-      l: # Link (web doc)
+      l: Line
       m: Map
-      n: 
+      n: Link
       o: Outing
       p: Parking
-      q: # Paragliding
+      q: Paraspot
       r: Route
       s: Summit
       t: Site
@@ -71,27 +71,27 @@ all:
       w: Portal
       x: # Route (approche)
       y: # Route (retour)
-      z: # Pitch
+      z: 
     model2letter:
       Area: a
       Book: b
       Article: c
       Document: d
       Product: f
-      #Gear: g
+      # Gear: g
       Hut: h
       Image: i
-      # Link: l
+      Line: l
       Map: m
+      Link: n
       Outing: o
       Parking: p
-      # Paragliding: q
+      Paraspot: q
       Route: r
       Summit: s
       Site: t
       User: u
       Portal: w
-      # Pitch: z
     types:
       1: sr
       2: ro
@@ -623,6 +623,7 @@ all:
     cda_know_more: @CDA_KNOW_MORE@
     create_account: @WHY_CREATE_ACCOUNT_ARTICLE_ID@
     website_presentation: @SITE_PRESENTATION_ARTICLE_ID@
+    accidents_database: @ACCIDENTS_DATABASE_ARTICLE_ID@
 
 
   moderator_user_id: @TOPO_MODERATOR_USER_ID@
