@@ -82,8 +82,25 @@ if ($is_not_archive)
         }
         echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\').reverse()[0])) != -1);');
     }
-
+    
     echo '<div class="all_associations col_right col_33">';
+    
+    if ($is_not_merged)
+    {
+        include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits', 'is_extra' => true));
+        
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_sites, 
+                              'module' => 'sites',  // this is the module of the documents displayed by this partial
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'to', // site-outing
+                              'strict' => false)); // no strict looking for main_id in column main of Association table
+        
+        include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts', 'is_extra' => true));
+        include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
+    }
+
     $avalanche_bulletin = array_intersect(array(1,2,5), $activities);
     include_partial('areas/association',
                     array('associated_docs' => $associated_areas,
@@ -94,20 +111,6 @@ if ($is_not_archive)
                           'date' => $document->getRaw('date')));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
-    if ($is_not_merged)
-    {
-        include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits', 'is_extra' => true));
-        include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts', 'is_extra' => true));
-        include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
-        
-        include_partial('documents/association',
-                        array('associated_docs' => $associated_sites, 
-                              'module' => 'sites',  // this is the module of the documents displayed by this partial
-                              'document' => $document,
-                              'show_link_to_delete' => $show_link_to_delete,
-                              'type' => 'to', // site-outing
-                              'strict' => false)); // no strict looking for main_id in column main of Association table
-    }
     echo '</div>';
 }
 

@@ -384,7 +384,7 @@ class usersActions extends documentsActions
        }
        else
        {
-           $this->forward404('Operation not allowed');
+           $this->redirect('@login');
        }
        
     }
