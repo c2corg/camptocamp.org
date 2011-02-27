@@ -44,9 +44,8 @@ if ($is_not_archive)
                               'reduce_name' => true,
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
-                              'type' => 'st', // site-site
-                              'strict' => false )); // no strict looking for main_id in column main of Association table
-                              // warning : strict is set to false since association can be with other sites
+                              'type' => 'st' // summits-site
+                              ));
         
         include_partial('documents/association',
                         array('associated_docs' => $associated_huts,

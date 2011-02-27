@@ -178,10 +178,10 @@ class Book extends BaseBook
             unset($conditions['join_bdocs_id']);
         }
 
-        if (isset($conditions['join_btags_id']))
+        if (isset($conditions['join_btag_id']))
         {
             $q->leftJoin('m.associations lbc');
-            unset($conditions['join_btags_id']);
+            unset($conditions['join_btag_id']);
         }
 
         // join with image tables only if needed 

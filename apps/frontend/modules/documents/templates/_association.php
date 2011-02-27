@@ -12,7 +12,7 @@ if (!isset($show_link_to_delete))
     $show_link_to_delete = false;
 }
 // correctly set main_id and linked_id
-$revert_ids = isset($type) ? ($type[0] != c2cTools::Module2Letter($module)) : null;
+$revert_ids = isset($type) ? (substr($type,0,1) != c2cTools::Module2Letter($module)) : null;
 
 if ($has_associated_docs || $has_extra_docs): ?>
 <div class="one_kind_association">
