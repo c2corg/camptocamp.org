@@ -200,6 +200,7 @@ class User extends BaseUser
             $join = null;
             $join_id = null;
             $join_i18n = null;
+            $join_private_data = null;
         }
         else
         {
@@ -207,6 +208,7 @@ class User extends BaseUser
             $join = 'join_user';
             $join_id = 'join_user_id';
             $join_i18n = 'join_user_i18n';
+            $join_private_data = 'join_user_pd';
         }
         
         if ($is_module)
@@ -226,7 +228,7 @@ class User extends BaseUser
                 self::buildConditionItem($conditions, $values, 'Mstring', array('mi.search_name', 'upd.search_username'), 'utfnam', null, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'String', $m . 'i.search_name', ($is_module ? array('unam', 'name') : 'unam'), $join_i18n, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'String', 'upd.search_username', 'ufnam', 'join_user_pd', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'String', 'upd.search_username', 'ufnam', $join_private_data, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'u', 'activities'), 'uact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.category', 'ucat', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ui.culture', 'ucult', $join_i18n, false, $params_list);
