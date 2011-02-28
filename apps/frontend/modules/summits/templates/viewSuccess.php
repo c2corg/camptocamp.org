@@ -44,8 +44,8 @@ if ($is_not_archive)
                               'reduce_name' => true,
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
-                              'type' => 'st' // summits-site
-                              ));
+                              'type' => 'st', // summits-site
+                              'strict' => true));
         
         include_partial('documents/association',
                         array('associated_docs' => $associated_huts,
