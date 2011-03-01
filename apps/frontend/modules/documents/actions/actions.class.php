@@ -4175,14 +4175,24 @@ class documentsActions extends c2cActions
             {
                 if ($date1 = $this->getRequestParameter($field))
                 {
-                    $date1 = $date1['year'] . c2cTools::writeWith2Digits($date1['month']) . 
-                             c2cTools::writeWith2Digits($date1['day']);
+                    $date_md = c2cTools::writeWith2Digits($date1['month'])
+                             . c2cTools::writeWith2Digits($date1['day']);
+                    if (empty($date_md))
+                    {
+                        $date_md = '-';
+                    }
+                    $date1 = $date1['year'] . $date_md;
                 }
 
                 if ($date2 = $this->getRequestParameter($field . '2'))
                 {
-                    $date2 = $date2['year'] . c2cTools::writeWith2Digits($date2['month']) . 
-                             c2cTools::writeWith2Digits($date2['day']);
+                    $date_md = c2cTools::writeWith2Digits($date2['month'])
+                             . c2cTools::writeWith2Digits($date2['day']);
+                    if (empty($date_md))
+                    {
+                        $date_md = '-';
+                    }
+                    $date2 = $date2['year'] . $date_md;
                 }
                 
                 $out[] = self::makeCompareQueryString($field, $sel, $date1, $date2);

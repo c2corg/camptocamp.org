@@ -18,7 +18,7 @@ echo __('categories') . ' ' . field_value_selector('icat', 'mod_images_categorie
 ?>
 <br />
 <?php
-echo __('Date:') . ' ' . date_selector(array('month' => false, 'year' => true, 'day' => true));
+echo __('Date:') . ' ' . date_selector(array('month' => true, 'year' => true, 'day' => true));
 ?>
 <br />
 <?php

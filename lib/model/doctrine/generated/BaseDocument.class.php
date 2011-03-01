@@ -2438,7 +2438,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $interval = str_replace($pattern, $replace, $param);
             $conditions[] = "age($field) < interval '$interval'";
         }
-        elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        elseif (preg_match('/^(>|<)?([0-9]*-?)(~)?([0-9]*-?)$/', $param, $regs))
         { // date comparison
             if (!empty($regs[1]))
             {
@@ -2503,6 +2503,30 @@ class BaseDocument extends sfDoctrineRecordI18n
                             $month2 = substr($value2, 04, 2);
                             $day2 = self::getLastDay($year2, $month2);
                             $newparam = min($value1, $value2) . '01' . $compare . max($value1, $value2) . $day2;
+                            break;
+                    }
+                    self::buildCompareCondition($conditions, $values, $field, $newparam);
+                    break;
+                case 5: //YYYY-
+                    // TODO check input values
+                    $year1 = substr($value1, 0, 4);
+                    switch ($compare)
+                    {
+                        case '>':
+                            $newparam = $compare . $year1 . '0101';
+                            break;
+                        case '<':
+                            // we need to provide a valid date
+                            $newparam = $compare . $year1 . '1231';
+                            break;
+                        case '=':
+                            // we need to provide a valid date
+                            $newparam = $year1 . '0101~' . $year1 . '1231';
+                            break;
+                        case '~':
+                            // we make sure that date1 < date2
+                            $year2 = substr($value2, 0, 4);
+                            $newparam = min($year1, $year2) . '0101' . $compare . max($year1, $year2) . '1231';
                             break;
                     }
                     self::buildCompareCondition($conditions, $values, $field, $newparam);

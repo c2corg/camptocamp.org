@@ -19,7 +19,7 @@ include_partial('routes_filter', array('activities' => $activities_raw));
 ?>
 <br />
 <?php
-echo __('Date') . __('&nbsp;:') . ' ' . date_selector(array('month' => false, 'year' => true, 'day' => true));
+echo __('Date') . __('&nbsp;:') . ' ' . date_selector(array('month' => true, 'year' => true, 'day' => true));
 ?>
 <br />
 <?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('ocult') ?>
