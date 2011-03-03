@@ -570,6 +570,12 @@ all:
       14439: 80 # Zentral Graubünden
       14457: 81 # Zillertaler Alpen
       252522: 82 # Cerces - Thabor - Mont-Cenis TODO report to metaengine
+      261218: 83 # Fontainebleau
+      261245: 84 # Andes centrales
+      261246: 85 # Patagonie N
+      261247: 86 # Patagonie S
+      261248: 87 # Puna
+      261249: 88 # Sierras Pampeanas
 
   recent_documents:
     articles_limit: 6
@@ -758,11 +764,12 @@ all:
         14472: 63 # Sierra de Gredos
         14470: 45 # Montes Ibericos
       europe_w:
-        14418: 33 # Genevois - Jura Sud
-        14405: 37 # Jura
-        14419: 77 # Vosges
-        14474: 61 # Scotland
-        14475: 78 # Wales
+        14418:  33 # Genevois - Jura Sud
+        14405:  37 # Jura
+        14419:  77 # Vosges
+        261218: 83 # Fontainebleau
+        14474:  61 # Scotland
+        14475:  78 # Wales
       mediterranee:
         14478: 24 # Corse
         14477: 60 # Sardegna
@@ -770,6 +777,12 @@ all:
         14462: 6 # Appennino centrale
         14458: 7 # Appennino meridionale
         14467: 8 # Appennino settentrionale
+      america_s:
+        261245: 84 # Andes centrales
+        261246: 85 # Patagonie N
+        261247: 86 # Patagonie S
+        261248: 87 # Puna
+        261249: 88 # Sierras Pampeanas
     country:
       europe:
         14271: 101 # Allemagne
@@ -1626,14 +1639,14 @@ all:
   figures:
     list:
       summits:  12'000
-      routes:   20'300
-      outings:  78'000
-      images:   101'000
+      routes:   20'500
+      outings:  78'500
+      images:   104'000
       sites:    2'000
       huts:     1'300
       parkings: 3'000
       books:    800
-      users:    26'000
+      users:    26'500
       articles: 500
       topics:   191'000
       posts:    1'400'000
