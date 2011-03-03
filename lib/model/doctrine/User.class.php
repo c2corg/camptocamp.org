@@ -223,9 +223,39 @@ class User extends BaseUser
         {
             if ($is_module)
             {
+                self::buildConditionItem($conditions, $values, 'List', 'lu.main_id', 'friends', 'join_friend_id', false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Array', array($m, 'u', 'activities'), 'act', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Mstring', array('mi.search_name', 'upd.search_username'), 'utfnam', null, false, $params_list);
+            }
+            else
+            {
+                $value = c2cTools::getArrayElement($params_list, 'friends');
+                if (!is_null($value))
+                {
+                    $conditions_temp[] = "a.type = 'uo'";
+                    $values_temp = array();
+                    self::buildListCondition(&$conditions_temp, &$values_temp, 'lu.main_id', $value);
+                    $where = implode(' AND ', $conditions_temp);
+                    
+                    $friends = Doctrine_Query::create()
+                     ->select('a.main_id')
+                     ->from('Association a')
+                     ->leftJoin('a.MainMainAssociation lu')
+                     ->where($where, $where_array)
+                     ->execute(array(), Doctrine::FETCH_ARRAY);
+                    
+                    if (count($friends))
+                    {
+                        $friend_ids = array();
+                        foreach ($friends as $friend)
+                        {
+                            $friend_ids[] = $friend['main_id'];
+                        }
+                        $params_list['friends'] = implode('-', $friend_ids);
+                        self::buildConditionItem($conditions, $values, 'Multilist', array('lu', 'main_id'), 'friends', $join_id, false, $params_list);
+                    }
+                }
             }
             self::buildConditionItem($conditions, $values, 'String', $m . 'i.search_name', ($is_module ? array('unam', 'name') : 'unam'), $join_i18n, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', 'upd.search_username', 'ufnam', $join_private_data, false, $params_list);
@@ -242,6 +272,12 @@ class User extends BaseUser
 
         // criteria for disabling personal filter
         self::buildPersoCriteria($conditions, $values, $params_list, 'ucult');
+
+        // criteria to hide users whithout public profile
+        if (!sfContext::getInstance()->getUser()->isConnected())
+        {
+            $conditions[] = 'upd.is_profile_public IS TRUE';
+        }
         
         // return if no criteria
         $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
@@ -253,7 +289,7 @@ class User extends BaseUser
         // area criteria
         self::buildAreaCriteria($conditions, $values, $params_list, 'u');
         
-        // outing criteria
+        // user criteria
         User::buildUserListCriteria(&$conditions, &$values, $params_list, true);
        
         // outing criteria
@@ -270,11 +306,6 @@ class User extends BaseUser
         
         // user criteria
         self::buildConditionItem($conditions, $values, 'List', 'lr.main_id', 'friends', 'join_route_id', false, $params_list);
-
-        if (!sfContext::getInstance()->getUser()->isConnected())
-        {
-            $conditions[] = 'upd.is_profile_public IS TRUE';
-        }
 
         if (!empty($conditions))
         {
@@ -413,6 +444,7 @@ class User extends BaseUser
             || isset($conditions['join_outing'])
             || isset($conditions['join_outing_i18n'])
             || isset($conditions['join_otag_id'])
+            || isset($conditions['join_friend_id'])
         )
         {
             Outing::buildOutingPagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'uo');
@@ -440,6 +472,12 @@ class User extends BaseUser
                 {
                     Summit::buildSummitPagerConditions($q, $conditions, false, false, 'lr.MainAssociation', 'sr');
                 }
+            }
+            
+            if (isset($conditions['join_friend_id']))
+            {
+                $q->leftJoin('lo.MainMainAssociation lu');
+                unset($conditions['join_friend_id']);
             }
         }
 
