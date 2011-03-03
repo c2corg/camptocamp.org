@@ -5,17 +5,15 @@ $validation = sfConfig::get('app_images_validation');
 ?>
 <div id="image_upload">
 <div id="plupload_tips" class="tips">
-<div id="plupload_ondrag" style="visibility:hidden;"><p><?php echo __('plupload drop') ?></p></div>
+<div id="plupload_ondrag" style="opacity:0;"><p><?php echo __('plupload drop') ?></p></div>
 <div id="plupload_normal">
-<?php
-// TODO
-echo __('You can add %1%, with %3% x %2% px and %4% mo',
+<?php echo __('plupload introduction text',
               array('%1%' => implode(', ', $validation['file_extensions']),
                     '%2%' => $validation['max_size']['height'],
                     '%3%' => $validation['max_size']['width'],
-                    '%4%' => $validation['weight'] / pow(1024, 2)))
-    . ' ' .
-    __('Minsize is %1% x %2%', array('%1%' => $validation['min_size']['height'], '%2%' => $validation['min_size']['width']));
+                    '%4%' => $validation['weight'] / pow(1024, 2),
+                    '%5%' => $validation['min_size']['height'],
+                    '%6%' => $validation['min_size']['width']))
 ?>
 </div></div>
 <div id="container">
@@ -38,7 +36,7 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 <?php
 $backup_url = url_for("@image_jsupload?mod=$mod&document_id=$document_id");
 $backup_js = '/'.sfTimestamp::getTimestamp('/static/js/image_upload.js').javascript_path('/static/js/image_upload.js');
-echo javascript_tag("var plupload_i18n = { badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."', sending: '".__('plupload sending')."', waiting: '".__('plupload waiting')."', serverop: '".__('plupload serverop')."' };
+echo javascript_tag("var plupload_i18n = { badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."', sending: '".__('plupload sending')."', waiting: '".__('plupload waiting')."', serverop: '".__('plupload serverop')."', cancel: '".__('cancel')."' };
 new PeriodicalExecuter(PlUploadWrapper.validateImageForms, 1);
 PlUploadWrapper.init('/images/addpltempimage/mod/$mod/document_id/$document_id', '$backup_url', '$backup_js', plupload_i18n);");
 ?>

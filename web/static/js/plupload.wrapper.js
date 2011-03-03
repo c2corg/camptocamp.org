@@ -2,9 +2,11 @@ PlUploadWrapper = {
 
   /**
    * TODO / notes:
-   * - html5 runtime is currently only available for firefox 3.5+, since other browser don't support multipart and image resizing
+   * - html5 runtime is currently only available for firefox 3.5+ and chrome 9+, since other browser don't support multipart and image resizing
+   * - chrome 9 resizing jpegs as pngs, so that images produced are often bigger than 2M
    * - flash and silverlight runtimes disabled as long as they do not support exif
-   * - add some server side work to enhance image quality? (resized images are somewhat ugly)
+   * - add some server side work to enhance image quality?
+   * - use exif detection to autorotate images that would need it?
    * - better behaviour for SVGs (eg enable chunking for file >2mB)
    * - propose events for resize start and end to plupload
    */
@@ -42,9 +44,9 @@ PlUploadWrapper = {
         delt.style.height = (nelt.getHeight() - 12) + 'px';
         delt.style.width = (nelt.getWidth() - 12) + 'px';
         plupload.addEvent(window, 'dragenter',
-                          function() { delt.style.visibility = 'visible'; });
+                          function() { delt.style.opacity = 1; });
         plupload.addEvent(window, 'dragleave',
-                          function() { delt.style.visibility = 'hidden'; });
+                          function() { delt.style.opacity = 0; });
       }
     });
 
@@ -74,12 +76,15 @@ PlUploadWrapper = {
 
     uploader.init();
 
+    PlUploadWrapper.uploader = uploader;
+
     uploader.bind('BeforeUpload', function(up, file) {
       // increment image_number
       PlUploadWrapper.image_number++;
 
       if ($(file.id).down('b')) {
         $(file.id).down('b').replace('<b>' + PlUploadWrapper.i18n.sending + '</b>');
+        $(file.id).down('a').remove();
       }
 
 
@@ -105,12 +110,15 @@ PlUploadWrapper = {
         if (file.status != plupload.FAILED) {
           var progressBarDiv = new Element('div', { 'class': 'plupload_progress_bar' });
           var progressDiv = new Element('div', { 'class': 'plupload_progress' });
-          var loadingText = new Element('span', { 'class': 'plupload_text' }).update(
-                file.name + ' <b>' + PlUploadWrapper.i18n.waiting + '</b>');
+          var loadingText = new Element('span', { 'class': 'plupload_text' })
+                  .update(file.name + ' <b>' + PlUploadWrapper.i18n.waiting + '</b> ');
+          var cancelLink = new Element('a', { href: '#', onclick: 'PlUploadWrapper.cancelUpload(\'' + file.id + '\')' })
+                  .update(PlUploadWrapper.i18n.cancel);
           var loadingDiv = new Element('div', { id: file.id });
           progressBarDiv.appendChild(progressDiv);
           loadingDiv.appendChild(progressBarDiv);
           loadingDiv.appendChild(loadingText);
+          loadingDiv.appendChild(cancelLink);
           $('files_to_upload').insert({ top: loadingDiv });
         }
       });
@@ -161,6 +169,11 @@ PlUploadWrapper = {
     elt.update(div);
     new Effect.Highlight(elt);
     Modalbox.resizeToContent();
+  },
+
+  cancelUpload: function (file) {
+    PlUploadWrapper.uploader.removeFile(PlUploadWrapper.uploader.getFile(file));
+    $(file).remove();
   },
 
   // same function as in images_upload.js
