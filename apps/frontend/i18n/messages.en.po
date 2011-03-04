@@ -104,6 +104,10 @@ msgstr "Activate map search"
 msgid "Add"
 msgstr "Add"
 
+# [WARNING] needs_review
+msgid "Add a post"
+msgstr "Add a post"
+
 msgid "Add associated summit :"
 msgstr "Add associated summit:"
 
@@ -1415,8 +1419,14 @@ msgstr "Move"
 msgid "My Camptocamp"
 msgstr "My Camptocamp"
 
+msgid "My images"
+msgstr "My images"
+
 msgid "My outing: "
 msgstr "My outing: "
+
+msgid "My outings"
+msgstr "My outings"
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
@@ -1567,11 +1577,19 @@ msgstr "Outing Wizard"
 msgid "Outing not found"
 msgstr "This outing doesn’t exist"
 
+# [WARNING] needs_review
+msgid "Outings linked to linked routes"
+msgstr "Outings linked to linked routes"
+
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
 # [WARNING] needs_review
 msgid "Outings linked to these images"
 msgstr "Outings linked to these images"
+
+# [WARNING] needs_review
+msgid "Outings linked to this route"
+msgstr "Outings linked to this route"
 
 msgid "PD"
 msgstr "PD"
@@ -2420,6 +2438,7 @@ msgstr "Yahoo! Maps"
 
 # [general comment]
 # Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
+# [WARNING] needs_update
 msgid "Year and day are optional"
 msgstr "Year and day are optional."
 
@@ -4045,9 +4064,9 @@ msgstr "The file couldn't be uploaded properly or exceeds the authorized weight 
 
 # [general comment]
 # File failed to get transmitted, most probably because plupload failed to resize it correctly (even when resized, image is too big)
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "file failed to upload, probable resize error"
-msgstr "Le fichier n'a pas pu être transmis, probablement car nous n'avons pas réussi à le redimensionner correctement. Vous pouvez essayer de le redimensionner vous-même avant de l'envoyer, ou contacter les responsables du site"
+msgstr "The file could not be transmitted. Possibly, due to the fact that we could not redimension it correctly. You may try to redimension the file before uploading it or you may contact the site's administrators."
 
 msgid "file has incorrect type"
 msgstr "the picture file has incorrect type (posible formats are jpeg, gif, svg, png)"
@@ -4060,9 +4079,9 @@ msgstr "the file is too big (maximum size is 2 Mo)"
 
 # [general comment]
 # Quite the same as "file failed to upload, probable resize error"
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "file is too big, probable resize error"
-msgstr "Le fichier n'a pas pu être ajouté, car nous n'avons pas réussi à le redimensionner correctement. Vous pouvez essayer de le redimensionner vous-même avant de l'envoyer, ou contacter les responsables du site"
+msgstr "The file could not be added due to the fact that we could not resize it properly. You may try to reduce the size of the file yourself before uploading, or you may contact the site's administrators."
 
 msgid "file is too large"
 msgstr "the file is too large (maximum size is 8192x2048 px)"
@@ -5206,9 +5225,9 @@ msgstr "please enter a number"
 
 # [general comment]
 # Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "plupload bad selection"
-msgstr "Le fichier est n\\'est pas d\\'un type autorisé, ou il ne peut être redimensionné et est trop gros."
+msgstr "The file format is not allowed, or the file could not be resized and is thus too big."
 
 # [general comment]
 # Drag & drop pour l'upload d'images
@@ -5226,23 +5245,25 @@ msgstr "Vous pouvez ajouter des '%1%'. La taille minimale est %4% x %5% px. Les 
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
-# [WARNING] fr translation used
+# [comment]
+# or "Transmitting..."?
+# [WARNING] needs_review
 msgid "plupload sending"
-msgstr "Envoi..."
+msgstr "Sending..."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "plupload serverop"
-msgstr "Traitement par le serveur"
+msgstr "Processing by the server"
 
 # [general comment]
 # Erreur non prévue dans plupload
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "plupload unknown"
-msgstr "Le fichier n\\'a pas pu être chargé"
+msgstr "The file could not be loaded"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "plupload waiting"
-msgstr "En attente"
+msgstr "waiting"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

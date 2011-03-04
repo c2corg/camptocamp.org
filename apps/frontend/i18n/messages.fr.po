@@ -106,6 +106,9 @@ msgstr "Restreindre la recherche aux limites de la carte"
 msgid "Add"
 msgstr "Ajouter"
 
+msgid "Add a post"
+msgstr "Poster un message"
+
 msgid "Add associated summit :"
 msgstr "Ajouter un sommet lié&nbsp;:"
 
@@ -1414,8 +1417,14 @@ msgstr "Déplacer"
 msgid "My Camptocamp"
 msgstr "Mon Camptocamp"
 
+msgid "My images"
+msgstr "Mes images"
+
 msgid "My outing: "
 msgstr "Ma sortie&nbsp;: "
+
+msgid "My outings"
+msgstr "Mes sorties"
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
@@ -1566,11 +1575,19 @@ msgstr "Assistant de création de sortie"
 msgid "Outing not found"
 msgstr "Cette sortie n'existe pas."
 
+# [WARNING] needs_review
+msgid "Outings linked to linked routes"
+msgstr "Sorties associées aux variantes"
+
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
 # [WARNING] needs_review
 msgid "Outings linked to these images"
 msgstr "Sorties associées à ces images"
+
+# [WARNING] needs_review
+msgid "Outings linked to this route"
+msgstr "Sorties associées à l'itinéraire de cette page"
 
 msgid "PD"
 msgstr "PD"
@@ -2414,7 +2431,7 @@ msgstr "Yahoo! Maps"
 # [general comment]
 # Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
 msgid "Year and day are optional"
-msgstr "L'année et le jour sont facultatifs."
+msgstr "Tous les champs sont facultatifs."
 
 msgid "You are already connected !"
 msgstr "Vous êtes déjà connecté&nbsp;!"
@@ -4045,7 +4062,7 @@ msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite 
 # File failed to get transmitted, most probably because plupload failed to resize it correctly (even when resized, image is too big)
 # [WARNING] needs_review
 msgid "file failed to upload, probable resize error"
-msgstr "Le fichier n'a pas pu être transmis, probablement car nous n'avons pas réussi à le redimensionner correctement. Vous pouvez essayer de le redimensionner vous-même avant de l'envoyer, ou contacter les responsables du site"
+msgstr "Le fichier n'a pas pu être transmis, probablement car nous n'avons pas réussi à le redimensionner correctement. Vous pouvez essayer de le redimensionner vous-même avant de l'envoyer, ou contacter les responsables du site."
 
 msgid "file has incorrect type"
 msgstr "le fichier image est d'un type non autorisé (seuls les fichiers de type jpeg, gif, png et svg sont autorisés)"
