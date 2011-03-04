@@ -149,6 +149,7 @@ class routesActions extends documentsActions
                     {
                         $routes_outings[] = $outing;
                     }
+                }
             }
             else
             {

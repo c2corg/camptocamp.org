@@ -511,7 +511,7 @@ class Association extends BaseAssociation
         }
         
         return Doctrine_Query::create()
-                             ->select('COUNT(a.linked_id) nb_linked')
+                             ->select('COUNT(DISTINCT a.linked_id) nb_linked')
                              ->from('Association a')
                              ->where($where, $where_array)
                              ->execute()
@@ -535,7 +535,7 @@ class Association extends BaseAssociation
         }
         
         return Doctrine_Query::create()
-                             ->select('COUNT(a.main_id) nb_main')
+                             ->select('COUNT(DISTINCT a.main_id) nb_main')
                              ->from('Association a')
                              ->where($where, $where_array)
                              ->execute()
@@ -673,7 +673,7 @@ class Association extends BaseAssociation
         }
         
         return Doctrine_Query::create()
-                             ->select('a.main_id, a.linked_id')
+                             ->select('DISTINCT a.main_id, a.linked_id')
                              ->from('Association a')
                              ->where($where, $where_array)
                              ->execute(array(), Doctrine::FETCH_ARRAY);
@@ -696,7 +696,7 @@ class Association extends BaseAssociation
         }
         
         return Doctrine_Query::create()
-                             ->select('a.main_id, a.linked_id')
+                             ->select('DISTINCT a.main_id, a.linked_id')
                              ->from('Association a')
                              ->where($where, $where_array)
                              ->execute(array(), Doctrine::FETCH_ARRAY);
@@ -760,7 +760,7 @@ class Association extends BaseAssociation
         }
         
         return Doctrine_Query::create()
-                             ->select('a.main_id, a.linked_id')
+                             ->select('DISTINCT a.main_id, a.linked_id')
                              ->from('Association a')
                              ->where($where, $where_array)
                              ->execute(array(), Doctrine::FETCH_ARRAY);

@@ -239,7 +239,7 @@ class User extends BaseUser
                     $where = implode(' AND ', $conditions_temp);
                     
                     $friends = Doctrine_Query::create()
-                     ->select('a.main_id')
+                     ->select('DISTINCT a.main_id')
                      ->from('Association a')
                      ->leftJoin('a.MainMainAssociation lu')
                      ->where($where, $values_temp)
@@ -247,11 +247,13 @@ class User extends BaseUser
                     
                     if (count($friends))
                     {
+                        $user_ids = explode('-', $value);
                         $friend_ids = array();
                         foreach ($friends as $friend)
                         {
                             $friend_ids[] = $friend['main_id'];
                         }
+                        $friend_ids = array_diff($friend_ids, $user_ids);
                         $params_list['friends'] = implode('-', $friend_ids);
                         self::buildConditionItem($conditions, $values, 'Multilist', array('lu', 'main_id'), 'friends', $join_id, false, $params_list);
                     }
