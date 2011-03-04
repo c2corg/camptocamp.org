@@ -767,7 +767,7 @@ class outingsActions extends documentsActions
         if($this->getUser()->isConnected())
         {
             $user_id = $this->getUser()->getId();
-            $this->redirect('outings/list/users/'.$user_id.'/orderby/date/order/desc');
+            $this->redirect('@default?module=outings&action=list&users='.$user_id.'orderby=date&order=desc');
         }
         else
         {

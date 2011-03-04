@@ -861,7 +861,7 @@ class imagesActions extends documentsActions
         if($this->getUser()->isConnected())
         {
             $user_id = $this->getUser()->getId();
-            $this->redirect('images/list/users/'.$user_id);
+            $this->redirect('@default?module=images&action=list&users='.$user_id);
         }
         else
         {
