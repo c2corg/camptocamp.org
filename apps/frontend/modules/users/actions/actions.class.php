@@ -380,7 +380,7 @@ class usersActions extends documentsActions
         if($this->getUser()->isConnected())
         {
             $user_id = $this->getUser()->getId();
-            $this->redirect('users/'.$user_id);
+            $this->redirect('@document_by_id?module=users&action=view&id='.$user_id);
         }
         else
         {
