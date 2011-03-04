@@ -242,7 +242,7 @@ class User extends BaseUser
                      ->select('a.main_id')
                      ->from('Association a')
                      ->leftJoin('a.MainMainAssociation lu')
-                     ->where($where, $where_array)
+                     ->where($where, $values_temp)
                      ->execute(array(), Doctrine::FETCH_ARRAY);
                     
                     if (count($friends))

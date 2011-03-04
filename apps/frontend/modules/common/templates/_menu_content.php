@@ -229,6 +229,9 @@ show_select=function()
                    . $sublevel_start ?>
                 <ul>
                     <li><?php
+                        echo picto_tag('picto_images')
+                           . link_to(__('Collaborative images'), 'images/list?ityp=1') ?></li>
+                    <li><?php
                         echo picto_tag('action_query')
                            . link_to(__('Search'), '@filter?module=images') ?></li>
                     <li class="lilast"><?php
@@ -276,6 +279,12 @@ show_select=function()
                     <li><?php
                         echo picto_tag('picto_users')
                            . link_to(__('personal page'), 'users/mypage') ?></li>
+                    <li><?php
+                        echo picto_tag('picto_outings')
+                           . link_to(__('My outings'), 'outings/myoutings') ?></li>
+                    <li><?php
+                        echo picto_tag('picto_images')
+                           . link_to(__('My images'), 'images/myimages') ?></li>
                     <?php endif ?>
                     <li><?php
                         echo picto_tag('picto_tools')
@@ -341,6 +350,9 @@ show_select=function()
                     <li><?php
                         echo picto_tag('action_list')
                            . f_link_to(__('My topics'), 'search.php?action=show_user') ?></li>
+                    <li><?php
+                        echo picto_tag('action_create')
+                           . link_to(__('Add a post'), getMetaArticleRoute('help_forum') . '#create-topic') ?></li>
                     <li><?php
                         echo picto_tag('action_edit')
                            . f_link_to(__('User profile'), 'profile.php?section=personality') ?></li>

@@ -760,4 +760,18 @@ class outingsActions extends documentsActions
     {
         $this->forward('outings', 'filter');
     }
+
+    public function executeMyOutings()
+    {
+        // redirect to user outings list if connected
+        if($this->getUser()->isConnected())
+        {
+            $user_id = $this->getUser()->getId();
+            $this->redirect('outings/list/users/'.$user_id.'/orderby/date/order/desc');
+        }
+        else
+        {
+            $this->redirect('@login');
+        }
+    }
 }

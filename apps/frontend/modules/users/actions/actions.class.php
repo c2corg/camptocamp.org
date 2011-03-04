@@ -376,17 +376,16 @@ class usersActions extends documentsActions
 
     public function executeMyPage()
     {
-       // redirect to user page if connected
-       if($this->getUser()->isConnected())
-       {
-           $user_id = $this->getUser()->getId();
-           $this->redirect('users/'.$user_id);
-       }
-       else
-       {
-           $this->redirect('@login');
-       }
-       
+        // redirect to user page if connected
+        if($this->getUser()->isConnected())
+        {
+            $user_id = $this->getUser()->getId();
+            $this->redirect('users/'.$user_id);
+        }
+        else
+        {
+            $this->redirect('@login');
+        }
     }
 
     /**

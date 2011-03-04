@@ -854,4 +854,18 @@ class imagesActions extends documentsActions
         }
         return true;
     }
+
+    public function executeMyImages()
+    {
+        // redirect to user images list if connected
+        if($this->getUser()->isConnected())
+        {
+            $user_id = $this->getUser()->getId();
+            $this->redirect('images/list/users/'.$user_id);
+        }
+        else
+        {
+            $this->redirect('@login');
+        }
+    }
 }

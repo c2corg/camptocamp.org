@@ -162,6 +162,25 @@ if ($is_not_archive && $is_not_merged)
     }
     else
     {
+        if (!isset($nb_main_outings))
+        {
+            $nb_main_outings = $nb_outings;
+        }
+        if (!isset($nb_routes_outings))
+        {
+            $nb_routes_outings = 0;
+        }
+        
+        // main outings
+        if ($nb_main_outings > 100 || $nb_routes_outings > 0)
+        {
+        echo '<p>'
+           . __('Outings linked to this route')
+           . ($nb_main_outings > 100 ? ' (100/' . $nb_main_outings . ')' : '')
+           . __('$nbsp;:')
+           . '</p>';
+        }
+        
         foreach ($associated_outings as $count => $associated_outings_group): ?>
             <div id="outings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
             <ul class="children_docs"> 
@@ -193,7 +212,50 @@ if ($is_not_archive && $is_not_merged)
            </div>
         <?php endforeach;
         
-        include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'routes', 'nb_outings' => $nb_outings));
+        include_partial('outings/linked_outings', array('id' => $id, 'module' => 'routes', 'nb_outings' => $nb_main_outings));
+        
+        // routes outings
+        if ($nb_routes_outings > 0)
+        {
+        echo '<p><br />'
+           . __('Outings linked to linked routes')
+           . ($nb_routes_outings > 10 ? ' (10/' . $nb_routes_outings . ')' : '')
+           . __('$nbsp;:')
+           . '</p>';
+        }
+        
+        foreach ($routes_outings as $count => $associated_outings_group): ?>
+            <div id="routings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
+            <ul class="children_docs"> 
+            <?php foreach ($associated_outings_group as $outing): ?>
+                <li class="child_summit"> 
+                <?php
+                $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
+                $georef = '';
+                if (!$outing->getRaw('geom_wkt') instanceof Doctrine_Null)
+                {
+                    $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
+                }
+                echo link_to($outing->get('name'), 
+                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .  
+                     ' - ' . field_activities_data($outing, true, false) .
+                     ' - ' . field_raw_date_data($outing, 'date') .
+                     $georef .
+                     ' - ' . link_to($author_info['topo_name'],
+                                     '@document_by_id?module=users&id=' . $author_info['id']) .
+                     (isset($outing['nb_images']) ? 
+                         ' - ' . picto_tag('picto_images', __('nb_linked_images')) . '&nbsp;' . $outing['nb_images']
+                         : '');
+                ?>
+                </li>
+            <?php endforeach ?>
+           </ul>
+           <?php if (count($routes_outings) > 1)
+                     echo simple_pager_navigation($count, count($routes_outings), 'routings_group_'); ?>
+           </div>
+        <?php endforeach;
+        
+        include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'routes', 'nb_outings' => $routes_outings));
     }
 
     if ($show_link_tool)

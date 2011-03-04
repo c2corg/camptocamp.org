@@ -80,20 +80,20 @@ class routesActions extends documentsActions
             }
             $this->associated_summits = $associated_summits;
             
+            $outing_ids = array();
             if (count($route_ids))
             {
-                $associated_route_outings = array_filter($associated_childs, array('c2cTools', 'is_outing'));
-                if (count($associated_route_outings))
+                $associated_routes_outings = array_filter($associated_childs, array('c2cTools', 'is_outing'));
+                if (count($associated_routes_outings))
                 {
                     $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
                     if (count($associated_outings))
                     {
-                        $outing_ids = array();
                         foreach ($associated_outings as $outing)
                         {
                             $outing_ids[] = $outing['id'];
                         }
-                        foreach ($associated_route_outings as $outing)
+                        foreach ($associated_routes_outings as $outing)
                         {
                             if (!in_array($outing['id'], $outing_ids))
                             {
@@ -103,7 +103,7 @@ class routesActions extends documentsActions
                     }
                     else
                     {
-                        $associated_outings = $associated_route_outings;
+                        $associated_outings = $associated_routes_outings;
                     }
                 }
             }
@@ -134,20 +134,56 @@ class routesActions extends documentsActions
                 $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
             }
             $associated_outings = Outing::fetchAdditionalFields($associated_outings, true, true);
-            $this->nb_outings = count($associated_outings);
             // sort outings
             usort($associated_outings, array('c2cTools', 'cmpDate'));
-            // group them by blocks
+            if (count($associated_routes_outings))
+            {
+                $main_outings = $routes_outings = array();
+                foreach ($associated_outings as $outing)
+                {
+                    if (in_array($outing['id'], $outing_ids))
+                    {
+                        $main_outings[] = $outing;
+                    }
+                    else
+                    {
+                        $routes_outings[] = $outing;
+                    }
+            }
+            else
+            {
+                $main_outings = $associated_outings;
+                $routes_outings = array();
+            }
+            
+            
+            $nb_outings = count($associated_outings);
+            $this->nb_outings = count($associated_outings);
+            $this->nb_main_outings = count($main_outings);
+            $this->nb_routes_outings = count($routes_outings);
+            
+            // group main_outings  by blocks
             $outings_limit = sfConfig::get('app_users_outings_limit');
             $a = array();
             $i = 0;
-            while (count($associated_outings) - $i*$outings_limit > $outings_limit)
+            while ($i < 9 && count($main_outings) - $i * $outings_limit > $outings_limit)
             {
-                $a[] = array_slice($associated_outings, $i * $outings_limit, $outings_limit);
+                $a[] = array_slice($main_outings, $i * $outings_limit, $outings_limit);
                 $i++;
             }
-            $a[] = array_slice($associated_outings, $i * $outings_limit);
+            $a[] = array_slice($main_outings, $i * $outings_limit);
             $this->associated_outings = $a;
+            
+            // group routes_outings  by blocks
+            $a = array();
+            $i = 0;
+            while ($i < 0 && count($routes_outings) - $i * $outings_limit > $outings_limit)
+            {
+                $a[] = array_slice($routes_outings, $i * $outings_limit, $outings_limit);
+                $i++;
+            }
+            $a[] = array_slice($routes_outings, $i * $outings_limit);
+            $this->routes_outings = $a;
             
             $related_portals = array();
             $activities = $this->document->get('activities');

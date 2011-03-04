@@ -153,4 +153,18 @@ class articlesActions extends documentsActions
 
         return $out;
     }
+
+    public function executeMyArticles()
+    {
+        // redirect to user outings list if connected
+        if($this->getUser()->isConnected())
+        {
+            $user_id = $this->getUser()->getId();
+            $this->redirect('articles/list/users/'.$user_id);
+        }
+        else
+        {
+            $this->redirect('@login');
+        }
+    }
 }

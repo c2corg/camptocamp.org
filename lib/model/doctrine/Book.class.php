@@ -73,7 +73,7 @@ class Book extends BaseBook
         $has_id = false;
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, 'List', 'm.id', array('books', 'id'), null, false, $params_list);
+            $has_id = self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
         }
         
         if (!$has_id)

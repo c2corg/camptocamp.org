@@ -245,6 +245,18 @@ mypage:
   url: /users/mypage
   param: { module: users, action: myPage }
 
+myoutings:
+  url: /outings/myoutings
+  param: { module: outings, action: myOutings }
+
+myimages:
+  url: /images/myimages
+  param: { module: images, action: myImages }
+
+myarticles:
+  url: /articles/myarticles
+  param: { module: articles, action: myArticles }
+
 document_edit_archive:
   url: /:module/edit/:id/:lang/:version
   param: { action: edit }
