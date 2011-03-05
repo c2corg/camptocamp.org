@@ -224,8 +224,8 @@ class usersActions extends documentsActions
         else
         {
             // control if the user exists
-            $login_name = strtolower($this->getRequestParameter('login_name'));
-            $password = $this->getRequestParameter('password');
+            $login_name = strtolower(trim($this->getRequestParameter('login_name')));
+            $password = trim($this->getRequestParameter('password'));
 
             if (!$user->signIn($login_name, $password, $this->getRequestParameter('remember'), false))
             {
@@ -282,8 +282,8 @@ class usersActions extends documentsActions
 
             if ($this->getRequest()->getMethod() == sfRequest::POST)
             {
-                $login_name = $this->getRequestParameter('login_name');
-                $email = $this->getRequestParameter('email');
+                $login_name = trim($this->getRequestParameter('login_name'));
+                $email = trim($this->getRequestParameter('email'));
 
                 // generate password
                 $password = UserPrivateData::generatePwd();
@@ -327,7 +327,7 @@ class usersActions extends documentsActions
         }
         else
         {
-            $loginNameOrEmail = $this->getRequestParameter('loginNameOrEmail');
+            $loginNameOrEmail = trim($this->getRequestParameter('loginNameOrEmail'));
 
             // attend to retrieve user
             $user_private_data = UserPrivateData::retrieveByLoginNameOrEmail($loginNameOrEmail);
@@ -364,14 +364,14 @@ class usersActions extends documentsActions
     {
         // some code for template if needed
         $this->password = $this->getRequest()->getAttribute('password');
-        $this->login_name = $this->getRequest()->getAttribute('login_name');
+        $this->login_name = trim($this->getRequest()->getAttribute('login_name'));
     }
 
     public function executeMessageSignupPassword()
     {
         // some code for template if needed
         $this->password = $this->getRequest()->getAttribute('password');
-        $this->login_name = $this->getRequest()->getAttribute('login_name');
+        $this->login_name = trim($this->getRequest()->getAttribute('login_name'));
     }
 
     public function executeMyPage()
@@ -403,10 +403,10 @@ class usersActions extends documentsActions
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
             // user private data update
-            $email = $this->getRequestParameter('email');
-            $password = $this->getRequestParameter('password');
-            $nickname = $this->getRequestParameter('edit_nickname');
-            $toponame = $this->getRequestParameter('edit_topo_name');
+            $email = trim($this->getRequestParameter('email'));
+            $password = trim($this->getRequestParameter('password'));
+            $nickname = trim($this->getRequestParameter('edit_nickname'));
+            $toponame = trim($this->getRequestParameter('edit_topo_name'));
             $is_profile_public = $this->getRequestParameter('is_profile_public');
 
             $conn = sfDoctrine::Connection();
