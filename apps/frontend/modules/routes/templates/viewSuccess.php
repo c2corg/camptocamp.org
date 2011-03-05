@@ -174,11 +174,11 @@ if ($is_not_archive && $is_not_merged)
         // main outings
         if ($nb_main_outings > 100 || $nb_routes_outings > 0)
         {
-        echo '<p>'
-           . __('Outings linked to this route')
-           . ($nb_main_outings > 100 ? ' (100/' . $nb_main_outings . ')' : '')
-           . __('$nbsp;:')
-           . '</p>';
+            echo '<p>'
+               . __('Outings linked to this route')
+               . ($nb_main_outings > 100 ? ' (100/' . $nb_main_outings . ')' : '')
+               . __('&nbsp;:')
+               . '</p>';
         }
         
         foreach ($associated_outings as $count => $associated_outings_group): ?>
@@ -217,11 +217,11 @@ if ($is_not_archive && $is_not_merged)
         // routes outings
         if ($nb_routes_outings > 0)
         {
-        echo '<p><br />'
-           . __('Outings linked to linked routes')
-           . ($nb_routes_outings > 10 ? ' (10/' . $nb_routes_outings . ')' : '')
-           . __('$nbsp;:')
-           . '</p>';
+            echo '<p><br />'
+               . __('Outings linked to linked routes')
+               . ($nb_routes_outings > 10 ? ' (10/' . $nb_routes_outings . ')' : '')
+               . __('&nbsp;:')
+               . '</p>';
         }
         
         foreach ($routes_outings as $count => $associated_outings_group): ?>

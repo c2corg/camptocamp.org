@@ -253,7 +253,7 @@ class User extends BaseUser
                         {
                             $friend_ids[] = $friend['main_id'];
                         }
-                        $friend_ids = array_diff($friend_ids, $user_ids);
+                        $friend_ids = array_unique(array_diff($friend_ids, $user_ids));
                         $params_list['friends'] = implode('-', $friend_ids);
                         self::buildConditionItem($conditions, $values, 'Multilist', array('lu', 'main_id'), 'friends', $join_id, false, $params_list);
                     }

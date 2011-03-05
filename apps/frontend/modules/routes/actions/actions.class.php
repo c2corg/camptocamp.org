@@ -80,7 +80,7 @@ class routesActions extends documentsActions
             }
             $this->associated_summits = $associated_summits;
             
-            $outing_ids = array();
+            $outing_ids = $associated_routes_outings = array();
             if (count($route_ids))
             {
                 $associated_routes_outings = array_filter($associated_childs, array('c2cTools', 'is_outing'));
