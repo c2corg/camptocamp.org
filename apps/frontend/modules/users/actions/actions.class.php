@@ -406,7 +406,9 @@ class usersActions extends documentsActions
             $email = trim($this->getRequestParameter('email'));
             $password = trim($this->getRequestParameter('password'));
             $nickname = trim($this->getRequestParameter('edit_nickname'));
+            $nickname = preg_replace('#\s+#', ' ', $nickname);
             $toponame = trim($this->getRequestParameter('edit_topo_name'));
+            $toponame = preg_replace('#\s+#', ' ', $toponame);
             $is_profile_public = $this->getRequestParameter('is_profile_public');
 
             $conn = sfDoctrine::Connection();
