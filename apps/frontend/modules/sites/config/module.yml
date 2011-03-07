@@ -52,13 +52,13 @@ all:
     list:
       0:
       2: 'N' 
-      4: NW
-      6: W
-      8: SW
-      10: S
-      12: SE
-      14: E
       16: NE
+      14: E
+      12: SE
+      10: S
+      8: SW
+      6: W
+      4: NW
 
   rock_free_ratings:
     list:

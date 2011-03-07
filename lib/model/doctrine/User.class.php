@@ -251,7 +251,7 @@ class User extends BaseUser
                         $friend_ids = array();
                         foreach ($friends as $friend)
                         {
-                            $friend_id = friend['main_id'];
+                            $friend_id = $friend['main_id'];
                             if (!in_array($friend_id, $user_ids))
                             {
                                 $friend_ids[] = $friend_id;

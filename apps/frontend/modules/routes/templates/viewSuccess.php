@@ -140,6 +140,7 @@ include_partial('documents/i18n_section',
                 'images' => $associated_images));
 echo end_section_tag();
 
+// map
 if ($is_not_archive && $is_not_merged)
 {
     $document->parkings = $associated_parkings;
@@ -149,9 +150,9 @@ if ($is_not_archive && $is_not_merged)
 include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section',
                 array('document' => $document));
 
-// associated outings section starts here
 if ($is_not_archive && $is_not_merged)
 {
+    // associated outings section starts here
     echo start_section_tag('Linked outings', 'outings');
     
     if ($nb_outings == 0)
@@ -171,7 +172,7 @@ if ($is_not_archive && $is_not_merged)
             $nb_routes_outings = 0;
         }
         
-        // main outings
+        // main outings (= outings associated to this route)
         if ($nb_main_outings > 100 || $nb_routes_outings > 0)
         {
             echo '<p>'
@@ -212,9 +213,10 @@ if ($is_not_archive && $is_not_merged)
            </div>
         <?php endforeach;
         
+        // main outings list link
         include_partial('outings/linked_outings', array('id' => $id, 'module' => 'routes', 'nb_outings' => $nb_main_outings));
         
-        // routes outings
+        // routes outings (= outings associated to routes associated to this route)
         if ($nb_routes_outings > 0)
         {
             echo '<p><br />'
@@ -222,42 +224,44 @@ if ($is_not_archive && $is_not_merged)
                . ($nb_routes_outings > 10 ? ' (10/' . $nb_routes_outings . ')' : '')
                . __('&nbsp;:')
                . '</p>';
+        
+            foreach ($routes_outings as $count => $associated_outings_group): ?>
+                <div id="routings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
+                <ul class="children_docs"> 
+                <?php foreach ($associated_outings_group as $outing): ?>
+                    <li class="child_summit"> 
+                    <?php
+                    $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
+                    $georef = '';
+                    if (!$outing->getRaw('geom_wkt') instanceof Doctrine_Null)
+                    {
+                        $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
+                    }
+                    echo link_to($outing->get('name'), 
+                                 '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .  
+                         ' - ' . field_activities_data($outing, true, false) .
+                         ' - ' . field_raw_date_data($outing, 'date') .
+                         $georef .
+                         ' - ' . link_to($author_info['topo_name'],
+                                         '@document_by_id?module=users&id=' . $author_info['id']) .
+                         (isset($outing['nb_images']) ? 
+                             ' - ' . picto_tag('picto_images', __('nb_linked_images')) . '&nbsp;' . $outing['nb_images']
+                             : '');
+                    ?>
+                    </li>
+                <?php endforeach ?>
+               </ul>
+               <?php if (count($routes_outings) > 1)
+                         echo simple_pager_navigation($count, count($routes_outings), 'routings_group_'); ?>
+               </div>
+            <?php endforeach;
+            
+            // routes outings list link
+            include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'routes', 'nb_outings' => $nb_routes_outings));
         }
-        
-        foreach ($routes_outings as $count => $associated_outings_group): ?>
-            <div id="routings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
-            <ul class="children_docs"> 
-            <?php foreach ($associated_outings_group as $outing): ?>
-                <li class="child_summit"> 
-                <?php
-                $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
-                $georef = '';
-                if (!$outing->getRaw('geom_wkt') instanceof Doctrine_Null)
-                {
-                    $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
-                }
-                echo link_to($outing->get('name'), 
-                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .  
-                     ' - ' . field_activities_data($outing, true, false) .
-                     ' - ' . field_raw_date_data($outing, 'date') .
-                     $georef .
-                     ' - ' . link_to($author_info['topo_name'],
-                                     '@document_by_id?module=users&id=' . $author_info['id']) .
-                     (isset($outing['nb_images']) ? 
-                         ' - ' . picto_tag('picto_images', __('nb_linked_images')) . '&nbsp;' . $outing['nb_images']
-                         : '');
-                ?>
-                </li>
-            <?php endforeach ?>
-           </ul>
-           <?php if (count($routes_outings) > 1)
-                     echo simple_pager_navigation($count, count($routes_outings), 'routings_group_'); ?>
-           </div>
-        <?php endforeach;
-        
-        include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'routes', 'nb_outings' => $routes_outings));
     }
 
+    // new outing button
     if ($show_link_tool)
     {
         echo '<div class="add_content">'
@@ -268,6 +272,7 @@ if ($is_not_archive && $is_not_merged)
     }
     echo end_section_tag();
 
+    // associated images section
     include_partial('documents/images',
                     array('images' => $associated_images,
                           'document_id' => $id,
@@ -276,6 +281,7 @@ if ($is_not_archive && $is_not_merged)
 
     if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
 
+    // annex docs section
     include_partial('documents/annex_docs', array('related_portals' => $related_portals));
 }
 

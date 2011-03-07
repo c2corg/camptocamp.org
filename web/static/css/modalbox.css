@@ -92,3 +92,8 @@
 	margin: 10px 0;
 	text-align: center;
 }
+
+#MB_content input.long_input
+{
+  width: 60%;
+}

@@ -1412,13 +1412,13 @@ all:
     facings:
       0: 
       1: 'N'
-      2: NW
-      3: W
-      4: SW
-      5: S
-      6: SE
-      7: E
       8: NE
+      7: E
+      6: SE
+      5: S
+      4: SW
+      3: W
+      2: NW
     engagement_ratings:
       0:  
       1: I
