@@ -1081,7 +1081,6 @@ msgstr "Die neue Reihenfolge der Bilder wurde abgespeichert."
 msgid "Images uploaded by this user"
 msgstr "Hochgeladene Bilder des Benutzers"
 
-# [WARNING] needs_review
 msgid "Incidents and accidents database"
 msgstr "Dokumentation von Unfällen und Vorfällen"
 
@@ -4436,7 +4435,6 @@ msgstr "die Datei ist zu gross (Maximal 2 Mo)"
 
 # [general comment]
 # Quite the same as "file failed to upload, probable resize error"
-# [WARNING] needs_review
 msgid "file is too big, probable resize error"
 msgstr "Die Datei konnte nicht hinzugefügt werden, weil wir sie nicht redimensionieren konnten. Sie können versuchen die Datei selbst zu verkleinern bevor sie diese hochladen, oder sie können die Administratoren der Website kontaktieren."
 
@@ -5665,7 +5663,6 @@ msgstr "dieses Feld muß eine Zahl enthalten"
 
 # [general comment]
 # Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
-# [WARNING] needs_review
 msgid "plupload bad selection"
 msgstr "Das Dateiformat ist nicht zulässig, oder die Datei konnte nicht redimensioniert werden und ist zu gross."
 
@@ -5680,27 +5677,22 @@ msgstr "Bilddateien"
 
 # [general comment]
 # text pour plupload, à rapprocher des items 351 et 1529
-# [WARNING] needs_review
 msgid "plupload introduction text"
 msgstr "Sie können '%1%' hinzufügen. Die minimale Grösse beträgt %4% x %5% Pixel. Jpeg- und Png-Dateien werden üblicherweise automatisch in der Bildgrösse angepasst. SVG- und GIF-Dateien müssen aber manuell auf maximal %3% x %2% Pixel et %4% Mb verkleinert werden. <br /><strong>Indem sie Bildmaterial auf camptocamp.org veröffentlichen, akzeptieren sie dieses unter einer <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> oder <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> je nach dem, ob sie das Material als persönlichen oder gemeinschaftlichen Inhalt hochladen.</strong>Jegliches Bildmaterial, welches einem Copyright unterliegt ist nicht zugelassen<br/>Sie können die Bildseite aufrufen, indem sie in der obersten, rechten Ecke des Bildfensters klicken. Auf der Bildseite können sie folgende Änderungen vornehmen:<br/>- Den Titel oder die Beschreibung des Bilds ändern: Klicken sie auf das Register \"Ändern\" linkerhand.<br/>- Ein Bild mit einem anderen Dokument verbinden: Verwenden sie dazu das Werkzeug am unteren Rand der Seite.<br/>- Die Löschung eines Bildes durch die Moderatoren beantragen: Klicken sie \"Auf ein Problem hinweisen\".<br/><span style=\"color: red\">Wenn sie mindestens eine mit einem Stern (*) markierte Kategorie ausgewählt haben, wird das Bild auf der Startseite angezeigt.</span>Siehe in der Hilfe zum <a href=\"/articles/107005\">Album</a>."
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
-# [WARNING] needs_review
 msgid "plupload sending"
 msgstr "Senden..."
 
-# [WARNING] needs_review
 msgid "plupload serverop"
 msgstr "Verarbeitung durch den Server"
 
 # [general comment]
 # Erreur non prévue dans plupload
-# [WARNING] needs_review
 msgid "plupload unknown"
 msgstr "Die Datei konnte nicht geladen werden"
 
-# [WARNING] needs_review
 msgid "plupload waiting"
 msgstr "wartend"
 
