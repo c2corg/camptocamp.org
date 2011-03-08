@@ -7,7 +7,7 @@ class myTopoNameValidator extends sfValidator
 {
     public function execute (&$value, &$error)
     {
-        $value_temp = trim($value):
+        $value_temp = trim($value);
         $value_temp = preg_replace('#\s+#', ' ', $value_temp);
         $query = new Doctrine_Query();
         $query->from('UserPrivateData')->where('topo_name = ?');
