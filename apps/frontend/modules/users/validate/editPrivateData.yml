@@ -21,14 +21,18 @@ fields:
   edit_nickname:
     required:       yes
       msg:          You must specify a nickname
-    sfDoctrineUniqueValidator:
+    myForumNameValidator:
       class:        UserPrivateData
       column:       username
-      unique_error: This nickname already exists. Please choose another one.
+      nickname_unique_error: This nickname already exists. Please choose another one.
   
   edit_topo_name:
     required:       yes
-      msg:          You must specify a full name
+      msg:          You must specify a topo name
     sfStringValidator:
       min:          3
       min_error:    this name is too short (3 characters minimum)
+    myTopoNameValidator:
+      class:        UserPrivateData
+      column:       topo_name
+      topo_name_unique_error: This topo name already exists. Please choose another one.

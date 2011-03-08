@@ -172,7 +172,7 @@ class routesActions extends documentsActions
                 $a[] = array_slice($main_outings, $i * $outings_limit, $outings_limit);
                 $i++;
             }
-            $a[] = array_slice($main_outings, $i * $outings_limit);
+            $a[] = array_slice($main_outings, $i * $outings_limit, $outings_limit);
             $this->associated_outings = $a;
             
             // group routes_outings  by blocks
@@ -183,7 +183,7 @@ class routesActions extends documentsActions
                 $a[] = array_slice($routes_outings, $i * $outings_limit, $outings_limit);
                 $i++;
             }
-            $a[] = array_slice($routes_outings, $i * $outings_limit);
+            $a[] = array_slice($routes_outings, $i * $outings_limit, $outings_limit);
             $this->routes_outings = $a;
             
             $related_portals = array();
