@@ -8,7 +8,7 @@ class myTopoNameValidator extends sfValidator
     {
         $value_temp = preg_replace('#\s+#', ' ', $value);
         $value_temp = trim($value_temp);
-  $user_id = $sf_user->getId();
+        $user_id = sfContext::getInstance()->getUser()->getId();
         $query = new Doctrine_Query();
         $query->from('UserPrivateData')->where('id != ? AND topo_name = ?');
         $res = $query->execute(array($user_id, $value_temp));
