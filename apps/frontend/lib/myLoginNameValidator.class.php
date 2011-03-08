@@ -7,9 +7,10 @@ class myLoginNameValidator extends sfValidator
 {
     public function execute (&$value, &$error)
     {
+        $value_temp = trim($value);
         $query = new Doctrine_Query();
         $query->from('UserPrivateData')->where('login_name = ?');
-        $res = $query->execute(array(strtolower($value)));
+        $res = $query->execute(array(strtolower($value_temp)));
 
         if (sizeof($res))
         {

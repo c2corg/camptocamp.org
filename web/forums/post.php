@@ -235,6 +235,7 @@ if (isset($_POST['form_sent']))
                 };
              }
 		$username = trim($_POST['req_username']);
+        $username = preg_replace('#\s+#', ' ', $username);
 		$email = strtolower(trim(($pun_config['p_force_guest_email'] == '1') ? $_POST['req_email'] : $_POST['email']));
 
 		// Load the register.php/profile.php language files
@@ -509,7 +510,12 @@ if (isset($_POST['form_sent']))
 		// If the posting user is logged in, increment his/her post count
 		if (!$pun_user['is_guest'])
 		{
-			$low_prio = ($db_type == 'mysql') ? 'LOW_PRIORITY ' : '';
+			if ($pun_user['num_posts'] == 0)
+            {
+                
+            }
+            
+            $low_prio = ($db_type == 'mysql') ? 'LOW_PRIORITY ' : '';
 			$db->query('UPDATE '.$low_prio.$db->prefix.'users SET num_posts=num_posts+1, last_post='.$now.' WHERE id='.$pun_user['id']) or error('Unable to update user', __FILE__, __LINE__, $db->error());
 		}
         
