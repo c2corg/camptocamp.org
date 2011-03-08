@@ -124,6 +124,7 @@ msgstr "Add a route"
 msgid "Add your summit"
 msgstr "Add a summit"
 
+# [WARNING] needs_update
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "After subscription you will receive an email with a generated password. To activate account, please login within %1% days"
 
@@ -2159,6 +2160,7 @@ msgstr "Thanks for signing up. You should receive an email with your password so
 msgid "Thanks for using Camptocamp.org!"
 msgstr "Thanks for contributing to Camptocamp!"
 
+# [WARNING] needs_update
 msgid "The Camptocamp.org team"
 msgstr "The Camptocamp team"
 
@@ -2233,6 +2235,10 @@ msgstr "This new routes will be linked with summit '[[summits/%2%|%1%]]' (docume
 msgid "This nickname already exists. Please choose another one."
 msgstr "This nickname already exists. Please choose another one."
 
+# [WARNING] needs_review
+msgid "This topo name already exists. Please choose another one."
+msgstr "This topo name already exists. Please choose another one."
+
 msgid "This user does not have any associated outing."
 msgstr "This user hasn't contributed any outings yet"
 
@@ -2240,7 +2246,7 @@ msgid "This username already exists. Please choose another one."
 msgstr "This username already exists. Please choose another one."
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
-msgstr "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
+msgstr "<b>To activate your account, please login to the website. You will be able to change your password.</b> Inactivated account will be deleted after %1% days."
 
 msgid "To receive a new password, enter your username or your email"
 msgstr "To receive a new password, enter your username or your email"
@@ -2556,6 +2562,14 @@ msgstr "You haven't subscribed to any list yet."
 # this message is displayed when editing a document without providing a required activity
 msgid "You must select at least one activity"
 msgstr "you have to chose at least one activity for this document"
+
+# [WARNING] needs_review
+msgid "You must specify a nickname"
+msgstr "You must specify a nickname."
+
+# [WARNING] needs_review
+msgid "You must specify a topo name"
+msgstr "You must specify a topo name."
 
 # [WARNING] needs_review
 msgid "You must specify an email"

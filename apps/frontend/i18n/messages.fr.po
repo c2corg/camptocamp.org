@@ -130,7 +130,8 @@ msgstr "<b>Quand vous aurez rempli le formulaire ci-dessous, vous recevrez un em
 "<br />\n"
 "Il est important de savoir que le contenu de vos écrits, ainsi que vos pseudos (forum et topoguide), seront visibles sur le net et archivés par des moteurs de recherche. Utiliser vos noms et prénoms comme pseudo vous expose donc à être répertoriés en conséquence par ces moteurs.<br />\n"
 "<br />\n"
-"Il vous sera possible de changer ultérieurement d'e-mail et de pseudo (forum ou topoguide), mais le changement de pseudo forum n'est pas rétroactif."
+"L'adresse e-mail correspondant à votre inscription n'est visible que des modérateurs.<br />\n"
+"Il vous sera possible de changer ultérieurement d'e-mail et de pseudo (forum ou topoguide), mais seuls les changements d'e-mail et de pseudo topoguide sont rétroactifs."
 
 msgid "Alignment"
 msgstr "Alignement&nbsp;:"
@@ -2159,7 +2160,8 @@ msgid "The Camptocamp.org team"
 msgstr "<b>Il est important de savoir que le contenu de vos écrits, ainsi que vos pseudos (forum et topoguide), seront visibles sur le net et archivés par des moteurs de recherche.</b> Utiliser vos noms et prénoms comme pseudo vous expose donc à être répertoriés en conséquence par ces moteurs.<br />\n"
 "<br />\n"
 "Nous vous conseillons de ne communiquer vos coordonnées réellement personnelles qu'en privé, par courriel ou MP, et non sur les forums publics.<br />\n"
-"Il est possible de changer d'e-mail et de pseudo (forum ou topoguide) quand on le souhaite, mais le changement de pseudo forum n'est pas rétroactif.<br />\n"
+"L'adresse e-mail correspondant à votre inscription n'est visible que des modérateurs, et par défaut votre profil n'est visible que des membres de camptocamp.org.<br />\n"
+"Il est possible de changer d'e-mail et de pseudo (forum ou topoguide) quand on le souhaite, mais seuls les changements d'e-mail et de pseudo topoguide sont rétroactifs : tout message posté sur le forum sera définitivement affiché avec le pseudo forum en cours lors du postage.<br />\n"
 "<br />\n"
 "camptocamp.org considère que cet avertissement préalable à l’utilisation du site suffit pour ne pas avoir à accéder à d’éventuelles demandes de suppression de messages ou de commentaires d'utilisateurs n'ayant pas tenu compte des recommandations données ci-dessus.<br />\n"
 "<br />\n"
@@ -2237,6 +2239,10 @@ msgstr "Ce nouvel itinéraire sera associé au sommet '[[summits/%2%|%1%]]' (doc
 
 msgid "This nickname already exists. Please choose another one."
 msgstr "Ce pseudonyme existe déjà. Merci d'en choisir un autre."
+
+# [WARNING] needs_review
+msgid "This topo name already exists. Please choose another one."
+msgstr "Ce nom topoguide existe déjà. Merci d'en choisir un autre."
 
 msgid "This user does not have any associated outing."
 msgstr "Cet utilisateur n'a pas encore saisi de sortie."
@@ -2561,6 +2567,13 @@ msgstr "Vous n'êtes abonné à aucune liste."
 # this message is displayed when editing a document without providing a required activity
 msgid "You must select at least one activity"
 msgstr "vous devez choisir au moins une activité pour ce document"
+
+# [WARNING] needs_review
+msgid "You must specify a nickname"
+msgstr "Vous devez préciser un pseudonyme affiché dans le forum."
+
+msgid "You must specify a topo name"
+msgstr "Vous devez préciser un nom affiché dans le topoguide."
 
 msgid "You must specify an email"
 msgstr "Vous devez spécifier une adresse email."

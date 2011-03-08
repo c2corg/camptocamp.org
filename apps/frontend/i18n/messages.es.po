@@ -124,6 +124,7 @@ msgstr "Añada su itinerario"
 msgid "Add your summit"
 msgstr "Añada su cima"
 
+# [WARNING] needs_update
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Una vez rellenado el siguiente formulario recibirá un email con su contraseña. Para que su cuenta sea validada deberá conectarte antes de %1% días."
 
@@ -2148,6 +2149,7 @@ msgstr "Gracias por su suscripción! En unos minutos recibirá su contraseña po
 msgid "Thanks for using Camptocamp.org!"
 msgstr "¡Gracias por su contribución a Camptocamp.org!"
 
+# [WARNING] needs_update
 msgid "The Camptocamp.org team"
 msgstr "El equipo de Camptocamp.org"
 
@@ -2222,6 +2224,10 @@ msgstr "Este nuevo itinerario se asociará con la cima '[[summits/%2%|%1%]]' (do
 msgid "This nickname already exists. Please choose another one."
 msgstr "Este seudónimo ya existe. Gracias por elegir otro."
 
+# [WARNING] needs_review
+msgid "This topo name already exists. Please choose another one."
+msgstr "Este nombre ya existe. Tienes que elegir otro por favor."
+
 msgid "This user does not have any associated outing."
 msgstr "Este usuario ya no ha entrado ninguna salida."
 
@@ -2229,7 +2235,7 @@ msgid "This username already exists. Please choose another one."
 msgstr "Este nombre de usuario ya existe. Tienes que elegir otro por favor."
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
-msgstr "Para confirmar la creación de su cuenta, tiene que identificarse utilizando sus datos de conexión. En cualquier momento podrá cambiar su contraseña. En caso de no detectar ninguna actividad de su parte, esta cuenta se destruirá al cabo de %1% días."
+msgstr "<b>Para confirmar la creación de su cuenta, tiene que identificarse utilizando sus datos de conexión. En cualquier momento podrá cambiar su contraseña.</b> En caso de no detectar ninguna actividad de su parte, esta cuenta se destruirá al cabo de %1% días."
 
 msgid "To receive a new password, enter your username or your email"
 msgstr "Para recibir una nueva contraseña introduce su nombre de usuario y su dirección email."
@@ -2544,6 +2550,14 @@ msgstr "Todavía no te as inscrito a ninguna lista"
 # this message is displayed when editing a document without providing a required activity
 msgid "You must select at least one activity"
 msgstr "debe seleccionar al menos una actividad para este documento"
+
+# [WARNING] en translation used
+msgid "You must specify a nickname"
+msgstr "You must specify a nickname."
+
+# [WARNING] en translation used
+msgid "You must specify a topo name"
+msgstr "You must specify a topo name."
 
 msgid "You must specify an email"
 msgstr "Tienes que especificar una dirección de email."

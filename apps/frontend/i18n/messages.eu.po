@@ -127,6 +127,7 @@ msgstr "Ibilbidea sartu"
 msgid "Add your summit"
 msgstr "Gailurra sartu"
 
+# [WARNING] needs_update
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Ondorengo orrialdea betetzerakoan, zure pasa hitza duen email bat jasoko duzu. %1% engunen barruan konektatu beharko zara zure kontua baieztatua izateko."
 
@@ -2253,6 +2254,7 @@ msgstr "Mila esker zure izen emateagatik! Laster email bat jasoko duzu zure pasa
 msgid "Thanks for using Camptocamp.org!"
 msgstr "Mil esker Camptocamp.org-en parte hartzeagatik!"
 
+# [WARNING] needs_update
 msgid "The Camptocamp.org team"
 msgstr "Camptocamp.org-eko taldea"
 
@@ -2333,6 +2335,10 @@ msgstr "Ibilbide berri honi loturik egongo den gailurra '[[summits/%2%|%1%]]' (d
 msgid "This nickname already exists. Please choose another one."
 msgstr "Izenorde hau dagoeneko erabilia da. Beste bat aukeratu ezazu mesedez."
 
+# [WARNING] es translation used
+msgid "This topo name already exists. Please choose another one."
+msgstr "Este nombre ya existe. Tienes que elegir otro por favor."
+
 msgid "This user does not have any associated outing."
 msgstr "Erabiltzaile honek ez du oraindik irteerarik sortu."
 
@@ -2340,7 +2346,7 @@ msgid "This username already exists. Please choose another one."
 msgstr "Erabiltzaile izen hau iada erabilia da. Mesedez beste bat erabili."
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
-msgstr "Zure kontuaren sorrera baieztatzeko, ondorengo koneksio informazioen bitartez identifikatu web gunean. Nahi ezkero, pasa hitza aldatzeko aukera izango duzu. %1% egunetan inolako ekintzarik ez badago, kontua automatikoki ezabatuko da.."
+msgstr "<b>Zure kontuaren sorrera baieztatzeko, ondorengo koneksio informazioen bitartez identifikatu web gunean.</b> Nahi ezkero, pasa hitza aldatzeko aukera izango duzu. %1% egunetan inolako ekintzarik ez badago, kontua automatikoki ezabatuko da.."
 
 msgid "To receive a new password, enter your username or your email"
 msgstr "Pasa hitz berri bat jasotzeko, sartu zure erabiltzaile izena edo zure helbide elektronikoa."
@@ -2685,6 +2691,14 @@ msgstr "Todavía no te as inscrito a ninguna lista"
 # [WARNING] es translation used
 msgid "You must select at least one activity"
 msgstr "debe seleccionar al menos una actividad para este documento"
+
+# [WARNING] en translation used
+msgid "You must specify a nickname"
+msgstr "You must specify a nickname."
+
+# [WARNING] en translation used
+msgid "You must specify a topo name"
+msgstr "You must specify a topo name."
 
 msgid "You must specify an email"
 msgstr "Helbide elektroniko bat eman behar duzu."

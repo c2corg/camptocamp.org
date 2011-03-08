@@ -124,6 +124,7 @@ msgstr "Eine Route hinzufügen"
 msgid "Add your summit"
 msgstr "Ein Gipfel hinzufügen"
 
+# [WARNING] needs_update
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Wenn sie das nachfolgende Formular ausgefüllt haben, erhalten sie eine Email mit Ihren Passwort. Sie müssen sich dann innerhalb %1% Tagen auf der Website einloggen, um Ihr Benutzerkonto zu aktivieren."
 
@@ -2197,6 +2198,7 @@ msgstr "Danke für ihre Anmeldung. Sie erhalten in wenigen Minuten ihr Passwort 
 msgid "Thanks for using Camptocamp.org!"
 msgstr "Danke für Ihren Beitrag auf camptocamp.org!"
 
+# [WARNING] needs_update
 msgid "The Camptocamp.org team"
 msgstr "Das Camptocamp.org-Team"
 
@@ -2271,6 +2273,10 @@ msgstr "Diese neue Route ist dem Gipfel '[[summits/%2%|%1%]]' (Dokument %2%) zug
 msgid "This nickname already exists. Please choose another one."
 msgstr "Dieses Pseudonym existiert schon. Bitte wählen sie ein anderes aus."
 
+# [WARNING] needs_review
+msgid "This topo name already exists. Please choose another one."
+msgstr "Dieser Name existiert bereits. Bitte suchen Sie sich einen anderen aus."
+
 msgid "This user does not have any associated outing."
 msgstr "Dieser Benutzer hat noch keine Tour eingetragen."
 
@@ -2278,7 +2284,7 @@ msgid "This username already exists. Please choose another one."
 msgstr "Dieser Benutzername existiert bereits. Bitte suchen Sie sich einen anderen aus."
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
-msgstr "Um die Erstellung ihres Benutzerprofils zu bestätigen, müssen sie sich auf der Webseite mit ihren Anmeldedaten identifizieren. Falls sie möchten, können sie anschliessend ihr Passwort ändern. Wenn die Identifizierung nicht innerhalb von %1% Tagen geschieht, wird Ihr Benutzerprofil automatisch gelöscht."
+msgstr "<b>Um die Erstellung ihres Benutzerprofils zu bestätigen, müssen sie sich auf der Webseite mit ihren Anmeldedaten identifizieren.</b> Falls sie möchten, können sie anschliessend ihr Passwort ändern. Wenn die Identifizierung nicht innerhalb von %1% Tagen geschieht, wird Ihr Benutzerprofil automatisch gelöscht."
 
 msgid "To receive a new password, enter your username or your email"
 msgstr "Um ein neues Passwort zu erhalten, müssen sie ihren Benutzernamen oder Ihre Email-Adresse angeben."
@@ -2598,6 +2604,14 @@ msgstr "Sie haben keine Mailing-Liste abonniert."
 # this message is displayed when editing a document without providing a required activity
 msgid "You must select at least one activity"
 msgstr "sie müssen mindestens eine Aktivität für dieses Dokument auswählen"
+
+# [WARNING] en translation used
+msgid "You must specify a nickname"
+msgstr "You must specify a nickname."
+
+# [WARNING] en translation used
+msgid "You must specify a topo name"
+msgstr "You must specify a topo name."
 
 msgid "You must specify an email"
 msgstr "Sie müssen eine Email-Adresse angeben."

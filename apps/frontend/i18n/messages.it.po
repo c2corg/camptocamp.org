@@ -124,6 +124,7 @@ msgstr "Aggiungere l'itinerario"
 msgid "Add your summit"
 msgstr "Aggiungere la cima"
 
+# [WARNING] needs_update
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Dopo aver compilato la scheda seguente, sarà inviata una Email con la password, per convalidare il l’account occorre accedere entro %1% giorni."
 
@@ -2154,6 +2155,7 @@ msgstr "Grazie per la registrazione. Tra qualche minuto la password sarà inviat
 msgid "Thanks for using Camptocamp.org!"
 msgstr "Ti ringraziamo per il contributo al sito di Camptocamp.org!"
 
+# [WARNING] needs_update
 msgid "The Camptocamp.org team"
 msgstr "Lo staff di Camptocamp.org"
 
@@ -2228,6 +2230,10 @@ msgstr "Questo nuovo itinerario sarà collegato al la cima '[[summits/%2%|%1%]]'
 msgid "This nickname already exists. Please choose another one."
 msgstr "Questo nickname esiste già. Per favore scegline un altro."
 
+# [WARNING] needs_review
+msgid "This topo name already exists. Please choose another one."
+msgstr "Questo nome topo esiste già. Devi sceglierne un altro."
+
 msgid "This user does not have any associated outing."
 msgstr "Questo utente non ha gite associate."
 
@@ -2235,7 +2241,7 @@ msgid "This username already exists. Please choose another one."
 msgstr "Questo nome utente esiste già. Devi sceglierne un altro."
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
-msgstr "Per confermare la creazione del tuo account, è necessario accedere al sito con le informazioni di connessione allegate. Solo dopo potrai modificare la Password se necessario. Nel caso non venisse conclusa l’operazione, il conto sarà automaticamente annullato dopo %1% giorni."
+msgstr "<b>Per confermare la creazione del tuo account, è necessario accedere al sito con le informazioni di connessione allegate.</b> Solo dopo potrai modificare la Password se necessario. Nel caso non venisse conclusa l’operazione, il conto sarà automaticamente annullato dopo %1% giorni."
 
 msgid "To receive a new password, enter your username or your email"
 msgstr "Per ricevere una nuova password, inserisci il nome utente or l’indirizzo email"
@@ -2551,6 +2557,14 @@ msgstr "Non hai sottoscritto alcuna lista di distribuzione"
 # this message is displayed when editing a document without providing a required activity
 msgid "You must select at least one activity"
 msgstr "devi selezionare al meno una attività per questo documento"
+
+# [WARNING] en translation used
+msgid "You must specify a nickname"
+msgstr "You must specify a nickname."
+
+# [WARNING] en translation used
+msgid "You must specify a topo name"
+msgstr "You must specify a topo name."
 
 msgid "You must specify an email"
 msgstr "Usa un‘altra email."

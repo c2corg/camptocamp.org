@@ -127,6 +127,7 @@ msgstr "Afegeix el teu itinerari"
 msgid "Add your summit"
 msgstr "Afegeix el teu cim"
 
+# [WARNING] needs_update
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Una vegada omplert el següent formulari rebràs un email amb la teva contrasenya. Perquè el teu compte sigui validat hauràs de connectar-te abans de %1% dies."
 
@@ -2293,6 +2294,7 @@ msgstr "Gràcies per la teva inscripció! En uns minuts rebràs la teva contrase
 msgid "Thanks for using Camptocamp.org!"
 msgstr "Gràcies per la teva contribució a Camptocamp.org!"
 
+# [WARNING] needs_update
 msgid "The Camptocamp.org team"
 msgstr "L'equip de Camptocamp.org"
 
@@ -2373,6 +2375,10 @@ msgstr "Aquest nou itinerari estarà associat al cim '[[summits/%2%|%1%]]' (docu
 msgid "This nickname already exists. Please choose another one."
 msgstr "Aquest pseudònim ja existeix. Escull un altre si et plau."
 
+# [WARNING] needs_review
+msgid "This topo name already exists. Please choose another one."
+msgstr "Aquest nom ja existeix. Escull un altre si et plau."
+
 msgid "This user does not have any associated outing."
 msgstr "Aquest usuari encara no ha entrat cap sortida."
 
@@ -2380,7 +2386,7 @@ msgid "This username already exists. Please choose another one."
 msgstr "Aquest nom d'usuari ja existeix. Escull un altre si et plau."
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
-msgstr "Per confirmar la creació del teu compte, cal que t'identifiquis utilitzant les teves dades de connexió. En qualsevol moment podràs canviar la teva contrasenya. En cas de no detectar cap connexió de la teva part aquest compte es destruirà al cap de %1% dies."
+msgstr "<b>Per confirmar la creació del teu compte, cal que t'identifiquis utilitzant les teves dades de connexió. En qualsevol moment podràs canviar la teva contrasenya.</b> En cas de no detectar cap connexió de la teva part aquest compte es destruirà al cap de %1% dies."
 
 msgid "To receive a new password, enter your username or your email"
 msgstr "Per rebre una nova contrasenya introdueix el teu nom d'usuari i la teva adreça email."
@@ -2727,6 +2733,14 @@ msgstr "Todavía no te as inscrito a ninguna lista"
 # [WARNING] es translation used
 msgid "You must select at least one activity"
 msgstr "debe seleccionar al menos una actividad para este documento"
+
+# [WARNING] en translation used
+msgid "You must specify a nickname"
+msgstr "You must specify a nickname."
+
+# [WARNING] en translation used
+msgid "You must specify a topo name"
+msgstr "You must specify a topo name."
 
 msgid "You must specify an email"
 msgstr "Has d'especificar una adreça email."
