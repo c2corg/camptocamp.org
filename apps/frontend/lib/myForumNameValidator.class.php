@@ -11,7 +11,7 @@ class myForumNameValidator extends sfValidator
         $value_temp = preg_replace('#\s+#', ' ', $value_temp);
         $query = new Doctrine_Query();
         $query->from('UserPrivateData')->where('nickname = ?');
-        $res = $query->execute(array(value_temp));
+        $res = $query->execute(array($value_temp));
 
         if (sizeof($res))
         {
