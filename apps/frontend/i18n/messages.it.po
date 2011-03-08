@@ -4965,6 +4965,9 @@ msgstr "informazione non presente"
 msgid "nord_pas_de_calais"
 msgstr "Nord-Passo di Calais"
 
+msgid "norway_counties"
+msgstr "Contee della Norvegia"
+
 msgid "not available"
 msgstr "informazione non disponibile"
 

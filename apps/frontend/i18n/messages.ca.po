@@ -5353,6 +5353,9 @@ msgstr "sin informar"
 msgid "nord_pas_de_calais"
 msgstr "Nord-Pas-de-Calais"
 
+msgid "norway_counties"
+msgstr "Comtats de Noruega"
+
 msgid "not available"
 msgstr "informació no disponible"
 

@@ -5427,6 +5427,10 @@ msgstr "nicht eingetragen"
 msgid "nord_pas_de_calais"
 msgstr "Nord-Pas-de-Calais"
 
+# [WARNING] needs_review
+msgid "norway_counties"
+msgstr "Norwegische Fylker"
+
 msgid "not available"
 msgstr "Information nicht zur Verfügung "
 

@@ -4969,6 +4969,10 @@ msgstr "sin informar"
 msgid "nord_pas_de_calais"
 msgstr "Norte-Paso de Calais"
 
+# [WARNING] needs_review
+msgid "norway_counties"
+msgstr "Fylker noruegos"
+
 msgid "not available"
 msgstr "información no disponible"
 

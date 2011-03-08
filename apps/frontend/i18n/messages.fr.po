@@ -5010,6 +5010,9 @@ msgstr "non renseigné"
 msgid "nord_pas_de_calais"
 msgstr "Nord-Pas-de-Calais"
 
+msgid "norway_counties"
+msgstr "Fylker norvégiens"
+
 msgid "not available"
 msgstr "information non disponible"
 

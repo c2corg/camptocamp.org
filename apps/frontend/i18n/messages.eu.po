@@ -5289,6 +5289,10 @@ msgstr "sin informar"
 msgid "nord_pas_de_calais"
 msgstr "Nord-Pas-de-Calais"
 
+# [WARNING] needs_review
+msgid "norway_counties"
+msgstr "Norvegiaren konderri"
+
 msgid "not available"
 msgstr "informazioa ez dago eskuragarri"
 

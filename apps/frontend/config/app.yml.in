@@ -1152,9 +1152,9 @@ all:
         14397: VD
       us_states:
         250183: 'AL' # Alabama
-        250184: AK # Alaska
-        250185: AZ # etc
-        250186: AR
+        250184: AK   # Alaska
+        250185: AZ   # Arizona
+        250186: AR   # etc
         250187: CA
         250188: CO
         250189: CT
@@ -1203,18 +1203,38 @@ all:
         250232: WY
       canada_provinces:
         252272: 'BC' # British Columbia
-        252273: AB # Alberta
-        252274: MB # Manitoba
-        252275: NB # New Brunswick
-        252276: NL # Newfoundland and Labrador
-        252277: NT # Northwest Territories
-        252278: NS # Nova Scotia
-        252279: NU # Nunavut
-        252280: ON # Ontario
-        252281: PE # Prince Edward Island
-        252282: QC # Quebec
-        252283: SK # Saskatchewan
-        252284: YT # Yukon
+        252273: AB   # Alberta
+        252274: MB   # Manitoba
+        252275: NB   # New Brunswick
+        252276: NL   # Newfoundland and Labrador
+        252277: NT   # Northwest Territories
+        252278: NS   # Nova Scotia
+        252279: NU   # Nunavut
+        252280: ON   # Ontario
+        252281: PE   # Prince Edward Island
+        252282: QC   # Quebec
+        252283: SK   # Saskatchewan
+        252284: YT   # Yukon
+      norway_counties:
+        263228: '01' # Ostfold
+        263247: '02' # Akershus
+        263246: '03' # Oslo
+        263244: '04' # Hedmark
+        263245: '05' # Oppland
+        263242: '06' # Buskerud
+        263241: '07' # Vestfold
+        263240: '08' # Telemark
+        263239: '09' # Aust-Agder
+        263238: 10   # Vest-Agder
+        263237: 11   # Rogaland
+        263236: 12   # Hordaland
+        263235: 14   # Sogn og Fjordane
+        263234: 15   # More og Romsdal
+        263233: 16   # Sor-Trondelag
+        263232: 17   # Nord-Trondelag
+        263231: 18   # Nordland
+        263230: 19   # Troms
+        263229: 20   # Finnmark
     suffix_france:
       14370: '01'
       14364: '02'
