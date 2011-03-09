@@ -104,16 +104,14 @@ msgstr "Attiva la ricerca cartografica"
 msgid "Add"
 msgstr "Aggiungi"
 
-# [WARNING] en translation used
 msgid "Add a post"
-msgstr "Add a post"
+msgstr "Scrivere un messaggio"
 
 msgid "Add associated summit :"
 msgstr "Aggiungi e associa una cima:"
 
-# [WARNING] fr translation used
 msgid "Add images"
-msgstr "Ajouter des images"
+msgstr "Aggiungere delle immagini"
 
 msgid "Add your outing"
 msgstr "Aggiungere la gita"
@@ -126,7 +124,12 @@ msgstr "Aggiungere la cima"
 
 # [WARNING] needs_update
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
-msgstr "Dopo aver compilato la scheda seguente, sarà inviata una Email con la password, per convalidare il l’account occorre accedere entro %1% giorni."
+msgstr "<b>Dopo aver compilato la scheda seguente, sarà inviata una Email con la password, per convalidare il l’account occorre accedere entro %1% giorni.</b><br />\n"
+"<br />\n"
+"E' importante notare che il contenuto che pubblicherai e i tuoi pseudo (forum / guida interrativa) saranno visibili sul web ed archiviati dai motori di ricerca.<br />\n"
+"<br />\n"
+"Invece l'indirizzo e-mail usato per l'inscrizione è visibile solo dai moderatori del sito. <br />\n"
+"Avrai la possibilità di cambiare l'e-mail e i tuoi pseudo. (il cambiamento di pseudo forum non è retroattiva : i messaggi rimangono firmati con il pseudo originale)"
 
 msgid "Alignment"
 msgstr "Posizione:"
@@ -1061,9 +1064,8 @@ msgstr "Il nuovo ordine delle immagini è stato registrato."
 msgid "Images uploaded by this user"
 msgstr "Immagini caricate da questo utente"
 
-# [WARNING] en translation used
 msgid "Incidents and accidents database"
-msgstr "Incidents and accidents database"
+msgstr "Database incidenti/accidenti"
 
 msgid "Information"
 msgstr "Informazione"
@@ -1417,16 +1419,14 @@ msgstr "Spostare"
 msgid "My Camptocamp"
 msgstr "Il mio Camptocamp"
 
-# [WARNING] en translation used
 msgid "My images"
-msgstr "My images"
+msgstr "Le mie immagini"
 
 msgid "My outing: "
 msgstr "La mia gita: "
 
-# [WARNING] en translation used
 msgid "My outings"
-msgstr "My outings"
+msgstr "Le mie gite"
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
@@ -1577,9 +1577,11 @@ msgstr "Aiuto inserimento nuova gita"
 msgid "Outing not found"
 msgstr "Questa gita non è stata trovata."
 
-# [WARNING] en translation used
+# [general comment]
+# associated
+# [WARNING] needs_review
 msgid "Outings linked to linked routes"
-msgstr "Outings linked to linked routes"
+msgstr "Gite associate alle <a href=\"#routes\">varianti</a>"
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
@@ -1587,9 +1589,9 @@ msgstr "Outings linked to linked routes"
 msgid "Outings linked to these images"
 msgstr "Gite associate a queste immagini"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Outings linked to this route"
-msgstr "Outings linked to this route"
+msgstr "Gite associate a l'itinerario di questa pagina"
 
 msgid "PD"
 msgstr "PD"
@@ -2155,9 +2157,17 @@ msgstr "Grazie per la registrazione. Tra qualche minuto la password sarà inviat
 msgid "Thanks for using Camptocamp.org!"
 msgstr "Ti ringraziamo per il contributo al sito di Camptocamp.org!"
 
-# [WARNING] needs_update
 msgid "The Camptocamp.org team"
-msgstr "Lo staff di Camptocamp.org"
+msgstr "<b>E' importante notare che il contenuto che pubblicherai e i tuoi pseudo (forum / guida interrativa) saranno visibili sul web ed archiviati dai motori di ricerca.<br />\n"
+"<br />\n"
+"Consigliamo di comunicare coordinati personali solo via email o MP (messaggi privati) e non sui forum<br />\n"
+"L'indirizzo e-mail usato per l'inscrizione è visibile solo dai moderatori del sito, per default il tuo profilo è visibile solo dai inscritti a camptocamp.org<br />\n"
+"Avrai la possibilità di cambiare l'e-mail e i tuoi pseudo. (il cambiamento di pseudo forum non è retroattiva : i messaggi rimangono firmati con il pseudo originale)<br />\n"
+"Coamptocamp.org non potrà essere costretto ad accettare richieste di cancellazioni di messaggi sui forum mandati di utente che non avrebbero seguito queste raccomandazioni.  <br />\n"
+"<br />\n"
+"Grazie in anticipo per le tue future contribuzioni al sito.<br />\n"
+"<br />\n"
+"Lo staff di Camptocamp.org"
 
 msgid "The data you entered seems to be incorrect. "
 msgstr "I dati inseriti sembrano sbagliati."
@@ -2438,9 +2448,8 @@ msgstr "Yahoo! Maps (en)"
 
 # [general comment]
 # Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
-# [WARNING] needs_update
 msgid "Year and day are optional"
-msgstr "L'anno e il giorno sono facoltativi."
+msgstr "Tutti i campi sono facoltativi."
 
 msgid "You are already connected !"
 msgstr "Sei già identificato !"
@@ -2558,13 +2567,12 @@ msgstr "Non hai sottoscritto alcuna lista di distribuzione"
 msgid "You must select at least one activity"
 msgstr "devi selezionare al meno una attività per questo documento"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "You must specify a nickname"
-msgstr "You must specify a nickname."
+msgstr "Dovresti indicare un nickname per il forum"
 
-# [WARNING] en translation used
 msgid "You must specify a topo name"
-msgstr "You must specify a topo name."
+msgstr "Dovresti indicare il tuo nome che comparirà nella guida interrativa"
 
 msgid "You must specify an email"
 msgstr "Usa un‘altra email."
@@ -3077,9 +3085,8 @@ msgstr "<h3>Compatibile con</h3>\n"
 msgid "_summit_type_info"
 msgstr "<h3>Tipo di \"cima\"</h3>Tipo di punto geografico che può essere costituito dalla meta della gita:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>colle</strong>: colle, forcella<br /><br /><strong>lago</strong>: lago di montagna<br /><br /><strong>vallone</strong>: punto specifico di fondovalle: cascata, lingua del ghiacciaio, monolite o masso erratico e anche settori di arrampicata su vie lunghe o su cascate di ghiaccio<br /><br /><strong>raid</strong>: una \"cima\" di tipo <em>raid</em> è utile per associarci un itinerario-raid<br />Leggere l'<a href=\"/articles/106920#raid\">aiuto sui raid</a>"
 
-# [WARNING] en translation used
 msgid "_swiss coords_info"
-msgstr "<h3>Swiss coordinates</h3>Coordinates of a geographical location in the Swiss coordinates system (CH1903 standard).<br />A link displays the Swisstopo map centred on the geographical location."
+msgstr "<h3>Coordinati svizzeri</h3>Coordinati geografici nel sistema svizzera (CH1903).<br />Il link consente di vedere la mappa Swisstopo centrata sul luogo geografico."
 
 msgid "_timing_info"
 msgstr "<h3>Ora di partenza / orario</h3>Consente di indicare gli orari della gita, come per esempio<br />- ora di partenza e di ritorno<br />- ora di arrivo alla cima o durata della salita<br />- per lo sci: ora del inizio della discesa<br /><br /><i>ATTENZIONE: questo orario è quello dell'autore della gita. Possono esistere grande differenze a secondo delle condizioni e della forma fisica e tecnica.</i>"
@@ -4037,9 +4044,9 @@ msgstr "Il file non è stato salvato, forse oltrepassa la dimensione autorizzata
 
 # [general comment]
 # File failed to get transmitted, most probably because plupload failed to resize it correctly (even when resized, image is too big)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "file failed to upload, probable resize error"
-msgstr "The file could not be transmitted. Possibly, due to the fact that we could not redimension it correctly. You may try to redimension the file before uploading it or you may contact the site's administrators."
+msgstr "Il file non è stato caricato, probabilmente perché il server non ha riuscito a ridimensionare l'immagine. Puoi provare a ridimensionarla prima di mandarla o a contattare i responsabili del sito."
 
 msgid "file has incorrect type"
 msgstr "l'immagine è di un formato non autorizzato (è autorizzato solo jpeg, gif, png, svg)"
@@ -4052,9 +4059,8 @@ msgstr "il file è troppo grande (max 2Mo)"
 
 # [general comment]
 # Quite the same as "file failed to upload, probable resize error"
-# [WARNING] en translation used
 msgid "file is too big, probable resize error"
-msgstr "The file could not be added due to the fact that we could not resize it properly. You may try to reduce the size of the file yourself before uploading, or you may contact the site's administrators."
+msgstr "Il file non è stato caricato perché il server non ha potuto ridimensionarlo.  Puoi provare a ridimensionare l'immagine prima di mandarla o contattare i responsabili del sito."
 
 msgid "file is too large"
 msgstr "l'immagine oltrepassa le dimensioni autorizzate (8192x2048 px)"
@@ -5191,9 +5197,8 @@ msgstr "questo campo è un numero"
 
 # [general comment]
 # Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
-# [WARNING] en translation used
 msgid "plupload bad selection"
-msgstr "The file format is not allowed, or the file could not be resized and is thus too big."
+msgstr "Questo tipo di file non è autorizzato o il file non può essere ridimensionato."
 
 # [general comment]
 # Drag & drop pour l'upload d'images
@@ -5201,35 +5206,32 @@ msgstr "The file format is not allowed, or the file could not be resized and is 
 msgid "plupload drop"
 msgstr "Trascina i file qui"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "plupload extension"
-msgstr "Image files"
+msgstr "File immagine"
 
 # [general comment]
 # text pour plupload, à rapprocher des items 351 et 1529
-# [WARNING] en translation used
 msgid "plupload introduction text"
-msgstr "You can add %1%. Minimum size is %1% x %2% px. JPGs and PNGs should be automatically resized, but SVGs and GIFs maximum size is %3% x %2% px, %4% MB<br /><strong>By publishing a picture on camptocamp.org, you accept to make it available under a <a href=\"/articles/106728#cc-by-nc-nd\">Creative Commons BY-NC-ND</a> or <a href=\"/articles/106728#cc-by-sa\">Creative Commons BY-SA</a>license, depending on the picture type you choose. </strong> Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth, Geoportail or scans of published maps and topos).<br /> By clicking on the upper right corner of the small sized picture (tab) you will access the picture’s page, where you can:<br />- Modify its title and description: click on the \"Edit\" tab (left-hand menu).<br />- Associate the picture to other documents: Use the tool located at the bottom of the page.<br />- Request the deletion of the picture: Click on \"Report a problem\" (bottom of the left-hand column) to send a message to the moderators.<br /><span style=\"color: red\">The selection of at least one of the picture categories marked with an asterisk (*) will make the picture appear on the home page.</span> For more details on pictures, see the <a href=\"/articles/107005\">album help</a>."
+msgstr "Puoi aggiungere delle '%1%'. La dimensione minimale è %4% x %5% px. I file jpeg e png saranno ridimensionati automaticamente ma i files svg e gif devono fare %3% x %2% px et %4% Mo al massimo.<br /><strong>Caricando un immagine su camptocamp.org, accetti la licenze <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che un contenuto personale o collaborativo.</strong> Le immagini sotto copyright non sono accettate.<br />Cliccando nel angolo superiore destra dell'immaginetta, puoi accedere alla pagina dell'immagine per:<br />- Modificare il titolo o la descrizione dell'immagine(Voce \"Modificare\" (nella colonna di sinistra).<br />- Associare l'immagine a altri documenti (usare lo strumento nel basso della pagina).<br />- Chiedere la cancellazione dell'immagine agli moderatori (link \"Segnalare un problema\" a sinistra).<br /><span style=\"color: red\">La selezione di al meno una categoria con asterisco (*) farà comparire l'immagine sulla home.</span> Leggere l'aiuto sulla <a href=\"/articles/107005\">galleria</a>."
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "plupload sending"
-msgstr "Uploading..."
+msgstr "Upload..."
 
-# [WARNING] en translation used
 msgid "plupload serverop"
-msgstr "Processing by the server"
+msgstr "Il Server sta processando l'immagine..."
 
 # [general comment]
 # Erreur non prévue dans plupload
-# [WARNING] en translation used
 msgid "plupload unknown"
-msgstr "The file could not be loaded"
+msgstr "Il file non è stato caricato"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "plupload waiting"
-msgstr "waiting"
+msgstr "In attesa"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

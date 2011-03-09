@@ -18,6 +18,6 @@ echo group_tag('Username:', 'login_name', 'input_tag', $sf_params->get('login_na
 echo group_tag('Email:', 'email', 'input_tag', $sf_params->get('email'), array('class' => 'long_input'));
 echo group_tag('Copy following string:', 'captcha', 'input_tag', null, array('class' => 'long_input')); ?>
     <img src="<?php echo url_for('@sf_captcha'); ?>" alt="captcha" title="<?php echo __('Copy following string:') ?>" />
-    <span class="tips">(<?php echo __('captcha test is case-insensitive') ?>)</span>
+    <p class="tips"><?php echo __('captcha test is case-insensitive') ?></p>
   <p style="margin-top:20px"><?php echo submit_tag(__('Signup')) ?> <?php echo login_link_to() ?></p>
 </form>

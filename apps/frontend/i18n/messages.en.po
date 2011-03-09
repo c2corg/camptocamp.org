@@ -1577,9 +1577,11 @@ msgstr "Outing Wizard"
 msgid "Outing not found"
 msgstr "This outing doesn’t exist"
 
+# [general comment]
+# associated
 # [WARNING] needs_review
 msgid "Outings linked to linked routes"
-msgstr "Outings linked to linked routes"
+msgstr "Outings linked to <a href=\"#routes\">associated routes</a>"
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.

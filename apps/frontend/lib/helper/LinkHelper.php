@@ -11,7 +11,8 @@ use_helper('ModalBox', 'WikiTabs');
 function signup_link_to()
 {
     return m_link_to(__('Signup'), '@signUp',
-                     array('title' => __('Signup Form')));
+                     array('title' => __('Signup Form')),
+                     array('width' => 600));
 }
 
 function login_link_to()

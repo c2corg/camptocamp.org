@@ -3117,76 +3117,72 @@ class documentsActions extends c2cActions
         {
             //usage: listRecent($model, $limit, $user_id = null, $lang = null, $doc_id = null, $mode = 'editions')
             $items = Document::listRecent($this->model_class, $max_number, null, $lang, $id, $mode);
-        }
-        else
-        {
-            $items = array();
-        }
 
-        sfLoader::loadHelpers(array('General', 'SmartFormat'));
-        
-        $model_i18n = $model . 'I18n';
+            sfLoader::loadHelpers(array('General', 'SmartFormat'));
+            
+            $model_i18n = $model . 'I18n';
 
-        // Add best summit name for routes
-        foreach ($items as $key => $item)
-        {
-            $items[$key]['module'] = $item[$model]['module'];
-            $items[$key]['id'] = $item['document_id'];
-            $items[$key]['name'] = $item[$model_i18n]['name'];
-            $items[$key]['search_name'] = $item[$model_i18n]['search_name'];
-        }
-        $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(' :') . ' ');
-        foreach ($routes as $key => $route)
-        {
-            $items[$key] = $route;
-        }
-        
-
-        foreach ($items as $item)
-        {
-            $item_id = $item['document_id'];
-            $new = $item['version'];
-            $module_name = $item[$model]['module'];
-            $name = $item['name'];
-            $doc_lang = $item['culture'];
-            $feedItemTitle = $name . (($mode != 'creations') ? (" - r$new" . ($lang ? '' : "/$doc_lang")) : '');
-
-            $feedItem = new sfGeoFeedItem();
-            $feedItem->setTitle($feedItemTitle);
-
-            if ($mode == 'creations')
+            // Add best summit name for routes
+            foreach ($items as $key => $item)
             {
-                if ($module_name == 'users')
+                $items[$key]['module'] = $item[$model]['module'];
+                $items[$key]['id'] = $item['document_id'];
+                $items[$key]['name'] = $item[$model_i18n]['name'];
+                $items[$key]['search_name'] = $item[$model_i18n]['search_name'];
+            }
+            $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(' :') . ' ');
+            foreach ($routes as $key => $route)
+            {
+                $items[$key] = $route;
+            }
+            
+
+            foreach ($items as $item)
+            {
+                $item_id = $item['document_id'];
+                $new = $item['version'];
+                $module_name = $item[$model]['module'];
+                $name = $item['name'];
+                $doc_lang = $item['culture'];
+                $feedItemTitle = $name . (($mode != 'creations') ? (" - r$new" . ($lang ? '' : "/$doc_lang")) : '');
+
+                $feedItem = new sfGeoFeedItem();
+                $feedItem->setTitle($feedItemTitle);
+
+                if ($mode == 'creations')
                 {
-                    $feedItem->setLink("@document_by_id_lang?module=$module_name&id=$item_id&lang=$doc_lang");
+                    if ($module_name == 'users')
+                    {
+                        $feedItem->setLink("@document_by_id_lang?module=$module_name&id=$item_id&lang=$doc_lang");
+                    }
+                    else
+                    {
+                        $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$doc_lang&slug=" .
+                                           make_slug($item['name']));
+                    }
                 }
                 else
                 {
-                    $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$doc_lang&slug=" .
-                                       make_slug($item['name']));
+                    $feedItem->setLink("@document_by_id_lang_version?module=$module_name&id=$item_id&lang=$doc_lang&version=$new");
                 }
-            }
-            else
-            {
-                $feedItem->setLink("@document_by_id_lang_version?module=$module_name&id=$item_id&lang=$doc_lang&version=$new");
-            }
-            $feedItem->setAuthorName($item['history_metadata']['user_private_data']['topo_name']);
-            //$feedItem->setAuthorEmail($item['history_metadata']['user_private_data']['email']);
-            $feedItem->setPubdate(strtotime($item['created_at']));
-            $feedItem->setUniqueId("$item_id-$doc_lang-$new");
-            $feedItem->setLongitude($item[$model]['lon']);
-            $feedItem->setLatitude($item[$model]['lat']);
-            $comment = smart_format($item['history_metadata']['comment']);
-            $feedItem->setDescription($comment);
-            if ($mode != 'creations')
-            {
-                $link = ($new > 1) ? ' - ' . link_to(__('View difference between version %1% and %2%', array('%1%' => ($new-1), '%2%' => $new)),
-                                                     "@document_diff?module=$module_name&id=$item_id&lang=$doc_lang&new=$new&old=".($new-1),
-                                                     array('absolute' => true)) : '';
-                $feedItem->setContent($comment . $link);
-            }
+                $feedItem->setAuthorName($item['history_metadata']['user_private_data']['topo_name']);
+                //$feedItem->setAuthorEmail($item['history_metadata']['user_private_data']['email']);
+                $feedItem->setPubdate(strtotime($item['created_at']));
+                $feedItem->setUniqueId("$item_id-$doc_lang-$new");
+                $feedItem->setLongitude($item[$model]['lon']);
+                $feedItem->setLatitude($item[$model]['lat']);
+                $comment = smart_format($item['history_metadata']['comment']);
+                $feedItem->setDescription($comment);
+                if ($mode != 'creations')
+                {
+                    $link = ($new > 1) ? ' - ' . link_to(__('View difference between version %1% and %2%', array('%1%' => ($new-1), '%2%' => $new)),
+                                                         "@document_diff?module=$module_name&id=$item_id&lang=$doc_lang&new=$new&old=".($new-1),
+                                                         array('absolute' => true)) : '';
+                    $feedItem->setContent($comment . $link);
+                }
 
-            $feed->addItem($feedItem);
+                $feed->addItem($feedItem);
+            }
         }
 
         $this->feed = $feed;

@@ -15,7 +15,7 @@ $revert_ids = ($type[0] != 'r');
 if (count($associated_docs)):
 ?>
 
-<div class="one_kind_association">
+<div class="one_kind_association" id="routes">
 <div class="association_content">
 <?php
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'">';

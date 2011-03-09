@@ -282,7 +282,7 @@ class usersActions extends documentsActions
 
             if ($this->getRequest()->getMethod() == sfRequest::POST)
             {
-                $login_name = trim($this->getRequestParameter('login_name'));
+                $login_name = strtolower(trim($this->getRequestParameter('login_name')));
                 $email = trim($this->getRequestParameter('email'));
 
                 // generate password
@@ -292,7 +292,7 @@ class usersActions extends documentsActions
                 {
                     // sign up is OK
                     $this->getRequest()->setAttribute('password', $password);
-                    $this->getRequest()->setAttribute('login_name', strtolower($login_name));
+                    $this->getRequest()->setAttribute('login_name', $login_name);
 
                     // send a confirmation email
                     $this->sendC2cEmail($this->getModuleName(), 'messageSignupPassword',

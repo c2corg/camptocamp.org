@@ -336,6 +336,9 @@ show_select=function()
                         echo picto_tag('action_query')
                            . f_link_to(__('Search'), 'search.php') ?></li>
                     <li><?php
+                        echo picto_tag('action_create')
+                           . link_to(__('Add a post'), getMetaArticleRoute('help_forum') . '#create-topic') ?></li>
+                    <li><?php
                         echo picto_tag('action_list');
                         if ($is_connected)
                         {
@@ -350,9 +353,6 @@ show_select=function()
                     <li><?php
                         echo picto_tag('action_list')
                            . f_link_to(__('My topics'), 'search.php?action=show_user') ?></li>
-                    <li><?php
-                        echo picto_tag('action_create')
-                           . link_to(__('Add a post'), getMetaArticleRoute('help_forum') . '#create-topic') ?></li>
                     <li><?php
                         echo picto_tag('action_edit')
                            . f_link_to(__('User profile'), 'profile.php?section=personality') ?></li>

@@ -248,6 +248,7 @@ class User extends BaseUser
                     if (count($friends))
                     {
                         $user_ids = explode('-', $value);
+                        $user_ids = array_map('intval', $user_ids);
                         $friend_ids = array();
                         foreach ($friends as $friend)
                         {
