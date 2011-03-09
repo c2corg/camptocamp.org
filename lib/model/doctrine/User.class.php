@@ -248,17 +248,13 @@ class User extends BaseUser
                     if (count($friends))
                     {
                         $user_ids = explode('-', $value);
-                        $user_ids = array_map('intval', $user_ids);
                         $friend_ids = array();
                         foreach ($friends as $friend)
                         {
-                            $friend_id = $friend['main_id'];
-                            if (!in_array($friend_id, $user_ids))
-                            {
-                                $friend_ids[] = $friend_id;
-                            }
+                            $friend_ids[] = $friend['main_id'];
                         }
                         $friend_ids = array_unique($friend_ids);
+                        $friend_ids = array_diff($friend_ids, $user_ids);
                         $params_list['friends'] = implode('-', $friend_ids);
                         self::buildConditionItem($conditions, $values, 'Multilist', array('lu', 'main_id'), 'friends', $join_id, false, $params_list);
                     }
@@ -310,9 +306,6 @@ class User extends BaseUser
         
         // image criteria
         Image::buildImageListCriteria(&$conditions, &$values, $params_list, false, 'li.document_id');
-        
-        // user criteria
-        self::buildConditionItem($conditions, $values, 'List', 'lr.main_id', 'friends', 'join_route_id', false, $params_list);
 
         if (!empty($conditions))
         {
