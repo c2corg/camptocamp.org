@@ -739,25 +739,25 @@ msgid "Edit"
 msgstr "Modifier"
 
 msgid "Edit in ca"
-msgstr "Edition en catalan"
+msgstr "Édition en catalan"
 
 msgid "Edit in de"
-msgstr "Edition en allemand"
+msgstr "Édition en allemand"
 
 msgid "Edit in en"
-msgstr "Edition en anglais"
+msgstr "Édition en anglais"
 
 msgid "Edit in es"
-msgstr "Edition en espagnol"
+msgstr "Édition en espagnol"
 
 msgid "Edit in eu"
-msgstr "Edition en basque"
+msgstr "Édition en basque"
 
 msgid "Edit in fr"
-msgstr "Edition en français"
+msgstr "Édition en français"
 
 msgid "Edit in it"
-msgstr "Edition en italien"
+msgstr "Édition en italien"
 
 msgid "Edit private data"
 msgstr "Modifier vos données personnelles"
@@ -769,7 +769,7 @@ msgid "Editing preview"
 msgstr "Prévisualisation&nbsp;:"
 
 msgid "Edition of \"%1%\""
-msgstr "Edition de \"%1%\""
+msgstr "Édition de \"%1%\""
 
 msgid "Editor:"
 msgstr "Éditeur&nbsp;:"
@@ -2622,7 +2622,7 @@ msgid "[1]1 image|(1,+Inf]%1% images"
 msgstr "[1]1 image|(1,+Inf]%1% images"
 
 msgid "[geodata] Edit with geometry upload"
-msgstr "[geodata] Edition avec insertion d'une nouvelle géométrie"
+msgstr "[geodata] Édition avec insertion d'une nouvelle géométrie"
 
 msgid "_abstract_info"
 msgstr "<h3>Résumé / introduction</h3>Indiquez en quelques lignes le résumé ou l'introduction au document, qui sera affiché dans certaines listes.<br />Ces lignes apparaitront au début du document."

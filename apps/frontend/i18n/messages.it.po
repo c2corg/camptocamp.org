@@ -5222,7 +5222,7 @@ msgid "plupload sending"
 msgstr "Upload..."
 
 msgid "plupload serverop"
-msgstr "Il Server sta processando l'immagine..."
+msgstr "Il Server sta processando l\\'immagine..."
 
 # [general comment]
 # Erreur non prévue dans plupload
