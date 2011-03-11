@@ -353,6 +353,10 @@ function handle_url_tag($url, $link = '')
     {
         $url == ' ';
     }
+    if ($empty_link = empty($link))
+    {
+        $link = $full_url;
+    }
     
     if ($full_url == '' && $link == '')
         return '';
@@ -361,7 +365,9 @@ function handle_url_tag($url, $link = '')
 	elseif (strpos($url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
 		$full_url = 'ftp://'.$full_url;
 	elseif ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
+    {
 		$full_url = 'http://'.$full_url;
+    }
     elseif (preg_match('/^#([fpt])(\d+)(\+?)/', $url, $params) && !empty($showed_post_list))
     {
         $id = $params[2];
@@ -382,16 +388,16 @@ function handle_url_tag($url, $link = '')
         {
             $full_url = '/forums/viewforum.php?id='.$id;
         }
-        if (empty($link))
+        if ($empty_link)
         {
             $link = substr($url, 1);
         }
     }
     
-    if ($link == '' || $link == $url)
+    if ($empty_link || $link == '' || $link == $url)
     {
         // Truncate link text if its an internal URL
-        $link = preg_replace('#^http://((m|www)\.)?camptocamp\.org/(.+)#', '${3}', $full_url);
+        $link = preg_replace('#^http://((m|www)\.)?camptocamp\.org/(.+)#', '${3}', $link);
         if (strpos("#/", $link[0]) !== false)
         {
             $link = substr($link, 1);

@@ -231,7 +231,6 @@ class Outing extends BaseOuting
 
         // user criteria
         User::buildUserListCriteria(&$conditions, &$values, $params_list, false, 'lu.main_id');
-        self::buildConditionItem($conditions, $values, 'List', 'lu2.main_id', 'friends', 'join_friend', false, $params_list);
 
         // image criteria
         Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
@@ -448,15 +447,6 @@ class Outing extends BaseOuting
         )
         {
             User::buildUserPagerConditions($q, $conditions, false, false, 'm.associations', 'uo');
-        }
-        if (   isset($conditions['join_friend']))
-        {
-            $q->leftJoin('m.associations lu')
-              ->addWhere("lu.type = 'uo'")
-              ->leftJoin('lu.LinkedLinkedAssociation lo')
-              ->addWhere("lo.type = 'uo'")
-              ->leftJoin('lo.MainMainAssociation lu2');
-            unset($conditions['join_friend']);
         }
 
         // join with image tables only if needed 
