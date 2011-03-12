@@ -234,10 +234,13 @@ class Image extends BaseImage
                 {
                     $lat = self::convertDMSToDecimal($exif['GPSLatitude']);
                 }
-                
-                $this->set('lon', $lon);
-                $this->set('lat', $lat);
 
+		// some images come with (0,0) coordinates. Skip such cases
+                if ($lon != 0 && $lat != 0)
+                {
+                    $this->set('lon', $lon);
+                    $this->set('lat', $lat);
+                }
             }
 
             $ele = '';
