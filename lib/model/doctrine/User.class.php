@@ -223,19 +223,26 @@ class User extends BaseUser
         {
             if ($is_module)
             {
-                self::buildConditionItem($conditions, $values, 'List', 'lu.main_id', 'friends', 'join_friend_id', false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Array', array($m, 'u', 'activities'), 'act', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Mstring', array('mi.search_name', 'upd.search_username'), 'utfnam', null, false, $params_list);
             }
-            else
+            
+            // friends
+            $user_groups = c2cTools::getArrayElement($params_list, 'friends');
+            if (!is_null($value))
             {
-                $value = c2cTools::getArrayElement($params_list, 'friends');
-                if (!is_null($value))
+                $user_groups = explode('+', $user_groups);
+                $user_ids = array();
+                $friend_ids = array();
+                $first_group = true;
+                foreach ($user_groups as $user_group)
                 {
-                    $conditions_temp[] = "a.type = 'uo'";
+                    $user_group_ids = explode('-', $user_group);
+                    $user_ids = array_merge($user_ids, $user_group_ids);
+                    $conditions_temp = array("a.type = 'uo'");
                     $values_temp = array();
-                    self::buildListCondition(&$conditions_temp, &$values_temp, 'lu.main_id', $value);
+                    self::buildListCondition(&$conditions_temp, &$values_temp, 'lu.main_id', $user_group);
                     $where = implode(' AND ', $conditions_temp);
                     
                     $friends = Doctrine_Query::create()
@@ -247,19 +254,40 @@ class User extends BaseUser
                     
                     if (count($friends))
                     {
-                        $user_ids = explode('-', $value);
-                        $friend_ids = array();
+                        $friend_group_ids = array();
                         foreach ($friends as $friend)
                         {
-                            $friend_ids[] = $friend['main_id'];
+                            $friend_group_ids[] = $friend['main_id'];
                         }
-                        $friend_ids = array_unique($friend_ids);
-                        $friend_ids = array_diff($friend_ids, $user_ids);
-                        $params_list['friends'] = implode('-', $friend_ids);
+                        $friend_group_ids = array_unique($friend_group_ids);
+                        if ($first_group)
+                        {
+                            $friend_ids = $friend_group_ids;
+                        }
+                        else
+                        {
+                            $friend_ids = array_intersect($friend_ids, $friend_group_ids);
+                        }
+                    }
+                    
+                    $first_group = false;
+                }
+                
+                if (count($friend_ids))
+                {
+                    $friend_ids = array_diff($friend_ids, $user_ids);
+                    $params_list['friends'] = implode('-', $friend_ids);
+                    if ($is_module)
+                    {
+                        self::buildConditionItem($conditions, $values, 'List', 'lu.main_id', 'friends', 'join_friend_id', false, $params_list);
+                    }
+                    else
+                    {
                         self::buildConditionItem($conditions, $values, 'Multilist', array('lu', 'main_id'), 'friends', $join_id, false, $params_list);
                     }
                 }
             }
+            
             self::buildConditionItem($conditions, $values, 'String', $m . 'i.search_name', ($is_module ? array('unam', 'name') : 'unam'), $join_i18n, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', 'upd.search_username', 'ufnam', $join_private_data, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'u', 'activities'), 'uact', $join, false, $params_list);
