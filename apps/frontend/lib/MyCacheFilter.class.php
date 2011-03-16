@@ -43,8 +43,12 @@ class MyCacheFilter extends sfCacheFilter
 
   public function executeBeforeExecution()
   {
+    $context = $this->getContext();
+    $module = $context->getModuleName();
+    $action = $context->getActionName();
+
     // register our cache configuration
-    $this->cacheManager->registerConfiguration($this->getContext()->getModuleName());
+    $this->cacheManager->registerConfiguration($module);
     // this previous line removes the dynamic cache configuration we could have been adding in previous filter !
     // so that conditionalCacheFilter defined in documentation :
     // http://www.symfony-project.com/book/1_0/12-Caching#Configuring%20the%20Cache%20Dynamically
@@ -52,7 +56,11 @@ class MyCacheFilter extends sfCacheFilter
 
     $perso = c2cPersonalization::getInstance();
     $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
-    
+   
+    // portals and home cache
+    // Following condition means that filter is deactivated, or filters are empty,
+    // or there is only one culture in the prefs, which the same as the interface culture 
+    // Other cases should not happen often, we don't cache them
     if (!$perso->areFiltersActive() || !$is_main_filter_switch_on || $perso->areDefaultFilters())
     {
         $this->cacheManager->addCache('documents', 'home', array('lifeTime' => 300, 'vary' => array()));
@@ -65,9 +73,20 @@ class MyCacheFilter extends sfCacheFilter
         $this->cacheManager->addCache('common', '_menu', array('lifeTime' => 86400, 'vary' => array()));
     }
 
+    // for portals and home, we adapt cache uri so that we can cache
+    // cases where all cultures are displayed, or only the one from the interface (see #723)
+    if (($action == 'home' || $module == 'portals') && !$perso->areDefaultFilters())
+    {
+        $il = $this->interface_language . '_all';
+    }
+    else
+    {
+        $il = $this->interface_language;
+    }
+
     $uri = sfRouting::getInstance()->getCurrentInternalUri();
     $uri .= (strstr($uri, '?')) ? '&' : '?'; // added
-    $uri .= 'il='.$this->interface_language.'&c='.$this->credentials; // added
+    $uri .= 'il='.$il.'&c='.$this->credentials; // added
 
     // page cache
     $this->cache[$uri] = array('page' => false, 'action' => false);
@@ -108,9 +127,24 @@ class MyCacheFilter extends sfCacheFilter
       return;
     }
 
+    $context = $this->getContext();
+    $module = $context->getModuleName();
+    $action = $context->getActionName();
+
+    // for portals and home, we adapt cache uri so that we can cache
+    // cases where all cultures are displayed, or only the one from the interface (see #723)
+    if (($action == 'home' || $module == 'portals') && !c2cPersonalization::getInstance()->areDefaultFilters())
+    {
+        $il = $this->interface_language . '_all';
+    }
+    else
+    {
+        $il = $this->interface_language;
+    }
+
     $uri = sfRouting::getInstance()->getCurrentInternalUri();
     $uri .= (strstr($uri, '?')) ? '&' : '?'; // added
-    $uri .= 'il='.$this->interface_language.'&c='.$this->credentials; // added
+    $uri .= 'il='.$il.'&c='.$this->credentials; // added
 
     // save page in cache
     if ($this->cache[$uri]['page'])
