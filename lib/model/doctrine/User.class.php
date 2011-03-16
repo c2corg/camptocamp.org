@@ -232,7 +232,7 @@ class User extends BaseUser
             $user_groups = c2cTools::getArrayElement($params_list, 'friends');
             if (!is_null($user_groups))
             {
-                $user_groups = explode('+', $user_groups);
+                $user_groups = explode(' ', $user_groups);
                 $user_ids = array();
                 $friend_ids = array();
                 $first_group = true;
