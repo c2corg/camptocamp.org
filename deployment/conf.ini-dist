@@ -104,3 +104,5 @@ METAENGINE_KEY = <meta_engine_key>
 
 ; Minification config (see ticket #404)
 MINIFY_DEBUG =  false
+
+MW_CONTEST_ID = 263803
