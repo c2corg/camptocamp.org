@@ -1686,4 +1686,5 @@ all:
       id: @ICE_ID@
       name: 'ice climbing portal'
   
-  
+  mw_contest_id: @MW_CONTEST_ID@
+

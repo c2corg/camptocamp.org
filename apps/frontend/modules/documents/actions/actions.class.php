@@ -2125,7 +2125,30 @@ class documentsActions extends c2cActions
                     // refresh geo-associations of associated routes (from summits) and outings (from routes or sites)
                     $this->refreshGeoAssociations($id);
                 }
-                
+
+                // get the post-associations requested and apply them if they do not exist yet
+                $post_associations = $this->getRequestParameter('post_associations', '');
+                c2cTools::log('executing post edit associations'); // FIXME debug only
+                foreach (split(';', $post_associations) as $piece)
+                {
+                    if (substr($piece, -1) == '+')
+                    {
+                        c2cTools::log('createAssociation: ' . c2cTools::Letter2Module(substr($piece, 0, 1)) . ' ' . substr($piece, 1, -1)); // FIXME debug only
+                        $this->createAssociation($user_id, $module_name, $id,
+                                                 c2cTools::Letter2Module(substr($piece, 0, 1)),
+                                                 substr($piece, 1, -1),
+                                                 $this->getUser()->hasCredential(sfConfig::get('app_credentials_moderator')));
+                    }
+                    else if (substr($piece, -1) == '-')
+                    {
+                        list($type) = c2cTools::Modules2Type($module_name, c2cTools::Letter2Module(substr($piece, 0, 1)));
+                        c2cTools::log('removeAssociation: ' . $type . ' ' . substr($piece, 1, -1)); // FIXME debug only
+                        $this->removeAssociation($user_id, $type, $id,
+                                                 substr($piece, 1, -1),
+                                                 $this->getUser()->hasCredential(sfConfig::get('app_credentials_moderator')));
+                    }
+                }
+
                 // we clear views, histories, diffs in every language (content+interface):
                 $this->clearCache($module_name, $id);
 
@@ -3569,13 +3592,6 @@ class documentsActions extends c2cActions
         //
         // Get parameters and check that association is allowed
         //
-        
-        // if session is time-over
-        if (!$user_id)
-        {
-            return $this->ajax_feedback('Session is over. Please login again.');
-        }
-
         if (!$this->hasRequestParameter('document_id') || !$this->hasRequestParameter('main_id') ||
             !$this->hasRequestParameter('document_module'))
         {
@@ -3588,186 +3604,15 @@ class documentsActions extends c2cActions
         $linked_id = $this->getRequestParameter('document_id');
         $icon = $this->getRequestParameter('icon', '');
         $div = $this->getRequestParameter('div', false);
-        
-        if ($linked_id == $main_id )
+
+        $feedback = $this->createAssociation($user_id, $main_module, $main_id, $linked_module, $linked_id, $is_moderator);
+        if (!is_array($feedback))
         {
-            return $this->ajax_feedback('A document can not be linked to itself');
+            return $this->ajax_feedback($feedback);
         }
 
-        switch ($linked_module)
-        {
-            case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
-            case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
-            case 'documents': $fields = array('id', 'is_protected', 'module'); break; // FIXME prevent such case?
-            default: $fields = array('id', 'is_protected'); break;
-        }
-
-        $linked_document = Document::find(c2cTools::module2model($linked_module), $linked_id, $fields);
-        $linked_module = ($linked_module != 'documents') ? $linked_module : $linked_document->get('module');
-
-        if (!$linked_document)
-        {
-            return $this->ajax_feedback('Linked document does not exist');
-        }
-        
-        $type_modules = c2cTools::Modules2Type($main_module, $linked_module);
-        
-        if (empty($type_modules))
-        {
-            return $this->ajax_feedback('Wrong association type');
-        }
-        
+        list($main_document, $linked_document, $type_modules, $main_id_new, $linked_id_new) = $feedback;
         list($type, $swap, $main_module_new, $linked_module_new, $strict) = $type_modules;
-
-        switch ($main_module)
-        {
-            case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
-            case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
-            case 'documents': $fields = array('id', 'is_protected', 'module'); break; // FIXME prevent such case?
-            default: $fields = array('id', 'is_protected'); break;
-        }
-        
-        $main_document = Document::find(c2cTools::module2model($main_module), $main_id, $fields);
-        
-        if (!$main_document)
-        {
-            return $this->ajax_feedback('Main document does not exist');
-        }
-        
-        if($swap)
-        {
-            $main_document_new = $linked_document;
-            $main_id_new = $linked_id;
-            $linked_document_new = $main_document;
-            $linked_id_new = $main_id;
-        }
-        else
-        {
-            $main_document_new = $main_document;
-            $main_id_new = $main_id;
-            $linked_document_new = $linked_document;
-            $linked_id_new = $linked_id;
-        }
-
-        if ($linked_module_new == 'articles')
-        {
-            if (!$is_moderator)
-            {
-                if (($linked_document_new->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
-                    && !Association::find($user_id, $linked_id_new, 'uc'))
-                {
-                    return $this->ajax_feedback('You do not have the right to link a document to a personal article');
-                }
-                if ($main_module_new == 'articles')
-                {
-                    if (($main_document_new->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
-                        && !Association::find($user_id, $main_id_new, 'uc'))
-                    {
-                        return $this->ajax_feedback('You do not have the right to link a document to a personal article');
-                    }
-                }
-            }
-            
-            if (($linked_document_new->get('article_type') != 2) && ($type == 'uc')) // only personal articles (type 2) need user association
-            {
-                return $this->ajax_feedback('An user can not be linked to a collaborative article');
-            }
-        }
-
-        if ($linked_module_new == 'images')
-        {
-            if ($main_document_new->get('is_protected') && !$is_moderator)
-            {
-                return $this->ajax_feedback('Document is
-                protected');
-            }
-            if (!$is_moderator)
-            {
-                if ($main_module_new == 'users' && $main_id_new != $user_id)
-                {
-                    return $this->ajax_feedback('You do not have the right to link an image to another user profile');
-                }
-                if (($main_module_new == 'outings') && (!Association::find($user_id, $main_id_new, 'uo')))
-                {
-                    return $this->ajax_feedback('You do not have the right to link an image to another user outing');
-                }
-                if (($main_module_new == 'articles') && ($main_document_new->get('article_type') == 2) && (!Association::find($user_id, $main_id_new, 'uc')))
-                {
-                    return $this->ajax_feedback('You do not have the right to link an image to a personal article');
-                }
-                if (($main_module_new == 'images') && ($main_document_new->get('image_type') == 2) && ($document->getCreator() != $user_id))
-                {
-                    return $this->ajax_feedback('You do not have the right to link an image to a personal image');
-                }
-            }
-        }
-        
-        if ($linked_module_new == 'outings')
-        {
-            if (!$is_moderator)
-            {
-                if (($main_module_new == 'users') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                {
-                    return $this->ajax_feedback('You do not have the right to link an user to another user outing');
-                }
-                if (($main_module_new == 'routes') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                {
-                    return $this->ajax_feedback('You do not have the right to link a route to another user outing');
-                }
-                if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                {
-                    return $this->ajax_feedback('You do not have the right to link a site to another user outing');
-                }
-                if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                {
-                    return $this->ajax_feedback('You do not have the right to link an article to another user outing');
-                }
-            }
-        }
-        
-        if (Association::find($main_id_new, $linked_id_new, $type, false))
-        {
-            return $this->ajax_feedback('The document is already linked to the current document');
-        }
-
-        if ($linked_module_new == 'outings' && $main_module_new == 'users' && $linked_id != $user_id)
-        {
-            // send an email to warn the new user associated
-            $email_recipient = UserPrivateData::find($linked_id)->getEmail();
-            $email_subject = $this->__('You have been associated to an outing');
-            $server = $_SERVER['SERVER_NAME'];
-            $outing_link = "http://$server/outings/$main_id";
-            $htmlBody = $this->__('You have been associated to outing %1% details', array('%1%' => '<a href="' . $outing_link . '">' . $outing_link . '</a>'));
-
-            $mail = new sfMail();
-            $mail->setCharset('utf-8');
-
-            // definition of the required parameters
-            $mail->setSender(sfConfig::get('app_outgoing_emails_sender'));
-            $mail->setFrom(sfConfig::get('app_outgoing_emails_from'));
-            $mail->addReplyTo(sfConfig::get('app_outgoing_emails_reply_to'));
-            $mail->addAddress($email_recipient);
-            $mail->setSubject($email_subject);
-            $mail->setContentType('text/html');
-            $mail->setBody($htmlBody);
-            $mail->setAltBody(strip_tags($htmlBody));
-
-            // send the email
-            $mail->send();
-        }
-
-        // Perform association
-        $a = new Association;
-        $status = $a->doSaveWithValues($main_id_new, $linked_id_new, $type, $user_id);
-
-        if (!$status)
-        {
-            return $this->ajax_feedback('Could not perform association');
-        }
-        
-        // cache clearing for current doc in every lang:
-        $this->clearCache($main_module, $main_id, false, 'view');
-        $this->clearCache($linked_module, $linked_id, false, 'view');
 
         // html to return
         sfLoader::loadHelpers(array('Tag', 'Url', 'Asset', 'AutoComplete'));
@@ -3816,6 +3661,195 @@ class documentsActions extends c2cActions
         return $this->renderText($out);
     }
 
+    protected function createAssociation($user_id, $main_module, $main_id, $linked_module, $linked_id, $is_moderator = false)
+    {
+        // if session is time-over
+        if (!$user_id)
+        {
+            return 'Session is over. Please login again.';
+        }
+        
+        if ($linked_id == $main_id )
+        {
+            return 'A document can not be linked to itself';
+        }
+
+        switch ($linked_module)
+        {
+            case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
+            case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
+            case 'documents': $fields = array('id', 'is_protected', 'module'); break; // FIXME prevent such case?
+            default: $fields = array('id', 'is_protected'); break;
+        }
+
+        $linked_document = Document::find(c2cTools::module2model($linked_module), $linked_id, $fields);
+        $linked_module = ($linked_module != 'documents') ? $linked_module : $linked_document->get('module');
+
+        if (!$linked_document)
+        {
+            return 'Linked document does not exist';
+        }
+        
+        $type_modules = c2cTools::Modules2Type($main_module, $linked_module);
+        
+        if (empty($type_modules))
+        {
+            return 'Wrong association type';
+        }
+        
+        list($type, $swap, $main_module_new, $linked_module_new, $strict) = $type_modules;
+
+        switch ($main_module)
+        {
+            case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
+            case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
+            case 'documents': $fields = array('id', 'is_protected', 'module'); break; // FIXME prevent such case?
+            default: $fields = array('id', 'is_protected'); break;
+        }
+        
+        $main_document = Document::find(c2cTools::module2model($main_module), $main_id, $fields);
+        
+        if (!$main_document)
+        {
+            return 'Main document does not exist';
+        }
+        
+        if($swap)
+        {
+            $main_document_new = $linked_document;
+            $main_id_new = $linked_id;
+            $linked_document_new = $main_document;
+            $linked_id_new = $main_id;
+        }
+        else
+        {
+            $main_document_new = $main_document;
+            $main_id_new = $main_id;
+            $linked_document_new = $linked_document;
+            $linked_id_new = $linked_id;
+        }
+
+        if ($linked_module_new == 'articles')
+        {
+            if (!$is_moderator)
+            {
+                if (($linked_document_new->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
+                    && !Association::find($user_id, $linked_id_new, 'uc'))
+                {
+                    return 'You do not have the right to link a document to a personal article';
+                }
+                if ($main_module_new == 'articles')
+                {
+                    if (($main_document_new->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
+                        && !Association::find($user_id, $main_id_new, 'uc'))
+                    {
+                        return 'You do not have the right to link a document to a personal article';
+                    }
+                }
+            }
+            
+            if (($linked_document_new->get('article_type') != 2) && ($type == 'uc')) // only personal articles (type 2) need user association
+            {
+                return 'An user can not be linked to a collaborative article';
+            }
+        }
+
+        if ($linked_module_new == 'images')
+        {
+            if ($main_document_new->get('is_protected') && !$is_moderator)
+            {
+                return 'Document is protected';
+            }
+            if (!$is_moderator)
+            {
+                if ($main_module_new == 'users' && $main_id_new != $user_id)
+                {
+                    return 'You do not have the right to link an image to another user profile';
+                }
+                if (($main_module_new == 'outings') && (!Association::find($user_id, $main_id_new, 'uo')))
+                {
+                    return 'You do not have the right to link an image to another user outing';
+                }
+                if (($main_module_new == 'articles') && ($main_document_new->get('article_type') == 2) && (!Association::find($user_id, $main_id_new, 'uc')))
+                {
+                    return 'You do not have the right to link an image to a personal article';
+                }
+                if (($main_module_new == 'images') && ($main_document_new->get('image_type') == 2) && ($document->getCreator() != $user_id))
+                {
+                    return 'You do not have the right to link an image to a personal image';
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'outings')
+        {
+            if (!$is_moderator)
+            {
+                if (($main_module_new == 'users') && (!Association::find($user_id, $linked_id_new, 'uo')))
+                {
+                    return 'You do not have the right to link an user to another user outing';
+                }
+                if (($main_module_new == 'routes') && (!Association::find($user_id, $linked_id_new, 'uo')))
+                {
+                    return 'You do not have the right to link a route to another user outing';
+                }
+                if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
+                {
+                    return 'You do not have the right to link a site to another user outing';
+                }
+                if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
+                {
+                    return 'You do not have the right to link an article to another user outing';
+                }
+            }
+        }
+        
+        if (Association::find($main_id_new, $linked_id_new, $type, false))
+        {
+            return 'The document is already linked to the current document';
+        }
+
+        if ($linked_module_new == 'outings' && $main_module_new == 'users' && $linked_id != $user_id)
+        {
+            // send an email to warn the new user associated
+            $email_recipient = UserPrivateData::find($linked_id)->getEmail();
+            $email_subject = $this->__('You have been associated to an outing');
+            $server = $_SERVER['SERVER_NAME'];
+            $outing_link = "http://$server/outings/$main_id";
+            $htmlBody = $this->__('You have been associated to outing %1% details', array('%1%' => '<a href="' . $outing_link . '">' . $outing_link . '</a>'));
+
+            $mail = new sfMail();
+            $mail->setCharset('utf-8');
+
+            // definition of the required parameters
+            $mail->setSender(sfConfig::get('app_outgoing_emails_sender'));
+            $mail->setFrom(sfConfig::get('app_outgoing_emails_from'));
+            $mail->addReplyTo(sfConfig::get('app_outgoing_emails_reply_to'));
+            $mail->addAddress($email_recipient);
+            $mail->setSubject($email_subject);
+            $mail->setContentType('text/html');
+            $mail->setBody($htmlBody);
+            $mail->setAltBody(strip_tags($htmlBody));
+
+            // send the email
+            $mail->send();
+        }
+
+        // Perform association
+        $a = new Association;
+        $status = $a->doSaveWithValues($main_id_new, $linked_id_new, $type, $user_id);
+
+        if (!$status)
+        {
+            return 'Could not perform association';
+        }
+        
+        // cache clearing for current doc in every lang:
+        $this->clearCache($main_module, $main_id, false, 'view');
+        $this->clearCache($linked_module, $linked_id, false, 'view');
+        
+        return array($main_document, $linked_document, $type_modules, $main_id_new, $linked_id_new); // no feedback
+    }
 
     /**
      * Executes remove document association
@@ -3832,24 +3866,49 @@ class documentsActions extends c2cActions
         $mode = $this->getRequestParameter('mode'); 
         $strict = $this->getRequestParameter('strict', 1); // whether 'remove action' should be strictly restrained to main and linked or reversed. 
         $icon = $this->getRequestParameter('icon');
+
+        $feedback = $this->removeAssociation($user_id, $type, $main_id, $linked_id);
+
+        if ($feedback != '')
+        {
+            return $this->ajax_feedback($feedback);
+        }
         
+        // view action cache clearing (without whatsnew), since association is not logged in app_history_metadata and associations only appear on view:
+        $this->clearCache($main_module, $main_id, false, 'view');
+        $this->clearCache(c2cTools::model2module($linked_model), $linked_id, false, 'view');
+
+        // for some cases (typically unlinking an image), we reload the doc
+        // rather than removing a list entry
+        if ($this->hasRequestParameter('reload'))
+        {
+            return $this->setNoticeAndRedirect('Image has been unlinked', $this->getRequest()->getReferer() . '#images');
+        }
+        else
+        { 
+            return $this->renderText('');
+        }
+    }
+    
+    protected function removeAssociation($user_id, $type, $main_id, $linked_id)
+    {
         // if session is time-over
         if (!$user_id)
         {
-            return $this->ajax_feedback('Session is over. Please login again.');
+            return 'Session is over. Please login again.';
         }
         
         // association cannot be created/deleted with self.
         if ($main_id == $linked_id)
         {
-            return $this->ajax_feedback('A document can not be linked to itself');
+            return 'A document can not be linked to itself';
         }
         
         // We check that this association type really exists 
         // for that, yaml is preferable over a db request, since all associations types are not allowed for quick associations
         if (!in_array($type, sfConfig::get('app_associations_types'))) 
         {
-            return $this->ajax_feedback('Wrong association type');
+            return 'Wrong association type';
         }
         
         $models = c2cTools::Type2Models($type);
@@ -3859,7 +3918,7 @@ class documentsActions extends c2cActions
         $main = Document::find($main_model, $main_id, array('id', 'module')); 
         if (!$main)
         {
-            return $this->ajax_feedback('Document does not exist');
+            return 'Document does not exist';
         }
 
         // check that linked doc exists: 
@@ -3867,7 +3926,7 @@ class documentsActions extends c2cActions
         $linked = Document::find($linked_model, $linked_id, ($linked_model == 'Article') ? array('id', 'article_type') : array('id')); 
         if (!$linked)
         {
-            return $this->ajax_feedback('Document does not exist');
+            return 'Document does not exist';
         }
 
         $main_module = c2cTools::model2module($main_model);
@@ -3884,7 +3943,7 @@ class documentsActions extends c2cActions
             if ( (($type == 'sr' || $type == 'uo') && Association::countMains($linked_id, $type) == 1) ||
                  (($type == 'ro' || $type == 'to') && (Association::countMains($linked_id, array('ro', 'to')) == 1)) )
             {
-                return $this->ajax_feedback('Operation forbidden: last association');
+                return 'Operation forbidden: last association';
             }
             else
             {
@@ -3910,29 +3969,16 @@ class documentsActions extends c2cActions
                 {
                     $conn->rollback();
                     c2cTools::log("executeRemoveAssociation() : Association deletion + log failed ($main_id, $linked_id, $type, $user_id) - rollback");
-                    return $this->ajax_feedback('Association deletion failed');
+                    return 'Association deletion failed';
                 }
             }
         }
         else
         {
-            return $this->ajax_feedback('Operation not allowed');
+            return 'Operation not allowed';
         }
-        
-        // view action cache clearing (without whatsnew), since association is not logged in app_history_metadata and associations only appear on view:
-        $this->clearCache($main_module, $main_id, false, 'view');
-        $this->clearCache(c2cTools::model2module($linked_model), $linked_id, false, 'view');
 
-        // for some cases (typically unlinking an image), we reload the doc
-        // rather than removing a list entry
-        if ($this->hasRequestParameter('reload'))
-        {
-            return $this->setNoticeAndRedirect('Image has been unlinked', $this->getRequest()->getReferer() . '#images');
-        }
-        else
-        { 
-            return $this->renderText('');
-        }
+        return '';
     } 
 
 

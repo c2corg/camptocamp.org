@@ -9,6 +9,36 @@ var max_elevation_old,
     up_snow_elevation_enable,
     down_snow_elevation_enable;
 
+function switch_mw_contest_visibility()
+{
+    if ($('outing_with_public_transportation').checked)
+    {
+        $('mw_contest').show();
+        if ($('mw_contest_associate').checked)
+        {
+          $('post_associations').value = 'c' + mw_contest_article_id + '+';
+        }
+    }
+    else
+    {
+        // hide mw div
+        $('mw_contest').hide();
+        $('post_associations').value = 'c' + mw_contest_article_id + '-';
+    }
+}
+
+function switch_mw_contest_association()
+{
+    if ($('mw_contest_associate').checked)
+    {
+      $('post_associations').value = 'c' + mw_contest_article_id + '+';
+    }
+    else
+    {
+      $('post_associations').value = 'c' + mw_contest_article_id + '-';
+    }
+}
+
 function hide_outings_unrelated_fields()
 {
     var show_flags =
@@ -142,6 +172,7 @@ function check_outing_date(e)
 }
 
 Event.observe(window, 'load', hide_outings_unrelated_fields);
+Event.observe(window, 'load', switch_mw_contest_visibility);
 Event.observe(window, 'load', function() {
     Event.observe('editform', 'submit', check_outing_activities);
     Event.observe('editform', 'submit', check_outing_date);

@@ -12,7 +12,9 @@ var outing_activities_already_tested = false;");
 // Here document = outing
 $link_with = $linked_doc ? $linked_doc->get('id') : 0; 
 echo '<div>';
-echo input_hidden_tag('document_id', $link_with); 
+echo input_hidden_tag('document_id', $link_with);
+echo input_hidden_tag('post_associations', '');
+echo javascript_tag('var mw_contest_article_id=' . sfConfig::get('app_mw_contest_id'));
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
 echo '</div>';
 
@@ -53,7 +55,13 @@ echo object_group_tag($document, 'outing_length', null, 'kilometers', array('cla
 ?>
 </div>
 <?php
-echo object_group_tag($document, 'outing_with_public_transportation', 'object_checkbox_tag');
+echo object_group_tag($document, 'outing_with_public_transportation', 'object_checkbox_tag', '', array('onchange' => 'switch_mw_contest_visibility()'));
+?>
+<div id="mw_contest">
+<?php echo __('Participate to MW contest') ?>
+<input type="checkbox" id="mw_contest_associate" onchange="switch_mw_contest_association()" />
+</div>
+<?php
 echo object_group_dropdown_tag($document, 'access_status', 'mod_outings_access_statuses_list');
 echo object_group_tag($document, 'access_elevation', null, 'meters', array('class' => 'short_input'));
 ?>
