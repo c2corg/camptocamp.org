@@ -2128,12 +2128,10 @@ class documentsActions extends c2cActions
 
                 // get the post-associations requested and apply them if they do not exist yet
                 $post_associations = $this->getRequestParameter('post_associations', '');
-                c2cTools::log('executing post edit associations'); // FIXME debug only
                 foreach (split(';', $post_associations) as $piece)
                 {
                     if (substr($piece, -1) == '+')
                     {
-                        c2cTools::log('createAssociation: ' . c2cTools::Letter2Module(substr($piece, 0, 1)) . ' ' . substr($piece, 1, -1)); // FIXME debug only
                         $this->createAssociation($user_id, $module_name, $id,
                                                  c2cTools::Letter2Module(substr($piece, 0, 1)),
                                                  substr($piece, 1, -1),
@@ -2142,7 +2140,6 @@ class documentsActions extends c2cActions
                     else if (substr($piece, -1) == '-')
                     {
                         list($type) = c2cTools::Modules2Type($module_name, c2cTools::Letter2Module(substr($piece, 0, 1)));
-                        c2cTools::log('removeAssociation: ' . $type . ' ' . substr($piece, 1, -1)); // FIXME debug only
                         $this->removeAssociation($user_id, $type, $id,
                                                  substr($piece, 1, -1),
                                                  $this->getUser()->hasCredential(sfConfig::get('app_credentials_moderator')));
