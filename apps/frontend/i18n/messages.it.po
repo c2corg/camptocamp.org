@@ -1627,6 +1627,10 @@ msgstr "Il parcheggio non esiste, o la sua localizzazione non è stata correttam
 msgid "Parking not found"
 msgstr "Questo accesso non è stato trovato."
 
+# [WARNING] fr translation used
+msgid "Participate to MW contest"
+msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
+
 msgid "Password:"
 msgstr "Password:"
 
@@ -2572,7 +2576,7 @@ msgid "You must specify a nickname"
 msgstr "Dovresti indicare un nickname per il forum"
 
 msgid "You must specify a topo name"
-msgstr "Dovresti indicare il tuo nome che comparirà nella guida interrativa"
+msgstr "Dovresti indicare il tuo nome che comparirà nella guida interrativa."
 
 msgid "You must specify an email"
 msgstr "Usa un‘altra email."

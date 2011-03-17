@@ -107,7 +107,7 @@ msgstr "Hinzufügen"
 
 # [WARNING] en translation used
 msgid "Add a post"
-msgstr "Add a post"
+msgstr "Post a message"
 
 msgid "Add associated summit :"
 msgstr "Einen neuen Gipfel erstellen:"
@@ -1619,7 +1619,7 @@ msgstr "Mit diesen Bildern verbundene Touren"
 
 # [WARNING] en translation used
 msgid "Outings linked to this route"
-msgstr "Outings linked to this route"
+msgstr "Outings linked to the route on this page"
 
 msgid "PD"
 msgstr "WS"
@@ -1656,6 +1656,10 @@ msgstr "Dieser Zugang existiert nicht oder er ist nicht lokalisiert."
 
 msgid "Parking not found"
 msgstr "Diese Zufahrt existiert nicht."
+
+# [WARNING] fr translation used
+msgid "Participate to MW contest"
+msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
 
 msgid "Password:"
 msgstr "Passwort:"
@@ -2608,11 +2612,11 @@ msgstr "sie müssen mindestens eine Aktivität für dieses Dokument auswählen"
 
 # [WARNING] en translation used
 msgid "You must specify a nickname"
-msgstr "You must specify a nickname."
+msgstr "You must specify a nickname for the forums."
 
 # [WARNING] en translation used
 msgid "You must specify a topo name"
-msgstr "You must specify a topo name."
+msgstr "You must specify a name to be displayed in the guidebook."
 
 msgid "You must specify an email"
 msgstr "Sie müssen eine Email-Adresse angeben."

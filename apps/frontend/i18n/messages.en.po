@@ -104,16 +104,14 @@ msgstr "Activate map search"
 msgid "Add"
 msgstr "Add"
 
-# [WARNING] needs_review
 msgid "Add a post"
-msgstr "Add a post"
+msgstr "Post a message"
 
 msgid "Add associated summit :"
 msgstr "Add associated summit:"
 
-# [WARNING] fr translation used
 msgid "Add images"
-msgstr "Ajouter des images"
+msgstr "Add pictures"
 
 msgid "Add your outing"
 msgstr "Add your outing"
@@ -727,25 +725,25 @@ msgid "Edit"
 msgstr "Edit"
 
 msgid "Edit in ca"
-msgstr "Edit in catalan"
+msgstr "Edit in Catalan"
 
 msgid "Edit in de"
 msgstr "Edit in german"
 
 msgid "Edit in en"
-msgstr "Edit in english"
+msgstr "Edit in English"
 
 msgid "Edit in es"
-msgstr "Edit in spanish"
+msgstr "Edit in Spanish"
 
 msgid "Edit in eu"
-msgstr "Edit in basque"
+msgstr "Edit in Basque"
 
 msgid "Edit in fr"
-msgstr "Edit in french"
+msgstr "Edit in French"
 
 msgid "Edit in it"
-msgstr "Edit in italian"
+msgstr "Edit in Italian"
 
 msgid "Edit private data"
 msgstr "Edit private data"
@@ -1591,7 +1589,7 @@ msgstr "Outings linked to these images"
 
 # [WARNING] needs_review
 msgid "Outings linked to this route"
-msgstr "Outings linked to this route"
+msgstr "Outings linked to the route on this page"
 
 msgid "PD"
 msgstr "PD"
@@ -1626,6 +1624,10 @@ msgstr "This access point does not exist, or is not georeferenced."
 
 msgid "Parking not found"
 msgstr "This access point doesn’t exist"
+
+# [WARNING] fr translation used
+msgid "Participate to MW contest"
+msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
 
 msgid "Password:"
 msgstr "Password:"
@@ -2236,9 +2238,8 @@ msgstr "This new routes will be linked with summit '[[summits/%2%|%1%]]' (docume
 msgid "This nickname already exists. Please choose another one."
 msgstr "This nickname already exists. Please choose another one."
 
-# [WARNING] needs_review
 msgid "This topo name already exists. Please choose another one."
-msgstr "This topo name already exists. Please choose another one."
+msgstr "This guidebook name already exists. Please choose another one."
 
 msgid "This user does not have any associated outing."
 msgstr "This user hasn't contributed any outings yet"
@@ -2445,9 +2446,8 @@ msgstr "Yahoo! Maps"
 
 # [general comment]
 # Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
-# [WARNING] needs_update
 msgid "Year and day are optional"
-msgstr "Year and day are optional."
+msgstr "All fields are optional."
 
 msgid "You are already connected !"
 msgstr "You are already connected!"
@@ -2566,11 +2566,10 @@ msgstr "you have to chose at least one activity for this document"
 
 # [WARNING] needs_review
 msgid "You must specify a nickname"
-msgstr "You must specify a nickname."
+msgstr "You must specify a nickname for the forums."
 
-# [WARNING] needs_review
 msgid "You must specify a topo name"
-msgstr "You must specify a topo name."
+msgstr "You must specify a name to be displayed in the guidebook."
 
 # [WARNING] needs_review
 msgid "You must specify an email"
@@ -3120,7 +3119,6 @@ msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are co
 msgid "_summit_type_info"
 msgstr "<h3>\"Summit\" type</h3>Type of the geographical point that could serve as a goal for a tour or climb:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarkable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search for multi-day <i>raids</i>, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
 
-# [WARNING] needs_review
 msgid "_swiss coords_info"
 msgstr "<h3>Swiss coordinates</h3>Coordinates of a geographical location in the Swiss coordinates system (CH1903 standard).<br />A link displays the Swisstopo map centred on the geographical location."
 
@@ -4081,7 +4079,7 @@ msgstr "The file couldn't be uploaded properly or exceeds the authorized weight 
 # File failed to get transmitted, most probably because plupload failed to resize it correctly (even when resized, image is too big)
 # [WARNING] needs_review
 msgid "file failed to upload, probable resize error"
-msgstr "The file could not be transmitted. Possibly, due to the fact that we could not redimension it correctly. You may try to redimension the file before uploading it or you may contact the site's administrators."
+msgstr "The file could not be uploaded. This is might be because it could not be resized correctly. You may try to resize the file before uploading it or you may contact the site's administrators."
 
 msgid "file has incorrect type"
 msgstr "the picture file has incorrect type (posible formats are jpeg, gif, svg, png)"
@@ -5243,7 +5241,7 @@ msgstr "please enter a number"
 # [general comment]
 # Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
 msgid "plupload bad selection"
-msgstr "The file format is not allowed, or the file could not be resized and is thus too big."
+msgstr "The file format is not allowed, or the file could not be resized and is too big."
 
 # [general comment]
 # Drag & drop pour l'upload d'images
@@ -5264,21 +5262,22 @@ msgstr "You can add %1%. Minimum size is %1% x %2% px. JPGs and PNGs should be a
 # [comment]
 # or "Transmitting..."?
 # I propose uplaoding (was sending) -- lionel
+# 
+# I prefer "uploading" -- Fabien
 # [WARNING] needs_review
 msgid "plupload sending"
 msgstr "Uploading..."
 
-# [WARNING] needs_review
 msgid "plupload serverop"
 msgstr "Processing by the server"
 
 # [general comment]
 # Erreur non prévue dans plupload
 msgid "plupload unknown"
-msgstr "The file could not be loaded"
+msgstr "The file could not be uploaded"
 
 msgid "plupload waiting"
-msgstr "waiting"
+msgstr "Waiting"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

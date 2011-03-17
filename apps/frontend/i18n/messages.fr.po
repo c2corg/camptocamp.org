@@ -1630,6 +1630,10 @@ msgstr "Le point d'accès n'existe pas, ou sa localisation n'a pas été renseig
 msgid "Parking not found"
 msgstr "Cet accès n'existe pas."
 
+# [WARNING] needs_review
+msgid "Participate to MW contest"
+msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
+
 msgid "Password:"
 msgstr "Mot de passe&nbsp;:"
 

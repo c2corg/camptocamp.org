@@ -107,16 +107,16 @@ msgstr "Limitar la cerca als límits del mapa."
 msgid "Add"
 msgstr "Afegir"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Add a post"
-msgstr "Add a post"
+msgstr "Publique un mensaje"
 
 msgid "Add associated summit :"
 msgstr "Afegir un cim associat:"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Add images"
-msgstr "Ajouter des images"
+msgstr "Añadir imágenes"
 
 msgid "Add your outing"
 msgstr "Afegeix la teva sortida"
@@ -1105,9 +1105,9 @@ msgstr "El nou ordre de les imatges ha estat enregistrat."
 msgid "Images uploaded by this user"
 msgstr "Imatges proposades en línia per aquest participant"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Incidents and accidents database"
-msgstr "Incidents and accidents database"
+msgstr "Base de datos de accidentes e incidentes"
 
 msgid "Information"
 msgstr "Informacions"
@@ -1495,16 +1495,16 @@ msgstr "Mou"
 msgid "My Camptocamp"
 msgstr "El meu Camptocamp"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "My images"
-msgstr "My images"
+msgstr "Mis imágenes"
 
 msgid "My outing: "
 msgstr "La meva sortida: "
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "My outings"
-msgstr "My outings"
+msgstr "Mis salidas"
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
@@ -1669,9 +1669,9 @@ msgstr "La sortida no existeix"
 
 # [general comment]
 # associated
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Outings linked to linked routes"
-msgstr "Outings linked to <a href=\"#routes\">associated routes</a>"
+msgstr "Salidas asociadas a <a href=\"#routes\">rutas asociadas</a>"
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
@@ -1679,9 +1679,9 @@ msgstr "Outings linked to <a href=\"#routes\">associated routes</a>"
 msgid "Outings linked to these images"
 msgstr "Salidas asociadas a estas imágenes"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Outings linked to this route"
-msgstr "Outings linked to this route"
+msgstr "Salidas asociadas a la ruta descrita en esta pagina"
 
 msgid "PD"
 msgstr "PD"
@@ -1718,6 +1718,10 @@ msgstr "El acceso no existe, o sus coordenadas geográficas no se conocen."
 
 msgid "Parking not found"
 msgstr "L'accès no existeix"
+
+# [WARNING] fr translation used
+msgid "Participate to MW contest"
+msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
 
 msgid "Password:"
 msgstr "Contrasenya:"
@@ -2602,7 +2606,7 @@ msgstr "Yahoo! Mapas (es)"
 # Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
 # [WARNING] es translation used
 msgid "Year and day are optional"
-msgstr "El ano y el dia son opcionales."
+msgstr "Todos lo campos son opcionales."
 
 msgid "You are already connected !"
 msgstr "Ja estas conectat!"
@@ -2736,13 +2740,13 @@ msgstr "Todavía no te as inscrito a ninguna lista"
 msgid "You must select at least one activity"
 msgstr "debe seleccionar al menos una actividad para este documento"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You must specify a nickname"
-msgstr "You must specify a nickname."
+msgstr "Debe definir un seudónimo para los foros."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You must specify a topo name"
-msgstr "You must specify a topo name."
+msgstr "Debe elegir un nombre para la topo-guía."
 
 msgid "You must specify an email"
 msgstr "Has d'especificar una adreça email."
@@ -3323,7 +3327,7 @@ msgstr "<h3>Tipus de \"cim\"</h3>Tipus de punt geogràfic que pugui constituir u
 
 # [WARNING] es translation used
 msgid "_swiss coords_info"
-msgstr "<h3>Coordenadas suizas</h3>Coordenadas de un lugar geográfico en el sistema suizo de coordenadas (normativa CH1903).<br />Un enlace llevara al mapa de Swisstopo centrado en el lugar geográfico."
+msgstr "<h3>Coordenadas suizas</h3>Coordenadas de un lugar geográfico en el sistema suizo de coordenadas (normativa CH1903).<br />Un enlace llevará al mapa de Swisstopo centrado en el lugar geográfico."
 
 msgid "_timing_info"
 msgstr "<h3>Hora de partida / horari</h3>Permet indicar els horaris de la sortida, com per exemple;:<br />- hores de partida i de retorn<br />- hora d'arrivada al cim o durada de la pujada<br />- perl'esquí: hora de l'inici de la baixada<br /><br /><i>ATENCIÓ: aquest horari és el que ha realitzat l'autor de la sortida! Pot haver fortes variacions en funció de les condicions en aquell moment, de la forma física i del nivell tècnic de cadascu.</i>"
@@ -4336,9 +4340,9 @@ msgstr "El archivo no se pudo cargar correctamente o excede los limites de tama�
 
 # [general comment]
 # File failed to get transmitted, most probably because plupload failed to resize it correctly (even when resized, image is too big)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "file failed to upload, probable resize error"
-msgstr "The file could not be transmitted. Possibly, due to the fact that we could not redimension it correctly. You may try to redimension the file before uploading it or you may contact the site's administrators."
+msgstr "No se cargó la imagen. Puede ser por que no se re-dimensionó correctamente. Puede probar re-dimensionarla antes de cargarla o contactar los administradores del sitio."
 
 # [WARNING] needs_update
 msgid "file has incorrect type"
@@ -4353,9 +4357,9 @@ msgstr "el fitxer és massa gran (el màxim són 2Mb)"
 
 # [general comment]
 # Quite the same as "file failed to upload, probable resize error"
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "file is too big, probable resize error"
-msgstr "The file could not be added due to the fact that we could not resize it properly. You may try to reduce the size of the file yourself before uploading, or you may contact the site's administrators."
+msgstr "La imagen no se cargó por que no se re-dimensionó correctamente. Puede probar de reducir su tamaño antes de volver a cargarla o puede contactar los administradores del sitio."
 
 # [WARNING] needs_review
 msgid "file is too large"
@@ -5605,19 +5609,19 @@ msgstr "aquest camp ha de ser numèric"
 
 # [general comment]
 # Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "plupload bad selection"
-msgstr "The file format is not allowed, or the file could not be resized and is thus too big."
+msgstr "El archivo no es de un tipo adecuado, o es demasiado pesado y no se pudó re-dimensionar."
 
 # [general comment]
 # Drag & drop pour l'upload d'images
 # [WARNING] es translation used
 msgid "plupload drop"
-msgstr "Colocar imágenes aquí"
+msgstr "Coloque las imágenes aquí"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "plupload extension"
-msgstr "Image files"
+msgstr "Archivos de imágenes"
 
 # [general comment]
 # text pour plupload, à rapprocher des items 351 et 1529
@@ -5627,23 +5631,23 @@ msgstr "You can add %1%. Minimum size is %1% x %2% px. JPGs and PNGs should be a
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "plupload sending"
-msgstr "Uploading..."
+msgstr "Cargando..."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "plupload serverop"
-msgstr "Processing by the server"
+msgstr "Tratamiento por el servidor "
 
 # [general comment]
 # Erreur non prévue dans plupload
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "plupload unknown"
-msgstr "The file could not be loaded"
+msgstr "No se pudo cargar el archivo"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "plupload waiting"
-msgstr "waiting"
+msgstr "En espera"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
