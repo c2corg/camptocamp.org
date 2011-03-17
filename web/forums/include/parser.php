@@ -56,9 +56,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\[url(=|\])(http://)?(m|www)\.camptocamp\.org(/([^\[\]]+))#i',
 				'#\s*\[/url\]#i',
                 '#(http://)?((m|www)\.)?camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums))#i',
-                '%(?<=\W|^)/forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
-                '%(?<=\W|^)/forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
-                '%(?<=\W|^)/forums/viewtopic.php\?pid=\d+#p(\d+)%i',
+                '%(?<=[^\w/]|^)/?forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
+                '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
+                '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=\d+#p(\d+)%i',
 				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[email(=\]|\])\s*#i',
 				'#\s*\[/email\]#i',
@@ -364,17 +364,37 @@ function handle_url_tag($url, $link = '')
         $link = $full_url;
     }
     
+    $is_forum_url = false;
     if ($full_url == '' && $link == '')
         return '';
-    elseif (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
+    elseif (preg_match('#(?<=[^\w/]|^)/?forums/view(topic|forum).php\?p?id=\d+#', $full_url, $bah)) 	// Else if it is a forum url
+    {
+        $a = array( '%(?<=[^\w/]|^)/?forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
+                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
+                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=\d+#p(\d+)%i'
+                  );
+
+        $b = array(	'#f$1',
+                    '#t$1',
+                    '#p$1'
+                  );
+        $full_url = preg_replace($a, $b, $full_url);
+        $is_forum_url = true;
+    }
+    elseif (strpos($full_url, 'www.') === 0)			// If it starts with www, we add http://
 		$full_url = 'http://'.$full_url;
-	elseif (strpos($url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
+	elseif (strpos($full_url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
 		$full_url = 'ftp://'.$full_url;
-	elseif ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
+	elseif ((strpos("#/", $full_url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $full_url, $bah)) 	// Else if it doesn't start with abcdef:// nor / nor #, we add http://
     {
 		$full_url = 'http://'.$full_url;
     }
-    elseif (preg_match('/^#([fpt])(\d+)(\+?)/', $url, $params) && !empty($showed_post_list))
+    else
+    {
+        $is_forum_url = true;
+    }
+    
+    if ($is_forum_url && preg_match('/^#([fpt])(\d+)(\+?)/', $full_url, $params))
     {
         $id = $params[2];
         if ($params[1] == 't')
@@ -385,7 +405,7 @@ function handle_url_tag($url, $link = '')
                 $full_url .= '&action=new';
             }
         }
-        elseif ($params[1] == 'p' && !in_array($id, $showed_post_list))
+        elseif ($params[1] == 'p' && (!is_array($showed_post_list) || !in_array($id, $showed_post_list)))
         {
             $full_url = '/forums/viewtopic.php?pid='.$id.'#p'.$id;
             $rel = ' rel="nofollow"';
