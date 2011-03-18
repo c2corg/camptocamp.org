@@ -57,8 +57,10 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\s*\[/url\]#i',
                 '#(http://)?((m|www)\.)?camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums))#i',
                 '%(?<=[^\w/]|^)/?forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
+                '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)&action=new%i',
                 '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=\d+#p(\d+)%i',
+                '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=(\d+)%i',
 				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[email(=\]|\])\s*#i',
 				'#\s*\[/email\]#i',
@@ -82,7 +84,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'[/url]',
                 '$4',
                 '#f$1',
+                '#t$1+',
                 '#t$1',
+                '#p$1',
                 '#p$1',
 				'[email=$2]',
 				'[email]',
@@ -359,9 +363,18 @@ function handle_url_tag($url, $link = '')
     {
         $url == ' ';
     }
-    if ($empty_link = empty($link))
+
+    $full_url = preg_replace('#^(http://)?((m|www)\.)?camptocamp\.org/?(.*)#', '/${4}', $full_url);
+    if ($empty_link = (empty($link) || $link == $url))
     {
-        $link = $full_url;
+        if ($full_url == '/')
+        {
+            $link = $url;
+        }
+        else
+        {
+            $link = $full_url;
+        }
     }
     
     $is_forum_url = false;
@@ -370,12 +383,16 @@ function handle_url_tag($url, $link = '')
     elseif (preg_match('#(?<=[^\w/]|^)/?forums/view(topic|forum).php\?p?id=\d+#', $full_url, $bah)) 	// Else if it is a forum url
     {
         $a = array( '%(?<=[^\w/]|^)/?forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
+                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)&action=new%i',
                     '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
-                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=\d+#p(\d+)%i'
+                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=\d+#p(\d+)%i',
+                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=(\d+)%i'
                   );
 
         $b = array(	'#f$1',
+                    '#t$1+',
                     '#t$1',
+                    '#p$1',
                     '#p$1'
                   );
         $full_url = preg_replace($a, $b, $full_url);
@@ -396,6 +413,11 @@ function handle_url_tag($url, $link = '')
     
     if ($is_forum_url && preg_match('/^#([fpt])(\d+)(\+?)/', $full_url, $params))
     {
+        if ($empty_link)
+        {
+            $link = $full_url;
+        }
+        
         $id = $params[2];
         if ($params[1] == 't')
         {
@@ -413,17 +435,17 @@ function handle_url_tag($url, $link = '')
         elseif ($params[1] == 'f')
         {
             $full_url = '/forums/viewforum.php?id='.$id;
-        }
-        if ($empty_link)
-        {
-            $link = substr($url, 1);
+            $pub_forums = explode(', ', PUB_FORUMS);
+            if (in_array($id, $pub_forums))
+            {
+                $rel = ' rel="nofollow"';
+            }
         }
     }
     
-    if ($empty_link || $link == '' || $link == $url)
+    if ($empty_link)
     {
         // Truncate link text if its an internal URL
-        $link = preg_replace('#^http://((m|www)\.)?camptocamp\.org/(.+)#', '${3}', $link);
         if (strpos("#/", $link[0]) !== false)
         {
             $link = substr($link, 1);
@@ -455,17 +477,11 @@ function handle_url_tag($url, $link = '')
     // Check if internal or external link
     $class = ' class="external_link"';
 
-    $short_url = preg_replace('#^http://((m|www)\.)?camptocamp\.org/?(.*)#', '/${3}', $full_url);
-    if ($short_url != $full_url)
-    {
-        $full_url = $short_url;
-    }
-
     if (strpos("#/", $full_url[0]) !== false) 
     { 
         $class = '';
         
-        if (preg_match('#^/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/(.*)name?/#i', $full_url))
+        if (preg_match('#^/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/[^\d]+/(.*)name?/#i', $full_url)))
         {
             $rel = ' rel="nofollow"';
         }
