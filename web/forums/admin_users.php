@@ -109,11 +109,23 @@ if (isset($_GET['ip_stats']))
 
 if (isset($_GET['show_users']))
 {
-	$ip = $_GET['show_users'];
+	$ip = trim($_GET['show_users']);
 
-	if (!@preg_match('/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/', $ip))
+	if (!@preg_match('/^[0-9.*]$/', $ip))
 		message('The supplied IP address is not correctly formatted.');
 
+	if (@preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/', $ip))
+    {
+        $condition = '=\''.$db->escape($ip).'\'';
+    }
+    elseif (@preg_match('/^[0-9]{1,3}\.[0-9.]*\*$/', $ip))
+    {
+        $condition = ' LIKE \''.$db->escape(str_replace('*', '', $ip)).'%\'';
+    }
+    else
+    {
+		message('The supplied IP address is not correctly formatted.');
+    }
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / Admin / Users';
 	require PUN_ROOT.'header.php';
@@ -143,7 +155,8 @@ if (isset($_GET['show_users']))
 			<tbody>
 <?php
 
-	$result = $db->query('SELECT DISTINCT poster_id, poster FROM '.$db->prefix.'posts WHERE poster_ip=\''.$db->escape($ip).'\' ORDER BY poster DESC') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+	
+    $result = $db->query('SELECT DISTINCT poster_id, poster FROM '.$db->prefix.'posts WHERE poster_ip'.$condition.' ORDER BY poster DESC') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 	$num_posts = $db->num_rows($result);
 
 	if ($num_posts)

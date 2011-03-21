@@ -91,11 +91,11 @@ class MyCacheFilter extends sfCacheFilter
     }
 
     $il = $this->interface_language;
-    $uri = sfRouting::getInstance()->getCurrentInternalUri()
-         . (strstr($uri, '?')) ? '&' : '?'
-         . 'il='.$il
-         . $pl . $pa
-         . '&c='.$this->credentials;
+    $uri = sfRouting::getInstance()->getCurrentInternalUri();
+    $uri .= (strstr($uri, '?')) ? '&' : '?'
+          . 'il='.$il
+          . $pl . $pa
+          . '&c='.$this->credentials;
 
     // page cache
     $this->cache[$uri] = array('page' => false, 'action' => false);
@@ -159,11 +159,11 @@ class MyCacheFilter extends sfCacheFilter
     }
 
     $il = $this->interface_language;
-    $uri = sfRouting::getInstance()->getCurrentInternalUri()
-         . (strstr($uri, '?')) ? '&' : '?'
-         . 'il='.$il
-         . $pl . $pa
-         . '&c='.$this->credentials;
+    $uri = sfRouting::getInstance()->getCurrentInternalUri();
+    $uri .= (strstr($uri, '?')) ? '&' : '?'
+          . 'il='.$il
+          . $pl . $pa
+          . '&c='.$this->credentials;
 
     // save page in cache
     if ($this->cache[$uri]['page'])
