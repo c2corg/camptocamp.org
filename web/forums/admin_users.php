@@ -111,7 +111,7 @@ if (isset($_GET['show_users']))
 {
 	$ip = trim($_GET['show_users']);
 
-	if (!@preg_match('/^[0-9.*]$/', $ip))
+	if (!@preg_match('/^[0-9.*]+$/', $ip))
 		message('The supplied IP address is not correctly formatted.');
 
 	if (@preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/', $ip))
