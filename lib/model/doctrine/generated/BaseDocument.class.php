@@ -2637,17 +2637,28 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildAroundCondition(&$conditions, &$values, $field, $param)
     {
-        $param = str_replace(array('-', '~'), array(',', ','), $param);
+        $param = str_replace(array(',', '-', '~'), array('.', ',', ','), $param);
         $param = explode(',', $param);
-        if (count($param) == 3)
+        // some checks on the input values TODO use a regexp for better checks
+        if (count($param) == 3 && is_numeric($param[0]) && is_numeric($param[1]) && is_numeric($param[2]))
         {
-            self::buildXYCondition(&$conditions, &$values, $param[0], $param[1], $param[2], $field);
+            // data could be with lon,lat (EPSG:4326) (with such values, it is very unlikely to be 900913 coordinates
+            if ((-180 < $param[0]) && ($param[0] < 180) && (-90 < $param[1]) && ($param[1] < 90))
+            {
+                self::buildXYCondition(&$conditions, &$values, $param[0], $param[1], $param[2], $field, 4326);
+            }
+            else // or assumed to be EPSG:900913
+            {
+                self::buildXYCondition(&$conditions, &$values, $param[0], $param[1], $param[2], $field);
+            }
         }
     }
 
-    public static function buildXYCondition(&$conditions, &$values, $x, $y, $tolerance, $field = 'geom')
+    /* x y must be with SRID 4326 or 900913 */
+    public static function buildXYCondition(&$conditions, &$values, $x, $y, $tolerance, $field = 'geom', $srid = 900913)
     {
-        $conditions[] = 'DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), ' . $field . ') < ?';
+        $conditions[] = ($srid == 900913) ? 'DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), ' . $field . ') < ?'
+                                           : 'DISTANCE(TRANSFORM(SETSRID(MAKEPOINT(?,?), 4326), 900913), ' . $field . ') < ?';
         array_push($values, $x, $y, round($tolerance));
     }
 
