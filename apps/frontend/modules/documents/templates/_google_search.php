@@ -31,9 +31,8 @@ echo input_tag('q', null, array('id'=>'google_search_input',
                                 'onblur' => "if (this.value == '') this.style.background = '$gwm';",
                                 'onfocus' => "this.style.background = '$nogwm';",
                                 'style' => 'background: '.$gwm));
-echo input_hidden_tag('sitesearch', "camptocamp.org/$module");
-echo '&nbsp;';
-echo submit_tag(__('Search'), array('name'=>'google_search_submit', 'class' => 'picto action_filter')); ?>
+echo input_hidden_tag('sitesearch', "camptocamp.org/$module"); ?>
+<div id="google_search_submit" onclick="this.up().submit();"></div>
 </form>
 <div id="google_search_results"></div>
 </div>

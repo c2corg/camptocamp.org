@@ -288,7 +288,7 @@ input.action_create
   background: url(/static/images/picto/add.png) no-repeat 2px;
 }
 
-input.action_filter
+input.action_filter, #google_search_submit
 {
   background: url(/static/images/picto/search.png) no-repeat 2px;
 }

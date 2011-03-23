@@ -497,7 +497,7 @@ input.action_create
   background: url(/static/images/ie/add.gif) no-repeat 2px;
 }
 
-input.action_filter
+input.action_filter, #google_search_submit
 {
   background: url(/static/images/ie/search.gif) no-repeat 2px;
 }

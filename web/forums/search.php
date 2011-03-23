@@ -1011,8 +1011,8 @@ var GoogleSearch = {
                                style="background: url(http://www.google.com/coop/intl/en/images/google_custom_search_watermark.gif) no-repeat scroll left center #fff"
                                onblur="if (this.value == '') this.style.background = 'url(http://www.google.com/coop/intl/en/images/google_custom_search_watermark.gif) no-repeat scroll left center #fff';"
                                onfocus="this.style.background = 'none repeat scroll 0 0 #fff'" />
+                        <div id="google_search_submit" onclick="this.up().submit();"></div>
                         <label class="conl"><input type="hidden" name="sitesearch" value="camptocamp.org/forums" /></label>
-                        <input type="submit" value="OK" />
                     </div>
                     <div id="google_search_results" class="inbox"></div>
                 </fieldset>
