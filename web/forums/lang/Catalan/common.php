@@ -31,6 +31,7 @@ $lang_common = array(
 'lang_direction'		=>	'ltr',	// ltr (Left-To-Right) or rtl (Right-To-Left)
 'lang_encoding'			=>	'UTF-8',
 'lang_multibyte'		=>	false,
+'meta_language'                 =>      'ca',
 
 // Meta data in HTML header
 'meta_description'      =>  'La comunitat de muntanya',

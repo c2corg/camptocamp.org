@@ -31,6 +31,7 @@ $lang_common = array(
 'lang_direction'		=>	'ltr',	// ltr (Left-To-Right) ODER rtl (Right-To-Left)
 'lang_encoding'			=>	'UTF-8',
 'lang_multibyte'		=>	false,
+'meta_language'                 =>      'de',
 
 // Meta data in HTML header
 'meta_description'      =>  'Die Berggemeindschaft',
