@@ -2438,7 +2438,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $interval = str_replace($pattern, $replace, $param);
             $conditions[] = "age($field) < interval '$interval'";
         }
-        elseif (preg_match('/^(>|<)?([0-9]*-?)(~)?([0-9]*-?)$/', $param, $regs))
+        elseif (preg_match('/^(>|<)?([0-9]*-?)(~)?([0-9]*)$/', $param, $regs))
         { // date comparison
             if (!empty($regs[1]))
             {
@@ -2507,71 +2507,72 @@ class BaseDocument extends sfDoctrineRecordI18n
                     }
                     self::buildCompareCondition($conditions, $values, $field, $newparam);
                     break;
-                case 5: //YYYY-
+                case 4: // YYYY or MMDD
                     // TODO check input values
-                    $year1 = substr($value1, 0, 4);
-                    switch ($compare)
+                    if ((int)$value1 > 1231) // YYYY
                     {
-                        case '>':
-                            $newparam = $compare . $year1 . '0101';
-                            break;
-                        case '<':
-                            // we need to provide a valid date
-                            $newparam = $compare . $year1 . '1231';
-                            break;
-                        case '=':
-                            // we need to provide a valid date
-                            $newparam = $year1 . '0101~' . $year1 . '1231';
-                            break;
-                        case '~':
-                            // we make sure that date1 < date2
-                            $year2 = substr($value2, 0, 4);
-                            $newparam = min($year1, $year2) . '0101' . $compare . max($year1, $year2) . '1231';
-                            break;
+                        switch ($compare)
+                        {
+                            case '>':
+                                $newparam = $compare . $value1 . '0101';
+                                break;
+                            case '<':
+                                // we need to provide a valid date
+                                $newparam = $compare . $value1 . '1231';
+                                break;
+                            case '=':
+                                // we need to provide a valid date
+                                $newparam = $value1 . '0101~' . $value1 . '1231';
+                                break;
+                            case '~':
+                                // we make sure that date1 < date2
+                                $newparam = min($value1, $value2) . '0101' . $compare . max($value1, $value2) . '1231';
+                                break;
+                        }
+                        self::buildCompareCondition($conditions, $values, $field, $newparam);
                     }
-                    self::buildCompareCondition($conditions, $values, $field, $newparam);
-                    break;
-                case 4: // MMDD
-                    // TODO check input values
-                    switch ($compare)
+                    else // MMDD
                     {
-                        case '>':
-                            $conditions[] = "date_part('month', $field) > ? OR (date_part('month', $field) = ? AND date_part('day', $field) >= ?)";
-                            $month = substr($value1, 0, 2);
-                            $values[] = $month;
-                            $values[] = $month;
-                            $values[] = substr($value1, 2, 2);
-                            break;
-                        case '<':
-                            $conditions[] = "date_part('month', $field) < ? OR (date_part('month', $field) = ? AND date_part('day', $field) <= ?)";
-                            $month = substr($value1, 0, 2);
-                            $values[] = $month;
-                            $values[] = $month;
-                            $values[] = substr($value1, 2, 2);
-                            break;
-                        case '=':
-                            $conditions[] = "date_part('month', $field) = ? AND date_part('day', $field) = ?";
-                            $values[] = substr($value1, 0, 2);
-                            $values[] = substr($value1, 2, 2);
-                            break;
-                        case '~': // youpi
-                            if ($value1 <= $value2)
-                            {
-                                $conditions[] = "(date_part('month', $field) > ? OR (date_part('month', $field) = ? AND date_part('day', $field) >= ?)) AND ".
-                                                "date_part('month', $field) < ? OR (date_part('month', $field) = ? AND date_part('day', $field) <= ?)";
-                            }
-                            else
-                            {
-                                $conditions[] = "(date_part('month', $field) > ? OR (date_part('month', $field) = ? AND date_part('day', $field) >= ?)) OR ".
-                                                "date_part('month', $field) < ? OR (date_part('month', $field) = ? AND date_part('day', $field) <= ?)";
-                            }
-                            $month = substr($value1, 0, 2);
-                            $day = substr($value1, 2, 2);
-                            $values[] = $month;$values[] = $month;$values[] = $day;
-                            $month = substr($value2, 0, 2);
-                            $day = substr($value2, 2, 2);
-                            $values[] = $month;$values[] = $month;$values[] = $day;
-                            break;
+                        switch ($compare)
+                        {
+                            case '>':
+                                $conditions[] = "date_part('month', $field) > ? OR (date_part('month', $field) = ? AND date_part('day', $field) >= ?)";
+                                $month = substr($value1, 0, 2);
+                                $values[] = $month;
+                                $values[] = $month;
+                                $values[] = substr($value1, 2, 2);
+                                break;
+                            case '<':
+                                $conditions[] = "date_part('month', $field) < ? OR (date_part('month', $field) = ? AND date_part('day', $field) <= ?)";
+                                $month = substr($value1, 0, 2);
+                                $values[] = $month;
+                                $values[] = $month;
+                                $values[] = substr($value1, 2, 2);
+                                break;
+                            case '=':
+                                $conditions[] = "date_part('month', $field) = ? AND date_part('day', $field) = ?";
+                                $values[] = substr($value1, 0, 2);
+                                $values[] = substr($value1, 2, 2);
+                                break;
+                            case '~': // youpi
+                                if ($value1 <= $value2)
+                                {
+                                    $conditions[] = "(date_part('month', $field) > ? OR (date_part('month', $field) = ? AND date_part('day', $field) >= ?)) AND ".
+                                                    "date_part('month', $field) < ? OR (date_part('month', $field) = ? AND date_part('day', $field) <= ?)";
+                                }
+                                else
+                                {
+                                    $conditions[] = "(date_part('month', $field) > ? OR (date_part('month', $field) = ? AND date_part('day', $field) >= ?)) OR ".
+                                                    "date_part('month', $field) < ? OR (date_part('month', $field) = ? AND date_part('day', $field) <= ?)";
+                                }
+                                $month = substr($value1, 0, 2);
+                                $day = substr($value1, 2, 2);
+                                $values[] = $month;$values[] = $month;$values[] = $day;
+                                $month = substr($value2, 0, 2);
+                                $day = substr($value2, 2, 2);
+                                $values[] = $month;$values[] = $month;$values[] = $day;
+                                break;
+                        }
                     }
                     break;
                 case 2: // MM

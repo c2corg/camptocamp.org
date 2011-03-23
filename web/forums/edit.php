@@ -151,12 +151,12 @@ if (isset($_POST['form_sent']))
 		$message = ucfirst(strtolower($message));
 
 	// Validate BBCode syntax
+    require PUN_ROOT.'include/parser.php';
 	if ($pun_config['p_message_bbcode'] == '1' && strpos($message, '[') !== false && strpos($message, ']') !== false)
 	{
-		require PUN_ROOT.'include/parser.php';
 		$message = preparse_bbcode($message, $errors);
 	}
-
+    $message = preparse_url($message);
 
 	$hide_smilies = isset($_POST['hide_smilies']) ? intval($_POST['hide_smilies']) : 0;
 	if ($hide_smilies != '1') $hide_smilies = '0';

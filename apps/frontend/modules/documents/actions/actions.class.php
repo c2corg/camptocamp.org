@@ -4216,10 +4216,6 @@ class documentsActions extends c2cActions
                 {
                     $date_md = c2cTools::writeWith2Digits($date1['month'])
                              . c2cTools::writeWith2Digits($date1['day']);
-                    if (empty($date_md))
-                    {
-                        $date_md = '-';
-                    }
                     $date1 = $date1['year'] . $date_md;
                 }
 
@@ -4227,10 +4223,6 @@ class documentsActions extends c2cActions
                 {
                     $date_md = c2cTools::writeWith2Digits($date2['month'])
                              . c2cTools::writeWith2Digits($date2['day']);
-                    if (empty($date_md))
-                    {
-                        $date_md = '-';
-                    }
                     $date2 = $date2['year'] . $date_md;
                 }
                 

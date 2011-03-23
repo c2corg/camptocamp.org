@@ -53,15 +53,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
     
     $a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[url(=\]|\])\s*#i',
-				'#\[url(=|\])(http://)?(m|www)\.camptocamp\.org(/([^\[\]]+))#i',
+				'#\[url(=|\])(http://)?(m+|w+)\.camptocamp\.org(/([^\[\]]+))#i',
 				'#\s*\[/url\]#i',
-                '#(http://)?((m|www)\.)?camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums))#i',
-                '%(?<=[^\w/]|^)/?forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
-                '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)&action=new%i',
-                '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
-                '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=\d+#p(\d+)%i',
-                '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=(\d+)%i',
-				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
+                '#\[email=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[email(=\]|\])\s*#i',
 				'#\s*\[/email\]#i',
 				'#\[img=\s*("|\'|)(.*?)\\1\s*\]\s*#i',
@@ -82,12 +76,6 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'[url]',
                 '[url$1$4',
 				'[/url]',
-                '$4',
-                '#f$1',
-                '#t$1+',
-                '#t$1',
-                '#p$1',
-                '#p$1',
 				'[email=$2]',
 				'[email]',
 				'[/email]',
@@ -157,6 +145,33 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		if (preg_match('#\[quote=(&quot;|"|\'|)(.*)\\1\]|\[quote\]|\[/quote\]|\[code\]|\[/code\]#i', $text))
 			message($lang_prof_reg['Signature quote/code']);
 	}
+
+	return trim($text);
+}
+
+
+//
+// Reduce internal url
+//
+function preparse_url($text)
+{
+    $a = array(  '#(?<=[^\w]|^)(http://)?((m+|w+)\.)?camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums))#i',
+                '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
+                '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
+                '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
+                '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=\d+#p(\d+)%i',
+                '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=(\d+)%i'
+              );
+	
+    $b = array(	'$4',
+                '#f$1',
+                '#t$1+',
+                '#t$1',
+                '#p$1',
+                '#p$1'
+              );
+  	
+    $text = preg_replace($a, $b, $text);
 
 	return trim($text);
 }
@@ -364,7 +379,7 @@ function handle_url_tag($url, $link = '')
         $url == ' ';
     }
 
-    $full_url = preg_replace('#^(http://)?((m|www)\.)?camptocamp\.org/?(.*)#', '/${4}', $full_url);
+    $full_url = preg_replace('#^(http://)?((m+|w+)\.)?camptocamp\.org/?(.*)#', '/${4}', $full_url);
     if ($empty_link = (empty($link) || $link == $url))
     {
         if ($full_url == '/')
@@ -380,13 +395,13 @@ function handle_url_tag($url, $link = '')
     $is_forum_url = false;
     if ($full_url == '' && $link == '')
         return '';
-    elseif (preg_match('#(?<=[^\w/]|^)/?forums/view(topic|forum).php\?p?id=\d+#', $full_url, $bah)) 	// Else if it is a forum url
+    elseif (preg_match('#(?<=[^\w/]|^)/*forums/view(topic|forum).php\?p?id=\d+#i', $full_url, $bah)) 	// Else if it is a forum url
     {
-        $a = array( '%(?<=[^\w/]|^)/?forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
-                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)&action=new%i',
-                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
-                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=\d+#p(\d+)%i',
-                    '%(?<=[^\w/]|^)/?forums/viewtopic.php\?pid=(\d+)%i'
+        $a = array( '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
+                    '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
+                    '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
+                    '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=\d+#p(\d+)%i',
+                    '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=(\d+)%i'
                   );
 
         $b = array(	'#f$1',
@@ -811,8 +826,8 @@ function do_clickable($text)
     $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
-    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/?(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
-    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
+    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
+    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/+((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
     $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')

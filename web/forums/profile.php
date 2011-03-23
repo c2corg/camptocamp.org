@@ -357,11 +357,12 @@ else if (isset($_POST['form_sent']))
 				$form['signature'] = ucfirst(strtolower($form['signature']));
 
 			// Validate BBCode syntax
+            require PUN_ROOT.'include/parser.php';
 			if ($pun_config['p_sig_bbcode'] == '1' && strpos($form['signature'], '[') !== false && strpos($form['signature'], ']') !== false)
 			{
-				require PUN_ROOT.'include/parser.php';
 				$form['signature'] = preparse_bbcode($form['signature'], $foo, true);
 			}
+            $form['signature'] = preparse_url($form['signature']);
 
 			if (!isset($form['use_avatar']) || $form['use_avatar'] != '1') $form['use_avatar'] = '0';
 
