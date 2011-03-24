@@ -1287,8 +1287,8 @@ class sfPunBBCodeParser
 
             // first replace all [video] by [video $width,$height]
             // for mobile version, we force the dimensions
-            $text = $mobile_version ? preg_replace('#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]#', "[video $width,$height]", $text)
-                                    : preg_replace('#\[video\]#', "[video $width,$height]", $text);
+            $text = $mobile_version ? preg_replace('#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]#i', "[video $width,$height]", $text)
+                                    : preg_replace('#\[video\]#i', "[video $width,$height]", $text);
 
             if ($show_videos)
             {
