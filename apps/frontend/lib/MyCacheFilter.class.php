@@ -78,11 +78,11 @@ class MyCacheFilter extends sfCacheFilter
     // cases where all cultures are displayed, or only the one from the interface (see #723)
     $pl = '';
     $pa = '';
-    if ($action == 'home' || $module == 'portals')
+    if (($action == 'home' || $module == 'portals') && $is_main_filter_switch_on)
     {
-        if (!$perso->areDefaultFilters())
+        if ($perso->areDefaultLanguagesFilters())
         {
-            $pl = '&pl=0';
+            $pl = '&pl=1';
         }
         if ($perso->areSimpleActivitiesFilters())
         {
@@ -142,19 +142,24 @@ class MyCacheFilter extends sfCacheFilter
 
     // for portals and home, we adapt cache uri so that we can cache
     // cases where all cultures are displayed, or only the one from the interface (see #723)
+    $pl = '';
+    $pa = '';
     if ($action == 'home' || $module == 'portals')
     {
         $perso = c2cPersonalization::getInstance();
         $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
         $activities_filter = $perso->getActivitiesFilter();
         
-        if (!$perso->areDefaultFilters())
+        if ($is_main_filter_switch_on)
         {
-            $pl = '&pl=0';
-        }
-        if ($perso->areSimpleActivitiesFilters())
-        {
-            $pa = '&pa=' . implode('-', $activities_filter);
+            if ($perso->areDefaultLanguagesFilters())
+            {
+                $pl = '&pl=1';
+            }
+            if ($perso->areSimpleActivitiesFilters())
+            {
+                $pa = '&pa=' . implode('-', $activities_filter);
+            }
         }
     }
 

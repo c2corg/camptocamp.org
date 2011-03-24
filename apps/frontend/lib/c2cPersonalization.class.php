@@ -181,6 +181,27 @@ class c2cPersonalization
     }
 
     /**
+     * Tells if user has default language filters activated ( lang filter, with only 1 lang = interface lang)
+     * @return boolean
+     */
+    public function areDefaultLanguagesFilters()
+    {
+        $langs      = $this->getLanguagesFilter();
+        $ranges     = $this->getPlacesFilter();
+        $context = sfContext::getInstance();
+        $culture = $context->getUser()->getCulture();
+        if (count($langs) == 1 && count($ranges) == 0)
+        {
+            $is_default_filter = (reset($langs) == $culture);
+        }
+        else
+        {
+            $is_default_filter = false;
+        }
+        return $is_default_filter;
+    }
+
+    /**
      * Tells if user has simple activity filters activated (just 1 or 2 activities filter + lang filter, with only 0 or 1 lang = interface lang)
      * @return boolean
      */
