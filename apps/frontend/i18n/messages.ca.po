@@ -97,9 +97,8 @@ msgstr "AD+"
 msgid "AD-"
 msgstr "AD-"
 
-# [WARNING] es translation used
 msgid "Access point:"
-msgstr "Acceso:"
+msgstr "Accés:"
 
 msgid "Activate map search"
 msgstr "Limitar la cerca als límits del mapa."
@@ -107,16 +106,14 @@ msgstr "Limitar la cerca als límits del mapa."
 msgid "Add"
 msgstr "Afegir"
 
-# [WARNING] es translation used
 msgid "Add a post"
-msgstr "Publique un mensaje"
+msgstr "Publicar un missatge"
 
 msgid "Add associated summit :"
 msgstr "Afegir un cim associat:"
 
-# [WARNING] es translation used
 msgid "Add images"
-msgstr "Añadir imágenes"
+msgstr "Afegir imatges"
 
 msgid "Add your outing"
 msgstr "Afegeix la teva sortida"
@@ -131,30 +128,26 @@ msgstr "Afegeix el teu cim"
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Una vegada omplert el següent formulari rebràs un email amb la teva contrasenya. Perquè el teu compte sigui validat hauràs de connectar-te abans de %1% dies."
 
-# [WARNING] es translation used
 msgid "Alignment"
-msgstr "Alineamiento:"
+msgstr "Alineació:"
 
 msgid "All fields are mandatory"
 msgstr "Tots els camps són obligatoris."
 
-# [WARNING] es translation used
 msgid "All topics"
-msgstr "Todos los temas"
+msgstr "Tots els temes"
 
 # [WARNING] es translation used
 msgid "All your images are already collaborative"
 msgstr "Todas sus imágenes ya son colaborativas."
 
-# [WARNING] es translation used
 msgid "An user can not be linked to a collaborative article"
-msgstr "No se puede asociar un usuario a un documento colaborativo"
+msgstr "Un usuari no es pot associar a un document col·laboratiu"
 
 # [general comment]
 # Titre de la section des documents annexes.
-# [WARNING] es translation used
 msgid "Annex"
-msgstr "Apéndice"
+msgstr "Annex"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Estàs segur que vols suprimir la versió catalana d'aquest document?"
@@ -264,9 +257,9 @@ msgstr "al menys un fitxer és de dimensions massa petites"
 msgid "At least one image type is not given"
 msgstr "No s'ha indicat el tipus d'imatge per almenys una de les imatges"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "At least one name field is empty"
-msgstr "Falta al menos un titulo de imagen"
+msgstr "Com a mínim el nom d'un camp està buit"
 
 msgid "Author"
 msgstr "Autor"
@@ -276,13 +269,12 @@ msgstr "Importat automàticament"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Available lists"
-msgstr "Boletines disponibles"
+msgstr "Butlletins disponibles"
 
-# [WARNING] es translation used
 msgid "Avalanche bulletin"
-msgstr "Boletín de aludes"
+msgstr "Butlletí d'allaus"
 
 msgid "Back to areas list"
 msgstr "Tornar a la llista de zones"
@@ -320,13 +312,13 @@ msgstr "Tornar a la llista de sortides"
 msgid "Back to parkings list"
 msgstr "Tornar a la llista de pàrquings"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Back to portals list"
-msgstr "Volver a la lista de portadas"
+msgstr "Tornar a la llista de portals"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Back to products list"
-msgstr "Volver a la lista de documentos \"productos locales\""
+msgstr "Tornar a la llista de \"productes locals\""
 
 msgid "Back to routes list"
 msgstr "Tornar a la llista d'itineraris"
@@ -348,9 +340,9 @@ msgstr "Posar en els meus favorits"
 
 # [general comment]
 # Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Bookmark & Share"
-msgstr "Favorito / Compartir"
+msgstr "Preferits / Compartir"
 
 msgid "Bookmark current document"
 msgstr "Posar el document en curs en els meus favorits"
@@ -425,9 +417,8 @@ msgstr "Prémeu per modificar el text"
 msgid "Close all sections"
 msgstr "Tancar totes les seccions"
 
-# [WARNING] en translation used
 msgid "Collaborative images"
-msgstr "Collaborative images"
+msgstr "Imatges colaboratives"
 
 msgid "Comment:"
 msgstr "comentari:"
@@ -470,7 +461,7 @@ msgid "Contact us"
 msgstr "Contactar-nos"
 
 msgid "Context:"
-msgstr "Contexte:"
+msgstr "Context:"
 
 msgid "Copy following string:"
 msgstr "Copia la següent seqüència anti-spam:"
@@ -526,9 +517,9 @@ msgstr "Afegir un pàrquing"
 msgid "Create new portals"
 msgstr "Crear un portal"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Create new products"
-msgstr "Añadir un documento \"productos locales\""
+msgstr "Crear nous productes"
 
 msgid "Create new routes"
 msgstr "Afegir un itinerari"
@@ -568,9 +559,9 @@ msgstr "Creació d'un nou pàrquing"
 msgid "Creating new portals"
 msgstr "Creació d'un portal"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Creating new products"
-msgstr "Creación de un documento \"productos locales\""
+msgstr "Creant nous productes"
 
 msgid "Creating new routes"
 msgstr "Creació d'un nou itinerari"
@@ -631,9 +622,8 @@ msgstr "Suprimir aquesta associació"
 msgid "Delete this document"
 msgstr "Suprimir aquest document"
 
-# [WARNING] es translation used
 msgid "Delete this document culture"
-msgstr "Suprimir esta versión lingüística del documento"
+msgstr "Suprimir aquesta versió lingüística del document"
 
 msgid "Delete this documents geometry"
 msgstr "Suprimir la geometria d'aquest document"
@@ -887,9 +877,8 @@ msgstr "Obtenir ajuda"
 msgid "Get current list in RSS format"
 msgstr "Obtenir la llista en format RSS"
 
-# [WARNING] es translation used
 msgid "Get directions:"
-msgstr "Visualizar el recorrido por carretera hasta el acceso:"
+msgstr "Obtenir el recorregut:"
 
 msgid "Get help"
 msgstr "Obtenir ajuda"
@@ -912,9 +901,8 @@ msgstr "Anar a l'article següent"
 msgid "Go to next book"
 msgstr "Anar al llibre següent"
 
-# [WARNING] es translation used
 msgid "Go to next hut"
-msgstr "Ir al siguiente refugio o campamento"
+msgstr "Anar al següent refugi"
 
 msgid "Go to next image"
 msgstr "Anar a la imatge següent"
@@ -931,9 +919,8 @@ msgstr "Anar al següent accés "
 msgid "Go to next portal"
 msgstr "Anar al següent portal"
 
-# [WARNING] es translation used
 msgid "Go to next product"
-msgstr "Ir al siguiente documento \"productos locales\""
+msgstr "Anar al següent producte"
 
 msgid "Go to next route"
 msgstr "Anar al següent itinerari"
@@ -965,25 +952,20 @@ msgstr "Anar al mapa anterior"
 msgid "Go to previous outing"
 msgstr "Anar a la sortida anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous parking"
-msgstr "Ir al acceso anterior"
+msgstr "Anar a l'accés anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous portal"
-msgstr "Ir a la portada anterior"
+msgstr "Anar al portal anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous product"
-msgstr "Ir al anterior documento \"productos locales\""
+msgstr "Anar al producte anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous route"
-msgstr "Ir al itinerario anterior"
+msgstr "Anar al recorregut anterior"
 
-# [WARNING] es translation used
 msgid "Go to previous summit"
-msgstr "Ir a la cima anterior"
+msgstr "Anar al cim anterior"
 
 msgid "Go to the homepage"
 msgstr "Anar a la pàgina d'inici"
@@ -993,9 +975,8 @@ msgstr "Consultar el mapa de la web"
 
 # [general comment]
 # texte par défaut du formulaire de recentrage de l'outil carto
-# [WARNING] es translation used
 msgid "Go to..."
-msgstr "Ir a..."
+msgstr "Anar a..."
 
 msgid "Google Book Search"
 msgstr "Cerca de llibres de Google"
@@ -1041,15 +1022,13 @@ msgstr "Refugi:"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] es translation used
 msgid "IGN maps"
-msgstr "Mapa IGN"
+msgstr "Mapes IGN"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] es translation used
 msgid "IGN orthos"
-msgstr "fotos aéreas IGN"
+msgstr "Ortofotos IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Aquesta nova contrasenya no serà validada fins que l'utilitzis per primera vegada. Després podràs modificar-la en el teu perfil personal. Si no has demanat la generació d'una nova contrasenya, simplement ignora aquest missatge."
@@ -1114,7 +1093,6 @@ msgstr "Informacions"
 
 # [general comment]
 # il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
-# [WARNING] es translation used
 msgid "Insert"
 msgstr "Insertar"
 
@@ -1448,9 +1426,8 @@ msgstr "Fusionat amb el document "
 msgid "Message setting failed. This message has not been saved."
 msgstr "Error en la configuración del mensaje. El mensaje no se registró."
 
-# [WARNING] es translation used
 msgid "MeteoSwiss"
-msgstr "MeteoSuiza"
+msgstr "MeteoSwiss"
 
 # [general comment]
 # Titre html des popups c2c.
@@ -1484,40 +1461,34 @@ msgstr "Más resultados en Google"
 
 # [general comment]
 # keep it short
-# [WARNING] es translation used
 msgid "More..."
-msgstr "Más..."
+msgstr "Més..."
 
 msgid "Move"
 msgstr "Mou"
 
-# [WARNING] needs_review
 msgid "My Camptocamp"
 msgstr "El meu Camptocamp"
 
-# [WARNING] es translation used
 msgid "My images"
-msgstr "Mis imágenes"
+msgstr "Les meves imatges"
 
 msgid "My outing: "
 msgstr "La meva sortida: "
 
-# [WARNING] es translation used
 msgid "My outings"
-msgstr "Mis salidas"
+msgstr "Les meves sortides"
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
-# [WARNING] es translation used
 msgid "My position"
-msgstr "Mi posición"
+msgstr "La meva posició"
 
 msgid "My preferences"
 msgstr "Preferències personals"
 
-# [WARNING] es translation used
 msgid "My topics"
-msgstr "Mis temas"
+msgstr "Els meus temes"
 
 msgid "N"
 msgstr "N"
@@ -1528,7 +1499,6 @@ msgstr "NE"
 msgid "NW"
 msgstr "NW"
 
-# [WARNING] needs_review
 msgid "Name"
 msgstr "Nom"
 
@@ -1538,16 +1508,15 @@ msgstr "Nom:"
 msgid "New outing"
 msgstr "Afegir una sortida"
 
-# [WARNING] es translation used
 msgid "New posts"
-msgstr "Mensajes no leídos"
+msgstr "Missatges nous"
 
 msgid "New route"
 msgstr "Afegir un itinerari"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "New routes article"
-msgstr "Crónica de aperturas"
+msgstr "Crònica d'obertura"
 
 msgid "No associated document found"
 msgstr "Cap document associat"
@@ -1555,9 +1524,8 @@ msgstr "Cap document associat"
 msgid "No associated route found"
 msgstr "Cap itinerari no està associat a aquest cim"
 
-# [WARNING] es translation used
 msgid "No available image for insertion"
-msgstr "No hay imágenes disponibles para la inserción"
+msgstr "No hi ha imatges disponibles per a l'inserció"
 
 msgid "No contribution for this user"
 msgstr "Aquest usuari encara no ha fet contribucions a la topo-guia."
@@ -1733,12 +1701,11 @@ msgstr "Període:"
 msgid "Permalink.openlink"
 msgstr "Abre el enlace"
 
-# [WARNING] es translation used
 msgid "Personal articles"
-msgstr "Articulos personales"
+msgstr "Articles personals"
 
 msgid "Personal information"
-msgstr "Informacions personals"
+msgstr "Informació personal"
 
 msgid "Personal page"
 msgstr "Pàgina personal"

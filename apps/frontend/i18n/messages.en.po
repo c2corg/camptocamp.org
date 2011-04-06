@@ -3138,7 +3138,7 @@ msgid "_toponeige_technical_rating_info"
 msgstr "<h3>Toponeige technical skiing grade</h3>Technical grade for downhill skiing difficulties (toponeige).<br />This is not a punctual rating: it depends on the length and configuration of the difficulties rather than the hardest section only.<br />It includes 5 levels. Each level is divided into 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. The 5th level is open-ended: 5.4, 5.5, 5.6...<br /><br /><strong>1.x</strong>: Initiation. Slopes do not exceed 30° with no narrow sections. Vertical descent is less than 800m.<br /><br /><strong>2.x</strong>: Few technical difficulties. Slopes do no exceed 35°.<br /><br /><strong>3.x</strong>: Some technical sections. Long slopes at 35° with very short sections at 40-45°.<br /><br /><strong>4.x</strong>: Couloir or steep skiing : slopes between 40 and 45° over more than 200m vertical.<br /><br /><strong>5.x</strong>: Starts with slopes of 45°-50° during more than 300m vertical or above 50° for more than 100m vertical.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring and ski-mountaineering</a>."
 
 msgid "_track_status_info"
-msgstr "<h3>Track</h3>Quality or state of the track. The <i>Conditions</i> field allows to fill in additional information."
+msgstr "<h3>Track</h3>Quality or state of the track after your outing. The <i>Conditions</i> field allows to fill in additional information."
 
 # [comment]
 # Modif de l'anglais

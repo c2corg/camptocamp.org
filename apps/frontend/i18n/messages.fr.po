@@ -3158,7 +3158,7 @@ msgid "_toponeige_technical_rating_info"
 msgstr "<h3>Cotation technique</h3>Cotation des difficultés techniques de descente à ski (toponeige).<br />Ce n'est pas une cotation ponctuelle&nbsp;: elle dépend de la longueur et de la configuration des difficultés.<br />Elle comprend 5 degrés. Chaque degré est divisé en 3&nbsp;: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Le 5ème degré est ouvert sur le haut&nbsp;: 5.4, 5.5, 5.6...<br /><br /><strong>1.x</strong>&nbsp;: Niveau initiation. Les pentes n’excèdent pas 30°. Les passages ne sont pas trop étroits. Le dénivelé est inférieur à 800m.<br /><br /><strong>2.x</strong>&nbsp;: Peu de difficultés techniques. Les pentes n’excèdent pas 35°.<br /><br /><strong>3.x</strong>&nbsp;: Présence de passages techniques. Pentes longues à 35°, quelques passages très courts jusqu’à 40-45°.<br /><br /><strong>4.x</strong>&nbsp;: Ski de couloir ou pente raide. Pentes à 40 ou 45° sur plus de 200m.<br /><br /><strong>5.x</strong>&nbsp;: Pente à 45°/50° sur plus de 300m ou de plus de 50° sur 100m.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski et surf</a>."
 
 msgid "_track_status_info"
-msgstr "<h3>Trace</h3>Etat de la trace. Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
+msgstr "<h3>Trace</h3>État de la trace après la sortie et les différents passages de la journée. Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
 
 msgid "_unstaffed_capacity_info"
 msgstr "<h3>Nombre de places hors période de gardiennage</h3>Nombre de places de couchage \"normales\" hors période de gardiennage. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."

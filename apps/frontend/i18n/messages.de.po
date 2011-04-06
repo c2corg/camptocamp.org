@@ -105,9 +105,9 @@ msgstr "Die Suche mit die Kartegrenzen begrenzen"
 msgid "Add"
 msgstr "Hinzufügen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Add a post"
-msgstr "Post a message"
+msgstr "Eine Nachricht schreiben"
 
 msgid "Add associated summit :"
 msgstr "Einen neuen Gipfel erstellen:"
@@ -1441,16 +1441,15 @@ msgstr "Verschieben"
 msgid "My Camptocamp"
 msgstr "Mein Camptocamp"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "My images"
-msgstr "My images"
+msgstr "Meine Bilder"
 
 msgid "My outing: "
 msgstr "Meine Tour: "
 
-# [WARNING] en translation used
 msgid "My outings"
-msgstr "My outings"
+msgstr "Meine Touren"
 
 # [general comment]
 # link in the map tool to center on user position (if supported)
@@ -1607,9 +1606,9 @@ msgstr "Diese Tour existiert nicht."
 
 # [general comment]
 # associated
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Outings linked to linked routes"
-msgstr "Outings linked to <a href=\"#routes\">associated routes</a>"
+msgstr "Mit der Tour <a href=\"#routes\">verbundene Routen</a>"
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
@@ -1617,9 +1616,9 @@ msgstr "Outings linked to <a href=\"#routes\">associated routes</a>"
 msgid "Outings linked to these images"
 msgstr "Mit diesen Bildern verbundene Touren"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Outings linked to this route"
-msgstr "Outings linked to the route on this page"
+msgstr "Mit der Route dieser Seite verbundene Touren"
 
 msgid "PD"
 msgstr "WS"
@@ -2610,13 +2609,13 @@ msgstr "Sie haben keine Mailing-Liste abonniert."
 msgid "You must select at least one activity"
 msgstr "sie müssen mindestens eine Aktivität für dieses Dokument auswählen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "You must specify a nickname"
-msgstr "You must specify a nickname for the forums."
+msgstr "Sie müssen einen Spitznamen für die Foren angeben."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "You must specify a topo name"
-msgstr "You must specify a name to be displayed in the guidebook."
+msgstr "Sie müssen einen Namen angeben, welcher im Tourenführer verwendet wird."
 
 msgid "You must specify an email"
 msgstr "Sie müssen eine Email-Adresse angeben."

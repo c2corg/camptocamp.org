@@ -404,9 +404,8 @@ msgstr "Pulse para editar este texto"
 msgid "Close all sections"
 msgstr "Cerrar todas las secciones"
 
-# [WARNING] en translation used
 msgid "Collaborative images"
-msgstr "Collaborative images"
+msgstr "Imagenes colaborativas"
 
 msgid "Comment:"
 msgstr "Comentario:"
@@ -3088,7 +3087,7 @@ msgid "_toponeige_technical_rating_info"
 msgstr "<h3>Cotación técnica</h3>Cotación de las dificultades técnicas de descenso en esquí (cotación Toponeige).<br />No es una cotación puntual: depende de la longitud y configuración de las dificultades.<br />Comprende 5 grados. Cada grado se matiza en 4.1, 4.2, 4.3 por ejemplo.<br /><br /><strong>Esquí 1</strong>: Apto para iniciación. Las pendientes no exceden los 30°. No hay tramos muy estrechos o arbolados y el desnivel es inferior a los 800m.<br /><br /><strong>Esquí 2</strong>: Pocas dificultades técnicas. La pendiente no supera el 35°.<br /><br /><strong>Esquí 3</strong>: Hay tramos técnicos: largos tramos de 35° o algunos tramos cortos hasta 40-45°.<br /><br /><strong>Esquí 4</strong>: Aquí empieza el esquí de corredor o de pendientes fuertes: Pendientes de 40 a 45° durante mas de 200m.<br /><br /><strong>Esquí 5</strong>: A partir de pendientes de 45°/50° durante mas de 300m o de mas de 50° durante 100m. El grado 5 esta abierto por arriba: 5.4, 5.5...<br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí y surf</a>."
 
 msgid "_track_status_info"
-msgstr "<h3>Huella</h3>Estado de la huella. El campo <i>Condiciones encontradas</i> permite dar informaciones complementarias."
+msgstr "<h3>Huella</h3>Estado de la huella despues de su salida. El campo <i>Condiciones encontradas</i> permite dar informaciones complementarias."
 
 # [comment]
 # trad ES
