@@ -1133,19 +1133,16 @@ msgstr "Sembla que has oblidat de senyalar un nom o un fitxer."
 
 # [general comment]
 # Entrée du menu qui renvoie vers l'article d'aide générale
-# [WARNING] es translation used
 msgid "Kesako?"
-msgstr "Quienes somos"
+msgstr "Qui som?"
 
-# [WARNING] es translation used
 msgid "Know more"
-msgstr "sepa más"
+msgstr "Més"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
-# [WARNING] es translation used
 msgid "Last bulletin"
-msgstr "Ultimo boletín"
+msgstr "Últim butlletí"
 
 # [WARNING] es translation used
 msgid "Last soft mobility articles"
@@ -5594,7 +5591,7 @@ msgstr "Archivos de imágenes"
 # text pour plupload, à rapprocher des items 351 et 1529
 # [WARNING] en translation used
 msgid "plupload introduction text"
-msgstr "You can add %1%. Minimum size is %1% x %2% px. JPGs and PNGs should be automatically resized, but SVGs and GIFs maximum size is %3% x %2% px, %4% MB<br /><strong>By publishing a picture on camptocamp.org, you accept to make it available under a <a href=\"/articles/106728#cc-by-nc-nd\">Creative Commons BY-NC-ND</a> or <a href=\"/articles/106728#cc-by-sa\">Creative Commons BY-SA</a>license, depending on the picture type you choose. </strong> Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth, Geoportail or scans of published maps and topos).<br /> By clicking on the upper right corner of the small sized picture (tab) you will access the picture’s page, where you can:<br />- Modify its title and description: click on the \"Edit\" tab (left-hand menu).<br />- Associate the picture to other documents: Use the tool located at the bottom of the page.<br />- Request the deletion of the picture: Click on \"Report a problem\" (bottom of the left-hand column) to send a message to the moderators.<br /><span style=\"color: red\">The selection of at least one of the picture categories marked with an asterisk (*) will make the picture appear on the home page.</span> For more details on pictures, see the <a href=\"/articles/107005\">album help</a>."
+msgstr "You can '%1%'. The minimum size is %4% x %5% px. Jpeg and png files are usually resized automatically but svg and gif files must be less than %3% x %2% px and %4% Mo.<br /><strong>By uploading pictures on camptocamp.org you accept that you are publishing them under a <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> or <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> license, depending on whether you publish it as personal or collaborative content.</strong> Pictures under copyright are not accepted.<br />By clicking on the top right angle of the thumbnail you will access the picture’s page which allows you to: <br />- Modify its title or its description: click on the “modify” tab (on the left).<br />- Associate the picture to other documents: use the tool at the bottom of the page.<br />- Request the deletion of the picture by contacting moderators: click on “report a problem”.<br /><span style=\"color: red\">The selection of at least on category marked with an asterisk (*) will make the picture appear on the home page. </span> For more information, see the <a href=\"/articles/107005\">help on the album</a>."
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
