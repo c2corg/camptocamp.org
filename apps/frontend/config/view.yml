@@ -1,7 +1,6 @@
 default:
   http_metas:
     content-type: text/html
-    X-UA-Compatible: "IE=8,chrome=1" # Set to "IE=edge,chrome=1" once ie9 problems are solved. TODO check if X-Ua-Compatible is ok
 
   metas:
     title:        meta_title
