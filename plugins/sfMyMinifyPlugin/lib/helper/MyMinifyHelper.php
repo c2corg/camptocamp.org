@@ -120,7 +120,8 @@ function minify_get_maps_javascripts($combine = true)
 
   if (sfConfig::get('app_async_map', true) && sfContext::getInstance()->getRequest()->getparameter('action') != 'map')
   {
-    return '<!--[if IE]>' . minify_get_javascripts(array('maps'), true) . '<![endif]-->';
+    $js = minify_get_javascripts(array('maps'), true);
+    return empty($js) ? '' : '<!--[if IE]>' . $js . '<![endif]-->';
   }
   else
   {

@@ -37,7 +37,8 @@ function include_maps_javascripts()
 {
     if (sfConfig::get('app_async_map', true) && sfContext::getInstance()->getRequest()->getparameter('action') != 'map')
     {
-        return '<!--[if IE]>' . _include_javascripts(array('maps'), true) . '<![endif]-->';
+        $js = _include_javascripts(array('maps'), true);
+        return empty($js) ? '' : '<!--[if IE]>' . $js . '<![endif]-->';
     }
     else
     {
