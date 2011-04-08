@@ -54,6 +54,7 @@ else
 }
 $show_link_to_forum = isset($_GET['forum']) ? '&amp;forum' : '' ;
 $show_link_to_forum_redirect = isset($_GET['forum']) ? '&forum' : '' ;
+$mobile = c2cTools::mobileVersion();
 
 // If a post ID is specified we determine topic ID and page number so we can redirect to the correct message
 if ($pid)
@@ -668,7 +669,7 @@ foreach ($posts_list as $cur_post)
 			if (($cur_topic['post_replies'] == '' && $pun_user['g_post_replies'] == '1') || $cur_topic['post_replies'] == '1') 
 			{
 				$post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'" rel="nofollow">'.$lang_topic['Quoted reply'].'</a>';
-				if (!$pun_user['is_guest'])
+				if (!$pun_user['is_guest'] && !$mobile)
 					$post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>';
 			}
 		}
@@ -686,7 +687,10 @@ foreach ($posts_list as $cur_post)
         }
         $post_actions[] = '<li class="postedit"><a href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a>';
         $post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'">'.$lang_topic['Quoted reply'].'</a>';
-        $post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
+        if (!$mobile)
+	{
+		$post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
+	}
     //  Remove '<li class="postdelete"><a href="delete.php?id='.$cur_post['id'].'">'.$lang_topic['Delete'].'</a>'.$lang_topic['Link separator'].'</li>' because delete function occurs high server load.
     // To be put back when this function will be corrected. (bad english but titise fait expres !)
     }
@@ -699,7 +703,7 @@ foreach ($posts_list as $cur_post)
 	$cur_post['message'] = parse_message($cur_post['message'], $cur_post['hide_smilies'], $post_id_list);
 
 	// Do signature parsing/caching
-	if ($poster_data['signature'] != '' && $pun_user['show_sig'] != '0' && !c2cTools::mobileVersion())
+	if ($poster_data['signature'] != '' && $pun_user['show_sig'] != '0' && !$mobile)
 	{
 		if (isset($signature_cache[$cur_post['poster_id']]))
 			$signature = $signature_cache[$cur_post['poster_id']];
