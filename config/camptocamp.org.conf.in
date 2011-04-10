@@ -15,7 +15,7 @@ AddType application/json .json
 
 <IfModule mod_deflate.c>
   <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript application/xml image/svg+xml
   </Directory>
 </IfModule>
 
