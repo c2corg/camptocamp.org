@@ -49,7 +49,7 @@ select[multiple="multiple"], input[type="checkbox"], input[type="image"]
 }
 
 
-input[type="text"], input[type="password"]
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="range"], input[type="date"], input[type="color"]
 {
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
