@@ -302,3 +302,7 @@ input.action_list
 {
   background: url(/static/images/picto/list.png) no-repeat 2px;
 }
+
+/* Bicubic resizing for non-native sized IMG:
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+img { -ms-interpolation-mode: bicubic; }

@@ -6,6 +6,7 @@ html, body, #holder
 body
 {
   -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
 }
 
 #header
@@ -669,7 +670,7 @@ li.list_odd
 
 
 /* html5, maybe move this to main.css if standard version goes html5 */
-header, footer
-{
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block;
 }
