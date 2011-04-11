@@ -8,5 +8,5 @@ g.async = 1; g.src = '//www.google-analytics.com/ga.js'; s.parentNode.insertBefo
 // addthis script must be added after ga tracker for google analytics integration, it will be loaded asynchronously
 if ($addthis): ?>
 (function(d) { var a = d.createElement('script'), h = d.getElementsByTagName('head')[0];
-a.async = 1; a.src = 'http://s7.addthis.com/js/250/addthis_widget.js#domready=1'; h.appendChild(a); }(document));
+a.async = 1; a.src = '//s7.addthis.com/js/250/addthis_widget.js#domready=1'; h.appendChild(a); }(document));
 <?php endif ?></script>
