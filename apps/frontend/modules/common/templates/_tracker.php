@@ -6,5 +6,7 @@ var _gaq = [['_setAccount', '<?php echo $k ?>'],['_setDomainName', 'none'],['_tr
 g.async = 1; g.src = '//www.google-analytics.com/ga.js'; s.parentNode.insertBefore(g, s); }(document, 'script'));
 <?php 
 // addthis script must be added after ga tracker for google analytics integration, it will be loaded asynchronously
-if ($addthis): ?>(function() {var head = $$('head')[0]; var script = new Element('script',{async: 1, src: 'http://s7.addthis.com/js/250/addthis_widget.js#domready=1'});head.appendChild(script);})();<?php endif ?>
-</script>
+if ($addthis): ?>
+(function(d) { var a = d.createElement('script'), h = d.getElementsByTagName('head')[0];
+a.async = 1; a.src = 'http://s7.addthis.com/js/250/addthis_widget.js#domready=1'; h.appendChild(a); }(document));
+<?php endif ?></script>
