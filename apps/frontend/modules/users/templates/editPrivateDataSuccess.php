@@ -22,7 +22,7 @@
     echo end_fieldset_tag();
     
     echo fieldset_tag('Manage your email');
-    echo object_group_tag($user_private_data, 'email', null, '', array('class' => 'medium_input', 'type' => 'email'));
+    echo object_group_tag($user_private_data, 'email', null, '', array('class' => 'medium_input'));
     echo end_fieldset_tag();?>
     <div class="form-row">
     <?php
