@@ -8,6 +8,8 @@ use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum
 $mobile_hostname = sfConfig::get('app_mobile_version_host');
 $classic_hostname = sfConfig::get('app_classic_version_host');
 
+/*
+TODO should we handle these cases for mobile version?
 $is_map = ($footer_type == 'map');
 $is_cda = ($footer_type == 'cda');
 if ($footer_type != 'normal')
@@ -17,14 +19,15 @@ if ($footer_type != 'normal')
 else
 {
     $class = '';
-}
+}*/
+$class= '';
 
 if ((bool)sfConfig::get('app_mobile_version_ads'))
 {
     include_partial('common/mobile_banner');
 }
 ?>
-<div id="footer"<?php echo $class ?>>
+<<?php echo isset($html5) ? 'footer' : 'div' ?> id="footer"<?php echo $class ?>>
     <div id="footer_cc">
         <div id="footer_cc_text">
             <p><?php echo link_to(__('Home'), '@homepage'), ' | ', link_to(__('web version of the site'), 'http://'.$classic_hostname,
@@ -40,4 +43,4 @@ if ((bool)sfConfig::get('app_mobile_version_ads'))
             </ul>
         </div>
     </div>
-</div>
+</<?php echo isset($html5) ? 'footer' : 'div' ?>>

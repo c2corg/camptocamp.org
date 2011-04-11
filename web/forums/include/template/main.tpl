@@ -7,16 +7,16 @@
 </head>
 
 <body>
+<div id="page_header">
 <pun_include "symfony_head.php">
+</div>
 
 <div id="punwrap">
 <div id="pun<pun_page>" class="pun">
-
 <pun_status>
-
 <pun_announcement>
-
 <pun_main>
+
 
 <pun_footer>
 

@@ -666,3 +666,10 @@ li.list_odd
     text-align: center;
   }
 }
+
+
+/* html5, maybe move this to main.css if standard version goes html5 */
+header, footer
+{
+  display: block;
+}
