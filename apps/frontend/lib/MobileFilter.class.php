@@ -49,7 +49,7 @@ class MobileFilter extends sfFilter
             }
 
             $context->getResponse()->addStylesheet('/static/css/menu.css');
-            $context->getResponse()->addStylesheet('/static/css/print.css', 'last', array('media' => 'print'));
+            $context->getResponse()->addStylesheet('/static/css/print.css', 'print');
         }
 
         // execute next filter
