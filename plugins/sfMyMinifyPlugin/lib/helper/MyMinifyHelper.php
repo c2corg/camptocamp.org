@@ -152,7 +152,7 @@ function minify_get_main_stylesheets($combine = true, $debug = false)
     return get_all_stylesheets($debug);
   }
 
-  return minify_get_stylesheets(array('first', '', 'last'), $debug); 
+  return minify_get_stylesheets(array('first', '', 'last', 'print'), $debug); 
 }
 
 function minify_get_custom_stylesheets($combine = true, $debug = false)

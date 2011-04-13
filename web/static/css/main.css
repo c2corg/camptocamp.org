@@ -25,6 +25,12 @@ body
   color:#000;
 }
 
+/* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+textarea
+{
+  overflow: auto;
+}
+
 /* rounded inputs */
 input, select, textarea {
   font-size: 100%;

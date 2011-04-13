@@ -123,7 +123,7 @@ function get_all_stylesheets($debug = false)
   $already_seen = array();
   $html = '';
 
-  foreach (array('first', '', 'last', 'custom_first', 'custom', 'custom_last') as $position)
+  foreach (array('first', '', 'last', 'print', 'custom_first', 'custom', 'custom_last') as $position)
   {
     foreach ($response->getStylesheets($position) as $files => $options)
     {
