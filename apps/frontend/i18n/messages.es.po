@@ -4338,18 +4338,18 @@ msgstr "Isla de Francia"
 msgid "image"
 msgstr "imagen"
 
-# [general comment]
-# to specify image size and dimensions
-# [WARNING] en translation used
-msgid "image details"
-msgstr "Image properties:"
-
 msgid "image successfully uploaded"
 msgstr "El cargamento de las imágenes ha sido un éxito."
 
 # [WARNING] en translation used
 msgid "image upload failed"
 msgstr "Images upload failed"
+
+# [general comment]
+# to specify image size and dimensions
+# [WARNING] en translation used
+msgid "image_details"
+msgstr "Image properties:"
 
 msgid "image_file"
 msgstr "Imagen:"

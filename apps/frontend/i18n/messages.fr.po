@@ -4397,16 +4397,16 @@ msgstr "Île-de-France"
 msgid "image"
 msgstr "image"
 
-# [general comment]
-# to specify image size and dimensions
-msgid "image details"
-msgstr "Propriétés de l'image&nbsp;:"
-
 msgid "image successfully uploaded"
 msgstr "Le téléchargement des images a réussi."
 
 msgid "image upload failed"
 msgstr "Le téléchargement des images a échoué"
+
+# [general comment]
+# to specify image size and dimensions
+msgid "image_details"
+msgstr "Propriétés de l'image&nbsp;:"
 
 msgid "image_file"
 msgstr "Image&nbsp;:"

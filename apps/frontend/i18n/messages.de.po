@@ -4750,18 +4750,18 @@ msgstr "Île-de-France"
 msgid "image"
 msgstr "Bild"
 
-# [general comment]
-# to specify image size and dimensions
-# [WARNING] needs_review
-msgid "image details"
-msgstr "Bildeigenschaften:"
-
 msgid "image successfully uploaded"
 msgstr "Das Hochladen der Bilder war erfolgreich."
 
 # [WARNING] needs_review
 msgid "image upload failed"
 msgstr "Bilder-Upload ist fehlgeschlagen"
+
+# [general comment]
+# to specify image size and dimensions
+# [WARNING] needs_review
+msgid "image_details"
+msgstr "Bildeigenschaften:"
 
 msgid "image_file"
 msgstr "Bilder:"

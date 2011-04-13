@@ -257,7 +257,6 @@ msgstr "al menys un fitxer és de dimensions massa petites"
 msgid "At least one image type is not given"
 msgstr "No s'ha indicat el tipus d'imatge per almenys una de les imatges"
 
-# [WARNING] needs_review
 msgid "At least one name field is empty"
 msgstr "Com a mínim el nom d'un camp està buit"
 
@@ -269,7 +268,6 @@ msgstr "Importat automàticament"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] needs_review
 msgid "Available lists"
 msgstr "Butlletins disponibles"
 
@@ -312,7 +310,6 @@ msgstr "Tornar a la llista de sortides"
 msgid "Back to parkings list"
 msgstr "Tornar a la llista de pàrquings"
 
-# [WARNING] needs_review
 msgid "Back to portals list"
 msgstr "Tornar a la llista de portals"
 
@@ -1083,9 +1080,8 @@ msgstr "Informacions"
 msgid "Insert"
 msgstr "Insertar"
 
-# [WARNING] es translation used
 msgid "Insert image"
-msgstr "Insertar una imagen"
+msgstr "Introduir una imatge"
 
 msgid "Interactive map"
 msgstr "Mapa interactiu"
@@ -1111,9 +1107,8 @@ msgstr "Està associat a aquests cims:"
 msgid "Is parent of summits:"
 msgstr "Està associat als sub-cims següents:"
 
-# [WARNING] es translation used
 msgid "Is really a multi-activity outing?"
-msgstr "¿Su salida realmente incluye varias actividades?"
+msgstr "És realment una sortida multi-activitat?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Sembla que has oblidat de senyalar un nom o un fitxer."
@@ -1131,24 +1126,20 @@ msgstr "Més"
 msgid "Last bulletin"
 msgstr "Últim butlletí"
 
-# [WARNING] es translation used
 msgid "Last soft mobility articles"
-msgstr "Artículos sobre ecoturismo y ecomobilidad"
+msgstr "Últims articles sobre eco-turisme i mobilitat"
 
-# [WARNING] es translation used
 msgid "Last soft mobility outings"
-msgstr "Ultimas salidas realizadas con ecomobilidad"
+msgstr "Últimes sortides realitzades amb eco-mobilitat"
 
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] es translation used
 msgid "Latest %1% creations"
-msgstr "Últimas creaciones - %1%"
+msgstr "Últimes creacions - %1%"
 
-# [WARNING] es translation used
 msgid "Latest %1% creations in %2%"
-msgstr "Últimas creaciones - %1% - %2%"
+msgstr "Últimes creacions %1% a %2%"
 
 # [WARNING] es translation used
 msgid "Latest %1% editions"
@@ -1351,9 +1342,8 @@ msgstr "Cambiar su pagina personal"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
-# [WARNING] es translation used
 msgid "Map URL"
-msgstr "URL del mapa actual:"
+msgstr "URL del mapa actual"
 
 msgid "Map creation is prohibited"
 msgstr "La creació de mapes no està autoritzada"
@@ -4632,18 +4622,18 @@ msgstr "Illa de França"
 msgid "image"
 msgstr "imatge"
 
-# [general comment]
-# to specify image size and dimensions
-# [WARNING] en translation used
-msgid "image details"
-msgstr "Image properties:"
-
 msgid "image successfully uploaded"
 msgstr "La transmissió d'imatges ha estat un èxit."
 
 # [WARNING] en translation used
 msgid "image upload failed"
 msgstr "Images upload failed"
+
+# [general comment]
+# to specify image size and dimensions
+# [WARNING] en translation used
+msgid "image_details"
+msgstr "Image properties:"
 
 msgid "image_file"
 msgstr "Imatges:"

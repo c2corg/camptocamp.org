@@ -4392,17 +4392,16 @@ msgstr "Île-de-France"
 msgid "image"
 msgstr "picture"
 
-# [general comment]
-# to specify image size and dimensions
-# [WARNING] needs_review
-msgid "image details"
-msgstr "Image properties:"
-
 msgid "image successfully uploaded"
 msgstr "Picture successfully uploaded"
 
 msgid "image upload failed"
 msgstr "Images upload failed"
+
+# [general comment]
+# to specify image size and dimensions
+msgid "image_details"
+msgstr "Image properties:"
 
 msgid "image_file"
 msgstr "Picture:"

@@ -4354,16 +4354,16 @@ msgstr "Île-de-France"
 msgid "image"
 msgstr "immagine"
 
-# [general comment]
-# to specify image size and dimensions
-msgid "image details"
-msgstr "Proprietà dell'immagine:"
-
 msgid "image successfully uploaded"
 msgstr "L’immagine è stata caricata correttamente."
 
 msgid "image upload failed"
 msgstr "Lo caricamento dei dati è fallito."
+
+# [general comment]
+# to specify image size and dimensions
+msgid "image_details"
+msgstr "Proprietà dell'immagine:"
 
 msgid "image_file"
 msgstr "Immagine:"

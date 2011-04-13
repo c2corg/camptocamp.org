@@ -4617,18 +4617,18 @@ msgstr "Isla de Francia"
 msgid "image"
 msgstr "irudia"
 
-# [general comment]
-# to specify image size and dimensions
-# [WARNING] en translation used
-msgid "image details"
-msgstr "Image properties:"
-
 msgid "image successfully uploaded"
 msgstr "Irudiak ongi jaso dira."
 
 # [WARNING] en translation used
 msgid "image upload failed"
 msgstr "Images upload failed"
+
+# [general comment]
+# to specify image size and dimensions
+# [WARNING] en translation used
+msgid "image_details"
+msgstr "Image properties:"
 
 msgid "image_file"
 msgstr "Irudia:"

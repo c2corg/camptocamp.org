@@ -718,7 +718,7 @@ function field_image_details($document)
     $dimensions = getimagesize($file);
     $size = filesize($file);
     $hsize = ($size >= 1048576) ? round(filesize($file) / 1048576, 2) : round(filesize($file) / 1024);
-    return _format_data('image details', __(($size >= 1048576) ? '%1% x %2% px, %3% Mo' : '%1% x %2% px, %3% Ko', 
+    return _format_data('image_details', __(($size >= 1048576) ? '%1% x %2% px, %3% Mo' : '%1% x %2% px, %3% Ko', 
                                             array('%1%' => $dimensions[0],
                                                   '%2%' => $dimensions[1],
                                                   '%3%' => $hsize)));
