@@ -2,9 +2,8 @@
  * This file is a concatenation of:
  * - plupload.js
  * - plupload.flash.js
- * - plupload.silverlight.js
  * - plupload.html5.js
- * from plupload 1.4.2
+ * from plupload 1.4.3.2
  *
  * c2c doesn't use other runtimes (gears, browserplus, html4...),
  * so we don't include them in order to minmize js size
@@ -102,7 +101,7 @@
 		/**
 		 * Plupload version will be replaced on build.
 		 */
-		VERSION : '1.4.2',
+		VERSION : '1.4.3.2',
 
 		/**
 		 * Inital state of the queue and also the state ones it's finished all it's uploads.
@@ -567,12 +566,26 @@
 		 * Translates the specified string by checking for the english string in the language pack lookup.
 		 *
 		 * @param {String} str String to look for.
-		 * @reutrn {String} Translated string or the input string if it wasn't found.
+		 * @return {String} Translated string or the input string if it wasn't found.
 		 */
 		translate : function(str) {
 			return i18n[str] || str;
 		},
+		
+		/**
+		 * Checks if object is empty.
+		 *
+		 * @param {Object} obj Object to check.
+		 * @return {Boolean}
+		 */
+		isEmptyObj : function(obj) {
+			if (obj === undef) return true;
 			
+			for (var prop in obj) {
+				return false;	
+			}
+			return true;
+		},
 		
 		/**
 		 * Checks if specified DOM element has specified class.
@@ -617,7 +630,20 @@
 				return $1 === ' ' && $2 === ' ' ? ' ' : '';
 			});
 		},
-		
+    
+		/**
+		 * Returns a given computed style of a DOM element.
+		 *
+		 * @param {Object} obj DOM element like object.
+		 * @param {String} name Style you want to get from the DOM element
+		 */
+		getStyle : function(obj, name) {
+			if (obj.currentStyle) {
+				return obj.currentStyle[name];
+			} else if (window.getComputedStyle) {
+				return window.getComputedStyle(obj, null)[name];
+			}
+		},
 
 		/**
 		 * Adds an event handler to the specified object and store reference to the handler
@@ -696,15 +722,7 @@
 		 * @param {Function|String} (optional) might be a callback or unique key to match.
 		 */
 		removeEvent: function(obj, name) {
-			var type, callback, key,
-				
-				// check if object is empty
-				isEmptyObj = function(obj) {
-					for (var prop in obj) {
-						return false;	
-					}
-					return true;
-				};
+			var type, callback, key;
 			
 			// match the handler either by callback or by key	
 			if (typeof(arguments[2]) == "function") {
@@ -750,7 +768,7 @@
 			}
 			
 			// If Plupload registry has become empty, remove it
-			if (isEmptyObj(eventhash[obj[uid]])) {
+			if (plupload.isEmptyObj(eventhash[obj[uid]])) {
 				delete eventhash[obj[uid]];
 				
 				// IE doesn't let you remove DOM object property with - delete
@@ -990,10 +1008,14 @@
 						
 						plupload.each(filters, function(filter) {
 							plupload.each(filter.extensions.split(/,/), function(ext) {
-								extensionsRegExp.push('\\.' + ext.replace(new RegExp('[' + ('/^$.*+?|()[]{}\\'.replace(/./g, '\\$&')) + ']', 'g'), '\\$&'));
+								if (/^\s*\*\s*$/.test(ext)) {
+									extensionsRegExp.push('\\.*');
+								} else {
+									extensionsRegExp.push('\\.' + ext.replace(new RegExp('[' + ('/^$.*+?|()[]{}\\'.replace(/./g, '\\$&')) + ']', 'g'), '\\$&'));
+								}
 							});
 						});
-
+						
 						extensionsRegExp = new RegExp(extensionsRegExp.join('|') + '$', 'i');
 					}
 
@@ -1063,6 +1085,15 @@
 					if (up.state == plupload.STARTED) {
 						// Get start time to calculate bps
 						startTime = (+new Date());
+						
+					} else if (up.state == plupload.STOPPED) {
+						// Reset currently uploading files
+						for (i = up.files.length - 1; i >= 0; i--) {
+							if (up.files[i].status == plupload.UPLOADING) {
+								up.files[i].status = plupload.QUEUED;
+								calc();
+							}
+						}
 					}
 				});
 
@@ -1182,9 +1213,9 @@
 			start : function() {
 				if (this.state != plupload.STARTED) {
 					this.state = plupload.STARTED;
-					this.trigger("StateChanged");
-
-					uploadNext.call(this);
+					this.trigger("StateChanged");	
+					
+					uploadNext.call(this);				
 				}
 			},
 
@@ -1195,7 +1226,7 @@
 			 */
 			stop : function() {
 				if (this.state != plupload.STOPPED) {
-					this.state = plupload.STOPPED;
+					this.state = plupload.STOPPED;					
 					this.trigger("StateChanged");
 				}
 			},
@@ -1779,7 +1810,9 @@
 
 			if (uploader.settings.container) {
 				container = document.getElementById(uploader.settings.container);
-				container.style.position = 'relative';
+				if (plupload.getStyle(container, 'position') === 'static') {
+					container.style.position = 'relative';
+				}
 			}
 
 			container.appendChild(flashContainer);
@@ -1817,7 +1850,7 @@
 
 			// Wait for Flash to send init event
 			uploader.bind("Flash:Init", function() {	
-				var lookup = {}, i, resize = uploader.settings.resize || {};
+				var lookup = {}, i;
 
 				getFlashObj().setFileFilters(uploader.settings.filters, uploader.settings.multi_selection);
 
@@ -1825,19 +1858,18 @@
 				if (initialized[uploader.id]) {
 					return;
 				}
-
 				initialized[uploader.id] = true;
 
 				uploader.bind("UploadFile", function(up, file) {
-					var settings = up.settings;
+					var settings = up.settings, resize = uploader.settings.resize || {};
 
 					getFlashObj().uploadFile(lookup[file.id], settings.url, {
 						name : file.target_name || file.name,
-						mime : plupload.mimeTypes[file.name.replace(/^.+\.([^.]+)/, '$1')] || 'application/octet-stream',
+						mime : plupload.mimeTypes[file.name.replace(/^.+\.([^.]+)/, '$1').toLowerCase()] || 'application/octet-stream',
 						chunk_size : settings.chunk_size,
 						width : resize.width,
 						height : resize.height,
-						quality : resize.quality || 90,
+						quality : resize.quality,
 						multipart : settings.multipart,
 						multipart_params : settings.multipart_params || {},
 						file_data_name : settings.file_data_name,
@@ -1935,7 +1967,7 @@
 				
 				uploader.bind("Flash:ImageError", function(up, err) {
 					uploader.trigger('Error', {
-						code : parseInt(err.code),
+						code : parseInt(err.code, 10),
 						message : plupload.translate('Image error.'),
 						file : uploader.getFile(lookup[err.id])
 					});
@@ -2047,444 +2079,6 @@
 })(window, document, plupload);
 
 /**
- * plupload.silverlight.js
- *
- * Copyright 2009, Moxiecode Systems AB
- * Released under GPL License.
- *
- * License: http://www.plupload.com/license
- * Contributing: http://www.plupload.com/contributing
- */
-
-// JSLint defined globals
-/*global window:false, document:false, plupload:false, ActiveXObject:false */
-
-(function(window, document, plupload, undef) {
-	var uploadInstances = {}, initialized = {};
-
-	function jsonSerialize(obj) {
-		var value, type = typeof obj, isArray, i, key;
-
-		// Encode strings
-		if (type === 'string') {
-			value = '\bb\tt\nn\ff\rr\""\'\'\\\\';
-
-			return '"' + obj.replace(/([\u0080-\uFFFF\x00-\x1f\"])/g, function(a, b) {
-				var idx = value.indexOf(b);
-
-				if (idx + 1) {
-					return '\\' + value.charAt(idx + 1);
-				}
-
-				a = b.charCodeAt().toString(16);
-
-				return '\\u' + '0000'.substring(a.length) + a;
-			}) + '"';
-		}
-
-		// Loop objects/arrays
-		if (type == 'object') {
-			isArray = obj.length !== undef;
-			value = '';
-
-			if (isArray) {
-				for (i = 0; i < obj.length; i++) {
-					if (value) {
-						value += ',';
-					}
-
-					value += jsonSerialize(obj[i]);
-				}
-
-				value = '[' + value + ']';
-			} else {
-				for (key in obj) {
-					if (obj.hasOwnProperty(key)) {
-						if (value) {
-							value += ',';
-						}
-
-						value += jsonSerialize(key) + ':' + jsonSerialize(obj[key]);
-					}
-				}
-
-				value = '{' + value + '}';
-			}
-
-			return value;
-		}
-
-		// Treat undefined as null
-		if (obj === undef) {
-			return 'null';
-		}
-
-		// Convert all other types to string
-		return '' + obj;
-	}
-
-	function isInstalled(version) {
-		var isVersionSupported = false, container = null, control = null, actualVer,
-			actualVerArray, reqVerArray, requiredVersionPart, actualVersionPart, index = 0;
-
-		try {
-			try {
-				control = new ActiveXObject('AgControl.AgControl');
-
-				if (control.IsVersionSupported(version)) {
-					isVersionSupported = true;
-				}
-
-				control = null;
-			} catch (e) {
-				var plugin = navigator.plugins["Silverlight Plug-In"];
-
-				if (plugin) {
-					actualVer = plugin.description;
-
-					if (actualVer === "1.0.30226.2") {
-						actualVer = "2.0.30226.2";
-					}
-
-					actualVerArray = actualVer.split(".");
-
-					while (actualVerArray.length > 3) {
-						actualVerArray.pop();
-					}
-
-					while ( actualVerArray.length < 4) {
-						actualVerArray.push(0);
-					}
-
-					reqVerArray = version.split(".");
-
-					while (reqVerArray.length > 4) {
-						reqVerArray.pop();
-					}
-
-					do {
-						requiredVersionPart = parseInt(reqVerArray[index], 10);
-						actualVersionPart = parseInt(actualVerArray[index], 10);
-						index++;
-					} while (index < reqVerArray.length && requiredVersionPart === actualVersionPart);
-
-					if (requiredVersionPart <= actualVersionPart && !isNaN(requiredVersionPart)) {
-						isVersionSupported = true;
-					}
-				}
-			}
-		} catch (e2) {
-			isVersionSupported = false;
-		}
-
-		return isVersionSupported;
-	}
-
-	plupload.silverlight = {
-		trigger : function(id, name) {
-			var uploader = uploadInstances[id], i, args;
-			
-			if (uploader) {
-				args = plupload.toArray(arguments).slice(1);
-				args[0] = 'Silverlight:' + name;
-
-				// Detach the call so that error handling in the browser is presented correctly
-				setTimeout(function() {
-					uploader.trigger.apply(uploader, args);
-				}, 0);
-			}
-		}
-	};
-
-	/**
-	 * Silverlight implementation. This runtime supports these features: jpgresize, pngresize, chunks.
-	 *
-	 * @static
-	 * @class plupload.runtimes.Silverlight
-	 * @extends plupload.Runtime
-	 */
-	plupload.runtimes.Silverlight = plupload.addRuntime("silverlight", {
-		/**
-		 * Returns a list of supported features for the runtime.
-		 *
-		 * @return {Object} Name/value object with supported features.
-		 */
-		getFeatures : function() {
-			return {
-				jpgresize: true,
-				pngresize: true,
-				chunks: true,
-				progress: true,
-				multipart: true
-			};
-		},
-
-		/**
-		 * Initializes the upload runtime. This runtime supports these features: jpgresize, pngresize, chunks.
-		 *
-		 * @method init
-		 * @param {plupload.Uploader} uploader Uploader instance that needs to be initialized.
-		 * @param {function} callback Callback to execute when the runtime initializes or fails to initialize. If it succeeds an object with a parameter name success will be set to true.
-		 */
-		init : function(uploader, callback) {
-			var silverlightContainer, filter = '', filters = uploader.settings.filters, i, container = document.body;
-
-			// Check if Silverlight is installed, Silverlight windowless parameter doesn't work correctly on Opera so we disable it for now
-			if (!isInstalled('2.0.31005.0') || (window.opera && window.opera.buildNumber)) {
-				callback({success : false});
-				return;
-			}
-			
-			initialized[uploader.id] = false;
-			uploadInstances[uploader.id] = uploader;
-
-			// Create silverlight container and insert it at an absolute position within the browse button
-			silverlightContainer = document.createElement('div');
-			silverlightContainer.id = uploader.id + '_silverlight_container';
-
-			plupload.extend(silverlightContainer.style, {
-				position : 'absolute',
-				top : '0px',
-				background : uploader.settings.shim_bgcolor || 'transparent',
-				zIndex : 99999,
-				width : '100px',
-				height : '100px',
-				overflow : 'hidden',
-				opacity : uploader.settings.shim_bgcolor || document.documentMode > 8 ? '' : 0.01 // Force transparent if bgcolor is undefined
-			});
-
-			silverlightContainer.className = 'plupload silverlight';
-
-			if (uploader.settings.container) {
-				container = document.getElementById(uploader.settings.container);
-				container.style.position = 'relative';
-			}
-
-			container.appendChild(silverlightContainer);
-
-			for (i = 0; i < filters.length; i++) {
-				filter += (filter != '' ? '|' : '') + filters[i].title + " | *." + filters[i].extensions.replace(/,/g, ';*.');
-			}
-
-			// Insert the Silverlight object inide the Silverlight container
-			silverlightContainer.innerHTML = '<object id="' + uploader.id + '_silverlight" data="data:application/x-silverlight," type="application/x-silverlight-2" style="outline:none;" width="1024" height="1024">' +
-				'<param name="source" value="' + uploader.settings.silverlight_xap_url + '"/>' +
-				'<param name="background" value="Transparent"/>' +
-				'<param name="windowless" value="true"/>' +
-				'<param name="enablehtmlaccess" value="true"/>' +
-				'<param name="initParams" value="id=' + uploader.id + ',filter=' + filter + ',multiselect=' + uploader.settings.multi_selection + '"/>' +
-				'</object>';
-
-			function getSilverlightObj() {
-				return document.getElementById(uploader.id + '_silverlight').content.Upload;
-			}
-
-			uploader.bind("Silverlight:Init", function() {
-				var selectedFiles, lookup = {};
-				
-				// Prevent eventual reinitialization of the instance
-				if (initialized[uploader.id]) {
-					return;
-				}
-					
-				initialized[uploader.id] = true;
-
-				uploader.bind("Silverlight:StartSelectFiles", function(up) {
-					selectedFiles = [];
-				});
-
-				uploader.bind("Silverlight:SelectFile", function(up, sl_id, name, size) {
-					var id;
-
-					// Store away silverlight ids
-					id = plupload.guid();
-					lookup[id] = sl_id;
-					lookup[sl_id] = id;
-
-					// Expose id, name and size
-					selectedFiles.push(new plupload.File(id, name, size));
-				});
-
-				uploader.bind("Silverlight:SelectSuccessful", function() {
-					// Trigger FilesAdded event if we added any
-					if (selectedFiles.length) {
-						uploader.trigger("FilesAdded", selectedFiles);
-					}
-				});
-
-				uploader.bind("Silverlight:UploadChunkError", function(up, file_id, chunk, chunks, message) {
-					uploader.trigger("Error", {
-						code : plupload.IO_ERROR,
-						message : 'IO Error.',
-						details : message,
-						file : up.getFile(lookup[file_id])
-					});
-				});
-
-				uploader.bind("Silverlight:UploadFileProgress", function(up, sl_id, loaded, total) {
-					var file = up.getFile(lookup[sl_id]);
-
-					if (file.status != plupload.FAILED) {
-						file.size = total;
-						file.loaded = loaded;
-
-						up.trigger('UploadProgress', file);
-					}
-				});
-
-				uploader.bind("Refresh", function(up) {
-					var browseButton, browsePos, browseSize;
-
-					browseButton = document.getElementById(up.settings.browse_button);
-					if (browseButton) {
-						browsePos = plupload.getPos(browseButton, document.getElementById(up.settings.container));
-						browseSize = plupload.getSize(browseButton);
-	
-						plupload.extend(document.getElementById(up.id + '_silverlight_container').style, {
-							top : browsePos.y + 'px',
-							left : browsePos.x + 'px',
-							width : browseSize.w + 'px',
-							height : browseSize.h + 'px'
-						});
-					}
-				});
-
-				uploader.bind("Silverlight:UploadChunkSuccessful", function(up, sl_id, chunk, chunks, text) {
-					var chunkArgs, file = up.getFile(lookup[sl_id]);
-
-					chunkArgs = {
-						chunk : chunk,
-						chunks : chunks,
-						response : text
-					};
-
-					up.trigger('ChunkUploaded', file, chunkArgs);
-
-					// Stop upload if file is maked as failed
-					if (file.status != plupload.FAILED) {
-						getSilverlightObj().UploadNextChunk();
-					}
-
-					// Last chunk then dispatch FileUploaded event
-					if (chunk == chunks - 1) {
-						file.status = plupload.DONE;
-
-						up.trigger('FileUploaded', file, {
-							response : text
-						});
-					}
-				});
-
-				uploader.bind("Silverlight:UploadSuccessful", function(up, sl_id, response) {
-					var file = up.getFile(lookup[sl_id]);
-
-					file.status = plupload.DONE;
-
-					up.trigger('FileUploaded', file, {
-						response : response
-					});
-				});
-
-				uploader.bind("FilesRemoved", function(up, files) {
-					var i;
-
-					for (i = 0; i < files.length; i++) {
-						getSilverlightObj().RemoveFile(lookup[files[i].id]);
-					}
-				});
-
-				uploader.bind("UploadFile", function(up, file) {
-					var settings = up.settings, resize = settings.resize || {};
-
-					getSilverlightObj().UploadFile(
-						lookup[file.id],
-						up.settings.url,
-						jsonSerialize({
-							name : file.target_name || file.name,
-							mime : plupload.mimeTypes[file.name.replace(/^.+\.([^.]+)/, '$1')] || 'application/octet-stream',
-							chunk_size : settings.chunk_size,
-							image_width : resize.width,
-							image_height : resize.height,
-							image_quality : resize.quality || 90,
-							multipart : !!settings.multipart,
-							multipart_params : settings.multipart_params || {},
-							file_data_name : settings.file_data_name,
-							headers : settings.headers
-						})
-					);
-				});
-				
-				
-				uploader.bind('Silverlight:MouseEnter', function(up) {
-					var browseButton, hoverClass;
-						
-					browseButton = document.getElementById(uploader.settings.browse_button);
-					hoverClass = up.settings.browse_button_hover;
-					
-					if (browseButton && hoverClass) {
-						plupload.addClass(browseButton, hoverClass);
-					}
-				});
-				
-				uploader.bind('Silverlight:MouseLeave', function(up) {
-					var browseButton, hoverClass;
-						
-					browseButton = document.getElementById(uploader.settings.browse_button);
-					hoverClass = up.settings.browse_button_hover;
-					
-					if (browseButton && hoverClass) {
-						plupload.removeClass(browseButton, hoverClass);
-					}
-				});
-				
-				uploader.bind('Silverlight:MouseLeftButtonDown', function(up) {
-					var browseButton, activeClass;
-						
-					browseButton = document.getElementById(uploader.settings.browse_button);
-					activeClass = up.settings.browse_button_active;
-					
-					if (browseButton && activeClass) {
-						plupload.addClass(browseButton, activeClass);
-						
-						// Make sure that browse_button has active state removed from it
-						plupload.addEvent(document.body, 'mouseup', function() {
-							plupload.removeClass(browseButton, activeClass);	
-						});
-					}
-				});
-				
-				uploader.bind('Sliverlight:StartSelectFiles', function(up) {
-					var browseButton, activeClass;
-						
-					browseButton = document.getElementById(uploader.settings.browse_button);
-					activeClass = up.settings.browse_button_active;
-					
-					if (browseButton && activeClass) {
-						plupload.removeClass(browseButton, activeClass);
-					}
-				});
-				
-				uploader.bind("Destroy", function(up) {
-					var silverlightContainer;
-					
-					plupload.removeAllEvents(document.body, up.id);
-					
-					delete initialized[up.id];
-					delete uploadInstances[up.id];
-					
-					silverlightContainer = document.getElementById(up.id + '_silverlight_container');
-					if (silverlightContainer) {
-						container.removeChild(silverlightContainer);
-					}
-				});
-
-				callback({success : true});
-			});
-		}
-	});
-})(window, document, plupload);
-
-/**
  * plupload.html5.js
  *
  * Copyright 2009, Moxiecode Systems AB
@@ -2498,7 +2092,22 @@
 /*global plupload:false, File:false, window:false, atob:false, FormData:false, FileReader:false, ArrayBuffer:false, Uint8Array:false, BlobBuilder:false, unescape:false */
 
 (function(window, document, plupload, undef) {
-	var fakeSafariDragDrop, ExifParser;
+	var fakeSafariDragDrop;
+	
+	/* Introduce sendAsBinary for latest WebKits having support for BlobBuilder and typed arrays:
+	credits: http://javascript0.org/wiki/Portable_sendAsBinary, 
+	more info: http://code.google.com/p/chromium/issues/detail?id=35705 
+	*/			
+	if (window.Uint8Array && window.ArrayBuffer && !XMLHttpRequest.prototype.sendAsBinary) {
+		XMLHttpRequest.prototype.sendAsBinary = function(datastr) {
+			var ui8a = new Uint8Array(datastr.length);
+			for (var i = 0; i < datastr.length; i++) {
+				ui8a[i] = (datastr.charCodeAt(i) & 0xff);
+			}
+			this.send(ui8a.buffer);
+		};
+	}
+	
 
 	function readFileAsDataURL(file, callback) {
 		var reader;
@@ -2530,7 +2139,7 @@
 		}
 	}
 
-	function scaleImage(image_file, max_width, max_height, mime, callback) {
+	function scaleImage(image_file, resize, mime, callback) {
 		var canvas, context, img, scale;
 
 		readFileAsDataURL(image_file, function(data) {
@@ -2542,12 +2151,24 @@
 
 			// Load image
 			img = new Image();
+			img.onerror = img.onabort = function() {
+				// Failed to load, the image may be invalid
+				callback({success : false});
+			};
 			img.onload = function() {
-				var width, height, percentage, APP1, parser;
+				var width, height, percentage, jpegHeaders, exifParser;
+				
+				if (!resize['width']) {
+					resize['width'] = img.width;
+				}
+				
+				if (!resize['height']) {
+					resize['height'] = img.height;	
+				}
+				
+				scale = Math.min(resize.width / img.width, resize.height / img.height);
 
-				scale = Math.min(max_width / img.width, max_height / img.height);
-
-				if (scale < 1) {
+				if (scale < 1 || (scale === 1 && mime === 'image/jpeg')) {
 					width = Math.round(img.width * scale);
 					height = Math.round(img.height * scale);
 
@@ -2555,22 +2176,43 @@
 					canvas.width = width;
 					canvas.height = height;
 					context.drawImage(img, 0, 0, width, height);
-
-					// Get original EXIF info
-					parser = new ExifParser();
-					parser.init(atob(data.substring(data.indexOf('base64,') + 7)));
-					APP1 = parser.APP1({width: width, height: height});
+					
+					// Preserve JPEG headers
+					if (mime === 'image/jpeg') {
+						jpegHeaders = new JPEG_Headers(atob(data.substring(data.indexOf('base64,') + 7)));
+						if (jpegHeaders['headers'] && jpegHeaders['headers'].length) {
+							exifParser = new ExifParser();			
+											
+							if (exifParser.init(jpegHeaders.get('exif')[0])) {
+								// Set new width and height
+								exifParser.setExif('PixelXDimension', width);
+								exifParser.setExif('PixelYDimension', height);
+															
+								// Update EXIF header
+								jpegHeaders.set('exif', exifParser.getBinary());
+							}
+						}
+						
+						if (resize['quality']) {							
+							// Try quality property first
+							try {
+								data = canvas.toDataURL(mime, resize['quality'] / 100);	
+							} catch (e) {
+								data = canvas.toDataURL(mime);	
+							}
+						}
+					} else {
+						data = canvas.toDataURL(mime);
+					}
 
 					// Remove data prefix information and grab the base64 encoded data and decode it
-					data = canvas.toDataURL(mime);
 					data = data.substring(data.indexOf('base64,') + 7);
 					data = atob(data);
 
-					// Restore EXIF info to scaled image
-					if (APP1) {
-						parser.init(data);
-						parser.setAPP1(APP1);
-						data = parser.getBinary();
+					// Restore JPEG headers
+					if (jpegHeaders['headers'] && jpegHeaders['headers'].length) {
+						data = jpegHeaders.restore(data);
+						jpegHeaders.purge(); // free memory
 					}
 
 					// Remove canvas and execute callback with decoded image data
@@ -2604,28 +2246,6 @@
 
 			hasXhrSupport = hasProgress = dataAccessSupport = sliceSupport = false;
 			
-			/* Introduce sendAsBinary for cutting edge WebKit builds that have support for BlobBuilder and typed arrays:
-			credits: http://javascript0.org/wiki/Portable_sendAsBinary, 
-			more info: http://code.google.com/p/chromium/issues/detail?id=35705 
-			*/			
-			if (win.Uint8Array && win.ArrayBuffer && !XMLHttpRequest.prototype.sendAsBinary) {
-				XMLHttpRequest.prototype.sendAsBinary = function(datastr) {
-					var data, ui8a, bb, blob;
-					
-					data = new ArrayBuffer(datastr.length);
-					ui8a = new Uint8Array(data, 0);
-					
-					for (var i=0; i<datastr.length; i++) {
-						ui8a[i] = (datastr.charCodeAt(i) & 0xff);
-					}
-					
-					bb = new BlobBuilder();
-					bb.append(data);
-					blob = bb.getBlob();
-					this.send(blob);
-				};
-			}
-
 			if (win.XMLHttpRequest) {
 				xhr = new XMLHttpRequest();
 				hasProgress = !!xhr.upload;
@@ -2650,7 +2270,7 @@
 				pngresize: dataAccessSupport,
 				multipart: dataAccessSupport || !!win.FileReader || !!win.FormData,
 				progress: hasProgress,
-				chunking: sliceSupport || dataAccessSupport,
+				chunks: sliceSupport || dataAccessSupport,
 				
 				/* WebKit let you trigger file dialog programmatically while FF and Opera - do not, so we
 				sniff for it here... probably not that good idea, but impossibillity of controlling cursor style  
@@ -2711,19 +2331,6 @@
 				inputContainer = document.createElement('div');
 				inputContainer.id = up.id + '_html5_container';
 
-				// Convert extensions to mime types list
-				for (i = 0; i < filters.length; i++) {
-					ext = filters[i].extensions.split(/,/);
-
-					for (y = 0; y < ext.length; y++) {
-						type = plupload.mimeTypes[ext[y]];
-
-						if (type) {
-							mimes.push(type);
-						}
-					}
-				}
-
 				plupload.extend(inputContainer.style, {
 					position : 'absolute',
 					background : uploader.settings.shim_bgcolor || 'transparent',
@@ -2738,14 +2345,39 @@
 
 				if (uploader.settings.container) {
 					container = document.getElementById(uploader.settings.container);
-					container.style.position = 'relative';
+					if (plupload.getStyle(container, 'position') === 'static') {
+						container.style.position = 'relative';
+					}
 				}
 
 				container.appendChild(inputContainer);
+				
+				// Convert extensions to mime types list
+				no_type_restriction:
+				for (i = 0; i < filters.length; i++) {
+					ext = filters[i].extensions.split(/,/);
+
+					for (y = 0; y < ext.length; y++) {
+						
+						// If there's an asterisk in the list, then accept attribute is not required
+						if (ext[y] === '*') {
+							mimes = [];
+							break no_type_restriction;
+						}
+						
+						type = plupload.mimeTypes[ext[y]];
+
+						if (type) {
+							mimes.push(type);
+						}
+					}
+				}
+
 
 				// Insert the input inside the input container
 				inputContainer.innerHTML = '<input id="' + uploader.id + '_html5" ' +
-											'style="width:100%;height:100%;" type="file" accept="' + mimes.join(',') + '" ' +
+											'style="width:100%;height:100%;font-size:99px" type="file" accept="' + 
+											mimes.join(',') + '" ' +
 											(uploader.settings.multi_selection ? 'multiple="multiple"' : '') + ' />';
 				
 				inputFile = document.getElementById(uploader.id + '_html5');
@@ -2829,10 +2461,12 @@
 							dropPos = plupload.getPos(dropElm, document.getElementById(uploader.settings.container));
 							dropSize = plupload.getSize(dropElm);
 							
-							plupload.extend(dropElm.style, {
-								position : 'relative'
-							});
-
+							if (plupload.getStyle(dropElm, 'position') === 'static') {
+								plupload.extend(dropElm.style, {
+									position : 'relative'
+								});
+							}
+              
 							plupload.extend(dropInputElm.style, {
 								position : 'absolute',
 								display : 'block',
@@ -2882,7 +2516,7 @@
 						height : browseSize.h + 'px'
 					});
 					
-					// for IE and WebKit place input element underneath the browse button and route onclick event 
+					// for WebKit place input element underneath the browse button and route onclick event 
 					// TODO: revise when browser support for this feature will change
 					if (uploader.features.canOpenDialog) {
 						pzIndex = parseInt(browseButton.parentNode.style.zIndex, 10);
@@ -2892,9 +2526,14 @@
 						}
 							
 						plupload.extend(browseButton.style, {
-							position : 'relative',
 							zIndex : pzIndex
 						});
+            
+						if (plupload.getStyle(browseButton, 'position') === 'static') {
+							plupload.extend(browseButton.style, {
+								position : 'relative'
+							});
+						}
 											
 						plupload.extend(inputContainer.style, {
 							zIndex : pzIndex - 1
@@ -2923,7 +2562,7 @@
 						args = {name : file.target_name || file.name};
 
 						// Only add chunking args if needed
-						if (settings.chunk_size && features.chunking) {
+						if (settings.chunk_size && features.chunks) {
 							chunkSize = settings.chunk_size;
 							chunks = Math.ceil(file.size / chunkSize);
 							curChunkSize = Math.min(chunkSize, file.size - (chunk * chunkSize));
@@ -3063,7 +2702,7 @@
 								multipartBlob += unescape(encodeURIComponent(value)) + crlf;
 							});
 
-							mimeType = plupload.mimeTypes[file.name.replace(/^.+\.([^.]+)/, '$1')] || 'application/octet-stream';
+							mimeType = plupload.mimeTypes[file.name.replace(/^.+\.([^.]+)/, '$1').toLowerCase()] || 'application/octet-stream';
 
 							// Build RFC2388 blob
 							multipartBlob += dashdash + boundary + crlf +
@@ -3096,7 +2735,7 @@
 				if (features.jpgresize) {
 					// Resize image if it's a supported format and resize is enabled
 					if (resize && /\.(png|jpg|jpeg)$/i.test(file.name)) {
-						scaleImage(nativeFile, resize.width, resize.height, /\.png$/i.test(file.name) ? 'image/png' : 'image/jpeg', function(res) {
+						scaleImage(nativeFile, resize, /\.png$/i.test(file.name) ? 'image/png' : 'image/jpeg', function(res) {
 							// If it was scaled send the scaled image if it failed then
 							// send the raw image and let the server do the scaling
 							if (res.success) {
@@ -3144,154 +2783,278 @@
 			callback({success : true});
 		}
 	});
+	
+	function BinaryReader() {
+		var II = false, bin;
 
-	ExifParser = function() {
-		// Private ExifParser fields
-		var Tiff, Exif, GPS, app0, app0_offset, app0_length, app1, app1_offset, data,
-			app1_length, exifIFD_offset, gpsIFD_offset, IFD0_offset, TIFFHeader_offset, undef,
-			tiffTags, exifTags, gpsTags, tagDescs;
+		// Private functions
+		function read(idx, size) {
+			var mv = II ? 0 : -8 * (size - 1), sum = 0, i;
 
-		/**
-		 * @constructor
-		 */
-		function BinaryReader() {
-			var II = false, bin;
-
-			// Private functions
-			function read(idx, size) {
-				var mv = II ? 0 : -8 * (size - 1), sum = 0, i;
-
-				for (i = 0; i < size; i++) {
-					sum |= (bin.charCodeAt(idx + i) << Math.abs(mv + i*8));
-				}
-
-				return sum;
+			for (i = 0; i < size; i++) {
+				sum |= (bin.charCodeAt(idx + i) << Math.abs(mv + i*8));
 			}
 
-			function putstr(idx, segment, replace) {
-				bin = bin.substr(0, idx) + segment + bin.substr((replace === true ? segment.length : 0) + idx);
-			}
-
-			function write(idx, num, size) {
-				var str = '', mv = II ? 0 : -8 * (size - 1), i;
-
-				for (i = 0; i < size; i++) {
-					str += String.fromCharCode((num >> Math.abs(mv + i*8)) & 255);
-				}
-
-				putstr(idx, str, true);
-			}
-
-			// Public functions
-			return {
-				II: function(order) {
-					if (order === undef) {
-						return II;
-					} else {
-						II = order;
-					}
-				},
-
-				init: function(binData) {
-					bin = binData;
-				},
-
-				SEGMENT: function(idx, segment, replace) {
-					if (!arguments.length) {
-						return bin;
-					}
-
-					if (typeof segment == 'number') {
-						return bin.substr(parseInt(idx, 10), segment);
-					}
-
-					putstr(idx, segment, replace);
-				},
-
-				BYTE: function(idx) {
-					return read(idx, 1);
-				},
-
-				SHORT: function(idx) {
-					return read(idx, 2);
-				},
-
-				LONG: function(idx, num) {
-					if (num === undef) {
-						return read(idx, 4);
-					} else {
-						write(idx, num, 4);
-					}
-				},
-
-				SLONG: function(idx) { // 2's complement notation
-					var num = read(idx, 4);
-
-					return (num > 2147483647 ? num - 4294967296 : num);
-				},
-
-				STRING: function(idx, size) {
-					var str = '';
-
-					for (size += idx; idx < size; idx++) {
-						str += String.fromCharCode(read(idx, 1));
-					}
-
-					return str;
-				}
-			};
+			return sum;
 		}
+
+		function putstr(segment, idx, length) {
+			var length = arguments.length === 3 ? length : bin.length - idx - 1;
+			
+			bin = bin.substr(0, idx) + segment + bin.substr(length + idx);
+		}
+
+		function write(idx, num, size) {
+			var str = '', mv = II ? 0 : -8 * (size - 1), i;
+
+			for (i = 0; i < size; i++) {
+				str += String.fromCharCode((num >> Math.abs(mv + i*8)) & 255);
+			}
+
+			putstr(str, idx, size);
+		}
+
+		// Public functions
+		return {
+			II: function(order) {
+				if (order === undef) {
+					return II;
+				} else {
+					II = order;
+				}
+			},
+
+			init: function(binData) {
+				II = false;
+				bin = binData;
+			},
+
+			SEGMENT: function(idx, length, segment) {				
+				switch (arguments.length) {
+					case 1: 
+						return bin.substr(idx, bin.length - idx - 1);
+					case 2: 
+						return bin.substr(idx, length);
+					case 3: 
+						putstr(segment, idx, length);
+						break;
+					default: return bin;	
+				}
+			},
+
+			BYTE: function(idx) {
+				return read(idx, 1);
+			},
+
+			SHORT: function(idx) {
+				return read(idx, 2);
+			},
+
+			LONG: function(idx, num) {
+				if (num === undef) {
+					return read(idx, 4);
+				} else {
+					write(idx, num, 4);
+				}
+			},
+
+			SLONG: function(idx) { // 2's complement notation
+				var num = read(idx, 4);
+
+				return (num > 2147483647 ? num - 4294967296 : num);
+			},
+
+			STRING: function(idx, size) {
+				var str = '';
+
+				for (size += idx; idx < size; idx++) {
+					str += String.fromCharCode(read(idx, 1));
+				}
+
+				return str;
+			}
+		};
+	}
+	
+	function JPEG_Headers(data) {
+		
+		var markers = {
+				0xFFE1: {
+					app: 'EXIF',
+					name: 'APP1',
+					signature: "Exif\0" 
+				},
+				0xFFE2: {
+					app: 'ICC',
+					name: 'APP2',
+					signature: "ICC_PROFILE\0" 
+				},
+				0xFFED: {
+					app: 'IPTC',
+					name: 'APP13',
+					signature: "Photoshop 3.0\0" 
+				}
+			},
+			headers = [], read, idx, marker = undef, length = 0, limit;
+			
+		
+		read = new BinaryReader();
+		read.init(data);
+				
+		// Check if data is jpeg
+		if (read.SHORT(0) !== 0xFFD8) {
+			return;
+		}
+		
+		idx = 2;
+		limit = Math.min(1048576, data.length);	
+			
+		while (idx <= limit) {
+			marker = read.SHORT(idx);
+			
+			// omit RST (restart) markers
+			if (marker >= 0xFFD0 && marker <= 0xFFD7) {
+				idx += 2;
+				continue;
+			}
+			
+			// no headers allowed after SOS marker
+			if (marker === 0xFFDA || marker === 0xFFD9) {
+				break;	
+			}	
+			
+			length = read.SHORT(idx + 2) + 2;	
+			
+			if (markers[marker] && 
+				read.STRING(idx + 4, markers[marker].signature.length) === markers[marker].signature) {
+				headers.push({ 
+					hex: marker,
+					app: markers[marker].app.toUpperCase(),
+					name: markers[marker].name.toUpperCase(),
+					start: idx,
+					length: length,
+					segment: read.SEGMENT(idx, length)
+				});
+			}
+			idx += length;			
+		}
+					
+		read.init(null); // free memory
+						
+		return {
+			
+			headers: headers,
+			
+			restore: function(data) {
+				read.init(data);
+				
+				// Check if data is jpeg
+				if (read.SHORT(0) !== 0xFFD8) {
+					return false;
+				}	
+				
+				idx = read.SHORT(2) == 0xFFE0 ? 4 + read.SHORT(4) : 2;
+								
+				for (var i = 0, max = headers.length; i < max; i++) {
+					read.SEGMENT(idx, 0, headers[i].segment);						
+					idx += headers[i].length;
+				}
+				
+				return read.SEGMENT();
+			},
+			
+			get: function(app) {
+				var array = [];
+								
+				for (var i = 0, max = headers.length; i < max; i++) {
+					if (headers[i].app === app.toUpperCase()) {
+						array.push(headers[i].segment);
+					}
+				}
+				return array;
+			},
+			
+			set: function(app, segment) {
+				var array = [];
+				
+				if (typeof(segment) === 'string') {
+					array.push(segment);	
+				} else {
+					array = segment;	
+				}
+				
+				for (var i = ii = 0, max = headers.length; i < max; i++) {
+					if (headers[i].app === app.toUpperCase()) {
+						headers[i].segment = array[ii];
+						headers[i].length = array[ii].length;
+						ii++;
+					}
+					if (ii >= array.length) break;
+				}
+			},
+			
+			purge: function() {
+				headers = [];
+				read.init(null);
+			}
+		};		
+	}
+	
+	
+	function ExifParser() {
+		// Private ExifParser fields
+		var data, tags, offsets = {}, tagDescs;
 
 		data = new BinaryReader();
 
-		tiffTags = {
-			/*
-			The image orientation viewed in terms of rows and columns.
-
-			1 - The 0th row is at the visual top of the image, and the 0th column is the visual left-hand side.
-			2 - The 0th row is at the visual top of the image, and the 0th column is the visual left-hand side.
-			3 - The 0th row is at the visual top of the image, and the 0th column is the visual right-hand side.
-			4 - The 0th row is at the visual bottom of the image, and the 0th column is the visual right-hand side.
-			5 - The 0th row is at the visual bottom of the image, and the 0th column is the visual left-hand side.
-			6 - The 0th row is the visual left-hand side of the image, and the 0th column is the visual top.
-			7 - The 0th row is the visual right-hand side of the image, and the 0th column is the visual top.
-			8 - The 0th row is the visual right-hand side of the image, and the 0th column is the visual bottom.
-			9 - The 0th row is the visual left-hand side of the image, and the 0th column is the visual bottom.
-			*/
-			0x0112: 'Orientation',
-			0x8769: 'ExifIFDPointer',
-			0x8825:	'GPSInfoIFDPointer'
-		};
-
-		exifTags = {
-			0x9000: 'ExifVersion',
-			0xA001: 'ColorSpace',
-			0xA002: 'PixelXDimension',
-			0xA003: 'PixelYDimension',
-			0x9003: 'DateTimeOriginal',
-			0x829A: 'ExposureTime',
-			0x829D: 'FNumber',
-			0x8827: 'ISOSpeedRatings',
-			0x9201: 'ShutterSpeedValue',
-			0x9202: 'ApertureValue'	,
-			0x9207: 'MeteringMode',
-			0x9208: 'LightSource',
-			0x9209: 'Flash',
-			0xA402: 'ExposureMode',
-			0xA403: 'WhiteBalance',
-			0xA406: 'SceneCaptureType',
-			0xA404: 'DigitalZoomRatio',
-			0xA408: 'Contrast',
-			0xA409: 'Saturation',
-			0xA40A: 'Sharpness'
-		};
-
-		gpsTags = {
-			0x0000: 'GPSVersionID',
-			0x0001: 'GPSLatitudeRef',
-			0x0002: 'GPSLatitude',
-			0x0003: 'GPSLongitudeRef',
-			0x0004: 'GPSLongitude'
+		tags = {
+			tiff : {
+				/*
+				The image orientation viewed in terms of rows and columns.
+	
+				1 - The 0th row is at the visual top of the image, and the 0th column is the visual left-hand side.
+				2 - The 0th row is at the visual top of the image, and the 0th column is the visual left-hand side.
+				3 - The 0th row is at the visual top of the image, and the 0th column is the visual right-hand side.
+				4 - The 0th row is at the visual bottom of the image, and the 0th column is the visual right-hand side.
+				5 - The 0th row is at the visual bottom of the image, and the 0th column is the visual left-hand side.
+				6 - The 0th row is the visual left-hand side of the image, and the 0th column is the visual top.
+				7 - The 0th row is the visual right-hand side of the image, and the 0th column is the visual top.
+				8 - The 0th row is the visual right-hand side of the image, and the 0th column is the visual bottom.
+				9 - The 0th row is the visual left-hand side of the image, and the 0th column is the visual bottom.
+				*/
+				0x0112: 'Orientation',
+				0x8769: 'ExifIFDPointer',
+				0x8825:	'GPSInfoIFDPointer'
+			},
+			exif : {
+				0x9000: 'ExifVersion',
+				0xA001: 'ColorSpace',
+				0xA002: 'PixelXDimension',
+				0xA003: 'PixelYDimension',
+				0x9003: 'DateTimeOriginal',
+				0x829A: 'ExposureTime',
+				0x829D: 'FNumber',
+				0x8827: 'ISOSpeedRatings',
+				0x9201: 'ShutterSpeedValue',
+				0x9202: 'ApertureValue'	,
+				0x9207: 'MeteringMode',
+				0x9208: 'LightSource',
+				0x9209: 'Flash',
+				0xA402: 'ExposureMode',
+				0xA403: 'WhiteBalance',
+				0xA406: 'SceneCaptureType',
+				0xA404: 'DigitalZoomRatio',
+				0xA408: 'Contrast',
+				0xA409: 'Saturation',
+				0xA40A: 'Sharpness'
+			},
+			gps : {
+				0x0000: 'GPSVersionID',
+				0x0001: 'GPSLatitudeRef',
+				0x0002: 'GPSLatitude',
+				0x0003: 'GPSLongitudeRef',
+				0x0004: 'GPSLongitude'
+			}
 		};
 
 		tagDescs = {
@@ -3409,7 +3172,7 @@
 
 		function extractTags(IFD_offset, tags2extract) {
 			var length = data.SHORT(IFD_offset), i, ii,
-				tag, type, count, tagOffset, offset, value, values = [], tags = {};
+				tag, type, count, tagOffset, offset, value, values = [], hash = {};
 
 			for (i = 0; i < length; i++) {
 				// Set binary reader pointer to beginning of the next tag
@@ -3431,7 +3194,7 @@
 					case 1: // BYTE
 					case 7: // UNDEFINED
 						if (count > 4) {
-							offset = data.LONG(offset) + TIFFHeader_offset;
+							offset = data.LONG(offset) + offsets.tiffHeader;
 						}
 
 						for (ii = 0; ii < count; ii++) {
@@ -3442,16 +3205,16 @@
 
 					case 2: // STRING
 						if (count > 4) {
-							offset = data.LONG(offset) + TIFFHeader_offset;
+							offset = data.LONG(offset) + offsets.tiffHeader;
 						}
 
-						tags[tag] = data.STRING(offset, count - 1);
+						hash[tag] = data.STRING(offset, count - 1);
 
 						continue;
 
 					case 3: // SHORT
 						if (count > 2) {
-							offset = data.LONG(offset) + TIFFHeader_offset;
+							offset = data.LONG(offset) + offsets.tiffHeader;
 						}
 
 						for (ii = 0; ii < count; ii++) {
@@ -3462,7 +3225,7 @@
 
 					case 4: // LONG
 						if (count > 1) {
-							offset = data.LONG(offset) + TIFFHeader_offset;
+							offset = data.LONG(offset) + offsets.tiffHeader;
 						}
 
 						for (ii = 0; ii < count; ii++) {
@@ -3472,7 +3235,7 @@
 						break;
 
 					case 5: // RATIONAL
-						offset = data.LONG(offset) + TIFFHeader_offset;
+						offset = data.LONG(offset) + offsets.tiffHeader;
 
 						for (ii = 0; ii < count; ii++) {
 							values[ii] = data.LONG(offset + ii*4) / data.LONG(offset + ii*4 + 4);
@@ -3481,7 +3244,7 @@
 						break;
 
 					case 9: // SLONG
-						offset = data.LONG(offset) + TIFFHeader_offset;
+						offset = data.LONG(offset) + offsets.tiffHeader;
 
 						for (ii = 0; ii < count; ii++) {
 							values[ii] = data.SLONG(offset + ii*4);
@@ -3490,7 +3253,7 @@
 						break;
 
 					case 10: // SRATIONAL
-						offset = data.LONG(offset) + TIFFHeader_offset;
+						offset = data.LONG(offset) + offsets.tiffHeader;
 
 						for (ii = 0; ii < count; ii++) {
 							values[ii] = data.SLONG(offset + ii*4) / data.SLONG(offset + ii*4 + 4);
@@ -3505,142 +3268,96 @@
 				value = (count == 1 ? values[0] : values);
 
 				if (tagDescs.hasOwnProperty(tag) && typeof value != 'object') {
-					tags[tag] = tagDescs[tag][value];
+					hash[tag] = tagDescs[tag][value];
 				} else {
-					tags[tag] = value;
+					hash[tag] = value;
 				}
 			}
 
-			return tags;
+			return hash;
 		}
 
 		function getIFDOffsets() {
-			var idx = app1_offset + 4;
-
-			// Fix TIFF header offset
-			TIFFHeader_offset += app1_offset;
-
-			// Check if that's EXIF we are reading
-			if (data.STRING(idx, 4).toUpperCase() !== 'EXIF' || data.SHORT(idx+=4) !== 0) {
-				return;
-			}
+			var Tiff = undef, idx = offsets.tiffHeader;
 
 			// Set read order of multi-byte data
-			data.II(data.SHORT(idx+=2) == 0x4949);
+			data.II(data.SHORT(idx) == 0x4949);
 
 			// Check if always present bytes are indeed present
 			if (data.SHORT(idx+=2) !== 0x002A) {
-				return;
+				return false;
 			}
+		
+			offsets['IFD0'] = offsets.tiffHeader + data.LONG(idx += 2);
+			Tiff = extractTags(offsets['IFD0'], tags.tiff);
 
-			IFD0_offset = TIFFHeader_offset + data.LONG(idx += 2);
-			Tiff = extractTags(IFD0_offset, tiffTags);
-
-			exifIFD_offset = ('ExifIFDPointer' in Tiff ? TIFFHeader_offset + Tiff.ExifIFDPointer : undef);
-			gpsIFD_offset = ('GPSInfoIFDPointer' in Tiff ? TIFFHeader_offset + Tiff.GPSInfoIFDPointer : undef);
+			offsets['exifIFD'] = ('ExifIFDPointer' in Tiff ? offsets.tiffHeader + Tiff.ExifIFDPointer : undef);
+			offsets['gpsIFD'] = ('GPSInfoIFDPointer' in Tiff ? offsets.tiffHeader + Tiff.GPSInfoIFDPointer : undef);
 
 			return true;
 		}
-
-		function findTagValueOffset(data_app1, tegHex, offset) {
-			var length = data_app1.SHORT(offset), tagOffset, i;
-
+		
+		// At the moment only setting of simple (LONG) values, that do not require offset recalculation, is supported
+		function setTag(ifd, tag, value) {
+			var offset, length, tagOffset, valueOffset = 0;
+			
+			// If tag name passed translate into hex key
+			if (typeof(tag) === 'string') {
+				var tmpTags = tags[ifd.toLowerCase()];
+				for (hex in tmpTags) {
+					if (tmpTags[hex] === tag) {
+						tag = hex;
+						break;	
+					}
+				}
+			}
+			offset = offsets[ifd.toLowerCase() + 'IFD'];
+			length = data.SHORT(offset);
+						
 			for (i = 0; i < length; i++) {
 				tagOffset = offset + 12 * i + 2;
 
-				if (data_app1.SHORT(tagOffset) == tegHex) {
-					return tagOffset + 8;
+				if (data.SHORT(tagOffset) == tag) {
+					valueOffset = tagOffset + 8;
+					break;
 				}
 			}
+			
+			if (!valueOffset) return false;
+
+			
+			data.LONG(valueOffset, value);
+			return true;
 		}
-
-		function setNewWxH(width, height) {
-			var w_offset, h_offset,
-				offset = exifIFD_offset != undef ? exifIFD_offset - app1_offset : undef,
-				data_app1 = new BinaryReader();
-
-			data_app1.init(app1);
-			data_app1.II(data.II());
-
-			if (offset === undef) {
-				return;
-			}
-
-			// Find offset for PixelXDimension tag
-			w_offset = findTagValueOffset(data_app1, 0xA002, offset);
-			if (w_offset !== undef) {
-				data_app1.LONG(w_offset, width);
-			}
-
-			// Find offset for PixelYDimension tag
-			h_offset = findTagValueOffset(data_app1, 0xA003, offset);
-			if (h_offset !== undef) {
-				data_app1.LONG(h_offset, height);
-			}
-
-			app1 = data_app1.SEGMENT();
-		}
+		
 
 		// Public functions
 		return {
-			init: function(jpegData) {
+			init: function(segment) {
 				// Reset internal data
-				TIFFHeader_offset = 10;
-				Tiff = Exif = GPS = app0 = app0_offset = app0_length = app1 = app1_offset = app1_length = undef;
-
-				data.init(jpegData);
-
-				// Check if data is jpeg
-				if (data.SHORT(0) !== 0xFFD8) {
+				offsets = {
+					tiffHeader: 10
+				};
+				
+				if (segment === undef || !segment.length) {
 					return false;
 				}
 
-				switch (data.SHORT(2)) {
-					// app0
-					case 0xFFE0:
-						app0_offset = 2;
-						app0_length = data.SHORT(4) + 2;
+				data.init(segment);
 
-						// check if app1 follows
-						if (data.SHORT(app0_length) == 0xFFE1) {
-							app1_offset = app0_length;
-							app1_length = data.SHORT(app0_length + 2) + 2;
-						}
-						break;
-
-					// app1
-					case 0xFFE1:
-						app1_offset = 2;
-						app1_length = data.SHORT(4) + 2;
-						break;
-
-					default:
-						return false;
+				// Check if that's APP1 and that it has EXIF
+				if (data.SHORT(0) === 0xFFE1 && data.STRING(4, 5).toUpperCase() === "EXIF\0") {
+					return getIFDOffsets();
 				}
-
-				if (app1_length !== undef) {
-					getIFDOffsets();
-				}
+				return false;
 			},
 
-			APP1: function(args) {
-				if (app1_offset === undef && app1_length === undef) {
-					return;
-				}
-
-				app1 = app1 || (app1 = data.SEGMENT(app1_offset, app1_length));
-
-				// If requested alter width/height tags in app1
-				if (args !== undef && 'width' in args && 'height' in args) {
-					setNewWxH(args.width, args.height);
-				}
-
-				return app1;
-			},
 
 			EXIF: function() {
+				var Exif;
+				
 				// Populate EXIF hash
-				Exif = extractTags(exifIFD_offset, exifTags);
+				Exif = extractTags(offsets.exifIFD, tags.exif);
 
 				// Fix formatting of some tags
 				Exif.ExifVersion = String.fromCharCode(
@@ -3654,19 +3371,21 @@
 			},
 
 			GPS: function() {
-				GPS = extractTags(gpsIFD_offset, gpsTags);
+				var GPS;
+				
+				GPS = extractTags(offsets.gpsIFD, tags.gps);
 				GPS.GPSVersionID = GPS.GPSVersionID.join('.');
 
 				return GPS;
 			},
-
-			setAPP1: function(data_app1) {
-				if (app1_offset !== undef) {
-					return false;
-				}
-
-				data.SEGMENT((app0_offset ? app0_offset + app0_length : 2), data_app1);
+			
+			setExif: function(tag, value) {
+				// Right now only setting of width/height is possible
+				if (tag !== 'PixelXDimension' && tag !== 'PixelYDimension') return false;
+				
+				return setTag('exif', tag, value);
 			},
+
 
 			getBinary: function() {
 				return data.SEGMENT();

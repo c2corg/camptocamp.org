@@ -3,8 +3,7 @@ PlUploadWrapper = {
   /**
    * TODO / notes:
    * - html5 runtime is currently only available for firefox 3.5+ and chrome 9+, since other browser don't support multipart and image resizing
-   * - chrome 9 resizing jpegs as pngs, so that images produced are often bigger than 2M
-   * - flash and silverlight runtimes disabled as long as they do not support exif
+   * - silverlight runtime finally removed, because it doesn't support exif yet, and html5 || flash probably covers more than 99% of users
    * - add some server side work to enhance image quality?
    * - use exif detection to autorotate images that would need it?
    * - better behaviour for SVGs (eg enable chunking for file >2mB)
@@ -18,9 +17,9 @@ PlUploadWrapper = {
     PlUploadWrapper.backup_js = backup_js;
     PlUploadWrapper.i18n = i18n;
     var uploader = new plupload.Uploader({
-      runtimes: 'html5', //'silverlight,html5,flash',
+      runtimes: 'html5', // flash disabled until container problem is solved
       browse_button: 'pickfiles',
-      container: 'container',
+      container: 'container', // TODO when using the body as container, flash shim is badly placed, but when using container, we somehow lose the flash object (getFlashObj.setFileFilters si not an option)
       drop_element: 'plupload_tips',
       file_data_name: 'image_file',
       multipart: true,
