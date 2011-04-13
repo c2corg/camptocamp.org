@@ -395,9 +395,8 @@ msgstr "Escull..."
 
 # [general comment]
 # Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
-# [WARNING] es translation used
 msgid "Clear"
-msgstr "Cancelar la selección"
+msgstr "Cancelar la selecció"
 
 msgid "Clear document cache"
 msgstr "Actualitzar el caixé del document."
@@ -634,9 +633,8 @@ msgstr "Desprotegir"
 msgid "Description"
 msgstr "Descripció"
 
-# [WARNING] es translation used
 msgid "Deselect all"
-msgstr "De-seleccione todo"
+msgstr "Desseleccionar-ho tot"
 
 msgid "Detailed search criteria"
 msgstr "Criteris de recerca detallats"
@@ -652,9 +650,8 @@ msgstr "Diferències entre les versions de %1% en %2%."
 
 # [general comment]
 # Lien temporaire vers la version mobile du site (n'apparait que si quelqu'un regarde la page d'accueil standard avec un mobile)
-# [WARNING] es translation used
 msgid "Discover mobile version"
-msgstr "Pruebe la versión móvil de camptocamp!"
+msgstr "Proveu la versió mòbil de camptocamp!"
 
 msgid "Display"
 msgstr "Mostrar"
@@ -668,18 +665,16 @@ msgstr "Distància"
 msgid "Document %1% has been merged into document %2%"
 msgstr "El document %1% ha estat fusionat amb el document %2%."
 
-# [WARNING] es translation used
 msgid "Document cache has been cleared"
-msgstr "El cache del documento ha sido borrado"
+msgstr "La memòria cau del document ha estat esborrada"
 
 msgid "Document could not be deleted"
 msgstr "El document no ha pogut ser esborrat"
 
 # [general comment]
 # %1% displays the list of the 'would be' orphean route ID
-# [WARNING] es translation used
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "La cima no se puede borrar por que dejaría rutas huérfanas"
+msgstr "El cim no es pot borrar ja que deixaria rutes orfes: %1%"
 
 msgid "Document culture deleted"
 msgstr "La versió lingüistica del document ha estat suprimida."
@@ -825,9 +820,8 @@ msgstr "PMF"
 msgid "Failed moving uploaded file"
 msgstr "El canvi de nom d'un fitxer a fracassat. Intenta-ho de nou, si et plau."
 
-# [WARNING] es translation used
 msgid "Failed rasterizing svg file"
-msgstr "La rasterización de la imagen falló"
+msgstr "La rasterització de la imatge SVG ha fallat"
 
 msgid "Favorite language:"
 msgstr "Ordre de preferència de llengües:"
@@ -841,9 +835,8 @@ msgstr "Només dades"
 msgid "File:"
 msgstr "Fitxer:"
 
-# [WARNING] es translation used
 msgid "Filter presentation"
-msgstr "Búsqueda avanzada:<br />Todos los criterios son optativos.<br />Se busca la cadena exacta del titulo del documento, sin tomar en cuenta algunas palabras (de, du, la, '-', ';', ...). Por lo tanto, conviene buscar solo una parte discriminante: <em>aup pont</em> o <em>pointe aup</em> llevaran a <em>Pointe de l'Aup du Pont</em> pero <em>pointe pont</em> no dará ningún resultado."
+msgstr "Cerca avançada:<br />Tots els criteris són opcionals.<br />Es buscarà la cadena exacta del títol del document, sense tenir en compte algunes paraules (de, la, '-', ';', ...). Per tant convé buscar només per la part significativa: 'chabournéou' o 'chabou', i no 'pic chabournéou'."
 
 msgid "Forum"
 msgstr "Fòrums"
@@ -991,13 +984,11 @@ msgstr "Topo-guia / Mapa"
 msgid "Guidebook contribs:"
 msgstr "Contribucions en la topo-guía:"
 
-# [WARNING] es translation used
 msgid "Guidebook help"
-msgstr "Manual de ayuda"
+msgstr "Manual d'ajuda"
 
-# [WARNING] es translation used
 msgid "Has this outing really been done today?"
-msgstr "¿Su salida realmente fue realizada hoy?"
+msgstr "Realment s'ha dut a terme avui la sortida?"
 
 msgid "Hello %1%"
 msgstr "Hola %1%"
@@ -1036,13 +1027,11 @@ msgstr "Aquesta nova contrasenya no serà validada fins que l'utilitzis per prim
 msgid "Image"
 msgstr "Imatge"
 
-# [WARNING] es translation used
 msgid "Image could not be loaded"
-msgstr "No se puede mostrar la imagen"
+msgstr "No es pot mostrar la imatge"
 
-# [WARNING] es translation used
 msgid "Image could not be loaded long"
-msgstr "Para verse, la imagen debe ser asociada al documento.<br /><a href=\"/articles/151910#imagenes\">Explicación detallada</a>"
+msgstr "Per veure's, la imatge ha d'estar associada al document.<br /><a href=\"/articles/151910#imatges\">Explicació detallada</a>"
 
 msgid "Image does not exist"
 msgstr "Aqusta imatge no existeix"
@@ -1061,9 +1050,8 @@ msgstr "La imatge no existeix."
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
-# [WARNING] es translation used
 msgid "Image under copyright license"
-msgstr "Esta imagen representa una cobertura de libro. Es propiedad de la editorial y/o de su autor. Solo se presenta aquí para ilustrar el documento."
+msgstr "Imatge amb copyright."
 
 msgid "Image uploaded"
 msgstr "Imatge carregada"
@@ -1071,9 +1059,8 @@ msgstr "Imatge carregada"
 msgid "Images"
 msgstr "Imatges"
 
-# [WARNING] es translation used
 msgid "Images are under license specified in the original document of each image"
-msgstr "Las imágenes en esta pagina están disponibles bajo la licencia indicada en el documento de origen de cada imagen."
+msgstr "Les imatges en aquesta pàgina estan disponibles sota la llicència indicada al document d'origen de cada imatge"
 
 msgid "Images names are missing"
 msgstr "Manquen els noms de les imatges"
