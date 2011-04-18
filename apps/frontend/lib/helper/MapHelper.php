@@ -153,6 +153,7 @@ function _loadJsMapTools()
 
     // FIXME following files will only be loaded by internet explorer when in async mode (extjs cannot be loaded async with ie)
     // using conditional comments
+    use_javascript('/static/js/ie9mapfix.js', 'maps');
     use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
     use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');
     //use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'maps');
