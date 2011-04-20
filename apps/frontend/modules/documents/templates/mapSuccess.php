@@ -21,6 +21,7 @@ use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sf
 use_javascript('http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');     
 
 if ($debug) {
+    use_javascript('/static/js/ie9mapfix.js', 'maps');
     use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
     use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'maps');
     use_javascript('/static/js/mapfish/c2corgApi/js/config.js', 'maps');
@@ -54,6 +55,7 @@ if ($debug) {
     use_javascript('/static/js/mapfish/app/layout.js', 'maps');
     use_javascript('/static/js/mapfish/app/query.js', 'maps');
 } else {
+    use_javascript('/static/js/ie9mapfix.js', 'maps');
     use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
     use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');
     
