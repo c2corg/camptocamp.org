@@ -52,7 +52,7 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
             <th><?php echo __('Date'); ?></th>
             <th><?php echo __('Author'); ?></th>
             <th><?php echo __('Rev nature'); ?></th>
-            <th><?php echo __('Rev comment'); ?></th>
+            <th><?php echo __('Rev comment short'); ?></th>
         </tr>
     </thead>
     <tbody>
