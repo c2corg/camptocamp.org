@@ -1815,6 +1815,9 @@ msgid "Retype your password:"
 msgstr "Passwort nochmals eingeben:"
 
 msgid "Rev comment"
+msgstr "Information zu den Änderungen:"
+
+msgid "Rev comment short"
 msgstr "Kommentar"
 
 msgid "Rev nature"
@@ -3018,12 +3021,12 @@ msgid "_ice_rating_info"
 msgstr "<h3>Schwierigkeitsskala Eisklettern<br /> </h3> Bewertung der Schwierigkeiten beim Eisklettern.<br /> Die Skala bewertet die maximale Schwierigkeiten der Eiskletterei. Die Skala reicht von 1 bis 7+.<br /> <br /> <strong>3</strong>: Wenig steile Kletterei (75°) mit vielen Aufsteilungen. Das Eis ist mächtig und kompakt.<br /> <br /> <strong>3+</strong>: Gleich wie Grad 3, aber die Kletterei ist steiler (80°).<br /><br /> <strong>4</strong>: Kletterei mit steilen Abschnitten (85°) von maximal 10m Höhe. Das Eis ist mächtig und kompakt.<br /> <br /> <strong>4+</strong>: Gleich wie Grad 4. Die steilen Abschnitte sind fast vertikal und länger, bis zu 15m hoch.<br /><br /> <strong>5</strong>: Kletterei mit vertikalen Abschnitten von 20m oder so. Das Eis ist weniger kompakt und kann Lufteinschlüsse aufweisen und gewisse Oberflächenformen annehmen: Blumenkohl oder andere Formen, bei Wasserfällen sind dies meistens Röhren.<br /> <br /> <strong>5+</strong>: Kletterei mit vertikalen Abschnitten von 30m oder so. Die Kletterei wird ziemlich technisch.<br /><br /> <strong>6</strong>: Kletterei mit vertikalen Abschnitten von 40 bis 50m. Die Kletterei ist technisch. Das Eis ist sehr luftig.<br /> <br /> <strong>6+</strong>: Vollständig vertikale Kletterei, möglicherweise mit kurzen Überhängen, z.B. beim Übergang von einem Vorhang zum nächsten.<br /> <br /> <strong>7-7+</strong>: Extreme Kletterei. Sehr steil, kann während mehrere Meter überhängend sein. Die Technik des Kletterers (besonders die Bewegungsabläufe) sind ähnlich wie diejenigen des Felskletterns.<br /> <br /> Siehe auch in der Hilfe unter <a href=\"/articles/106871/en\">Schwierigkeitsskala Schnee, Eis- und Mixedklettern</a>."
 
 # [WARNING] needs_review
-msgid "_image details_info"
-msgstr "<h3>Bildeigenschaften</h3>Dimensionen und Grösse des Bilds"
-
-# [WARNING] needs_review
 msgid "_image_categories_info"
 msgstr "<h3>Bildkategorien</h3>Mehrere Kategorien können für ein Bild ausgewählt werden.<br /><span style=\"color: red\">Bilder, welche mindestens eine mit einem Stern (*) bezeichneteten Kategorie zugeordnet haben, werden auf der Einstiegsseite von camptocamp.org angezeigt.</span><br /><br /><strong>Landschaftsaufnahme</strong>: Photo, welches mindestens einen Teil eines Berges oder mehrere Berge enthält, oder eine Panoramaaufnahme<br /><strong>Detailaufname</strong>: Ein Bild, welches einen Teil einer Route, eines Gipfels oder eines Orts zeigt(im Gegensatz zur <em>Landschaftsaufnahme</em><br /><strong>Topo / Routenlinie</strong>: Foto eines Gipfels mit der Routenlinie, oder ein Schema der Route<br /><strong>Aktionsbild</strong>: Bild von einer Person in Aktion</br><strong>Wegbild</strong>:Bild, welches eindeutig den Weg, oder Auf- oder Abstiegsspuren im Schnee (oder im loosen Untergrund) zeigt.<br /><strong>Aufstiegs-</strong> oder <strong>Abstiegsbild</strong>: Bild, welche während dem Aufstieg oder während dem Abstieg aufgenommen wurde. Diese Kategorie ist nützich um die Bildkategorien <em>Detailaufnahme, Aktions-, und Wegbild</em> zu präzisieren.<br /><strong>Personen</strong>: Aufnahme, bei welcher das Hauptmotiv ein oder mehrere Exemplare der Spezies <i>Homo sapiens sapiens</i> ist.<br /><strong>Fauna</strong> und <Flora>: Foto oder Zeichnung von Fauna und/oder Flora<br /><strong>Schnee und Lawinen</strong>: Foto, Zeichnung oder Graphik, welche für die Schnee- und Lawinenforschung relevant ist: Schneeaufbau, Lawinenanriss, etc.<br /><strong>Geologie</strong>: Bilder oder Zeichnungen, welche geologische oder geomorphologische Phänomene zeigen oder illustrieren, z.B. Fotos von Mineralien und Kristallen, Schichtabfolgen, Gletschervorstösse, etc.<br /><strong>Unterkunftsbild</strong>: Foto, welches eine Hütte, ein Biwak oder einen Biwakplatz von aussen oder innen zeigt<br /><strong>Ausrüstung</strong>: Bild oder Zeichnung von Alpinausrüstungsgegenständen, Detailaufnahme oder während des Gebrauchs<br /><strong>Buchumschlag</strong>: Aufnahme des Umschlags eines Buchs oder einer anderen Publikation<br /><strong>Anderes oder unklassifizierbares Bild</>: Bild, welches nicht mit den anderen Bildkategorien klassifiziert werden kann, z.B. abstraktes Bild, Flyer, etc."
+
+# [WARNING] needs_review
+msgid "_image_details_info"
+msgstr "<h3>Bildeigenschaften</h3>Dimensionen und Grösse des Bilds"
 
 # [WARNING] needs_review
 msgid "_image_new_version_info"

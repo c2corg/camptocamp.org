@@ -1787,6 +1787,9 @@ msgid "Retype your password:"
 msgstr "Retaper votre mot de passe&nbsp;:"
 
 msgid "Rev comment"
+msgstr "Informations sur les modifications&nbsp;:"
+
+msgid "Rev comment short"
 msgstr "Commentaire"
 
 msgid "Rev nature"
@@ -2862,11 +2865,11 @@ msgstr "<h3>Refuge</h3>Ouverture du refuge&nbsp;: ouvert/fermé et gardé/non ga
 msgid "_ice_rating_info"
 msgstr "<h3>Cotation glace</h3>Cotation des difficultés en glace.<br />La cotation glace évalue la difficulté maximale de l'escalade glaciaire.<br />L'échelle va de 1 à 7+.<br /><br /><strong>3</strong>&nbsp;: Escalade peu inclinée (75°) avec de nombreux ressauts. La glace est bien fournie et compacte.<br /><br /><strong>3+</strong>&nbsp;: Idem que le grade 3 mais présentant un ressaut plus raide (80°).<br /><br /><strong>4</strong>&nbsp;: Escalade présentant un passage raide (85°) de 10m de haut maximum. La glace est bien fournie et compacte.<br /><br /><strong>4+</strong>&nbsp;: Idem que le grade 4. Le passage raide peut être quasi vertical et plus long, et atteindre 15m de hauteur.<br /><br /><strong>5</strong>&nbsp;: Escalade présentant une section verticale d’environ 20m. La glace commence à s’aérer et à prendre des formes particulières&nbsp;: choux-fleurs ou autres aspérités. En cascade de glace, il s’agit en général de cigares.<br /><br /><strong>5+</strong>&nbsp;: Escalade présentant une section verticale d’environ 30m. L’escalade devient assez technique.<br /><br /><strong>6</strong>&nbsp;: Escalade présentant une section verticale de presque 40 à 50m. L’escalade est technique. La glace peut devenir particulièrement aérée.<br /><br /><strong>6+</strong>&nbsp;: Escalade totalement verticale et pouvant présenter des petits surplombs, par exemple pour passer d’un rideau à un autre.<br /><br /><strong>7-7+</strong>&nbsp;: Escalade extrême. Très raide, elle peut être surplombante sur plusieurs mètres. La technique (gestuelle, notamment) utilisée par l’alpiniste s’apparente alors à celle d’un grimpeur en rocher.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/106871/fr\">cotations en neige, glace et mixte</a>."
 
-msgid "_image details_info"
-msgstr "<h3>Propriétés de l'image</h3>Dimensions et taille de l'image"
-
 msgid "_image_categories_info"
 msgstr "<h3>Catégories d'une image</h3>Plusieurs catégories peuvent être sélectionnées.<br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span><br /><br /><strong>paysage</strong>&nbsp;*&nbsp;: photo montrant une grande partie d'un ou plusieurs sommets, photo panoramique<br /><strong>détail, zoom</strong>&nbsp;*&nbsp;: photo montrant une petite partie d'un itinéraire, d'un sommet ou d'un lieu (contraire de <em>paysage</em>)<br /><strong>tracé, schéma</strong>&nbsp;*&nbsp;: photo d'un sommet avec tracé de l'itinéraire, schéma d'un itinéraire<br /><strong>action</strong>&nbsp;*&nbsp;: photo montrant un personnage en action<br /><strong>trace, sentier</strong>&nbsp;*&nbsp;: photo montrant clairement une trace de montée ou de descente dans la neige (ou terrain meuble), ou un sentier<br /><strong>montée</strong> et <strong>descente</strong>&nbsp;: photo prise à la montée ou à la descente - utile pour préciser les catégories <em>détail, action, trace, sentier</em><br /><strong>personnages</strong>&nbsp;: photo dont le sujet principal est un ou plusieurs personnages en gros plan<br /><strong>faune</strong>&nbsp;* et <strong>flore</strong>&nbsp;*&nbsp;: photo ou dessin de faune ou de flore<br /><strong>neige et avalanche</strong>&nbsp;*&nbsp;: photo ou dessin en lien avec la nivologie&nbsp;: cristaux ou structures de neige, plaque, coulée, ...<br /><strong>géologie</strong>&nbsp;*&nbsp;: photo ou dessin de minéraux, de glacier ou de structures géologiques<br /><strong>hébergement</strong>&nbsp;: photo montrant l'extérieur ou l'intérieur d'un refuge, ou un emplacement de bivouac<br /><strong>matériel</strong>&nbsp;: photo ou dessin montrant du matériel utilisé en montagne, en gros plan ou en utilisation<br /><strong>couverture de livre</strong>&nbsp;: couverture de livre<br /><strong>divers, inclassable</strong>&nbsp;: image qui ne peut être classée dans les autres catégories&nbsp;: affiche d'une manifestation, image abstraite, etc"
+
+msgid "_image_details_info"
+msgstr "<h3>Propriétés de l'image</h3>Dimensions et taille de l'image"
 
 msgid "_image_new_version_info"
 msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour charger une version plus récente d'une image (typiquement une version complétée ou mise à jour d'un schéma de voie(s))"
