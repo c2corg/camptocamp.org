@@ -226,6 +226,14 @@ function object_group_dropdown_tag($object, $fieldname, $config, $options = null
         $label_id = $labelname;
     }
     
+    if (count($options))
+    {
+        if (!isset($options['size']) && isset($options['multiple']) && $options['multiple'])
+        {
+            $options['size'] = count($choices);
+        }
+    }
+    
     return start_group_tag() .
            label_tag($labelname, '', $check_mandatory && is_mandatory($fieldname), null, $label_id) .
            form_error($fieldname) . '    ' .

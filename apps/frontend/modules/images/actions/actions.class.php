@@ -67,25 +67,40 @@ class imagesActions extends documentsActions
     public function executeList()
     {
         $request_array = array();
-        if ($this->hasRequestParameter('summits') && $summit_ids = explode('-', $this->getRequestParameter('summits')))
+        if ($this->hasRequestParameter('summits') && $summit_ids = $this->getRequestParameter('summits'))
         {
-            $request_array = array($summit_ids, 'sr', 'ri', 'si');
+            if (!in_array($summit_ids, array('-', ' ')))
+            {
+                $request_array = array(explode('-', $summit_ids), 'sr', 'ri', 'si');
+            }
         }
-        elseif ($this->hasRequestParameter('parkings') && $parking_ids = explode('-', $this->getRequestParameter('parkings')))
+        elseif ($this->hasRequestParameter('parkings') && $parking_ids = $this->getRequestParameter('parkings'))
         {
-            $request_array = array($parking_ids, 'pr', 'ri', 'pi');
+            if (!in_array($summit_ids, array('-', ' ')))
+            {
+                $request_array = array(explode('-', $parking_ids), 'pr', 'ri', 'pi');
+            }
         }
-        elseif ($this->hasRequestParameter('huts') && $hut_ids = explode('-', $this->getRequestParameter('huts')))
+        elseif ($this->hasRequestParameter('huts') && $hut_ids = $this->getRequestParameter('huts'))
         {
-            $request_array = array($hut_ids, 'hr', 'ri', 'hi');
+            if (!in_array($summit_ids, array('-', ' ')))
+            {
+                $request_array = array(explode('-', $hut_ids), 'hr', 'ri', 'hi');
+            }
         }
-        elseif ($this->hasRequestParameter('routes') && $route_ids = explode('-', $this->getRequestParameter('routes')))
+        elseif ($this->hasRequestParameter('routes') && $route_ids = $this->getRequestParameter('routes'))
         {
-            $request_array = array($route_ids, 'ro', 'oi', 'ri');
+            if (!in_array($summit_ids, array('-', ' ')))
+            {
+                $request_array = array(explode('-', $route_ids), 'ro', 'oi', 'ri');
+            }
         }
-        elseif ($this->hasRequestParameter('sites') && $site_ids = explode('-', $this->getRequestParameter('sites')))
+        elseif ($this->hasRequestParameter('sites') && $site_ids = $this->getRequestParameter('sites'))
         {
-            $request_array = array($site_ids, 'to', 'oi', 'ti');
+            if (!in_array($summit_ids, array('-', ' ')))
+            {
+                $request_array = array(explode('-', $site_ids), 'to', 'oi', 'ti');
+            }
         }
         
         if (!empty($request_array))

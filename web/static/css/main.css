@@ -4219,6 +4219,7 @@ ul.text li, ol.text li
 ul.text ul.text
 {
   list-style-type: circle;
+  margin-top: 0.3em;
 }
 
 ol.text

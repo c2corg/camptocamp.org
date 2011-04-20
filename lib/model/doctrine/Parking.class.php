@@ -116,6 +116,9 @@ class Parking extends BaseParking
 
         // summit criteria
         Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+
+        // site criteria
+        Site::buildSiteListCriteria(&$conditions, &$values, $params_list, false, 'lt.linked_id');
        
         // outing criteria
         Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
@@ -292,6 +295,18 @@ class Parking extends BaseParking
             {
                 Outing::buildOutingPagerConditions($q, $conditions, false, true, 'lr.LinkedAssociation', 'ro');
             }
+        }
+
+        // join with site tables only if needed 
+        if (   isset($conditions['join_site_id'])
+            || isset($conditions['join_site'])
+            || isset($conditions['join_site_i18n'])
+            || isset($conditions['join_tbook_id'])
+            || isset($conditions['join_ttag_id'])
+            || isset($conditions['join_tbtag_id'])
+        )
+        {
+            Site::buildSitePagerConditions($q, $conditions, false, false, 'm.associations', 'pt');
         }
 
         // join with image tables only if needed 
