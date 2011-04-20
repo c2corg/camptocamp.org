@@ -4582,6 +4582,12 @@ msgstr "The first line of this field will be displayed on the same line as the r
 msgid "linked routes activities"
 msgstr "Activities of associated routes:"
 
+# [general comment]
+# Message for the user, asking if he wants to load the draft of the document edition (for exemple because he was no more connected when he submitted the form)
+# [WARNING] needs_review
+msgid "load draft?"
+msgstr "Do you want to use the draft stored during a preceding edition? (OK : the draft will be copied to the form - Cancel : the draft will be removed)"
+
 # [WARNING] needs_review
 msgid "local_product"
 msgstr "direct sale by the producer"

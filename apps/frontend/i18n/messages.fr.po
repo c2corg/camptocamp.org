@@ -2750,7 +2750,7 @@ msgid "_duration_info"
 msgstr "<h3>Temps de parcours</h3>Nombre de jours nécessaires le plus souvent pour parcourir l'itinéraire, montée en refuge compris, donné à titre indicatif.<br />La plupart des itinéraires avec refuge peuvent être réalisés à la journée, mais la durée sera celle mise couramment&nbsp;: 2 jours."
 
 msgid "_editor_info"
-msgstr "<h3>Editeur</h3>Editeur de la carte ou du livre."
+msgstr "<h3>Éditeur</h3>Éditeur de la carte ou du livre."
 
 msgid "_elevation_info"
 msgstr "<h3>Altitude</h3>Altitude en mètres du lieu géographique.<br />Pour une photo, altitude du lieu de la prise de vue."
@@ -3985,7 +3985,7 @@ msgid "edito"
 msgstr "édito"
 
 msgid "editor"
-msgstr "Editeur&nbsp;:"
+msgstr "Éditeur&nbsp;:"
 
 msgid "effective_height_diff"
 msgstr "Dénivelé effectif&nbsp;:"
@@ -4585,6 +4585,12 @@ msgstr "La 1ère ligne de ce champ sera affichée sur la même ligne que les par
 
 msgid "linked routes activities"
 msgstr "Activités des itinéraires associés&nbsp;:"
+
+# [general comment]
+# Message for the user, asking if he wants to load the draft of the document edition (for exemple because he was no more connected when he submitted the form)
+# [WARNING] needs_review
+msgid "load draft?"
+msgstr "Voulez-vous utiliser le brouillon sauvegardé lors d'une édition précédente ? (OK : le brouillon sera copié dans le formulaire - Annuler : le brouillon sera effacé)"
 
 msgid "local_product"
 msgstr "vente chez le producteur"

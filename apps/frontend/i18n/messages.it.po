@@ -4544,6 +4544,12 @@ msgstr "La prima linea di questa rubrica comparirà al seguito dei partecipanti 
 msgid "linked routes activities"
 msgstr "Attività degli itinerari associati:"
 
+# [general comment]
+# Message for the user, asking if he wants to load the draft of the document edition (for exemple because he was no more connected when he submitted the form)
+# [WARNING] en translation used
+msgid "load draft?"
+msgstr "Do you want to use the draft stored during a preceding edition? (OK : the draft will be copied to the form - Cancel : the draft will be removed)"
+
 # [WARNING] needs_review
 msgid "local_product"
 msgstr "vendita dal produttore"
