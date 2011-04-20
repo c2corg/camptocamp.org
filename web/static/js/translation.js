@@ -32,14 +32,20 @@ GoogleTranslation = {
     $$('.gBranding').invoke('remove');
   },
 
+  error: function(msg) {
+    $$('.translate_wait').invoke('update', 'Error: ' + msg);
+  },
+
   _translate: function(obj) {
     var content = GoogleTranslation.handle_email(obj.innerHTML);
     if (escape(content.length) < GoogleTranslation.translate_limit) {
       GoogleTranslation._google_translate(content, GoogleTranslation.language_from, GoogleTranslation.language_to,
         function(result) {
-          if (!result.error) {// TODO
+          if (!result.error) {
             GoogleTranslation.show_translation(obj, result.data.translations[0].translatedText);
-          } // TODO ERROR
+          } else {
+            GoogleTranslation.error(result.error);
+          }
         });
     } else { // text is too long
       var strings = GoogleTranslation.cut(content, '</p>').flatten();
@@ -51,7 +57,9 @@ GoogleTranslation = {
           function(result) {
             if (!result.error) {
               GoogleTranslation.add_partial_translation(obj, result.data.translations[0].translatedText, index);
-            } // TODO ERROR
+            } else {
+              GoogleTranslation.error(result.error);
+            }
           });
       });
     }
@@ -84,7 +92,6 @@ GoogleTranslation = {
 
     $$('.translatable').each(function(o) {
       // TODO add 'provided by' text for 'better' branding?
-      //googlvalent to e.language.getBranding(o); with old api
       Element.insert(o, { bottom: new Element('img', { src: 'http://www.google.com/uds/css/small-logo.png' }) });
     });
 
