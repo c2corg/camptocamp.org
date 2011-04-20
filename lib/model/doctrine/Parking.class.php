@@ -306,7 +306,7 @@ class Parking extends BaseParking
             || isset($conditions['join_tbtag_id'])
         )
         {
-            Site::buildSitePagerConditions($q, $conditions, false, false, 'm.associations', 'pt');
+            Site::buildSitePagerConditions($q, $conditions, false, false, 'm.LinkedAssociation', 'pt');
         }
 
         // join with image tables only if needed 

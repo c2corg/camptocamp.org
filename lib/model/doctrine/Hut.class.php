@@ -364,7 +364,7 @@ class Hut extends BaseHut
             || isset($conditions['join_tbtag_id'])
         )
         {
-            Site::buildSitePagerConditions($q, $conditions, false, false, 'm.associations', 'ht');
+            Site::buildSitePagerConditions($q, $conditions, false, false, 'm.LinkedAssociation', 'ht');
         }
 
         // join with image tables only if needed 
