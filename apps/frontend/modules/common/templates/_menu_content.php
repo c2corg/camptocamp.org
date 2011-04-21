@@ -1,5 +1,5 @@
 <?php
-use_helper('Forum','Button', 'ModalBox', 'General');
+use_helper('Forum','Button', 'Link', 'ModalBox', 'General');
 
 $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
 $sublevel_ie7 = '<!--[if gte IE 7]><!-->';
@@ -288,14 +288,14 @@ show_select=function()
                     <?php endif ?>
                     <li><?php
                         echo picto_tag('picto_tools')
-                           . m_link_to(__('Customize'), 'users/customize', array('title' => __('Customize the site')), array('width' => 700)) ?></li>
+                           . customize_link_to() ?></li>
                     <?php if ($is_connected): ?>
                     <li><?php
                         echo picto_tag('picto_tools')
-                           . m_link_to(__('My preferences'), 'users/editprivatedata', null, array('width' => 700)) ?></li>
+                           . personal_preferences_link_to() ?></li>
                     <li><?php
                         echo picto_tag('picto_tools')
-                           . m_link_to(__('Set languages preferences'), 'users/sortPreferedLanguages', null, array('width' => 700)) ?></li>
+                           . language_preferences_link_to() ?></li>
                     <li><?php
                         echo picto_tag('action_edit')
                            . f_link_to(__('User profile'), 'profile.php?section=personality') ?></li>

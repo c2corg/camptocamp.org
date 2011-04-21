@@ -17,11 +17,19 @@
  * @since  15 Apr 2007
  *
  */
-function m_link_to($name, $url, $html_options, $modal_options = array())
+function m_link_to($name, $url, $html_options = array(), $modal_options = array())
 {
     use_helper('Javascript');
     
-    if(array_key_exists('title', $html_options))
+    if (is_string($html_options))
+    {
+        $html_options = array('title' => __($html_options));
+    }
+    else
+    {
+        $html_options = array();
+    }
+    if (array_key_exists('title', $html_options))
     {
         $modal_options = array_merge($modal_options, array('title' => 'this.title'));
     }

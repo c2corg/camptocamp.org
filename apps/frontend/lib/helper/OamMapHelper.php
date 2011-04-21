@@ -14,9 +14,9 @@ lon_field_id = 'lon',
 lat_field_id = 'lat',
 layersList = ['$layer'],
 mapContainer = 'georef_container';";
-    if (!$lon && !$lat && !in_array($layer, array('sites', 'users')))
+    if (!$lon && !$lat && !in_array($layer, array('sites', 'users', 'images', 'portals')))
     {
-        $js .= "\nEvent.observe(window, 'load', function(){c2corg.docGeoref.init(0,0);});"
+        $js .= "\nEvent.observe(window, 'load', function(){c2corg.docGeoref.init(0,0);});";
     }
     $html = javascript_tag($js);
     
