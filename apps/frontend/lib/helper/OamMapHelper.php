@@ -13,7 +13,7 @@ function show_georef_map($lon, $lat, $lang, $layer)
 lon_field_id = 'lon',
 lat_field_id = 'lat',
 layersList = ['$layer'],
-mapContainer = 'georef_container';"
+mapContainer = 'georef_container';";
     if (!$lon && !$lat && !in_array($layer, array('sites', 'users')))
     {
         $js .= "\nEvent.observe(window, 'load', function(){c2corg.docGeoref.init(0,0);});"
