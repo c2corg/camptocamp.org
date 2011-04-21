@@ -16,7 +16,7 @@ layersList = ['$layer'],
 mapContainer = 'georef_container';"
     if (!$lon && !$lat && !in_array($layer, array('sites', 'users')))
     {
-        $js = "\nEvent.observe(window, 'load', function(){c2corg.docGeoref.init($lon,$lat);});"
+        $js .= "\nEvent.observe(window, 'load', function(){c2corg.docGeoref.init(0,0);});"
     }
     $html = javascript_tag($js);
     
