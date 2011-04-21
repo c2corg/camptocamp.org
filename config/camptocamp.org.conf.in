@@ -80,11 +80,10 @@ AddType application/json .json
     Header unset ETag
     FileETag None
     # force the latest IE version, in various cases when it may fall back to IE7 mode
-    # TODO change this to "IE=Edge,chrome=1" once ie9 is correctly handled
     # nb: https://github.com/paulirish/html5-boilerplate/blob/master/.htaccess
     # They only send this header to IE browsers to save some header bytes, but they then send
     # an extra header for proxies, so not sure it is worth it. We send it to every browser.
-    Header set X-UA-Compatible "IE=8,chrome=1"
+    Header set X-UA-Compatible "IE=Edge,chrome=1"
 </IfModule>
 
 # makes images, css and js expire one week later in client cache
