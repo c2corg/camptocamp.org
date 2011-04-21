@@ -111,7 +111,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
         $html .= javascript_tag('
 if (!Prototype.Browser.IE) { var c2corgloadMapAsync = true; }
 function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0]; a.async = 1; a.src = jsurl; h.appendChild(a); }
-function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); } c2c_asyncload(\''.$ign_script_url.'\'); }');
+function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); c2c_asyncload(\''.$ign_script_url.'\'); }}');
     }
 
     return $html;
@@ -149,6 +149,12 @@ function _loadJsMapTools()
     if (!sfConfig::get('app_async_map', true))
     {
         use_javascript('http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
+    }
+    else
+    {
+        // FIXME Until IE8, loading geoportal script asynchronously was working well, but apparently it does not work well for IE9
+        // (even in compatibility mode). To keep it simple, we put the geoportal script in body for all IE versions (using conditional comments)
+        use_javascript('http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false', 'maps');
     }
 
     // FIXME following files will only be loaded by internet explorer when in async mode (extjs cannot be loaded async with ie)
