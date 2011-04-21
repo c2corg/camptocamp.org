@@ -31,11 +31,12 @@ echo init_js_var(true, 'home_nav', $connected);
     <div id="cda_background_left">
 <?php
 
+$lang = $document->getCulture();
 $abstract = $document->get('abstract');
 $abstract = parse_links(parse_bbcode_abstract($abstract));
 $title = __('changerdapproche');
 $know_more_link = getMetaArticleRoute('cda_know_more', false);
-include_partial('portals/welcome', array('sf_cache_key' => $id . '_' . $culture,
+include_partial('portals/welcome', array('sf_cache_key' => $id . '_' . $culture . '_' . $lang,
                                          'title' => $title,
                                          'description' => $abstract,
                                          'know_more_link' => $know_more_link,

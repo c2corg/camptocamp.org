@@ -53,7 +53,7 @@ if (!$mobile_version) // left navigation menus are only for web version
     $title = __('home_welcome');
     $abstract = $document->get('abstract');
     $abstract = parse_links(parse_bbcode_abstract($abstract));
-    include_partial('documents/welcome', array('sf_cache_key' => $id . '_' . $culture,
+    include_partial('documents/welcome', array('sf_cache_key' => $id . '_' . $culture . '_' . $lang,
                                                'title' => $title,
                                                'description' => $abstract,
                                                'default_open' => true));
