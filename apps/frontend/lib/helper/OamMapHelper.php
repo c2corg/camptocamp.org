@@ -5,11 +5,20 @@ function show_georef_map($lon, $lat, $lang, $layer)
 {
     include_partial('documents/map_i18n');
     
-    $html = javascript_tag("var mapLang = '$lang',
-    lon_field_id = 'lon',
-    lat_field_id = 'lat',
-    layersList = ['$layer'],
-    mapContainer = 'georef_container';");
+    if (empty($layer))
+    {
+        $layer = sfContext::getInstance()->getModuleName();
+    }
+    $js = "var mapLang = '$lang',
+lon_field_id = 'lon',
+lat_field_id = 'lat',
+layersList = ['$layer'],
+mapContainer = 'georef_container';"
+    if (!$lon && !$lat && !in_array($layer, array('sites', 'users')))
+    {
+        $js = "\nEvent.observe(window, 'load', function(){c2corg.docGeoref.init($lon,$lat);});"
+    }
+    $html = javascript_tag($js);
     
     $html .= '<div class="section" id="georef_container" style="display:none;">';
     $html .= '<div id="map" style="height:400px;width:100%">';

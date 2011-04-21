@@ -92,7 +92,7 @@ class MyCacheFilter extends sfCacheFilter
 
     $il = $this->interface_language;
     $uri = sfRouting::getInstance()->getCurrentInternalUri();
-    $uri .= (strstr($uri, '?')) ? '&' : '?'
+    $uri .= ((strstr($uri, '?')) ? '&' : '?')
           . 'il='.$il
           . $pl . $pa
           . '&c='.$this->credentials;
@@ -165,7 +165,7 @@ class MyCacheFilter extends sfCacheFilter
 
     $il = $this->interface_language;
     $uri = sfRouting::getInstance()->getCurrentInternalUri();
-    $uri .= (strstr($uri, '?')) ? '&' : '?'
+    $uri .= ((strstr($uri, '?')) ? '&' : '?')
           . 'il='.$il
           . $pl . $pa
           . '&c='.$this->credentials;

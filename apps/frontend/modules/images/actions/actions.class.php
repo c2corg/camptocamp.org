@@ -76,28 +76,28 @@ class imagesActions extends documentsActions
         }
         elseif ($this->hasRequestParameter('parkings') && $parking_ids = $this->getRequestParameter('parkings'))
         {
-            if (!in_array($summit_ids, array('-', ' ')))
+            if (!in_array($parking_ids, array('-', ' ')))
             {
                 $request_array = array(explode('-', $parking_ids), 'pr', 'ri', 'pi');
             }
         }
         elseif ($this->hasRequestParameter('huts') && $hut_ids = $this->getRequestParameter('huts'))
         {
-            if (!in_array($summit_ids, array('-', ' ')))
+            if (!in_array($hut_ids, array('-', ' ')))
             {
                 $request_array = array(explode('-', $hut_ids), 'hr', 'ri', 'hi');
             }
         }
         elseif ($this->hasRequestParameter('routes') && $route_ids = $this->getRequestParameter('routes'))
         {
-            if (!in_array($summit_ids, array('-', ' ')))
+            if (!in_array($route_ids, array('-', ' ')))
             {
                 $request_array = array(explode('-', $route_ids), 'ro', 'oi', 'ri');
             }
         }
         elseif ($this->hasRequestParameter('sites') && $site_ids = $this->getRequestParameter('sites'))
         {
-            if (!in_array($summit_ids, array('-', ' ')))
+            if (!in_array($site_ids, array('-', ' ')))
             {
                 $request_array = array(explode('-', $site_ids), 'to', 'oi', 'ti');
             }
