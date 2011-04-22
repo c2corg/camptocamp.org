@@ -172,7 +172,7 @@ function check_outing_date(e)
 }
 
 Event.observe(window, 'load', hide_outings_unrelated_fields);
-Event.observe(window, 'load', switch_mw_contest_visibility);
+//Event.observe(window, 'load', switch_mw_contest_visibility);
 Event.observe(window, 'load', function() {
     Event.observe('editform', 'submit', check_outing_activities);
     Event.observe('editform', 'submit', check_outing_date);
