@@ -25,7 +25,7 @@ function m_link_to($name, $url, $html_options = array(), $modal_options = array(
     {
         $html_options = array('title' => __($html_options));
     }
-    else
+    elseif (!is_array($html_options))
     {
         $html_options = array();
     }
