@@ -157,8 +157,8 @@ function _loadJsMapTools()
         use_javascript('http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false', 'maps');
     }
 
-    // FIXME following files will only be loaded by internet explorer when in async mode (extjs cannot be loaded async with ie)
-    // using conditional comments
+    // FIXME following files will only be loaded by internet explorer when in async mode using conditional comments
+    // (extjs 2 cannot be loaded async with ie, it uses document.write)
     use_javascript('/static/js/ie9mapfix.js', 'maps');
     use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
     use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');

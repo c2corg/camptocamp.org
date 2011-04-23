@@ -444,6 +444,7 @@ div.blockform form, div.fakeform
 select.menu_select
 {
   opacity: 0;
+  filter: alpha(opacity = 0); /* ie */
   position: absolute;
   left: 0;
   top: 0;
