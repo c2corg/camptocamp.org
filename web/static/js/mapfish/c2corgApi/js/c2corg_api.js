@@ -21,8 +21,10 @@
  * @requires OpenLayers/Layer/Google.js
  * @requires OpenLayers/Layer/Vector.js
  * @requires OpenLayers/Layer/WMS.js
+ * @requires OpenLayers/Layer/WMTS.js
  * @requires OpenLayers/Layer/XYZ.js
  * @requires OpenLayers/Layer/Markers.js
+ * @requires OpenLayers/Format/WMTSCapabilities.js
  * @requires OpenLayers/Map.js
  * @requires OpenLayers/Marker.js
  * @requires OpenLayers/Projection.js
@@ -43,6 +45,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     miller: new OpenLayers.Projection("IGNF:MILLER"),
     fxx: new OpenLayers.Projection("IGNF:GEOPORTALFXX"),
     epsg900913: new OpenLayers.Projection("EPSG:900913"),
+    //epsg21781: new OpenLayers.Projection("EPSG:21781"),
 
     overview: null,
 
@@ -54,6 +57,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     initialBgLayer: null,
     
     ignLoaded: false,
+    
+    swisstopoLayer: null,
 
     initialize: function(config) {
         config = config || {};
@@ -285,7 +290,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             ['gmap_normal', OpenLayers.i18n('Normal')],
             ['OpenStreetMap', OpenLayers.i18n('OpenStreetMap')],
             ['ign_map', OpenLayers.i18n('IGN maps')],
-            ['ign_orthos', OpenLayers.i18n('IGN orthos')]
+            ['ign_orthos', OpenLayers.i18n('IGN orthos')]//,
+            //['swisstopo_map', OpenLayers.i18n('Swisstopo maps')]
         ];
         
         var store = new Ext.data.SimpleStore({
@@ -307,6 +313,12 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             listeners: {
                 select: function(combo, record, index) {
                     var layername = record.data.id;
+                    
+                    if (layername == 'swisstopo_map' && !this.swisstopoMapLayer) {
+                        this.setSwisstopoLayer(); // uses async call
+                        return;
+                    }
+                    
                     if (['ign_map', 'ign_orthos'].indexOf(layername) != -1 && !this.ignLoaded) {
                         this.map.addLayers(this.getIgnLayers());
                         this.ignLoaded = true;
@@ -500,6 +512,50 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 }
             )
         ];
+    },
+    
+    setSwisstopoLayer: function() {
+        OpenLayers.Request.GET({
+            url: "http://api.geo.admin.ch/main/wsgi/doc/data/wmts-getcapabilities.xml",
+            params: {
+                SERVICE: "WMTS",
+                VERSION: "1.0.0",
+                REQUEST: "GetCapabilities"
+            },
+            success: function(request) {
+                var doc = request.responseXML;
+                console.log(doc)
+                if (!doc || !doc.documentElement) {
+                    doc = request.responseText;
+                }
+
+                var format = new OpenLayers.Format.WMTSCapabilities();
+                var capabilities = format.read(doc);
+                console.log(capabilities)
+
+                this.swisstopoMapLayer = format.createLayer(capabilities, {
+                    layer: "ch.swisstopo.pixelkarte-farbe",
+                    matrixSet: "21781", // Only this one
+                    format: "image/jpeg",
+                    opacity: 1.0,
+                    isBaseLayer: false,
+                    requestEncoding: "REST",
+                    style: "default" ,  // must be provided
+                    dimensions: ['TIME'],
+                    params: {'time': '2009'},
+                    formatSuffix: 'jpeg'
+                });
+                
+                console.log(this.swisstopoMapLayer)
+                this.map.addLayer(this.swisstopoMapLayer);
+                this.setBaseLayerByName('swisstopo_map');
+            },
+            failure: function() {
+                alert("Trouble getting capabilities doc");
+                OpenLayers.Console.error.apply(OpenLayers.Console, arguments);
+            },
+            scope: this
+        });
     },
     
     getLayerTreeModel: function() {
