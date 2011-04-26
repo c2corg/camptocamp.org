@@ -64,13 +64,13 @@ else:
 <?php endforeach; ?>
 <div style="clear:both"><?php echo input_hidden_tag('page', $page); ?><?php echo $pager_navigation; ?></div>
 <ul class="action_buttons">
-    <li><?php echo submit_tag(__('Switch license'), array('class' => 'picto action_edit')); ?></li>
-    <li><?php echo button_tag(__('Select all'), __('Select all'), array('onclick' => "$$('form#editform div.manageimages_info input[type=checkbox]').each(function(obj){obj.checked=true;});",
-                                                                    'class' => 'picto action_create',
-                                                                    'title' => null)); ?></li>
-    <li><?php echo button_tag(__('Deselect all'), __('Deselect all'), array('onclick' => "$$('form#editform div.manageimages_info input[type=checkbox]').each(function(obj){obj.checked=false;});",
-                                                                        'class' => 'picto action_rm',
-                                                                        'title' => null)); ?></li>
+    <li><?php echo c2c_submit_tag(__('Switch license'), array('picto' => 'action_edit')); ?></li>
+    <li><?php echo button_tag(__('Select all'), array('onclick' => "$$('form#editform div.manageimages_info input[type=checkbox]').each(function(obj){obj.checked=true;});",
+                                                      'picto' => 'action_create',
+                                                      'title' => __('Select all'))); ?></li>
+    <li><?php echo button_tag(__('Deselect all'), array('onclick' => "$$('form#editform div.manageimages_info input[type=checkbox]').each(function(obj){obj.checked=false;});",
+                                                        'picto' => 'action_rm',
+                                                        'title' => __('Deselect all'))); ?></li>
 </ul>
 </form>
 <?php

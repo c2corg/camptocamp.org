@@ -68,7 +68,7 @@ echo tips_tag('if you select nothing / deselect all, no filter is applied');
     </fieldset>
 </div> 
 
-    <?php echo submit_tag(__('save'), array('class' => 'picto action_create')) ?>
+    <?php echo c2c_submit_tag(__('save'), array('picto' => 'action_create')) ?>
 </form>
 </div>
 <!-- end div customize -->

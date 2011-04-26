@@ -65,7 +65,7 @@ echo label_tag('height', __('denivele'), false, array('class' => 'fieldname')),
      input_tag('height', '', array('class' => 'short_input'));
 ?></p><p>
 <?php
-echo submit_tag(__('compute technical grade'), array('onclick' => 'compute_technical_grade(); return false;'));
+echo c2c_submit_tag(__('compute technical grade'), array('onclick' => 'compute_technical_grade(); return false;'));
 ?>
 </p>
 </div>

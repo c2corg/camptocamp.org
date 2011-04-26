@@ -1,5 +1,5 @@
 <?php
-use_helper('Form', 'Viewer', 'Javascript', 'Escaping');
+use_helper('Form', 'Viewer', 'Javascript', 'Escaping', 'MyForm');
 $module = $sf_context->getModuleName();
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/filter.js', 'last');
@@ -95,8 +95,8 @@ include_partial("$module/filter_form", array('ranges' => $ranges, 'activities' =
 <br />
 <br />
 <?php
-echo reset_tag(__('Cancel'), array('class' => 'picto action_cancel'));
-echo submit_tag(__('Search'), array('class' => 'picto action_filter main_button'));
+echo c2c_reset_tag(__('Cancel'), array('picto' => 'action_cancel'));
+echo c2c_submit_tag(__('Search'), array('picto' => 'action_filter', 'class' => 'main_button'));
 ?>
 </form>
 

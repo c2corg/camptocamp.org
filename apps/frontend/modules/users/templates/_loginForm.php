@@ -1,11 +1,11 @@
-<?php use_helper('Form', 'Link'); ?>
+<?php use_helper('Form', 'MyForm', 'Link'); ?>
 
 <div id="fake_div">
 
 <?php echo form_tag('@login', array('id' => 'loginForm')) ?>
 <?php include_partial('users/loginFields'); ?>
 <p>
-  <?php echo submit_tag(__('Connect')) ?>
+  <?php echo c2c_submit_tag(__('Connect')) ?>
   &nbsp;
   <?php echo forgot_link_to() ?>
   &nbsp;

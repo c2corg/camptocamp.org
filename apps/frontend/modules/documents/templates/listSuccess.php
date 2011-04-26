@@ -1,5 +1,5 @@
 <?php 
-use_helper('Pagination', 'Viewer', 'FilterForm');
+use_helper('Pagination', 'Viewer', 'FilterForm', 'MyForm');
 
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
@@ -67,12 +67,14 @@ else:
         $result_types_filter = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select
                         . ' &nbsp; ' . $linked_doc_select
-                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit" /></div>';
-        
+                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit" /></div>'
+                        . ' ' . c2c_submit_tag(__('Send'), array('picto' => 'action_list', 'name' => 'commit'));
+
         $result_types_filter_2 = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select_2
                         . ' &nbsp; ' . $linked_doc_select_2
-                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_2" /></div>';
+                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_2" /></div>'
+                        . ' ' . c2c_submit_tag(__('Send'), array('picto' => 'action_list', 'name' => 'commit_2'));
         
         $params = packUrlParameters('', array('orderby', 'order', 'page'));
         $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');

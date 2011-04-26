@@ -35,7 +35,7 @@ echo start_content_tag($module . '_content');
     echo start_section_tag('Search criteria', 'search_form');
     echo group_tag('Name:', 'name', 'input_tag', null, array('class' => 'long_input'));
     include_partial('search_form');
-    echo submit_tag(__('Search'), array('onclick' => 'do_search(this.form); return false;', 'class'=>'srch_submit'));
+    echo c2c_submit_tag(__('Search'), array('onclick' => 'do_search(this.form); return false;', 'class'=>'srch_submit'));
     echo end_section_tag();
     ?>
 </form>

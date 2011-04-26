@@ -87,11 +87,9 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <?php 
 echo form_tag('outings/edit', 'method=get');
 echo input_hidden_tag('link', '0');
-echo submit_tag(__('New outing'), array(
-                                    'onclick' => '$("link").value = $("routes").options[$("routes").selectedIndex].value',
-                                    'title' => __('Add your outing'),
-                                    'class' => 'picto action_create'
-                                    )); 
+echo c2c_submit_tag(__('New outing'), array('onclick' => '$("link").value = $("routes").options[$("routes").selectedIndex].value',
+                                            'title' => __('Add your outing'),
+                                            'picto' => 'action_create'));
 ?>
 </form>
 </div> <!-- last_ok -->

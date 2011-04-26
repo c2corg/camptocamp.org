@@ -31,7 +31,7 @@ if (window.addEventListener) {
 //]]>
 </script>
 
-<p><?php echo submit_tag(__('Merge')) ?></p>
+<p><?php echo c2c_submit_tag(__('Merge')) ?></p>
 </form>
 
 <div>

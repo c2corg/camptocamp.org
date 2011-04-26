@@ -378,20 +378,22 @@ function display_document_edit_hidden_tags($document, $additional_fields = array
     }
 }
 
-function button_tag($name, $value, $options = array())
+function button_tag($value, $options = array())
 {
-    $title = __($value . ' button title');
-    return tag('input', array_merge(array('type'  => 'button',
-                                          'name'  => $name,
-                                          'value' => $value,
-                                          'title' => $title,
-                                          'alt'   => $title), $options)) . " ";
+    return c2c_button($value, array_merge(array('type'  => 'button',
+                                                'alt'   => $value), $options)) . " ";
 }
 
 function bb_button_tag($name, $value, $textarea_id, $options = array())
 {
-    $onclick = array('onclick' => "storeCaret('$value', '$textarea_id')");
-    return button_tag($name, $value, array_merge($options, $onclick));
+    $title = __($value . ' button title');
+    //return button_tag($name, $value, array_merge($options, $onclick));
+    return tag('input', array_merge(array('value' => $value,
+                                          'type' => 'button',
+                                          'name'  => $name,
+                                          'onclick' => "storeCaret('$value', '$textarea_id')",
+                                          'title' => $title),
+                                    $options)) . ' ';
 }
 
 function bbcode_toolbar_tag($document, $target_id, $options = array())
@@ -434,7 +436,15 @@ function bbcode_toolbar_img_tag($document, $target_id)
     {
         $options['disabled'] = 'disabled';
     }
-    return button_tag('insert img', 'img', $options);
+
+    $title = __('img button title');
+    //return button_tag('insert img', 'img', $options);
+    return tag('input', array_merge(array('value' => 'img',
+                                          'alt' => $title,
+                                          'title' => $title,
+                                          'type' => 'button',
+                                          'name'  => 'insert img'),
+                                    $options)) . ' ';
 }
 
 function bbcode_textarea_tag($object, $fieldname, $options = null)
@@ -551,7 +561,7 @@ function portal_search_box_tag($params, $current_module)
     $html = '<input type="hidden" value="' . $main_filter . '" name="params" />';
     $html .= select_tag('wtype', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected)); 
     $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox'));
-    $html .= submit_tag(__('Search'), array('class' => 'picto action_filter'));
+    $html .= c2c_submit_tag(__('Search'), 'action_filter');
     return $html;
 }
 
@@ -748,4 +758,48 @@ function options_with_classes_for_select($options = array(), $selected = '', $ht
     }
 
     return $html;
+}
+
+/*
+ * providing a consistent UI for form elements accross
+ * all browsers is a mess. Use following functions to get
+ * buttons, input submits, etc... */
+function c2c_reset_tag($value = 'Reset', $options = array())
+{
+    return c2c_button($value, array_merge(array('type' => 'reset', 'name' => 'reset'), _convert_options($options)));
+}
+
+function c2c_submit_tag($value = 'Submit', $options = array())
+{
+    return c2c_button($value, array_merge(array('type' => 'submit', 'name' => 'commit'), _convert_options_to_javascript(_convert_options($options))));
+}
+
+function c2c_button($value, $options, $btn = null)
+{
+    // 'picto' and 'class' options are used by the styled spans
+    // other options are applied to the input
+    if (array_key_exists('picto', $options))
+    {
+      $picto = ' c2cui_picto ' . $options['picto'];
+      unset($options['picto']);
+    }
+    else
+    {
+        $picto = '';
+    }
+    if (array_key_exists('class', $options))
+    {
+        $class = 'c2cui_btn ' . $options['class'];
+    }
+    else
+    {
+        $class = 'c2cui_btn';
+    }
+    $options['class'] = 'c2cui_btnr';
+
+    $btn = is_null($btn) ? tag('input', array_merge(array('value' => $value), $options))
+                         : $btn;
+    
+    return '<span class="'. $class . '"><span class="c2cui_btno"><span class="c2cui_btnin' .
+           $picto . '">' . $value . '</span></span>' . $btn . '</span>';
 }

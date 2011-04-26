@@ -42,11 +42,19 @@ input, select, textarea {
   border: 1px solid #ddd;
 }
 
-
-input, select {
-  height: 1.9em;
+/* size inputs for topoguide, since it feels better
+   when buttons and select and inputs have the same height
+   + allow some space for button icons */
+/*#content_box input, #content_box select, #type, #q {*/
+#content_box input, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="range"], input[type="date"], input[type="color"], select, #type, #q {
+  height: 1.8em;
   vertical-align: middle;
   font-size: 12px;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 select[multiple="multiple"], input[type="checkbox"], input[type="image"]
@@ -54,14 +62,19 @@ select[multiple="multiple"], input[type="checkbox"], input[type="image"]
   height: auto;
 }
 
-
-input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="range"], input[type="date"], input[type="color"]
+/* selects from forums should be with white backgroun */
+select, option {
+  background-color: #fff;
+}
+/* TODO
+#content_box input[type="text"], #content_box input[type="password"], #content_box input[type="email"],
+#content_box input[type="number"], #content_box input[type="range"], #content_box input[type="date"], #content_box input[type="color"], #q
 {
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-}
+}*/
 
 /* outline focused input elements */
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus
@@ -390,7 +403,7 @@ em.mandatory_asterisk
 #nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
 #footer_border_left, #footer_border_right, #partners a,
 .picto.cc-by-sa, .picto.cc-by-sa-mini, .picto.cc-by-nc-nd, .picto.copyright, .cc_gen, .image_license, .license_mini,
-.paypal-button, .pp_button_mini, span.share_bookmark
+#paypal-button, .pp_button_mini, span.share_bookmark
 {
   background: url(/static/images/borders_and_logos.png) no-repeat;
 }
@@ -1793,7 +1806,7 @@ span.picto
 input.picto, .form-row input.picto
 {
   padding: 1px 1px 1px 20px;
-  height: 1.9em;
+  height: 1.8em;
   vertical-align: middle;
 }
 
@@ -1997,24 +2010,39 @@ span.action_on
 /* those are input buttons with backgrounds. We use uri encoded images because
    - using css sprites raises some rendering issues when changing font size
    - image sizes are small, so better uri encode it and avoid extra request */
-input.action_create
+.c2cui_picto.action_create
 {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAllBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXWdxzWdx3WeSDXfinXgC3egSjegirhk0jilUvjhCvljjznm1LooF3rjTTunlPwkjnwlT/wqmbxmUXxqmfynUzzoVTzpVzzqWHzt3/0qmP0rWn1rmv2s3P3t3r4u4H4voj5wo36xJL////yX/jFAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAACVSURBVBgZBcHBUsIwFADAbXmUIOi1/v/XeXSYYpNp0uduwHy5hn6ME8F0e5Tn3b7Vd0thKl/fpFL8vGqG5XNNwJpni/mxJkLH2o9YSgIJZYnLkkBCiZjv6QYLzW0KYwZwOkXuxcbTBjWj9wQSeo+jfgAJ9Yixv574Bds+QpvyAXi/m5A1e4nZ2ffWUpC1/10vxjEG/gE/jE8zA9+T8QAAAABJRU5ErkJggg%3D%3D) no-repeat 2px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAllBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXWdxzWdx3WeSDXfinXgC3egSjegirhk0jilUvjhCvljjznm1LooF3rjTTunlPwkjnwlT/wqmbxmUXxqmfynUzzoVTzpVzzqWHzt3/0qmP0rWn1rmv2s3P3t3r4u4H4voj5wo36xJL////yX/jFAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAACVSURBVBgZBcHBUsIwFADAbXmUIOi1/v/XeXSYYpNp0uduwHy5hn6ME8F0e5Tn3b7Vd0thKl/fpFL8vGqG5XNNwJpni/mxJkLH2o9YSgIJZYnLkkBCiZjv6QYLzW0KYwZwOkXuxcbTBjWj9wQSeo+jfgAJ9Yixv574Bds+QpvyAXi/m5A1e4nZ2ffWUpC1/10vxjEG/gE/jE8zA9+T8QAAAABJRU5ErkJggg%3D%3D) no-repeat 0;
 }
 
-input.action_filter, #google_search_submit
+.c2cui_picto.action_filter, #google_search_submit, #q
 {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABIFBMVEX///+lXjHPcBWmXzOlXjKnYDSlXjKoYja0ajHPcBXPcBXPcBXIjEPOmEnPcBXPcBXOlEXFfzaqZTetajuybzqxcD3PcBXLfCrJdiWbWDDOkkHIgzbLeCXPhTHNgC3OgCrKdyWdVCKuZTTOdh+vaDTLcRzOcRnOchnOcxvPdBvPdRzPdh3DbCLOcRfPchelXDO8hFG9fUDBjljJdijLcR/NcRrPcBXPcRfSgzDSiz3UeiPVfCfVkEPXfinZgzHagy/biDfclVLdkkvdl1TelVDfnVzhoWTip2/mhijnjznpkjvskDfukjnwvo7xwZLz07L117r5mTj6mTn74Mb84cj9tGz/nj3/pUz/rlz/t2//wYT/zJn/167/4cP/6tb/8+aYhV1/AAAAL3RSTlMACAkKDBIUFxwePEJFRUVISlFdXV1fZm97hISJs9jb4eLl6O7v9ff9/f39/f7+/kBWP4AAAAClSURBVBjTTc7VFoJQEIXhsbsVuxu7jt0BdoKt7/8WyoGFfnfzX+w1AGDwZxAiA3oQeEh6z7IHOuXlb3N6ecZWSQsOwflFsAjhkGeuAiYn5UL3JuprudC7iwY6LrQeoraGC9H1U7CJ41Hn6PjCTpOqHRffdPv+2s0QqqhxcSWGFDWuNRBCWRX/rZEgTI5y51vCMhDZik1Uj8l/AayFUkQJ/xRuCcAHG/grCN1LJi0AAAAASUVORK5CYII%3D) no-repeat 2px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABIFBMVEX///+lXjHPcBWmXzOlXjKnYDSlXjKoYja0ajHPcBXPcBXPcBXIjEPOmEnPcBXPcBXOlEXFfzaqZTetajuybzqxcD3PcBXLfCrJdiWbWDDOkkHIgzbLeCXPhTHNgC3OgCrKdyWdVCKuZTTOdh+vaDTLcRzOcRnOchnOcxvPdBvPdRzPdh3DbCLOcRfPchelXDO8hFG9fUDBjljJdijLcR/NcRrPcBXPcRfSgzDSiz3UeiPVfCfVkEPXfinZgzHagy/biDfclVLdkkvdl1TelVDfnVzhoWTip2/mhijnjznpkjvskDfukjnwvo7xwZLz07L117r5mTj6mTn74Mb84cj9tGz/nj3/pUz/rlz/t2//wYT/zJn/167/4cP/6tb/8+aYhV1/AAAAL3RSTlMACAkKDBIUFxwePEJFRUVISlFdXV1fZm97hISJs9jb4eLl6O7v9ff9/f39/f7+/kBWP4AAAAClSURBVBjTTc7VFoJQEIXhsbsVuxu7jt0BdoKt7/8WyoGFfnfzX+w1AGDwZxAiA3oQeEh6z7IHOuXlb3N6ecZWSQsOwflFsAjhkGeuAiYn5UL3JuprudC7iwY6LrQeoraGC9H1U7CJ41Hn6PjCTpOqHRffdPv+2s0QqqhxcSWGFDWuNRBCWRX/rZEgTI5y51vCMhDZik1Uj8l/AayFUkQJ/xRuCcAHG/grCN1LJi0AAAAASUVORK5CYII%3D) no-repeat 0;
 }
 
-input.action_cancel
+#google_search_submit, #q
 {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABEVBMVEXJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDRSBrRSRvSSRrSShzSSx3bYjnbYzrcaUHdakThdE7id1LjdE/kfFnqj2/rkXLsk3TukXHum33vm3/vnYDwnYDwnoLwn4PwpInxnYDxn4LxoYXxpYvxp43ynYDynoLyn4PypInypYvzpInzqI7zr5j0oIP0rJL0rZP0sJf0sJj0spv1r5f1uaT1vqr2w7H2yLf2y7v3spv3x7f3y7z4y7v4y7z4zLz4z8H40MP40sX50cP50sX51Mj639b749v75t787Ob87Of87un97+v98Ov98Oz98u7+9vP+9/T++fj//fz///9XxfgxAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAADTSURBVBgZBcHNTsJAFIDR785PKVIKRIkmLljo+z+RbkwkkkKCQtvpdOaO5wiAsd6R5qyAgCxW9cMr30Pop4IgdfsGAHz+hWJZtAfWg2pZjZsxZWuaQ3ne2Jvf7PPQ3qOrlplidxq3sutYBmdd5Oiax+SGS8Q7WzdF42/rzfR1VmU0FFXzVMOiUdWCrSrL+96MsWrdlTmYlESiid3Hja1ISraY1txXp4v2y3Mw1yDUzQtGAT/zcw+WXOY1IiIqp37CUULJtd/TzeM4FQTAGW/Jc87AP3NMaxnYCArMAAAAAElFTkSuQmCC) no-repeat 2px;
+  background-position: 2px;
 }
 
-input.action_list
+.c2cui_picto.action_cancel
 {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAeFBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXYgS/po2Drp2fsjjXskTrtlD/umEbvm03vn1TwkjnwlT/wo1rxmUXxp2Hxq2jynUzyr27zoVTzpVzzsnTztXr0qmP0uH/1rmv1uoP2s3P3t3r4u4H4voj5wo36xJL///9MExISAAAAB3RSTlMANj/Y4fD2r5S8ygAAAGRJREFUGBkFwSEOAkEQBMASHYLCYEju/z87gcGAIWR3mqpIAMwa4XEBONuGKcBxzg5TAPen0AawStgF6CZMfwBD6FwB3xJmAGYIe38ANqG9Ad4ldACmhO4XQAkdACW0AEpYCwD+oe86x6o0B08AAAAASUVORK5CYII=) no-repeat 2px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABEVBMVEXJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDRSBrRSRvSSRrSShzSSx3bYjnbYzrcaUHdakThdE7id1LjdE/kfFnqj2/rkXLsk3TukXHum33vm3/vnYDwnYDwnoLwn4PwpInxnYDxn4LxoYXxpYvxp43ynYDynoLyn4PypInypYvzpInzqI7zr5j0oIP0rJL0rZP0sJf0sJj0spv1r5f1uaT1vqr2w7H2yLf2y7v3spv3x7f3y7z4y7v4y7z4zLz4z8H40MP40sX50cP50sX51Mj639b749v75t787Ob87Of87un97+v98Ov98Oz98u7+9vP+9/T++fj//fz///9XxfgxAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAADTSURBVBgZBcHNTsJAFIDR785PKVIKRIkmLljo+z+RbkwkkkKCQtvpdOaO5wiAsd6R5qyAgCxW9cMr30Pop4IgdfsGAHz+hWJZtAfWg2pZjZsxZWuaQ3ne2Jvf7PPQ3qOrlplidxq3sutYBmdd5Oiax+SGS8Q7WzdF42/rzfR1VmU0FFXzVMOiUdWCrSrL+96MsWrdlTmYlESiid3Hja1ISraY1txXp4v2y3Mw1yDUzQtGAT/zcw+WXOY1IiIqp37CUULJtd/TzeM4FQTAGW/Jc87AP3NMaxnYCArMAAAAAElFTkSuQmCC) no-repeat 0;
+}
+
+.c2cui_picto.action_list
+{
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAeFBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXYgS/po2Drp2fsjjXskTrtlD/umEbvm03vn1TwkjnwlT/wo1rxmUXxp2Hxq2jynUzyr27zoVTzpVzzsnTztXr0qmP0uH/1rmv1uoP2s3P3t3r4u4H4voj5wo36xJL///9MExISAAAAB3RSTlMANj/Y4fD2r5S8ygAAAGRJREFUGBkFwSEOAkEQBMASHYLCYEju/z87gcGAIWR3mqpIAMwa4XEBONuGKcBxzg5TAPen0AawStgF6CZMfwBD6FwB3xJmAGYIe38ANqG9Ad4ldACmhO4XQAkdACW0AEpYCwD+oe86x6o0B08AAAAASUVORK5CYII=) no-repeat 0;
+}
+
+.c2cui_picto.action_edit
+{
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABTVBMVEXPcBX////KklHPcBXPcBXRlSvPcBXPcBXHjEjPcBXPcBXTn2ZXQhiCZi6HYSumaCaqiUOzn3C8iUy+ehq/tqbCjEjCy7bFmEnImWTJhUHJza/MxrDMxrPPcBXQnUbQ1L7Rt5DVtnrV1r3WuXbXo2PX6P7YgS/YmlTYpVjZm1HamEnbmUvbsYXgoVHkyVXnvnfnwIvny3fpo2Drp2fsjjXskTrtlD/tym3t0HjumEbu03nu1H3u1YHvm03vn1Tv0qzwkjnwlT/wo1rw0rTw03nxmUXxp2Hxq2jx1Hvx46/ynUzyr27y1nrzoVTzpVzzsnTztXr0qmP0uH/1rmv1uoP13F713F/131v2s3P206723Wz3t3r332P34Vr34lv4u4H4voj44l34+//5wo35x5T5yZH547L6xJL84MT99sL99sT998f/8uD/8+X///+Kok2QAAAADHRSTlMAACY2P17Y4ejw9vfjF0r8AAAAv0lEQVQY02NgYFeDAy4WBiBgD0mHAWNOZpBAUDIcGLGBBAISICBJTENHjhUo4B+fBwae+s659hxAAe9oMF/KJs0gMoMbKOAeAQLy1llR5ioSTEABt2CgvJJVdlicjy47I1DAKTAvT9owOzTWQ9sJLGDnpyqjnBmT6KLlZwcWsPUVUVTQC7fQzPO1BQtYegnkqAuLi+bleVmCBcxceVNSJfldgcAMLGDqyMMnJOgIAqZgARMHODBhB/lFFgmwMwAAh1g0qhvSISAAAAAASUVORK5CYII=) no-repeat 0;
+}
+
+.c2cui_picto.action_rm
+{
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAllBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXWdxzWdx3WeSDXfinXgC3egSjegirhk0jilUvjhCvljjznm1LooF3rjTTunlPwkjnwlT/wqmbxmUXxqmfynUzzoVTzpVzzqWHzt3/0qmP0rWn1rmv2s3P3t3r4u4H4voj5wo36xJL////yX/jFAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAACLSURBVBgZTcEHDoMwEATAtQlwNCf0TjrFafD/z8USCHkGULjpCuGaHCtGcT3M81DHxKAwJ/9tcocBsLPvLrMBHn00EQdVb01F8C4vzc1HMEm5bKScAgT9OC6bcewD+O1T0/qg8qEpCUZ414QGQOl1lxIA5iTnTeIwKIxORdN1TXEkhtXB8oTwLAPKH+t+Gtjjt9+EAAAAAElFTkSuQmCC) no-repeat 0;
 }
 
 /* picto images */
@@ -2373,30 +2401,11 @@ option.act_0
 
 /* Forms */
 
-input[type=submit], input[type=reset], .action_buttons input[type=button]
-{
-  border-color: #c0c0c0;
-  border-width: 2px;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -khtml-border-radius: 4px;
-  -webkit-border-radius: 4px;
-}
-
-#filterform input, #filterform select, #filterform textarea,
-.form-row input, .form-row select, .form-row textarea,
-.article .sbox input, .article .sbox select
+#filterform input, #filterform select, #filterform textarea, #filterform option,
+.form-row input, .form-row select, .form-row textarea, .form-row option,
+.article .sbox input, .article .sbox select, .article .sbox option
 {
   background-color: #F4F4F4;
-}
-
-input.main_button
-{
-  border-color: #ff9933 !important;
-}
-
-input[type=submit]:hover, input[type=reset]:hover {
-  cursor: pointer;
 }
 
 select[multiple] {
@@ -2856,10 +2865,10 @@ ul.docs_changes li img
   background-color: #ccc;
 }
 
-.bbcodetoolcontainer input
+.bbcodetoolcontainer input, input.bbcodeexample
 {
-  line-height: 1.5em;
-  height: 1.5em;
+  height: auto !important;
+  margin: 0.3em 0 !important;
   padding:0;
   width:40px;
 }
@@ -3144,7 +3153,7 @@ ul.list404 li
   padding-left: 27px;
 }
 
-#nav_buttons span, #nav_buttons .paypal-button
+#nav_buttons span, #paypal-button
 {
   display: -moz-inline-box;
   display: inline-block;
@@ -4830,7 +4839,7 @@ td.history_buttons {
   clear:both;
 }
 
-.paypal-button
+#paypal-button
 {
   width: 139px;
   height: 26px;
@@ -4975,6 +4984,11 @@ span.cotometre_result {
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-top-right-radius: 0;
   width: 220px;
+  height: 1.8em;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 #google_search_submit
@@ -4985,7 +4999,7 @@ span.cotometre_result {
   -webkit-box-sizing: border-box;
   display: inline-block;
   width: 21px;
-  height: 1.9em;
+  height: 1.8em;
   vertical-align: middle;
   border: 1px solid #ddd;
   border-left: none;
@@ -5029,4 +5043,72 @@ span.cotometre_result {
 #form_file_input
 {
   margin-bottom: 2px;
+}
+
+/* c2c buttons
+ * Because having cross browser consistent UI
+ * for form elements is a fucking mess
+ * TODO move size box & co + forums etc etc  */
+
+/* common for topoguide specific buttons and forum */
+input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
+  margin: 0 0.5em 0 0;
+  -moz-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #c0c0c0;
+  border-bottom-color: #939393;
+  border-right-color: #939393;
+  background: #f4f4f4; /* non css3 browsers and ie */
+  /* filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFF9F9F9,EndColorStr=#FFE3E3E3);*/ /* ie 5.5 - 7 */
+  /* -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFF9F9F9,EndColorStr=#FFE3E3E3')";*/ /* ie 8 */
+  background: -o-linear-gradient(#f9f9f9, #e3e3e3) repeat scroll 0 0 transparent; /* opera 11.1+ */
+  background: -moz-linear-gradient(#f9f9f9, #e3e3e3) repeat scroll 0 0 transparent; /* ff 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#e3e3e3)); /* webkit browsers */
+  cursor: pointer;
+}
+
+.c2cui_btn {
+  height: 1.8em;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.c2cui_btn.main_button {
+  font-weight: bold;
+}
+.c2cui_btn:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {
+  border-color: #777;
+}
+.c2cui_btno {
+  display: block;
+  height: 100%;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+.c2cui_btnin {
+  display: inline-block;
+  /* compensate for the border / box-sizing */
+  margin-top: -1px;
+  height: 1.8em;
+  line-height: 1.8em;
+}
+.c2cui_btnr {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 !important;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  filter: alpha(opacity = 0); /* ie */
+}
+.c2cui_picto {
+  padding-left : 20px;
 }

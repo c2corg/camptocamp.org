@@ -3947,6 +3947,8 @@ class documentsActions extends c2cActions
      */
     public function executeGetautocomplete()
     {
+        sfLoader::loadHelpers(array('MyForm'));
+
         // retrieve module name on which to perform autocomplete
         if ($this->hasRequestParameter('module_id'))
         {
@@ -3972,7 +3974,7 @@ class documentsActions extends c2cActions
             $user = $this->getUser();
             $out = input_hidden_tag('document_id', $user->getId(), array('id' => $field_prefix . '_document_id'))
                  . input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
-                 . $user->getUsername() . ' ' .  submit_tag(__('Link'), array('class' =>  'picto action_create'));
+                 . $user->getUsername() . ' ' .  c2c_submit_tag(__('Link'), array('picto' =>  'action_create'));
         }
         else if ($module_name != 'routes') // default case
         {
@@ -4014,7 +4016,7 @@ class documentsActions extends c2cActions
             $out .= '<div id="' . $div_select . '" name="' . $div_select . '"></div>';
             if ($this->getRequestParameter('button') != '0')
             {
-                $out .= submit_tag(__('Link'), array('class' => 'picto action_create'));
+                $out .= c2c_submit_tag(__('Link'), array('picto' => 'action_create'));
             }
             $out .= '</div>';
         }

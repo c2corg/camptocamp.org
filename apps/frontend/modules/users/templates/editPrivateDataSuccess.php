@@ -48,7 +48,7 @@
     echo end_fieldset_tag() ?>
     
     <ul class="action_buttons">
-      <li><?php echo submit_tag(__('Save'), array('class' => 'picto action_create')) ?></li>
+      <li><?php echo c2c_submit_tag(__('Save'), array('picto' => 'action_create')) ?></li>
     </ul>
     </div>
 </div>
