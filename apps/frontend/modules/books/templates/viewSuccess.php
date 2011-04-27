@@ -53,7 +53,7 @@ if ($is_not_archive && $is_not_merged)
         include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                       'document' => $document,
                                                       'id' => $id,
-                                                      'module' => 'books',
+                                                      'module' => 'rbooks',
                                                       'use_doc_activities' => true,
                                                       'type' => 'br', // route-book, reversed
                                                       'strict' => true,

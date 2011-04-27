@@ -16,6 +16,7 @@ all:
       13: hut pic
       14: equipment pic
       15: book pic
+      17: help pic
       5: misc pic
 
   sort:
