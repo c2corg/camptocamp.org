@@ -423,7 +423,7 @@ class Image extends BaseImage
         // image criteria
         Image::buildImageListCriteria(&$conditions, &$values, $params_list, true);
         self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'documents', 'join_itag_id', false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Config', '', 'join', 'id_has', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Join', '', 'join', 'id_has', false, $params_list);
 
         // summit criteria
         Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
@@ -445,6 +445,11 @@ class Image extends BaseImage
         
         // user criteria
         self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user_id', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
+        self::buildConditionItem($conditions, $values, 'List', 'lou.main_id', 'ousers', 'join_ouser_id', false, $params_list);
+        if (isset($conditions['join_ouser_id']))
+        {
+            $conditions['join_outing_id'] = true;
+        }
 
         if (!empty($conditions))
         {
@@ -599,6 +604,12 @@ class Image extends BaseImage
             $parking_ltype = 'pr';
             $site_join = 'lo.MainAssociation';
             $site_ltype = 'to';
+        
+            if (isset($conditions['join_ouser_id']))
+            {
+                $q->leftJoin($route_join . ' lou');
+                unset($conditions['join_ouser_id']);
+            }
         }
 
         if (   isset($conditions['join_route_id'])
