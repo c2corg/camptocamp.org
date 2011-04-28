@@ -44,12 +44,10 @@ if (count($associated_images) == 0): ?>
 <?php echo input_hidden_tag('id', $associated_images[0]['id']). input_hidden_tag('div', $div); ?>
 </form>
 <ul class="action_buttons">
-  <li><?php echo button_tag('Insert', __('Insert'), array('onclick' => 'doInsertImgTag()',
-                                                          'class' => 'picto action_create',
-                                                          'title' => null)); ?></li>
-  <li><?php echo button_tag('Cancel', __('Cancel'), array('onclick' => 'Modalbox.hide();',
-                                                          'class' => 'picto action_cancel',
-                                                          'title' => null)); ?></li>
+  <li><?php echo button_tag(__('Insert'), array('onclick' => 'doInsertImgTag()',
+                                                'picto' => 'action_create')); ?></li>
+  <li><?php echo button_tag(__('Cancel'), array('onclick' => 'Modalbox.hide();',
+                                                'picto' => 'action_cancel')); ?></li>
 </ul>
 <?php endif; ?>
 <div>
