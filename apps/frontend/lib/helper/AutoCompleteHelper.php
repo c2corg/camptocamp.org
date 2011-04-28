@@ -35,6 +35,7 @@ function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display
 
     $out = c2c_input_auto_complete($module, $update_hidden, $field_prefix, $display);
     $out .= ($display_button) ? c2c_submit_tag(__('Link'), array(
+                                    'class' => 'samesize',
                                     'onclick' => "$('$field').value = '';",
                                     'picto' =>  'action_create')) : '';
     return $out;
