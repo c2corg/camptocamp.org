@@ -1643,7 +1643,7 @@ msgstr "MP"
 # Titre de la liste des accès TC : "accès" est au pluriel
 # [WARNING] es translation used
 msgid "PT access points"
-msgstr "accesos en transporte en común"
+msgstr "accesos en transporte público"
 
 msgid "Page under %1% license"
 msgstr "El contingut d'aquesta pàgina està disponible sota llicència %1%."
@@ -4525,6 +4525,12 @@ msgstr "Desniv."
 
 msgid "height_diff_up_height_diff_down"
 msgstr "Desnivell:"
+
+# [general comment]
+# Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
+# [WARNING] en translation used
+msgid "help pic"
+msgstr "help"
 
 msgid "hide form"
 msgstr "Amagar el formulari"

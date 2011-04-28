@@ -1660,7 +1660,7 @@ msgstr "MP"
 # Titre de la liste des accès TC : "accès" est au pluriel
 # [WARNING] es translation used
 msgid "PT access points"
-msgstr "accesos en transporte en común"
+msgstr "accesos en transporte público"
 
 msgid "Page under %1% license"
 msgstr "Orri honen edukia %1% lizentzipean erabilgarri da."
@@ -2982,6 +2982,7 @@ msgstr "<h3>Mendi aterpea</h3>Aterpearren irekiera: irekia/itxia et zaindua/zain
 msgid "_ice_rating_info"
 msgstr "<h3>Izotzeko zailtasuna</h3>Izotzetako zailtasunen akotazioa.<br />Izotzetako zailtasunak, ibilbideko zailtasun maximoa adierazten du.<br />Eskala 1-tik 7+-ra doa"
 
+# [WARNING] needs_update
 msgid "_image_categories_info"
 msgstr "<h3>Irudien kategoriak</h3><br /><span style=\"color: red\">Izartxoa (*) duen kategoria bat aukeratu ezkero (gutxienez), argazkia sarrera horrialdean ageraraziko du.</span><br /><br /><strong>Paisaia</strong>&nbsp;*&nbsp;: Gailur bat edo batzuen zati haundi bat agertzen duen irudia, argazki panoramikoa <br /><strong>zehazpena, zoom</strong>&nbsp;*&nbsp;: Gailur, ibilbide edo leku baten zati txiki bat agertzen duen irudia (<em>paisaia-ren</em> aurkakoa)<br /><strong>ibilbidea, eskema</strong>&nbsp;*&nbsp;: Gailur baten argazkia non ibilbidearen jarduna agertzen den<br /><strong>akzioa</strong>&nbsp;*&nbsp;: Mendizalea akzioan agertzen duen argazkia<br /><strong>urratsa, bidezidor</strong>&nbsp;*&nbsp;: Elurrean igoera/jeitsierako urratsak edo bidezidur bat agertzen dituen irudia<br /><strong>montée</strong> et <strong>jeitsiera</strong>&nbsp;: jeitsiera erakusten duen argazkia, igoeran edo jeitsieran ateratakoa - <em>zehazpena, akzioa, urratsa, bidezidorra</em>kategoriak zehazteko erabilgarria<br /><strong>pertsonaiak</strong>&nbsp;: pertsonai bat edo batzuen argazkia<br /><strong>fauna</strong>&nbsp;* eta <strong>flora</strong>&nbsp;*&nbsp;: fauna edo flora-ren argazki edo marrazkia<br /><strong>elur eta elurjausiak</strong>&nbsp;*&nbsp;: nibologiarekin zerikusia duen argazkia&nbsp;: elurraren kristal edo estruktura, plaka, elurjausia, etabar...<br /><strong>geologia</strong>&nbsp;*&nbsp;: minerale, glaziar edo beste estruktura geologikoen argazki edo marrazkia<br /><strong>aterpeak</strong>&nbsp;: aterpe, borda edo gaba pasatzeko lekuen argazkiak<br /><strong>materiala</strong>&nbsp;: mendian erabiltzen den materialeen argazki edo marrazkia, planu nagusian edo erabileran<br /><strong>liburu azala</strong>&nbsp;: liburuen azala edo titulu horrialdea<br /><strong>bestelakoak, klasifikagabeak</strong>&nbsp;: beste edozein kategorian klasifikatzeko zaila den irudia&nbsp;: ospakizun baten kartela, irudi abstraktoa, etabar."
 
@@ -4521,6 +4522,12 @@ msgstr "Desnib."
 
 msgid "height_diff_up_height_diff_down"
 msgstr "Desnibela:"
+
+# [general comment]
+# Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
+# [WARNING] en translation used
+msgid "help pic"
+msgstr "help"
 
 msgid "hide form"
 msgstr "Formularioa gorde"
