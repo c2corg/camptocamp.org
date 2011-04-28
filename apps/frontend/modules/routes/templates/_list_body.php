@@ -17,6 +17,7 @@ else
 // in some cases (ticket #337, we have to add best summit name with a second request. It is
 // then located in $item['name']
 $summit_2 = $item['associations'][0]['Summit'][0]['SummitI18n'][0];
+var_dump($item);
 if (isset($item['name']))
 {
     $summit_name = $item['name'];
@@ -26,15 +27,16 @@ else
     $summit_name = $summit_2['name'];
 }
 echo link_to($summit_name . __('&nbsp;:') . ' ' . $item_i18n['name'],
-             "@document_by_id_lang_slug?module=routes&id=$item_id&lang=$item_culture&slug=" . make_slug($summit_name . '-' . $item_i18n['name'])) .
+             "@document_by_id_lang_slug?module=routes&id=$item_id&lang=$item_culture&slug=" . make_slug($summit_name . '-' . $item_i18n['name']),
+             ($item_culture != $sf_user->getCulture() ? array('hreflang' => $item_culture) : array())) .
       ' ' . $has_gps_track;
 
 if (isset($item['name']) && $summit_name != $summit_2['name'])
 {
     $link = link_to($summit_2['name'],
                     '@document_by_id_lang_slug?module=summits&id=' . $summit_2['id'] .
-                    '&lang=' .  $summit_2['culture'] .
-                    '&slug=' . make_slug($summit_2['name']));
+                        '&lang=' .  $summit_2['culture'] . '&slug=' . make_slug($summit_2['name']),
+                    ($summit_2['culture'] != $sf_user->getCulture() ? array('hreflang' => $summit_2['culture']) : array()));
     echo '<br /><small>', __('route linked with', array('%1%' => $link)), '</small>';
 }
 ?></td>

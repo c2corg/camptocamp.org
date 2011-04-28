@@ -1284,7 +1284,7 @@ p.default_text div.add_content
   width: 100%;
 }
 
-.doc_add input, .doc_add select
+.doc_add input, .doc_add select, .doc_add .c2cui_btn
 {
   margin: 0.3em 0.5em 0 0;
 }
@@ -5070,7 +5070,7 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 }
 
 .c2cui_btn {
-  height: 1.8em;
+  height: 2em;
   display: inline-block;
   position: relative;
   vertical-align: middle;
@@ -5079,36 +5079,58 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+
 .c2cui_btn.main_button {
   font-weight: bold;
 }
+
 .c2cui_btn:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {
   border-color: #777;
 }
+
+.c2cui_btn:active, input[type=submit]:active, input[type=reset]:active, input[type=button]:active {
+  border-color: #000;
+  background: -o-linear-gradient(#e3e3e3, #f9f9f9) repeat scroll 0 0 transparent; /* opera 11.1+ */
+  background: -moz-linear-gradient(#e3e3e3, #f9f9f9) repeat scroll 0 0 transparent; /* ff 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#e3e3e3), to(#f9f9f9)); /* webkit browsers */
+}
+
 .c2cui_btno {
   display: block;
   height: 100%;
   margin-right: 4px;
   margin-left: 4px;
 }
+
 .c2cui_btnin {
   display: inline-block;
   /* compensate for the border / box-sizing */
   margin-top: -1px;
-  height: 1.8em;
-  line-height: 1.8em;
+  height: 2em;
+  line-height: 2em;
 }
+
 .c2cui_btnr {
   cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
   margin: 0 !important;
-  height: 100%;
+  height: 100% !important;
   width: 100%;
   opacity: 0;
   filter: alpha(opacity = 0); /* ie */
 }
+
 .c2cui_picto {
   padding-left : 20px;
+}
+
+/* we use 2em for button size, but some need to be aligned with form inputs which are 1.8 for better visual effect */
+.c2cui_btn.samesize {
+  height: 1.8em;
+}
+.c2cui_btn.samesize .c2cui_btnin {
+  height: 1.8em;
+  line-height: 1.8em;
 }

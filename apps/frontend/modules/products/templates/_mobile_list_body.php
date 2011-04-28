@@ -3,9 +3,10 @@ use_helper('Field');
 
 $item_i18n = $item['ProductI18n'][0];
 ?>
-<div><?php echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=products&id=' . $item_i18n['id']
-                                                    . '&lang=' . $item_i18n['culture']
-                                                    . '&slug=' . make_slug($item_i18n['name'])) ?></div>
+<div><?php echo link_to($item_i18n['name'],
+                        '@document_by_id_lang_slug?module=products&id=' . $item_i18n['id']
+                            . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
+                        ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array())) ?></div>
 <div><?php echo displayWithSuffix($item['elevation'], 'meters'), ' - ', 
                 get_paginated_value_from_list($item['product_type'], 'mod_products_types_list'); ?>
 <?php if (isset($item['linked_docs']))

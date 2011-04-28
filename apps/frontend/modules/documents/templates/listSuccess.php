@@ -67,14 +67,14 @@ else:
         $result_types_filter = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select
                         . ' &nbsp; ' . $linked_doc_select
-                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit" /></div>'
-                        . ' ' . c2c_submit_tag(__('Send'), array('picto' => 'action_list', 'name' => 'commit'));
+                        . ' ' . c2c_submit_tag(__('Send'), array('picto' => 'action_list', 'name' => 'commit', 'class' => 'samesize'))
+                        . '</div>';
 
         $result_types_filter_2 = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select_2
                         . ' &nbsp; ' . $linked_doc_select_2
-                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_2" /></div>'
-                        . ' ' . c2c_submit_tag(__('Send'), array('picto' => 'action_list', 'name' => 'commit_2'));
+                        . ' ' . c2c_submit_tag(__('Send'), array('picto' => 'action_list', 'name' => 'commit_2', 'class' => 'samesize'))
+                        . '</div>';
         
         $params = packUrlParameters('', array('orderby', 'order', 'page'));
         $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');

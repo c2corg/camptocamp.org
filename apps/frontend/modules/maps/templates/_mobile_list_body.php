@@ -1,6 +1,7 @@
-<div><?php echo link_to($item['MapI18n'][0]['name'], '@document_by_id_lang_slug?module=maps&id=' . $item['MapI18n'][0]['id']
-                                                    . '&lang=' . $item['MapI18n'][0]['culture']
-                                                    . '&slug=' . make_slug($item['MapI18n'][0]['name'])) ?></div>
+<div><?php echo link_to($item['MapI18n'][0]['name'],
+                        '@document_by_id_lang_slug?module=maps&id=' . $item['MapI18n'][0]['id']
+                            . '&lang=' . $item['MapI18n'][0]['culture'] . '&slug=' . make_slug($item['MapI18n'][0]['name']),
+                        ($item['MapI18n'][0]['culture'] != $sf_user->getCulture() ? array('hreflang' => $item['MapI18n'][0]['culture']) : array())) ?></div>
 <div><?php echo get_paginated_value($item['editor'], 'mod_maps_editors_list'), ' ',
                 $item['code'], ' - ',
                 get_paginated_value($item['scale'], 'mod_maps_scales_list') ?></div>

@@ -1,9 +1,10 @@
 <?php
 $item_i18n = $item['SiteI18n'][0];
 ?>
-<div><?php echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=sites&id=' . $item_i18n['id']
-                                                     . '&lang=' . $item_i18n['culture']
-                                                     . '&slug=' . make_slug($item_i18n['name'])) ?></div>
+<div><?php echo link_to($item_i18n['name'],
+                        '@document_by_id_lang_slug?module=sites&id=' . $item_i18n['id']
+                            . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
+                        ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array())) ?></div>
 <div><?php
 $routes_quantity = $item['routes_quantity'];
 if (is_scalar($routes_quantity) && $routes_quantity > 0)

@@ -13,9 +13,10 @@ if ($item_id == $cda_config['id'])
 }
 else
 {
-    echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=portals&id=' . $item_i18n['id']
-                                                     . '&lang=' . $item_i18n['culture']
-                                                     . '&slug=' . make_slug($item_i18n['name']));
+    echo link_to($item_i18n['name'],
+                 '@document_by_id_lang_slug?module=portals&id=' . $item_i18n['id']
+                     . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
+                 ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array()));
 }
 ?></div>
 <div><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></div>

@@ -3,9 +3,9 @@ use_helper('Field');
 
 $item_i18n = $item['BookI18n'][0];
 ?>
-<td><?php echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=books&id=' . $item_i18n['id']
-                                                     . '&lang=' . $item_i18n['culture']
-                                                     . '&slug=' . make_slug($item_i18n['name'])) ?></td>
+<td><?php echo link_to($item_i18n['name'],
+                       '@document_by_id_lang_slug?module=books&id=' . $item_i18n['id'] . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
+                       ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array())) ?></td>
 <td><?php echo $item['author'] ?></td>
 <td><?php echo $item['editor'] ?></td>
 <td><?php echo $item['publication_date'] ?></td>

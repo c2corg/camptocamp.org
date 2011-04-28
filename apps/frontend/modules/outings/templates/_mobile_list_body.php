@@ -13,9 +13,11 @@ $item_i18n = $item['OutingI18n'][0];
 ?>
 <div class="right"><?php echo get_paginated_activities($item['activities']) ?></div>
 <div><?php
-echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=outings&id=' . $item_i18n['id']
-                                                        . '&lang=' . $item_i18n['culture']
-                                                        . '&slug=' . make_slug($item_i18n['name'])) . ' ' . $has_gps_track ?></div>
+echo link_to($item_i18n['name'],
+             '@document_by_id_lang_slug?module=outings&id=' . $item_i18n['id']
+                 . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
+             ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array()))
+     . ' ' . $has_gps_track ?></div>
 <div>
 <?php echo _implode(' - ', array(format_date($item['date'], 'D'),
                                  link_to($item['creator'], '@document_by_id?module=users&id=' . $item['creator_id']))); ?></div>

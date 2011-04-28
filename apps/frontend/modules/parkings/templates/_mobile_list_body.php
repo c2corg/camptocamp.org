@@ -3,9 +3,10 @@ use_helper('General', 'Field');
 
 $item_i18n = $item['ParkingI18n'][0];
 ?>
-<div><?php echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=parkings&id=' . $item_i18n['id']
-                                                        . '&lang=' . $item_i18n['culture']
-                                                        . '&slug=' . make_slug($item_i18n['name'])) ?></div>
+<div><?php echo link_to($item_i18n['name'],
+                        '@document_by_id_lang_slug?module=parkings&id=' . $item_i18n['id']
+                            . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
+                        ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array())) ?></div>
 <div><?php
 $snow_clearance_rating = $item['snow_clearance_rating'];
 $elevation_field = '';
