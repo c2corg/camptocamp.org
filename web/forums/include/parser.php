@@ -155,7 +155,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 //
 function preparse_url($text)
 {
-    $a = array(  '#(?<=[^\w]|^)(http://)?((m+|w+)\.)?camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums))#i',
+    $a = array(  '#(?<=[^\w]|^)(http://)?((m+|w+)\.)?camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
                 '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
@@ -826,8 +826,8 @@ function do_clickable($text)
     $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
-    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
-    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/+((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
+    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
+    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/+((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
     $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')

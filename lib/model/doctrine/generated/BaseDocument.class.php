@@ -2098,7 +2098,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $values[] = $value;
                 }
             }
-            $conditions[] = '(' . implode(') AND (', $conditions_groups) . ')' . $is_null;
+            $conditions[] = '(' . implode(') AND (', $conditions_groups) . ')';
         }
     }
 
