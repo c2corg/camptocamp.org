@@ -22,9 +22,8 @@ msgstr " per entrar la localización. Per convertir coordenades suisses, utilitz
 
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
-# [WARNING] es translation used
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} objeto(s). Haga clic para ver la información."
+msgstr "${nb_items} objecte(s). Feu clic per veure la informació."
 
 msgid "%1% days ago, at %2%"
 msgstr "fa %1% dies, a les "
@@ -81,9 +80,8 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Document no trobat"
 
-# [WARNING] es translation used
 msgid "A document can not be linked to itself"
-msgstr "No se puede asociar un documento asimismo"
+msgstr "No es pot associar un document a sí mateix"
 
 msgid "A new password has been asked for your account."
 msgstr "Has demanat la creació d'una nova contrasenya pel teu compte Camptocamp.org. Ja pots identificar-te utilitzant les següents dades de connexió."
@@ -137,9 +135,8 @@ msgstr "Tots els camps són obligatoris."
 msgid "All topics"
 msgstr "Tots els temes"
 
-# [WARNING] es translation used
 msgid "All your images are already collaborative"
-msgstr "Todas sus imágenes ya son colaborativas."
+msgstr "Totes les teves imatges ja són col·laboratives"
 
 msgid "An user can not be linked to a collaborative article"
 msgstr "Un usuari no es pot associar a un document col·laboratiu"
@@ -181,9 +178,8 @@ msgstr "Estas segur de que vols suprimir la versió italiana d'aquest document?"
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Estàs segur de voler suprimir la geometria d'aquest document?"
 
-# [WARNING] es translation used
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
-msgstr "¿Seguro que quiere desasociar la imagen %1% nombrada \"%2\"?"
+msgstr "Estàs segur que vols dissociar la imatge %1% anomenada \"%2\"?"
 
 # [general comment]
 # Msg in js -> no &nbsp;
@@ -383,9 +379,9 @@ msgstr "El sub-cim és des d'ara el document "
 # [general comment]
 # Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
 # NOT USED for the moment
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Choose maps service..."
-msgstr "Seleccione un servicio..."
+msgstr "Escolliu un servei..."
 
 msgid "Choose..."
 msgstr "Escull..."
@@ -1068,9 +1064,9 @@ msgstr "El nou ordre de les imatges ha estat enregistrat."
 msgid "Images uploaded by this user"
 msgstr "Imatges proposades en línia per aquest participant"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Incidents and accidents database"
-msgstr "Base de datos de accidentes e incidentes"
+msgstr "Base de dades d'accidents i incidents"
 
 msgid "Information"
 msgstr "Informacions"
@@ -1141,50 +1137,50 @@ msgstr "Últimes creacions - %1%"
 msgid "Latest %1% creations in %2%"
 msgstr "Últimes creacions %1% a %2%"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions"
-msgstr "Últimas ediciones - %1%"
+msgstr "Últimes edicions - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed"
-msgstr "%1% - Últimas ediciones"
+msgstr "%1% - Últimes edicions"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions feed description"
-msgstr "camptocamp.org - últimas ediciones de documentos %1%"
+msgstr "camptocamp.org - últimes edicions de documents %1%"
 
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
-msgstr "Últimas ediciones - %1% - %2%"
+msgstr "Darreres edicions - %1% - %2%"
 
 msgid "Latest articles"
 msgstr "Darrers articles"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Latest documents"
-msgstr "Últimos documentos"
+msgstr "Darrers documents"
 
 # [general comment]
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
-msgstr "Últimas ediciones de \"%1%\" - %2%"
+msgstr "Darreres edicions de \"%1%\" - %2%"
 
 msgid "Latest images"
 msgstr "Darreres imatges"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Latest mountain news"
-msgstr "Noticias"
+msgstr "Notícies"
 
 msgid "Latest outings"
 msgstr "Darreres sortides"
@@ -1204,9 +1200,9 @@ msgstr "Darrers cims"
 msgid "Latest threads"
 msgstr "Ecos del fòrum"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Latest videos"
-msgstr "Ultimas vídeos"
+msgstr "Darrers vídeos"
 
 msgid "Legend:"
 msgstr "Llegenda:"
@@ -1226,18 +1222,18 @@ msgstr "Associar un document existent"
 msgid "Link an existing user or document"
 msgstr "Associar un document existent"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Linked books"
-msgstr "Libros asociados"
+msgstr "Llibres associats"
 
 # [general comment]
 # vs: singulier ou pluriel?
 msgid "Linked document"
 msgstr "Document associat"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Linked document does not exist"
-msgstr "El documento a asociar no existe"
+msgstr "El document a associar no existeix"
 
 msgid "Linked documents"
 msgstr "Documents associats"
@@ -1248,9 +1244,9 @@ msgstr "Refugis associats"
 msgid "Linked outings"
 msgstr "Sortides associades"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Linked products"
-msgstr "Productos locales asociados"
+msgstr "Productes locals associats"
 
 msgid "Linked routes"
 msgstr "Itineraris associats"
@@ -1261,26 +1257,26 @@ msgstr "Sectors d'escalada associats"
 msgid "Linked summits"
 msgstr "Cims associats"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "List all images of associated outings"
-msgstr "Ver la lista de imágenes de las salidas asociadas"
+msgstr "Mostra la llista d'imatges de les sortides associades"
 
 msgid "List all images of associated routes"
 msgstr "Veure la llista d'imatges dels itineraris associats"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "List all linked images"
-msgstr "Listar todas las imágenes asociadas"
+msgstr "Llista totes les imatges associades"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "List all linked outings"
-msgstr "Mostrar todas las salidas asociadas"
+msgstr "Mostra totes les sortides associades"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "List all linked routes"
-msgstr "Ver en forma de lista"
+msgstr "Mostra en forma de llista"
 
 msgid "List all user contribs"
 msgstr "Veure totes les contribucions d'aquest participant"
@@ -1290,9 +1286,9 @@ msgstr "Veure totes les sortides d'aquest participant"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailing lists
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Lists you have subscribed to"
-msgstr "Boletines a los cuales estas inscrito"
+msgstr "Butlletins als quals estàs subscrit"
 
 msgid "Localize on map"
 msgstr "Localitzar en el mapa"
@@ -1306,9 +1302,9 @@ msgstr "Identificar-se"
 msgid "Login and edit profile"
 msgstr "Prem sobre aquest enllaç per identificar-te i editar les teves dades personals."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "LoginName_desc"
-msgstr "Nombre de usuario (no modificable):"
+msgstr "Nom d'usuari (no modificable):"
 
 msgid "Logout"
 msgstr "Desconnexió"
@@ -1326,9 +1322,9 @@ msgstr "Document principal"
 # Message d'erreur lors d'une association, avec un n° de document courant erroné.
 # Le document courant est le document sur lequel on se trouve.
 # Ce genre d'erreur ne peut survenir que si on modifie le HTML, ou si on construit l'url d'association à la main, ou s'il y a un bug en PHP.
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Main document does not exist"
-msgstr "El documento corriente no existe"
+msgstr "El document actual no existeix"
 
 msgid "Manage your email"
 msgstr "Canvia la teva adreça email"
@@ -1336,9 +1332,9 @@ msgstr "Canvia la teva adreça email"
 msgid "Manage your private data"
 msgstr "Changer votre nom ou pseudonyme"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Manage your profile page"
-msgstr "Cambiar su pagina personal"
+msgstr "Canvia les propietats de la vostra pàgina personal"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
@@ -1348,28 +1344,27 @@ msgstr "URL del mapa actual"
 msgid "Map creation is prohibited"
 msgstr "La creació de mapes no està autoritzada"
 
-# [WARNING] es translation used
 msgid "Map data"
-msgstr "Capas"
+msgstr "Capes"
 
 # [general comment]
 # message d'attente sur la page carto
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Map is loading..."
-msgstr "Mapa cargándose. Por favor espere."
+msgstr "El mapa s'està carregant. Espereu-vos, si us plau."
 
 msgid "Map not found"
 msgstr "El mapa no existeix."
 
 # [general comment]
 # Intitulé du lien vers la page carto
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Map tool"
-msgstr "Herramienta cartográfica"
+msgstr "Utilitat cartogràfica"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Mapquest/OSM"
-msgstr "Datos Mapquest y OpenStreetMap"
+msgstr "Mapquest i dades OpenStreetMap"
 
 msgid "Maps deletion is prohibited"
 msgstr "La supressió dels objectes tipus mapa no està autoritzada"
@@ -1396,18 +1391,18 @@ msgstr "Fusionar dos documents"
 msgid "Merged with document "
 msgstr "Fusionat amb el document "
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Message setting failed. This message has not been saved."
-msgstr "Error en la configuración del mensaje. El mensaje no se registró."
+msgstr "S'ha produït un error. El missatge no s'ha guardat."
 
 msgid "MeteoSwiss"
 msgstr "MeteoSwiss"
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
-msgstr "Información - Camptocamp.org"
+msgstr "Informació - Camptocamp.org"
 
 msgid "Mini:"
 msgstr "Mini:"
@@ -1418,20 +1413,21 @@ msgstr "Altitud mínima:"
 msgid "Minor change?"
 msgstr "Modificació menor:"
 
-# [WARNING] es translation used
+# [comment]
+# Caldrà utilitzar la nomenclatura "Modificar" i "Indicar un problema" on correspongui
+# [WARNING] needs_review
 msgid "Minsize is %1% x %2%"
-msgstr "El tamaño mínimo es %1% x %2%&nbsp;px.<br /><strong>Al publicar una imagen en camptocamp.org, acepta difundirlas bajo la licencia <a href=\"/articles/106728/cc-by-nc-nd\">Creative Commons BY-NC-ND</a> ou <a href=\"/articles/106728#cc-by-sa\">Creative Commons BY-SA</a> según si la difunde como contenido personal o colaborativo.</strong> No se aceptan imágenes bajo copyright y estas serán retiradas por la moderación (por ej. imágenes sacadas de Google Earth, Geoportail o escaneos de mapas o guías publicadas).<br /> Haciendo clic en el rincón superior derecho de la viñeta le llevara a la página de la imagen, donde podrá: <br />- Modificar su titulo y descripción, hacienda clic en “Modificar” en el menú de izquierda.<br />- Asociar la imagen a otros documentos: Usando la herramienta al pie de la pagina. <br />- Pedir que se borre la imagen: Haciendo clic en “Señalar un problema” (abajo de la columna de izquierda) para mandar un mensaje a los moderadores.<br /><span style=\"color: red\">La elección de por lo menos una categoría marcada con un asterisco (*) hará aparecer la imagen en la página de inicio.</span> Para mas detalle sobre las imágenes, véase la <a href=\"/articles/107005\">ayuda del álbum</a>."
+msgstr "La mida mínima és %1% x %2% px.<br /><strong>Quan publiqueu una imatge a camptocamp.org, accepteu fer-ne difusió sota la llicència <a href=\"/articles/106728#cc-by-nc-nd\">Creative Commons by-nc-nd</a> o <a href=\"/articles/106728#cc-by-sa\">Creative Commons by-sa</a> en funció de si la difoneu en tant que contingut personal o col•laboratiu.</strong> No s'accepten imatges sotmeses a copyright i seran suprimides pels moderadors (ex: les imatges provinents de Google Earth o de Géoportail o escanejos de mapes i guies publicats)<br /> Fent clic a la punta superior dreta de la miniatura accedireu a la pàgina de la imatge, que us permetrà:<br />- Modificar el títol o la descripció de la imatge &nbsp;: cliqueu a “Modificar” (a l’esquerra).<br />- Associar la imatge a d’altres documents: utilitzeu l’eina situada a la part baixa de la pàgina. <br />- Sol•licitar la supressió de la imatge als moderadors: cliqueu “Indicar un problema”.<br /><span style=\"color: red\">La selecció de com a mínim una categoria marcada amb asterisc (*) farà aparèixer la foto a la pàgina d’inici.</span> Vegeu l’ajuda a l’<a href=\"/articles/107005\">album</a>."
 
 msgid "Missing id parameter"
 msgstr "Manca un identificador"
 
-# [WARNING] es translation used
 msgid "More links"
-msgstr "Más enlaces..."
+msgstr "Més enllaços..."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "More results on Google..."
-msgstr "Más resultados en Google"
+msgstr "Més resultats a Google"
 
 # [general comment]
 # keep it short
@@ -1525,9 +1521,8 @@ msgstr "Ninguna imagen fue modificada"
 msgid "No image linked to this document"
 msgstr "No hi ha imatges associades a aquest document."
 
-# [WARNING] es translation used
 msgid "No linked book"
-msgstr "No hay ningún libro asociado al documento"
+msgstr "No hi ha cap llibre associat al document"
 
 msgid "No linked hut"
 msgstr "No hi ha refugis associats a aquest document."
@@ -1535,13 +1530,13 @@ msgstr "No hi ha refugis associats a aquest document."
 msgid "No linked outing"
 msgstr "No hi ha sortides associades a aquest itinerari."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "No linked outing to this site"
-msgstr "Ninguna salida es asociada a este sitio de escalada."
+msgstr "No hi ha cap sortida associada a aquest lloc d'escalada."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "No linked product"
-msgstr "no hay ningún documento \"productos locales\" asociado a este documento"
+msgstr "No hi ha cap \"producte local\" associat a aquest document"
 
 msgid "No linked route"
 msgstr "No hi ha itineraris associats a aquest cim."
@@ -1552,9 +1547,9 @@ msgstr "No hi ha sectors d'escalada associats a aquest document."
 msgid "No linked summit"
 msgstr "No hi ha cims associats a aquest document."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "No message defined. Click to edit"
-msgstr "<i>No hay mensaje definido. Pulsa aquí para editarlo.</i>"
+msgstr "<i>No hi ha cap missatge definit. Clica aquí per editar-lo.</i>"
 
 msgid "No recent changes available"
 msgstr "No hi ha cap modificació recent enregistrada. "
@@ -1562,9 +1557,9 @@ msgstr "No hi ha cap modificació recent enregistrada. "
 msgid "No recent images available"
 msgstr "No hi ha imatges recents"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "No recent videos available"
-msgstr "No hay vídeo reciente"
+msgstr "No hi ha cap vídeo recent"
 
 msgid "No result"
 msgstr "Cap resultat correspon a la teva recerca."
@@ -1587,9 +1582,9 @@ msgstr "Aquesta versió no està disponible."
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Open all sections"
-msgstr "Abrir todas las secciones"
+msgstr "Obre totes les seccions"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Operació prohibida: un itinerari ha d'estar associat amb un cim com a mínim"
@@ -1611,19 +1606,19 @@ msgstr "La sortida no existeix"
 
 # [general comment]
 # associated
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Outings linked to linked routes"
-msgstr "Salidas asociadas a <a href=\"#routes\">rutas asociadas</a>"
+msgstr "Sortides associades als <a href=\"#routes\">itineraris associats</a>"
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Outings linked to these images"
-msgstr "Salidas asociadas a estas imágenes"
+msgstr "Sortides associades a aquestes imatges"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Outings linked to this route"
-msgstr "Salidas asociadas a la ruta descrita en esta pagina"
+msgstr "Sortides associades a l'itinerari d'aquesta pàgina"
 
 msgid "PD"
 msgstr "PD"
@@ -1641,9 +1636,9 @@ msgstr "MP"
 
 # [general comment]
 # Titre de la liste des accès TC : "accès" est au pluriel
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "PT access points"
-msgstr "accesos en transporte público"
+msgstr "Accessos amb transport públic"
 
 msgid "Page under %1% license"
 msgstr "El contingut d'aquesta pàgina està disponible sota llicència %1%."
@@ -1654,16 +1649,16 @@ msgstr "Supressió del sobre-cim (es tractava del document "
 msgid "Parent summit set to document "
 msgstr "El sobre-cim és des d'ara el document "
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Parking does not exists or has no attached geometry"
-msgstr "El acceso no existe, o sus coordenadas geográficas no se conocen."
+msgstr "El punt d'accés no existeix o la seva localització no ha estat georeferenciada."
 
 msgid "Parking not found"
 msgstr "L'accès no existeix"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Participate to MW contest"
-msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
+msgstr "Inscriu aquesta sortida al <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
 
 msgid "Password:"
 msgstr "Contrasenya:"
@@ -1671,9 +1666,8 @@ msgstr "Contrasenya:"
 msgid "Period:"
 msgstr "Període:"
 
-# [WARNING] es translation used
 msgid "Permalink.openlink"
-msgstr "Abre el enlace"
+msgstr "Obre l'enllaç"
 
 msgid "Personal articles"
 msgstr "Articles personals"
@@ -1690,13 +1684,12 @@ msgstr "si et plau, introdueix un nom de cim vàlid"
 msgid "Prefered language successfully saved"
 msgstr "Les teves preferències lingüístiques han estat enregistrades amb èxit."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Prepare outing"
-msgstr "Prepare su salida"
+msgstr "Prepara la teva sortida"
 
-# [WARNING] es translation used
 msgid "Prepare outing links"
-msgstr "Enlaces para preparar su salida"
+msgstr "Enllaços per preparar la teva sortida"
 
 msgid "Preview"
 msgstr "Previsualitzar"
@@ -1713,13 +1706,12 @@ msgstr "Imprimir el document en curs"
 msgid "Private message"
 msgstr "Missatge privat"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Product not found"
-msgstr "Este documento \"productos locales\" no existe."
+msgstr "Aquest document \"productes locals\" no existeix pas."
 
-# [WARNING] es translation used
 msgid "Product:"
-msgstr "Productos locales:"
+msgstr "Productes locals:"
 
 msgid "Protect"
 msgstr "Protegir"
@@ -1745,9 +1737,9 @@ msgstr "RSS: Darreres creacions"
 msgid "RSS list"
 msgstr "Esta lista en formato RSS"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Read more"
-msgstr "Leer lo que sigue"
+msgstr "Llegeix-ne la continuació"
 
 msgid "Received merging from document "
 msgstr "Ha rebut les dades del document "
@@ -1764,35 +1756,36 @@ msgstr "Modificacions recents"
 msgid "Recent changes list in category: %1%"
 msgstr "Llista de modificacions recents en la categoria: %1%"
 
-# [WARNING] es translation used
 msgid "Recent posts"
-msgstr "Mensajes recientes"
+msgstr "Missatges recents"
 
-# [WARNING] es translation used
+# [comment]
+# Il s'agit de réduire la carte ou de ne réduire l'échelle ?
+# [WARNING] needs_review
 msgid "Reduce map"
-msgstr "Reducir el mapa"
+msgstr "Redueix el mapa"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Reduce the bar"
-msgstr "Cliquear para esconder la barra de menús de la izquierda"
+msgstr "Clica sobre la barra per reduir la columna de l'esquerra"
 
-# [WARNING] es translation used
 msgid "Reduce the list"
-msgstr "Reducir la lista"
+msgstr "Redueix la llista"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Reduce the text box"
-msgstr "Disminuir la zona de texto"
+msgstr "Redueix la zona de text"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Refresh geoassociations"
-msgstr "Regiones: actualizar"
+msgstr "Regions: actualitzar"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Refresh the geoassociations of this document"
-msgstr "Actualizar las regiones (y mapas) asociadas a este documento"
+msgstr "Actualitzar les regions (i mapes) associades a aquest document i als documents\n"
+"'fills'"
 
 msgid "Regions are detected automatically according to coordinates"
 msgstr "Les regions són detectades automàticament d'acord amb les coordenades"
@@ -1815,16 +1808,15 @@ msgstr "Alertar d'un problema"
 msgid "Requested version not found"
 msgstr "La versió del document sol.licitada no s'ha trobat"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Reserved to logged users"
-msgstr "Reservado para miembros conectados"
+msgstr "Reservat als membres connectats"
 
 msgid "Results %1% - %2% of %3%"
 msgstr "Resultats <b>%1%</b> - <b>%2%</b> de <b>%3%</b>"
 
-# [WARNING] es translation used
 msgid "Results from google for %1%"
-msgstr "Resultados Google para \"%1%\""
+msgstr "Resultats de Google per \"%1%\""
 
 msgid "Retrieve Forgotten Password"
 msgstr "Retrobar la meva contrasenya perduda"
@@ -1851,9 +1843,9 @@ msgstr "L'itinerari no existeix."
 msgid "Route:"
 msgstr "Itinerari:"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Routes from this hut"
-msgstr "Rutas a partir del refugio"
+msgstr "Itineraris que comencen a aquest refugi"
 
 msgid "S"
 msgstr "S"
@@ -1869,7 +1861,6 @@ msgstr "Enregistrar"
 
 # [general comment]
 # Echelle d'une carte
-# [WARNING] es translation used
 msgid "Scale:"
 msgstr "Escala:"
 
@@ -1903,13 +1894,13 @@ msgstr "Cercar una sortida"
 msgid "Search a parkings"
 msgstr "Cercar un pàrquing"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Search a portals"
-msgstr "Buscar una portada"
+msgstr "Cerca un portal"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Search a products"
-msgstr "Buscar un documento \"productos locales\""
+msgstr "Cerca un document de \"productes locals\""
 
 msgid "Search a routes"
 msgstr "Cercar un itinerari"
@@ -2040,23 +2031,24 @@ msgstr "La zona d'escalada no existeix"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] es translation used
 msgid "Snow list"
-msgstr "Boletín de aludes"
+msgstr "Butlletí d'allaus"
 
 # [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
-# [WARNING] es translation used
+# [comment]
+# D'acord amb l'Institut d'Estudis Catalans i la Vikipèdia
+# [WARNING] needs_review
 msgid "Soft mobility"
-msgstr "Ecomobilidad"
+msgstr "Mobilitat sostenible"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Soft mobility articles"
-msgstr "Lista de artículos sobre ecoturismo y ecomobilidad"
+msgstr "Llistat d'articles d'ecoturisme i de mobilitat sostenible"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Soft mobility outings"
-msgstr "Lista de salidas realizadas con ecomobilidad"
+msgstr "Llistat de sortides amb mobilitat sostenible"
 
 msgid "Static map"
 msgstr "Mapa"
@@ -2097,13 +2089,13 @@ msgstr "Veure les darreres creacions de llibres"
 msgid "Subscribe to latest books editions"
 msgstr "Veure les darreres modificacions de llibres"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest documents creations"
-msgstr "Suscríbese a las últimas creaciones de documentos"
+msgstr "Segueix les darreres creacions de documents"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest documents editions"
-msgstr "Suscríbese a las últimas ediciones de documentos"
+msgstr "Segueix les darreres modificacions de documents"
 
 msgid "Subscribe to latest forum feeds"
 msgstr "Seguir els darrers temes del fòrum"
@@ -2141,21 +2133,21 @@ msgstr "Veure les darreres creacions de pàrquings"
 msgid "Subscribe to latest parkings editions"
 msgstr "Veure les darreres modificacions de pàrquings"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest portals creations"
-msgstr "Seguir la creación reciente de portadas"
+msgstr "Segueix la creació recent de portals"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest portals editions"
-msgstr "Seguir las ultimas modificaciones de portadas"
+msgstr "Segueix les darreres modificacions de portals"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest products creations"
-msgstr "Seguir las recientes creaciones de \"productos locales\""
+msgstr "Segueix les creacions recents de documents de \"productes locals\""
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest products editions"
-msgstr "Seguir las ultimas modificaciones de documentos \"productos locales\""
+msgstr "Segueix les darreres modificacions de documents de \"productes locals\""
 
 msgid "Subscribe to latest routes creations"
 msgstr "Veure les darreres creacions d'itineraris"
@@ -2175,9 +2167,9 @@ msgstr "Veure les darreres creacions de cims"
 msgid "Subscribe to latest summits editions"
 msgstr "Veure les darreres modificacions de cims"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest threads"
-msgstr "Suscríbese a los últimos temas del forum"
+msgstr "Segueix les darreres discussions al fòrum"
 
 msgid "Subscribe to latest users creations"
 msgstr "Veure les darreres creacions d'usuaris"
@@ -2185,9 +2177,9 @@ msgstr "Veure les darreres creacions d'usuaris"
 msgid "Subscribe to latest users editions"
 msgstr "Veure les darreres modificacions d'usuaris"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Subscribe to this document comments"
-msgstr "Suscribirse a los comentarios sobre este documento"
+msgstr "Subscriure's als comentaris sobre aquest document"
 
 msgid "Subscribe to this document-s latest editions"
 msgstr "Veure les darreres modificacions d'aquest document"
@@ -2215,13 +2207,13 @@ msgstr "Llegir en:"
 msgid "Switch lang:"
 msgstr "Llegir&nbsp;/ traduir en:"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Switch license"
-msgstr "Modificar la licencia"
+msgstr "Modificar la llicència"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Switch to collaborative license"
-msgstr "Pasar a licencia colaborativa"
+msgstr "Passa a llicència col·laborativa"
 
 msgid "TD"
 msgstr "TD"
@@ -2254,30 +2246,32 @@ msgstr "Les dades enviades semblen incorrectes."
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 msgstr "Les teves dades semblen incorrectes. Corregeix, si et plau, els errors i envia de nou la teva informació."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "The document is already linked to the current document"
-msgstr "El documento ya es asociado al documento corriente"
+msgstr "El document ja està associat al present document"
 
 msgid "The field is %1% characters max"
 msgstr "Aquest camp és massa llarg (%1% caràcters màxim)"
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "The other conditions the same day in the same admin_limits"
-msgstr "Otras condiciones el mismo día en el mismo departamento francés o cantón suizo"
+msgstr "Mostra les condicions trobades el mateix dia a la zona."
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "The other conditions the same day in the same country"
-msgstr "Otras condiciones el mismo día en el mismo país"
+msgstr "Mostra les condicions trobades el mateix dia al mateix país."
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
-# [WARNING] es translation used
+# [comment]
+# Potser quedaria millor "Mostra les condicions trobades el mateix dia a aquest massís". Ídem per a l'anterior.
+# [WARNING] needs_review
 msgid "The other conditions the same day in the same range"
-msgstr "Otras condiciones el mismo día en el mismo macizo"
+msgstr "Mostra les condicions trobades el mateix dia al mateix massís."
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "El document demanat no existeix o ha canviat de lloc "
@@ -2287,9 +2281,8 @@ msgstr "Les contrasenyes no corresponen."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] es translation used
 msgid "There is no available list"
-msgstr "No hay ningún boletín disponible"
+msgstr "No hi ha cap butlletí disponible"
 
 msgid "There is no history for %1% in %2%"
 msgstr "No hi ha històric per %1% en %2%."
@@ -2297,9 +2290,9 @@ msgstr "No hi ha històric per %1% en %2%."
 msgid "This document has no geometry"
 msgstr "Aquest document no té cap geometria associada"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "This document is already at the end of the list"
-msgstr "Este documento ya es el último o el primero en la lista."
+msgstr "Aquest document és el primer o el darrer de la llista."
 
 msgid "This document is currently write-protected"
 msgstr "Aquest document està actualment protegit contra escriptura"
@@ -2350,15 +2343,13 @@ msgstr "Massa resultats"
 msgid "Too many results. Please go on typing..."
 msgstr "Resultats massa nombrosos. Continua escrivint..."
 
-# [WARNING] es translation used
 msgid "Toolbox"
-msgstr "Caja de herramientas"
+msgstr "Caixa d'eines"
 
 # [general comment]
 # 'outils' (première entrée du menu topoguide, permettant d'accéder au cotomètre, à la carte, la conversion des coordonnées etc)
-# [WARNING] es translation used
 msgid "Topoguide tools"
-msgstr "Herramientas"
+msgstr "Eines"
 
 msgid "Try a site search:"
 msgstr "Fer una recerca en la web"
@@ -2372,22 +2363,22 @@ msgstr "Autoritzar les modificacions d'aquest document"
 msgid "Unsubscribe"
 msgstr "Desabonar-se"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Unsubscribe to this document comments"
-msgstr "Desuscribirse a los comentarios sobre este documento"
+msgstr "Donar-se de baixa dels comentaris sobre aquest document"
 
 msgid "Update"
 msgstr "Actualitzar"
 
 # [general comment]
 # Message pourles modifs dans la base suite au changement de syntaxe des balises img
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Updated image tags"
-msgstr "Actualización de los tags de las imágenes"
+msgstr "Actualització de les etiquetes de les imatges"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Use %1% to see directions to this parking"
-msgstr "Visualizar el recorrido carretero con %1%"
+msgstr "Mostra l'accés rodat amb %1%"
 
 # [WARNING] needs_update
 msgid "Use map"
@@ -2405,9 +2396,9 @@ msgstr "Contribucions personals"
 msgid "User creation"
 msgstr "Creació de l'usuari"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "User image management"
-msgstr "Gestión de sus imágenes personales"
+msgstr "Gestió de les imatges personals"
 
 msgid "User not found"
 msgstr "L'usuari demanat no existeix!"
@@ -2456,9 +2447,9 @@ msgstr "Consultar"
 
 # [general comment]
 # Link to the document page from a comment page in mobile version
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "View comments document"
-msgstr "Volver al documento"
+msgstr "Torna al document"
 
 msgid "View current"
 msgstr "Mostrar la versió actual"
@@ -2478,9 +2469,9 @@ msgstr "Veure les darreres modificacions d'aquest tipus de documents"
 msgid "View messages written by this user"
 msgstr "Veure els missatges escrits per aquest usuari"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "View original image"
-msgstr "Ver la imagen en su tamaño original"
+msgstr "Mostra la imatge a la seva mida original"
 
 msgid "View user profile"
 msgstr "Veure el perfil d'aquest usuari"
@@ -2500,13 +2491,11 @@ msgstr "Atenció: aquest document ha estat fusionat amb un altre ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Atenció! Estàs modificant una versió antiga. Si enregistres, les modificacions més recents seran suprimides."
 
-# [WARNING] es translation used
 msgid "Weather bulletin"
-msgstr "Pronósticos meteorológicos"
+msgstr "Previsions meteorològiques"
 
-# [WARNING] es translation used
 msgid "Weather forecast"
-msgstr "Pronósticos meteorológicos"
+msgstr "Previsions meteorològiques"
 
 msgid "Welcome %1%"
 msgstr "Benvingut/da %1%!"
@@ -2522,17 +2511,16 @@ msgstr "Benvingut/da a camptocamp.org!"
 msgid "Which document would you like to redirect the current one to?"
 msgstr "Amb quin document voldries fusionar aquest?"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Widget code"
-msgstr "Código"
+msgstr "Codi"
 
-# [WARNING] es translation used
 msgid "Widget title"
-msgstr "Titulo"
+msgstr "Títol"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "With GPS track:"
-msgstr "Con traza GPS:"
+msgstr "Amb traça de GPS:"
 
 msgid "Wrong association type"
 msgstr "Tipus d'operació no autoritzada."
@@ -3979,24 +3967,31 @@ msgstr "Còrsega"
 
 # [general comment]
 # http://paleo.blms.free.fr/cotometre/cotometre.php
-# [WARNING] es translation used
+# [comment]
+# Definició de graduar: Sotmetre a una gradació. "Cal graduar les dificultats".
+# [WARNING] needs_review
 msgid "cotometre"
-msgstr "Gradometro"
+msgstr "Gradòmetre"
 
 # [general comment]
 # Description de ce qu'est le cotometre (infobulle)
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "cotometre long"
-msgstr "Herramienta para determinar el grado técnico de bajada (toponeige) de un itinerario de esquí"
+msgstr "Estimació de la graduació tècnica d'un itinerari d'esquí"
 
 # [general comment]
 # cotometre
 # 
 # texte 'introductif'
-# [WARNING] fr translation used
+# [comment]
+# Cal revisar la darrera part de la frase
+# [WARNING] needs_review
 msgid "cotometre tips"
-msgstr "Cet outil, développé et gracieusement mis à disposition par le BLMS, permet d'estimer la cotation technique à ski d'un itinéraire (cotation toponeige). Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
-"Chacun peut vérifier que le résultat est souvent correct : la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques itinéraires classiques, particulièrement ceux possédant une pente suffisamment longue et dont l'inclinaison précise est connue. Pour les pentes plus courtes style couennes belledoniennes, la skiabilité difficile permet d'atteindre la cotation escomptée."
+msgstr "Aquesta eina, desenvolupada i gentilment posada a disposició pel BLMS, permet estimar la graduació tècnica\n"
+"d'un itinerari d'esquí\n"
+"(graduació toponeige).\n"
+"Actualment està limitada als itineraris amb pendents més forts, <strong>la graduació dels quals és, com a mínim, de 4.1</strong>.<br />\n"
+"En general el resultat és força fiable: la graduació trobada és coherent amb les graduacions ja ben establertes d'alguns itineraris clàssics, en particular els que contenen un pendent suficientment llarg la inclinació precisa del qual és coneguda. En cas de pendents curts, l'esquiabilitat difícil permet trobar la graduació esperada"
 
 msgid "countries"
 msgstr "països"
@@ -4013,18 +4008,18 @@ msgstr "creta"
 msgid "create a custom nickname"
 msgstr "crear un pseudònim personalitzat"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "create an account?"
-msgstr "¿Abrir su cuenta?"
+msgstr "Vols obrir un compte?"
 
 msgid "created_at"
 msgstr "creat el"
 
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "credits"
-msgstr "Agradecimientos"
+msgstr "Agraïments"
 
 msgid "culmen"
 msgstr "punt culminant"
@@ -4059,21 +4054,19 @@ msgstr "Eliminar aquesta imatge"
 msgid "deleted"
 msgstr "supressió"
 
-# [WARNING] es translation used
 msgid "deleted document"
-msgstr "Documento suprimido"
+msgstr "Document eliminat"
 
 # [general comment]
 # cotometre
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "deniv limites"
-msgstr "La pendiente debe tener entre 50 y 300m de alto"
+msgstr "El desnivell ha d'estar entre 50 i 3000 m"
 
 # [general comment]
 # cotometre
-# [WARNING] es translation used
 msgid "denivele"
-msgstr "Desnivel (metros):"
+msgstr "Desnivell (metres):"
 
 msgid "departements/counties"
 msgstr "comunitats autònomes"
@@ -4093,9 +4086,8 @@ msgstr "Descripció:"
 msgid "desert"
 msgstr "desert"
 
-# [WARNING] es translation used
 msgid "detail pic"
-msgstr "detalle, zoom"
+msgstr "detall, zoom"
 
 msgid "deutsch"
 msgstr "alemany"
@@ -4112,20 +4104,20 @@ msgstr "obert - passatge difícil"
 msgid "difficulties_height"
 msgstr "Llargada de les dificultats:"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "difficulties_start_elevation"
-msgstr "Altitud de inicio de las dificultades:"
+msgstr "Altitud a l'inici de les dificultats:"
 
 msgid "disclaimer notice"
 msgstr "Les informacions disponibles en aquesta pàgina web no comprometen ni els seus autors ni a l'Associació Camptocamp."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "do not duplicate linked books"
-msgstr "Los siguientes libros ya están asociados al documento. No es necesario pues añadirlos a este campo:"
+msgstr "Els següents llibres ja estan associats al document, no cal afegir-los a aquest camp:"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "do not mention usual gear"
-msgstr "No mencionar el material habitual"
+msgstr "No esmentar el material habitual"
 
 msgid "document_type"
 msgstr "Tipus de document:"
@@ -4221,9 +4213,9 @@ msgstr "Europa"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "europe_w"
-msgstr "Europa W"
+msgstr "Europa occidental"
 
 msgid "euskara"
 msgstr "basc"
@@ -4234,9 +4226,9 @@ msgstr "esdeveniments"
 msgid "excellent conditions"
 msgstr "excel·lents"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "expeditions"
-msgstr "expediciones y viajes lejanos"
+msgstr "Expedicions i viatges"
 
 msgid "exposure_time"
 msgstr "Temps d'exposició:"
@@ -4274,9 +4266,9 @@ msgstr "Nom"
 msgid "file"
 msgstr "Fitxer:"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "file cannot contain scripts"
-msgstr "Los archivos SVG no deben contener scripts"
+msgstr "Els fitxers SVG no han de contenir scripts"
 
 # [WARNING] es translation used
 msgid "file failed to upload"
