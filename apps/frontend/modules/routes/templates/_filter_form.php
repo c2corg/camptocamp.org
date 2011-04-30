@@ -1,14 +1,19 @@
 <?php
 use_helper('FilterForm');
 
-echo javascript_tag('focus_field = \'rnam\';');
+if (!c2cTools::mobileVersion())
+{
+   // put focus on the name field on dom load
+   echo javascript_tag('document.observe(\'dom:loaded\', function() {
+   if (!("autofocus" in document.createElement("input"))) { $(\'rnam\').focus(); }});');
+}
 
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 include_partial('summits/summits_short_filter');
 include_partial('huts/huts_short_filter');
 include_partial('parkings/parkings_filter');
 $activities_raw = $sf_data->getRaw('activities');
-include_partial('routes_filter', array('activities' => $activities_raw));
+include_partial('routes_filter', array('autofocus' => true, 'activities' => $activities_raw));
 ?>
 <br />
 <?php

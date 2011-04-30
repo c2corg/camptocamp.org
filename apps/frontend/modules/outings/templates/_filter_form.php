@@ -1,14 +1,18 @@
 <?php
 use_helper('FilterForm', 'General', 'MyForm');
 
-// put focus on the name filed on window load
-echo javascript_tag('focus_field = \'onam\';');
+if (!c2cTools::mobileVersion())
+{
+   // put focus on the name field on dom load
+   echo javascript_tag('document.observe(\'dom:loaded\', function() {
+   if (!("autofocus" in document.createElement("input"))) { $(\'onam\').focus(); }});');
+}
 
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 ?>
 <br />
 <?php
-echo '<div class="fieldname">' . picto_tag('picto_outings') . __('name') . ' </div>' . input_tag('onam');
+echo '<div class="fieldname">' . picto_tag('picto_outings') . __('name') . ' </div>' . input_tag('onam', null, array('autofocus' => 'autofocus'));
 echo georef_selector('With GPS track:');
 include_partial('summits/summits_short_filter');
 include_partial('huts/huts_short_filter');

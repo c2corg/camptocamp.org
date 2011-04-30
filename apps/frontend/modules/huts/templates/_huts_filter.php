@@ -3,7 +3,7 @@ use_helper('General');
 ?>
 <br />
 <?php
-echo picto_tag('picto_huts') . __('Hut:') . ' ' . input_tag('hnam');
+echo picto_tag('picto_huts') . __('Hut:') . ' ' . (isset($autofocus) ? input_tag('hnam', null, array('autofocus' => 'autofocus')) : input_tag('hnam'));
 echo __('elevation') . ' ' . elevation_selector('halt');
 ?>
 <br />

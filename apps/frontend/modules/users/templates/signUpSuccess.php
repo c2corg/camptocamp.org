@@ -15,7 +15,7 @@ echo tips_tag('After subscription you will receive an email with a generated pas
               array('%1%' => sfConfig::get('app_pending_users_lifetime')));
 
 echo group_tag('Username:', 'login_name', 'input_tag', $sf_params->get('login_name'), array('class' => 'long_input'));
-echo group_tag('Email:', 'email', 'input_tag', $sf_params->get('email'), array('class' => 'long_input'));
+echo group_tag('Email:', 'email', 'input_tag', $sf_params->get('email'), array('class' => 'long_input', 'type' => 'email'));
 echo group_tag('Copy following string:', 'captcha', 'input_tag', null, array('class' => 'long_input')); ?>
     <img src="<?php echo url_for('@sf_captcha'); ?>" alt="captcha" title="<?php echo __('Copy following string:') ?>" />
     <p class="tips"><?php echo __('captcha test is case-insensitive') ?></p>

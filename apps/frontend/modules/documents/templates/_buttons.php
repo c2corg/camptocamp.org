@@ -17,7 +17,7 @@ $lang_class = 'lang_' . $lang;
 <input type="hidden" value="<?php echo __('Donate to Camptocamp Association') ?>" name="item_name" />
 <input type="hidden" value="http://camptocamp.org/" name="return" />
 <p>
-<input value="<?php echo __('donate') ?>" class="paypal-button" type="submit" />
+<input value="<?php echo __('donate') ?>" id="paypal-button" type="submit" />
 </p>
 
 <p>

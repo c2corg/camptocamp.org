@@ -1,12 +1,16 @@
 <?php
 use_helper('FilterForm');
 
-// put focus on the name field on window load
-echo javascript_tag('focus_field = \'fnam\';');
+if (!c2cTools::mobileVersion())
+{
+   // put focus on the name field on dom load
+   echo javascript_tag('document.observe(\'dom:loaded\', function() {
+   if (!("autofocus" in document.createElement("input"))) { $(\'fnam\').focus(); }});');
+}
 
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 
-include_partial('products_filter');
+include_partial('products_filter', array('autofocus' => true));
 echo '<br />' . georef_selector();
 ?>
 <br />

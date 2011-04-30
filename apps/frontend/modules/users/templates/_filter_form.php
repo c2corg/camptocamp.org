@@ -1,10 +1,14 @@
 <?php
 use_helper('FilterForm');
 
-// put focus on the name field on window load
-echo javascript_tag('focus_field = \'unam\';');
+if (!c2cTools::mobileVersion())
+{
+   // put focus on the name field on dom load
+   echo javascript_tag('document.observe(\'dom:loaded\', function() {
+   if (!("autofocus" in document.createElement("input"))) { $(\'unam\').focus(); }});');
+}
 
-echo __('User:') . ' ' . input_tag('unam');
+echo __('User:') . ' ' . input_tag('unam', null, array('autofocus' => 'autofocus'));
 echo select_tag('nam_type',
                 options_for_select(array('unam'=>__('topoguide name only'), 'ufnam'=>__('forum name only'), 'utfnam'=>__('forum and topoguide names')), 'unam'),
                 array('onchange'=>'$(\'unam\').name = this.value'));

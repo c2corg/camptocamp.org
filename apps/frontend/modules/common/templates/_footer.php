@@ -20,7 +20,7 @@ else
 }
 ?> 
 
-<div id="footer"<?php echo $class ?>>
+<<?php echo isset($html5) ? 'footer' : 'div' ?> id="footer"<?php echo $class ?>>
     <div id="footer_border_left">&nbsp;</div>
     <div id="footer_cc">
 <?php
@@ -79,7 +79,7 @@ if (!$is_map):
             <input name="currency_code" value="EUR" type="hidden" />
             <input type="hidden" name="item_name" value="Soutenir/supporting Camptocamp Association" />
             <input type="hidden" name="return" value="http://camptocamp.org/" />
-            <input type="submit" class="pp_button_mini" title="<?php echo __('Donate to Camptocamp Association'); ?>" value="" />
+            <input type="submit" id="pp_button_mini" title="<?php echo __('Donate to Camptocamp Association'); ?>" value="" />
             </p></form>
 <?php
 endif;
@@ -89,4 +89,4 @@ echo javascript_tag('var _static_url = \'' . sfConfig::get('app_static_url') . '
         </div>
     </div>
     <div id="footer_border_right">&nbsp;</div>
-</div>
+</<?php echo isset($html5) ? 'footer' : 'div' ?>>

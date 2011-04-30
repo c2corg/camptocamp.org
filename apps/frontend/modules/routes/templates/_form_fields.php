@@ -30,13 +30,13 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 <div id="data_fields">
 <div class="article_gauche_5050">
 <?php
-echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input'));
-echo object_group_tag($document, 'min_elevation', null, 'meters', array('class' => 'short_input'));
-echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input'));
+echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'min_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
 ?>
 <div id="ski_snow_mountain_hiking_fields">
 <?php
-echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input'));
+echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
 <div id="hiking2_fields">
@@ -47,8 +47,8 @@ echo object_group_tag($document, 'route_length', null, 'kilometers', array('clas
 
 <div id="ski_snow_mountain_rock_ice_fields">
 <?php
-echo object_group_tag($document, 'elevation', null, __('meters'), array('class' => 'short_input'), true, 'difficulties_start_elevation');
-echo object_group_tag($document, 'difficulties_height', null, __('meters'), array('class' => 'short_input'));
+echo object_group_tag($document, 'elevation', null, __('meters'), array('class' => 'short_input', 'type' => 'number'), true, 'difficulties_start_elevation');
+echo object_group_tag($document, 'difficulties_height', null, __('meters'), array('class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
 <?php

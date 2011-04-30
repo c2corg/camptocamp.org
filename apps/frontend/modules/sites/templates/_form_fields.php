@@ -17,14 +17,14 @@ include_partial('documents/oam_coords', array('document' => $document));
 ?>
 <div class="article_gauche_5050">
 <?php
-echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input'));
-echo object_group_tag($document, 'routes_quantity', null, '', array('class' => 'short_input'));
+echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'routes_quantity', null, '', array('class' => 'short_input', 'type' => 'number'));
 echo object_group_dropdown_tag($document, 'max_rating', 'app_routes_rock_free_ratings');
 echo object_group_dropdown_tag($document, 'min_rating', 'app_routes_rock_free_ratings');
 echo object_group_dropdown_tag($document, 'mean_rating', 'app_routes_rock_free_ratings');
-echo object_group_tag($document, 'max_height', null, 'meters', array('class' => 'short_input'));
-echo object_group_tag($document, 'min_height', null, 'meters', array('class' => 'short_input'));
-echo object_group_tag($document, 'mean_height', null, 'meters', array('class' => 'short_input'));
+echo object_group_tag($document, 'max_height', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'min_height', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'mean_height', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
 echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_ratings_list');
 echo object_group_dropdown_tag($document, 'climbing_styles', 'app_climbing_styles_list',
                                array('multiple' => true));

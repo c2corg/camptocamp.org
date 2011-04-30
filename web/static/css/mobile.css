@@ -668,10 +668,3 @@ li.list_odd
     text-align: center;
   }
 }
-
-
-/* html5, maybe move this to main.css if standard version goes html5 */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}

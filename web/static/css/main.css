@@ -46,7 +46,7 @@ input, select, textarea {
    when buttons and select and inputs have the same height
    + allow some space for button icons */
 /*#content_box input, #content_box select, #type, #q {*/
-#content_box input, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+#wrapper_context input, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
 input[type="range"], input[type="date"], input[type="color"], select, #type, #q {
   height: 1.8em;
   vertical-align: middle;
@@ -403,7 +403,7 @@ em.mandatory_asterisk
 #nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
 #footer_border_left, #footer_border_right, #partners a,
 .picto.cc-by-sa, .picto.cc-by-sa-mini, .picto.cc-by-nc-nd, .picto.copyright, .cc_gen, .image_license, .license_mini,
-#paypal-button, .pp_button_mini, span.share_bookmark
+#paypal-button, #pp_button_mini, span.share_bookmark
 {
   background: url(/static/images/borders_and_logos.png) no-repeat;
 }
@@ -4841,7 +4841,7 @@ td.history_buttons {
 
 #paypal-button
 {
-  width: 139px;
+  width: 135px;
   height: 26px;
   background-position: -212px -156px;
   background-color: white;
@@ -4849,12 +4849,10 @@ td.history_buttons {
   font-size: 1.1em;
   font-weight: bold;
   text-align: center;
-  display: block;
   vertical-align: middle;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  border: 1px solid white;
 }
-.pp_button_mini
+#pp_button_mini
 {
   margin-left: 20px;
   width: 82px;
@@ -5133,4 +5131,10 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 .c2cui_btn.samesize .c2cui_btnin {
   height: 1.8em;
   line-height: 1.8em;
+}
+
+/* html5 */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }

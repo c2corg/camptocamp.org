@@ -1,7 +1,4 @@
 default:
-  http_metas:
-    content-type: text/html
-
   metas:
     title:        meta_title
     robots:       noindex, follow

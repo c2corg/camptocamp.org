@@ -1,11 +1,8 @@
 function add_tooltips(css_class_to_observe)
 {
-    Event.observe(window, 'load', function(){
-         
+    document.observe('dom:loaded', function(){
         $$(css_class_to_observe).each(function(obj){
-    
             obj.observe('click', function(e){
-
             new Ajax.Updater('fields_tooltip',
                                     '/common/getinfo', 
                                     { asynchronous:true, 

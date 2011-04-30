@@ -39,12 +39,12 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 <div class="article_gauche_5050">
 <?php
 echo object_group_tag($document, 'partial_trip', 'object_checkbox_tag');
-echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input'));
-echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input'));
+echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
 ?>
 <div id="outings_height_diff_down">
 <?php
-echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input'));
+echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
 <div id="outings_length">
@@ -55,12 +55,12 @@ echo object_group_tag($document, 'outing_length', null, 'kilometers', array('cla
 <?php
 echo object_group_tag($document, 'outing_with_public_transportation', 'object_checkbox_tag');
 echo object_group_dropdown_tag($document, 'access_status', 'mod_outings_access_statuses_list');
-echo object_group_tag($document, 'access_elevation', null, 'meters', array('class' => 'short_input'));
+echo object_group_tag($document, 'access_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
 ?>
 <div id="outings_snow_elevation">
 <?php
-echo object_group_tag($document, 'up_snow_elevation', null, 'meters', array('class' => 'short_input'));
-echo object_group_tag($document, 'down_snow_elevation', null, 'meters', array('class' => 'short_input'));
+echo object_group_tag($document, 'up_snow_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'down_snow_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
 </div>

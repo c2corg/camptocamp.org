@@ -8,7 +8,8 @@ if (!isset($show_tpty))
 ?>
 <br />
 <?php
-echo '<div class="fieldname">' . picto_tag('picto_parkings') . __('Access point:') . ' </div>' . input_tag('pnam');
+echo '<div class="fieldname">' . picto_tag('picto_parkings') . __('Access point:') . ' </div>' .
+     (isset($autofocus) ? input_tag('pnam', null, array('autofocus' => 'autofocus')) : input_tag('pnam'));
 echo __('elevation') . ' ' . elevation_selector('palt');
 ?>
 <br />

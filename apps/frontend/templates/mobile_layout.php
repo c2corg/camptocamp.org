@@ -36,6 +36,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     ?>
     <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
     <link rel="apple-touch-icon" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
 </head>
 <body>
     <div id="holder">

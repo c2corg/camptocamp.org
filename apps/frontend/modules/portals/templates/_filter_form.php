@@ -1,9 +1,6 @@
 <?php
 use_helper('FilterForm');
 
-// put focus on the name field on window load
-echo javascript_tag('focus_field = \'wnam\';');
-
 include_partial('areas/areas_selector', array('ranges' => $ranges));
 
 $activities_raw = $sf_data->getRaw('activities');

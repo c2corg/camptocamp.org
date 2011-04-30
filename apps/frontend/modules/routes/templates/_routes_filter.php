@@ -3,7 +3,8 @@ use_helper('General');
 ?>
 <br /><br />
 <?php
-echo '<div class="fieldname">' . picto_tag('picto_routes') . __('Route:') . ' </div>' . input_tag('rnam');
+echo '<div class="fieldname">' . picto_tag('picto_routes') . __('Route:') . ' </div>' .
+     (isset($autofocus) ? input_tag('rnam', null, array('autofocus' => 'autofocus')) : input_tag('rnam'));
 echo georef_selector('With GPS track:');
 ?>
 <br /><br />

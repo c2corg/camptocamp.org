@@ -1,13 +1,16 @@
 <?php
 use_helper('FilterForm', 'Form', 'General', 'MyForm');
 
-// put focus on the name field on window load
-echo javascript_tag('focus_field = \'inam\';');
-
+if (!c2cTools::mobileVersion())
+{
+   // put focus on the name field on dom load
+   echo javascript_tag('document.observe(\'dom:loaded\', function() {
+   if (!("autofocus" in document.createElement("input"))) { $(\'inam\').focus(); }});'); 
+}
 ?>
 <div class="fieldgroup">
 <?php
-echo '<div class="fieldname">' . picto_tag('picto_images') . __('name') . ' </div>' . input_tag('inam');
+echo '<div class="fieldname">' . picto_tag('picto_images') . __('name') . ' </div>' . input_tag('inam', null, array('autofocus' => 'autofocus'));
 //echo '<br /><br /><div class="fieldname">' . __('author') . ' </div>' . input_tag('auth') ;
 echo '<br /><br /><div class="fieldname">' . __('image_type') . ' </div>' . topo_dropdown('ityp', 'mod_images_type_list', true, false, true);
 echo '<br /><br />' . georef_selector();

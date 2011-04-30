@@ -23,4 +23,4 @@ function hide_parkings_unrelated_fields()
     }
 }
 
-Event.observe(window, 'load', hide_parkings_unrelated_fields);
+document.observe('dom:loaded', hide_parkings_unrelated_fields);

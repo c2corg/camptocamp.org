@@ -131,7 +131,7 @@ if ($nb_images > 0 && !$mobile_version)
 {
     // FIXME: find and delete sortable_feedback div
     echo '<!--[if IE 6]>', javascript_tag("
-Event.observe(window, 'load', function(){
+document.observe('dom:loaded', function(){
 $$('.image_list .image').each(function(obj){
 obj.down('.image_actions').hide();obj.down('.image_license').hide();
 obj.observe('mouseover', function(e){obj.down('.image_actions').show();obj.down('.image_license').show();});

@@ -1,14 +1,18 @@
 <?php
 use_helper('FilterForm', 'General');
 
-// put focus on the name filed on window load
-echo javascript_tag('focus_field = \'snam\';');
+if (!c2cTools::mobileVersion())
+{
+   // put focus on the name field on dom load
+   echo javascript_tag('document.observe(\'dom:loaded\', function() {
+   if (!("autofocus" in document.createElement("input"))) { $(\'tnam\').focus(); }});');
+}
 
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 ?>
 <br />
 <?php
-echo picto_tag('picto_sites') . __('Name:') . ' ' . input_tag('tnam');
+echo picto_tag('picto_sites') . __('Name:') . ' ' . input_tag('tnam', null, array('autofocus' => 'autofocus'));
 echo __('elevation') . ' ' . elevation_selector('talt');
 ?>
 <br />

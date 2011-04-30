@@ -250,7 +250,7 @@ function setSectionStatus(container_id, position, default_opened)
     // FIXME specific behaviour for the map, can we avoid this?
     var g = function() {
         if (container_id == 'map_container' && typeof(c2corgloadMapAsync) != 'undefined' && c2corgloadMapAsync) {
-            Event.observe(window, 'load', asyncloadmap);
+            document.observe('dom:loaded', asyncloadmap);
         }
     };
 

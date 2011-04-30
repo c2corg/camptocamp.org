@@ -1,11 +1,15 @@
 <?php
 use_helper('FilterForm');
 
-// put focus on the name field on window load
-echo javascript_tag('focus_field = \'pnam\';');
+if (!c2cTools::mobileVersion())
+{
+   // put focus on the name field on dom load
+   echo javascript_tag('document.observe(\'dom:loaded\', function() {
+   if (!("autofocus" in document.createElement("input"))) { $(\'pnam\').focus(); }});');
+}
 
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
-include_partial('parkings_filter');
+include_partial('parkings_filter', array('autofocus' => true));
 ?>
 <br />
 <?php echo georef_selector(); ?>

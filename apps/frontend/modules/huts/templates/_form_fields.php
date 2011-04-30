@@ -18,7 +18,7 @@ echo object_group_tag($document, 'elevation', null, 'meters', array('class' => '
 echo object_group_dropdown_tag($document, 'shelter_type', 'mod_huts_shelter_types_list');
 echo object_group_tag($document, 'is_staffed', 'object_checkbox_tag');
 echo object_group_tag($document, 'phone', null, '', array('class' => 'long_input'));
-echo object_group_tag($document, 'url', null, '', array('class' => 'long_input'));
+echo object_group_tag($document, 'url', null, '', array('class' => 'long_input', 'type' => 'url'));
 echo object_group_tag($document, 'staffed_capacity', null, '', array('class' => 'short_input'));
 echo object_group_tag($document, 'unstaffed_capacity', null, '', array('class' => 'short_input'));
 echo object_group_tag($document, 'has_unstaffed_matress', 'object_checkbox_tag');

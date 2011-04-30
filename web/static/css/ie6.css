@@ -492,22 +492,37 @@ a.external_link, .htext .hextra a.external_link {
 {
   background: url(/static/images/drag.gif) no-repeat 5px;
 }
-input.action_create
+
+.c2cui_picto.action_create
 {
-  background: url(/static/images/ie/add.gif) no-repeat 2px;
+  background: url(/static/images/picto/add.gif) no-repeat 0;
 }
 
-input.action_filter, #google_search_submit
+.c2cui_picto.action_filter, #google_search_submit, #q
 {
-  background: url(/static/images/ie/search.gif) no-repeat 2px;
+  background: url(/static/images/picto/search.gif) no-repeat 0;
 }
 
-input.action_cancel
-{
-  background: url(/static/images/ie/cancel.gif) no-repeat 2px;
+#google_search_submit, #q {
+  background-position: 2px;
 }
 
-input.action_list
+.c2cui_picto.action_cancel
 {
-  background: url(/static/images/ie/list.gif) no-repeat 2px;
+  background: url(/static/images/picto/cancel.gif) no-repeat 0;
+}
+
+.c2cui_picto.action_list
+{
+  background: url(/static/images/picto/list.gif) no-repeat 0;
+}
+
+.c2cui_picto.action_edit
+{
+  background: url(/static/images/picto/edit.gif) no-repeat 0;
+}
+
+.c2cui_picto.action_rm
+{
+  background: url(/static/images/picto/rm.gif) no-repeat 0;
 }

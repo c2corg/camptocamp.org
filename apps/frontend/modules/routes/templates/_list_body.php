@@ -17,7 +17,6 @@ else
 // in some cases (ticket #337, we have to add best summit name with a second request. It is
 // then located in $item['name']
 $summit_2 = $item['associations'][0]['Summit'][0]['SummitI18n'][0];
-var_dump($item);
 if (isset($item['name']))
 {
     $summit_name = $item['name'];

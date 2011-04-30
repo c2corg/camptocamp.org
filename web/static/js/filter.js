@@ -183,15 +183,10 @@ function initialize_activities()
     }
 }
 
-Event.observe(window, 'load', function()
+document.observe('dom:loaded', function()
 {
     initialize_activities();
     initialize_select();
-    
-    if(typeof(focus_field) != 'undefined')
-    {
-        $(focus_field).focus();
-    }
 });
 
 function changeSelectSize(select_id, up_down)

@@ -14,7 +14,7 @@ echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'
 echo form_section_title('Information', 'form_info', 'preview_info');
 
 include_partial('documents/oam_coords', array('document' => $document)); // lon, lat fields + OAM map
-echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input'));
+echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
 echo object_group_tag($document, 'maps_info');
 echo object_group_dropdown_tag($document, 'summit_type', 'app_summits_summit_types');
 

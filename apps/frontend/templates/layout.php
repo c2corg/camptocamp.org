@@ -31,23 +31,27 @@ $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/fold.js', 'head_last');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_code ?>">
+<!doctype html>
+<html lang="<?php echo $lang_code ?>">
 <head>
+    <meta charset="utf-8">
     <?php
         $debug = (bool)sfConfig::get('app_minify_debug');
         $combine = !$debug;
         echo include_http_metas();
         echo include_metas();
         echo include_title();
-        echo auto_discovery_link_tag('rss', $rss);
         minify_include_main_stylesheets($combine, $debug);
         minify_include_custom_stylesheets($combine, $debug);
-        minify_include_head_javascripts($combine, $debug);
-        echo include_meta_links();
     ?>
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url . '/' . sfTimestamp::getTimestamp('/static/css/ie6.css'); ?>/static/css/ie6.css" /><![endif]-->
     <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url. '/' . sfTimestamp::getTimestamp('/static/css/ie7.css'); ?>/static/css/ie7.css" /><![endif]-->
+    <?php
+        minify_include_head_javascripts($combine, $debug);
+        echo auto_discovery_link_tag('rss', $rss);
+        echo include_meta_links();
+    ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" title="Camptocamp.org" />
     <link rel="shortcut icon" href="<?php
     if ($footer_type == 'cda')
@@ -63,7 +67,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
 </head>
 <body>
     <div id="holder">
-        <div id="page_header">
+        <header id="page_header">
         <?php
         if ($action == 'view' && $footer_type == 'cda')
         {
@@ -75,7 +79,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         }
         include_partial($header_partial, array('lang_code' => $lang_code));
         ?>
-        </div>
+        </header>
         <div id="content_box">
             <?php echo $sf_data->getRaw('sf_content') ?>
             </div> <!-- Fin wrapper_context -->
@@ -83,7 +87,8 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         <?php
         include_partial('common/footer', array('sf_cache_key' => $footer_type . '_' . $lang,
                                                'lang_code' => $lang_code,
-                                               'footer_type' => $footer_type));
+                                               'footer_type' => $footer_type,
+                                               'html5' => true));
         ?>
     </div>
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>

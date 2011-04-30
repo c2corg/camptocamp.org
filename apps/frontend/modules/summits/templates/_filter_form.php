@@ -1,10 +1,14 @@
 <?php
 use_helper('FilterForm');
 
-// put focus on the name field on window load
-echo javascript_tag('focus_field = \'snam\';');
+if (!c2cTools::mobileVersion())
+{
+   // put focus on the name field on dom load
+   echo javascript_tag('document.observe(\'dom:loaded\', function() {
+   if (!("autofocus" in document.createElement("input"))) { $(\'snam\').focus(); }});');
+}
 
-include_partial('summits_filter');
+include_partial('summits_filter', array('autofocus' => true));
 echo georef_selector();
 ?>
 <br /><br />

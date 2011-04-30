@@ -1,13 +1,16 @@
 <?php
 use_helper('FilterForm', 'General');
 
-// put focus on the name field on window load
-echo javascript_tag('focus_field = \'bnam\';');
-
+if (!c2cTools::mobileVersion())
+{
+   // put focus on the name field on dom load
+   echo javascript_tag('document.observe(\'dom:loaded\', function() {
+   if (!("autofocus" in document.createElement("input"))) { $(\'bnam\').focus(); }});');
+}
 ?>
 <div class="fieldgroup">
 <?php
-echo '<div class="fieldname">' . picto_tag('picto_books') . __('name') . ' </div>' . input_tag('bnam');
+echo '<div class="fieldname">' . picto_tag('picto_books') . __('name') . ' </div>' . input_tag('bnam', null, array('autofocus' => 'autofocus'));
 echo '<br /><br /><div class="fieldname">' . __('author') . ' </div>' . input_tag('auth');
 echo '<br /><br /><div class="fieldname">' . __('editor') . ' </div>' . input_tag('edit');
 ?>
