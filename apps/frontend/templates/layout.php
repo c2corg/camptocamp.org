@@ -82,7 +82,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         </header>
         <div id="content_box">
             <?php echo $sf_data->getRaw('sf_content') ?>
-            </div> <!-- Fin wrapper_context -->
+            </div>
         </div>
         <?php
         include_partial('common/footer', array('sf_cache_key' => $footer_type . '_' . $lang,

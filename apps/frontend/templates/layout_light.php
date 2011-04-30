@@ -35,8 +35,7 @@ use_helper('MyMinify', 'MetaLink');
 </head>
 <body>
     <?php echo $sf_data->getRaw('sf_content') ?>
-    </div> <!-- Fin wrapper_context -->
-
+    </div>
     <?php include_partial('common/tracker') ?>
 </body>
 </html>

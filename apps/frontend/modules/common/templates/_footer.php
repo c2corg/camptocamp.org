@@ -73,7 +73,7 @@ if (!$is_map):
             <p><?php echo __('CNIL declaration #') ?>1175560</p>
             <p id="disclaimer"><?php echo __('disclaimer notice') ?></p>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <p><?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => sfTimestamp::getTimestamp('head'))) ?><!--</p>-->
+            <p><?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => sfTimestamp::getTimestamp('head'))) ?>
             <input name="cmd" value="_xclick" type="hidden" />
             <input name="business" value="registration@camptocamp.org" type="hidden" />
             <input name="currency_code" value="EUR" type="hidden" />
