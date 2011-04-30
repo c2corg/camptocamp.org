@@ -475,7 +475,7 @@ function handle_url_tag($url, $link = '')
     }
 
     // TODO use objects instead of iframe (but ie doesn't like it with external html...)
-    if (preg_match('/.(ppt|pdf)$/i', $full_url))
+    if (preg_match('/.(ppt|pdf)$/i', $full_url) && !c2cTools::mobileVersion())
     {
         $param_url = str_replace('%', '%25', $full_url);
         $suffix = ' <a class="embedded_ppt_pdf" href="#" style="display:none" onclick="$(this).next().show(); $(this).hide();' .
