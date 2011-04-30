@@ -37,7 +37,12 @@ $activities = $document->getRaw('activities');
     $duration = field_data_from_list_if_set($document, 'duration', 'mod_routes_durations_list');
     if ($duration)
     {
-        li($duration . ' ' . __('days'));
+        if (in_array($document->getRaw('duration'), array(1,2))) // cannot use an intelligent translation string because of '1/2'
+        {
+            li($duration . ' ' . __('day'));
+        } else {
+            li($duration . ' ' . __('days'));
+        }
     }
 
     if (array_intersect(array(1,2,7), $activities)) // ski or snow or snowshoeing
