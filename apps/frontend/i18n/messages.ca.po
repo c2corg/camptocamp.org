@@ -1921,31 +1921,31 @@ msgstr "Criteris de recerca"
 msgid "Search results"
 msgstr "Resultats de la recerca"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Search with google"
-msgstr "Búsqueda en todo el documento:"
+msgstr "Cerca en tot el document:"
 
 # [general comment]
 # version mobile, titre du menu permettant d'accéder aux listes
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "See"
-msgstr "Consultar"
+msgstr "Mostra"
 
 msgid "Select a name to use in guidebook"
 msgstr "Selecciona el teu nom per utilitzar a la topo-guia"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Select all"
-msgstr "Seleccione todo"
+msgstr "Selecciona-ho tot"
 
 msgid "Selected versions do not exist"
 msgstr "Les versions demanades no existeixen."
 
 # [general comment]
 # Texte de bouton dans un formulaire.
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Send"
-msgstr "Enviar"
+msgstr "Envia"
 
 msgid "Send a mail to this user"
 msgstr "Enviar un email a aquest usuari"
@@ -1974,13 +1974,15 @@ msgstr "Tenda"
 msgid "Short description: "
 msgstr "Descripció ràpida: "
 
-# [WARNING] es translation used
+# [comment]
+# Segons el context, potser hauria de ser "Mostra-ho"
+# [WARNING] needs_review
 msgid "Show"
-msgstr "Mostrar"
+msgstr "Mostra"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Show as a list"
-msgstr "Ver en forma de lista"
+msgstr "Mostra-ho en forma de llista"
 
 msgid "Show conditions"
 msgstr "Mostrar las condiciones"
@@ -1988,25 +1990,23 @@ msgstr "Mostrar las condiciones"
 msgid "Show differences between selected versions"
 msgstr "Mostrar les diferències entre les versions seleccionades"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Show document"
-msgstr "Véase el documento"
+msgstr "Mostra la fitxa"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Show document on camptocamp.org"
-msgstr "Véase el documento en camptocamp.org"
+msgstr "Mostra la fitxa a camptocamp.org"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Show filtered routes"
-msgstr "Mostrar itinerarios filtrados según su personalización"
+msgstr "Mostra els itineraris filtrats"
 
-# [WARNING] es translation used
 msgid "Show outings linked to selected docs"
-msgstr "Mostrar las condiciones de los documentos seleccionados"
+msgstr "Mostra les condicions associades als documents seleccionats"
 
-# [WARNING] es translation used
 msgid "Show selected outings"
-msgstr "Mostrar las condiciones de las salidas seleccionadas"
+msgstr "Mostra les condicions de les sortides seleccionades"
 
 msgid "Show the route"
 msgstr "Mostrar l'itinerari"
@@ -2456,9 +2456,9 @@ msgstr "Mostrar la versió actual"
 
 # [general comment]
 # used for edition rss feeds rich content
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "View difference between version %1% and %2%"
-msgstr "Ver las diferencias entre las versiones %1% y %2%"
+msgstr "Mostra les diferències entre les versions %1% i %2%"
 
 msgid "View image details"
 msgstr "Veure les informacions de la imatge"
@@ -2527,18 +2527,17 @@ msgstr "Tipus d'operació no autoritzada."
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Wrong image type"
-msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#image\">explicación detallada</a>)"
+msgstr "Aviat, les imatges personals no es podran insertar als documents col·laboratius.<br /><a href=\"/articles/151910#image\">Més informació</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Mapas (es)"
 
 # [general comment]
 # Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
-# [WARNING] es translation used
 msgid "Year and day are optional"
-msgstr "Todos lo campos son opcionales."
+msgstr "Tots els camps són opcionals."
 
 msgid "You are already connected !"
 msgstr "Ja estas conectat!"
@@ -2549,13 +2548,11 @@ msgstr "No estàs connectat"
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
 msgstr "Podeu afegir '%1%', dimensions (%3% x %2% px) i %4% Mio màxim."
 
-# [WARNING] es translation used
 msgid "You can associate this article with any existing document using the following tool:"
-msgstr "Puede asociar este artículo a cualquier otro documento usando esta herramienta:"
+msgstr "Es pot associar aquest article a qualsevol altre document utilitzant aquesta eina:"
 
-# [WARNING] es translation used
 msgid "You can associate this book with existing document using the following tool:"
-msgstr "Puede asociar este libro a otro documento usando esta herramienta:"
+msgstr "Es pot associar aquest llibre a un document utilitzant aquesta eina:"
 
 msgid "You can associate this picture with any existing document using the following tool:"
 msgstr "És possible associar aquesta imatge a un document qualsevol utilitzant aquesta eina:"
@@ -2581,9 +2578,9 @@ msgstr "No tens l'autorització per editar aquest document"
 msgid "You cannot edit another user personal data"
 msgstr "No pots editar les dades personals d'altres usuaris."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "You cannot set lat or lon alone"
-msgstr "No se puede indicar solamente la latitud o solamente la longitud"
+msgstr "No es pot definir la latitud sense definir la longitud i viceversa"
 
 msgid "You do not have enough credentials to perform this operation"
 msgstr "No estàs autoritzat a realitzar aquesta operació"
@@ -2591,40 +2588,39 @@ msgstr "No estàs autoritzat a realitzar aquesta operació"
 msgid "You do not have the right to access another user personal data"
 msgstr "No pots accedir a les dades personals d'altres usuaris."
 
-# [WARNING] es translation used
 msgid "You do not have the right to change the license of theses images"
-msgstr "No dispone de los derechos necesarios para modificar las licencias de estas imágenes"
+msgstr "No estàs autoritzat a canviar les llicències d'aquestes imatges"
 
 msgid "You do not have the right to edit another user profile"
 msgstr "No tens l'autorització necessària per editar el perfil d'un altre usuari."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "You do not have the right to link a document to a personal article"
-msgstr "No tiene los derechos necesarios para asociar un documento a un artículo personal"
+msgstr "No estàs autoritzat a associar un document a un article personal"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "You do not have the right to link a route to another user outing"
-msgstr "No tiene los derechos necesarios para asociar un itinerario a una salida a la cual no es asociado"
+msgstr "No estàs autoritzat a associar un itinerari a una sortida a la qual no estàs associat"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "You do not have the right to link a site to another user outing"
-msgstr "No tiene los derechos necesarios para asociar un sitio de escalada a una salida a la cual no es asociado"
+msgstr "No estàs autoritzat a associar un lloc d'escalada a una sortida a la qual no estàs associat"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "You do not have the right to link an article to another user outing"
-msgstr "No tiene los derechos necesarios para asociar un artículo a una salida a la cual no es asociado"
+msgstr "No estàs autoritzat a associar un article a una sortida a la que no estàs associat"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "You do not have the right to link an image to a personal article"
-msgstr "No dispone de los derechos necesarios para asociar una imagen a un artículo personal"
+msgstr "No estàs autoritzat a associar una imatge a un article personal"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "You do not have the right to link an image to a personal image"
-msgstr "No dispone de los derechos necesarios para asociar una imagen a una imagen personal"
+msgstr "No estàs autoritzat a associar una imatge a una imatge personal"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "You do not have the right to link an image to another user outing"
-msgstr "No dispone de los derechos necesarios para asociar una imagen a una salida a la cual no participó"
+msgstr "No estàs autoritzat a associar una imatge a una sortida a la qual no estàs associat"
 
 # [WARNING] es translation used
 msgid "You do not have the right to link an image to another user profile"
