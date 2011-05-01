@@ -3698,7 +3698,8 @@ Element.addMethods({
       return $(document.body);
 
     var isInline = (Element.getStyle(element, 'display') === 'inline');
-    if (!isInline && element.offsetParent) return $(element.offsetParent);
+    // https://prototype.lighthouseapp.com/projects/8886-prototype/tickets/618-getoffsetparent-returns-body-for-new-hidden-elements-in-ie8-final#ticket-618-9
+    if (!isInline && element.offsetParent && Element.visible(element)) return $(element.offsetParent);
 
     while ((element = element.parentNode) && element !== document.body) {
       if (Element.getStyle(element, 'position') !== 'static') {
