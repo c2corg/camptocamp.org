@@ -153,5 +153,5 @@ function list_link($item, $module)
     return link_to($item['name'],
                      "@document_by_id_lang_slug?module=$module&id=" . $item['id']
                    . '&lang=' . $item['culture'] . '&slug=' . make_slug($item['name']),
-                   ($item['culture'] != $sf_user->getCulture() ? array('hreflang' => $item['culture']) : array()));
+                   ($item['culture'] != sfContext::getInstance()->getUser()->getCulture() ? array('hreflang' => $item['culture']) : array()));
 }
