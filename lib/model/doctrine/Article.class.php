@@ -34,6 +34,7 @@ class Article extends BaseArticle
           ->from('Article m')
           ->leftJoin('m.ArticleI18n n')
           ->leftJoin('m.versions d ON m.id = d.document_id AND d.version = 1 AND n.culture = d.culture')
+          ->addWhere('NOT (100 = ANY (a.categories))')
           ->addWhere('m.redirects_to IS NULL')
           ->orderBy('d.created_at DESC, m.id DESC')
           ->limit($max_items);

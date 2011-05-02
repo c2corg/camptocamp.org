@@ -41,7 +41,15 @@ class usersActions extends documentsActions
 
             if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
             {
-                $this->getResponse()->addMeta('robots', 'index, follow');
+                if (UserPrivateData::hasPublicProfile($id))
+                {
+                    $this->getResponse()->addMeta('robots', 'index, follow');
+                }
+                else
+                {
+                    $this->getResponse()->addMeta('robots', 'noindex, nofollow');
+                }
+                
 
                 $whattoselect = 'dv.document_id, dv.culture, dv.version, dv.nature, dv.created_at, ' .
                                 'di.name, d2.module, ' .

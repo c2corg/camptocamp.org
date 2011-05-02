@@ -1,5 +1,5 @@
 <?php
-use_helper('Field');
+use_helper('Field', 'Link');
 
 $item_i18n = $item['PortalI18n'][0];
 $item_id = $item_i18n['id'];
@@ -13,10 +13,7 @@ if ($item_id == $cda_config['id'])
 }
 else
 {
-    echo link_to($item_i18n['name'],
-                 '@document_by_id_lang_slug?module=portals&id=' . $item_i18n['id']
-                     . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
-                 ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array()));
+    echo list_link($item_i18n, 'portals');
 }
 ?></div>
 <div><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></div>

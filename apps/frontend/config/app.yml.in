@@ -683,7 +683,7 @@ all:
     area_types:
       0:
       1: range
-    #  4: valley
+    #  4: valley_area
       3: admin_limits
       2: country
     range:

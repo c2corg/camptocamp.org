@@ -1,10 +1,9 @@
 <?php
+use_helper('Field', 'Link');
+
 $item_i18n = $item['SummitI18n'][0];
 ?>
-<div><?php echo link_to($item_i18n['name'],
-                        '@document_by_id_lang_slug?module=summits&id=' . $item_i18n['id']
-                            . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
-                        ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array())) ?></div>
+<div><?php echo list_link($item_i18n, 'summits') ?></div>
 <div><?php echo _implode(' - ',
                          array(displayWithSuffix($item['elevation'], 'meters'),
                                get_paginated_value($item['summit_type'], 'app_summits_summit_types'))) ?></div>

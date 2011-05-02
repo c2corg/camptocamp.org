@@ -72,6 +72,10 @@ class articlesActions extends documentsActions
             sfLoader::loadHelpers(array('sfBBCode', 'SmartFormat'));
             $abstract = strip_tags(parse_links(parse_bbcode_abstract($this->document->get('abstract'))));
             $this->getResponse()->addMeta('description', $abstract);
+            if (in_array(100, $categories))
+            {
+                $this->getResponse()->addMeta('robots', 'noindex, follow');
+            }
         }
     }
     

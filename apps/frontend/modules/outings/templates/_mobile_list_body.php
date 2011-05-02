@@ -1,5 +1,5 @@
 <?php
-use_helper('Date', 'General', 'Field');
+use_helper('Date', 'General', 'Field', 'Link');
 
 if (strlen($item['geom_wkt']))
 {
@@ -13,10 +13,7 @@ $item_i18n = $item['OutingI18n'][0];
 ?>
 <div class="right"><?php echo get_paginated_activities($item['activities']) ?></div>
 <div><?php
-echo link_to($item_i18n['name'],
-             '@document_by_id_lang_slug?module=outings&id=' . $item_i18n['id']
-                 . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
-             ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array()))
+echo list_link($item_i18n, 'outings')
      . ' ' . $has_gps_track ?></div>
 <div>
 <?php echo _implode(' - ', array(format_date($item['date'], 'D'),

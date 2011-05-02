@@ -1,13 +1,10 @@
 <?php
-use_helper('Field');
+use_helper('Field', 'Link');
 
 $item_i18n = $item['BookI18n'][0];
 ?>
 <div class="right"><?php echo get_paginated_activities($item['activities']) ?></div>
-<div><?php echo link_to($item_i18n['name'],
-                        '@document_by_id_lang_slug?module=books&id=' . $item_i18n['id']
-                            . '&lang=' . $item_i18n['culture'] . '&slug=' . make_slug($item_i18n['name']),
-                        ($item_i18n['culture'] != $sf_user->getCulture() ? array('hreflang' => $item_i18n['culture']) : array())) ?></div>
+<div><?php echo list_link($item_i18n, 'books') ?></div>
 <div>
 <?php echo _implode(' - ',
                     array($item['author'],

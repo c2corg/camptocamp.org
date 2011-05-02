@@ -1,4 +1,4 @@
-<?php use_helper('General');
+<?php use_helper('General', 'Link');
 
 $item_i18n = $item['RouteI18n'][0];
 $item_id = $item_i18n['id'];
@@ -25,9 +25,7 @@ else
 {
     $summit_name = $summit_2['name'];
 }
-echo link_to($summit_name . __('&nbsp;:') . ' ' . $item_i18n['name'],
-             "@document_by_id_lang_slug?module=routes&id=$item_id&lang=$item_culture&slug=" . make_slug($summit_name . '-' . $item_i18n['name']),
-             ($item_culture != $sf_user->getCulture() ? array('hreflang' => $item_culture) : array())) .
+echo list_link($item_i18n, 'routes') .
       ' ' . $has_gps_track;
 
 if (isset($item['name']) && $summit_name != $summit_2['name'])
