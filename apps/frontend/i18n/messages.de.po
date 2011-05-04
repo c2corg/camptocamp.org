@@ -2738,7 +2738,7 @@ msgstr "<h3>Kamera</h3>Marke und Modell der Kamera. <br />Diese Informationen st
 msgid "_captcha_info"
 msgstr "<h3>Anti-spam-Test</h3>Schreiben sie die im Bild sichtbaren Lettern ab. Bei diesem Test wir nicht zwischen Klein- und Grossschreibung unterschieden.<br />Falls sie die Lettern nicht lessen können, laden sie die Seite neu, um ein neues Bild zu erhalten. Dabei werden vorgängig eingegebene Daten (Benutzername und Email-Addresse) gelöscht."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Kategorie eines Beitrags</h3>\n"
 "Mehrere Kategorien können ausgewählt werden.<br /><br /><strong>Gebirgsumwelt</strong>: Allgemeine, nicht-ändernde\n"
@@ -3524,6 +3524,18 @@ msgid "all"
 msgstr "alle Dokumente"
 
 # [general comment]
+# a short string when all facings are selected
+# [WARNING] needs_review
+msgid "all facings"
+msgstr "alle"
+
+# [general comment]
+# a summary to present best periods when all months are selected
+# [WARNING] en translation used
+msgid "all months"
+msgstr "all the year round"
+
+# [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] needs_review
@@ -4300,6 +4312,12 @@ msgstr "Per Ski bis:"
 
 msgid "download geo data under %1% format"
 msgstr "Die Geodaten im Format %1% herunterladen"
+
+# [general comment]
+# Catégorie d'article : "brouillon"
+# [WARNING] en translation used
+msgid "draft"
+msgstr "draft"
 
 msgid "duration"
 msgstr "Dauer:"

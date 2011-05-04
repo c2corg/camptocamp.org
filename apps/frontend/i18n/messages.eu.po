@@ -3418,6 +3418,18 @@ msgid "all"
 msgstr "dana"
 
 # [general comment]
+# a short string when all facings are selected
+# [WARNING] en translation used
+msgid "all facings"
+msgstr "all"
+
+# [general comment]
+# a summary to present best periods when all months are selected
+# [WARNING] en translation used
+msgid "all months"
+msgstr "all the year round"
+
+# [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] es translation used
@@ -4150,6 +4162,12 @@ msgstr "Jeitsieran eskiatzeari utzitako altuera:"
 
 msgid "download geo data under %1% format"
 msgstr "%1%-ren datu geografikoak jeitsi"
+
+# [general comment]
+# Catégorie d'article : "brouillon"
+# [WARNING] en translation used
+msgid "draft"
+msgstr "draft"
 
 msgid "duration"
 msgstr "Ibilbidearen iraupena:"

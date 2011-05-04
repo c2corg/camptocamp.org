@@ -2689,6 +2689,7 @@ msgstr "<h3>Apparecchio fotografico</h3>marca e modello della macchina fotografi
 msgid "_captcha_info"
 msgstr "<h3>Test anti-spam</h3>Ricopiare i caratteri visibili sull'immagine. Il test è indifferente alle maiuscole/minuscole.<br />Se i caratteri sono illeggibili, basta ricaricare la pagina."
 
+# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Categorie di un articolo</h3>Più categorie possono essere selezionate.<br /><br />\n"
 "<strong>ambiente montanaro </strong>: informazioni generale sulla montagna (geologia, biotopo, neve e valanghe, ...)<br /><strong>materiale e tecnica</strong>: articolo sul materiale (descrizioni, uso...) o una tecnica (pratica, allenamento, )<br /><strong>complementi alla guida</strong>: articoli per dettagliare un parte di un documento della guida (ceni storici per un itinerario, una cima, un rifugio, geologia di un massiccio...)<br /><strong> ecomobilità et ecoturismo</strong>: articoli sull'ecomobilità e l'ecotourisme<br /><strong>spedizioni e viaggi</strong>: racconti o informazioni su una spedizone o un viaggio<br /><strong>racconti</strong>: racconti legati alla montagna<br /><strong>aiuto, il sito c2c</strong>: articoli sul sito <em>camptocamp.org</em> (aiuto, informazioni)<br /><strong>associazione</strong>: articoli su <em>Camptocamp Association</em> che gestisce il sito."
@@ -3228,6 +3229,18 @@ msgstr "Difficoltà in artificiale:"
 
 msgid "all"
 msgstr "tutti i documenti"
+
+# [general comment]
+# a short string when all facings are selected
+# [WARNING] en translation used
+msgid "all facings"
+msgstr "all"
+
+# [general comment]
+# a summary to present best periods when all months are selected
+# [WARNING] en translation used
+msgid "all months"
+msgstr "all the year round"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -3925,6 +3938,12 @@ msgstr "Quota della neve (discesa):"
 
 msgid "download geo data under %1% format"
 msgstr "Carica i dati geografiche al formato %1%"
+
+# [general comment]
+# Catégorie d'article : "brouillon"
+# [WARNING] en translation used
+msgid "draft"
+msgstr "draft"
 
 msgid "duration"
 msgstr "Tempo di percorrenza:"

@@ -2696,7 +2696,17 @@ msgid "_captcha_info"
 msgstr "<h3>Test anti-spam</h3>Recopier les caractères visible dans l'image. Le test est indifférent aux majuscules/minuscules.<br />Si les caractères sont illisible, vous pouvez la modifier en rechargeant la page. Les données saisies seront perdues (identifiant et adresse email)."
 
 msgid "_categories_info"
-msgstr "<h3>Catégories d'un article</h3>Plusieurs catégories peuvent être sélectionnées.<br /><br /><strong>environnement montagnard</strong>&nbsp;: informations générales et pérennes sur la montagne (géologie, biotope, neige et avalanche, ...)<br /><strong>matériel et technique</strong>&nbsp;: article sur un matériel (description, utilisation, entretien) ou une technique (geste, entrainement)<br /><strong>compléments au topoguide</strong>&nbsp;: article détaillant une partie d'un document du topoguide (historique d'un itinéraire ou d'un refuge, géologie d'un massif ou d'un sommet, ...)<br /><strong>mobilité douce et écotourisme</strong>&nbsp;: article concernant la mobilité douce et l'écotourisme<br /><strong>expéditions et voyages lointains</strong>&nbsp;: récit ou information concernant une expédition ou un voyage lointain<br /><strong>récits</strong>&nbsp;: récit réel ou fiction<br /><strong>aide, le site c2c</strong>&nbsp;: article à propos du site <em>camptocamp.org</em> (aide, information)<br /><strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em>"
+msgstr "<h3>Catégories d'un article</h3>Plusieurs catégories peuvent être sélectionnées.<br />\n"
+"<br />\n"
+"<strong>environnement montagnard</strong>&nbsp;: informations générales et pérennes sur la montagne (géologie, biotope, neige et avalanche, ...)<br />\n"
+"<strong>matériel et technique</strong>&nbsp;: article sur un matériel (description, utilisation, entretien) ou une technique (geste, entrainement)<br />\n"
+"<strong>compléments au topoguide</strong>&nbsp;: article détaillant une partie d'un document du topoguide (historique d'un itinéraire ou d'un refuge, géologie d'un massif ou d'un sommet, ...)<br />\n"
+"<strong>mobilité douce et écotourisme</strong>&nbsp;: article concernant la mobilité douce et l'écotourisme<br />\n"
+"<strong>expéditions et voyages lointains</strong>&nbsp;: récit ou information concernant une expédition ou un voyage lointain<br />\n"
+"<strong>récits</strong>&nbsp;: récit réel ou fiction<br />\n"
+"<strong>aide, le site c2c</strong>&nbsp;: article à propos du site <em>camptocamp.org</em> (aide, information)<br />\n"
+"<strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br />\n"
+"<strong>brouillon</strong>&nbsp;: article en cours de rédaction (pas de publication sur la page d'accueil)"
 
 msgid "_category_info"
 msgstr "<h3>Catégorie du contributeur</h3>Ce champ facultatif permet au contributeur qui le souhaite d'être trouvé plus facilement lors d'une recherche, en filtrant sur la catégorie. Utile pour rechercher tous les clubs ou les professionnels d'une région (s'ils sont géoréférencés).<br /><br /><strong>amateur</strong>&nbsp;: Personne physique pratiquant en amateur. Correspond à la plupart des contributeurs.<br /><br /><strong>professionnel de l'encadrement</strong>&nbsp;: Guide, brevet d'état escalade, accompagnateur en moyenne montagne, entraineur. Le champ <em>activités</em> permet de préciser les activités correspondant à la profession.<br /><br /><strong>club ou association organisant des sorties</strong>&nbsp;: Club ou association de pratiquants de la montagne ou d'escalade. Le champ <em>activités</em> permet de préciser les activités proposées.<br /><br /><strong>institution ou organisme divers</strong>&nbsp;: Organisme publique ou privé ne proposant pas les services d'un club : secours, parc national, météo, refuge, office du tourisme, commune, association de défense de l'environnement, etc."
@@ -3294,6 +3304,16 @@ msgstr "Cotation escalade artificielle&nbsp;:"
 
 msgid "all"
 msgstr "tous les documents"
+
+# [general comment]
+# a short string when all facings are selected
+msgid "all facings"
+msgstr "toutes"
+
+# [general comment]
+# a summary to present best periods when all months are selected
+msgid "all months"
+msgstr "toute l'année"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -3986,6 +4006,11 @@ msgstr "Altitude de déchaussage&nbsp;:"
 
 msgid "download geo data under %1% format"
 msgstr "Télécharger les données géographiques au format %1%"
+
+# [general comment]
+# Catégorie d'article : "brouillon"
+msgid "draft"
+msgstr "brouillon"
 
 msgid "duration"
 msgstr "Temps de parcours&nbsp;:"

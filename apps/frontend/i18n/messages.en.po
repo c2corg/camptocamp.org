@@ -3268,6 +3268,18 @@ msgid "all"
 msgstr "all documents"
 
 # [general comment]
+# a short string when all facings are selected
+# [WARNING] needs_review
+msgid "all facings"
+msgstr "all"
+
+# [general comment]
+# a summary to present best periods when all months are selected
+# [WARNING] needs_review
+msgid "all months"
+msgstr "all the year round"
+
+# [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "alpes_centrales"
@@ -3959,6 +3971,11 @@ msgstr "Snowline on the way down:"
 
 msgid "download geo data under %1% format"
 msgstr "download geographic data under %1% format"
+
+# [general comment]
+# Catégorie d'article : "brouillon"
+msgid "draft"
+msgstr "draft"
 
 msgid "duration"
 msgstr "Duration:"
