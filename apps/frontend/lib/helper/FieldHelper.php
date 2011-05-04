@@ -737,7 +737,7 @@ function field_months_data($document, $name)
     {
         if (count($months) == 12)
         {
-            $value = 'all months';
+            $value = __('all months');
         }
         else
         {
