@@ -45,8 +45,7 @@ input, select, textarea {
 /* size inputs for topoguide, since it feels better
    when buttons and select and inputs have the same height
    + allow some space for button icons */
-/*#content_box input, #content_box select, #type, #q {*/
-#wrapper_context input, input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="text"], input[type="password"], input[type="email"], input[type="number"],
 input[type="range"], input[type="date"], input[type="color"], select, #type, #q {
   height: 1.8em;
   vertical-align: middle;
@@ -66,15 +65,6 @@ select[multiple="multiple"], input[type="checkbox"], input[type="image"]
 select, option {
   background-color: #fff;
 }
-/* TODO
-#content_box input[type="text"], #content_box input[type="password"], #content_box input[type="email"],
-#content_box input[type="number"], #content_box input[type="range"], #content_box input[type="date"], #content_box input[type="color"], #q
-{
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}*/
 
 /* outline focused input elements */
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus
@@ -94,7 +84,7 @@ input[type="checkbox"] {
   border: none;
 }
 
-select option
+option
 {
   padding: 0 5px;
 }
@@ -2522,7 +2512,6 @@ fieldset .select_title
 
 .form-row input
 {
-  padding: 0.2em;
   margin: 0.3em 0;
 }
 
@@ -2538,7 +2527,6 @@ fieldset .select_title
 }
 
 .form-row select {
-  padding: 0.2em;
   margin: 0.3em 0;
 }
 
@@ -2607,6 +2595,10 @@ input#remember
 input.short_input
 {
   width: 50px;
+}
+input[type=number].short_input /* compensate for added arrows by chrome / opera */
+{
+  width: 60px;
 }
 
 input.medium_input

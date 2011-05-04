@@ -789,7 +789,7 @@ UL.bblinks {PADDING-BOTTOM: 10px; PADDING-LEFT: 4px}
 DIV.blockform P INPUT, DIV.blockform INPUT[type="submit"]
 {
   MARGIN-LEFT: 12px;
-  padding: 0.1em;
+  padding: 0.1em 4px;
   font-size: 1.2em;
 }
 
