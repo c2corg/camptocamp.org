@@ -735,17 +735,24 @@ function field_months_data($document, $name)
 
     if (is_array($months))
     {
-        $value = array();
-        foreach ($months as $month)
+        if (count($months) == 12)
         {
-            $month--;
-            if (!array_key_exists($month, $month_names))
-            {
-                continue;
-            }
-            $value[] = $month_names[$month];
+            $value = 'all months';
         }
-        $value = implode(', ', $value);
+        else
+        {
+            $value = array();
+            foreach ($months as $month)
+            {
+                $month--;
+                if (!array_key_exists($month, $month_names))
+                {
+                    continue;
+                }
+                $value[] = $month_names[$month];
+            }
+            $value = implode(', ', $value);
+        }
     }
     else
     {

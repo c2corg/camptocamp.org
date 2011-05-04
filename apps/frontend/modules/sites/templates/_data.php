@@ -17,7 +17,14 @@
         li(field_data_from_list_if_set($document, 'rock_types', 'app_rock_types_list', true));
         li(field_data_from_list_if_set($document, 'children_proof', 'mod_sites_children_proof_list'));
         li(field_data_from_list_if_set($document, 'rain_proof', 'mod_sites_rain_proof_list'));
-        li(field_data_from_list_if_set($document, 'facings', 'mod_sites_facings_list', true));
+        if (count(array_diff(array(2, 4, 6, 8, 10, 12, 14, 16), $document->getRaw('facings'))) == 0)
+        {
+            echo '<div class="section_subtitle" id="_facings">' . __('facings') . '</div> ' . __('all facings');
+        }
+        else
+        {
+            li(field_data_from_list_if_set($document, 'facings', 'mod_sites_facings_list', true));
+        }
         li(field_months_data($document, 'best_periods'));
 
         if ($document->get('geom_wkt'))
