@@ -19,7 +19,7 @@
         li(field_data_from_list_if_set($document, 'rain_proof', 'mod_sites_rain_proof_list'));
         if (count(array_diff(array(2, 4, 6, 8, 10, 12, 14, 16), $document->getRaw('facings'))) == 0)
         {
-            echo '<div class="section_subtitle" id="_facings">' . __('facings') . '</div> ' . __('all facings');
+            li('<div class="section_subtitle" id="_facings">' . __('facings') . '</div> ' . __('all facings'));
         }
         else
         {
