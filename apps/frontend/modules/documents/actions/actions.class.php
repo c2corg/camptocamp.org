@@ -2140,9 +2140,10 @@ class documentsActions extends c2cActions
         // All modules will use the same template
         $this->setTemplate('../../documents/templates/edit');
         // js to autosave edit forms. see also https://github.com/marcuswestin/store.js?
-        $response = $this->getResponse();
+        // FIXME temporarily disabled because it causes the browser to choke every 20-30s
+        /*$response = $this->getResponse();
         $response->addJavascript('/static/js/jstorage.js', 'last');
-        $response->addJavascript('/static/js/formsave.js', 'last');
+        $response->addJavascript('/static/js/formsave.js', 'last');*/
         // module specific actions
         $this->endEdit();
     }
