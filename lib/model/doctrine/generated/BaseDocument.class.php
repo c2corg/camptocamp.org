@@ -1945,11 +1945,11 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($param == '-')
         {
-            $conditions[] = "($field IS NULL OR $field = 0)";
+            $conditions[] = "($field IS NULL)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field IS NOT NULL AND $field != 0)";
+            $conditions[] = "($field IS NOT NULL)";
         }
         elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         {
@@ -1980,7 +1980,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
 
             $value2 = !empty($regs[4]) ? $regs[4] : 0;
-            $not_null = "$field IS NOT NULL AND $field != 0";
+            $not_null = "$field IS NOT NULL";
 
             switch ($compare)
             {   
