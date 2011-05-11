@@ -70,7 +70,8 @@ if ($new_document)
 include_partial("$module/form_fields", array('document' => $document,
                                              'new_document' => $new_document,
                                              'linked_doc' => $linked_doc,
-                                             'associated_books' => (isset($associated_books) ? $associated_books : null)));
+                                             'associated_books' => (isset($associated_books) ? $associated_books : null),
+                                             'associated_articles' => (isset($associated_articles) ? $associated_articles : null)));
 
 $editing_archive = isset($editing_archive) ? $editing_archive : false;
 ?>

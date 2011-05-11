@@ -11,31 +11,35 @@ var max_elevation_old,
 
 function switch_mw_contest_visibility()
 {
-    if ($('outing_with_public_transportation').checked)
-    {
-        $('mw_contest').show();
-        if ($('mw_contest_associate').checked)
+    if ($('mw_contest') != undefined) {
+        if ($('outing_with_public_transportation').checked)
         {
-          $('post_associations').value = 'c' + mw_contest_article_id + '+';
+            $('mw_contest').show();
         }
-    }
-    else
-    {
-        // hide mw div
-        $('mw_contest').hide();
-        $('post_associations').value = 'c' + mw_contest_article_id + '-';
+        else
+        {
+            // hide mw div, uncheck contest checkbox
+            $('mw_contest').hide();
+            if ($('pseudo_id') == undefined && $('mw_contest_associate').checked)
+            {
+                $('mw_contest_associate').checked = false;
+                alert('de-associate mw2');
+            }
+        }
     }
 }
 
 function switch_mw_contest_association()
 {
-    if ($('mw_contest_associate').checked)
-    {
-      $('post_associations').value = 'c' + mw_contest_article_id + '+';
-    }
-    else
-    {
-      $('post_associations').value = 'c' + mw_contest_article_id + '-';
+    if ($('pseudo_id') == undefined) {
+        if ($('mw_contest_associate').checked)
+        {
+            alert('associate mw');
+        }
+        else
+        {
+            alert('de-associate mw');
+        }
     }
 }
 
@@ -172,7 +176,7 @@ function check_outing_date(e)
 }
 
 document.observe('dom:loaded', hide_outings_unrelated_fields);
-//Event.observe(window, 'load', switch_mw_contest_visibility);
+document.observe('dom:loaded', switch_mw_contest_visibility);
 document.observe('dom:loaded', function() {
     Event.observe('editform', 'submit', check_outing_activities);
     Event.observe('editform', 'submit', check_outing_date);

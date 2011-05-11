@@ -157,6 +157,18 @@ class outingsActions extends documentsActions
         parent::executeHistory();
     }
 
+    public function setEditFormInformation()
+    {
+        parent::setEditFormInformation();
+        if (!$this->new_document)
+        {
+            // retrieve associated articles, for use in the MW contest checkbox
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $id = $this->getRequestParameter('id');
+            $this->associated_articles = Association::findAllAssociatedDocs($id, array('id'), 'oc');
+        }
+    }
+
     protected function endEdit()
     {
         //Test if form is submitted or not
@@ -212,6 +224,18 @@ class outingsActions extends documentsActions
                 $uo = new Association();
                 $uo->doSaveWithValues($user_id, $id, 'uo', $user_id); // main, linked, type
             }    
+            
+            // create association with MW contest article, if requested
+            if ($this->new_document)
+            {
+                $mw_contest_associate = $this->getRequestParameter('mw_contest_associate');
+                if ($mw_contest_associate)
+                {
+                    $mw_article_id = sfConfig::get('app_mw_contest_id');
+                    $oc = new Association();
+                    $oc->doSaveWithValues($id, $mw_article_id, 'oc', $user_id);
+                }
+            }
             
             parent::endEdit(); // redirect to document view
         }

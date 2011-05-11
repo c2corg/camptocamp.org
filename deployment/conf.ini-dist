@@ -107,3 +107,4 @@ METAENGINE_KEY = <meta_engine_key>
 MINIFY_DEBUG =  false
 
 MW_CONTEST_ID = 263803
+MW_CONTEST_ENABLED = true

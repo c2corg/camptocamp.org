@@ -1,6 +1,8 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript', 'Escaping', 'General');
 
+$mw_contest_enabled = sfConfig::get('app_mw_contest_enabled'); // shunt for mw contest
+
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/outings.js', 'last');
 
@@ -13,6 +15,10 @@ var outing_activities_already_tested = false;");
 $link_with = $linked_doc ? $linked_doc->get('id') : 0; 
 echo '<div>';
 echo input_hidden_tag('document_id', $link_with);
+if ($new_document == false && $mw_contest_enabled == true)
+{
+    echo javascript_tag('var mw_contest_article_id=' . sfConfig::get('app_mw_contest_id')); // for use with MW contest
+}
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
 echo '</div>';
 
@@ -53,7 +59,30 @@ echo object_group_tag($document, 'outing_length', null, 'kilometers', array('cla
 ?>
 </div>
 <?php
-echo object_group_tag($document, 'outing_with_public_transportation', 'object_checkbox_tag');
+echo object_group_tag($document, 'outing_with_public_transportation', 'object_checkbox_tag', '', array('onchange' => 'switch_mw_contest_visibility()'));
+if ($mw_contest_enabled == true)
+{
+$mw_checked = false;
+if (isset($associated_articles) && count($associated_articles))
+{
+    foreach($associated_articles as $article)
+    {
+        if ($article['id'] == sfConfig::get('app_mw_contest_id'))
+        {
+            $mw_checked = true;
+            break;
+        }
+    }
+}
+?>
+<div id="mw_contest"> 
+<?php
+echo __('Participate to MW contest');
+echo checkbox_tag('mw_contest_associate', 1, $mw_checked, array('onchange' => 'switch_mw_contest_association();'));
+?>
+</div>
+<?php
+}
 echo object_group_dropdown_tag($document, 'access_status', 'mod_outings_access_statuses_list');
 echo object_group_tag($document, 'access_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
 ?>
