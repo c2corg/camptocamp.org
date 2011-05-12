@@ -341,4 +341,10 @@ img.embedded_right
   float: right;
 }
 
+/* display url for external links */
+.external_link:after {
+  content: " [" attr(href) "]";
+  font-size: 0.8em;
+}
+
 } /* end @media */
