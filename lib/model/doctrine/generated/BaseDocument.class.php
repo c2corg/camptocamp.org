@@ -217,9 +217,11 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'Item':    self::buildItemCondition(&$conditions, &$values, $field, $value); break;
                 case 'Multi':   self::buildMultiCondition(&$conditions, &$values, $field, $value); break;
                 case 'Compare': self::buildCompareCondition(&$conditions, &$values, $field, $value); break;
-                case 'List':    self::buildListCondition(&$conditions, &$values, $field, $value); break;
+                case 'List':
+                    $use_not_null = ($param != 'id');
+                    self::buildListCondition(&$conditions, &$values, $field, $value, $use_not_null); break;
                 case 'Id':
-                    self::buildListCondition(&$conditions, &$values, $field, $value);
+                    self::buildListCondition(&$conditions, &$values, $field, $value, false);
                     if ($join_id && (($value == '-') || ($value == ' ')))
                     {
                         $conditions[$join_id . '_has'] = true;
@@ -1941,15 +1943,29 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildCompareCondition(&$conditions, &$values, $field, $param)
+    public static function buildCompareCondition(&$conditions, &$values, $field, $param, $is_null_only = false, $use_not_null = true)
     {
         if ($param == '-')
         {
-            $conditions[] = "($field IS NULL)";
+            if ($is_null_only)
+            {
+                $conditions[] = "($field IS NULL)";
+            }
+            else
+            {
+                $conditions[] = "($field IS NULL OR $field = 0)";
+            }
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field IS NOT NULL)";
+            if ($is_null_only)
+            {
+                $conditions[] = "($field IS NOT NULL)";
+            }
+            else
+            {
+                $conditions[] = "($field IS NOT NULL AND $field != 0)";
+            }
         }
         elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         {
@@ -1980,17 +1996,28 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
 
             $value2 = !empty($regs[4]) ? $regs[4] : 0;
-            $not_null = "$field IS NOT NULL";
+            if (!$use_not_null)
+            {
+                $not_null = '';
+            }
+            elseif ($is_null_only)
+            {
+                $not_null = "AND $field IS NOT NULL";
+            }
+            else
+            {
+                $not_null = "AND $field IS NOT NULL AND $field != 0";
+            }
 
             switch ($compare)
             {   
                 case '>':
-                    $conditions[] = "$field >= ? AND $not_null";
+                    $conditions[] = "$field >= ? $not_null";
                     $values[] = $value1;
                     break;
 
                 case '<':
-                    $conditions[] = "$field <= ? AND $not_null";
+                    $conditions[] = "$field <= ? $not_null";
                     $values[] = $value1;
                     break;
 
@@ -2008,7 +2035,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif (preg_match('/^([0-9!]*)(-[0-9!]*)*$/', $param, $regs))
         {
-            self::buildListCondition(&$conditions, &$values, $field, $param);
+            self::buildListCondition(&$conditions, &$values, $field, $param, $use_not_null);
         }
         else
         {
@@ -2016,7 +2043,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildListCondition(&$conditions, &$values, $field, $param)
+    public static function buildListCondition(&$conditions, &$values, $field, $param, $use_not_null = true)
     {
         if ($param == '-')
         {
@@ -2026,7 +2053,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = "($field IS NOT NULL AND $field != 0)";
         }
-        else
+        elseif (preg_match('/^([0-9!]*)(-[0-9!]*)*$/', $param, $regs))
         {
             $items = explode('-', $param);
             $condition_array = array();
@@ -2099,6 +2126,14 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
             }
             $conditions[] = '(' . implode(') AND (', $conditions_groups) . ')';
+        }
+        elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        {
+            self::buildCompareCondition(&$conditions, &$values, $field, $param, $use_not_null);
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -2425,11 +2460,11 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($param == '-')
         {
-            $conditions[] = "($field IS NULL OR $field = 0)";
+            $conditions[] = "($field IS NULL)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field IS NOT NULL AND $field != 0)";
+            $conditions[] = "($field IS NOT NULL)";
         }
         elseif (preg_match('/[YMWD]/', $param, $regs)) // 'since'
         {
@@ -2473,7 +2508,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     }
                     else
                     {
-                        self::buildCompareCondition($conditions, $values, $field, $param);
+                        self::buildCompareCondition($conditions, $values, $field, $param, true);
                     }
                     break;
                 case 6: //YYYYMM
@@ -2505,7 +2540,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                             $newparam = min($value1, $value2) . '01' . $compare . max($value1, $value2) . $day2;
                             break;
                     }
-                    self::buildCompareCondition($conditions, $values, $field, $newparam);
+                    self::buildCompareCondition($conditions, $values, $field, $newparam, true);
                     break;
                 case 4: // YYYY or MMDD
                     // TODO check input values
@@ -2529,7 +2564,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                                 $newparam = min($value1, $value2) . '0101' . $compare . max($value1, $value2) . '1231';
                                 break;
                         }
-                        self::buildCompareCondition($conditions, $values, $field, $newparam);
+                        self::buildCompareCondition($conditions, $values, $field, $newparam, true);
                     }
                     else // MMDD
                     {
