@@ -380,7 +380,7 @@ class sfPunBBCodeParser
         if (!empty($target)) $target = ' target="' . $target . '"';
 
         // external link TODO use objects instead of iframe (but ie doesn't like it with external html...)
-        if (preg_match('/.(ppt|pdf)$/i', $full_url) && $viewer && !c2cTools::mobileVersion())
+        if (preg_match('/\.(ppt|pdf)$/i', $full_url) && $viewer && !c2cTools::mobileVersion())
         {
             $param_url = str_replace('%', '%25', $full_url);
             $suffix = ' <a class="embedded_ppt_pdf" href="#" style="display:none" onclick="$(this).next().show(); $(this).hide();' .
