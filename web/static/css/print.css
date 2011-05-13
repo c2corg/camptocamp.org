@@ -70,6 +70,7 @@ p {
 .default_text,
 .translate_button,
 .no_print,
+.embedded_ppt_pdf,
 .empty_content,
 .section .section_subtitle.no_print,
 .tips, .cc, .go_up, .title .picto,
@@ -345,6 +346,11 @@ img.embedded_right
 .external_link:after {
   content: " [" attr(href) "]";
   font-size: 0.8em;
+}
+
+/* avoid breaking images */
+.img_box {
+  page-break-inside: avoid;
 }
 
 } /* end @media */
