@@ -22,8 +22,28 @@ function switch_mw_contest_visibility()
             $('mw_contest').hide();
             if ($('pseudo_id') == undefined && $('mw_contest_associate').checked)
             {
-                $('mw_contest_associate').checked = false;
-                alert('de-associate mw2');
+                // de-associated
+                new Ajax.Request(
+                  '/documents/removeAssociation/main_oc_id/' + $F('id') + '/linked_id/' + mw_contest_article_id + '/type/oc/strict/1',
+                  {asynchronous:true,
+                   evalScripts:false,
+                   method:'post',
+                   onComplete: function (request, json) {
+                     Element.hide('indicator');
+                   },
+                   onFailure: function (request, json) {
+                     Element.show('ajax_feedback_failure');
+                     $('mw_contest_associate').checked = true;
+                     setTimeout('emptyFeedback("ajax_feedback_failure")', 4000);
+                   },
+                   onLoading: function (request, json) {
+                     Element.show('indicator');
+                   },
+                   onSuccess: function(request, json) {
+                     $('mw_contest_associate').checked = false;
+                     Element.hide('ajax_feedback_failure');
+                   }
+                  });
             }
         }
     }
@@ -34,14 +54,52 @@ function switch_mw_contest_association()
     if ($('pseudo_id') == undefined) {
         if ($('mw_contest_associate').checked)
         {
-            alert('associate mw');
+            // associate
+            new Ajax.Request(
+              '/outings/addAssociation/main_id/' + $F('id') + '/document_module/articles/document_id/' + mw_contest_article_id,
+              {asynchronous:true,
+               evalScripts:false,
+               method:'post',
+               onComplete: function (request, json) {
+                 Element.hide('indicator');
+               },
+               onFailure: function (request, json) {
+                 Element.show('ajax_feedback_failure');
+                 $('mw_contest_associate').checked = false;
+                 setTimeout('emptyFeedback("ajax_feedback_failure")', 4000);
+               },
+               onLoading: function (request, json) {
+                 Element.show('indicator');
+               },
+               onSuccess: function(request, json) {
+                 Element.hide('ajax_feedback_failure');
+               }
+              });
         }
         else
         {
-            alert('de-associate mw');
+            // de-associated
+            new Ajax.Request(
+              '/documents/removeAssociation/main_oc_id/' + $F('id') + '/linked_id/' + mw_contest_article_id + '/type/oc/strict/1',
+              {asynchronous:true,
+               evalScripts:false,
+               method:'post',
+               onComplete: function (request, json) {
+                 Element.hide('indicator');
+                 setTimeout('emptyFeedback("ajax_feedback_failure")', 4000);
+               },
+               onFailure: function (request, json) {
+                 Element.show('ajax_feedback_failure');
+               },
+               onLoading: function (request, json) {
+                 Element.show('indicator');
+               }
+              });
         }
     }
 }
+
+
 
 function hide_outings_unrelated_fields()
 {
