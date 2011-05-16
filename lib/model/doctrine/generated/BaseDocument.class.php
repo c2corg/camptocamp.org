@@ -2053,7 +2053,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = "($field IS NOT NULL AND $field != 0)";
         }
-        elseif (preg_match('/^([0-9!]*)(-[0-9!]*)*$/', $param, $regs))
+        elseif (preg_match('/^([0-9a-z!]*)(-[0-9a-z!]*)*$/', $param, $regs))
         {
             $items = explode('-', $param);
             $condition_array = array();
