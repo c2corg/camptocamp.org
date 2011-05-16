@@ -25,7 +25,7 @@ else
 {
     $summit_name = $summit_2['name'];
 }
-echo list_link($item_i18n, 'routes') .
+echo list_link($item_i18n, 'routes', $summit_name) .
       ' ' . $has_gps_track;
 
 if (isset($item['name']) && $summit_name != $summit_2['name'])
