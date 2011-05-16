@@ -1,7 +1,7 @@
 <?php use_helper('Button') ?>
 <?php $lang = $sf_user->getCulture() ?>
 
-<div id="nav_tools">
+<nav id="nav_tools">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>
@@ -14,4 +14,4 @@
         </ul>
     </div>
     <div id="nav_tools_down"></div>
-</div>
+</nav>

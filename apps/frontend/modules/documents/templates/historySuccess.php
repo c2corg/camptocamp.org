@@ -38,7 +38,8 @@ $versions_nb = count($versions);
 
 $submit_options = array('title' => __('Show differences between selected versions'),
                         'value' => __('Compare'),
-                        'class' => 'picto action_filter single_button');
+                        'picto' => 'action_filter',
+                        'class' => 'c2cui_btnr single_button');
 
 ?>
 

@@ -342,10 +342,22 @@ function global_form_errors_tag($show_field = true)
 
 function submit_tag_without_name($options)
 {
+    if (isset($options['picto']))
+    {
+        $picto = array('picto' => $options['picto']);
+        unset($options['picto']);
+    }
     $options = _convert_options_to_javascript(_convert_options($options));
     $options = array_merge(array('type' => 'submit'), $options);
-    
-    return tag('input', $options);
+
+    if (isset($picto))
+    {
+        return c2c_button($options['value'], $picto, tag('input', $options));
+    }
+    else
+    {
+        return tag('input', $options);
+    }
 }
 
 function submit_tag_disabled_if($condition, $options)

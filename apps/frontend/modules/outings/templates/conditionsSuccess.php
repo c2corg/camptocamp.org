@@ -150,14 +150,13 @@ endif;
 
 if ($show_images && $nb_images > 0 && !$mobile_version)
 {
-// FIXME: find and delete sortable_feedback div + don't use javascript for non-ie browsers
-echo javascript_tag("
-Event.observe(window, 'load', function(){
+// FIXME: find and delete sortable_feedback div
+echo '<!--[if IE 6]>', javascript_tag("
+document.observe('dom:loaded', function(){
 $$('.image_list .image').each(function(obj){
 obj.observe('mouseover', function(e){obj.down('.image_actions').show();obj.down('.image_license').show();});
 obj.observe('mouseout', function(e){obj.down('.image_actions').hide();obj.down('.image_license').hide();});
-});});");
-// FIXME: do a separate JS file for that, and dynamically include it in the response.
+});});"), '<![endif]-->';
 }
 
 echo end_content_tag();

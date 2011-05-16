@@ -7,7 +7,7 @@ $has_rights = $sf_user->hasCredential('moderator');
 $redirected = $document->get('redirects_to');
 $is_archive = $document->isArchive();
 ?>
-<div id="nav_tools" class="nav_box">
+<nav id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>
@@ -33,4 +33,4 @@ $is_archive = $document->isArchive();
         </ul>
     </div>
     <div id="nav_tools_down"></div>
-</div>
+</nav>

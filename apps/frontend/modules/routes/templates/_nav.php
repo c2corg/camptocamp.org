@@ -8,7 +8,7 @@ $redirected = $document->get('redirects_to');
 $is_archive = $document->isArchive();
 $is_protected = $document->get('is_protected');
 ?>
-<div id="nav_tools" class="nav_box">
+<nav id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>
@@ -47,4 +47,4 @@ $is_protected = $document->get('is_protected');
         </ul>
     </div>
     <div id="nav_tools_down"></div>
-</div>
+</nav>

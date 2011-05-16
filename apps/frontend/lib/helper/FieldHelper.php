@@ -243,6 +243,12 @@ function field_raw_date_data($document, $name)
     return format_date($document->get($name), 'D');
 }
 
+function field_semantic_date_data($document, $name)
+{
+    use_helper('Date');
+    return '<time datetime="'.$document->get($name).'">'.format_date($document->get($name), 'D').'</time>';
+}
+
 /**
  * Display the value of a boolean field
  *

@@ -3,8 +3,7 @@ use_helper('Button');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
 ?>
-
-<div id="nav_tools" class="nav_box">
+<nav id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>
@@ -20,4 +19,4 @@ $lang = $sf_user->getCulture();
         </ul>
     </div>
     <div id="nav_tools_down"></div>
-</div>
+</nav>

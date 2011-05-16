@@ -1,8 +1,9 @@
-<?php use_helper('Button') ?>
-<?php $module = $sf_context->getModuleName() ?>
-<?php $lang = $sf_user->getCulture() ?>
-
-<div id="nav_tools" class="nav_box">
+<?php
+use_helper('Button');
+$module = $sf_context->getModuleName();
+$lang = $sf_user->getCulture();
+ ?>
+<nav id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>
@@ -15,4 +16,4 @@
         </ul>
     </div>
     <div id="nav_tools_down"></div>
-</div>
+</nav>

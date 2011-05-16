@@ -4,7 +4,7 @@ use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Field', 'S
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $sf_params->get('id');
-$date = field_raw_date_data($document, 'date');
+$date = field_semantic_date_data($document, 'date');
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $mobile_version =  c2cTools::mobileVersion();

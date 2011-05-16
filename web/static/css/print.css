@@ -348,8 +348,8 @@ img.embedded_right
   font-size: 0.8em;
 }
 
-/* avoid breaking images */
-.img_box {
+/* avoid breaking images or map */
+#map_container_section_container, .img_box {
   page-break-inside: avoid;
 }
 

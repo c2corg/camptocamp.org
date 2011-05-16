@@ -643,10 +643,14 @@ li.list_odd
   background-color: #fff;
 }
 
-/* images for smartphones in portrait mode,
-   we make them all centered and cleared */
+/* specific rules for smartphones in portrait mode (screen width <= 320px) */
 @media screen and (max-width:320px)
 {
+
+  /**
+   * images for smartphones in portrait mode,
+   * we make them all centered and cleared
+   */
   .embedded_left, img.embedded_left,
   .embedded_right, img.embedded_right,
   .embedded_center, img.embedded_center,

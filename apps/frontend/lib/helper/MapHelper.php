@@ -85,14 +85,14 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     layersList = $layers_list,
     initCenter = $init_center;");
     
-    $html .= '<div class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
+    $html .= '<section class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
     $html .= '<div id="map" style="height:' . $height . 'px;width:100%">';
     $html .= '<div id="mapLoading">'.image_tag($app_static_url . '/static/images/indicator.gif');
     $html .= __('Map is loading...') . '</div>';
     $html .= '</div>';
     $html .= '<div id="scale"></div>';
     $html .= '<div id="fake_clear"></div>';
-    $html .= '</div></div>';
+    $html .= '</div></section>';
 
     if (sfConfig::get('app_async_map', true))
     {

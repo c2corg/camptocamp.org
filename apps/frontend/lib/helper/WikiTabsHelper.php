@@ -89,23 +89,23 @@ function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null
     // check if it is an old version
     if (!is_null($version))
     {
-        return '<div id="nav_edit" class="nav_box"><ul>' .
+        return '<nav id="nav_edit" class="nav_box"><ul>' .
            tab_tag('view', $id, $active_tag, "@document_by_id_lang_version?module=$module&id=$id&lang=$lang&version=$version", 'action_filter') . 
            tab_tag('edit', $id, $active_tag, "@document_edit_archive?module=$module&id=$id&lang=$lang&version=$version", 'action_edit') .
            tab_tag('history', $id && $exists_in_lang, $active_tag, "@document_history?module=$module&id=$id&lang=$lang", 'action_list') .
            $comment_tag .
-           '</ul></div>';
+           '</ul></nav>';
     }
     else
     {
         $view_route = $slug ? "@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug"
                             : "@document_by_id_lang?module=$module&id=$id&lang=$lang";
 
-        return '<div id="nav_edit" class="nav_box"><ul>' .
+        return '<nav id="nav_edit" class="nav_box"><ul>' .
            tab_tag('view', $id, $active_tag, $view_route, 'action_filter') .
            tab_tag('edit', $id, $active_tag, "@document_edit?module=$module&id=$id&lang=$lang", 'action_edit') .
            tab_tag('history', $id && $exists_in_lang, $active_tag, "@document_history?module=$module&id=$id&lang=$lang", 'action_list') .
            $comment_tag .
-           '</ul></div>';
+           '</ul></nav>';
     }
 }

@@ -7,7 +7,7 @@ $is_connected = $sf_user->isConnected();
 $is_archive = $document->isArchive();
 $has_rights = $sf_user->hasCredential('moderator');
 ?>
-<div id="nav_tools" class="nav_box">
+<nav id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>
@@ -37,4 +37,4 @@ $has_rights = $sf_user->hasCredential('moderator');
         </ul>
     </div>
     <div id="nav_tools_down"></div>
-</div>
+</nav>

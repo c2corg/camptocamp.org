@@ -140,7 +140,7 @@ if ($is_not_archive && $is_not_merged)
                     echo link_to($outing->get('name'),
                                  '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .
                          //' - ' . field_activities_data($outing, true, false) .
-                         ' - ' . field_raw_date_data($outing, 'date') .
+                         ' - ' . field_semantic_date_data($outing, 'date') .
                          ' - ' . link_to($author_info['topo_name'],
                                          '@document_by_id?module=users&id=' . $author_info['id']) .
                          (isset($outing['nb_images']) ?

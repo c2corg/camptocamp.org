@@ -3,7 +3,7 @@ use_helper('Button', 'Ajax', 'Javascript');
 
 $module = $sf_context->getModuleName();
 ?>
-<div id="nav_tools" class="nav_box">
+<nav id="nav_tools" class="nav_box">
     <div id="nav_tools_top"></div>
     <div id="nav_tools_content">
         <ul>
@@ -11,4 +11,4 @@ $module = $sf_context->getModuleName();
         </ul>
     </div>
     <div id="nav_tools_down"></div>
-</div>
+</nav>
