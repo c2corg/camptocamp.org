@@ -3224,9 +3224,9 @@ msgstr "<h3>Grado en raquetas</h3>\n"
 "<br /> \n"
 "Fíjese en la <a href=\"/articles/239491\">ayuda sobre la graduación de itinearios en raquetas</a>."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "_source file_info"
-msgstr "<h3>Fuente</h3>Enlace hacia la imagen vectorial (svg) en base a la cual fue creada la imagen"
+msgstr "<h3>Fitxer font</h3>Enllaç cap a l'arxiu vectorial (svg) en base al qual es va crear la imatge"
 
 # [comment]
 # copié collé de ES
@@ -3307,18 +3307,17 @@ msgstr "<h3>Meteo observada</h3>Condicions metereològiques trobads durant la so
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
 # 
 # Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "abs button title"
-msgstr "Definir el texto seleccionado como presentación sintetica del documento"
+msgstr "Defineix el text seleccionat com a resum del document"
 
 msgid "abstract"
 msgstr "Resum / introducció:"
 
 # [general comment]
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
-# [WARNING] es translation used
 msgid "access"
-msgstr "Acceso:"
+msgstr "Accés:"
 
 msgid "access_comments"
 msgstr "Comentaris sobre l'accés:"
@@ -3398,43 +3397,39 @@ msgstr "tot"
 
 # [general comment]
 # a short string when all facings are selected
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "all facings"
-msgstr "all"
+msgstr "totes"
 
 # [general comment]
 # a summary to present best periods when all months are selected
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "all months"
-msgstr "all the year round"
+msgstr "tot l'any"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] es translation used
 msgid "alpes_centrales"
-msgstr "Alpes centrales"
+msgstr "Alps centrals"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] es translation used
 msgid "alpes_n"
-msgstr "Alpes occidentales - N"
+msgstr "Alps occidentals - N"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] es translation used
 msgid "alpes_orientales"
-msgstr "Alpes E"
+msgstr "Alps orientals"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] es translation used
 msgid "alpes_s"
-msgstr "Alpes occidentales - S"
+msgstr "Alps occidentals - S"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3448,9 +3443,9 @@ msgstr "no profesional"
 # [general comment]
 # quelle est l'utilisation de cette chaine ?
 # -> le pluriel du type de contributeur (amateur -> amateurs)
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "amateurs"
-msgstr "aficionados"
+msgstr "aficionats"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -3482,9 +3477,9 @@ msgstr "Aquitània"
 msgid "area"
 msgstr "regió"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "area filters applied"
-msgstr "<br /><span style=\"color:red\">Cuidado: sus filtros de personalización de regiones han sido aplicados al formulario de búsqueda </span>"
+msgstr "<br /><span style=\"color:red\">Compte: els teus filtres de personalització de regions han estat aplicats al formulari</span>"
 
 msgid "area_type"
 msgstr "Tipus de regió:"
@@ -3499,9 +3494,8 @@ msgstr "Llista de zones"
 msgid "areas presentation"
 msgstr "Una \"región\" puede ser un macizo montañoso, una región administrativa (département francés, cantón suizo...), un pais. Una \"region\" es automáticamente asociada a todos los documentos georeferenciados que se encuentran en la zona cubierta por la \"región\"."
 
-# [WARNING] es translation used
 msgid "article"
-msgstr "artículo"
+msgstr "article"
 
 msgid "article body"
 msgstr "Cos de l'article:"
@@ -3519,11 +3513,10 @@ msgstr "articles"
 msgid "articles list"
 msgstr "Llista d'articles"
 
-# [WARNING] es translation used
 msgid "articles presentation"
-msgstr "Un artículo puede ser colaborativo o personal. Un artículo puede estar asociado a otros documentos."
+msgstr "Un article pot ser col·laboratiu o personal. Un article pot estar associat a d'altres documents."
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "artificial"
 msgstr "artificial"
 
@@ -3565,22 +3558,21 @@ msgstr "Posar el text seleccionat en negreta"
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "back"
-msgstr "volver"
+msgstr "torna"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "backgrounds"
-msgstr "Seleccione el fondo cartográfico:"
+msgstr "Fons cartogràfic:"
 
 # [general comment]
 # Titre pour les liens vers les articles "Le contenu du sac".
 # Inutilisé actuellement.
-# [WARNING] es translation used
 msgid "backpack content"
-msgstr "Contenido de la mochila"
+msgstr "El contingut de la motxilla"
 
 msgid "basalte"
 msgstr "basalt"
@@ -3596,9 +3588,8 @@ msgstr "Baixa Normandia"
 
 # [general comment]
 # Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
-# [WARNING] es translation used
 msgid "bedding places"
-msgstr "camas"
+msgstr "places"
 
 msgid "beginner_proof"
 msgstr "iniciació"
@@ -3636,9 +3627,8 @@ msgstr "llibres"
 msgid "books list"
 msgstr "Llista de llibres"
 
-# [WARNING] es translation used
 msgid "books presentation"
-msgstr "Un \"libro\" puede ser con soporte papel o numérico (CD, DVD...)."
+msgstr "Un \"llibre\" pot ser en paper o en suport digital (CD, DVD, ...)."
 
 # [general comment]
 # Type du site d'escalade : bloc.
@@ -3716,29 +3706,26 @@ msgstr "Camptocamp.org... pur esquí i surf!"
 msgid "c2c customized for snow_ice_mixed !"
 msgstr "Camptocamp.org... només neu, glaç i mixte!"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "c2c customized for snowshoeing !"
-msgstr "Camptocamp.org... ¡solo raquetas!"
+msgstr "Camptocamp.org... només raquetes!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org no filtra per activitats en aquest moment"
 
 # [general comment]
 # titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
-# [WARNING] es translation used
 msgid "c2c map data"
-msgstr "Objetos C2C"
+msgstr "Objectes C2C"
 
-# [WARNING] es translation used
 msgid "c2c website"
-msgstr "La pagina c2c"
+msgstr "El lloc web C2C"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org és un web col.laboratiu dedicat als esports de muntanya com l'alpinisme, l'escalada, l'esquí de muntanya i les excursions amb raquetes o a peu. És un lloc d'intercanvi obert a tothom!"
 
-# [WARNING] es translation used
 msgid "c2corg news"
-msgstr "Noticias de c2c"
+msgstr "L'actualitat de C2C"
 
 msgid "calcaire"
 msgstr "calcari"
@@ -3772,42 +3759,41 @@ msgstr "català"
 msgid "categories"
 msgstr "Categories:"
 
-# [WARNING] es translation used
 msgid "categories (multiple selection allowed)"
-msgstr "Categorías (selección múltiple posible):"
+msgstr "Categories (selecció múltiple possible):"
 
 msgid "category"
 msgstr "Categoria:"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "cda map help text"
-msgstr "Este mapa muestra puntos de acceso que se puede alcanzar en transporte publico. Haga clic en un punto de acceso para ver la lista de itinerarios."
+msgstr "El mapa mostra els punts d'inici de sortides accessibles amb transport públic. Cliqueu sobre un accés per veure'n la llista d'itineraris associats."
 
 # [general comment]
 # Portail "Changer d'approche" : titre de la section comportant la carte.
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "cda map title"
-msgstr "Encontrar una ruta accesible con transporte en común o ecomobilidad"
+msgstr "Troba un itinerari accessible en transport públic"
 
 # [general comment]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
-# [WARNING] es translation used
+# [comment]
+# Seulement les Alpes?
+# [WARNING] needs_review
 msgid "cda partners tips"
-msgstr "El portal Changer d'Approche es co-financiado por la Unión Europea. Europa se compromete con los Alpes con el Fondo Europeo de Desarrollo Regional"
+msgstr "El portal Changer d'approche és cofinançat per la Unió Europea. Europa es compromet amb els Alps a través dels fons europeus de desenvolupament regional."
 
-# [WARNING] es translation used
 msgid "cda sub title"
-msgstr "Las montañas sin coche"
+msgstr "El portal de la muntanya sense cotxe"
 
 # [WARNING] es translation used
 msgid "cda_prepare_outing_box"
 msgstr "<p>Tiempo</p><ul><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espana)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Suiza)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li></ul> <p>Aludes</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin francés </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Boletin suizo</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Boletin italiano</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Transporte</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trenes en Europa)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (Francia)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suiza)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italia)</a></li></ul> <p>Otros</p><ul><li><a href=\"http://veloski.fr/\">bici+esquí (en francés)</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (en francés)</li></ul>"
 
-# [WARNING] es translation used
 msgid "center"
-msgstr "centrar"
+msgstr "centra"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3823,9 +3809,9 @@ msgstr "Xampanya-Ardenes"
 
 # [general comment]
 # nom du portail "Changer d'approche" (pour le menu)
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "changerdapproche"
-msgstr "Las montañas sin coche"
+msgstr "La muntanya sense cotxe"
 
 msgid "children_proof"
 msgstr "Nens:"
@@ -3845,7 +3831,7 @@ msgstr "premeu per modificar"
 msgid "click to enlarge"
 msgstr "Premeu per eixamplar"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "climbing_gym"
 msgstr "palestra"
 
@@ -3874,9 +3860,8 @@ msgstr "tancada"
 msgid "club"
 msgstr "club o agrupación que organiza salidas a la montaña"
 
-# [WARNING] es translation used
 msgid "clubs"
-msgstr "clubes y grupos que organizan salidas"
+msgstr "clubs i associacions que organitzen sortides"
 
 msgid "code"
 msgstr "Codi:"
@@ -3884,13 +3869,11 @@ msgstr "Codi:"
 msgid "collab article"
 msgstr "article col·laboratiu"
 
-# [WARNING] es translation used
 msgid "collaborative content"
-msgstr "Contenido colaborativo"
+msgstr "Contingut col·laboratiu"
 
-# [WARNING] es translation used
 msgid "collaborative image"
-msgstr "imagen colaborativa"
+msgstr "imatge col·laborativa"
 
 msgid "comment"
 msgstr "comentari"
@@ -3903,9 +3886,9 @@ msgstr "Llegeix i afegeix comentaris al document"
 
 # [general comment]
 # cotometre
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "compute technical grade"
-msgstr "Estimar el grado técnico en esquí (sistema toponeige)"
+msgstr "Estima el grau tècnic en esquí"
 
 msgid "cond short"
 msgstr "Condicions"
@@ -3913,9 +3896,8 @@ msgstr "Condicions"
 msgid "conditions"
 msgstr "Condicions trobades:"
 
-# [WARNING] es translation used
 msgid "conditions linked to"
-msgstr "lista de las condiciones asociadas"
+msgstr "llista de les condicions associades"
 
 msgid "conditions_levels"
 msgstr "Quantitat de neu per zones:"
@@ -3956,9 +3938,9 @@ msgstr "Contacte"
 msgid "content license"
 msgstr "Llicència dels continguts"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "copyright image"
-msgstr "copyrighted image"
+msgstr "Imatge sotmesa a copyright"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4149,9 +4131,8 @@ msgstr "Baixar les dades geogràfiques en format %1%"
 
 # [general comment]
 # Catégorie d'article : "brouillon"
-# [WARNING] en translation used
 msgid "draft"
-msgstr "draft"
+msgstr "esborrany"
 
 msgid "duration"
 msgstr "Horari:"
@@ -4277,9 +4258,8 @@ msgstr "Fitxer:"
 msgid "file cannot contain scripts"
 msgstr "Els fitxers SVG no han de contenir scripts"
 
-# [WARNING] es translation used
 msgid "file failed to upload"
-msgstr "El archivo no se pudo cargar correctamente o excede los limites de tamaño autorizados (2Mo)"
+msgstr "El fitxer no s'ha carregat correctament o bé passa de la mida màxima (2 MB)"
 
 # [general comment]
 # File failed to get transmitted, most probably because plupload failed to resize it correctly (even when resized, image is too big)
