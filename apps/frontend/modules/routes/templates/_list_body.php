@@ -30,10 +30,7 @@ echo list_link($item_i18n, 'routes', $summit_name) .
 
 if (isset($item['name']) && $summit_name != $summit_2['name'])
 {
-    $link = link_to($summit_2['name'],
-                    '@document_by_id_lang_slug?module=summits&id=' . $summit_2['id'] .
-                        '&lang=' .  $summit_2['culture'] . '&slug=' . make_slug($summit_2['name']),
-                    ($summit_2['culture'] != $sf_user->getCulture() ? array('hreflang' => $summit_2['culture']) : array()));
+    $link = list_link($summit_2, 'summits');
     echo '<br /><small>', __('route linked with', array('%1%' => $link)), '</small>';
 }
 ?></td>
