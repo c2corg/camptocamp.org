@@ -1331,6 +1331,8 @@ class sfPunBBCodeParser
                 $patterns = array(
                     // youtube http://www.youtube.com/watch?v=3xMk3RNSbcc(&something)
                     '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtube.com/watch\?([=&\w]+&)?v=([-\w]+)(&.+)?\[/video\]#isU',
+                    // youtube short links http://youtu.be/3xMk3RNSbcc
+                    '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtu.be/([-\w]+)\[/video\]#isU',
                     // dailymotion http://www.dailymotion.com/video/x28z33_chinese-man-records-skank-in-the-ai_music
                     '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.dailymotion.com/video/([\da-zA-Z]+)_[-&;\w]+\[/video\]#isU',
                     // googlevideo http://video.google.com/videoplay?docid=3340274697167011147#
@@ -1349,6 +1351,7 @@ class sfPunBBCodeParser
                 $replacements = array(
                     // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html TODO Possibility to use <object> instead of <iframe>?
                     '<iframe class="video youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$5" frameborder="0"></iframe>',
+                    '<iframe class="video youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$4" frameborder="0"></iframe>',
                     // dailymotion - No html5 embed code yet. But some js https://gist.github.com/484762 to add in mobile version
                     // FIXME the js code should be only added once, but seems to work anyway
                     '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>' .
