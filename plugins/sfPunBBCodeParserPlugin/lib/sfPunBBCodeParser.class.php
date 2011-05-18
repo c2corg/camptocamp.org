@@ -1349,7 +1349,7 @@ class sfPunBBCodeParser
                 );
 
                 $replacements = array(
-                    // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html TODO Possibility to use <object> instead of <iframe>?
+                    // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html
                     '<iframe class="video youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$5" frameborder="0"></iframe>',
                     '<iframe class="video youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$4" frameborder="0"></iframe>',
                     // dailymotion - No html5 embed code yet. But some js https://gist.github.com/484762 to add in mobile version
@@ -1358,7 +1358,7 @@ class sfPunBBCodeParser
                     ($mobile_version ? '<script type="text/javascript">(function(){try{var m = navigator.mimeTypes, t = \'application/x-shockwave-flash\', a = \'ShockwaveFlash.ShockwaveFlash\';if (m && m.length ? !m[t] : !(function(){try{return new ActiveXObject(a)}catch(e){}})()){var e = document.createElement(\'script\'); e.type = \'text/javascript\'; e.async = true;e.src = \'http://www.dailymotion.com/js/external/embedcompat.js\';var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(e, s);}}catch(e){}})();</script>' : ''),
                     // googlevideo
                     '<object class="video" width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
-                    // vimeo - This version should support iPhone, Flash, HTML5 etc TODO Possibility to use <object> instead of <iframe>?
+                    // vimeo - This version should support iPhone, Flash, HTML5 etc
                     '<iframe class="video" src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3" frameborder="0"></iframe>',
                     // megavideo
                     '<object class="video" width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
