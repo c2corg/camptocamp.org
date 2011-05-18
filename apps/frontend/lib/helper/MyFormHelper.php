@@ -18,8 +18,6 @@ function loadTooltipsEditRessources()
 {
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript('/static/js/tooltips.js', 'last');
-    $response->addJavascript('/static/js/tooltips_edit.js', 'last');
-    $response->addJavascript('/static/js/submit.js', 'last');
 }
 
 loadTooltipsEditRessources();
