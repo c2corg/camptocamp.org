@@ -4857,6 +4857,11 @@ td.history_buttons {
   -webkit-border-radius: 0 !important;
 }
 
+iframe
+{
+  border: 0;
+}
+
 iframe.embedded_ppt_pdf
 {
   display: block;
@@ -4864,7 +4869,6 @@ iframe.embedded_ppt_pdf
   float: none;
   width: 880px;
   height: 700px;
-  border: 0;
 }
 
 a.embedded_ppt_pdf
