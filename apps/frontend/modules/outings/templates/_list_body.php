@@ -14,7 +14,7 @@ $item_i18n = $item['OutingI18n'][0];
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <td><?php
 echo list_link($item_i18n, 'outings') . ' ' . $has_gps_track ?></td>
-<td><?php echo format_date($item['date'], 'D') ?></td>
+<td><time datetime="<?php echo $item['date'] ?>"><?php echo format_date($item['date'], 'D') ?></time></td>
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
 <td><?php echo displayWithSuffix($item['height_diff_up'], 'meters') ?></td>

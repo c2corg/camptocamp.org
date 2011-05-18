@@ -57,7 +57,7 @@ if ($is_not_archive && $is_not_merged)
                              "@document_by_id_lang_slug?module=outings&id=" . $doc['id'] . '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']),
                              ($doc['culture'] != $sf_user->getCulture() ? array('hreflang' => $doc['culture']) : array()))
                          . ' - ' . field_activities_data($doc, true, false)
-                         . ' - ' . $doc['date'] . $height_diff_up;
+                         . ' - ' . '<time datetime="' . $doc['date'] . '">' . $doc['date'] . '</time>' . $height_diff_up;
             ?>
             </li>
             <?php endforeach; ?>

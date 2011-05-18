@@ -24,10 +24,9 @@ if (count($items) == 0): ?>
 
             $link = '@document_by_id?module=users&id=' . $item['document_id'];
 
-            echo picto_tag('picto_' . $module_name, __($module_name));
-            echo ' ';
-            echo link_to($item[$i18n_archive]['name'], "@document_by_id_lang_version?module=$module_name&id=$id&lang=$lang&version=$version") . ' - ';
-            echo smart_date($item['created_at']) . ' - ';
+            echo picto_tag('picto_' . $module_name, __($module_name)),
+                 ' ', link_to($item[$i18n_archive]['name'], "@document_by_id_lang_version?module=$module_name&id=$id&lang=$lang&version=$version"), ' - ',
+                 smart_date($item['created_at']), ' - ';
             if ($needs_username)
             {
                 echo link_to($item['history_metadata']['user_private_data']['topo_name'], $link ) . ' - ';

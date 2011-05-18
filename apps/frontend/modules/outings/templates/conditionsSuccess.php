@@ -46,7 +46,7 @@ else:
         $i18n = $item['OutingI18n'][0];
         $item_id = $i18n['id'];
         echo '<span class="item_title">' .
-             format_date($item['date'], 'dd/MM/yyyy') . ' - ' .
+             '<time datetime="' . $item['date'] . '">' . format_date($item['date'], 'dd/MM/yyyy') . '</time> - ' .
              get_paginated_activities($item['activities']) . ' - ' .
              link_to($i18n['name'],
                      '@document_by_id_lang_slug?module=outings&id=' . $item_id . '&lang=' . $i18n['culture'] . '&slug=' . make_slug($i18n['name'])) . ' - ' .

@@ -55,8 +55,8 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
 <table id="pagehistory">
 
   <?php if ($versions_nb != 1):?>
-  <col />
-  <col class="radio_col" />
+  <col /><col class="radio_col" />
+  <col /><col /><col /><col />
   <?php endif ?>
   
   <tr>
@@ -91,7 +91,7 @@ foreach ($versions as $version):
     <?php if ($versions_nb != 1):?>
     <td class="history_buttons"><?php echo radiobuttons_history_tag($row_nb++, $version['version']) ?></td>
     <?php endif ?>
-    <td><?php echo format_datetime($version['created_at']) ?></td>
+    <td><time datetime="<?php echo date('c', strtotime($version['created_at'])) ?>"><?php echo format_datetime($version['created_at']) ?></time></td>
 
     <td><?php 
     echo link_to($version['history_metadata']['user_private_data']['topo_name'],

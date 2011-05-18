@@ -42,7 +42,8 @@ $metadatas = array('old' => $old_metadata,
     <?php
     $metadata = $metadatas[$rank];
     
-    $document_date = format_datetime($metadata->get('written_at'));
+    $w_at = $metadata->get('written_at');
+    $document_date = '<time datetime="' . date('c', strtotime($w_at)) . '">' . format_datetime($w_at) . '</time>';
     if ($document->getVersion() != $current_version)
     {
         $route = "@document_by_id_lang_version?module=$module&id=$id&lang=" . $document->getCulture() . '&version=' . $document->getVersion();
@@ -99,8 +100,10 @@ $metadatas = array('old' => $old_metadata,
 <?php
 if ($new_document->getVersion() != $current_version)
 {
+    $w_at = $new_metadata->get('written_at');
     echo __('Version #%1%, date %2%', array('%1%' => $new_document->getVersion(),
-                                            '%2%' => format_datetime($new_metadata->get('written_at'))));
+                                            '%2%' => '<time datetime="' . date('c', strtotime($w_at)) . '">' .
+                                                     format_datetime($w_at) . '</time>'));
 }
 else
 {

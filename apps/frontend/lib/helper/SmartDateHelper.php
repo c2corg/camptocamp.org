@@ -8,8 +8,8 @@ use_helper('Date');
 
 function add_span($in, $date)
 {
-    return '<span class="relative_time">' . $in . '</span><span class="absolute_time" style="display:none">' .
-           format_datetime($date).'</span>';
+    return '<time datetime="' . date('c', strtotime($date)). '"><span class="relative_time">' . $in . '</span><span class="absolute_time" style="display:none">' .
+           format_datetime($date).'</span></time>';
 }
 
 function smart_date($date, $is_timestamp = false)
