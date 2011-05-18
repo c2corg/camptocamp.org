@@ -1350,22 +1350,20 @@ class sfPunBBCodeParser
 
                 $replacements = array(
                     // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html
-                    '<iframe class="video youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$5" frameborder="0"></iframe>',
-                    '<iframe class="video youtube-player" type="text/html" width="$2" height="$3" src="http://www.youtube.com/embed/$4" frameborder="0"></iframe>',
-                    // dailymotion - No html5 embed code yet. But some js https://gist.github.com/484762 to add in mobile version
-                    // FIXME the js code should be only added once, but seems to work anyway
-                    '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>' .
-                    ($mobile_version ? '<script type="text/javascript">(function(){try{var m = navigator.mimeTypes, t = \'application/x-shockwave-flash\', a = \'ShockwaveFlash.ShockwaveFlash\';if (m && m.length ? !m[t] : !(function(){try{return new ActiveXObject(a)}catch(e){}})()){var e = document.createElement(\'script\'); e.type = \'text/javascript\'; e.async = true;e.src = \'http://www.dailymotion.com/js/external/embedcompat.js\';var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(e, s);}}catch(e){}})();</script>' : ''),
+                    '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$5"></iframe>',
+                    '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$4"></iframe>',
+                    // dailymotion
+                    '<iframe width="$2" height="$3" src="http://www.dailymotion.com/embed/video/$4?theme=none&amp;wmode=transparent"></iframe>',
                     // googlevideo
-                    '<object class="video" width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
-                    // vimeo - This version should support iPhone, Flash, HTML5 etc
-                    '<iframe class="video" src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3" frameborder="0"></iframe>',
+                    '<object class="video" width="$2" height="$3" data="http://video.google.com/googleplayer.swf?docId=$4"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4" /><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
+                    // vimeo
+                    '<iframe class="video" src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3"></iframe>',
                     // megavideo
-                    '<object class="video" width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+                    '<object class="video" width="$2" height="$3" data="http://www.megavideo.com/v/$4"><param name="movie" value="http://www.megavideo.com/v/$4" /><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
                     // metacafe
-                    '<object class="video" width="$2" height="$3"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf"></param><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+                    '<object class="video" width="$2" height="$3" data="http://www.metacafe.com/fplayer/$4.swf"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf" /><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
                     // sevenload
-                    '<object class="video" width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true"></param></param><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash"></embed></object>',
+                    '<object class="video" width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true" /><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash" /></object>',
                 );
             }
             else
