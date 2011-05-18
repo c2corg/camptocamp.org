@@ -827,7 +827,7 @@ function do_clickable($text)
     $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
     $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
-    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/+((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
+    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
     $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')
