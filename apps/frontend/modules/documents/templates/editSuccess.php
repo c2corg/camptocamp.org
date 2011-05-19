@@ -3,7 +3,6 @@ use_helper('Form', 'Viewer', 'WikiTabs', 'MyForm', 'Javascript', 'Ajax', 'SmartF
 $mobile_version = c2cTools::mobileVersion();
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/tooltips_edit.js', 'last');
-$response->addJavascript('/static/js/submit.js', 'last');
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
 $version = $sf_params->get('version');
