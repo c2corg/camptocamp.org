@@ -17,7 +17,6 @@ else // action
 function loadTooltipsEditRessources()
 {
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript('/static/js/tooltips.js', 'last');
     $response->addJavascript('/static/js/submit.js', 'last');
 }
 
