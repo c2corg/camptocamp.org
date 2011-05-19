@@ -675,7 +675,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	<h2><span><?php echo $search_title; ?></span></h2>
 	<div class="box">
 		<div class="inbox">
-			<table cellspacing="0">
+			<table>
 			<thead>
 				<tr>
 					<th class="tcl" scope="col"><?php echo $lang_common['Topic']; ?></th>
@@ -958,8 +958,7 @@ var GoogleSearch = {
       $(contentDiv).update('');
       var results = response.items;
 
-      var table = new Element('table', { cellspacing: 0,
-                                         style: 'border-style:solid; border-width:1px; border-color:#ff9933;' });
+      var table = new Element('table', { style: 'border-style:solid; border-width:1px; border-color:#ff9933;' });
 
       var tbody = new Element('tbody');
 

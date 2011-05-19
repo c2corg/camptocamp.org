@@ -51,8 +51,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         </div>
         <?php
         include_partial('common/mobile_footer', array('lang_code' => $lang_code,
-                                                      'footer_type' => $footer_type,
-                                                      'html5' => true));
+                                                      'footer_type' => $footer_type));
         ?>
     </div>
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>

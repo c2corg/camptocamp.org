@@ -190,7 +190,7 @@ generate_admin_menu('categories');
 				<fieldset>
 					<legend>Add/delete categories</legend>
 					<div class="infldset">
-						<table class="aligntop" cellspacing="0">
+						<table class="aligntop">
 							<tr>
 								<th scope="row">Add a new category<div><input type="submit" name="add_cat" value="Add New" tabindex="2" /></div></th>
 								<td>
@@ -220,7 +220,7 @@ generate_admin_menu('categories');
 				<fieldset>
 					<legend>Edit categories</legend>
 					<div class="infldset">
-						<table id="categoryedit" cellspacing="0" >
+						<table id="categoryedit">
 						<thead>
 							<tr>
 								<th class="tcl" scope="col">Name</th>

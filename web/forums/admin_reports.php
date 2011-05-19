@@ -81,7 +81,7 @@ if ($db->num_rows($result))
 					<fieldset>
 						<legend>Reported <?php echo format_time($cur_report['created']) ?></legend>
 						<div class="infldset">
-							<table cellspacing="0">
+							<table>
 								<tr>
 									<th scope="row">Forum&nbsp;&raquo;&nbsp;Topic&nbsp;&raquo;&nbsp;Post</th>
 									<td><?php echo $forum ?>&nbsp;&raquo;&nbsp;<?php echo $topic ?>&nbsp;&raquo;&nbsp;<?php echo $postid ?></td>
@@ -130,7 +130,7 @@ if ($db->num_rows($result))
 					<fieldset>
 						<legend>Zapped <?php echo format_time($cur_report['zapped']) ?></legend>
 						<div class="infldset">
-							<table cellspacing="0">
+							<table>
 								<tr>
 									<th scope="row">Forum&nbsp;&raquo;&nbsp;Topic&nbsp;&raquo;&nbsp;Post</th>
 									<td><?php echo $forum ?>&nbsp;&raquo;&nbsp;<?php echo $topic ?>&nbsp;&raquo;&nbsp;<?php echo $post_id ?></td>

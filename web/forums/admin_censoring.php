@@ -100,7 +100,7 @@ generate_admin_menu('censoring');
 						<legend>Add word</legend>
 						<div class="infldset">
 							<p>Enter a word that you want to censor and the replacement text for this word. Wildcards are accepted (i.e. *some* would match somewhere and lonesome). Censor words also affect usernames. New users will not be able to register with usernames containing any censored words. The search is case insensitive. <strong>Censor words must be enabled in <a href="admin_options.php#censoring">Options</a> for this to have any effect.</strong></p>
-							<table  cellspacing="0">
+							<table>
 							<thead>
 								<tr>
 									<th class="tcl" scope="col">Censored&nbsp;word</th>
@@ -130,7 +130,7 @@ if ($db->num_rows($result))
 {
 
 ?>
-							<table cellspacing="0" >
+							<table>
 							<thead>
 								<tr>
 									<th class="tcl" scope="col">Censored&nbsp;word</th>

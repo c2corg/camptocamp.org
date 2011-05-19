@@ -151,7 +151,7 @@ DIV.block2col DIV.blockform
 
 /* 6.1 Table Basic Setup */
 
-.pun TABLE {WIDTH: 100%}
+.pun TABLE {WIDTH: 100%; BORDER-COLLAPSE: collapse;}
 
 /* 6.2 Fixed Table Setup */
 

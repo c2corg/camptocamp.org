@@ -183,7 +183,7 @@ generate_admin_menu('maintenance');
 						<legend>Rebuild search index</legend>
 						<div class="infldset">
 							<p>If you've added, edited or removed posts manually in the database or if you're having problems searching, you should rebuild the search index. For best performance you should put the forum in maintenance mode during rebuilding. <strong>Rebuilding the search index can take a long time and will increase server load during the rebuild process!</strong></p>
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Topics per cycle</th>
 									<td>

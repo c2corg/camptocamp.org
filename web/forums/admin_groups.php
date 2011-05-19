@@ -84,7 +84,7 @@ if (isset($_POST['add_group']) || isset($_GET['edit_group']))
 						<legend>Setup group options and permissions</legend>
 						<div class="infldset">
 							<p>Below options and permissions are the default permissions for the user group. These options apply if no forum specific permissions are in effect.</p>
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Group title</th>
 									<td>
@@ -386,7 +386,7 @@ generate_admin_menu('groups');
 					<fieldset>
 						<legend>Add new group</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Base new group on<div><input type="submit" name="add_group" value=" Add " tabindex="2" /></div></th>
 									<td>
@@ -416,7 +416,7 @@ while ($cur_group = $db->fetch_assoc($result))
 					<fieldset>
 						<legend>Set default group</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Default group<div><input type="submit" name="set_default_group" value=" Save " tabindex="4" /></div></th>
 									<td>
@@ -453,7 +453,7 @@ while ($cur_group = $db->fetch_assoc($result))
 						<legend>Edit/remove groups</legend>
 						<div class="infldset">
 							<p>The pre-defined groups Guests, Administrators, Moderators and Members cannot be removed. They can however be edited. Please note though, that in some groups, some options are unavailable (e.g. the <em>edit posts</em> permission for guests). Administrators always have full permissions.</p>
-							<table cellspacing="0">
+							<table>
 <?php
 
 $result = $db->query('SELECT g_id, g_title FROM '.$db->prefix.'groups ORDER BY g_id') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());

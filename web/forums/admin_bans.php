@@ -117,7 +117,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 <?php endif; ?>				<fieldset>
 						<legend>Supplement ban with IP and e-mail</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Username</th>
 									<td>
@@ -148,7 +148,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 					<fieldset>
 						<legend>Ban message and expiry</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Ban message</th>
 									<td>
@@ -290,7 +290,7 @@ generate_admin_menu('bans');
 					<fieldset>
 						<legend>Add ban</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Username<div><input type="submit" name="add_ban" value=" Add " tabindex="2" /></div></th>
 									<td>
@@ -322,7 +322,7 @@ if ($db->num_rows($result))
 					<fieldset>
 						<legend>Ban expires: <?php echo $expire ?></legend>
 						<div class="infldset">
-							<table cellspacing="0">
+							<table>
 <?php if ($cur_ban['username'] != ''): ?>								<tr>
 									<th>Username</th>
 									<td><?php echo pun_htmlspecialchars($cur_ban['username']) ?></td>

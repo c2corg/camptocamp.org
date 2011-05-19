@@ -123,7 +123,7 @@ else	// If not, we show the "Show text" form
 					<fieldset>
 						<legend>Enter a piece of text and hit "Show text"!</legend>
 						<div class="infldset">
-						<table class="aligntop" cellspacing="0">
+						<table class="aligntop">
 							<tr>
 								<th scope="row">Text to show<div><input type="submit" name="show_text" value="Show text" tabindex="2" /></div></th>
 								<td>

@@ -17,9 +17,10 @@ else
 use_helper('MyMinify', 'MetaLink');
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_code ?>" lang="<?php echo $lang_code ?>">
+<!doctype html>
+<html lang="<?php echo $lang_code ?>">
 <head>
+    <meta charset="utf-8">
     <?php
         $debug = (bool)sfConfig::get('app_minify_debug');
         $combine = !$debug;
@@ -27,6 +28,9 @@ use_helper('MyMinify', 'MetaLink');
         echo include_metas();
         echo include_title();
         echo auto_discovery_link_tag('rss', $rss);
+    ?>
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <?php
         echo include_meta_links();
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 

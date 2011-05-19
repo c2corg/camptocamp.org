@@ -258,7 +258,7 @@ else if (isset($_GET['edit_forum']))
 					<fieldset>
 						<legend>Edit forum details</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Forum name</th>
 									<td><input type="text" name="forum_name" size="35" maxlength="80" value="<?php echo pun_htmlspecialchars($cur_forum['forum_name']) ?>" tabindex="1" /></td>
@@ -345,7 +345,7 @@ else if (isset($_GET['edit_forum']))
 						<legend>Edit group permissions for this forum</legend>
 						<div class="infldset">
 							<p>In this form, you can set the forum specific permissions for the different user groups. If you haven't made any changes to this forums group permissions, what you see below is the default based on settings in <a href="admin_groups.php">User groups</a>. Administrators always have full permissions and are thus excluded. Permission settings that differ from the default permissions for the user group are marked red. The "Read forum" permission checkbox will be disabled if the group in question lacks the "Read board" permission. For redirect forums, only the "Read forum" permission is editable.</p>
-							<table id="forumperms" cellspacing="0">
+							<table id="forumperms">
 							<thead>
 								<tr>
 									<th class="atcl">&nbsp;</th>
@@ -430,7 +430,7 @@ generate_admin_menu('forums');
 					<fieldset>
 						<legend>Create a new forum</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Add forum to category<div><input type="submit" name="add_forum" value=" Add " tabindex="2" /></div></th>
 									<td>
@@ -477,7 +477,7 @@ while ($cur_forum = $db->fetch_assoc($result))
 					<fieldset>
 						<legend>Category: <?php echo pun_htmlspecialchars($cur_forum['cat_name']) ?></legend>
 						<div class="infldset">
-							<table cellspacing="0">
+							<table>
 <?php
 
 		$cur_category = $cur_forum['cid'];

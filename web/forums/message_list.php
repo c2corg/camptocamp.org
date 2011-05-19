@@ -279,7 +279,7 @@ if(isset($_GET['id'])){
 	<h2><span><?php echo $name ?></span></h2>
 	<div class="box">
 		<div class="inbox">
-			<table cellspacing="0">
+			<table>
 			<thead>
 				<tr>
 <?php

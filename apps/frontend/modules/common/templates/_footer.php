@@ -20,7 +20,7 @@ else
 }
 ?> 
 
-<<?php echo isset($html5) ? 'footer' : 'div' ?> id="footer"<?php echo $class ?>>
+<footer id="footer"<?php echo $class ?>>
     <div id="footer_border_left">&nbsp;</div>
     <div id="footer_cc">
 <?php
@@ -89,4 +89,4 @@ echo javascript_tag('var _static_url = \'' . sfConfig::get('app_static_url') . '
         </div>
     </div>
     <div id="footer_border_right">&nbsp;</div>
-</<?php echo isset($html5) ? 'footer' : 'div' ?>>
+</footer>

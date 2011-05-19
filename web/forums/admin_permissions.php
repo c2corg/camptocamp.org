@@ -71,7 +71,7 @@ generate_admin_menu('permissions');
 					<fieldset>
 						<legend>Posting</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">BBCode</th>
 									<td>
@@ -115,7 +115,7 @@ generate_admin_menu('permissions');
 					<fieldset>
 						<legend>Signatures</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">BBCodes in signatures</th>
 									<td>
@@ -159,7 +159,7 @@ generate_admin_menu('permissions');
 					<fieldset>
 						<legend>Moderators</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Edit user profiles</th>
 									<td>
@@ -196,7 +196,7 @@ generate_admin_menu('permissions');
 					<fieldset>
 						<legend>Registration</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Allow banned e-mail addresses</th>
 									<td>

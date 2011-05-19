@@ -134,7 +134,7 @@ if (isset($_POST['confirm']))
 					<fieldset>
 						<legend>Contenu du message</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Sujet</th>
 									<td>
@@ -309,7 +309,7 @@ else
 					<fieldset>
 						<legend>Contenu du message</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
                                 <tr>
                                     <th scope="row">Groupe</th>
                                     <td>

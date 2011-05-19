@@ -168,7 +168,7 @@ else
 					<fieldset>
 						<legend>Prune old posts</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Days old</th>
 									<td>

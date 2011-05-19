@@ -187,7 +187,7 @@ if($db->num_rows($subforum_result))
     <h2><span>Sub forums</span></h2>
     <div class="box">
         <div class="inbox">
-            <table cellspacing="0">
+            <table>
             <thead>
                 <tr>
                     <th class="tcl" scope="col"><?php echo $lang_common['Forum'] ?></th>
@@ -313,7 +313,7 @@ if ($db->num_rows($subforum_result) < 1){
 <div id="vf" class="blocktable">
 	<div class="box">
 		<div class="inbox">
-			<table cellspacing="0">
+			<table>
 			<thead>
 				<tr>
 					<th class="tcl" scope="col"><?php echo $lang_common['Topic'] ?></th>

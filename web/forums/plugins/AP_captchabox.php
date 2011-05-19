@@ -87,7 +87,7 @@ if (isset($_POST['set_captchabox_options']))
 	  <form id="example" method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>&amp;cfg=captcha">
 		  <fieldset>
       	<div class="infldset">
-						<table class="aligntop" cellspacing="0">
+						<table class="aligntop">
 							<tr>
 								<th scope="row">For guest posts</th>
 								<td>

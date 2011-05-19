@@ -426,7 +426,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 					<p><strong><?php echo $lang_movepost['Explain move post radio'] ?></strong></p><br />
 					<p style="TEXT-ALIGN:center;"><input name="save" value="<?php echo $lang_common['Submit'] ?>" type="submit" /></p>
 					<p class="pagelink conl"><?php echo $paging_links ?></p><p>&nbsp;</p>
-					<table class="aligntop" cellspacing="0">
+					<table class="aligntop">
 						<tr>
 							<th class="tc2" scope="col">
 								<input name="topic_to_move" value="" type="radio" />

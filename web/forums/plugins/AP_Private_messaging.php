@@ -90,7 +90,7 @@ else
 					<fieldset>
 						<legend>Settings</legend>
 						<div class="infldset">
-						<table class="aligntop" cellspacing="0">
+						<table class="aligntop">
 							<tr>
 								<th scope="row">Enable private messaging</th>
 								<td>
@@ -113,7 +113,7 @@ else
 					<fieldset>
 						<legend>Permissions</legend>
 						<div class="infldset">
-						<table class="aligntop" cellspacing="0">
+						<table class="aligntop">
 							<?php
 							$result = $db->query('SELECT g_id, g_title, g_pm, g_pm_limit FROM '.$db->prefix.'groups WHERE g_id>'.PUN_ADMIN.' AND g_id != 3 ORDER BY g_id') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
 							while ($cur_group = $db->fetch_assoc($result))

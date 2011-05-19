@@ -46,7 +46,7 @@ else	// If not, we show the "Show text" form
 					<fieldset>
 						<legend>General</legend>
 						<div class="infldset">
-						<table class="aligntop" cellspacing="0">
+						<table class="aligntop">
 							<tr>
 								<th scope="row">Nombre d'options<div><input type="submit" name="form_sent" value="Enregistrer" tabindex="2" /></div></th>
 								<td>

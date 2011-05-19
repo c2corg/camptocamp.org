@@ -4639,7 +4639,7 @@ msgstr "Activités des itinéraires associés&nbsp;:"
 # Message for the user, asking if he wants to load the draft of the document edition (for exemple because he was no more connected when he submitted the form)
 # [WARNING] needs_review
 msgid "load draft?"
-msgstr "Voulez-vous utiliser le brouillon sauvegardé lors d'une édition précédente ? (OK : le brouillon sera copié dans le formulaire - Annuler : le brouillon sera effacé)"
+msgstr "Voulez-vous utiliser le brouillon sauvegardé lors d\\'une édition précédente ? (OK : le brouillon sera copié dans le formulaire - Annuler : le brouillon sera effacé)"
 
 msgid "local_product"
 msgstr "vente chez le producteur"

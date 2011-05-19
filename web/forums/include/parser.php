@@ -910,21 +910,21 @@ function do_video($text)
         );
 
         $replacements = array(
-            // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html TODO Possibility to use <object> instead of <iframe>?
-            '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$5" frameborder="0"></iframe>',
-            '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$4" frameborder="0"></iframe>',
-            // dailymotion - No html5 embed code yet. But some js https://gist.github.com/484762 to add in mobile version
+            // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html
+            '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$5"></iframe>',
+            '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$4"></iframe>',
+            // dailymotion
             '<iframe width="$2" height="$3" src="http://www.dailymotion.com/embed/video/$4?theme=none&amp;wmode=transparent"></iframe>',
             // googlevideo
-            '<object class="video" width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
-            // vimeo - This version should support iPhone, Flash, HTML5 etc TODO Possibility to use <object> instead of <iframe>?
-            '<iframe class="video" src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3" frameborder="0"></iframe>',
+            '<object class="video" width="$2" height="$3" data="http://video.google.com/googleplayer.swf?docId=$4"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4" /><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
+            // vimeo
+            '<iframe class="video" src="http://player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3"></iframe>',
             // megavideo
-            '<object class="video" width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object class="video" width="$2" height="$3" data="http://www.megavideo.com/v/$4"><param name="movie" value="http://www.megavideo.com/v/$4" /><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
             // metacafe
-            '<object class="video" width="$2" height="$3"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf"></param><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object class="video" width="$2" height="$3" data="http://www.metacafe.com/fplayer/$4.swf"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf" /><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
             // sevenload
-            '<object class="video" width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true"></param></param><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash"></embed></object>',
+            '<object class="video" width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true" /><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash" /></object>',
         );
 
         $text = preg_replace($patterns, $replacements, $text);

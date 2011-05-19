@@ -57,7 +57,7 @@ if (isset($_GET['ip_stats']))
 	<h2><span>Users</span></h2>
 	<div class="box">
 		<div class="inbox">
-			<table cellspacing="0">
+			<table>
 			<thead>
 				<tr>
 					<th class="tcl" scope="col">IP address</th>
@@ -141,7 +141,7 @@ if (isset($_GET['show_users']))
 	<h2><span>Users</span></h2>
 	<div class="box">
 		<div class="inbox">
-			<table cellspacing="0">
+			<table>
 			<thead>
 				<tr>
 					<th class="tcl" scope="col">Username</th>
@@ -300,7 +300,7 @@ else if (isset($_POST['find_user']))
 	<h2><span>Users</span></h2>
 	<div class="box">
 		<div class="inbox">
-			<table cellspacing="0">
+			<table>
 			<thead>
 				<tr>
 					<th class="tcl" scope="col">Forum name</th>
@@ -384,7 +384,7 @@ else
 						<legend>Enter search criteria</legend>
 						<div class="infldset">
 							<p>Search for users in the database. You can enter one or more terms to search for. Wildcards in the form of asterisks (*) are accepted.</p>
-							<table  class="aligntop" cellspacing="0">
+							<table  class="aligntop">
 								<tr>
 									<th scope="row">Forum name</th>
 									<td><input type="text" name="username" size="25" maxlength="25" tabindex="2" /></td>
@@ -484,7 +484,7 @@ else
 					<fieldset>
 						<legend>Enter IP to search for</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">IP address<div><input type="submit" value=" Find " tabindex="25" /></div></th>
 									<td><input type="text" name="show_users" size="18" maxlength="15" tabindex="24" />

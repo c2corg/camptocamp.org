@@ -27,7 +27,7 @@ if ((bool)sfConfig::get('app_mobile_version_ads'))
     include_partial('common/mobile_banner');
 }
 ?>
-<<?php echo isset($html5) ? 'footer' : 'div' ?> id="footer"<?php echo $class ?>>
+<footer id="footer"<?php echo $class ?>>
     <div id="footer_cc">
         <div id="footer_cc_text">
             <p><?php echo link_to(__('Home'), '@homepage'), ' | ', link_to(__('web version of the site'), 'http://'.$classic_hostname,
@@ -43,4 +43,4 @@ if ((bool)sfConfig::get('app_mobile_version_ads'))
             </ul>
         </div>
     </div>
-</<?php echo isset($html5) ? 'footer' : 'div' ?>>
+</footer>

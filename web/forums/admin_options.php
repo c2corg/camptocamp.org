@@ -159,7 +159,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>Essentials</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Board title</th>
 									<td>
@@ -292,7 +292,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>Time and timeouts</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Time format</th>
 									<td>
@@ -336,7 +336,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>Display</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Version number</th>
 									<td>
@@ -415,7 +415,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>Features</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Quick post</th>
 									<td>
@@ -487,7 +487,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>Reports</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Report method</th>
 									<td>
@@ -517,7 +517,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>Avatars</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Use avatars</th>
 									<td>
@@ -561,7 +561,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>E-mail</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Admin e-mail</th>
 									<td>
@@ -612,7 +612,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>Registration</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Allow new registrations</th>
 									<td>
@@ -649,7 +649,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>Announcement</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row">Display announcement</th>
 									<td>
@@ -672,7 +672,7 @@ generate_admin_menu('options');
 					<fieldset>
 						<legend>Maintenance</legend>
 						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
+							<table class="aligntop">
 								<tr>
 									<th scope="row"><a name="maintenance">Maintenance mode</a></th>
 									<td>
