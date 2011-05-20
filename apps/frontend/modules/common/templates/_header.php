@@ -78,7 +78,7 @@ $static_base_url = sfConfig::get('app_static_url');
 
 <?php
 echo generate_path();
-
+// display flash message if present
 foreach (array('notice', 'warning', 'error') as $key => $value)
 {
     echo display_flash_message($value);

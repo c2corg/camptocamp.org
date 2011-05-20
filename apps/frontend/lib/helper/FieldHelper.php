@@ -5,9 +5,12 @@
 
 function loadTooltipsViewRessources()
 {
-    $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript('/static/js/tooltips.js', 'last');
-    $response->addJavascript('/static/js/tooltips_view.js', 'last');
+    if (!c2cTools::mobileVersion())
+    {
+        $response = sfContext::getInstance()->getResponse();
+        $response->addJavascript('/static/js/tooltips.js', 'last');
+        $response->addJavascript('/static/js/tooltips_view.js', 'last');
+    }
 }
 
 loadTooltipsViewRessources();

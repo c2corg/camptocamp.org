@@ -1,14 +1,18 @@
 <?php
 use_helper('Form', 'Viewer', 'WikiTabs', 'MyForm', 'Javascript', 'Ajax', 'SmartFormat');
 $mobile_version = c2cTools::mobileVersion();
-$response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/tooltips.js', 'last');
-$response->addJavascript('/static/js/tooltips_edit.js', 'last');
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
 $version = $sf_params->get('version');
 $module = $sf_context->getModuleName();
 $linked_doc = isset($linked_doc) ? $linked_doc : null;
+
+if (!$mobile_version)
+{
+    $response = sfContext::getInstance()->getResponse();
+    $response->addJavascript('/static/js/tooltips.js', 'last');
+    $response->addJavascript('/static/js/tooltips_edit.js', 'last');
+}
 
 if ($linked_doc)
 {
