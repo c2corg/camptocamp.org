@@ -55,7 +55,7 @@ echo object_group_tag($document, 'height_diff_down', null, 'meters', array('clas
 </div>
 <div id="outings_length">
 <?php
-echo object_group_tag($document, 'outing_length', null, 'kilometers', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'outing_length', null, 'kilometers', array('class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
 ?>
 </div>
 <?php
