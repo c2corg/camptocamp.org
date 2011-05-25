@@ -4148,7 +4148,7 @@ msgid "file is malformed SVG"
 msgstr "le fichier n'est pas dans un format SVG valide"
 
 msgid "file is too big"
-msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
+msgstr "le fichier dépasse la limite de poids autorisée (2 Mio)"
 
 # [general comment]
 # Quite the same as "file failed to upload, probable resize error"

@@ -2503,7 +2503,7 @@ msgid "You are not connected"
 msgstr "Sie sind nicht angemeldet"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Sie können Dateien in den Formaten '%1%', mit einer maximalen Größe von (%3% x %2% px) und %4% MB hinzufügen."
+msgstr "Sie können Dateien in den Formaten '%1%', mit einer maximalen Größe von (%3% x %2% px) und %4% MiB hinzufügen."
 
 msgid "You can associate this article with any existing document using the following tool:"
 msgstr "Dieser Artikel kann mittels diesem Tool mit irgendeinem Dokument verbunden werden:"
@@ -3033,7 +3033,9 @@ msgid "_image_new_version_info"
 msgstr "<h3>Neue Version des Bildes</h3>Mit diesem Feld können sie eine neuere Version eines Bildes hochladen (üblicherweise ein aktualisiertes Topo, o.Ä.)."
 
 # [comment]
-# Constructed a table for better display
+# Constructed a table for better display  -> NO please follow tags from other languages (+ syntax is invalid)
+# 
+# thanks :D
 # [WARNING] needs_update
 msgid "_image_type_info"
 msgstr "<h3>Bildtyp</h3><br />\n"
@@ -4457,7 +4459,7 @@ msgid "file is malformed SVG"
 msgstr "Die Datei kann nicht als reguläres SVG-Format erkannt werden"
 
 msgid "file is too big"
-msgstr "die Datei ist zu gross (Maximal 2 Mo)"
+msgstr "die Datei ist zu gross (Maximal 2 MiB)"
 
 # [general comment]
 # Quite the same as "file failed to upload, probable resize error"

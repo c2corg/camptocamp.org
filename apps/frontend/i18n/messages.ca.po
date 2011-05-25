@@ -4276,7 +4276,7 @@ msgid "file is malformed SVG"
 msgstr "el archivo no tiene un formato SVG valido"
 
 msgid "file is too big"
-msgstr "el fitxer és massa gran (el màxim són 2Mb)"
+msgstr "el fitxer és massa gran (el màxim són 2 Mio)"
 
 # [general comment]
 # Quite the same as "file failed to upload, probable resize error"

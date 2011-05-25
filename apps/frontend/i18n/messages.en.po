@@ -49,10 +49,10 @@ msgid "%1% weeks ago"
 msgstr "%1% weeks ago"
 
 msgid "%1% x %2% px, %3% Ko"
-msgstr "%1% x %2% px, %3% kB"
+msgstr "%1% x %2% px, %3% KiB"
 
 msgid "%1% x %2% px, %3% Mo"
-msgstr "%1% x %2% px, %3% MB"
+msgstr "%1% x %2% px, %3% MiB"
 
 msgid "%1% years ago"
 msgstr "%1% years ago"
@@ -2463,7 +2463,7 @@ msgid "You are not connected"
 msgstr "You are not connected"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "You can add %1%, with %3% x %2%px and %4% MB maximum."
+msgstr "You can add %1%, with %3% x %2%px and %4% MiB maximum."
 
 msgid "You can associate this article with any existing document using the following tool:"
 msgstr "You can associate this article to any other document by using the following tool:"
@@ -4113,7 +4113,7 @@ msgid "file is malformed SVG"
 msgstr "the file is not in a valid SVG format"
 
 msgid "file is too big"
-msgstr "the file is too big (maximum size is 2 Mo)"
+msgstr "the file is too big (maximum size is 2 MiB)"
 
 # [general comment]
 # Quite the same as "file failed to upload, probable resize error"
