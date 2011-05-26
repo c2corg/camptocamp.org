@@ -58,6 +58,7 @@ c2corg_map_translations = {
     'Recenter': \"" . __('recenter') . "\",
     'Permalink.openlink': \"" . __('Permalink.openlink') . "\",
     'Please wait...': \"" . __(' loading...') . "\",\n" .
-    '\'${nb_items} items. Click to show info\': "' . __('${nb_items} items. Click to show info') . "\",
+    '\'${nb_items} items. Click to show info\': "' . __('${nb_items} items. Click to show info') . "\",\n" .
+    '\'${item}. Click to show info\': "' . __('${item}. Click to show info') . "\",
     'Map URL': \"" . __('Map URL') . "\"
 };");

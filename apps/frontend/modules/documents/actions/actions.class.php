@@ -4428,14 +4428,45 @@ class documentsActions extends c2cActions
         foreach (explode(',', $layers) as $layer) {
             list($model, $type_where) = self::_getTooltipParamFromLayer($layer);
             $q = Doctrine_Query::create()
-                //->select('count(*) as count')
                 ->from("$model m")
                 ->where('m.redirects_to IS NULL')
                 ->addWhere($where['where_string']);
             if ($type_where) {
                 $q->addWhere($type_where);
             }
-            $this->nb_items += count($q->execute()); // FIXME: is it better to use select(count)?
+            //$this->nb_items += $q->count(); TODO is it quickier to use directly count?
+            $results = $q->execute();
+            $this->nb_items += count($results);
+            // save information that can be useful in next steps
+            if ($results->getFirst())
+            {
+                $sav_module = $model;
+                $sav_id = $results->getFirst()->getId();
+            }
+        }
+
+        // if only one result, directly display its name
+        if ($this->nb_items == 1)
+        {
+            $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
+            $i18n = Doctrine_Query::create()
+                    ->select('m.culture, m.name')
+                    ->from("${model}I18n m")
+                    ->where('m.id = ?', array($sav_id))
+                    ->execute();
+            $old_lang = 200;
+            foreach($i18n as $name)
+            {
+                $lang_pos = array_search($name->get('culture'), $langs);
+                if ($lang_pos === false) $lang_pos = 10;
+                // test if language is prefered over the older
+                if ($lang_pos < $old_lang)
+                {
+                    $old_lang = $lang_pos;
+                    $uname = $name->get('name');
+                }
+            }
+            $this->name = $uname;
         }
 
         $this->setJsonResponse();

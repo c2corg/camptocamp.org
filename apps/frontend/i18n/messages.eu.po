@@ -22,6 +22,9 @@ msgstr " kargatzen..."
 msgid " to point location"
 msgstr " kokalekua sartzeko. Suizako koordenatuak itzultzeko <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">Swisstopo-ren itzultzailea</a> erabili."
 
+msgid "${item}. Click to show info"
+msgstr "${item}. Klikatu xehetasunak ikusteko."
+
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
 msgid "${nb_items} items. Click to show info"

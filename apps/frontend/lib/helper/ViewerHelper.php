@@ -151,11 +151,11 @@ function start_content_tag($content_class = '', $home = false)
     $js_tag = javascript_tag($home ? 'setNav(true);' : 'setNav();'); // TODO to move smwhr else ?
 
     return '<div class="content_article">' . (!$mobile_version ? '<div id="splitter" title="' . __('Reduce the bar') .
-           '"></div>' . $js_tag : '') . '<div class="article' . $content_class . '">';
+           '"></div>' . $js_tag : '') . '<article class="article' . $content_class . '">';
 
 }
 
 function end_content_tag()
 {
-    return '</div></div>';
+    return '</article></div>';
 }

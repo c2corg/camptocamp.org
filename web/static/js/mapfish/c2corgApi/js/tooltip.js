@@ -110,9 +110,15 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         if (data && data.totalObjects > 0) {
             this.map.viewPortDiv.style.cursor = 'pointer';
             var px = this.map.getViewPortPxFromLonLat(this.hoverLonLat);
-            this.div.innerHTML = OpenLayers.i18n('${nb_items} items. Click to show info', {
-                nb_items: data.totalObjects
-            });
+            if (data.totalObjects == 1 && data.name) {
+                this.div.innerHTML = OpenLayers.i18n('${item}. Click to show info', {
+                    item: data.name
+                });
+            } else {
+                this.div.innerHTML = OpenLayers.i18n('${nb_items} items. Click to show info', {
+                    nb_items: data.totalObjects
+                });
+            }
             this.div.style.top = (px.y + 10) + 'px';
             this.div.style.left = (px.x + 10) + 'px';
             this.div.style.display = "block";
