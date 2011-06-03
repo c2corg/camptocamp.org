@@ -135,26 +135,29 @@ else
 }
 
 // map culture
-if ($is_map && $argc >= 8)
+if ($is_map)
 {
-    switch ($argv[7])
+    if ($argc >= 8)
     {
-        case 'fr':
-        case 'it':
-        case 'en':
-        case 'de':
-        case 'es':
-        case 'eu':
-        case 'ca': break;
-        default:
-            echo "Invalid culture\n\n";
-            usage();
+        switch ($argv[7])
+        {
+            case 'fr':
+            case 'it':
+            case 'en':
+            case 'de':
+            case 'es':
+            case 'eu':
+            case 'ca': break;
+            default:
+                echo "Invalid culture\n\n";
+                usage();
+        }
+        $culture = $argv[7];
     }
-    $culture = $argv[7];
-}
-else
-{
-    $culture = 'fr';
+    else
+    {
+        $culture = 'fr';
+    }
 }
 
 // map comment
