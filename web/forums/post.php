@@ -286,6 +286,10 @@ if (isset($_POST['form_sent']))
 	else if (strlen($message) > 65535)
 		$errors[] = $lang_post['Too long message'];
     else if ($pun_user['is_guest']) {
+        if (strlen($message) > 16383)
+        {
+            $errors[] = $lang_post['Too long message'];
+        }
         $forbidden_groups = explode("\n", $pun_config['o_rules_message']);
         $forbidden_tuples = array();
         foreach ($forbidden_groups as $group)
@@ -304,6 +308,13 @@ if (isset($_POST['form_sent']))
             $errors[] = 'Il y a un probleme avec votre message. Veuillez contacter la moderation en indiquant votre texte.';
             // FIXME: use translated strings
             break;
+        }
+        $nb_lines = substr_count($lcmsg, "\n");
+        if ($nb_lines > 400)
+        {
+            // message has more than 400 break lines
+            $errors[] = 'Il y a un probleme avec votre message. Veuillez contacter la moderation en indiquant votre texte.';
+            // FIXME: use translated strings
         }
     }
 
