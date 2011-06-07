@@ -64,6 +64,18 @@ class areasActions extends documentsActions
         
         return $html;
     }
+
+    public function executeView()
+    {
+        parent::executeView();
+        if (!$this->document->isArchive())
+        {
+            $area_types_list = sfConfig::get('mod_areas_area_types_list');
+            $title = $this->document->get('name') . ' :: ' .
+                     $this->__($area_types_list[$this->document->get('area_type')]);
+            $this->setPageTitle($title);
+        }
+    }
     
     public function executeMerge()
     {
