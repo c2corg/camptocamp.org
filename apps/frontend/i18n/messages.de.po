@@ -26,7 +26,7 @@ msgstr "${item}. Klicken sie für weitere Informationen. "
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} Objekt(e). Klicken sie für weitere Informationen. "
+msgstr "${nb_items} Objekte. Klicken sie für weitere Informationen. "
 
 msgid "%1% days ago, at %2%"
 msgstr "vor %1% Tagen, um %2%"
@@ -1658,9 +1658,9 @@ msgstr "Dieser Zugang existiert nicht oder er ist nicht lokalisiert."
 msgid "Parking not found"
 msgstr "Diese Zufahrt existiert nicht."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Participate to MW contest"
-msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
+msgstr "Diese Tour in den <a href=\"http://www.camptocamp.org/articles/263803/fr\">Wettbewerb Changer d'Approche</a> aufnehmen."
 
 msgid "Password:"
 msgstr "Passwort:"
@@ -3535,9 +3535,8 @@ msgstr "alle"
 
 # [general comment]
 # a summary to present best periods when all months are selected
-# [WARNING] en translation used
 msgid "all months"
-msgstr "all the year round"
+msgstr "ganzjährig"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -4319,9 +4318,8 @@ msgstr "Die Geodaten im Format %1% herunterladen"
 
 # [general comment]
 # Catégorie d'article : "brouillon"
-# [WARNING] en translation used
 msgid "draft"
-msgstr "draft"
+msgstr "Entwurf"
 
 msgid "duration"
 msgstr "Dauer:"
@@ -4676,9 +4674,9 @@ msgstr "Höhendifferenz:"
 
 # [general comment]
 # Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "help pic"
-msgstr "help"
+msgstr "Hilfe"
 
 msgid "hide form"
 msgstr "Das Formular verstecken"
@@ -4983,9 +4981,9 @@ msgstr "Aktivitäten der verbundenen Routen:"
 
 # [general comment]
 # Message for the user, asking if he wants to load the draft of the document edition (for exemple because he was no more connected when he submitted the form)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "load draft?"
-msgstr "Do you want to use the draft stored during a preceding edition? (OK : the draft will be copied to the form - Cancel : the draft will be removed)"
+msgstr "Wollen sie den Entwurf einer früheren Bearbeitung verwenden? (OK: Der Entwurf wird in das Formular kopiert - Abbrechen: Der Entwurf wird gelöscht)"
 
 # [WARNING] needs_review
 msgid "local_product"

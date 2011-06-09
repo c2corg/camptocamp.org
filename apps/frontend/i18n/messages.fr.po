@@ -28,7 +28,7 @@ msgstr "${item}. Cliquez pour voir les détails."
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} objet(s). Cliquez pour voir les détails."
+msgstr "${nb_items} objets. Cliquez pour voir les détails."
 
 msgid "%1% days ago, at %2%"
 msgstr "il y a %1% jours, à %2%"

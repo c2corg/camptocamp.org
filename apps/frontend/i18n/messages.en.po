@@ -26,7 +26,7 @@ msgstr "${item}. Click to show info."
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} item(s). Click to show info."
+msgstr "${nb_items} items. Click to show info."
 
 msgid "%1% days ago, at %2%"
 msgstr "%1% days ago, at %2%"
@@ -1632,9 +1632,9 @@ msgstr "This access point does not exist, or is not georeferenced."
 msgid "Parking not found"
 msgstr "This access point doesn’t exist"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Participate to MW contest"
-msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
+msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/263803/fr\">\"Changer d'Approche - Competition</a>&nbsp"
 
 msgid "Password:"
 msgstr "Password:"
@@ -3280,7 +3280,7 @@ msgstr "all"
 # a summary to present best periods when all months are selected
 # [WARNING] needs_review
 msgid "all months"
-msgstr "all the year round"
+msgstr "all year round"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.

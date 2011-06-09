@@ -1607,9 +1607,8 @@ msgstr "Bertsio hau ez dago erabilgarri."
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] es translation used
 msgid "Open all sections"
-msgstr "Abrir todas las secciones"
+msgstr ""
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Baimenik gabeko eragiketa: ibilbide bat gutxienez gailur batekin lotu behar da"
@@ -1681,9 +1680,9 @@ msgstr "El acceso no existe, o sus coordenadas geográficas no se conocen."
 msgid "Parking not found"
 msgstr "Ez dago halako abiagunerik."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Participate to MW contest"
-msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
+msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/263803/fr\">\"Changer d'Approche - Competition</a>&nbsp"
 
 msgid "Password:"
 msgstr "Pasa hitza:"
@@ -3430,7 +3429,7 @@ msgstr "all"
 # a summary to present best periods when all months are selected
 # [WARNING] en translation used
 msgid "all months"
-msgstr "all the year round"
+msgstr "all year round"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.

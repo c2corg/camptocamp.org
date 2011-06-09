@@ -1630,9 +1630,9 @@ msgstr "Il parcheggio non esiste, o la sua localizzazione non è stata correttam
 msgid "Parking not found"
 msgstr "Questo accesso non è stato trovato."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Participate to MW contest"
-msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
+msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/263803/fr\">\"Changer d'Approche - Competition</a>&nbsp"
 
 msgid "Password:"
 msgstr "Password:"
@@ -3243,7 +3243,7 @@ msgstr "all"
 # a summary to present best periods when all months are selected
 # [WARNING] en translation used
 msgid "all months"
-msgstr "all the year round"
+msgstr "all year round"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
