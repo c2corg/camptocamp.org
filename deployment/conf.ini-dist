@@ -11,10 +11,6 @@ DB_PASS = <password>
 ; admin info
 ADMIN_EMAIL = <admin_email>
 
-; symfony directories
-SF_LIB_DIR = /usr/share/php/symfony
-SF_DATA_DIR = /usr/share/php/data/symfony
-
 ; PostGIS scripts directory
 POSTGIS_DIR = /usr/share/postgresql-8.2-postgis
 

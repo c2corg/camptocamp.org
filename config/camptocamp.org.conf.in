@@ -11,11 +11,11 @@ AddType application/vnd.google-earth.kml+xml .kml
 AddType application/gpx+xml .gpx
 AddType application/json .json
 
-#Alias /sf/ @SF_DATA_DIR@/web/sf/
+Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
 
 <IfModule mod_deflate.c>
   <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript application/xml image/svg+xml
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript application/xml image/svg+xml application/vnd.google-earth.kml+xml application/json
   </Directory>
 </IfModule>
 

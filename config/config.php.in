@@ -2,5 +2,5 @@
 // @BLURB@
 
 // symfony directories
-$sf_symfony_lib_dir  = '@SF_LIB_DIR@';
-$sf_symfony_data_dir = '@SF_DATA_DIR@';
+$sf_symfony_lib_dir  = '@SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/lib';
+$sf_symfony_data_dir = '@SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data';

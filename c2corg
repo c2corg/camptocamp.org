@@ -194,7 +194,7 @@ function processArgs() {
             launchSfCleanCache();
             buildMapJsFiles(); // must be done before revision info
             updateRevisionInfo();
-            execWrapper('symfony fix-perms');
+            execWrapper('php symfony fix-perms');
 
             info('Installation done.');
             break;
@@ -209,7 +209,7 @@ function processArgs() {
             buildMapJsFiles(); // must be done before revision info
             updateRevisionInfo();
             launchSfCleanCache();
-            //execWrapper('symfony fix-perms');
+            //execWrapper('php symfony fix-perms');
 
             info('Refreshing done.');
             break;
@@ -559,7 +559,7 @@ function loadModules() {
 
 function launchSfCleanCache() {
     try {
-        execWrapper('symfony cc');
+        execWrapper('php symfony cc');
         info('Symfony cache purged.');
     } catch (Exception $e) {
         info('Symfony cache cleaning failed: ' . $e->getMessage());
@@ -624,6 +624,8 @@ function installPlugins() {
     }
     
 
+    // this has been disabled and plugins are in the repository
+    /*
     $sfPlugins = array();
     //$sfPlugins = array('Captcha', 'Optimizer', 'gWidgets', 'Feed2', 'Prototype', 'ModalBox', 'CombineFilter', 'Lightbox');
 
@@ -631,12 +633,13 @@ function installPlugins() {
         $pluginName = 'sf' . $plugin . 'Plugin';
         rmdirr("plugins/$pluginName");
         try {
-            execWrapper("symfony plugin-install http://plugins.symfony-project.com/$pluginName");
+            execWrapper("php symfony plugin-install http://plugins.symfony-project.com/$pluginName");
         } catch (Exception $e) {
             info("Installing $pluginName failed: " . $e->getMessage());
         }
         info("$pluginName is now installed.");
     }
+    */
 }
 
 function makeMapservWrapperExecutable() {
