@@ -439,15 +439,15 @@ em.mandatory_asterisk
 #facebook_logo
 {
   width:32px;
-  height:31px;
-  background-position: -116px -451px;
+  height:28px;
+  background-position: -118px -452px;
 }
 
 #twitter_logo
 {
   width:32px;
-  height:31px;
-  background-position: -116px -480px;
+  height:28px;
+  background-position: -116px -482px;
 }
 
 .logo_mini
@@ -5038,6 +5038,17 @@ span.cotometre_result {
 {
   margin-bottom: 2px;
 }
+
+/* small adjustment for addthis search input */
+#at16psf input
+{
+  height: auto;
+  border: 0;
+  box-shadow: none;
+  -moz-box-shadow: none; 
+  -webkit-box-shadow: none;
+}
+
 
 /* c2c buttons
  * Because having cross browser consistent UI
