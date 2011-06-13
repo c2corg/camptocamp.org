@@ -4186,16 +4186,28 @@ class documentsActions extends c2cActions
                 $module = 'parkings';
                 $type_where = 'public_transportation_rating IN (1,2,4,5)';
                 break;
-            case 'parkings':
+            case 'other_access':
                 $module = 'parkings';
                 $type_where = 'public_transportation_rating IS NULL OR public_transportation_rating NOT IN (1,2,4,5)';
+                break;
+            case 'admin_limits':
+                $module = 'areas';
+                $type_where = 'area_type=3';
+                break;
+            case 'countries':
+                $module = 'areas';
+                $type_where = 'area_type=2';
+                break;
+            case 'ranges':
+                $module = 'areas';
+                $type_where = 'area_type=1';
                 break;
             default:
                 $module = $layer;
                 $type_where = null;
         }
         $model = c2cTools::module2model($module);
-        return array($model, $type_where);        
+        return array($module, $model, $type_where);        
     }
     
     protected function setJsonResponse() {
@@ -4214,10 +4226,9 @@ class documentsActions extends c2cActions
 
         $this->items = array();
 
-        $where = gisQuery::getQueryByBbox($bbox);
-
         foreach (explode(',', $layers) as $layer) {
-            list($model, $type_where) = self::_getTooltipParamFromLayer($layer);
+            list($module, $model, $type_where) = self::_getTooltipParamFromLayer($layer);
+            $where = gisQuery::getQueryByBbox($bbox, 'geom', $module);
             $q = Doctrine_Query::create()
                 ->select('m.id, m.lat, m.lon, m.module')
                 ->from("$model m")
@@ -4245,10 +4256,9 @@ class documentsActions extends c2cActions
 
         $this->nb_items = 0;
 
-        $where = gisQuery::getQueryByBbox($bbox);
-
         foreach (explode(',', $layers) as $layer) {
-            list($model, $type_where) = self::_getTooltipParamFromLayer($layer);
+            list($module, $model, $type_where) = self::_getTooltipParamFromLayer($layer);
+            $where = gisQuery::getQueryByBbox($bbox, 'geom', $module);
             $q = Doctrine_Query::create()
                 ->from("$model m")
                 ->where('m.redirects_to IS NULL')
@@ -4291,21 +4301,6 @@ class documentsActions extends c2cActions
             $this->name = $uname;
         }
 
-        $this->setJsonResponse();
-    }
-    
-    public function executeGeometry() {
-        $bbox = $this->getRequestParameter('bbox');
-
-        $where = gisQuery::getQueryByBbox($bbox);
-        $q = Doctrine_Query::create()
-                ->from("$this->model_class m")
-                ->where('m.redirects_to IS NULL')
-                ->addWhere($where['where_string'])
-                ->limit(50);
-        $this->items = $q->execute();
-
-        $this->setTemplate('../../documents/templates/geometry');
         $this->setJsonResponse();
     }
 }

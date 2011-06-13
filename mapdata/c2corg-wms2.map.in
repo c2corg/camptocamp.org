@@ -132,9 +132,9 @@ LAYER
 END # Layer
 
 LAYER
-  NAME parkings
+  NAME other_access  ## parkings without public transportations
   METADATA
-    "wms_title"    "parkings"   ##required
+    "wms_title"    "other_access"   ##required
   END
   TYPE POINT
   STATUS ON
@@ -352,9 +352,9 @@ LAYER
 END # Layer
 
 LAYER
-  NAME departements
+  NAME admin_limits
   METADATA
-    "wms_title"    "departements"   ##required
+    "wms_title"    "admin_limits"   ##required
   END
   TYPE POLYGON
   STATUS ON

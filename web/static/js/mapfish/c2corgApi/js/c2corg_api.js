@@ -382,9 +382,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         var provider = config.provider || this.provider;
         
         var c2cLayers = config.layers ||
-                        ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes',
-                         'outings', 'ranges', 'countries', 'departements', 'maps',
-                         'public_transportations', 'products'];
+                        ['summits', 'huts', 'sites', 'users', 'images', 'routes',
+                         'outings', 'ranges', 'countries', 'admin_limits', 'maps',
+                         'other_access', 'public_transportations', 'products'];
         // WARNING: using config.layers might disable layers listed in the layertree (FIXME?)
     
         var layers = [
@@ -594,7 +594,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     text: OpenLayers.i18n('other access'),
                     icon: this.getPictoUrl('parkings'),
                     checked: false,
-                    layerName: 'c2corg:parkings',
+                    layerName: 'c2corg:other_access',
                     id: 'other_access'
                 }]
             },{
@@ -671,8 +671,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 },{
                     text: OpenLayers.i18n('admin boundaries'),
                     checked: false,
-                    layerName: 'c2corg:departements',
-                    id: 'departements',
+                    layerName: 'c2corg:admin_limits',
+                    id: 'admin_limits',
                     iconCls: 'noIconLayer'
                 }]
             }]
@@ -726,24 +726,39 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
      * get list of activated layers that may be queried
      */
     getEnabledQueryableLayers: function() {
-        var layers = []; 
+        var layers = [];
+        var areas_layers = [];
+        var parkings_layers = [];
         var olLayers = this.map.getLayersByClass('OpenLayers.Layer.WMS');
         for (var i = 0; i < olLayers.length; ++i) {
             var cur = olLayers[i];
-    
+
             if (cur.getVisibility()) {
                 for (var j = 0; j < cur.params.LAYERS.length; ++j) {
                     var layername = cur.params.LAYERS[j];
-                    if (['ranges', 'countries', 'departements'].indexOf(layername) != -1) {
-                        layername = 'areas';
-                        if (layers.indexOf(layername) != -1) {
-                            // 'areas' is already in the list
-                            continue;
-                        }
+                    if (['ranges', 'countries', 'admin_limits'].indexOf(layername) != -1) {
+                        areas_layers.push(layername);
+                    } else if (['public_transportations', 'other_access'].indexOf(layername) != -1) {
+                        parkings_layers.push(layername);
+                    } else {
+                        layers.push(layername);
                     }
-                    layers.push(layername);
                 }
-            }    
+            }
+
+            // if ranges, admin_limits and countries are selected, replace it by areas
+            if (areas_layers.length == 3) {
+                layers.push('areas');
+            } else {
+                layers = layers.concat(areas_layers);
+            }
+
+            // if both public_transportations and other_access are selected, replace it by parkings
+            if (parkings_layers.length == 2) {
+                layers.push('parkings');
+            } else {
+                layers = layers.concat(parkings_layers);
+            }
         }
 
         return layers;
