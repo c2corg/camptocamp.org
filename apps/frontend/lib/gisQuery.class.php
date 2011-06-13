@@ -26,18 +26,6 @@ class gisQuery
         return $rs->distance;
     }
     
-    public static function getQueryByXY($x, $y, $width, $height, $bbox)
-    {
-        $bbox_array = explode(",", $bbox);
-		// derive the geo tolerance based on the pixel tolerance 
-        $tolerance_px = self::tolerance_pixels;
-        $tolerance_geo = (floatval($bbox_array[2]) - floatval($bbox_array[0])) * $tolerance_px / floatval($width);   
-        return array(
-            'where_string' => 'DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), geom) < ?',
-            'where_params' => array($x, $y, $tolerance_geo)
-        );
-    }
-    
     public static function getQueryByBbox($bbox, $field = 'geom', $module = null)
     {
         /* reformat the bbox, from "minx,miny,maxx,maxy" to "minx miny, maxx maxy" */
