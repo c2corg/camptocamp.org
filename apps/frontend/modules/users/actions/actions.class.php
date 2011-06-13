@@ -248,21 +248,14 @@ class usersActions extends documentsActions
             }
 
             // redirect to requested page
-            if (c2ctools::mobileVersion())
+            $referer = $this->getRequestParameter('referer');
+            if ($referer && !empty($referer))
             {
-                $referer = $this->getRequestParameter('referer');
-                if ($referer && !empty($referer))
-                {
-                    $this->redirect($referer);
-                }
-                else
-                {
-                    $this->redirect('@homepage');
-                }
+                $this->redirect($referer);
             }
             else
             {
-                $this->redirect($this->getRequest()->getReferer());
+                $this->redirect('@homepage');
             }
         }
     }
@@ -282,7 +275,15 @@ class usersActions extends documentsActions
         if ($this->getUser()->isConnected())
         {
             // user is connected thus doesn't need to signup
-            $this->redirect($this->getRequest()->getReferer());
+            $referer = $this->getRequestParameter('referer');
+            if ($referer && !empty($referer))
+            {
+                $this->redirect($referer);
+            }
+            else
+            {
+                $this->redirect('@homepage');
+            }
         }
         else
         {
@@ -536,7 +537,7 @@ class usersActions extends documentsActions
 
         // get referer URL
         $url_from = $this->getRequest()->getReferer();
-        $url_to_redirect = $url_from;
+        $url_to_redirect = empty($url_from) ? '@homepage' : $url_from;
 
         // set the user culture
         $user = $this->getUser();
