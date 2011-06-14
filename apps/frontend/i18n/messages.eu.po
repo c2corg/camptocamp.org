@@ -4005,10 +4005,9 @@ msgstr "Herramienta para determinar el grado técnico de bajada (toponeige) de u
 # cotometre
 # 
 # texte 'introductif'
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cotometre tips"
-msgstr "Cet outil, développé et gracieusement mis à disposition par le BLMS, permet d'estimer la cotation technique à ski d'un itinéraire (cotation toponeige). Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
-"Chacun peut vérifier que le résultat est souvent correct : la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques itinéraires classiques, particulièrement ceux possédant une pente suffisamment longue et dont l'inclinaison précise est connue. Pour les pentes plus courtes style couennes belledoniennes, la skiabilité difficile permet d'atteindre la cotation escomptée."
+msgstr "This tool, which was developed and made available with the support of BLMS, estimates the technical difficulty of a ski route (quotation toponeige). It is currently restricted to steep trails that are graded at least 4.1. You can see that the results are often correct, and are consistent with the ratings already well established of some classic routes, particularly those with a long slope and precise gradient. For shorter slopes typical in the Belldonne region, the skiability difficult achieves the expected rating."
 
 msgid "countries"
 msgstr "herrialde"

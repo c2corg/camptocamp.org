@@ -139,7 +139,6 @@ msgstr "Alignment:"
 msgid "All fields are mandatory"
 msgstr "All fields are necessary"
 
-# [WARNING] needs_review
 msgid "All topics"
 msgstr "All topics"
 
@@ -381,9 +380,8 @@ msgstr "Sub summit is the document "
 # [general comment]
 # Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
 # NOT USED for the moment
-# [WARNING] needs_review
 msgid "Choose maps service..."
-msgstr "Select a routing service..."
+msgstr "Select map service..."
 
 msgid "Choose..."
 msgstr "Choose..."
@@ -1013,7 +1011,6 @@ msgstr "IGN map"
 # [comment]
 # aerials ou aerial photographs ?
 # I would suggest "aerial imagery.
-# [WARNING] needs_review
 msgid "IGN orthos"
 msgstr "IGN aerial imagery"
 
@@ -1046,7 +1043,6 @@ msgstr "This picture doesn’t exist."
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
-# [WARNING] needs_review
 msgid "Image under copyright license"
 msgstr "This picture depicts a book cover. It is the property of its editor and/or author. It is presented here only for illustration purposes."
 
@@ -1056,7 +1052,6 @@ msgstr "Picture uploaded"
 msgid "Images"
 msgstr "Pictures"
 
-# [WARNING] needs_review
 msgid "Images are under license specified in the original document of each image"
 msgstr "The images associated to this page are available under the license specified in the original document of each image."
 
@@ -1222,6 +1217,8 @@ msgstr "Link an existing document"
 
 # [general comment]
 # more specific message when a user can be associated
+# [comment]
+# Should this be link TO an ...
 # [WARNING] needs_review
 msgid "Link an existing user or document"
 msgstr "Link an existing user or document"
@@ -1388,7 +1385,6 @@ msgstr "MeteoSwiss"
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
 msgstr "Tooltip - Camptocamp.org"
 
@@ -2574,14 +2570,14 @@ msgstr "You haven't subscribed to any list yet."
 msgid "You must select at least one activity"
 msgstr "you have to chose at least one activity for this document"
 
-# [WARNING] needs_review
+# [comment]
+# nickname is fine. screen-name or handle could also be used, but i think nickname is the most logical.
 msgid "You must specify a nickname"
 msgstr "You must specify a nickname for the forums."
 
 msgid "You must specify a topo name"
 msgstr "You must specify a name to be displayed in the guidebook."
 
-# [WARNING] needs_review
 msgid "You must specify an email"
 msgstr "You must specify an email address."
 
@@ -3820,10 +3816,11 @@ msgstr "Tool for assessing the technical skiing grade (toponeige) of a ski route
 # cotometre
 # 
 # texte 'introductif'
-# [WARNING] fr translation used
+# [comment]
+# This is a poor translation, but it should get you started.
+# [WARNING] needs_review
 msgid "cotometre tips"
-msgstr "Cet outil, développé et gracieusement mis à disposition par le BLMS, permet d'estimer la cotation technique à ski d'un itinéraire (cotation toponeige). Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
-"Chacun peut vérifier que le résultat est souvent correct : la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques itinéraires classiques, particulièrement ceux possédant une pente suffisamment longue et dont l'inclinaison précise est connue. Pour les pentes plus courtes style couennes belledoniennes, la skiabilité difficile permet d'atteindre la cotation escomptée."
+msgstr "This tool, which was developed and made available with the support of BLMS, estimates the technical difficulty of a ski route (quotation toponeige). It is currently restricted to steep trails that are graded at least 4.1. You can see that the results are often correct, and are consistent with the ratings already well established of some classic routes, particularly those with a long slope and precise gradient. For shorter slopes typical in the Belldonne region, the skiability difficult achieves the expected rating."
 
 msgid "countries"
 msgstr "countries"
