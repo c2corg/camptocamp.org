@@ -279,7 +279,7 @@ class User extends BaseUser
                     $params_list['friends'] = implode('-', $friend_ids);
                     if ($is_module)
                     {
-                        self::buildConditionItem($conditions, $values, 'List', 'lu.main_id', 'friends', 'join_friend_id', false, $params_list);
+                        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'friends', $join_id, false, $params_list);
                     }
                     else
                     {
@@ -444,7 +444,7 @@ class User extends BaseUser
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
         
-        // join with parking tables only if needed 
+        // join with users tables only if needed 
         if (   isset($conditions['join_user_id'])
             || isset($conditions['join_user_i18n'])
             || isset($conditions['join_utag_id'])
@@ -472,7 +472,6 @@ class User extends BaseUser
             || isset($conditions['join_outing'])
             || isset($conditions['join_outing_i18n'])
             || isset($conditions['join_otag_id'])
-            || isset($conditions['join_friend_id'])
         )
         {
             Outing::buildOutingPagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'uo');
@@ -500,12 +499,6 @@ class User extends BaseUser
                 {
                     Summit::buildSummitPagerConditions($q, $conditions, false, false, 'lr.MainAssociation', 'sr');
                 }
-            }
-            
-            if (isset($conditions['join_friend_id']))
-            {
-                $q->leftJoin('lo.MainMainAssociation lu');
-                unset($conditions['join_friend_id']);
             }
         }
 
