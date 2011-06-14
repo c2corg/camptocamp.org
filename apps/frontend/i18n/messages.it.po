@@ -2577,7 +2577,6 @@ msgstr "Non hai sottoscritto alcuna lista di distribuzione"
 msgid "You must select at least one activity"
 msgstr "devi selezionare al meno una attività per questo documento"
 
-# [WARNING] needs_review
 msgid "You must specify a nickname"
 msgstr "Dovresti indicare un nickname per il forum"
 
@@ -3146,6 +3145,9 @@ msgstr "<h3>Bollettino meteo</h3>Link verso le previsioni meteo recenti per la z
 msgid "_weather_info"
 msgstr "<h3>Tempo osservato</h3>Condizioni meteorologiche incontrate durante la gita: copertura nuvolosa, precipitazioni, vento, temperature."
 
+msgid "abruzzes"
+msgstr "Abruzzo"
+
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
 # 
@@ -3306,11 +3308,17 @@ msgstr "America meridionale"
 msgid "and"
 msgstr "e"
 
+msgid "andalousie"
+msgstr "Andalusia"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "aquitaine"
 msgstr "Aquitania"
+
+msgid "aragon"
+msgstr "Aragona"
 
 msgid "area"
 msgstr "regione"
@@ -3364,6 +3372,9 @@ msgstr "ordine crescente"
 msgid "asia"
 msgstr "Asia"
 
+msgid "asturies"
+msgstr "Asturie"
+
 msgid "author"
 msgstr "Autore/i:"
 
@@ -3412,11 +3423,17 @@ msgstr "Background:"
 msgid "backpack content"
 msgstr "Il contenuto dello zaino"
 
+msgid "baleares"
+msgstr "Isole Baleari"
+
 msgid "basalte"
 msgstr "basalto"
 
 msgid "basecamp"
 msgstr "campo base"
+
+msgid "basilicate"
+msgstr "Basilicata"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3562,11 +3579,17 @@ msgstr "Camptocamp.org è un sito collaborativo dedicato agli sporti di montagna
 msgid "c2corg news"
 msgstr "L'attualità di c2c"
 
+msgid "calabre"
+msgstr "Calabria"
+
 msgid "calcaire"
 msgstr "calcare"
 
 msgid "camera_name"
 msgstr "Marca apparecchiatura:"
+
+msgid "campanie"
+msgstr "Campania"
 
 msgid "camping area"
 msgstr "piazzola per tende"
@@ -3574,8 +3597,14 @@ msgstr "piazzola per tende"
 msgid "canada_provinces"
 msgstr "Province e territori del Canada"
 
+msgid "canaries"
+msgstr "Isole Canarie"
+
 msgid "cancel"
 msgstr "Cancella"
+
+msgid "cantabrie"
+msgstr "Cantabria"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3586,8 +3615,17 @@ msgstr "Cantoni della Svizzera"
 msgid "captcha test is case-insensitive"
 msgstr "il testo è indifferente alle maiuscole/minuscole<br />se non riusci a leggere le lettere, puoi ricaricare la pagina (Attenzione: perderai le tue info)"
 
+msgid "castille_lamanche"
+msgstr "Castiglia-La Mancia"
+
+msgid "castilleetleon"
+msgstr "Castiglia e León"
+
 msgid "catalan"
 msgstr "catalano"
+
+msgid "catalogne"
+msgstr "Catalogna"
 
 msgid "categories"
 msgstr "Categorie:"
@@ -3981,6 +4019,9 @@ msgstr "Alt."
 msgid "email"
 msgstr "Indirizzo e-mail:"
 
+msgid "emilie_romagne"
+msgstr "Emilia-Romagna"
+
 msgid "encyclopedia"
 msgstr "enciclopedia"
 
@@ -4004,6 +4045,9 @@ msgstr "Qualità dei punti di assicurazione:"
 
 msgid "espanol"
 msgstr "spagnolo"
+
+msgid "estremadure"
+msgstr "Estremadura"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -4181,6 +4225,12 @@ msgstr "Affol."
 
 msgid "frequentation_status"
 msgstr "Affollamento:"
+
+msgid "frioul_venetiejulienne"
+msgstr "Friuli-Venezia Giulia"
+
+msgid "galice"
+msgstr "Galizia"
 
 msgid "gear"
 msgstr "Materiale:"
@@ -4509,6 +4559,9 @@ msgstr "Lingue dei documenti da mostrare"
 msgid "languedoc_roussillon"
 msgstr "Linguadoca-Rossiglione"
 
+msgid "larioja"
+msgstr "La Rioja"
+
 # [general comment]
 # Le sens a changé, cela ne signifie plus 'le mois dernier' (janvier contre février par exemple) mais bien 'il y a 1 mois' (durée)
 msgid "last month"
@@ -4529,6 +4582,9 @@ msgstr "un anno fa"
 
 msgid "lat"
 msgstr "Latitudine:"
+
+msgid "latium"
+msgstr "Lazio"
 
 msgid "lawinen ML title"
 msgstr "Svizzera (tedesco)"
@@ -4559,6 +4615,9 @@ msgstr "Licenza:"
 msgid "lift_status"
 msgstr "Impianti di risalita:"
 
+msgid "ligurie"
+msgstr "Liguria"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -4588,6 +4647,9 @@ msgstr "Esposizione S >> N"
 msgid "location W >> E"
 msgstr "Esposizione W >> E"
 
+msgid "lombardie"
+msgstr "Lombardia"
+
 msgid "lon"
 msgstr "Longitudine:"
 
@@ -4614,6 +4676,9 @@ msgstr "inf. o uguale"
 
 msgid "lowest_elevation"
 msgstr "Altitudine minima di partenza:"
+
+msgid "madrid"
+msgstr "Comunità Autonoma di Madrid"
 
 # [general comment]
 # type de livre : revue / magazine
@@ -4702,6 +4767,9 @@ msgstr "Una mappa è definita dai suoi contorni. Una mappa è associata automati
 
 msgid "maps_info"
 msgstr "Cartografia:"
+
+msgid "marches"
+msgstr "Marche"
 
 # [general comment]
 # Infobulle dans la toolbar de l'outil carto
@@ -4861,6 +4929,9 @@ msgstr "modificazione"
 msgid "module"
 msgstr "Tipo:"
 
+msgid "molise"
+msgstr "Molise"
+
 msgid "mollasse calcaire"
 msgstr "mollasse calcare"
 
@@ -4886,11 +4957,17 @@ msgstr "Sposta questa immagine"
 msgid "multi-pitches"
 msgstr "vie lunghe"
 
+msgid "murcie"
+msgstr "Murcia"
+
 msgid "name"
 msgstr "Nome:"
 
 msgid "naturally cleared"
 msgstr "strada non pulita"
+
+msgid "navarre"
+msgstr "Navarra"
 
 msgid "nb_comments"
 msgstr "Numero di commenti associati"
@@ -5029,6 +5106,9 @@ msgstr "Oceania"
 
 msgid "often cleared"
 msgstr "strada pulita regolarmente"
+
+msgid "ombrie"
+msgstr "Umbria"
 
 # [general comment]
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
@@ -5183,6 +5263,9 @@ msgstr "colle"
 msgid "password forgotten?"
 msgstr "Ho dimenticato la password"
 
+msgid "pays_basque"
+msgstr "Paesi Baschi"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5229,6 +5312,9 @@ msgstr "foto artistiche"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "picardie"
 msgstr "Piccardia"
+
+msgid "piemont"
+msgstr "Piemonte"
 
 msgid "places_to_display"
 msgstr "Regioni da mostrare"
@@ -5310,6 +5396,9 @@ msgstr "messaggi"
 
 msgid "pouding"
 msgstr "pouding"
+
+msgid "pouilles"
+msgstr "Puglia"
 
 # [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.
@@ -5655,6 +5744,9 @@ msgstr "Sbarrare il testo selezionato"
 msgid "safe"
 msgstr "sicuro"
 
+msgid "sardaigne"
+msgstr "Sardegna"
+
 msgid "satellite"
 msgstr "satellite"
 
@@ -5716,6 +5808,9 @@ msgstr "Vedere il dettaglio delle condizioni delle gite"
 
 msgid "show form"
 msgstr "Vedere il formulario"
+
+msgid "sicile"
+msgstr "Sicilia"
 
 msgid "signup email title"
 msgstr "Iscrizione a Camptocamp.org"
@@ -6020,6 +6115,9 @@ msgstr "Esposizione:"
 msgid "toponeige_technical_rating"
 msgstr "Difficoltà tecnica:"
 
+msgid "toscane"
+msgstr "Toscana"
+
 msgid "tourism"
 msgstr "turismo"
 
@@ -6043,6 +6141,9 @@ msgstr "Tradurre con Google"
 
 msgid "traverse"
 msgstr "traversata"
+
+msgid "trentin_hautadige"
+msgstr "Trentino-Alto Adige"
 
 msgid "type route name here"
 msgstr "Scrivi qui il nome del nuovo itinerario"
@@ -6105,8 +6206,14 @@ msgstr "Lista degli utenti"
 msgid "users presentation"
 msgstr "Un utente può essere una persona fisica, un club, un'associazione o un'ente.<br />Se non sei identificato, la lista contiene solo gli utenti che hanno autorizzato l'accesso pubblico alla loro pagina personale."
 
+msgid "val_daoste"
+msgstr "Valle d'Aosta"
+
 msgid "valanghe ML title"
 msgstr "Svizzera (italiano))"
+
+msgid "valence"
+msgstr "Comunità Valenzana"
 
 msgid "valley"
 msgstr "falesia / vallone"
@@ -6140,6 +6247,9 @@ msgstr "il valore deve essere inferiore o uguale a 90"
 
 msgid "variants"
 msgstr "Variante:"
+
+msgid "venetie"
+msgstr "Veneto"
 
 msgid "version"
 msgstr "versione"

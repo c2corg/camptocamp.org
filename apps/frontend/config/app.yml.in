@@ -1002,6 +1002,7 @@ all:
         14077: 101 # Vanuatu
         14073: 101 # Western Samoa
     admin_limits:
+      #departements francais
       alsace:
         14300: 67
         14367: 68
@@ -1150,6 +1151,205 @@ all:
         14395: ZH
         14396: GE
         14397: VD
+      # provinces espagnoles
+      andalousie:
+        279925: almeria
+        279933: cadix
+        279937: cordoue
+        279940: grenade
+        279943: huelva
+        279945: jaen
+        279952: malaga
+        279961: seville
+      aragon:
+        279944: huesca
+        279964: teruel
+        279959: saragosse
+      asturies:
+        279926: asturies
+      baleares:
+        279929: baleares
+      pays_basque:
+        279922: alava
+        279942: guipuscoa
+        279968: biscaye
+#      canaries:
+#        xxxxxx: laspalmas
+#        xxxxxx: santacruzdetenerife
+      cantabrie:
+        279934: cantabrie
+      castille_lamanche:
+        279923: albacete
+        279936: ciudad_real
+        279938: cuenca
+        279941: guadalajara
+        279965: tolede
+      castilleetleon:
+        279927: avila
+        279931: burgos
+        279948: leon
+        279956: palencia
+        279958: salamanque
+        279960: segovie
+        279962: soria
+        279967: valladolid
+        279969: zamora
+      catalogne:
+        279930: barcelone
+        279939: gerone
+        279949: lerida
+        279963: tarragone
+      estremadure:
+        279928: badajoz
+        279932: caceres
+      galice:
+        279946: lacorogne
+        279950: lugo
+        279955: orense
+        279957: pontevedra
+      madrid:
+        279951: madrid
+      murcie:
+        279953: murcie
+      navarre:
+        279954: navarre
+      larioja:
+        279947: larioja
+      valence:
+        279924: alicante
+        279935: castellon
+        279966: valence
+      # provinces italiennes
+      abruzzes:
+        280013: AQ # L'Aquila
+        279995: CH
+        280042: PE
+        280064: TE
+      basilicate:
+        280024: MT
+        280047: PZ
+      calabre:
+        279994: CZ
+        279997: CS
+        279999: KR
+        280051: RC
+        280078: VV
+      campanie:
+        279977: AV
+        279981: BN
+        279992: CE
+        280030: NA
+        280057: SA
+      emilie_romagne:
+        279984: BO
+        280003: FE
+        280006: FC
+        280028: MO
+        280038: PR
+        280043: PC
+        280050: RA
+        280052: RE
+        280054: RN
+      frioul_venetiejulienne:
+        280009: GO
+        280046: PN
+        280070: TS
+        280071: UD
+      latium:
+        280007: FR
+        280015: LT
+        280053: RI
+        280055: RM
+        280080: VT
+      ligurie:
+        280014: SP
+        280008: GE
+        280011: IM
+        280059: SV
+      lombardie:
+        279982: BG
+        279986: BS
+        279996: CO
+        279998: CR
+        280017: LC
+        280019: LO
+        280022: MN
+        280027: MI
+        280029: MB
+        280039: PV
+        280062: SO
+        280073: VA
+      marches:
+        279973: AN
+        279975: AP
+        280021: MC
+        280041: PU
+        280002: FM
+      molise:
+        279990: CB
+        280012: IS
+      ombrie:
+        280040: PG
+        280065: TR
+      piemont:
+        280075: VB
+        279972: AL
+        279976: AT
+        279983: BI
+        280000: CN
+        280031: NO
+        280066: TO
+        280076: VC
+      pouilles:
+        279978: BA
+        279979: BT
+        279987: BR
+        280005: FG
+        280016: LE
+        280063: TA
+      sardaigne:
+        279988: CA
+        280032: NU
+        280035: OR
+        280058: SS
+        280034: OT
+        280033: OG
+        279991: CI
+        280025: MD
+      sicile:
+        279971: AG
+        279989: CL
+        279993: CT
+        280001: EN
+        280026: ME
+        280037: PA
+        280049: RG
+        280061: SR
+        280067: TR
+      toscane:
+        279974: AR
+        280004: FI
+        280010: GR
+        280018: LI
+        280020: LU
+        280023: MS
+        280044: PI
+        280045: PT
+        280048: PO
+        280060: SI
+      trentin_hautadige:
+        279985: BZ
+        280068: TN
+      val_daoste:
+        280072: AO
+      venetie:
+        279980: BL
+        280036: PD
+        280056: RO
+        280069: TV
+        280074: VE
+        280077: VR
+        280079: VI
       us_states:
         250183: 'AL' # Alabama
         250184: AK   # Alaska

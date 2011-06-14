@@ -3160,6 +3160,9 @@ msgstr "<h3>Pronósticos meteorológicos</h3>Enlaces hacia pronósticos reciente
 msgid "_weather_info"
 msgstr "<h3>Meteo observada</h3>Condicions metereològiques trobads durant la sortida: cobertura nuvols, precipitacions, vent, temperatura."
 
+msgid "abruzzes"
+msgstr "Abruços"
+
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
 # 
@@ -3318,11 +3321,17 @@ msgstr "Amèrica del Sud"
 msgid "and"
 msgstr "i"
 
+msgid "andalousie"
+msgstr "Andalusia"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "aquitaine"
 msgstr "Aquitània"
+
+msgid "aragon"
+msgstr "Aragó"
 
 msgid "area"
 msgstr "regió"
@@ -3377,6 +3386,9 @@ msgstr "ordre creixent"
 msgid "asia"
 msgstr "Àsia"
 
+msgid "asturies"
+msgstr "Astúries"
+
 msgid "author"
 msgstr "Autor (s):"
 
@@ -3419,11 +3431,17 @@ msgstr "Fons cartogràfic:"
 msgid "backpack content"
 msgstr "El contingut de la motxilla"
 
+msgid "baleares"
+msgstr "Illes Balears"
+
 msgid "basalte"
 msgstr "basalt"
 
 msgid "basecamp"
 msgstr "camp base"
+
+msgid "basilicate"
+msgstr "Basilicata"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3568,11 +3586,17 @@ msgstr "Camptocamp.org és un web col.laboratiu dedicat als esports de muntanya 
 msgid "c2corg news"
 msgstr "L'actualitat de C2C"
 
+msgid "calabre"
+msgstr "Calàbria"
+
 msgid "calcaire"
 msgstr "calcari"
 
 msgid "camera_name"
 msgstr "Aparell foto:"
+
+msgid "campanie"
+msgstr "Campània"
 
 msgid "camping area"
 msgstr "emplaçament de bivac"
@@ -3580,8 +3604,14 @@ msgstr "emplaçament de bivac"
 msgid "canada_provinces"
 msgstr "Províncies i territoris del Canadà"
 
+msgid "canaries"
+msgstr "Illes Canàries"
+
 msgid "cancel"
 msgstr "Anular"
+
+msgid "cantabrie"
+msgstr "Cantàbria"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3592,8 +3622,17 @@ msgstr "Cantons de Suïssa"
 msgid "captcha test is case-insensitive"
 msgstr "test indiferent a les majúscules/minúscules <br />si la cadena és illegible podeu modificar-la recarregant la pàgina (les dades entrades es perdran)"
 
+msgid "castille_lamanche"
+msgstr "Castella - la Manxa"
+
+msgid "castilleetleon"
+msgstr "Castella i Lleó"
+
 msgid "catalan"
 msgstr "català"
+
+msgid "catalogne"
+msgstr "Catalunya"
 
 msgid "categories"
 msgstr "Categories:"
@@ -3989,6 +4028,9 @@ msgstr "Alt."
 msgid "email"
 msgstr "Adreça email:"
 
+msgid "emilie_romagne"
+msgstr "Emília-Romanya"
+
 msgid "encyclopedia"
 msgstr "enciclopèdia"
 
@@ -4012,6 +4054,9 @@ msgstr "Qualitat de l'equipament:"
 
 msgid "espanol"
 msgstr "espanyol"
+
+msgid "estremadure"
+msgstr "Extremadura"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -4202,6 +4247,12 @@ msgstr "Frec."
 
 msgid "frequentation_status"
 msgstr "Freqüentació:"
+
+msgid "frioul_venetiejulienne"
+msgstr "Friül - Venècia Júlia"
+
+msgid "galice"
+msgstr "Galícia"
 
 msgid "gear"
 msgstr "Material:"
@@ -4553,6 +4604,9 @@ msgstr "Llengües a mostrar"
 msgid "languedoc_roussillon"
 msgstr "Llenguadoc-Rosselló"
 
+msgid "larioja"
+msgstr "La Rioja"
+
 # [general comment]
 # Le sens a changé, cela ne signifie plus 'le mois dernier' (janvier contre février par exemple) mais bien 'il y a 1 mois' (durée)
 msgid "last month"
@@ -4573,6 +4627,9 @@ msgstr "el darrer any"
 
 msgid "lat"
 msgstr "Latitud:"
+
+msgid "latium"
+msgstr "Laci"
 
 msgid "lawinen ML title"
 msgstr "Suïssa (alemanya)"
@@ -4604,6 +4661,9 @@ msgstr "Llicència:"
 
 msgid "lift_status"
 msgstr "Remuntadors mecànics:"
+
+msgid "ligurie"
+msgstr "Ligúria"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4637,6 +4697,9 @@ msgstr "Exposición S >> N"
 msgid "location W >> E"
 msgstr "Exposición W >> E"
 
+msgid "lombardie"
+msgstr "Llombardia"
+
 msgid "lon"
 msgstr "Longitud:"
 
@@ -4664,6 +4727,9 @@ msgstr "&lt; o ="
 
 msgid "lowest_elevation"
 msgstr "Altitud de sortida mínima:"
+
+msgid "madrid"
+msgstr "Comunitat de Madrid"
 
 # [general comment]
 # type de livre : revue / magazine
@@ -4757,6 +4823,9 @@ msgstr "Un mapa se define por sus bordes. Un mapa es asociado automáticamente a
 
 msgid "maps_info"
 msgstr "Cartografia:"
+
+msgid "marches"
+msgstr "Marques"
 
 # [general comment]
 # Infobulle dans la toolbar de l'outil carto
@@ -4921,6 +4990,9 @@ msgstr "modificación"
 msgid "module"
 msgstr "Tipus:"
 
+msgid "molise"
+msgstr "Molise"
+
 msgid "mollasse calcaire"
 msgstr "arenisca"
 
@@ -4946,11 +5018,17 @@ msgstr "Desplaçar imatge"
 msgid "multi-pitches"
 msgstr "grans vies"
 
+msgid "murcie"
+msgstr "Regió de Múrcia"
+
 msgid "name"
 msgstr "Nom:"
 
 msgid "naturally cleared"
 msgstr "neteja natural"
+
+msgid "navarre"
+msgstr "Navarra"
 
 msgid "nb_comments"
 msgstr "Nombre de comentaris associats "
@@ -5113,6 +5191,9 @@ msgstr "Oceania"
 
 msgid "often cleared"
 msgstr "neteja regular"
+
+msgid "ombrie"
+msgstr "Úmbria"
 
 # [general comment]
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
@@ -5283,6 +5364,9 @@ msgstr "coll"
 msgid "password forgotten?"
 msgstr "Contrasenya oblidada?"
 
+msgid "pays_basque"
+msgstr "País Basc"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5334,6 +5418,9 @@ msgstr "fotos-art"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "picardie"
 msgstr "Picardia"
+
+msgid "piemont"
+msgstr "Piemont"
 
 msgid "places_to_display"
 msgstr "Regions a mostrar"
@@ -5422,6 +5509,9 @@ msgstr "missatges"
 
 msgid "pouding"
 msgstr "pudinga"
+
+msgid "pouilles"
+msgstr "Pulla"
 
 # [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.
@@ -5802,6 +5892,9 @@ msgstr "Tachar el texto seleccionado"
 msgid "safe"
 msgstr "segur"
 
+msgid "sardaigne"
+msgstr "Sardenya"
+
 msgid "satellite"
 msgstr "satèlit"
 
@@ -5871,6 +5964,9 @@ msgstr "Mostrar un resumen de las condiciones encontradas en las salidas"
 # [WARNING] es translation used
 msgid "show form"
 msgstr "Mostrar el formulario"
+
+msgid "sicile"
+msgstr "Sicília"
 
 msgid "signup email title"
 msgstr "Inscripció a Camptocamp.org"
@@ -6199,6 +6295,9 @@ msgstr "Exposició:"
 msgid "toponeige_technical_rating"
 msgstr "Cotació tècnica:"
 
+msgid "toscane"
+msgstr "Toscana"
+
 msgid "tourism"
 msgstr "turisme"
 
@@ -6223,6 +6322,9 @@ msgstr "Traduir amb Google"
 
 msgid "traverse"
 msgstr "travessa"
+
+msgid "trentin_hautadige"
+msgstr "Trentino - Tirol del Sud"
 
 msgid "type route name here"
 msgstr "Entra el nom d'un nou itinerari aquí"
@@ -6290,8 +6392,14 @@ msgstr "Llista d'usuaris"
 msgid "users presentation"
 msgstr "Un usuario puede ser una persona física, un grupo, club, asociación u otro tipo de institución relacionada con la montaña.<br />Si no esta identificado como usuario, solo podrá acceder a las paginas de los usuarios quienes autorizaron el acceso publico a su perfil."
 
+msgid "val_daoste"
+msgstr "Vall d'Aosta"
+
 msgid "valanghe ML title"
 msgstr "Suïssa (italià)"
+
+msgid "valence"
+msgstr "País Valencià"
 
 msgid "valley"
 msgstr "paret / vall"
@@ -6328,6 +6436,9 @@ msgstr "el valor ha de ser inferior a 90"
 # [WARNING] es translation used
 msgid "variants"
 msgstr "Itinerarios asociados:"
+
+msgid "venetie"
+msgstr "Vèneto"
 
 msgid "version"
 msgstr "versió"

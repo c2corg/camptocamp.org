@@ -3327,6 +3327,9 @@ msgstr "<h3>Pronósticos meteorológicos</h3>Enlaces hacia pronósticos reciente
 msgid "_weather_info"
 msgstr "<h3>Aurkitutako eguraldia</h3>Irteeran zehar aurkituriko egoera metereolojikoa: laino kopurua, euria, haizea, tenperatura. "
 
+msgid "abruzzes"
+msgstr "Abruzzo"
+
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
 # 
@@ -3496,11 +3499,17 @@ msgstr "Hego Amerika"
 msgid "and"
 msgstr "eta"
 
+msgid "andalousie"
+msgstr "Andaluzia"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "aquitaine"
 msgstr "Akitania"
+
+msgid "aragon"
+msgstr "Aragoi"
 
 msgid "area"
 msgstr "eskualdea"
@@ -3558,6 +3567,9 @@ msgstr "txikitik haundira zuzendu"
 msgid "asia"
 msgstr "Asia"
 
+msgid "asturies"
+msgstr "Asturias"
+
 # [WARNING] needs_update
 msgid "author"
 msgstr "Egilea:"
@@ -3604,11 +3616,17 @@ msgstr "Seleccione el fondo cartográfico:"
 msgid "backpack content"
 msgstr "Contenido de la mochila"
 
+msgid "baleares"
+msgstr "Balear Uharteak"
+
 msgid "basalte"
 msgstr "basaltoa"
 
 msgid "basecamp"
 msgstr "kampamendu basea"
+
+msgid "basilicate"
+msgstr "Basilicata"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3765,11 +3783,17 @@ msgstr "Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Denoi zabaldu
 msgid "c2corg news"
 msgstr "Noticias de c2c"
 
+msgid "calabre"
+msgstr "Calabria"
+
 msgid "calcaire"
 msgstr "kareharria"
 
 msgid "camera_name"
 msgstr "Argazki makina:"
+
+msgid "campanie"
+msgstr "Campania"
 
 msgid "camping area"
 msgstr "bivouac-a"
@@ -3778,8 +3802,14 @@ msgstr "bivouac-a"
 msgid "canada_provinces"
 msgstr "Kanadaren banaketa administratiboa"
 
+msgid "canaries"
+msgstr "Kanariak"
+
 msgid "cancel"
 msgstr "Ezeztatu"
+
+msgid "cantabrie"
+msgstr "Kantabria"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3792,8 +3822,17 @@ msgstr "Suitzako kantoiak"
 msgid "captcha test is case-insensitive"
 msgstr "testu ez bereizgarria maiuskulaz edo minuskulaz"
 
+msgid "castille_lamanche"
+msgstr "Gaztela-Mantxa"
+
+msgid "castilleetleon"
+msgstr "Gaztela eta Leon"
+
 msgid "catalan"
 msgstr "katalana"
+
+msgid "catalogne"
+msgstr "Katalunia"
 
 msgid "categories"
 msgstr "Kategoriak:"
@@ -4203,6 +4242,9 @@ msgstr "Alt."
 msgid "email"
 msgstr "Helbide elektronikoa:"
 
+msgid "emilie_romagne"
+msgstr "Emilia-Romagna"
+
 msgid "encyclopedia"
 msgstr "enziklopedia"
 
@@ -4226,6 +4268,9 @@ msgstr "Bertako ekipamenduaren kalitatea:"
 
 msgid "espanol"
 msgstr "gaztelera"
+
+msgid "estremadure"
+msgstr "Extremadura"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -4424,6 +4469,12 @@ msgstr "Frec."
 
 msgid "frequentation_status"
 msgstr "Jendetza:"
+
+msgid "frioul_venetiejulienne"
+msgstr "Friuli-Venezia Giulia"
+
+msgid "galice"
+msgstr "Galizia"
 
 msgid "gear"
 msgstr "Material:"
@@ -4780,6 +4831,9 @@ msgstr "Ze hizkuntza agerrarazi"
 msgid "languedoc_roussillon"
 msgstr "Languedoc-Roussillon"
 
+msgid "larioja"
+msgstr "Errioxako Autonomia Erkidegoa"
+
 # [general comment]
 # Le sens a changé, cela ne signifie plus 'le mois dernier' (janvier contre février par exemple) mais bien 'il y a 1 mois' (durée)
 # [WARNING] needs_update
@@ -4803,6 +4857,9 @@ msgstr "ihaz"
 
 msgid "lat"
 msgstr "Latitudea:"
+
+msgid "latium"
+msgstr "Lazio"
 
 msgid "lawinen ML title"
 msgstr "Suitza (alemanez)"
@@ -4834,6 +4891,9 @@ msgstr "Lizentzia:"
 
 msgid "lift_status"
 msgstr "Igogailu mekanikoak:"
+
+msgid "ligurie"
+msgstr "Liguria"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4867,6 +4927,9 @@ msgstr "Exposición S >> N"
 msgid "location W >> E"
 msgstr "Exposición W >> E"
 
+msgid "lombardie"
+msgstr "Lombardia"
+
 msgid "lon"
 msgstr "Longitudea:"
 
@@ -4895,6 +4958,9 @@ msgstr "&lt; edo ="
 
 msgid "lowest_elevation"
 msgstr "Hasteko altitude baxuena:"
+
+msgid "madrid"
+msgstr "Madrilgo Erkidegoa"
 
 # [general comment]
 # type de livre : revue / magazine
@@ -4988,6 +5054,9 @@ msgstr "Un mapa se define por sus bordes. Un mapa es asociado automáticamente a
 
 msgid "maps_info"
 msgstr "Kartografia:"
+
+msgid "marches"
+msgstr "Markak"
 
 # [general comment]
 # Infobulle dans la toolbar de l'outil carto
@@ -5155,6 +5224,9 @@ msgstr "modificación"
 msgid "module"
 msgstr "Mota:"
 
+msgid "molise"
+msgstr "Molise"
+
 msgid "mollasse calcaire"
 msgstr "mollasse kareharria"
 
@@ -5180,11 +5252,17 @@ msgstr "Irudi hau mugitu"
 msgid "multi-pitches"
 msgstr "bia luzeak"
 
+msgid "murcie"
+msgstr "Murtziako Eskualdea"
+
 msgid "name"
 msgstr "Izena:"
 
 msgid "naturally cleared"
 msgstr "elur garbiketa naturala"
+
+msgid "navarre"
+msgstr "Nafarroako Foru Erkidegoa"
 
 msgid "nb_comments"
 msgstr "Loturiko azalpen kopurua"
@@ -5348,6 +5426,9 @@ msgstr "Ozeania"
 
 msgid "often cleared"
 msgstr "Ohizko elur garbiketa "
+
+msgid "ombrie"
+msgstr "Umbria"
 
 # [general comment]
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
@@ -5519,6 +5600,9 @@ msgstr "mendi-lepo"
 msgid "password forgotten?"
 msgstr "Pasa hitza ahaztu al duzu?"
 
+msgid "pays_basque"
+msgstr "Euskadi"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5571,6 +5655,9 @@ msgstr "gazkiak-artea"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "picardie"
 msgstr "Pikardia"
+
+msgid "piemont"
+msgstr "Piemonte"
 
 msgid "places_to_display"
 msgstr "Ze eskualde agerrarazi"
@@ -5659,6 +5746,9 @@ msgstr "postak"
 
 msgid "pouding"
 msgstr "pouding"
+
+msgid "pouilles"
+msgstr "Apulia"
 
 # [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.
@@ -6040,6 +6130,9 @@ msgstr "Tachar el texto seleccionado"
 msgid "safe"
 msgstr "egokitua"
 
+msgid "sardaigne"
+msgstr "Sardinia"
+
 msgid "satellite"
 msgstr "satelitea"
 
@@ -6111,6 +6204,9 @@ msgstr "Mostrar un resumen de las condiciones encontradas en las salidas"
 # [WARNING] es translation used
 msgid "show form"
 msgstr "Mostrar el formulario"
+
+msgid "sicile"
+msgstr "Sizilia"
 
 msgid "signup email title"
 msgstr "CamptoCamp.org –en izen ematea"
@@ -6449,6 +6545,9 @@ msgstr "Arriskua:"
 msgid "toponeige_technical_rating"
 msgstr "Zailtasun teknikoa:"
 
+msgid "toscane"
+msgstr "Toskana"
+
 msgid "tourism"
 msgstr "turismoa"
 
@@ -6473,6 +6572,9 @@ msgstr "Text hau itzuli"
 
 msgid "traverse"
 msgstr "zeharkatu"
+
+msgid "trentin_hautadige"
+msgstr "Trentino-Adige Garaia"
 
 msgid "type route name here"
 msgstr "Ibilbide berriaren izena idatzi"
@@ -6537,8 +6639,14 @@ msgstr "Erabiltzaileen zerrenda"
 msgid "users presentation"
 msgstr "Un usuario puede ser una persona física, un grupo, club, asociación u otro tipo de institución relacionada con la montaña.<br />Si no esta identificado como usuario, solo podrá acceder a las paginas de los usuarios quienes autorizaron el acceso publico a su perfil."
 
+msgid "val_daoste"
+msgstr "Aostako Harana"
+
 msgid "valanghe ML title"
 msgstr "Suitza (italieran)"
+
+msgid "valence"
+msgstr "Valentziako Erkidegoa"
 
 # [WARNING] needs_update
 msgid "valley"
@@ -6576,6 +6684,9 @@ msgstr "balioa 90 baino txikiagoa izan behar da"
 # [WARNING] es translation used
 msgid "variants"
 msgstr "Itinerarios asociados:"
+
+msgid "venetie"
+msgstr "Veneto"
 
 msgid "version"
 msgstr "bertsioa"
