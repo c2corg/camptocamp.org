@@ -3024,6 +3024,7 @@ msgstr "<h3>Public transport access</h3>Reliability and quality of public transp
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
+# [WARNING] needs_update
 msgid "_publication_date_info"
 msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
 
