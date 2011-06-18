@@ -60,8 +60,13 @@ if (count($associated_documents))
         echo '<li id="'.$idstring.'">';
 
         echo picto_tag('picto_' . $module, __($module));
-        echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] .
+        echo ' ' . link_to($doc['name'],
+                           "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] .
                                          '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']));
+        if ($module == 'outings')
+        {
+            echo ' - ' . field_activities_data($doc, true, false) . ' - ' . field_semantic_date_data($doc, 'date');
+        }
         if ($show_link_to_delete)
         {
             $strict = ($type == 'cc') ? 0 : 1;

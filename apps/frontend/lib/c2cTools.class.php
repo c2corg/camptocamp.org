@@ -283,6 +283,11 @@ class c2cTools
         return ($a['module'] != 'routes');
     }
     
+    public static function is_not_outing($a)
+    {
+        return ($a['module'] != 'outings');
+    }
+    
     public static function is_not_user($a)
     {
         return ($a['module'] != 'users');

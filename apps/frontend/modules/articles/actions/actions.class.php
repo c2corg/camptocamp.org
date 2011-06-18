@@ -27,9 +27,14 @@ class articlesActions extends documentsActions
             // here, we add the summit name to route names :
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
             $associated_routes = Route::addBestSummitName($associated_routes, $this->__(' :').' ');
+            // here we include the outings additional data
+            $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
+            $associated_outings = Outing::fetchAdditionalFields($associated_outings);
+
             $associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_route'));
+            $associated_docs = array_filter($associated_docs, array('c2cTools', 'is_not_outing'));
             $associated_docs = array_filter($associated_docs, array('c2cTools', 'is_not_image'));
-            $associated_docs = array_merge($associated_docs, $associated_routes);
+            $associated_docs = array_merge($associated_docs, $associated_routes, $associated_outings);
     
             // sort by document type, name
             if (count($associated_docs))
