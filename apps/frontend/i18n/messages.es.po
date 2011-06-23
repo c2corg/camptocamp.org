@@ -3364,6 +3364,10 @@ msgstr "Asia"
 msgid "asturies"
 msgstr "Principado de Asturias"
 
+# [WARNING] needs_review
+msgid "austrian_states"
+msgstr "Estados de Austria"
+
 msgid "author"
 msgstr "Autor(es):"
 

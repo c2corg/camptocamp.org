@@ -1173,9 +1173,9 @@ all:
         279922: alava
         279942: guipuscoa
         279968: biscaye
-#      canaries:
-#        xxxxxx: laspalmas
-#        xxxxxx: santacruzdetenerife
+      canaries:
+        282677: laspalmas
+        282678: santacruzdetenerife
       cantabrie:
         279934: cantabrie
       castille_lamanche:
@@ -1350,6 +1350,16 @@ all:
         280074: VE
         280077: VR
         280079: VI
+      austrian_states:
+        282689: NO # niederosterreich
+        282691: B
+        282690: K
+        282688: OO
+        282687: S
+        282686: ST
+        282685: T
+        282683: W
+        282684: V
       us_states:
         250183: 'AL' # Alabama
         250184: AK   # Alaska

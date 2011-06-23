@@ -3390,6 +3390,10 @@ msgstr "Àsia"
 msgid "asturies"
 msgstr "Astúries"
 
+# [WARNING] needs_review
+msgid "austrian_states"
+msgstr "Estats Federals d'Àustria"
+
 msgid "author"
 msgstr "Autor (s):"
 

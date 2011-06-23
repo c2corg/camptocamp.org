@@ -3675,6 +3675,10 @@ msgstr "Asien"
 msgid "asturies"
 msgstr "Asturien"
 
+# [WARNING] needs_review
+msgid "austrian_states"
+msgstr "Bundesländer Österreichs"
+
 # [comment]
 # vs
 msgid "author"

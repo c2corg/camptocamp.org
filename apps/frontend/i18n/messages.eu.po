@@ -3570,6 +3570,10 @@ msgstr "Asia"
 msgid "asturies"
 msgstr "Asturias"
 
+# [WARNING] needs_review
+msgid "austrian_states"
+msgstr "Austriako estatuak"
+
 # [WARNING] needs_update
 msgid "author"
 msgstr "Egilea:"

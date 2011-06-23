@@ -125,14 +125,15 @@ msgstr "Aggiungere l'itinerario"
 msgid "Add your summit"
 msgstr "Aggiungere la cima"
 
-# [WARNING] needs_update
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
-msgstr "<b>Dopo aver compilato la scheda seguente, sarà inviata una Email con la password, per convalidare il l’account occorre accedere entro %1% giorni.</b><br />\n"
+msgstr "<b>Dopo aver compilato la scheda seguente, riceverai una Email con la password, per validare l’account dovrai connetterti entro %1% giorni.</b><br />\n"
 "<br />\n"
 "E' importante notare che il contenuto che pubblicherai e i tuoi pseudo (forum / guida interrativa) saranno visibili sul web ed archiviati dai motori di ricerca.<br />\n"
 "<br />\n"
 "Invece l'indirizzo e-mail usato per l'inscrizione è visibile solo dai moderatori del sito. <br />\n"
-"Avrai la possibilità di cambiare l'e-mail e i tuoi pseudo. (il cambiamento di pseudo forum non è retroattiva : i messaggi rimangono firmati con il pseudo originale)"
+"Avrai la possibilità di cambiare l'e-mail e i tuoi pseudo. (il cambiamento di pseudo forum non è retroattiva : i vecchi messaggi rimangono firmati con il pseudo originale)\n"
+"<br />\n"
+"Dopo avere creato l'account, non potrai più cambiare l'identificante. Per default, i nomi che compaiono nella guida e sul forum corrispondono all'identificante, ma potrai modificarli. Nell'identificanti devi evitare i caratteri accentati, di punteggiatura e gli spazzi."
 
 msgid "Alignment"
 msgstr "Posizione:"
@@ -1630,9 +1631,9 @@ msgstr "Il parcheggio non esiste, o la sua localizzazione non è stata correttam
 msgid "Parking not found"
 msgstr "Questo accesso non è stato trovato."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Participate to MW contest"
-msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/263803/fr\">\"Changer d'Approche - Competition</a>&nbsp"
+msgstr "Partecipare al <a href=\"http://www.camptocamp.org/articles/263803/fr\">concorso cambiare approccio</a>&nbsp"
 
 msgid "Password:"
 msgstr "Password:"
@@ -2691,10 +2692,17 @@ msgstr "<h3>Apparecchio fotografico</h3>marca e modello della macchina fotografi
 msgid "_captcha_info"
 msgstr "<h3>Test anti-spam</h3>Ricopiare i caratteri visibili sull'immagine. Il test è indifferente alle maiuscole/minuscole.<br />Se i caratteri sono illeggibili, basta ricaricare la pagina."
 
-# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Categorie di un articolo</h3>Più categorie possono essere selezionate.<br /><br />\n"
-"<strong>ambiente montanaro </strong>: informazioni generale sulla montagna (geologia, biotopo, neve e valanghe, ...)<br /><strong>materiale e tecnica</strong>: articolo sul materiale (descrizioni, uso...) o una tecnica (pratica, allenamento, )<br /><strong>complementi alla guida</strong>: articoli per dettagliare un parte di un documento della guida (ceni storici per un itinerario, una cima, un rifugio, geologia di un massiccio...)<br /><strong> ecomobilità et ecoturismo</strong>: articoli sull'ecomobilità e l'ecotourisme<br /><strong>spedizioni e viaggi</strong>: racconti o informazioni su una spedizone o un viaggio<br /><strong>racconti</strong>: racconti legati alla montagna<br /><strong>aiuto, il sito c2c</strong>: articoli sul sito <em>camptocamp.org</em> (aiuto, informazioni)<br /><strong>associazione</strong>: articoli su <em>Camptocamp Association</em> che gestisce il sito."
+"<strong>ambiente montanaro </strong>: informazioni generale sulla montagna (geologia, biotopo, neve e valanghe, ...)<br />\n"
+"<strong>materiale e tecnica</strong>: articolo sul materiale (descrizioni, uso...) o una tecnica (pratica, allenamento, )<br />\n"
+"<strong>complementi alla guida</strong>: articoli per dettagliare un parte di un documento della guida (ceni storici per un itinerario, una cima, un rifugio, geologia di un massiccio...)<br />\n"
+"<strong>ecomobilità e ecoturismo</strong>: articoli sull'ecomobilità e l'ecotourisma<br />\n"
+"<strong>spedizioni e viaggi</strong>: racconti o informazioni su una spedizione o un viaggio<br />\n"
+"<strong>racconti</strong>: racconti legati alla montagna<br />\n"
+"<strong>aiuto, il sito c2c</strong>: articoli sul sito <em>camptocamp.org</em> (aiuto, informazioni)<br />\n"
+"<strong>associazione</strong>: articoli su <em>Camptocamp Association</em> che gestisce il sito\n"
+"<strong>bozza</strong>: articoli in corso di redazione (non vengono pubblicati sulla home)"
 
 msgid "_category_info"
 msgstr "<h3>Categoria utente</h3>Questo campo è facoltativo. E' utile per ricercare tutti i club o professionali di una regione (se si sono geo-localizzati).<br /><br /><strong>amatore</strong>: Persona fisica che pratica come amatore.<br /><br /><strong>professionale</strong>: Guida etc che possono farsi pagare per portare gente in montagna o ad arrampicare.<br /><br /><strong>club o scuola</strong>: Club o scuola che riunisce partecipanti per organizzare gite.<br /><br /><strong>istituzione o associazione</strong>: ente pubblica o privata che non organizza gite in montagna. Per esempio: soccorsi, parco naturale, meteo, rifugio, ufficio del turismo, comune, associazione di difesa del ambiente, etc."
@@ -2844,9 +2852,24 @@ msgstr "<h3>Rifugio</h3>Apertura del rifugio: aperto/chiuso e custodito/non cust
 msgid "_ice_rating_info"
 msgstr "<h3>Valutazione ghiaccio</h3>La valutazione delle difficoltà ghiaccio tiene in conto diversi fattori quali la pendenza, la lunghezza della sezione più ripida, la conformazione del percorso (parete, colonna, goulotte) o anche la tecnicità del ghiaccio stesso (ghiaccio fine o spesso, ghiaccio poroso o compatto, etc...).<br /><br /><strong>Grado 3:</strong> Arrampicata poco inclinata (75°) con numerosi risalti. Il ghiaccio è spesso e compatto.<br /><strong>Grado 3+:</strong> Come il grado 3 ma con risalti più ripidi (80°).<br /><strong>Grado 4:</strong> Arrampicata con un passaggio ripido (85°) fino a 10 m di lunghezza. Il ghiaccio è spesso e compatto.<br /><strong>Grado 4+:</strong> Come il grado 4. Il passaggio ripido può essere quai verticale e più lungo, fino ad arrivare a 15m di lunghezza.<br /><strong>Grado 5:</strong> Arrampicata con una sezione verticale di circa 20m. Il ghiaccio comincia ad essere poroso e con forme particolari: cavolfiori o altre asperità. Su cascate di ghiaccio si tratta normalmente di di colonne.<br /><strong>Grado 5+:</strong> Arrampicata con una sezione verticale di circa 30m. L'arrampicata diventa abbastanza tecnica.<br /><strong>Grado 6:</strong> Arrampicata con una sezione verticale da 40 a 50m circa . Arrampicata tecnica. Il ghiaccio può essere particolarmente poroso.<br /><strong>Grado 6+:</strong> Arrampicata totalmente verticale e può presentare piccoli strapiombi, per esempio per passare da una struttura all'altra.<br /><strong>Grado 7:</strong> Arrampicata estrema. Molto ripida, può essere strapiombante su molti metri. La tecnica (di solito gestuale) utilizzata dall'alpinista è simile a quella di un arrampicatore su roccia."
 
-# [WARNING] needs_update
 msgid "_image_categories_info"
-msgstr "<h3>Categorie di un immagine</h3>Più categorie possono essere selezionate.<br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span><br /><br /><strong>paesaggio</strong>: foto con una grande parte di una o più cime o panoramico<br /><strong>dettaglio, zoom</strong>&nbsp;*&nbsp;: foto con una piccola parte di un itinerario, di una cima o di un luogo (contrario di <em>paesaggio</em>)<br /><strong>tracciato, schizzo</strong>&nbsp;*&nbsp;: tracciato su una foto o schizzo dell'itinerario<br /><strong>azione</strong>&nbsp;*&nbsp;: personaggio in azione<br /><strong>traccia, sentiero</strong>&nbsp;*&nbsp;: traccia di salita o discesa nella neve, o sentiero<br /><strong>salita</strong> e <strong>discesa</strong>: foto di salita o discesa - utile per precisare le categorie <em>dettaglio, azione, traccia, sentiero</em><br /><strong>personaggi</strong>: foto con argomento principale un o più personaggi<br /><strong>fauna</strong>&nbsp;* et <strong>flora</strong>&nbsp;*&nbsp;: foto o disegni di fauna o flora<br /><strong>neve e valanghe</strong>&nbsp;*: foto o disegni in relazione a la neve e le valanghe...<br /><strong>geologia</strong>&nbsp;*&nbsp;: foto o disegno di minerale, neve, ghiaccio...<br /><strong>alloggio</strong>: esteriore o interiore di un rifugio, o di posto dove bivacare<br /><strong>materiale</strong>: foto o disegno di materiale usato in montagna<br /><strong>Varie</strong>: immagine che non può essere messa nelle altre categorie: copertina di libro etc"
+msgstr "<h3>Categorie di un immagine</h3>\n"
+"Più categorie possono essere selezionate.<br />\n"
+"<span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span><br /><br />\n"
+"<strong>paesaggio</strong>: foto con una grande parte di una o più cime o panoramico<br />\n"
+"<strong>dettaglio, zoom</strong>&nbsp;*&nbsp;: foto con una piccola parte di un itinerario, di una cima o di un luogo (contrario di <em>paesaggio</em>)<br />\n"
+"<strong>tracciato, schizzo</strong>&nbsp;*&nbsp;: tracciato su una foto o schizzo dell'itinerario<br />\n"
+"<strong>azione</strong>&nbsp;*&nbsp;: personaggio in azione<br />\n"
+"<strong>traccia, sentiero</strong>&nbsp;*&nbsp;: traccia di salita o discesa nella neve, o sentiero<br /><strong>salita</strong> e <strong>discesa</strong>: foto di salita o discesa - utile per precisare le categorie <em>dettaglio, azione, traccia, sentiero</em><br />\n"
+"<strong>personaggi</strong>: foto con argomento principale un o più personaggi<br />\n"
+"<strong>fauna</strong>&nbsp;* e <strong>flora</strong>&nbsp;*&nbsp;: foto o disegni di fauna o flora<br />\n"
+"<strong>neve e valanghe</strong>&nbsp;*: foto o disegni in relazione a la neve e le valanghe...<br />\n"
+"<strong>geologia</strong>&nbsp;*&nbsp;: foto o disegno di minerale, neve, ghiaccio...<br />\n"
+"<strong>alloggio</strong>: esteriore o interiore di un rifugio, o di posto dove bivaccare<br />\n"
+"<strong>materiale</strong>: foto o disegno di materiale usato in montagna<br />\n"
+"<strong>copertina</strong>: copertina di libro<br />\n"
+"<strong>aiuto del sito</strong>: schizzo o screenshot per illustrare l'aiuto all'uso del sito<br />\n"
+"<strong>varie</strong>: immagine che non può essere messa nelle altre categorie: copertina di libro etc"
 
 msgid "_image_details_info"
 msgstr "<h3>Proprietà dell'immagine</h3>Dimensioni e peso dell'immagine"
@@ -3237,15 +3260,13 @@ msgstr "tutti i documenti"
 
 # [general comment]
 # a short string when all facings are selected
-# [WARNING] en translation used
 msgid "all facings"
-msgstr "all"
+msgstr "tutte"
 
 # [general comment]
 # a summary to present best periods when all months are selected
-# [WARNING] en translation used
 msgid "all months"
-msgstr "all year round"
+msgstr "tutto l'anno"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -3374,6 +3395,9 @@ msgstr "Asia"
 
 msgid "asturies"
 msgstr "Asturie"
+
+msgid "austrian_states"
+msgstr "Stati federati dell'Austria"
 
 msgid "author"
 msgstr "Autore/i:"
@@ -3982,9 +4006,8 @@ msgstr "Carica i dati geografiche al formato %1%"
 
 # [general comment]
 # Catégorie d'article : "brouillon"
-# [WARNING] en translation used
 msgid "draft"
-msgstr "draft"
+msgstr "bozza"
 
 msgid "duration"
 msgstr "Tempo di percorrenza:"
@@ -4342,9 +4365,9 @@ msgstr "Dislivello:"
 
 # [general comment]
 # Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "help pic"
-msgstr "help"
+msgstr "aiuto del sito"
 
 msgid "hide form"
 msgstr "Nascondere la scheda di informazioni"
@@ -4633,9 +4656,9 @@ msgstr "Attività degli itinerari associati:"
 
 # [general comment]
 # Message for the user, asking if he wants to load the draft of the document edition (for exemple because he was no more connected when he submitted the form)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "load draft?"
-msgstr "Do you want to use the draft stored during a preceding edition? (OK : the draft will be copied to the form - Cancel : the draft will be removed)"
+msgstr "Vuoi usare la bozza salvata durante l\\'edizione precedente ? (OK : la bozza sarà copiata nel modulo - Cancellare : la bozza sarà cancellata)"
 
 # [WARNING] needs_review
 msgid "local_product"

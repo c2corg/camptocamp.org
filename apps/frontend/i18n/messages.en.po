@@ -3272,7 +3272,6 @@ msgstr "all documents"
 
 # [general comment]
 # a short string when all facings are selected
-# [WARNING] needs_review
 msgid "all facings"
 msgstr "all"
 
@@ -3408,6 +3407,9 @@ msgstr "Asia"
 
 msgid "asturies"
 msgstr "Asturias"
+
+msgid "austrian_states"
+msgstr "States of Austria"
 
 msgid "author"
 msgstr "Author(s):"
