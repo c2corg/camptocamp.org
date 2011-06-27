@@ -249,7 +249,6 @@ class usersActions extends documentsActions
 
             // redirect to requested page
             $referer = $this->getRequest()->getReferer();
-c2cTools::log($referer . 'PLOP');
             if ($referer && !empty($referer))
             {
                 $this->redirect($referer);
