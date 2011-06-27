@@ -1107,7 +1107,7 @@ function format_book_data($books, $type, $main_id, $is_moderator = false)
         {
             $html .= ' - ' . $book['publication_date'];
         }
-        if ($is_moderator && $main_id)
+        if ($is_moderator && $main_id && !c2cTools::mobileVersion())
         {
             $html .= c2c_link_to_delete_element($type, $doc_id, $main_id, false, $strict);
         }
