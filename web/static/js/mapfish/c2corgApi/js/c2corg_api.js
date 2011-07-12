@@ -1,6 +1,7 @@
 /**
  * @include c2corgApi/js/ArgParser.js
  * @include c2corgApi/js/tooltip.js
+ * @include c2corgApi/js/somerc.js
  * @requires c2corgApi/js/Permalink.js
  * @requires MapFishApi/js/mapfish_api.js
  * @requires MapFishApi/js/Measure.js
@@ -25,6 +26,7 @@
  * @requires OpenLayers/Layer/XYZ.js
  * @requires OpenLayers/Layer/Markers.js
  * @requires OpenLayers/Format/WMTSCapabilities.js
+ * @requires OpenLayers/Format/WMTSCapabilities/v1_0_0.js
  * @requires OpenLayers/Map.js
  * @requires OpenLayers/Marker.js
  * @requires OpenLayers/Projection.js
@@ -37,6 +39,8 @@
 
 Ext.namespace("c2corg");
 
+Proj4js.defs["EPSG:21781"] = "+title=CH1903 / LV03 +proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs";
+
 c2corg.API = OpenLayers.Class(MapFish.API, {
 
     lang: 'fr',
@@ -45,7 +49,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     miller: new OpenLayers.Projection("IGNF:MILLER"),
     fxx: new OpenLayers.Projection("IGNF:GEOPORTALFXX"),
     epsg900913: new OpenLayers.Projection("EPSG:900913"),
-    //epsg21781: new OpenLayers.Projection("EPSG:21781"),
+    epsg21781: new OpenLayers.Projection("EPSG:21781"),
 
     overview: null,
 
@@ -290,8 +294,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             ['gmap_normal', OpenLayers.i18n('Normal')],
             ['OpenStreetMap', OpenLayers.i18n('OpenStreetMap')],
             ['ign_map', OpenLayers.i18n('IGN maps')],
-            ['ign_orthos', OpenLayers.i18n('IGN orthos')]//,
-            //['swisstopo_map', OpenLayers.i18n('Swisstopo maps')]
+            ['ign_orthos', OpenLayers.i18n('IGN orthos')],
+            ['swisstopo_map', OpenLayers.i18n('Swisstopo maps')]
         ];
         
         var store = new Ext.data.SimpleStore({
@@ -515,8 +519,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     },
     
     setSwisstopoLayer: function() {
+        // TODO: use JSONP to get capabilities directly from the provider
         OpenLayers.Request.GET({
-            url: "http://api.geo.admin.ch/main/wsgi/doc/data/wmts-getcapabilities.xml",
+            url: "/static/js/mapfish/swisstopo/wmts-getcapabilities.xml",
             params: {
                 SERVICE: "WMTS",
                 VERSION: "1.0.0",
@@ -524,29 +529,30 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             },
             success: function(request) {
                 var doc = request.responseXML;
-                console.log(doc)
                 if (!doc || !doc.documentElement) {
                     doc = request.responseText;
                 }
 
                 var format = new OpenLayers.Format.WMTSCapabilities();
                 var capabilities = format.read(doc);
-                console.log(capabilities)
 
+                // TODO: create this layer by hand to avoid parsing the huge capabilities file?
                 this.swisstopoMapLayer = format.createLayer(capabilities, {
                     layer: "ch.swisstopo.pixelkarte-farbe",
                     matrixSet: "21781", // Only this one
                     format: "image/jpeg",
+                    name: "swisstopo_map",
                     opacity: 1.0,
-                    isBaseLayer: false,
+                    isBaseLayer: true,
                     requestEncoding: "REST",
                     style: "default" ,  // must be provided
                     dimensions: ['TIME'],
-                    params: {'time': '2009'},
-                    formatSuffix: 'jpeg'
+                    params: {'time': '20110401'},
+                    formatSuffix: 'jpeg',
+                    resolutions: [650,500,250,100,50,20,10,5,2.5],
+                    projection: this.epsg21781
                 });
                 
-                console.log(this.swisstopoMapLayer)
                 this.map.addLayer(this.swisstopoMapLayer);
                 this.setBaseLayerByName('swisstopo_map');
             },
