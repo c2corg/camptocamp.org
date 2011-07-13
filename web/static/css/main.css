@@ -34,10 +34,10 @@ textarea
 /* rounded inputs */
 input, select, textarea {
   font-size: 100%;
-  border-radius: 4px;
   -moz-border-radius: 4px;
   -khtml-border-radius: 4px;
   -webkit-border-radius: 4px;
+  border-radius: 4px;
   padding: 1px;
   border: 1px solid #ddd;
 }
@@ -52,8 +52,8 @@ input[type="range"], input[type="date"], input[type="color"], select, #type, #q 
   font-size: 12px;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 select[multiple="multiple"], input[type="checkbox"], input[type="image"]
@@ -69,9 +69,9 @@ select, option {
 /* outline focused input elements */
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus
 {
-  box-shadow: 0 0 6px #ccc;
   -moz-box-shadow: 0 0 6px #ccc;
   -webkit-box-shadow: 0 0 6px #ccc;
+  box-shadow: 0 0 6px #ccc;
   outline: none; /* do not conflict with possible outline added by browser, eg chrome */
 }
 
@@ -133,7 +133,7 @@ fieldset p
 
 img
 {
-  border:0px;
+  border: 0;
   vertical-align:middle;
 }
 
@@ -303,17 +303,16 @@ hr
 
 .warning_message, .important_message, .global_form_error, .preview_warning, .mandatory_fields_warning, .front_message
 {
-  margin:0px;
-  min-height:25px;
+  min-height: 25px;
   clear:both;
-  text-align:justify;
-  vertical-align:middle;
-  border-collapse:collapse;
+  text-align: justify;
+  vertical-align: middle;
+  border-collapse: collapse;
   padding: 8px 20px 8px 60px;
-  border-radius: 8px;
   -moz-border-radius: 8px;
   -khtml-border-radius: 8px;
   -webkit-border-radius: 8px;
+  border-radius: 8px;
   margin: 0 0 5px 0;
 }
 
@@ -417,7 +416,7 @@ em.mandatory_asterisk
   left: 10px;
   top: 5px;
   z-index: 2;
-  background-position: 0px -137px;
+  background-position: 0 -137px;
 }
 
 #mw_logo
@@ -515,10 +514,10 @@ em.mandatory_asterisk
   text-align: center;
   padding: 8px;
   border: 0 !important;
-  border-radius: 5px;
   -moz-border-radius: 5px;
   -khtml-border-radius: 5px;
   -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .img_error.img_warning {
@@ -530,21 +529,21 @@ em.mandatory_asterisk
 {
   float:left;
   clear: left;
-  margin: 5px 15px 10px 0px;
+  margin: 5px 15px 10px 0;
 }
 
 .embedded_right, img.embedded_right
 {
   float:right;
   clear: right;
-  margin: 5px 0px 10px 15px;
+  margin: 5px 0 10px 15px;
 }
 
 .embedded_center, img.embedded_center
 {
   float: none;
   clear: none;
-  margin: 0px 15px 10px 15px;
+  margin: 0 15px 10px 15px;
   text-align: center;
 }
 
@@ -803,7 +802,7 @@ h1 .logo_mini
 }
 .img_title_noimage
 {
-  background-position: 30px 0px;
+  background-position: 30px 0;
 }
 
 #title, .title, .title a
@@ -940,14 +939,14 @@ span.default_text, p.default_text
 /* compensate rounded inputs for maps */
 #map .x-form-field, #mappanel .x-form-field
 {
-  border-radius:0;
   -moz-border-radius:0;
   -khtml-border-radius:0;
   -webkit-border-radius:0;
+  border-radius:0;
   -ms-box-sizing: content-box;
   -moz-box-sizing: content-box;
-  box-sizing: content-box;
   -webkit-box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 #map_container p.default_text
@@ -998,8 +997,8 @@ span.default_text, p.default_text
 
 .home_article
 {
-  margin-top:-10px;
-  padding-bottom:0px;
+  margin-top: -10px;
+  padding-bottom: 0;
 }
 
 .article p
@@ -1533,22 +1532,22 @@ a.close_btn {
   height: 30px;
 }
 #c2csa a {
-  background-position: 0px -251px;
+  background-position: 0 -251px;
   width: 51px;
   height: 30px;
 }
 #europesengage a {
-  background-position: 0px -287px;
+  background-position: 0 -287px;
   width: 161px;
   height: 103px;
 }
 #paca a {
-  background-position: 0px -390px;
+  background-position: 0 -390px;
   width: 162px;
   height: 61px;
 }
 #languedoc a {
-  background-position: 0px -451px;
+  background-position: 0 -451px;
   width: 116px;
   height: 61px;
 }
@@ -1689,10 +1688,6 @@ a.not_translated, span.not_translated
   text-decoration:none;
 }
 
-a.translated
-{
-}
-
 /* tabs and buttons */
 
 ul.tabs, ul.action_buttons, ul.nav
@@ -1729,7 +1724,6 @@ ul.tabs li, ul.nav li
 
 ul.tabs li
 {
-  border-radius: 8px 8px 0 0;
   -moz-border-radius: 8px 8px 0 0;
   -khtml-border-bottom-right-radius: 0;
   -khtml-border-bottom-left-radius: 0;
@@ -1737,8 +1731,9 @@ ul.tabs li
   -khtml-border-top-left-radius: 8px;
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-bottom-left-radius: 0;
-  -wenkit-border-top-right-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
   -webkit-border-top-left-radius: 8px;
+  border-radius: 8px 8px 0 0;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -2633,7 +2628,7 @@ input[type=file] {
   background-color: #FFFFFF;
 }
 
-table#conditions_levels_table  {
+#conditions_levels_table  {
   margin-bottom: 1ex;
   border-spacing: 0;
   border-collapse: collapse;
@@ -2697,7 +2692,7 @@ ul.data
 ul.dated_changes
 {
   margin: 15px 0 0 10px;
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 ul.dated_changes li
@@ -3214,59 +3209,59 @@ ul.list404 li
 
 #nav_anchor_content, #nav_tools_content, #nav_license_content
 {
-  height:100%;
-  width:200px;
-  float:left;
+  height: 100%;
+  width: 200px;
+  float: left;
   background-color: #d2cabc;
 }
 
 #nav_anchor_top, #nav_tools_top, #nav_license_top
 {
-  height:5px;
-  width:200px;
-  float:right;
+  height: 5px;
+  width: 200px;
+  float: right;
   background-position: 0px -10px;
 }
 
 #nav_anchor_down, #nav_tools_down, #nav_license_down
 {
-  height:5px;
-  width:200px;
-  float:right;
+  height: 5px;
+  width: 200px;
+  float: right;
   background-position: 0px -15px;
 }
 
 #wizard_button_top
 {
-  height:5px;
-  width:200px;
-  float:right;
-  background-position: 0px 0px;
+  height: 5px;
+  width: 200px;
+  float: right;
+  background-position: 0 0;
 }
 
 #wizard_button_down
 {
-  height:5px;
-  width:200px;
-  float:right;
-  background-position: 0px -5px;
+  height: 5px;
+  width: 200px;
+  float: right;
+  background-position: 0 -5px;
 }
 
 #wizard_button_content
 {
-  background-color:#f93;
-  height:100%;
-  width:200px;
-  float:left;
+  background-color: #f93;
+  height: 100%;
+  width: 200px;
+  float: left;
 }
 
 .nav_box_content
 {
-  height:100%;
-  width:198px;
-  float:left;
-  background:url(/static/images/bg_nav.png) repeat-x bottom left;
-  border-left:2px solid #e4e1da;
+  height: 100%;
+  width: 198px;
+  float: left;
+  background: url(/static/images/bg_nav.png) repeat-x bottom left;
+  border-left: 2px solid #e4e1da;
 }
 
 #nav_images #last_image_list
@@ -3276,15 +3271,15 @@ ul.list404 li
 
 .nav_box_top
 {
-  height:5px;
-  width:200px;
-  float:right;
-  background-position: 0px -126px;
+  height: 5px;
+  width: 200px;
+  float: right;
+  background-position: 0 -126px;
 }
 
 .nav_box_top.small
 {
-  background-position: 0px -281px;
+  background-position: 0 -281px;
 }
 
 .nav_box_down
@@ -3292,7 +3287,7 @@ ul.list404 li
   height:6px;
   width:200px;
   float:right;
-  background-position: 0px -131px;
+  background-position: 0 -131px;
 }
 
 #nav_about_section_container
@@ -3304,9 +3299,9 @@ ul.list404 li
 
 #wizard_button a
 {
-  color:white;
-  padding-left: 0px;
-  text-decoration:none;
+  color: white;
+  padding-left: 0;
+  text-decoration: none;
 }
 
 #nav_edit li a, #nav_edit li div
@@ -3319,7 +3314,7 @@ ul.list404 li
 
 #nav_edit li a.action_comment
 {
-  font-size:12px;
+  font-size: 12px;
 }
 
 #nav_edit li span
@@ -3822,7 +3817,7 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data, #
 
 .association_content_inside_field .linked_elt
 {
-  padding-left:0px;
+  padding-left:0;
 }
 
 .linked_elt.level2
@@ -4144,10 +4139,10 @@ span.toc_link a, .article span.toc_link a, a span.toc_link
   margin-left: 2em;
   padding: 0 0.5em 0.1em;
   border: 1px solid #cccccc;
-  border-radius: 1em;
   -moz-border-radius: 1em;
   -khtml-border-radius: 1em;
   -webkit-border-radius: 1em;
+  border-radius: 1em;
   font-size: 0.5em;
   font-style: normal;
   font-weight: normal;
@@ -4247,10 +4242,10 @@ ol.text ol.text ol.text
   width: 100%;
   background-color: #f1f1f1;
   margin-bottom: 15px;
-  border-radius:3px;
   -moz-border-radius:3px;
   -khtml-border-radius:3px;
   -webkit-border-radius:3px;
+  border-radius:3px;
 }
 
 .home_title_text, .home_title_left, .home_title_right
@@ -4372,7 +4367,7 @@ ol.text ol.text ol.text
 {
   text-align: justify;
   list-style-image:none;
-  margin-left:0px;
+  margin-left:0;
   margin-bottom: 0.5em;
   color: #666666;
 }
