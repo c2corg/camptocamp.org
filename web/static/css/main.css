@@ -7,8 +7,8 @@
 html, body, #holder
 {
   width: 100%;
-  min-width:1000px;
-  background-color:#ffffff;
+  min-width: 1000px;
+  background-color: #fff;
 }
 
 html>body, html>body #holder
@@ -19,10 +19,10 @@ html>body, html>body #holder
 body
 {
   margin: 0;
-  padding:0;
-  font-family:Verdana, Arial, Helvetica, sans-serif;
-  font-size:12px;
-  color:#000;
+  padding: 0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #000;
 }
 
 /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
@@ -134,7 +134,7 @@ fieldset p
 img
 {
   border: 0;
-  vertical-align:middle;
+  vertical-align: middle;
 }
 
 ul
@@ -147,7 +147,7 @@ ul
 a
 {
   color: #666;
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 sup, sub
@@ -158,12 +158,12 @@ sup, sub
 
 .dated_changes .meta a
 {
-  color:black;
+  color: #000;
 }
 
 a:hover
 {
-  text-decoration:none;
+  text-decoration: none;
 }
 
 a.external_link, .htext .hextra a.external_link {
@@ -195,9 +195,9 @@ a[href^="http://escalade.camptocamp.com"]:after {
 
 #content_box
 {
-  background-color:#FFFFFF;
-  height:100%;
-  width:100%;
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
   float: left;
   clear: left;
   margin-bottom: 50px;
@@ -205,10 +205,10 @@ a[href^="http://escalade.camptocamp.com"]:after {
 
 #path
 {
-  font-size:0.9em;
-  position:absolute;
-  left:20px;
-  margin-top:-13px;
+  font-size: 0.9em;
+  position: absolute;
+  left: 20px;
+  margin-top: -13px;
 }
 
 .tips, .edit-tips, .big_tips
@@ -1364,10 +1364,10 @@ p.default_text div.add_content
   max-width:50%;
   position: fixed;
   border: 1px solid #aaa;
-  border-radius:10px;
   -moz-border-radius:10px;
   -khtml-border-radius:10px;
   -webkit-border-radius:10px;
+  border-radius:10px;
 }
 
 #fields_tooltip #close_info
@@ -1446,7 +1446,7 @@ a.close_btn {
 
 #footer_border_left
 {
-  background-position: 0px -30px;
+  background-position: 0 -30px;
   float: left;
 }
 
@@ -2715,10 +2715,10 @@ ul.dated_changes span.date
   font-weight:bold;
   font-size:0.8em;
   border: solid 1px #aaa;
-  border-radius:5px;
   -moz-border-radius:5px;
   -khtml-border-radius:5px;
   -webkit-border-radius:5px;
+  border-radius:5px;
   padding:2px;
   line-height: 12px;
 }
@@ -2837,10 +2837,10 @@ ul.docs_changes li img
 {
   margin: 0.3em 0;
   border: 1px solid #000;
-  border-radius:4px;
   -moz-border-radius:4px;
   -khtml-border-radius:4px;
   -webkit-border-radius:4px;
+  border-radius:4px;
   padding: 0.2em 0.2em 0.2em 35px;
   list-style-type: none;
   /* uri encode /static/images/drag.gif */
@@ -3228,7 +3228,7 @@ ul.list404 li
   height: 5px;
   width: 200px;
   float: right;
-  background-position: 0px -15px;
+  background-position: 0 -15px;
 }
 
 #wizard_button_top
@@ -4966,38 +4966,38 @@ span.cotometre_result {
 /* embedded google search */
 #google_search_input
 {
-  border-radius: 4px 0 0 4px;
-  -moz-border-radius: 4px 0 0 4px;
   -khtml-border-bottom-right-radius: 0;
   -khtml-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-top-right-radius: 0;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
   width: 220px;
   height: 1.8em;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #google_search_submit
 {
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   display: inline-block;
   width: 21px;
   height: 1.8em;
   vertical-align: middle;
   border: 1px solid #ddd;
   border-left: none;
-  border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
   -khtml-border-bottom-right-radius: 4px;
   -khtml-border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
   -webkit-border-top-right-radius: 4px;
+  border-radius: 0 4px 4px 0;
   background-color: #fff;
 }
 
@@ -5039,9 +5039,9 @@ span.cotometre_result {
 {
   height: auto;
   border: 0;
-  box-shadow: none;
   -moz-box-shadow: none; 
   -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 
@@ -5063,9 +5063,13 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
   background: #f4f4f4; /* non css3 browsers and ie */
   /* filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFF9F9F9,EndColorStr=#FFE3E3E3);*/ /* ie 5.5 - 7 */
   /* -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFF9F9F9,EndColorStr=#FFE3E3E3')";*/ /* ie 8 */
-  background: -o-linear-gradient(#f9f9f9, #e3e3e3) repeat scroll 0 0 transparent; /* opera 11.1+ */
-  background: -moz-linear-gradient(#f9f9f9, #e3e3e3) repeat scroll 0 0 transparent; /* ff 3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#e3e3e3)); /* webkit browsers */
+  background-image: -moz-linear-gradient(top, #f9f9f9, #e3e3e3 100%); /* firefox 3.6+ */
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f9f9f9), to(#e3e3e3)); /* safari 4+ */
+  background-image: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3 100%); /* chrome, safari 5.1+ */
+  background-image: -o-linear-gradient(top, #f9f9f9, #e3e3e3 100%); /* opera 11.1+ */
+  background-image: -ms-linear-gradient(top , #f9f9f9, #e3e3e3 100%); /* ie 10+ */
+  background-image: linear-gradient(top, #f9f9f9, #e3e3e3 100%);
+
   cursor: pointer;
 }
 
@@ -5076,8 +5080,8 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
   vertical-align: middle;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .c2cui_btn.main_button {
@@ -5090,9 +5094,12 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 
 .c2cui_btn:active, input[type=submit]:active, input[type=reset]:active, input[type=button]:active {
   border-color: #000;
-  background: -o-linear-gradient(#e3e3e3, #f9f9f9) repeat scroll 0 0 transparent; /* opera 11.1+ */
-  background: -moz-linear-gradient(#e3e3e3, #f9f9f9) repeat scroll 0 0 transparent; /* ff 3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, from(#e3e3e3), to(#f9f9f9)); /* webkit browsers */
+  background-image: -moz-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* firefox 3.6+ */
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e3e3e3), to(#f9f9f9)); /* safari 4+ */
+  background-image: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* chrome, safari 5.1+ */
+  background-image: -o-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* opera 11.1+ */
+  background-image: -ms-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* ie 10+ */
+  background-image: linear-gradient(top, #e3e3e3, #f9f9f9 100%);
 }
 
 .c2cui_btno {
