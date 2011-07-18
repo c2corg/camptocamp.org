@@ -4477,7 +4477,7 @@ msgid "huts presentation"
 msgstr "Un \"refuge\" peut être un refuge gardé ou non, un gite, un abri, un emplacement de bivouac, un camp de base. Un \"refuge\" peut être associé à des accès et à des itinéraires."
 
 msgid "hybrid"
-msgstr "mixte"
+msgstr "Google mixte"
 
 msgid "i button title"
 msgstr "Mettre le texte sélectionné en italique"
@@ -5666,7 +5666,7 @@ msgid "regions"
 msgstr "régions"
 
 msgid "relief"
-msgstr "relief"
+msgstr "Google relief"
 
 msgid "remarks"
 msgstr "Remarques&nbsp;:"

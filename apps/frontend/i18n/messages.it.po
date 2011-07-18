@@ -4429,7 +4429,7 @@ msgid "huts presentation"
 msgstr "Un \"rifugio\" può essere un rifugio custodito o no, un posto tappa, un bivacco, o solo una piazzola per tenda. Un \"rifugio\" può essere associato a degli accessi stradali o a degli itinerari."
 
 msgid "hybrid"
-msgstr "misto"
+msgstr "Google misto"
 
 # [WARNING] needs_review
 msgid "i button title"
@@ -5628,7 +5628,7 @@ msgid "regions"
 msgstr "regioni"
 
 msgid "relief"
-msgstr "rilievo"
+msgstr "Google rilievo"
 
 msgid "remarks"
 msgstr "Osservazioni:"

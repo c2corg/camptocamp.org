@@ -4670,8 +4670,9 @@ msgstr "Mendi-aterpeen zerrenda"
 msgid "huts presentation"
 msgstr "Un \"refugio\" puede ser un edificio, guardado o no, una construcción precaria, un lugar habitual de <i>vivac</i>, un campamento base o un hospedaje en un valle. Un \"refugio\" puede ser asociado a accesos y/o itinerarios."
 
+# [WARNING] needs_review
 msgid "hybrid"
-msgstr "mixtoa"
+msgstr "Google mixtoa"
 
 msgid "i button title"
 msgstr "Aukeratutako testua etzan eran jarri"
@@ -5980,8 +5981,9 @@ msgstr "Eskualdeak"
 msgid "regions"
 msgstr "regions"
 
+# [WARNING] needs_review
 msgid "relief"
-msgstr "erliebea"
+msgstr "Google erliebea"
 
 msgid "remarks"
 msgstr "Azalpenak:"

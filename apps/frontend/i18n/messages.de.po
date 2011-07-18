@@ -126,9 +126,14 @@ msgstr "Eine Route hinzufügen"
 msgid "Add your summit"
 msgstr "Ein Gipfel hinzufügen"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
-msgstr "Wenn sie das nachfolgende Formular ausgefüllt haben, erhalten sie eine Email mit Ihren Passwort. Sie müssen sich dann innerhalb %1% Tagen auf der Website einloggen, um Ihr Benutzerkonto zu aktivieren."
+msgstr "<b>Wenn sie das nachfolgende Formular ausgefüllt haben, erhalten sie eine Email mit Ihren Passwort. Sie müssen sich dann innerhalb %1% Tagen auf der Website einloggen, um Ihr Benutzerkonto zu aktivieren.</b><br/>\n"
+"<br/>\n"
+"Es ist wichtig zu wissen, dass sowohl der Inhalt ihrer Beiträge, als auch ihr Pseudonym (im Forum und im Tourenführer) sichtbar und von Suchmaschinen archiviert werden. Wenn sie also ihren Vor- und Nachnamen als Pseudonym verwenden, werden sie durch die Suchmaschinen referenziert.<br/>\n"
+"<br/>Die zur Registrierung verwendete Email-Adresse ist ausschliesslich den Moderatoren zugänglich.<br/>\n"
+"Es ist möglich sowohl ihr Pseudonym als auch die Email-Adresse zu ändern. Die Änderung von Pseudonym und Email-Adresse ist aber nur im Tourenführer retroaktiv.<br/>\n"
+"<br/>Nachdem ein Benutzerkonto erstellt wurde kann der Benutzername nicht mehr geändert werden. Standartmässig erscheint der Benutzername bei ihren Beiträgen im Tourenführer und im Forum, aber diese Pseudonyme können geändert werden. Ihr Benutzername muss daher nicht eindeutig sein, aber bitte vermeiden sie es Umlaute, Leerschläge und andere Sonderzeichen."
 
 msgid "Alignment"
 msgstr "Ausrichtung:"
@@ -402,7 +407,7 @@ msgid "Clear"
 msgstr "Auswahl aufheben"
 
 msgid "Clear document cache"
-msgstr "Den Cache dieses Dokument aktualisieren"
+msgstr "Den Cache dieses Dokuments aktualisieren"
 
 msgid "Clear document cache (short)"
 msgstr "Den Cache auffrischen"
@@ -626,7 +631,7 @@ msgid "Delete this document"
 msgstr "Dokument löschen"
 
 msgid "Delete this document culture"
-msgstr "Die Fassung des Dokuments in diese Sprache löschen"
+msgstr "Die Fassung des Dokuments in dieser Sprache löschen"
 
 msgid "Delete this documents geometry"
 msgstr "Die Geometrie dieses Dokumentes entfernen"
@@ -962,7 +967,7 @@ msgid "Go to previous product"
 msgstr "Gehe zum vorangehenden Dokument der \"lokalen Produkte\""
 
 msgid "Go to previous route"
-msgstr "Zur vorige Route"
+msgstr "Zur vorhergehenden Route"
 
 msgid "Go to previous summit"
 msgstr "Zum vorangehenden Gipfel gehen"
@@ -3245,9 +3250,9 @@ msgstr "<h3>öV-Typ</h3>\n"
 "Typ des öffentlichen Verkehrsmittels, welches den Zugangsort erschliesst. Dabei ist nur das Verkehrsmittel anzugeben, welches den\n"
 "Zugangsort bedient. <em>Z.B. wenn ein Zugangsort mit einem Bus erschlossen ist, welcher vom 10km entfernten Bahnhof startet, dann wird nur \"Bus\" angegeben.</em><br /><br /><strong>Zug:</strong><span style=\"font-weight: bold;\"></span> Zug<br /><br /><strong>Bus:&nbsp;</strong> Postauto oder Bus<br /><br /><strong>Auf Anfrage</strong>: Taxi, Rufbus, oder Abholdienst"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_publication_date_info"
-msgstr "<h3>Publikationsdatum</h3>Datum, an welchem das Buch oder die Zeitschrift publiziert wurde. Falls mehrere Auflage der Publikation vorhanden sind, wird auf die aktuellste Auflage Bezug genommen, oder man gibt die erste und letzte Auflage separiert durch einen Trennstrich (z.B. 1983 – 2010). Dieses Feld ist dasselbe in allen Sprachen, weshalb ausschliesslich nummerische Datumsangaben verwendet werden sollten (\"2004\", \"03/2009\", \"07-08/1997\", etc.)."
+msgstr "<h3>Publikationsdatum</h3>Datum, an welchem das Buch oder die Zeitschrift publiziert wurde. Falls mehrere Auflage der Publikation existieren, wird auf die aktuellste Auflage Bezug genommen, oder man gibt die erste und letzte Auflage separiert durch einen Trennstrich (z.B. 1983 – 2010) an. Dieses Feld ist dasselbe in allen Sprachen, weshalb ausschliesslich nummerische Datumsangaben verwendet werden sollten (\"2004\", \"03/2009\", \"07-08/1997\", etc.).<br/> Bei Büchern wird beim Publikationsdatum lediglich die Jahrzahl angeben, bei Zeitschriften das Jahr und den Monat."
 
 # [WARNING] needs_review
 msgid "_rain_proof_info"
@@ -4803,7 +4808,7 @@ msgstr "Bei einer \"Hütte\" kann es sich um eine bewartete oder unbewartete Hü
 
 # [WARNING] needs_review
 msgid "hybrid"
-msgstr "kombiniert"
+msgstr "Google kombiniert"
 
 msgid "i button title"
 msgstr "Den ausgewählten Text kursiv schreiben "
@@ -6089,7 +6094,7 @@ msgstr "Regionen"
 
 # [WARNING] needs_review
 msgid "relief"
-msgstr "Relief"
+msgstr "Google Relief"
 
 msgid "remarks"
 msgstr "Bemerkungen: "

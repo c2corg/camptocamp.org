@@ -4396,7 +4396,7 @@ msgid "huts presentation"
 msgstr "Un \"refugio\" puede ser un edificio, guardado o no, una construcción precaria, un lugar habitual de <i>vivac</i>, un campamento base o un hospedaje en un valle. Un \"refugio\" puede ser asociado a accesos y/o itinerarios."
 
 msgid "hybrid"
-msgstr "mixto"
+msgstr "Google mixto"
 
 msgid "i button title"
 msgstr "Poner el texto seleccionado en cursiva"
@@ -5602,8 +5602,9 @@ msgstr "Regiones"
 msgid "regions"
 msgstr "regiones"
 
+# [WARNING] needs_review
 msgid "relief"
-msgstr "relieve"
+msgstr "Google relieve"
 
 msgid "remarks"
 msgstr "Observaciones:"

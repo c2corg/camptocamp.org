@@ -126,7 +126,7 @@ msgid "Add your summit"
 msgstr "Add a summit"
 
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
-msgstr "It is important to realize that what you write, together with your forum and guide-book nicknames will be visible on the World Wide Web and archived by search engines. Using your real names ans surnames exposes you to being referenced by these search engines.<br /> \n"
+msgstr "It is important to realize that what you write, together with your forum and guide-book nicknames will be visible on the World Wide Web and archived by search engines. Using your real names and surnames exposes you to being referenced by these search engines.<br /> \n"
 "<br /> \n"
 "The email address you use for creating your account is only visible to moderators.<br /> \n"
 "You can change your email as well as your nicknames later. Only changes in the guide-book nickname are retro-active. <br /> \n"
@@ -4445,7 +4445,7 @@ msgstr "A \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a base camp
 
 # [WARNING] needs_review
 msgid "hybrid"
-msgstr "mixed"
+msgstr "Google mixed"
 
 msgid "i button title"
 msgstr "Set selected text to italic"
@@ -5647,7 +5647,7 @@ msgid "regions"
 msgstr "regions"
 
 msgid "relief"
-msgstr "relief"
+msgstr "Google relief"
 
 msgid "remarks"
 msgstr "Remarks:"
