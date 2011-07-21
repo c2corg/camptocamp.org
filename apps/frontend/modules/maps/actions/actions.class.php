@@ -18,6 +18,20 @@ class mapsActions extends documentsActions
      */   
     protected $geom_dims = 2; 
 
+    public function executeView()
+    {
+        parent::executeView();
+        // add editor + code for in map title
+        if (!$this->document->isArchive())
+        {
+            $map_editors_list = sfConfig::get('mod_maps_editors_list');
+            $title = $this->__($map_editors_list[$this->document->get('editor')]) . ' ' .
+                     $this->document->get('code') . ' ' . $this->document->get('name') .
+                     ' :: ' . $this->__(substr($this->getModuleName(), 0, -1));
+            $this->setPageTitle($title);
+        }
+    }
+
     public function executeMerge()
     {
         $referer = $this->getRequest()->getReferer();
