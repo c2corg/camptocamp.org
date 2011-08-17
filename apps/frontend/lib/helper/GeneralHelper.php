@@ -93,3 +93,8 @@ function _implode($glue, $items)
     }
     return implode($glue, $items);
 }
+
+function check_not_empty($value)
+{
+    return (!$value instanceof Doctrine_Null && !empty($value));
+}

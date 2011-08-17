@@ -1234,7 +1234,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                                           . "WHERE a.redirects_to IS NULL AND (v.version = 1 AND a4.user_id = ?))))";
             $where_vars = array($name, $user_id);
         }
-        else if ($model == 'User')
+        else if ($model == 'User') // search on topoguide and forum names
         {
             $select = 'mi.name, m.id, m.module, mu.username';
             $from = 'User m, m.UserI18n mi, m.private_data mu';
@@ -1243,6 +1243,11 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $where_clause = 'm.redirects_to IS NULL AND (mi.search_name ' . $operator . ' OR mu.search_username ' . $operator . ')';
             }
             $where_vars = $use_docid ? array($name) : array($name, $name);
+        }
+        else if ($model == 'Book') // retrive author and publication date
+        {
+            $select = 'mi.name, m.id, m.module, m.author, m.publication_date';
+            $where_vars = array($name);
         }
         else
         {

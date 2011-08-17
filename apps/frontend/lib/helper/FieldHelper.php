@@ -2,6 +2,7 @@
 /**
  * $Id: FieldHelper.php 2455 2007-11-30 11:44:31Z alex $
  */
+use_helper('General');
 
 function loadTooltipsViewRessources()
 {
@@ -975,11 +976,6 @@ function simple_data($name, $value, $suffix = '')
     if (!empty($suffix)) $suffix = __($suffix);
 
     return '<em>' . __($name) . '</em> ' . $value . $suffix;
-}
-
-function check_not_empty($value)
-{
-    return (!$value instanceof Doctrine_Null && !empty($value));
 }
 
 function check_not_empty_doc($document, $name)

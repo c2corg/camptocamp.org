@@ -2560,6 +2560,8 @@ class documentsActions extends c2cActions
      */
     public function executeAutocomplete()
     {
+        sfLoader::loadHelpers(array('General'));
+
         $model = $this->model_class;
         $module = c2cTools::model2module($model);
         $string = $this->getRequestParameter($module.'_name');
@@ -2635,7 +2637,6 @@ class documentsActions extends c2cActions
         // if module = summit, site, parking or hut, check for similarities and if any, append regions for disambiguation
         if ($model == 'Summit' || $model == 'Site' || $model == 'Parking' || $model == 'Hut')
         {
-            sfLoader::loadHelpers(array('General'));
             $items_copy = $items;
             for ($i=1; $i<count($items); $i++)
             {
@@ -2683,6 +2684,9 @@ class documentsActions extends c2cActions
         {
             $identifier = ($model == 'Document') ? $this->__(substr($item['module'], 0, -1)) . ' ' : '' ; // if module = documents, add the object type inside brackets
             $postidentifier = ($model == 'Outing') ? ' (' . $item['date'] . ')' : ''; // if outings, we append the date
+            $postidentifier .= ($model == 'Book') ? ('<em>' .(check_not_empty($item['author']) ? ' - ' . $item['author'] : '') .
+                                                     (check_not_empty($item['publication_date']) ? ' - ' . $item['publication_date'] : '') . '</em>')
+                                                  : ''; // if book, append author and publication date
             $postidentifier .= (isset($item['area_name'])) ? ' <em>('.$item['area_name'].')</em>' : ''; // if region attached, we append it
             $postidentifier .= ($model == 'User') ? ' (' . $item['private_data']['username']. ')' : ''; // if user, append forum nickname
             $html .= '<li id="'.$item['id'].'">'.$item[$this->model_class . 'I18n'][0]['name']."$postidentifier [$identifier" . $item['id'] . ']</li>';
@@ -3855,11 +3859,11 @@ class documentsActions extends c2cActions
     /**
      * Areas data is only available with some document types.
      */
-    protected function getAreasList()
+    protected function getAreasList() // TODO mettre les regions dans lordre
     {
         $areas = array();
         $associated_areas = $this->associated_areas;
-        foreach ($associated_areas as $area)
+        foreach ($associated_areas as $key => $area)
         {
             $areas[] = $area['name'];
         }
@@ -4047,7 +4051,7 @@ class documentsActions extends c2cActions
                 //->leftJoin("m.$model_i18n mi")
                 ->where('m.redirects_to IS NULL')
                 ->addWhere($where['where_string'])
-                ->limit(5);
+                ->limit(10);
             if ($type_where) {
                 $q->addWhere($type_where);
             }
