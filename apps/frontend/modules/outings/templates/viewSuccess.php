@@ -62,6 +62,14 @@ if ($is_not_archive && $is_not_merged)
                           'type' => 'ro', // route-outing
                           'strict' => true, // strict looking for main_id in column main of Association table
                           'display_info' => true));
+
+    include_partial('documents/association',
+                        array('associated_docs' => $associated_sites, 
+                              'module' => 'sites',  // this is the module of the documents displayed by this partial
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'to', // site-outing
+                              'strict' => false)); // no strict looking for main_id in column main of Association table
 }
 else
 {
@@ -88,14 +96,6 @@ if ($is_not_archive)
     if ($is_not_merged)
     {
         include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits', 'is_extra' => true));
-        
-        include_partial('documents/association',
-                        array('associated_docs' => $associated_sites, 
-                              'module' => 'sites',  // this is the module of the documents displayed by this partial
-                              'document' => $document,
-                              'show_link_to_delete' => $show_link_to_delete,
-                              'type' => 'to', // site-outing
-                              'strict' => false)); // no strict looking for main_id in column main of Association table
         
         include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts', 'is_extra' => true));
         include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
