@@ -6,7 +6,8 @@ echo start_section_tag('Comments', 'comments');
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 $module = sfContext::getInstance()->getModuleName();
 
-echo '<p>'.format_number_choice('[0]No comment|[1]1 comment|(1,+Inf]%1% comments', array('%1%' => $nb_comments), $nb_comments).'</p>';
+echo '<p>', picto_tag('action_comment'), ' ',
+     format_number_choice('[0]No comment|[1]1 comment|(1,+Inf]%1% comments', array('%1%' => $nb_comments), $nb_comments).'</p>';
 if ($nb_comments)
 {
   $link = '<p>'.link_to(__('comments_tab_help'), "@document_comment?module=$module&id=$id&lang=$lang").'</p>';
