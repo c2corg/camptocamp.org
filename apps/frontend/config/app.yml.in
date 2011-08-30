@@ -496,7 +496,7 @@ all:
       14462: 6 # Appennino centrale
       14458: 7 # Appennino meridionale
       14467: 8 # Appennino settentrionale
-      14469: 9 # Ariège
+      14469: 9 # couserans aran n
       14443: 10 # Arlberg - Silvretta
       14399: 11 # Bauges
       14400: 12 # Beaufortain
@@ -504,10 +504,10 @@ all:
       14442: 14 # Berner Alpen
       14417: 15 # Bornes-Aravis
       14423: 16 # Bündner Oberland - Adula - Ticino E
-      14416: 17 # Cadi Puigmal Garrotxa
-      14415: 18 # Capcir Corbières
+      14416: 17 # puigmal canigou alberes
+      14415: 18 # Corbières
       14451: 19 # Carinthia
-      252522: 20 # Cerces - Thabor - Mt.Cenis
+      252522: 20 # Cerces - Thabor - Mt.Cenis TODO report to metaengine
       14411: 21 # Chablais
       14401: 22 # Chartreuse
       14448: 23 # Chiemgauer Alpen - Kitzbühler Alpen
@@ -519,7 +519,7 @@ all:
       14455: 29 # Dolomiti orientale
       14403: 30 # Ecrins
       14425: 31 # Engadin - Disgrazia
-      14414: 32 # Gavarnie Ordea
+      14414: 32 # Bearn Balaitous Partacua
       14418: 33 # Genevois - Jura Sud
       14426: 34 # Glarner Alpen
       14427: 35 # Gran Paradiso
@@ -543,7 +543,7 @@ all:
       14431: 53 # Préalpes Fribourgeoises_Bernoises
       14463: 54 # Provence
       14447: 55 # Pustresi - Hohe Tauern
-      14413: 56 # Pyrénées Occidentales
+      14413: 56 # Navarre - Pays basque
       14432: 57 # Queyras N - Briançonnais - Cozie
       14433: 58 # Queyras S - Parpaillon - Ubaye - Oronaye
       14407: 59 # Rousses
@@ -560,7 +560,7 @@ all:
       14435: 70 # Urner Alpen
       14436: 71 # Valais E - Alpes Pennines E
       14437: 72 # Valais W - Alpes Pennines W
-      14412: 73 # Vallée d'Aure Néouvielle
+      14412: 73 # luchon posets maladeta aiguestortes
       14409: 74 # Vanoise
       14459: 75 # Vercors
       14438: 76 # Vorarlberg - Allgauer Alpen
@@ -569,13 +569,16 @@ all:
       14445: 79 # Wienner Alpen
       14439: 80 # Zentral Graubünden
       14457: 81 # Zillertaler Alpen
-      252522: 82 # Cerces - Thabor - Mont-Cenis TODO report to metaengine
-      261218: 83 # Fontainebleau
-      261245: 84 # Andes centrales
-      261246: 85 # Patagonie N
-      261247: 86 # Patagonie S
-      261248: 87 # Puna
-      261249: 88 # Sierras Pampeanas
+      261218: 82 # Fontainebleau TODO report to metaengine
+      261245: 83 # Andes centrales TODO report to metaengine
+      261246: 84 # Patagonie N TODO report to metaengine
+      261247: 85 # Patagonie S TODO report to metaengine
+      261248: 86 # Puna TODO report to metaengine
+      261249: 87 # Sierras Pampeanas TODO report to metaengine
+      294790: 88 # Bigorre Ordesa TODO report to metaengine
+      294786: 89 # haute ariege andorre TODO report to metaengine
+      294791: 90 # sierras catalanes TODO report to metaengine
+      294793: 91 # sierras aragonaises TODO report to metaengine
 
   recent_documents:
     articles_limit: 6
@@ -752,17 +755,21 @@ all:
         14445: 79 # Wienner Alpen
         14446: 66 # Steirische Alpen
       pyrenees_ibere:
-        14413: 56 # Pyrénées Occidentales
-        14414: 32 # Gavarnie Ordea
-        14412: 73 # Vallée d'Aure Néouvielle
-        14469: 9 # Ariège
-        14415: 18 # Capcir Corbières
-        14416: 17 # Cadi Puigmal Garrotxa
+        14413: 56 # Navarre - Pays basque
+        14414: 32 # Bearn Balaitous Partacua
+        14412: 73 # luchon posets maladeta aiguestortes
+        14469: 9 # couserans aran n
+        14415: 18 # Corbières
+        14416: 17 # puigmal canigou alberes
         14471: 51 # Picos de Europa - Cantabrica
         14468: 65 # Sierra Nevada - Sistema Penibico
         14473: 64 # Sierra de Guadarrama
         14472: 63 # Sierra de Gredos
         14470: 45 # Montes Ibericos
+        294790: 88 # Bigorre Ordesa
+        294786: 89 # haute ariege andorre
+        294791: 90 # sierras catalanes
+        294793: 91 # sierras aragonaises
       europe_w:
         14418:  33 # Genevois - Jura Sud
         14405:  37 # Jura
