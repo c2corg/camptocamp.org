@@ -48,6 +48,7 @@ if ($debug) {
     use_javascript('/static/js/mapfish/MapFishApi/js/Permalink.js', 'maps');
     use_javascript('/static/js/mapfish/MapFishApi/js/ArgParser.js', 'maps');
     use_javascript('/static/js/mapfish/MapFishApi/js/GeonamesSearchCombo.js', 'maps');
+    use_javascript('/static/js/mapfish/c2corgApi/js/somerc.js', 'maps');
     use_javascript('/static/js/mapfish/c2corgApi/js/c2corg_api.js', 'maps');
     use_javascript('/static/js/mapfish/c2corgApi/js/ArgParser.js', 'maps');
     use_javascript('/static/js/mapfish/c2corgApi/js/Permalink.js', 'maps');
