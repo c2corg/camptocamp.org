@@ -57,7 +57,7 @@ endif;
             <?php echo link_to(__('contact'), getMetaArticleRoute('contact')) ?> |
             <?php echo link_to(__('terms of use'), getMetaArticleRoute('conditions')) ?> |
             <?php echo link_to(__('content license'), getMetaArticleRoute('licenses')) ?> |
-            <?php echo link_to(__('Developers'), 'http://dev.camptocamp.org/') ?> |
+            <?php echo link_to(__('Developers'), 'https://dev.camptocamp.org/') ?> |
             <?php echo link_to(__('credits'), getMetaArticleRoute('credits'));
             if (!empty($mobile_hostname) && !$is_cda && !$is_map)
             {
