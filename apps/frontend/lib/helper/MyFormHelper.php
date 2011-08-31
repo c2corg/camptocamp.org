@@ -491,11 +491,15 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
         }
     }
     $list['forums'] = __('forums');
+
+    // FIXME prevent search for routes, to be removed once performance are improved
+    unset($list['routes']);
+
     $selected = $sf_context->getRequest()->getParameter('type');
     if (empty($selected))
     {
         $current_module = $sf_context->getModuleName();
-        if (in_array($current_module, array('documents', 'common', 'portals')))
+        if (in_array($current_module, array('documents', 'common', 'portals', 'routes')))
         {
             $selected = 'summits'; // FIXME should be routes, but we use summits until performance are improved
         }
