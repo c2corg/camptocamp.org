@@ -1,8 +1,16 @@
 <?php
-/**
- * $Id: FieldHelper.php 2455 2007-11-30 11:44:31Z alex $
- */
-use_helper('General');
+
+// FIXME : dirty trick
+if (isset($sf_user))
+{
+    // we are in a template
+    use_helper('General');
+}
+else
+{
+    // we are in an action
+    sfLoader::loadHelpers(array('General'));
+}
 
 function loadTooltipsViewRessources()
 {
