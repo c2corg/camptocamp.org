@@ -42,22 +42,24 @@ input, select, textarea {
   border: 1px solid #ddd;
 }
 
-/* size inputs for topoguide, since it feels better
-   when buttons and select and inputs have the same height
-   + allow some space for button icons */
 input[type="text"], input[type="password"], input[type="email"], input[type="number"],
 input[type="range"], input[type="date"], input[type="color"], select, #type, #q {
-  height: 1.8em;
+  height: 1.5em;
   vertical-align: middle;
   font-size: 12px;
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  padding: 1px;
 }
 
-select[multiple="multiple"], input[type="checkbox"], input[type="image"]
-{
+/* default model box for selects is border-box, change it so we can have all form elements
+   with the same size */
+select {
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+select[multiple="multiple"], input[type="checkbox"], input[type="image"] {
   height: auto;
 }
 
@@ -178,7 +180,7 @@ a[hreflang]:after {
   content: "\0000a0[" attr(hreflang) "]";
 }
 
-/* liens v4 */
+/* visually highlight links from c2c v4 */
 a[href^="http://alpinisme.camptocamp.com"]:after,
 a[href^="http://skirando.camptocamp.com"]:after,
 a[href^="http://escalade.camptocamp.com"]:after {
@@ -615,9 +617,8 @@ a.logged_as
 
 .sbox input
 {
-  padding: 2px 2px 2px 23px !important;
+  padding: 1px 1px 1px 22px !important;
   margin-bottom: 4px;
-  height: 1.8em;
   width: 40%;
 }
 .article .sbox input[type=text]
@@ -646,9 +647,9 @@ a.logged_as
   max-width: 20em;
 }
 
-select.picto
+select.picto, #header .sbox select
 {
-  padding-left: 19px;
+  padding-left: 18px;
 }
 
 .sbox option
@@ -943,10 +944,6 @@ span.default_text, p.default_text
   -khtml-border-radius:0;
   -webkit-border-radius:0;
   border-radius:0;
-  -ms-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
 }
 
 #map_container p.default_text
@@ -4973,22 +4970,15 @@ span.cotometre_result {
   -moz-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
   width: 220px;
-  height: 1.8em;
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  height: 1.5em;
 }
 
 #google_search_submit
 {
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   display: inline-block;
-  width: 21px;
-  height: 1.8em;
+  width: 18px;
+  height: 1.5em;
+  padding: 1px;
   vertical-align: middle;
   border: 1px solid #ddd;
   border-left: none;
@@ -5048,7 +5038,7 @@ span.cotometre_result {
 /* c2c buttons
  * Because having cross browser consistent UI
  * for form elements is a fucking mess
- * TODO move size box & co + forums etc etc  */
+ */
 
 /* common for topoguide specific buttons and forum */
 input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
@@ -5074,14 +5064,10 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 }
 
 .c2cui_btn {
-  height: 2em;
+  height: 1.8em;
   display: inline-block;
   position: relative;
   vertical-align: middle;
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 .c2cui_btn.main_button {
@@ -5111,10 +5097,8 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 
 .c2cui_btnin {
   display: inline-block;
-  /* compensate for the border / box-sizing */
-  margin-top: -1px;
-  height: 2em;
-  line-height: 2em;
+  height: 1.8em;
+  line-height: 1.8em;
 }
 
 .c2cui_btnr {
@@ -5135,11 +5119,12 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 
 /* we use 2em for button size, but some need to be aligned with form inputs which are 1.8 for better visual effect */
 .c2cui_btn.samesize {
-  height: 1.8em;
+  height: 1.5em;
+  padding: 1px;
 }
 .c2cui_btn.samesize .c2cui_btnin {
-  height: 1.8em;
-  line-height: 1.8em;
+  height: 1.5em;
+  line-height: 1.5em;
 }
 
 /* html5 */
