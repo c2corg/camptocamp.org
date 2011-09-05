@@ -888,31 +888,30 @@ function do_video($text)
         // for mobile version, we force the dimensions
         $text = $mobile_version ? preg_replace('#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]#i', "[video $width,$height]", $text)
                                 : preg_replace('#\[video\]#i', "[video $width,$height]", $text);
-
         $patterns = array(
             // youtube http://www.youtube.com/watch?v=3xMk3RNSbcc(&something)
-            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtube.com/watch\?([=&\w]+&)?v=([-\w]+)(&.+)?\[/video\]#isU',
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/(www\.)?youtube\.com/watch\?([=&\w]+&)?v=([-\w]+)(&.+)?\[/video\]#isU',
             // youtube short links http://youtu.be/3xMk3RNSbcc
-            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtu.be/([-\w]+)\[/video\]#isU',
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/(www\.)?youtu\.be/([-\w]+)\[/video\]#isU',
             // dailymotion http://www.dailymotion.com/video/x28z33_chinese-man-records-skank-in-the-ai_music
-            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.dailymotion.com/video/([\da-zA-Z]+)_[-\w]+\[/video\]#isU',
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www\.dailymotion\.com/video/([\da-zA-Z]+)_[-&;\w]+\[/video\]#isU',
             // googlevideo http://video.google.com/videoplay?docid=3340274697167011147#
-            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://video.google.com/videoplay\?docid=(\d+)\#\[/video\]#isU',
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://video\.google\.com/videoplay\?docid=(\d+)\#\[/video\]#isU',
             // vimeo http://vimeo.com/8654134
-            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://(www.)?vimeo.com/(\d+)\[/video\]#isU',
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://(www\.)?vimeo\.com/(\d+)\[/video\]#isU',
             // megavideo http://www.megavideo.com/?v=C06JVLTB
-            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.megavideo.com/\?v=(\w+)\[/video\]#isU',
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www\.megavideo\.com/\?v=(\w+)\[/video\]#isU',
             // metacafe http://www.metacafe.com/watch/4003782/best_shot_of_movie_troy(/|.swf)
-            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.metacafe.com/watch/(\d+/[_a-z]+)(/|\.swf)\[/video\]#isU',
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www\.metacafe\.com/watch/(\d+/[_a-z]+)(/|\.swf)\[/video\]#isU',
             // sevenload http://fr.sevenload.com/emissions/La-Chaine-Techno/episodes/aPsY9N8-Le-Talk-iPhone-Episode-08
             //           http://de.sevenload.com/sendungen/zoom-in/folgen/1AtoCcG-Der-Schneeleopard-startet-fuer-Ghana-in-Vancouver
-            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://[a-z]{2}.sevenload.com/(.*/)(\w+)-[-\w]*\[/video\]#isU',
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://[a-z]{2}\.sevenload\.com/(.*/)(\w+)-[-\w]*\[/video\]#isU',
         );
 
         $replacements = array(
             // youtube - See http://apiblog.youtube.com/2010/07/new-way-to-embed-youtube-videos.html
+            '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$6"></iframe>',
             '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$5"></iframe>',
-            '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$4"></iframe>',
             // dailymotion
             '<iframe width="$2" height="$3" src="http://www.dailymotion.com/embed/video/$4?theme=none&amp;wmode=transparent"></iframe>',
             // googlevideo
