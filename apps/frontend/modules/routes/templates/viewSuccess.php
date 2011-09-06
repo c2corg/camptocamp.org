@@ -107,7 +107,7 @@ if ($is_not_archive)
     
     if ($is_not_merged)
     {
-        echo '<div class="all_associations col_right col_66">';
+        echo '<div class="all_associations col_right col_66 no_print">';
         include_partial('routes/association',
                         array('associated_docs' => $associated_routes, 
                               'module' => 'routes', 
