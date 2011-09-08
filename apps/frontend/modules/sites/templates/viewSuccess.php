@@ -9,7 +9,7 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
-$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
+$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
 
 display_page_header('sites', $document, $id, $metadata, $current_version, '', '', $section_list);
@@ -90,7 +90,7 @@ if ($is_not_archive)
                               'type' => 'tc',
                               'strict' => true));
         
-        if ($show_link_tool)
+        if ($show_link_tool && !$mobile_version)
         {
             $modules_list = array('summits', 'sites', 'huts', 'parkings', 'routes', 'books', 'articles');
             
