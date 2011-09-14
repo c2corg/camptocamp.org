@@ -114,18 +114,6 @@ class User extends BaseUser
                              ->getFirst();
     }
 
-    // TODO: make it generic for any kind of document (pass type as argument?)
-    public static function findSummitsForUserId($id)
-    {
-        return Doctrine_Query::create()
-                             ->from('User.summits')
-                             ->where('User.id = ?', array($id))
-                             ->limit(1)
-                             ->execute()
-                             ->getFirst()
-                             ->get('summits');
-    }
-
     public static function getOutOfDatePendingUserIds()
     {
         $max_pending_time = sfConfig::get('app_pending_users_lifetime');
