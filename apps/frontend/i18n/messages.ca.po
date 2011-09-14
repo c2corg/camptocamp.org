@@ -3679,9 +3679,16 @@ msgstr "El portal Changer d'approche és cofinançat per la Unió Europea. Europ
 msgid "cda sub title"
 msgstr "El portal de la muntanya sense cotxe"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "cda_prepare_outing_box"
-msgstr "<p>Tiempo</p><ul><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espana)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Suiza)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li></ul> <p>Aludes</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin francés </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Boletin suizo</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Boletin italiano</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Transporte</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trenes en Europa)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (Francia)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suiza)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italia)</a></li></ul> <p>Otros</p><ul><li><a href=\"http://veloski.fr/\">bici+esquí (en francés)</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (en francés)</li></ul>"
+msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Previsions meteorològiques</a></p>\n"
+"<ul><li><a href=\"http://www.meteo.cat/servmet/index.html\">Méteo Catalunya</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">Méteo Espanya</a></li><li><a href=\"http://www.meteosuisse.ch\">Méteo Suïssa</a></li><li><a href=\"http://meteolive.leonardo.it\">Méteo Itàlia</a></li></ul>\n"
+"<p><a href=\"/articles/107228/fr/liens-utiles#bera\">Allaus</a></p>\n"
+"<ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Butlletí d'allaus (Catalunya)</a></li><li><a href=\"http://www.lauegi.conselharan.org/\">Conselh Generau (Aran)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Butlletí Méteo France</a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">SLF Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA Itàlia</a></li><li><a href=\"/users/mailinglists\">Rebeu els butlletins al correu</a></li></ul>\n"
+"<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p>\n"
+"<ul><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>\n"
+"<p>Autres</p>\n"
+"<ul><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://transportpublic.org/\">transportpublic.org</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
 msgid "center"
 msgstr "centra"
@@ -4741,9 +4748,9 @@ msgstr "Si us inscriviu aquí, rebreu el correu enviat a aquestes llistes de dif
 msgid "mailing lists"
 msgstr "Llistes de difusió per email des butlletins nivològics"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "manage images presentation"
-msgstr "Aquí puede fácilmente cambiar las licencias de las imágenes que cargó a la topo-guía interactiva.<br /><br />Las imágenes que aparecen abajo son las de tipo personal, bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">CC-by-nc-nd</a>. Puede elegir pasarlas al tipo colaborativo para que sean disponibles bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">CC-by-sa</a>. De esta manera, permite que la comunidad use sus imágenes para mejorar la topo-guía.<br /> Seleccione las imágenes que quiere pasar al tipo colaborativo y luego aplique el cambio haciendo clic en  <i>Modificar la licencia</i>.<br /><br /><span style=\"color: red\">Cuidado: el cambio es irreversible y no se puede pasar una imagen de colaborativa a personal.</span>"
+msgstr "Aquesta pàgina us permetrà canviar fàcilment la llicència de les imatges que hagueu penjat a camptocamp.org.<br /><br />Les imatges que apareixien aquí sota són de tipus personal, sota llicència <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Podeu escollir de fer-les disponibles com a contingut col·laboratiu, sota llicència <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, de tal manera que permetreu a la comunitat d'utilitzar-les més lliurement per a la topo-guia.<br />En efecte, només les imatges col·laboratives poden inserir-se al text d'un document col·laboratiu (una foto que il·lustri un itinerari, per exemple), per tal que el text i les imatges quedin sotmeses a la mateixa llicència.<br />Ara per ara no hi ha limitació tècnica (el temps que cal per passar una proporció important de les fotos sota llicència col·laborativa, o bé per suprimir-les del text).<br /><em>Per a més informació, <a href=\"/forums/viewtopic.php?id=155692\">vegeu la discussió al respecte al fòrum</a>.</em><br /><br />Seleccioneu les imatges que desitgeu passar a col·laboratives i després valideu els canvis amb l'ajuda del botó <em>Canviar la llicència</em>.<br /><span style=\"color: red\">Atenció: aquest canvi és irreversible i no es pot canviar la llicència d'una imatge col·laborativa a llicència personal.</span><br /><br />Per facilitar la recerca de les imatges, hi ha diverses llistes disponibles:<br />- <a href=\"/users/manageimages/dtyp/1\">Imatges personals associades a un document col·laboratiu</a> (fora de l'article) - <em>La major part de les imatges inserides a un document col·laboratiu són a aquesta llista, a modificar segons prioritat.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Imatges personals associades a un article col·laboratiu</a><br />- <a href=\"/users/manageimages/dtyp/2\">Imatges personals associades a un document personal</a> (fora de l'article)<br />- <a href=\"/users/manageimages/ctyp/2\">Imatges personals associades a un article personal</a>"
 
 # [WARNING] needs_update
 msgid "mandatory_fields"
@@ -4754,49 +4761,49 @@ msgstr "mapa"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "map help text"
 msgstr "<ul class=\\\"map_help\\\">\n"
 "<li>\n"
 "<div class=\\\"mpicto zoomfull\\\"></div>\n"
-"<div class=\\\"help_text\\\">Show the whole world</div>\n"
+"<div class=\\\"help_text\\\">Mostra el món sencer.</div>\n"
 "</li>\n"
 "<li>\n"
 "<div class=\\\"mpicto pan\\\"></div>\n"
-"<div class=\\\"help_text\\\">Move the map with your mouse.<br />Show the pop-ups by clicking on the objects.<br />Zoom on an area by pressing Shift and selecting a rectangle area using your mouse.</div>\n"
+"<div class=\\\"help_text\\\">Desplaça el mapa amb el ratolí.<br />Mostra els popups en clicar sobre els objecte.<br />Zoom sobre una zona mitjançant la tecla Shift + selecció d'un rectangle amb el ratolí.</div>\n"
 "</li>\n"
 "<li>\n"
 "<div class=\\\"mpicto zoomin\\\"></div>\n"
-"<div class=\\\"help_text\\\">Zoom on an area by selecting a rectangle with your mouse.</div>\n"
+"<div class=\\\"help_text\\\">Zoom d'una zona mitjançant la selecció d'un rectangle amb el ratolí.</div>\n"
 "</li>\n"
 "<li>\n"
 "<div class=\\\"mpicto previous\\\"></div>\n"
 "<div class=\\\"mpicto next\\\"></div>\n"
-"<div class=\\\"help_text\\\">Navigate in your past zooms and moves since you loaded the page.</div>\n"
+"<div class=\\\"help_text\\\">Navega per l'històric dels zooms i desplaçaments fets des que s'ha carregat la pàgina.</div>\n"
 "</li>\n"
 "<li>\n"
 "<div class=\\\"mpicto measureLength\\\"></div>\n"
-"<div class=\\\"help_text\\\">Measure the horizontal distance: 1 click to initiate a broken line, 1 click per point on the line, double-click to end the line.</div>\n"
+"<div class=\\\"help_text\\\">Mesura d'una distància projectada horitzontalment: un clic per començar la línia trencada, un clic per punt de la línia, doble clic per acabar la línia.</div>\n"
 "</li>\n"
 "<li>\n"
 "<div class=\\\"mpicto info\\\"></div>\n"
-"<div class=\\\"help_text\\\">Selection of objects inside an area. Choose the type of object in the scrolling window and select a rectangle area using your mouse. The selected objects will be listed below the map. By clicking on an object’s line, but next to its name, the object will be highlighted on the map.</div>\n"
+"<div class=\\\"help_text\\\">Selecció d'objectes a una zona. Escolliu el tipus d'objecte d'una llista desplegable, després seleccioneu un rectangle amb el ratolí. Els objectes seleccionats es llistaran sota el mapa. En clicar sobre la línia d'un objecte però al costat del seu nom, se mostra sobre el mapa.</div>\n"
 "</li>\n"
 "<li>\n"
 "<div class=\\\"mpicto clearFeatures\\\"></div>\n"
-"<div class=\\\"help_text\\\">Cancel the selection of objects in an area.</div>\n"
+"<div class=\\\"help_text\\\">Anul·la la selecció d'objectes per zona.</div>\n"
 "</li>\n"
 "<li>\n"
-"<input type=\\\"button\\\" class=\\\"mpicto\\\" value=\\\"Centre on\\\">\n"
-"<p class=\\\"help_text\\\">Centre the map on a location: Type-in the name of a town or village and you’re your choice in the list.</p>\n"
+"<input type=\\\"button\\\" class=\\\"mpicto\\\" value=\\\"Recentrer sur\\\">\n"
+"<p class=\\\"help_text\\\">Centra el mapa a un lloc: agafeu el nom d'una població i després escolliu d'entre la llista proposada.</p>\n"
 "</li>\n"
 "<li>\n"
 "<input type=\\\"button\\\" class=\\\"mpicto\\\" value=\\\"Permalien\\\">\n"
-"<p class=\\\"help_text\\\">Generate a link for saving the characteristics of the map as it is defined now (centre, zoom, layers).</p>\n"
+"<p class=\\\"help_text\\\">Mostra un enllaç que permet desar o compartir el mapa tal com està definit en aquest instant (centrat, zoom, capes).</p>\n"
 "</li>\n"
 "<li>\n"
-"<input type=\\\"button\\\" class=\\\"mpicto\\\" value=\\\"Increase the size of the map\\\">\n"
-"<p class=\\\"help_text\\\">Full-screen version of the map inside your web browser.</p>\n"
+"<input type=\\\"button\\\" class=\\\"mpicto\\\" value=\\\"Agrandir la carte\\\">\n"
+"<p class=\\\"help_text\\\">Mostra el mapa a pantalla completa.</p>\n"
 "</li>\n"
 "</ul>"
 
@@ -5226,9 +5233,9 @@ msgstr "Altres massissos"
 msgid "outing"
 msgstr "sortida"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "outing form warning"
-msgstr "<strong>¡Cuidado!</strong> En esta página solo debe incluir información acerca de su salida (condiciones encontradas, comentarios personales). Información perenne acerca del itinerario recorrido debe agregarse en la página \"itinerario\" correspondiente. <br />Encontrara mas información acerca de la estructura e la topo-guía en este <a href=\"/articles/117868\">articulo de ayuda</a>.</li><li><strong>Tipo de salida:</strong> Las salidas en heliski o en pistas de centros de esquí usando sus medios mecánicos no están autorizadas. Use el <a href=\"/forums/viewforum.php?id=64\">foro \"Skirando\"</a> para relatar sus observaciones.</li><li><strong>Titulo de la salida:</strong> Por defecto es del tipo \"Cima: Itinerario\" pero lo puede modificar para mencionar una variante, un encadenamiento o un recorrido parcial (intento).</li><li><strong>Asociación a otros documentos:</strong> Una vez creada su salida, la podrá asociar a otros itinerarios o sitios de escalada (en caso de un encadenamiento) así como a otros usuarios registrados quienes participaron en la salida (esto les otorga la posibilidad de modificar el contenido de la salida para agregar sus propios comentarios)."
+msgstr "<strong>Atenció!</strong> A aquesta pàgina només hi heu d'indicar informació informació relativa a la vostra sortida (data, condicions trobades, comentaris personals). La informació relativa a un nou itinerari s'ha de facilitar a la pàgina de l'\"itinerari\" corresponent.<br />Trobareu més informació al respecte de l'organització de la topo-guia a l'<a href=\"/articles/117868/fr\">ajuda</a>.</li><li><strong>Tipus de sortida:</strong> No s'admeten les sortides en heliesquí o que s'hagin fet a pistes fent ús dels remuntadors mecànics. Fer servir el <a href=\"/forums/viewforum.php?id=2\">fòrum \"Condicions: neu i allaus\"</a> per explicar les vostres observacions.</li><li><strong>Títol de la sortida:</strong> Per defecte tindrà format \"Cim: Itinerari\", però podeu modificar-lo per mencionar la variant que s'ha seguit, un encadenament o un recorregut parcial de l'itinerari.</li><li><strong>Associació a d'altres documents:</strong> Un cop s'ha creat la sortida, podreu associar-la a d'altres itineraris o llocs d'escalada (en cas d'un encadenament), o als participants membres (donant-los dret de modificar la sortida per a adjuntar-hi els seus comentaris).</li><li><strong>Millora de la topo-guia:</strong> Si trobeu un itinerari de la topo-guia insuficient o erroni, no dubteu a <a href=\"/articles/112382/fr\">millorar-lo</a>."
 
 msgid "outing_length"
 msgstr "Distància: "
@@ -5393,9 +5400,9 @@ msgstr "Arxius d'imatges"
 
 # [general comment]
 # text pour plupload, à rapprocher des items 351 et 1529
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "plupload introduction text"
-msgstr "You can '%1%'. The minimum size is %4% x %5% px. Jpeg and png files are usually resized automatically but svg and gif files must be less than %3% x %2% px and %4% Mo.<br /><strong>By uploading pictures on camptocamp.org you accept that you are publishing them under a <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> or <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> license, depending on whether you publish it as personal or collaborative content.</strong> Pictures under copyright are not accepted.<br />By clicking on the top right angle of the thumbnail you will access the picture’s page which allows you to: <br />- Modify its title or its description: click on the “modify” tab (on the left).<br />- Associate the picture to other documents: use the tool at the bottom of the page.<br />- Request the deletion of the picture by contacting moderators: click on “report a problem”.<br /><span style=\"color: red\">The selection of at least on category marked with an asterisk (*) will make the picture appear on the home page. </span> For more information, see the <a href=\"/articles/107005\">help on the album</a>."
+msgstr "Podeu adjuntar '%1%'. La mida mínima és %4% x %5% px. Normalment, els jpeg i png seran redimensionats automàticament, però els svg i gif han de fer %3% x %2% px i %4% Mb com a màxim.<br /><strong>Quan publiqueu una imatge a camptocamp.org, esteu acceptant-ne la difusió sota la llicència <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> segons si ho feu en tant que contingut personal o col·laboratiu.</strong> No s'accepten imatges sotmeses a copyright.<br />Fent clic al vèrtex superior dret de la imatge en miniatura accedireu a la pàgina de la imatge, que us permetrà:<br />- Modificar-ne el títol o la descripció: cliqueu sobre la pestanya \"Modifica\" (a l'esquerra).<br />- Associar la imatge a d'altres documents: fer servir l'eina situada a la part baixa de la pàgina.<br />- Demanar la supressió de la imatge als moderadors: cliqueu sobre \"Indica un problema\".<br /><span style=\"color: red\">La selecció d'almenys una categoria marcada per un asterisc (*) farà aparèixer la foto a la pàgina d'inici.</span> Vegeu l'ajuda a l'<a href=\"/articles/107005\">àlbum</a>."
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
@@ -6270,6 +6277,10 @@ msgstr "participant"
 
 msgid "user form warning"
 msgstr "<strong>Pàgina personal:</strong> A la vostra pàgina personal hi podeu indicar tot allò que desitgeu fer públic: adreça, telèfon, ofici, activitats i regions preferides, etc. Per defecte, aquesta pàgina només és accessible als membre, però podeu fer-la accessible als convidats i als motors de cerca a les <a href=\"/users/editprivatedata\">preferències personals</a>, on podreu modificar també el vostre nom, pseudònim, adreça electrònica i contrasenya.</li><li><strong>Georeferenciament:</strong> Per tal que el vostre perfil quedi associat a un massís i/o a una regió, haureu de donar les vostres coordenades geogràfiques. Això permet que se us pugui localitzar amb una cerca geogràfica. A més, des de la pàgina d'un accés, podreu visualitzar l'accés per carretera des de casa vostra fins al punt d'accés."
+
+# [WARNING] fr translation used
+msgid "user information not available"
+msgstr "L'utilisateur ne permet pas aux membres non connectés de voir son profil."
 
 msgid "users"
 msgstr "usuaris"

@@ -6766,6 +6766,10 @@ msgstr "Benutzer"
 msgid "user form warning"
 msgstr "<strong>Persönliche Seite</strong>: Auf der persönlichen Seite können sie alle ihre Informationen auführen, welche sie veröffentlichen möchten: Adresse, Telefonnummer, Beruf, bevorzugte Aktivitäten und Regionen, etc. Standardmässig ist die persönliche Seite nur registrierten Mitgliedern zugänglich, aber in den <a href=\"/users/editprivatedata\">persönlichen Einstellungen</a>können sie ihre persönliche Seite auch Gästen sowie den Suchmaschinen zugänglich machen. In den persönlichen Einstellungen können sie auch ihren Namen, Pseudonym, Emailadresse und ihr Passwort ändern.<br /><strong>Georeferenzierung</strong>: Um ihr Benutzerprofil mit einer Region oder einem Massiv zu verbinden, müssen ihre geographischen Koordinaten angegeben werden. Dadurch können sie auf den Seiten der Zugangsorte auch automatische Wegbeschreibungen von ihnen Zuhause zu den Zugangsorten erhalten."
 
+# [WARNING] fr translation used
+msgid "user information not available"
+msgstr "L'utilisateur ne permet pas aux membres non connectés de voir son profil."
+
 msgid "users"
 msgstr "Benutzer"
 

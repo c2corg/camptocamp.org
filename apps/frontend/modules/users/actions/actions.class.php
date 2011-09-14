@@ -775,6 +775,34 @@ class usersActions extends documentsActions
         return $this->renderText('');
     }
 
+    public function executePopup()
+    {
+        $id = $this->getRequestParameter('id');
+
+        // if user is not connected, we don't want to display user's popup
+        if (!$this->getUser()->isConnected() && !UserPrivateData::hasPublicProfile($id))
+        {
+            $this->raw = $this->getRequestParameter('raw', false);
+            if ($this->raw)
+            {
+                $this->setLayout(false);
+            }
+
+            // deactivate automatic inclusion of js and css files by symfony
+            $response = $this->getResponse();
+            $response->setParameter('javascripts_included', true, 'symfony/view/asset');
+            $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
+            $this->setCacheControl();
+
+            // we call users/popupError template
+            return sfView::ERROR;
+        }
+        else
+        {
+            parent::executePopup();
+        }
+    }
+
     protected function getSortField($orderby)
     {   
         switch ($orderby)

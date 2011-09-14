@@ -6247,6 +6247,10 @@ msgstr "user"
 msgid "user form warning"
 msgstr "<strong>Profile page:</strong> In your profile, you can indicate anything you want other uses to know: address, phone number, job, preferred activities and areas, etc. By default, this page is accessible to registered users only, but you can allow guests and search engines to access your profile. For this, set your <a href=\"/users/editprivatedata\">personal preferences</a>, where you can also modify your name, nickname, email address and password..</li><li><strong>Georeferencing:</strong> To associate your profile to an area and/or a region, you must indicate your geographical coordinates. This allows people to find you through a geographical search. Moreover, you will be able to get automatic road directions to an access point through its page."
 
+# [WARNING] fr translation used
+msgid "user information not available"
+msgstr "L'utilisateur ne permet pas aux membres non connectés de voir son profil."
+
 msgid "users"
 msgstr "users"
 

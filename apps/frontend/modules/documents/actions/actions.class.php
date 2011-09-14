@@ -690,12 +690,12 @@ class documentsActions extends c2cActions
                                        array_filter($this->associated_docs, array('c2cTools', 'is_image')),  
                                        'Image', array('filename'));
 
-        // deactivate automatic inclusion of JS and CSS files 
         $response = $this->context->getResponse();
         if ($this->raw)
         {
             $this->setLayout(false);
         }
+        // deactivate automatic inclusion of js and css files by symfony
         $response->setParameter('javascripts_included', true, 'symfony/view/asset');
         $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
         $this->setCacheControl();
@@ -3859,7 +3859,7 @@ class documentsActions extends c2cActions
     /**
      * Areas data is only available with some document types.
      */
-    protected function getAreasList() // TODO mettre les regions dans lordre
+    protected function getAreasList() // TODO order regions
     {
         $areas = array();
         $associated_areas = $this->associated_areas;
@@ -4063,7 +4063,8 @@ class documentsActions extends c2cActions
 
         $this->setJsonResponse();
     }
-    
+ 
+ 
     public function executeTooltipTest() {
         $bbox = $this->getRequestParameter('bbox');
         $layers = $this->getRequestParameter('layers');
@@ -4096,25 +4097,34 @@ class documentsActions extends c2cActions
         // if only one result, directly display its name
         if ($this->nb_items == 1)
         {
-            $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
-            $i18n = Doctrine_Query::create()
-                    ->select('m.culture, m.name')
-                    ->from("${model}I18n m")
-                    ->where('m.id = ?', array($sav_id))
-                    ->execute();
-            $old_lang = 200;
-            foreach($i18n as $name)
+            // specific behaviour for users: we don't want to display user name if profile
+            // is private and user is not connected
+            if ($module == 'users' && !$this->getUser()->isConnected() && !UserPrivateData::hasPublicProfile($sav_id))
             {
-                $lang_pos = array_search($name->get('culture'), $langs);
-                if ($lang_pos === false) $lang_pos = 10;
-                // test if language is prefered over the older
-                if ($lang_pos < $old_lang)
-                {
-                    $old_lang = $lang_pos;
-                    $uname = $name->get('name');
-                }
+                $this->name = $this->__('not available');
             }
-            $this->name = $uname;
+            else
+            {
+                $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
+                $i18n = Doctrine_Query::create()
+                        ->select('m.culture, m.name')
+                        ->from("${model}I18n m")
+                        ->where('m.id = ?', array($sav_id))
+                        ->execute();
+                $old_lang = 200;
+                foreach($i18n as $name)
+                {
+                    $lang_pos = array_search($name->get('culture'), $langs);
+                    if ($lang_pos === false) $lang_pos = 10;
+                    // test if language is prefered over the older
+                    if ($lang_pos < $old_lang)
+                    {
+                        $old_lang = $lang_pos;
+                        $uname = $name->get('name');
+                    }
+                }
+                $this->name = $uname;
+            }
         }
 
         $this->setJsonResponse();

@@ -6220,6 +6220,10 @@ msgstr "utente"
 msgid "user form warning"
 msgstr "<strong>Pagina personale:</strong> Nella tua pagina personale, puoi indicare tutti le informazioni che vuoi rendere pubblico: indirizzo, telefono, professione, attività sportiva... Per default questa pagina è accessibile solo agli utenti registrati, puoi renderla accessibile a tutti ed ai motori di ricerca cambiando parametri nelle tue<a href=\"/users/editprivatedata\">preferenze personale</a>, dove puoi anche modificare il tuo nome che compare nel forum o nella guida, il tuo indirizzo email, la tua password.</li><li><strong>Geo-localizzazione:</strong> Se vuoi che il tuo profilo sia associato ad una regione, devi inserire i tuoi coordinati geografici. Questo consente anche di visualizzare l'accesso stradale da casa tua a un punto di partenza."
 
+# [WARNING] fr translation used
+msgid "user information not available"
+msgstr "L'utilisateur ne permet pas aux membres non connectés de voir son profil."
+
 msgid "users"
 msgstr "utenti"
 
