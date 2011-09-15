@@ -637,9 +637,9 @@ a.logged_as
 .sbox select
 {
   padding: 1px;
-  margin-right:2px;
-  margin-bottom:4px;
-  height:1.8em;
+  margin-right: 2px;
+  margin-bottom: 4px;
+  height: 1.5em;
 }
 #header .sbox select
 {
@@ -1997,12 +1997,12 @@ span.action_on
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAllBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXWdxzWdx3WeSDXfinXgC3egSjegirhk0jilUvjhCvljjznm1LooF3rjTTunlPwkjnwlT/wqmbxmUXxqmfynUzzoVTzpVzzqWHzt3/0qmP0rWn1rmv2s3P3t3r4u4H4voj5wo36xJL////yX/jFAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAACVSURBVBgZBcHBUsIwFADAbXmUIOi1/v/XeXSYYpNp0uduwHy5hn6ME8F0e5Tn3b7Vd0thKl/fpFL8vGqG5XNNwJpni/mxJkLH2o9YSgIJZYnLkkBCiZjv6QYLzW0KYwZwOkXuxcbTBjWj9wQSeo+jfgAJ9Yixv574Bds+QpvyAXi/m5A1e4nZ2ffWUpC1/10vxjEG/gE/jE8zA9+T8QAAAABJRU5ErkJggg%3D%3D) no-repeat 0;
 }
 
-.c2cui_picto.action_filter, #google_search_submit, #q
+.c2cui_picto.action_filter, #google_search_submit, #q, #_q
 {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABIFBMVEX///+lXjHPcBWmXzOlXjKnYDSlXjKoYja0ajHPcBXPcBXPcBXIjEPOmEnPcBXPcBXOlEXFfzaqZTetajuybzqxcD3PcBXLfCrJdiWbWDDOkkHIgzbLeCXPhTHNgC3OgCrKdyWdVCKuZTTOdh+vaDTLcRzOcRnOchnOcxvPdBvPdRzPdh3DbCLOcRfPchelXDO8hFG9fUDBjljJdijLcR/NcRrPcBXPcRfSgzDSiz3UeiPVfCfVkEPXfinZgzHagy/biDfclVLdkkvdl1TelVDfnVzhoWTip2/mhijnjznpkjvskDfukjnwvo7xwZLz07L117r5mTj6mTn74Mb84cj9tGz/nj3/pUz/rlz/t2//wYT/zJn/167/4cP/6tb/8+aYhV1/AAAAL3RSTlMACAkKDBIUFxwePEJFRUVISlFdXV1fZm97hISJs9jb4eLl6O7v9ff9/f39/f7+/kBWP4AAAAClSURBVBjTTc7VFoJQEIXhsbsVuxu7jt0BdoKt7/8WyoGFfnfzX+w1AGDwZxAiA3oQeEh6z7IHOuXlb3N6ecZWSQsOwflFsAjhkGeuAiYn5UL3JuprudC7iwY6LrQeoraGC9H1U7CJ41Hn6PjCTpOqHRffdPv+2s0QqqhxcSWGFDWuNRBCWRX/rZEgTI5y51vCMhDZik1Uj8l/AayFUkQJ/xRuCcAHG/grCN1LJi0AAAAASUVORK5CYII%3D) no-repeat 0;
 }
 
-#google_search_submit, #q
+#google_search_submit, #q, #_q
 {
   background-position: 2px;
 }
@@ -2384,8 +2384,7 @@ option.act_0
 /* Forms */
 
 #filterform input, #filterform select, #filterform textarea, #filterform option,
-.form-row input, .form-row select, .form-row textarea, .form-row option,
-.article .sbox input, .article .sbox select, .article .sbox option
+.form-row input, .form-row select, .form-row textarea, .form-row option
 {
   background-color: #F4F4F4;
 }
