@@ -3482,7 +3482,14 @@ class documentsActions extends c2cActions
         {
             return $this->ajax_feedback('Session is over. Please login again.');
         }
-        
+
+        // only moderators can unlink documents
+        if (!$is_moderator)
+        {
+            return $this->ajax_feedback('You do not have enough credentials to perform this operation');
+        }
+
+
         // association cannot be created/deleted with self.
         if ($main_id == $linked_id)
         {
@@ -3578,6 +3585,94 @@ class documentsActions extends c2cActions
             return $this->renderText('');
         }
     } 
+
+    /**
+     * Changes the association order for associations of same type (eg summit-summit)
+     * It should only be used for ss, pp and tt associations, but they're is probably
+     * no real problem if other associations are inverted
+     */
+    public function executeInvertAssociation()
+    {
+        $user = $this->getUser();
+        $user_id = $user->getId();
+        $is_moderator = $user->hasCredential('moderator');
+
+        $type = $this->getRequestParameter('type');
+        $main_id = $this->getRequestParameter('main_id');
+        $linked_id = $this->getRequestParameter('linked_id');
+
+        // check if session timed out
+        if (!$user_id)
+        {
+            return $this->ajax_feedback('Session is over. Please login again.');
+        }
+
+        // only moderators can perform such actions
+        if (!$is_moderator)
+        {
+            return $this->ajax_feedback('You do not have enough credentials to perform this operation');
+        }
+
+        // we check that the association type really exists and that the two
+        // documents are from the same model
+        if ((substr($type, 0, 1) != substr($type, -1)) ||
+            (!in_array($type, sfConfig::get('app_associations_types'))))
+        {
+            return $this->ajax_feedback('Wrong association type');
+        }
+
+        // check that association exists in database
+        $models = c2cTools::Type2Models($type);
+        $model = $models['main'];
+        $module = c2cTools::model2module($model);
+
+        $a = Association::find($main_id, $linked_id, $type); // strict search
+        if (!$a)
+        {
+            return $this->ajax_feedback('Operation not allowed');
+        }
+
+        // invert association
+        $conn = sfDoctrine::Connection();
+        try
+        {
+            $conn->beginTransaction();
+
+            $a->main_id = $linked_id;
+            $a->linked_id = $main_id;
+            $a->save();
+
+            $al1 = new AssociationLog();
+            $al1->main_id = $main_id;
+            $al1->linked_id = $linked_id;
+            $al1->type = $type;
+            $al1->user_id = $user_id;
+            $al1->is_creation = 'false';
+            $al1->save();
+
+            $al1 = new AssociationLog();
+            $al1->main_id = $linked_id;
+            $al1->linked_id = $main_id;
+            $al1->type = $type;
+            $al1->user_id = $user_id;
+            $al1->is_creation = 'true';
+            $al1->save();
+
+            $conn->commit();
+        }
+        catch (exception $e)
+        {
+            $conn->rollback();
+            c2cTools::log("executeInvertAssociation() : invertion failed ($main_id, $linked_id, $type, $user_id) - rollback");
+            return $this->ajax_feedback('Association invertion failed');
+        }
+         
+
+        // remove cache and force page reload
+        $this->clearCache($module, $main_id, false, 'view');
+        $this->clearCache($module, $linked_id, false, 'view');
+        return $this->setNoticeAndRedirect('Association inverted', $this->getRequest()->getReferer());
+    }
 
 
     /**
