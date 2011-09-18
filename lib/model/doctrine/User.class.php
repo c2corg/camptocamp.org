@@ -280,7 +280,7 @@ class User extends BaseUser
             self::buildConditionItem($conditions, $values, 'String', 'upd.search_username', 'ufnam', $join_private_data, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'u', 'activities'), 'uact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.category', 'ucat', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'ui.culture', 'ucult', $join_i18n, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', 'ui.culture', 'ucult', 'join_user_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'luc.linked_id', 'utags', 'join_utag_id', false, $params_list);
         }
     }
@@ -307,6 +307,12 @@ class User extends BaseUser
         
         // area criteria
         self::buildAreaCriteria($conditions, $values, $params_list, 'u');
+        self::buildConditionItem($conditions, $values, 'Multilist', array('go', 'linked_id'), 'oareas', 'join_oarea', false, $params_list);
+        if (isset($conditions['join_oarea']))
+        {
+            $conditions['join_outing_id'] = true;
+            $conditions['join_outing_id_has'] = true;
+        }
         
         // user criteria
         User::buildUserListCriteria(&$conditions, &$values, $params_list, true);
@@ -431,6 +437,7 @@ class User extends BaseUser
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
+        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array(), false, 'join_oarea', 'lo', 'go');
         
         // join with users tables only if needed 
         if (   isset($conditions['join_user_id'])

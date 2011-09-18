@@ -1002,7 +1002,9 @@ span.default_text, p.default_text
 {
   margin-bottom: 0.3em;
 }
-.field_value:first-child p:first-child
+.field_value:first-child > p:first-child,
+.field_value:first-child > div:first-child,
+.field_value:first-child > ul:first-child
 {
   margin-top: 1em;
 }
