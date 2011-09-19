@@ -1,4 +1,4 @@
-# robots.txt for mobile version fo the site
+# robots.txt for mobile version
 
 ## Disallow access to generic robots
 User-agent: *

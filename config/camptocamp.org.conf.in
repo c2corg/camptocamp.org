@@ -51,9 +51,17 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     RewriteCond %{REQUEST_URI} \.(css|js)$
     RewriteRule ^(([0-9]*)/?(no)?/)?(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$4&$3&$2 [L,NC]
 
-    # robots.txt for mobile version
+    # robots.txt content depends which website version we are on.
+    # dev version
+    RewriteCond %{HTTP_HOST} !=www.camptocamp.org
+    RewriteRule ^robots.txt$ /robots/dev.txt [L]
+
+    # mobile version
     RewriteCond %{HTTP_HOST} =@MOBILE_VERSION_HOST@
-    RewriteRule ^robots.txt$ /mobile_robots.txt [L]
+    RewriteRule ^robots.txt$ /robots/mobile.txt [L]
+
+    # default version: production (the one we want to have indexed)
+    RewriteRule ^robots.txt$ /robots/default.txt [L]
 
     # we skip all files with .something, except for .html, .rss, .gpx etc
     RewriteCond %{REQUEST_URI} \..+$

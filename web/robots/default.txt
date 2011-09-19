@@ -1,3 +1,5 @@
+# robots.txt for production
+
 User-agent: *
 # dev frontend
 Disallow: /frontend_dev.php
