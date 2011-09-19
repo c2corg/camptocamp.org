@@ -102,5 +102,8 @@ METAENGINE_KEY = <meta_engine_key>
 ; Minification config (see ticket #404)
 MINIFY_DEBUG =  false
 
+; Whether this version is the official camptocamp
+PRODUCTION = false
+
 MW_CONTEST_ID = 263803
 MW_CONTEST_ENABLED = true

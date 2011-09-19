@@ -4312,6 +4312,10 @@ msgstr "Detail / Zoom"
 msgid "deutsch"
 msgstr "deutsch"
 
+# [WARNING] fr translation used
+msgid "development environment"
+msgstr "Attention - version de développement."
+
 msgid "diff"
 msgstr "Unterschied"
 

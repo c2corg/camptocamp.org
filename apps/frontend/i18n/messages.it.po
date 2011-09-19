@@ -3953,6 +3953,10 @@ msgstr "dettaglio, zoom"
 msgid "deutsch"
 msgstr "tedesco"
 
+# [WARNING] fr translation used
+msgid "development environment"
+msgstr "Attention - version de développement."
+
 msgid "diff"
 msgstr "differenze"
 

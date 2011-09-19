@@ -43,6 +43,10 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         <header id="page_header">
         <?php
         include_partial('common/mobile_header', array('lang_code' => $lang_code));
+        if (!(bool) sfConfig::get('app_production'))
+        {
+            include_partial('common/dev_env');
+        }
         ?>
         </header>
         <div id="content_box">

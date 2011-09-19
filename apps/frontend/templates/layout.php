@@ -36,7 +36,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
 <head>
     <meta charset="utf-8">
     <?php
-        $debug = (bool)sfConfig::get('app_minify_debug');
+        $debug = (bool) sfConfig::get('app_minify_debug');
         $combine = !$debug;
         echo include_http_metas();
         echo include_metas();
@@ -54,14 +54,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" title="Camptocamp.org" />
     <link rel="shortcut icon" href="<?php
-    if ($footer_type == 'cda')
-    {
-        $favicon = 'portals/cda_favicon.ico';
-    }
-    else
-    {
-        $favicon = 'favicon.ico';
-    }
+    $favicon = ($footer_type == 'cda') ? 'portals/cda_favicon.ico' : 'favicon.ico';
     echo $static_base_url . '/static/images/' . $favicon;
     ?>" />
 </head>
@@ -69,15 +62,13 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     <div id="holder">
         <header id="page_header">
         <?php
-        if ($action == 'view' && $footer_type == 'cda')
-        {
-            $header_partial = 'portals/cda_header';
-        }
-        else
-        {
-            $header_partial = 'common/header';
-        }
+        $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_header' : 'common/header';
         include_partial($header_partial, array('lang_code' => $lang_code));
+
+        if (!(bool) sfConfig::get('app_production'))
+        {
+            include_partial('common/dev_env');
+        }
         ?>
         </header>
         <div id="content_box">

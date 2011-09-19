@@ -323,6 +323,12 @@ hr
   width:80% !important;
 }
 
+.warning_message.dev
+{
+  margin: 0 15px 5px 15px;
+  width: auto ! important;
+}
+
 .article_contenu .warning_message, #preview .warning_message, .article_contenu .important_message, #preview .important_message
 {
   clear: both;

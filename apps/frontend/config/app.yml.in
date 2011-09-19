@@ -1893,7 +1893,9 @@ all:
 
   minify:
     debug: @MINIFY_DEBUG@
-  
+
+  production: @PRODUCTION@
+
   portals:
     cda:
       id: @CDA_ID@
