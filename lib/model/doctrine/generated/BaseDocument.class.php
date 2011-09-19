@@ -1603,7 +1603,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $result = Doctrine_Query::create()
                              ->select('dv.document_id, hm.user_id')
                              ->from('DocumentVersion dv ' .
-                                    'LEFT JOIN dv.history_metadata hm '
+                                    'LEFT JOIN dv.history_metadata hm ')
                              ->where('dv.document_id = ? AND dv.version = ?',
                                      array($this->id, 1))
                              ->orderBy('dv.created_at ASC')
