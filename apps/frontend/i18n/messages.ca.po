@@ -772,7 +772,7 @@ msgstr "Coordenades buides: actualitza si et plau els camps latitud i longitud"
 # [general comment]
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
 msgid "Enlarge the bar"
-msgstr "Cliqueu aquí per veure la barra de menús de l'esquerra"
+msgstr "Cliqueu aquí per veure la barra de menús de l\\'esquerra"
 
 msgid "Enlarge the list"
 msgstr "Fer més gran la lista"
