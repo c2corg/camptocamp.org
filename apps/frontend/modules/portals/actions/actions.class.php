@@ -130,7 +130,29 @@ class portalsActions extends documentsActions
                 $outing_url_params = array();
                 $outing_params = $this->document->get('outing_filter');
                 $outing_params = unpackUrlParameters($outing_params, $outing_url_params);
-                $latest_outings = Outing::listLatest($nb_outings, $langs, $ranges, $activities, $outing_params);
+                $outing_langs = $langs;
+                $outing_ranges = $ranges;
+                $outing_activities = $activities;
+                if (isset($outing_params['perso']))
+                {
+                    $perso_params = explode('-', $outing_params['perso']);
+                    if (array_intersect(array('areas', 'act', 'cult', 'no'), $perso_params))
+                    {
+                        if (!in_array('cult', $perso_params))
+                        {
+                            $outing_langs = array();
+                        }
+                        if (!in_array('areas', $perso_params))
+                        {
+                            $outing_ranges = array();
+                        }
+                        if (!in_array('act', $perso_params))
+                        {
+                            $outing_activities = array();
+                        }
+                    }
+                }
+                $latest_outings = Outing::listLatest($nb_outings, $outing_langs, $outing_ranges, $outing_activities, $outing_params);
                 // choose best language for outings and regions names
                 $latest_outings = Language::getTheBest($latest_outings, 'Outing');
                 $this->latest_outings = Language::getTheBestForAssociatedAreas($latest_outings);
