@@ -138,7 +138,7 @@ Disallow: /summits/new.rss
 Disallow: /widgetgenerator
 
 # this syntax may not be supported by all robots
-# It shiould be at least by Google, Yahoo! and Microsoft
+# It should be at least by Google, Yahoo! and Microsoft
 User-agent: Googlebot
 # dev frontend
 Disallow: /frontend_dev.php/
