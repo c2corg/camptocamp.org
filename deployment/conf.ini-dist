@@ -12,13 +12,13 @@ DB_PASS = <password>
 ADMIN_EMAIL = <admin_email>
 
 ; PostGIS scripts directory
-POSTGIS_DIR = /usr/share/postgresql-8.2-postgis
+POSTGIS_DIR = /usr/share/postgresql-8.4-postgis
 
 ; project dir name
 PROJECT_NAME = camptocamp.org
 
 ; apache config
-SF_PROJECTS_DIR = /var/www
+SF_PROJECTS_DIR = /srv/www
 SERVER_NAME = <server_name>
 
 ; web URL port number (leave empty if 80, else add ":" before port number)
