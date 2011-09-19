@@ -3339,7 +3339,7 @@ class documentsActions extends c2cActions
                 {
                     return $this->ajax_feedback('You do not have the right to link an image to a personal article');
                 }
-                if (($main_module_new == 'images') && ($main_document_new->get('image_type') == 2) && ($document->getCreator() != $user_id))
+                if (($main_module_new == 'images') && ($main_document_new->get('image_type') == 2) && ($document->getCreatorId() != $user_id))
                 {
                     return $this->ajax_feedback('You do not have the right to link an image to a personal image');
                 }

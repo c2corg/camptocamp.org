@@ -1597,6 +1597,31 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $creator;
     }
 
+    // retrieves the creator ID of the document
+    public static function getCreatorId()
+    {
+        $result = Doctrine_Query::create()
+                             ->select('dv.document_id, hm.user_id')
+                             ->from('DocumentVersion dv ' .
+                                    'LEFT JOIN dv.history_metadata hm '
+                             ->where('dv.document_id = ? AND dv.version = ?',
+                                     array($this->id, 1))
+                             ->orderBy('dv.created_at ASC')
+                             ->limit(1)
+                             ->execute(array(), Doctrine::FETCH_ARRAY);
+
+        if (isset($result[0]))
+        {
+            $creatorId = $result[0]['history_metadata']['user_id'];
+        }
+        else
+        {
+            $creatorId = 0;
+        }
+
+        return $creatorId;
+    }
+
     // retrieves the creator of the document
     public static function getAssociatedCreatorData($objects)
     {

@@ -101,7 +101,7 @@ if ($is_not_archive)
         include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
     }
 
-    $avalanche_bulletin = array_intersect(array(1,2,5), $activities);
+    $avalanche_bulletin = array_intersect(array(1,2,5,7), $activities);
     include_partial('areas/association',
                     array('associated_docs' => $associated_areas,
                           'module' => 'areas',

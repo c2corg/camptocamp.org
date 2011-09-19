@@ -310,7 +310,6 @@ class User extends BaseUser
         self::buildConditionItem($conditions, $values, 'Multilist', array('go', 'linked_id'), 'oareas', 'join_oarea', false, $params_list);
         if (isset($conditions['join_oarea']))
         {
-            $conditions['join_outing_id'] = true;
             $conditions['join_outing_id_has'] = true;
         }
         
@@ -464,6 +463,7 @@ class User extends BaseUser
             || isset($conditions['join_sbook_id'])
             || isset($conditions['join_sbtag_id'])
             || isset($conditions['join_outing_id'])
+            || isset($conditions['join_outing_id_has'])
             || isset($conditions['join_outing'])
             || isset($conditions['join_outing_i18n'])
             || isset($conditions['join_otag_id'])

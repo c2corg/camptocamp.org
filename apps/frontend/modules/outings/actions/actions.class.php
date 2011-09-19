@@ -116,7 +116,26 @@ class outingsActions extends documentsActions
             $associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
             if (count($associated_users) >= 2)
             {
-                $associated_users = c2cTools::sortArrayByName($associated_users);
+                // Set outing creator at first in the users list, and sort other users by name
+                $creator_id = $this->document->getCreatorId();
+                $creator = array();
+                $associated_users_2 = array();
+                foreach ($associated_users as $key => $user)
+                {
+                    if ($user['id'] == $creator_id)
+                    {
+                        $creator[$key] = $user;
+                    }
+                    else
+                    {
+                        $associated_users_2[$key] = $user;
+                    }
+                }
+                if (count($associated_users_2) >= 2)
+                {
+                    $associated_users_2 = c2cTools::sortArrayByName($associated_users_2);
+                }
+                $associated_users = array_merge($creator, $associated_users_2);
             }
             $this->associated_users = $associated_users;
             
