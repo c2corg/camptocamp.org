@@ -1598,7 +1598,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     // retrieves the creator ID of the document
-    public static function getCreatorId()
+    public function getCreatorId()
     {
         $result = Doctrine_Query::create()
                              ->select('dv.document_id, hm.user_id')

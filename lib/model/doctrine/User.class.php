@@ -413,17 +413,17 @@ class User extends BaseUser
                 unset($conditions['join_user']);
             }
 
-            if (isset($conditions['join_user_i18n']))
-            {
-                $q->leftJoin($m . $linked . 'UserI18n ui');
-                unset($conditions['join_user_i18n']);
-            }
-
             if (isset($conditions['join_user_pd']))
             {
                 $q->leftJoin($m . $linked . 'UserPrivateData upd');
                 unset($conditions['join_user_pd']);
             }
+        }
+
+        if (isset($conditions['join_user_i18n']))
+        {
+            $q->leftJoin($m . $linked . 'UserI18n ui');
+            unset($conditions['join_user_i18n']);
         }
         
         if (isset($conditions['join_utag_id']))
@@ -436,7 +436,7 @@ class User extends BaseUser
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
-        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array(), false, 'join_oarea', 'lo', 'go');
+        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array(), false, 'join_oarea', null, 'lo', 'go');
         
         // join with users tables only if needed 
         if (   isset($conditions['join_user_id'])
