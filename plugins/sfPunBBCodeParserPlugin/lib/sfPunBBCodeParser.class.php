@@ -284,7 +284,7 @@ class sfPunBBCodeParser
             $url == ' ';
         }
         
-        $full_url = preg_replace('#^(http://)?((m+|w+)\.)?camptocamp\.org/?(.*)#', '/${4}', $full_url);
+        $full_url = preg_replace('#^((http://)?(w+|m+)\.|)camptocamp\.org/?(.*)#', '/${4}', $full_url);
         if ($empty_link = (empty($link) || $link == $url))
         {
             if ($full_url == '/')

@@ -436,7 +436,6 @@ class User extends BaseUser
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
-        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array(), false, 'join_oarea', null, 'lo', 'go');
         
         // join with users tables only if needed 
         if (   isset($conditions['join_user_id'])
@@ -497,6 +496,9 @@ class User extends BaseUser
             }
         }
 
+        // join with geo-associations linked to outings
+        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array(), false, 'join_oarea', null, 'lo', 'go');
+        
         // join with image tables only if needed 
         if (   isset($conditions['join_image_id'])
             || isset($conditions['join_image'])

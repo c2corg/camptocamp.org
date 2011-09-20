@@ -89,11 +89,56 @@ if ($cur_posting['redirect_url'] != '')
 list($is_admmod, $is_c2c_board) = get_is_admmod($forum_id, $cur_posting['moderators'], $pun_user);
 
 // Do we have permission to post?
-if (((($tid && (($cur_posting['post_replies'] == '' && $pun_user['g_post_replies'] == '0') || $cur_posting['post_replies'] == '0')) ||
-	($fid && ((!isset($_GET['type']) && $ptype == '0')) && (($cur_posting['post_topics'] == '' && $pun_user['g_post_topics'] == '0') || $cur_posting['post_topics'] == '0')) ||
-	($fid && (isset($_GET['type']) || $ptype != '0') && (($cur_posting['post_polls'] == '' && $pun_user['g_post_polls'] == '0') || $cur_posting['post_polls'] == '0')) ||
-	(isset($cur_posting['closed']) && $cur_posting['closed'] == '1')) &&
-	!$is_admmod) || !$is_c2c_board)
+if (
+    (
+        (
+            (
+                $tid
+             && (
+                    (
+                        $cur_posting['post_replies'] == ''
+                     && $pun_user['g_post_replies'] == '0'
+                    )
+                 || $cur_posting['post_replies'] == '0'
+                )
+            )
+         || (
+                $fid
+             && (
+                    !isset($_GET['type'])
+                 && $ptype == '0'
+                )
+             && (
+                    (
+                        $cur_posting['post_topics'] == ''
+                     && $pun_user['g_post_topics'] == '0'
+                    )
+                 || $cur_posting['post_topics'] == '0'
+                )
+            )
+         ||	(
+                $fid
+             && (
+                    isset($_GET['type'])
+                 || $ptype != '0'
+                )
+             && (
+                    (
+                        $cur_posting['post_polls'] == ''
+                     && $pun_user['g_post_polls'] == '0'
+                    )
+                 || $cur_posting['post_polls'] == '0'
+                )
+            )
+         ||	(
+                isset($cur_posting['closed'])
+             && $cur_posting['closed'] == '1'
+            )
+        )
+     &&	!$is_admmod
+    )
+ || !$is_c2c_board
+)
 	message($lang_common['No permission']);
 
 $is_comment = get_is_comment($forum_id);
@@ -649,11 +694,11 @@ if ($tid)
         $pattern[] = '#\[img=((ht|f)tps?://|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]#is';
         $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/uploads/)([^\s<"]*?)\[/img\]#is';
         $pattern[] = '#\[video( [\d,]+)?\]((ht|f)tps?://)([^\s<"]*?)\[/video\]#is';
-        $pattern[] = '#([\w\-]+)@([\w\-]+)#';
+        $pattern[] = '#(?<!\[quote=|^)([\w\-]+)@([\w\-]+)#';
         $replace[] = '[url=$1$3]< image : $7 >[/url]';
         $replace[] = '[url=$6$8]< image : $2 >[/url]';
         $replace[] = '[url=$2$4]< video >[/url]';
-        $replace[] = '$1[~]$2';
+        $replace[] = '$1(%)$2';
         $q_message = preg_replace($pattern, $replace, $q_message);
 		$q_message = pun_htmlspecialchars($q_message);
 

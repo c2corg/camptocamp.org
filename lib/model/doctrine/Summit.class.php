@@ -42,19 +42,17 @@ class Summit extends BaseSummit
         {
             $m = 'm';
             $join = null;
-            $join_id = null;
         }
         else
         {
             $m = 's';
             $join = 'join_summit';
-            $join_id = 'join_summit_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'summits', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'summits', 'join_summit_id', false, $params_list);
         if ($is_module)
         {
-            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', null, false, $params_list);
         }
         if (!$has_id)
         {
@@ -168,6 +166,23 @@ class Summit extends BaseSummit
             $linked = '';
             $linked2 = '';
             $main = $m . 'associations';
+            
+            $q->leftJoin($main . ' ls');
+            
+            if (!isset($conditions['join_summit_id']) || isset($conditions['join_summit_id_has']))
+            {
+                $q->addWhere($m . "type = 'ss'");
+                if (isset($conditions['join_summit_id_has']))
+                {
+                    unset($conditions['join_summit_id_has']);
+                }
+            }
+            if (isset($conditions['join_summit_id']))
+            {
+                unset($conditions['join_summit_id']);
+                
+                return;
+            }
         }
         else
         {

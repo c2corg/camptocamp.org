@@ -53,7 +53,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
     
     $a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[url(=\]|\])\s*#i',
-				'#\[url(=|\])(http://)?(m+|w+)\.camptocamp\.org(/([^\[\]]+))#i',
+				'#\[url(=|\])((http://)?(w+|m+)\.|)camptocamp\.org(/([^\[\]]+))#i',
 				'#\s*\[/url\]#i',
                 '#\[email=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[email(=\]|\])\s*#i',
@@ -74,7 +74,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 
 	$b = array(	'[url=$2]',
 				'[url]',
-                '[url$1$4',
+                '[url$1$5',
 				'[/url]',
 				'[email=$2]',
 				'[email]',
@@ -155,7 +155,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 //
 function preparse_url($text)
 {
-    $a = array(  '#(?<=[^\w]|^)(http://)?((m+|w+)\.)?camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
+    $a = array(  '#(?<=[^\w.]|^)((http://)?(w+|m+)\.|)camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
                 '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
@@ -379,7 +379,7 @@ function handle_url_tag($url, $link = '')
         $url == ' ';
     }
 
-    $full_url = preg_replace('#^(http://)?((m+|w+)\.)?camptocamp\.org/?(.*)#', '/${4}', $full_url);
+    $full_url = preg_replace('#^((http://)?(w+|m+)\.|)camptocamp\.org/?(.*)#', '/${4}', $full_url);
     if ($empty_link = (empty($link) || $link == $url))
     {
         if ($full_url == '/')
