@@ -1,8 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    #values: [ skalp, cilao, atelier_escalade, beal_drycover, beal_joker, mammut_en, millet, millet_polartec_alpi, millet_polartec_skialpi, roc_trip ]
-    values: [ google, skalp ]
+    values: [ boutique_c2c, changerdapproche, camp, google, boutique_c2c, baechli, camp, changerdapproche, natxplore, sommets_dependances, google, changerdapproche ]
   banners:
     list:
       skalp:
@@ -10,46 +9,136 @@ all:
         image: skalp.gif
         alt: "Sk'alp"
       cilao:
-        id: 2
-        image: cilao.gif
-        alt: Cilao
+        id: 9
+        type: flash
+        file: cilao_izi22_oz22.swf
+        width: 468
+        height: 60
+        #image: cilao.gif
+        #alt: Cilao
       atelier_escalade:
         id: 3
         image: atelier-escalade.gif
         alt: Atelier-Escalade.fr
-      beal_drycover:
-        id: 4
-        image: beal_drycover.gif
-        alt: Beal Dry Cover
-      beal_joker:
-        id: 5
-        image: beal_joker.gif
-        alt: Beal Joker
-      mammut_en:
-        id: 6
-        image: mammut_en.gif
-        alt: Mammut
-      millet:
-        id: 7
-        image: millet.gif
-        alt: Millet
-      millet_polartec_alpi:
-        id: 8
-        image: millet_polartec_alpi.gif
-        alt: Millet Polartec Alpinisme
-      millet_polartec_skialpi:
-        id: 9
-        image: millet_polartec_ski-alpi.gif
-        alt: Millet Polartec Ski-Alpinisme
-      roc_trip:
-        id: 10
-        image: roc-trip.gif
-        alt: Roc Trip
-      polartec:
+      vieux_campeur:
         type: flash
-        width: 370
-        height: 68
-        file: Polartec_Thermal-Pro-Hi-loft_Millet_Air-loft-jkt_370X68.swf
+        width: 468 
+        height: 60
+        file: vieux_campeur.swf
+      clubaventure:
+        type: flash
+        width:468
+        height: 60
+        file: voyageur_468.swf
       google:
         type: adsense
-
+      hotrock:
+        id: 5
+        image: arcofasiafr.gif
+        alt: Hot Rock
+      arva:
+        type: flash
+        width: 468
+        height: 60
+        file: arva_camp.swf
+      diamir:
+        type: flash
+        width: 468
+        height: 60
+        file: diamir_camp.swf
+      colltex:
+        type: flash
+        width: 468
+        height: 60
+        file: colltex_fr_light_swissMade.swf
+      quechua:
+        id: 7
+        type: flash
+        width: 468
+        height: 60
+        file: quechua.swf
+      boutique_c2c:
+        id: 20
+        image: boutique_c2c.png
+        alt: boutique c2corg
+      netaffiliation:
+        type: netaffiliation
+      sommets_dependances:
+        id: 18
+        image: sommets_et_dependances.jpg
+        alt: Livre c2c Sommets et dependances
+      diamir_on_tour:
+        id: 11
+        image: banner_diamir_on_tour_FR.gif
+        alt: Diamir on tour
+      grimpisme:
+        id: 12
+        type: flash
+        width: 468
+        height: 60
+        file: grimpisme.swf
+      pressevasion:
+        id: 13
+        image: banniere_ac.gif
+        alt: Attention contagieux
+      changerdapproche:
+        id: 19
+        image: cda.png
+        alt: "Changer d'approche"
+      blueice:
+        id: 21
+        image: blueice-choucas.gif
+        alt: "blue ice"
+      vertical:
+        id:16
+        image: vertical_468_60.gif
+        alt: "Vertical"
+      diamir_on_tour2010:
+        id: 17
+        image: diamir_on_tour2010.gif
+        alt: "Diamir on tour"
+      portail_glace:
+        id: 22
+        image: portail_glace.png
+        alt: "Portail cascade de glace Camptocamp"
+      baechli:
+        id: 24
+        id_fr: 23
+        image: baechli.jpg
+        alt: "Bächli Bergsport"
+      camp_xenon:
+        id: 25
+        image: camp-xenon.png
+        alt: "Camp Xenon"
+      camp_photon:
+        id: 27
+        image: camp-photon.png
+        alt: "Camp Photon"
+      assises_alpi:
+        id: 26
+        image: assises-alpi.jpeg
+        alt: "Assises de l'Alpinisme"
+      camp_campack:
+        id: 28
+        image: camp-campack.png
+        alt: "Camp Campack"
+      camp_minima:
+        id: 29
+        image: camp-minima.png
+        alt: "Camp Minima"
+      camp_matrix:
+        id: 30
+        image: camp-matrix.png
+        alt: "Camp Matrix"
+      natxplore:
+        id: 31
+        image: natxplore.gif
+        alt: "natXplore.com"
+      camp:
+        id: 32
+        image: camp.gif
+        alt: Camp
+      simond:
+        id: 33
+        image: toucan.jpg
+        alt: Simond Toucan2
