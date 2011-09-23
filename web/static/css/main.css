@@ -5083,6 +5083,9 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 
 .c2cui_btn:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {
   border-color: #777;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  box-shadow: 0 1px 2px #ccc;
 }
 
 .c2cui_btn:active, input[type=submit]:active, input[type=reset]:active, input[type=button]:active {
