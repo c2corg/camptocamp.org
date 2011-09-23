@@ -209,10 +209,6 @@ table.list {
   width: 100%;
 }
 
-/* on centre le titre */
-#content_box {
-  text-align: center !important;
-}
 /* on cale le reste a gauche */
 .content_article {
   text-align: left !important; 
