@@ -57,7 +57,7 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     RewriteRule ^robots.txt$ /robots/prod.txt [L]
 
     # mobile version
-    RewriteCond %{HTTP_HOST} =@MOBILE_VERSION_HOST@
+    RewriteCond %{HTTP_HOST} =m.camptocamp.org
     RewriteRule ^robots.txt$ /robots/mobile.txt [L]
 
     # dev version, default version
