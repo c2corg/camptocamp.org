@@ -155,7 +155,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 //
 function preparse_url($text)
 {
-    $a = array(  '#(?<=[^\w.]|^)((http://)?(w+|m+)\.|)camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
+    $a = array(  '#(?<=[^\w]|^)((http://)?(w+|m+)\.|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
                 '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
@@ -379,7 +379,7 @@ function handle_url_tag($url, $link = '')
         $url == ' ';
     }
 
-    $full_url = preg_replace('#^((http://)?(w+|m+)\.|)camptocamp\.org/?(.*)#', '/${4}', $full_url);
+    $full_url = preg_replace('#^((http://)?(w+|m+)\.|(?<!\.))camptocamp\.org/?(.*)#', '/${4}', $full_url);
     if ($empty_link = (empty($link) || $link == $url))
     {
         if ($full_url == '/')

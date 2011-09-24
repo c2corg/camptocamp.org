@@ -46,9 +46,9 @@ class Product extends BaseProduct
             {
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
-            self::buildConditionItem($conditions, $values, 'String', 'fi.search_name', ($is_module ? array('fnam', 'name') : 'fnam'), 'join_product_i18n', true, $params_list);
+            self::buildConditionItem($conditions, $values, 'String', 'fi.search_name', ($is_module ? array('fnam', 'name') : 'fnam'), 'join_product_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'falt', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'product_type'), 'fpty', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'product_type'), 'ftyp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'fi.culture', 'fcult', 'join_product_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lfc.linked_id', 'ftags', 'join_ftag_id', false, $params_list);
         }

@@ -694,11 +694,11 @@ if ($tid)
         $pattern[] = '#\[img=((ht|f)tps?://|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]#is';
         $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/uploads/)([^\s<"]*?)\[/img\]#is';
         $pattern[] = '#\[video( [\d,]+)?\]((ht|f)tps?://)([^\s<"]*?)\[/video\]#is';
-        $pattern[] = '#(?<!\[quote=|^)([\w\-]+)@([\w\-]+)#';
+        $pattern[] = '#((?<!\[quote=)(?<![\w-])|^)([\w\-]+)@([\w\-]+)#';
         $replace[] = '[url=$1$3]< image : $7 >[/url]';
         $replace[] = '[url=$6$8]< image : $2 >[/url]';
         $replace[] = '[url=$2$4]< video >[/url]';
-        $replace[] = '$1(%)$2';
+        $replace[] = '$2(%)$3';
         $q_message = preg_replace($pattern, $replace, $q_message);
 		$q_message = pun_htmlspecialchars($q_message);
 
