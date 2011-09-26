@@ -624,9 +624,9 @@ class documentsActions extends c2cActions
             }
         }
 
-        $this->needs_translation = ($lang == $user->getCulture()) ? false : true;
+        $this->needs_translation = ($lang == $user->getCulture()) ? false : $lang;
         $response = $this->getResponse();
-        if ($this->needs_translation)
+        if ($this->needs_translation && !c2cTools::mobileVersion())
         {
             $response->addJavascript('/static/js/translation.js', 'last');
         }

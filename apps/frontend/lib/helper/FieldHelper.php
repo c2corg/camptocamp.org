@@ -534,7 +534,7 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
     }
 
     $has_value = !empty($value);
-    $translatable = _option($options, 'needs_translation', false) && $has_value;
+    $needs_translation = _option($options, 'needs_translation', false);
     $inserted = _option($options, 'inserted_text', '');
     $images = _option($options, 'images', null);
     $filter_image_type = _option($options, 'filter_image_type', true);
@@ -555,21 +555,15 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
         $label = '';
     }
     
-    $out = $label
-         . $inserted;
+    $out = $label . $inserted;
     if ($has_value)
     {
-        $out .= '<div class="field_value">'
+        $lang = $needs_translation ? ' lang="' . $needs_translation . '"' : '';
+        $out .= '<div class="field_value"' . $lang . '>'
               . parse_links(parse_bbcode($value, $images, $filter_image_type, $show_images))
               . '</div>';
     }
-    if ($translatable)
-    {
-        $out = '<div class="translatable">'
-             . $out
-             . '</div>';
-    }
-    
+
     return $out;
 }
 

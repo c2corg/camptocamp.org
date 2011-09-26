@@ -54,7 +54,9 @@ if (!empty($associated_areas))
 
 if ($has_conditions || $has_conditions_levels)
 {
-    $conditions_title = '<div class="section_subtitle htext" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
+    $lang = $needs_translation ? ' lang="' . $needs_translation . '"' : '';
+    $conditions_title = '<div class="section_subtitle htext" id="_conditions">' . __('conditions')
+                        . '</div><div class="field_value"' . $lang . '>';
     
     if ($has_conditions_levels)
     {
@@ -80,23 +82,11 @@ if ($has_conditions || $has_conditions_levels)
                            . $conditions_string
                            . '</div>'
                            . $other_conditions;
-        if ($needs_translation)
-        {
-            $conditions_string = '<div class="translatable">'
-                               . $conditions_string
-                               . '</div>';
-        }
     }
     else
     {
         $conditions_string = $conditions_title
                            . $conditions_string;
-        if ($needs_translation)
-        {
-            $conditions_string = '<div class="translatable">'
-                               . $conditions_string
-                               . '</div>';
-        }
         $conditions_string = '<div class="col_left col_66 hfirst">'
                            . $conditions_string
                            . $other_conditions

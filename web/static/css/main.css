@@ -1232,6 +1232,7 @@ span.default_text, p.default_text
 #description_section_container
 {
   text-align: justify;
+  position: relative; /* used in order to be able to absolutely position goog-trans-control */
 }
 
 .add_content, .add_content a
@@ -4135,10 +4136,7 @@ span.toc_link
   padding-bottom: 0.6em;
 }
 
-
-/* in the two following rules, "a span.toc_link" is because of
- * google translation api inverting some a and span */
-span.toc_link a, .article span.toc_link a, a span.toc_link
+span.toc_link a, .article span.toc_link a
 {
   margin-left: 2em;
   padding: 0 0.5em 0.1em;
@@ -4797,15 +4795,16 @@ td.history_buttons {
   white-space: nowrap;
 }
 
-.translatable {
-  position: relative;
+/* try to customize button added
+ * by google translation */
+
+.goog-trans-control {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-.translate_button {
-  float: right;
-}
-
-.translate_button a {
+.goog-te-gadget-link {
   text-decoration:none;
   color: white;
   background-color: #ff9933;
@@ -4817,18 +4816,16 @@ td.history_buttons {
   -webkit-border-radius:4px;
 }
 
-.translate_button a:hover {
+.goog-te-sectional-gadget-link-text {
+  font-size: 12px !important;
+  font-weight: normal !important;
+}
+
+.goog-te-gadget-link:hover {
   background-color: #ff7711;
 }
 
-.translate_wait {
-  background-color:red;
-  color:white;
-}
-
-.field_value {
-  clear:both;
-}
+/* paypal */
 
 #paypal-button
 {

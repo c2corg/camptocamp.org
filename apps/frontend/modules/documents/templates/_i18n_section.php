@@ -39,16 +39,7 @@ if (!$document->isArchive()): ?>
         $i18n_args['ids'] = $ids;
         
         include_partial('i18n', $i18n_args);
-        
-        if (isset($needs_translation) && $needs_translation && !c2cTools::mobileVersion())
-        {
-            echo javascript_tag('Event.observe(window, \'load\', function() {'.
-"GoogleTranslation.i18n=['".__('translate')."','".__('untranslate')."','".__(' loading...')."'];".
-"GoogleTranslation.language_from='".$document->getCulture()."';".
-"GoogleTranslation.language_to='".__('meta_language')."';".
-'GoogleTranslation.base_url = "https://www.googleapis.com/language/translate/v2?key='.
-sfConfig::get('app_google_api_key').'&format=html"; GoogleTranslation.init_buttons();});');
-        } ?>
+        ?>
     </div>
     
 <?php else: ?>
