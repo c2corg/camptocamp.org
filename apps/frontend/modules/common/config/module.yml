@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ boutique_c2c, changerdapproche, camp, google, boutique_c2c, baechli, camp, changerdapproche, natxplore, sommets_dependances, google, changerdapproche ]
+    values: [ boutique_c2c, changerdapproche, camp, google, boutique_c2c, baechli, camp, changerdapproche, natxplore, simond, google, changerdapproche ]
   banners:
     list:
       skalp:
