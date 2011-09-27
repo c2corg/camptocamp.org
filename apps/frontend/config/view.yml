@@ -1,5 +1,6 @@
 default:
   metas:
+    title:        meta_title
     robots:       noindex, follow
     description:  meta_description
     keywords:     meta_keywords
