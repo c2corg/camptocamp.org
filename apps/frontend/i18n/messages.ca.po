@@ -1710,7 +1710,7 @@ msgstr "Redueix el mapa"
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
 msgid "Reduce the bar"
-msgstr "Clica sobre la barra per reduir la columna de l'esquerra"
+msgstr "Clica sobre la barra per reduir la columna de l\\'esquerra"
 
 msgid "Reduce the list"
 msgstr "Redueix la llista"
@@ -6450,4 +6450,3 @@ msgstr "°E"
 
 msgid "°N"
 msgstr "°N"
-
