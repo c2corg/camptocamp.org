@@ -65,7 +65,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_header' : 'common/header';
         include_partial($header_partial, array('lang_code' => $lang_code));
 
-        if (!(bool) sfConfig::get('app_production'))
+        if (sfConfig::get('app_production') != 1)
         {
             include_partial('common/dev_env');
         }

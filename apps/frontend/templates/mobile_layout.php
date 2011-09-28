@@ -21,7 +21,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
 <head>
     <meta charset="utf-8">
     <?php
-        $debug = (bool)sfConfig::get('app_minify_debug');
+        $debug = (bool) sfConfig::get('app_minify_debug');
         $combine = !$debug;
         echo include_http_metas();
         echo include_metas();
@@ -43,7 +43,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         <header id="page_header">
         <?php
         include_partial('common/mobile_header', array('lang_code' => $lang_code));
-        if (!(bool) sfConfig::get('app_production'))
+        if (sfConfig::get('app_production') != 1)
         {
             include_partial('common/dev_env');
         }
