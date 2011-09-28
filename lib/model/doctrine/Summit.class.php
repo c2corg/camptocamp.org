@@ -166,23 +166,6 @@ class Summit extends BaseSummit
             $linked = '';
             $linked2 = '';
             $main = $m . 'associations';
-            
-            $q->leftJoin($main . ' ls');
-            
-            if (!isset($conditions['join_summit_id']) || isset($conditions['join_summit_id_has']))
-            {
-                $q->addWhere($m . "type = 'ss'");
-                if (isset($conditions['join_summit_id_has']))
-                {
-                    unset($conditions['join_summit_id_has']);
-                }
-            }
-            if (isset($conditions['join_summit_id']))
-            {
-                unset($conditions['join_summit_id']);
-                
-                return;
-            }
         }
         else
         {
