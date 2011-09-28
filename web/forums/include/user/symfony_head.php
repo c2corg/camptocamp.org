@@ -7,6 +7,10 @@ else
 {
     include_partial('common/header');
 }
+if (sfConfig::get('app_production') != 1)
+{
+    include_partial('common/dev_env');
+}
 
 // FIXME: hack to retrieve symfony user, sometimes lost for some unknown raison
 if (empty($sf_user))
