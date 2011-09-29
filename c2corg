@@ -19,9 +19,9 @@ $DIRS_TO_CREATE = array('flushable'  => array('web/forums/cache', 'log', 'web/up
                         );
 
 // Directories containing server-specific config files
-$CONFIG_DIRS = array('config', 'web/forums', 'data/sql', 'apps/frontend/config', 'mapdata',
-                     'web/static/cgi-bin', 'web/static/opensearch', 'scripts', 'batch',
-                     'web/static/js/mapfish/c2corgApi', 'web/stats');
+$CONFIG_DIRS = array('apps/frontend/config', 'batch', 'config', 'data/sql',
+                     'mapdata', 'web/forums', 'web/static/js/mapfish/c2corgApi',
+                     'web/static/opensearch', 'web/stats');
 
 $OPTIONS['debug'] = false;
 $OPTIONS['writableowner'] = 'www-data';
