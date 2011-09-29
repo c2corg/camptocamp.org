@@ -4840,6 +4840,7 @@ td.history_buttons {
   vertical-align: middle;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
+
 #pp_button_mini
 {
   margin-left: 20px;
@@ -4851,6 +4852,12 @@ td.history_buttons {
   -moz-border-radius: 0 !important;
   -khtml-border-radius: 0 !important;
   -webkit-border-radius: 0 !important;
+}
+
+#paypal-button, #pp_button_mini {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 iframe
