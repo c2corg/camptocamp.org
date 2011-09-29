@@ -54,6 +54,10 @@ FROM = <noreply@c2c.org>
 REPLY_TO = <noreply@c2c.org>
 SMTP = <smtp_server>
 
+; advertising banner config
+ADVERTISING_RW_DIR = /tmp
+ADVERTISING_ADMIN = admin
+
 ; ids of meta content articles
 ASSOCIATION_ARTICLE_ID = 106726
 CONTACT_ARTICLE_ID = 106727

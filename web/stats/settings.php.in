@@ -7,18 +7,18 @@
 $settings['system']=1;
 
 // Password for admin area
-$settings['apass']='admin';
+$settings['apass']='@ADVERTISING_ADMIN@';
 
 // URL of the click.php file
-$settings['click_url']='http://camptocamp.org/stats/click.php';
+$settings['click_url']='http://@CLASSIC_VERSION_HOST@/stats/click.php';
 
 // OPTIONAL SETTINGS BELOW //
 
 // Name of the log file
-$settings['logfile']='clicks.txt';
+$settings['logfile']='@ADVERTISING_RW_DIR@/clicks.txt';
 
 // Name of the file where last ID number is stored
-$settings['idfile']='ids.txt';
+$settings['idfile']='@ADVERTISING_RW_DIR@/ids.txt';
 
 // DO NOT EDIT BELOW
 $settings['verzija']='1.1';
