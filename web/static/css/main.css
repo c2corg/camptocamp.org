@@ -625,7 +625,7 @@ a.logged_as
 {
   padding: 1px 1px 1px 22px !important;
   margin-bottom: 4px;
-  width: 40%;
+  width: 37%;
 }
 .article .sbox input[type=text]
 {
@@ -643,13 +643,13 @@ a.logged_as
 .sbox select
 {
   padding: 1px;
-  margin-right: 2px;
+  margin-right: 1%;
   margin-bottom: 4px;
   height: 1.5em;
 }
 #header .sbox select
 {
-  width: 50%;
+  width: 47%;
   max-width: 20em;
 }
 
