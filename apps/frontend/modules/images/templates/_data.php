@@ -31,11 +31,10 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
           ?>
           <li><div class="section_subtitle" id="_license"><?php echo __('Image license') ?></div>
           <?php
-          // TODO maybe we should put the BI version in about field (since the big image is not in the page)
           // See also if this should be a relative path or not?
           $license_link_opt = array('title' => __("$license title"),
                                     'rel' => 'license');
-          if (!c2cTools::mobileVersion()) $license_link_opt['about'] = image_url($document->get('filename'), null);
+          if (!c2cTools::mobileVersion()) $license_link_opt['about'] = image_url($document->get('filename'), 'big');
           echo link_to('Creative Commons '.__($license), $license_url, $license_link_opt).'</li>';
         }
 
