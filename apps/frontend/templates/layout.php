@@ -39,8 +39,10 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         $debug = (bool) sfConfig::get('app_minify_debug');
         $combine = !$debug;
         echo include_http_metas();
-        echo include_metas();
         echo include_title();
+        // we remove title from metas, because we don't want a <meta name=title>
+        $response->getParameterHolder()->remove('title', 'helper/asset/auto/meta');
+        echo include_metas();
         minify_include_main_stylesheets($combine, $debug);
         minify_include_custom_stylesheets($combine, $debug);
     ?>
