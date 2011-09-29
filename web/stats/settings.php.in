@@ -2,6 +2,8 @@
 // SETUP YOUR CLICK COUNTER
 // Detailed information found in the readme file
 
+//  @BLURB@
+
 // What type of server is your website on?
 // 1 = UNIX (Linux), 2 = Windows, 3 = Machintos
 $settings['system']=1;
