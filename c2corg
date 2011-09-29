@@ -14,9 +14,8 @@ chdir(dirname(__FILE__));
 error_reporting(E_ALL);
 
 // Directories to create:
-$DIRS_TO_CREATE = array('flushable'  => array('web/forums/cache', 'web/forums/img/avatars'),
-                        'persistent' => array('log', 'web/uploads', 'web/uploads/assets', 'web/uploads/images',
-                                              'web/uploads/images_temp'),
+$DIRS_TO_CREATE = array('flushable'  => array('web/forums/cache', 'log', 'web/uploads/images_temp'),
+                        'persistent' => array('web/forums/img/avatars', 'web/uploads', 'web/uploads/assets', 'web/uploads/images'),
                         );
 
 // Directories containing server-specific config files
