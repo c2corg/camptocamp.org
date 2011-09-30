@@ -743,7 +743,6 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
 	if (strpos($text, 'quote') !== false)
 	{
-		$text = str_replace(array('[~]', '(%)'), array('@', '@'), $text);
 		$text = str_replace('[quote]', '</p><blockquote><div class="incqbox"><p>', $text);
 		$text = preg_replace('#\[quote=(&quot;|"|&\#039;|\'|)(.*?)\\1\|?((?<=\|)[0-9]+|)\]#se', 'handle_quote_tag(\'$2\', \'$3\')', $text);
 		$text = preg_replace('#\[\/quote\]\s?#', '</p></div></blockquote><p>', $text);
@@ -829,7 +828,7 @@ function do_clickable($text)
     $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
     $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
     $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
-    $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
+    $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)(@|\[~\]|\(%\))(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')
     {
@@ -838,7 +837,7 @@ function do_clickable($text)
         $replace[] = '[url]$2[/url]';
         $replace[] = '[url]/$2[/url]';
         $replace[] = '[url]/$2[/url]';
-        $replace[] = '[email]$2@$4[/email]';
+        $replace[] = '[email]$2@$5[/email]';
     }
     else
     {
@@ -847,7 +846,7 @@ function do_clickable($text)
         $replace[] = '/$2 ';
         $replace[] = '$2 ';
         $replace[] = '$2/ ';
-        $replace[] = '$2 _@_ $4 ';
+        $replace[] = '$2(%)$4 ';
     }
     
 	$text = preg_replace($pattern, $replace, $text);
