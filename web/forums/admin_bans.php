@@ -117,7 +117,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 								<tr>
 									<th scope="row">User ID</th>
 									<td>
-										<input type="text" name="ban_user" size="25" maxlength="25" value="<?php if (isset($ban_user)) echo pun_htmlspecialchars($ban_user); ?>" tabindex="1" />
+										<input type="text" name="ban_user" size="25" maxlength="25" value="<?php if (isset($user_id)) echo $user_id; ?>" tabindex="1" /><?php if (isset($ban_user)) echo ' ' . pun_htmlspecialchars($ban_user); ?>
 										<span>The user ID to ban.</span>
 									</td>
 								</tr>
