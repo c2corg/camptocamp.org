@@ -43,7 +43,16 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 		// If the id of the user to ban was provided through GET (a link from profile.php)
 		if (isset($_GET['add_ban']))
 		{
-			$add_ban = intval($_GET['add_ban']);
+			$add_ban = $_GET['add_ban'];
+		}
+		else	// Otherwise the user id is in POST
+		{
+			$add_ban = trim($_POST['new_ban_user']);
+        }
+        $add_ban = intval($add_ban);
+        
+        if ($add_ban > 0)
+        {
 			if ($add_ban < 2)
 				message($lang_common['Bad request']);
 
@@ -53,20 +62,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 			if ($db->num_rows($result))
 				list($group_id, $ban_user, $ban_email) = $db->fetch_row($result);
 			else
-				message('No user by that ID registered.');
-		}
-		else	// Otherwise the username is in POST
-		{
-			$ban_user = trim($_POST['new_ban_user']);
-
-			if ($ban_user != '')
-			{
-				$result = $db->query('SELECT id, group_id, username, email FROM '.$db->prefix.'users WHERE username=\''.$db->escape($ban_user).'\' AND id>1') or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
-				if ($db->num_rows($result))
-					list($user_id, $group_id, $ban_user, $ban_email) = $db->fetch_row($result);
-				else
-					message('No user by that username registered. If you want to add a ban not tied to a specific username just leave the username blank.');
-			}
+                message('No user by that ID registered. If you want to add a ban not tied to a specific user ID just leave the user ID blank.');
 		}
 
 		// Make sure we're not banning an admin
@@ -119,10 +115,10 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 						<div class="infldset">
 							<table class="aligntop">
 								<tr>
-									<th scope="row">Username</th>
+									<th scope="row">User ID</th>
 									<td>
 										<input type="text" name="ban_user" size="25" maxlength="25" value="<?php if (isset($ban_user)) echo pun_htmlspecialchars($ban_user); ?>" tabindex="1" />
-										<span>The username to ban.</span>
+										<span>The user ID to ban.</span>
 									</td>
 								</tr>
 								<tr>
@@ -191,8 +187,8 @@ else if (isset($_POST['add_edit_ban']))
 	$ban_expire = trim($_POST['ban_expire']);
 
 	if ($ban_user == '' && $ban_ip == '' && $ban_email == '')
-		message('You must enter either a username, an IP address or an e-mail address (at least).');
-	else if (strtolower($ban_user) == 'guest')
+		message('You must enter either a user ID, an IP address or an e-mail address (at least).');
+	else if (intval($ban_user) == 1)
 		message('The guest user cannot be banned.');
 
 	// Validate IP/IP range (it's overkill, I know)
@@ -292,10 +288,10 @@ generate_admin_menu('bans');
 						<div class="infldset">
 							<table class="aligntop">
 								<tr>
-									<th scope="row">Username<div><input type="submit" name="add_ban" value=" Add " tabindex="2" /></div></th>
+									<th scope="row">User ID<div><input type="submit" name="add_ban" value=" Add " tabindex="2" /></div></th>
 									<td>
 										<input type="text" name="new_ban_user" size="25" maxlength="25" tabindex="1" />
-										<span>The username to ban (case insensitive). The next page will let you enter a custom IP and e-mail. If you just want to ban a specific IP/IP-range or e-mail just leave it blank.</span>
+										<span>The user ID to ban (case insensitive). The next page will let you enter a custom IP and e-mail. If you just want to ban a specific IP/IP-range or e-mail just leave it blank.</span>
 									</td>
 								</tr>
 							</table>
