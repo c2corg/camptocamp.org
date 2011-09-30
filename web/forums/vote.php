@@ -51,13 +51,12 @@ if (!$db->num_rows($result))
 $cur_poll = $db->fetch_assoc($result);
 
 // Sort out who the moderators are and if we are currently a moderator (or an admin)
-$mods_array = ($cur_poll['moderators'] != '') ? unserialize($cur_poll['moderators']) : array();
-$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && array_key_exists($pun_user['username'], $mods_array))) ? true : false;
+list($is_admmod, $is_c2c_board) = get_is_admmod($cur_poll['id'], $cur_poll['moderators'], $pun_user);
 
 // Do we have permission to vote?
 if ((((($cur_poll['post_replies'] == '' && $pun_user['g_post_replies'] == '0') || $cur_poll['post_replies'] == '0')) ||
 	(isset($cur_poll['closed']) && $cur_poll['closed'] == '1')) &&
-	!$is_admmod)
+	!$is_admmod || !$is_c2c_board)
 	message($lang_common['No permission']);
 
 

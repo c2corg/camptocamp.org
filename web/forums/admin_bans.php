@@ -324,7 +324,7 @@ if ($db->num_rows($result))
 						<div class="infldset">
 							<table>
 <?php if ($cur_ban['username'] != ''): ?>								<tr>
-									<th>Username</th>
+									<th>User ID</th>
 									<td><?php echo pun_htmlspecialchars($cur_ban['username']) ?></td>
 								</tr>
 <?php endif; ?><?php if ($cur_ban['email'] != ''): ?>								<tr>
