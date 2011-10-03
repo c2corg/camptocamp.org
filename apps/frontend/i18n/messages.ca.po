@@ -6450,3 +6450,4 @@ msgstr "°E"
 
 msgid "°N"
 msgstr "°N"
+

@@ -360,7 +360,7 @@ msgid "Camptocamp.org is about:"
 msgstr "Camptocamp.org is about:"
 
 msgid "Camptocamp.org version 5 revision %1%"
-msgstr "Camptocamp.org version 5 révision %1%"
+msgstr "Camptocamp.org version 5 revision %1%"
 
 msgid "Cancel"
 msgstr "Cancel"
