@@ -49,30 +49,34 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 		{
 			$add_ban = trim($_POST['new_ban_user']);
         }
-        $add_ban = intval($add_ban);
+        $add_user_id = intval($add_ban);
         
-        if ($add_ban > 0)
+        if ($add_user_id > 0)
         {
-			if ($add_ban < 2)
+			if ($add_user_id < 2)
 				message($lang_common['Bad request']);
 
-			$user_id = $add_ban;
+			$ban_user_id = $add_user_id;
 
-			$result = $db->query('SELECT group_id, username, email FROM '.$db->prefix.'users WHERE id='.$user_id) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
+			$result = $db->query('SELECT group_id, username, email FROM '.$db->prefix.'users WHERE id='.$ban_user_id) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
 			if ($db->num_rows($result))
 				list($group_id, $ban_user, $ban_email) = $db->fetch_row($result);
 			else
                 message('No user by that ID registered. If you want to add a ban not tied to a specific user ID just leave the user ID blank.');
 		}
+        elseif (!empty($add_ban))
+        {
+            message('Incorrect ID format. If you want to add a ban not tied to a specific user ID just leave the user ID blank.');
+        }
 
 		// Make sure we're not banning an admin
-		if (isset($group_id) && $group_id == PUN_ADMIN)
-			message('The user '.pun_htmlspecialchars($ban_user).' is an administrator and can\'t be banned. If you want to ban an administrator, you must first demote him/her to moderator or user.');
+		if (isset($group_id) && ($group_id == PUN_ADMIN || $group_id == PUN_MOD))
+			message('The user '.pun_htmlspecialchars($ban_user).' is a forum administrator or moderator and can\'t be banned. If you want to ban an administrator or a moderator, you must first demote him/her to user.');
 
-		// If we have a $user_id, we can try to find the last known IP of that user
-		if (isset($user_id))
+		// If we have a $ban_user_id, we can try to find the last known IP of that user
+		if (isset($ban_user_id))
 		{
-			$result = $db->query('SELECT poster_ip FROM '.$db->prefix.'posts WHERE poster_id='.$user_id.' ORDER BY posted DESC LIMIT 1') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+			$result = $db->query('SELECT poster_ip FROM '.$db->prefix.'posts WHERE poster_id='.$ban_user_id.' ORDER BY posted DESC LIMIT 1') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 			$ban_ip = ($db->num_rows($result)) ? $db->result($result) : '';
 		}
 
@@ -86,17 +90,26 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 
 		$result = $db->query('SELECT username, ip, email, message, expire FROM '.$db->prefix.'bans WHERE id='.$ban_id) or error('Unable to fetch ban info', __FILE__, __LINE__, $db->error());
 		if ($db->num_rows($result))
-			list($ban_user, $ban_ip, $ban_email, $ban_message, $ban_expire) = $db->fetch_row($result);
+			list($ban_user_id, $ban_ip, $ban_email, $ban_message, $ban_expire) = $db->fetch_row($result);
 		else
 			message($lang_common['Bad request']);
 
-		$ban_expire = ($ban_expire != '') ? date('Y-m-d', $ban_expire) : '';
+        if (!empty($ban_user_id))
+        {
+            $result = $db->query('SELECT username FROM '.$db->prefix.'users WHERE id='.$ban_user_id) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
+            if ($db->num_rows($result))
+                $ban_user = $db->result($result);
+            else
+                message('No user by that ID registered.');
+		}
+        
+        $ban_expire = ($ban_expire != '') ? date('Y-m-d', $ban_expire) : '';
 
 		$mode = 'edit';
 	}
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / Admin / Bans';
-	$focus_element = array('bans2', 'ban_user');
+	$focus_element = array('bans2', 'ban_user_id');
 	require PUN_ROOT.'header.php';
 
 	generate_admin_menu('bans');
@@ -117,7 +130,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 								<tr>
 									<th scope="row">User ID</th>
 									<td>
-										<input type="text" name="ban_user" size="25" maxlength="25" value="<?php if (isset($user_id)) echo $user_id; ?>" tabindex="1" /><?php if (isset($ban_user)) echo ' ' . pun_htmlspecialchars($ban_user); ?>
+										<input type="text" name="ban_user_id" size="25" maxlength="25" value="<?php if (isset($ban_user_id)) echo $ban_user_id; ?>" tabindex="1" /><?php if (isset($ban_user)) echo ' ' . pun_htmlspecialchars($ban_user); ?>
 										<span>The user ID to ban.</span>
 									</td>
 								</tr>
@@ -125,7 +138,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 									<th scope="row">IP-adresses</th>
 									<td>
 										<input type="text" name="ban_ip" size="45" maxlength="255" value="<?php if (isset($ban_ip)) echo $ban_ip; ?>" tabindex="2" />
-										<span>The IP or IP-ranges you wish to ban (e.g. 150.11.110.1 or 150.11.110). Separate addresses with spaces. If an IP is entered already it is the last known IP of this user in the database.<?php if ($ban_user != '' && isset($user_id)) echo ' Click <a href="admin_users.php?ip_stats='.$user_id.'">here</a> to see IP statistics for this user.' ?></span>
+										<span>The IP or IP-ranges you wish to ban (e.g. 150.11.110.1 or 150.11.110). Separate addresses with spaces. If an IP is entered already it is the last known IP of this user in the database.<?php if ($ban_user != '' && isset($ban_user_id)) echo ' Click <a href="admin_users.php?ip_stats='.$ban_user_id.'">here</a> to see IP statistics for this user.' ?></span>
 									</td>
 								</tr>
 								<tr>
@@ -180,16 +193,37 @@ else if (isset($_POST['add_edit_ban']))
 {
 	confirm_referrer('admin_bans.php');
 
-	$ban_user = trim($_POST['ban_user']);
+	$ban_user_id_tmp = trim($_POST['ban_user_id']);
 	$ban_ip = trim($_POST['ban_ip']);
 	$ban_email = strtolower(trim($_POST['ban_email']));
 	$ban_message = trim($_POST['ban_message']);
 	$ban_expire = trim($_POST['ban_expire']);
 
-	if ($ban_user == '' && $ban_ip == '' && $ban_email == '')
+	if ($ban_user_id_tmp == '' && $ban_ip == '' && $ban_email == '')
 		message('You must enter either a user ID, an IP address or an e-mail address (at least).');
-	else if (intval($ban_user) == 1)
-		message('The guest user cannot be banned.');
+
+	// Validate user ID
+    $ban_user_id = intval($ban_user_id_tmp);
+    
+    if ($ban_user_id > 0)
+    {
+        if ($ban_user_id == 1)
+            message('The guest user cannot be banned.');
+
+        $result = $db->query('SELECT group_id, username FROM '.$db->prefix.'users WHERE id='.$ban_user_id) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
+        if ($db->num_rows($result))
+            list($group_id, $ban_user) = $db->fetch_row($result);
+        else
+            message('No user by that ID registered. If you want to add a ban not tied to a specific user ID just leave the user ID blank.');
+
+        // Make sure we're not banning an admin
+        if (isset($group_id) && ($group_id == PUN_ADMIN || $group_id == PUN_MOD))
+            message('The user '.pun_htmlspecialchars($ban_user).' is a forum administrator or moderator and can\'t be banned. If you want to ban an administrator or a moderator, you must first demote him/her to user.');
+    }
+    elseif (!empty($ban_user_id_tmp))
+    {
+        message('Incorrect ID format. If you want to add a ban not tied to a specific user ID just leave the user ID blank.');
+    }
 
 	// Validate IP/IP range (it's overkill, I know)
 	if ($ban_ip != '')
@@ -200,18 +234,39 @@ else if (isset($_POST['add_edit_ban']))
 
 		for ($i = 0; $i < count($addresses); ++$i)
 		{
-			$octets = explode('.', $addresses[$i]);
-
-			for ($c = 0; $c < count($octets); ++$c)
+			if (strpos($addresses[$i], ':') !== false)
 			{
-				$octets[$c] = (strlen($octets[$c]) > 1) ? ltrim($octets[$c], "0") : $octets[$c];
+				$octets = explode(':', $addresses[$i]);
 
-				if ($c > 3 || preg_match('/[^0-9]/', $octets[$c]) || intval($octets[$c]) > 255)
-					message('You entered an invalid IP/IP-range.');
+
+				for ($c = 0; $c < count($octets); ++$c)
+				{
+
+					$octets[$c] = ltrim($octets[$c], "0");
+
+					if ($c > 7 || (!empty($octets[$c]) && !ctype_xdigit($octets[$c])) || intval($octets[$c], 16) > 65535)
+						message('You entered an invalid IP/IP-range.');
+				}
+
+				$cur_address = implode(':', $octets);
+				$addresses[$i] = $cur_address;
 			}
+			else
+			{
+				$octets = explode('.', $addresses[$i]);
 
-			$cur_address = implode('.', $octets);
-			$addresses[$i] = $cur_address;
+				for ($c = 0; $c < count($octets); ++$c)
+				{
+
+					$octets[$c] = (strlen($octets[$c]) > 1) ? ltrim($octets[$c], "0") : $octets[$c];
+
+					if ($c > 3 || !ctype_digit($octets[$c]) || intval($octets[$c]) > 255)
+						message('You entered an invalid IP/IP-range.');
+				}
+
+				$cur_address = implode('.', $octets);
+				$addresses[$i] = $cur_address;
+			}
 		}
 
 		$ban_ip = implode(' ', $addresses);
@@ -234,15 +289,15 @@ else if (isset($_POST['add_edit_ban']))
 	else
 		$ban_expire = 'NULL';
 
-	$ban_user = ($ban_user != '') ? '\''.$db->escape($ban_user).'\'' : 'NULL';
+	$ban_user_id = ($ban_user_id != '') ? '\''.$db->escape($ban_user_id).'\'' : 'NULL';
 	$ban_ip = ($ban_ip != '') ? '\''.$db->escape($ban_ip).'\'' : 'NULL';
 	$ban_email = ($ban_email != '') ? '\''.$db->escape($ban_email).'\'' : 'NULL';
 	$ban_message = ($ban_message != '') ? '\''.$db->escape($ban_message).'\'' : 'NULL';
 
 	if ($_POST['mode'] == 'add')
-		$db->query('INSERT INTO '.$db->prefix.'bans (username, ip, email, message, expire) VALUES('.$ban_user.', '.$ban_ip.', '.$ban_email.', '.$ban_message.', '.$ban_expire.')') or error('Unable to add ban', __FILE__, __LINE__, $db->error());
+		$db->query('INSERT INTO '.$db->prefix.'bans (username, ip, email, message, expire) VALUES('.$ban_user_id.', '.$ban_ip.', '.$ban_email.', '.$ban_message.', '.$ban_expire.')') or error('Unable to add ban', __FILE__, __LINE__, $db->error());
 	else
-		$db->query('UPDATE '.$db->prefix.'bans SET username='.$ban_user.', ip='.$ban_ip.', email='.$ban_email.', message='.$ban_message.', expire='.$ban_expire.' WHERE id='.intval($_POST['ban_id'])) or error('Unable to update ban', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db->prefix.'bans SET username='.$ban_user_id.', ip='.$ban_ip.', email='.$ban_email.', message='.$ban_message.', expire='.$ban_expire.' WHERE id='.intval($_POST['ban_id'])) or error('Unable to update ban', __FILE__, __LINE__, $db->error());
 
 	// Regenerate the bans cache
 	require_once PUN_ROOT.'include/cache.php';
@@ -291,7 +346,7 @@ generate_admin_menu('bans');
 									<th scope="row">User ID<div><input type="submit" name="add_ban" value=" Add " tabindex="2" /></div></th>
 									<td>
 										<input type="text" name="new_ban_user" size="25" maxlength="25" tabindex="1" />
-										<span>The user ID to ban (case insensitive). The next page will let you enter a custom IP and e-mail. If you just want to ban a specific IP/IP-range or e-mail just leave it blank.</span>
+										<span>The user ID to ban. The next page will let you enter a custom IP and e-mail. If you just want to ban a specific IP/IP-range or e-mail just leave it blank.</span>
 									</td>
 								</tr>
 							</table>

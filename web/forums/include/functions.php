@@ -173,9 +173,13 @@ function check_bans()
 	if ($pun_user['g_id'] == PUN_ADMIN || !$pun_bans)
 		return;
 
-	// Add a dot at the end of the IP address to prevent banned address 192.168.0.5 from matching e.g. 192.168.0.50
-	$user_ip = get_remote_address().'.';
+	// Add a dot or a colon (depending on IPv4/IPv6) at the end of the IP address to prevent banned address
+	// 192.168.0.5 from matching e.g. 192.168.0.50
+	$user_ip = get_remote_address();
+	$user_ip .= (strpos($user_ip, '.') !== false) ? '.' : ':';
+
 	$bans_altered = false;
+	$is_banned = false;
 
 	foreach ($pun_bans as $cur_ban)
 	{
@@ -191,25 +195,35 @@ function check_bans()
         {
             if ($pun_user['g_id'] > PUN_GUEST && $pun_user['id'] == intval($cur_ban['username']))
             {
-                $db->query('DELETE FROM '.$db->prefix.'online WHERE ident=\''.$db->escape($pun_user['username']).'\'') or error('Impossible de supprimer de la liste des utilisateur en ligne', __FILE__, __LINE__, $db->error());
-                message($lang_common['Ban message'].' '.(($cur_ban['expire'] != '') ? $lang_common['Ban message 2'].' '.strtolower(format_time($cur_ban['expire'], true)).'. ' : '').(($cur_ban['message'] != '') ? $lang_common['Ban message 3'].'<br /><br /><strong>'.pun_htmlspecialchars($cur_ban['message']).'</strong><br /><br />' : '<br /><br />').$lang_common['Ban message 4'].' <a href="mailto:'.$pun_config['o_admin_email'].'">'.$pun_config['o_admin_email'].'</a>.', true);
+                $is_banned = true;
             }
         }
 		elseif ($cur_ban['ip'] != '' && $pun_user['is_guest'])
 		{
 			$cur_ban_ips = explode(' ', $cur_ban['ip']);
 
-			for ($i = 0; $i < count($cur_ban_ips); ++$i)
+			$num_ips = count($cur_ban_ips);
+			for ($i = 0; $i < $num_ips; ++$i)
 			{
-				$cur_ban_ips[$i] = $cur_ban_ips[$i].'.';
+				// Add the proper ending to the ban
+				if (strpos($user_ip, '.') !== false)
+					$cur_ban_ips[$i] = $cur_ban_ips[$i].'.';
+				else
+					$cur_ban_ips[$i] = $cur_ban_ips[$i].':';
 
 				if (substr($user_ip, 0, strlen($cur_ban_ips[$i])) == $cur_ban_ips[$i])
 				{
-					$db->query('DELETE FROM '.$db->prefix.'online WHERE ident=\''.$db->escape($pun_user['username']).'\'') or error('Impossible de supprimer de la liste des utilisateur en ligne', __FILE__, __LINE__, $db->error());
-					message($lang_common['Ban message'].' '.(($cur_ban['expire'] != '') ? $lang_common['Ban message 2'].' '.strtolower(format_time($cur_ban['expire'], true)).'. ' : '').(($cur_ban['message'] != '') ? $lang_common['Ban message 3'].'<br /><br /><strong>'.pun_htmlspecialchars($cur_ban['message']).'</strong><br /><br />' : '<br /><br />').$lang_common['Ban message 4'].' <a href="mailto:'.$pun_config['o_admin_email'].'">'.$pun_config['o_admin_email'].'</a>.', true);
+					$is_banned = true;
+					break;
 				}
 			}
 		}
+
+		if ($is_banned)
+		{
+            $db->query('DELETE FROM '.$db->prefix.'online WHERE ident=\''.$db->escape($pun_user['username']).'\'') or error('Impossible de supprimer de la liste des utilisateur en ligne', __FILE__, __LINE__, $db->error());
+            message($lang_common['Ban message'].' '.(($cur_ban['expire'] != '') ? $lang_common['Ban message 2'].' '.strtolower(format_time($cur_ban['expire'], true)).'. ' : '').(($cur_ban['message'] != '') ? $lang_common['Ban message 3'].'<br /><br /><strong>'.pun_htmlspecialchars($cur_ban['message']).'</strong><br /><br />' : '<br /><br />').$lang_common['Ban message 4'].' <a href="mailto:'.$pun_config['o_admin_email'].'">'.$pun_config['o_admin_email'].'</a>.', true);
+        }
 	}
 
 	// If we removed any expired bans during our run-through, we need to regenerate the bans cache
