@@ -58,7 +58,7 @@ all:
         height: 60
         file: quechua.swf
       boutique_c2c:
-        id: 20
+        id: 41
         image: boutique_c2c.png
         alt: boutique c2corg
       netaffiliation:
@@ -82,7 +82,7 @@ all:
         image: banniere_ac.gif
         alt: Attention contagieux
       changerdapproche:
-        id: 19
+        id: 38
         image: cda.png
         alt: "Changer d'approche"
       blueice:
@@ -102,8 +102,8 @@ all:
         image: portail_glace.png
         alt: "Portail cascade de glace Camptocamp"
       baechli:
-        id: 24
-        id_fr: 23
+        id: 39
+        id_fr: 40
         image: baechli.jpg
         alt: "Bächli Bergsport"
       camp_xenon:
@@ -131,14 +131,14 @@ all:
         image: camp-matrix.png
         alt: "Camp Matrix"
       natxplore:
-        id: 31
+        id: 37
         image: natxplore.gif
         alt: "natXplore.com"
       camp:
-        id: 32
+        id: 36
         image: camp.gif
         alt: Camp
       simond:
-        id: 33
+        id: 35
         image: toucan.jpg
         alt: Simond Toucan2
