@@ -44,7 +44,7 @@ show_select=function()
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li><?php
-                echo link_to(__('Guidebook / Map') . $sublevel_ie7, getMetaArticleRoute('help_guide', false))
+                echo link_to(__('Guidebook / Map') . $sublevel_ie7, getMetaArticleRoute('help_guide'))
                    . $sublevel_start ?>
                 <ul>
 	                <li><?php
@@ -74,10 +74,15 @@ show_select=function()
                                  . link_to(ucfirst(__('routes')) . $sublevel_ie7, '@default_index?module=routes')
                                  . $sublevel_start ?>
                         <ul>
-                            <li class="lilast"><?php
+                            <li><?php
                                 echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=routes') ?></li>
+                            <?php if ($is_connected): ?>
                             <li><?php
+                                echo picto_tag('action_create')
+                                   . link_to(__('Add'), getMetaArticleRoute('help_guide', false, 'route')) ?></li>
+                            <?php endif ?>
+                            <li class="lilast"><?php
                                 echo picto_tag('picto_tools')
                                    . m_link_to(__('cotometre'), '@tool?action=cotometre',
                                                array('title'=> __('cotometre long')),
@@ -337,7 +342,7 @@ show_select=function()
                            . f_link_to(__('Search'), 'search.php') ?></li>
                     <li><?php
                         echo picto_tag('action_create')
-                           . link_to(__('Add a post'), getMetaArticleRoute('help_forum') . '#create-topic') ?></li>
+                           . link_to(__('Add a post'), getMetaArticleRoute('help_forum', false, 'create-topic')) ?></li>
                     <li><?php
                         echo picto_tag('action_list');
                         if ($is_connected)
