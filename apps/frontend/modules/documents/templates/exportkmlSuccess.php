@@ -19,7 +19,7 @@ else
         {
             $subs[] = explode(',', str_replace(array('(', ')'), '', $boundary));
         }
-        $geoms[] = $boundaries;
+        $geoms[] = $subs;
     }
 }
 
