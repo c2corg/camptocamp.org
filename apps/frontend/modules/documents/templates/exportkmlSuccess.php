@@ -10,15 +10,16 @@ if (!in_array($module, array('maps', 'areas')))
 }
 else
 {
-    $geoms = explode(')),((', $points);
-    foreach($geoms as &$geom) {
-        $geom = explode('),(', $geom);
-        $boundaries = array();
-        foreach ($geom as $boundary)
+    $geoms = array();
+    $polygons = explode(')),((', $points);
+    foreach($polygons as $polygon) {
+        $boundaries = explode('),(', $polygon);
+        $subs = array();
+        foreach ($boundaries as $boundary)
         {
-            $boundaries[] = explode(',', str_replace(array('(', ')'), '', $boundary));
+            $subs[] = explode(',', str_replace(array('(', ')'), '', $boundary));
         }
-        $geom = $boundaries;
+        $geoms[] = $boundaries;
     }
 }
 
