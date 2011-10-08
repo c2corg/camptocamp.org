@@ -9,7 +9,7 @@
 
 libxml_use_internal_errors(true);
 
-if ($argc < 3) usage();
+if ($argc != 3) usage();
 switch ($argv[1]) {
   case 'diff':
     diff(); break;
@@ -29,9 +29,6 @@ switch ($argv[1]) {
 function clean() {
   global $argc, $argv, $newid;
 
-  if ($argc != 3) {
-    usage();
-  }
   $file =  $argv[2];
   if (file_exists($file)) {
     $file = @fopen($file, 'r');
@@ -76,11 +73,17 @@ function clean() {
         }
       }
 
+      // nd and member tags
+      if (strstr($line, '<nd') || strstr($line, '<member')) {
+        echo clean_line($line, 'ref');
+        continue;
+      }
+
       // other kind of line
       echo $line;
     }
     if (!feof($file)) {
-      die("Unexpected read fail\n");
+      die("Unexpected read fail. Aborting...\n");
     }
     fclose($file);
   }
@@ -98,9 +101,6 @@ function clean() {
 function diff() {
   global $argc, $argv;
 
-  if ($argc != 3) {
-    usage();
-  }
   $file =  $argv[2];
   if (file_exists($file)) {
     $xml = @simplexml_load_file($file);
@@ -220,18 +220,21 @@ function diff() {
 }
 
 
-function clean_line($line) {
+function clean_line($line, $attr='id') {
   global $newid;
 
   // remove the action attribute
   $line = str_replace(' action=\'modify\'', '', $line);
   // change negative ids
-  if (strstr($line, 'id=\'-')) {
-    $newid++;
-    echo preg_replace('/id=\'-\d+/', 'id=\'' . $newid, $line);
-  } else {
-    echo $line;
+  if (strstr($line, $attr.'=\'-')) {
+    preg_match('/'.$attr.'=\'-(\d+)/', $line, $matches);
+    $id = $newid + (float) $matches[1];
+    $line = preg_replace('/'.$attr.'=\'-\d+/', $attr.'=\'' . $id, $line);
+    if ($attr === 'id' && !strstr($line, 'version=')) {
+      $line = str_replace('id=\'', 'version=\'1\' id=\'', $line);
+    }
   }
+  echo $line;
 }
 
 function state($xmlelement) {
@@ -287,6 +290,6 @@ function usage() {
        "Usage:\n" .
        "  See changes - php " . basename(__FILE__) . " diff <c2c.osm file>\n" .
        "  Clean file  - php " . basename(__FILE__) . " clean <c2c.osm file>\n" .
-       "  Extract kml - php " . basename(__FILE__) . " extract <c2c.osm file> <output.kml>\n";
+       "  Extract kml - php " . basename(__FILE__) . " extract <c2c.osm file>\n";
   exit;
 }
