@@ -1282,6 +1282,118 @@ class sfPunBBCodeParser
         return preg_replace('/^(\t|[ ])/m', '', $text);
     }
 
+
+    //
+    // Convert line code to html table.
+    //
+   
+    public static function do_lines($text) {
+        global $line_index;
+        global $line_suffix;
+        $line_index = 0;
+        $line_suffix = '';
+
+        $whole_list_re = '
+            (                   # $1 = whole list
+              (L\#[^:\s]*)      # $2 = first list item marker
+              (?s:.+?)
+              (                 # $3
+                  \z
+                |
+                  \n?(?=</p>)
+                |
+                  \n{2}
+                  (?=\n*\S)
+                  (?!L\#)       # Negative lookahead for another list item marker
+              )
+            )
+        '; // mx
+
+    //    $whole_list_re = '((L\#[^:\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?!L\#)))'; // mx
+    //    $whole_list_re_all = '{(?:(?<=[ ]\n)|(?<=<p>)\n?|\n{2}|\A\n?)((L\#[^:\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?!L\#)))}x';
+
+        $text = preg_replace_callback('{
+                (?:(?<=[ ]\n)|(?<=<p>)\n?|\n{2}|\A\n?) # Must eat the newline
+                '.$whole_list_re.'
+            }mx',
+            array('self', '_doLines_callback'), $text);
+
+        return $text;
+    }
+    public static function _doLines_callback($matches) {
+        global $line_index;
+        global $line_suffix;
+        
+        $list = $matches[1] . "\n";
+        
+        # trim trailing blank lines:
+        $list = preg_replace("/\n{2,}\\z/", "\n", $list);
+
+        $list = preg_replace_callback('{
+            (\n)?                  # leading line = $1
+            ^L\#                   # line marker
+            (\d*)                  # new line index = $2
+            ([^\d-:\s]*)           # new line suffix = $3
+            (-(\d+))?              # multi line index = $5
+            ((?s:.*?))             # line item text   = $6
+            (?:(\n+(?=\n))|\n)     # tailing blank line = $7
+            (?= \n* (\z | (L\#) (?:[ ]+|(?=\n))))
+            }xm',
+            array('self', '_processLineItems_callback'), $list);
+// '{(\n)?^L\#(\d*)([^\d-:\s]*)(-(\d+))?((?s:.*?))(?:(\n+(?=\n))|\n)(?=\n*(\z|L\#)(?:[ ]+|(?=\n))))}xm'
+        
+        $result = "</p><table><tbody>" . $list . "</tbody></table><p>";
+        
+        return $result;
+    }
+
+    public static function _processLineItems_callback($matches) {
+        global $line_index;
+        global $line_suffix;
+        
+        $new_line_index = $matches[2];
+        $new_line_suffix = $matches[3];
+        $multi_line_index = $matches[5];
+        $item = $matches[6];
+        
+        if (!empty($new_line_index))
+        {
+            $line_index = $new_line_index;
+        }
+        else
+        {
+            $line_index ++;
+        }
+        
+        if ($new_line_suffix == '_')
+        {
+            $line_suffix = '';
+        }
+        elseif (!empty($new_line_suffix))
+        {
+            $line_suffix = $new_line_suffix;
+        }
+        
+        $line_header = 'L' . $line_index . $line_suffix;
+        
+        if (!empty($multi_line_index))
+        {
+            $line_header .= ' - L' . $multi_line_index . $line_suffix;
+        }
+        
+        $item = preg_replace('{
+            ((\s+|(?<!\\)):+\s*)     # cell start = $1
+            ((?s:.*?))               # cell text  = $3
+            (?=(\s+|(?<!\\)):|\s*$)  # cell end   = $6
+            }xm',
+            '<td>$3</td>', $item);
+
+            // {((\s+|(?<!\\)):+\s*)((?s:.*?))(?=(\s+|(?<!\\)):|\s*$)}xm
+            
+        $item = preg_replace(array('\\:', '/\n+$/'), array(':', ''), $item);
+
+        return '<tr><th>' . $line_header . '</th>' . $item . '</tr>';
+    }
     
     //
     // convert img tag
@@ -1459,6 +1571,7 @@ class sfPunBBCodeParser
         }
     
         $text = self::do_headers($text);
+        $text = self::do_lines($text);
         $text = self::do_lists($text);
         $text = self::do_bbcode($text, true);
         $text = self::do_images($text, $images, $collaborative_doc, $show_images);
