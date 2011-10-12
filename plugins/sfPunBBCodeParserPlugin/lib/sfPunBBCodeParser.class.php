@@ -1295,7 +1295,7 @@ class sfPunBBCodeParser
 
         $whole_list_re = '
             (                   # $1 = whole list
-              (L\#[^:\s]*)      # $2 = first list item marker
+              (L\#[^:|\s]*)      # $2 = first list item marker
               (?s:.+?)
               (                 # $3
                   \z
@@ -1309,8 +1309,8 @@ class sfPunBBCodeParser
             )
         '; // mx
 
-    //    $whole_list_re = '((L\#[^:\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?!L\#)))'; // mx
-    //    $whole_list_re_all = '{(?:(?<=[ ]\n)|(?<=<p>)\n?|\n{2}|\A\n?)((L\#[^:\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?!L\#)))}x';
+    //    $whole_list_re = '((L\#[^:|\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?!L\#)))'; // mx
+    //    $whole_list_re_all = '{(?:(?<=[ ]\n)|(?<=<p>)\n?|\n{2}|\A\n?)((L\#[^:|\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?!L\#)))}m';
 
         $text = preg_replace_callback('{
                 (?:(?<=[ ]\n)|(?<=<p>)\n?|\n{2}|\A\n?) # Must eat the newline
@@ -1330,17 +1330,19 @@ class sfPunBBCodeParser
         $list = preg_replace("/\n{2,}\\z/", "\n", $list);
 
         $list = preg_replace_callback('{
-            (\n)?                  # leading line = $1
-            ^L\#                   # line marker
-            (\d*)                  # new line index = $2
-            ([^\d-:\s]*)           # new line suffix = $3
-            (-(\d+))?              # multi line index = $5
-            ((?s:.*?))             # line item text   = $6
-            (?:(\n+(?=\n))|\n)     # tailing blank line = $7
-            (?= \n* (\z | (L\#) (?:[ ]+|(?=\n))))
+            \n?                  # leading line
+            ^L\#                 # line marker
+            (\d*)                # new line index = $1
+            ([^\d-:|\s]*)        # new line suffix = $2
+            (-(\d+))?            # multi line index = $4
+            \s*[:|]*             # first separator
+            ((?s:.*?))           # line item text = $5
+            (?:\n+(?=\n)|\n)     # tailing blank line
+            (?= \n* (\z | L\#))
             }xm',
             array('self', '_processLineItems_callback'), $list);
-// '{(\n)?^L\#(\d*)([^\d-:\s]*)(-(\d+))?((?s:.*?))(?:(\n+(?=\n))|\n)(?=\n*(\z|L\#)(?:[ ]+|(?=\n))))}xm'
+
+            // '{\n?^L\#(\d*)([^\d-:|\s]*)(-(\d+))?\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|L\#))}m'
         
         $result = "</p><table><tbody>" . $list . "</tbody></table><p>";
         
@@ -1351,10 +1353,10 @@ class sfPunBBCodeParser
         global $line_index;
         global $line_suffix;
         
-        $new_line_index = $matches[2];
-        $new_line_suffix = $matches[3];
-        $multi_line_index = $matches[5];
-        $item = $matches[6];
+        $new_line_index = $matches[1];
+        $new_line_suffix = $matches[2];
+        $multi_line_index = $matches[4];
+        $item = $matches[5];
         
         if (!empty($new_line_index))
         {
@@ -1379,19 +1381,18 @@ class sfPunBBCodeParser
         if (!empty($multi_line_index))
         {
             $line_header .= ' - L' . $multi_line_index . $line_suffix;
+            $line_index = $multi_line_index;
         }
         
         $item = preg_replace('{
-            ((\s+|(?<!\\)):+\s*)     # cell start = $1
-            ((?s:.*?))               # cell text  = $3
-            (?=(\s+|(?<!\\)):|\s*$)  # cell end   = $6
+            \s*                      # cell start
+            ((?s:.*?))               # cell text  = $1
+            \s*([|]+|:{2,}|\z)\s*    # cell end   = $2
             }xm',
-            '<td>$3</td>', $item);
+            '<td>$1</td>', $item);
 
-            // {((\s+|(?<!\\)):+\s*)((?s:.*?))(?=(\s+|(?<!\\)):|\s*$)}xm
+            // {\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}xm
             
-        $item = preg_replace(array('\\:', '/\n+$/'), array(':', ''), $item);
-
         return '<tr><th>' . $line_header . '</th>' . $item . '</tr>';
     }
     
