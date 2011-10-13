@@ -1663,7 +1663,7 @@ msgid "Protect"
 msgstr "Protegir"
 
 msgid "Protect this document"
-msgstr "Bloqueja les modificacions d'aquest document"
+msgstr "Bloqueja les modificacions d\\'aquest document"
 
 msgid "Quick creation of a route"
 msgstr "Creació ràpida d'un itinerari"
@@ -2258,7 +2258,7 @@ msgid "Unlink this association"
 msgstr "Dessassociar"
 
 msgid "Unprotect this document"
-msgstr "Autoritzar les modificacions d'aquest document"
+msgstr "Autoritzar les modificacions d\\'aquest document"
 
 msgid "Unsubscribe"
 msgstr "Desabonar-se"
@@ -3662,7 +3662,7 @@ msgstr "Categoria:"
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
 msgid "cda map help text"
-msgstr "El mapa mostra els punts d'inici de sortides accessibles amb transport públic. Cliqueu sobre un accés per veure'n la llista d'itineraris associats."
+msgstr "El mapa mostra els accessos de sortides accessibles amb transport públic. Cliqueu sobre un accés per veure'n la llista d'itineraris associats. <b><a href=\"http://www.camptocamp.org/map?zoom=8&lat=42.12818&lon=1.78699&layerNodes=public_transportations&bgLayer=gmap_physical\">Centreu el mapa en Catalunya</a></b>"
 
 # [general comment]
 # Portail "Changer d'approche" : titre de la section comportant la carte.
