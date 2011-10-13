@@ -1142,9 +1142,13 @@ span.default_text, p.default_text
 {
   width: 49.5%;
 }
-.article_contenu .col_50, .article_contenu .col_51
+.article_contenu .col_50
 {
   width: 48%;
+}
+.article_contenu .col_51
+{
+  width: 47%;
 }
 .article_contenu .col_52
 {

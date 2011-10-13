@@ -13,8 +13,17 @@ function storeCaret(selec, targetElm)
   }
   else
   {
-    opening_tag = "[" + selec + "]";
-    closing_tag = "[/" + selec + "]";  
+    if (select == "L#") // route line
+    {
+      opening_tag = "L# | ";
+      closing_tag = " |  |  | ";
+      selec = "";
+    }
+    else
+    {
+      opening_tag = "[" + selec + "]";
+      closing_tag = "[/" + selec + "]";
+    }
   }
 
   if (bbisMozilla) 

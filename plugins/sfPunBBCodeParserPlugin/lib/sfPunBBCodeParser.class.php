@@ -1384,16 +1384,23 @@ class sfPunBBCodeParser
             $line_index = $multi_line_index;
         }
         
+        // protection des wikiliens
+        $item = preg_replace('{\[\[([^|]+?)\|([^\]]+?)\]\]}', '[[$1@#@$2]]', $item);
+        
         $item = preg_replace('{
             \s*                      # cell start
-            ((?s:.*?))               # cell text  = $1
+            ((?s:.+?))               # cell text  = $1
             \s*([|]+|:{2,}|\z)\s*    # cell end   = $2
             }xm',
             '<td>$1</td>', $item);
 
-            // {\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}xm
+            // {\s*((?s:.+?))\s*([|]+|:{2,}|\z)\s*}m
         
+        // suppression des cases vides en fin de ligne du tableau
         $item = preg_replace('{(<td></td>)+$}', '', $item);
+        
+        // déprotection des wikiliens
+        $item = preg_replace('{\[\[([^|\n]+)@#@([^\]\n]+)\]\]}', '[[$1|$2]]', $item);
             
         return '<tr><th>' . $line_header . '</th>' . $item . '</tr>';
     }

@@ -415,6 +415,7 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
 
     $img_tag = !isset($options['no_img']);
     $abs_tag = isset($options['abstract']);
+    $line_tag = isset($options['route_line']);
     
     return start_group_tag('bbcodetoolcontainer ' . $target_id) . 
            bb_button_tag('bold', 'b', $target_id, array('style' => 'font-weight:bold')) .
@@ -426,6 +427,7 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
            bb_button_tag('url_button', 'url', $target_id, array('style' => 'text-decoration:underline')) .
            ($img_tag ? bbcode_toolbar_img_tag($document, $target_id) : '') .
            ($abs_tag ? bb_button_tag('abs_button', 'abs', $target_id) : '') . ' &nbsp; ' .
+           ($line_tag ? bb_button_tag('line_button', 'L#', $target_id) : '') . ' &nbsp; ' .
            link_to(__('Help'), getMetaArticleRoute('formatting', false, 'path')) . ' ' .
            picto_tag('picto_close', __('Reduce the text box'),
                      array('onclick' => "changeTextareaSize('$target_id', false)")) .
@@ -467,6 +469,7 @@ function bbcode_textarea_tag($object, $fieldname, $options = null)
     $bbcode_options = $options;
     if (isset($options['no_img'])) unset($options['no_img']);
     if (isset($options['abstract'])) unset($options['abstract']);
+    if (isset($options['route_line'])) unset($options['route_line']);
     $options['rows'] = '4';
     $options['cols'] = '20';
 
