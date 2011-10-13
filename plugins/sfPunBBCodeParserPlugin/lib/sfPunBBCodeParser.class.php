@@ -1344,7 +1344,7 @@ class sfPunBBCodeParser
 
             // '{\n?^L\#(\d*)([^\d-:|\s]*)(-(\d+))?\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|L\#))}m'
         
-        $result = "</p><table><tbody>" . $list . "</tbody></table><p>";
+        $result = '</p><table class="route_lines"><tbody>' . $list . '</tbody></table><p>';
         
         return $result;
     }
@@ -1392,6 +1392,8 @@ class sfPunBBCodeParser
             '<td>$1</td>', $item);
 
             // {\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}xm
+        
+        $item = preg_replace('{(<td></td>)+$}', '', $item);
             
         return '<tr><th>' . $line_header . '</th>' . $item . '</tr>';
     }

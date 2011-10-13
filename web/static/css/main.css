@@ -4237,6 +4237,17 @@ ol.text ol.text ol.text
   list-style-type: lower-roman;
 }
 
+table.route_lines th
+{
+  font-weight: bold;
+}
+table.route_lines th, table.route_lines td
+{
+  vertical-align: top;
+  padding: 0.3em 0.5em;
+}
+
+
 /* Homepage */
 .home_title
 {
