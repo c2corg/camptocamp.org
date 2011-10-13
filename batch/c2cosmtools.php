@@ -2,33 +2,125 @@
 
 /*
  * Script used for manipulating c2c.osm
- * - see changes
- * - clean
- * - extract kml  TODO
+ * - see changes (based on what we can get from josm format)
+ * - clean (remove deleted items, attributes new ids etc)
+ * - extract kml
  */
 
 libxml_use_internal_errors(true);
 
-if ($argc != 3) usage();
+if ($argc < 3) usage();
 switch ($argv[1]) {
   case 'diff':
     diff(); break;
   case 'clean':
     clean(); break;
   case 'extract':
-    extract(); break;
+    extractkml(); break;
   default:
     usage();
 }
 
-/* given a file, we "clean" it:
+/*
+ * Print to stdout a kml
+ * extracted from josm file that can then
+ * be imported into camptocamp
+ */
+function extractkml() {
+  global $argc, $argv;
+
+  if ($argc != 4) usage();
+
+  $id = $argv[3];
+  if (!preg_match('/^\d+$/', $id)) usage();
+
+  $file =  $argv[2];
+  if (file_exists($file)) {
+    $xml = @simplexml_load_file($file);
+  } else {
+    file_not_found($file);
+  }
+  if ($xml === false) {
+    bad_xml($file);
+  }
+
+  $nodes = $xml->node;
+  foreach($nodes as $node) {
+    $nt[(string) $node->attributes()->id] = array((float) $node->attributes()->lon, (float) $node->attributes()->lat);
+  }
+
+  $geoms = array();
+
+  // find relations with the given id
+  $relationmembers = array();
+  $relations = $xml->relation;
+  foreach ($relations as $relation) {
+    $c2cid = c2cid($relation);
+    if ($c2cid && in_array($id, $c2cid)) {
+      $relationid = (string) $relation->attributes()->id;
+      $geoms[$relationid] = array();
+
+      // we suppose we only have members of type way
+      // but a way can be linked to more than one relation (and vice versa)
+      $members = $relation->member;
+      foreach ($members as $member) {
+        $memberref = (string) $member->attributes()->ref;
+        if (!isset($relationmembers[$memberref][$relationid])) {
+          $relationmembers[$memberref][$relationid] = (string) $member->attributes()->role;
+        }
+      }
+    }
+  }
+
+  $ways = $xml->way;
+  foreach ($ways as $way) {
+    // check that either way is a polygon of the c2c area
+    // or a border for a relation
+    $c2cid = c2cid($way);
+    $wayid = (string) $way->attributes()->id;
+    if ($c2cid && in_array($id, $c2cid)) { 
+      $geoms[] = get_nodes($way, $nt);
+    }
+    // or a border for a relation
+    //if (array_key_exists($wayid, $relationmembers)) {
+    if (isset($relationmembers[$wayid])) {
+      foreach ($relationmembers[$wayid] as $relationid => $role) {
+        $geoms[$relationid][$role][] = get_nodes($way, $nt);
+      }
+    }
+  }
+
+
+  if (count($geoms)) {
+    kmlstart();
+    if (count($geoms) > 1) echo '    <MultiGeometry>', "\n";
+    foreach ($geoms as $geom) {
+      echo '      <Polygon>', "\n";
+      if (!isset($geom['outer'])) {
+        kmlboundary($geom);
+      } else {
+        kmlboundary($geom['outer'][0]);
+        foreach ($geom['inner'] as $b) {
+          kmlboundary($b, 'inner');
+        }
+      }
+      echo '      </Polygon>', "\n";
+    }
+    if (count($geoms) > 1) echo '    </MultiGeometry>', "\n";
+    kmlend();
+  }
+}
+
+/* 
+ * Given a file, we "clean" it:
  *  - deleted elements are removed
  *  - new elements (negative ids) are given proper ids
  * Result is sent to stdout
  */
 function clean() {
-  global $argc, $argv, $newid;
+  global $argc, $argv;
 
+  if ($argc != 3) usage();
   $file =  $argv[2];
   if (file_exists($file)) {
     $file = @fopen($file, 'r');
@@ -101,6 +193,7 @@ function clean() {
 function diff() {
   global $argc, $argv;
 
+  if ($argc != 3) usage();
   $file =  $argv[2];
   if (file_exists($file)) {
     $xml = @simplexml_load_file($file);
@@ -290,6 +383,45 @@ function usage() {
        "Usage:\n" .
        "  See changes - php " . basename(__FILE__) . " diff <c2c.osm file>\n" .
        "  Clean file  - php " . basename(__FILE__) . " clean <c2c.osm file>\n" .
-       "  Extract kml - php " . basename(__FILE__) . " extract <c2c.osm file>\n";
+       "  Extract kml - php " . basename(__FILE__) . " extract <c2c.osm file> <c2cid>\n";
   exit;
+}
+
+function get_nodes($way, $nt) {
+  $output = array();
+  $nodes = $way->nd;
+  foreach ($nodes as $node) {
+    $ref = (string) $node->attributes()->ref;
+    if (!isset($nt[$ref])) {
+      die("Problem with the nodes. Aborting...\n");
+    }
+    $output[] = $nt[$ref];
+  }
+  return $output;
+}
+
+// TODO extract name, but well, it is not straightforward
+// and not very useful if kml is used for updating an area
+// (and not creating a new one)
+function kmlstart() {
+  echo '<?xml version="1.0" encoding="UTF-8"?>', "\n",
+       '<kml xmlns="http://earth.google.com/kml/2.2">', "\n",
+       '<Document>', "\n",
+       '  <name>kmlname</name>', "\n",
+       '  <Placemark id="1">', "\n",
+       '    <name>placemarkname</name>', "\n";
+}
+
+function kmlend() {
+  echo '  </Placemark>', "\n",
+       '</Document>', "\n",
+       '</kml>';
+}
+
+function kmlboundary($nodes, $role = 'outer') {
+  echo '        <', $role, 'BoundaryIs><LinearRing><tessellate>1</tessellate><coordinates>', "\n";
+  foreach ($nodes as $node) {
+    echo $node[0], ',', $node[1], "\n";
+  }
+  echo '        </coordinates></LinearRing></', $role, 'BoundaryIs>', "\n";
 }
