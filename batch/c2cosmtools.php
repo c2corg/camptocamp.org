@@ -75,21 +75,18 @@ function extractkml() {
   $ways = $xml->way;
   foreach ($ways as $way) {
     // check that either way is a polygon of the c2c area
-    // or a border for a relation
     $c2cid = c2cid($way);
     $wayid = (string) $way->attributes()->id;
     if ($c2cid && in_array($id, $c2cid)) { 
       $geoms[] = get_nodes($way, $nt);
     }
     // or a border for a relation
-    //if (array_key_exists($wayid, $relationmembers)) {
     if (isset($relationmembers[$wayid])) {
       foreach ($relationmembers[$wayid] as $relationid => $role) {
         $geoms[$relationid][$role][] = get_nodes($way, $nt);
       }
     }
   }
-
 
   if (count($geoms)) {
     kmlstart();
