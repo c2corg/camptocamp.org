@@ -1126,6 +1126,14 @@ msgid "Know more"
 msgstr "En savoir plus"
 
 # [general comment]
+# Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
+# Un clic sur le bouton insère la chaine suivante :
+# L# |  |  |  | 
+# [WARNING] needs_review
+msgid "L# button title"
+msgstr "Formater la description d'une longueur d'escalade"
+
+# [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
 msgid "Last bulletin"
 msgstr "Dernier bulletin"

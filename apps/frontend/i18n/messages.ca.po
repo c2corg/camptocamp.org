@@ -1106,6 +1106,14 @@ msgid "Know more"
 msgstr "Més"
 
 # [general comment]
+# Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
+# Un clic sur le bouton insère la chaine suivante :
+# L# |  |  |  | 
+# [WARNING] fr translation used
+msgid "L# button title"
+msgstr "Formater la description d'une longueur d'escalade"
+
+# [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
 msgid "Last bulletin"
 msgstr "Últim butlletí"
@@ -5391,7 +5399,7 @@ msgstr "aquest camp ha de ser numèric"
 # Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
 # [WARNING] needs_review
 msgid "plupload bad selection"
-msgstr "L'arxiu té un format no autoritzat o bé no s'ha pogut redimensionar i és massa gran."
+msgstr "L\\'arxiu té un format no autoritzat o bé no s\\'ha pogut redimensionar i és massa gran."
 
 # [general comment]
 # Drag & drop pour l'upload d'images
@@ -5400,7 +5408,7 @@ msgid "plupload drop"
 msgstr "Arrossegueu les imatges aquí"
 
 msgid "plupload extension"
-msgstr "Arxius d'imatges"
+msgstr "Arxius d\\'imatges"
 
 # [general comment]
 # text pour plupload, à rapprocher des items 351 et 1529
@@ -5411,7 +5419,7 @@ msgstr "Podeu adjuntar '%1%'. La mida mínima és %4% x %5% px. Normalment, els 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
 msgid "plupload sending"
-msgstr "S'està carregant..."
+msgstr "S\\'està carregant..."
 
 # [WARNING] needs_review
 msgid "plupload serverop"
@@ -5420,7 +5428,7 @@ msgstr "Està sent processat pel servidor"
 # [general comment]
 # Erreur non prévue dans plupload
 msgid "plupload unknown"
-msgstr "No s'ha pogut carregar l'arxiu"
+msgstr "No s\\'ha pogut carregar l\\'arxiu"
 
 # [WARNING] needs_review
 msgid "plupload waiting"
