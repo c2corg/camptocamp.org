@@ -13,7 +13,7 @@ function storeCaret(selec, targetElm)
   }
   else
   {
-    if (select == "L#") // route line
+    if (selec == "L#") // route line
     {
       opening_tag = "L# | ";
       closing_tag = " |  |  | ";
