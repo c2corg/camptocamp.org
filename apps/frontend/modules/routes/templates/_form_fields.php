@@ -24,7 +24,7 @@ echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'
 echo form_section_title('Information', 'form_info', 'preview_info');
 
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
-                               array('multiple' => true, 'onchange' => 'hide_unrelated_fields()'),
+                               array('multiple' => true, 'onchange' => 'hide_unrelated_fields()', $na = array(8)),
                                false, null, null, '', '', 'picto_act act_');
 ?>
 <div id="data_fields">

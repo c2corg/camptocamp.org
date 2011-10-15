@@ -137,6 +137,22 @@ function hide_unrelated_fields()
         
         $('configuration').size = select_size;
     }
+    
+    var line_button = $$('input.rlineb');
+    if (line_button.length > 0)
+    {
+        line_button.each(function(button)
+        {
+            if (show_snow_mountain_rock_ice)
+            {
+                button.show();
+            }
+            else
+            {
+                button.hide();
+            }
+        });
+    }
 }
 
 document.observe('dom:loaded', hide_unrelated_fields);

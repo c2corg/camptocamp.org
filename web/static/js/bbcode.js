@@ -9,7 +9,7 @@ function storeCaret(selec, targetElm)
   {
     opening_tag = "[[|";
     closing_tag = "]]";
-    selec = "";
+    selec_2 = "";
   }
   else
   {
@@ -17,12 +17,22 @@ function storeCaret(selec, targetElm)
     {
       opening_tag = "L# | ";
       closing_tag = " |  |  | ";
-      selec = "";
+      selec_2 = "L# ";
     }
     else
     {
-      opening_tag = "[" + selec + "]";
-      closing_tag = "[/" + selec + "]";
+      if (selec == "url")
+      {
+        opening_tag = "[url=]";
+        closing_tag = "[/url]";
+        selec_2 = selec;
+      }
+      else
+      {
+        opening_tag = "[" + selec + "]";
+        closing_tag = "[/" + selec + "]";
+        selec_2 = selec;
+      }
     }
   }
 
@@ -49,9 +59,9 @@ function storeCaret(selec, targetElm)
     oField.scrollTop = scrollPos;
     oField.focus();
     var newPos;
-    if (opening_tag == "[[|" || objectSelected.length === 0)
+    if (selec == "wl" || selec == "url" || objectSelected.length === 0)
     {
-      newPos = objectValueDeb.length + selec.length + 2;
+      newPos = objectValueDeb.length + selec_2.length + 2;
     }
     else
     {
@@ -87,7 +97,7 @@ function storeCaret(selec, targetElm)
       var r = 0;
       for(var n = 0; n < i; n++)
       {if(bbregexp.test(oField.value.substr(n,2))){r++;}}
-      var pos = i + 2 + selec.length - r;
+      var pos = i + 2 + selec_2.length - r;
       r = oField.createTextRange();
       r.moveStart('character', pos);
       r.collapse();
