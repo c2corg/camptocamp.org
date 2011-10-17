@@ -62,17 +62,13 @@ function extract_route($s)
     
     if (is_numeric($a[0])) // 12/fr/2 ou 12/fr ou 12
     {
-        if ($c == 1) // 12
+        if ($c == 1 || $c == 2) // 12 or 12/fr
         { 
             return '@document_by_id?module=documents&id=' . $a[0];
         }
-        elseif (is_valid_culture($a[1])) // 12/fr or 12/fr/2
+        elseif (is_valid_culture($a[1])) // 12/fr/2
         {
-            if ($c == 2) // 12/fr
-            {
-                return '@document_by_id_lang?module=documents&id=' . $a[0] . '&lang=' . $a[1];
-            }
-            elseif ($c == 3 && is_numeric($a[2]))  // 12/fr/3
+            if ($c == 3 && is_numeric($a[2]))  // 12/fr/3
             {
                 return '@document_by_id_lang_version?module=documents&id=' . $a[0] .
                        '&lang=' . $a[1] . '&version=' . $a[2];
@@ -93,17 +89,21 @@ function extract_route($s)
             }
             elseif (is_valid_culture($a[2]))
             {
-                if ($c == 3) // summits/12/fr
-                {
-                    return '@document_by_id_lang?module=' . $a[0] . '&id=' . $a[1] . '&lang=' . $a[2];
-                }
-                
-                if (is_numeric($a[3])) // summits/12/fr/3
+                if ($c == 4 && is_numeric($a[3])) // summits/12/fr/3
                 {
                     return '@document_by_id_lang_version?module=' .$a[0] . '&id=' . $a[1] .
                            '&lang=' . $a[2] . '&version=' . $a[3];
                 }
 
+                if (in_array($a[0], array('routes', 'summits', 'sites', 'huts', 'parkings', 'images', 'articles', 'areas', 'books', 'products', 'maps', 'users', 'portals')))
+                {
+                    return '@document_by_id?module=' . $a[0] . '&id=' . $a[1];
+                }
+                if ($c == 3) // summits/12/fr
+                {
+                    return '@document_by_id_lang?module=' . $a[0] . '&id=' . $a[1] . '&lang=' . $a[2];
+                }
+                
                 // summits/12/fr/slug
                 return '@document_by_id_lang_slug?module=' . $a[0] . '&id=' . $a[1] . '&lang=' . $a[2] . '&slug=' . $a[3];
             }

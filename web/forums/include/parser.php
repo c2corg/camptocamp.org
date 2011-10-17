@@ -371,6 +371,7 @@ function handle_url_tag($url, $link = '')
 {
 	global $showed_post_list, $lang_common, $pun_config;
 
+    $hreflang = '';
 	$rel = '';
     
     $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
@@ -496,13 +497,23 @@ function handle_url_tag($url, $link = '')
     { 
         $class = '';
         
+        // si la langue est mentionnée et si elle est diffférente de la langue de l'interface, ajout du hreflang
+        if (preg_match('#^/\w+/[\d]+/(\w{2})(/[\w-]+)?#i', $full_url, $params))
+        {
+            if ($params[1] != $sf_user->getCulture())
+            {
+                $hreflang = ' hreflang="' . $params[1] . '"';
+            }
+        }
+        
+        // "nofollow" sur lien vers liste avec critère sur intitulé
         if (preg_match('#^/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/[^\d]+/(.*)name?/#i', $full_url))
         {
             $rel = ' rel="nofollow"';
         }
     }
   
-    return '<a' . $class . ' href="'.$full_url.'"'.$rel.'>'.$link.'</a>' . $suffix;
+    return '<a' . $class . ' href="' . $full_url . '"' . $hreflang . $rel . '>' . $link . '</a>' . $suffix;
 }
 
 
@@ -823,12 +834,12 @@ function do_clickable($text)
     
 	$text = ' '.$text;
 
-    $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-    $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-    $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
-    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
-    $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
-    $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)(@|\[~\]|\(%\))(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
+    $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+    $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+    $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
+    $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
+    $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
+    $pattern[] ='#((?<=["\'\s\(\)\>\]:;,])(?<!\[email\])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)(@|\[~\]|\(%\))(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')
     {

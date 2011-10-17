@@ -276,6 +276,7 @@ class sfPunBBCodeParser
      */
     public static function handle_url_tag($url, $link = '', $viewer = true, $target = '')
     {
+        $hreflang = '';
         $rel = '';
         
         $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
@@ -401,13 +402,28 @@ class sfPunBBCodeParser
         {
             $class = '';
             
+            // si doc collaboratif, le lien est tronqué avant la langue
+        //    if (preg_match('#^(/(routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/[\d]+)/\w+(/[\w-]+)?#i', $full_url, $params))
+        //    {
+        //        $full_url = $params[1];
+        //    }
+            // si la langue est mentionnée et si elle est diffférente de la langue de l'interface, ajout du hreflang
+            if (preg_match('#^/\w+/[\d]+/(\w{2})(/[\w-]+)?#i', $full_url, $params))
+            {
+                if ($params[1] != sfContext::getInstance()->getUser()->getCulture())
+                {
+                    $hreflang = ' hreflang="' . $params[1] . '"';
+                }
+            }
+            
+            // "nofollow" sur lien vers liste avec critère sur intitulé
             if (preg_match('#^/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals)/[^\d]+/(.*)name?/#i', $full_url))
             {
                 $rel = ' rel="nofollow"';
             }
         }
 
-        return '<a' . $class . ' href="' . $full_url . '"' . $target . $rel . '>' . $link . '</a>' . $suffix;
+        return '<a' . $class . ' href="' . $full_url . '"' . $hreflang . $target . $rel . '>' . $link . '</a>' . $suffix;
     }
     
     public static function handle_static_img_tag($filename, $extension, $align, $legend = '')
@@ -841,12 +857,12 @@ class sfPunBBCodeParser
         $text = ' '.$text;
 
         $pattern[] ='#\[\[http://[\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?/([^\|\]]*)#i';
-        $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-        $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-        $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
-        $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
-        $pattern[] = '#((?<=[\s\(\)\>:.;,])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
-        $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
+        $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+        $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+        $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
+        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
+        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
+        $pattern[] ='#((?<=["\'\s\(\)\>\]:;,])(?<!\[email\])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
         $replace[] = '[[$3';
         $replace[] = '[url]$2://$3[/url]';
