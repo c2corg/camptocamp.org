@@ -500,7 +500,8 @@ function handle_url_tag($url, $link = '')
         // si la langue est mentionnée et si elle est diffférente de la langue de l'interface, ajout du hreflang
         if (preg_match('#^/\w+/[\d]+/(\w{2})(/[\w-]+)?#i', $full_url, $params))
         {
-            if ($params[1] != $sf_user->getCulture())
+            $user_lang = sfContext::getInstance()->getUser()->getCulture();
+            if ($params[1] != $user_lang)
             {
                 $hreflang = ' hreflang="' . $params[1] . '"';
             }
