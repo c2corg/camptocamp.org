@@ -857,11 +857,11 @@ class sfPunBBCodeParser
         $text = ' '.$text;
 
         $pattern[] ='#\[\[http://[\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?/([^\|\]]*)#i';
-        $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-        $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-        $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
-        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
-        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
+        $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+        $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+        $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
+        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
+        $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
         $pattern[] ='#((?<=["\'\s\(\)\>\]:;,])(?<!\[email\])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
         $replace[] = '[[$3';
@@ -1389,7 +1389,7 @@ class sfPunBBCodeParser
         }
         elseif (!empty($new_line_suffix))
         {
-            $line_suffix = $new_line_suffix;
+            $line_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_line_suffix);
         }
         
         $line_header = 'L' . $line_index . $line_suffix;
@@ -1413,10 +1413,18 @@ class sfPunBBCodeParser
             // {\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m
         
         // suppression des cases vides en fin de ligne du tableau
-        $item = preg_replace('{(<td></td>)+$}', '', $item);
+        $pattern[] = '{(<td></td>)+$}';
+        $replace[] = '';
         
         // déprotection des wikiliens
-        $item = preg_replace('{\[\[([^|\n]+)@#@([^\]\n]+)\]\]}', '[[$1|$2]]', $item);
+        $pattern[] = '{\[\[([^|\n]+)@#@([^\]\n]+)\]\]}';
+        $replace[] = '[[$1|$2]]';
+        
+        // ajout d'espaces insécables
+        $pattern[] = '{(\d) (\w)}';
+        $replace[] = '$1&nbsp;$2';
+        
+        $item = preg_replace($pattern, $replace, $item);
             
         return '<tr><th>' . $line_header . '</th>' . $item . '</tr>';
     }
@@ -1643,7 +1651,7 @@ class sfPunBBCodeParser
         $text = self::do_bbcode($text, false, false);
         $text = self::do_images($text, null, false, false);
         $text = self::do_videos($text, false);
-        $text = preg_replace(array('/(?<!&)#+((c\d?)[ ])?[ ]?/', '#\[toc[ ]*(\d*)[ ]*(right)?\]#i'), array('', ''), $text);
+        $text = preg_replace(array('/(?<![&L])#+((c\d?)[ ])?[ ]?/', '#\[toc[ ]*(\d*)[ ]*(right)?\]#i'), array('', ''), $text);
         $text = self::do_spaces($text, false);
     
         return $text;

@@ -643,6 +643,12 @@ li.list_odd
   background-color: #fff;
 }
 
+/* L# tag */
+table.route_lines th, table.route_lines td
+{
+  padding: 0.1em 0.3em 0.1em 0;
+}
+
 /* specific rules for smartphones in portrait mode (screen width <= 320px) */
 @media screen and (max-width:320px)
 {
