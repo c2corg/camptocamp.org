@@ -267,7 +267,7 @@ class imagesActions extends documentsActions
         {
             if (!self::checkUploadRights())
             {
-                return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
+                return $this->setErrorAndRedirect('Operation not allowed because of upload rights', $redir_route);
             }
 
             $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
@@ -315,7 +315,7 @@ class imagesActions extends documentsActions
         }
         else
         {
-            return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
+            return $this->setErrorAndRedirect('Operation not allowed because no post', $redir_route);
         }
     }
 
