@@ -835,11 +835,11 @@ function do_clickable($text)
     
 	$text = ' '.$text;
 
-    $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-    $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[img\]|\[video\]|\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
-    $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|\d{3}\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
-    $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|\d{3}\])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
-    $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|\d{3}\])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
+    $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+    $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
+    $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
+    $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<]+)/*(((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps|users|portals|forums|tools)/|map\?)((?![,.:;\>\<](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)[/\>\]]*#';
+    $pattern[] = '#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<]+)/((outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|maps?|users|portals|forums|tools)(?=[,.:;\>\<"\s\(\)\[\]]|\Z))[\>\]]*#';
     $pattern[] ='#((?<=["\'\s\(\)\>\]:;,])(?<!\[email\])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)(@|\[~\]|\(%\))(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')
