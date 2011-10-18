@@ -1401,16 +1401,20 @@ class sfPunBBCodeParser
         }
         
         // protection des wikiliens
-        $item = preg_replace('{\[\[([^|]+?)\|([^\]]+?)\]\]}', '[[$1@#@$2]]', $item);
+        $pattern[] = '{\[\[([^|]+?)\|([^\]]+?)\]\]}';
+        $replace[] = '[[$1@#@$2]]';
         
-        $item = preg_replace('{
+        // traitement de l'item
+        $pattern[] = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
+        $replace[] = '<td>$1</td>';
+        
+    /*    $item = preg_replace('{
             \s*                      # cell start
             ((?s:.*?))               # cell text  = $1
             \s*([|]+|:{2,}|\z)\s*    # cell end   = $2
             }xm',
             '<td>$1</td>', $item);
-
-            // {\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m
+    */
         
         // suppression des cases vides en fin de ligne du tableau
         $pattern[] = '{(<td></td>)+$}';
