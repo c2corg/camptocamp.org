@@ -14,6 +14,7 @@ $feedItem->setPubdate(strtotime($item['creation_date']));
 $data = array();
 $data[] = $item['elevation'] . __('meters');
 if (isset($item['public_transportation_rating']) && is_integer($item['public_transportation_rating']))
+{
     $data[] = get_paginated_value($item['public_transportation_rating'], 'app_parkings_public_transportation_ratings');
 }
 if (isset($item['geoassociations']) && count($item['geoassociations']))
