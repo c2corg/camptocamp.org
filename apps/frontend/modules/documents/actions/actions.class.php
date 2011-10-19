@@ -1141,7 +1141,7 @@ class documentsActions extends c2cActions
                 $ordered_areas_groups[$this->__($group_key)] = $filtered_areas;
             }
         }
-        // if they are areas that do not belong to a group, put them in an 'other regions' group
+        // if there are areas that do not belong to a group, put them in an 'other regions' group
         if (count($areas))
         {
             array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
@@ -2588,7 +2588,7 @@ class documentsActions extends c2cActions
 
         if ($nb_results > sfConfig::get('app_autocomplete_max_results') && $nb_results < sfConfig::get('app_list_maxline_number'))
         {
-            // if they are too many results to display, but if there is at least one exact match, it is in the results return by the db query
+            // if there are too many results to display, but if there is at least one exact match, it is in the results return by the db query
             // we display the exact matches, if any. We translate some special chars and capital letters
             sfLoader::loadHelpers(array('General'));
             $simple_string = remove_accents($string);
@@ -2613,7 +2613,7 @@ class documentsActions extends c2cActions
         }
         elseif ($nb_results == sfConfig::get('app_list_maxline_number'))
         {
-            // we have the maximum number of results returned by the db query, so we assume they are more
+            // we have the maximum number of results returned by the db query, so we assume there are more
             // we try to make an exact search directly to the db (they might not be in the few returned by the previous query)
             // Note that in this case, we don't try to simplify accents or capital letters
             $exact_results = Document::searchByName($string, $model, $user->getId(), $filter_personal_content, true);
@@ -3588,7 +3588,7 @@ class documentsActions extends c2cActions
 
     /**
      * Changes the association order for associations of same type (eg summit-summit)
-     * It should only be used for ss, pp and tt associations, but they're is probably
+     * It should only be used for ss, pp and tt associations, but there is probably
      * no real problem if other associations are inverted
      */
     public function executeInvertAssociation()

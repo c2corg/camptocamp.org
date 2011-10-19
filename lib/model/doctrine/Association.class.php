@@ -177,6 +177,12 @@ class Association extends BaseAssociation
     }
 
 
+    /*
+     * retrieve docs linked with $ids (and their names)
+     * $get_associated_ids: if you need the id of the element it is linked to (requires a more complex query, so left as an option)
+     * $get_linked: depending on the association, the element will be main_id or linked_id
+     * $current_doc_ids: docs to exclude from the results
+     */
     public static function findWithBestName($ids, $user_prefered_langs, $types = null, $get_associated_ids = false, $get_linked = true, $current_doc_ids = null)
     {
         if (!is_array($ids))
@@ -297,6 +303,10 @@ class Association extends BaseAssociation
                     if ($association_norm['id'] == $result['id'])
                     {
                         $out[$key]['parent_id'][] = $association_norm['parent_id'];
+
+                        // lionel temporary code for having relation direction
+                        $out[$key]['parent_relation'][] = ($association_norm['parent_id'] == $association['linked_id']) ? '>' : '<';
+                        // should we add a break here??? TODO (see mutliple level associations)
                     }
                 }
             }

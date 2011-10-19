@@ -40,7 +40,23 @@ if ($has_associated_docs)
         $link_text = substr(__('routes'), 0, 1);
         $title = "routes linked to $module and $route_list_module";
     }
-    
+
+    // Temporary code for new ss tt and pp associations
+    //  TODO quite ugly.. + note sure works with mmulti level
+    // idea is to display next to the associated doc the association direction
+    foreach ($associated_docs as $doc)
+    {
+        if (isset($doc['parent_id']))
+        {
+            $relations = array();
+            foreach ($doc['parent_id'] as $k => $tid)
+            {
+                $relations[$tid] = $doc['parent_relation'][$k];
+            }
+            break;
+        }
+    }
+
     foreach ($associated_docs as $doc)
     {
         $is_doc = (isset($doc['is_doc']) && $doc['is_doc']);
@@ -150,7 +166,24 @@ if ($has_associated_docs)
 
         if (!isset($doc['parent_id']) and $show_link_to_delete)
         {
-            echo c2c_link_to_delete_element($type, $revert_ids ? $id : $doc_id, $revert_ids ? $doc_id : $id, false, (int)$strict);
+            echo c2c_link_to_delete_element($type, $revert_ids ? $id : $doc_id, $revert_ids ? $doc_id : $id, false, (int) $strict);
+
+            // lionel temp code, to be enhanced
+            // button for changing a relation order
+            if ($relations[$doc_id] == '&gt;')
+            {
+                $il = 'r';
+                $mi = $id;
+                $li = $doc_id;
+            }
+            else
+            {
+                $il = 'l';
+                $mi = $doc_id;
+                $li = $id;
+            }
+            echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/move' . $il . '.png'),
+                 "@default?module=documents&action=invertAssociation&type=$type&main_id=$mi&linked_id=$li");
         }
 
         echo $is_inline ? '</span>' : '</div>';
