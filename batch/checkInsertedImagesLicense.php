@@ -44,10 +44,10 @@ foreach($lookup as $table => $fields)
     {
         $select .= ", di.$field";
     }
-    $where = "(d.id = di.id) AND (di.description ILIKE '%[img%'";
+    $where = "(d.id = di.id) AND (di.description ~* E'^\\\[img'";
     foreach ($fields as $field)
     {
-        $where .= " OR di.$field ILIKE '%[img%'";
+        $where .= " OR di.$field ~* E'^\\\[img'";
     }
     $where .= ')';
     if ($table == 'Article')
