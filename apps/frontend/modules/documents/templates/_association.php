@@ -170,20 +170,23 @@ if ($has_associated_docs)
 
             // lionel temp code, to be enhanced
             // button for changing a relation order
-            if ($relations[$doc_id] == '&gt;')
+            if (in_array($type, array('ss', 'tt', 'pp')))
             {
-                $il = 'r';
-                $mi = $id;
-                $li = $doc_id;
+                if ($relations[$doc_id] == '&gt;')
+                {
+                    $il = 'r';
+                    $mi = $id;
+                    $li = $doc_id;
+                }
+                else
+                {
+                    $il = 'l';
+                    $mi = $doc_id;
+                    $li = $id;
+                }
+                echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/move' . $il . '.png'),
+                     "@default?module=documents&action=invertAssociation&type=$type&main_id=$mi&linked_id=$li");
             }
-            else
-            {
-                $il = 'l';
-                $mi = $doc_id;
-                $li = $id;
-            }
-            echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/move' . $il . '.png'),
-                 "@default?module=documents&action=invertAssociation&type=$type&main_id=$mi&linked_id=$li");
         }
 
         echo $is_inline ? '</span>' : '</div>';
