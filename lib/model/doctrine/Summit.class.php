@@ -300,6 +300,8 @@ class Summit extends BaseSummit
         
         // join with summit / book tables only if needed 
         if (   isset($conditions['join_summit_i18n'])
+            || isset($conditions['join_summit_id'])
+            || isset($conditions['join_subsummit_id'])
             || isset($conditions['join_stag_id'])
             || isset($conditions['join_sbook_id'])
             || isset($conditions['join_sbook'])
