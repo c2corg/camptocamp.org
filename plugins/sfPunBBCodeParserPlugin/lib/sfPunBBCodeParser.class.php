@@ -1656,7 +1656,7 @@ class sfPunBBCodeParser
         $text = self::do_bbcode($text, false, false);
         $text = self::do_images($text, null, false, false);
         $text = self::do_videos($text, false);
-        $text = preg_replace(array('/(?<![&L])#+((c\d?)[ ])?[ ]?/', '#\[toc[ ]*(\d*)[ ]*(right)?\]#i'), array('', ''), $text);
+        $text = preg_replace(array('/(?<![&LR])#+((c\d?)[ ])?[ ]?/', '#\[toc[ ]*(\d*)[ ]*(right)?\]#i'), array('', ''), $text);
         $text = self::do_spaces($text, false);
     
         return $text;
