@@ -58,19 +58,17 @@ class Parking extends BaseParking
             $m = 'm';
             $m2 = 'p';
             $join = null;
-            $join_id = null;
         }
         else
         {
             $m2 = $m;
             $join = 'join_parking';
-            $join_id = $join . '_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'parkings', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'parkings', 'join_parking_id', false, $params_list);
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+            $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'id', null, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Id', $mid, 'subparkings', 'join_subparking_id', false, $params_list);
         }
         

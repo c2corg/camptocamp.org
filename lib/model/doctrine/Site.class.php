@@ -136,20 +136,18 @@ class Site extends BaseSite
             $m = 'm';
             $m2 = 's';
             $join = null;
-            $join_id = null;
         }
         else
         {
             $m = 's';
             $m2 = $m;
             $join = 'join_site';
-            $join_id = 'join_site_id';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'sites', $join_id, false, $params_list);
+        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'sites', 'join_site_id', false, $params_list);
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+            $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'id', null, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Id', $mid, 'subsites', 'join_subsite_id', false, $params_list);
         }
         if (!$has_id)
