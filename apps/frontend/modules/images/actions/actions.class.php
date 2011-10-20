@@ -339,7 +339,10 @@ class imagesActions extends documentsActions
         {
             if (!self::checkUploadRights())
             {
-                return $this->setErrorAndRedirect('Operation not allowed bad rights', $redir_route);// TODO
+                $this->image_name = $this->getRequestParameter('name');
+                $this->setlayout(false);
+                $this->getRequest()->setError('image_file', 'Operation not allowed');
+                return sfView::ERROR;
             }
 
             $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
@@ -371,7 +374,10 @@ class imagesActions extends documentsActions
         }
         else
         {
-            return $this->setErrorAndRedirect('Operation not allowed no post', $redir_route); // TODO
+            $this->image_name = $this->getRequestParameter('name');
+            $this->setlayout(false);
+            $this->getRequest()->setError('image_file', 'Operation not allowed');
+            return sfView::ERROR;
         }
     }
 
