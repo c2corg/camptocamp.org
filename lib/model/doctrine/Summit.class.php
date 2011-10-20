@@ -189,7 +189,7 @@ class Summit extends BaseSummit
                 || isset($conditions['join_subsummit_id_has'])
             )
             {
-                $q->leftJoin('LinkedAssociation lss');
+                $q->leftJoin($m . 'LinkedAssociation lss');
                 
                 if (isset($conditions['join_subsummit_id_has']))
                 {

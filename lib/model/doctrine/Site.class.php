@@ -149,7 +149,8 @@ class Site extends BaseSite
         $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'sites', $join_id, false, $params_list);
         if ($is_module)
         {
-            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+            $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', $mid, 'subsites', 'join_subsite_id', false, $params_list);
         }
         if (!$has_id)
         {
@@ -269,6 +270,40 @@ class Site extends BaseSite
             $linked = '';
             $linked2 = '';
             $main = $m . 'associations';
+            
+            if (   isset($conditions['join_site_id'])
+                || isset($conditions['join_site_id_has'])
+            )
+            {
+                $q->leftJoin($m . 'associations lt');
+                
+                if (isset($conditions['join_site_id_has']))
+                {
+                    $q->addWhere("lt.type = 'ff'");
+                    unset($conditions['join_site_id_has']);
+                }
+                if (isset($conditions['join_site_id']))
+                {
+                    unset($conditions['join_site_id']);
+                }
+            }
+            
+            if (   isset($conditions['join_subsite_id'])
+                || isset($conditions['join_subsite_id_has'])
+            )
+            {
+                $q->leftJoin($m . 'LinkedAssociation ltt');
+                
+                if (isset($conditions['join_subsite_id_has']))
+                {
+                    $q->addWhere("ltt.type = 'tt'");
+                    unset($conditions['join_subsite_id_has']);
+                }
+                if (isset($conditions['join_subsite_id']))
+                {
+                    unset($conditions['join_subsite_id']);
+                }
+            }
         }
         else
         {
@@ -367,6 +402,8 @@ class Site extends BaseSite
         $conditions = self::joinOnMultiRegions($q, $conditions);
 
         if (   isset($conditions['join_site_i18n'])
+            || isset($conditions['join_site_id'])
+            || isset($conditions['join_subsite_id'])
             || isset($conditions['join_tbook_id'])
             || isset($conditions['join_tbook'])
             || isset($conditions['join_tbook_i18n'])

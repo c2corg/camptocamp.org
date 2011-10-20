@@ -70,7 +70,8 @@ class Parking extends BaseParking
         $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'parkings', $join_id, false, $params_list);
         if ($is_module)
         {
-            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+            $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', $mid, 'subparkings', 'join_subparking_id', false, $params_list);
         }
         
         if (!$has_id)
@@ -177,6 +178,40 @@ class Parking extends BaseParking
             $m = 'm.';
             $linked = '';
             $linked2 = '';
+            
+            if (   isset($conditions['join_parking_id'])
+                || isset($conditions['join_parking_id_has'])
+            )
+            {
+                $q->leftJoin($m . 'associations lp');
+                
+                if (isset($conditions['join_parking_id_has']))
+                {
+                    $q->addWhere("lp.type = 'pp'");
+                    unset($conditions['join_parking_id_has']);
+                }
+                if (isset($conditions['join_parking_id']))
+                {
+                    unset($conditions['join_parking_id']);
+                }
+            }
+            
+            if (   isset($conditions['join_subparking_id'])
+                || isset($conditions['join_subparking_id_has'])
+            )
+            {
+                $q->leftJoin($m . 'LinkedAssociation lpp');
+                
+                if (isset($conditions['join_subparking_id_has']))
+                {
+                    $q->addWhere("lpp.type = 'pp'");
+                    unset($conditions['join_subparking_id_has']);
+                }
+                if (isset($conditions['join_subparking_id']))
+                {
+                    unset($conditions['join_subparking_id']);
+                }
+            }
         }
         else
         {
@@ -235,6 +270,8 @@ class Parking extends BaseParking
         
         // join with parking tables only if needed 
         if (   isset($conditions['join_parking_i18n'])
+            || isset($conditions['join_parking_id'])
+            || isset($conditions['join_subparking_id'])
             || isset($conditions['join_ptag_id'])
         )
         {
