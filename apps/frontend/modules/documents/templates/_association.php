@@ -192,7 +192,7 @@ if ($has_associated_docs)
                     $li = $id;
                 }
                 echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/move' . $il . $cl . '.png'),
-                     "@default?module=documents&action=invertAssociation&type=$type&main_id=$mi&linked_id=$li"), $doclevel, $level;
+                     "@default?module=documents&action=invertAssociation&type=$type&main_id=$mi&linked_id=$li");
             }
         }
 
