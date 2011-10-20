@@ -260,6 +260,15 @@ $is_new_document = empty($document_id);
 // no better way found...
 if (!$is_new_document)
 {
+    // check that document exists
+    if (!count(sfDoctrine::connection()
+                   ->standaloneQuery('SELECT id FROM ' . ($is_map ? 'maps' : 'areas') . ' WHERE id=?', array($document_id))
+                   ->fetchAll()))
+    {
+        die("Specified {$argv[1]} ($document_id) does not exist\n");
+    }
+    
+
     // first, remove geometry in a separate transaction if we are to update it
     // no better way found...
     try

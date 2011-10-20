@@ -3604,13 +3604,15 @@ class documentsActions extends c2cActions
         // check if session timed out
         if (!$user_id)
         {
-            return $this->ajax_feedback('Session is over. Please login again.');
+            return $this->setErrorAndRedirect('Session is over. Please login again.',
+                                              $this->getRequest()->getReferer());
         }
 
         // only moderators can perform such actions
         if (!$is_moderator)
         {
-            return $this->ajax_feedback('You do not have enough credentials to perform this operation');
+            return $this->setErrorAndRedirect('You do not have enough credentials to perform this operation',
+                                              $this->getRequest()->getReferer());
         }
 
         // we check that the association type really exists and that the two
@@ -3629,7 +3631,7 @@ class documentsActions extends c2cActions
         $a = Association::find($main_id, $linked_id, $type); // strict search
         if (!$a)
         {
-            return $this->ajax_feedback('Operation not allowed');
+            return $this->setErrorAndRedirect('Operation not allowed', $this->getRequest()->getReferer());
         }
 
         // invert association

@@ -269,11 +269,13 @@ class Association extends BaseAssociation
                 {
                     $association_norm['parent_id'] = $association['main_id'];
                     $association_norm['id'] = $association['linked_id'];
+                    $association_norm['rel_parent'] = 'main_id';
                 }
                 else
                 {
                     $association_norm['parent_id'] = $association['linked_id'];
                     $association_norm['id'] = $association['main_id'];
+                    $association_norm['rel_parent'] = 'linked_id';
                 }
                 $doc_associations_norm[] = $association_norm;
                 $where_ids[] = '?';
@@ -305,7 +307,7 @@ class Association extends BaseAssociation
                         $out[$key]['parent_id'][] = $association_norm['parent_id'];
 
                         // lionel temporary code for having relation direction
-                        $out[$key]['parent_relation'][] = ($association_norm['parent_id'] == $association['linked_id']) ? '>' : '<';
+                        $out[$key]['parent_relation'][] = $association_norm['rel_parent'];
                         // should we add a break here??? TODO (see mutliple level associations)
                     }
                 }
