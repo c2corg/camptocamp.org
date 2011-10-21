@@ -102,7 +102,7 @@ export_gpx_version:
 export_kml:
   url: /:module/:lang/:id.kml
   param: { action: exportkml}
-  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users|maps), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 export_kml_version:
   url: /:module/:lang/:version/:id.kml
