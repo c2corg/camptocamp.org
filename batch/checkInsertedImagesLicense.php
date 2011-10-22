@@ -117,8 +117,8 @@ $all_image_ids = array_unique($all_image_ids);
 // map imgid => image info for images that cause problem
 $retrieved_images_ids = array();
 
-echo ('==> ' . count($retrieved_images_ids) . "\n");
-if (count($retrieved_images_ids) == 0) {
+echo ('==> ' . count($all_images_ids) . "\n");
+if (count($all_images_ids) == 0) {
   echo ("No image found!\n");
   exit;
 }
