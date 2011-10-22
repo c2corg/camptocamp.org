@@ -44,10 +44,10 @@ foreach($lookup as $table => $fields)
     {
         $select .= ", di.$field";
     }
-    $where = "(d.id = di.id) AND (di.description ~* E'^\\\[img'";
+    $where = "(d.id = di.id) AND (di.description ~* E'^\\\\[img'";
     foreach ($fields as $field)
     {
-        $where .= " OR di.$field ~* E'^\\\[img'";
+        $where .= " OR di.$field ~* E'^\\\\[img'";
     }
     $where .= ')';
     if ($table == 'Article')
@@ -61,12 +61,14 @@ foreach($lookup as $table => $fields)
     $conn = sfDoctrine::Connection();
     try
     {
+        echo ('SELECT ' . $select . ' FROM ' . $table . 's_i18n di, ' . $table . 's d WHERE ' . $where . "\n");
         $conn->beginTransaction();
         $documents = $conn->standaloneQuery('SELECT ' . $select . ' FROM ' . $table . 's_i18n di, ' . $table . 's d WHERE ' . $where)->fetchAll();
         $conn->commit();
 
         array_unshift($fields, 'description');
 
+        echo ('-> ' . count($documents) . "\n");
         foreach ($documents as $doc)
         {
             $inserted_images = array();
@@ -115,6 +117,11 @@ $all_image_ids = array_unique($all_image_ids);
 // map imgid => image info for images that cause problem
 $retrieved_images_ids = array();
 
+echo ('==> ' . count($retrieved_images_ids) . "\n");
+if (count($retrieved_images_ids) == 0) {
+  echo ("No image found!\n");
+  exit;
+}
 $conn = sfDoctrine::Connection();
 try
 {
