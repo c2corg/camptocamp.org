@@ -88,7 +88,7 @@ foreach($lookup as $table => $fields)
                     array_push($inserted_images, $matches[$i][2]);
                 }
             }
-
+            echo (' '. $doc['id'] . $doc['culture'] . ' -> ' . count($inserted_images) . "\n");
             if(count($inserted_images))
             {
                 $docid = $doc['id'] . $doc['culture'];
