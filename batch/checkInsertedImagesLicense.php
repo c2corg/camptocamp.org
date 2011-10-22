@@ -61,14 +61,12 @@ foreach($lookup as $table => $fields)
     $conn = sfDoctrine::Connection();
     try
     {
-        echo ('SELECT ' . $select . ' FROM ' . $table . 's_i18n di, ' . $table . 's d WHERE ' . $where . "\n");
         $conn->beginTransaction();
         $documents = $conn->standaloneQuery('SELECT ' . $select . ' FROM ' . $table . 's_i18n di, ' . $table . 's d WHERE ' . $where)->fetchAll();
         $conn->commit();
 
         array_unshift($fields, 'description');
 
-        echo ('-> ' . count($documents) . "\n");
         foreach ($documents as $doc)
         {
             $inserted_images = array();
@@ -88,7 +86,6 @@ foreach($lookup as $table => $fields)
                     array_push($inserted_images, $matches[$i][2]);
                 }
             }
-            echo (' '. $doc['id'] . $doc['culture'] . ' -> ' . count($inserted_images) . "\n");
             if(count($inserted_images))
             {
                 $docid = $doc['id'] . $doc['culture'];
@@ -107,6 +104,7 @@ foreach($lookup as $table => $fields)
 }
 
 // now we have retrieved all images inserted in collaborative documents, get those that are collaborative (and removed bad references)
+echo ('==> ' . count($images_for_doc) . "\n");
 $all_image_ids = array();
 foreach ($images_for_doc as $id => $inserted_images)
 {
@@ -117,8 +115,8 @@ $all_image_ids = array_unique($all_image_ids);
 // map imgid => image info for images that cause problem
 $retrieved_images_ids = array();
 
-echo ('==> ' . count($all_images_ids) . "\n");
-if (count($all_images_ids) == 0) {
+echo ('==> ' . count($all_image_ids) . "\n");
+if (count($all_image_ids) == 0) {
   echo ("No image found!\n");
   exit;
 }
