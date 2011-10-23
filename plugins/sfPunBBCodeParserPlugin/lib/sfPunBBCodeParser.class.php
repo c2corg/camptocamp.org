@@ -1305,9 +1305,13 @@ class sfPunBBCodeParser
    
     public static function do_lines($text) {
         global $line_index;
+        global $abseil_index;
         global $line_suffix;
+        global $abseil_suffix;
         $line_index = 0;
+        $abseil_index = 0;
         $line_suffix = '';
+        $abseil_suffix = '';
 
         $whole_list_re = '
             (                   # $1 = whole list
@@ -1325,8 +1329,8 @@ class sfPunBBCodeParser
             )
         '; // mx
 
-    //    $whole_list_re = '(([LR]\#[^:|\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?!L\#)))'; // mx
-    //    $whole_list_re_all = '{(?:(?<=[ ]\n)|(?<=<p>)\n?|\n{2}|\A\n?)((L\#[^:|\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?![LR]\#)))}m';
+    //    $whole_list_re = '(([LR]\#[^:|\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?![LR]\#)))'; // mx
+    //    $whole_list_re_all = '{(?:(?<=[ ]\n)|(?<=<p>)\n?|\n{2}|\A\n?)(([LR]\#[^:|\s]*)(?s:.+?)(\z|\n?(?=</p>)|\n{2}(?=\n*\S)(?![LR]\#)))}m';
 
         $text = preg_replace_callback('{
                 (?:(?<=[ ]\n)|(?<=<p>)\n?|\n{2}|\A\n?) # Must eat the newline
@@ -1338,7 +1342,9 @@ class sfPunBBCodeParser
     }
     public static function _doLines_callback($matches) {
         global $line_index;
+        global $abseil_index;
         global $line_suffix;
+        global $abseil_suffix;
         
         $list = $matches[1] . "\n";
         
@@ -1367,39 +1373,81 @@ class sfPunBBCodeParser
 
     public static function _processLineItems_callback($matches) {
         global $line_index;
+        global $abseil_index;
         global $line_suffix;
+        global $abseil_suffix;
         
-        $line_marker = $matches[1];
-        $new_line_index = $matches[2];
-        $new_line_suffix = $matches[3];
+        $marker_type = $matches[1];
+        $new_marker_index = $matches[2];
+        $new_marker_suffix = $matches[3];
         $multi_line_index = $matches[5];
         $item = $matches[6];
+        $cell_tag = 'th';
         
-        if (!empty($new_line_index))
+        if ($marker_type == 'L')
         {
-            $line_index = $new_line_index;
+            if (sfContext::getInstance()->getModuleName() == 'sites')
+            {
+                $marker_type = '';
+                $cell_tag = 'td';
+            }
+
+            
+            if (!empty($new_marker_index))
+            {
+                $line_index = $new_marker_index;
+            }
+            else
+            {
+                $line_index ++;
+            }
+            
+            if ($new_marker_suffix == '_')
+            {
+                $line_suffix = '';
+            }
+            elseif (!empty($new_marker_suffix))
+            {
+                $line_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
+            }
+            
+            $line_header = $marker_type . $line_index . $line_suffix;
+            
+            if (!empty($multi_line_index))
+            {
+                $line_header .= ' - ' . $marker_type . $multi_line_index . $line_suffix;
+                $line_index = $multi_line_index;
+            }
         }
         else
         {
-            $line_index ++;
+            if (!empty($new_marker_index))
+            {
+                $abseil_index = $new_marker_index;
+            }
+            else
+            {
+                $abseil_index ++;
+            }
+            
+            if ($new_marker_suffix == '_')
+            {
+                $abseil_suffix = '';
+            }
+            elseif (!empty($new_marker_suffix))
+            {
+                $abseil_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
+            }
+            
+            $line_header = $marker_type . $abseil_index . $abseil_suffix;
+            
+            if (!empty($multi_line_index))
+            {
+                $line_header .= ' - ' . $marker_type . $multi_line_index . $abseil_suffix;
+                $abseil_index = $multi_line_index;
+            }
         }
         
-        if ($new_line_suffix == '_')
-        {
-            $line_suffix = '';
-        }
-        elseif (!empty($new_line_suffix))
-        {
-            $line_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_line_suffix);
-        }
-        
-        $line_header = $line_marker . $line_index . $line_suffix;
-        
-        if (!empty($multi_line_index))
-        {
-            $line_header .= ' - ' . $line_marker . $multi_line_index . $line_suffix;
-            $line_index = $multi_line_index;
-        }
         
         // protection des wikiliens
         $pattern[] = '{\[\[([^|]+?)\|([^\]]+?)\]\]}';
@@ -1431,7 +1479,7 @@ class sfPunBBCodeParser
         
         $item = preg_replace($pattern, $replace, $item);
             
-        return '<tr><th>' . $line_header . '</th>' . $item . '</tr>';
+        return '<tr><' . $cell_tag . '>' . $line_header . '</' . $cell_tag . '>' . $item . '</tr>';
     }
     
     //
