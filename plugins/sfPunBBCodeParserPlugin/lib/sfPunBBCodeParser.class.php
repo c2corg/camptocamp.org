@@ -1477,7 +1477,7 @@ class sfPunBBCodeParser
         {
             $item = preg_replace($pattern, $replace, $item);
             
-            $item = preg_replace_callback($pattern_tmp, array('self', '_processListCell'), $item);
+            $item = preg_replace_callback($pattern_item, array('self', '_processListCell'), $item);
             
             $pattern = array();
             $replace = array();
