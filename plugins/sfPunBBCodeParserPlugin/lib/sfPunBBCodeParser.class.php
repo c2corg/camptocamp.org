@@ -1309,6 +1309,8 @@ class sfPunBBCodeParser
         global $line_suffix;
         global $abseil_suffix;
         global $doc_module;
+        global $cell_index;
+        
         $line_index = 0;
         $abseil_index = 0;
         $line_suffix = '';
@@ -1348,6 +1350,7 @@ class sfPunBBCodeParser
         global $line_suffix;
         global $abseil_suffix;
         global $doc_module;
+        global $cell_index;
         
         $list = $matches[1] . "\n";
         
