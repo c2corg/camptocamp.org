@@ -4241,6 +4241,10 @@ ol.text ol.text ol.text
   list-style-type: lower-roman;
 }
 
+.sites_content table.route_lines
+{
+  border-spacing: 0;
+}
 table.route_lines th
 {
   font-weight: bold;
@@ -4248,11 +4252,30 @@ table.route_lines th
 table.route_lines th, table.route_lines td
 {
   vertical-align: top;
-  padding: 0.3em 1em 0.3em 0;
+  padding: 0.3em 1.2em 0.3em 0;
 }
 table.route_lines td:last-child
 {
   padding-right: 0;
+}
+
+.sites_content table.route_lines td:first-child
+{
+  padding-left: 0.3em;
+  text-align: right;
+}
+.sites_content table.route_lines th
+{
+  font-weight: normal;
+  font-style: italic;
+}
+.sites_content table.route_lines th + td
+{
+  font-weight: bold;
+}
+.sites_content table.route_lines tr:nth-child(even)
+{
+  background-color: #ECECEC;
 }
 
 

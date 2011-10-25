@@ -1308,10 +1308,12 @@ class sfPunBBCodeParser
         global $abseil_index;
         global $line_suffix;
         global $abseil_suffix;
+        global $doc_module;
         $line_index = 0;
         $abseil_index = 0;
         $line_suffix = '';
         $abseil_suffix = '';
+        $doc_module = sfContext::getInstance()->getModuleName();
 
         $whole_list_re = '
             (                   # $1 = whole list
@@ -1345,6 +1347,7 @@ class sfPunBBCodeParser
         global $abseil_index;
         global $line_suffix;
         global $abseil_suffix;
+        global $doc_module;
         
         $list = $matches[1] . "\n";
         
@@ -1376,6 +1379,9 @@ class sfPunBBCodeParser
         global $abseil_index;
         global $line_suffix;
         global $abseil_suffix;
+        global $doc_module;
+        global $cell_index;
+        $cell_index = 0;
         
         $marker_type = $matches[1];
         $new_marker_index = $matches[2];
@@ -1386,7 +1392,7 @@ class sfPunBBCodeParser
         
         if ($marker_type == 'L')
         {
-            if (sfContext::getInstance()->getModuleName() == 'sites')
+            if ($doc_module == 'sites')
             {
                 $marker_type = '';
                 $cell_tag = 'td';
@@ -1454,8 +1460,7 @@ class sfPunBBCodeParser
         $replace[] = '[[$1@#@$2]]';
         
         // traitement de l'item
-        $pattern[] = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
-        $replace[] = '<td>$1</td>';
+        $pattern_tmp = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
         
     /*    $item = preg_replace('{
             \s*                      # cell start
@@ -1464,6 +1469,16 @@ class sfPunBBCodeParser
             }xm',
             '<td>$1</td>', $item);
     */
+        
+        if ($doc_module == 'sites' && $marker_type == 'L')
+        {
+            $pattern_tmp .= 'e';
+            $replace[] = 'self::processListCell(\'$1\')';
+        }
+        else
+        {
+            $replace[] = '<td>$1</td>';
+        }
         
         // suppression des cases vides en fin de ligne du tableau
         $pattern[] = '{(<td></td>)+$}';
@@ -1481,6 +1496,25 @@ class sfPunBBCodeParser
             
         return '<tr><' . $cell_tag . '>' . $line_header . '</' . $cell_tag . '>' . $item . '</tr>';
     }
+    
+    public static function processListCell($value)
+    {
+        global $cell_index;
+        
+        $cell_index++;
+        
+        if ($cell_index == 1)
+        {
+            $cell_tag = 'th';
+        }
+        else
+        {
+            $cell_tag = 'td';
+        }
+        
+        return '<' . $cell_tag . '>' . $value . '</' . $cell_tag . '>';
+    }
+    
     
     //
     // convert img tag

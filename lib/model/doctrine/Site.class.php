@@ -277,7 +277,7 @@ class Site extends BaseSite
                 
                 if (isset($conditions['join_site_id_has']))
                 {
-                    $q->addWhere("lt.type = 'ff'");
+                    $q->addWhere("lt.type = 'tt'");
                     unset($conditions['join_site_id_has']);
                 }
                 if (isset($conditions['join_site_id']))
