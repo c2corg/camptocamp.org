@@ -1463,7 +1463,7 @@ class sfPunBBCodeParser
         $replace[] = '[[$1@#@$2]]';
         
         // traitement de l'item
-        $pattern_tmp = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
+        $pattern_item = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
         
     /*    $item = preg_replace('{
             \s*                      # cell start
@@ -1475,14 +1475,18 @@ class sfPunBBCodeParser
         
         if ($doc_module == 'sites' && $marker_type == 'L')
         {
-            $pattern_tmp .= 'e';
-            $replace[] = 'self::processListCell(\'$1\')';
+            $item = preg_replace($pattern, $replace, $item);
+            
+            $item = preg_replace_callback($pattern_tmp, array('self', '_processListCell'), $item);
+            
+            $pattern = array();
+            $replace = array();
         }
         else
         {
+            $pattern[] = $pattern_item;
             $replace[] = '<td>$1</td>';
         }
-        $pattern[] = $pattern_tmp;
         
         // suppression des cases vides en fin de ligne du tableau
         $pattern[] = '{(<td></td>)+$}';
@@ -1501,7 +1505,7 @@ class sfPunBBCodeParser
         return '<tr><' . $cell_tag . '>' . $line_header . '</' . $cell_tag . '>' . $item . '</tr>';
     }
     
-    public static function processListCell($value)
+    public static function _processListCell($matches)
     {
         global $cell_index;
         
@@ -1516,7 +1520,7 @@ class sfPunBBCodeParser
             $cell_tag = 'td';
         }
         
-        return '<' . $cell_tag . '>' . $value . '</' . $cell_tag . '>';
+        return '<' . $cell_tag . '>' . $matches[1] . '</' . $cell_tag . '>';
     }
     
     
