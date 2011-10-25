@@ -4241,9 +4241,13 @@ ol.text ol.text ol.text
   list-style-type: lower-roman;
 }
 
-.sites_content table.route_lines
+table.route_lines
 {
   border-spacing: 0;
+}
+table.route_lines tr:nth-child(even)
+{
+  background-color: #EEEEEE;
 }
 table.route_lines th
 {
@@ -4252,16 +4256,15 @@ table.route_lines th
 table.route_lines th, table.route_lines td
 {
   vertical-align: top;
-  padding: 0.3em 1.2em 0.3em 0;
+  padding: 0.3em 0.9em 0.3em 0.3;
 }
 table.route_lines td:last-child
 {
-  padding-right: 0;
+  padding-right: 0.3em;
 }
 
 .sites_content table.route_lines td:first-child
 {
-  padding-left: 0.3em;
   text-align: right;
 }
 .sites_content table.route_lines th
@@ -4273,11 +4276,11 @@ table.route_lines td:last-child
 {
   font-weight: bold;
 }
-.sites_content table.route_lines tr:nth-child(even)
+/*.sites_content table.route_lines tr:nth-child(even)
 {
-  background-color: #ECECEC;
+  background-color: #EEEEEE;
 }
-
+*/
 
 /* Homepage */
 .home_title
