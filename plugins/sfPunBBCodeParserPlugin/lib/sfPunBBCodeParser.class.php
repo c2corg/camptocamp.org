@@ -1479,6 +1479,7 @@ class sfPunBBCodeParser
         {
             $replace[] = '<td>$1</td>';
         }
+        $pattern[] = $pattern_tmp;
         
         // suppression des cases vides en fin de ligne du tableau
         $pattern[] = '{(<td></td>)+$}';
