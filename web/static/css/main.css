@@ -4245,10 +4245,6 @@ table.route_lines
 {
   border-spacing: 0;
 }
-table.route_lines tr:nth-child(even)
-{
-  background-color: #EEEEEE;
-}
 table.route_lines th
 {
   font-weight: bold;
@@ -4256,13 +4252,25 @@ table.route_lines th
 table.route_lines th, table.route_lines td
 {
   vertical-align: top;
-  padding: 0.3em 0.9em 0.3em 0.3em;
+  padding: 0.2em 0.6em 0.2em 0.6em;
+}
+table.route_lines th:first-child
+{
+  padding-left: 0;
 }
 table.route_lines td:last-child
 {
-  padding-right: 0.3em;
+  padding-right: 0;
 }
 
+.sites_content table.route_lines tr:nth-child(even)
+{
+  background-color: #EEEEEE;
+}
+.sites_content table.route_lines tr.interline
+{
+  background-color: #FFF !important;
+}
 .sites_content table.route_lines td:first-child
 {
   text-align: right;
@@ -4276,11 +4284,15 @@ table.route_lines td:last-child
 {
   font-weight: bold;
 }
-/*.sites_content table.route_lines tr:nth-child(even)
+.sites_content table.route_lines td:first-child
 {
-  background-color: #EEEEEE;
+  padding-left: 0.3em;
 }
-*/
+.sites_content table.route_lines td:last-child
+{
+  padding-right: 0.3em;
+}
+
 
 /* Homepage */
 .home_title

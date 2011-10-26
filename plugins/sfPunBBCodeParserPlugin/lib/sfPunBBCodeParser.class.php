@@ -1304,18 +1304,18 @@ class sfPunBBCodeParser
     //
    
     public static function do_lines($text) {
-        global $line_index;
-        global $abseil_index;
-        global $line_suffix;
-        global $abseil_suffix;
-        global $doc_module;
-        global $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $first_line $nb_col, $doc_module, $cell_index;
         
         $line_index = 0;
+        $line_index_old = 0;
         $abseil_index = 0;
+        $abseil_index_old = 0;
         $line_suffix = '';
         $abseil_suffix = '';
+        $first_line = true;
+        $nb_col = 0;
         $doc_module = sfContext::getInstance()->getModuleName();
+        $cell_index = 0;
 
         $whole_list_re = '
             (                   # $1 = whole list
@@ -1345,12 +1345,7 @@ class sfPunBBCodeParser
         return $text;
     }
     public static function _doLines_callback($matches) {
-        global $line_index;
-        global $abseil_index;
-        global $line_suffix;
-        global $abseil_suffix;
-        global $doc_module;
-        global $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $first_line, $nb_col, $doc_module, $cell_index;
         
         $list = $matches[1] . "\n";
         
@@ -1358,19 +1353,20 @@ class sfPunBBCodeParser
         $list = preg_replace("/\n{2,}\\z/", "\n", $list);
 
         $list = preg_replace_callback('{
-            \n?                  # leading line
-            ^([LR])\#            # line marker = $1
-            (\d*)                # new line index = $2
-            ([^\d-:|\s][^-:|\s]*|)        # new line suffix = $3
-            (-(\d+))?            # multi line index = $5
-            \s*[:|]*             # first separator
-            ((?s:.*?))           # line item text = $6
-            (?:\n+(?=\n)|\n)     # tailing blank line
+            \n?                     # leading line
+            ^([LR])\#               # line marker = $1
+            (\+?)                   # relative index = $2
+            (\d*)                   # new line index = $3
+            ([^\d-:|\s][^-:|\s]*|)  # new line suffix = $4
+            (-(\+?)(\d+))?          # multi line index = $6 $7
+            \s*[:|]*                # first separator
+            ((?s:.*?))              # line item text = $8
+            (?:\n+(?=\n)|\n)        # tailing blank line
             (?= \n* (\z | [LR]\#))
             }xm',
             array('self', '_processLineItems_callback'), $list);
 
-            // '{\n?^([LR])\#(\d*)([^\d-:|\s][^-:|\s]*|)(-(\d+))?\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
+            // '{\n?^([LR])\#(\+?)(\d*)([^\d-:|\s][^-:|\s]*|)(-(\+?)(\d+))?\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
         
         $result = '</p><table class="route_lines"><tbody>' . $list . '</tbody></table><p>';
         
@@ -1378,140 +1374,238 @@ class sfPunBBCodeParser
     }
 
     public static function _processLineItems_callback($matches) {
-        global $line_index;
-        global $abseil_index;
-        global $line_suffix;
-        global $abseil_suffix;
-        global $doc_module;
-        global $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $first_line, $nb_col, $doc_module, $cell_index;
+        
         $cell_index = 0;
         
         $marker_type = $matches[1];
-        $new_marker_index = $matches[2];
-        $new_marker_suffix = $matches[3];
-        $multi_line_index = $matches[5];
-        $item = $matches[6];
+        $new_marker_relative = $matches[2];
+        $new_marker_index = $matches[3];
+        if (!empty($new_marker_relative) && empty($new_marker_index))
+        {
+            $new_marker_index = 1;
+        }
+        $new_marker_suffix = $matches[4];
+        $multi_line_relative = $matches[6];
+        $multi_line_index = $matches[7];
+        if (!empty($multi_line_relative) && empty($multi_line_index))
+        {
+            $multi_line_index = 1;
+        }
+        $item = $matches[8];
         $cell_tag = 'th';
         
-        if ($marker_type == 'L')
+        if ($new_marker_suffix != '~')  // description de longueur
         {
-            if ($doc_module == 'sites')
+            if ($marker_type == 'L')
             {
-                $marker_type = '';
-                $cell_tag = 'td';
-            }
+                if ($doc_module == 'sites')
+                {
+                    $marker_type = '';
+                    $cell_tag = 'td';
+                }
+                
+                $line_suffix_old = $line_suffix;
+                if ($new_marker_suffix == '_')
+                {
+                    $line_suffix = '';
+                }
+                elseif (!empty($new_marker_suffix))
+                {
+                    $line_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
+                }
 
-            
-            if (!empty($new_marker_index))
-            {
-                $line_index = $new_marker_index;
+                if (!empty($new_marker_index))
+                {
+                    if (!empty($new_marker_relative))
+                    {
+                        $new_marker_index += $line_index; 
+                    }
+                    
+                    if ($line_index > 0 && $line_suffix != $line_suffix_old)
+                    {
+                        $line_index_old = $line_index;
+                        $line_index = $new_marker_index;
+                    }
+                    else
+                    {
+                        $line_index = $new_marker_index;
+                        $line_index_old = $line_index;
+                    }
+                }
+                else
+                {
+                    if ($line_index > 0 && $line_suffix != $line_suffix_old)
+                    {
+                        $line_index_tmp = $line_index;
+                        $line_index = $line_index_old;
+                        $line_index_old = $line_index_tmp;
+                        if (empty($line_suffix))
+                        {
+                            $line_index ++;
+                        }
+                    }
+                    else
+                    {
+                        $line_index ++;
+                        if (empty($line_suffix))
+                        {
+                            $line_index_old = $line_index;
+                        }
+                    }
+                }
+                
+                $line_header = $marker_type . $line_index . $line_suffix;
+                
+                if (!empty($multi_line_index))
+                {
+                    if (!empty($multi_line_relative))
+                    {
+                        $multi_line_index += $line_index; 
+                    }
+                    $line_header .= ' - ' . $marker_type . $multi_line_index . $line_suffix;
+                    $line_index = $multi_line_index;
+                    if (empty($line_suffix))
+                    {
+                        $line_index_old = $line_index;
+                    }
+                }
             }
             else
             {
-                $line_index ++;
+                $abseil_suffix_old = $abseil_suffix;
+                if ($new_marker_suffix == '_')
+                {
+                    $abseil_suffix = '';
+                }
+                elseif (!empty($new_marker_suffix))
+                {
+                    $abseil_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
+                }
+
+                if (!empty($new_marker_index))
+                {
+                    if (!empty($new_marker_relative))
+                    {
+                        $new_marker_index += $abseil_index; 
+                    }
+                    
+                    if ($abseil_index > 0 && $abseil_suffix != $abseil_suffix_old)
+                    {
+                        $abseil_index_old = $abseil_index;
+                        $abseil_index = $new_marker_index;
+                    }
+                    else
+                    {
+                        $abseil_index = $new_marker_index;
+                        $abseil_index_old = $abseil_index;
+                    }
+                }
+                else
+                {
+                    if ($abseil_index > 0 && $abseil_suffix != $abseil_suffix_old)
+                    {
+                        $abseil_index_tmp = $abseil_index;
+                        $abseil_index = $abseil_index_old;
+                        $abseil_index_old = $abseil_index_tmp;
+                        if (empty($abseil_suffix))
+                        {
+                            $abseil_index ++;
+                        }
+                    }
+                    else
+                    {
+                        $abseil_index ++;
+                        if (empty($abseil_suffix))
+                        {
+                            $abseil_index_old = $abseil_index;
+                        }
+                    }
+                }
+                
+                $abseil_header = $marker_type . $abseil_index . $abseil_suffix;
+                
+                if (!empty($multi_line_index))
+                {
+                    if (!empty($multi_line_relative))
+                    {
+                        $multi_line_index += $abseil_index; 
+                    }
+                    $line_header .= ' - ' . $marker_type . $multi_line_index . $abseil_suffix;
+                    $abseil_index = $multi_line_index;
+                    if (empty($abseil_suffix))
+                    {
+                        $abseil_index_old = $abseil_index;
+                    }
+                }
             }
             
-            if ($new_marker_suffix == '_')
-            {
-                $line_suffix = '';
-            }
-            elseif (!empty($new_marker_suffix))
-            {
-                $line_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
-            }
+            // protection des wikiliens
+            $pattern[] = '{\[\[([^|]+?)\|([^\]]+?)\]\]}';
+            $replace[] = '[[$1@#@$2]]';
             
-            $line_header = $marker_type . $line_index . $line_suffix;
+            // traitement de l'item
+            $pattern_item = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
             
-            if (!empty($multi_line_index))
-            {
-                $line_header .= ' - ' . $marker_type . $multi_line_index . $line_suffix;
-                $line_index = $multi_line_index;
-            }
-        }
-        else
-        {
-            if (!empty($new_marker_index))
-            {
-                $abseil_index = $new_marker_index;
-            }
-            else
-            {
-                $abseil_index ++;
-            }
+            /*    $item = preg_replace('{
+                    \s*                      # cell start
+                    ((?s:.*?))               # cell text  = $1
+                    \s*([|]+|:{2,}|\z)\s*    # cell end   = $2
+                    }xm',
+                    '<td>$1</td>', $item);
+            */
             
-            if ($new_marker_suffix == '_')
-            {
-                $abseil_suffix = '';
-            }
-            elseif (!empty($new_marker_suffix))
-            {
-                $abseil_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
-            }
-            
-            $line_header = $marker_type . $abseil_index . $abseil_suffix;
-            
-            if (!empty($multi_line_index))
-            {
-                $line_header .= ' - ' . $marker_type . $multi_line_index . $abseil_suffix;
-                $abseil_index = $multi_line_index;
-            }
-        }
-        
-        
-        // protection des wikiliens
-        $pattern[] = '{\[\[([^|]+?)\|([^\]]+?)\]\]}';
-        $replace[] = '[[$1@#@$2]]';
-        
-        // traitement de l'item
-        $pattern_item = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
-        
-    /*    $item = preg_replace('{
-            \s*                      # cell start
-            ((?s:.*?))               # cell text  = $1
-            \s*([|]+|:{2,}|\z)\s*    # cell end   = $2
-            }xm',
-            '<td>$1</td>', $item);
-    */
-        
-        if ($doc_module == 'sites' && $marker_type == 'L')
-        {
             $item = preg_replace($pattern, $replace, $item);
             
             $item = preg_replace_callback($pattern_item, array('self', '_processListCell'), $item);
             
+            if ($first_line)
+            {
+                $nb_col = $cell_index - 1;
+            }
+            
             $pattern = array();
             $replace = array();
-        }
-        else
-        {
-            $pattern[] = $pattern_item;
-            $replace[] = '<td>$1</td>';
-        }
-        
-        // suppression des cases vides en fin de ligne du tableau
-        $pattern[] = '{(<td></td>)+$}';
-        $replace[] = '';
-        
-        // déprotection des wikiliens
-        $pattern[] = '{\[\[([^|\n]+)@#@([^\]\n]+)\]\]}';
-        $replace[] = '[[$1|$2]]';
-        
-        // ajout d'espaces insécables
-        $pattern[] = '{(\d) (\w)}';
-        $replace[] = '$1&nbsp;$2';
-        
-        $item = preg_replace($pattern, $replace, $item);
             
-        return '<tr><' . $cell_tag . '>' . $line_header . '</' . $cell_tag . '>' . $item . '</tr>';
+            // suppression des cases vides en fin de ligne du tableau
+            $pattern[] = '{(<td></td>)$}';
+            $replace[] = '';
+            
+            // déprotection des wikiliens
+            $pattern[] = '{\[\[([^|\n]+)@#@([^\]\n]+)\]\]}';
+            $replace[] = '[[$1|$2]]';
+            
+            // ajout d'espaces insécables
+            $pattern[] = '{(\d) (\w)}';
+            $replace[] = '$1&nbsp;$2';
+            
+            $item = preg_replace($pattern, $replace, $item);
+            
+            if ($cell_index - 1 < $nb_col)
+            {
+                for ($filling_index = $cell_index; $filling_index <= $nb_col; $filling_index ++;)
+                {
+                    $item .= '<td></td>';
+                }
+            }
+                
+            return '<tr><' . $cell_tag . '>' . $line_header . '</' . $cell_tag . '>' . $item . '</tr>';
+        }
+        else   // texte multicolonne inter-longueurs
+        {
+            return '<tr class="interline"><td colspan="' . $nb_col . '">' . $item . '</td></tr>';
+        }
+        
+        $first_line = false;
     }
     
     public static function _processListCell($matches)
     {
-        global $cell_index;
+        global $doc_module, $cell_index;
         
-        $cell_index++;
+        $cell_index ++;
         
-        if ($cell_index == 1)
+        if ($doc_module == 'sites' && $cell_index == 1)
         {
             $cell_tag = 'th';
         }
