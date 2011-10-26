@@ -1583,7 +1583,7 @@ class sfPunBBCodeParser
             
             if ($cell_index - 1 < $nb_col)
             {
-                for ($filling_index = $cell_index; $filling_index <= $nb_col; $filling_index ++;)
+                for ($filling_index = $cell_index; $filling_index <= $nb_col; $filling_index ++)
                 {
                     $item .= '<td></td>';
                 }
