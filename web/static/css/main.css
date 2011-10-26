@@ -4262,6 +4262,11 @@ table.route_lines td:last-child
 {
   padding-right: 0;
 }
+table.route_lines tr.interline td
+{
+  padding: 0.6em 0;
+  text-align: justify !important;
+}
 
 .sites_content table.route_lines tr:nth-child(even)
 {

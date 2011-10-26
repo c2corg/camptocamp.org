@@ -1381,22 +1381,31 @@ class sfPunBBCodeParser
         $marker_type = $matches[1];
         $new_marker_relative = $matches[2];
         $new_marker_index = $matches[3];
-        if (!empty($new_marker_relative) && empty($new_marker_index))
-        {
-            $new_marker_index = 1;
-        }
         $new_marker_suffix = $matches[4];
         $multi_line_relative = $matches[6];
         $multi_line_index = $matches[7];
-        if (!empty($multi_line_relative) && empty($multi_line_index))
-        {
-            $multi_line_index = 1;
-        }
         $item = $matches[8];
         $cell_tag = 'th';
         
         if ($new_marker_suffix != '~')  // description de longueur
         {
+            if (!empty($new_marker_relative) && empty($new_marker_index))
+            {
+                $new_marker_index = 1;
+            }
+            if (!empty($multi_line_relative) && empty($multi_line_index))
+            {
+                $multi_line_index = 1;
+            }
+            if (!empty($new_marker_relative))
+            {
+                $index_incr = $new_marker_index;
+            }
+            else
+            {
+                $index_incr = 1;
+            }
+            
             if ($marker_type == 'L')
             {
                 if ($doc_module == 'sites')
@@ -1415,13 +1424,8 @@ class sfPunBBCodeParser
                     $line_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
                 }
 
-                if (!empty($new_marker_index))
+                if (empty($new_marker_relative) && !empty($new_marker_index))
                 {
-                    if (!empty($new_marker_relative))
-                    {
-                        $new_marker_index += $line_index; 
-                    }
-                    
                     if ($line_index > 0 && $line_suffix != $line_suffix_old)
                     {
                         $line_index_old = $line_index;
@@ -1442,12 +1446,12 @@ class sfPunBBCodeParser
                         $line_index_old = $line_index_tmp;
                         if (empty($line_suffix))
                         {
-                            $line_index ++;
+                            $line_index += $index_incr;
                         }
                     }
                     else
                     {
-                        $line_index ++;
+                        $line_index += $index_incr;
                         if (empty($line_suffix))
                         {
                             $line_index_old = $line_index;
@@ -1455,7 +1459,7 @@ class sfPunBBCodeParser
                     }
                 }
                 
-                $line_header = $marker_type . $line_index . $line_suffix;
+                $row_header = $marker_type . $line_index . $line_suffix;
                 
                 if (!empty($multi_line_index))
                 {
@@ -1463,7 +1467,7 @@ class sfPunBBCodeParser
                     {
                         $multi_line_index += $line_index; 
                     }
-                    $line_header .= ' - ' . $marker_type . $multi_line_index . $line_suffix;
+                    $row_header .= ' - ' . $marker_type . $multi_line_index . $line_suffix;
                     $line_index = $multi_line_index;
                     if (empty($line_suffix))
                     {
@@ -1483,13 +1487,8 @@ class sfPunBBCodeParser
                     $abseil_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
                 }
 
-                if (!empty($new_marker_index))
+                if (empty($new_marker_relative) && !empty($new_marker_index))
                 {
-                    if (!empty($new_marker_relative))
-                    {
-                        $new_marker_index += $abseil_index; 
-                    }
-                    
                     if ($abseil_index > 0 && $abseil_suffix != $abseil_suffix_old)
                     {
                         $abseil_index_old = $abseil_index;
@@ -1510,12 +1509,12 @@ class sfPunBBCodeParser
                         $abseil_index_old = $abseil_index_tmp;
                         if (empty($abseil_suffix))
                         {
-                            $abseil_index ++;
+                            $abseil_index += $index_incr;
                         }
                     }
                     else
                     {
-                        $abseil_index ++;
+                        $abseil_index += $index_incr;
                         if (empty($abseil_suffix))
                         {
                             $abseil_index_old = $abseil_index;
@@ -1523,7 +1522,7 @@ class sfPunBBCodeParser
                     }
                 }
                 
-                $abseil_header = $marker_type . $abseil_index . $abseil_suffix;
+                $row_header = $marker_type . $abseil_index . $abseil_suffix;
                 
                 if (!empty($multi_line_index))
                 {
@@ -1531,7 +1530,7 @@ class sfPunBBCodeParser
                     {
                         $multi_line_index += $abseil_index; 
                     }
-                    $line_header .= ' - ' . $marker_type . $multi_line_index . $abseil_suffix;
+                    $row_header .= ' - ' . $marker_type . $multi_line_index . $abseil_suffix;
                     $abseil_index = $multi_line_index;
                     if (empty($abseil_suffix))
                     {
@@ -1561,7 +1560,7 @@ class sfPunBBCodeParser
             
             if ($first_line)
             {
-                $nb_col = $cell_index - 1;
+                $nb_col = $cell_index;
             }
             
             $pattern = array();
@@ -1581,15 +1580,15 @@ class sfPunBBCodeParser
             
             $item = preg_replace($pattern, $replace, $item);
             
-            if ($cell_index - 1 < $nb_col)
+            if ($cell_index < $nb_col)
             {
                 for ($filling_index = $cell_index; $filling_index <= $nb_col; $filling_index ++)
                 {
-                    $item .= '<td></td>';
+                    $item .= '<td> </td>';
                 }
             }
                 
-            return '<tr><' . $cell_tag . '>' . $line_header . '</' . $cell_tag . '>' . $item . '</tr>';
+            return '<tr><' . $cell_tag . '>' . $row_header . '</' . $cell_tag . '>' . $item . '</tr>';
         }
         else   // texte multicolonne inter-longueurs
         {
