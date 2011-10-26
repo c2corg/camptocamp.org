@@ -1349,6 +1349,7 @@ class sfPunBBCodeParser
     public static function _doLines_callback($matches) {
         global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $nb_col, $doc_module, $cell_index;
         
+        $first_line = true;
         $list = $matches[1] . "\n";
         
         # trim trailing blank lines:
@@ -1645,13 +1646,13 @@ class sfPunBBCodeParser
             }
                 
             return '<tr><' . $cell_tag . '>' . $row_header . '</' . $cell_tag . '>' . $item . '</tr>';
+            
+            $first_line = false;
         }
         else   // texte multicolonne inter-longueurs
         {
             return '<tr class="interline"><td colspan="' . $nb_col . '">' . $item . '</td></tr>';
         }
-        
-        $first_line = false;
     }
     
     public static function _processListCell($matches)
