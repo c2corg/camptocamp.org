@@ -27,7 +27,7 @@ switch ($argv[1]) {
  * be imported into camptocamp
  */
 function extractkml() {
-  global $argc, $argv;
+  global $argc, $argv, $newid;
 
   if ($argc != 4) usage();
 
@@ -115,7 +115,7 @@ function extractkml() {
  * Result is sent to stdout
  */
 function clean() {
-  global $argc, $argv;
+  global $argc, $argv, $newid;
 
   if ($argc != 3) usage();
   $file =  $argv[2];
@@ -125,14 +125,8 @@ function clean() {
     file_not_found($file);
   }
 
-  // first thing, generate a new base id
-  // in originial c2c.osm file, ids have been generated via
-  // c2cid * 100000 + counter
-  // and c2cids where at most about 300000
-  // So that choosing a number between (700000 and 900000) * 100000 should
-  // keep us quite safe...
-  // (and blame me the day it doesn't work...)
-  $newid = (700000 + rand(0, 200000)) * 100000;
+  $newid = 1;
+  $usedids= array();
 
   // assumption: we have a new line after each tag...
   if ($file) {
@@ -311,18 +305,22 @@ function diff() {
 
 
 function clean_line($line, $attr='id') {
-  global $newid;
+  global $newid, $usedids;
 
   // remove the action attribute
   $line = str_replace(' action=\'modify\'', '', $line);
-  // change negative ids
-  if (strstr($line, $attr.'=\'-')) {
-    preg_match('/'.$attr.'=\'-(\d+)/', $line, $matches);
-    $id = $newid + (float) $matches[1];
-    $line = preg_replace('/'.$attr.'=\'-\d+/', $attr.'=\'' . $id, $line);
-    if ($attr === 'id' && !strstr($line, 'version=')) {
-      $line = str_replace('id=\'', 'version=\'1\' id=\'', $line);
-    }
+  // change ids
+  preg_match('/'.$attr.'=\'(-?\d+)/', $line, $matches);
+  if (!isset($usedids[(string) $matches[1]])) {
+    $nid = (string) $newid;
+    $usedids[(string) $matches[1]] = $newid;
+    $newid++;
+  } else {
+    $nid = $usedids[(string) $matches[1]];
+  }
+  $line = preg_replace('/'.$attr.'=\'-?\d+/', $attr.'=\'' . $nid, $line);
+  if ($attr === 'id' && !strstr($line, 'version=')) {
+    $line = str_replace('id=\'', 'version=\'1\' id=\'', $line);
   }
   echo $line;
 }
