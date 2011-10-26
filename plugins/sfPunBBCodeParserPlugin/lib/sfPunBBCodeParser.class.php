@@ -1448,7 +1448,7 @@ class sfPunBBCodeParser
                 }
                 else
                 {
-                    if (!$first_line && $line_suffix != $line_suffix_old)
+                    if ($first_line == false && $line_suffix != $line_suffix_old)
                     {
                         if (empty($line_suffix))
                         {
@@ -1534,7 +1534,7 @@ class sfPunBBCodeParser
                 }
                 else
                 {
-                    if (!$first_line && $abseil_suffix != $abseil_suffix_old)
+                    if ($first_line == false && $abseil_suffix != $abseil_suffix_old)
                     {
                         if (empty($abseil_suffix))
                         {
@@ -1609,7 +1609,7 @@ class sfPunBBCodeParser
             
             $item = preg_replace_callback($pattern_item, array('self', '_processListCell'), $item);
             
-            if ($first_line)
+            if ($first_line == true)
             {
                 $nb_col = $cell_index;
             }
