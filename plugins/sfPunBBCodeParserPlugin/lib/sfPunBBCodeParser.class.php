@@ -1639,7 +1639,7 @@ class sfPunBBCodeParser
                 }
                 else
                 {
-                    $colspan = ''
+                    $colspan = '';
                 }
                 $item .= '<td' . $colspan . '> </td>';
             }
