@@ -1304,7 +1304,7 @@ class sfPunBBCodeParser
     //
    
     public static function do_lines($text) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $first_line $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $first_line, $nb_col, $doc_module, $cell_index;
         
         $line_index = 0;
         $line_index_old = 0;
