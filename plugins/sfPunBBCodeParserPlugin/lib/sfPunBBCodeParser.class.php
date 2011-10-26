@@ -1359,7 +1359,7 @@ class sfPunBBCodeParser
             ^([LR])\#               # line marker = $1
             (\+?)                   # relative index = $2
             (\d*)                   # new line index = $3
-            ([^\d-:|\s][^-!:|\s]*|) # new line suffix = $4
+            ([^\d-!:|\s][^-!:|\s]*|) # new line suffix = $4
             (-(\+?)(\d+))?          # multi line index = $6 $7
             (!?)                    # reference index flag = $8
             \s*[:|]*                # first separator
@@ -1369,7 +1369,7 @@ class sfPunBBCodeParser
             }xm',
             array('self', '_processLineItems_callback'), $list);
 
-            // '{\n?^([LR])\#(\+?)(\d*)([^\d-:|\s][^-:|\s]*|)(-(\+?)(\d+))?\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
+            // '{\n?^([LR])\#(\+?)(\d*)([^\d-!:|\s][^-!:|\s]*|)(-(\+?)(\d+))?(!?)\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
         
         $result = '</p><table class="route_lines"><tbody>' . $list . '</tbody></table><p>';
         
