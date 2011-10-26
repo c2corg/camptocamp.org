@@ -4243,6 +4243,7 @@ ol.text ol.text ol.text
 
 table.route_lines
 {
+  padding: 0.3em 0;
   border-spacing: 0;
 }
 table.route_lines th

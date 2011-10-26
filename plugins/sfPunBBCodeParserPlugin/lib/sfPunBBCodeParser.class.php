@@ -1304,7 +1304,7 @@ class sfPunBBCodeParser
     //
    
     public static function do_lines($text) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $first_line, $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $nb_col, $doc_module, $cell_index;
         
         $line_index = 0;
         $line_index_old = 0;
@@ -1312,6 +1312,8 @@ class sfPunBBCodeParser
         $abseil_index_old = 0;
         $line_suffix = '';
         $abseil_suffix = '';
+        $line_reference = -1;
+        $abseil_reference = -1;
         $first_line = true;
         $nb_col = 0;
         $doc_module = sfContext::getInstance()->getModuleName();
@@ -1345,7 +1347,7 @@ class sfPunBBCodeParser
         return $text;
     }
     public static function _doLines_callback($matches) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $first_line, $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $nb_col, $doc_module, $cell_index;
         
         $list = $matches[1] . "\n";
         
@@ -1357,10 +1359,11 @@ class sfPunBBCodeParser
             ^([LR])\#               # line marker = $1
             (\+?)                   # relative index = $2
             (\d*)                   # new line index = $3
-            ([^\d-:|\s][^-:|\s]*|)  # new line suffix = $4
+            ([^\d-:|\s][^-!:|\s]*|) # new line suffix = $4
             (-(\+?)(\d+))?          # multi line index = $6 $7
+            (!?)                    # reference index flag = $8
             \s*[:|]*                # first separator
-            ((?s:.*?))              # line item text = $8
+            ((?s:.*?))              # line item text = $9
             (?:\n+(?=\n)|\n)        # tailing blank line
             (?= \n* (\z | [LR]\#))
             }xm',
@@ -1374,7 +1377,7 @@ class sfPunBBCodeParser
     }
 
     public static function _processLineItems_callback($matches) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $first_line, $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $nb_col, $doc_module, $cell_index;
         
         $cell_index = 0;
         
@@ -1384,7 +1387,8 @@ class sfPunBBCodeParser
         $new_marker_suffix = $matches[4];
         $multi_line_relative = $matches[6];
         $multi_line_index = $matches[7];
-        $item = $matches[8];
+        $reference_flag = $matches[8];
+        $item = $matches[9];
         $cell_tag = 'th';
         
         if ($new_marker_suffix != '~')  // description de longueur
@@ -1406,7 +1410,7 @@ class sfPunBBCodeParser
                 $index_incr = 1;
             }
             
-            if ($marker_type == 'L')
+            if ($marker_type == 'L') // L : line
             {
                 if ($doc_module == 'sites')
                 {
@@ -1436,15 +1440,33 @@ class sfPunBBCodeParser
                         $line_index = $new_marker_index;
                         $line_index_old = $line_index;
                     }
+                    if (empty($reference_flag))
+                    {
+                        $line_reference = -1;
+                    }
                 }
                 else
                 {
-                    if ($line_index > 0 && $line_suffix != $line_suffix_old)
+                    if (!$first_line && $line_suffix != $line_suffix_old)
                     {
-                        $line_index_tmp = $line_index;
-                        $line_index = $line_index_old;
-                        $line_index_old = $line_index_tmp;
                         if (empty($line_suffix))
+                        {
+                            $line_reference = -1;
+                        }
+                        $line_index_tmp = $line_index;
+                        if ($line_reference > -1)
+                        {
+                            $line_index = $line_reference;
+                        }
+                        else
+                        {
+                            $line_index = $line_index_old;
+                        }
+                        if (empty($line_suffix_old))
+                        {
+                            $line_index_old = $line_index_tmp;
+                        }
+                        if (empty($line_suffix) || !empty($new_marker_relative))
                         {
                             $line_index += $index_incr;
                         }
@@ -1452,11 +1474,16 @@ class sfPunBBCodeParser
                     else
                     {
                         $line_index += $index_incr;
-                        if (empty($line_suffix))
-                        {
-                            $line_index_old = $line_index;
-                        }
                     }
+                    if (empty($line_suffix))
+                    {
+                        $line_index_old = $line_index;
+                    }
+                }
+                
+                if (!empty($reference_flag))
+                {
+                    $line_reference = $line_index;
                 }
                 
                 $row_header = $marker_type . $line_index . $line_suffix;
@@ -1475,7 +1502,7 @@ class sfPunBBCodeParser
                     }
                 }
             }
-            else
+            else  // R : abseil
             {
                 $abseil_suffix_old = $abseil_suffix;
                 if ($new_marker_suffix == '_')
@@ -1499,15 +1526,33 @@ class sfPunBBCodeParser
                         $abseil_index = $new_marker_index;
                         $abseil_index_old = $abseil_index;
                     }
+                    if (empty($reference_flag))
+                    {
+                        $abseil_reference = -1;
+                    }
                 }
                 else
                 {
-                    if ($abseil_index > 0 && $abseil_suffix != $abseil_suffix_old)
+                    if (!$first_line && $abseil_suffix != $abseil_suffix_old)
                     {
-                        $abseil_index_tmp = $abseil_index;
-                        $abseil_index = $abseil_index_old;
-                        $abseil_index_old = $abseil_index_tmp;
                         if (empty($abseil_suffix))
+                        {
+                            $abseil_reference = -1;
+                        }
+                        $abseil_index_tmp = $abseil_index;
+                        if ($abseil_reference > -1)
+                        {
+                            $abseil_index = $abseil_reference;
+                        }
+                        else
+                        {
+                            $abseil_index = $abseil_index_old;
+                        }
+                        if (empty($abseil_suffix_old))
+                        {
+                            $abseil_index_old = $abseil_index_tmp;
+                        }
+                        if (empty($abseil_suffix) || !empty($new_marker_relative))
                         {
                             $abseil_index += $index_incr;
                         }
@@ -1515,11 +1560,16 @@ class sfPunBBCodeParser
                     else
                     {
                         $abseil_index += $index_incr;
-                        if (empty($abseil_suffix))
-                        {
-                            $abseil_index_old = $abseil_index;
-                        }
                     }
+                    if (empty($abseil_suffix))
+                    {
+                        $abseil_index_old = $abseil_index;
+                    }
+                }
+                
+                if (!empty($reference_flag))
+                {
+                    $abseil_reference = $abseil_index;
                 }
                 
                 $row_header = $marker_type . $abseil_index . $abseil_suffix;
@@ -1582,10 +1632,16 @@ class sfPunBBCodeParser
             
             if ($cell_index < $nb_col)
             {
-                for ($filling_index = $cell_index; $filling_index <= $nb_col; $filling_index ++)
+                $col_diff = $nb_col - $cell_index;
+                if ($col_diff > 1)
                 {
-                    $item .= '<td> </td>';
+                    $colspan = ' colspan="' . $col_diff . '"';
                 }
+                else
+                {
+                    $colspan = ''
+                }
+                $item .= '<td' . $colspan . '> </td>';
             }
                 
             return '<tr><' . $cell_tag . '>' . $row_header . '</' . $cell_tag . '>' . $item . '</tr>';
