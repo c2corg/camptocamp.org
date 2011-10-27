@@ -1214,7 +1214,7 @@ msgid "Latest summits"
 msgstr "Derniers sommets"
 
 msgid "Latest threads"
-msgstr "Echos du forum"
+msgstr "Échos du forum"
 
 msgid "Latest videos"
 msgstr "Dernières vidéos"
@@ -3933,6 +3933,9 @@ msgstr "Créer son compte&nbsp;?"
 msgid "created_at"
 msgstr "créée le"
 
+msgid "creations"
+msgstr "créations"
+
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
 msgid "credits"
@@ -4079,6 +4082,9 @@ msgstr "modifier&nbsp;?"
 
 msgid "edit_tab_help"
 msgstr "Modifier le document (réservé aux membres connectés)"
+
+msgid "editions"
+msgstr "éditions"
 
 msgid "edito"
 msgstr "édito"
@@ -6203,6 +6209,9 @@ msgstr "trace, sentier"
 
 msgid "track_status"
 msgstr "Trace&nbsp;:"
+
+msgid "tracking"
+msgstr "suivi"
 
 msgid "trad"
 msgstr "terrain d'aventure"

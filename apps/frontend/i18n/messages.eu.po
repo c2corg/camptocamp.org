@@ -4082,6 +4082,10 @@ msgstr "¿Abrir su cuenta?"
 msgid "created_at"
 msgstr "sortua"
 
+# [WARNING] en translation used
+msgid "creations"
+msgstr "creations"
+
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
 msgid "credits"
@@ -4236,6 +4240,10 @@ msgstr "aldatu?"
 
 msgid "edit_tab_help"
 msgstr "Dokumentua aldatu (izen emanda dauden pertsonek dute bakarrik baimena)"
+
+# [WARNING] en translation used
+msgid "editions"
+msgstr "editions"
 
 msgid "edito"
 msgstr "editoriala"
@@ -6577,6 +6585,10 @@ msgstr "traza / bidezidorra"
 
 msgid "track_status"
 msgstr "Aztarna:"
+
+# [WARNING] en translation used
+msgid "tracking"
+msgstr "tracking"
 
 msgid "trad"
 msgstr "abenturako lekua"

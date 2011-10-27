@@ -3886,6 +3886,10 @@ msgstr "Creare il suo account?"
 msgid "created_at"
 msgstr "creato il"
 
+# [WARNING] en translation used
+msgid "creations"
+msgstr "creations"
+
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
 msgid "credits"
@@ -4032,6 +4036,10 @@ msgstr "Modifica?"
 
 msgid "edit_tab_help"
 msgstr "Modificare il documento (solo per gli utenti registrati)"
+
+# [WARNING] en translation used
+msgid "editions"
+msgstr "editions"
 
 msgid "edito"
 msgstr "editor"
@@ -6164,6 +6172,10 @@ msgstr "traccia, sentiero"
 
 msgid "track_status"
 msgstr "Traccia:"
+
+# [WARNING] en translation used
+msgid "tracking"
+msgstr "tracking"
 
 msgid "trad"
 msgstr "via classica"

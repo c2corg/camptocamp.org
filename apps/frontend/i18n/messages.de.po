@@ -4243,6 +4243,10 @@ msgstr "Ein Benutzerprofil erstellen?"
 msgid "created_at"
 msgstr "erstellt am"
 
+# [WARNING] en translation used
+msgid "creations"
+msgstr "creations"
+
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
 # [WARNING] needs_review
@@ -4392,6 +4396,10 @@ msgstr "ändern?"
 
 msgid "edit_tab_help"
 msgstr "Das Dokument ändern (Nur für eingeloggte Benutzer)"
+
+# [WARNING] en translation used
+msgid "editions"
+msgstr "editions"
 
 msgid "edito"
 msgstr "Leitartikel"
@@ -6708,6 +6716,10 @@ msgstr "Wegverlauf"
 
 msgid "track_status"
 msgstr "Spur:"
+
+# [WARNING] en translation used
+msgid "tracking"
+msgstr "tracking"
 
 msgid "trad"
 msgstr "Alpinklettern"

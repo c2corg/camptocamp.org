@@ -3894,6 +3894,9 @@ msgstr "Open an account?"
 msgid "created_at"
 msgstr "created at"
 
+msgid "creations"
+msgstr "creations"
+
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
 msgid "credits"
@@ -4042,6 +4045,9 @@ msgstr "edit?"
 
 msgid "edit_tab_help"
 msgstr "Modify the document (reserved to logged-in members)"
+
+msgid "editions"
+msgstr "editions"
 
 msgid "edito"
 msgstr "edito"
@@ -6192,6 +6198,10 @@ msgstr "trail, track"
 
 msgid "track_status"
 msgstr "Track:"
+
+# [WARNING] needs_review
+msgid "tracking"
+msgstr "tracking"
 
 msgid "trad"
 msgstr "trad"
