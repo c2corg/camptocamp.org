@@ -83,14 +83,17 @@ if ($is_not_archive && $is_not_merged)
             echo '<li>'
                . picto_tag('picto_' . $module) . ' '
                . __($module) . __('&nbsp;:') . ' '
-               . link_to(__('creations'), "$module/whatsnew?users=$id&mode=creation") . ' ('
+               . link_to(__('creations'), "$module/whatsnew?users=$id&mode=creations") . ' ('
                . link_to(__('tracking'), "$module/whatsnew?createdby=$id") . ') - '
                . link_to(__('editions'), "$module/whatsnew?users=$id") . ' ('
                . link_to(__('tracking'), "$module/whatsnew?editedby=$id") . ')'
                . '</li>';
         }
         echo '</ul>';
-        echo '<p><span class="picto action_list"></span> ' . link_to(__('List all user contribs'), "documents/whatsnew?user=$id") . '</p>';
+        echo '<p><span class="picto action_list"></span> '
+           . link_to(__('List all user contribs'), "documents/whatsnew?users=$id") . ' ('
+           . link_to(__('creations'), "documents/whatsnew?users=$id&mode=creations") . ')'
+           . '</p>';
     ?>
         </li>
     </ul>
