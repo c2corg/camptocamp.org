@@ -27,7 +27,7 @@ switch ($argv[1]) {
  * be imported into camptocamp
  */
 function extractkml() {
-  global $argc, $argv, $newid;
+  global $argc, $argv, $kmlname;
 
   if ($argc != 4) usage();
 
@@ -57,6 +57,7 @@ function extractkml() {
   foreach ($relations as $relation) {
     $c2cid = c2cid($relation);
     if ($c2cid && in_array($id, $c2cid)) {
+      kmlname($relation, $id);
       $relationid = (string) $relation->attributes()->id;
       $geoms[$relationid] = array();
 
@@ -77,7 +78,8 @@ function extractkml() {
     // check that either way is a polygon of the c2c area
     $c2cid = c2cid($way);
     $wayid = (string) $way->attributes()->id;
-    if ($c2cid && in_array($id, $c2cid)) { 
+    if ($c2cid && in_array($id, $c2cid)) {
+      kmlname($way, $id);
       $geoms[] = get_nodes($way, $nt);
     }
     // or a border for a relation
@@ -395,16 +397,38 @@ function get_nodes($way, $nt) {
   return $output;
 }
 
-// TODO extract name, but well, it is not straightforward
-// and not very useful if kml is used for updating an area
-// (and not creating a new one)
+function kmlname($xmlelement, $c2cid) {
+  global $kmlname;
+
+  if (!isset($kmlname)) {
+    if (count($xmlelement->tag)) {
+      foreach ($xmlelement->tag as $tag) {
+        if ((string) $tag->attributes()->k === 'name') {
+          $c2cnames = explode(';', (string) $tag->attributes()->v);
+        }
+      }
+    }
+    $c2cids = c2cid($xmlelement);
+
+    foreach ($c2cids as $k => $id) {
+      if ($id == $c2cid) {
+        $kmlname = $c2cnames[$k];
+        return;
+      }
+    }
+  }
+}
+
 function kmlstart() {
+  global $kmlname;
+
+  $kmlname = isset($kmlname) ? $kmlname : 'kmlname';
   echo '<?xml version="1.0" encoding="UTF-8"?>', "\n",
        '<kml xmlns="http://earth.google.com/kml/2.2">', "\n",
        '<Document>', "\n",
-       '  <name>kmlname</name>', "\n",
+       '  <name><![CDATA[', $kmlname, ']]></name>', "\n",
        '  <Placemark id="1">', "\n",
-       '    <name>placemarkname</name>', "\n";
+       '    <name><![CDATA[', $kmlname, ']]></name>', "\n";
 }
 
 function kmlend() {
