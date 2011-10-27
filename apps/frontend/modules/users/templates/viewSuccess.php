@@ -77,23 +77,39 @@ if ($is_not_archive && $is_not_merged)
         <li><span class="picto picto_articles"></span> <?php echo link_to(__('Personal articles'), "articles/list?users=$id") ?></li>
         <li><span class="picto action_description"></span> <?php echo __('Guidebook contribs:');
         echo '<ul>';
-        $module_list = array('routes', 'summits', 'sites', 'huts', 'parkings', 'products', 'books');
+        $module_list = array('routes', 'summits', 'sites', 'huts', 'parkings', 'products', 'books', 'articles', 'images');
         foreach($module_list as $module)
         {
+            $module_title = $module;
+            $url_param = '';
+            if ($module == 'articles')
+            {
+                $module_title = 'collaborative articles';
+                $url_param = 'ctyp=1&';
+            }
+            if ($module == 'images')
+            {
+                $module_title = 'collaborative images';
+                $url_param = 'ityp=1&';
+            }
             echo '<li>'
                . picto_tag('picto_' . $module) . ' '
-               . __($module) . __('&nbsp;:') . ' '
-               . link_to(__('creations'), "$module/whatsnew?users=$id&mode=creations") . ' ('
-               . link_to(__('tracking'), "$module/whatsnew?createdby=$id") . ') - '
-               . link_to(__('editions'), "$module/whatsnew?users=$id") . ' ('
-               . link_to(__('tracking'), "$module/whatsnew?editedby=$id") . ')'
+               . __($module_title) . __('&nbsp;:') . ' '
+               . link_to(__('creations'), "$module/whatsnew?$url_param" . "mode=creations&users=$id") . ' ('
+               . link_to(__('tracking'), "$module/whatsnew?$url_param" . "createdby=$id") . ') - '
+               . link_to(__('editions'), "$module/whatsnew?$url_param" . "users=$id") . ' ('
+               . link_to(__('tracking'), "$module/whatsnew?$url_param" . "editedby=$id") . ')'
                . '</li>';
         }
         echo '</ul>';
         echo '<p><span class="picto action_list"></span> '
-           . link_to(__('List all user contribs'), "documents/whatsnew?users=$id") . ' ('
-           . link_to(__('creations'), "documents/whatsnew?users=$id&mode=creations") . ')'
+           . link_to(__('List all user collaborative contribs'), "documents/whatsnew?dtyp=collab&users=$id") . ' ('
+           . link_to(__('creations'), "documents/whatsnew?dtyp=collab&mode=creations&users=$id") . ')'
            . '</p>';
+    /*    echo '<p><span class="picto action_list"></span> '
+           . link_to(__('List all user contribs'), "documents/whatsnew?users=$id") . ' ('
+           . link_to(__('creations'), "documents/whatsnew?mode=creations&users=$id") . ')'
+           . '</p>';  */
     ?>
         </li>
     </ul>

@@ -1627,6 +1627,8 @@ class sfPunBBCodeParser
             
             // suppression des cases vides en fin de ligne du tableau
             $pattern[] = '{(<td></td>)$}';
+            $pattern[] = '{(<th></th>)$}';
+            $replace[] = '';
             $replace[] = '';
             
             // déprotection des wikiliens

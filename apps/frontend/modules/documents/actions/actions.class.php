@@ -1948,11 +1948,20 @@ class documentsActions extends c2cActions
         $areas = $this->getRequestParameter('areas', null);
         $activities = $this->getRequestParameter('act', null);
         $mode = $this->getRequestParameter('mode', 'editions');
+        if ($mode != 'creations')
+        {
+            $mode = 'editions';
+        }
         $doc_id = $this->getRequestParameter('id', null);
+        $params = array();
+        $params['dtyp'] = $this->getRequestParameter('dtyp', null);
+        $params['ctyp'] = $this->getRequestParameter('ctyp', null);
+        $params['ityp'] = $this->getRequestParameter('ityp', null);
+        
         $model = $this->model_class;
         $model_i18n = $model . 'I18n';
     
-        $this->pager = Document::listRecentChangesPager($model, $lang, $areas, $activities, $doc_id, $user_id, $editedby_id, $createdby_id, $mode);
+        $this->pager = Document::listRecentChangesPager($model, $lang, $areas, $activities, $doc_id, $user_id, $editedby_id, $createdby_id, $mode, $params);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 
@@ -1990,10 +1999,21 @@ class documentsActions extends c2cActions
         }
         
         $this->items = $items;
+        $this->mode = $mode;
 
 
         $this->setTemplate('../../documents/templates/whatsnew');
-        $this->setPageTitle($this->__('Recent changes'));
+        
+        $page_title = ucfirst($this->__($module)) . $this->__('&nbsp;:') . ' ';
+        if ($mode == 'creations')
+        {
+            $page_title .= $this->__('creations');
+        }
+        else
+        {
+            $page_title .= $this->__('changes');
+        }
+        $this->setPageTitle($page_title);
     }
     
     public function executeLatestassociations()

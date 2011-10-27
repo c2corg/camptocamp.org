@@ -787,7 +787,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $languages;
     }
 
-    protected static function queryRecent($mode = 'editions', $m, $mi, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $editedby_id = null, $createdby_id = null)
+    protected static function queryRecent($mode = 'editions', $m, $mi, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $editedby_id = null, $createdby_id = null, $params = array())
     {
         $query = array("dv.culture = $mi.culture");
         $arguments = array();
@@ -866,6 +866,18 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             $query[] = ' ( ' . implode($subquery, ' OR ') . ' )';
         }
+        
+        if (!empty($params['ctyp']))
+        {
+            $query[] = "$m.article_type = ?";
+            $arguments[] = $params['ctyp'];
+        }
+        
+        if (!empty($params['ityp']))
+        {
+            $query[] = "$m.image_type = ?";
+            $arguments[] = $params['ityp'];
+        }
 
         $query = implode($query, ' AND ');
 
@@ -877,7 +889,7 @@ class BaseDocument extends sfDoctrineRecordI18n
      * @param string model name
      * @return Pager
      */
-    public static function listRecentChangesPager($model, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $editedby_id = null, $createdby_id = null, $mode = 'editions')
+    public static function listRecentChangesPager($model, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $editedby_id = null, $createdby_id = null, $mode = 'editions', $params = array())
     {
         $m = strtolower(substr($model, 0, 1));
         $mi = $m . 'i';
@@ -892,7 +904,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $model_i18n = $model . 'I18n';
 
-        $query_params = self::queryRecent($mode, $m, $mi, $langs, $areas, $activities, $doc_ids, $user_id, $editedby_id, $createdby_id);
+        $query_params = self::queryRecent($mode, $m, $mi, $langs, $areas, $activities, $doc_ids, $user_id, $editedby_id, $createdby_id, $params);
         
         $field_list = "dv.document_id, dv.culture, dv.version, dv.nature, dv.created_at, up.id, up.topo_name, $mi.name, hm.comment, hm.is_minor";
         if ($model == 'Document')

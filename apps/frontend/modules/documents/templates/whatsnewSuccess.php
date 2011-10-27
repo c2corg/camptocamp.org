@@ -66,7 +66,7 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
                 echo picto_tag('picto_' . $module_name, __($module_name));
                 ?></td>
         <?php endif; ?>
-        <?php echo include_partial('documents/list_body_changes', array('item' => $item, 'table_class' => $table_class, 'needs_username' => true, 'module_name' => $module_name, 'model_i18n' => $model_i18n)); ?>
+        <?php echo include_partial('documents/list_body_changes', array('item' => $item, 'table_class' => $table_class, 'needs_username' => true, 'module_name' => $module_name, 'model_i18n' => $model_i18n, 'mode' => $mode)); ?>
         </tr>
     <?php endforeach ?>
     </tbody>

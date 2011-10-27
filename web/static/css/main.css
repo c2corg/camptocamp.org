@@ -4286,10 +4286,6 @@ table.route_lines tr.interline td
   font-weight: normal;
   font-style: italic;
 }
-.sites_content table.route_lines th + td
-{
-  font-weight: bold;
-}
 .sites_content table.route_lines td:first-child
 {
   padding-left: 0.3em;

@@ -4,11 +4,23 @@ $model_i18n = $sf_data->getRaw('model_i18n');
 $id = $item['document_id'];
 $lang = $item['culture'];
 $version = $item['version'];
+if (!isset($mode))
+{
+    $mode = 'editions';
+}
+if ($mode == 'editions')
+{
+    $version_param = "&version=$version";
+}
+else
+{
+    $version_param = '';
+}
 
 $link = '@document_by_id?module=users&id=' . $item['history_metadata']['user_private_data']['id'];
 ?>
 <td>
-<?php echo link_to($item[$model_i18n]['name'], "@document_by_id_lang_version?module=$module_name&id=$id&lang=$lang&version=$version") ?>
+<?php echo link_to($item[$model_i18n]['name'], "@document_by_id_lang_version?module=$module_name&id=$id&lang=$lang$version_param") ?>
 </td><td>
 <?php echo smart_date($item['created_at']) ?>
 </td><td>
