@@ -1470,6 +1470,10 @@ class sfPunBBCodeParser
                         if (empty($line_suffix) || !empty($new_marker_relative))
                         {
                             $line_index += $index_incr;
+                            if ($line_reference == -1)
+                            {
+                                $line_index_old = $line_index;
+                            }
                         }
                     }
                     else
@@ -1556,6 +1560,10 @@ class sfPunBBCodeParser
                         if (empty($abseil_suffix) || !empty($new_marker_relative))
                         {
                             $abseil_index += $index_incr;
+                            if ($abseil_reference == -1)
+                            {
+                                $abseil_index_old = $abseil_index;
+                            }
                         }
                     }
                     else
@@ -1644,10 +1652,10 @@ class sfPunBBCodeParser
                 }
                 $item .= '<td' . $colspan . '> </td>';
             }
-                
-            return '<tr><' . $cell_tag . '>' . $row_header . '</' . $cell_tag . '>' . $item . '</tr>';
             
             $first_line = false;
+                
+            return '<tr><' . $cell_tag . '>' . $row_header . '</' . $cell_tag . '>' . $item . '</tr>';
         }
         else   // texte multicolonne inter-longueurs
         {
