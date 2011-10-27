@@ -51,30 +51,6 @@ class usersActions extends documentsActions
                 }
                 
 
-                $whattoselect = 'dv.document_id, dv.culture, dv.version, dv.nature, dv.created_at, ' .
-                                'di.name, d2.module, ' .
-                                'hm.comment, hm.is_minor';
-                $contribs = Document::listRecent('Document', 10,
-                                                       $id, null, null, 'editions',
-                                                       null, $whattoselect, null, false);
-                // prepend summit name to routes
-                foreach ($contribs as $key => $contrib)
-                {
-                    $contribs[$key]['id'] = $contrib['document_id'];
-                    $contribs[$key]['name'] = $contrib['DocumentI18n']['name'];
-                    $contribs[$key]['module'] = $contrib['Document']['module'];
-                }
-                $routes = Route::addBestSummitName(array_filter($contribs, array('c2cTools', 'is_route')), $this->__(' :').' ');
-                foreach ($routes as $key => $route)
-                {
-                    $contribs[$key] = $route;
-                }
-                foreach ($contribs as $key => $contrib)
-                {
-                    $contribs[$key]['DocumentI18n']['name'] = $contrib['name'];
-                }
-                $this->contribs = $contribs;
-                                                    
                 // FIXME: put limit in query instead of slicing results
                 $associated_outings = array_reverse(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);
                 $this->nb_associated_outings = count($associated_outings);

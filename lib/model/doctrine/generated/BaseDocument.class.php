@@ -787,7 +787,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $languages;
     }
 
-    protected static function queryRecent($mode = 'editions', $m, $mi, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
+    protected static function queryRecent($mode = 'editions', $m, $mi, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $editedby_id = null, $createdby_id = null)
     {
         $query = array("dv.culture = $mi.culture");
         $arguments = array();
@@ -820,10 +820,18 @@ class BaseDocument extends sfDoctrineRecordI18n
             $arguments[] = $user_id;
         }
 
-        if ($user_doc_id)
+        if ($editedby_id)
         {
             $query[] = "hm2.user_id = ?";
-            $arguments[] = $user_doc_id;
+            $arguments[] = $editedby_id;
+        }
+
+        if ($createdby_id)
+        {
+            $query[] = "hm3.user_id = ?";
+            $arguments[] = $createdby_id;
+            $query[] = 'dv3.version = ?';
+            $arguments[] = 1;
         }
 
         if (!empty($langs))
@@ -869,7 +877,7 @@ class BaseDocument extends sfDoctrineRecordI18n
      * @param string model name
      * @return Pager
      */
-    public static function listRecentChangesPager($model, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $user_doc_id = null)
+    public static function listRecentChangesPager($model, $langs = null, $areas = null, $activities = null, $doc_ids = null, $user_id = null, $editedby_id = null, $createdby_id = null, $mode = 'editions')
     {
         $m = strtolower(substr($model, 0, 1));
         $mi = $m . 'i';
@@ -884,7 +892,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $model_i18n = $model . 'I18n';
 
-        $query_params = self::queryRecent('editions', $m, $mi, $langs, $areas, $activities, $doc_ids, $user_id, $user_doc_id);
+        $query_params = self::queryRecent($mode, $m, $mi, $langs, $areas, $activities, $doc_ids, $user_id, $editedby_id, $createdby_id);
         
         $field_list = "dv.document_id, dv.culture, dv.version, dv.nature, dv.created_at, up.id, up.topo_name, $mi.name, hm.comment, hm.is_minor";
         if ($model == 'Document')
@@ -911,10 +919,16 @@ class BaseDocument extends sfDoctrineRecordI18n
             $q->leftJoin('dv.geoassociations geo');
         }
 
-        if (!empty($user_doc_id))
+        if (!empty($editedby_id))
         {
             $q->leftJoin('dv.versions dv2')
               ->leftJoin('dv2.history_metadata hm2');
+        }
+
+        if (!empty($createdby_id))
+        {
+            $q->leftJoin('dv.versions dv3')
+              ->leftJoin('dv3.history_metadata hm3');
         }
         
         if (!empty($query_params['query']))

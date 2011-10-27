@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'Field', 'Forum');
+use_helper('Language', 'Sections', 'Viewer', 'Field', 'Forum', 'General');
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
@@ -75,24 +75,22 @@ if ($is_not_archive && $is_not_merged)
         <li><span class="picto action_comment"></span> <?php echo f_link_to(__('User-s messages'), 'search.php?action=search&author_id=' .  $id) ?></li>
         <li><span class="picto picto_images"></span> <?php echo link_to(__('Images uploaded by this user'), "images/list?users=$id") ?></li>
         <li><span class="picto picto_articles"></span> <?php echo link_to(__('Personal articles'), "articles/list?users=$id") ?></li>
-        <li><span class="picto action_description"></span> <?php echo __('Guidebook contribs:') ?>
-    <?php
-    if (count($contribs) > 0)
-    {
-        include_partial('documents/list_changes', array('model' => 'Document',
-                                                        'items' => $contribs,
-                                                        'needs_username' => false)); 
-        if (!$mobile_version)
+        <li><span class="picto action_description"></span> <?phpecho __('Guidebook contribs:');
+        echo '<ul>';
+        $module_list = array('routes', 'summits', 'sites', 'huts', 'parkings', 'products', 'books');
+        foreach($module_list as $module)
         {
-            echo '<p><span class="picto action_list"></span> ' . link_to(__('List all user contribs'), "documents/whatsnew?user=$id") . '</p>';
+            echo '<li>'
+               . picto_tag('picto_' . $module) . ' '
+               . __($module) . __('&nbsp;:') . ' '
+               . link_to(__('creations'), "$module/whatsnew?users=$id&mode=creation") . ' ('
+               . link_to(__('tracking'), "$module/whatsnew?createdby=$id") . ') - '
+               . link_to(__('editions'), "$module/whatsnew?users=$id") . ' ('
+               . link_to(__('tracking'), "$module/whatsnew?editedby=$id") . ')'
+               . '</li>';
         }
-    }
-    else
-    {
-        ?>
-        <p><?php echo __('No contribution for this user') ?></p>
-        <?php
-    }
+        echo '</ul>';
+        echo '<p><span class="picto action_list"></span> ' . link_to(__('List all user contribs'), "documents/whatsnew?user=$id") . '</p>';
     ?>
         </li>
     </ul>
