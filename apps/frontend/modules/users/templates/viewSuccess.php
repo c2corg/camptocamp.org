@@ -77,7 +77,7 @@ if ($is_not_archive && $is_not_merged)
         <li><span class="picto picto_articles"></span> <?php echo link_to(__('Personal articles'), "articles/list?users=$id") ?></li>
         <li><span class="picto action_description"></span> <?php echo __('Guidebook contribs:');
         echo '<ul>';
-        $module_list = array('routes', 'summits', 'sites', 'huts', 'parkings', 'products', 'books', 'articles', 'images');
+        $module_list = array('routes', 'summits', 'sites', 'huts', 'parkings', 'products', 'books', 'areas', 'articles', 'images');
         foreach($module_list as $module)
         {
             $module_title = $module;
