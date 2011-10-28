@@ -1304,7 +1304,7 @@ class sfPunBBCodeParser
     //
    
     public static function do_lines($text) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $nb_col, $doc_module, $cell_index;
         
         $line_index = 0;
         $line_index_old = 0;
@@ -1315,6 +1315,7 @@ class sfPunBBCodeParser
         $line_reference = -1;
         $abseil_reference = -1;
         $first_line = true;
+        $first_block_line = true;
         $nb_col = 0;
         $doc_module = sfContext::getInstance()->getModuleName();
         $cell_index = 0;
@@ -1347,9 +1348,9 @@ class sfPunBBCodeParser
         return $text;
     }
     public static function _doLines_callback($matches) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $nb_col, $doc_module, $cell_index;
         
-        $first_line = true;
+        $first_block_line = true;
         $list = $matches[1] . "\n";
         
         # trim trailing blank lines:
@@ -1378,7 +1379,7 @@ class sfPunBBCodeParser
     }
 
     public static function _processLineItems_callback($matches) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $nb_col, $doc_module, $cell_index;
         
         $cell_index = 0;
         
@@ -1617,7 +1618,7 @@ class sfPunBBCodeParser
             
             $item = preg_replace_callback($pattern_item, array('self', '_processListCell'), $item);
             
-            if ($first_line == true)
+            if ($first_block_line == true)
             {
                 $nb_col = $cell_index;
             }
@@ -1656,6 +1657,7 @@ class sfPunBBCodeParser
             }
             
             $first_line = false;
+            $first_block_line = false;
                 
             return '<tr><' . $cell_tag . '>' . $row_header . '</' . $cell_tag . '>' . $item . '</tr>';
         }
