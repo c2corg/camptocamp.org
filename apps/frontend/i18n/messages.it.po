@@ -1124,9 +1124,9 @@ msgstr "Per saperne di più"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "L# button title"
-msgstr "Formater la description d'une longueur d'escalade"
+msgstr "Inserisce il formato automatico per la descrizione di una lunghezza di arrampicata."
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
@@ -1280,8 +1280,11 @@ msgstr "Lista di tutte le gite associate"
 msgid "List all linked routes"
 msgstr "Vedere la lista"
 
+msgid "List all user collaborative contribs"
+msgstr "Elencare tutti i contributi collaborative"
+
 msgid "List all user contribs"
-msgstr "Elencare tutti i contributi di questo utente"
+msgstr "Elencare tutti i contributi"
 
 msgid "List all user outings"
 msgstr "Elencare tutte le gite di questo utente"
@@ -3713,6 +3716,10 @@ msgstr "Champagne-Ardenne"
 msgid "changerdapproche"
 msgstr "Cambiare approccio"
 
+# [WARNING] needs_review
+msgid "changes"
+msgstr "modifiche"
+
 msgid "children_proof"
 msgstr "Bambini:"
 
@@ -3766,11 +3773,18 @@ msgstr "Codice:"
 msgid "collab article"
 msgstr "articolo collaborativo"
 
+msgid "collaborative articles"
+msgstr "articoli collaborativi"
+
 msgid "collaborative content"
 msgstr "Contenuto collaborativo"
 
 msgid "collaborative image"
 msgstr "immagine collaborativa"
+
+# [WARNING] needs_review
+msgid "collaborative images"
+msgstr "immagini collaborative"
 
 msgid "comment"
 msgstr "commenti"
@@ -3886,9 +3900,9 @@ msgstr "Creare il suo account?"
 msgid "created_at"
 msgstr "creato il"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "creations"
-msgstr "creations"
+msgstr "creazioni"
 
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
@@ -3965,9 +3979,9 @@ msgstr "dettaglio, zoom"
 msgid "deutsch"
 msgstr "tedesco"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "development environment"
-msgstr "Attention - version de développement."
+msgstr "Attenzione - Versione di sviluppo "
 
 msgid "diff"
 msgstr "differenze"
@@ -4037,9 +4051,8 @@ msgstr "Modifica?"
 msgid "edit_tab_help"
 msgstr "Modificare il documento (solo per gli utenti registrati)"
 
-# [WARNING] en translation used
 msgid "editions"
-msgstr "editions"
+msgstr "modifiche"
 
 msgid "edito"
 msgstr "editor"
@@ -6173,9 +6186,9 @@ msgstr "traccia, sentiero"
 msgid "track_status"
 msgstr "Traccia:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "tracking"
-msgstr "tracking"
+msgstr "segui"
 
 msgid "trad"
 msgstr "via classica"
@@ -6244,9 +6257,8 @@ msgstr "utente"
 msgid "user form warning"
 msgstr "<strong>Pagina personale:</strong> Nella tua pagina personale, puoi indicare tutti le informazioni che vuoi rendere pubblico: indirizzo, telefono, professione, attività sportiva... Per default questa pagina è accessibile solo agli utenti registrati, puoi renderla accessibile a tutti ed ai motori di ricerca cambiando parametri nelle tue<a href=\"/users/editprivatedata\">preferenze personale</a>, dove puoi anche modificare il tuo nome che compare nel forum o nella guida, il tuo indirizzo email, la tua password.</li><li><strong>Geo-localizzazione:</strong> Se vuoi che il tuo profilo sia associato ad una regione, devi inserire i tuoi coordinati geografici. Questo consente anche di visualizzare l'accesso stradale da casa tua a un punto di partenza."
 
-# [WARNING] fr translation used
 msgid "user information not available"
-msgstr "L'utilisateur ne permet pas aux membres non connectés de voir son profil."
+msgstr "Devi connetterti per vedere la pagina personale di questo utente."
 
 msgid "users"
 msgstr "utenti"

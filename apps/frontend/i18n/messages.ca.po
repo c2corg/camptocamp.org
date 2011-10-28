@@ -1258,8 +1258,12 @@ msgstr "Mostra totes les sortides associades"
 msgid "List all linked routes"
 msgstr "Mostra en forma de llista"
 
+# [WARNING] es translation used
+msgid "List all user collaborative contribs"
+msgstr "Listar todas las contribuciones colaborativas"
+
 msgid "List all user contribs"
-msgstr "Veure totes les contribucions d'aquest participant"
+msgstr "Veure totes les contribucions"
 
 msgid "List all user outings"
 msgstr "Veure totes les sortides d'aquest participant"
@@ -3718,6 +3722,10 @@ msgstr "Xampanya-Ardenes"
 msgid "changerdapproche"
 msgstr "La muntanya sense cotxe"
 
+# [WARNING] needs_review
+msgid "changes"
+msgstr "modificacions"
+
 msgid "children_proof"
 msgstr "Nens:"
 
@@ -3771,11 +3779,18 @@ msgstr "Codi:"
 msgid "collab article"
 msgstr "article col·laboratiu"
 
+# [WARNING] en translation used
+msgid "collaborative articles"
+msgstr "collaborative articles"
+
 msgid "collaborative content"
 msgstr "Contingut col·laboratiu"
 
 msgid "collaborative image"
 msgstr "imatge col·laborativa"
+
+msgid "collaborative images"
+msgstr "imatges colaboratives"
 
 msgid "comment"
 msgstr "comentari"
@@ -3895,9 +3910,9 @@ msgstr "Vols obrir un compte?"
 msgid "created_at"
 msgstr "creat el"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "creations"
-msgstr "creations"
+msgstr "creacions"
 
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)

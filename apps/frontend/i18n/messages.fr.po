@@ -1285,8 +1285,11 @@ msgstr "Lister toutes les sorties associées"
 msgid "List all linked routes"
 msgstr "Afficher sous forme de liste"
 
+msgid "List all user collaborative contribs"
+msgstr "Lister toutes les contributions collaboratives"
+
 msgid "List all user contribs"
-msgstr "Lister toutes les contributions de ce contributeur"
+msgstr "Lister toutes les contributions"
 
 msgid "List all user outings"
 msgstr "Lister toutes les sorties de ce contributeur"
@@ -3762,6 +3765,9 @@ msgstr "Champagne-Ardenne"
 msgid "changerdapproche"
 msgstr "Changer d'approche"
 
+msgid "changes"
+msgstr "modifications"
+
 msgid "children_proof"
 msgstr "Enfants&nbsp;:"
 
@@ -3815,11 +3821,17 @@ msgstr "Code&nbsp;:"
 msgid "collab article"
 msgstr "article collaboratif"
 
+msgid "collaborative articles"
+msgstr "articles collaboratifs"
+
 msgid "collaborative content"
 msgstr "Contenu collaboratif"
 
 msgid "collaborative image"
 msgstr "image collaborative"
+
+msgid "collaborative images"
+msgstr "images collaboratives"
 
 msgid "comment"
 msgstr "commentaire"

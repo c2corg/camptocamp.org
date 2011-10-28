@@ -1280,8 +1280,11 @@ msgstr "List all linked outings"
 msgid "List all linked routes"
 msgstr "Show as a list"
 
+msgid "List all user collaborative contribs"
+msgstr "List all collaborative contributions"
+
 msgid "List all user contribs"
-msgstr "List all contributions by this user"
+msgstr "List all contributions"
 
 msgid "List all user outings"
 msgstr "List all outings by this user"
@@ -3719,6 +3722,9 @@ msgstr "Champagne-Ardenne"
 msgid "changerdapproche"
 msgstr "Drop your car"
 
+msgid "changes"
+msgstr "changes"
+
 msgid "children_proof"
 msgstr "Children:"
 
@@ -3772,11 +3778,17 @@ msgstr "code"
 msgid "collab article"
 msgstr "collaborative article"
 
+msgid "collaborative articles"
+msgstr "collaborative articles"
+
 msgid "collaborative content"
 msgstr "Collaborative content"
 
 msgid "collaborative image"
 msgstr "collaborative picture"
+
+msgid "collaborative images"
+msgstr "collaborative images"
 
 msgid "comment"
 msgstr "comment"

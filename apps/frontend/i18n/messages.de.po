@@ -1303,6 +1303,10 @@ msgstr "Alle verbundenen Touren anzeigen"
 msgid "List all linked routes"
 msgstr "In einer Liste anzeigen"
 
+# [WARNING] en translation used
+msgid "List all user collaborative contribs"
+msgstr "List all collaborative contributions"
+
 msgid "List all user contribs"
 msgstr "Alle Beiträge dieses Benutzers in einer Liste anzeigen"
 
@@ -4060,6 +4064,10 @@ msgstr "Champagne-Ardenne"
 msgid "changerdapproche"
 msgstr "Umstieg zum Einstieg"
 
+# [WARNING] needs_review
+msgid "changes"
+msgstr "Änderungen"
+
 msgid "children_proof"
 msgstr "Kinder:"
 
@@ -4116,11 +4124,18 @@ msgstr "Nummer:"
 msgid "collab article"
 msgstr "Beitrag mehrerer Personen"
 
+# [WARNING] en translation used
+msgid "collaborative articles"
+msgstr "collaborative articles"
+
 msgid "collaborative content"
 msgstr "Gemeinschaftlicher Inhalt"
 
 msgid "collaborative image"
 msgstr "Gemeinschaftliches Bild"
+
+msgid "collaborative images"
+msgstr "Gemeinschaftliche Bilder"
 
 msgid "comment"
 msgstr "Kommentar"
@@ -4243,9 +4258,9 @@ msgstr "Ein Benutzerprofil erstellen?"
 msgid "created_at"
 msgstr "erstellt am"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "creations"
-msgstr "creations"
+msgstr "Erstellungen"
 
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
