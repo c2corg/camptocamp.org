@@ -2004,7 +2004,7 @@ class documentsActions extends c2cActions
 
         $this->setTemplate('../../documents/templates/whatsnew');
         
-        $page_title = ucfirst($this->__($module)) . $this->__('&nbsp;:') . ' ';
+        $page_title = ucfirst($this->__($module)) . ' :: ';
         if ($mode == 'creations')
         {
             $page_title .= $this->__('creations');

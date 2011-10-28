@@ -8,7 +8,16 @@ $model_i18n = $model . 'I18n';
 $mobile_version = c2cTools::mobileVersion();
 $table_list_even_odd = 0;
 
-echo display_title(__('Recent changes'), $module, false);
+$page_title = ucfirst(__($module)) . __('&nbsp;:') . ' ';
+if ($mode == 'creations')
+{
+    $page_title .= __('creations');
+}
+else
+{
+    $page_title .= __('changes');
+}
+echo display_title($page_title, $module, false);
 
 if (!$mobile_version)
 {

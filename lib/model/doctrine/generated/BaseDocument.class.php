@@ -921,7 +921,7 @@ class BaseDocument extends sfDoctrineRecordI18n
           ->leftJoin('hm.user_private_data up')
           ->innerJoin("dv.$model_i18n $mi");
         
-        if ($model == 'Document' || !empty($activities))
+        if ($model == 'Document' || !empty($activities) || !empty($params['ctyp']) || !empty($params['ityp']))
         {
             $q->innerJoin("dv.$model $m");
         }
