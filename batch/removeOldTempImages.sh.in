@@ -1,0 +1,2 @@
+# remove files from the directory that are more than one day old
+find @SF_PROJECTS_DIR@/camptocamp.org/web/uploads/images_temp -type f -mtime +1 -delete
