@@ -28,7 +28,12 @@ include_partial('routes_filter', array('activities' => $activities_raw));
 echo __('Date') . __('&nbsp;:') . ' ' . date_selector(array('month' => true, 'year' => true, 'day' => true));
 ?>
 <br />
-<?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('ocult') ?>
+<?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('ocult');
+if ($is_connected)
+{
+    echo label_for('myoutings', __('Search in my outings')) . ' ' . checkbox_tag('myoutings', 1, false);
+}
+?>
 <br />
 <?php
 include_partial('documents/filter_sort');
@@ -36,8 +41,4 @@ include_partial('documents/filter_sort');
 <br />
 <?php
 echo label_for('cond', __('Show conditions'), array('title' => __('show conditions of the outings'))) . ' ' . checkbox_tag('cond', 1, false);
-if ($is_connected)
-{
-    echo label_for('myoutings', __('Search in my outings')) . ' ' . checkbox_tag('myoutings', 1, false);
-}
 
