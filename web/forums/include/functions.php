@@ -240,6 +240,7 @@ function check_bans()
 //
 function update_users_online()
 {
+return;
 	global $db, $pun_config, $pun_user;
 
     if (isset($pun_user['is_guest']) && $pun_user['is_guest']) {
