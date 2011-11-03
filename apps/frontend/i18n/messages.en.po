@@ -1885,6 +1885,10 @@ msgstr "Search for a user"
 msgid "Search criteria"
 msgstr "Search criteria"
 
+# [WARNING] needs_review
+msgid "Search in my outings"
+msgstr "Search in my outings"
+
 msgid "Search results"
 msgstr "Search results"
 
@@ -5365,6 +5369,10 @@ msgstr "Personal content"
 msgid "personal image"
 msgstr "personal picture"
 
+# [WARNING] needs_review
+msgid "personal images"
+msgstr "personal images"
+
 msgid "personal page"
 msgstr "My personal page"
 
@@ -5767,6 +5775,12 @@ msgstr "<strong>Warning!</strong> In this page, only indicate permanent informat
 msgid "route linked with"
 msgstr "Route linked with %1%"
 
+# [general comment]
+# Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
+# [WARNING] needs_review
+msgid "route_abseil_prefix"
+msgstr "A"
+
 msgid "route_history"
 msgstr "Route history:"
 
@@ -5775,6 +5789,11 @@ msgstr "Detail here the route's history: date and participants of the first asce
 
 msgid "route_length"
 msgstr "Length:"
+
+# [general comment]
+# Préfixe utilisé pour la description des longueurs à l'aide de la balise L#.
+msgid "route_line_prefix"
+msgstr "P"
 
 msgid "route_type"
 msgstr "Route type:"

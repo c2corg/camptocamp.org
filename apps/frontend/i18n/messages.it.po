@@ -1888,6 +1888,10 @@ msgstr "Cerca un utente"
 msgid "Search criteria"
 msgstr "Criterio di ricerca"
 
+# [WARNING] en translation used
+msgid "Search in my outings"
+msgstr "Search in my outings"
+
 msgid "Search results"
 msgstr "Risultati della ricerca"
 
@@ -5351,6 +5355,10 @@ msgstr "Contenuto personale"
 msgid "personal image"
 msgstr "immagine personale"
 
+# [WARNING] needs_review
+msgid "personal images"
+msgstr "immagini personale"
+
 msgid "personal page"
 msgstr "La mia pagina personale"
 
@@ -5747,6 +5755,12 @@ msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le inf
 msgid "route linked with"
 msgstr "Itinerari associati a %1%"
 
+# [general comment]
+# Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
+# [WARNING] needs_review
+msgid "route_abseil_prefix"
+msgstr "R"
+
 msgid "route_history"
 msgstr "Cenni storici:"
 
@@ -5755,6 +5769,11 @@ msgstr "Mettere qua informazioni sui ceni storici dell'itinerario: data e partec
 
 msgid "route_length"
 msgstr "Lunghezza:"
+
+# [general comment]
+# Préfixe utilisé pour la description des longueurs à l'aide de la balise L#.
+msgid "route_line_prefix"
+msgstr "L"
 
 msgid "route_type"
 msgstr "Tipo d'itinerario:"

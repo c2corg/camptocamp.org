@@ -1109,9 +1109,9 @@ msgstr "Més"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "L# button title"
-msgstr "Formater la description d'une longueur d'escalade"
+msgstr "Dóna format a la descripció d'un llarg d'escalada"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
@@ -1258,9 +1258,8 @@ msgstr "Mostra totes les sortides associades"
 msgid "List all linked routes"
 msgstr "Mostra en forma de llista"
 
-# [WARNING] es translation used
 msgid "List all user collaborative contribs"
-msgstr "Listar todas las contribuciones colaborativas"
+msgstr "Llista totes les contribucions col·laboratives"
 
 msgid "List all user contribs"
 msgstr "Veure totes les contribucions"
@@ -1861,6 +1860,10 @@ msgstr "Cercar un usuari"
 
 msgid "Search criteria"
 msgstr "Criteris de recerca"
+
+# [WARNING] en translation used
+msgid "Search in my outings"
+msgstr "Search in my outings"
 
 msgid "Search results"
 msgstr "Resultats de la recerca"
@@ -3779,9 +3782,8 @@ msgstr "Codi:"
 msgid "collab article"
 msgstr "article col·laboratiu"
 
-# [WARNING] en translation used
 msgid "collaborative articles"
-msgstr "collaborative articles"
+msgstr "articles col·laboratius"
 
 msgid "collaborative content"
 msgstr "Contingut col·laboratiu"
@@ -3989,9 +3991,9 @@ msgstr "detall, zoom"
 msgid "deutsch"
 msgstr "alemany"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "development environment"
-msgstr "Attention - version de développement."
+msgstr "Atenció - Versió de desenvolupament"
 
 msgid "diff"
 msgstr "diferència"
@@ -4061,9 +4063,8 @@ msgstr "modificar?"
 msgid "edit_tab_help"
 msgstr "Modifica el document (reservat als membres identificats"
 
-# [WARNING] en translation used
 msgid "editions"
-msgstr "editions"
+msgstr "edicions"
 
 msgid "edito"
 msgstr "nota"
@@ -5391,6 +5392,10 @@ msgstr "Contingut personal"
 msgid "personal image"
 msgstr "imatge personal"
 
+# [WARNING] needs_review
+msgid "personal images"
+msgstr "imatges personals"
+
 msgid "personal page"
 msgstr "La meva pàgina personal"
 
@@ -5790,6 +5795,12 @@ msgstr "<strong>Atenció!</strong> En aquesta pàgina només heu d'indica les in
 msgid "route linked with"
 msgstr "Itinerari associat a %1%"
 
+# [general comment]
+# Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
+# [WARNING] needs_review
+msgid "route_abseil_prefix"
+msgstr "R"
+
 msgid "route_history"
 msgstr "Històric:"
 
@@ -5799,6 +5810,12 @@ msgstr "Indiqueu aquí la història de l'itinerari: data d'obertura o d'equipame
 
 msgid "route_length"
 msgstr "Distància: "
+
+# [general comment]
+# Préfixe utilisé pour la description des longueurs à l'aide de la balise L#.
+# [WARNING] needs_review
+msgid "route_line_prefix"
+msgstr "L"
 
 msgid "route_type"
 msgstr "Tipus d'itinerari:"
@@ -6247,9 +6264,9 @@ msgstr "traça, sender"
 msgid "track_status"
 msgstr "Traça:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "tracking"
-msgstr "tracking"
+msgstr "seguit"
 
 msgid "trad"
 msgstr "terreny d'aventura"
@@ -6317,9 +6334,8 @@ msgstr "participant"
 msgid "user form warning"
 msgstr "<strong>Pàgina personal:</strong> A la vostra pàgina personal hi podeu indicar tot allò que desitgeu fer públic: adreça, telèfon, ofici, activitats i regions preferides, etc. Per defecte, aquesta pàgina només és accessible als membre, però podeu fer-la accessible als convidats i als motors de cerca a les <a href=\"/users/editprivatedata\">preferències personals</a>, on podreu modificar també el vostre nom, pseudònim, adreça electrònica i contrasenya.</li><li><strong>Georeferenciament:</strong> Per tal que el vostre perfil quedi associat a un massís i/o a una regió, haureu de donar les vostres coordenades geogràfiques. Això permet que se us pugui localitzar amb una cerca geogràfica. A més, des de la pàgina d'un accés, podreu visualitzar l'accés per carretera des de casa vostra fins al punt d'accés."
 
-# [WARNING] fr translation used
 msgid "user information not available"
-msgstr "L'utilisateur ne permet pas aux membres non connectés de voir son profil."
+msgstr "Aquest usuari no permet mostrar el seu perfil als membres no connectats."
 
 msgid "users"
 msgstr "usuaris"

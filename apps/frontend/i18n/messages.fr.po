@@ -1889,6 +1889,9 @@ msgstr "Rechercher un contributeur"
 msgid "Search criteria"
 msgstr "Critères de recherche"
 
+msgid "Search in my outings"
+msgstr "Rechercher parmi mes sorties"
+
 msgid "Search results"
 msgstr "Résultats de la recherche"
 
@@ -5393,6 +5396,9 @@ msgstr "Contenu personnel"
 msgid "personal image"
 msgstr "image personnelle"
 
+msgid "personal images"
+msgstr "images personnelles"
+
 msgid "personal page"
 msgstr "Ma page perso"
 
@@ -5782,6 +5788,11 @@ msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des inf
 msgid "route linked with"
 msgstr "Itinéraire associé à %1%"
 
+# [general comment]
+# Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
+msgid "route_abseil_prefix"
+msgstr "R"
+
 msgid "route_history"
 msgstr "Historique de l'itinéraire&nbsp;:"
 
@@ -5790,6 +5801,11 @@ msgstr "Précisez ici l'historique de l'itinéraire : date et participants de l'
 
 msgid "route_length"
 msgstr "Longueur&nbsp;:"
+
+# [general comment]
+# Préfixe utilisé pour la description des longueurs à l'aide de la balise L#.
+msgid "route_line_prefix"
+msgstr "L"
 
 msgid "route_type"
 msgstr "Type d'itinéraire&nbsp;:"

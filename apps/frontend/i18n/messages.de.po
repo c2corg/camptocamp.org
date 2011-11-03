@@ -1926,6 +1926,10 @@ msgstr "Einen Benutzer suchen"
 msgid "Search criteria"
 msgstr "Suchkriterien"
 
+# [WARNING] en translation used
+msgid "Search in my outings"
+msgstr "Search in my outings"
+
 msgid "Search results"
 msgstr "Ergebnis der Suche"
 
@@ -5804,6 +5808,10 @@ msgid "personal image"
 msgstr "persönliches Bild"
 
 # [WARNING] needs_review
+msgid "personal images"
+msgstr "eigenen Bilder"
+
+# [WARNING] needs_review
 msgid "personal page"
 msgstr "Meine persönliche Seite"
 
@@ -6227,6 +6235,12 @@ msgstr "<strong>Achtung!</strong> Geben sie auf dieser Seite ausschliesslich nic
 msgid "route linked with"
 msgstr "Diese Route ist verbunden mit %1%"
 
+# [general comment]
+# Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
+# [WARNING] needs_review
+msgid "route_abseil_prefix"
+msgstr "R"
+
 msgid "route_history"
 msgstr "Geschichte der Route:"
 
@@ -6236,6 +6250,12 @@ msgstr "Führen sie hier die Geschichte der Route aus: Datum und Teilnehmer der 
 
 msgid "route_length"
 msgstr "Länge:"
+
+# [general comment]
+# Préfixe utilisé pour la description des longueurs à l'aide de la balise L#.
+# [WARNING] needs_review
+msgid "route_line_prefix"
+msgstr "SL"
 
 msgid "route_type"
 msgstr "Art der Route:"

@@ -1881,6 +1881,10 @@ msgstr "Buscar un usuario"
 msgid "Search criteria"
 msgstr "Criterios de búsqueda"
 
+# [WARNING] en translation used
+msgid "Search in my outings"
+msgstr "Search in my outings"
+
 msgid "Search results"
 msgstr "Resultados de la búsqueda"
 
@@ -5331,6 +5335,10 @@ msgstr "Contenido personal"
 msgid "personal image"
 msgstr "imagen personal"
 
+# [WARNING] needs_review
+msgid "personal images"
+msgstr "imágenes personales"
+
 msgid "personal page"
 msgstr "Mi página personal"
 
@@ -5727,6 +5735,12 @@ msgstr "<strong>¡Cuidado!</strong> En esta página, sólo se debe dar informaci
 msgid "route linked with"
 msgstr "Route linked with %1%"
 
+# [general comment]
+# Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
+# [WARNING] needs_review
+msgid "route_abseil_prefix"
+msgstr "R"
+
 msgid "route_history"
 msgstr "Historia:"
 
@@ -5735,6 +5749,12 @@ msgstr "Detallar aquí la historia del itinerario.\\nPara una via de escalada, s
 
 msgid "route_length"
 msgstr "Longitud: "
+
+# [general comment]
+# Préfixe utilisé pour la description des longueurs à l'aide de la balise L#.
+# [WARNING] needs_review
+msgid "route_line_prefix"
+msgstr "L"
 
 msgid "route_type"
 msgstr "Tipo de itinerario:"

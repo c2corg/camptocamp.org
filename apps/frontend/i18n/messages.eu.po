@@ -1958,6 +1958,10 @@ msgstr "Erabiltzaile bat aurkitu"
 msgid "Search criteria"
 msgstr "Bilaketa irizpideak"
 
+# [WARNING] en translation used
+msgid "Search in my outings"
+msgstr "Search in my outings"
+
 msgid "Search results"
 msgstr "Bilaketaren emaitza"
 
@@ -5678,6 +5682,10 @@ msgid "personal image"
 msgstr "imagen personal"
 
 # [WARNING] es translation used
+msgid "personal images"
+msgstr "imágenes personales"
+
+# [WARNING] es translation used
 msgid "personal page"
 msgstr "Mi página personal"
 
@@ -6110,6 +6118,12 @@ msgstr "<strong>Argi!</strong> Orrialde hontan ibilbidearen inguruko informazioa
 msgid "route linked with"
 msgstr "Route linked with %1%"
 
+# [general comment]
+# Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
+# [WARNING] needs_review
+msgid "route_abseil_prefix"
+msgstr "R"
+
 msgid "route_history"
 msgstr "Ibilbide historiala:"
 
@@ -6119,6 +6133,12 @@ msgstr "Detallar aquí la historia del itinerario.\\nPara una via de escalada, s
 
 msgid "route_length"
 msgstr "Luzeera: "
+
+# [general comment]
+# Préfixe utilisé pour la description des longueurs à l'aide de la balise L#.
+# [WARNING] needs_review
+msgid "route_line_prefix"
+msgstr "L"
 
 msgid "route_type"
 msgstr "Ibilbide mota:"
