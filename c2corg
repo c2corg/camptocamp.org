@@ -25,6 +25,7 @@ $CONFIG_DIRS = array('apps/frontend/config', 'batch', 'config', 'data/sql',
 
 $OPTIONS['debug'] = false;
 $OPTIONS['writableowner'] = 'www-data';
+$OPTIONS['cleancachemethod'] = 'symfony'; # option are: symfony, mkfs
 
 define('ACTION_NOP', 0);
 define('ACTION_INSTALL', 1);
@@ -191,7 +192,7 @@ function processArgs() {
             //installPlugins();
             fixLegacyZendCompatibilityModeIssue(); // must get run before symfony stuff kicks in
             generateMoFiles();
-            launchSfCleanCache();
+            launchCleanCache();
             buildMapJsFiles(); // must be done before revision info
             updateRevisionInfo();
             execWrapper('php symfony fix-perms');
@@ -209,7 +210,7 @@ function processArgs() {
             //makeMapservWrapperExecutable();
             buildMapJsFiles(); // must be done before revision info
             updateRevisionInfo();
-            launchSfCleanCache();
+            launchCleanCache();
             //execWrapper('php symfony fix-perms');
 
             info('Refreshing done.');
@@ -226,7 +227,7 @@ function processArgs() {
         case ACTION_CLEAN:
             info('Purging cache directories...');
 
-            launchSfCleanCache();
+            launchCleanCache();
             makeDirs('flushable');
 
             info('Cleaning done.');
@@ -558,9 +559,31 @@ function loadModules() {
     chdir(dirname(__FILE__));
 }
 
-function launchSfCleanCache() {
+function launchCleanCache() {
+    global $OPTIONS;
+
+    $cleancache = $OPTIONS['cleancachemethod'] . 'CleanCache';
+
+    if (function_exists($cleancache)) {
+        info('About to clean cache with method: ' . $OPTIONS['cleancachemethod']);
+        $cleancache();
+    } else {
+        info('Unknown cache cleaning method: ' . $OPTIONS['cleancachemethod']);
+    }
+}
+
+function symfonyCleanCache() {
     try {
         execWrapper('php symfony cc');
+        info('Symfony cache purged.');
+    } catch (Exception $e) {
+        info('Symfony cache cleaning failed: ' . $e->getMessage());
+    }
+}
+
+function mkfsCleanCache() {
+    try {
+        execWrapper('sudo scripts/reformat-volatile.sh');
         info('Symfony cache purged.');
     } catch (Exception $e) {
         info('Symfony cache cleaning failed: ' . $e->getMessage());
