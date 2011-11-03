@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ boutique_c2c, changerdapproche, camp, google, boutique_c2c, baechli, camp, changerdapproche, natxplore, simond, google, changerdapproche ]
+    values: [ dynafit_pdg, changerdapproche, camp, dynafit_baltoro, boutique_c2c, baechli, camp, dynafit_pdg, natxplore, simond, dynafit_baltoro, changerdapproche ]
   banners:
     list:
       skalp:
@@ -142,3 +142,15 @@ all:
         id: 35
         image: toucan.jpg
         alt: Simond Toucan2
+      dynafit_baltoro:
+        id: 43
+        type: flash
+        width: 468
+        height: 60
+        file: dynafit_baltoro.swf
+      dynafit_pdg:
+        id: 42
+        type: flash
+        width: 468
+        height: 60
+        file: dynafit_pdg.swf
