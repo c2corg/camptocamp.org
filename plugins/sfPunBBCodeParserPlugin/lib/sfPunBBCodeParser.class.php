@@ -1395,11 +1395,11 @@ class sfPunBBCodeParser
         
         if ($new_marker_suffix != '~')  // description de longueur
         {
-            if (!empty($new_marker_relative) && empty($new_marker_index))
+            if (!empty($new_marker_relative) && $new_marker_index != '')
             {
                 $new_marker_index = 1;
             }
-            if (!empty($multi_line_relative) && empty($multi_line_index))
+            if (!empty($multi_line_relative) && $multi_line_index != '')
             {
                 $multi_line_index = 1;
             }
@@ -1434,7 +1434,7 @@ class sfPunBBCodeParser
                     $line_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
                 }
 
-                if (empty($new_marker_relative) && !empty($new_marker_index))
+                if (empty($new_marker_relative) && $new_marker_index != '')
                 {
                     if ($first_line == false && $line_suffix != $line_suffix_old)
                     {
@@ -1498,7 +1498,7 @@ class sfPunBBCodeParser
                 
                 $row_header = $marker_type . $line_index . $line_suffix;
                 
-                if (!empty($multi_line_index))
+                if ($multi_line_index != '')
                 {
                     if (!empty($multi_line_relative))
                     {
@@ -1525,7 +1525,7 @@ class sfPunBBCodeParser
                     $abseil_suffix = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
                 }
 
-                if (empty($new_marker_relative) && !empty($new_marker_index))
+                if (empty($new_marker_relative) && $new_marker_index != '')
                 {
                     if ($first_line == false && $abseil_suffix != $abseil_suffix_old)
                     {
@@ -1589,7 +1589,7 @@ class sfPunBBCodeParser
                 
                 $row_header = $marker_type . $abseil_index . $abseil_suffix;
                 
-                if (!empty($multi_line_index))
+                if ($multi_line_index != '')
                 {
                     if (!empty($multi_line_relative))
                     {
