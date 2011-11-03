@@ -1,6 +1,8 @@
 <?php
 use_helper('FilterForm', 'General', 'MyForm');
 
+$is_connected = $sf_user->isConnected();
+
 if (!c2cTools::mobileVersion())
 {
    // put focus on the name field on dom load
@@ -34,3 +36,8 @@ include_partial('documents/filter_sort');
 <br />
 <?php
 echo label_for('cond', __('Show conditions'), array('title' => __('show conditions of the outings'))) . ' ' . checkbox_tag('cond', 1, false);
+if ($is_connected)
+{
+    echo label_for('myoutings', __('Search in my outings')) . ' ' . checkbox_tag('myoutings', 1, false);
+}
+

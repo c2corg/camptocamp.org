@@ -73,7 +73,11 @@ if ($is_not_archive && $is_not_merged)
     ?>
     <ul class="contribs">
         <li><span class="picto action_comment"></span> <?php echo f_link_to(__('User-s messages'), 'search.php?action=search&author_id=' .  $id) ?></li>
-        <li><span class="picto picto_images"></span> <?php echo link_to(__('Images uploaded by this user'), "images/list?users=$id") ?></li>
+        <li><span class="picto picto_images"></span> <?php
+            echo link_to(__('Images uploaded by this user'), "images/list?users=$id") . ' - '
+               . link_to(__('collaborative images'), "images/list?ityp=1&users=$id") . ' - '
+               . link_to(__('personal images'), "images/list?ityp=2&users=$id");
+            ?></li>
         <li><span class="picto picto_articles"></span> <?php echo link_to(__('Personal articles'), "articles/list?users=$id") ?></li>
         <li><span class="picto action_description"></span> <?php echo __('Guidebook contribs:');
         echo '<ul>';

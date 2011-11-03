@@ -691,6 +691,15 @@ class outingsActions extends documentsActions
     {
         $out = array();
         
+        if($this->getUser()->isConnected())
+        {
+            if ($this->getRequestParameter('myoutings', 1))
+            {
+                $user_id = $this->getUser()->getId();
+                $out[] = "users=$user_id";
+            }
+        }
+
         $activities_type = $this->getRequestParameter('acttyp', 1);
 
         $this->addListParam($out, 'areas');

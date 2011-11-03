@@ -1419,6 +1419,10 @@ class sfPunBBCodeParser
                     $marker_type = '';
                     $cell_tag = 'td';
                 }
+                else
+                {
+                    $marker_type = __('route_line_prefix');
+                }
                 
                 $line_suffix_old = $line_suffix;
                 if ($new_marker_suffix == '_')
@@ -1432,7 +1436,7 @@ class sfPunBBCodeParser
 
                 if (empty($new_marker_relative) && !empty($new_marker_index))
                 {
-                    if ($line_index > 0 && $line_suffix != $line_suffix_old)
+                    if ($first_line == false && $line_suffix != $line_suffix_old)
                     {
                         $line_index_old = $line_index;
                         $line_index = $new_marker_index;
@@ -1510,6 +1514,7 @@ class sfPunBBCodeParser
             }
             else  // R : abseil
             {
+                $marker_type = __('route_abseil_prefix');
                 $abseil_suffix_old = $abseil_suffix;
                 if ($new_marker_suffix == '_')
                 {
@@ -1522,7 +1527,7 @@ class sfPunBBCodeParser
 
                 if (empty($new_marker_relative) && !empty($new_marker_index))
                 {
-                    if ($abseil_index > 0 && $abseil_suffix != $abseil_suffix_old)
+                    if ($first_line == false && $abseil_suffix != $abseil_suffix_old)
                     {
                         $abseil_index_old = $abseil_index;
                         $abseil_index = $new_marker_index;
