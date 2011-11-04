@@ -1687,7 +1687,7 @@ select option.picto
 .sbox select.picto_summits, .sbox select.picto_3,
 .sbox select.picto_users, .sbox select.picto_2,
 .sbox select.picto_documents, .sbox select.picto_1 {
-  background-position: 2px !important;
+  background-position: 2px;
 }
 
 select.picto_forum, select.picto_forums
