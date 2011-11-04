@@ -210,7 +210,7 @@ a.logged_as
 }
 
 #europesengage a, #paca a, #languedoc a, #mw_logo, #cda_logo {
-  background: url(/static/images/cda.png) no-repeat;
+  background: url(/static/images/portals/cda.png) no-repeat;
 }
 #europesengage a {
   background-position: 0 0;
