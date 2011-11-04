@@ -693,7 +693,8 @@ class outingsActions extends documentsActions
         
         if($this->getUser()->isConnected())
         {
-            if ($this->getRequestParameter('myoutings', 1))
+            $myoutings = $this->getRequestParameter('myoutings', 0);
+            if ($myoutings == 1)
             {
                 $user_id = $this->getUser()->getId();
                 $out[] = "users=$user_id";
