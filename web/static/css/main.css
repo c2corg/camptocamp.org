@@ -1721,8 +1721,7 @@ option.act_0
 }
 
 /* we don't uri encode this, i'm not even sure it is used anywhere
- * TODO temporarily commented, so that it results in a smaller minified css,
- * but code left, in case we would need it)
+ * foud: only in one article 106920 */
 
 .act_1_big, .act_2_big, .act_3_big, .act_4_big, .act_5_big, .act_6_big, .act_7_big
 {
@@ -1756,7 +1755,6 @@ option.act_0
 {
   background-position: -11px -308px;
 }
-*/
 
 /* Association images */
 .assoc_img
