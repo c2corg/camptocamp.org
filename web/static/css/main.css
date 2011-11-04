@@ -1720,7 +1720,10 @@ option.act_0
   display:none;
 }
 
-/* we don't uri encode this, i'm not even sure it is used anywhere */
+/* we don't uri encode this, i'm not even sure it is used anywhere
+ * TODO temporarily commented, so that it results in a smaller minified css,
+ * but code left, in case we would need it)
+
 .act_1_big, .act_2_big, .act_3_big, .act_4_big, .act_5_big, .act_6_big, .act_7_big
 {
   background: url(/static/images/picto/activities.png) no-repeat;
@@ -1753,7 +1756,7 @@ option.act_0
 {
   background-position: -11px -308px;
 }
-
+*/
 
 /* Association images */
 .assoc_img
