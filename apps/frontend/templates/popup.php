@@ -6,8 +6,7 @@ $static_base_url = sfConfig::get('app_static_url');
 <head>
     <?php echo include_http_metas(); ?>
     <link rel="shortcut icon" href="<?php echo $static_base_url ?>/static/images/favicon.ico" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url ?>/static/css/main.css?<?php echo sfTimestamp::getTimestamp('/static/css/main.css') ?>" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url ?>/static/css/popup.css?<?php echo sfTimestamp::getTimestamp('/static/css/popup.css') ?>" />
+    <link rel="stylesheet" type="text/css" media="all" href="/<?php echo sfTimestamp::getTimestamp(array('/static/css/main.css', '/static/css/popup.css', '/static/css/img.css')), $static_base_url ?>/static/css/main.css,/static/css/popup.css,/static/css/img.css" />
     <title><?php echo __('Mini card Camptocamp.org') ?></title>
 </head>
 <body>

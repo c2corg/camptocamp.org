@@ -208,3 +208,37 @@ a.logged_as
   font-variant: normal;
   font-size: 0.9em;
 }
+
+#europesengage a, #paca a, #languedoc a, #mw_logo, #cda_logo {
+  background: url(/static/images/cda.png) no-repeat;
+}
+#europesengage a {
+  background-position: 0 0;
+  width: 161px;
+  height: 103px;
+}
+#paca a {
+  background-position: 0 -103px;
+  width: 162px;
+  height: 61px;
+}
+#languedoc a {
+  background-position: -162px -90px;
+  width: 116px;
+  height: 61px;
+}
+#mw_logo
+{
+  width:55px;
+  height:88px;
+  z-index: 2;
+  background-position: -162px -2px;
+}
+#cda_logo
+{
+  width:74px;
+  height:75px;
+  z-index: 2;
+  background-position: -217px -2px;
+}
+

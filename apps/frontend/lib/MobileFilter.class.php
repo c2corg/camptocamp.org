@@ -48,6 +48,7 @@ class MobileFilter extends sfFilter
                 }
             }
 
+            $context->getResponse()->addStylesheet('/static/css/img_s.css'); // data uri images that are not used in mobile version
             $context->getResponse()->addStylesheet('/static/css/menu.css');
             $context->getResponse()->addStylesheet('/static/css/print.css', 'print');
         }

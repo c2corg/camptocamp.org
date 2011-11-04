@@ -169,8 +169,6 @@ a:hover
 }
 
 a.external_link, .htext .hextra a.external_link {
-  /* uri encode /static/images/extlink.gif */
-  background: transparent url(data:image/gif;base64,R0lGODlhDQAHAMIEAJiolKKmkrm8rdLXv////////////////yH5BAEAAAQALAAAAAANAAcAAAMfOBIsQwRAIiYMEEiCrdUcNGhk2XmZVFkdSChM4GRTAgA7) left center no-repeat;
   padding-left: 14px;
 }  
 
@@ -358,6 +356,8 @@ hr
   margin-right: 5px;
 }
 
+
+/* rq we don't css sprite or uri encode these two images because they are rarely used */
 .warning_message
 {
   background: url(/static/images/picto/warning.png) no-repeat #FCC9C8 15px 50%;
@@ -392,19 +392,6 @@ em.mandatory_asterisk
   margin-left: 5px;
 }
 
-/* borders and logos sprites */
-#banner_logo, #mw_logo, #cda_logo, #facebook_logo, #twitter_logo, .logo_mini,
-.ombre_haut_corner_right, .ombre_haut_corner_left, .ombre_bas_corner_right, .ombre_bas_corner_left,
-#nav_anchor_top, #nav_tools_top, #nav_license_top, #nav_anchor_down, #nav_tools_down, #nav_license_down,
-#wizard_button_top, #wizard_button_down, .nav_box_top, .nav_box_down,
-#nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
-#footer_border_left, #footer_border_right, #partners a,
-.picto.cc-by-sa, .picto.cc-by-sa-mini, .picto.cc-by-nc-nd, .picto.copyright, .cc_gen, .image_license, .license_mini,
-#paypal-button, #pp_button_mini, span.share_bookmark
-{
-  background: url(/static/images/borders_and_logos.png) no-repeat;
-}
-
 /* Header */
 #header
 {
@@ -424,44 +411,26 @@ em.mandatory_asterisk
   left: 10px;
   top: 5px;
   z-index: 2;
-  background-position: 0 -137px;
-}
-
-#mw_logo
-{
-  width:55px;
-  height:88px;
-  z-index: 2;
-  background-position: -162px -296px;
-}
-
-#cda_logo
-{
-  width:74px;
-  height:75px;
-  z-index: 2;
-  background-position: -217px -296px;
 }
 
 #facebook_logo
 {
-  width:32px;
+  width:28px;
   height:28px;
-  background-position: -118px -452px;
+  margin-right: 4px;
 }
 
 #twitter_logo
 {
-  width:32px;
+  width:28px;
   height:28px;
-  background-position: -116px -482px;
+  margin-left: 4px;
 }
 
 .logo_mini
 {
   width: 82px;
   height: 40px;
-  background-position: -130px -226px;
 }
 
 #banner_middle
@@ -611,7 +580,7 @@ img.embedded_inline_0, .embedded_inline_0
 
 a.logged_as
 {
-    background: url(/static/images/modules/modules_mini.png) -8px -392px no-repeat;
+    /* background defined in img.css */
     padding: 0 0 3px 20px;
 }
 
@@ -739,77 +708,10 @@ h1 .logo_mini
   display: block;
   float: left;
   clear: none;
-  background: url(/static/images/modules/modules.png) no-repeat;
 }
 .wide h1 .article_title_img
 {
   margin-left: 32px;
-}
-
-/* position with +3px +3px */
-.img_title_areas
-{
-  background-position: -11px -11px;
-}
-.img_title_articles
-{
-  background-position: -11px -61px;
-}
-.img_title_books
-{
-  background-position: -11px -111px;
-}
-.img_title_documents
-{
-  background-position: -11px -161px;
-}
-.img_title_huts
-{
-  background-position: -11px -211px;
-}
-.img_title_images
-{
-  background-position: -11px -261px;
-}
-.img_title_maps
-{
-  background-position: -11px -311px;
-}
-.img_title_outings
-{
-  background-position: -11px -361px;
-}
-.img_title_parkings
-{
-  background-position: -11px -411px;
-}
-.img_title_routes
-{
-  background-position: -11px -461px;
-}
-.img_title_sites
-{
-  background-position: -11px -511px;
-}
-.img_title_summits
-{
-  background-position: -11px -561px;
-}
-.img_title_users
-{
-  background-position: -11px -611px;
-}
-.img_title_products
-{
-  background-position: -11px -661px;
-}
-.img_title_portals
-{
-  background-position: -11px -709px;
-}
-.img_title_noimage
-{
-  background-position: 30px 0;
 }
 
 #title, .title, .title a
@@ -960,7 +862,7 @@ span.default_text, p.default_text
 #splitter
 {
   position: absolute;
-  width:9px;
+  width: 9px;
   height: 100%;
   cursor: pointer;
   border-left: 1px solid #e9e5dd;
@@ -971,14 +873,7 @@ span.default_text, p.default_text
   width: 4px;
   height: 12px;
   z-index: 9999;
-  background: url(/static/images/borders_and_logos.png) no-repeat;
-  background-position: -190px -141px;
   position: absolute;
-}
-
-#splitter_arrow.maximize
-{
-  background-position: -196px -141px;
 }
 
 #splitter.hl
@@ -1446,7 +1341,6 @@ a.close_btn {
   border: none;
   width: auto;
   margin: 0 20px;
-  background-position: center -65px;
   background-repeat: repeat-x;
 }
 #footer.map_content
@@ -1456,13 +1350,11 @@ a.close_btn {
 
 #footer_border_left
 {
-  background-position: 0 -30px;
   float: left;
 }
 
 #footer_border_right
 {
-  background-position: -12px -30px;
   float: right;
 }
 
@@ -1532,34 +1424,16 @@ a.close_btn {
 }
 
 #rhonealpes a {
-  background-position: 0px -225px;
   width: 130px;
   height: 26px;
 }
 #europa a {
-  background-position: -204px -126px;
   width: 43px;
   height: 30px;
 }
 #c2csa a {
-  background-position: 0 -251px;
   width: 51px;
   height: 30px;
-}
-#europesengage a {
-  background-position: 0 -287px;
-  width: 161px;
-  height: 103px;
-}
-#paca a {
-  background-position: 0 -390px;
-  width: 162px;
-  height: 61px;
-}
-#languedoc a {
-  background-position: 0 -451px;
-  width: 116px;
-  height: 61px;
 }
 
 .license_box
@@ -1596,41 +1470,22 @@ a.close_btn {
   height: 31px;
 }
 
-.picto.cc-by-sa
-{
-  background-position: -258px -61px;
-}
-
 .picto.cc-by-sa-mini
 {
   width: 80px;
   height: 15px;
-  background-position: -266px -15px;
-  
-}
-
-.picto.cc-by-nc-nd
-{
-  background-position: -258px -30px;
-}
-
-.picto.copyright
-{
-  background-position: -162px -384px;
 }
 
 .cc_gen
 {
   width: 88px;
   height: 31px;
-  background-position: -258px -92px;
 }
 
 .cc_gen.lang_fr
 {
   width: 99px;
   height: 33px;
-  background-position: -247px -123px;
 }
 
 span.share_bookmark
@@ -1644,32 +1499,32 @@ span.share_bookmark
 
 span.share_bookmark.de
 {
-  background-position: -221px -182px;
+  background-position: 0 0;
 }
 
 span.share_bookmark.en
 {
-  background-position: -221px -198px;
+  background-position: 0 -16px;
 }
 
 span.share_bookmark.it
 {
-  background-position: -221px -214px;
+  background-position: 0 -32px;
 }
 
 span.share_bookmark.es, span.share_bookmark.ca
 {
-  background-position: -221px -230px;
+  background-position: 0 -48;
 }
 
 span.share_bookmark.fr
 {
-  background-position: -221px -246px;
+  background-position: 0 -64px;
 }
 
 span.share_bookmark.eu
 {
-  background-position: -221px -262px;
+  background-position: 0 -80px;
 }
 
 /* content language selector */
@@ -1805,249 +1660,10 @@ input.picto, .form-row input.picto
   vertical-align: middle;
 }
 
-/* action images */
-.action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
-.action_delete, .action_del_light, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
-.action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last, .action_up, .action_down,
-.action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
-.action_report, .action_rm, .action_help, .action_informations, .action_description,
-.action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc,
-.action_json, .action_kml, .action_people
-{
-  background: url(/static/images/picto/actions.png) no-repeat;
-}
-
-.action_edit span, .action_edit
-{
-  background-position: -8px -295px;
-}
-
-.action_list span, .action_list
-{
-  background-position: -8px -418px;
-}
-
-.action_filter span, .action_filter
-{
-  background-position: -8px -674px;
-}
-
-.action_delete
-{
-  background-position: -8px -232px;
-}
-
-.action_del_light
-{
-  background-position: -8px -1215px;
-}
-
-.action_protect
-{
-  background-position: -8px -547px;
-}
-
-.action_unprotect
-{
-  background-position: -8px -739px;
-}
-
-.action_merge
-{
-  background-position: -8px -451px;
-}
-
-.action_rss, .action_rss_new
-{
-  background-position: -8px -643px;
-}
-
-.action_query
-{
-  background-position: -8px -675px;
-}
-
-.action_create
-{
-  background-position: -8px -8px;
-}
-
-.action_cancel
-{
-  background-position: -8px -104px;
-}
-
-.action_back
-{
-  background-position: -8px -40px;
-}
-
-.action_next
-{
-  background-position: -8px -827px;
-}
-
-.action_first
-{
-  background-position: -8px -859px;
-}
-
-.action_last
-{
-  background-position: -8px -891px;
-}
-
-.action_up
-{
-  background-position: -8px -1311px;
-}
-
-.action_down
-{
-  background-position: -8px -1343px;
-}
-
-.action_people
-{
-  background-position: -8px -1375px;
-}
-
-.action_contact
-{
-  background-position: -8px -326px;
-}
-
-.action_view
-{
-  background-position: -8px -200px;
-}
-
-.action_print
-{
-  background-position: -8px -515px;
-}
-
-.action_bookmark
-{
-  background-position: -8px -72px;
-}
-
-.action_tag
-{
-  background-position: -8px -957px;
-}
-
-.action_report
-{
-  background-position: -8px -579px;
-}
-
-.action_rm
-{
-  background-position: -8px -611px;
-}
-
-.action_help
-{
-  background-position: -8px -355px;
-}
-
-.action_informations
-{
-  background-position: -8px -387px;
-}
-
-.action_description
-{
-  background-position: -8px -264px;
-}
-
-.action_comment span, .action_comment
-{
-  background-position: -8px -167px;
-}
-
-.action_gps
-{
-  background-position: -8px -923px;
-}
-
-.action_kml
-{
-  background-position: -8px -1115px;
-}
-
-.action_json
-{
-  background-position: -8px -1083px;
-}
-
-.action_on
-{
-  background-position: -8px -1021px;
-}
 span.action_on
 {
   width: 19px;
   height: 19px;
-}
-
-.action_off
-{
-  background-position: -8px -989px;
-}
-
-.action_cc
-{
-  background-position: -8px -1055px;
-}
-
-/* those are input buttons with backgrounds. We use uri encoded images because
-   - using css sprites raises some rendering issues when changing font size
-   - image sizes are small, so better uri encode it and avoid extra request */
-.c2cui_picto.action_create
-{
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAllBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXWdxzWdx3WeSDXfinXgC3egSjegirhk0jilUvjhCvljjznm1LooF3rjTTunlPwkjnwlT/wqmbxmUXxqmfynUzzoVTzpVzzqWHzt3/0qmP0rWn1rmv2s3P3t3r4u4H4voj5wo36xJL////yX/jFAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAACVSURBVBgZBcHBUsIwFADAbXmUIOi1/v/XeXSYYpNp0uduwHy5hn6ME8F0e5Tn3b7Vd0thKl/fpFL8vGqG5XNNwJpni/mxJkLH2o9YSgIJZYnLkkBCiZjv6QYLzW0KYwZwOkXuxcbTBjWj9wQSeo+jfgAJ9Yixv574Bds+QpvyAXi/m5A1e4nZ2ffWUpC1/10vxjEG/gE/jE8zA9+T8QAAAABJRU5ErkJggg%3D%3D) no-repeat 0;
-}
-
-.c2cui_picto.action_filter, #google_search_submit, #q, #_q
-{
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABIFBMVEX///+lXjHPcBWmXzOlXjKnYDSlXjKoYja0ajHPcBXPcBXPcBXIjEPOmEnPcBXPcBXOlEXFfzaqZTetajuybzqxcD3PcBXLfCrJdiWbWDDOkkHIgzbLeCXPhTHNgC3OgCrKdyWdVCKuZTTOdh+vaDTLcRzOcRnOchnOcxvPdBvPdRzPdh3DbCLOcRfPchelXDO8hFG9fUDBjljJdijLcR/NcRrPcBXPcRfSgzDSiz3UeiPVfCfVkEPXfinZgzHagy/biDfclVLdkkvdl1TelVDfnVzhoWTip2/mhijnjznpkjvskDfukjnwvo7xwZLz07L117r5mTj6mTn74Mb84cj9tGz/nj3/pUz/rlz/t2//wYT/zJn/167/4cP/6tb/8+aYhV1/AAAAL3RSTlMACAkKDBIUFxwePEJFRUVISlFdXV1fZm97hISJs9jb4eLl6O7v9ff9/f39/f7+/kBWP4AAAAClSURBVBjTTc7VFoJQEIXhsbsVuxu7jt0BdoKt7/8WyoGFfnfzX+w1AGDwZxAiA3oQeEh6z7IHOuXlb3N6ecZWSQsOwflFsAjhkGeuAiYn5UL3JuprudC7iwY6LrQeoraGC9H1U7CJ41Hn6PjCTpOqHRffdPv+2s0QqqhxcSWGFDWuNRBCWRX/rZEgTI5y51vCMhDZik1Uj8l/AayFUkQJ/xRuCcAHG/grCN1LJi0AAAAASUVORK5CYII%3D) no-repeat 0;
-}
-
-#google_search_submit, #q, #_q
-{
-  background-position: 2px;
-}
-
-.c2cui_picto.action_cancel
-{
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABEVBMVEXJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDJMwDRSBrRSRvSSRrSShzSSx3bYjnbYzrcaUHdakThdE7id1LjdE/kfFnqj2/rkXLsk3TukXHum33vm3/vnYDwnYDwnoLwn4PwpInxnYDxn4LxoYXxpYvxp43ynYDynoLyn4PypInypYvzpInzqI7zr5j0oIP0rJL0rZP0sJf0sJj0spv1r5f1uaT1vqr2w7H2yLf2y7v3spv3x7f3y7z4y7v4y7z4zLz4z8H40MP40sX50cP50sX51Mj639b749v75t787Ob87Of87un97+v98Ov98Oz98u7+9vP+9/T++fj//fz///9XxfgxAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAADTSURBVBgZBcHNTsJAFIDR785PKVIKRIkmLljo+z+RbkwkkkKCQtvpdOaO5wiAsd6R5qyAgCxW9cMr30Pop4IgdfsGAHz+hWJZtAfWg2pZjZsxZWuaQ3ne2Jvf7PPQ3qOrlplidxq3sutYBmdd5Oiax+SGS8Q7WzdF42/rzfR1VmU0FFXzVMOiUdWCrSrL+96MsWrdlTmYlESiid3Hja1ISraY1txXp4v2y3Mw1yDUzQtGAT/zcw+WXOY1IiIqp37CUULJtd/TzeM4FQTAGW/Jc87AP3NMaxnYCArMAAAAAElFTkSuQmCC) no-repeat 0;
-}
-
-.c2cui_picto.action_list
-{
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAeFBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXYgS/po2Drp2fsjjXskTrtlD/umEbvm03vn1TwkjnwlT/wo1rxmUXxp2Hxq2jynUzyr27zoVTzpVzzsnTztXr0qmP0uH/1rmv1uoP2s3P3t3r4u4H4voj5wo36xJL///9MExISAAAAB3RSTlMANj/Y4fD2r5S8ygAAAGRJREFUGBkFwSEOAkEQBMASHYLCYEju/z87gcGAIWR3mqpIAMwa4XEBONuGKcBxzg5TAPen0AawStgF6CZMfwBD6FwB3xJmAGYIe38ANqG9Ad4ldACmhO4XQAkdACW0AEpYCwD+oe86x6o0B08AAAAASUVORK5CYII=) no-repeat 0;
-}
-
-.c2cui_picto.action_edit
-{
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABTVBMVEXPcBX////KklHPcBXPcBXRlSvPcBXPcBXHjEjPcBXPcBXTn2ZXQhiCZi6HYSumaCaqiUOzn3C8iUy+ehq/tqbCjEjCy7bFmEnImWTJhUHJza/MxrDMxrPPcBXQnUbQ1L7Rt5DVtnrV1r3WuXbXo2PX6P7YgS/YmlTYpVjZm1HamEnbmUvbsYXgoVHkyVXnvnfnwIvny3fpo2Drp2fsjjXskTrtlD/tym3t0HjumEbu03nu1H3u1YHvm03vn1Tv0qzwkjnwlT/wo1rw0rTw03nxmUXxp2Hxq2jx1Hvx46/ynUzyr27y1nrzoVTzpVzzsnTztXr0qmP0uH/1rmv1uoP13F713F/131v2s3P206723Wz3t3r332P34Vr34lv4u4H4voj44l34+//5wo35x5T5yZH547L6xJL84MT99sL99sT998f/8uD/8+X///+Kok2QAAAADHRSTlMAACY2P17Y4ejw9vfjF0r8AAAAv0lEQVQY02NgYFeDAy4WBiBgD0mHAWNOZpBAUDIcGLGBBAISICBJTENHjhUo4B+fBwae+s659hxAAe9oMF/KJs0gMoMbKOAeAQLy1llR5ioSTEABt2CgvJJVdlicjy47I1DAKTAvT9owOzTWQ9sJLGDnpyqjnBmT6KLlZwcWsPUVUVTQC7fQzPO1BQtYegnkqAuLi+bleVmCBcxceVNSJfldgcAMLGDqyMMnJOgIAqZgARMHODBhB/lFFgmwMwAAh1g0qhvSISAAAAAASUVORK5CYII=) no-repeat 0;
-}
-
-.c2cui_picto.action_rm
-{
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAllBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXWdxzWdx3WeSDXfinXgC3egSjegirhk0jilUvjhCvljjznm1LooF3rjTTunlPwkjnwlT/wqmbxmUXxqmfynUzzoVTzpVzzqWHzt3/0qmP0rWn1rmv2s3P3t3r4u4H4voj5wo36xJL////yX/jFAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAACLSURBVBgZTcEHDoMwEATAtQlwNCf0TjrFafD/z8USCHkGULjpCuGaHCtGcT3M81DHxKAwJ/9tcocBsLPvLrMBHn00EQdVb01F8C4vzc1HMEm5bKScAgT9OC6bcewD+O1T0/qg8qEpCUZ414QGQOl1lxIA5iTnTeIwKIxORdN1TXEkhtXB8oTwLAPKH+t+Gtjjt9+EAAAAAElFTkSuQmCC) no-repeat 0;
-}
-
-/* picto images */
-.picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images,
-.picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites,
-.picto_summits, .picto_users, .picto_documents, .picto_products, .picto_portals,
-.picto_1, .picto_4, .picto_3, .picto_13, .picto_7, .picto_9, .picto_10, .picto_5,
-.picto_8, .picto_11, .picto_12, .picto_6, .picto_2, .picto_14, .picto_15
-{
-  background: url(/static/images/modules/modules_mini.png) no-repeat;
 }
 
 select option.picto
@@ -2055,185 +1671,28 @@ select option.picto
   padding-left: 20px;
   padding-top: 2px;
 }
-.picto_areas, .picto_4
-{
-  background-position: -8px -8px;
-}
-.picto_articles, .picto_11
-{
-  background-position: -8px -40px;
-}
-.picto_books, .picto_12
-{
-  background-position: -8px -72px;
-}
-.picto_huts, .picto_10
-{
-  background-position: -8px -136px;
-}
-.picto_images, .picto_8
-{
-  background-position: -8px -168px;
-}
-.picto_maps, .picto_6
-{
-  background-position: -8px -200px;
-}
-.picto_outings, .picto_5
-{
-  background-position: -8px -232px;
-}
-.picto_parkings, .picto_9
-{
-  background-position: -8px -264px;
-}
-.picto_routes, .picto_7
-{
-  background-position: -8px -296px;
-}
-.picto_sites, .picto_13
-{
-  background-position: -8px -328px;
-}
-.picto_summits, .picto_3
-{
-  background-position: -8px -360px;
-}
-.picto_users, .picto_2
-{
-  background-position: -8px -392px;
-}
-.picto_products, .picto_14
-{
-  background-position: -8px -419px;
-}
-.picto_portals, .picto_15
-{
-  background-position: -8px -451px;
-}
-.picto_documents, .picto_1 {
-  background-position: -8px -104px;
-}
-/* sbox select has extra padding we need to deal with */
-.sbox select.picto_areas, .sbox select.picto_4
-{
-  background-position: -6px -6px;
-}
-.sbox select.picto_articles, .sbox select.picto_11
-{
-  background-position: -6px -38px;
-}
-.sbox select.picto_books, .sbox select.picto_12
-{
-  background-position: -6px -70px;
-}
-.sbox select.picto_huts, .sbox select.picto_10
-{
-  background-position: -6px -134px;
-}
-.sbox select.picto_images, .sbox select.picto_8
-{
-  background-position: -6px -166px;
-}
-.sbox select.picto_maps, .sbox select.picto_6
-{
-  background-position: -6px -198px;
-}
-.sbox select.picto_outings, .sbox select.picto_5
-{
-  background-position: -6px -230px;
-}
-.sbox select.picto_parkings, .sbox select.picto_9
-{
-  background-position: -6px -262px;
-}
-.sbox select.picto_routes, .sbox select.picto_7
-{
-  background-position: -6px -294px;
-}
-.sbox select.picto_sites, .sbox select.picto_13
-{
-  background-position: -6px -326px;
-}
-.sbox select.picto_summits, .sbox select.picto_3
-{
-  background-position: -6px -358px;
-}
-.sbox select.picto_users, .sbox select.picto_2
-{
-  background-position: -6px -390px;
-}
+
+/* extra padding we need to deal with */
+#google_search_submit, #q, #_q,
+.sbox select.picto_areas, .sbox select.picto_4,
+.sbox select.picto_articles, .sbox select.picto_11,
+.sbox select.picto_books, .sbox select.picto_12,
+.sbox select.picto_huts, .sbox select.picto_10,
+.sbox select.picto_images, .sbox select.picto_8,
+.sbox select.picto_maps, .sbox select.picto_6,
+.sbox select.picto_outings, .sbox select.picto_5,
+.sbox select.picto_parkings, .sbox select.picto_9,
+.sbox select.picto_routes, .sbox select.picto_7,
+.sbox select.picto_sites, .sbox select.picto_13,
+.sbox select.picto_summits, .sbox select.picto_3,
+.sbox select.picto_users, .sbox select.picto_2,
 .sbox select.picto_documents, .sbox select.picto_1 {
-  background-position: -6px -102px;
+  background-position: 2px !important;
 }
 
-
-/* action pictos */
-.picto_rss, .picto_list, .picto_forum, .picto_forums, .picto_info, .picto_tools, .picto_add, .picto_rm,
-.picto_open, .picto_open_light, .picto_close, .picto_close_light,
-.picto_weather, .picto_snow, .picto_images_light
-{
-  background: url(/static/images/picto/actions.png) no-repeat;
-}
-.picto_list
-{
-  background-position: -8px -419px;
-}
-.picto_forum, .picto_forums
-{
-  background-position: -8px -168px;
-}
 select.picto_forum, select.picto_forums
 {
-  background-position: -6px -166px;
-}
-.picto_info
-{
-  background-position: -8px -387px;
-}
-.picto_tools
-{
-  background-position: -8px -707px;
-}
-.picto_open
-{
-  background-position: -8px -483px;
-}
-.picto_open_light
-{
-  background-position: -8px -1151px;
-}
-.picto_close
-{
-  background-position: -8px -136px;
-}
-.picto_close_light
-{
-  background-position: -8px -1183px;
-}
-.picto_add
-{
-  background-position: -8px -8px;
-}
-.picto_rm
-{
-  background-position: -8px -611px;
-}
-.picto_rss
-{
-  background-position: -8px -643px;
-}
-.picto_weather
-{
-  background-position: -8px -1247px;
-}
-.picto_snow
-{
-  background-position: -8px -1279px;
-}
-.picto_images_light
-{
-  background-position: -8px -1407px;
+  background-position: 2px 2px;
 }
 
 /* Latest outings decoration */
@@ -2246,11 +1705,9 @@ select.picto_forum, select.picto_forums
 {
   width: 16px;
   height: 16px;
-  background: url(/static/images/picto/activities_mini.png) no-repeat;
 }
 option.picto_act
 {
-  background: url(/static/images/picto/activities_mini.png) no-repeat;
   padding-left: 20px;
   padding-top: 2px;
 }
@@ -2258,95 +1715,12 @@ option.act_0
 {
   background: none;
 }
-.activity_6, option.act_6
-{
-  background-position: -8px -8px;
-}
-.activity_6_light
-{
-  background-position: -8px -40px;
-}
-.activity_5, option.act_5
-{
-  background-position: -8px -72px;
-}
-.activity_5_light
-{
-  background-position: -8px -104px;
-}
-.activity_3, option.act_3
-{
-  background-position: -8px -136px;
-}
-.activity_3_light
-{
-  background-position: -8px -168px;
-}
-.activity_4, option.act_4
-{
-  background-position: -8px -200px;
-}
-.activity_4_light
-{
-  background-position: -8px -232px;
-}
-.activity_1, option.act_1
-{
-  background-position: -8px -264px;
-}
-.activity_1_light
-{
-  background-position: -8px -296px;
-}
-.activity_2, option.act_2
-{
-  background-position: -8px -328px;
-}
-.activity_2_light
-{
-  background-position: -8px -360px;
-}
-.activity_7, option.act_7
-{
-  background-position: -8px -616px;
-}
-.activity_7_light
-{
-  background-position: -8px -648px;
-}
-.pt_2
-{
-  background-position: -8px -392px;
-}
-.pt_3
-{
-  background-position: -8px -424px;
-}
-.pt_1
-{
-  background-position: -8px -456px;
-}
-.freq_1
-{
-  background-position: -8px -488px;
-}
-.freq_2
-{
-  background-position: -8px -520px;
-}
-.freq_4
-{
-  background-position: -8px -552px;
-}
-.freq_3
-{
-  background-position: -8px -584px;
-}
 .printonly
 {
   display:none;
 }
 
+/* we don't uri encode this, i'm not even sure it is used anywhere */
 .act_1_big, .act_2_big, .act_3_big, .act_4_big, .act_5_big, .act_6_big, .act_7_big
 {
   background: url(/static/images/picto/activities.png) no-repeat;
@@ -2536,14 +1910,14 @@ fieldset .select_title
 
 .form-row .fieldname
 {
-  width:160px;
-  float:left;
+  width: 160px;
+  float: left;
   padding: 5px 2px 5px 16px;
   color: #f93;
-  background:transparent url(/static/images/picto/help2.png) no-repeat scroll 0 6px;
-  cursor:help;
-  font-size:0.9em;
-  font-weight:bold;
+  /* background defined in img.css */
+  cursor: help;
+  font-size: 0.9em;
+  font-weight: bold;
 }
 
 #toolform .fieldname
@@ -2783,8 +2157,8 @@ ul.listed_changes
 
 ul.listed_changes li, ul.children_docs li
 {
-  list-style-type:disc;
-  list-style-image: url(/static/images/picto/puce2.png);
+  list-style-type: disc;
+  /* list-style-image uri encoded in img.css */
 }
 
 ul.listed_changes li
@@ -2852,8 +2226,7 @@ ul.docs_changes li img
   border-radius:4px;
   padding: 0.2em 0.2em 0.2em 35px;
   list-style-type: none;
-  /* uri encode /static/images/drag.gif */
-  background: url(data:image/gif;base64,R0lGODlhGQALAKEAAAAAAP///wAAAAAAACH5BAEKAAIALAAAAAAZAAsAAAIpFI6pe8YPo2ShnhqQvTtlkH3hBUIiuGFjp5FjWZ4KRsY1O+W65OyLUAAAOw==) no-repeat 5px;
+  /* background uri encoded in img.css */
 }
 #order li:hover
 {
@@ -3049,17 +2422,11 @@ ul.list404 li
 }
 
 /* 'view', 'edit', 'history'... tabs */
-.ombre_haut, .ombre_bas, #footer
-{
-  background-image:url(/static/images/borders_repeat_x.png);
-}
-
 .ombre_haut
 {
   position: relative;
   height:23px;
   width:100%;
-  background-position: center -23px;
   background-repeat: repeat-x;
   float: left;
 }
@@ -3069,26 +2436,18 @@ ul.list404 li
   float: right;
   height:23px;
   width:8px;
-  background-position: -242px -30px;
 }
 .ombre_haut_corner_left
 {
   float: left;
   height:23px;
   width:8px;
-  background-position: -234px -30px;
-}
-
-.ombre_haut_corner_left.hl
-{
-  background-position: -250px -30px;
 }
 
 .ombre_bas
 {
   height:23px;
   width:100%;
-  background-position: center 0;
   background-repeat:repeat-x;
   margin-top: -12px;
   float: left;
@@ -3099,7 +2458,6 @@ ul.list404 li
   float: right;
   height:23px;
   width:8px;
-  background-position: -242px -53px;
 }
 
 .ombre_bas_corner_left
@@ -3107,12 +2465,6 @@ ul.list404 li
   float: left;
   height:23px;
   width:8px;
-  background-position: -234px -53px;
-}
-
-.ombre_bas_corner_left.hl
-{
-  background-position: -250px -53px;
 }
 
 /* ---- Menu left ----*/
@@ -3196,7 +2548,7 @@ ul.list404 li
 .nav_box_text ul
 {
   list-style-type: disc;
-  list-style-image : url(/static/images/picto/puce2.png);
+  /* list-style-image uri encoded in img.css */
   margin: 0 0 0.5em 0.7em;
   vertical-align: top;
 }
@@ -3229,7 +2581,6 @@ ul.list404 li
   height: 5px;
   width: 200px;
   float: right;
-  background-position: 0px -10px;
 }
 
 #nav_anchor_down, #nav_tools_down, #nav_license_down
@@ -3237,7 +2588,6 @@ ul.list404 li
   height: 5px;
   width: 200px;
   float: right;
-  background-position: 0 -15px;
 }
 
 #wizard_button_top
@@ -3245,7 +2595,6 @@ ul.list404 li
   height: 5px;
   width: 200px;
   float: right;
-  background-position: 0 0;
 }
 
 #wizard_button_down
@@ -3253,7 +2602,6 @@ ul.list404 li
   height: 5px;
   width: 200px;
   float: right;
-  background-position: 0 -5px;
 }
 
 #wizard_button_content
@@ -3269,7 +2617,7 @@ ul.list404 li
   height: 100%;
   width: 198px;
   float: left;
-  background: url(/static/images/bg_nav.png) repeat-x bottom left;
+  /* background uri encoded in img.css */
   border-left: 2px solid #e4e1da;
 }
 
@@ -3283,12 +2631,6 @@ ul.list404 li
   height: 5px;
   width: 200px;
   float: right;
-  background-position: 0 -126px;
-}
-
-.nav_box_top.small
-{
-  background-position: 0 -281px;
 }
 
 .nav_box_down
@@ -3296,7 +2638,6 @@ ul.list404 li
   height:6px;
   width:200px;
   float:right;
-  background-position: 0 -131px;
 }
 
 #nav_about_section_container
@@ -3351,14 +2692,12 @@ ul.list404 li
 {
   color: #333;
   display: block;
-  background-position: -24px -30px;
   padding: 8px 0 0 8px;
 }
 
 #nav_edit li a:hover, #nav_edit li div:hover
 {
   color: #666;
-  background-position: -24px -62px;
   padding: 8px 0 0 8px;
   width: 194px;
   border-right: 1px solid white;
@@ -3373,7 +2712,6 @@ ul.list404 li
 #nav_edit li.active_tab a
 {
   color: #666;
-  background-position: -24px -62px;
   padding: 8px 0 0 8px;
 }
 
@@ -3617,27 +2955,22 @@ div.image img
   background-repeat: no-repeat;
 }
 
-.image_list .image_actions span.move
-{
-  background-image: url(/static/images/picto/move.gif);
-  cursor: move;
-}
-
 .image_list a.view_details
 {
-  background: url(/static/images/modules/modules_mini.png) no-repeat -1px -166px;
+  /* background defined in img.css */
+  background-position: 7px 2px !important;
   float: right;
 }
 
 .image_list a.view_original
 {
-  background: url(/static/images/picto/actions.png) no-repeat -2px -673px;
+  background-position: 6px !important;
   float: left;
 }
 
 .image_list a.unlink
 {
-  background: url(/static/images/picto/actions.png) no-repeat -1px -609px;
+  background-position: 7px !important;
   float: left;
 }
 
@@ -3665,7 +2998,7 @@ div.image img
 }
 
 .thumb_data_img div.license_3, .image_list div.license_3 {
-  background-position: -210px -279px;
+  background-position: -54px -266px;
 }
 
 div.img_box a.view_details
@@ -4100,6 +3433,7 @@ h6.htext a
 {
   text-decoration: underline;
 }
+/*
 .users_content h6.htext
 {
   padding: 1em 2em;
@@ -4115,7 +3449,7 @@ h6.htext a
   font-weight: bold;
   color: #FF00FF;
   background-color: white;
-}
+}*/
 
 span.hextra, .article span.hextra
 {
@@ -4805,17 +4139,7 @@ span.diffchange
 
 th.order_desc, th.order_asc
 {
-  background: url(/static/images/picto/actions.png) no-repeat;
-}
-/* position: 3px 6px */
-th.order_desc
-{
-  background-position: -5px -477px;
-}
-
-th.order_asc
-{
-  background-position: -5px -130px;
+  background-position: 3px 6px !important;
 }
 
 th.order_desc a, th.order_asc a
@@ -4890,7 +4214,6 @@ td.history_buttons {
 {
   width: 135px;
   height: 26px;
-  background-position: -212px -156px;
   background-color: white;
   color: #013e7c;
   font-size: 1.1em;
@@ -4905,7 +4228,6 @@ td.history_buttons {
   margin-left: 20px;
   width: 82px;
   height: 17px;
-  background-position: -130px -266px;
   border: 1px solid white !important;
   border-radius: 0 !important;
   -moz-border-radius: 0 !important;
@@ -4971,7 +4293,8 @@ span.license_mini_bysa {
 }
 
 #lightbox_view_details {
-  background: transparent url(/static/images/modules/modules_mini.png) no-repeat scroll -1px -166px;
+  /* background defined in img.css */
+  background-position: 7px 2px !important;
   height: 20px;
   width: 30px;
   text-indent: -99999px;
@@ -4980,7 +4303,6 @@ span.license_mini_bysa {
 }
 
 #lightbox_view_original {
-  background: transparent url(/static/images/picto/actions.png) no-repeat scroll -2px -673px;
   height: 20px;
   width: 30px;
   text-indent: -99999px;

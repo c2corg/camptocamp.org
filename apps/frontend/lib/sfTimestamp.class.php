@@ -20,6 +20,6 @@ class sfTimestamp
         {
             $max = max($max, sfConfig::get('app_versions_'.$file, 0));
         }
-        return ($max == 0) ? '' : $max; // TODO md5 ou virer un gros pauet devant
+        return ($max == 0) ? '' : $max;
     }
 }

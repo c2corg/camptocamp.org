@@ -7,9 +7,7 @@ default:
 
   stylesheets:
     - /static/css/main.css: { media: all }
-  #  - /static/css/menu.css: { media: all }
-  #  - /static/css/handheld.css: { media: handheld, position: last }
-  #  - /static/css/print.css: { media: print, position: last }
+    - /static/css/img.css: { media: all }
   # javascripts should not be specified here if not application-wide
 
   has_layout:     on
