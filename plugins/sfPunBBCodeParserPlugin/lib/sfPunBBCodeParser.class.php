@@ -1304,7 +1304,7 @@ class sfPunBBCodeParser
     //
    
     public static function do_lines($text) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $header_line, $nb_col, $nb_col_max, $doc_module, $cell_index;
         
         $line_index = 0;
         $line_index_old = 0;
@@ -1316,7 +1316,9 @@ class sfPunBBCodeParser
         $abseil_reference = -1;
         $first_line = true;
         $first_block_line = true;
+        $header_line = false;
         $nb_col = 0;
+        $nb_col_max = 0;
         $doc_module = sfContext::getInstance()->getModuleName();
         $cell_index = 0;
 
@@ -1348,7 +1350,7 @@ class sfPunBBCodeParser
         return $text;
     }
     public static function _doLines_callback($matches) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $header_line, $nb_col, $nb_col_max, $doc_module, $cell_index;
         
         $first_block_line = true;
         $list = $matches[1] . "\n";
@@ -1373,13 +1375,20 @@ class sfPunBBCodeParser
 
             // '{\n?^([LR])\#(\+?)(\d*)([^\d-!:|\s][^-!:|\s]*|)(-(\+?)(\d+))?(!?)\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
         
+        if ($nb_col_max > $nb_col)
+        {
+            $nb_col = $nb_col_max - $nb_col;
+            
+            $list = preg_replace_callback('{<(t[dh]) colspan="(\d+)">}' array('self', '_processUpdateColspan'), $list);
+        }
+        
         $result = '</p><table class="route_lines"><tbody>' . $list . '</tbody></table><p>';
         
         return $result;
     }
 
     public static function _processLineItems_callback($matches) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $nb_col, $doc_module, $cell_index;
+        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $header_line, $nb_col, $nb_col_max, $doc_module, $cell_index;
         
         $cell_index = 0;
         
@@ -1395,6 +1404,25 @@ class sfPunBBCodeParser
         
         if ($new_marker_suffix != '~')  // description de longueur
         {
+            
+            
+            if ($new_marker_suffix == '=')  // ligne de titre
+            {
+                $header_line = true;
+                $new_marker_suffix = '';
+                $new_marker_index = '';
+                $multi_line_index = '';
+                $multi_line_relative = '';
+                $multi_line_index = '';
+                $line_suffix = '';
+                $abseil_suffix = '';
+                $line_reference = -1;
+                $abseil_reference = -1;
+            }
+            else
+            {
+                $header_line = false;
+            }
             if (!empty($new_marker_relative) && $new_marker_index == '')
             {
                 $new_marker_index = 1;
@@ -1412,7 +1440,7 @@ class sfPunBBCodeParser
                 $index_incr = 1;
             }
             
-            if ($marker_type == 'L') // L : line
+            if ($header_line && $marker_type == 'L') // L : line
             {
                 if ($doc_module == 'sites')
                 {
@@ -1512,7 +1540,7 @@ class sfPunBBCodeParser
                     }
                 }
             }
-            else  // R : abseil
+            elseif ($header_line && $marker_type == 'R')  // R : abseil
             {
                 $marker_type = __('route_abseil_prefix');
                 $abseil_suffix_old = $abseil_suffix;
@@ -1603,6 +1631,10 @@ class sfPunBBCodeParser
                     }
                 }
             }
+            else
+            {
+                $row_header = '';
+            }
             
             // protection des wikiliens
             $pattern[] = '{\[\[([^|]+?)\|([^\]]+?)\]\]}';
@@ -1626,6 +1658,11 @@ class sfPunBBCodeParser
             if ($first_block_line == true)
             {
                 $nb_col = $cell_index;
+                $nb_col_max = $nb_col;
+            }
+            elseif ($cell_index > $nb_col_max)
+            {
+                $nb_col_max = $cell_index;
             }
             
             $pattern = array();
@@ -1674,11 +1711,11 @@ class sfPunBBCodeParser
     
     public static function _processListCell($matches)
     {
-        global $doc_module, $cell_index;
+        global $doc_module, $header_line, $cell_index;
         
         $cell_index ++;
         
-        if ($doc_module == 'sites' && $cell_index == 1)
+        if ($header_line || $doc_module == 'sites' && $cell_index == 1)
         {
             $cell_tag = 'th';
         }
@@ -1688,6 +1725,16 @@ class sfPunBBCodeParser
         }
         
         return '<' . $cell_tag . '>' . $matches[1] . '</' . $cell_tag . '>';
+    }
+    
+    public static function _processUpdateColspan($matches)
+    {
+        global $nb_col;
+        
+        $cell_tag = $matches[1];
+        $col_diff = $matches[2] + $nb_col;
+        
+        return '<' . $cell_tag . ' colspan="' . $col_diff . '">';
     }
     
     
