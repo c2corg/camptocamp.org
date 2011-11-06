@@ -1395,11 +1395,11 @@ class sfPunBBCodeParser
         
         if ($new_marker_suffix != '~')  // description de longueur
         {
-            if (!empty($new_marker_relative) && $new_marker_index != '')
+            if (!empty($new_marker_relative) && $new_marker_index == '')
             {
                 $new_marker_index = 1;
             }
-            if (!empty($multi_line_relative) && $multi_line_index != '')
+            if (!empty($multi_line_relative) && $multi_line_index == '')
             {
                 $multi_line_index = 1;
             }
