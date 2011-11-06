@@ -9,12 +9,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="201.002"
-   height="417.05743"
+   width="320"
+   height="320"
    id="svg3026"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="Nouveau document 2">
+   sodipodi:docname="freq1.svg"
+   inkscape:export-filename="/home/tai/svgc2c/freq1.png"
+   inkscape:export-xdpi="4.5"
+   inkscape:export-ydpi="4.5">
   <defs
      id="defs3028" />
   <sodipodi:namedview
@@ -24,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="100.4952"
-     inkscape:cy="208.54993"
+     inkscape:zoom="0.7"
+     inkscape:cx="94.285714"
+     inkscape:cy="221.43823"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -34,11 +37,11 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="486"
-     inkscape:window-height="399"
-     inkscape:window-x="66"
-     inkscape:window-y="373"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1280"
+     inkscape:window-height="776"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata3031">
     <rdf:RDF>
@@ -55,11 +58,11 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-274.5048,-323.85469)">
+     transform="translate(-274.5048,-420.91212)">
     <g
        id="g3269"
        style="fill:#c8c8c8;fill-opacity:1;stroke:#000000;stroke-width:8;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       transform="translate(24.5625,-37.035522)">
+       transform="matrix(0.76736997,0,0,0.76736997,165.58959,143.92786)">
       <g
          id="g3181"
          style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1"
