@@ -1379,7 +1379,7 @@ class sfPunBBCodeParser
         {
             $nb_col = $nb_col_max - $nb_col;
             
-            $list = preg_replace_callback('{<(t[dh]) colspan="(\d+)">}' array('self', '_processUpdateColspan'), $list);
+            $list = preg_replace_callback('{<(t[dh]) colspan="(\d+)">}', array('self', '_processUpdateColspan'), $list);
         }
         
         $result = '</p><table class="route_lines"><tbody>' . $list . '</tbody></table><p>';
