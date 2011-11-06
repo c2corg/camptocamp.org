@@ -1687,14 +1687,7 @@ class sfPunBBCodeParser
             if ($cell_index < $nb_col)
             {
                 $col_diff = $nb_col - $cell_index;
-                if ($col_diff > 1)
-                {
-                    $colspan = ' colspan="' . $col_diff . '"';
-                }
-                else
-                {
-                    $colspan = '';
-                }
+                $colspan = ' colspan="' . $col_diff . '"';
                 $item .= '<td' . $colspan . '> </td>';
             }
             
