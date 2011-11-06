@@ -1440,7 +1440,7 @@ class sfPunBBCodeParser
                 $index_incr = 1;
             }
             
-            if ($header_line && $marker_type == 'L') // L : line
+            if (!$header_line && $marker_type == 'L') // L : line
             {
                 if ($doc_module == 'sites')
                 {
@@ -1540,7 +1540,7 @@ class sfPunBBCodeParser
                     }
                 }
             }
-            elseif ($header_line && $marker_type == 'R')  // R : abseil
+            elseif (!$header_line && $marker_type == 'R')  // R : abseil
             {
                 $marker_type = __('route_abseil_prefix');
                 $abseil_suffix_old = $abseil_suffix;
@@ -1715,7 +1715,7 @@ class sfPunBBCodeParser
         
         $cell_index ++;
         
-        if ($header_line || $doc_module == 'sites' && $cell_index == 1)
+        if ($header_line || ($doc_module == 'sites' && $cell_index == 1))
         {
             $cell_tag = 'th';
         }
