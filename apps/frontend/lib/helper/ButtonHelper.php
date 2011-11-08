@@ -371,7 +371,10 @@ function buttons_facebook_twitter_c2c()
            . '<span id="facebook_logo"></span></a>&nbsp;'
            . '<a href="http://twitter.com/camptocamporg" '
            . 'title="' . __('Camptocamp on Twitter') . '">'
-           . '<span id="twitter_logo"></span></a>';
+           . '<span id="twitter_logo"></span></a>&nbsp;'
+           . '<a href="https://plus.google.com/104270548458536561874/" '
+           . 'title="' . __('Camptocamp on Google+') . '" rel="publisher">'
+           . '<span id="googleplus_logo"></span></a>';
 }
 
 function button_map($module)

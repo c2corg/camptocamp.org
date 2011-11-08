@@ -350,6 +350,9 @@ msgstr "CNIL declaration #"
 msgid "Camptocamp on Facebook"
 msgstr "Camptocamp on Facebook"
 
+msgid "Camptocamp on Google+"
+msgstr "Camptocamp on Google+"
+
 msgid "Camptocamp on Twitter"
 msgstr "Camptocamp on Twitter"
 

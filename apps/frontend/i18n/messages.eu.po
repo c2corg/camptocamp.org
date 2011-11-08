@@ -352,6 +352,10 @@ msgstr "CNIL deklarazio zenbakia: "
 msgid "Camptocamp on Facebook"
 msgstr "Camptocamp Facebook-en"
 
+# [WARNING] needs_review
+msgid "Camptocamp on Google+"
+msgstr "Camptocamp Google+-en"
+
 msgid "Camptocamp on Twitter"
 msgstr "Camptocamp Twitter-en"
 

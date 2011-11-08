@@ -13,6 +13,7 @@ class MobileFilter extends sfFilter
         {
             // change layout for mobile_layout
             $context->getResponse()->setParameter($context->getModuleName().'_'.$context->getActionName().'_layout', 'mobile_layout', 'symfony/action/view');
+            $context->getResponse()->addStylesheet('/static/css/mimg.css'); // data uri images that are used only in mobile version
             $context->getResponse()->addStylesheet('/static/css/mobile.css', 'last');
         }
         else
@@ -48,7 +49,7 @@ class MobileFilter extends sfFilter
                 }
             }
 
-            $context->getResponse()->addStylesheet('/static/css/img_s.css'); // data uri images that are not used in mobile version
+            $context->getResponse()->addStylesheet('/static/css/wimg.css'); // data uri images that are used only in www version
             $context->getResponse()->addStylesheet('/static/css/menu.css');
             $context->getResponse()->addStylesheet('/static/css/print.css', 'print');
         }

@@ -29,7 +29,5 @@ echo link_to(content_tag('span', '',
 </p>
 
 <p><?php echo buttons_facebook_twitter_c2c(); ?></p>
-<p><?php echo link_to(__('mobile version'), 'http://'.$mobile_hostname,
-                      array('onclick' => "document.location.href = document.location.href.replace('$classic_hostname', '$mobile_hostname'); return false;")); ?></p>
 </div>
 </form>

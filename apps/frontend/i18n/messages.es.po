@@ -351,6 +351,10 @@ msgstr "Declaración CNIL n°"
 msgid "Camptocamp on Facebook"
 msgstr "Camptocamp en Facebook"
 
+# [WARNING] needs_review
+msgid "Camptocamp on Google+"
+msgstr "Camptocamp en Google+"
+
 msgid "Camptocamp on Twitter"
 msgstr "Camptocamp en Twitter"
 
