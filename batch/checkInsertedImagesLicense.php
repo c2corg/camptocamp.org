@@ -104,18 +104,17 @@ foreach($lookup as $table => $fields)
 }
 
 // now we have retrieved all images inserted in collaborative documents, get those that are collaborative (and removed bad references)
-echo ('==> ' . count($images_for_doc) . "\n");
 $all_image_ids = array();
 foreach ($images_for_doc as $id => $inserted_images)
 {
     $all_image_ids = array_merge($all_image_ids, $inserted_images);
 }
 $all_image_ids = array_unique($all_image_ids);
+$all_image_ids = array_filter($all_image_ids); // ensure no null id
 
 // map imgid => image info for images that cause problem
 $retrieved_images_ids = array();
 
-echo ('==> ' . count($all_image_ids) . "\n");
 if (count($all_image_ids) == 0) {
   echo ("No image found!\n");
   exit;
