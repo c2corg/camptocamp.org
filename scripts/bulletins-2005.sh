@@ -49,7 +49,7 @@ for DPT in $LIST; do
             MAILDPT=`echo $DPT | sed -e 's/^dept//i'`
 
             mv $FILE.txt $FILE.mail
-            mail -a "Content-Type: text/plain; charset=utf-8" -s "$TITLE $DPT - $TODAY" meteofrance-$MAILDPT@camptocamp.org < $FILE.mail
+            mail -a "Content-Type: text/plain; charset=utf-8" -s "$TITLE $DPT - $TODAY" meteofrance-$MAILDPT@lists.camptocamp.org < $FILE.mail
 
         else
             rm -f $FILE.txt
