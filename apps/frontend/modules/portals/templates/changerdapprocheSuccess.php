@@ -7,6 +7,7 @@ $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator
 $id = $sf_params->get('id');
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
+$mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_moderator);
 

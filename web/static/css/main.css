@@ -3630,6 +3630,7 @@ table.route_lines tr.interline td
 
 .portals_content table.route_lines th
 {
+  text-align: left;
   font-weight: normal;
   font-style: normal;
 }
