@@ -1,5 +1,5 @@
 <?php
-use_helper('Button', 'Form', 'Viewer'); 
+use_helper('Button', 'Form', 'Viewer', 'MyForm'); 
 
 echo display_title(__('mailing lists'));
 ?>
@@ -45,8 +45,7 @@ echo start_content_tag();
             echo form_tag('users/mailinglists');
             echo input_hidden_tag('listname', $list, array('id' => $list.'_name'));
             echo input_hidden_tag('reason', 'unsub', array('id' => $list.'_reason'));
-            echo submit_tag(__('Unsubscribe'),
-                            array('class' => 'picto action_cancel'));
+            echo c2c_submit_tag(__('Unsubscribe'), array('picto' => 'action_cancel'));
             ?></form></td>
             </tr>
             <?php endforeach ?>
@@ -72,8 +71,7 @@ echo start_content_tag();
             echo form_tag('users/mailinglists');
             echo input_hidden_tag('listname', $list, array('id' => $list.'_name'));
             echo input_hidden_tag('reason', 'sub', array('id' => $list.'_reason'));
-            echo submit_tag(__('Subscribe'),
-                            array('class' => 'picto action_create'));
+            echo c2c_submit_tag(__('Subscribe'), array('picto' => 'action_create'));
             ?></form></td></tr>
             <?php endforeach ?>
             </table>
