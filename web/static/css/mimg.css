@@ -1,0 +1,116 @@
+/*
+ * Regroup here all picto backgrounds that are used only in mobile version
+ * (so that we keep the css files as small as possible)
+ */
+
+/* BORDERS & CO */
+
+/* logo_mini.png */
+.logo_mini {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAAAoCAMAAABaS10OAAAABGdBTUEAALGPC/xhBQAAAwBQTFRF/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////v///v///v/+/v79/v79/v7+/f39/fz8/Pz7/Pv7/Pv5/Pr3/Pn1/Pjz+vbx9/Pv8/Hw8e/t8+7p9+3j+uzd++vX/OfO/OPG/ODA/N26/Nu1+9q1+tu399u7893D7N7O59/W4d7a3dva2tjY1tXV0dDQzMvMyMfIw8PEwL/Avb2+u7q7t7a3tLOzsbCwraysqKenpaOkoaCgnpydmZiYlpSVkY+QjoyNkI6PmJKPo5mPuKON1rSM67+O9saO+ciP+smP+8iN/MaI+8SD+795+710+7pv+rdo+rNh+rFc+q9X+axR+ahK+aVE+KI++J83+J0y95os95cm95Ui95Me95EZ+JAX+JAU+I8T+I4R+I0Q94wO94sN94sM94oL94oJ94kI94kI94kH94gH94gF9ocE9oYD9oYC9YUD7IEE2XcGql4GXDIFJBMFEQkECgUEBgIDBAEDAwEDBAIEBgMFBwMFCAQGCQUGCgYHCwYICwcIDAgJDQgKDQkLDgoLDwsMDwsNEAwNEA0OEQ0PEg4PEw8QFBARFRESFhITFxQVGRUXGxcZHRkbHxsdIR4fJCEiJyQlKSYnLissMzAxOTU2PDk6Pzw9REBBRkNDR0RFSkdHTElKTktMUE1OU1BRVlNUW1hZX1xdYV5fZGJjZ2Vma2hqb21ucnBxc3Fzc3FzELr4EQAABApJREFUSMfNlm1TGlcUx/OBzufhDXHCUyAqavZNEUUjosDW7HSmncFElBjlQUV50M1s0C7t9IVsC2wgwOwOoqYiPoETMTqCSYfeXZqGSdMMpjuT7szuPffu7O/ec+7/nL23QPLr1ldB3pYaqYpGFyclXqXSEaaXeiSOpcYXiTikQro0YqP2k9RjaZCPo91NAyPDpEMKZC89/970hUOrPf8dqV+lsfe2gwyG/GIUOh4Sli9F9obXPR96C6FAyCsTLGstxTcUX4LESCpwt2UCKhgIozgQ9wDuldNF882R0xFqVQ96zd8DU2uBQOgpzgwJnTLPETdEdnooKtwD+qi4JZMqcZLgyvLKz9+J7w27ha2rGyEdqxS12IVkuYA6fb6ovjm6sry84r8v2mP5ne0TQ9tIvSdCRWblyPJ6sZlQdL5THB68/OWnYDBEusRNGtstFHaINpFqev35Qh8y3CRFRgIzXeLo+NGv2YbiUZAkqcVe0ffXfJ4vEp9BWkrFPVtzq9fdonMq54x/DaFlUz6XGkqHhFYodI/8kciGWwzx8CWXTe80jP+GrJdw3GQ2j8hkD4Z0wwYYQCbMoyxULQQwb6C7RV1zGzTtEVeqsNb2N2P7jeFPIy8BdEfHv1/X8oXMXsbA7LENmKXmwE1jMh/9tPUbhUD1/ZVZuhGiXi5Vxz6NhD/Oj68u7NZzWcK0DcQVTJNLempDBtiG+2Pv+qYXQ1hLX/tPZO0CZUV8rH51gduq8oTplYCcWgtPrkXQ97Sz3yRcg62JqNZ8XkQNJs8TzNlhvTqBnypjQ8nKq2u0yjD27Pl9mHumrseSbCrNZkfar0RyO44bRnC71mzsHwXclMbtdxDKC7Pr60FvN9TjL3P81lb2DOnJbjMqrXYbUvo3NrvdPthejptY4emPOJF/P3w/MKC7o1V2yOXnhTKcJlLpl8VUKpnTKvJJ1MbMbSEVgtqU9I9IPN8yCYZ5BxOnh0eVg+0KpDOnFxxfvsy/sIyw3JvLEvuu/aqOiVW99lsDn3hgS3M8X9hFyGwG4CBngIuMxZypAjxMvW0f6aaFZKxtCvbb3C5BEAeFCmRQTEosQqZGzWmEJJLtI7ui4l/xKiYi+SNBvQIyAbCf6Ic3LxDy/GbIJ01915pIbhe3Wo/yFUjFAYpxhGRHzbkykl/7jnctqZpI0XEizXE5jsvUIY6m2IsZ4TxuMXN5PptJNtpFappVDa5jhyfHBAody7KJEy0wDMAOMwivmfHRXJ5LxY91Nz3AGEu5bKtOtCidNehWKMGSrsp1HQBOl8aF3XbMSnC+HN88E/9KjinXAubBNiRAWpkKqJ0w53oyNd9Nz4QlQOqGjKDuhg7srqoTnLPTUh+sHdNf9az+P0D+CW8t0ni8XpVvAAAAAElFTkSuQmCC) no-repeat 0;
+}
+
+/* ACTION PICTOS */
+/* only few are used in mobile interface
+ * some could be used via articles, but as it is a rare case, we then directly call the image */
+
+/* picto/edit.png */
+.action_edit span, .action_edit, .c2cui_picto.action_edit {
+  background: url(/static/images/picto/edit.png) no-repeat 0;
+}
+
+/* picto/list.png */
+.action_list span, .action_list, .c2cui_picto.action_list, .picto_list {
+  background: url(/static/images/picto/list.png) no-repeat 0;
+}
+
+/* picto/search.png */
+.action_filter span, .action_filter, .action_query, .c2cui_picto.action_filter, #google_search_submit, #q, #_q,
+.image_list a.view_original, #lightbox_view_original {
+  background: url(/static/images/picto/search.png) no-repeat 0;
+}
+
+/* picto/delete.png */
+.action_delete {
+  background: url(/static/images/picto/delete.png) no-repeat 0;
+}
+
+/* picto/delete_light.png */
+.action_del_light {
+  background: url(/static/images/picto/delete_light.png) no-repeat 0;
+}
+
+/* picto/protect.png */
+.action_protect {
+  background: url(/static/images/picto/protect.png) no-repeat 0;
+}
+
+/* picto/unprotect.png */
+.action_unprotect {
+  background: url(/static/images/picto/unprotect.png) no-repeat 0;
+}
+
+/* picto/merge.png */
+.action_merge {
+  background: url(/static/images/picto/merge.png) no-repeat 0;
+}
+
+/* picto/rss.png */
+.action_rss, .action_rss_new, .picto_rss {
+  background: url(/static/images/picto/rss.png) no-repeat 0;
+}
+
+/* picto/up.png */
+.action_up {
+  background: url(/static/images/picto/rss.png) no-repeat 0;
+}
+
+/* picto/people.png */
+.action_people {
+  background: url(/static/images/picto/people.png) no-repeat 0;
+}
+
+/* picto/print.png */
+.action_print {
+  background: url(/static/images/picto/print.png) no-repeat 0;
+}
+
+/* picto/report.png */
+.action_report {
+  background: url(/static/images/picto/report.png) no-repeat 0;
+}
+
+/* picto/help.png */
+.action_help {
+  background: url(/static/images/picto/help.png) no-repeat 0;
+}
+
+/* picto/informations.png */
+.action_informations, .picto_info {
+  background: url(/static/images/picto/informations.png) no-repeat 0;
+}
+
+/* picto/description.png */
+.action_description {
+  background: url(/static/images/picto/description.png) no-repeat 0;
+}
+
+/* picto/gearth.png */
+.action_kml {
+  background: url(/static/images/picto/gearth.png) no-repeat 0;
+}
+
+/* picto/json.png */
+.action_json {
+  background: url(/static/images/picto/json.png) no-repeat 0;
+}
+
+/* picto/cc.png */
+.action_cc {
+  background: url(/static/images/picto/cc.png) no-repeat 0;
+}
+
+/* picto/tool_mini.png */
+.picto_tools {
+  background: url(/static/images/picto/tool_mini.png) no-repeat 0;
+}
