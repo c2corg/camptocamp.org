@@ -2,7 +2,7 @@
 
 export LC_ALL="fr_FR.UTF-8"
 
-WORKDIR="/var/vmail/camptocamp.org/meteofrance/work/"
+WORKDIR="/var/cache/meteofrance"
 TYPE="bulletinneige"
 LIST="DEPT74 DEPT73 DEPT38 DEPT04 DEPT05 DEPT06 DEPT2A DEPT2B DEPT66 DEPT31 DEPT09 ANDORRE DEPT64 DEPT65"
 TITLE="Bulletin Neige et Avalanches"
