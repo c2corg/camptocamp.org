@@ -1685,7 +1685,7 @@ select option.picto
 .sbox select.picto_summits, .sbox select.picto_3,
 .sbox select.picto_users, .sbox select.picto_2,
 .sbox select.picto_documents, .sbox select.picto_1 {
-  background-position: 2px;
+  background-position: 2px !important;
 }
 
 select.picto_forum, select.picto_forums
@@ -4386,7 +4386,7 @@ span.cotometre_result {
   -webkit-border-bottom-right-radius: 4px;
   -webkit-border-top-right-radius: 4px;
   border-radius: 0 4px 4px 0;
-  background-color: #fff;
+  background-color: #fff !important;
 }
 
 /* plupload */
