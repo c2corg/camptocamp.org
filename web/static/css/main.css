@@ -3628,6 +3628,12 @@ table.route_lines tr.interline td
   padding-right: 0.3em;
 }
 
+.portals_content table.route_lines th
+{
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 /* Homepage */
 .home_title

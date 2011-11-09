@@ -19,6 +19,8 @@ class portalsActions extends documentsActions
     {
         parent::executeView();
         
+        $mobile_version = c2cTools::mobileVersion();
+
         if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             sfLoader::loadHelpers(array('Pagination'));
@@ -173,7 +175,14 @@ class portalsActions extends documentsActions
             }
             
             // latest images
-            $nb_images = $this->document->get('nb_images');
+            if ($mobile_version)
+            {
+                $nb_images = sfConfig::get('app_recent_documents_images_mobile_limit');
+            }
+            else
+            {
+                $nb_images = $this->document->get('nb_images');
+            }
             $has_images = !empty($nb_images);
             $this->has_images = $has_images;
             if ($has_images)
@@ -188,7 +197,7 @@ class portalsActions extends documentsActions
             
             // latest videos
             $nb_videos = $this->document->get('nb_videos');
-            $has_videos = !empty($nb_videos);
+            $has_videos = (!$mobile_version && !empty($nb_videos));
             if ($has_videos)
             {
                 $video_url_params = array();

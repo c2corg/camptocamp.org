@@ -15,7 +15,7 @@ body
   margin: 0;
 }
 
-#banner_middle
+#header #banner_middle
 {
   height: auto;
   margin: 0 0 0 1px;
@@ -662,6 +662,17 @@ table.route_lines th, table.route_lines td
 .sites_content table.route_lines td:last-child
 {
   padding-right: 0.1em;
+}
+
+/* portals  */
+div#cda_context
+{
+  padding-right: 4px;
+  margin-left: 4px;
+}
+div#cda_background_right
+{
+  padding: 0;
 }
 
 /* specific rules for smartphones in portrait mode (screen width <= 320px) */

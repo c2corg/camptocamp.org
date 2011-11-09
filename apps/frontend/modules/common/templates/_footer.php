@@ -59,7 +59,7 @@ endif;
             <?php echo link_to(__('content license'), getMetaArticleRoute('licenses')) ?> |
             <?php echo link_to(__('Developers'), 'https://dev.camptocamp.org/trac/c2corg') ?> |
             <?php echo link_to(__('credits'), getMetaArticleRoute('credits'));
-            if (!empty($mobile_hostname) && !$is_cda && !$is_map)
+            if (!empty($mobile_hostname) && !$is_map)
             {
                 echo ' | ' . link_to(__('mobile version'), 'http://'.$mobile_hostname,
                                      array('class' => 'mobile_link',

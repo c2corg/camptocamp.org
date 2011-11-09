@@ -132,7 +132,8 @@ a.logged_as
   padding: 0;
 }
 
-#last_images #last_image_list, #last_videos #last_video_list
+#cda_background_left #last_images #last_image_list,
+#cda_background_left #last_videos #last_video_list
 {
   overflow: visible;
   height: auto;

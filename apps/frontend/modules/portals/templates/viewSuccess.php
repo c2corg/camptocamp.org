@@ -209,6 +209,12 @@ if ($has_articles)
                           'custom_title_link' => $custom_title_link,
                           'custom_rss_link' => $custom_rss_link));
 }
+
+if ($mobile_version) // for mobile, move prepare outing box under articles section
+{
+    include_partial('portals/prepare', array('sf_cache_key' => $culture,
+                                             'default_open' => true));
+}
                 ?>
             </div>
         </div>

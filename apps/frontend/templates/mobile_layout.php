@@ -9,6 +9,12 @@ $lang = $sf_user->getCulture();
 $footer_type = 'normal';
 $action = sfContext::getInstance()->getActionName();
 $id = $sf_params->get('id');
+$cda_config = sfConfig::get('app_portals_cda');
+$cda_id = isset($cda_config['id']) ? $cda_config['id'] : -1;
+if ($id == $cda_id)
+{
+    $footer_type = 'cda';
+}
 
 use_helper('MyMinify', 'MetaLink');
 
@@ -36,7 +42,10 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         minify_include_head_javascripts($combine, $debug);
         echo include_meta_links();
     ?>
-    <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
+    <link rel="shortcut icon" href="<?php
+    $favicon = ($footer_type == 'cda') ? 'portals/cda_favicon.ico' : 'favicon.ico';
+    echo $static_base_url . '/static/images/' . $favicon;
+    ?>" />
     <link rel="apple-touch-icon" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
 </head>

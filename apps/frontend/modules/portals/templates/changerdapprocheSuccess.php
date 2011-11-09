@@ -26,35 +26,79 @@ if (count($design_files))
 
 echo init_js_var(true, 'home_nav', $connected);
 
-?>
-<div id="cda_context" class="home article">
-    <div id="cda_background_left">
-<?php
+echo '<div id="cda_context" class="home article">';
 
-$lang = $document->getCulture();
-$abstract = $document->get('abstract');
-$abstract = parse_links(parse_bbcode_abstract($abstract));
-$title = __('changerdapproche');
-$know_more_link = getMetaArticleRoute('cda_know_more', false);
-include_partial('portals/welcome', array('sf_cache_key' => $id . '_' . $culture . '_' . $lang,
-                                         'title' => $title,
-                                         'description' => $abstract,
-                                         'know_more_link' => $know_more_link,
-                                         'default_open' => true));
-
-if ($connected)
+if (!$mobile_version) // left navigation menus are only for web version
 {
-    include_partial('portals/wizard_button', array('sf_cache_key' => $culture));
+    echo '<div id="cda_background_left">';
+    
+    $lang = $document->getCulture();
+    $abstract = $document->get('abstract');
+    $abstract = parse_links(parse_bbcode_abstract($abstract));
+    $title = __('changerdapproche');
+    $know_more_link = getMetaArticleRoute('cda_know_more', false);
+    include_partial('portals/welcome', array('sf_cache_key' => $id . '_' . $culture . '_' . $lang,
+                                             'title' => $title,
+                                             'description' => $abstract,
+                                             'know_more_link' => $know_more_link,
+                                             'default_open' => true));
+
+    if ($connected)
+    {
+        include_partial('portals/wizard_button', array('sf_cache_key' => $culture));
+    }
+
+    if ($has_videos)
+    {
+        include_partial('portals/latest_videos', array('items' => $latest_videos, 'culture' => $culture, 'default_open' => true));
+    }
+    if ($has_images && $has_map)
+    {
+        echo '<div id="last_images">';
+        $image_url_params = $sf_data->getRaw('image_url_params');
+        $image_url_params = implode('&', $image_url_params);
+        $custom_title_link = 'images/list';
+        $custom_rss_link = 'images/rss';
+        if (!empty($image_url_params))
+        {
+            $custom_title_link .= '?' . $image_url_params;
+            $custom_rss_link .= '?' . $image_url_params;
+        }
+        include_partial('images/latest',
+                        array('items' => $latest_images,
+                              'culture' => $culture,
+                              'default_open' => true,
+                              'custom_title_link' => $custom_title_link,
+                              'custom_rss_link' => $custom_rss_link));
+        echo '</div>';
+    }
+
+    include_partial('portals/prepare', array('sf_cache_key' => $culture,
+                                             'content_id' => 'cda_prepare_outing_box',
+                                             'default_open' => true));
+
+    echo '</div>';
 }
 
-if ($has_videos)
+echo '<div id="cda_background_right">';
+
+if ($has_map && !$mobile_version)
 {
-    include_partial('portals/latest_videos', array('items' => $latest_videos, 'culture' => $culture, 'default_open' => true));
+    $map_filter = $sf_data->getRaw('map_filter');
+    include_partial('documents/map_section', array('document' => $document,
+                                                   'layers_list' => $map_filter['objects'],
+                                                   'center' => $map_filter['center'],
+                                                   'height' => $map_filter['height'],
+                                                   'home_section' => true,
+                                                   'section_title' => 'cda map title',
+                                                   'help_text' => 'cda map help text',
+                                                   'show_map' => true,
+                                                   'has_geom' => $has_geom));
 }
-if ($has_images):
-?>
-        <div id="last_images">
-            <?php
+
+if ($has_images && !$has_map)
+{
+    echo '<div id="last_images">';
     $image_url_params = $sf_data->getRaw('image_url_params');
     $image_url_params = implode('&', $image_url_params);
     $custom_title_link = 'images/list';
@@ -70,35 +114,11 @@ if ($has_images):
                           'default_open' => true,
                           'custom_title_link' => $custom_title_link,
                           'custom_rss_link' => $custom_rss_link));
-            ?>
-        </div>
-<?php
-endif;
-
-include_partial('portals/prepare', array('sf_cache_key' => $culture,
-                                         'content_id' => 'cda_prepare_outing_box',
-                                         'default_open' => true));
-
-?>
-    </div>
-    <div id="cda_background_right">
-<?php
-if ($has_map)
-{
-    $map_filter = $sf_data->getRaw('map_filter');
-    include_partial('documents/map_section', array('document' => $document,
-                                                   'layers_list' => $map_filter['objects'],
-                                                   'center' => $map_filter['center'],
-                                                   'height' => $map_filter['height'],
-                                                   'home_section' => true,
-                                                   'section_title' => 'cda map title',
-                                                   'help_text' => 'cda map help text',
-                                                   'show_map' => true,
-                                                   'has_geom' => $has_geom));
+    echo '</div>';
 }
-?>
-        <div id="home_left_content">
-            <?php
+
+echo '<div id="home_left_content">';
+
 if ($has_outings)
 {
     $outing_url_params = $sf_data->getRaw('outing_url_params');
@@ -131,10 +151,10 @@ if ($has_articles)
                           'custom_title_link' => $custom_title_link,
                           'custom_rss_link' => $custom_rss_link));
 }
-            ?>
-        </div>
-        <div id="home_right_content">
-            <?php
+
+echo '</div>';
+echo '<div id="home_right_content">';
+
 if ($has_news)
 {
     include_partial('documents/latest_mountain_news',
@@ -152,9 +172,8 @@ if ($has_topics)
                           'custom_title_link' => $custom_title_link));
 }
 
-            ?>
-        </div>
-<?php
+echo '</div>';
+
 if ($is_not_archive)
 {
     echo '<div class="fake_clear"> &nbsp;</div>';
@@ -179,6 +198,14 @@ if ($is_moderator)
     echo '<li><span class="picto action_list"></span>' . link_to(__('History'), "@document_history?module=portals&id=$id&lang=$lang") . '</li>';
     echo '</ul>';
 }
+
+if ($mobile_version) // for mobile, move prepare outing box under articles section
+{
+    include_partial('portals/prepare', array('sf_cache_key' => $culture,
+                                             'content_id' => 'cda_prepare_outing_box',
+                                             'default_open' => true));
+}
+
+echo '</div>';
+echo '<div class="fake_clear"> &nbsp;</div>';
 ?>
-        </div>
-        <div class="fake_clear"> &nbsp;</div>
