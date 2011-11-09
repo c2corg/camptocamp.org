@@ -162,9 +162,12 @@ try
         }
         else
         {
-            echo "Push failed for outings:\n";
             foreach ($response->errors->error as $error)
             {
+                if (!$complaint) {
+                    echo "Push failed for outings:\n";
+                    $complaint = 1;
+                }
                 echo "- $error->outing_id : $error->error_message\n";
             }
         }
