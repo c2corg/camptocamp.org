@@ -28,8 +28,8 @@ if ((bool)sfConfig::get('app_mobile_version_ads'))
 ?>
             <?php echo __('site supported by:') ?>
             <ul id="partners">
-                <li id="mobile_home"><a href="http://m.camptocamp.org/" title="Camptocamp.org"></a></li>
-                <li id="mw_logo"><a href="http://www.mountainwilderness.fr/" title="Mountain Wilderness"></a></li>
+                <li><a href="http://m.camptocamp.org/" title="Camptocamp.org"><span id="mobile_home"></span></a></li>
+                <li><a href="http://www.mountainwilderness.fr/" title="Mountain Wilderness"><span id="mw_logo"></span></a></li>
                 <li id="europesengage"><a href="http://europa.eu/" title="Europe"></a></li>
                 <li id="europa"><a href="http://europa.eu/" title="Europe"></a></li>
                 <li id="rhonealpes"><a href="http://www.rhonealpes.fr/" title="Rhône-Alpes"></a></li>
