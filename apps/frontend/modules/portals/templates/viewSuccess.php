@@ -224,45 +224,48 @@ if ($mobile_version) // for mobile, move prepare outing box under articles secti
 
 
 
-echo start_section_tag('Information', 'data');
-if ($is_not_archive && $is_not_merged)
+if (!$mobile_version) // Informations section for web version only
 {
-    $document->associated_areas = $associated_areas;
-}
-
-if ($is_not_archive)
-{
-    echo '<div class="all_associations">';
-    
-    include_partial('areas/association',
-                    array('associated_docs' => $associated_areas,
-                          'module' => 'areas',
-                          'weather' => true,
-                          'avalanche_bulletin' => true));
-    
-    if ($is_not_merged)
+    echo start_section_tag('Information', 'data');
+    if ($is_not_archive && $is_not_merged)
     {
-        if ($show_link_tool)
-        {
-            $modules_list = array('areas');
-            
-            echo c2c_form_add_multi_module('portals', $id, $modules_list, 4, 'multi_1', true);
-        }
+        $document->associated_areas = $associated_areas;
     }
-    
-    echo '</div>';
-}
 
-include_partial('data', array('document' => $document));
+    if ($is_not_archive)
+    {
+        echo '<div class="all_associations">';
+        
+        include_partial('areas/association',
+                        array('associated_docs' => $associated_areas,
+                              'module' => 'areas',
+                              'weather' => true,
+                              'avalanche_bulletin' => true));
+        
+        if ($is_not_merged)
+        {
+            if ($show_link_tool)
+            {
+                $modules_list = array('areas');
+                
+                echo c2c_form_add_multi_module('portals', $id, $modules_list, 4, 'multi_1', true);
+            }
+        }
+        
+        echo '</div>';
+    }
 
-echo end_section_tag();
+    include_partial('data', array('document' => $document));
 
-if ($is_not_archive && $is_not_merged && $is_moderator)
-{
-    include_partial('documents/images', array('images' => $associated_images,
-                                              'document_id' => $id,
-                                              'dissociation' => 'moderator',
-                                              'is_protected' => $document->get('is_protected')));
+    echo end_section_tag();
+
+    if ($is_not_archive && $is_not_merged && $is_moderator)
+    {
+        include_partial('documents/images', array('images' => $associated_images,
+                                                  'document_id' => $id,
+                                                  'dissociation' => 'moderator',
+                                                  'is_protected' => $document->get('is_protected')));
+    }
 }
 
 include_partial('documents/license', array('license' => 'by-sa'));
