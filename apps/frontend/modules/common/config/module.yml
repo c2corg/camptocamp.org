@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ dynafit_pdg, changerdapproche, camp, dynafit_baltoro, boutique_c2c, baechli, camp, dynafit_pdg, natxplore, simond, dynafit_baltoro, changerdapproche ]
+    values: [ dynafit_pdg, anena, camp, dynafit_baltoro, boutique_c2c, baechli, camp, dynafit_pdg, natxplore, anena, dynafit_baltoro, changerdapproche ]
   banners:
     list:
       skalp:
@@ -154,3 +154,7 @@ all:
         width: 468
         height: 60
         file: dynafit_pdg.swf
+    anena:
+        id: 44
+        image: anena.png
+        alt: Anena
