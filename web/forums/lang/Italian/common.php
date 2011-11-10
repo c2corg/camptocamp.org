@@ -61,6 +61,7 @@ $lang_common = array(
 'Ban message 2'			=>	'L\'interdizione scade alla fine di',
 'Ban message 3'			=>	'L\'amministratore o il moderatore che ti hanno interdetto ha lasciato il seguente messaggio:',
 'Ban message 4'			=>	'Per favore inoltra ogni informazione all\'amministratore a',
+'Ban message 5'			=>	'The forums of camptocamp.org currently facing trouble with some types of Internet connections. To remedy this, please contact the administrator at',
 'Never'					=>	'Mai',
 'Today'					=>	'Oggi',
 'Yesterday'				=>	'Ieri',

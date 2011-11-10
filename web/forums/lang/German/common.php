@@ -61,6 +61,7 @@ $lang_common = array(
 'Ban message 2'			=>	'Die Sperre l&auml;uft aus am',
 'Ban message 3'			=>	'Der Administrator oder Moderator, der Sie gesperrt hat, hat folgende Nachricht hinterlassen:',
 'Ban message 4'			=>	'Wenn Sie Fragen haben kontaktiren Sie bitte die Administratoren unter',
+'Ban message 5'			=>	'The forums of camptocamp.org currently facing trouble with some types of Internet connections. To remedy this, please contact the administrator at',
 'Never'					=>	'Nie',
 'Today'					=>	'Heute',
 'Yesterday'				=>	'Gestern',

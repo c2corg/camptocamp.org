@@ -61,6 +61,7 @@ $lang_common = array(
 'Ban message 2'			=>	'L\'exclusion expire le',
 'Ban message 3'			=>	'Raison de \'exclusion&#160;:',
 'Ban message 4'			=>	'Pour toute question, contactez l\'administrateur',
+'Ban message 5'			=>	'Les forums de camptocamp.org rencontrent actuellement des problèmes avec certains types de connexions internet. Pour y remédier, veuillez contacter l\'administrateur',
 'Never'					=>	'Jamais',
 'Today'					=>	'Aujourd\'hui',
 'Yesterday'				=>	'Hier',

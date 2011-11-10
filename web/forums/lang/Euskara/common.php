@@ -61,6 +61,7 @@ $lang_common = array(
 'Ban message 2'			=>	'Hondorengo datan berriro sartu ahal izango zara',
 'Ban message 3'			=>	'Kontua moztu duen administratzaile edo moderatzaileak hurrengo mezua bidali du&#160;:',
 'Ban message 4'			=>	'Edozain galdera badzu, administratzailea kontaktatu',
+'Ban message 5'			=>	'The forums of camptocamp.org currently facing trouble with some types of Internet connections. To remedy this, please contact the administrator at',
 'Never'					=>	'Inoiz ez',
 'Today'					=>	'Gaur',
 'Yesterday'				=>	'Atzo',

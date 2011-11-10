@@ -61,6 +61,7 @@ $lang_common = array(
 'Ban message 2'			=>	'La expulsión expira al final de',
 'Ban message 3'			=>	'El administrador o moderador que te ha expulsado ha dejado el siguiente mensaje:',
 'Ban message 4'			=>	'Por favor dirigir cualquier pregunta al administrador del foro en',
+'Ban message 5'			=>	'The forums of camptocamp.org currently facing trouble with some types of Internet connections. To remedy this, please contact the administrator at',
 'Never'					=>	'Nunca',
 'Today'					=>	'Hoy',
 'Yesterday'				=>	'Ayer',
