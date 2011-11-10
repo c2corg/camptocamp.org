@@ -6,21 +6,15 @@ $cda_config = sfConfig::get('app_portals_cda');
 ?>
 
 <div id="header">
-  <div id="cda_logo">&nbsp;</div>
-  <div id="banner_title">
-    <h1><?php echo __('changerdapproche') ?></h1>
-    <p id="cda_title"><a href="http://<?php echo $cda_config['host'] ?>/">changer<strong>dapproche.org</strong></a></p>
-    <p id="cda_sub_title"><?php echo __('cda sub title') ?></p>
-  </div>
-  <div id="c2c_mw_logos">
-    <a href="http://www.mountainwilderness.fr/"><span id="mw_logo" title="Mountain Wilderness"></span></a>
-    <?php
-  echo link_to(content_tag('span', '',
-                           array('id' => 'banner_logo', 'title' => 'Camptocamp.org')),
-               '@homepage');
-    ?>
-  </div>
   <div id="banner_middle">
+    <div id="cda_logo">
+    <?php echo link_to('<span>&nbsp;</span>', 'http://m.' . $cda_config['host'] . '/', array('title' => __('changerdapproche'))); ?>
+    </div>
+    <div id="banner_title">
+      <h1><?php echo __('changerdapproche') ?></h1>
+      <p id="cda_title">changer<strong>dapproche.org</strong></p>
+      <p id="cda_sub_title"><?php echo __('cda sub title') ?></p>
+    </div>
     <div id="log">
       <div class="log_elt">
       <?php if ($sf_user->isConnected()): ?>

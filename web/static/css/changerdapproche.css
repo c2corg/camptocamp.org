@@ -243,3 +243,46 @@ a.logged_as
   background-position: -217px -2px;
 }
 
+
+/* mobile */
+.mobile #banner_middle
+{
+  float: left;
+  margin: 0 10px 0 0;
+}
+.mobile #cda_logo
+{
+  padding: 2px 0 2px 2px;
+}
+.mobile #banner_tittle
+{
+  margin-bottom: 3px;
+}
+.mobile #cda_title
+{
+  font-size: 1.3em;
+}
+.mobile #cda_sub_title
+{
+  font-size: 0.9em;
+}
+.mobile .log_elt
+{
+  margin-left: 86px;
+  padding: 2px 0 1px 0;
+}
+
+.mobile #cda_context
+{
+  padding: 0 4px 0 0;
+  margin-left: 4px;
+}
+.mobile #cda_background_right
+{
+  padding: 0;
+}
+.mobile #home_left_content
+{
+  padding-top: 10px;
+}
+

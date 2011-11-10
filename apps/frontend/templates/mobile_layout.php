@@ -50,10 +50,12 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
 </head>
 <body>
-    <div id="holder">
+    <div id="holder" class="mobile">
         <header id="page_header">
         <?php
-        include_partial('common/mobile_header', array('lang_code' => $lang_code));
+        $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_mobile_header' : 'common/mobile_header';
+        include_partial($header_partial, array('lang_code' => $lang_code,
+                                                      'footer_type' => $footer_type));
         if (sfConfig::get('app_production') != 1)
         {
             include_partial('common/dev_env');

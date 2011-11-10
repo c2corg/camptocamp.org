@@ -1,7 +1,7 @@
 
 /* ice climbing style for portals */
 
-.menu_item,
+
 .article .title2.htext,
 .content_article .section_subtitle,
 .add_content, .add_content a,
@@ -24,6 +24,7 @@
   border-color: #759AE6;
 }
 
+.menu_item,
 a.close_btn, div.selected_image,
 .translate_button a,
 #menu_up, #menu_content li,

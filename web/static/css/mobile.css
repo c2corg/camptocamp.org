@@ -20,6 +20,7 @@ body
   height: auto;
   margin: 0 0 0 1px;
   clear: both;
+  float: left;
 }
 
 .sbox select
@@ -665,14 +666,10 @@ table.route_lines th, table.route_lines td
 }
 
 /* portals  */
-div#cda_context
+#nav_prepare
 {
-  padding-right: 4px;
-  margin-left: 4px;
-}
-div#cda_background_right
-{
-  padding: 0;
+  padding-left: 0;
+  margin-top: 15px;
 }
 
 /* specific rules for smartphones in portrait mode (screen width <= 320px) */
