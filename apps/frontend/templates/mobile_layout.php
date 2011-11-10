@@ -23,7 +23,7 @@ $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/fold.js', 'head_last');
 ?>
 <!doctype html>
-<html lang="<?php echo $lang_code ?>">
+<html lang="<?php echo $lang_code ?>" class="mobile">
 <head>
     <meta charset="utf-8">
     <?php
@@ -50,7 +50,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
 </head>
 <body>
-    <div id="holder" class="mobile">
+    <div id="holder">
         <header id="page_header">
         <?php
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_mobile_header' : 'common/mobile_header';
