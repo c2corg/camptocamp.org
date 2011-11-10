@@ -35,7 +35,7 @@ class portalsActions extends documentsActions
             
             // map filter
             $has_map = $this->document->get('has_map');
-            $has_map = !empty($has_map);
+            $has_map = (!$mobile_version && !empty($has_map));
             $this->has_map = $has_map;
             if ($has_map)
             {
