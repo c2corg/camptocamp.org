@@ -32,6 +32,10 @@ html, body, #holder, #content_box
   display: inline-block;
   float: left;
 }
+#cda_logo a
+{
+  text-decoration: none;
+}
 
 #banner_title h1
 {
@@ -252,7 +256,7 @@ a.logged_as
 }
 .mobile #cda_logo
 {
-  padding: 2px 0 2px 2px;
+  margin: 2px 0 2px 2px;
 }
 .mobile #banner_tittle
 {

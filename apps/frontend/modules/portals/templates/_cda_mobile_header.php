@@ -17,6 +17,9 @@ $cda_config = sfConfig::get('app_portals_cda');
     </div>
     <div id="log">
       <div class="log_elt">
+        <?php echo select_interface_language() ?>
+      </div>
+      <div class="log_elt">
       <?php if ($sf_user->isConnected()): ?>
         <?php include_partial('users/logged_in'); ?>
       <?php else: ?>
@@ -50,9 +53,7 @@ $cda_config = sfConfig::get('app_portals_cda');
                             'success' => "Element.toggle('filter_switch_on'); Element.toggle('filter_switch_off'); window.location.reload();"));
     }
     ?>
-       | <?php echo select_interface_language() ?>
       </div>
-    </div>
   </div>
 </div>
 <?php
