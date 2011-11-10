@@ -162,9 +162,12 @@ try
         }
         else
         {
+            // now, what append ???
+            var_dump($response);
+
             foreach ($response->errors->error as $error)
             {
-                if (!$complaint) {
+                if (!isset($complaint)) {
                     echo "Push failed for outings:\n";
                     $complaint = 1;
                 }
