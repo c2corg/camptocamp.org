@@ -27,7 +27,7 @@ if (count($design_files))
 
 echo init_js_var(true, 'home_nav', $connected);
 
-echo '<div id="cda_context" class="home article">';
+echo '<div id="cda_context" class="home article portals_content">';
 
 if (!$mobile_version) // left navigation menus are only for web version
 {
