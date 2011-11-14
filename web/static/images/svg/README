@@ -3,3 +3,5 @@ The SVG files here are not the source for most of the pictos we have.
 However, at some point, it will be neccessary to have a svg version of our pictos, so that we can provide them at different sizes etc...
 
 Thus, the idea is here to recreate a SVG version of our pictos, for future use. When relevant, please try to keep the SVG so that the rendered png is as similar as the existing ones
+
+nb: some of the SVG are derived from the tango project (http://tango.freedesktop.org/), released in the public domain
