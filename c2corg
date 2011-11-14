@@ -752,6 +752,8 @@ function getDirTimestampInfo($dir, $pattern) {
     return $list;
 }
 
+// was previously used to retrieve the revision for every file (now we use timestamp)
+// Now only used to get revision number for footer
 function getFileRevisionInfo($file = 'head') {
     $tmp = 'tmp_svninfo';
     if (file_exists($tmp)) {
@@ -759,15 +761,13 @@ function getFileRevisionInfo($file = 'head') {
     }
     try {
         if ($file === 'head') {
-            $cmd = 'svn info > ' . $tmp;
+            $cmd = 'LANG=C svn info | grep "Last Changed Rev:" > ' . $tmp;
         } else {
-            $cmd = 'svn info ' . $file . ' > ' . $tmp;
+            $cmd = 'LANG=C svn info ' . $file . ' | grep "Last Changed Rev:" > ' . $tmp;
         }
         execWrapper($cmd);
         if ($version_info = file_get_contents($tmp)) {
-            $info = explode("\n", $version_info);
-            $revision_string = $info[$file === 'head' ? 4 : 9];
-            $revision_array = explode(': ', $revision_string);
+            $revision_array = explode(': ', $version_info);
             $line = (empty($file) ? "head" : "$file") . ': ' . $revision_array[1];
         } else {
             info('Failed updating revision info');
