@@ -212,7 +212,7 @@ if ($has_articles)
 
 if ($mobile_version) // for mobile, move prepare outing box under articles section
 {
-    include_partial('portals/prepare', array('sf_cache_key' => $culture,
+    include_partial('documents/prepare', array('sf_cache_key' => $culture,
                                              'default_open' => true));
 }
                 ?>
