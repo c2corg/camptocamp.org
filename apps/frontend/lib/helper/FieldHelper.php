@@ -844,7 +844,7 @@ function _filter_ratings_rock($document, $add_tooltips = false, $use_raw_value =
 
     if (check_not_empty($rock_required_raw_value) && ($rock_required_raw_value != $rock_free_raw_value))
     {
-        $string_rock_required_value = '(' .  _filter_ratings_data($document, $rock_required_name, $rock_required_config, $add_tooltips, $use_raw_value, $raw_value_prefix) . ')';
+        $string_rock_required_value = '>' .  _filter_ratings_data($document, $rock_required_name, $rock_required_config, $add_tooltips, $use_raw_value, $raw_value_prefix);
     }
     else
     {
