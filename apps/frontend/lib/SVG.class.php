@@ -2,7 +2,7 @@
 
 /*
  * Taken from mediawiki file includes/XmlTypeCheck.php
- * Licensed un der GPLv2+
+ * Licensed under GPLv2+
  */
 class XmlTypeCheck {
     /**
