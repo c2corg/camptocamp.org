@@ -5773,7 +5773,7 @@ msgstr "escalada esportiva"
 # Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 # [WARNING] needs_review
 msgid "rock_free_and_required_rating"
-msgstr "Grau en lliure i grau obligat"
+msgstr "Grau en lliure i grau obligat:"
 
 msgid "rock_free_rating"
 msgstr "Cotació lliure:"

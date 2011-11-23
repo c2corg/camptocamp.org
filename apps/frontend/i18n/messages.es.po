@@ -5712,7 +5712,7 @@ msgstr "escalada"
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
-msgstr "Grado en libre y grado obligatorio"
+msgstr "Grado en libre y grado obligatorio:"
 
 msgid "rock_free_rating"
 msgstr "Cotación libre:"

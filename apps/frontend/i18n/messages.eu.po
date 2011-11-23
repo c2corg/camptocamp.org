@@ -6095,7 +6095,7 @@ msgstr "eskalada"
 # Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 # [WARNING] es translation used
 msgid "rock_free_and_required_rating"
-msgstr "Grado en libre y grado obligatorio"
+msgstr "Grado en libre y grado obligatorio:"
 
 msgid "rock_free_rating"
 msgstr "Librean zailtasuna:"

@@ -5752,7 +5752,7 @@ msgstr "rock climbing"
 # Dans le topoguide, le terme actuellement utilisé est "required". Je ne sais pas ce qui est le mieux. A chercher sur les sites de grimpe anglophone...
 # [WARNING] needs_review
 msgid "rock_free_and_required_rating"
-msgstr "Free and obligatory grade"
+msgstr "Free and obligatory grade:"
 
 msgid "rock_free_rating"
 msgstr "Free climb grade:"
