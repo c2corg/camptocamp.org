@@ -2909,12 +2909,17 @@ msgstr "<h3>Altitudea</h3> Leku geografikoaren altitudea metrotan.<br />Argazki 
 msgid "_email_info"
 msgstr "<h3>Email helbidiea</h3>Camptocamp.org-ko email helbidea.<br /><br /><em><u>Izen emate batean</u>:</em><br />Email helbide erabilgarri bat sartu. Bestela kontua ezingo da baieztatu eta ezabatua izango da aste batzuk beranduago.<br />Email helbide hau ez da sekula web-gunean ageriko. Bakarrik kasu hauetan erabilia izango da:<br />- Beste erabiltzaile batek edo inbitatu batek e-mail bat bidali nai dizu web-gunearen bitartez (zure helbidea ez da erakutsiko).<br />- Foruko eztabaida batzutan izena eman duzu, eta serbidoreak mezu berriak agertu direla jakinazten dizu eztabaida horretan.<br />- Edur eta abalantxei buruzko informazioa jasotzeko izena eman duzu."
 
+# [WARNING] needs_update
 msgid "_engagement_rating_info"
-msgstr "<h3>Seriotasuna</h3>Ibilbidearen seriotasuna.<br />Ibilbidearen seriotasunak, mendizaleari ezer gertatu ezkero aurkituko zuen arriskua akotatzen du. Oso subjetiboa izaten da eta irizpide ugari ditu kontuan. Adibidez, zibilizaziotik zein hurrun dagoen (aterpe, bailara, etabar), buelt’erdi egiteko aukera edo zailtasuna, altitudea,… <br /> Eskala I-tik VI-ra doa.."
+msgstr "<h3>Seriotasuna</h3>\n"
+"Ibilbidearen seriotasuna.<br />\n"
+"Ibilbidearen seriotasunak, mendizaleari ezer gertatu ezkero aurkituko zuen arriskua akotatzen du. Oso subjetiboa izaten da eta irizpide ugari ditu kontuan. Adibidez, zibilizaziotik zein hurrun dagoen (aterpe, bailara, etabar), buelt’erdi egiteko aukera edo zailtasuna, altitudea... <br />\n"
+"Eskala I-tik VI-ra doa."
 
 # [WARNING] needs_update
 msgid "_equipment_rating_info"
-msgstr "<h3>Ekipamentuaren kalitatea</h3>Eremu honetan bidean finkaturiko ekipamendurik dagoen eta honen kalitatea adierazi daiteke. "
+msgstr "<h3>Ekipamentuaren kalitatea</h3>\n"
+"Eremu honetan bidean finkaturiko ekipamendurik dagoen eta honen kalitatea adierazi daiteke. "
 
 msgid "_exposure_time_info"
 msgstr "<h3>Esposizio denbora</h3>Argazkia hartutakoan izandoko esposizio denbora.<br />Informazio hau, jeitsitako EXIF fitxerotik atereak izango dira. Argazki programa bat erabiliz hau kendu daiteke bidalia izan aurretik."
@@ -2955,7 +2960,11 @@ msgstr "<h3>Glaziarrea</h3>Ibilbideak pasatzen dituen glaziareen egoera: ondo it
 # [general comment]
 # Aide contextuelle sur la cotation globale.
 msgid "_global_rating_info"
-msgstr "<h3>Alpinismoko zailtasun orokorra</h3>Alpinismoko zailtasun orokorrak alde batetik zailtasun maximoak eta bestalde zailtasunen jarraitasuna akotatzen du. Ibilbidearen luzera eta altitudea ere kontuan hartzen ditu. <br /> Eskala F-tik (erreza) ED-ra (\"extrêmement difficile\"). Azken gradua irekia da, adibidez: ED- edo ED1, ED edo ED2, ED+ edo ED3, hortik aurrera ED4, ED5, ED6, ED7,...<br /><br />Zehazpen gehiago <a href=\"/articles/188413/eu\">zailtasun orokorra</a> artikuluan begiratu."
+msgstr "<h3>Alpinismoko zailtasun orokorra</h3>\n"
+"Alpinismoko zailtasun orokorrak alde batetik zailtasun maximoak eta bestalde zailtasunen jarraitasuna akotatzen du. Ibilbidearen luzera eta altitudea ere kontuan hartzen ditu. <br />\n"
+"Eskala F-tik (erreza) ED-ra (\"extrêmement difficile\"). Azken gradua irekia da, adibidez: ED- edo ED1, ED edo ED2, ED+ edo ED3, hortik aurrera ED4, ED5, ED6, ED7,...<br />\n"
+"<br />\n"
+"Zehazpen gehiago <a href=\"/articles/188413/eu\">zailtasun orokorra</a> artikuluan begiratu."
 
 msgid "_gps_data_info"
 msgstr "<h3> Lorratza (.gpx)</h3>Ibilbide edo irteera baten GPX lorratza erraz gorde daiteke<br /> Aurrerago KML nabigazioa jaisteko aukera izango da.<br /><br /> Zure GPS-ak NMEA fitxategi formatoa erabiltzen badu, <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> erabili dezakezu GPX formatora bihurtzeko."
@@ -3001,8 +3010,11 @@ msgstr "<h3>Mendi bordaren azalpenak</h3>Medi aterpearen inguruko xehetasun osag
 msgid "_hut_status_info"
 msgstr "<h3>Mendi aterpea</h3>Aterpearren irekiera: irekia/itxia et zaindua/zaindu gabe.<br /> <i>Aterpearekiko azalpenak</i> eremuan aterpeari loturiko iritziak gehitu daitezke. "
 
+# [WARNING] needs_update
 msgid "_ice_rating_info"
-msgstr "<h3>Izotzeko zailtasuna</h3>Izotzetako zailtasunen akotazioa.<br />Izotzetako zailtasunak, ibilbideko zailtasun maximoa adierazten du.<br />Eskala 1-tik 7+-ra doa"
+msgstr "<h3>Izotzeko zailtasuna</h3>\n"
+"Izotzetako zailtasunen akotazioa.<br />Izotzetako zailtasunak, ibilbideko zailtasun maximoa adierazten du.<br />\n"
+"Eskala 1-tik 7+-ra doa."
 
 # [WARNING] needs_update
 msgid "_image_categories_info"
@@ -3119,8 +3131,12 @@ msgstr "<h3>Zailtasuna minimoa</h3>Eskalada guneko bide errezenaren akotazioa. <
 msgid "_min_rating_max_rating_info"
 msgstr "<h3>Zailtasun</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
 
+# [WARNING] needs_update
 msgid "_mixed_rating_info"
-msgstr "<h3>Mixto zailtasuna</h3>Mixtoko zailtasunen akotazioa .<br />Mixto zailtasunak, ibilbideko zailtasun maximoa adierazten du. Ez da mixtoko akotazioa (non harkaitz, edur eta izotz pasoak kontutan hartzen dituenak), baizik eta mixto pasoko akotazioa da non eskalatzaileak nahastutako harkaitz eta edur edo izotz pasotan pasatu behar dan beharrezko ekipamendua erabiliz (krampoiak eta pioleta).<br />Eskala M1-tik M12-ra doa."
+msgstr "<h3>Mixto zailtasuna</h3>\n"
+"Mixtoko zailtasunen akotazioa.<br />\n"
+"Mixto zailtasunak, ibilbideko zailtasun maximoa adierazten du. Ez da mixtoko akotazioa (non harkaitz, edur eta izotz pasoak kontutan hartzen dituenak), baizik eta mixto pasoko akotazioa da non eskalatzaileak nahastutako harkaitz eta edur edo izotz pasotan pasatu behar dan beharrezko ekipamendua erabiliz (krampoiak eta pioleta).<br />\n"
+"Eskala M1-tik M12-ra doa."
 
 # [WARNING] es translation used
 msgid "_moderator status_info"
