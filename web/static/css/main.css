@@ -1370,18 +1370,22 @@ a.close_btn {
 #footer_cc
 {
   position: absolute;
-  height:auto;
-  text-align:left;
+  height: auto;
+  text-align: left;
   font-variant: small-caps;
   left: 20px;
-  margin-top:20px;
-  margin-left:290px;
-  padding-right:10px;
+  margin-top: 20px;
+  margin-left: 290px;
+  padding-right: 10px;
+}
+.ac #footer_cc
+{
+  margin-left: 315px;
 }
 .map_content #footer_cc
 {
-  margin-top:10px;
-  margin-left:0;
+  margin-top: 10px;
+  margin-left: 0;
 }
 .cda_content #footer_cc
 {
@@ -1398,6 +1402,11 @@ a.close_btn {
   position:absolute;
   left: -290px;
   width: 270px;
+}
+.ac #footer_partners
+{
+  left: -315px;
+  width: 315px;
 }
 .cda_content #footer_partners
 {
@@ -1431,6 +1440,11 @@ a.close_btn {
 }
 #c2csa a {
   width: 51px;
+  height: 30px;
+}
+/* only for the english version, so we don't sprite it for now */
+#alpineclub img {
+  width: 35px;
   height: 30px;
 }
 

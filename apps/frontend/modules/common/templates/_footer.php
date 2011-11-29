@@ -10,9 +10,14 @@ $classic_hostname = sfConfig::get('app_classic_version_host');
 
 $is_map = ($footer_type == 'map');
 $is_cda = ($footer_type == 'cda');
+$display_ac = !$is_map && !$is_cda && (__('meta_language') == 'en');
 if ($footer_type != 'normal')
 {
     $class = ' class="' . $footer_type . '_content"';
+}
+else if ($display_ac)
+{
+    $class = ' class="ac"';
 }
 else
 {
@@ -28,7 +33,7 @@ if (!$is_map):
 ?>
         <div id="footer_partners">
             <?php echo __('site supported by:') ?>
-            <ul id="partners"><?php
+            <ul id="partners"<?php if ($display_ac) echo ' class="ac"' ?>><?php
     if ($is_cda):
 ?>
                 <li id="europesengage"><a href="http://europa.eu/" title="Europe"></a></li>
@@ -43,6 +48,9 @@ if (!$is_map):
                 <li id="rhonealpes"><a href="http://www.rhonealpes.fr/" title="Rhône-Alpes"></a></li>
                 <li id="europa"><a href="http://europa.eu/" title="Europe"></a></li>
                 <li id="c2csa"><a href="http://www.camptocamp.com/" title="Camptocamp SA"></a></li>
+                <?php if ($display_ac): ?>
+                <li id="alpineclub"><a href="http://www.alpine-club.org.uk/" title="Alpine Club"><?php echo image_tag('/static/images/alpineclub.png') ?></a></li>
+                <?php endif ?>
 <?php
     endif;
 ?>
