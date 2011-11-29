@@ -33,7 +33,7 @@ if (!$is_map):
 ?>
         <div id="footer_partners">
             <?php echo __('site supported by:') ?>
-            <ul id="partners"<?php if ($display_ac) echo ' class="ac"' ?>><?php
+            <ul id="partners"><?php
     if ($is_cda):
 ?>
                 <li id="europesengage"><a href="http://europa.eu/" title="Europe"></a></li>
