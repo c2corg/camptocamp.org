@@ -5,6 +5,8 @@ if (!isset($default_open))
 }
 $cda = sfConfig::get('app_portals_cda');
 $ice = sfConfig::get('app_portals_ice');
+$steep = sfConfig::get('app_portals_steep');
+
 ?>
 <div id="nav_toolbox" class="nav_box">
     <div class="nav_box_top"></div>
@@ -16,8 +18,9 @@ $ice = sfConfig::get('app_portals_ice');
                 <li><?php echo link_to(__('Latest outings'), '@ordered_list?module=outings&orderby=date&order=desc') ?></li>
                 <li><?php echo link_to(__('Search a routes'), '@filter?module=routes') ?></li>
                 <li><?php echo link_to(__('Map tool'), '@map') ?></li>
-                <li><a href="http://<?php echo $cda['host'] ?>/"><?php echo __('changerdapproche') ?></a></li>
-                <li><?php echo link_to(__('ice climbing portal'), '@document_by_id?module=portals&id=' . $ice['id']) ?></li>
+                <li><a href="http://<?php echo $cda['host'] ?>/"><?php echo __($cda['name']) ?></a></li>
+                <li><?php echo link_to(__($ice['name']), '@document_by_id?module=portals&id=' . $ice['id']) ?></li>
+                <li><?php echo link_to(__($steep['name']), '@document_by_id?module=portals&id=' . $steep['id']) ?></li>
                 <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
                                          array('title'=> __('cotometre long')),
                                          array('width' => 600)) ?></li>

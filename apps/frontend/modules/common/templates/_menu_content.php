@@ -187,10 +187,14 @@ show_select=function()
                                 $cda_config = sfConfig::get('app_portals_cda');
                                 echo picto_tag('picto_portals')
                                 ?><a href="http://<?php echo $cda_config['host'] ?>/"><?php echo __('changerdapproche') ?></a></li>
-                            <li class="lilast"><?php
+                            <li><?php
                                 $ice_config = sfConfig::get('app_portals_ice');
                                 echo picto_tag('picto_portals')
                                    . link_to(__($ice_config['name']), '@document_by_id?module=portals&id=' . $ice_config['id']) ?></li>
+                            <li class="lilast"><?php
+                                $steep_config = sfConfig::get('app_portals_steep');
+                                echo picto_tag('picto_portals')
+                                   . link_to(__($steep_config['name']), '@document_by_id?module=portals&id=' . $steep_config['id']) ?></li>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
                     <li class="lilast"><?php

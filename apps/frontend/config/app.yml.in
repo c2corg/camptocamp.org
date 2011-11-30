@@ -1904,6 +1904,9 @@ all:
     ice:
       id: @ICE_ID@
       name: 'ice climbing portal'
+    steep:
+      id: @STEEP_ID@
+      name: 'steep skiing portal'
   
   mw_contest_id: @MW_CONTEST_ID@
   
