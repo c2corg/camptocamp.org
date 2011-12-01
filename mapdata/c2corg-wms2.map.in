@@ -2,9 +2,6 @@ MAP
 
 # current c2c wms
 
-# FIXME: replace TRANSPARENCY by OPACITY when Mapserver is upgraded to version 5.x
-# FIXME: use AGG in OUTPUTFORMAT instead of GD
-
 STATUS ON
 SYMBOLSET symbols.txt
 EXTENT -20037508 -136554022 20037508 136554022
@@ -45,8 +42,7 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  #OPACITY ALPHA
-  TRANSPARENCY ALPHA
+  OPACITY ALPHA
   CLASSITEM "summit_type"
   
   CLASS
@@ -100,8 +96,7 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  #OPACITY ALPHA
-  TRANSPARENCY ALPHA
+  OPACITY ALPHA
   CLASSITEM "shelter_type"
   
   CLASS
@@ -145,8 +140,7 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  #OPACITY ALPHA
-  TRANSPARENCY ALPHA
+  OPACITY ALPHA
   
   # public_transportation accesses are handled by a dedicated layer
   
@@ -173,8 +167,7 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  #OPACITY ALPHA
-  TRANSPARENCY ALPHA
+  OPACITY ALPHA
   
   CLASS
     NAME " "
@@ -199,8 +192,7 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  #OPACITY ALPHA
-  TRANSPARENCY ALPHA
+  OPACITY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
@@ -223,8 +215,7 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  #OPACITY ALPHA
-  TRANSPARENCY ALPHA
+  OPACITY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
@@ -247,8 +238,7 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  #OPACITY ALPHA
-  TRANSPARENCY ALPHA
+  OPACITY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
@@ -271,8 +261,7 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  #OPACITY ALPHA
-  TRANSPARENCY ALPHA
+  OPACITY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
