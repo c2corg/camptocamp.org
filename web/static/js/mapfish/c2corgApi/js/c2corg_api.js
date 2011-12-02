@@ -294,8 +294,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             ['gmap_normal', OpenLayers.i18n('Normal')],
             ['OpenStreetMap', OpenLayers.i18n('OpenStreetMap')],
             ['ign_map', OpenLayers.i18n('IGN maps')],
-            ['ign_orthos', OpenLayers.i18n('IGN orthos')]/*,
-            ['swisstopo_map', OpenLayers.i18n('Swisstopo maps')]*/
+            ['ign_orthos', OpenLayers.i18n('IGN orthos')],
+            ['swisstopo_map', OpenLayers.i18n('Swisstopo maps')]
         ];
         
         var store = new Ext.data.SimpleStore({
@@ -317,6 +317,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             listeners: {
                 select: function(combo, record, index) {
                     var layername = record.data.id;
+
+                    this.updateC2corgLayer(layername);
                     
                     if (layername == 'swisstopo_map' && !this.swisstopoMapLayer) {
                         this.setSwisstopoLayer(); // uses async call
@@ -380,6 +382,28 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         }
 
         return controls;
+    },
+
+    updateC2corgLayer: function(baseLayer) {
+        var c2corg = this.map.getLayersByName("c2corg")[0];
+        
+        switch (baseLayer) {
+            case "swisstopo_map":
+                c2corg.units = "m";
+                c2corg.projection = this.epsg21781;
+                break;
+            case "gmap_physical":
+            case "gmap_hybrid":
+            case "gmap_normal":
+            case "OpenStreetMap":
+                c2corg.units = "m";
+                c2corg.projection = this.epsg900913;
+                break;
+            default:
+                // TODO use IGN projection
+                c2corg.units = "degrees";
+                c2corg.projection = this.epsg4326
+        }
     },
     
     getLayers: function(config) {
@@ -545,7 +569,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     opacity: 1.0,
                     isBaseLayer: true,
                     requestEncoding: "REST",
-                    style: "default" ,  // must be provided
+                    style: "default",
                     dimensions: ['TIME'],
                     params: {'time': '20110401'},
                     formatSuffix: 'jpeg',

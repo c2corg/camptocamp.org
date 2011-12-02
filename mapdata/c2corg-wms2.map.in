@@ -15,8 +15,8 @@ MAXSIZE 2500
 WEB
   METADATA
     "wms_title"     "C2C WMS Server"  ##required
-    "wms_onlineresource" "http://localhost/cgi-bin/c2corg_wms"   ##required
-    "wms_srs"       "EPSG:4326 EPSG:900913"  ##recommended
+    "wms_onlineresource" "http://@SERVER_NAME@@SERVER_PORT@/cgi-bin/c2corg_wms"   ##required
+    "wms_srs"       "EPSG:4326 EPSG:900913 EPSG:21781"  ##recommended
   END
 END
 
