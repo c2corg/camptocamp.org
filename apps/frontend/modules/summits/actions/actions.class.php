@@ -95,6 +95,7 @@ class summitsActions extends documentsActions
             $associated_parkings = array();
             $associated_routes_books = array();
             $has_ice_route = false;
+            $has_steep_route = false;
             if (count($associated_routes) || count($associated_sites))
             {
                 foreach ($associated_routes as $route)
@@ -111,6 +112,11 @@ class summitsActions extends documentsActions
                         if (in_array(5, $activities) || (in_array(2, $activities) && $has_ice_rating))
                         {
                             $has_ice_route = true;
+                        }
+                        
+                        if (in_array(1, $activities) && !$route['toponeige_technical_rating'] instanceof Doctrine_Null && $route['toponeige_technical_rating'] >= 10)
+                        {
+                            $has_steep_route = true;
                         }
                     }
                 }
@@ -163,6 +169,10 @@ class summitsActions extends documentsActions
             if ($has_ice_route)
             {
                 $related_portals[] = 'ice';
+            }
+            if ($has_steep_route)
+            {
+                $related_portals[] = 'steep';
             }
             $this->related_portals = $related_portals;
     

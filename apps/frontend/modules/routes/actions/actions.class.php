@@ -193,6 +193,11 @@ class routesActions extends documentsActions
             {
                 $related_portals[] = 'ice';
             }
+            $toponeige_technical_rating = $this->document->get('toponeige_technical_rating');
+            if (in_array(1, $activities) && $toponeige_technical_rating >= 10)
+            {
+                $related_portals[] = 'steep';
+            }
             $this->related_portals = $related_portals;
     
             // extract highest associated summit, and prepend its name to display this route's name.
