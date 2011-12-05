@@ -2151,6 +2151,10 @@ msgstr "Questa cima non è stata trovata."
 msgid "Summit:"
 msgstr "Cima:"
 
+# [WARNING] en translation used
+msgid "Swisstopo maps"
+msgstr "Swisstopo maps"
+
 # [general comment]
 # mobile version : we cannot translate
 msgid "Switch lang short:"
@@ -6096,6 +6100,9 @@ msgstr "Estate"
 
 msgid "staffed_period"
 msgstr "Periodo di presenza del gestore:"
+
+msgid "steep skiing portal"
+msgstr "Sci ripido"
 
 msgid "stories"
 msgstr "racconti"

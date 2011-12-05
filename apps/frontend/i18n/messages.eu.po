@@ -2247,6 +2247,10 @@ msgstr "Gailur hau ez da existitzen."
 msgid "Summit:"
 msgstr "Gailurra:"
 
+# [WARNING] en translation used
+msgid "Swisstopo maps"
+msgstr "Swisstopo maps"
+
 # [general comment]
 # mobile version : we cannot translate
 # [WARNING] needs_review
@@ -6454,6 +6458,10 @@ msgstr "Uda"
 
 msgid "staffed_period"
 msgstr "Zaintzailedun denboraldia:"
+
+# [WARNING] en translation used
+msgid "steep skiing portal"
+msgstr "Steep skiing"
 
 # [WARNING] needs_update
 msgid "stories"

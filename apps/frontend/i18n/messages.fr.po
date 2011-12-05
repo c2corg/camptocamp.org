@@ -2150,6 +2150,9 @@ msgstr "Ce sommet n'existe pas."
 msgid "Summit:"
 msgstr "Sommet&nbsp;:"
 
+msgid "Swisstopo maps"
+msgstr "carte Swisstopo"
+
 # [general comment]
 # mobile version : we cannot translate
 msgid "Switch lang short:"
@@ -2950,7 +2953,7 @@ msgstr "<h3>Cotation glace</h3>\n"
 "<strong>6+</strong>&nbsp;: Escalade totalement verticale et pouvant présenter des petits surplombs, par exemple pour passer d’un rideau à un autre.<br /><br /><strong>7-7+</strong>&nbsp;: Escalade extrême. Très raide, elle peut être surplombante sur plusieurs mètres. La technique (gestuelle, notamment) utilisée par l’alpiniste s’apparente alors à celle d’un grimpeur en rocher.<br />\n"
 "<br />\n"
 "Voir aussi l'aide&nbsp;:<br />\n"
-"- <a href=\"articles/146949/fr#cotation-technique-glace\">Cotation technique glace en cascade</a><br />\n"
+"- <a href=\"/articles/146949/fr#cotation-technique-glace\">Cotation technique glace en cascade</a><br />\n"
 "- <a href=\"/articles/106871/fr#difficultes-en-glace\">Cotation technique glace en alpinisme neige, glace et mixte</a>"
 
 msgid "_image_categories_info"
@@ -6144,6 +6147,9 @@ msgstr "Eté"
 
 msgid "staffed_period"
 msgstr "Périodes de gardiennage&nbsp;:"
+
+msgid "steep skiing portal"
+msgstr "Ski de pente raide"
 
 msgid "stories"
 msgstr "récits, contes, nouvelles"
