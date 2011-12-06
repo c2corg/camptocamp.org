@@ -6,7 +6,6 @@
 $lang_code = __('meta_language');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
-$footer_type = 'normal';
 $action = sfContext::getInstance()->getActionName();
 $id = $sf_params->get('id');
 $cda_config = sfConfig::get('app_portals_cda');
@@ -55,7 +54,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         <?php
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_mobile_header' : 'common/mobile_header';
         include_partial($header_partial, array('lang_code' => $lang_code,
-                                                      'footer_type' => $footer_type));
+                                               'footer_type' => isset($footer_type) ? $footer_type : 'normal'));
         if (sfConfig::get('app_production') != 1)
         {
             include_partial('common/dev_env');
@@ -68,7 +67,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         </div>
         <?php
         include_partial('common/mobile_footer', array('lang_code' => $lang_code,
-                                                      'footer_type' => $footer_type));
+                                                      'footer_type' => isset($footer_type) ? $footer_type : 'normal'));
         ?>
     </div>
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>

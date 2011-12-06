@@ -8,16 +8,16 @@ use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum
 $mobile_hostname = sfConfig::get('app_mobile_version_host');
 $classic_hostname = sfConfig::get('app_classic_version_host');
 
-$is_map = ($footer_type == 'map');
-$is_cda = ($footer_type == 'cda');
+$is_map = ($footer_type === 'map');
+$is_cda = ($footer_type === 'cda');
 $display_ac = !$is_map && !$is_cda && (__('meta_language') == 'en');
-if ($footer_type != 'normal')
-{
-    $class = ' class="' . $footer_type . '_content"';
-}
-else if ($display_ac)
+if ($display_ac)
 {
     $class = ' class="ac"';
+}
+else if (isset($footer_type))
+{
+    $class = ' class="' . $footer_type . '_content"';
 }
 else
 {

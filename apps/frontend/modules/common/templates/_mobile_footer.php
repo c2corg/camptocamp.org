@@ -8,7 +8,8 @@ use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum
 $mobile_hostname = sfConfig::get('app_mobile_version_host');
 $classic_hostname = sfConfig::get('app_classic_version_host');
 
-$is_cda = ($footer_type == 'cda');
+$is_cda = ($footer_type === 'cda');
+$display_ac = !$is_cda && (__('meta_language') == 'en');
 
 if ((bool)sfConfig::get('app_mobile_version_ads'))
 {
@@ -44,6 +45,9 @@ if ((bool)sfConfig::get('app_mobile_version_ads'))
                 <li id="rhonealpes"><a href="http://www.rhonealpes.fr/" title="Rhône-Alpes"></a></li>
                 <li id="europa"><a href="http://europa.eu/" title="Europe"></a></li>
                 <li id="c2csa"><a href="http://www.camptocamp.com/" title="Camptocamp SA"></a></li>
+                <?php if ($display_ac): ?>
+                <li id="alpineclub"><a href="http://www.alpine-club.org.uk/" title="Alpine Club"><?php echo image_tag('/static/images/alpineclub.png') ?></a></li>
+                <?php endif ?>
             </ul><?php
     endif;
 ?>

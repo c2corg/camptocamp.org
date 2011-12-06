@@ -2,7 +2,6 @@
 $lang_code = __('meta_language');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
-$footer_type = 'normal';
 $action = sfContext::getInstance()->getActionName();
 $id = $sf_params->get('id');
 $cda_config = sfConfig::get('app_portals_cda');
