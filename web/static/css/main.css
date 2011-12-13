@@ -3575,7 +3575,7 @@ ol.text
 {
   list-style-type: decimal;
   list-style-position: outside;
-  padding: 0.2em 0 0.2em 2.5em;
+  padding: 0.2em 0 0.2em 3em;
 }
 
 ol.text ol.text
