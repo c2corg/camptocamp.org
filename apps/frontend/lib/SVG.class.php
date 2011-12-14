@@ -261,24 +261,24 @@ class SVG
         switch ($svg_rasterizer)
         {
             case 'batik': // Seems to have problems with jpg output
-                exec('extra_args="-Djava.awt.headless=true" rasterizer -bg 255.255.255.255 -m image/png'.
-                     " -w $width -d $path$unique_filename.png $path$unique_filename.svg");
+                exec('extra_args="-Djava.awt.headless=true" rasterizer -bg 255.255.255.255 -m image/png' .
+                     " -w '$width -d " . escapeshellarg("$path$unique_filename.png") . ' ' . escapeshellarg("$path$unique_filename.svg"));
                 if ($output_format == 'jpg') Images::png2jpg($unique_filename, $path);
                 break;
             case 'rsvg': // Does not supports jpeg anymore
-                exec("rsvg -w$width -h$height -f png".
-                     " $path$unique_filename.svg $path$unique_filename.png");
+                exec("rsvg -w$width -h$height -f png " .
+                     escapeshellarg("$path$unique_filename.png") . ' ' . escapeshellarg("$path$unique_filename.svg"));
                 if ($output_format == 'jpg') Images::png2jpg($unique_filename, $path);
                 break;
             case 'convert':
-                exec("convert -background white -resize $width"."x$height ".$path.$unique_filename.'.svg '.
-                     ($output_format == 'png' ? 'PNG:' : 'JPG:').$path.$unique_filename.$output_format);
+                exec("convert -background white -resize $width" . "x$height " . escapeshellarg($path.$unique_filename.'.svg') . ' ' .
+                     escapeshellarg(($output_format == 'png' ? 'PNG:' : 'JPG:').$path.$unique_filename.$output_format));
                 break;
             case 'inkscape':
                 // inkscape will try to write to ~/.gnome2 ~/.config/inkscape (and crash if he cannot)
                 // so that we set $HOME to /tmp for this command
-                exec("HOME=/tmp inkscape -z -w $width -h $height -f ".$path.$unique_filename.'.svg '.
-                     '-e '.$path.$unique_filename.'.png');
+                exec("HOME=/tmp inkscape -z -w $width -h $height -f " . escapeshellarg($path.$unique_filename.'.svg') .
+                     ' -e ' . escapeshellarg($path.$unique_filename.'.png'));
                 if ($output_format == 'jpg') Images::png2jpg($unique_filename, $path);
                 break;
         }
