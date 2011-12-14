@@ -387,6 +387,7 @@ all:
   images:
     directory_name:      images
     temp_directory_name: images_temp
+    tool:                imagemagick # gd or imagemagick
     svg_rasterizer:      inkscape # batik, convert, inkscape or rsvg
     upload_method:       plupload # js, plupload, trad
     validation:

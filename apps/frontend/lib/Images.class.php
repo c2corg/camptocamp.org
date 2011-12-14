@@ -37,13 +37,15 @@ class Images
     public static function generateThumbnail($name, $ext, $path, $dimensions, $suffix, $square = false, $inflate = false)
     {
         $path = $path . DIRECTORY_SEPARATOR;
+
+        $adapter = (sfConfig::get('app_images_tool') === 'imagemagick') ? 'sfImageMagickAdapter' : 'sfGDAdapter';
  
         // delete thumbnail if already exists
         self::remove($path . $name . $suffix . $ext);
 
         // we pass maximum height and width dimensions, 
-        // say that we preserve aspect ratio (scale=true), and that we do not want to inflate (inflate=false), and quality = 85 %
-        $thumbnail = new sfThumbnail($dimensions['width'], $dimensions['height'], true, $inflate, $square, 88, 'sfGDAdapter', array('keep_source_enable' => true));
+        // say that we preserve aspect ratio (scale=true), and that we do not want to inflate (inflate=false), and quality = 88%
+        $thumbnail = new sfThumbnail($dimensions['width'], $dimensions['height'], true, $inflate, $square, 88, $adapter, array('keep_source_enable' => true));
 
         $thumbnail->loadFile($path . $name . $ext);
         $thumbnail->save($path . $name . $suffix . $ext);
@@ -148,22 +150,42 @@ class Images
     }
 
     /*
-     * Convert a png image to jpg image (used when cannot directly rasterising an svg as jpg)
+     * Convert a png image to jpg image (used when cannot directly rasterising an svg as jpg) using php-gd or image magick
+     * rq: default quality is 90 since we the function is mostly used when for schemas, and we need a good visual aspect on edges
      */
-    public static function png2jpg($unique_filename, $path, $quality=95)
+    public static function png2jpg($unique_filename, $path, $quality=90)
     {
-        $size = getimagesize("$path$unique_filename.png");
-        $bg_image = imagecreatetruecolor($size[0],$size[1]);
-        $mycolor = imagecolorallocate($bg_image, 255, 255, 255);
-        imagefill($bg_image, 0, 0, $mycolor);
-        $image = imagecreatefrompng("$path$unique_filename.png");
-        imagealphablending($image, false);
-        imagesavealpha($image, true);
-        imagecopy($bg_image, $image, 0, 0, 0, 0, $size[0], $size[1]);
-        imagejpeg($bg_image, "$path$unique_filename.jpg", $quality);
-        imagedestroy($image);
-        imagedestroy($bg_image);
-        unlink("$path$unique_filename.png");
+        if (sfConfig::get('app_images_tool') === 'imagemagick') { // use image magick
+            exec('convert', $stdout);
+            if (strpos($stdout[0], 'ImageMagick') === false)
+            {
+                throw new Exception(sprintf("ImageMagick convert command not found"));
+            }
+
+            $command .= ' -quality '.$quality.'% ';
+            exec('convert '.$command.' '.escapeshellarg("$path$unique_filename.png").' '.escapeshellarg("$path$unique_filename.jpg"));
+            unlink("$path$unique_filename.png");
+        }
+        else // use php-gd
+        {
+            if (!extension_loaded('gd'))
+            {
+                throw new Exception ('GD not enabled. Check your php.ini file.');
+            }
+
+            $size = getimagesize("$path$unique_filename.png");
+            $bg_image = imagecreatetruecolor($size[0],$size[1]);
+            $mycolor = imagecolorallocate($bg_image, 255, 255, 255);
+            imagefill($bg_image, 0, 0, $mycolor);
+            $image = imagecreatefrompng("$path$unique_filename.png");
+            imagealphablending($image, false);
+            imagesavealpha($image, true);
+            imagecopy($bg_image, $image, 0, 0, 0, 0, $size[0], $size[1]);
+            imagejpeg($bg_image, "$path$unique_filename.jpg", $quality);
+            imagedestroy($image);
+            imagedestroy($bg_image);
+            unlink("$path$unique_filename.png");
+        }
     }
 
 }
