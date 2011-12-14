@@ -151,7 +151,7 @@ class Images
 
     /*
      * Convert a png image to jpg image (used when cannot directly rasterising an svg as jpg) using php-gd or image magick
-     * rq: default quality is 90 since we the function is mostly used when for schemas, and we need a good visual aspect on edges
+     * rq: default quality is 90 since the function is mostly used for schemas over photos, and we need a good visual aspect on edges
      */
     public static function png2jpg($unique_filename, $path, $quality=90)
     {
