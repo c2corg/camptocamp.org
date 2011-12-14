@@ -21,6 +21,7 @@ class sfImageMagickAdapter
 {
 
   protected
+    $sourceName,
     $sourceWidth,
     $sourceHeight,
     $sourceMime,
@@ -28,7 +29,10 @@ class sfImageMagickAdapter
     $maxHeight,
     $scale,
     $inflate,
+    $square,
     $quality,
+    $keep_source_enable,
+    $keep_source,
     $source,
     $magickCommands;
 
@@ -135,7 +139,7 @@ class sfImageMagickAdapter
     'png32' => 'image/png',
   );
 
-  public function __construct($maxWidth, $maxHeight, $scale, $inflate, $quality, $options)
+  public function __construct($maxWidth, $maxHeight, $scale, $inflate, $square, $quality, $options)
   {
     $this->magickCommands = array();
     $this->magickCommands['convert'] = isset($options['convert']) ? escapeshellcmd($options['convert']) : 'convert';
@@ -157,12 +161,16 @@ class sfImageMagickAdapter
     $this->maxHeight = $maxHeight;
     $this->scale = $scale;
     $this->inflate = $inflate;
+    $this->square = $square;
     $this->quality = $quality;
     $this->options = $options;
+    $this->keep_source_enable = isset($options['keep_source_enable']) ? $options['keep_source_enable'] : false;
   }
 
   public function loadFile($thumbnail, $image)
   {
+    $this->sourceName = $image;
+
     // try and use getimagesize()
     // on failure, use identify instead
     $imgData = @getimagesize($image);
@@ -198,7 +206,14 @@ class sfImageMagickAdapter
 
     $this->source = $source;
 
-    $thumbnail->initThumb($this->sourceWidth, $this->sourceHeight, $this->maxWidth, $this->maxHeight, $this->scale, $this->inflate);
+    $thumbnail->initThumb($this->sourceWidth, $this->sourceHeight, $this->maxWidth, $this->maxHeight, $this->scale, $this->inflate, $this->square);
+
+    // if the image is smaller than thumb size, we only make a hard link
+    if (($this->sourceWidth == $this->maxWidth && $this->sourceHeight == $this->maxHeight) ||
+        (!$this->inflate && $this->sourceWidth <= $this->maxWidth && $this->sourceHeight <= $this->maxHeight))
+    {
+      $this->keep_source = $this->keep_source_enable;
+    }
 
     return true;
   }
@@ -210,10 +225,25 @@ class sfImageMagickAdapter
 
   public function save($thumbnail, $thumbDest, $targetMime = null)
   {
-    $command = ' -thumbnail ';
-    $command .= $thumbnail->getThumbWidth().'x'.$thumbnail->getThumbHeight();
+    // if the image is smaller than thumb size, we only make a hard link
+    if ($this->keep_source)
+    {
+      link($this->sourceName, $thumbDest);
+      return;
+    }
 
-    // absolute sizing
+    $command = ' -thumbnail ';
+    $tsize = $thumbnail->getThumbWidth().'x'.$thumbnail->getThumbHeight();
+
+    $command .= $tsize;
+
+    // see http://www.imagemagick.org/Usage/thumbnails/#cut and http://www.imagemagick.org/Usage/resize/#space_fill
+    if ($this->square)
+    {
+      $command .= '^ -gravity center -compose copy -extent '.$tsize;
+    }
+
+    // absolute sizing rq: this is incompatible with square
     if (!$this->scale)
     {
       $command .= '!';
