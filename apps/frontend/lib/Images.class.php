@@ -44,8 +44,8 @@ class Images
         self::remove($path . $name . $suffix . $ext);
 
         // we pass maximum height and width dimensions, 
-        // say that we preserve aspect ratio (scale=true), and that we do not want to inflate (inflate=false), and quality = 88%
-        $thumbnail = new sfThumbnail($dimensions['width'], $dimensions['height'], true, $inflate, $square, 88, $adapter, array('keep_source_enable' => true));
+        // say that we preserve aspect ratio (scale=true), and that we do not want to inflate (inflate=false), and quality = 85%
+        $thumbnail = new sfThumbnail($dimensions['width'], $dimensions['height'], true, $inflate, $square, 85, $adapter, array('keep_source_enable' => true));
 
         $thumbnail->loadFile($path . $name . $ext);
         $thumbnail->save($path . $name . $suffix . $ext);
