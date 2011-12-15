@@ -217,6 +217,7 @@ a.logged_as
 {
   position: relative;
   width: auto;
+  left: 0;
 }
 
 #partners li {
