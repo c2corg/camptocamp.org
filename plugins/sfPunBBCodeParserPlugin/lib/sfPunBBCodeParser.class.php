@@ -299,6 +299,7 @@ class sfPunBBCodeParser
         }
         
         $is_forum_url = false;
+        
         if ($full_url == '' && $link == '')
             return '';
         elseif (preg_match('#(?<=[^\w/]|^)/*forums/view(topic|forum).php\?p?id=\d+#i', $full_url, $bah)) 	// Else if it is a forum url
@@ -362,6 +363,8 @@ class sfPunBBCodeParser
             }
         }
         
+        $is_internal_url = (strpos("#/", $full_url[0]) !== false);
+            
         if ($empty_link)
         {
             // Truncate link text if its an internal URL
@@ -384,6 +387,10 @@ class sfPunBBCodeParser
         if (preg_match('/\.(ppt|pdf)$/i', $full_url) && $viewer && !c2cTools::mobileVersion())
         {
             $param_url = str_replace('%', '%25', $full_url);
+            if ($is_internal_url)
+            {
+                $param_url = 'http://www.camptocamp.org' . $param_url;
+            }
             $suffix = ' <a class="embedded_ppt_pdf" href="#" style="display:none" onclick="$(this).next().show(); $(this).hide();' .
                       ' $(this).next(1).remove(); return false;">' . __('close embedded') . '</a>' .
                       ' <a class="embedded_ppt_pdf" href="#" onclick="$(this).insert({after:\'&lt;iframe class=&quot;embedded_ppt_pdf&quot;' .
@@ -398,7 +405,7 @@ class sfPunBBCodeParser
         // Check if internal or external link
         $class = ' class="external_link"';
 
-        if (strpos("#/", $full_url[0]) !== false)
+        if ($is_internal_url)
         {
             $class = '';
             

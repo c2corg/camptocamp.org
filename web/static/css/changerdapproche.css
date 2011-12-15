@@ -208,29 +208,29 @@ a.logged_as
   color: #ffffff;
 }
 
+.cda_content #footer_cc
+{
+  margin-left: 0;
+}
+
+.cda_content #footer_partners
+{
+  position: relative;
+  width: auto;
+}
+
+#partners li {
+  margin-right: 20px;
+}
+
 #partners_tips
 {
   font-variant: normal;
   font-size: 0.9em;
 }
 
-#europesengage a, #paca a, #languedoc a, #mw_logo, #cda_logo {
+#mw_logo, #cda_logo , #europesengage a, #paca a, #languedoc a, #alpes_maritimes a, #aquitaine a {
   background: url(/static/images/portals/cda.png) no-repeat;
-}
-#europesengage a {
-  background-position: 0 0;
-  width: 161px;
-  height: 103px;
-}
-#paca a {
-  background-position: 0 -103px;
-  width: 162px;
-  height: 61px;
-}
-#languedoc a {
-  background-position: -162px -90px;
-  width: 116px;
-  height: 61px;
 }
 #mw_logo
 {
@@ -245,6 +245,31 @@ a.logged_as
   height:75px;
   z-index: 2;
   background-position: -217px -2px;
+}
+#europesengage a {
+  background-position: 0 0;
+  width: 161px;
+  height: 103px;
+}
+#paca a {
+  background-position: -292px 0;
+  width: 233px;
+  height: 88px;
+}
+#languedoc a {
+  background-position: -525px 0;
+  width: 167px;
+  height: 88px;
+}
+#alpes_maritimes a {
+  background-position: -692px 0;
+  width: 166px;
+  height: 88px;
+}
+#aquitaine a {
+  background-position: -958px 0;
+  width: 95px;
+  height: 88px;
 }
 
 

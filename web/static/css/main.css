@@ -1387,10 +1387,6 @@ a.close_btn {
   margin-top: 10px;
   margin-left: 0;
 }
-.cda_content #footer_cc
-{
-  margin-left: 489px;
-}
 
 #footer_cc_text a
 {
@@ -1407,11 +1403,6 @@ a.close_btn {
 {
   left: -315px;
   width: 315px;
-}
-.cda_content #footer_partners
-{
-  left: -489px;
-  width: 469px;
 }
 
 /* Partners (with css sprites)*/
