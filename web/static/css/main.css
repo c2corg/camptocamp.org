@@ -75,6 +75,12 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:f
   -webkit-box-shadow: 0 0 6px #ccc;
   box-shadow: 0 0 6px #ccc;
   outline: none; /* do not conflict with possible outline added by browser, eg chrome */
+
+  -webkit-transition: box-shadow linear 0.1s;
+  -moz-transition: box-shadow linear 0.1s;
+  -ms-transition: box-shadow linear 0.1s;
+  -o-transition: box-shadow linear 0.1s;
+  transition: box-shadow linear 0.1s;
 }
 
 input[type="checkbox"] {
