@@ -69,7 +69,8 @@ select, option {
 }
 
 /* outline focused input elements */
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+input[type="number"]:focus, input[type="range"]:focus, textarea:focus, select:focus
 {
   -moz-box-shadow: 0 0 6px #ccc;
   -webkit-box-shadow: 0 0 6px #ccc;
