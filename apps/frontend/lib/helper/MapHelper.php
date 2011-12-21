@@ -133,14 +133,13 @@ function _loadJsMapTools()
 {
     $response = sfContext::getInstance()->getResponse();
 
-    use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/ext-all.css', 'last');
-    use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/xtheme-gray.css', 'last');
-    use_stylesheet('/static/js/mapfish/mfbase/geoext/resources/css/gxtheme-gray.css', 'last');
-    use_stylesheet('/static/js/mapfish/mfbase/openlayers/theme/default/style.css', 'last');
-
-    use_stylesheet('/static/css/popup.css', 'last');
-    use_stylesheet('/static/js/mapfish/MapFishApi/css/api.css', 'last');
-    use_stylesheet('/static/js/mapfish/c2corgApi/css/api.css', 'last');
+    use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/ext-all.css', 'custom');
+    use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/xtheme-gray.css', 'custom');
+    use_stylesheet('/static/js/mapfish/mfbase/geoext/resources/css/gxtheme-gray.css', 'custom');
+    use_stylesheet('/static/js/mapfish/mfbase/openlayers/theme/default/style.css', 'custom');
+    use_stylesheet('/static/css/popup.css', 'custom');
+    use_stylesheet('/static/js/mapfish/MapFishApi/css/api.css', 'custom');
+    use_stylesheet('/static/js/mapfish/c2corgApi/css/api.css', 'custom');
 
     // it is not possible to load google maps api v2 asynchronously since it uses document.write
     // upgrade to v3 to enable (using &callback=some_function param)
