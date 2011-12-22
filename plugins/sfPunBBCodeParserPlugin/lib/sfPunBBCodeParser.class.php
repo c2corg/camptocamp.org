@@ -1366,16 +1366,16 @@ class sfPunBBCodeParser
         $list = preg_replace("/\n{2,}\\z/", "\n", $list);
 
         $list = preg_replace_callback('{
-            \n?                     # leading line
-            ^([LR])\#               # line marker = $1
-            (\+?)                   # relative index = $2
-            (\d*)                   # new line index = $3
-            ([^\d-!:|\s][^-!:|\s]*|) # new line suffix = $4
-            (-(\+?)(\d+))?          # multi line index = $6 $7
-            (!?)                    # reference index flag = $8
-            \s*[:|]*                # first separator
-            ((?s:.*?))              # line item text = $9
-            (?:\n+(?=\n)|\n)        # tailing blank line
+            \n?                        # leading line
+            ^([LR])\#                  # line marker = $1
+            (\+?)                      # relative index = $2
+            (\d*)                      # new line index = $3
+            ([^\d-+!:|\s][^-+!:|\s]*|) # new line suffix = $4
+            (?:(?:-?(\+?)(\d+))?       # multi line index = $5 $6
+            (!?)                       # reference index flag = $7
+            \s*[:|]*                   # first separator
+            ((?s:.*?))                 # line item text = $8
+            (?:\n+(?=\n)|\n)           # tailing blank line
             (?= \n* (\z | [LR]\#))
             }xm',
             array('self', '_processLineItems_callback'), $list);
@@ -1403,10 +1403,10 @@ class sfPunBBCodeParser
         $new_marker_relative = $matches[2];
         $new_marker_index = $matches[3];
         $new_marker_suffix = $matches[4];
-        $multi_line_relative = $matches[6];
-        $multi_line_index = $matches[7];
-        $reference_flag = $matches[8];
-        $item = $matches[9];
+        $multi_line_relative = $matches[5];
+        $multi_line_index = $matches[6];
+        $reference_flag = $matches[7];
+        $item = $matches[8];
         $cell_tag = 'th';
         
         if ($new_marker_suffix != '~')  // description de longueur
@@ -1646,6 +1646,18 @@ class sfPunBBCodeParser
             // protection des wikiliens
             $pattern[] = '{\[\[([^|]+?)\|([^\]]+?)\]\]}';
             $replace[] = '[[$1@#@$2]]';
+            $item = preg_replace($pattern, $replace, $item);
+            
+            // traitement des références dans l'item
+            $pattern_item = '{
+                (?<=^|\W)([LR])\#          # line marker = $1
+                (?:(\+|-)(\d*))?           # relative index = $2 $3
+                ([^\d-+!:|\s][^-+!:|\s]*|) # new line suffix = $4
+                (?:-?(\+|-)(\d+))?         # multi line index = $5 $6
+                }xm';
+            // '{(?<=^|\W)([LR])\#(?:(\+|-)(\d*))?([^\d-!:|\s][^-!:|\s]*|)(?:-(\+?)(\d+))?}m'
+            
+            $item = preg_replace_callback($pattern_item, array('self', '_processLineReference'), $item);
             
             // traitement de l'item
             $pattern_item = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
@@ -1657,8 +1669,6 @@ class sfPunBBCodeParser
                     }xm',
                     '<td>$1</td>', $item);
             */
-            
-            $item = preg_replace($pattern, $replace, $item);
             
             $item = preg_replace_callback($pattern_item, array('self', '_processListCell'), $item);
             
@@ -1707,6 +1717,79 @@ class sfPunBBCodeParser
         {
             return '<tr class="interline"><td colspan="' . $nb_col . '">' . $item . '</td></tr>';
         }
+    }
+    
+    public static function _processLineReference($matches)
+    {
+        global $line_index, $line_index_old, $line_suffix, $line_reference;
+        
+        $marker_type = $matches[1];
+        $new_marker_relative = $matches[2];
+        $new_marker_index = $matches[3];
+        $new_marker_suffix = $matches[4];
+        $multi_line_relative = $matches[5];
+        $multi_line_index = $matches[6];
+        
+        if ($marker_type == 'L')
+        {
+            $marker_type = __('route_line_prefix');
+        }
+        else
+        {
+            $marker_type = __('route_belay_prefix');
+        }
+        
+        if (!empty($new_marker_relative) && $new_marker_index == '')
+        {
+            $new_marker_index = 1;
+        }
+        if (!empty($multi_line_relative) && $multi_line_index == '')
+        {
+            $multi_line_index = 1;
+        }
+        
+        if ($new_marker_index == '')
+        {
+            $line_index_tmp = $line_index;
+        }
+        elseif ($new_marker_relative == '+')
+        {
+            $line_index_tmp = $line_index + $new_marker_index;
+        }
+        else
+        {
+            $line_index_tmp = $line_index - $new_marker_index;
+        }
+        
+        if ($new_marker_suffix == '_')
+        {
+            $line_suffix_tmp = '';
+        }
+        elseif (!empty($new_marker_suffix))
+        {
+            $line_suffix_tmp = preg_replace('#^(\w)#', '&nbsp;$1', $new_marker_suffix);
+        }
+        else
+        {
+            $line_suffix_tmp = $line_suffix;
+        }
+        
+        $row_header = $marker_type . $line_index_tmp . $line_suffix_tmp;
+        
+        if ($multi_line_index != '')
+        {
+            if ($multi_line_relative == '+')
+            {
+                $multi_line_index += $line_index_tmp; 
+            }
+            else
+            {
+                $multi_line_index += $line_index_tmp; 
+            }
+            $row_header .= ' - ' . $marker_type . $multi_line_index . $line_suffix_tmp;
+        }
+        
+        return $row_header;
     }
     
     public static function _processListCell($matches)
