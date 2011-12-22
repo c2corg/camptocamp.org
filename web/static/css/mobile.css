@@ -510,8 +510,8 @@ select.menu_select
   width: 82px;
   height: 40px;
   float: left;
-  background: url("/static/images/borders_and_logos.png") no-repeat scroll -130px -225px transparent;
   margin-top: 8px;
+  /* background image defined in mimg.css */
 }
 
 #mobile_home span
