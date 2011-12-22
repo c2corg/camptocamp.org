@@ -44,7 +44,6 @@ else
 require PUN_ROOT.'lang/'.$pun_user['language'].'/index.php';
 
 $page_title = pun_htmlspecialchars($lang_common['Forum'].' - '.$pun_config['o_board_title']);
-$mobile_version = c2cTools::mobileVersion();
 $footer_style = 'index';
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
@@ -129,10 +128,8 @@ while ($cur_forum = $db->fetch_assoc($result))
 			<thead>
 				<tr>
 					<th class="tcl" scope="col"><?php echo $lang_common['Forum'] ?></th>
-					<?php if (!$mobile_version): ?>
-					<th class="tc2" scope="col"><?php echo $lang_index['Topics'] ?></th>
-					<th class="tc3" scope="col"><?php echo $lang_common['Posts'] ?></th>
-					<?php endif ?>
+					<th class="tc2 hide4smartphone" scope="col"><?php echo $lang_index['Topics'] ?></th>
+					<th class="tc3 hide4smartphone" scope="col"><?php echo $lang_common['Posts'] ?></th>
 					<th class="tcr" scope="col"><?php echo $lang_common['Last post'] ?></th>
 				</tr>
 			</thead>
@@ -207,9 +204,9 @@ while ($cur_forum = $db->fetch_assoc($result))
                 ################################################################################
 	}
 
-    if ($cur_forum['forum_desc'] != '' && !$mobile_version)
+    if ($cur_forum['forum_desc'] != '')
     {
-        $forum_field .= "\n\t\t\t\t\t\t\t\t".$cur_forum['forum_desc'];
+        $forum_field .= "\n\t\t\t\t\t\t\t\t<span class=\"hide4smartphone\">".$cur_forum['forum_desc'].'</span>';
     }
 
     // If there is a last_post/last_poster.
@@ -282,10 +279,8 @@ while ($cur_forum = $db->fetch_assoc($result))
 							</div>
 						</div>
 					</td>
-					<?php if (!$mobile_version): ?>
-					<td class="tc2"><?php echo $num_topics ?></td>
-					<td class="tc3"><?php echo $num_posts ?></td>
-					<?php endif ?>
+					<td class="tc2 hide4smartphone"><?php echo $num_topics ?></td>
+					<td class="tc3 hide4smartphone"><?php echo $num_posts ?></td>
 					<td class="tcr"><?php echo $last_post ?></td>
 				</tr>
 <?php

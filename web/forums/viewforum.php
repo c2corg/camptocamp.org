@@ -47,7 +47,6 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/polls.php';
 
 $show_link_to_forum = isset($_GET['forum']) ? '&amp;forum' : '' ;
 $is_comment_forum = get_is_comment($id);
-$mobile_version = c2cTools::mobileVersion();
 
 // Fetch some info about the forum
 $result = $db->query('SELECT f.forum_name, f.forum_desc, pf.forum_name AS parent_forum, f.redirect_url, f.moderators, f.num_topics, f.sort_by, f.parent_forum_id, fp.post_topics, fp.post_polls FROM '.$db->prefix.'forums AS f LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') LEFT JOIN '.$db->prefix.'forums AS pf ON f.parent_forum_id=pf.id WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.id='.$id) or error('Unable to fetch forum info', __FILE__, __LINE__, $db->error());
@@ -317,9 +316,7 @@ if ($db->num_rows($subforum_result) < 1){
 			<thead>
 				<tr>
 					<th class="tcl" scope="col"><?php echo $lang_common['Topic'] ?></th>
-					<?php if (!$mobile_version): ?>
-					<th class="tc2" scope="col"><?php echo $lang_common['Replies'] ?></th>
-					<?php endif ?>
+					<th class="tc2 hide4smartphone" scope="col"><?php echo $lang_common['Replies'] ?></th>
 					<th class="tcr" scope="col"><?php echo $lang_common['Last post'] ?></th>
 				</tr>
 			</thead>
@@ -523,9 +520,7 @@ if ($db->num_rows($result))
 							</div>
 						</div>
 					</td>
-					<?php if (!$mobile_version): ?>
-					<td class="tc2"><?php echo ($cur_topic['moved_to'] == null) ? $cur_topic['num_replies'] : '&nbsp;' ?></td>
-					<?php endif ?>
+					<td class="tc2 hide4smartphone"><?php echo ($cur_topic['moved_to'] == null) ? $cur_topic['num_replies'] : '&nbsp;' ?></td>
 					<td class="tcr"><?php echo $last_post ?></td>
 				</tr>
 <?php

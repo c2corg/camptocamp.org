@@ -3,6 +3,9 @@ html, body, #holder
   min-width: 240px;
 }
 
+/* combined with the viewport, prevents iOS autozoom when rotating screen
+   Unfortunately, we still need to disable user zoom..
+   http://www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 body
 {
   -webkit-text-size-adjust: none;
@@ -699,5 +702,18 @@ table.route_lines th, table.route_lines td
   .img_mobile
   {
     text-align: center;
+  }
+}
+
+/* specific rules for smartphones (not tablets) - device width <= 480px */
+@media screen and (max-device-width:480px)
+{
+  /**
+   * we hide some elements in the forums, like some columns, signatures, ...
+   * because .tc2 columns shoudl sometimes be hideen, sometimes not, we use
+   * a specific hide4smartphone class
+   */
+  .postsignature, .hide4smartphone {
+    display: none;
   }
 }

@@ -37,8 +37,6 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/search.php';
 // Load poll language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/polls.php';
 
-$mobile_version = c2cTools::mobileVersion();
-
 if ($pun_user['g_read_board'] == '0')
 	message($lang_common['No view']);
 else if ($pun_user['g_search'] == '0')
@@ -680,9 +678,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				<tr>
 					<th class="tcl" scope="col"><?php echo $lang_common['Topic']; ?></th>
 					<th class="tc2" scope="col"><?php echo $lang_common['Forum'] ?></th>
-					<?php if (!$mobile_version): ?>
-					<th class="tc3" scope="col"><?php echo $lang_common['Replies'] ?></th>
-					<?php endif ?>
+					<th class="tc3 hide4smartphone" scope="col"><?php echo $lang_common['Replies'] ?></th>
 					<th class="tcr" scope="col"><?php echo $lang_common['Last post'] ?></th>
 				</tr>
 			</thead>
@@ -845,9 +841,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 						</div>
 					</td>
 					<td class="tc2"><?php echo $forum ?></td>
-					<?php if (!$mobile_version): ?>
-					<td class="tc3"><?php echo $search_set[$i]['num_replies'] ?></td>
-					<?php endif ?>
+					<td class="tc3 hide4smartphone"><?php echo $search_set[$i]['num_replies'] ?></td>
 					<?php
 					if ($search_set[$i]['question'] == "" || $search_set[$i]['question'] == 0)
 					{
