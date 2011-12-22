@@ -348,6 +348,16 @@ a.external_link, .htext .hextra a.external_link {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sKHAw4DPNhv34AAAACYktHRAD/h4/MvwAAAO1JREFUGBkFwTtuVEEQAMCamV6/9ScEWUImQOIiNtdCQnATbkLqDBFDgAgQAQHRrv16pqkCAAAA0ICPP+MlAAD598PrAOL2fitTWWi6oflySwCVuV1J00I3hLNK4v3nfsc4TrvdtDBMJUH0Nw8vyteWdrtlWa4suwS9TumomdIuXCg3urRAZ3pWysKlV67d2JQFOmlXYHPt4M7BUQcEaaAZhrMzoGsgKEsZhumfQjMMg0YAcJKWQtOFDoKmO+S3ABp4qnluPf8Q2jC8/bFb6MKFZ4+/P70Dom3NSVoWumkabACxvj9mTQUALdYvgP80UWPLFFEvxQAAAABJRU5ErkJggg==) no-repeat 0;
 }
 
+/* picto/rss.png */
+.action_rss, .action_rss_new, .picto_rss {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABKVBMVEX////Ndwj7oSz7pTT7pTX7pjf7qD38pDH8qT38qj78qj/8rEP8r0n8slH8tln8vm39rUb9rkf9sk/9slD9s1H9tVb9tlr9uF39uWL9umP9vm39v239v2/9wG/9xHj9xHn9xXv9xX39x4L90Zf90pn90pv91aD92av+uF3+uV/+u2T+u2X+vGX+vmv+v23+wG7+yIL+zIr+zpD+z5H+0JP+0pn+1J3+1qP+2Kf+2aj+267+3rT+37b+4bv+4r3+5ML+5cP+69P+8N3/wXD/w3X/xnv/x3//2af/3bH/4Lf/4rv/5MH/5ML/58j/6Mv/69P/7db/7tj/79v/8uH/8+P/8+T/9OX/9Ob/9ej/+O//+fD/+fH/+fL/+vT/+/X//Pj//fr//v3///+RY1eJAAAAAXRSTlMAQObYZgAAALBJREFUGNNtz8diAQEURmGjizYEETX6ZBIlei/RJUoQTIThf/+HwLVSzvLbHYnkJuaiE/Qmo26ndY5guAeEQbt5iiBV/F4Aq2T0GEEs/sZ//EBM8zxP0Bdm+ffXL2wTHEdQWAK/Hmsd0ycrgdnirODPZVsh9UjAmkxsFhM2g7GDwJBr2B9q8Op3/0GC4BoNtRtVzSdKBM918UWl3cx1NZQJ5MaAQioLh5T+iI+5N3fVAYWXIDdBxu1bAAAAAElFTkSuQmCC) no-repeat 0;
+}
+
+/* picto/informations.png */
+.action_informations, .picto_info {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAllBMVEXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXPcBXWdxzWdx3WeSDXfinXgC3egSjegirhk0jilUvjhCvljjznm1LooF3rjTTunlPwkjnwlT/wqmbxmUXxqmfynUzzoVTzpVzzqWHzt3/0qmP0rWn1rmv2s3P3t3r4u4H4voj5wo36xJL////yX/jFAAAADnRSTlMACTAzNpOZnJ/G2Nve+TUNENMAAACVSURBVBgZBcFBdoIwFADAAb4Yq3ZL73+6LvusllASvjMB43QKbe8HguF8LbeL9VlfWwpD+fwileL7UTPM9yWZdJY8thivS4LE0vaYS8IOlDmmOWH2DyVivCSQcB5CH4EDDpFrATrUjNYSd26/aC32+gFI1D36+rjxAzzXHrYhr4DXaxOyZisxOtq6bSnI2v5Ok773jjepSU8+axP1HQAAAABJRU5ErkJggg==) no-repeat 0;
+}
+
 /* ACTIVITIES MINI PICTOS */
 
 /* picto/snowshoeing_mini.png */
