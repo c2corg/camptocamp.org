@@ -304,15 +304,6 @@ div.postmsg h4
   width: 100%;
 }
 
-.pun .block .conl, .pun .block .conr
-{
-  width: 100%;
-  padding: 0;
-  float: left;
-  clear: left;
-  text-align: left;
-}
-
 div.icon
 {
   border-width: 0.5em;
@@ -708,7 +699,19 @@ table.route_lines th, table.route_lines td
 /* specific rules for smartphones (not tablets) - device width <= 480px */
 @media screen and (max-device-width:480px)
 {
-  /**
+  /*
+   * the upper menu of the forum are all left aligned instead of having a two column presentation
+   */
+  .pun .block .conl, .pun .block .conr
+  {
+    width: 100%;
+    padding: 0;
+    float: left;
+    clear: left;
+    text-align: left;
+  }
+
+  /*
    * we hide some elements in the forums, like some columns, signatures, ...
    * because .tc2 columns shoudl sometimes be hideen, sometimes not, we use
    * a specific hide4smartphone class
