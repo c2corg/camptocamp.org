@@ -258,6 +258,15 @@ class SVG
 
         list($width, $height) = self::getSize("$path$unique_filename.svg");
 
+        // if image dimensions are greater than what is allowed, we automatically reduce it for the rasterized image
+        $validation = sfConfig::get('app_images_validation');
+        if ($width > $validation['max_size']['width'] || $height > $validation['max_size']['height'])
+        {
+            $ratio = max($width / $validation['max_size']['width'], $height / $validation['max_size']['height']);
+            $width = (int) ($width / $ratio);
+            $height= (int) ($height / $ratio);
+        }
+
         switch ($svg_rasterizer)
         {
             case 'batik': // Seems to have problems with jpg output

@@ -77,9 +77,10 @@ class myImageValidator extends sfValidator
                 list($width, $height) = $dimensions;
             }
         }
-        // height/width check
-        if ($width > $validation['max_size']['width'] ||
-            $height > $validation['max_size']['height'])
+        // height/width check (max width not checked for SVG, it is automatically resized)
+        if ($mime_type != 'image/svg+xml' &&
+            ($width > $validation['max_size']['width'] ||
+             $height > $validation['max_size']['height']))
         {
             $error = $this->getParameter('max_dim_error');
             return false;
