@@ -456,6 +456,7 @@ class imagesActions extends documentsActions
                     return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
                 }
 
+                // svg
                 if ($file_ext == '.svg')
                 {
                     if (!SVG::rasterize($temp_dir, $unique_filename, $file_ext))
@@ -464,6 +465,11 @@ class imagesActions extends documentsActions
                     }
                 }
 
+                // if jpg, check if we need orientation changes
+                if ($file_ext == '.jpg')
+                {
+                    Images::correctOrientation("$temp_dir$unique_filename.$file_ext");
+                }
 
                 c2cTools::log('resizing image');
                 // generate thumbnails (ie. resized images: "BI"/"SI")
@@ -782,12 +788,19 @@ class imagesActions extends documentsActions
             return array('error' => array('field' => 'image_file', 'msg' => 'Failed moving uploaded file'));
         }
 
+        // svg 
         if ($file_ext == '.svg')
         {
             if (!SVG::rasterize($temp_dir, $unique_filename, $file_ext))
             {
                 return array('error' => array('field' => 'image_file', 'msg' => 'Failed rasterizing svg file'));
             }
+        }
+
+        // if jpg, check if we need orientation changes
+        if ($file_ext == '.jpg')
+        {
+            Images::correctOrientation("$temp_dir$unique_filename.$file_ext");
         }
 
         // generate thumbnails

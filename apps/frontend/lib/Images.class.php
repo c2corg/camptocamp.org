@@ -188,4 +188,27 @@ class Images
         }
     }
 
+    /*
+     * Automagically orient (rotate) an image created by a digital camera
+     * For now, only effective if imagemagick is used
+     */
+    public static function correctOrientation($file)
+    {
+        if (sfConfig::get('app_images_tool') === 'imagemagick') {
+            exec('convert', $stdout);
+            if (strpos($stdout[0], 'ImageMagick') === false)
+            {
+                throw new Exception(sprintf("ImageMagick convert command not found"));
+            }
+
+            // check if EXIF orientation field is present
+            $exif = exif_read_data($filename);
+            if (isset($exif['IFD0']['Orientation']) && $exif['IFD0']['Orientation'] != 1)
+            {
+                exec('convert '.escapeshellarg("$file").' -auto-orient '.escapeshellarg("$file"));
+            }
+        }
+
+        // else, we do nothing...
+    }
 }
