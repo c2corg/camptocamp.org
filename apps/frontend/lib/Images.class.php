@@ -194,7 +194,8 @@ class Images
      */
     public static function correctOrientation($file)
     {
-        if (isset($exif['IFD0']['Orientation']) && $exif['IFD0']['Orientation'] != 1
+        $exif = exif_read_data($file, 'IFD0');
+        if ($exif && isset($exif['Orientation']) && $exif['Orientation'] != 1
                 && sfConfig::get('app_images_tool') === 'imagemagick') {
 
             exec('convert', $stdout);
