@@ -468,7 +468,7 @@ class imagesActions extends documentsActions
                 // if jpg, check if we need orientation changes
                 if ($file_ext == '.jpg')
                 {
-                    Images::correctOrientation("$temp_dir$unique_filename.$file_ext");
+                    Images::correctOrientation("$temp_dir$unique_filename$file_ext");
                 }
 
                 c2cTools::log('resizing image');
@@ -800,7 +800,7 @@ class imagesActions extends documentsActions
         // if jpg, check if we need orientation changes
         if ($file_ext == '.jpg')
         {
-            Images::correctOrientation("$temp_dir$unique_filename.$file_ext");
+            Images::correctOrientation("$temp_dir$unique_filename$file_ext");
         }
 
         // generate thumbnails
