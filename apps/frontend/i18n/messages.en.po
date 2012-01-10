@@ -5864,6 +5864,12 @@ msgstr "Route linked with %1%"
 msgid "route_abseil_prefix"
 msgstr "A"
 
+# [general comment]
+# Préfixe utilisé pour la numérotation automatique des relais à l'aide de la balise R#, dans la description d'une longueur.
+# [WARNING] needs_review
+msgid "route_belay_prefix"
+msgstr "B"
+
 msgid "route_history"
 msgstr "Route history:"
 
