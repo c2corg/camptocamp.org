@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ dynafit_pdg, anena, camp, dynafit_baltoro, boutique_c2c, baechli, camp, dynafit_pdg, natxplore, anena, dynafit_baltoro, changerdapproche ]
+    values: [ dynafit_pdg, anena, camp_crampons, dynafit_baltoro, boutique_c2c, baechli, camp_crampons, dynafit_pdg, natxplore, anena, dynafit_baltoro, changerdapproche ]
   banners:
     list:
       skalp:
@@ -154,7 +154,11 @@ all:
         width: 468
         height: 60
         file: dynafit_pdg.swf
-    anena:
+      anena:
         id: 44
         image: anena.png
         alt: Anena
+      camp_crampons:
+        id: 45
+        image: camp-crampons.gif
+        alt: Camp Race 290
