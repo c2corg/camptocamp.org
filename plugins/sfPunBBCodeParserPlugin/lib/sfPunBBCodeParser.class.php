@@ -1780,11 +1780,11 @@ class sfPunBBCodeParser
         {
             if ($multi_line_relative == '+')
             {
-                $multi_line_index += $line_index_tmp; 
+                $multi_line_index = $line_index_tmp + $multi_line_index; 
             }
             else
             {
-                $multi_line_index -= $line_index_tmp; 
+                $multi_line_index = $line_index_tmp - $multi_line_index; 
             }
             $row_header .= ' - ' . $marker_type . $multi_line_index . $line_suffix_tmp;
         }
