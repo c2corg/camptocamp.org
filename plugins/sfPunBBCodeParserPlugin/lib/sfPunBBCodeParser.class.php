@@ -1371,7 +1371,7 @@ class sfPunBBCodeParser
             (\+?)                      # relative index = $2
             (\d*)                      # new line index = $3
             ([^\d-+!:|\s][^-+!:|\s]*|) # new line suffix = $4
-            (?:(?:-?(\+?)(\d+))?       # multi line index = $5 $6
+            (?:-(\+?)(\d+))?           # multi line index = $5 $6
             (!?)                       # reference index flag = $7
             \s*[:|]*                   # first separator
             ((?s:.*?))                 # line item text = $8
@@ -1380,7 +1380,7 @@ class sfPunBBCodeParser
             }xm',
             array('self', '_processLineItems_callback'), $list);
 
-            // '{\n?^([LR])\#(\+?)(\d*)([^\d-!:|\s][^-!:|\s]*|)(-(\+?)(\d+))?(!?)\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
+            // '{\n?^([LR])\#(\+?)(\d*)([^\d-!:|\s][^-!:|\s]*|)(?:-(\+?)(\d+))?(!?)\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
         
         if ($nb_col_max > $nb_col)
         {
@@ -1651,11 +1651,11 @@ class sfPunBBCodeParser
             // traitement des références dans l'item
             $pattern_item = '{
                 (?<=^|\W)([LR])\#          # line marker = $1
-                (?:(\+|-)(\d*))?           # relative index = $2 $3
+                (?:(\+|-)(\d+))?           # relative index = $2 $3
                 ([^\d-+!:|\s][^-+!:|\s]*|) # new line suffix = $4
-                (?:-?(\+|-)(\d+))?         # multi line index = $5 $6
+                (?:-(\+|-)(\d+))?          # multi line index = $5 $6
                 }xm';
-            // '{(?<=^|\W)([LR])\#(?:(\+|-)(\d*))?([^\d-!:|\s][^-!:|\s]*|)(?:-(\+?)(\d+))?}m'
+            // '{(?<=^|\W)([LR])\#(?:(\+|-)(\d+))?([^\d-!:|\s][^-!:|\s]*|)(?:-(\+|-)(\d+))?}m'
             
             $item = preg_replace_callback($pattern_item, array('self', '_processLineReference'), $item);
             
@@ -1721,7 +1721,7 @@ class sfPunBBCodeParser
     
     public static function _processLineReference($matches)
     {
-        global $line_index, $line_index_old, $line_suffix, $line_reference;
+        global $line_index, $line_index_old, $line_suffix;
         
         $marker_type = $matches[1];
         $new_marker_relative = $matches[2];
@@ -1784,7 +1784,7 @@ class sfPunBBCodeParser
             }
             else
             {
-                $multi_line_index += $line_index_tmp; 
+                $multi_line_index -= $line_index_tmp; 
             }
             $row_header .= ' - ' . $marker_type . $multi_line_index . $line_suffix_tmp;
         }
