@@ -11,15 +11,25 @@ javascript_tag('field_default = new Array();field_default[0] = Array(\'gear\', "
 echo '<div>';
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
 
-$link_with = $linked_doc ? $linked_doc->get('id') : 0; 
-echo input_hidden_tag('summit_id', $link_with);
+if ($linked_doc)
+{
+    $linked_with = $linked_doc->get('id');
+    $linked_name = $linked_doc->get('name');
+}
+else
+{
+    $linked_with = 0;
+}
+echo input_hidden_tag('summit_id', $linked_with);
 echo '</div>';
 // FIXME: form validation : test this value to prevent value 0 upon route creation
 echo mandatory_fields_warning(array('route form warning'));
 
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
+
+$prefix = $linked_name . __('&nbsp;:');
+echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'), true, null, null, $prefix);
 
 echo form_section_title('Information', 'form_info', 'preview_info');
 
