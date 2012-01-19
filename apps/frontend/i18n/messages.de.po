@@ -126,9 +126,10 @@ msgstr "Eine Route hinzufügen"
 msgid "Add your summit"
 msgstr "Ein Gipfel hinzufügen"
 
-# [WARNING] needs_review
+# [comment]
+# %1% bezieht sich auf eine Variable, welche wohl mehr als 1 ist --> Plural
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
-msgstr "<b>Wenn sie das nachfolgende Formular ausgefüllt haben, erhalten sie eine Email mit Ihrem Passwort. Sie müssen sich dann innerhalb %1% Tages auf der Website einloggen, um Ihr Benutzerkonto zu aktivieren.</b><br/>\n"
+msgstr "<b>Wenn sie das nachfolgende Formular ausgefüllt haben, erhalten sie eine Email mit ihrem Passwort. Sie müssen sich dann innerhalb %1% Tagen auf der Website einloggen, um Ihr Benutzerkonto zu aktivieren.</b><br/>\n"
 "<br/>\n"
 "Es ist wichtig zu wissen, dass sowohl der Inhalt ihrer Beiträge, als auch ihr Pseudonym (im Forum und im Tourenführer) sichtbar und von Suchmaschinen archiviert werden. Wenn sie also ihren Vor- und Nachnamen als Pseudonym verwenden, werden sie durch die Suchmaschinen referenziert.<br/>\n"
 "<br/>Die zur Registrierung verwendete Email-Adresse ist ausschliesslich den Moderatoren zugänglich.<br/>\n"
@@ -176,7 +177,7 @@ msgstr "Sind sie sicher die baskische Fassung dieses Dokuments löschen zu wolle
 # [general comment]
 # Msg used in js -> no &nbsp;
 msgid "Are you sure you want to delete this document in every language?"
-msgstr "Sind sie sicher dieses Dokument in allen Sprachen löschen zu wollen? Falls es verbundene Dokumente gibt, stellen Sie sicher, dass das Dokument zuerst mit einem anderen Dokument zusammengefügt wurde."
+msgstr "Sind sie sicher dieses Dokument in allen Sprachen löschen zu wollen? Falls es verbundene Dokumente gibt, stellen sie sicher, dass das Dokument zuerst mit einem anderen Dokument zusammengefügt wurde."
 
 msgid "Are you sure you want to delete this document in fr"
 msgstr "Sind sie sicher die französische Fassung dieses Dokuments löschen zu wollen?"
@@ -316,7 +317,6 @@ msgstr "Zurück zur Liste der Zugangsorte"
 msgid "Back to portals list"
 msgstr "Zurück zur Portalliste"
 
-# [WARNING] needs_review
 msgid "Back to products list"
 msgstr "Zurück zur Dokumentenliste der \"lokalen Produkte\""
 
@@ -355,7 +355,6 @@ msgstr "CNIL Deklaration "
 msgid "Camptocamp on Facebook"
 msgstr "Camptocamp auf Facebook"
 
-# [WARNING] needs_review
 msgid "Camptocamp on Google+"
 msgstr "Camptocamp auf Google+"
 
@@ -393,7 +392,6 @@ msgstr "Der Üntergifel ist jetzt das Dokument "
 # NOT USED for the moment
 # [comment]
 # ??
-# [WARNING] needs_review
 msgid "Choose maps service..."
 msgstr "Wählen sie einen Routinganbieter..."
 
@@ -522,7 +520,6 @@ msgstr "Eine Zufahrt hinzufügen"
 msgid "Create new portals"
 msgstr "Erstellen eines Portals"
 
-# [WARNING] needs_review
 msgid "Create new products"
 msgstr "Hinzufügen eines Dokuments \"lokales Produkt\""
 
@@ -567,7 +564,6 @@ msgstr "Eine neue Zufahrt eintragen"
 msgid "Creating new portals"
 msgstr "Erstellung eines Portals"
 
-# [WARNING] needs_review
 msgid "Creating new products"
 msgstr "Erstellung eines Dokuments \"lokales Produkt\""
 
@@ -863,7 +859,6 @@ msgstr "Album"
 
 # [general comment]
 # text for widget generator in left menu of list pages
-# [WARNING] needs_review
 msgid "Generate widget"
 msgstr "Erstellen eines Widgets"
 
@@ -977,7 +972,6 @@ msgstr "Zur Seitenübersicht gehen"
 
 # [general comment]
 # texte par défaut du formulaire de recentrage de l'outil carto
-# [WARNING] needs_review
 msgid "Go to..."
 msgstr "Gehe nach..."
 
@@ -1100,7 +1094,7 @@ msgid "Interactive map"
 msgstr "Interaktive Karte"
 
 msgid "Interface language:"
-msgstr "Auswahl der Sprache:"
+msgstr "Sprache der Website:"
 
 msgid "Is a child of summit:"
 msgstr "Gehört zum Hauptgipfel:"
@@ -1120,9 +1114,8 @@ msgstr "Ist den folgenden Gipfeln zugeordnet:"
 msgid "Is parent of summits:"
 msgstr "Ist mit folgenden Unter-Gipfeln verbunden:"
 
-# [WARNING] needs_review
 msgid "Is really a multi-activity outing?"
-msgstr "Besteht diese Tour wirklich aus mehreren Aktivitätstypen?"
+msgstr "Besteht diese Tour wirklich aus mehreren Aktivitäten?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Sie haben vergessen, einen Namen oder eine Datei anzugeben."
@@ -1139,7 +1132,6 @@ msgstr "Mehr"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] needs_review
 msgid "L# button title"
 msgstr "Bearbeiten der Beschreibung einer Seillänge"
 
@@ -1157,11 +1149,9 @@ msgstr "Neueste Touren, welche mit nachhaltiger Moblität durchgeführt wurden"
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] needs_review
 msgid "Latest %1% creations"
 msgstr "Neueste Erstellungen - %1%"
 
-# [WARNING] needs_review
 msgid "Latest %1% creations in %2%"
 msgstr "Neueste Erstellungen - %1% - %2%"
 
@@ -1181,7 +1171,6 @@ msgstr "camptocamp.org - neueste Dokumentenänderungen %1%"
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
 msgstr "Neueste Änderungen - %1% - %2%"
 
@@ -1195,7 +1184,6 @@ msgstr "Neueste Dokumente"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
 msgstr "Neueste Änderungen von \"%1%\" - %2%"
 
@@ -1240,6 +1228,9 @@ msgstr "Ein existierendes Dokument verbinden"
 
 # [general comment]
 # more specific message when a user can be associated
+# [comment]
+# Es müsste wohl mal eine Sprachregelung für Geschlechterspezifisches her...
+# [WARNING] needs_update
 msgid "Link an existing user or document"
 msgstr "Eine/n vorhandene/n Benutzer/in oder ein existierendes Dokument verbinden"
 
@@ -1292,7 +1283,6 @@ msgstr "Alle verbundenen Touren anzeigen"
 msgid "List all linked routes"
 msgstr "In einer Liste anzeigen"
 
-# [WARNING] needs_review
 msgid "List all user collaborative contribs"
 msgstr "Alle gemeinschaftlichen Beiträge auflisten"
 
@@ -1414,7 +1404,6 @@ msgstr "MeteoSchweiz"
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
 msgstr "Tooltip - Camptocamp.org"
 
@@ -1659,9 +1648,8 @@ msgstr "Dieser Zugang existiert nicht oder er ist nicht lokalisiert."
 msgid "Parking not found"
 msgstr "Diese Zufahrt existiert nicht."
 
-# [WARNING] needs_review
 msgid "Participate to MW contest"
-msgstr "Diese Tour in den <a href=\"http://www.camptocamp.org/articles/263803/fr\">Wettbewerb Changer d'Approche</a> aufnehmen."
+msgstr "Diese Tour in den <a href=\"http://www.camptocamp.org/articles/263803/fr\">Wettbewerb \"Changer d'Approche\"</a> aufnehmen."
 
 msgid "Password:"
 msgstr "Passwort:"
@@ -2120,13 +2108,11 @@ msgstr "Die neuesten Portaleinträge anzeigen"
 msgid "Subscribe to latest portals editions"
 msgstr "Die neuesten Portaländerungen anzeigen"
 
-# [WARNING] needs_review
 msgid "Subscribe to latest products creations"
 msgstr "Die neuesten Einträge der \"Lokalen Produkte\" abonnieren"
 
-# [WARNING] needs_review
 msgid "Subscribe to latest products editions"
-msgstr "Den neuesten Änderungen von \"lokalen Produkten\" folgen"
+msgstr "Den neuesten Änderungen von \"lokalen Produkten\" verfolgen"
 
 msgid "Subscribe to latest routes creations"
 msgstr "Die neusten Einträge von Routen verfolgen"
@@ -2176,9 +2162,8 @@ msgstr "Dieser Gipfel existiert nicht."
 msgid "Summit:"
 msgstr "Gipfel:"
 
-# [WARNING] en translation used
 msgid "Swisstopo maps"
-msgstr "Swisstopo maps"
+msgstr "Swisstopo Karten"
 
 # [general comment]
 # mobile version : we cannot translate
@@ -2215,13 +2200,12 @@ msgstr "Danke für ihre Anmeldung. Sie erhalten in wenigen Minuten ihr Passwort 
 msgid "Thanks for using Camptocamp.org!"
 msgstr "Danke für Ihren Beitrag auf camptocamp.org!"
 
-# [WARNING] needs_review
 msgid "The Camptocamp.org team"
-msgstr "<b>Wichitig: Der Inhalt Ihrer Einträge, sowie Ihres Pseudonyms (im Forum und Topoguide), ist im Internet sichtbar und wird von Suchmotoren gespeichert.</b> Die Verwendung Ihres echten Namens und Vornamens als Pseudonym kann also dazu führen, dass Sie jemand durch die Benutzung eines Suchmotors aufgespüren kann.<br />\n"
+msgstr "<b>Wichtig: Der Inhalt ihrer Einträge, sowie ihres Pseudonyms (im Forum und im Tourenführer), ist im Internet sichtbar und wird von Suchmaschinen gespeichert.</b> Die Verwendung ihres echten Namens und Vornamens als Pseudonym kann also dazu führen, dass sie jemand durch die Benutzung einer Suchmaschine aufgespüren kann.<br />\n"
 "<br />\n"
-"Wir empfehlen daher Ihre echten persönlichen Daten nur privat, d.h. durch Email oder MP, und nicht in den Foren zu publizieren.<br />\n"
-"Die Emailadresse, welche Sie für Ihre Anmeldung verwenden, ist nur für die Moderatoren sichtbar und Ihr Profil kann nur von Mitgliedern von camptocamp.org eingesehen werden.<br />\n"
-"Es ist möglich Ihr Email und Ihr Pseudonym (für Forum oder topoguide) zu ändern, wenn Sie das wünschen. Allerdings sind die Änderungen von Email und Pseudonym rückwirkend nur im Topoguide sichtbar; Alle im Forum geschriebenen Nachrichten werden weiterhin mit dem Pseudonym angezeigt, welches Sie bei der Erstellung der jeweiligen Nachricht verwendet haben.<br />\n"
+"Wir empfehlen daher ihre echten persönlichen Daten nur privat, d.h. durch Email oder persönliche Nachrichten, und nicht in den Foren zu publizieren.<br />\n"
+"Die Emailadresse, welche sie für Ihre Anmeldung verwenden, ist nur für die Moderatoren sichtbar und ihr Profil kann nur von Mitgliedern von camptocamp.org eingesehen werden.<br />\n"
+"Es ist möglich ihre Email und ihr Pseudonym (für das Forum oder den Tourenführer) zu ändern, wenn sie das wünschen. Allerdings sind die Änderungen von Email und Pseudonym rückwirkend nur im Topoguide sichtbar; Alle im Forum geschriebenen Nachrichten werden weiterhin mit dem Pseudonym angezeigt, welches sie bei der Erstellung der jeweiligen Nachricht verwendet haben.<br />\n"
 "<br />\n"
 "camptocamp.org versteht sich darauf, dass diese Anmerkung vor der Benutzung der Website ausreicht, um nicht möglichen Anfragen zur Löschung von Nachrichten oder Kommentaren von Benutzern, die die oben angeführten Empfehlungen nicht beachtet haben, Folge leisten zu müssen.<br />\n"
 "<br />\n"
@@ -2425,7 +2409,7 @@ msgstr "Ansehen"
 # [general comment]
 # Link to the document page from a comment page in mobile version
 msgid "View comments document"
-msgstr "Zürck zum Ursprungsdokument"
+msgstr "Zurück zum Ursprungsdokument"
 
 msgid "View current"
 msgstr "Die aktuelle Fassung anzeigen"
@@ -2508,9 +2492,8 @@ msgstr "Yahoo! Routenplaner"
 
 # [general comment]
 # Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
-# [WARNING] needs_review
 msgid "Year and day are optional"
-msgstr "Das Jahr und der Tag sind optional."
+msgstr "Alle Felder sind optional."
 
 msgid "You are already connected !"
 msgstr "Sie sind schon angemeldet!"
@@ -2613,7 +2596,7 @@ msgstr "Sie wurden mit einer Tourenbeschreibung auf Camptocamp.org verbunden"
 # [general comment]
 # Details of email sent when a user is associated to an outing
 msgid "You have been associated to outing %1% details"
-msgstr "Sie wurden als Teilnehmer einer Tourenbeschreibung auf Camptocamp.org hinzugefügt.<br />Die Tourenbeschreibung können Sie unter folgender URL abrufen: %1%. Wie der Autor der Beschreibung verfügen Sie über die notwendigen Zugriffsrechte um das Dokument und dessen Verbindungen gemäß ihren Wünschen zu ändern.<br /><br />--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br /> Diese Email wurde automatisch generiert, bitte antworten Sie nicht darauf."
+msgstr "Sie wurden als Teilnehmer einer Tourenbeschreibung auf Camptocamp.org hinzugefügt.<br />Die Tourenbeschreibung können Sie unter folgender URL abrufen: %1%. Wie der Autor der Beschreibung verfügen sie über die notwendigen Zugriffsrechte um das Dokument und dessen Verbindungen gemäß ihren Wünschen zu ändern.<br /><br />--<br /><a href=\"http://www.camptocamp.org\">camptocamp.org</a><br /> Diese Email wurde automatisch generiert, bitte antworten sie nicht darauf."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -2627,13 +2610,11 @@ msgstr "sie müssen mindestens eine Aktivität für dieses Dokument auswählen"
 
 # [comment]
 # In anderen Nachrichten wird "Pseudonym" verwendet, daher besser auch hier schon von Pseudodym zu reden.
-# [WARNING] needs_review
 msgid "You must specify a nickname"
 msgstr "Sie müssen ein Pseudodym (Spitznamen) für die Foren angeben."
 
-# [WARNING] needs_review
 msgid "You must specify a topo name"
-msgstr "Sie müssen einen Namen angeben, welcher im Tourenführer verwendet wird."
+msgstr "Sie müssen einen Namen angeben, welcher im Tourenführer angezeigt wird."
 
 msgid "You must specify an email"
 msgstr "Sie müssen eine Email-Adresse angeben."
@@ -2684,9 +2665,8 @@ msgstr "[1]1 Bild|(1,+Inf]%1% Bilder"
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Änderung mit Angabe einer neuen Geometrie"
 
-# [WARNING] needs_review
 msgid "_abstract_info"
-msgstr "<h3>Zusammenfassung / Einleitung</h3>. Fassen Sie das Dokument in ein paar Zeilen zusammen oder eine Einleitung zum Dokument. Dieser Text wird bei einigen Listen angezeigt.<br /> Diese Zusammenfassung/Einleitung wird am Anfang des Dokuments eingeblendet."
+msgstr "<h3>Zusammenfassung / Einleitung</h3>. Fassen Sie das Dokument in ein paar Zeilen zusammen oder schreiben sie eine Einleitung zum Dokument. Dieser Text wird bei einigen Listen angezeigt.<br /> Diese Zusammenfassung/Einleitung wird am Anfang des Dokuments eingeblendet."
 
 msgid "_access_comments_info"
 msgstr "<h3>Kommentar zum öV- oder Strassenzugang</h3>Züsätzliche Informationen über den Zugang: Schneebedeckung und -räumung der Strasse und Parkplatz, Kommentar über den öV."
@@ -2708,9 +2688,11 @@ msgstr "<h3>Unterkunft und Verpflegung in der Nähe</h3>Informationen über Ess-
 
 # [comment]
 # "Schneeschuhlaufen" für Österreicher klingt das eigenartig, da man mit Schneeschuhen "geht" und nicht "läuft". Ist Schneeschuhwandern als Kompromiss auch für Deutsche annehmbar?
+# 
+# Schneeschuhwandern ist gut und sogar in der Schweiz verständlich
 # [WARNING] needs_review
 msgid "_activities_info"
-msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren Sie mit der Maus darüber.<br />Ein Dokument kann mit mehreren Aktivitäten verbunden sein:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>Ski-, Snowboardtouren</strong>: Ski- und/oder Snowboardtouren<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp<strong>Hochtouren</strong>: Bergsteigen auf Schnee, Eis, Gletscher und kombiniertem Gelände im Hochgebirge<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>Alpinklettern</strong>: Alpines Klettern von Mehrseillängen-Routen im Hochgebirge; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>Sportklettern</strong>: Bouldern, Ein- oder Mehrseillängen-Routen an Felswänden; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>Eisklettern</strong>&nbsp;: Eisklettern ausserhalb des Hochgebirges, Dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Wandern</strong>: Wandern im Gebirge (und nicht im Flachland); auf markierten Wegen oder nicht<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>Schneeschuhwandern</strong>: Wandern im Gebirge mit Schneeschuhen; auf markierten Routen oder nicht.<br /><br />\n"
+msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren sie mit der Maus darüber.<br />Ein Dokument kann mit mehreren Aktivitäten verbunden sein:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>Ski-, Snowboardtouren</strong>: Ski- und/oder Snowboardtouren<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp<strong>Hochtouren</strong>: Bergsteigen auf Schnee, Eis, Gletscher und kombiniertem Gelände im Hochgebirge<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>Alpinklettern</strong>: Alpines Klettern von Mehrseillängen-Routen im Hochgebirge; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>Sportklettern</strong>: Bouldern, Ein- oder Mehrseillängen-Routen an Felswänden; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>Eisklettern</strong>&nbsp;: Eisklettern ausserhalb des Hochgebirges, Dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Wandern</strong>: Wandern im Gebirge (und nicht im Flachland); auf markierten Wegen oder nicht<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>Schneeschuhwandern</strong>: Wandern im Gebirge mit Schneeschuhen; auf markierten Routen oder nicht.<br /><br />\n"
 "Der Unterschied zwischen den Aktivitäten <strong>Sportklettern</strong> und <strong>Alpinklettern</strong> ist hauptsächlich die Seehöhe der Route, nicht aber die Einrichtung der Route. In Europa gelten folgenden Regeln: <br />- Höhe < 2100m : Sportklettern<br />- Höhe zwischen 2100m und 2400m : Sportklettern oder Alpinklettern, aber hauptsächlich Sportklettern<br />- Höhe zwischen 2400m und 2700m : Sportklettern oder Alpinklettern, aber hauptsächlich Alpinklettern<br />- Höhe > 2700m : Alpinklettern<br />Für eine Höhe zwischen 2100m und 2700m, können beide Aktivitäten gewählt werden."
 
 # [comment]
@@ -2752,8 +2734,10 @@ msgid "_camera_name_info"
 msgstr "<h3>Kamera</h3>Marke und Modell der Kamera. <br />Diese Informationen werden aus den EXIF-Datei des hochgeladenen Bildes extrahiert. Sie können diese Informationen vor dem Hochladen des Bildes mit einer Fotografie oder Imaging-Software löschen."
 
 msgid "_captcha_info"
-msgstr "<h3>Anti-spam-Test</h3>Schreiben Sie die im Bild sichtbaren Buchstaben ab. Bei diesem Test wird nicht zwischen Klein- und Großschreibung unterschieden.<br />Falls Sie die Buchstaben nicht lesen können, laden Sie die Seite neu, um ein neues Bild zu erhalten. Dabei werden davor eingegebene Daten (Benutzername und Email-Addresse) gelöscht."
+msgstr "<h3>Anti-spam-Test</h3>Schreiben Sie die im Bild sichtbaren Buchstaben ab. Bei diesem Test wird nicht zwischen Klein- und Großschreibung unterschieden.<br />Falls sie die Buchstaben nicht lesen können, laden sie die Seite neu, um ein neues Bild zu erhalten. Dabei werden davor eingegebene Daten (Benutzername und Email-Addresse) gelöscht."
 
+# [comment]
+# Brouillion: Chaos? Wirres? Baustelle? etwas anderes?
 # [WARNING] needs_review
 msgid "_categories_info"
 msgstr "<h3>Kategorie eines Beitrags</h3>\n"
@@ -2772,7 +2756,7 @@ msgstr "<h3>Kategorie eines Beitrags</h3>\n"
 "<strong>Erlebnisberichte und Erzählungen</strong>: Berichte über wahre\n"
 "oder erfundene Erlebnisse.<br />\n"
 "<strong>Website-Info</strong>: Beiträge über die camptocamp.org-Website<br>(Hilfe, Information)<br />\n"
-"<strong>Verein</strong>: Beiträge über<em>camptocamp-Verein</em> <strong>brouillon</strong>&nbsp;: Beiträge in Bearbeitung (keine veröffentlichung auf der Begrüßungsseite)"
+"<strong>Verein</strong>: Beiträge über<em>camptocamp-Verein</em> <strong>Baustelle</strong>: Beiträge in Bearbeitung (keine Veröffentlichung auf der Begrüßungsseite)"
 
 msgid "_category_info"
 msgstr "<h3>Benutzerkategorie</h3>Mit diesem optionalen Feld kann der Benutzer einfacher gefunden werden, indem Suchabfragen nach Kategorien gemacht werden können. Dies ist besonders nützlich, wenn nach Clubs oder professionellen Fachleuten (Führer, Instruktoren) einer bestimmten Region (falls sie georeferenziert sind) gesucht wird.<br /><br /><strong>Amateur</strong>:Leute, welche zum Vergnügen in die Berge fahren und nicht zum beruflichen Erwerb. Die meisten Berggänger gehören in diese Kategorie.<br /><br /><strong>Profi</strong>: Leute, welche Bergsportaktivitäten im Rahmen der beruflichen Erwerbsarbeit nachgehen (Führer, Instruktoren) und entsprechend ausgebildet sind. Im Feld <em>Aktivitäten</em> können die beruflich angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Club oder Gruppe, welche Touren organisiert</strong>: Club oder eine Gruppe von Leuten, welche Bergsporttouren (Skitouren, Bergsteigen, Klettern, Wandern, etc) organisiert und durchführt. Im Feld <em>Aktivitäten</em> können die angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Andere Organisation</strong>: Öffentliche oder private Organisation, welche andere bergrelevante Aktivitäten als ein Club anbietet und durchführt, wie z.B. Bergrettung, Hüttenbetrieb, Nationalparkverwaltung, Wetterdienstleistungen, Touristeninformationen, Umweltfürsprache, etc."
@@ -2786,13 +2770,11 @@ msgstr "<h3>Art der Kletterroute</h3>Beschreibt den generellen Kletterstil eines
 msgid "_code_info"
 msgstr "<h3>Nummer</h3>Referenz auf die Karte"
 
-# [WARNING] needs_review
 msgid "_conditions_info"
-msgstr "<h3>Verhältnisse</h3>Informationen über die vorgefundenen Verhältnisse auf einer Tour.<br />Diese Informationen sind schnellebig und verlieren ihre Aktualität schnell, weshalb sie erst das Tourendatum beachten sollten.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br /><br />Bei einer Route im Schnee geben Sie bitte auch Lawinenaktivität und –beobachtungen an.<br /><br />Die <em>Angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen Sie diese deshalb gewissenhaft aus."
+msgstr "<h3>Verhältnisse</h3>Informationen über die vorgefundenen Verhältnisse auf einer Tour.<br />Diese Informationen sind schnellebig und verlieren ihre Aktualität schnell, weshalb sie erst das Tourendatum beachten sollten.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br /><br />Bei einer Route im Schnee geben sie bitte auch Lawinenaktivität und –beobachtungen an.<br /><br />Die <em>angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
 
-# [WARNING] needs_review
 msgid "_conditions_levels_info"
-msgstr "<h3>Schneeverhältnisse pro Abschnitt</h3>Erlaubt die vorgefundenen Schneeverhältnisse einer Tour zu beschreiben und zwar auf allen Abschnitten. Um einen Abschnitt hinzuzufügen klicken Sie auf den Knopf (+).<br /><br /><strong>Lokalisierung / Höhe / Exposition / Zeit</strong>:Charakteristiken des Ortes: seine Lokalisierung, Höhenlage, Exposition, sein Relief (Einschitt, Couloir, etc.), Zeitpunkt der Aufnahme.<br /><br /><strong>Lockerschnee</strong>: Tiefe des Lockerschnee in cm (Einsinken des Skistocks).<br /><br /><strong>Gesamtschneehöhe</strong>: Gesamte Schneehöhe in cm. Bitte leer lassen, falls der Wert unbekannt ist.<br /><br /><strong>Beobachtung</strong>: Schneequalität, grobe Profilbeschreibung oder -analyse, Qualität zum Skifahren."
+msgstr "<h3>Schneeverhältnisse pro Abschnitt</h3>Erlaubt die vorgefundenen Schneeverhältnisse einer Tour zu beschreiben und zwar auf allen Abschnitten. Um einen Abschnitt hinzuzufügen klicken sie auf den Knopf (+).<br /><br /><strong>Lokalisierung / Höhe / Exposition / Zeit</strong>:Charakteristiken des Ortes: seine Lokalisierung, Höhenlage, Exposition, sein Relief (Einschitt, Couloir, etc.), Zeitpunkt der Aufnahme.<br /><br /><strong>Lockerschnee</strong>: Tiefe des Lockerschnee in cm (Einsinken des Skistocks).<br /><br /><strong>Gesamtschneehöhe</strong>: Gesamte Schneehöhe in cm. Bitte leer lassen, falls der Wert unbekannt ist.<br /><br /><strong>Beobachtung</strong>: Schneequalität, grobe Profilbeschreibung oder -analyse, Qualität zum Skifahren."
 
 msgid "_conditions_status_info"
 msgstr "<h3>Verhältnisse</h3>Generelle Einschätzung der vorgefundenen Verhältnisse auf einer Tour. Kann zum Filtern von Touren verwendet werden.<br />Im Feld <i>Verhältnisse</i> können zusätzliche Informationen angegeben werden."
@@ -2830,18 +2812,17 @@ msgid "_down_snow_elevation_info"
 msgstr "<h3>Schneegrenze bei der Abfahrt</h3>Höhe, bis auf welche mittels Skiern (Snowboard, etc.) abgefahren werden konnte und die Skier abgeschnallt wurden.<br />Im Feld <i>Verhältnisse</i>können zusätzliche Informationen hinzugefügt werden."
 
 msgid "_duration_info"
-msgstr "<h3>Tourendauer</h3>Die Anzahl der Tage, welche üblicherweise für die Begehung der Route (Aufstieg zur Hütte inberiffen) benötigt werden, um eine Idee zu geben.<br />Die meisten Routen, welche von einer Hütte ausgehen, können in einem Tag begangen werden, aber die Dauer ist zumeist 2 Tage."
+msgstr "<h3>Tourendauer</h3>Die Anzahl der Tage, welche üblicherweise für die Begehung der Route (Aufstieg zur Hütte inbegriffen) benötigt werden, um eine Idee zu geben.<br />Die meisten Routen, welche von einer Hütte ausgehen, können in einem Tag begangen werden, aber die Dauer ist zumeist 2 Tage."
 
 msgid "_editor_info"
 msgstr "<h3>Herausgeber</h3>Herausgeber der Karte oder des Buches."
 
 msgid "_elevation_info"
-msgstr "<h3>Höhe</h3>Die Seehöhe, d.h. die Höhe überm Meeresspiegel, eines geograhischen Orts.<br />Für ein Bild, die Höhe, wo die Aufnahme erfolgte."
+msgstr "<h3>Höhe</h3>Die Seehöhe, d.h. die Höhe über dem Meeresspiegel, eines geograhischen Orts.<br />Für ein Bild, die Höhe, wo die Aufnahme erfolgte."
 
 msgid "_email_info"
 msgstr "<h3>Email-Adresse</h3>Die Email-Adresse für ihr camptocamp.org-Profil.<br /><br /><em><u>Während der Registrierung</u>:</em><br />Fügen sie eine gültige Email-Adresse ein. Andernfalls wird das Profil nicht bestätigt und nach einigen Wochen gelöscht.<br />Diese Email-Adresse erscheint nie auf camptocamp.org. Sie wird in folgenden Fällen verwendet:<br />- Ein anderes Mitlied sendet Ihnen eine Email durch die camptocamp-Website (Ihre Email-Adresse wird dabei nicht angezeigt).<br />- Wenn Sie Forenbeiträge abonniert haben und der Server Sie über neue Beiträge informieren möchte.<br />- Sie haben sich in der Maillingliste für Lawinenlageberichte eingeschrieben, und diese werden Ihnen auf die Email-Adresse zugestellt."
 
-# [WARNING] needs_review
 msgid "_engagement_rating_info"
 msgstr "<h3>Ernsthaftigkeitsgrad</h3>\n"
 "Ernsthaftigkeit einer Route<br />\n"
@@ -2904,31 +2885,25 @@ msgstr "<h3>Qualität des vorhandenen Sicherungsmaterials</h3>\n"
 "Route ohne vorhandenes Sicherungsmaterial oder mit wenig Sicherungsmaterial von sehr zweifelhafter Qualität.<br />\n"
 "<em><u>Benötigte Ausrüstung</u>:</em> Ist abhängig von der Route; für eine Route im Schwierigkeitsgrad S oder schwieriger ist üblicherweise mindestens die Ausrüstung für eine P3 (wenig eingerichtet) und möglicherweise zusätzliches Material notwendig."
 
-# [WARNING] needs_review
 msgid "_exposure_time_info"
-msgstr "<h3>Belichtungszeit</h3>Belichtungszeit der Aufnahme.<br />Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds gewonnen. Sie können diese Informationen mit einem Foto- oder Bildbearbeitungsprogramm entfernen bevor sie das Bild hochladen."
+msgstr "<h3>Belichtungszeit</h3>Belichtungszeit der Aufnahme.<br />Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds extrahiert. Sie können diese Informationen mit einem Foto- oder Bildbearbeitungsprogramm entfernen bevor sie das Bild hochladen."
 
-# [WARNING] needs_review
 msgid "_external_resources_info"
 msgstr "<h3>Bibliographie</h3>Andere Informationsquellen in der Literatur und im Internet."
 
-# [WARNING] needs_review
 msgid "_facing_info"
 msgstr "<h3>Hauptexposition</h3>Hauptsächliche Ausrichtung der Route oder deren Haupschwierigkeiten.<br />Zusätzliche Informationen können im Feld <i>Bemerkungen</i> hinzugefügt werden."
 
-# [WARNING] needs_review
 msgid "_facings_info"
-msgstr "<h3>Expositionen</h3>Liste der verschiedenen Expositionen eines Klettergebiets oder eines –sektors.<br />Im Feld<i>Kommentare</i> können zusätzliche Informationen angebracht werden."
+msgstr "<h3>Expositionen</h3>Liste der verschiedenen Expositionen eines Klettergebiets oder eines –sektors.<br />Im Feld <i>Kommentare</i> können zusätzliche Informationen angebracht werden."
 
 # [WARNING] needs_review
 msgid "_filename_info"
 msgstr "<h3>Code um ein Bild in den Tourenführer einzufügen</h3>Um dieses Bild (in mittlerer Grösse) in einen Text des Tourenführerseinzufügen, kopierend sie den folgenden Code (Strg+C) und fügen sie ihn am gewünschten Ort ein (Strg+V).<br />Das Bild wird mit einer Grösse von maximal 250px Höhe oder Breite dargestellt, mit einem Link um das Bild in der maximalen Grösse von800px auf schwarzem Hintergrund anzuzeigen.<br /><br />Mit dem Attribut nach dem Separator (|) kann die gewünschte Position des Bilds gewählt werden:<br />- <strong>right</strong>: Das Bild ist auf der rechten Seite plaziert,der Text links.<br />- <strong>left</strong>: Das Bild ist auf der linken Seite plaziert, der Text rechts.<br />- <strong>center</strong>: Das Bild ist mittezentriert, kein Text links und rechts davon.<br />- <strong>inline</strong>: Das Bild ist innerhalb des Texts(in-line)plaziert.<br />- <strong>inline_right</strong>: Das Bild ist innerhalb des Texts (in-line) rechts plaziert (Bilder können rechts auf derselben Linie aufgestapelt werden).<br />- <strong>inline_left</strong>: Das Bild ist innerhalb des Texts (in-line) links plaziert (Bilder können links auf derselben Linie aufgestapelt werden).<br /><br />Wenn sie nach einem mit dem Attribut <strong>right</strong> oder <strong>left</strong> plazierten Bild einen neuen Textabschnitt beginnen möchten, können sie am Ende des vorherigen Abschnitts ein <strong>[p]</strong>-Tag einfügen."
 
-# [WARNING] needs_review
 msgid "_fnumber_info"
 msgstr "<h3>Blende</h3>Blendenzahl, mit welcher die Aufnahme gemacht wurde.<br /> Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds gewonnen. Sie können diese Informationen mit einem Foto- oder Bildbearbeitungsprogramm entfernen bevor sie das Bild hochladen."
 
-# [WARNING] needs_review
 msgid "_focal_length_info"
 msgstr "<h3>Brennweite</h3>Brennweite, mit welcher die Aufnahme gemacht wurde.<br />Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds gewonnen. Sie können diese Informationen mit einem Foto- oder Bildbearbeitungsprogramm entfernen bevor sie das Bild hochladen."
 
@@ -2979,33 +2954,27 @@ msgstr "<h3>Bewertung der Schwierigkeiten von Hochtouren</h3>\n"
 msgid "_gps_data_info"
 msgstr "<h3>Track (.gpx)</h3>Laden sie einfach einen GPS-track im GPX-Format hoch um ihre Tour zu illustrieren.<br />Damit können sie anschliessend den Track als KML-Datei (Google Earth) herunterladen um zu Orientierungszwecken verwenden.<br /><br />Falls ihr GPS Tracks im NMEA-Format erstellt können sie diese mittels dem Programm <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> ins GPX-Format umwandeln."
 
-# [WARNING] needs_review
 msgid "_has_unstaffed_blanket_info"
 msgstr "<h3>Bettdecken</h3>Vorhandensein von Woll- oder Bettdecken, während der unbewarteten Periode."
 
-# [WARNING] needs_review
 msgid "_has_unstaffed_gas_info"
 msgstr "<h3>Kochherd / Gas</h3>Vorhandensein eines funktionstüchtigen Kochherdes und Brennstoffs während der unbewarteten Periode: Gas-, Holz-, oder Elektroherd.<br />Das Vorhandensein von Geschirr wird in der Beschreibung erläutert."
 
-# [WARNING] needs_review
 msgid "_has_unstaffed_matress_info"
 msgstr "<h3>Matratzen</h3>Vorhandensein von Matratzen während der unbewarteten Periode."
 
-# [WARNING] needs_review
 msgid "_has_unstaffed_wood_info"
-msgstr "<h3>Heizung</h3>Vorhandensein einer funktionierenden Heizung während der unbewarteten Periode: Holz-, Elektro oder Solarofen. Es handelt sich um eine allgemeine Information, im Winter kann der Brennstoffvorat zuende sein."
+msgstr "<h3>Heizung</h3>Vorhandensein einer funktionierenden Heizung während der unbewarteten Periode: Holz-, Elektro oder Solarofen. Es handelt sich um eine allgemeine Information, im Winter kann der Brennstoffvorat zu Ende sein."
 
 # [WARNING] needs_review
 msgid "_height_diff_down_info"
 msgstr "<h3>Negative Höhendifferenz</h3><u>Tour</u>: Kummulierter negativer Höhenunterschied während der Tour.<br />Falls ein GPX-Track hochgeladen wurde und das Feld nicht ausgefüllt wurde, wird die negative Höhendifferenz automatisch aus dem GPX-Track berechnet.<br />br /><u>Route</u>: Falls eine Route üblicherweise von einer Hütte begangen wird, wird die negative Höhendifferenz wie folgt berechnet: Negative Höhendifferenz während dem Aufstieg (falls dieser substanzielle Abstiege enthält) + Abstieg vom Gipfel zum Zugangsort (Haltestelle öV oder Parkplatz)<br /><br />Dieses Feld ist nützlich für Skitouren und Wanderungen und muss für andere Aktivitäten nicht notwendigerweise ausgefüllt werden, ausser die Aufstiegshöhe unterscheidet sich wesentlich von der Abstiegshöhe (wie z.B. eine Traverse, bei welcher nicht via Hütte abgestiegen wird."
 
-# [WARNING] needs_review
 msgid "_height_diff_up_height_diff_down_info"
 msgstr "<h3>Höhendifferenz</h3>Kummulierte positive und negative Höhenunterschiede.<br /><br />Falls ein GPX-Track hochgeladen wurde und vorgängig keine Daten eingegeben wurden, wird die Höhendifferenz automatisch aus dem GPX-Track berechnet."
 
 # [comment]
 # sollten wir dies nicht als "Totale Aufstiegshöhe" oder "Totaler Aufstieg" bezeichnen?
-# [WARNING] needs_review
 msgid "_height_diff_up_info"
 msgstr "<h3>Positive Höhendifferenz</h3><u>Tour</u>: Kummulierter positiver Höhenunterschied (Aufstieg) während der Tour.<br />Falls ein GPX-Track hochgeladen wurde und das Feld nicht ausgefüllt wurde, wird die negative Höhendifferenz automatisch aus dem GPX-Track berechnet.<br />br /><u>Route</u>: Für eine Route, bei welcher sich der Zustieg klar von der eigentlichen Route unterscheidet, wird die positive Höhendifferenz wie folgt berechnet: Zustieg + Route + Abstieg (falls Gegenanstiege enthalten sind).<br />Falls die Route üblicherweise von einer Hütte aus begangen wird, berechnet sich der positive Höhenunterschied wie folgt: Zustieg ab der Hütte + Route + Abstieg (falls Gegenanstieg enthalten sind)."
 
@@ -3029,20 +2998,17 @@ msgstr "Beurteilung der Schwierigkeit von Wanderungen<br /><br/>Zur Beurteilung 
 "Gletscher mit erhöhter Ausrutschgefahr.<br/><b>Anforderungen</b>: Ausgezeichnetes Orientierungsvermögen.\n"
 "Ausgereifte Alpinerfahrung und Vertrautheit im Umgang mit alpintechischen Hilfsmitteln.<br /><br />Mehr Informationen finden sie in der Hilfe unter <a href=\"../../articles/106859/de\">Bewertung von Wanderungen</a>."
 
-# [WARNING] needs_review
 msgid "_hours_info"
 msgstr "<h3>Öffnungzeiten</h3>Öffnungszeiten und -zeiträume"
 
-# [WARNING] needs_review
 msgid "_hut_comments_info"
-msgstr "<h3>Kommentare zur Hütte</h3>Zusätzliche Informationen zu zum Zustand der Hütte: Zugang, Übernachtungen, Brennstoff, Kochmaterial und Geschirr, Besucherfrequenz."
+msgstr "<h3>Kommentare zur Hütte</h3>Zusätzliche Informationen zum Zustand der Hütte: Zugang, Übernachtungen, Brennstoff, Kochmaterial und Geschirr, Besucherfrequenz."
 
 # [general comment]
 # - what about huts, which are closed, but the key can be obtained in advance?
 # [comment]
 # - Zum Begriff "Hütte": der Begriff "Unterkunft" wäre wohl angebrachter, da dieser sowohl Hütten als auch Biwaks und andere Unterkünfte umfasst.
 # 
-# [WARNING] needs_review
 msgid "_hut_status_info"
 msgstr "<h3>Hütte</h3>Öffnungszeiten der Hütte: geöffnet/geschlossen und bewartet/unbewartet.<br />Zusätzliche Informationen können im Feld<i>Kommentare zur Hütte</i> gemacht werden."
 
@@ -3072,11 +3038,9 @@ msgstr "<h3>Schwierigkeitsskala Eisklettern</h3>\n"
 msgid "_image_categories_info"
 msgstr "<h3>Bildkategorien</h3>Mehrere Kategorien können für ein Bild ausgewählt werden.<br /><span style=\"color: red\">Bilder, welche mindestens eine mit einem Stern (*) bezeichnete Kategorie zugeordnet haben, werden auf der Einstiegsseite von camptocamp.org angezeigt.</span><br /><br /><strong>Landschaftsaufnahme</strong>: Photo, welches mindestens einen Teil eines Berges oder mehrere Berge enthält, oder eine Panoramaaufnahme<br /><strong>Detailaufname</strong>: Ein Bild, welches einen Teil einer Route, eines Gipfels oder eines Orts zeigt(im Gegensatz zur <em>Landschaftsaufnahme</em><br /><strong>Topo / Routenlinie</strong>: Foto eines Gipfels mit der Routenlinie, oder ein Schema der Route<br /><strong>Aktionsbild</strong>: Bild von einer Person in Aktion</br><strong>Wegbild</strong>:Bild, welches eindeutig den Weg, oder Auf- oder Abstiegsspuren im Schnee (oder im losen Untergrund) zeigt.<br /><strong>Aufstiegs-</strong> oder <strong>Abstiegsbild</strong>: Bild, welches während dem Aufstieg oder während dem Abstieg aufgenommen wurde. Diese Kategorie ist nützlich um die Bildkategorien <em>Detailaufnahme, Aktions-, und Wegbild</em> zu präzisieren.<br /><strong>Personen</strong>: Aufnahme, bei welcher das Hauptmotiv ein oder mehrere Exemplare der Spezies <i>Homo sapiens sapiens</i> ist.<br /><strong>Fauna</strong> und <Flora>: Foto oder Zeichnung von Fauna und/oder Flora<br /><strong>Schnee und Lawinen</strong>: Foto, Zeichnung oder Graphik, welche für die Schnee- und Lawinenforschung relevant ist: Schneedeckenaufbau, Lawinenanriss, etc.<br /><strong>Geologie</strong>: Bilder oder Zeichnungen, welche geologische oder geomorphologische Phänomene zeigen oder illustrieren, z.B. Fotos von Mineralien und Kristallen, Schichtabfolgen, Gletschervorstösse, etc.<br /><strong>Unterkunftsbild</strong>: Foto, welches eine Hütte, ein Biwak oder einen Biwakplatz von aussen oder innen zeigt<br /><strong>Ausrüstung</strong>: Bild oder Zeichnung von Alpinausrüstungsgegenständen, Detailaufnahme oder während des Gebrauchs<br /><strong>Buchumschlag</strong>: Aufnahme des Umschlags eines Buchs oder einer anderen Publikation<br /><strong>Anderes oder unklassifizierbares Bild</>: Bild, welches nicht mit den anderen Bildkategorien klassifiziert werden kann, z.B. abstraktes Bild, Flyer, etc."
 
-# [WARNING] needs_review
 msgid "_image_details_info"
 msgstr "<h3>Bildeigenschaften</h3>Dimensionen und Grösse des Bilds"
 
-# [WARNING] needs_review
 msgid "_image_new_version_info"
 msgstr "<h3>Neue Version des Bildes</h3>Mit diesem Feld können sie eine neuere Version eines Bildes hochladen (üblicherweise ein aktualisiertes Topo, o.Ä.)."
 
@@ -3084,18 +3048,11 @@ msgstr "<h3>Neue Version des Bildes</h3>Mit diesem Feld können sie eine neuere 
 # Constructed a table for better display  -> NO please follow tags from other languages (+ syntax is invalid)
 # 
 # thanks :D
-# [WARNING] needs_update
+# 
+# ok, done
+# [WARNING] needs_review
 msgid "_image_type_info"
-msgstr "<h3>Bildtyp</h3><br />\n"
-"Es gibt bei camptocamp.org zwei verschiedene Typen von Bildern, das sog. 				<strong>gemeinschaftliche Bild</strong> und das <strong>persönliche Bild</strong>. Die beiden Bildtypen unterscheiden sich vor allem in der Lizenz, welcher sie unterstehen, und den daraus resultierenden Konsequenzen für die Verwendung innerhalb von camptocamp.org. Die folgende Tabelle gibt einen Überblick über die Unterschiede.<br /><br />\n"
-"<table border=1 cellspacing=1 cellpadding=10><tr><td></td><td><strong>Gemeinschaftliches Bild</strong></td><td><strong>Persönliches Bild</strong></td></tr>\n"
-"<tr><td>Lizenz, welcher das Bild untersteht</td><td><a href=\"/articles/106728/de#cc-by-sa\">Creative Common by-sa</a></td><td><a href=\"/articles/106728/de#cc-by-nc-nd\">Creative Common by-nc-nd</a></td></tr>\n"
-"<tr><td>Das Bild darf kopiert werden?</td><td>ja</td><td>ja</ja></tr>\n"
-"<tr><td>Das Bild darf verändert werden?</td><td>ja</td><td>nein (resp. nur durch den Autor)</ja></tr>\n"
-"<tr><td>Verwendung im Tourenführer</td></tr><tr><td>Speicherung in einem gemeinschaftlichen Dokument</td><td>ja</td><td>nein</ja></tr><tr><td>Verbindung mit einem gemeinschaftlichen Dokument</td><td>ja</td><td>ja (nachdem das Bild in einem persönlichen Dokument gespeichert wurde)</ja></tr>\n"
-"<tr><td>Einfügen in einen Text eines gemeinschaftlichen Dokuments</td><td>ja</td><td>nein</ja></tr>\n"
-"<tr><td>Speicherung, Verbinden oder Einfügen in/mit ein/em persönliches/m Dokument</td><td>Dem/den Autoren vorbehalten</td><td>Dem/den Autoren vorbehalten</ja></tr>\n"
-"</table><br />"
+msgstr "<h3>Bildtyp</h3><br /><strong>Gemeinschaftliches Bild:</strong><br />Ein gemeinschaftliches Bild untersteht der <a href=\"/articles/106728/de#cc-by-sa\">Creative Common by-sa</a>-Lizenz. Das Bild darf kopiert und verändert werden.<br/>Im Tourenführer untersteht ein gemeinschaftliches Bild, egal ob man Autor davon ist oder nicht, folgenden Regeln:<br />- Speicherung in einem gemeinschaftlichen Dokument: <strong>ja</strong><br />- Verbinden mit einem gemeinschaftlichem Bild: <strong>ja</strong><br />- Einfügen in einen Text eines gemeinschaftlichen Dokuments: <strong>ja</strong><br />- Die Speicherung, Verbindung oder das Einfügen eines gemeinschaftlichen Bilds in ein persönliches Dokument ist dem Autor des persönlichen Dokuments vorbehalten.<br /><br /><strong> Persönliches Bild:</strong><br />Ein persönliches Bild untersteht der <a href=\"/articles/106728/de#cc-by-nc-nd\">Creative Common by-nc-nd</a>-Lizenz. Das Bild darf kopiert, aber ausschliesslich durch den Autor geändert werden.<br />Im Tourenführer untersteht ein persönliches Bild, egal ob man Autor davon ist oder nicht, folgenden Regeln:<br />- Speicherung in einem gemeinschaftlichen Dokument: <strong>nein</strong><br />- Verbinden mit einem gemeinschaftlichem Bild: <strong>ja</strong> (nach der Speicherung in einem persönlichen Dokument)<br />- Einfügen in einen Text eines gemeinschaftlichen Dokuments: <strong>nein</strong><br />- Die Speicherung, Verbindung oder das Einfügen eines persönlichen Bilds in ein persönliches Dokument ist dem Autor des persönlichen Dokuments vorbehalten."
 
 msgid "_is_on_glacier_info"
 msgstr "<h3>Benötigt Gletscherausrüstung</h3>Die Route verläuft über einen Gletscher mit Spalten."
@@ -3110,15 +3067,12 @@ msgstr "<h3>Bewartung</h3>Gibt an, ob die Hütten während eines Teil des Jahres
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>ISBN Nummer des Buches."
 
-# [WARNING] needs_review
 msgid "_isbn_or_issn_info"
 msgstr "<h3>ISBN oder ISSN</h3> ISBN-Nummer der Publikation oder ISSN-Nummer der Zeitschrift"
 
-# [WARNING] needs_review
 msgid "_iso_speed_info"
-msgstr "<h3>Empfindlichkeit</h3>Die eingestellte ISO-Empfindlichkeit während der Aufnahme.<br />Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds gewonnen. Sie können diese Informationen mit einem Foto- oder Bildbearbeitungsprogramm entfernen bevor sie das Bild hochladen."
+msgstr "<h3>Empfindlichkeit</h3>Die eingestellte ISO-Empfindlichkeit während der Aufnahme.<br />Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds extrahiert. Sie können diese Informationen mit einem Foto- oder Bildbearbeitungsprogramm entfernen bevor sie das Bild hochladen."
 
-# [WARNING] needs_review
 msgid "_issn_info"
 msgstr "<h3>ISSN</h3>ISSN-Nummer der Zeitung oder Zeitschrift"
 
@@ -3149,7 +3103,6 @@ msgstr "<h3>Ski Schwierigkeitsskala für Einzelstellen</h3> Eine Skala zur Bewer
 msgid "_langs_info"
 msgstr "<h3>Sprachen</h3>Sprachen in welchem das Buch verfügbar ist."
 
-# [WARNING] needs_review
 msgid "_lat_info"
 msgstr "<h3>Geografische Breite</h3>Geographische Breite eines Orts in Dezimalgraden.<br />Bei einem Foto bezieht sich die geografische Breite auf den Aufnahmestandort.<br /><br />Falls bearbeitet:<br />- ein negativer Wert bezieht sich auf die südliche Breite.<br />- das Dezimaltrennzeichen ist der Punkt (z.B. 6.8204)<br />- bitte keine Gradsymbole (°) hinzufügen"
 
@@ -3159,40 +3112,32 @@ msgstr "Lizenzinformationen des Inhalts"
 msgid "_lift_status_info"
 msgstr "<h3>Bergbahnen</h3>Öffnung der Bergbahnen in der nähe der Route."
 
-# [WARNING] needs_review
 msgid "_loginNameOrEmail_info"
-msgstr "<h3>Benutzername oder Email-Adresse</h3>Falls sie Ihr camptocamp.org-Passwort verloren oder vergessen haben, können sie ihren Benutzernamen oder ihre Email-Adresse angeben um ein neues Passwort per Email zu erhalten."
+msgstr "<h3>Benutzername oder Email-Adresse</h3>Falls sie ihr camptocamp.org-Passwort verloren oder vergessen haben, können sie ihren Benutzernamen oder ihre Email-Adresse angeben um ein neues Passwort per Email zu erhalten."
 
-# [WARNING] needs_review
 msgid "_login_name_info"
-msgstr "<h3>Benutzername</h3>Die Benutzerbezeichnung für ihren camptocamp.org-Profil.<br /><br /><em><u>Bei der Registrierung</u>:</em><br />Nach der Erstellung des Profils kann der Benutzername nicht mehr geändert werden. Standartmässig erscheinen Beiträge im Tourenführer und in den Foren unter ihrem Usernamen, aber dieses Pseudonym können sie ändern. Der Benutzername sollte keine Umlaute, Sonderzeichen oder dergleichen enthalten."
+msgstr "<h3>Benutzername</h3>Die Benutzerbezeichnung für ihr camptocamp.org-Profil.<br /><br /><em><u>Bei der Registrierung</u>:</em><br />Nach der Erstellung des Profils kann der Benutzername nicht mehr geändert werden. Standartmässig erscheinen Beiträge im Tourenführer und in den Foren unter ihrem Usernamen, aber dieses Pseudonym können sie ändern. Der Benutzername sollte keine Umlaute, Sonderzeichen oder dergleichen enthalten."
 
-# [WARNING] needs_review
 msgid "_lon_info"
 msgstr "<h3>Geografische Länge</h3>Geographische Länge eines Orts in Dezimalgraden.<br />Bei einem Foto bezieht sich die geografische Länge auf den Aufnahmestandort.<br /><br />Falls bearbeitet:<br />- ein negativer Wert bezieht sich auf die östliche Länge.<br />- das Dezimaltrennzeichen ist der Punkt (z.B. 6.8204)<br />- bitte keine Gradsymbole (°) hinzufügen"
 
-# [WARNING] needs_review
 msgid "_lowest_elevation_info"
 msgstr "<h3>Minimale Höhe des Ausgangspunktes</h3>Minimale Höhe, welche ganzjährig zugänglich ist; korrespondiert üblicherweise mit Höhe der mechanischen Schneeräumung auf der Zugangsstrasse"
 
 msgid "_maps_info_info"
 msgstr "<h3>Kartenmaterial</h3>Zusätzliches Kartenmaterial neben den schweizerischen Swisstopo und den französischen IGN-Karten.<br /><br />Geben sie die Quelle, den Namen und den Massstab der Kare an.<br />Falls es sich um mehrere Karten handelt, trennen sie diese mit einem doppelten Backslash (\\\\).<br /><br />Für einen in der Schweiz oder in Frankreich georeferenzierten Ort werden die Swisstopo und/oder IGN-Kartenblätter automatisch hinzugefügt. Folglich müssen sie bei Orten in der Schweiz und Frankreich das Kartenmaterial nicht manuell eingeben."
 
-# [WARNING] needs_review
 msgid "_max_elevation_info"
-msgstr "<h3>Maximale Höhe</h3>Maximal erreichte Höhe auf der Tour.<br /><br />Falls ein GPX-Track hochgeladen wurde und vorgängig keine Angabe gemacht wurde, wird die maximale Höhe vom Track berechnet. Falls kein Track hochgeladen wurde, wird automatisch die maximale Höhe der verbundenen Route verwendet."
+msgstr "<h3>Maximale Höhe</h3>Maximal erreichte Höhe auf der Tour.<br /><br />Falls ein GPX-Track hochgeladen wurde und vorgängig keine Angabe gemacht wurde, wird die maximale Höhe vom GPS-Track berechnet. Falls kein Track hochgeladen wurde, wird automatisch die maximale Höhe der verbundenen Route verwendet."
 
-# [WARNING] needs_review
 msgid "_max_height_info"
 msgstr "<h3>Maximale Routenlänge</h3>Länge der längsten Route im Klettergebiet/-sektor."
 
-# [WARNING] needs_review
 msgid "_max_rating_info"
 msgstr "<h3>Maximaler Schwierigkeitsgrad</h3>Schwierigkeitsgrad der schwierigsten Route in einem Gebiet/Sektor.<br />Der Schwierigkeitsgrad wird in der französischen Skala angegeben, welche von 2 bis 9b reicht."
 
-# [WARNING] needs_review
 msgid "_mean_height_info"
-msgstr "<h3>Mediane Höhe</h3>Mediane Höhe der interessanten Routen im Gebiet/Sektor.<br />Die Medianhöhe ergibt sich indem die Routenhöhen rangiert und dann in zwei gleiche Teile (je 50% der Routen) aufgeteilt werden. Bei der Höhe zwischen den beiden Teilen liegt der die Medianhöhe."
+msgstr "<h3>Mediane Höhe</h3>Mediane Höhe der interessanten Routen im Gebiet/Sektor.<br />Die Medianhöhe ergibt sich indem die Routenhöhen rangiert und dann in zwei gleiche Teile (je 50% der Routen) aufgeteilt werden. Bei der Höhe zwischen den beiden Teilen liegt die Medianhöhe."
 
 msgid "_mean_rating_info"
 msgstr "<h3>Mittlerer Schwierigkeitsgrad</h3>Most represented grade in the climbing site or particular crag.<br /><br />The median height is obtained by ranking routes by increasing grade and cutting the list into two equal halves. The grade of the split is the median grade.<br />The standard French grades are used, from 2 to 9b."
@@ -3204,19 +3149,15 @@ msgstr "<h3>Minimale Höhe</h3><em><u>Touren</u>:</em><br />Falls für die Tour 
 msgid "_min_elevation_max_elevation_info"
 msgstr "<h3>Minimale/maximale Höhe</h3>Minimale und maximal Höhe dieser Tour.<br /><br />Falls ein GPX-Track hochgeladen wurde und vorgängig keine Höhenangaben angegeben wurden, werden die maximale und minimalen Höhen automatisch aus dem GPX-Track berechnet. Bei Touren ohne GPX-Track werden die minimale und maximale Höhe der verbundenen Route verwendet.>br /><br />Falls eine Route üblicherweise von einer Hütte ausgegangen wird, hängt die minimale Höhe vom Routentyp ab:<br/>- Falls eine Route im Abstieg in der nähe einer Hütte verläuft, sollte die Höhe der Hütte verwendet werden.<br />-Falls es sich um eine Überschreitung mit keiner Hütte handelt, sollte die Höhe der ersten Hütte verwendet werden.<br />- Bei einer Tour mit mehreren Etappen (z.B. eine Höhenwanderung von Hütte zu Hütte) ist die minimale Höhe der tiefste erreichte Punkt zwischen den zwei Hütten."
 
-# [WARNING] needs_review
 msgid "_min_height_info"
 msgstr "<h3>Minimale Routenhöhe</h3>Höhe der kürzesten Route im Gebiet/Sektor."
 
-# [WARNING] needs_review
 msgid "_min_height_max_height_info"
 msgstr "<h3>Rotenlängen</h3>Längen der kürzesten und längsten Routen im Gebiet/Sektor."
 
-# [WARNING] needs_review
 msgid "_min_rating_info"
 msgstr "<h3>Minimaler Schwierigkeitsgrad</h3>Bewertung der einfachsten Route in einem Gebiet/Sektor<br />Zur Bewertung wird die französische Skale verwendet, welche von 2 bis 9b reicht."
 
-# [WARNING] needs_review
 msgid "_min_rating_max_rating_info"
 msgstr "<h3>Schwierigkeitsgrad</h3>Bewertung der einfachsten und schwierigsten Route im Gebiet/Sektor.<br />Zur Bewertung wird die französische Skala verwendet, welche von 2 bis 9b reicht."
 
@@ -3241,34 +3182,28 @@ msgstr "<h3>Schwierigkeitsskala Mixedklettern</h3>\n"
 "<br />\n"
 "Siehe auch in der Hilfe unter <a href=\"/articles/106871/en\">Schnee-, Eis- und Mixed-Schwierigkeitsbewertungen.</a>"
 
-# [WARNING] needs_review
 msgid "_moderator status_info"
-msgstr "<h3>Moderation</h3>: Falls der Benutzer Moderations-Status hat, bedeutet dies, dass er oder sie Moderator von Tourenführern und/oder Foren ist."
+msgstr "<h3>Moderation</h3>: Falls der Benutzer Moderator-Status hat, bedeutet dies, dass er oder sie Moderator von Tourenführern und/oder Foren ist."
 
 # [WARNING] needs_review
 msgid "_name_info"
 msgstr "<h3>Titel</h3>Name oder Titel eines Objekts oder Dokuments.<br /><br /><strong>Himmelsrichtungen</strong>: In allen Dokumenten des Tourenführers werden die Haupthimmelsrichtungen in Grossbuchstaben gemäss den Abkürzungen der internationalen Bezeichnungen angegeben: N, E, S, W, NW, NE, SW, SE. Die einzige Ausnahme davon sind die Gipfelnamen: zum Beispiel Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Routenname</strong>:<br />- beinhaltet auschliesslich den Routennamen. Der Gipfelname wird mit dem Abschliessen der Änderung angezeigt.<br />- muss so neutral und undiskriminierend wie möglich sein.<br />-Sollte nach der Orientierung des Hangs, der Wand, Pfeiler oder Grat erfolgen, an welchem die Hauptschwierigkeiten der Route zu überwinden sind.<br />- Falls die Route einer bekannten Route mit einem Namen folgt, kann dieser Name verwendet werden.<br />- Der Routenname “Normalroute” oder “Normalweg sollte grundsätzlich vermieden werden, weil eine Gipfel mehrere Normalrouten (z.B. von zwei verschiedenen Tälern) haben kann und sogenannte Normalrouten im Verlauf der Saison ändern können. Falls “Normalroute” nichtsdestotrotz genannt wird, dann sollte dies in Klammern nach dem Namen erfolgen: S-Grat (Normalroute).<br /><br /><strong>Tourenname</strong>: Der Name kann frei gewählt werden. Standartmässig wird der Tourenname wie folgt erzeugt: <em>\"Gipfelname: Routenname\"</em>. Bei einer Veränderung oder Löschung des Gipfel- oder Routennamens wird der Tourenname aber nicht angepasst."
 
-# [WARNING] needs_review
 msgid "_nb_pages_info"
 msgstr "<h3>Seitenanzahl</h3>Die Anzahl der Seiten des Buchs. Falls es mehrere Ausgaben gibt, bezieht sich die Seitenanzahl auf die aktuellste Ausgabe."
 
-# [WARNING] needs_review
 msgid "_new_password_info"
 msgstr "Zur Bestätigung bitte das neue Passwort eintragen."
 
-# [WARNING] needs_review
 msgid "_nick_name_info"
-msgstr "<h3>Forumpseudonym</h3>Name, welcher im Forum der Website verwendet wird.<br /><br />Dieser Name kann jederzeit geändert werden. Standardmässig wird der Benutzername als Forumpseudonym verwendet."
+msgstr "<h3>Forenpseudonym</h3>Name, welcher in den Foren der Website verwendet wird.<br /><br />Dieser Name kann jederzeit geändert werden. Standardmässig wird der Benutzername als Forumpseudonym verwendet."
 
-# [WARNING] needs_review
 msgid "_outing_length_info"
 msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verbunden ist.<br />Dieser Wert ist aus dem verbundenen GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
 
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Benützung des öV</h3>Gibt an, ob die An- und Abreise einer Tour mit öffentlichen Verkehrsmitteln (oder per Velo) gemacht wurde, was ein praktisches Suchkriterium ist. Skilifte werden dabei nicht berücksichtigt.<br />Wenn dieses Feld angekreuzt wird, erscheint die Tour auf auf dem <a href=\"http://www.changerdapproche.org\">Changer d'approche</a>-Portal.<br />Das Feld ist optional und kann unbeantwortet belassen werden, obschon der öV verwendet wurde."
 
-# [WARNING] needs_review
 msgid "_partial_trip_info"
 msgstr "<h3>Unvollständige Begehung</h3>Gibt an, ob eine Route während einer Tour nur teilweise begangen wurde."
 
@@ -3284,7 +3219,6 @@ msgstr "<h3>Passwort</h3><em><u>Beim Einloggen</u></em><br />Geben sie ihren Ben
 msgid "_pedestrian_access_info"
 msgstr "<h3>Zugang zu Fuss</h3>Beschreibung des Zustiegs von einem Zugangsort zu einem Klettergebiet/-sektor.<br />Erläutern sie jegliche Abmachungen, welche mit den privaten  Landbesitzern getroffen wurden.<br /><br />Bei Herbergen: Falls diese mit einem Zugangssort (öV oder Auto) verbunden ist schildern sie lediglich den Zustieg zur Herberge ab dem Zugangssort. Ansonsten ist die gesamte Anreise zu beschreiben."
 
-# [WARNING] needs_review
 msgid "_phone_info"
 msgstr "<h3>Telefon</h3>Die Telefonnummer einer Hütte."
 
@@ -3292,66 +3226,51 @@ msgstr "<h3>Telefon</h3>Die Telefonnummer einer Hütte."
 msgid "_product_type_info"
 msgstr "<h3>Typen lokaler Produkte</h3><strong>Verkauf beim Produzenten</strong>: Die Produkte werden direkt beim Produzenten verkauft.<br /><strong>Restaurant</strong>: Restaurant, Unterkunft oder Bar, welche Mahlzeiten anbieten<br /><strong>Laden</strong>: Verkauf von lokalen Produkten in einem Laden<br /><strong>Bar</strong>: Bar oder Café, welche lokale Produkte anbieten."
 
-# [WARNING] needs_review
 msgid "_public_transportation_description_info"
 msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Notwendige Informationen um die Haltestelle zu erreichen: Verantwortlicher Verkehrsmittelbetreiber (mit Homepage, falls vorhanden), Nummer der Linie, Fahrplan, Preis."
 
 # [general comment]
 # Why not introduce a threshold for a reasonable walking distance - e.g. 30 or 60minutes walking?
-# [WARNING] needs_review
 msgid "_public_transportation_rating_info"
-msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Einfachheit der Erreichbarkeit mit öffentlichen Verkehrsmitteln, etvl. durch eine verhältnismässige Gehdistanz.<br />Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> können zusätzliche Informationen angegeben werden.<br /><br /><strong>Regelmässiger Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen und ganzjährig gewährleistet.<br /><br /><strong>Saisonale Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen gewährleistet, aber zu gewissen Jahreszeiten<br /><br /><strong>Eingeschränkte Erschliessung</strong>: Verbindungen nur während gewissen Tagen und eventuell nur während gewissen Jahreszeiten gewährleistet. Details zu der Erschliessung sollten im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> angegeben werden.<br /><br /><strong>Erschliessung in der Nähe</strong>: Der Ort ist nicht direkt erschlossen, kann aber mit einem verhältnismässigen Fussmarsch erreicht werden. Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> kann der Fussmarsch und die Haltestelle näher beschrieben werden.<br /><br /><strong>Keine Erschliessung</strong>: Keine Verbindung mit öffentlichen Verkehrsmitteln, d.h. der Ort kann mit öV nicht mit verhältnismässigem Aufwand erreicht werden."
+msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Einfachheit der Erreichbarkeit mit öffentlichen Verkehrsmitteln, etvl. durch eine verhältnismässige Gehdistanz.<br />Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> können zusätzliche Informationen angegeben werden.<br /><br /><strong>Regelmässiger Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen und ganzjährig gewährleistet.<br /><br /><strong>Saisonale Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen gewährleistet, aber nur zu gewissen Jahreszeiten<br /><br /><strong>Eingeschränkte Erschliessung</strong>: Verbindungen nur während gewissen Tagen und eventuell nur während gewissen Jahreszeiten gewährleistet. Details zu der Erschliessung sollten im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> angegeben werden.<br /><br /><strong>Erschliessung in der Nähe</strong>: Der Ort ist nicht direkt erschlossen, kann aber mit einem verhältnismässigen Fussmarsch erreicht werden. Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> kann der Fussmarsch und die Haltestelle näher beschrieben werden.<br /><br /><strong>Keine Erschliessung</strong>: Keine Verbindung mit öffentlichen Verkehrsmitteln, d.h. der Ort kann mit öV nicht mit verhältnismässigem Aufwand erreicht werden."
 
-# [WARNING] needs_review
 msgid "_public_transportation_types_info"
-msgstr "<h3>öV-Typ</h3>\n"
+msgstr "<h3>Typ des öffentlichen Verkehrsmittel</h3>\n"
 "Typ des öffentlichen Verkehrsmittels, welches den Zugangsort erschliesst. Dabei ist nur das Verkehrsmittel anzugeben, welches den\n"
 "Zugangsort bedient. <em>Z.B. wenn ein Zugangsort mit einem Bus erschlossen ist, welcher vom 10km entfernten Bahnhof startet, dann wird nur \"Bus\" angegeben.</em><br /><br /><strong>Zug:</strong><span style=\"font-weight: bold;\"></span> Zug<br /><br /><strong>Bus:&nbsp;</strong> Postauto oder Bus<br /><br /><strong>Auf Anfrage</strong>: Taxi, Rufbus, oder Abholdienst"
 
-# [WARNING] needs_review
 msgid "_publication_date_info"
-msgstr "<h3>Publikationsdatum</h3>Datum, an welchem das Buch oder die Zeitschrift publiziert wurde. Falls mehrere Auflage der Publikation existieren, wird auf die aktuellste Auflage Bezug genommen, oder man gibt die erste und letzte Auflage separiert durch einen Trennstrich (z.B. 1983 – 2010) an. Dieses Feld ist dasselbe in allen Sprachen, weshalb ausschliesslich nummerische Datumsangaben verwendet werden sollten (\"2004\", \"03/2009\", \"07-08/1997\", etc.).<br/> Bei Büchern wird beim Publikationsdatum lediglich die Jahrzahl angeben, bei Zeitschriften das Jahr und den Monat."
+msgstr "<h3>Veröffentlichungsdatum</h3>Datum, an welchem das Buch oder die Zeitschrift veröffentlicht wurde. Falls mehrere Auflage der Publikation existieren, wird auf die aktuellste Auflage Bezug genommen, oder man gibt die erste und letzte Auflage separiert durch einen Trennstrich (z.B. 1983 – 2010) an. Dieses Feld ist dasselbe in allen Sprachen, weshalb ausschliesslich nummerische Datumsangaben verwendet werden sollten (\"2004\", \"03/2009\", \"07-08/1997\", etc.).<br/> Bei Büchern wird beim Publikationsdatum lediglich die Jahrzahl angeben, bei Zeitschriften das Jahr und den Monat."
 
-# [WARNING] needs_review
 msgid "_rain_proof_info"
 msgstr "<h3>Regen</h3>Ausgesetztheit gegenüber Niederschlag des Gebiets/Sektors.<br />Nützlich, wenn die Witterungsverhältnisse unsicher sind."
 
-# [WARNING] needs_review
 msgid "_remarks_info"
-msgstr "<h3>Bemerkungen</h3>Mit diesem Feld können nummerische Datenfelder ergänzt und ausgeführt werden. Varianten von Routen müssen aber in der Beschreibung der Route enthalten sein.<br />Zögern sie nicht in dieses Feld Details wie die vorgefundenen Schwierigkeiten, die Länge, dies Ausrichtung, Hinweise auf Vorsichtsmassnahmen, oder andere Eigenheiten auszuführen."
+msgstr "<h3>Bemerkungen</h3>Mit diesem Feld können nummerische Datenfelder ergänzt und ausgeführt werden. Varianten von Routen müssen aber in der Beschreibung der Route enthalten sein.<br />Zögern sie nicht in dieses Feld Details wie die vorgefundenen Schwierigkeiten, deren Länge und Ausrichtung, Hinweise auf Vorsichtsmassnahmen, oder andere Eigenheiten auszuführen."
 
-# [WARNING] needs_review
 msgid "_remember_info"
-msgstr "<h3>An mich erinnern?</h3>Wenn sie diesen Kasten ankreuzen werden beim nächsten Besuch von camptocamp.org autmatisch eingeloggt.<br />Andernfalls werden sie beim Schliessen des Browsers ausgeloggt."
+msgstr "<h3>An mich erinnern?</h3>Wenn sie diesen Kasten ankreuzen werden beim nächsten Besuch von camptocamp.org automatisch angemeldet.<br />Andernfalls werden sie beim Schliessen des Browsers abgemeldet."
 
-# [WARNING] needs_review
 msgid "_rev_comment_info"
 msgstr "<h3>Information zu den Änderungen</h3>Beschreiben sie kurz die Änderungen, welche sie im Dokument vorgenommen haben.<br />Falls sie Textmaterial (aus einer Quelle mit einer kompatiblen Lizenz) kopiert oder verwendet haben, geben sie bitte den Autor und/oder den Link zur Quelle an."
 
-# [WARNING] needs_review
 msgid "_rev_is_minor_info"
-msgstr "<h3>Unwesentliche Änderung</h3>Aktivieren sie dieses Kästchen, wenn sie lediglich unwesentliche Änderungen am Dokument vorgenommen haben:<br /><br /><strong>Text:</strong> Verbesserung der Orthographie, Grammatik oder stilistische Textanpassungen.<br /><br /><strong>Höhe und Höhenunterschiede:</strong> Änderungen &lt; 50m<br /><br /><strong>Bewertungen:</strong> Veränderungen innerhalb eines Grades (ZS+ anstelle von ZS, 3.3. anstelle von 3.2.)<br /><br /><strong>Routen- oder Ortsbeschreibung:</strong> Kleine Anmerkungen oder Neuformulierung von Sätzen. Das Hinzufügen von Varianten oder das komplette Neuschreiben von Dokumenten sind keine unwesentlichen Änderungen."
+msgstr "<h3>Unwesentliche Änderung</h3>Aktivieren sie dieses Kästchen, wenn sie lediglich geringfügige Änderungen am Dokument vorgenommen haben:<br /><br /><strong>Text:</strong> Verbesserung der Orthographie, Grammatik oder stilistische Textanpassungen<br /><br /><strong>Höhe und Höhenunterschiede:</strong> Änderungen &lt; 50m<br /><br /><strong>Bewertungen:</strong> Veränderungen innerhalb eines Grades (ZS+ anstelle von ZS, 3.3. anstelle von 3.2.)<br /><br /><strong>Routen- oder Ortsbeschreibung:</strong> Kleine Anmerkungen oder Neuformulierung von Sätzen. Das Hinzufügen von Varianten oder das komplette Neuschreiben von Dokumenten sind keine unwesentlichen Änderungen."
 
-# [WARNING] needs_review
 msgid "_rock_free_rating_info"
-msgstr "<h3>Bewertung Felsklettern</h3>Bewertung der Schwierigkeiten beim Felsklettern.<br />Die Bewertung bezieht sich auf die schwierigste Stelle, welche frei, d.h. ohne aktive Hilfspunkte, geklettert wird.<br />Dazu wird die französische Skala verwendet, welche von 2 bis 9b reicht.<br /><br />Siehe auch in der Hilfe unter <a href=\"/articles/133323/de\">Bewertung Felsklettern</a>."
+msgstr "<h3>Bewertung Felsklettern</h3>Bewertung der Schwierigkeiten beim Felsklettern.<br />Die Bewertung bezieht sich auf die schwierigste Stelle, welche frei, d.h. ohne aktive Hilfspunkte, geklettert wird.<br />Dazu wird die französische Skala verwendet, welche von 2 bis 9b reicht.<br /><br />Siehe auch in der Hilfe unter <a href=\"/articles/133323\">Bewertung Felsklettern</a>."
 
-# [WARNING] needs_review
 msgid "_rock_required_rating_info"
 msgstr "<h3>Obligatorischer Schwierigkeitsgrad</h3>Bewertung der obligatorischen Schwierigkeiten einer Kletterei. Dieser\n"
 "Grad gibt an, welche Schwierigkeiten eine Route noch hat, wenn\n"
 "sämtliche \"Moglereien\" durch das uneingeschränkte Verwenden von\n"
-"Hilfspunkten ausgeschöpft werden. Wenn ein Kletterer eine Route durchsteigen will muss er mindestens den obligatorischen Schwierigkeitsgrad zwingend beherrschen.<br /><br />Sie auch in der Hilfe zu <a href=\"/articles/133323/de\">Bewertungen von Felsklettereien</a>."
+"Hilfspunkten ausgeschöpft werden. Wenn ein Kletterer eine Route durchsteigen will muss er mindestens den obligatorischen Schwierigkeitsgrad zwingend beherrschen.<br /><br />Sie auch in der Hilfe zu <a href=\"/articles/133323\">Bewertungen von Felsklettereien</a>."
 
-# [WARNING] needs_review
 msgid "_rock_types_info"
-msgstr "<h3>Gesteinsart</h3>Gesteinsart, auf welcher geklettert wurde: Kalk, Granit, Sandstein, etc.<br />Mehr als eine Gesteinsart kann ausgewählt werden."
+msgstr "<h3>Gesteinsart</h3>Gesteinsart, auf welcher geklettert wird: Kalk, Granit, Sandstein, etc.<br />Es kann mehr als eine Gesteinsart kann ausgewählt werden.<br /> Die Gesteinsart \"künstlich\" ist für Kletterhallen vorgesehen."
 
-# [WARNING] needs_review
 msgid "_route_history_info"
-msgstr "<h3>Geschiche der Route</h3>In diesem Feld kann die Geschichte einer Route beschrieben werden.<br />Bei einer Sportkletterroute wird üblicherweise das Datum und die\n"
-"Teilnehmenden der&nbsp; Erstbegehung, der Einrichtung, sowie allfälliger Sanierungen angegeben.<br />Bei Alpin oder -skitouren werden bemerkenswerte Begehungen im Auf- oder Abstieg vermerkt, wie die Erstbegehung, erste Solobegehung, erste\n"
-"Winterbegehung, sowie die ersten paar Wiederholungen, etc.<br /><i>Die allgemeine Geschichte des Gipfel wird nicht hier aufgeführt, sondern auf der Seite des Gipfels.</i>"
+msgstr "<h3>Geschiche der Route</h3>In diesem Feld kann die Geschichte einer Route beschrieben werden.<br />Bei einer Sportkletterroute wird üblicherweise das Datum und die Teilnehmenden der Erstbegehung, der Einrichtung, sowie allfälliger Sanierungen angegeben.<br />Bei Alpin oder -skitouren werden bemerkenswerte Begehungen im Auf- oder Abstieg vermerkt, wie die Erstbegehung, erste Solobegehung, erste Winterbegehung, sowie die ersten paar Wiederholungen, etc.<br /><i>Die allgemeine Geschichte des Gipfel wird nicht hier aufgeführt, sondern auf der Seite des Gipfels.</i>"
 
 # [comment]
 # Distanz oder Länge?
@@ -3434,11 +3353,9 @@ msgstr "<h3>Kompatibel mit</h3>Dieses Feld führt aus, mit welchen Unter-Aktivit
 msgid "_summit_type_info"
 msgstr "<h3>Gipfeltyp</h3>Typ eines geographischen Punktes, welcher als Tourenziel verwendet werden kann:<br /><br /><strong>Kulminationspunkt</strong>: Gipfel, Nebengipfel, Gendarme:<br /><br /><strong>Pass</strong>: Pass, Übergang, Sattel, Scharte<br /><br /><strong>See</strong>: Bergsee<br /><br /><strong> Tal / Felswand</strong>: Auffälliger Punkt im Talgrund, oder eine auffällige Felswand, wie z.B. Wasser-/Eisfall, Monolith, Eisaufwölbung eines Gletschers. Darin enthalten sind auch Felsen in tiefen Lagen, an welchen sich Mehrseillängenklettereien (Fels, Eis oder Mix) befinden.<br /><br /><strong>Mehrtagestouren</strong>: Wird verwendet um Mehrtagesrouten zu beschreiben und suchen, indem die Route jeder Etappe (oder eine einzelne Route für alle Etappen) mit einem Gipfel des Typs “Mehrtagesroute” verbunden wird."
 
-# [WARNING] needs_review
 msgid "_swiss coords_info"
 msgstr "<h3> Schweizerische Koordinaten</h3>Geographische Längen- und Breitenangaben im schweizerischen Koordinatensystem (CH1903).<br />Ein Link erlaubt die Anzeige der Swisstopokarte zentriert auf dem geographischen Ort."
 
-# [WARNING] needs_review
 msgid "_timing_info"
 msgstr "<h3>Abmarschzeit /Gesamtdauer</h3>Erlaubt es, die Marschzeiten einer Tour anzugeben, wie z.B.:<br />- Abmarsch- und Ankunftszeit<br />- Ankunftszeit auf dem Gipfel, oder Gesamtaufstiegszeit<br />- bei Skitouren: Der Zeitpunkt, als mit der Abfahrt begonnen wurde<br /><br /><i>WARNUNG: Bei den angegebenen Zeiten handelt es sich um die Zeiten der Tourenautoren. Abhängig von den angetroffenen Touren- und Witterungsverhältnissen und den physischen und technischen Fähigkeiten jedes Tourenteilnehmers, kann es zu enormen Abweichungen von diesen Zeiten kommen."
 
@@ -3449,43 +3366,34 @@ msgstr "<h3>Tourenführerpseudonym</h3>Sichtbarer Name im Tourenführer der Webs
 msgid "_topoguide_code_info"
 msgstr "<h3>Code um ein Bild in den Tourenführer einzufügen<br /></h3>Um dieses Bild in den Text eines Dokuments des Tourenführers einzufügen(in verkleinerter Grösse), kopieren und fügen sie den folgenden Codeein (Strg+C um zu kopieren, Strc+V um einzufügen).<br /><br />Die folgenden Bedingungen müssen erfüllt sein um ein Bild einzufügen:<br />- Das Bild muss bereits mit dem Dokument verbunden sein.<br />- Falls sie das Bild in ein gemeinschaftliches Dokument einfügenwollen, muss es sich um ein gemeinschaftliches Bild handeln. Um denBildtyp zu wechseln, verwenden sie das&nbsp;<em> <ahref=\"/users/manageimages\">Tool zum Bearbeiten der persönlichen Bilder</a>.</em><br /><br />Sie können in der Bearbeitungseite des Dokuments auch direkt den Codedes Bilds einfügen indem sie den <input value=\"img\" type=\"button\">Knopf von der Werkzeugleiste benutzen. Nur Bilder welche sie obigenBedingungen erfüllen sind verfügbar.<br /><br />Standartmässig wird Bild rechtsbündig angeordnet und mit einem Rahmenund seiner Legende ausgestattet. Mit den untenstehende Attributen imEröffnungstag können sie die Formatierung des Bilds anpassen:<br /><br />- <strong>right</strong>: Das Bild wir rechts plaziert, der Text links<br />- <strong>left</strong>: Das bild wird links plaziert, der Text rechts<br />- <strong>center</strong>: Das Bild wird in der Mitte zentriert, keinText weder links noch rechts<br />- <strong>inline</strong>: Bild ist innerhalb des Textflusses (sog.in-line Position)<br />- <strong>inline_right</strong>: Bild ist innerhalb des Textflusses,rechts (erlaubt die Stapelung von Bilder rechts auf derselben Linie)<br />- <strong>inline_left</strong>: Bild ist innerhalb des Textflusses,links (erlaubt die Stapelung von Bilder links auf derselben Linie)<br />- <strong>no_border</strong>: Bild ohne Rahmen, aber mit unterhalb desBilds plazierter Legende<br />- <strong>no_legend</strong>: Die Legende des Bilds wird nur alsTooltip dargestellt, kein Rahmen<br /><br />Wenn sie das Attribut <strong>right</strong> oder <strong>left </strong>verwendenund einen neuen Abschnitt unterhalb des Bildes beginnen möchten, fügensie ein <strong>[p]</strong> Tag am Ende des vorangehenden Abschnitts ein."
 
-# [WARNING] needs_review
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Ausgesetztheit</h3> Bewertung der Ausgesetztheit bei der Skiabfahrt (toponeige).<br /> Die Ausgesetztheit beschreibt das Verletzungsrisiko bei einem Sturz und nimmt dabei die objektiven Gefahren (Steinschlag, Eisabruch, etc.) nicht in Betracht.<br /> <br /> <strong>E1</strong>: Die Ausgesetztheit basiert ausschliesslich auf der Hangneigung. Das Verletzungsrisiko ist demnach vor allem bei Hartschnee und/oder grosser Steilheit gegeben.<br /> <br /> <strong>E2</strong>&nbsp; Zur Hangneigung kommen Hindernisse, welche das Verletzungsrisiko erhöhen, z.B. kleine Felsbarierren.<br /> <br /> <strong>E3</strong>: Bei einem Sturz, Absturz über eine grosse Felsbarierre, durch ein gefährliches Couloir. Der Tod ist wahrscheinlich.<br /> <br /> <strong>E4</strong>: Bei einem Sturz, Absturz über eine grosse Wand oder ein enges Couloir. Der Tod ist quasi sicher.<br /> <br /> Siehe auch in der Hilfe zu <a href=\"../../articles/107675\">Bewertungen von Ski- und Snowboardrouten.</a>"
 
-# [WARNING] needs_review
 msgid "_toponeige_technical_rating_info"
-msgstr "<h3>Technischer Schwierigkeitsgrad Skiabfahrt</h3> Bewertung der technischen Schwierigkeiten bei der Skiabfahrt (toponeige).<br /> Es handelt sich nicht um eine punktuell Bewertung, sondern die Länge und Morphologie der Schwierigkeiten fliessen in die Beurteilung ein. Die Skala beinhaltet 5 Grade. Jeder Grad ist in drei Untergrade unterteilt: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Der fünfte Grad ist nach oben offen: 5.4, 5.5, 5.6. etc.<br /> <br /> <strong>1.x</strong>: Anfängerniveau. Neigung überschreitet 30° nicht. Die Passagen sind nicht zu eng, der Höhenunterschied ist unterhalb 800m.<br /> <br /> <strong>2.x</strong>: Wenig technische Schwierigkeiten. Die Neigung überschreitet 35° nicht.<br /> <br /> <strong>3.x</strong>: Einige technische Abschnitte. Lange Hänge bis 35° mit sehr kurzen Abschnitten von 40-45°.<br /> <br /> <strong>4.x</strong>: Coulouir- oder Steilabfahrten or steep skiing : Neigung zwischen 40 und 45° über mehr als 200 Höhenmeter.<br /> <br /> <strong>5.x</strong>: Neigung zwischen 45 und 50° über mehr als 300 Höhenmeter oder steiler als 50° über mehr als 100 Höhenmeter.<br /> <br /> Siehe auch in der Hilfe zu <a href=\"../../articles/107675\">Bewertungen von Ski- und Snowboardrouten</a>."
+msgstr "<h3>Technischer Schwierigkeitsgrad Skiabfahrt</h3> Bewertung der technischen Schwierigkeiten bei der Skiabfahrt (toponeige).<br /> Es handelt sich nicht um eine punktuelle Bewertung, sondern die Länge und Morphologie der Schwierigkeiten fliessen in die Beurteilung ein. Die Skala beinhaltet fünf Grade. Jeder Grad ist in drei Untergrade unterteilt: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Der fünfte Grad ist nach oben offen: 5.4, 5.5, 5.6. etc.<br /> <br /> <strong>1.x</strong>: Anfängerniveau. Neigung überschreitet 30° nicht. Die Passagen sind nicht zu eng, der Höhenunterschied ist kleiner als 800m.<br /> <br /> <strong>2.x</strong>: Geringe technische Schwierigkeiten. Die Neigung überschreitet 35° nicht.<br /> <br /> <strong>3.x</strong>: Einige technische Abschnitte. Lange Hänge bis 35° mit sehr kurzen Abschnitten von 40-45°.<br /> <br /> <strong>4.x</strong>: Coulouir- oder Steilabfahrten: Neigung zwischen 40 und 45° über mehr als 200 Höhenmeter.<br /> <br /> <strong>5.x</strong>: Neigung zwischen 45 und 50° über mehr als 300 Höhenmeter oder steiler als 50° über mehr als 100 Höhenmeter.<br /> <br /> Siehe auch in der Hilfe zu <a href=\"../../articles/107675\">Bewertungen von Ski- und Snowboardrouten</a>."
 
-# [WARNING] needs_review
 msgid "_track_status_info"
 msgstr "<h3>Weg</h3>Qualität oder Zustand des Wegs. Im Feld <i>Verhältnisse<i> können zusätzliche Angaben zum Weg gemacht werden."
 
-# [WARNING] needs_review
 msgid "_unstaffed_capacity_info"
 msgstr "<h3>Platzkapazität wenn unbewartet</h3>Anzahl der \"normalen\" Schlafplätze wenn die Unterkunft nicht bewartet ist. Notplätze wie z.B. Zweierbelegung von Matrazen oder Tische, Gänge, etc. werden nicht mitgezählt."
 
-# [WARNING] needs_review
 msgid "_up_snow_elevation_down_snow_elevation_info"
-msgstr "<h3>Mit Ski ab / bis</h3>Höhe, ab welcher die Skis im Aufstieg angezogen werden konnten, resp. bis wie weit mit Ski abgefahren werden konnte.<br /> Das Feld <i>Verhältnisse</i> kann für weitere Detailinformationen verwendet werden."
+msgstr "<h3>Mit Ski ab / bis</h3>Höhe, ab welcher die Skis im Aufstieg angeschnallt werden konnten, resp. bis wie weit mit Ski abgefahren werden konnte.<br /> Das Feld <i>Verhältnisse</i> kann für weitere Detailinformationen verwendet werden."
 
-# [WARNING] needs_review
 msgid "_up_snow_elevation_info"
 msgstr "<h3>Mit Ski ab</h3>Höhe, ab welcher die Ski für den Aufstieg verwendet werden konnten.<br />Im Feld <i>Verhältnisse</i> können weitere Detailinformationen angegeben werden."
 
-# [WARNING] needs_review
 msgid "_uploaded_by_info"
 msgstr "<h3>Bild hochgeladen von</h3>Der Benutzer, welcher das Bild auf die Website hochgeladen hat.<br />"
 
-# [WARNING] needs_review
 msgid "_url_info"
-msgstr "<h3>URL</h3>Link auf die Hütte, auf Website des Autors, auf ein herunterladbares Dokument"
+msgstr "<h3>URL</h3>Link auf die Hütte, auf die Website des Autors, oder auf ein herunterladbares Dokument"
 
 # [WARNING] needs_review
 msgid "_variants_info"
 msgstr "<h3>Verbundene Routen</h3> Miteinander verbundene Routen sind Routen, welche einen teilweisen identischen Routenverlauf haben oder über dieselben Schwierigkeiten verlaufen.<br /> <br /> Zum Beispiel, eine Überschreitung eines Gipfels, welche durch ein bestimmtes Couloir abgestiegen wird, muss mit der Route verbunden werden, welche das Couloir an sich beschreibt.<br /> Andererseits werden Varianten innerhalb einer Schwierigkeit (z.B. ein Couloir mit zwei Ausstiegen, ein Pfeiler, welcher über den Hauptgrad oder wenig davon Abweichend in der Flanke begangen werden kann, etc.) in derselben Route beschrieben.<br /> <br /> Die auf dieser Seite angezeigten Liste der Touren enthält die Touren, welche mit der Route verbunden sind, sowie die Touren, welche mit den verbundenen Routen verbunden sind. Dies erlaubt einerseits unterschiedliche, spezifische Routenbeschreibungen, aber andererseits auch gemeinsame Informationen über die Verhältnisse."
 
-# [WARNING] needs_review
 msgid "_way_back_info"
 msgstr "<h3>Abstieg der Route</h3>Üblicher Abstieg vom Gipfel der Route und relevante Infos:<br /><br />\n"
 "<strong>Top-rope</strong>: notwendige Länge des Seils<br /><br /><strong>Abseilen</strong>: Verlauf der Abseilpiste, notwenige Seilänge, \"versteckte\"Abseilstände, etc.<br /><br /><strong>Zu Fuss</strong>: Route, Dauer, Schwierigkeiten, etc."
@@ -3495,7 +3403,6 @@ msgstr "<h3>Abstieg der Route</h3>Üblicher Abstieg vom Gipfel der Route und rel
 msgid "_weather_forecast_info"
 msgstr "<h3>Wetterprognose</h3>Link zu den aktuellen Wetterprognosen der Region des Dokuments."
 
-# [WARNING] needs_review
 msgid "_weather_info"
 msgstr "<h3>Beobachtete Witterungsverhältnisse</h3>Witterungsverhältnisse während der Tour: Niederschlag, Temparatur, Bewölkung, etc"
 
@@ -3506,7 +3413,6 @@ msgstr "Abruzzen"
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
 # 
 # Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
-# [WARNING] needs_review
 msgid "abs button title"
 msgstr "Den ausgewählten Text als Zusammenfassung des Dokuments verwenden"
 
@@ -3545,7 +3451,6 @@ msgstr "Akt."
 msgid "activities_to_display"
 msgstr "Angezeigte Aktivitäten"
 
-# [WARNING] needs_review
 msgid "activity and area filters applied"
 msgstr "<br /><span style=\"color:red\">Achtung: Ihre personalisierten Aktivitäts- und/oder Regionsfilter wurden auf das Suchformular angewendet</span>"
 
@@ -3595,7 +3500,6 @@ msgstr "alle Dokumente"
 
 # [general comment]
 # a short string when all facings are selected
-# [WARNING] needs_review
 msgid "all facings"
 msgstr "alle"
 
@@ -3607,28 +3511,24 @@ msgstr "ganzjährig"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "alpes_centrales"
 msgstr "Zentralalpen"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "alpes_n"
 msgstr "Westalpen - N"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "alpes_orientales"
 msgstr "Ostalpen"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "alpes_s"
 msgstr "Westalpen - S"
 
@@ -3683,7 +3583,6 @@ msgstr "Aragonien"
 msgid "area"
 msgstr "Region"
 
-# [WARNING] needs_review
 msgid "area filters applied"
 msgstr "<br /><span style=\"color:red\">Achtung: Ihre regionalen Personalisierungsfilter wurden auf das Suchformular angewendet</span>"
 
@@ -3712,7 +3611,6 @@ msgstr "<strong>Einschränkungen:</strong>Während gewisse Inhalte in Artikeln n
 msgid "article_type"
 msgstr "Artikeltyp:"
 
-# [WARNING] needs_review
 msgid "articles"
 msgstr "Artikel"
 
@@ -3722,7 +3620,6 @@ msgstr "Liste der Artikel"
 msgid "articles presentation"
 msgstr "Ein Artikel kann gemeinschaftlich oder persönlich sein. Ein Artikel kann mit anderen Dokumenten verbunden werden."
 
-# [WARNING] needs_review
 msgid "artificial"
 msgstr "künstlich"
 
@@ -3738,7 +3635,6 @@ msgstr "Asien"
 msgid "asturies"
 msgstr "Asturien"
 
-# [WARNING] needs_review
 msgid "austrian_states"
 msgstr "Bundesländer Österreichs"
 
@@ -3772,7 +3668,6 @@ msgstr "Den ausgewählten Text fett schreiben "
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
 # 
 # A le sens de 'retour' 'annuler'
-# [WARNING] needs_review
 msgid "back"
 msgstr "zurück"
 
@@ -3845,7 +3740,6 @@ msgstr "Bücher"
 msgid "books list"
 msgstr "Liste der Bücher"
 
-# [WARNING] needs_review
 msgid "books presentation"
 msgstr "Ein \"Buch\" kann eine auf Papier gedruckte oder elektronische (CD, DVD, etc.) Publikation sein."
 
@@ -3860,7 +3754,6 @@ msgstr "Ein \"Buch\" kann eine auf Papier gedruckte oder elektronische (CD, DVD,
 # Ein Boulder = une voie de bloc
 # Ein (Stein-)Block = un bloc de rocher
 # -->"Boulder Block" ist kein verständliches Deutsch - mit "Bouldern" wird m.E. die Kletterart zum Ausdruck gebracht.
-# [WARNING] needs_review
 msgid "boulder"
 msgstr "Bouldern"
 
@@ -3879,7 +3772,6 @@ msgstr "Bretagne"
 # [general comment]
 # Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
-# [WARNING] needs_review
 msgid "building"
 msgstr "Hütte"
 
@@ -3909,50 +3801,40 @@ msgstr "Lizenzbedingungen: Namensnennung - Weitergabe unter gleichen Bedingungen
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
-# [WARNING] needs_review
 msgid "c button title"
 msgstr "Benutzen sie eine nichtproportionale Schrift für den ausgewählten Text."
 
-# [WARNING] needs_review
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org ... jetzt auf Wandern zugeschnitten!"
 
-# [WARNING] needs_review
 msgid "c2c customized for ice_climbing !"
 msgstr "Camptocamp.org .. jetzt aufs Eisklettern zugeschnitten!"
 
-# [WARNING] needs_review
 msgid "c2c customized for mountain_climbing !"
 msgstr "Camptocamp.org ... jetzt auf alpines Felsklettern zugeschnitten!"
 
-# [WARNING] needs_review
 msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org ... jetzt auschliesslich aufs Sportklettern zugeschnitten!"
 
-# [WARNING] needs_review
 msgid "c2c customized for skitouring !"
 msgstr "Camptocamp.org ... jetzt auschliesslich auf Ski-/Snowboardtouren zugeschnitten!"
 
-# [WARNING] needs_review
 msgid "c2c customized for snow_ice_mixed !"
-msgstr "Camptocamp.org ... jetzt auschliesslich auf Gletscher-/Eistouren und kombiniertes Klettern zugeschnitten!"
+msgstr "Camptocamp.org ... jetzt auschliesslich auf Hochtouren zugeschnitten!"
 
-# [WARNING] needs_review
 msgid "c2c customized for snowshoeing !"
-msgstr "Camptocamp.org... jetzt nur für's Schneeschuhlaufen!"
+msgstr "Camptocamp.org... jetzt nur für's Schneeschuhwandern!"
 
-# [WARNING] needs_review
 msgid "c2c is no more customized with activies"
-msgstr "Camptocamp.org ist nicht mehr auf einzelne Bergsportaktivitäten zugeschnitten"
+msgstr "Camptocamp.org ist nicht mehr auf einzelne Bergsportaktivitäten eingeschränkt"
 
 # [general comment]
 # titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
 msgid "c2c map data"
 msgstr "c2c-Objekte"
 
-# [WARNING] needs_review
 msgid "c2c website"
-msgstr "C2C Website"
+msgstr "c2c Website"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org ist eine \"Mitmach-Website\" für Bergsportarten wie Hochtouren, Klettern, Skitouren, Schneeschuhwandern oder Wanderungen. Es ist ein Ort des Austausch, welcher für Alle offen ist!"
@@ -3990,13 +3872,11 @@ msgstr "Kantabrien"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "cantons_suisses"
 msgstr "Schweizer Kantone"
 
-# [WARNING] needs_review
 msgid "captcha test is case-insensitive"
-msgstr "Der Test ist unabhängig von Gross- und Kleinschreibweise.<br />Falls die Zeichenfolge nicht lesbar ist, können sie die Seite neu laden, um ein neues Bild zu generieren (eingegebene Daten werden gelöscht)."
+msgstr "Der Test ist unabhängig von Gross- und Kleinschreibweise.<br />Falls die Zeichenfolge nicht lesbar ist, können sie die Seite neu laden, um ein neues Bild zu generieren (die eingegebene Daten werden gelöscht)."
 
 msgid "castille_lamanche"
 msgstr "Kastilien-La Mancha"
@@ -4013,33 +3893,27 @@ msgstr "Katalonien"
 msgid "categories"
 msgstr "Kategorien:"
 
-# [WARNING] needs_review
 msgid "categories (multiple selection allowed)"
 msgstr "Kategorien (Mehrfachauswahl möglich):"
 
-# [WARNING] needs_review
 msgid "category"
 msgstr "Benutzerkategorie:"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
-# [WARNING] needs_review
 msgid "cda map help text"
-msgstr "Die Karte zeigt Ausgangsorte von Routen, welche mit öffentlichen Verkehrsmitteln erreichbar sind. Klicken sie auf einen Ausgangsort und eine Liste der Routen wird dargestellt."
+msgstr "Die Karte zeigt Ausgangsorte von Routen, welche mit öffentlichen Verkehrsmitteln erreichbar sind. Klicken sie auf einen Ausgangsort und eine Liste der verbundenen Routen wird dargestellt."
 
 # [general comment]
 # Portail "Changer d'approche" : titre de la section comportant la carte.
-# [WARNING] needs_review
 msgid "cda map title"
 msgstr "Eine Route finden, welche mit öffentlichen oder nachhaltigen Verkehrsmitteln erreichbar ist"
 
 # [general comment]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
-# [WARNING] needs_review
 msgid "cda partners tips"
 msgstr "Das Portal \"Changer d'approche\" wurde von der Europäischen Union mitfinanziert. Die Europäische Union engagiert sich in den Alpen durch den Europäischen Fonds für regionale Entwicklung."
 
-# [WARNING] needs_review
 msgid "cda sub title"
 msgstr "Das Portal für Berge ohne Autos"
 
@@ -4110,7 +3984,6 @@ msgstr "Champagne-Ardenne"
 msgid "changerdapproche"
 msgstr "Umstieg zum Einstieg"
 
-# [WARNING] needs_review
 msgid "changes"
 msgstr "Änderungen"
 
@@ -4129,7 +4002,6 @@ msgstr "Klicken sie auf die obere, rechte Ecke des Vorschaubilds um zur Bildseit
 msgid "click to edit"
 msgstr "klicken um zu ändern"
 
-# [WARNING] needs_review
 msgid "click to enlarge"
 msgstr "Klicken zum Vergrößern"
 
@@ -4156,13 +4028,11 @@ msgstr "außer Betrieb"
 msgid "closed road"
 msgstr "gesperrt"
 
-# [WARNING] needs_review
 msgid "club"
 msgstr "Club oder Gruppe, die Touren organisiert"
 
-# [WARNING] needs_review
 msgid "clubs"
-msgstr "Vereine und Gruppen, die Touren organisieren"
+msgstr "Clubs und Vereine, die Touren organisieren"
 
 msgid "code"
 msgstr "Nummer:"
@@ -4170,9 +4040,8 @@ msgstr "Nummer:"
 msgid "collab article"
 msgstr "Beitrag mehrerer Personen"
 
-# [WARNING] needs_review
 msgid "collaborative articles"
-msgstr "Gemeinschaftsartikel"
+msgstr "gemeinschaftliche Artikel"
 
 msgid "collaborative content"
 msgstr "Gemeinschaftlicher Inhalt"
@@ -4189,13 +4058,11 @@ msgstr "Kommentar"
 msgid "comments"
 msgstr "Persönliche Kommentare:"
 
-# [WARNING] needs_review
 msgid "comments_tab_help"
-msgstr "Kommentar lesen oder hinzufügen"
+msgstr "Einen Kommentar lesen oder hinzufügen"
 
 # [general comment]
 # cotometre
-# [WARNING] needs_review
 msgid "compute technical grade"
 msgstr "Den Schwierigkeitsgrad einschätzen"
 
@@ -4270,7 +4137,6 @@ msgstr "Cotometer"
 
 # [general comment]
 # Description de ce qu'est le cotometre (infobulle)
-# [WARNING] needs_review
 msgid "cotometre long"
 msgstr "Tool zur Einschätzung des technischen Schwierigkeitsgrad einer Skiroute"
 
@@ -4297,14 +4163,12 @@ msgstr "Kreide"
 msgid "create a custom nickname"
 msgstr "Ein Pseudonym erstellen"
 
-# [WARNING] needs_review
 msgid "create an account?"
 msgstr "Ein Benutzerprofil erstellen?"
 
 msgid "created_at"
 msgstr "erstellt am"
 
-# [WARNING] needs_review
 msgid "creations"
 msgstr "Erstellungen"
 
@@ -4354,7 +4218,7 @@ msgstr "gelöschtes Dokument"
 # cotometre
 # [WARNING] needs_review
 msgid "deniv limites"
-msgstr "Der Höhenunterschied muss zwischen 50 und 300m betragen."
+msgstr "Der Höhenunterschied muss zwischen 50 und 3000m betragen."
 
 # [general comment]
 # cotometre
@@ -4387,7 +4251,7 @@ msgstr "deutsch"
 
 # [WARNING] needs_review
 msgid "development environment"
-msgstr "Achtung - Version in Bearbeitung"
+msgstr "Achtung - Entwicklungsversion"
 
 msgid "diff"
 msgstr "Unterschied"
@@ -4407,7 +4271,6 @@ msgstr "Höhe des Anfangs der Schwierigkeiten"
 msgid "disclaimer notice"
 msgstr "Die Informationen, die auf dieser Webseite zur Verfügung gestellt werden, verpflichten weder ihre Autoren, noch den Camptocamp-Verein."
 
-# [WARNING] needs_review
 msgid "do not duplicate linked books"
 msgstr "Die folgenden Bücher sind bereits mit dem Dokument verbunden, sie müssen also nicht mehr in diesem Feld hinzugefügt werden."
 
@@ -4458,7 +4321,6 @@ msgstr "ändern?"
 msgid "edit_tab_help"
 msgstr "Das Dokument ändern (Nur für eingeloggte Benutzer)"
 
-# [WARNING] needs_review
 msgid "editions"
 msgstr "Bearbeitungen"
 
@@ -4489,7 +4351,6 @@ msgstr "Emilia-Romagna"
 msgid "encyclopedia"
 msgstr "allgemeines"
 
-# [WARNING] needs_review
 msgid "engagement_rating"
 msgstr "Ernsthaftigkeitsgrad:"
 
@@ -4523,7 +4384,6 @@ msgstr "Europa"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "europe_w"
 msgstr "W Europa"
 
@@ -4620,7 +4480,6 @@ msgstr "eingetragen"
 
 # [general comment]
 # Filter to select only docs available in a specific language
-# [WARNING] needs_review
 msgid "filter language"
 msgstr "Ausschliesslich verfügbare Dokumente in "
 
@@ -4653,18 +4512,15 @@ msgstr "von verbundenen Routen"
 # Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
 # L'affichage est du type :
 # Activités : [pour les sorties]
-# [WARNING] needs_review
 msgid "for outings"
 msgstr "von Touren"
 
-# [WARNING] needs_review
 msgid "forum and topoguide names"
 msgstr "Tourenführer- und Forumpseudonym"
 
 msgid "forum moderator"
 msgstr "Forenmoderator"
 
-# [WARNING] needs_review
 msgid "forum name only"
 msgstr "nur Forenpseudonym"
 
@@ -4691,7 +4547,6 @@ msgstr "Franche-Comté"
 msgid "frequentation short"
 msgstr "Andrang"
 
-# [WARNING] needs_review
 msgid "frequentation_status"
 msgstr "Begehungsfrequenz:"
 
@@ -4713,7 +4568,6 @@ msgstr "Ausrüstung und Technik"
 msgid "gear_default"
 msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung benötigt wird. Nur das zusätzliche, \"exotische\" Material (Qualität und Menge) soll genannt werden. <br /> Beispiele von unnötigen Aufzählungen: \\n- Bei Skitouren: LVS, Felle, Lawinensonde, etc. (in der üblichen Skitourenausrüstung enthalten) \\n- Bei Alpintouren mit Gletscherbegehung: Steigeisen, Pickel (in entsprechender Standartausrüstung enthalten und dort aufgeführt). \\n- Bei Gletschertouren: Gletscherausrüstung (ankreuzen des Felds \"benötigt Gletscherausrüstung\" genügt) \\n- Beim Klettern: Friends, Keile und Schlingen ohne genauere Angabe des Typs und der Menge (bitte Nummern und Anzahl angeben).  "
 
-# [WARNING] needs_review
 msgid "gear_shop"
 msgstr "Sportgeschäft"
 
@@ -4776,7 +4630,6 @@ msgstr "Ein GPS-Track ist mit diesem Dokument verbunden"
 
 # [general comment]
 # Utilisé notamment dans le diff d'une image, si une fois c'était à partir d'un svg, l'autre fois non
-# [WARNING] needs_review
 msgid "has_svg"
 msgstr "Das Bild wurde aus einer SVG-Datei generiert:"
 
@@ -4815,7 +4668,6 @@ msgstr "Höhendifferenz:"
 
 # [general comment]
 # Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
-# [WARNING] needs_review
 msgid "help pic"
 msgstr "Hilfe"
 
@@ -4825,7 +4677,6 @@ msgstr "Das Formular verstecken"
 msgid "hide minor revisions"
 msgstr "Die unwesentlichen Änderungen nicht anzeigen"
 
-# [WARNING] needs_review
 msgid "hideborderlegend"
 msgstr "Den Rahmen und die Legende nicht anzeigen:"
 
@@ -4841,7 +4692,6 @@ msgstr "Geschichte"
 msgid "history"
 msgstr "Verlauf"
 
-# [WARNING] needs_review
 msgid "history_tab_help"
 msgstr "Verschiedene Versionen des Dokuments anzeigen und vergleichen"
 
@@ -4875,19 +4725,15 @@ msgstr "Kommentare zur Hütte (Zugang und Dienstleistung):"
 msgid "hut_status"
 msgstr "Hütte:"
 
-# [WARNING] needs_review
 msgid "huts"
 msgstr "Hütten, Biwaks, Herbergen"
 
-# [WARNING] needs_review
 msgid "huts list"
 msgstr "Liste der Hütten, Biwaks und Herbergen"
 
-# [WARNING] needs_review
 msgid "huts presentation"
 msgstr "Bei einer \"Hütte\" kann es sich um eine bewartete oder unbewartete Hütte handeln, um eine Notunterkunft, um eine Biwakschachtel, oder um ein Basislager. Eine \"Hütte\" kann mit Zugangsorten und/oder mit Routen verbunden werden."
 
-# [WARNING] needs_review
 msgid "hybrid"
 msgstr "Google kombiniert"
 
@@ -4896,7 +4742,6 @@ msgstr "Den ausgewählten Text kursiv schreiben "
 
 # [general comment]
 # Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
-# [WARNING] needs_review
 msgid "ice climbing portal"
 msgstr "Camptocamp Eisklettern"
 
@@ -4906,7 +4751,6 @@ msgstr "Eisklettern"
 msgid "ice_rating"
 msgstr "Eis Schwierigkeitsgrad:"
 
-# [WARNING] needs_review
 msgid "if you select nothing / deselect all, no filter is applied"
 msgstr "Wenn Sie keine der unten aufgeführten Optionen auswählen, wird kein Filter angewandt.\n"
 "Wenn sie Filter aktiviert haben wird eine leuchtende Glühbirne angezeigt. Indem sie auf die Glühbirne klicken können sie die Filter temporär ausschalten (Glühbirne wird abgelöscht). Erneutes Klicken reaktiviert die Filter wieder."
@@ -4923,13 +4767,11 @@ msgstr "Bild"
 msgid "image successfully uploaded"
 msgstr "Das Hochladen der Bilder war erfolgreich."
 
-# [WARNING] needs_review
 msgid "image upload failed"
-msgstr "Bilder-Upload ist fehlgeschlagen"
+msgstr "Das Hochladen der Bilder ist fehlgeschlagen"
 
 # [general comment]
 # to specify image size and dimensions
-# [WARNING] needs_review
 msgid "image_details"
 msgstr "Bildeigenschaften:"
 
@@ -4948,9 +4790,8 @@ msgstr "Bilder"
 msgid "images list"
 msgstr "Liste der Bilder"
 
-# [WARNING] needs_review
 msgid "images presentation"
-msgstr "Ein Bild kann auf der Bilderseite mit einem oder mehreren Dokumenten verbunden werden. Um ein neues Bild, welches noch nicht zur Website hochgeladen wurde, einem Dokument hinzuzufügen, öffnen sie das Dokument und klicken auf “Bilder hinzufügen”."
+msgstr "Ein Bild kann auf der Bilderseite mit einem oder mehreren Dokumenten verbunden werden. Um ein neues Bild, welches noch nicht auf die Website hochgeladen wurde, einem Dokument hinzuzufügen, öffnen sie das Dokument und klicken auf “Bilder hinzufügen”."
 
 msgid "img button title"
 msgstr "Ein Bild einfügen"
@@ -4966,14 +4807,12 @@ msgstr "Informationen"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
-# [WARNING] needs_review
 msgid "initial map"
 msgstr "Ursprüngliche Karte"
 
 # [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
-# [WARNING] needs_review
 msgid "inline"
 msgstr "im Text positioniert"
 
@@ -4981,7 +4820,6 @@ msgstr "im Text positioniert"
 msgid "insert image tag help"
 msgstr "Mit diesem Werkzeug können sie dem Text ein Bild beifügen, welches <b>bereits mit dem Dokument verbunden ist</b>.<br /><br />Wählen sie das einzufügende Bild aus und stellen sie die Bildeigenschaften ein.<br />Nur Dokumente, welche mit einem Dokument verbunden sind, sind verfügbar. Falls es sich um einen gemeinschaftlichen Beitrag handelt, sind nur gemeinschaftliche Bilder zulässig. Falls ein Bild nicht auf der Liste erscheint, stellen sie sicher, dass diese Kriterien erfüllt sind."
 
-# [WARNING] needs_review
 msgid "institution"
 msgstr "Institution oder sonstige Organisation"
 
@@ -4991,7 +4829,6 @@ msgstr "diese URL ist ungültig "
 msgid "invalid date"
 msgstr "dieses Datum ist ungültig"
 
-# [WARNING] needs_review
 msgid "invalid gpx file"
 msgstr "Bei der Datei handelt es sich nicht um eine erkennbare GPX-Datei."
 
@@ -5000,7 +4837,6 @@ msgstr "Bei der Datei handelt es sich nicht um eine erkennbare GPX-Datei."
 msgid "is_on_glacier"
 msgstr "Benötigt die Gletscherausrüstung:"
 
-# [WARNING] needs_review
 msgid "is_profile_public"
 msgstr "Den Zugang zu ihrer persönlichen Seite nicht registrierten Beuschern erlauben:"
 
@@ -5022,7 +4858,6 @@ msgstr "ISSN:"
 msgid "italiano"
 msgstr "italienisch"
 
-# [WARNING] needs_review
 msgid "items per page"
 msgstr "Ergebnisse pro Seite sortiert nach"
 
@@ -5074,7 +4909,6 @@ msgstr "letzte Woche"
 
 # [general comment]
 # Le sens a changé, cela ne signifie plus 'l'année précédente' (2009 contre 2010 par exemple) mais bien 'il y a 1 an' (durée)
-# [WARNING] needs_review
 msgid "last year"
 msgstr "vor einem Jahr"
 
@@ -5125,7 +4959,6 @@ msgstr "Limousin"
 msgid "link contributors in view page"
 msgstr "Die erste Linie des Felds wird auf derselben Linie wie die registrierten Benutzer angezeigt. Die folgenden Linien werden darunter angezeigt.<br />Registrierte camptocamp.org-Benutzer können der Tour direkt im Tourendokument hinzugefügt werden. Dies erlaubt den registrierten Tourenteilnehmern die Tourenbeschreibung zu ändern, Bilder hinzuzufügen, und andere, registrierte Tourenteilnehmer hinzuzufügen."
 
-# [WARNING] needs_review
 msgid "linked routes activities"
 msgstr "Aktivitäten der verbundenen Routen:"
 
@@ -5135,15 +4968,12 @@ msgstr "Aktivitäten der verbundenen Routen:"
 msgid "load draft?"
 msgstr "Wollen sie den Entwurf einer früheren Bearbeitung verwenden? (OK: Der Entwurf wird in das Formular kopiert - Abbrechen: Der Entwurf wird gelöscht)"
 
-# [WARNING] needs_review
 msgid "local_product"
 msgstr "Direktverkauf beim Produzenten"
 
-# [WARNING] needs_review
 msgid "location S >> N"
 msgstr "Ausrichtung S >> N"
 
-# [WARNING] needs_review
 msgid "location W >> E"
 msgstr "Ausrichtung W >> E"
 
@@ -5184,18 +5014,15 @@ msgstr "Autonome Gemeinschaft Madrid"
 
 # [general comment]
 # type de livre : revue / magazine
-# [WARNING] needs_review
 msgid "magazine"
 msgstr "Zeitschrift"
 
 msgid "mailbox"
 msgstr "Mailbox"
 
-# [WARNING] needs_review
 msgid "mailing list explanation %1% %2%"
-msgstr "Wenn sie sich bei der untenstehenden Maillingliste anmelden, erhalten sie die Mitteilungen dieser Mailingliste auf die Email-Adresse <strong>%1%</strong>. Falls sie Probleme haben sollten um sich von diesen Mailinglisten abzumelden, kontaktieren sie bitte <strong>%2%</strong>."
+msgstr "Wenn sie sich bei der untenstehenden Maillingliste anmelden, erhalten sie die Mitteilungen dieser Mailingliste auf die Email-Adresse <strong>%1%</strong>. Falls sie Probleme bei der Abmeldung von diesen Mailinglisten haben, kontaktieren sie bitte <strong>%2%</strong>."
 
-# [WARNING] needs_review
 msgid "mailing lists"
 msgstr "Mailinglisten für Lawinenbulletins"
 
@@ -5273,7 +5100,6 @@ msgstr "<ul class=\"\\&quot;map_help\\&quot;\">\n"
 
 # [general comment]
 # Outil carto
-# [WARNING] needs_review
 msgid "map query"
 msgstr "Objekte auf der Karte auswählen"
 
@@ -5283,7 +5109,6 @@ msgstr "Karten"
 msgid "maps list"
 msgstr "Liste der Karten"
 
-# [WARNING] needs_review
 msgid "maps presentation"
 msgstr "Eine Karte ist durch ihre Umrisse definiert. Eine Karte wird automatisch mit allen georeferenzierten Dokumenten verbunden, welche sich im Kartenbereich befinden."
 
@@ -5313,7 +5138,6 @@ msgstr "mittelmäßig"
 msgid "mean track"
 msgstr "mittelmäßig"
 
-# [WARNING] needs_review
 msgid "mean_height"
 msgstr "Mittlere Höhe:"
 
@@ -5326,19 +5150,14 @@ msgstr "Mittlerer Schwierigkeitsgrad:"
 msgid "mediterranee"
 msgstr "Mittelmeer"
 
-# [WARNING] needs_review
 msgid "menu"
 msgstr "Menu"
 
-# [WARNING] needs_review
 msgid "meta_description"
 msgstr "camptocamp.org - die Berggemeinschaft. Ein Basislager für den mehrsprachigen Austausch über Alpinismus in allen seinen Spielarten. Ein Tourenführer mit mehreren tausend Routen, Gipfel, Hütten, ebenso wie aktuelle Tourenverhältnisse, Forenbeiträge und Fotoalben stehen zu ihrer freien Verfügung."
 
-# [comment]
-# manque quelques mots
-# [WARNING] needs_review
 msgid "meta_keywords"
-msgstr "Berg, Skitouren, Hochtouren, Klettern, Wandern, Schneeschuhe, Bergsteigen, Schnee, Eis, Eisklettern, Dry-tooling, Fels, Klettern, Felswand, Wandern"
+msgstr "Bergtouren, Skitouren, Snowboardtouren, Hochtouren, Klettern, Wandern, Sportklettern, Schneeschuhwandern, Bergsteigen, Schnee, Eis, Eisklettern, Dry-tooling, Fels, Klettern, Felswand, Wandern"
 
 msgid "meta_language"
 msgstr "de"
@@ -5394,7 +5213,6 @@ msgstr "Haute-Savoie (74)"
 msgid "meteofrance-andorre ML title"
 msgstr "Andorre"
 
-# [WARNING] needs_review
 msgid "meters"
 msgstr "m"
 
@@ -5437,7 +5255,6 @@ msgstr "Verschiedenes"
 msgid "mixed_rating"
 msgstr "Mix Schwierigkeitsgrad:"
 
-# [WARNING] needs_review
 msgid "mobile version"
 msgstr "Mobile Version"
 
@@ -5472,7 +5289,6 @@ msgstr "Monate"
 msgid "mountain"
 msgstr "Berg"
 
-# [WARNING] needs_review
 msgid "mountain environment"
 msgstr "Bergumwelt"
 
@@ -5484,7 +5300,6 @@ msgstr "Bild verschieben "
 
 # [comment]
 # French "grand voies" vs English "multi-pitch" - is this really the same meaning? What is it used for?
-# [WARNING] needs_review
 msgid "multi-pitches"
 msgstr "Mehrseillängen"
 
@@ -5511,25 +5326,20 @@ msgstr "Anzahl der Bilder"
 msgid "nb_linked_images"
 msgstr "Anzahl der Bilder"
 
-# [WARNING] needs_review
 msgid "nb_linked_outings"
 msgstr "Anzahl der verbundenen Touren und Link zu den Verhältnissen"
 
 # [general comment]
 # Titre du champ définissant le nb de sorties dans la liste des sorties d'un portail.
-# [WARNING] needs_review
 msgid "nb_outings"
 msgstr "Anzahl der Touren"
 
-# [WARNING] needs_review
 msgid "nb_pages"
 msgstr "Seitenanzahl:"
 
-# [WARNING] needs_review
 msgid "nb_routes"
 msgstr "Anzahl der verbundenen Routen"
 
-# [WARNING] needs_review
 msgid "nb_summits"
 msgstr "Anzahl der verbundenen Gipfel"
 
@@ -5569,11 +5379,9 @@ msgstr "nächste Seite"
 msgid "next parking"
 msgstr "Nächster Zugangsort"
 
-# [WARNING] needs_review
 msgid "next portal"
 msgstr "Nächstes Portal"
 
-# [WARNING] needs_review
 msgid "next product"
 msgstr "nächstes \"lokales Produkt\""
 
@@ -5586,13 +5394,9 @@ msgstr "Nächster Klettersektor"
 msgid "next summit"
 msgstr "Nächster Gipfel"
 
-# [comment]
-# oder "Forenpseudonym"?
-# [WARNING] needs_review
 msgid "nickName_desc"
 msgstr "Name, welcher in den Foren angezeigt wird:"
 
-# [WARNING] needs_review
 msgid "nick_name"
 msgstr "Forenpseudonym:"
 
@@ -5610,7 +5414,6 @@ msgstr "P4 (nicht eingerichtet)"
 
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
-# [WARNING] needs_review
 msgid "no item selected on map"
 msgstr "Es wurde kein Kartenobjekt ausgewählt."
 
@@ -5658,7 +5461,6 @@ msgstr "Umbrien"
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
 # 
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
-# [WARNING] needs_review
 msgid "only exact matches. Go on typing"
 msgstr "Zu viele Resultate. Nur exakte Treffer werden angezeigt. Bitte tippen sie mehr Text ein, um andere Resultate zu erhalten..."
 
@@ -5676,13 +5478,11 @@ msgstr "Optionen"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
-# [WARNING] needs_review
 msgid "other"
 msgstr "andere"
 
 # [general comment]
 # Dans l'outil carto, c'est le nom de la couche des accès non TC.
-# [WARNING] needs_review
 msgid "other access"
 msgstr "andere Zugangsorte"
 
@@ -5701,7 +5501,6 @@ msgstr "andere Zugangsorte"
 # 
 # etc
 # 
-# [WARNING] needs_review
 msgid "other admin_limits"
 msgstr "Andere administrative Regionen"
 
@@ -5709,7 +5508,6 @@ msgstr "Andere administrative Regionen"
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
 # Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] needs_review
 msgid "other country"
 msgstr "Andere Länder"
 
@@ -5736,14 +5534,12 @@ msgstr "Mit öV gemachte Tour:"
 msgid "outings"
 msgstr "Touren"
 
-# [WARNING] needs_review
 msgid "outings linked to"
 msgstr "Die Liste der verbundenen Touren"
 
 msgid "outings list"
 msgstr "Liste der Touren"
 
-# [WARNING] needs_review
 msgid "outings presentation"
 msgstr "In einem Tourendokument kann ein Benutzer die auf einer Route angetroffenen Verhältnisse beschreiben. Eine Tour muss mit einem oder mehreren Benutzern, und mit einer oder mehreren Routen oder Klettergebieten verbunden sein.<br /> Nur die mit einer Tour verbundenen Benutzer können an dieser Tour Änderungen vornehmen."
 
@@ -5768,15 +5564,12 @@ msgstr "Eisklettern und Dry-Tooling"
 msgid "pack_mountain_climbing_easy"
 msgstr "Alpines Felsklettern von L bis ZS"
 
-# [WARNING] needs_review
 msgid "pack_rock_climbing_bolted"
-msgstr "Mehrseillängensportkletterei"
+msgstr "Mehrseillängenkletterei"
 
-# [WARNING] needs_review
 msgid "pack_skitouring"
-msgstr "Ski, Snowboard, Schneeschuh"
+msgstr "Ski-, Snowboard-, Schneeschuhtouren"
 
-# [WARNING] needs_review
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Gletscher-, Eistouren und kombiniertes Bergsteigen von L bis WS+"
 
@@ -5827,13 +5620,11 @@ msgstr "Pays de la Loire"
 msgid "pedestrian_access"
 msgstr "Zugang zu Fuß:"
 
-# [WARNING] needs_review
 msgid "pente limites"
 msgstr "Die Neigung muss zwischen 20° und 80° liegen."
 
 # [general comment]
 # cotometre
-# [WARNING] needs_review
 msgid "pentemoyenne"
 msgstr "Mittlere Neigung (in Grad):"
 
@@ -5849,11 +5640,9 @@ msgstr "Persönlicher Inhalt"
 msgid "personal image"
 msgstr "persönliches Bild"
 
-# [WARNING] needs_review
 msgid "personal images"
-msgstr "eigenen Bilder"
+msgstr "eigene Bilder"
 
-# [WARNING] needs_review
 msgid "personal page"
 msgstr "Meine persönliche Seite"
 
@@ -5888,9 +5677,8 @@ msgstr "Das Dateiformat ist nicht zulässig, oder die Datei konnte nicht redimen
 
 # [general comment]
 # Drag & drop pour l'upload d'images
-# [WARNING] needs_review
 msgid "plupload drop"
-msgstr "Ziehen Sie die Dateien hier hin"
+msgstr "Ziehen sie die Bilder hier hin"
 
 msgid "plupload extension"
 msgstr "Bilddateien"
@@ -5931,18 +5719,15 @@ msgstr "unzureichender Dienst"
 msgid "poor track"
 msgstr "schlecht"
 
-# [WARNING] needs_review
 msgid "portal"
 msgstr "Portal"
 
 msgid "portals"
 msgstr "Portale"
 
-# [WARNING] needs_review
 msgid "portals list"
-msgstr "Portalliste"
+msgstr "Liste der Portale"
 
-# [WARNING] needs_review
 msgid "portals presentation"
 msgstr "Ein Portal ist ein Einstiegsort für einen spezifischen Teil eines Tourenführers oder eines Forums."
 
@@ -5973,7 +5758,6 @@ msgstr "Apulien"
 # 
 # etc
 # 
-# [WARNING] needs_review
 msgid "prefered admin_limits"
 msgstr "Bevorzugte administrative Regionen"
 
@@ -5981,7 +5765,6 @@ msgstr "Bevorzugte administrative Regionen"
 # Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
 # Cet item est le titre qui apparait dans la liste.
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] needs_review
 msgid "prefered country"
 msgstr "Bevorzugte Länder"
 
@@ -6037,9 +5820,8 @@ msgstr "Vorige Zugang"
 msgid "previous portal"
 msgstr "Voriges Portal"
 
-# [WARNING] needs_review
 msgid "previous product"
-msgstr "Voriges \"lokales Produkt\""
+msgstr "Vorheriges \"lokales Produkt\""
 
 msgid "previous route"
 msgstr "Vorige Route"
@@ -6053,32 +5835,26 @@ msgstr "Voriger Gipfel"
 msgid "pro"
 msgstr "Berufsberggänger"
 
-# [WARNING] needs_review
 msgid "product"
 msgstr "Lokale Produkte"
 
-# [WARNING] needs_review
 msgid "product website"
 msgstr "Website des Händlers"
 
-# [WARNING] needs_review
 msgid "product_type"
 msgstr "Typen lokaler Produkte:"
 
 msgid "products"
 msgstr "Lokale Produkte"
 
-# [WARNING] needs_review
 msgid "products list"
 msgstr "Liste der lokalen Produkte"
 
-# [WARNING] needs_review
 msgid "products presentation"
 msgstr "Ein Dokument der Kategorie \"lokale Produkte\" kann ein Produzent, ein Restaurant oder eine Bar sein. Ein Dokument der Kategorie \"lokale Produkte\" kann mit einem Zugangsort verbunden werden."
 
 # [comment]
 # oder "Lebensmittelladen"?
-# [WARNING] needs_review
 msgid "products_shop"
 msgstr "Laden"
 
@@ -6086,7 +5862,6 @@ msgstr "Laden"
 # cotometre.
 # 
 # Do not forget trailing space!
-# [WARNING] needs_review
 msgid "proposed grade"
 msgstr "Vorgeschlagene Bewertung:"
 
@@ -6099,7 +5874,6 @@ msgstr "schützen"
 msgid "protected from the rain"
 msgstr "regensicher"
 
-# [WARNING] needs_review
 msgid "pub"
 msgstr "Bar"
 
@@ -6118,7 +5892,6 @@ msgstr "Erreichbarkeit mit öffentlichen Verkehrsmitteln:"
 msgid "public_transportation_rating short"
 msgstr "öffentliche Verkehrsmittel"
 
-# [WARNING] needs_review
 msgid "public_transportation_types"
 msgstr "Typ des öffentlichen Verkehrsmittels:"
 
@@ -6131,7 +5904,6 @@ msgstr "Veröffentlichungsdatum:"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "pyrenees_ibere"
 msgstr "Pyrenäen - Iberische Halbinsel"
 
@@ -6143,7 +5915,6 @@ msgstr "Quarzit"
 msgid "quite crowded"
 msgstr "ziemlich besucht"
 
-# [WARNING] needs_review
 msgid "raid"
 msgstr "Mehrtagesroute"
 
@@ -6167,7 +5938,6 @@ msgstr "Aktuelle Verhältnisse"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
-# [WARNING] needs_review
 msgid "recenter"
 msgstr "Zentrieren"
 
@@ -6177,7 +5947,6 @@ msgstr "Regionen"
 msgid "regions"
 msgstr "Regionen"
 
-# [WARNING] needs_review
 msgid "relief"
 msgstr "Google Relief"
 
@@ -6187,7 +5956,6 @@ msgstr "Bemerkungen: "
 msgid "report_type"
 msgstr "Art des Berichtes:"
 
-# [WARNING] needs_review
 msgid "restaurant"
 msgstr "Restaurant"
 
@@ -6208,7 +5976,6 @@ msgstr "Autor"
 msgid "rev nature"
 msgstr "Art der Revision"
 
-# [WARNING] needs_review
 msgid "revert"
 msgstr "Änderungen rückgängig machen"
 
@@ -6236,24 +6003,18 @@ msgstr "Aufstieg"
 msgid "road access"
 msgstr "Straßenzugang:"
 
-# [WARNING] needs_review
 msgid "rock_climbing"
-msgstr "Sportklettern"
+msgstr "Felsklettern"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
-# [comment]
-# Irgendwie noch nicht wirklich überzeugende Übersetzung...
-# [WARNING] needs_review
 msgid "rock_free_and_required_rating"
 msgstr "Freier und obligatorischer Schwierigkeitsgrad:"
 
-# [WARNING] needs_review
 msgid "rock_free_rating"
 msgstr "Schwierigkeitsgrad:"
 
-# [WARNING] needs_review
 msgid "rock_required_rating"
 msgstr "Obligatorischer Schwierigkeitsgrad:"
 
@@ -6269,30 +6030,25 @@ msgstr "Dach"
 msgid "route"
 msgstr "Route"
 
-# [WARNING] needs_review
 msgid "route form warning"
 msgstr "<strong>Achtung!</strong> Geben sie auf dieser Seite ausschliesslich nicht-ändernde (permanente) Informationen zur Route an. Informationen, welche spezifisch auf eine Tour Bezug nehmen (vorgefundene Verhältnisse, persönliche Kommentare) müssen in der Seite einer \"Tour\"gemacht werden. <br /> Mehr Informationen über den Aufbau und die Struktur des Tourenführers finden sie in der entsprechenden <a href=\"../../articles/117868/de\">Hilfe</a>.<br /> <li><strong>Name:</strong><br /> - Der Routenname soll den Gipfelnamen nicht beinhalten. Letzterer wird bei Bedarf angezeigt.<br /> - Neutral und präzise Benennung: Nennen sie die Ausrichtung der Wand, des Grats oder des Pfeilers, welche/r die Route folgt.<br /> - Falls die Route üblicherweise einen spezifischen Namen trägt, kann dieser verwendet werden.<br /> - Vermeiden sie die Bezeichnung \"Normalroute\", wenn schon diese Bezeichnung verwendet wird, dann nur in Klammern: S-Grat (Normalroute).</li> <li><strong>Verbindung zu anderen Dokumenten: </strong>Nachdem sie die Route erstellt haben, können sie diese mit anderen Gipfeln (im Fall einer Route, welche Passübergängen folgt), mit einem oder mehreren Zugansorten, Hütten oder Büchern verbinden.</li> "
 
-# [WARNING] needs_review
 msgid "route linked with"
 msgstr "Diese Route ist verbunden mit %1%"
 
 # [general comment]
 # Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
-# [WARNING] needs_review
 msgid "route_abseil_prefix"
 msgstr "R"
 
 # [general comment]
 # Préfixe utilisé pour la numérotation automatique des relais à l'aide de la balise R#, dans la description d'une longueur.
-# [WARNING] needs_review
 msgid "route_belay_prefix"
 msgstr "R"
 
 msgid "route_history"
 msgstr "Geschichte der Route:"
 
-# [WARNING] needs_review
 msgid "route_history_default"
 msgstr "Führen sie hier die Geschichte der Route aus: Datum und Teilnehmer der Erstbegehung, bemerkenswerte Begehungen (z.B. erste Solo- oder Winterbegehung im Auf-/Abstieg, Wiederholungen, etc.)."
 
@@ -6301,7 +6057,6 @@ msgstr "Länge:"
 
 # [general comment]
 # Préfixe utilisé pour la description des longueurs à l'aide de la balise L#.
-# [WARNING] needs_review
 msgid "route_line_prefix"
 msgstr "SL"
 
@@ -6314,19 +6069,15 @@ msgstr "Routen"
 msgid "routes linked to"
 msgstr "Liste der verbundenen Routen"
 
-# [WARNING] needs_review
 msgid "routes linked to huts and parkings"
 msgstr "mit dieser Hütte und diesem Zugangsort verbundene Routen"
 
-# [WARNING] needs_review
 msgid "routes linked to huts and summits"
 msgstr "mit dieser Hütte und diesem Gipfel verbundene Routen"
 
-# [WARNING] needs_review
 msgid "routes linked to parkings and huts"
 msgstr "mit diesem Zugangsort und dieser Hütte verbundene Routen"
 
-# [WARNING] needs_review
 msgid "routes linked to parkings and summits"
 msgstr "mit diesem Zugangsort und diesem Gipfel verbundene Routen"
 
@@ -6336,7 +6087,6 @@ msgstr "mit diesem Gipfel und diesem Zugangsort verbundene Routen"
 msgid "routes list"
 msgstr "Liste der Routen"
 
-# [WARNING] needs_review
 msgid "routes presentation"
 msgstr "Eine Route verbindet zwei oder mehrere geographische Orte. Eine Route muss mit mindestens einem Gipfel verbunden sein, kann aber auch mit Zugangsorten und Hütten verbunden werden."
 
@@ -6348,9 +6098,8 @@ msgstr "Routen"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
-# [WARNING] needs_review
 msgid "s button title"
-msgstr "Streichen des ausgewählten Textabschnitts"
+msgstr "Durchstreichen des ausgewählten Textabschnitts"
 
 msgid "safe"
 msgstr "sicher"
@@ -6396,15 +6145,12 @@ msgstr "[anzeigen]"
 # [general comment]
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
-# [WARNING] needs_review
 msgid "select activities according to outing"
 msgstr "<ul class=\"text\"><li>Wählen sie nur diejenigen Aktivitäten aus, welche sie während ihrer Tour unternommen haben: <ul class=\"text\"><li>Falls die Route mehreren Aktivitätstypen zugewiesen ist, werden diese vorausgewählt, d.h. sie müssen eventuell gewisse Aktivitäten deaktivieren.</li> <li>Wenn sie andere Routen mit der Route verbinden stellen sie sicher, dass deren Aktivitätstypen auf ihre Tour zutreffen.</li></li></ul></ul> "
 
-# [WARNING] needs_review
 msgid "select an image file"
 msgstr "Wählen sie ein Bild:&nbsp;"
 
-# [WARNING] needs_review
 msgid "selected documents"
 msgstr "Auf ausgewählte Dokumente einschränken"
 
@@ -6417,7 +6163,6 @@ msgstr "Notunterkunft"
 msgid "shelter_type"
 msgstr "Art der Unterkunft:"
 
-# [WARNING] needs_review
 msgid "show conditions of the outings"
 msgstr "Die Details der Tourenverhältnisse anzeigen"
 
@@ -6427,7 +6172,6 @@ msgstr "Das Formular anzeigen"
 msgid "sicile"
 msgstr "Sizilien"
 
-# [WARNING] needs_review
 msgid "signup email title"
 msgstr "Registrierung bei camptocamp.org"
 
@@ -6598,9 +6342,8 @@ msgstr "Sommer"
 msgid "staffed_period"
 msgstr "Bewartungszeitraum:"
 
-# [WARNING] en translation used
 msgid "steep skiing portal"
-msgstr "Steep skiing"
+msgstr "Steilwandskifahren"
 
 # [WARNING] needs_review
 msgid "stories"
