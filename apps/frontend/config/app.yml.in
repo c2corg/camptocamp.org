@@ -137,6 +137,7 @@ all:
       42: fc
       43: fi
       44: wi
+      45: sh
 
   static_url: "@STATIC_BASE_URL@"
   
@@ -1876,18 +1877,18 @@ all:
   
   figures:
     list:
-      summits:  12'900
-      routes:   22'500
-      outings:  88'000
-      images:   135'000
+      summits:  13'200
+      routes:   22'900
+      outings:  90'000
+      images:   143'000
       sites:    2'200
-      huts:     1'450
-      parkings: 3'300
-      books:    930
-      users:    29'700
-      articles: 570
-      topics:   207'000
-      posts:    1'550'000
+      huts:     1'500
+      parkings: 3'400
+      books:    950
+      users:    30'000
+      articles: 600
+      topics:   210'000
+      posts:    1'590'000
 
   profile_cookies:
     list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages' ]
