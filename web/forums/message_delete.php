@@ -23,6 +23,7 @@
 ************************************************************************/
 
 define('PUN_ROOT', './');
+define('SHOW_BAN_MESSAGE', false);
 
 require PUN_ROOT.'include/common.php';
 

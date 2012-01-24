@@ -164,7 +164,12 @@ if (!defined('PUN_BANS_LOADED'))
 }
 
 // Check if current user is banned
-check_bans();
+if (!defined('SHOW_BAN_MESSAGE'))
+{
+  define('SHOW_BAN_MESSAGE', true);
+}
+
+check_bans(SHOW_BAN_MESSAGE);
 
 // Update online list
 update_users_online();

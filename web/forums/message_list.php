@@ -24,6 +24,7 @@
 
 
 define('PUN_ROOT', './');
+define('SHOW_BAN_MESSAGE', false);
 
 require PUN_ROOT.'include/common.php';
 require PUN_ROOT.'include/parser.php';
@@ -34,6 +35,21 @@ if(!$pun_config['o_pms_enabled'] || $pun_user['g_pm'] == 0)
 if ($pun_user['is_guest'])
 	message($lang_common['Login required']);
 
+if(isset($_GET['user_id']) && $pun_user['g_id'] == PUN_ADMIN)
+{
+    $user_id = (int)$_GET['user_id'];
+    $param_user_id = '?user_id=' . $user_id;
+    $param_user_id_1 = '&user_id=' . $user_id;
+    $param_user_id_2 = '&amp;user_id=' . $user_id;
+}
+else
+{
+    $user_id = $pun_user['id'];
+    $param_user_id = '';
+    $param_user_id_1 = '';
+    $param_user_id_2 = '';
+}
+    
 // Load the message.php language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/pms.php';
 require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
@@ -60,8 +76,8 @@ if( isset($_POST['delete_messages']) || isset($_POST['delete_messages_comply']) 
 		confirm_referrer('message_list.php');
 		
 		// Delete messages 
-		$db->query('DELETE FROM '.$db->prefix.'messages WHERE id IN('.$_POST['messages'].') AND owner=\''.$pun_user['id'].'\'') or error('Unable to delete messages.', __FILE__, __LINE__, $db->error());
-		redirect('message_list.php?box='.$_POST['box'], $lang_pms['Deleted redirect']);
+		$db->query('DELETE FROM '.$db->prefix.'messages WHERE id IN('.$_POST['messages'].') AND owner=\''.$user_id.'\'') or error('Unable to delete messages.', __FILE__, __LINE__, $db->error());
+		redirect('message_list.php?box='.$_POST['box'].$param_user_id_1, $lang_pms['Deleted redirect']);
 	}
 	else
 	{
@@ -73,7 +89,7 @@ if( isset($_POST['delete_messages']) || isset($_POST['delete_messages_comply']) 
 <div class="blockform">
 	<h2><span><?php echo $lang_pms['Multidelete'] ?></span></h2>
 	<div class="box">
-		<form method="post" action="message_list.php">
+		<form method="post" action="message_list.php<?php echo $param_user_id ?>">
 			<input type="hidden" name="messages" value="<?php echo implode(',', array_values($idlist)) ?>">
 			<input type="hidden" name="box" value="<?php echo $_POST['box']; ?>">
 			<div class="inform">
@@ -95,15 +111,15 @@ if( isset($_POST['delete_messages']) || isset($_POST['delete_messages_comply']) 
 // Mark all messages as read
 else if (isset($_GET['action']) && $_GET['action'] == 'markall')
 {
-	$db->query('UPDATE '.$db->prefix.'messages SET showed=1 WHERE owner='.$pun_user['id']) or error('Unable to update message status', __FILE__, __LINE__, $db->error());
+	$db->query('UPDATE '.$db->prefix.'messages SET showed=1 WHERE owner='.$user_id) or error('Unable to update message status', __FILE__, __LINE__, $db->error());
 	$p = (!isset($_GET['p']) || $_GET['p'] <= 1) ? 1 : $_GET['p'];
-	redirect('message_list.php?box='.$box.'&p='.$p, $lang_pms['Read redirect']);
+	redirect('message_list.php?box='.$box.'&p='.$p.$param_user_id_1, $lang_pms['Read redirect']);
 }
 
 $page_title = $lang_pms['Private Messages'].' - '.$name.' / '.pun_htmlspecialchars($pun_config['o_board_title']);
 
 // Get message count
-$result = $db->query('SELECT count(*) FROM '.$db->prefix.'messages WHERE status='.$box.' AND owner='.$pun_user['id']) or error('Unable to count messages', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT count(*) FROM '.$db->prefix.'messages WHERE status='.$box.' AND owner='.$user_id) or error('Unable to count messages', __FILE__, __LINE__, $db->error());
 list($num_messages) = $db->fetch_row($result);
 
 //What page are we on?
@@ -122,16 +138,16 @@ require PUN_ROOT.'header.php';
 			<div class="inbox">
 				<ul>
                     <li><a href="message_send.php"><?php echo $lang_pms['New message']; ?></a></li>
-					<li <?php if ($box == 0) echo 'class="isactive"' ?>><a href="message_list.php?box=0"><?php echo $lang_pms['Inbox'] ?></a></li>
-					<li <?php if ($box == 1) echo 'class="isactive"' ?>><a href="message_list.php?box=1"><?php echo $lang_pms['Outbox'] ?></a></li>
-                    <li><a href="<?php echo 'message_list.php?action=multidelete&amp;box='.$box.'&amp;p='.$p.'">'.$lang_pms['Multidelete']; ?></a></li>
+					<li <?php if ($box == 0) echo 'class="isactive"' ?>><a href="message_list.php?box=0<?php echo $param_user_id_2 ?>"><?php echo $lang_pms['Inbox'] ?></a></li>
+					<li <?php if ($box == 1) echo 'class="isactive"' ?>><a href="message_list.php?box=1<?php echo $param_user_id_2 ?>"><?php echo $lang_pms['Outbox'] ?></a></li>
+                    <li><a href="<?php echo 'message_list.php?action=multidelete&amp;box='.$box.'&amp;p='.$p.$param_user_id_2.'">'.$lang_pms['Multidelete']; ?></a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="linkst">
 		<div class="inbox">
-			<p class="pagelink conl"><?php echo $lang_common['Pages'].': '.paginate($num_pages, $p, 'message_list.php?box='.$box) ?></p>
+			<p class="pagelink conl"><?php echo $lang_common['Pages'].': '.paginate($num_pages, $p, 'message_list.php?box='.$box.$param_user_id_2) ?></p>
 			<p class="postlink conr"><a href="message_send.php"><?php echo $lang_pms['New message']; ?></a></p>
 		</div>
 	</div>
@@ -150,7 +166,7 @@ if(isset($_GET['id'])){
 	$result = $db->query('SELECT m.id AS mid,m.subject,m.sender_ip,m.message,m.smileys,m.posted,m.showed,u.id,u.group_id as g_id,g.g_user_title,u.username,u.registered,u.email,u.title,u.url,u.icq,u.msn,u.aim,u.yahoo,u.location,u.use_avatar,u.email_setting,u.num_posts,u.admin_note,u.signature FROM '.$db->prefix.'messages AS m,'.$db->prefix.'users AS u LEFT JOIN '.$db->prefix.'groups AS g ON u.group_id = g.g_id WHERE '.$where.' AND m.id='.$id) or error('Unable to fetch message and user info', __FILE__, __LINE__, $db->error());
 	$cur_post = $db->fetch_assoc($result);
 	
-	if ($owner != $pun_user['id'])
+	if ($owner != $user_id)
 		message($lang_common['No permission']);
 
 	if ($cur_post['showed'] == 0)
@@ -188,7 +204,7 @@ if(isset($_GET['id'])){
 				$user_info[] = '<dd>'.$lang_topic['From'].': '.pun_htmlspecialchars($cur_post['location']);
 			}
 
-			$user_info[] = '<dd>'.$lang_common['Registered'].': '.date($pun_config['o_date_format'], $cur_post['registered']);
+			// $user_info[] = '<dd>'.$lang_common['Registered'].': '.date($pun_config['o_date_format'], $cur_post['registered']);
 
 			if ($pun_config['o_show_post_count'] == '1' || $pun_user['g_id'] < PUN_GUEST)
 				$user_info[] = '<dd>'.$lang_common['Posts'].': '.$cur_post['num_posts'];
@@ -274,7 +290,7 @@ if(isset($_GET['id'])){
 }
 
 ?>
-<form method="post" action="message_list.php">
+<form method="post" action="message_list.php<?php echo $param_user_id ?>">
 <div class="blocktable" style="margin-left: 13em;">
 	<h2><span><?php echo $name ?></span></h2>
 	<div class="box">
@@ -285,7 +301,7 @@ if(isset($_GET['id'])){
 <?php
 		if($pun_user['g_pm_limit'] != 0 && $pun_user['g_id'] > PUN_GUEST){
 			// Get total message count
-			$result = $db->query('SELECT count(*) FROM '.$db->prefix.'messages WHERE owner='.$pun_user['id']) or error('Unable to count messages', __FILE__, __LINE__, $db->error());
+			$result = $db->query('SELECT count(*) FROM '.$db->prefix.'messages WHERE owner='.$user_id) or error('Unable to count messages', __FILE__, __LINE__, $db->error());
 			list($tot_messages) = $db->fetch_row($result);
 			$proc = ceil($tot_messages / $pun_user['g_pm_limit'] * 100);
 			$status = ' - '.$lang_pms['Status'].' '.$proc.'%';
@@ -307,7 +323,7 @@ if(isset($_GET['id'])){
 <?php
 
 // Fetch messages
-$result = $db->query('SELECT * FROM '.$db->prefix.'messages WHERE owner='.$pun_user['id'].' AND status='.$box.' ORDER BY posted DESC LIMIT '.$limit) or error('Unable to fetch messages list for forum', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT * FROM '.$db->prefix.'messages WHERE owner='.$user_id.' AND status='.$box.' ORDER BY posted DESC LIMIT '.$limit) or error('Unable to fetch messages list for forum', __FILE__, __LINE__, $db->error());
 $new_messages = false;
 $messages_exist = false;
 
@@ -327,7 +343,7 @@ if ($db->num_rows($result))
 
 		($new_messages == false && $cur_mess['showed'] == '0') ? $new_messages = true : null;
 			
-		$subject = '<a href="message_list.php?id='.$cur_mess['id'].'&amp;p='.$p.'&amp;box='.(int)$box.'">'.pun_htmlspecialchars($cur_mess['subject']).'</a>';
+		$subject = '<a href="message_list.php?id='.$cur_mess['id'].'&amp;p='.$p.'&amp;box='.(int)$box.$param_user_id_2.'">'.pun_htmlspecialchars($cur_mess['subject']).'</a>';
 		if (isset($_GET['id']))
 			if($cur_mess['id'] == $_GET['id'])
 				$subject = "<strong>$subject</strong>";
@@ -369,7 +385,7 @@ else
 
 <div class="linksb">
 	<div class="inbox">
-		<p class="pagelink conl"><?php echo $lang_common['Pages'].': '.paginate($num_pages, $p, 'message_list.php?box='.$box) ?></p>
+		<p class="pagelink conl"><?php echo $lang_common['Pages'].': '.paginate($num_pages, $p, 'message_list.php?box='.$box.$param_user_id_2) ?></p>
 <?php
 if(isset($_GET['action']) && $_GET['action'] == 'multidelete')
 {

@@ -167,7 +167,7 @@ function pun_setcookie($user_id, $password_hash, $expire)
 //
 // Check whether the connecting user is banned (and delete any expired bans while we're at it)
 //
-function check_bans()
+function check_bans($show_message = true)
 {
 	global $db, $pun_config, $lang_common, $pun_user, $pun_bans;
 
@@ -221,7 +221,7 @@ function check_bans()
 			}
 		}
 
-		if ($is_banned)
+		if ($show_message && $is_banned)
 		{
             $db->query('DELETE FROM '.$db->prefix.'online WHERE ident=\''.$db->escape($pun_user['username']).'\'') or error('Impossible de supprimer de la liste des utilisateur en ligne', __FILE__, __LINE__, $db->error());
             
@@ -249,6 +249,8 @@ function check_bans()
             
             message($ban_message, true);
         }
+        
+        return $is_banned;
 	}
 
 	// If we removed any expired bans during our run-through, we need to regenerate the bans cache
