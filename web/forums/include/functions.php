@@ -249,8 +249,6 @@ function check_bans($show_message = true)
             
             message($ban_message, true);
         }
-        
-        return $is_banned;
 	}
 
 	// If we removed any expired bans during our run-through, we need to regenerate the bans cache
@@ -259,6 +257,8 @@ function check_bans($show_message = true)
 		require_once PUN_ROOT.'include/cache.php';
 		generate_bans_cache();
 	}
+    
+    return $is_banned;
 }
 
 
