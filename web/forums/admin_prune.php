@@ -115,11 +115,11 @@ if (isset($_GET['action']) || isset($_POST['prune']) || isset($_POST['prune_comp
         $forum_name_list = '';
         while ($forum = $db->fetch_assoc($result))
         {
-            $forum = "\t" . pun_htmlspecialchars($forum['forum_name']) . '<br />';
+            $forum_name_list = "\t" . pun_htmlspecialchars($forum['forum_name']) . '<br />';
         }
 	}
 	else
-		$forum = "\t" . 'all forums';
+		$forum_name_list = "\t" . 'all forums';
 
 	$result = $db->query($sql) or error('Unable to fetch topic prune count', __FILE__, __LINE__, $db->error());
 	$num_topics = $db->result($result);
@@ -145,7 +145,7 @@ if (isset($_GET['action']) || isset($_POST['prune']) || isset($_POST['prune_comp
 					<fieldset>
 						<legend>Confirm prune posts</legend>
 						<div class="infldset">
-							<p>Are you sure that you want to prune all topics older than <?php echo $prune_days ?> days from :<br /><?php echo $forum ?>? (<?php echo $num_topics ?> topics)</p>
+							<p>Are you sure that you want to prune all topics older than <?php echo $prune_days ?> days from :<br /><?php echo $forum_name_list ?>? (<?php echo $num_topics ?> topics)</p>
 							<p>WARNING! Pruning posts deletes them permanently.</p>
 						</div>
 					</fieldset>
