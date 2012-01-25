@@ -73,7 +73,7 @@ if (isset($_GET['action']) || isset($_POST['prune']))
         $forum_name_list = '';
         while ($forum = $db->fetch_assoc($result))
         {
-            $forum_name_list .= "\t" . pun_htmlspecialchars($forum['forum_name']) . '<br />';
+            $forum_name_list .= ' - ' . pun_htmlspecialchars($forum['forum_name']) . '<br />';
         }
 	}
 	else
@@ -106,7 +106,7 @@ if (isset($_GET['action']) || isset($_POST['prune']))
 					<fieldset>
 						<legend>Number of posts</legend>
 						<div class="infldset">
-							<p>Number of posts older than <?php echo $prune_date_start ?> days and earlier than <?php echo $prune_date_end ?> days from :<br />
+							<p>Number of posts older than <?php echo $prune_days_start ?> days and earlier than <?php echo $prune_days_end ?> days from :<br />
                             <?php echo $forum_name_list;
                             echo $num_topics . ' topics<br />';
                             echo $num_posts . ' posts';?>
