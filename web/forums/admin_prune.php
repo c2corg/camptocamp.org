@@ -115,11 +115,11 @@ if (isset($_GET['action']) || isset($_POST['prune']) || isset($_POST['prune_comp
         $forum_name_list = '';
         while ($forum = $db->fetch_assoc($result))
         {
-            $forum_name_list = "\t" . pun_htmlspecialchars($forum['forum_name']) . '<br />';
+            $forum_name_list .= "\t" . pun_htmlspecialchars($forum['forum_name']) . '<br />';
         }
 	}
 	else
-		$forum_name_list = "\t" . 'all forums';
+		$forum_name_list = "\t" . 'all forums<br />';
 
 	$result = $db->query($sql) or error('Unable to fetch topic prune count', __FILE__, __LINE__, $db->error());
 	$num_topics = $db->result($result);

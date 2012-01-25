@@ -58,7 +58,7 @@ if (isset($_GET['action']) || isset($_POST['prune']))
 	$prune_from = $_POST['prune_from'];
 
 	// Concatenate together the query for counting number or topics to prune
-	$sql_topics = 'SELECT COUNT(id) FROM '.$db->prefix.'topics WHERE last_post>'.$prune_date_start.' AND last_post<'.$prune_date_end.' AND moved_to IS NULL';
+	$sql_topics = 'SELECT COUNT(id) FROM '.$db->prefix.'topics WHERE last_post>'.$prune_date_end.' AND last_post<'.$prune_date_start.' AND moved_to IS NULL';
 	
     $sql_posts = 'SELECT COUNT(id) FROM '.$db->prefix.'posts WHERE posted>'.$prune_date_start.' AND posted<'.$prune_date_end;
 
@@ -66,30 +66,30 @@ if (isset($_GET['action']) || isset($_POST['prune']))
 	{
 		$sql_topics .= ' AND forum_id IN ('.implode(',', $prune_from).')';
 		
-        $sql_posts = 'SELECT COUNT(p.id) FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id WHERE t.forum_id IN ('.implode(',', $prune_from).') AND p.posted>'.$prune_date_start.' AND p.posted<'.$prune_date_end;
+        $sql_posts = 'SELECT COUNT(p.id) FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id WHERE t.forum_id IN ('.implode(',', $prune_from).') AND p.posted>'.$prune_date_end.' AND p.posted<'.$prune_date_start;
 
 		// Fetch the forum name (just for cosmetic reasons)
 		$result = $db->query('SELECT forum_name FROM '.$db->prefix.'forums WHERE id IN ('.implode(',', $prune_from).')') or error('Unable to fetch forum name', __FILE__, __LINE__, $db->error());
         $forum_name_list = '';
         while ($forum = $db->fetch_assoc($result))
         {
-            $forum_name_list = "\t" . pun_htmlspecialchars($forum['forum_name']) . '<br />';
+            $forum_name_list .= "\t" . pun_htmlspecialchars($forum['forum_name']) . '<br />';
         }
 	}
 	else
-		$forum_name_list = "\t" . 'all forums';
+		$forum_name_list = "\t" . 'all forums<br />';
 
 	$result = $db->query($sql_topics) or error('Unable to fetch topic prune count', __FILE__, __LINE__, $db->error());
 	$num_topics = $db->result($result);
 
 	if (!$num_topics)
-		message('There are no topics that are '.$prune_date_start.' to '.$prune_date_end.' days old. Please decrease the values of "Days old" and try again.');
+		message('There are no topics that are '.$prune_days_start.' to '.$prune_days_end.' days old. Please decrease the values of "Days old" and try again.');
 
 	$result = $db->query($sql_posts) or error('Unable to fetch topic prune count', __FILE__, __LINE__, $db->error());
 	$num_posts = $db->result($result);
 
 	if (!$num_posts)
-		message('There are no posts that are '.$prune_date_start.' to '.$prune_date_end.' days old. Please decrease the values of "Days old" and try again.');
+		message('There are no posts that are '.$prune_days_start.' to '.$prune_days_end.' days old. Please decrease the values of "Days old" and try again.');
 
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / Admin / Statistics';
@@ -191,7 +191,7 @@ else
 									</td>
 								</tr>
 							</table>
-							<div class="fsetsubmit"><input type="submit" name="prune" value="Prune" tabindex="5" /></div>
+							<div class="fsetsubmit"><input type="submit" name="prune" value="OK" tabindex="4" /></div>
 						</div>
 					</fieldset>
 				</div>

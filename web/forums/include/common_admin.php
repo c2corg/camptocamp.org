@@ -54,7 +54,7 @@ function generate_admin_menu($page = '')
 <?php if ($is_admin): ?>					<li<?php if ($page == 'ranks') echo ' class="isactive"'; ?>><a href="admin_ranks.php">Ranks</a></li>
 <?php endif; ?><?php if ($is_admin || $pun_config['p_mod_ban_users'] == '1'): ?>					<li<?php if ($page == 'bans') echo ' class="isactive"'; ?>><a href="admin_bans.php">Bans</a></li>
 <?php endif; ?><?php if ($is_admin): ?>					<li<?php if ($page == 'prune') echo ' class="isactive"'; ?>><a href="admin_prune.php">Prune</a></li>
-<?php endif; ?>					<li<?php if ($page == 'stats') echo ' class="isactive"'; ?>><a href="admin_prune.php">Statistics</a></li>
+<?php endif; ?>					<li<?php if ($page == 'stats') echo ' class="isactive"'; ?>><a href="admin_stats.php">Statistics</a></li>
 <?php if ($is_admin): ?>					<li<?php if ($page == 'maintenance') echo ' class="isactive"'; ?>><a href="admin_maintenance.php">Maintenance</a></li>
 <?php endif; ?>					<li<?php if ($page == 'reports') echo ' class="isactive"'; ?>><a href="admin_reports.php">Reports</a></li>
 				</ul>
