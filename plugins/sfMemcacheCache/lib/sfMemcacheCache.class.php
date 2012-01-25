@@ -7,12 +7,13 @@
  * @package    symfony
  * @subpackage cache
  * @author     Marc Fournier <marc.fournier@camptocamp.org>
- * @version    SVN: $Id: sfSQLiteCache.class.php 3935 2007-05-06 10:07:08Z fabien $
+ * @version    SVN: $Id$
  */
 class sfMemcacheCache extends sfCache
 {
 
   protected $memcache = null;
+  protected $compress = null;
   protected $debug = null;
 
 
@@ -44,6 +45,7 @@ class sfMemcacheCache extends sfCache
 
     $this->memcache = new Memcache();
     $this->debug = isset($options['debug']) ? $options['debug'] : null;
+    $this->debug = isset($options['compress']) ? $options['compress'] : true;
 
     foreach ($options['servers'] as $server)
     {
@@ -100,7 +102,7 @@ class sfMemcacheCache extends sfCache
     if ($this->debug) { $this->debugMsg("HAS", $id, $namespace); }
     return !(false === $this->memcache->get($this->keyName($id, $namespace)));
   }
-  
+
  /**
   * Saves some data in the cache.
   *
@@ -114,18 +116,13 @@ class sfMemcacheCache extends sfCache
   */
   public function set($id, $namespace = self::DEFAULT_NAMESPACE, $data)
   {
-    #$lifetime = null === $lifetime ? $this->getOption('lifetime') : $lifetime;
-    #$lifetime = time() + null;
-    $lifetime = 0;
+    $lifetime = (isset($this->lifeTime) && is_int($this->lifeTime)) ? $this->lifeTime : 0;
 
-    if (false !== $this->memcache->replace($this->keyName($id, $namespace), $data, false, $lifetime))
-    {
-      if ($this->debug) { $this->debugMsg("REPLACE", $id, $namespace, $data); }
-      return true;
-    }
+    // avoid lifetime > 1 month, which is unsupported
+    if ($lifetime >= 3600 * 24 * 30 ) { $lifetime = 0; }
 
     if ($this->debug) { $this->debugMsg("SET", $id, $namespace, $data); }
-    return $this->memcache->set($this->keyName($id, $namespace), $data, false, $lifetime);
+    return $this->memcache->set($this->keyName($id, $namespace), $data, $this->compress, $lifetime);
   }
 
  /**
@@ -141,7 +138,7 @@ class sfMemcacheCache extends sfCache
   public function remove($id, $namespace = self::DEFAULT_NAMESPACE)
   {
     if ($this->debug) { $this->debugMsg("REMOVE", $id, $namespace); }
-    return $this->memcache->delete($this->keyName($id, $namespace), 0);
+    return $this->memcache->delete($this->keyName($id, $namespace));
   }
 
  /**
@@ -178,10 +175,10 @@ class sfMemcacheCache extends sfCache
 
   protected function debugMsg($cmd, $id, $namespace, $value=null)
   {
-    error_log("$cmd: id  = $id");
-    error_log("$cmd: ns  = $namespace");
+    error_log("$cmd: id  = '$id'");
+    error_log("$cmd: ns  = '$namespace'");
     error_log("$cmd: key = " . $this->keyName($id, $namespace));
-    error_log("$cmd: val = " . ($value ? $value : "no value"));
+    #error_log("$cmd: val = " . ($value ? $value : "no value"));
     error_log("limetime = " . $this->lifeTime . " refresh = " . date('c', $this->refreshTime));
     #if (sfConfig::get('sf_logging_enabled'))
     #{
