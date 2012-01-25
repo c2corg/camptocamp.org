@@ -128,33 +128,6 @@ $p = (!isset($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $num_pages) ? 1 : $_
 $start_from = $pun_config['o_pms_mess_per_page'] * ($p - 1);
 $limit = $start_from.','.$pun_config['o_pms_mess_per_page'];
 
-// Fetch messages
-$list_result = $db->query('SELECT * FROM '.$db->prefix.'messages WHERE owner='.$user_id.' AND status='.$box.' ORDER BY posted DESC LIMIT '.$limit) or error('Unable to fetch messages list for forum', __FILE__, __LINE__, $db->error());
-
-$new_messages = false;
-$messages_exist = false;
-$message_id = 0;
-if (!isset($_GET['id']))
-{
-    if ($db->num_rows($list_result))
-    {
-        $messages_exist = true;
-        while ($cur_mess = $db->fetch_assoc($list_result))
-        {
-            if ($new_messages == false && $cur_mess['showed'] == '0')
-            {
-                $new_messages = true;
-                $message_id = $cur_mess['id'];
-                break;
-            }
-        }
-    }
-}
-else
-{
-    $message_id = $_GET['id'];
-}
-
 $footer_style = 'message_list';
 require PUN_ROOT.'header.php';
 ?>
@@ -181,8 +154,7 @@ require PUN_ROOT.'header.php';
 
 <?php
 //Are we viewing a PM?
-if(!empty($message_id))
-{
+if(isset($_GET['id'])){
 	//Yes! Lets get the details	
 	$id = intval($_GET['id']);
 
@@ -350,11 +322,16 @@ if(!empty($message_id))
 			<tbody>
 <?php
 
+// Fetch messages
+$result = $db->query('SELECT * FROM '.$db->prefix.'messages WHERE owner='.$user_id.' AND status='.$box.' ORDER BY posted DESC LIMIT '.$limit) or error('Unable to fetch messages list for forum', __FILE__, __LINE__, $db->error());
+$new_messages = false;
+$messages_exist = false;
 
 // If there are messages in this folder.
-if ($db->num_rows($list_result))
+if ($db->num_rows($result))
 {
-	while ($cur_mess = $db->fetch_assoc($list_result))
+	$messages_exist = true;
+	while ($cur_mess = $db->fetch_assoc($result))
 	{
 		$icon_text = $lang_common['Normal icon'];
 		$icon_type = 'icon';
@@ -364,6 +341,8 @@ if ($db->num_rows($list_result))
 			$icon_type = 'icon inew';
 		}
 
+		($new_messages == false && $cur_mess['showed'] == '0') ? $new_messages = true : null;
+			
 		$subject = '<a href="message_list.php?id='.$cur_mess['id'].'&amp;p='.$p.'&amp;box='.(int)$box.$param_user_id_2.'">'.pun_htmlspecialchars($cur_mess['subject']).'</a>';
 		if (isset($_GET['id']))
 			if($cur_mess['id'] == $_GET['id'])
