@@ -14,6 +14,10 @@ elseif ($id == $cda_id)
 {
     $footer_type = 'cda';
 }
+else
+{
+    $footer_type = null;
+}
 
 if ($sf_context->getActionName() == 'list')
 {
