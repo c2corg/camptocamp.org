@@ -4846,6 +4846,9 @@ msgstr "El archivo no es un archivo GPX valido"
 msgid "is_on_glacier"
 msgstr "Glaziarreko ibilbidea:"
 
+# [general comment]
+# précisions moteurs de recherche
+# [WARNING] needs_review
 msgid "is_profile_public"
 msgstr "Bizitari anonimoeri zure orri pertsonalera sartzeko baimena eman:"
 

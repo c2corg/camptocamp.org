@@ -4661,8 +4661,10 @@ msgstr "The file is not a valid GPX file"
 msgid "is_on_glacier"
 msgstr "Requires glacier gear:"
 
+# [general comment]
+# précisions moteurs de recherche
 msgid "is_profile_public"
-msgstr "Allow access to your profile page for unregistered visitors:"
+msgstr "Allow access to your profile page for unregistered visitors (and  search engines):"
 
 msgid "is_staffed"
 msgstr "Staffed:"

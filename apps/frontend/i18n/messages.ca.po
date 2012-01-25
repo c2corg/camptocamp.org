@@ -4614,6 +4614,8 @@ msgstr "Aquest fitxer no és un arxiu GPX vàlid"
 msgid "is_on_glacier"
 msgstr "Necessita material de glacera:"
 
+# [general comment]
+# précisions moteurs de recherche
 # [WARNING] needs_review
 msgid "is_profile_public"
 msgstr "Autoritza l'accés a la vostra pàgina personal als visitants anònims:"

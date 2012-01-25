@@ -4837,6 +4837,9 @@ msgstr "Bei der Datei handelt es sich nicht um eine erkennbare GPX-Datei."
 msgid "is_on_glacier"
 msgstr "Benötigt die Gletscherausrüstung:"
 
+# [general comment]
+# précisions moteurs de recherche
+# [WARNING] needs_review
 msgid "is_profile_public"
 msgstr "Den Zugang zu ihrer persönlichen Seite nicht registrierten Beuschern erlauben:"
 

@@ -4632,6 +4632,9 @@ msgstr "Il file GPX non è valido"
 msgid "is_on_glacier"
 msgstr "Materiale di sicurezza su ghiacciaio:"
 
+# [general comment]
+# précisions moteurs de recherche
+# [WARNING] needs_review
 msgid "is_profile_public"
 msgstr "Autorizzare l'accesso della tuo profilo agli utenti non registrati:"
 
