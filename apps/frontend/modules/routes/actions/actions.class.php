@@ -329,18 +329,23 @@ class routesActions extends documentsActions
         $this->setNoticeAndRedirect('Geoassociations refreshed', "@document_by_id?module=routes&id=$id");
     }
 
+    protected function getHighestSummit()
+    {
+        $id = $this->getRequestParameter('id');
+        if (empty($id)) return null;
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $associated_summits = Association::findAllWithBestName($id, $prefered_cultures, 'sr');
+        return c2cTools::extractHighest($associated_summits);
+    }
+
     protected function getHighestSummitName()
     {
         $id = $this->getRequestParameter('id');
         if (empty($id)) return null;
-        $user = $this->getUser();
-        $prefered_cultures = $user->getCulturesForDocuments();
-        $associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
-        $associated_summits = c2cTools::sortArrayByName(array_filter($associated_docs, array('c2cTools', 'is_summit')));
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $associated_summits = Association::findAllWithBestName($id, $prefered_cultures, 'sr');
         // extract highest associated summit, and prepend its name to display this route's name.
-        $highest_summit_name = c2cTools::extractHighestName($associated_summits);
-
-        return $highest_summit_name;
+        return c2cTools::extractHighestName($associated_summits);
     }
 
     protected function endEdit()
@@ -378,17 +383,23 @@ class routesActions extends documentsActions
 
             parent::endEdit(); // redirect to document view
         }
-        elseif ($this->link_with = $this->getRequestParameter('link')) 
+        else //  We want to display summit name before route title input in the form
         {
-            // form viewing => get linked doc
-            $linked_doc = Document::find('Summit', $this->link_with, array('id', 'module'));
-            
-            if ($linked_doc)
+            if ($this->link_with = $this->getRequestParameter('link')) // new route, linked summit id is in link parameter
             {
-                $linked_doc->setBestCulture($this->getUser()->getCulturesForDocuments());
-                $this->linked_doc = $linked_doc;
+                // form viewing => get linked doc
+                $linked_doc = Document::find('Summit', $this->link_with, array('id', 'module'));
+            
+                if ($linked_doc)
+                {
+                    $linked_doc->setBestCulture($this->getUser()->getCulturesForDocuments());
+                    $this->linked_doc = $linked_doc;
+                }
             }
-
+            else // existing route, we try to find the best summit to display
+            {
+                $this->linked_doc =  $this->getHighestSummit(); 
+            }
         }
     }
 
@@ -966,6 +977,7 @@ class routesActions extends documentsActions
         // so we must add a new request to get the summits, display the best one and add a note to explain that the
         // other summit is associated
         // FIXME would be nice to put all in a single request (before), but I didn't manage to do it
+        // TODO not working right now
         if ($this->hasRequestParameter('snam') || $this->hasRequestParameter('srnam') ||
             $this->hasRequestParameter('salt') || $this->hasRequestParameter('styp'))
         {

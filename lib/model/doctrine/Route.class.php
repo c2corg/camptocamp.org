@@ -443,7 +443,6 @@ class Route extends BaseRoute
         
         self::joinOnRegions($q);
 
-// TODO TODO TODO the following lines make it crash
         // to get summit info:
         $q->leftJoin('m.associations lsname')
           ->leftJoin('lsname.Summit sname')

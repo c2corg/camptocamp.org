@@ -352,29 +352,36 @@ class c2cTools
             sfToolkit::clearGlob($cache_dir . $item);
         }
     }
-    
-    public static function extractHighestName($objects_array, $return_search_name = false)
+
+    // get object with highest elevation from a list
+    public static function extractHighest($objects_array)
     {
         $highest_elevation = 0;
-        $highest_object_name = '';
-
-        $name_field = $return_search_name ? 'search_name' : 'name';
         
+
         foreach ($objects_array as $object)
         {
-            // find highest summit name
+            // find highest
             if ($object['elevation'] > $highest_elevation)
             {
                 $highest_elevation = $object['elevation'];
-                $highest_object_name = $object[$name_field];
+                $highest_object = $object;
             }
-            // set default name if no summit has its elevation set
+            // set default name if no object has its elevation set
             elseif ($highest_elevation == 0)
             {
-                $highest_object_name = $object[$name_field];
+                $highest_object = $object;
             }
         }
-        return $highest_object_name;
+        return $object;
+    }
+    
+    public static function extractHighestName($objects_array, $return_search_name = false)
+    {
+        $name_field = $return_search_name ? 'search_name' : 'name';
+        
+        $highest_object = self::extractHighest($objects_array);
+        return $highest_object[$name_field];
     }
     
     /**
