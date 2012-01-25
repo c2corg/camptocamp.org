@@ -164,12 +164,12 @@ if (!defined('PUN_BANS_LOADED'))
 }
 
 // Check if current user is banned
-if (!defined('SHOW_BAN_MESSAGE'))
+if (!isset($show_ban_message))
 {
-  define('SHOW_BAN_MESSAGE', true);
+    $show_ban_message = true;
 }
 
-check_bans(SHOW_BAN_MESSAGE);
+check_bans($show_ban_message);
 
 // Update online list
 update_users_online();
