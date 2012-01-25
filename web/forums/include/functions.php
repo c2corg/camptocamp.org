@@ -249,6 +249,10 @@ function check_bans($show_message = true)
             
             message($ban_message, true);
         }
+        elseif (!$show_message && $is_banned)
+        {
+            break;
+        }
 	}
 
 	// If we removed any expired bans during our run-through, we need to regenerate the bans cache
