@@ -41,7 +41,14 @@ if (isset($_GET['action']) || isset($_POST['prune']) || isset($_POST['prune_comp
 	{
 		confirm_referrer('admin_prune.php');
 
-		$prune_from = $_POST['prune_from'];
+        $prune_from = $_POST['prune_from'];
+		if ($prune_from != 'all')
+        {
+            if (@preg_match('/[^0-9,]/', $prune_from))
+                message($lang_common['Bad request']);
+        
+            $prune_from = explode(',', $_POST['prune_from']);
+        }
 		$prune_sticky = isset($_POST['prune_sticky']) ? '1' : '0';
 		$prune_days = intval($_POST['prune_days']);
 		$prune_date = ($prune_days) ? time() - ($prune_days*86400) : -1;
@@ -63,9 +70,11 @@ if (isset($_GET['action']) || isset($_POST['prune']) || isset($_POST['prune_comp
 		}
 		else
 		{
-			$prune_from = intval($prune_from);
-			prune($prune_from, $prune_sticky, $prune_date);
-			update_forum($prune_from);
+			foreach ($prune_from as $fid)
+            {
+                prune($fid, $prune_sticky, $prune_date);
+                update_forum($fid);
+            }
 		}
 
 		// Locate any "orphaned redirect topics" and delete them
@@ -97,17 +106,20 @@ if (isset($_GET['action']) || isset($_POST['prune']) || isset($_POST['prune_comp
 	if (!$prune_sticky)
 		$sql .= ' AND sticky=\'0\'';
 
-	if ($prune_from != 'all')
+	if (!in_array('all', $prune_from))
 	{
-		$prune_from = intval($prune_from);
-		$sql .= ' AND forum_id='.$prune_from;
+		$sql .= ' AND forum_id IN ('.implode(',', $prune_from).')';
 
 		// Fetch the forum name (just for cosmetic reasons)
-		$result = $db->query('SELECT forum_name FROM '.$db->prefix.'forums WHERE id='.$prune_from) or error('Unable to fetch forum name', __FILE__, __LINE__, $db->error());
-		$forum = '"'.pun_htmlspecialchars($db->result($result)).'"';
+		$result = $db->query('SELECT forum_name FROM '.$db->prefix.'forums WHERE id IN ('.implode(',', $prune_from).')') or error('Unable to fetch forum name', __FILE__, __LINE__, $db->error());
+        $forum_name_list = '';
+        while ($forum = $db->fetch_assoc($result))
+        {
+            $forum = "\t" . pun_htmlspecialchars($forum['forum_name']) . '<br />';
+        }
 	}
 	else
-		$forum = 'all forums';
+		$forum = "\t" . 'all forums';
 
 	$result = $db->query($sql) or error('Unable to fetch topic prune count', __FILE__, __LINE__, $db->error());
 	$num_topics = $db->result($result);
@@ -129,11 +141,11 @@ if (isset($_GET['action']) || isset($_POST['prune']) || isset($_POST['prune_comp
 				<div class="inform">
 					<input type="hidden" name="prune_days" value="<?php echo $prune_days ?>" />
 					<input type="hidden" name="prune_sticky" value="<?php echo $prune_sticky ?>" />
-					<input type="hidden" name="prune_from" value="<?php echo $prune_from ?>" />
+					<input type="hidden" name="prune_from" value="<?php echo implode(',', $prune_from) ?>" />
 					<fieldset>
 						<legend>Confirm prune posts</legend>
 						<div class="infldset">
-							<p>Are you sure that you want to prune all topics older than <?php echo $prune_days ?> days from <?php echo $forum ?>? (<?php echo $num_topics ?> topics)</p>
+							<p>Are you sure that you want to prune all topics older than <?php echo $prune_days ?> days from :<br /><?php echo $forum ?>? (<?php echo $num_topics ?> topics)</p>
 							<p>WARNING! Pruning posts deletes them permanently.</p>
 						</div>
 					</fieldset>
@@ -173,7 +185,7 @@ else
 								<tr>
 									<th scope="row">Days old</th>
 									<td>
-										<input type="text" name="req_prune_days" size="3" maxlength="3" tabindex="1" />
+										<input type="text" name="req_prune_days" size="4" maxlength="4" tabindex="1" />
 										<span>The number of days "old" a topic must be to be pruned. E.g. if you were to enter 30, every topic that didn't contain a post dated less than 30 days old would be deleted.</span>
 									</td>
 								</tr>
@@ -187,7 +199,7 @@ else
 								<tr>
 									<th scope="row">Prune from forum</th>
 									<td>
-										<select name="prune_from" tabindex="3">
+										<select name="prune_from[]" multiple="multiple" size="10" tabindex="3">
 											<option value="all">All forums</option>
 <?php
 
