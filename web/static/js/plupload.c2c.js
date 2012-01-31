@@ -3,11 +3,12 @@
  * - plupload.js
  * - plupload.flash.js
  * - plupload.html5.js
- * from plupload 1.5.1.1
+ * from plupload 1.5.2
  *
  * c2c doesn't use other runtimes (gears, browserplus, html4...),
  * so we don't include them in order to minmize js size
  */
+
 
 /**
  * plupload.js
@@ -62,7 +63,14 @@
 		"application/vnd.ms-powerpoint,ppt pps pot," +
 		"application/zip,zip," +
 		"application/x-shockwave-flash,swf swfl," +
-		"application/vnd.openxmlformats,docx pptx xlsx," +
+		"application/vnd.openxmlformats-officedocument.wordprocessingml.document,docx," +
+		"application/vnd.openxmlformats-officedocument.wordprocessingml.template,dotx," +
+		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,xlsx," +
+		"application/vnd.openxmlformats-officedocument.presentationml.presentation,pptx," + 
+		"application/vnd.openxmlformats-officedocument.presentationml.template,potx," +
+		"application/vnd.openxmlformats-officedocument.presentationml.slideshow,ppsx," +
+		"application/x-javascript,js," +
+		"application/json,json," +
 		"audio/mpeg,mpga mpega mp2 mp3," +
 		"audio/x-wav,wav," +
 		"audio/mp4,m4a," +
@@ -73,7 +81,10 @@
 		"image/png,png," +
 		"image/svg+xml,svg svgz," +
 		"image/tiff,tiff tif," +
+		"text/plain,asc txt text diff log," +
 		"text/html,htm html xhtml," +
+		"text/css,css," +
+		"text/csv,csv," +
 		"text/rtf,rtf," +
 		"video/mpeg,mpeg mpg mpe," +
 		"video/quicktime,qt mov," +
@@ -84,8 +95,7 @@
 		"video/avi,avi," +
 		"video/webm,webm," +
 		"video/vnd.rn-realvideo,rv," +
-		"text/csv,csv," +
-		"text/plain,asc txt text diff log," +
+		"application/vnd.oasis.opendocument.formula-template,otf," +
 		"application/octet-stream,exe"
 	);
 
@@ -106,7 +116,7 @@
 		/**
 		 * Plupload version will be replaced on build.
 		 */
-		VERSION : '1.5.1.1',
+		VERSION : '1.5.2',
 
 		/**
 		 * Inital state of the queue and also the state ones it's finished all it's uploads.
@@ -267,6 +277,17 @@
 				opera: !!opera
 			};
 		}()),
+		
+		/**
+		 * Gets the true type of the built-in object (better version of typeof).
+		 * @credits Angus Croll (http://javascriptweblog.wordpress.com/)
+		 *
+		 * @param {Object} o Object to check.
+		 * @return {String} Object [[Class]]
+		 */
+		typeOf: function(o) {
+			return ({}).toString.call(o).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
+		},
 
 		/**
 		 * Extends the specified object with another object.
@@ -576,6 +597,29 @@
 
 			return arr;
 		},
+		
+		/**
+		 * Find an element in array and return it's index if present, otherwise return -1.
+		 *
+		 * @method inArray
+		 * @param {mixed} needle Element to find
+		 * @param {Array} array
+		 * @return {Int} Index of the element, or -1 if not found
+		 */
+		inArray : function(needle, array) {			
+			if (array) {
+				if (Array.prototype.indexOf) {
+					return Array.prototype.indexOf.call(array, needle);
+				}
+			
+				for (var i = 0, length = array.length; i < length; i++) {
+					if (array[i] === needle) {
+						return i;
+					}
+				}
+			}
+			return -1;
+		},
 
 		/**
 		 * Extends the language pack object with new items.
@@ -859,7 +903,7 @@
 	 * @param {Object} settings Initialization settings, to be used by the uploader instance and runtimes.
 	 */
 	plupload.Uploader = function(settings) {
-		var events = {}, total, files = [], startTime;
+		var events = {}, total, files = [], startTime, disabled = false;
 
 		// Inital total state
 		total = new plupload.QueueProgress();
@@ -1111,7 +1155,7 @@
 						// Get start time to calculate bps
 						startTime = (+new Date());
 						
-					} else if (up.state == plupload.STOPPED) {
+					} else if (up.state == plupload.STOPPED) {						
 						// Reset currently uploading files
 						for (i = up.files.length - 1; i >= 0; i--) {
 							if (up.files[i].status == plupload.UPLOADING) {
@@ -1251,9 +1295,21 @@
 			 */
 			stop : function() {
 				if (this.state != plupload.STOPPED) {
-					this.state = plupload.STOPPED;					
+					this.state = plupload.STOPPED;	
+					this.trigger("CancelUpload");				
 					this.trigger("StateChanged");
 				}
+			},
+			
+			/** 
+			 * Disables/enables browse button on request.
+			 *
+			 * @method disableBrowse
+			 * @param {Boolean} disable Whether to disable or enable (default: true)
+			 */
+			disableBrowse : function() {
+				disabled = arguments[0] !== undef ? arguments[0] : true;
+				this.trigger("DisableBrowse", disabled);
 			},
 
 			/**
@@ -1415,7 +1471,8 @@
 			 *
 			 * @method destroy
 			 */
-			destroy : function() {							
+			destroy : function() {	
+				this.stop();						
 				this.trigger('Destroy');
 				
 				// Clean-up after uploader itself
@@ -1860,7 +1917,7 @@
 				html = '<object id="' + uploader.id + '_flash" type="application/x-shockwave-flash" data="' + uploader.settings.flash_swf_url + '" ';
 				
 				if (plupload.ua.ie) {
-					html += 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" '
+					html += 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ';
 				}
 
 				html += 'width="100%" height="100%" style="outline:0">'  +
@@ -1932,6 +1989,10 @@
 						urlstream_upload : settings.urlstream_upload
 					});
 				});
+				
+				uploader.bind("CancelUpload", function() {
+					getFlashObj().cancelUpload();
+				});
 
 
 				uploader.bind("Flash:UploadProcess", function(up, flash_file) {
@@ -1957,7 +2018,7 @@
 					up.trigger('ChunkUploaded', file, chunkArgs);
 
 					// Stop upload if file is maked as failed
-					if (file.status != plupload.FAILED) {
+					if (file.status !== plupload.FAILED && up.state !== plupload.STOPPED) {
 						getFlashObj().uploadNextChunk();
 					}
 
@@ -2122,6 +2183,11 @@
 						});
 					}
 				});
+				
+				uploader.bind("DisableBrowse", function(up, disabled) {
+					getFlashObj().disableBrowse(disabled);
+				});
+			
 				
 				uploader.bind("Destroy", function(up) {
 					var flashContainer;
@@ -2355,7 +2421,7 @@
 		 * @param {function} callback Callback to execute when the runtime initializes or fails to initialize. If it succeeds an object with a parameter name success will be set to true.
 		 */
 		init : function(uploader, callback) {
-			var features;
+			var features, xhr;
 
 			function addSelectedFiles(native_files) {
 				var file, i, files = [], id, fileNames = {};
@@ -2434,7 +2500,7 @@
 						
 						type = plupload.mimeTypes[ext[y]];
 
-						if (type) {
+						if (type && plupload.inArray(type, mimes) === -1) {
 							mimes.push(type);
 						}
 					}
@@ -2502,7 +2568,10 @@
 					// Route click event to the input[type=file] element for supporting browsers
 					if (up.features.triggerDialog) {
 						plupload.addEvent(browseButton, 'click', function(e) {
-							document.getElementById(up.id + '_html5').click();
+							var input = document.getElementById(up.id + '_html5');
+							if (input && !input.disabled) { // for some reason FF (up to 8.0.1 so far) lets to click disabled input[type=file]
+								input.click();
+							}
 							e.preventDefault();
 						}, up.id); 
 					}
@@ -2619,7 +2688,20 @@
 						plupload.extend(inputContainer.style, {
 							zIndex : zIndex - 1
 						});
-					}
+					}				
+				}
+			});
+			
+			uploader.bind("DisableBrowse", function(up, disabled) {
+				var input = document.getElementById(up.id + '_html5');
+				if (input) {
+					input.disabled = disabled;	
+				}
+			});
+			
+			uploader.bind("CancelUpload", function() {
+				if (xhr.abort) {
+					xhr.abort();	
 				}
 			});
 
@@ -2656,13 +2738,13 @@
 						
 						function prepareAndSend(bin) {
 							var multipartDeltaSize = 0,
-								xhr = new XMLHttpRequest,
-								upload = xhr.upload,	
-								boundary = '----pluploadboundary' + plupload.guid(), formData, dashdash = '--', crlf = '\r\n', multipartBlob = ''
+								boundary = '----pluploadboundary' + plupload.guid(), formData, dashdash = '--', crlf = '\r\n', multipartBlob = '';
 								
+							xhr = new XMLHttpRequest;
+															
 							// Do we have upload progress support
-							if (upload) {
-								upload.onprogress = function(e) {
+							if (xhr.upload) {
+								xhr.upload.onprogress = function(e) {
 									file.loaded = Math.min(file.size, loaded + e.loaded - multipartDeltaSize); // Loaded can be larger than file size due to multipart encoding
 									up.trigger('UploadProgress', file);
 								};
@@ -2670,8 +2752,8 @@
 	
 							xhr.onreadystatechange = function() {
 								var httpStatus, chunkArgs;
-	
-								if (xhr.readyState == 4) {
+																	
+								if (xhr.readyState == 4 && up.state !== plupload.STOPPED) {
 									// Getting the HTTP status might fail on some Gecko versions
 									try {
 										httpStatus = xhr.status;
@@ -2727,10 +2809,7 @@
 											// Still chunks left
 											uploadNextChunk();
 										}
-									}	
-									
-									xhr = null;
-																
+									}																	
 								}
 							};
 							
@@ -2853,7 +2932,7 @@
 						}
 						
 						// workaround Gecko 2,5,6 FormData+Blob bug: https://bugzilla.mozilla.org/show_bug.cgi?id=649150
-						if (typeof(chunkBlob) !== 'string' && fr && features.cantSendBlobInFormData && features.chunks && up.settings.chunk_size) {// Gecko 2,5,6
+						if (up.settings.multipart && features.multipart && typeof(chunkBlob) !== 'string' && fr && features.cantSendBlobInFormData && features.chunks && up.settings.chunk_size) { // Gecko 2,5,6
 							fr.onload = function() {
 								prepareAndSend(fr.result);
 							}
@@ -2878,8 +2957,10 @@
 						if (res.success) {
 							file.size = res.data.length;
 							sendBinaryBlob(res.data);
-						} else {
+						} else if (features.chunks) {
 							sendBinaryBlob(nativeFile); 
+						} else {
+							readFileAsBinary(nativeFile, sendBinaryBlob); // for browsers not supporting File.slice (e.g. FF3.6)
 						}
 					});
 				// if there's no way to slice file without preloading it in memory, preload it
@@ -3505,13 +3586,11 @@
 				Exif = extractTags(offsets.exifIFD, tags.exif);
 
 				// Fix formatting of some tags
-				if (Exif.ExifVersion) {
-					Exif.ExifVersion = String.fromCharCode(
-						Exif.ExifVersion[0],
-						Exif.ExifVersion[1],
-						Exif.ExifVersion[2],
-						Exif.ExifVersion[3]
-					);
+				if (Exif.ExifVersion && plupload.typeOf(Exif.ExifVersion) === 'array') {
+					for (var i = 0, exifVersion = ''; i < Exif.ExifVersion.length; i++) {
+						exifVersion += String.fromCharCode(Exif.ExifVersion[i]);	
+					}
+					Exif.ExifVersion = exifVersion;
 				}
 
 				return Exif;
@@ -3544,3 +3623,5 @@
 		};
 	};
 })(window, document, plupload);
+
+
