@@ -60,6 +60,8 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         
         if (this.map.baseLayer instanceof Geoportal.Layer.WMSC) {
             bounds = bounds.transform(this.api.fxx, this.api.epsg900913);
+        } else if (this.map.baseLayer.name == 'swisstopo_map') {
+            bounds = bounds.transform(this.api.epsg21781, this.api.epsg900913);
         }
 
         var filter = new OpenLayers.Filter.Spatial({
@@ -163,6 +165,8 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
         if (this.map.baseLayer instanceof Geoportal.Layer.WMSC) {
             bounds = bounds.transform(this.api.fxx, this.api.epsg900913);
+        } else if (this.map.baseLayer.name == 'swisstopo_map') {
+            bounds = bounds.transform(this.api.epsg21781, this.api.epsg900913);
         }
 
         OpenLayers.Util.extend(this.protocol.params, {

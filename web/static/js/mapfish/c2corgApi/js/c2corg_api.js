@@ -294,8 +294,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             ['gmap_normal', OpenLayers.i18n('Normal')],
             ['OpenStreetMap', OpenLayers.i18n('OpenStreetMap')],
             ['ign_map', OpenLayers.i18n('IGN maps')],
-            ['ign_orthos', OpenLayers.i18n('IGN orthos')]/*,
-            ['swisstopo_map', OpenLayers.i18n('Swisstopo maps')]*/
+            ['ign_orthos', OpenLayers.i18n('IGN orthos')],
+            ['swisstopo_map', OpenLayers.i18n('Swisstopo maps')]
         ];
         
         var store = new Ext.data.SimpleStore({
