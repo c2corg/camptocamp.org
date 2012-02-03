@@ -357,7 +357,6 @@ class c2cTools
     public static function extractHighest($objects_array)
     {
         $highest_elevation = 0;
-        
 
         foreach ($objects_array as $object)
         {
@@ -373,7 +372,7 @@ class c2cTools
                 $highest_object = $object;
             }
         }
-        return $object;
+        return $highest_object;
     }
     
     public static function extractHighestName($objects_array, $return_search_name = false)
