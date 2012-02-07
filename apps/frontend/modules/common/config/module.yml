@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ dynafit_pdg, anena, camp_crampons, dynafit_baltoro, boutique_c2c, baechli, camp_crampons, dynafit_pdg, natxplore, anena, dynafit_baltoro, changerdapproche ]
+    values: [ dynafit_pdg, anena, camp_pelle_sac_sonde, dynafit_baltoro, boutique_c2c, baechli, camp_gants, dynafit_pdg, natxplore, anena, dynafit_baltoro, changerdapproche ]
   banners:
     list:
       skalp:
@@ -162,3 +162,11 @@ all:
         id: 45
         image: camp-crampons.gif
         alt: Camp Race 290
+      camp_pelle_sac_sonde:
+        id: 46
+        image: camp-pelle-sac-sonde.gif
+        alt: "Camp pelle/sac/sonde"
+      camp_gants:
+        id: 47
+        image: camp-gants.gif
+        alt: "Camp gants"
