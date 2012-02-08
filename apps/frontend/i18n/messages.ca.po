@@ -214,6 +214,12 @@ msgstr "L'article no existeix"
 msgid "Articles"
 msgstr "Articles"
 
+# [general comment]
+# Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
+# [WARNING] fr translation used
+msgid "Associate new access"
+msgstr "Créer un nouvel accès"
+
 msgid "Associate new outing"
 msgstr "Afegir una sortida en aquest itinerari"
 
@@ -696,6 +702,7 @@ msgstr "Títol del document"
 msgid "Document types differ, thus cannot be merged"
 msgstr "Els documents no són del mateix tipus, i no poden doncs ser fusionats"
 
+# [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
 msgstr "Fes un donatiu a Camptocamp Association"
 

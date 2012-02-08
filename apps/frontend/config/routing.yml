@@ -229,6 +229,11 @@ image_tag:
   param: { module: documents, action: insertimagetag }
   requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, div: \w+ }
 
+hut_addroute:
+  url: /huts/addroute/:document_id
+  param: { module: huts, action: addroute }
+  requirements: { document_id: \d+ }
+
 user_manage_images:
   url: /users/manageimages
   param: {module: users, action: manageimages }

@@ -223,6 +223,12 @@ msgstr "Quest’articolo non è stato trovato."
 msgid "Articles"
 msgstr "Articoli"
 
+# [general comment]
+# Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
+# [WARNING] needs_review
+msgid "Associate new access"
+msgstr "Associate new access"
+
 msgid "Associate new outing"
 msgstr "Aggiungi una gita a questo itinerario"
 
@@ -705,6 +711,7 @@ msgstr "Titolo del documento"
 msgid "Document types differ, thus cannot be merged"
 msgstr "Sono documenti di diversi tipi. Non possono essere uniti."
 
+# [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
 msgstr "Fare un dono a Camptocamp Association"
 

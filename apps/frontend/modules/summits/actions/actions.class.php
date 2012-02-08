@@ -26,6 +26,15 @@ class summitsActions extends documentsActions
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
 
+            // if summit is associated to a hut, redirect to hut unless ?redirect=no is appended (after a slug!)
+            $associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
+            if (count($associated_huts) > 0 && $this->getRequestParameter('redirect') != 'no')
+            {
+                $hut_id = $associated_huts[0]['id'];
+                $lang = $this->getRequestParameter('lang');
+                $this->redirect("@document_by_id_lang?module=huts&id=$hut_id&lang=$lang");
+            }
+
             $main_associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
             $associated_sites = $this->associated_sites;
             

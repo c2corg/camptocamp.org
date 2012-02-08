@@ -90,7 +90,8 @@ echo end_section_tag();
 // lang-dependent content
 echo start_section_tag('Description', 'description');
 include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
-                                                'needs_translation' => $needs_translation, 'images' => $associated_images));
+                                                'needs_translation' => $needs_translation, 'images' => $associated_images,
+                                                'associated_routes' => $associated_summit_routes));
 echo end_section_tag();
 
 if ($is_not_archive && $is_not_merged)

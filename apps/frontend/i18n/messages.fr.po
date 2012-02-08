@@ -231,6 +231,12 @@ msgstr "Cet article n'existe pas."
 msgid "Articles"
 msgstr "Articles"
 
+# [general comment]
+# Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
+# [WARNING] needs_review
+msgid "Associate new access"
+msgstr "Créer un nouvel accès"
+
 msgid "Associate new outing"
 msgstr "Ajouter votre sortie"
 
@@ -712,8 +718,10 @@ msgstr "Titre du document"
 msgid "Document types differ, thus cannot be merged"
 msgstr "Les documents ne sont pas du même type, et ne peuvent donc pas être fusionnés"
 
+# [comment]
+# ajouter adhésion
 msgid "Donate to Camptocamp Association"
-msgstr "Faire un don a Camptocamp Association"
+msgstr "Faire un don à Camptocamp Association, adhérer ou renouveler sa cotisation"
 
 msgid "E"
 msgstr "E"
@@ -4695,7 +4703,7 @@ msgstr "Nécessite le matériel de glacier&nbsp;:"
 # [general comment]
 # précisions moteurs de recherche
 msgid "is_profile_public"
-msgstr "Autoriser l'accès de votre page personnelle aux visiteurs anonymes (et aux moteurs de recherche) &nbsp;:"
+msgstr "Autoriser l'accès de votre page personnelle aux visiteurs anonymes (et aux moteurs de recherche)&nbsp;:"
 
 msgid "is_staffed"
 msgstr "Gardé&nbsp;:"

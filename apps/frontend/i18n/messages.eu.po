@@ -222,6 +222,12 @@ msgstr "Ez dago halako artikulurik."
 msgid "Articles"
 msgstr "Artikuluak"
 
+# [general comment]
+# Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
+# [WARNING] fr translation used
+msgid "Associate new access"
+msgstr "Créer un nouvel accès"
+
 msgid "Associate new outing"
 msgstr "Irteera bat gehitu"
 
@@ -705,6 +711,7 @@ msgstr "Dokumentuaren titulua"
 msgid "Document types differ, thus cannot be merged"
 msgstr "Dokumentuak ez dira mota berdinekoak, ondorioz ezin dira bateratu"
 
+# [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
 msgstr "CamptoCamp elkarteari donazioa bat egin"
 

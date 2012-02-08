@@ -399,4 +399,17 @@ class Hut extends BaseHut
         self::joinOnRegions($q);
         self::filterOnRegions($q);
     }
+
+    // return the 'ghost' summit of the hut (False if there is no)
+    // the ghost summit is used to have routes that have a hut as goal
+    public function getGhostSummit()
+    {
+        return Doctrine_Query::create()
+               ->from('Summit s')
+               ->leftJoin('s.LinkedAssociation a')
+               ->addWhere("a.type = 'sh'")
+               ->addWhere('a.linked_id = ?', array($this->getID()))
+               ->execute()
+               ->getFirst();
+    }
 }

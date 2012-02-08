@@ -30,6 +30,7 @@ INSERT INTO app_association_types (type) VALUES ('tr'); -- 'tr' = site-route (ma
 -- association with huts
 INSERT INTO app_association_types (type) VALUES ('bh'); -- 'bh' = book-hut (main = book)
 INSERT INTO app_association_types (type) VALUES ('ph'); -- 'ph' = parking-hut (main = parking)
+INSERT INTO app_association_types (type) VALUES ('sh'); -- 'sh' = summit-hut (main = summit)
 
 -- association with parkings
 INSERT INTO app_association_types (type) VALUES ('pp'); -- 'pp' = parking-parking (main = left column)

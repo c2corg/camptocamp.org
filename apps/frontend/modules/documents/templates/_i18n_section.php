@@ -32,6 +32,10 @@ if (!$document->isArchive()): ?>
         {
             $i18n_args['associated_areas'] = $associated_areas;
         }
+        if (isset($associated_routes))
+        {
+            $i18n_args['associated_routes'] = $associated_routes;
+        }
         if (!isset($ids))
         {
             $ids = $document->get('id');
