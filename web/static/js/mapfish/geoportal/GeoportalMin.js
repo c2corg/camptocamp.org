@@ -2556,7 +2556,8 @@ try{if(g){b=g&&g.location&&g.location.href
 }else{if(OpenLayers.Console){OpenLayers.Console.warn(OpenLayers.i18n("cookies.not.enabled"))
 }}return c
 };
-Geoportal.GeoRMHandler.getConfig=function(k,j,c,n){if(!k){return 0
+Geoportal.GeoRMHandler.getConfig=function(k,j,c,n){if(window.gGEOPORTALRIGHTSMANAGEMENT===undefined){gGEOPORTALRIGHTSMANAGEMENT={}
+}if(!k){return 0
 }if(typeof(k)=="string"){k=[k]
 }if(k.length==0){return 0
 }n=n||{};
@@ -2579,8 +2580,7 @@ m.setAttribute("type","text/javascript");
 var a=(c||Geoportal.GeoRMHandler.GEORM_SERVER_URL)+"getConfig?key="+k[e]+"&output=json&callback="+f+"&";
 m.setAttribute("src",a);
 g.appendChild(m)
-}if(!j){if(window.gGEOPORTALRIGHTSMANAGEMENT===undefined){gGEOPORTALRIGHTSMANAGEMENT={}
-}OpenLayers.Util.extend(gGEOPORTALRIGHTSMANAGEMENT,{pending:0,apiKey:[],services:{}});
+}if(!j){OpenLayers.Util.extend(gGEOPORTALRIGHTSMANAGEMENT,{pending:0,apiKey:[],services:{}});
 OpenLayers.Util.extend(gGEOPORTALRIGHTSMANAGEMENT,n);
 gGEOPORTALRIGHTSMANAGEMENT.pending+=k.length
 }return k.length
@@ -2770,8 +2770,7 @@ Q.lat+=this.buffer*O
 }else{d.lon-=J;
 N.lon+=J;
 o.lat-=O;
-Q.lat+=O;
-R++
+Q.lat+=O
 }z+=R;
 e+=R;
 var M=this.map.getResolution();
