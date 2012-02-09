@@ -115,7 +115,11 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         layers.push(this.drawLayer);
 
         this.map.addLayers(layers);
-        this.setBaseLayerByName(this.initialBgLayer);
+        if (this.initialBgLayer == 'swisstopo_map') {
+            this.setSwisstopoLayer(true);
+        } else {
+            this.setBaseLayerByName(this.initialBgLayer);
+        }
 
         this.drawLayer.setZIndex(this.map.Z_INDEX_BASE['Feature']);
         
@@ -542,7 +546,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         ];
     },
     
-    setSwisstopoLayer: function() {
+    setSwisstopoLayer: function(fromPermalink) {
+        fromPermalink = fromPermalink || false;
+
         // TODO: use JSONP to get capabilities directly from the provider
         OpenLayers.Request.GET({
             url: "/static/js/mapfish/swisstopo/wmts-getcapabilities.xml",
@@ -579,6 +585,10 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 
                 this.map.addLayer(this.swisstopoMapLayer);
                 this.setBaseLayerByName('swisstopo_map');
+
+                if (fromPermalink) {
+                    this.centerOnArgParserCenter();
+                }
             },
             failure: function() {
                 alert("Trouble getting capabilities doc");
