@@ -369,11 +369,7 @@ div.postsignature hr {
 /* 7.7 Maximum height for search results as posts. Position go to post link */
 
 div.searchposts div.postmsg {
-    height: 8em;
-}
-
-div.searchposts dd p {
-    padding-top: 3em;
+    max-height: 15em;
 }
 
 /* 7.8 Class for bbcode [u] */
@@ -1158,6 +1154,7 @@ div.icon {
 
 div.searchposts div.icon {
     margin-left: 0;
+    margin-right: 6px;
 }
 
 /* 10.2 Class .tclcon is a div inside the first column of tables with post indicators. The
