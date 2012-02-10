@@ -38,21 +38,32 @@ if (isset($_GET['get_host']))
 
 	// Is get_host an IP address or a post ID?
 	if (@preg_match('/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/', $_GET['get_host']))
+    {
 		$ip = $_GET['get_host'];
+        $post_infos = '';
+        $author_ip_link = '';
+    }
 	else
 	{
 		$get_host = intval($_GET['get_host']);
 		if ($get_host < 1)
 			message($lang_common['Bad request']);
 
-		$result = $db->query('SELECT poster_ip FROM '.$db->prefix.'posts WHERE id='.$get_host) or error('Unable to fetch post IP address', __FILE__, __LINE__, $db->error());
+		$result = $db->query('SELECT poster_id, poster_ip, poster FROM '.$db->prefix.'posts WHERE id='.$get_host) or error('Unable to fetch post IP address', __FILE__, __LINE__, $db->error());
 		if (!$db->num_rows($result))
 			message($lang_common['Bad request']);
 
-		$ip = $db->result($result);
+		$post = $db->fetch_assoc($result);
+        $author_id = $post['poster_id'];
+        $author_name = pun_htmlspecialchars($post['poster']);
+        $ip = $post['poster_ip'];
+        
+        $post_infos = 'Post: <a href="viewtopic.php?pid='.$get_host.'#p'.$get_host.'">#p'.$get_host.'</a> - '.'Author: <a href="/users/'.$author_id.'">'.$author_name.'</a><br />';
+        
+        $author_ip_link = ' - <a href="search.php?action=search&author_id='.$author_id.'&ip='.$ip.'&show_as=posts">Show all posts from this author and with this IP</a>';
 	}
 
-	message('The IP address is: '.$ip.'<br />The host name is: '.@gethostbyaddr($ip).'<br /><br /><a href="admin_users.php?show_users='.$ip.'">Show more users for this IP</a>');
+	message($post_infos.'The IP address is: '.$ip.'<br />The host name is: '.@gethostbyaddr($ip).'<br /><br /><a href="admin_users.php?show_users='.$ip.'">Show more users for this IP</a> - <a href="search.php?action=search&ip='.$ip.'&show_as=posts">Show all posts with this IP</a>'.$author_ip_link);
 }
 
 
