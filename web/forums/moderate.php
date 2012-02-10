@@ -58,12 +58,20 @@ if (isset($_GET['get_host']))
         $author_name = pun_htmlspecialchars($post['poster']);
         $ip = $post['poster_ip'];
         
-        $post_infos = 'Post: <a href="viewtopic.php?pid='.$get_host.'#p'.$get_host.'">#p'.$get_host.'</a> - '.'Author: <a href="/users/'.$author_id.'">'.$author_name.'</a><br />';
+        $post_infos = 'Post: <a href="viewtopic.php?pid='.$get_host.'#p'.$get_host.'">#p'.$get_host.'</a> - '.'Author: ';
+        if ($author_id > 1)
+        {
+            $post_infos .= '<a href="/users/'.$author_id.'">'.$author_name.'</a>';
+        }
+        else
+        {
+            $post_infos .= $author_name;
+        }
         
         $author_ip_link = ' - <a href="search.php?action=search&author_id='.$author_id.'&ip='.$ip.'&show_as=posts">Show all posts from this author and with this IP</a>';
 	}
 
-	message($post_infos.'The IP address is: '.$ip.'<br />The host name is: '.@gethostbyaddr($ip).'<br /><br /><a href="admin_users.php?show_users='.$ip.'">Show more users for this IP</a> - <a href="search.php?action=search&ip='.$ip.'&show_as=posts">Show all posts with this IP</a>'.$author_ip_link);
+	message($post_infos.'<br />The IP address is: '.$ip.'<br />The host name is: '.@gethostbyaddr($ip).'<br /><br /><a href="admin_users.php?show_users='.$ip.'">Show more users for this IP</a> - <a href="search.php?action=search&ip='.$ip.'&show_as=posts">Show all posts with this IP</a>'.$author_ip_link);
 }
 
 
