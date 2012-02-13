@@ -380,6 +380,14 @@ class routesActions extends documentsActions
                     $a->doSaveWithValues($id, $ea->get('linked_id'), $ea->get('type'));
                 }
             }
+            // if we add a route to a summit-hut, link the route to the hut
+            $hut_asso = Association::findAllAssociations($summit_id, 'sh');
+            if ($this->new_document && $summit_id && count($hut_asso) > 0)
+            {
+                // associate hut to summit 
+                $asso = new Association(); 
+                $asso->doSaveWithValues($hut_asso[0]->get('linked_id'), $id, 'hr', 2); // C2C user
+            }
 
             parent::endEdit(); // redirect to document view
         }
