@@ -14,19 +14,21 @@ DB_OPTS="-h $DB_HOST -p $DB_PORT -u $DB_USER -P $DB_PASS"
 mkdir -p $SHP_DIR/c2corg_geodata
 
 # huts
-pgsql2shp $DB_OPTS -f $TMP_DIR/huts.shp -g geom $DB_NAME "SELECT h.oid, h.id, h.geom, h.lon, h.lat, h.elevation, h.shelter_type as type, h.is_staffed, h.phone, h.url, h.staffed_capacity as staf_cap, h.unstaffed_capacity as unstaf_cap, h.has_unstaffed_matress as matress, h.has_unstaffed_blanket as blanket, h.has_unstaffed_gas as gas, h.has_unstaffed_wood as wood, i.name, i.culture FROM huts h LEFT JOIN huts_i18n i on h.id=i.id WHERE redirects_to is null;" > /dev/null 2>&1 && mv $TMP_DIR/huts.shp $SHP_DIR/c2corg_geodata/huts.shp
+pgsql2shp $DB_OPTS -f $TMP_DIR/huts -g geom $DB_NAME "SELECT h.oid, h.id, h.geom, h.lon, h.lat, h.elevation, h.shelter_type as type, h.is_staffed, h.phone, h.url, h.staffed_capacity as staf_cap, h.unstaffed_capacity as unstaf_cap, h.has_unstaffed_matress as matress, h.has_unstaffed_blanket as blanket, h.has_unstaffed_gas as gas, h.has_unstaffed_wood as wood, i.name, i.culture FROM huts h LEFT JOIN huts_i18n i on h.id=i.id WHERE redirects_to is null;" > /dev/null 2>&1
 
 # summits
-pgsql2shp $DB_OPTS -f $TMP_DIR/summits.shp -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, sa.lon, sa.lat, sa.elevation, sa.summit_type as type, si.name, si.culture FROM summits sa LEFT JOIN summits_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;" > /dev/null 2>&1 && mv $TMP_DIR/summits.shp $SHP_DIR/c2corg_geodata/summits.shp
+pgsql2shp $DB_OPTS -f $TMP_DIR/summits -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, sa.lon, sa.lat, sa.elevation, sa.summit_type as type, si.name, si.culture FROM summits sa LEFT JOIN summits_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;" > /dev/null 2>&1
 
 # parkings
-pgsql2shp $DB_OPTS -f $TMP_DIR/parkings.shp -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, sa.lon, sa.lat, sa.elevation, si.name, si.culture FROM parkings sa LEFT JOIN parkings_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;" > /dev/null 2>&1 && mv $TMP_DIR/parkings.shp $SHP_DIR/c2corg_geodata/parkings.shp
+pgsql2shp $DB_OPTS -f $TMP_DIR/parkings -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, sa.lon, sa.lat, sa.elevation, si.name, si.culture FROM parkings sa LEFT JOIN parkings_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;" > /dev/null 2>&1
 
 # sites
-pgsql2shp $DB_OPTS -f $TMP_DIR/climbing_sites.shp -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, sa.lon, sa.lat, sa.elevation, si.name, si.culture FROM sites sa LEFT JOIN sites_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;" > /dev/null 2>&1 && mv $TMP_DIR/climbing_sites.shp $SHP_DIR/c2corg_geodata/climbing_sites.shp
+pgsql2shp $DB_OPTS -f $TMP_DIR/climbing_sites -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, sa.lon, sa.lat, sa.elevation, si.name, si.culture FROM sites sa LEFT JOIN sites_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;" > /dev/null 2>&1
 
 # routes
-pgsql2shp $DB_OPTS -f $TMP_DIR/routes.shp -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, si.name, si.culture FROM routes sa LEFT JOIN routes_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;" > /dev/null 2>&1 && mv $TMP_DIR/routes.shp $SHP_DIR/c2corg_geodata/routes.shp
+pgsql2shp $DB_OPTS -f $TMP_DIR/routes -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, si.name, si.culture FROM routes sa LEFT JOIN routes_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;" > /dev/null 2>&1
+
+mv $TMP_DIR/* $SHP_DIR/c2corg_geodata/
 
 # create archive
 (cd $SHP_DIR
