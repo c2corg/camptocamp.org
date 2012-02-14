@@ -517,6 +517,12 @@ msgstr "Ajouter des images"
 msgid "Create new maps"
 msgstr "Ajouter une carte"
 
+# [general comment]
+# infobulle pour le lien vers le wizard de sortie en mode non connecté
+# [WARNING] needs_review
+msgid "Create new outing unconnected"
+msgstr "Connectez vous pour ajouter une sortie !"
+
 msgid "Create new outing with some help"
 msgstr "Ajouter une nouvelle sortie en bénéficiant d'aide"
 

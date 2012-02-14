@@ -12,11 +12,7 @@ if (!$mobile_version)
 
     include_partial('documents/welcome', array('sf_cache_key' => 'home_' . $culture,
                                                'default_open' => true));
-
-    if ($connected)
-    {
-        include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
-    }
+    include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
     include_partial('documents/news', array('items' => $latest_c2c_news, 'culture' => $culture, 'default_open' => true));
     include_partial('documents/prepare', array('sf_cache_key' => $culture, 'default_open' => false));
     include_partial('documents/toolbox', array('sf_cache_key' => $culture, 'default_open' => true));

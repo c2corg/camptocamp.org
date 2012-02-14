@@ -505,6 +505,12 @@ msgstr "Add a picture"
 msgid "Create new maps"
 msgstr "Add a map"
 
+# [general comment]
+# infobulle pour le lien vers le wizard de sortie en mode non connecté
+# [WARNING] fr translation used
+msgid "Create new outing unconnected"
+msgstr "Connectez vous pour ajouter une sortie !"
+
 msgid "Create new outing with some help"
 msgstr "Create new outing with some help"
 

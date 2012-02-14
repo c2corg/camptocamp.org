@@ -203,7 +203,6 @@ class routesActions extends documentsActions
             // extract highest associated summit, and prepend its name to display this route's name.
             $this->highest_summit_name = c2cTools::extractHighestName($main_associated_summits);
             // redefine page title: prepend summit name
-            
             $doc_name = $this->highest_summit_name
                       . $this->__(' :') . ' '
                       . $this->document->get('name');

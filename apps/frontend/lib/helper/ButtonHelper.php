@@ -253,15 +253,30 @@ function button_add_outing($id)
                          
 }
 
-function button_wizard($class = array())
+function button_wizard($options = array())
 {
     use_helper('ModalBox');
-    $options = array('title' => __('Create new outing with some help'));
-    if (!empty($class))
+
+    if (!isset($options['title']))
     {
-        $options = array_merge($options, $class);
+        $options['title'] = __('Create new outing with some help');
     }
-    return m_link_to(__('Create new outings'), 'outings/wizard', $options, array('width' => 600));
+
+    if (isset($options['url']))
+    {
+        $url = $options['url'];
+        unset($options['url']);
+    }
+    else
+    {
+        $url = 'outings/wizard';
+    }
+
+    if (!empty($html_options))
+    {
+        $options = array_merge($options, $html_options);
+    }
+    return m_link_to(__('Create new outings'), $url, $options, array('width' => 600));
 }
 
 function button_print()

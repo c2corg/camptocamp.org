@@ -501,6 +501,12 @@ msgstr "Afegir imatges"
 msgid "Create new maps"
 msgstr "Afegir un mapa"
 
+# [general comment]
+# infobulle pour le lien vers le wizard de sortie en mode non connecté
+# [WARNING] fr translation used
+msgid "Create new outing unconnected"
+msgstr "Connectez vous pour ajouter une sortie !"
+
 msgid "Create new outing with some help"
 msgstr "Afegir una nova sortida utilitzant l'assistent"
 
@@ -3731,8 +3737,8 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Previsions meteoro
 "<ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Butlletí d'allaus (Catalunya)</a></li><li><a href=\"http://www.lauegi.conselharan.org/\">Conselh Generau (Aran)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Butlletí Méteo France</a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">SLF Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA Itàlia</a></li><li><a href=\"/users/mailinglists\">Rebeu els butlletins al correu</a></li></ul>\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p>\n"
 "<ul><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>\n"
-"<p>Autres</p>\n"
-"<ul><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://transportpublic.org/\">transportpublic.org</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
+"<p>Altres</p>\n"
+"<ul><li><a href=\"http://www.senderismeentransportpublic.blogspot.com/\">Senderisme en transport públic</a></li><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://transportpublic.org/\">transportpublic.org</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
 msgid "center"
 msgstr "centra"
@@ -3754,7 +3760,6 @@ msgstr "Xampanya-Ardenes"
 msgid "changerdapproche"
 msgstr "La muntanya sense cotxe"
 
-# [WARNING] needs_review
 msgid "changes"
 msgstr "modificacions"
 
@@ -3762,13 +3767,13 @@ msgid "children_proof"
 msgstr "Nens:"
 
 msgid "choose an other language"
-msgstr "escollir una altra llengüa"
+msgstr "escull una altra llengüa"
 
 msgid "cleared road"
 msgstr "sense neu"
 
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Pitja a l'extrem superior dreta de les imatges per veure la pàgina de l'imatge o en l'extrem superior esquerra per veure l'imatge a la seva mida original."
+msgstr "Pitgeu a l'extrem superior dret de les imatges per veure la pàgina de la imatge o a l'extrem superior esquerre per veure la imatge a la seva mida original."
 
 msgid "click to edit"
 msgstr "premeu per modificar"
