@@ -509,7 +509,7 @@ msgstr "Add a map"
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
 # [WARNING] fr translation used
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie !"
+msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien s'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
 
 msgid "Create new outing with some help"
 msgstr "Create new outing with some help"

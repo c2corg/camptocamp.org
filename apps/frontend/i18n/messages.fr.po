@@ -519,9 +519,8 @@ msgstr "Ajouter une carte"
 
 # [general comment]
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
-# [WARNING] needs_review
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie !"
+msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien s'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
 
 msgid "Create new outing with some help"
 msgstr "Ajouter une nouvelle sortie en bénéficiant d'aide"
@@ -1251,7 +1250,7 @@ msgstr "Associer un document existant"
 # [general comment]
 # more specific message when a user can be associated
 msgid "Link an existing user or document"
-msgstr "Associer un contributeur ou document existant"
+msgstr "Associer un participant ou document existant"
 
 msgid "Linked books"
 msgstr "Livres associés"

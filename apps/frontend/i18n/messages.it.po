@@ -514,7 +514,7 @@ msgstr "Aggiungi una mappa"
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
 # [WARNING] fr translation used
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie !"
+msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien s'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
 
 msgid "Create new outing with some help"
 msgstr "Aggiungi une nuova gita con l’assistente"
@@ -1245,7 +1245,7 @@ msgstr "Associare un documento esistente"
 # [general comment]
 # more specific message when a user can be associated
 msgid "Link an existing user or document"
-msgstr "Associare un utente o un documento"
+msgstr "Associare un partecipante o un documento"
 
 msgid "Linked books"
 msgstr "Libri associati"
@@ -2164,9 +2164,8 @@ msgstr "Questa cima non è stata trovata."
 msgid "Summit:"
 msgstr "Cima:"
 
-# [WARNING] en translation used
 msgid "Swisstopo maps"
-msgstr "Swisstopo maps"
+msgstr "Mappa Swisstopo"
 
 # [general comment]
 # mobile version : we cannot translate
