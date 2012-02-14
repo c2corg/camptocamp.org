@@ -25,6 +25,9 @@ foreach($images as $image)
     $view_original = link_to('original', absolute_link(image_url($image['filename'], null, true), true),
                              array('class' => 'view_original', 'title' => __('View original image')));
 
+    $edit_image = link_to('edit', "@document_edit?module=images&id=$image_id&lang=$lang",
+                          array('class' => 'edit_image', 'title' => __('edit_tab_help')));
+
     if ($user_can_dissociate)
     {
         $type = c2cTools::Module2Letter($module_name).'i';
@@ -54,7 +57,7 @@ foreach($images as $image)
     if (!$mobile_version)
     {
         echo '<div class="image_actions">'
-            . $view_details . $view_original . $remove_association
+            . $view_details . $view_original . $edit_image . $remove_association
             . '</div>';
     }
     echo '<div class="image_license license_' . $image_type . '"></div></div>';

@@ -175,7 +175,7 @@ span.share_bookmark {
 /* action pictos here are only used in standard interface */
 
 /* picto/edit.png */
-.action_edit span, .action_edit, .c2cui_picto.action_edit {
+.action_edit span, .action_edit, .c2cui_picto.action_edit, .image_list a.edit_image {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABTVBMVEXPcBX////KklHPcBXPcBXRlSvPcBXPcBXHjEjPcBXPcBXTn2ZXQhiCZi6HYSumaCaqiUOzn3C8iUy+ehq/tqbCjEjCy7bFmEnImWTJhUHJza/MxrDMxrPPcBXQnUbQ1L7Rt5DVtnrV1r3WuXbXo2PX6P7YgS/YmlTYpVjZm1HamEnbmUvbsYXgoVHkyVXnvnfnwIvny3fpo2Drp2fsjjXskTrtlD/tym3t0HjumEbu03nu1H3u1YHvm03vn1Tv0qzwkjnwlT/wo1rw0rTw03nxmUXxp2Hxq2jx1Hvx46/ynUzyr27y1nrzoVTzpVzzsnTztXr0qmP0uH/1rmv1uoP13F713F/131v2s3P206723Wz3t3r332P34Vr34lv4u4H4voj44l34+//5wo35x5T5yZH547L6xJL84MT99sL99sT998f/8uD/8+X///+Kok2QAAAADHRSTlMAACY2P17Y4ejw9vfjF0r8AAAAv0lEQVQY02NgYFeDAy4WBiBgD0mHAWNOZpBAUDIcGLGBBAISICBJTENHjhUo4B+fBwae+s659hxAAe9oMF/KJs0gMoMbKOAeAQLy1llR5ioSTEABt2CgvJJVdlicjy47I1DAKTAvT9owOzTWQ9sJLGDnpyqjnBmT6KLlZwcWsPUVUVTQC7fQzPO1BQtYegnkqAuLi+bleVmCBcxceVNSJfldgcAMLGDqyMMnJOgIAqZgARMHODBhB/lFFgmwMwAAh1g0qhvSISAAAAAASUVORK5CYII=) no-repeat 0;
 }
 

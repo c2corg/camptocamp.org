@@ -2989,6 +2989,11 @@ div.image img
   float: left;
 }
 
+.image_list a.edit_image
+{
+  float: left;
+}
+
 .image_list div.image_license
 {
   position: absolute;
