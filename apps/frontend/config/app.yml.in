@@ -279,6 +279,7 @@ all:
       92: es
       93: ca
       94: eu
+      96: fr
  
   captcha:
     alphabet: abcdefghjkmnptwxyz234678
