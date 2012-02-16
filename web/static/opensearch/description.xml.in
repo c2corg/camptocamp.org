@@ -5,7 +5,7 @@
 <ShortName>Camptocamp.org</ShortName>
 <Description>Camptocamp.org</Description>
 <InputEncoding>utf-8</InputEncoding>
-<Image width="16" height="16" type="image/x-icon">http://@SERVER_NAME@@SERVER_PORT@/static/images/favicon.ico</Image>
+<Image width="16" height="16" type="image/x-icon">http://@STATIC_HOST@/static/images/favicon.ico</Image>
 <Url type="text/html" method="get" template="http://@SERVER_NAME@@SERVER_PORT@/search/{searchTerms}/type/routes" />
-<moz:SearchForm>http://@SERVER_NAME@@SERVER_PORT@/search"</moz:SearchForm>
+<moz:SearchForm>http://@SERVER_NAME@@SERVER_PORT@/search</moz:SearchForm>
 </OpenSearchDescription>
