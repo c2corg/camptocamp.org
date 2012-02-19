@@ -34,7 +34,22 @@ class hutsActions extends documentsActions
             $this->associated_parkings = $associated_parkings;
 
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
-            
+
+            $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'name');
+            if (count($associated_summits))
+            {
+                foreach ($associated_summits as $summit) // there should be only one...
+                {
+                    $summit_ids[] = $summit['id'];
+                }
+                $associated_summit_routes = Association::findWithBestName($summit_ids, $prefered_cultures, 'sr');
+            } else {
+                $associated_summit_routes = array();
+            }
+
+            $associated_summit_routes = Route::getAssociatedRoutesData($associated_summit_routes, $this->__(' :').' ');
+            $this->associated_summit_routes = $associated_summit_routes;
+
             if ($this->document->get('shelter_type') == 5)
             {
                 $parking_ids = array();
@@ -55,24 +70,6 @@ class hutsActions extends documentsActions
             
             $associated_routes = Route::getAssociatedRoutesData($associated_routes, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
-            
-            $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'name');
-            if (count($associated_summits))
-            {
-                foreach ($associated_summits as $summit) // there should be only one...
-                {
-                    $summit_ids[] = $summit['id'];
-                }
-                $route_ids = array();
-                foreach ($associated_routes as $route)
-                {
-                    $route_ids[] = $route['id'];
-                }
-                $associated_summit_routes = Association::findWithBestName($summit_ids, $prefered_cultures, 'sr', false, true, $route_ids);
-            }
-            
-            $associated_summit_routes = Route::getAssociatedRoutesData($associated_summit_routes, $this->__(' :').' ');
-            $this->associated_summit_routes = $associated_summit_routes;
             
             $associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
             
