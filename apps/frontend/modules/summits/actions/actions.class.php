@@ -30,7 +30,8 @@ class summitsActions extends documentsActions
             $associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
             if (count($associated_huts) > 0 && $this->getRequestParameter('redirect') != 'no')
             {
-                $hut_id = $associated_huts[0]['id'];
+                $associated_hut = reset($associated_huts); // array has been filtered
+                $hut_id = $associated_hut['id'];
                 $lang = $this->getRequestParameter('lang');
                 $this->redirect("@document_by_id_lang?module=huts&id=$hut_id&lang=$lang");
             }
