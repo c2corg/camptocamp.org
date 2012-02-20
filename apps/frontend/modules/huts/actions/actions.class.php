@@ -308,6 +308,7 @@ class hutsActions extends documentsActions
         $out = array();
 
         $this->addListParam($out, 'areas');
+        $this->addAroundParam($out, 'harnd');
         
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');

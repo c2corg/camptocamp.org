@@ -308,6 +308,7 @@ all:
   autocomplete:
     min_chars: 3
     max_results: 15
+    geocode_service: geonames # geonames or nominatim
     
   shortdescription_max_length: 30
   comment_max_lengh: 200

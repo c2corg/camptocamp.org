@@ -183,6 +183,50 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
     return select_tag($name, $option_tags, $select_param);
 }
 
+function around_selector($name)
+{
+    // note that all javascript is handled in geocode_autocompleter.js
+    // we should separate Geocode.Autocompleter and the code specific to the selector
+    // if Geocode.Autocompleter should be used elsewhere
+    use_helper('AutoComplete');
+    $option_tags = options_for_select(array('0' => '',
+                                            '1' => __('Place'),
+                                            '2' => __('My position'),
+                                            '3' => __('Coordinates')));
+
+    $out = __('Around: ');
+    $out .= select_tag($name . '_sel', $option_tags,
+                       array('onchange' => "c2c_geo.update_on_select_change('$name')"));
+    $out .= input_hidden_tag($name . '_lat');
+    $out .= input_hidden_tag($name . '_lon');
+
+    $out .= '<span id="' . $name . '_span" style="display:none">';
+
+    // geocode api
+    $out .= '<span id="' . $name . '_geocode" style="display:none">';
+    $out .= geocode_auto_complete($name, sfConfig::get('app_autocomplete_geocode_service'));
+    $out .= __('within km:');
+    $out .= '</span>';
+
+    // browser geolocation
+    $out .= '<span id="' . $name . '_geolocation_not_supported" style="display:none">';
+    $out .= __('geolocation not supported') . '</span>';
+    $out .= '<span id="' . $name . '_geolocation_waiting" style="display:none">';
+    $out .= __('waiting for geolocation') . '</span>';
+    $out .= '<span id="' . $name . '_geolocation_ok" style="display:none">';
+    $out .= __('geolocation ok') . '</span>';
+    $out .= '<span id="' . $name . '_geolocation_failed" style="display:none">';
+    $out .= __('geolocation failed') . '</span>';
+
+    // manual coordinates
+    // TODO
+
+    $out .= input_tag($name . '_range', 5, array('value' => '5', 'class' => 'short_input'));
+    $out .= '</span>';    
+
+    return '<span class="around_form">' . $out . '</span>';
+}
+
 function date_selector($include_blanks = array('month' => false, 'day' => false, 'year' => false))
 {
     $option_tags = options_for_select(array('0' => '',

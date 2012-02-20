@@ -1,14 +1,15 @@
 <?php
-use_helper('FilterForm');
+use_helper('FilterForm', 'AutoComplete');
 
 if (!c2cTools::mobileVersion())
 {
-   // put focus on the name field on dom load
+   // put focus on the name field on dom load // TODO change it
    echo javascript_tag('document.observe(\'dom:loaded\', function() {
    if (!("autofocus" in document.createElement("input"))) { $(\'hnam\').focus(); }});');
 }
 
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
+echo around_selector('harnd');
 include_partial('huts_filter', array('autofocus' => true));
 echo '<br />' . georef_selector();
 ?>

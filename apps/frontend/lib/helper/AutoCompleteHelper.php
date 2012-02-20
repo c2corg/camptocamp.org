@@ -41,6 +41,27 @@ function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display
     return $out;
 }
 
+/*
+ * service = nominatim or geonames
+ */
+function geocode_auto_complete($name, $service)
+{
+    $context = sfContext::getInstance();
+
+    $response = $context->getResponse();
+    $response->addJavascript(sfConfig::get('sf_prototype_web_dir').'/js/effects');
+    $response->addJavascript(sfConfig::get('sf_prototype_web_dir').'/js/controls');
+    // following script will automatically intanciate Geocode.Autocompleter
+    $response->addJavascript('/static/js/geocode_autocompleter');
+
+    $service_class = ($service === 'nominatim') ? ' nominatim' : ' geonames';
+
+    $out = input_tag($name, '', array('class' => 'geocode_auto_complete' . $service_class,
+                                      'placeholder' => __('enter place name')));
+    $out .= content_tag('div', '' , array('id' => $name.'_auto_complete', 'class' => 'auto_complete'));
+    
+    return $out;
+}
 
 function c2c_form_remote_add_element($url, $updated_success, $updated_failure = null, $indicator = 'indicator', $removed_id = null)
 {
@@ -68,7 +89,7 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
 }
 
 /**
- * Create a form that allow to link teh current document with several kinds of other docs
+ * Create a form that allow to link the current document with several kinds of other docs
  *
  * @param module current document module
  * @param id current document id

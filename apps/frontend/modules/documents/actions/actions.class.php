@@ -3921,6 +3921,27 @@ class documentsActions extends c2cActions
         }
     }
 
+    // reconstruct an around param with the different field
+    protected function addAroundParam(&$out, $field)
+    {
+        if ($sel = $this->getRequestParameter($field . '_sel'))
+        {
+            // param is ok if selector is != 0
+            if ($sel != 0)
+            {
+                $lat = strtr($this->getRequestParameter($field . '_lat'), '.', ',');
+                $lon = strtr($this->getRequestParameter($field . '_lon'), '.', ',');
+                $range = round(1000 * (float) strtr($this->getRequestParameter($field . '_range'), ',', '.'));
+
+                // check that our params are ok or discard
+                if (!preg_match('/^\d+,\d+$/', $lat) || !preg_match('/^\d+,\d+$/', $lon)
+                    || !preg_match('/^\d+$/', $range)) return;
+
+                $out[] = 'around='.$lon.'-'.$lat.'~'.$range;
+            }
+        }
+    }
+
     protected function addDateParam(&$out, $field)
     {
         if ($sel = $this->getRequestParameter($field . '_sel'))
