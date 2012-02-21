@@ -216,6 +216,8 @@ msgstr "La suppression des objets de type région n'est pas autorisée"
 msgid "Areas merging is prohibited"
 msgstr "La fusion des objets de type région n'est pas autorisée"
 
+# [general comment]
+# do not forget trailing space
 msgid "Around: "
 msgstr "Autour de "
 
@@ -522,10 +524,11 @@ msgstr "Ajouter une carte"
 
 # [general comment]
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
+# 
+# 
+# PAS DE MARKUP, PAS DE RETOUR A LA LIGNE
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie !\n"
-"Si vous n'avez pas de compte, cliquez sur le lien <i>s'inscrire</i>, c'est rapide et gratuit.\n"
-"Merci pour votre future contribution"
+msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien S'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
 
 msgid "Create new outing with some help"
 msgstr "Ajouter une nouvelle sortie en bénéficiant d'aide"

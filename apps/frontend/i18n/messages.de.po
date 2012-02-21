@@ -206,9 +206,11 @@ msgstr "Es ist nicht erlaubt Regionen zu löschen "
 msgid "Areas merging is prohibited"
 msgstr "Es ist nicht erlaubt Regionen zusammenzuschliessen"
 
+# [general comment]
+# do not forget trailing space
 # [WARNING] en translation used
 msgid "Around: "
-msgstr "Around"
+msgstr "Around "
 
 msgid "Article"
 msgstr "Artikel"
@@ -516,11 +518,12 @@ msgstr "Eine Karte hinzufügen"
 
 # [general comment]
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
+# 
+# 
+# PAS DE MARKUP, PAS DE RETOUR A LA LIGNE
 # [WARNING] needs_review
 msgid "Create new outing unconnected"
-msgstr "Loggen Sie sich ein für ein Tour hinzufügen !\n"
-"Wenn Sie kein Account haben, klicken Sie auf den Link <i>Registrieren</i>, es ist schnell und gratis.\n"
-"Besten Dank für Ihre zukünftige Beiträge."
+msgstr "Loggen Sie sich ein für ein Tour hinzufügen ! Wenn Sie kein Account haben, klicken Sie auf den Link Registrieren, es ist schnell und gratis. Besten Dank für Ihre zukünftige Beiträge."
 
 msgid "Create new outing with some help"
 msgstr "Eine neue Tour hinzufügen (mit Hilfeassistent)"

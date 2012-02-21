@@ -207,9 +207,11 @@ msgstr "Eskualde motako objetuak ezin dira ezabatu"
 msgid "Areas merging is prohibited"
 msgstr "Eskualde motako objetuen batura ez dago baimendua"
 
+# [general comment]
+# do not forget trailing space
 # [WARNING] en translation used
 msgid "Around: "
-msgstr "Around"
+msgstr "Around "
 
 msgid "Article"
 msgstr "Artikulua"
@@ -515,12 +517,12 @@ msgid "Create new maps"
 msgstr "Mapa bat gehitu"
 
 # [general comment]
-# infobulle pour le lien vers le wizard de sortie en mode non connecté
+# infobulle pour le lien vers le wizard de sortie en mode non connecté (et accessoirement titre de la modalbox)
+# 
+# PAS DE MARKUP, PAS DE RETOUR A LA LIGNE !!!!!!
 # [WARNING] fr translation used
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie !\n"
-"Si vous n'avez pas de compte, cliquez sur le lien <i>s'inscrire</i>, c'est rapide et gratuit.\n"
-"Merci pour votre future contribution"
+msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien S'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
 
 msgid "Create new outing with some help"
 msgstr "Irteera berri bat gehitu laguntza erabiliz"

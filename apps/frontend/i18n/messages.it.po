@@ -208,9 +208,11 @@ msgstr "Non è possibile cancellare una regione"
 msgid "Areas merging is prohibited"
 msgstr "Non è autorizzata l’unione di oggetti del tipo Regione"
 
+# [general comment]
+# do not forget trailing space
 # [WARNING] en translation used
 msgid "Around: "
-msgstr "Around"
+msgstr "Around "
 
 msgid "Article"
 msgstr "Articolo"
@@ -516,10 +518,11 @@ msgstr "Aggiungi una mappa"
 
 # [general comment]
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
+# 
+# 
+# PAS DE MARKUP, PAS DE RETOUR A LA LIGNE
 msgid "Create new outing unconnected"
-msgstr "Devi connetterti per aggiungere una gita !\n"
-"Se non sei registrato, clicca sul link <i>Iscrizione </i>, è veloce e gratis !\n"
-"Grazie per i tuoi futuri inserimenti."
+msgstr "Devi connetterti per aggiungere una gita ! Se non sei registrato, clicca sul link Iscrizione, è veloce e gratis ! Grazie per i tuoi futuri inserimenti."
 
 msgid "Create new outing with some help"
 msgstr "Aggiungi une nuova gita con l’assistente"
