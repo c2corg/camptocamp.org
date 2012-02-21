@@ -208,6 +208,10 @@ msgstr "Non è possibile cancellare una regione"
 msgid "Areas merging is prohibited"
 msgstr "Non è autorizzata l’unione di oggetti del tipo Regione"
 
+# [WARNING] en translation used
+msgid "Around: "
+msgstr "Around"
+
 msgid "Article"
 msgstr "Articolo"
 
@@ -227,7 +231,7 @@ msgstr "Articoli"
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
 # [WARNING] needs_review
 msgid "Associate new access"
-msgstr "Associate new access"
+msgstr "Crea un nuovo itinerario per l'accesso dal rifugio"
 
 msgid "Associate new outing"
 msgstr "Aggiungi una gita a questo itinerario"
@@ -512,9 +516,10 @@ msgstr "Aggiungi una mappa"
 
 # [general comment]
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
-# [WARNING] fr translation used
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien s'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
+msgstr "Devi connetterti per aggiungere una gita !\n"
+"Se non sei registrato, clicca sul link <i>Iscrizione </i>, è veloce e gratis !\n"
+"Grazie per i tuoi futuri inserimenti."
 
 msgid "Create new outing with some help"
 msgstr "Aggiungi une nuova gita con l’assistente"
@@ -1680,6 +1685,12 @@ msgstr "Dati personali "
 msgid "Personal page"
 msgstr "Pagina personale"
 
+# [general comment]
+# a place that will be determined via nominatim or geonames (like, locality, address, etc)
+# [WARNING] en translation used
+msgid "Place"
+msgstr "Place"
+
 msgid "Please enter a valid summit"
 msgstr "inserire un nome di cima coretto"
 
@@ -1904,9 +1915,8 @@ msgstr "Cerca un utente"
 msgid "Search criteria"
 msgstr "Criterio di ricerca"
 
-# [WARNING] en translation used
 msgid "Search in my outings"
-msgstr "Search in my outings"
+msgstr "Cercare fra le mie gite"
 
 msgid "Search results"
 msgstr "Risultati della ricerca"
@@ -4170,6 +4180,10 @@ msgstr "Difficoltà / impegno complessivo:"
 msgid "english"
 msgstr "inglese"
 
+# [WARNING] en translation used
+msgid "enter place name"
+msgstr "Enter a location name"
+
 msgid "environment"
 msgstr "ambiente"
 
@@ -4388,6 +4402,14 @@ msgstr "negozio di sport"
 # [WARNING] needs_update
 msgid "geo_export_info"
 msgstr "<h3>Esporta</h3>Le coordinate geografiche del documento possono essere caricate in uno dei formati proposti."
+
+# [WARNING] en translation used
+msgid "geolocation failed"
+msgstr "Geolocation failed"
+
+# [WARNING] en translation used
+msgid "geolocation not supported"
+msgstr "Sorry, geolocation services are not supported by your browser"
 
 msgid "geology pic"
 msgstr "geologia"
@@ -6448,6 +6470,10 @@ msgstr "Mostrare l'ultima versione del documento"
 msgid "visual conditions"
 msgstr "condizioni de visu"
 
+# [WARNING] en translation used
+msgid "waiting for geolocation"
+msgstr "Waiting for location..."
+
 msgid "way_back"
 msgstr "Discesa delle vie:"
 
@@ -6479,6 +6505,10 @@ msgstr "Camptocamp ti offre la possibilità di integrare al tuo sito internet o 
 
 msgid "with rain"
 msgstr "bagnato in caso di pioggia"
+
+# [WARNING] fr translation used
+msgid "within km: "
+msgstr "dans un rayon de "
 
 msgid "wl button title"
 msgstr "Inserire un link interno"

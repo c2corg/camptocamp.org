@@ -205,6 +205,9 @@ msgstr "Areas cannot be deleted"
 msgid "Areas merging is prohibited"
 msgstr "Merging areas is not permitted"
 
+msgid "Around: "
+msgstr "Around"
+
 msgid "Article"
 msgstr "Article"
 
@@ -222,9 +225,9 @@ msgstr "Articles"
 
 # [general comment]
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Associate new access"
-msgstr "Créer un nouvel accès"
+msgstr "Create a new access route to the hut"
 
 msgid "Associate new outing"
 msgstr "Create your outing"
@@ -509,7 +512,9 @@ msgstr "Add a map"
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
 # [WARNING] fr translation used
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien s'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
+msgstr "Connectez vous pour ajouter une sortie !\n"
+"Si vous n'avez pas de compte, cliquez sur le lien <i>s'inscrire</i>, c'est rapide et gratuit.\n"
+"Merci pour votre future contribution"
 
 msgid "Create new outing with some help"
 msgstr "Create new outing with some help"
@@ -1676,6 +1681,11 @@ msgstr "Personal informations"
 
 msgid "Personal page"
 msgstr "Personal page"
+
+# [general comment]
+# a place that will be determined via nominatim or geonames (like, locality, address, etc)
+msgid "Place"
+msgstr "Place"
 
 msgid "Please enter a valid summit"
 msgstr "please enter a valid summit name"
@@ -4194,6 +4204,9 @@ msgstr "Commitment grade:"
 msgid "english"
 msgstr "english"
 
+msgid "enter place name"
+msgstr "Enter a location name"
+
 msgid "environment"
 msgstr "environment"
 
@@ -4414,6 +4427,13 @@ msgstr "sports shop"
 
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Geographical coordinates of the document can be downloaded in one of the following formats:<br />standard XML format for geographical coordinates, supported by more and more GPS devices, or easily transformed using tools such as <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (online) or <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (software)<br /><br /><strong>KML</strong>:<br />geographical data format mainly used in Google Earth, Google Map and World Wind<br /><br /><strong>JSON</strong>:<br />JavaScript data exchange format, used by web applications"
+
+# [WARNING] needs_review
+msgid "geolocation failed"
+msgstr "Geolocation failed"
+
+msgid "geolocation not supported"
+msgstr "Sorry, geolocation services are not supported by your browser"
 
 msgid "geology pic"
 msgstr "geology"
@@ -6489,6 +6509,10 @@ msgstr "Show last version of the document"
 msgid "visual conditions"
 msgstr "visual conditions"
 
+# [WARNING] needs_review
+msgid "waiting for geolocation"
+msgstr "Waiting for location..."
+
 msgid "way_back"
 msgstr "Route descent:"
 
@@ -6522,6 +6546,10 @@ msgstr "Camptocamp offers you the possibility to insert a widget to your website
 
 msgid "with rain"
 msgstr "exposed"
+
+# [WARNING] fr translation used
+msgid "within km: "
+msgstr "dans un rayon de "
 
 msgid "wl button title"
 msgstr "Insert an intern url"

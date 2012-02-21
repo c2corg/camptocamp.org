@@ -206,6 +206,10 @@ msgstr "Es ist nicht erlaubt Regionen zu löschen "
 msgid "Areas merging is prohibited"
 msgstr "Es ist nicht erlaubt Regionen zusammenzuschliessen"
 
+# [WARNING] en translation used
+msgid "Around: "
+msgstr "Around"
+
 msgid "Article"
 msgstr "Artikel"
 
@@ -223,9 +227,9 @@ msgstr "Artikel"
 
 # [general comment]
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Associate new access"
-msgstr "Créer un nouvel accès"
+msgstr "Ein neue Zugangsroute zur Hutte erstellen"
 
 msgid "Associate new outing"
 msgstr "Eine neue Tour zu dieser Route hinzufügen "
@@ -512,9 +516,11 @@ msgstr "Eine Karte hinzufügen"
 
 # [general comment]
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien s'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
+msgstr "Loggen Sie sich ein für ein Tour hinzufügen !\n"
+"Wenn Sie kein Account haben, klicken Sie auf den Link <i>Registrieren</i>, es ist schnell und gratis.\n"
+"Besten Dank für Ihre zukünftige Beiträge."
 
 msgid "Create new outing with some help"
 msgstr "Eine neue Tour hinzufügen (mit Hilfeassistent)"
@@ -721,7 +727,7 @@ msgid "Document types differ, thus cannot be merged"
 msgstr "Die Dokumente sind nicht vom gleichen Typ und können nicht zusammengeschlossen werden"
 
 msgid "Donate to Camptocamp Association"
-msgstr "Eine Spende an den Camptocamp-Verein leisten"
+msgstr "Eine Spende an den Camptocamp-Verein leisten, am Verein beitreten oder sein Mitgliederbeitrag zahlen"
 
 msgid "E"
 msgstr "O"
@@ -1359,7 +1365,10 @@ msgstr "Das Erstellen von Karten ist nicht erlaubt"
 # Ebenen (deutsch) oder Layers (english)?
 # 
 # RE: "Ebenen" würde ich nicht verstehen, "Layers" schon.
-# [WARNING] needs_review
+# 
+# VS: Und wie ist es mit Schichten?
+# 
+# [WARNING] needs_update
 msgid "Map data"
 msgstr "Layers"
 
@@ -1675,6 +1684,12 @@ msgstr "Persönliche Informationen"
 
 msgid "Personal page"
 msgstr "Persönliche Seite"
+
+# [general comment]
+# a place that will be determined via nominatim or geonames (like, locality, address, etc)
+# [WARNING] en translation used
+msgid "Place"
+msgstr "Place"
 
 msgid "Please enter a valid summit"
 msgstr "Bitte geben Sie einen gültigen Gipfelnamen ein"
@@ -2682,9 +2697,12 @@ msgstr "<h3>Höhe des Zugangs</h3>Höhe des Anfangs der Tour. Nützlich im Winte
 
 # [comment]
 # "(ÖV oder ind. Verkehr)" was heißt das? ÖV = Öffi? Habts mit Öffentlichem Verkehrsmittel ersetzt... und ecomobility wurde woanders mit nachhaltig schon übersetzt, dh ich hab das beibehalten
+# 
+# VS: ind. Verkehrs = persönliches Auto
+# Zugangsort = Dokument in der Database von c2c
 # [WARNING] needs_review
 msgid "_access_info"
-msgstr "<h33>Zugang<h3>Beschreibung des Zugangs zu einem Verkaufspunkt eines lokalen Produkts.<br />Falls das Dokument mit einem Zugangspunkt (Öffentlichem Vehrkehrsmittel oder nachhaltigem Verkehr) verbunden ist, dann beschreiben Sie nur den Zugang ab diesem Ort."
+msgstr "<h33>Zugang<h3>Beschreibung des Zugangs zu einem Verkaufspunkt von lokalen Produkte.<br />Falls das Dokument mit einem Zugangsort (Strasse oder Öffentlichem Vehrkehrsmittel) verbunden ist, dann beschreiben Sie nur den Zugang ab diesem Zugangsort."
 
 msgid "_access_status_info"
 msgstr "<h3>Zugang</h3>Zustand der Zufahrtsstrasse am Tag der Tour: geräumt, schneebedeckt oder gesperrt.<br />Im Feld <i>Kommentar zum Strassenzugang oder den öV</i> können zusätztliche Informationen eingetragen werden."
@@ -2744,6 +2762,8 @@ msgstr "<h3>Anti-spam-Test</h3>Schreiben Sie die im Bild sichtbaren Buchstaben a
 
 # [comment]
 # Brouillion: Chaos? Wirres? Baustelle? etwas anderes?
+# 
+# VS: --> In Bearbeitung
 # [WARNING] needs_review
 msgid "_categories_info"
 msgstr "<h3>Kategorie eines Beitrags</h3>\n"
@@ -2762,7 +2782,7 @@ msgstr "<h3>Kategorie eines Beitrags</h3>\n"
 "<strong>Erlebnisberichte und Erzählungen</strong>: Berichte über wahre\n"
 "oder erfundene Erlebnisse.<br />\n"
 "<strong>Website-Info</strong>: Beiträge über die camptocamp.org-Website<br>(Hilfe, Information)<br />\n"
-"<strong>Verein</strong>: Beiträge über<em>camptocamp-Verein</em> <strong>Baustelle</strong>: Beiträge in Bearbeitung (keine Veröffentlichung auf der Begrüßungsseite)"
+"<strong>Verein</strong>: Beiträge über<em>camptocamp-Verein</em> <strong>In Bearbeitung</strong>: Beiträge in Bearbeitung (keine Veröffentlichung auf der Begrüßungsseite)"
 
 msgid "_category_info"
 msgstr "<h3>Benutzerkategorie</h3>Mit diesem optionalen Feld kann der Benutzer einfacher gefunden werden, indem Suchabfragen nach Kategorien gemacht werden können. Dies ist besonders nützlich, wenn nach Clubs oder professionellen Fachleuten (Führer, Instruktoren) einer bestimmten Region (falls sie georeferenziert sind) gesucht wird.<br /><br /><strong>Amateur</strong>:Leute, welche zum Vergnügen in die Berge fahren und nicht zum beruflichen Erwerb. Die meisten Berggänger gehören in diese Kategorie.<br /><br /><strong>Profi</strong>: Leute, welche Bergsportaktivitäten im Rahmen der beruflichen Erwerbsarbeit nachgehen (Führer, Instruktoren) und entsprechend ausgebildet sind. Im Feld <em>Aktivitäten</em> können die beruflich angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Club oder Gruppe, welche Touren organisiert</strong>: Club oder eine Gruppe von Leuten, welche Bergsporttouren (Skitouren, Bergsteigen, Klettern, Wandern, etc) organisiert und durchführt. Im Feld <em>Aktivitäten</em> können die angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Andere Organisation</strong>: Öffentliche oder private Organisation, welche andere bergrelevante Aktivitäten als ein Club anbietet und durchführt, wie z.B. Bergrettung, Hüttenbetrieb, Nationalparkverwaltung, Wetterdienstleistungen, Touristeninformationen, Umweltfürsprache, etc."
@@ -2788,9 +2808,11 @@ msgstr "<h3>Verhältnisse</h3>Generelle Einschätzung der vorgefundenen Verhält
 # [comment]
 # oder etwas psychologistischer: "Routengestalt"?
 # 
+# VS: Routenkonfiguration ?
+# 
 # [WARNING] needs_review
 msgid "_configuration_info"
-msgstr "<h3>Routenmorphologie</h3> Die Routenmorphologie beschreibt das Hauptrelief entlang einer Route oder ihrer Schwierigkeiten.<br /><br /> <strong>Grat:</strong> Ein Grad ist charakterisiert durch die Hauptachse und zwei Flanken. Der Zugang erfolgt üblicherweise über eine der Flanken.<br /> <br /> <strong>Couloir</strong>: Ein Couloir entspricht der der Verbindungslinien tiefsten Punkte der Querprofile in einem Tal (sog. Talweg). Üblicherweise ist das Coulour auf der Seite durch Felsen begrenzt.<br /> <strong><br /> Wand</strong>: Die Bezeichnung bezieht sich auf eine sehr steile durchgehende Bergflanke, wobei diese dorch Sporne, Pfeiler, Couloirs etc. versetzt sein kann. <br /><br /> <strong>Rinne</strong>: Eine Rinne ist ein sehr steiles (ab 70°) und enges (einige Meter Breite) Couloir. Eine Rinne eignet sich oft für Eis- oder Mixedklettereien.<br /><br /> <strong>Pfeiler / Sporn</strong>: Ein Sporn oder ein Pfeiler ragt klar aus einer Wand heraus. Typischerweise finden sich daran Felsklettereien, aber auch Eis- oder Mixedklettereien sind möglich. Der Begriff Pfeiler bezieht sich auf Felsen.<br /> <br /> <strong>Hochtour - Gletscherroute</strong>: Eine Berg und Gletscherroute, welche haupsächlich über Gletscher verläuft und deren Morphologie keine bestimmten Charakteristiken annimmt. Typischerweise handelt es sich um klassische Gletscherrouten und -wanderungen oder einige Bergrouten welche keine charakteristische Morphologie haben (z.B. Mont Blanc Überschreitung). Das Feld <em>benötigt Gletscherausrüstung</em> muss aktiviert werden, falls der Gletscher verspaltet ist."
+msgstr "<h3>Routenmorphologie</h3> Die Routenmorphologie beschreibt das Hauptrelief entlang einer Route oder ihrer Schwierigkeiten.<br /><br /> <strong>Grat:</strong> Ein Grat ist charakterisiert durch eine Hauptachse und zwei Flanken. Der Zugang erfolgt üblicherweise über eine der Flanken.<br /> <br /> <strong>Couloir</strong>: Ein Couloir entspricht der der Verbindungslinien tiefsten Punkte der Querprofile in einem Tal (sog. Talweg). Üblicherweise ist das Coulour auf der Seite durch Felsen begrenzt.<br /> <strong><br /> Wand</strong>: Die Bezeichnung bezieht sich auf eine sehr steile durchgehende Bergflanke, wobei diese dorch Sporne, Pfeiler, Couloirs etc. versetzt sein kann. <br /><br /> <strong>Rinne</strong>: Eine Rinne ist ein sehr steiles (ab 70°) und enges (einige Meter Breite) Couloir. Eine Rinne eignet sich oft für Eis- oder Mixedklettereien.<br /><br /> <strong>Pfeiler / Sporn</strong>: Ein Sporn oder ein Pfeiler ragt klar aus einer Wand heraus. Typischerweise finden sich daran Felsklettereien, aber auch Eis- oder Mixedklettereien sind möglich. Der Begriff Pfeiler bezieht sich auf Felsen.<br /> <br /> <strong>Hochtour - Gletscherroute</strong>: Eine Berg und Gletscherroute, welche haupsächlich über Gletscher verläuft und deren Morphologie keine bestimmten Charakteristiken annimmt. Typischerweise handelt es sich um klassische Gletscherrouten und -wanderungen oder einige Bergrouten welche keine charakteristische Morphologie haben (z.B. Mont Blanc Überschreitung). Das Feld <em>benötigt Gletscherausrüstung</em> muss aktiviert werden, falls der Gletscher verspaltet ist."
 
 msgid "_culture_info"
 msgstr "<h3>Sprache</h3>Sprache, in welcher das Dokument verfasst ist.<br />Falls sie nicht die angezeigte Sprache verwenden möchten, klicken sie auf den Link  <i>eine andere Sprache auswählen</i>."
@@ -2874,17 +2896,17 @@ msgstr "<h3>Qualität des vorhandenen Sicherungsmaterials</h3>\n"
 "Dieses Feld beschreibt das Vorhandensein und die Qualität von Sicherungsmaterial beim Fels- oder Eisklettern.<br />\n"
 "<br />\n"
 "<strong>P1 (gut eingerichtet)</strong><br />\n"
-"Sportkletterabsicherung mit 10 oder 12mm Bohr- oder Klebehaken, etc.Die Route ist nicht immer zum Abseilen eingerichtet.<br />\n"
-"<em><u>Benötigte Ausrüstung</u>:</em> 12 bis 14 Express davon einigemit langen Schlingen, 1 bis 2 Schlingen um Längen im einfachen Geländeim II. Grad zusätzlich abzusichern.<br />\n"
+"Sportkletterabsicherung mit 10 oder 12mm Bohr- oder Klebehaken, etc. Die Route ist nicht immer zum Abseilen eingerichtet.<br />\n"
+"<em><u>Benötigte Ausrüstung</u>:</em> 12 bis 14 Express davon einige mit langen Schlingen, 1 bis 2 Schlingen um Längen im einfachen Gelände im II. Grad zusätzlich abzusichern.<br />\n"
 "<strong><br />\n"
 "P2 (teilweise eingerichtet)</strong><br />\n"
-"- Klassische Route mit vorhandenem Sicherungsmaterial von guterQualität, meistens Normalhaken und einige Bohrhaken. Es kann nötig sein das vorhandene Material zu ergänzen oder das bestehende zu verstärken.<br />\n"
-"- Klassische oder moderne Route mit Bohr- oder Normalhaken an den schwierigen und/oder unabsicherbaren Stellen, sowie den Ständen.<br />\n"
-"- Sportkletterroute mit 8mm Bohrhaken oder anderes alterndes Sicherungsmaterial.<br />\n"
+"- Klassische Route mit genügend Sicherungsmaterial von guter Qualität, meistens Normalhaken und einige Bohrhaken. Es kann nötig sein das bestehende Material zu ergänzen oder zu verstärken.<br />\n"
+"- Klassische oder moderne Route mit Bohr- oder Normalhaken an den schwierigen und/oder unabsicherbaren Stellen, sowie an den Ständen.<br />\n"
+"- Sportkletterroute mit 8mm Bohrhaken oder anderes alteres Sicherungsmaterial.<br />\n"
 "<em><u>Benötigte Ausrüstung</u>:</em> Ist abhängig von der Route; für eine Route im Schwierigkeitsgrad S oder schwieriger sind üblicherweise mindestens 8 Keile, 5 Friends, 4 Schlingen und lange Express notwendig.<br />\n"
 "<br />\n"
 "<strong>P3 (wenig eingerichtet)</strong><br />\n"
-"Weniger klassische Route mit wenig Sicherungsmaterial und/oder von sehrschlechter Qualität. Das meiste Sicherungsmaterial muss selbst gelegt werden und die Stände müssen selbst gebaut werden.<br />\n"
+"Weniger klassische Route mit wenig Sicherungsmaterial und/oder von sehr schlechter Qualität. Das meiste Sicherungsmaterial muss selbst gelegt werden und die Stände müssen selbst gebaut werden.<br />\n"
 "<em><u>Benötigte Ausrüstung</u>:</em> Ist abhängig von der Route; für eine Route im Schwierigkeitsgrad S oder schwieriger sind üblicherweise mindestens ein komplettes Keilset, Friends durchgehend von Camalot #0.3bis #4, zwei Hämmer, 6 Normalhaken in verschiedenen Formen.<br />\n"
 "<br />\n"
 "<strong>P4 (nicht eingerichtet)</strong><br />\n"
@@ -2912,11 +2934,9 @@ msgstr "<h3>Blende</h3>Blendenzahl, mit welcher die Aufnahme gemacht wurde.<br /
 msgid "_focal_length_info"
 msgstr "<h3>Brennweite</h3>Brennweite, mit welcher die Aufnahme gemacht wurde.<br />Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds gewonnen. Sie können diese Informationen mit einem Foto- oder Bildbearbeitungsprogramm entfernen bevor sie das Bild hochladen."
 
-# [WARNING] needs_review
 msgid "_forum_code_info"
-msgstr "<h3>Code um ein Bild in einen Forumseintrag einzufügen</h3>Um dieses Bild (in mittlerer Grösse) in einen Forumsbeitrag einzufügen, kopieren sie den folgenden Code (Strg+C) und fügen sie ihn am gewünschten Ort ein (Strg+V).<br />Das Bild wird mit einer Grösse von maximal 250px Höhe oder Breite dargestellt, mit einem Link um das Bild in der maximalen Grösse von800px auf schwarzem Hintergrund anzuzeigen.<br /><br />Mit dem Attribut nach dem Sparator (|) kann die gewünschte Position des Bilds gewählt werden:<br />- <strong>right</strong>: Das Bild ist auf der rechten Seite plaziert, der Text links.<br />- <strong>left</strong>: Das Bild ist auf der linken Seite plaziert, der Text rechts.<br />- <strong>center</strong>: Das Bild ist mittezentriert, kein Textlinks und rechts davon.<br />- <strong>inline</strong>: Das Bild ist innerhalb des Texts(in-line) plaziert.<br />- <strong>inline_right</strong>: Das Bild ist innerhalb des Texts(in-line) rechts plaziert (Bilder können rechts auf derselben Linie aufgestapelt werden).<br />- <strong>inline_left</strong>: Das Bild ist innerhalb des Texts(in-line) links plaziert (Bilder können links auf derselben Linie aufgestapelt werden).<br /><br />Wenn sie nach einem mit dem Attribut <strong>right</strong> oder <strong>left</strong> plazierten Bild einen neuen Textabschnitt beginnen möchten, können sie am Ende des vorherigen Abschnitts ein <strong>[p]</strong>-Tag einfügen.<br />"
+msgstr "<h3>Code um ein Bild in einen Forumseintrag einzufügen</h3>Um dieses Bild (in mittlerer Grösse) in einen Forumsbeitrag einzufügen, kopieren sie den folgenden Code (Strg+C) und fügen sie ihn am gewünschten Ort ein (Strg+V).<br />Das Bild wird mit einer Grösse von maximal 250px Höhe oder Breite dargestellt, mit einem Link um das Bild in der maximalen Grösse von 800px auf schwarzem Hintergrund anzuzeigen.<br /><br />Mit dem Attribut nach dem Sparator (|) kann die gewünschte Position des Bilds gewählt werden:<br />- <strong>right</strong>: Das Bild ist auf der rechten Seite plaziert, der Text links.<br />- <strong>left</strong>: Das Bild ist auf der linken Seite plaziert, der Text rechts.<br />- <strong>center</strong>: Das Bild ist mittezentriert, kein Textlinks und rechts davon.<br />- <strong>inline</strong>: Das Bild ist innerhalb des Texts(in-line) plaziert.<br />- <strong>inline_right</strong>: Das Bild ist innerhalb des Texts(in-line) rechts plaziert (Bilder können rechts auf derselben Linie aufgestapelt werden).<br />- <strong>inline_left</strong>: Das Bild ist innerhalb des Texts(in-line) links plaziert (Bilder können links auf derselben Linie aufgestapelt werden).<br /><br />Wenn sie nach einem mit dem Attribut <strong>right</strong> oder <strong>left</strong> plazierten Bild einen neuen Textabschnitt beginnen möchten, können sie am Ende des vorherigen Abschnitts ein <strong>[p]</strong>-Tag einfügen.<br />"
 
-# [WARNING] needs_review
 msgid "_frequentation_status_info"
 msgstr "<h3>Besucherfrequenz</h3>Wie viel besucht die Route während der Tour war.<br />Eine solche Einschätzung ist natürlich subjektiv, aber eine Skala wurde entwickelt um den Besucherandrang und die daraus enstehenden Unannehmlichkeiten auszudrücken.<br /><br /><strong>niemand</strong>: wir waren alleine<br /><br /><strong>wenig besucht</strong>: es waren noch andere Leute dort, aber nicht mehr als unsere Gruppe (beim Klettern: es gab eine andere Seilschaft)<br /><br /><strong>stark frequentiert</strong>: es waren noch andere Leute dort, mehr als unsere Gruppe, wir waren aber nicht durch sie gestört (beim Klettern: es gab zwei bis drei andere Seilschaften, gut auf der Route verteilt).<br /><br /><strong>sehr stark frequentiert</strong>: es gab viele andere Leute, deutlich mehr Leute als unsere Gruppe, was einige Unannehmlichkeiten mit sich brachte (beim Klettern: es gab vier oder mehr Seilschaften, es kam zu Stau an den Ständen und beim Abseilen)."
 
@@ -4350,6 +4370,10 @@ msgstr "Ernsthaftigkeitsgrad:"
 msgid "english"
 msgstr "englisch"
 
+# [WARNING] en translation used
+msgid "enter place name"
+msgstr "Enter a location name"
+
 msgid "environment"
 msgstr "Umwelt"
 
@@ -4567,6 +4591,14 @@ msgstr "Sportgeschäft"
 # [WARNING] needs_review
 msgid "geo_export_info"
 msgstr "<h3>Exportieren</h3>Die geografischen Koordinaten könne in den folgenden Formaten heruntergeladen werden:<br /><br /> <strong>GPX</strong>:<br /> Das Standarddatenformat für geographische Koordinaten auf XML-Basis. GPX wird inzwischen von den allermeisten GPS-Geräten unterstützt und falls nicht kann das Format einfach transformiert werden (mit Applikationen wie <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (on-line) or <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (Software)).<br /><br /> <strong>KML</strong>:<br /> Geodatenformat, welches vor allem von Google Earth, Google Maps und World Wind verwendet wird.<br /><br /><strong>JSON</strong>:<br /> Das JavaScript-Datenaustauschformat wird vor allen von Webapplikationen verwendet."
+
+# [WARNING] en translation used
+msgid "geolocation failed"
+msgstr "Geolocation failed"
+
+# [WARNING] en translation used
+msgid "geolocation not supported"
+msgstr "Sorry, geolocation services are not supported by your browser"
 
 msgid "geology pic"
 msgstr "Geologie"
@@ -6692,6 +6724,10 @@ msgstr "Die aktuellste Version des Dokuments anzeigen"
 msgid "visual conditions"
 msgstr "Sichtverhältnisse"
 
+# [WARNING] en translation used
+msgid "waiting for geolocation"
+msgstr "Waiting for location..."
+
 msgid "way_back"
 msgstr "Abstieg:"
 
@@ -6724,6 +6760,10 @@ msgstr "Camptocamp.org bietet die Möglichkeit an ihrer Website oder ihrem Blog 
 
 msgid "with rain"
 msgstr "dem Regen ausgesetzt"
+
+# [WARNING] fr translation used
+msgid "within km: "
+msgstr "dans un rayon de "
 
 msgid "wl button title"
 msgstr "Einen internen Link einfügen "

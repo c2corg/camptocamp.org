@@ -216,6 +216,9 @@ msgstr "La suppression des objets de type région n'est pas autorisée"
 msgid "Areas merging is prohibited"
 msgstr "La fusion des objets de type région n'est pas autorisée"
 
+msgid "Around: "
+msgstr "Autour de "
+
 msgid "Article"
 msgstr "Article"
 
@@ -235,7 +238,7 @@ msgstr "Articles"
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
 # [WARNING] needs_review
 msgid "Associate new access"
-msgstr "Créer un nouvel accès"
+msgstr "Créer un nouvel itinéraire d'accès au refuge"
 
 msgid "Associate new outing"
 msgstr "Ajouter votre sortie"
@@ -520,7 +523,9 @@ msgstr "Ajouter une carte"
 # [general comment]
 # infobulle pour le lien vers le wizard de sortie en mode non connecté
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien s'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
+msgstr "Connectez vous pour ajouter une sortie !\n"
+"Si vous n'avez pas de compte, cliquez sur le lien <i>s'inscrire</i>, c'est rapide et gratuit.\n"
+"Merci pour votre future contribution"
 
 msgid "Create new outing with some help"
 msgstr "Ajouter une nouvelle sortie en bénéficiant d'aide"
@@ -1250,7 +1255,7 @@ msgstr "Associer un document existant"
 # [general comment]
 # more specific message when a user can be associated
 msgid "Link an existing user or document"
-msgstr "Associer un participant ou document existant"
+msgstr "Associer un participant ou un document existant"
 
 msgid "Linked books"
 msgstr "Livres associés"
@@ -1681,6 +1686,11 @@ msgstr "Profil personnel"
 
 msgid "Personal page"
 msgstr "Page perso"
+
+# [general comment]
+# a place that will be determined via nominatim or geonames (like, locality, address, etc)
+msgid "Place"
+msgstr "Lieu"
 
 msgid "Please enter a valid summit"
 msgstr "veuillez entrez un nom de sommet valide"
@@ -4229,6 +4239,10 @@ msgstr "Engagement&nbsp;:"
 msgid "english"
 msgstr "anglais"
 
+# [WARNING] needs_review
+msgid "enter place name"
+msgstr "Entrer un nom de lieu"
+
 msgid "environment"
 msgstr "environnement"
 
@@ -4447,6 +4461,12 @@ msgstr "magasin de sport, location, réparation"
 
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Les coordonnées géographiques du document peuvent être téléchargées dans l'un des formats suivant&nbsp;:<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML de données géographiques, accepté par de plus en plus de GPS, ou facilement convertible grace à <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en ligne) ou <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de données géographiques utilisé principalement par Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'échange de données JavaScript, utilisé par des applications web"
+
+msgid "geolocation failed"
+msgstr "Impossible de déterminer la position"
+
+msgid "geolocation not supported"
+msgstr "Désolé, cette fonctionnalité n'est pas supportée par votre navigateur"
 
 msgid "geology pic"
 msgstr "géologie"
@@ -6499,6 +6519,9 @@ msgstr "Afficher le document"
 msgid "visual conditions"
 msgstr "conditions de visu"
 
+msgid "waiting for geolocation"
+msgstr "En attente d'informations de localisation..."
+
 msgid "way_back"
 msgstr "Descente des voies&nbsp;:"
 
@@ -6530,6 +6553,9 @@ msgstr "Camptocamp vous offre la possibilité d'intégrer à votre site internet
 
 msgid "with rain"
 msgstr "exposé à la pluie"
+
+msgid "within km: "
+msgstr "dans un rayon de "
 
 msgid "wl button title"
 msgstr "Insérer un lien interne"
