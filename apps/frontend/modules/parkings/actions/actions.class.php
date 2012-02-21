@@ -143,6 +143,7 @@ class parkingsActions extends documentsActions
         $out = array();
 
         $this->addListParam($out, 'areas');
+        $this->addAroundParam($out, 'parnd');
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
         $this->addListParam($out, 'tp');

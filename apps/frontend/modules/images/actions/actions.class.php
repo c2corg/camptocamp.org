@@ -642,6 +642,7 @@ class imagesActions extends documentsActions
         $out = array();
 
         $this->addListParam($out, 'areas');
+        $this->addAroundParam($out, 'iarnd');
         $this->addNameParam($out, 'inam');
         $this->addListParam($out, 'icat');
         $this->addListParam($out, 'act');

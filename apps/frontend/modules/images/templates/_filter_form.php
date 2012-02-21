@@ -4,8 +4,8 @@ use_helper('FilterForm', 'Form', 'General', 'MyForm');
 if (!c2cTools::mobileVersion())
 {
    // put focus on the name field on dom load
-   echo javascript_tag('document.observe(\'dom:loaded\', function() {
-   if (!("autofocus" in document.createElement("input"))) { $(\'inam\').focus(); }});'); 
+   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
+   document.observe(\'dom:loaded\', function() { $(\'inam\').focus(); }});');
 }
 ?>
 <div class="fieldgroup">
@@ -32,4 +32,5 @@ echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('icult');
 $activities_raw = $sf_data->getRaw('activities');
 echo __('activities') . ' ' . activities_selector(false, false, $activities_raw);
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
+echo around_selector('iarnd');
 include_partial('documents/filter_sort');

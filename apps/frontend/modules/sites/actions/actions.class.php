@@ -607,6 +607,7 @@ class sitesActions extends documentsActions
         $out = array();
 
         $this->addListParam($out, 'areas');
+        $this->addAroundParam($out, 'tarnd');
         
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');

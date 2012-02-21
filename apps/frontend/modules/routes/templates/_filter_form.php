@@ -4,8 +4,8 @@ use_helper('FilterForm');
 if (!c2cTools::mobileVersion())
 {
    // put focus on the name field on dom load
-   echo javascript_tag('document.observe(\'dom:loaded\', function() {
-   if (!("autofocus" in document.createElement("input"))) { $(\'rnam\').focus(); }});');
+   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
+   document.observe(\'dom:loaded\', function() { $(\'rnam\').focus(); }});');
 }
 
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));

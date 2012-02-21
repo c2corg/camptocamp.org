@@ -3,10 +3,11 @@
 // The constructor takes following parameters:
 // - id of the monitored textbox
 // - id of the autocompletion menu
-// - options block // TODO
+// - options block
 Autocompleter.Geocode = Class.create(Autocompleter.Base, {
   initialize: function(element, update, options) {
     this.baseInitialize(element, update, options);
+    // this index is used when we have several instances on the same page
     this.gindex = element;
     // if the element has class geonames, we use this service, else we use nominatim (http://wiki.openstreetmap.org/wiki/Nominatim)
     if ($(element).hasClassName('geonames')) {
@@ -14,18 +15,20 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
     } else {
       this.service = 'nominatim';
     }
+    // the 'no result' translated string is found as a dataset of the input element
+    this.noresult = $(element).getAttribute('data-noresult');
   },
 
   getUpdatedChoices: function() {
-    this.startIndicator(); // TODO
+    this.startIndicator();
 
     var request = '';
     if (this.service === 'geonames') {
-      request = 'http://ws.geonames.org/searchJSON?maxRows=5&callback=c2c_geo.' + this.gindex + 
+      request = 'http://ws.geonames.org/searchJSON?maxRows=10&callback=c2c_geo.' + this.gindex + 
                 '.handleJSON&lang=' + document.documentElement.lang + '&name_startsWith=' +
                 encodeURIComponent(this.getToken());
     } else {
-      request = 'http://nominatim.openstreetmap.org/search?format=json&limit=5&json_callback=c2c_geo.' + 
+      request = 'http://nominatim.openstreetmap.org/search?format=json&limit=10&json_callback=c2c_geo.' + 
                 this.gindex + '.handleJSON&email=dev@campto' + 'camp.org&q=' + encodeURIComponent(this.getToken());
     }
 
@@ -41,13 +44,13 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
         for (place in json.geonames) {
           if (json.geonames.hasOwnProperty(place)) {
             ul += '<li data-lat="' + json.geonames[place].lat + '" data-lon="' + json.geonames[place].lng +
-                  '">' + json.geonames[place].name + ' <br /><em>[' + json.geonames[place].fcodeName +
+                  '">' + json.geonames[place].name + '<br /><em class="informal">[' + json.geonames[place].fcodeName +
                   ' - ' + json.geonames[place].countryName + ']</em></li>';
           }
         }
         this.updateChoices(ul + '</ul>');
       } else {
-        this.updateChoices('<ul><li>error</li></ul>'); // TODO
+        this.updateChoices('<ul><div class="feedback">' + this.noresult + '</div></ul>');
       }
 
     } else { // nominatim
@@ -62,7 +65,7 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
         }
         this.updateChoices(ul + '</ul>');
       } else {
-        this.updateChoices('<ul><li>error</li></ul>'); // TODO
+        this.updateChoices('<ul><div class="feedback">' + this.noresult + '</div></ul>');
       }
     }
   },
@@ -84,10 +87,11 @@ c2c_geo.update_on_select_change = function(elt) {
     // reset fields and hide all inner spans
     $(elt + '_lat').value = '';
     $(elt + '_lon').value = '';
-    $(elt + '_geocode', elt + '_geolocation_not_supported',
-      elt + '_geolocation_waiting', elt + '_geolocation_ok',
+    $(elt + '_range_span').show();
+    $(elt + '_geocode',
+      elt + '_geolocation_not_supported',
+      elt + '_geolocation_waiting',
       elt + '_geolocation_failed').invoke('hide');
-    // TODO other cases
 
     if (index === 0)
     {
@@ -102,12 +106,13 @@ c2c_geo.update_on_select_change = function(elt) {
       if (index === 1) { // geocode autocompleter
         $(elt + '_geocode').show();
       } else if (index === 2) { // user geolocalization
+        $(elt + '_range_span').hide();
         if (navigator.geolocation) {
           $(elt + '_geolocation_waiting').show();
           navigator.geolocation.getCurrentPosition(
             function(position) {
               $(elt + '_geolocation_waiting').hide();
-              $(elt + '_geolocation_ok').show();
+              $(elt + '_range_span').show();
               $(elt + '_lat').value = position.coords.latitude;
               $(elt + '_lon').value = position.coords.longitude;
             },
@@ -120,8 +125,6 @@ c2c_geo.update_on_select_change = function(elt) {
           $(elt + '_geolocation_not_supported').show();
         }
       }
-
-      // TODO other cases: coordinates (with map to make it easy) & user profile localization??
     }
 
 };
@@ -130,7 +133,7 @@ c2c_geo.update_on_select_change = function(elt) {
   $$('.geocode_auto_complete').each(function(obj) {
     var name = obj.id;
     c2c_geo[name] = new Autocompleter.Geocode(name, name + '_auto_complete', {
-                      minChars: 3,
+                      minChars: 3, indicator: 'indicator',
                       afterUpdateElement: function(inputField, selectedItem) {
                         $(name + '_lat').value = selectedItem.getAttribute('data-lat');
                         $(name + '_lon').value = selectedItem.getAttribute('data-lon');

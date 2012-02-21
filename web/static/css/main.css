@@ -2851,7 +2851,7 @@ p.abstract em
   font-style: normal;
 }
 
-div.auto_complete
+.auto_complete
 {
   width: 350px;
   background:#FFFFFF none repeat scroll 0 0;
@@ -2867,7 +2867,7 @@ div.auto_complete
   overflow-y: auto;
 }
 
-div.auto_complete ul
+.auto_complete ul
 {
   width: 100%;
   margin: 0;
@@ -2875,7 +2875,7 @@ div.auto_complete ul
   list-style-type: none;
 }
 
-div.auto_complete ul li
+.auto_complete ul li
 {
   margin: 0;
   padding: 3px;
@@ -2883,12 +2883,12 @@ div.auto_complete ul li
   list-style-type: none;
 }
 
-div.auto_complete ul li.selected
+.auto_complete ul li.selected
 {
   background-color: #ffb;
 }
 
-div.auto_complete ul strong.highlight
+.auto_complete ul strong.highlight
 {
   margin: 0;
   padding: 0;

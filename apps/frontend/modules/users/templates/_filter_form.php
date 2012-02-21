@@ -4,8 +4,8 @@ use_helper('FilterForm');
 if (!c2cTools::mobileVersion())
 {
    // put focus on the name field on dom load
-   echo javascript_tag('document.observe(\'dom:loaded\', function() {
-   if (!("autofocus" in document.createElement("input"))) { $(\'unam\').focus(); }});');
+   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
+   document.observe(\'dom:loaded\', function() { $(\'unam\').focus(); }});');
 }
 
 echo __('User:') . ' ' . input_tag('unam', null, array('autofocus' => 'autofocus'));
