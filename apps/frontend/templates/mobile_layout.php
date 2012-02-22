@@ -31,7 +31,9 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         echo include_http_metas();
         echo include_title();
     ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php // Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading ?>
+    <meta http-equiv="cleartype" content="on">
     <?php
         // we remove title from metas, because we don't want a <meta name=title>
         $response->getParameterHolder()->remove('title', 'helper/asset/auto/meta');
