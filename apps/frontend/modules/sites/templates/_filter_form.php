@@ -5,7 +5,7 @@ if (!c2cTools::mobileVersion())
 {
    // put focus on the name field on dom load
    echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
-   document.observe(\'dom:loaded\', function() { $(\'tnam\').focus(); }});');
+   document.observe(\'dom:loaded\', function() { $(\'tnam\').focus(); })};');
 }
 
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));

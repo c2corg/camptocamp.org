@@ -5,7 +5,7 @@ if (!c2cTools::mobileVersion())
 {
    // put focus on the name field on dom load
    echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
-   document.observe(\'dom:loaded\', function() { $(\'inam\').focus(); }});');
+   document.observe(\'dom:loaded\', function() { $(\'inam\').focus(); })};');
 }
 ?>
 <div class="fieldgroup">
