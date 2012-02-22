@@ -4,6 +4,10 @@
 // - id of the monitored textbox
 // - id of the autocompletion menu
 // - options block
+//
+// TODO pass callback and request params as param, so that we can
+// put Autocompleter.Geocode in a separate fiel, if needed in other
+// situations...
 Autocompleter.Geocode = Class.create(Autocompleter.Base, {
   initialize: function(element, update, options) {
     this.baseInitialize(element, update, options);
@@ -80,65 +84,68 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
   }
 });
 
-var c2c_geo = {};
+(function(document){
 
-c2c_geo.update_on_select_change = function(elt) {
-    var index = $(elt + '_sel').options.selectedIndex;
+window.C2C = window.C2C || {};
 
-    // reset fields and hide all inner spans
-    $(elt + '_lat').value = '';
-    $(elt + '_lon').value = '';
-    $(elt + '_range_span').show();
-    $(elt + '_geocode',
-      elt + '_geolocation_not_supported',
-      elt + '_geolocation_waiting',
-      elt + '_geolocation_failed').invoke('hide');
+C2C.geo = {};
 
-    if (index === 0)
-    {
-        $(elt + '_span').hide();
-    }
-    else
-    {
-      // display high level span
-      $(elt + '_span').show();
+C2C.geo.update_around_on_select_change = function(elt) {
+  var index = $(elt + '_sel').options.selectedIndex;
 
-      // display only relevant inner span
-      if (index === 1) { // geocode autocompleter
-        $(elt + '_geocode').show();
-      } else if (index === 2) { // user geolocalization
-        $(elt + '_range_span').hide();
-        if (navigator.geolocation) {
-          $(elt + '_geolocation_waiting').show();
-          navigator.geolocation.getCurrentPosition(
-            function(position) {
-              $(elt + '_geolocation_waiting').hide();
-              $(elt + '_range_span').show();
-              $(elt + '_lat').value = position.coords.latitude;
-              $(elt + '_lon').value = position.coords.longitude;
-            },
-            function(msg) {
-              $(elt + '_geolocation_waiting').hide();
-              $(elt + '_geolocation_failed').show();
-            });
-        } else {
-          // geolocation not supported by browser
-          $(elt + '_geolocation_not_supported').show();
-        }
+  // reset fields and hide all inner spans
+  $(elt + '_lat').value = '';
+  $(elt + '_lon').value = '';
+  $(elt + '_range_span').show();
+  $(elt + '_geocode',
+    elt + '_geolocation_not_supported',
+    elt + '_geolocation_waiting',
+    elt + '_geolocation_failed').invoke('hide');
+
+  if (index === 0)
+  {
+    $(elt + '_span').hide();
+  }
+  else
+  {
+    // display high level span
+    $(elt + '_span').show();
+
+    // display only relevant inner span
+    if (index === 1) { // geocode autocompleter
+      $(elt + '_geocode').show();
+    } else if (index === 2) { // user geolocalization
+      $(elt + '_range_span').hide();
+      if (navigator.geolocation) {
+        $(elt + '_geolocation_waiting').show();
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            $(elt + '_geolocation_waiting').hide();
+            $(elt + '_range_span').show();
+            $(elt + '_lat').value = position.coords.latitude;
+            $(elt + '_lon').value = position.coords.longitude;
+          },
+          function(msg) {
+            $(elt + '_geolocation_waiting').hide();
+            $(elt + '_geolocation_failed').show();
+          });
+      } else {
+        // geolocation not supported by browser
+        $(elt + '_geolocation_not_supported').show();
       }
     }
-
+  }
 };
 
-(function() { 
-  $$('.geocode_auto_complete').each(function(obj) {
-    var name = obj.id;
-    c2c_geo[name] = new Autocompleter.Geocode(name, name + '_auto_complete', {
-                      minChars: 3, indicator: 'indicator',
-                      afterUpdateElement: function(inputField, selectedItem) {
-                        $(name + '_lat').value = selectedItem.getAttribute('data-lat');
-                        $(name + '_lon').value = selectedItem.getAttribute('data-lon');
-                      }
-                    });
-  });
+$$('.geocode_auto_complete').each(function(obj) {
+  var name = obj.id;
+  C2C.geo[name] = new Autocompleter.Geocode(name, name + '_auto_complete', {
+                    minChars: 3, indicator: 'indicator',
+                    afterUpdateElement: function(inputField, selectedItem) {
+                      $(name + '_lat').value = selectedItem.getAttribute('data-lat');
+                      $(name + '_lon').value = selectedItem.getAttribute('data-lon');
+                    }
+                  });
+});
+
 })();

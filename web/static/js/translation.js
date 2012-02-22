@@ -1,4 +1,8 @@
-GoogleTranslator = {
+(function () {
+
+window.C2C = window.C2C || {};
+
+C2C.GoogleTranslator = {
   init: function() {
     // add goog-trans-section class to section to translate (the i18n part of the doc)
     $$('.article_contenu')[0].addClassName('goog-trans-section');
@@ -9,7 +13,7 @@ GoogleTranslator = {
     // asynchronously load google translator js
     var a = document.createElement('script'), h = document.getElementsByTagName('head')[0];
     a.async = 1;
-    a.src = '//translate.google.com/translate_a/element.js?cb=GoogleTranslator.onready&ug=section&hl=' + culture;
+    a.src = '//translate.google.com/translate_a/element.js?cb=C2C.GoogleTranslator.onready&ug=section&hl=' + culture;
     h.appendChild(a);
   },
 
@@ -21,4 +25,7 @@ GoogleTranslator = {
     }, 'google_sectional_element');
   }
 };
-Event.observe(window, 'load', function() { GoogleTranslator.init(); });
+
+Event.observe(window, 'load', function() { C2C.GoogleTranslator.init(); });
+
+})();
