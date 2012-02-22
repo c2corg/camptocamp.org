@@ -1,7 +1,7 @@
 <?php
 use_helper('General');
 ?>
-<fieldset>
+<fieldset id="fs_area">
     <legend class="select_title">
         <?php
         $static_base_url = sfConfig::get('app_static_url');
@@ -62,7 +62,7 @@ use_helper('General');
                         options_for_select($raw_ranges, $selected_ranges),
                         array('id' => 'places',
                               'multiple' => true,
-                              'style' => 'width:400px; height:100px;'));
+                              'style' => 'width:400px; height:350px;'));
         ?>
     </div>
     <?php echo __('unselect dropdown tip') ?>
