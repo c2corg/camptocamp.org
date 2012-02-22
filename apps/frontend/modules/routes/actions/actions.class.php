@@ -107,11 +107,25 @@ class routesActions extends documentsActions
                     }
                 }
             }
-            
+
             array_unshift($route_ids, $current_doc_id);
             $this->ids = implode('-', $route_ids);
-            
-            $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
+
+            $associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
+            // remove the hut if there is a summit with the same name. there is 99.99% chance they are linked and synchronized
+            // doing otherwise would require another request
+            foreach ($associated_summits as $summit)
+            {
+                foreach ($associated_huts as $key =>$hut)
+                {
+                    if ($summit['name'] == $hut['name'])
+                    {
+                        unset($associated_huts[$key]);
+                        break;
+                    }
+                }
+            }
+            $this->associated_huts = $associated_huts;
             
             if (count($associated_parkings))
             {
