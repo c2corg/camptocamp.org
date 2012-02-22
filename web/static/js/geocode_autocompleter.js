@@ -24,7 +24,8 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
 
     var request = '';
     if (this.service === 'geonames') {
-      request = 'http://ws.geonames.org/searchJSON?maxRows=10&callback=c2c_geo.' + this.gindex + 
+      request = 'http://ws.geonames.org/searchJSON?maxRows=10&featureClass=P&featureClass=T' +
+                '&callback=c2c_geo.' + this.gindex + 
                 '.handleJSON&lang=' + document.documentElement.lang + '&name_startsWith=' +
                 encodeURIComponent(this.getToken());
     } else {
@@ -44,7 +45,7 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
         for (place in json.geonames) {
           if (json.geonames.hasOwnProperty(place)) {
             ul += '<li data-lat="' + json.geonames[place].lat + '" data-lon="' + json.geonames[place].lng +
-                  '">' + json.geonames[place].name + '<br /><em class="informal">[' + json.geonames[place].fcodeName +
+                  '">' + json.geonames[place].name + '<br /><em class="informal">[' + json.geonames[place].adminName1 +
                   ' - ' + json.geonames[place].countryName + ']</em></li>';
           }
         }
