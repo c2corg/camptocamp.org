@@ -57,8 +57,9 @@ function geocode_auto_complete($name, $service)
     $service_class = ($service === 'nominatim') ? ' nominatim' : ' geonames';
 
     $out = input_tag($name, '', array('class' => 'geocode_auto_complete' . $service_class,
-                                      'placeholder' => __('enter place name')));
-    $out .= content_tag('div', '' , array('id' => $name.'_auto_complete', 'class' => 'auto_complete'));
+                                      'placeholder' => __('enter place name'),
+                                      'data-noresult' => __('no results')));
+    $out .= content_tag('span', '' , array('id' => $name.'_auto_complete', 'class' => 'auto_complete'));
     
     return $out;
 }

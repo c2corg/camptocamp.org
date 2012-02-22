@@ -192,7 +192,7 @@ function around_selector($name)
     $option_tags = options_for_select(array('0' => '',
                                             '1' => __('Place'),
                                             '2' => __('My position'),
-                                            '3' => __('Coordinates')));
+                                            /*'3' => __('Coordinates')*/));
 
     $out = __('Around: ');
     $out .= select_tag($name . '_sel', $option_tags,
@@ -205,7 +205,6 @@ function around_selector($name)
     // geocode api
     $out .= '<span id="' . $name . '_geocode" style="display:none">';
     $out .= geocode_auto_complete($name, sfConfig::get('app_autocomplete_geocode_service'));
-    $out .= __('within km:');
     $out .= '</span>';
 
     // browser geolocation
@@ -213,15 +212,19 @@ function around_selector($name)
     $out .= __('geolocation not supported') . '</span>';
     $out .= '<span id="' . $name . '_geolocation_waiting" style="display:none">';
     $out .= __('waiting for geolocation') . '</span>';
-    $out .= '<span id="' . $name . '_geolocation_ok" style="display:none">';
-    $out .= __('geolocation ok') . '</span>';
     $out .= '<span id="' . $name . '_geolocation_failed" style="display:none">';
     $out .= __('geolocation failed') . '</span>';
 
     // manual coordinates
     // TODO
 
-    $out .= input_tag($name . '_range', 5, array('value' => '5', 'class' => 'short_input'));
+    // range input
+    $out .= '<span id="' . $name . '_range_span">';
+    $out .= __('within km: ');
+    $out .= input_tag($name . '_range', 5, array('value' => '10', 'class' => 'short_input'));
+    $out .= __('kilometers');
+    $out .= '</span>';
+
     $out .= '</span>';    
 
     return '<span class="around_form">' . $out . '</span>';
