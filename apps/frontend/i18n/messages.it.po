@@ -517,12 +517,11 @@ msgid "Create new maps"
 msgstr "Aggiungi una mappa"
 
 # [general comment]
-# infobulle pour le lien vers le wizard de sortie en mode non connecté
+# infobulle pour le lien vers le wizard de sortie en mode non connecté (et accessoirement titre de la modalbox)
 # 
-# 
-# PAS DE MARKUP, PAS DE RETOUR A LA LIGNE
+# PAS DE MARKUP, PAS DE RETOUR A LA LIGNE !!!!!!
 msgid "Create new outing unconnected"
-msgstr "Devi connetterti per aggiungere una gita ! Se non sei registrato, clicca sul link Iscrizione, è veloce e gratis ! Grazie per i tuoi futuri inserimenti."
+msgstr "Devi connetterti per aggiungere una gita! Se non sei registrato, clicca sul link Iscrizione, è veloce e gratis! Grazie per i tuoi futuri inserimenti."
 
 msgid "Create new outing with some help"
 msgstr "Aggiungi une nuova gita con l’assistente"

@@ -523,10 +523,9 @@ msgid "Create new maps"
 msgstr "Ajouter une carte"
 
 # [general comment]
-# infobulle pour le lien vers le wizard de sortie en mode non connecté
+# infobulle pour le lien vers le wizard de sortie en mode non connecté (et accessoirement titre de la modalbox)
 # 
-# 
-# PAS DE MARKUP, PAS DE RETOUR A LA LIGNE
+# PAS DE MARKUP, PAS DE RETOUR A LA LIGNE !!!!!!
 msgid "Create new outing unconnected"
 msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien S'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
 
