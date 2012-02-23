@@ -205,7 +205,7 @@ function around_selector($name)
     // geocode api
     $out .= '<span id="' . $name . '_geocode" style="display:none">';
     $out .= geocode_auto_complete($name, sfConfig::get('app_autocomplete_geocode_service'));
-    $out .= '</span>';
+    $out .= ' </span>';
 
     // browser geolocation
     $out .= '<span id="' . $name . '_geolocation_not_supported" style="display:none">';
@@ -222,7 +222,7 @@ function around_selector($name)
     $out .= '<span id="' . $name . '_range_span">';
     $out .= __('within km: ');
     $out .= input_tag($name . '_range', 5, array('value' => '10', 'class' => 'short_input'));
-    $out .= __('kilometers');
+    $out .= ' ' . __('kilometers');
     $out .= '</span>';
 
     $out .= '</span>';    

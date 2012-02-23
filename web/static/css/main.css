@@ -1860,7 +1860,9 @@ fieldset .select_title
   margin: 2px 1.5em 2px 0;
 }
 
-#filterform .lineform select, #filterform .lineform input, #filterform input[type="checkbox"]
+#filterform .lineform select, #filterform .lineform input,
+#filterform .around_form input,
+#filterform input[type="checkbox"]
 {
   margin: 2px 0;
 }
@@ -1870,7 +1872,8 @@ fieldset .select_title
   margin-right: 1.5em;
 }
 
-#filterform .dateform select
+#filterform .dateform select,
+#filterform .around_form select
 {
   margin: 2px 0.3em;
 }

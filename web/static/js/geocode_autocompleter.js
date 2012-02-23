@@ -29,11 +29,11 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
     var request = '';
     if (this.service === 'geonames') {
       request = 'http://ws.geonames.org/searchJSON?maxRows=10&featureClass=P&featureClass=T' +
-                '&callback=c2c_geo.' + this.gindex + 
+                '&callback=C2C.geo.' + this.gindex + 
                 '.handleJSON&lang=' + document.documentElement.lang + '&name_startsWith=' +
                 encodeURIComponent(this.getToken());
     } else {
-      request = 'http://nominatim.openstreetmap.org/search?format=json&limit=10&json_callback=c2c_geo.' + 
+      request = 'http://nominatim.openstreetmap.org/search?format=json&limit=10&json_callback=C2C.geo.' + 
                 this.gindex + '.handleJSON&email=dev@campto' + 'camp.org&q=' + encodeURIComponent(this.getToken());
     }
 
@@ -88,7 +88,7 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
 
 window.C2C = window.C2C || {};
 
-C2C.geo = {};
+C2C.geo = C2C.geo || {};
 
 C2C.geo.update_around_on_select_change = function(elt) {
   var index = $(elt + '_sel').options.selectedIndex;
