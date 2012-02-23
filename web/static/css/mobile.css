@@ -719,7 +719,7 @@ table.route_lines th, table.route_lines td
   #mobile_banner
   {
     position: absolute;
-    bottom: 35px /* in the middle of footer which is 120px high */
+    bottom: 35px; /* in the middle of footer which is 120px high */
     right: 10px;
   }
 
