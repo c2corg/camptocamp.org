@@ -1,4 +1,4 @@
-<div>
+<div id="mobile_banner">
 <script type="text/javascript"><!--
  /* <![CDATA[ */
  window.googleAfmcRequest = {

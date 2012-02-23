@@ -714,8 +714,19 @@ table.route_lines th, table.route_lines td
 @media screen and (min-device-width:768px)
 {
   /*
-   * Footer
+   * Move banner in the footer
    */
+  #mobile_banner
+  {
+    position: absolute;
+    bottom: 35px /* in the middle of footer which is 120px high */
+    right: 10px;
+  }
+
+  #footer_cc
+  {
+    margin-right: 10px;
+  }
 
   /*
    * Customize menu...
