@@ -721,6 +721,7 @@ table.route_lines th, table.route_lines td
     position: absolute;
     bottom: 35px; /* in the middle of footer which is 120px high */
     right: 10px;
+    z-index: 2;
   }
 
   #footer_cc
