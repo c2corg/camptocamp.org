@@ -3,16 +3,13 @@
 // The constructor takes following parameters:
 // - id of the monitored textbox
 // - id of the autocompletion menu
+// - callback prefix
 // - options block
 //
-// TODO pass callback and request params as param, so that we can
-// put Autocompleter.Geocode in a separate fiel, if needed in other
-// situations...
 Autocompleter.Geocode = Class.create(Autocompleter.Base, {
-  initialize: function(element, update, options) {
+  initialize: function(element, update, serviceCallbackPrefix, options) {
     this.baseInitialize(element, update, options);
-    // this index is used when we have several instances on the same page
-    this.gindex = element;
+    this.serviceCallbackPrefix = serviceCallbackPrefix || '';
     // if the element has class geonames, we use this service, else we use nominatim (http://wiki.openstreetmap.org/wiki/Nominatim)
     if ($(element).hasClassName('geonames')) {
       this.service = 'geonames';
@@ -29,12 +26,13 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
     var request = '';
     if (this.service === 'geonames') {
       request = 'http://ws.geonames.org/searchJSON?maxRows=10&featureClass=P&featureClass=T' +
-                '&callback=C2C.geo.' + this.gindex + 
+                '&callback=' + this.serviceCallbackPrefix + 
                 '.handleJSON&lang=' + document.documentElement.lang + '&name_startsWith=' +
                 encodeURIComponent(this.getToken());
     } else {
-      request = 'http://nominatim.openstreetmap.org/search?format=json&limit=10&json_callback=C2C.geo.' + 
-                this.gindex + '.handleJSON&email=dev@campto' + 'camp.org&q=' + encodeURIComponent(this.getToken());
+      request = 'http://nominatim.openstreetmap.org/search?format=json&limit=10&json_callback.' + 
+                this.serviceCallbackPrefix + '.handleJSON&email=dev@campto' + 'camp.org&q=' +
+                encodeURIComponent(this.getToken());
     }
 
     this.getJSON(request);
@@ -139,7 +137,8 @@ C2C.geo.update_around_on_select_change = function(elt) {
 
 $$('.geocode_auto_complete').each(function(obj) {
   var name = obj.id;
-  C2C.geo[name] = new Autocompleter.Geocode(name, name + '_auto_complete', {
+  C2C.geo[name] = new Autocompleter.Geocode(name, name + '_auto_complete', 
+                                            'C2C.geo.' + name, {
                     minChars: 3, indicator: 'indicator',
                     afterUpdateElement: function(inputField, selectedItem) {
                       $(name + '_lat').value = selectedItem.getAttribute('data-lat');
