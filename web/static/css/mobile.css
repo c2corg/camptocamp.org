@@ -3,13 +3,11 @@ html, body, #holder
   min-width: 240px;
 }
 
-/* combined with the viewport, prevents iOS autozoom when rotating screen
-   Unfortunately, we still need to disable user zoom..
-   http://www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+/* http://www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 body
 {
-  -webkit-text-size-adjust: none;
-  -ms-text-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 #header
@@ -83,20 +81,6 @@ h1 .article_title
 #wrapper_context.no_nav
 {
   padding-left: 0;
-}
-
-#home_left_content
-{
-  width: 100% !important;
-  padding-right: 0;
-  min-height: 0;
-}
-
-#home_right_content
-{
-  width: 100% !important;
-  float: left;
-  padding-top: 0;
 }
 
 .home_title_right
@@ -666,6 +650,11 @@ table.route_lines th, table.route_lines td
   margin-top: 15px;
 }
 
+/*
+ * NOTE for the following media queries, smartphone and tablet terms are
+ * only indications
+ */
+
 /* specific rules for smartphones in portrait mode (screen width <= 320px) */
 @media screen and (max-width:320px)
 {
@@ -713,10 +702,43 @@ table.route_lines th, table.route_lines td
 
   /*
    * we hide some elements in the forums, like some columns, signatures, ...
-   * because .tc2 columns shoudl sometimes be hideen, sometimes not, we use
-   * a specific hide4smartphone class
+   * because .tc2 columns should sometimes be hideen, sometimes not (and we want to avoid
+   * too many changes to punbb), we use a specific hide4smartphone class
    */
   .postsignature, .hide4smartphone {
     display: none;
+  }
+}
+
+/* specific rules for tablets - min device width >= 768px */
+@media screen and (min-device-width:768px)
+{
+  /*
+   * Footer
+   */
+
+  /*
+   * Customize menu...
+   */
+}
+
+/* specific rules for smartphones and tablets in portrait mode - max width <= 800px */
+@media screen and (max-width:800px)
+{
+  /*
+   * Don't use columns on home page
+   */
+  #home_left_content
+  {
+    width: 100% !important;
+    padding-right: 0;
+    min-height: 0;
+  }
+
+  #home_right_content
+  {
+    width: 100% !important;
+    float: left;
+    padding-top: 0;
   }
 }
