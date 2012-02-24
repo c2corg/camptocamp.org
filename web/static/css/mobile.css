@@ -650,6 +650,19 @@ table.route_lines th, table.route_lines td
   margin-top: 15px;
 }
 
+
+/* in mobile version home, the last images section is put in home_left_content 
+   we correct vertical spacing */
+#last_images
+{
+  margin-top: 0;
+}
+
+#last_images_section_container
+{
+  margin-bottom: 0;
+}
+
 /*
  * NOTE for the following media queries, smartphone and tablet terms are
  * only indications
@@ -660,8 +673,7 @@ table.route_lines th, table.route_lines td
 {
 
   /**
-   * images for smartphones in portrait mode,
-   * we make them all centered and cleared
+   * we make images in docs all centered and cleared
    */
   .embedded_left, img.embedded_left,
   .embedded_right, img.embedded_right,

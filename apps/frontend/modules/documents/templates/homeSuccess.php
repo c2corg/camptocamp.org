@@ -21,18 +21,23 @@ if (!$mobile_version)
 
 echo display_content_top('home');
 echo start_content_tag('home_article', true);
-?>
+        if (!$mobile_version): ?>
         <div id="last_images">
-            <?php
-            include_partial('images/latest', array('items' => $latest_images, 'culture' => $culture, 'default_open' => true));
-            ?>
+            <?php include_partial('images/latest', array('items' => $latest_images, 'culture' => $culture, 'default_open' => true)); ?>
         </div>
+        <?php endif ?>
         <div id="home_background_content">
             <div id="home_left_content">
                 <?php
                 if (!$mobile_version)
                 {
                     include_partial('common/edit_in_place', array('message' => $sf_data->getRaw('message')));
+                }
+                else
+                {
+                    echo '<div id="last_images">';
+                    include_partial('images/latest', array('items' => $latest_images, 'culture' => $culture, 'default_open' => true));
+                    echo '</div>';
                 }
                 include_partial('outings/latest', array('items' => $latest_outings, 'culture' => $culture, 'default_open' => true));
                 if (!$mobile_version)
