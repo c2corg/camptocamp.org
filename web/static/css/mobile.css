@@ -92,16 +92,6 @@ h1 .article_title
   margin-right: 0;
 }
 
-ul.dated_changes li
-{
-  margin: 0;
-}
-ul.dated_changes span.date
-{
-  position: relative;
-  margin-right: 5px;
-}
-
 .home .article
 {
   padding-bottom: 0;
@@ -663,6 +653,16 @@ table.route_lines th, table.route_lines td
   margin-bottom: 0;
 }
 
+/* rearrange a bit columns sizes on homepage */
+#home_left_content
+{
+  width: 65%;
+}
+
+#home_right_content
+{
+  width: 33%;
+}
 /*
  * NOTE for the following media queries, smartphone and tablet terms are
  * only indications
@@ -713,12 +713,26 @@ table.route_lines th, table.route_lines td
   }
 
   /*
-   * we hide some elements in the forums, like some columns, signatures, ...
+   * We hide some elements in the forums, like some columns, signatures, ...
    * because .tc2 columns should sometimes be hideen, sometimes not (and we want to avoid
    * too many changes to punbb), we use a specific hide4smartphone class
    */
   .postsignature, .hide4smartphone {
     display: none;
+  }
+
+  /*
+   * Do not lose space on the left to display outings dates
+   */
+  ul.dated_changes li
+  {
+    margin: 0;
+  }
+
+  ul.dated_changes span.date
+  {
+    position: relative;
+    margin-right: 5px;
   }
 }
 
