@@ -765,4 +765,12 @@ table.route_lines th, table.route_lines td
     float: left;
     padding-top: 0;
   }
+
+  /*
+   * Do not display latest outings from metaengine
+   */
+  #on_the_web
+  {
+    display: none;
+  } 
 }

@@ -40,9 +40,9 @@ echo start_content_tag('home_article', true);
                     echo '</div>';
                 }
                 include_partial('outings/latest', array('items' => $latest_outings, 'culture' => $culture, 'default_open' => true));
+                include_partial('documents/latest_meta', array('items' => $meta_items, 'culture' => $culture, 'default_open' => $mobile_version));
                 if (!$mobile_version)
                 {
-                    include_partial('documents/latest_meta', array('items' => $meta_items, 'culture' => $culture, 'default_open' => false));
                     include_partial('articles/latest', array('items' => $latest_articles, 'culture' => $culture, 'default_open' => true));
                 }
                 ?>
