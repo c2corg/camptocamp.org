@@ -1667,7 +1667,7 @@ msgstr "Questo accesso non è stato trovato."
 
 # [WARNING] needs_review
 msgid "Participate to MW contest"
-msgstr "Partecipare al <a href=\"http://www.camptocamp.org/articles/263803/fr\">concorso cambiare approccio</a>&nbsp"
+msgstr "Partecipare al <a href=\"http://www.camptocamp.org/articles/330348\">concorso cambiare approccio</a>&nbsp"
 
 msgid "Password:"
 msgstr "Password:"

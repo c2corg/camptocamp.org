@@ -1664,7 +1664,7 @@ msgstr "This access point doesn’t exist"
 
 # [WARNING] needs_review
 msgid "Participate to MW contest"
-msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/263803/fr\">\"Changer d'Approche - Competition</a>&nbsp"
+msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/330348\">\"Changer d'Approche - Competition</a>&nbsp"
 
 msgid "Password:"
 msgstr "Password:"

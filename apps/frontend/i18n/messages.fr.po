@@ -1669,7 +1669,7 @@ msgstr "Cet accès n'existe pas."
 
 # [WARNING] needs_review
 msgid "Participate to MW contest"
-msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/263803/fr\">concours changer d'approche</a>&nbsp"
+msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/330348/fr\">concours changer d'approche</a>&nbsp"
 
 msgid "Password:"
 msgstr "Mot de passe&nbsp;:"
@@ -4241,9 +4241,8 @@ msgstr "Engagement&nbsp;:"
 msgid "english"
 msgstr "anglais"
 
-# [WARNING] needs_review
 msgid "enter place name"
-msgstr "Entrer un nom de lieu"
+msgstr "Saisir un nom de lieu"
 
 msgid "environment"
 msgstr "environnement"

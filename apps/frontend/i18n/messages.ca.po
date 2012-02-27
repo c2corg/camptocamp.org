@@ -1642,7 +1642,7 @@ msgid "Parking not found"
 msgstr "L'accès no existeix"
 
 msgid "Participate to MW contest"
-msgstr "Inscriu aquesta sortida al <a href=\"http://www.camptocamp.org/articles/263803/fr\">concurs \"Changer d'Approche\"</a>&nbsp"
+msgstr "Inscriu aquesta sortida al <a href=\"http://www.camptocamp.org/articles/330348\">concurs \"Changer d'Approche\"</a>&nbsp"
 
 msgid "Password:"
 msgstr "Contrasenya:"

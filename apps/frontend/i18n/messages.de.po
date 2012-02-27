@@ -1667,7 +1667,7 @@ msgid "Parking not found"
 msgstr "Diese Zufahrt existiert nicht."
 
 msgid "Participate to MW contest"
-msgstr "Diese Tour in den <a href=\"http://www.camptocamp.org/articles/263803/fr\">Wettbewerb \"Changer d'Approche\"</a> aufnehmen."
+msgstr "Diese Tour in den <a href=\"http://www.camptocamp.org/articles/330348\">Wettbewerb \"Changer d'Approche\"</a> aufnehmen."
 
 msgid "Password:"
 msgstr "Passwort:"
