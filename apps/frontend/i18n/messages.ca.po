@@ -1641,8 +1641,8 @@ msgstr "El punt d'accés no existeix o la seva localització no ha estat georefe
 msgid "Parking not found"
 msgstr "L'accès no existeix"
 
-msgid "Participate to MW contest"
-msgstr "Inscriu aquesta sortida al <a href=\"http://www.camptocamp.org/articles/330348\">concurs \"Changer d'Approche\"</a>&nbsp"
+msgid "Participate to MW %1% contest"
+msgstr "Inscriu aquesta sortida al <a href=\"http://www.camptocamp.org/articles/%1%\">concurs \"Changer d'Approche\"</a>&nbsp"
 
 msgid "Password:"
 msgstr "Contrasenya:"

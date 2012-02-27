@@ -77,7 +77,7 @@ if (isset($associated_articles) && count($associated_articles))
 ?>
 <div id="mw_contest"> 
 <?php
-echo __('Participate to MW contest');
+echo __('Participate to MW %1% contest', array('%1%' => sfConfig::get('app_mw_contest_id')));
 echo checkbox_tag('mw_contest_associate', 1, $mw_checked, array('onchange' => 'switch_mw_contest_association();'));
 ?>
 </div>

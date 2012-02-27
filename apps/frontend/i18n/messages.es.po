@@ -1662,8 +1662,8 @@ msgid "Parking not found"
 msgstr "El acceso no existe"
 
 # [WARNING] en translation used
-msgid "Participate to MW contest"
-msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/330348\">\"Changer d'Approche - Competition</a>&nbsp"
+msgid "Participate to MW %1% contest"
+msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/%1%\">\"Changer d'Approche - Competition</a>&nbsp"
 
 msgid "Password:"
 msgstr "Contraseña:"
