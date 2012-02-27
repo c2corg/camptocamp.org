@@ -110,5 +110,5 @@ MINIFY_DEBUG =  false
 ; Whether this version is the official camptocamp
 PRODUCTION = false
 
-MW_CONTEST_ID = 263803
-MW_CONTEST_ENABLED = false
+MW_CONTEST_ID = 330348
+MW_CONTEST_ENABLED = true
