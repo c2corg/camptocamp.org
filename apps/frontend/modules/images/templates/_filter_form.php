@@ -7,11 +7,11 @@ if (!c2cTools::mobileVersion())
    echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
    document.observe(\'dom:loaded\', function() { $(\'inam\').focus(); })};');
 }
+echo around_selector('iarnd');
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 ?>
 <div class="fieldgroup">
 <?php
-echo around_selector('iarnd');
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 echo '<div class="fieldname">' . picto_tag('picto_images') . __('name') . ' </div>' . input_tag('inam', null, array('autofocus' => 'autofocus'));
 //echo '<br /><br /><div class="fieldname">' . __('author') . ' </div>' . input_tag('auth') ;
 echo '<br /><br /><div class="fieldname">' . __('image_type') . ' </div>' . topo_dropdown('ityp', 'mod_images_type_list', true, false, true);

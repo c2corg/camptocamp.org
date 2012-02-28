@@ -65,5 +65,5 @@ use_helper('General');
                               'style' => 'width:400px; height:350px;'));
         ?>
     </div>
-    <?php echo __('unselect dropdown tip') ?>
+    <p class="tips"><?php echo __('unselect dropdown tip') ?></p>
 </fieldset>

@@ -6,9 +6,10 @@ $is_connected = $sf_user->isConnected();
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
-$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
+$is_gite = ($document->get('shelter_type') == 5);
+$show_link_tool = (!$is_gite && $is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 
-if ($document->get('shelter_type') == 5)
+if ($is_gite)
 {
     $access_label = 'access';
 }
@@ -28,7 +29,8 @@ if (count($associated_routes))
                                                   'id' => $id,
                                                   'module' => 'huts',
                                                   'type' => '',
-                                                  'strict' => true));
+                                                  'strict' => true,
+                                                  'show_list_link' => false));
 }
 else
 {

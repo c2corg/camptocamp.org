@@ -7,10 +7,10 @@ if (!c2cTools::mobileVersion())
    echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
    document.observe(\'dom:loaded\', function() { $(\'cnam\').focus(); })};');
 }
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 ?>
 <div class="fieldgroup">
 <?php
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 echo '<div class="fieldname">' . picto_tag('picto_articles') . __('name') . ' </div>' . input_tag('cnam', null, array('autofocus' => 'autofocus'));
 echo '<br /><br /><div class="fieldname">' . __('article_type') . ' </div>' . field_value_selector('ctyp', 'mod_articles_article_types_list', true);
 ?>

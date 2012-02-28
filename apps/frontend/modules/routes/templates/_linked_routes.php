@@ -11,6 +11,10 @@ else
     {
         $is_popup = false;
     }
+    if (!isset($show_list_link))
+    {
+        $show_list_link = true;
+    }
     $show_link_to_delete = ($sf_user->hasCredential('moderator') && !empty($type) && !$is_popup && !c2cTools::mobileVersion());
  
     $doc_id = $document->get('id');
@@ -72,7 +76,7 @@ else
         }
     }
     
-    if (isset($id) && !empty($id) && !$is_popup)
+    if (isset($id) && !empty($id) && !$is_popup && $show_list_link)
     {
         $routes_list_link = link_to('<span class="list_link">' . __('List all linked routes') . '</span>', "routes/list?$module=$id", array('rel' => 'nofollow'));
     }
