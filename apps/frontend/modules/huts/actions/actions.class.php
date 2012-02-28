@@ -43,7 +43,7 @@ class hutsActions extends documentsActions
                 {
                     $summit_ids[] = $summit['id'];
                 }
-                $summit_routes_tmp = Association::countLinked($summit_ids, 'sr');
+                $summit_routes_tmp = Association::countAllLinked($summit_ids, 'sr');
                 foreach ($summit_routes_tmp as $route)
                 {
                     $summit_routes_ids[] = $route['linked_id'];
