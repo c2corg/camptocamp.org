@@ -36,22 +36,18 @@ class hutsActions extends documentsActions
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
 
             $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'name');
-            $summit_ids = $summit_routes_ids = array();
+            $summit_ids = $summit_routes_tmp = $summit_routes_ids = array();
             if (count($associated_summits))
             {
                 foreach ($associated_summits as $summit) // there should be only one...
                 {
                     $summit_ids[] = $summit['id'];
                 }
-                $associated_summit_routes = Association::findWithBestName($summit_ids, $prefered_cultures, 'sr');
-                if (count($associated_summit_routes))
+                $summit_routes_tmp = Association::countLinked($summit_ids, 'sr');
+                foreach ($summit_routes_tmp as $route)
                 {
-                    foreach ($associated_summit_routes as $route) // there should be only one...
-                    {
-                        $summit_routes_ids[] = $route['id'];
-                    }
+                    $summit_routes_ids[] = $route['linked_id'];
                 }
-                $associated_routes = array_merge($associated_routes, $associated_summit_routes);
             }
 
             if ($this->document->get('shelter_type') == 5)
