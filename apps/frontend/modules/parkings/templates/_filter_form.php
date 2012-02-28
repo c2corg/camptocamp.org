@@ -8,8 +8,8 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'pnam\').focus(); })};');
 }
 
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 echo around_selector('parnd');
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 include_partial('parkings_filter', array('autofocus' => true));
 ?>
 <br />

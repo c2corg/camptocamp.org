@@ -21,11 +21,11 @@ echo __('langs') . ' ' . field_value_selector('blang', 'app_languages_book', fal
 ?>
 <br />
 <?php
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 $activities_raw = $sf_data->getRaw('activities');
 echo __('activities') . ' ' . activities_selector(false, true, $activities_raw);
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('bcult');
 ?>
 <br /><br />
 <?php
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 include_partial('documents/filter_sort');

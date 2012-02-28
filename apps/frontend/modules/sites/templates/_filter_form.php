@@ -8,8 +8,8 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'tnam\').focus(); })};');
 }
 
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 echo around_selector('tarnd');
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 ?>
 <br />
 <?php

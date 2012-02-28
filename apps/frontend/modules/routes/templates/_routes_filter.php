@@ -10,7 +10,7 @@ echo georef_selector('With GPS track:');
 <br /><br />
 <?php
 $activities_raw = $sf_data->getRaw('activities');
-echo __('activities') . ' ' . activities_selector(true, true, $activities_raw);
+echo __('activities') . ' ' . activities_selector(true, true, $activities_raw, array(8));
 echo __('max_elevation') . ' ' . elevation_selector('malt');
 echo __('height_diff_up') . ' ' . elevation_selector('hdif');
 ?>

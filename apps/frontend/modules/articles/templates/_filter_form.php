@@ -10,6 +10,7 @@ if (!c2cTools::mobileVersion())
 ?>
 <div class="fieldgroup">
 <?php
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 echo '<div class="fieldname">' . picto_tag('picto_articles') . __('name') . ' </div>' . input_tag('cnam', null, array('autofocus' => 'autofocus'));
 echo '<br /><br /><div class="fieldname">' . __('article_type') . ' </div>' . field_value_selector('ctyp', 'mod_articles_article_types_list', true);
 ?>
@@ -21,7 +22,6 @@ echo __('categories') . ' ' . field_value_selector('ccat', 'mod_articles_categor
 <?php
 $activities_raw = $sf_data->getRaw('activities');
 echo __('activities') . ' ' . activities_selector(false, false, $activities_raw);
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('ccult');
 ?><br /><?php
 include_partial('documents/filter_sort');

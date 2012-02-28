@@ -1878,6 +1878,11 @@ fieldset .select_title
   margin: 2px 0.3em;
 }
 
+#filterform  input.geonames
+{
+  width: 25em;
+}
+
 #actform
 {
   margin-bottom: 1.5em;

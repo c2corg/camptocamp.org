@@ -8,18 +8,18 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'snam\').focus(); })};');
 }
 
+echo around_selector('sarnd');
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
+?>
+<br />
+<?php
 include_partial('summits_filter', array('autofocus' => true));
 echo georef_selector();
 ?>
 <br /><br />
 <?php
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
-echo around_selector('sarnd');
-?>
-<br />
-<?php
 $activities_raw = $sf_data->getRaw('activities');
-echo  __('linked routes activities') . ' ' . activities_selector(false, false, $activities_raw);
+echo  __('linked routes activities') . ' ' . activities_selector(false, false, $activities_raw, array(8));
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('scult');
 ?>
 <br />

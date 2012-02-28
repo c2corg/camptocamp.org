@@ -63,7 +63,7 @@ class routesActions extends documentsActions
             $parent_ids = array_merge($parent_ids, $route_ids);
             if (count($parent_ids))
             {
-                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro'), true, true);
+                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro', 'sh'), true, true);
             }
             else
             {
@@ -112,13 +112,13 @@ class routesActions extends documentsActions
             $this->ids = implode('-', $route_ids);
 
             $associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
-            // remove the hut if there is a summit with the same name. there is 99.99% chance they are linked and synchronized
-            // doing otherwise would require another request
-            foreach ($associated_summits as $summit)
+            // remove the hut if it is linked to a summit
+            $associated_summit_huts = array_filter($associated_childs, array('c2cTools', 'is_hut'));
+            foreach ($associated_summit_huts as $summit_hut)
             {
                 foreach ($associated_huts as $key =>$hut)
                 {
-                    if ($summit['name'] == $hut['name'])
+                    if ($summit_hut['id'] == $hut['id'])
                     {
                         unset($associated_huts[$key]);
                         break;

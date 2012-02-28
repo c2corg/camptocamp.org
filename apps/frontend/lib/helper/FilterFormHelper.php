@@ -114,7 +114,7 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $
     return select_tag($fieldname, $option_tags);
 }
 
-function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array())
+function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array(), $unavailable_activities = array())
 {
     $out = array();
     $col = 0;
@@ -125,9 +125,10 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         if ($perso->isMainFilterSwitchOn()) $filtered_activities = $perso->getActivitiesFilter();
     }
 
+    $unavailable_activities[0] = 0;
     foreach (sfConfig::get('app_activities_form') as $activity_id => $activity)
     {
-        if ($activity_id == 0) continue;
+        if (in_array($activity_id, $unavailable_activities)) continue;
         $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
                             : array();
         $checked = in_array($activity_id, $filtered_activities) ? true : false; 
@@ -141,7 +142,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
                  . '</div>';
         $col += 1;
     }
-    return '<div id="actform">' . implode("\n", $out) . '</div><div class="clearer"></div>';
+    return '<div id="actform">' . implode("\n", $out) . '</div>';
 }
 
 function translate_sort_param($label)

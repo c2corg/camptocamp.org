@@ -8,8 +8,8 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'hnam\').focus(); })};');
 }
 
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 echo around_selector('harnd');
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 include_partial('huts_filter', array('autofocus' => true));
 echo '<br />' . georef_selector();
 ?>

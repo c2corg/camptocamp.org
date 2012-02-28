@@ -103,7 +103,7 @@ class areasActions extends documentsActions
         $separate_prefs = $this->hasRequestParameter('sep_prefs') ? $this->getRequestParameter('sep_prefs') : 'true';
         $separate_prefs = ($separate_prefs == 'false') ? false : true;
         $area_type = $this->getRequestParameter('area_type');
-        $height = $this->hasRequestParameter('height') ? $this->getRequestParameter('height') : 100;
+        $height = $this->hasRequestParameter('height') ? $this->getRequestParameter('height') : 350;
         $width = $this->hasRequestParameter('width') ? $this->getRequestParameter('width') : 400;
         $select_id = $this->hasRequestParameter('select_id') ? $this->getRequestParameter('select_id') : 'places';
         $select_name = $this->hasRequestParameter('select_id') ? $this->getRequestParameter('select_name') : 'areas';
