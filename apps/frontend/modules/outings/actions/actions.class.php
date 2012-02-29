@@ -59,7 +59,7 @@ class outingsActions extends documentsActions
                 }
             }
             
-            $parent_ids = $other_ids = array();
+            $parent_ids = $other_ids = $other_routes = array();
             $associated_summits = array();
             $associated_huts = array();
             $associated_parkings = array();
@@ -70,13 +70,16 @@ class outingsActions extends documentsActions
                 $associated_routes = c2cTools::sortArray($associated_routes, 'duration');
                 foreach ($associated_routes as $route)
                 {
-                    if (!$route['duration'] instanceof Doctrine_Null && $route['duration'] <= 4)
+                    if (!$route['duration'] instanceof Doctrine_Null)
                     {
-                        $parent_ids[] = $route['id'];
-                    }
-                    else
-                    {
-                        $other_ids[] = $route['id'];
+                        if ($route['duration'] <= 4)
+                        {
+                            $parent_ids[] = $route['id'];
+                        }
+                        else
+                        {
+                            $other_routes[$route['id']] = $route['duration'];
+                        }
                     }
                     if (!$route['ice_rating'] instanceof Doctrine_Null && $route['ice_rating'] > 0)
                     {
@@ -89,6 +92,22 @@ class outingsActions extends documentsActions
                 }
                 if (!count($parent_ids))
                 {
+                    if (count($other_routes) > 1)
+                    {
+                        asort($other_routes);
+                        $min_duration = $other_routes.reset();
+                        foreach ($other_routes as $id => $duration)
+                        {
+                            if ($duration == $min_duration)
+                            {
+                                $other_ids[] = $id;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        $other_ids[] = key($other_routes);
+                    }
                     $parent_ids = $other_ids;
                 }
             }
@@ -663,9 +682,9 @@ class outingsActions extends documentsActions
             case 'alt':  return 'm.max_elevation';
             case 'date': return 'm.date';
             case 'hdif': return 'm.height_diff_up';
-            case 'time': return 'm.duration';
             case 'cond': return 'm.conditions_status';
             case 'geom': return 'm.geom_wkt';
+            case 'time': return 'r.duration';
             case 'fac':  return 'r.facing';
             case 'ralt': return 'r.elevation';
             case 'dhei': return 'r.difficulties_height';

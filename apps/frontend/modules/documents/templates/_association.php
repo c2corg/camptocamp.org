@@ -12,7 +12,9 @@ if (!isset($show_link_to_delete))
     $show_link_to_delete = false;
 }
 // correctly set main_id and linked_id
-$revert_ids = isset($type) ? (substr($type,0,1) != c2cTools::Module2Letter($module)) : null;
+$module_letter = c2cTools::Module2Letter($module);
+$revert_ids = isset($type) ? (substr($type,0,1) != $module_letter) : null;
+$revert_ghost_ids = isset($ghost_type) ? (substr($type,0,1) != $module_letter) : null;
 
 if ($has_associated_docs || $has_extra_docs): ?>
 <div class="one_kind_association">
@@ -172,6 +174,13 @@ if ($has_associated_docs)
         if (!isset($doc['parent_id']) and $show_link_to_delete)
         {
             echo c2c_link_to_delete_element($type, $revert_ids ? $id : $doc_id, $revert_ids ? $doc_id : $id, false, (int) $strict);
+            
+            if (isset($doc['ghost_id']) && isset($ghost_type))
+            {
+                $ghost_id = $doc['ghost_id'];
+                echo c2c_link_to_delete_element($ghost_type, $revert_ghost_ids ? $id : $ghost_id, $revert_ghost_ids ? $ghost_id : $id, false, (int) $strict);
+            
+            }
 
             // lionel temp code, to be enhanced // TODO
             // button for changing a relation order

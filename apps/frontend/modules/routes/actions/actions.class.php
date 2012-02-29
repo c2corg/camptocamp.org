@@ -78,6 +78,19 @@ class routesActions extends documentsActions
             {
                 $associated_summits = $main_associated_summits;
             }
+            // remove the summit if it is linked to a hut
+            $associated_summit_huts = array_filter($associated_childs, array('c2cTools', 'is_hut'));
+            foreach ($associated_summit_huts as $summit_hut)
+            {
+                foreach ($associated_summit as $key => $summit)
+                {
+                    if ($summit_hut['parent_id'] == $summit['id'])
+                    {
+                        unset($associated_summit[$key]);
+                        break;
+                    }
+                }
+            }
             $this->associated_summits = $associated_summits;
             
             $outing_ids = $associated_routes_outings = array();
@@ -112,15 +125,13 @@ class routesActions extends documentsActions
             $this->ids = implode('-', $route_ids);
 
             $associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
-            // remove the hut if it is linked to a summit
-            $associated_summit_huts = array_filter($associated_childs, array('c2cTools', 'is_hut'));
             foreach ($associated_summit_huts as $summit_hut)
             {
-                foreach ($associated_huts as $key =>$hut)
+                foreach ($associated_huts as $key => $hut)
                 {
                     if ($summit_hut['id'] == $hut['id'])
                     {
-                        unset($associated_huts[$key]);
+                        $associated_huts[$key]['ghost_id'] = $summit_hut['parent_id'];
                         break;
                     }
                 }

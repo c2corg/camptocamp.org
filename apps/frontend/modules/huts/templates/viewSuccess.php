@@ -76,6 +76,10 @@ if ($is_not_archive)
             {
                 $modules_list = array('parkings', 'routes', 'sites', 'books', 'articles');
             }
+            if ($is_moderator)
+            {
+                $modules_list[] = 'summits';
+            }
             
             echo c2c_form_add_multi_module('huts', $id, $modules_list, 9, 'multi_1', true);
         }

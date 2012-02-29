@@ -50,7 +50,7 @@ all:
       b: Book
       c: Article
       d: Document
-      e: # Hut (hut as summit)
+      e: 
       f: Product
       g: # Gear
       h: Hut
@@ -587,12 +587,15 @@ all:
   recent_documents:
     articles_limit: 6
     articles_abstract_characters_limit: 400
-    outings_limit: 30
+    outings_limit: 50
+    outings_mobile_limit: 50
     images_limit: 10
     images_mobile_limit: 4
-    threads_limit: 25
+    threads_limit: 30
+    threads_mobile_limit: 25
     metaengine_limit: 10
-    mountain_news_limit: 8
+    mountain_news_limit: 10
+    mountain_news_mobile_limit: 8
     c2c_news_limit: 4
         
   users:

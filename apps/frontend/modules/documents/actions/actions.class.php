@@ -441,7 +441,8 @@ class documentsActions extends c2cActions
         }
 
         // some of the latest documents published on the site
-        $latest_outings = Outing::listLatest(sfConfig::get('app_recent_documents_outings_limit'),
+        $latest_outings = Outing::listLatest($mobile_version ? sfConfig::get('app_recent_documents_outings_mobile_limit')
+                                                             : sfConfig::get('app_recent_documents_outings_limit'),
                                                    $langs, $ranges, $activities);
         // choose best language for outings and regions names
         $latest_outings = Language::getTheBest($latest_outings, 'Outing');
@@ -481,11 +482,13 @@ class documentsActions extends c2cActions
         endif; // mobile version
 
         // forum latest active threads
-        $this->latest_threads = PunbbTopics::listLatest(sfConfig::get('app_recent_documents_threads_limit'),
+        $this->latest_threads = PunbbTopics::listLatest($mobile_version ? sfConfig::get('app_recent_documents_threads_mobile_limit')
+                                                                        : sfConfig::get('app_recent_documents_threads_limit'),
                                                         $langs, $activities);
 
         // forum 'mountain news' latest active threads
-        $this->latest_mountain_news = PunbbTopics::listLatestMountainNews(sfConfig::get('app_recent_documents_mountain_news_limit'),
+        $this->latest_mountain_news = PunbbTopics::listLatestMountainNews($mobile_version ? sfConfig::get('app_recent_documents_mountain_news_mobile_limit')
+                                                                                          : sfConfig::get('app_recent_documents_mountain_news_limit'),
                                                                           $langs, $activities);
 
         if (!$mobile_version):
@@ -948,6 +951,33 @@ class documentsActions extends c2cActions
     
         $this->setLayout(false);
         $this->setTemplate('../../documents/templates/rss');
+        $this->setCacheControl();
+
+        $items = $this->pager->getResults('array', 'ESC_RAW');
+        if (isset($items[0]['geoassociations']))
+        {
+            $items = Language::getTheBestForAssociatedAreas($items);
+        }
+        // Retrieve creator and creation date.
+        $items = Outing::getAssociatedCreatorData($items);
+        $this->items = $items;
+    }
+
+    /**
+     * JSON version of list page
+     */
+    public function executeJson()
+    {
+        // TODO: factorize with list action?
+
+        $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                      $this->getListSortCriteria(),
+                                      $this->getListCriteria());
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
+    
+        $this->setLayout(false);
+        $this->setTemplate('../../documents/templates/json');
         $this->setCacheControl();
 
         $items = $this->pager->getResults('array', 'ESC_RAW');
@@ -3387,6 +3417,18 @@ class documentsActions extends c2cActions
                 if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
                 {
                     return $this->ajax_feedback('You do not have the right to link an article to another user outing');
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'huts')
+        {
+            if ($main_module_new == 'summits')
+            {
+                $associations = Association::findAllAssociations($linked_id_new, 'sh');
+                if (count($associations))
+                {
+                    return $this->ajax_feedback('This hut is already linked to a summit');
                 }
             }
         }
