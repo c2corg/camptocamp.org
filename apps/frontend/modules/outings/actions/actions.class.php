@@ -59,7 +59,7 @@ class outingsActions extends documentsActions
                 }
             }
             
-            $parent_ids = $other_ids = $other_routes = array();
+            $parent_ids = $other_ids = $other_routes = $default_ids = array();
             $associated_summits = array();
             $associated_huts = array();
             $associated_parkings = array();
@@ -70,6 +70,7 @@ class outingsActions extends documentsActions
                 $associated_routes = c2cTools::sortArray($associated_routes, 'duration');
                 foreach ($associated_routes as $route)
                 {
+                    // pour les docs de 2ème niveau, on retient uniquement les itinéraires de 1 ou 2 jours
                     if (!$route['duration'] instanceof Doctrine_Null)
                     {
                         if ($route['duration'] <= 4)
@@ -81,6 +82,11 @@ class outingsActions extends documentsActions
                             $other_routes[$route['id']] = $route['duration'];
                         }
                     }
+                    else
+                    {
+                        $default_ids[] = $route['id'];
+                    }
+                    
                     if (!$route['ice_rating'] instanceof Doctrine_Null && $route['ice_rating'] > 0)
                     {
                         $has_ice_route = true;
@@ -90,6 +96,8 @@ class outingsActions extends documentsActions
                         $has_steep_route = true;
                     }
                 }
+                // s'il n'y a pas d'itinéraire de 1 ou 2 jours, on utilise les itinéraires qui ont la plus petite durée
+                // s'il n'y en a pas non plus, on utilise les itinéraire dont la durée est non renseignée
                 if (!count($parent_ids))
                 {
                     if (count($other_routes) > 1)
@@ -104,9 +112,13 @@ class outingsActions extends documentsActions
                             }
                         }
                     }
-                    else
+                    elseif (count($other_routes))
                     {
                         $other_ids[] = key($other_routes);
+                    }
+                    else
+                    {
+                        $other_ids = $default_ids;
                     }
                     $parent_ids = $other_ids;
                 }
@@ -129,6 +141,30 @@ class outingsActions extends documentsActions
                     $associated_summits = array_filter($associated_route_docs, array('c2cTools', 'is_summit'));
                     $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
                     $associated_parkings = Parking::getAssociatedParkingsData(array_filter($associated_route_docs, array('c2cTools', 'is_parking')));
+                    
+                    if (count($associated_summits) && count($associated_huts))
+                    {
+                        $summit_ids = $summit_hut_tmp = $summit_hut_ids = array();
+                        foreach ($associated_summits as $summit)
+                        {
+                            $summit_ids[] = $summit['id'];
+                        }
+                        $summit_hut_tmp = Association::countAllLinked($summit_ids, 'sh');
+                        if (count($summit_hut_tmp))
+                        {
+                            foreach ($summit_hut_tmp as $hut)
+                            {
+                                $summit_hut_ids[] = $hut['linked_id'];
+                            }
+                            foreach ($associated_summits as $key => $summit)
+                            {
+                                if (in_array($summit['id'], $summit_hut_ids))
+                                {
+                                    unset($associated_summits[$key]);
+                                }
+                            }
+                        }
+                    }
                 }
             }
             

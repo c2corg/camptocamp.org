@@ -448,7 +448,8 @@ class documentsActions extends c2cActions
         $latest_outings = Language::getTheBest($latest_outings, 'Outing');
         $this->latest_outings = Language::getTheBestForAssociatedAreas($latest_outings);
 
-        $this->latest_articles = Article::listLatest(sfConfig::get('app_recent_documents_articles_limit'),
+        $this->latest_articles = Article::listLatest($mobile_version ? sfConfig::get('app_recent_documents_articles_mobile_limit')
+                                                                     : sfConfig::get('app_recent_documents_articles_limit'),
                                                      $langs, $activities);
         
         $latest_images = Image::listLatest($mobile_version ? sfConfig::get('app_recent_documents_images_mobile_limit')

@@ -82,11 +82,11 @@ class routesActions extends documentsActions
             $associated_summit_huts = array_filter($associated_childs, array('c2cTools', 'is_hut'));
             foreach ($associated_summit_huts as $summit_hut)
             {
-                foreach ($associated_summit as $key => $summit)
+                foreach ($associated_summits as $key => $summit)
                 {
                     if ($summit_hut['parent_id'] == $summit['id'])
                     {
-                        unset($associated_summit[$key]);
+                        unset($associated_summits[$key]);
                         break;
                     }
                 }
