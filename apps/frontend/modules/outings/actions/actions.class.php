@@ -154,7 +154,7 @@ class outingsActions extends documentsActions
                         {
                             foreach ($summit_hut_tmp as $hut)
                             {
-                                $summit_hut_ids[] = $hut['linked_id'];
+                                $summit_hut_ids[] = $hut['main_id'];
                             }
                             foreach ($associated_summits as $key => $summit)
                             {
