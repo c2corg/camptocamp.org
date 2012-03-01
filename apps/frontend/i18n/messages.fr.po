@@ -2284,6 +2284,9 @@ msgstr "Cette adresse mail n'est pas valide."
 msgid "This email already exists. Please choose another one."
 msgstr "Cette adresse email existe déjà. Merci d'en utiliser une autre."
 
+msgid "This hut is already linked to a summit"
+msgstr "Ce refuge est déjà associé à un sommet"
+
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Cette nouvelle sortie sera associée à l'itinéraire '[[routes/%2%|%1%]]' (document %2%)"
 

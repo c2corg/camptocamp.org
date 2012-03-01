@@ -2273,6 +2273,10 @@ msgstr "Esta dirección de email no es valida."
 msgid "This email already exists. Please choose another one."
 msgstr "Esta dirección de email ya existe. Tienes que elegir otra por favor."
 
+# [WARNING] en translation used
+msgid "This hut is already linked to a summit"
+msgstr "This hut is already linked to a summit"
+
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Esta nueva salida se asociará con el itinerario '[[routes/%2%|%1%]]' (documento %2%)"
 
