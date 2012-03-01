@@ -14,7 +14,7 @@ if (!isset($show_link_to_delete))
 // correctly set main_id and linked_id
 $module_letter = c2cTools::Module2Letter($module);
 $revert_ids = isset($type) ? (substr($type,0,1) != $module_letter) : null;
-$revert_ghost_ids = isset($ghost_type) ? (substr($type,0,1) != $module_letter) : null;
+$revert_ghost_ids = isset($ghost_type) ? (substr($ghost_type,0,1) != $module_letter) : null;
 
 if ($has_associated_docs || $has_extra_docs): ?>
 <div class="one_kind_association">

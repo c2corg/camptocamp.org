@@ -29,6 +29,17 @@ if ($is_not_archive)
     
     if ($is_not_merged)
     {
+        if ($is_moderator)
+        {
+            include_partial('documents/association',
+                            array('associated_docs' => $associated_summits, 
+                                  'module' => 'summits', 
+                                  'document' => $document,
+                                  'show_link_to_delete' => $show_link_to_delete,
+                                  'type' => 'sh', // summit-hut
+                                  'strict' => true ));
+        }
+        
         include_partial('documents/association',
                         array('associated_docs' => $associated_parkings,
                               'module' => 'parkings',

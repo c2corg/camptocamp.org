@@ -49,6 +49,7 @@ class hutsActions extends documentsActions
                     $summit_routes_ids[] = $route['linked_id'];
                 }
             }
+            $this->associated_summits = $associated_summits;
 
             if ($this->document->get('shelter_type') == 5)
             {

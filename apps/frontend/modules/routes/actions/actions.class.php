@@ -84,10 +84,13 @@ class routesActions extends documentsActions
             {
                 foreach ($associated_summits as $key => $summit)
                 {
-                    if ($summit_hut['parent_id'] == $summit['id'])
+                    foreach ($summit_hut['parent_id'] as $parent_id)
                     {
-                        unset($associated_summits[$key]);
-                        break;
+                        if ($parent_id == $summit['id'])
+                        {
+                            unset($associated_summits[$key]);
+                            break;
+                        }
                     }
                 }
             }
@@ -131,7 +134,7 @@ class routesActions extends documentsActions
                 {
                     if ($summit_hut['id'] == $hut['id'])
                     {
-                        $associated_huts[$key]['ghost_id'] = $summit_hut['parent_id'];
+                        $associated_huts[$key]['ghost_id'] = current($summit_hut['parent_id']);
                         break;
                     }
                 }
