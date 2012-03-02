@@ -80,12 +80,14 @@ function c2c_form_remote_add_element($url, $updated_success, $updated_failure = 
 }
 
 function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc = true,
-                                    $strict = 1, $updated_failure = null, $indicator = 'indicator')
+                                    $strict = 1, $updated_failure = null, $indicator = 'indicator',
+                                    $tips = null)
 {
     // NB : $del_image_id is for internal use, but will be useful when we have several delete forms in same page
     $main_doc = ($main_doc) ? 'true' : 'false';
     $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
-    return link_to(picto_tag('action_del_light', __('Delete this association')), '#',
+    $tips = ($tips == null) ? 'Delete this association' : $tips;
+    return link_to(picto_tag('action_del_light', __($tips)), '#',
                          array('onclick' => "remLink('$link_type', $main_id, $linked_id, $main_doc, $strict); return false;"));
 }
 
