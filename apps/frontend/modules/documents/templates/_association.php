@@ -179,7 +179,7 @@ if ($has_associated_docs)
         {
             if (isset($doc['ghost_id']) && isset($ghost_module))
             {
-                $tips = 'Delete the association with this' . $module;
+                $tips = 'Delete the association with this ' . $module;
             }
             else
             {
@@ -191,7 +191,7 @@ if ($has_associated_docs)
             if (isset($doc['ghost_id']) && isset($ghost_module))
             {
                 $ghost_id = $doc['ghost_id'];
-                $tips = 'Delete the association with this' . $ghost_module;
+                $tips = 'Delete the association with this ' . $ghost_module;
                 echo c2c_link_to_delete_element($ghost_type, $revert_ghost_ids ? $id : $ghost_id, $revert_ghost_ids ? $ghost_id : $id, false, (int) $strict, null, 'indicator', $tips);
             
             }
