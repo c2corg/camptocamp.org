@@ -68,6 +68,7 @@ if ($is_not_archive)
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'hr', // hut-route
+                              'ghost_module' => 'summits',
                               'ghost_type' => 'sr', // summit-route
                               'strict' => true )); // strict looking for main_id in column main of Association table
         
