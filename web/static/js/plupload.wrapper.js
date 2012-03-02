@@ -193,7 +193,7 @@ PlUploadWrapper = {
           return;
         }
         if (obj.down('input')) {
-          if (obj.down('input').value.length < 4) {
+          if (obj.down('input').value.replace(/^\s+|\s+$/g,"").length < 4) {
             if (!obj.down('.image_form_error').visible()) {
               obj.down('.image_form_error').show();
               Modalbox.resizeToContent();
