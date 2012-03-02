@@ -177,12 +177,22 @@ if ($has_associated_docs)
 
         if (!isset($doc['parent_id']) and $show_link_to_delete)
         {
-            echo c2c_link_to_delete_element($type, $revert_ids ? $id : $doc_id, $revert_ids ? $doc_id : $id, false, (int) $strict);
+            if (isset($doc['ghost_id']) && isset($ghost_module))
+            {
+                $tips = 'Delete the association with this' . $module;
+            }
+            else
+            {
+                $tips = null;
+            }
+            
+            echo c2c_link_to_delete_element($type, $revert_ids ? $id : $doc_id, $revert_ids ? $doc_id : $id, false, (int) $strict, $tips);
             
             if (isset($doc['ghost_id']) && isset($ghost_module))
             {
                 $ghost_id = $doc['ghost_id'];
-                echo c2c_link_to_delete_element($ghost_type, $revert_ghost_ids ? $id : $ghost_id, $revert_ghost_ids ? $ghost_id : $id, false, (int) $strict);
+                $tips = 'Delete the association with this' . $ghost_module;
+                echo c2c_link_to_delete_element($ghost_type, $revert_ghost_ids ? $id : $ghost_id, $revert_ghost_ids ? $ghost_id : $id, false, (int) $strict, $tips);
             
             }
 
