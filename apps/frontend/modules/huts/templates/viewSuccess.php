@@ -37,7 +37,8 @@ if ($is_not_archive)
                                   'document' => $document,
                                   'show_link_to_delete' => $show_link_to_delete,
                                   'type' => 'sh', // summit-hut
-                                  'strict' => true ));
+                                  'strict' => true,
+                                  'url_options' => 'redirect=no'));
         }
         
         include_partial('documents/association',

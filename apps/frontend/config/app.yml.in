@@ -1613,8 +1613,16 @@ all:
       1: culmen
       2: pass
       3: lake
-      4: valley
+      4: cliff
+      6: valley
+      7: glacier
+      8: canyon
+      9: source
+      10: bisse
+      11: hole
+      12: other
       5: raid
+      100: hut
 
   sites:
     site_types_new:

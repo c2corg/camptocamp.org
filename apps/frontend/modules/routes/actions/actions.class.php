@@ -78,22 +78,36 @@ class routesActions extends documentsActions
             {
                 $associated_summits = $main_associated_summits;
             }
-            // remove the summit if it is linked to a hut
+
+            $associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             $associated_summit_huts = array_filter($associated_childs, array('c2cTools', 'is_hut'));
+            
+            // remove the summit if it is linked to a hut
+            $summit_huts = array();
             foreach ($associated_summit_huts as $summit_hut)
             {
-                foreach ($associated_summits as $key => $summit)
+                foreach ($associated_huts as $key => $hut)
                 {
-                    foreach ($summit_hut['parent_id'] as $parent_id)
+                    if ($summit_hut['id'] == $hut['id'])
                     {
-                        if ($parent_id == $summit['id'])
+                        $hut['ghost_id'] = current($summit_hut['parent_id']);
+                        $summit_huts[] = $hut;
+                        unset($associated_huts[$key]);
+                        
+                        foreach ($associated_summits as $key => $summit)
                         {
-                            unset($associated_summits[$key]);
-                            break;
+                            if ($summit['id'] == $summit_hut['parent_id'])
+                            {
+                                unset($associated_summits[$key]);
+                                break;
+                            }
                         }
+                        
+                        break;
                     }
                 }
             }
+            $this->associated_huts = array_merge($summit_huts, $associated_huts);
             $this->associated_summits = $associated_summits;
             
             $outing_ids = $associated_routes_outings = array();
@@ -126,20 +140,6 @@ class routesActions extends documentsActions
 
             array_unshift($route_ids, $current_doc_id);
             $this->ids = implode('-', $route_ids);
-
-            $associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
-            foreach ($associated_summit_huts as $summit_hut)
-            {
-                foreach ($associated_huts as $key => $hut)
-                {
-                    if ($summit_hut['id'] == $hut['id'])
-                    {
-                        $associated_huts[$key]['ghost_id'] = current($summit_hut['parent_id']);
-                        break;
-                    }
-                }
-            }
-            $this->associated_huts = $associated_huts;
             
             if (count($associated_parkings))
             {

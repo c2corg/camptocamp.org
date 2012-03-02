@@ -239,6 +239,7 @@ class hutsActions extends documentsActions
               $summit->setCulture($hut_culture);
               $summit->set('name', $hut_name);
               $summit->set('elevation', $hut_elevation);
+              $summit->set('summit_type', 100); // set summit type to ' hut'
   
               $summit->set('geom_wkt', $hut_geom);
               $summit->save();
