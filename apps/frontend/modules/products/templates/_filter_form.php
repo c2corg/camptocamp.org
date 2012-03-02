@@ -1,5 +1,5 @@
 <?php
-use_helper('FilterForm');
+use_helper('FilterForm', 'Form', 'General', 'MyForm');
 
 if (!c2cTools::mobileVersion())
 {
@@ -8,6 +8,7 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'fnam\').focus(); })};');
 }
 
+echo around_selector('farnd');
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 
 include_partial('products_filter', array('autofocus' => true));

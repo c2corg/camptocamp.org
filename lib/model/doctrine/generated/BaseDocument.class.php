@@ -334,19 +334,25 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildAreaCriteria(&$conditions, &$values, $params_list, $m = 'm')
+    public static function buildAreaCriteria(&$conditions, &$values, $params_list, $m = 'm', $m2 = null, $join = null)
     {
         if (c2cTools::getArrayElement($params_list, 'areas'))
         {
             self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
         }
-        elseif (c2cTools::getArrayElement($params_list, 'bbox'))
+        
+        if (c2cTools::getArrayElement($params_list, 'bbox'))
         {
             self::buildConditionItem($conditions, $values, 'Bbox', 'm.geom', 'bbox', null, false, $params_list);
         }
         elseif (c2cTools::getArrayElement($params_list, 'around'))
         {
-            self::buildConditionItem($conditions, $values, 'Around', $m . '.geom', 'around', null, false, $params_list);
+            if (empty($m2))
+            {
+                $m2 = $m;
+            }
+            
+            self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'around', $join, false, $params_list);
         }
     }
     

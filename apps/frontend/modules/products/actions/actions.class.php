@@ -87,6 +87,7 @@ class productsActions extends documentsActions
         $out = array();
 
         $this->addListParam($out, 'areas');
+        $this->addAroundParam($out, 'farnd');
         
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');

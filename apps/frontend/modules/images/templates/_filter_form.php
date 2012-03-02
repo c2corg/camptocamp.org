@@ -7,8 +7,8 @@ if (!c2cTools::mobileVersion())
    echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
    document.observe(\'dom:loaded\', function() { $(\'inam\').focus(); })};');
 }
-echo around_selector('iarnd');
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
+echo around_selector('iarnd');
 ?>
 <div class="fieldgroup">
 <?php
