@@ -8,7 +8,7 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'inam\').focus(); })};');
 }
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
-echo around_selector('iarnd');
+echo '<div>' . around_selector('iarnd') . '</div>';
 ?>
 <div class="fieldgroup">
 <?php
