@@ -185,7 +185,7 @@ class hutsActions extends documentsActions
                         $history_metadata = new HistoryMetadata();
                         $history_metadata->set('is_minor', false);// TODO get from parameter
                         $history_metadata->set('user_id', 2); // C2C user // TODO get user
-                        $history_metadata->setComment('plop'); // TODO get comment or dedicated one?
+                        $history_metadata->setComment('Synchronize summit to associated hut'); // TODO get comment or dedicated one?
                         $history_metadata->save();
 
                         $summit_doc->set('name', $hut_doc->get('name'));
@@ -210,85 +210,92 @@ class hutsActions extends documentsActions
 
     public function executeAddroute()
     {
-      $id = $this->getRequestParameter('document_id');
-      
-      // check if a summit is already associated to hut. if not, create it
-      $create_summit = (Association::countMains($id, 'sh') == 0);
-      
-      if ($create_summit)
-      {
-          $document = Document::find('Hut', $id, array('elevation', 'geom_wkt'));
-          $conn = sfDoctrine::Connection();
-          try
-          {
-              $conn->beginTransaction();
-  
-              // create first version of document, with culture and geometry of hut document
-              $hut_elevation = $document['elevation'];
-              $hut_geom = $document['geom_wkt'];
-              $hut_culture = $document->getCulture();
-              $hut_name = $document['name'];
-  
-              $history_metadata = new HistoryMetadata();
-              $history_metadata->setComment('Created summit synchronized with hut for access');
-              $history_metadata->set('is_minor', false);
-              $history_metadata->set('user_id', 2); // C2C user
-              $history_metadata->save();
-  
-              $summit = new Summit();
-              $summit->setCulture($hut_culture);
-              $summit->set('name', $hut_name);
-              $summit->set('elevation', $hut_elevation);
-              $summit->set('summit_type', 100); // set summit type to ' hut'
-  
-              $summit->set('geom_wkt', $hut_geom);
-              $summit->save();
+        $id = $this->getRequestParameter('document_id');
+        
+        // check if a summit is already associated to hut. if not, create it
+        $create_summit = (Association::countMains($id, 'sh') == 0);
+        
+        if ($create_summit)
+        {
+            $document = Document::find('Hut', $id, array('elevation', 'geom_wkt'));
+            $conn = sfDoctrine::Connection();
+            try
+            {
+                $conn->beginTransaction();
 
-              $conn->commit();
+                // create first version of document, with culture and geometry of hut document
+                $hut_elevation = $document['elevation'];
+                $hut_geom = $document['geom_wkt'];
+                $hut_culture = $document->getCulture();
+                $hut_name = $document['name'];
 
-              // add others culture versions
-              foreach ($document->get('HutI18n') as $i18n)
-              {
-                  $culture = $i18n->getCulture();
-                  if ($culture != $hut_culture)
-                  {
-                      $conn->beginTransaction();
-                      $hut_name = $i18n->getName();
+                $history_metadata = new HistoryMetadata();
+                $history_metadata->setComment($this->__('Created summit synchronized with hut for access'));
+                $history_metadata->set('is_minor', false);
+                $history_metadata->set('user_id', 2); // C2C user
+                $history_metadata->save();
 
-                      $history_metadata = new HistoryMetadata();
-                      $history_metadata->setComment('Created summit synchronized with hut for access');
-                      $history_metadata->set('is_minor', false);
-                      $history_metadata->set('user_id', 2); // C2C user
-                      $history_metadata->save();
+                $summit = new Summit();
+                $summit->setCulture($hut_culture);
+                $summit->set('name', $hut_name);
+                $summit->set('elevation', $hut_elevation);
+                $summit->set('summit_type', 100); // set summit type to ' hut'
 
-                      $summit->setCulture($culture);
-                      $summit->set('name', $hut_name);
-                      $summit->save();
-                      $conn->commit();
-                  }
-              }
-          }
-          catch (Exception $e)
-          {
-              $conn->rollback();
-              return $this->setErrorAndRedirect("Failed to create synchronized summit", "routes/edit?link=$summit_id");
-          }
-          
-          
-          $summit_id = $summit->get('id');
-          
-          
-          // associate hut to summit
-          $asso = new Association();
-          $asso->doSaveWithValues($summit_id, $id, 'sh', 2); // C2C user
-      }
-      else
-      {
-        $associations = Association::findAllAssociations($id, 'sh');
-        $summit_id = $associations[0]->get('main_id');
-      }
-      $this->clearCache('huts', $id);
-      return $this->redirect("routes/edit?link=$summit_id");
+                $summit->set('geom_wkt', $hut_geom);
+                $summit->save();
+
+                $conn->commit();
+
+                // add others culture versions
+                foreach ($document->get('HutI18n') as $i18n)
+                {
+                    $culture = $i18n->getCulture();
+                    if ($culture != $hut_culture)
+                    {
+                        $conn->beginTransaction();
+                        $hut_name = $i18n->getName();
+
+                        $history_metadata = new HistoryMetadata();
+                        $history_metadata->setComment($this->__('Created summit synchronized with hut for access'));
+                        $history_metadata->set('is_minor', false);
+                        $history_metadata->set('user_id', 2); // C2C user
+                        $history_metadata->save();
+
+                        $summit->setCulture($culture);
+                        $summit->set('name', $hut_name);
+                        $summit->save();
+                        $conn->commit();
+                    }
+                }
+            }
+            catch (Exception $e)
+            {
+                $conn->rollback();
+                return $this->setErrorAndRedirect($this->__('Failed to create synchronized summit'), "routes/edit?link=$summit_id");
+            }
+            
+            $summit_id = $summit->get('id');
+            
+            // get all associated regions (3+maps) with this hut:
+            $associations = GeoAssociation::findAllAssociations($id, array('dr', 'dc', 'dd', 'dv', 'dm'));
+            // replicate them with summit_id instead of id:
+            foreach ($associations as $ea)
+            {
+                $a = new GeoAssociation();
+                $a->doSaveWithValues($summit_id, $ea->get('linked_id'), $ea->get('type'));
+            }
+            
+            // associate hut to summit
+            $asso = new Association();
+            $asso->doSaveWithValues($summit_id, $id, 'sh', 2); // C2C user
+        }
+        else
+        {
+          $associations = Association::findAllAssociations($id, 'sh');
+          $summit_id = $associations[0]->get('main_id');
+        }
+        $this->clearCache('huts', $id);
+        return $this->redirect("routes/edit?link=$summit_id");
     }
 
     protected function getSortField($orderby)
