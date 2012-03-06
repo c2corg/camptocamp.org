@@ -498,7 +498,8 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
         switch ($module)
         {
             case 'documents':
-                $list['documents'] = __('all');
+                // remove "all documents" option because it load too much the server
+                // $list['documents'] = __('all');
                 break;
         
             default:

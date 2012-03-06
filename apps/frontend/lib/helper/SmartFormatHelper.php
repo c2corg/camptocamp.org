@@ -79,7 +79,9 @@ function extract_route($s)
     {
         if ($c == 1) // mont blanc
         { 
-            return '@search?q='.preg_replace('/(\<br(\s*)?\/?\>|\r|\n)/i', '', $s);
+            // remove text search
+            // return '@search?q='.preg_replace('/(\<br(\s*)?\/?\>|\r|\n)/i', '', $s);
+            return null;
         }
         elseif (is_valid_module($a[0]) && is_numeric($a[1])) // summits/12/fr/2 or summits/12/fr or summits/12
         {
@@ -161,7 +163,11 @@ function parse_links($s, $mode = 'no_translation', $nl_to_br = false)
             {
                 // "[[12]]" or "[[mont blanc]] toto| truc" or "[[|toto]]"
                 $string = ($p === 0) ? substr($e, 1, $d-1) : substr($e, 0, $d) ;
-                $link = extract_route($string); 
+                $link = extract_route($string);
+                if (empty($link))
+                {
+                    return $s;
+                }
             }
             $lang = extract_lang($link);
             // we don't set hreflang if the target has the same culture

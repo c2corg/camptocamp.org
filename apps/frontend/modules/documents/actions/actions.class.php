@@ -1791,8 +1791,17 @@ class documentsActions extends c2cActions
                     $this->refreshGeoAssociations($id);
                 }
                 
-                // we clear views, histories, diffs in every language (content+interface):
+                // we clear views, histories, diffs of this doc in every language (content+interface):
                 $this->clearCache($module_name, $id);
+                
+                // we clear views of the associated docs in every language (content+interface):
+                // find all associated docs
+                $associated_docs = Association::findAllAssociatedDocs($id, array('id', 'module'));
+                foreach ($associated_docs as $doc)
+                {
+                    // clear their view cache
+                    $this->clearCache($doc['module'], $doc['id'], false, 'view');
+                }
 
                 // saves new document id in a "pseudo id" cookie to retrieve it if user resubmits original form
                 if ($this->new_document && $this->pseudo_id)

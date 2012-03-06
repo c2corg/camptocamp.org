@@ -1960,18 +1960,27 @@ class BaseDocument extends sfDoctrineRecordI18n
         $first_name = urldecode(trim($param_list[0]));
         if (count($param_list) == 1)
         {
-            $second_name = $first_name;
-            $condition_type = 'OR';
+            // $second_name = $first_name;
+            $second_name = '';
+            $condition_type = ' OR ';
         }
         else
         {
             $second_name = urldecode(trim($param_list[1]));
-            $condition_type = 'AND';
+            $condition_type = ' AND ';
         }
-        $conditions[] = '((' . $field[0] . ' LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL) '
-                        . $condition_type . ' (' . $field[1] . ' LIKE \'%\'||make_search_name(?)||\'%\'))';
-        $values[] = $second_name;
-        $values[] = $first_name;
+        $condition_name = array();
+        if (!empty($first_name))
+        {
+            $condition_name[] = '(' . $field[0] . ' LIKE \'%\'||make_search_name(?)||\'%\')';
+            $values[] = $first_name;
+        }
+        if (!empty($second_name))
+        {
+            $condition_name[] = '(' . $field[1] . ' LIKE \'%\'||make_search_name(?)||\'%\')';
+            $values[] = $second_name;
+        }
+        $conditions[] = implode($condition_type, $condition_name);
     }
 
     public static function buildItemCondition(&$conditions, &$values, $field, $param)
