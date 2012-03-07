@@ -457,7 +457,6 @@ class documentsActions extends c2cActions
                                            $langs, $ranges, $activities);
         $this->latest_images = Language::getTheBest($latest_images, 'Image');
         
-        if (!$mobile_version):
         // outings from metaengine:
         $region_ids     = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
         $activity_ids   = c2cTools::convertC2cActivityIdsToMetaIds($activities);
@@ -480,7 +479,6 @@ class documentsActions extends c2cActions
             // for instance if metaengine is down.
             $this->meta_items = array();
         }
-        endif; // mobile version
 
         // forum latest active threads
         $this->latest_threads = PunbbTopics::listLatest($mobile_version ? sfConfig::get('app_recent_documents_threads_mobile_limit')

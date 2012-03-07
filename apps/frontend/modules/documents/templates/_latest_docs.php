@@ -40,6 +40,7 @@ if (count($items) == 0): ?>
     <ul class="docs_changes">
     <?php
     $list_item = 0;
+    $max_items = c2cTools::mobileVersion() ? sfConfig::get('app_recent_documents_latest_docs_mobile_limit') : 100;
     $static_base_url = sfConfig::get('app_static_url');
     foreach ($items as $item): ?>
         <?php 
@@ -50,6 +51,8 @@ if (count($items) == 0): ?>
                 <li class="even">
             <?php endif;
             $list_item++;
+
+            if ($list_item > $max_items) break;
 
             $link = $item->getLink();
             list($unused, $unused , $unused, $doc_module, $doc_id, $doc_lang, $doc_slug) = explode('/', $link);

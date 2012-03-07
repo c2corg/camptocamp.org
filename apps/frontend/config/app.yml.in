@@ -593,11 +593,12 @@ all:
     images_limit: 10
     images_mobile_limit: 4
     threads_limit: 30
-    threads_mobile_limit: 25
+    threads_mobile_limit: 20
     metaengine_limit: 10
     mountain_news_limit: 10
     mountain_news_mobile_limit: 8
     c2c_news_limit: 4
+    latest_docs_mobile_limit: 10
         
   users:
     outings_limit: 10 
