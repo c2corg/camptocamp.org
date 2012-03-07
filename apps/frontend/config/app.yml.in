@@ -588,14 +588,14 @@ all:
     articles_limit: 6
     articles_mobile_limit: 4
     articles_abstract_characters_limit: 400
-    outings_limit: 50
+    outings_limit: 40
     outings_mobile_limit: 30
     images_limit: 10
     images_mobile_limit: 4
-    threads_limit: 30
+    threads_limit: 25
     threads_mobile_limit: 20
     metaengine_limit: 10
-    mountain_news_limit: 10
+    mountain_news_limit: 8
     mountain_news_mobile_limit: 8
     c2c_news_limit: 4
     latest_docs_mobile_limit: 10
@@ -1588,11 +1588,9 @@ all:
       14067: [ 'MeteoSwiss', 'Meteocentrale' ]
       14267: 'AEMET'
       14270: 'Meteo Live'
-      14295: [ 'Météo Alpes', 'Météo Chamonix' ]
-      14328: [ 'Météo Alpes', 'Caplain' ]
-      14361: 'Météo Alpes'
-      14362: 'Météo Alpes'
-      14366: [ 'Météo Alpes', 'Météo Chamonix', 'OT Chamonix' ]
+      14295: [ 'Météo Chamonix' ]
+      14328: [ 'Caplain' ]
+      14366: [ 'Météo Chamonix', 'OT Chamonix' ]
       14384: [ 'Météo Valais', 'Météo Chamonix' ]
       14397: 'Météo Chamonix'
       14405: 'Météo Chamonix'
@@ -1600,11 +1598,9 @@ all:
       14067: [ 'www.meteosuisse.ch/', 'www.meteocentrale.ch' ]
       14267: 'www.aemet.es/es/eltiempo/prediccion/montana'
       14270: 'www.nimbus.it/italiameteo/italiameteo.htm'
-      14295: [ 'www.meteo-alpes.fr/prevision-meteo-savoie.html', 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord' ]
-      14328: [ 'www.meteo-alpes.fr/prevision-meteo-isere.html', 'mto38.free.fr/frog.html' ]
-      14361: 'www.meteo-alpes.fr/prevision-meteo-hautes-alpes.html'
-      14362: 'www.meteo-alpes.fr/prevision-meteo-alpes-haute-provence.html'
-      14366: [ 'www.meteo-alpes.fr/prevision-meteo-haute-savoie.html', 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord', 'meteo.chamonix.com/MetPre.php3' ]
+      14295: [ 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord' ]
+      14328: [ 'mto38.free.fr/frog.html' ]
+      14366: [ 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord', 'chamonix-meteo.com/chamonix-mont-blanc/meteo/prevision/soir/previ_meteo_6_jours.php' ]
       14384: [ 'www.meteo-valais.ch', 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord' ]
       14397: 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord'
       14405: 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord'
@@ -1613,17 +1609,17 @@ all:
     summit_types:
       1: culmen
       2: pass
-      3: lake
       4: cliff
       6: valley
+      3: lake
       7: glacier
-      8: canyon
+      8: bisse
       9: source
-      10: bisse
+      10: canyon
       11: hole
-      12: other
-      5: raid
       100: hut
+      5: raid
+      99: other
 
   sites:
     site_types_new:

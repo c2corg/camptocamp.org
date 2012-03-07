@@ -2755,15 +2755,28 @@ class BaseDocument extends sfDoctrineRecordI18n
             // data could be with lon,lat (EPSG:4326) (with such values, it is very unlikely to be 900913 coordinates
             if ((-180 < $param[0]) && ($param[0] < 180) && (-90 < $param[1]) && ($param[1] < 90))
             {
-                self::buildXYCondition(&$conditions, &$values, $param[0], $param[1], $param[2], $field, 4326);
+                $srid = 4326;
             }
             else // or assumed to be EPSG:900913
             {
-                self::buildXYCondition(&$conditions, &$values, $param[0], $param[1], $param[2], $field);
+                $srid = 900913;
             }
+            
+            $condition_around = array();
+            $module = sfContext::getInstance()->getModuleName();
+            
+            self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], $field, $srid);
+            if (in_array($module, array('routes', 'outings')))
+            {
+                $conditions['join_summit'] = true;
+                $conditions['join_parking'] = true;
+                self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], 's.geom', $srid);
+                self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], 'p.geom', $srid);
+            }
+            $conditions[] = '(' . implode(' OR ', $condition_around) . ')';
         }
     }
-
+    
     /* x y must be with SRID 4326 or 900913 */
     public static function buildXYCondition(&$conditions, &$values, $x, $y, $tolerance, $field = 'geom', $srid = 900913)
     {

@@ -159,7 +159,7 @@ ul
 
 a
 {
-  color: #666;
+  color: #505050;
   text-decoration: underline;
 }
 
@@ -1812,7 +1812,7 @@ fieldset .select_title
 }
 #filterform #fs_area
 {
-  width: auto;
+  width: 320px;
   float: right;
 }
 #filterform #fs_area select
