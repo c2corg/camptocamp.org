@@ -38,6 +38,7 @@ c2corg_map_translations = {
     'OpenStreetMap': 'OpenStreetMap',
     'IGN maps': \"" . __('IGN maps') . "\",
     'IGN orthos': \"" . __('IGN orthos') . "\",
+    'Swisstopo maps': \"" . __('Swisstopo maps') . "\",
     'Clear': \"" . __('Clear') . "\",
     'max extent': \"" . __('max extent') . "\",
     'pan': \"" . __('pan') . "\",
