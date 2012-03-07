@@ -112,7 +112,9 @@ function extract_route($s)
         }
     }
 
-    return '@search?q='.preg_replace('/(\<br(\s*)?\/?\>|\r|\n)/i', '', $s);
+    // remove text search
+    // return '@search?q='.preg_replace('/(\<br(\s*)?\/?\>|\r|\n)/i', '', $s);
+    return null;
 }
 
 /*
@@ -157,7 +159,12 @@ function parse_links($s, $mode = 'no_translation', $nl_to_br = false)
                 $string = substr($e, $p + 1, $d - $p -1);
                 $link_part = explode('#', substr($e, 0, $p), 2);
                 $anchor = (count($link_part) > 1) ? '#'.$link_part[1] : '';
-                $link = extract_route($link_part[0]) . $anchor;
+                $link = extract_route($link_part[0]);
+                if (empty($link))
+                {
+                    return $s;
+                }
+                $link .= $anchor;
             }
             else
             {
