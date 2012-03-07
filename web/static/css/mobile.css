@@ -207,6 +207,12 @@ input.long_input
   margin: 0;
   max-width: auto;
 }
+  
+#filterform #fs_area
+{
+  width: 220px;
+  float: none;
+}
 
 /* try to make forums more compact */
 #punwrap

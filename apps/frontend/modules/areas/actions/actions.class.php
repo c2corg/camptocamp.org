@@ -100,11 +100,22 @@ class areasActions extends documentsActions
     
     public function executeGetmultipleselect()
     {
+        $mobile_version = c2cTools::mobileVersion();
         $separate_prefs = $this->hasRequestParameter('sep_prefs') ? $this->getRequestParameter('sep_prefs') : 'true';
         $separate_prefs = ($separate_prefs == 'false') ? false : true;
         $area_type = $this->getRequestParameter('area_type');
-        $height = $this->hasRequestParameter('height') ? $this->getRequestParameter('height') : 350;
-        $width = $this->hasRequestParameter('width') ? $this->getRequestParameter('width') : 400;
+        if (!$mobile_version)
+        {
+            $default_width = 'auto';
+            $default_height = '350px';
+        }
+        else
+        {
+            $default_width = '216px';
+            $default_height = '3.8em';
+        }
+        $height = $this->hasRequestParameter('height') ? $this->getRequestParameter('height') . 'px' : $default_height;
+        $width = $this->hasRequestParameter('width') ? $this->getRequestParameter('width') . 'px' : $default_width;
         $select_id = $this->hasRequestParameter('select_id') ? $this->getRequestParameter('select_id') : 'places';
         $select_name = $this->hasRequestParameter('select_id') ? $this->getRequestParameter('select_name') : 'areas';
 
@@ -116,7 +127,7 @@ class areasActions extends documentsActions
                         options_for_select($areas, ($separate_prefs ? null : c2cPersonalization::getInstance()->getPlacesFilter())), 
                         array('id' => $select_id, 
                               'multiple' => true,
-                              'style' => 'width:'.$width.'px; height:'.$height.'px;'))
+                              'style' => 'width:'.$width.'; height:'.$height.';'))
                                  .input_hidden_tag($select_id.'_type', $area_type));
     }
 

@@ -1812,7 +1812,7 @@ fieldset .select_title
 }
 #filterform #fs_area
 {
-  width: 404px;
+  width: auto;
   float: right;
 }
 #filterform #fs_area select

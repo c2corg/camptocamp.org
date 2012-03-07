@@ -1,5 +1,6 @@
 <?php
 use_helper('General');
+$mobile_version = c2cTools::mobileVersion();
 ?>
 <fieldset id="fs_area">
     <legend class="select_title">
@@ -20,11 +21,15 @@ use_helper('General');
             array(  'update' => 'area_selector', 
                     'url' => '/areas/getmultipleselect?area_type=2', 
                     'loading' => 'Element.show("indicator")', 
-                    'complete' => 'Element.hide("indicator")')) . ' -&nbsp;' .
-        picto_tag('picto_close', __('Reduce the list'),
-                  array('onclick' => "changeSelectSize('places', false)")) .
-        picto_tag('picto_open', __('Enlarge the list'),
-                  array('onclick' => "changeSelectSize('places', true)"));
+                    'complete' => 'Element.hide("indicator")'));
+        if (!$mobile_version)
+        {
+            echo ' -&nbsp;' .
+            picto_tag('picto_close', __('Reduce the list'),
+                      array('onclick' => "changeSelectSize('places', false)")) .
+            picto_tag('picto_open', __('Enlarge the list'),
+                      array('onclick' => "changeSelectSize('places', true)"));
+        }
         ?>
     </legend>
     <div id="area_selector">
@@ -58,12 +63,27 @@ use_helper('General');
                 $selected_ranges = $perso->getPlacesFilter();
             }
         }
+        if (!$mobile_version)
+        {
+            $width = 'auto';
+            $height = '350px';
+        }
+        else
+        {
+            $width = '216px';
+            $height = '3.8em';
+        }
         echo select_tag('areas', 
                         options_for_select($raw_ranges, $selected_ranges),
                         array('id' => 'places',
                               'multiple' => true,
-                              'style' => 'width:400px; height:350px;'));
+                              'style' => 'width:' . $width . '; height:' . $height . ';'));
         ?>
     </div>
-    <p class="tips"><?php echo __('unselect dropdown tip') ?></p>
+    <?php
+    if (!$mobile_version)
+    {
+        echo '<p class="tips">' .  __('unselect dropdown tip') . '</p>';
+    }
+    ?>
 </fieldset>

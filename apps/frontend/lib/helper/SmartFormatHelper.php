@@ -181,8 +181,7 @@ function parse_links($s, $mode = 'no_translation', $nl_to_br = false)
             }
             else
             {
-                $out[] = '[[' . $e;
-                $end = '';
+                $end = '[[' . $e;
             }
         }
         $out[] = ($mode == 'translation') ? __($end) : $end;
