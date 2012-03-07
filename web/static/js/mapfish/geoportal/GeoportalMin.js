@@ -117,7 +117,7 @@ Proj4js={defaultDatum:"WGS84",transform:function(d,b,a){if(!d.readyToUse){this.r
 return a
 }if(!b.readyToUse){this.reportError("Proj4js initialization for:"+b.srsCode+" not yet complete");
 return a
-}if((d.srsProjNumber=="900913"&&b.datumCode!="WGS84"&&!b.datum_params)||(b.srsProjNumber=="900913"&&d.datumCode!="WGS84"&&!d.datum_params)){var c=Proj4js.WGS84;
+}if(d.datum&&b.datum&&(((d.datum.datum_type==Proj4js.common.PJD_3PARAM||d.datum.datum_type==Proj4js.common.PJD_7PARAM)&&b.datumCode!="WGS84")||((b.datum.datum_type==Proj4js.common.PJD_3PARAM||b.datum.datum_type==Proj4js.common.PJD_7PARAM)&&d.datumCode!="WGS84"))){var c=Proj4js.WGS84;
 this.transform(d,c,a);
 d=c
 }if(d.axis!="enu"){this.adjust_axis(d,false,a)
@@ -528,7 +528,30 @@ return b*(Math.log(Math.abs(a)+Math.sqrt(a*a+1)))
 },atanh:function(a){return Math.log((a-1)/(a+1))/2
 },gN:function(b,f,d){var c=f*d;
 return b/Math.sqrt(1-c*c)
-}};
+},pj_enfn:function(c){var a=new Array();
+a[0]=this.C00-c*(this.C02+c*(this.C04+c*(this.C06+c*this.C08)));
+a[1]=c*(this.C22-c*(this.C04+c*(this.C06+c*this.C08)));
+var b=c*c;
+a[2]=b*(this.C44-c*(this.C46+c*this.C48));
+b*=c;
+a[3]=b*(this.C66-c*this.C68);
+a[4]=b*c*this.C88;
+return a
+},pj_mlfn:function(d,a,c,b){c*=a;
+a*=a;
+return(b[0]*d-c*(b[1]+a*(b[2]+a*(b[3]+a*b[4]))))
+},pj_inv_mlfn:function(a,g,c){var b=1/(1-g);
+var f=a;
+for(var d=Proj4js.common.MAX_ITER;
+d;
+--d){var e=Math.sin(f);
+t=1-g*e*e;
+t=(this.pj_mlfn(f,e,Math.cos(f),c)-a)*(t*Math.sqrt(t))*b;
+f-=t;
+if(Math.abs(t)<Proj4js.common.EPSLN){return f
+}}Proj4js.reportError("cass:pj_inv_mlfn: Convergence error");
+return f
+},C00:1,C02:0.25,C04:0.046875,C06:0.01953125,C08:0.01068115234375,C22:0.75,C44:0.46875,C46:0.013020833333333334,C48:0.007120768229166667,C66:0.3645833333333333,C68:0.005696614583333333,C88:0.3076171875};
 Proj4js.datum=Proj4js.Class({initialize:function(b){this.datum_type=Proj4js.common.PJD_WGS84;
 if(b.datumCode&&b.datumCode=="none"){this.datum_type=Proj4js.common.PJD_NODATUM
 }if(b&&b.datum_params){for(var a=0;
@@ -579,8 +602,8 @@ c.x=e;
 c.y=b;
 c.z=a;
 return j
-},geocentric_to_geodetic:function(t){var y=1e-12;
-var u=(y*y);
+},geocentric_to_geodetic:function(u){var z=1e-12;
+var v=(z*z);
 var f=30;
 var l;
 var h;
@@ -589,50 +612,50 @@ var n;
 var b;
 var m;
 var k;
+var y;
 var x;
-var w;
 var j;
 var r;
 var q;
 var e;
-var v;
-var g=t.x;
-var d=t.y;
-var c=t.z?t.z:0;
+var w;
+var g=u.x;
+var d=u.y;
+var c=u.z?u.z:0;
 var i;
 var s;
 var o;
 e=false;
 l=Math.sqrt(g*g+d*d);
 h=Math.sqrt(g*g+d*d+c*c);
-if(l/this.a<y){e=true;
+if(l/this.a<z){e=true;
 i=0;
-if(h/this.a<y){s=Proj4js.common.HALF_PI;
+if(h/this.a<z){s=Proj4js.common.HALF_PI;
 o=-this.b;
 return
 }}else{i=Math.atan2(d,g)
 }a=c/h;
 n=l/h;
 b=1/Math.sqrt(1-this.es*(2-this.es)*n*n);
-x=n*(1-this.es)*b;
-w=a*b;
-v=0;
-do{v++;
-k=this.a/Math.sqrt(1-this.es*w*w);
-o=l*x+c*w-k*(1-this.es*w*w);
+y=n*(1-this.es)*b;
+x=a*b;
+w=0;
+do{w++;
+k=this.a/Math.sqrt(1-this.es*x*x);
+o=l*y+c*x-k*(1-this.es*x*x);
 m=this.es*k/(k+o);
 b=1/Math.sqrt(1-m*(2-m)*n*n);
 j=n*(1-m)*b;
 r=a*b;
-q=r*x-j*w;
-x=j;
-w=r
-}while(q*q>u&&v<f);
+q=r*y-j*x;
+y=j;
+x=r
+}while(q*q>v&&w<f);
 s=Math.atan(r/Math.abs(j));
-t.x=i;
-t.y=s;
-t.z=o;
-return t
+u.x=i;
+u.y=s;
+u.z=o;
+return u
 },geocentric_to_geodetic_noniter:function(s){var d=s.x;
 var c=s.y;
 var a=s.z?s.z:0;
@@ -646,10 +669,10 @@ var m;
 var j;
 var h;
 var i;
-var v;
+var w;
 var f;
+var v;
 var u;
-var t;
 var o;
 var k;
 var b;
@@ -673,17 +696,17 @@ q=a*Proj4js.common.AD_C;
 j=Math.sqrt(q*q+n);
 i=q/j;
 f=e/j;
-v=i*i*i;
-m=a+this.b*this.ep2*v;
+w=i*i*i;
+m=a+this.b*this.ep2*w;
 k=e-this.a*this.es*f*f*f;
 h=Math.sqrt(m*m+k*k);
-u=m/h;
-t=k/h;
-o=this.a/Math.sqrt(1-this.es*u*u);
-if(t>=Proj4js.common.COS_67P5){l=e/t-o
-}else{if(t<=-Proj4js.common.COS_67P5){l=e/-t-o
-}else{l=a/u+o*(this.es-1)
-}}if(b==false){r=Math.atan(u/t)
+v=m/h;
+u=k/h;
+o=this.a/Math.sqrt(1-this.es*v*v);
+if(u>=Proj4js.common.COS_67P5){l=e/u-o
+}else{if(u<=-Proj4js.common.COS_67P5){l=e/-u-o
+}else{l=a/v+o*(this.es-1)
+}}if(b==false){r=Math.atan(v/u)
 }s.x=g;
 s.y=r;
 s.z=l;
@@ -1082,9 +1105,9 @@ m=Math.cos(e)
 h*=c;
 f=m*j;
 break;
-case this.OBLIQ:e=(Math.abs(j)<=Proj4js.common.EPSLN)?this.phi0:Math.asin(m*sinph0+f*c*cosph0/j);
-h*=c*cosph0;
-f=(m-Math.sin(e)*sinph0)*j;
+case this.OBLIQ:e=(Math.abs(j)<=Proj4js.common.EPSLN)?this.phi0:Math.asin(m*this.sinph0+f*c*this.cosph0/j);
+h*=c*this.cosph0;
+f=(m-Math.sin(e)*this.sinph0)*j;
 break;
 case this.N_POLE:f=-f;
 e=Proj4js.common.HALF_PI-e;
@@ -1235,24 +1258,24 @@ var n=(d.y-this.y0)/this.a;
 var b,m;
 var h,a,q=0,e=0,o,g=0,k=0;
 var j;
-if(this.sphere){var l,s,f,t;
+if(this.sphere){var l,s,f,u;
 s=Math.sqrt(r*r+n*n);
 l=2*Math.atan(s/this.akm1);
 f=Math.sin(l);
-t=Math.cos(l);
+u=Math.cos(l);
 b=0;
 switch(this.mode){case this.EQUIT:if(Math.abs(s)<=Proj4js.common.EPSLN){m=0
 }else{m=Math.asin(n*f/s)
-}if(t!=0||r!=0){b=Math.atan2(r*f,t*s)
+}if(u!=0||r!=0){b=Math.atan2(r*f,u*s)
 }break;
 case this.OBLIQ:if(Math.abs(s)<=Proj4js.common.EPSLN){m=this.phi0
-}else{m=Math.asin(t*sinph0+n*f*cosph0/s)
-}l=t-sinph0*Math.sin(m);
+}else{m=Math.asin(u*sinph0+n*f*cosph0/s)
+}l=u-sinph0*Math.sin(m);
 if(l!=0||r!=0){b=Math.atan2(r*f*cosph0,l*s)
 }break;
 case this.N_POLE:n=-n;
 case this.S_POLE:if(Math.abs(s)<=Proj4js.common.EPSLN){m=this.phi0
-}else{m=Math.asin(this.mode==this.S_POLE?-t:t)
+}else{m=Math.asin(this.mode==this.S_POLE?-u:u)
 }b=(r==0&&n==0)?0:Math.atan2(r,n);
 break
 }d.x=Proj4js.common.adjust_lon(b+this.long0);
@@ -1408,53 +1431,53 @@ OpenLayers.Util.extend(c,d)
 }OpenLayers.Util.extend(c.prototype,b);
 return c
 }
-}if(OpenLayers.Bounds){OpenLayers.Bounds=OpenLayers.overload(OpenLayers.Bounds,{transform:function(r,h,v){if(!v){var l=OpenLayers.Projection.transform({x:this.left,y:this.bottom},r,h);
+}if(OpenLayers.Bounds){OpenLayers.Bounds=OpenLayers.overload(OpenLayers.Bounds,{transform:function(r,h,w){if(!w){var l=OpenLayers.Projection.transform({x:this.left,y:this.bottom},r,h);
 var g=OpenLayers.Projection.transform({x:this.right,y:this.top},r,h);
 this.left=l.x<g.x?l.x:g.x;
 this.bottom=l.y<g.y?l.y:g.y;
 this.right=g.x>l.x?g.x:l.x;
 this.top=g.y>l.y?g.y:l.y;
 return this
-}var w=h.getProjName()=="longlat"?0.000028:1;
-var b,d,x,n;
+}var x=h.getProjName()=="longlat"?0.000028:1;
+var b,d,y,n;
 var c=1;
-for(var t=0;
-t<7;
-t++){var m=(this.right-this.left)/(1*c);
+for(var u=0;
+u<7;
+u++){var m=(this.right-this.left)/(1*c);
 var k=(this.top-this.bottom)/(1*c);
 var o;
-var a,u,f,y;
-var z=[],e=0;
+var a,v,f,z;
+var A=[],e=0;
 for(var s=0;
 s<c;
-s++){z[e++]={x:this.left+s*m,y:this.bottom};
-z[e++]={x:this.right,y:this.bottom+s*k};
-z[e++]={x:this.right-s*m,y:this.top};
-z[e++]={x:this.left,y:this.top-s*k}
-}z=OpenLayers.Projection.transform(z,r,h);
-if(a==undefined){a=f=z[0].x;
-u=y=z[0].y
+s++){A[e++]={x:this.left+s*m,y:this.bottom};
+A[e++]={x:this.right,y:this.bottom+s*k};
+A[e++]={x:this.right-s*m,y:this.top};
+A[e++]={x:this.left,y:this.top-s*k}
+}A=OpenLayers.Projection.transform(A,r,h);
+if(a==undefined){a=f=A[0].x;
+v=z=A[0].y
 }for(var q=0;
 q<e;
-q++){o=z[q];
+q++){o=A[q];
 if(o.x<a){a=o.x
-}if(o.y<u){u=o.y
+}if(o.y<v){v=o.y
 }if(o.x>f){f=o.x
-}if(o.y>y){y=o.y
-}}z=null;
-if(b!=undefined&&Math.abs(a-b)<w&&Math.abs(u-d)<w&&Math.abs(f-x)<w&&Math.abs(y-n)<w){this.left=a;
-this.bottom=u;
+}if(o.y>z){z=o.y
+}}A=null;
+if(b!=undefined&&Math.abs(a-b)<x&&Math.abs(v-d)<x&&Math.abs(f-y)<x&&Math.abs(z-n)<x){this.left=a;
+this.bottom=v;
 this.right=f;
-this.top=y;
+this.top=z;
 return this
 }b=a;
-d=u;
-x=f;
-n=y;
+d=v;
+y=f;
+n=z;
 c*=2
 }this.left=b;
 this.bottom=d;
-this.right=x;
+this.right=y;
 this.top=n;
 return this
 }})
@@ -1492,9 +1515,7 @@ OpenLayers.Lang.it.S="S";
 OpenLayers.Lang.it["no.proj.implementation.found"]="No di attuazione per la gestione di proiezione trovato";
 OpenLayers.Lang.it["unknown.crs"]="Unknown CRS : ${crs}";
 OpenLayers.Lang.it.dd="gradi";
-if(OpenLayers.Util){OpenLayers.Util.isArray=function(b){return(Object.prototype.toString.call(b)==="[object Array]")
-};
-OpenLayers.Util.extend(OpenLayers.INCHES_PER_UNIT,{deg:OpenLayers.INCHES_PER_UNIT.dd,degre:OpenLayers.INCHES_PER_UNIT.dd,degree:OpenLayers.INCHES_PER_UNIT.dd,rad:OpenLayers.INCHES_PER_UNIT.dd*0.017453292519943295,gon:OpenLayers.INCHES_PER_UNIT.dd*1.1111111111111112,meters:OpenLayers.INCHES_PER_UNIT.m,meter:OpenLayers.INCHES_PER_UNIT.m,metres:OpenLayers.INCHES_PER_UNIT.m,metre:OpenLayers.INCHES_PER_UNIT.m});
+if(OpenLayers.Util){OpenLayers.Util.extend(OpenLayers.INCHES_PER_UNIT,{deg:OpenLayers.INCHES_PER_UNIT.dd,degre:OpenLayers.INCHES_PER_UNIT.dd,degree:OpenLayers.INCHES_PER_UNIT.dd,rad:OpenLayers.INCHES_PER_UNIT.dd*0.017453292519943295,gon:OpenLayers.INCHES_PER_UNIT.dd*1.1111111111111112,meters:OpenLayers.INCHES_PER_UNIT.m,meter:OpenLayers.INCHES_PER_UNIT.m,metres:OpenLayers.INCHES_PER_UNIT.m,metre:OpenLayers.INCHES_PER_UNIT.m});
 OpenLayers.Util.getResolutionFromScale=function(d,a){var b;
 if(d){if(a==null||OpenLayers.INCHES_PER_UNIT[a]==undefined){a="degrees"
 }var c=OpenLayers.Util.normalizeScale(d);
@@ -1512,34 +1533,52 @@ OpenLayers.Util.deg=function(a){return a*57.29577951308232
 OpenLayers.Util.gon=function(a){return a*1.1111111111111112
 };
 OpenLayers.Util.distVincenty=function(g,e,i){if(i==undefined||!(i instanceof OpenLayers.Projection)){i=OpenLayers.Projection.CRS84
-}var M=i.getProperty("semi_major")||6378137,K=i.getProperty("semi_minor")||6356752.3142,G=i.getProperty("inverse_flattening")||298.257223563;
-G=1/G;
+}var N=i.getProperty("semi_major")||6378137,M=i.getProperty("semi_minor")||6356752.3142,H=i.getProperty("inverse_flattening")||298.257223563;
+H=1/H;
 var n=OpenLayers.Util.rad(e.lon-g.lon);
-var J=Math.atan((1-G)*Math.tan(OpenLayers.Util.rad(g.lat)));
-var I=Math.atan((1-G)*Math.tan(OpenLayers.Util.rad(e.lat)));
-var m=Math.sin(J),j=Math.cos(J);
-var l=Math.sin(I),h=Math.cos(I);
+var K=Math.atan((1-H)*Math.tan(OpenLayers.Util.rad(g.lat)));
+var J=Math.atan((1-H)*Math.tan(OpenLayers.Util.rad(e.lat)));
+var m=Math.sin(K),j=Math.cos(K);
+var l=Math.sin(J),h=Math.cos(J);
 var r=n,o=2*Math.PI;
 var q=20;
-while(Math.abs(r-o)>1e-12&&--q>0){var z=Math.sin(r),c=Math.cos(r);
-var N=Math.sqrt((h*z)*(h*z)+(j*l-m*h*c)*(j*l-m*h*c));
-if(N==0){return 0
-}var E=m*l+j*h*c;
-var y=Math.atan2(N,E);
-var k=Math.asin(j*h*z/N);
-var F=Math.cos(k)*Math.cos(k);
-var p=E-2*m*l/F;
-var v=G/16*F*(4+G*(4-3*F));
+while(Math.abs(r-o)>1e-12&&--q>0){var D=Math.sin(r),c=Math.cos(r);
+var O=Math.sqrt((h*D)*(h*D)+(j*l-m*h*c)*(j*l-m*h*c));
+if(O==0){return 0
+}var F=m*l+j*h*c;
+var z=Math.atan2(O,F);
+var k=Math.asin(j*h*D/O);
+var G=Math.cos(k)*Math.cos(k);
+var p=F-2*m*l/G;
+var w=H/16*G*(4+H*(4-3*G));
 o=r;
-r=n+(1-v)*G*Math.sin(k)*(y+v*N*(p+v*E*(-1+2*p*p)))
+r=n+(1-w)*H*Math.sin(k)*(z+w*O*(p+w*F*(-1+2*p*p)))
 }if(q==0){return NaN
-}var u=F*(M*M-K*K)/(K*K);
-var x=1+u/16384*(4096+u*(-768+u*(320-175*u)));
-var w=u/1024*(256+u*(-128+u*(74-47*u)));
-var D=w*N*(p+w/4*(E*(-1+2*p*p)-w/6*p*(-3+4*N*N)*(-3+4*p*p)));
-var t=K*x*(y-D);
-var H=t.toFixed(3)/1000;
-return H
+}var v=G*(N*N-M*M)/(M*M);
+var y=1+v/16384*(4096+v*(-768+v*(320-175*v)));
+var x=v/1024*(256+v*(-128+v*(74-47*v)));
+var E=x*O*(p+x/4*(F*(-1+2*p*p)-x/6*p*(-3+4*O*O)*(-3+4*p*p)));
+var u=M*y*(z-E);
+var I=u.toFixed(3)/1000;
+return I
+};
+OpenLayers.Util.resolveUrl=function(b,j){j=j||"";
+var i=window.location.href.split("/");
+var e=i.pop();
+var d=i.join("/")+"/";
+b=b||d;
+var h=/^(?:([^:\/?\#]+):)?(?:\/\/([^\/?\#]*))?([^?\#]*)(?:\?([^\#]*))?(?:\#(.*))?/;
+var g=j.match(h);
+if(g[1]){return j
+}j=j.replace(/\/\.\//g,"/");
+j=j.replace(/\/\.$/,"/");
+var a=/\/((?!\.\.\/)[^\/]*)\/\.\.\//;
+while(j.match(a)){j=j.replace(a,"/")
+}j=j.replace(/\/([^\/]*)\/\.\.$/,"/");
+var c=b.match(h);
+if(c[2]&&!c[3]){return"/"+j
+}a=/^(.*)\//;
+return b.match(a)[0]+j
 }
 }if(OpenLayers.Control){OpenLayers.UI=OpenLayers.UI||OpenLayers.Class({initialize:function(a){}})
 }if(OpenLayers.Feature&&OpenLayers.Feature.Vector){OpenLayers.Feature.Vector=OpenLayers.overload(OpenLayers.Feature.Vector,{destroyPopup:function(){OpenLayers.Feature.prototype.destroyPopup.apply(this,arguments)
@@ -1637,7 +1676,7 @@ b+=OpenLayers.Util.rad(j.x-k.x)*(2+Math.sin(OpenLayers.Util.rad(k.y))+Math.sin(O
 var l=14;
 var k=s(m.x,l);
 var j=s(m.y,l);
-function r(w,t,v,i,u){return(w-u)*((i-t)/(u-v))+i
+function r(x,u,w,i,v){return(x-v)*((i-u)/(v-w))+i
 }var a=this.components.length-1;
 var g,f,q,d,o,b,e,c;
 var h=0;
@@ -1940,7 +1979,7 @@ if(this.map!=null){this.map.events.triggerEvent("changelayer",{layer:this,proper
 var f=OpenLayers.Util.extend({},this.params);
 f=OpenLayers.Util.extend(f,g);
 if(this.GeoRM){OpenLayers.Util.extend(f,this.GeoRM.token);
-if(this.GeoRM.transport=="referrer"){OpenLayers.Util.extend(this.params,Geoportal.GeoRMHandler.getCookieReferrer((this.map?this.map.div:null),true))
+if(this.GeoRM.transport=="referrer"){OpenLayers.Util.extend(f,Geoportal.GeoRMHandler.getCookieReferrer((this.map?this.map.div:null),true))
 }}var e=OpenLayers.Util.getParameterString(f);
 if(OpenLayers.Util.isArray(b)){b=this.selectUrl(e,b)
 }var a=OpenLayers.Util.upperCaseObject(OpenLayers.Util.getParameters(b));
@@ -2333,21 +2372,24 @@ return p
 }};
 OpenLayers.Util.onImageLoadError=function(){if(this.src.match(/^http:\/\/[abc]\.[a-z]+\.openstreetmap\.org\//)){this.src="http://openstreetmap.org/openlayers/img/404.png"
 }else{if(this.src.match(/^http:\/\/[def]\.tah\.openstreetmap\.org\//)){}else{this._attempts=(this._attempts)?(this._attempts+1):1;
-if(this._attempts<=OpenLayers.IMAGE_RELOAD_ATTEMPTS){var d=this.urls;
-if(d&&OpenLayers.Util.isArray(d)&&d.length>1){var e=this.src.toString();
-var c,a;
+var b=this.ownerDocument;
+b=b.defaultView||b.parentWindow;
+b=b.OpenLayers;
+if(this._attempts<=b.IMAGE_RELOAD_ATTEMPTS){var e=this.urls;
+if(e&&OpenLayers.Util.isArray(e)&&e.length>1){var f=this.src.toString();
+var d,a;
 for(a=0;
-c=d[a];
-a++){if(e.indexOf(c)!=-1){break
-}}var f=Math.floor(d.length*Math.random());
-var b=d[f];
+d=e[a];
+a++){if(f.indexOf(d)!=-1){break
+}}var g=Math.floor(e.length*Math.random());
+var c=e[g];
 a=0;
-while(b==c&&a++<4){f=Math.floor(d.length*Math.random());
-b=d[f]
-}this.src=e.replace(c,b)
-}else{var e=this.src.toString().replace(/&?_tick_=\d+/,"");
-e+=(e.indexOf("?")+1>0?"&":"?")+"_tick_="+new Date().getTime();
-this.src=e
+while(c==d&&a++<4){g=Math.floor(e.length*Math.random());
+c=e[g]
+}this.src=f.replace(d,c)
+}else{var f=this.src.toString().replace(/&?_tick_=\d+/,"");
+f+=(f.indexOf("?")+1>0?"&":"?")+"_tick_="+new Date().getTime();
+this.src=f
 }}else{if(this.layer.onLoadError){this.src=this.layer.onLoadError()
 }else{if(this.src.match(/^http:\/\/[a-z0-9-]+\.ign\.fr\//)){if(this.src.match(/TRANSPARENT=true/i)){this.src=OpenLayers.Util.getImagesLocation()+"blank.gif"
 }else{this.src=Geoportal.Util.getImagesLocation()+"nodata.jpg"
@@ -2427,6 +2469,12 @@ if(b){var c=(a+" ").split(/[?&]/);
 d+=(c.pop()===" "?b:c.length?"&"+b:"?"+b)
 }return d
 }
+}if(!OpenLayers.Util.indexOf){OpenLayers.Util.indexOf=function(d,c){if(typeof d.indexOf=="function"){return d.indexOf(c)
+}else{for(var b=0,a=d.length;
+b<a;
+b++){if(d[b]==c){return b
+}}return -1
+}}
 }Geoportal.GeoRMHandler.Updater=function(c,b,a,d){OpenLayers.Util.extend(this,d);
 this.maps=[];
 this.tgts=[];
@@ -2556,7 +2604,7 @@ try{if(g){b=g&&g.location&&g.location.href
 }else{if(OpenLayers.Console){OpenLayers.Console.warn(OpenLayers.i18n("cookies.not.enabled"))
 }}return c
 };
-Geoportal.GeoRMHandler.getConfig=function(k,j,c,n){if(window.gGEOPORTALRIGHTSMANAGEMENT===undefined){gGEOPORTALRIGHTSMANAGEMENT={}
+Geoportal.GeoRMHandler.getConfig=function(k,j,c,n){if(window.gGEOPORTALRIGHTSMANAGEMENT===undefined){gGEOPORTALRIGHTSMANAGEMENT={pending:0,apiKey:[],services:{}}
 }if(!k){return 0
 }if(typeof(k)=="string"){k=[k]
 }if(k.length==0){return 0
@@ -2580,25 +2628,29 @@ m.setAttribute("type","text/javascript");
 var a=(c||Geoportal.GeoRMHandler.GEORM_SERVER_URL)+"getConfig?key="+k[e]+"&output=json&callback="+f+"&";
 m.setAttribute("src",a);
 g.appendChild(m)
-}if(!j){OpenLayers.Util.extend(gGEOPORTALRIGHTSMANAGEMENT,{pending:0,apiKey:[],services:{}});
-OpenLayers.Util.extend(gGEOPORTALRIGHTSMANAGEMENT,n);
+}if(!j){OpenLayers.Util.extend(gGEOPORTALRIGHTSMANAGEMENT,n);
 gGEOPORTALRIGHTSMANAGEMENT.pending+=k.length
 }return k.length
 };
-Geoportal.GeoRMHandler.getContract=function(e){if(gGEOPORTALRIGHTSMANAGEMENT.pending>0){gGEOPORTALRIGHTSMANAGEMENT.pending--;
-if(e.error){OpenLayers.Console.warn(e.error)
-}else{gGEOPORTALRIGHTSMANAGEMENT.apiKey.push(e.key);
-gGEOPORTALRIGHTSMANAGEMENT[e.key]={tokenServer:{url:e.service,ttl:e.tokenTimeOut},tokenTimeOut:e.tokenTimeOut,bounds:e.boundingBox?[e.boundingBox.minx,e.boundingBox.miny,e.boundingBox.maxx,e.boundingBox.maxy]:[-180,-90,180,90],allowedGeoportalLayers:new Array(e.resources.length),resources:{}};
-for(var b=0,a=e.resources.length;
-b<a;
-b++){var d=e.resources[b];
-gGEOPORTALRIGHTSMANAGEMENT[e.key].allowedGeoportalLayers[b]=d.name+":"+d.type;
-gGEOPORTALRIGHTSMANAGEMENT[e.key].resources[d.name+":"+d.type]=OpenLayers.Util.extend({},d);
-if(gGEOPORTALRIGHTSMANAGEMENT.services[d.url]===undefined){if(gGEOPORTALRIGHTSMANAGEMENT.services[d.url]===undefined){gGEOPORTALRIGHTSMANAGEMENT.services[d.url]={id:"__"+d.url.replace(/[^a-z0-9.-]/gi,"_")+"__",type:d.type,caps:null}
-}}}var c=OpenLayers.Util.getElement("__"+e.key+"__");
-if(c&&c.parentNode){c.parentNode.removeChild(c)
-}}if(gGEOPORTALRIGHTSMANAGEMENT.pending==0&&typeof(gGEOPORTALRIGHTSMANAGEMENT.onContractsComplete)==="function"){gGEOPORTALRIGHTSMANAGEMENT.onContractsComplete()
-}}return gGEOPORTALRIGHTSMANAGEMENT
+Geoportal.GeoRMHandler.getContract=function(g){if(gGEOPORTALRIGHTSMANAGEMENT.pending>0){gGEOPORTALRIGHTSMANAGEMENT.pending--;
+if(g.error){OpenLayers.Console.warn(g.error)
+}else{var b=gGEOPORTALRIGHTSMANAGEMENT[g.key];
+if(OpenLayers.Util.indexOf(gGEOPORTALRIGHTSMANAGEMENT.apiKey,g.key)==-1){gGEOPORTALRIGHTSMANAGEMENT.apiKey.push(g.key);
+b=gGEOPORTALRIGHTSMANAGEMENT[g.key]={tokenServer:{url:g.service,ttl:g.tokenTimeOut},tokenTimeOut:g.tokenTimeOut,bounds:g.boundingBox?[g.boundingBox.minx,g.boundingBox.miny,g.boundingBox.maxx,g.boundingBox.maxy]:[-180,-90,180,90],allowedGeoportalLayers:[],resources:{}}
+}else{if(g.boundingBox.minx<b.bounds[0]){b.bounds[0]=g.boundingBox.minx
+}if(g.boundingBox.miny<b.bounds[1]){b.bounds[1]=g.boundingBox.miny
+}if(g.boundingBox.maxx>b.bounds[2]){b.bounds[2]=g.boundingBox.maxx
+}if(g.boundingBox.maxy>b.bounds[3]){b.bounds[3]=g.boundingBox.maxy
+}}for(var c=0,a=g.resources.length;
+c<a;
+c++){var f=g.resources[c],e=f.name+":"+f.type;
+if(OpenLayers.Util.indexOf(b.allowedGeoportalLayers,e)==-1){b.allowedGeoportalLayers.push(e);
+b.resources[e]=OpenLayers.Util.extend({},f)
+}if(gGEOPORTALRIGHTSMANAGEMENT.services[f.url]===undefined){gGEOPORTALRIGHTSMANAGEMENT.services[f.url]={id:"__"+f.url.replace(/[^a-z0-9.-]/gi,"_")+"__",type:f.type,caps:null}
+}}var d=OpenLayers.Util.getElement("__"+g.key+"__");
+if(d&&d.parentNode){d.parentNode.removeChild(d)
+}}if(gGEOPORTALRIGHTSMANAGEMENT.pending==0){if(typeof(gGEOPORTALRIGHTSMANAGEMENT.onContractsComplete)==="function"){gGEOPORTALRIGHTSMANAGEMENT.onContractsComplete()
+}}}return gGEOPORTALRIGHTSMANAGEMENT
 };
 Geoportal.GeoRMHandler.getServicesCapabilities=function(i,j,d,m){if(window.gGEOPORTALRIGHTSMANAGEMENT===undefined){gGEOPORTALRIGHTSMANAGEMENT={}
 }if(!i){if(!gGEOPORTALRIGHTSMANAGEMENT.services){return null
@@ -2750,78 +2802,80 @@ this.nativeResolution=this.nativeResolutions[d]
 }}}this.resample=(((this.nativeResolution/c)*h.lat!=1)||((this.nativeResolution/c)*h.lon!=1))
 },getTileOrigin:function(){var a=this.tileOrigin||new OpenLayers.LonLat(0,0);
 return a
-},initGriddedTiles:function(E){this.updateTileSize(E);
+},initGriddedTiles:function(F){this.updateTileSize(F);
 var c=this.map.getSize();
-var J=this.nativeResolution*this.nativeTileSize.w;
-var O=this.nativeResolution*this.nativeTileSize.h;
-var n=this.map.getProjection(),P=this.getNativeProjection();
-var b=E.clone().transform(n,P,true);
-var d={lon:this.nativeTileOrigin.lon+Math.floor((b.left-this.nativeTileOrigin.lon)/J)*J,lat:0};
-var o={lon:0,lat:this.nativeTileOrigin.lat+Math.floor((b.bottom-this.nativeTileOrigin.lat)/O)*O};
-var N={lon:this.nativeTileOrigin.lon+Math.ceil((b.right-this.nativeTileOrigin.lon)/J)*J,lat:0};
-var Q={lon:0,lat:this.nativeTileOrigin.lat+Math.ceil((b.top-this.nativeTileOrigin.lat)/O)*O};
-var z=Math.round((N.lon-d.lon)/J);
-var e=Math.round((Q.lat-o.lat)/O);
-var R=Math.max(1,2*this.buffer);
-if(R>1){d.lon-=this.buffer*J;
-N.lon+=this.buffer*J;
-o.lat-=this.buffer*O;
-Q.lat+=this.buffer*O
-}else{d.lon-=J;
-N.lon+=J;
-o.lat-=O;
-Q.lat+=O
-}z+=R;
-e+=R;
-var M=this.map.getResolution();
-var u=this.nativeResolution*this.nativeTileSize.w;
-var S=d.lon;
+var K=this.nativeResolution*this.nativeTileSize.w;
+var P=this.nativeResolution*this.nativeTileSize.h;
+var n=this.map.getProjection(),Q=this.getNativeProjection();
+var b=F.clone().transform(n,Q,true);
+var d={lon:this.nativeTileOrigin.lon+Math.floor((b.left-this.nativeTileOrigin.lon)/K)*K,lat:0};
+var o={lon:0,lat:this.nativeTileOrigin.lat+Math.floor((b.bottom-this.nativeTileOrigin.lat)/P)*P};
+var O={lon:this.nativeTileOrigin.lon+Math.ceil((b.right-this.nativeTileOrigin.lon)/K)*K,lat:0};
+var R={lon:0,lat:this.nativeTileOrigin.lat+Math.ceil((b.top-this.nativeTileOrigin.lat)/P)*P};
+var A=Math.round((O.lon-d.lon)/K);
+var e=Math.round((R.lat-o.lat)/P);
+var S=Math.max(1,2*this.buffer);
+if(S>1){d.lon-=this.buffer*K;
+O.lon+=this.buffer*K;
+o.lat-=this.buffer*P;
+R.lat+=this.buffer*P
+}else{d.lon-=K;
+O.lon+=K;
+o.lat-=P;
+R.lat+=P;
+S++
+}A+=S;
+e+=S;
+var N=this.map.getResolution();
+var v=this.nativeResolution*this.nativeTileSize.w;
+var T=d.lon;
 var a=this.nativeResolution*this.nativeTileSize.h;
-var t=Q.lat-a;
-var v=(new OpenLayers.LonLat(d.lon,Q.lat)).transform(P,n);
-var B=this.map.getViewPortPxFromLonLat(v);
-var L=B.x;
-var K=B.y;
-var s=L;
-var C=S;
-var m=0;
+var u=R.lat-a;
+var z=(new OpenLayers.LonLat(d.lon,R.lat)).transform(Q,n);
+var C=this.map.getViewPortPxFromLonLat(z);
+var M=C.x;
+var L=C.y;
+var s=M;
+var D=T;
+var m=0,U;
 var q=parseInt(this.map.layerContainerDiv.style.left);
-var A=parseInt(this.map.layerContainerDiv.style.top);
-var D=new OpenLayers.LonLat(0,0);
-var G=new OpenLayers.LonLat(0,0);
+var B=parseInt(this.map.layerContainerDiv.style.top);
+var E=new OpenLayers.LonLat(0,0);
+var H=new OpenLayers.LonLat(0,0);
 do{var p=this.grid[m++];
 if(!p){p=[];
 this.grid.push(p)
-}S=C;
-L=s;
-var T=0;
-do{var F=new OpenLayers.Bounds(S,t,S+u,t+a);
+}T=D;
+M=s;
+U=0;
+do{var G=new OpenLayers.Bounds(T,u,T+v,u+a);
+var J=M;
+J-=q;
 var I=L;
-I-=q;
-var H=K;
-H-=A;
-var l=Math.round(I);
-var k=Math.round(H);
+I-=B;
+var l=Math.round(J);
+var k=Math.round(I);
 var i=new OpenLayers.Pixel(l,k);
-var f=p[T++];
-D.lon=F.right,D.lat=F.top;
-D.transform(P,n);
-G.lon=F.left,G.lat=F.bottom;
-G.transform(P,n);
-var j=Math.round((D.lon-G.lon)/M);
-var r=Math.round((D.lat-G.lat)/M);
+var f=p[U++];
+E.lon=G.right,E.lat=G.top;
+E.transform(Q,n);
+H.lon=G.left,H.lat=G.bottom;
+H.transform(Q,n);
+var j=Math.round((E.lon-H.lon)/N);
+var r=Math.round((E.lat-H.lat)/N);
 var g=new OpenLayers.Size(j,r);
-if(!f){f=this.addTile(F,i,g);
+if(!f){f=this.addTile(G,i,g);
 this.addTileMonitoringHooks(f);
 p.push(f)
-}else{f.moveTo(F,i,false);
+}else{f.moveTo(G,i,false);
 f.setSize(g)
-}S+=u;
-L+=j
-}while(T<z);
-t-=a;
-K+=r
+}T+=v;
+M+=j
+}while(U<A);
+u-=a;
+L+=r
 }while(m<e);
+this.removeExcessTiles(m,U);
 this.spiralTileLoad()
 },addTile:function(c,a,b){return new Geoportal.Tile.Image(this,a,c,null,b,this.tileOptions)
 },CLASS_NAME:"Geoportal.Layer.Grid"});
@@ -3348,8 +3402,7 @@ e<b;
 e++){c=p.apiKey[e];
 if(!c){continue
 }if(p[c]!=null){this[c]={tokenServer:p[c].tokenServer,geoRMKey:c,tokenTimeOut:p[c].tokenTimeOut,transport:p[c].transport||p.transport||"json",bounds:p[c].bounds?OpenLayers.Bounds.fromArray(p[c].bounds):new OpenLayers.Bounds(-180,-90,180,90),layers:p[c].resources,allowedGeoportalLayers:p[c].allowedGeoportalLayers};
-if(this[c].transport=="referer"){this[c].transport="referrer";
-this[c].referrer=p.referrer||"http://localhost/"
+if(this[c].transport=="referrer"){this[c].referrer=p[c].referrer||p.referrer||"http://localhost/"
 }for(var o in f){var g=this[c].layers[o];
 if(g){var a=OpenLayers.Util.extend(g,{name:(f[o].split(":"))[0]});
 this[c].layers[f[o]]=a;
@@ -3388,98 +3441,100 @@ d<a;
 d++){c=this.apiKey[d];
 if(this[c]&&(!e||(this[c].bounds&&this[c].bounds.intersectsBounds(this.getExtent(e),true)))){for(var f in this[c].layers){if(f==b||f.match("^"+b+":")){return c
 }}}}}return null
-},getLayerParameters:function(a,p){if(!Geoportal.Catalogue.TERRITORIES[a]){return null
-}if(!p){return null
-}var t=p.split(":");
-if(t.length==0||t[0].length==0){return null
-}if(t.length==1){t.push("WMSC")
-}var C=t.pop(),d=t.join(":");
-if(Geoportal.Catalogue.LAYERNAMES[d]&&Geoportal.Catalogue.LAYERNAMES[d].deprecated){d=Geoportal.Catalogue.LAYERNAMES[d].deprecated
-}var A=[];
-if(this.apiKey){var v;
-for(var x=0,u=this.apiKey.length;
-x<u;
-x++){v=this.apiKey[x];
-if(this[v]){for(var n in this[v].layers){if(n.match("^"+d+":"+C+"$")){A.push(OpenLayers.Util.extend({},this[v].layers[n]))
-}}}}}if(A.length==0){return null
-}var f=null;
-for(x=0,u=A.length;
-x<u;
-x++){if(C==A[x].type){f=A[x];
+},getLayerParameters:function(a,q){if(!Geoportal.Catalogue.TERRITORIES[a]){return null
+}if(!q){return null
+}var v=q.split(":");
+if(v.length==0||v[0].length==0){return null
+}if(v.length==1){v.push("WMSC")
+}var E=v.pop(),e=v.join(":");
+if(Geoportal.Catalogue.LAYERNAMES[e]&&Geoportal.Catalogue.LAYERNAMES[e].deprecated){e=Geoportal.Catalogue.LAYERNAMES[e].deprecated
+}var C=[];
+if(this.apiKey){var x;
+for(var z=0,w=this.apiKey.length;
+z<w;
+z++){x=this.apiKey[z];
+if(this[x]){for(var o in this[x].layers){if(o.match("^"+e+":"+E+"$")){C.push(OpenLayers.Util.extend({},this[x].layers[o]))
+}}}}}if(C.length==0){return null
+}var g=null;
+for(z=0,w=C.length;
+z<w;
+z++){if(E==C[z].type){g=C[z];
 break
-}}if(f==null){return null
-}var B=Geoportal.Catalogue.LAYERNAMES[f.name];
-if(!B){return null
-}var o=B.key;
-if(!Geoportal.Catalogue.CONFIG[o]){return null
-}var q=Geoportal.Catalogue.CONFIG[o][a];
-if(!q){return null
-}var m={resourceId:f.name+":"+f.type,url:f.url,params:{layers:null,exceptions:"text/xml"},options:{isBaseLayer:false,description:f.name+".description",visibility:false,opacity:1,view:{drop:false,zoomToExtent:false}}};
-var r=Geoportal.Catalogue.TERRITORIES[a].defaultCRS.slice(0);
-switch(f.type){case"WMS":m.classLayer=Geoportal.Layer.WMS;
-m.params=OpenLayers.Util.extend(m.params,{format:"image/png",transparent:true});
-m.options=OpenLayers.Util.extend(m.options,{buffer:1,singleTile:true});
-r=r.slice(1);
+}}if(g==null){return null
+}var D=Geoportal.Catalogue.LAYERNAMES[g.name];
+if(!D){return null
+}var p=D.key;
+if(!Geoportal.Catalogue.CONFIG[p]){return null
+}var r=Geoportal.Catalogue.CONFIG[p][a];
+if(!r){return null
+}var n={resourceId:g.name+":"+g.type,url:g.url,params:{layers:null,exceptions:"text/xml"},options:{isBaseLayer:false,description:g.name+".description",visibility:false,opacity:1,view:{drop:false,zoomToExtent:false}}};
+var s=Geoportal.Catalogue.TERRITORIES[a].defaultCRS.slice(0);
+switch(g.type){case"WMS":n.classLayer=Geoportal.Layer.WMS;
+n.params=OpenLayers.Util.extend(n.params,{format:"image/png",transparent:true});
+n.options=OpenLayers.Util.extend(n.options,{buffer:1,singleTile:true});
+s=s.slice(1);
 break;
-case"WFS":m.classLayer=Geoportal.Layer.WFS;
-m.options=OpenLayers.Util.extend(m.options,{});
-r=r.slice(1);
+case"WFS":n.classLayer=Geoportal.Layer.WFS;
+n.options=OpenLayers.Util.extend(n.options,{});
+s=s.slice(1);
 break;
 case"OPENLS":return null;
-default:m.classLayer=Geoportal.Layer.WMSC;
-m.options=OpenLayers.Util.extend(m.options,{buffer:1,tileOrigin:new OpenLayers.LonLat(0,0),nativeTileSize:new OpenLayers.Size(256,256),singleTile:false});
+default:n.classLayer=Geoportal.Layer.WMSC;
+n.options=OpenLayers.Util.extend(n.options,{buffer:1,tileOrigin:new OpenLayers.LonLat(0,0),nativeTileSize:new OpenLayers.Size(256,256),singleTile:false});
 break
-}if(r.length==0){return null
-}m.options.visibility=Geoportal.Catalogue.CONFIG[o].serviceParams.options.visibility||false;
-if(Geoportal.Catalogue.CONFIG[o].serviceParams[f.type]){m.params.format=Geoportal.Catalogue.CONFIG[o].serviceParams[f.type].format;
-if(Geoportal.Catalogue.CONFIG[o].serviceParams[f.type].transparent){m.params.transparent=true
+}if(s.length==0){return null
+}var c=Geoportal.Catalogue.CONFIG[p];
+n.options.visibility=c.serviceParams.options.visibility||false;
+if(c.serviceParams[g.type]){n.params.format=c.serviceParams[g.type].format;
+if(c.serviceParams[g.type].transparent){n.params.transparent=true
 }}var b={};
-b.opacity=q.opacity||Geoportal.Catalogue.CONFIG[o].layerOptions.opacity;
+b.opacity=r.opacity||c.layerOptions.opacity;
 b.originators=[];
-for(var x=0,u=q.originators.length;
-x<u;
-x++){var g=q.originators[x];
-b.originators.push(Geoportal.Catalogue.getOriginator(g.id,g.mnzl,g.mxzl))
-}b.minZoomLevel=q.minZoomLevel;
-b.maxZoomLevel=q.maxZoomLevel;
-if(q.bounds){b.maxExtent=OpenLayers.Bounds.fromArray(q.bounds)
-}if(q.fileIdentifiers&&q.fileIdentifiers.length>0){b.metadataURL=[];
-for(var x=0,u=q.fileIdentifiers.length;
-x<u;
-x++){var s=q.fileIdentifiers[x];
-if(!s.match(/^http:/)){s=Geoportal.Catalogue.CATBASEURL+s
-}b.metadataURL.push(s)
-}}if(q.dataURL&&q.dataURL.length>0){b.dataURL=[];
-for(var x=0,u=q.dataURL.length;
-x<u;
-x++){var h=q.dataURL[x];
-b.dataURL.push(h)
-}}if(m){b.name=f.name;
+for(var z=0,w=r.originators.length;
+z<w;
+z++){var h=r.originators[z];
+b.originators.push(Geoportal.Catalogue.getOriginator(h.id,h.mnzl,h.mxzl))
+}b.minZoomLevel=r.minZoomLevel;
+b.maxZoomLevel=r.maxZoomLevel;
+if(r.bounds){b.maxExtent=OpenLayers.Bounds.fromArray(r.bounds)
+}if(c.legends&&c.legends.length>0){b.legends=c.legends.slice(0)
+}if(r.fileIdentifiers&&r.fileIdentifiers.length>0){b.metadataURL=[];
+for(var z=0,w=r.fileIdentifiers.length;
+z<w;
+z++){var u=r.fileIdentifiers[z];
+if(!u.match(/^http:/)){u=Geoportal.Catalogue.CATBASEURL+u
+}b.metadataURL.push(u)
+}}if(r.dataURL&&r.dataURL.length>0){b.dataURL=[];
+for(var z=0,w=r.dataURL.length;
+z<w;
+z++){var m=r.dataURL[z];
+b.dataURL.push(m)
+}}if(n){b.name=g.name;
 b.projection=null;
-for(var x=0,z=r.length;
-x<z;
-x++){if(typeof(r[x])=="string"){r[x]=new OpenLayers.Projection(r[x],{domainOfValidity:OpenLayers.Bounds.fromArray(Geoportal.Catalogue.TERRITORIES[a].geobbox)})
-}else{r[x]=new OpenLayers.Projection(r[x].getCode(),{domainOfValidity:OpenLayers.Bounds.fromArray(Geoportal.Catalogue.TERRITORIES[a].geobbox)})
-}if(this.map&&r[x].equals(this.map.getProjection())){b.projection=new OpenLayers.Projection(r[x].getCode(),{domainOfValidity:OpenLayers.Bounds.fromArray(Geoportal.Catalogue.TERRITORIES[a].geobbox)})
-}}if(f.type=="WMS"){b.srs={};
-for(var x=0,z=r.length;
-x<z;
-x++){var c=r[x].clone();
-b.srs[c]=true
-}}if(!b.projection){b.projection=new OpenLayers.Projection(r[0].getCode(),{domainOfValidity:OpenLayers.Bounds.fromArray(Geoportal.Catalogue.TERRITORIES[a].geobbox)})
-}m.params.layers=f.name;
-if(m.classLayer==Geoportal.Layer.WMSC){b.nativeResolutions=Geoportal.Catalogue.RESOLUTIONS.slice(0)
+for(var z=0,B=s.length;
+z<B;
+z++){if(typeof(s[z])=="string"){s[z]=new OpenLayers.Projection(s[z],{domainOfValidity:OpenLayers.Bounds.fromArray(Geoportal.Catalogue.TERRITORIES[a].geobbox)})
+}else{s[z]=new OpenLayers.Projection(s[z].getCode(),{domainOfValidity:OpenLayers.Bounds.fromArray(Geoportal.Catalogue.TERRITORIES[a].geobbox)})
+}if(this.map&&s[z].equals(this.map.getProjection())){b.projection=new OpenLayers.Projection(s[z].getCode(),{domainOfValidity:OpenLayers.Bounds.fromArray(Geoportal.Catalogue.TERRITORIES[a].geobbox)})
+}}if(g.type=="WMS"){b.srs={};
+for(var z=0,B=s.length;
+z<B;
+z++){var d=s[z].clone();
+b.srs[d]=true
+}}if(!b.projection){b.projection=new OpenLayers.Projection(s[0].getCode(),{domainOfValidity:OpenLayers.Bounds.fromArray(Geoportal.Catalogue.TERRITORIES[a].geobbox)})
+}n.params.layers=g.name;
+if(n.classLayer==Geoportal.Layer.WMSC){b.nativeResolutions=Geoportal.Catalogue.RESOLUTIONS.slice(0)
 }if(b.maxExtent==undefined){b.maxExtent=this.getExtent(a)
 }b.maxExtent.transform(Geoportal.Catalogue.TERRITORIES[a].geoCRS[0],b.projection,true);
-if(b.originators){for(var x=0,u=b.originators.length;
-x<u;
-x++){var e=b.originators[x];
-if(e.extent){if(!(OpenLayers.Util.isArray(e.extent))){e.extent=[e.extent]
-}for(var w=0,y=e.extent.length;
-w<y;
-w++){e.extent[w].transform(Geoportal.Catalogue.TERRITORIES[a].geoCRS[0],b.projection,true)
-}}}}OpenLayers.Util.extend(m.options,b)
-}return m
+if(b.originators){for(var z=0,w=b.originators.length;
+z<w;
+z++){var f=b.originators[z];
+if(f.extent){if(!(OpenLayers.Util.isArray(f.extent))){f.extent=[f.extent]
+}for(var y=0,A=f.extent.length;
+y<A;
+y++){f.extent[y].transform(Geoportal.Catalogue.TERRITORIES[a].geoCRS[0],b.projection,true)
+}}}}OpenLayers.Util.extend(n.options,b)
+}return n
 },CLASS_NAME:"Geoportal.Catalogue"};
 Geoportal=Geoportal||{};
 Geoportal.Catalogue=Geoportal.Catalogue||{};
@@ -3518,4 +3573,4 @@ Geoportal.Catalogue.CATBASEURL="http://www.geocatalogue.fr/Detail.do?fileIdentif
 Geoportal.Catalogue.PROFILES=["geoportail","inspire","edugeo"];
 Geoportal.Catalogue.SERVICES={WMSC:{geoportail:["http://wxs.ign.fr/geoportail/wmsc"],inspire:["http://wxs.ign.fr/inspire/wmsc"],edugeo:["http://wxs.ign.fr/edugeo/wmsc"]},WMS:{geoportail:["http://wxs.ign.fr/geoportail/v/wms","http://wxs.ign.fr/geoportail/r/wms"],inspire:["http://wxs.ign.fr/inspire/v/wms","http://wxs.ign.fr/inspire/r/wms"]},WFS:{},OPENSL:{geoportail:["http://wxs.ign.fr/geoportail/ols","http://wxs.ign.fr/geoportail/gazetteer"]},CSW:{geoportail:["http://wxs.ign.fr/geoportail/csw/isoap"]}};
 Geoportal.Catalogue.LAYERNAMES={"ORTHOIMAGERY.ORTHOPHOTOS":{key:"ortho",weight:999},"ORTHOIMAGERY.ORTHOPHOTOS2000-2005":{key:"orthov1",weight:998.99},"ORTHOIMAGERY.ORTHOPHOTOS.GENEVE":{key:"orthoSitg",weight:998.9},"GEOGRAPHICALGRIDSYSTEMS.MAPS":{key:"scanmap",weight:998},"GEOGRAPHICALGRIDSYSTEMS.COASTALMAPS":{key:"coastmap",weight:997.9},"GEOGRAPHICALGRIDSYSTEMS.FRANCERASTER":{key:"franceRaster",weight:997.89},"GEOGRAPHICALGRIDSYSTEMS.ETATMAJOR40":{key:"em40",weight:997.2},"GEOGRAPHICALGRIDSYSTEMS.1900TYPEMAPS":{key:"type1900",weight:997.19},"GEOGRAPHICALGRIDSYSTEMS.CASSINI":{key:"cassini",weight:997.1},"GEOGRAPHICALGRIDSYSTEMS.ADMINISTRATIVEUNITS":{key:"scanadm",weight:997.09},"ORTHOIMAGERY.ORTHOPHOTOS.COAST2000":{key:"orthoCoast2000",weight:997},"LANDUSE.AGRICULTURE2010":{key:"rpg2010",weight:996.201},"LANDUSE.AGRICULTURE2009":{key:"rpg2009",weight:996.2009},"LANDUSE.AGRICULTURE2008":{key:"rpg2008",weight:996.2008},"LANDUSE.AGRICULTURE2007":{key:"rpg2007",weight:996.2007},"LANDCOVER.FORESTINVENTORY.V2":{key:"forestV2",weight:996.2005},"LANDCOVER.FORESTINVENTORY.V1":{key:"forestV1",weight:996.1987},"LANDCOVER.CORINELANDCOVER":{key:"clc",weight:996},"ELEVATION.SLOPS":{key:"slopes",weight:989,deprecated:"ELEVATION.SLOPES"},"ELEVATION.SLOPES":{key:"slopes",weight:989},"CADASTRALPARCELS.PARCELS":{key:"bdparcel",weight:979},"CP.CadastralParcel":{key:"bdparcel",weight:979},"NATURALRISKZONES.1910FLOODEDWATERSHEDS":{key:"floodws1910",weight:969.2},"NATURALRISKZONES.1910FLOODEDCELLARS":{key:"floodcl1910",weight:969.1},"HYDROGRAPHY.HYDROGRAPHY":{key:"waterb",weight:969},"HY.PhysicalWaters.Waterbodies":{key:"waterb",weight:969},"TRANSPORTNETWORKS.ROADS":{key:"roadl",weight:899},"TN.RoadTransportNetwork.RoadLink":{key:"roadl",weight:899},"TRANSPORTNETWORKS.RAILWAYS":{key:"raill",weight:898},"TN.RailTransportNetwork.RailwayLink":{key:"raill",weight:898},"TRANSPORTNETWORKS.RUNWAYS":{key:"runwaya",weight:897},"TN.AirTransportNetwork.RunwayArea":{key:"runwaya",weight:897},"BUILDINGS.BUILDINGS":{key:"buildings",weight:799},"UTILITYANDGOVERNMENTALSERVICES.ALL":{key:"utility",weight:699},"ADMINISTRATIVEUNITS.BOUNDARIES":{key:"limadm",weight:599},"AU.AdministrativeBoundary":{key:"limadm",weight:599},"SEAREGIONS.LEVEL0":{key:"level0",weight:499,deprecated:"ELEVATION.LEVEL0"},"ELEVATION.LEVEL0":{key:"level0",weight:499},"GEOGRAPHICALNAMES.NAMES":{key:"toponyms",weight:498.9},"TOPONYMS.ALL":{key:"geonames",weight:-1},"ADDRESSES.CROSSINGS":{key:"routeadr",weight:-2}};
-Geoportal.Catalogue.CONFIG={ortho:{serviceParams:{WMSC:{format:"image/jpeg"},options:{visibility:true}},layerOptions:{opacity:1},CRZ:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"planetobserver",mnzl:5,mxzl:12}],bounds:[49.154744,-47.097592,53.392222,-45.331433],fileIdentifiers:[]},FXX:{minZoomLevel:5,maxZoomLevel:18,originators:[{id:"planetobserver",mnzl:5,mxzl:11},{id:"ign",mnzl:12,mxzl:18},{id:"partenaires-bdortho",mnzl:12,mxzl:18}],bounds:[-41.052325,23.548796,82.104649,84.775666],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:18,originators:[{id:"planetobserver",mnzl:5,mxzl:11},{id:"ign",mnzl:12,mxzl:18},{id:"partenaires-bdortho",mnzl:12,mxzl:18}],bounds:[-41.052325,23.548796,82.104649,84.775666],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:18,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:18}],bounds:[-61.558257,14.129278,-60.644026,15.012358],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-66.09764,-4.709759,-42.49134,14.129278],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},KER:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"planetobserver",mnzl:5,mxzl:12}],bounds:[67.986951,-50.629912,71.612922,-48.275032],fileIdentifiers:[]},MYT:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[44.839483,-13.246198,45.441355,-12.363118],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},NCL:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"planetobserver",mnzl:5,mxzl:12}],bounds:[157.468808,-28.258555,172.707725,-14.129278],fileIdentifiers:["GL_PHOTO_NCL.xml"]},PYF:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"planetobserver",mnzl:5,mxzl:12}],bounds:[-160.904751,-28.258555,-107.269834,14.129278],fileIdentifiers:["GL_PHOTO_PYF.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[35.313845,-28.258555,60.53802,-14.129278],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},SPM:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-62.152397,42.387833,-48.340754,56.517111],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},WLD:{minZoomLevel:0,maxZoomLevel:4,originators:[{id:"planetobserver",mnzl:0,mxzl:4}],bounds:[-179.999961,-72.782842,179.999961,72.782842],fileIdentifiers:[]},WLF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-179.595856,-18.839037,-174.741914,-9.419518],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]}},orthov1:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.7},FXX:{minZoomLevel:9,maxZoomLevel:17,originators:[{id:"ign",mnzl:9,mxzl:17}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:[]},EUE:{minZoomLevel:9,maxZoomLevel:17,originators:[{id:"ign",mnzl:9,mxzl:17}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:[]}},orthoSitg:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"sitg",mnzl:12,mxzl:18}],bounds:[5.940156,46.118968,6.312204,46.383872],fileIdentifiers:["http://etat.geneve.ch/geoportail/metadataws/Publish/4745.html"]},EUE:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"sitg",mnzl:12,mxzl:18}],bounds:[5.940156,46.118968,6.312204,46.383872],fileIdentifiers:["http://etat.geneve.ch/geoportail/metadataws/Publish/4745.html"]}},scanmap:{serviceParams:{WMSC:{format:"image/jpeg"},options:{visibility:true}},layerOptions:{opacity:0.3},ASP:{opacity:1,minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[77.486775,-38.752073,77.602118,-37.788746],fileIdentifiers:["GL_CARTE_ASP.xml"]},ATF:{opacity:1,minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[137.643312,-66.753143,147.850442,-61.861314],fileIdentifiers:["GL_CARTE_ATF.xml"]},CRZ:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[49.154744,-47.097592,53.392222,-45.331433],fileIdentifiers:["GL_CARTE_CRZ.xml"]},FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-20.526162,32.968315,27.368216,61.22687],fileIdentifiers:["GL_CARTE_FXX.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-20.526162,32.968315,27.368216,61.22687],fileIdentifiers:["GL_CARTE_FXX.xml"]},ANF:{opacity:0.3,minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["GL_CARTE_GLP.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["GL_CARTE_SBA.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["GL_CARTE_SMA.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.558257,14.129278,-60.644026,15.012358],fileIdentifiers:["GL_CARTE_MTQ.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-54.763718,1.610769,-51.150381,6.13809],fileIdentifiers:["GL_CARTE_GUF.xml"]},KER:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[67.986951,-50.629912,71.612922,-48.275032],fileIdentifiers:["GL_CARTE_KER.xml"]},MYT:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[44.839483,-13.246198,45.441355,-12.363118],fileIdentifiers:["GL_CARTE_MYT.xml"]},NCL:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[162.548447,-23.548796,168.897996,-18.839037],fileIdentifiers:["GL_CARTE_NCL.xml"]},PYF:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[-152.371924,-18.839037,-148.714997,-15.306718],fileIdentifiers:["GL_CARTE_PYF.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[54.862581,-21.488277,56.12379,20.605197],fileIdentifiers:["GL_CARTE_REU.xml"]},SPM:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-56.541417,46.508872,-56.109803,47.391952],fileIdentifiers:["GL_CARTE_SPM.xml"]},WLD:{minZoomLevel:0,maxZoomLevel:4,originators:[{id:"ign",mnzl:0,mxzl:4}],bounds:[-179.999961,-72.782842,179.999961,72.782842],fileIdentifiers:[]},WLF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[-179.595856,-18.839037,-174.741914,-9.419518],fileIdentifiers:["GL_CARTE_WLF.xml"]}},coastmap:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-5.345355,41.0632133,9.9423598,51.476197],fileIdentifiers:[]},EUE:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-5.345355,41.0632133,9.9423598,51.476197],fileIdentifiers:[]},ANF:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.901094,14.780077,-58.577631,16.668132],fileIdentifiers:[]},GLP:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.901094,14.780077,-58.577631,16.668132],fileIdentifiers:[]},SBA:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.901094,14.780077,-58.577631,16.668132],fileIdentifiers:[]},SMA:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.901094,14.780077,-58.577631,16.668132],fileIdentifiers:[]},MTQ:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.367792,14.780077,-58.577631,15.012358],fileIdentifiers:[]}},franceRaster:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:7,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:7,mxzl:17},{id:"ign",mnzl:7,mxzl:17}],fileIdentifiers:[]},EUE:{minZoomLevel:7,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:7,mxzl:17},{id:"ign",mnzl:7,mxzl:17}],fileIdentifiers:[]},ANF:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},GLP:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},SBA:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},SMA:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},MTQ:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},REU:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]}},scanadm:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.5},FXX:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],fileIdentifiers:[]},EUE:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],fileIdentifiers:[]},ANF:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},GLP:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},SBA:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},SMA:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},MTQ:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},GUF:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},REU:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]}},em40:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],fileIdentifiers:[]},EUE:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],fileIdentifiers:[]}},type1900:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:11,maxZoomLevel:14,originators:[{id:"ign",mnzl:11,mxzl:14}],bounds:[1.710514,48.569392,2.886492,49.158112],fileIdentifiers:[]},EUE:{minZoomLevel:11,maxZoomLevel:14,originators:[{id:"ign",mnzl:11,mxzl:14}],bounds:[1.710514,48.569392,2.886492,49.158112],fileIdentifiers:[]}},cassini:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:11,maxZoomLevel:14,originators:[{id:"EHESS",mnzl:11,mxzl:14},{id:"cnrs",mnzl:11,mxzl:14},{id:"BNF",mnzl:11,mxzl:14}],bounds:[-5.559169,41.799113,8.124939,50.924272],fileIdentifiers:[]},EUE:{minZoomLevel:11,maxZoomLevel:14,originators:[{id:"EHESS",mnzl:11,mxzl:14},{id:"cnrs",mnzl:11,mxzl:14},{id:"BNF",mnzl:11,mxzl:14}],bounds:[-5.559169,41.799113,8.124939,50.924272],fileIdentifiers:[]}},orthoCoast2000:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:12,maxZoomLevel:17,originators:[{id:"meeddtl",mnzl:12,mxzl:17}],bounds:[-5.51,42.92,2.72,49.67],fileIdentifiers:["d26cf450-3b3a-11dc-9fe0-0015601080cc"]},EUE:{minZoomLevel:12,maxZoomLevel:17,originators:[{id:"meeddtl",mnzl:12,mxzl:17}],bounds:[-5.51,42.92,2.72,49.67],fileIdentifiers:["d26cf450-3b3a-11dc-9fe0-0015601080cc"]}},rpg2010:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},ANF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GLP:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SBA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SMA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},MTQ:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},REU:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]}},rpg2009:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},ANF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GLP:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SBA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SMA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},MTQ:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},REU:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]}},rpg2008:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},ANF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GLP:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SBA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SMA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},MTQ:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},REU:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]}},rpg2007:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},ANF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GLP:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SBA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SMA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},MTQ:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},REU:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]}},forestV2:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:10,originators:[{id:"ign",mnzl:5,mxzl:10}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["cc10fbf0-3762-43d5-a5d7-7a5c26c5fde0"],dataURL:["http://www.ifn.fr/spip/?rubrique53"]},EUE:{minZoomLevel:5,maxZoomLevel:10,originators:[{id:"ign",mnzl:5,mxzl:10}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["cc10fbf0-3762-43d5-a5d7-7a5c26c5fde0"],dataURL:["http://www.ifn.fr/spip/?rubrique53"]}},forestV1:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["b323be92-b828-46ed-ac8f-0480576dbf89"],dataURL:["http://www.ifn.fr/spip/spip.php?rubrique180"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["b323be92-b828-46ed-ac8f-0480576dbf89"],dataURL:["http://www.ifn.fr/spip/spip.php?rubrique180"]}},clc:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"eea",mnzl:5,mxzl:12},{id:"meeddtl",mnzl:5,mxzl:12}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["d15c51d0-d037-11dd-94bd-001438ebb238"]},EUE:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"eea",mnzl:5,mxzl:12},{id:"meeddtl",mnzl:5,mxzl:12}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["d15c51d0-d037-11dd-94bd-001438ebb238"]}},slopes:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5323461"]},EUE:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5323461"]},ANF:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},MYT:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[44.538547,-13.540558,45.742292,-12.363118],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},NCL:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[162.548447,-22.960076,167.628086,-19.427757],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},REU:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},SPM:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-56.973031,46.508872,-56.109803,47.686312],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},WLF:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-178.382371,-14.717998,-175.9554,-12.951838],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]}},bdparcel:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:7,maxZoomLevel:18,originators:[{id:"ign",mnzl:7,mxzl:18}],bounds:[-5.184994,41.320778,9.568185,51.108247],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},EUE:{minZoomLevel:7,maxZoomLevel:18,originators:[{id:"ign",mnzl:7,mxzl:18}],bounds:[-5.184994,41.320778,9.568185,51.108247],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},ANF:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-63.272441,14.239663,-60.605933,18.287112],fileIdentifiers:[]},GLP:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-63.272441,15.711462,-60.83449,18.287112],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},SBA:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-63.272441,15.711462,-60.83449,18.287112],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},SMA:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-63.272441,15.711462,-60.83449,18.287112],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},MTQ:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-61.253513,14.239663,-60.605933,15.012358],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},REU:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[55.177883,-21.414687,55.8479,-20.862762],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]}},floodws1910:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},FXX:{minZoomLevel:6,maxZoomLevel:15,originators:[{id:"DIRENIDF",mnzl:6,mxzl:15},{id:"DIRENHAUTENORMANDIE",mnzl:6,mxzl:15},{id:"SEINEENPARTAGE",mnzl:6,mxzl:15}],bounds:[-1.7105135,47.0975924,6.8420541,50.6299118],fileIdentifiers:[]},EUE:{minZoomLevel:6,maxZoomLevel:15,originators:[{id:"DIRENIDF",mnzl:6,mxzl:15},{id:"DIRENHAUTENORMANDIE",mnzl:6,mxzl:15},{id:"SEINEENPARTAGE",mnzl:6,mxzl:15}],bounds:[-1.7105135,47.0975924,6.8420541,50.6299118],fileIdentifiers:[]}},floodcl1910:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},FXX:{minZoomLevel:9,maxZoomLevel:15,originators:[{id:"DIRENIDF",mnzl:9,mxzl:15},{id:"DIRENHAUTENORMANDIE",mnzl:9,mxzl:15},{id:"SEINEENPARTAGE",mnzl:9,mxzl:15}],bounds:[-1.7105135,47.0975924,6.8420541,50.6299118],fileIdentifiers:[]},EUE:{minZoomLevel:9,maxZoomLevel:15,originators:[{id:"DIRENIDF",mnzl:9,mxzl:15},{id:"DIRENHAUTENORMANDIE",mnzl:9,mxzl:15},{id:"SEINEENPARTAGE",mnzl:9,mxzl:15}],bounds:[-1.7105135,47.0975924,6.8420541,50.6299118],fileIdentifiers:[]}},waterb:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},FXX:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-5.559169,41.210393,9.835453,51.218632],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-54.515799,3.458729,-51.565011,5.813609],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:16,originators:[{id:"ign",mnzl:14,mxzl:16}],bounds:[44.989951,-13.025428,45.366121,-12.657478],fileIdentifiers:["IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},REU:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:11,mxzl:16}],bounds:[55.177883,-21.414687,55.887313,-20.825967],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]}},roadl:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"eurogeographics",mnzl:5,mxzl:7},{id:"ign",mnzl:8,mxzl:17}],bounds:[-34.21027,32.968315,34.21027,80.065907],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"eurogeographics",mnzl:5,mxzl:7},{id:"ign",mnzl:8,mxzl:17}],bounds:[-34.21027,32.968315,34.21027,80.065907],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[-54.36826,3.826679,-51.786321,5.813609],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:17,originators:[{id:"ign",mnzl:14,mxzl:17}],bounds:[45.036973,-12.997832,45.300292,-12.666677],fileIdentifiers:["IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.177883,-21.414687,55.887313,-20.899557],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]}},raill:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-6.842054,40.032954,13.684108,51.807352],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]}},runwaya:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},FXX:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],bounds:[-5.131541,41.357573,9.621639,51.071452],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},EUE:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],bounds:[-5.131541,41.357573,9.621639,51.071452],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.570818,-60.948769,18.103137],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-61.024955,18.103137],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-61.024955,18.103137],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-61.024955,18.103137],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.177327,14.570818,-60.948769,14.717998],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-52.376478,4.783349,-52.302708,4.856939],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:17,originators:[{id:"ign",mnzl:14,mxzl:17}],bounds:[45.272079,-12.823055,45.290887,-12.795459],fileIdentifiers:["IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.177883,-21.341097,55.572011,-20.825967],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml"]}},buildings:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml","IGNF_ERMr_2-2.xml","IGNF_EGMr_2-1.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-5.986797,41.210393,10.263081,51.218632],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml","IGNF_ERMr_2-2.xml","IGNF_EGMr_2-1.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-54.36826,3.826679,-51.786321,5.813609],fileIdentifiers:["IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:14}],bounds:[45.018164,-12.997832,45.300292,-12.63908],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.177883,-21.414687,55.887313,-20.825967],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]}},utility:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-56.646306,4.724861,-51.9435,9.416222],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.256709,-21.414687,55.808487,-20.825967],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]}},limadm:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml","IGNF_EBMr_4-0.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml","IGNF_EBMr_4-0.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-54.663338,2.111463,-51.565011,5.813609],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:17,originators:[{id:"ign",mnzl:14,mxzl:17}],bounds:[45.018164,-13.00703,45.300292,-12.629882],fileIdentifiers:["IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.177883,-21.414687,55.887313,-20.825967],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]}},level0:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},EUE:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},ANF:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},GLP:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},SBA:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},SMA:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},MTQ:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},GUF:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-54.663338,2.111463,-51.565011,5.813609],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},MYT:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[45.018164,-13.00703,45.300292,-12.629882],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},REU:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[55.177883,-21.414687,55.887313,-20.825967],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},SPM:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-56.973556,45.926889,-55.253833,48.277167],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]}},toponyms:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},ANF:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},GLP:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},SBA:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},SMA:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},MTQ:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},GUF:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},REU:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]}}};
+Geoportal.Catalogue.CONFIG={ortho:{serviceParams:{WMSC:{format:"image/jpeg"},options:{visibility:true}},layerOptions:{opacity:1},CRZ:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"planetobserver",mnzl:5,mxzl:12}],bounds:[49.154744,-47.097592,53.392222,-45.331433],fileIdentifiers:[]},FXX:{minZoomLevel:5,maxZoomLevel:18,originators:[{id:"planetobserver",mnzl:5,mxzl:11},{id:"ign",mnzl:12,mxzl:18},{id:"partenaires-bdortho",mnzl:12,mxzl:18}],bounds:[-41.052325,23.548796,82.104649,84.775666],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:18,originators:[{id:"planetobserver",mnzl:5,mxzl:11},{id:"ign",mnzl:12,mxzl:18},{id:"partenaires-bdortho",mnzl:12,mxzl:18}],bounds:[-41.052325,23.548796,82.104649,84.775666],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:18,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:18}],bounds:[-61.558257,14.129278,-60.644026,15.012358],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-66.09764,-4.709759,-42.49134,14.129278],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},KER:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"planetobserver",mnzl:5,mxzl:12}],bounds:[67.986951,-50.629912,71.612922,-48.275032],fileIdentifiers:[]},MYT:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[44.839483,-13.246198,45.441355,-12.363118],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},NCL:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"planetobserver",mnzl:5,mxzl:12}],bounds:[157.468808,-28.258555,172.707725,-14.129278],fileIdentifiers:["GL_PHOTO_NCL.xml"]},PYF:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"planetobserver",mnzl:5,mxzl:12}],bounds:[-160.904751,-28.258555,-107.269834,14.129278],fileIdentifiers:["GL_PHOTO_PYF.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[35.313845,-28.258555,60.53802,-14.129278],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},SPM:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-62.152397,42.387833,-48.340754,56.517111],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]},WLD:{minZoomLevel:0,maxZoomLevel:4,originators:[{id:"planetobserver",mnzl:0,mxzl:4}],bounds:[-179.999961,-72.782842,179.999961,72.782842],fileIdentifiers:[]},WLF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"planetobserver",mnzl:5,mxzl:8},{id:"ign",mnzl:9,mxzl:17}],bounds:[-179.595856,-18.839037,-174.741914,-9.419518],fileIdentifiers:["IGNF_BDORTHOr_2-0.xml"]}},orthov1:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.7},FXX:{minZoomLevel:9,maxZoomLevel:17,originators:[{id:"ign",mnzl:9,mxzl:17}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:[]},EUE:{minZoomLevel:9,maxZoomLevel:17,originators:[{id:"ign",mnzl:9,mxzl:17}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:[]}},orthoSitg:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"sitg",mnzl:12,mxzl:18}],bounds:[5.940156,46.118968,6.312204,46.383872],fileIdentifiers:["http://etat.geneve.ch/geoportail/metadataws/Publish/4745.html"]},EUE:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"sitg",mnzl:12,mxzl:18}],bounds:[5.940156,46.118968,6.312204,46.383872],fileIdentifiers:["http://etat.geneve.ch/geoportail/metadataws/Publish/4745.html"]}},scanmap:{serviceParams:{WMSC:{format:"image/jpeg"},options:{visibility:true}},layerOptions:{opacity:0.3},legends:[{style:"1024000-512000-256000",href:"http://www.geoportail.fr/legendes/FXX-GPF-CARTE__CARTE_legende_echelle13.jpg",width:600,height:1712,title:"1:1024000 - 1:256000"},{style:"128000",href:"http://www.geoportail.fr/legendes/FXX-GPF-CARTE__CARTE_legende_echelle10.jpg",width:600,height:1150,title:"1:128000"},{style:"64000",href:"http://www.geoportail.fr/legendes/FXX-GPF-CARTE__CARTE_legende_echelle9.jpg",width:672,height:1254,title:"1:64000"},{style:"32000",href:"http://www.geoportail.fr/legendes/FXX-GPF-CARTE__CARTE_legende_echelle8.jpg",width:600,height:940,title:"1:32000"},{style:"16000-8000",href:"http://www.geoportail.fr/legendes/FXX-GPF-CARTE__CARTE_legende_echelle7.jpg",width:600,height:955,title:"1:16000 - 1:8000"},{style:"4000-2000-1000",href:"http://www.geoportail.fr/legendes/FXX-GPF-CARTE__CARTE_legende_echelle5.jpg",width:439,height:1313,title:"1:8000 - 1:1000"}],ASP:{opacity:1,minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[77.486775,-38.752073,77.602118,-37.788746],fileIdentifiers:["GL_CARTE_ASP.xml"]},ATF:{opacity:1,minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[137.643312,-66.753143,147.850442,-61.861314],fileIdentifiers:["GL_CARTE_ATF.xml"]},CRZ:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[49.154744,-47.097592,53.392222,-45.331433],fileIdentifiers:["GL_CARTE_CRZ.xml"]},FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-20.526162,32.968315,27.368216,61.22687],fileIdentifiers:["GL_CARTE_FXX.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-20.526162,32.968315,27.368216,61.22687],fileIdentifiers:["GL_CARTE_FXX.xml"]},ANF:{opacity:0.3,minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["GL_CARTE_GLP.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["GL_CARTE_SBA.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.38672,14.129278,-58.510819,18.839037],fileIdentifiers:["GL_CARTE_SMA.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.558257,14.129278,-60.644026,15.012358],fileIdentifiers:["GL_CARTE_MTQ.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-54.763718,1.610769,-51.150381,6.13809],fileIdentifiers:["GL_CARTE_GUF.xml"]},KER:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[67.986951,-50.629912,71.612922,-48.275032],fileIdentifiers:["GL_CARTE_KER.xml"]},MYT:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[44.839483,-13.246198,45.441355,-12.363118],fileIdentifiers:["GL_CARTE_MYT.xml"]},NCL:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[162.548447,-23.548796,168.897996,-18.839037],fileIdentifiers:["GL_CARTE_NCL.xml"]},PYF:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],bounds:[-152.371924,-18.839037,-148.714997,-15.306718],fileIdentifiers:["GL_CARTE_PYF.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[54.862581,-21.488277,56.12379,20.605197],fileIdentifiers:["GL_CARTE_REU.xml"]},SPM:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-56.541417,46.508872,-56.109803,47.391952],fileIdentifiers:["GL_CARTE_SPM.xml"]},WLD:{minZoomLevel:0,maxZoomLevel:4,originators:[{id:"ign",mnzl:0,mxzl:4}],bounds:[-179.999961,-72.782842,179.999961,72.782842],fileIdentifiers:[]},WLF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[-179.595856,-18.839037,-174.741914,-9.419518],fileIdentifiers:["GL_CARTE_WLF.xml"]}},coastmap:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.3},legends:[{scale:"64000-2000",href:"http://www.geoportail.fr/legendes/FXX-GPF-LITO__CARTE_legende_echelle4.jpg",width:600,height:1963,title:"1:64000 - 1:2000"}],FXX:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-5.345355,41.0632133,9.9423598,51.476197],fileIdentifiers:[]},EUE:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-5.345355,41.0632133,9.9423598,51.476197],fileIdentifiers:[]},ANF:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.901094,14.780077,-58.577631,16.668132],fileIdentifiers:[]},GLP:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.901094,14.780077,-58.577631,16.668132],fileIdentifiers:[]},SBA:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.901094,14.780077,-58.577631,16.668132],fileIdentifiers:[]},SMA:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.901094,14.780077,-58.577631,16.668132],fileIdentifiers:[]},MTQ:{minZoomLevel:12,maxZoomLevel:15,originators:[{id:"shom",mnzl:12,mxzl:15},{id:"ign",mnzl:12,mxzl:15}],bounds:[-61.367792,14.780077,-58.577631,15.012358],fileIdentifiers:[]}},franceRaster:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:7,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:7,mxzl:17},{id:"ign",mnzl:7,mxzl:17}],fileIdentifiers:[]},EUE:{minZoomLevel:7,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:7,mxzl:17},{id:"ign",mnzl:7,mxzl:17}],fileIdentifiers:[]},ANF:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},GLP:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},SBA:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},SMA:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},MTQ:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]},REU:{minZoomLevel:10,maxZoomLevel:17,originators:[{id:"cartosphere",mnzl:10,mxzl:17},{id:"ign",mnzl:10,mxzl:17}],fileIdentifiers:[]}},scanadm:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.5},legends:[{style:"8192000-16000",href:"http://www.geoportail.fr/legendes/FXX-GPF-CARTE__SCANADM_legende_echelle8.jpg",width:500,height:507,title:"1:8192000 - 1:16000"}],FXX:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],fileIdentifiers:[]},EUE:{minZoomLevel:5,maxZoomLevel:13,originators:[{id:"ign",mnzl:5,mxzl:13}],fileIdentifiers:[]},ANF:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},GLP:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},SBA:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},SMA:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},MTQ:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},GUF:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]},REU:{minZoomLevel:7,maxZoomLevel:10,originators:[{id:"ign",mnzl:7,mxzl:10}],fileIdentifiers:[]}},em40:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:1},legends:[{style:"8192000-4000",href:"http://www.geoportail.fr/legendes/FXX-GPF-CARTE__SCANEM40_legende_echelle16.jpg",width:1000,height:1959,title:"1:8192000 - 1:4000"}],FXX:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],fileIdentifiers:[]},EUE:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],fileIdentifiers:[]}},type1900:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:11,maxZoomLevel:14,originators:[{id:"ign",mnzl:11,mxzl:14}],bounds:[1.710514,48.569392,2.886492,49.158112],fileIdentifiers:[]},EUE:{minZoomLevel:11,maxZoomLevel:14,originators:[{id:"ign",mnzl:11,mxzl:14}],bounds:[1.710514,48.569392,2.886492,49.158112],fileIdentifiers:[]}},cassini:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:11,maxZoomLevel:14,originators:[{id:"EHESS",mnzl:11,mxzl:14},{id:"cnrs",mnzl:11,mxzl:14},{id:"BNF",mnzl:11,mxzl:14}],bounds:[-5.559169,41.799113,8.124939,50.924272],fileIdentifiers:[]},EUE:{minZoomLevel:11,maxZoomLevel:14,originators:[{id:"EHESS",mnzl:11,mxzl:14},{id:"cnrs",mnzl:11,mxzl:14},{id:"BNF",mnzl:11,mxzl:14}],bounds:[-5.559169,41.799113,8.124939,50.924272],fileIdentifiers:[]}},orthoCoast2000:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:12,maxZoomLevel:17,originators:[{id:"meeddtl",mnzl:12,mxzl:17}],bounds:[-5.51,42.92,2.72,49.67],fileIdentifiers:["d26cf450-3b3a-11dc-9fe0-0015601080cc"]},EUE:{minZoomLevel:12,maxZoomLevel:17,originators:[{id:"meeddtl",mnzl:12,mxzl:17}],bounds:[-5.51,42.92,2.72,49.67],fileIdentifiers:["d26cf450-3b3a-11dc-9fe0-0015601080cc"]}},rpg2010:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},legends:[{style:"8192000-8000",href:"http://www.geoportail.fr/legendes/FXX-GPF-RPG2010__PARCEL_legende_echelle6.jpg",width:344,height:1151,title:"1:8192000-8000"}],FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},ANF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GLP:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SBA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SMA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},MTQ:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]},REU:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d29"],dataURL:["http://www.asp-public.fr/?q=node/856"]}},rpg2009:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},legends:[{style:"8192000-8000",href:"http://www.geoportail.fr/legendes/FXX-GPF-RPG2009__PARCEL_legende_echelle6.jpg",width:344,height:1151,title:"1:8192000-8000"}],FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},ANF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GLP:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SBA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SMA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},MTQ:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]},REU:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["79bce0b5-a7a9-4fbe-a565-58888e592d24"],dataURL:["http://www.asp-public.fr/?q=node/856"]}},rpg2008:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},legends:[{style:"8192000-8000",href:"http://www.geoportail.fr/legendes/FXX-GPF-RPG2008__PARCEL_legende_echelle6.jpg",width:344,height:1151,title:"1:8192000-8000"}],FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},ANF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GLP:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SBA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SMA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},MTQ:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]},REU:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["54863a7b-feac-4301-8c11-f0af5bbd4052"],dataURL:["http://www.asp-public.fr/?q=node/856"]}},rpg2007:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},legends:[{style:"8192000-8000",href:"http://www.geoportail.fr/legendes/FXX-GPF-RPG2007__PARCEL_legende_echelle6.jpg",width:344,height:1151,title:"1:8192000-8000"}],FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},ANF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GLP:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SBA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},SMA:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},MTQ:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]},REU:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"maaprat",mnzl:5,mxzl:15},{id:"asp",mnzl:5,mxzl:15}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["0656092-c31f-4f44-b7ef-afb9b61df06f"],dataURL:["http://www.asp-public.fr/?q=node/856"]}},forestV2:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},legends:[{style:"8192000-8000",href:"http://www.geoportail.fr/legendes/FXX-GPF-IFNV22010__PARCEL_legende_echelle16.jpg",width:329,height:1104,title:"1:8192000-8000"}],FXX:{minZoomLevel:5,maxZoomLevel:10,originators:[{id:"ign",mnzl:5,mxzl:10}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["cc10fbf0-3762-43d5-a5d7-7a5c26c5fde0"],dataURL:["http://www.ifn.fr/spip/?rubrique53"]},EUE:{minZoomLevel:5,maxZoomLevel:10,originators:[{id:"ign",mnzl:5,mxzl:10}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["cc10fbf0-3762-43d5-a5d7-7a5c26c5fde0"],dataURL:["http://www.ifn.fr/spip/?rubrique53"]}},forestV1:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},legends:[{style:"8192000-8000",href:"http://www.geoportail.fr/legendes/FXX-GPF-IFNV12004__PARCEL_legende_echelle16.jpg",width:417,height:190,title:"1:8192000 - 1:8000"}],FXX:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["b323be92-b828-46ed-ac8f-0480576dbf89"],dataURL:["http://www.ifn.fr/spip/spip.php?rubrique180"]},EUE:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["b323be92-b828-46ed-ac8f-0480576dbf89"],dataURL:["http://www.ifn.fr/spip/spip.php?rubrique180"]}},clc:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"eea",mnzl:5,mxzl:12},{id:"meeddtl",mnzl:5,mxzl:12}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["d15c51d0-d037-11dd-94bd-001438ebb238"]},EUE:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"eea",mnzl:5,mxzl:12},{id:"meeddtl",mnzl:5,mxzl:12}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["d15c51d0-d037-11dd-94bd-001438ebb238"]}},slopes:{serviceParams:{WMSC:{format:"image/jpeg"},options:{}},layerOptions:{opacity:0.3},FXX:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5323461"]},EUE:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-6.842054,37.678074,13.684108,51.807352],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5323461"]},ANF:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-63.38672,14.129278,-60.339282,18.250317],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-63.38672,15.306718,-60.948769,18.250317],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-61.558257,14.129278,-60.339282,15.306718],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-54.29449,3.532319,-51.343702,5.887199],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},MYT:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[44.538547,-13.540558,45.742292,-12.363118],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},NCL:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[162.548447,-22.960076,167.628086,-19.427757],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},REU:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[54.862581,-21.782636,56.12379,-20.605197],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},SPM:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-56.973031,46.508872,-56.109803,47.686312],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]},WLF:{minZoomLevel:5,maxZoomLevel:12,originators:[{id:"ign",mnzl:5,mxzl:12}],bounds:[-178.382371,-14.717998,-175.9554,-12.951838],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"]}},bdparcel:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:7,maxZoomLevel:18,originators:[{id:"ign",mnzl:7,mxzl:18}],bounds:[-5.184994,41.320778,9.568185,51.108247],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},EUE:{minZoomLevel:7,maxZoomLevel:18,originators:[{id:"ign",mnzl:7,mxzl:18}],bounds:[-5.184994,41.320778,9.568185,51.108247],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},ANF:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-63.272441,14.239663,-60.605933,18.287112],fileIdentifiers:[]},GLP:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-63.272441,15.711462,-60.83449,18.287112],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},SBA:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-63.272441,15.711462,-60.83449,18.287112],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},SMA:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-63.272441,15.711462,-60.83449,18.287112],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},MTQ:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[-61.253513,14.239663,-60.605933,15.012358],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]},REU:{minZoomLevel:12,maxZoomLevel:18,originators:[{id:"ign",mnzl:12,mxzl:18}],bounds:[55.177883,-21.414687,55.8479,-20.862762],fileIdentifiers:["IGNF_BDPARCELLAIREr_1-2_image.xml"]}},floodws1910:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},FXX:{minZoomLevel:6,maxZoomLevel:15,originators:[{id:"DIRENIDF",mnzl:6,mxzl:15},{id:"DIRENHAUTENORMANDIE",mnzl:6,mxzl:15},{id:"SEINEENPARTAGE",mnzl:6,mxzl:15}],bounds:[-1.7105135,47.0975924,6.8420541,50.6299118],fileIdentifiers:[]},EUE:{minZoomLevel:6,maxZoomLevel:15,originators:[{id:"DIRENIDF",mnzl:6,mxzl:15},{id:"DIRENHAUTENORMANDIE",mnzl:6,mxzl:15},{id:"SEINEENPARTAGE",mnzl:6,mxzl:15}],bounds:[-1.7105135,47.0975924,6.8420541,50.6299118],fileIdentifiers:[]}},floodcl1910:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},FXX:{minZoomLevel:9,maxZoomLevel:15,originators:[{id:"DIRENIDF",mnzl:9,mxzl:15},{id:"DIRENHAUTENORMANDIE",mnzl:9,mxzl:15},{id:"SEINEENPARTAGE",mnzl:9,mxzl:15}],bounds:[-1.7105135,47.0975924,6.8420541,50.6299118],fileIdentifiers:[]},EUE:{minZoomLevel:9,maxZoomLevel:15,originators:[{id:"DIRENIDF",mnzl:9,mxzl:15},{id:"DIRENHAUTENORMANDIE",mnzl:9,mxzl:15},{id:"SEINEENPARTAGE",mnzl:9,mxzl:15}],bounds:[-1.7105135,47.0975924,6.8420541,50.6299118],fileIdentifiers:[]}},waterb:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},legends:[{style:"8192000-2000",href:"http://www.geoportail.fr/legendes/FXX-GPF-HYDRO__HYDRO_legende_echelle16.jpg",width:600,height:29,title:"1:8192000-2000"}],FXX:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-5.559169,41.210393,9.835453,51.218632],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:5,mxzl:16}],bounds:[-54.515799,3.458729,-51.565011,5.813609],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:16,originators:[{id:"ign",mnzl:14,mxzl:16}],bounds:[44.989951,-13.025428,45.366121,-12.657478],fileIdentifiers:["IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]},REU:{minZoomLevel:5,maxZoomLevel:16,originators:[{id:"ign",mnzl:11,mxzl:16}],bounds:[55.177883,-21.414687,55.887313,-20.825967],fileIdentifiers:["IGNF_BDCARTOr_3-1_HYDROGRAPHIE.xml","IGNF_BDTOPOr_2-0_HYDROGRAPHIE.xml"]}},roadl:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},legends:[{scale:"8192000-4096000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ROUTE__ROUTE_legende_echelle16.jpg",width:316,height:38,title:"1:8192000 - 1:4096000"},{scale:"2048000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ROUTE__ROUTE_legende_echelle14.jpg",width:316,height:68,title:"1:2048000"},{scale:"1024000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ROUTE__ROUTE_legende_echelle13.jpg",width:316,height:96,title:"1:1024000"},{scale:"512000-128000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ROUTE__ROUTE_legende_echelle12.jpg",width:243,height:96,title:"1:512000 - 1:128000"},{scale:"128000-32000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ROUTE__ROUTE_legende_echelle9.jpg",width:243,height:129,title:"1:128000 - 1:32000"},{scale:"16000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ROUTE__ROUTE_legende_echelle7.jpg",width:309,height:157,title:"1:16000"},{scale:"8000-4000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ROUTE__ROUTE_legende_echelle6.jpg",width:310,height:276,title:"1:8000-4000"},{scale:"2000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ROUTE__ROUTE_legende_echelle4.jpg",width:329,height:276,title:"1:2000"}],FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"eurogeographics",mnzl:5,mxzl:7},{id:"ign",mnzl:8,mxzl:17}],bounds:[-34.21027,32.968315,34.21027,80.065907],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"eurogeographics",mnzl:5,mxzl:7},{id:"ign",mnzl:8,mxzl:17}],bounds:[-34.21027,32.968315,34.21027,80.065907],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:15,originators:[{id:"ign",mnzl:5,mxzl:15}],bounds:[-54.36826,3.826679,-51.786321,5.813609],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:17,originators:[{id:"ign",mnzl:14,mxzl:17}],bounds:[45.036973,-12.997832,45.300292,-12.666677],fileIdentifiers:["IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.177883,-21.414687,55.887313,-20.899557],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]}},raill:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},legends:[{scale:"8192000-2000",href:"http://www.geoportail.fr/legendes/FXX-GPF-RESFER__RESFER_legende_echelle16.jpg",width:600,height:31,title:"1:8192000 - 1:2000"}],FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-6.842054,40.032954,13.684108,51.807352],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]}},runwaya:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},legends:[{style:"128000-2000",href:"http://www.geoportail.fr/legendes/FXX-GPF-AERIEN__AERIEN_legende_echelle10.jpg",width:600,height:23,title:"1:128000 - 1:2000"}],FXX:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],bounds:[-5.131541,41.357573,9.621639,51.071452],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},EUE:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],bounds:[-5.131541,41.357573,9.621639,51.071452],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml","IGNF_EGMr_2-1.xml","IGNF_ERMr_2-2.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.570818,-60.948769,18.103137],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-61.024955,18.103137],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-61.024955,18.103137],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-61.024955,18.103137],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.177327,14.570818,-60.948769,14.717998],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-52.376478,4.783349,-52.302708,4.856939],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:17,originators:[{id:"ign",mnzl:14,mxzl:17}],bounds:[45.272079,-12.823055,45.290887,-12.795459],fileIdentifiers:["IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.177883,-21.341097,55.572011,-20.825967],fileIdentifiers:["IGNF_BDCARTOr_3-1_RESEAU_ROUTIER.xml","IGNF_BDCARTOr_3-1_RESEAU_FERRE.xml","IGNF_BDCARTOr_3-1_EQUIPEMENT.xml","IGNF_BDTOPOr_2-0_RESEAU_ROUTIER.xml","IGNF_BDTOPOr_2-0_VOIES_FERREES_ET_AUTRES.xml"]}},buildings:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:0.5},legends:[{style:"8192000-32000",href:"http://www.geoportail.fr/legendes/FXX-GPF-BATI__BATI_legende_echelle16.jpg",width:559,height:90,title:"1:8192000 - 1:32000"},{style:"16000-1000",href:"http://www.geoportail.fr/legendes/FXX-GPF-BATI__BATI_legende_echelle7.jpg",width:385,height:710,title:"1:16000 - 1:1000"}],FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml","IGNF_ERMr_2-2.xml","IGNF_EGMr_2-1.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-5.986797,41.210393,10.263081,51.218632],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml","IGNF_ERMr_2-2.xml","IGNF_EGMr_2-1.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-54.36826,3.826679,-51.786321,5.813609],fileIdentifiers:["IGNF_BDCARTOr_3-1_HABILLAGE.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:14}],bounds:[45.018164,-12.997832,45.300292,-12.63908],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.177883,-21.414687,55.887313,-20.825967],fileIdentifiers:["IGNF_BDTOPOr_2-0_BATI.xml","IGNF_BDCARTOr_3-1_HABILLAGE.xml"]}},utility:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},legends:[{style:"8192000-32000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ELEC__ELEC_legende_echelle16.jpg",width:238,height:59,title:"1:8192000 - 1:32000"},{style:"16000-2000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ELEC__ELEC_legende_echelle7.jpg",width:188,height:94,title:"1:16000 - 1:2000"}],FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-56.646306,4.724861,-51.9435,9.416222],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.256709,-21.414687,55.808487,-20.825967],fileIdentifiers:["IGNF_BDTOPOr_2-0_TRANSPORT_ENERGIE.xml"]}},limadm:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},legends:[{scale:"8192000-4096000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ADMIN__ADMIN_legende_echelle16.jpg",width:326,height:59,title:"1:8192000 - 1:4096000"},{scale:"2048000-1024000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ADMIN__ADMIN_legende_echelle14.jpg",width:592,height:59,title:"1:2048000 - 1:1024000"},{scale:"512000-2000",href:"http://www.geoportail.fr/legendes/FXX-GPF-ADMIN__ADMIN_legende_echelle12.jpg",width:706,height:58,title:"1:512000 - 1:2000"}],FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml","IGNF_EBMr_4-0.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-13.6841082,32.9683147,34.2102704,75.3561478],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml","IGNF_EBMr_4-0.xml"]},ANF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:[]},GLP:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},SBA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},SMA:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-63.158162,15.821847,-60.948769,18.176727],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},MTQ:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},GUF:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[-54.663338,2.111463,-51.565011,5.813609],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml"]},MYT:{minZoomLevel:14,maxZoomLevel:17,originators:[{id:"ign",mnzl:14,mxzl:17}],bounds:[45.018164,-13.00703,45.300292,-12.629882],fileIdentifiers:["IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]},REU:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],bounds:[55.177883,-21.414687,55.887313,-20.825967],fileIdentifiers:["IGNF_BDCARTOr_3-1_ADMINISTRATIF.xml","IGNF_BDTOPOr_2-0_ADMINISTRATIF.xml"]}},level0:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},legends:[{style:"2048000-4000",href:"http://www.geoportail.fr/legendes/FXX-GPF-LITO__LITO_legende_echelle14.jpg",width:206,height:59,title:"1:2048000 - 1:4000"}],FXX:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},EUE:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-6.842054,40.032954,10.263081,51.807352],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},ANF:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},GLP:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},SBA:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},SMA:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-63.158162,14.350048,-60.796397,18.176727],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},MTQ:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-61.253513,14.350048,-60.796397,14.938768],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},GUF:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-54.663338,2.111463,-51.565011,5.813609],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},MYT:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[45.018164,-13.00703,45.300292,-12.629882],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},REU:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[55.177883,-21.414687,55.887313,-20.825967],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]},SPM:{minZoomLevel:7,maxZoomLevel:16,originators:[{id:"ign",mnzl:7,mxzl:16},{id:"shom",mnzl:7,mxzl:16}],bounds:[-56.973556,45.926889,-55.253833,48.277167],fileIdentifiers:["IGNF_BDALTIr_1-0.xml","IGNF_SHOM_HISTOLITTr_1-0.xml"],dataURL:["http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5465861"]}},toponyms:{serviceParams:{WMSC:{format:"image/png",transparent:true},options:{}},layerOptions:{opacity:1},FXX:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},EUE:{minZoomLevel:5,maxZoomLevel:17,originators:[{id:"ign",mnzl:5,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},ANF:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},GLP:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},SBA:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},SMA:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},MTQ:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},GUF:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]},REU:{minZoomLevel:11,maxZoomLevel:17,originators:[{id:"ign",mnzl:11,mxzl:17}],fileIdentifiers:["IGNF_BDNYMEr_2-0.xml"]}}};
