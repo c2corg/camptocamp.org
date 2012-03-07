@@ -586,7 +586,7 @@ all:
 
   recent_documents:
     articles_limit: 6
-    articles_mobile_limit: 6
+    articles_mobile_limit: 4
     articles_abstract_characters_limit: 400
     outings_limit: 50
     outings_mobile_limit: 30
