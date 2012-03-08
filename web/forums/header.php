@@ -310,7 +310,7 @@ $tpl_temp .= "\n\t\t\t".'</ul></div>'."\n\t\t\t".'<ul class="conr">';
 $lang = get_lang_code();
 if ($lang == 'fr')
 {
-    $all_lang_text = 'multilingue';
+    $all_lang_text = $lang_common['multilanguage'];
 }
 else
 {
@@ -322,7 +322,7 @@ if (!$pun_user['is_guest'])
     $tpl_temp .= '<li><a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$all_lang_text.']</a>';
     if ($lang == 'fr')
     {
-        $tpl_temp .= ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">[fr avec bistrot/p++]</a>';
+        $tpl_temp .= ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>';
     }
     $tpl_temp .= '</li>';
     $tpl_temp .= '<li><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></li>';
@@ -340,7 +340,7 @@ else
     $tpl_temp .= '<li><a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$all_lang_text.']</a>';
     if ($lang == 'fr')
     {
-        $tpl_temp .= ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">[fr avec bistrot/p++]</a>';
+        $tpl_temp .= ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>';
     }
     $tpl_temp .= '</li>';
 }

@@ -53,7 +53,7 @@ $is_admmod = isset($is_admmod) ? $is_admmod : false;
 $is_admmod_2 = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
 if ($lang == 'fr')
 {
-    $all_lang_text = 'multilingue';
+    $all_lang_text = $lang_common['multilanguage'];
 }
 else
 {
@@ -67,7 +67,7 @@ if ($footer_style == 'index' || $footer_style == 'search')
 		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$all_lang_text.']</a>';
         if ($lang == 'fr')
         {
-            echo ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">[fr avec bistrot/p++]</a>';
+            echo ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>';
         }
         echo '</dd>'."\n";
 		if ($is_admmod_2)
@@ -161,7 +161,7 @@ if (!$pun_user['is_guest'])
     echo '<a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$all_lang_text.']</a>';
     if ($lang == 'fr')
     {
-        echo ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">[fr avec bistrot/p++]</a>';
+        echo ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>';
     }
     echo '<br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a><br />';
     if ($footer_style == 'index' || $footer_style == 'search')
@@ -178,7 +178,7 @@ else
     echo '<a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$all_lang_text.']</a>';
     if ($lang == 'fr')
     {
-        echo ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">[fr avec bistrot/p++]</a>';
+        echo ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>';
     }
     echo '<br />';
 }

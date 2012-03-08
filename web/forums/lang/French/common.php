@@ -159,6 +159,8 @@ $lang_common = array(
 'Link separator'		=>	'',	// The text that separates links in the navigator
 'Top'				    =>	'Haut de page',
 'Bottom'				=>	'Bas de page',
+'multilanguage'         =>  'multilingue',
+'with pub'              =>  ' bistrot/p++',
 
 // Stuff for the page footer
 'Board footer'			=>	'Pied de page des forums',
