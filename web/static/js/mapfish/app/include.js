@@ -5,8 +5,10 @@
 *
 * @include GeoExt/data/FeatureReader.js
 * @include GeoExt/widgets/Action.js
-* @include MapFishApi/js/GeonamesSearchCombo.js
 * @requires core/Protocol/MapFish.js
 * @requires core/Protocol/TriggerEventDecorator.js
 * @requires core/Searcher/Map.js
+* @requires MapFishApi/js/mapfish_api.js
+* @requires OpenLayers/BaseTypes/LonLat.js
+* @requires OpenLayers/Projection.js
 */

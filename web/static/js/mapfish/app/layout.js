@@ -134,7 +134,7 @@ c2corg.layout = (function() {
         items.push(' ');
         
         // recentering combo using geonames service
-        items.push(new MapFish.API.GeoNamesSearchCombo({
+        items.push(new c2corg.GeoNamesSearchCombo({
             api: api,
             width: 200,
             emptyText: OpenLayers.i18n('Go to...')
