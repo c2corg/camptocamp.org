@@ -468,7 +468,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 			$num_hits = count($search_ids);
             
-            $pid_condition = '';
+            $post_condition = '';
 			if ($author_type == 2 || $keywords)
             {
                 if (!$guest && !$num_hits)
