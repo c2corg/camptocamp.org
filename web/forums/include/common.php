@@ -112,6 +112,7 @@ define('PUN_MEMBER', 4);
 define('C2C_BOARD_FORUM', 34);
 define('ALL_NEWS_FORUMS', '18, 85, 86, 87, 89, 48, 90, 91, 92, 93, 94');
 define('PUB_FORUMS', '26');
+define('LOVE_FORUMS', '19');
 
 // Load DB abstraction layer and connect
 require PUN_ROOT.'include/dblayer/common_db.php';

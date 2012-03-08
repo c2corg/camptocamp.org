@@ -56,6 +56,7 @@ if ($pun_user['g_id'] == PUN_MOD)
 
     // Sort out who the moderators are and if we are currently a moderator (or an admin)
     list($is_admmod, $is_c2c_board) = get_is_admmod(C2C_BOARD_FORUM, $c2c_board_forum['moderators'], $pun_user);
+    $is_admmod = true;
     if (!$is_c2c_board)
     {
         $c2c_board_condition = ' AND (f.id != '.C2C_BOARD_FORUM.')';
@@ -170,18 +171,29 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	{
 		$keywords = (isset($_GET['keywords'])) ? strtolower(trim($_GET['keywords'])) : null;
 		$author = (isset($_GET['author'])) ? strtolower(trim($_GET['author'])) : null;
-        $author_guest = false;
+		$author_type = (isset($_GET['author_type'])) ? intval(trim($_GET['author_type'])) : 0;
+		$guest = (isset($_GET['guest'])) ? intval(trim($_GET['guest'])) : 0;
+        $author_ids = array();
         if (isset($_GET['author_id']))
         {
-            $author_id = intval($_GET['author_id']);
-            if ($is_admmod && $author_id == 1)
+            $author_id = $_GET['author_id'];
+            $author_id = trim(preg_replace('#\D+#', ' ', $author_id));
+            $author_id = explode(' ', $author_id);
+            foreach ($author_id as $a_id)
             {
-                $author_guest = true;
+                if ($a_id >= 2)
+                {
+                    $author_ids[] = $a_id;
+                }
             }
-            if ($author_id <= 1)
+            if (!empty($author_ids) && $author_type == 0 && empty($author) && $guest == 0)
             {
-                $author_id = null;
+                $author_type = 2;
             }
+        }
+        if (empty($author_ids) && $author_type >= 2)
+        {
+            $author_type = 1;
         }
 
 		if (preg_match('#^[\*%]+$#', $keywords) || strlen(str_replace(array('*', '%'), '', $keywords)) < 3)
@@ -190,30 +202,30 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		if (preg_match('#^[\*%]+$#', $author) || strlen(str_replace(array('*', '%'), '', $author)) < 2)
 			$author = '';
         
+        $ip = '';
+        $ip_condition = '';
         if ($is_admmod && isset($_GET['ip']))
         {
             $ip = trim($_GET['ip']);
 
-            if (!@preg_match('/^[0-9.*]+$/', $ip))
-                message('The supplied IP address is not correctly formatted.');
+            if (!empty($ip))
+            {
+                if (!@preg_match('/^[0-9.*]+$/', $ip))
+                    message('The supplied IP address is not correctly formatted.');
 
-            if (@preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/', $ip))
-            {
-                $ip_condition = ' AND p.poster_ip=\''.$db->escape($ip).'\'';
+                if (@preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/', $ip))
+                {
+                    $ip_condition = ' AND p.poster_ip=\''.$db->escape($ip).'\'';
+                }
+                elseif (@preg_match('/^[0-9]{1,3}\.[0-9.]*\*$/', $ip))
+                {
+                    $ip_condition = ' AND p.poster_ip LIKE \''.$db->escape(str_replace('*', '', $ip)).'%\'';
+                }
+                else
+                {
+                    message('The supplied IP address is not correctly formatted.');
+                }
             }
-            elseif (@preg_match('/^[0-9]{1,3}\.[0-9.]*\*$/', $ip))
-            {
-                $ip_condition = ' AND p.poster_ip LIKE \''.$db->escape(str_replace('*', '', $ip)).'%\'';
-            }
-            else
-            {
-                message('The supplied IP address is not correctly formatted.');
-            }
-        }
-        else
-        {
-            $ip = '';
-            $ip_condition = '';
         }
 
 		if ($author)
@@ -400,7 +412,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			}
 
 			// If it's a search for author name (and that author name isn't Guest)
-			if ($author && strcasecmp($author, 'Guest') && strcasecmp($author, $lang_common['Guest']))
+			if ($author_type == 0 && $author && strcasecmp($author, 'Guest') && strcasecmp($author, $lang_common['Guest']))
 			{
 				switch ($db_type)
 				{
@@ -415,31 +427,35 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 				if ($db->num_rows($result))
 				{
-					$user_ids = '';
+					$author_ids = array();
 					while ($row = $db->fetch_row($result))
-						$user_ids .= (($user_ids != '') ? ',' : '').$row[0];
-
-					$result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE poster_id IN('.$user_ids.')') or error('Unable to fetch matched posts list', __FILE__, __LINE__, $db->error());
-
-					$search_ids = array();
-					while ($row = $db->fetch_row($result))
-						$author_results[] = $row[0];
-
-					$db->free_result($result);
-				}
-			}
+                    {
+						$author_ids[] = $row[0];
+                    }
+                    $author_type = 2;
+                }
+                $author = null;
+            }
             
             // If it's a search for author ID
-			if ($author_id)
+			if ($author_type == 2 && !$guest)
 			{
-                $result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE poster_id = '.$author_id) or error('Unable to fetch matched posts list', __FILE__, __LINE__, $db->error());
+                if (count($author_ids) == 1)
+                {
+                    $poster_condition = 'poster_id = ' . reset($author_ids);
+                }
+                else
+                {
+                    $poster_condition = 'poster_id IN (' . implode(', ', $author_ids) . ')';
+                }
+                $result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE '.$poster_condition) or error('Unable to fetch matched posts list', __FILE__, __LINE__, $db->error());
                 $search_ids = array();
                 while ($row = $db->fetch_row($result))
                     $author_results[] = $row[0];
                 $db->free_result($result); 
             }
-
-			if (($author || $author_id) && $keywords)
+            
+			if ($author_type == 2 && !$guest && $keywords)
 			{
 				// If we searched for both keywords and author name we want the intersection between the results
 				$search_ids = array_intersect($keyword_results, $author_results);
@@ -452,27 +468,80 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 			$num_hits = count($search_ids);
             
-            $post_condition = '';
-            if ($author_guest)
+            $pid_condition = '';
+			if ($author_type == 2 || $keywords)
             {
-                $post_condition = ' AND p.poster_id=1';
-            }
-			if ($author || $author_id || $keywords)
-            {
-                if (!$num_hits)
+                if (!$guest && !$num_hits)
                 {
                     message($lang_search['No hits']);
                 }
-                else
+                elseif ($num_hits)
                 {
-                    $post_condition .= ' AND p.id IN('.implode(',', $search_ids).')';
+                    $post_condition = 'p.id IN('.implode(',', $search_ids).')';
                 }
             }
-
-
+			
+            if ($guest)
+            {
+                $guest_condition = 'p.poster_id=1';
+            }
+            
+            // If there is a condition on poster ID
+            $poster_condition = '';
+            if (($author_type == 2 && $guest) || $author_type == 3)
+			{
+                $poster_condition = 'poster_id';
+                if (count($author_ids) == 1)
+                {
+                    $ids = reset($author_ids);
+                    if ($author_type == 2)
+                    {
+                        $poster_condition .= ' = ';
+                    }
+                    else
+                    {
+                        $poster_condition .= ' != ';
+                    }
+                    $poster_condition .= $ids;
+                }
+                else
+                {
+                    $poster_condition .= ' IN (' . implode(', ', $author_ids) . ')';
+                    if ($author_type == 3)
+                    {
+                        $poster_condition = 'NOT (' . $poster_condition . ')';
+                    }
+                }
+                
+                if ($guest)
+                {
+                    if ($author_type == 2)
+                    {
+                        $poster_operand = ' OR ';
+                    }
+                    else
+                    {
+                        $poster_operand = ' AND ';
+                    }
+                    $poster_condition = '(' . $poster_condition . $poster_operand . $guest_condition . ')';
+                }
+                
+                $poster_condition = ' AND ' . $poster_condition;
+            }
+            elseif ($guest)
+            {
+                $poster_condition = ' AND ' . $guest_condition;
+            }
+            
+            // If there is a condition on poster name
+            if ($author)
+            {
+                $poster_condition .= ' AND p.poster ILIKE \''.$db->escape($author).'\'';
+            }
+            
 			if ($show_as == 'topics')
 			{
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON ('.$where_culture.'f.id=t.forum_id) LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.$post_condition.$forum_sql.$ip_condition.' GROUP BY t.id', true) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON ('.$where_culture.'f.id=t.forum_id) LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.$forum_sql.$post_condition.$poster_condition.$ip_condition.' GROUP BY t.id', true) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 
 				$search_ids = array();
 				while ($row = $db->fetch_row($result))
@@ -484,7 +553,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			}
 			else
 			{
-				$result = $db->query('SELECT p.id FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON ('.$where_culture.'f.id=t.forum_id) LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.$post_condition.$forum_sql.$ip_condition, true) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT p.id FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON ('.$where_culture.'f.id=t.forum_id) LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.$forum_sql.$post_condition.$poster_condition.$ip_condition, true) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 
 				$search_ids = array();
 				while ($row = $db->fetch_row($result))
@@ -497,13 +566,36 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		}
 		else if ($action == 'show_new' || $action == 'show_24h' || $action == 'show_user' || $action == 'show_subscriptions' || $action == 'show_unanswered' || $action == 'show_news')
 		{
-			// If it's a search for new posts
+            $forum_ids = array();
+            if (!empty($c2c_board_condition))
+            {
+                $forum_ids[] = C2C_BOARD_FORUM;
+            }
+			if (!isset($_GET['all']))
+            {
+                $forum_ids[] = PUB_FORUMS;
+                $forum_ids[] = LOVE_FORUMS;
+            }
+            if (count($forum_ids))
+            {
+                $where_forum_id = implode(', ', $forum_ids);
+                if (count($forum_ids) == 1)
+                {
+                    $where_forum_id = ' AND f.id != ' . $where_forum_id;
+                }
+                else
+                {
+                    $where_forum_id = ' AND NOT (f.id IN (' . $where_forum_id . '))';
+                }
+            }
+            
+            // If it's a search for new posts
 			if ($action == 'show_new')
 			{
                 if ($pun_user['is_guest'])
 					message($lang_common['No permission']);
 
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND '.$where_culture.'t.last_post>'.$pun_user['last_visit'].' AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$where_forum_id.' AND '.$where_culture.'t.last_post>'.$pun_user['last_visit'].' AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
 				if (!$num_hits)
@@ -512,7 +604,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for todays posts
 			else if ($action == 'show_24h')
 			{
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND '.$where_culture.'t.last_post>'.(time() - 86400).' AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$where_forum_id.' AND '.$where_culture.'t.last_post>'.(time() - 86400).' AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
 				if (!$num_hits)
@@ -521,7 +613,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for posts by a specific user ID
 			else if ($action == 'show_user')
 			{
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR fp.forum_id=1)'.$c2c_board_condition.' AND p.poster_id='.$user_id.' GROUP BY t.id') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR fp.forum_id=1)'.$where_forum_id.' AND p.poster_id='.$user_id.' GROUP BY t.id') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
 				if (!$num_hits)
@@ -533,7 +625,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				if ($pun_user['is_guest'])
 					message($lang_common['Bad request']);
 
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'subscriptions AS s ON (t.id=s.topic_id AND s.user_id='.$pun_user['id'].') INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR fp.forum_id=1)'.$c2c_board_condition) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'subscriptions AS s ON (t.id=s.topic_id AND s.user_id='.$pun_user['id'].') INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR fp.forum_id=1)'.$where_forum_id) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
 				if (!$num_hits)
@@ -542,7 +634,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for unanswered posts
 			else if ($action == 'show_unanswered')
 			{
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND t.num_replies=0 AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$where_forum_id.' AND t.num_replies=0 AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
 				if (!$num_hits)
@@ -1082,7 +1174,18 @@ var GoogleSearch = {
 if ($is_admmod)
 {
 ?>
-						<label class="conl">IP:<br /><input id="ip" type="text" name="ip" size="15" maxlength="32" /><br /></label>
+						<label class="conl">Author ID<br /><input id="author_id" type="text" name="author_id" size="8" maxlength="32" /><br /></label>
+						<label class="conl">Author option<br />
+    						<select name="author_type">
+    							<option value="0"></option>
+    							<option value="1"><?php echo $lang_common['Member'] . ' (' . $lang_common['all'] . ')' ?></option>
+    							<option value="2"><?php echo $lang_common['Member'] . ' avec cet ID uniquement' ?></option>
+    							<option value="3"><?php echo $lang_common['Member'] . ' avec un ID différent' ?></option>
+    						</select>
+                            <br />
+                        </label>
+						<label class="conl"><?php echo $lang_common['Guest'] ?><br /><input id="guest" type="checkbox" name="guest" value="1" /><br /></label>
+						<label class="conl">IP<br /><input id="ip" type="text" name="ip" size="15" maxlength="32" /><br /></label>
 <?php
 }
 ?>

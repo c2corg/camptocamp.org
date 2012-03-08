@@ -250,7 +250,15 @@ if ($cur_topic['question'])
 else
 	$cur_topic_question = '';
 
-$subject_new_posts = '&nbsp; <span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$id.'&amp;action=new'.$doc.$show_link_to_forum.'" rel="nofollow" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
+if ($pun_user['is_guest'])
+{
+    $new_post_action = 'last';
+}
+else
+{
+    $new_post_action = 'new';
+}
+$subject_new_posts = '&nbsp; <span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$id.'&amp;action='.$new_post_action.$doc.$show_link_to_forum.'" rel="nofollow" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
 
 if (empty($rel))
 {

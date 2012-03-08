@@ -58,7 +58,7 @@ if (isset($_GET['get_host']))
         $author_name = pun_htmlspecialchars($post['poster']);
         $ip = $post['poster_ip'];
         
-        $post_infos = 'Post: <a href="viewtopic.php?pid='.$get_host.'#p'.$get_host.'">#p'.$get_host.'</a> - '.'Author: ';
+        $post_infos = 'Post: <a href="viewtopic.php?pid='.$get_host.'#p'.$get_host.'">#p'.$get_host.'</a> - Author: ';
         if ($author_id > 1)
         {
             $post_infos .= '<a href="/users/'.$author_id.'">'.$author_name.'</a>';
