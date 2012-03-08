@@ -137,7 +137,8 @@ c2corg.layout = (function() {
         items.push(new c2corg.GeoNamesSearchCombo({
             api: api,
             width: 200,
-            emptyText: OpenLayers.i18n('Go to...')
+            emptyText: OpenLayers.i18n('Go to...'),
+            loadingText: OpenLayers.i18n('Please wait...')
         }));
 
         items.push('->');
