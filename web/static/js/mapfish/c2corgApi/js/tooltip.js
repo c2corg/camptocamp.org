@@ -110,7 +110,9 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
     show: function(data) {
         if (data && data.totalObjects > 0) {
-            this.map.viewPortDiv.style.cursor = 'pointer';
+            // disabled, as it provokes flickering with webkit
+            // see https://dev.camptocamp.org/trac/c2corg/ticket/786
+            //this.map.viewPortDiv.style.cursor = 'pointer';
             var px = this.map.getViewPortPxFromLonLat(this.hoverLonLat);
             if (data.totalObjects == 1 && data.name) {
                 this.div.innerHTML = OpenLayers.i18n('${item}. Click to show info', {
