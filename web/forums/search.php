@@ -411,8 +411,8 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				unset($result_list);
 			}
 
-			// If it's a search for author name (and that author name isn't Guest)
-			if ($author_type == 0 && $author && strcasecmp($author, 'Guest') && strcasecmp($author, $lang_common['Guest']))
+			// If it's a search for author name like old version
+			if ($author_type == 0 && !$guest && $author && strcasecmp($author, 'Guest') && strcasecmp($author, $lang_common['Guest']))
 			{
 				switch ($db_type)
 				{
@@ -469,7 +469,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			$num_hits = count($search_ids);
             
             $post_condition = '';
-			if ($author_type == 2 || $keywords)
+			if (($author_type == 2 && !$guest) || $keywords)
             {
                 if (!$guest && !$num_hits)
                 {
@@ -477,13 +477,13 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
                 }
                 elseif ($num_hits)
                 {
-                    $post_condition = 'p.id IN('.implode(',', $search_ids).')';
+                    $post_condition = ' AND p.id IN('.implode(',', $search_ids).')';
                 }
             }
 			
             if ($guest)
             {
-                $guest_condition = 'p.poster_id=1';
+                $guest_condition = 'p.poster_id = 1';
             }
             
             // If there is a condition on poster ID
@@ -528,9 +528,13 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
                 
                 $poster_condition = ' AND ' . $poster_condition;
             }
-            elseif ($guest)
+            elseif ($author_type != 1 && $guest)
             {
                 $poster_condition = ' AND ' . $guest_condition;
+            }
+            elseif ($author_type == 1 && !$guest)
+            {
+                $poster_condition = ' AND p.poster_id != 1';
             }
             
             // If there is a condition on poster name
@@ -571,7 +575,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             {
                 $forum_ids[] = C2C_BOARD_FORUM;
             }
-			if (!isset($_GET['all']))
+			if (($action == 'show_new' || $action == 'show_24h') && !isset($_GET['all']))
             {
                 $forum_ids[] = PUB_FORUMS;
                 $forum_ids[] = LOVE_FORUMS;
