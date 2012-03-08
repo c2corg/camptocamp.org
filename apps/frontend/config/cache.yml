@@ -1,7 +1,7 @@
 default:
   enabled:     on
   with_layout: false
-  lifetime: 86400
+  lifetime: 350000
 # 86400 = 1 day  
 # 2592000 = 1 month 
 # 1181662199 = 37 years
