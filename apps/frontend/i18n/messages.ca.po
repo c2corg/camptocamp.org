@@ -539,6 +539,12 @@ msgstr "Afegir una zona d'escalada"
 msgid "Create new summits"
 msgstr "Afegir un cim"
 
+# [general comment]
+# Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
+# [WARNING] en translation used
+msgid "Created summit synchronized with hut for access"
+msgstr "Created summit synchronized with hut for access"
+
 msgid "Creating new areas"
 msgstr "Creació d'una nova regió"
 
@@ -621,6 +627,18 @@ msgstr "Suprimir la llengua."
 
 msgid "Delete geometry"
 msgstr "Suprimir la geometria"
+
+# [WARNING] en translation used
+msgid "Delete the association with this huts"
+msgstr "Delete the association with this hut"
+
+# [WARNING] en translation used
+msgid "Delete the association with this routes"
+msgstr "Delete the association with this route"
+
+# [WARNING] en translation used
+msgid "Delete the association with this summits"
+msgstr "Delete the association with this summit"
 
 msgid "Delete this association"
 msgstr "Suprimir aquesta associació"
@@ -830,6 +848,10 @@ msgstr "El canvi de nom d'un fitxer a fracassat. Intenta-ho de nou, si et plau."
 
 msgid "Failed rasterizing svg file"
 msgstr "La rasterització de la imatge SVG ha fallat"
+
+# [WARNING] en translation used
+msgid "Failed to create synchronized summit"
+msgstr "Failed to create synchronized summit"
 
 msgid "Favorite language:"
 msgstr "Ordre de preferència de llengües:"
@@ -3555,6 +3577,10 @@ msgstr "entre"
 msgid "biography"
 msgstr "biografia"
 
+# [WARNING] en translation used
+msgid "bisse"
+msgstr "channel"
+
 msgid "book"
 msgstr "llibre"
 
@@ -3703,6 +3729,10 @@ msgstr "Cantàbria"
 msgid "cantons_suisses"
 msgstr "Cantons de Suïssa"
 
+# [WARNING] en translation used
+msgid "canyon"
+msgstr "canyon"
+
 msgid "captcha test is case-insensitive"
 msgstr "test indiferent a les majúscules/minúscules <br />si la cadena és illegible podeu modificar-la recarregant la pàgina (les dades entrades es perdran)"
 
@@ -3798,6 +3828,9 @@ msgstr "premeu per modificar"
 
 msgid "click to enlarge"
 msgstr "Premeu per eixamplar"
+
+msgid "cliff"
+msgstr "paret"
 
 msgid "climbing_gym"
 msgstr "sala d'escalada"
@@ -4406,6 +4439,10 @@ msgstr "<h3>Visualitza l'accés per carretera</h3>Aquest enllaç permet visualit
 msgid "gite"
 msgstr "hostal"
 
+# [WARNING] en translation used
+msgid "glacier"
+msgstr "glacier"
+
 msgid "glacier gear"
 msgstr "Material de glacera"
 
@@ -4513,6 +4550,10 @@ msgstr "històric"
 
 msgid "history_tab_help"
 msgstr "Mostra i compara les diferents versions del document"
+
+# [WARNING] en translation used
+msgid "hole"
+msgstr "chasm"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
@@ -6138,6 +6179,10 @@ msgstr "neteja ocasional"
 msgid "sort by id"
 msgstr "Ordena els documents per la seva data de creació"
 
+# [WARNING] en translation used
+msgid "source"
+msgstr "source"
+
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
 # [WARNING] needs_review
@@ -6432,7 +6477,7 @@ msgid "valence"
 msgstr "País Valencià"
 
 msgid "valley"
-msgstr "paret / vall"
+msgstr "vall"
 
 msgid "valley_area"
 msgstr "vall"

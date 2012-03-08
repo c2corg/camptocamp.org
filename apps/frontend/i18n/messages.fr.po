@@ -553,6 +553,11 @@ msgstr "Ajouter un site"
 msgid "Create new summits"
 msgstr "Ajouter un sommet"
 
+# [general comment]
+# Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
+msgid "Created summit synchronized with hut for access"
+msgstr "Création du sommet associé à un refuge pour la gestion des itinéraires d'accès à ce refuge."
+
 msgid "Creating new areas"
 msgstr "Création d'une nouvelle zone"
 
@@ -635,6 +640,15 @@ msgstr "Supprimer la langue"
 
 msgid "Delete geometry"
 msgstr "Supprimer la géométrie"
+
+msgid "Delete the association with this huts"
+msgstr "Supprimer la relation avec ce refuge"
+
+msgid "Delete the association with this routes"
+msgstr "Supprimer la relation avec cet itinéraire"
+
+msgid "Delete the association with this summits"
+msgstr "Supprimer la relation avec ce sommet"
 
 msgid "Delete this association"
 msgstr "Supprimer cette relation"
@@ -845,6 +859,10 @@ msgstr "Le renommage d'un fichier a échoué. Merci de réessayer."
 
 msgid "Failed rasterizing svg file"
 msgstr "L'image vectorielle n'a pas pu être convertie en image matricielle"
+
+# [WARNING] needs_review
+msgid "Failed to create synchronized summit"
+msgstr "La création du sommet associé au refuge a échoué"
 
 msgid "Favorite language:"
 msgstr "Ordre de préférence des langues du contenu&nbsp;:"
@@ -3293,7 +3311,33 @@ msgstr "<h3>Compatible avec</h3>\n"
 "<strong>initiation</strong>&nbsp;: Itinéraire propice à l'initiation. En ski/surf, un itinéraire d'initiation est un itinéraire de niveau inférieur ou égale à 3.2 (piste noire), non exposé (E1) et skiant de haut en bas (pas de portage, peu de plat, pas de forêt), permettant de profiter de la descente quel que soit le point où l'on abandonne. Comme le caractère <em>initiation</em> regroupe une plage de difficulté assez large, lors d'une recherche il est utile de préciser la difficulté."
 
 msgid "_summit_type_info"
-msgstr "<h3>Type du \"sommet\"</h3>Type du point géographique pouvant constituer un but de sortie&nbsp;:<br /><br /><strong>point culminant</strong>&nbsp;: sommet, antécime, gendarme<br /><br /><strong>col</strong>&nbsp;: col, brèche<br /><br /><strong>lac</strong>&nbsp;: lac de montagne<br /><br /><strong>falaise / vallon</strong>&nbsp;: secteur de cascade de glace et de grandes voies, ou point remarquable en fond de vallon ou à flanc de montagne&nbsp;: cascade, langue de glacier, monolithe<br /><br /><strong>raid</strong>&nbsp;: un \"sommet\" de type <em>raid</em> est utile pour y associer un itinéraire-raid<br />Voir l'<a href=\"/articles/106920#raid\">aide sur les raids</a>"
+msgstr "<h3>Type du \"sommet\"</h3>\n"
+"Type du point géographique pouvant constituer un but de sortie&nbsp;:<br />\n"
+"<br />\n"
+"<strong>point culminant</strong>&nbsp;: sommet, antécime, gendarme<br />\n"
+"<br />\n"
+"<strong>col</strong>&nbsp;: col, brèche<br />\n"
+"<br />\n"
+"<strong>falaise</strong>&nbsp;: secteur de cascade de glace ou de grandes voies<br />\n"
+"<br />\n"
+"<strong>vallon</strong>&nbsp;: point remarquable en fond de vallon, ou \"sur-sommet\" rassemblant les falaises d'un même vallon<br />\n"
+"<br />\n"
+"<strong>lac</strong>&nbsp;: lac de montagne<br />\n"
+"<br />\n"
+"<strong>glacier</strong>&nbsp;: glacier ou calotte glaciaire<br />\n"
+"<br />\n"
+"<strong>source</strong>&nbsp;: source ou fontaine<br />\n"
+"<br />\n"
+"<strong>bisse / béal</strong>&nbsp;: canal d'irrigation en montagne<br />\n"
+"<br />\n"
+"<strong>canyon</strong>&nbsp;: canyon pratiquable à pied<br />\n"
+"<br />\n"
+"<strong>gouffre</strong>&nbsp;: gouffre, aven, chourum<br />\n"
+"<br />\n"
+"<strong>refuge</strong>&nbsp;: \"sommet\" créé automatiquement à la création d'un itinéraire d'accès à un refuge<br />\n"
+"<br />\n"
+"<strong>raid</strong>&nbsp;: un \"sommet\" de type <em>raid</em> est utile pour y associer un itinéraire-raid<br />\n"
+"Voir l'<a href=\"/articles/106920#raid\">aide sur les raids</a><strong>autre</strong>&nbsp;: autre point remarquable : chapelle, monument, ruine...<br />"
 
 msgid "_swiss coords_info"
 msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
@@ -3654,6 +3698,9 @@ msgstr "entre"
 msgid "biography"
 msgstr "biographie"
 
+msgid "bisse"
+msgstr "bisse / béal"
+
 msgid "book"
 msgstr "livre"
 
@@ -3802,6 +3849,9 @@ msgstr "Cantabrie"
 msgid "cantons_suisses"
 msgstr "Cantons suisses"
 
+msgid "canyon"
+msgstr "canyon"
+
 msgid "captcha test is case-insensitive"
 msgstr "test indifférent aux majuscules/minuscules<br />si la chaine est illisible, vous pouvez la modifier en rechargeant la page (les données saisies seront perdues)"
 
@@ -3897,6 +3947,9 @@ msgstr "cliquez pour modifier"
 
 msgid "click to enlarge"
 msgstr "Cliquez pour agrandir"
+
+msgid "cliff"
+msgstr "falaise"
 
 msgid "climbing_gym"
 msgstr "S.A.E."
@@ -4485,6 +4538,9 @@ msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'
 msgid "gite"
 msgstr "gite"
 
+msgid "glacier"
+msgstr "glacier"
+
 msgid "glacier gear"
 msgstr "Matériel de sécurité sur glacier"
 
@@ -4591,6 +4647,9 @@ msgstr "historique"
 
 msgid "history_tab_help"
 msgstr "Afficher et comparer les différentes versions du document"
+
+msgid "hole"
+msgstr "gouffre"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
@@ -6178,6 +6237,9 @@ msgstr "déneigement occasionnel"
 msgid "sort by id"
 msgstr "Trier par date de création des documents"
 
+msgid "source"
+msgstr "source"
+
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
 msgid "source file"
@@ -6463,7 +6525,7 @@ msgid "valence"
 msgstr "Communauté valencienne"
 
 msgid "valley"
-msgstr "falaise / vallon"
+msgstr "vallon"
 
 msgid "valley_area"
 msgstr "vallée"

@@ -159,8 +159,9 @@ if (get_is_comment($cur_topic['forum_id']) && !isset($_GET['forum']))
 }
 
 // If it is a pub forum, we don't want thatsearch engine follow links
-$pub_forums = explode(', ', PUB_FORUMS);
-if (in_array($cur_topic['forum_id'], $pub_forums))
+$pub_forums = explode(', ', PUB_FORUMS . ', ' . LOVE_FORUMS);
+$is_no_index_forum = in_array($cur_topic['forum_id'], $pub_forums);
+if ($is_no_index_forum)
 {
     $rel = ' rel="nofollow"';
 }
@@ -270,7 +271,10 @@ $page_title = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'].'
 $page_description = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'] - $cur_topic['forum_name']);
 $footer_style = 'viewtopic';
 $forum_id = $cur_topic['forum_id'];
-define('PUN_ALLOW_INDEX', 1);
+if (!$is_no_index_forum)
+{
+    define('PUN_ALLOW_INDEX', 1);
+}
 require PUN_ROOT.'header.php';
 ?>
 <h1>

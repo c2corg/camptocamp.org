@@ -548,6 +548,12 @@ msgstr "Eskalada guneak gehitu"
 msgid "Create new summits"
 msgstr "Gailur bat gehitu"
 
+# [general comment]
+# Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
+# [WARNING] en translation used
+msgid "Created summit synchronized with hut for access"
+msgstr "Created summit synchronized with hut for access"
+
 msgid "Creating new areas"
 msgstr "Eskualde berri bat sortu"
 
@@ -630,6 +636,18 @@ msgstr "Hizkuntza ezabatu"
 
 msgid "Delete geometry"
 msgstr "Geometria ezabatu"
+
+# [WARNING] en translation used
+msgid "Delete the association with this huts"
+msgstr "Delete the association with this hut"
+
+# [WARNING] en translation used
+msgid "Delete the association with this routes"
+msgstr "Delete the association with this route"
+
+# [WARNING] en translation used
+msgid "Delete the association with this summits"
+msgstr "Delete the association with this summit"
 
 msgid "Delete this association"
 msgstr "Lotura hau ezabatu"
@@ -840,6 +858,10 @@ msgstr "Fitxeroaren izen aldaketak oker bat eman du. Berriro saiatu."
 
 msgid "Failed rasterizing svg file"
 msgstr "irudi bektoriala ezin izan da bihurtu"
+
+# [WARNING] en translation used
+msgid "Failed to create synchronized summit"
+msgstr "Failed to create synchronized summit"
 
 msgid "Favorite language:"
 msgstr "Edukinaren hizkuntzen lehentasun ordena:"
@@ -3732,6 +3754,10 @@ msgstr "bitartean"
 msgid "biography"
 msgstr "biografia"
 
+# [WARNING] en translation used
+msgid "bisse"
+msgstr "channel"
+
 msgid "book"
 msgstr "liburua"
 
@@ -3893,6 +3919,10 @@ msgstr "Kantabria"
 msgid "cantons_suisses"
 msgstr "Suitzako kantoiak"
 
+# [WARNING] en translation used
+msgid "canyon"
+msgstr "canyon"
+
 # [WARNING] needs_update
 msgid "captcha test is case-insensitive"
 msgstr "testu ez bereizgarria maiuskulaz edo minuskulaz"
@@ -3987,6 +4017,10 @@ msgstr "klikatu aldaketak egiteko"
 
 msgid "click to enlarge"
 msgstr "Haunditzeko klikatu"
+
+# [WARNING] es translation used
+msgid "cliff"
+msgstr "acantilado"
 
 # [WARNING] es translation used
 msgid "climbing_gym"
@@ -4622,6 +4656,10 @@ msgstr "<h3>Visualizar el acceso carretero</h3>Este enlace le permite visualizar
 msgid "gite"
 msgstr "hospedaje"
 
+# [WARNING] en translation used
+msgid "glacier"
+msgstr "glacier"
+
 msgid "glacier gear"
 msgstr "Glaziarrerako segurtasun tresnak"
 
@@ -4734,6 +4772,10 @@ msgstr "historkioa"
 
 msgid "history_tab_help"
 msgstr "Dokumentuaren bertsio desberdinak aurkeztu eta komparatu"
+
+# [WARNING] en translation used
+msgid "hole"
+msgstr "chasm"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
@@ -6490,6 +6532,10 @@ msgstr "Nohizbeinkako elur garbiketa"
 # [WARNING] es translation used
 msgid "sort by id"
 msgstr "Ordenar los documentos según su fecha de creación"
+
+# [WARNING] en translation used
+msgid "source"
+msgstr "source"
 
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe

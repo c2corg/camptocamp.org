@@ -548,6 +548,12 @@ msgstr "Klettersektor hinzufügen"
 msgid "Create new summits"
 msgstr "Gipfel hinzufügen"
 
+# [general comment]
+# Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
+# [WARNING] en translation used
+msgid "Created summit synchronized with hut for access"
+msgstr "Created summit synchronized with hut for access"
+
 msgid "Creating new areas"
 msgstr "Eine neue Region erstellen"
 
@@ -633,6 +639,18 @@ msgstr "Die Sprache löschen"
 
 msgid "Delete geometry"
 msgstr "Die Geometrie entfernen "
+
+# [WARNING] en translation used
+msgid "Delete the association with this huts"
+msgstr "Delete the association with this hut"
+
+# [WARNING] en translation used
+msgid "Delete the association with this routes"
+msgstr "Delete the association with this route"
+
+# [WARNING] en translation used
+msgid "Delete the association with this summits"
+msgstr "Delete the association with this summit"
 
 msgid "Delete this association"
 msgstr "Diese Verbindung löschen"
@@ -841,6 +859,10 @@ msgstr "Die Umbenennung der Datei schlug fehl. Bitte versuchen Sie es erneut."
 
 msgid "Failed rasterizing svg file"
 msgstr "Die Rasterung der Vektordatei ist fehlgeschlagen."
+
+# [WARNING] en translation used
+msgid "Failed to create synchronized summit"
+msgstr "Failed to create synchronized summit"
 
 msgid "Favorite language:"
 msgstr "Bevorzugte Sprachen:"
@@ -3371,7 +3393,7 @@ msgstr "<h3>Bewartungszeitraum</h3>Ungefährer Zeitraum, wann die Hütte üblich
 msgid "_sub_activities_info"
 msgstr "<h3>Kompatibel mit</h3>Dieses Feld führt aus, mit welchen Unter-Aktivitäten eine <Ski- oder Snowboardroute</em> ausführbar ist. Die Unter-Aktivitäten werden nur ungefähr angegeben.<br />Mehrere Unter-Aktivitäten können angegeben werden.<br /><br /><strong>Snowboard</strong>: Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen.<br /><br /><strong>Anfänger</strong>: Die Route ist geeignet um eine Aktivität zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewaldeten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr. Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_summit_type_info"
 msgstr "<h3>Gipfeltyp</h3>Typ eines geographischen Punktes, welcher als Tourenziel verwendet werden kann:<br /><br /><strong>Kulminationspunkt</strong>: Gipfel, Nebengipfel, Gendarme:<br /><br /><strong>Pass</strong>: Pass, Übergang, Sattel, Scharte<br /><br /><strong>See</strong>: Bergsee<br /><br /><strong> Tal / Felswand</strong>: Auffälliger Punkt im Talgrund, oder eine auffällige Felswand, wie z.B. Wasser-/Eisfall, Monolith, Eisaufwölbung eines Gletschers. Darin enthalten sind auch Felsen in tiefen Lagen, an welchen sich Mehrseillängenklettereien (Fels, Eis oder Mix) befinden.<br /><br /><strong>Mehrtagestouren</strong>: Wird verwendet um Mehrtagesrouten zu beschreiben und suchen, indem die Route jeder Etappe (oder eine einzelne Route für alle Etappen) mit einem Gipfel des Typs “Mehrtagesroute” verbunden wird."
 
@@ -3744,6 +3766,10 @@ msgstr "zwischen"
 msgid "biography"
 msgstr "biografie"
 
+# [WARNING] en translation used
+msgid "bisse"
+msgstr "channel"
+
 msgid "book"
 msgstr "Buch"
 
@@ -3897,6 +3923,10 @@ msgstr "Kantabrien"
 msgid "cantons_suisses"
 msgstr "Schweizer Kantone"
 
+# [WARNING] en translation used
+msgid "canyon"
+msgstr "canyon"
+
 msgid "captcha test is case-insensitive"
 msgstr "Der Test ist unabhängig von Gross- und Kleinschreibweise.<br />Falls die Zeichenfolge nicht lesbar ist, können sie die Seite neu laden, um ein neues Bild zu generieren (die eingegebene Daten werden gelöscht)."
 
@@ -4025,6 +4055,9 @@ msgstr "klicken um zu ändern"
 
 msgid "click to enlarge"
 msgstr "Klicken zum Vergrößern"
+
+msgid "cliff"
+msgstr "Felswand"
 
 msgid "climbing_gym"
 msgstr "Kletterhalle"
@@ -4619,6 +4652,10 @@ msgstr "<h3>Anfahrtsbeschreibung anzeigen</h3>\n"
 msgid "gite"
 msgstr "Herberge"
 
+# [WARNING] en translation used
+msgid "glacier"
+msgstr "glacier"
+
 msgid "glacier gear"
 msgstr "Gletscherausrüstung"
 
@@ -4724,6 +4761,10 @@ msgstr "Verlauf"
 
 msgid "history_tab_help"
 msgstr "Verschiedene Versionen des Dokuments anzeigen und vergleichen"
+
+# [WARNING] en translation used
+msgid "hole"
+msgstr "chasm"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
@@ -6348,6 +6389,10 @@ msgstr "hin und wieder geräumt"
 msgid "sort by id"
 msgstr "Die Dokumente nach dem Erstellungsdatum sortieren"
 
+# [WARNING] en translation used
+msgid "source"
+msgstr "source"
+
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
 # [WARNING] needs_review
@@ -6671,7 +6716,7 @@ msgstr "Valencianische Gemeinschaft"
 # [comment]
 # vs
 msgid "valley"
-msgstr "Felswand / Tal"
+msgstr "Tal"
 
 msgid "valley_area"
 msgstr "Tal"

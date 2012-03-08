@@ -434,6 +434,10 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
                     }
                     $author_type = 2;
                 }
+                else
+                {
+                    message($lang_search['No hits']);
+                }
                 $author = null;
             }
             

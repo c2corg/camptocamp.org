@@ -71,8 +71,9 @@ if (!$is_c2c_board)
 	message($lang_common['No permission']);
 
 // If it is a pub forum, we don't want thatsearch engine follow links
-$pub_forums = explode(', ', PUB_FORUMS);
-if (in_array($id, $pub_forums))
+$pub_forums = explode(', ', PUB_FORUMS . ', ' . LOVE_FORUMS);
+$is_no_index_forum = in_array($id, $pub_forums);
+if ($is_no_index_forum)
 {
     $rel = ' rel="nofollow"';
 }
@@ -159,7 +160,11 @@ else
 
 $footer_style = 'viewforum';
 $forum_id = $id;
-define('PUN_ALLOW_INDEX', 1);
+if (!$is_no_index_forum)
+{
+    define('PUN_ALLOW_INDEX', 1);
+    define('PUN_NO_FOLLOW', 1);
+}
 require PUN_ROOT.'header.php';
 
 #$new_topics = get_all_new_topics();

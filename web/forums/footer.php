@@ -51,12 +51,25 @@ $search_link = '<a href="search.php'.$select_forum.'">'.$lang_common['Search'].'
 $lang = get_lang_code();
 $is_admmod = isset($is_admmod) ? $is_admmod : false;
 $is_admmod_2 = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
+if ($lang == 'fr')
+{
+    $all_lang_text = 'multilingue';
+}
+else
+{
+    $all_lang_text = $lang_common['all'];
+}
 
 if ($footer_style == 'index' || $footer_style == 'search')
 {
     if (!$pun_user['is_guest'])
 	{
-		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$lang_common['all'].']</a></dd>'."\n";
+		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$all_lang_text.']</a>';
+        if ($lang == 'fr')
+        {
+            echo ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">[fr avec bistrot/p++]</a>';
+        }
+        echo '</dd>'."\n";
 		if ($is_admmod_2)
         {
             echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
@@ -145,7 +158,12 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 			<p class="conr"><?php
 if (!$pun_user['is_guest'])
 {
-    echo '<a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$lang_common['all'].']</a><br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a><br />';
+    echo '<a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$all_lang_text.']</a>';
+    if ($lang == 'fr')
+    {
+        echo ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">[fr avec bistrot/p++]</a>';
+    }
+    echo '<br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a><br />';
     if ($footer_style == 'index' || $footer_style == 'search')
     {
         echo '<a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';
@@ -157,7 +175,12 @@ if (!$pun_user['is_guest'])
 }
 else
 {
-    echo '<a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$lang_common['all'].']</a><br />';
+    echo '<a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$all_lang_text.']</a>';
+    if ($lang == 'fr')
+    {
+        echo ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">[fr avec bistrot/p++]</a>';
+    }
+    echo '<br />';
 }
 
 echo '<a href="#header">'.$lang_common['Top'].'</a><br />';

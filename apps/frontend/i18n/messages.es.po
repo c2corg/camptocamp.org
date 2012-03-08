@@ -546,6 +546,12 @@ msgstr "Añadir un sitio o sector de escalada"
 msgid "Create new summits"
 msgstr "Añadir una cima"
 
+# [general comment]
+# Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
+# [WARNING] en translation used
+msgid "Created summit synchronized with hut for access"
+msgstr "Created summit synchronized with hut for access"
+
 msgid "Creating new areas"
 msgstr "Creación de una nueva región"
 
@@ -628,6 +634,18 @@ msgstr "Suprimir en ese idioma"
 
 msgid "Delete geometry"
 msgstr "Suprimir la geometría"
+
+# [WARNING] en translation used
+msgid "Delete the association with this huts"
+msgstr "Delete the association with this hut"
+
+# [WARNING] en translation used
+msgid "Delete the association with this routes"
+msgstr "Delete the association with this route"
+
+# [WARNING] en translation used
+msgid "Delete the association with this summits"
+msgstr "Delete the association with this summit"
 
 msgid "Delete this association"
 msgstr "Suprimir este vinculo"
@@ -837,6 +855,10 @@ msgstr "No se pudo mover el fichero. Inténtelo de nuevo por favor."
 
 msgid "Failed rasterizing svg file"
 msgstr "La rasterización de la imagen falló"
+
+# [WARNING] en translation used
+msgid "Failed to create synchronized summit"
+msgstr "Failed to create synchronized summit"
 
 msgid "Favorite language:"
 msgstr "Orden de preferencia de idiomas:"
@@ -3211,7 +3233,7 @@ msgstr "<h3>Periodos de guardia</h3>Periodos generales de guardia.<br />Por ejem
 msgid "_sub_activities_info"
 msgstr "<h3>Compatible con</h3>Este campo indica cuales son las subactividades con las que un itinerario de <i> esquí, surf</i> es compatible. Las subactividades se dan a título indicativo.<br />Varias subactividades pueden ser mencionadas.<br /><br /><strong>esquí</strong>: corresponde a la mayor parte de itinerarios.<br /><br /><strong>surf</strong>: itinerario que no comporte mucho llano o travesía - todos los itinerarios <i>surf</i> deben también señalarse compatibles con <i>esquí</i>.<br /><br /><strong>iniciación</strong>: itinerario propicio a la iniciación de una subactividad, que debe también ser mencionada. En esquí y snowboard, un itinerario de iniciación tiene un grado de dificultad inferior a 3.2 (dificultad máxima que se puede encontrar en un centro de esquí), sin exposición (E1) y ofreciendo buen esquí a lo largo del itinerario (ninguna obligación de cargar los esquíes a la espalda, pocas zonas planas, ningún bosque que atravesar), lo que permite aprovechar el descenso desde cualquier punto en el que el principiante abandone el ascenso. Como la característica <em>iniciación</em> se aplica a un amplio rango de dificultades, es útil al buscar un itinerario de iniciación precisar en que nivel de dificultad se busca."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_summit_type_info"
 msgstr "<h3>Tipo de \"cima\"</h3>Tipo del punto geográfico que puede constituir un objetivo de salida:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>collado</strong>: abra, portezuelo, col, collado, brecha<br /><br /><strong>lago</strong>: lago de montaña<br /><br /><strong>valle / acantilado</strong>: punto notable en el fondo de un valle o de una quebrada como una cascada, una lengua de glaciar, un monolito o lugares con cascadas de hielo o vías de escalada de varios largos<br /><br /><strong>raid</strong>: permite describir y buscar itinerarios de tipo <i>raid</i>, asociando itinerarios correspondientes a cada etapa del <i>raid<i> (o un solo itinerario describiendo todas las etapas) a una\"cima\" de tipo <em>raid</em>"
 
@@ -3586,6 +3608,10 @@ msgstr "entre"
 msgid "biography"
 msgstr "biografía"
 
+# [WARNING] en translation used
+msgid "bisse"
+msgstr "channel"
+
 msgid "book"
 msgstr "libro"
 
@@ -3735,6 +3761,10 @@ msgstr "Cantabria"
 msgid "cantons_suisses"
 msgstr "Cantones de Suiza"
 
+# [WARNING] en translation used
+msgid "canyon"
+msgstr "canyon"
+
 msgid "captcha test is case-insensitive"
 msgstr "prueba insensible a mayúsculas/minúsculas<br />Si no logra leer la prueba, puede generar otra cargando de nuevo la pagina (se perderán los datos entrados)"
 
@@ -3824,6 +3854,9 @@ msgstr "pulse para modificar"
 
 msgid "click to enlarge"
 msgstr "Pulse para agrandar"
+
+msgid "cliff"
+msgstr "acantilado"
 
 msgid "climbing_gym"
 msgstr "palestra"
@@ -4423,6 +4456,10 @@ msgstr "<h3>Visualizar el acceso carretero</h3>Este enlace le permite visualizar
 msgid "gite"
 msgstr "hospedaje"
 
+# [WARNING] en translation used
+msgid "glacier"
+msgstr "glacier"
+
 msgid "glacier gear"
 msgstr "Material de rescate en grietas"
 
@@ -4529,6 +4566,10 @@ msgstr "historial"
 
 msgid "history_tab_help"
 msgstr "Muestra y compara diferentes versiones del documento"
+
+# [WARNING] en translation used
+msgid "hole"
+msgstr "chasm"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
@@ -6140,6 +6181,10 @@ msgstr "limpieza de la nieve ocasional"
 msgid "sort by id"
 msgstr "Ordenar los documentos según su fecha de creación"
 
+# [WARNING] en translation used
+msgid "source"
+msgstr "source"
+
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
 msgid "source file"
@@ -6433,7 +6478,7 @@ msgid "valence"
 msgstr "Comunidad Valenciana"
 
 msgid "valley"
-msgstr "acantilado / valle"
+msgstr "valle"
 
 # [WARNING] en translation used
 msgid "valley_area"

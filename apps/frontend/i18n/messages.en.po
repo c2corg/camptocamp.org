@@ -542,6 +542,12 @@ msgstr "Add a site"
 msgid "Create new summits"
 msgstr "Add a summit"
 
+# [general comment]
+# Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
+# [WARNING] needs_review
+msgid "Created summit synchronized with hut for access"
+msgstr "Created summit synchronized with hut for access"
+
 msgid "Creating new areas"
 msgstr "Creating a new area"
 
@@ -624,6 +630,15 @@ msgstr "Delete in this language"
 
 msgid "Delete geometry"
 msgstr "Delete geometry"
+
+msgid "Delete the association with this huts"
+msgstr "Delete the association with this hut"
+
+msgid "Delete the association with this routes"
+msgstr "Delete the association with this route"
+
+msgid "Delete the association with this summits"
+msgstr "Delete the association with this summit"
 
 msgid "Delete this association"
 msgstr "Delete this association"
@@ -833,6 +848,10 @@ msgstr "Renaming file failed. Please try again."
 
 msgid "Failed rasterizing svg file"
 msgstr "Rasterisation of the image failed"
+
+# [WARNING] needs_review
+msgid "Failed to create synchronized summit"
+msgstr "Failed to create synchronized summit"
 
 msgid "Favorite language:"
 msgstr "Favorite language:"
@@ -3249,9 +3268,22 @@ msgstr "<h3>Periods staffed</h3>Approximate periods when staffed.<br />Example: 
 msgid "_sub_activities_info"
 msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding</em>). They are given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>skiing</strong>: Most routes are compatible with skiing.<br /><br /><strong>snowboard</strong>: Route with few flat sections or level traverses. All <em>snowboarding</em> routes should also be <em>skiing</em> routes.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent. Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_summit_type_info"
-msgstr "<h3>\"Summit\" type</h3>Type of the geographical point that could serve as a goal for a tour or climb:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarkable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search for multi-day <i>raids</i>, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
+msgstr "<h3>\"Summit\" type</h3>\n"
+"Type of the geographical point that could serve as a goal for a tour or climb:<br />\n"
+"<br />\n"
+"<strong>culmen</strong>: summit, secondary summit, gendarme<br />\n"
+"<br />\n"
+"<strong>pass</strong>: pass, col, saddle, notch<br />\n"
+"<br />\n"
+"<strong>cliff</strong>: lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain<br />\n"
+"<br />\n"
+"<strong>valley</strong>: remarkable point in the bottom of a valley or a dale<br />\n"
+"<br />\n"
+"<strong>lake</strong>: mountain lake<br />\n"
+"<br />\n"
+"<strong>raid</strong>: used to describe and search for multi-day <i>raids</i>, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
 
 msgid "_swiss coords_info"
 msgstr "<h3>Swiss coordinates</h3>Coordinates of a geographical location in the Swiss coordinates system (CH1903 standard).<br />A link displays the Swisstopo map centred on the geographical location."
@@ -3620,6 +3652,10 @@ msgstr "between"
 msgid "biography"
 msgstr "biography"
 
+# [WARNING] needs_review
+msgid "bisse"
+msgstr "channel"
+
 msgid "book"
 msgstr "book"
 
@@ -3768,6 +3804,10 @@ msgstr "Cantabria"
 msgid "cantons_suisses"
 msgstr "Cantons of Switzerland"
 
+# [WARNING] needs_review
+msgid "canyon"
+msgstr "canyon"
+
 msgid "captcha test is case-insensitive"
 msgstr "test is case-insensitive<br />if the string is not readable, you can generate another one by reloading the page (all entered data will be lost)"
 
@@ -3857,6 +3897,9 @@ msgstr "click to edit"
 
 msgid "click to enlarge"
 msgstr "Click to enlarge"
+
+msgid "cliff"
+msgstr "cliff"
 
 msgid "climbing_gym"
 msgstr "climbing gym"
@@ -4453,6 +4496,10 @@ msgstr "<h3>Get directions</h3>This link allows you to get directions on an exte
 msgid "gite"
 msgstr "valley accomodation"
 
+# [WARNING] needs_review
+msgid "glacier"
+msgstr "glacier"
+
 msgid "glacier gear"
 msgstr "Crevasse rescue gear"
 
@@ -4559,6 +4606,10 @@ msgstr "history"
 
 msgid "history_tab_help"
 msgstr "Show and compare different versions of the document"
+
+# [WARNING] needs_review
+msgid "hole"
+msgstr "chasm"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
@@ -6165,6 +6216,10 @@ msgstr "sometimes cleared"
 msgid "sort by id"
 msgstr "Order documents by their creation date"
 
+# [WARNING] needs_review
+msgid "source"
+msgstr "source"
+
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
 msgid "source file"
@@ -6455,7 +6510,7 @@ msgid "valence"
 msgstr "Valencian Community"
 
 msgid "valley"
-msgstr "cliff / valley"
+msgstr "valley"
 
 msgid "valley_area"
 msgstr "valley"

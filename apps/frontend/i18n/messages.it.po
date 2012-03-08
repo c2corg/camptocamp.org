@@ -210,9 +210,9 @@ msgstr "Non è autorizzata l’unione di oggetti del tipo Regione"
 
 # [general comment]
 # do not forget trailing space
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Around: "
-msgstr "Around "
+msgstr "Intorno a "
 
 msgid "Article"
 msgstr "Articolo"
@@ -547,6 +547,11 @@ msgstr "Aggiungi una falesia"
 msgid "Create new summits"
 msgstr "Aggiungi una cima"
 
+# [general comment]
+# Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
+msgid "Created summit synchronized with hut for access"
+msgstr "Creazione della cima associata a un rifugio per la gestione degli itinerari d'accesso a questo rifugio."
+
 msgid "Creating new areas"
 msgstr "Aggiungi una nuova zona"
 
@@ -629,6 +634,15 @@ msgstr "Cancellare la lingua"
 
 msgid "Delete geometry"
 msgstr "Cancella la geometria"
+
+msgid "Delete the association with this huts"
+msgstr "Cancellare l'associazione con questo rifugio"
+
+msgid "Delete the association with this routes"
+msgstr "Cancellare l'associazione con questo itinerario"
+
+msgid "Delete the association with this summits"
+msgstr "Cancellare l'associazione con questa cima"
 
 msgid "Delete this association"
 msgstr "Elimina l'associazione"
@@ -838,6 +852,10 @@ msgstr "Il cambiamento di nome del file non è stato registrato. Provare di nuov
 
 msgid "Failed rasterizing svg file"
 msgstr "L'immagine vettoriale non è stata convertita in immagine matriciale"
+
+# [WARNING] needs_review
+msgid "Failed to create synchronized summit"
+msgstr "La creazione della cima associata a questo rifugio non ha potuto essere realizzata "
 
 msgid "Favorite language:"
 msgstr "Lingue preferite in ordine di preferenza:"
@@ -1689,9 +1707,9 @@ msgstr "Pagina personale"
 
 # [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Place"
-msgstr "Place"
+msgstr "Luogo"
 
 msgid "Please enter a valid summit"
 msgstr "inserire un nome di cima coretto"
@@ -2285,9 +2303,8 @@ msgstr "Questa email non è valida."
 msgid "This email already exists. Please choose another one."
 msgstr "Questa Email esiste già. Bisogna usarne un’altra."
 
-# [WARNING] en translation used
 msgid "This hut is already linked to a summit"
-msgstr "This hut is already linked to a summit"
+msgstr "Questo rifugio è già associato a una cima"
 
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Questa nuova gita sarà collegata all'itinerario '[[routes/%2%|%1%]]' (document %2%)"
@@ -3225,8 +3242,22 @@ msgstr "<h3>Compatibile con</h3>\n"
 "<strong>principianti</strong>: itinerario adatto alla scoperta dell'attività di scialpinismo. In sci/surf un itinerario per principianti è di solito facile (difficoltà < 3.2), non esposto in caso di caduta (E1), sciabile dall'inizio alla fine (nessun tratto a piedi, poco piatto, poco bosco), con la possibilità di tornare indietro da qualsiasi punto del percorso godendosi comunque una parte della discesa.\n"
 "Quando si fa una ricerca di itinerari <em>principianti</em> specificare anche la difficoltà nel filtro."
 
+# [WARNING] needs_update
 msgid "_summit_type_info"
-msgstr "<h3>Tipo di \"cima\"</h3>Tipo di punto geografico che può essere costituito dalla meta della gita:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>colle</strong>: colle, forcella<br /><br /><strong>lago</strong>: lago di montagna<br /><br /><strong>vallone</strong>: punto specifico di fondovalle: cascata, lingua del ghiacciaio, monolite o masso erratico e anche settori di arrampicata su vie lunghe o su cascate di ghiaccio<br /><br /><strong>raid</strong>: una \"cima\" di tipo <em>raid</em> è utile per associarci un itinerario-raid<br />Leggere l'<a href=\"/articles/106920#raid\">aiuto sui raid</a>"
+msgstr "<h3>Tipo di \"cima\"</h3>\n"
+"Tipo di punto geografico che può essere costituito dalla meta della gita:<br />\n"
+"<br />\n"
+"<strong>punto culminante</strong>: cima, antecima, gendarme<br />\n"
+"<br />\n"
+"<strong>colle</strong>: colle, forcella<br />\n"
+"<br />\n"
+"<strong>falesia</strong>settori di arrampicata su vie lunghe o su cascate di ghiaccio<br />\n"
+"<br />\n"
+"<strong>vallone</strong>: punto specifico di fondovalle<br />\n"
+"<br />\n"
+"<strong>lago</strong>: lago di montagna<br />\n"
+"<br />\n"
+"<strong>raid</strong>: una \"cima\" di tipo <em>raid</em> è utile per associarci un itinerario-raid<br />Leggere l'<a href=\"/articles/106920#raid\">aiuto sui raid</a>"
 
 msgid "_swiss coords_info"
 msgstr "<h3>Coordinati svizzeri</h3>Coordinati geografici nel sistema svizzera (CH1903).<br />Il link consente di vedere la mappa Swisstopo centrata sul luogo geografico."
@@ -3597,6 +3628,10 @@ msgstr "tra"
 msgid "biography"
 msgstr "biografia"
 
+# [WARNING] en translation used
+msgid "bisse"
+msgstr "channel"
+
 msgid "book"
 msgstr "libro"
 
@@ -3746,6 +3781,10 @@ msgstr "Cantabria"
 msgid "cantons_suisses"
 msgstr "Cantoni della Svizzera"
 
+# [WARNING] needs_review
+msgid "canyon"
+msgstr "canyon"
+
 msgid "captcha test is case-insensitive"
 msgstr "il testo è indifferente alle maiuscole/minuscole<br />se non riusci a leggere le lettere, puoi ricaricare la pagina (Attenzione: perderai le tue info)"
 
@@ -3836,6 +3875,9 @@ msgstr "clicca per modificare"
 
 msgid "click to enlarge"
 msgstr "Cliccare per ingrandire"
+
+msgid "cliff"
+msgstr "falesia"
 
 msgid "climbing_gym"
 msgstr "palestra"
@@ -4186,9 +4228,8 @@ msgstr "Difficoltà / impegno complessivo:"
 msgid "english"
 msgstr "inglese"
 
-# [WARNING] en translation used
 msgid "enter place name"
-msgstr "Enter a location name"
+msgstr "Entra un nome di luogo"
 
 msgid "environment"
 msgstr "ambiente"
@@ -4409,13 +4450,11 @@ msgstr "negozio di sport"
 msgid "geo_export_info"
 msgstr "<h3>Esporta</h3>Le coordinate geografiche del documento possono essere caricate in uno dei formati proposti."
 
-# [WARNING] en translation used
 msgid "geolocation failed"
-msgstr "Geolocation failed"
+msgstr "E' impossibile determinare la posizione"
 
-# [WARNING] en translation used
 msgid "geolocation not supported"
-msgstr "Sorry, geolocation services are not supported by your browser"
+msgstr "Questa funzionalità non è disponibile con il tuo navigatore"
 
 msgid "geology pic"
 msgstr "geologia"
@@ -4428,6 +4467,9 @@ msgstr "<h3>Vedere l'accesso stradale</h3>Questo link consente di visualizzare l
 
 msgid "gite"
 msgstr "posto tappa "
+
+msgid "glacier"
+msgstr "ghiacciaio"
 
 msgid "glacier gear"
 msgstr "Materiale di sicurezza su ghiacciaio"
@@ -4536,6 +4578,10 @@ msgstr "cronologia"
 
 msgid "history_tab_help"
 msgstr "Mostrare e confrontare le differenti versione del documento"
+
+# [WARNING] en translation used
+msgid "hole"
+msgstr "chasm"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
@@ -6131,6 +6177,9 @@ msgstr "strada pulita occasionalmente"
 msgid "sort by id"
 msgstr "Ordinare per data della creazione dei documenti"
 
+msgid "source"
+msgstr "sorgente"
+
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
 msgid "source file"
@@ -6417,7 +6466,7 @@ msgid "valence"
 msgstr "Comunità Valenzana"
 
 msgid "valley"
-msgstr "falesia / vallone"
+msgstr "vallone"
 
 msgid "valley_area"
 msgstr "valle"
@@ -6476,9 +6525,8 @@ msgstr "Mostrare l'ultima versione del documento"
 msgid "visual conditions"
 msgstr "condizioni de visu"
 
-# [WARNING] en translation used
 msgid "waiting for geolocation"
-msgstr "Waiting for location..."
+msgstr "Localizzazione in corso..."
 
 msgid "way_back"
 msgstr "Discesa delle vie:"
@@ -6512,9 +6560,9 @@ msgstr "Camptocamp ti offre la possibilità di integrare al tuo sito internet o 
 msgid "with rain"
 msgstr "bagnato in caso di pioggia"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "within km: "
-msgstr "dans un rayon de "
+msgstr "in un raggio di "
 
 msgid "wl button title"
 msgstr "Inserire un link interno"
