@@ -48,7 +48,7 @@ c2corg.docGeoref = (function() {
                         update_degminsec(lat_field_id);
                     }
                 }
-            }, '->', new MapFish.API.GeoNamesSearchCombo({
+            }, '->', new c2corg.GeoNamesSearchCombo({
                 api: api,
                 width: 200,
                 emptyText: OpenLayers.i18n('Go to...')
