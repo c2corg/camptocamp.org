@@ -2,6 +2,7 @@
  * @include c2corgApi/js/ArgParser.js
  * @include c2corgApi/js/tooltip.js
  * @include c2corgApi/js/somerc.js
+ * @include c2corgApi/js/C2CGeonamesSearchCombo.js
  * @requires c2corgApi/js/Permalink.js
  * @requires MapFishApi/js/mapfish_api.js
  * @requires MapFishApi/js/Measure.js
