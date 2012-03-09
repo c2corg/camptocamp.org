@@ -163,6 +163,9 @@ $forum_id = $id;
 if (!$is_no_index_forum)
 {
     define('PUN_ALLOW_INDEX', 1);
+}
+else
+{
     define('PUN_NO_FOLLOW', 1);
 }
 require PUN_ROOT.'header.php';
