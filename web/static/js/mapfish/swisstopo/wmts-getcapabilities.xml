@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Capabilities xmlns="http://www.opengis.net/wmts/1.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_response.xsd" version="1.0.0">
-	<!-- Revision: $Rev: 1288 $ -->
+	<!-- Revision: $Rev: 1792 $ -->
 	    <ows:ServiceIdentification>
 		<ows:Title>Federal Geodata Infrastructure of Switzerland</ows:Title>
 		<ows:Abstract>Some Geodata are subject to license and fees</ows:Abstract>
@@ -78,7 +78,10 @@
 			<Style>
 				<ows:Title>Agglomérations et villes isolées</ows:Title>
 				<ows:Identifier>ch.are.agglomerationen_isolierte_staedte-2000</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.agglomerationen_isolierte_staedte-2000_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.agglomerationen_isolierte_staedte-2000_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -103,7 +106,10 @@
 			<Style>
 				<ows:Title>Convention des Alpes</ows:Title>
 				<ows:Identifier>ch.are.alpenkonvention</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.alpenkonvention_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.alpenkonvention_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -128,7 +134,10 @@
 			<Style>
 				<ows:Title>Zones à bâtir Suisse 2007</ows:Title>
 				<ows:Identifier>ch.are.bauzonen-2007</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.bauzonen-2007_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.bauzonen-2007_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -153,7 +162,10 @@
 			<Style>
 				<ows:Title>Trafic marchandises 2008</ows:Title>
 				<ows:Identifier>ch.are.belastung-gueterverkehr-bahn-2008</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.belastung-gueterverkehr-bahn-2008_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.belastung-gueterverkehr-bahn-2008_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -178,7 +190,10 @@
 			<Style>
 				<ows:Title>Trafic marchandises poids lourds 2008</ows:Title>
 				<ows:Identifier>ch.are.belastung-gueterverkehr-strasse-2008</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.belastung-gueterverkehr-strasse-2008_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.belastung-gueterverkehr-strasse-2008_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -203,7 +218,10 @@
 			<Style>
 				<ows:Title>Trafic voyageurs 2008</ows:Title>
 				<ows:Identifier>ch.are.belastung-personenverkehr-bahn-2008</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.belastung-personenverkehr-bahn-2008_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.belastung-personenverkehr-bahn-2008_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -228,7 +246,10 @@
 			<Style>
 				<ows:Title>Trafic voyageurs 2008</ows:Title>
 				<ows:Identifier>ch.are.belastung-personenverkehr-strasse-2008</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.belastung-personenverkehr-strasse-2008_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.belastung-personenverkehr-strasse-2008_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -253,7 +274,10 @@
 			<Style>
 				<ows:Title>Densité de l`emploi 2008</ows:Title>
 				<ows:Identifier>ch.are.beschaeftigtendichte-bz08</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.beschaeftigtendichte-bz08_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.beschaeftigtendichte-bz08_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -278,7 +302,10 @@
 			<Style>
 				<ows:Title>Densité de population 2000</ows:Title>
 				<ows:Identifier>ch.are.bevoelkerungsdichte-vz00</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.bevoelkerungsdichte-vz00_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.bevoelkerungsdichte-vz00_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -303,7 +330,10 @@
 			<Style>
 				<ows:Title>Typologie des communes ARE</ows:Title>
 				<ows:Identifier>ch.are.gemeindetyp-1990-9klassen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.gemeindetyp-1990-9klassen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.gemeindetyp-1990-9klassen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -328,7 +358,10 @@
 			<Style>
 				<ows:Title>Qualité de desserte par TP ARE</ows:Title>
 				<ows:Identifier>ch.are.gueteklassen_oev</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.gueteklassen_oev_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.gueteklassen_oev_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -353,7 +386,10 @@
 			<Style>
 				<ows:Title>Typologie des paysages suisses</ows:Title>
 				<ows:Identifier>ch.are.landschaftstypen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.landschaftstypen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.landschaftstypen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -378,7 +414,10 @@
 			<Style>
 				<ows:Title>Temps de parcours en TIM 2005</ows:Title>
 				<ows:Identifier>ch.are.reisezeit_miv-2005</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.reisezeit_miv-2005_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.reisezeit_miv-2005_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -403,7 +442,10 @@
 			<Style>
 				<ows:Title>Temps de parcours en TP 2005</ows:Title>
 				<ows:Identifier>ch.are.reisezeit_oev-2005</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.reisezeit_oev-2005_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.are.reisezeit_oev-2005_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -417,8 +459,8 @@
 			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.are.reisezeit_oev-2005/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
 		</Layer>
     <Layer>
-			<ows:Title>Itinéraires pour convois exceptionnels</ows:Title>
-			<ows:Abstract>Les données des itinéraires pour convois exceptionnels se composent d&#39;informations routières, de données relatives aux obstacles ainsi que d&#39;images au format PDF. Ces données sont prioritairement utilisées par le centre des pompiers du Gotthard pour vérifier l&#39;octroi des autorisations spéciales.</ows:Abstract>
+			<ows:Title>Itinéraires convois exceptionnels</ows:Title>
+			<ows:Abstract>Les routes nationales ne correspondent à aucune classe de route normée et ne figurent ainsi pas en tant qu&#39;itinéraire pour convois exceptionnels.Les itinéraires cantonaux pour convois exceptionnels représentent l&#39;état actuel ou les intentions cantonales dans la forme générale, mais ne prennent pas en considération les obstacles concrets sur les routes. Certains cantons possèdent des cartes représentants les obstacles au format électronique. Les paramètres des classes de route correspondent aux données de masse techniques exactes (gabarit d&#39;espace libre et charges maximales par type de route), ne comprennent aucune marge et ne sont ainsi pas identiques aux paramètres de passage.</ows:Abstract>
 			<ows:WGS84BoundingBox>
 				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
 				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
@@ -426,9 +468,12 @@
 			<ows:Identifier>ch.astra.ausnahmetransportrouten</ows:Identifier>
 			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
 			<Style>
-				<ows:Title>Itinéraires pour convois exceptionnels</ows:Title>
+				<ows:Title>Itinéraires convois exceptionnels</ows:Title>
 				<ows:Identifier>ch.astra.ausnahmetransportrouten</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.astra.ausnahmetransportrouten_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.astra.ausnahmetransportrouten_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -453,7 +498,10 @@
 			<Style>
 				<ows:Title>IVS carte de terrain</ows:Title>
 				<ows:Identifier>ch.astra.ivs-gelaendekarte</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.astra.ivs-gelaendekarte_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.astra.ivs-gelaendekarte_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -478,7 +526,10 @@
 			<Style>
 				<ows:Title>IVS National</ows:Title>
 				<ows:Identifier>ch.astra.ivs-nat</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.astra.ivs-nat_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.astra.ivs-nat_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -503,7 +554,10 @@
 			<Style>
 				<ows:Title>IVS régional et local</ows:Title>
 				<ows:Identifier>ch.astra.ivs-reg_loc</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.astra.ivs-reg_loc_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.astra.ivs-reg_loc_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -528,7 +582,10 @@
 			<Style>
 				<ows:Title>Inventaire des biens culturels</ows:Title>
 				<ows:Identifier>ch.babs.kulturgueter</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.babs.kulturgueter_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.babs.kulturgueter_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -556,7 +613,10 @@ Conformément à l&#39;article 18a LPN, le Conseil fédéral a arrêté en 2001 
 			<Style>
 				<ows:Title>Batraciens</ows:Title>
 				<ows:Identifier>ch.bafu.bundesinventare-amphibien</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-amphibien_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-amphibien_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -581,7 +641,10 @@ Conformément à l&#39;article 18a LPN, le Conseil fédéral a arrêté en 2001 
 			<Style>
 				<ows:Title>Zones alluviales</ows:Title>
 				<ows:Identifier>ch.bafu.bundesinventare-auen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-auen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-auen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -606,7 +669,10 @@ Conformément à l&#39;article 18a LPN, le Conseil fédéral a arrêté en 2001 
 			<Style>
 				<ows:Title>Inventaire IFP</ows:Title>
 				<ows:Identifier>ch.bafu.bundesinventare-bln</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-bln_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-bln_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -631,7 +697,10 @@ Conformément à l&#39;article 18a LPN, le Conseil fédéral a arrêté en 2001 
 			<Style>
 				<ows:Title>Bas-marais</ows:Title>
 				<ows:Identifier>ch.bafu.bundesinventare-flachmoore</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-flachmoore_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-flachmoore_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -657,7 +726,10 @@ Le premier inventaire fédéral selon l&#39;art. 18a LPN fut celui des hauts-mar
 			<Style>
 				<ows:Title>Hauts-marais</ows:Title>
 				<ows:Identifier>ch.bafu.bundesinventare-hochmoore</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-hochmoore_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-hochmoore_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -683,7 +755,10 @@ La situation actuelle se caractérise d&#39;une part par des populations d&#39;o
 			<Style>
 				<ows:Title>Districts francs</ows:Title>
 				<ows:Identifier>ch.bafu.bundesinventare-jagdbanngebiete</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-jagdbanngebiete_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-jagdbanngebiete_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -708,7 +783,10 @@ La situation actuelle se caractérise d&#39;une part par des populations d&#39;o
 			<Style>
 				<ows:Title>Sites marécageux</ows:Title>
 				<ows:Identifier>ch.bafu.bundesinventare-moorlandschaften</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-moorlandschaften_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-moorlandschaften_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -734,7 +812,10 @@ Un inventaire des réserves d&#39;oiseaux d&#39;eau d&#39;importance internation
 			<Style>
 				<ows:Title>Réserves d`oiseaux d`eau et de migrateurs</ows:Title>
 				<ows:Identifier>ch.bafu.bundesinventare-vogelreservate</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-vogelreservate_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.bundesinventare-vogelreservate_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -759,7 +840,10 @@ Un inventaire des réserves d&#39;oiseaux d&#39;eau d&#39;importance internation
 			<Style>
 				<ows:Title>Colonies de bouquetins</ows:Title>
 				<ows:Identifier>ch.bafu.fauna-steinbockkolonien</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.fauna-steinbockkolonien_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.fauna-steinbockkolonien_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -784,13 +868,16 @@ Un inventaire des réserves d&#39;oiseaux d&#39;eau d&#39;importance internation
 			<Style>
 				<ows:Title>Zones de risque sismique</ows:Title>
 				<ows:Identifier>ch.bafu.gefahren-gefaehrdungszonen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.gefahren-gefaehrdungszonen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.gefahren-gefaehrdungszonen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
 				<ows:Identifier>Time</ows:Identifier>
-				<Default>20030101</Default>
-				<Value>20030101</Value>
+				<Default>20030102</Default>
+				<Value>20030102</Value>
 			</Dimension>
 			<TileMatrixSetLink>
 				<TileMatrixSet>21781</TileMatrixSet>
@@ -809,7 +896,10 @@ Un inventaire des réserves d&#39;oiseaux d&#39;eau d&#39;importance internation
 			<Style>
 				<ows:Title>Exploitations de bois (IFN)</ows:Title>
 				<ows:Identifier>ch.bafu.holznutzung</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.holznutzung_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.holznutzung_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -834,7 +924,10 @@ Un inventaire des réserves d&#39;oiseaux d&#39;eau d&#39;importance internation
 			<Style>
 				<ows:Title>Volume de bois (IFN)</ows:Title>
 				<ows:Identifier>ch.bafu.holzvorrat</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.holzvorrat_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.holzvorrat_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -859,7 +952,10 @@ Un inventaire des réserves d&#39;oiseaux d&#39;eau d&#39;importance internation
 			<Style>
 				<ows:Title>Accroissement annuel de bois (IFN)</ows:Title>
 				<ows:Identifier>ch.bafu.holzzuwachs</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.holzzuwachs_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.holzzuwachs_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -874,10 +970,7 @@ Un inventaire des réserves d&#39;oiseaux d&#39;eau d&#39;importance internation
 		</Layer>
     <Layer>
 			<ows:Title>Stations hydrométriques</ows:Title>
-			<ows:Abstract>Réseau de base: niveau d&#39;eau et débit des eaux de surface. Le réseau de base de la division Hydrologie de l&#39;Office
-fédéral de l&#39;environnement compte aujourd&#39;hui quelque 260 stations de mesure des eaux de surface. Outre le niveau
-d&#39;eau des lacs, ce réseau permet également de déterminer le débit des cours d&#39;eau à 200 emplacements. 90% des
-stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows:Abstract>
+			<ows:Abstract>Cette série de données regroupe les stations de mesure qui appartiennent au réseau de base de la division Hydrologie de l’Office fédéral de l’environnement (OFEV), c’est-à-dire toutes les stations publiées sur le site Internet de l’office (état 2008). Le réseau de base compte au-jourd’hui quelque 260 stations de mesure des eaux de surface. Il permet de déterminer non seulement le niveau d’eau des lacs mais aussi le débit des cours d’eau en 200 endroits. Quelque 90 % des stations sont équipées pour l’interrogation à distance.</ows:Abstract>
 			<ows:WGS84BoundingBox>
 				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
 				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
@@ -887,7 +980,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Stations hydrométriques</ows:Title>
 				<ows:Identifier>ch.bafu.hydrologie-hydromessstationen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.hydrologie-hydromessstationen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.hydrologie-hydromessstationen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -912,7 +1008,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Bruit ferroviaire (Lr_nuit)</ows:Title>
 				<ows:Identifier>ch.bafu.laerm-bahnlaerm_nacht</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.laerm-bahnlaerm_nacht_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.laerm-bahnlaerm_nacht_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -937,7 +1036,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Bruit ferroviaire (Lr_jour)</ows:Title>
 				<ows:Identifier>ch.bafu.laerm-bahnlaerm_tag</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.laerm-bahnlaerm_tag_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.laerm-bahnlaerm_tag_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -962,7 +1064,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Bruit routier (Lr_nuit)</ows:Title>
 				<ows:Identifier>ch.bafu.laerm-strassenlaerm_nacht</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.laerm-strassenlaerm_nacht_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.laerm-strassenlaerm_nacht_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -987,7 +1092,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Bruit routier (Lr_jour)</ows:Title>
 				<ows:Identifier>ch.bafu.laerm-strassenlaerm_tag</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.laerm-strassenlaerm_tag_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.laerm-strassenlaerm_tag_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1012,7 +1120,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Qualité de l&#39;air: Stations NABEL</ows:Title>
 				<ows:Identifier>ch.bafu.nabelstationen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.nabelstationen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.nabelstationen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1037,7 +1148,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Carte indicative du Pergélisol</ows:Title>
 				<ows:Identifier>ch.bafu.permafrost</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.permafrost_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.permafrost_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1062,7 +1176,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>REN  Zones agricoles extensives</ows:Title>
 				<ows:Identifier>ch.bafu.ren-extensive_landwirtschaftsgebiete</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-extensive_landwirtschaftsgebiete_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-extensive_landwirtschaftsgebiete_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1087,7 +1204,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>REN  Zones humides</ows:Title>
 				<ows:Identifier>ch.bafu.ren-feuchtgebiete</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-feuchtgebiete_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-feuchtgebiete_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1112,7 +1232,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>REN  Zones aquatiques</ows:Title>
 				<ows:Identifier>ch.bafu.ren-fliessgewaesser_seen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-fliessgewaesser_seen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-fliessgewaesser_seen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1137,7 +1260,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>REN  Zones de prairies sèches</ows:Title>
 				<ows:Identifier>ch.bafu.ren-trockenstandorte</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-trockenstandorte_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-trockenstandorte_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1162,7 +1288,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>REN Zones forêts</ows:Title>
 				<ows:Identifier>ch.bafu.ren-wald</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-wald_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.ren-wald_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1187,7 +1316,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Parcs</ows:Title>
 				<ows:Identifier>ch.bafu.schutzgebiete-paerke_nationaler_bedeutung</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.schutzgebiete-paerke_nationaler_bedeutung_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.schutzgebiete-paerke_nationaler_bedeutung_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1212,7 +1344,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Ramsar</ows:Title>
 				<ows:Identifier>ch.bafu.schutzgebiete-ramsar</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.schutzgebiete-ramsar_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.schutzgebiete-ramsar_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1237,7 +1372,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Parc national</ows:Title>
 				<ows:Identifier>ch.bafu.schutzgebiete-schweizerischer_nationalpark</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.schutzgebiete-schweizerischer_nationalpark_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.schutzgebiete-schweizerischer_nationalpark_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1262,7 +1400,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>Zones de tranquillité</ows:Title>
 				<ows:Identifier>ch.bafu.schutzgebiete-wildruhezonen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.schutzgebiete-wildruhezonen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.schutzgebiete-wildruhezonen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1287,7 +1428,10 @@ stations sont équipées d&#39;un système d&#39;interrogation à distance.</ows
 			<Style>
 				<ows:Title>ShowMe communes: crues</ows:Title>
 				<ows:Identifier>ch.bafu.showme-gemeinden_hochwasser</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-gemeinden_hochwasser_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-gemeinden_hochwasser_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1314,7 +1458,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des avalanches 
 			<Style>
 				<ows:Title>ShowMe communes: avalanches</ows:Title>
 				<ows:Identifier>ch.bafu.showme-gemeinden_lawinen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-gemeinden_lawinen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-gemeinden_lawinen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1341,7 +1488,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des glissements
 			<Style>
 				<ows:Title>ShowMe communes: glissements</ows:Title>
 				<ows:Identifier>ch.bafu.showme-gemeinden_rutschungen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-gemeinden_rutschungen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-gemeinden_rutschungen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1366,7 +1516,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des glissements
 			<Style>
 				<ows:Title>ShowMe communes: chutes de pierres</ows:Title>
 				<ows:Identifier>ch.bafu.showme-gemeinden_sturzprozesse</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-gemeinden_sturzprozesse_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-gemeinden_sturzprozesse_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1393,7 +1546,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>ShowMe cantons: crues</ows:Title>
 				<ows:Identifier>ch.bafu.showme-kantone_hochwasser</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-kantone_hochwasser_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-kantone_hochwasser_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1418,7 +1574,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>ShowMe cantons: avalanches</ows:Title>
 				<ows:Identifier>ch.bafu.showme-kantone_lawinen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-kantone_lawinen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-kantone_lawinen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1443,7 +1602,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>ShowMe cantons: glissements</ows:Title>
 				<ows:Identifier>ch.bafu.showme-kantone_rutschungen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-kantone_rutschungen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-kantone_rutschungen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1468,7 +1630,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>ShowMe cantons: chutes de pierres</ows:Title>
 				<ows:Identifier>ch.bafu.showme-kantone_sturzprozesse</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-kantone_sturzprozesse_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.showme-kantone_sturzprozesse_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1493,7 +1658,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>Rejets de polluants (SwissPRTR)</ows:Title>
 				<ows:Identifier>ch.bafu.swissprtr</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.swissprtr_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.swissprtr_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1518,7 +1686,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>Prélèvements</ows:Title>
 				<ows:Identifier>ch.bafu.wasser-entnahme</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.wasser-entnahme_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.wasser-entnahme_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1543,7 +1714,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>Dérivation</ows:Title>
 				<ows:Identifier>ch.bafu.wasser-leitungen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.wasser-leitungen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.wasser-leitungen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1568,7 +1742,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>Restitution</ows:Title>
 				<ows:Identifier>ch.bafu.wasser-rueckgabe</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.wasser-rueckgabe_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.wasser-rueckgabe_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1593,7 +1770,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>Zones de tranquillité - routes</ows:Title>
 				<ows:Identifier>ch.bafu.wege-wildruhezonen-jagdbanngebiete</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.wege-wildruhezonen-jagdbanngebiete_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bafu.wege-wildruhezonen-jagdbanngebiete_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1607,6 +1787,62 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.bafu.wege-wildruhezonen-jagdbanngebiete/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
 		</Layer>
     <Layer>
+			<ows:Title>Inventaire fédéral ISOS</ows:Title>
+			<ows:Abstract>En règle générale, l’Inventaire fédéral des sites construits d’importance nationale à protéger en Suisse ISOS comprend les agglomérations permanentes qui méritent d’être protégées en Suisse. Celles-ci doivent comporter au moins dix bâtiments principaux sur la première édition de la carte Siegfried et être indiquées sur la carte nationale. L’ISOS établit des relevés de sites pouvant être comparés entre eux et coordonnés avec d’autres inventaires. L’Inventaire promeut la sauvegarde du patrimoine bâti dans le cadre de l’aménagement des localités. Selon la loi, il doit être pris en considération dans l’établissement des plans directeurs cantonaux. L’ISOS sert de base de décision aux spécialistes de la sauvegarde du patrimoine et de l’aménagement du territoire.</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.bak.bundesinventar-schuetzenswerte-ortsbilder</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>Inventaire fédéral ISOS</ows:Title>
+				<ows:Identifier>ch.bak.bundesinventar-schuetzenswerte-ortsbilder</ows:Identifier>
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bak.bundesinventar-schuetzenswerte-ortsbilder_fr.png" />
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20110915</Default>
+				<Value>20110915</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.bak.bundesinventar-schuetzenswerte-ortsbilder/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
+			<ows:Title>Carte aéronautique OACI</ows:Title>
+			<ows:Abstract>La carte aéronautique OACI au 1:500&#39;000 est la carte aéronautique officielle de la Suisse publiée en collaboration avec skyguide. Sur la carte figurent les aéroports et aérodromes, les espaces aériens par classes, les zones interdites ou dangereuses ainsi que les obstacles à la navigation aérienne. En marge de la carte figurent d&#39;autres informations aéronautiques ainsi qu&#39;une liste des fréquences radio. La carte OACI est mise annuellement à jour. La carte est disponible sous forme analogique (carte papier) et digitale (carte-pixel). La feuille de l&#39;édition imprimée est disponible pliée. La carte-pixel est la carte OACI digitalisée, livrable sous forme de données raster géoréférencées (format TIF, 254 dpi). La carte-pixel est à disposition soit en couleurs combinées, soit en 3 couches de couleurs, séparées par thématique (carte de base, classes de l&#39;espace aérien/informations de sécurité de vol, obstacles à la navigation aérienne/lignes de transport de force).</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.bazl.luftfahrtkarten-icao</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>Carte aéronautique OACI</ows:Title>
+				<ows:Identifier>ch.bazl.luftfahrtkarten-icao</ows:Identifier>
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bazl.luftfahrtkarten-icao_fr.png" />
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20110310</Default>
+				<Value>20110310</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.bazl.luftfahrtkarten-icao/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
 			<ows:Title>Statistique de la superficie 1979/1985</ows:Title>
 			<ows:Abstract>La statistique de la superficie relève les informations sur l&#39;utilisation et la couverture du sol avec un rythme de douze ans. Ce relevé se base sur les photographies aériennes fournies par l&#39;Office fédéral de topographie. En plus des statistiques disponibles, la statistique de la superficie met également à disposition des géodonnées de base hectométriques. En outre, elle est aussi utilisée par des programmes nationaux tels l&#39;observation du territoire suisse, le monitoring de la biodiversité en Suisse, ou encore les régions d&#39;études hydrologiques, ainsi que par certains systèmes d&#39;indicateurs (MONET, compensation des charges). Pour les statistiques de la superficie de 1979/85 et 1992/97, le territoire suisse représenté par des photographies aériennes en noir et blanc a été quadrillé d&#39;un réseau de 4,1 millions de points d&#39;échantillonnage équidistants de 100 m (points d&#39;intersections des coordonnées hectométriques). Une feuille transparente portant les points d&#39;échantillonnage a été apposée sur chaque photographie et le mode d&#39;utilisation du sol a été déterminé pour chaque point d&#39;après une liste de 74 catégories d&#39;utilisation.</ows:Abstract>
 			<ows:WGS84BoundingBox>
@@ -1618,7 +1854,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>Statistique de la superficie 1979/1985</ows:Title>
 				<ows:Identifier>ch.bfs.arealstatistik-1985</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.arealstatistik-1985_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.arealstatistik-1985_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1643,7 +1882,10 @@ La carte donne un aperçu de l&#39;avancement de la cartographie des crues et la
 			<Style>
 				<ows:Title>Statistique de la superficie 1992/1997</ows:Title>
 				<ows:Identifier>ch.bfs.arealstatistik-1997</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.arealstatistik-1997_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.arealstatistik-1997_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1670,7 +1912,10 @@ Pour constituer une base de données qui se prête aux travaux de cartographie, 
 			<Style>
 				<ows:Title>Utilisation simplifiée du sol</ows:Title>
 				<ows:Identifier>ch.bfs.arealstatistik-hintergrund</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.arealstatistik-hintergrund_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.arealstatistik-hintergrund_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1695,7 +1940,10 @@ Pour constituer une base de données qui se prête aux travaux de cartographie, 
 			<Style>
 				<ows:Title>Mixité des forêts 1990/1992</ows:Title>
 				<ows:Identifier>ch.bfs.arealstatistik-waldmischungsgrad</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.arealstatistik-waldmischungsgrad_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.arealstatistik-waldmischungsgrad_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1721,7 +1969,10 @@ Chaque bâtiment et chaque logement dispose d’un numéro d’identification f�
 			<Style>
 				<ows:Title>Registre des bâtiments et des logements</ows:Title>
 				<ows:Identifier>ch.bfs.gebaeude_wohnungs_register</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.gebaeude_wohnungs_register_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.bfs.gebaeude_wohnungs_register_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1746,7 +1997,10 @@ Chaque bâtiment et chaque logement dispose d’un numéro d’identification f�
 			<Style>
 				<ows:Title>Risque d’érosion</ows:Title>
 				<ows:Identifier>ch.blw.erosion</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.erosion_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.erosion_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1771,7 +2025,10 @@ Chaque bâtiment et chaque logement dispose d’un numéro d’identification f�
 			<Style>
 				<ows:Title>Terrains en pente et en forte pente</ows:Title>
 				<ows:Identifier>ch.blw.hang_steillagen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.hang_steillagen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.hang_steillagen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1785,6 +2042,34 @@ Chaque bâtiment et chaque logement dispose d’un numéro d’identification f�
 			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.blw.hang_steillagen/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
 		</Layer>
     <Layer>
+			<ows:Title>Limites des zones agricoles</ows:Title>
+			<ows:Abstract>Dans notre pays montagneux et collinaire, les agriculteurs doivent faire face aux conditions de production et de vie difficiles. Celles-ci sont équitablement prises en considération lors de l`application de la loi sur l`agriculture. C`est la subdivision des surfaces agricoles en zones qui permet de le garantir. Elle constitue la base du cadastre de la production agricole.</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.blw.landwirtschaftliche-zonengrenzen</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>Limites des zones agricoles</ows:Title>
+				<ows:Identifier>ch.blw.landwirtschaftliche-zonengrenzen</ows:Identifier>
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.landwirtschaftliche-zonengrenzen_fr.png" />
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20111010</Default>
+				<Value>20111010</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.blw.landwirtschaftliche-zonengrenzen/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
 			<ows:Title>Terrains viticoles en pente et terrasses</ows:Title>
 			<ows:Abstract>Afin que la difficulté des conditions de production et de vie dans l’agriculture soit équitablement prise en compte, des contributions pour des terrains en pente sont versées pour les surfaces donnant droit aux paiements directs. Pour les paiements directs, deux jeux de géodonnées ont été créés : un sur les terrains en pente et en forte pente (OGéo 152.1 ; OPD art. 35, 36) et un sur les terres viticoles en forte pente et en terrasses (OGéo 152.2 ; DZV art. 37, 38). Plusieurs classes de déclivité sont prises en compte. Le jeu de données sur les terrains en pente et en forte pente est l’un des supports qui permet de calculer les paiements directs au moyen d’un système d’informations géographiques SIG. Il a été élaboré à l’échelle nationale de manière harmonisée. La production se fonde sur le modèle de terrain « MNT-MO Grid 2m » de swisstopo. On a distingué les classes de déclivité suivantes : &lt;18 % ; 30-35 % ; &gt;35 %. Les surfaces en pente d’une superficie inférieure à un are n’ont pas été prises en compte.</ows:Abstract>
 			<ows:WGS84BoundingBox>
@@ -1796,7 +2081,10 @@ Chaque bâtiment et chaque logement dispose d’un numéro d’identification f�
 			<Style>
 				<ows:Title>Terrains viticoles en pente et terrasses</ows:Title>
 				<ows:Identifier>ch.blw.steil_terrassenlagen_rebbau</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.steil_terrassenlagen_rebbau_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.steil_terrassenlagen_rebbau_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1823,7 +2111,10 @@ Les AOP/IGP sont réparties en quatre catégories : fromages, produits à base d
 			<Style>
 				<ows:Title>IGP produits à base de viande</ows:Title>
 				<ows:Identifier>ch.blw.ursprungsbezeichnungen-fleisch</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.ursprungsbezeichnungen-fleisch_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.ursprungsbezeichnungen-fleisch_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1850,7 +2141,10 @@ Les AOP/IGP sont réparties en quatre catégories : fromages, produits à base d
 			<Style>
 				<ows:Title>AOP fromage</ows:Title>
 				<ows:Identifier>ch.blw.ursprungsbezeichnungen-kaese</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.ursprungsbezeichnungen-kaese_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.ursprungsbezeichnungen-kaese_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1877,7 +2171,10 @@ Les AOP/IGP sont réparties en quatre catégories : fromages, produits à base d
 			<Style>
 				<ows:Title>AOP produits végétaux</ows:Title>
 				<ows:Identifier>ch.blw.ursprungsbezeichnungen-pflanzen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.ursprungsbezeichnungen-pflanzen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.ursprungsbezeichnungen-pflanzen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1904,7 +2201,10 @@ Les AOP/IGP sont réparties en quatre catégories : fromages, produits à base d
 			<Style>
 				<ows:Title>AOP spiritueux</ows:Title>
 				<ows:Identifier>ch.blw.ursprungsbezeichnungen-spirituosen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.ursprungsbezeichnungen-spirituosen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.blw.ursprungsbezeichnungen-spirituosen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1933,12 +2233,16 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Plans des zones d’urgence</ows:Title>
 				<ows:Identifier>ch.ensi.zonenplan-notfallschutz-kernanlagen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.ensi.zonenplan-notfallschutz-kernanlagen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.ensi.zonenplan-notfallschutz-kernanlagen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
 				<ows:Identifier>Time</ows:Identifier>
-				<Default>20110412</Default>
+				<Default>20120101</Default>
+				<Value>20120101</Value>
 				<Value>20110412</Value>
 			</Dimension>
 			<TileMatrixSetLink>
@@ -1958,7 +2262,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Inclinaison des pentes &gt;30°</ows:Title>
 				<ows:Identifier>ch.swisstopo-karto.hangneigung</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo-karto.hangneigung_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo-karto.hangneigung_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -1983,12 +2290,16 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Itinéraires à ski Swiss Map</ows:Title>
 				<ows:Identifier>ch.swisstopo-karto.skitouren</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo-karto.skitouren_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo-karto.skitouren_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
 				<ows:Identifier>Time</ows:Identifier>
-				<Default>20101101</Default>
+				<Default>20111219</Default>
+				<Value>20111219</Value>
 				<Value>20101101</Value>
 			</Dimension>
 			<TileMatrixSetLink>
@@ -2008,7 +2319,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title></ows:Title>
 				<ows:Identifier>ch.swisstopo-karto.wanderwege</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo-karto.wanderwege_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo-karto.wanderwege_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2033,18 +2347,49 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>NPA et localités</ows:Title>
 				<ows:Identifier>ch.swisstopo-vd.ortschaftenverzeichnis_plz</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo-vd.ortschaftenverzeichnis_plz_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
 				<ows:Identifier>Time</ows:Identifier>
-				<Default>20110502</Default>
+				<Default>20111101</Default>
+				<Value>20111101</Value>
 				<Value>20110502</Value>
 			</Dimension>
 			<TileMatrixSetLink>
 				<TileMatrixSet>21781</TileMatrixSet>
 			</TileMatrixSetLink>
 			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo-vd.ortschaftenverzeichnis_plz/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
+			<ows:Title>Zones de tensions négligeables</ows:Title>
+			<ows:Abstract>Dans le cas de travaux de terrain réalisés pour la mensuration officielle, un ajustage local doit systématiquement être exécuté sauf si la preuve peut être apporté qu’il peut y être renoncé. Un tel ajustage local est superflu dans les zones où les tensions sont négligeables parce que la précision géométrique satisfait à des critères de qualité très élevés. Dans la pratique quotidienne, la connaissance des zones où les tensions sont négligeables facilite l’emploi des méthodes de mesure basées sur des satellites, en particulier le recours à des services de positionnement tels que swipos.</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.swisstopo-vd.spannungsarme-gebiete</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>Zones de tensions négligeables</ows:Title>
+				<ows:Identifier>ch.swisstopo-vd.spannungsarme-gebiete</ows:Identifier>
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo-vd.spannungsarme-gebiete_fr.png" />
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20111216</Default>
+				<Value>20111216</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo-vd.spannungsarme-gebiete/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
 		</Layer>
     <Layer>
 			<ows:Title>AGNES</ows:Title>
@@ -2058,7 +2403,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>AGNES</ows:Title>
 				<ows:Identifier>ch.swisstopo.fixpunkte-agnes</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.fixpunkte-agnes_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.fixpunkte-agnes_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2083,7 +2431,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Points fixes en altimétrie</ows:Title>
 				<ows:Identifier>ch.swisstopo.fixpunkte-hoehe</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.fixpunkte-hoehe_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.fixpunkte-hoehe_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2108,7 +2459,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Points fixes en planimétrie</ows:Title>
 				<ows:Identifier>ch.swisstopo.fixpunkte-lage</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.fixpunkte-lage_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.fixpunkte-lage_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2133,7 +2487,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Dernier maximum glaciaire</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-eiszeit-lgm-raster</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-eiszeit-lgm-raster_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-eiszeit-lgm-raster_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2159,7 +2516,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Anomalies de Bouguer</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-geodaesie-bouguer_anomalien</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geodaesie-bouguer_anomalien_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geodaesie-bouguer_anomalien_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2184,7 +2544,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Anomalies isostatiques</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-geodaesie-isostatische_anomalien</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geodaesie-isostatische_anomalien_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geodaesie-isostatische_anomalien_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2209,7 +2572,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Géologie 1:500000</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-geologische_karte</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geologische_karte_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geologische_karte_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2234,7 +2600,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Atlas géologique 1:25000</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-geologischer_atlas</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geologischer_atlas_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geologischer_atlas_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2259,7 +2628,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Aéromagnétique</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-geophysik-aeromagnetische_karte_schweiz</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-aeromagnetische_karte_schweiz_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-aeromagnetische_karte_schweiz_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2285,7 +2657,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Déclinaison</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-geophysik-deklination</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-deklination_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-deklination_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2310,7 +2685,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Géothermie</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-geophysik-geothermie</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-geothermie_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-geothermie_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2336,7 +2714,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Inclinaison</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-geophysik-inklination</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-inklination_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-inklination_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2362,7 +2743,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Intensité champ magnétique</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-geophysik-totalintensitaet</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-totalintensitaet_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geophysik-totalintensitaet_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2376,8 +2760,92 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo.geologie-geophysik-totalintensitaet/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
 		</Layer>
     <Layer>
+			<ows:Title>Origine des roches</ows:Title>
+			<ows:Abstract>La carte géotechnique 1:500000 (GK500) montre le sous-sol selon des critères lithologiques pétrographiques. La légende est conçu pour répondre à l&#39;utilisation technique du sous-sol. (Gisement de ressources minérales, constructions).</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.swisstopo.geologie-geotechnik-gk500-genese</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>Origine des roches</ows:Title>
+				<ows:Identifier>ch.swisstopo.geologie-geotechnik-gk500-genese</ows:Identifier>
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geotechnik-gk500-genese_fr.png" />
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20000101</Default>
+				<Value>20000101</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo.geologie-geotechnik-gk500-genese/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
+			<ows:Title>Classification des roches</ows:Title>
+			<ows:Abstract>La carte géotechnique 1:500000 (GK500) montre le sous-sol selon des critères lithologiques pétrographiques. La légende est conçu pour répondre à l&#39;utilisation technique du sous-sol. (Gisement de ressources minérales, constructions).</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.swisstopo.geologie-geotechnik-gk500-gesteinsklassierung</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>Classification des roches</ows:Title>
+				<ows:Identifier>ch.swisstopo.geologie-geotechnik-gk500-gesteinsklassierung</ows:Identifier>
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geotechnik-gk500-gesteinsklassierung_fr.png" />
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20000101</Default>
+				<Value>20000101</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo.geologie-geotechnik-gk500-gesteinsklassierung/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
+			<ows:Title>Groupes lithologiques principaux</ows:Title>
+			<ows:Abstract>La carte géotechnique 1:500000 (GK500) montre le sous-sol selon des critères lithologiques pétrographiques. La légende est conçu pour répondre à l&#39;utilisation technique du sous-sol. (Gisement de ressources minérales, constructions).</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.swisstopo.geologie-geotechnik-gk500-lithologie_hauptgruppen</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>Groupes lithologiques principaux</ows:Title>
+				<ows:Identifier>ch.swisstopo.geologie-geotechnik-gk500-lithologie_hauptgruppen</ows:Identifier>
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-geotechnik-gk500-lithologie_hauptgruppen_fr.png" />
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20000101</Default>
+				<Value>20000101</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo.geologie-geotechnik-gk500-lithologie_hauptgruppen/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
 			<ows:Title>Réservoirs aquifères</ows:Title>
-			<ows:Abstract>La Carte hydrogéologique est composée de deux feuilles. La première (GK500-Hydro) est consacrée aux réservoirs aquifères et fournit des informations sur leur productivité. La seconde (GK500-Hydro_Vul) traite de la vulnérabilité de ces réservoirs et de leur sensibilité à des menaces possibles par des polluants. En outre la première feuille montre la nature des réservoirs aquifères (roches karstiques, meubles ou cohérentes), les principaux captages d`eau souterraine et d`eau de source et fournit des données hydrodynamiques sur les régions d`infiltration et d`exfiltration des eaux. Le contenu des deux feuilles est également publié comme Planche 8.6 et 8.7 de l`Atlas hydrologique de la Suisse HADES (2004), édité par l’Office fédéral de l’environnement.</ows:Abstract>
+			<ows:Abstract>L’Office fédéral de l’environnement OFEV est l’office compétent du Service géologique national pour l’hydrogéologie. La Carte hydrogéologique 1:500&#39;000 est dans la série GéoCartes (GK500) et composée de deux feuilles. La première (GK500-Hydro) est consacrée aux réservoirs aquifères et fournit des informations sur leur productivité. La seconde (GK500-Hydro_Vul) traite de la vulnérabilité de ces réservoirs et de leur sensibilité à des menaces possibles par des polluants. En outre la première feuille montre la nature des réservoirs aquifères (roches karstiques, meubles ou cohérentes), les principaux captages d&#39;eau souterraine et d&#39;eau de source et fournit des données hydrodynamiques sur les régions d&#39;infiltration et d&#39;exfiltration des eaux. Le contenu des deux feuilles est également publié comme Planche 8.6 et 8.7 de l&#39;Atlas hydrologique de la Suisse HADES (OFEV, 2004 et 2007).</ows:Abstract>
 			<ows:WGS84BoundingBox>
 				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
 				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
@@ -2387,7 +2855,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Réservoirs aquifères</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-hydrogeologische_karte-grundwasservorkommen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-hydrogeologische_karte-grundwasservorkommen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-hydrogeologische_karte-grundwasservorkommen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2402,7 +2873,7 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 		</Layer>
     <Layer>
 			<ows:Title>Vulnérabilité des aquifères</ows:Title>
-			<ows:Abstract>La Carte hydrogéologique est composée de deux feuilles. La première (GK500-Hydro) est consacrée aux réservoirs aquifères et fournit des informations sur leur productivité. La seconde (GK500-Hydro_Vul) traite de la vulnérabilité de ces réservoirs et de leur sensibilité à des menaces possibles par des polluants. La notion de vulnérabilité représente un élément important pour une protection des eaux basée sur la prévention. Le contenu des deux feuilles est également publié comme Planche 8.6 et 8.7 de l`Atlas hydrologique de la Suisse HADES (2004), édité par l’Office fédéral de l’environnement.</ows:Abstract>
+			<ows:Abstract>L’Office fédéral de l’environnement OFEV est l’office compétent du Service géologique national pour l’hydrogéologie. La Carte hydrogéologique 1:500&#39;000 est dans la série GéoCartes (GK500) et composée de deux feuilles. La première (GK500-Hydro) est consacrée aux réservoirs aquifères et fournit des informations sur leur productivité. La seconde (GK500-Hydro_Vul) traite de la vulnérabilité de ces réservoirs et de leur sensibilité à des menaces possibles par des polluants. La notion de vulnérabilité représente un élément important pour une protection des eaux basée sur la prévention. Le contenu des deux feuilles est également publié comme Planche 8.6 et 8.7 de l&#39;Atlas hydrologique de la Suisse HADES (OFEV, 2004 et 2007).</ows:Abstract>
 			<ows:WGS84BoundingBox>
 				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
 				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
@@ -2412,7 +2883,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Vulnérabilité des aquifères</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-hydrogeologische_karte-grundwasservulnerabilitaet</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-hydrogeologische_karte-grundwasservulnerabilitaet_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-hydrogeologische_karte-grundwasservulnerabilitaet_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2437,7 +2911,10 @@ Pour le dépôt intermédiaire fédéral à l’IPS-Est et le dépôt intermédi
 			<Style>
 				<ows:Title>Tectonique 1:500000</ows:Title>
 				<ows:Identifier>ch.swisstopo.geologie-tektonische_karte</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-tektonische_karte_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.geologie-tektonische_karte_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2468,7 +2945,10 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>limites de districts</ows:Title>
 				<ows:Identifier>ch.swisstopo.gg25-bezirk-flaeche.fill</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.gg25-bezirk-flaeche.fill_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.gg25-bezirk-flaeche.fill_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2499,7 +2979,10 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>limites communales</ows:Title>
 				<ows:Identifier>ch.swisstopo.gg25-gemeinde-flaeche.fill</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.gg25-gemeinde-flaeche.fill_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.gg25-gemeinde-flaeche.fill_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2530,7 +3013,10 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>limites cantonales</ows:Title>
 				<ows:Identifier>ch.swisstopo.gg25-kanton-flaeche.fill</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.gg25-kanton-flaeche.fill_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.gg25-kanton-flaeche.fill_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2561,7 +3047,10 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>frontières nationales</ows:Title>
 				<ows:Identifier>ch.swisstopo.gg25-land-flaeche.fill</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.gg25-land-flaeche.fill_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.gg25-land-flaeche.fill_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2586,7 +3075,9 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Carte Dufour</ows:Title>
 				<ows:Identifier>ch.swisstopo.hiks-dufour</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.hiks-dufour_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2611,7 +3102,9 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Carte Siegfried</ows:Title>
 				<ows:Identifier>ch.swisstopo.hiks-siegfried</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.hiks-siegfried_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2636,12 +3129,15 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Carte nationale 1:1 million à 1:25&#39;000 (couleur)</ows:Title>
 				<ows:Identifier>ch.swisstopo.pixelkarte-farbe</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.pixelkarte-farbe_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/jpeg</Format>
 			<Dimension>
 				<ows:Identifier>Time</ows:Identifier>
-				<Default>20111027</Default>
+				<Default>20111206</Default>
+				<Value>20111206</Value>
 				<Value>20111027</Value>
 				<Value>20110401</Value>
 			</Dimension>
@@ -2662,12 +3158,15 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Carte nationale 1:100&#39;000</ows:Title>
 				<ows:Identifier>ch.swisstopo.pixelkarte-farbe-pk100.noscale</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.pixelkarte-farbe-pk100.noscale_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/jpeg</Format>
 			<Dimension>
 				<ows:Identifier>Time</ows:Identifier>
-				<Default>20111027</Default>
+				<Default>20111206</Default>
+				<Value>20111206</Value>
 				<Value>20111027</Value>
 			</Dimension>
 			<TileMatrixSetLink>
@@ -2687,7 +3186,9 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Carte nationale 1:200&#39;000</ows:Title>
 				<ows:Identifier>ch.swisstopo.pixelkarte-farbe-pk200.noscale</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.pixelkarte-farbe-pk200.noscale_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/jpeg</Format>
 			<Dimension>
@@ -2712,7 +3213,9 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Carte nationale 1:25&#39;000</ows:Title>
 				<ows:Identifier>ch.swisstopo.pixelkarte-farbe-pk25.noscale</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.pixelkarte-farbe-pk25.noscale_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/jpeg</Format>
 			<Dimension>
@@ -2737,7 +3240,9 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Carte nationale 1:50&#39;000</ows:Title>
 				<ows:Identifier>ch.swisstopo.pixelkarte-farbe-pk50.noscale</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.pixelkarte-farbe-pk50.noscale_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/jpeg</Format>
 			<Dimension>
@@ -2762,7 +3267,9 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Carte nationale 1:500&#39;000</ows:Title>
 				<ows:Identifier>ch.swisstopo.pixelkarte-farbe-pk500.noscale</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.pixelkarte-farbe-pk500.noscale_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/jpeg</Format>
 			<Dimension>
@@ -2787,12 +3294,15 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Carte nationale 1:1 million à 1:25&#39;000 (grise)</ows:Title>
 				<ows:Identifier>ch.swisstopo.pixelkarte-grau</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.pixelkarte-grau_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/jpeg</Format>
 			<Dimension>
 				<ows:Identifier>Time</ows:Identifier>
-				<Default>20111027</Default>
+				<Default>20111206</Default>
+				<Value>20111206</Value>
 				<Value>20111027</Value>
 				<Value>20110401</Value>
 			</Dimension>
@@ -2813,7 +3323,9 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>swissALTI3D estompage du relief</ows:Title>
 				<ows:Identifier>ch.swisstopo.swissalti3d-reliefschattierung</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.swissalti3d-reliefschattierung_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2838,7 +3350,9 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>SWISSIMAGE</ows:Title>
 				<ows:Identifier>ch.swisstopo.swissimage</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.swissimage_fr.png" />
+				
+				 
+				
 			</Style>
 			<Format>image/jpeg</Format>
 			<Dimension>
@@ -2853,6 +3367,89 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<ResourceURL format="image/jpeg" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpeg"/>
 		</Layer>
     <Layer>
+			<ows:Title>Parcs nationaux VECTOR200</ows:Title>
+			<ows:Abstract>Limites administratives: limites des parcs nationaux de la Suisse et de l&#39;étranger.</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.swisstopo.vec200-adminboundaries-protectedarea</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>Parcs nationaux VECTOR200</ows:Title>
+				<ows:Identifier>ch.swisstopo.vec200-adminboundaries-protectedarea</ows:Identifier>
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec200-adminboundaries-protectedarea_fr.png" />
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20100101</Default>
+				<Value>20100101</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo.vec200-adminboundaries-protectedarea/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
+			<ows:Title>Bâtiments gén. VECTOR200</ows:Title>
+			<ows:Abstract>Le Topic Buildings comprend les bâtiments isolés. Il est composé d&#39;une feature class. Les bâtiments saisis représentent, du fait de la forte généralisation liée à l&#39;échelle, en réalité souvent des groupes de bâtiments. Le Topic Buildings ne sert par conséquent pas à l&#39;identification de bâtiments isolés mais représente plutôt un moyen d&#39;orientation auxiliaire.</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.swisstopo.vec200-building</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>Bâtiments gén. VECTOR200</ows:Title>
+				<ows:Identifier>ch.swisstopo.vec200-building</ows:Identifier>
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec200-building_fr.png" />
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20100101</Default>
+				<Value>20100101</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo.vec200-building/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
+			<ows:Title>None</ows:Title>
+			<ows:Abstract>None</ows:Abstract>
+			<ows:WGS84BoundingBox>
+				<ows:LowerCorner>5.140242 45.398181</ows:LowerCorner>
+				<ows:UpperCorner>11.47757 48.230651</ows:UpperCorner>
+			</ows:WGS84BoundingBox>
+			<ows:Identifier>ch.swisstopo.vec200-hydrography</ows:Identifier>
+			<ows:Metadata xlink:href="http://www.swisstopo.admin.ch/SITiled/world/AdminBoundaries/metadata.htm"/>
+			<Style>
+				<ows:Title>None</ows:Title>
+				<ows:Identifier>ch.swisstopo.vec200-hydrography</ows:Identifier>
+				
+				 
+				
+			</Style>
+			<Format>image/png</Format>
+			<Dimension>
+				<ows:Identifier>Time</ows:Identifier>
+				<Default>20100101</Default>
+				<Value>20100101</Value>
+			</Dimension>
+			<TileMatrixSetLink>
+				<TileMatrixSet>21781</TileMatrixSet>
+			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="http://wmts.geo.admin.ch/1.0.0/ch.swisstopo.vec200-hydrography/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
+		</Layer>
+    <Layer>
 			<ows:Title>Surfaces boisées</ows:Title>
 			<ows:Abstract>Le Topic Landcover décrit la couverture du sol. Il est composé d&#39;une feature class. Ce sont les surfaces boisées qui sont représentées dans cet extrait.</ows:Abstract>
 			<ows:WGS84BoundingBox>
@@ -2864,7 +3461,10 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Surfaces boisées</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec200-landcover-wald</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec200-landcover-wald_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec200-landcover-wald_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2889,7 +3489,10 @@ données comprend environ 2900 communes et autres surfaces.</ows:Abstract>
 			<Style>
 				<ows:Title>Transports publics VECTOR200</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec200-transportation-oeffentliche-verkehr</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec200-transportation-oeffentliche-verkehr_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec200-transportation-oeffentliche-verkehr_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2915,7 +3518,10 @@ VECTOR200 est un modèle bidimensionnel du territoire qui restitue les objets na
 			<Style>
 				<ows:Title>Réseau routier VECTOR200</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec200-transportation-strassennetz</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec200-transportation-strassennetz_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec200-transportation-strassennetz_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2940,7 +3546,10 @@ VECTOR200 est un modèle bidimensionnel du territoire qui restitue les objets na
 			<Style>
 				<ows:Title>Surfaces aménagées VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-anlagen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-anlagen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-anlagen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2965,7 +3574,10 @@ VECTOR200 est un modèle bidimensionnel du territoire qui restitue les objets na
 			<Style>
 				<ows:Title>Objets isolés VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-einzelobjekte</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-einzelobjekte_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-einzelobjekte_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -2992,7 +3604,10 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<Style>
 				<ows:Title>Réseau ferroviaire VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-eisenbahnnetz</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-eisenbahnnetz_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-eisenbahnnetz_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -3017,7 +3632,10 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<Style>
 				<ows:Title>Bâtiments VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-gebaeude</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-gebaeude_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-gebaeude_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -3042,7 +3660,10 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<Style>
 				<ows:Title>Réseau hydrographique VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-gewaessernetz</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-gewaessernetz_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-gewaessernetz_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -3067,7 +3688,10 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<Style>
 				<ows:Title>Haies, arbres isolés VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-heckenbaeume</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-heckenbaeume_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-heckenbaeume_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -3092,7 +3716,10 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<Style>
 				<ows:Title>Surfaces primaires VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-primaerflaechen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-primaerflaechen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-primaerflaechen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -3117,7 +3744,10 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<Style>
 				<ows:Title>Réseau routier VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-strassennetz</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-strassennetz_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-strassennetz_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -3142,7 +3772,10 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<Style>
 				<ows:Title>Autres transports VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-uebrigerverkehr</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-uebrigerverkehr_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-uebrigerverkehr_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -3167,7 +3800,10 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<Style>
 				<ows:Title>Chemins de randonnée VECTOR25</ows:Title>
 				<ows:Identifier>ch.swisstopo.vec25-wander</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-wander_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.swisstopo.vec25-wander_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -3192,7 +3828,10 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<Style>
 				<ows:Title></ows:Title>
 				<ows:Identifier>ch.tamedia.schweizerfamilie-feuerstellen</ows:Identifier>
-			 <LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.tamedia.schweizerfamilie-feuerstellen_fr.png" />
+				
+				 
+				
+				<LegendURL format="image/png" xlink:href="http://api.geo.admin.ch/legend/ch.tamedia.schweizerfamilie-feuerstellen_fr.png" />
 			</Style>
 			<Format>image/png</Format>
 			<Dimension>
@@ -3494,18 +4133,18 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 				<ows:Abstract>Territoire et population</ows:Abstract>
 				<ows:Identifier>166aac5999e07f47a0e5a74b417d3bbf</ows:Identifier>
    <Theme>
-			<ows:Title>Zones de réglementation et unités de déclaration</ows:Title>
-			<ows:Abstract>Zones gérées, réglementées ou utilisées pour les rapports aux niveaux international, européen, national, régional et local.</ows:Abstract>
-			<ows:Identifier>III_11</ows:Identifier>
+			<ows:Title>Santé et sécurité des personnes</ows:Title>
+			<ows:Abstract>Répartition géographique des pathologies dominantes (allergies, cancers, maladies respiratoires, etc.</ows:Abstract>
+			<ows:Identifier>III_05</ows:Identifier>
 		
 		
       </Theme>
 		  
        
    <Theme>
-			<ows:Title>Santé et sécurité des personnes</ows:Title>
-			<ows:Abstract>Répartition géographique des pathologies dominantes (allergies, cancers, maladies respiratoires, etc.</ows:Abstract>
-			<ows:Identifier>III_05</ows:Identifier>
+			<ows:Title>Zones de réglementation et unités de déclaration</ows:Title>
+			<ows:Abstract>Zones gérées, réglementées ou utilisées pour les rapports aux niveaux international, européen, national, régional et local.</ows:Abstract>
+			<ows:Identifier>III_11</ows:Identifier>
 		
 		
       </Theme>
@@ -3516,6 +4155,15 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 				<ows:Title>Données de base</ows:Title>
 				<ows:Abstract>Donnés de base</ows:Abstract>
 				<ows:Identifier>3ca54fe99d7fa7b5bac71e1de6ed12cc</ows:Identifier>
+   <Theme>
+			<ows:Title>Parcelles cadastrales</ows:Title>
+			<ows:Abstract>Zones définies par les registres cadastraux ou équivalents.</ows:Abstract>
+			<ows:Identifier>I_06</ows:Identifier>
+		
+		
+      </Theme>
+		  
+       
    <Theme>
 			<ows:Title>Unités administratives</ows:Title>
 			<ows:Abstract>Unités d&#39;administration séparées par des limites administratives et délimitant les zones dans lesquelles les États membres détiennent et/ou exercent leurs compétences, aux fins de l&#39;administration locale, régionale et nationale.</ows:Abstract>
@@ -3558,15 +4206,6 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 				<ows:Abstract>Couverture du sol</ows:Abstract>
 				<ows:Identifier>65ae525db9108d44af83c0ee85dfd6b9</ows:Identifier>
    <Theme>
-			<ows:Title>Altitude</ows:Title>
-			<ows:Abstract>Modèles numériques pour l&#39;altitude des surfaces terrestres, glaciaires et océaniques.</ows:Abstract>
-			<ows:Identifier>II_01</ows:Identifier>
-		
-		
-      </Theme>
-		  
-       
-   <Theme>
 			<ows:Title>Hydrographie</ows:Title>
 			<ows:Abstract>Eléments hydrographiques, y compris les zones maritimes ainsi que toutes les autres masses d&#39;eau et les éléments qui y sont liés, y compris les bassins et sous-bassins hydrographiques.</ows:Abstract>
 			<ows:Identifier>I_08</ows:Identifier>
@@ -3583,6 +4222,15 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 		
       </Theme>
 		  
+       
+   <Theme>
+			<ows:Title>Altitude</ows:Title>
+			<ows:Abstract>Modèles numériques pour l&#39;altitude des surfaces terrestres, glaciaires et océaniques.</ows:Abstract>
+			<ows:Identifier>II_01</ows:Identifier>
+		
+		
+      </Theme>
+		  
 		  </Theme>
        
 	   <Theme>
@@ -3590,18 +4238,18 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 				<ows:Abstract>Infrastructure et communication</ows:Abstract>
 				<ows:Identifier>7fb30ce0f2b5130ebcfd7b61127ba9ae</ows:Identifier>
    <Theme>
-			<ows:Title>Réseaux de transport</ows:Title>
-			<ows:Abstract>Réseaux routier, ferroviaire, aérien et navigable ainsi que les infrastructures associées.</ows:Abstract>
-			<ows:Identifier>I_07</ows:Identifier>
+			<ows:Title>Services d&#39;utilité publique et services publics</ows:Title>
+			<ows:Abstract>Comprend les installations d&#39;utilité publique, tels que les égouts ou les réseaux et installations liés à la gestion des déchets, à l&#39;approvisionnement énergétique, à l&#39;approvisionnement en eau, ainsi que les services administratifs et sociaux publics, tels que les administrations publiques, les sites de la protection civile, les écoles et les hôpitaux.</ows:Abstract>
+			<ows:Identifier>III_06</ows:Identifier>
 		
 		
       </Theme>
 		  
        
    <Theme>
-			<ows:Title>Services d&#39;utilité publique et services publics</ows:Title>
-			<ows:Abstract>Comprend les installations d&#39;utilité publique, tels que les égouts ou les réseaux et installations liés à la gestion des déchets, à l&#39;approvisionnement énergétique, à l&#39;approvisionnement en eau, ainsi que les services administratifs et sociaux publics, tels que les administrations publiques, les sites de la protection civile, les écoles et les hôpitaux.</ows:Abstract>
-			<ows:Identifier>III_06</ows:Identifier>
+			<ows:Title>Réseaux de transport</ows:Title>
+			<ows:Abstract>Réseaux routier, ferroviaire, aérien et navigable ainsi que les infrastructures associées.</ows:Abstract>
+			<ows:Identifier>I_07</ows:Identifier>
 		
 		
       </Theme>
@@ -3621,6 +4269,15 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 				<ows:Title>Environnement, biologie et géologie</ows:Title>
 				<ows:Abstract>Environnement, biologie et géologie</ows:Abstract>
 				<ows:Identifier>a9e1354d90bc9d32387ca9eda47e50ad</ows:Identifier>
+   <Theme>
+			<ows:Title>Habitats et biotopes</ows:Title>
+			<ows:Abstract>Zones géographiques ayant des caractéristiques écologiques particulières — conditions, processus, structures et fonctions (de maintien de la vie) — favorables aux organismes qui y vivent.</ows:Abstract>
+			<ows:Identifier>III_18</ows:Identifier>
+		
+		
+      </Theme>
+		  
+       
    <Theme>
 			<ows:Title>Sites protégés</ows:Title>
 			<ows:Abstract>Zone désignée ou gérée dans un cadre législatif international, communautaire ou national en vue d&#39;atteindre des objectifs spécifiques de conservation.</ows:Abstract>
@@ -3649,6 +4306,15 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 		  
        
    <Theme>
+			<ows:Title>Ressources minérales</ows:Title>
+			<ows:Abstract>Ressources minérales comprenant les minerais métalliques, les minéraux industriels, etc.</ows:Abstract>
+			<ows:Identifier>III_21</ows:Identifier>
+		
+		
+      </Theme>
+		  
+       
+   <Theme>
 			<ows:Title>Géologie</ows:Title>
 			<ows:Abstract>Géologie caractérisée en fonction de la composition et de la structure.</ows:Abstract>
 			<ows:Identifier>II_04</ows:Identifier>
@@ -3670,15 +4336,6 @@ Les tronçons de chemins de fer qui passent dans des tunnels ou sur des ponts on
 			<ows:Title>Zones à risque naturel</ows:Title>
 			<ows:Abstract>Zones sensibles caractérisées en fonction des risques naturels (tous les phénomènes atmosphériques, hydrologiques, sismiques, volcaniques, ainsi que les feux de friche qui peuvent, en raison de leur situation, de leur gravité et de leur fréquence, nuire gravement à la société), tels qu&#39;inondations, glissements et affaissements de terrain, avalanches, incendies de forêts, tremblements de terre et éruptions volcaniques.</ows:Abstract>
 			<ows:Identifier>III_12</ows:Identifier>
-		
-		
-      </Theme>
-		  
-       
-   <Theme>
-			<ows:Title>Habitats et biotopes</ows:Title>
-			<ows:Abstract>Zones géographiques ayant des caractéristiques écologiques particulières — conditions, processus, structures et fonctions (de maintien de la vie) — favorables aux organismes qui y vivent.</ows:Abstract>
-			<ows:Identifier>III_18</ows:Identifier>
 		
 		
       </Theme>
