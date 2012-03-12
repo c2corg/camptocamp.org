@@ -34,7 +34,7 @@ class Images
      * Resizes an image.
      * if $square = true, make resulting image square
      */
-    public static function generateThumbnail($name, $ext, $path, $dimensions, $suffix, $square = false, $inflate = false)
+    public static function generateThumbnail($name, $ext, $path, $dimensions, $suffix, $square = false, $inflate = false, $strip = false)
     {
         $path = $path . DIRECTORY_SEPARATOR;
 
@@ -45,7 +45,8 @@ class Images
 
         // we pass maximum height and width dimensions, 
         // say that we preserve aspect ratio (scale=true), and that we do not want to inflate (inflate=false), and quality = 85%
-        $thumbnail = new sfThumbnail($dimensions['width'], $dimensions['height'], true, $inflate, $square, 85, $adapter, array('keep_source_enable' => true));
+        $thumbnail = new sfThumbnail($dimensions['width'], $dimensions['height'], true, $inflate, $square, 85, $adapter,
+                                     array('keep_source_enable' => true, 'strip' => $strip));
 
         $thumbnail->loadFile($path . $name . $ext);
         $thumbnail->save($path . $name . $suffix . $ext);
@@ -64,8 +65,9 @@ class Images
             $dimensions = $type['dimensions'];
             $square = $type['square'];
             $inflate = $type['inflate'];
+            $strip = $type['strip'];
 
-            self::generateThumbnail($name, $ext, $path, $dimensions, $suffix, $square, $inflate);
+            self::generateThumbnail($name, $ext, $path, $dimensions, $suffix, $square, $inflate, $strip);
         }
     }
 

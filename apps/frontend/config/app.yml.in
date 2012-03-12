@@ -405,16 +405,19 @@ all:
         dimensions:    { height: 120, width: 120 }            #in px
         square:        true
         inflate:       false
+        strip:         true
       medium:
         suffix:        MI
         dimensions:    { height: 250, width: 250 }            #in px
         square:        false
         inflate:       false
+        strip:         true
       big:                                                     
         suffix:        BI                                      
         dimensions:    { height: 800, width: 800 }            #in px
         square:        false
         inflate:       false
+        strip:         false
     home_categories: [ 1, 3, 4, 6, 7, 10, 11, 12, 16 ]
     default_meta:   '/static/images/logo.png'
 

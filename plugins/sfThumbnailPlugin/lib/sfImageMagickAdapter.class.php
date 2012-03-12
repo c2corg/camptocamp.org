@@ -34,6 +34,7 @@ class sfImageMagickAdapter
     $keep_source_enable,
     $keep_source,
     $source,
+    $strip, // whether we should strip the image of any profile or comments (exif, iptc, etc)
     $magickCommands;
 
   /**
@@ -165,6 +166,7 @@ class sfImageMagickAdapter
     $this->quality = $quality;
     $this->options = $options;
     $this->keep_source_enable = isset($options['keep_source_enable']) ? $options['keep_source_enable'] : false;
+    $this->strip = isset($options['strip']) ? $options['strip'] : false;
   }
 
   public function loadFile($thumbnail, $image)
@@ -247,6 +249,12 @@ class sfImageMagickAdapter
     if (!$this->scale)
     {
       $command .= '!';
+    }
+
+    // whether we should remove profiles and comments from images
+    if ($this->strip)
+    {
+      $command .= ' -strip';
     }
 
     if ($this->quality && $thumbnail->getMime() == 'image/jpeg')
