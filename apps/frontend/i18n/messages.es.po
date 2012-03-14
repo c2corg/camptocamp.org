@@ -518,9 +518,9 @@ msgstr "Añadir un mapa"
 # infobulle pour le lien vers le wizard de sortie en mode non connecté (et accessoirement titre de la modalbox)
 # 
 # PAS DE MARKUP, PAS DE RETOUR A LA LIGNE !!!!!!
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien S'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
+msgstr "Please login in order to create a route! If you do not yet have an account, click on \"Signup\". The registration is quickly done and free of charge. Thank you for your future contributions."
 
 msgid "Create new outing with some help"
 msgstr "Añadir una nueva salida utilizando la ayuda"
@@ -4437,7 +4437,7 @@ msgstr "<h3>Exportar</h3>Las coordenadas geográficas del documento pueden estar
 
 # [WARNING] en translation used
 msgid "geolocation failed"
-msgstr "Geolocation failed"
+msgstr "Geolocalisation failed"
 
 # [WARNING] en translation used
 msgid "geolocation not supported"
@@ -4634,6 +4634,10 @@ msgstr "Isla de Francia"
 
 msgid "image"
 msgstr "imagen"
+
+# [WARNING] en translation used
+msgid "image dir unavailable"
+msgstr "Umploading images is temporarily unavailable. Please try again in a few minutes."
 
 msgid "image successfully uploaded"
 msgstr "El cargamento de las imágenes ha sido un éxito."
@@ -6540,7 +6544,7 @@ msgstr "condiciones visualizadas"
 
 # [WARNING] en translation used
 msgid "waiting for geolocation"
-msgstr "Waiting for location..."
+msgstr "Waiting for localisation..."
 
 msgid "way_back"
 msgstr "Bajada de la vías:"
@@ -6576,9 +6580,9 @@ msgstr "Camptocamp le ofrece la posibilidad de inserir un widget en su sitio web
 msgid "with rain"
 msgstr "expuesto a la lluvia"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "within km: "
-msgstr "dans un rayon de "
+msgstr "within a radius of"
 
 msgid "wl button title"
 msgstr "Insertar un vínculo interno"

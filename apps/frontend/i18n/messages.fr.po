@@ -4717,6 +4717,9 @@ msgstr "Île-de-France"
 msgid "image"
 msgstr "image"
 
+msgid "image dir unavailable"
+msgstr "L'envoi de photos est temporairement désactivé ou en panne. Merci de réessayer dans un petit moment."
+
 # [comment]
 # consignes pour la modifications des images après téléchargement
 msgid "image successfully uploaded"

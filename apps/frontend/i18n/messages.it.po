@@ -4648,6 +4648,10 @@ msgstr "Île-de-France"
 msgid "image"
 msgstr "immagine"
 
+# [WARNING] en translation used
+msgid "image dir unavailable"
+msgstr "Umploading images is temporarily unavailable. Please try again in a few minutes."
+
 msgid "image successfully uploaded"
 msgstr "L’immagine è stata caricata correttamente."
 

@@ -520,9 +520,9 @@ msgstr "Mapa bat gehitu"
 # infobulle pour le lien vers le wizard de sortie en mode non connecté (et accessoirement titre de la modalbox)
 # 
 # PAS DE MARKUP, PAS DE RETOUR A LA LIGNE !!!!!!
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Create new outing unconnected"
-msgstr "Connectez vous pour ajouter une sortie ! Si vous n'avez pas de compte, cliquez sur le lien S'inscrire, c'est rapide et gratuit. Merci pour votre future contribution"
+msgstr "Please login in order to create a route! If you do not yet have an account, click on \"Signup\". The registration is quickly done and free of charge. Thank you for your future contributions."
 
 msgid "Create new outing with some help"
 msgstr "Irteera berri bat gehitu laguntza erabiliz"
@@ -4636,7 +4636,7 @@ msgstr "<h3>ExportExportatu</h3>Dokumentuaren koordenatu geografikoak hurrengo f
 
 # [WARNING] en translation used
 msgid "geolocation failed"
-msgstr "Geolocation failed"
+msgstr "Geolocalisation failed"
 
 # [WARNING] en translation used
 msgid "geolocation not supported"
@@ -4850,6 +4850,10 @@ msgstr "Isla de Francia"
 
 msgid "image"
 msgstr "irudia"
+
+# [WARNING] en translation used
+msgid "image dir unavailable"
+msgstr "Umploading images is temporarily unavailable. Please try again in a few minutes."
 
 msgid "image successfully uploaded"
 msgstr "Irudiak ongi jaso dira."
@@ -6910,7 +6914,7 @@ msgstr "ikusitako egoera"
 
 # [WARNING] en translation used
 msgid "waiting for geolocation"
-msgstr "Waiting for location..."
+msgstr "Waiting for localisation..."
 
 msgid "way_back"
 msgstr "Bideen jaitsiera:"
@@ -6950,9 +6954,9 @@ msgstr "Camptocamp le ofrece la posibilidad de inserir un widget en su sitio web
 msgid "with rain"
 msgstr "euriak jo dezake"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "within km: "
-msgstr "dans un rayon de "
+msgstr "within a radius of"
 
 msgid "wl button title"
 msgstr "Barne link bat sartu"
