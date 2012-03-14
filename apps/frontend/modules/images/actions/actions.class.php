@@ -195,9 +195,15 @@ class imagesActions extends documentsActions
                 return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
             }
 
-            // move files from temp dir to upload dir
-            $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
-                        sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
+            // function customSave() moves files from temp dir to upload dir
+            // we need to check that uplaod directory is writable
+            $upload_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
+                          sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR;
+
+            if (!is_dir($upload_dir) || !is_writable($upload_dir))
+            {
+                return $this->setErrorAndRedirect('image dir unavailable', $redir_route);
+            }
 
             $images_uniquenames = $this->getRequestParameter('image_unique_filename');
             $images_names = $this->getRequestParameter('name');
@@ -272,6 +278,12 @@ class imagesActions extends documentsActions
 
             $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
                         sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
+
+            if (!is_dir($temp_dir) || !is_writable($temp_dir))
+            {
+                return $this->setErrorAndRedirect('image dir unavailable', $redir_route);
+            }
+
             $uploaded_files = $request->getFiles();
 
             // We may have more than one image at a time
@@ -347,6 +359,14 @@ class imagesActions extends documentsActions
 
             $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
                         sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
+
+            if (!is_dir($temp_dir) || !is_writable($temp_dir))
+            {
+                $this->image_name = $this->getRequestParameter('name');
+                $this->setlayout(false);
+                $this->getRequest()->setError('image_file', 'image dir unavailable');
+                return sfView::ERROR;
+            }
 
             // validation has been done with validator
 
@@ -431,6 +451,11 @@ class imagesActions extends documentsActions
 
             $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 
                         sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
+
+            if (!is_dir($temp_dir) || !is_writable($temp_dir))
+            {
+                return $this->setErrorAndRedirect('image dir unavailable', $redir_route);
+            }
             
             $uploaded_files = $request->getFiles();
             $uploaded_files = $uploaded_files['image_file'];
@@ -505,7 +530,7 @@ class imagesActions extends documentsActions
 
                 $nb_created = gisQuery::createGeoAssociations($image_id, false);
                 c2cTools::log("created $nb_created geo associations for image $image_id");
-               // TODO: handle errors with thumbnails generation and data saving?
+                // TODO: handle errors with thumbnails generation and data saving?
             }
             
             // remove cache of calling page

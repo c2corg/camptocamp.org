@@ -1664,13 +1664,15 @@ class documentsActions extends c2cActions
 
                     // upload file in a temporary folder
                     $new_location = $temp_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext;
+
+                    sfLoader::loadHelpers(array('General'));
+                    $redir_route = '@document_by_id_lang_slug?module=' . $module_name .
+                        '&id=' . $this->document->get('id') .
+                        '&lang=' . $this->document->getCulture() .
+                        '&slug=' . get_slug($this->document);
+
                     if (!$request->moveFile('file', $new_location))
                     {
-                        sfLoader::loadHelpers(array('General'));
-                        $redir_route = '@document_by_id_lang_slug?module=' . $module_name .
-                            '&id=' . $this->document->get('id') .
-                            '&lang=' . $this->document->getCulture() .
-                            '&slug=' . get_slug($this->document);
                         return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
                     }
                     if ($file_ext == '.svg')
@@ -1689,7 +1691,10 @@ class documentsActions extends c2cActions
                     // generate thumbnails (ie. resized images: "BI"/"SI")
                     Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
                     // move to uploaded images directory
-                    Images::moveAll($unique_filename . $file_ext, $temp_dir, $upload_dir);
+                    if (!Images::moveAll($unique_filename . $file_ext, $temp_dir, $upload_dir))
+                    {
+                        return $this->setErrorAndRedirect('image dir unavailable', $redir_route);
+                    }
                     // update filename
                     $document->set('filename', $unique_filename . $file_ext);
                     // populate with new exif data, if any...
