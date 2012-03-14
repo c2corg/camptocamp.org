@@ -68,9 +68,11 @@ class hutsActions extends documentsActions
                 $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, 'pr', false, true, $route_ids);
                 $associated_routes = array_merge($associated_routes, $associated_parking_routes);
             }
-            
-            $associated_routes = Route::getAssociatedRoutesData($associated_routes, $this->__(' :').' ');
-            
+
+            // routes linked to the hut
+            $associated_routes = Route::getAssociatedRoutesData($associated_routes, $this->__(' :').' ', reset($summit_ids));
+
+            // these are the routes where the hut act as a summit
             $associated_summit_routes = array();
             if (count($summit_routes_ids))
             {
