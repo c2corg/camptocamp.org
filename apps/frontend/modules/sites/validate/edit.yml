@@ -56,3 +56,7 @@ fields:
       max_error:    value must be less than or equal to 10000
       type:         int
       type_error:   value must an integer
+  climbing_styles:
+    myChoiceValidator:
+      config_choice: mod_sites_climbing_styles_list
+      unique: false

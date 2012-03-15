@@ -66,3 +66,7 @@ fields:
   shelter_type:
     required:
       msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: mod_huts_shelter_types_list
+      exception_array: [ 0 ]
+
