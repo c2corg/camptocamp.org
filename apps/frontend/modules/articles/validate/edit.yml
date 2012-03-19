@@ -13,6 +13,11 @@ fields:
   categories:
     required:
       msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: mod_articles_article_types_list
+  activities:
+    myChoiceValidator:
+      config_choice: app_activities_list
   article_type:
     myArticleTypeValidator:
       articletype_error:   you have no right to switch from collaborative to personal article
