@@ -4284,7 +4284,7 @@ class documentsActions extends c2cActions
             // save information that can be useful in next steps
             if ($results->getFirst())
             {
-                $sav_module = $model;
+                $sav_model = $model;
                 $sav_id = $results->getFirst()->getId();
             }
         }
@@ -4294,7 +4294,7 @@ class documentsActions extends c2cActions
         {
             // specific behaviour for users: we don't want to display user name if profile
             // is private and user is not connected
-            if ($module == 'users' && !$this->getUser()->isConnected() && !UserPrivateData::hasPublicProfile($sav_id))
+            if ($sav_model == 'User' && !$this->getUser()->isConnected() && !UserPrivateData::hasPublicProfile($sav_id))
             {
                 $this->name = $this->__('not available');
             }
@@ -4303,7 +4303,7 @@ class documentsActions extends c2cActions
                 $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
                 $i18n = Doctrine_Query::create()
                         ->select('m.culture, m.name')
-                        ->from("${model}I18n m")
+                        ->from("${sav_model}I18n m")
                         ->where('m.id = ?', array($sav_id))
                         ->execute();
                 $old_lang = 200;
