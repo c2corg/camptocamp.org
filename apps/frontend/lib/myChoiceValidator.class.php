@@ -7,6 +7,7 @@
  *   @config_choice a string that specifies a sfConfig entry. The KEYS are used as authorized values
  *   @array_except an array of values to exclude (useful if config has a 0 entry for example)
  *   @unique defines whether multiple values are allowed or not. Defaults to true (unique value)
+ *   @array_exclusive an array of exclusive values for a multiple choice
  * The different arrays are merged into a single one
  */
 class myChoiceValidator extends sfValidator
@@ -29,12 +30,23 @@ class myChoiceValidator extends sfValidator
     // whether the entry value is unique or not
     $unique = $this->getParameter('unique', true);
 
+    // check if we have an exclusive list
+    $exclusive_list = $this->getParameter('array_exclusive', array());
+    $exclusive_error = false;
+    if (!$unique && count($exclusive_list))
+    {
+        $diff_list = array_diff($choice_list, $exclusive_list);
+        $exclusive_error = (count(array_uintersect($value, $exclusive_list, 'strcmp'))
+                         && count(array_uintersect($value, $diff_list, 'strcmp')));
+    }
+
     if (($unique && (is_array($value) ||
                      !in_array($value, $choice_list) ||
                      in_array($value, $exception_list))) ||
         (!$unique && (!is_array($value) ||
                       !count(array_uintersect($value, $choice_list, 'strcmp')) || 
-                      count(array_uintersect($value, $exception_list, 'strcmp')))))
+                      count(array_uintersect($value, $exception_list, 'strcmp')) ||
+                      $exclusive_error)))
     {
       $error = $this->getParameter('bad_choice_error', 'bad choice error');
       return false;
