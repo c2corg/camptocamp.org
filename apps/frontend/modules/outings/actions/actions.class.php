@@ -274,14 +274,10 @@ class outingsActions extends documentsActions
                     if ($associated_module == 'routes')
                     {
                         $a->doSaveWithValues($associated_id, $id, 'ro', $user_id); // main, linked, type
-                        // clear cache of associated route ...
-                        $this->clearCache('routes', $associated_id, false, 'view');
                     }
                     elseif ($associated_module == 'sites')
                     {
                         $a->doSaveWithValues($associated_id, $id, 'to', $user_id); // main, linked, type
-                        // clear cache of associated route ...
-                        $this->clearCache('sites', $associated_id, false, 'view');
                     }
                     
                     // here if we have created a new document and if $this->document->get('geom_wkt') is null, then use associated doc geom associations:

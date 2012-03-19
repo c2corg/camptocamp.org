@@ -347,7 +347,7 @@ class summitsActions extends documentsActions
         $this->refreshGeoAssociations($id);
 
         $this->clearCache('summits', $id, false, 'view');
-
+        
         $this->setNoticeAndRedirect('Geoassociations refreshed', "@document_by_id?module=summits&id=$id");
     }
     

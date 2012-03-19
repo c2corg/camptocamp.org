@@ -1799,11 +1799,14 @@ class documentsActions extends c2cActions
                 
                 // we clear views of the associated docs in every language (content+interface):
                 // find all associated docs
-                $associated_docs = Association::findAllAssociatedDocs($id, array('id', 'module'));
-                foreach ($associated_docs as $doc)
+                if ($module_name == 'users')
                 {
-                    // clear their view cache
-                    $this->clearCache($doc['module'], $doc['id'], false, 'view');
+                    $associated_docs = Association::findAllAssociatedDocs($id, array('id', 'module'));
+                    foreach ($associated_docs as $doc)
+                    {
+                        // clear their view cache
+                        $this->clearCache($doc['module'], $doc['id'], false, 'view');
+                    }
                 }
 
                 // saves new document id in a "pseudo id" cookie to retrieve it if user resubmits original form

@@ -180,6 +180,7 @@ class hutsActions extends documentsActions
                     $hut_doc->get('lon') !== $summit_doc->get('lon') ||
                     $hut_doc->get('name') !== $summit_doc->get('name'))
                 {
+                    $id = $summit_doc->get('id');
                     $conn = sfDoctrine::Connection();
                     try
                     {
@@ -197,12 +198,18 @@ class hutsActions extends documentsActions
                         $summit_doc->save();
 
                         $conn->commit();
-                        $this->clearCache('summits', $summit_doc->get('id'));
+                        
+                        $nb_created = gisQuery::createGeoAssociations($id, true, true);
+                        c2cTools::log("created $nb_created geo associations");
+
+                        $summit_doc->refreshGeoAssociations($id);
+
+                        $this->clearCache('summits', $id, false, 'view');
                     }
                     catch (Exception $e)
                     {
                         $conn->rollback();
-                        return $this->setErrorAndRedirect("Failed to synchronize summit", 'routes/edit?link=' . $summit_doc->get('id'));
+                        return $this->setErrorAndRedirect("Failed to synchronize summit", 'routes/edit?link=' . $id);
                     }
                 }
             }

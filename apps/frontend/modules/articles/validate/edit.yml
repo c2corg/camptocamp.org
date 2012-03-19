@@ -15,6 +15,7 @@ fields:
       msg:          field cannot be left blank
     myChoiceValidator:
       config_choice: mod_articles_article_types_list
+      unique: false
   activities:
     myChoiceValidator:
       config_choice: app_activities_list

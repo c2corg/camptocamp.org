@@ -44,6 +44,11 @@ fields:
     required:
       msg:          field cannot be left blank
     myActivitiesValidator:
+  configurations:
+    myChoiceValidator:
+      config_choice: mod_routes_configurations_list
+      unique: false
+      array_exclusive: [ 7 ]
   slope:
     sfStringValidator:
       max: 100

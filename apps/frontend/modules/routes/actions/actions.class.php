@@ -390,9 +390,6 @@ class routesActions extends documentsActions
             {
                 $sr = new Association();
                 $sr->doSaveWithValues($summit_id, $id, 'sr', $user_id); // main, linked, type
-
-                // clear view cache of associated summit ...
-                $this->clearCache('summits', $summit_id, false, 'view');
             }        
 
             // here if we have created a new document and if $this->document->get('geom_wkt') is null, then use associated doc geom associations:
