@@ -43,7 +43,10 @@ fields:
   activities:
     required:
       msg:          field cannot be left blank
-    myActivitiesValidator:
+    myChoiceValidator:
+      config_choice: app_activities_list
+      unique: false
+      array_except: [ 8 ]
   configurations:
     myChoiceValidator:
       config_choice: mod_routes_configurations_list
