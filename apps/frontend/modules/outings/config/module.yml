@@ -69,6 +69,7 @@ all:
       'alt':  max_elevation
       'fac': facing
       'hdif': height_diff_up
+      'ddif': height_diff_down
       'time': duration
       'ralt': difficulties_start_elevation
       'dhei': difficulties_height

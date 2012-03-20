@@ -1799,7 +1799,8 @@ class documentsActions extends c2cActions
                 
                 // we clear views of the associated docs in every language (content+interface):
                 // find all associated docs
-                if ($module_name == 'users')
+                // 'users' module is excuded because a change of a user page have no visibility in associated docs, then it is not necessary to clear the cache of all associated outings
+                if ($module_name != 'users')
                 {
                     $associated_docs = Association::findAllAssociatedDocs($id, array('id', 'module'));
                     foreach ($associated_docs as $doc)
@@ -3895,11 +3896,17 @@ class documentsActions extends c2cActions
     
     protected function addCompareParam(&$out, $field)
     {
-        if ($sel = $this->getRequestParameter($field . '_sel'))
+        $sel = $this->getRequestParameter($field . '_sel', null);
+        $value = $this->getRequestParameter($field);
+        if ($sel)
         {
             $out[] = self::makeCompareQueryString($field, $sel,
-                                                  $this->getRequestParameter($field),
+                                                  $value,
                                                   $this->getRequestParameter($field . '2'));
+        }
+        elseif (is_null($sel))
+        {
+            $out[] = "$field=$value";
         }
     }
 

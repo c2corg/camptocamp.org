@@ -714,6 +714,7 @@ class outingsActions extends documentsActions
             case 'alt':  return 'm.max_elevation';
             case 'date': return 'm.date';
             case 'hdif': return 'm.height_diff_up';
+            case 'ddif': return 'm.height_diff_down';
             case 'cond': return 'm.conditions_status';
             case 'geom': return 'm.geom_wkt';
             case 'time': return 'r.duration';

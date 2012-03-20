@@ -170,6 +170,7 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'o', 'activities'), 'oact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.max_elevation', 'oalt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_up', 'odif', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_down', 'oddif', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.outing_length', 'olen', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Date', $m . '.date', 'odate', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.outing_with_public_transportation', 'owtp', $join, false, $params_list);
