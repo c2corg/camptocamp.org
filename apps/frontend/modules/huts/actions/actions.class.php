@@ -199,12 +199,7 @@ class hutsActions extends documentsActions
 
                         $conn->commit();
                         
-                        $nb_created = gisQuery::createGeoAssociations($id, true, true);
-                        c2cTools::log("created $nb_created geo associations");
-
-                        $summit_doc->refreshGeoAssociations($id);
-
-                        $this->clearCache('summits', $id, false, 'view');
+                        $summit_doc->executeRefreshgeoassociations();
                     }
                     catch (Exception $e)
                     {
