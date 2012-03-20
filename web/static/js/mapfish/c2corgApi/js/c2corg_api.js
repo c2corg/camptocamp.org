@@ -272,7 +272,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 if (!scale) {
                     return;
                 }
-                this.element.innerHTML = OpenLayers.i18n("scale", {
+                this.element.innerHTML = OpenLayers.i18n("Scale = 1 : ${scaleDenom}", {
                     scaleDenom: OpenLayers.Number.format(scale, 0, "'")
                 });
             }
