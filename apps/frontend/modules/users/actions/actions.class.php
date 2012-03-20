@@ -806,6 +806,7 @@ class usersActions extends documentsActions
         $out = array();
 
         $this->addListParam($out, 'areas');
+        $this->addAroundParam($out, 'uarnd');
         $this->addNameParam($out, 'unam');
         $this->addNameParam($out, 'ufnam');
         $this->addNameParam($out, 'utfnam');

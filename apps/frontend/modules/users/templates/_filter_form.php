@@ -8,6 +8,8 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'unam\').focus(); })};');
 }
 
+echo around_selector('uarnd');
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 echo __('User:') . ' ' . input_tag('unam', null, array('autofocus' => 'autofocus'));
 echo select_tag('nam_type',
                 options_for_select(array('unam'=>__('topoguide name only'), 'ufnam'=>__('forum name only'), 'utfnam'=>__('forum and topoguide names')), 'unam'),
@@ -22,5 +24,4 @@ echo georef_selector();
 <?php
 $activities_raw = $sf_data->getRaw('activities');
 echo __('activities') . ' ' . activities_selector(false, true, $activities_raw);
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 include_partial('documents/filter_sort');
