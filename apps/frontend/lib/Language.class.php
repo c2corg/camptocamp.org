@@ -146,7 +146,7 @@ class Language
             // parse our array
             foreach($array as $item)
             {
-                if ((get_class($item[$model][0][$key]) != 'Doctrine_Null') && ($item[$model][0][$key] > $ref_ele))
+                if ((!$item[$model][0][$key] instanceof Doctrine_Null) && ($item[$model][0][$key] > $ref_ele))
                 {
                     $out = $item;
                     $ref_ele = $item[$model][0][$key];
