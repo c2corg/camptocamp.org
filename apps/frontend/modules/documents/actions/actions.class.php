@@ -849,7 +849,7 @@ class documentsActions extends c2cActions
             $this->setLayout('layout_light');
         }
 
-        // deal with format
+        // deal with format 
         if (isset($this->format))
         {
             $format = $this->format;
@@ -860,6 +860,9 @@ class documentsActions extends c2cActions
             $format = explode('-', $format);
             $this->format = $format;
         }
+
+        
+
         $this->show_images = in_array('img', $format);
         $this->setPageTitle($this->__($module . ' list'));
         if (in_array('full', $format))
@@ -872,6 +875,13 @@ class documentsActions extends c2cActions
         {
             $default_npp = empty($criteria) ? 20 : 10;
             $max_npp = sfConfig::get('app_list_conditions_max_npp');
+        }
+        elseif (in_array('json', $format))
+        {
+            $this->setJsonResponse();
+            $default_npp = null;
+            $max_npp = 100;
+            $this->setTemplate('../../documents/templates/jsonlist');
         }
         else
         {
@@ -919,7 +929,7 @@ class documentsActions extends c2cActions
         }
 
         // if there is no result + only criterias are on the name, redirect to a page wich loads google search
-        if ($nb_results == 0)
+        if ($nb_results == 0 && !in_array('json', $format))
         {
             $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
             
@@ -962,33 +972,6 @@ class documentsActions extends c2cActions
         $this->items = $items;
     }
 
-    /**
-     * JSON version of list page
-     */
-    public function executeJson()
-    {
-        // TODO: factorize with list action?
-
-        $this->pager = call_user_func(array($this->model_class, 'browse'),
-                                      $this->getListSortCriteria(),
-                                      $this->getListCriteria());
-        $this->pager->setPage($this->getRequestParameter('page', 1));
-        $this->pager->init();
-    
-        $this->setLayout(false);
-        $this->setTemplate('../../documents/templates/json');
-        $this->setCacheControl();
-
-        $items = $this->pager->getResults('array', 'ESC_RAW');
-        if (isset($items[0]['geoassociations']))
-        {
-            $items = Language::getTheBestForAssociatedAreas($items);
-        }
-        // Retrieve creator and creation date.
-        $items = Outing::getAssociatedCreatorData($items);
-        $this->items = $items;
-    }
-
     public function executeWidget()
     {
         $this->div = $this->getRequestParameter('div', 'c2cwgt');
@@ -1016,13 +999,9 @@ class documentsActions extends c2cActions
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
     
-        $this->setLayout(false);
         $this->setTemplate('../../documents/templates/geojson');
 
-        $response = $this->getResponse();
-        $response->clearHttpHeaders();
-        $response->setStatusCode(200);
-        $response->setContentType('application/json; charset=utf-8');
+        $this->setJsonResponse();
     }
 
     /**
@@ -3204,7 +3183,7 @@ class documentsActions extends c2cActions
                     break;
                 case 'json':
                     $this->points = explode(',', gisQuery::getEWKT($id, true, $module, $version));
-                    $this->setTemplate('../../documents/templates/exportjson'); 
+                    $this->setTemplate('../../documents/templates/exportjson');
                     $response->setContentType('application/json');
                     break;
             }
