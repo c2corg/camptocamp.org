@@ -155,3 +155,9 @@ function list_link($item, $module, $prefix = null)
                    . '&lang=' . $item['culture'] . '&slug=' . make_slug(isset($prefix) ? $prefix . '-' . $item['name'] : $item['name']),
                    ($item['culture'] != sfContext::getInstance()->getUser()->getCulture() ? array('hreflang' => $item['culture']) : array()));
 }
+
+function jsonlist_url($item, $module, $prefix = null)
+{
+    return absolute_link(url_for("@document_by_id_lang_slug?module=$module&id=" . $item['id']
+               . '&lang=' . $item['culture'] . '&slug=' . make_slug(isset($prefix) ? $prefix . '-' . $item['name'] : $item['name'])));
+}
