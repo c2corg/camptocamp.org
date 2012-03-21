@@ -118,6 +118,10 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
 {
     $out = array();
     $col = 0;
+    $col_item = 0;
+    $activities = sfConfig::get('app_activities_form');
+    $item_max = count($activities) - 1;
+    $col_item_max = ceil(count($activities)/2) - 1;
 
     if (!count($filtered_activities) && $use_personalization)
     {
@@ -126,21 +130,36 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
     }
 
     $unavailable_activities[0] = 0;
-    foreach (sfConfig::get('app_activities_form') as $activity_id => $activity)
+    foreach ($activities as $activity_id => $activity)
     {
         if (in_array($activity_id, $unavailable_activities)) continue;
+        
+        if ($col_item == 0)
+        {
+            $col_class = ($col % 2) ? 'col' : 'col_left';
+            $out[] = '<div class="' . $col_class . '">';
+        }
+        
         $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
                             : array();
         $checked = in_array($activity_id, $filtered_activities) ? true : false; 
 
         $label_text = '<span class="activity_' . $activity_id . '">' . __($activity) . '</span>';
-        $col_class = ($col % 2) ? 'col' : 'col_left';
-        $out[] = '<div class="' . $col_class . '">' .
-                 checkbox_tag('act[]', $activity_id, $checked, $options) 
+        $out[] = checkbox_tag('act[]', $activity_id, $checked, $options) 
                  . ' ' . 
-                 label_for('act_' . $activity_id, $label_text)
-                 . '</div>';
-        $col += 1;
+                 label_for('act_' . $activity_id, $label_text);
+        
+        if ($col_item == $col_item_max || ($col * $col_item_max +  $col_item == $item_max))
+        {
+            $out[] = '</div>';
+            $col += 1;
+            $col_item = 0;
+        }
+        else
+        {
+            $out[] = '<br />';
+            $col_item += 1;
+        }
     }
     return '<div id="actform">' . implode("\n", $out) . '</div>';
 }

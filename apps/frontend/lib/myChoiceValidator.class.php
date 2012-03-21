@@ -30,26 +30,42 @@ class myChoiceValidator extends sfValidator
     // whether the entry value is unique or not
     $unique = $this->getParameter('unique', true);
 
+    // check if this is lega values
+    if (($unique && (is_array($value) ||
+                     !in_array($value, $choice_list) ||
+                     in_array($value, $exception_list))) ||
+        (!$unique && (!is_array($value) ||
+                      !count(array_uintersect($value, $choice_list, 'strcmp')) || 
+                      count(array_uintersect($value, $exception_list, 'strcmp')))))
+    {
+      $error = $this->getParameter('bad_choice_error', 'bad choice error');
+      return false;
+    }
+
     // check if we have an exclusive list
     $exclusive_list = $this->getParameter('array_exclusive', array());
     $exclusive_error = false;
     if (!$unique && count($exclusive_list))
     {
         $diff_list = array_diff($choice_list, $exclusive_list);
-        $exclusive_error = (count(array_uintersect($value, $exclusive_list, 'strcmp'))
-                         && count(array_uintersect($value, $diff_list, 'strcmp')));
+        if (count(array_uintersect($value, $exclusive_list, 'strcmp')) && count(array_uintersect($value, $diff_list, 'strcmp')))
+        {
+            $error = $this->getParameter('exclusive_choice_error', 'bad choice error');
+            return false;
+        }
     }
 
-    if (($unique && (is_array($value) ||
-                     !in_array($value, $choice_list) ||
-                     in_array($value, $exception_list))) ||
-        (!$unique && (!is_array($value) ||
-                      !count(array_uintersect($value, $choice_list, 'strcmp')) || 
-                      count(array_uintersect($value, $exception_list, 'strcmp')) ||
-                      $exclusive_error)))
+    // check if we have an inclusive list
+    $inclusive_list = $this->getParameter('array_inclusive', array());
+    $inclusive_error = false;
+    if (count($inclusive_list))
     {
-      $error = $this->getParameter('bad_choice_error', 'bad choice error');
-      return false;
+        $diff_list = array_diff($choice_list, $inclusive_list);
+        if (count(array_uintersect($value, $inclusive_list, 'strcmp')) && !count(array_uintersect($value, $diff_list, 'strcmp')))
+        {
+            $error = $this->getParameter('inclusive_choice_error', 'bad choice error');
+            return false;
+        }
     }
 
     return true;

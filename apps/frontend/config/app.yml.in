@@ -155,12 +155,14 @@ all:
       5: ice_climbing
       6: hiking
       7: snowshoeing
+      8: paragliding
     form: # order use in filter form
       1: skitouring
       7: snowshoeing
       6: hiking
-      2: snow_ice_mixed
+      8: paragliding
       5: ice_climbing
+      2: snow_ice_mixed
       3: mountain_climbing
       4: rock_climbing
 

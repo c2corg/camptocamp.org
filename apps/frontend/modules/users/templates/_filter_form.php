@@ -10,7 +10,7 @@ if (!c2cTools::mobileVersion())
 
 echo around_selector('uarnd');
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
-echo __('User:') . ' ' . input_tag('unam', null, array('autofocus' => 'autofocus'));
+echo '<br />' . __('User:') . ' ' . input_tag('unam', null, array('autofocus' => 'autofocus'));
 echo select_tag('nam_type',
                 options_for_select(array('unam'=>__('topoguide name only'), 'ufnam'=>__('forum name only'), 'utfnam'=>__('forum and topoguide names')), 'unam'),
                 array('onchange'=>'$(\'unam\').name = this.value'));
