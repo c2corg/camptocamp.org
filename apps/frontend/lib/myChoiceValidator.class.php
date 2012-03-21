@@ -47,7 +47,7 @@ class myChoiceValidator extends sfValidator
     $exclusive_error = false;
     if (!$unique && count($exclusive_list))
     {
-        $diff_list = array_diff($choice_list, $exclusive_list);
+        $diff_list = array_udiff($choice_list, $exclusive_list, 'strcmp');
         if (count(array_uintersect($value, $exclusive_list, 'strcmp')) && count(array_uintersect($value, $diff_list, 'strcmp')))
         {
             $error = $this->getParameter('exclusive_choice_error', 'bad choice error');
@@ -60,7 +60,7 @@ class myChoiceValidator extends sfValidator
     $inclusive_error = false;
     if (count($inclusive_list))
     {
-        $diff_list = array_diff($choice_list, $inclusive_list);
+        $diff_list = array_udiff($choice_list, $inclusive_list, 'strcmp');
         if (count(array_uintersect($value, $inclusive_list, 'strcmp')) && !count(array_uintersect($value, $diff_list, 'strcmp')))
         {
             $error = $this->getParameter('inclusive_choice_error', 'bad choice error');

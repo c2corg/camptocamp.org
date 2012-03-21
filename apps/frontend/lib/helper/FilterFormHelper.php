@@ -130,10 +130,9 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
     }
 
     $unavailable_activities[0] = 0;
+    $activities = array_udiff($activities, $unavailable_activities, 'strcmp');
     foreach ($activities as $activity_id => $activity)
     {
-        if (in_array($activity_id, $unavailable_activities)) continue;
-        
         if ($col_item == 0)
         {
             $col_class = ($col % 2) ? 'col' : 'col_left';

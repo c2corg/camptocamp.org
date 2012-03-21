@@ -220,6 +220,7 @@ function object_group_dropdown_tag($object, $fieldname, $config, $options = null
     $choices = array_map('__', sfConfig::get($config));
     if (isset($options['na']))
     {
+        $na = $options['na'];
         foreach($na as $choice_key)
         {
             unset($choices[$choice_key]);
