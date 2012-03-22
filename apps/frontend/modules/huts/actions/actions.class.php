@@ -161,9 +161,7 @@ class hutsActions extends documentsActions
 
     protected function endEdit()
     {
-// TODO when a new lang version is created!!!
-// TODO geoasociation here and on creation !!
-        if ($this->success) // form submitted and success (doc has been saved) // TODO check if this is ok
+        if ($this->success) // form submitted and success (doc has been saved)
         {
             // before redirecting view, we check if either the name, elevation or geolocalization of the hut
             // has changed and pass on those changes to the 'ghost summit'
@@ -175,20 +173,23 @@ class hutsActions extends documentsActions
             // change accordingly the ghost summit if that's the case
             if ($summit_doc != false)
             {
+                $geom_changed = $hut_doc->get('lat') !== $summit_doc->get('lat') ||
+                                $hut_doc->get('lon') !== $summit_doc->get('lon');
                 if ($hut_doc->get('elevation') !== $summit_doc->get('elevation') ||
-                    $hut_doc->get('lat') !== $summit_doc->get('lat') ||
-                    $hut_doc->get('lon') !== $summit_doc->get('lon') ||
-                    $hut_doc->get('name') !== $summit_doc->get('name'))
+                    $hut_doc->get('name') !== $summit_doc->get('name') ||
+                    $geom_changed)
                 {
+                    c2cTools::log('Updating ghost summit of hut');
+
                     $id = $summit_doc->get('id');
                     $conn = sfDoctrine::Connection();
                     try
                     {
                         $conn->beginTransaction();
                         $history_metadata = new HistoryMetadata();
-                        $history_metadata->set('is_minor', false);// TODO get from parameter
-                        $history_metadata->set('user_id', 2); // C2C user // TODO get user
-                        $history_metadata->setComment('Synchronize summit to associated hut'); // TODO get comment or dedicated one?
+                        $history_metadata->set('is_minor', false);
+                        $history_metadata->set('user_id', $this->getUser()->getId());
+                        $history_metadata->setComment('Synchronize summit to associated hut');
                         $history_metadata->save();
 
                         $summit_doc->set('name', $hut_doc->get('name'));
@@ -198,13 +199,52 @@ class hutsActions extends documentsActions
                         $summit_doc->save();
 
                         $conn->commit();
-                        
-                        $summit_doc->executeRefreshgeoassociations();
+
+                        if ($geom_changed)
+                        {
+                            // TODO idea here is to call the refreshGeoAssociations
+                            // from summitsActions but we can't call it. In order not to
+                            // change the whole mechanism for refreshAssociations, we kinda copy paste
+                            // the function here, but this should be improved / factorized
+                            // refer to it to understand what is done here
+                            $associated_routes = Association::findAllAssociatedDocs($id, array('id', 'geom_wkt'), 'sr');
+                            if (count($associated_routes))
+                            {
+                                $geoassociations = GeoAssociation::findAllAssociations($id, null, 'main');
+                                foreach ($associated_routes as $route)
+                                {
+                                    $i = $route['id'];
+                                    if (!$route['geom_wkt'])
+                                    {
+                                        $nb_created = GeoAssociation::replicateGeoAssociations($geoassociations, $i, true, true);
+                                        $this->clearCache('routes', $i, false, 'view');
+                                        $associated_outings = Association::findAllAssociatedDocs($i, array('id', 'geom_wkt'), 'ro');
+                                        if (count($associated_outings))
+                                        {
+                                            $geoassociations2 = GeoAssociation::findAllAssociations($i, null, 'main');
+                                            foreach ($associated_outings as $outing)
+                                            {
+                                                $j = $outing['id'];
+                                                if (!$outing['geom_wkt'])
+                                                {
+                                                    $nb_created = GeoAssociation::replicateGeoAssociations($geoassociations2, $j, true, false);
+                                                    c2cTools::log("created $nb_created geo associations for outing N° $j");
+                                                    $this->clearCache('outings', $j, false, 'view');
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     catch (Exception $e)
                     {
                         $conn->rollback();
-                        return $this->setErrorAndRedirect("Failed to synchronize summit", 'routes/edit?link=' . $id);
+                        // TODO It is ok to signal the failure, but anyway, the hut doc has been updated
+                        // so there is much room for improvement here :)
+                        return $this->setErrorAndRedirect("Failed to synchronize summit",
+                           '@document_edit?module=huts&id='.$hut_doc->getId().'&lang='.$hut_doc->getCulture());
                     }
                 }
             }

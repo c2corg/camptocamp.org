@@ -36,12 +36,14 @@ class summitsActions extends documentsActions
                 $this->redirect("@document_by_id_lang?module=huts&id=$hut_id&lang=$lang");
             }
 
+            // main associated summits are summits directly linked to this one
             $main_associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
             $associated_sites = $this->associated_sites;
             
             $summit_ids = array();
             if (count($main_associated_summits))
             {
+                // we gather all summits linked to the main associated summits
                 $associated_summits = Association::addChildWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id, true);
                 
                 $elevation = $this->document->get('elevation');
@@ -376,6 +378,7 @@ class summitsActions extends documentsActions
     /**
      * Overriddes the one in parent class 
      * this is because we sometimes have to do things when centroid coordinates have moved.
+     * TODO hutsActions::endEdit() should be factorized with this..
      */
     protected function refreshGeoAssociations($id)
     {    
