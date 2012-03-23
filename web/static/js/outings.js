@@ -170,13 +170,34 @@ function hide_outings_unrelated_fields()
 
 function check_outing_activities(e)
 {
+    var activities_para = $A($F($('activities')));
+    
+    if (   activities_para.length == 1
+        && activities_para[0] == 8
+       )
+    {
+        alert(confirm_outing_paragliding_message);
+        switchFormButtonsStatus($('editform'), false);
+        return;
+    }
+    
     if (outing_activities_already_tested)
     {
         // no need to check activities twice
         return;
     }
 
-    var activities = $A($F($('activities')));
+    var activities = [];
+    var i = 0;
+    activities_para.each(function(activity)
+    {
+        if (activity != 8)
+        {
+            activities[i] = activity;
+            i++;
+        }
+    });
+    
     if (activities.length == 2)
     {
         activities.sortBy(function(s){return Math.round(s);});
