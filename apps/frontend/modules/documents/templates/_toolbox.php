@@ -6,6 +6,7 @@ if (!isset($default_open))
 $cda = sfConfig::get('app_portals_cda');
 $ice = sfConfig::get('app_portals_ice');
 $steep = sfConfig::get('app_portals_steep');
+$raid = sfConfig::get('app_portals_raid');
 
 ?>
 <div id="nav_toolbox" class="nav_box">
@@ -21,6 +22,7 @@ $steep = sfConfig::get('app_portals_steep');
                 <li><a href="http://<?php echo $cda['host'] ?>/"><?php echo __($cda['name']) ?></a></li>
                 <li><?php echo link_to(__($ice['name']), '@document_by_id?module=portals&id=' . $ice['id']) ?></li>
                 <li><?php echo link_to(__($steep['name']), '@document_by_id?module=portals&id=' . $steep['id']) ?></li>
+                <li><?php echo link_to(__($raid['name']), '@document_by_id?module=portals&id=' . $raid['id']) ?></li>
                 <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
                                          array('title'=> __('cotometre long')),
                                          array('width' => 600)) ?></li>

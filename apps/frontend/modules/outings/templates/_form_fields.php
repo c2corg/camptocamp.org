@@ -9,6 +9,7 @@ $response->addJavascript('/static/js/outings.js', 'last');
 echo javascript_tag("var confirm_outing_date_message = '" . addslashes(__('Has this outing really been done today?')) . "';
 var outing_date_already_tested = false;
 var confirm_outing_activities_message = '" . addslashes(__('Is really a multi-activity outing?')) . "';
+var confirm_outing_paragliding_message = '" . addslashes(__('paragliding can not be selected alone')) . "';
 var outing_activities_already_tested = false;");
 
 // Here document = outing

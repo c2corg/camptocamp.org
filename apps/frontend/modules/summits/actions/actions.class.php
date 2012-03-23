@@ -186,11 +186,15 @@ class summitsActions extends documentsActions
             {
                 $related_portals[] = 'steep';
             }
+            $summit_type_index = $this->document->get('summit_type');
+            if ($summit_type_index == 5)
+            {
+                $related_portals[] = 'raid';
+            }
             $this->related_portals = $related_portals;
     
             $summit_type_list = sfConfig::get('app_summits_summit_types');
             $summit_type_list[1] = 'summit';
-            $summit_type_index = $this->document->get('summit_type');
             $summit_type = $this->__($summit_type_list[$summit_type_index]);
             $doc_name = $this->document->get('name');
             

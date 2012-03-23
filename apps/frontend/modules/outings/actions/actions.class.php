@@ -209,6 +209,10 @@ class outingsActions extends documentsActions
             {
                 $related_portals[] = 'steep';
             }
+            if (count($other_routes))
+            {
+                $related_portals[] = 'raid';
+            }
             $outing_with_public_transportation = $this->document->get('outing_with_public_transportation');
             if (!$outing_with_public_transportation instanceof Doctrine_Null && $outing_with_public_transportation)
             {

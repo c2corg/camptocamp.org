@@ -1925,6 +1925,9 @@ all:
     steep:
       id: @STEEP_ID@
       name: 'steep skiing portal'
+    raid:
+      id: @RAID_ID@
+      name: 'raid portal'
   
   mw_contest_id: @MW_CONTEST_ID@
   
