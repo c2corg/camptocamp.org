@@ -391,7 +391,7 @@ class Route extends BaseRoute
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $params_list, 'rcult');
+        self::buildPersoCriteria($conditions, $values, $params_list, 'rcult', 'act', array(8));
         
         // return if no criteria
         $criteria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));

@@ -177,8 +177,9 @@ function check_outing_activities(e)
        )
     {
         alert(confirm_outing_paragliding_message);
+        Event.stop(e);
         switchFormButtonsStatus($('editform'), false);
-        return;
+        return false;
     }
     
     if (outing_activities_already_tested)

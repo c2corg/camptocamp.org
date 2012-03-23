@@ -277,7 +277,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildPersoCriteria(&$conditions, &$values, &$params_list, $culture_param, $activity_param = 'act')
+    public static function buildPersoCriteria(&$conditions, &$values, &$params_list, $culture_param, $activity_param = 'act', $na_activities = array())
     {
         self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
         if (isset($conditions['all']))
@@ -311,6 +311,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             if (!in_array($activity_param, $params) && array_intersect(array('act', 'yes', 'all'), $perso))
             {
                 $activities = c2cPersonalization::getInstance()->getActivitiesFilter();
+                $activities = array_diff($activities, na_activities);
                 if (count($activities))
                 {
                     $params_list[$activity_param] = implode('-', $activities);
