@@ -35,6 +35,7 @@ class sfImageMagickAdapter
     $keep_source,
     $source,
     $strip, // whether we should strip the image of any profile or comments (exif, iptc, etc)
+    $progressive, // whether we should use baseline or progressive jpegs (see http://www.yuiblog.com/blog/2008/12/05/imageopt-4/)
     $magickCommands;
 
   /**
@@ -167,6 +168,7 @@ class sfImageMagickAdapter
     $this->options = $options;
     $this->keep_source_enable = isset($options['keep_source_enable']) ? $options['keep_source_enable'] : false;
     $this->strip = isset($options['strip']) ? $options['strip'] : false;
+    $this->progressive = isset($options['progressive']) ? $options['progressive'] : false;
   }
 
   public function loadFile($thumbnail, $image)
@@ -255,6 +257,14 @@ class sfImageMagickAdapter
     if ($this->strip)
     {
       $command .= ' -strip';
+    }
+
+    // for jpegs >10K, progressive jpegs have better compression +
+    // it is more user friendly
+    // http://www.yuiblog.com/blog/2008/12/05/imageopt-4/
+    if ($this->progressive && $thumbnail->getMime() == 'image/jpeg')
+    {
+        $command .= ' -interlace';
     }
 
     if ($this->quality && $thumbnail->getMime() == 'image/jpeg')

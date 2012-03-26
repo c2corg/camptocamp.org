@@ -408,18 +408,21 @@ all:
         square:        true
         inflate:       false
         strip:         true
+        progressive:   false
       medium:
         suffix:        MI
         dimensions:    { height: 250, width: 250 }            #in px
         square:        false
         inflate:       false
         strip:         true
+        progressive:   true
       big:                                                     
         suffix:        BI                                      
         dimensions:    { height: 800, width: 800 }            #in px
         square:        false
         inflate:       false
         strip:         false
+        progressive:   true
     home_categories: [ 1, 3, 4, 6, 7, 10, 11, 12, 16 ]
     default_meta:   '/static/images/logo.png'
 
