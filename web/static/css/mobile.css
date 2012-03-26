@@ -151,28 +151,6 @@ input.long_input
   margin-left: 0;
 }
 
-.extraheight, #_conditions_levels
-{
-  width: 100% !important;
-  height: auto;
-}
-
-#level_place, #level_comment
-{
-  width: 50%;
-}
-
-#level_snow_height_soft, #level_snow_height_total
-{
-  width: auto;
-}
-
-#conditions_levels_table th, #conditions_levels_table td
-{
-  display: block;
-  float: left;
-}
-
 .article .title2.htext
 {
   margin-left: 0;
@@ -620,20 +598,6 @@ li.list_odd
   background-color: #fff;
 }
 
-/* L# tag */
-table.route_lines th, table.route_lines td
-{
-  padding: 0.1em 0.3em 0.1em 0.3em;
-}
-.sites_content table.route_lines td:first-child
-{
-  padding-left: 0.1em;
-}
-.sites_content table.route_lines td:last-child
-{
-  padding-right: 0.1em;
-}
-
 /* portals */
 #nav_prepare
 {
@@ -787,5 +751,60 @@ table.route_lines th, table.route_lines td
   #on_the_web
   {
     display: none;
-  } 
+  }
+
+  /*
+   * Snow conditions tables (to be improved)
+   */
+  .extraheight, #_conditions_levels
+  {
+    width: 100% !important;
+    height: auto;
+  }
+
+  #level_place, #level_comment
+  {
+    width: 50%;
+  }
+
+  #level_snow_height_soft, #level_snow_height_total
+  {
+    width: auto;
+  }
+
+  #conditions_levels_table th, #conditions_levels_table td
+  {
+    display: block;
+    float: left;
+  }
+
+  /*
+   * We don't display L# lines as tables, we instead inline
+   * cells inside a row
+   * We also make sure they don't get messed with images
+   */
+  .route_lines
+  {
+    clear: both;
+  }
+
+  .route_lines tr
+  {
+    display: block;
+  }
+
+  .route_lines th, .route_lines td
+  {
+    padding: 0.1em 0.3em 0.1em 0.3em;
+    display: inline;
+  }
+
+  .sites_content .route_lines td:first-child
+  {
+    padding-left: 0.1em;
+  }
+  .sites_content .route_lines td:last-child
+  {
+    padding-right: 0.1em;
+  }
 }

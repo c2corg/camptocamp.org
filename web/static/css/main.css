@@ -3616,61 +3616,63 @@ ol.text ol.text ol.text
   list-style-type: lower-roman;
 }
 
-table.route_lines
+/* L# tags */
+
+.route_lines
 {
   padding: 0.3em 0;
   border-spacing: 0;
 }
-table.route_lines th
+.route_lines th
 {
   font-weight: bold;
 }
-table.route_lines th, table.route_lines td
+.route_lines th, .route_lines td
 {
   vertical-align: top;
   padding: 0.2em 0.6em 0.2em 0.6em;
 }
-table.route_lines th:first-child
+.route_lines th:first-child
 {
   padding-left: 0;
 }
-table.route_lines td:last-child
+.route_lines td:last-child
 {
   padding-right: 0;
 }
-table.route_lines tr.interline td
+.route_lines tr.interline td
 {
   padding: 0.6em 0;
   text-align: justify !important;
 }
 
-.sites_content table.route_lines tr:nth-child(even)
+.sites_content .route_lines tr:nth-child(even)
 {
   background-color: #EEEEEE;
 }
-.sites_content table.route_lines tr.interline
+.sites_content .route_lines tr.interline
 {
   background-color: #FFF !important;
 }
-.sites_content table.route_lines td:first-child
+.sites_content .route_lines td:first-child
 {
   text-align: right;
 }
-.sites_content table.route_lines th
+.sites_content .route_lines th
 {
   font-weight: normal;
   font-style: italic;
 }
-.sites_content table.route_lines td:first-child
+.sites_content .route_lines td:first-child
 {
   padding-left: 0.3em;
 }
-.sites_content table.route_lines td:last-child
+.sites_content .route_lines td:last-child
 {
   padding-right: 0.3em;
 }
 
-.portals_content table.route_lines th
+.portals_content .route_lines th
 {
   text-align: left;
   font-weight: normal;
