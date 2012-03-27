@@ -1175,6 +1175,7 @@ class documentsActions extends c2cActions
 
     public function executeFilter()
     {
+        $module = $this->getModuleName();
         $ranges_type = 1;
         if (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
@@ -1188,6 +1189,10 @@ class documentsActions extends c2cActions
         if (preg_match('/^([0-9])(-[0-9])*$/', $activities, $regs))
         {
             $activities = explode('-', $activities);
+            if ($module == 'routes')
+            {
+                $activities = array_udiff($activities, array(8), 'strcmp');
+            }
         }
         else
         {
@@ -1195,7 +1200,7 @@ class documentsActions extends c2cActions
         }
         $this->activities = $activities;
 
-        $this->setPageTitle($this->__('Search a ' . $this->getModuleName()));
+        $this->setPageTitle($this->__('Search a ' . $module));
         $this->setTemplate('../../documents/templates/filter');
     }
     
