@@ -9,14 +9,19 @@ use_helper('Forum','Button', 'ModalBox', 'General');
     $main_filter_switch_on = $perso->isMainFilterSwitchOn();
     $static_base_url = sfConfig::get('app_static_url');
     $alist = sfConfig::get('app_activities_list');
-    array_shift($alist);
-    $aklist = array_keys($alist);
-    $light = array_fill(1, count($aklist), '');
+    array_shift($alist); // remove the 0 entry
+    $light = array_fill(0, count($alist), '');
     $activities_class = array();
 
     if ($main_filter_switch_on && count($act_filter))
     {
-        $unselected_act = array_diff($aklist, $act_filter);
+        // we don't use array_diff, since array keys are shifted
+        $unselected_act = array();
+        foreach ($alist as $k => $act)
+        {
+            if (!in_array($k+1, $act_filter)) $unselected_act[] = $k;
+        }
+
         foreach ($unselected_act as $act_id)
         {
             $light[$act_id] = '_light';
@@ -25,19 +30,17 @@ use_helper('Forum','Button', 'ModalBox', 'General');
         {
             $activities_class[] = 'act' . $act_id;
         }
-        
     }
     ?>
     <div id="quick_switch<?php echo empty($activities_class) ? '' : '" class="' . implode(' ', $activities_class) ?>">
         <?php
-        foreach ($alist as $id => $activity)
+        foreach ($alist as $act_id => $activity)
         {
-            $act_id = $id + 1;
             $alt = ($act_filter == array($act_id)) 
                    ? __('switch_off_activity_personalisation')
-                   : __('switch_to_' . $alist[$act_id-1]) ;
-            $image_tag = picto_tag('activity_' . $act_id . $light[$act_id], $alt);
-            echo link_to($image_tag, '@quick_activity?activity=' . ($act_id), array('class' => 'qck_sw'));
+                   : __('switch_to_' . $alist[$act_id]) ;
+            $image_tag = picto_tag('activity_' . ($act_id+1) . $light[$act_id], $alt);
+            echo link_to($image_tag, '@quick_activity?activity=' . ($act_id+1), array('class' => 'qck_sw'));
         }
         ?>
     </div>
