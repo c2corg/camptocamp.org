@@ -129,7 +129,6 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         if ($perso->isMainFilterSwitchOn()) $filtered_activities = $perso->getActivitiesFilter();
     }
 
-    $activities = array_diff_ukey($activities, $unavailable_activities, 'strcmp');
     foreach ($activities as $activity_id => $activity)
     {
         if (array_key_exists($activity_id, $unavailable_activities))
