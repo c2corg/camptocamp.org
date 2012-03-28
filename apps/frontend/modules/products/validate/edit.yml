@@ -42,3 +42,7 @@ fields:
   product_type:
     required:
       msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: mod_products_types_list
+      unique: false
+      array_except: [ 0 ]

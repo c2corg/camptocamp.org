@@ -19,6 +19,7 @@ fields:
   activities:
     myChoiceValidator:
       config_choice: app_activities_list
+      unique: false
   article_type:
     myArticleTypeValidator:
       articletype_error:   you have no right to switch from collaborative to personal article

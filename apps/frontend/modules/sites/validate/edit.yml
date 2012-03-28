@@ -56,6 +56,13 @@ fields:
       max_error:    value must be less than or equal to 10000
       type:         int
       type_error:   value must an integer
+  site_types:
+    required:
+      msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: app_sites_site_types
+      unique: false
+      array_except: [ 0 ]
   climbing_styles:
     myChoiceValidator:
       config_choice: mod_sites_climbing_styles_list

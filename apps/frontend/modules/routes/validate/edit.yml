@@ -46,8 +46,20 @@ fields:
     myChoiceValidator:
       config_choice: app_activities_list
       unique: false
-      array_except: [ 8 ]
-  configurations:
+      array_except: [ 0, 8 ]
+  route_type:
+    required:
+      msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: mod_routes_route_types_list
+      array_except: [ 0 ]
+  duration:
+    required:
+      msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: mod_routes_durations_list
+      array_except: [ 0 ]
+  configuration:
     myChoiceValidator:
       config_choice: mod_routes_configurations_list
       unique: false

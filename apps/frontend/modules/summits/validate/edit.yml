@@ -38,3 +38,8 @@ fields:
       min_error:    this name is too short (4 characters minimum)
       max:          150
       max_error:    this name is too long (150 characters maximum)
+  summit_type:
+    required:
+      msg:          field cannot be left blank
+    myChoiceValidator:
+      config_choice: app_summits_summit_types

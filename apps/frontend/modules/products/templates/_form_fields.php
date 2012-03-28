@@ -15,7 +15,7 @@ echo form_section_title('Information', 'form_info', 'preview_info');
 
 include_partial('documents/oam_coords', array('document' => $document));
 echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
-echo object_group_dropdown_tag($document, 'product_type', 'mod_products_types_list', array('multiple' => true));
+echo object_group_dropdown_tag($document, 'product_type', 'mod_products_types_list', array('multiple' => true, 'na' => array(0)));
 echo object_group_tag($document, 'url', null, '', array('class' => 'long_input', 'type' => 'url'));
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');

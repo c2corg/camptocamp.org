@@ -44,7 +44,7 @@ else
     $site_type_list = 'app_sites_site_types_new';
 }
 echo object_group_dropdown_tag($document, 'site_types', $site_type_list,
-                               array('multiple' => true));
+                               array('multiple' => true, 'na' => array(0)));
 echo object_group_dropdown_tag($document, 'rock_types', 'app_rock_types_list',
                                array('multiple' => true));
 echo object_months_list_tag($document, 'best_periods');

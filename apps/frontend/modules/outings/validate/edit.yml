@@ -41,6 +41,7 @@ fields:
     myChoiceValidator:
       config_choice: app_activities_list
       unique: false
+      array_except: [ 0 ]
       array_inclusive: [ 8 ]
       inclusive_choice_error: paragliding can not be selected alone
   height_diff_up:
