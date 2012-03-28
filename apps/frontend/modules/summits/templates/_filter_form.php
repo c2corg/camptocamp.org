@@ -19,7 +19,9 @@ echo georef_selector();
 <br /><br />
 <?php
 $activities_raw = $sf_data->getRaw('activities');
-echo  __('linked routes activities') . ' ' . activities_selector(false, false, $activities_raw, array(8));
+$paragliding_tag = sfConfig::get('app_tags_paragliding');
+$paragliding_tag = implode('/', $paragliding_tag);
+echo  __('linked routes activities') . ' ' . activities_selector(false, false, $activities_raw, array(8 => $paragliding_tag));
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('scult');
 ?>
 <br />

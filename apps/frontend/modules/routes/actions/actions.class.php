@@ -956,6 +956,7 @@ class routesActions extends documentsActions
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
         $this->addParam($out, 'styp');
+        $this->addListParam($out, 'stags');
 
         $this->addNameParam($out, 'hnam');
         $this->addCompareParam($out, 'halt');

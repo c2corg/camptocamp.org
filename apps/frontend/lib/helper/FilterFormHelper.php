@@ -129,10 +129,35 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         if ($perso->isMainFilterSwitchOn()) $filtered_activities = $perso->getActivitiesFilter();
     }
 
-    $unavailable_activities[0] = 0;
-    $activities = array_udiff($activities, $unavailable_activities, 'strcmp');
+    $activities = array_diff_ukey($activities, $unavailable_activities, 'strcmp');
     foreach ($activities as $activity_id => $activity)
     {
+        if (array_key_exists($activity_id, $unavailable_activities))
+        {
+            if (!empty($unavailable_activities[$activity_id]))
+            {
+                $tag = explode('/', $unavailable_activities[$activity_id]);
+                if (count($tag) == 2)
+                {
+                    $param = $tag[0] . '[]';
+                    $value = $tag[1];
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            else
+            {
+                continue;
+            }
+        }
+        else
+        {
+            $param = 'act[]';
+            $value = $activity_id;
+        }
+        
         if ($col_item == 0)
         {
             $col_class = ($col % 2) ? 'col' : 'col_left';
@@ -144,7 +169,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         $checked = in_array($activity_id, $filtered_activities) ? true : false; 
 
         $label_text = '<span class="activity_' . $activity_id . '">' . __($activity) . '</span>';
-        $out[] = checkbox_tag('act[]', $activity_id, $checked, $options) 
+        $out[] = checkbox_tag($param, $value, $checked, $options) 
                  . ' ' . 
                  label_for('act_' . $activity_id, $label_text);
         

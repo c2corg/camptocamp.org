@@ -1189,10 +1189,6 @@ class documentsActions extends c2cActions
         if (preg_match('/^([0-9])(-[0-9])*$/', $activities, $regs))
         {
             $activities = explode('-', $activities);
-            if ($module == 'routes')
-            {
-                $activities = array_udiff($activities, array(8), 'strcmp');
-            }
         }
         else
         {

@@ -221,10 +221,7 @@ function object_group_dropdown_tag($object, $fieldname, $config, $options = null
     if (isset($options['na']))
     {
         $na = $options['na'];
-        foreach($na as $choice_key)
-        {
-            unset($choices[$choice_key]);
-        }
+        $choices = array_diff_ukey($choices, $na, 'strcmp');
     }
     
     if (!isset($labelname))

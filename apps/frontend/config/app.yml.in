@@ -1940,4 +1940,8 @@ all:
   mw_contest_id: @MW_CONTEST_ID@
   
   mw_contest_enabled: @MW_CONTEST_ENABLED@
-
+  
+  tags:
+    paragliding:
+      param: 'stags'
+      id: @PARAGLIDING_TAG_ID@
