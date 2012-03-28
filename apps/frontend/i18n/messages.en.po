@@ -853,6 +853,10 @@ msgstr "Rasterisation of the image failed"
 msgid "Failed to create synchronized summit"
 msgstr "Failed to create synchronized summit"
 
+# [WARNING] needs_review
+msgid "Failed to synchronize summit"
+msgstr "Fail on automatic update of the summit associated to the hut"
+
 msgid "Favorite language:"
 msgstr "Favorite language:"
 
@@ -2212,6 +2216,10 @@ msgstr "Switch license"
 
 msgid "Switch to collaborative license"
 msgstr "Switch to collaborative license"
+
+# [WARNING] needs_review
+msgid "Synchronize summit to associated hut"
+msgstr "Automatic update of the summit after a change on associated hut."
 
 msgid "TD"
 msgstr "TD"
@@ -3612,6 +3620,13 @@ msgstr "Map background:"
 msgid "backpack content"
 msgstr "Backpack contents"
 
+# [general comment]
+# Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
+# C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
+# [WARNING] needs_review
+msgid "bad choice error"
+msgstr "the selection is incorrect"
+
 msgid "baleares"
 msgstr "Balearic Islands"
 
@@ -3741,6 +3756,9 @@ msgstr "Camptocamp.org now customized for ice climbing!"
 
 msgid "c2c customized for mountain_climbing !"
 msgstr "Camptocamp.org now customized for alpine rock!"
+
+msgid "c2c customized for paragliding !"
+msgstr "Camptocamp.org now customized for paragliding!"
 
 msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org now customized for rock climbing!"
@@ -4499,6 +4517,10 @@ msgstr "valley accomodation"
 # [WARNING] needs_review
 msgid "glacier"
 msgstr "glacier"
+
+# [WARNING] needs_review
+msgid "glacier config can't be selected with another config"
+msgstr "the \"glacier travel\" configuration can be selected only if any other configuration does not match"
 
 msgid "glacier gear"
 msgstr "Crevasse rescue gear"
@@ -5485,6 +5507,13 @@ msgstr "Alpine snow, ice and mixed climbing from F to PD+"
 msgid "pan"
 msgstr "Pan the map"
 
+msgid "paragliding"
+msgstr "paragliding"
+
+# [WARNING] needs_review
+msgid "paragliding can not be selected alone"
+msgstr "when \"paragliding\" activity is selected, the activity corresponding to the rise must be selected"
+
 msgid "parking"
 msgstr "access point"
 
@@ -5832,6 +5861,10 @@ msgstr "quite crowded"
 
 msgid "raid"
 msgstr "raid"
+
+# [WARNING] fr translation used
+msgid "raid portal"
+msgstr "Raids, hautes routes et expéditions"
 
 msgid "rain_proof"
 msgstr "Rain:"
@@ -6294,6 +6327,10 @@ msgstr "Show only ice climbing"
 
 msgid "switch_to_mountain_climbing"
 msgstr "Show only alpine rock climbing"
+
+# [WARNING] needs_review
+msgid "switch_to_paragliding"
+msgstr "Show only paragliding"
 
 msgid "switch_to_rock_climbing"
 msgstr "Show only rock climbing"

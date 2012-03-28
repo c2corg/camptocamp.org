@@ -208,7 +208,6 @@ msgstr "Es ist nicht erlaubt Regionen zusammenzuschliessen"
 
 # [general comment]
 # do not forget trailing space
-# [WARNING] needs_review
 msgid "Around: "
 msgstr "In der Nähe"
 
@@ -859,6 +858,10 @@ msgstr "Die Rasterung der Vektordatei ist fehlgeschlagen."
 # [WARNING] needs_review
 msgid "Failed to create synchronized summit"
 msgstr "Die Erstellung des mit einer Hütte verbundenen Gipfels ist fehlgeschlagen"
+
+# [WARNING] en translation used
+msgid "Failed to synchronize summit"
+msgstr "Fail on automatic update of the summit associated to the hut"
 
 msgid "Favorite language:"
 msgstr "Bevorzugte Sprachen:"
@@ -2220,6 +2223,10 @@ msgstr "Die Lizenz ändern"
 
 msgid "Switch to collaborative license"
 msgstr "In kollaborative Lizenz umstellen"
+
+# [WARNING] needs_review
+msgid "Synchronize summit to associated hut"
+msgstr "Automatische Änderung eines Gipfel aufgrund einer Änderung einer verbundenen Hütte."
 
 msgid "TD"
 msgstr "SS"
@@ -3749,6 +3756,13 @@ msgstr "Hintergrund:"
 msgid "backpack content"
 msgstr "Inhalt des Rucksack "
 
+# [general comment]
+# Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
+# C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
+# [WARNING] en translation used
+msgid "bad choice error"
+msgstr "the selection is incorrect"
+
 msgid "baleares"
 msgstr "Balearische Inseln"
 
@@ -3882,6 +3896,10 @@ msgstr "Camptocamp.org .. jetzt aufs Eisklettern zugeschnitten!"
 
 msgid "c2c customized for mountain_climbing !"
 msgstr "Camptocamp.org ... jetzt auf alpines Felsklettern zugeschnitten!"
+
+# [WARNING] needs_review
+msgid "c2c customized for paragliding !"
+msgstr "Camptocamp.org ... jetzt auf Gleitschrimfliegen zugeschnitten!"
 
 msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org ... jetzt auschliesslich aufs Sportklettern zugeschnitten!"
@@ -4673,6 +4691,10 @@ msgstr "Herberge"
 msgid "glacier"
 msgstr "Gletscher"
 
+# [WARNING] en translation used
+msgid "glacier config can't be selected with another config"
+msgstr "the \"glacier travel\" configuration can be selected only if any other configuration does not match"
+
 msgid "glacier gear"
 msgstr "Gletscherausrüstung"
 
@@ -4851,9 +4873,8 @@ msgstr "Île-de-France"
 msgid "image"
 msgstr "Bild"
 
-# [WARNING] en translation used
 msgid "image dir unavailable"
-msgstr "Umploading images is temporarily unavailable. Please try again in a few minutes."
+msgstr "Das Hochladen von Bildern ist zur Zeit nicht möglich. Bitte probieren sie in ein paar Minuten nochmals."
 
 msgid "image successfully uploaded"
 msgstr "Das Hochladen der Bilder war erfolgreich."
@@ -5669,6 +5690,14 @@ msgstr "Gletscher-, Eistouren und kombiniertes Bergsteigen von L bis WS+"
 msgid "pan"
 msgstr "Die Karte verschieben"
 
+# [WARNING] needs_review
+msgid "paragliding"
+msgstr "Gleitschirmfliegen"
+
+# [WARNING] en translation used
+msgid "paragliding can not be selected alone"
+msgstr "when \"paragliding\" activity is selected, the activity corresponding to the rise must be selected"
+
 msgid "parking"
 msgstr "Zugangsort"
 
@@ -6008,6 +6037,10 @@ msgstr "ziemlich besucht"
 
 msgid "raid"
 msgstr "Mehrtagesroute"
+
+# [WARNING] fr translation used
+msgid "raid portal"
+msgstr "Raids, hautes routes et expéditions"
 
 msgid "rain_proof"
 msgstr "Regen:"
@@ -6479,16 +6512,14 @@ msgstr "Liste der Gipfel, Pässe, Seen, Felswände"
 msgid "summits presentation"
 msgstr "A \"Gipfel\" kann ein Kulminationspunkt, ein Pass, ein See, ein bemerkenswerter Punkt in einem Tal, eine Felswand (nützlich beim Eisklettern und langen Mehrseillängenrouten), oder eine Mehrtagesroute sein."
 
-# [WARNING] needs_review
 msgid "svg file"
 msgstr "SVG-Datei"
 
 msgid "swiss coords"
 msgstr "Schweizerische Koordinaten:"
 
-# [WARNING] needs_review
 msgid "switch_off_activity_personalisation"
-msgstr "Das personalisierte Filtern auf diese Aktivität aufheben"
+msgstr "Das Filtern auf diese Aktivität aufheben"
 
 msgid "switch_to_hiking"
 msgstr "Nur Wandern anzeigen"
@@ -6496,9 +6527,12 @@ msgstr "Nur Wandern anzeigen"
 msgid "switch_to_ice_climbing"
 msgstr "Nur Eisklettern anzeigen"
 
-# [WARNING] needs_review
 msgid "switch_to_mountain_climbing"
 msgstr "Nur Alpinklettern anzeigen"
+
+# [WARNING] needs_review
+msgid "switch_to_paragliding"
+msgstr "Nur Gleitschirmfliegen anzeigen"
 
 msgid "switch_to_rock_climbing"
 msgstr "Nur Sportklettern anzeigen"
@@ -6526,42 +6560,34 @@ msgstr "Liste der Dokumente"
 msgid "the list is sorted by id"
 msgstr "Die Liste ist nach dem Erstellungsdatum der Dokumente geordnet."
 
-# [WARNING] needs_review
 msgid "there is no %1% to show"
-msgstr "Es gibt kein Ergebnis in der Liste der %1%. Vielleicht sind Ihre Filter zu restriktiv? Haben sie einen Tippfehler gemacht? Versuchen sie es lediglich mit einem charakteristischen Teil des Wortes."
+msgstr "Es gibt kein Ergebnis in der Liste der %1%. Vielleicht sind ihre Filter zu restriktiv? Haben sie einen Tippfehler gemacht? Versuchen sie es lediglich mit einem charakteristischen Teil des Wortes."
 
-# [WARNING] needs_review
 msgid "this data is too long (100 characters maximum)"
-msgstr "Dieser Text muss kürzer als 100 Zeichen lang sein"
+msgstr "Dieser Text muss kürzer als 100 Zeichen sein"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too long
-# [WARNING] needs_review
 msgid "this isbn is too long (17 charaters maximum)"
-msgstr "Die eingegebene ISBN oder ISSN ist zu lang (maximal 17 Zeichen)."
+msgstr "Die eingegebene ISBN oder ISSN ist zu lang (maximal 17 Zeichen)"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too short
-# [WARNING] needs_review
 msgid "this isbn is too short (7 charaters minimum)"
 msgstr "Die eingebene ISBN oder ISSN ist zu kurz (mindestens sieben Zeichen bei einer ISSN, mindestens zehn Zeichen bei einer ISBN)"
 
-# [WARNING] needs_review
 msgid "this name is too long (150 characters maximum)"
 msgstr "dieser Name ist zu lang (Maximum: 150 Zeichen)"
 
-# [WARNING] needs_review
 msgid "this name is too short (3 characters minimum)"
-msgstr "Dieser Name ist zu kurz (mindestens 3 Zeichen)"
+msgstr "Dieser Name ist zu kurz (mindestens drei Zeichen)"
 
-# [WARNING] needs_review
 msgid "this name is too short (4 characters minimum)"
-msgstr "Dieser Name ist zu kurz (mindestens 4 Zeichen)"
+msgstr "Dieser Name ist zu kurz (mindestens vier Zeichen)"
 
 msgid "this nickname is already in use, please choose an other one"
 msgstr "dieser Nickname ist schon vergeben, wählen Sie bitte einen andern aus"
 
-# [WARNING] needs_review
 msgid "this phonenumber is too long (50 characters maximum)"
 msgstr "Diese Telefonnummer ist zu lang (maximal 50 Zeichen)"
 
@@ -6595,30 +6621,24 @@ msgstr "Führer"
 msgid "topo pic"
 msgstr "Route, Skizze"
 
-# [WARNING] needs_review
 msgid "topoName_desc"
-msgstr "In dem Routenführer angezeigter Name:"
+msgstr "Im Tourenführer angezeigter Name:"
 
-# [WARNING] needs_review
 msgid "topoguide moderator"
 msgstr "Tourenführermoderator"
 
-# [WARNING] needs_review
 msgid "topoguide name only"
 msgstr "nur Tourenführerpseudonym"
 
-# [WARNING] needs_review
 msgid "topoguide supplements"
 msgstr "Ergänzungen zum Tourenführer"
 
 msgid "topoguide_code"
 msgstr "HTML-Kurzschreibweise zum Bildeinfügen:"
 
-# [WARNING] needs_review
 msgid "topoguidename"
-msgstr "Routenführer Name"
+msgstr "Tourenführer Name"
 
-# [WARNING] needs_review
 msgid "toponeige_exposition_rating"
 msgstr "Exposition:"
 
@@ -6634,7 +6654,6 @@ msgstr "Tourismus"
 msgid "trachyte"
 msgstr "Trachyt"
 
-# [WARNING] needs_review
 msgid "track pic"
 msgstr "Wegverlauf"
 
@@ -6794,7 +6813,6 @@ msgstr "Die aktuellste Version des Dokuments anzeigen"
 msgid "visual conditions"
 msgstr "Sichtverhältnisse"
 
-# [WARNING] needs_review
 msgid "waiting for geolocation"
 msgstr "Warte auf Lokalisierung..."
 

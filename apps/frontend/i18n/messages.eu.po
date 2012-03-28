@@ -863,6 +863,10 @@ msgstr "irudi bektoriala ezin izan da bihurtu"
 msgid "Failed to create synchronized summit"
 msgstr "Failed to create synchronized summit"
 
+# [WARNING] en translation used
+msgid "Failed to synchronize summit"
+msgstr "Fail on automatic update of the summit associated to the hut"
+
 msgid "Favorite language:"
 msgstr "Edukinaren hizkuntzen lehentasun ordena:"
 
@@ -2317,6 +2321,10 @@ msgstr "Modificar la licencia"
 msgid "Switch to collaborative license"
 msgstr "Pasar a licencia colaborativa"
 
+# [WARNING] en translation used
+msgid "Synchronize summit to associated hut"
+msgstr "Automatic update of the summit after a change on associated hut."
+
 msgid "TD"
 msgstr "TD"
 
@@ -3713,6 +3721,13 @@ msgstr "Seleccione el fondo cartográfico:"
 msgid "backpack content"
 msgstr "Contenido de la mochila"
 
+# [general comment]
+# Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
+# C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
+# [WARNING] en translation used
+msgid "bad choice error"
+msgstr "the selection is incorrect"
+
 msgid "baleares"
 msgstr "Balear Uharteak"
 
@@ -3847,6 +3862,10 @@ msgstr "Camptocamp.org... izotz eskalada!"
 
 msgid "c2c customized for mountain_climbing !"
 msgstr "Camptocamp.org... harkaitz eskalada!"
+
+# [WARNING] en translation used
+msgid "c2c customized for paragliding !"
+msgstr "Camptocamp.org now customized for paragliding!"
 
 msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org... eskalada!"
@@ -4659,6 +4678,10 @@ msgstr "hospedaje"
 # [WARNING] en translation used
 msgid "glacier"
 msgstr "glacier"
+
+# [WARNING] en translation used
+msgid "glacier config can't be selected with another config"
+msgstr "the \"glacier travel\" configuration can be selected only if any other configuration does not match"
 
 msgid "glacier gear"
 msgstr "Glaziarrerako segurtasun tresnak"
@@ -5730,6 +5753,14 @@ msgstr "Alpinismo de nieve, hielo y mixto de F a PD+"
 msgid "pan"
 msgstr "Pan the map"
 
+# [WARNING] en translation used
+msgid "paragliding"
+msgstr "paragliding"
+
+# [WARNING] en translation used
+msgid "paragliding can not be selected alone"
+msgstr "when \"paragliding\" activity is selected, the activity corresponding to the rise must be selected"
+
 msgid "parking"
 msgstr "abiagunea"
 
@@ -6110,6 +6141,10 @@ msgstr "mendizale dexente"
 
 msgid "raid"
 msgstr "raid"
+
+# [WARNING] fr translation used
+msgid "raid portal"
+msgstr "Raids, hautes routes et expéditions"
 
 msgid "rain_proof"
 msgstr "Euria:"
@@ -6616,6 +6651,10 @@ msgstr "Bakarrik izotz eskaladako ekintzak erakutsi"
 
 msgid "switch_to_mountain_climbing"
 msgstr "Bakarrik harkaitz eskaladako ekintzak erakutsi"
+
+# [WARNING] en translation used
+msgid "switch_to_paragliding"
+msgstr "Show only paragliding"
 
 msgid "switch_to_rock_climbing"
 msgstr "Bakarrik eskaladako ekintzak erakutsi"

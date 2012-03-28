@@ -853,6 +853,10 @@ msgstr "La rasterització de la imatge SVG ha fallat"
 msgid "Failed to create synchronized summit"
 msgstr "Failed to create synchronized summit"
 
+# [WARNING] en translation used
+msgid "Failed to synchronize summit"
+msgstr "Fail on automatic update of the summit associated to the hut"
+
 msgid "Favorite language:"
 msgstr "Ordre de preferència de llengües:"
 
@@ -2194,6 +2198,10 @@ msgstr "Modificar la llicència"
 
 msgid "Switch to collaborative license"
 msgstr "Passa a llicència col·laborativa"
+
+# [WARNING] en translation used
+msgid "Synchronize summit to associated hut"
+msgstr "Automatic update of the summit after a change on associated hut."
 
 msgid "TD"
 msgstr "TD"
@@ -3537,6 +3545,13 @@ msgstr "Fons cartogràfic:"
 msgid "backpack content"
 msgstr "El contingut de la motxilla"
 
+# [general comment]
+# Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
+# C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
+# [WARNING] en translation used
+msgid "bad choice error"
+msgstr "the selection is incorrect"
+
 msgid "baleares"
 msgstr "Illes Balears"
 
@@ -3666,6 +3681,10 @@ msgstr "Camptocamp.org... pura escalada en glaç!"
 
 msgid "c2c customized for mountain_climbing !"
 msgstr "Camptocamp.org... pura escalada alpina!"
+
+# [WARNING] en translation used
+msgid "c2c customized for paragliding !"
+msgstr "Camptocamp.org now customized for paragliding!"
 
 msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org... pura escalada esportiva!"
@@ -4442,6 +4461,10 @@ msgstr "hostal"
 # [WARNING] en translation used
 msgid "glacier"
 msgstr "glacier"
+
+# [WARNING] en translation used
+msgid "glacier config can't be selected with another config"
+msgstr "the \"glacier travel\" configuration can be selected only if any other configuration does not match"
 
 msgid "glacier gear"
 msgstr "Material de glacera"
@@ -5440,6 +5463,14 @@ msgstr "Alpinisme en neu/glaç/mixt de F a PD+"
 msgid "pan"
 msgstr "Desplaça el mapa"
 
+# [WARNING] en translation used
+msgid "paragliding"
+msgstr "paragliding"
+
+# [WARNING] en translation used
+msgid "paragliding can not be selected alone"
+msgstr "when \"paragliding\" activity is selected, the activity corresponding to the rise must be selected"
+
 msgid "parking"
 msgstr "accés"
 
@@ -5787,6 +5818,10 @@ msgstr "freqüentat"
 
 msgid "raid"
 msgstr "raid"
+
+# [WARNING] fr translation used
+msgid "raid portal"
+msgstr "Raids, hautes routes et expéditions"
 
 msgid "rain_proof"
 msgstr "Pluja:"
@@ -6259,6 +6294,10 @@ msgstr "Mostrar únicament l'activitat escalada en glaç"
 
 msgid "switch_to_mountain_climbing"
 msgstr "Mostrar únicament l'activitat escalada alpina"
+
+# [WARNING] en translation used
+msgid "switch_to_paragliding"
+msgstr "Show only paragliding"
 
 msgid "switch_to_rock_climbing"
 msgstr "Mostrar únicament l'activitat escalada esportiva"

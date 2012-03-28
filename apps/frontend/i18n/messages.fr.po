@@ -864,6 +864,9 @@ msgstr "L'image vectorielle n'a pas pu être convertie en image matricielle"
 msgid "Failed to create synchronized summit"
 msgstr "La création du sommet associé au refuge a échoué"
 
+msgid "Failed to synchronize summit"
+msgstr "Échec de la mise à jour automatique du sommet associé au refuge"
+
 msgid "Favorite language:"
 msgstr "Ordre de préférence des langues du contenu&nbsp;:"
 
@@ -2209,6 +2212,10 @@ msgstr "Changer la licence"
 msgid "Switch to collaborative license"
 msgstr "Passage en licence collaborative"
 
+# [WARNING] needs_review
+msgid "Synchronize summit to associated hut"
+msgstr "Mise à jour automatique du sommet suite à une modification du refuge associé."
+
 msgid "TD"
 msgstr "TD"
 
@@ -3181,7 +3188,7 @@ msgid "_password_info"
 msgstr "<h3>Mot de passe</h3><em><u>Lors d'une connection</u>&nbsp;:</em><br />Saisissez le mot de passe de votre compte Camptocamp.org.<br />Si vous avez oublié l'identifiant et/ou le mot de passe, vous pouvez demander un nouveau mot de passe en cliquant sur <em>Mot de passe oublié ?</em>.<br /><br /><em><u>Préférences personnelles</u>&nbsp;:</em><br />Si vous souhaitez modifier votre mot de passe, saisissez le nouveau mot de passe. Sinon, laissez le champ vide."
 
 msgid "_pedestrian_access_info"
-msgstr "<h3>Accès pédestre</h3>Itinéraire permettant d'accéder au site/secteur d'escalade ou au refuge, à partir du point d'accès.<br />Indiquez éventuellement les informations relatives au respect de la propriété.<br /></br />Pour un gite, cela concerne l'accès pédestre et routier. S'il est associé à un document accès routier ou TC, ne mentionner que l'itinéraire depuis cet accès."
+msgstr "<h3>Accès pédestre</h3>Itinéraire permettant d'accéder au site/secteur d'escalade ou au refuge, à partir du point d'accès.<br />Indiquez éventuellement les informations relatives au respect de la propriété.<br /></br />Pour un gîte, cela concerne l'accès pédestre et routier. S'il est associé à un document accès routier ou TC, ne mentionner que l'itinéraire depuis cet accès."
 
 msgid "_phone_info"
 msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
@@ -3190,7 +3197,7 @@ msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
 msgid "_product_type_info"
 msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong>&nbsp;: produits vendus directement chez le producteur<br /><br />\n"
 "<strong>restaurant\n"
-"</strong>&nbsp;: restaurant, ou gite et bar proposant des repas<br /><br />\n"
+"</strong>&nbsp;: restaurant, ou gîte et bar proposant des repas<br /><br />\n"
 "<strong>épicerie</strong>&nbsp;: point de vente de produits locaux<br /><br />\n"
 "<strong>bar</strong>&nbsp;: bar ou café<br /><br />\n"
 "<strong>magasin de sport</strong>&nbsp;: point de vente, de location et/ou de réparation de matériel de sport"
@@ -3251,7 +3258,7 @@ msgid "_scale_info"
 msgstr "<h3>Echelle</h3>Echelle de la carte."
 
 msgid "_shelter_type_info"
-msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets.<br /><br /><strong>camping / camp de base</strong>&nbsp;: camping, aire naturelle ou emplacement utilisé chaque année pour un camp de base, comportant éventuellement des bâtiments ou abris en dur non utilisables pour le couchage (toilettes, etc...). Peut être situé en bord de route ou pas.<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable et sans emplacement de couchage. Duvet et tapis de sol seront nécessaires. Les bâtiments ouverts mais peu confortables sont classés dans cette catégorie.<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie, confortable avec emplacement de couchage (matelas, bat-flanc, paillasse, lit, etc...). Un duvet et un tapis de sol peuvent être nécessaires. La plupart des \"bivouacs\" italiens (abris en tôle), bergeries (suivant leur mise à disposition par les propriétaires) et autres bâtiments ouverts et confortables sont classés dans cette catégorie. La catégorie refuge n'est pas accessible en voiture.<br /><br /><strong>gite</strong>&nbsp;: gîte ou refuge de village / bord de route accessible en voiture.<br /><br />"
+msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets.<br /><br /><strong>camping / camp de base</strong>&nbsp;: camping, aire naturelle ou emplacement utilisé chaque année pour un camp de base, comportant éventuellement des bâtiments ou abris en dur non utilisables pour le couchage (toilettes, etc...). Peut être situé en bord de route ou pas.<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable et sans emplacement de couchage. Duvet et tapis de sol seront nécessaires. Les bâtiments ouverts mais peu confortables sont classés dans cette catégorie.<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie, confortable avec emplacement de couchage (matelas, bat-flanc, paillasse, lit, etc...). Un duvet et un tapis de sol peuvent être nécessaires. La plupart des \"bivouacs\" italiens (abris en tôle), bergeries (suivant leur mise à disposition par les propriétaires) et autres bâtiments ouverts et confortables sont classés dans cette catégorie. La catégorie refuge n'est pas accessible en voiture.<br /><br /><strong>gîte</strong>&nbsp;: gîte ou refuge de village / bord de route accessible en voiture.<br /><br />"
 
 msgid "_site_history_info"
 msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du site."
@@ -3660,6 +3667,13 @@ msgstr "Fond cartographique :"
 msgid "backpack content"
 msgstr "Le contenu du sac"
 
+# [general comment]
+# Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
+# C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
+# [WARNING] needs_review
+msgid "bad choice error"
+msgstr "la sélection est incorrecte"
+
 msgid "baleares"
 msgstr "Îles Baléares"
 
@@ -3788,6 +3802,9 @@ msgstr "Camptocamp.org... pur cascade&nbsp;!"
 
 msgid "c2c customized for mountain_climbing !"
 msgstr "Camptocamp.org... pur rocher haute montagne&nbsp;!"
+
+msgid "c2c customized for paragliding !"
+msgstr "Camptocamp.org... pur parapente&nbsp;!"
 
 msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org ... pur escalade&nbsp;!"
@@ -4538,10 +4555,14 @@ msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'
 # [comment]
 # majuscule?
 msgid "gite"
-msgstr "gite"
+msgstr "gîte"
 
 msgid "glacier"
 msgstr "glacier"
+
+# [WARNING] needs_review
+msgid "glacier config can't be selected with another config"
+msgstr "la configuration \"parcours glaciaire\" ne peut être sélectionnée que si aucune autre configuration ne correspond"
 
 msgid "glacier gear"
 msgstr "Matériel de sécurité sur glacier"
@@ -4680,13 +4701,13 @@ msgid "hut_status"
 msgstr "Refuge&nbsp;:"
 
 msgid "huts"
-msgstr "refuges, gites, bivouacs"
+msgstr "refuges, gîtes, bivouacs"
 
 msgid "huts list"
-msgstr "Liste des refuges, gites et bivouacs"
+msgstr "Liste des refuges, gîtes et bivouacs"
 
 msgid "huts presentation"
-msgstr "Un \"refuge\" peut être un refuge gardé ou non, un gite, un abri, un emplacement de bivouac, un camp de base. Un \"refuge\" peut être associé à des accès et à des itinéraires."
+msgstr "Un \"refuge\" peut être un refuge gardé ou non, un gîte, un abri, un emplacement de bivouac, un camp de base. Un \"refuge\" peut être associé à des accès et à des itinéraires."
 
 msgid "hybrid"
 msgstr "Google mixte"
@@ -5520,6 +5541,13 @@ msgstr "Alpinisme neige/glace/mixte de F à PD+"
 msgid "pan"
 msgstr "Déplacer la carte"
 
+msgid "paragliding"
+msgstr "parapente"
+
+# [WARNING] needs_review
+msgid "paragliding can not be selected alone"
+msgstr "lorsque l'activité \"parapente\" est sélectionnée, l'activité correspondant à la montée doit aussi être sélectionnée"
+
 msgid "parking"
 msgstr "accès"
 
@@ -5861,6 +5889,9 @@ msgstr "assez fréquenté"
 
 msgid "raid"
 msgstr "raid"
+
+msgid "raid portal"
+msgstr "Raids, hautes routes et expéditions"
 
 msgid "rain_proof"
 msgstr "Pluie&nbsp;:"
@@ -6311,6 +6342,9 @@ msgstr "Afficher uniquement l'activité cascade"
 
 msgid "switch_to_mountain_climbing"
 msgstr "Afficher uniquement l'activité rocher haute montagne"
+
+msgid "switch_to_paragliding"
+msgstr "Afficher uniquement l'activité parapente"
 
 msgid "switch_to_rock_climbing"
 msgstr "Afficher uniquement l'activité escalade"
