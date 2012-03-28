@@ -311,7 +311,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             if (!in_array($activity_param, $params) && array_intersect(array('act', 'yes', 'all'), $perso))
             {
                 $activities = c2cPersonalization::getInstance()->getActivitiesFilter();
-                $activities = array_diff($activities, na_activities);
+                $activities = array_udiff($activities, $na_activities, 'strcmp');
                 if (count($activities))
                 {
                     $params_list[$activity_param] = implode('-', $activities);
