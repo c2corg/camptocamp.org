@@ -1692,7 +1692,7 @@ class sfPunBBCodeParser
             $replace[] = '';
             
             // déprotection des wikiliens
-            $pattern[] = '{\[\[([^|\n]+)@#@([^\]\n]+)\]\]}';
+            $pattern[] = '{\[\[([^|\n]+?)@#@([^\]\n]+?)\]\]}';
             $replace[] = '[[$1|$2]]';
             
             // ajout d'espaces insécables
