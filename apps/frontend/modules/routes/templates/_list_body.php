@@ -37,8 +37,8 @@ if (isset($item['name']) && $summit_name != $summit_2['name'])
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
 <td><?php echo get_paginated_value($item['facing'], 'app_routes_facings') ?></td>
-<td><?php $height_diff_up = is_scalar($item['height_diff_up']) ? ($item['height_diff_up'] . __('meters')) : NULL;
-          if (($height_diff_up != NULL) && is_scalar($item['difficulties_height']))
+<td><?php $height_diff_up = is_scalar($item['height_diff_up']) ? ($item['height_diff_up'] . __('meters')) : '';
+          if (is_scalar($item['difficulties_height']))
           {
               $height_diff_up .= ' (' . $item['difficulties_height'] . __('meters') . ')';
           }

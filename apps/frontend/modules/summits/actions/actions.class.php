@@ -481,8 +481,8 @@ class summitsActions extends documentsActions
         $this->addAroundParam($out, 'sarnd');
         $this->addListParam($out, 'styp');
         $this->addParam($out, 'geom');
-        $this->addListParam($out, 'act');
         $this->addListParam($out, 'stags');
+        $this->addListParam($out, 'act');
         $this->addParam($out, 'bbox');
         $this->addListParam($out, 'scult');
         

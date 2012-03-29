@@ -516,6 +516,10 @@ class Outing extends BaseOuting
             {
                 $extra_fields = array('lr.type', 'ls.type', 's.lat', 's.lon');
             }
+            elseif (in_array($orderby, array('ddif')))
+            {
+                $extra_fields = array('m.height_diff_down');
+            }
         }
         
         return array_merge(parent::buildFieldsList(),

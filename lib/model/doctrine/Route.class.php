@@ -439,7 +439,7 @@ class Route extends BaseRoute
 
     public static function browse($sort, $criteria, $format = null)
     {
-        $pager = self::createPager('Route', self::buildFieldsList(), $sort);
+        $pager = self::createPager('Route', self::buildRouteFieldsList($format, $sort), $sort);
         $q = $pager->getQuery();
         
         self::joinOnRegions($q);
@@ -706,11 +706,9 @@ class Route extends BaseRoute
         }
     }
 
-    protected static function buildFieldsList()
+    protected static function buildRouteFieldsList($format = null, $sort)
     {
-        return array_merge(parent::buildFieldsList(), 
-                           parent::buildGeoFieldsList(),
-                           array('m.activities', 'm.max_elevation', 'm.facing',
+        $routes_fields_list = array('m.activities', 'm.max_elevation', 'm.facing',
                                  'm.height_diff_up', 'm.difficulties_height',
                                  'm.global_rating', 'm.engagement_rating', 'm.equipment_rating',
                                  'm.toponeige_technical_rating', 'm.toponeige_exposition_rating',
@@ -721,7 +719,24 @@ class Route extends BaseRoute
                                  'm.route_length',
                                  'lsname.type', // we don't need this, but if we make JOIN chains, and we don't include every element of the chain, doctrine blocks
                                  'sname.elevation', 'sname.lon', 'sname.lat',
-                                 'snamei.name', 'snamei.search_name'));
+                                 'snamei.name', 'snamei.search_name');
+        
+        $extra_fields = array();
+        if (isset($sort['orderby_param']))
+        {
+            $orderby = $sort['orderby_param'];
+            
+            if (in_array($orderby, array('ddif')))
+            {
+                $extra_fields = array('m.height_diff_down');
+            }
+        }
+            
+        
+        return array_merge(parent::buildFieldsList(), 
+                           parent::buildGeoFieldsList(),
+                           $routes_fields_list,
+                           $extra_fields);
     }
 
     protected function addPrevNextIdFilters($q, $model)
