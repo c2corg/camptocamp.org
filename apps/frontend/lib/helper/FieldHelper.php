@@ -991,7 +991,7 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
     $max_elevation = is_scalar($route['max_elevation']) ? ($route['max_elevation'] . __('meters')) : NULL;
     
     $height_diff_up = is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . __('meters')) : NULL;
-    if (($height_diff_up != NULL) && is_scalar($route['difficulties_height']))
+    if (is_scalar($route['difficulties_height']))
     {
         $difficulties_height = $route['difficulties_height'] . __('meters');
     }
