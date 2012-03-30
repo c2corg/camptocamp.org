@@ -531,7 +531,7 @@ th.order_asc
 .activity_1, .activity_1_light, .activity_2, .activity_2_light,
 .activity_3, .activity_3_light, .activity_4, .activity_4_light,
 .activity_5, .activity_5_light, .activity_6, .activity_6_light,
-.activity_7, .activity_7_light,
+.activity_7, .activity_7_light, .activity_8, .activity_8_light,
 .pt_1, .pt_2, .pt_3,
 .freq_1, .freq_2, .freq_3, .freq_4,
 option.picto_act
@@ -595,6 +595,14 @@ option.picto_act
 .activity_7_light
 {
   background-position: -8px -648px;
+}
+.activity_8, option.act_8
+{
+  background-position: -8px -680px;
+}
+.activity_8_light
+{
+  background-position: -8px -712px;
 }
 .pt_2
 {
