@@ -264,7 +264,7 @@ class sfImageMagickAdapter
     // http://www.yuiblog.com/blog/2008/12/05/imageopt-4/
     if ($this->progressive && $thumbnail->getMime() == 'image/jpeg')
     {
-        $command .= ' -interlace';
+        $command .= ' -interlace Plane';
     }
 
     if ($this->quality && $thumbnail->getMime() == 'image/jpeg')
