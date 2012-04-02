@@ -1261,6 +1261,7 @@ span.share_bookmark.eu
 #pp_button_mini
 {
   background-position: -138px -266px;
+  filter: none;
 }
 span.license_mini_bysa {
   background-position: -266px -15px;
