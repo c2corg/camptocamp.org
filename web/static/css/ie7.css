@@ -292,7 +292,7 @@ a.external_link, .htext .hextra a.external_link {
 
 #order li
 {
-  background: url(/static/images/drag.gif) no-repeat 5px;
+  background: url(/static/images/picto/drag.gif) no-repeat 5px;
 }
 
 
@@ -831,7 +831,7 @@ th.order_asc
 .activity_1, .activity_1_light, .activity_2, .activity_2_light,
 .activity_3, .activity_3_light, .activity_4, .activity_4_light,
 .activity_5, .activity_5_light, .activity_6, .activity_6_light,
-.activity_7, .activity_7_light, .activity_8_light,
+.activity_7, .activity_7_light, .activity_8, .activity_8_light,
 .pt_1, .pt_2, .pt_3,
 .freq_1, .freq_2, .freq_3, .freq_4,
 option.picto_act
@@ -933,7 +933,7 @@ option.picto_act
 }
 
 /* borders and logos sprites */
-#banner_logo, #facebook_logo, #twitter_logo, .logo_mini,
+#banner_logo, #facebook_logo, #twitter_logo, #googleplus_logo, .logo_mini,
 .ombre_haut_corner_right, .ombre_haut_corner_left, .ombre_bas_corner_right, .ombre_bas_corner_left,
 #nav_anchor_top, #nav_tools_top, #nav_license_top, #nav_anchor_down, #nav_tools_down, #nav_license_down,
 #wizard_button_top, #wizard_button_down, .nav_box_top, .nav_box_down, .nav_box_top.small,
@@ -941,7 +941,7 @@ option.picto_act
 #nav_edit li a:link, #nav_edit li a:visited, #nav_edit li a:hover, #nav_edit li div:hover,
 #footer_border_left, #footer_border_right, #partners a,
 .picto.cc-by-sa, .picto.cc-by-sa-mini, .picto.cc-by-nc-nd, .picto.copyright,
-.cc_gen, .image_license, .license_mini,
+.cc_gen, .cc_gen.lang_fr, .image_license, .license_mini,
 #paypal-button, #pp_button_mini, span.share_bookmark
 {
   background: url(/static/images/borders_and_logos.png) no-repeat;
