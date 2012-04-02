@@ -14,12 +14,16 @@ fields:
     required:
       msg:          field cannot be left blank
     myChoiceValidator:
-      config_choice: mod_articles_article_types_list
+      config_choice: mod_articles_categories_list
       unique: false
   activities:
     myChoiceValidator:
       config_choice: app_activities_list
       unique: false
+      array_exclusive: [ 0 ]
+      exclusive_choice_error: empty choice can't be selected with another choice
   article_type:
     myArticleTypeValidator:
       articletype_error:   you have no right to switch from collaborative to personal article
+    myChoiceValidator:
+      config_choice: mod_articles_article_types_list

@@ -138,7 +138,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
                 $tag = explode('/', $unavailable_activities[$activity_id]);
                 if (count($tag) == 2)
                 {
-                    $param = $tag[0] . '[]';
+                    $param = $tag[0];
                     $value = $tag[1];
                 }
                 else
@@ -153,7 +153,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         }
         else
         {
-            $param = 'act[]';
+            $param = 'act';
             $value = $activity_id;
         }
         
@@ -168,9 +168,9 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         $checked = in_array($activity_id, $filtered_activities) ? true : false; 
 
         $label_text = '<span class="activity_' . $activity_id . '">' . __($activity) . '</span>';
-        $out[] = checkbox_tag($param, $value, $checked, $options) 
+        $out[] = checkbox_tag($param . '[]', $value, $checked, $options) 
                  . ' ' . 
-                 label_for('act_' . $activity_id, $label_text);
+                 label_for($param . '_' . $value, $label_text);
         
         if ($col_item == $col_item_max || ($col * $col_item_max +  $col_item == $item_max))
         {
