@@ -1256,6 +1256,7 @@ span.share_bookmark.eu
 #paypal-button
 {
   background-position: -212px -156px;
+  filter: none;
 }
 #pp_button_mini
 {
