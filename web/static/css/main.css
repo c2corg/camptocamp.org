@@ -4289,6 +4289,7 @@ td.history_buttons {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+  filter: none;
 }
 
 iframe
