@@ -41,3 +41,15 @@ fields:
     myChoiceValidator:
       config_choice: app_languages_book
       unique: false
+  author:
+    sfStringValidator:
+      max: 100
+      max_error:    this data is too long (100 characters maximum)
+  editor:
+    sfStringValidator:
+      max: 100
+      max_error:    this data is too long (100 characters maximum)
+  publication_date:
+    sfStringValidator:
+      max: 100
+      max_error:    this data is too long (100 characters maximum)
