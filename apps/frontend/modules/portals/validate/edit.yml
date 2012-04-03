@@ -51,7 +51,10 @@ fields:
   activities:
     required:
       msg:          field cannot be left blank
-    myActivitiesValidator:
+    myChoiceValidator:
+      config_choice: app_activities_list
+      unique: false
+      array_except: [ 0 ]
   nb_outings:
     nbItemsValidator:
   nb_images:

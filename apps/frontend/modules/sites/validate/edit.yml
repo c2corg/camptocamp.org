@@ -67,3 +67,26 @@ fields:
     myChoiceValidator:
       config_choice: mod_sites_climbing_styles_list
       unique: false
+      array_exclusive: [ 0 ]
+      exclusive_choice_error: empty choice can't be selected with another choice
+  rock_types:
+    myChoiceValidator:
+      config_choice: app_rock_types_list
+      unique: false
+      array_exclusive: [ 0 ]
+      exclusive_choice_error: empty choice can't be selected with another choice
+  facings:
+    myChoiceValidator:
+      config_choice: mod_sites_facings_list
+      unique: false
+      array_exclusive: [ 0 ]
+      exclusive_choice_error: empty choice can't be selected with another choice
+  equipment_rating:
+    myChoiceValidator:
+      config_choice: app_equipment_ratings_list
+  children_proof:
+    myChoiceValidator:
+      config_choice: mod_sites_children_proof_list
+  rain_proof:
+    myChoiceValidator:
+      config_choice: mod_sites_rain_proof_list

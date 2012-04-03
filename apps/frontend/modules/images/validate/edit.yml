@@ -33,6 +33,8 @@ fields:
   image_type:
     myImageTypeValidator:
       imagetype_error:   you have no right to switch from collaborative to personal picture
+    myChoiceValidator:
+      config_choice: mod_images_type_full_list
   file:
     file:           True
     myImageValidator:
@@ -41,3 +43,13 @@ fields:
       type_error:            file has incorrect type
       max_dim_error:         file is too large
       min_dim_error:         file is too small
+  activities:
+    myChoiceValidator:
+      config_choice: app_activities_list
+      unique: false
+      array_exclusive: [ 0 ]
+      exclusive_choice_error: empty choice can't be selected with another choice
+  categories:
+    myChoiceValidator:
+      config_choice: mod_images_categories_list
+      unique: false

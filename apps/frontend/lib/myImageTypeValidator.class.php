@@ -7,17 +7,25 @@ class myImageTypeValidator extends sfValidator
   {
     $was = $this->getParameter('was');
     $is_moderator = $this->getParameter('is_moderator');
-    if (!$is_moderator && $was != 2 && $value != $was)
+    if (!$is_moderator && $value != $was)
     {
-      if ($was == 1) // (collaborative)
-      {
-        $error = 'you have no right to switch from collaborative picture';
-      }
-      else // $was == 3 (copyright)
-      {
-        $error = 'you have no right to switch from copyright picture';
-      }
-      return false;
+        if ($was != 2)
+        {
+            if ($was == 1) // (collaborative)
+            {
+                $error = 'you have no right to switch from collaborative picture';
+            }
+            else // $was == 3 (copyright)
+            {
+                $error = 'you have no right to switch from copyright picture';
+            }
+            return false;
+        }
+        elseif ($value == 3)
+        {
+            $error = 'you have no right to switch from personnal to copyright picture';
+            return false;
+        }
     }
     return true;
   }

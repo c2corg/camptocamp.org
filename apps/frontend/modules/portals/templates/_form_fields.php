@@ -21,7 +21,7 @@ if (true or $is_moderator)
     include_partial('documents/oam_coords', array('document' => $document));
     echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input'));
     echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
-                                   array('multiple' => true), false, null, null, '', '', 'picto_act act_');
+                                   array('multiple' => true, 'na' => array(0)), true, null, null, '', '', 'picto_act act_');
     echo object_group_tag($document, 'has_map', 'object_checkbox_tag');
     echo object_group_tag($document, 'map_filter', null, '', array('class' => 'long_input'));
     echo object_group_tag($document, 'topo_filter', null, '', array('class' => 'long_input'));

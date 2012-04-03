@@ -69,4 +69,10 @@ fields:
     myChoiceValidator:
       config_choice: mod_huts_shelter_types_list
       array_except: [ 0 ]
+  activities:
+    myChoiceValidator:
+      config_choice: app_activities_list
+      unique: false
+      array_exclusive: [ 0 ]
+      exclusive_choice_error: empty choice can't be selected with another choice
 

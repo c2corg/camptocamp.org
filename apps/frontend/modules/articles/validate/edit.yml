@@ -23,6 +23,8 @@ fields:
       array_exclusive: [ 0 ]
       exclusive_choice_error: empty choice can't be selected with another choice
   article_type:
+    required:
+      msg:          field cannot be left blank
     myArticleTypeValidator:
       articletype_error:   you have no right to switch from collaborative to personal article
     myChoiceValidator:

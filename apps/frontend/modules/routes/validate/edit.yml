@@ -65,6 +65,54 @@ fields:
       unique: false
       array_exclusive: [ 7 ]
       exclusive_choice_error: glacier config can't be selected with another config
+  sub_activities:
+    myChoiceValidator:
+      config_choice: mod_routes_sub_activities_list
+      unique: false
+      array_exclusive: [ 0 ]
+      exclusive_choice_error: empty choice can't be selected with another choice
+  global_rating:
+    myChoiceValidator:
+      config_choice: app_routes_global_ratings
+  engagement_rating:
+    myChoiceValidator:
+      config_choice: app_routes_engagement_ratings
+  rock_free_rating:
+    myChoiceValidator:
+      config_choice: app_routes_rock_free_ratings
+  rock_required_rating:
+    myChoiceValidator:
+      config_choice: app_routes_rock_free_ratings
+  aid_rating:
+    myChoiceValidator:
+      config_choice: app_routes_aid_ratings
+  ice_rating:
+    myChoiceValidator:
+      config_choice: app_routes_ice_ratings
+  mixed_rating:
+    myChoiceValidator:
+      config_choice: app_routes_mixed_ratings
+  equipment_rating:
+    myChoiceValidator:
+      config_choice: app_equipment_ratings_list
+  toponeige_technical_rating:
+    myChoiceValidator:
+      config_choice: app_routes_toponeige_technical_ratings
+  toponeige_exposition_rating:
+    myChoiceValidator:
+      config_choice: app_routes_toponeige_exposition_ratings
+  labande_ski_rating:
+    myChoiceValidator:
+      config_choice: app_routes_labande_ski_ratings
+  labande_global_rating:
+    myChoiceValidator:
+      config_choice: app_routes_global_ratings
+  hiking_rating:
+    myChoiceValidator:
+      config_choice: app_routes_hiking_ratings
+  snowshoeing_rating:
+    myChoiceValidator:
+      config_choice: app_routes_snowshoeing_ratings
   slope:
     sfStringValidator:
       max: 100

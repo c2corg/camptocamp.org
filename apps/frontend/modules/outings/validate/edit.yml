@@ -52,8 +52,29 @@ fields:
     elevationValidator:
   up_snow_elevation:
     elevationValidator:
-  up_snow_elevation:
+  down_snow_elevation:
     elevationValidator:
+  access_status:
+    myChoiceValidator:
+      config_choice: mod_outings_access_statuses_list
+  conditions_status:
+    myChoiceValidator:
+      config_choice: mod_outings_conditions_statuses_list
+  glacier_status:
+    myChoiceValidator:
+      config_choice: mod_outings_glacier_statuses_list
+  track_status:
+    myChoiceValidator:
+      config_choice: mod_outings_track_statuses_list
+  frequentation_status:
+    myChoiceValidator:
+      config_choice: mod_outings_frequentation_statuses_list
+  hut_status:
+    myChoiceValidator:
+      config_choice: mod_outings_hut_statuses_list
+  lift_status:
+    myChoiceValidator:
+      config_choice: mod_outings_lift_statuses_list
   file:
     file: true
     myFileMimeTypeValidator:
