@@ -82,7 +82,7 @@ class commonActions extends c2cActions
 
         if ($this->hasRequestParameter('activity'))
         {
-            $activity = $this->getRequestParameter('activity', 0) - 1; // comprised between 0 and 6
+            $activity = $this->getRequestParameter('activity', 0) - 1; // comprised between 0 and 7
             /*
             1: skitouring
             2: snow_ice_mixed
@@ -91,6 +91,7 @@ class commonActions extends c2cActions
             5: ice_climbing
             6: hiking
             7: snowshoeing
+            8: paragliding
             */
         }
         else if ($this->hasRequestParameter('activity_name')) // got here by activity_name
@@ -115,7 +116,7 @@ class commonActions extends c2cActions
         {
             $user_id = null;
         }
-    
+
         if (array_key_exists($activity, $alist))
         {
             if ((c2cPersonalization::getInstance()->getActivitiesFilter() == array($activity+1))

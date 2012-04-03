@@ -12,15 +12,15 @@ echo __('Results from google for %1%', array('%1%' => $query_string)); ?>
 <script type="text/javascript">
 //<![CDATA[
 Event.observe(window, 'load', function() { 
-GoogleSearch.i18n = new Array('<?php
+C2C.GoogleSearch.i18n = new Array('<?php
 $google_i18n = array('first page', 'previous page', 'next page', 'Document title', 'Extract', 'No result');
 $google_i18n = array_map('__', $google_i18n);
 echo implode('\', \'', $google_i18n);
 ?>');
 <?php $cse = sfConfig::get('app_google_cse'); ?>
-GoogleSearch.base_url = 'https://www.googleapis.com/customsearch/v1?key=<?php echo sfConfig::get('app_google_api_key') ?>&cx=<?php echo $cse[$module] ?>&callback=GoogleSearch.handleResponse';
-GoogleSearch.q = '<?php echo urlencode($query_string) ?>';
-GoogleSearch.search();
+C2C.GoogleSearch.base_url = 'https://www.googleapis.com/customsearch/v1?key=<?php echo sfConfig::get('app_google_api_key') ?>&cx=<?php echo $cse[$module] ?>&callback=C2C.GoogleSearch.handleResponse';
+C2C.GoogleSearch.q = '<?php echo urlencode($query_string) ?>';
+C2C.GoogleSearch.search();
 });
 //]]></script>
 <?php endif; ?>

@@ -1,3 +1,7 @@
+(function() {
+
+"use strict";
+
 Event.observe(window, 'load', function()
 {
   if ($$('.license_box')) {
@@ -6,3 +10,5 @@ Event.observe(window, 'load', function()
                                              + '"><br />' });
   }
 });
+
+})();

@@ -47,7 +47,7 @@ class c2cPersonalization
             
                     // apparently he comes on the site for the first time
                     // => set his language filter to the interface language by default (except for EN
-                    // because a lot of browsers are configured in english)
+                    // because a lot of browsers are configured in english)
                     $langs[] = $culture;
                     self::saveFilter($cookie_name, $langs);
                 }

@@ -82,7 +82,9 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
   }
 });
 
-(function(document){
+(function() {
+
+"use strict";
 
 window.C2C = window.C2C || {};
 

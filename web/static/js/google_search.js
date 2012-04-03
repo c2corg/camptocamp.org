@@ -1,4 +1,10 @@
-GoogleSearch = {
+(function() {
+
+"use strict";
+
+window.C2C = window.C2C || {};
+
+C2C.GoogleSearch = {
 
   // FIXME: totalResults seems to vary depending on the startIndex??
   // thus we are not creating a classical pager, only prev and next (if they exist)
@@ -9,7 +15,7 @@ GoogleSearch = {
 
     // previous page
     if (response.queries.previousPage) {
-      link = new Element('a', { href: 'javascript:GoogleSearch.search()' });
+      link = new Element('a', { href: 'javascript:C2C.GoogleSearch.search()' });
       img = new Element('span', { 'class': 'picto action_first',
                                   title: this.i18n[0] });
       link.appendChild(img);
@@ -18,7 +24,7 @@ GoogleSearch = {
       pagesDiv.appendChild(document.createTextNode('\u00a0\u00a0'));
 
       url_params = '&start=' + response.queries.previousPage[0].startIndex;
-      link = new Element('a', { href: 'javascript:GoogleSearch.search(\''+url_params+'\')' });
+      link = new Element('a', { href: 'javascript:C2C.GoogleSearch.search(\''+url_params+'\')' });
       img = new Element('span', { 'class': 'picto action_back',
                                   title: this.i18n[1] });
       link.appendChild(img);
@@ -35,7 +41,7 @@ GoogleSearch = {
     // next page
     if (response.queries.nextPage) {
       url_params = '&start=' + response.queries.nextPage[0].startIndex;
-      link = new Element('a', { href: 'javascript:GoogleSearch.search(\''+url_params+'\')' });
+      link = new Element('a', { href: 'javascript:C2C.GoogleSearch.search(\''+url_params+'\')' });
       img = new Element('span', { 'class': 'picto action_next',
                                  title: this.i18n[2] });
       link.appendChild(img);
@@ -125,5 +131,6 @@ GoogleSearch = {
                                          src:   url });
     head.appendChild(script);  
   }
-
 };
+
+})();
