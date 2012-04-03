@@ -217,6 +217,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'Item':    self::buildItemCondition(&$conditions, &$values, $field, $value); break;
                 case 'Multi':   self::buildMultiCondition(&$conditions, &$values, $field, $value); break;
                 case 'Compare': self::buildCompareCondition(&$conditions, &$values, $field, $value); break;
+                case 'Relative': self::buildRelativeCondition(&$conditions, &$values, $field, $value); break;
                 case 'List':
                     $use_not_null = ($param != 'id');
                     self::buildListCondition(&$conditions, &$values, $field, $value, $use_not_null); break;
@@ -2118,6 +2119,63 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
+    
+    public static function buildRelativeCondition(&$conditions, &$values, $field, $param)
+    {
+        if (!is_array($field) || count($field) != 2)
+        {
+            return;
+        }
+        
+        list($field_1, $field_2) = $field;
+        
+        if ($param == '-')
+        {
+            $conditions[] = "(($field_1 - $field_2) = 0)";
+        }
+        elseif ($param == ' ')
+        {
+            $conditions[] = "(($field_1 - $field_2) != 0)";
+        }
+        elseif(preg_match('/^([><]?)(-?)([0-9]*)(~?)(-?[0-9]*)$/', $param, $regs))
+        {
+            if (empty($regs[3]))
+            {
+                return;
+            }
+            
+            if (!empty($regs[1]))
+            {
+                if (!empty($regs[2]))
+                {
+                    list($field_2, $field_1) = $field;
+                    if ($regs[1] == '>')
+                    {
+                        $regs[1] = '<';
+                    }
+                    else
+                    {
+                        $regs[1] = '>';
+                    }
+                }
+                $not_null = "($field_1 - $field_2) >= 0 AND ";
+            }
+            else
+            {
+                $not_null = '';
+            }
+            
+            $field_compare = $not_null . "($field_1 - $field_2)";
+            $param_compare = $regs[1] . $regs[3] . $regs[4] . $regs[5];
+            
+            self::buildCompareCondition(&$conditions, &$values, $field_compare, $param_compare, false, false);
+        }
+        else
+        {
+            return;
+        }
+    }
+
     public static function buildListCondition(&$conditions, &$values, $field, $param, $use_not_null = true)
     {
         if ($param == '-')
@@ -2204,7 +2262,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         {
-            self::buildCompareCondition(&$conditions, &$values, $field, $param, $use_not_null);
+            self::buildCompareCondition(&$conditions, &$values, $field, $param, false, $use_not_null);
         }
         else
         {
