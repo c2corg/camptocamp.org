@@ -142,12 +142,14 @@ class Outing extends BaseOuting
         if ($is_module)
         {
             $m = 'm';
+            $m2 = '';
             $join = null;
             $join_id = null;
         }
         else
         {
             $m = 'o';
+            $m2 = 'o.';
             $join = 'join_outing';
             $join_id = $join . '_id';
         }
@@ -171,7 +173,7 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.max_elevation', 'oalt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_up', 'odif', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_down', 'oddif', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Relative', array($m . '.height_diff_down', $m . '.height_diff_up'), 'odudif', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Relative', array($m2 . 'height_diff_down', $m2 . 'height_diff_up'), 'odudif', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.outing_length', 'olen', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Date', $m . '.date', 'odate', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.outing_with_public_transportation', 'owtp', $join, false, $params_list);
