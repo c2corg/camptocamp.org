@@ -3234,6 +3234,16 @@ msgstr "<h3>Modification mineure</h3>Cochez cette case si les modifications appo
 msgid "_rock_free_rating_info"
 msgstr "<h3>Cotation libre</h3>Cotation des difficultés d'escalade rocheuse en libre.<br />La cotation libre évalue la difficulté maximale de l'escalade libre rocheuse.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
 
+msgid "_rock_free_rating_rock_required_rating_info"
+msgstr "<h3>Cotations libre et libre obligatoire</h3>\n"
+"Cotations des difficultés d'escalade rocheuse en libre et en  libre obligatoire.<br />\n"
+"- La cotation libre évalue la difficulté maximale de l'escalade libre rocheuse.<br />\n"
+"- La cotation libre obligatoire évalue la difficulté maximale obligatoire de l'escalade libre rocheuse. Elle correspond à la cotation de la partie des difficultés qui reste une fois que l'on a épuisé toutes les possibilités de \"triche\" en utilisant un point d'aide.<br />\n"
+"<br />\n"
+"Elles se donnent sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
+
 msgid "_rock_required_rating_info"
 msgstr "<h3>Cotation libre obligatoire</h3>Cotation des difficultés obligatoires d'escalade rocheuse en libre.<br />La cotation libre obligatoire évalue la difficulté maximale obligatoire de l'escalade libre rocheuse. Elle correspond à la cotation de la partie des difficultés qui reste une fois que l'on a épuisé toutes les possibilités de \"triche\" en utilisant un point d'aide.<br />L'échelle est la même que pour la cotation libre.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
 
@@ -5980,6 +5990,9 @@ msgstr "montée"
 msgid "road access"
 msgstr "Accès routier&nbsp;:"
 
+msgid "rock rating separator"
+msgstr " > "
+
 msgid "rock_climbing"
 msgstr "escalade"
 
@@ -5991,6 +6004,9 @@ msgstr "Cotation libre et libre obligatoire&nbsp;:"
 
 msgid "rock_free_rating"
 msgstr "Cotation libre&nbsp;:"
+
+msgid "rock_free_rating_rock_required_rating"
+msgstr "Cotation libre > oblig.&nbsp;:"
 
 msgid "rock_required_rating"
 msgstr "Cotation libre obligatoire&nbsp;:"

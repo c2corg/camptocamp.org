@@ -3314,6 +3314,22 @@ msgstr "<h3>Unwesentliche Änderung</h3>Aktivieren sie dieses Kästchen, wenn si
 msgid "_rock_free_rating_info"
 msgstr "<h3>Bewertung Felsklettern</h3>Bewertung der Schwierigkeiten beim Felsklettern.<br />Die Bewertung bezieht sich auf die schwierigste Stelle, welche frei, d.h. ohne aktive Hilfspunkte, geklettert wird.<br />Dazu wird die französische Skala verwendet, welche von 2 bis 9b reicht.<br /><br />Siehe auch in der Hilfe unter <a href=\"/articles/133323\">Bewertung Felsklettern</a>."
 
+# [WARNING] needs_review
+msgid "_rock_free_rating_rock_required_rating_info"
+msgstr "<h3>Bewertung Felsklettern</h3>\n"
+"Bewertung der Schwierigkeiten beim Felsklettern.<br />\n"
+"Die Bewertung bezieht sich auf die schwierigste Stelle, welche frei, d.h. ohne aktive Hilfspunkte, geklettert wird.<br />\n"
+"<br />\n"
+"<h3>Obligatorischer Schwierigkeitsgrad</h3>\n"
+"Bewertung der obligatorischen Schwierigkeiten einer Kletterei.<br />\n"
+"Dieser Grad gibt an, welche Schwierigkeiten eine Route noch hat, wenn\n"
+"sämtliche \"Moglereien\" durch das uneingeschränkte Verwenden von\n"
+"Hilfspunkten ausgeschöpft werden. Wenn ein Kletterer eine Route durchsteigen will muss er mindestens den obligatorischen Schwierigkeitsgrad zwingend beherrschen.<br />\n"
+"<br />\n"
+"Dazu wird die französische Skala verwendet, welche von 2 bis 9b reicht.<br />\n"
+"<br />\n"
+"Siehe auch in der Hilfe unter <a href=\"/articles/133323\">Bewertung Felsklettern</a>."
+
 msgid "_rock_required_rating_info"
 msgstr "<h3>Obligatorischer Schwierigkeitsgrad</h3>Bewertung der obligatorischen Schwierigkeiten einer Kletterei. Dieser\n"
 "Grad gibt an, welche Schwierigkeiten eine Route noch hat, wenn\n"
@@ -4437,6 +4453,10 @@ msgstr "Email-Adresse:"
 
 msgid "emilie_romagne"
 msgstr "Emilia-Romagna"
+
+# [WARNING] en translation used
+msgid "empty choice can't be selected with another choice"
+msgstr "empty choice can't be selected with other choices"
 
 msgid "encyclopedia"
 msgstr "allgemeines"
@@ -6127,6 +6147,9 @@ msgstr "Aufstieg"
 msgid "road access"
 msgstr "Straßenzugang:"
 
+msgid "rock rating separator"
+msgstr " > "
+
 msgid "rock_climbing"
 msgstr "Felsklettern"
 
@@ -6138,6 +6161,10 @@ msgstr "Freier und obligatorischer Schwierigkeitsgrad:"
 
 msgid "rock_free_rating"
 msgstr "Schwierigkeitsgrad:"
+
+# [WARNING] needs_review
+msgid "rock_free_rating_rock_required_rating"
+msgstr "Schwierigkeitsgrad > Oblig.:"
 
 msgid "rock_required_rating"
 msgstr "Obligatorischer Schwierigkeitsgrad:"
@@ -6888,6 +6915,10 @@ msgstr "Sie verfügen nicht über die ausreichenden Zugriffsrechte, um ein gemei
 
 msgid "you have no right to switch from copyright picture"
 msgstr "Sie verfügen nicht über die ausreichenden Zugriffsrechte, um den Typ dieses copyright-geschützten Bildes zu ändern."
+
+# [WARNING] en translation used
+msgid "you have no right to switch from personnal to copyright picture"
+msgstr "You do not have the rights to switch the picture from personal to copyright"
 
 msgid "zoom in"
 msgstr "Zoomen"

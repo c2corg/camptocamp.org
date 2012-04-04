@@ -3281,9 +3281,23 @@ msgstr "<h3> Aldaketen gaineko informazioa</h3>Eremu honetan dokumentuan sartuta
 msgid "_rev_is_minor_info"
 msgstr "<h3>Aldaketa txikia</h3> Dokumentuari ghitutako aldaketak garrantzitsuak ez badira, markatu eremu hau:<br /><br /><strong>textua</strong>: ortografia zuzntzea edo formato aldaketa<br /><br /><strong> altuera eta desnibela</strong>: aldaketak &lt; 50m<br /><br /><strong>zailtasuna</strong>: maila bateko aldakea (AD à tik AD+ era, 3.3 à tik 3.2 ra)<br /><br /><strong>ibilbide edo leku baten deskripzioa</strong>&nbspohar txiki bat, esaldi baten egitura aldatzea, sahiesbide bat gehitzea edo ibilbidea berridaztea ez dira aladaketa txikiak."
 
+# [WARNING] needs_update
 msgid "_rock_free_rating_info"
 msgstr "<h3>Zailtasun librea</h3>Harkaitz eskalada libreko zailtasunen akotazioa.<br />Zailtasun libreak harkaitz eskalada libreko zailtasun maximoa adierazten du.<br />Frantziako eskala tradizionala erabiltzen da, 2-tik 9b-ra doana."
 
+# [WARNING] needs_update
+msgid "_rock_free_rating_rock_required_rating_info"
+msgstr "<h3>Zailtasun librea</h3>\n"
+"Harkaitz eskalada libreko zailtasunen akotazioa.<br />\n"
+"Zailtasun libreak harkaitz eskalada libreko zailtasun maximoa adierazten du.<br />\n"
+"<br />\n"
+"<h3>Nahitaezko zailtasuna librean</h3>\n"
+"Arkaitz eskalada librean nahitaezko zailtasunen akotazioa.<br />\n"
+"Nahitaezko zailtasunak, librean baino beste inongo aukerarik ez dagoenenan aurkituko dugun zailtasuna adierazten du. Hau da, nahitaez librean eskalatu beharreko zailtasuna \"iruzur\" mota guztiak erabili ostean.<br />\n"
+"<br />\n"
+"Frantziako eskala tradizionala erabiltzen da, 2-tik 9b-ra doana."
+
+# [WARNING] needs_update
 msgid "_rock_required_rating_info"
 msgstr "<h3>Nahitaezko zailtasuna librean</h3>Arkaitz eskalada librean nahitaezko zailtasunen akotazioa.<br />Nahitaezko zailtasunak, librean baino beste inongo aukerarik ez dagoenenan aurkituko dugun zailtasuna adierazten du. Hau da, nahitaez librean eskalatu beharreko zailtasuna \"iruzur\" mota guztiak erabili ostean. Eskala zailtasun librearen berdina da. "
 
@@ -4396,6 +4410,10 @@ msgstr "Helbide elektronikoa:"
 
 msgid "emilie_romagne"
 msgstr "Emilia-Romagna"
+
+# [WARNING] en translation used
+msgid "empty choice can't be selected with another choice"
+msgstr "empty choice can't be selected with other choices"
 
 msgid "encyclopedia"
 msgstr "enziklopedia"
@@ -6234,6 +6252,9 @@ msgstr "igoera"
 msgid "road access"
 msgstr "Errepidez iritsi:"
 
+msgid "rock rating separator"
+msgstr " > "
+
 msgid "rock_climbing"
 msgstr "eskalada"
 
@@ -6246,6 +6267,10 @@ msgstr "Grado en libre y grado obligatorio:"
 
 msgid "rock_free_rating"
 msgstr "Librean zailtasuna:"
+
+# [WARNING] needs_review
+msgid "rock_free_rating_rock_required_rating"
+msgstr "Librean zailtasuna > nahitaezko:"
 
 msgid "rock_required_rating"
 msgstr "Nahitaezko zailtasuna librean:"
@@ -7040,6 +7065,10 @@ msgstr "No tiene el derecho de pasar la imagen de colaborativa a personal"
 # [WARNING] en translation used
 msgid "you have no right to switch from copyright picture"
 msgstr "You do not have sufficient rights to switch the type of this copyrighted picture"
+
+# [WARNING] en translation used
+msgid "you have no right to switch from personnal to copyright picture"
+msgstr "You do not have the rights to switch the picture from personal to copyright"
 
 # [WARNING] en translation used
 msgid "zoom in"

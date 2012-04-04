@@ -3134,9 +3134,23 @@ msgstr "<h3>Informacions sobre les modificacions</h3>Indicat breument en el camp
 msgid "_rev_is_minor_info"
 msgstr "<h3>Modificacions menors</h3>Marqueu aquesta casella si les modificacions aportades al document no són importants&nbsp;:<br /><br /><strong>texte</strong>&nbsp;: correcció de l'ortografia o de la presentació<br /><br /><strong>altitud i desnivell</strong>&nbsp;: modificacions &lt; 50m<br /><br /><strong>cotació</strong>&nbsp;: modificació d'una divisió (AD a AD+, 3.3 a 3.2)<br /><br /><strong>descripció d'itinerari o de lloc</strong>&nbsp;: petita nota, reformulació d'una frase, però els afegits de variants o rescritures completes no són modificacions menors"
 
+# [WARNING] needs_update
 msgid "_rock_free_rating_info"
 msgstr "<h3>Cotació lliure/h3>Cotació de les dificultats d el'escalada rocosa en lliure.<br />La octació lliure avalua les dificultats de l'escalada rocosa en lliure.<br />Es dóna sobre l'escala francesa tradicional, que va de 2 a 9b."
 
+# [WARNING] needs_update
+msgid "_rock_free_rating_rock_required_rating_info"
+msgstr "<h3>Cotació lliure/h3>\n"
+"Cotació de les dificultats d el'escalada rocosa en lliure.<br />\n"
+"La octació lliure avalua les dificultats de l'escalada rocosa en lliure.<br />\n"
+"<br />\n"
+"<h3>cotació lliure obligatòria</h3>\n"
+"Cotació de les dificultats obligatòries de l'escalada rocosa en lliure.<br />\n"
+"La cotació lliure obligatòria avalua la dificultat màxima obligatòria de l'escalada lliure rocosa. Correspon a la cotació de la part de les dificultats que queden una vegada descomptades totes les possibilitats d'utilitzar punts fixos artificials d'ajuda per progressar.<br />\n"
+"<br />\n"
+"Es dóna sobre l'escala francesa tradicional, que va de 2 a 9b."
+
+# [WARNING] needs_update
 msgid "_rock_required_rating_info"
 msgstr "<h3>cotació lliure obligatòria</h3>Cotació de les dificultats obligatòries de l'escalada rocosa en lliure.<br />La cotació lliure obligatòria avalua la dificultat màxima obligatòria de l'escalada lliure rocosa. Correspon a la cotació de la part de les dificultats que queden una vegada descomptades totes les possibilitats d'utilitzar punts fixos artificials d'ajuda per progressar. L'escala és la mateixa que per la cotació lliure."
 
@@ -4193,6 +4207,10 @@ msgstr "Adreça email:"
 
 msgid "emilie_romagne"
 msgstr "Emília-Romanya"
+
+# [WARNING] en translation used
+msgid "empty choice can't be selected with another choice"
+msgstr "empty choice can't be selected with other choices"
 
 msgid "encyclopedia"
 msgstr "enciclopèdia"
@@ -5907,6 +5925,9 @@ msgstr "pujada"
 msgid "road access"
 msgstr "Accés per carretera:"
 
+msgid "rock rating separator"
+msgstr " > "
+
 msgid "rock_climbing"
 msgstr "escalada esportiva"
 
@@ -5919,6 +5940,10 @@ msgstr "Grau en lliure i grau obligat:"
 
 msgid "rock_free_rating"
 msgstr "Cotació lliure:"
+
+# [WARNING] needs_review
+msgid "rock_free_rating_rock_required_rating"
+msgstr "Cotació lliure> oblig.:"
 
 msgid "rock_required_rating"
 msgstr "Cotació lliure obligatòria:"
@@ -6663,6 +6688,10 @@ msgstr "No tens prou privilegis per modificar el tipus d'aquesta imatge de col·
 # [WARNING] needs_review
 msgid "you have no right to switch from copyright picture"
 msgstr "No tens prou privilegis per modificar el tipus d'aquesta imatge sotmesa a copyright"
+
+# [WARNING] en translation used
+msgid "you have no right to switch from personnal to copyright picture"
+msgstr "You do not have the rights to switch the picture from personal to copyright"
 
 # [WARNING] needs_review
 msgid "zoom in"

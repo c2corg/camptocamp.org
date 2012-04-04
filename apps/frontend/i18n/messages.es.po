@@ -3164,6 +3164,20 @@ msgstr "<h3>Modificación menor</h3>Puntea la casilla si las modificaciones tra�
 msgid "_rock_free_rating_info"
 msgstr "<h3>Cotación libre</h3>Cotación de las dificultades de la escalada rocosa en libre.<br />La cotación libre evalúa la dificultad máxima de la escalada en libre.<br />Se da sobre la escala francesa tradicional que va de 1 a 9b.<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
 
+# [WARNING] needs_review
+msgid "_rock_free_rating_rock_required_rating_info"
+msgstr "<h3>Cotación libre</h3>\n"
+"Cotación de las dificultades de la escalada rocosa en libre.<br />\n"
+"La cotación libre evalúa la dificultad máxima de la escalada en libre.<br />\n"
+"<br />\n"
+"<h3>Cotación libre obligatoria</h3>\n"
+"Cotación de las dificultades obligatorias de escalada rocosa en libre.<br />\n"
+"La cotación libre obligatoria evalúa la dificultad máxima obligatoria de la escalada libre rocosa. Corresponde a la cotación de las dificultades que quedan una vez eliminadas todas las posibilidades de ayudarse utilizando un anclaje (fijo o movíl).<br />\n"
+"<br />\n"
+"Se da sobre la escala francesa tradicional que va de 1 a 9b.<br />\n"
+"<br />\n"
+"Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
+
 msgid "_rock_required_rating_info"
 msgstr "<h3>Cotación libre obligatoria</h3>Cotación de las dificultades obligatorias de escalada rocosa en libre.<br />La cotación libre obligatoria evalúa la dificultad máxima obligatoria de la escalada libre rocosa. Corresponde a la cotación de las dificultades que quedan una vez eliminadas todas las posibilidades de ayudarse utilizando un anclaje (fijo o movíl). La escala es la misma que para la cotación libre.<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
 
@@ -4218,6 +4232,10 @@ msgstr "Dirección de email:"
 
 msgid "emilie_romagne"
 msgstr "Emilia-Romaña"
+
+# [WARNING] en translation used
+msgid "empty choice can't be selected with another choice"
+msgstr "empty choice can't be selected with other choices"
 
 msgid "encyclopedia"
 msgstr "enciclopedia"
@@ -5915,6 +5933,9 @@ msgstr "subida"
 msgid "road access"
 msgstr "Acceso de carreteras:"
 
+msgid "rock rating separator"
+msgstr " > "
+
 msgid "rock_climbing"
 msgstr "escalada"
 
@@ -5926,6 +5947,10 @@ msgstr "Grado en libre y grado obligatorio:"
 
 msgid "rock_free_rating"
 msgstr "Cotación libre:"
+
+# [WARNING] needs_review
+msgid "rock_free_rating_rock_required_rating"
+msgstr "Cotación libre > oblig.:"
 
 msgid "rock_required_rating"
 msgstr "Cotación libre obligatoria:"
@@ -6661,6 +6686,10 @@ msgstr "No tiene el derecho de pasar la imagen de colaborativa a personal"
 # [WARNING] en translation used
 msgid "you have no right to switch from copyright picture"
 msgstr "You do not have sufficient rights to switch the type of this copyrighted picture"
+
+# [WARNING] en translation used
+msgid "you have no right to switch from personnal to copyright picture"
+msgstr "You do not have the rights to switch the picture from personal to copyright"
 
 # [WARNING] en translation used
 msgid "zoom in"
