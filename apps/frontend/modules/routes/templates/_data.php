@@ -39,7 +39,7 @@ $activities = $document->getRaw('activities');
     {
         if (in_array($document->getRaw('duration'), array(1,2))) // cannot use an intelligent translation string because of '1/2'
         {
-            if (array_intersect(array(1,2,3,6,7))) // do not show duration for rock and ice climbing only if duration is 1 day or less
+            if (array_intersect(array(1,2,3,6,7), $activities)) // do not show duration for rock and ice climbing only if duration is 1 day or less
             {
                 li($duration . ' ' . __('day'));
             }
