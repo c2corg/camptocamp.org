@@ -2131,13 +2131,13 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if ($param == '-')
         {
-            $conditions[] = "(($field_1 - $field_2) = 0)";
+            $conditions[] = "($field_1 = $field_2)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "(($field_1 - $field_2) != 0)";
+            $conditions[] = "($field_1 != $field_2)";
         }
-        elseif(preg_match('/^([><]?)(-?)([0-9]*)(~?)(-?[0-9]*)$/', $param, $regs))
+        elseif(preg_match('/^([><]?)(-?)([0-9]*)(~?)([0-9]*)$/', $param, $regs))
         {
             if (empty($regs[3]))
             {
@@ -2158,7 +2158,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                         $regs[1] = '>';
                     }
                 }
-                $not_null = "($field_1 - $field_2) >= 0 AND ";
+                $not_null = "($field_1 >= $field_2) AND ";
             }
             else
             {
