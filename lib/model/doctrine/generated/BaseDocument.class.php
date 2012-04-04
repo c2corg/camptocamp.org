@@ -2824,13 +2824,19 @@ class BaseDocument extends sfDoctrineRecordI18n
             $condition_around = array();
             $module = sfContext::getInstance()->getModuleName();
             
-            self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], $field, $srid);
             if (in_array($module, array('routes', 'outings')))
             {
                 $conditions['join_summit'] = true;
-                $conditions['join_parking'] = true;
                 self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], 's.geom', $srid);
-                self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], 'p.geom', $srid);
+                if ($module == 'routes')
+                {
+                    $conditions['join_parking'] = true;
+                    self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], 'p.geom', $srid);
+                }
+            }
+            else
+            {
+                self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], $field, $srid);
             }
             $conditions[] = '(' . implode(' OR ', $condition_around) . ')';
         }
