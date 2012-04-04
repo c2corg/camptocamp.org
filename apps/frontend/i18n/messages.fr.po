@@ -4306,6 +4306,10 @@ msgstr "Adresse e-mail&nbsp;:"
 msgid "emilie_romagne"
 msgstr "Émilie-Romagne"
 
+# [WARNING] needs_review
+msgid "empty choice can't be selected with another choice"
+msgstr "l'option vide ne peut pas être sélectionnée en même temps que d'autres options"
+
 msgid "encyclopedia"
 msgstr "encyclopédie"
 
@@ -6699,6 +6703,10 @@ msgstr "Vous n'avez pas le droit de modifier le type de cette image de collabora
 # [WARNING] needs_review
 msgid "you have no right to switch from copyright picture"
 msgstr "Vous n'avez pas le droit de modifier le type de cette image sous copyright"
+
+# [WARNING] needs_review
+msgid "you have no right to switch from personnal to copyright picture"
+msgstr "Vous n'avez pas le droit de modifier le type de cette image de personnel à copyright"
 
 msgid "zoom in"
 msgstr "Zoomer"

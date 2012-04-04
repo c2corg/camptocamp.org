@@ -4261,6 +4261,10 @@ msgstr "Email address:"
 msgid "emilie_romagne"
 msgstr "Emilia-Romagna"
 
+# [WARNING] needs_review
+msgid "empty choice can't be selected with another choice"
+msgstr "empty choice can't be selected with other choices"
+
 msgid "encyclopedia"
 msgstr "encyclopedia"
 
@@ -6689,6 +6693,10 @@ msgstr "You do not have the rights to switch the picture from collaborative to p
 # [WARNING] needs_review
 msgid "you have no right to switch from copyright picture"
 msgstr "You do not have sufficient rights to switch the type of this copyrighted picture"
+
+# [WARNING] needs_review
+msgid "you have no right to switch from personnal to copyright picture"
+msgstr "You do not have the rights to switch the picture from personal to copyright"
 
 msgid "zoom in"
 msgstr "Zoom in"

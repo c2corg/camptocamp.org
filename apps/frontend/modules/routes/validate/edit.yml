@@ -48,8 +48,6 @@ fields:
       unique: false
       array_except: [ 0, 8 ]
   route_type:
-    required:
-      msg:          field cannot be left blank
     myChoiceValidator:
       config_choice: mod_routes_route_types_list
       array_except: [ 0 ]
