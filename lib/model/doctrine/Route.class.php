@@ -404,7 +404,7 @@ class Route extends BaseRoute
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list, 'r');
+        self::buildAreaCriteria($conditions, $values, $params_list, 'r', 's', 'join_summit');
 
         // summit criteria
         Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');

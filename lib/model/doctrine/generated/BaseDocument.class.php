@@ -336,7 +336,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildAreaCriteria(&$conditions, &$values, $params_list, $m = 'm', $m2 = null, $join = null)
+    public static function buildAreaCriteria(&$conditions, &$values, $params_list, $m = 'm', $m2 = null, $join = null, $use_around = true)
     {
         if (c2cTools::getArrayElement($params_list, 'areas'))
         {
@@ -347,7 +347,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             self::buildConditionItem($conditions, $values, 'Bbox', 'm.geom', 'bbox', null, false, $params_list);
         }
-        elseif (c2cTools::getArrayElement($params_list, 'around'))
+        elseif ($use_around && c2cTools::getArrayElement($params_list, 'around'))
         {
             if (empty($m2))
             {
