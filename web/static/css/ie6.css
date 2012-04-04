@@ -34,7 +34,7 @@
 
 .ombre_haut, .ombre_bas, #footer
 {
-  background-image:url(/static/images/ie/borders_repeat_x.gif);
+  background-image:url(/static/images/borders_repeat_x.gif);
 }
 #footer
 {
@@ -1109,7 +1109,7 @@ a.external_link, .htext .hextra a.external_link {
 }
 #splitter_arrow
 {
-  background: url(/static/images/borders_and_logos.gif) no-repeat;
+  background: url(/static/images/ie/borders_and_logos.gif) no-repeat;
   background-position: -190px -141px;
 }
 #splitter_arrow.maximize
