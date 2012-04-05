@@ -2828,11 +2828,6 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 $conditions['join_summit'] = true;
                 self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], 's.geom', $srid);
-                if ($module == 'routes')
-                {
-                    $conditions['join_parking'] = true;
-                    self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], 'p.geom', $srid);
-                }
             }
             else
             {
