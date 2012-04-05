@@ -6046,7 +6046,7 @@ msgstr "Itinéraire associé à %1%"
 # [general comment]
 # Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
 msgid "route_abseil_prefix"
-msgstr "R"
+msgstr "Rp"
 
 # [general comment]
 # Préfixe utilisé pour la numérotation automatique des relais à l'aide de la balise R#, dans la description d'une longueur.
