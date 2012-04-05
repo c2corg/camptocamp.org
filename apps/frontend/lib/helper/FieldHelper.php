@@ -154,21 +154,41 @@ function field_data_range_from_list($document, $name_min, $name_max, $separator 
     $name = $name_min . '_' . $name_max;
 	$value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
+    if (is_array($prefix))
+    {
+        $prefix_min = $prefix[0];
+        $prefix_max = $prefix[1];
+    }
+    else
+    {
+        $prefix_min = $prefix_max = $prefix;
+    }
+    
+    if (is_array($suffix))
+    {
+        $suffix_min = $suffix[0];
+        $suffix_max = $suffix[1];
+    }
+    else
+    {
+        $suffix_min = $suffix_max = $suffix;
+    }
+    
     if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
     {
         return _format_data_range_from_list($name, $value_min, $value_max, $separator, $config, $raw, $prefix, $suffix);
     }
 	else if (!empty($value_min) && empty($value_max))
 	{
-		return _format_data_from_list($name_min, $value_min, $config, false, $raw, $prefix, $suffix);
+		return _format_data_from_list($name_min, $value_min, $config, false, $raw, $prefix_min, $suffix_min);
 	}
 	else if (empty($value_min) && !empty($value_max))
 	{
-		return _format_data_from_list($name_max, $value_max, $config, false, $raw, $prefix, $suffix);
+		return _format_data_from_list($name_max, $value_max, $config, false, $raw, $prefix_max, $suffix_max);
 	}
     else
     {
-        return _format_data($name, '', $raw, $prefix, $suffix);
+        return _format_data($name, '', $raw, $prefix_min, $suffix_min);
     }
 }
 
@@ -436,9 +456,30 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
     $list = sfConfig::get($config);
     $value = '';
     
+    if (is_array($prefix))
+    {
+        $prefix_min = $prefix[0];
+        $prefix_max = $prefix[1];
+    }
+    else
+    {
+        $prefix_min = $prefix_max = $prefix;
+    }
+    
+    if (is_array($suffix))
+    {
+        $suffix_min = $suffix[0];
+        $suffix_max = $suffix[1];
+    }
+    else
+    {
+        $suffix_min = $suffix_max = $suffix;
+    }
+    
+    
 	if (!empty($value_min))
     {
-        $value .= _get_field_value_in_list($list, $value_min);
+        $value .= $prefix_min . _get_field_value_in_list($list, $value_min) . $suffix_min;
     }
     
     if (empty($value_min) || empty($value_max) || $value_min != $value_max)
@@ -450,11 +491,11 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
     	
         if (!empty($value_max))
         {
-            $value .= _get_field_value_in_list($list, $value_max);
+            $value .= $prefix_max . _get_field_value_in_list($list, $value_max) . $suffix_max;
         }
     }
 
-    return _format_data($name, $value, $raw, $prefix, $suffix);
+    return _format_data($name, $value, $raw);
 }
 
 function _format_picto_from_list($name, $value, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')

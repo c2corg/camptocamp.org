@@ -63,7 +63,16 @@ $activities = $document->getRaw('activities');
 
     if (array_intersect(array(3,4), $activities)) // rock_climbing or mountain_climbing
     {
-        li(field_data_range_from_list_if_set($document, 'rock_free_rating', 'rock_required_rating', 'rock rating separator', 'app_routes_rock_free_ratings'));
+        $equipment_rating = $document->getRaw('equipment_rating');
+        if ($equipment_rating == 1)
+        {
+            $suffix = array('', 'A0');
+        }
+        else
+        {
+            $suffix = '';
+        }
+        li(field_data_range_from_list_if_set($document, 'rock_free_rating', 'rock_required_rating', 'rock rating separator', 'app_routes_rock_free_ratings', false, false, '', $suffix));
         li(field_data_from_list_if_set($document, 'aid_rating', 'app_routes_aid_ratings'));
     }
 
