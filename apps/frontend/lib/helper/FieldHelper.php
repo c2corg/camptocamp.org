@@ -149,11 +149,19 @@ function field_data_from_list_if_set($document, $name, $config, $multiple = fals
     return _format_data_from_list($title, $value, $config, $multiple, $raw, $prefix, $suffix, $title_id, true);
 }
 
-function field_data_range_from_list($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
+function field_data_range_from_list($document, $name_min, $name_max, $name_if_equal = '', $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
 {
-    $name = $name_min . '_' . $name_max;
 	$value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
+    $name = $name_min . '_' . $name_max;
+    $div_id = null;
+    
+    if (!empty($name_if_equal) && $value_min == $value_max)
+    {
+        $div_id = $name;
+        $name = $name_if_equal;
+    }
+    
     if (is_array($prefix))
     {
         $prefix_min = $prefix[0];
@@ -176,7 +184,7 @@ function field_data_range_from_list($document, $name_min, $name_max, $separator 
     
     if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
     {
-        return _format_data_range_from_list($name, $value_min, $value_max, $separator, $config, $raw, $prefix, $suffix);
+        return _format_data_range_from_list($name, $value_min, $value_max, $separator, $config, $raw, $prefix, $suffix, $div_id);
     }
 	else if (!empty($value_min) && empty($value_max))
 	{
@@ -192,7 +200,7 @@ function field_data_range_from_list($document, $name_min, $name_max, $separator 
     }
 }
 
-function field_data_range_from_list_if_set($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
+function field_data_range_from_list_if_set($document, $name_min, $name_if_equal = '', $name_max, $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
@@ -201,7 +209,7 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $sep
         return '';
     }
     
-	return field_data_range_from_list($document, $name_min, $name_max, $separator, $config, $range_only, $raw, $prefix, $suffix);
+	return field_data_range_from_list($document, $name_min, $name_max, $separator, $config, $range_only, $raw, $prefix, $suffix, $name_if_equal);
 }
 
 function field_picto_from_list($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')
@@ -451,7 +459,7 @@ function _format_data_from_list($name, $value, $config, $multiple = false, $raw 
     }
 }
 
-function _format_data_range_from_list($name, $value_min, $value_max, $separator = ' / ', $config, $raw = false, $prefix = '', $suffix = '')
+function _format_data_range_from_list($name, $value_min, $value_max, $separator = ' / ', $config, $raw = false, $prefix = '', $suffix = '', $div_id = null)
 {
     $list = sfConfig::get($config);
     $value = '';
@@ -495,7 +503,7 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
         }
     }
 
-    return _format_data($name, $value, $raw);
+    return _format_data($name, $value, $raw, '', '', $div_id);
 }
 
 function _format_picto_from_list($name, $value, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')

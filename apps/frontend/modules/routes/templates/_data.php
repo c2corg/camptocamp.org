@@ -73,7 +73,7 @@ $activities = $document->getRaw('activities');
         {
             $suffix = '';
         }
-        li(field_data_range_from_list_if_set($document, 'rock_free_rating', 'rock_required_rating', 'rock rating separator', 'app_routes_rock_free_ratings', false, false, '', $suffix));
+        li(field_data_range_from_list_if_set($document, 'rock_free_rating', 'rock_required_rating', 'rock_free_and_required_rating', 'rock rating separator', 'app_routes_rock_free_ratings', false, false, '', $suffix));
         li(field_data_from_list_if_set($document, 'aid_rating', 'app_routes_aid_ratings'));
     }
 
