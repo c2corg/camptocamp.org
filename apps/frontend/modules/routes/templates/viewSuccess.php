@@ -119,7 +119,7 @@ if ($is_not_archive)
         echo '</div>';
     }
     
-    include_partial('documents/geom_warning', array('document' => $document, $message => 'No GPX track, please edit this document to add some'));
+    include_partial('documents/geom_warning', array('document' => $document, 'message' => 'No GPX track, please edit this document to add some'));
 }
 echo end_section_tag();
 
