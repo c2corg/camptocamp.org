@@ -209,7 +209,7 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $nam
         return '';
     }
     
-	return field_data_range_from_list($document, $name_min, $name_max, $separator, $config, $range_only, $raw, $prefix, $suffix, $name_if_equal);
+	return field_data_range_from_list($document, $name_min, $name_max, $name_if_equal, $separator, $config, $range_only, $raw, $prefix, $suffix);
 }
 
 function field_picto_from_list($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')

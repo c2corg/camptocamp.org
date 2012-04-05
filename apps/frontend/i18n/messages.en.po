@@ -1524,6 +1524,10 @@ msgstr "Add a route"
 msgid "New routes article"
 msgstr "Chronicle of first ascents"
 
+# [WARNING] needs_review
+msgid "No GPX track, please edit this document to add some"
+msgstr "No GPX track: edit this document to add some."
+
 msgid "No associated document found"
 msgstr "No associated document found"
 
@@ -1548,8 +1552,9 @@ msgstr "No file was forwarded"
 msgid "No geodata available"
 msgstr "No geographical data is available for this document"
 
+# [WARNING] needs_review
 msgid "No geom info, please edit this document to add some"
-msgstr "No geographical information: edit this document to add some."
+msgstr "Edit this document to add geographical information."
 
 msgid "No image has been edited"
 msgstr "No picture was modified"
@@ -5976,12 +5981,12 @@ msgstr "rock climbing"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
-# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+# Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 # [comment]
-# Dans le topoguide, le terme actuellement utilisé est "required". Je ne sais pas ce qui est le mieux. A chercher sur les sites de grimpe anglophone...
+# "required" or "obligatory" ?
 # [WARNING] needs_review
 msgid "rock_free_and_required_rating"
-msgstr "Free and obligatory grade:"
+msgstr "Free and required grade:"
 
 msgid "rock_free_rating"
 msgstr "Free climb grade:"

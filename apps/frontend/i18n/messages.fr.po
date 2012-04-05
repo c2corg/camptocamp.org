@@ -1527,6 +1527,10 @@ msgstr "Ajouter un itinéraire"
 msgid "New routes article"
 msgstr "Chroniques des ouvertures"
 
+# [WARNING] needs_review
+msgid "No GPX track, please edit this document to add some"
+msgstr "Pas de trace GPX&nbsp;: modifiez ce document pour en ajouter."
+
 msgid "No associated document found"
 msgstr "Aucun document lié"
 
@@ -1552,7 +1556,7 @@ msgid "No geodata available"
 msgstr "Ce document n'est pas encore géoréférencé."
 
 msgid "No geom info, please edit this document to add some"
-msgstr "Pas d'information géographique disponible&nbsp;: modifiez ce document pour en ajouter."
+msgstr "Modifiez ce document pour le géoréférencer."
 
 msgid "No image has been edited"
 msgstr "Aucune image n'a été modifiée"
@@ -3232,7 +3236,12 @@ msgid "_rev_is_minor_info"
 msgstr "<h3>Modification mineure</h3>Cochez cette case si les modifications apportées au document ne sont pas importantes&nbsp;:<br /><br /><strong>texte</strong>&nbsp;: correction de l'orthographe ou de la mise en forme<br /><br /><strong>altitude et dénivelé</strong>&nbsp;: modifications &lt; 50m<br /><br /><strong>cotation</strong>&nbsp;: modification d'une division (AD à AD+, 3.3 à 3.2)<br /><br /><strong>description d'itinéraire ou de lieu</strong>&nbsp;: petite remarque, reformulation d'une phrase, mais les ajouts de variantes ou les réécritures complètes ne sont pas des modifications mineures."
 
 msgid "_rock_free_rating_info"
-msgstr "<h3>Cotation libre</h3>Cotation des difficultés d'escalade rocheuse en libre.<br />La cotation libre évalue la difficulté maximale de l'escalade libre rocheuse.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
+msgstr "<h3>Cotation libre</h3>\n"
+"Cotation des difficultés d'escalade rocheuse en libre.<br />\n"
+"La cotation libre évalue la difficulté maximale de l'escalade libre rocheuse.<br />\n"
+"Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
 
 msgid "_rock_free_rating_rock_required_rating_info"
 msgstr "<h3>Cotations libre et libre obligatoire</h3>\n"
@@ -3245,7 +3254,12 @@ msgstr "<h3>Cotations libre et libre obligatoire</h3>\n"
 "Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
 
 msgid "_rock_required_rating_info"
-msgstr "<h3>Cotation libre obligatoire</h3>Cotation des difficultés obligatoires d'escalade rocheuse en libre.<br />La cotation libre obligatoire évalue la difficulté maximale obligatoire de l'escalade libre rocheuse. Elle correspond à la cotation de la partie des difficultés qui reste une fois que l'on a épuisé toutes les possibilités de \"triche\" en utilisant un point d'aide.<br />L'échelle est la même que pour la cotation libre.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
+msgstr "<h3>Cotation libre obligatoire</h3>\n"
+"Cotation des difficultés obligatoires d'escalade rocheuse en libre.<br />\n"
+"La cotation libre obligatoire évalue la difficulté maximale obligatoire de l'escalade libre rocheuse. Elle correspond à la cotation de la partie des difficultés qui reste une fois que l'on a épuisé toutes les possibilités de \"triche\" en utilisant un point d'aide.<br />\n"
+"L'échelle est la même que pour la cotation libre.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
 
 msgid "_rock_types_info"
 msgstr "<h3>Type de rocher</h3>Nature géologique de la roche sur laquelle s'effectue l'escalade&nbsp;: calcaire, granit, grès...<br />Plusieurs types de rocher peuvent être sélectionnés.<br />Le type <em>résine</em> est prévu pour les S.A.E."
@@ -5998,9 +6012,9 @@ msgstr "escalade"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
-# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+# Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
-msgstr "Cotation libre et libre obligatoire&nbsp;:"
+msgstr "Cotation libre et obligatoire&nbsp;:"
 
 msgid "rock_free_rating"
 msgstr "Cotation libre&nbsp;:"

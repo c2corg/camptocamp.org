@@ -1509,6 +1509,10 @@ msgstr "Afegir un itinerari"
 msgid "New routes article"
 msgstr "Crònica d'obertura"
 
+# [WARNING] needs_update
+msgid "No GPX track, please edit this document to add some"
+msgstr "Cap informació geogràfica disponible: edita aquest document per afegir-ne."
+
 msgid "No associated document found"
 msgstr "Cap document associat"
 
@@ -1533,6 +1537,7 @@ msgstr "no s'ha transmès cap fitxer"
 msgid "No geodata available"
 msgstr "Aquest document no està encara georeferenciat."
 
+# [WARNING] needs_update
 msgid "No geom info, please edit this document to add some"
 msgstr "Cap informació geogràfica disponible: edita aquest document per afegir-ne."
 
@@ -5933,7 +5938,7 @@ msgstr "escalada esportiva"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
-# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+# Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 # [WARNING] needs_review
 msgid "rock_free_and_required_rating"
 msgstr "Grau en lliure i grau obligat:"

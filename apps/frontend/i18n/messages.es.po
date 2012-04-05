@@ -1526,6 +1526,10 @@ msgstr "Añadir un itinerario"
 msgid "New routes article"
 msgstr "Crónica de aperturas"
 
+# [WARNING] needs_update
+msgid "No GPX track, please edit this document to add some"
+msgstr "Ninguna información geográfica disponible: modifique este documento para añadirla."
+
 msgid "No associated document found"
 msgstr "Ningun documento vinculado"
 
@@ -1550,6 +1554,7 @@ msgstr "ningún fichero ha sido transmitido"
 msgid "No geodata available"
 msgstr "Este documento aún no està georeferenciado."
 
+# [WARNING] needs_update
 msgid "No geom info, please edit this document to add some"
 msgstr "Ninguna información geográfica disponible: modifique este documento para añadirla."
 
@@ -5941,7 +5946,7 @@ msgstr "escalada"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
-# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+# Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
 msgstr "Grado en libre y grado obligatorio:"
 

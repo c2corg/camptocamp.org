@@ -1526,6 +1526,10 @@ msgstr "Aggiungi un itinerario"
 msgid "New routes article"
 msgstr "Aperture di nuovi itinerari "
 
+# [WARNING] needs_update
+msgid "No GPX track, please edit this document to add some"
+msgstr "Nessuna informazione geografica disponibile: modificare il documento per aggiungerne."
+
 msgid "No associated document found"
 msgstr "Nessun documento associato"
 
@@ -1550,6 +1554,7 @@ msgstr "Nessun file è stato trasferito"
 msgid "No geodata available"
 msgstr "Questo documento non è ancora georeferenziato."
 
+# [WARNING] needs_update
 msgid "No geom info, please edit this document to add some"
 msgstr "Nessuna informazione geografica disponibile: modificare il documento per aggiungerne."
 
@@ -5943,7 +5948,7 @@ msgstr "arrampicata"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
-# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+# Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
 msgstr "Difficoltà in libera e obbligatoria:"
 
