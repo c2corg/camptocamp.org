@@ -50,7 +50,6 @@ fields:
   route_type:
     myChoiceValidator:
       config_choice: mod_routes_route_types_list
-      array_except: [ 0 ]
   duration:
     required:
       msg:          field cannot be left blank

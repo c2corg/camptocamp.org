@@ -200,7 +200,7 @@ function field_data_range_from_list($document, $name_min, $name_max, $name_if_eq
     }
 }
 
-function field_data_range_from_list_if_set($document, $name_min, $name_if_equal = '', $name_max, $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
+function field_data_range_from_list_if_set($document, $name_min, $name_max, $name_if_equal = '', $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
