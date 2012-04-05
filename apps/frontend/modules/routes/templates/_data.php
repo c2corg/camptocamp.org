@@ -64,7 +64,8 @@ $activities = $document->getRaw('activities');
     if (array_intersect(array(3,4), $activities)) // rock_climbing or mountain_climbing
     {
         $equipment_rating = $document->getRaw('equipment_rating');
-        if ($equipment_rating == 1)
+        $aid_rating = $document->getRaw('aid_rating');
+        if ($equipment_rating == 1 && empty($aid_rating))
         {
             $suffix = array('', 'A0');
         }
