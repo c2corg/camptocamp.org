@@ -35,7 +35,6 @@ textarea
 input, select, textarea {
   font-size: 100%;
   -moz-border-radius: 4px;
-  -khtml-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   padding: 1px;
@@ -325,7 +324,6 @@ hr
   border-collapse: collapse;
   padding: 8px 20px 8px 60px;
   -moz-border-radius: 8px;
-  -khtml-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;
   margin: 0 0 5px 0;
@@ -505,7 +503,6 @@ em.mandatory_asterisk
   padding: 8px;
   border: 0 !important;
   -moz-border-radius: 5px;
-  -khtml-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
@@ -862,7 +859,6 @@ span.default_text, p.default_text
 #map .x-form-field, #mappanel .x-form-field
 {
   -moz-border-radius:0;
-  -khtml-border-radius:0;
   -webkit-border-radius:0;
   border-radius:0;
 }
@@ -1283,7 +1279,6 @@ p.default_text div.add_content
   position: fixed;
   border: 1px solid #aaa;
   -moz-border-radius:10px;
-  -khtml-border-radius:10px;
   -webkit-border-radius:10px;
   border-radius:10px;
 }
@@ -1608,10 +1603,6 @@ ul.tabs li, ul.nav li
 ul.tabs li
 {
   -moz-border-radius: 8px 8px 0 0;
-  -khtml-border-bottom-right-radius: 0;
-  -khtml-border-bottom-left-radius: 0;
-  -khtml-border-top-right-radius: 8px;
-  -khtml-border-top-left-radius: 8px;
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-bottom-left-radius: 0;
   -webkit-border-top-right-radius: 8px;
@@ -2135,7 +2126,6 @@ ul.dated_changes span.date
   font-size:0.8em;
   border: solid 1px #aaa;
   -moz-border-radius:5px;
-  -khtml-border-radius:5px;
   -webkit-border-radius:5px;
   border-radius:5px;
   padding:2px;
@@ -2257,7 +2247,6 @@ ul.docs_changes li img
   margin: 0.3em 0;
   border: 1px solid #000;
   -moz-border-radius:4px;
-  -khtml-border-radius:4px;
   -webkit-border-radius:4px;
   border-radius:4px;
   padding: 0.2em 0.2em 0.2em 35px;
@@ -3521,7 +3510,6 @@ span.toc_link a, .article span.toc_link a
   padding: 0 0.5em 0.1em;
   border: 1px solid #cccccc;
   -moz-border-radius: 1em;
-  -khtml-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em;
   font-size: 0.5em;
@@ -3688,7 +3676,6 @@ ol.text ol.text ol.text
   background-color: #f1f1f1;
   margin-bottom: 15px;
   -moz-border-radius:3px;
-  -khtml-border-radius:3px;
   -webkit-border-radius:3px;
   border-radius:3px;
 }
@@ -4245,7 +4232,6 @@ td.history_buttons {
   padding-right: 4px;
   border-radius:4px;
   -moz-border-radius:4px;
-  -khtml-border-radius:4px;
   -webkit-border-radius:4px;
 }
 
@@ -4281,7 +4267,6 @@ td.history_buttons {
   border: 1px solid white !important;
   border-radius: 0 !important;
   -moz-border-radius: 0 !important;
-  -khtml-border-radius: 0 !important;
   -webkit-border-radius: 0 !important;
 }
 
@@ -4406,8 +4391,6 @@ span.cotometre_result {
 /* embedded google search */
 #google_search_input
 {
-  -khtml-border-bottom-right-radius: 0;
-  -khtml-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-top-right-radius: 0;
   -moz-border-radius: 4px 0 0 4px;
@@ -4426,8 +4409,6 @@ span.cotometre_result {
   border: 1px solid #ddd;
   border-left: none;
   -moz-border-radius: 0 4px 4px 0;
-  -khtml-border-bottom-right-radius: 4px;
-  -khtml-border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
   -webkit-border-top-right-radius: 4px;
   border-radius: 0 4px 4px 0;
@@ -4487,7 +4468,6 @@ span.cotometre_result {
 input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
   margin: 0 0.5em 0 0;
   -moz-border-radius: 4px;
-  -khtml-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   border: 1px solid #c0c0c0;
