@@ -105,12 +105,9 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
                                                               '/static/js/docmap.js'),
                                                         (bool)sfConfig::get('app_minify_debug'));
 
-        // TODO put c2c_asyncload in external js? (the same kind of function is used to load analytics and addthis)
         // FIXME extjs uses document.write with ie, so we cannot for the moment use async loading with ie
         $html .= javascript_tag('
-if (!Prototype.Browser.IE) { var c2corgloadMapAsync = true; }
-function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0]; a.async = 1; a.src = jsurl; h.appendChild(a); }
-function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); }}');
+if (!Prototype.Browser.IE) { var c2corgloadMapAsync = true; var jsurl = \''.$c2c_script_url.'\';  var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0]; a.async = 1; a.src = jsurl; h.appendChild(a); }');
     }
 
     return $html;
