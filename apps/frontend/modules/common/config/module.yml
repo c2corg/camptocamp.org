@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ dynafit_pdg, anena, camp_gants, dynafit_baltoro, boutique_c2c, baechli, camp_crampons, dynafit_pdg, google, anena, dynafit_baltoro, changerdapproche ]
+    values: [ dynafit_pdg, anena, camp_d, dynafit_baltoro, boutique_c2c, baechli, camp_e, dynafit_pdg, google, anena, dynafit_baltoro, changerdapproche ]
   banners:
     list:
       skalp:
@@ -170,3 +170,23 @@ all:
         id: 47
         image: camp-gants.gif
         alt: "Camp gants"
+      camp_d:
+        id: 48
+        image: camp-d.gif
+        alt: ""
+      camp_e:
+        id: 49
+        image: camp-e.gif
+        alt: ""
+      camp_f:
+        id: 50
+        image: camp-f.gif
+        alt: ""
+      camp_g:
+        id: 51
+        image: camp-g.gif
+        alt: ""
+      camp_h:
+        id: 52
+        image: camp-h.gif
+        alt: ""
