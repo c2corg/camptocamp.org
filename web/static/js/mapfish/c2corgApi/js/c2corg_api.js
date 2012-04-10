@@ -461,29 +461,29 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         return [
             new OpenLayers.Layer.Google(
                 "gmap_physical", {
-                    type: G_PHYSICAL_MAP,
-                    //type: google.maps.MapTypeId.TERRAIN,
+                    type: google.maps.MapTypeId.TERRAIN,
                     sphericalMercator: true,
                     buffer: 0,
-                    numZoomLevels: 16
+                    numZoomLevels: 16,
+                    animationEnabled: true
                 }
             ),
             new OpenLayers.Layer.Google(
                 "gmap_hybrid", {
-                    type: G_HYBRID_MAP,
-                    //type: google.maps.MapTypeId.HYBRID,
+                    type: google.maps.MapTypeId.HYBRID,
                     sphericalMercator: true,
                     buffer: 0,
-                    numZoomLevels: 20
+                    numZoomLevels: 20,
+                    animationEnabled: true
                 }
             ),
             new OpenLayers.Layer.Google(
                 "gmap_normal", {
-                    type: G_NORMAL_MAP,
-                    //type: google.maps.MapTypeId.ROADMAP,
+                    type: google.maps.MapTypeId.ROADMAP,
                     numZoomLevels: 20,
                     buffer: 0,
-                    sphericalMercator: true
+                    sphericalMercator: true,
+                    animationEnabled: true
                 }
             ),
             osmLayer

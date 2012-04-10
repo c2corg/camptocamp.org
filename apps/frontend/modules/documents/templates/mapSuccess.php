@@ -17,7 +17,7 @@ use_javascript('/static/js/popup.js', 'last');
 
 echo javascript_tag("lang = '$lang';");
 
-use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
+use_javascript('http://maps.googleapis.com/maps/api/js?sensor=false&v=3.6&key=' . sfConfig::get('app_google_maps_key'));
 
 if ($debug) {
     use_javascript('/static/js/ie9mapfix.js', 'maps');
