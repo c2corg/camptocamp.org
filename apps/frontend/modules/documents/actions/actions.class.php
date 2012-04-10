@@ -4314,4 +4314,27 @@ class documentsActions extends c2cActions
 
         $this->setJsonResponse();
     }
+
+    public function executeCda()
+    {
+        $this->setTemplate('../../documents/templates/cda');
+        $this->setLayout('layout_cda');
+    }
+
+    public function executeCdasearch()
+    {
+        $ranges = $this->getAreas(1);
+        $this->ranges = $ranges;
+
+        $this->activities = array();
+        $this->setTemplate('../../documents/templates/cdasearch');
+        $this->setLayout('layout_cda');
+    }
+
+    public function executeCdaredirect()
+    {
+        // FIXME
+        $this->setTemplate('../../documents/templates/cda');
+        $this->setLayout('layout_cda');
+    }
 }

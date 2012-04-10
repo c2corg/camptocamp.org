@@ -331,9 +331,24 @@ getdirections:
   param: { module: parkings, action: getdirections }
   requirements: { id: \d+, service: (?:gmaps|yahoo|livesearch|openmapquest) }
 
+cda:
+  url: /cda/:lang
+  param: { module: documents, action: cda }
+  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
+
+cdasearch:
+  url: /cda/search/:lang
+  param: { module: documents, action: cdasearch }
+  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
+
+cdasearch_by_type:
+  url: /cda/search/type/:type/:lang
+  param: { module: documents, action: cdasearch, type: (?:routes|outings) }
+  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
+
 default:
   url:   /:module/:action/*
- 
+
 default_symfony:
   url:   /symfony/:action/*
   param: { module: default }

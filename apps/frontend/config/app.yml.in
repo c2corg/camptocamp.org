@@ -1936,11 +1936,23 @@ all:
     raid:
       id: @RAID_ID@
       name: 'raid portal'
-  
+
   mw_contest_id: @MW_CONTEST_ID@
-  
+
   mw_contest_enabled: @MW_CONTEST_ENABLED@
-  
+
+  cda:
+    difficulty:
+      0:
+      1: easy
+      2: medium
+      3: difficult
+    elevation:
+      0:
+      1: short
+      2: medium
+      3: long
+
   tags:
     paragliding:
       param: 'stags'
