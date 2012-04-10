@@ -1,0 +1,176 @@
+#page_header {
+  width: 838px;
+  margin: 0px auto;
+  height: 185px;
+  margin-bottom: 10px;
+}
+
+#top {
+  height: 15px;
+  width: 838px;
+  margin: 5px auto;
+}
+
+#topright {
+  float: right;
+}
+
+#menu {
+  width: 838px;
+  height: 30px;
+  margin: 10px auto;
+}
+
+#menu ul {
+  padding: 0px;
+  margin: 0px auto;
+  list-style-type: none;
+  width: 838px;
+}
+
+#menu ul li {
+  display: block;
+  float: left;
+  width: 165px;
+  line-height: 30px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: bold;
+  color: #585C5B;
+  text-align: center;
+}
+
+#menu ul li a {
+  color: #4D4D4D;
+  text-decoration: none;
+}
+
+#menu ul li a:hover {
+  color: #EE8102;
+}
+
+#container {
+  width: 838px;
+  margin: 0px auto;
+}
+
+#partenaires {
+  background-image: url("/static/images/cda/partenaires.jpg");
+  padding-top: 0px;
+  height: 136px;
+  width: 331px;
+}
+
+#page_footer {
+  width: 838px;
+  margin: 0px auto;
+}
+
+#partenairesbas {
+  height: 50px;
+  width: 838px;
+}
+
+#partenairesbas ul {
+  list-style-type: none;
+  width: 838px;
+}
+
+#partenairesbas ul li {
+  display: block;
+  float: left;
+  width: 115px;
+  text-align: center;
+}
+
+#partenairesbas ul li img {
+  padding: 20px 0px;
+}
+
+a {
+  text-decoration: none;
+}
+.column {
+  float: left;
+  margin-right: 19px;
+}
+
+.column h2 {
+  background-color: #ED7E02;
+  font-size: 12px;
+  color: white;
+  padding: 5px 0px 5px 0px;
+  text-align: center;
+  margin-bottom: 7px;
+}
+
+.row1 {
+  height: 389px;
+  margin-bottom: 5px;
+}
+
+.row2 {
+  height: 170px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.span-5 {
+  width: 151px;
+}
+
+.span-6 {
+  width: 400px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-right: 38px;
+  margin-left: 0px;
+}
+
+.span-9 {
+  width: 326px;
+}
+
+.span-15 {
+  width: 489px;
+}
+
+.span-24 {
+width: 838px;
+margin: 0;
+}
+
+.image2 {
+  margin-top: -44px;
+}
+
+.content {
+  background-color: #3D4B4C;
+  color: white;
+  height: 357px;
+  padding: 0 10px;
+  text-align: justify;
+}
+
+.content p {
+  padding: 15px 5px 15px 5px;
+}
+
+.last {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.img_title, .img_title:hover {
+  position:relative;
+  bottom: 45px;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: bold;
+}
