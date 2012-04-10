@@ -465,6 +465,13 @@ msgstr "Contact page of"
 msgid "Contact us"
 msgstr "Contact us"
 
+# [general comment]
+# [cda]
+# title must remain short
+# [ERROR] no available translation
+msgid "Contest"
+msgstr "MISSING TRANSLATION"
+
 msgid "Context:"
 msgstr "Context:"
 
@@ -763,6 +770,12 @@ msgstr "ED6"
 # Cotation globale : niveau ED7
 msgid "ED7"
 msgstr "ED7"
+
+# [general comment]
+# [cda]
+# [ERROR] no available translation
+msgid "Ecomobility"
+msgstr "MISSING TRANSLATION"
 
 msgid "Edit"
 msgstr "Edit"
@@ -1384,6 +1397,12 @@ msgid "Manage your profile page"
 msgstr "Manage the properties of your profile page"
 
 # [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Map"
+msgstr "Cartographie"
+
+# [general comment]
 # dans l'encart permalien de l'appli carto
 msgid "Map URL"
 msgstr "Current map URL:"
@@ -1713,6 +1732,12 @@ msgid "Personal page"
 msgstr "Personal page"
 
 # [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Picturial"
+msgstr "En images"
+
+# [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
 msgid "Place"
 msgstr "Place"
@@ -1755,6 +1780,12 @@ msgstr "Protect"
 
 msgid "Protect this document"
 msgstr "Protect this document"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Questions?"
+msgstr "Des questions ?"
 
 msgid "Quick creation of a route"
 msgstr "Quick creation of a route"
@@ -1945,8 +1976,26 @@ msgstr "Search criteria"
 msgid "Search in my outings"
 msgstr "Search in my outings"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Search on c2c"
+msgstr "Rechercher sur camptocamp"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Search outings"
+msgstr "Recherche de récits de sortie"
+
 msgid "Search results"
 msgstr "Search results"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Search routes"
+msgstr "Recherche de fiches techniques d\\'itinéraires"
 
 msgid "Search with google"
 msgstr "Search on the whole document:"
@@ -3886,8 +3935,34 @@ msgstr "Find a route accessible by public transportation"
 msgid "cda partners tips"
 msgstr "The Changer d'Approche portal is co-financed by the European Union. Europe is commited to the Alps through the European Regional Development Fund"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "cda presentation"
+msgstr "Une idée de <strong>sortie sans voiture ?</strong><br />Un bon plan <strong>produits locaux ?</strong><br />\n"
+"changerdapproche.org ouvre la voie à plus de 10 000 itinéraires en montagne accessibles en transports en commun : randos à pieds, en raquette et à ski, voies d'escalades, alpinisme, parapente et cascades de glace.\n"
+"<br />Mountain Wilderness et Camptocamp vous proposent la plus grande base de données européenne en faveur de la mobilité douce et de l'écotourisme en montagne. Une base de données ouverte qui va s'enrichir de vos sorties en montagne réalisées en transports collectifs. Une base de données participative pour partager les bons plans écotourisme des vallées. Le plaisir d'une sortie en montagne commence à votre porte !"
+
 msgid "cda sub title"
 msgstr "Mountains without your car"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "cda_activities"
+msgstr "Activité&nbsp;:"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "cda_difficulty"
+msgstr "Difficulté&nbsp;:"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "cda_elevation"
+msgstr "Dénivelée&nbsp;:"
 
 # [WARNING] needs_review
 msgid "cda_prepare_outing_box"
@@ -4189,6 +4264,12 @@ msgstr "difference"
 msgid "difference between revisions"
 msgstr "difference between versions"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "difficult"
+msgstr "difficile"
+
 msgid "difficult crossing"
 msgstr "open - travel is difficult"
 
@@ -4243,6 +4324,12 @@ msgstr "draft"
 
 msgid "duration"
 msgstr "Duration:"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "easy"
+msgstr "facile"
 
 msgid "easy crossing"
 msgstr "covered - travel is easy"
@@ -4948,6 +5035,12 @@ msgstr "Lombardy"
 msgid "lon"
 msgstr "Longitude:"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "long"
+msgstr "long"
+
 msgid "longitude / latitude: "
 msgstr "Longitude / latitude: "
 
@@ -5098,6 +5191,12 @@ msgstr "Median grade:"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "mediterranee"
 msgstr "Mediterranean"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "medium"
+msgstr "moyen"
 
 msgid "menu"
 msgstr "menu"
@@ -5470,6 +5569,13 @@ msgstr "Other countries"
 msgid "other range"
 msgstr "Other ranges"
 
+# [general comment]
+# [cda] title of second box on home
+# no uppercase
+# [ERROR] no available translation
+msgid "our partners"
+msgstr "MISSING TRANSLATION"
+
 msgid "outing"
 msgstr "outing"
 
@@ -5752,6 +5858,13 @@ msgstr "Selected ranges"
 # Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
 msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Météo France (in French)</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_EN\">SLF (Switzerland, in English)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italy, in Italian)</a></li><li><a href=\"http://www.avalanches.org\">European Avalanche Services</a></li><li><a href=\"/users/mailinglists\">Receive avalanche bulletins by email</a></li></ul> <p>Maps</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Switzerland)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italy)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spain)</a></li></ul> <p>Huts</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">CAF (France)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">SAC (Switzerland)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">CAI (Italy)</a></li></ul>"
+
+# [general comment]
+# [cda] title of the top left box on home
+# no uppercase
+# [WARNING] fr translation used
+msgid "presentation"
+msgstr "présentation"
 
 msgid "previous area"
 msgstr "Previous region"
@@ -6144,6 +6257,12 @@ msgstr "shelter"
 
 msgid "shelter_type"
 msgstr "Shelter type:"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "short"
+msgstr "court"
 
 msgid "show conditions of the outings"
 msgstr "Show details of the outings conditions"

@@ -477,6 +477,13 @@ msgstr "Page de contact de"
 msgid "Contact us"
 msgstr "Nous contacter"
 
+# [general comment]
+# [cda]
+# title must remain short
+# [ERROR] no available translation
+msgid "Contest"
+msgstr "MISSING TRANSLATION"
+
 msgid "Context:"
 msgstr "Contexte&nbsp;:"
 
@@ -774,6 +781,12 @@ msgstr "ED6"
 # Cotation globale : niveau ED7
 msgid "ED7"
 msgstr "ED7"
+
+# [general comment]
+# [cda]
+# [ERROR] no available translation
+msgid "Ecomobility"
+msgstr "MISSING TRANSLATION"
 
 msgid "Edit"
 msgstr "Modifier"
@@ -1387,6 +1400,11 @@ msgid "Manage your profile page"
 msgstr "Changer les propriétés de votre page personnelle"
 
 # [general comment]
+# [cda]
+msgid "Map"
+msgstr "Cartographie"
+
+# [general comment]
 # dans l'encart permalien de l'appli carto
 msgid "Map URL"
 msgstr "URL de la carte courante :"
@@ -1714,6 +1732,11 @@ msgid "Personal page"
 msgstr "Page perso"
 
 # [general comment]
+# [cda]
+msgid "Picturial"
+msgstr "En images"
+
+# [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
 msgid "Place"
 msgstr "Lieu"
@@ -1756,6 +1779,11 @@ msgstr "Protéger"
 
 msgid "Protect this document"
 msgstr "Bloquer toute modification de ce document"
+
+# [general comment]
+# [cda]
+msgid "Questions?"
+msgstr "Des questions ?"
 
 msgid "Quick creation of a route"
 msgstr "Création rapide d'un itinéraire"
@@ -1944,8 +1972,23 @@ msgstr "Critères de recherche"
 msgid "Search in my outings"
 msgstr "Rechercher parmi mes sorties"
 
+# [general comment]
+# [cda]
+msgid "Search on c2c"
+msgstr "Rechercher sur camptocamp"
+
+# [general comment]
+# [cda]
+msgid "Search outings"
+msgstr "Recherche de récits de sortie"
+
 msgid "Search results"
 msgstr "Résultats de la recherche"
+
+# [general comment]
+# [cda]
+msgid "Search routes"
+msgstr "Recherche de fiches techniques d\\'itinéraires"
 
 msgid "Search with google"
 msgstr "Recherche sur le document en entier&nbsp;:"
@@ -3936,8 +3979,30 @@ msgstr "Trouver un itinéraire accessible en mobilité douce avec la carte"
 msgid "cda partners tips"
 msgstr "Le portail Changer d'approche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
 
+# [general comment]
+# [cda]
+msgid "cda presentation"
+msgstr "Une idée de <strong>sortie sans voiture ?</strong><br />Un bon plan <strong>produits locaux ?</strong><br />\n"
+"changerdapproche.org ouvre la voie à plus de 10 000 itinéraires en montagne accessibles en transports en commun : randos à pieds, en raquette et à ski, voies d'escalades, alpinisme, parapente et cascades de glace.\n"
+"<br />Mountain Wilderness et Camptocamp vous proposent la plus grande base de données européenne en faveur de la mobilité douce et de l'écotourisme en montagne. Une base de données ouverte qui va s'enrichir de vos sorties en montagne réalisées en transports collectifs. Une base de données participative pour partager les bons plans écotourisme des vallées. Le plaisir d'une sortie en montagne commence à votre porte !"
+
 msgid "cda sub title"
 msgstr "le portail de la montagne sans voiture"
+
+# [general comment]
+# [cda]
+msgid "cda_activities"
+msgstr "Activité&nbsp;:"
+
+# [general comment]
+# [cda]
+msgid "cda_difficulty"
+msgstr "Difficulté&nbsp;:"
+
+# [general comment]
+# [cda]
+msgid "cda_elevation"
+msgstr "Dénivelée&nbsp;:"
 
 # [WARNING] needs_review
 msgid "cda_prepare_outing_box"
@@ -4241,6 +4306,11 @@ msgstr "différence"
 msgid "difference between revisions"
 msgstr "différence entre les versions"
 
+# [general comment]
+# [cda]
+msgid "difficult"
+msgstr "difficile"
+
 msgid "difficult crossing"
 msgstr "ouvert - passage difficile"
 
@@ -4293,6 +4363,11 @@ msgstr "brouillon"
 
 msgid "duration"
 msgstr "Temps de parcours&nbsp;:"
+
+# [general comment]
+# [cda]
+msgid "easy"
+msgstr "facile"
 
 msgid "easy crossing"
 msgstr "bouché - passage sans problème"
@@ -4989,6 +5064,11 @@ msgstr "Lombardie"
 msgid "lon"
 msgstr "Longitude&nbsp;:"
 
+# [general comment]
+# [cda]
+msgid "long"
+msgstr "long"
+
 msgid "longitude / latitude: "
 msgstr "Longitude / latitude : "
 
@@ -5139,6 +5219,11 @@ msgstr "Cotation médiane&nbsp;:"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "mediterranee"
 msgstr "Méditerranée"
+
+# [general comment]
+# [cda]
+msgid "medium"
+msgstr "moyen"
 
 msgid "menu"
 msgstr "menu"
@@ -5505,6 +5590,13 @@ msgstr "Autres pays"
 msgid "other range"
 msgstr "Autres massifs"
 
+# [general comment]
+# [cda] title of second box on home
+# no uppercase
+# [ERROR] no available translation
+msgid "our partners"
+msgstr "MISSING TRANSLATION"
+
 msgid "outing"
 msgstr "sortie"
 
@@ -5793,6 +5885,12 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
 "<ul><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">Informations routières (France)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Suisse)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul>\n"
 "<p>Autres</p>\n"
 "<ul><li><a href=\"/huts/filter\">Refuges</a></li><li><a href=\"/articles/107228/fr/liens-utiles#conditions\">Sites donnant des conditions</a></li></ul>"
+
+# [general comment]
+# [cda] title of the top left box on home
+# no uppercase
+msgid "presentation"
+msgstr "présentation"
 
 msgid "previous area"
 msgstr "Région précédente"
@@ -6171,6 +6269,11 @@ msgstr "abri sommaire"
 
 msgid "shelter_type"
 msgstr "Type d'abri&nbsp;:"
+
+# [general comment]
+# [cda]
+msgid "short"
+msgstr "court"
 
 msgid "show conditions of the outings"
 msgstr "Afficher le détail des conditions des sorties"

@@ -471,6 +471,13 @@ msgstr "Pagina di contatto per"
 msgid "Contact us"
 msgstr "Contatti"
 
+# [general comment]
+# [cda]
+# title must remain short
+# [ERROR] no available translation
+msgid "Contest"
+msgstr "MISSING TRANSLATION"
+
 msgid "Context:"
 msgstr "Contesto:"
 
@@ -767,6 +774,12 @@ msgstr "ED6"
 # Cotation globale : niveau ED7
 msgid "ED7"
 msgstr "ED7"
+
+# [general comment]
+# [cda]
+# [ERROR] no available translation
+msgid "Ecomobility"
+msgstr "MISSING TRANSLATION"
 
 msgid "Edit"
 msgstr "Modifica"
@@ -1383,6 +1396,12 @@ msgid "Manage your profile page"
 msgstr "Modifica le proprietà della tua pagina personale (profilo)"
 
 # [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Map"
+msgstr "Cartographie"
+
+# [general comment]
 # dans l'encart permalien de l'appli carto
 msgid "Map URL"
 msgstr "URL della mappa corrente:"
@@ -1715,6 +1734,12 @@ msgid "Personal page"
 msgstr "Pagina personale"
 
 # [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Picturial"
+msgstr "En images"
+
+# [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
 # [WARNING] needs_review
 msgid "Place"
@@ -1758,6 +1783,12 @@ msgstr "Proteggi"
 
 msgid "Protect this document"
 msgstr "Proteggi il documento "
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Questions?"
+msgstr "Des questions ?"
 
 msgid "Quick creation of a route"
 msgstr "Creazione rapida di un itinerario"
@@ -1947,8 +1978,26 @@ msgstr "Criterio di ricerca"
 msgid "Search in my outings"
 msgstr "Cercare fra le mie gite"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Search on c2c"
+msgstr "Rechercher sur camptocamp"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Search outings"
+msgstr "Recherche de récits de sortie"
+
 msgid "Search results"
 msgstr "Risultati della ricerca"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "Search routes"
+msgstr "Recherche de fiches techniques d\\'itinéraires"
 
 msgid "Search with google"
 msgstr "Ricerca nel documento intero:"
@@ -3864,8 +3913,34 @@ msgstr "Trovare un itinerario accessibile con i mezzi pubblici"
 msgid "cda partners tips"
 msgstr "Il portale Cambiare Approccio è co-finanziato da l'Unione Europea.L'Europa s'impiega sul massiccio alpino con il Fondo Europeo di sviluppo regionale."
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "cda presentation"
+msgstr "Une idée de <strong>sortie sans voiture ?</strong><br />Un bon plan <strong>produits locaux ?</strong><br />\n"
+"changerdapproche.org ouvre la voie à plus de 10 000 itinéraires en montagne accessibles en transports en commun : randos à pieds, en raquette et à ski, voies d'escalades, alpinisme, parapente et cascades de glace.\n"
+"<br />Mountain Wilderness et Camptocamp vous proposent la plus grande base de données européenne en faveur de la mobilité douce et de l'écotourisme en montagne. Une base de données ouverte qui va s'enrichir de vos sorties en montagne réalisées en transports collectifs. Une base de données participative pour partager les bons plans écotourisme des vallées. Le plaisir d'une sortie en montagne commence à votre porte !"
+
 msgid "cda sub title"
 msgstr "il portale della montagna senza macchina"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "cda_activities"
+msgstr "Activité&nbsp;:"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "cda_difficulty"
+msgstr "Difficulté&nbsp;:"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "cda_elevation"
+msgstr "Dénivelée&nbsp;:"
 
 # [WARNING] en translation used
 msgid "cda_prepare_outing_box"
@@ -4168,6 +4243,12 @@ msgstr "differenze"
 msgid "difference between revisions"
 msgstr "differenze tra le versioni "
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "difficult"
+msgstr "difficile"
+
 msgid "difficult crossing"
 msgstr "aperto - passaggio difficile"
 
@@ -4220,6 +4301,12 @@ msgstr "bozza"
 
 msgid "duration"
 msgstr "Tempo di percorrenza:"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "easy"
+msgstr "facile"
 
 msgid "easy crossing"
 msgstr "chiuso – passaggio facile"
@@ -4919,6 +5006,12 @@ msgstr "Lombardia"
 msgid "lon"
 msgstr "Longitudine:"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "long"
+msgstr "long"
+
 msgid "longitude / latitude: "
 msgstr "Longitudine / latitudine:"
 
@@ -5068,6 +5161,12 @@ msgstr "Grado mediano:"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "mediterranee"
 msgstr "Mediterraneo"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "medium"
+msgstr "moyen"
 
 msgid "menu"
 msgstr "menu"
@@ -5437,6 +5536,13 @@ msgstr "Altri paesi"
 msgid "other range"
 msgstr "Altri massicci"
 
+# [general comment]
+# [cda] title of second box on home
+# no uppercase
+# [ERROR] no available translation
+msgid "our partners"
+msgstr "MISSING TRANSLATION"
+
 msgid "outing"
 msgstr "gita"
 
@@ -5726,6 +5832,13 @@ msgstr "<p><a href=\"/articles/107228/it/link-utili#meteo\">Meteo</a></p>\n"
 "<p><a href=\"/articles/107228/it/link-utili#rifugi\">Rifugi</a></p>\n"
 "<ul><li><a href=\"/huts/filter\">Cerca un rifugio</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Rifugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Rifugi CAF</a></li></ul>"
 
+# [general comment]
+# [cda] title of the top left box on home
+# no uppercase
+# [WARNING] fr translation used
+msgid "presentation"
+msgstr "présentation"
+
 msgid "previous area"
 msgstr "Regione precedente"
 
@@ -5984,7 +6097,7 @@ msgstr "Itinerari associati a %1%"
 # Préfixe utilisé pour la description des rappels à l'aide de la balise R#.
 # [WARNING] needs_review
 msgid "route_abseil_prefix"
-msgstr "R"
+msgstr "Rp"
 
 # [general comment]
 # Préfixe utilisé pour la numérotation automatique des relais à l'aide de la balise R#, dans la description d'une longueur.
@@ -6108,6 +6221,12 @@ msgstr "bivacco"
 
 msgid "shelter_type"
 msgstr "Tipo di riparo:"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "short"
+msgstr "court"
 
 msgid "show conditions of the outings"
 msgstr "Vedere il dettaglio delle condizioni delle gite"

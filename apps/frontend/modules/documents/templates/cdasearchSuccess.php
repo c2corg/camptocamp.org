@@ -8,7 +8,7 @@ $type = $sf_params->get('type');
 <div class="column span-6">
   <a href="<?php echo url_for('@cdasearch_by_type?lang=' . $lang . '&type=routes'); ?>">
     <?php
-      $img_title = '[cda] Recherche de fiches techniques d\'itinéraires';
+      $img_title = 'Search routes';
       $img = ($type != null) ? '/static/images/cda/slide6a_small.jpg' : '/static/images/cda/slide6a.jpg';
       echo image_tag($img, array('alt'=>__($img_title),'title'=>__($img_title)));
     ?>
@@ -18,7 +18,7 @@ $type = $sf_params->get('type');
 <div class="column last span-6<?php if ($type != null): echo ' folded'; endif?>">
   <a href="<?php echo url_for('@cdasearch_by_type?lang=' . $lang . '&type=outings'); ?>" >
     <?php
-      $img_title = __('[cda] Recherche de récits de sortie');
+      $img_title = __('Search outings');
       $img = ($type != null) ? '/static/images/cda/slide7a_small.jpg' : '/static/images/cda/slide7a.jpg';
       echo image_tag($img, array('alt'=>__($img_title),'title'=>__($img_title)));
     ?>
