@@ -18,7 +18,6 @@ use_javascript('/static/js/popup.js', 'last');
 echo javascript_tag("lang = '$lang';");
 
 use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
-use_javascript('http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');     
 
 if ($debug) {
     use_javascript('/static/js/ie9mapfix.js', 'maps');

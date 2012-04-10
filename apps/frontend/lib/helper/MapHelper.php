@@ -97,7 +97,6 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     if (sfConfig::get('app_async_map', true))
     {
         use_helper('MyMinify');
-        $ign_script_url = 'http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false';
         // FIXME if using ie for async load, set $debug to true, because minifying the js currently breaks ie
         $c2c_script_url = minify_get_combined_files_url(array('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js',
                                                               '/static/js/mapfish/mfbase/ext/ext-all.js',
@@ -111,7 +110,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
         $html .= javascript_tag('
 if (!Prototype.Browser.IE) { var c2corgloadMapAsync = true; }
 function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0]; a.async = 1; a.src = jsurl; h.appendChild(a); }
-function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); c2c_asyncload(\''.$ign_script_url.'\'); }}');
+function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); }}');
     }
 
     return $html;
@@ -144,17 +143,6 @@ function _loadJsMapTools()
     // it is not possible to load google maps api v2 asynchronously since it uses document.write
     // upgrade to v3 to enable (using &callback=some_function param)
     use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
-
-    if (!sfConfig::get('app_async_map', true))
-    {
-        use_javascript('http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
-    }
-    else
-    {
-        // FIXME Until IE8, loading geoportal script asynchronously was working well, but apparently it does not work well for IE9
-        // (even in compatibility mode). To keep it simple, we put the geoportal script in body for all IE versions (using conditional comments)
-        use_javascript('http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false', 'maps');
-    }
 
     // FIXME following files will only be loaded by internet explorer when in async mode using conditional comments
     // (extjs 2 cannot be loaded async with ie, it uses document.write)

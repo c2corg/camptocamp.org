@@ -122,6 +122,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         this.map.addLayers(layers);
         if (this.initialBgLayer == 'swisstopo_map') {
             this.setSwisstopoLayer(true);
+        } else if (['ign_map', 'ign_orthos'].indexOf(this.initialBgLayer) != -1) {
+            // IGN layers are loaded only when asked by user, in order to retrieve a token only when necessary
+            this.setIgnLayers(this.initialBgLayer, true);
         } else {
             this.setBaseLayerByName(this.initialBgLayer);
         }
@@ -324,7 +327,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             triggerAction: 'all',
             mode: 'local',
             listeners: {
-                select: function(combo, record, index) {
+                select: function(combo, record, index) { // called when the user switches layer
                     var layername = record.data.id;
 
                     this.updateC2corgLayer(layername);
@@ -335,9 +338,10 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     }
                     
                     if (['ign_map', 'ign_orthos'].indexOf(layername) != -1 && !this.ignLoaded) {
-                        this.map.addLayers(this.getIgnLayers());
-                        this.ignLoaded = true;
+                        this.setIgnLayers(layername);
+                        return;
                     }
+
                     this.setBaseLayerByName(layername);
                 },
                 scope: this
@@ -447,12 +451,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 
         layers = layers.concat(this.getBgLayers());
         
-        // IGN layers are loaded only when asked by user, in order to retrieve a token only when necessary
-        if (['ign_map', 'ign_orthos'].indexOf(this.initialBgLayer) != -1) {
-            layers = layers.concat(this.getIgnLayers());
-            this.ignLoaded = true;
-        }
-        
         return layers;
     },
     
@@ -464,6 +462,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             new OpenLayers.Layer.Google(
                 "gmap_physical", {
                     type: G_PHYSICAL_MAP,
+                    //type: google.maps.MapTypeId.TERRAIN,
                     sphericalMercator: true,
                     buffer: 0,
                     numZoomLevels: 16
@@ -472,6 +471,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             new OpenLayers.Layer.Google(
                 "gmap_hybrid", {
                     type: G_HYBRID_MAP,
+                    //type: google.maps.MapTypeId.HYBRID,
                     sphericalMercator: true,
                     buffer: 0,
                     numZoomLevels: 20
@@ -480,6 +480,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             new OpenLayers.Layer.Google(
                 "gmap_normal", {
                     type: G_NORMAL_MAP,
+                    //type: google.maps.MapTypeId.ROADMAP,
                     numZoomLevels: 20,
                     buffer: 0,
                     sphericalMercator: true
@@ -489,66 +490,76 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         ];
     },
     
-    getIgnLayers: function(config) {
-        if (!gGEOPORTALRIGHTSMANAGEMENT) return [];
+    setIgnLayers: function(layername, fromPermalink) {
+        // note: on the geoportal api, they wait for all classes to be loaded using checkApiLoading function
+        // this isn't usefull for us since GeoportalMin is included in our js
 
-        var apiKey = gGEOPORTALRIGHTSMANAGEMENT.apiKey;
-        var myGeoRM = Geoportal.GeoRMHandler.addKey(apiKey,
-            gGEOPORTALRIGHTSMANAGEMENT[apiKey].tokenServer.url,
-            gGEOPORTALRIGHTSMANAGEMENT[apiKey].tokenServer.ttl,
-            this.map);
-
-        return [
-            new Geoportal.Layer.WMSC(
-                "ign_map",
-                gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['GEOGRAPHICALGRIDSYSTEMS.MAPS:WMSC'].url,
-                {
-                    layers:'GEOGRAPHICALGRIDSYSTEMS.MAPS',
-                    format:'image/jpeg',
-                    exceptions:"text/xml"
-                },
-                {
-                    gridOrigin: new OpenLayers.LonLat(0,0),
-                    isBaseLayer: true,
-                    buffer: 1, 
-                    resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
-                    alwaysInRange: true,
-                    projection: this.fxx,
-                    units: this.fxx.getUnits(),
-                    GeoRM: myGeoRM,
-                    originators: [{
-                        logo: 'ign',
-                        url: 'http://www.ign.fr/'
-                    }]
+        // load API keys configuration, then create the layers and trigger the callback
+        Geoportal.GeoRMHandler.getConfig([c2corg.config.gpKey], null,null, {
+            onContractsComplete: function () {
+                var apiKey = gGEOPORTALRIGHTSMANAGEMENT.apiKey;
+                var myGeoRM = Geoportal.GeoRMHandler.addKey(apiKey,
+                    gGEOPORTALRIGHTSMANAGEMENT[apiKey].tokenServer.url,
+                    gGEOPORTALRIGHTSMANAGEMENT[apiKey].tokenServer.ttl,
+                    this.map);
+                this.map.addLayers([
+                    new Geoportal.Layer.WMSC(
+                        "ign_map",
+                        gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['GEOGRAPHICALGRIDSYSTEMS.MAPS:WMSC'].url,
+                        {
+                            layers:'GEOGRAPHICALGRIDSYSTEMS.MAPS',
+                            format:'image/jpeg',
+                            exceptions:"text/xml"
+                        },
+                        {
+                            gridOrigin: new OpenLayers.LonLat(0,0),
+                            isBaseLayer: true,
+                            buffer: 1,
+                            resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
+                            alwaysInRange: true,
+                            projection: this.fxx,
+                            units: this.fxx.getUnits(),
+                            GeoRM: myGeoRM,
+                            originators: [{
+                                logo: 'ign',
+                                url: 'http://www.ign.fr/'
+                            }]
+                        }
+                    ),
+                    new Geoportal.Layer.WMSC(
+                        "ign_orthos",
+                        gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['ORTHOIMAGERY.ORTHOPHOTOS:WMSC'].url,
+                        {
+                            layers:'ORTHOIMAGERY.ORTHOPHOTOS',
+                            format:'image/jpeg',
+                            exceptions:"text/xml"
+                        },
+                        {
+                            gridOrigin: new OpenLayers.LonLat(0,0),
+                            isBaseLayer: true,
+                            buffer: 1,
+                            resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
+                            alwaysInRange: true,
+                            projection: this.fxx,
+                            units: this.fxx.getUnits(),
+                            GeoRM: myGeoRM,
+                            originators: [{
+                                logo: 'spotimage',
+                                url: 'http://www.spotimage.fr/'
+                            },{
+                                logo: 'cnes',
+                                url: 'http://www.cnes.fr/'
+                            }]
+                        }
+                    )]
+                );
+                this.setBaseLayerByName(layername);
+                this.ignLoaded = true;
+                if (fromPermalink) {
+                    this.centerOnArgParserCenter();
                 }
-            ),
-            new Geoportal.Layer.WMSC(
-                "ign_orthos",
-                gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['ORTHOIMAGERY.ORTHOPHOTOS:WMSC'].url,
-                {
-                    layers:'ORTHOIMAGERY.ORTHOPHOTOS',
-                    format:'image/jpeg',
-                    exceptions:"text/xml"
-                },
-                {
-                    gridOrigin: new OpenLayers.LonLat(0,0),
-                    isBaseLayer: true,
-                    buffer: 1, 
-                    resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
-                    alwaysInRange: true,
-                    projection: this.fxx,
-                    units: this.fxx.getUnits(),
-                    GeoRM: myGeoRM,
-                    originators: [{
-                        logo: 'spotimage',
-                        url: 'http://www.spotimage.fr/'
-                    },{
-                        logo: 'cnes',
-                        url: 'http://www.cnes.fr/'
-                    }]
-                }
-            )
-        ];
+            }.bind(this)
+        });
     },
     
     setSwisstopoLayer: function(fromPermalink) {
