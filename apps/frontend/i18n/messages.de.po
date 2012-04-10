@@ -4306,6 +4306,13 @@ msgstr "Kontakt"
 msgid "content license"
 msgstr "Lizenz des Inhalts"
 
+# [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "contest"
+msgstr "participez au concours"
+
 msgid "copyright image"
 msgstr "Copyright-geschütztes Bild"
 
@@ -4512,6 +4519,13 @@ msgstr "facile"
 
 msgid "easy crossing"
 msgstr "Spalten gut zugedeckt - keine Probleme"
+
+# [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "ecomobility"
+msgstr "ecomobilité"
 
 msgid "edit ?"
 msgstr "ändern?"
@@ -5267,6 +5281,13 @@ msgid "map"
 msgstr "Karte"
 
 # [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "map (cda)"
+msgstr "cartographie"
+
+# [general comment]
 # Texte d'aide pour utilisation de l'outil carto
 # [WARNING] needs_review
 msgid "map help text"
@@ -5912,6 +5933,13 @@ msgstr "Photos/Kunst"
 msgid "picardie"
 msgstr "Picardie"
 
+# [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "picturial"
+msgstr "en images"
+
 msgid "piemont"
 msgstr "Piemont"
 
@@ -6167,6 +6195,13 @@ msgstr "Pyrenäen - Iberische Halbinsel"
 
 msgid "quartzite"
 msgstr "Quarzit"
+
+# [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "questions?"
+msgstr "des questions ?"
 
 # [comment]
 # vs

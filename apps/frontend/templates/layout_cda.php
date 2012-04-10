@@ -78,11 +78,11 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     ?>
     <div id="menu">
       <ul>
-        <li><?php echo link_to(__('[cda] ecomobilité'), '@cdasearch?lang=' . $lang); ?>
-        <li><?php echo link_to(__('participez au concours'), '@document_by_id_lang?module=articles&id=' . $mw_contest_id . '&lang=' . $lang); ?>
-        <li><?php echo link_to(__('[cda] en images'), '@default?module=images&action=list&owtp=yes'); ?>
-        <li><?php echo f_link_to(__('[cda] des questions ?'), 'viewtopic.php?id=42'); ?></li>
-        <li><?php echo absolute_link_to(__('[cda] cartographie'), '@map?zoom=7&lat=45.5&lon=7&layerNodes=public_transportations&bgLayer=gmap_physical'); ?></li>
+        <li><?php echo link_to(__('ecomobility'), '@cdasearch?lang=' . $lang); ?>
+        <li><?php echo link_to(__('contest'), '@document_by_id_lang?module=articles&id=' . $mw_contest_id . '&lang=' . $lang); ?>
+        <li><?php echo link_to(__('picturial'), '@default?module=images&action=list&owtp=yes'); ?>
+        <li><?php echo f_link_to(__('questions?'), 'viewtopic.php?id=42'); ?></li>
+        <li><?php echo absolute_link_to(__('map (cda)'), '@map?zoom=7&lat=45.5&lon=7&layerNodes=public_transportations&bgLayer=gmap_physical'); ?></li>
       </ul>
     </div>
     <?php endif; ?>

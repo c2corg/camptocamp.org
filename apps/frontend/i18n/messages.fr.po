@@ -4168,6 +4168,12 @@ msgstr "Contact"
 msgid "content license"
 msgstr "Licence des contenus"
 
+# [general comment]
+# [cda]
+# no uppercase
+msgid "contest"
+msgstr "participez au concours"
+
 # [WARNING] needs_review
 msgid "copyright image"
 msgstr "image sous copyright"
@@ -4371,6 +4377,12 @@ msgstr "facile"
 
 msgid "easy crossing"
 msgstr "bouché - passage sans problème"
+
+# [general comment]
+# [cda]
+# no uppercase
+msgid "ecomobility"
+msgstr "ecomobilité"
 
 msgid "edit ?"
 msgstr "modifier&nbsp;?"
@@ -5121,6 +5133,12 @@ msgid "map"
 msgstr "carte"
 
 # [general comment]
+# [cda]
+# no uppercase
+msgid "map (cda)"
+msgstr "cartographie"
+
+# [general comment]
 # Texte d'aide pour utilisation de l'outil carto
 # [WARNING] needs_review
 msgid "map help text"
@@ -5751,6 +5769,12 @@ msgstr "photos-art"
 msgid "picardie"
 msgstr "Picardie"
 
+# [general comment]
+# [cda]
+# no uppercase
+msgid "picturial"
+msgstr "en images"
+
 msgid "piemont"
 msgstr "Piémont"
 
@@ -6009,6 +6033,12 @@ msgstr "Pyrénées - Péninsule Ibérique"
 
 msgid "quartzite"
 msgstr "quartzite"
+
+# [general comment]
+# [cda]
+# no uppercase
+msgid "questions?"
+msgstr "des questions ?"
 
 msgid "quite crowded"
 msgstr "assez fréquenté"

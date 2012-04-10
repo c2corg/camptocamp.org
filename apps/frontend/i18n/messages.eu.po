@@ -4252,6 +4252,13 @@ msgstr "Harremana"
 msgid "content license"
 msgstr "Edukinaren lizentzia"
 
+# [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "contest"
+msgstr "participez au concours"
+
 # [WARNING] en translation used
 msgid "copyright image"
 msgstr "copyrighted image"
@@ -4468,6 +4475,13 @@ msgstr "facile"
 
 msgid "easy crossing"
 msgstr "itxia – arazorik gabe pasa daiteke"
+
+# [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "ecomobility"
+msgstr "ecomobilité"
 
 msgid "edit ?"
 msgstr "aldatu?"
@@ -5289,6 +5303,13 @@ msgid "map"
 msgstr "mapa"
 
 # [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "map (cda)"
+msgstr "cartographie"
+
+# [general comment]
 # Texte d'aide pour utilisation de l'outil carto
 # [WARNING] en translation used
 msgid "map help text"
@@ -5981,6 +6002,13 @@ msgstr "gazkiak-artea"
 msgid "picardie"
 msgstr "Pikardia"
 
+# [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "picturial"
+msgstr "en images"
+
 msgid "piemont"
 msgstr "Piemonte"
 
@@ -6271,6 +6299,13 @@ msgstr "Pirineo / Península ibérica"
 
 msgid "quartzite"
 msgstr "kuartzita"
+
+# [general comment]
+# [cda]
+# no uppercase
+# [WARNING] fr translation used
+msgid "questions?"
+msgstr "des questions ?"
 
 msgid "quite crowded"
 msgstr "mendizale dexente"
