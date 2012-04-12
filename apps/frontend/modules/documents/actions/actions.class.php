@@ -4333,8 +4333,21 @@ class documentsActions extends c2cActions
 
     public function executeCdaredirect()
     {
-        // FIXME
-        $this->setTemplate('../../documents/templates/cda');
-        $this->setLayout('layout_cda');
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $module = $this->getRequestParameter('module');
+            
+            $criteria = array();
+            // FIXME do a mapping of criteria
+            $criteria[] = "hdif=>1500";
+            
+            $route = '@default?module=' . $this->getModuleName() . '&action=list&' . implode('&', $criteria);
+            c2cTools::log("redirecting to $route");
+            $this->redirect($route);
+        }
+        else
+        {
+            $this->setErrorAndRedirect('Invalid request parameters', '@cdasearch');
+        }
     }
 }
