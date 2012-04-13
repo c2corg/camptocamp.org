@@ -123,7 +123,7 @@ function group_tag($label, $fieldname, $callback = 'input_tag', $value = null, $
            end_group_tag();
 }
 
-function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $labelname = null, $label_id = null, $prefix = '')
+function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $labelname = null, $label_id = null, $prefix = '', $tips = '')
 {
     $method = _convert_fieldname_to_method($fieldname);
     $mandatory = $check_mandatory && is_mandatory($fieldname);
@@ -152,6 +152,14 @@ function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $
     if ($suffix)
     {
         $out .= '&nbsp;' . __($suffix);
+    }
+    if ($tips)
+    {
+        if ($tips === true)
+        {
+            $tips = '_' . $fieldname . '_short_info';
+        }
+        $out .= '<div class="float-tips">' . __($tips) . '</div>';
     }
     $out .= end_group_tag();
 

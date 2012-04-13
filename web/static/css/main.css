@@ -221,16 +221,23 @@ a[href^="http://escalade.camptocamp.com"]:after {
   margin-top: -13px;
 }
 
-.tips, .edit-tips, .big_tips
+.tips, .edit-tips, .big_tips, .float-tips
 {
   font-style: italic;
-  margin-bottom: 1em;
 }
-.tips, .edit-tips
+.tips, .edit-tips, .float-tips
 {
   font-size: 0.85em;
 }
-
+.tips, .edit-tips, .big_tips
+{
+  margin-bottom: 1em;
+}
+.float-tips
+{
+  display: inline-block;
+  margin: 0 0.5em 0 1.5em;
+}
 .article_contenu .tips, .article_contenu .big_tips
 {
   margin-top: 1em;
