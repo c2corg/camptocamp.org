@@ -472,9 +472,9 @@ msgstr "Contactarnos"
 # [general comment]
 # [cda]
 # title must remain short
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Contest"
-msgstr "MISSING TRANSLATION"
+msgstr "Concours"
 
 msgid "Context:"
 msgstr "Contexto:"
@@ -780,9 +780,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Ecomobility"
-msgstr "MISSING TRANSLATION"
+msgstr "Écomobilité"
 
 msgid "Edit"
 msgstr "Modificar"
@@ -1146,6 +1146,12 @@ msgstr "Mapa interactivo"
 
 msgid "Interface language:"
 msgstr "Interfaz en:"
+
+# [general comment]
+# error message when invalid request parametes for cda search
+# [WARNING] fr translation used
+msgid "Invalid request parameters"
+msgstr "Paramètres de requête invalides"
 
 msgid "Is a child of summit:"
 msgstr "Es una sub-cima de:"
@@ -1997,7 +2003,7 @@ msgstr "Resultados de la búsqueda"
 # [cda]
 # [WARNING] fr translation used
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d\\'itinéraires"
+msgstr "Recherche de fiches techniques d'itinéraires"
 
 msgid "Search with google"
 msgstr "Búsqueda en todo el documento:"
@@ -3091,8 +3097,13 @@ msgstr "<h3>Longitud</h3>Longitud del lugar geográfico en grados decimales.<br 
 msgid "_lowest_elevation_info"
 msgstr "<h3>Altura mínima accesible en invierno</h3>Altura mínima del acceso por carretera en invierno. Normalmente, corresponde con el límite del limpiado mecánico de la nieve."
 
+# [WARNING] needs_update
 msgid "_maps_info_info"
 msgstr "<h3>Cartografía</h3>Referencias cartográficas adicionales (fuera de IGN francés y CNS suizo).<br />Indica la referencia, el título y la escala del mapa.<br />Para un lugar geográfico localizado en Francia o en Suiza, si las coordenadas están informadas, los mapas IGN o CNS correspondientes se asocian automáticamente. Completar pues el campo <i>Cartografía</i> con estos mapas es inútil."
+
+# [WARNING] needs_update
+msgid "_maps_info_short_info"
+msgstr "Para un lugar geográfico localizado en Francia o en Suiza, si las coordenadas están informadas, los mapas IGN o CNS correspondientes se asocian automáticamente. Completar pues el campo <i>Cartografía</i> con estos mapas es inútil."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Altitud máxima</h3><em><u>Salida</u>:</em><br />Si una traza GPX es asociada a la salida, la altitud máxima será calculada automáticamente y borrará el valor precedente.<br />Si no, por defecto, la altitud máxima indicada es la del itinerario(s) asociado(s) a la salida. Se puede modificar para indicar la altitud máxima realmente alcanzada, por ejemplo en casa de un recorrido parcial del itinerario.<br /><br /><em><u>Itinerario</u>:</em><br />Altitud máxima alcanzada por este itinerario.<br /> Si una traza GPX es asociada al itinerario y que ningún dato ya esta indicado, la altitud máxima será calculada automáticamente en base a la traza."
@@ -5026,6 +5037,9 @@ msgstr "Longitud / latitud:"
 msgid "loop"
 msgstr "circuito / vuelta al pie de vía o al refugio"
 
+msgid "loop_short"
+msgstr "circuito / vuelta al pie de vía"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5560,9 +5574,9 @@ msgstr "Otros macizos"
 # [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "our partners"
-msgstr "MISSING TRANSLATION"
+msgstr "nos partenaires"
 
 msgid "outing"
 msgstr "salida"

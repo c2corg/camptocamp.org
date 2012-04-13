@@ -474,9 +474,9 @@ msgstr "Uns kontaktieren"
 # [general comment]
 # [cda]
 # title must remain short
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Contest"
-msgstr "MISSING TRANSLATION"
+msgstr "Concours"
 
 msgid "Context:"
 msgstr "Rubrik:"
@@ -779,9 +779,9 @@ msgstr "AS7"
 
 # [general comment]
 # [cda]
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Ecomobility"
-msgstr "MISSING TRANSLATION"
+msgstr "Écomobilité"
 
 msgid "Edit"
 msgstr "Ändern"
@@ -1145,6 +1145,12 @@ msgstr "Interaktive Karte"
 
 msgid "Interface language:"
 msgstr "Sprache der Website:"
+
+# [general comment]
+# error message when invalid request parametes for cda search
+# [WARNING] fr translation used
+msgid "Invalid request parameters"
+msgstr "Paramètres de requête invalides"
 
 msgid "Is a child of summit:"
 msgstr "Gehört zum Hauptgipfel:"
@@ -2001,7 +2007,7 @@ msgstr "Ergebnis der Suche"
 # [cda]
 # [WARNING] fr translation used
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d\\'itinéraires"
+msgstr "Recherche de fiches techniques d'itinéraires"
 
 msgid "Search with google"
 msgstr "Suche auf das gesamte Dokument:"
@@ -3234,7 +3240,11 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Minimale Höhe des Ausgangspunktes</h3>Minimale Höhe, welche ganzjährig zugänglich ist; korrespondiert üblicherweise mit Höhe der mechanischen Schneeräumung auf der Zugangsstrasse"
 
 msgid "_maps_info_info"
-msgstr "<h3>Kartenmaterial</h3>Zusätzliches Kartenmaterial neben den schweizerischen Swisstopo und den französischen IGN-Karten.<br /><br />Geben sie die Quelle, den Namen und den Massstab der Kare an.<br />Falls es sich um mehrere Karten handelt, trennen sie diese mit einem doppelten Backslash (\\\\).<br /><br />Für einen in der Schweiz oder in Frankreich georeferenzierten Ort werden die Swisstopo und/oder IGN-Kartenblätter automatisch hinzugefügt. Folglich müssen sie bei Orten in der Schweiz und Frankreich das Kartenmaterial nicht manuell eingeben."
+msgstr "<h3>Kartenmaterial</h3>Zusätzliches Kartenmaterial neben den schweizerischen Swisstopo und den französischen IGN-Karten.<br /><br />Geben sie die Quelle, den Namen und den Massstab der Kare an.<br />Falls es sich um mehrere Karten handelt, trennen sie diese mit einem doppelten Backslash (\\).<br /><br />Für einen in der Schweiz oder in Frankreich georeferenzierten Ort werden die Swisstopo und/oder IGN-Kartenblätter automatisch hinzugefügt. Folglich müssen sie bei Orten in der Schweiz und Frankreich das Kartenmaterial nicht manuell eingeben."
+
+# [WARNING] needs_update
+msgid "_maps_info_short_info"
+msgstr "Für einen in der Schweiz oder in Frankreich georeferenzierten Ort werden die Swisstopo und/oder IGN-Kartenblätter automatisch hinzugefügt. Folglich müssen sie bei Orten in der Schweiz und Frankreich das Kartenmaterial nicht manuell eingeben."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Maximale Höhe</h3>Maximal erreichte Höhe auf der Tour.<br /><br />Falls ein GPX-Track hochgeladen wurde und vorgängig keine Angabe gemacht wurde, wird die maximale Höhe vom GPS-Track berechnet. Falls kein Track hochgeladen wurde, wird automatisch die maximale Höhe der verbundenen Route verwendet."
@@ -5235,6 +5245,9 @@ msgstr "Längen- / Breitengrad:"
 msgid "loop"
 msgstr "Rundgang / Rückkehr zum Wandfüss oder zür Hütte"
 
+msgid "loop_short"
+msgstr "Rundgang / Rückkehr zum Wandfüss"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5778,9 +5791,9 @@ msgstr "Andere Gebirgsmassive"
 # [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "our partners"
-msgstr "MISSING TRANSLATION"
+msgstr "nos partenaires"
 
 msgid "outing"
 msgstr "Tour"

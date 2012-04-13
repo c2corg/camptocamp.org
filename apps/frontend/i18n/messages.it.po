@@ -474,9 +474,9 @@ msgstr "Contatti"
 # [general comment]
 # [cda]
 # title must remain short
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Contest"
-msgstr "MISSING TRANSLATION"
+msgstr "Concours"
 
 msgid "Context:"
 msgstr "Contesto:"
@@ -777,9 +777,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Ecomobility"
-msgstr "MISSING TRANSLATION"
+msgstr "Écomobilité"
 
 msgid "Edit"
 msgstr "Modifica"
@@ -1145,6 +1145,12 @@ msgstr "Mappa interattiva"
 
 msgid "Interface language:"
 msgstr "Leggi il sito in:"
+
+# [general comment]
+# error message when invalid request parametes for cda search
+# [WARNING] fr translation used
+msgid "Invalid request parameters"
+msgstr "Paramètres de requête invalides"
 
 msgid "Is a child of summit:"
 msgstr "E’ una sotto-cima di:"
@@ -1997,7 +2003,7 @@ msgstr "Risultati della ricerca"
 # [cda]
 # [WARNING] fr translation used
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d\\'itinéraires"
+msgstr "Recherche de fiches techniques d'itinéraires"
 
 msgid "Search with google"
 msgstr "Ricerca nel documento intero:"
@@ -3119,7 +3125,11 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Altitudine minima di partenza:</h3>Quota minima dell'accesso stradale in inverno. Corrisponde fino al quale la strada viene pulita regolarmente in inverno."
 
 msgid "_maps_info_info"
-msgstr "<h3>Cartografia</h3>Riferimenti cartografici supplementari (eccetto IGN et CNS-swisstopo).<br />Indicare il riferimento, il titolo e la scala della carta.<br />Se c'è più di una carta, separarle con un anti-slash (\\\\).<br /><br />Per editare: per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: Risulta quindi inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
+msgstr "<h3>Cartografia</h3>Riferimenti cartografici supplementari (eccetto IGN et CNS-swisstopo).<br />Indicare il riferimento, il titolo e la scala della carta.<br />Se c'è più di una carta, separarle con un anti-slash (\\).<br /><br />Per editare: per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: Risulta quindi inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
+
+# [WARNING] needs_update
+msgid "_maps_info_short_info"
+msgstr "Per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: Risulta quindi inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Quota massimale raggiunta dall'itinerario o gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
@@ -5029,7 +5039,11 @@ msgstr "long"
 msgid "longitude / latitude: "
 msgstr "Longitudine / latitudine:"
 
+# [WARNING] needs_update
 msgid "loop"
+msgstr "giro / discesa a piedi"
+
+msgid "loop_short"
 msgstr "giro / discesa a piedi"
 
 # [general comment]
@@ -5560,9 +5574,9 @@ msgstr "Altri massicci"
 # [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "our partners"
-msgstr "MISSING TRANSLATION"
+msgstr "nos partenaires"
 
 msgid "outing"
 msgstr "gita"

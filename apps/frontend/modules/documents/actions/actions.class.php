@@ -4336,11 +4336,43 @@ class documentsActions extends c2cActions
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
             $module = $this->getRequestParameter('module');
-            
+
             $criteria = array();
-            // FIXME do a mapping of criteria
-            $criteria[] = "hdif=>1500";
-            
+            $this->addListParam($criteria, 'act'); // directly reproduce outing selection
+
+            switch ($module) {
+                case 'outings':
+                    $criteria[] = 'owtp=1';
+                    switch ($this->getRequestParameter('elevation')) {
+                        case '1': // short
+                            $criteria[] = 'odif=<500';
+                            break;
+                        case '2': // medium
+                            $criteria[] = 'odif=500~1500';
+                            break;
+                        case '3': // long
+                            $criteria[] = 'odif=>1500';
+                            break;
+                    }
+                    break;
+                case 'routes':
+                    $criteria[] = 'tp=1-2-4-5';
+                    switch ($this->getRequestParameter('elevation')) {
+                        case '1': // short
+                            $criteria[] = 'hdif=<500';
+                            break;
+                        case '2': // medium
+                            $criteria[] = 'hdif=500~1500';
+                            break;
+                        case '3': // long
+                            $criteria[] = 'hdif=>1500';
+                            break;
+                    }
+                    break;
+            }
+
+            // TODO: handle special activity paragliding / difficulty (for each selected activity) / areas
+
             $route = '@default?module=' . $this->getModuleName() . '&action=list&' . implode('&', $criteria);
             c2cTools::log("redirecting to $route");
             $this->redirect($route);

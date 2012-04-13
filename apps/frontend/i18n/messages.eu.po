@@ -474,9 +474,9 @@ msgstr "Gurekin harremanetan jarri"
 # [general comment]
 # [cda]
 # title must remain short
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Contest"
-msgstr "MISSING TRANSLATION"
+msgstr "Concours"
 
 msgid "Context:"
 msgstr "Kontestua:"
@@ -782,9 +782,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Ecomobility"
-msgstr "MISSING TRANSLATION"
+msgstr "Écomobilité"
 
 msgid "Edit"
 msgstr "Aldatu"
@@ -1155,6 +1155,12 @@ msgstr "Mapa interaktiboa"
 
 msgid "Interface language:"
 msgstr "Hizkuntza:"
+
+# [general comment]
+# error message when invalid request parametes for cda search
+# [WARNING] fr translation used
+msgid "Invalid request parameters"
+msgstr "Paramètres de requête invalides"
 
 msgid "Is a child of summit:"
 msgstr "Ondorengo gailurraren azpi-gailurra da:"
@@ -2074,7 +2080,7 @@ msgstr "Bilaketaren emaitza"
 # [cda]
 # [WARNING] fr translation used
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d\\'itinéraires"
+msgstr "Recherche de fiches techniques d'itinéraires"
 
 # [WARNING] es translation used
 msgid "Search with google"
@@ -3212,6 +3218,10 @@ msgstr "<h3>Abiapunturen altitude minimoa</h3>Neguan abiapuntura iristeko altitu
 # [WARNING] needs_update
 msgid "_maps_info_info"
 msgstr "<h3>Mapagintza</h3> Mapagintza erreferentzia osagarriak (IGN edo CNS izan ezik).<br /> Adierazi maparen erreferentza, titulua eta eskala.<br />Editatzerakoan: Frantzia edo Suizako leku geografiko baten kasuan, koordenatuak jartzen badira, IGN edo CNS mapak automatikoki asoziatuko zaizkio. Eremua betetzea ez da beraz beharrezkoa <i>Mapagintza</i> mapa hauekin."
+
+# [WARNING] needs_update
+msgid "_maps_info_short_info"
+msgstr "Frantzia edo Suizako leku geografiko baten kasuan, koordenatuak jartzen badira, IGN edo CNS mapak automatikoki asoziatuko zaizkio. Eremua betetzea ez da beraz beharrezkoa <i>Mapagintza</i> mapa hauekin."
 
 msgid "_max_elevation_info"
 msgstr "<h3> Altuera handiena</h3Ibilbidean zehar izandako altuera handiena.<br /><br /> Ibilbidearen GPX lorratza gordetzen bada altuera aundiena automatikoki kalkulatua izango da, aurreko altuera ezabatuz."
@@ -5255,6 +5265,10 @@ msgstr "Longitud / latitud:"
 msgid "loop"
 msgstr "buklea"
 
+# [WARNING] needs_update
+msgid "loop_short"
+msgstr "buklea"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5828,9 +5842,9 @@ msgstr "Otros macizos"
 # [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "our partners"
-msgstr "MISSING TRANSLATION"
+msgstr "nos partenaires"
 
 msgid "outing"
 msgstr "irteera"

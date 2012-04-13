@@ -468,9 +468,9 @@ msgstr "Contact us"
 # [general comment]
 # [cda]
 # title must remain short
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Contest"
-msgstr "MISSING TRANSLATION"
+msgstr "Concours"
 
 msgid "Context:"
 msgstr "Context:"
@@ -773,9 +773,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Ecomobility"
-msgstr "MISSING TRANSLATION"
+msgstr "Écomobilité"
 
 msgid "Edit"
 msgstr "Edit"
@@ -1142,6 +1142,12 @@ msgstr "Interactive map"
 
 msgid "Interface language:"
 msgstr "Interface language:"
+
+# [general comment]
+# error message when invalid request parametes for cda search
+# [WARNING] fr translation used
+msgid "Invalid request parameters"
+msgstr "Paramètres de requête invalides"
 
 msgid "Is a child of summit:"
 msgstr "Is a sub summit of:"
@@ -1995,7 +2001,7 @@ msgstr "Search results"
 # [cda]
 # [WARNING] fr translation used
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d\\'itinéraires"
+msgstr "Recherche de fiches techniques d'itinéraires"
 
 msgid "Search with google"
 msgstr "Search on the whole document:"
@@ -3123,7 +3129,11 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Lowest reachable elevation</h3>Minimum altitude accessible in winter. Usually corresponds to the highest altitude of mechanical snow clearing on the access road."
 
 msgid "_maps_info_info"
-msgstr "<h3>Maps</h3>Additional map references (that are not French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />If there are several maps, use antislash (\\\\) to separate the references.<br /><br />For objects located in France or Switzerland, if the latitude and longitude fields are filled-in, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the <i>Map</i> field with these maps."
+msgstr "<h3>Maps</h3>Additional map references (that are not French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />If there are several maps, use antislash (\\) to separate the references.<br /><br />For objects located in France or Switzerland, if the latitude and longitude fields are filled-in, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the <i>Map</i> field with these maps."
+
+# [WARNING] needs_review
+msgid "_maps_info_short_info"
+msgstr "Do not fill with French IGN and Swiss CNS maps, because they will be automatically associated according to the coordinates."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Maximum altitude</h3>Maximum altitude reached on this route.<br /><br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track. If not, the maximum altitude of the associated route(s) is automatically included. It can be modified to detail the altitude actually reached, for example in case the summit was not reached.<br /><br /><em><u>Routes</u>:</em><br />Maximum altitude reached by the route.<br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track."
@@ -5061,6 +5071,9 @@ msgstr "Longitude / latitude: "
 msgid "loop"
 msgstr "loop / walk down to the base of the climb or hut"
 
+msgid "loop_short"
+msgstr "loop / walk down to the base of the climb"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5593,9 +5606,9 @@ msgstr "Other ranges"
 # [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "our partners"
-msgstr "MISSING TRANSLATION"
+msgstr "nos partenaires"
 
 msgid "outing"
 msgstr "outing"

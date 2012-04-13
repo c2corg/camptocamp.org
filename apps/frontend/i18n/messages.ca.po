@@ -465,9 +465,9 @@ msgstr "Contactar-nos"
 # [general comment]
 # [cda]
 # title must remain short
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Contest"
-msgstr "MISSING TRANSLATION"
+msgstr "Concours"
 
 msgid "Context:"
 msgstr "Context:"
@@ -773,9 +773,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "Ecomobility"
-msgstr "MISSING TRANSLATION"
+msgstr "Écomobilité"
 
 msgid "Edit"
 msgstr "Modificar"
@@ -1136,6 +1136,12 @@ msgstr "Mapa interactiu"
 
 msgid "Interface language:"
 msgstr "Llengua:"
+
+# [general comment]
+# error message when invalid request parametes for cda search
+# [WARNING] fr translation used
+msgid "Invalid request parameters"
+msgstr "Paramètres de requête invalides"
 
 msgid "Is a child of summit:"
 msgstr "És un sub-cim de:"
@@ -1977,7 +1983,7 @@ msgstr "Resultats de la recerca"
 # [cda]
 # [WARNING] fr translation used
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d\\'itinéraires"
+msgstr "Recherche de fiches techniques d'itinéraires"
 
 msgid "Search with google"
 msgstr "Cerca en tot el document:"
@@ -3065,6 +3071,10 @@ msgstr "<h3>Altitud de partida mínima</h3>Aéltitud mínima de l'accés en hive
 # [WARNING] needs_update
 msgid "_maps_info_info"
 msgstr "<h3>Cartografia</h3>Referències cartogràfiques suplementàries (a part de IGN o CNS).<br />Indiqueu la referència, el títol i l'escala del mapa.<br />Durant una edició: per un punt geogràfic situat a França o a Suïssa, si les coordenades són reportades, els mapes IGN o CNS corresponents s'associaran automàticament. Així, és inutil omplir el camp <i>Cartografia</i> amb aquests mapes."
+
+# [WARNING] needs_update
+msgid "_maps_info_short_info"
+msgstr "Per un punt geogràfic situat a França o a Suïssa, si les coordenades són reportades, els mapes IGN o CNS corresponents s'associaran automàticament. Així, és inutil omplir el camp <i>Cartografia</i> amb aquests mapes."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Altitud màxima</h3>Altitud màxima a la que s'arriba per aquest itinerari<br /><br />Si una traça GPX és asssociada a aquest itinerari, l'altitud màxima serà calculada automàticament i substituirà l'antic valor."
@@ -5013,6 +5023,9 @@ msgstr "Longitud / latitud:"
 msgid "loop"
 msgstr "circuit / retorn al peu de via o al refugi"
 
+msgid "loop_short"
+msgstr "circuit / retorn al peu de via"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5546,9 +5559,9 @@ msgstr "Altres massissos"
 # [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [ERROR] no available translation
+# [WARNING] fr translation used
 msgid "our partners"
-msgstr "MISSING TRANSLATION"
+msgstr "nos partenaires"
 
 msgid "outing"
 msgstr "sortida"

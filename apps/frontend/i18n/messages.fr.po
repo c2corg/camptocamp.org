@@ -480,9 +480,8 @@ msgstr "Nous contacter"
 # [general comment]
 # [cda]
 # title must remain short
-# [ERROR] no available translation
 msgid "Contest"
-msgstr "MISSING TRANSLATION"
+msgstr "Concours"
 
 msgid "Context:"
 msgstr "Contexte&nbsp;:"
@@ -784,9 +783,8 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [ERROR] no available translation
 msgid "Ecomobility"
-msgstr "MISSING TRANSLATION"
+msgstr "Écomobilité"
 
 msgid "Edit"
 msgstr "Modifier"
@@ -1149,6 +1147,11 @@ msgstr "Carte interactive"
 
 msgid "Interface language:"
 msgstr "Afficher le site en&nbsp;:"
+
+# [general comment]
+# error message when invalid request parametes for cda search
+msgid "Invalid request parameters"
+msgstr "Paramètres de requête invalides"
 
 msgid "Is a child of summit:"
 msgstr "Est un sous-sommet de&nbsp;:"
@@ -1988,7 +1991,7 @@ msgstr "Résultats de la recherche"
 # [general comment]
 # [cda]
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d\\'itinéraires"
+msgstr "Recherche de fiches techniques d'itinéraires"
 
 msgid "Search with google"
 msgstr "Recherche sur le document en entier&nbsp;:"
@@ -3146,7 +3149,10 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Altitude de départ minimum</h3>Altitude minimale de l'accès routier hivernal. Elle correspond normalement à la limite du déneigement mécanique."
 
 msgid "_maps_info_info"
-msgstr "<h3>Cartographie</h3>Références cartographiques supplémentaires (hors IGN et CNS-Swisstopo).<br /><br />Indiquez la référence, le titre et l'échelle de la carte.<br />S'il y a plusieurs cartes, séparez les références par un anti-slash (\\\\).<br /><br />Pour un lieu géographique situé en France et en Suisse, si les coordonnées sont renseignées, les cartes IGN ou CNS correspondantes sont automatiquement associées. Il est donc inutile de remplir le champ <em>Cartographie</em> avec ces cartes."
+msgstr "<h3>Cartographie</h3>Références cartographiques supplémentaires (hors IGN et CNS-Swisstopo).<br /><br />Indiquez la référence, le titre et l'échelle de la carte.<br />S'il y a plusieurs cartes, séparez les références par un anti-slash (\\).<br /><br />Pour un lieu géographique situé en France et en Suisse, si les coordonnées sont renseignées, les cartes IGN ou CNS correspondantes sont automatiquement associées. Il est donc inutile de remplir le champ <em>Cartographie</em> avec ces cartes."
+
+msgid "_maps_info_short_info"
+msgstr "Ne pas renseigner les cartes IGN (France) ou CNS (Suisse), car elles seront automatiquement associées d'après les coordonnées."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Altitude maximale</h3><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie, l'altitude maximale est calculée automatiquement à partir de celle-ci et écrase la valeur précédente.<br />Sinon, par défaut l'altitude maximale est celle atteinte par le ou les itinéraire(s) associé(s) à la sortie. Elle peut être modifiée pour préciser l'altitude maximale réelle, en cas de parcours partiel.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitude maximale atteinte par cet itinéraire.<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, l'altitude maximale est calculée automatiquement à partir de celle-ci."
@@ -5087,6 +5093,9 @@ msgstr "Longitude / latitude : "
 msgid "loop"
 msgstr "boucle / retour au pied de la voie ou au refuge"
 
+msgid "loop_short"
+msgstr "boucle / retour au pied de la voie"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5611,9 +5620,8 @@ msgstr "Autres massifs"
 # [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [ERROR] no available translation
 msgid "our partners"
-msgstr "MISSING TRANSLATION"
+msgstr "nos partenaires"
 
 msgid "outing"
 msgstr "sortie"
