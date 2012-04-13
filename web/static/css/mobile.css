@@ -699,6 +699,16 @@ li.list_odd
     position: relative;
     margin-right: 5px;
   }
+  
+  .float-tips
+   {
+    width: auto;
+  }
+
+  input.medium2-input
+   {
+    width: auto;
+  }
 }
 
 /* specific rules for tablets - min device width >= 768px */

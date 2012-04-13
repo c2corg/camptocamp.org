@@ -236,7 +236,10 @@ a[href^="http://escalade.camptocamp.com"]:after {
 .float-tips
 {
   display: inline-block;
-  margin: 0 0.5em 0 1.5em;
+  width: 49%;
+  margin: 0 0 0 20px;
+  vertical-align: middle;
+  text-align: justify;
 }
 .article_contenu .tips, .article_contenu .big_tips
 {
@@ -2016,6 +2019,11 @@ input[type=number].short_input /* compensate for added arrows by chrome / opera 
 input.medium_input
 {
   width: 100px;
+}
+
+input.medium2_input
+{
+  width: 250px;
 }
 
 input.long_input
