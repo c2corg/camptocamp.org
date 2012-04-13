@@ -5,17 +5,43 @@
    Allow from all
 </Directory>
 
-
-AddType application/vnd.google-earth.kmz .kmz
+# define some MIME types
+AddType application/vnd.google-earth.kmz     .kmz
 AddType application/vnd.google-earth.kml+xml .kml
-AddType application/gpx+xml .gpx
-AddType application/json .json
+AddType application/gpx+xml                  .gpx
+AddType application/json                     .json
+AddType text/cache-manifest                  .appcache .manifest
+
+# Use UTF-8 encoding for anything served text/plain or text/html
+AddDefaultCharset utf-8
+# Force UTF-8 for a number of file formats
+AddCharset utf-8 .css .js .xml .json .rss .atom
 
 Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
 
+# gzip compression
 <IfModule mod_deflate.c>
   <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript application/xml image/svg+xml application/vnd.google-earth.kml+xml application/json
+    <IfModule filter_module>
+      FilterDeclare   COMPRESS
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-javascript
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/x-icon
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.google-earth.kml+xml
+      FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
+      FilterChain     COMPRESS
+      FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+    </IfModule>
+    # Legacy versions of Apache
+    <IfModule !mod_filter.c>
+      AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript application/xml
+      AddOutputFilterByType DEFLATE image/svg+xml image/x-icon application/vnd.google-earth.kml+xml application/json
+    </IfModule>
   </Directory>
 </IfModule>
 
@@ -87,11 +113,15 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     # remove etags to enable better client-side caching
     Header unset ETag
     FileETag None
+
     # force the latest IE version, in various cases when it may fall back to IE7 mode
-    # nb: https://github.com/paulirish/html5-boilerplate/blob/master/.htaccess
-    # They only send this header to IE browsers to save some header bytes, but they then send
-    # an extra header for proxies, so not sure it is worth it. We send it to every browser.
     Header set X-UA-Compatible "IE=Edge,chrome=1"
+    # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
+    # One solution could be to look at file extension, like below (solution from html5 boilerplate
+    # with few adjustements: https://github.com/h5bp/html5-boilerplate/blob/master/.htaccess)
+    <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|svg|svgz|ico|appcache|manifest|htc)$" >
+      Header unset X-UA-Compatible
+    </FilesMatch>
 </IfModule>
 
 # makes images, css and js expire one week later in client cache
