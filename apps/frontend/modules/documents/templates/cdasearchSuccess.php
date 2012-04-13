@@ -33,7 +33,7 @@ echo input_hidden_tag('module', $type, array('id' => 'module'));
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 
 $activities_raw = $sf_data->getRaw('activities');
-echo __('cda_activities') . ' ' . activities_selector(true, true, $activities_raw);
+echo __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw);
 echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
 echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select(array_map('__', sfConfig::get('app_cda_elevation'))));
 ?>

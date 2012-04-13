@@ -4,9 +4,7 @@ $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
 $action = sfContext::getInstance()->getActionName();
 $id = $sf_params->get('id');
-$cda_config = sfConfig::get('app_portals_cda');
 $mw_contest_id = sfConfig::get('app_mw_contest_id');
-$cda_id = isset($cda_config['id']) ? $cda_config['id'] : -1;
 
 use_helper('MyMinify', 'MetaLink', 'Forum', 'Link');
 
@@ -35,10 +33,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <?php
         minify_include_head_javascripts($combine, $debug);
-        echo auto_discovery_link_tag('rss', $rss);
-        echo include_meta_links();
     ?>
-    <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" title="Camptocamp.org" />
     <link rel="shortcut icon" href="<?php
    echo $static_base_url . '/static/images/portals/cda_favicon.ico';
     ?>" />

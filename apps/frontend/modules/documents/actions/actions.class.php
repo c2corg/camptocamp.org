@@ -4319,6 +4319,7 @@ class documentsActions extends c2cActions
     {
         $this->setTemplate('../../documents/templates/cda');
         $this->setLayout('layout_cda');
+        $this->getResponse()->setTitle('changerdapproche.org');
     }
 
     public function executeCdasearch()
@@ -4329,6 +4330,7 @@ class documentsActions extends c2cActions
         $this->activities = array();
         $this->setTemplate('../../documents/templates/cdasearch');
         $this->setLayout('layout_cda');
+        $this->getResponse()->setTitle('changerdapproche.org');
     }
 
     public function executeCdaredirect()
