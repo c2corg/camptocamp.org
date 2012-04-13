@@ -3,12 +3,11 @@
  * - plupload.js
  * - plupload.flash.js
  * - plupload.html5.js
- * from plupload 1.5.2
+ * from plupload 1.5.4
  *
  * c2c doesn't use other runtimes (gears, browserplus, html4...),
  * so we don't include them in order to minmize js size
  */
-
 
 /**
  * plupload.js
@@ -116,7 +115,7 @@
 		/**
 		 * Plupload version will be replaced on build.
 		 */
-		VERSION : '1.5.2',
+		VERSION : '1.5.4',
 
 		/**
 		 * Inital state of the queue and also the state ones it's finished all it's uploads.
@@ -494,7 +493,7 @@
 			}
 
 			// Use getBoundingClientRect on IE 6 and IE 7 but not on IE 8 in standards mode
-			if (node && node.getBoundingClientRect && (navigator.userAgent.indexOf('MSIE') > 0 && doc.documentMode !== 8)) {
+			if (node && node.getBoundingClientRect && ((navigator.userAgent.indexOf('MSIE') > 0) && (doc.documentMode < 8))) {
 				nodeRect = getIEPos(node);
 				rootRect = getIEPos(root);
 
@@ -812,10 +811,10 @@
 				// undefined or not, key should match			
 				if (type[i].key === key || type[i].orig === callback) {
 										
-					if (obj.detachEvent) {
-						obj.detachEvent('on'+name, type[i].func);
-					} else if (obj.removeEventListener) {
+					if (obj.removeEventListener) {
 						obj.removeEventListener(name, type[i].func, false);		
+					} else if (obj.detachEvent) {
+						obj.detachEvent('on'+name, type[i].func);
 					}
 					
 					type[i].orig = null;
@@ -1280,7 +1279,7 @@
 			 * @method start
 			 */
 			start : function() {
-				if (this.state != plupload.STARTED) {
+				if (files.length && this.state != plupload.STARTED) {
 					this.state = plupload.STARTED;
 					this.trigger("StateChanged");	
 					
@@ -1830,8 +1829,8 @@
 			// Detach the call so that error handling in the browser is presented correctly
 			setTimeout(function() {
 				var uploader = uploadInstances[id], i, args;
-
-				if (uploader) {
+				
+				if (uploader) {				
 					uploader.trigger('Flash:' + name, obj);
 				}
 			}, 0);
@@ -1949,7 +1948,7 @@
 					return;
 				}
 
-				if (!initialized[uploader.id]) {
+				if (initialized[uploader.id] === false) { // might also be undefined, if uploader was destroyed by that moment
 					setTimeout(waitLoad, 1);
 				}
 			}
@@ -1958,12 +1957,32 @@
 
 			// Fix IE memory leaks
 			browseButton = flashContainer = null;
+			
+			// destroy should always be available, after Flash:Init or before (#516)
+			uploader.bind("Destroy", function(up) {
+				var flashContainer;
+				
+				plupload.removeAllEvents(document.body, up.id);
+				
+				delete initialized[up.id];
+				delete uploadInstances[up.id];
+				
+				flashContainer = document.getElementById(up.id + '_flash_container');
+				if (flashContainer) {
+					container.removeChild(flashContainer);
+				}
+			});
 
 			// Wait for Flash to send init event
-			uploader.bind("Flash:Init", function() {	
+			uploader.bind("Flash:Init", function() {				
 				var lookup = {}, i;
 
-				getFlashObj().setFileFilters(uploader.settings.filters, uploader.settings.multi_selection);
+				try {
+					getFlashObj().setFileFilters(uploader.settings.filters, uploader.settings.multi_selection);
+				} catch (ex) {
+					callback({success : false});
+					return;
+				}
 
 				// Prevent eventual reinitialization of the instance
 				if (initialized[uploader.id]) {
@@ -2186,21 +2205,6 @@
 				
 				uploader.bind("DisableBrowse", function(up, disabled) {
 					getFlashObj().disableBrowse(disabled);
-				});
-			
-				
-				uploader.bind("Destroy", function(up) {
-					var flashContainer;
-					
-					plupload.removeAllEvents(document.body, up.id);
-					
-					delete initialized[up.id];
-					delete uploadInstances[up.id];
-					
-					flashContainer = document.getElementById(up.id + '_flash_container');
-					if (flashContainer) {
-						container.removeChild(flashContainer);
-					}
 				});
 							
 				callback({success : true});
@@ -2700,7 +2704,7 @@
 			});
 			
 			uploader.bind("CancelUpload", function() {
-				if (xhr.abort) {
+				if (xhr && xhr.abort) {
 					xhr.abort();	
 				}
 			});
@@ -3623,5 +3627,3 @@
 		};
 	};
 })(window, document, plupload);
-
-
