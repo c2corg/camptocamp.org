@@ -62,8 +62,8 @@ class StatsD {
 * Squirt the metrics over UDP
 **/
     public static function send($data, $sampleRate=1) {
-        $config = Config::getInstance();
-        if (! $config->isEnabled("statsd")) { return; }
+        $config = StatsDConfig::getInstance();
+        if (! $config->isEnabled()) { return; }
 
         // sampling
         $sampledData = array();
@@ -82,8 +82,8 @@ class StatsD {
 
         // Wrap this in a try/catch - failures in any of this should be silently ignored
         try {
-            $host = $config->getConfig("statsd.host");
-            $port = $config->getConfig("statsd.port");
+            $host = $config->getConfig('server_name');
+            $port = $config->getConfig('server_port');
             $fp = fsockopen("udp://$host", $port, $errno, $errstr);
             if (! $fp) { return; }
             foreach ($sampledData as $stat => $value) {
@@ -95,15 +95,9 @@ class StatsD {
     }
 }
 
-class Config
+class StatsDConfig
 {
     private static $_instance;
-    private $_data;
-
-    private function __construct()
-    {
-        $this->_data = parse_ini_file('statsd.ini', true);
-    }
 
     public static function getInstance()
     {
@@ -112,29 +106,19 @@ class Config
         return self::$_instance;
     }
 
-    public function isEnabled($section)
+    public function isEnabled()
     {
-        return isset($this->_data[$section]);
+        $test_param = sfConfig::get('app_statsd_server_name');
+        return !empty($test_param);
     }
 
     public function getConfig($name)
     {
-        $name_array = explode('.', $name, 2);
+        $cfg_item = sfConfig::get("app_statsd_$name");
 
-        if (count($name_array) < 2) return;
+        if (empty($cfg_item)) return;
 
-        list($section, $param) = $name_array;
-
-        if (!isset($this->_data[$section][$param])) return;
-
-        return $this->_data[$section][$param];
+        return $cfg_item;
     }
 }
 
-/* Config file example (put it into "statsd.ini"):
-
-[statsd]
-host = yourhost
-port = 8125
-
-*/

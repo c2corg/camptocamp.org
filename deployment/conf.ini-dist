@@ -8,6 +8,10 @@ DB_NAME = c2corg
 DB_USER = <user>
 DB_PASS = <password>
 
+; statsd server info; leave empty to disable use of statsd
+STATSD_HOST = 
+STATSD_PORT = 8125
+
 ; admin info
 ADMIN_EMAIL = dev@camptocamp.org
 

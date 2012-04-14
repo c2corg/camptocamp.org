@@ -1957,3 +1957,7 @@ all:
     paragliding:
       param: 'stags'
       id: @PARAGLIDING_TAG_ID@
+
+  statsd:
+    server_name: @STATSD_HOST@
+    server_port: @STATSD_PORT@
