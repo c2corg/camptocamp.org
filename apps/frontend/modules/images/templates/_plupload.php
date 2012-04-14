@@ -5,7 +5,7 @@ $validation = sfConfig::get('app_images_validation');
 ?>
 <div id="image_upload">
 <div id="plupload_tips" class="tips">
-<div id="plupload_ondrag" style="opacity:0;"><p><?php echo __('plupload drop') ?></p></div>
+<div id="plupload_ondrag" style="opacity:0;filter:alpha(opacity=0);"><p><?php echo __('plupload drop') ?></p></div>
 <div id="plupload_normal">
 <?php echo __('plupload introduction text',
               array('%1%' => implode(', ', $validation['file_extensions']),
