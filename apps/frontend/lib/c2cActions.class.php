@@ -269,7 +269,7 @@ abstract class c2cActions extends sfActions
         $response->setHttpHeader('Expires', $response->getDate(time() + $age));
     }
 
-    protected function statsdTiming($stat, $time, $unit='us')
+    public function statsdTiming($stat, $time, $prefix=false, $unit='us')
     {
         switch ($unit)
         {
@@ -287,20 +287,49 @@ abstract class c2cActions extends sfActions
                 break;
         }
 
-        StatsD::timing($this->statsdPrefix() . $stat, $time);
+        $_prefix = $prefix ? $prefix : $this->statsdPrefix();
+        StatsD::timing($_prefix . $stat, $time);
     }
 
-    protected function statsdIncrement($stat)
+    public function statsdIncrement($stat, $prefix=false)
     {
-        StatsD::increment($this->statsdPrefix() . $stat);
+        $_prefix = $prefix ? $prefix : $this->statsdPrefix();
+        StatsD::increment($_prefix . $stat);
     }
 
-    private function statsdPrefix()
+    public function statsdPrefix($module=false, $action=false)
     {
+        if ($module)
+        {
+            $moduleName = $module;
+        }
+        elseif (method_exists($this, 'getModuleName'))
+        {
+            $moduleName = $this->getModuleName();
+        }
+        else
+        {
+            $moduleName = '_nomodule_';
+        }
+
+        if ($action)
+        {
+            $actionName = $action;
+        }
+        elseif (method_exists($this, 'getActionName'))
+        {
+            $actionName = $this->getActionName();
+        }
+        else
+        {
+            $actionName = '_noaction_';
+        }
+
         $prefix = 'symfony.' .
           sfConfig::get('sf_environment') . '.' .
-          (method_exists($this, 'getModuleName') ? $this->getModuleName() : '_nomodule_') . '.' .
-          (method_exists($this, 'getActionName') ? $this->getActionName() : '_noaction_') . '.';
+          $moduleName . '.' .
+          $actionName . '.';
+
         return $prefix;
     }
 
