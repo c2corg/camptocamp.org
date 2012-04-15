@@ -44,8 +44,8 @@ class sfMemcacheCache extends sfCache
   {
 
     $this->memcache = new Memcache();
-    $this->debug = isset($options['debug']) ? $options['debug'] : null;
-    $this->debug = isset($options['compress']) ? $options['compress'] : true;
+    $this->debug    = isset($options['debug']) ? $options['debug'] : null;
+    $this->compress = isset($options['compress']) ? $options['compress'] : true;
 
     foreach ($options['servers'] as $server)
     {
