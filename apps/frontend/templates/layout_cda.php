@@ -42,31 +42,15 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
 <div id="holder">
   <div id='top'>
     <div id='topright'>
-      <?php
-      $items = array();
-      foreach (Language::getAll() as $language => $value)
-      {
-          if ($lang == $language)
-          {
-              $items[] = '<strong>' . $language . '</strong>';
-          }
-          else
-          {
-              $items[] = link_to($language, "@" . $action . "?lang=$language",
-                                 array('title' => $value));
-          }
-      }
-
-      echo implode('&nbsp;|&nbsp;', $items);
-      ?>
+      <?php echo select_interface_language() ?>
     </div>
   </div>
   <header id="page_header">
     <map name="map">
       <area shape="rect" coords="579,153,746,170" alt="<?php echo __('Moutainwilderness') ?>" href="http://www.mountainwilderness.fr" target="_blank" />
-      <area shape="rect" coords="758,144,828,179" alt="<?php echo __('Camp to Camp') ?>" href="http://www.camptocamp.org" target="_blank" />
+      <area shape="rect" coords="758,144,828,179" alt="camptocamp.org" href="http://www.camptocamp.org" target="_blank" />
     </map>
-        <a href="/cda/<?php echo $lang;?>"><?php echo image_tag('/static/images/cda/bandeau.jpg',array('alt'=>__('Changer d\'approche'),'usemap'=>"#map")) ?></a>
+        <a href="/cda/<?php echo $lang;?>"><?php echo image_tag('/static/images/cda/bandeau.jpg',array('alt'=>__('changerdapproche'),'usemap'=>"#map")) ?></a>
     
     <?php
     if ($action != "cda"):

@@ -332,19 +332,16 @@ getdirections:
   requirements: { id: \d+, service: (?:gmaps|yahoo|livesearch|openmapquest) }
 
 cda:
-  url: /cda/:lang
+  url: /cda
   param: { module: documents, action: cda }
-  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
 
 cdasearch:
-  url: /cda/search/:lang
+  url: /cda/search
   param: { module: documents, action: cdasearch }
-  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
 
 cdasearch_by_type:
-  url: /cda/search/type/:type/:lang
+  url: /cda/search/type/:type
   param: { module: documents, action: cdasearch, type: (?:routes|outings) }
-  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
 
 default:
   url:   /:module/:action/*

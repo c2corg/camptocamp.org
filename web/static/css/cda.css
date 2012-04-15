@@ -52,6 +52,7 @@
 #container {
   width: 838px;
   margin: 0px auto;
+  clear: both;
 }
 
 #partenaires {
