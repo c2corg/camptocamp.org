@@ -15,7 +15,7 @@ $mobile_version = c2cTools::mobileVersion();
 </div>
 <div class='column row1 span-5'>
   </a>
-    <a href="<?php echo url_for('@cdasearch?lang=' . $culture); ?>">
+    <a href="<?php echo url_for('@cdasearch'); ?>">
       <?php
         $img_title = __('Ecomobility');
         echo image_tag('/static/images/cda/slide1.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));

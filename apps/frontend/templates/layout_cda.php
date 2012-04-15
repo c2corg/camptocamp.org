@@ -6,7 +6,7 @@ $action = sfContext::getInstance()->getActionName();
 $id = $sf_params->get('id');
 $mw_contest_id = sfConfig::get('app_mw_contest_id');
 
-use_helper('MyMinify', 'MetaLink', 'Forum', 'Link');
+use_helper('MyMinify', 'MetaLink', 'Forum', 'Link', 'Language');
 
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
@@ -50,14 +50,14 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
       <area shape="rect" coords="579,153,746,170" alt="<?php echo __('Moutainwilderness') ?>" href="http://www.mountainwilderness.fr" target="_blank" />
       <area shape="rect" coords="758,144,828,179" alt="camptocamp.org" href="http://www.camptocamp.org" target="_blank" />
     </map>
-        <a href="/cda/<?php echo $lang;?>"><?php echo image_tag('/static/images/cda/bandeau.jpg',array('alt'=>__('changerdapproche'),'usemap'=>"#map")) ?></a>
+        <a href="/cda"><?php echo image_tag('/static/images/cda/bandeau.jpg',array('alt'=>__('changerdapproche'),'usemap'=>"#map")) ?></a>
     
     <?php
     if ($action != "cda"):
     ?>
     <div id="menu">
       <ul>
-        <li><?php echo link_to(__('ecomobility'), '@cdasearch?lang=' . $lang); ?>
+        <li><?php echo link_to(__('ecomobility'), '@cdasearch'); ?>
         <li><?php echo link_to(__('contest'), '@document_by_id_lang?module=articles&id=' . $mw_contest_id . '&lang=' . $lang); ?>
         <li><?php echo link_to(__('picturial'), '@default?module=images&action=list&owtp=yes'); ?>
         <li><?php echo f_link_to(__('questions?'), 'viewtopic.php?id=42'); ?></li>
