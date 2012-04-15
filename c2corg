@@ -300,7 +300,7 @@ function crawl($dir, $function, $context=null) {
     if (!$dh)
         return false;
     while ($file = readdir($dh)) {
-        if ($file == '.' || $file == '..')
+        if ($file == '.' || $file == '..' || $file == '.svn')
             continue;
         $fullpath = "$dir/$file";
 
