@@ -268,4 +268,40 @@ abstract class c2cActions extends sfActions
         $response->addCacheControlHttpHeader("max_age=$age");
         $response->setHttpHeader('Expires', $response->getDate(time() + $age));
     }
+
+    protected function statsdTiming($stat, $time, $unit='us')
+    {
+        switch ($unit)
+        {
+            case 's':
+                $time = $time / 1000;
+                break;
+            case 'ms':
+                $time = $time * 1;
+                break;
+            case 'us':
+                $time = $time * 1000;
+                break;
+            case 'ns':
+                $time = $time * 1000000;
+                break;
+        }
+
+        StatsD::timing($this->statsdPrefix() . $stat, $time);
+    }
+
+    protected function statsdIncrement($stat)
+    {
+        StatsD::increment($this->statsdPrefix() . $stat);
+    }
+
+    private function statsdPrefix()
+    {
+        $prefix = 'symfony.' .
+          sfConfig::get('sf_environment') . '.' .
+          (method_exists($this, 'getModuleName') ? $this->getModuleName() : '_nomodule_') . '.' .
+          (method_exists($this, 'getActionName') ? $this->getActionName() : '_noaction_') . '.';
+        return $prefix;
+    }
+
 }
