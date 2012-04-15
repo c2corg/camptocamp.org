@@ -5397,6 +5397,11 @@ msgstr "environnement montagnard"
 msgid "mountain_climbing"
 msgstr "rocher haute montagne"
 
+# [general comment]
+# [cda]
+msgid "mountainwilderness"
+msgstr "Mountain Wilderness"
+
 msgid "move image"
 msgstr "Déplacer cette image"
 

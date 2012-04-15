@@ -5587,6 +5587,12 @@ msgstr "ambiente de montaña"
 msgid "mountain_climbing"
 msgstr "arkaitz eskalada goi mendian"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "mountainwilderness"
+msgstr "Mountain Wilderness"
+
 msgid "move image"
 msgstr "Irudi hau mugitu"
 

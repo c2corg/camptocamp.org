@@ -5565,6 +5565,12 @@ msgstr "Bergumwelt"
 msgid "mountain_climbing"
 msgstr "Alpinklettern"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "mountainwilderness"
+msgstr "Mountain Wilderness"
+
 msgid "move image"
 msgstr "Bild verschieben "
 

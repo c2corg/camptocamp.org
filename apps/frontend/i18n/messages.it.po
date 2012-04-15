@@ -5351,6 +5351,12 @@ msgstr "ambiante montanaro "
 msgid "mountain_climbing"
 msgstr "roccia alta-montagna"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "mountainwilderness"
+msgstr "Mountain Wilderness"
+
 msgid "move image"
 msgstr "Sposta questa immagine"
 

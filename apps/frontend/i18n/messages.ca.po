@@ -5334,6 +5334,12 @@ msgstr "ambient muntanyenc"
 msgid "mountain_climbing"
 msgstr "escalada en muntanya"
 
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "mountainwilderness"
+msgstr "Mountain Wilderness"
+
 msgid "move image"
 msgstr "Desplaçar imatge"
 
