@@ -20,8 +20,7 @@ $DIRS_TO_CREATE = array('flushable'  => array('web/forums/cache', 'log', 'web/up
 
 // Directories containing server-specific config files
 $CONFIG_DIRS = array('apps/frontend/config', 'batch', 'config', 'data/sql',
-                     'mapdata', 'web/forums', 'web/static/js/mapfish/c2corgApi',
-                     'web/static/opensearch', 'web/stats');
+                     'mapdata', 'web');
 
 $OPTIONS['debug'] = false;
 $OPTIONS['writableowner'] = 'www-data';
@@ -454,8 +453,10 @@ function getSearchReplaceContext() {
         if (substr($configFile, -1, 4) != '.ini') {
             $configFile .= '.ini';
         }
+        $vars['SF_ENVIRONMENT'] = $OPTIONS['conf'];
     } else {
         $configFile .= 'default.ini'; 
+        $vars['SF_ENVIRONMENT'] = 'default';
     }
 
     if (!is_readable($configFile)) {

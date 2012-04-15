@@ -5,6 +5,13 @@ prod:
     cache:                    on
     etag:                     on
 
+preprod:
+  .settings:
+    #available:                no
+    no_script_name:           on
+    cache:                    on
+    etag:                     on
+
 dev:
   .settings:
     # E_ALL | E_STRICT = 4095
