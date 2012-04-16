@@ -116,7 +116,9 @@ C2C.geo.update_around_on_select_change = function(elt) {
       $(elt + '_geocode').show();
     } else if (index === 2) { // user geolocalization
       $(elt + '_range_span').hide();
-      if (navigator.geolocation) {
+      // detect geolocation correctly
+      // https://github.com/Modernizr/Modernizr/blob/633a5ac/modernizr.js#L478-490
+      if ('geolocation' in navigator) {
         $(elt + '_geolocation_waiting').show();
         navigator.geolocation.getCurrentPosition(
           function(position) {

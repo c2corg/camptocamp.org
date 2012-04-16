@@ -144,7 +144,8 @@ c2corg.layout = (function() {
         items.push('->');
 
         // center on my position
-        if (navigator.geolocation) {
+        // https://github.com/Modernizr/Modernizr/blob/633a5ac/modernizr.js#L478-490
+        if ('geolocation' in navigator) {
             items.push(new Ext.Button({
                 text: OpenLayers.i18n('My position'),
                 handler: function() {
