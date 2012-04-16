@@ -430,10 +430,13 @@ class myUser extends sfBasicSecurityUser
         // save in session
         $this->saveLanguageListInSession($language_list);
 
-        // save it too in database
-        $user_private_data = sfDoctrine::getTable('UserPrivateData')->find($this->getId());
-        $user_private_data->setPreferedLanguageList($language_list);
-        $user_private_data->save();
+        // save it too in database if user connected
+        if ($this->isConnected())
+        {
+            $user_private_data = sfDoctrine::getTable('UserPrivateData')->find($this->getId());
+            $user_private_data->setPreferedLanguageList($language_list);
+            $user_private_data->save();
+        }
     }
 
     public function saveLanguageListInSession($language_list)

@@ -520,11 +520,8 @@ class usersActions extends documentsActions
         $user->setCulture($lang);
 
         // if user is connected, save his prefered language
-        if($user->isConnected())
-        {
-            $user->setPreferedLanguage($lang);
-        }
-        else
+        $user->setPreferedLanguage($lang);
+        if (!$user->isConnected())
         {
             $expire = time() + 31536000; // FIXME: good value?
             setcookie('language', Language::translateForPunBB($lang), $expire, '/forums/');
