@@ -30,13 +30,13 @@ $type = $sf_params->get('type');
 <?php
 echo form_tag("/documents/cdaredirect", array('id' => 'filterform')); // FIXME redirect
 echo input_hidden_tag('module', $type, array('id' => 'module'));
-echo around_selector('arnd');
+echo around_selector('arnd') . '<br />';
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 
 $activities_raw = $sf_data->getRaw('activities');
 $paragliding_tag = sfConfig::get('app_tags_paragliding');
 $paragliding_tag = implode('/', $paragliding_tag);
-echo __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, array(8 => $paragliding_tag));
+echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, array(8 => $paragliding_tag));
 echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
 echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select(array_map('__', sfConfig::get('app_cda_elevation'))));
 ?>
