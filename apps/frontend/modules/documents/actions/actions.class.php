@@ -4348,40 +4348,60 @@ class documentsActions extends c2cActions
             // activities criteria
             $this->addListParam($criteria, 'act');
             $this->addListParam($criteria, 'stags'); // for paragliding activity
-
-            switch ($module) {
-                case 'outings':
-                    $criteria[] = 'owtp=1';
-                    switch ($this->getRequestParameter('elevation')) {
-                        case '1': // short
-                            $criteria[] = 'odif=<500';
-                            break;
-                        case '2': // medium
-                            $criteria[] = 'odif=500~1500';
-                            break;
-                        case '3': // long
-                            $criteria[] = 'odif=>1500';
-                            break;
-                    }
+            
+            // elevation critera
+            $elevation_param = ($module == 'routes') ? 'hdif' : 'odif';
+            switch ($this->getRequestParameter('elevation'))
+            {
+                case '1': // short
+                    $criteria[] = "$elevation_param=<500";
                     break;
-                case 'routes':
-                    $criteria[] = 'tp=1-2-4-5';
-                    switch ($this->getRequestParameter('elevation')) {
-                        case '1': // short
-                            $criteria[] = 'hdif=<500';
-                            break;
-                        case '2': // medium
-                            $criteria[] = 'hdif=500~1500';
-                            break;
-                        case '3': // long
-                            $criteria[] = 'hdif=>1500';
-                            break;
-                    }
+                case '2': // medium
+                    $criteria[] = "$elevation_param=500~1500";
+                    break;
+                case '3': // long
+                    $criteria[] = "$elevation_param=>1500";
                     break;
             }
-
-            // TODO: handle special activity paragliding / difficulty (for each selected activity) / areas
-
+            
+            // difficulty criteria
+            $difficulty = $this->getRequestParameter('difficulty');
+            $activities = $this->getRequestParameter('act');
+            $nb_grp = 0;
+            if (in_array(1, $activities))
+            {
+                $group_name = 'ski';
+                $nb_grp++;
+            }
+            if (array_intersect(array(2, 3, 5), $activities))
+            {
+                $group_name = 'alpi';
+                $nb_grp++;
+            }
+            if (in_array(4, $activities))
+            {
+                $group_name = 'climbing';
+                $nb_grp++;
+            }
+            if (in_array(6, $activities))
+            {
+                $group_name = 'hiking';
+                $nb_grp++;
+            }
+            if (in_array(7, $activities))
+            {
+                $group_name = 'snowshoeing';
+                $nb_grp++;
+            }
+            
+            if ($nb_grp == 1 && $difficulty >= 1 && $difficulty <= 3) // use difficulty criteria only if one group of activities is selected
+            {
+                $group_info = sfConfig::get('app_cda_difficulty_range_' . $group_name);
+                $param = $group_info['param'];
+                $value = $group_info[$difficulty];
+                $criteria[] = "$param=$value";
+            }
+            
             $route = '@default?module=' . $this->getModuleName() . '&action=list&' . implode('&', $criteria);
             c2cTools::log("redirecting to $route");
             $this->redirect($route);
