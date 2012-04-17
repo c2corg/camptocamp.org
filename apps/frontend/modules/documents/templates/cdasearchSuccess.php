@@ -29,11 +29,15 @@ $type = $sf_params->get('type');
 <h2><?php echo __('ici un ttexte pour savoir si iti ou sortie'); ?></h2>
 <?php
 echo form_tag("/documents/cdaredirect", array('id' => 'filterform')); // FIXME redirect
+echo around_selector('arnd');
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 echo input_hidden_tag('module', $type, array('id' => 'module'));
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
 
 $activities_raw = $sf_data->getRaw('activities');
-echo __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw);
+$paragliding_tag = sfConfig::get('app_tags_paragliding');
+$paragliding_tag = implode('/', $paragliding_tag);
+echo __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, array(8 => $paragliding_tag));
 echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
 echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select(array_map('__', sfConfig::get('app_cda_elevation'))));
 ?>

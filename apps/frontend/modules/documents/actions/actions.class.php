@@ -4340,7 +4340,14 @@ class documentsActions extends c2cActions
             $module = $this->getRequestParameter('module');
 
             $criteria = array();
-            $this->addListParam($criteria, 'act'); // directly reproduce outing selection
+            
+            // area criteria
+            $this->addListParam($out, 'areas');
+            $this->addAroundParam($out, 'arnd');
+            
+            // activities criteria
+            $this->addListParam($criteria, 'act');
+            $this->addListParam($out, 'stags'); // for paragliding activity
 
             switch ($module) {
                 case 'outings':
