@@ -127,6 +127,10 @@ a {
   margin-right: 38px;
   margin-left: 0px;
 }
+.span-6.folded
+{
+  height: 45px;
+}
 
 .span-9 {
   width: 326px;

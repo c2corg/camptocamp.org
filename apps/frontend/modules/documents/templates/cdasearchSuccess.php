@@ -5,7 +5,7 @@ $lang = $sf_user->getCulture();
 $type = $sf_params->get('type');
 ?>
 
-<div class="column span-6">
+<div class="column span-6<?php if ($type != null): echo ' folded'; endif?>">
   <a href="<?php echo url_for('@cdasearch_by_type?lang=' . $lang . '&type=routes'); ?>">
     <?php
       $img_title = 'Search routes';
@@ -26,6 +26,7 @@ $type = $sf_params->get('type');
   </a>
 </div>
 <?php if ($type != null): ?>
+<div class="fake_clear"> &nbsp;</div>
 <h2><?php echo __('ici un ttexte pour savoir si iti ou sortie'); ?></h2>
 <?php
 echo form_tag("/documents/cdaredirect", array('id' => 'filterform')); // FIXME redirect
