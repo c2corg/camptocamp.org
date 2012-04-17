@@ -66,7 +66,10 @@ $mobile_version = c2cTools::mobileVersion();
         if (!$mobile_version)
         {
             $width = 'auto';
-            $height = '350px';
+            if (!isset($height))
+            {
+                $height = '350px';
+            }
         }
         else
         {

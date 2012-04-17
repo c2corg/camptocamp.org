@@ -179,3 +179,27 @@ margin: 0;
   font-size: 1.3em;
   font-weight: bold;
 }
+
+.active .img_title
+{
+  background-color: #F47B22;
+}
+.inactive .img_title
+{
+  background-color: #B0B0B0;
+}
+
+#filterform 
+{
+  font-size: 14px;
+}
+
+#filterform .col_left, #filterform .col_right
+{
+  min-width: 0;
+}
+
+#filterform label
+{
+  margin-right: 1.5em;
+}

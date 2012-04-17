@@ -226,7 +226,7 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
     return select_tag($name, $option_tags, $select_param);
 }
 
-function around_selector($name)
+function around_selector($name, $multiline = false)
 {
     // note that all javascript is handled in geocode_autocompleter.js
     // we should separate Geocode.Autocompleter and the code specific to the selector
@@ -263,6 +263,10 @@ function around_selector($name)
 
     // range input
     $out .= '<span id="' . $name . '_range_span">';
+    if ($multiline)
+    {
+        $out .= '<br />';
+    }
     $out .= __('within km: ');
     $out .= input_tag($name . '_range', 5, array('value' => '10', 'class' => 'short_input'));
     $out .= ' ' . __('kilometers');
