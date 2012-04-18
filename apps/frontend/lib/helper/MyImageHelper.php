@@ -37,6 +37,6 @@ function display_picture($filename, $size = 'big', $target_size = null, $title =
     $absolute_url = absolute_link($target_image_url, true);
     $image_options = empty($title) ? null : array('title' => $title, 'alt' => $title);
 
-    return '<div class="picture"><a title="' . __($title) . '" href="' . $absolute_url . '">' . 
-           image_tag($image_url, $image_options) . '</a></div><div class="picture_right"></div>';
+    return '<figure class="picture"><a title="' . __($title) . '" href="' . $absolute_url . '">' . 
+           image_tag($image_url, $image_options) . '</a></figure><div class="picture_right"></div>';
 }

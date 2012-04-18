@@ -1947,32 +1947,31 @@ all:
       1: easy
       2: medium
       3: difficult
-    difficulty_range:
-      ski:
-        param: trat
-        1: '<6'
-        2: '7~9'
-        3: '>10'
-      alpi:
-        param: grat
-        1: '<2'
-        2: '4~8'
-        3: '>10'
-      climbing:
-        param: grat
-        1: '<8'
-        2: '10~20'
-        3: '>22'
-      hiking:
-        param: hrat
-        1: '<2'
-        2: '3~4'
-        3: '>5'
-      snowshoeing:
-        param: wrat
-        1: 1
-        2: 2
-        3: '>3'
+    difficulty_range_ski:
+      param: trat
+      1: '<6'
+      2: '7~9'
+      3: '>10'
+    difficulty_range_alpi:
+      param: grat
+      1: '<2'
+      2: '4~8'
+      3: '>10'
+    difficulty_range_climbing:
+      param: grat
+      1: '<8'
+      2: '10~20'
+      3: '>22'
+    difficulty_range_hiking:
+      param: hrat
+      1: '<2'
+      2: '3~4'
+      3: '>5'
+    difficulty_range_snowshoeing:
+      param: wrat
+      1: 1
+      2: 2
+      3: '>3'
     elevation:
       0:
       1: short
