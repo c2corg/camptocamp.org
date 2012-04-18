@@ -4366,6 +4366,16 @@ class documentsActions extends c2cActions
 
             $criteria = array();
             
+            // tc criteria
+            if ($module == 'routes')
+            {
+                $criteria[] = 'tp=1-2-4-5';
+            }
+            else
+            {
+                $criteria[] = 'owtp=1';
+            }
+            
             // area criteria
             $this->addListParam($criteria, 'areas');
             $this->addAroundParam($criteria, 'arnd');
