@@ -215,12 +215,14 @@ class usersActions extends documentsActions
             {
                 // if not error message
                 $this->setError('Username and password do not match, please try again');
+                $this->statsdIncrement('failure');
             }
             else
             {
                 // session is opened, user interface personalization
                 $i18n_vars = array('%1%' => $user->getUsername());
                 $this->setNotice('Welcome %1%', $i18n_vars);
+                $this->statsdIncrement('success');
             }
 
             // redirect to requested page
@@ -287,10 +289,12 @@ class usersActions extends documentsActions
                     $msg = 'Thanks for signing up. You should receive an email with your password soon';
                     $referer = $this->getRequest()->getReferer();
                     $redirect = (strstr($referer,'signUp')) ? '@homepage' : $referer;
+                    $this->statsdIncrement('success');
                     return $this->setNoticeAndRedirect($msg, $redirect);
                 }
                 else
                 {
+                    $this->statsdIncrement('failure');
                     return $this->setErrorAndRedirect('Sign up failed, please try again', '@signUp');
                 }
             }
@@ -299,6 +303,7 @@ class usersActions extends documentsActions
                 // display form
                 $g = new Captcha();
                 $this->getUser()->setAttribute('captcha', $g->generate());
+                $this->statsdIncrement('captcha');
                 $this->setPageTitle($this->__('Signup'));
             }
         }
@@ -333,12 +338,14 @@ class usersActions extends documentsActions
                                     $this->__('lost password email title'),
                                     $user_private_data->getEmail());
 
+                $this->statsdIncrement('reset');
                 return $this->setNoticeAndRedirect('Your password has been reset, check your email',
                                                    '@homepage');
             }
             else
             {
                 // failed
+                $this->statsdIncrement('notfound');
                 return $this->setErrorAndRedirect('User not found, please retry',
                                                   'users/lostPassword');
             }
@@ -429,6 +436,7 @@ class usersActions extends documentsActions
                 $user_private_data->save();
             
                 $conn->commit();
+                $this->statsdIncrement('success');
 
                 // update cache
                 $this->clearCache('users', $user_id, false, 'view');
@@ -436,6 +444,7 @@ class usersActions extends documentsActions
             catch (Exception $e)
             {
                 $conn->rollback();
+                $this->statsdIncrement('failure');
             }
 
             // update user session
@@ -689,10 +698,12 @@ class usersActions extends documentsActions
             if ($this->getRequestParameter('reason') == 'sub')
             {
                  Sympa::subscribe($listname, $this->email);
+                 $this->statsdIncrement("$listname.subscribe");
             }
             else
             {
                  Sympa::unsubscribe($listname, $this->email);
+                 $this->statsdIncrement("$listname.unsubscribe");
             }
         }
 

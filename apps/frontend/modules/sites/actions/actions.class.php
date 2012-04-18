@@ -642,10 +642,18 @@ class sitesActions extends documentsActions
         $nb_results = $this->nb_results;
         if ($nb_results == 0) return;
 
+        $timer = new sfTimer();
         $sites = $this->pager->getResults('array');
-        
+        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
+
+        $timer = new sfTimer();
         Parking::addAssociatedParkings($sites, 'pt'); // add associated parkings infos to $sites
+        $this->statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
+
+        $timer = new sfTimer();
         Document::countAssociatedDocuments($sites, 'to', true);
+        $this->statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+
         $this->items = Language::parseListItems($sites, 'Site');
     }
 }

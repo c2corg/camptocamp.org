@@ -410,10 +410,18 @@ class hutsActions extends documentsActions
         $nb_results = $this->nb_results;
         if ($nb_results == 0) return;
         
+        $timer = new sfTimer();
         $huts = $this->pager->getResults('array');
+        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
 
+        $timer = new sfTimer();
         Parking::addAssociatedParkings($huts, 'ph'); // add associated parkings infos to $huts
+        $this->statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
+
+        $timer = new sfTimer();
         Document::countAssociatedDocuments($huts, 'hr', true);
+        $this->statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+
         $this->items = Language::parseListItems($huts, 'Hut');
     }
 }

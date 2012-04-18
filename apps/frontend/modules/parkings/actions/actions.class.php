@@ -164,9 +164,14 @@ class parkingsActions extends documentsActions
         $nb_results = $this->nb_results;
         if ($nb_results == 0) return;
 
+        $timer = new sfTimer();
         $parkings = $this->pager->getResults('array');
+        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
         
+        $timer = new sfTimer();
         Document::countAssociatedDocuments($parkings, 'pr', true);
+        $this->statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+
         $this->items = Language::parseListItems($parkings, 'Parking');
     }
 }

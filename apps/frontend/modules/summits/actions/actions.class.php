@@ -19,7 +19,7 @@ class summitsActions extends documentsActions
     public function executeView()
     {
         parent::executeView();
-        
+
         if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             $user = $this->getUser();
@@ -499,9 +499,14 @@ class summitsActions extends documentsActions
         $nb_results = $this->nb_results;
         if ($nb_results == 0) return;
 
+        $timer = new sfTimer();
         $summits = $this->pager->getResults('array');
-        
+        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
+
+        $timer = new sfTimer();
         Document::countAssociatedDocuments($summits, 'sr', true);
+        $this->statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+
         $this->items = Language::parseListItems($summits, 'Summit');
     }
 

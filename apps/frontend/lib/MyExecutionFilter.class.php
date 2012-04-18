@@ -33,6 +33,8 @@ class MyExecutionFilter extends sfExecutionFilter
 
     $viewName = null;
 
+    $statsdPrefix = c2cActions::statsdPrefix($moduleName, $actionName);
+
     if (sfConfig::get('sf_cache'))
     {
       $uri = sfRouting::getInstance()->getCurrentInternalUri();
@@ -101,13 +103,22 @@ class MyExecutionFilter extends sfExecutionFilter
           }
 
           // execute the action
+          $statsdTimer = new sfTimer();
           $actionInstance->preExecute();
+          c2cActions::statsdTiming('execution.action.preExecute', $statsdTimer->getElapsedTime(), $statsdPrefix);
+
+          $statsdTimer = new sfTimer();
           $viewName = $actionInstance->execute();
+          c2cActions::statsdTiming('execution.action.execute', $statsdTimer->getElapsedTime(), $statsdPrefix);
+
           if ($viewName == '')
           {
             $viewName = sfView::SUCCESS;
           }
+
+          $statsdTimer = new sfTimer();
           $actionInstance->postExecute();
+          c2cActions::statsdTiming('execution.action.postExecute', $statsdTimer->getElapsedTime(), $statsdPrefix);
 
           if (sfConfig::get('sf_debug') && sfConfig::get('sf_logging_enabled'))
           {
@@ -147,15 +158,23 @@ class MyExecutionFilter extends sfExecutionFilter
       }
 
       // get the view instance
+      $statsdTimer = new sfTimer();
       $viewInstance = $controller->getView($moduleName, $actionName, $viewName);
+      c2cActions::statsdTiming("execution.view.$viewName.getView", $statsdTimer->getElapsedTime(), $statsdPrefix);
 
+      $statsdTimer = new sfTimer();
       $viewInstance->initialize($context, $moduleName, $actionName, $viewName);
+      c2cActions::statsdTiming("execution.view.$viewName.initialize", $statsdTimer->getElapsedTime(), $statsdPrefix);
 
+      $statsdTimer = new sfTimer();
       $viewInstance->execute();
+      c2cActions::statsdTiming("execution.view.$viewName.execute", $statsdTimer->getElapsedTime(), $statsdPrefix);
 
       // render the view and if data is returned, stick it in the
       // action entry which was retrieved from the execution chain
+      $statsdTimer = new sfTimer();
       $viewData = $viewInstance->render();
+      c2cActions::statsdTiming("execution.view.$viewName.render", $statsdTimer->getElapsedTime(), $statsdPrefix);
 
       if (sfConfig::get('sf_debug') && sfConfig::get('sf_logging_enabled'))
       {

@@ -1010,7 +1010,9 @@ class routesActions extends documentsActions
         $nb_results = $this->nb_results;
         if ($nb_results == 0) return;
 
+        $timer = new sfTimer();
         $routes = $this->pager->getResults('array');
+        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
 
         // if they are criterias on the summit (snam, srnam, salt, styp)
         // we might have only some of the associated summits and not the 'best one' (ticket #337)
@@ -1024,8 +1026,14 @@ class routesActions extends documentsActions
            // $routes = Route::addBestSummitName($routes, '');
         }
 
+        $timer = new sfTimer();
         Parking::addAssociatedParkings($routes, 'pr'); // add associated parkings infos to $routes
+        $this->statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
+
+        $timer = new sfTimer();
         Document::countAssociatedDocuments($routes, 'ro', true); // number of associated outings
+        $this->statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+
         $this->items = Language::parseListItems($routes, 'Route');
     }
 }
