@@ -145,7 +145,7 @@ function generate_path()
         $path .= ' &gt; ' . link_to(ucfirst(__($module)), "@default_index?module=$module");
     }
 
-    return '<div id="path">' . $path . '</div>';
+    return '<nav id="path">' . $path . '</nav>';
 }
 
 function list_link($item, $module, $prefix = null)

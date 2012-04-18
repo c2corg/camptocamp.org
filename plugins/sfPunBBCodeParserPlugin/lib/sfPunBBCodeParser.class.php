@@ -485,7 +485,7 @@ class sfPunBBCodeParser
                              (empty($legend) ? '' : ' title="' . $legend . '"'));
         if ($centered)
         {
-            $image_tag = '</p><div class="center">'.$image_tag.'</div><p>';
+            $image_tag = '</p><figure class="center">'.$image_tag.'</figure><p>';
         }
 
         return $image_tag;
@@ -648,7 +648,7 @@ class sfPunBBCodeParser
         
         if ($show_legend)
         {
-              $image_tag = '<div' . $img_class . '>' . $image_tag;
+              $image_tag = '<figure' . $img_class . '>' . $image_tag;
               if (strpos($img_class, 'img_error') === false)
               {
                   $image_tag = $image_tag
@@ -657,7 +657,7 @@ class sfPunBBCodeParser
                               array('class' => 'picto_images view_details',
                                     'title'   => __('View image details')));
               }
-              $image_tag = $image_tag . $legend . '</div>';
+              $image_tag = $image_tag . '<figcaption>' . $legend . '</figcaption></figure>';
         }
 
         if ($centered)
