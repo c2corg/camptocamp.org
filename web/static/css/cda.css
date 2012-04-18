@@ -202,5 +202,15 @@ margin: 0;
 
 #filterform label
 {
-  margin-right: 1.5em;
+  margin-right: 1.2em;
+}
+
+#filterform select
+{
+  font-size: 14px;
+}
+
+#filterform #fs_area select
+{
+  font-size: 12px;
 }
