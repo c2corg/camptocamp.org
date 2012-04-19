@@ -4021,6 +4021,14 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
 "<p>Autres</p>\n"
 "<ul><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
+# [WARNING] needs_review
+msgid "cda_search_outings_tips"
+msgstr "Critères de recherche de récits de sorties"
+
+# [WARNING] needs_review
+msgid "cda_search_routes_tips"
+msgstr "Critères de recherche d'itinéraires"
+
 msgid "center"
 msgstr "centré"
 
@@ -4178,7 +4186,7 @@ msgstr "Licence des contenus"
 # [cda]
 # no uppercase
 msgid "contest"
-msgstr "participez au concours"
+msgstr "concours"
 
 # [WARNING] needs_review
 msgid "copyright image"
@@ -4388,7 +4396,7 @@ msgstr "bouché - passage sans problème"
 # [cda]
 # no uppercase
 msgid "ecomobility"
-msgstr "ecomobilité"
+msgstr "écomobilité"
 
 msgid "edit ?"
 msgstr "modifier&nbsp;?"

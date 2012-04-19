@@ -58,7 +58,7 @@ $mobile_version = c2cTools::mobileVersion();
     </div>
   </div>
   <div class='column row2 last span-15'>
-    <a href="/map?zoom=7&amp;lat=45.5&amp;lon=7&amp;layerNodes=public_transportations&amp;bgLayer=gmap_physical">
+    <a href="http://www.pre-prod.dev.camptocamp.org/map?zoom=7&lat=44.5&lon=3.3&layerNodes=public_transportations&bgLayer=gmap_physical">
       <?php
       $img_title = __('Map');
       echo image_tag('/static/images/cda/slide5.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));

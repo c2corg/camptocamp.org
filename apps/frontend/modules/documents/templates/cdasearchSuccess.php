@@ -1,5 +1,7 @@
 <?php
-use_helper('Form', 'FilterForm', 'General', 'MyForm', 'Button');
+use_helper('Form', 'Javascript', 'FilterForm', 'General', 'MyForm', 'Button');
+
+$response->addJavascript('/static/js/filter.js', 'last');
 
 $lang = $sf_user->getCulture();
 $type = $sf_params->get('type');
@@ -13,11 +15,17 @@ if ($type == 'routes')
 {
     $class_left .= ' active';
     $class_right .= ' inactive';
+    $filter_tips = __('cda_search_routes_tips');
+    $paragliding_tag = sfConfig::get('app_tags_paragliding');
+    $paragliding_tag = implode('/', $paragliding_tag);
+    $special_activities = array(8 => $paragliding_tag);
 }
 if ($type == 'outings')
 {
     $class_left .= ' inactive';
     $class_right .= ' active';
+    $filter_tips = __('cda_search_outings_tips');
+    $special_activities = array();
 }
 
 ?>
@@ -53,6 +61,7 @@ if ($type != 'outings')
 }
 ?></div>
 <?php if ($type != null): ?>
+<h2><?php echo $filter_tips; ?></h2>
 <div class="fake_clear"> &nbsp;</div>
 <?php
 echo form_tag("/documents/cdaredirect", array('id' => 'filterform')); // FIXME redirect
@@ -61,9 +70,7 @@ include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personal
 echo around_selector('arnd', true) . '<br />';
 
 $activities_raw = $sf_data->getRaw('activities');
-$paragliding_tag = sfConfig::get('app_tags_paragliding');
-$paragliding_tag = implode('/', $paragliding_tag);
-echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, array(8 => $paragliding_tag));
+echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities);
 echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
 echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select(array_map('__', sfConfig::get('app_cda_elevation'))));
 ?>
