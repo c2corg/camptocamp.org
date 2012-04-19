@@ -4353,7 +4353,6 @@ class documentsActions extends c2cActions
         $this->ranges = $ranges;
 
         $this->activities = array();
-        $this->getResponse()->addJavascript('/static/js/filter.js', 'last');
         $this->setTemplate('../../documents/templates/cdasearch');
         $this->setLayout('layout_cda');
         $this->getResponse()->setTitle('changerdapproche.org');
