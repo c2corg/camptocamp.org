@@ -6,7 +6,7 @@ $action = sfContext::getInstance()->getActionName();
 $id = $sf_params->get('id');
 $mw_contest_id = sfConfig::get('app_mw_contest_id');
 
-use_helper('MyMinify', 'MetaLink', 'Forum', 'Link', 'Language');
+use_helper('MyMinify', 'MetaLink', 'Forum', 'Link', 'Language', 'Ajax');
 
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
@@ -46,6 +46,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     </div>
   </div>
   <header id="page_header">
+    <?php echo ajax_feedback(); ?>
     <map name="map">
       <area shape="rect" coords="579,153,746,170" alt="<?php echo __('Moutainwilderness') ?>" href="http://www.mountainwilderness.fr" target="_blank" />
       <area shape="rect" coords="758,144,828,179" alt="camptocamp.org" href="http://www.camptocamp.org" target="_blank" />

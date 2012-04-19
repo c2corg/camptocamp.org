@@ -25,8 +25,8 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
 
     var request = '';
     if (this.service === 'geonames') {
-      request = 'http://ws.geonames.org/searchJSON?maxRows=10&featureClass=P&featureClass=T' +
-                '&callback=' + this.serviceCallbackPrefix + 
+      request = 'http://api.geonames.org/searchJSON?maxRows=10&featureClass=P&featureClass=T' +
+                '&username=c2corg&callback=' + this.serviceCallbackPrefix + 
                 '.handleJSON&lang=' + document.documentElement.lang + '&name_startsWith=' +
                 encodeURIComponent(this.getToken());
     } else {

@@ -39,12 +39,13 @@ c2corg.GeoNamesSearchCombo = Ext.extend(Ext.form.ComboBox, {
             proxy: new Ext.data.ScriptTagProxy({
                 // note: normally, we should put featureClass in baseParams, but we have to define it two times
                 // in order to get places and summits
-                url: 'http://ws.geonames.org/searchJSON?featureClass=P&featureClass=T',
+                url: 'http://api.geonames.org/searchJSON?featureClass=P&featureClass=T',
                 method: 'GET'
             }),
             baseParams: {
                 maxRows: '10',
-                lang: document.documentElement.lang
+                lang: document.documentElement.lang,
+                username: 'c2corg'
             },
             reader: new Ext.data.JsonReader({
                 idProperty: 'geonameId',
