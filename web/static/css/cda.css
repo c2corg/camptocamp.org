@@ -91,9 +91,10 @@
 a {
   text-decoration: none;
 }
+
 .column {
   float: left;
-  margin-right: 19px;
+  margin-right: 17px;
 }
 
 .column h2 {
@@ -117,7 +118,7 @@ a {
 }
 
 .span-5 {
-  width: 151px;
+  width: 153px;
 }
 
 .span-6 {
@@ -133,11 +134,11 @@ a {
 }
 
 .span-9 {
-  width: 326px;
+  width: 328px;
 }
 
 .span-15 {
-  width: 489px;
+  width: 493px;
 }
 
 .span-24 {
