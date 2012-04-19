@@ -1,6 +1,7 @@
 <?php
 use_helper('Form', 'Javascript', 'FilterForm', 'General', 'MyForm', 'Button');
 
+$response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/filter.js', 'last');
 
 $lang = $sf_user->getCulture();
