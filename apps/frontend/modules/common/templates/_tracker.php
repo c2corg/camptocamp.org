@@ -1,6 +1,9 @@
-<?php $k = c2cTools::mobileVersion() ? sfConfig::get('app_mobile_ganalytics_key') : sfConfig::get('app_ganalytics_key'); ?>
+<?php
+$k = c2cTools::mobileVersion() ? sfConfig::get('app_mobile_ganalytics_key') : sfConfig::get('app_ganalytics_key');
+$status = $sf_user->isConnected() ? 'Member' : 'Visitor';
+?>
 <script type="text/javascript">
-var _gaq = [['_setAccount', '<?php echo $k ?>'],['_setDomainName', 'none'],['_trackPageview'],['_trackPageLoadTime']];
+var _gaq = [['_setAccount', '<?php echo $k ?>'],['_setDomainName', 'none'],['_trackPageview'],['_trackPageLoadTime'],['_setCustomVar',1,'Status','<?php echo $status?>',2]];
 <?php if (!c2cTools::mobileVersion()): ?>_gaq.push(function() {pageTracker = _gat._getTracker('<?php echo $k ?>')});<?php endif ?>
 (function(d, t) { var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
 g.async = 1; g.src = '//www.google-analytics.com/ga.js'; s.parentNode.insertBefore(g, s); }(document, 'script'));
