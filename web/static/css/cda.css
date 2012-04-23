@@ -191,6 +191,11 @@ margin: 0;
   background-color: #B0B0B0;
 }
 
+h2
+{
+  margin-bottom: 1em;
+}
+
 #filterform 
 {
   font-size: 14px;

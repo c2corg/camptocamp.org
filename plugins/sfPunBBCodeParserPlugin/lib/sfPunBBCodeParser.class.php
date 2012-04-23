@@ -1411,8 +1411,6 @@ class sfPunBBCodeParser
         
         if ($new_marker_suffix != '~')  // description de longueur
         {
-            
-            
             if ($new_marker_suffix == '=')  // ligne de titre
             {
                 $header_line = true;
@@ -1539,7 +1537,17 @@ class sfPunBBCodeParser
                     {
                         $multi_line_index += $line_index; 
                     }
-                    $row_header .= ' - ' . $marker_type . $multi_line_index . $line_suffix;
+                    
+                    if (preg_match('#^(\w)#', $line_suffix))
+                    {
+                        $separator = ' - ';
+                    }
+                    else
+                    {
+                        $separator = '&nbsp;-&nbsp;';
+                    }
+
+                    $row_header .= $separator . $marker_type . $multi_line_index . $line_suffix;
                     $line_index = $multi_line_index;
                     if (empty($line_suffix))
                     {
@@ -1630,7 +1638,17 @@ class sfPunBBCodeParser
                     {
                         $multi_line_index += $abseil_index; 
                     }
-                    $row_header .= ' - ' . $marker_type . $multi_line_index . $abseil_suffix;
+                    
+                    if (preg_match('#^(\w)#', $abseil_suffix))
+                    {
+                        $separator = ' - ';
+                    }
+                    else
+                    {
+                        $separator = '&nbsp;-&nbsp;';
+                    }
+
+                    $row_header .= $separator . $marker_type . $multi_line_index . $abseil_suffix;
                     $abseil_index = $multi_line_index;
                     if (empty($abseil_suffix))
                     {
