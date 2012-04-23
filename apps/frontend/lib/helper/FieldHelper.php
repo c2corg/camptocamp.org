@@ -115,17 +115,17 @@ function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_ma
 	return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
 }
 
-function field_data_from_list($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '', $title_id = null)
+function field_data_from_list($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '', $title_id = null, $new_items = array())
 {
     if (empty($title))
     {
         $title = $name;
     }
 
-    return _format_data_from_list($title, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix, $title_id, false);
+    return _format_data_from_list($title, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix, $title_id, false, $new_items);
 }
 
-function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '', $title_id = null)
+function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '', $title_id = null, $new_items = array())
 {
     $value = $document->getRaw($name);
     if (!check_not_empty($value) || $value == '0')
@@ -146,7 +146,7 @@ function field_data_from_list_if_set($document, $name, $config, $multiple = fals
         $title = $name;
     }
 
-    return _format_data_from_list($title, $value, $config, $multiple, $raw, $prefix, $suffix, $title_id, true);
+    return _format_data_from_list($title, $value, $config, $multiple, $raw, $prefix, $suffix, $title_id, true, $new_items);
 }
 
 function field_data_range_from_list($document, $name_min, $name_max, $name_if_equal = '', $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
@@ -424,9 +424,16 @@ function _format_data_range($name, $value_min, $value_max, $raw = false, $separa
     return $text;
 }
 
-function _format_data_from_list($name, $value, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $id = null, $ifset = false)
+function _format_data_from_list($name, $value, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $id = null, $ifset = false, $new_items = array())
 {
     $list = sfConfig::get($config);
+    if (count($new_items))
+    {
+        foreach ($new_items as $key => $item)
+        {
+            $list[$key] = $item;
+        }
+    }
     if (!empty($value))
     {
         if ($multiple)

@@ -24,15 +24,16 @@ $activities = $document->getRaw('activities');
     }
     
     li(field_data_from_list_if_set($document, 'facing', 'app_routes_facings'));
-    if (array_intersect(array(2,3,4,5), $activities)) // snow or mountain, rock or ice_climbing
+    $new_items = array();
+    if (!array_intersect(array(2,3,4,5), $activities)) // neither snow nor mountain, rock nor ice_climbing
     {
-        $route_types_list = 'mod_routes_route_types_list';
+        $new_items[1] = 'return_same_way_easy';
     }
-    else
+    if (!$has_associated_huts)
     {
-        $route_types_list = 'mod_routes_route_types_easy_list';
+        $new_items[2] = 'loop_short';
     }
-    li(field_data_from_list_if_set($document, 'route_type', $route_types_list));
+    li(field_data_from_list_if_set($document, 'route_type', 'mod_routes_route_types_list', false, false, '', '', '', null, $new_items));
     
     $duration = field_data_from_list_if_set($document, 'duration', 'mod_routes_durations_list');
     if ($duration)

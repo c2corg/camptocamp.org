@@ -21,7 +21,8 @@ display_page_header('routes', $document, $id, $metadata, $current_version, $high
 // lang-independent content starts here
 
 echo start_section_tag('Information', 'data');
-include_partial('data', array('document' => $document));
+$has_associated_huts = count($associated_huts);
+include_partial('data', array('document' => $document, 'has_associated_huts' => $has_associated_huts));
 
 if ($is_not_archive)
 {
