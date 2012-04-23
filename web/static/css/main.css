@@ -492,7 +492,9 @@ em.mandatory_asterisk
   padding: 3px;
   border: 1px solid #CCCCCC;
   font-size: 0.9em;
+  text-align: left;
 }
+
 .img_box.no_border
 {
   border: 0;
