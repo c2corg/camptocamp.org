@@ -94,7 +94,7 @@ form.search, .sbox,
 /* embedded videos */
 .video,
 /* do not print "personal images will soon be deprecated in collaborative documents" */
-.img_warning figcaption,
+.img_warning figcaption
 {
   display: none !important;
   clear: none !important;
