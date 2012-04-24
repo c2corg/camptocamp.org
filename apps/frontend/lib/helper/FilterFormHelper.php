@@ -120,16 +120,30 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
     $col = 0;
     $col_item = 0;
     $activities = sfConfig::get('app_activities_form');
+    if (!$multiple)
+    {
+        foreach($merged_activities as $key => $value)
+        {
+            $activities[$key] = $value;
+        }
+    }
     foreach($unavailable_activities as $key => $value)
     {
-        if (empty($value) && array_key_exists($key, $activities))
+        if (array_key_exists($key, $activities) && (empty($value) || !$multiple))
         {
             unset($activities[$key]);
         }
+        if (!empty($value) && !$multiple)
+        {
+            $activities[$key] = $value;
+        }
     }
-    foreach($merged_activities as $key => $value)
+    if ($multiple)
     {
-        $activities[$key] = $value;
+        foreach($merged_activities as $key => $value)
+        {
+            $activities[$key] = $value;
+        }
     }
     $item_max = count($activities) - 1;
     $col_item_max = ceil(count($activities)/2) - 1;
