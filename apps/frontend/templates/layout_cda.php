@@ -86,7 +86,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
           <li><img alt="Aquitaine" title="Aquitaine" src="/static/images/cda/Aquitaine.jpg"></li>
           <li><img alt="PACA" title="PACA" src="/static/images/cda/paca_70.jpg"></li>
         </ul>
-        <p class="credentials"><?php echo __('changerdapproche is financed by EU'); ?></p>
+        <p class="credentials"><?php echo __('cda partners tips'); ?></p>
       </div>
     </div>
   </div>
