@@ -114,7 +114,7 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $
     return select_tag($fieldname, $option_tags);
 }
 
-function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array(), $unavailable_activities = array(), $merged_activities = array())
+function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array(), $unavailable_activities = array(), $merged_activities = array(), $multiple = true)
 {
     $out = array();
     $col = 0;
@@ -149,6 +149,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
             {
                 $param = $tag[0];
                 $value = $tag[1];
+                $ckeckbox = true;
             }
             else
             {
@@ -159,6 +160,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         {
             $param = 'act';
             $value = $activity_id;
+            $ckeckbox = $multiple;
         }
         
         if ($col_item == 0)
@@ -185,8 +187,15 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
             }
             $label_text .= __($activity);
         }
-        $out[] = checkbox_tag($param . '[]', $value, $checked, $options) 
-                 . ' ' . 
+        if ($ckeckbox)
+        {
+            $input_tag = checkbox_tag($param . '[]', $value, $checked, $options);
+        }
+        else
+        {
+            $input_tag = radiobutton_tag($param . '[]', $value, $checked, $options);
+        }
+        $out[] = $input_tag . ' ' . 
                  label_for($param . '_' . $value, $label_text);
         
         if ($col_item == $col_item_max || ($col * $col_item_max +  $col_item == $item_max))
