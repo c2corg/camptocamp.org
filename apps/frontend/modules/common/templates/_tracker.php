@@ -3,7 +3,7 @@ $k = c2cTools::mobileVersion() ? sfConfig::get('app_mobile_ganalytics_key') : sf
 // keep connection status with analytics
 $status = $sf_user->isConnected() ? 'Member' : 'Visitor';
 // track forum id on viewtopic and viewforum pages
-$forum_track = isset($tracker_forum_id) ? ",['_setCustomVar',2,'Forum Id','$tracker_forum_id',3]": '';
+$forum_track = isset($tracker_forum_id) ? ",['_setCustomVar',2,'Forum','$tracker_forum_id',3]": '';
 ?>
 <script type="text/javascript">
 var _gaq = [['_setAccount','<?php echo $k ?>'],['_setDomainName','none'],['_setCustomVar',1,'Status','<?php echo $status?>',2]<?php echo $forum_track ?>,['_trackPageview']];
