@@ -35,31 +35,51 @@ if ($type == 'outings')
 
 ?>
 
-<div class="column span-6<?php echo $class_left; ?>">
+<div class="column span-6">
 <?php
 if ($type != 'routes')
 {
     echo '<a href="' . url_for('@cdasearch_by_type?lang=' . $lang . '&type=routes') . '">';
 }
 $img_title = __('Search routes');
-$img = ($type != null) ? '/static/images/cda/slide6a_small.jpg' : '/static/images/cda/slide6a.jpg';
+if ($type == null) {
+  $img = '/static/images/cda/slide6a.jpg';
+  $nobg = '';
+} else {
+    $nobg = ' nobg';
+    if ($type == 'routes') {
+        $img = '/static/images/cda/slide6a_small.jpg';
+    } else {
+        $img = '/static/images/cda/slide6a_small_inactive.jpg';
+    }
+}
 echo image_tag($img, array('alt' => $img_title, 'title' => $img_title));
-echo '<div class="img_title">' . $img_title . '</div>';
+echo '<div class="img_title' . $nobg . '">' . $img_title . '</div>';
 if ($type != 'routes')
 {
     echo '</a>';
 }
 ?></div>
-<div class="column last span-6<?php echo $class_right; ?>">
+<div class="column last span-6">
 <?php
 if ($type != 'outings')
 {
     echo '<a href="' . url_for('@cdasearch_by_type?lang=' . $lang . '&type=outings') . '">';
 }
 $img_title = __('Search outings');
-$img = ($type != null) ? '/static/images/cda/slide7a_small.jpg' : '/static/images/cda/slide7a.jpg';
+if ($type == null) {
+  $img = '/static/images/cda/slide7a.jpg';
+  $nobg = '';
+} else {
+    $nobg = ' nobg';
+    if ($type == 'outings') {
+        $img = '/static/images/cda/slide7a_small.jpg';
+    } else {
+        $img = '/static/images/cda/slide7a_small_inactive.jpg';
+    }
+}
 echo image_tag($img, array('alt' => $img_title, 'title' =>  $img_title));
-echo '<div class="img_title">' . $img_title . '</div>';
+echo '<div class="img_title' . $nobg . '">' . $img_title . '</div>';
 if ($type != 'outings')
 {
     echo '</a>';
