@@ -839,3 +839,21 @@ function c2c_button($value, $options, $btn = null)
     return '<span class="'. $class . '"><span class="c2cui_btno"><span class="c2cui_btnin' .
            $picto . '">' . $value . '</span></span>' . $btn . '</span>';
 }
+
+function my_radiobutton_tag($name, $value, $checked = false, $options = array())
+{
+    $id = str_replace('[]', '', $name);
+    if ($value != null)
+    {
+        $id .= '_' . $value;
+    }
+    
+    $html_options = array_merge(array('type' => 'radio', 'name' => $name, 'id' => get_id_from_name($id, $value), 'value' => $value), _convert_options($options));
+
+    if ($checked)
+    {
+        $html_options['checked'] = 'checked';
+    }
+
+    return tag('input', $html_options);
+}

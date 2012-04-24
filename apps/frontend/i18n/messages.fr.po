@@ -127,6 +127,9 @@ msgstr "Ajoutez votre itinéraire"
 msgid "Add your summit"
 msgstr "Ajoutez votre sommet"
 
+msgid "Advanced search"
+msgstr "Recherche avancée"
+
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "<b>Quand vous aurez rempli le formulaire ci-dessous, vous recevrez un email contenant votre mot de passe. Vous devrez vous connecter d'ici %1% jours pour que votre compte soit validé.</b><br />\n"
 "<br />\n"
@@ -5405,6 +5408,9 @@ msgstr "environnement montagnard"
 msgid "mountain_climbing"
 msgstr "rocher haute montagne"
 
+msgid "mountaineering"
+msgstr "alpinisme"
+
 # [general comment]
 # [cda]
 msgid "mountainwilderness"
@@ -6068,7 +6074,7 @@ msgid "raid"
 msgstr "raid"
 
 msgid "raid portal"
-msgstr "Raids, hautes routes et expéditions"
+msgstr "Raids et expéditions"
 
 msgid "rain_proof"
 msgstr "Pluie&nbsp;:"

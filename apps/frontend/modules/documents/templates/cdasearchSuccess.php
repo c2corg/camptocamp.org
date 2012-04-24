@@ -12,8 +12,11 @@ if ($type != null)
 {
     $class_left = $class_right = ' folded';
 }
+
+$activities_raw = $sf_data->getRaw('activities');
 $special_activities = array(2 => '', 3 => '', 5 => '');
 $merged_activities = array('2-3-5' => 'mountaineering');
+$multiple_activities = array(8);
 if ($type == 'routes')
 {
     $class_left .= ' active';
@@ -67,13 +70,16 @@ if ($type != 'outings')
 <div class="fake_clear"> &nbsp;</div>
 <?php
 echo form_tag("/documents/cdaredirect", array('id' => 'filterform')); // FIXME redirect
+
 echo input_hidden_tag('module', $type, array('id' => 'module'));
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false, 'height' => '300px'));
+
 echo around_selector('arnd', true) . '<br />';
 
-$activities_raw = $sf_data->getRaw('activities');
-echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities, false);
+echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities, $multiple_activities);
+
 echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
+
 echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select(array_map('__', sfConfig::get('app_cda_elevation'))));
 ?>
 <br />

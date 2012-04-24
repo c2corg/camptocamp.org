@@ -3,7 +3,7 @@
  * $Id: FilterFormHelper.php 2538 2007-12-20 16:08:35Z alex $
  */
 
-use_helper('Form', 'Javascript');
+use_helper('Form', 'MyForm', 'Javascript');
 
 function elevation_selector($fieldname, $unit = 'meters')
 {
@@ -120,6 +120,17 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
     $col = 0;
     $col_item = 0;
     $activities = sfConfig::get('app_activities_form');
+    
+    $multiple_activities = array();
+    if (is_array($multiple))
+    {
+        if (count($multiple))
+        {
+            $multiple_activities = $multiple;
+        }
+        $multiple = false;
+    }
+    
     if (!$multiple)
     {
         foreach($merged_activities as $key => $value)
@@ -131,11 +142,12 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
     {
         if (array_key_exists($key, $activities) && (empty($value) || !$multiple))
         {
+            $activity = $activities[$key];
             unset($activities[$key]);
         }
         if (!empty($value) && !$multiple)
         {
-            $activities[$key] = $value;
+            $activities[$key] = $activity;
         }
     }
     if ($multiple)
@@ -145,6 +157,16 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
             $activities[$key] = $value;
         }
     }
+    else
+    {
+        foreach($multiple_activities as $key)
+        {
+            $activity = $activities[$key];
+            unset($activities[$key]);
+            $activities[$key] = $activity;
+        }
+    }
+    
     $item_max = count($activities) - 1;
     $col_item_max = ceil(count($activities)/2) - 1;
 
@@ -174,7 +196,14 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         {
             $param = 'act';
             $value = $activity_id;
-            $ckeckbox = $multiple;
+            if (in_array($activity_id, $multiple_activities))
+            {
+                $ckeckbox = true;
+            }
+            else
+            {
+                $ckeckbox = $multiple;
+            }
         }
         
         if ($col_item == 0)
@@ -185,7 +214,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         
         $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
                             : array();
-        $checked = in_array($activity_id, $filtered_activities) ? true : false; 
+        $checked = in_array($activity_id, $filtered_activities) ? true : false;
 
         $activity_id_list = explode('-', $activity_id);
         if (count($activity_id_list) == 1)
@@ -207,7 +236,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         }
         else
         {
-            $input_tag = radiobutton_tag($param . '[]', $value, $checked, $options);
+            $input_tag = my_radiobutton_tag($param . '[]', $value, $checked, $options);
         }
         $out[] = $input_tag . ' ' . 
                  label_for($param . '_' . $value, $label_text);
