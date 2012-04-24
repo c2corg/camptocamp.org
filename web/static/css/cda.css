@@ -220,3 +220,8 @@ h2
 {
   font-size: 12px;
 }
+
+#filterform  a
+{
+  text-decoration: underline;
+}
