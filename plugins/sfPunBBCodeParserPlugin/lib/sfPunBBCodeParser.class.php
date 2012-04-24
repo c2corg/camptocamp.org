@@ -1538,7 +1538,7 @@ class sfPunBBCodeParser
                         $multi_line_index += $line_index; 
                     }
                     
-                    if (preg_match('#^(\w)#', $line_suffix))
+                    if (preg_match('#^&nbsp;#', $line_suffix))
                     {
                         $separator = ' - ';
                     }
@@ -1639,7 +1639,7 @@ class sfPunBBCodeParser
                         $multi_line_index += $abseil_index; 
                     }
                     
-                    if (preg_match('#^(\w)#', $abseil_suffix))
+                    if (preg_match('#^&nbsp;#', $abseil_suffix))
                     {
                         $separator = ' - ';
                     }
