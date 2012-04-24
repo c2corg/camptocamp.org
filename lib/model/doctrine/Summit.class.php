@@ -89,31 +89,31 @@ class Summit extends BaseSummit
         self::buildAreaCriteria($conditions, $values, $params_list, 's');
 
         // summit criteria
-        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, true);
+        Summit::buildSummitListCriteria($conditions, $values, $params_list, true);
 
         // route criteria
-        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.linked_id');
+        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.linked_id');
         self::buildConditionItem($conditions, $values, 'Array', array('r', 'r', 'activities'), 'act', 'join_route', false, $params_list);
  
         // hut criteria
-        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.main_id');
+        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
 
         // parking criteria
-        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
        
         // outing criteria
-        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
+        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
         
         // user criteria
-        User::buildUserListCriteria(&$conditions, &$values, $params_list, false, 'lu.main_id');
+        User::buildUserListCriteria($conditions, $values, $params_list, false, 'lu.main_id');
 
         // book criteria
-        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 's');
+        Book::buildBookListCriteria($conditions, $values, $params_list, false, 's');
         self::buildConditionItem($conditions, $values, 'Id', 'lsb.main_id', 'books', 'join_sbook_id', false, $params_list);
-        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
+        Book::buildBookListCriteria($conditions, $values, $params_list, false, 'r');
         
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria($conditions, $values, $params_list, false);
 
         if (!empty($conditions))
         {

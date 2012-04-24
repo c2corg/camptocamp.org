@@ -421,27 +421,27 @@ class Image extends BaseImage
         self::buildAreaCriteria($conditions, $values, $params_list, 'i');
         
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, true);
+        Image::buildImageListCriteria($conditions, $values, $params_list, true);
         self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'documents', 'join_itag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Join', '', 'join', 'id_has', false, $params_list);
 
         // summit criteria
-        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
 
         // hut criteria
-        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.main_id');
+        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
 
         // parking criteria
-        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
 
         // route criteria
-        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.main_id');
+        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.main_id');
 
         // site criteria
-        Site::buildSiteListCriteria(&$conditions, &$values, $params_list, false, 'lt.main_id');
+        Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.main_id');
         
         // outing criteria
-        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.main_id');
+        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.main_id');
         
         // user criteria
         self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user_id', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)

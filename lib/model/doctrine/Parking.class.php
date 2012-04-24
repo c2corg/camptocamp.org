@@ -105,25 +105,25 @@ class Parking extends BaseParking
         self::buildAreaCriteria($conditions, $values, $params_list, 'p');
 
         // parking criteria
-        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, true);
+        Parking::buildParkingListCriteria($conditions, $values, $params_list, true);
 
         // hut criteria
-        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.linked_id');
+        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.linked_id');
 
         // route criteria
-        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.linked_id');
+        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.linked_id');
 
         // summit criteria
-        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
 
         // site criteria
-        Site::buildSiteListCriteria(&$conditions, &$values, $params_list, false, 'lt.linked_id');
+        Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.linked_id');
        
         // outing criteria
-        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
+        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
         
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria($conditions, $values, $params_list, false);
 
         if (!empty($conditions))
         {

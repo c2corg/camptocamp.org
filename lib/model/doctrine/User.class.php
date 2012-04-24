@@ -314,19 +314,19 @@ class User extends BaseUser
         }
         
         // user criteria
-        User::buildUserListCriteria(&$conditions, &$values, $params_list, true);
+        User::buildUserListCriteria($conditions, $values, $params_list, true);
        
         // outing criteria
-        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
+        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
 
         // route criteria
-        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.main_id');
+        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.main_id');
 
         // summit criteria
-        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
         
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false, 'li.document_id');
+        Image::buildImageListCriteria($conditions, $values, $params_list, false, 'li.document_id');
 
         if (!empty($conditions))
         {

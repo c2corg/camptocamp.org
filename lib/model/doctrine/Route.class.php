@@ -407,30 +407,30 @@ class Route extends BaseRoute
         self::buildAreaCriteria($conditions, $values, $params_list, 'r');
 
         // summit criteria
-        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
 
         // hut criteria
-        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.main_id');
+        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
 
         // parking criteria
         self::buildConditionItem($conditions, $values, 'Config', '', 'haspark', 'join_hasparking', false, $params_list);
-        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
 
         // route criteria
-        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, true);
+        Route::buildRouteListCriteria($conditions, $values, $params_list, true);
        
         // outing criteria
-        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
+        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
         
         // user criteria
-        User::buildUserListCriteria(&$conditions, &$values, $params_list, false, 'lu.main_id');
+        User::buildUserListCriteria($conditions, $values, $params_list, false, 'lu.main_id');
 
         // book criteria
-        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
+        Book::buildBookListCriteria($conditions, $values, $params_list, false, 'r');
         self::buildConditionItem($conditions, $values, 'Id', 'lrb.main_id', 'books', 'join_rbook_id', false, $params_list);
         
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria($conditions, $values, $params_list, false);
 
         if (!empty($conditions))
         {

@@ -213,31 +213,31 @@ class Outing extends BaseOuting
         self::buildAreaCriteria($conditions, $values, $params_list, 'o');
         
         // outing criteria
-        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, true);
+        Outing::buildOutingListCriteria($conditions, $values, $params_list, true);
 
         // summit criteria
-        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
 
         // hut criteria
-        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.main_id');
+        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
 
         // parking criteria
-        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
 
         // route criteria
-        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.main_id');
+        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.main_id');
 
         // site criteria
-        Site::buildSiteListCriteria(&$conditions, &$values, $params_list, false, 'lt.main_id');
+        Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.main_id');
 
         // book criteria
-        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'r');
+        Book::buildBookListCriteria($conditions, $values, $params_list, false, 'r');
 
         // user criteria
-        User::buildUserListCriteria(&$conditions, &$values, $params_list, false, 'lu.main_id');
+        User::buildUserListCriteria($conditions, $values, $params_list, false, 'lu.main_id');
 
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria($conditions, $values, $params_list, false);
 
         if (!empty($conditions))
         {

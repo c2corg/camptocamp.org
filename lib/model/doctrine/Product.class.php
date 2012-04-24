@@ -72,16 +72,16 @@ class Product extends BaseProduct
         self::buildAreaCriteria($conditions, $values, $params_list, 'p');
 
         // product criteria
-        Product::buildProductListCriteria(&$conditions, &$values, $params_list, true);
+        Product::buildProductListCriteria($conditions, $values, $params_list, true);
 
         // parking criteria
-        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id', 'q');
+        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id', 'q');
 
         // hut criteria
-        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, false, 'lh.linked_id');
+        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.linked_id');
         
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria($conditions, $values, $params_list, false);
 
         if (!empty($conditions))
         {

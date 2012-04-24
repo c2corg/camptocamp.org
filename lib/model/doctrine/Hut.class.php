@@ -117,29 +117,29 @@ class Hut extends BaseHut
         self::buildAreaCriteria($conditions, $values, $params_list, 'h');
 
         // hut criteria
-        Hut::buildHutListCriteria(&$conditions, &$values, $params_list, true);
+        Hut::buildHutListCriteria($conditions, $values, $params_list, true);
 
         // route criteria
-        Route::buildRouteListCriteria(&$conditions, &$values, $params_list, false, 'lr.linked_id');
+        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.linked_id');
 
         // parking criteria
-        Parking::buildParkingListCriteria(&$conditions, &$values, $params_list, false, 'lp.main_id');
+        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
 
         // summit criteria
-        Summit::buildSummitListCriteria(&$conditions, &$values, $params_list, false, 'ls.main_id');
+        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
 
         // site criteria
-        Site::buildSiteListCriteria(&$conditions, &$values, $params_list, false, 'lt.linked_id');
+        Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.linked_id');
        
         // outing criteria
-        Outing::buildOutingListCriteria(&$conditions, &$values, $params_list, false, 'lo.linked_id');
+        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
 
         // book criteria
-        Book::buildBookListCriteria(&$conditions, &$values, $params_list, false, 'h');
+        Book::buildBookListCriteria($conditions, $values, $params_list, false, 'h');
         self::buildConditionItem($conditions, $values, 'Id', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
         
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria($conditions, $values, $params_list, false);
 
         if (!empty($conditions))
         {
