@@ -6,15 +6,7 @@ $item_id = $item_i18n['id'];
 ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <td><?php
-$cda_config = sfConfig::get('app_portals_cda');
-if ($item_id == $cda_config['id'])
-{
-    echo '<a href="http://' . $cda_config['host'] . '">' . $item_i18n['name'] . '</a>';
-}
-else
-{
-    echo list_link($item_i18n, 'portals');
-}
+echo list_link($item_i18n, 'portals');
 ?></td>
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></td>

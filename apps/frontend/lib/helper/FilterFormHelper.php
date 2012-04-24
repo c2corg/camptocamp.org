@@ -114,12 +114,23 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $
     return select_tag($fieldname, $option_tags);
 }
 
-function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array(), $unavailable_activities = array())
+function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array(), $unavailable_activities = array(), $merged_activities = array())
 {
     $out = array();
     $col = 0;
     $col_item = 0;
     $activities = sfConfig::get('app_activities_form');
+    foreach($unavailable_activities as $key => $value)
+    {
+        if (empty($value) && array_key_exists($key, $activities))
+        {
+            unset($activities[$key]);
+        }
+    }
+    foreach($merged_activities as $key => $value)
+    {
+        $activities[$key] = $value;
+    }
     $item_max = count($activities) - 1;
     $col_item_max = ceil(count($activities)/2) - 1;
 
@@ -133,18 +144,11 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
     {
         if (array_key_exists($activity_id, $unavailable_activities))
         {
-            if (!empty($unavailable_activities[$activity_id]))
+            $tag = explode('/', $unavailable_activities[$activity_id]);
+            if (count($tag) == 2)
             {
-                $tag = explode('/', $unavailable_activities[$activity_id]);
-                if (count($tag) == 2)
-                {
-                    $param = $tag[0];
-                    $value = $tag[1];
-                }
-                else
-                {
-                    continue;
-                }
+                $param = $tag[0];
+                $value = $tag[1];
             }
             else
             {
@@ -167,7 +171,20 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
                             : array();
         $checked = in_array($activity_id, $filtered_activities) ? true : false; 
 
-        $label_text = '<span class="activity_' . $activity_id . '">' . __($activity) . '</span>';
+        $activity_id_list = explode('-', $activity_id);
+        if (count($activity_id_list) == 1)
+        {
+            $label_text = '<span class="activity_' . $activity_id . '">' . __($activity) . '</span>';
+        }
+        else
+        {
+            $label_text = '';
+            foreach($activity_id_list as $id)
+            {
+                $label_text .= '<span class="activity_' . $id . '"></span>';
+            }
+            $label_text .= __($activity);
+        }
         $out[] = checkbox_tag($param . '[]', $value, $checked, $options) 
                  . ' ' . 
                  label_for($param . '_' . $value, $label_text);

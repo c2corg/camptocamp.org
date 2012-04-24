@@ -12,6 +12,8 @@ if ($type != null)
 {
     $class_left = $class_right = ' folded';
 }
+$special_activities = array(2 => '', 3 => '', 5 => '');
+$merged_activities = array('2-3-5' => 'mountaineering');
 if ($type == 'routes')
 {
     $class_left .= ' active';
@@ -19,14 +21,13 @@ if ($type == 'routes')
     $filter_tips = __('cda_search_routes_tips');
     $paragliding_tag = sfConfig::get('app_tags_paragliding');
     $paragliding_tag = implode('/', $paragliding_tag);
-    $special_activities = array(8 => $paragliding_tag);
+    $special_activities[8] = $paragliding_tag;
 }
 if ($type == 'outings')
 {
     $class_left .= ' inactive';
     $class_right .= ' active';
     $filter_tips = __('cda_search_outings_tips');
-    $special_activities = array();
 }
 
 ?>
@@ -71,7 +72,7 @@ include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personal
 echo around_selector('arnd', true) . '<br />';
 
 $activities_raw = $sf_data->getRaw('activities');
-echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities);
+echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities);
 echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
 echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select(array_map('__', sfConfig::get('app_cda_elevation'))));
 ?>
@@ -81,6 +82,9 @@ echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select(arra
 echo c2c_reset_tag(__('Cancel'), array('picto' => 'action_cancel'));
 echo c2c_submit_tag(__('Search on c2c'), array('picto' => 'action_filter', 'class' => 'main_button'));
 ?>
+<br />
+<br />
+<?php echo '<a href="/' . $type . '/filter">' . __('Advanced search') . '</a>' ?>
 </form>
 <?php endif?>
 <div class="fake_clear"> &nbsp;</div>

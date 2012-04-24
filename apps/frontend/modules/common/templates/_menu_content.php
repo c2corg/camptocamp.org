@@ -186,7 +186,7 @@ show_select=function()
                             <li><?php
                                 $cda_config = sfConfig::get('app_portals_cda');
                                 echo picto_tag('picto_portals')
-                                ?><a href="http://<?php echo $cda_config['host'] ?>/"><?php echo __('changerdapproche') ?></a></li>
+                                   . link_to(__($cda_config['name']), '@document_by_id?module=portals&id=' . $cda_config['id']) ?></li>
                             <li><?php
                                 $ice_config = sfConfig::get('app_portals_ice');
                                 echo picto_tag('picto_portals')

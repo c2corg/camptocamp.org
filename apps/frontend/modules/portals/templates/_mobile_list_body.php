@@ -6,15 +6,7 @@ $item_id = $item_i18n['id'];
 ?>
 <div class="right"><?php echo get_paginated_activities($item['activities']) ?></div>
 <div><?php
-$cda_config = sfConfig::get('app_portals_cda');
-if ($item_id == $cda_config['id'])
-{
-    echo '<a href="http://' . $cda_config['host'] . '">' . $item_i18n['name'] . '</a>';
-}
-else
-{
-    echo list_link($item_i18n, 'portals');
-}
+echo list_link($item_i18n, 'portals');
 ?></div>
 <div><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></div>
 <div><?php echo picto_tag('picto_images', __('nb_linked_images')), ' ', (isset($item['nb_images'])) ?  $item['nb_images'] : '0', ' ',
