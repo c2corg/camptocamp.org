@@ -177,7 +177,7 @@ if (isset($_GET['tid']))
 					<legend><?php echo $lang_misc['Confirm delete legend'] ?></legend>
 					<div class="infldset">
 						<input type="hidden" name="posts" value="<?php echo implode(',', array_keys($posts)) ?>" />
-						<p class="delete_tips"><strong><?php echo $lang_misc['Delete posts comply'] ?><strong></p>
+						<p class="delete_tips"><strong><?php echo $lang_misc['Delete posts comply'] ?></strong></p>
 					</div>
 				</fieldset>
 			</div>
@@ -740,7 +740,7 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
     }
     ?>
                         <p><?php echo $lang_common['Forum'].' : <strong><a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>
-						<p><?php echo $lang_misc['Delete topics comply'] ?></p>
+						<p class="delete_tips"><strong><?php echo $lang_misc['Delete topics comply'] ?></strong></p>
 					</div>
 				</fieldset>
 			</div>

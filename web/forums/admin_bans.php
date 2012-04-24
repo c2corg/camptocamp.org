@@ -124,7 +124,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 				<input type="hidden" name="mode" value="<?php echo $mode ?>" />
 <?php if ($mode == 'edit'): ?>				<input type="hidden" name="ban_id" value="<?php echo $ban_id ?>" />
 <?php endif; ?>				<fieldset>
-						<legend>Supplement ban with IP and e-mail</legend>
+						<legend>Supplement ban with IP</legend>
 						<div class="infldset">
 							<table class="aligntop">
 								<tr>
@@ -142,10 +142,10 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 									</td>
 								</tr>
 								<tr>
-									<th scope="row">E-mail/domain</th>
+									<th scope="row">Ban comment</th>
 									<td>
-										<input type="text" name="ban_email" size="40" maxlength="50" value="<?php if (isset($ban_email)) echo strtolower($ban_email); ?>" tabindex="3" />
-										<span>The e-mail or e-mail domain you wish to ban (e.g. someone@somewhere.com or somewhere.com). See "Allow banned e-mail addresses" in Options for more info.</span>
+										<input type="text" name="ban_email" size="50" maxlength="200" value="<?php if (isset($ban_email)) echo strtolower($ban_email); ?>" tabindex="3" />
+										<span>Comment showed only in ban list</span>
 									</td>
 								</tr>
 							</table>
@@ -195,12 +195,12 @@ else if (isset($_POST['add_edit_ban']))
 
 	$ban_user_id_tmp = trim($_POST['ban_user_id']);
 	$ban_ip = trim($_POST['ban_ip']);
-	$ban_email = strtolower(trim($_POST['ban_email']));
+	$ban_email = trim($_POST['ban_email']);
 	$ban_message = trim($_POST['ban_message']);
 	$ban_expire = trim($_POST['ban_expire']);
 
-	if ($ban_user_id_tmp == '' && $ban_ip == '' && $ban_email == '')
-		message('You must enter either a user ID, an IP address or an e-mail address (at least).');
+	if ($ban_user_id_tmp == '' && $ban_ip == '')
+		message('You must enter either a user ID or an IP address (at least).');
 
 	// Validate user ID
     $ban_user_id = intval($ban_user_id_tmp);
@@ -272,13 +272,6 @@ else if (isset($_POST['add_edit_ban']))
 		$ban_ip = implode(' ', $addresses);
 	}
 
-	require PUN_ROOT.'include/email.php';
-	if ($ban_email != '' && !is_valid_email($ban_email))
-	{
-		if (!preg_match('/^[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/', $ban_email))
-			message('The e-mail address (e.g. user@domain.com) or partial e-mail address domain (e.g. domain.com) you entered is invalid.');
-	}
-
 	if ($ban_expire != '' && $ban_expire != 'Never')
 	{
 		$ban_expire = strtotime($ban_expire);
@@ -346,7 +339,7 @@ generate_admin_menu('bans');
 									<th scope="row">User ID<div><input type="submit" name="add_ban" value=" Add " tabindex="2" /></div></th>
 									<td>
 										<input type="text" name="new_ban_user" size="25" maxlength="25" tabindex="1" />
-										<span>The user ID to ban. The next page will let you enter a custom IP and e-mail. If you just want to ban a specific IP/IP-range or e-mail just leave it blank.</span>
+										<span>The user ID to ban. The next page will let you enter a custom IP. If you just want to ban a specific IP/IP-range or e-mail just leave it blank.</span>
 									</td>
 								</tr>
 							</table>
@@ -378,10 +371,6 @@ if ($db->num_rows($result))
 									<th>User ID</th>
 									<td><?php echo pun_htmlspecialchars($cur_ban['username']) ?></td>
 								</tr>
-<?php endif; ?><?php if ($cur_ban['email'] != ''): ?>								<tr>
-									<th>E-mail</th>
-									<td><?php echo $cur_ban['email'] ?></td>
-								</tr>
 <?php endif; ?><?php if ($cur_ban['ip'] != ''): ?>								<tr>
 									<th>IP/IP-ranges</th>
 									<td><?php echo $cur_ban['ip'] ?></td>
@@ -389,6 +378,10 @@ if ($db->num_rows($result))
 <?php endif; ?><?php if ($cur_ban['message'] != ''): ?>								<tr>
 									<th>Reason</th>
 									<td><?php echo pun_htmlspecialchars($cur_ban['message']) ?></td>
+								</tr>
+<?php endif; ?><?php if ($cur_ban['email'] != ''): ?>								<tr>
+									<th>Comment</th>
+									<td><?php echo $cur_ban['email'] ?></td>
 								</tr>
 <?php endif; ?>							</table>
 							<p class="linkactions"><a href="admin_bans.php?edit_ban=<?php echo $cur_ban['id'] ?>">Edit</a> - <a href="admin_bans.php?del_ban=<?php echo $cur_ban['id'] ?>">Remove</a></p>
