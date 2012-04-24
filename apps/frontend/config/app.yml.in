@@ -1993,6 +1993,12 @@ all:
       1: '<800'
       2: '800~1300'
       3: '>1300'
+    winter:
+      start: 12
+      activity: 1
+    summer:
+      start: 5
+      activity: 6
 
   tags:
     paragliding:

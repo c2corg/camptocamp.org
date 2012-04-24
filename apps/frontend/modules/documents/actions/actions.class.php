@@ -4352,7 +4352,19 @@ class documentsActions extends c2cActions
         $ranges = $this->getAreas(1);
         $this->ranges = $ranges;
 
-        $this->activities = array();
+        $winter = sfConfig::get('app_cda_winter');
+        $summer = sfConfig::get('app_cda_summer');
+        $current_month = date('n', time());
+        if ($current_month >= $summer['start'] && $current_month < $winter['start'])
+        {
+            $activities = array($summer['activity']);
+        }
+        else
+        {
+            $activities = array($winter['activity']);
+        }
+        $this->activities = $activities;
+        
         $this->setTemplate('../../documents/templates/cdasearch');
         $this->setLayout('layout_cda');
         $this->getResponse()->setTitle('changerdapproche.org');
