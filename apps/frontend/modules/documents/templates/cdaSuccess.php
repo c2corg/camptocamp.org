@@ -17,7 +17,7 @@ $mobile_version = c2cTools::mobileVersion();
   </a>
     <a href="<?php echo url_for('@cdasearch'); ?>">
       <?php
-        $img_title = __('Ecomobility');
+        $img_title = __('ecomobility');
         echo image_tag('/static/images/cda/slide1.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
       ?>
       <div class="img_title"><?php echo __($img_title); ?></div>
@@ -26,7 +26,7 @@ $mobile_version = c2cTools::mobileVersion();
 <div class='column row1 span-5'>
     <a href="<?php echo url_for('@document_by_id?module=articles&id=' . sfConfig::get('app_mw_contest_id') . '&lang=' . $culture); ?>">
       <?php
-        $img_title = __('Contest');
+        $img_title = __('contest');
         echo image_tag('/static/images/cda/slide2.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
       ?>
       <div class="img_title"><?php echo __($img_title); ?></div>
@@ -35,7 +35,7 @@ $mobile_version = c2cTools::mobileVersion();
 <div class='column row1 last span-5'>
   <a href="<?php echo url_for('@default?action=list&module=images&owtp=yes'); ?>">
     <?php
-      $img_title = __('Picturial');
+      $img_title = __('picturial');
       echo image_tag('/static/images/cda/slide3.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
     ?>
     <div class="img_title"><?php echo __($img_title); ?></div>
@@ -44,7 +44,7 @@ $mobile_version = c2cTools::mobileVersion();
   <div class="image2">
     <a href="/forums/viewforum.php?id=42">
       <?php
-        $img_title = __('Questions?');
+        $img_title = __('questions?');
         echo image_tag('/static/images/cda/slide4.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
       ?>
       <div class="img_title"><?php echo __($img_title); ?></div>
@@ -58,9 +58,9 @@ $mobile_version = c2cTools::mobileVersion();
     </div>
   </div>
   <div class='column row2 last span-15'>
-    <a href="http://www.pre-prod.dev.camptocamp.org/map?zoom=7&lat=44.5&lon=3.3&layerNodes=public_transportations&bgLayer=gmap_physical">
+    <a href="/map?zoom=7&lat=44.5&lon=3.3&layerNodes=public_transportations&bgLayer=gmap_physical">
       <?php
-      $img_title = __('Map');
+      $img_title = __('map (cda)');
       echo image_tag('/static/images/cda/slide5.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
       ?>
       <div class="img_title"><?php echo __($img_title); ?></div>

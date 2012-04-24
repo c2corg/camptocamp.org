@@ -4385,18 +4385,13 @@ class documentsActions extends c2cActions
             $this->addListParam($criteria, 'stags'); // for paragliding activity
             
             // elevation critera
-            $elevation_param = ($module == 'routes') ? 'hdif' : 'odif';
-            switch ($this->getRequestParameter('elevation'))
+            $elevation = $this->getRequestParameter('elevation');
+            if ($elevation >= 1 && $elevation <= 3)
             {
-                case '1': // short
-                    $criteria[] = "$elevation_param=<500";
-                    break;
-                case '2': // medium
-                    $criteria[] = "$elevation_param=500~1500";
-                    break;
-                case '3': // long
-                    $criteria[] = "$elevation_param=>1500";
-                    break;
+                $elevation_range = sfConfig::get('app_cda_elevation_range');
+                $param = $elevation_range[$module . '_param'];
+                $value = $elevation_range[$elevation];
+                $criteria[] = "$param=$value";
             }
             
             // difficulty criteria

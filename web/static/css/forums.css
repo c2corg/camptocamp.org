@@ -692,7 +692,8 @@ div.postsignature a, div.postsignature a:visited
 
 /* 4.3 This is for closed topics and "hot" links */
 
-li.reportlink a:link, li.reportlink a:visited, li.pmlink a:link, li.pmlink a:visited, li.maintenancelink a:link, li.maintenancelink a:visited {
+li.reportlink a:link, li.reportlink a:visited, li.pmlink a:link, li.pmlink a:visited, li.maintenancelink a:link, li.maintenancelink a:visited,
+.delete_tips {
     color: #ff5028;
 }
 

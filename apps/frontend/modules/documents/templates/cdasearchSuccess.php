@@ -76,7 +76,7 @@ include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personal
 
 echo around_selector('arnd', true) . '<br />';
 
-echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities, $multiple_activities);
+echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities, $multiple_activities, false);
 
 echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
 

@@ -1869,7 +1869,8 @@ fieldset .select_title
 
 #filterform .lineform select, #filterform .lineform input,
 #filterform .around_form input,
-#filterform input[type="checkbox"]
+#filterform input[type="checkbox"],
+#filterform input[type="radio"]
 {
   margin: 2px 0;
 }
@@ -3640,6 +3641,7 @@ ol.text ol.text ol.text
 .route_lines th:first-child
 {
   padding-left: 0;
+  text-align: left;
 }
 .route_lines td:last-child
 {

@@ -114,7 +114,7 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $
     return select_tag($fieldname, $option_tags);
 }
 
-function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array(), $unavailable_activities = array(), $merged_activities = array(), $multiple = true)
+function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array(), $unavailable_activities = array(), $merged_activities = array(), $multiple = true, $show_picto = true)
 {
     $out = array();
     $col = 0;
@@ -219,14 +219,21 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         $activity_id_list = explode('-', $activity_id);
         if (count($activity_id_list) == 1)
         {
-            $label_text = '<span class="activity_' . $activity_id . '">' . __($activity) . '</span>';
+            $label_text = __($activity);
+            if ($show_picto)
+            {
+                $label_text = '<span class="activity_' . $activity_id . '">' . $label_text . '</span>';
+            }
         }
         else
         {
             $label_text = '';
-            foreach($activity_id_list as $id)
+            if ($show_picto)
             {
-                $label_text .= '<span class="activity_' . $id . '"></span>';
+                foreach($activity_id_list as $id)
+                {
+                    $label_text .= '<span class="activity_' . $id . '"></span>';
+                }
             }
             $label_text .= __($activity);
         }
