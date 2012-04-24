@@ -24,13 +24,17 @@ $context->getRequest()->setRelativeUrlRoot('');
 echo $context->getController()->getPresentationFor('common', 'bottom');
 // this is a trick because include_partial('common/footer'); does not work here.
 
-// other solution :*/
+// other solution below
+// Problem is that it doesn't use the cache (maybe not so important here)
+*/
 
 include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_APP . 
              DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'. 
              DIRECTORY_SEPARATOR.($mobile_version ? '_mobile_footer.php' : '_footer.php'));
 
-if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
+$punbb_file = basename($_SERVER['PHP_SELF']);
+
+if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
 {
     $sf_response->addJavascript('/static/js/easy_bbcode.js');
 }
@@ -42,6 +46,16 @@ if (!c2cTools::mobileVersion())
 $debug = defined('PUN_DEBUG');
 minify_include_body_javascripts(!$debug, $debug);
 
+// tracker_forum_id is used to track the visited forums for analytics (see _tracker.php)
+if ($punbb_file === 'viewtopic.php')
+{
+    $tracker_forum_id = $cur_topic['forum_id'];
+}
+else if ($punbb_file === 'viewforum.php')
+{
+    $tracker_forum_id = FORUM_FEED;
+}
+
 include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_APP .
              DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'.
-             DIRECTORY_SEPARATOR.'_tracker.php');             
+             DIRECTORY_SEPARATOR.'_tracker.php'); 
