@@ -130,6 +130,10 @@ msgstr "Ibilbidea sartu"
 msgid "Add your summit"
 msgstr "Gailurra sartu"
 
+# [WARNING] en translation used
+msgid "Advanced search"
+msgstr "Advanced search"
+
 # [WARNING] needs_update
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Ondorengo orrialdea betetzerakoan, zure pasa hitza duen email bat jasoko duzu. %1% engunen barruan konektatu beharko zara zure kontua baieztatua izateko."
@@ -474,9 +478,9 @@ msgstr "Gurekin harremanetan jarri"
 # [general comment]
 # [cda]
 # title must remain short
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Contest"
-msgstr "Concours"
+msgstr "Contest"
 
 msgid "Context:"
 msgstr "Kontestua:"
@@ -4065,11 +4069,13 @@ msgstr "El portal Changer d'Approche es co-financiado por la Unión Europea. Eur
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cda presentation"
-msgstr "Une idée de <strong>sortie sans voiture ?</strong><br />Un bon plan <strong>produits locaux ?</strong><br />\n"
-"changerdapproche.org ouvre la voie à plus de 10 000 itinéraires en montagne accessibles en transports en commun : randos à pieds, en raquette et à ski, voies d'escalades, alpinisme, parapente et cascades de glace.\n"
-"<br />Mountain Wilderness et Camptocamp vous proposent la plus grande base de données européenne en faveur de la mobilité douce et de l'écotourisme en montagne. Une base de données ouverte qui va s'enrichir de vos sorties en montagne réalisées en transports collectifs. Une base de données participative pour partager les bons plans écotourisme des vallées. Le plaisir d'une sortie en montagne commence à votre porte !"
+msgstr "An idea to <strong>get out without taking your car</strong>?<br/>\n"
+"An good idea \"<strong>local products</strong><br/>\n"
+"changerdapproche.org lists more than 10.000 mountain routes, accessible in public transports : hiking, snowshoeing, climbing routes and crags, mountaineering, paragliding and ice-climbing.<br/>\n"
+"Mountain Wilderness and Camptocamp.org introduce you the greatest european database ever dedicated to ecotourism and ecomobility in mountains. An open database which will integrate your mountain outings in public transports. An interactive database to share your good ideas for ecotourism in valleys.<br/>\n"
+"The pleasure of an outing of that kind begins at your door !"
 
 # [WARNING] es translation used
 msgid "cda sub title"
@@ -4097,6 +4103,14 @@ msgstr "Dénivelée&nbsp;:"
 msgid "cda_prepare_outing_box"
 msgstr "<p>Tiempo</p><ul><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espana)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Suiza)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li></ul> <p>Aludes</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin francés </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Boletin suizo</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Boletin italiano</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Transporte</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trenes en Europa)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (Francia)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suiza)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italia)</a></li></ul> <p>Otros</p><ul><li><a href=\"http://veloski.fr/\">bici+esquí (en francés)</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (en francés)</li></ul>"
 
+# [WARNING] fr translation used
+msgid "cda_search_outings_tips"
+msgstr "Critères de recherche de récits de sorties"
+
+# [WARNING] fr translation used
+msgid "cda_search_routes_tips"
+msgstr "Critères de recherche d'itinéraires"
+
 msgid "center"
 msgstr "erdiratu"
 
@@ -4117,6 +4131,12 @@ msgstr "Xanpaina-Ardena"
 # [WARNING] es translation used
 msgid "changerdapproche"
 msgstr "Las montañas sin coche"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "changerdapproche is financed by EU"
+msgstr "Le portail changerdapproche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
 
 # [WARNING] needs_review
 msgid "changes"
@@ -4265,9 +4285,9 @@ msgstr "Edukinaren lizentzia"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "contest"
-msgstr "participez au concours"
+msgstr "contest"
 
 # [WARNING] en translation used
 msgid "copyright image"
@@ -4491,7 +4511,7 @@ msgstr "itxia – arazorik gabe pasa daiteke"
 # no uppercase
 # [WARNING] fr translation used
 msgid "ecomobility"
-msgstr "ecomobilité"
+msgstr "écomobilité"
 
 msgid "edit ?"
 msgstr "aldatu?"
@@ -5587,6 +5607,10 @@ msgstr "ambiente de montaña"
 msgid "mountain_climbing"
 msgstr "arkaitz eskalada goi mendian"
 
+# [WARNING] es translation used
+msgid "mountaineering"
+msgstr "alpinismo"
+
 # [general comment]
 # [cda]
 # [WARNING] fr translation used
@@ -6335,7 +6359,7 @@ msgstr "raid"
 
 # [WARNING] fr translation used
 msgid "raid portal"
-msgstr "Raids, hautes routes et expéditions"
+msgstr "Raids et expéditions"
 
 msgid "rain_proof"
 msgstr "Euria:"

@@ -79,12 +79,14 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
         <ul>
           <li><img alt="FEDER Alpes" title="FEDER Alpes" src="/static/images/cda/FEDER-Alpes_70.jpg"></li>
           <li><img alt="EUROPE" title="EUROPE" src="/static/images/cda/EUROPE_70.jpg"></li>
+          <li><img alt="DATAR" title="DATAR" src="/static/images/cda/datar.jpg"></li>
           <li><img alt="Rhônes Alpes" title="Rhônes Alpes" src="/static/images/cda/rhones-alpes_70.jpg"></li>
           <li><img alt="Conseil Général 06" title="Conseil Général 06" src="/static/images/cda/alpemaritime.jpg"></li>
           <li><img alt="Languedoc Rousillon" title="Languedoc Rousillon" src="/static/images/cda/LanguedoRousillon.jpg"></li>
           <li><img alt="Aquitaine" title="Aquitaine" src="/static/images/cda/Aquitaine.jpg"></li>
           <li><img alt="PACA" title="PACA" src="/static/images/cda/paca_70.jpg"></li>
         </ul>
+        <p class="credentials"><?php echo __('changerdapproche is financed by EU'); ?></p>
       </div>
     </div>
   </div>

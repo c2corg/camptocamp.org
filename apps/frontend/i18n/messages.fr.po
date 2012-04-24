@@ -4052,6 +4052,11 @@ msgstr "Champagne-Ardenne"
 msgid "changerdapproche"
 msgstr "Changer d'approche"
 
+# [general comment]
+# [cda]
+msgid "changerdapproche is financed by EU"
+msgstr "Le portail changerdapproche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
+
 msgid "changes"
 msgstr "modifications"
 

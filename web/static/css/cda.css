@@ -80,12 +80,12 @@
 #partenairesbas ul li {
   display: block;
   float: left;
-  width: 115px;
+  width: 104px;
   text-align: center;
 }
 
 #partenairesbas ul li img {
-  padding: 20px 0px;
+  padding: 10px 0px;
 }
 
 a {
@@ -103,7 +103,7 @@ a {
   color: white;
   padding: 5px 0px 5px 0px;
   text-align: center;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 }
 
 .row1 {
@@ -144,7 +144,7 @@ a {
 .span-24 {
   width: 838px;
   margin: 20px 0 0 0;
-  border-top: 5px solid #CCCCCC;
+  border-top: 2px solid #CCCCCC;
 }
 
 .image2 {
@@ -154,7 +154,7 @@ a {
 .content {
   background-color: #3D4B4C;
   color: white;
-  height: 357px;
+  height: 355px;
   padding: 0 10px;
   text-align: justify;
 }
@@ -168,6 +168,13 @@ a {
   margin-left: 0px;
 }
 
+.credentials {
+  font-size: 10px;
+  text-align: center;
+  color: #505050;
+  padding-bottom: 5px;
+}
+
 .img_title, .img_title:hover {
   position:relative;
   bottom: 45px;
@@ -178,18 +185,13 @@ a {
   line-height: 45px;
   color: white;
   text-decoration: none;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
   overflow: hidden;
 }
 
-.active .img_title
-{
-  background-color: #F47B22;
-}
-.inactive .img_title
-{
-  background-color: #B0B0B0;
+.nobg, .nobg:hover {
+  background: none;
 }
 
 h2

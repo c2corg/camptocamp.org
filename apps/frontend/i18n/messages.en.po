@@ -125,6 +125,9 @@ msgstr "Add a route"
 msgid "Add your summit"
 msgstr "Add a summit"
 
+msgid "Advanced search"
+msgstr "Advanced search"
+
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "It is important to realize that what you write, together with your forum and guide-book nicknames will be visible on the World Wide Web and archived by search engines. Using your real names and surnames exposes you to being referenced by these search engines.<br /> \n"
 "<br /> \n"
@@ -468,9 +471,9 @@ msgstr "Contact us"
 # [general comment]
 # [cda]
 # title must remain short
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Contest"
-msgstr "Concours"
+msgstr "Contest"
 
 msgid "Context:"
 msgstr "Context:"
@@ -3947,11 +3950,13 @@ msgstr "The Changer d'Approche portal is co-financed by the European Union. Euro
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda presentation"
-msgstr "Une idée de <strong>sortie sans voiture ?</strong><br />Un bon plan <strong>produits locaux ?</strong><br />\n"
-"changerdapproche.org ouvre la voie à plus de 10 000 itinéraires en montagne accessibles en transports en commun : randos à pieds, en raquette et à ski, voies d'escalades, alpinisme, parapente et cascades de glace.\n"
-"<br />Mountain Wilderness et Camptocamp vous proposent la plus grande base de données européenne en faveur de la mobilité douce et de l'écotourisme en montagne. Une base de données ouverte qui va s'enrichir de vos sorties en montagne réalisées en transports collectifs. Une base de données participative pour partager les bons plans écotourisme des vallées. Le plaisir d'une sortie en montagne commence à votre porte !"
+msgstr "An idea to <strong>get out without taking your car</strong>?<br/>\n"
+"An good idea \"<strong>local products</strong><br/>\n"
+"changerdapproche.org lists more than 10.000 mountain routes, accessible in public transports : hiking, snowshoeing, climbing routes and crags, mountaineering, paragliding and ice-climbing.<br/>\n"
+"Mountain Wilderness and Camptocamp.org introduce you the greatest european database ever dedicated to ecotourism and ecomobility in mountains. An open database which will integrate your mountain outings in public transports. An interactive database to share your good ideas for ecotourism in valleys.<br/>\n"
+"The pleasure of an outing of that kind begins at your door !"
 
 msgid "cda sub title"
 msgstr "Mountains without your car"
@@ -3978,6 +3983,14 @@ msgstr "Dénivelée&nbsp;:"
 msgid "cda_prepare_outing_box"
 msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spain)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">French avalanche bulletin </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Swiss avalanche bulletin</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Italian avalanche bulletin</a></li><li><a href=\"/users/mailinglists\">Receive the bulletins by email</a></li></ul> <p>Transport</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trains in Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (trains in France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (trains in Switzerland)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (trains in Italy)</a></li></ul> <p>Others</p><ul><li><a href=\"http://veloski.fr/\">ski-biking</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (in French)</li></ul>"
 
+# [WARNING] fr translation used
+msgid "cda_search_outings_tips"
+msgstr "Critères de recherche de récits de sorties"
+
+# [WARNING] fr translation used
+msgid "cda_search_routes_tips"
+msgstr "Critères de recherche d'itinéraires"
+
 msgid "center"
 msgstr "center"
 
@@ -3998,6 +4011,12 @@ msgstr "Champagne-Ardenne"
 # [WARNING] needs_review
 msgid "changerdapproche"
 msgstr "Drop your car"
+
+# [general comment]
+# [cda]
+# [WARNING] fr translation used
+msgid "changerdapproche is financed by EU"
+msgstr "Le portail changerdapproche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
 
 msgid "changes"
 msgstr "changes"
@@ -4135,9 +4154,9 @@ msgstr "Content license"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "contest"
-msgstr "participez au concours"
+msgstr "contest"
 
 # [WARNING] needs_review
 msgid "copyright image"
@@ -4356,7 +4375,7 @@ msgstr "covered - travel is easy"
 # no uppercase
 # [WARNING] fr translation used
 msgid "ecomobility"
-msgstr "ecomobilité"
+msgstr "écomobilité"
 
 msgid "edit ?"
 msgstr "edit?"
@@ -5380,6 +5399,10 @@ msgstr "mountain environment"
 msgid "mountain_climbing"
 msgstr "alpine rock climbing"
 
+# [WARNING] needs_review
+msgid "mountaineering"
+msgstr "mountaineering"
+
 # [general comment]
 # [cda]
 # [WARNING] fr translation used
@@ -6054,7 +6077,7 @@ msgstr "raid"
 
 # [WARNING] fr translation used
 msgid "raid portal"
-msgstr "Raids, hautes routes et expéditions"
+msgstr "Raids et expéditions"
 
 msgid "rain_proof"
 msgstr "Rain:"
