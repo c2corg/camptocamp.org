@@ -540,7 +540,7 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
     if ($autocomplete)
     {
         $html .= input_auto_complete_tag('q', '', '@quicksearch',
-                                         array('class' => 'searchbox action_filter', 'id' => $id_prefix.'q'),
+                                         array('class' => 'searchbox action_filter', 'id' => $id_prefix.'q', 'type' => 'search'),
                                          array('update_element' => "function (selectedItem) {
                                                   window.location = '/documents/'+selectedItem.id; }",
                                                'min_chars' => sfConfig::get('app_autocomplete_min_chars'),
@@ -548,7 +548,8 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
     }
     else
     {
-        $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox action_filter', 'id' => $id_prefix.'q'));
+        $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'),
+                           array('class' => 'searchbox action_filter', 'id' => $id_prefix.'q', 'type' => 'search'));
     }
     return $html;
 }
