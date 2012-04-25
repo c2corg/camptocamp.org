@@ -205,42 +205,42 @@ class BaseDocument extends sfDoctrineRecordI18n
             
             switch ($criteria_type)
             {
-                case 'String': self::buildStringCondition(&$conditions, &$values, $field, $value);
+                case 'String': self::buildStringCondition($conditions, $values, $field, $value);
                     //$nb_join = 0;
                     break;
-                case 'Istring': self::buildIstringCondition(&$conditions, &$values, $field, $value);
+                case 'Istring': self::buildIstringCondition($conditions, $values, $field, $value);
                     //$nb_join = 0;
                     break;
-                case 'Mstring': self::buildMstringCondition(&$conditions, &$values, $field, $value);
+                case 'Mstring': self::buildMstringCondition($conditions, $values, $field, $value);
                     //$nb_join = 0;
                     break;
-                case 'Item':    self::buildItemCondition(&$conditions, &$values, $field, $value); break;
-                case 'Multi':   self::buildMultiCondition(&$conditions, &$values, $field, $value); break;
-                case 'Compare': self::buildCompareCondition(&$conditions, &$values, $field, $value); break;
-                case 'Relative': self::buildRelativeCondition(&$conditions, &$values, $field, $value); break;
+                case 'Item':    self::buildItemCondition($conditions, $values, $field, $value); break;
+                case 'Multi':   self::buildMultiCondition($conditions, $values, $field, $value); break;
+                case 'Compare': self::buildCompareCondition($conditions, $values, $field, $value); break;
+                case 'Relative': self::buildRelativeCondition($conditions, $values, $field, $value); break;
                 case 'List':
                     $use_not_null = ($param != 'id');
-                    self::buildListCondition(&$conditions, &$values, $field, $value, $use_not_null); break;
+                    self::buildListCondition($conditions, $values, $field, $value, $use_not_null); break;
                 case 'Id':
-                    self::buildListCondition(&$conditions, &$values, $field, $value, false);
+                    self::buildListCondition($conditions, $values, $field, $value, false);
                     if ($join_id && (($value == '-') || ($value == ' ')))
                     {
                         $conditions[$join_id . '_has'] = true;
                     }
                     break;
-                case 'Multilist': $nb_join = self::buildMultilistCondition(&$conditions, &$values, $field, $value); break;
-                case 'Linkedlist': self::buildLinkedlistCondition(&$conditions, &$values, $field, $value); break;
-                case 'Array':   self::buildArrayCondition(&$conditions, &$values, $field, $value); break;
-                case 'Bool':    self::buildBoolCondition(&$conditions, &$values, $field, $value); break;
-                case 'Georef':  self::buildGeorefCondition(&$conditions, &$values, $field, $value); break;
-                case 'Facing':  self::buildFacingCondition(&$conditions, &$values, $field, $value); break;
-                case 'Date':     self::buildDateCondition(&$conditions, &$values, $field, $value); break;
-                case 'Bbox':    self::buildBboxCondition(&$conditions, &$values, $field, $value); break;
-                case 'Around':    self::buildAroundCondition(&$conditions, &$values, $field, $value); break;
-                case 'Config':    self::buildConfigCondition(&$conditions, &$values, $join_id, $value);
+                case 'Multilist': $nb_join = self::buildMultilistCondition($conditions, $values, $field, $value); break;
+                case 'Linkedlist': self::buildLinkedlistCondition($conditions, $values, $field, $value); break;
+                case 'Array':   self::buildArrayCondition($conditions, $values, $field, $value); break;
+                case 'Bool':    self::buildBoolCondition($conditions, $values, $field, $value); break;
+                case 'Georef':  self::buildGeorefCondition($conditions, $values, $field, $value); break;
+                case 'Facing':  self::buildFacingCondition($conditions, $values, $field, $value); break;
+                case 'Date':     self::buildDateCondition($conditions, $values, $field, $value); break;
+                case 'Bbox':    self::buildBboxCondition($conditions, $values, $field, $value); break;
+                case 'Around':    self::buildAroundCondition($conditions, $values, $field, $value); break;
+                case 'Config':    self::buildConfigCondition($conditions, $values, $join_id, $value);
                     $join_id = '';
                     break;
-                case 'Join':    self::buildJoinCondition(&$conditions, &$values, $join_id, $value);
+                case 'Join':    self::buildJoinCondition($conditions, $values, $join_id, $value);
                     $join_id = '';
                     break;
                 case 'Order': $nb_join = self::buildOrderCondition($value, $field); break;
@@ -2111,7 +2111,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif (preg_match('/^([0-9!]*)(-[0-9!]*)*$/', $param, $regs))
         {
-            self::buildListCondition(&$conditions, &$values, $field, $param, $use_not_null);
+            self::buildListCondition($conditions, $values, $field, $param, $use_not_null);
         }
         else
         {
@@ -2168,7 +2168,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $field_compare = $not_null . "($field_1 - $field_2)";
             $param_compare = $regs[1] . $regs[3] . $regs[4] . $regs[5];
             
-            self::buildCompareCondition(&$conditions, &$values, $field_compare, $param_compare, false, false);
+            self::buildCompareCondition($conditions, $values, $field_compare, $param_compare, false, false);
         }
         else
         {
@@ -2262,7 +2262,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         {
-            self::buildCompareCondition(&$conditions, &$values, $field, $param, false, $use_not_null);
+            self::buildCompareCondition($conditions, $values, $field, $param, false, $use_not_null);
         }
         else
         {
@@ -2827,16 +2827,16 @@ class BaseDocument extends sfDoctrineRecordI18n
             if ($module == 'outings')
             {
                 $conditions['join_summit'] = true;
-                self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], 's.geom', $srid);
+                self::buildXYCondition($condition_around, $values, $param[0], $param[1], $param[2], 's.geom', $srid);
             }
             elseif ($module == 'routes')
             {
                 $conditions['join_parking'] = true;
-                self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], 'p.geom', $srid);
+                self::buildXYCondition($condition_around, $values, $param[0], $param[1], $param[2], 'p.geom', $srid);
             }
             else
             {
-                self::buildXYCondition(&$condition_around, &$values, $param[0], $param[1], $param[2], $field, $srid);
+                self::buildXYCondition($condition_around, $values, $param[0], $param[1], $param[2], $field, $srid);
             }
             $conditions[] = '(' . implode(' OR ', $condition_around) . ')';
         }

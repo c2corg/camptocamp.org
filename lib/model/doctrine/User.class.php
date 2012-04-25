@@ -230,7 +230,7 @@ class User extends BaseUser
                     $user_ids = array_merge($user_ids, $user_group_ids);
                     $conditions_temp = array("a.type = 'uo'");
                     $values_temp = array();
-                    self::buildListCondition(&$conditions_temp, &$values_temp, 'lu.main_id', $user_group);
+                    self::buildListCondition($conditions_temp, $values_temp, 'lu.main_id', $user_group);
                     $where = implode(' AND ', $conditions_temp);
                     
                     $friends = Doctrine_Query::create()
