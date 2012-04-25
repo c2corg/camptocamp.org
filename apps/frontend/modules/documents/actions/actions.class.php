@@ -4383,7 +4383,7 @@ class documentsActions extends c2cActions
             {
                 $criteria[] = 'tp=1-2-4-5';
             }
-            else
+            elseif ($module == 'outings')
             {
                 $criteria[] = 'owtp=1';
             }
@@ -4395,19 +4395,6 @@ class documentsActions extends c2cActions
             // activities criteria
             $this->addListParam($criteria, 'act');
             $this->addListParam($criteria, 'stags'); // for paragliding activity
-            
-            // elevation critera
-            $elevation = $this->getRequestParameter('elevation');
-            if ($elevation >= 1 && $elevation <= 3)
-            {
-                $elevation_range = sfConfig::get('app_cda_elevation_range');
-                $param = $elevation_range[$module . '_param'];
-                $value = $elevation_range[$elevation];
-                $criteria[] = "$param=$value";
-            }
-            
-            // difficulty criteria
-            $difficulty = $this->getRequestParameter('difficulty');
             $activities = $this->getRequestParameter('act');
             $nb_grp = 0;
             if (in_array(1, $activities))
@@ -4425,6 +4412,11 @@ class documentsActions extends c2cActions
                 $group_name = 'climbing';
                 $nb_grp++;
             }
+            if (in_array(400, $activities))
+            {
+                $group_name = 'crag';
+                $nb_grp++;
+            }
             if (in_array(6, $activities))
             {
                 $group_name = 'hiking';
@@ -4436,15 +4428,56 @@ class documentsActions extends c2cActions
                 $nb_grp++;
             }
             
-            if ($nb_grp == 1 && $difficulty >= 1 && $difficulty <= 3) // use difficulty criteria only if one group of activities is selected
+            // module criteria
+            if ($nb_grp == 1 && in_array($group_name, array('crag', 'climbing')))
             {
-                $group_info = sfConfig::get('app_cda_difficulty_range_' . $group_name);
-                $param = $group_info['param'];
-                $value = $group_info[$difficulty];
-                $criteria[] = "$param=$value";
+                if ($module == 'routes' && $group_name == 'crag')
+                {
+                    $module = 'sites';
+                }
+                if ($module == 'outings')
+                {
+                    
+                    if ($group_name == 'crag')
+                    {
+                        $criteria[] = 'sites= ';
+                    }
+                    else
+                    {
+                        $criteria[] = 'routes= ';
+                    }
+                }
             }
             
-            $route = '@default?module=' . $this->getModuleName() . '&action=list&' . implode('&', $criteria);
+            // elevation critera
+            if (!($nb_grp == 1 && $group_name == 'crag'))
+            {
+                $elevation = $this->getRequestParameter('elevation');
+                if ($elevation >= 1 && $elevation <= 3)
+                {
+                    $elevation_range = sfConfig::get('app_cda_elevation_range');
+                    $param = $elevation_range[$module . '_param'];
+                    $value = $elevation_range[$elevation];
+                    $criteria[] = "$param=$value";
+                }
+            }
+            
+            // difficulty criteria
+            if (!($nb_grp == 1 && $group_name == 'crag' && $module == 'outings'))
+            {
+                $difficulty = $this->getRequestParameter('difficulty');
+                
+                if ($nb_grp == 1 && $difficulty >= 1 && $difficulty <= 3) // use difficulty criteria only if one group of activities is selected
+                {
+                    $group_info = sfConfig::get('app_cda_difficulty_range_' . $group_name);
+                    $param = $group_info['param'];
+                    $value = $group_info[$difficulty];
+                    $criteria[] = "$param=$value";
+                }
+            }
+            
+            
+            $route = '@default?module=' . $module . '&action=list&' . implode('&', $criteria);
             c2cTools::log("redirecting to $route");
             $this->redirect($route);
         }

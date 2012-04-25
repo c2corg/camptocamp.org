@@ -123,7 +123,8 @@ a {
 
 .span-6 {
   width: 400px;
-  margin-bottom: 20px;
+  height: 394px;
+  margin-bottom: 0px;
   margin-top: 10px;
   margin-right: 38px;
   margin-left: 0px;
@@ -131,6 +132,7 @@ a {
 .span-6.folded
 {
   height: 45px;
+  margin-bottom: 20px;
 }
 
 .span-9 {

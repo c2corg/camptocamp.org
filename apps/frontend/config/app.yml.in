@@ -1952,6 +1952,14 @@ all:
   mw_contest_enabled: @MW_CONTEST_ENABLED@
 
   cda:
+    activities:
+      1: skitouring
+      7: snowshoeing
+      6: hiking
+      400: 'rock_climbing (single-pitch)'
+      4: 'rock_climbing (multi-pitch)'
+      '2-3-5': mountaineering
+      8: paragliding
     difficulty:
       0:
       1: easy
@@ -1972,6 +1980,11 @@ all:
       1: '<8'
       2: '10~20'
       3: '>22'
+    difficulty_range_crag:
+      param: mrat
+      1: '<12'
+      2: '14~19'
+      3: '>20'
     difficulty_range_hiking:
       param: hrat
       1: '<2'

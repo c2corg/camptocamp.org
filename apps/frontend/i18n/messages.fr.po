@@ -3984,6 +3984,7 @@ msgid "cda map title"
 msgstr "Trouver un itinéraire accessible en mobilité douce avec la carte"
 
 # [general comment]
+# [cda]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
 msgid "cda partners tips"
 msgstr "Le portail Changer d'approche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
@@ -4051,11 +4052,6 @@ msgstr "Champagne-Ardenne"
 # nom du portail "Changer d'approche" (pour le menu)
 msgid "changerdapproche"
 msgstr "Changer d'approche"
-
-# [general comment]
-# [cda]
-msgid "changerdapproche is financed by EU"
-msgstr "Le portail changerdapproche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
 
 msgid "changes"
 msgstr "modifications"
@@ -6169,6 +6165,12 @@ msgstr " > "
 
 msgid "rock_climbing"
 msgstr "escalade"
+
+msgid "rock_climbing (multi-pitch)"
+msgstr "escalade (grandes voies)"
+
+msgid "rock_climbing (single-pitch)"
+msgstr "escalade (couenne)"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.

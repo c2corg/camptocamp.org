@@ -11,31 +11,26 @@ $class_left = $class_right = '';
 if ($type != null)
 {
     $class_left = $class_right = ' folded';
-}
 
-$activities_raw = $sf_data->getRaw('activities');
-$special_activities = array(2 => '', 3 => '', 5 => '');
-$merged_activities = array('2-3-5' => 'mountaineering');
-$multiple_activities = array(8);
-if ($type == 'routes')
-{
-    $class_left .= ' active';
-    $class_right .= ' inactive';
-    $filter_tips = __('cda_search_routes_tips');
-    $paragliding_tag = sfConfig::get('app_tags_paragliding');
-    $paragliding_tag = implode('/', $paragliding_tag);
-    $special_activities[8] = $paragliding_tag;
-}
-if ($type == 'outings')
-{
-    $class_left .= ' inactive';
-    $class_right .= ' active';
-    $filter_tips = __('cda_search_outings_tips');
+    $activities_raw = $sf_data->getRaw('activities');
+    $special_activities = array();
+    $multiple_activities = array(8);
+    if ($type == 'routes')
+    {
+        $filter_tips = __('cda_search_routes_tips');
+        $paragliding_tag = sfConfig::get('app_tags_paragliding');
+        $paragliding_tag = implode('/', $paragliding_tag);
+        $special_activities[8] = $paragliding_tag;
+    }
+    if ($type == 'outings')
+    {
+        $filter_tips = __('cda_search_outings_tips');
+    }
 }
 
 ?>
 
-<div class="column span-6">
+<div class="column span-6<?php echo $class_left; ?>">
 <?php
 if ($type != 'routes')
 {
@@ -60,7 +55,7 @@ if ($type != 'routes')
     echo '</a>';
 }
 ?></div>
-<div class="column last span-6">
+<div class="column last span-6<?php echo $class_right; ?>">
 <?php
 if ($type != 'outings')
 {
@@ -96,7 +91,7 @@ include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personal
 
 echo around_selector('arnd', true) . '<br />';
 
-echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities, $multiple_activities, false);
+echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities, $multiple_activities, false, 'app_cda_activities');
 
 echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
 

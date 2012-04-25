@@ -114,12 +114,16 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $
     return select_tag($fieldname, $option_tags);
 }
 
-function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array(), $unavailable_activities = array(), $merged_activities = array(), $multiple = true, $show_picto = true)
+function activities_selector($onclick = false, $use_personalization = false, $filtered_activities = array(), $unavailable_activities = array(), $merged_activities = array(), $multiple = true, $show_picto = true, $activity_config = '')
 {
     $out = array();
     $col = 0;
     $col_item = 0;
-    $activities = sfConfig::get('app_activities_form');
+    if (empty($activity_config))
+    {
+        $activity_config = 'app_activities_form';
+    }
+    $activities = sfConfig::get($activity_config);
     
     $multiple_activities = array();
     if (is_array($multiple))
@@ -167,8 +171,8 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         }
     }
     
-    $item_max = count($activities) - 1;
-    $col_item_max = ceil(count($activities)/2) - 1;
+    $item_max = count($activities) - count($multiple_activities) - 1;
+    $col_item_max = ceil(($item_max + 1)/2) - 1;
 
     if (!count($filtered_activities) && $use_personalization)
     {
