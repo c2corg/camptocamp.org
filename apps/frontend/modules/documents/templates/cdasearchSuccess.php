@@ -101,7 +101,7 @@ foreach ($elevation_options as $key => $value)
 {
     if (array_key_exists($key, $elevation_ranges))
     {
-        $elevation_options[$key] = $value . ' (' . $elevation_ranges[$key] . __('meters') . ')';
+        $elevation_options[$key] = $value . ' (' . str_replace('~', '-' . __('meters'), $elevation_ranges[$key]) . __('meters') . ')';
     }
 }
 echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select($elevation_options));

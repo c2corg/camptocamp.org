@@ -4415,7 +4415,15 @@ class documentsActions extends c2cActions
             {
                 $group_name = 'crag';
                 $nb_grp++;
-                unset($activities[400]);
+                $key = array_search(400, $activities);
+                if ($module == 'outings')
+                {
+                    $activities[$key] = 4;
+                }
+                else
+                {
+                    unset($activities[$key]);
+                }
             }
             if (in_array(6, $activities))
             {
