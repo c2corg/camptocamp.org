@@ -952,6 +952,7 @@ class routesActions extends documentsActions
         $out = array();
 
         $this->addListParam($out, 'areas');
+        $this->addAroundParam($out, 'rarnd');
 
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');

@@ -773,6 +773,7 @@ class outingsActions extends documentsActions
         $activities_type = $this->getRequestParameter('acttyp', 1);
 
         $this->addListParam($out, 'areas');
+        $this->addAroundParam($out, 'oarnd');
         
         $this->addNameParam($out, 'onam');
         if ($activities_type == 1)
@@ -797,7 +798,6 @@ class outingsActions extends documentsActions
         $this->addListParam($out, 'tpty');
         $this->addParam($out, 'owtp');
 
-        $this->addNameParam($out, 'rnam');
         if ($activities_type == 2)
         {
             $this->addListParam($out, 'act', 'ract');

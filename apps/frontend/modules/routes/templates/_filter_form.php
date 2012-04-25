@@ -8,12 +8,13 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'rnam\').focus(); })};');
 }
 
+echo around_selector('rarnd');
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 include_partial('summits/summits_short_filter');
-include_partial('huts/huts_short_filter');
-include_partial('parkings/parkings_filter');
 $activities_raw = $sf_data->getRaw('activities');
 include_partial('routes_filter', array('autofocus' => true, 'activities' => $activities_raw));
+include_partial('huts/huts_short_filter');
+include_partial('parkings/parkings_filter');
 ?>
 <br />
 <?php

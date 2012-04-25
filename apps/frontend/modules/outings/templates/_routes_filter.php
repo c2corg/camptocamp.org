@@ -3,10 +3,6 @@ use_helper('General');
 ?>
 <br /><br />
 <?php
-echo '<div class="fieldname">' . picto_tag('picto_routes') . __('Route:') . ' </div>' . input_tag('rnam');
-?>
-<br /><br />
-<?php
 $activities_raw = $sf_data->getRaw('activities');
 echo __('activities') . ' ' . field_value_selector('acttyp', 'mod_outings_activities_type_list', false, false, false, 0, false);
 echo activities_selector(true, true, $activities_raw);
