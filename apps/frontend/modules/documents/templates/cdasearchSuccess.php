@@ -98,7 +98,7 @@ echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(ar
 $elevation_options = array_map('__', sfConfig::get('app_cda_elevation'));
 $elevation_ranges = sfConfig::get('app_cda_elevation_range');
 $meters = __('meters');
-$replace = '-' . $meters . ' ';
+$replace = $meters . ' - ';
 foreach ($elevation_options as $key => $value)
 {
     if (array_key_exists($key, $elevation_ranges))
