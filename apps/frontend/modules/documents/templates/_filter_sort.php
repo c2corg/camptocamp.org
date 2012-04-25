@@ -11,13 +11,21 @@ echo select_tag('npp', $npp_options);
 <?php
 $conf = 'mod_' . $sf_context->getModuleName() . '_sort_criteria';
 $sort_fields = array_map('translate_sort_param', sfConfig::get($conf));
-$orderby_options = options_for_select($sort_fields, '', array('include_blank' => true));
+if (!isset($orderby_default))
+{
+    $orderby_default = '';
+}
+$orderby_options = options_for_select($sort_fields, $orderby_default, array('include_blank' => true));
 echo select_tag('orderby', $orderby_options);
 ?>
 
 <?php
+if (!isset($order_default))
+{
+    $order_default = '';
+}
 $order_options = options_for_select(array('asc' => __('ascending'), 'desc' => __('descending')),
-                                    '', array('include_blank' => true));
+                                    $order_default, array('include_blank' => true));
 echo select_tag('order', $order_options) . '</span>';
 ?>
 <br />

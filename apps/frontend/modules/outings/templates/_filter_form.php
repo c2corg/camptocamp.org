@@ -37,7 +37,7 @@ if ($is_connected)
 ?>
 <br />
 <?php
-include_partial('documents/filter_sort');
+include_partial('documents/filter_sort', array('orderby_default' => 'date', 'order_default' => 'desc'));
 ?>
 <br />
 <?php
