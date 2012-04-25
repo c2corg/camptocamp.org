@@ -161,6 +161,7 @@ a {
 
 .content p {
   padding: 15px 5px 15px 5px;
+  line-height: 1.4em;
 }
 
 .last {
@@ -169,7 +170,7 @@ a {
 }
 
 .credentials {
-  font-size: 10px;
+  font-size: 9px;
   text-align: center;
   color: #505050;
   padding-bottom: 5px;
