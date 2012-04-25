@@ -4393,7 +4393,6 @@ class documentsActions extends c2cActions
             $this->addAroundParam($criteria, 'arnd');
             
             // activities criteria
-            $this->addListParam($criteria, 'act');
             $this->addListParam($criteria, 'stags'); // for paragliding activity
             $activities = $this->getRequestParameter('act');
             $nb_grp = 0;
@@ -4416,6 +4415,7 @@ class documentsActions extends c2cActions
             {
                 $group_name = 'crag';
                 $nb_grp++;
+                unset($activities[400]);
             }
             if (in_array(6, $activities))
             {
@@ -4426,6 +4426,11 @@ class documentsActions extends c2cActions
             {
                 $group_name = 'snowshoeing';
                 $nb_grp++;
+            }
+            
+            if (count($activities))
+            {
+                $criteria[] = 'act=' . implode('-', $activities);
             }
             
             // module criteria

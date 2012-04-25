@@ -235,6 +235,6 @@ h2
 #filterform input[type="image"]
 {
   padding: 0;
-  margin: 20px 40px;
+  margin: 20px 40px 20px 180px;
   border: none;
 }

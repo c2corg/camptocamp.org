@@ -252,7 +252,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         $out[] = $input_tag . ' ' . 
                  label_for($param . '_' . $value, $label_text);
         
-        if ($col_item == $col_item_max || ($col * $col_item_max +  $col_item == $item_max))
+        if ($col_item == $col_item_max || ($col * $col_item_max + $col_item == $item_max))
         {
             $out[] = '</div>';
             $col += 1;
@@ -263,6 +263,10 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
             $out[] = '<br />';
             $col_item += 1;
         }
+    }
+    if ($col_item > 0)
+    {
+        $out[] = '</div>';
     }
     return '<div id="actform">' . implode("\n", $out) . '</div>';
 }

@@ -95,12 +95,26 @@ echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $a
 
 echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
 
-echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select(array_map('__', sfConfig::get('app_cda_elevation'))));
+$elevation_options = array_map('__', sfConfig::get('app_cda_elevation'));
+$elevation_ranges = sfConfig::get('app_cda_elevation_range');
+foreach ($elevation_options as $key => $value)
+{
+    if (array_key_exists($key, $elevation_ranges))
+    {
+        $elevation_options[$key] = $value . ' (' . $elevation_ranges[$key] . __('meters') . ')';
+    }
+}
+echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select($elevation_options));
 ?>
 <br />
 <br />
+<?php if ($lang == 'fr'): ?>
 <input type="image" value="<?php echo __('Search on c2c');?>" name="commit" src="/static/images/cda/bouton.png">
-<br />
+<?php else:
+    echo c2c_submit_tag(__('Search on c2c'), array('picto' => 'action_filter', 'class' => 'main_button'))
+       . '<br />';
+endif;
+?>
 <br />
 <?php echo '<a href="/' . $type . '/filter">' . __('Advanced search') . '</a>' ?>
 </form>
