@@ -229,3 +229,10 @@ h2
 {
   text-decoration: underline;
 }
+
+#filterform input[type="image"]
+{
+  padding: 0;
+  margin: 20px 40px;
+  border: none;
+}

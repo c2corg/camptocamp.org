@@ -104,10 +104,7 @@ echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select(arra
 ?>
 <br />
 <br />
-<?php
-echo c2c_reset_tag(__('Cancel'), array('picto' => 'action_cancel'));
-echo c2c_submit_tag(__('Search on c2c'), array('picto' => 'action_filter', 'class' => 'main_button'));
-?>
+<input type="image" value="<?php echo __('Search on c2c');?>" name="commit" src="/static/images/cda/bouton.png">
 <br />
 <br />
 <?php echo '<a href="/' . $type . '/filter">' . __('Advanced search') . '</a>' ?>
