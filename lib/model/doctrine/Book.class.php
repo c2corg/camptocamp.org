@@ -109,7 +109,7 @@ class Book extends BaseBook
         self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
         
         // book criteria
-        Book::buildBookListCriteria(&$conditions, &$values, $params_list, true);
+        Book::buildBookListCriteria($conditions, $values, $params_list, true);
         self::buildConditionItem($conditions, $values, 'Istring', 'm.author', 'auth', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Istring', 'm.editor', 'edit', null, false, $params_list);
         
@@ -117,7 +117,7 @@ class Book extends BaseBook
         self::buildConditionItem($conditions, $values, 'List', 'lbd.linked_id', 'bdocs', 'join_bdocs_id', false, $params_list);
         
         // image criteria
-        Image::buildImageListCriteria(&$conditions, &$values, $params_list, false);
+        Image::buildImageListCriteria($conditions, $values, $params_list, false);
 
         if (!empty($conditions))
         {
