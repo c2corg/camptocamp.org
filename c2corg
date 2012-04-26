@@ -58,7 +58,7 @@ List of options:
  --writableowner OWNER      The user who should have write permissions for 
                             generated files. Default is '<?php
                             echo $OPTIONS['writableowner']; ?>'.
- --build                    Build mapping system JS files.
+ --build                    Build mapping system JS files and CSS files.
 
 <?php
     exit();
@@ -193,6 +193,7 @@ function processArgs() {
             generateMoFiles();
             launchCleanCache();
             buildMapJsFiles(); // must be done before revision info
+            //buildSassFiles();
             updateRevisionInfo();
             execWrapper('php symfony fix-perms');
 
@@ -208,6 +209,7 @@ function processArgs() {
             generateMoFiles();
             //makeMapservWrapperExecutable();
             buildMapJsFiles(); // must be done before revision info
+            //buildSassFiles();
             updateRevisionInfo();
             launchCleanCache();
             //execWrapper('php symfony fix-perms');
@@ -788,7 +790,7 @@ function buildMapJsFiles() {
     if (!array_key_exists('build', $OPTIONS)) return;
     
     if (!hasCommand('jsbuild --help')) {
-        info('Aborted building of map JS files: jsbuild is not available.');
+        info('Aborted build of map JS files: jsbuild is not available.');
         return;
     }
 
@@ -797,6 +799,22 @@ function buildMapJsFiles() {
     execWrapper('./build.sh');
     info('Mapping JS files built.');
     chdir(dirname(__FILE__));
+}
+
+function buildSassFiles() {
+    global $OPTIONS;
+    if (!array_key_exists('build', $OPTIONS)) return;
+
+    if (!hasCommand('sass --help')) {
+        info('Aborted build of CSS files: sass is not available.');
+        return;
+    }
+
+    chdir('web/static/css');
+    info('Building CSS files (Files will be updated only if needed)...');
+    execWrapper('sass --update -r c2c_sass_functions.rb sass:.');
+    info('CSS files built or up-to-date.');
+    chdir(dirname(__FILE__)); 
 }
 
 
