@@ -77,6 +77,11 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     RewriteCond %{REQUEST_URI} \.(css|js)$
     RewriteRule ^(([0-9]*)/?(no)?/)?(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$4&$3&$2 [L,NC]
 
+    # Versioning of the images used in css
+    # /static/images/12345/path_to_image
+    RewriteCond %{REQUEST_URI} \.(png|jpg|gif)$
+    RewriteRule ^static/images/[0-9]*/(.*\.(png|jpg|gif))$ /static/images/$1
+
     # robots.txt content depends which website version we are on.
     # production version (the one we want to have indexed)
     RewriteCond %{HTTP_HOST} =www.camptocamp.org
