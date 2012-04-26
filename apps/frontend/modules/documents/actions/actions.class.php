@@ -4405,26 +4405,20 @@ class documentsActions extends c2cActions
             // activities criteria
             $this->addListParam($criteria, 'stags'); // for paragliding activity
             $activities = $this->getRequestParameter('act');
-            $nb_grp = 0;
-            if (in_array(1, $activities))
+            $group_activities = $activities;
+            if($key = array_search(8, $group_activities))
             {
-                $group_name = 'ski';
-                $nb_grp++;
+                unset($group_activities[$key]);
             }
-            if (array_intersect(array(2, 3, 5), $activities))
+            $nb_grp = count($group_activities);
+            $group_name = '';
+            if ($nb_grp == 1)
             {
-                $group_name = 'alpi';
-                $nb_grp++;
+                $group_list = sfConfig::get('app_cda_activities_id');
+                $group_name = $group_list[reset($group_activities)];
             }
-            if (in_array(4, $activities))
+            if ($group_name == 'crag')
             {
-                $group_name = 'climbing';
-                $nb_grp++;
-            }
-            if (in_array(400, $activities))
-            {
-                $group_name = 'crag';
-                $nb_grp++;
                 $key = array_search(400, $activities);
                 if ($module == 'outings')
                 {
@@ -4434,16 +4428,6 @@ class documentsActions extends c2cActions
                 {
                     unset($activities[$key]);
                 }
-            }
-            if (in_array(6, $activities))
-            {
-                $group_name = 'hiking';
-                $nb_grp++;
-            }
-            if (in_array(7, $activities))
-            {
-                $group_name = 'snowshoeing';
-                $nb_grp++;
             }
             
             if (count($activities))

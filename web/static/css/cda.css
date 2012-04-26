@@ -45,7 +45,7 @@
   text-decoration: none;
 }
 
-#menu ul li a:hover {
+#menu ul li a:hover, #menu ul li.active a {
   color: #EE8102;
 }
 

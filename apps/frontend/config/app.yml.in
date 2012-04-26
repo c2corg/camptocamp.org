@@ -1960,6 +1960,13 @@ all:
       4: 'rock_climbing (multi-pitch)'
       '2-3-5': mountaineering
       8: paragliding
+    activities_id:
+      1: ski
+      7: snowshoeing
+      6: hiking
+      400: crag
+      4: climbing
+      '2-3-5': alpi
     difficulty:
       0:
       1: easy

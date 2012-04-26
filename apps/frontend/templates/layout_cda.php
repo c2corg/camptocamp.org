@@ -58,7 +58,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     ?>
     <div id="menu">
       <ul>
-        <li><?php echo link_to(__('ecomobility'), '@cdasearch'); ?>
+        <li class="active"><?php echo link_to(__('ecomobility'), '@cdasearch'); ?>
         <li><?php echo link_to(__('contest'), '@document_by_id_lang?module=articles&id=' . $mw_contest_id . '&lang=' . $lang); ?>
         <li><?php echo link_to(__('picturial'), '@default?module=images&action=list&owtp=yes'); ?>
         <li><?php echo f_link_to(__('questions?'), 'viewtopic.php?id=42'); ?></li>
