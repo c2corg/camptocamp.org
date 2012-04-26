@@ -6,22 +6,29 @@ $mobile_version = c2cTools::mobileVersion();
     <legend class="select_title">
         <?php
         $static_base_url = sfConfig::get('app_static_url');
-        echo picto_tag('picto_areas') . ' - ' .
-        link_to_remote(__('ranges'), 
-            array(  'update' => 'area_selector', 
-                    'url' => '/areas/getmultipleselect?area_type=1', 
-                    'loading' => 'Element.show("indicator")', 
-                    'complete' => 'Element.hide("indicator")')) . ' - ' .
-        link_to_remote(__('regions'), 
-            array(  'update' => 'area_selector', 
-                    'url' => '/areas/getmultipleselect?area_type=3', 
-                    'loading' => 'Element.show("indicator")', 
-                    'complete' => 'Element.hide("indicator")')) . ' - ' .
-        link_to_remote(__('countries'), 
-            array(  'update' => 'area_selector', 
-                    'url' => '/areas/getmultipleselect?area_type=2', 
-                    'loading' => 'Element.show("indicator")', 
-                    'complete' => 'Element.hide("indicator")'));
+        if (!isset($show_picto))
+        {
+            $show_picto = true;
+        }
+        if ($show_picto)
+        {
+            echo picto_tag('picto_areas') . ' - ';
+        }
+        echo link_to_remote(__('ranges'), 
+                array(  'update' => 'area_selector', 
+                        'url' => '/areas/getmultipleselect?area_type=1', 
+                        'loading' => 'Element.show("indicator")', 
+                        'complete' => 'Element.hide("indicator")')) . ' - ' .
+             link_to_remote(__('regions'), 
+                array(  'update' => 'area_selector', 
+                        'url' => '/areas/getmultipleselect?area_type=3', 
+                        'loading' => 'Element.show("indicator")', 
+                        'complete' => 'Element.hide("indicator")')) . ' - ' .
+             link_to_remote(__('countries'), 
+                array(  'update' => 'area_selector', 
+                        'url' => '/areas/getmultipleselect?area_type=2', 
+                        'loading' => 'Element.show("indicator")', 
+                        'complete' => 'Element.hide("indicator")'));
         if (!$mobile_version)
         {
             echo ' -&nbsp;' .

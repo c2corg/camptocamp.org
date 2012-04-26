@@ -222,6 +222,11 @@ h2
   font-size: 14px;
 }
 
+#filterform #fs_area
+{
+  width: 282px;
+}
+
 #filterform #fs_area select
 {
   font-size: 12px;

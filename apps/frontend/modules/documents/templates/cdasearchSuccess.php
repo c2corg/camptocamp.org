@@ -87,7 +87,7 @@ if ($type != 'outings')
 echo form_tag("/documents/cdaredirect", array('id' => 'filterform', 'target' => '_blank')); // FIXME redirect
 
 echo input_hidden_tag('module', $type, array('id' => 'module'));
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false, 'height' => '300px'));
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false, 'height' => '300px', 'show_picto' => true));
 
 echo around_selector('arnd', true) . '<br />';
 
