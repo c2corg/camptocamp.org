@@ -78,6 +78,7 @@ class Parking extends BaseParking
             {
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
+            self::buildConditionItem($conditions, $values, 'Around', $m . '.geom', 'parnd', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', ($is_module ? array('pnam', 'name') : 'pnam'), 'join_parking_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'palt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.public_transportation_rating', 'tp', $join, false, $params_list);

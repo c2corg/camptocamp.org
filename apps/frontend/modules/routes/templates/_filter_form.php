@@ -8,8 +8,11 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'rnam\').focus(); })};');
 }
 
-echo around_selector('rarnd');
+echo around_selector('parnd');
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
+?>
+<br />
+<?php
 include_partial('summits/summits_short_filter');
 $activities_raw = $sf_data->getRaw('activities');
 include_partial('routes_filter', array('autofocus' => true, 'activities' => $activities_raw));

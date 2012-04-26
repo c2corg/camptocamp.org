@@ -3992,7 +3992,7 @@ class documentsActions extends c2cActions
     }
 
     // reconstruct an around param with the different field
-    protected function addAroundParam(&$out, $field)
+    protected function addAroundParam(&$out, $field, $rename = '')
     {
         if ($sel = $this->getRequestParameter($field . '_sel'))
         {
@@ -4007,7 +4007,11 @@ class documentsActions extends c2cActions
                 if (!preg_match('/^\d+,\d+$/', $lat) || !preg_match('/^\d+,\d+$/', $lon)
                     || !preg_match('/^\d+$/', $range)) return;
 
-                $out[] = 'around='.$lon.'-'.$lat.'~'.$range;
+                if (!empty($rename))
+                {
+                    $field = $rename;
+                }
+                $out[] = "$field=$lon-$lat~$range";
             }
         }
     }
@@ -4390,7 +4394,6 @@ class documentsActions extends c2cActions
             
             // area criteria
             $this->addListParam($criteria, 'areas');
-            $this->addAroundParam($criteria, 'arnd');
             
             // activities criteria
             $this->addListParam($criteria, 'stags'); // for paragliding activity
@@ -4450,7 +4453,6 @@ class documentsActions extends c2cActions
                 }
                 if ($module == 'outings')
                 {
-                    
                     if ($group_name == 'crag')
                     {
                         $criteria[] = 'sites= ';
@@ -4461,6 +4463,28 @@ class documentsActions extends c2cActions
                     }
                 }
             }
+            
+            // around criteria
+            if ($module == 'routes')
+            {
+                $around = 'parnd';
+            }
+            elseif ($module == 'sites')
+            {
+                $around = 'tarnd';
+            }
+            elseif ($module == 'outings')
+            {
+                if ($nb_grp == 1 && $group_name == 'crag')
+                {
+                    $around = 'tarnd';
+                }
+                else
+                {
+                    $around = 'sarnd';
+                }
+            }
+            $this->addAroundParam($criteria, 'arnd', $around);
             
             // elevation critera
             if (!($nb_grp == 1 && $group_name == 'crag'))

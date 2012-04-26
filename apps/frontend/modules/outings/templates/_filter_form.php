@@ -10,9 +10,10 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'onam\').focus(); })};');
 }
 
-echo around_selector('oarnd');
+echo around_selector('sarnd');
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 ?>
+<br />
 <br />
 <?php
 echo '<div class="fieldname">' . picto_tag('picto_outings') . __('name') . ' </div>' . input_tag('onam', null, array('autofocus' => 'autofocus'));

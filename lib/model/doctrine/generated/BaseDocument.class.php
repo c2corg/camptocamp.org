@@ -2821,24 +2821,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $srid = 900913;
             }
             
-            $condition_around = array();
-            $module = sfContext::getInstance()->getModuleName();
-            
-            if ($module == 'outings')
-            {
-                $conditions['join_summit'] = true;
-                self::buildXYCondition($condition_around, $values, $param[0], $param[1], $param[2], 's.geom', $srid);
-            }
-            elseif ($module == 'routes')
-            {
-                $conditions['join_parking'] = true;
-                self::buildXYCondition($condition_around, $values, $param[0], $param[1], $param[2], 'p.geom', $srid);
-            }
-            else
-            {
-                self::buildXYCondition($condition_around, $values, $param[0], $param[1], $param[2], $field, $srid);
-            }
-            $conditions[] = '(' . implode(' OR ', $condition_around) . ')';
+            self::buildXYCondition($conditions, $values, $param[0], $param[1], $param[2], $field, $srid);
         }
     }
     
