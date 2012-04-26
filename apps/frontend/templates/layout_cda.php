@@ -3,6 +3,7 @@ $lang_code = __('meta_language');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
 $action = sfContext::getInstance()->getActionName();
+$type = $sf_params->get('type');
 $id = $sf_params->get('id');
 $mw_contest_id = sfConfig::get('app_mw_contest_id');
 
@@ -55,12 +56,20 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     
     <?php
     if ($action != "cda"):
+    if ($type != null)
+    {
+        $class = ' class="active"';
+    }
+    else
+    {
+        $class = '';
+    }
     ?>
     <div id="menu">
       <ul>
-        <li class="active"><?php echo link_to(__('ecomobility'), '@cdasearch'); ?>
-        <li><?php echo link_to(__('contest'), '@document_by_id_lang?module=articles&id=' . $mw_contest_id . '&lang=' . $lang); ?>
-        <li><?php echo link_to(__('picturial'), '@default?module=images&action=list&owtp=yes'); ?>
+        <li<?php echo $class ?>><?php echo link_to(__('ecomobility'), '@cdasearch'); ?></li>
+        <li><?php echo link_to(__('contest'), '@document_by_id_lang?module=articles&id=' . $mw_contest_id . '&lang=' . $lang); ?></li>
+        <li><?php echo link_to(__('picturial'), '@default?module=images&action=list&owtp=yes'); ?></li>
         <li><?php echo f_link_to(__('questions?'), 'viewtopic.php?id=42'); ?></li>
         <li><a href="/map?zoom=7&lat=44.5&lon=3.3&layerNodes=public_transportations&bgLayer=gmap_physical"><?php echo __('map (cda)'); ?></a></li>
       </ul>
