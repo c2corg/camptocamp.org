@@ -776,9 +776,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Ecomobility"
-msgstr "Écomobilité"
+msgstr "Ecomobility"
 
 msgid "Edit"
 msgstr "Edit"
@@ -1148,9 +1148,9 @@ msgstr "Interface language:"
 
 # [general comment]
 # error message when invalid request parametes for cda search
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Invalid request parameters"
-msgstr "Paramètres de requête invalides"
+msgstr "Invalid request parameters"
 
 msgid "Is a child of summit:"
 msgstr "Is a sub summit of:"
@@ -1188,9 +1188,9 @@ msgstr "More"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "L# button title"
-msgstr "Formater la description d'une longueur d'escalade"
+msgstr "Format the description of a climbing pitch"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
@@ -1407,9 +1407,9 @@ msgstr "Manage the properties of your profile page"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Map"
-msgstr "Cartographie"
+msgstr "Map"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
@@ -1742,9 +1742,9 @@ msgstr "Personal page"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Picturial"
-msgstr "En images"
+msgstr "Pictures"
 
 # [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
@@ -1792,9 +1792,9 @@ msgstr "Protect this document"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Questions?"
-msgstr "Des questions ?"
+msgstr "Questions?"
 
 msgid "Quick creation of a route"
 msgstr "Quick creation of a route"
@@ -1987,24 +1987,24 @@ msgstr "Search in my outings"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Search on c2c"
-msgstr "Rechercher sur camptocamp"
+msgstr "Search on camptocamp"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Search outings"
-msgstr "Recherche de récits de sortie"
+msgstr "Search of outing reports"
 
 msgid "Search results"
 msgstr "Search results"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d'itinéraires"
+msgstr "Search of route datasheet"
 
 msgid "Search with google"
 msgstr "Search on the whole document:"
@@ -3944,6 +3944,7 @@ msgid "cda map title"
 msgstr "Find a route accessible by public transportation"
 
 # [general comment]
+# [cda]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
 msgid "cda partners tips"
 msgstr "The Changer d'Approche portal is co-financed by the European Union. Europe is commited to the Alps through the European Regional Development Fund"
@@ -3963,33 +3964,32 @@ msgstr "Mountains without your car"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "cda_activities"
-msgstr "Activité&nbsp;:"
+msgstr "Activity:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda_difficulty"
-msgstr "Difficulté&nbsp;:"
+msgstr "Difficulty:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda_elevation"
-msgstr "Dénivelée&nbsp;:"
+msgstr "Height diff up:"
 
 # [WARNING] needs_review
 msgid "cda_prepare_outing_box"
 msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spain)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">French avalanche bulletin </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Swiss avalanche bulletin</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Italian avalanche bulletin</a></li><li><a href=\"/users/mailinglists\">Receive the bulletins by email</a></li></ul> <p>Transport</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trains in Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (trains in France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (trains in Switzerland)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (trains in Italy)</a></li></ul> <p>Others</p><ul><li><a href=\"http://veloski.fr/\">ski-biking</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (in French)</li></ul>"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda_search_outings_tips"
-msgstr "Critères de recherche de récits de sorties"
+msgstr "Search criteria of outing reports"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda_search_routes_tips"
-msgstr "Critères de recherche d'itinéraires"
+msgstr "Search criteria of route datasheet"
 
 msgid "center"
 msgstr "center"
@@ -4011,12 +4011,6 @@ msgstr "Champagne-Ardenne"
 # [WARNING] needs_review
 msgid "changerdapproche"
 msgstr "Drop your car"
-
-# [general comment]
-# [cda]
-# [WARNING] fr translation used
-msgid "changerdapproche is financed by EU"
-msgstr "Le portail changerdapproche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
 
 msgid "changes"
 msgstr "changes"
@@ -4290,9 +4284,9 @@ msgstr "detail / zoom"
 msgid "deutsch"
 msgstr "german"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "development environment"
-msgstr "Attention - version de développement."
+msgstr "Warning - development version"
 
 msgid "diff"
 msgstr "difference"
@@ -4302,9 +4296,9 @@ msgstr "difference between versions"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "difficult"
-msgstr "difficile"
+msgstr "hard"
 
 msgid "difficult crossing"
 msgstr "open - travel is difficult"
@@ -4363,9 +4357,9 @@ msgstr "Duration:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "easy"
-msgstr "facile"
+msgstr "easy"
 
 msgid "easy crossing"
 msgstr "covered - travel is easy"
@@ -4373,9 +4367,9 @@ msgstr "covered - travel is easy"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "ecomobility"
-msgstr "écomobilité"
+msgstr "ecomobility"
 
 msgid "edit ?"
 msgstr "edit?"
@@ -5080,7 +5074,7 @@ msgstr "Longitude:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "long"
 msgstr "long"
 
@@ -5141,9 +5135,9 @@ msgstr "map"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "map (cda)"
-msgstr "cartographie"
+msgstr "map"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
@@ -5247,9 +5241,9 @@ msgstr "Mediterranean"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "medium"
-msgstr "moyen"
+msgstr "medium"
 
 msgid "menu"
 msgstr "menu"
@@ -5347,6 +5341,8 @@ msgstr "Grade:"
 msgid "minor modification"
 msgstr "minor change"
 
+# [general comment]
+# Tag for minor change, in a document history.
 msgid "minor_tag"
 msgstr "m"
 
@@ -5405,7 +5401,6 @@ msgstr "mountaineering"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "mountainwilderness"
 msgstr "Mountain Wilderness"
 
@@ -5635,9 +5630,9 @@ msgstr "Other ranges"
 # [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "our partners"
-msgstr "nos partenaires"
+msgstr "our partners"
 
 msgid "outing"
 msgstr "outing"
@@ -5795,9 +5790,9 @@ msgstr "Picardy"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "picturial"
-msgstr "en images"
+msgstr "pictures"
 
 msgid "piemont"
 msgstr "Piedmont"
@@ -5932,9 +5927,9 @@ msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/franc
 # [general comment]
 # [cda] title of the top left box on home
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "presentation"
-msgstr "présentation"
+msgstr "presentation"
 
 msgid "previous area"
 msgstr "Previous region"
@@ -6065,9 +6060,9 @@ msgstr "quartzite"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "questions?"
-msgstr "des questions ?"
+msgstr "questions?"
 
 msgid "quite crowded"
 msgstr "quite crowded"
@@ -6168,6 +6163,14 @@ msgstr " > "
 
 msgid "rock_climbing"
 msgstr "rock climbing"
+
+# [WARNING] needs_review
+msgid "rock_climbing (multi-pitch)"
+msgstr "rock climbing (multi-pitch)"
+
+# [WARNING] needs_review
+msgid "rock_climbing (single-pitch)"
+msgstr "rock climbing (single-pitch)"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
@@ -6337,9 +6340,9 @@ msgstr "Shelter type:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "short"
-msgstr "court"
+msgstr "short"
 
 msgid "show conditions of the outings"
 msgstr "Show details of the outings conditions"
@@ -6754,9 +6757,9 @@ msgstr "user"
 msgid "user form warning"
 msgstr "<strong>Profile page:</strong> In your profile, you can indicate anything you want other uses to know: address, phone number, job, preferred activities and areas, etc. By default, this page is accessible to registered users only, but you can allow guests and search engines to access your profile. For this, set your <a href=\"/users/editprivatedata\">personal preferences</a>, where you can also modify your name, nickname, email address and password..</li><li><strong>Georeferencing:</strong> To associate your profile to an area and/or a region, you must indicate your geographical coordinates. This allows people to find you through a geographical search. Moreover, you will be able to get automatic road directions to an access point through its page."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "user information not available"
-msgstr "L'utilisateur ne permet pas aux membres non connectés de voir son profil."
+msgstr "This user does not allow unconnected members to access to his profil."
 
 msgid "users"
 msgstr "users"
