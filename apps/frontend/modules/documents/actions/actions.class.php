@@ -4379,6 +4379,7 @@ class documentsActions extends c2cActions
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
             $module = $this->getRequestParameter('module');
+            $join = '';
 
             $criteria = array();
             
@@ -4455,11 +4456,11 @@ class documentsActions extends c2cActions
                 {
                     if ($group_name == 'crag')
                     {
-                        $criteria[] = 'sites= ';
+                        $join = 'sites';
                     }
                     else
                     {
-                        $criteria[] = 'routes= ';
+                        $join = 'routes';
                     }
                 }
             }
@@ -4510,9 +4511,15 @@ class documentsActions extends c2cActions
                     $param = $group_info['param'];
                     $value = $group_info[$difficulty];
                     $criteria[] = "$param=$value";
+                    $join = '';
                 }
             }
             
+            // join criteria
+            if (!empty($join))
+            {
+                $criteria[] = "$join= ";
+            }
             
             $route = '@default?module=' . $module . '&action=list&' . implode('&', $criteria);
             c2cTools::log("redirecting to $route");

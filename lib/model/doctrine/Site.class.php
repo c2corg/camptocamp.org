@@ -135,12 +135,14 @@ class Site extends BaseSite
         {
             $m = 'm';
             $m2 = 's';
+            $m3 = '';
             $join = null;
         }
         else
         {
             $m = 's';
             $m2 = $m;
+            $m3 = $m . '.';
             $join = 'join_site';
         }
         
@@ -156,7 +158,7 @@ class Site extends BaseSite
             {
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
-            self::buildConditionItem($conditions, $values, 'Around', $m . '.geom', 'tarnd', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Around', $m3 . 'geom', 'tarnd', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', 'ti.search_name', ($is_module ? array('tnam', 'name') : 'tnam'), 'join_site_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'talt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'site_types'), 'ttyp', $join, false, $params_list);

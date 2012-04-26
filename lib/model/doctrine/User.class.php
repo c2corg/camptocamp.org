@@ -185,6 +185,7 @@ class User extends BaseUser
         if ($is_module)
         {
             $m = 'm';
+            $m3 = '';
             $join = null;
             $join_id = null;
             $join_i18n = null;
@@ -193,6 +194,7 @@ class User extends BaseUser
         else
         {
             $m = 'u';
+            $m3 = $m . '.';
             $join = 'join_user';
             $join_id = 'join_user_id';
             $join_i18n = 'join_user_i18n';
@@ -276,7 +278,7 @@ class User extends BaseUser
                 }
             }
             
-            self::buildConditionItem($conditions, $values, 'Around', $m . '.geom', 'uarnd', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Around', $m3 . 'geom', 'uarnd', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', $m . 'i.search_name', ($is_module ? array('unam', 'name') : 'unam'), $join_i18n, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', 'upd.search_username', 'ufnam', $join_private_data, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'u', 'activities'), 'uact', $join, false, $params_list);
