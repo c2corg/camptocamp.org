@@ -4012,8 +4012,14 @@ class documentsActions extends c2cActions
                     $field = $rename;
                 }
                 $out[] = "$field=$lon-$lat~$range";
+                
+                return true;
             }
+            
+            return false;
         }
+        
+        return false;
     }
 
     protected function addDateParam(&$out, $field)
@@ -4485,7 +4491,11 @@ class documentsActions extends c2cActions
                     $around = 'sarnd';
                 }
             }
-            $this->addAroundParam($criteria, 'arnd', $around);
+            $has_around = $this->addAroundParam($criteria, 'arnd', $around);
+            if ($has_around)
+            {
+                $join = '';
+            }
             
             // elevation critera
             if (!($nb_grp == 1 && $group_name == 'crag'))
