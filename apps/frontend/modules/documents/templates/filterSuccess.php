@@ -14,6 +14,16 @@ else
     $activities = $activities_raw;
 }
 
+if (!isset($selected_areas))
+{
+    $selected_areas = array();
+}
+else
+{
+    $selected_areas_raw = $sf_data->getRaw('selected_areas');
+    $selected_areas = $selected_areas_raw;
+}
+
 echo display_title(__('Search a ' . $module), $module);
 
 if (!c2cTools::mobileVersion()):
@@ -55,14 +65,19 @@ switch($module)
     case 'users':
         if ($perso_on)
         {
-            if (!count($activities) && $has_perso_activities || $has_perso_areas)
+            if (!count($activities) && $has_perso_activities || !count($selected_areas) && $has_perso_areas)
             {
                 $msg = __('activity and area filters applied');
                 $personalization_applied = true;
             }
-            elseif (count($activities) && $has_perso_areas)
+            elseif (count($activities) && !count($selected_areas) && $has_perso_areas)
             {
                 $msg = __('area filters applied');
+                $personalization_applied = true;
+            }
+            elseif (count($selected_areas) && !count($activities) && $has_perso_activities)
+            {
+                $msg = __('activity filters applied');
                 $personalization_applied = true;
             }
         }
@@ -73,7 +88,7 @@ switch($module)
     case 'sites':
     case 'summits':
         $msg = __('area filters applied');
-        if ($perso_on && $has_perso_areas)
+        if ($perso_on && !count($selected_areas) && $has_perso_areas)
             $personalization_applied = true;
         break;
     // We do not use personalization for the following modules
@@ -86,11 +101,11 @@ switch($module)
 
 if ($personalization_applied)
 {
-    echo '<p class="list_header">', $msg, '</p>';
+    echo '<p class="list_header warning-tips">', $msg, '</p>';
 }
 
 if (!isset($ranges)) $ranges = array();
-include_partial("$module/filter_form", array('ranges' => $ranges, 'activities' => $activities));
+include_partial("$module/filter_form", array('ranges' => $ranges, 'selected_areas' => $selected_areas, 'activities' => $activities));
 ?>
 <br />
 <br />

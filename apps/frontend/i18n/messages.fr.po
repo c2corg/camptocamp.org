@@ -3518,7 +3518,10 @@ msgid "activities_to_display"
 msgstr "Activités à afficher"
 
 msgid "activity and area filters applied"
-msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et / ou de régions ont été appliqués au formulaire</span>"
+msgstr "Attention&nbsp;: vos filtres de personnalisation d'activités et / ou de régions ont été appliqués au formulaire"
+
+msgid "activity filters applied"
+msgstr "Attention&nbsp;: vos filtres de personnalisation d'activités ont été appliqués au formulaire"
 
 msgid "add a comment"
 msgstr "Ajouter un commentaire"
@@ -3648,7 +3651,7 @@ msgid "area"
 msgstr "région"
 
 msgid "area filters applied"
-msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation de régions ont été appliqués au formulaire</span>"
+msgstr "Attention&nbsp;: vos filtres de personnalisation de régions ont été appliqués au formulaire"
 
 msgid "area_type"
 msgstr "Type de région&nbsp;:"
@@ -5627,7 +5630,7 @@ msgstr "Autres régions administratives"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
-# Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
+# Lorsqu'on crée des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils sont alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 msgid "other country"
 msgstr "Autres pays"
@@ -5638,6 +5641,13 @@ msgstr "Autres pays"
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 msgid "other range"
 msgstr "Autres massifs"
+
+# [general comment]
+# La liste de choix des vallées (filtres, personnalisation) est organisée en grandes zones.
+# Lorsqu'on crée des vallées, il se peut que les nouvelles vallées ne soient pas rangés dans une grande zone. Elles sont alors mises à la fin de la liste, dans "Autres vallées".
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
+msgid "other valley_area"
+msgstr "Autres vallées"
 
 # [general comment]
 # [cda] title of second box on home
@@ -5922,6 +5932,9 @@ msgstr "Pays préférés"
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 msgid "prefered range"
 msgstr "Massifs préférés"
+
+msgid "prefered valley_area"
+msgstr "Vallées préférées"
 
 # [general comment]
 # Home 'prepare outing' box
@@ -6324,8 +6337,20 @@ msgstr "<ul class=\"text\"><li><strong>Sélectionnez uniquement les activités p
 msgid "select an image file"
 msgstr "Choisissez une image&nbsp;:&nbsp;"
 
+msgid "selected admin_limits"
+msgstr "Régions administratives pré-sélectionnées"
+
+msgid "selected country"
+msgstr "Pays pré-sélectionnés"
+
 msgid "selected documents"
 msgstr "Restreindre aux documents sélectionnés"
+
+msgid "selected range"
+msgstr "Massifs pré-sélectionnés"
+
+msgid "selected valley_area"
+msgstr "Vallées pré-sélectionnées"
 
 msgid "service_on_demand"
 msgstr "service à la demande"

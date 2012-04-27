@@ -233,6 +233,10 @@ a[href^="http://escalade.camptocamp.com"]:after {
 {
   margin-bottom: 1em;
 }
+.warning-tips
+{
+  color: red;
+}
 .float-tips
 {
   display: inline-block;

@@ -8,7 +8,9 @@ if (!c2cTools::mobileVersion())
    document.observe(\'dom:loaded\', function() { $(\'inam\').focus(); })};');
 }
 echo around_selector('iarnd');
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
+$ranges_raw = $sf_data->getRaw('ranges');
+$selected_areas_raw = $sf_data->getRaw('selected_areas');
+include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected_areas' => $selected_areas_raw, 'use_personalization' => false));
 ?>
 <br />
 <div class="fieldgroup">

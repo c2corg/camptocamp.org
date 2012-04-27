@@ -1107,7 +1107,18 @@ class documentsActions extends c2cActions
 
         // if user has some ranges as preferred areas, put them first, ordered alphabetically
         $prefered_ranges_assoc = array();
-        if (($separate_prefs) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
+        if (is_array($separate_prefs))
+        {
+            $prefered_ranges = $separate_prefs;
+            $separate_prefs = true;
+            $separate_title = 'selected';
+        }
+        else
+        {
+            $prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter();
+            $separate_title = 'prefered';
+        }
+        if ($separate_prefs && count($prefered_ranges))
         {
             // extract from $ranges the ranges whose key match the values of $prefered_ranges array:
             foreach ($prefered_ranges as $i => $id)
@@ -1188,7 +1199,7 @@ class documentsActions extends c2cActions
 
         if (count($prefered_ranges_assoc))
         {
-            return array_merge(array($this->__('prefered '.$area_type_name) => $prefered_ranges_assoc),
+            return array_merge(array($this->__($separate_title . ' ' . $area_type_name) => $prefered_ranges_assoc),
                                $ordered_areas_groups);
         }
         else
@@ -1201,14 +1212,29 @@ class documentsActions extends c2cActions
     public function executeFilter()
     {
         $module = $this->getModuleName();
-        $ranges_type = 1;
-        if (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        
+        $areas_type = $this->getRequestParameter('atyp', 1);
+        
+        $selected_areas = $this->getRequestParameter('areas', false);
+        if ($selected_areas)
         {
-            $ranges_type = intval($this->getRequest()->getCookie(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
+            $selected_areas = explode('-', $selected_areas);
+            $separate_prefs = $selected_areas;
         }
-        $ranges = $this->getAreas($ranges_type);
+        else
+        {
+            if (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+            {
+                $areas_type = intval($this->getRequest()->getCookie(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
+            }
+            $selected_areas = array();
+            $separate_prefs = true;
+        }
+        $ranges = $this->getAreas($areas_type, $separate_prefs);
 
         $this->ranges = $ranges;
+        $this->areas_type = $areas_type;
+        $this->selected_areas = $selected_areas;
 
         $activities = $this->getRequestParameter('act', null);
         if (preg_match('/^([0-9])(-[0-9])*$/', $activities, $regs))

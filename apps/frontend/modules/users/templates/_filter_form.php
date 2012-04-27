@@ -9,7 +9,9 @@ if (!c2cTools::mobileVersion())
 }
 
 echo around_selector('uarnd');
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
+$ranges_raw = $sf_data->getRaw('ranges');
+$selected_areas_raw = $sf_data->getRaw('selected_areas');
+include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected_areas' => $selected_areas_raw, 'use_personalization' => true));
 echo '<br />' . __('User:') . ' ' . input_tag('unam', null, array('autofocus' => 'autofocus'));
 echo select_tag('nam_type',
                 options_for_select(array('unam'=>__('topoguide name only'), 'ufnam'=>__('forum name only'), 'utfnam'=>__('forum and topoguide names')), 'unam'),

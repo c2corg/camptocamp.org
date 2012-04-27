@@ -9,7 +9,9 @@ if (!c2cTools::mobileVersion())
 }
 
 echo around_selector('parnd');
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
+$ranges_raw = $sf_data->getRaw('ranges');
+$selected_areas_raw = $sf_data->getRaw('selected_areas');
+include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected_areas' => $selected_areas_raw, 'use_personalization' => true));
 include_partial('parkings_filter', array('autofocus' => true));
 ?>
 <br />
