@@ -1,7 +1,6 @@
 <?php
 use_helper('Button');
 $lang = $sf_user->getCulture();
-$static_base_url = sfConfig::get('app_static_url');
 $mobile_hostname = sfConfig::get('app_mobile_version_host');
 $classic_hostname = sfConfig::get('app_classic_version_host');
 $lang_class = 'lang_' . $lang;

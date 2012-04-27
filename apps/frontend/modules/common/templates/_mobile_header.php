@@ -1,7 +1,6 @@
 <?php 
 use_helper('Language', 'Link', 'Forum', 'Flash', 'MyForm', 'Javascript', 'Ajax', 'General');
 echo ajax_feedback();
-$static_base_url = sfConfig::get('app_static_url');
 ?>
 
 <div id="header">
@@ -37,7 +36,6 @@ $static_base_url = sfConfig::get('app_static_url');
         $perso = c2cPersonalization::getInstance();
         $act_filter = $perso->getActivitiesFilter();
         $main_filter_switch_on = $perso->isMainFilterSwitchOn();
-        $static_base_url = sfConfig::get('app_static_url');
         $alist = sfConfig::get('app_activities_list');
         array_shift($alist);
         $light = array(1 => '', 2 => '', 3 => '', 4 => '', 5 => '', 6 => '', 7 => '');

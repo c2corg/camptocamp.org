@@ -7,7 +7,6 @@ use_helper('Forum','Button', 'ModalBox', 'General');
     $perso = c2cPersonalization::getInstance();
     $act_filter = $perso->getActivitiesFilter();
     $main_filter_switch_on = $perso->isMainFilterSwitchOn();
-    $static_base_url = sfConfig::get('app_static_url');
     $alist = sfConfig::get('app_activities_list');
     array_shift($alist); // remove the 0 entry
     $light = array_fill(0, count($alist), '');

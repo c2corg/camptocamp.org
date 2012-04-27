@@ -14,7 +14,6 @@ if (count($items) == 0): ?>
 <?php else: ?>
     <ul id="recent-changes">
     <?php 
-    $static_base_url = sfConfig::get('app_static_url');
     foreach ($items as $item): ?>
         <li><?php 
             $module_name = $item[$archive]['module'];

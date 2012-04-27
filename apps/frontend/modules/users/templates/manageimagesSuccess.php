@@ -29,7 +29,6 @@ else:
     echo $pager_navigation;
     echo '<div class="clearer"></div>';
     $items = Language::parseListItems($items, 'Image');
-    $static_base_url = sfConfig::get('app_static_url');
 
 
     echo form_tag("@user_manage_images?module=users",

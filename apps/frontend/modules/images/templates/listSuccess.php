@@ -44,7 +44,6 @@ else:
     echo pager_nb_results($pager);
     echo '<div class="clearer"></div>';
     $items = Language::parseListItems($items, 'Image');
-    $static_base_url = sfConfig::get('app_static_url');
 ?>
 <?php foreach ($items as $item): ?>
     <div class="thumb_data">

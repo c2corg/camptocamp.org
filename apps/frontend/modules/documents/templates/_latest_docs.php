@@ -41,7 +41,6 @@ if (count($items) == 0): ?>
     <?php
     $list_item = 0;
     $max_items = c2cTools::mobileVersion() ? sfConfig::get('app_recent_documents_latest_docs_mobile_limit') : 100;
-    $static_base_url = sfConfig::get('app_static_url');
     foreach ($items as $item): ?>
         <?php
             if ($list_item > $max_items) break;

@@ -46,8 +46,6 @@ if ($is_not_archive && $is_not_merged):
         echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\').reverse()[0])) != -1)');
     }
 
-    $static_base_url = sfConfig::get('app_static_url');
-
     if (!$is_personal_article || count($associated_documents) || $is_connected)
     {
         echo start_section_tag('Linked documents', 'associated_docs');

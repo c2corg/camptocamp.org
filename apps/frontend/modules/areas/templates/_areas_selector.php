@@ -5,7 +5,6 @@ $mobile_version = c2cTools::mobileVersion();
 <fieldset id="fs_area">
     <legend class="select_title">
         <?php
-        $static_base_url = sfConfig::get('app_static_url');
         if (!isset($show_picto))
         {
             $show_picto = true;

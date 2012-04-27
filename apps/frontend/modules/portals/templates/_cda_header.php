@@ -1,7 +1,6 @@
 <?php 
 use_helper('Language', 'Link', 'Flash', 'MyForm', 'Javascript', 'Ajax', 'General');
 echo ajax_feedback();
-$static_base_url = sfConfig::get('app_static_url');
 $cda_config = sfConfig::get('app_portals_cda');
 ?>
 

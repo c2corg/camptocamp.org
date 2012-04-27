@@ -129,8 +129,6 @@ function pager_navigation($pager, $class = array())
         $uri = _addUrlParameters(_getBaseUri(), array(), $params);
      
         $uri .= _getSeparator($uri) . 'page=';
-
-        $static_base_url = sfConfig::get('app_static_url');
      
         // First and previous pages
         if ($pager->getPage() != 1)
@@ -192,7 +190,6 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
     sfLoader::loadHelpers(array('General'));
 
     $navigation = '';
-    $static_base_url = sfConfig::get('app_static_url');
 
     if ($current_page != 0)
     {
@@ -415,7 +412,6 @@ function get_paginated_activities($value, $hide_picto = false)
 
     $activities = sfConfig::get('app_activities_list');
     $out = array();
-    $static_base_url = sfConfig::get('app_static_url');
     foreach ($value as $item)
     {
         if (array_key_exists($item, $activities) && !empty($activities[$item]))
