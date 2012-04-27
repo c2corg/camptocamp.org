@@ -56,18 +56,10 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     
     <?php
     if ($action != "cda"):
-    if ($type != null)
-    {
-        $class = ' class="active"';
-    }
-    else
-    {
-        $class = '';
-    }
     ?>
     <div id="menu">
       <ul>
-        <li<?php echo $class ?>><?php echo link_to(__('ecomobility'), '@cdasearch'); ?></li>
+        <li class="active"><?php echo link_to(__('ecomobility'), '@cdasearch'); ?></li>
         <li><?php echo link_to(__('contest'), '@document_by_id_lang?module=articles&id=' . $mw_contest_id . '&lang=' . $lang); ?></li>
         <li><?php echo link_to(__('picturial'), '@default?module=images&action=list&owtp=yes'); ?></li>
         <li><?php echo f_link_to(__('questions?'), 'viewtopic.php?id=42'); ?></li>

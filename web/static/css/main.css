@@ -1817,6 +1817,7 @@ fieldset .select_title
 {
   width: 320px;
   float: right;
+  text-align: center;
 }
 #filterform #fs_area select
 {
