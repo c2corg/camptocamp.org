@@ -1,25 +1,36 @@
 <?php
-//include_once(SF_ROOT_DIR . '/VERSION');
 
 class sfTimestamp
 {
-    //include_once(SF_ROOT_DIR . '/VERSION');
     /**
-     * This function is used to compute the timestamp of the
-     * last modification of $files
+     * This function was initially used to compute the timestamp
+     * of the last modification of $files
+     *
+     * Nevertheless, we are now computing a 'hash' value, which is
+     * more efficient. Feel free to change the name if you find a good one :)
+     *
      * If file is not found, an empty string
      * is returned
      */
     public static function getTimestamp($files)
     {
-        $files = is_array($files) ? $files : array($files);
-        $counter = count($files);
-        $max = 0;
-
-        foreach ($files as $file)
+        if (is_array($files))
         {
-            $max = max($max, sfConfig::get('app_versions_'.$file, 0));
+            $c = '';
+            foreach ($files as $file)
+            {
+                $h = sfConfig::get('app_versions_'.$file);
+                if (!$h)
+                {
+                    return '';
+                }
+                $c .= $h;
+            }
+            return substr(md5($c), 0, 8);
         }
-        return ($max == 0) ? '' : $max;
+        else
+        {
+            return sfConfig::get('app_versions_'.$file, '');
+        }
     }
 }

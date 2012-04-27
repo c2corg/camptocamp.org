@@ -193,7 +193,7 @@ function processArgs() {
             generateMoFiles();
             launchCleanCache();
             buildMapJsFiles(); // must be done before revision info
-            //buildSassFiles();
+            buildSassFiles();
             updateRevisionInfo();
             execWrapper('php symfony fix-perms');
 
@@ -209,7 +209,7 @@ function processArgs() {
             generateMoFiles();
             //makeMapservWrapperExecutable();
             buildMapJsFiles(); // must be done before revision info
-            //buildSassFiles();
+            buildSassFiles();
             updateRevisionInfo();
             launchCleanCache();
             //execWrapper('php symfony fix-perms');
@@ -750,7 +750,7 @@ function getDirTimestampInfo($dir, $pattern) {
     $files = glob($dir.'/*'.$pattern);
     $list = array();
     foreach ($files as $file) {
-        $list[] = substr($file, 3) . ': ' . (filemtime($file) - 1200000000);
+        $list[] = substr($file, 3) . ': ' . substr(md5_file($file), 0, 8);
     }
     return $list;
 }
@@ -811,9 +811,9 @@ function buildSassFiles() {
     }
 
     chdir('web/static/css');
-    info('Building CSS files (Files will be updated only if needed)...');
-    execWrapper('sass --update -r c2c_sass_functions.rb sass:.');
-    info('CSS files built or up-to-date.');
+    info('Building CSS files...');
+    execWrapper('./build.sh');
+    info('CSS files built.');
     chdir(dirname(__FILE__)); 
 }
 
