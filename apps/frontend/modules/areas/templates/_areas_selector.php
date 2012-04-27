@@ -43,7 +43,23 @@ $mobile_version = c2cTools::mobileVersion();
         <?php
         //rq FIXME bug in symfony 1.0.11 which does not work with optgroups and escaping, see http://trac.symfony-project.org/ticket/3923
         // plus using sf_data->getRaw is not enough because it is passed through different partials
-        $ranges_raw = $sf_data->getRaw('ranges');
+        $ranges_raw = array();
+        foreach ($ranges as $key => $value)
+        {
+            if ($value instanceof sfOutputEscaperArrayDecorator)
+            {
+                $rr = array();
+                foreach ($value as $k => $v)
+                {
+                    $rr[$k] = $v;
+                }
+                $ranges_raw[$key] = $rr;
+            }
+            else
+            {
+                $ranges_raw[$key] = $value;
+            }
+        }
         $selected_areas_raw = $sf_data->getRaw('selected_areas');
         if (isset($use_personalization) && $use_personalization && !count($selected_areas_raw))
         {

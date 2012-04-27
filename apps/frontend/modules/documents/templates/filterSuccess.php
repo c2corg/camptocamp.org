@@ -65,17 +65,17 @@ switch($module)
     case 'users':
         if ($perso_on)
         {
-            if (!count($activities) && $has_perso_activities || !count($selected_areas) && $has_perso_areas)
+            if (!count($activities) && $has_perso_activities && !count($selected_areas) && $has_perso_areas)
             {
                 $msg = __('activity and area filters applied');
                 $personalization_applied = true;
             }
-            elseif (count($activities) && !count($selected_areas) && $has_perso_areas)
+            elseif (!count($selected_areas) && $has_perso_areas)
             {
                 $msg = __('area filters applied');
                 $personalization_applied = true;
             }
-            elseif (count($selected_areas) && !count($activities) && $has_perso_activities)
+            elseif (!count($activities) && $has_perso_activities)
             {
                 $msg = __('activity filters applied');
                 $personalization_applied = true;
