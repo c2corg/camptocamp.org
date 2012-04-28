@@ -483,3 +483,11 @@ function lang_selector($field)
     }
     return select_tag($field, options_for_select($options, '', array('include_blank' => true)));
 }
+
+function filter_field($field_name, $field_form, $class='col')
+{
+    return '<div class="' . $class . '">'
+       . __($field_name) . ' '
+       . $field_form
+       . '</div>';
+}

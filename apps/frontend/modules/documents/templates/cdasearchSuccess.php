@@ -91,9 +91,13 @@ include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personal
 
 echo around_selector('arnd', true) . '<br />';
 
-echo '<br />' . __('cda_activities') . ' ' . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities, $multiple_activities, false, 'app_cda_activities');
+echo '<br />'
+    . __('cda_activities') . ' '
+    . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities, $multiple_activities, false, 'app_cda_activities');
 
-echo __('cda_difficulty') . ' ' . select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty'))));
+
+echo filter_field('cda_difficulty',
+        select_tag('difficulty', options_for_select(array_map('__', sfConfig::get('app_cda_difficulty')))));
 
 $elevation_options = array_map('__', sfConfig::get('app_cda_elevation'));
 $elevation_ranges = sfConfig::get('app_cda_elevation_range');
@@ -106,7 +110,8 @@ foreach ($elevation_options as $key => $value)
         $elevation_options[$key] = $value . ' (' . str_replace('~', $replace, $elevation_ranges[$key]) . $meters . ')';
     }
 }
-echo __('cda_elevation') . ' ' . select_tag('elevation', options_for_select($elevation_options));
+echo filter_field('cda_elevation',
+        select_tag('elevation', options_for_select($elevation_options)));
 ?>
 <br />
 <br />
