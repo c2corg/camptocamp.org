@@ -1,0 +1,349 @@
+@import "blob";
+
+/*
+ * Regroup here all picto backgrounds that are used both in mobile and standard version
+ * we use data uris rather than css sprites:
+ * - overhead of base64 is quite low when content is gzipped
+ * - saves some requests
+ * - pictos background can be tiled (for example for high dpi mobile devices)
+ * - easier version caching with varnish (see https://dev.camptocamp.org/trac/c2corg/ticket/721)
+ *
+ * we only do this for images that are likely to appear on every page!
+ */
+
+/* MISC */
+
+a.external_link, .htext .hextra a.external_link {
+  background: transparent url(datauri('/static/images/extlink.gif')) left center no-repeat;
+}
+
+.nav_box_text ul, ul.listed_changes li, ul.children_docs li {
+  list-style-image: url(datauri('/static/images/picto/puce2.png'));
+}
+
+/* BORDERS & CO */
+
+#rhonealpes a {
+  background: url(datauri('/static/images/rhonealpes.gif')) no-repeat 0;
+}
+
+#europa a {
+  background: url(datauri('/static/images/europe.gif')) no-repeat 0;
+}
+
+#c2csa a {
+  background: url(datauri('/static/images/c2csa.gif')) no-repeat 0;
+}
+
+.picto.cc-by-sa {
+  background: url(datauri('/static/images/cc-by-sa.png')) no-repeat 0;
+}
+
+.picto.cc-by-nc-nd {
+  background: url(datauri('/static/images/cc-by-nc-nd.png')) no-repeat 0;
+}
+
+.picto.copyright {
+  background: url(datauri('/static/images/copyright.png')) no-repeat 0;
+}
+
+.picto.cc-by-sa-mini, .thumb_data_img div.license_1, .image_list div.license_1, span.license_mini_bysa {
+  background: url(datauri('/static/images/cc-by-sa_mini.png')) no-repeat 0;
+}
+
+.thumb_data_img div.license_2, .image_list div.license_2 {
+  background: url(datauri('/static/images/cc-by-nc-nd_mini.png')) no-repeat 0;
+}
+
+.thumb_data_img div.license_3, .image_list div.license_3 {
+  background: url(datauri('/static/images/copyright_mini.png')) no-repeat 0;
+}
+
+#footer {
+  background-image: url(datauri('/static/images/footer.gif'));
+}
+
+/* MODULE MINI PICTOS */
+
+@each $module in areas, articles, books, huts, images, maps, outings, parkings,
+                 routes, sites, summits, users, products, portals, documents {
+  .picto_#{$module} {
+    background: url(datauri('/static/images/modules/#{$module}_mini.png')) no-repeat 0;
+  }
+}
+
+.picto_4 {
+  @extend .picto_areas;
+}
+
+.picto_11 {
+  @extend .picto_articles;
+}
+
+.picto_12 {
+  @extend .picto_books;
+}
+
+.picto_10 {
+  @extend .picto_huts;
+}
+
+.picto_8, .image_list a.view_details, #lightbox_view_details {
+  @extend .picto_images;
+}
+
+.picto_6 {
+  @extend .picto_maps;
+}
+
+.picto_5 {
+  @extend .picto_outings;
+}
+
+.picto_9 {
+  @extend .picto_parkings;
+}
+
+.picto_7 {
+  @extend .picto_routes;
+}
+
+.picto_13 {
+  @extend .picto_sites;
+}
+
+.picto_3 {
+  @extend .picto_summits;
+}
+
+.picto_2, a.logged_as {
+  @extend .picto_users;
+}
+
+.picto_14 {
+  @extend .picto_products;
+}
+
+.picto_15 {
+  @extend .picto_portals;
+}
+
+.picto_1 {
+  @extend .picto_documents;
+}
+
+/* MODULE PICTOS */
+
+@each $module in areas, articles, books, documents, huts, images, maps, outings,
+                 parkings, routes, sites, summits, users, products, portals {
+  .img_title_#{$module} {
+    background: url(datauri('/static/images/modules/#{$module}.png')) no-repeat 2px 2px;
+  }
+}
+
+/* ACTION PICTOS */
+
+.action_create, .c2cui_picto.action_create, .picto_add {
+  background: url(datauri('/static/images/picto/plus.png')) no-repeat 0;
+}
+
+.action_cancel, .c2cui_picto.action_cancel {
+  background: url(datauri('/static/images/picto/cancel.png')) no-repeat 0;
+}
+
+.action_back {
+  background: url(datauri('/static/images/picto/back.png')) no-repeat 0;
+}
+
+.action_next {
+  background: url(datauri('/static/images/picto/next.png')) no-repeat 0;
+}
+
+.action_first {
+  background: url(datauri('/static/images/picto/first.png')) no-repeat 0;
+}
+
+.action_last {
+  background: url(datauri('/static/images/picto/last.png')) no-repeat 0;
+}
+
+/* commented out since it is never used */
+/*.action_down {
+  background: url(datauri('/static/images/picto/down.png')) no-repeat 0;
+}*/
+
+.action_contact {
+  background: url(datauri('/static/images/picto/envelope.png')) no-repeat 0;
+}
+
+/* commented out since it is never used */
+/*.action_view {
+  background: url(datauri('/static/images/picto/default_icon.png')) no-repeat 0;
+}*/
+
+/* commented out since it is never used */
+/*.action_bookmark {
+  background: url(datauri('/static/images/picto/bookmark.png')) no-repeat 0;
+}*/
+
+/* commented out since it is never used */
+/*.action_tag {
+  background: url(datauri('/static/images/picto/tag.png')) no-repeat 0;
+}*/
+
+.action_rm, .c2cui_picto.action_rm, .picto_rm, .image_list a.unlink {
+  background: url(datauri('/static/images/picto/rm.png')) no-repeat 0;
+}
+
+.action_comment span, .action_comment, .picto_forum, .picto_forums, select.picto_forum, select.picto_forums {
+  background: url(datauri('/static/images/picto/comment.png')) no-repeat 0;
+}
+
+.img_title_forums {
+  background: url(datauri('/static/images/picto/comment_big.png')) no-repeat 0;
+}
+
+.action_gps {
+  background: url(datauri('/static/images/picto/gps.png')) no-repeat 0;
+}
+
+.action_on {
+  background: url(datauri('/static/images/picto/bulb.gif')) no-repeat 0;
+}
+
+.action_off {
+  background: url(datauri('/static/images/picto/light.png')) no-repeat 0;
+}
+
+.picto_open, th.order_desc {
+  background: url(datauri('/static/images/picto/open.png')) no-repeat 0;
+}
+
+.picto_open_light {
+  background: url(datauri('/static/images/picto/open_light.png')) no-repeat 0;
+}
+
+.picto_close, th.order_asc {
+  background: url(datauri('/static/images/picto/close.png')) no-repeat 0;
+}
+
+.picto_close_light {
+  background: url(datauri('/static/images/picto/close_light.png')) no-repeat 0;
+}
+
+.picto_weather {
+  background: url(datauri('/static/images/picto/weather.png')) no-repeat 0;
+}
+
+.picto_snow {
+  background: url(datauri('/static/images/picto/snow.png')) no-repeat 0;
+}
+
+.picto_images_light {
+  background: url(datauri('/static/images/picto/images_light.png')) no-repeat 0;
+}
+
+.action_rss, .action_rss_new, .picto_rss {
+  background: url(datauri('/static/images/picto/rss.png')) no-repeat 0;
+}
+
+.action_informations, .picto_info {
+  background: url(datauri('/static/images/picto/informations.png')) no-repeat 0;
+}
+
+/* ACTIVITIES MINI PICTOS */
+
+.activity_8, option.act_8 {
+  background: url(datauri('/static/images/picto/paragliding_mini.png')) no-repeat 0;
+}
+
+.activity_8_light {
+  background: url(datauri('/static/images/picto/paragliding_light_mini.png')) no-repeat 0;
+}
+
+.activity_7, option.act_7 {
+  background: url(datauri('/static/images/picto/snowshoeing_mini.png')) no-repeat 0;
+}
+
+.activity_7_light {
+  background: url(datauri('/static/images/picto/snowshoeing_light_mini.png')) no-repeat 0;
+}
+
+.activity_6, option.act_6 {
+  background: url(datauri('/static/images/picto/hiking_mini.png')) no-repeat 0;
+}
+
+.activity_6_light {
+  background: url(datauri('/static/images/picto/hiking_light_mini.png')) no-repeat 0;
+}
+
+.activity_5, option.act_5 {
+  background: url(datauri('/static/images/picto/ice_climbing_mini.png')) no-repeat 0;
+}
+
+.activity_5_light {
+  background: url(datauri('/static/images/picto/ice_climbing_light_mini.png')) no-repeat 0;
+}
+
+.activity_4, option.act_4 {
+  background: url(datauri('/static/images/picto/rock_climbing_mini.png')) no-repeat 0;
+}
+
+.activity_4_light {
+  background: url(datauri('/static/images/picto/rock_climbing_light_mini.png')) no-repeat 0;
+}
+
+.activity_3, option.act_3 {
+  background: url(datauri('/static/images/picto/mountain_climbing_mini.png')) no-repeat 0;
+}
+
+.activity_3_light {
+  background: url(datauri('/static/images/picto/mountain_climbing_light_mini.png')) no-repeat 0;
+}
+
+.activity_2, option.act_2 {
+  background: url(datauri('/static/images/picto/snow_ice_mixed_mini.png')) no-repeat 0;
+}
+
+.activity_2_light {
+  background: url(datauri('/static/images/picto/snow_ice_mixed_light_mini.png')) no-repeat 0;
+}
+
+.activity_1, option.act_1 {
+  background: url(datauri('/static/images/picto/skitouring_mini.png')) no-repeat 0;
+}
+
+.activity_1_light {
+  background: url(datauri('/static/images/picto/skitouring_light_mini.png')) no-repeat 0;
+}
+
+.pt_2 {
+  background: url(datauri('/static/images/picto/bus_mini.png')) no-repeat 0;
+}
+
+.pt_3 {
+  background: url(datauri('/static/images/picto/ondemand_mini.png')) no-repeat 0;
+}
+
+.pt_1 {
+  background: url(datauri('/static/images/picto/train_mini.png')) no-repeat 0;
+}
+
+.freq_1 {
+  background: url(datauri('/static/images/picto/freq_1.png')) no-repeat 0;
+}
+
+.freq_2 {
+  background: url(datauri('/static/images/picto/freq_2.png')) no-repeat 0;
+}
+
+/* attention this is inverted */
+.freq_4 {
+  background: url(datauri('/static/images/picto/freq_3.png')) no-repeat 0;
+}
+
+/* attention this is inverted */
+.freq_3 {
+  background: url(datauri('/static/images/picto/freq_4.png')) no-repeat 0;
+}
+

@@ -7,7 +7,6 @@ default:
 
   stylesheets:
     - /static/css/main.css: { media: all }
-    - /static/css/img.css: { media: all }
   # javascripts should not be specified here if not application-wide
 
   has_layout:     on
