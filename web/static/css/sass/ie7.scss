@@ -1,3 +1,5 @@
+@import "blob";
+
 /* CSS patch for IE7 */
 #content_box
 {
@@ -91,17 +93,17 @@ tr
 
 #wizard_button .action_create
 {
-  background: url(/static/images/picto/add.png) no-repeat 1px 1px;
+  background: url(c2chash('/static/images/picto/add.png')) no-repeat 1px 1px;
 }
 
 .nav_box_text ul, ul.listed_changes li, ul.children_docs li
 {
-  list-style-image: url(/static/images/picto/puce2.png);
+  list-style-image: url(c2chash('/static/images/picto/puce2.png'));
 }
 
 .nav_box_content
 {
-  background: url(/static/images/bg_nav.png) repeat-x bottom left;
+  background: url(c2chash('/static/images/bg_nav.png')) repeat-x bottom left;
 }
 
 .image_list div.image_actions
@@ -287,12 +289,12 @@ div.file_to_upload_categories select
 
 /* ie6 and ie7 don't support data uris */
 a.external_link, .htext .hextra a.external_link {
-  background: transparent url(/static/images/extlink.gif) left center no-repeat;
+  background: transparent url(c2chash('/static/images/extlink.gif')) left center no-repeat;
 }
 
 #order li
 {
-  background: url(/static/images/picto/drag.gif) no-repeat 5px;
+  background: url(c2chash('/static/images/picto/drag.gif')) no-repeat 5px;
 }
 
 
@@ -300,12 +302,12 @@ a.external_link, .htext .hextra a.external_link {
    buttons is $^*@! */
 .c2cui_picto.action_create
 {
-  background: url(/static/images/picto/add.png) no-repeat 0;
+  background: url(c2chash('/static/images/picto/add.png')) no-repeat 0;
 }
 
 .c2cui_picto.action_filter, #google_search_submit, #q
 {
-  background: url(/static/images/picto/search.png) no-repeat 0;
+  background: url(c2chash('/static/images/picto/search.png')) no-repeat 0;
 }
 
 /*#google_search_submit, #q {
@@ -314,22 +316,22 @@ a.external_link, .htext .hextra a.external_link {
 
 .c2cui_picto.action_cancel
 {
-  background: url(/static/images/picto/cancel.png) no-repeat 0;
+  background: url(c2chash('/static/images/picto/cancel.png')) no-repeat 0;
 }
 
 .c2cui_picto.action_list
 {
-  background: url(/static/images/picto/list.png) no-repeat 0;
+  background: url(c2chash('/static/images/picto/list.png')) no-repeat 0;
 }
 
 .c2cui_picto.action_edit
 {
-  background: url(/static/images/picto/edit.png) no-repeat 0;
+  background: url(c2chash('/static/images/picto/edit.png')) no-repeat 0;
 }
 
 .c2cui_picto.action_rm
 {
-  background: url(/static/images/picto/rm.png) no-repeat 0;
+  background: url(c2chash('/static/images/picto/rm.png')) no-repeat 0;
 }
 
 /* ie7 doesn't support data uris, so let's use css sprites (see img.css) */
@@ -339,7 +341,7 @@ a.external_link, .htext .hextra a.external_link {
 .picto_1, .picto_4, .picto_3, .picto_13, .picto_7, .picto_9, .picto_10, .picto_5,
 .picto_8, .picto_11, .picto_12, .picto_6, .picto_2, .picto_14, .picto_15
 {
-  background: url(/static/images/modules/modules_mini.png) no-repeat;
+  background: url(c2chash('/static/images/modules/modules_mini.png')) no-repeat;
 }
 .picto_areas, .picto_4
 {
@@ -454,12 +456,12 @@ a.external_link, .htext .hextra a.external_link {
 }
 .image_list a.view_details, #lightbox_view_details
 {
-  background: url(/static/images/modules/modules_mini.png) no-repeat -1px -166px;
+  background: url(c2chash('/static/images/modules/modules_mini.png')) no-repeat -1px -166px;
 }
 
 .article_title_img
 {
-  background: url(/static/images/modules/modules.png) no-repeat;
+  background: url(c2chash('/static/images/modules/modules.png')) no-repeat;
 }
 .img_title_areas
 {
@@ -529,7 +531,7 @@ a.external_link, .htext .hextra a.external_link {
 /* 'view', 'edit', 'history'... tabs */
 .ombre_haut, .ombre_bas, #footer
 {
-  background-image: url(/static/images/borders_repeat_x.png);
+  background-image: url(c2chash('/static/images/borders_repeat_x.png'));
 }
 
 #footer
@@ -545,7 +547,7 @@ a.external_link, .htext .hextra a.external_link {
 
 .form-row .fieldname
 {
-  background: transparent url(/static/images/picto/help2.png) no-repeat scroll 0 6px;
+  background: transparent url(c2chash('/static/images/picto/help2.png')) no-repeat scroll 0 6px;
 }
 
 /* action images */
@@ -560,7 +562,7 @@ a.external_link, .htext .hextra a.external_link {
 .picto_open, .picto_open_light, .picto_close, .picto_close_light,
 .picto_weather, .picto_snow, .picto_images_light
 {
-  background: url(/static/images/picto/actions.png) no-repeat;
+  background: url(c2chash('/static/images/picto/actions.png')) no-repeat;
 }
 
 .action_edit span, .action_edit
@@ -805,17 +807,17 @@ select.picto_forum, select.picto_forums
 }
 .image_list a.view_original, #lightbox_view_original
 {
-  background: url(/static/images/picto/actions.png) no-repeat -2px -673px;
+  background: url(c2chash('/static/images/picto/actions.png')) no-repeat -2px -673px;
 }
 
 .image_list a.unlink
 {
-  background: url(/static/images/picto/actions.png) no-repeat -1px -609px;
+  background: url(c2chash('/static/images/picto/actions.png')) no-repeat -1px -609px;
 }
 
 th.order_desc, th.order_asc
 {
-  background: url(/static/images/picto/actions.png) no-repeat;
+  background: url(c2chash('/static/images/picto/actions.png')) no-repeat;
 }
 /* position: 3px 6px */
 th.order_desc
@@ -836,7 +838,7 @@ th.order_asc
 .freq_1, .freq_2, .freq_3, .freq_4,
 option.picto_act
 {
-  background: url(/static/images/picto/activities_mini.png) no-repeat;
+  background: url(c2chash('/static/images/picto/activities_mini.png')) no-repeat;
 }
 
 .activity_6, option.act_6
@@ -944,7 +946,7 @@ option.picto_act
 .cc_gen, .cc_gen.lang_fr, .image_license, .license_mini,
 #paypal-button, #pp_button_mini, span.share_bookmark
 {
-  background: url(/static/images/borders_and_logos.png) no-repeat;
+  background: url(c2chash('/static/images/borders_and_logos.png')) no-repeat;
 }
 #banner_logo
 {
@@ -968,7 +970,7 @@ option.picto_act
 }
 #splitter_arrow
 {
-  background: url(/static/images/borders_and_logos.png) no-repeat;
+  background: url(c2chash('/static/images/borders_and_logos.png')) no-repeat;
   background-position: -190px -141px;
 }
 #splitter_arrow.maximize
@@ -1129,5 +1131,5 @@ span.license_mini_bysa {
 img { -ms-interpolation-mode: bicubic; }
 
 /* lightbox datauri fallback */
-#prevLink:hover, #prevLink:visited:hover { background: url(/static/images/prev.gif) left 15% no-repeat; }
-#nextLink:hover, #nextLink:visited:hover { background: url(/static/images/next.gif) right 15% no-repeat; }
+#prevLink:hover, #prevLink:visited:hover { background: url(c2chash('/static/images/prev.gif')) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(c2chash('/static/images/next.gif')) right 15% no-repeat; }
