@@ -9,8 +9,9 @@ class sfTimestamp
      * Nevertheless, we are now computing a 'hash' value, which is
      * more efficient. Feel free to change the name if you find a good one :)
      *
-     * If file is not found, an empty string
-     * is returned
+     * If file is not found, an empty string is returned
+     * If one of the file is not found, it is not used for 
+     * computing the timestamp
      */
     public static function getTimestamp($files)
     {
@@ -20,17 +21,16 @@ class sfTimestamp
             foreach ($files as $file)
             {
                 $h = sfConfig::get('app_versions_'.$file);
-                if (!$h)
+                if ($h)
                 {
-                    return '';
+                    $c .= $h;
                 }
-                $c .= $h;
             }
             return substr(md5($c), 0, 8);
         }
         else
         {
-            return sfConfig::get('app_versions_'.$file, '');
+            return sfConfig::get('app_versions_'.$files, '');
         }
     }
 }
