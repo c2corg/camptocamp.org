@@ -14,7 +14,8 @@ preprod:
 
 dev:
   .settings:
-    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    # E_ALL | E_STRICT = 4095
+    error_reporting:        4095
     web_debug:              on
     cache:                  on
     no_script_name:         off
@@ -22,7 +23,8 @@ dev:
 
 test:
   .settings:
-    error_reporting:        <?php echo (E_ALL | E_STRICT & ~E_NOTICE)."\n" ?>
+    # E_ALL | E_STRICT & ~E_NOTICE = 2047
+    error_reporting:        2047
     cache:                  off
     web_debug:              off
     no_script_name:         off
