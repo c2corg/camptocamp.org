@@ -1127,3 +1127,7 @@ span.license_mini_bysa {
 /* Bicubic resizing for non-native sized IMG:
    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
 img { -ms-interpolation-mode: bicubic; }
+
+/* lightbox datauri fallback */
+#prevLink:hover, #prevLink:visited:hover { background: url(/static/images/prev.gif) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(/static/images/next.gif) right 15% no-repeat; }

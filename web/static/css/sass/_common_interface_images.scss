@@ -1,5 +1,3 @@
-@import "blob";
-
 /*
  * Regroup here all picto backgrounds that are used both in mobile and standard version
  * we use data uris rather than css sprites:
@@ -10,6 +8,9 @@
  *
  * we only do this for images that are likely to appear on every page!
  */
+
+$modules: areas, articles, books, huts, images, maps, outings, parkings,
+          routes, sites, summits, users, products, portals, documents;
 
 /* MISC */
 
@@ -65,8 +66,7 @@ a.external_link, .htext .hextra a.external_link {
 
 /* MODULE MINI PICTOS */
 
-@each $module in areas, articles, books, huts, images, maps, outings, parkings,
-                 routes, sites, summits, users, products, portals, documents {
+@each $module in $modules {
   .picto_#{$module} {
     background: url(datauri('/static/images/modules/#{$module}_mini.png')) no-repeat 0;
   }
@@ -134,8 +134,7 @@ a.external_link, .htext .hextra a.external_link {
 
 /* MODULE PICTOS */
 
-@each $module in areas, articles, books, documents, huts, images, maps, outings,
-                 parkings, routes, sites, summits, users, products, portals {
+@each $module in $modules {
   .img_title_#{$module} {
     background: url(datauri('/static/images/modules/#{$module}.png')) no-repeat 2px 2px;
   }

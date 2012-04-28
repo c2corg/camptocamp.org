@@ -1265,3 +1265,7 @@ span.license_mini_bysa {
   background-position: -266px -15px;
 }
 
+/* lightbox datauri fallback */
+#prevLink:hover, #prevLink:visited:hover { background: url(/static/images/prev.gif) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(/static/images/next.gif) right 15% no-repeat; }
+
