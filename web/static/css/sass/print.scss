@@ -1,7 +1,7 @@
+@import "blob";
+
 /* inlined, so we can concatenate with other stylesheets and avoid an extra request */
 @media print {
-
-/* http://www.camptocamp.org/forums/viewtopic.php?pid=842759#p842759 */
 
 * {
   margin:0;

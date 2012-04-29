@@ -1,88 +1,86 @@
-body
-{
- margin:0;
+@import "blob";
+
+body {
+  margin:0;
 } 
 
-#popup_contentDiv
-{
- position:relative;
- top: 0;
- left: 0;
- width: 400px;
- background-color: white;
- padding: 0;
+#popup_contentDiv {
+  position:relative;
+  top: 0;
+  left: 0;
+  width: 400px;
+  background-color: white;
+  padding: 0;
+
+  h3 {
+    margin: 0 30px 0 0;
+    padding: 0;
+    border: 0;
+    height: auto;
+    line-height: 1.1em;
+    font-size:1.1em;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+  }
+
+  &.external h3 {
+    margin: 6px 82px 0px 3px;
+    height: 34px;
+  }
+
+  .article_title_img {
+    margin: 0 0.3em 0 0;
+  }
+
+  .popup_desc {
+    display: block;
+    margin-bottom: 3px;
+    padding-right: 2px;
+    text-align: justify;
+    overflow: auto;
+  }
+
+  &.external .popup_desc {
+    padding: 0 4px 0 4px;
+  }
 }
 
-#popup_contentDiv h3
-{
- margin: 0 30px 0 0;
- padding: 0;
- border: 0;
- height: auto;
- line-height: 1.1em;
- font-size:1.1em;
- overflow: hidden;
- border: 0;
- padding: 0;
-}
-#popup_contentDiv.external h3
-{
- margin: 6px 82px 0px 3px;
- height: 34px;
+#popup_logo {
+  position:absolute;
+  top: 0px;
+  left: 318px;
+
+  img {
+    border: 0;
+  }
 }
 
-#popup_contentDiv .article_title_img
-{
-  margin: 0 0.3em 0 0;
-}
+.popup_slideimages {
+  display: inline;
+  clear: none;
+  float: left;
+  margin: 2px 4px 1px 0;
+  padding: 0;
+  border: 0;
+  width: 120px;
+  height: 120px;
 
-#popup_logo
-{
- position:absolute;
- top: 0px;
- left: 318px;
-}
-
-#popup_contentDiv div.popup_desc
-{
- display: block;
- margin-bottom: 3px;
- padding-right: 2px;
- text-align: justify;
- overflow: auto;
-}
-#popup_contentDiv.external div.popup_desc
-{
- padding: 0 4px 0 4px;
-}
-
-.popup_slideimages
-{
- display: inline;
- clear: none;
- float: left;
- margin: 2px 4px 1px 0;
- padding: 0;
- border: 0;
- width: 120px;
- height: 120px;
-}
-
-.popup_slideimages li
-{
- position: absolute;
- display: block;
- list-style-type: none;
- margin: 0px;
- padding: 0px;
-}
-.popup_slideimages li img
-{
- margin: 0;
- padding: 0;
- display: block;
- max-width: 120px;
- max-height: 120px;
+  li {
+    position: absolute;
+    display: block;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+  
+    img {
+      margin: 0;
+      padding: 0;
+      display: block;
+      max-width: 120px;
+      max-height: 120px;
+    }
+  }
 }
 
 #popup_contentDiv ul.data
@@ -127,10 +125,6 @@ body
  vertical-align: top;
 }
 
-#popup_logo img
-{
- border:0;
-}
 
 #popup_contentDiv .title2.htext
 {
