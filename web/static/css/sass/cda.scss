@@ -1,3 +1,5 @@
+@import "blob";
+
 #page_header {
   width: 838px;
   margin: 0px auto;
@@ -56,7 +58,7 @@
 }
 
 #partenaires {
-  background-image: url("/static/images/cda/partenaires.jpg");
+  background-image: url(c2chash("/static/images/cda/partenaires.jpg"));
   padding-top: 0px;
   height: 136px;
   width: 331px;

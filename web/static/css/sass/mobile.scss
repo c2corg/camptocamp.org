@@ -1,3 +1,5 @@
+@import "blob";
+
 html, body, #holder
 {
   min-width: 240px;
@@ -419,23 +421,13 @@ select.menu_select
 
 .menu_item.left
 {
-  -moz-border-radius-topleft: 6px;
-  -webkit-border-top-left-radius: 6px;
-  border-top-left-radius: 6px;
-  -moz-border-radius-bottomleft: 6px;
-  -webkit-border-bottom-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  @include border-left-radius(6px);
   border-left: 1px solid #999999;
 }
 
 .menu_item.right
 {
-  -moz-border-radius-topright: 6px;
-  -webkit-border-top-right-radius: 6px;
-  border-top-right-radius: 6px;
-  -moz-border-radius-bottomright: 6px;
-  -webkit-border-bottom-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+  @include border-right-radius(6px);
   border-right: 1px solid #999999;
   border-left: 1px solid #999999;
 }
@@ -528,34 +520,6 @@ a.logged_as
 .one_kind_association:last-child, ul.data:last-child
 {
   margin-bottom: 0.9em !important;
-}
-
-/* mobile slider */
-div.slider
-{
-  width: 100%;
-  background-color: #E2DFD8;
-  height: 11px;
-  position: relative;
-  border-radius: 6px;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  margin-bottom: 15px;
-}
-div.slider div.handle
-{
-  width: 30px;
-  height: 15px;
-  background-color: #FF9933;
-  border: 1px solid #999999;
-  position: absolute;
-  top: -3px;
-  border-radius: 6px;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  text-align: center;
-  color: #999999;
-  font-weight: bold;
 }
 
 /* image thumbnails hover */

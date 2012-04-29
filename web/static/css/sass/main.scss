@@ -1,3 +1,5 @@
+@import "blob";
+
 *
 {
   margin: 0;
@@ -34,9 +36,7 @@ textarea
 /* rounded inputs */
 input, select, textarea {
   font-size: 100%;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
+  @include border-radius(4px);
   padding: 1px;
   border: 1px solid #ddd;
 }
@@ -343,9 +343,7 @@ hr
   vertical-align: middle;
   border-collapse: collapse;
   padding: 8px 20px 8px 60px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
+  @include border-radius(8px);
   margin: 0 0 5px 0;
 }
 
@@ -393,13 +391,13 @@ hr
 /* rq we don't css sprite or uri encode these two images because they are rarely used */
 .warning_message
 {
-  background: url(/static/images/picto/warning.png) no-repeat #FCC9C8 15px 50%;
+  background: url(c2chash('/static/images/picto/warning.png')) no-repeat #FCC9C8 15px 50%;
   color: black;
 }
 
 .important_message, .global_form_error, .preview_warning, .mandatory_fields_warning
 {
-  background: url(/static/images/picto/important.png) no-repeat 15px;
+  background: url(c2chash('/static/images/picto/important.png')) no-repeat 15px;
   color: gray;
 }
 
@@ -524,9 +522,7 @@ em.mandatory_asterisk
   text-align: center;
   padding: 8px;
   border: 0 !important;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  @include border-radius(5px);
 }
 
 .img_error.img_warning {
@@ -880,9 +876,7 @@ span.default_text, p.default_text
 /* compensate rounded inputs for maps */
 #map .x-form-field, #mappanel .x-form-field
 {
-  -moz-border-radius:0;
-  -webkit-border-radius:0;
-  border-radius:0;
+  @include border-radius(0);
 }
 
 #map_container p.default_text
@@ -1300,9 +1294,7 @@ p.default_text div.add_content
   max-width:50%;
   position: fixed;
   border: 1px solid #aaa;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
-  border-radius:10px;
+  @include border-radius(10px);
 }
 
 #fields_tooltip #close_info
@@ -1624,12 +1616,8 @@ ul.tabs li, ul.nav li
 
 ul.tabs li
 {
-  -moz-border-radius: 8px 8px 0 0;
-  -webkit-border-bottom-right-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-top-right-radius: 8px;
-  -webkit-border-top-left-radius: 8px;
-  border-radius: 8px 8px 0 0;
+  @include border-top-radius(8px);
+  @include border-bottom-radius(0);
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -1756,7 +1744,7 @@ option.act_0
 
 .act_1_big, .act_2_big, .act_3_big, .act_4_big, .act_5_big, .act_6_big, .act_7_big
 {
-  background: url(/static/images/picto/activities.png) no-repeat;
+  background: url(c2chash('/static/images/picto/activities.png')) no-repeat;
 }
 .act_1_big
 {
@@ -2154,9 +2142,7 @@ ul.dated_changes span.date
   font-weight:bold;
   font-size:0.8em;
   border: solid 1px #aaa;
-  -moz-border-radius:5px;
-  -webkit-border-radius:5px;
-  border-radius:5px;
+  @include border-radius(5px);
   padding:2px;
   line-height: 12px;
 }
@@ -2275,9 +2261,7 @@ ul.docs_changes li img
 {
   margin: 0.3em 0;
   border: 1px solid #000;
-  -moz-border-radius:4px;
-  -webkit-border-radius:4px;
-  border-radius:4px;
+  @include border-radius(4px);
   padding: 0.2em 0.2em 0.2em 35px;
   list-style-type: none;
   /* background uri encoded in img.css */
@@ -3492,23 +3476,6 @@ h6.htext a
 {
   text-decoration: underline;
 }
-/*
-.users_content h6.htext
-{
-  padding: 1em 2em;
-  margin: 2em 0;
-  background: transparent url(/static/images/title6.png) repeat scroll 0 0;
-  font-size: 1em;
-  text-align: center;
-}
-.users_content h6.htext a
-{
-  padding: 0;
-  font-size: 1.8em;
-  font-weight: bold;
-  color: #FF00FF;
-  background-color: white;
-}*/
 
 span.hextra, .article span.hextra
 {
@@ -3538,9 +3505,7 @@ span.toc_link a, .article span.toc_link a
   margin-left: 2em;
   padding: 0 0.5em 0.1em;
   border: 1px solid #cccccc;
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  border-radius: 1em;
+  @include border-radius(1em);
   font-size: 0.5em;
   font-style: normal;
   font-weight: normal;
@@ -3705,9 +3670,7 @@ ol.text ol.text ol.text
   width: 100%;
   background-color: #f1f1f1;
   margin-bottom: 15px;
-  -moz-border-radius:3px;
-  -webkit-border-radius:3px;
-  border-radius:3px;
+  @include border-radius(3px);
 }
 
 .home_title_text, .home_title_left, .home_title_right
@@ -4260,9 +4223,7 @@ td.history_buttons {
   background-color: #ff9933;
   padding-left: 4px;
   padding-right: 4px;
-  border-radius:4px;
-  -moz-border-radius:4px;
-  -webkit-border-radius:4px;
+  @include border-radius(4px);
 }
 
 .goog-te-sectional-gadget-link-text {
@@ -4295,9 +4256,7 @@ td.history_buttons {
   width: 82px;
   height: 17px;
   border: 1px solid white !important;
-  border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  -webkit-border-radius: 0 !important;
+  @include border-radius(0);
 }
 
 #paypal-button, #pp_button_mini {
@@ -4421,10 +4380,8 @@ span.cotometre_result {
 /* embedded google search */
 #google_search_input
 {
-  -webkit-border-bottom-right-radius: 0;
-  -webkit-border-top-right-radius: 0;
-  -moz-border-radius: 4px 0 0 4px;
-  border-radius: 4px 0 0 4px;
+  @include border-right-radius(0);
+  @include border-left-radius(4px);
   width: 220px;
   height: 1.5em;
 }
@@ -4438,10 +4395,8 @@ span.cotometre_result {
   vertical-align: middle;
   border: 1px solid #ddd;
   border-left: none;
-  -moz-border-radius: 0 4px 4px 0;
-  -webkit-border-bottom-right-radius: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-radius: 0 4px 4px 0;
+  @include border-right-radius(4px);
+  @include border-left-radius(0);
   background-color: #fff !important;
 }
 
@@ -4497,9 +4452,7 @@ span.cotometre_result {
 /* common for topoguide specific buttons and forum */
 input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
   margin: 0 0.5em 0 0;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
+  @include border-radius(4px);
   border: 1px solid #c0c0c0;
   border-bottom-color: #939393;
   border-right-color: #939393;

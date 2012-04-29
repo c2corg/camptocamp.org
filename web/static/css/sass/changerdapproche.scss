@@ -1,3 +1,4 @@
+@import "blob";
 
 html, body, #holder, #content_box
 {
@@ -153,10 +154,7 @@ a.logged_as
   height: auto;
   margin-bottom: 15px;
   border: 0;
-  border-radius:3px;
-  -moz-border-radius:3px;
-  -khtml-border-radius:3px;
-  -webkit-border-radius:3px;
+  @include border-radius(3px);
 }
 
 #nav_about
@@ -231,7 +229,7 @@ a.logged_as
 }
 
 #mw_logo, #cda_logo , #europesengage a, #paca a, #languedoc a, #alpes_maritimes a, #aquitaine a {
-  background: url(/static/images/portals/cda_4285.png) no-repeat;
+  background: url(c2chash('/static/images/portals/cda_4285.png')) no-repeat;
 }
 #mw_logo
 {
