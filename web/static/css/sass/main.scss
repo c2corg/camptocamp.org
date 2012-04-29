@@ -57,14 +57,11 @@ select, #type, #q {
 /* default model box for selects is border-box, change it so we can have all form elements
    with the same size */
 select, #q {
-  -ms-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
+  @include box-sizing(content-box);
 }
 /* Normalizes the box sizing, which is set to content-box in IE8/9 but border-box in all other browsers */
 input[type="checkbox"], input[type="radio"] {
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
 select[multiple="multiple"], input[type="checkbox"], input[type="image"] {
@@ -81,16 +78,10 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 input[type="number"]:focus, input[type="range"]:focus, input[type="search"]:focus,
 textarea:focus, select:focus
 {
-  -moz-box-shadow: 0 0 6px #ccc;
-  -webkit-box-shadow: 0 0 6px #ccc;
-  box-shadow: 0 0 6px #ccc;
+  @include box-shadow(0 0 6px #ccc);
   outline: none; /* do not conflict with possible outline added by browser, eg chrome */
 
-  -webkit-transition: box-shadow linear 0.1s;
-  -moz-transition: box-shadow linear 0.1s;
-  -ms-transition: box-shadow linear 0.1s;
-  -o-transition: box-shadow linear 0.1s;
-  transition: box-shadow linear 0.1s;
+  @include transition(box-shadow linear 0.1s);
 }
 
 input[type="checkbox"] {
@@ -4256,7 +4247,7 @@ td.history_buttons {
   width: 82px;
   height: 17px;
   border: 1px solid white !important;
-  @include border-radius(0);
+  @include border-radius(0 !important);
 }
 
 #paypal-button, #pp_button_mini {
@@ -4466,11 +4457,7 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#e3e3e3',GradientType=0 ); /* IE6-9 */
   text-shadow: 0 1px 0 white;
   cursor: pointer;
-  -webkit-transition: 0.1s linear all;
-  -moz-transition: 0.1s linear all;
-  -ms-transition: 0.1s linear all;
-  -o-transition: 0.1s linear all;
-  transition: 0.1s linear all;
+  @include transition(0.1s linear all);
 }
 
 .c2cui_btn {
@@ -4486,9 +4473,7 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 
 .c2cui_btn:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {
   border-color: #777;
-  -moz-box-shadow: 0 1px 2px #ccc;
-  -webkit-box-shadow: 0 1px 2px #ccc;
-  box-shadow: 0 1px 2px #ccc;
+  @include box-shadow(0 1px 2px #ccc);
 }
 
 .c2cui_btn:active, input[type=submit]:active, input[type=reset]:active, input[type=button]:active {

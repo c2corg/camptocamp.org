@@ -36,6 +36,18 @@ module Sass::Script::Functions
     Sass::Script::List.new(args.reject{|a| !a.to_bool}, sep)
   end
 
+  # Returns the size of the list.
+  def _compass_list_size(list)
+    assert_list list
+    Sass::Script::Number.new(list.value.size)
+  end
+
+  def assert_list(value)
+    unless value.is_a?(Sass::Script::List)
+      raise ArgumentError.new("#{value.inspect} is not a list")
+    end
+  end
+
   declare :c2chash, :args => [:file]
   declare :datauri, :args => [:file]
 
