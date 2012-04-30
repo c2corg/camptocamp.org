@@ -73,57 +73,66 @@ class MyCacheFilter extends sfCacheFilter
     // Following condition means that filter is deactivated, or filters are empty,
     // or there is only one culture in the prefs, which the same as the interface culture 
     // Other cases should not happen often, we don't cache them
-    if (    in_array($action, array('home', 'view'))
-         && (   !$are_filters_active
-             || !$is_main_filter_switch_on
-             || $are_default_filters
-             || $are_simple_activities_langs_filters
-            )
-       )
+    switch($action)
     {
-        $this->cacheManager->addCache('documents', 'home', array('lifeTime' => 300, 'vary' => array()));
-        $this->cacheManager->addCache('portals', 'changerdapproche', array('lifeTime' => 600, 'vary' => array()));
-        $this->cacheManager->addCache('portals', 'view', array('lifeTime' => 600, 'vary' => array()));
-        
-    }
-    
-    if (    $action == 'list'
-         && (   !$count_request_parameters
-             || (   $module == 'outings'
-                 && $count_request_parameters == 2
-                 && isset($request_parameters['orderby'])
-                 && $request_parameters['orderby'] == 'date'
-                 && isset($request_parameters['order'])
-                 && $request_parameters['order'] == 'desc'
-                )
-            )
-         && (   !$are_filters_active
-             || !$is_main_filter_switch_on
-             || $perso->areCacheableFilters($module)
-            )
-       )
-    {
-        $this->cacheManager->addCache($module, 'list', array('lifeTime' => 350000, 'vary' => array()));
-    }
-    
-    if ($action == 'filter' || $action == 'cdasearch')
-    {
-        if (    (       $action == 'filter'
-                     && !$count_request_parameters
-                 ||     $action == 'cdasearch'
-                     && $count_request_parameters
-                )
-             && (   !$are_filters_active
+        case 'home':
+        case 'view':
+            if (    !$are_filters_active
                  || !$is_main_filter_switch_on
-                 || $are_simple_activities_filters
-                )
-             ||     $action == 'cdasearch'
-                 && !$count_request_parameters
-           )
-        {
-            $this->cacheManager->addCache($module, 'cdasearch', array('lifeTime' => 350000, 'vary' => array()));
-            $this->cacheManager->addCache($module, 'filter', array('lifeTime' => 350000, 'vary' => array()));
-        }
+                 || $are_default_filters
+                 || $are_simple_activities_langs_filters
+               )
+            {
+                $this->cacheManager->addCache('documents', 'home', array('lifeTime' => 300, 'vary' => array()));
+                $this->cacheManager->addCache('portals', 'changerdapproche', array('lifeTime' => 600, 'vary' => array()));
+                $this->cacheManager->addCache('portals', 'view', array('lifeTime' => 600, 'vary' => array()));
+            }
+            break;
+    
+        case 'list':
+            if (    (   !$count_request_parameters
+                     || (   $module == 'outings'
+                         && $count_request_parameters == 2
+                         && isset($request_parameters['orderby'])
+                         && $request_parameters['orderby'] == 'date'
+                         && isset($request_parameters['order'])
+                         && $request_parameters['order'] == 'desc'
+                        )
+                    )
+                 && (   !$are_filters_active
+                     || !$is_main_filter_switch_on
+                     || $perso->areCacheableFilters($module)
+                    )
+               )
+            {
+                $this->cacheManager->addCache($module, 'list', array('lifeTime' => 350000, 'vary' => array()));
+            }
+            break;
+    
+        case 'filter':
+            if (    !$count_request_parameters
+                 && (   !$are_filters_active
+                     || !$is_main_filter_switch_on
+                     || $are_simple_activities_filters
+                    )
+               )
+            {
+                $this->cacheManager->addCache($module, 'filter', array('lifeTime' => 350000, 'vary' => array()));
+            }
+            break;
+    
+        case 'cdasearch':
+            if (    !$count_request_parameters
+                 || !$is_main_filter_switch_on
+                 || !count($perso->getPlacesFilter())
+               )
+            {
+                $this->cacheManager->addCache($module, 'cdasearch', array('lifeTime' => 350000, 'vary' => array()));
+            }
+            break;
+        
+        default:
+            break;
     }
     
     if (!$is_main_filter_switch_on || !$count_activities_filter)
