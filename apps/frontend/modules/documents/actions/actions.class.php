@@ -878,7 +878,7 @@ class documentsActions extends c2cActions
             $this->format = $format;
         }
 
-        
+        $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
 
         $this->show_images = in_array('img', $format);
         $this->setPageTitle($this->__($module . ' list'));
@@ -903,13 +903,15 @@ class documentsActions extends c2cActions
         else
         {
             $default_npp = null;
-            if ($module == 'outings' && empty($criteria))
+            if ($module == 'outings')
             {
                 $perso = c2cPersonalization::getInstance();
                 
-                if (    !$perso->areFiltersActive()
-                     || !$perso->isMainFilterSwitchOn()
-                     || $perso->areCacheableFilters($module)
+                if (    empty($params_list)
+                     && (   !$perso->areFiltersActive()
+                         || !$perso->isMainFilterSwitchOn()
+                         || $perso->areCacheableFilters($module)
+                        )
                    )
                 {
                     $default_npp = 60;
@@ -962,8 +964,6 @@ class documentsActions extends c2cActions
         // if there is no result + only criterias are on the name, redirect to a page wich loads google search
         if ($nb_results == 0 && !in_array('json', $format))
         {
-            $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
-            
             if (count($params_list) == 1)
             {
                 $param = reset($params_list);
