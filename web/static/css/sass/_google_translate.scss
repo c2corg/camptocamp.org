@@ -1,0 +1,26 @@
+/* try to customize button added
+ * by google translation */
+
+.goog-trans-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.goog-te-gadget-link {
+  text-decoration:none;
+  color: white;
+  background-color: #f93;
+  padding-left: 4px;
+  padding-right: 4px;
+  @include border-radius(4px);
+}
+
+.goog-te-sectional-gadget-link-text {
+  font-size: 12px !important;
+  font-weight: normal !important;
+}
+
+.goog-te-gadget-link:hover {
+  background-color: #f71;
+}
