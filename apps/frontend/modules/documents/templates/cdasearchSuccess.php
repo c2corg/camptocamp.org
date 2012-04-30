@@ -93,7 +93,7 @@ echo around_selector('arnd', true) . '<br />';
 
 echo '<br />'
     . __('cda_activities') . ' '
-    . activities_selector(false, true, $activities_raw, $special_activities, $merged_activities, $multiple_activities, false, 'app_cda_activities');
+    . activities_selector(false, true, $activities_raw, $special_activities, array(), $multiple_activities, false, 'app_cda_activities');
 
 
 echo filter_field('cda_difficulty',
