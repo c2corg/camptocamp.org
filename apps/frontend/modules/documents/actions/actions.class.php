@@ -903,6 +903,19 @@ class documentsActions extends c2cActions
         else
         {
             $default_npp = null;
+            if ($module == 'outings' && empty($criteria))
+            {
+                $perso = c2cPersonalization::getInstance();
+                
+                if (    !$perso->areFiltersActive()
+                     || !$perso->isMainFilterSwitchOn()
+                     || $perso->areCacheableFilters($module)
+                   )
+                {
+                    $default_npp = 60;
+                }
+            }
+            
             if ($this->getUser()->hasCredential(sfConfig::get('app_credentials_moderator')))
             {
                 $max_npp = 1000;
@@ -1825,7 +1838,7 @@ class documentsActions extends c2cActions
                     $this->refreshGeoAssociations($id);
                 }
                 
-                // we clear views, histories, diffs of this doc in every language (content+interface):
+                // we clear views, histories, diffs of this doc + filter and list, in every language (content+interface):
                 $this->clearCache($module_name, $id);
                 
                 // we clear views of the associated docs in every language (content+interface):
@@ -2492,7 +2505,7 @@ class documentsActions extends c2cActions
             $document->doSaveWithMetadata($user_id, true, $message);
 
             // cache clearing for current doc in every lang:
-            $this->clearCache($this->getModuleName(), $id);
+            $this->clearCache($this->getModuleName(), $id, false);
             // set flash info:
             return $this->setNoticeAndRedirect($message, $referer);
         }
@@ -3294,7 +3307,7 @@ class documentsActions extends c2cActions
         $id = $this->getRequestParameter('id');
         $referer = $this->getRequest()->getReferer();
 
-        $this->clearCache($module, $id);
+        $this->clearCache($module, $id, false);
 
         return $this->setNoticeAndRedirect('Document cache has been cleared', $referer);
     }

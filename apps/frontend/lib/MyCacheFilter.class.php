@@ -46,6 +46,11 @@ class MyCacheFilter extends sfCacheFilter
     $context = $this->getContext();
     $module = $context->getModuleName();
     $action = $context->getActionName();
+    
+    $request_parameters = $context->getRequest()->getParameterHolder()->getAll();
+    unset($request_parameters['module']);
+    unset($request_parameters['action']);
+    $count_request_parameters = count($request_parameters);
 
     // register our cache configuration
     $this->cacheManager->registerConfiguration($module);
@@ -55,36 +60,92 @@ class MyCacheFilter extends sfCacheFilter
     // does not work !
 
     $perso = c2cPersonalization::getInstance();
+    list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module);
+    $are_filters_active = $perso->areFiltersActive();
     $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
     $activities_filter = $perso->getActivitiesFilter();
+    $are_default_filters = $perso->areDefaultFilters();
+    $are_simple_activities_langs_filters = $perso->areSimpleActivitiesFilters(true);
+    $are_simple_activities_filters = $perso->areSimpleActivitiesFilters(false);
    
     // portals and home cache
     // Following condition means that filter is deactivated, or filters are empty,
     // or there is only one culture in the prefs, which the same as the interface culture 
     // Other cases should not happen often, we don't cache them
-    if (!$perso->areFiltersActive() || !$is_main_filter_switch_on || $perso->areDefaultFilters() || $perso->areSimpleActivitiesFilters())
+    if (    in_array($action, array('home', 'view'))
+         && (   !$are_filters_active
+             || !$is_main_filter_switch_on
+             || $are_default_filters
+             || $are_simple_activities_langs_filters
+            )
+       )
     {
         $this->cacheManager->addCache('documents', 'home', array('lifeTime' => 300, 'vary' => array()));
         $this->cacheManager->addCache('portals', 'changerdapproche', array('lifeTime' => 600, 'vary' => array()));
         $this->cacheManager->addCache('portals', 'view', array('lifeTime' => 600, 'vary' => array()));
+        
     }
     
-    if (!$is_main_filter_switch_on || count($activities_filter) == 0)
+    if (    $action == 'list'
+         && (   !$count_request_parameters
+             || (   $module == 'outings'
+                 && $count_request_parameters == 2
+                 && isset($request_parameters['orderby'])
+                 && $request_parameters['orderby'] == 'date'
+                 && isset($request_parameters['order'])
+                 && $request_parameters['order'] == 'desc'
+                )
+            )
+         && (   !$are_filters_active
+             || !$is_main_filter_switch_on
+             || $perso->areCacheableFilters($module)
+            )
+       )
     {
-        $this->cacheManager->addCache('common', '_menu', array('lifeTime' => 86400, 'vary' => array()));
+        $this->cacheManager->addCache($module, 'list', array('lifeTime' => 350000, 'vary' => array()));
+    }
+    
+    if ($action == 'filter' || $action == 'cdasearch')
+    {
+        if (    (       $action == 'filter'
+                     && !$count_request_parameters
+                 ||     $action == 'cdasearch'
+                     && $count_request_parameters
+                )
+             && (   !$are_filters_active
+                 || !$is_main_filter_switch_on
+                 || $are_simple_activities_filters
+                )
+             ||     $action == 'cdasearch'
+                 && !$count_request_parameters
+           )
+        {
+            $this->cacheManager->addCache($module, 'cdasearch', array('lifeTime' => 350000, 'vary' => array()));
+            $this->cacheManager->addCache($module, 'filter', array('lifeTime' => 350000, 'vary' => array()));
+        }
+    }
+    
+    if (!$is_main_filter_switch_on || $count_request_parameters == 0)
+    {
+        $this->cacheManager->addCache('common', '_menu', array('lifeTime' => 350000, 'vary' => array()));
     }
 
     // for portals and home, we adapt cache uri so that we can cache
     // cases where all cultures are displayed, or only the one from the interface (see #723)
     $pl = '';
     $pa = '';
-    if (($action == 'home' || $module == 'portals') && $is_main_filter_switch_on)
+    if ((in_array($action, array('home', 'filter', 'list')) || ($module == 'portals' && $action == 'view')) && $is_main_filter_switch_on)
     {
-        if ($perso->areDefaultLanguagesFilters())
+        if (   $action != 'filter'
+            && (   $action != 'list'
+                || $langs_enable
+               )
+            && $perso->areDefaultLanguagesFilters()
+           )
         {
             $pl = '&pl=1';
         }
-        if ($perso->areSimpleActivitiesFilters())
+        if ($activities_enable && count($activities_filter))
         {
             $pa = '&pa=' . implode('-', $activities_filter);
         }
@@ -139,24 +200,60 @@ class MyCacheFilter extends sfCacheFilter
     $context = $this->getContext();
     $module = $context->getModuleName();
     $action = $context->getActionName();
-
-    // for portals and home, we adapt cache uri so that we can cache
+    if ($action == 'home')
+    {
+        $module = 'home';
+    }
+    
+    // for portals, home, filters and lists, we adapt cache uri so that we can cache
     // cases where all cultures are displayed, or only the one from the interface (see #723)
+    $is_cacheable_filter_list = false;
+    if (in_array($action, array('filter', 'list')))
+    {
+        $request_parameters = $context->getRequest()->getParameterHolder()->getAll();
+        unset($request_parameters['module']);
+        unset($request_parameters['action']);
+            
+        if (    (   $action == 'list'
+                 && (   !count($request_parameters)
+                     || (   $module == 'outings'
+                         && count($request_parameters) == 2
+                         && isset($request_parameters['orderby'])
+                         && $request_parameters['orderby'] == 'date'
+                         && isset($request_parameters['order'])
+                         && $request_parameters['order'] == 'desc'
+                        )
+                    )
+                )
+             || (   $action == 'filter'
+                 && !count($request_parameters)
+                )
+           )
+        {
+            $is_cacheable_filter_list = true;
+        }
+    }
     $pl = '';
     $pa = '';
-    if ($action == 'home' || $module == 'portals')
+    if ($action == 'home' || $module == 'portals' && $action == 'view' || $is_cacheable_filter_list)
     {
         $perso = c2cPersonalization::getInstance();
+        list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module);
         $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
         $activities_filter = $perso->getActivitiesFilter();
         
         if ($is_main_filter_switch_on)
         {
-            if ($perso->areDefaultLanguagesFilters())
+            if (   $action != 'filter'
+                && (   $action != 'list'
+                    || $langs_enable
+                   )
+                && $perso->areDefaultLanguagesFilters()
+               )
             {
                 $pl = '&pl=1';
             }
-            if ($perso->areSimpleActivitiesFilters())
+            if ($activities_enable && count($activities_filter))
             {
                 $pa = '&pa=' . implode('-', $activities_filter);
             }

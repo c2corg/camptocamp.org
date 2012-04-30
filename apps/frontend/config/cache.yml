@@ -37,7 +37,7 @@ diff:
 
 whatsnew:
   enabled: on
-  lifetime: 300 
+  lifetime: 350000 
 # 5 min
   
 # we do not cache edit and feed actions :

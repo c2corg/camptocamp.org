@@ -149,7 +149,7 @@ class Summit extends BaseSummit
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(false, true, false))
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('summits'))
         {
             // "filter on regions" is the only filter activated for summits:
             self::filterOnRegions($q);

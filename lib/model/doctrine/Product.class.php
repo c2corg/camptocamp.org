@@ -117,7 +117,7 @@ class Product extends BaseProduct
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(false, true, false))
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('products'))
         {
             self::filterOnRegions($q);
         }

@@ -82,6 +82,24 @@ class Article extends BaseArticle
         // linked document criteria
         self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'cdocs', 'join_doc', false, $params_list);
 
+        // summit criteria
+        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+
+        // hut criteria
+        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+
+        // parking criteria
+        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+
+        // route criteria
+        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.main_id');
+
+        // site criteria
+        Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.main_id');
+        
+        // outing criteria
+        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.main_id');
+        
         // user criteria
         self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
 
@@ -115,7 +133,7 @@ class Article extends BaseArticle
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(true, false, true))
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('articles'))
         {
             self::filterOnActivities($q);
             self::filterOnLanguages($q);
@@ -130,6 +148,17 @@ class Article extends BaseArticle
     
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
+        $route_join = 'm.associations';
+        $route_ltype = 'rc';
+        $summit_join = 'm.associations';
+        $summit_ltype = 'sc';
+        $hut_join = 'm.associations';
+        $hut_ltype = 'hc';
+        $parking_join = 'm.associations';
+        $parking_ltype = 'pc';
+        $site_join = 'm.associations';
+        $site_ltype = 'tc';
+        
         $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions);
 
         $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
@@ -138,6 +167,98 @@ class Article extends BaseArticle
         {
             $q->leftJoin('m.associations d');
             unset($conditions['join_doc']);
+        }
+
+        // join with outings tables only if needed 
+        if (   isset($conditions['join_outing_id'])
+            || isset($conditions['join_outing_id_has'])
+            || isset($conditions['join_outing'])
+            || isset($conditions['join_outing_i18n'])
+            || isset($conditions['join_otag_id'])
+        )
+        {
+            Outing::buildOutingPagerConditions($q, $conditions, false, false, 'm.associations', 'oc');
+            
+            $route_join = 'lo.MainAssociation';
+            $route_ltype = 'ro';
+            $summit_join = 'lr.MainAssociation';
+            $summit_ltype = 'sr';
+            $hut_join = 'lr.MainAssociation';
+            $hut_ltype = 'hr';
+            $parking_join = 'lr.MainAssociation';
+            $parking_ltype = 'pr';
+            $site_join = 'lo.MainAssociation';
+            $site_ltype = 'to';
+        
+            if (isset($conditions['join_ouser_id']))
+            {
+                $q->leftJoin($route_join . ' lou');
+                unset($conditions['join_ouser_id']);
+            }
+        }
+
+        if (   isset($conditions['join_route_id'])
+            || isset($conditions['join_route'])
+            || isset($conditions['join_route_i18n'])
+            || isset($conditions['join_rdoc_id'])
+            || isset($conditions['join_rtag_id'])
+            || isset($conditions['join_rdtag_id'])
+            || isset($conditions['join_rbook_id'])
+            || isset($conditions['join_rbook'])
+            || isset($conditions['join_rbook_i18n'])
+            || isset($conditions['join_rbtag_id'])
+        )
+        {
+            Route::buildRoutePagerConditions($q, $conditions, false, false, $route_join, $route_ltype);
+            
+            $summit_join = 'lr.MainAssociation';
+            $summit_ltype = 'sr';
+            $hut_join = 'lr.MainAssociation';
+            $hut_ltype = 'hr';
+            $parking_join = 'lr.MainAssociation';
+            $parking_ltype = 'pr';
+        }
+
+        if (   isset($conditions['join_summit_id'])
+            || isset($conditions['join_summit'])
+            || isset($conditions['join_summit_i18n'])
+            || isset($conditions['join_stag_id'])
+            || isset($conditions['join_sbook_id'])
+            || isset($conditions['join_sbtag_id'])
+        )
+        {
+            Summit::buildSummitPagerConditions($q, $conditions, false, false, $summit_join, $summit_ltype);
+        }
+        
+        if (   isset($conditions['join_hut_id'])
+            || isset($conditions['join_hut'])
+            || isset($conditions['join_hut_i18n'])
+            || isset($conditions['join_hbook_id'])
+            || isset($conditions['join_htag_id'])
+            || isset($conditions['join_hbtag_id'])
+        )
+        {
+            Hut::buildHutPagerConditions($q, $conditions, false, false, $hut_join, $hut_ltype);
+        }
+        
+        if (   isset($conditions['join_parking_id'])
+            || isset($conditions['join_parking'])
+            || isset($conditions['join_parking_i18n'])
+            || isset($conditions['join_ptag_id'])
+        )
+        {
+            Parking::buildParkingPagerConditions($q, $conditions, false, false, $parking_join, $parking_ltype);
+        }
+
+        if (   isset($conditions['join_site_id'])
+            || isset($conditions['join_site'])
+            || isset($conditions['join_site_i18n'])
+            || isset($conditions['join_tbook_id'])
+            || isset($conditions['join_ttag_id'])
+            || isset($conditions['join_tbtag_id'])
+        )
+        {
+            Site::buildSitePagerConditions($q, $conditions, false, false, $site_join, $site_ltype);
         }
         
         $q->addWhere(implode(' AND ', $conditions), $criteria);

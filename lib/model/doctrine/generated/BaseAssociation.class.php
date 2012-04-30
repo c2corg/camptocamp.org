@@ -63,5 +63,7 @@ class BaseAssociation extends sfDoctrineRecord
         $this->hasMany('ProductI18n as LinkedProductI18n', array('local' => 'linked_id', 'foreign' => 'id'));
         $this->hasMany('Image as Image', array('local' => 'linked_id', 'foreign' => 'id'));
         $this->hasMany('ImageI18n as ImageI18n', array('local' => 'linked_id', 'foreign' => 'id'));
+        $this->hasMany('Book as Book', array('local' => 'main_id', 'foreign' => 'id'));
+        $this->hasMany('BookI18n as BookI18n', array('local' => 'main_id', 'foreign' => 'id'));
     }
 }

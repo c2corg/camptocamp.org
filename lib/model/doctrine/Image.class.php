@@ -483,7 +483,7 @@ class Image extends BaseImage
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(false, false, true))
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('images'))
         {
             self::filterOnActivities($q);
         //    self::filterOnRegions($q);

@@ -7,7 +7,9 @@ if (!c2cTools::mobileVersion())
    echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
    document.observe(\'dom:loaded\', function() { $(\'cnam\').focus(); })};');
 }
-include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
+$ranges_raw = $sf_data->getRaw('ranges');
+$selected_areas_raw = $sf_data->getRaw('selected_areas');
+include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected_areas' => $selected_areas_raw, 'use_personalization' => false));
 ?>
 <div class="fieldgroup">
 <?php

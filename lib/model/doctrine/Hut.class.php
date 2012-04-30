@@ -175,7 +175,7 @@ class Hut extends BaseHut
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(false, true, false))
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('huts'))
         {
             self::filterOnRegions($q);
         }

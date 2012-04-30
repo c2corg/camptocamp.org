@@ -59,7 +59,14 @@ $mobile_version = c2cTools::mobileVersion();
                 $ranges_raw[$key] = $value;
             }
         }
-        $selected_areas_raw = $sf_data->getRaw('selected_areas');
+        if (isset($selected_areas))
+        {
+            $selected_areas_raw = $sf_data->getRaw('selected_areas');
+        }
+        else
+        {
+            $selected_areas_raw = array();
+        }
         if (isset($use_personalization) && $use_personalization && !count($selected_areas_raw))
         {
             $perso = c2cPersonalization::getInstance();

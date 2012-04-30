@@ -150,7 +150,7 @@ class Book extends BaseBook
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(false, false, true))
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('books'))
         {
             self::filterOnActivities($q);
         }
@@ -211,10 +211,12 @@ class Book extends BaseBook
 
     public static function getAssociatedBooksData($associated_docs)
     {
-         $books = Document::fetchAdditionalFieldsFor(
+        //$fields = array('activities', 'book_types', 'author', 'publication_date');
+        $fields = array('author', 'publication_date');
+        $books = Document::fetchAdditionalFieldsFor(
                       array_filter($associated_docs, array('c2cTools', 'is_book')),
                       'Book',
-                      array('author', 'publication_date'));
+                      $fields);
 
         return $books;
     }

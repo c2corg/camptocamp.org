@@ -144,6 +144,69 @@ class c2cPersonalization
     }
 
     /**
+     * Tells if user has filters which allow le $modul list to be cahed
+     * @return boolean
+     */
+    public function getDefaultFilters($module)
+    {
+        switch ($module)
+        {
+            case 'home' :
+            case 'outings' :
+                $default_filters = array(true, true, true);
+                break;
+            case 'images' :
+                $default_filters = array(false, false, true);
+                break;
+            case 'routes' :
+                $default_filters = array(false, true, true);
+                break;
+            case 'summits' :
+                $default_filters = array(false, true, false);
+                break;
+            case 'sites' :
+                $default_filters = array(false, true, false);
+                break;
+            case 'articles' :
+                $default_filters = array(true, false, true);
+                break;
+            case 'parkings' :
+                $default_filters = array(false, true, false);
+                break;
+            case 'huts' :
+                $default_filters = array(false, true, false);
+                break;
+            case 'books' :
+                $default_filters = array(false, false, true);
+                break;
+            case 'users' :
+                $default_filters = array(false, true, true);
+                break;
+            case 'products' :
+                $default_filters = array(false, true, false);
+                break;
+            case 'portals' :
+                //$default_filters = array(false, true, false);
+                $default_filters = array(false, false, false);
+                break;
+            case 'areas' :
+                $default_filters = array(false, false, false);
+                break;
+            case 'maps' :
+                $default_filters = array(false, true, false);
+                break;
+            case 'documents' :
+                $default_filters = array(false, false, false);
+                break;
+            default :
+                $default_filters = array(false, false, false);
+                break;
+        }
+        
+        return $default_filters;
+    }
+
+    /**
      * Tells if user has some filters activated.
      * @return boolean
      */
@@ -165,11 +228,11 @@ class c2cPersonalization
     public function areDefaultFilters()
     {
         $langs      = $this->getLanguagesFilter();
-        $ranges     = $this->getPlacesFilter();
+        $areas      = $this->getPlacesFilter();
         $activities = $this->getActivitiesFilter();
         $context = sfContext::getInstance();
         $culture = $context->getUser()->getCulture();
-        if (count($langs) == 1 && count($ranges) == 0 && count($activities) == 0)
+        if (count($langs) == 1 && count($areas) == 0 && count($activities) == 0)
         {
             $is_default_filter = (reset($langs) == $culture);
         }
@@ -184,13 +247,20 @@ class c2cPersonalization
      * Tells if user has default language filters activated ( lang filter, with only 1 lang = interface lang)
      * @return boolean
      */
-    public function areDefaultLanguagesFilters()
+    public function areDefaultLanguagesFilters($check_areas = true)
     {
-        $langs      = $this->getLanguagesFilter();
-        $ranges     = $this->getPlacesFilter();
+        $langs = $this->getLanguagesFilter();
+        if ($check_areas)
+        {
+            $areas = $this->getPlacesFilter();
+        }
+        else
+        {
+            $areas = array();
+        }
         $context = sfContext::getInstance();
         $culture = $context->getUser()->getCulture();
-        if (count($langs) == 1 && count($ranges) == 0)
+        if (count($langs) == 1 && count($areas) == 0)
         {
             $is_default_filter = (reset($langs) == $culture);
         }
@@ -205,14 +275,21 @@ class c2cPersonalization
      * Tells if user has simple activity filters activated (just 1 or 2 activities filter + lang filter, with only 0 or 1 lang = interface lang)
      * @return boolean
      */
-    public function areSimpleActivitiesFilters()
+    public function areSimpleActivitiesFilters($check_langs = true)
     {
-        $langs      = $this->getLanguagesFilter();
-        $ranges     = $this->getPlacesFilter();
+        if ($check_langs)
+        {
+            $langs = $this->getLanguagesFilter();
+        }
+        else
+        {
+            $langs = array();
+        }
+        $areas = $this->getPlacesFilter();
         $count_activities = count($this->getActivitiesFilter());
         $context = sfContext::getInstance();
         $culture = $context->getUser()->getCulture();
-        if (count($langs) <= 1 && count($ranges) == 0 && ($count_activities == 1 || $count_activities == 2))
+        if (count($langs) <= 1 && count($areas) == 0 && ($count_activities == 1 || $count_activities == 2))
         {
             if (count($langs) == 1)
             {
@@ -231,11 +308,46 @@ class c2cPersonalization
     }
 
     /**
+     * Tells if user has filters which allow le $modul list to be cahed
+     * @return boolean
+     */
+    public function areCacheableFilters($module)
+    {
+        $langs      = $this->getLanguagesFilter();
+        $context = sfContext::getInstance();
+        $culture = $context->getUser()->getCulture();
+        if (count($langs) == 1)
+        {
+            $langs_cacheable = (reset($langs) == $culture);
+        }
+        else
+        {
+            $langs_cacheable = true;
+        }
+        
+        $areas      = $this->getPlacesFilter();
+        $areas_cacheable = (count($areas) == 0);
+        
+        $activities = $this->getActivitiesFilter();
+        $activities_cacheable = (count($activities) <= 2);
+        
+        list($langs_enable, $areas_enable, $activities_enable) = $this->getDefaultFilters($module);
+        
+        $is_cacheable =    (!$langs_enable || $langs_cacheable)
+                        && (!$areas_enable || $areas_cacheable)
+                        && (!$activities_enable || $activities_cacheable);
+        
+        return $is_cacheable;
+    }
+
+    /**
      * Tells if user has some filters activated and if main filter is activated.
      * @return boolean
      */
-    public function areFiltersActiveAndOn($langs = true, $areas = true, $activities = true)
+    public function areFiltersActiveAndOn($module)
     {
+        list($langs, $areas, $activities) = $this->getDefaultFilters($module);
+        
         return      $this->isMainFilterSwitchOn()
                 && (
                         ($langs && (bool)$this->getLanguagesFilter())

@@ -251,7 +251,7 @@ class Site extends BaseSite
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(false, true, false))
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('sites'))
         {
             self::filterOnRegions($q);
         }

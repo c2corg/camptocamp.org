@@ -210,7 +210,7 @@ abstract class c2cActions extends sfActions
         }
     }
     
-    protected function clearCache($module_name, $id, $clear_whatsnew = true, $action = '*')
+    protected function clearCache($module_name, $id, $clear_whatsnew = true, $action = '*', $clear_list = false)
     {
         $module_name = ($module_name=='documents') ? '*' : $module_name ;
     
@@ -219,6 +219,7 @@ abstract class c2cActions extends sfActions
         if ($clear_whatsnew)
         {
             $toRemove[] = "$module_name/whatsnew/*";
+            $toRemove[] = "$module_name/list/*";
             $toRemove[] = "documents/whatsnew/*";
         }
         $this->removeGloballyFromCache($toRemove);

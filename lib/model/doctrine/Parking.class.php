@@ -159,7 +159,7 @@ class Parking extends BaseParking
         {
             self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn(false, true, false))
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('parkings'))
         {
             // "filter on regions" is the only filter activated for summits:
             self::filterOnRegions($q);
