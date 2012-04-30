@@ -64,6 +64,7 @@ class MyCacheFilter extends sfCacheFilter
     $are_filters_active = $perso->areFiltersActive();
     $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
     $activities_filter = $perso->getActivitiesFilter();
+    $count_activities_filter = count($activities_filter);
     $are_default_filters = $perso->areDefaultFilters();
     $are_simple_activities_langs_filters = $perso->areSimpleActivitiesFilters(true);
     $are_simple_activities_filters = $perso->areSimpleActivitiesFilters(false);
@@ -125,7 +126,7 @@ class MyCacheFilter extends sfCacheFilter
         }
     }
     
-    if (!$is_main_filter_switch_on || $count_request_parameters == 0)
+    if (!$is_main_filter_switch_on || !$count_activities_filter)
     {
         $this->cacheManager->addCache('common', '_menu', array('lifeTime' => 350000, 'vary' => array()));
     }
@@ -145,7 +146,7 @@ class MyCacheFilter extends sfCacheFilter
         {
             $pl = '&pl=1';
         }
-        if ($activities_enable && count($activities_filter))
+        if ($activities_enable && $count_activities_filter)
         {
             $pa = '&pa=' . implode('-', $activities_filter);
         }

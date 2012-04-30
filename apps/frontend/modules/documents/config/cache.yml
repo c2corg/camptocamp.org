@@ -30,6 +30,9 @@ home:
 insertimagetag:
   enabled: off
 
+cdasearch:
+  enabled: off
+  
 # Cron for latest docs is every hour, so we cache it for half an hour  
 _latest_docs:
   enabled: on
