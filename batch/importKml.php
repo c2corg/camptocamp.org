@@ -11,6 +11,9 @@
  * this script is not bullet proof : don't try to give odd kml files or wrong arguments
  */
 
+// TODO we should not delete routes and outings if they intersect the olddiff unless they do not intersect the new geom
+
+
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -93,7 +96,7 @@ function create_new_document()
     if ($argc < 4) usage();
 
     if ($argv[2] != 'area' && $argv[2] != 'map') usage();
-    $is_map = ($argv[2] == 'map');
+    $is_map = ($argv[2] === 'map');
 
     if (!file_exists($argv[3]))
     {
@@ -241,7 +244,7 @@ function update_document()
     if ($argc < 5) usage();
 
     if ($argv[2] != 'area' && $argv[2] != 'map') usage();
-    $is_map = ($argv[2] == 'map');
+    $is_map = ($argv[2] === 'map');
 
     if (!file_exists($argv[3]))
     {
@@ -257,8 +260,8 @@ function update_document()
 
     $document_id = intval($argv[4]);
 
-    $fullwipe = ($argc == 6 && $argv[5] === 'fullwipe');
-    $keepassociations = ($argc == 6 && $argv[5] === 'keepassociations');
+    $fullwipe = ($argc === 6 && $argv[5] === 'fullwipe');
+    $keepassociations = ($argc === 6 && $argv[5] === 'keepassociations');
 
     $is_new_document = false;
 
@@ -358,43 +361,51 @@ function update_document()
     }
     else
     {
+        $deletegeom = $conn->standaloneQuery("SELECT ST_Difference('$oldgeom', '$newgeom') ")
+                               ->fetchAll();
+        $deletegeomb = $conn->standaloneQuery("SELECT ST_Difference(buffer('$oldgeom', 200), buffer('$newgeom', 200))")
+                               ->fetchAll();
+        $deletegeom = $deletegeom[0]['st_difference'];
+        $deletegeomb = $deletegeomb[0]['st_difference'];
+
+        // for maps, we don't use buffer at all
         if ($is_map)
         {
-            $deletegeom = $conn->standaloneQuery("SELECT ST_Difference('$oldgeom', '$newgeom') ")
-                               ->fetchAll();
+            $deletegeomb = $deletegeom;
         }
-        else
+
+        $queries = array();
+        $queries[] = array("SELECT id, module FROM documents WHERE geom && '$deletegeomb' "
+                             . "AND ST_Within(geom, '$deletegeomb') "
+                             . "AND module IN('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images'"
+                             . ($is_map ? '' : ", 'users'") . ')',
+                           array());
+
+        $queries[] = array("SELECT id, module FROM documents WHERE geom && '$deletegeomb' "
+                             . "AND ST_Intersects(geom, '$deletegeomb') AND module='routes'",
+                           array());
+
+        // for maps areas associations, we always compute 'full wipe', without buffer
+        $queries[] = array("SELECT id, module FROM documents WHERE geom && '$oldgeom' "
+                             . "AND ST_Intersects(geom, '$oldgeom') AND module='"
+                             . ($is_map ? 'areas' : 'maps') . "'",
+                          array($document_id, $document_id));
+
+        $results_a = array();
+        foreach ($queries as $query)
         {
-            $deletegeom = $conn->standaloneQuery("SELECT ST_Difference(buffer('$oldgeom', 200), buffer('$newgeom', 200))")
-                               ->fetchAll();
+            $results_a[] = sfDoctrine::connection()
+                                   ->standaloneQuery($query[0], $query[1])
+                                   ->fetchAll();
         }
-        $deletegeom = $deletegeom[0]['st_difference'];
-
-        $query1 = "SELECT id, module FROM documents WHERE geom && '$deletegeom' "
-                . "AND ST_Within(geom, '$deletegeom') "
-                . "AND module IN('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images'"
-                . ($is_map ? '' : ", 'users'") . ')';
-
-        $query2 = "SELECT id, module FROM documents WHERE geom && '$deletegeom' "
-                . "AND ST_Intersects(geom, '$deletegeom') AND module IN "
-                . ($is_map ? "('routes', 'areas')" : "('outings', 'routes', 'maps')");
-
-        $results1 = sfDoctrine::connection()
-                            ->standaloneQuery($query1)
-                            ->fetchAll();
-
-        $results2 = sfDoctrine::connection()
-                            ->standaloneQuery($query2)
-                            ->fetchAll();
 
         $results = array();
-        foreach ($results1 as $d)
+        foreach ($results_a as $results_set)
         {
-            $results[] = $d;
-        }
-        foreach ($results2 as $d)
-        {
-            $results[] = $d;
+            foreach ($results_set as $d)
+            {
+                $results[] = $d;
+            }
         }
 
         $tot = count($results);
@@ -422,7 +433,7 @@ function update_document()
                     case 'routes':
                         if ($is_map) break; // maps are not linked to outings
                         $associated_outings = Association::findAllAssociatedDocs($d['id'], array('id', 'geom_wkt'),
-                                                                                 ($d['module'] == 'routes' ? 'ro' : 'to'));
+                                                                                 ($d['module'] === 'routes' ? 'ro' : 'to'));
                         if (count($associated_outings))
                         {
                             foreach ($associated_outings as $outing)
@@ -433,7 +444,7 @@ function update_document()
                                     if ($geoassociation !== false)
                                     {
                                         $geoassociation->delete();
-                                        $deleted[$d['module']] = isset($deleted[$d['module']]) ? $deleted[$d['module']] + 1 : 1;
+                                        $deleted['outings'] = isset($deleted['outings']) ? $deleted['outings'] + 1 : 1;
                                     }
                                 }
                             }
@@ -456,7 +467,7 @@ function update_document()
                                     if ($geoassociation !== false)
                                     {
                                         $geoassociation->delete();
-                                        $deleted[$d['module']] = isset($deleted[$d['module']]) ? $deleted[$d['module']] + 1 : 1;
+                                        $deleted['routes'] = isset($deleted['routes']) ? $deleted['routes'] + 1 : 1;
                                     }
 
                                     if (!$is_map) // maps are not linked to outings
@@ -473,7 +484,7 @@ function update_document()
                                                     if ($geoassociation !== false)
                                                     {
                                                         $geoassociation->delete();
-                                                        $deleted[$d['module']] = isset($deleted[$d['module']]) ? $deleted[$d['module']] + 1 : 1;
+                                                        $deleted['outings'] = isset($deleted['outings']) ? $deleted['outings'] + 1 : 1;
                                                     }
                                                 }
                                             }
@@ -596,49 +607,63 @@ function import_new_geometry()
         // new geometry that does not intersect with the old one
         if ($is_new_document || $no_oldgeom || $fullwipe)
         {
-            $geomquery = $is_map ? '(SELECT geom FROM maps WHERE id=?)' : '(SELECT buffer(geom, 200) FROM areas WHERE id=?)';
+            // retrieve geom from the database
+            $geomquery = '(SELECT geom FROM '.($is_map ? 'maps' : 'areas').' WHERE id=?)';
+            $geomqueryb = '(SELECT buffer(geom, 200) FROM '.($is_map ? 'maps' : 'areas').' WHERE id=?)';
             $queryparam = array($document_id, $document_id);
         }
         else
         {
             $queryparam = array();
-            if ($is_map)
-            {
-                $creategeom = $conn->standaloneQuery("SELECT ST_Difference('$newgeom', '$oldgeom')")
-                                   ->fetchAll();
-            }
-            else
-            {
-                $creategeom = $conn->standaloneQuery("SELECT ST_Difference(buffer('$newgeom', 200), buffer('$oldgeom', 200))")
-                                   ->fetchAll();
-            }
+            $creategeom = $conn->standaloneQuery("SELECT ST_Difference('$newgeom', '$oldgeom')")
+                               ->fetchAll();
+            $creategeomb = $conn->standaloneQuery("SELECT ST_Difference(buffer('$newgeom', 200), buffer('$oldgeom', 200))")
+                                ->fetchAll();
             $creategeom = $creategeom[0]['st_difference'];
+            $creategeomb = $creategeomb[0]['st_difference'];
             $geomquery = "'$creategeom'";
+            $geomqueryb = "'$creategeomb'";
         }
 
-        $query1 = "SELECT id, module FROM documents WHERE geom && $geomquery "
-                . "AND ST_Within(geom, $geomquery) "
-                . "AND module IN('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images'"
-                . ($is_map ? '' : ", 'users'") . ')';
+        // for maps, we don't use buffer at all
+        if ($is_map)
+        {
+            $geomqueryb = $geomquery;
+        }
 
-        $query2 = "SELECT id, module FROM documents WHERE geom && $geomquery "
-                . "AND ST_Intersects(geom, $geomquery) AND module IN "
-                . ($is_map ? "('routes', 'areas')" : "('outings', 'routes', 'maps')");
+        $queries = array();
 
-        $results1 = $conn->standaloneQuery($query1, $queryparam)
-                         ->fetchAll();
+        $queries[] = array("SELECT id, module FROM documents WHERE geom && $geomqueryb "
+                             . "AND ST_Within(geom, $geomqueryb) "
+                             . "AND module IN('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images'"
+                             . ($is_map ? '' : ", 'users'") . ')',
+                           $queryparam);
 
-        $results2 = $conn->standaloneQuery($query2, $queryparam)
-                         ->fetchAll();
+        $queries[] = array("SELECT id, module FROM documents WHERE geom && $geomqueryb "
+                             . "AND ST_Intersects(geom, $geomqueryb) AND module='routes'",
+                           $queryparam);
+
+        // for maps areas associations, we always compute 'full wipe', without buffer
+        $geomquery = '(SELECT geom FROM '.($is_map ? 'maps' : 'areas').' WHERE id=?)';
+        $queries[] = array("SELECT id, module FROM documents WHERE geom && $geomquery "
+                             . "AND ST_Intersects(geom, $geomquery) AND module='"
+                             . ($is_map ? 'areas' : 'maps') ."'",
+                           array($document_id, $document_id));
+
+        $results_a = array();
+        foreach ($queries as $query)
+        {
+            $results_a[] = $conn->standaloneQuery($query[0], $query[1])
+                                 ->fetchAll();
+        }
 
         $results = array();
-        foreach ($results1 as $d)
+        foreach ($results_a as $results_set)
         {
-            $results[] = $d;
-        }
-        foreach ($results2 as $d)
-        {
-            $results[] = $d;
+            foreach ($results_set as $d)
+            {
+                $results[] = $d;
+            }
         }
 
         $prgmsg = "Create new associations...";
@@ -657,7 +682,7 @@ function import_new_geometry()
                 $created[$d['module']] = isset($created[$d['module']]) ? $created[$d['module']] + 1 : 1;
 
                 // for map - area geoassociations, links must not be dm but dr, dc, dd...
-                if ($is_map && $d['module'] == 'areas')
+                if ($is_map && $d['module'] === 'areas')
                 {
                     $area = Document::find('Area', $d['id']);
                     switch ($area->get('area_type'))
@@ -687,7 +712,7 @@ function import_new_geometry()
                 case 'sites':
                 case 'routes':
                     if ($is_map) break; // we do not link maps to outings
-                    $associated_outings = Association::findAllAssociatedDocs($d['id'], array('id', 'geom_wkt'), ($d['module'] == 'routes' ? 'ro' : 'to'));
+                    $associated_outings = Association::findAllAssociatedDocs($d['id'], array('id', 'geom_wkt'), ($d['module'] === 'routes' ? 'ro' : 'to'));
                     if (count($associated_outings))
                     {
                         foreach ($associated_outings as $outing)
@@ -701,7 +726,7 @@ function import_new_geometry()
                                  $a = new GeoAssociation();
                                  $a->doSaveWithValues($outing['id'], $document_id, $a_type);
 
-                                 $created[$d['module']] = isset($created[$d['module']]) ? $created[$d['module']] + 1 : 1;
+                                 $created['outings'] = isset($created['outings']) ? $created['outings'] + 1 : 1;
                             }
                         }
                     }
@@ -723,7 +748,7 @@ function import_new_geometry()
                                 $a = new GeoAssociation();
                                 $a->doSaveWithValues($i, $document_id, $a_type);
 
-                                $created[$d['module']] = isset($created[$d['module']]) ? $created[$d['module']] + 1 : 1;
+                                $created['routes'] = isset($created['routes']) ? $created['routes'] + 1 : 1;
 
                                 if (!$is_map) // We do not link maps to outings
                                 {
@@ -739,7 +764,7 @@ function import_new_geometry()
                                                 $a = new GeoAssociation();
                                                 $a->doSaveWithValues($j, $document_id, $a_type);
 
-                                                $created[$d['module']] = isset($created[$d['module']]) ? $created[$d['module']] + 1 : 1;
+                                                $created['outings'] = isset($created['outings']) ? $created['outings'] + 1 : 1;
                                             }
                                         }
                                     }
