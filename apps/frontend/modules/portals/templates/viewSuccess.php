@@ -58,10 +58,7 @@ if (!$mobile_version) // left navigation menus are only for web version
                                                'description' => $abstract,
                                                'default_open' => true));
     
-    if ($is_connected)
-    {
-        include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
-    }
+    include_partial('documents/wizard_button', array('sf_cache_key' => ($is_connected ? 'connected' : 'not_connected') . '_' . $culture));
 
     if ($has_images && $has_map)
     {

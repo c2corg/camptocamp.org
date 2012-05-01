@@ -44,10 +44,7 @@ if (!$mobile_version) // left navigation menus are only for web version
                                              'know_more_link' => $know_more_link,
                                              'default_open' => true));
 
-    if ($connected)
-    {
-        include_partial('portals/wizard_button', array('sf_cache_key' => $culture));
-    }
+    include_partial('portals/wizard_button', array('sf_cache_key' => ($connected ? 'connected' : 'not_connected') . '_' . $culture));
 
     if ($has_videos)
     {
