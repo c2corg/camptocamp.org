@@ -59,14 +59,9 @@ class MyCacheFilter extends sfCacheFilter
     // http://www.symfony-project.com/book/1_0/12-Caching#Configuring%20the%20Cache%20Dynamically
     // does not work !
 
-    $credentials = $this->credentials;
     if ($action == 'home' || $module == 'portals' && $action == 'view')
     {
         $module_cache = 'outings';
-        if ($credential == 1)
-        {
-            $credential = 0;
-        }
     }
     else
     {
@@ -165,7 +160,7 @@ class MyCacheFilter extends sfCacheFilter
     $il = 'il=' . $this->interface_language;
     $pl = '';
     $pa = '';
-    $c = '&c=' . $credential;
+    $c = '&c=' . $this->credentials;
     
     if ((in_array($action, array('home', 'filter', 'list')) || ($module == 'portals' && $action == 'view')) && $is_main_filter_switch_on)
     {
@@ -287,17 +282,13 @@ class MyCacheFilter extends sfCacheFilter
     $il = 'il=' . $this->interface_language;
     $pl = '';
     $pa = '';
-    $c = $this->credentials;
+    $c = '&c=' . $this->credentials;
     
     if ($action == 'home' || $module == 'portals' && $action == 'view' || $is_cacheable_filter_list)
     {
         if ($action == 'home' || $module == 'portals' && $action == 'view')
         {
             $module_cache = 'outings';
-            if ($c == 1)
-            {
-                $c = 0;
-            }
         }
         else
         {
@@ -333,8 +324,7 @@ class MyCacheFilter extends sfCacheFilter
     }
 
     $uri .= ((strstr($uri, '?')) ? '&' : '?')
-          . $il . $pl . $pa . $p 
-          . '&c=' . $c;
+          . $il . $pl . $pa . $p . $c;
 
     // save page in cache
     if ($this->cache[$uri]['page'])
