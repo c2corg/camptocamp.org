@@ -151,7 +151,6 @@ class c2cPersonalization
     {
         switch ($module)
         {
-            case 'home' :
             case 'outings' :
                 $default_filters = array(true, true, true);
                 break;

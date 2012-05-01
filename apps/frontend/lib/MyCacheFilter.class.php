@@ -59,8 +59,16 @@ class MyCacheFilter extends sfCacheFilter
     // http://www.symfony-project.com/book/1_0/12-Caching#Configuring%20the%20Cache%20Dynamically
     // does not work !
 
+    if ($action == 'home' || $module == 'portals' && $action == 'view')
+    {
+        $module_cache = 'outings';
+    }
+    else
+    {
+        $module_cache = $module;
+    }
     $perso = c2cPersonalization::getInstance();
-    list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module);
+    list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module_cache);
     $are_filters_active = $perso->areFiltersActive();
     $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
     $activities_filter = $perso->getActivitiesFilter();
@@ -148,10 +156,10 @@ class MyCacheFilter extends sfCacheFilter
 
     // for portals and home, we adapt cache uri so that we can cache
     // cases where all cultures are displayed, or only the one from the interface (see #723)
+    $uri = sfRouting::getInstance()->getCurrentInternalUri();
     $il = 'il=' . $this->interface_language;
     $pl = '';
     $pa = '';
-    $p = '';
     $c = '&c=' . $this->credentials;
     
     if ((in_array($action, array('home', 'filter', 'list')) || ($module == 'portals' && $action == 'view')) && $is_main_filter_switch_on)
@@ -170,15 +178,15 @@ class MyCacheFilter extends sfCacheFilter
             $pa = '&pa=' . implode('-', $activities_filter);
         }
     }
-    if ($action == 'list')
+    if ($action == 'list' && strpos($uri, 'page=') === false)
     {
-        $p = '&p=' . $request_parameters['page'];
+        $uri .= ((strpos($uri, '?')) ? '&' : '?')
+              . 'page=1';
         $c = '';
     }
 
-    $uri = sfRouting::getInstance()->getCurrentInternalUri();
-    $uri .= ((strstr($uri, '?')) ? '&' : '?')
-          . $il . $pl . $pa . $p . $c;
+    $uri .= ((strpos($uri, '?')) ? '&' : '?')
+          . $il . $pl . $pa . $c;
 
     // page cache
     $this->cache[$uri] = array('page' => false, 'action' => false);
@@ -222,10 +230,6 @@ class MyCacheFilter extends sfCacheFilter
     $context = $this->getContext();
     $module = $context->getModuleName();
     $action = $context->getActionName();
-    if ($action == 'home')
-    {
-        $module = 'home';
-    }
     
     // for portals, home, filters and lists, we adapt cache uri so that we can cache
     // cases where all cultures are displayed, or only the one from the interface (see #723)
@@ -274,16 +278,24 @@ class MyCacheFilter extends sfCacheFilter
         }
     }
     
+    $uri = sfRouting::getInstance()->getCurrentInternalUri();
     $il = 'il=' . $this->interface_language;
     $pl = '';
     $pa = '';
-    $p = '';
     $c = '&c=' . $this->credentials;
     
     if ($action == 'home' || $module == 'portals' && $action == 'view' || $is_cacheable_filter_list)
     {
+        if ($action == 'home' || $module == 'portals' && $action == 'view')
+        {
+            $module_cache = 'outings';
+        }
+        else
+        {
+            $module_cache = $module;
+        }
         $perso = c2cPersonalization::getInstance();
-        list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module);
+        list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module_cache);
         $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
         $activities_filter = $perso->getActivitiesFilter();
         
@@ -303,14 +315,14 @@ class MyCacheFilter extends sfCacheFilter
                 $pa = '&pa=' . implode('-', $activities_filter);
             }
         }
-        if ($action == 'list')
+        if ($action == 'list' && strpos($uri, 'page=') === false)
         {
-            $p = '&p=' . $request_parameters['page'];
+            $uri .= ((strpos($uri, '?')) ? '&' : '?')
+                  . 'page=1';
             $c = '';
         }
     }
 
-    $uri = sfRouting::getInstance()->getCurrentInternalUri();
     $uri .= ((strstr($uri, '?')) ? '&' : '?')
           . $il . $pl . $pa . $p . $c;
 
