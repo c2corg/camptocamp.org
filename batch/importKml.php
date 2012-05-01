@@ -647,31 +647,37 @@ function import_new_geometry()
         foreach ($results as $i => $d)
         {
             progression($i, $tot);
-            $a = new GeoAssociation();
 
-            $created[$d['module']] = isset($created[$d['module']]) ? $created[$d['module']] + 1 : 1;
-
-            // for map - area geoassociations, links must not be dm but dr, dc, dd...
-            if ($is_map && $d['module'] == 'areas')
+            // Apparently in some cases, we ar trying to create associations that
+            // already exist, so we check first
+            if (!GeoAssociation::find($document_id, $d['id'], null, false))
             {
-                $area = Document::find('Area', $d['id']);
-                switch ($area->get('area_type'))
+                $a = new GeoAssociation();
+
+                $created[$d['module']] = isset($created[$d['module']]) ? $created[$d['module']] + 1 : 1;
+
+                // for map - area geoassociations, links must not be dm but dr, dc, dd...
+                if ($is_map && $d['module'] == 'areas')
                 {
-                    case 1: // range
-                        $t_a_type = 'dr';
-                        break;
-                    case 2: // country
-                        $t_a_type = 'dc';
-                        break;
-                    case 3: // dept
-                        $t_a_type = 'dd';
-                        break;
+                    $area = Document::find('Area', $d['id']);
+                    switch ($area->get('area_type'))
+                    {
+                        case 1: // range
+                            $t_a_type = 'dr';
+                            break;
+                        case 2: // country
+                            $t_a_type = 'dc';
+                            break;
+                        case 3: // dept
+                            $t_a_type = 'dd';
+                            break;
+                    }
+                    $a->doSaveWithValues($document_id, $d['id'], $t_a_type);
                 }
-                $a->doSaveWithValues($document_id, $d['id'], $t_a_type);
-            }
-            else // default case
-            {
-                $a->doSaveWithValues($d['id'], $document_id, $a_type);
+                else // default case
+                {
+                    $a->doSaveWithValues($d['id'], $document_id, $a_type);
+                }
             }
 
             // inherited docs: we add geoassociations for the 'inherited docs' from sites, routes and summits
