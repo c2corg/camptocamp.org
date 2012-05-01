@@ -157,6 +157,11 @@ class MyCacheFilter extends sfCacheFilter
     // for portals and home, we adapt cache uri so that we can cache
     // cases where all cultures are displayed, or only the one from the interface (see #723)
     $uri = sfRouting::getInstance()->getCurrentInternalUri();
+    if ($action == 'view')
+    {
+        $uri = explode('&slug=', $uri);
+        $uri = $uri[0];
+    }
     $il = 'il=' . $this->interface_language;
     $pl = '';
     $pa = '';
@@ -279,6 +284,11 @@ class MyCacheFilter extends sfCacheFilter
     }
     
     $uri = sfRouting::getInstance()->getCurrentInternalUri();
+    if ($action == 'view')
+    {
+        $uri = explode('&slug=', $uri);
+        $uri = $uri[0];
+    }
     $il = 'il=' . $this->interface_language;
     $pl = '';
     $pa = '';

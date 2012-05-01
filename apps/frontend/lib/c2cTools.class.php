@@ -335,7 +335,7 @@ class c2cTools
     }
     
     /**
-     * Clear cache for view / history and diff after a new comment has been posted
+     * Clear cache for view / history , diff and list after a new comment has been posted
      * rq: comment page is not cached
      */
     public static function clearCommentCache($id, $lang = null, $module = '*')
@@ -351,6 +351,11 @@ class c2cTools
             c2cTools::log('{cache} removing : ' . $cache_dir . $item);
             sfToolkit::clearGlob($cache_dir . $item);
         }
+        
+        // Clear cache for list :
+        $item = "$module/list/*";
+        c2cTools::log('{cache} removing : ' . $cache_dir . $item);
+        sfToolkit::clearGlob($cache_dir . $item);
     }
 
     // get object with highest elevation from a list

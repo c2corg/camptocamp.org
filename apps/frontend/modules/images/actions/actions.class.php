@@ -240,7 +240,7 @@ class imagesActions extends documentsActions
             }
 
             // remove cache of calling page
-            $this->clearCache($mod, $document_id, false, 'view');
+            $this->clearCache($mod, $document_id, true, 'view');
 
             return $this->setNoticeAndRedirect('image successfully uploaded', $redir_route . '#images');
         }
@@ -534,7 +534,7 @@ class imagesActions extends documentsActions
             }
             
             // remove cache of calling page
-            $this->clearCache($mod, $document_id, false, 'view');
+            $this->clearCache($mod, $document_id, true, 'view');
             
             return $this->setNoticeAndRedirect('image successfully uploaded', $redir_route . '#images');
         }
@@ -790,8 +790,7 @@ class imagesActions extends documentsActions
                         . strtolower($check_model) . ' ' . $check_id . ' (' . $language . ')');
                     $check_doc->save();
                     $conn->commit();
-                    $this->clearCache($check_module, $check_id);
-                    $this->clearCache($check_module, $check_id, false, 'view');
+                    $this->clearCache($check_module, $check_id, true);
                 }
                 else
                 {
