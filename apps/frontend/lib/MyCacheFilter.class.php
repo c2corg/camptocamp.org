@@ -183,10 +183,13 @@ class MyCacheFilter extends sfCacheFilter
             $pa = '&pa=' . implode('-', $activities_filter);
         }
     }
-    if ($action == 'list' && strpos($uri, 'page=') === false)
+    if ($action == 'list')
     {
-        $uri .= ((strpos($uri, '?')) ? '&' : '?')
-              . 'page=1';
+        if (strpos($uri, 'page=') === false)
+        {
+            $uri .= ((strpos($uri, '?')) ? '&' : '?')
+                  . 'page=1';
+        }
         $c = '';
     }
 
@@ -325,10 +328,13 @@ class MyCacheFilter extends sfCacheFilter
                 $pa = '&pa=' . implode('-', $activities_filter);
             }
         }
-        if ($action == 'list' && strpos($uri, 'page=') === false)
+        if ($action == 'list')
         {
-            $uri .= ((strpos($uri, '?')) ? '&' : '?')
-                  . 'page=1';
+            if (strpos($uri, 'page=') === false)
+            {
+                $uri .= ((strpos($uri, '?')) ? '&' : '?')
+                      . 'page=1';
+            }
             $c = '';
         }
     }
