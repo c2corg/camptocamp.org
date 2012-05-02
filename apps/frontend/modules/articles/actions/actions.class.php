@@ -72,6 +72,7 @@ class articlesActions extends documentsActions
             {
                 $related_portals[] = 'cda';
             }
+            Portal::getLocalPortals($related_portals, $associated_areas);
             $this->related_portals = $related_portals;
     
             sfLoader::loadHelpers(array('sfBBCode', 'SmartFormat'));

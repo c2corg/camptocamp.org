@@ -195,10 +195,14 @@ show_select=function()
                                 $steep_config = sfConfig::get('app_portals_steep');
                                 echo picto_tag('picto_portals')
                                    . link_to(__($steep_config['name']), '@document_by_id?module=portals&id=' . $steep_config['id']) ?></li>
-                            <li class="lilast"><?php
+                            <li><?php
                                 $raid_config = sfConfig::get('app_portals_raid');
                                 echo picto_tag('picto_portals')
                                    . link_to(__($raid_config['name']), '@document_by_id?module=portals&id=' . $raid_config['id']) ?></li>
+                            <li class="lilast"><?php
+                                $pyrenees_config = sfConfig::get('app_portals_pyrenees');
+                                echo picto_tag('picto_portals')
+                                   . link_to(__($pyrenees_config['name']), '@document_by_id?module=portals&id=' . $pyrenees_config['id']) ?></li>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
                     <li class="lilast"><?php

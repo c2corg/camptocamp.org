@@ -1936,7 +1936,7 @@ all:
     cda:
       id: @CDA_ID@
       name: 'changerdapproche'
-      host: 'changerdapproche.org'
+      host: 'www.changerdapproche.org'
     ice:
       id: @ICE_ID@
       name: 'ice climbing portal'
@@ -1946,6 +1946,10 @@ all:
     raid:
       id: @RAID_ID@
       name: 'raid portal'
+    pyrenees:
+      id: @PYRENEES_ID@
+      name: 'pyrenees portal'
+      areas_only: [ 14413, 14414, 14412, 14469, 14415, 14416, 294790, 294786, 294791, 294793 ]
 
   mw_contest_id: @MW_CONTEST_ID@
 

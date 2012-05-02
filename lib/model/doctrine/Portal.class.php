@@ -119,4 +119,22 @@ class Portal extends BasePortal
         }
         return $forums_list;
     }
+
+    public static function getLocalPortals(&$portal_list, $areas)
+    {
+        $area_ids = array();
+        foreach ($areas as $area)
+        {
+            $areas_ids[] = $area['id'];
+        }
+        
+        $portal_definitions = sfConfig::get('app_portals');
+        foreach ($portal_definitions as $name => $def)
+        {
+            if (isset($def['areas_only']) && array_intersect($areas_ids, $def['areas_only']))
+            {
+                $portal_list[] = $name;
+            }
+        }
+    }
 }

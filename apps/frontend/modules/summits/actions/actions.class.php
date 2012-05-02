@@ -191,6 +191,7 @@ class summitsActions extends documentsActions
             {
                 $related_portals[] = 'raid';
             }
+            Portal::getLocalPortals($related_portals, $this->associated_areas);
             $this->related_portals = $related_portals;
     
             $summit_type_list = sfConfig::get('app_summits_summit_types');

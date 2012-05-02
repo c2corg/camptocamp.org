@@ -218,6 +218,7 @@ class outingsActions extends documentsActions
             {
                 $related_portals[] = 'cda';
             }
+            Portal::getLocalPortals($related_portals, $this->associated_areas);
             $this->related_portals = $related_portals;
     
             $description = array($title, $this->getActivitiesList(), $this->getAreasList());

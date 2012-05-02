@@ -61,6 +61,7 @@ class booksActions extends documentsActions
             {
                 $related_portals[] = 'ice';
             }
+            Portal::getLocalPortals($related_portals, $associated_areas);
             $this->related_portals = $related_portals;
     
             $description = array($this->__('book') . ' :: ' . $this->document->get('name'),

@@ -70,14 +70,6 @@ if ($is_not_archive)
     
     if ($is_not_merged)
     {
-        include_partial('documents/association',
-                        array('associated_docs' => $associated_articles, 
-                              'module' => 'articles',
-                              'document' => $document,
-                              'show_link_to_delete' => $show_link_to_delete,
-                              'type' => 'hc',
-                              'strict' => true));
-        
         if ($show_link_tool)
         {
             if ($is_gite)
@@ -169,6 +161,13 @@ if ($is_not_archive && $is_not_merged)
                                               'is_protected' => $document->get('is_protected')));
 
     if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+
+    // annex docs section
+    include_partial('documents/annex_docs',
+                    array('document' => $document,
+                          'related_articles' => $associated_articles,
+                          'related_portals' => $related_portals,
+                          'show_link_to_delete' => $show_link_to_delete));
 }
 
 include_partial('documents/license', array('license' => 'by-sa'));

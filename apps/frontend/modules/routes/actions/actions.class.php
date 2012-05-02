@@ -232,6 +232,7 @@ class routesActions extends documentsActions
             {
                 $related_portals[] = 'raid';
             }
+            Portal::getLocalPortals($related_portals, $this->associated_areas);
             $this->related_portals = $related_portals;
     
             // extract highest associated summit, and prepend its name to display this route's name.

@@ -130,6 +130,15 @@ class hutsActions extends documentsActions
             }
             $this->associated_books = $associated_books;
             
+            $related_portals = array();
+            $activities = $this->document->get('activities');
+            if (in_array(5, $activities))
+            {
+                $related_portals[] = 'ice';
+            }
+            Portal::getLocalPortals($related_portals, $this->associated_areas);
+            $this->related_portals = $related_portals;
+            
             $cab = count($associated_books);
             $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)($this->document->get('geom_wkt')));
     

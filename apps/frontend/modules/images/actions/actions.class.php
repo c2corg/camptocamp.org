@@ -44,12 +44,44 @@ class imagesActions extends documentsActions
             }
             $this->associated_documents = $associated_docs;
             
+            // add linked docs areas (except users and images)
+            $parent_ids = array();
+            $associated_areas = array();
+            foreach ($this->associated_docs as $doc)
+            {
+                if (!in_array($doc['module'], array('images', 'users')))
+                {
+                    $parent_ids[] = $doc['id'];
+                }
+            }
+            if (count($parent_ids))
+            {
+                $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+                $associated_docs_areas = GeoAssociation::findAreasWithBestName($parent_ids, $prefered_cultures);
+                
+                $associated_areas = $this->associated_areas;
+                $areas_ids = array();
+                foreach($associated_areas as $area)
+                {
+                    $areas_ids[] = $area['id'];
+                }
+                foreach($associated_docs_areas as $area)
+                {
+                    if (!in_array($area['id'], $areas_ids))
+                    {
+                        $associated_areas[] = $area;
+                    }
+                }
+            }
+            $this->associated_areas = $associated_areas;
+            
             $related_portals = array();
             $activities = $this->document->get('activities');
             if (in_array(5, $activities))
             {
                 $related_portals[] = 'ice';
             }
+            Portal::getLocalPortals($related_portals, $associated_areas);
             $this->related_portals = $related_portals;
 
             // link for facebook
