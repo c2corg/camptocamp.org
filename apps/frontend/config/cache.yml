@@ -45,8 +45,7 @@ edit:
   enabled:    off
   
 feed:
-  enabled: on
-  lifetime: 600
+  enabled: off
 
 popup:
   enabled: on
