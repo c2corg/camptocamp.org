@@ -1001,24 +1001,35 @@ class documentsActions extends c2cActions
         // TODO: factorize with list action?
 
         $timer = new sfTimer('executeRss');
-        $this->pager = call_user_func(array($this->model_class, 'browse'),
-                                      $this->getListSortCriteria(),
-                                      $this->getListCriteria());
-        $this->pager->setPage($this->getRequestParameter('page', 1));
-        $this->pager->init();
-    
+        
+        $module = $this->getModuleName();
+        
+        if ($module != 'documents')
+        {
+            $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                          $this->getListSortCriteria(),
+                                          $this->getListCriteria());
+            $this->pager->setPage($this->getRequestParameter('page', 1));
+            $this->pager->init();
+
+            $items = $this->pager->getResults('array', 'ESC_RAW');
+            if (isset($items[0]['geoassociations']))
+            {
+                $items = Language::getTheBestForAssociatedAreas($items);
+            }
+            // Retrieve creator and creation date.
+            $items = Outing::getAssociatedCreatorData($items);
+            $this->items = $items;
+        }
+        else
+        {
+            $this->items = array();
+        }
+        
         $this->setLayout(false);
         $this->setTemplate('../../documents/templates/rss');
         $this->setCacheControl();
-
-        $items = $this->pager->getResults('array', 'ESC_RAW');
-        if (isset($items[0]['geoassociations']))
-        {
-            $items = Language::getTheBestForAssociatedAreas($items);
-        }
-        // Retrieve creator and creation date.
-        $items = Outing::getAssociatedCreatorData($items);
-        $this->items = $items;
+        
         $this->statsdTiming('document.executeRss', $timer->getElapsedTime('executeRss'));
     }
 

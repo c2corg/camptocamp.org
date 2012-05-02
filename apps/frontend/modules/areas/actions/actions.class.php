@@ -68,8 +68,14 @@ class areasActions extends documentsActions
     public function executeView()
     {
         parent::executeView();
-        if (!$this->document->isArchive())
+        if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
+            $related_portals = array();
+            $id = $this->getRequestParameter('id');
+            $areas = array(array('id' => $id));
+            Portal::getLocalPortals($related_portals, $areas);
+            $this->related_portals = $related_portals;
+            
             $area_types_list = sfConfig::get('mod_areas_area_types_list');
             $title = $this->document->get('name') . ' :: ' .
                      $this->__($area_types_list[$this->document->get('area_type')]);

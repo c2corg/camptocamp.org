@@ -131,7 +131,7 @@ class Portal extends BasePortal
         $portal_definitions = sfConfig::get('app_portals');
         foreach ($portal_definitions as $name => $def)
         {
-            if (isset($def['areas_only']) && array_intersect($areas_ids, $def['areas_only']))
+            if (isset($def['areas_only']) && count(array_uintersect($areas_ids, $def['areas_only'], 'strcmp')))
             {
                 $portal_list[] = $name;
             }

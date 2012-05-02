@@ -37,6 +37,8 @@ if ($is_not_archive && $is_not_merged)
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',
                                               'is_protected' => $document->get('is_protected')));
+
+    include_partial('documents/annex_docs', array('related_portals' => $related_portals));
 }
 
 include_partial('documents/license', array('license' => 'by-sa'));

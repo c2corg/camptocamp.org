@@ -100,6 +100,10 @@ class parkingsActions extends documentsActions
             
             $this->associated_products = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_product')), 'name');
             
+            $related_portals = array();
+            Portal::getLocalPortals($related_portals, $this->associated_areas);
+            $this->related_portals = $related_portals;
+            
             $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)$this->document->get('geom_wkt'));
     
             $description = array($this->__('parking') . ' :: ' . $this->document->get('name'),

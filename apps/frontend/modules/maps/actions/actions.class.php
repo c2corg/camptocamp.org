@@ -22,8 +22,12 @@ class mapsActions extends documentsActions
     {
         parent::executeView();
         // add editor + code for in map title
-        if (!$this->document->isArchive())
+        if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
+            $related_portals = array();
+            Portal::getLocalPortals($related_portals, $this->associated_areas);
+            $this->related_portals = $related_portals;
+            
             $map_editors_list = sfConfig::get('mod_maps_editors_list');
             $title = $this->__($map_editors_list[$this->document->get('editor')]) . ' ' .
                      $this->document->get('code') . ' ' . $this->document->get('name') .

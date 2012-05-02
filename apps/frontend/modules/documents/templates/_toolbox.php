@@ -15,7 +15,6 @@ $pyrenees = sfConfig::get('app_portals_pyrenees');
     <div class="nav_box_content">
         <?php echo nav_title('toolbox', __('Toolbox'), 'tools'); ?>
         <div class="nav_box_text" id="nav_toolbox_section_container">
-            <p><?php echo __('Topoguide tools') ?></p>
             <ul>
                 <li><?php echo link_to(__('recent conditions'), 'outings/conditions') ?></li>
                 <li><?php echo link_to(__('Latest outings'), '@ordered_list?module=outings&orderby=date&order=desc') ?></li>

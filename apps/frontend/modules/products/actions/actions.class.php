@@ -31,6 +31,10 @@ class productsActions extends documentsActions
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;
+            
+            $related_portals = array();
+            Portal::getLocalPortals($related_portals, $this->associated_areas);
+            $this->related_portals = $related_portals;
     
             $product_type_list = sfConfig::get('mod_products_types_list');
             $product_type_index_list = $this->document->get('product_type');
