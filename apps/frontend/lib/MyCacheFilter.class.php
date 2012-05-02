@@ -340,7 +340,7 @@ class MyCacheFilter extends sfCacheFilter
     }
 
     $uri .= ((strstr($uri, '?')) ? '&' : '?')
-          . $il . $pl . $pa . $p . $c;
+          . $il . $pl . $pa . $c;
 
     // save page in cache
     if ($this->cache[$uri]['page'])
