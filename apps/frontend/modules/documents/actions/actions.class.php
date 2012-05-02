@@ -940,25 +940,40 @@ class documentsActions extends c2cActions
         
         $nb_results = $this->pager->getNbResults();
         $this->nb_results = $nb_results;
-        if (in_array('list', $format) && $nb_results == 1)
+        if (in_array('list', $format))
         {
-            // if only one document matches, redirect automatically towards it
-            $results = $this->pager->getResults('array');
-            $model = c2cTools::module2model($module);
-            
-            $item = Language::getTheBest($results, $model);
-            $item = array_shift($item);
-            $item_i18n = $item[$model . 'I18n'][0];
-            
-            sfLoader::loadHelpers(array('General'));
-            if ($module == 'documents')
+            if ($nb_results == 1)
             {
-                $module = $item['module'];
+                // if only one document matches, redirect automatically towards it
+                $results = $this->pager->getResults('array');
+                $model = c2cTools::module2model($module);
+                
+                $item = Language::getTheBest($results, $model);
+                $item = array_shift($item);
+                $item_i18n = $item[$model . 'I18n'][0];
+                
+                sfLoader::loadHelpers(array('General'));
+                if ($module == 'documents')
+                {
+                    $module = $item['module'];
+                }
+                $this->statsdTiming('document.executeList.redirect', $timer->getElapsedTime('executeList'));
+                $this->redirect('@document_by_id_lang_slug?module=' . $module . 
+                                '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
+                                '&slug=' . make_slug($item_i18n['name']));
             }
-            $this->statsdTiming('document.executeList.redirect', $timer->getElapsedTime('executeList'));
-            $this->redirect('@document_by_id_lang_slug?module=' . $module . 
-                            '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
-                            '&slug=' . make_slug($item_i18n['name']));
+            else
+            {
+                $params = c2cTools::getCriteriaRequestParameters(array(), true);
+                if (isset($params['page']))
+                {
+                    unset($params['page']);
+                }
+                if (count($params))
+                {
+                    $this->getResponse()->addMeta('robots', 'noindex, nofollow');
+                }
+            }
         }
 
         // if there is no result + only criterias are on the name, redirect to a page wich loads google search
@@ -974,6 +989,7 @@ class documentsActions extends c2cActions
                 }
             }
         }
+        
         $this->statsdTiming('document.executeList', $timer->getElapsedTime('executeList'));
     }
 

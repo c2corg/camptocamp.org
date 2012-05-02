@@ -122,7 +122,7 @@ class Portal extends BasePortal
 
     public static function getLocalPortals(&$portal_list, $areas)
     {
-        $area_ids = array();
+        $areas_ids = array();
         foreach ($areas as $area)
         {
             $areas_ids[] = $area['id'];

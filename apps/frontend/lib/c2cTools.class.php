@@ -47,10 +47,18 @@ class c2cTools
         return $param_list;
     }
     
-    public static function getCriteriaRequestParameters($extra_others = array())
+    public static function getCriteriaRequestParameters($extra_others = array(), $action_parameters = false)
     {
         $criteria = self::getAllRequestParameters();
-        $others = array_fill_keys(array_merge(array('module', 'action', 'orderby', 'order', 'npp', 'page', 'format', 'layout'), $extra_others), 0);
+        if ($action_parameters)
+        {
+            $others = array('module', 'action');
+        }
+        else
+        {
+            $others = array('module', 'action', 'orderby', 'order', 'npp', 'page', 'format', 'layout');
+        }
+        $others = array_fill_keys(array_merge($others, $extra_others), 0);
         return array_diff_key($criteria, $others);
     }
     
