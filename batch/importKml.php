@@ -361,10 +361,10 @@ function update_document()
     }
     else
     {
-        $deletegeom = $conn->standaloneQuery("SELECT ST_Difference('$oldgeom', '$newgeom') ")
-                               ->fetchAll();
+        $deletegeom = $conn->standaloneQuery("SELECT ST_Difference('$oldgeom', '$newgeom')")
+                           ->fetchAll();
         $deletegeomb = $conn->standaloneQuery("SELECT ST_Difference(buffer('$oldgeom', 200), buffer('$newgeom', 200))")
-                               ->fetchAll();
+                            ->fetchAll();
         $deletegeom = $deletegeom[0]['st_difference'];
         $deletegeomb = $deletegeomb[0]['st_difference'];
 
@@ -375,6 +375,7 @@ function update_document()
         }
 
         $queries = array();
+        // point geometry
         $queries[] = array("SELECT id, module FROM documents WHERE geom && '$deletegeomb' "
                              . "AND ST_Within(geom, '$deletegeomb') "
                              . "AND module IN('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images'"
@@ -382,7 +383,8 @@ function update_document()
                            array());
 
         $queries[] = array("SELECT id, module FROM documents WHERE geom && '$deletegeomb' "
-                             . "AND ST_Intersects(geom, '$deletegeomb') AND module='routes'",
+                             . "AND ST_Intersects(geom, '$deletegeomb') AND module"
+                             . ($is_map ? "='routes'" : " IN('routes', 'outings')"), // TODO if not new or fullwipe, we also need to check it doesnot intersect with the whole new geom with buffer
                            array());
 
         // for maps areas associations, we always compute 'full wipe', without buffer
@@ -423,6 +425,23 @@ function update_document()
                 {
                     $geoassociation->delete();
                     $deleted[$d['module']] = isset($deleted[$d['module']]) ? $deleted[$d['module']] + 1 : 1;
+                }
+
+                // for routes and outings, we need to check that they are not intersecting the new geom
+                // because they shouldn't be unlinked in that case
+                // (it's quite unconvenient, but no best way found)
+                if (in_array($d['module'], array('outings', 'routes')))
+                {
+                   $query = "SELECT ST_Intersects(geom, ST_Buffer('$newgeom', 200)) FROM "
+                          . $d['module'] . " WHERE id=?";
+                   $result = sfDoctrine::connection()
+                                     ->standaloneQuery($query, array($d['id']))
+                                     ->fetchAll();
+                   $result = $result[0]['st_intersects'];
+                   if ($result)
+                   {
+                       continue;
+                   }
                 }
 
                 // inherited docs: we delete geoassociations for the 'inherited docs' from sites, routes and summits
@@ -633,14 +652,17 @@ function import_new_geometry()
 
         $queries = array();
 
+        // point geometry
         $queries[] = array("SELECT id, module FROM documents WHERE geom && $geomqueryb "
                              . "AND ST_Within(geom, $geomqueryb) "
                              . "AND module IN('summits', 'huts', 'sites', 'parkings', 'products', 'portals', 'images'"
                              . ($is_map ? '' : ", 'users'") . ')',
                            $queryparam);
 
+        // multipoint geometry
         $queries[] = array("SELECT id, module FROM documents WHERE geom && $geomqueryb "
-                             . "AND ST_Intersects(geom, $geomqueryb) AND module='routes'",
+                             . "AND ST_Intersects(geom, $geomqueryb) AND module"
+                             . ($is_map ? "='routes'" : " IN('routes', 'outings')"),
                            $queryparam);
 
         // for maps areas associations, we always compute 'full wipe', without buffer
