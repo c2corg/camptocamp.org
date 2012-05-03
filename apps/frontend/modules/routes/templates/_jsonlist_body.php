@@ -12,7 +12,7 @@ $item_i18n = $item_i18n[0];
   "nbLinkedImages": <?php echo isset($item['nb_images']) ?  $item['nb_images'] : 0 ?>,
   "nbComments": <?php echo isset($item['nb_comments']) ? $item['nb_comments'] : 0 ?>,
   "nbLinkedOutings": <?php echo isset($item['nb_linked_docs']) ? $item['nb_linked_docs'] : 0 ?>,
-  "ratings": <?php echo field_route_ratings_data($item, false) // TODO improve ?>,
+  "ratings": <?php echo json_encode(field_route_ratings_data($item, false, false, false, 'json')) ?>,
   <?php if (check_not_empty($item->getRaw('max_elevation'))):  ?>
   "maxElevation": <?php echo $item['max_elevation'] ?>,
   <?php endif; if (check_not_empty($item->getRaw('height_diff_up'))):  ?>

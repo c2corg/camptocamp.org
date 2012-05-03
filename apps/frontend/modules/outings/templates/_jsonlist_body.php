@@ -15,7 +15,7 @@ $item_i18n = $item_i18n[0];
   <?php endif; if (check_not_empty($item->getRaw('height_diff_up'))): ?>
   "heightDiffUp": <?php echo $item['height_diff_up'] ?>,
   <?php endif; if (isset($item['linked_routes'])): ?>
-  "routes_rating": <?php echo json_encode(field_route_ratings_data($item, false, true)) // TODO can do better!! ?>,
+  "routes_rating": <?php echo json_encode(field_route_ratings_data($item, false, false, false, 'json')) ?>,
   <?php endif; if (isset($item['conditions_status'])): ?>
   "conditions": <?php echo $item['conditions_status'] ?>,
   <?php endif; if (isset($item['frequentation'])): ?>
