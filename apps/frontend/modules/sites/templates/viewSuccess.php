@@ -132,24 +132,33 @@ if ($is_not_archive && $is_not_merged)
     {
         foreach ($associated_outings as $count => $associated_outings_group): ?>
             <div id="outings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
-                <ul class="children_docs">
-                <?php foreach ($associated_outings_group as $outing): ?>
-                    <li class="child_summit">
-                    <?php
-                    $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
-                    echo link_to($outing->get('name'),
-                                 '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .
-                         //' - ' . field_activities_data($outing, true, false) .
-                         ' - ' . field_semantic_date_data($outing, 'date') .
-                         ' - ' . link_to($author_info['topo_name'],
-                                         '@document_by_id?module=users&id=' . $author_info['id']) .
-                         (isset($outing['nb_images']) ?
-                             ' - ' . picto_tag('picto_images', __('nb_linked_images')) . '&nbsp;' . $outing['nb_images']
-                             : '');
-                    ?>
-                    </li>
-                <?php endforeach ?>
-               </ul>
+            <table class="children_docs"><tbody>
+            <?php $culture = $sf_user->getCulture();
+            $date = 0;
+            foreach ($associated_outings_group as $outing):
+                ?><tr><td><?php
+                $timedate = $outing->get('date');
+                if ($timedate != $date)
+                {
+                    echo '<time datetime="' . $timedate . '">' . format_date($timedate, 'D') . '</time>';
+                    $date = $timedate;
+                }
+                ?></td><td><?php
+                echo field_activities_data($outing, true, false);
+                ?></td><td><?php
+                $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
+                $lang = $outing->get('culture');
+                echo link_to($outing->get('name'), 
+                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $lang . '&slug=' . get_slug($outing),
+                             ($lang != $culture) ? array('hreflang' => $lang) : null) .  
+                     ' - ' . link_to($author_info['topo_name'],
+                                     '@document_by_id?module=users&id=' . $author_info['id']) .
+                     (isset($outing['nb_images']) ? 
+                         ' - ' . picto_tag('picto_images', __('nb_linked_images')) . '&nbsp;' . $outing['nb_images']
+                         : '');
+                ?></td></tr><?php
+           endforeach ?>
+           </body></table>
                <?php if (count($associated_outings) > 1)
                          echo simple_pager_navigation($count, count($associated_outings), 'outings_group_'); ?>
            </div>
