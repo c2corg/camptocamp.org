@@ -839,6 +839,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
 
 
     return _route_ratings_sum_up(
+        $format,
         $activities,
         $show_activities,
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $format, $add_tooltips),

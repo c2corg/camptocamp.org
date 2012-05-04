@@ -264,7 +264,7 @@ a[href^="http://escalade.camptocamp.com"]:after {
   margin-left: 1.5em;
 }
 
-ul.children_docs
+ul.children_docs, table.children_docs
 {
   padding-left:20px;
 }
@@ -3919,7 +3919,7 @@ table.list th, table#pagehistory th
   padding: 5px;
 }
 
-.list td, #pagehistory td
+.list td, #pagehistory td, .children_docs td
 {
   background-color: transparent;
   padding: 5px;

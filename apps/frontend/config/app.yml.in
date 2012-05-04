@@ -622,7 +622,11 @@ all:
     mountain_news_mobile_limit: 8
     c2c_news_limit: 4
     latest_docs_mobile_limit: 10
-        
+  
+  nb_linked_outings:
+    docs: 6
+    areas: 10
+  
   users:
     outings_limit: 10 
     # number of outings displayed on user's page
