@@ -171,6 +171,7 @@ class summitsActions extends documentsActions
             
             // get associated outings
             $latest_outings = array();
+            $nb_outings = 0;
             if (count($associated_routes))
             {
                 $outing_params = array('summits', $this->ids);
