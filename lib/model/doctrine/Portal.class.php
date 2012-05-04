@@ -134,7 +134,7 @@ class Portal extends BasePortal
             $def = sfConfig::get('app_portals_' . $id);
             if (isset($def['areas_only']) && count(array_uintersect($areas_ids, $def['areas_only'], 'strcmp')))
             {
-                $portal_list[] = $name;
+                $portal_list[] = $id;
             }
         }
     }
