@@ -29,17 +29,27 @@ if (isset($items))
     foreach ($items as $item)
     {
         echo '<tr><td>';
+        
         $timedate = $item['date'];
         if ($timedate != $date)
         {
             echo '<time datetime="' . $timedate . '">' . format_date($timedate, 'D') . '</time>';
             $date = $timedate;
         }
+        
         echo '</td><td>';
+        
         echo get_paginated_activities($item['activities']);
+        
         echo '</td><td>';
+        
+        $i18n = $item['OutingI18n'][0];
+        $id = $item['id'];
+        $lang = $i18n['culture'];
+        
         echo link_to($i18n['name'], "@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . make_slug($i18n['name']),
                      ($lang != $culture) ? array('hreflang' => $lang) : null);
+        
         if (isset($item['nb_images']))
         {
             $images = picto_tag('picto_images_light',
@@ -48,6 +58,7 @@ if (isset($items))
                                                      $item['nb_images']));
             echo ' ' . $images;
         }
+        
         echo '</td></tr>';
     }
     echo '</body></table>';

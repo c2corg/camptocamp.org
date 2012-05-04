@@ -873,10 +873,9 @@ function _filter_ratings_data($document, $name, $config, $format, $add_tooltips 
         {
             return null;
         }
-        
     }
     $string_value = $use_raw_value ? $raw_value_prefix . $raw_value : $value;
-    if ($format = 'json')
+    if ($format == 'json')
     {
         return array($name => $string_value);
     }

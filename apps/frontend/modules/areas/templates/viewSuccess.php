@@ -115,6 +115,10 @@ if ($is_not_archive && $is_not_merged)
     <?php
     echo end_section_tag();
     
+    echo start_section_tag('Linked outings', 'outings');
+    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'areas', 'items' => $latest_outings, 'nb_outings' => $nb_outings));
+    echo end_section_tag();
+
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',

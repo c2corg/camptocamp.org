@@ -96,6 +96,19 @@ class parkingsActions extends documentsActions
                 $cab = count($associated_books);
             }
             
+            // get associated outings
+            $latest_outings = array();
+            $nb_outings = 0;
+            if (count($associated_routes))
+            {
+                $outing_params = array('parkings', $this->ids);
+                $nb_outings = sfConfig::get('app_nb_linked_outings_docs');
+                $latest_outings = Outing::listLatest($nb_outings + 1, array(), array(), array(), $outing_params, false);
+                $latest_outings = Language::getTheBest($latest_outings, 'Outing');
+            }
+            $this->latest_outings = $latest_outings;
+            $this->nb_outings = $nb_outings;
+            
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             
             $this->associated_products = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_product')), 'name');

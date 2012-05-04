@@ -24,6 +24,8 @@ class hutsActions extends documentsActions
         {
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
+            $current_doc_id = $this->getRequestParameter('id');
+            $is_gite = ($this->document->get('shelter_type') == 5);
             
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
@@ -51,7 +53,7 @@ class hutsActions extends documentsActions
             }
             $this->associated_summits = $associated_summits;
 
-            if ($this->document->get('shelter_type') == 5)
+            if ($is_gite)
             {
                 $parking_ids = array();
                 foreach ($associated_parkings as $parking)
@@ -122,6 +124,26 @@ class hutsActions extends documentsActions
                     }
                 }
             }
+            
+            // get associated outings
+            $latest_outings = array();
+            $nb_outings = 0;
+            if (!$is_gite && count($associated_routes) || $is_gite && count($parking_ids))
+            {
+                if (!$is_gite)
+                {
+                    $outing_params = array('huts', $$current_doc_id);
+                }
+                else
+                {
+                    $outing_params = array('parkings', $parking_ids);
+                }
+                $nb_outings = sfConfig::get('app_nb_linked_outings_docs');
+                $latest_outings = Outing::listLatest($nb_outings + 1, array(), array(), array(), $outing_params, false);
+                $latest_outings = Language::getTheBest($latest_outings, 'Outing');
+            }
+            $this->latest_outings = $latest_outings;
+            $this->nb_outings = $nb_outings;
             
             $associated_books = array_merge($associated_books, $associated_routes_books);
             if (count($associated_books))

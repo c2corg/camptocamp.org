@@ -175,7 +175,7 @@ class summitsActions extends documentsActions
             if (count($associated_routes))
             {
                 $outing_params = array('summits', $this->ids);
-                $nb_outings = sfConfig::get('app_nb_linked_outings_doc');
+                $nb_outings = sfConfig::get('app_nb_linked_outings_docs');
                 $latest_outings = Outing::listLatest($nb_outings + 1, array(), array(), array(), $outing_params, false);
                 $latest_outings = Language::getTheBest($latest_outings, 'Outing');
             }
