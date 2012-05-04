@@ -131,7 +131,7 @@ if ($is_not_archive && $is_not_merged)
     
     if (!$is_gite || !empty($doc_ids))
     {
-        echo start_section_tag('Linked outings', 'outings');
+        echo start_section_tag('Latest outings', 'outings');
         include_partial('outings/linked_outings', array('id' => $doc_ids, 'module' => $doc_module, 'items' => $latest_outings, 'nb_outings' => $nb_outings));
         echo end_section_tag();
     }

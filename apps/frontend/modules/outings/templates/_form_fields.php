@@ -183,7 +183,13 @@ echo end_group_tag();
 <?php
 // end of conditions levels fields
 
-echo object_group_bbcode_tag($document, 'conditions', null, array('class' => 'mediumtext'));
+$activities = $document->getRaw('activities');
+$field_title = null;
+if (array_intersect($activities, array(3,4,5)) || (in_array(2, $activities) && !array_intersect($activities, array(1,6,7))))
+{
+    $field_title = 'conditions_and_equipment';
+}
+echo object_group_bbcode_tag($document, 'conditions', $field_title, array('class' => 'medlargetext'), true, $field_title);
 echo object_group_bbcode_tag($document, 'weather', null, array('no_img' => true));
 echo object_group_bbcode_tag($document, 'participants', null, array('class' => 'smalltext', 'no_img' => true));
 ?>

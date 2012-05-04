@@ -2847,6 +2847,21 @@ msgstr "<h3>Styles d'escalade</h3>Décrit le style général des voies du site/s
 msgid "_code_info"
 msgstr "<h3>Code</h3>Référence de la carte."
 
+# [WARNING] needs_review
+msgid "_conditions_and_equipment_info"
+msgstr "<h3>Conditions de terrain, équipement et qualité du rocher rencontrés</h3>\n"
+"Détails des conditions de terrain rencontrées sur l'approche et dans la voie&nbsp;: quantité et qualité de la neige et de la glace, quantité et qualité de l'équipement en place, qualité du rocher.<br />\n"
+"Les conditions de terrain ne tiennent pas compte de la météo.<br />\n"
+"Ces informations sont susceptibles de perdre leur validité rapidement. Vérifiez donc la date de la sortie avant de vous baser sur les informations données dans ces champs.<br />\n"
+"<br />\n"
+"Lors d'une édition&nbsp;:<br />\n"
+"<br />\n"
+"L'itinéraire réellement parcouru doit être décrit rapidement si la description comporte des variantes, ou si on a suivi une variante non décrite, ou si on s'est arrêté avant le sommet.<br />\n"
+"<br />\n"
+"Pour un itinéraire enneigé, mentionnez aussi l'activité avalancheuse&nbsp;: observation en direct ou trace d'anciennes avalanches.<br />\n"
+"<br />\n"
+"Les <em>Conditions rencontrées</em> et l'<em>Enneigement par zones</em> sont importants pour évaluer l'évolution les jours suivants, saisissez-les soigneusement."
+
 msgid "_conditions_info"
 msgstr "<h3>Conditions rencontrées</h3>Détails des conditions rencontrées sur l'itinéraire (approche + voie) lors de la sortie.<br />Ces informations sont susceptibles de perdre leur validité rapidement. Vérifiez donc la date de la sortie avant de vous baser sur les informations données dans ces champs.<br /><br />Lors d'une édition&nbsp;:<br /><br />L'itinéraire réellement parcouru doit être décrit rapidement si la description comporte des variantes, ou si on a suivi une variante non décrite, ou si on s'est arrêté avant le sommet.<br /><br />Pour un itinéraire enneigé, mentionnez aussi l'activité avalancheuse&nbsp;: observation en direct ou trace d'anciennes avalanches.<br /><br />Les <em>Conditions rencontrées</em> et l'<em>Enneigement par zones</em> sont importants pour évaluer l'évolution les jours suivants, saisissez-les soigneusement."
 
@@ -2854,7 +2869,11 @@ msgid "_conditions_levels_info"
 msgstr "<h3>Enneigement par zones</h3>Permet d'indiquer synthétiquement les conditions rencontrées sur chaque partie de l'itinéraire.<br />Pour ajouter une zone, cliquez sur le bouton (+).<br /><br /><strong>Lieu / altitude / orientation / heure</strong>&nbsp;: caractéristiques de la zone&nbsp;: sa localisation, sa tranche d'altitude, son orientation, son relief (vallon, couloir...), l'heure de passage.<br /><br /><strong>Meuble</strong>&nbsp;: épaisseur de neige meuble en cm (enfoncement du baton).<br /><br /><strong>Totale</strong>&nbsp;: épaisseur de neige totale en cm. Laissez vide si la valeur est inconnue.<br /><br /><strong>Observations</strong>&nbsp;: qualité de la neige, analyse stratigraphique sommaire, qualité du ski."
 
 msgid "_conditions_status_info"
-msgstr "<h3>Conditions</h3>Jugement global sur les conditions rencontrées sur l'itinéraire lors de la sortie. Utilisable dans le filtre de recherche des sorties.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
+msgstr "<h3>Conditions de terrain</h3>\n"
+"Cette case est un jugement sur les conditions de terrain rencontrées sur l'itinéraire lors de la sortie, utilisable dans le filtre de recherche des sorties.<br />\n"
+"Les conditions de terrain ne tiennent pas compte de la météo, et sont appréciées par rapport aux conditions moyennes que l'on peut espérer avoir sur l'itinéraire, lors de sa période de fréquentation normale. Elles permettent d'évaluer la difficulté réelle par rapport à la difficulté donnée par les cotations, celles-ci étant établies pour des conditions bonnes.<br />\n"
+"Les conditions sont celles rencontrées lors de la sortie, et pas une extrapolation de ce qu'elles seraient le lendemain. Pour l'appréciation des bonnes conditions (ou des conditions excellentes), la pondération entre le plaisir éprouvé et le risque encouru est laissé à la libre appréciation de chacun. Pour trancher, on pourra toutefois se poser la question : peut on davantage se faire plaisir sur cet itinéraire dans des conditions moins risquées ?<br />\n"
+"Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires et de justement faire la part des choses entre risque, ambiance et plaisir."
 
 msgid "_configuration_info"
 msgstr "<h3>Configuration</h3>La configuration décrit le type principal de relief rencontré le long de l'itinéraire ou de ses difficultés seulement.<br /><br /><strong>arête</strong>&nbsp;: Une arête est caractérisée par un axe principal et deux versants. L'approche s'effectue en général par l'un des deux versants ou le début de l'arête elle-même.<br /><br /><strong>couloir</strong>&nbsp;: Un couloir correspond à un talweg. Il est généralement bordé de rochers sous la forme de piliers ou d'éperons.<br /><br /><strong>face</strong>&nbsp;: Une face correspond à une paroi \"plane\" où éperons, couloirs ou goulottes se fondent.<br /><br /><strong>goulotte</strong>&nbsp;: Une goulotte est un couloir très redressé (à partir de 70°) et étroit (quelques mètres de largeur). Une goulotte offre très souvent une escalade glaciaire ou mixte.<br /><br /><strong>éperon&nbsp;/ pilier</strong>&nbsp;: Un éperon ou un pilier se détachent clairement d'une face. En général un éperon offre une escalade en rocher, mais aussi en neige ou en glace. Le terme pilier est réservé au rocher.<br /><br /><strong>itinéraire de haute montagne - parcours glaciaire</strong>&nbsp;: Un itinéraire de haute montagne et de parcours glaciaire se déroule principalement sur glacier et la géomorphologie du terrain reste peu caractéristique. Ce sont les itinéraires glaciaires classiques, les randonnées glaciaires ou encore certains itinéraires de haute montagne où il n'y a pas de configuration marquée (exemple: Traversée du Mont Blanc). Le champ <em>Nécessite le matériel de glacier</em> doit aussi être renseigné si le glacier est crevassé."
@@ -3518,7 +3537,7 @@ msgid "activities_to_display"
 msgstr "Activités à afficher"
 
 msgid "activity and area filters applied"
-msgstr "Attention&nbsp;: vos filtres de personnalisation d'activités et / ou de régions ont été appliqués au formulaire"
+msgstr "Attention&nbsp;: vos filtres de personnalisation d'activités et de régions ont été appliqués au formulaire"
 
 msgid "activity filters applied"
 msgstr "Attention&nbsp;: vos filtres de personnalisation d'activités ont été appliqués au formulaire"
@@ -4150,11 +4169,15 @@ msgstr "Conditions rencontrées (approche + voie)&nbsp;:"
 msgid "conditions linked to"
 msgstr "la liste des conditions associées"
 
+# [WARNING] needs_review
+msgid "conditions_and_equipment"
+msgstr "Conditions de terrain, équipement et qualité du rocher rencontrés (approche + voie)&nbsp;:"
+
 msgid "conditions_levels"
 msgstr "Enneigement par zones&nbsp;:"
 
 msgid "conditions_status"
-msgstr "Conditions&nbsp;:"
+msgstr "Conditions de terrain&nbsp;:"
 
 msgid "config corridor"
 msgstr "couloir"
@@ -6067,6 +6090,9 @@ msgstr "Type de TC&nbsp;:"
 
 msgid "publication_date"
 msgstr "Date de publication&nbsp;:"
+
+msgid "pyrenees portal"
+msgstr "Camptocamp Pyrénées"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.

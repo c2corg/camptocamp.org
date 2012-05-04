@@ -10,9 +10,10 @@ $hut_comments = $document->get('hut_comments');
 $has_conditions = !empty($conditions);
 $has_weather_or_timing = (!empty($weather) || !empty($timing));
 $has_access_or_hut = (!empty($access_comments) || !empty($hut_comments));
+$activities = $document->getRaw('activities');
 
 // hide condition levels if ski, snow, ice_climbing or snowshoeing are not among outing activities
-if (!array_intersect(array(1,2,5,7), $document->getRaw('activities')))
+if (!array_intersect(array(1,2,5,7), $activities))
 {
     $conditions_levels = NULL;
 }
@@ -54,8 +55,13 @@ if (!empty($associated_areas))
 
 if ($has_conditions || $has_conditions_levels)
 {
+    $condition_name = 'conditions';
+    if ($has_conditions && (array_intersect($activities, array(3,4,5)) || (in_array(2, $activities) && !array_intersect($activities, array(1,6,7)))))
+    {
+        $condition_name = 'conditions_and_equipment';
+    }
     $lang = $needs_translation ? ' lang="' . $needs_translation . '"' : '';
-    $conditions_title = '<div class="section_subtitle htext" id="_conditions">' . __('conditions')
+    $conditions_title = '<div class="section_subtitle htext" id="_' . $condition_name . '">' . __($condition_name)
                         . '</div><div class="field_value"' . $lang . '>';
     
     if ($has_conditions_levels)

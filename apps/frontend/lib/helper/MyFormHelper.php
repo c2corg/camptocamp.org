@@ -258,9 +258,13 @@ function object_group_dropdown_tag($object, $fieldname, $config, $options = null
            end_group_tag();
 }
 
-function object_group_bbcode_tag($object, $fieldname, $field_title = null, $options = null, $check_mandatory = true)
+function object_group_bbcode_tag($object, $fieldname, $field_title = null, $options = null, $check_mandatory = true, $label_id = null)
 {
     $mandatory = $check_mandatory && is_mandatory($fieldname);
+    if (empty($label_id))
+    {
+        $label_id = $fieldname;
+    }
     if (empty($field_title))
     {
         $field_title = $fieldname;
@@ -270,7 +274,7 @@ function object_group_bbcode_tag($object, $fieldname, $field_title = null, $opti
             ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
             : start_group_tag();
     $out .= label_tag($fieldname, $field_title, $mandatory, 
-                      array('class' => sfConfig::get('app_form_label_class') . ' extraheight', 'id' => '_' . $fieldname));
+                      array('class' => sfConfig::get('app_form_label_class') . ' extraheight', 'id' => '_' . $label_id));
     $out .= '<div>';
     $out .= bbcode_textarea_tag($object, $fieldname, $options);
     $out .= '</div>';

@@ -106,7 +106,7 @@ include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/ma
 
 if ($is_not_archive && $is_not_merged)
 {
-    echo start_section_tag('Linked outings', 'outings');
+    echo start_section_tag('Latest outings', 'outings');
     include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'parkings', 'items' => $latest_outings, 'nb_outings' => $nb_outings));
     echo end_section_tag();
 
