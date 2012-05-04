@@ -70,7 +70,7 @@ if (isset($items))
             
             echo '</td></tr>';
         }
-        echo '</body></table>';
+        echo '</tbody></table>';
     }
     elseif (isset($empty_list_tips))
     {
