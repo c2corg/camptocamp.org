@@ -158,9 +158,18 @@ input.long_input
   margin-left: 0;
 }
 
-#routes_summary, ul.children_docs
+#routes_summary, ul.children_docs, table.children_docs
 {
   padding-left: 0;
+}
+
+.children_docs td
+{
+  padding-right: 5px;
+}
+.children_docs td:last-child
+{
+  padding-right: 0;
 }
 
 #routes_summary .list_link
