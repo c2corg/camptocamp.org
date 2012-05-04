@@ -270,7 +270,7 @@ abstract class c2cActions extends sfActions
         $response->setHttpHeader('Expires', $response->getDate(time() + $age));
     }
 
-    public function statsdTiming($stat, $time, $prefix=false, $unit='us')
+    public static function statsdTiming($document, $stat, $time, $prefix=false, $unit='us')
     {
         switch ($unit)
         {
@@ -288,25 +288,25 @@ abstract class c2cActions extends sfActions
                 break;
         }
 
-        $_prefix = $prefix ? $prefix : $this->statsdPrefix();
+        $_prefix = $prefix ? $prefix : self::statsdPrefix($document, false, false);
         StatsD::timing($_prefix . $stat, $time);
     }
 
-    public function statsdIncrement($stat, $prefix=false)
+    public static function statsdIncrement($document, $stat, $prefix=false)
     {
-        $_prefix = $prefix ? $prefix : $this->statsdPrefix();
+        $_prefix = $prefix ? $prefix : self::statsdPrefix($document, false, false);
         StatsD::increment($_prefix . $stat);
     }
 
-    public function statsdPrefix($module=false, $action=false)
+    public static function statsdPrefix($document, $module=false, $action=false)
     {
         if ($module)
         {
             $moduleName = $module;
         }
-        elseif (method_exists($this, 'getModuleName'))
+        elseif ($document && method_exists($document, 'getModuleName'))
         {
-            $moduleName = $this->getModuleName();
+            $moduleName = $document->getModuleName();
         }
         else
         {
@@ -317,9 +317,9 @@ abstract class c2cActions extends sfActions
         {
             $actionName = $action;
         }
-        elseif (method_exists($this, 'getActionName'))
+        elseif ($document && method_exists($document, 'getActionName'))
         {
-            $actionName = $this->getActionName();
+            $actionName = $document->getActionName();
         }
         else
         {

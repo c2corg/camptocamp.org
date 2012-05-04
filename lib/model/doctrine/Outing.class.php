@@ -103,12 +103,12 @@ class Outing extends BaseOuting
     /**
      * Retrieves a list of outings ordered by effective outing date (more recent first).
      */
-    public static function listLatest($max_items, $langs, $ranges, $activities, $params = array(), $linked_areas = true)
+    public static function listLatest($max_items, $langs, $ranges, $activities, $params = array(), $linked_areas = true, $orderby_date = true)
     {
         $fields = 'm.id, n.culture, n.name, m.date, m.activities, m.max_elevation';
         if ($linked_areas)
         {
-            $fields .= 'g0.linked_id, a.area_type, ai.name, ai.culture';
+            $fields .= ', g0.linked_id, a.area_type, ai.name, ai.culture';
         }
         
         $q = Doctrine_Query::create();
@@ -116,7 +116,6 @@ class Outing extends BaseOuting
           ->from('Outing m')
           ->leftJoin('m.OutingI18n n')
           ->addWhere('m.redirects_to IS NULL')
-          ->orderBy('m.date DESC, m.id DESC')
           ->limit($max_items);
         
         if ($linked_areas)
@@ -124,6 +123,15 @@ class Outing extends BaseOuting
             $q->leftJoin('m.geoassociations g0')
               ->leftJoin('g0.AreaI18n ai')
               ->leftJoin('ai.Area a');
+        }
+        
+        if ($orderby_date)
+        {
+            $q->orderBy('m.date DESC, m.id DESC');
+        }
+        else
+        {
+            $q->orderBy('m.id DESC');
         }
 
         self::filterOnActivities($q, $activities, 'm', 'o');

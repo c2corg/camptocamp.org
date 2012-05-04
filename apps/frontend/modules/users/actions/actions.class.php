@@ -51,16 +51,16 @@ class usersActions extends documentsActions
                 }
                 
 
-                // FIXME: put limit in query instead of slicing results
-                $associated_outings = array_reverse(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);
-                $this->nb_associated_outings = count($associated_outings);
-
-                $associated_outings = array_slice($associated_outings, 0, sfConfig::get('app_users_outings_limit'));
-
-                $this->associated_outings = Document::fetchAdditionalFieldsFor(
-                                                    $associated_outings, 
-                                                    'Outing', 
-                                                    array('date', 'activities', 'height_diff_up'));
+                // get associated outings
+                $associated_outings = array();
+                $nb_outings = 0;
+                $outing_params = array('users', $id);
+                $nb_outings = sfConfig::get('app_users_outings_limit');
+                $associated_outings = Outing::listLatest($nb_outings + 1, array(), array(), array(), $outing_params, false, false);
+                $associated_outings = Language::getTheBest($associated_outings, 'Outing');
+                $this->associated_outings = $latest_outings;
+                $this->nb_outings = $nb_outings;
+                
 
                 $forum_nickname = Punbb::getNickname($id);
                 $this->forum_nickname = $forum_nickname[0]['username'];

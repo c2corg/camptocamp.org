@@ -120,11 +120,11 @@ class productsActions extends documentsActions
 
         $timer = new sfTimer();
         $products = $this->pager->getResults('array');
-        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
         
         $timer = new sfTimer();
         Parking::addAssociatedParkings($products, 'pf'); // add associated parkings infos to $products
-        $this->statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'parking.addAssociatedParkings', $timer->getElapsedTime());
 
         $this->items = Language::parseListItems($products, 'Product');
     }

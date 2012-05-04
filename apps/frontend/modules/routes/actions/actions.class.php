@@ -1014,7 +1014,7 @@ class routesActions extends documentsActions
 
         $timer = new sfTimer();
         $routes = $this->pager->getResults('array');
-        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
 
         // if they are criterias on the summit (snam, srnam, salt, styp)
         // we might have only some of the associated summits and not the 'best one' (ticket #337)
@@ -1030,11 +1030,11 @@ class routesActions extends documentsActions
 
         $timer = new sfTimer();
         Parking::addAssociatedParkings($routes, 'pr'); // add associated parkings infos to $routes
-        $this->statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'parking.addAssociatedParkings', $timer->getElapsedTime());
 
         $timer = new sfTimer();
         Document::countAssociatedDocuments($routes, 'ro', true); // number of associated outings
-        $this->statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'document.countAssociatedDocuments', $timer->getElapsedTime());
 
         $this->items = Language::parseListItems($routes, 'Route');
     }

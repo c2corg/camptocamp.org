@@ -24,46 +24,58 @@ else
 
 if (isset($items))
 {
-    echo '<table class="children_docs"><tbody>';
-    
-    $culture = $sf_user->getCulture();
-    $date = 0;
-    foreach ($items as $item)
+    if (count($items))
     {
-        echo '<tr><td>';
+        echo '<table class="children_docs"><tbody>';
         
-        $timedate = $item['date'];
-        if ($timedate != $date)
+        $culture = $sf_user->getCulture();
+        $date = 0;
+        foreach ($items as $item)
         {
-            echo '<time datetime="' . $timedate . '">' . format_date($timedate, 'D') . '</time>';
-            $date = $timedate;
+            echo '<tr><td>';
+            
+            $timedate = $item['date'];
+            if ($timedate != $date)
+            {
+                echo '<time datetime="' . $timedate . '">' . format_date($timedate, 'D') . '</time>';
+                $date = $timedate;
+            }
+            
+            echo '</td><td>';
+            
+            echo get_paginated_activities($item['activities']);
+            
+            echo '</td><td>';
+            
+            $i18n = $item['OutingI18n'][0];
+            $id = $item['id'];
+            $lang = $i18n['culture'];
+            
+            echo link_to($i18n['name'], "@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . make_slug($i18n['name']),
+                         ($lang != $culture) ? array('hreflang' => $lang) : null);
+            $max_elevation = displayWithSuffix($item['max_elevation'], 'meters');
+            if (!empty($max_elevation))
+            {
+                echo ' - ' . $max_elevation;
+            }
+            
+            if (isset($item['nb_images']))
+            {
+                $images = picto_tag('picto_images_light',
+                                    format_number_choice('[1]1 image|(1,+Inf]%1% images',
+                                                         array('%1%' => $item['nb_images']),
+                                                         $item['nb_images']));
+                echo ' ' . $images;
+            }
+            
+            echo '</td></tr>';
         }
-        
-        echo '</td><td>';
-        
-        echo get_paginated_activities($item['activities']);
-        
-        echo '</td><td>';
-        
-        $i18n = $item['OutingI18n'][0];
-        $id = $item['id'];
-        $lang = $i18n['culture'];
-        
-        echo link_to($i18n['name'], "@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . make_slug($i18n['name']),
-                     ($lang != $culture) ? array('hreflang' => $lang) : null);
-        
-        if (isset($item['nb_images']))
-        {
-            $images = picto_tag('picto_images_light',
-                                format_number_choice('[1]1 image|(1,+Inf]%1% images',
-                                                     array('%1%' => $item['nb_images']),
-                                                     $item['nb_images']));
-            echo ' ' . $images;
-        }
-        
-        echo '</td></tr>';
+        echo '</body></table>';
     }
-    echo '</body></table>';
+    elseif (isset($empty_list_tips))
+    {
+        echo __($empty_list_tips);
+    }
 }
 
 echo '<p class="list_link">' .

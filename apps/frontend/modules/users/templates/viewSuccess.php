@@ -42,31 +42,8 @@ include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/ma
 
 if ($is_not_archive && $is_not_merged)
 {
-    echo start_section_tag("User outings", 'outings');
-    if (count($associated_outings)):
-    ?>
-        <ul id="list_associated_docs">
-        <?php
-            foreach ($associated_outings as $doc): ?>
-            <li>
-            <?php
-                $height_diff_up = (string)$doc['height_diff_up'];
-                $height_diff_up = empty($height_diff_up) ? ''
-                                  : (" - $height_diff_up" . __('meters'));
-                echo link_to($doc['name'],
-                             "@document_by_id_lang_slug?module=outings&id=" . $doc['id'] . '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']),
-                             ($doc['culture'] != $sf_user->getCulture() ? array('hreflang' => $doc['culture']) : array()))
-                         . ' - ' . field_activities_data($doc, true, false)
-                         . ' - ' . '<time datetime="' . $doc['date'] . '">' . $doc['date'] . '</time>' . $height_diff_up;
-            ?>
-            </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php
-    else:
-        echo __('This user does not have any associated outing.');
-    endif;
-    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'users', 'nb_outings' => $nb_associated_outings));
+    echo start_section_tag('User outings', 'outings');
+    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'users', 'nb_outings' => $nb_outings, 'empty_list_tips' => 'This user does not have any associated outing.'));
     echo end_section_tag();
     
     echo start_section_tag('User contributions', 'contributions');

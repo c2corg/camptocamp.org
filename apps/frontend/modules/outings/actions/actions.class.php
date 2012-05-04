@@ -863,21 +863,21 @@ class outingsActions extends documentsActions
 
         $timer = new sfTimer();
         $outings = $this->pager->getResults('array');
-        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
 
         $timer = new sfTimer();
         $outings = Outing::getAssociatedCreatorData($outings); // retrieve outing creator names
-        $this->statsdTiming('outing.getAssociatedCreatorData', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'outing.getAssociatedCreatorData', $timer->getElapsedTime());
 
         $timer = new sfTimer();
         $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
-        $this->statsdTiming('outing.getAssociatedRoutesData', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'outing.getAssociatedRoutesData', $timer->getElapsedTime());
 
         if (!in_array('list', $format))
         {
             $timer = new sfTimer();
             $outings = Language::getTheBestForAssociatedAreas($outings);
-            $this->statsdTiming('language.getTheBestForAssociatedAreas', $timer->getElapsedTime());
+            c2cActions::statsdTiming($this, 'language.getTheBestForAssociatedAreas', $timer->getElapsedTime());
         }
         
         // add images infos
@@ -885,7 +885,7 @@ class outingsActions extends documentsActions
         {
             $timer = new sfTimer();
             Image::addAssociatedImages($outings, 'oi');
-            $this->statsdTiming('image.addAssociatedImages', $timer->getElapsedTime());
+            c2cActions::statsdTiming($this, 'image.addAssociatedImages', $timer->getElapsedTime());
         }
         
         $this->items = Language::parseListItems($outings, 'Outing', !$show_images);

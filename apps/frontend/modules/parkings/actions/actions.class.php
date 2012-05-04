@@ -183,11 +183,11 @@ class parkingsActions extends documentsActions
 
         $timer = new sfTimer();
         $parkings = $this->pager->getResults('array');
-        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
         
         $timer = new sfTimer();
         Document::countAssociatedDocuments($parkings, 'pr', true);
-        $this->statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'document.countAssociatedDocuments', $timer->getElapsedTime());
 
         $this->items = Language::parseListItems($parkings, 'Parking');
     }

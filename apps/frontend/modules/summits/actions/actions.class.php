@@ -515,11 +515,11 @@ class summitsActions extends documentsActions
 
         $timer = new sfTimer();
         $summits = $this->pager->getResults('array');
-        $this->statsdTiming('pager.getResults', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
 
         $timer = new sfTimer();
         Document::countAssociatedDocuments($summits, 'sr', true);
-        $this->statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+        c2cActions::statsdTiming($this, 'document.countAssociatedDocuments', $timer->getElapsedTime());
 
         $this->items = Language::parseListItems($summits, 'Summit');
     }

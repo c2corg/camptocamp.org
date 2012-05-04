@@ -1937,6 +1937,12 @@ all:
   production: @PRODUCTION@
 
   portals:
+    id:
+      1: cda
+      2: ice
+      3: steep
+      4: raid
+      5: pyrenees
     cda:
       id: @CDA_ID@
       name: 'changerdapproche'
