@@ -25,6 +25,8 @@ else
 if (isset($items))
 {
     echo '<table class="children_docs"><tbody>';
+    
+    $culture = $sf_user->getCulture();
     $date = 0;
     foreach ($items as $item)
     {

@@ -3919,11 +3919,16 @@ table.list th, table#pagehistory th
   padding: 5px;
 }
 
-.list td, #pagehistory td, .children_docs td
+.list td, #pagehistory td
 {
   background-color: transparent;
   padding: 5px;
   font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.children_docs td
+{
+  padding: 0 10px 2px 0;
 }
 
 tr.table_list_even
