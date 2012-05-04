@@ -58,7 +58,7 @@ class usersActions extends documentsActions
                 $nb_outings = sfConfig::get('app_users_outings_limit');
                 $associated_outings = Outing::listLatest($nb_outings + 1, array(), array(), array(), $outing_params, false, false);
                 $associated_outings = Language::getTheBest($associated_outings, 'Outing');
-                $this->associated_outings = $latest_outings;
+                $this->associated_outings = $associated_outings;
                 $this->nb_outings = $nb_outings;
                 
 
