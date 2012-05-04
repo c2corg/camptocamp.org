@@ -35,9 +35,17 @@ if (isset($items))
             echo '<tr><td>';
             
             $timedate = $item['date'];
+            if (c2cTools::mobileVersion())
+            {
+                $text_date = $timedate;
+            }
+            else
+            {
+                $text_date = format_date($timedate, 'D');
+            }
             if ($timedate != $date)
             {
-                echo '<time datetime="' . $timedate . '">' . format_date($timedate, 'D') . '</time>';
+                echo '<time datetime="' . $timedate . '">' . $text_date . '</time>';
                 $date = $timedate;
             }
             
