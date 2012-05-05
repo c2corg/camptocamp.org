@@ -61,9 +61,8 @@ echo ajax_feedback();
       ?>
       <div id="quick_switch<?php echo empty($activities_class) ? '' : '" class="' . implode(' ', $activities_class) ?>">
       <?php
-        foreach ($alist as $id => $activity)
+        foreach ($alist as $act_id => $activity)
         {
-            $act_id = $id + 1;
             $alt = ($act_filter == array($act_id))
                    ? __('switch_off_activity_personalisation')
                    : __('switch_to_' . $alist[$act_id-1]) ;
