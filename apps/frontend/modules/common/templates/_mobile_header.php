@@ -38,12 +38,17 @@ echo ajax_feedback();
         $main_filter_switch_on = $perso->isMainFilterSwitchOn();
         $alist = sfConfig::get('app_activities_list');
         array_shift($alist);
-        $light = array(1 => '', 2 => '', 3 => '', 4 => '', 5 => '', 6 => '', 7 => '');
+        $light = array_fill(0, count($alist), '');
         $activities_class = array();
 
         if ($main_filter_switch_on && count($act_filter))
         {
-            $unselected_act = array_diff(array(1, 2, 3, 4, 5, 6, 7), $act_filter);
+            $unselected_act = array();
+            foreach ($alist as $k => $act)
+            {
+                if (!in_array($k+1, $act_filter)) $unselected_act[] = $k;
+            }
+            
             foreach ($unselected_act as $act_id)
             {
                 $light[$act_id] = '_light';
