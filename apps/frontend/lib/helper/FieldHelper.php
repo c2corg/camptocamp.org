@@ -898,7 +898,7 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
     $rock_required_raw_value = (is_int($document[$rock_required_name])) ? $document[$rock_required_name] :
                                ($use_esc_raw ? $document->get($rock_required_name, 'ESC_RAW') : $document->getRaw($rock_required_name));
 
-    if ($format == 'html')
+    if ($format == 'html' || $format == 'table')
     {
         if (!check_not_empty($rock_free_raw_value)) return null;
 
@@ -935,7 +935,7 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
 function _route_ratings_sum_up($format = 'html', $activities = array(), $show_activities = true, $global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
                                $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing)
 {
-    if ($format == 'html')
+    if ($format == 'html' || $format == 'table')
     {
         $groups = $ski1 = $ski2 = $main_climbing = $climbing = array();
 
@@ -985,7 +985,16 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $show_ac
             }
             $groups[] = $snowshoeing;
         }
-        return implode(' ', $groups);
+        if ($format == 'html')
+        {
+            return implode(' ', $groups);
+        }
+        else
+        {
+            return '<td>'
+                 . implode('</td><td>', $groups)
+                 . '</td>';
+        }
     }
     elseif ($format == 'json')
     {
@@ -1072,7 +1081,7 @@ function check_not_empty_doc($document, $name)
     return (!$value instanceof Doctrine_Null && !empty($value));
 }
 
-function summarize_route($route, $show_activities = true, $add_tooltips = false)
+function summarize_route($route, $show_activities = true, $add_tooltips = false, $list_format = true)
 {
     $max_elevation = is_scalar($route['max_elevation']) ? ($route['max_elevation'] . __('meters')) : NULL;
     
@@ -1114,33 +1123,51 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
         $height_diff_up = '+' . $height_diff_up;
         $height[] = $height_diff_up;
     }
+    
     if (!empty($difficulties_height))
     {
         $difficulties_height = '(' . $difficulties_height . ')';
         $height[] = $difficulties_height;
     }
-    $height = implode(' ', $height);
-
-    $route_data = array($max_elevation,
-                        $height,
-                        $facing,
-                        field_route_ratings_data($route, $show_activities, $add_tooltips)
-                        );
-
-    foreach ($route_data as $key => $value)
+    
+    $ratings = field_route_ratings_data($route, $show_activities, $add_tooltips, false, ($list_format ? 'html' : 'table'));
+    
+    if ($list_format)
     {
-        $value = trim($value);
-        if (empty($value)) unset($route_data[$key]);
-    }
+        $height = implode(' ', $height);
 
-    if (empty($route_data))
-    {
-        $route_data = '';
+        $route_data = array($max_elevation,
+                            $height,
+                            $facing,
+                            $ratings
+                            );
+
+        foreach ($route_data as $key => $value)
+        {
+            $value = trim($value);
+            if (empty($value)) unset($route_data[$key]);
+        }
+
+        if (empty($route_data))
+        {
+            $route_data = '';
+        }
+        else
+        {
+            array_unshift($route_data, '');
+            $route_data = implode('&nbsp; ', $route_data);
+        }
     }
     else
     {
-        array_unshift($route_data, '');
-        $route_data = implode('&nbsp; ', $route_data);
+        $route_data = array($max_elevation,
+                            $height_diff_up,
+                            $difficulties_height,
+                            $facing);
+        $route_data = '<td>'
+                    . implode('</td><td>', $groups)
+                    . '</td>'
+                    . $ratings;
     }
 
     return $route_data;

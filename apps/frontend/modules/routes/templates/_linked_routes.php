@@ -15,8 +15,10 @@ else
     {
         $show_list_link = true;
     }
-    $show_link_to_delete = ($sf_user->hasCredential('moderator') && !empty($type) && !$is_popup && !c2cTools::mobileVersion());
- 
+    $mobile_version =  c2cTools::mobileVersion();
+    $list_format = $is_popup || $mobile_version;
+    $show_link_to_delete = ($sf_user->hasCredential('moderator') && !empty($type) && !$is_popup && !$mobile_version);
+    
     $doc_id = $document->get('id');
     if (isset($use_doc_activities) && $use_doc_activities)
     {
@@ -126,7 +128,17 @@ else
             $routes = array_keys($routes_activities);
         }
         
-        echo "\n" . '<ul class="children_docs child_routes act' . $activity_index . '">';
+        $class = 'children_docs child_routes act' . $activity_index;
+        if ($list_format)
+        {
+            echo "\n" . '<ul class="' . $class . '">';
+            $line_tag = 'li';
+        }
+        else
+        {
+            echo "\n" . '<table class="' . $class . '"><tbody>';
+            $line_tag = 'tr';
+        }
         
         foreach ($routes as $key)
         {
@@ -138,11 +150,15 @@ else
                 $route_id = $route->get('id');
                 $idstring = $type . '_' . $route_id;
                 
-                echo "\n\t" . '<li class="' . $idstring . '">';
+                echo '<' . $line_tag . ' class="' . $idstring . '">';
                 
                 if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
                 {
-                    $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
+                    if ($list_format)
+                    {
+                        $georef = ' - ';
+                    }
+                    $georef .= picto_tag('action_gps', __('has GPS track'));
                 }
                 
                 $route_link = '@document_by_id_lang_slug?module=routes&id=' . $route_id . 
@@ -153,21 +169,50 @@ else
                 {
                     $options['target'] = '_blank';
                 }
-                echo "\n\t\t" . link_to($route->get('name'), $route_link, $options);
-                echo '<div class="short_data">';
-                echo summarize_route($route) . $georef;
-
-                if ($show_link_to_delete)
-                {
-                    echo c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict);
-                }
-                echo '</div>';
                 
-                echo "\n\t</li>";
+                if ($list_format)
+                {
+                    echo link_to($route->get('name'), $route_link, $options)
+                       . '<div class="short_data">'
+                       . summarize_route($route)
+                       . $georef;
+
+                    if ($show_link_to_delete)
+                    {
+                        echo c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict);
+                    }
+                    echo '</div>';
+                }
+                else
+                {
+                    echo '<td>'
+                       . link_to($route->get('name'), $route_link, $options)
+                       . '</td>'
+                       . summarize_route($route, true, false, false)
+                       . '<td>'
+                       . $georef
+                       . '</td>';
+
+                    if ($show_link_to_delete)
+                    {
+                        echo '<td>'
+                           . c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict)
+                           . '</td>';
+                    }
+                }
+                
+                echo '</' . $line_tag . '>';
             }
         }
         
-        echo "\n</ul>";
+        if ($list_format)
+        {
+            echo '</ul>';
+        }
+        else
+        {
+            echo '</tbody></table>';
+        }
         
         if (!$activity_section)
         {
