@@ -806,9 +806,9 @@ class Doctrine_Query extends Doctrine_Query_Abstract implements Countable
 
                 $field = $this->getTableAlias($rootAlias) . '.' . $table->getIdentifier();
 
-                // Bubu : if the subquery actually contains something, replace WHERE parts by subquery in main query
+                // only append the subquery if it actually contains something
                 if ($subquery !== '') {
-                    $this->parts['where'] = array($this->_conn->quoteIdentifier($field) . ' IN (' . $subquery . ')');
+                    array_unshift($this->parts['where'], $this->_conn->quoteIdentifier($field) . ' IN (' . $subquery . ')');
                 }
 
                 $modifyLimit = false;
