@@ -37,11 +37,11 @@ class MyExecutionFilter extends sfExecutionFilter
 
     if (sfConfig::get('sf_cache'))
     {
-      $uri = sfRouting::getInstance()->getCurrentInternalUri();
-      $uri .= (strstr($uri, '?')) ? '&' : '?'; // added
-      $uri .= 'il='.$context->getUser()->getCulture().'&c='.((int)$context->getUser()->isConnected() + (int)$context->getUser()->hasCredential('moderator'));
-      // best way would be to modify uri (and not the whole cache management system) 
-      // but we have no way to extend getCurrentInternalUri method in sfRouting class just for cache 
+        // get current uri adapted for cache
+        $uri = MyCacheFilter::getCurrentCacheUri();
+
+        // best way would be to modify uri (and not the whole cache management system) 
+        // but we have no way to extend getCurrentInternalUri method in sfRouting class just for cache 
       
       if (null !== $context->getResponse()->getParameter($uri.'_action', null, 'symfony/cache'))
       {

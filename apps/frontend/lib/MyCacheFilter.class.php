@@ -41,6 +41,118 @@ class MyCacheFilter extends sfCacheFilter
     // moderator : 2
   }
 
+    public static function getCurrentCacheUri()
+    {
+        // for home, portals filter and default list, we adapt cache uri so that we can cache
+        // cases where all cultures are displayed, or only the one from the interface (see #723)
+        $context = sfContext::getInstance();
+        $module = $context->getModuleName();
+        $action = $context->getActionName();
+        
+        $is_cacheable_filter_list = false;
+        $request_parameters = array();
+        if (in_array($action, array('filter', 'list')))
+        {
+            $request_parameters = $context->getRequest()->getParameterHolder()->getAll();
+            unset($request_parameters['module']);
+            unset($request_parameters['action']);
+            $count_request_parameters = count($request_parameters);
+                
+            switch($action)
+            {
+                case 'list':
+                    if (!isset($request_parameters['page']))
+                    {
+                        $request_parameters['page'] = 1;
+                        $count_request_parameters++;
+                    }
+                    if (    $request_parameters['page'] <= 2
+                         && (   $count_request_parameters == 1
+                             || (   $module == 'outings'
+                                 && $count_request_parameters == 3
+                                 && isset($request_parameters['orderby'])
+                                 && $request_parameters['orderby'] == 'date'
+                                 && isset($request_parameters['order'])
+                                 && $request_parameters['order'] == 'desc'
+                                )
+                            )
+                       )
+                    {
+                        $is_cacheable_filter_list = true;
+                    }
+                    break;
+                
+                case 'filter';
+                    if (!count($request_parameters))
+                    {
+                        $is_cacheable_filter_list = true;
+                    }
+                    break;
+                
+                default:
+                    break;
+            }
+        }
+        
+        $uri = sfRouting::getInstance()->getCurrentInternalUri();
+        if ($action == 'view')
+        {
+            $uri_tmp = explode('&slug=', $uri);
+            $uri = $uri_tmp[0];
+        }
+        $il = 'il=' . $context->getUser()->getCulture();
+        $pl = '';
+        $pa = '';
+        $c = '&c=' . ((int)$context->getUser()->isConnected() + (int)$context->getUser()->hasCredential('moderator'));
+        
+        if ($action == 'home' || $module == 'portals' && $action == 'view' || $is_cacheable_filter_list)
+        {
+            if ($action == 'home' || $module == 'portals' && $action == 'view')
+            {
+                $module_cache = 'outings';
+            }
+            else
+            {
+                $module_cache = $module;
+            }
+            $perso = c2cPersonalization::getInstance();
+            list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module_cache);
+            $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
+            $activities_filter = $perso->getActivitiesFilter();
+            
+            if ($is_main_filter_switch_on)
+            {
+                if (   $action != 'filter'
+                    && (   $action != 'list'
+                        || $langs_enable
+                       )
+                    && $perso->areDefaultLanguagesFilters()
+                   )
+                {
+                    $pl = '&pl=1';
+                }
+                if ($activities_enable && count($activities_filter))
+                {
+                    $pa = '&pa=' . implode('-', $activities_filter);
+                }
+            }
+            if ($action == 'list')
+            {
+                if (strpos($uri, 'page=') === false)
+                {
+                    $uri .= ((strpos($uri, '?')) ? '&' : '?')
+                          . 'page=1';
+                }
+                $c = '';
+            }
+        }
+
+        $uri .= ((strstr($uri, '?')) ? '&' : '?')
+              . $il . $pl . $pa . $c;
+        
+        return $uri;
+    }
+
   public function executeBeforeExecution()
   {
     $context = $this->getContext();
@@ -154,48 +266,9 @@ class MyCacheFilter extends sfCacheFilter
         $this->cacheManager->addCache('common', '_menu', array('lifeTime' => 350000, 'vary' => array()));
     }
 
-    // for portals and home, we adapt cache uri so that we can cache
-    // cases where all cultures are displayed, or only the one from the interface (see #723)
-    $uri = sfRouting::getInstance()->getCurrentInternalUri();
-    if ($action == 'view')
-    {
-        $uri = explode('&slug=', $uri);
-        $uri = $uri[0];
-    }
-    $il = 'il=' . $this->interface_language;
-    $pl = '';
-    $pa = '';
-    $c = '&c=' . $this->credentials;
+    // get current uri adapted for cache
+    $uri = self::getCurrentCacheUri();
     
-    if ((in_array($action, array('home', 'filter', 'list')) || ($module == 'portals' && $action == 'view')) && $is_main_filter_switch_on)
-    {
-        if (   $action != 'filter'
-            && (   $action != 'list'
-                || $langs_enable
-               )
-            && $perso->areDefaultLanguagesFilters()
-           )
-        {
-            $pl = '&pl=1';
-        }
-        if ($activities_enable && $count_activities_filter)
-        {
-            $pa = '&pa=' . implode('-', $activities_filter);
-        }
-    }
-    if ($action == 'list')
-    {
-        if (strpos($uri, 'page=') === false)
-        {
-            $uri .= ((strpos($uri, '?')) ? '&' : '?')
-                  . 'page=1';
-        }
-        $c = '';
-    }
-
-    $uri .= ((strpos($uri, '?')) ? '&' : '?')
-          . $il . $pl . $pa . $c;
-
     // page cache
     $this->cache[$uri] = array('page' => false, 'action' => false);
     $cacheable = $this->cacheManager->isCacheable($uri);
@@ -235,112 +308,8 @@ class MyCacheFilter extends sfCacheFilter
       return;
     }
 
-    $context = $this->getContext();
-    $module = $context->getModuleName();
-    $action = $context->getActionName();
-    
-    // for portals, home, filters and lists, we adapt cache uri so that we can cache
-    // cases where all cultures are displayed, or only the one from the interface (see #723)
-    $is_cacheable_filter_list = false;
-    $request_parameters = array();
-    if (in_array($action, array('filter', 'list')))
-    {
-        $request_parameters = $context->getRequest()->getParameterHolder()->getAll();
-        unset($request_parameters['module']);
-        unset($request_parameters['action']);
-        $count_request_parameters = count($request_parameters);
-            
-        switch($action)
-        {
-            case 'list':
-                if (!isset($request_parameters['page']))
-                {
-                    $request_parameters['page'] = 1;
-                    $count_request_parameters++;
-                }
-                if (    $request_parameters['page'] <= 2
-                     && (   $count_request_parameters == 1
-                         || (   $module == 'outings'
-                             && $count_request_parameters == 3
-                             && isset($request_parameters['orderby'])
-                             && $request_parameters['orderby'] == 'date'
-                             && isset($request_parameters['order'])
-                             && $request_parameters['order'] == 'desc'
-                            )
-                        )
-                   )
-                {
-                    $is_cacheable_filter_list = true;
-                }
-                break;
-            
-            case 'filter';
-                if (!count($request_parameters))
-                {
-                    $is_cacheable_filter_list = true;
-                }
-                break;
-            
-            default:
-                break;
-        }
-    }
-    
-    $uri = sfRouting::getInstance()->getCurrentInternalUri();
-    if ($action == 'view')
-    {
-        $uri = explode('&slug=', $uri);
-        $uri = $uri[0];
-    }
-    $il = 'il=' . $this->interface_language;
-    $pl = '';
-    $pa = '';
-    $c = '&c=' . $this->credentials;
-    
-    if ($action == 'home' || $module == 'portals' && $action == 'view' || $is_cacheable_filter_list)
-    {
-        if ($action == 'home' || $module == 'portals' && $action == 'view')
-        {
-            $module_cache = 'outings';
-        }
-        else
-        {
-            $module_cache = $module;
-        }
-        $perso = c2cPersonalization::getInstance();
-        list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module_cache);
-        $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
-        $activities_filter = $perso->getActivitiesFilter();
-        
-        if ($is_main_filter_switch_on)
-        {
-            if (   $action != 'filter'
-                && (   $action != 'list'
-                    || $langs_enable
-                   )
-                && $perso->areDefaultLanguagesFilters()
-               )
-            {
-                $pl = '&pl=1';
-            }
-            if ($activities_enable && count($activities_filter))
-            {
-                $pa = '&pa=' . implode('-', $activities_filter);
-            }
-        }
-        if ($action == 'list')
-        {
-            if (strpos($uri, 'page=') === false)
-            {
-                $uri .= ((strpos($uri, '?')) ? '&' : '?')
-                      . 'page=1';
-            }
-            $c = '';
-        }
-    }
-
-    $uri .= ((strstr($uri, '?')) ? '&' : '?')
-          . $il . $pl . $pa . $c;
+    // get current uri adapted for cache
+    $uri = self::getCurrentCacheUri();
 
     // save page in cache
     if ($this->cache[$uri]['page'])
