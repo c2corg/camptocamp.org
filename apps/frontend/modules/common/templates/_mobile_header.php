@@ -111,7 +111,14 @@ echo ajax_feedback();
   </div>
 </div>
 <div id="menu">
-    <?php include_partial('common/mobile_menu', array('lang' => $sf_user->getCulture(), 'is_connected' => $sf_user->isConnected())); ?>
+    <?php
+    $lang = $sf_user->getCulture();
+    $is_connected = $sf_user->isConnected();
+    include_partial('common/mobile_menu',
+                    array('sf_cache_key' => ($is_connected ? 'connected' : 'not_connected') . '_' . $lang,
+                          'lang' => $lang,
+                          'is_connected' => $is_connected));
+    ?>
 </div>
 
 <?php
