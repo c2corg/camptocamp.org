@@ -132,11 +132,11 @@ class hutsActions extends documentsActions
             {
                 if (!$is_gite)
                 {
-                    $outing_params = array('huts', $$current_doc_id);
+                    $outing_params = array('huts' => $$current_doc_id);
                 }
                 else
                 {
-                    $outing_params = array('parkings', $parking_ids);
+                    $outing_params = array('parkings' => $parking_ids);
                 }
                 $nb_outings = sfConfig::get('app_nb_linked_outings_docs');
                 $latest_outings = Outing::listLatest($nb_outings + 1, array(), array(), array(), $outing_params, false);

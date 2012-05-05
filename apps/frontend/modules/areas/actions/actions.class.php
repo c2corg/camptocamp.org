@@ -74,7 +74,7 @@ class areasActions extends documentsActions
             $current_doc_id = $this->getRequestParameter('id');
             $latest_outings = array();
             $nb_outings = 0;
-            $outing_params = array('areas', $current_doc_id);
+            $outing_params = array('areas' => $current_doc_id);
             $nb_outings = sfConfig::get('app_nb_linked_outings_areas');
             $latest_outings = Outing::listLatest($nb_outings + 1, array(), array(), array(), $outing_params, false);
             $latest_outings = Language::getTheBest($latest_outings, 'Outing');
