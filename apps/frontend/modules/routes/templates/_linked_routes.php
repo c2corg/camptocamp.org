@@ -186,7 +186,7 @@ else
                 {
                     echo link_to($route->get('name'), $route_link, $options)
                        . '<div class="short_data">'
-                       . summarize_route($route, true, false, true, $avalaible_activities)
+                       . summarize_route($route, true, false, $avalaible_activities, true)
                        . $georef;
 
                     if ($show_link_to_delete)
@@ -200,7 +200,7 @@ else
                     echo '<td>'
                        . link_to($route->get('name'), $route_link, $options)
                        . '</td>'
-                       . summarize_route($route, true, false, false, $avalaible_activities)
+                       . summarize_route($route, true, true, $avalaible_activities, false)
                        . '<td>'
                        . $georef
                        . '</td>';

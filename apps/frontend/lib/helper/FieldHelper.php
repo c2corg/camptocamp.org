@@ -966,7 +966,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
         {
             if ($show_activities)
             {
-                $groups[] = _activities_data($climbing_activities, false, '$nbsp;');
+                $groups[] = _activities_data($climbing_activities, false, '&nbsp;');
             }
             $groups[] = implode('/', $main_climbing);
             $groups[] = implode('/', $climbing);

@@ -10,8 +10,9 @@ else
     $has_gps_track = '';
 }
 $item_i18n = $item['OutingI18n'][0];
+$activities = $item['activities'];
 ?>
-<div class="right"><?php echo get_paginated_activities($item['activities']) ?></div>
+<div class="right"><?php echo get_paginated_activities($activities) ?></div>
 <div><?php
 echo list_link($item_i18n, 'outings')
      . ' ' . $has_gps_track ?></div>
@@ -23,7 +24,7 @@ echo list_link($item_i18n, 'outings')
 echo _implode(' - ',
               array(displayWithSuffix($item['max_elevation'], 'meters'),
                     displayWithSuffix($item['height_diff_up'], 'meters'),
-                    (isset($item['linked_routes'])) ? field_route_ratings_data($item, false, true) : '',
+                    (isset($item['linked_routes'])) ? field_route_ratings_data($item, false, false, false, 'html', $activities) : '',
                     get_paginated_value($item['conditions_status'], 'mod_outings_conditions_statuses_list'),
                     field_frequentation_picto_if_set($item, true))); ?></div>
 <div><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></div>
