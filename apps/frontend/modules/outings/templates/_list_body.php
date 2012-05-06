@@ -10,15 +10,16 @@ else
     $has_gps_track = '';
 }
 $item_i18n = $item['OutingI18n'][0];
+$activities = $item['activities'];
 ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <td><?php
 echo list_link($item_i18n, 'outings') . ' ' . $has_gps_track ?></td>
 <td><time datetime="<?php echo $item['date'] ?>"><?php echo format_date($item['date'], 'D') ?></time></td>
-<td><?php echo get_paginated_activities($item['activities']) ?></td>
+<td><?php echo get_paginated_activities($activities) ?></td>
 <td><?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
 <td><?php echo displayWithSuffix($item['height_diff_up'], 'meters') ?></td>
-<td><?php echo (isset($item['linked_routes'])) ? field_route_ratings_data($item, false, true) : '' ?></td>
+<td><?php echo (isset($item['linked_routes'])) ? field_route_ratings_data($item, false, true, false, 'html', $activities) : '' ?></td>
 <td><?php echo get_paginated_value($item['conditions_status'], 'mod_outings_conditions_statuses_list') ?></td>
 <td><?php echo field_frequentation_picto_if_set($item, true) ?></td>
 <td><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></td>

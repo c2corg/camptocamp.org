@@ -400,7 +400,7 @@ function get_paginated_value_from_list($value, $config)
     return implode (', ', $out);
 }
 
-function get_paginated_activities($value, $hide_picto = false)
+function get_paginated_activities($value, $hide_picto = false, $picto_separator = '')
 {
     if (empty($value) || !is_string($value))
     {
@@ -436,7 +436,7 @@ function get_paginated_activities($value, $hide_picto = false)
         return implode(', ', $out);
     }
     
-    return implode(' ', $out);
+    return implode($picto_separator, $out);
 }
 
 function displayWithSuffix($data, $suffix)

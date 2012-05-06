@@ -212,49 +212,49 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $nam
 	return field_data_range_from_list($document, $name_min, $name_max, $name_if_equal, $separator, $config, $range_only, $raw, $prefix, $suffix);
 }
 
-function field_picto_from_list($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')
+function field_picto_from_list($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $picto_separator = ' ', $text_separator = ' - ', $prefix = '', $suffix = '')
 {
-    return _format_picto_from_list($name, $document->getRaw($name), $config, $multiple, $raw, $printspan, $picto_name, $separator, $prefix, $suffix);
+    return _format_picto_from_list($name, $document->getRaw($name), $config, $multiple, $raw, $printspan, $picto_name, $picto_separator, $text_separator, $prefix, $suffix);
 }
 
-function field_picto_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')
+function field_picto_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $picto_separator = ' ', $text_separator = ' - ', $prefix = '', $suffix = '')
 {
     $value = $document->getRaw($name);
     if (!check_not_empty($value))
     {
         return '';
     }
-    return _format_picto_from_list($name, $value, $config, $multiple, $raw, $printspan, $picto_name, $separator, $prefix, $suffix);
+    return _format_picto_from_list($name, $value, $config, $multiple, $raw, $printspan, $picto_name, $picto_separator, $text_separator, $prefix, $suffix);
 }
 
 function field_activities_data($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    return field_picto_from_list($document, 'activities', 'app_activities_list', true, $raw, $printspan, 'activity', ' - ', $prefix, $suffix);
+    return field_picto_from_list($document, 'activities', 'app_activities_list', true, $raw, $printspan, 'activity', ' ', ' - ', $prefix, $suffix);
 }
 
 function field_activities_data_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    return field_picto_from_list_if_set($document, 'activities', 'app_activities_list', true, $raw, $printspan, 'activity', ' - ', $prefix, $suffix);
+    return field_picto_from_list_if_set($document, 'activities', 'app_activities_list', true, $raw, $printspan, 'activity', ' ', ' - ', $prefix, $suffix);
 }
 
-function _activities_data($activities, $printspan = false)
+function _activities_data($activities, $printspan = false, $picto_separator)
 {
-    return _format_picto_from_list('activities', $activities, 'app_activities_list', true, true, $printspan, 'activity', ' - ');
+    return _format_picto_from_list('activities', $activities, 'app_activities_list', true, true, $printspan, 'activity', $picto_separator, ' - ');
 }
 
 function field_pt_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    return field_picto_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types', true, $raw, $printspan, 'pt', ', ', $prefix, $suffix);
+    return field_picto_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types', true, $raw, $printspan, 'pt', ' ', ', ', $prefix, $suffix);
 }
 
 function _pt_picto_if_set($pt_types, $printspan = false)
 {
-    return _format_picto_from_list('public_transportation_types', $pt_types, 'app_parkings_public_transportation_types', true, true, $printspan, 'pt', ', ');
+    return _format_picto_from_list('public_transportation_types', $pt_types, 'app_parkings_public_transportation_types', true, true, $printspan, 'pt', ' ', ', ');
 }
 
 function field_frequentation_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    return field_picto_from_list_if_set($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list', false, $raw, $printspan, 'freq', ', ', $prefix, $suffix);
+    return field_picto_from_list_if_set($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list', false, $raw, $printspan, 'freq', ' ', ', ', $prefix, $suffix);
 }
 
 function _frequentation_picto_if_set($frequentation, $printspan = false)
@@ -264,7 +264,7 @@ function _frequentation_picto_if_set($frequentation, $printspan = false)
 
 function field_conditions_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    return field_picto_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list', false, $raw, $printspan, 'cond', ', ', $prefix, $suffix);
+    return field_picto_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list', false, $raw, $printspan, 'cond', ' ', ', ', $prefix, $suffix);
 }
 
 function _conditions_picto_if_set($conditions, $printspan = false)
@@ -513,11 +513,11 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
     return _format_data($name, $value, $raw, '', '', $div_id);
 }
 
-function _format_picto_from_list($name, $value, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')
+function _format_picto_from_list($name, $value, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $picto_separator = ' ', $text_separator = ' - ', $prefix = '', $suffix = '')
 {
     if (!empty($value))
     {
-        $html = '';
+        $html = array();
         $picto_text_list = array();
         $list = sfConfig::get($config);
         if ($multiple)
@@ -536,14 +536,14 @@ function _format_picto_from_list($name, $value, $config, $multiple = false, $raw
                 continue;
             }
             $picto_text = __($list[$picto_id]);
-            $html .= ' <span class="picto '.$picto_name.'_'.$picto_id.'" title="'.$picto_text.'"></span>';
+            $html[] = '<span class="picto '.$picto_name.'_'.$picto_id.'" title="'.$picto_text.'"></span>';
             $picto_text_list[] = $picto_text;
         }
-        $html = trim($html);
+        $html = implode($picto_separator, $html);
         
         if (!empty($html) && $printspan)
         {
-            $html = $html.'<span class="printonly">'.implode($separator, $picto_text_list).'</span>';
+            $html = $html . '<span class="printonly">'.implode($text_separator, $picto_text_list).'</span>';
         }
     }
     else
@@ -832,7 +832,7 @@ function field_months_data($document, $name)
 }
 
 // This function outputs a string composed of all ratings data available for the given route.
-function field_route_ratings_data($document, $show_activities = true, $add_tooltips = false, $use_esc_raw = false, $format = 'html')
+function field_route_ratings_data($document, $show_activities = true, $add_tooltips = false, $use_esc_raw = false, $format = 'html', $avalaible_activities = null)
 {
     $activities =  isset($document['activities']) ?
         Document::convertStringToArray($document['activities']) : $document->get('activities', ESC_RAW);
@@ -841,6 +841,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
     return _route_ratings_sum_up(
         $format,
         $activities,
+        $avalaible_activities,
         $show_activities,
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'engagement_rating', 'app_routes_engagement_ratings', $format, $add_tooltips),
@@ -932,11 +933,12 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
     }
 }
 
-function _route_ratings_sum_up($format = 'html', $activities = array(), $show_activities = true, $global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
+function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaible_activities = null, $show_activities = true, $global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
                                $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing)
 {
     if ($format == 'html' || $format == 'table')
     {
+        $act_filter_enable = is_array($avalaible_activities);
         $groups = $ski1 = $ski2 = $main_climbing = $climbing = array();
 
         if ($topo_ski) $ski1[] = $topo_ski;
@@ -951,7 +953,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $show_ac
         if ($ice) $climbing[] = $ice;
         if ($mixed) $climbing[] = $mixed;
 
-        if ($ski_activities = array_intersect(array(1), $activities))
+        if ((!$act_filter_enable || array_intersect(array(1), $avalaible_activities)) && $ski_activities = array_intersect(array(1), $activities))
         {
             if ($show_activities)
             {
@@ -960,16 +962,16 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $show_ac
             $groups[] = implode('/', $ski1);
             $groups[] = implode('/', $ski2);
         }
-        if ($climbing_activities = array_intersect(array(2,3,4,5), $activities))
+        if ((!$act_filter_enable || array_intersect(array(2,3,4,5), $avalaible_activities)) && $climbing_activities = array_intersect(array(2,3,4,5), $activities))
         {
             if ($show_activities)
             {
-                $groups[] = _activities_data($climbing_activities);
+                $groups[] = _activities_data($climbing_activities, false, '$nbsp;');
             }
             $groups[] = implode('/', $main_climbing);
             $groups[] = implode('/', $climbing);
         }
-        if ($hiking_activities = array_intersect(array(6), $activities))
+        if ((!$act_filter_enable || array_intersect(array(6), $avalaible_activities)) && $hiking_activities = array_intersect(array(6), $activities))
         {
             if ($show_activities)
             {
@@ -977,7 +979,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $show_ac
             }
             $groups[] = $hiking;
         }
-        if ($snowshoeing_activities = array_intersect(array(7), $activities))
+        if ((!$act_filter_enable || array_intersect(array(7), $avalaible_activities)) && $snowshoeing_activities = array_intersect(array(7), $activities))
         {
             if ($show_activities)
             {
@@ -1081,7 +1083,7 @@ function check_not_empty_doc($document, $name)
     return (!$value instanceof Doctrine_Null && !empty($value));
 }
 
-function summarize_route($route, $show_activities = true, $add_tooltips = false, $list_format = true)
+function summarize_route($route, $show_activities = true, $add_tooltips = false, $avalaible_activities = null, $list_format = true)
 {
     $max_elevation = is_scalar($route['max_elevation']) ? ($route['max_elevation'] . __('meters')) : NULL;
     
@@ -1130,7 +1132,7 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false,
         $height[] = $difficulties_height;
     }
     
-    $ratings = field_route_ratings_data($route, $show_activities, $add_tooltips, false, ($list_format ? 'html' : 'table'));
+    $ratings = field_route_ratings_data($route, $show_activities, $add_tooltips, false, ($list_format ? 'html' : 'table'), $avalaible_activities);
     
     if ($list_format)
     {
@@ -1165,7 +1167,7 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false,
                             $difficulties_height,
                             $facing);
         $route_data = '<td>'
-                    . implode('</td><td>', $groups)
+                    . implode('</td><td>', $route_data)
                     . '</td>'
                     . $ratings;
     }

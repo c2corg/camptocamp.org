@@ -16,7 +16,11 @@ else
         $show_list_link = true;
     }
     $mobile_version =  c2cTools::mobileVersion();
-    $list_format = $is_popup || $mobile_version;
+    if (!isset($list_format))
+    {
+        $list_format = $is_popup;
+    }
+    $list_format = $list_format || $mobile_version;
     $show_link_to_delete = ($sf_user->hasCredential('moderator') && !empty($type) && !$is_popup && !$mobile_version);
     
     $doc_id = $document->get('id');
@@ -146,6 +150,14 @@ else
             $activities = $routes_activities[$key];
             if (in_array($activity_index, $activities) || !$activity_section)
             {
+                if ($activity_section)
+                {
+                    $avalaible_activities = array($activity_index);
+                }
+                else
+                {
+                    $avalaible_activities = null;
+                }
                 $georef = '';
                 $route_id = $route->get('id');
                 $idstring = $type . '_' . $route_id;
@@ -174,7 +186,7 @@ else
                 {
                     echo link_to($route->get('name'), $route_link, $options)
                        . '<div class="short_data">'
-                       . summarize_route($route)
+                       . summarize_route($route, true, false, true, $avalaible_activities)
                        . $georef;
 
                     if ($show_link_to_delete)
@@ -188,7 +200,7 @@ else
                     echo '<td>'
                        . link_to($route->get('name'), $route_link, $options)
                        . '</td>'
-                       . summarize_route($route, true, false, false)
+                       . summarize_route($route, true, false, false, $avalaible_activities)
                        . '<td>'
                        . $georef
                        . '</td>';

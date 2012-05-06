@@ -45,13 +45,14 @@ else:
     <li><?php
         $i18n = $item['OutingI18n'][0];
         $item_id = $i18n['id'];
+        $activities = $item['activities'];
         echo '<span class="item_title">' .
              '<time datetime="' . $item['date'] . '">' . format_date($item['date'], 'dd/MM/yyyy') . '</time> - ' .
-             get_paginated_activities($item['activities']) . ' - ' .
+             get_paginated_activities($activities, false, '&nbsp;') . ' - ' .
              link_to($i18n['name'],
                      '@document_by_id_lang_slug?module=outings&id=' . $item_id . '&lang=' . $i18n['culture'] . '&slug=' . make_slug($i18n['name'])) . ' - ' .
              displayWithSuffix($item['max_elevation'], 'meters') . ' - ' .
-             field_route_ratings_data($item, false, true);
+             field_route_ratings_data($item, false, true, false, 'html', $activities);
         if (isset($item['nb_images']))
         {
             echo ' - ' . picto_tag('picto_images', __('nb_linked_images')) . '&nbsp;' . $item['nb_images'];

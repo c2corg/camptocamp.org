@@ -51,7 +51,7 @@ if (isset($items))
             
             echo '</td><td>';
             
-            echo get_paginated_activities($item['activities']);
+            echo get_paginated_activities($item['activities'], false, '&nbsp;');
             
             echo '</td><td>';
             
