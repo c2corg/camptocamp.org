@@ -784,9 +784,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Ecomobility"
-msgstr "Écomobilité"
+msgstr "Ecomobility"
 
 msgid "Edit"
 msgstr "Modificar"
@@ -1153,9 +1153,9 @@ msgstr "Interfaz en:"
 
 # [general comment]
 # error message when invalid request parametes for cda search
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Invalid request parameters"
-msgstr "Paramètres de requête invalides"
+msgstr "Invalid request parameters"
 
 msgid "Is a child of summit:"
 msgstr "Es una sub-cima de:"
@@ -1193,9 +1193,9 @@ msgstr "sepa más"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "L# button title"
-msgstr "Formater la description d'une longueur d'escalade"
+msgstr "Format the description of a climbing pitch"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
@@ -1410,9 +1410,9 @@ msgstr "Cambiar su pagina personal"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Map"
-msgstr "Cartographie"
+msgstr "Map"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
@@ -1745,9 +1745,9 @@ msgstr "Página personal"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Picturial"
-msgstr "En images"
+msgstr "Pictures"
 
 # [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
@@ -1796,9 +1796,9 @@ msgstr "Bloquee las modificaciones de este documento"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Questions?"
-msgstr "Des questions ?"
+msgstr "Questions?"
 
 msgid "Quick creation of a route"
 msgstr "Creación rápida de un itinerario"
@@ -1990,24 +1990,24 @@ msgstr "Search in my outings"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Search on c2c"
-msgstr "Rechercher sur camptocamp"
+msgstr "Search on camptocamp"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Search outings"
-msgstr "Recherche de récits de sortie"
+msgstr "Search of outing reports"
 
 msgid "Search results"
 msgstr "Resultados de la búsqueda"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d'itinéraires"
+msgstr "Search of route datasheet"
 
 msgid "Search with google"
 msgstr "Búsqueda en todo el documento:"
@@ -2836,12 +2836,17 @@ msgstr "<h3>Estilo de escalada</h3>Describe el estilo general de las vías del s
 msgid "_code_info"
 msgstr "<h3>Code</h3>Referencia del mapa."
 
+# [WARNING] needs_update
+msgid "_conditions_and_equipment_info"
+msgstr "<h3>Condiciones encontradas</h3>Detalles de las condiciones del itinerario (incluyendo la aproximación) encontradas durante la salida.<br />Aquellas informaciones pueden perder rápidamente su validez. Se debe verificar la fecha de salida antes de usar las informaciones expuestas en esos campos.<br /><br />Para editarlas:<br /><br />El itinerario realmente recorrido se debe describir rápidamente en caso de que la descripción conste de vías alternativas, o si uno ha seguido una vía alternativa no descrita, o si uno se ha detenido antes de la cima.<br /><br />Para un itinerario con nieve, indicar tambien la actividad de avalanchas: observación en directo o huellas de pasadas avalanchas.<br /><br />Las <i>condiciones encontradas</i> y la <i>cantidad de nieve por zonas</i> son importantes para pronosticar su evolución durante los días siguientes: describirlas cuidadosamente."
+
 msgid "_conditions_info"
 msgstr "<h3>Condiciones encontradas</h3>Detalles de las condiciones del itinerario (incluyendo la aproximación) encontradas durante la salida.<br />Aquellas informaciones pueden perder rápidamente su validez. Se debe verificar la fecha de salida antes de usar las informaciones expuestas en esos campos.<br /><br />Para editarlas:<br /><br />El itinerario realmente recorrido se debe describir rápidamente en caso de que la descripción conste de vías alternativas, o si uno ha seguido una vía alternativa no descrita, o si uno se ha detenido antes de la cima.<br /><br />Para un itinerario con nieve, indicar tambien la actividad de avalanchas: observación en directo o huellas de pasadas avalanchas.<br /><br />Las <i>condiciones encontradas</i> y la <i>cantidad de nieve por zonas</i> son importantes para pronosticar su evolución durante los días siguientes: describirlas cuidadosamente."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Cantidad de nieve por zona</h3>Permite dar una síntesis de las condiciones encontradas en cada parte del itinerario recorrido.<br />Para añadir una zona, pulsar el botón (+).<br /><br /><strong>Lugar / altura / orientación / hora</strong>: características de la zona: su ubicación, su rango de altura, su orientación, su relieve (pequeño valle, canal...), la hora de paso.<br /><br /><strong>Blando</strong>: altura de nieve blanda (entierro del baston) en cm .<br /><br /><strong>Total</strong>: altura total de nieve en cm. Dejar vacio si no se conoce aquel dato.<br /><br /><strong>Observaciones</strong>: calidad de nieve, analisis stratigráfico somero, calidad al esquiar."
 
+# [WARNING] needs_update
 msgid "_conditions_status_info"
 msgstr "<h3>Condiciones</h3>Juicio global sobre las condiciones encontradas durante la salida. Utilizable en el filtro de búsqueda de salidas.<br />El campo<i>Condiciones encontradas</i> permite dar informaciones complementarias"
 
@@ -3427,7 +3432,11 @@ msgstr "Actividades que mostrar"
 
 # [WARNING] needs_review
 msgid "activity and area filters applied"
-msgstr "<br /><span style=\"color:red\">Cuidado: sus filtros de personalización de actividades y/o regiones han sido aplicados al formulario de búsqueda </span>"
+msgstr "Cuidado: sus filtros de personalización de actividades y regiones han sido aplicados al formulario de búsqueda"
+
+# [WARNING] needs_review
+msgid "activity filters applied"
+msgstr "Cuidado: sus filtros de personalización de actividades han sido aplicados al formulario de búsqueda"
 
 msgid "add a comment"
 msgstr "Añadir un comentario"
@@ -3562,7 +3571,7 @@ msgstr "región"
 
 # [WARNING] needs_review
 msgid "area filters applied"
-msgstr "<br /><span style=\"color:red\">Cuidado: sus filtros de personalización de regiones han sido aplicados al formulario de búsqueda </span>"
+msgstr "Cuidado: sus filtros de personalización de regiones han sido aplicados al formulario de búsqueda"
 
 msgid "area_type"
 msgstr "Tipo de región:"
@@ -3904,6 +3913,7 @@ msgid "cda map title"
 msgstr "Encontrar una ruta accesible con transporte en común o ecomobilidad"
 
 # [general comment]
+# [cda]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
 msgid "cda partners tips"
 msgstr "El portal Changer d'Approche es co-financiado por la Unión Europea. Europa se compromete con los Alpes con el Fondo Europeo de Desarrollo Regional"
@@ -3923,33 +3933,31 @@ msgstr "Las montañas sin coche"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "cda_activities"
-msgstr "Activité&nbsp;:"
+msgstr "Actividad:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda_difficulty"
-msgstr "Difficulté&nbsp;:"
+msgstr "Dificultad:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "cda_elevation"
-msgstr "Dénivelée&nbsp;:"
+msgstr "Desnivel:"
 
 # [WARNING] needs_review
 msgid "cda_prepare_outing_box"
 msgstr "<p>Tiempo</p><ul><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espana)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Suiza)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li></ul> <p>Aludes</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin francés </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Boletin suizo</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Boletin italiano</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Transporte</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trenes en Europa)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (Francia)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suiza)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italia)</a></li></ul> <p>Otros</p><ul><li><a href=\"http://veloski.fr/\">bici+esquí (en francés)</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (en francés)</li></ul>"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cda_search_outings_tips"
-msgstr "Critères de recherche de récits de sorties"
+msgstr "Search criteria of outing reports"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cda_search_routes_tips"
-msgstr "Critères de recherche d'itinéraires"
+msgstr "Search criteria of route datasheet"
 
 msgid "center"
 msgstr "centrar"
@@ -3970,12 +3978,6 @@ msgstr "Champaña-Ardenas"
 # nom du portail "Changer d'approche" (pour le menu)
 msgid "changerdapproche"
 msgstr "Las montañas sin coche"
-
-# [general comment]
-# [cda]
-# [WARNING] fr translation used
-msgid "changerdapproche is financed by EU"
-msgstr "Le portail changerdapproche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
 
 # [WARNING] needs_review
 msgid "changes"
@@ -4072,6 +4074,10 @@ msgstr "Condiciones encontradas (incl. aproximación):"
 
 msgid "conditions linked to"
 msgstr "lista de las condiciones asociadas"
+
+# [WARNING] needs_update
+msgid "conditions_and_equipment"
+msgstr "Condiciones encontradas (incl. aproximación):"
 
 msgid "conditions_levels"
 msgstr "Nieve por zonas:"
@@ -4250,9 +4256,9 @@ msgstr "detalle, zoom"
 msgid "deutsch"
 msgstr "alemán"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "development environment"
-msgstr "Attention - version de développement."
+msgstr "Warning - development version"
 
 msgid "diff"
 msgstr "diferencia"
@@ -4262,9 +4268,9 @@ msgstr "Diferencia entre las versiones"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "difficult"
-msgstr "difficile"
+msgstr "hard"
 
 msgid "difficult crossing"
 msgstr "abierto – paso díficil"
@@ -4322,9 +4328,9 @@ msgstr "Tiempo del trayecto:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "easy"
-msgstr "facile"
+msgstr "easy"
 
 msgid "easy crossing"
 msgstr "tapado - paso sin problema"
@@ -4332,9 +4338,9 @@ msgstr "tapado - paso sin problema"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "ecomobility"
-msgstr "écomobilité"
+msgstr "ecomobility"
 
 msgid "edit ?"
 msgstr "¿modificar?"
@@ -5047,7 +5053,7 @@ msgstr "Longitud:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "long"
 msgstr "long"
 
@@ -5109,9 +5115,9 @@ msgstr "mapa"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "map (cda)"
-msgstr "cartographie"
+msgstr "map"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
@@ -5216,9 +5222,9 @@ msgstr "Mediterráneo"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "medium"
-msgstr "moyen"
+msgstr "medium"
 
 msgid "menu"
 msgstr "menú"
@@ -5316,6 +5322,8 @@ msgstr "Cotación:"
 msgid "minor modification"
 msgstr "modificación menor"
 
+# [general comment]
+# Tag for minor change, in a document history.
 msgid "minor_tag"
 msgstr "m"
 
@@ -5372,7 +5380,7 @@ msgstr "alpinismo"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "mountainwilderness"
 msgstr "Mountain Wilderness"
 
@@ -5589,7 +5597,7 @@ msgstr "Otras regiones administrativas"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
-# Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
+# Lorsqu'on crée des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils sont alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 msgid "other country"
 msgstr "Otros países"
@@ -5602,11 +5610,19 @@ msgid "other range"
 msgstr "Otros macizos"
 
 # [general comment]
+# La liste de choix des vallées (filtres, personnalisation) est organisée en grandes zones.
+# Lorsqu'on crée des vallées, il se peut que les nouvelles vallées ne soient pas rangés dans une grande zone. Elles sont alors mises à la fin de la liste, dans "Autres vallées".
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
+# [WARNING] en translation used
+msgid "other valley_area"
+msgstr "Other valleys"
+
+# [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "our partners"
-msgstr "nos partenaires"
+msgstr "our partners"
 
 msgid "outing"
 msgstr "salida"
@@ -5764,9 +5780,9 @@ msgstr "Picardía"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "picturial"
-msgstr "en images"
+msgstr "pictures"
 
 msgid "piemont"
 msgstr "Piamonte"
@@ -5886,6 +5902,10 @@ msgstr "Países elegidos"
 msgid "prefered range"
 msgstr "Macizos elegidos"
 
+# [WARNING] en translation used
+msgid "prefered valley_area"
+msgstr "Prefered valleys"
+
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
@@ -5897,9 +5917,9 @@ msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/pr
 # [general comment]
 # [cda] title of the top left box on home
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "presentation"
-msgstr "présentation"
+msgstr "presentation"
 
 msgid "previous area"
 msgstr "Región anterior"
@@ -6019,11 +6039,14 @@ msgstr "Tipo de TC:"
 msgid "publication_date"
 msgstr "Fecha de publicación:"
 
+msgid "pyrenees portal"
+msgstr "Camptocamp Pirineo"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "pyrenees_ibere"
-msgstr "Pirineo / Península ibérica"
+msgstr "Pirineo - Península ibérica"
 
 msgid "quartzite"
 msgstr "cuarcita"
@@ -6031,9 +6054,9 @@ msgstr "cuarcita"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "questions?"
-msgstr "des questions ?"
+msgstr "questions?"
 
 msgid "quite crowded"
 msgstr "frecuentado"
@@ -6041,9 +6064,9 @@ msgstr "frecuentado"
 msgid "raid"
 msgstr "raid"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "raid portal"
-msgstr "Raids et expéditions"
+msgstr "Treks and expeditions"
 
 msgid "rain_proof"
 msgstr "Lluvia:"
@@ -6135,6 +6158,14 @@ msgstr " > "
 
 msgid "rock_climbing"
 msgstr "escalada"
+
+# [WARNING] needs_review
+msgid "rock_climbing (multi-pitch)"
+msgstr "escalada (varios largos)"
+
+# [WARNING] needs_review
+msgid "rock_climbing (single-pitch)"
+msgstr "escalada (vías de un largo)"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
@@ -6291,8 +6322,24 @@ msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul c
 msgid "select an image file"
 msgstr "Chose an image:&nbsp;"
 
+# [WARNING] en translation used
+msgid "selected admin_limits"
+msgstr "Pre-selected administrative regions"
+
+# [WARNING] en translation used
+msgid "selected country"
+msgstr "Pre-selected countries"
+
 msgid "selected documents"
 msgstr "Solo para los documentos seleccionados"
+
+# [WARNING] en translation used
+msgid "selected range"
+msgstr "Pre-selected ranges"
+
+# [WARNING] en translation used
+msgid "selected valley_area"
+msgstr "Pre-selected valleys"
 
 msgid "service_on_demand"
 msgstr "a pedido"
@@ -6305,9 +6352,9 @@ msgstr "Tipo de abrigo:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "short"
-msgstr "court"
+msgstr "short"
 
 msgid "show conditions of the outings"
 msgstr "Mostrar un resumen de las condiciones encontradas en las salidas"
@@ -6726,9 +6773,9 @@ msgstr "usuario"
 msgid "user form warning"
 msgstr "<strong>Pagina personal:</strong> En su pagina personal, puede indicar – si quiere - cualquier información que quiere difundir: dirección, teléfono, profesión, actividades o regiones preferidas… Por defecto esta página solo es accesible a usuarios registrados pero puede elegir que cualquiera la pueda ver, incluyendo los motores de búsqueda como <i>Google</i> o <i>Yahoo!</i>. Por ello, tiene que <a href=\"/users/editprivatedata\">editar sus preferencias personales </a>, donde también podrá modificar su nombre en la topo-guía, su seudónimo para los foros, su dirección de email y su contraseña.</li><li><strong>Georeferenciado:</strong> Para que su perfil este asociado a un macizo y/o una región, debe precisar sus coordenadas geográficas. Así le podrán encontrar mediante una búsqueda geográfica de usuarios. Además, desde la pagina de un acceso, podrá automáticamente visualizar el itinerario a seguir para llegar al acceso desde su casa (por carreteras)."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "user information not available"
-msgstr "L'utilisateur ne permet pas aux membres non connectés de voir son profil."
+msgstr "This user does not allow unconnected members to access to his profil."
 
 msgid "users"
 msgstr "usuarios"

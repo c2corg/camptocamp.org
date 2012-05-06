@@ -125,9 +125,8 @@ msgstr "Eine Route hinzufügen"
 msgid "Add your summit"
 msgstr "Einen Gipfel hinzufügen"
 
-# [WARNING] en translation used
 msgid "Advanced search"
-msgstr "Advanced search"
+msgstr "Erweiterte Suche"
 
 # [comment]
 # %1% bezieht sich auf eine Variable, welche wohl mehr als 1 ist --> Plural
@@ -478,9 +477,8 @@ msgstr "Uns kontaktieren"
 # [general comment]
 # [cda]
 # title must remain short
-# [WARNING] en translation used
 msgid "Contest"
-msgstr "Contest"
+msgstr "Wettbewerb"
 
 msgid "Context:"
 msgstr "Rubrik:"
@@ -783,9 +781,9 @@ msgstr "AS7"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Ecomobility"
-msgstr "Écomobilité"
+msgstr "Ecomobility"
 
 msgid "Edit"
 msgstr "Ändern"
@@ -876,9 +874,9 @@ msgstr "Die Rasterung der Vektordatei ist fehlgeschlagen."
 msgid "Failed to create synchronized summit"
 msgstr "Die Erstellung des mit einer Hütte verbundenen Gipfels ist fehlgeschlagen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Failed to synchronize summit"
-msgstr "Fail on automatic update of the summit associated to the hut"
+msgstr "Fehler beim automatischen Update des mit der Hütte verbunden Gipfels"
 
 msgid "Favorite language:"
 msgstr "Bevorzugte Sprachen:"
@@ -1152,9 +1150,8 @@ msgstr "Sprache der Website:"
 
 # [general comment]
 # error message when invalid request parametes for cda search
-# [WARNING] fr translation used
 msgid "Invalid request parameters"
-msgstr "Paramètres de requête invalides"
+msgstr "Ungültige Suchparameter"
 
 msgid "Is a child of summit:"
 msgstr "Gehört zum Hauptgipfel:"
@@ -1401,9 +1398,8 @@ msgstr "Die Eigenschaften Ihrer persönlichen Seite ändern"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "Map"
-msgstr "Cartographie"
+msgstr "Karte"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
@@ -1745,9 +1741,8 @@ msgstr "Persönliche Seite"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "Picturial"
-msgstr "En images"
+msgstr "Bilder"
 
 # [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
@@ -1795,9 +1790,8 @@ msgstr "Keine Änderungen an diesem Dokument erlauben "
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "Questions?"
-msgstr "Des questions ?"
+msgstr "Fragen?"
 
 msgid "Quick creation of a route"
 msgstr "Eine Route rasch anlegen"
@@ -1994,24 +1988,23 @@ msgstr "Suche in meinen Touren"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "Search on c2c"
-msgstr "Rechercher sur camptocamp"
+msgstr "Auf camptocamp suchen"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Search outings"
-msgstr "Recherche de récits de sortie"
+msgstr "Tourensuche"
 
 msgid "Search results"
 msgstr "Ergebnis der Suche"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d'itinéraires"
+msgstr "Routensuche"
 
 msgid "Search with google"
 msgstr "Suche auf das gesamte Dokument:"
@@ -2890,12 +2883,17 @@ msgstr "<h3>Art der Kletterroute</h3>Beschreibt den generellen Kletterstil eines
 msgid "_code_info"
 msgstr "<h3>Nummer</h3>Referenz auf die Karte."
 
+# [WARNING] needs_update
+msgid "_conditions_and_equipment_info"
+msgstr "<h3>Verhältnisse</h3>Informationen über die vorgefundenen Verhältnisse auf einer Tour.<br />Diese Informationen sind schnellebig und verlieren ihre Aktualität schnell, weshalb sie erst das Tourendatum beachten sollten.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br /><br />Bei einer Route im Schnee geben sie bitte auch Lawinenaktivität und –beobachtungen an.<br /><br />Die <em>angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
+
 msgid "_conditions_info"
 msgstr "<h3>Verhältnisse</h3>Informationen über die vorgefundenen Verhältnisse auf einer Tour.<br />Diese Informationen sind schnellebig und verlieren ihre Aktualität schnell, weshalb sie erst das Tourendatum beachten sollten.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br /><br />Bei einer Route im Schnee geben sie bitte auch Lawinenaktivität und –beobachtungen an.<br /><br />Die <em>angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Schneeverhältnisse pro Abschnitt</h3>Erlaubt die vorgefundenen Schneeverhältnisse einer Tour zu beschreiben und zwar auf allen Abschnitten. Um einen Abschnitt hinzuzufügen klicken sie auf den Knopf (+).<br /><br /><strong>Lokalisierung / Höhe / Exposition / Zeit</strong>:Charakteristiken des Ortes: seine Lokalisierung, Höhenlage, Exposition, sein Relief (Einschitt, Couloir, etc.), Zeitpunkt der Aufnahme.<br /><br /><strong>Lockerschnee</strong>: Tiefe des Lockerschnee in cm (Einsinken des Skistocks).<br /><br /><strong>Gesamtschneehöhe</strong>: Gesamte Schneehöhe in cm. Bitte leer lassen, falls der Wert unbekannt ist.<br /><br /><strong>Beobachtung</strong>: Schneequalität, grobe Profilbeschreibung oder -analyse, Qualität zum Skifahren."
 
+# [WARNING] needs_update
 msgid "_conditions_status_info"
 msgstr "<h3>Verhältnisse</h3>Generelle Einschätzung der vorgefundenen Verhältnisse auf einer Tour. Kann zum Filtern von Touren verwendet werden.<br />Im Feld <i>Verhältnisse</i> können zusätzliche Informationen angegeben werden."
 
@@ -3610,7 +3608,11 @@ msgid "activities_to_display"
 msgstr "Angezeigte Aktivitäten"
 
 msgid "activity and area filters applied"
-msgstr "<br /><span style=\"color:red\">Achtung: Ihre personalisierten Aktivitäts- und/oder Regionsfilter wurden auf das Suchformular angewendet</span>"
+msgstr "Achtung: Ihre personalisierten Aktivitäts- und Regionsfilter wurden auf das Suchformular angewendet"
+
+# [WARNING] needs_review
+msgid "activity filters applied"
+msgstr "Achtung: Ihre personalisierten Aktivitätsfilter wurden auf das Suchformular angewendet"
 
 msgid "add a comment"
 msgstr "Einen Kommentar hinzufügen"
@@ -3742,7 +3744,7 @@ msgid "area"
 msgstr "Region"
 
 msgid "area filters applied"
-msgstr "<br /><span style=\"color:red\">Achtung: Ihre regionalen Personalisierungsfilter wurden auf das Suchformular angewendet</span>"
+msgstr "Achtung: Ihre regionalen Personalisierungsfilter wurden auf das Suchformular angewendet"
 
 msgid "area_type"
 msgstr "Typ der Region:"
@@ -3843,9 +3845,8 @@ msgstr "Inhalt des Rucksack "
 # [general comment]
 # Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
 # C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
-# [WARNING] en translation used
 msgid "bad choice error"
-msgstr "the selection is incorrect"
+msgstr "die Auswahl ist ungültig"
 
 msgid "baleares"
 msgstr "Balearische Inseln"
@@ -4085,6 +4086,7 @@ msgid "cda map title"
 msgstr "Eine Route finden, welche mit öffentlichen oder nachhaltigen Verkehrsmitteln erreichbar ist"
 
 # [general comment]
+# [cda]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
 msgid "cda partners tips"
 msgstr "Das Portal \"Changer d'approche\" wurde von der Europäischen Union mitfinanziert. Die Europäische Union engagiert sich in den Alpen durch den Europäischen Fonds für regionale Entwicklung."
@@ -4104,21 +4106,19 @@ msgstr "Das Portal für Berge ohne Autos"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "cda_activities"
-msgstr "Activité&nbsp;:"
+msgstr "Aktivität:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda_difficulty"
-msgstr "Difficulté&nbsp;:"
+msgstr "Schwierigkeit:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "cda_elevation"
-msgstr "Dénivelée&nbsp;:"
+msgstr "Höhendifferenz:"
 
 # [comment]
 # to do: customise for german speaking users (mainly CH, DE, AT)
@@ -4165,13 +4165,13 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Wetter</a></p>\n"
 "<li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li>\n"
 "</ul>"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda_search_outings_tips"
-msgstr "Critères de recherche de récits de sorties"
+msgstr "Suchkriterien für die Tourensuche"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda_search_routes_tips"
-msgstr "Critères de recherche d'itinéraires"
+msgstr "Suchkriterien für Routenbeschreibungen"
 
 msgid "center"
 msgstr "zentrieren"
@@ -4193,12 +4193,6 @@ msgstr "Champagne-Ardenne"
 # [WARNING] needs_review
 msgid "changerdapproche"
 msgstr "Umstieg zum Einstieg"
-
-# [general comment]
-# [cda]
-# [WARNING] fr translation used
-msgid "changerdapproche is financed by EU"
-msgstr "Le portail changerdapproche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
 
 msgid "changes"
 msgstr "Änderungen"
@@ -4294,6 +4288,10 @@ msgstr "Angetroffene Verhältnisse (Zustieg und Route):"
 msgid "conditions linked to"
 msgstr "Die Liste der verbundenen Verhältnisse"
 
+# [WARNING] needs_update
+msgid "conditions_and_equipment"
+msgstr "Angetroffene Verhältnisse (Zustieg und Route):"
+
 msgid "conditions_levels"
 msgstr "Schneelage:"
 
@@ -4339,9 +4337,11 @@ msgstr "Lizenz des Inhalts"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] en translation used
+# [comment]
+# nouns are always written with caps in german
+# [WARNING] needs_review
 msgid "contest"
-msgstr "contest"
+msgstr "Wettbewerb"
 
 msgid "copyright image"
 msgstr "Copyright-geschütztes Bild"
@@ -4484,9 +4484,8 @@ msgstr "Unterschied zwischen den Versionen"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "difficult"
-msgstr "difficile"
+msgstr "schwierig"
 
 msgid "difficult crossing"
 msgstr "offene Spalten - schwierig"
@@ -4543,9 +4542,8 @@ msgstr "Dauer:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "easy"
-msgstr "facile"
+msgstr "einfach"
 
 msgid "easy crossing"
 msgstr "Spalten gut zugedeckt - keine Probleme"
@@ -4553,9 +4551,9 @@ msgstr "Spalten gut zugedeckt - keine Probleme"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "ecomobility"
-msgstr "écomobilité"
+msgstr "ecomobility"
 
 msgid "edit ?"
 msgstr "ändern?"
@@ -5253,9 +5251,9 @@ msgstr "Längengrad:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "long"
-msgstr "long"
+msgstr "weit"
 
 msgid "longitude / latitude: "
 msgstr "Längen- / Breitengrad:"
@@ -5316,9 +5314,11 @@ msgstr "Karte"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [comment]
+# German nouns are always written with caps
+# [WARNING] needs_review
 msgid "map (cda)"
-msgstr "cartographie"
+msgstr "Karte"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
@@ -5436,9 +5436,8 @@ msgstr "Mittelmeer"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "medium"
-msgstr "moyen"
+msgstr "mittel"
 
 msgid "menu"
 msgstr "Menu"
@@ -5536,6 +5535,8 @@ msgstr "Schwierigkeitsgrad:"
 msgid "minor modification"
 msgstr "unwesentliche Änderung"
 
+# [general comment]
+# Tag for minor change, in a document history.
 msgid "minor_tag"
 msgstr "u"
 
@@ -5591,7 +5592,7 @@ msgstr "Bergsteigen"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "mountainwilderness"
 msgstr "Mountain Wilderness"
 
@@ -5806,7 +5807,7 @@ msgstr "Andere administrative Regionen"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
-# Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
+# Lorsqu'on crée des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils sont alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 msgid "other country"
 msgstr "Andere Länder"
@@ -5819,11 +5820,17 @@ msgid "other range"
 msgstr "Andere Gebirgsmassive"
 
 # [general comment]
+# La liste de choix des vallées (filtres, personnalisation) est organisée en grandes zones.
+# Lorsqu'on crée des vallées, il se peut que les nouvelles vallées ne soient pas rangés dans une grande zone. Elles sont alors mises à la fin de la liste, dans "Autres vallées".
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
+msgid "other valley_area"
+msgstr "Andere Täler"
+
+# [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [WARNING] fr translation used
 msgid "our partners"
-msgstr "nos partenaires"
+msgstr "Unsere Partner"
 
 msgid "outing"
 msgstr "Tour"
@@ -5979,9 +5986,10 @@ msgstr "Picardie"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [comment]
+# German nouns are always written with caps
 msgid "picturial"
-msgstr "en images"
+msgstr "Bilder"
 
 msgid "piemont"
 msgstr "Piemont"
@@ -6097,6 +6105,10 @@ msgstr "Bevorzugte Länder"
 msgid "prefered range"
 msgstr "Bevorzugte Gebirgsmassive"
 
+# [WARNING] needs_review
+msgid "prefered valley_area"
+msgstr "Bevorzugte Täler"
+
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
@@ -6112,9 +6124,9 @@ msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">Met
 # [general comment]
 # [cda] title of the top left box on home
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "presentation"
-msgstr "présentation"
+msgstr "presentation"
 
 msgid "previous area"
 msgstr "Vorige Region"
@@ -6230,6 +6242,9 @@ msgstr "ÖV-Typ:"
 msgid "publication_date"
 msgstr "Veröffentlichungsdatum:"
 
+msgid "pyrenees portal"
+msgstr "Camptocamp Pyrenäen"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
@@ -6242,9 +6257,8 @@ msgstr "Quarzit"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
 msgid "questions?"
-msgstr "des questions ?"
+msgstr "Fragen?"
 
 # [comment]
 # vs
@@ -6254,9 +6268,9 @@ msgstr "ziemlich besucht"
 msgid "raid"
 msgstr "Mehrtagesroute"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "raid portal"
-msgstr "Raids et expéditions"
+msgstr "Treks and expeditions"
 
 msgid "rain_proof"
 msgstr "Regen:"
@@ -6348,6 +6362,14 @@ msgstr " > "
 
 msgid "rock_climbing"
 msgstr "Felsklettern"
+
+# [WARNING] needs_review
+msgid "rock_climbing (multi-pitch)"
+msgstr "Felsklettern (Mehrseillängen)"
+
+# [WARNING] needs_review
+msgid "rock_climbing (single-pitch)"
+msgstr "Klettergarten"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
@@ -6498,8 +6520,21 @@ msgstr "<ul class=\"text\"><li>Wählen sie nur diejenigen Aktivitäten aus, welc
 msgid "select an image file"
 msgstr "Wählen sie ein Bild:&nbsp;"
 
+# [WARNING] needs_review
+msgid "selected admin_limits"
+msgstr "Vorausgewählte, administrative Regionen"
+
+msgid "selected country"
+msgstr "Vorausgewählte Länder"
+
 msgid "selected documents"
 msgstr "Auf ausgewählte Dokumente einschränken"
+
+msgid "selected range"
+msgstr "Vorausgewählte Massive"
+
+msgid "selected valley_area"
+msgstr "Vorausgewählte Täler"
 
 msgid "service_on_demand"
 msgstr "auf Anfrage"
@@ -6512,9 +6547,8 @@ msgstr "Art der Unterkunft:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "short"
-msgstr "court"
+msgstr "kurz"
 
 msgid "show conditions of the outings"
 msgstr "Die Details der Tourenverhältnisse anzeigen"
@@ -7118,9 +7152,9 @@ msgstr "Sie verfügen nicht über die ausreichenden Zugriffsrechte, um ein gemei
 msgid "you have no right to switch from copyright picture"
 msgstr "Sie verfügen nicht über die ausreichenden Zugriffsrechte, um den Typ dieses copyright-geschützten Bildes zu ändern."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "you have no right to switch from personnal to copyright picture"
-msgstr "You do not have the rights to switch the picture from personal to copyright"
+msgstr "Sie haben nicht die notwendigen Zugriffsrechte, um dieses persönliche Bild in ein copyright-geschütztes Bild umzuwandlen."
 
 msgid "zoom in"
 msgstr "Zoomen"

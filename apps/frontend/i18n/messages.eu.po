@@ -786,9 +786,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Ecomobility"
-msgstr "Écomobilité"
+msgstr "Ecomobility"
 
 msgid "Edit"
 msgstr "Aldatu"
@@ -1162,9 +1162,9 @@ msgstr "Hizkuntza:"
 
 # [general comment]
 # error message when invalid request parametes for cda search
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Invalid request parameters"
-msgstr "Paramètres de requête invalides"
+msgstr "Invalid request parameters"
 
 msgid "Is a child of summit:"
 msgstr "Ondorengo gailurraren azpi-gailurra da:"
@@ -1204,9 +1204,9 @@ msgstr "Gehiago"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "L# button title"
-msgstr "Formater la description d'une longueur d'escalade"
+msgstr "Format the description of a climbing pitch"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
@@ -1438,9 +1438,9 @@ msgstr "Zure orri pertsonaleko propietateak aldatu"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Map"
-msgstr "Cartographie"
+msgstr "Map"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
@@ -1803,9 +1803,9 @@ msgstr "Orri pertsonala"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Picturial"
-msgstr "En images"
+msgstr "Pictures"
 
 # [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
@@ -1858,9 +1858,9 @@ msgstr "Dokumentu honen aldaketak blokeatu"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Questions?"
-msgstr "Des questions ?"
+msgstr "Questions?"
 
 msgid "Quick creation of a route"
 msgstr "Ibilbide bat bizkor sortu"
@@ -2067,24 +2067,24 @@ msgstr "Search in my outings"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Search on c2c"
-msgstr "Rechercher sur camptocamp"
+msgstr "Search on camptocamp"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Search outings"
-msgstr "Recherche de récits de sortie"
+msgstr "Search of outing reports"
 
 msgid "Search results"
 msgstr "Bilaketaren emaitza"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d'itinéraires"
+msgstr "Search of route datasheet"
 
 # [WARNING] es translation used
 msgid "Search with google"
@@ -2987,12 +2987,17 @@ msgstr "<h3>Eskalda motak</h3>Eskalda guneko bideen gehienen eskalda mota: plaka
 msgid "_code_info"
 msgstr "<h3>Kodigoa</h3>Maparen erreferentzia."
 
+# [WARNING] needs_update
+msgid "_conditions_and_equipment_info"
+msgstr "<h3>Aurkituriko egoera</h3>Irteeran zehar ibilbidean aurkituriko egoeren xehetasunak. <br />Informazio hauek balioa gal dezakete denporerekin. Irteeraren data begiratu informazioa kontutan eduki aurretik. <br /><br />Idazterakoan:<br /><br />Benetan egindako ibilbidearen deskribapen azkar bat egin harturiko sahiesbideak esanez edo gailurrera iritsi gabe jeitsi balbid bazarete. <br /><br />Elurtutako ibilbidea bada, elur-jausi arriskuaren azterketa bat eman: elur-jausi zaharren aztarnik ikusi diren.<br /><br /> <i>Aurkituriko egoera</i> eta <i>Elur maila ibilbidean zehar</i> oso garrantzitsuak dira hurrengo egunetako elurraren bilakaera estimatzeko, kontuz eta zehatz sartu itzazue."
+
 msgid "_conditions_info"
 msgstr "<h3>Aurkituriko egoera</h3>Irteeran zehar ibilbidean aurkituriko egoeren xehetasunak. <br />Informazio hauek balioa gal dezakete denporerekin. Irteeraren data begiratu informazioa kontutan eduki aurretik. <br /><br />Idazterakoan:<br /><br />Benetan egindako ibilbidearen deskribapen azkar bat egin harturiko sahiesbideak esanez edo gailurrera iritsi gabe jeitsi balbid bazarete. <br /><br />Elurtutako ibilbidea bada, elur-jausi arriskuaren azterketa bat eman: elur-jausi zaharren aztarnik ikusi diren.<br /><br /> <i>Aurkituriko egoera</i> eta <i>Elur maila ibilbidean zehar</i> oso garrantzitsuak dira hurrengo egunetako elurraren bilakaera estimatzeko, kontuz eta zehatz sartu itzazue."
 
 msgid "_conditions_levels_info"
 msgstr "<h3> Elur maila ibilbidean zehar </h3>Ibilbidean zehar aurkitutako egoera sintetikoki adierazi daiteke. <br />Leku bat gehitzeko (+) botoian klikatu. <br /><br /><strong>Lekua / altitudea / norabidea / ordua</strong>: lekuaren ezaugarria: kokapena, altitude eremua, norabidea, erliebea (bailara, korridorea...), pasatako ordua.<br /><br /><strong>Elur berria</strong>: elur berriaren geruza zm-tan (makila hodoratzen den sakonera).<br /><br /><strong>Elur totala</strong>: elur geruzaren sakonera totala zm-tan. Sakonera jakin ezean hutsik utzi. <br /><br /><strong>Xehetasunak</strong>: Elurraren kalitatea, analisi stratigrafikoa, eski kalitatea,..."
 
+# [WARNING] needs_update
 msgid "_conditions_status_info"
 msgstr "<h3>Egoera</h3>Irteeran zehar ibilbidearen egoeraen estimazio globala. Irteeren bilaketa filtroan erabili daiteke.<br /> <i>Aurkitutako egoera</i> eremuan informazio osagarriak gehitu daitezke."
 
@@ -3559,7 +3564,11 @@ msgstr "Ze ekintza agerrarazi"
 
 # [WARNING] es translation used
 msgid "activity and area filters applied"
-msgstr "<br /><span style=\"color:red\">Cuidado: sus filtros de personalización de actividades y/o regiones han sido aplicados al formulario de búsqueda </span>"
+msgstr "Cuidado: sus filtros de personalización de actividades y regiones han sido aplicados al formulario de búsqueda"
+
+# [WARNING] es translation used
+msgid "activity filters applied"
+msgstr "Cuidado: sus filtros de personalización de actividades han sido aplicados al formulario de búsqueda"
 
 msgid "add a comment"
 msgstr "Iritzi bat gehitu"
@@ -3699,7 +3708,7 @@ msgstr "eskualdea"
 
 # [WARNING] es translation used
 msgid "area filters applied"
-msgstr "<br /><span style=\"color:red\">Cuidado: sus filtros de personalización de regiones han sido aplicados al formulario de búsqueda </span>"
+msgstr "Cuidado: sus filtros de personalización de regiones han sido aplicados al formulario de búsqueda"
 
 msgid "area_type"
 msgstr "Eskualde mota:"
@@ -4062,6 +4071,7 @@ msgid "cda map title"
 msgstr "Encontrar una ruta accesible con transporte en común o ecomobilidad"
 
 # [general comment]
+# [cda]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
 # [WARNING] es translation used
 msgid "cda partners tips"
@@ -4083,33 +4093,32 @@ msgstr "Las montañas sin coche"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "cda_activities"
-msgstr "Activité&nbsp;:"
+msgstr "Actividad:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "cda_difficulty"
-msgstr "Difficulté&nbsp;:"
+msgstr "Dificultad:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "cda_elevation"
-msgstr "Dénivelée&nbsp;:"
+msgstr "Desnibela:"
 
 # [WARNING] es translation used
 msgid "cda_prepare_outing_box"
 msgstr "<p>Tiempo</p><ul><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espana)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Suiza)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li></ul> <p>Aludes</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin francés </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Boletin suizo</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Boletin italiano</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Transporte</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trenes en Europa)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (Francia)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suiza)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italia)</a></li></ul> <p>Otros</p><ul><li><a href=\"http://veloski.fr/\">bici+esquí (en francés)</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (en francés)</li></ul>"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cda_search_outings_tips"
-msgstr "Critères de recherche de récits de sorties"
+msgstr "Search criteria of outing reports"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cda_search_routes_tips"
-msgstr "Critères de recherche d'itinéraires"
+msgstr "Search criteria of route datasheet"
 
 msgid "center"
 msgstr "erdiratu"
@@ -4131,12 +4140,6 @@ msgstr "Xanpaina-Ardena"
 # [WARNING] es translation used
 msgid "changerdapproche"
 msgstr "Las montañas sin coche"
-
-# [general comment]
-# [cda]
-# [WARNING] fr translation used
-msgid "changerdapproche is financed by EU"
-msgstr "Le portail changerdapproche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
 
 # [WARNING] needs_review
 msgid "changes"
@@ -4242,6 +4245,10 @@ msgstr "Aurkituriko egoera:"
 # [WARNING] es translation used
 msgid "conditions linked to"
 msgstr "lista de las condiciones asociadas"
+
+# [WARNING] needs_update
+msgid "conditions_and_equipment"
+msgstr "Aurkituriko egoera:"
 
 msgid "conditions_levels"
 msgstr "Elur maila ibilbidean zehar:"
@@ -4423,9 +4430,9 @@ msgstr "detaillea / zoom"
 msgid "deutsch"
 msgstr "alemana"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "development environment"
-msgstr "Attention - version de développement."
+msgstr "Warning - development version"
 
 msgid "diff"
 msgstr "diferentzia"
@@ -4435,9 +4442,9 @@ msgstr "bertsioen arteko desberdintasuna"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "difficult"
-msgstr "difficile"
+msgstr "hard"
 
 msgid "difficult crossing"
 msgstr "irekia – pasatzeko zaila"
@@ -4499,9 +4506,9 @@ msgstr "Ibilbidearen iraupena:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "easy"
-msgstr "facile"
+msgstr "easy"
 
 msgid "easy crossing"
 msgstr "itxia – arazorik gabe pasa daiteke"
@@ -4509,9 +4516,9 @@ msgstr "itxia – arazorik gabe pasa daiteke"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "ecomobility"
-msgstr "écomobilité"
+msgstr "ecomobility"
 
 msgid "edit ?"
 msgstr "aldatu?"
@@ -5273,7 +5280,7 @@ msgstr "Longitudea:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "long"
 msgstr "long"
 
@@ -5339,9 +5346,9 @@ msgstr "mapa"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "map (cda)"
-msgstr "cartographie"
+msgstr "map"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
@@ -5451,9 +5458,9 @@ msgstr "Mediterráneo"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "medium"
-msgstr "moyen"
+msgstr "medium"
 
 # [WARNING] es translation used
 msgid "menu"
@@ -5554,6 +5561,8 @@ msgstr "Zailtasun:"
 msgid "minor modification"
 msgstr "aldaketa txikiak"
 
+# [general comment]
+# Tag for minor change, in a document history.
 msgid "minor_tag"
 msgstr "m"
 
@@ -5613,7 +5622,7 @@ msgstr "alpinismo"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "mountainwilderness"
 msgstr "Mountain Wilderness"
 
@@ -5855,7 +5864,7 @@ msgstr "Otras regiones administrativas"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
-# Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
+# Lorsqu'on crée des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils sont alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 # [WARNING] es translation used
 msgid "other country"
@@ -5870,11 +5879,19 @@ msgid "other range"
 msgstr "Otros macizos"
 
 # [general comment]
+# La liste de choix des vallées (filtres, personnalisation) est organisée en grandes zones.
+# Lorsqu'on crée des vallées, il se peut que les nouvelles vallées ne soient pas rangés dans une grande zone. Elles sont alors mises à la fin de la liste, dans "Autres vallées".
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
+# [WARNING] en translation used
+msgid "other valley_area"
+msgstr "Other valleys"
+
+# [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "our partners"
-msgstr "nos partenaires"
+msgstr "our partners"
 
 msgid "outing"
 msgstr "irteera"
@@ -6049,9 +6066,9 @@ msgstr "Pikardia"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "picturial"
-msgstr "en images"
+msgstr "pictures"
 
 msgid "piemont"
 msgstr "Piemonte"
@@ -6182,6 +6199,10 @@ msgstr "Países elegidos"
 msgid "prefered range"
 msgstr "Macizos elegidos"
 
+# [WARNING] en translation used
+msgid "prefered valley_area"
+msgstr "Prefered valleys"
+
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
@@ -6194,9 +6215,9 @@ msgstr "donotshow"
 # [general comment]
 # [cda] title of the top left box on home
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "presentation"
-msgstr "présentation"
+msgstr "presentation"
 
 # [WARNING] es translation used
 msgid "previous area"
@@ -6334,12 +6355,16 @@ msgstr "Tipo de TC:"
 msgid "publication_date"
 msgstr "Fecha de publicación:"
 
+# [WARNING] es translation used
+msgid "pyrenees portal"
+msgstr "Camptocamp Pirineo"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] es translation used
 msgid "pyrenees_ibere"
-msgstr "Pirineo / Península ibérica"
+msgstr "Pirineo - Península ibérica"
 
 msgid "quartzite"
 msgstr "kuartzita"
@@ -6347,9 +6372,9 @@ msgstr "kuartzita"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "questions?"
-msgstr "des questions ?"
+msgstr "questions?"
 
 msgid "quite crowded"
 msgstr "mendizale dexente"
@@ -6357,9 +6382,9 @@ msgstr "mendizale dexente"
 msgid "raid"
 msgstr "raid"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "raid portal"
-msgstr "Raids et expéditions"
+msgstr "Treks and expeditions"
 
 msgid "rain_proof"
 msgstr "Euria:"
@@ -6454,6 +6479,14 @@ msgstr " > "
 
 msgid "rock_climbing"
 msgstr "eskalada"
+
+# [WARNING] needs_review
+msgid "rock_climbing (multi-pitch)"
+msgstr "eskalada (bia luzeak)"
+
+# [WARNING] needs_review
+msgid "rock_climbing (single-pitch)"
+msgstr "eskalada (eskola)"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
@@ -6623,9 +6656,25 @@ msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul c
 msgid "select an image file"
 msgstr "Chose an image:&nbsp;"
 
+# [WARNING] en translation used
+msgid "selected admin_limits"
+msgstr "Pre-selected administrative regions"
+
+# [WARNING] en translation used
+msgid "selected country"
+msgstr "Pre-selected countries"
+
 # [WARNING] es translation used
 msgid "selected documents"
 msgstr "Solo para los documentos seleccionados"
+
+# [WARNING] en translation used
+msgid "selected range"
+msgstr "Pre-selected ranges"
+
+# [WARNING] en translation used
+msgid "selected valley_area"
+msgstr "Pre-selected valleys"
 
 # [WARNING] es translation used
 msgid "service_on_demand"
@@ -6640,9 +6689,9 @@ msgstr "Aterpe mota:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "short"
-msgstr "court"
+msgstr "short"
 
 # [WARNING] es translation used
 msgid "show conditions of the outings"
@@ -7092,9 +7141,9 @@ msgstr "erabiltzailea"
 msgid "user form warning"
 msgstr "<strong>Pagina personal:</strong> En su pagina personal, puede indicar – si quiere - cualquier información que quiere difundir: dirección, teléfono, profesión, actividades o regiones preferidas… Por defecto esta página solo es accesible a usuarios registrados pero puede elegir que cualquiera la pueda ver, incluyendo los motores de búsqueda como <i>Google</i> o <i>Yahoo!</i>. Por ello, tiene que <a href=\"/users/editprivatedata\">editar sus preferencias personales </a>, donde también podrá modificar su nombre en la topo-guía, su seudónimo para los foros, su dirección de email y su contraseña.</li><li><strong>Georeferenciado:</strong> Para que su perfil este asociado a un macizo y/o una región, debe precisar sus coordenadas geográficas. Así le podrán encontrar mediante una búsqueda geográfica de usuarios. Además, desde la pagina de un acceso, podrá automáticamente visualizar el itinerario a seguir para llegar al acceso desde su casa (por carreteras)."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "user information not available"
-msgstr "L'utilisateur ne permet pas aux membres non connectés de voir son profil."
+msgstr "This user does not allow unconnected members to access to his profil."
 
 msgid "users"
 msgstr "erabiltzaileak"

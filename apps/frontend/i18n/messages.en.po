@@ -2848,12 +2848,17 @@ msgstr "<h3>Climbing style</h3>Describes the general climbing style offered by t
 msgid "_code_info"
 msgstr "<h3>Code</h3>Reference of the map."
 
+# [WARNING] needs_update
+msgid "_conditions_and_equipment_info"
+msgstr "<h3>Conditions, equipment and rock quality</h3>Details on the conditions encountered on the route (including the approach) during the outing.<br />This informationmay loose validity fast. Check the outing's date before using the information found in these fields.<br /><br />When editing:<br /><br />The route really covered must be shortly described if the description contains variants, or if an undescribed variant has been followed, or if one stopped before reaching the summit.<br /><br />For a route with snow, please also mention the avalanche activity: direct observation or scars of old avalanches.<br /><br />The <i>Conditions</i> and the <i>Snow in some areas</i> are important to evaluate the evolution the next days, please fill them carefully."
+
 msgid "_conditions_info"
 msgstr "<h3>Conditions</h3>Details on the conditions encountered on the route (including the approach) during the outing.<br />This informationmay loose validity fast. Check the outing's date before using the information found in these fields.<br /><br />When editing:<br /><br />The route really covered must be shortly described if the description contains variants, or if an undescribed variant has been followed, or if one stopped before reaching the summit.<br /><br />For a route with snow, please also mention the avalanche activity: direct observation or scars of old avalanches.<br /><br />The <i>Conditions</i> and the <i>Snow in some areas</i> are important to evaluate the evolution the next days, please fill them carefully."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Snow in some areas</h3>Allows to syntetically indicate the encountered conditions on each part of the route.<br />To add an area, click on the button (+).<br /><br /><strong>Location / elevation / orientation / time</strong>: caracteristics of the location: localization, elevation range, orientation, relief (dale, gully...), time of passing.<br /><br /><strong>Soft</strong>: depth of soft snow in cm (sinking of the pole).<br /><br /><strong>Total</strong>: total snow depth in cm. Leave empty if the value is unknown.<br /><br /><strong>Comment</strong>: quality of the snow, rough stratigraphic analysis, ski quality."
 
+# [WARNING] needs_update
 msgid "_conditions_status_info"
 msgstr "<h3>Conditions</h3>Global judgment on the conditions encountered on the route during the outing. Can be used to filter outings.<br />The <i>Conditions</i> field allows to fill in additional information."
 
@@ -3473,7 +3478,11 @@ msgstr "Sport to display"
 
 # [WARNING] needs_review
 msgid "activity and area filters applied"
-msgstr "<br /><span style=\"color:red\">Warning: your customization filters for activities and/or regions were applied to the search form</span>"
+msgstr "Warning: your customization filters for activities and regions were applied to the search form"
+
+# [WARNING] needs_review
+msgid "activity filters applied"
+msgstr "Warning: your customization filters for activities were applied to the search form"
 
 msgid "add a comment"
 msgstr "add a comment"
@@ -3605,7 +3614,7 @@ msgstr "area"
 
 # [WARNING] needs_review
 msgid "area filters applied"
-msgstr "<br /><span style=\"color:red\">Warning: your customization filters for regions were applied to the search form</span>"
+msgstr "Warning: your customization filters for regions were applied to the search form"
 
 msgid "area_type"
 msgstr "Region type:"
@@ -3951,7 +3960,6 @@ msgstr "The Changer d'Approche portal is co-financed by the European Union. Euro
 
 # [general comment]
 # [cda]
-# [WARNING] needs_review
 msgid "cda presentation"
 msgstr "An idea to <strong>get out without taking your car</strong>?<br/>\n"
 "An good idea \"<strong>local products</strong><br/>\n"
@@ -4105,6 +4113,10 @@ msgstr "Conditions (incl. approach):"
 
 msgid "conditions linked to"
 msgstr "list of associated conditions"
+
+# [WARNING] needs_update
+msgid "conditions_and_equipment"
+msgstr "Conditions, equipment and rock quality (incl. approach):"
 
 msgid "conditions_levels"
 msgstr "Detailed snow conditions:"
@@ -5615,7 +5627,7 @@ msgstr "Other administrative regions"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
-# Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
+# Lorsqu'on crée des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils sont alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 msgid "other country"
 msgstr "Other countries"
@@ -5626,6 +5638,13 @@ msgstr "Other countries"
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 msgid "other range"
 msgstr "Other ranges"
+
+# [general comment]
+# La liste de choix des vallées (filtres, personnalisation) est organisée en grandes zones.
+# Lorsqu'on crée des vallées, il se peut que les nouvelles vallées ne soient pas rangés dans une grande zone. Elles sont alors mises à la fin de la liste, dans "Autres vallées".
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
+msgid "other valley_area"
+msgstr "Other valleys"
 
 # [general comment]
 # [cda] title of second box on home
@@ -5916,6 +5935,10 @@ msgstr "Selected countries"
 msgid "prefered range"
 msgstr "Selected ranges"
 
+# [WARNING] needs_review
+msgid "prefered valley_area"
+msgstr "Prefered valleys"
+
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
@@ -6048,11 +6071,14 @@ msgstr "PT type:"
 msgid "publication_date"
 msgstr "Publication Date:"
 
+msgid "pyrenees portal"
+msgstr "Camptocamp Pyrenees"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "pyrenees_ibere"
-msgstr "Pyrenees / Iberian peninsula"
+msgstr "Pyrenees - Iberian peninsula"
 
 msgid "quartzite"
 msgstr "quartzite"
@@ -6070,9 +6096,11 @@ msgstr "quite crowded"
 msgid "raid"
 msgstr "raid"
 
-# [WARNING] fr translation used
+# [comment]
+# 'Treks' ou 'raids'?
+# [WARNING] needs_review
 msgid "raid portal"
-msgstr "Raids et expéditions"
+msgstr "Treks and expeditions"
 
 msgid "rain_proof"
 msgstr "Rain:"
@@ -6326,8 +6354,23 @@ msgstr "Select only those activities practiced during your outing:<ul class=\"te
 msgid "select an image file"
 msgstr "Chose an image:&nbsp;"
 
+# [WARNING] needs_review
+msgid "selected admin_limits"
+msgstr "Pre-selected administrative regions"
+
+# [WARNING] needs_review
+msgid "selected country"
+msgstr "Pre-selected countries"
+
 msgid "selected documents"
 msgstr "Restrict to selected documents"
+
+# [WARNING] needs_review
+msgid "selected range"
+msgstr "Pre-selected ranges"
+
+msgid "selected valley_area"
+msgstr "Pre-selected valleys"
 
 msgid "service_on_demand"
 msgstr "on request"

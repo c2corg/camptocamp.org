@@ -777,9 +777,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Ecomobility"
-msgstr "Écomobilité"
+msgstr "Ecomobility"
 
 msgid "Edit"
 msgstr "Modificar"
@@ -1143,9 +1143,9 @@ msgstr "Llengua:"
 
 # [general comment]
 # error message when invalid request parametes for cda search
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Invalid request parameters"
-msgstr "Paramètres de requête invalides"
+msgstr "Invalid request parameters"
 
 msgid "Is a child of summit:"
 msgstr "És un sub-cim de:"
@@ -1391,9 +1391,9 @@ msgstr "Canvia les propietats de la vostra pàgina personal"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Map"
-msgstr "Cartographie"
+msgstr "Map"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
@@ -1724,9 +1724,9 @@ msgstr "Pàgina personal"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Picturial"
-msgstr "En images"
+msgstr "Pictures"
 
 # [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
@@ -1775,9 +1775,9 @@ msgstr "Bloqueja les modificacions d\\'aquest document"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Questions?"
-msgstr "Des questions ?"
+msgstr "Questions?"
 
 msgid "Quick creation of a route"
 msgstr "Creació ràpida d'un itinerari"
@@ -1970,24 +1970,24 @@ msgstr "Search in my outings"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Search on c2c"
-msgstr "Rechercher sur camptocamp"
+msgstr "Search on camptocamp"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Search outings"
-msgstr "Recherche de récits de sortie"
+msgstr "Search of outing reports"
 
 msgid "Search results"
 msgstr "Resultats de la recerca"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Search routes"
-msgstr "Recherche de fiches techniques d'itinéraires"
+msgstr "Search of route datasheet"
 
 msgid "Search with google"
 msgstr "Cerca en tot el document:"
@@ -2828,12 +2828,17 @@ msgstr "<h3>Estils d'escalada</h3>Descriu l'estil general de les víes del secto
 msgid "_code_info"
 msgstr "<h3>Codi</h3>Referència del mapa."
 
+# [WARNING] needs_update
+msgid "_conditions_and_equipment_info"
+msgstr "<h3>Condicions trobades</h3>Detalls de les condicions trobadas en l'itinerari durant la sortida.<br />Aquestes informacions són susceptibles de perdre el seu valor ràpidament. Verifiqueu doncs la data de la sortida abans de basar-vos sobre les informacions donades en aquests camps.<br /><br />Durant una edició:<br /><br />L'itinerari realment recorregut ha de ser descrit ràpidament si la descripció comporta variants, o si s'ha seguit una variant no descrita, o si hem girat cua abans del cim.<br /><br />Per un itinerari nevat, mencioneu també l'activitat d'allaus observada.<br /><br />Les <i>Condicions trobades</i> i l'<i>Innivació per zones</i> són importants per evaluar l'evolució en els propers dies, ompliu-les cuidadosament."
+
 msgid "_conditions_info"
 msgstr "<h3>Condicions trobades</h3>Detalls de les condicions trobadas en l'itinerari durant la sortida.<br />Aquestes informacions són susceptibles de perdre el seu valor ràpidament. Verifiqueu doncs la data de la sortida abans de basar-vos sobre les informacions donades en aquests camps.<br /><br />Durant una edició:<br /><br />L'itinerari realment recorregut ha de ser descrit ràpidament si la descripció comporta variants, o si s'ha seguit una variant no descrita, o si hem girat cua abans del cim.<br /><br />Per un itinerari nevat, mencioneu també l'activitat d'allaus observada.<br /><br />Les <i>Condicions trobades</i> i l'<i>Innivació per zones</i> són importants per evaluar l'evolució en els propers dies, ompliu-les cuidadosament."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Innivació per zones</h3>Permet indicar sintèticament les condicions trobades en cada part de l'itinerari.<br />Per afegir una zona, cliqueu en el botó (+).<br /><br /><strong>Lloc / altitud / orientació / hora</strong>: caractéristiques de la zona&nbsp;: sa localització, rang d'altituds, la seva orientació, el seu relleu (clot, corredor...), l'hora de pas.<br /><br /><strong>Tova</strong>: espessor de la neu tova en cm (enfonçament del bastó).<br /><br /><strong>Total</strong>&nbsp;: espessor total de la neu en cm. Deixeu en blanc si no la coneixeu.<br /><br /><strong>Observacions</strong>: qualitat de la neu, anàlisi estratigràfic resumit, qualitat de l'esquí."
 
+# [WARNING] needs_update
 msgid "_conditions_status_info"
 msgstr "<h3>Condicions</h3>Valoració global de les condicions trobades en l'itinerari el dia de la sortida. Utilitzable pel filtre de recerca de sortides.<br />el camp<i>Condicions trobades</i> permet donar informacions complementàries."
 
@@ -3400,7 +3405,11 @@ msgstr "Activitats a mostrar"
 
 # [WARNING] needs_review
 msgid "activity and area filters applied"
-msgstr "<br /><span style=\"color:red\">Compte: els vostres filtres de personalització d'activitats i/o regions han estat aplicats al formulari de cerca</span>"
+msgstr "Compte: els vostres filtres de personalització d'activitats i regions han estat aplicats al formulari de cerca"
+
+# [WARNING] needs_review
+msgid "activity filters applied"
+msgstr "Compte: els vostres filtres de personalització d'activitats han estat aplicats al formulari de cerca"
 
 msgid "add a comment"
 msgstr "Afegir un comentari"
@@ -3530,7 +3539,7 @@ msgid "area"
 msgstr "regió"
 
 msgid "area filters applied"
-msgstr "<br /><span style=\"color:red\">Compte: els teus filtres de personalització de regions han estat aplicats al formulari</span>"
+msgstr "Compte: els teus filtres de personalització de regions han estat aplicats al formulari"
 
 msgid "area_type"
 msgstr "Tipus de regió:"
@@ -3869,6 +3878,7 @@ msgid "cda map title"
 msgstr "Troba un itinerari accessible en transport públic"
 
 # [general comment]
+# [cda]
 # Mention imposée par les partenaires au portail cda, affichée dans le footer du portail.
 # [comment]
 # Seulement les Alpes?
@@ -3890,21 +3900,19 @@ msgstr "El portal de la muntanya sense cotxe"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "cda_activities"
-msgstr "Activité&nbsp;:"
+msgstr "Activitat:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cda_difficulty"
-msgstr "Difficulté&nbsp;:"
+msgstr "Dificultat:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
 msgid "cda_elevation"
-msgstr "Dénivelée&nbsp;:"
+msgstr "Desnivell:"
 
 # [WARNING] needs_review
 msgid "cda_prepare_outing_box"
@@ -3917,13 +3925,13 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Previsions meteoro
 "<p>Altres</p>\n"
 "<ul><li><a href=\"http://www.senderismeentransportpublic.blogspot.com/\">Senderisme en transport públic</a></li><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://transportpublic.org/\">transportpublic.org</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cda_search_outings_tips"
-msgstr "Critères de recherche de récits de sorties"
+msgstr "Search criteria of outing reports"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cda_search_routes_tips"
-msgstr "Critères de recherche d'itinéraires"
+msgstr "Search criteria of route datasheet"
 
 msgid "center"
 msgstr "centra"
@@ -3944,12 +3952,6 @@ msgstr "Xampanya-Ardenes"
 # nom du portail "Changer d'approche" (pour le menu)
 msgid "changerdapproche"
 msgstr "La muntanya sense cotxe"
-
-# [general comment]
-# [cda]
-# [WARNING] fr translation used
-msgid "changerdapproche is financed by EU"
-msgstr "Le portail changerdapproche est cofinancé par l'Union européenne. L'Europe s'engage sur le massif alpin avec le Fonds européen de développement régional."
 
 msgid "changes"
 msgstr "modificacions"
@@ -4044,6 +4046,10 @@ msgstr "Condicions trobades:"
 
 msgid "conditions linked to"
 msgstr "llista de les condicions associades"
+
+# [WARNING] needs_update
+msgid "conditions_and_equipment"
+msgstr "Condicions trobades:"
 
 msgid "conditions_levels"
 msgstr "Quantitat de neu per zones:"
@@ -4238,9 +4244,9 @@ msgstr "Diferència entre les versions"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "difficult"
-msgstr "difficile"
+msgstr "hard"
 
 msgid "difficult crossing"
 msgstr "obert - passatge difícil"
@@ -4297,9 +4303,9 @@ msgstr "Horari:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "easy"
-msgstr "facile"
+msgstr "easy"
 
 msgid "easy crossing"
 msgstr "tapat – passatge sense problemes"
@@ -4307,9 +4313,9 @@ msgstr "tapat – passatge sense problemes"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "ecomobility"
-msgstr "écomobilité"
+msgstr "ecomobility"
 
 msgid "edit ?"
 msgstr "modificar?"
@@ -5033,7 +5039,7 @@ msgstr "Longitud:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "long"
 msgstr "long"
 
@@ -5095,9 +5101,9 @@ msgstr "mapa"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "map (cda)"
-msgstr "cartographie"
+msgstr "map"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
@@ -5202,9 +5208,9 @@ msgstr "Mediterrània"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "medium"
-msgstr "moyen"
+msgstr "medium"
 
 msgid "menu"
 msgstr "menú"
@@ -5304,6 +5310,8 @@ msgstr "Cotació:"
 msgid "minor modification"
 msgstr "modificació menor"
 
+# [general comment]
+# Tag for minor change, in a document history.
 msgid "minor_tag"
 msgstr "m"
 
@@ -5360,7 +5368,7 @@ msgstr "alpinismo"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "mountainwilderness"
 msgstr "Mountain Wilderness"
 
@@ -5574,7 +5582,7 @@ msgstr "Altres regions administratives"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
-# Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
+# Lorsqu'on crée des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils sont alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 msgid "other country"
 msgstr "Altres països"
@@ -5587,11 +5595,19 @@ msgid "other range"
 msgstr "Altres massissos"
 
 # [general comment]
+# La liste de choix des vallées (filtres, personnalisation) est organisée en grandes zones.
+# Lorsqu'on crée des vallées, il se peut que les nouvelles vallées ne soient pas rangés dans une grande zone. Elles sont alors mises à la fin de la liste, dans "Autres vallées".
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
+# [WARNING] en translation used
+msgid "other valley_area"
+msgstr "Other valleys"
+
+# [general comment]
 # [cda] title of second box on home
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "our partners"
-msgstr "nos partenaires"
+msgstr "our partners"
 
 msgid "outing"
 msgstr "sortida"
@@ -5752,9 +5768,9 @@ msgstr "Picardia"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "picturial"
-msgstr "en images"
+msgstr "pictures"
 
 msgid "piemont"
 msgstr "Piemont"
@@ -5881,6 +5897,10 @@ msgstr "Països preferits"
 msgid "prefered range"
 msgstr "Massissos preferits"
 
+# [WARNING] en translation used
+msgid "prefered valley_area"
+msgstr "Prefered valleys"
+
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
@@ -5893,9 +5913,9 @@ msgstr "<p>Previsions</p><ul><li><a href=\" http://www.meteocat.com/mediamb_xeme
 # [general comment]
 # [cda] title of the top left box on home
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "presentation"
-msgstr "présentation"
+msgstr "presentation"
 
 msgid "previous area"
 msgstr "Regió anterior"
@@ -6011,11 +6031,14 @@ msgstr "Tipus de TP:"
 msgid "publication_date"
 msgstr "Data de publicació:"
 
+msgid "pyrenees portal"
+msgstr "Camptocamp Pirineus"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "pyrenees_ibere"
-msgstr "Pirineus / Península Ibèrica"
+msgstr "Pirineus - Península Ibèrica"
 
 msgid "quartzite"
 msgstr "quartzite"
@@ -6023,9 +6046,9 @@ msgstr "quartzite"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "questions?"
-msgstr "des questions ?"
+msgstr "questions?"
 
 msgid "quite crowded"
 msgstr "freqüentat"
@@ -6033,9 +6056,9 @@ msgstr "freqüentat"
 msgid "raid"
 msgstr "raid"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "raid portal"
-msgstr "Raids et expéditions"
+msgstr "Treks and expeditions"
 
 msgid "rain_proof"
 msgstr "Pluja:"
@@ -6126,6 +6149,14 @@ msgstr " > "
 
 msgid "rock_climbing"
 msgstr "escalada esportiva"
+
+# [WARNING] needs_review
+msgid "rock_climbing (multi-pitch)"
+msgstr "escalada esportiva (grans vies)"
+
+# [WARNING] needs_review
+msgid "rock_climbing (single-pitch)"
+msgstr "escola d'escalada"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
@@ -6283,9 +6314,25 @@ msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practic
 msgid "select an image file"
 msgstr "Escolliu una imatge:&nbsp;"
 
+# [WARNING] en translation used
+msgid "selected admin_limits"
+msgstr "Pre-selected administrative regions"
+
+# [WARNING] en translation used
+msgid "selected country"
+msgstr "Pre-selected countries"
+
 # [WARNING] needs_review
 msgid "selected documents"
 msgstr "Només per als documents seleccionats"
+
+# [WARNING] en translation used
+msgid "selected range"
+msgstr "Pre-selected ranges"
+
+# [WARNING] en translation used
+msgid "selected valley_area"
+msgstr "Pre-selected valleys"
 
 msgid "service_on_demand"
 msgstr "servei a demanda"
@@ -6298,9 +6345,9 @@ msgstr "Tipus de refugi:"
 
 # [general comment]
 # [cda]
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "short"
-msgstr "court"
+msgstr "short"
 
 # [WARNING] needs_review
 msgid "show conditions of the outings"
