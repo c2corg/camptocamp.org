@@ -65,9 +65,9 @@ echo ajax_feedback();
         {
             $alt = ($act_filter == array($act_id))
                    ? __('switch_off_activity_personalisation')
-                   : __('switch_to_' . $alist[$act_id+1]) ;
-            $image_tag = picto_tag('activity_' . $act_id . $light[$act_id], $alt);
-            echo link_to($image_tag, '@quick_activity?activity=' . ($act_id), array('class' => 'qck_sw'));
+                   : __('switch_to_' . $alist[$act_id]) ;
+            $image_tag = picto_tag('activity_' . ($act_id+1) . $light[$act_id], $alt);
+            echo link_to($image_tag, '@quick_activity?activity=' . ($act_id+1), array('class' => 'qck_sw'));
         }
 
         if ($perso->areFiltersActive())
