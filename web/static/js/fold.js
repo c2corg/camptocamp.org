@@ -335,7 +335,7 @@ function toggleBox(box_id)
 
 function toggleRoutes(activity_id)
 {
-    var div = $$('ul.' + activity_id, 'table.' + activity_id)[0];
+    var div = $$('.child_routes.' + activity_id)[0];
     var img_div = $(activity_id);
     
     if (!div.visible())
@@ -361,7 +361,7 @@ function handleRoutes(event)
 
 function showRoutes(activity_id)
 {
-    var div = $$('ul.' + activity_id, 'table.' + activity_id)[0];
+    var div = $$('.child_routes.' + activity_id)[0];
     var img_div = $(activity_id);
     
     if (!div.visible())
@@ -375,7 +375,7 @@ function showRoutes(activity_id)
 
 function hideRoutes(activity_id)
 {
-    var div = $$('ul.' + activity_id, 'table.' + activity_id)[0];
+    var div = $$('.child_routes.' + activity_id)[0];
     var img_div = $(activity_id);
     
     if (div.visible())
