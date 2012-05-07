@@ -1,0 +1,71 @@
+/* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+textarea
+{
+  overflow: auto;
+}
+
+/* rounded inputs */
+input, select, textarea {
+  font-size: 100%;
+  @include border-radius(4px);
+  padding: 1px;
+  border: 1px solid #ddd;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"],
+input[type="range"], input[type="date"], input[type="color"], input[type="search"],
+select, #type, #q {
+  height: 1.5em;
+  vertical-align: middle;
+  font-size: 12px;
+  padding: 1px;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+/* default model box for selects is border-box, change it so we can have all form elements
+   with the same size */
+select, #q {
+  @include box-sizing(content-box);
+}
+/* Normalizes the box sizing, which is set to content-box in IE8/9 but border-box in all other browsers */
+input[type="checkbox"], input[type="radio"] {
+  @include box-sizing(border-box);
+}
+
+select[multiple="multiple"], input[type="checkbox"], input[type="image"] {
+  height: auto;
+}
+
+/* selects from forums should be with white backgroun */
+select, option {
+  background-color: #fff;
+}
+
+/* outline focused input elements */
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+input[type="number"]:focus, input[type="range"]:focus, input[type="search"]:focus,
+textarea:focus, select:focus
+{
+  @include box-shadow(0 0 6px #ccc);
+  outline: none; /* do not conflict with possible outline added by browser, eg chrome */
+  @include transition(box-shadow linear 0.1s);
+}
+
+input[type="checkbox"] {
+  vertical-align: middle;
+  background-color: #fff;
+  border: none;
+}
+
+option
+{
+  padding: 0 5px;
+}
+
+optgroup
+{
+  font-style: normal;
+}
