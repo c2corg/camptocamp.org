@@ -237,7 +237,7 @@ function field_activities_data_if_set($document, $raw = false, $printspan = true
     return field_picto_from_list_if_set($document, 'activities', 'app_activities_list', true, $raw, $printspan, 'activity', ' ', ' - ', $prefix, $suffix);
 }
 
-function _activities_data($activities, $printspan = false, $picto_separator)
+function _activities_data($activities, $printspan = false, $picto_separator = ' ')
 {
     return _format_picto_from_list('activities', $activities, 'app_activities_list', true, true, $printspan, 'activity', $picto_separator, ' - ');
 }
