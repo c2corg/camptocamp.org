@@ -190,7 +190,7 @@ if ($is_not_archive && $is_not_merged)
             foreach ($associated_outings_group as $outing):
                 echo !$mobile_version ? '<tr><td>' : '<li>';
                 $timedate = $outing->get('date');
-                if ($timedate != $date)
+                if ($timedate != $date || $mobile_version)
                 {
                     echo '<time datetime="' . $timedate . '">' . format_date($timedate, 'D') . '</time>';
                     $date = $timedate;
@@ -232,7 +232,7 @@ if ($is_not_archive && $is_not_merged)
                    . $georef
                    . (!$mobile_version ? '</td><td>' : '')
                    . $images
-                   . (!$mobile_version ? '</td><td>' : '')
+                   . (!$mobile_version ? '</td><td>' : ' - ')
                    . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']);
                 echo !$mobile_version ? '</td></tr>' : '</li>';
@@ -271,7 +271,7 @@ if ($is_not_archive && $is_not_merged)
                 foreach ($associated_outings_group as $outing):
                     echo !$mobile_version ? '<tr><td>' : '<li>';
                     $timedate = $outing->get('date');
-                    if ($timedate != $date)
+                    if ($timedate != $date || $mobile_version)
                     {
                         echo '<time datetime="' . $timedate . '">' . format_date($timedate, 'D') . '</time>';
                         $date = $timedate;
@@ -313,7 +313,7 @@ if ($is_not_archive && $is_not_merged)
                        . $georef
                        . (!$mobile_version ? '</td><td>' : '')
                        . $images
-                       . (!$mobile_version ? '</td><td>' : '')
+                       . (!$mobile_version ? '</td><td>' : ' - ')
                        . link_to($author_info['topo_name'],
                                          '@document_by_id?module=users&id=' . $author_info['id']);
                     echo !$mobile_version ? '</td></tr>' : '</li>';
