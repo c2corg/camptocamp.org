@@ -28,6 +28,7 @@ if (isset($items))
     {
         echo '<table class="children_docs"><tbody>';
         
+        $is_mobile_version = c2cTools::mobileVersion();
         $culture = $sf_user->getCulture();
         $date = 0;
         foreach ($items as $item)
@@ -35,7 +36,7 @@ if (isset($items))
             echo '<tr><td>';
             
             $timedate = $item['date'];
-            if (c2cTools::mobileVersion())
+            if ($is_mobile_version)
             {
                 $text_date = $timedate;
             }
@@ -57,18 +58,35 @@ if (isset($items))
             
             echo list_link($item['OutingI18n'][0], 'outings');
             $max_elevation = displayWithSuffix($item['max_elevation'], 'meters');
+            
+            if (!$is_mobile_version)
+            {
+                echo '</td><td>';
+            }
             if (!empty($max_elevation))
             {
-                echo ' - ' . $max_elevation;
+                if ($is_mobile_version)
+                {
+                    echo ' - ';
+                }
+                echo $max_elevation;
             }
             
+            if (!$is_mobile_version)
+            {
+                echo '</td><td>';
+            }
             if (isset($item['nb_images']))
             {
                 $images = picto_tag('picto_images_light',
                                     format_number_choice('[1]1 image|(1,+Inf]%1% images',
                                                          array('%1%' => $item['nb_images']),
                                                          $item['nb_images']));
-                echo ' ' . $images;
+                if ($is_mobile_version)
+                {
+                    echo ' ';
+                }
+                echo $images;
             }
             
             echo '</td></tr>';

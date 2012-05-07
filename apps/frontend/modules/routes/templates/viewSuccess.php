@@ -176,42 +176,71 @@ if ($is_not_archive && $is_not_merged)
         }
         
         foreach ($associated_outings as $count => $associated_outings_group): ?>
-            <div id="outings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
-            <table class="children_docs"><tbody>
-            <?php $culture = $sf_user->getCulture();
+            <div id="outings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>><?php
+            if ($mobile_version)
+            {
+                echo '<ul class="children_docs">';
+            }
+            else
+            {
+                echo '<table class="children_docs"><tbody>';
+            }
+            $culture = $sf_user->getCulture();
             $date = 0;
             foreach ($associated_outings_group as $outing):
-                ?><tr><td><?php
+                echo !$mobile_version ? '<tr><td>' : '<li>';
                 $timedate = $outing->get('date');
                 if ($timedate != $date)
                 {
                     echo '<time datetime="' . $timedate . '">' . format_date($timedate, 'D') . '</time>';
                     $date = $timedate;
                 }
-                ?></td><td><?php
+                echo (!$mobile_version ? '</td><td>' : ' - ' );
                 echo field_activities_data($outing, true, false);
-                ?></td><td><?php
+                echo (!$mobile_version ? '</td><td>' : ' - ' );
                 $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
                 $georef = '';
                 if (!$outing->getRaw('geom_wkt') instanceof Doctrine_Null)
                 {
-                    $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
+                    $georef = ($mobile_version ? ' - ' : '')
+                            . picto_tag('action_gps', __('has GPS track'));
+                }
+                
+                $images = '';
+                if (isset($outing['nb_images']))
+                {
+                    if ($mobile_version)
+                    {
+                        $images = ' - '
+                                . picto_tag('picto_images_light')
+                                . '&nbsp;'
+                                . $outing['nb_images'];
+                    }
+                    else
+                    {
+                        $images = picto_tag('picto_images_light',
+                                            format_number_choice('[1]1 image|(1,+Inf]%1% images',
+                                                                 array('%1%' => $outing['nb_images']),
+                                                                 $outing['nb_images']));
+                    }
                 }
                 $lang = $outing->get('culture');
                 echo link_to($outing->get('name'), 
                              '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $lang . '&slug=' . get_slug($outing),
-                             ($lang != $culture) ? array('hreflang' => $lang) : null) .  
-                     $georef .
-                     ' - ' . link_to($author_info['topo_name'],
-                                     '@document_by_id?module=users&id=' . $author_info['id']) .
-                     (isset($outing['nb_images']) ? 
-                         ' - ' . picto_tag('picto_images', __('nb_linked_images')) . '&nbsp;' . $outing['nb_images']
-                         : '');
-                ?></td></tr><?php
-           endforeach ?>
-           </body></table>
-           <?php if (count($associated_outings) > 1)
-                     echo simple_pager_navigation($count, count($associated_outings), 'outings_group_'); ?>
+                             ($lang != $culture) ? array('hreflang' => $lang) : null)
+                   . (!$mobile_version ? '</td><td>' : '' )
+                   . $georef
+                   . (!$mobile_version ? '</td><td>' : '')
+                   . $images
+                   . (!$mobile_version ? '</td><td>' : '')
+                   . link_to($author_info['topo_name'],
+                                     '@document_by_id?module=users&id=' . $author_info['id']);
+                echo !$mobile_version ? '</td></tr>' : '</li>';
+            endforeach;
+            echo !$mobile_version ? '</body></table>' : '</ul>';
+            
+            if (count($associated_outings) > 1)
+                echo simple_pager_navigation($count, count($associated_outings), 'outings_group_'); ?>
            </div>
         <?php endforeach;
         
@@ -228,42 +257,71 @@ if ($is_not_archive && $is_not_merged)
                . '</p>';
         
             foreach ($routes_outings as $count => $associated_outings_group): ?>
-                <div id="routings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
-                <table class="children_docs"><tbody>
-                <?php $culture = $sf_user->getCulture();
+                <div id="routings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>><?php
+                if ($mobile_version)
+                {
+                    echo '<ul class="children_docs">';
+                }
+                else
+                {
+                    echo '<table class="children_docs"><tbody>';
+                }
+                $culture = $sf_user->getCulture();
                 $date = 0;
                 foreach ($associated_outings_group as $outing):
-                    ?><tr><td><?php
+                    echo !$mobile_version ? '<tr><td>' : '<li>';
                     $timedate = $outing->get('date');
                     if ($timedate != $date)
                     {
                         echo '<time datetime="' . $timedate . '">' . format_date($timedate, 'D') . '</time>';
                         $date = $timedate;
                     }
-                    ?></td><td><?php
+                    echo (!$mobile_version ? '</td><td>' : ' - ' );
                     echo field_activities_data($outing, true, false);
-                    ?></td><td><?php
+                    echo (!$mobile_version ? '</td><td>' : ' - ' );
                     $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
                     $georef = '';
                     if (!$outing->getRaw('geom_wkt') instanceof Doctrine_Null)
                     {
-                        $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
+                        $georef = ($mobile_version ? ' - ' : '')
+                                . picto_tag('action_gps', __('has GPS track'));
+                    }
+                    
+                    $images = '';
+                    if (isset($outing['nb_images']))
+                    {
+                        if ($mobile_version)
+                        {
+                            $images = ' - '
+                                    . picto_tag('picto_images_light')
+                                    . '&nbsp;'
+                                    . $outing['nb_images'];
+                        }
+                        else
+                        {
+                            $images = picto_tag('picto_images_light',
+                                                format_number_choice('[1]1 image|(1,+Inf]%1% images',
+                                                                     array('%1%' => $outing['nb_images']),
+                                                                     $outing['nb_images']));
+                        }
                     }
                     $lang = $outing->get('culture');
                     echo link_to($outing->get('name'), 
                                  '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $lang . '&slug=' . get_slug($outing),
-                                 ($lang != $culture) ? array('hreflang' => $lang) : null) .  
-                         $georef .
-                         ' - ' . link_to($author_info['topo_name'],
-                                         '@document_by_id?module=users&id=' . $author_info['id']) .
-                         (isset($outing['nb_images']) ? 
-                             ' - ' . picto_tag('picto_images', __('nb_linked_images')) . '&nbsp;' . $outing['nb_images']
-                             : '');
-                    ?></td></tr><?php
-               endforeach ?>
-               </body></table>
-               <?php if (count($routes_outings) > 1)
-                         echo simple_pager_navigation($count, count($routes_outings), 'routings_group_'); ?>
+                                 ($lang != $culture) ? array('hreflang' => $lang) : null)
+                       . (!$mobile_version ? '</td><td>' : '' )
+                       . $georef
+                       . (!$mobile_version ? '</td><td>' : '')
+                       . $images
+                       . (!$mobile_version ? '</td><td>' : '')
+                       . link_to($author_info['topo_name'],
+                                         '@document_by_id?module=users&id=' . $author_info['id']);
+                    echo !$mobile_version ? '</td></tr>' : '</li>';
+                endforeach;
+                echo !$mobile_version ? '</body></table>' : '</ul>';
+                
+                if (count($routes_outings) > 1)
+                    echo simple_pager_navigation($count, count($routes_outings), 'routings_group_'); ?>
                </div>
             <?php endforeach;
             
