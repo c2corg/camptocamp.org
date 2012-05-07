@@ -192,13 +192,19 @@ a[href^="http://escalade.camptocamp.com"]:after {
 
 ul.children_docs, table.children_docs
 {
-  padding-left:20px;
+  padding-left: 20px;
   border-spacing: 0;
 }
 .article_contenu ul.children_docs
 {
   margin-top: 0.5em;
 }
+
+table.children_docs tr:hover
+{
+  background-color: #EEEEEE;
+}
+
 
 .error, .notice, .warning
 {
