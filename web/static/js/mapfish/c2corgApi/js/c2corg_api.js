@@ -461,7 +461,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         return [
             new OpenLayers.Layer.Google(
                 "gmap_physical", {
-                    type: google.maps.MapTypeId.TERRAIN,
+                    //type: google.maps.MapTypeId.TERRAIN,
+                    type: G_PHYSICAL_MAP,
                     sphericalMercator: true,
                     buffer: 0,
                     numZoomLevels: 16,
@@ -470,7 +471,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             ),
             new OpenLayers.Layer.Google(
                 "gmap_hybrid", {
-                    type: google.maps.MapTypeId.HYBRID,
+                    //type: google.maps.MapTypeId.HYBRID,
+                    type: G_HYBRID_MAP,
                     sphericalMercator: true,
                     buffer: 0,
                     numZoomLevels: 20,
@@ -479,7 +481,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             ),
             new OpenLayers.Layer.Google(
                 "gmap_normal", {
-                    type: google.maps.MapTypeId.ROADMAP,
+                    //type: google.maps.MapTypeId.ROADMAP,
+                    type: G_NORMAL_MAP,
                     numZoomLevels: 20,
                     buffer: 0,
                     sphericalMercator: true,

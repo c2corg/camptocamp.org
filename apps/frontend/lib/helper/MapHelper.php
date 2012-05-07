@@ -142,7 +142,8 @@ function _loadJsMapTools()
     // it is not possible to load google maps api v2 asynchronously since it uses document.write
     // upgrade to v3 to enable (using &callback=some_function param) TODO
     // We use api <= 3.6 https://github.com/openlayers/openlayers/commit/b17c7b69f25ce0ddbaf720f91b7d48328b005831
-    use_javascript('http://maps.googleapis.com/maps/api/js?v=3.6&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
+    //use_javascript('http://maps.googleapis.com/maps/api/js?v=3.6&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
+    use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
 
     // FIXME following files will only be loaded by internet explorer when in async mode using conditional comments
     // (extjs 2 cannot be loaded async with ie, it uses document.write)
