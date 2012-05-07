@@ -17,6 +17,11 @@
   background: transparent url(datauri('/static/images/picto/help2.png')) no-repeat scroll 0 6px;
 }
 
+.child_routes td:first-child
+{
+  background: transparent url(datauri('/static/images/extlink.gif')) no-repeat scroll 8px 0.5em;
+}
+
 /* BORDERS & CO */
 
 .nav_box_content {

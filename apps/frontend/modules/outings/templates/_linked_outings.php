@@ -55,12 +55,7 @@ if (isset($items))
             
             echo '</td><td>';
             
-            $i18n = $item['OutingI18n'][0];
-            $item_id = $item['id'];
-            $lang = $i18n['culture'];
-            
-            echo link_to($i18n['name'], "@document_by_id_lang_slug?module=outings&id=$item_id&lang=$lang&slug=" . make_slug($i18n['name']),
-                         ($lang != $culture) ? array('hreflang' => $lang) : null);
+            echo list_link($item['OutingI18n'][0], 'outings');
             $max_elevation = displayWithSuffix($item['max_elevation'], 'meters');
             if (!empty($max_elevation))
             {

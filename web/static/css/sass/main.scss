@@ -3862,15 +3862,29 @@ table.list th, table#pagehistory th
 {
   padding: 0.2em 0.3em;
 }
+.child_routes td:first-child
+{
+  padding-left: 22px;
+}
 
 tr.table_list_even
 {
   background-color: #fff;
 }
+/*  light cell => color = background-color - #505050 */
+tr.table_list_even td.light
+{
+  color: #AFAFAF;
+}
 
 tr.table_list_odd
 {
   background-color: #E2DFD8;
+}
+/*  light cell => color = background-color - #404040 */
+tr.table_list_odd td.light
+{
+  color: #A29F98;
 }
 
 table.list th, table#pagehistory th

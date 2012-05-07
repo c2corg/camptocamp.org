@@ -11,11 +11,19 @@ else
 }
 $item_i18n = $item['OutingI18n'][0];
 $activities = $item['activities'];
+if ($date_light)
+{
+    $date_class = ' class="light"';
+}
+else
+{
+    $date_class = '';
+}
 ?>
-<td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
+<td><input type="checkbox" value="<?php echo $item_i18n['id'] ?>" name="id[]"/></td>
 <td><?php
 echo list_link($item_i18n, 'outings') . ' ' . $has_gps_track ?></td>
-<td><time datetime="<?php echo $item['date'] ?>"><?php echo format_date($item['date'], 'D') ?></time></td>
+<td<?php echo $date_class ?>><time datetime="<?php echo $item['date'] ?>"><?php echo format_date($item['date'], 'D') ?></time></td>
 <td><?php echo get_paginated_activities($activities) ?></td>
 <td><?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
 <td><?php echo displayWithSuffix($item['height_diff_up'], 'meters') ?></td>

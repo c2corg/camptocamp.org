@@ -1,5 +1,5 @@
 <?php
-use_helper('AutoComplete', 'Field', 'General');
+use_helper('AutoComplete', 'Field', 'General', 'Link');
 
 $id = $document->get('id');
 $is_connected = $sf_user->isConnected();
@@ -60,9 +60,7 @@ if (count($associated_documents))
         echo '<li id="'.$idstring.'">';
 
         echo picto_tag('picto_' . $module, __($module));
-        echo ' ' . link_to($doc['name'],
-                           "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] .
-                                         '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']));
+        echo ' ' . list_link($doc, $module);
         if ($module == 'outings')
         {
             echo ' - ' . field_activities_data($doc, true, false) . ' - ' . field_semantic_date_data($doc, 'date');

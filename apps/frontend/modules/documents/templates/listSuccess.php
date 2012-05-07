@@ -44,6 +44,9 @@ else:
         echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
     }
     
+    $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');
+    $param_order = sfContext::getInstance()->getRequest()->getParameter('order', '');
+    
     if ($layout != 'light' && !$mobile_version &&
         in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
     {
@@ -77,8 +80,6 @@ else:
                         . '</div>';
         
         $params = packUrlParameters('', array('orderby', 'order', 'page'));
-        $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');
-        $param_order = sfContext::getInstance()->getRequest()->getParameter('order', '');
         
         echo '<form id="filterform" action="/' . $module . '/listredirect" method="post"><div>
         <input type="hidden" value="' . $params . '" name="params" />
@@ -100,10 +101,30 @@ if (!$mobile_version): ?>
         <tr><?php include_partial($module . '/list_header'); ?></tr>
     </thead>
     <tbody>
-        <?php foreach ($items as $item): ?>
-            <?php $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd'; ?>
-            <tr class="<?php echo $table_class ?>"><?php include_partial($module . '/list_body', array('item' => $item, 'table_class' => $table_class)); ?></tr>
-        <?php endforeach ?>
+        <?php
+        $date = 0;
+        $orderby_date = ($param_orderby == 'date');
+        foreach ($items as $item)
+        {
+            $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd';
+            $date_light = false;
+            if ($orderby_date)
+            {
+                $timedate = $item['date'];
+                if ($timedate != $date)
+                {
+                    $date = $timedate;
+                }
+                else
+                {
+                    $date_light = true;
+                }
+            }
+            
+            echo '<tr class="' . $table_class . '">';
+            include_partial($module . '/list_body', array('item' => $item, 'table_class' => $table_class, 'date_light' => $date_light));
+            echo '</tr>';
+        } ?>
     </tbody>
 </table>
 <?php else: ?>
