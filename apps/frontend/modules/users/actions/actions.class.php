@@ -186,6 +186,8 @@ class usersActions extends documentsActions
         {
             $this->setNoticeAndRedirect('You are already connected !', '@homepage');
         }
+        
+        $redirect_param = $this->getRequest()->getParameter('redirect', '');
     
         if ($this->getRequest()->getMethod() != sfRequest::POST )
         {
@@ -204,6 +206,8 @@ class usersActions extends documentsActions
                     $this->setWarning('You need to login to create this page', NULL, false);
                 }
             }
+            
+            $this->redirect_param = $redirect_param;
         }
         else
         {
@@ -226,7 +230,6 @@ class usersActions extends documentsActions
             }
 
             // redirect to requested page
-            $redirect_param = $this->getRequest()->getParameter('redirect', '');
             $referer = $this->getRequest()->getReferer();
             if (!empty($redirect_param))
             {
