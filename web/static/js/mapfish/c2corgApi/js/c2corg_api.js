@@ -84,11 +84,19 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         
         // addition of the app translations
         if (typeof(c2corg_map_translations) != 'undefined') {
-            if (this.lang == 'eu') {
+            if (this.baseConfig.lang == 'eu') {
                 // OpenLayers i18n for euskara is not available yet
-                OpenLayers.Lang.eu = c2corg_map_translations; 
+                // + we have to deal with the geoportal overload stuff
+                OpenLayers.Lang.eu = c2corg_map_translations;
+                OpenLayers.i18n = function(s, f) {
+                  var t = OpenLayers.Lang.eu[s] ? OpenLayers.Lang.eu[s] : OpenLayers.Lang.translate(s);
+                  if (f) {
+                    t = OpenLayers.String.format(t, f);
+                  }
+                  return t;
+                };
             } else {
-                OpenLayers.Util.extend(OpenLayers.Lang[this.lang], c2corg_map_translations);
+                OpenLayers.Util.extend(OpenLayers.Lang[this.baseConfig.lang], c2corg_map_translations);
             }
         }
         
