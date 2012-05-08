@@ -236,7 +236,7 @@ class usersActions extends documentsActions
                 $redirect_uri = str_replace('_', '/', $redirect_param);
                 
             }
-            if ($referer && !empty($referer))
+            elseif ($referer && !empty($referer))
             {
                 $redirect_uri = $referer;
             }
