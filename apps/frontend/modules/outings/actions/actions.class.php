@@ -906,7 +906,7 @@ class outingsActions extends documentsActions
         }
         else
         {
-            $this->redirect('@login');
+            $this->redirect('@login_redirect?redirect=outings_myoutings');
         }
     }
 }

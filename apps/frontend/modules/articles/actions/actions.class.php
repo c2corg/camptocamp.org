@@ -174,7 +174,7 @@ class articlesActions extends documentsActions
         }
         else
         {
-            $this->redirect('@login');
+            $this->redirect('@login_redirect?redirect=articles_myarticles');
         }
     }
 }

@@ -956,7 +956,7 @@ class imagesActions extends documentsActions
         }
         else
         {
-            $this->redirect('@login');
+            $this->redirect('@login_redirect?redirect=images_myimages');
         }
     }
 }
