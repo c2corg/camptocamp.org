@@ -88,7 +88,7 @@ switch($module)
     case 'sites':
     case 'summits':
         $msg = __('area filters applied');
-        if ($perso_on && !count($selected_areas) && $has_perso_areas)
+        if (!count($selected_areas) && $has_perso_areas)
             $personalization_applied = true;
         break;
     // We do not use personalization for the following modules

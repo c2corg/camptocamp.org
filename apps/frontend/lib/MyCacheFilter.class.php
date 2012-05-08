@@ -183,8 +183,8 @@ class MyCacheFilter extends sfCacheFilter
     list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module_cache);
     $are_filters_active = $perso->areFiltersActive();
     $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
-    $activities_filter = $perso->getActivitiesFilter();
-    $count_activities_filter = count($activities_filter);
+    $count_activities_filter = count($perso->getActivitiesFilter());
+    $count_places_filter = count($perso->getPlacesFilter());
     $are_default_filters = $perso->areDefaultFilters();
     $are_simple_activities_langs_filters = $perso->areSimpleActivitiesFilters(true);
     $are_simple_activities_filters = $perso->areSimpleActivitiesFilters(false);
@@ -237,6 +237,7 @@ class MyCacheFilter extends sfCacheFilter
     
         case 'filter':
             if (    !$count_request_parameters
+                 && !$count_places_filter
                  && (   !$are_filters_active
                      || !$is_main_filter_switch_on
                      || $are_simple_activities_filters
@@ -249,7 +250,7 @@ class MyCacheFilter extends sfCacheFilter
     
         case 'cdasearch':
             if (    !$count_request_parameters
-                 || !count($perso->getPlacesFilter())
+                 || !$count_places_filter
                )
             {
                 $this->cacheManager->addCache($module, 'cdasearch', array('lifeTime' => 350000, 'vary' => array()));

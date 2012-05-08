@@ -182,13 +182,22 @@ class usersActions extends documentsActions
     public function executeLogin()
     {
         $user = $this->getUser();
-        if ($user->isConnected())
-        {
-            $this->setNoticeAndRedirect('You are already connected !', '@homepage');
-        }
-        
         $redirect_param = $this->getRequest()->getParameter('redirect', '');
     
+        if ($user->isConnected())
+        {
+            if (!empty($redirect_param))
+            {
+                $redirect_uri = str_replace('_', '/', $redirect_param);
+                
+            }
+            else
+            {
+                $redirect_uri = '@homepage';
+            }
+            $this->setNoticeAndRedirect('You are already connected !', $redirect_uri);
+        }
+        
         if ($this->getRequest()->getMethod() != sfRequest::POST )
         {
             // display login form
