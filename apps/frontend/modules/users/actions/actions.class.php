@@ -226,15 +226,23 @@ class usersActions extends documentsActions
             }
 
             // redirect to requested page
+            $redirect_param = $this->getRequest()->getParameter('redirect', '');
             $referer = $this->getRequest()->getReferer();
+            if (!empty($redirect_param))
+            {
+                $redirect_uri = str_replace('_', '/', $redirect_param);
+                
+            }
             if ($referer && !empty($referer))
             {
-                $this->redirect($referer);
+                $redirect_uri = $referer;
             }
             else
             {
-                $this->redirect('@homepage');
+                $redirect_uri = '@homepage';
             }
+            
+            $this->redirect($redirect_uri);
         }
     }
 

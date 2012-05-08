@@ -57,6 +57,7 @@ c2corg_map_translations = {
     'name': \"" . __('name') . "\",
     'elevation': \"" . __('elevation') . "\",
     'Recenter': \"" . __('recenter') . "\",
+    'permalink': \"" . __('permalink') . "\",
     'Permalink.openlink': \"" . __('Permalink.openlink') . "\",
     'Please wait...': \"" . __(' loading...') . "\",\n" .
     '\'${nb_items} items. Click to show info\': "' . __('${nb_items} items. Click to show info') . "\",\n" .

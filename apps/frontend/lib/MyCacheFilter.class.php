@@ -249,7 +249,6 @@ class MyCacheFilter extends sfCacheFilter
     
         case 'cdasearch':
             if (    !$count_request_parameters
-                 || !$is_main_filter_switch_on
                  || !count($perso->getPlacesFilter())
                )
             {
