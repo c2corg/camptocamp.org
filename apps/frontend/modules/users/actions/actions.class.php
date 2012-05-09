@@ -182,7 +182,7 @@ class usersActions extends documentsActions
     public function executeLogin()
     {
         $user = $this->getUser();
-        $redirect_param = $this->getRequest()->getParameter('redirect', '');
+        $redirect_param = $this->getRequestParameter('redirect', '');
     
         if ($user->isConnected())
         {
@@ -204,15 +204,22 @@ class usersActions extends documentsActions
 
             // if we came here from a redirection due to insufficient credentials, display a flash info :
             $uri = $this->getRequest()->getUri();
-            if (strstr($uri, 'edit'))
+            if (strstr($uri, 'login'))
             {
-                if (strstr($uri, 'edit/')) // there is an id in the URI => page edition
+                if (strstr($uri, 'edit'))
                 {
-                    $this->setWarning('You need to login to edit this page', NULL, false);
+                    if (strstr($uri, 'edit/')) // there is an id in the URI => page edition
+                    {
+                        $this->setWarning('You need to login to edit this page', NULL, false);
+                    }
+                    else // page creation
+                    {
+                        $this->setWarning('You need to login to create this page', NULL, false);
+                    }
                 }
-                else // page creation
+                else
                 {
-                    $this->setWarning('You need to login to create this page', NULL, false);
+                    $this->setWarning('You need to login to access to this page', NULL, false);
                 }
             }
             

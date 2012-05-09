@@ -71,7 +71,7 @@ show_select=function()
                                 }
                                 else
                                 {
-                                    echo m_link_to(__('Add'), '@login_redirect?redirect=outings_wizard',
+                                    echo m_link_to(__('Add'), 'outings/wizard',
                                                    array('title'=> __('Create new outing unconnected')),
                                                    array('width' => 600));
                                 }
