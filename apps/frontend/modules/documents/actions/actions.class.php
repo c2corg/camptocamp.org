@@ -607,7 +607,7 @@ class documentsActions extends c2cActions
             // display associated docs:
             if ($module == 'users')
             {
-                $association_type = array('uc', 'ui');
+                $association_type = array('ui');
             }
             else
             {
