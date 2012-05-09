@@ -53,13 +53,18 @@ class usersActions extends documentsActions
 
                 // get associated outings
                 $associated_outings = array();
-                $nb_outings = 0;
-                $outing_params = array('users' => $id);
-                $nb_outings = sfConfig::get('app_users_outings_limit');
-                $associated_outings = Outing::listLatest($nb_outings + 1, array(), array(), array(), $outing_params, false, false);
-                $associated_outings = Language::getTheBest($associated_outings, 'Outing');
-                $this->associated_outings = $associated_outings;
+                $nb_outings = count(Association::countAllLinked(array($id), 'uo'));
+                $nb_outings_limit = 0;
+                if ($nb_outings > 0)
+                {
+                    $outing_params = array('users' => $id);
+                    $nb_outings_limit = sfConfig::get('app_users_outings_limit');
+                    $associated_outings = Outing::listLatest($nb_outings_limit, array(), array(), array(), $outing_params, false, false);
+                    $associated_outings = Language::getTheBest($associated_outings, 'Outing');
+                }
                 $this->nb_outings = $nb_outings;
+                $this->nb_outings_limit = $nb_outings_limit;
+                $this->associated_outings = $associated_outings;
                 
 
                 $forum_nickname = Punbb::getNickname($id);
@@ -189,7 +194,6 @@ class usersActions extends documentsActions
             if (!empty($redirect_param))
             {
                 $redirect_uri = str_replace('_', '/', $redirect_param);
-                
             }
             else
             {
@@ -281,18 +285,25 @@ class usersActions extends documentsActions
 
     public function executeSignUp()
     {
+        $redirect_param = $this->getRequestParameter('redirect', '');
+        
         if ($this->getUser()->isConnected())
         {
             // user is connected thus doesn't need to signup
             $referer = $this->getRequestParameter('referer');
-            if ($referer && !empty($referer))
+            if (!empty($redirect_param))
             {
-                $this->redirect($referer);
+                $redirect_uri = str_replace('_', '/', $redirect_param);
+            }
+            elseif ($referer && !empty($referer))
+            {
+                $redirect_uri = $referer;
             }
             else
             {
-                $this->redirect('@homepage');
+                $redirect_uri = '@homepage';
             }
+            $this->setNoticeAndRedirect('You are already connected !', $redirect_uri);
         }
         else
         {
@@ -311,6 +322,7 @@ class usersActions extends documentsActions
                     // sign up is OK
                     $this->getRequest()->setAttribute('password', $password);
                     $this->getRequest()->setAttribute('login_name', $login_name);
+                    $this->getRequest()->setAttribute('redirect', $redirect_param);
 
                     // send a confirmation email
                     $this->sendC2cEmail($this->getModuleName(), 'messageSignupPassword',
@@ -326,15 +338,26 @@ class usersActions extends documentsActions
                 else
                 {
                     $this->statsdIncrement('failure');
-                    return $this->setErrorAndRedirect('Sign up failed, please try again', '@signUp');
+                    if (empty($redirect_param))
+                    {
+                        $redirect_uri = '@signUp';
+                    }
+                    else
+                    {
+                        $redirect_uri = "@signUp_redirect?redirect=$redirect_param";
+                    }
+                    return $this->setErrorAndRedirect('Sign up failed, please try again', $redirect_uri);
                 }
             }
             else
             {
                 // display form
+                $this->redirect_param = $redirect_param;
+                
                 $g = new Captcha();
                 $this->getUser()->setAttribute('captcha', $g->generate());
                 $this->statsdIncrement('captcha');
+                
                 $this->setPageTitle($this->__('Signup'));
             }
         }
@@ -395,6 +418,7 @@ class usersActions extends documentsActions
         // some code for template if needed
         $this->password = $this->getRequest()->getAttribute('password');
         $this->login_name = trim($this->getRequest()->getAttribute('login_name'));
+        $this->redirect = trim($this->getRequest()->getAttribute('redirect'));
     }
 
     public function executeMyPage()

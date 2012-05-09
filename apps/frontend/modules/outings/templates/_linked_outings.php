@@ -6,11 +6,15 @@ if(isset($nb_outings))
     if (isset($items))
     {
         $nb_items = count($items);
+        if (!isset($nb_outings_limit))
+        {
+            $nb_outings_limit = 0;
+        }
         if ($nb_items > $nb_outings)
         {
             $nb_outings = "> $nb_outings";
         }
-        else
+        elseif ($nb_outings_limit == 0)
         {
             $nb_outings = $nb_items;
         }

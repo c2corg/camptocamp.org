@@ -25,7 +25,11 @@ quicksearch:
 signUp:
   url: /signUp
   param: { module: users, action: signUp }
-  
+
+signUp_redirect:
+  url: /signUp/:redirect
+  param: { module: users, action: signUp }
+
 login:
   url: /login
   param: { module: users, action: login }

@@ -43,7 +43,7 @@ include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/ma
 if ($is_not_archive && $is_not_merged)
 {
     echo start_section_tag('User outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'users', 'items' => $associated_outings, 'nb_outings' => $nb_outings, 'empty_list_tips' => 'This user does not have any associated outing.'));
+    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'users', 'items' => $associated_outings, 'nb_outings' => $nb_outings, 'nb_outings_limit' => $nb_outings_limit, 'empty_list_tips' => 'This user does not have any associated outing.'));
     echo end_section_tag();
     
     echo start_section_tag('User contributions', 'contributions');
