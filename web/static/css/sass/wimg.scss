@@ -156,10 +156,6 @@ span.share_bookmark {
   background: url(datauri('/static/images/picto/edit.png')) no-repeat 0;
 }
 
-.action_list span, .action_list, .c2cui_picto.action_list, .picto_list {
-  background: url(datauri('/static/images/picto/list.png')) no-repeat 0;
-}
-
 .action_filter span, .action_filter, .action_query, .c2cui_picto.action_filter, #google_search_submit, #q, #_q,
 .image_list a.view_original, #lightbox_view_original {
   background: url(datauri('/static/images/picto/search.png')) no-repeat 0;

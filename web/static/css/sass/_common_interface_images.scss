@@ -150,6 +150,10 @@ a.external_link, .htext .hextra a.external_link {
   background: url(datauri('/static/images/picto/cancel.png')) no-repeat 0;
 }
 
+.action_list span, .action_list, .c2cui_picto.action_list, .picto_list {
+  background: url(datauri('/static/images/picto/list.png')) no-repeat 0;
+}
+
 .action_back {
   background: url(datauri('/static/images/picto/back.png')) no-repeat 0;
 }
