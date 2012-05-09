@@ -161,17 +161,17 @@ class Association extends BaseAssociation
             }
 
             $where = '( ' . implode(' OR ', $where2 ) . ' )';
-            $where_array = array_merge($where_array, $where_array);
+            $where_array2 = array_merge($where_array, $where_array);
             
             $query = "SELECT $fields " . 
                  'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
                  'WHERE mi.id IN '. 
                  "((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND $where) ".
-                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND pe = ?)) ".
+                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND $where)) ".
                  'ORDER BY mi.id ASC';
 
             $results = sfDoctrine::connection()
-                        ->standaloneQuery($query, $where_array)
+                        ->standaloneQuery($query, $where_array2)
                         ->fetchAll();
         }
         else
