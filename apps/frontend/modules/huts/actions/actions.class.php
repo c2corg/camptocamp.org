@@ -132,7 +132,7 @@ class hutsActions extends documentsActions
             {
                 if (!$is_gite)
                 {
-                    $outing_params = array('huts' => $$current_doc_id);
+                    $outing_params = array('huts' => $current_doc_id);
                 }
                 else
                 {
