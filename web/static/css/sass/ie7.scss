@@ -944,7 +944,10 @@ option.picto_act
 #footer_border_left, #footer_border_right, #partners a,
 .picto.cc-by-sa, .picto.cc-by-sa-mini, .picto.cc-by-nc-nd, .picto.copyright,
 .cc_gen, .cc_gen.lang_fr, .image_license, .license_mini,
-#paypal-button, #pp_button_mini, span.share_bookmark
+#paypal-button, #pp_button_mini, span.share_bookmark,
+.thumb_data_img div.license_1, .image_list div.license_1,
+.thumb_data_img div.license_2, .image_list div.license_2,
+.thumb_data_img div.license_3, .image_list div.license_3
 {
   background: url(c2chash('/static/images/borders_and_logos.png')) no-repeat;
 }
