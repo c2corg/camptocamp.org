@@ -139,13 +139,13 @@ class Association extends BaseAssociation
     }
 
 
-    public static function findAllWithBestName($id, $user_prefered_langs, $type = null)
+    public static function findAllWithBestName($id, $user_prefered_langs, $types = null)
     {
         // elevation field is used to guess most important associated doc
         // we use lon/lat instead of geom_wkt to avoid retrieving heavy routes/areas wkt
         $fields = 'm.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name, makePointWkt(m.lon, m.lat) as pointwkt';
         
-        if ($type)
+        if ($types)
         {
             if (!is_array($types))
             {
