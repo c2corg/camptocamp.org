@@ -48,8 +48,6 @@ Proj4js.defs["EPSG:21781"] = "+title=CH1903 / LV03 +proj=somerc +lat_0=46.952405
 
 c2corg.API = OpenLayers.Class(MapFish.API, {
 
-    lang: 'fr',
-
     epsg4326: new OpenLayers.Projection("EPSG:4326"),
     miller: new OpenLayers.Projection("IGNF:MILLER"),
     fxx: new OpenLayers.Projection("IGNF:GEOPORTALFXX"),
