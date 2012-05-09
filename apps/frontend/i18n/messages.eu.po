@@ -2866,6 +2866,10 @@ msgstr "Helbide elektroniko bat eman behar duzu."
 msgid "You must specify an username"
 msgstr "Erabiltzaile izen bat eman behar duzu."
 
+# [WARNING] en translation used
+msgid "You need to login to access to this page"
+msgstr "You need to login to access this page."
+
 msgid "You need to login to create this page"
 msgstr "Orri hau sortzeko beharrezkoa da identifikatzea."
 
@@ -4057,6 +4061,12 @@ msgstr "Kategoriak (aukera anitz egin daitezke):"
 
 msgid "category"
 msgstr "Kategoria:"
+
+# [general comment]
+# [cda]
+# [WARNING] es translation used
+msgid "cda More"
+msgstr "Más..."
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
@@ -6027,6 +6037,10 @@ msgstr "pendiente promedia (grados)"
 
 msgid "people pic"
 msgstr "pertsonaiak"
+
+# [WARNING] en translation used
+msgid "permalink"
+msgstr "Permalink"
 
 msgid "personal article"
 msgstr "artikulu pertsonala"

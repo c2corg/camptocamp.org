@@ -2721,11 +2721,15 @@ msgstr "Usa un‘altra email."
 msgid "You must specify an username"
 msgstr "Specifica un nome utente."
 
+# [WARNING] needs_review
+msgid "You need to login to access to this page"
+msgstr "Per accedere la pagina devi accedere al sito."
+
 msgid "You need to login to create this page"
-msgstr "Per creare questa pagina bisogna accedere al sito"
+msgstr "Per creare questa pagina bisogna accedere al sito."
 
 msgid "You need to login to edit this page"
-msgstr "Per modificare la pagina devi accedere al sito"
+msgstr "Per modificare la pagina devi accedere al sito."
 
 msgid "You should specify Turing number"
 msgstr "Non hai copiato la chiave anti-spam."
@@ -3909,6 +3913,12 @@ msgstr "Categorie (selezione multipla possibile):"
 
 msgid "category"
 msgstr "Categoria:"
+
+# [general comment]
+# [cda]
+# [WARNING] needs_update
+msgid "cda More"
+msgstr "Più..."
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
@@ -5725,6 +5735,10 @@ msgstr "Pendenza media (gradi):"
 
 msgid "people pic"
 msgstr "persone"
+
+# [WARNING] en translation used
+msgid "permalink"
+msgstr "Permalink"
 
 msgid "personal article"
 msgstr "articolo personale"

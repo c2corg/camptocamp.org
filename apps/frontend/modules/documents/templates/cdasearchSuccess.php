@@ -114,16 +114,19 @@ echo filter_field('cda_elevation',
         select_tag('elevation', options_for_select($elevation_options)));
 ?>
 <br />
-<br />
 <?php if ($lang == 'fr'): ?>
 <input type="image" value="<?php echo __('Search on c2c');?>" name="commit" src="/static/images/cda/bouton.png">
 <?php else:
-    echo c2c_submit_tag(__('Search on c2c'), array('picto' => 'action_filter', 'class' => 'main_button'))
-       . '<br />';
+    echo c2c_submit_tag(__('Search on c2c'), array('picto' => 'action_filter', 'class' => 'main_button'));
 endif;
 ?>
 <br />
 <?php echo '<a href="/' . $type . '/filter">' . __('Advanced search') . '</a>' ?>
+<br /><br />
+<?php
+$cda_config = sfConfig::get('app_portals_cda');
+echo link_to(__('cda More'), '@document_by_id?module=portals&id=' . $cda_config['id']);
+?>
 </form>
 <?php endif?>
 <div class="fake_clear"> &nbsp;</div>

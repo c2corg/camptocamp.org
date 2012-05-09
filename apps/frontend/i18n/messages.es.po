@@ -2721,11 +2721,15 @@ msgstr "Tienes que especificar una dirección de email."
 msgid "You must specify an username"
 msgstr "Tienes que especificar un nombre de usuario."
 
+# [WARNING] en translation used
+msgid "You need to login to access to this page"
+msgstr "You need to login to access this page."
+
 msgid "You need to login to create this page"
-msgstr "Te has de conectar para crear esta página"
+msgstr "Te has de conectar para crear esta página."
 
 msgid "You need to login to edit this page"
-msgstr "Se ha de conectar para modificar esta página"
+msgstr "Se ha de conectar para modificar esta página."
 
 msgid "You should specify Turing number"
 msgstr "No ha copiado la cadena anti-spam."
@@ -3899,6 +3903,12 @@ msgstr "Categorías (selección múltiple posible):"
 
 msgid "category"
 msgstr "Categoria:"
+
+# [general comment]
+# [cda]
+# [WARNING] needs_update
+msgid "cda More"
+msgstr "Más..."
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
@@ -5745,6 +5755,10 @@ msgstr "pendiente promedia (grados)"
 
 msgid "people pic"
 msgstr "personajes"
+
+# [WARNING] en translation used
+msgid "permalink"
+msgstr "Permalink"
 
 msgid "personal article"
 msgstr "artículo personal"

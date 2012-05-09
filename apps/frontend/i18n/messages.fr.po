@@ -2716,6 +2716,9 @@ msgstr "Vous devez spécifier une adresse email."
 msgid "You must specify an username"
 msgstr "Vous devez préciser un nom d'utilisateur."
 
+msgid "You need to login to access to this page"
+msgstr "Vous devez vous identifier pour accéder à cette page."
+
 msgid "You need to login to create this page"
 msgstr "Vous devez vous identifier pour créer cette page."
 
@@ -4000,6 +4003,12 @@ msgstr "Catégories (sélection multiple possible)&nbsp;:"
 
 msgid "category"
 msgstr "Catégorie&nbsp:"
+
+# [general comment]
+# [cda]
+# [WARNING] needs_review
+msgid "cda More"
+msgstr "Pour aller plus loin"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
@@ -5809,6 +5818,9 @@ msgstr "Pente moyenne (degrés)&nbsp;:"
 
 msgid "people pic"
 msgstr "personnages"
+
+msgid "permalink"
+msgstr "Permalien"
 
 msgid "personal article"
 msgstr "article personnel"

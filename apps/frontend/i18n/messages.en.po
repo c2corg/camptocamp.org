@@ -2723,11 +2723,15 @@ msgstr "You must specify an email address."
 msgid "You must specify an username"
 msgstr "You must specify an username"
 
+# [WARNING] needs_review
+msgid "You need to login to access to this page"
+msgstr "You need to login to access this page."
+
 msgid "You need to login to create this page"
-msgstr "You need to login to edit this page"
+msgstr "You need to login to edit this page."
 
 msgid "You need to login to edit this page"
-msgstr "You need to login to edit this page"
+msgstr "You need to login to edit this page."
 
 msgid "You should specify Turing number"
 msgstr "You did not copy the Turing number"
@@ -3939,6 +3943,12 @@ msgstr "Categories (multiple selections possible):"
 
 msgid "category"
 msgstr "Category:"
+
+# [general comment]
+# [cda]
+# [WARNING] needs_update
+msgid "cda More"
+msgstr "More..."
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
@@ -5772,6 +5782,9 @@ msgstr "Average slope (degrees)"
 
 msgid "people pic"
 msgstr "people"
+
+msgid "permalink"
+msgstr "Permalink"
 
 msgid "personal article"
 msgstr "personal article"

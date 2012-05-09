@@ -2731,6 +2731,10 @@ msgstr "Sie müssen eine Email-Adresse angeben."
 msgid "You must specify an username"
 msgstr "Sie müssen einen Benutzernamen angeben."
 
+# [WARNING] en translation used
+msgid "You need to login to access to this page"
+msgstr "You need to login to access this page."
+
 msgid "You need to login to create this page"
 msgstr "Sie müssen sich einloggen, um diese Seite zu erstellen."
 
@@ -4074,6 +4078,12 @@ msgstr "Kategorien (Mehrfachauswahl möglich):"
 
 msgid "category"
 msgstr "Benutzerkategorie:"
+
+# [general comment]
+# [cda]
+# [WARNING] needs_update
+msgid "cda More"
+msgstr "Mehr..."
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
@@ -5952,6 +5962,10 @@ msgstr "Mittlere Neigung (in Grad):"
 
 msgid "people pic"
 msgstr "Personen"
+
+# [WARNING] en translation used
+msgid "permalink"
+msgstr "Permalink"
 
 msgid "personal article"
 msgstr "persönlicher Beitrag"
