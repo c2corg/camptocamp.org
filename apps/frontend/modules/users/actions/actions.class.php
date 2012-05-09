@@ -204,7 +204,7 @@ class usersActions extends documentsActions
 
             // if we came here from a redirection due to insufficient credentials, display a flash info :
             $uri = $this->getRequest()->getUri();
-            if (strstr($uri, 'login'))
+            if (strstr($uri, 'login') === false)
             {
                 if (strstr($uri, 'edit'))
                 {
@@ -221,6 +221,10 @@ class usersActions extends documentsActions
                 {
                     $this->setWarning('You need to login to access to this page', NULL, false);
                 }
+            }
+            elseif (!empty($redirect_param))
+            {
+                $this->setWarning('You need to login to access to this page', NULL, false);
             }
             
             $this->redirect_param = $redirect_param;
