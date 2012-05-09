@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ dynafit_pdg, changerdapproche, camp_d, google, dynafit_baltoro, boutique_c2c, baechli, camp_e, dynafit_pdg, google, dynafit_baltoro, changerdapproche ]
+    values: [ google, changerdapproche, camp_h, google, dynafit_baltoro, boutique_c2c, baechli, camp_f, boutique_c2c, google, dynafit_baltoro, changerdapproche ]
   banners:
     list:
       skalp:
