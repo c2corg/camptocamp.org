@@ -41,7 +41,6 @@ if ($is_not_archive && $is_not_merged)
     $document->associated_areas = $associated_areas;
 }
 include_partial('data', array('document' => $document, 'user' => $creator));
-include_partial('documents/geom_warning', array('document' => $document));
 if ($is_not_archive)
 {
     echo '<div class="all_associations col_right col_33">';
@@ -49,6 +48,7 @@ if ($is_not_archive)
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     echo '</div>';
 }
+include_partial('documents/geom_warning', array('document' => $document));
 echo end_section_tag();
 
 include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
