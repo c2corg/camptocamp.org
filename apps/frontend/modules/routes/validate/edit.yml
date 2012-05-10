@@ -28,6 +28,8 @@ fields:
     heightDiffValidator:
   difficulties_height:
     heightDiffValidator:
+  elevation:
+    elevationValidator:
   max_elevation:
     elevationValidator:
   min_elevation:
