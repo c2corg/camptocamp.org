@@ -457,7 +457,7 @@ function unhighlight_splitter()
     splitter_status = 0;
 }
 
-function toggleHomeNav(donotsavestatus)
+function toggleHomeNav(savestatus)
 {
     // no left menu folding for ie6-7
     if (Prototype.Browser.IE &&
@@ -488,12 +488,12 @@ function toggleHomeNav(donotsavestatus)
     }
     unhighlight_splitter();
 
-    if (donotsavestatus) {
+    if (savestatus) {
       registerFoldStatus(nav_status_string, nav_status_cookie_position, !is_open);
     }
 }
 
-function toggleNav(donotsavestatus)
+function toggleNav(savestatus)
 {
     // no left menu folding for ie6-7
     if (Prototype.Browser.IE &&
@@ -545,7 +545,7 @@ function toggleNav(donotsavestatus)
 
     if (splitter) { unhighlight_splitter(); }
 
-    if (donotsavestatus)
+    if (savestatus)
     {
         registerFoldStatus(nav_status_string, nav_status_cookie_position, !is_expanded);
     }
@@ -571,11 +571,11 @@ function setNav(is_home)
           {
               if (is_home)
               {
-                  toggleHomeNav(true);
+                  toggleHomeNav(false);
               }
               else
               {
-                  toggleNav(true);
+                  toggleNav(false);
               }
               return;
           }
@@ -592,11 +592,11 @@ function setNav(is_home)
     {
         if (is_home)
         {
-            toggleHomeNav(true);
+            toggleHomeNav(false);
         }
         else
         {
-            toggleNav(true);
+            toggleNav(false);
         }
     }
 }
