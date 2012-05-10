@@ -750,7 +750,7 @@ function getDirTimestampInfo($dir, $pattern) {
     $files = glob($dir.'/*'.$pattern);
     $list = array();
     foreach ($files as $file) {
-        $list[] = substr($file, 3) . ': ' . substr(md5_file($file), 0, 8);
+        $list[] = substr($file, 3) . ': \'' . substr(md5_file($file), 0, 8) . '\'';
     }
     return $list;
 }
