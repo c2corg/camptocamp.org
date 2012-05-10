@@ -72,17 +72,14 @@ function ArrayIdx() {
 
 function SavePref(name, value) {
 	if ($('name_to_use') !== null) { // logged user
-		var params = new Hash();
-		params.name = name;
-		params.value = value;
 		new Ajax.Request('/users/savepref', {
-			method: 'post',
-			parameters: params
-		});
+                         method: 'post',
+                         parameters: {'name': name, 'value': value}
+                         });
 	}
 }
 
-function catfind() {
+function catfind(savepref) {
 	if( document.getElementById("punindex") ) {
 		var pref_save;
 		if (LireCookie("punbb_dyncat")) {
@@ -97,7 +94,9 @@ function catfind() {
 			dyncat(this.h, this.t);
 			var pref_save = pref.join('_');
 			EcrireCookie("punbb_dyncat", pref_save, date);
-                        SavePref("punbb_dyncat", pref_save);
+            if (savepref) {
+                SavePref("punbb_dyncat", pref_save);
+            }
 		};
 
 		for(var i=0; i < nbcat; i++)
