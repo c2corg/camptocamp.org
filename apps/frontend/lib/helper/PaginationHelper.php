@@ -260,8 +260,18 @@ function link_to_outings($label)
     return link_to($label, $uri);
 }
 
-function header_list_tag($field_name, $label = NULL, $default_order = '')
+function header_list_tag($field_name, $label = NULL, $default_order = '', $simple = false)
 {
+    if (empty($label))
+    {
+        $label = $field_name;
+    }
+    
+    if ($simple)
+    {
+        return simple_header_list_tag($label);
+    }
+    
     $request = sfContext::getInstance()->getRequest();
     $params = array();
     $order = $page = '';
@@ -303,14 +313,7 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
     
     $uri = _addUrlParameters(_getBaseUri(), array('order', 'page', 'orderby'), $params);
 
-    if (!empty($label))
-    {
-        $label = __($label);
-    }
-    else
-    {
-        $label = __($field_name);
-    }
+    $label = __($label);
     $label = str_replace(array('&nbsp;:', ' :', ':'), '', $label);
     if ($class)
     {
@@ -324,7 +327,8 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
 
 function simple_header_list_tag($field_name = '')
 {
-    return '<th>' . ucfirst(__($field_name)) . '</th>';
+    $label = str_replace(array('&nbsp;:', ' :', ':'), '', __($field_name));
+    return '<th>' . ucfirst($label) . '</th>';
 }
 
 function select_all_header_list_tag($title = '')

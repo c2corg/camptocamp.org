@@ -113,7 +113,7 @@ if (!$is_not_archive)
                                                         'current_version' => $current_version));
 }
 
-if ($has_map)
+if ($has_map && !$mobile_version)
 {
     $map_filter = $sf_data->getRaw('map_filter');
     include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section',

@@ -24,7 +24,7 @@ $mobile_version = c2cTools::mobileVersion();
     </a>
 </div>
 <div class='column row1 span-5'>
-    <a href="<?php echo url_for('@document_by_id?module=articles&id=' . sfConfig::get('app_mw_contest_id') . '&lang=' . $culture); ?>">
+    <a href="http://www.mountainwilderness.fr/component/content/article/3031" target="_blank">
       <?php
         $img_title = __('contest');
         echo image_tag('/static/images/cda/slide2.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
@@ -33,7 +33,7 @@ $mobile_version = c2cTools::mobileVersion();
     </a>
 </div>
 <div class='column row1 last span-5'>
-  <a href="<?php echo url_for('@default?action=list&module=images&owtp=yes'); ?>">
+  <a href="<?php echo url_for('@default?action=list&module=images&owtp=yes', array('target' => '_blank')); ?>">
     <?php
       $img_title = __('picturial');
       echo image_tag('/static/images/cda/slide3.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
@@ -42,7 +42,7 @@ $mobile_version = c2cTools::mobileVersion();
   </a>
   <br />
   <div class="image2">
-    <a href="/forums/viewforum.php?id=42">
+    <a href="/forums/viewforum.php?id=42" target="_blank">
       <?php
         $img_title = __('questions?');
         echo image_tag('/static/images/cda/slide4.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
@@ -58,7 +58,7 @@ $mobile_version = c2cTools::mobileVersion();
     </div>
   </div>
   <div class='column row2 last span-15'>
-    <a href="/map?zoom=7&lat=44.5&lon=3.3&layerNodes=public_transportations&bgLayer=gmap_physical">
+    <a href="/map?zoom=7&lat=44.5&lon=3.3&layerNodes=public_transportations&bgLayer=gmap_physical" target="_blank">
       <?php
       $img_title = __('map (cda)');
       echo image_tag('/static/images/cda/slide5.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));

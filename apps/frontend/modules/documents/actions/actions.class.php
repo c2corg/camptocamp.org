@@ -887,7 +887,21 @@ class documentsActions extends c2cActions
         }
 
         $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
-
+        $orderby = $this->getRequestParameter('orderby', '');
+        
+        if ($module == 'outings' && empty($params_list) && in_array($orderby, array('name', 'onam', 'act')))
+        {
+            $redirect_uri = $module;
+            
+            $format = $this->getRequestParameter('format', '');
+            if (!empty($format) && $format != 'list')
+            {
+                $redirect_uri .= '/format/' . $format;
+            }
+            
+            $this->redirect($redirect_uri);
+        }
+        
         $this->show_images = in_array('img', $format);
         $this->setPageTitle($this->__($module . ' list'));
         if (in_array('full', $format))
@@ -1058,6 +1072,19 @@ class documentsActions extends c2cActions
     public function executeWidgetgenerator()
     {
       $this->setTemplate('../../documents/templates/widgetgenerator');
+    }
+
+    public function executeJson()
+    {
+        $format = $this->getRequestParameter('format', 'json');
+        $format = explode('-', $format);
+        if (!in_array('json', $format))
+        {
+            $format[] = 'json';
+        }
+        $this->format = $format;
+        
+        self::executeList();
     }
 
     public function executeGeojson()

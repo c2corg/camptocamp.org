@@ -1,0 +1,11 @@
+list:
+  is_secure:    on
+  credentials:  moderator
+
+json:
+  is_secure:    on
+  credentials:  moderator
+
+whatsnew:
+  is_secure:    on
+  credentials:  moderator
