@@ -33,7 +33,7 @@ $mobile_version = c2cTools::mobileVersion();
     </a>
 </div>
 <div class='column row1 last span-5'>
-  <a href="<?php echo url_for('@default?action=list&module=images&owtp=yes', array('target' => '_blank')); ?>">
+  <a href="<?php echo url_for('@default?action=list&module=images&owtp=yes'); ?>" target="_blank">
     <?php
       $img_title = __('picturial');
       echo image_tag('/static/images/cda/slide3.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
