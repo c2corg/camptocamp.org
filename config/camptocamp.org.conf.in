@@ -133,7 +133,7 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
 <IfModule mod_expires.c>
     <FilesMatch "\.(ico|html|xml|txt|jpg|jpeg|png|gif|svg|js|css)$">
         ExpiresActive On
-        ExpiresDefault "access plus 1 week"
+        ExpiresDefault "access plus 1 month"
     </FilesMatch>
 </IfModule>
 
