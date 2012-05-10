@@ -45,16 +45,14 @@ function _loadJsOamTools()
     use_stylesheet('/static/js/mapfish/c2corgApi/css/api.css', 'last');
 
     // it is not possible to load google maps api v2 asynchronously since it uses document.write
-    // upgrade to v3 to enable (using &callback=some_function param)
+    // upgrade to v3 to enable (using &callback=some_function param) TODO
+    // We use api <= 3.6 https://github.com/openlayers/openlayers/commit/b17c7b69f25ce0ddbaf720f91b7d48328b005831
+    //use_javascript('http://maps.googleapis.com/maps/api/js?v=3.6&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
     use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
 
-    //if (!sfConfig::get('app_async_map', true))
-    //{
-        use_javascript('http://api.ign.fr/api?v=1.1-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
-    //}
-
-    // FIXME following files will only be loaded by internet explorer when in async mode (extjs cannot be loaded async with ie)
-    // using conditional comments
+    // FIXME following files will only be loaded by internet explorer when in async mode using conditional comments
+    // (extjs 2 cannot be loaded async with ie, it uses document.write)
+    use_javascript('/static/js/ie9mapfix.js', 'maps');
     use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'last');
     use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'last');
     //use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'maps');
