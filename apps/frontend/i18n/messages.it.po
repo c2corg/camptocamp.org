@@ -4757,9 +4757,8 @@ msgstr "cronologia"
 msgid "history_tab_help"
 msgstr "Mostrare e confrontare le differenti versione del documento"
 
-# [WARNING] en translation used
 msgid "hole"
-msgstr "chasm"
+msgstr "abisso"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
