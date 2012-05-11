@@ -17,8 +17,8 @@ $id = $sf_params->get('id');
                 echo li(button_anchor('Interactive map', 'map_container', 'picto_maps', $module, $id, $lang));
             }
             ?>
-            <li><?php echo button_anchor('Linked outings', 'outings', 'picto_outings', $module, $id, $lang); ?></li>
             <li><?php echo button_anchor('Linked routes', 'routes', 'picto_routes', $module, $id, $lang); ?></li>
+            <li><?php echo button_anchor('Linked outings', 'outings', 'picto_outings', $module, $id, $lang); ?></li>
             <?php
             if ($section_list['books'])
             {

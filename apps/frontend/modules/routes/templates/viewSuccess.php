@@ -237,7 +237,7 @@ if ($is_not_archive && $is_not_merged)
                                      '@document_by_id?module=users&id=' . $author_info['id']);
                 echo !$mobile_version ? '</td></tr>' : '</li>';
             endforeach;
-            echo !$mobile_version ? '</body></table>' : '</ul>';
+            echo !$mobile_version ? '</tbody></table>' : '</ul>';
             
             if (count($associated_outings) > 1)
                 echo simple_pager_navigation($count, count($associated_outings), 'outings_group_'); ?>
@@ -318,7 +318,7 @@ if ($is_not_archive && $is_not_merged)
                                          '@document_by_id?module=users&id=' . $author_info['id']);
                     echo !$mobile_version ? '</td></tr>' : '</li>';
                 endforeach;
-                echo !$mobile_version ? '</body></table>' : '</ul>';
+                echo !$mobile_version ? '</tbody></table>' : '</ul>';
                 
                 if (count($routes_outings) > 1)
                     echo simple_pager_navigation($count, count($routes_outings), 'routings_group_'); ?>

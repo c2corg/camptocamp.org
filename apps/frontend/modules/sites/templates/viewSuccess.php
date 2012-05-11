@@ -158,7 +158,7 @@ if ($is_not_archive && $is_not_merged)
                          : '');
                 ?></td></tr><?php
            endforeach ?>
-           </body></table>
+           </tbody></table>
                <?php if (count($associated_outings) > 1)
                          echo simple_pager_navigation($count, count($associated_outings), 'outings_group_'); ?>
            </div>

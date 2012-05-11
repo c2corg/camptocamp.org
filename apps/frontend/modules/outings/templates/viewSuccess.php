@@ -109,7 +109,6 @@ if ($is_not_archive)
                           'weather' => true,
                           'avalanche_bulletin' => $avalanche_bulletin,
                           'date' => $document->getRaw('date')));
-    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     echo '</div>';
 }

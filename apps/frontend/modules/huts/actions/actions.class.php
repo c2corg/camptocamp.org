@@ -69,6 +69,11 @@ class hutsActions extends documentsActions
                 
                 $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, 'pr', false, true, $route_ids);
                 $associated_routes = array_merge($associated_routes, $associated_parking_routes);
+                $this->ids = implode('-', $parking_ids);
+            }
+            else
+            {
+                $this->ids = $current_doc_id;
             }
 
             // routes linked to the hut
@@ -136,7 +141,7 @@ class hutsActions extends documentsActions
                 }
                 else
                 {
-                    $outing_params = array('parkings' => $parking_ids);
+                    $outing_params = array('parkings' => $this->ids);
                 }
                 $nb_outings = sfConfig::get('app_nb_linked_outings_docs');
                 $latest_outings = Outing::listLatest($nb_outings + 1, array(), array(), array(), $outing_params, false);

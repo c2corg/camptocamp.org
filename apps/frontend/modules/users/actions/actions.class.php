@@ -794,7 +794,7 @@ class usersActions extends documentsActions
             !$this->hasRequestParameter('value') ||
             !$this->getUser()->isConnected())
         {
-		return $this->ajax_feedback('');
+            return $this->ajax_feedback('');
         }
 
         $pref_name = $this->getRequestParameter('name');

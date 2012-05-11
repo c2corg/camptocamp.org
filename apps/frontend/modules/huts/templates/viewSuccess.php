@@ -114,26 +114,12 @@ if ($is_not_archive && $is_not_merged)
     if (!$is_gite)
     {
         $doc_module = 'huts';
-        $doc_ids = $id;
         $type = 'hr'; // route-hut, reversed
     }
     else
     {
         $doc_module = 'parkings';
-        $doc_ids = array();
-        foreach ($associated_parkings as $doc)
-        {
-            $doc_ids[] = $doc['id'];
-        }
-        $doc_ids = implode('-', $doc_ids);
         $type = ''; // no link to delete
-    }
-    
-    if (!$is_gite || !empty($doc_ids))
-    {
-        echo start_section_tag('Latest outings', 'outings');
-        include_partial('outings/linked_outings', array('id' => $doc_ids, 'module' => $doc_module, 'items' => $latest_outings, 'nb_outings' => $nb_outings));
-        echo end_section_tag();
     }
 
     echo start_section_tag('Linked routes', 'routes');
@@ -144,6 +130,13 @@ if ($is_not_archive && $is_not_merged)
                                                   'type' => $type,
                                                   'strict' => true));
     echo end_section_tag();
+    
+    if (!empty($doc_ids))
+    {
+        echo start_section_tag('Latest outings', 'outings');
+        include_partial('outings/linked_outings', array('id' => $doc_ids, 'module' => $doc_module, 'items' => $latest_outings, 'nb_outings' => $nb_outings));
+        echo end_section_tag();
+    }
     
     if ($section_list['books'])
     {
