@@ -4453,19 +4453,20 @@ class documentsActions extends c2cActions
 
     public function executeCda()
     {
-        $this->setTemplate('../../documents/templates/cda');
-        $this->setLayout('layout_cda');
-        $this->getResponse()->setTitle('changerdapproche.org');
-    }
-
-    public function executeCdasearch()
-    {
         $lang = $this->getRequestParameter('lang');
         if (!empty($lang))
         {
             $this->redirect('@cda');
         }
         
+        $this->setTemplate('../../documents/templates/cda');
+        $this->setLayout('layout_cda');
+        $this->getResponse()->setTitle('changerdapproche.org');
+        $this->getResponse()->addMeta('robots', 'index, follow');
+    }
+
+    public function executeCdasearch()
+    {
         $ranges = $this->getAreas(1);
         $this->ranges = $ranges;
 
@@ -4485,6 +4486,7 @@ class documentsActions extends c2cActions
         $this->setTemplate('../../documents/templates/cdasearch');
         $this->setLayout('layout_cda');
         $this->getResponse()->setTitle('changerdapproche.org');
+        $this->getResponse()->addMeta('robots', 'index, follow');
     }
 
     public function executeCdaredirect()
