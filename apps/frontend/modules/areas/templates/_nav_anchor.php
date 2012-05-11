@@ -13,7 +13,7 @@ $id = $sf_params->get('id');
             <li><?php echo button_anchor('Description', 'description', 'action_description', $module, $id, $lang); ?></li>
             <li><?php echo button_anchor('Interactive map', 'map_container', 'picto_maps', $module, $id, $lang); ?></li>
             <li><?php echo button_anchor('Linked documents', 'associated_docs', 'picto_documents', $module, $id, $lang); ?></li>
-            <li><?php echo button_anchor('Linked outings', 'outings', 'picto_outings', $module, $id, $lang); ?></li>
+            <li><?php echo button_anchor('Latest outings', 'outings', 'picto_outings', $module, $id, $lang); ?></li>
             <li><?php echo button_anchor('Images', 'images', 'picto_images', $module, $id, $lang); ?></li>
         </ul>
     </div>
