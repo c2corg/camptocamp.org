@@ -343,6 +343,11 @@ cda:
   url: /cda
   param: { module: documents, action: cda }
 
+cda_lang:
+  url: /cda/:lang
+  param: { module: documents, action: cda }
+  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
+
 cdasearch:
   url: /cda/search
   param: { module: documents, action: cdasearch }

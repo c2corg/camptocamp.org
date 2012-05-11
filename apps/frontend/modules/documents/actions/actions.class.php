@@ -633,7 +633,7 @@ class documentsActions extends c2cActions
                 $associated_areas = GeoAssociation::findAreasWithBestName($id, $prefered_cultures);
                 $this->associated_areas = $associated_areas;
             }
-            if (!in_array($module, array('articles', 'books', 'portals')))
+            if (!in_array($module, array('outings', 'articles', 'books', 'portals')))
             {
                 $associated_maps = GeoAssociation::findMapsWithBestName($id, $prefered_cultures);
                 $this->associated_maps = Map::getAssociatedMapsData($associated_maps);
@@ -4460,6 +4460,12 @@ class documentsActions extends c2cActions
 
     public function executeCdasearch()
     {
+        $lang = $this->getRequestParameter('lang');
+        if (!empty($lang))
+        {
+            $this->redirect('@cda');
+        }
+        
         $ranges = $this->getAreas(1);
         $this->ranges = $ranges;
 
