@@ -125,16 +125,16 @@ if ($is_not_archive && $is_not_merged)
     echo start_section_tag('Linked routes', 'routes');
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,
-                                                  'id' => $doc_ids,
+                                                  'id' => $ids,
                                                   'module' => $doc_module,
                                                   'type' => $type,
                                                   'strict' => true));
     echo end_section_tag();
     
-    if (!empty($doc_ids))
+    if (!empty($ids))
     {
         echo start_section_tag('Latest outings', 'outings');
-        include_partial('outings/linked_outings', array('id' => $doc_ids, 'module' => $doc_module, 'items' => $latest_outings, 'nb_outings' => $nb_outings));
+        include_partial('outings/linked_outings', array('id' => $ids, 'module' => $doc_module, 'items' => $latest_outings, 'nb_outings' => $nb_outings));
         echo end_section_tag();
     }
     
