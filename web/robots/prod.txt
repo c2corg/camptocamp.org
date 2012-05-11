@@ -6,6 +6,21 @@ Disallow: /frontend_dev.php
 # generic documents
 Disallow: /documents
 Disallow: /documents/
+# documents list
+Disallow: /areas/list/orderby
+Disallow: /articles/list/orderby
+Disallow: /books/list/orderby
+Disallow: /documents/list/orderby
+Disallow: /huts/list/orderby
+Disallow: /images/list/orderby
+Disallow: /maps/list/orderby
+Disallow: /outings/list/orderby
+Disallow: /parkings/list/orderby
+Disallow: /portals/list/orderby
+Disallow: /products/list/orderby
+Disallow: /routes/list/orderby
+Disallow: /sites/list/orderby
+Disallow: /summits/list/orderby
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit
@@ -145,6 +160,21 @@ Disallow: /frontend_dev.php/
 # generic documents
 Disallow: /documents
 Disallow: /documents/
+# documents list
+Disallow: /areas/list/orderby
+Disallow: /articles/list/orderby
+Disallow: /books/list/orderby
+Disallow: /documents/list/orderby
+Disallow: /huts/list/orderby
+Disallow: /images/list/orderby
+Disallow: /maps/list/orderby
+Disallow: /outings/list/orderby
+Disallow: /parkings/list/orderby
+Disallow: /portals/list/orderby
+Disallow: /products/list/orderby
+Disallow: /routes/list/orderby
+Disallow: /sites/list/orderby
+Disallow: /summits/list/orderby
 # documents edition
 Disallow: /areas/edit/
 Disallow: /articles/edit/
@@ -283,6 +313,21 @@ Disallow: /frontend_dev.php/
 # generic documents
 Disallow: /documents
 Disallow: /documents/
+# documents list
+Disallow: /areas/list/orderby
+Disallow: /articles/list/orderby
+Disallow: /books/list/orderby
+Disallow: /documents/list/orderby
+Disallow: /huts/list/orderby
+Disallow: /images/list/orderby
+Disallow: /maps/list/orderby
+Disallow: /outings/list/orderby
+Disallow: /parkings/list/orderby
+Disallow: /portals/list/orderby
+Disallow: /products/list/orderby
+Disallow: /routes/list/orderby
+Disallow: /sites/list/orderby
+Disallow: /summits/list/orderby
 # documents edition
 Disallow: /areas/edit/
 Disallow: /articles/edit/
@@ -421,6 +466,21 @@ Disallow: /frontend_dev.php/
 # generic documents
 Disallow: /documents
 Disallow: /documents/
+# documents list
+Disallow: /areas/list/orderby
+Disallow: /articles/list/orderby
+Disallow: /books/list/orderby
+Disallow: /documents/list/orderby
+Disallow: /huts/list/orderby
+Disallow: /images/list/orderby
+Disallow: /maps/list/orderby
+Disallow: /outings/list/orderby
+Disallow: /parkings/list/orderby
+Disallow: /portals/list/orderby
+Disallow: /products/list/orderby
+Disallow: /routes/list/orderby
+Disallow: /sites/list/orderby
+Disallow: /summits/list/orderby
 # documents edition
 Disallow: /areas/edit/
 Disallow: /articles/edit/
