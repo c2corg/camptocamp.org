@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ google, changerdapproche, camp_h, google, dynafit_baltoro, boutique_c2c, baechli, camp_f, boutique_c2c, google, dynafit_baltoro, changerdapproche ]
+    values: [ google, changerdapproche, camp_gravitezero, google, dynafit_baltoro, boutique_c2c, baechli, camp_gravitezero, boutique_c2c, google, dynafit_baltoro, changerdapproche ]
   banners:
     list:
       skalp:
@@ -190,3 +190,7 @@ all:
         id: 52
         image: camp-h.gif
         alt: ""
+      camp_gravitezero:
+        id: 53
+        image: camp-gravitezero.gif
+        alt: "Gravité Zéro"
