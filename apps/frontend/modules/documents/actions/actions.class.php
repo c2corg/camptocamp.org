@@ -518,6 +518,8 @@ class documentsActions extends c2cActions
     public function executeView()
     {
         $timer = new sfTimer('executeView');
+        $this->timer = $timer;
+        
         sfLoader::loadHelpers(array('General', 'MetaLink'));
 
         $id = $this->getRequestParameter('id');

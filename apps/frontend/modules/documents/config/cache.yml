@@ -156,3 +156,6 @@ _geom_warning:
 
 _annex_docs:
   enabled: off
+
+_doc_infos:
+  enabled: off
