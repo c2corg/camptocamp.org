@@ -12,36 +12,6 @@ class Portal extends BasePortal
         return self::convertStringToArray($value);
     }
 
-    public static function filterSetStaffed_period($value)
-    {   
-        return self::returnNullIfEmpty($value);
-    }   
-
-    public static function filterSetStaffed_capacity($value)
-    {
-        return self::returnNullIfEmpty($value);
-    }
-
-    public static function filterSetUnstaffed_capacity($value)
-    {
-        return self::returnNullIfEmpty($value);
-    }
-
-    public static function filterSetShelter_type($value)
-    {
-        return self::returnNullIfEmpty($value);
-    }
-
-    public static function filterSetPhone($value)
-    {
-        return self::returnNullIfEmpty($value);
-    }
-
-    public static function filterSetUrl($value)
-    {
-        return self::returnNullIfEmpty($value);
-    }
-
     public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Portal', self::buildFieldsList(), $sort);

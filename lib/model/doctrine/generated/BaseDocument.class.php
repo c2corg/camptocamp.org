@@ -387,6 +387,26 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     protected static function createPager($model, $select, $sort)
     {
+        $order_by = self::buildOrderby($select, $sort);
+        
+        $model_i18n = $model . 'I18n';
+        $pager = new c2cDoctrinePager($model, $sort['npp']);
+        
+        $q = $pager->getQuery();
+        $q->select(implode(',', $select))
+          ->from("$model m")
+          ->leftJoin("m.$model_i18n mi")
+          ->where('m.redirects_to IS NULL')
+          ->orderBy($order_by);
+        
+        return $pager;
+    }
+
+    /**
+     * Build ORDERBY query parameter
+     */
+    protected static function buildOrderby($select, $sort)
+    {
         if (in_array($sort['order_by'], $select))
         {
             $order_by  = $sort['order_by'];
@@ -419,17 +439,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $order_by = 'm.id DESC';
         }
         
-        $model_i18n = $model . 'I18n';
-        $pager = new c2cDoctrinePager($model, $sort['npp']);
-        
-        $q = $pager->getQuery();
-        $q->select(implode(',', $select))
-          ->from("$model m")
-          ->leftJoin("m.$model_i18n mi")
-          ->where('m.redirects_to IS NULL')
-          ->orderBy($order_by);
-        
-        return $pager;
+        return $order_by;
     }
 
     protected static function buildFieldsList()
@@ -1153,6 +1163,32 @@ class BaseDocument extends sfDoctrineRecordI18n
         else
         {
             return 0;
+        }
+    }
+
+    /**
+     * @param integer
+     * @param string
+     * @return object
+     */
+    public static function getCurrentVersionInfosFromIdAndCulture($document_id, $culture)
+    {
+        $result = Doctrine_Query::create()
+                             ->select('d.version, d.created_at')
+                             ->from('DocumentVersion d')
+                             ->where('d.document_id = ? AND d.culture = ?',
+                                     array($document_id, $culture))
+                             ->orderBy('d.version desc')
+                             ->limit(1)
+                             ->execute(array(), Doctrine::FETCH_ARRAY);
+                             
+        if (count($result))
+        {
+            return $result[0];
+        }
+        else
+        {
+            return null;
         }
     }
 

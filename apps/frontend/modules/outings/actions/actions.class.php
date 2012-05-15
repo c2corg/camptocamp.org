@@ -298,8 +298,11 @@ class outingsActions extends documentsActions
                         // replicate them with outing_id instead of (route_id or site_id):
                         foreach ($associations as $ea)
                         {
+                            $areas_id = $ea->get('linked_id');
                             $a = new GeoAssociation();
-                            $a->doSaveWithValues($id, $ea->get('linked_id'), $ea->get('type'));
+                            $a->doSaveWithValues($id, $areas_id, $ea->get('type'));
+                            // clear cache of associated areas
+                            $this->clearCache('areas', $areas_id, false, 'view');
                         }
                     }
                     
@@ -311,6 +314,8 @@ class outingsActions extends documentsActions
             {
                 $uo = new Association();
                 $uo->doSaveWithValues($user_id, $id, 'uo', $user_id); // main, linked, type
+                // clear cache of current user
+                $this->clearCache('users', $user_id, false, 'view');
             }    
             
             // create association with MW contest article, if requested

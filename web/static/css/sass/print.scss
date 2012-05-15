@@ -65,7 +65,7 @@ p {
 #license_box, /* supression de : "Le contenu de cette page est disponible sous licence ..."*/
 #outings_section_container .children_docs, /* liste de sorties associées */
 #associated_docs_section_container,
-.articles_content #data_section_container,
+.users_content #contributions_section_container,
 .toc_link,
 .default_text,
 .translate_button,
@@ -114,8 +114,9 @@ form.search, .sbox,
 }
 /* fin carto */
 
-.license_box {
+.license_box, .doc-infos {
   margin: 0 !important;
+  padding: 0 !important;
 }
 
 .article_titre_bg

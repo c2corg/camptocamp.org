@@ -121,11 +121,11 @@ echo filter_field('cda_elevation',
 endif;
 ?>
 <br />
-<?php echo '<a href="/' . $type . '/filter">' . __('Advanced search') . '</a>' ?>
+<?php echo '<a href="/' . $type . '/filter" target="_blank">' . __('Advanced search') . '</a>' ?>
 <br /><br />
 <?php
 $cda_config = sfConfig::get('app_portals_cda');
-echo link_to(__('cda More'), '@document_by_id?module=portals&id=' . $cda_config['id']);
+echo link_to(__('cda More'), '@document_by_id?module=portals&id=' . $cda_config['id'], array('target' => '_blank'));
 ?>
 </form>
 <?php endif?>

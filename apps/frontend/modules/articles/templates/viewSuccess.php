@@ -74,7 +74,7 @@ include_partial('documents/license', array('license' => $license, 'large' => $sh
 
 if (!$mobile_version)
 {
-    include_partial('documents/doc_infos', array('timer' => $timer));
+    include_partial('documents/doc_infos', array('version' => $current_version, 'created_at' => $created_at, 'timer' => $timer));
 }
 
 echo end_content_tag();

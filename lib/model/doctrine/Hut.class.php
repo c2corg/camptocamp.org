@@ -59,14 +59,14 @@ class Hut extends BaseHut
         if ($is_module)
         {
             $m = 'm';
-            $m3 = '';
+            $m2 = 'h';
             $join = null;
             $join_id = null;
         }
         else
         {
             $m = 'h';
-            $m3 = $m . '.';
+            $m2 = $m;
             $join = 'join_hut';
             $join_id = 'join_hut_id';
         }
@@ -83,7 +83,7 @@ class Hut extends BaseHut
                 self::buildConditionItem($conditions, $values, 'Array', array($m, 'h', 'activities'), 'act', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
-            self::buildConditionItem($conditions, $values, 'Around', $m3 . 'geom', 'harnd', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'harnd', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', 'hi.search_name', ($is_module ? array('hnam', 'name') : 'hnam'), 'join_hut_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'h', 'activities'), 'hact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'halt', $join, false, $params_list);

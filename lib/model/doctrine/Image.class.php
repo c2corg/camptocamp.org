@@ -366,7 +366,7 @@ class Image extends BaseImage
         if ($is_module)
         {
             $m = 'm';
-            $m3 = '';
+            $m2 = 'i';
             $mid = 'm.id';
             $join = null;
             $join_id = null;
@@ -374,7 +374,7 @@ class Image extends BaseImage
         else
         {
             $m = 'i';
-            $m3 = $m . '.';
+            $m2 = $m;
             //$mid = 'li.linked_id';
             $join = 'join_image';
             $join_id = $join . '_id';
@@ -394,7 +394,7 @@ class Image extends BaseImage
                 self::buildConditionItem($conditions, $values, 'Date', 'date_time::date', 'date', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
-            self::buildConditionItem($conditions, $values, 'Around', $m3 . 'geom', 'iarnd', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'iarnd', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', 'ii.search_name', ($is_module ? array('inam', 'name') : 'inam'), 'join_image_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'i', 'activities'), 'iact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'ialt', $join, false, $params_list);

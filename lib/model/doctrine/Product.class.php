@@ -23,7 +23,6 @@ class Product extends BaseProduct
         {
             $m = 'm';
             $m2 = 'p';
-            $m3 = '';
             $join = null;
             $join_id = null;
         }
@@ -31,7 +30,6 @@ class Product extends BaseProduct
         {
             $m = 'f';
             $m2 = $m;
-            $m3 = $m . '.';
             $join = 'join_product';
             $join_id = $join . '_id';
         }
@@ -48,7 +46,7 @@ class Product extends BaseProduct
             {
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
-            self::buildConditionItem($conditions, $values, 'Around', $m3 . 'geom', 'farnd', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'farnd', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', 'fi.search_name', ($is_module ? array('fnam', 'name') : 'fnam'), 'join_product_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'falt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'product_type'), 'ftyp', $join, false, $params_list);

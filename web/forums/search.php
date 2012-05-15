@@ -62,9 +62,14 @@ if ($pun_user['g_id'] == PUN_MOD)
         $c2c_board_condition = ' AND (f.id != '.C2C_BOARD_FORUM.')';
     }
 }
-else if ($pun_user['g_id'] == PUN_ADMIN)
+elseif ($pun_user['g_id'] == PUN_ADMIN)
 {
     $is_admmod = true;
+    $is_c2c_board = true;
+}
+elseif ($pun_user['g_id'] > PUN_GUEST)
+{
+    $is_admmod = false;
     $is_c2c_board = true;
 }
 else

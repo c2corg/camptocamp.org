@@ -64,21 +64,37 @@ class Association extends BaseAssociation
     
     
     // FIXME: factorize with findAllWithBestName
-    public static function findAllAssociatedDocs($id, $fields = array('*'), $type = null)
+    public static function findAllAssociatedDocs($id, $fields = array('*'), $types = null)
     {
         $select = implode(', ', $fields);
         
-        if ($type)
+        if ($types)
         {
+            if (!is_array($types))
+            {
+                $types = array($types);
+            }
+
+            $where2 = array();
+            $where_array = array($id);
+            foreach ($types as $type)
+            {
+                $where2[] = 'a.type = ?';
+                $where_array[] = $type;
+            }
+
+            $where = '( ' . implode(' OR ', $where2 ) . ' )';
+            $where_array2 = array_merge($where_array, $where_array);
+            
             $query = "SELECT $select " .
                  'FROM documents ' .
                  'WHERE id IN '. 
-                 '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND type = ?) '.
-                 'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND type = ?)) '.
+                 "((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND $where) ".
+                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND $where)) ".
                  'ORDER BY id ASC';
 
             $results = sfDoctrine::connection()
-                        ->standaloneQuery($query, array($id, $type, $id, $type))
+                        ->standaloneQuery($query, $where_array2)
                         ->fetchAll();
         }
         else
@@ -94,6 +110,85 @@ class Association extends BaseAssociation
                         ->standaloneQuery($query, array($id, $id)) 
                         ->fetchAll();
         }
+                
+        return $results;
+    }  
+    
+    
+    public static function findMainAssociatedDocs($ids, $fields = array('*'), $types = null, $current_doc_ids = null)
+    {
+        $select = implode(', ', $fields);
+        
+        if (!is_array($ids))
+        {
+            $ids = array($ids);
+        }
+        elseif (!count($ids))
+        {
+            return array();
+        }
+        $where_array = $ids;
+        $where_ids_list = array();
+        foreach ($ids as $id)
+        {
+            $where_ids_list[] = '?';
+        }
+        $where_ids = 'a.linked_id ';
+        $where_ids_list = implode(', ', $where_ids_list);
+        if (count($ids) == 1)
+        {
+            $where_ids .= ' = ' . $where_ids_list;
+        }
+        else
+        {
+            $where_ids .= ' IN ( ' . $where_ids_list . ' )';
+        }
+        
+        if (!empty($current_doc_ids))
+        {
+            if (!is_array($current_doc_ids))
+            {
+                $current_doc_ids = array($current_doc_ids);
+            }
+
+            $where2 = array();
+            foreach ($current_doc_ids as $current_doc_id)
+            {
+                $where2[] = 'a.main_id != ?';
+                $where_array[] = $current_doc_id;
+            }
+
+            $where2 = implode(' AND ', $where2 );
+            $where = "$where_ids AND $where2";
+        }
+        
+        if ($types)
+        {
+            if (!is_array($types))
+            {
+                $types = array($types);
+            }
+
+            $where2 = array();
+            $where_array = array($id);
+            foreach ($types as $type)
+            {
+                $where2[] = 'a.type = ?';
+                $where_array[] = $type;
+            }
+
+            $where = '( ' . implode(' OR ', $where2 ) . ' )';
+        }
+        
+        $query = "SELECT $select " .
+             'FROM documents ' .
+             'WHERE id IN '. 
+             "(SELECT a.main_id FROM app_documents_associations a WHERE $where) ".
+             'ORDER BY id ASC';
+
+        $results = sfDoctrine::connection()
+                    ->standaloneQuery($query, $where_array)
+                    ->fetchAll();
                 
         return $results;
     }  
@@ -730,7 +825,7 @@ class Association extends BaseAssociation
                              ->execute(array(), Doctrine::FETCH_ARRAY);
     }
     
-    public static function countAll($ids, $types = null, $current_doc_ids = null)
+    public static function countAll($ids, $types = null, $current_doc_ids = null, $get_type = false)
     {
         $where_array = $ids;
         $where_ids = array();
@@ -787,8 +882,14 @@ class Association extends BaseAssociation
             $where .= implode(' OR ', $where2 ) . ' )';
         }
         
+        $fields = 'a.main_id, a.linked_id';
+        if ($get_type)
+        {
+            $fields .= ', a.type';
+        }
+        
         return Doctrine_Query::create()
-                             ->select('DISTINCT a.main_id, a.linked_id')
+                             ->select("DISTINCT $fields")
                              ->from('Association a')
                              ->where($where, $where_array)
                              ->execute(array(), Doctrine::FETCH_ARRAY);

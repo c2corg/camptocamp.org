@@ -1,3 +1,6 @@
+view:
+  lifetime: 1000000
+
 _summits_filter:
   enabled: off
 

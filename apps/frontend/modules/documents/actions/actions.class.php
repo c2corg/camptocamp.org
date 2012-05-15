@@ -583,6 +583,7 @@ class documentsActions extends c2cActions
         {
             $this->getResponse()->addMeta('robots', 'noindex, nofollow');
             $this->metadata = $document->getMetadatas();
+            $this->created_at = $document->get('created_at');
             $title .= ' :: ' . $this->__('revision') . ' ' . $version;
             $this->associated_docs = array();
 
@@ -604,7 +605,10 @@ class documentsActions extends c2cActions
                 $this->getResponse()->addMeta('robots', 'index, follow');
             }
             $this->metadata = NULL;
-            $this->current_version = NULL;
+            
+            $version_infos = self::getCurrentVersionInfosFromIdAndCulture($id, $lang);
+            $this->current_version = $version_infos['version'];
+            $this->created_at = $version_infos['created_at'];
             
             // display associated docs:
             if ($module == 'users')
@@ -1911,10 +1915,28 @@ class documentsActions extends c2cActions
                 if ($module_name != 'users')
                 {
                     $associated_docs = Association::findAllAssociatedDocs($id, array('id', 'module'));
+                    $ids = array();
                     foreach ($associated_docs as $doc)
                     {
+                        $doc_id = $doc['id'];
+                        $doc_module = $doc['module'];
                         // clear their view cache
-                        $this->clearCache($doc['module'], $doc['id'], false, 'view');
+                        $this->clearCache($doc_module, $doc_id, false, 'view');
+                        
+                        if ($doc_module == 'routes')
+                        {
+                            $ids[] = $doc_id;
+                        }
+                    }
+                    
+                    if ($module_name == 'outings')
+                    {
+                        $associated_docs = Association::findMainAssociatedDocs($ids, array('id', 'module'), array('sr', 'hr', 'pr'));
+                        foreach ($associated_docs as $doc)
+                        {
+                            // clear their view cache
+                            $this->clearCache($doc['module'], $doc['id'], false, 'view');
+                        }
                     }
                 }
 

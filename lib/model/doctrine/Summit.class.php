@@ -41,13 +41,13 @@ class Summit extends BaseSummit
         if ($is_module)
         {
             $m = 'm';
-            $m3 = 's.';
+            $m2 = 's';
             $join = null;
         }
         else
         {
             $m = 's';
-            $m3 = $m . '.';
+            $m2 = $m;
             $join = 'join_summit';
         }
         
@@ -63,7 +63,7 @@ class Summit extends BaseSummit
             {
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
-            self::buildConditionItem($conditions, $values, 'Around', $m3 . 'geom', 'sarnd', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'sarnd', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'String', 'si.search_name', ($is_module ? array('snam', 'name') : 'snam'), 'join_summit_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'salt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.summit_type', 'styp', $join, false, $params_list);
