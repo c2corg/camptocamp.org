@@ -606,9 +606,12 @@ class documentsActions extends c2cActions
             }
             $this->metadata = NULL;
             
-            $version_infos = Document::getCurrentVersionInfosFromIdAndCulture($id, $lang);
-            $this->current_version = $version_infos['version'];
-            $this->created_at = $version_infos['created_at'];
+            if ($module != 'portals')
+            {
+                $version_infos = Document::getCurrentVersionInfosFromIdAndCulture($id, $lang);
+                $this->current_version = $version_infos['version'];
+                $this->created_at = $version_infos['created_at'];
+            }
             
             // display associated docs:
             if ($module == 'users')
