@@ -165,6 +165,11 @@ if ($is_not_archive && $is_not_merged)
 
 include_partial('documents/license', array('license' => 'by-sa'));
 
+if (!$mobile_version)
+{
+    include_partial('documents/doc_infos', array('timer' => $timer));
+}
+
 echo end_content_tag();
 
 include_partial('common/content_bottom');

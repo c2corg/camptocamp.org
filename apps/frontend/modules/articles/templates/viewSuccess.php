@@ -72,6 +72,11 @@ $licenses_array = sfConfig::get('app_licenses_list');
 $license = $licenses_array[$document->get('article_type')];
 include_partial('documents/license', array('license' => $license, 'large' => $show_link_tool));
 
+if (!$mobile_version)
+{
+    include_partial('documents/doc_infos', array('timer' => $timer));
+}
+
 echo end_content_tag();
 
 include_partial('common/content_bottom');
