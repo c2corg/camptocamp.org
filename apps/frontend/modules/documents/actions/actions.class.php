@@ -583,7 +583,7 @@ class documentsActions extends c2cActions
         {
             $this->getResponse()->addMeta('robots', 'noindex, nofollow');
             $this->metadata = $document->getMetadatas();
-            $this->created_at = $document->get('created_at');
+            $this->created_at = $this->metadata->get('written_at');
             $title .= ' :: ' . $this->__('revision') . ' ' . $version;
             $this->associated_docs = array();
 
@@ -606,7 +606,7 @@ class documentsActions extends c2cActions
             }
             $this->metadata = NULL;
             
-            $version_infos = self::getCurrentVersionInfosFromIdAndCulture($id, $lang);
+            $version_infos = Document::getCurrentVersionInfosFromIdAndCulture($id, $lang);
             $this->current_version = $version_infos['version'];
             $this->created_at = $version_infos['created_at'];
             
