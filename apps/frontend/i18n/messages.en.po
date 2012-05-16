@@ -720,6 +720,10 @@ msgstr "Document deleted"
 msgid "Document does not exist"
 msgstr "Document does not exist"
 
+# [WARNING] needs_review
+msgid "Document generated %1% in %2%"
+msgstr "Document generated %1% in %2%ms."
+
 msgid "Document has been deprotected"
 msgstr "Document has been unprotected"
 
@@ -2497,6 +2501,10 @@ msgstr "Merging contributors is not permitted"
 
 msgid "Version #%1%, date %2%"
 msgstr "Version #%1%, date %2%"
+
+# [WARNING] needs_review
+msgid "Version %1% saved %2%"
+msgstr "Version %1% registered %2%"
 
 msgid "Version is missing"
 msgstr "Version parameters of this document are not complete."

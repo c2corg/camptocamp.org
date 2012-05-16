@@ -723,6 +723,10 @@ msgstr "Il documento è stato cancellato"
 msgid "Document does not exist"
 msgstr "Questo documento non è stato trovato"
 
+# [WARNING] en translation used
+msgid "Document generated %1% in %2%"
+msgstr "Document generated %1% in %2%ms."
+
 msgid "Document has been deprotected"
 msgstr "Il documento è stato sprotetto"
 
@@ -2497,6 +2501,10 @@ msgstr "Non è autorizzata l’unione di oggetti del tipo utente"
 
 msgid "Version #%1%, date %2%"
 msgstr "Versione n°%1% del %2%"
+
+# [WARNING] en translation used
+msgid "Version %1% saved %2%"
+msgstr "Version %1% registered %2%"
 
 msgid "Version is missing"
 msgstr "I parametri di versione di questo documento sono incompleti."

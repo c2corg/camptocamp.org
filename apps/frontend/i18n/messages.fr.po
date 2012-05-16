@@ -729,6 +729,9 @@ msgstr "Le document a été effacé"
 msgid "Document does not exist"
 msgstr "Ce document n'existe pas"
 
+msgid "Document generated %1% in %2%"
+msgstr "Document généré le %1% en %2%ms."
+
 msgid "Document has been deprotected"
 msgstr "Le document a été déprotégé"
 
@@ -2491,6 +2494,9 @@ msgstr "La fusion des objets de type utilisateur n'est pas autorisée"
 
 msgid "Version #%1%, date %2%"
 msgstr "Version n°%1% du %2%"
+
+msgid "Version %1% saved %2%"
+msgstr "Version %1% enregistrée le %2%"
 
 msgid "Version is missing"
 msgstr "Les paramètres de version de ce document sont incomplets."

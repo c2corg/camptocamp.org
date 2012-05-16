@@ -177,7 +177,7 @@ class Association extends BaseAssociation
                 $where_array[] = $type;
             }
 
-            $where = '( ' . implode(' OR ', $where2 ) . ' )';
+            $where .= ' AND ( ' . implode(' OR ', $where2 ) . ' )';
         }
         
         $query = "SELECT $select " .
