@@ -114,9 +114,13 @@ form.search, .sbox,
 }
 /* fin carto */
 
-.license_box, .doc-infos {
+.license_box {
   margin: 0 !important;
   padding: 0 !important;
+}
+.doc-infos {
+  margin: 0 !important;
+  padding: 0.6em 0 !important;
 }
 
 .article_titre_bg
@@ -330,7 +334,7 @@ img.embedded_right
 #footer
 {
   background: none;
-  height: auto;
+  height: 1.4em;
   margin: 0 !important;
   font-size: 0.9em;
 }
