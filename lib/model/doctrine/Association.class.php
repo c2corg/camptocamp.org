@@ -128,20 +128,20 @@ class Association extends BaseAssociation
             return array();
         }
         $where_array = $ids;
-        $where_ids_list = array();
+        $where_ids = array();
         foreach ($ids as $id)
         {
-            $where_ids_list[] = '?';
+            $where_ids[] = '?';
         }
-        $where_ids = 'a.linked_id ';
-        $where_ids_list = implode(', ', $where_ids_list);
+        $where = 'a.linked_id ';
+        $where_ids = implode(', ', $where_ids);
         if (count($ids) == 1)
         {
-            $where_ids .= ' = ' . $where_ids_list;
+            $where .= ' = ' . $where_ids;
         }
         else
         {
-            $where_ids .= ' IN ( ' . $where_ids_list . ' )';
+            $where .= ' IN ( ' . $where_ids . ' )';
         }
         
         if (!empty($current_doc_ids))
@@ -159,7 +159,7 @@ class Association extends BaseAssociation
             }
 
             $where2 = implode(' AND ', $where2 );
-            $where = "$where_ids AND $where2";
+            $where .= " AND $where2";
         }
         
         if ($types)
