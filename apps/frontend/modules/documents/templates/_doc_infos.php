@@ -9,7 +9,7 @@ $elapsed_time = round(1000 * $timer->getElapsedTime());
 <?php
 if ($version)
 {
-    echo __('Version %1% saved %2%', array('%1%' => $version, '%2%' => $created_at));
+    echo __('Version #%1%, date %2%', array('%1%' => $version, '%2%' => $created_at));
 }
 ?><span class="no_print"><?php
 if ($version)
