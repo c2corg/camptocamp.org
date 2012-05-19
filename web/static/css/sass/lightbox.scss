@@ -30,7 +30,9 @@
 #imageData #numberDisplay{ display: block; clear: left; padding-bottom: 0.2em;	}			
 #imageData #bottomNavClose
 {
-  width: 28px;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
   float: right;
   padding-left: 1em;
   outline: none;
