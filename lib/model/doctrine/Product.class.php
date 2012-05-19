@@ -47,12 +47,19 @@ class Product extends BaseProduct
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'farnd', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'String', 'fi.search_name', ($is_module ? array('fnam', 'name') : 'fnam'), 'join_product_i18n', false, $params_list);
+            
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array('fi.search_name', $mid), ($is_module ? array('fnam', 'name') : 'fnam'), array($join, 'join_product_i18n'), false, $params_list, 'Product');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'falt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'product_type'), 'ftyp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'fi.culture', 'fcult', 'join_product_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'lfc.linked_id', 'ftags', 'join_ftag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'lfc.linked_id', 'ftags', 'join_ftag_id', false, $params_list);
         }
+        
+        return null;
     }
     
     public static function buildListCriteria($params_list)
@@ -73,16 +80,39 @@ class Product extends BaseProduct
         self::buildAreaCriteria($conditions, $values, $params_list, 'p');
 
         // product criteria
-        Product::buildProductListCriteria($conditions, $values, $params_list, true);
+        $has_name = Product::buildProductListCriteria($conditions, $values, $params_list, true);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // parking criteria
-        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id', 'q');
+        $has_name = Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id', 'q');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // hut criteria
-        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.linked_id');
+        $has_name = Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // article criteria
+        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, false, 'f', 'lc.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // image criteria
-        Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         if (!empty($conditions))
         {
@@ -165,8 +195,6 @@ class Product extends BaseProduct
             if (isset($conditions['join_product_id']))
             {
                 unset($conditions['join_product_id']);
-                
-                return;
             }
             
             if (isset($conditions['join_product']))
@@ -186,6 +214,12 @@ class Product extends BaseProduct
         {
             $q->leftJoin($m . $linked2 . "LinkedAssociation lfc");
             unset($conditions['join_ftag_id']);
+            
+            if (isset($conditions['join_ftag_id_has']))
+            {
+                $q->addWhere("lfc.type = 'fc'");
+                unset($conditions['join_ftag_id_has']);
+            }
         }
     }
     
@@ -227,6 +261,15 @@ class Product extends BaseProduct
             {
                 Hut::buildHutPagerConditions($q, $conditions, false, true, 'lp.LinkedLinkedAssociation', 'ph');
             }
+        }
+
+        // join with article tables only if needed 
+        if (   isset($conditions['join_article_id'])
+            || isset($conditions['join_article'])
+            || isset($conditions['join_article_i18n'])
+        )
+        {
+            Article::buildArticlePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'fc');
         }
 
         // join with image tables only if needed 

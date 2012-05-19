@@ -84,7 +84,11 @@ class Hut extends BaseHut
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'harnd', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'String', 'hi.search_name', ($is_module ? array('hnam', 'name') : 'hnam'), 'join_hut_i18n', false, $params_list);
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array('hi.search_name', $mid), ($is_module ? array('hnam', 'name') : 'hnam'), 'join_hut', false, $params_list, 'Hut');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'h', 'activities'), 'hact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'halt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.shelter_type', 'htyp', $join, false, $params_list);
@@ -97,9 +101,11 @@ class Hut extends BaseHut
             self::buildConditionItem($conditions, $values, 'Bool', $m . '.has_unstaffed_wood', 'hwoo', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'hi.culture', 'hcult', 'join_hut_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Id', 'lhb.main_id', 'hbooks', 'join_hbook_id', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'lhc.linked_id', 'htags', 'join_htag_id', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'lhbc.linked_id', 'hbtags', 'join_hbtag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'lhc.linked_id', 'htags', 'join_htag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'lhbc.linked_id', 'hbtags', 'join_hbtag_id', false, $params_list);
         }
+        
+        return null;
     }
     
     public static function buildListCriteria($params_list)
@@ -120,29 +126,61 @@ class Hut extends BaseHut
         self::buildAreaCriteria($conditions, $values, $params_list, 'h');
 
         // hut criteria
-        Hut::buildHutListCriteria($conditions, $values, $params_list, true);
+        $has_name = Hut::buildHutListCriteria($conditions, $values, $params_list, true);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // route criteria
-        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.linked_id');
+        $has_name = Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // parking criteria
-        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        $has_name = Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // summit criteria
-        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        $has_name = Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // site criteria
-        Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.linked_id');
+        $has_name = Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
        
         // outing criteria
-        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
+        $has_name = Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // book criteria
-        Book::buildBookListCriteria($conditions, $values, $params_list, false, 'h');
+        $has_name = Book::buildBookListCriteria($conditions, $values, $params_list, false, 'h', 'lhb.main_id');
         self::buildConditionItem($conditions, $values, 'Id', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // image criteria
-        Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         if (!empty($conditions))
         {
@@ -225,8 +263,6 @@ class Hut extends BaseHut
             if (isset($conditions['join_hut_id']))
             {
                 unset($conditions['join_hut_id']);
-                
-                return;
             }
             
             if (isset($conditions['join_hut']))
@@ -246,6 +282,12 @@ class Hut extends BaseHut
         {
             $q->leftJoin($m . $linked2 . "LinkedAssociation lhc");
             unset($conditions['join_htag_id']);
+            
+            if (isset($conditions['join_htag_id_has']))
+            {
+                $q->addWhere("lhc.type = 'hc'");
+                unset($conditions['join_htag_id_has']);
+            }
         }
         
         if (   isset($conditions['join_hbook_id'])
@@ -254,37 +296,7 @@ class Hut extends BaseHut
             || isset($conditions['join_hbook_i18n'])
         )
         {
-            $q->leftJoin($main . " lhb");
-            
-            if (!isset($conditions['join_hbook_id']) || isset($conditions['join_hbook_id_has']))
-            {
-                $q->addWhere("lhb.type = 'bh'");
-                if (isset($conditions['join_hbook_id_has']))
-                {
-                    unset($conditions['join_hbook_id_has']);
-                }
-            }
-            if (isset($conditions['join_hbook_id']))
-            {
-                unset($conditions['join_hbook_id']);
-            }
-            if (isset($conditions['join_hbtag_id']))
-            {
-                $q->leftJoin("lhb.LinkedLinkedAssociation lhbc");
-                unset($conditions['join_hbtag_id']);
-            }
-            
-            if (isset($conditions['join_hbook']))
-            {
-                $q->leftJoin('lhb.Book hb');
-                unset($conditions['join_hbook']);
-            }
-
-            if (isset($conditions['join_hbook_i18n']))
-            {
-                $q->leftJoin('lhb.BookI18n hbi');
-                unset($conditions['join_hbook_i18n']);
-            }
+            Book::buildBookPagerConditions($q, $conditions, false, 'h', false, $main, 'bh');
         }
     }
     
@@ -368,6 +380,15 @@ class Hut extends BaseHut
         )
         {
             Site::buildSitePagerConditions($q, $conditions, false, false, 'm.LinkedAssociation', 'ht');
+        }
+
+        // join with article tables only if needed 
+        if (   isset($conditions['join_article_id'])
+            || isset($conditions['join_article'])
+            || isset($conditions['join_article_i18n'])
+        )
+        {
+            Article::buildArticlePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'hc');
         }
 
         // join with image tables only if needed 

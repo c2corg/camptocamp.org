@@ -54,6 +54,49 @@ class Article extends BaseArticle
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
+    public static function buildArticleListCriteria(&$conditions, &$values, $params_list, $is_module = false, $prefix = '', $mid = 'm.id')
+    {
+        if ($is_module)
+        {
+            $m = 'm';
+            $m2 = 'a';
+            $join = null;
+            $join_i18n = 'join_article_i18n';
+        }
+        else
+        {
+            $m = $prefix . 'c';
+            $m2 = $m;
+            $join = 'join_' . $prefix . 'article';
+            $join_i18n = $join . '_i18n';
+        }
+        
+        $has_id = false;
+        if ($is_module)
+        {
+            $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'id', null, false, $params_list);
+        }
+        
+        if (!$has_id)
+        {
+            if ($is_module)
+            {
+                self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'activities'), 'act', $join, false, $params_list);
+            }
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($prefix . 'ci.search_name', $mid), ($is_module ? array('cnam', 'name') : $prefix . 'cnam'), array($join, $join_i18n), false, $params_list, 'Article');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'activities'), $prefix . 'cact', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'categories'), $prefix . 'ccat', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $m2 . '.article_type', $prefix . 'ctyp', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'List', $prefix . 'ci.culture', $prefix . 'ccult', $join_i18n, false, $params_list);
+        }
+        
+        return null;
+    }
+
     public static function buildListCriteria($params_list)
     {
         $conditions = $values = array();
@@ -72,33 +115,71 @@ class Article extends BaseArticle
         self::buildAreaCriteria($conditions, $values, $params_list, 'a');
         
         // article criteria
-        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'), null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'a', 'categories'), 'ccat', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Item', 'm.article_type', 'ctyp', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', array('m', 'a', 'activities'), 'act', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'List', 'mi.culture', 'ccult', null, false, $params_list);
+        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, true);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // linked document criteria
         self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'cdocs', 'join_doc', false, $params_list);
 
         // summit criteria
-        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        $has_name = Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // hut criteria
-        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+        $has_name = Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // parking criteria
-        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        $has_name = Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // route criteria
-        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.main_id');
+        $has_name = Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // site criteria
-        Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.main_id');
+        $has_name = Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // outing criteria
-        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.main_id');
+        $has_name = Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
+        // book criteria
+        $has_name = Book::buildBookListCriteria($conditions, $values, $params_list, false, 'c', 'lcb.main_id');
+        self::buildConditionItem($conditions, $values, 'Id', 'lcb.main_id', 'books', 'join_cbook_id', false, $params_list);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // image criteria
+        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // user criteria
         self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
@@ -146,6 +227,54 @@ class Article extends BaseArticle
         return $pager;
     }   
     
+    public static function buildArticlePagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
+    {
+        if ($is_module)
+        {
+            $m = 'm.';
+            $linked = '';
+        }
+        else
+        {
+            $m = 'lc.';
+            if ($is_linked)
+            {
+                $linked = 'Linked';
+            }
+            else
+            {
+                $linked = '';
+            }
+                
+            $q->leftJoin($first_join . ' lc');
+            
+            if (!isset($conditions['join_article_id']) || isset($conditions['join_article_id_has']))
+            {
+                $q->addWhere($m . "type = '$ltype'");
+                if (isset($conditions['join_article_id_has']))
+                {
+                    unset($conditions['join_article_id_has']);
+                }
+            }
+            if (isset($conditions['join_article_id']))
+            {
+                unset($conditions['join_article_id']);
+            }
+            
+            if (isset($conditions['join_article']))
+            {
+                $q->leftJoin($m . $linked . 'Article c');
+                unset($conditions['join_article']);
+            }
+        }
+
+        if (isset($conditions['join_article_i18n']))
+        {
+            $q->leftJoin($m . $linked . 'ArticleI18n ci');
+            unset($conditions['join_article_i18n']);
+        }
+    }
+    
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
         $route_join = 'm.associations';
@@ -167,6 +296,47 @@ class Article extends BaseArticle
         {
             $q->leftJoin('m.associations d');
             unset($conditions['join_doc']);
+        }
+
+        // join with article tables only if needed 
+        if (   isset($conditions['join_article_i18n'])
+        )
+        {
+            Article::buildArticlePagerConditions($q, $conditions, true);
+        }
+        
+        // join with book tables only if needed 
+        if (   isset($conditions['join_cbook_id'])
+            || isset($conditions['join_cbook'])
+            || isset($conditions['join_cbook_i18n'])
+        )
+        {
+            $q->leftJoin('m.associations lcb');
+            
+            if (!isset($conditions['join_cbook_id']) || isset($conditions['join_cbook_id_has']))
+            {
+                $q->addWhere("lcb.type = 'bc'");
+                if (isset($conditions['join_cbook_id_has']))
+                {
+                    unset($conditions['join_cbook_id_has']);
+                }
+            }
+            if (isset($conditions['join_cbook_id']))
+            {
+                unset($conditions['join_cbook_id']);
+            }
+            
+            if (isset($conditions['join_cbook']))
+            {
+                $q->leftJoin('lcb.Book cb');
+                unset($conditions['join_cbook']);
+            }
+
+            if (isset($conditions['join_cbook_i18n']))
+            {
+                $q->leftJoin('lcb.BookI18n cbi');
+                unset($conditions['join_cbook_i18n']);
+            }
         }
 
         // join with outings tables only if needed 

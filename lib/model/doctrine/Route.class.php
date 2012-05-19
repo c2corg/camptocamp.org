@@ -350,7 +350,12 @@ class Route extends BaseRoute
                     $conditions['join_summit_i18n'] = true;
                 }
             }
-            self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', ($is_module ? array('rnam', 'name') : 'rnam'), 'join_route_i18n', false, $params_list);
+            
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array('ri.search_name', $mid), ($is_module ? array('rnam', 'name') : 'rnam'), array($join, 'join_route_i18n'), false, $params_list, 'Route');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'r', 'activities'), 'ract', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.max_elevation', 'malt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.height_diff_up', 'hdif', $join, false, $params_list);
@@ -383,10 +388,12 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, 'Georef', $m . '.geom_wkt', 'rgeom', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Id', 'lrb.main_id', 'rbooks', 'join_rbook_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrd.main_id', 'rdocs', 'join_rdoc_id', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'lrc.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'lrc.linked_id', 'rtags', 'join_rtag_id', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lrdc.linked_id', 'rdtags', 'join_rdtag_id', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'lrbc.linked_id', 'rbtags', 'join_rbtag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'lrbc.linked_id', 'rbtags', 'join_rbtag_id', false, $params_list);
         }
+        
+        return null;
     }
     
     public static function buildListCriteria($params_list)
@@ -407,30 +414,69 @@ class Route extends BaseRoute
         self::buildAreaCriteria($conditions, $values, $params_list, 'r');
 
         // summit criteria
-        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        $has_name = Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // hut criteria
-        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+        $has_name = Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // parking criteria
         self::buildConditionItem($conditions, $values, 'Config', '', 'haspark', 'join_hasparking', false, $params_list);
-        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        $has_name = Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // route criteria
-        Route::buildRouteListCriteria($conditions, $values, $params_list, true);
+        $has_name = Route::buildRouteListCriteria($conditions, $values, $params_list, true);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
        
         // outing criteria
-        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
+        $has_name = Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // user criteria
-        User::buildUserListCriteria($conditions, $values, $params_list, false, 'lu.main_id');
+        $has_name = User::buildUserListCriteria($conditions, $values, $params_list, false, 'lu.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // book criteria
-        Book::buildBookListCriteria($conditions, $values, $params_list, false, 'r');
+        $has_name = Book::buildBookListCriteria($conditions, $values, $params_list, false, 'r', 'lrb.main_id');
         self::buildConditionItem($conditions, $values, 'Id', 'lrb.main_id', 'books', 'join_rbook_id', false, $params_list);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // article criteria
+        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, false, 'r', 'lc.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // image criteria
-        Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         if (!empty($conditions))
         {
@@ -520,8 +566,6 @@ class Route extends BaseRoute
             if (isset($conditions['join_route_id']))
             {
                 unset($conditions['join_route_id']);
-                
-                return;
             }
             
             if (isset($conditions['join_route']))
@@ -560,6 +604,12 @@ class Route extends BaseRoute
         {
             $q->leftJoin($m . $linked2 . "LinkedAssociation lrc");
             unset($conditions['join_rtag_id']);
+            
+            if (isset($conditions['join_rtag_id_has']))
+            {
+                $q->addWhere("lrc.type = 'rc'");
+                unset($conditions['join_rtag_id_has']);
+            }
         }
 
         
@@ -569,37 +619,7 @@ class Route extends BaseRoute
             || isset($conditions['join_rbtag_id'])
         )
         {
-            $q->leftJoin($main . " lrb");
-            
-            if (!isset($conditions['join_rbook_id']) || isset($conditions['join_rbook_id_has']))
-            {
-                $q->addWhere("lrb.type = 'br'");
-                if (isset($conditions['join_rbook_id_has']))
-                {
-                    unset($conditions['join_rbook_id_has']);
-                }
-            }
-            if (isset($conditions['join_rbook_id']))
-            {
-                unset($conditions['join_rbook_id']);
-            }
-            if (isset($conditions['join_rbtag_id']))
-            {
-                $q->leftJoin("lrb.LinkedLinkedAssociation lrbc");
-                unset($conditions['join_rbtag_id']);
-            }
-            
-            if (isset($conditions['join_rbook']))
-            {
-                $q->leftJoin('lrb.Book rb');
-                unset($conditions['join_rbook']);
-            }
-
-            if (isset($conditions['join_rbook_i18n']))
-            {
-                $q->leftJoin('lrb.BookI18n rbi');
-                unset($conditions['join_rbook_i18n']);
-            }
+            Book::buildBookPagerConditions($q, $conditions, false, 'r', false, $main, 'br');
         }
     }
     
@@ -692,6 +712,15 @@ class Route extends BaseRoute
             {
                 User::buildUserPagerConditions($q, $conditions, false, false, 'lo.MainMainAssociation', 'uo');
             }
+        }
+
+        // join with article tables only if needed 
+        if (   isset($conditions['join_article_id'])
+            || isset($conditions['join_article'])
+            || isset($conditions['join_article_i18n'])
+        )
+        {
+            Article::buildArticlePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'rc');
         }
 
         // join with image tables only if needed 

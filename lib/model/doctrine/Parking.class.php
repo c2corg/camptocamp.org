@@ -79,13 +79,20 @@ class Parking extends BaseParking
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'parnd', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', ($is_module ? array('pnam', 'name') : 'pnam'), 'join_parking_i18n', false, $params_list);
+            
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array('pi.search_name', $mid), ($is_module ? array('pnam', 'name') : 'pnam'), array($join, 'join_parking_i18n'), false, $params_list, 'Parking');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'palt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.public_transportation_rating', 'tp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'public_transportation_types'), 'tpty', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'pi.culture', 'pcult', 'join_parking_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'lpc.linked_id', 'ptags', 'join_ptag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'lpc.linked_id', 'ptags', 'join_ptag_id', false, $params_list);
         }
+        
+        return null;
     }
     
     public static function buildListCriteria($params_list)
@@ -106,25 +113,60 @@ class Parking extends BaseParking
         self::buildAreaCriteria($conditions, $values, $params_list, 'p');
 
         // parking criteria
-        Parking::buildParkingListCriteria($conditions, $values, $params_list, true);
+        $has_name = Parking::buildParkingListCriteria($conditions, $values, $params_list, true);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // hut criteria
-        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.linked_id');
+        $has_name = Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // route criteria
-        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.linked_id');
+        $has_name = Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // summit criteria
-        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        $has_name = Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // site criteria
-        Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.linked_id');
+        $has_name = Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
        
         // outing criteria
-        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
+        $has_name = Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // article criteria
+        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, false, 'p', 'lc.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // image criteria
-        Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         if (!empty($conditions))
         {
@@ -239,8 +281,6 @@ class Parking extends BaseParking
             if (isset($conditions['join_parking_id']))
             {
                 unset($conditions['join_parking_id']);
-                
-                return;
             }
             
             if (isset($conditions['join_parking']))
@@ -260,6 +300,12 @@ class Parking extends BaseParking
         {
             $q->leftJoin($m . $linked2 . "LinkedAssociation lpc");
             unset($conditions['join_ptag_id']);
+            
+            if (isset($conditions['join_ptag_id_has']))
+            {
+                $q->addWhere("lpc.type = 'pc'");
+                unset($conditions['join_ptag_id_has']);
+            }
         }
     }
     
@@ -343,6 +389,15 @@ class Parking extends BaseParking
         )
         {
             Site::buildSitePagerConditions($q, $conditions, false, false, 'm.LinkedAssociation', 'pt');
+        }
+
+        // join with article tables only if needed 
+        if (   isset($conditions['join_article_id'])
+            || isset($conditions['join_article'])
+            || isset($conditions['join_article_i18n'])
+        )
+        {
+            Article::buildArticlePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'pc');
         }
 
         // join with image tables only if needed 

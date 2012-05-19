@@ -962,15 +962,23 @@ class documentsActions extends c2cActions
         }
         
         // DB request
-        $this->pager = call_user_func(array($this->model_class, 'browse'),
-                                      $this->getListSortCriteria($default_npp, $max_npp),
-                                      $criteria,
-                                      $format);
-        $this->pager->setPage($this->getRequestParameter('page', 1));
-        $this->pager->init();
-        
-        $nb_results = $this->pager->getNbResults();
+        if ($criteria === 'no_result')
+        {
+            $nb_results = 0;
+        }
+        else
+        {
+            $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                          $this->getListSortCriteria($default_npp, $max_npp),
+                                          $criteria,
+                                          $format);
+            $this->pager->setPage($this->getRequestParameter('page', 1));
+            $this->pager->init();
+            
+            $nb_results = $this->pager->getNbResults();
+        }
         $this->nb_results = $nb_results;
+        
         if (in_array('list', $format))
         {
             if ($nb_results == 1)
@@ -1034,12 +1042,13 @@ class documentsActions extends c2cActions
         $timer = new sfTimer('executeRss');
         
         $module = $this->getModuleName();
+        $criteria = $this->getListCriteria();
         
-        if ($module != 'documents')
+        if ($criteria !== 'no_result' && $module != 'documents')
         {
             $this->pager = call_user_func(array($this->model_class, 'browse'),
                                           $this->getListSortCriteria(),
-                                          $this->getListCriteria());
+                                          $criteria);
             $this->pager->setPage($this->getRequestParameter('page', 1));
             $this->pager->init();
 
@@ -4183,11 +4192,11 @@ class documentsActions extends c2cActions
     }
 
     // this function is used to build DB request from query formatted in HTML
-    protected function buildCondition(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false)
+    protected function buildCondition(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false, $extra = null)
     {
         $params_list = c2cTools::getAllRequestParameters();
         
-        Document::buildConditionItem($conditions, $values, $criteria_type, $field, $param, $join_id, $i18n, $params_list);
+        Document::buildConditionItem($conditions, $values, $criteria_type, $field, $param, $join_id, $i18n, $params_list, $extra);
     }
 
     /**

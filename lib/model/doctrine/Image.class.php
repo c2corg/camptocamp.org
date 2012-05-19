@@ -395,7 +395,11 @@ class Image extends BaseImage
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'iarnd', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'String', 'ii.search_name', ($is_module ? array('inam', 'name') : 'inam'), 'join_image_i18n', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'String', array('ii.search_name', $mid), ($is_module ? array('inam', 'name') : 'inam'), array($join, 'join_image_i18n'), false, $params_list, 'Image');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'i', 'activities'), 'iact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'ialt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'i', 'categories'), 'icat', $join, false, $params_list);
@@ -404,6 +408,8 @@ class Image extends BaseImage
             self::buildConditionItem($conditions, $values, 'List', 'ii.culture', 'icult', 'join_image_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'itags', 'join_itag_id', false, $params_list);
         }
+        
+        return null;
     }
 
     public static function buildListCriteria($params_list)
@@ -424,27 +430,62 @@ class Image extends BaseImage
         self::buildAreaCriteria($conditions, $values, $params_list, 'i');
         
         // image criteria
-        Image::buildImageListCriteria($conditions, $values, $params_list, true);
+        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, true);
         self::buildConditionItem($conditions, $values, 'List', 'lic.main_id', 'documents', 'join_itag_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Join', '', 'join', 'id_has', false, $params_list);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // summit criteria
-        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        $has_name = Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // hut criteria
-        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+        $has_name = Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // parking criteria
-        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        $has_name = Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // route criteria
-        Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.main_id');
+        $has_name = Route::buildRouteListCriteria($conditions, $values, $params_list, false, 'lr.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // site criteria
-        Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.main_id');
+        $has_name = Site::buildSiteListCriteria($conditions, $values, $params_list, false, 'lt.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // outing criteria
-        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.main_id');
+        $has_name = Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // article criteria
+        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, false, 'c', 'lc.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // user criteria
         self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user_id', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
@@ -540,8 +581,6 @@ class Image extends BaseImage
             if (isset($conditions['join_image_id']))
             {
                 unset($conditions['join_image_id']);
-                
-                return;
             }
             
             if (isset($conditions['join_image']))
@@ -677,6 +716,15 @@ class Image extends BaseImage
         )
         {
             Site::buildSitePagerConditions($q, $conditions, false, false, $site_join, $site_ltype);
+        }
+
+        // join with article tables only if needed 
+        if (   isset($conditions['join_article_id'])
+            || isset($conditions['join_article'])
+            || isset($conditions['join_article_i18n'])
+        )
+        {
+            Article::buildArticlePagerConditions($q, $conditions, false, false, 'm.association', 'ci');
         }
         
         if (isset($conditions['join_user_id']))

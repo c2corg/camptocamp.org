@@ -157,7 +157,12 @@ class Site extends BaseSite
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'tarnd', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'String', 'ti.search_name', ($is_module ? array('tnam', 'name') : 'tnam'), 'join_site_i18n', false, $params_list);
+            
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array('ti.search_name', $mid), ($is_module ? array('tnam', 'name') : 'tnam'), array($join, 'join_site_i18n'), false, $params_list, 'Site');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
             self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'talt', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'site_types'), 'ttyp', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'climbing_styles'), 'tcsty', $join, false, $params_list);
@@ -171,9 +176,11 @@ class Site extends BaseSite
             self::buildConditionItem($conditions, $values, 'List', $m . '.rain_proof', 'rain', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ti.culture', 'tcult', 'join_site_i18n', false, $params_list);
             self::buildConditionItem($conditions, $values, 'Id', 'ltb.main_id', 'tbooks', 'join_tbook_id', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'ltc.linked_id', 'ttags', 'join_ttag_id', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'ltbc.linked_id', 'tbtags', 'join_tbtag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'ltc.linked_id', 'ttags', 'join_ttag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, 'Id', 'ltbc.linked_id', 'tbtags', 'join_tbtag_id', false, $params_list);
         }
+        
+        return null;
     }
 
     public static function buildListCriteria($params_list)
@@ -194,29 +201,68 @@ class Site extends BaseSite
         self::buildAreaCriteria($conditions, $values, $params_list, 's');
 
         // site criteria
-        Site::buildSiteListCriteria($conditions, $values, $params_list, true);
+        $has_name = Site::buildSiteListCriteria($conditions, $values, $params_list, true);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // summit criteria
-        Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        $has_name = Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // hut criteria
-        Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+        $has_name = Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // parking criteria
-        Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        $has_name = Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
        
         // outing criteria
-        Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
+        $has_name = Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // user criteria
-        User::buildUserListCriteria($conditions, $values, $params_list, false, 'lu.main_id');
+        $has_name = User::buildUserListCriteria($conditions, $values, $params_list, false, 'lu.main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         // book criteria
-        Book::buildBookListCriteria($conditions, $values, $params_list, false, 't');
+        $has_name = Book::buildBookListCriteria($conditions, $values, $params_list, false, 't', 'ltb.main_id');
         self::buildConditionItem($conditions, $values, 'Id', 'ltb.main_id', 'books', 'join_tbook_id', false, $params_list);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // article criteria
+        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, false, 't', 'lc.linked_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
         
         // image criteria
-        Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
 
         if (!empty($conditions))
         {
@@ -333,8 +379,6 @@ class Site extends BaseSite
             if (isset($conditions['join_site_id']))
             {
                 unset($conditions['join_site_id']);
-                
-                return;
             }
             
             if (isset($conditions['join_site']))
@@ -354,6 +398,12 @@ class Site extends BaseSite
         {
             $q->leftJoin($m . $linked2 . "LinkedAssociation ltc");
             unset($conditions['join_ttag_id']);
+            
+            if (isset($conditions['join_ttag_id_has']))
+            {
+                $q->addWhere("ltc.type = 'tc'");
+                unset($conditions['join_ttag_id_has']);
+            }
         }
         
         if (   isset($conditions['join_tbook_id'])
@@ -362,37 +412,7 @@ class Site extends BaseSite
             || isset($conditions['join_tbook_i18n'])
         )
         {
-            $q->leftJoin($main . " ltb");
-            
-            if (!isset($conditions['join_tbook_id']) || isset($conditions['join_tbook_id_has']))
-            {
-                $q->addWhere("ltb.type = 'bt'");
-                if (isset($conditions['join_tbook_id_has']))
-                {
-                    unset($conditions['join_tbook_id_has']);
-                }
-            }
-            if (isset($conditions['join_tbook_id']))
-            {
-                unset($conditions['join_tbook_id']);
-            }
-            if (isset($conditions['join_tbtag_id']))
-            {
-                $q->leftJoin("ltb.LinkedLinkedAssociation ltbc");
-                unset($conditions['join_tbtag_id']);
-            }
-            
-            if (isset($conditions['join_tbook']))
-            {
-                $q->leftJoin('ltb.Book tb');
-                unset($conditions['join_tbook']);
-            }
-
-            if (isset($conditions['join_tbook_i18n']))
-            {
-                $q->leftJoin('ltb.BookI18n tbi');
-                unset($conditions['join_tbook_i18n']);
-            }
+            Book::buildBookPagerConditions($q, $conditions, false, 't', false, $main, 'bt');
         }
     }
     
@@ -469,6 +489,15 @@ class Site extends BaseSite
             {
                 User::buildUserPagerConditions($q, $conditions, false, false, 'lo.MainMainAssociation', 'uo');
             }
+        }
+
+        // join with article tables only if needed 
+        if (   isset($conditions['join_article_id'])
+            || isset($conditions['join_article'])
+            || isset($conditions['join_article_i18n'])
+        )
+        {
+            Article::buildArticlePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'tc');
         }
 
         // join with image tables only if needed 

@@ -181,7 +181,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     // this function is used to build DB request from query formatted in HTML
-    public static function buildConditionItem(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false, $params_list = array())
+    public static function buildConditionItem(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false, $params_list = array(), $extra = null)
     {
         if (is_array($param))
         {
@@ -202,11 +202,16 @@ class BaseDocument extends sfDoctrineRecordI18n
             );
             Don't work. Try another way...*/
             $nb_join = 1;
+            $result = true;
             
             switch ($criteria_type)
             {
-                case 'String': self::buildStringCondition($conditions, $values, $field, $value);
-                    //$nb_join = 0;
+                case 'String':
+                    $join_id = self::buildStringCondition($conditions, $values, $field, $value, $extra, $join_id);
+                    if ($join_id === 'no_result')
+                    {
+                        return $join_id;
+                    }
                     break;
                 case 'Istring': self::buildIstringCondition($conditions, $values, $field, $value);
                     //$nb_join = 0;
@@ -220,9 +225,9 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'Relative': self::buildRelativeCondition($conditions, $values, $field, $value); break;
                 case 'List':
                     $use_not_null = ($param != 'id');
-                    self::buildListCondition($conditions, $values, $field, $value, $use_not_null); break;
+                    $result = self::buildListCondition($conditions, $values, $field, $value, $use_not_null); break;
                 case 'Id':
-                    self::buildListCondition($conditions, $values, $field, $value, false);
+                    $result = self::buildListCondition($conditions, $values, $field, $value, false);
                     if ($join_id && (($value == '-') || ($value == ' ')))
                     {
                         $conditions[$join_id . '_has'] = true;
@@ -269,13 +274,13 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $conditions[$join_id.'_i18n'] = true;
                 }
             }
-            
-            return true;
         }
         else
         {
-            return false;
+            $result = false;
         }
+        
+        return $result;
     }
 
     public static function buildPersoCriteria(&$conditions, &$values, &$params_list, $culture_param, $activity_param = 'act', $na_activities = array())
@@ -1397,6 +1402,22 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     /**
+     * Same as above, but return only id
+     */
+    public static function idSearchByName($name, $model = 'Document')
+    {
+        $q = Doctrine_Query::create()
+             ->select('mi.id')
+             ->from($model . 'I18n' . ' mi');
+        
+        $name = str_replace(array('   ', '  '), array(' ', ' '), $name);
+        $name = trim($name);
+        $q->where('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL', array($name));
+        
+        return $q->execute(array(), Doctrine::FETCH_ARRAY);
+    }
+
+    /**
      * Deletes a document.
      * If lang is given, delete only the corresponding culture
      */
@@ -1977,11 +1998,40 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }    
     
-    public static function buildStringCondition(&$conditions, &$values, $field, $param)
+    public static function buildStringCondition(&$conditions, &$values, $field, $param, $model, $join = array(null, null))
     {
-        $conditions[] = $field . ' LIKE \'%\'||make_search_name(?)||\'%\'';
-        $values[] = urldecode($param);
+        $join_result = '';
+        $param = urldecode($param);
+        if (strlen($param) > 2)
+        {
+            $ids = idSearchByName($param, $model);
+            if (count($ids))
+            {
+                $conditions[] = $field[1] . ' IN (' . implode(',', $ids) . ')';
+                if ($join[0])
+                {
+                    $join_result = $join[0];
+                }
+            }
+            else
+            {
+                $join_result = 'no_result';
+            }
+        }
+        else
+        {
+            $conditions[] = $field[0] . ' LIKE make_search_name(?)||\'%\'';
+            $values[] = $param;
+            return '_i18n';
+            if ($join[1])
+            {
+                $join_result = $join[1];
+            }
+        }
+        
+        return $join_result;
     }
+    
     public static function buildIstringCondition(&$conditions, &$values, $field, $param)
     {
         $conditions[] = $field . ' ILIKE ?';
@@ -2214,6 +2264,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildListCondition(&$conditions, &$values, $field, $param, $use_not_null = true)
     {
+        $simple_value = false;
         if ($param == '-')
         {
             $conditions[] = "($field IS NULL OR $field = 0)";
@@ -2265,6 +2316,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 if ($nb_conditions == 1)
                 {
                     $condition[] = $field . ' = ?';
+                    $simple_value = true;
                 }
                 elseif ($nb_conditions > 1)
                 {
@@ -2300,10 +2352,8 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             self::buildCompareCondition($conditions, $values, $field, $param, false, $use_not_null);
         }
-        else
-        {
-            return;
-        }
+        
+        return $simple_value;
     }
 
     public static function buildMultilistCondition(&$conditions, &$values, $field, $param)
