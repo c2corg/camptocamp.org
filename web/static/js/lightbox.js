@@ -112,15 +112,9 @@ Lightbox.prototype = {
         //      </div>
         //      <div id="imageDataContainer">
         //          <div id="imageData">
-        //              <div id="imageDetails">
-        //                  <span id="caption"></span>
-        //                  <span id="numberDisplay"></span>
-        //              </div>
-        //              <div id="bottomNav">
-        //                  <a href="#" id="bottomNavClose">
-        //                      <img src="images/close.gif">
-        //                  </a>
-        //              </div>
+        //              <a href="#" id="bottomNavClose"> </a>
+        //              <span id="caption"></span>
+        //              <span id="numberDisplay"></span>
         //          </div>
         //      </div>
         //  </div>
@@ -147,15 +141,9 @@ Lightbox.prototype = {
             ),
             Builder.node('div', {id:'imageDataContainer'},
                 Builder.node('div',{id:'imageData'}, [
-                    Builder.node('div',{id:'imageDetails'}, [
-                        Builder.node('span',{id:'caption'}),
-                        Builder.node('span',{id:'numberDisplay'})
-                    ]),
-                    Builder.node('div',{id:'bottomNav'},
-                        Builder.node('a',{id:'bottomNavClose', href: '#' },
-                            Builder.node('img', { src: LightboxOptions.fileBottomNavCloseImage })
-                        )
-                    )
+                    Builder.node('a',{id:'bottomNavClose', href: '#' }),
+                    Builder.node('span',{id:'caption'}),
+                    Builder.node('span',{id:'numberDisplay'})
                 ])
             )
         ]));
@@ -173,7 +161,7 @@ Lightbox.prototype = {
         (function(){
             var ids = 
                 'overlay lightbox outerImageContainer imageContainer lightboxImage hoverNav prevLink nextLink loading loadingLink ' + 
-                'imageDataContainer imageData imageDetails caption numberDisplay bottomNav bottomNavClose';   
+                'imageDataContainer imageData bottomNavClose caption numberDisplay';   
             $w(ids).each(function(id){ th[id] = $(id); });
         }).p_defer(); // defer -> p_defer, see http://dev.camptocamp.org/trac/c2corg/wiki/PrototypeScriptaculousPatches
     },
@@ -229,7 +217,13 @@ Lightbox.prototype = {
 
         // calculate top and left offset for the lightbox 
         var arrayPageScroll = document.viewport.getScrollOffsets();
-        var lightboxTop = arrayPageScroll[1] + (document.viewport.getHeight() / 25);
+        var windowHeight = document.viewport.getHeight();
+        var lightboxWindowTop = 0;
+        if (windowHeight > 900)
+        {
+            lightboxWindowTop = windowHeight / 25;
+        }
+        var lightboxTop = arrayPageScroll[1] + lightboxWindowTop;
         var lightboxLeft = arrayPageScroll[0];
         this.lightbox.setStyle({ top: lightboxTop + 'px', left: lightboxLeft + 'px' }).show();
         
@@ -257,8 +251,8 @@ Lightbox.prototype = {
         var imgPreloader = new Image();
 
         // check if it will fitt into screen
-        var imgMaxWidth = document.viewport.getWidth() - (4 * LightboxOptions.borderSize);
-        var imgMaxHeight = document.viewport.getHeight() - (4 * LightboxOptions.borderSize) - 60; // imageDataContainer is max 66 px i think
+        var imgMaxWidth = document.viewport.getWidth() - (2 * LightboxOptions.borderSize);
+        var imgMaxHeight = document.viewport.getHeight() - (2 * LightboxOptions.borderSize) - 60; // imageDataContainer is max 66 px i think
 
         // once image is preloaded, resize image container
         imgPreloader.onload = (function(){

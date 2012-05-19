@@ -244,7 +244,15 @@ class MyCacheFilter extends sfCacheFilter
                     )
                )
             {
-                $this->cacheManager->addCache($module, 'filter', array('lifeTime' => 350000, 'vary' => array()));
+                if (in_array($module, array('outings', 'images')))
+                {
+                    $lifetime = 86400;
+                }
+                else
+                {
+                    $lifetime = 600000;
+                }
+                $this->cacheManager->addCache($module, 'filter', array('lifeTime' => $lifetime, 'vary' => array()));
             }
             break;
     

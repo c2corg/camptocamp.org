@@ -4,7 +4,7 @@
 #lightbox img{ width: auto; height: auto;}
 #lightbox a img{ border: none; }
 
-#outerImageContainer{ position: relative; background-color: #fff; width: 250px; height: 250px; margin: 0 auto; }
+#outerImageContainer{ position: relative; background-color: #000; width: 250px; height: 250px; margin: 0 auto; }
 #imageContainer{ padding: 10px; font-size:0;}
 
 #loading{ position: absolute; top: 40%; left: 0%; height: 25%; width: 100%; text-align: center; line-height: 0; }
@@ -18,12 +18,23 @@
 #prevLink:hover, #prevLink:visited:hover { background: url(datauri('/static/images/prev.gif')) left 15% no-repeat; }
 #nextLink:hover, #nextLink:visited:hover { background: url(datauri('/static/images/next.gif')) right 15% no-repeat; }
 
-#imageDataContainer{ font: 12px Verdana, Helvetica, sans-serif; background-color: #fff; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%	; }
+#imageDataContainer{ font: 12px Verdana, Helvetica, sans-serif; background-color: #000; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%	; }
 
-#imageData{	padding:0 10px; color: #666; }
-#imageData #imageDetails{ width: 70%; float: left; text-align: left; }	
+#imageData
+{
+  padding: 0 10px;
+  color: #ccc;
+  text-align: left;
+}
 #imageData #caption{ font-weight: bold;	}
-#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
-#imageData #bottomNavClose{ width: 28px; float: right;  padding-bottom: 0.7em; outline: none;}	 	
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 0.2em;	}			
+#imageData #bottomNavClose
+{
+  width: 28px;
+  float: right;
+  padding-left: 1em;
+  outline: none;
+  background: url(datauri('/static/images/close_lightbox.png')) 0 0 no-repeat;
+}
 
 #overlay{ position: absolute; top: 0; left: 0; z-index: 90; width: 100%; height: 500px; background-color: #000; }
