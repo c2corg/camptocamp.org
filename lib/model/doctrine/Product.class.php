@@ -48,7 +48,7 @@ class Product extends BaseProduct
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'farnd', $join, false, $params_list);
             
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array('fi.search_name', $mid), ($is_module ? array('fnam', 'name') : 'fnam'), array($join, 'join_product_i18n'), false, $params_list, 'Product');
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'fi.search_name'), ($is_module ? array('fnam', 'name') : 'fnam'), array($join_id, 'join_product_i18n'), false, $params_list, 'Product');
             if ($has_name === 'no_result')
             {
                 return $has_name;

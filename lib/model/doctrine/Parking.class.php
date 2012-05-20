@@ -58,11 +58,13 @@ class Parking extends BaseParking
             $m = 'm';
             $m2 = 'p';
             $join = null;
+            $join_id = null;
         }
         else
         {
             $m2 = $m;
             $join = 'join_parking';
+            $join_id = $join . '_id';
         }
         
         $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'parkings', 'join_parking_id', false, $params_list);
@@ -80,7 +82,7 @@ class Parking extends BaseParking
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'parnd', $join, false, $params_list);
             
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array('pi.search_name', $mid), ($is_module ? array('pnam', 'name') : 'pnam'), array($join, 'join_parking_i18n'), false, $params_list, 'Parking');
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'pi.search_name'), ($is_module ? array('pnam', 'name') : 'pnam'), array($join_id, 'join_parking_i18n'), false, $params_list, 'Parking');
             if ($has_name === 'no_result')
             {
                 return $has_name;

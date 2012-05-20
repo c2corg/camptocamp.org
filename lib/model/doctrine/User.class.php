@@ -282,12 +282,16 @@ class User extends BaseUser
             
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'uarnd', $join, false, $params_list);
             
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array($m . 'i.search_name', $mid), ($is_module ? array('unam', 'name') : 'unam'), array($join, $join_i18n), false, $params_list, 'User');
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, $m . 'i.search_name'), ($is_module ? array('unam', 'name') : 'unam'), array($join_id, $join_i18n), false, $params_list, 'User');
             if ($has_name === 'no_result')
             {
                 return $has_name;
             }
-            self::buildConditionItem($conditions, $values, 'String', 'upd.search_username', 'ufnam', $join_private_data, false, $params_list);
+            self::buildConditionItem($conditions, $values, 'String', array($mid, 'upd.search_username'), 'ufnam', array($join_id, $join_private_data), false, $params_list, 'UserPrivateData');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
             self::buildConditionItem($conditions, $values, 'Array', array($m, 'u', 'activities'), 'uact', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', $m . '.category', 'ucat', $join, false, $params_list);
             self::buildConditionItem($conditions, $values, 'List', 'ui.culture', 'ucult', 'join_user_i18n', false, $params_list);

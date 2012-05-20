@@ -182,7 +182,7 @@ class areasActions extends documentsActions
             Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
         }
         
-        $has_name = $this->buildCondition($conditions, $values, 'String', array('mi.search_name', 'm.id'), array('anam', 'name'), array(null, null), false, 'Area');
+        $has_name = $this->buildCondition($conditions, $values, 'String', array('m.id', 'mi.search_name'), array('anam', 'name'), array(null, null), false, 'Area');
         if ($has_name === 'no_result')
         {
             return $has_name;

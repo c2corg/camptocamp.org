@@ -43,12 +43,14 @@ class Summit extends BaseSummit
             $m = 'm';
             $m2 = 's';
             $join = null;
+            $join_id = null;
         }
         else
         {
             $m = 's';
             $m2 = $m;
             $join = 'join_summit';
+            $join_id = $join . '_id';
         }
         
         $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'summits', 'join_summit_id', false, $params_list);
@@ -65,7 +67,7 @@ class Summit extends BaseSummit
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'sarnd', $join, false, $params_list);
             
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array('si.search_name', $mid), ($is_module ? array('snam', 'name') : 'snam'), array($join, 'join_summit_i18n'), false, $params_list, 'Summit');
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'si.search_name'), ($is_module ? array('snam', 'name') : 'snam'), array($join_id, 'join_summit_i18n'), false, $params_list, 'Summit');
             if ($has_name === 'no_result')
             {
                 return $has_name;

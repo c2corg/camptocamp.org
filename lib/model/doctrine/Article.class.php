@@ -61,6 +61,7 @@ class Article extends BaseArticle
             $m = 'm';
             $m2 = 'a';
             $join = null;
+            $join_id = null;
             $join_i18n = 'join_article_i18n';
         }
         else
@@ -68,6 +69,7 @@ class Article extends BaseArticle
             $m = $prefix . 'c';
             $m2 = $m;
             $join = 'join_' . $prefix . 'article';
+            $join_id = $join . '_id';
             $join_i18n = $join . '_i18n';
         }
         
@@ -83,7 +85,7 @@ class Article extends BaseArticle
             {
                 self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'activities'), 'act', $join, false, $params_list);
             }
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array($prefix . 'ci.search_name', $mid), ($is_module ? array('cnam', 'name') : $prefix . 'cnam'), array($join, $join_i18n), false, $params_list, 'Article');
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, $prefix . 'ci.search_name'), ($is_module ? array('cnam', 'name') : $prefix . 'cnam'), array($join_id, $join_i18n), false, $params_list, 'Article');
             if ($has_name === 'no_result')
             {
                 return $has_name;

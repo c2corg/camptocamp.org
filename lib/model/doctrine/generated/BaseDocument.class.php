@@ -1406,13 +1406,37 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function idSearchByName($name, $model = 'Document')
     {
-        $q = Doctrine_Query::create()
-             ->select('mi.id')
-             ->from($model . 'I18n' . ' mi');
+        $is_connected = sfContext::getInstance()->getUser()->isConnected();
         
         $name = str_replace(array('   ', '  '), array(' ', ' '), $name);
         $name = trim($name);
-        $q->where('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL', array($name));
+        
+        if ($model == 'UserPrivateData')
+        {
+            $q = Doctrine_Query::create()
+                 ->select('pd.id')
+                 ->from($model . ' pd')
+                 ->where('pd.search_username LIKE \'%\'||make_search_name(?)||\'%\'', array($name));
+            
+            if (!$is_connected)
+            {
+                $q->addWhere('pd.is_profile_public = \'1\'');
+            }
+        }
+        else
+        {
+            $q = Doctrine_Query::create()
+                 ->select('mi.id')
+                 ->from($model . 'I18n' . ' mi')
+                 ->leftJoin($model . ' m')
+                 ->where('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL', array($name));
+            
+            if (!$is_connected)
+            {
+                $q->leftJoin('m.private_data pd')
+                  ->addWhere('pd.is_profile_public = \'1\'');
+            }
+        }
         
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
@@ -2007,7 +2031,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $ids = idSearchByName($param, $model);
             if (count($ids))
             {
-                $conditions[] = $field[1] . ' IN (' . implode(',', $ids) . ')';
+                $conditions[] = $field[0] . ' IN (' . implode(',', $ids) . ')';
                 if ($join[0])
                 {
                     $join_result = $join[0];
@@ -2020,7 +2044,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
-            $conditions[] = $field[0] . ' LIKE make_search_name(?)||\'%\'';
+            $conditions[] = $field[1] . ' LIKE make_search_name(?)||\'%\'';
             $values[] = $param;
             return '_i18n';
             if ($join[1])

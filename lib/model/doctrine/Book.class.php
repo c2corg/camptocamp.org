@@ -61,12 +61,14 @@ class Book extends BaseBook
         {
             $m = 'm';
             $join = null;
+            $join_id = null;
             $join_i18n = 'join_book_i18n';
         }
         else
         {
             $m = $m2;
             $join = 'join_' . $prefix . 'book';
+            $join_id = $join . '_id';
             $join_i18n = $join . '_i18n';
         }
         
@@ -83,7 +85,7 @@ class Book extends BaseBook
                 self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'activities'), 'act', $join, false, $params_list);
                 self::buildConditionItem($conditions, $values, 'List', 'lbc.linked_id', 'btags', 'join_btag_id', false, $params_list);
             }
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array($prefix . 'bi.search_name', $mid), ($is_module ? array('bnam', 'name') : $prefix . 'bnam'), array($join, $join_i18n), false, $params_list, 'Book');
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, $prefix . 'bi.search_name'), ($is_module ? array('bnam', 'name') : $prefix . 'bnam'), array($join_id, $join_i18n), false, $params_list, 'Book');
             if ($has_name === 'no_result')
             {
                 return $has_name;

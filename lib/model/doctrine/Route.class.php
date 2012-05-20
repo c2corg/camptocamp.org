@@ -351,7 +351,7 @@ class Route extends BaseRoute
                 }
             }
             
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array('ri.search_name', $mid), ($is_module ? array('rnam', 'name') : 'rnam'), array($join, 'join_route_i18n'), false, $params_list, 'Route');
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'ri.search_name'), ($is_module ? array('rnam', 'name') : 'rnam'), array($join_id, 'join_route_i18n'), false, $params_list, 'Route');
             if ($has_name === 'no_result')
             {
                 return $has_name;

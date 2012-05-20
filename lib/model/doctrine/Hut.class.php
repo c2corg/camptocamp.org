@@ -68,7 +68,7 @@ class Hut extends BaseHut
             $m = 'h';
             $m2 = $m;
             $join = 'join_hut';
-            $join_id = 'join_hut_id';
+            $join_id = $join . '_id';
         }
         
         $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'huts', $join_id, false, $params_list);
@@ -84,7 +84,8 @@ class Hut extends BaseHut
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'harnd', $join, false, $params_list);
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array('hi.search_name', $mid), ($is_module ? array('hnam', 'name') : 'hnam'), 'join_hut', false, $params_list, 'Hut');
+            
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'hi.search_name'), ($is_module ? array('hnam', 'name') : 'hnam'), array($join_id, 'join_hut_i18n'), false, $params_list, 'Hut');
             if ($has_name === 'no_result')
             {
                 return $has_name;
@@ -170,6 +171,13 @@ class Hut extends BaseHut
         // book criteria
         $has_name = Book::buildBookListCriteria($conditions, $values, $params_list, false, 'h', 'lhb.main_id');
         self::buildConditionItem($conditions, $values, 'Id', 'lhb.main_id', 'books', 'join_hbook_id', false, $params_list);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // article criteria
+        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, false, 'h', 'lc.linked_id');
         if ($has_name === 'no_result')
         {
             return $has_name;

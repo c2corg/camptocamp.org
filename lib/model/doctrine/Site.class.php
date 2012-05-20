@@ -136,12 +136,14 @@ class Site extends BaseSite
             $m = 'm';
             $m2 = 's';
             $join = null;
+            $join_id = null;
         }
         else
         {
             $m = 's';
             $m2 = $m;
             $join = 'join_site';
+            $join_id = $join . '_id';
         }
         
         $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'sites', 'join_site_id', false, $params_list);
@@ -158,7 +160,7 @@ class Site extends BaseSite
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'tarnd', $join, false, $params_list);
             
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array('ti.search_name', $mid), ($is_module ? array('tnam', 'name') : 'tnam'), array($join, 'join_site_i18n'), false, $params_list, 'Site');
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'ti.search_name'), ($is_module ? array('tnam', 'name') : 'tnam'), array($join_id, 'join_site_i18n'), false, $params_list, 'Site');
             if ($has_name === 'no_result')
             {
                 return $has_name;

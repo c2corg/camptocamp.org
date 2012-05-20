@@ -186,7 +186,7 @@ class Outing extends BaseOuting
                 self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', $join, false, $params_list);
             }
             
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array('oi.search_name', $mid), ($is_module ? array('onam', 'name') : 'onam'), array($join, 'join_outing_i18n'), false, $params_list, 'Outing');
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'oi.search_name'), ($is_module ? array('onam', 'name') : 'onam'), array($join_id, 'join_outing_i18n'), false, $params_list, 'Outing');
             if ($has_name === 'no_result')
             {
                 return $has_name;

@@ -395,7 +395,8 @@ class Image extends BaseImage
                 self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
             }
             self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'iarnd', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'String', array('ii.search_name', $mid), ($is_module ? array('inam', 'name') : 'inam'), array($join, 'join_image_i18n'), false, $params_list, 'Image');
+            
+            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'ii.search_name'), ($is_module ? array('inam', 'name') : 'inam'), array($join_id, 'join_image_i18n'), false, $params_list, 'Image');
             if ($has_name === 'no_result')
             {
                 return $has_name;
