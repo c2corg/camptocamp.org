@@ -1935,7 +1935,11 @@ class documentsActions extends c2cActions
                         // clear their view cache
                         $this->clearCache($doc_module, $doc_id, false, 'view');
                         
-                        if ($doc_module == 'routes')
+                        if (        $module_name == 'outings'
+                                 && in_array($doc_module, array('routes', 'sites'))
+                             ||     $module_name == 'routes'
+                                 && in_array($doc_module, array('summits', 'parkings'))
+                           )
                         {
                             $ids[] = $doc_id;
                         }
@@ -1943,7 +1947,32 @@ class documentsActions extends c2cActions
                     
                     if ($module_name == 'outings')
                     {
-                        $associated_docs = Association::findMainAssociatedDocs($ids, array('id', 'module'), array('sr', 'hr', 'pr'));
+                        $associated_docs = Association::findAllAssociatedDocs($ids, array('id', 'module'), array('sr', 'hr', 'pr', 'rr', 'pt', 'ht'));
+                        $ids = array();
+                        foreach ($associated_docs as $doc)
+                        {
+                            // clear their view cache
+                            $this->clearCache($doc['module'], $doc['id'], false, 'view');
+                            
+                            if (in_array($doc_module, array('summits', 'parkings')))
+                            {
+                                $ids[] = $doc_id;
+                            }
+                        }
+                        
+                        if (count($ids))
+                        {
+                            findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp'));
+                            foreach ($associated_docs as $doc)
+                            {
+                                // clear their view cache
+                                $this->clearCache($doc['module'], $doc['id'], false, 'view');
+                            }
+                        }
+                    }
+                    elseif ($module_name == 'routes')
+                    {
+                        findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp'));
                         foreach ($associated_docs as $doc)
                         {
                             // clear their view cache

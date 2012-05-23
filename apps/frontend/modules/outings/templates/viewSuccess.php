@@ -158,14 +158,17 @@ if ($mobile_version)
 
     if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
 
-    $version = $document->getVersion();
-    $txt = __('Edit');
-    echo '<div id="edit_outing_button" class="add_content">',
-         link_to(picto_tag('picto_tools', $txt) . $txt,
-                 "@document_edit_archive?module=outings&id=$id&lang=$lang&version=$version"),
-         '</div>';
-    
-    echo javascript_tag("if (!user_is_author) $('edit_outing_button').hide();");
+    if ($is_connected)
+    {
+        $version = $document->getVersion();
+        $txt = __('Edit');
+        echo '<div id="edit_outing_button" class="add_content">',
+             link_to(picto_tag('picto_tools', $txt) . $txt,
+                     "@document_edit_archive?module=outings&id=$id&lang=$lang&version=$version"),
+             '</div>';
+        
+        echo javascript_tag("if (!user_is_author) $('edit_outing_button').hide();");
+    }
 }
 
 

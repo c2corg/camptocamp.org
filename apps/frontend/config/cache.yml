@@ -33,7 +33,7 @@ history:
   enabled:  on
 
 diff:
-  enabled:  on
+  enabled:  off
 
 whatsnew:
   enabled: on
