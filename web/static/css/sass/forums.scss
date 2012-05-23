@@ -676,10 +676,18 @@ without interferring with IE's rather nice default */
 {
     color: #3f935f;
 }
+.c2c-asso .inbox a, .c2c-asso .inbox a:visited, .c2c-asso #punmovepost a, .c2c-asso #punmovepost a:visited
+{
+    color: #7b4e90;
+}
 
 .inbox a:hover, .postright a:visited, .blocktable a:visited, #punmovepost a:hover
 {
     color: #1e462d;
+}
+.c2c-asso .inbox a:hover, .c2c-asso .postright a:visited, .c2c-asso .blocktable a:visited, .c2c-asso #punmovepost a:hover
+{
+    color: #b791c8;
 }
 
 .postfootright a, .postfootright a:visited
@@ -690,6 +698,10 @@ without interferring with IE's rather nice default */
 .postquote a, .postquote a:visited, #punindex .blocktable .tcl a:visited
 {
     color: #3f935f;
+}
+.c2c-asso .postquote a, .c2c-asso .postquote a:visited, .c2c-asso #punindex .blocktable .tcl a:visited
+{
+    color: #7b4e90;
 }
 
 .postleft .inactive
