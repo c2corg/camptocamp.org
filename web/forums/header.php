@@ -185,7 +185,7 @@ if (isset($forum_id) && in_array($forum_id, array(3, 33, 34, 35, 36, 37, 38, 40,
 {
     $page_class = ' c2c-asso';
 }
-$tpl_main = str_replace('<pun_page>', $page_class, $tpl_main);
+$tpl_main = str_replace('<pun_page_class>', $page_class, $tpl_main);
 // END SUBST - <pun_page_class>
 
 
