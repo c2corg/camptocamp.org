@@ -12,7 +12,7 @@
 </header>
 
 <div id="punwrap">
-<div id="pun<pun_page>" class="pun">
+<div id="pun<pun_page>" class="pun<pun_page_class>">
 <pun_status>
 <pun_announcement>
 <pun_main>

@@ -509,16 +509,34 @@ td.tc2, td.tc3, td.tcmod, #viewprofile dd, div.forminfo,
 
 /* 1.3 Main headers and navigation bar background and text colour */
 
+$main-color: #ffba4f;
+
+@mixin background-gradient($from: #ff9834, $to: #ffbe80)
+{
+    background-image: -moz-linear-gradient(top, $from, $to 100.0%); /* firefox 3.6+ */
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($from), to($to)); /* safari 4+ */
+    background-image: -webkit-linear-gradient(top, $from, $to 100.0%); /* chrome, safari 5.1+ */
+    background-image: -o-linear-gradient(top, $from, $to 100.0%); /* opera 11.1+ */
+    background-image: -ms-linear-gradient(top, $from, $to 100.0%); /* ie 10+ */
+    background-image: linear-gradient(top, $from, $to 100.0%)
+}
+
 .pun h2, div.blockpost h2, #brdmenu
 {
-    background-color: #ffba4f;
+    background-color: $main-color;
     color: #fff;
-    background-image: -moz-linear-gradient(top, #ff9834, #ffbe80 100.0%); /* firefox 3.6+ */
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9834), to(#ffbe80)); /* safari 4+ */
-    background-image: -webkit-linear-gradient(top, #ff9834, #ffbe80 100.0%); /* chrome, safari 5.1+ */
-    background-image: -o-linear-gradient(top, #ff9834, #ffbe80 100.0%); /* opera 11.1+ */
-    background-image: -ms-linear-gradient(top, #ff9834, #ffbe80 100.0%); /* ie 10+ */
-    background-image: linear-gradient(top, #ff9834, #ffbe80 100.0%)
+    @include background-gradient(#ff9834, #ffbe80);
+}
+
+/* colors for c2c-association forums */
+.pun.c2c-asso h2, .c2c-asso div.blockpost h2, .c2c-asso #brdmenu
+{
+    background-color: #9f77b3;
+    @include background-gradient(#7b4e90, #b791c8);
+}
+.pun.c2c-asso h2 a
+{
+    color: #fff;
 }
 
 /* 1.4 Table header rows */
@@ -609,17 +627,17 @@ div.box {
 /* 3.2 Makes the top border of posts match the colour used for post headers */
 
 div.blockpost div.box {
-    border-color: #ffba4f #f1f1f1 #ffffff #e2e2e2;
+    border-color: $main-color #f1f1f1 #ffffff #e2e2e2;
     border-bottom: 0;
 }
 
 div.blockform div.box {
-    border-color: #ffba4f #f1f1f1 #f1f1f1 #f1f1f1;
+    border-color: $main-color #f1f1f1 #f1f1f1 #f1f1f1;
     background-color: #f1f1f1;
 }
 
 #postreview div.box {
-    border-color: #ffba4f;
+    border-color: $main-color;
 }
 
 /* 3.3 Table internal borders. By default TH is same as background so border is invisible */
@@ -639,7 +657,7 @@ div.blockform div.box {
 }
 
 .pun div.new blockquote, .article div.new blockquote, div.new div.codebox {
-    border-color: #ffba4f #fff #fff #ffba4f;
+    border-color: $main-color #fff #fff $main-color;
 }
 /* 3.5 Gecko's default fieldset borders are really nasty so this gives them a colour
 without interferring with IE's rather nice default */

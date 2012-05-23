@@ -177,7 +177,16 @@ if (isset($focus_element))
 
 // START SUBST - <pun_page>
 $tpl_main = str_replace('<pun_page>', htmlspecialchars(basename($_SERVER['PHP_SELF'], '.php')), $tpl_main);
-// END SUBST - <pun_title>
+// END SUBST - <pun_page>
+
+// START SUBST - <pun_page_class>
+$page_class = '';
+if (isset($forum_id) && in_array($forum_id, array(3, 33, 34, 35, 36, 37, 38, 40, 53, 73, 74, 84, 95)))
+{
+    $page_class = ' c2c-asso';
+}
+$tpl_main = str_replace('<pun_page>', $page_class, $tpl_main);
+// END SUBST - <pun_page_class>
 
 
 // START SUBST - <pun_title>
