@@ -17,46 +17,89 @@ class Product extends BaseProduct
         return self::returnNullIfEmpty($value);
     }
 
-    public static function buildProductListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
+    public static function buildProductListCriteria(&$criteria, &$params_list, $is_module = false, $mid = 'm.id')
     {
+        if (empty($params_list))
+        {
+            return null;
+        }
+        
+        $conditions = $values = $joins = array();
+        
         if ($is_module)
         {
             $m = 'm';
             $m2 = 'p';
+            $midi18n = $mid;
             $join = null;
             $join_id = null;
+            $join_idi18n = null;
+            $join_i18n = 'product_i18n';
         }
         else
         {
             $m = 'f';
             $m2 = $m;
-            $join = 'join_product';
+            $mid = array('l' . $m, $mid);
+            $midi18n = implode('.', $mid);
+            $join = 'product';
             $join_id = $join . '_id';
+            $join_idi18n = $join . '_idi18n';
+            $join_i18n = $join . '_i18n';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'products', $join_id, false, $params_list);
         if ($is_module)
         {
-            $has_id = $has_id || self::buildConditionItem($conditions, $values, 'List', $mid, 'id', $join_id, false, $params_list);
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'products'), $join_id);
+        }
+        else
+        {
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'products', $join_id);
         }
         
         if (!$has_id)
         {
             if ($is_module)
             {
-                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
             }
-            self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'farnd', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'farnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'fi.search_name'), ($is_module ? array('fnam', 'name') : 'fnam'), array($join_id, 'join_product_i18n'), false, $params_list, 'Product');
+            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'fi.search_name'), ($is_module ? array('fnam', 'name') : 'fnam'), array($join_idi18n, $join_i18n), 'Product');
             if ($has_name === 'no_result')
             {
                 return $has_name;
             }
-            self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'falt', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'product_type'), 'ftyp', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'fi.culture', 'fcult', 'join_product_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Id', 'lfc.linked_id', 'ftags', 'join_ftag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'falt', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'product_type'), 'ftyp', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'fi.culture', 'fcult', $join_i18n);
+            
+            // article criteria
+            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'o', 'linked_id');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
+            
+            if (isset($criteria[2]['join_farticle']))
+            {
+                $joins['join_product'] = true;
+                if (!$is_module)
+                {
+                    $joins['post_product'] = true;
+                }
+            }
+        }
+        
+        if (!empty($conditions))
+        {
+            $criteria[0] = $criteria[0] + $conditions;
+            $criteria[1] = $criteria[1] + $values;
+        }
+        if (!empty($joins))
+        {
+            $joins['join_product'] = true;
+            $criteria[2] = $criteria[2] + $joins;
         }
         
         return null;
@@ -64,62 +107,56 @@ class Product extends BaseProduct
     
     public static function buildListCriteria($params_list)
     {
-        $conditions = $values = array();
+        $criteria = $conditions = $values = $joins = array();
+        $criteria[0] = array(); // conditions
+        $criteria[1] = array(); // values
+        $criteria[2] = array(); // joins
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $params_list, 'fcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'fcult');
         
         // return if no criteria
-        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
-        if (isset($conditions['all']) || empty($citeria_temp))
+        $criteria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($joins['all']) || empty($criteria_temp))
         {
-            return array($conditions, $values);
+            return array($conditions, $values, $joins);
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list, 'p');
+        self::buildAreaCriteria($criteria, $params_list, 'p');
 
         // product criteria
-        $has_name = Product::buildProductListCriteria($conditions, $values, $params_list, true);
+        $has_name = Product::buildProductListCriteria($criteria, $params_list, true);
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
 
         // parking criteria
-        $has_name = Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id', 'q');
+        $has_name = Parking::buildParkingListCriteria($criteria, $params_list, false, 'main_id', 'q');
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
 
         // hut criteria
-        $has_name = Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.linked_id');
-        if ($has_name === 'no_result')
-        {
-            return $has_name;
-        }
-        
-        // article criteria
-        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, false, 'f', 'lc.linked_id');
+        $has_name = Hut::buildHutListCriteria($criteria, $params_list, false, 'linked_id');
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
         
         // image criteria
-        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        $has_name = Image::buildImageListCriteria($criteria, $params_list, false);
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
 
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        $criteria[0] = $criteria[0] + $conditions;
+        $criteria[1] = $criteria[1] + $values;
+        $criteria[2] = $criteria[2] + $joins;
+        return $criteria;
     }
 
     public static function browse($sort, $criteria, $format = null)
@@ -129,21 +166,15 @@ class Product extends BaseProduct
     
         self::joinOnRegions($q);
 
-        $conditions = array();
         $all = false;
-        if (!empty($criteria))
+        if (isset($criteria[2]['all']))
         {
-            $conditions = $criteria[0];
-            if (isset($conditions['all']))
-            {
-                $all = $conditions['all'];
-                unset($conditions['all']);
-            }
+            $all = $criteria[2]['all'];
         }
         
-        if (!$all && !empty($conditions))
+        if (!$all && !empty($criteria[0]))
         {
-            self::buildPagerConditions($q, $conditions, $criteria[1]);
+            self::buildPagerConditions($q, $criteria);
         }
         elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('products'))
         {
@@ -157,14 +188,14 @@ class Product extends BaseProduct
         return $pager;
     }   
     
-    public static function buildProductPagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
+    public static function buildProductPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
+        $join = 'product';
         if ($is_module)
         {
             $m = 'm.';
             $linked = '';
-            $linked2 = '';
-            $main = $m . 'associations';
+            $main_join = $m . 'associations';
         }
         else
         {
@@ -172,118 +203,105 @@ class Product extends BaseProduct
             if ($is_linked)
             {
                 $linked = 'Linked';
-                $linked2 = '';
-                $main = $m . 'MainMainAssociation';
+                $main_join = $m . '.MainMainAssociation';
+                $linked_join = $m . '.LinkedAssociation';
             }
             else
             {
                 $linked = '';
-                $linked2 = 'Linked';
-                $main = $m . 'MainAssociation';
+                $main_join = $m . '.MainAssociation';
+                $linked_join = $m . '.LinkedLinkedAssociation';
             }
+            $join_id = $join . '_id';
                 
-            $q->leftJoin($first_join . ' lf');
-            
-            if (!isset($conditions['join_product_id']) || isset($conditions['join_product_id_has']))
+            if (isset($joins[$join_id]))
             {
-                $q->addWhere($m . "type = '$ltype'");
-                if (isset($conditions['join_product_id_has']))
+                self::joinOnMulti($q, $joins, $join_id, $first_join . " $m", 5);
+                
+                if (isset($joins[$join_id . '_has']))
                 {
-                    unset($conditions['join_product_id_has']);
+                    $q->addWhere($m . "1.type = '$ltype'");
                 }
             }
-            if (isset($conditions['join_product_id']))
-            {
-                unset($conditions['join_product_id']);
-            }
             
-            if (isset($conditions['join_product']))
+            if (   isset($joins['post_' . $join])
+                || isset($joins[$join])
+                || isset($joins[$join . '_idi18n'])
+                || isset($joins[$join . '_i18n'])
+            )
             {
-                $q->leftJoin($m . $linked . 'Product f');
-                unset($conditions['join_product']);
+                $q->leftJoin($first_join . " $m");
+                
+                if (   isset($joins['post_' . $join])
+                    || isset($joins[$join])
+                    || isset($joins[$join . '_i18n'])
+                )
+                {
+                    if ($ltype)
+                    {
+                        $q->addWhere($m . ".type = '$ltype'");
+                    }
+                }
+                
+                if (isset($joins[$join]))
+                {
+                    $q->leftJoin($m . '.' . $linked . 'Product f');
+                }
             }
         }
 
-        if (isset($conditions['join_product_i18n']))
+        if (isset($joins[$join . '_i18n']))
         {
-            $q->leftJoin($m . $linked . 'ProductI18n fi');
-            unset($conditions['join_product_i18n']);
+            $q->leftJoin($m . '.' . $linked . 'ProductI18n fi');
         }
         
-        if (isset($conditions['join_ftag_id']))
+        if (isset($joins['join_farticle']))
         {
-            $q->leftJoin($m . $linked2 . "LinkedAssociation lfc");
-            unset($conditions['join_ftag_id']);
-            
-            if (isset($conditions['join_ftag_id_has']))
-            {
-                $q->addWhere("lfc.type = 'fc'");
-                unset($conditions['join_ftag_id_has']);
-            }
+            Article::buildArticlePagerConditions($q, $joins, false, 'f', false, $linked_join, 'fc');
         }
     }
     
-    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    public static function buildPagerConditions(&$q, $criteria)
     {
-        $conditions = self::joinOnMultiRegions($q, $conditions);
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
         
-        // join with parking tables only if needed 
-        if (   isset($conditions['join_product_i18n'])
-            || isset($conditions['join_ftag_id'])
-        )
+        self::joinOnMultiRegions($q, $joins);
+        
+        // join with product tables only if needed 
+        if (isset($joins['join_product']))
         {
-            Product::buildProductPagerConditions($q, $conditions, true);
+            Product::buildProductPagerConditions($q, $joins, true);
         }
 
         // join with parkings tables only if needed 
-        if (   isset($conditions['join_parking_id'])
-            || isset($conditions['join_parking'])
-            || isset($conditions['join_parking_i18n'])
-            || isset($conditions['join_ptag_id'])
-            || isset($conditions['join_hut_id'])
-            || isset($conditions['join_hut'])
-            || isset($conditions['join_hut_i18n'])
-            || isset($conditions['join_htag_id'])
-            || isset($conditions['join_hbook_id'])
-            || isset($conditions['join_hbtag_id'])
-        )
+        if (isset($joins['join_hut']))
         {
-            Parking::buildParkingPagerConditions($q, $conditions, false, false, 'm.associations', 'pf', 'q');
+            $joins['join_parking'] = true;
+            $joins['post_parking'] = true;
+        }
+        
+        if (isset($joins['join_parking']))
+        {
+            Parking::buildParkingPagerConditions($q, $joins, false, false, 'm.associations', 'pf', 'q');
         
             // join with huts tables only if needed 
-            if (   isset($conditions['join_hut_id'])
-                || isset($conditions['join_hut'])
-                || isset($conditions['join_hut_i18n'])
-                || isset($conditions['join_htag_id'])
-                || isset($conditions['join_hbook_id'])
-                || isset($conditions['join_hbtag_id'])
-            )
+            if (isset($joins['join_hut']))
             {
-                Hut::buildHutPagerConditions($q, $conditions, false, true, 'lp.LinkedLinkedAssociation', 'ph');
+                Hut::buildHutPagerConditions($q, $joins, false, true, 'lp.LinkedLinkedAssociation', 'ph');
             }
         }
 
-        // join with article tables only if needed 
-        if (   isset($conditions['join_article_id'])
-            || isset($conditions['join_article'])
-            || isset($conditions['join_article_i18n'])
-        )
-        {
-            Article::buildArticlePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'fc');
-        }
-
         // join with image tables only if needed 
-        if (   isset($conditions['join_image_id'])
-            || isset($conditions['join_image'])
-            || isset($conditions['join_image_i18n'])
-            || isset($conditions['join_itag_id']))
+        if (isset($joins['join_image']))
         {
-            Image::buildImagePagerConditions($q, $conditions, false, 'fi');
+            Image::buildImagePagerConditions($q, $joins, false, 'fi');
         }
 
         if (!empty($conditions))
         {
-            $q->addWhere(implode(' AND ', $conditions), $criteria);
+            $q->addWhere(implode(' AND ', $conditions), $values);
         }
     }
 

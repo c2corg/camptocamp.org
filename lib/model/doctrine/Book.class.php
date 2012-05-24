@@ -54,46 +54,88 @@ class Book extends BaseBook
         return self::returnNullIfEmpty($value);
     }
 
-    public static function buildBookListCriteria(&$conditions, &$values, $params_list, $is_module = false, $prefix = '', $mid = 'm.id')
+    public static function buildBookListCriteria(&$criteria, &$params_list, $is_module = false, $prefix = '', $mid = 'm.id')
     {
+        if (empty($params_list))
+        {
+            return null;
+        }
+        
+        $conditions = $values = $joins = array();
+        
         $m2 = $prefix . 'b';
+        $mid2 = $mid[0] . '.' . $mid[1];
         if ($is_module)
         {
             $m = 'm';
+            $midi18n = $mid;
             $join = null;
             $join_id = null;
-            $join_i18n = 'join_book_i18n';
+            $join_idi18n = null;
+            $join_i18n = 'book_i18n';
         }
         else
         {
             $m = $m2;
-            $join = 'join_' . $prefix . 'book';
+            $join = $prefix . 'book';
             $join_id = $join . '_id';
+            $join_idi18n = $join . '_idi18n';
             $join_i18n = $join . '_i18n';
         }
         
         $has_id = false;
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'id', null, false, $params_list);
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'books'), $join_id);
+        }
+        else
+        {
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, $prefix . 'books', $join_id);
         }
         
         if (!$has_id)
         {
             if ($is_module)
             {
-                self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'activities'), 'act', $join, false, $params_list);
-                self::buildConditionItem($conditions, $values, 'List', 'lbc.linked_id', 'btags', 'join_btag_id', false, $params_list);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'activities'), 'act', $join);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lbc.linked_id', 'btags', 'join_btag_id');
             }
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, $prefix . 'bi.search_name'), ($is_module ? array('bnam', 'name') : $prefix . 'bnam'), array($join_id, $join_i18n), false, $params_list, 'Book');
+            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $prefix . 'bi.search_name'), ($is_module ? array('bnam', 'name') : $prefix . 'bnam'), array($join_id, $join_i18n), 'Book');
             if ($has_name === 'no_result')
             {
                 return $has_name;
             }
-            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'activities'), $prefix . 'bact', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'book_types'), $prefix . 'btyp', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'langs'), $prefix . 'blang', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', $prefix . 'bi.culture', $prefix . 'bcult', $join_i18n, false, $params_list);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'activities'), $prefix . 'bact', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'book_types'), $prefix . 'btyp', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'langs'), $prefix . 'blang', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $prefix . 'bi.culture', $prefix . 'bcult', $join_i18n);
+            
+            // article criteria
+            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, $prefix . 'b', 'linked_id');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
+            
+            if (isset($criteria[2]['join_' . $prefix . 'barticle']))
+            {
+                $joins['join_' . $prefix . 'book'] = true;
+                if (!$is_module)
+                {
+                    $joins['post_' . $prefix . 'book'] = true;
+                }
+            }
+        }
+        
+        if (!empty($conditions))
+        {
+            $criteria[0] = $criteria[0] + $conditions;
+            $criteria[1] = $criteria[1] + $values;
+        }
+        if (!empty($joins))
+        {
+            $joins['join_' . $prefix . 'book'] = true;
+            $criteria[2] = $criteria[2] + $joins;
         }
         
         return null;
@@ -101,53 +143,47 @@ class Book extends BaseBook
 
     public static function buildListCriteria($params_list)
     {
-        $conditions = $values = array();
+        $criteria = $conditions = $values = $joins = array();
+        $criteria[0] = array(); // conditions
+        $criteria[1] = array(); // values
+        $criteria[2] = array(); // joins
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $params_list, 'bcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'bcult');
         
         // return if no criteria
-        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
-        if (isset($conditions['all']) || empty($citeria_temp))
+        $criteria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($joins['all']) || empty($criteria_temp))
         {
-            return array($conditions, $values);
+            return array($conditions, $values, $joins);
         }
         
         // area criteria
-        self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', array('g', 'linked_id'), 'areas', 'join_area');
         
-        // book criteria
-        $has_name = Book::buildBookListCriteria($conditions, $values, $params_list, true);
+        // book / article criteria
+        $has_name = Book::buildBookListCriteria($criteria, $params_list, true);
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
-        self::buildConditionItem($conditions, $values, 'Istring', 'm.author', 'auth', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Istring', 'm.editor', 'edit', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Istring', 'm.author', 'auth', null);
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Istring', 'm.editor', 'edit', null);
         
         // linked doc criteria
-        self::buildConditionItem($conditions, $values, 'List', 'lbd.linked_id', 'bdocs', 'join_bdocs_id', false, $params_list);
-        
-        // article criteria
-        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, false, 'b', 'lc.linked_id');
-        if ($has_name === 'no_result')
-        {
-            return $has_name;
-        }
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lbd.linked_id', 'bdocs', 'bdoc');
         
         // image criteria
-        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        $has_name = Image::buildImageListCriteria($criteria, $params_list, false);
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
 
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        $criteria[0] = $criteria[0] + $conditions;
+        $criteria[1] = $criteria[1] + $values;
+        $criteria[2] = $criteria[2] + $joins;
+        return $criteria;
     }
     
     public static function browse($sort, $criteria, $format = null)
@@ -155,23 +191,15 @@ class Book extends BaseBook
         $pager = self::createPager('Book', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
     
-        $conditions = array();
         $all = false;
-        if (!empty($criteria))
+        if (isset($criteria[2]['all']))
         {
-            $conditions = $criteria[0];
-            if (isset($conditions['all']))
-            {
-                $all = $conditions['all'];
-                unset($conditions['all']);
-            }
+            $all = $criteria[2]['all'];
         }
         
-        if (!$all && !empty($conditions))
+        if (!$all && !empty($criteria[0]))
         {
-            self::buildPagerConditions($q, $conditions, $criteria[1]);
-
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            self::buildPagerConditions($q, $criteria);
         }
         elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('books'))
         {
@@ -185,16 +213,15 @@ class Book extends BaseBook
         return $pager;
     }   
     
-    public static function buildBookPagerConditions(&$q, &$conditions, $is_module = false, $prefix = '', $is_linked = false, $first_join = null, $ltype = null)
+    public static function buildBookPagerConditions(&$q, &$joins, $is_module = false, $prefix = '', $is_linked = false, $first_join = null, $ltype = null)
     {
-        $join = 'join_' . $prefix . 'book';
-        $join_tag = 'join_' . $prefix . 'btag';
+        $join = $prefix . 'book';
         if ($is_module)
         {
-            $m = 'm.';
+            $m = 'm';
             $linked = '';
             $linked2 = '';
-            $tag = 'associations';
+            $linked_join = $m . '.associations';
         }
         else
         {
@@ -209,88 +236,89 @@ class Book extends BaseBook
                 $linked = '';
                 $linked2 = 'Linked';
             }
-            $tag = $linked2 . 'LinkedAssociation';
+            $linked_join = $m . '.' . $linked2 . 'LinkedAssociation';
+            $join_id = $join . '_id';
                 
             $q->leftJoin($first_join . " $m");
             
             $m .= '.';
             
-            if (!isset($conditions[$join . '_id']) || isset($conditions[$join . '_id_has']))
+            if (isset($joins[$join_id]))
             {
-                $q->addWhere($m . "type = '$ltype'");
-                if (isset($conditions[$join . '_id_has']))
+                self::joinOnMulti($q, $joins, $join_id, $first_join . " $m", 5);
+                
+                if (isset($joins[$join_id . '_has']))
                 {
-                    unset($conditions[$join . '_id_has']);
+                    $q->addWhere($m . "1.type = '$ltype'");
                 }
             }
-            if (isset($conditions[$join . '_id']))
-            {
-                unset($conditions[$join . '_id']);
-            }
             
-            if (isset($conditions[$join]))
+            if (   isset($joins['post_' . $join])
+                || isset($joins[$join])
+                || isset($joins[$join . '_idi18n'])
+                || isset($joins[$join . '_i18n'])
+            )
             {
-                $q->leftJoin($m . $linked . 'Book ' . $prefix . 'b');
-                unset($conditions[$join]);
-            }
-        }
-        
-        if (isset($conditions[$join_tag . '_id']))
-        {
-            $m2 = 'l' . $prefix . 'bc';
-            $q->leftJoin($m . $tag . " $m2");
-            unset($conditions[$join_tag . '_id']);
-            
-            if (isset($conditions[$join_tag . '_id_has']))
-            {
-                $q->addWhere("$m2.type = 'bc'");
-                unset($conditions[$join_tag . '_id_has']);
+                $q->leftJoin($first_join . " $m");
+                
+                if (   isset($joins['post_' . $join])
+                    || isset($joins[$join])
+                    || isset($joins[$join . '_i18n'])
+                )
+                {
+                    if ($ltype)
+                    {
+                        $q->addWhere($m . ".type = '$ltype'");
+                    }
+                }
+                
+                if (isset($joins[$join]))
+                {
+                    $q->leftJoin($m . $linked . 'Book ' . $prefix . 'b');
+                }
             }
         }
 
-        if (isset($conditions[$join . '_i18n']))
+        if (isset($joins[$join . '_i18n']))
         {
-            $q->leftJoin($m . $linked . 'BookI18n ' . $prefix . 'bi');
-            unset($conditions[$join . '_i18n']);
+            $q->leftJoin($m . '.' . $linked . 'BookI18n ' . $prefix . 'bi');
+        }
+        
+        if (isset($joins['join_' . $prefix . 'barticle']))
+        {
+            Article::buildArticlePagerConditions($q, $joins, false, $prefix . 'b', false, $linked_join, 'bc');
         }
     }
     
-    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    public static function buildPagerConditions(&$q, $criteria)
     {
-        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array(), false);
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
+        
+        self::joinOnLinkedDocMultiRegions($q, $joins, array(), false);
 
-        if (   isset($conditions['join_book_i18n'])
-            || isset($conditions['join_btag_id'])
-        )
+        // join with book / article tables only if needed 
+        if (isset($joins['join_book']))
         {
-            Book::buildBookPagerConditions($q, $conditions, true);
+            Book::buildBookPagerConditions($q, $joins, true);
         }
 
-        if (isset($conditions['join_bdocs_id']))
+        if (isset($joins['bdoc']))
         {
             $q->leftJoin('m.associations lbd');
-            unset($conditions['join_bdocs_id']);
-        }
-
-        // join with article tables only if needed 
-        if (   isset($conditions['join_article_id'])
-            || isset($conditions['join_article'])
-            || isset($conditions['join_article_i18n'])
-        )
-        {
-            Article::buildArticlePagerConditions($q, $conditions, false, true, 'm.associations', 'bc');
         }
 
         // join with image tables only if needed 
-        if (   isset($conditions['join_image_id'])
-            || isset($conditions['join_image'])
-            || isset($conditions['join_image_i18n'])
-            || isset($conditions['join_itag_id']))
+        if (isset($joins['join_image']))
         {
-            Image::buildImagePagerConditions($q, $conditions, false, 'bi');
+            Image::buildImagePagerConditions($q, $joins, false, 'bi');
         }
-        
-        $q->addWhere(implode(' AND ', $conditions), $criteria);
+
+        if (!empty($conditions))
+        {
+            $q->addWhere(implode(' AND ', $conditions), $values);
+        }
     }
 
     protected static function buildFieldsList()

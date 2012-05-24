@@ -181,8 +181,13 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     // this function is used to build DB request from query formatted in HTML
-    public static function buildConditionItem(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false, $params_list = array(), $extra = null)
+    public static function buildConditionItem(&$conditions, &$values, &$joins, &$params_list, $criteria_type, $field, $param, $join_id = null, $extra = null)
     {
+        if (empty($params_list))
+        {
+            return false;
+        }
+        
         if (is_array($param))
         {
             list($param1, $param2) = $param;
@@ -195,12 +200,6 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if (!is_null($value))
         {
-        /*    call_user_func_array
-            (
-                array('Document', 'build' . $criteria_type . 'Condition'),
-                array($conditions, $values, $field, $value)
-            );
-            Don't work. Try another way...*/
             $nb_join = 1;
             $result = true;
             
@@ -230,10 +229,18 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $result = self::buildListCondition($conditions, $values, $field, $value, false);
                     if ($join_id && (($value == '-') || ($value == ' ')))
                     {
-                        $conditions[$join_id . '_has'] = true;
+                        $joins[$join_id . '_has'] = true;
                     }
                     break;
-                case 'Multilist': $nb_join = self::buildMultilistCondition($conditions, $values, $field, $value); break;
+                case 'MultiId':
+                    $nb_join = self::buildMultiIdCondition($conditions, $values, $field, $value);
+                    $result = ($nb_join > 0);
+                    $nb_join = abs($nb_join);
+                    if ($join_id && (($value == '-') || ($value == ' ')))
+                    {
+                        $joins[$join_id . '_has'] = true;
+                    }
+                    break;
                 case 'Linkedlist': self::buildLinkedlistCondition($conditions, $values, $field, $value); break;
                 case 'Array':   self::buildArrayCondition($conditions, $values, $field, $value); break;
                 case 'Bool':    self::buildBoolCondition($conditions, $values, $field, $value); break;
@@ -245,7 +252,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'Config':    self::buildConfigCondition($conditions, $values, $join_id, $value);
                     $join_id = '';
                     break;
-                case 'Join':    self::buildJoinCondition($conditions, $values, $join_id, $value);
+                case 'Join':    self::buildJoinCondition($joins, $values, $join_id, $value);
                     $join_id = '';
                     break;
                 case 'Order': $nb_join = self::buildOrderCondition($value, $field); break;
@@ -255,7 +262,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 if ($nb_join == 1)
                 {
-                    $conditions[$join_id] = true;
+                    $joins[$join_id] = true;
                 }
                 else
                 {
@@ -263,16 +270,28 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $join_id_index = $join_id;
                     while ($join_index <= $nb_join)
                     {
-                        $conditions[$join_id_index] = true;
+                        $joins[$join_id_index] = true;
                         
                         $join_index += 1;
                         $join_id_index = $join_id . $join_index;
                     }
                 }
-                if ($i18n)
+            }
+            
+            if (is_array($param))
+            {
+                if (isset($params_list[$param1]))
                 {
-                    $conditions[$join_id.'_i18n'] = true;
+                    unset($params_list[$param1]);
                 }
+                if (isset($params_list[$param2]))
+                {
+                    unset($params_list[$param2]);
+                }
+            }
+            else
+            {
+                unset($params_list[$param]);
             }
         }
         else
@@ -283,18 +302,14 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $result;
     }
 
-    public static function buildPersoCriteria(&$conditions, &$values, &$params_list, $culture_param, $activity_param = 'act', $na_activities = array())
+    public static function buildPersoCriteria(&$conditions, &$values, &$joins, &$params_list, $culture_param, $activity_param = 'act', $na_activities = array())
     {
-        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
-        if (isset($conditions['all']))
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Config', '', 'all', 'all');
+        if (isset($joins['all']))
         {
-            if ($conditions['all'])
+            if ($joins['all'])
             {
                 return;
-            }
-            else
-            {
-                unset($conditions['all']);
             }
         }
         
@@ -341,16 +356,23 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildAreaCriteria(&$conditions, &$values, $params_list, $m = 'm', $m2 = null, $join = null, $use_around = true)
+    public static function buildAreaCriteria(&$criteria, &$params_list, $m = 'm', $m2 = null, $join = null, $use_around = true)
     {
+        if (empty($params_list))
+        {
+            return null;
+        }
+        
+        $conditions = $values = $joins = array();
+        
         if (c2cTools::getArrayElement($params_list, 'areas'))
         {
-            self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', array('g', 'linked_id'), 'areas', 'join_area');
         }
         
         if (c2cTools::getArrayElement($params_list, 'bbox'))
         {
-            self::buildConditionItem($conditions, $values, 'Bbox', 'm.geom', 'bbox', null, false, $params_list);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bbox', 'm.geom', 'bbox', null);
         }
         elseif ($use_around && c2cTools::getArrayElement($params_list, 'around'))
         {
@@ -359,7 +381,18 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $m2 = $m;
             }
             
-            self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'around', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'around', $join);
+        }
+        
+        if (!empty($conditions))
+        {
+            $criteria[0] = $criteria[0] + $conditions;
+            $criteria[1] = $criteria[1] + $values;
+        }
+        if (!empty($joins))
+        {
+            $joins['join_area'] = true;
+            $criteria[2] = $criteria[2] + $joins;
         }
     }
     
@@ -375,7 +408,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         // By default only name filter is used since 
         // it's the only one to apply to all types of documents.
-        if (!empty($criteria))
+        if (!empty($criteria) && !empty($criteria[0]))
         {
             $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
         }
@@ -536,20 +569,17 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $query;
     }
 
-    protected static function joinOnMulti($q, $conditions, $join_id, $join_class, $max_join = 10)
+    protected static function joinOnMulti($q, &$joins, $join_id, $join_class, $max_join = 10)
     {
         $join_index = 1;
         $join_id_index = $join_id;
-        while(isset($conditions[$join_id_index]) && ($join_index <= $max_join))
+        while(isset($joins[$join_id_index]) && ($join_index <= $max_join))
         {
             $q->leftJoin($join_class . $join_index);
-            unset($conditions[$join_id_index]);
             
             $join_index += 1;
             $join_id_index = $join_id . $join_index;
         }
-        
-        return $conditions;
     }
 
     // this is for use with models which either need filtering on regions, or display of regions names.
@@ -560,14 +590,14 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     // this is for use with models which either need filtering on regions, or display of regions names.
-    protected static function joinOnMultiRegions($q, $conditions)
+    protected static function joinOnMultiRegions($q, &$joins)
     {
-        return self::joinOnMulti($q, $conditions, 'join_area', 'm.geoassociations g', 3);
+        self::joinOnMulti($q, $joins, 'join_area', 'm.geoassociations g', 3);
     }
 
-    protected static function joinOnLinkedDocMultiRegions($q, $conditions, $types = array(), $use_main_geo_association = true, $join = 'join_area', $m = 'm', $l = 'l', $g = 'g')
+    protected static function joinOnLinkedDocMultiRegions($q, &$joins, $types = array(), $use_main_geo_association = true, $join = 'join_area', $m = 'm', $l = 'l', $g = 'g')
     {
-        if (isset($conditions[$join]))
+        if (isset($joins[$join]))
         {
             if ($m == 'm')
             {
@@ -587,9 +617,8 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 $geo_association = 'LinkedGeoassociations';
             }
-            $conditions = Document::joinOnMulti($q, $conditions, $join, $l . '.' . $geo_association . ' ' . $g, 3);
+            Document::joinOnMulti($q, $joins, $join, $l . '.' . $geo_association . ' ' . $g, 3);
         }
-        return $conditions;
     }
 
     public static function getActivitiesQueryString($activities, $alias_1 = null, $alias_2 = null)
@@ -1350,12 +1379,12 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function quickSearchByName($name, $model = 'Document')
     {
         $model_i18n = $model . 'I18n';
-        $selected_fields = 'm.id, m.module, mi.culture, mi.name';
+        $selected_fields = 'DISTINCT m.id, m.module, mi.culture, mi.name';
 
         $q = Doctrine_Query::create()
              ->select($selected_fields)
-             ->from($model . ' m')
-             ->leftJoin('m.' . $model_i18n . ' mi');
+             ->from($model_i18n . ' mi')
+             ->leftJoin('mi.' . $model . ' m');
         $name = str_replace(array('   ', '  '), array(' ', ' '), $name);
 
         if ($model == 'Route') // search routes based on the name of the route and the attached summits
@@ -1373,8 +1402,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $condition_type = 'AND';
             }
             $q->leftJoin('m.associations l')
-              ->leftJoin('l.Summit s')
-              ->leftJoin('s.SummitI18n si')
+              ->leftJoin('l.SummitI18n si')
               ->addSelect('m.activities')
               ->addWhere("l.type = 'sr'")
               ->addWhere('((mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL) '
@@ -1426,12 +1454,12 @@ class BaseDocument extends sfDoctrineRecordI18n
         else
         {
             $q = Doctrine_Query::create()
-                 ->select('mi.id')
+                 ->select('DISTINCT mi.id')
                  ->from($model . 'I18n' . ' mi')
                  ->leftJoin($model . ' m')
                  ->where('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL', array($name));
             
-            if (!$is_connected)
+            if ($model == 'User' && !$is_connected)
             {
                 $q->leftJoin('m.private_data pd')
                   ->addWhere('pd.is_profile_public = \'1\'');
@@ -2372,15 +2400,11 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             $conditions[] = '(' . implode(') AND (', $conditions_groups) . ')';
         }
-        elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
-        {
-            self::buildCompareCondition($conditions, $values, $field, $param, false, $use_not_null);
-        }
         
         return $simple_value;
     }
 
-    public static function buildMultilistCondition(&$conditions, &$values, $field, $param)
+    public static function buildMultiIdCondition(&$conditions, &$values, $field, $param)
     {
         if (($param == '-') || ($param == ' '))
         {
@@ -2394,7 +2418,13 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $conditions[] = "($field_1 IS NOT NULL AND $field_1 != 0)";
             }
             
-            return 1;
+            return -1;
+        }
+        elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        {
+            $field_1 = $field[0] . '1.' . $field[1];
+            self::buildCompareCondition($conditions, $values, $field_1, $param, false, false);
+            return -1;
         }
         else
         {
@@ -2610,32 +2640,32 @@ class BaseDocument extends sfDoctrineRecordI18n
         } 
     }
 
-    public static function buildConfigCondition(&$conditions, &$values, $join, $param)
+    public static function buildConfigCondition(&$joins, &$values, $join, $param)
     {
         if ($param == 'yes' || $param == '1')
         {
-            $conditions[$join] = true;
+            $joins[$join] = true;
         }
         elseif ($param == 'no' || $param == '0')
         {
-            $conditions[$join] = false;
+            $joins[$join] = false;
         }
         elseif (!empty($param))
         {
-            $conditions[$join] = $param;
+            $joins[$join] = $param;
         }
     }
 
-    public static function buildJoinCondition(&$conditions, &$values, $join, $param)
+    public static function buildJoinCondition(&$joins, &$values, $join, $param)
     {
         if (!empty($param))
         {
-            $join_key = 'join_' . $param;
+            $join_key = $param;
             if (!empty($join))
             {
                 $join_key .= '_' . $join;
             }
-            $conditions[$join_key] = true;
+            $joins[$join_key] = true;
         }
     }
 

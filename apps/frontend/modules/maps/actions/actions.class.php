@@ -71,39 +71,9 @@ class mapsActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $conditions = $values = array();
-
-        // criteria for disabling personal filter
-        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
-        if (isset($conditions['all']) && $conditions['all'])
-        {
-            return array($conditions, $values);
-        }
+        $params_list = c2cTools::getAllRequestParameters();
         
-        // area criteria
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
-        }
-        elseif ($bbox = $this->getRequestParameter('bbox'))
-        {
-            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
-        }
-        
-        // map criteria
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('mnam', 'name'));
-        $this->buildCondition($conditions, $values, 'Istring', 'm.code', 'code');
-        $this->buildCondition($conditions, $values, 'Item', 'm.scale', 'scal');
-        $this->buildCondition($conditions, $values, 'Item', 'm.editor', 'edit');
-        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-        $this->buildCondition($conditions, $values, 'Item', 'mi.culture', 'mcult');
-
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        return Map::buildListCriteria($params_list);
     }
 
     protected function filterSearchParameters()

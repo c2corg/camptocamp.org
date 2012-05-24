@@ -153,26 +153,195 @@ class Area extends BaseArea
         return implode(', ', $regions);
     }
 
+    public static function buildAreaListCriteria(&$criteria, &$params_list, $is_module = false, $mid = 'm.id')
+    {
+        if ($is_module)
+        {
+            $m = 'm';
+            $m2 = 'a';
+            $midi18n = $mid;
+            $join = null;
+            $join_id = null;
+            $join_idi18n = null;
+            $join_i18n = 'area_i18n';
+        }
+        else
+        {
+            $m = 'a';
+            $m2 = $m;
+            $mid = array('g' . $m, $mid);
+            $midi18n = implode('.', $mid);
+            $join = 'area';
+            $join_id = $join . '_id';
+            $join_idi18n = $join . '_idi18n';
+            $join_i18n = $join . '_i18n';
+        }
+        
+        if ($is_module)
+        {
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'areas'), $join_id);
+        }
+        else
+        {
+            $has_id = self::buildConditionItem($conditions, $values, $joins, 'Multilist', $mid, 'areas', $join_id, false, $params_list);
+        }
+        
+        if (!$has_id)
+        {
+            if ($is_module)
+            {
+                // self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'a', 'activities'), 'act', $join);
+                self::buildConditionItem($conditions, $values, $joins, 'Bbox', 'geom', 'bbox', $join);
+                self::buildConditionItem($conditions, $values, $joins, 'Around', 'geom', 'around', $join);
+            }
+            
+            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ai.search_name'), ($is_module ? array('anam', 'name') : 'anam'), array($join_idi18n, $join_i18n), 'Area');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.area_type', 'atyp', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'a', 'activities'), 'aact', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ai.culture', 'acult', $join_i18n);
+            
+            // article criteria
+            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'a', 'linked_id');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
+            
+            if (isset($criteria[2]['join_aarticle']))
+            {
+                $joins['join_area'] = true;
+                if (!$is_module)
+                {
+                    $joins['post_area'] = true;
+                }
+            }
+        }
+        
+        if (!empty($conditions))
+        {
+            $criteria[0] = $criteria[0] + $conditions;
+            $criteria[1] = $criteria[1] + $values;
+        }
+        if (!empty($joins))
+        {
+            $joins['join_area'] = true;
+            $criteria[2] = $criteria[2] + $joins;
+        }
+        
+        return null;
+    }
+    
+    public static function buildListCriteria($params_list)
+    {
+        $criteria = $conditions = $values = $joins = array();
+        $criteria[0] = array(); // conditions
+        $criteria[1] = array(); // values
+        $criteria[2] = array(); // joins
+
+        // criteria for disabling personal filter
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'acult');
+        
+        // return if no criteria
+        $criteria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($joins['all']) || empty($criteria_temp))
+        {
+            return array($conditions, $values, $joins);
+        }
+        
+        // area / article criteria
+        $has_name = Area::buildAreaListCriteria($criteria, $params_list, true);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // outing criteria
+        $has_name = Outing::buildOutingListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
+        // summit criteria
+        $has_name = Summit::buildSummitListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
+        // hut criteria
+        $has_name = Hut::buildHutListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
+        // parking criteria
+        $has_name = Parking::buildParkingListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
+        // route criteria
+        $has_name = Route::buildRouteListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
+        // site criteria
+        $has_name = Site::buildSiteListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
+        // product criteria
+        $has_name = Product::buildProductListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // user criteria
+        $has_name = User::buildUserListCriteria($criteria, $params_list, false, 'main_id');
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+        
+        // image criteria
+        $has_name = Image::buildImageListCriteria($criteria, $params_list, false);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
+        $criteria[0] = $criteria[0] + $conditions;
+        $criteria[1] = $criteria[1] + $values;
+        $criteria[2] = $criteria[2] + $joins;
+        return $criteria;
+    }
+
     public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Area', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
     
-        $conditions = array();
         $all = false;
-        if (!empty($criteria))
+        if (isset($criteria[2]['all']))
         {
-            $conditions = $criteria[0];
-            if (isset($conditions['all']))
-            {
-                $all = $conditions['all'];
-                unset($conditions['all']);
-            }
+            $all = $criteria[2]['all'];
         }
         
-        if (!$all && !empty($conditions))
+        if (!$all && !empty($criteria[0]))
         {
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            self::buildPagerConditions($q, $criteria);
         }
         else
         {
@@ -181,6 +350,187 @@ class Area extends BaseArea
 
         return $pager;
     }   
+    
+    public static function buildAreaPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
+    {
+        $join = 'area';
+        if ($is_module)
+        {
+            $m = 'm';
+            $linked = '';
+            $main_join = $m . '.geoassociations';
+        }
+        else
+        {
+            $m = 'lo.';
+            if ($is_linked)
+            {
+                $linked = 'Linked';
+                $main_join = $m . '.MainMainAssociation';
+                $linked_join = $m . '.LinkedAssociation';
+            }
+            else
+            {
+                $linked = '';
+                $main_join = $m . '.MainAssociation';
+                $linked_join = $m . '.LinkedLinkedAssociation';
+            }
+            $join_id = $join . '_id';
+                
+            if (isset($joins[$join_id]))
+            {
+                self::joinOnMulti($q, $joins, $join_id, $first_join . " $m", 5);
+                
+                if (isset($joins[$join_id . '_has']))
+                {
+                    $q->addWhere($m . "1.type = '$ltype'");
+                }
+            }
+            
+            if (   isset($joins['post_' . $join])
+                || isset($joins[$join])
+                || isset($joins[$join . '_idi18n'])
+                || isset($joins[$join . '_i18n'])
+            )
+            {
+                $q->leftJoin($first_join . " $m");
+                
+                if (   isset($joins['post_' . $join])
+                    || isset($joins[$join])
+                    || isset($joins[$join . '_i18n'])
+                )
+                {
+                    if ($ltype)
+                    {
+                        if ($ltype)
+                    {
+                        $q->addWhere($m . ".type = '$ltype'");
+                    }
+                    }
+                }
+                
+                if (isset($joins[$join]))
+                {
+                    $q->leftJoin($m . '.' . $linked . 'Area a');
+                }
+            }
+        }
+
+        if (isset($joins[$join . '_i18n']))
+        {
+            $q->leftJoin($m . '.' . $linked . 'AreaI18n ai');
+        }
+        
+        if (isset($joins['join_aarticle']))
+        {
+            Article::buildArticlePagerConditions($q, $joins, false, 'a', false, $linked_join, 'ac');
+        }
+    }
+    
+    public static function buildPagerConditions(&$q, $criteria)
+    {
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
+        
+        $route_join = 'm.MainGeoassociations';
+        $route_ltype = '';
+        $summit_join = 'm.MainGeoassociations';
+        $summit_ltype = '';
+        $hut_join = 'm.MainGeoassociations';
+        $hut_ltype = '';
+        $parking_join = 'm.MainGeoassociations';
+        $parking_ltype = '';
+        $site_join = 'm.MainGeoassociations';
+        $site_ltype = '';
+        $user_join = 'm.MainGeoassociations';
+        $user_ltype = '';
+        
+        // join with area tables only if needed 
+        if (isset($joins['join_area']))
+        {
+            Area::buildAreaPagerConditions($q, $joins, true);
+        }
+        
+        // join with outing tables only if needed 
+        if (isset($joins['join_outing']))
+        {
+            Outing::buildOutingPagerConditions($q, $joins, false, false, 'm.MainGeoassociations', '');
+            
+            $route_join = 'lo.MainAssociation';
+            $route_ltype = 'ro';
+            $summit_join = 'lr.MainAssociation';
+            $summit_ltype = 'sr';
+            $hut_join = 'lr.MainAssociation';
+            $hut_ltype = 'hr';
+            $parking_join = 'lr.MainAssociation';
+            $parking_ltype = 'pr';
+            $site_join = 'lo.MainAssociation';
+            $site_ltype = 'to';
+            $user_join = 'lu.MainAssociations';
+            $user_ltype = 'uo';
+        }
+
+        // join with route tables only if needed 
+        if (isset($joins['join_route']))
+        {
+            Route::buildRoutePagerConditions($q, $joins, false, false, $route_join, $route_ltype);
+            
+            $summit_join = 'lr.MainAssociation';
+            $summit_ltype = 'sr';
+            $hut_join = 'lr.MainAssociation';
+            $hut_ltype = 'hr';
+            $parking_join = 'lr.MainAssociation';
+            $parking_ltype = 'pr';
+        }
+
+        // join with summit tables only if needed 
+        if (isset($joins['join_summit']))
+        {
+            Summit::buildSummitPagerConditions($q, $joins, false, false, $summit_join, $summit_ltype);
+        }
+        
+        // join with hut tables only if needed 
+        if (isset($joins['join_hut']))
+        {
+            Hut::buildHutPagerConditions($q, $joins, false, false, $hut_join, $hut_ltype);
+        }
+        
+        // join with parking tables only if needed 
+        if (isset($joins['join_parking']))
+        {
+            Parking::buildParkingPagerConditions($q, $joins, false, false, $parking_join, $parking_ltype);
+        }
+
+        // join with site tables only if needed 
+        if (isset($joins['join_site']))
+        {
+            Site::buildSitePagerConditions($q, $joins, false, false, $site_join, $site_ltype);
+        }
+
+        // join with product tables only if needed 
+        if (isset($joins['join_product']))
+        {
+            Product::buildProductPagerConditions($q, $joins, false, false, 'm.MainGeoassociations', '');
+        }
+
+        // join with user tables only if needed 
+        if (isset($joins['join_user']))
+        {
+            User::buildUserPagerConditions($q, $joins, false, false, $user_join, $user_ltype);
+        }
+
+        // join with image tables only if needed 
+        if (isset($joins['join_image']))
+        {
+            Image::buildImagePagerConditions($q, $joins, false, '');
+        }
+        
+        if (!empty($conditions))
+        {
+            $q->addWhere(implode(' AND ', $conditions), $values);
+        }
+    }
 
     protected static function buildFieldsList()
     {   

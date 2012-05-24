@@ -129,57 +129,108 @@ class Site extends BaseSite
         return self::returnPosIntOrNull($value);
     }
 
-    public static function buildSiteListCriteria(&$conditions, &$values, $params_list, $is_module = false, $mid = 'm.id')
+    public static function buildSiteListCriteria(&$criteria, &$params_list, $is_module = false, $mid = 'm.id')
     {
+        if (empty($params_list))
+        {
+            return null;
+        }
+        
+        $conditions = $values = $joins = array();
+        
         if ($is_module)
         {
             $m = 'm';
             $m2 = 's';
+            $midi18n = $mid;
             $join = null;
-            $join_id = null;
+            $join_id = 'site_id';
+            $join_idi18n = null;
+            $join_i18n = 'site_i18n';
         }
         else
         {
             $m = 's';
             $m2 = $m;
-            $join = 'join_site';
+            $mid = array('l' . $m, $mid);
+            $midi18n = implode('.', $mid);
+            $join = 'site';
             $join_id = $join . '_id';
+            $join_idi18n = $join . '_idi18n';
+            $join_i18n = $join . '_i18n';
         }
         
-        $has_id = self::buildConditionItem($conditions, $values, 'Id', $mid, 'sites', 'join_site_id', false, $params_list);
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, 'List', $mid, 'id', null, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Id', $mid, 'subsites', 'join_subsite_id', false, $params_list);
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'sites'), null);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', $mid, 'subsites', 'subsite_id');
         }
+        else
+        {
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'sites', $join_id);
+        }
+        
         if (!$has_id)
         {
             if ($is_module)
             {
-                self::buildConditionItem($conditions, $values, 'Georef', $join, 'geom', $join, false, $params_list);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
             }
-            self::buildConditionItem($conditions, $values, 'Around', $m2 . '.geom', 'tarnd', $join, false, $params_list);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'tarnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, 'String', array($mid, 'ti.search_name'), ($is_module ? array('tnam', 'name') : 'tnam'), array($join_id, 'join_site_i18n'), false, $params_list, 'Site');
+            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ti.search_name'), ($is_module ? array('tnam', 'name') : 'tnam'), array($join_idi18n, $join_i18n), 'Site');
             if ($has_name === 'no_result')
             {
                 return $has_name;
             }
-            self::buildConditionItem($conditions, $values, 'Compare', $m . '.elevation', 'talt', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'site_types'), 'ttyp', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'climbing_styles'), 'tcsty', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', $m . '.equipment_rating', 'tprat', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', $m . '.routes_quantity', 'rqua', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', $m . '.mean_height', 'mhei', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Compare', $m . '.mean_rating', 'mrat', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'facings'), 'tfac', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Array', array($m, $m2, 'rock_types'), 'trock', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', $m . '.children_proof', 'chil', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', $m . '.rain_proof', 'rain', $join, false, $params_list);
-            self::buildConditionItem($conditions, $values, 'List', 'ti.culture', 'tcult', 'join_site_i18n', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Id', 'ltb.main_id', 'tbooks', 'join_tbook_id', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Id', 'ltc.linked_id', 'ttags', 'join_ttag_id', false, $params_list);
-            self::buildConditionItem($conditions, $values, 'Id', 'ltbc.linked_id', 'tbtags', 'join_tbtag_id', false, $params_list);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'talt', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'site_types'), 'ttyp', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'climbing_styles'), 'tcsty', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.equipment_rating', 'tprat', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.routes_quantity', 'rqua', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.mean_height', 'mhei', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.mean_rating', 'mrat', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'facings'), 'tfac', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'rock_types'), 'trock', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.children_proof', 'chil', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.rain_proof', 'rain', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ti.culture', 'tcult', $join_i18n);
+            
+            // book criteria
+            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 't', 'linked_id');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
+            
+            // article criteria
+            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, 't', 'linked_id');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
+            
+            if (   isset($criteria[2]['join_tbook'])
+                || isset($criteria[2]['join_tarticle'])
+            )
+            {
+                $joins['join_site'] = true;
+                if (!$is_module)
+                {
+                    $joins['post_site'] = true;
+                }
+            }
+        }
+        
+        if (!empty($conditions))
+        {
+            $criteria[0] = $criteria[0] + $conditions;
+            $criteria[1] = $criteria[1] + $values;
+        }
+        if (!empty($joins))
+        {
+            $joins['join_site'] = true;
+            $criteria[2] = $criteria[2] + $joins;
         }
         
         return null;
@@ -187,91 +238,77 @@ class Site extends BaseSite
 
     public static function buildListCriteria($params_list)
     {   
-        $conditions = $values = array();
+        $criteria = $conditions = $values = $joins = array();
+        $criteria[0] = array(); // conditions
+        $criteria[1] = array(); // values
+        $criteria[2] = array(); // joins
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $params_list, 'tcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'tcult');
         
         // return if no criteria
-        $citeria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
-        if (isset($conditions['all']) || empty($citeria_temp))
+        $criteria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($joins['all']) || empty($criteria_temp))
         {
-            return array($conditions, $values);
+            return array($conditions, $values, $joins);
         }
         
         // area criteria
-        self::buildAreaCriteria($conditions, $values, $params_list, 's');
+        self::buildAreaCriteria($criteria, $params_list, 's');
 
         // site criteria
-        $has_name = Site::buildSiteListCriteria($conditions, $values, $params_list, true);
+        $has_name = Site::buildSiteListCriteria($criteria, $params_list, true);
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
 
         // summit criteria
-        $has_name = Summit::buildSummitListCriteria($conditions, $values, $params_list, false, 'ls.main_id');
+        $has_name = Summit::buildSummitListCriteria($criteria, $params_list, false, 'main_id');
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
 
         // hut criteria
-        $has_name = Hut::buildHutListCriteria($conditions, $values, $params_list, false, 'lh.main_id');
+        $has_name = Hut::buildHutListCriteria($criteria, $params_list, false, 'main_id');
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
 
         // parking criteria
-        $has_name = Parking::buildParkingListCriteria($conditions, $values, $params_list, false, 'lp.main_id');
+        $has_name = Parking::buildParkingListCriteria($criteria, $params_list, false, 'main_id');
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
        
         // outing criteria
-        $has_name = Outing::buildOutingListCriteria($conditions, $values, $params_list, false, 'lo.linked_id');
+        $has_name = Outing::buildOutingListCriteria($criteria, $params_list, false, 'linked_id');
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
         
         // user criteria
-        $has_name = User::buildUserListCriteria($conditions, $values, $params_list, false, 'lu.main_id');
+        $has_name = User::buildUserListCriteria($criteria, $params_list, false, 'main_id');
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
 
-        // book criteria
-        $has_name = Book::buildBookListCriteria($conditions, $values, $params_list, false, 't', 'ltb.main_id');
-        self::buildConditionItem($conditions, $values, 'Id', 'ltb.main_id', 'books', 'join_tbook_id', false, $params_list);
-        if ($has_name === 'no_result')
-        {
-            return $has_name;
-        }
-        
-        // article criteria
-        $has_name = Article::buildArticleListCriteria($conditions, $values, $params_list, false, 't', 'lc.linked_id');
-        if ($has_name === 'no_result')
-        {
-            return $has_name;
-        }
-        
         // image criteria
-        $has_name = Image::buildImageListCriteria($conditions, $values, $params_list, false);
+        $has_name = Image::buildImageListCriteria($criteria, $params_list, false);
         if ($has_name === 'no_result')
         {
             return $has_name;
         }
 
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        $criteria[0] = $criteria[0] + $conditions;
+        $criteria[1] = $criteria[1] + $values;
+        $criteria[2] = $criteria[2] + $joins;
+        return $criteria;
     }
 
     public static function browse($sort, $criteria, $format = null)
@@ -281,21 +318,15 @@ class Site extends BaseSite
     
         self::joinOnRegions($q);
 
-        $conditions = array();
         $all = false;
-        if (!empty($criteria))
+        if (isset($criteria[2]['all']))
         {
-            $conditions = $criteria[0];
-            if (isset($conditions['all']))
-            {
-                $all = $conditions['all'];
-                unset($conditions['all']);
-            }
+            $all = $criteria[2]['all'];
         }
         
-        if (!$all && !empty($conditions))
+        if (!$all && !empty($criteria[0]))
         {
-            self::buildPagerConditions($q, $conditions, $criteria[1]);
+            self::buildPagerConditions($q, $criteria);
         }
         elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('sites'))
         {
@@ -309,206 +340,152 @@ class Site extends BaseSite
         return $pager;
     }   
     
-    public static function buildSitePagerConditions(&$q, &$conditions, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
+    public static function buildSitePagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
+        $join = 'site';
         if ($is_module)
         {
-            $m = 'm.';
+            $m = 'm';
             $linked = '';
-            $linked2 = '';
-            $main = $m . 'associations';
+            $main_join = $m . '.associations';
             
-            if (   isset($conditions['join_site_id'])
-                || isset($conditions['join_site_id_has'])
-            )
+            if (isset($joins['site_id_has']))
             {
-                $q->leftJoin($m . 'associations lt');
-                
-                if (isset($conditions['join_site_id_has']))
-                {
-                    $q->addWhere("lt.type = 'tt'");
-                    unset($conditions['join_site_id_has']);
-                }
-                if (isset($conditions['join_site_id']))
-                {
-                    unset($conditions['join_site_id']);
-                }
+                $q->leftJoin($m . '.associations lt')
+                  ->addWhere("lt.type = 'tt'");
             }
             
-            if (   isset($conditions['join_subsite_id'])
-                || isset($conditions['join_subsite_id_has'])
-            )
+            if (isset($joins['subsite_id_has']))
             {
-                $q->leftJoin($m . 'LinkedAssociation ltt');
-                
-                if (isset($conditions['join_subsite_id_has']))
-                {
-                    $q->addWhere("ltt.type = 'tt'");
-                    unset($conditions['join_subsite_id_has']);
-                }
-                if (isset($conditions['join_subsite_id']))
-                {
-                    unset($conditions['join_subsite_id']);
-                }
+                $q->leftJoin($m . 'LinkedAssociation ltt')
+                  ->addWhere("ltt.type = 'tt'");
             }
         }
         else
         {
-            $m = 'lt.';
+            $m = 'lt';
             if ($is_linked)
             {
                 $linked = 'Linked';
-                $linked2 = '';
-                $main = $m . 'MainMainAssociation';
+                $main_join = $m . 'MainMainAssociation';
+                $linked_join = $m . '.LinkedAssociation';
             }
             else
             {
                 $linked = '';
-                $linked2 = 'Linked';
-                $main = $m . 'MainAssociation';
+                $main_join = $m . 'MainAssociation';
+                $linked_join = $m . '.LinkedLinkedAssociation';
             }
+            $join_id = $join . '_id';
             
-            $q->leftJoin($first_join . ' lt');
-            
-            if (!isset($conditions['join_site_id']) || isset($conditions['join_site_id_has']))
+            if (isset($joins[$join_id]))
             {
-                $q->addWhere($m . "type = '$ltype'");
-                if (isset($conditions['join_site_id_has']))
+                self::joinOnMulti($q, $joins, $join_id, $first_join . " $m", 5);
+                
+                if (isset($joins[$join_id . '_has']))
                 {
-                    unset($conditions['join_site_id_has']);
+                    $q->addWhere($m . "1.type = '$ltype'");
                 }
             }
-            if (isset($conditions['join_site_id']))
-            {
-                unset($conditions['join_site_id']);
-            }
             
-            if (isset($conditions['join_site']))
+            if (   isset($joins['post_' . $join])
+                || isset($joins[$join])
+                || isset($joins[$join . '_idi18n'])
+                || isset($joins[$join . '_i18n'])
+            )
             {
-                $q->leftJoin($m . $linked . 'Site s');
-                unset($conditions['join_site']);
+                $q->leftJoin($first_join . " $m");
+                
+                if (   isset($joins['post_' . $join])
+                    || isset($joins[$join])
+                    || isset($joins[$join . '_i18n'])
+                )
+                {
+                    if ($ltype)
+                    {
+                        $q->addWhere($m . ".type = '$ltype'");
+                    }
+                }
+                
+                if (isset($joins[$join]))
+                {
+                    $q->leftJoin($m . '.' . $linked . 'Site t');
+                }
             }
         }
-        
-        if (isset($conditions['join_site_i18n']))
+
+        if (isset($joins[$join . '_i18n']))
         {
-            $q->leftJoin($m . $linked . 'SiteI18n ti');
-            unset($conditions['join_site_i18n']);
+            $q->leftJoin($m . '.' . $linked . 'SiteI18n ti');
+        }
+        if (isset($joins['join_tbook']))
+        {
+            Book::buildBookPagerConditions($q, $joins, false, 't', false, $main_join, 'bt');
         }
         
-        if (isset($conditions['join_ttag_id']))
-        {
-            $q->leftJoin($m . $linked2 . "LinkedAssociation ltc");
-            unset($conditions['join_ttag_id']);
-            
-            if (isset($conditions['join_ttag_id_has']))
-            {
-                $q->addWhere("ltc.type = 'tc'");
-                unset($conditions['join_ttag_id_has']);
-            }
-        }
         
-        if (   isset($conditions['join_tbook_id'])
-            || isset($conditions['join_tbtag_id'])
-            || isset($conditions['join_tbook'])
-            || isset($conditions['join_tbook_i18n'])
-        )
+        if (isset($joins['join_tarticle']))
         {
-            Book::buildBookPagerConditions($q, $conditions, false, 't', false, $main, 'bt');
+            Article::buildArticlePagerConditions($q, $joins, false, 't', false, $linked_join, 'tc');
         }
     }
     
-    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    public static function buildPagerConditions(&$q, $criteria)
     {
-        $conditions = self::joinOnMultiRegions($q, $conditions);
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
+        
+        self::joinOnMultiRegions($q, $joins);
 
-        if (   isset($conditions['join_site_i18n'])
-            || isset($conditions['join_site_id'])
-            || isset($conditions['join_subsite_id'])
-            || isset($conditions['join_tbook_id'])
-            || isset($conditions['join_tbook'])
-            || isset($conditions['join_tbook_i18n'])
-            || isset($conditions['join_ttag_id'])
-            || isset($conditions['join_tbtag_id'])
-        )
+        // join with site / book / article tables only if needed 
+        if (isset($joins['join_site']))
         {
-            Site::buildSitePagerConditions($q, $conditions, true);
+            Site::buildSitePagerConditions($q, $joins, true);
         }
 
-        if (   isset($conditions['join_summit_id'])
-            || isset($conditions['join_summit'])
-            || isset($conditions['join_summit_i18n'])
-            || isset($conditions['join_stag_id'])
-            || isset($conditions['join_sbook_id'])
-            || isset($conditions['join_sbtag_id'])
-        )
+        // join with summit tables only if needed 
+        if (isset($joins['join_summit']))
         {
-            Summit::buildSummitPagerConditions($q, $conditions, false, false, 'm.associations', 'st');
+            Summit::buildSummitPagerConditions($q, $joins, false, false, 'm.associations', 'st');
         }
         
-        // join with huts tables only if needed 
-        if (   isset($conditions['join_hut_id'])
-            || isset($conditions['join_hut'])
-            || isset($conditions['join_hut_i18n'])
-            || isset($conditions['join_hbook_id'])
-            || isset($conditions['join_htag_id'])
-            || isset($conditions['join_hbtag_id'])
-        )
+        // join with hut tables only if needed 
+        if (isset($joins['join_hut']))
         {
-            Hut::buildHutPagerConditions($q, $conditions, false, false, 'm.associations', 'ht');
+            Hut::buildHutPagerConditions($q, $joins, false, false, 'm.associations', 'ht');
         }
         
-        // join with parkings tables only if needed 
-        if (   isset($conditions['join_parking_id'])
-            || isset($conditions['join_parking'])
-            || isset($conditions['join_parking_i18n'])
-            || isset($conditions['join_ptag_id'])
-        )
+        // join with parking tables only if needed 
+        if (isset($joins['join_parking']))
         {
-            Parking::buildParkingPagerConditions($q, $conditions, false, false, 'm.associations', 'pt');
+            Parking::buildParkingPagerConditions($q, $joins, false, false, 'm.associations', 'pt');
         }
         
-        // join with outings tables only if needed 
-        if (   isset($conditions['join_outing_id'])
-            || isset($conditions['join_outing'])
-            || isset($conditions['join_outing_i18n'])
-            || isset($conditions['join_otag_id'])
-            || isset($conditions['join_user_id'])
-            || isset($conditions['join_user'])
-            || isset($conditions['join_user_i18n'])
-            || isset($conditions['join_user_pd'])
-            || isset($conditions['join_utag_id'])
-        )
+        // join with outing tables only if needed 
+        if (isset($joins['join_user']))
         {
-            Outing::buildOutingPagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'to');
+            $joins['join_outing'] = true;
+            $joins['post_outing'] = true;
+        }
+
+        if (isset($joins['join_outing']))
+        {
+            Outing::buildOutingPagerConditions($q, $joins, false, true, 'm.LinkedAssociation', 'to');
             
-            if (   isset($conditions['join_user_id'])
-                || isset($conditions['join_user'])
-                || isset($conditions['join_user_i18n'])
-                || isset($conditions['join_user_pd'])
-                || isset($conditions['join_utag_id'])
-            )
+            if (isset($joins['join_user']))
             {
-                User::buildUserPagerConditions($q, $conditions, false, false, 'lo.MainMainAssociation', 'uo');
+                User::buildUserPagerConditions($q, $joins, false, false, 'lo.MainMainAssociation', 'uo');
             }
         }
 
-        // join with article tables only if needed 
-        if (   isset($conditions['join_article_id'])
-            || isset($conditions['join_article'])
-            || isset($conditions['join_article_i18n'])
-        )
-        {
-            Article::buildArticlePagerConditions($q, $conditions, false, true, 'm.LinkedAssociation', 'tc');
-        }
-
         // join with image tables only if needed 
-        if (   isset($conditions['join_image_id'])
-            || isset($conditions['join_image'])
-            || isset($conditions['join_image_i18n'])
-            || isset($conditions['join_itag_id']))
+        if (   isset($joins['join_image_id'])
+            || isset($joins['join_image'])
+            || isset($joins['join_image_i18n'])
+            || isset($joins['join_itag_id']))
         {
-            Image::buildImagePagerConditions($q, $conditions, false, 'pi');
+            Image::buildImagePagerConditions($q, $joins, false, 'pi');
         }
         
         if (!empty($conditions))

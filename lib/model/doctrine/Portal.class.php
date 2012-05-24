@@ -24,7 +24,7 @@ class Portal extends BasePortal
         if (!empty($criteria))
         {
             $conditions = $criteria[0];
-            if (isset($conditions['all']))
+            if (isset($joins['all']))
             {
                 $all = $conditions['all'];
                 unset($conditions['all']);
@@ -35,7 +35,7 @@ class Portal extends BasePortal
         {
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
-            $conditions = self::joinOnMultiRegions($q, $conditions);
+            self::joinOnMultiRegions($q, $conditions);
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }

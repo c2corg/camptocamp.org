@@ -38,28 +38,74 @@ class Map extends BaseMap
         return self::returnNullIfEmpty($value);
     }
 
+    public static function buildListCriteria($params_list)
+    {
+        $criteria = $conditions = $values = $joins = array();
+        $criteria[0] = array(); // conditions
+        $criteria[1] = array(); // values
+        $criteria[2] = array(); // joins
+
+        // criteria for disabling personal filter
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'mcult');
+        
+        // return if no criteria
+        $criteria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
+        if (isset($joins['all']) || empty($criteria_temp))
+        {
+            return array($conditions, $values, $joins);
+        }
+        
+        // area criteria
+        self::buildAreaCriteria($criteria, $params_list, 'm');
+
+        $m = 'm';
+        $m2 = 'm';
+        $mid = 'm.id';
+        $midi18n = $mid;
+        $join = null;
+        $join_id = null;
+        $join_idi18n = null;
+        $join_i18n = null;
+        
+        $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'maps'), $join_id);
+        
+        if (!$has_id)
+        {
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'marnd', $join);
+            
+            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'mi.search_name'), ($is_module ? array('mnam', 'name') : 'mnam'), array($join_idi18n, $join_i18n), 'Map');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Istring', $m . '.code', 'code', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.scale', 'scal', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.editor', 'edit', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'mi.culture', 'mcult', $join_i18n);
+        }
+        
+        $criteria[0] = $criteria[0] + $conditions;
+        $criteria[1] = $criteria[1] + $values;
+        $criteria[2] = $criteria[2] + $joins;
+        return $criteria;
+    }
+
     public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Map', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
     
-        $conditions = array();
         $all = false;
-        if (!empty($criteria))
+        if (isset($criteria[2]['all']))
         {
-            $conditions = $criteria[0];
-            if (isset($conditions['all']))
-            {
-                $all = $conditions['all'];
-                unset($conditions['all']);
-            }
+            $all = $criteria[2]['all'];
         }
         
-        if (!$all && !empty($conditions))
+        if (!$all && !empty($criteria[0]))
         {
-            $conditions = self::joinOnMultiRegions($q, $conditions);
+            self::joinOnMultiRegions($q, $criteria[2]);
             
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
         }
         elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('maps'))
         {

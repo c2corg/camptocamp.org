@@ -167,36 +167,9 @@ class areasActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $conditions = $values = array();
-
-        // criteria for disabling personal filter
-        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
-        if (isset($conditions['all']) && $conditions['all'])
-        {
-            return array($conditions, $values);
-        }
+        $params_list = c2cTools::getAllRequestParameters();
         
-        // area criteria
-        if ($bbox = $this->getRequestParameter('bbox'))
-        {
-            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
-        }
-        
-        $has_name = $this->buildCondition($conditions, $values, 'String', array('m.id', 'mi.search_name'), array('anam', 'name'), array(null, null), false, 'Area');
-        if ($has_name === 'no_result')
-        {
-            return $has_name;
-        }
-        $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'atyp');
-        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-        $this->buildCondition($conditions, $values, 'List', 'mi.search_name', 'acult');
-
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        return Area::buildListCriteria($params_list);
     }
 
     protected function getSortField($orderby)
