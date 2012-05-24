@@ -49,13 +49,13 @@ class MyCacheFilter extends sfCacheFilter
         $module = $context->getModuleName();
         $action = $context->getActionName();
         
+        $request_parameters = $context->getRequest()->getParameterHolder()->getAll();
+        unset($request_parameters['module']);
+        unset($request_parameters['action']);
+        
         $is_cacheable_filter_list = false;
-        $request_parameters = array();
         if (in_array($action, array('filter', 'list')))
         {
-            $request_parameters = $context->getRequest()->getParameterHolder()->getAll();
-            unset($request_parameters['module']);
-            unset($request_parameters['action']);
             $count_request_parameters = count($request_parameters);
                 
             switch($action)
@@ -136,14 +136,32 @@ class MyCacheFilter extends sfCacheFilter
                     $pa = '&pa=' . implode('-', $activities_filter);
                 }
             }
-            if ($action == 'list')
+            
+            switch ($action)
             {
-                if (strpos($uri, 'page=') === false)
-                {
-                    $uri .= ((strpos($uri, '?')) ? '&' : '?')
-                          . 'page=1';
-                }
-                $c = '';
+                case 'view' :
+                    if (isset($request_parameters['version']))
+                    {
+                        $c = '';
+                    }
+                    break;
+                
+                case 'history' :
+                case 'whatsnew' :
+                    $c = '';
+                    break;
+                
+                case 'list' :
+                    if (strpos($uri, 'page=') === false)
+                    {
+                        $uri .= ((strpos($uri, '?')) ? '&' : '?')
+                              . 'page=1';
+                    }
+                    $c = '';
+                    break;
+                
+                default:
+                    break;
             }
         }
 
