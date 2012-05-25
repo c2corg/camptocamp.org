@@ -944,7 +944,7 @@ class routesActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $params_list = c2cTools::getAllRequestParameters();
+        $params_list = c2cTools::getCriteriaRequestParameters();
         return Route::buildListCriteria($params_list);
     }
 

@@ -77,7 +77,7 @@ class productsActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $params_list = c2cTools::getAllRequestParameters();
+        $params_list = c2cTools::getCriteriaRequestParameters();
         
         return Product::buildListCriteria($params_list);
     }

@@ -181,7 +181,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     // this function is used to build DB request from query formatted in HTML
-    public static function buildConditionItem(&$conditions, &$values, &$joins, &$params_list, $criteria_type, $field, $param, $join_id = null, $extra = null)
+    public static function buildConditionItem(&$conditions, &$values, &$joins, &$params_list, $criteria_type, $field, $param, $join_ids = null, $extra = null)
     {
         if (empty($params_list))
         {
@@ -202,6 +202,15 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $nb_join = 1;
             $result = true;
+            
+            if (is_array($join_ids))
+            {
+                $join_id = array_shift($join_ids);
+            }
+            else
+            {
+                $join_id = $join_ids;
+            }
             
             switch ($criteria_type)
             {
@@ -275,6 +284,14 @@ class BaseDocument extends sfDoctrineRecordI18n
                         
                         $join_index += 1;
                         $join_id_index = $join_id . $join_index;
+                    }
+                }
+                
+                if (is_array($join_ids))
+                {
+                    foreach ($join_ids as $extra_join_id)
+                    {
+                        $joins[$extra_join_id] = true;
                     }
                 }
             }
@@ -354,7 +371,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             unset($params_list['perso']);
             if (empty($params_list))
             {
-                $conditions['all'] = true;
+                $joins['all'] = true;
             }
         }
     }

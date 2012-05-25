@@ -448,19 +448,30 @@ class Route extends BaseRoute
     
     public static function buildListCriteria($params_list)
     {
-        $criteria = $conditions = $values = $joins = array();
+        $criteria = $conditions = $values = $joins = $joins_order = array();
         $criteria[0] = array(); // conditions
         $criteria[1] = array(); // values
         $criteria[2] = array(); // joins
+        $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'rcult', 'act', array(8));
         
-        // return if no criteria
-        $criteria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
-        if (isset($joins['all']) || empty($criteria_temp))
+        // orderby criteria
+        $orderby = c2cTools::getRequestParameter('orderby');
+        if (!empty($orderby))
         {
-            return array($conditions, $values, $joins);
+            $orderby = array('orderby' => $orderby);
+            
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'rnam', 'orderby', array('route_i18n', 'join_route'));
+        }
+        
+        // return if no criteria
+        if (isset($joins['all']) || empty($params_list))
+        {
+            $criteria[2] = $joins;
+            $criteria[3] = $joins_order;
+            return $criteria;
         }
         
         // area criteria
@@ -518,6 +529,7 @@ class Route extends BaseRoute
         $criteria[0] = $criteria[0] + $conditions;
         $criteria[1] = $criteria[1] + $values;
         $criteria[2] = $criteria[2] + $joins;
+        $criteria[3] = $criteria[3] + $joins_order;
         return $criteria;
     }
 

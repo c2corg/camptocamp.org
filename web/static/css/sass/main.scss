@@ -1802,6 +1802,7 @@ fieldset .select_title
   padding: 0.3em;
   margin-right: 1em;
   line-height: 1.5em;
+  vertical-align: middle;
 }
 
 #filterform label:hover
@@ -1811,8 +1812,13 @@ fieldset .select_title
 
 #filterform label span
 {
-  padding-left: 20px;
+  padding-left: 16px;
   width: auto;
+}
+
+#filterform label .picto
+{
+  margin-right: 5px;
 }
 
 .form-row

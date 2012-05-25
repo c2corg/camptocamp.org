@@ -140,13 +140,17 @@ class MyCacheFilter extends sfCacheFilter
             switch ($action)
             {
                 case 'view' :
-                    if (isset($request_parameters['version']))
+                    if (!in_array($module, array('outings', 'images', 'articles', 'users')) && isset($request_parameters['version']))
                     {
                         $c = '';
                     }
                     break;
                 
                 case 'history' :
+                    if (!in_array($module, array('outings', 'images', 'articles', 'users')))
+                    {
+                        $c = '';
+                    }
                 case 'whatsnew' :
                     $c = '';
                     break;

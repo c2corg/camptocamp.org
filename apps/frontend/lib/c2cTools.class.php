@@ -26,10 +26,15 @@ class c2cTools
         return (sfContext::getInstance()->getRequest()->getHost() == sfConfig::get('app_mobile_version_host'));
     }
     
+    public static function getRequestParameter($param_name, $alt_value = null)
+    {
+        $param_list = sfContext::getInstance()->getRequest()->getParameterHolder()->getAll();
+        
+        return self::getArrayElement($param_list, $param_name, null, $alt_value);
+    }
+    
     public static function getAllRequestParameters()
     {
-        sfLoader::loadHelpers(array('Pagination'));
-
         $request = sfContext::getInstance()->getRequest();
         $param_list = $request->getParameterHolder()->getAll();
         

@@ -155,8 +155,7 @@ class imagesActions extends documentsActions
             
             if ($nb_results == 0)
             {
-                $params_list = array_keys(c2cTools::getAllRequestParameters());
-                $params_list = array_diff($params_list, array('module', 'action', 'orderby', 'order', 'npp', 'page', 'format', 'layout'));
+                $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
                 
                 if (count($params_list) == 1)
                 {
@@ -689,7 +688,7 @@ class imagesActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $params_list = c2cTools::getAllRequestParameters();
+        $params_list = c2cTools::getCriteriaRequestParameters();
         
         return Image::buildListCriteria($params_list);
     }

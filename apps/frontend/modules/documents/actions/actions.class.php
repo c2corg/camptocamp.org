@@ -4223,7 +4223,7 @@ class documentsActions extends c2cActions
     // this function is used to build DB request from query formatted in HTML
     protected function buildCondition(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false, $extra = null)
     {
-        $params_list = c2cTools::getAllRequestParameters();
+        $params_list = c2cTools::getCriteriaRequestParameters();
         
         Document::buildConditionItem($conditions, $values, $criteria_type, $field, $param, $join_id, $i18n, $params_list, $extra);
     }

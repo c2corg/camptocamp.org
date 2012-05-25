@@ -150,7 +150,7 @@ class parkingsActions extends documentsActions
 
     protected function getListCriteria()
     {   
-        $params_list = c2cTools::getAllRequestParameters();
+        $params_list = c2cTools::getCriteriaRequestParameters();
         
         return Parking::buildListCriteria($params_list);
     }

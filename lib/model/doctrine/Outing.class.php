@@ -260,31 +260,35 @@ class Outing extends BaseOuting
 
     public static function buildListCriteria($params_list)
     {
-        $criteria = $conditions = $values = $joins = array();
+        $criteria = $conditions = $values = $joins = $joins_order = array();
         $criteria[0] = array(); // conditions
         $criteria[1] = array(); // values
         $criteria[2] = array(); // joins
+        $criteria[3] = array(); // joins for order
 
         // criteria for enabling/disabling personal filter
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'ocult');
         
-        // order criteria
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Order', array('lat', 'lon'), 'orderby', 'summit');
-        if (isset($joins['summit']))
+        // orderby criteria
+        $orderby = c2cTools::getRequestParameter('orderby');
+        if (!empty($orderby))
         {
-            $joins['join_summit'] = true;
-        }
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', 'route');
-        if (isset($joins['route']))
-        {
-            $joins['join_route'] = true;
+            $orderby = array('orderby' => $orderby);
+            
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'onam', 'orderby', array('outing_i18n', 'join_outing'));
+            
+            // TODO : remplacer $joins par $joins_order lorsque la gestion des jointures pour le ORDERBY sera en place
+            self::buildConditionItem($conditions, $values, $joins, $orderby, 'Order', array('lat', 'lon'), 'orderby', array('summit', 'join_summit'));
+            
+            self::buildConditionItem($conditions, $values, $joins, $orderby, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', array('route', 'join_route'));
         }
         
         // return if no criteria
-        $criteria_temp = c2cTools::getCriteriaRequestParameters(array('perso'));
-        if (isset($joins['all']) || empty($criteria_temp))
+        if (isset($joins['all']) || empty($params_list))
         {
-            return array($conditions, $values, $joins);
+            $criteria[2] = $joins;
+            $criteria[3] = $joins_order;
+            return $criteria;
         }
         
         // area criteria
@@ -349,6 +353,7 @@ class Outing extends BaseOuting
         $criteria[0] = $criteria[0] + $conditions;
         $criteria[1] = $criteria[1] + $values;
         $criteria[2] = $criteria[2] + $joins;
+        $criteria[3] = $criteria[3] + $joins_order;
         return $criteria;
     }
 

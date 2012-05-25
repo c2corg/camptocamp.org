@@ -221,26 +221,15 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         $checked = in_array($activity_id, $filtered_activities) ? true : false;
 
         $activity_id_list = explode('-', $activity_id);
-        if (count($activity_id_list) == 1)
+        $label_text = '';
+        if ($show_picto)
         {
-            $label_text = __($activity);
-            if ($show_picto)
+            foreach($activity_id_list as $id)
             {
-                $label_text = '<span class="activity_' . $activity_id . '">' . $label_text . '</span>';
+                $label_text .= '<span class="picto activity_' . $id . '"></span>';
             }
         }
-        else
-        {
-            $label_text = '';
-            if ($show_picto)
-            {
-                foreach($activity_id_list as $id)
-                {
-                    $label_text .= '<span class="activity_' . $id . '"></span>';
-                }
-            }
-            $label_text .= __($activity);
-        }
+        $label_text .= __($activity);
         if ($ckeckbox)
         {
             $input_tag = checkbox_tag($param . '[]', $value, $checked, $options);
