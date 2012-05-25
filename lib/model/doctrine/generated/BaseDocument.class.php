@@ -198,7 +198,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $value = c2cTools::getArrayElement($params_list, $param);
         }
         
-        if (!is_null($value))
+        if (!is_null($value) || $criteria_type == 'ItemNull')
         {
             $nb_join = 1;
             $result = true;
@@ -219,6 +219,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     //$nb_join = 0;
                     break;
                 case 'Item':    self::buildItemCondition($conditions, $values, $field, $value); break;
+                case 'ItemNull':    self::buildItemNullCondition($conditions, $values, $field, $value); break;
                 case 'Multi':   self::buildMultiCondition($conditions, $values, $field, $value); break;
                 case 'Compare': self::buildCompareCondition($conditions, $values, $field, $value); break;
                 case 'Relative': self::buildRelativeCondition($conditions, $values, $field, $value); break;
@@ -304,6 +305,8 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildPersoCriteria(&$conditions, &$values, &$joins, &$params_list, $culture_param, $activity_param = 'act', $na_activities = array())
     {
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'ItemNull', 'm.redirects_to', 'merged', null);
+        
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'Config', '', 'all', 'all');
         if (isset($joins['all']))
         {
@@ -423,7 +426,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     /**
      * Sets base Doctrine pager object.
      */
-    protected static function createPager($model, $select, $sort)
+    protected static function createPager($model, $select, $sort, $redirect_to = false)
     {
         $order_by = self::buildOrderby($select, $sort);
         
@@ -434,7 +437,6 @@ class BaseDocument extends sfDoctrineRecordI18n
         $q->select(implode(',', $select))
           ->from("$model m")
           ->leftJoin("m.$model_i18n mi")
-          ->where('m.redirects_to IS NULL')
           ->orderBy($order_by);
         
         return $pager;
@@ -2132,6 +2134,23 @@ class BaseDocument extends sfDoctrineRecordI18n
         elseif ($param == ' ')
         {
             $conditions[] = "($field IS NOT NULL AND $field != 0)";
+        }
+        else
+        {
+            $conditions[] = $field . ' = ?';
+            $values[] = $param;
+        }
+    }
+
+    public static function buildItemNullCondition(&$conditions, &$values, $field, $param)
+    {
+        if (!$param || $param == '-')
+        {
+            $conditions[] = "($field IS NULL)";
+        }
+        elseif ($param == ' ')
+        {
+            $conditions[] = "($field IS NOT NULL)";
         }
         else
         {
