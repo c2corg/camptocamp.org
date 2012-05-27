@@ -130,11 +130,11 @@ class articlesActions extends documentsActions
         }
     }
         
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'cnam': return 'mi.search_name';
+            case 'cnam': return $mi . '.search_name';
             case 'act':  return 'm.activities';
             case 'ccat':  return 'm.categories';
             case 'ctyp': return 'm.article_type';

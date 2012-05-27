@@ -1154,7 +1154,7 @@ class documentsActions extends c2cActions
      * number of items per page (npp).
      * @return array
      */
-    protected function getListSortCriteria($default_npp = null, $max_npp = 100)
+    protected function getListSortCriteria($default_npp = null, $max_npp = 100, $mi = 'mi')
     {
         $orderby = $this->getRequestParameter('orderby', NULL);
         if (empty($default_npp))
@@ -1169,18 +1169,18 @@ class documentsActions extends c2cActions
         }
         
         return array('orderby_param' => $orderby,
-                     'order_by' => $this->getSortField($orderby),
+                     'order_by' => $this->getSortField($orderby, $mi),
                      'order'    => $this->getRequestParameter('order', 
                                                               sfConfig::get('app_list_default_order')),
                      'npp'      => $npp
                      );
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'name': return 'mi.search_name';
+            case 'name': return $mi . '.search_name';
             case 'module': return 'm.module';
             default: return NULL;
         }

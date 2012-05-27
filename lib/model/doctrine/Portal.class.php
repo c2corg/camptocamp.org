@@ -51,9 +51,9 @@ class Portal extends BasePortal
         return $pager;
     }   
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {   
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList($mi), 
                            parent::buildGeoFieldsList(),
                            array('m.activities', 'm.lon', 'm.lat'));
     }

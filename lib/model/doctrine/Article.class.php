@@ -93,6 +93,7 @@ class Article extends BaseArticle
             $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, $prefix . 'tags', $prefix . 'tag');
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -118,8 +119,12 @@ class Article extends BaseArticle
         if (!empty($joins))
         {
             $joins['join_' . $prefix . 'article'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -427,9 +432,9 @@ class Article extends BaseArticle
         }
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {   
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList($mi), 
                            array('m.categories', 'm.activities', 'm.article_type'));
     } 
 

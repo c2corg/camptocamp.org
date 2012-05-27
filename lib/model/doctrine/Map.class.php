@@ -80,6 +80,7 @@ class Map extends BaseMap
         
         $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'maps'), $join_id);
         
+        $has_name = false;
         if (!$has_id)
         {
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'marnd', $join);
@@ -93,6 +94,11 @@ class Map extends BaseMap
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.scale', 'scal', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.editor', 'edit', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'mi.culture', 'mcult', $join_i18n);
+        }
+        
+        if ($has_id || $has_name)
+        {
+            $joins['has_id'] = true;
         }
         
         $criteria[0] = $criteria[0] + $conditions;
@@ -131,9 +137,9 @@ class Map extends BaseMap
         return $pager;
     }   
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {   
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList($mi), 
                            parent::buildGeoFieldsList(),
                            array('m.code', 'm.scale', 'm.editor'));
     }

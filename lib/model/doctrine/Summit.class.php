@@ -77,6 +77,7 @@ class Summit extends BaseSummit
             $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'summits', $join_id);
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -128,8 +129,12 @@ class Summit extends BaseSummit
         if (!empty($joins))
         {
             $joins['join_summit'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -414,9 +419,9 @@ class Summit extends BaseSummit
         }
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList($mi), 
                            parent::buildGeoFieldsList(),
                            array('m.elevation', 'm.summit_type', 'm.lon', 'm.lat'));
     }

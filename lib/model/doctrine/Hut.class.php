@@ -94,6 +94,7 @@ class Hut extends BaseHut
             $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'huts', $join_id);
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -154,8 +155,12 @@ class Hut extends BaseHut
         if (!empty($joins))
         {
             $joins['join_hut'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -445,9 +450,9 @@ class Hut extends BaseHut
         }
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {   
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList($mi), 
                            parent::buildGeoFieldsList(),
                            array('m.elevation', 'm.shelter_type', 'm.activities', 'm.lon', 'm.lat', 'm.staffed_capacity', 'm.unstaffed_capacity', 'm.phone', 'm.url'));
     }

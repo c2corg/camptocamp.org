@@ -60,11 +60,11 @@ class productsActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'fnam': return 'mi.search_name';
+            case 'fnam': return $mi . '.search_name';
             case 'falt': return 'm.elevation';
             case 'ftyp': return 'm.product_type';
             case 'anam': return 'ai.search_name';

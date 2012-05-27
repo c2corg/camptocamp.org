@@ -671,11 +671,11 @@ class imagesActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'inam': return 'mi.search_name';
+            case 'inam': return $mi . '.search_name';
             case 'act':  return 'm.activities';
             case 'icat':  return 'm.categories';
             case 'auth': return 'm.author';

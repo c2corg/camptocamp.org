@@ -719,11 +719,11 @@ class outingsActions extends documentsActions
         $this->redirect($route);
     }
     
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'onam': return 'mi.search_name';
+            case 'onam': return $mi . '.search_name';
             case 'act':  return 'm.activities';
             case 'alt':  return 'm.max_elevation';
             case 'date': return 'm.date';

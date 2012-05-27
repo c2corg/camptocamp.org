@@ -70,11 +70,11 @@ class booksActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'bnam': return 'mi.search_name';
+            case 'bnam': return $mi . '.search_name';
             case 'act':  return 'm.activities';
             case 'auth': return 'm.author';
             case 'edit': return 'm.editor';

@@ -466,11 +466,11 @@ class summitsActions extends documentsActions
         return Summit::buildListCriteria($params_list);
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'snam': return 'mi.search_name';
+            case 'snam': return $mi . '.search_name';
             case 'salt': return 'm.elevation';
             case 'styp': return 'm.summit_type';
             case 'anam': return 'ai.search_name';

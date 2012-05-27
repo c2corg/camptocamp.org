@@ -172,11 +172,11 @@ class areasActions extends documentsActions
         return Area::buildListCriteria($params_list);
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'anam': return 'mi.search_name';
+            case 'anam': return $mi . '.search_name';
             case 'atyp': return 'm.area_type';
             default: return NULL;
         }

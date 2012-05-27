@@ -356,6 +356,7 @@ class Route extends BaseRoute
             $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'routes', $join_id);
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -440,8 +441,12 @@ class Route extends BaseRoute
         if (!empty($joins))
         {
             $joins['join_route'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -722,7 +727,7 @@ class Route extends BaseRoute
         }
     }
 
-    protected static function buildRouteFieldsList($format = null, $sort)
+    protected static function buildRouteFieldsList($format = null, $sort, $mi = 'mi')
     {
         $routes_fields_list = array('m.activities', 'm.max_elevation', 'm.facing',
                                  'm.height_diff_up', 'm.difficulties_height',
@@ -749,7 +754,7 @@ class Route extends BaseRoute
         }
             
         
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList($mi), 
                            parent::buildGeoFieldsList(),
                            $routes_fields_list,
                            $extra_fields);

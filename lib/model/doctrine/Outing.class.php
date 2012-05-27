@@ -194,6 +194,7 @@ class Outing extends BaseOuting
             $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'outings', $join_id);
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -252,8 +253,12 @@ class Outing extends BaseOuting
         if (!empty($joins))
         {
             $joins['join_outing'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -541,7 +546,7 @@ class Outing extends BaseOuting
         }
     }
 
-    protected static function buildOutingFieldsList($format = null, $sort)
+    protected static function buildOutingFieldsList($format = null, $sort, $mi = 'mi')
     {
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation',
@@ -559,51 +564,52 @@ class Outing extends BaseOuting
                                   'mi.participants', 'mi.timing', 'mi.access_comments', 'mi.hut_comments', 'mi.description')
                             : array();
         
-        $extra_fields = array();
+        $orderby_fields = array();
         if (isset($sort['orderby_param']))
         {
             $orderby = $sort['orderby_param'];
             
             if (in_array($orderby, sfConfig::get('mod_outings_sort_route_criteria')))
             {
-                $extra_fields[] = 'lr.type'; // if we don't include it, doctrine blocks (chain of join?)
-                switch ($orderby)
+                $orderby_fields[] = 'lr.type'; // if we don't include it, doctrine blocks (chain of join?)
+                $orderby_fields[] = $sort['order_by'];
+            /*    switch ($orderby)
                 {
-                    case 'fac':  $extra_fields[] = 'r.facing'; break;
-                    case 'ralt': $extra_fields[] = 'r.elevation'; break;
-                    case 'dhei': $extra_fields[] = 'r.difficulties_height'; break;
-                    case 'grat': $extra_fields[] = 'r.global_rating'; break;
-                    case 'erat': $extra_fields[] = 'r.engagement_rating'; break;
-                    case 'prat': $extra_fields[] = 'r.equipment_rating'; break;
-                    case 'frat': $extra_fields[] = 'r.rock_free_rating'; break;
-                    case 'arat': $extra_fields[] = 'r.aid_rating'; break;
-                    case 'irat': $extra_fields[] = 'r.ice_rating'; break;
-                    case 'mrat': $extra_fields[] = 'r.mixed_rating'; break;
-                    case 'trat': $extra_fields[] = 'r.toponeige_technical_rating'; break;
-                    case 'expo': $extra_fields[] = 'r.toponeige_exposition_rating'; break;
-                    case 'lrat': $extra_fields[] = 'r.labande_global_rating'; break;
-                    case 'srat': $extra_fields[] = 'r.labande_ski_rating'; break;
-                    case 'hrat': $extra_fields[] = 'r.hiking_rating'; break;
-                    case 'wrat': $extra_fields[] = 'r.snowshoeing_rating'; break;
+                    case 'fac':  $orderby_fields[] = 'r.facing'; break;
+                    case 'ralt': $orderby_fields[] = 'r.elevation'; break;
+                    case 'dhei': $orderby_fields[] = 'r.difficulties_height'; break;
+                    case 'grat': $orderby_fields[] = 'r.global_rating'; break;
+                    case 'erat': $orderby_fields[] = 'r.engagement_rating'; break;
+                    case 'prat': $orderby_fields[] = 'r.equipment_rating'; break;
+                    case 'frat': $orderby_fields[] = 'r.rock_free_rating'; break;
+                    case 'arat': $orderby_fields[] = 'r.aid_rating'; break;
+                    case 'irat': $orderby_fields[] = 'r.ice_rating'; break;
+                    case 'mrat': $orderby_fields[] = 'r.mixed_rating'; break;
+                    case 'trat': $orderby_fields[] = 'r.toponeige_technical_rating'; break;
+                    case 'expo': $orderby_fields[] = 'r.toponeige_exposition_rating'; break;
+                    case 'lrat': $orderby_fields[] = 'r.labande_global_rating'; break;
+                    case 'srat': $orderby_fields[] = 'r.labande_ski_rating'; break;
+                    case 'hrat': $orderby_fields[] = 'r.hiking_rating'; break;
+                    case 'wrat': $orderby_fields[] = 'r.snowshoeing_rating'; break;
                     default: break;
-                }
+                } */
             }
             elseif (in_array($orderby, array('lat', 'lon')))
             {
-                $extra_fields = array('lr.type', 'ls.type', 's.lat', 's.lon');
+                $orderby_fields = array('lr.type', 'ls.type', 's.lat', 's.lon');
             }
             elseif (in_array($orderby, array('ddif')))
             {
-                $extra_fields = array('m.height_diff_down');
+                $orderby_fields = array('m.height_diff_down');
             }
         }
         
-        return array_merge(parent::buildFieldsList(),
+        return array_merge(parent::buildFieldsList($mi),
                            parent::buildGeoFieldsList(),
                            $outings_fields_list,
                            $conditions_fields_list,
                            $full_fields_list,
-                           $extra_fields);
+                           $orderby_fields);
     }
 
     public static function retrieveConditions($days)

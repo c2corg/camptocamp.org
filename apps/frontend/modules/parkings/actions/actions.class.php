@@ -131,11 +131,11 @@ class parkingsActions extends documentsActions
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'pnam': return 'mi.search_name';
+            case 'pnam': return $mi . '.search_name';
             case 'palt': return 'm.elevation';
             case 'tp':  return 'm.public_transportation_rating';
             case 'tpty':  return 'm.public_transportation_types';

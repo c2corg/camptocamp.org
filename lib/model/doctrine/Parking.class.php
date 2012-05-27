@@ -91,6 +91,7 @@ class Parking extends BaseParking
             $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'parkings', $join_id);
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -143,8 +144,12 @@ class Parking extends BaseParking
         if (!empty($joins))
         {
             $joins['join_parking'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -419,9 +424,9 @@ class Parking extends BaseParking
         }
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {   
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList($mi), 
                            parent::buildGeoFieldsList(),
                            array('m.elevation', 'm.lowest_elevation', 'm.public_transportation_rating', 'm.public_transportation_types', 'm.snow_clearance_rating', 'm.lon', 'm.lat'));
     }

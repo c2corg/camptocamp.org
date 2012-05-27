@@ -402,6 +402,7 @@ class Image extends BaseImage
             $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'images', $join_id);
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -449,8 +450,12 @@ class Image extends BaseImage
         if (!empty($joins))
         {
             $joins['join_image'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -538,12 +543,7 @@ class Image extends BaseImage
         
         // user criteria
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'hm.user_id', 'users', 'user_id'); // TODO here we should restrict to initial uploader (ticket #333)
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lou.main_id', 'ousers', 'ouser_id');
-        if (isset($joins['ouser_id']))
-        {
-            $joins['join_outing'] = true;
-            $joins['post_outing'] = true;
-        }
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lou.main_id', 'ousers', array('ouser_id', 'join_outing', 'post_outing'));
 
         $criteria[0] = $criteria[0] + $conditions;
         $criteria[1] = $criteria[1] + $values;
@@ -751,9 +751,9 @@ class Image extends BaseImage
         $q->addWhere(implode(' AND ', $conditions), $values);
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {
-        return array_merge(parent::buildFieldsList(),
+        return array_merge(parent::buildFieldsList($mi),
                            parent::buildGeoFieldsList(),
                            array('m.filename', 'm.date_time', 'm.image_type', 'm.lon', 'm.lat'));
     }

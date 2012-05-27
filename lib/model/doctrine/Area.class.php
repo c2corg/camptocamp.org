@@ -186,6 +186,7 @@ class Area extends BaseArea
             $has_id = self::buildConditionItem($conditions, $values, $joins, 'Multilist', $mid, 'areas', $join_id, false, $params_list);
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -229,8 +230,12 @@ class Area extends BaseArea
         if (!empty($joins))
         {
             $joins['join_area'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -544,9 +549,9 @@ class Area extends BaseArea
         }
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {   
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList($mi), 
                            array('m.geom_wkt', 'm.area_type'));
     }
     

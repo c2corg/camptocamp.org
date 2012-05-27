@@ -378,11 +378,11 @@ class hutsActions extends documentsActions
         return $this->redirect("routes/edit?link=$summit_id");
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'hnam': return 'mi.search_name';
+            case 'hnam': return $mi . '.search_name';
             case 'halt': return 'm.elevation';
             case 'styp': return 'm.shelter_type';
             case 'hscap': return 'm.staffed_capacity';

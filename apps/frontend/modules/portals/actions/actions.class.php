@@ -302,11 +302,11 @@ class portalsActions extends documentsActions
         }
     }
     
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'wnam': return 'mi.search_name';
+            case 'wnam': return $mi . '.search_name';
             case 'walt': return 'm.elevation';
             case 'act':  return 'm.activities';
             case 'anam': return 'ai.search_name';

@@ -170,6 +170,7 @@ class Site extends BaseSite
             $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'sites', $join_id);
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -230,8 +231,12 @@ class Site extends BaseSite
         if (!empty($joins))
         {
             $joins['join_site'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -506,9 +511,9 @@ class Site extends BaseSite
         }
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {   
-        return array_merge(parent::buildFieldsList(), 
+        return array_merge(parent::buildFieldsList($mi), 
                            parent::buildGeoFieldsList(),
                            array('m.routes_quantity', 'm.elevation',
                                  'm.rock_types', 'm.site_types', 'm.lon', 'm.lat'));

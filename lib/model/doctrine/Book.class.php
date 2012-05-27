@@ -93,6 +93,7 @@ class Book extends BaseBook
             $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, $prefix . 'books', $join_id);
         }
         
+        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -135,8 +136,12 @@ class Book extends BaseBook
         if (!empty($joins))
         {
             $joins['join_' . $prefix . 'book'] = true;
-            $criteria[2] = $criteria[2] + $joins;
         }
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+        $criteria[2] = $criteria[2] + $joins;
         
         return null;
     }
@@ -333,11 +338,11 @@ class Book extends BaseBook
         }
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {   
         $book_field_list = array('m.author', 'm.activities', 'm.editor', 'm.book_types', 'm.langs', 'm.publication_date');
         
-        return array_merge(parent::buildFieldsList(),
+        return array_merge(parent::buildFieldsList($mi),
                            $book_field_list);
     }
 

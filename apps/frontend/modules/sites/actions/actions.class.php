@@ -571,11 +571,11 @@ class sitesActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
-            case 'tnam': return 'mi.search_name';
+            case 'tnam': return $mi . '.search_name';
             case 'talt': return 'm.elevation';
             case 'rqua': return 'm.routes_quantity';
             case 'ttyp': return 'm.site_types';

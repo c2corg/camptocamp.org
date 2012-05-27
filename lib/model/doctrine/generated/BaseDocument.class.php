@@ -220,6 +220,10 @@ class BaseDocument extends sfDoctrineRecordI18n
                     {
                         return $join_id;
                     }
+                    elseif ($join_id !== true)
+                    {
+                        $result = false;
+                    }
                     break;
                 case 'Istring': self::buildIstringCondition($conditions, $values, $field, $value);
                     //$nb_join = 0;
@@ -499,9 +503,9 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $order_by;
     }
 
-    protected static function buildFieldsList()
+    protected static function buildFieldsList($mi = 'mi')
     {
-        return array('m.id', 'mi.culture', 'mi.name', 'm.module', 'mi.search_name');
+        return array('m.id', $mi . '.culture', $mi . '.name', 'm.module', $mi . '.search_name');
     }
 
     protected static function buildGeoFieldsList()
@@ -2082,6 +2086,10 @@ class BaseDocument extends sfDoctrineRecordI18n
                 if ($join[0])
                 {
                     $join_result = $join[0];
+                }
+                else
+                {
+                    $join_result = true;
                 }
             }
             else

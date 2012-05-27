@@ -907,7 +907,7 @@ class routesActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby)
+    protected function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
