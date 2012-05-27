@@ -143,7 +143,7 @@ class Outing extends BaseOuting
             $criteria = self::buildListCriteria($params);
             if (!empty($criteria))
             {
-                self::buildPagerConditions($q, $criteria[0], $criteria[1]);
+                self::buildPagerConditions($q, $criteria);
             }
         }
 

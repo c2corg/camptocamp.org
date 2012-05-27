@@ -1479,7 +1479,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $q = Doctrine_Query::create()
                  ->select('DISTINCT mi.id')
                  ->from($model . 'I18n' . ' mi')
-                 ->leftJoin($model . ' m')
+                 ->leftJoin('mi.' . $model . ' m')
                  ->where('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL', array($name));
             
             if ($model == 'User' && !$is_connected)
