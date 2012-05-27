@@ -2079,9 +2079,14 @@ class BaseDocument extends sfDoctrineRecordI18n
         $param = urldecode($param);
         if (strlen($param) > 2)
         {
-            $ids = self::idSearchByName($param, $model);
-            if (count($ids))
+            $ids_tmp = self::idSearchByName($param, $model);
+            if (count($ids_tmp))
             {
+                $ids = array();
+                foreach ($ids_tmp as $id)
+                {
+                    $ids[] = $id['id'];
+                }
                 $conditions[] = $field[0] . ' IN (' . implode(',', $ids) . ')';
                 if ($join[0])
                 {
