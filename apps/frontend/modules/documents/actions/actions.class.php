@@ -1954,7 +1954,7 @@ class documentsActions extends c2cActions
                             // clear their view cache
                             $this->clearCache($doc['module'], $doc['id'], false, 'view');
                             
-                            if (in_array($doc_module, array('summits', 'parkings')))
+                            if (in_array($doc_module, array('summits', 'parkings', 'sites')))
                             {
                                 $ids[] = $doc_id;
                             }
@@ -1962,7 +1962,7 @@ class documentsActions extends c2cActions
                         
                         if (count($ids))
                         {
-                            findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp'));
+                            $associated_docs = findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp', 'tt'));
                             foreach ($associated_docs as $doc)
                             {
                                 // clear their view cache
@@ -1972,7 +1972,7 @@ class documentsActions extends c2cActions
                     }
                     elseif ($module_name == 'routes')
                     {
-                        findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp'));
+                        $associated_docs = findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp'));
                         foreach ($associated_docs as $doc)
                         {
                             // clear their view cache

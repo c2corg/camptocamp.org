@@ -144,7 +144,7 @@ class Site extends BaseSite
             $m2 = 's';
             $midi18n = $mid;
             $join = null;
-            $join_id = 'site_id';
+            $join_id = null;
             $join_idi18n = null;
             $join_i18n = 'site_i18n';
         }
@@ -162,8 +162,9 @@ class Site extends BaseSite
         
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'sites'), null);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', $mid, 'subsites', 'subsite_id');
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', $join_id);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lt.main_id', 'sites', 'site_id');
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'ltt.linked_id', 'subsites', 'subsite_id');
         }
         else
         {
@@ -367,16 +368,24 @@ class Site extends BaseSite
             $main_join = $m . '.associations';
             $linked_join = $m . '.LinkedAssociation';
             
-            if (isset($joins['site_id_has']))
+            if (isset($joins['site_id']))
             {
-                $q->leftJoin($m . '.associations lt')
-                  ->addWhere("lt.type = 'tt'");
+                $q->leftJoin($main_join . ' lt');
+                
+                if (isset($joins['site_id_has']))
+                {
+                    $q->addWhere("lt.type = 'tt'");
+                }
             }
             
-            if (isset($joins['subsite_id_has']))
+            if (isset($joins['subsite_id']))
             {
-                $q->leftJoin($m . 'LinkedAssociation ltt')
-                  ->addWhere("ltt.type = 'tt'");
+                $q->leftJoin($linked_join . ' ltt');
+                
+                if (isset($joins['subsite_id_has']))
+                {
+                    $q->addWhere("ltt.type = 'tt'");
+                }
             }
         }
         else

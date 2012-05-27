@@ -51,7 +51,7 @@ class Summit extends BaseSummit
             $m2 = 's';
             $midi18n = $mid;
             $join = null;
-            $join_id = 'summit_id';
+            $join_id = null;
             $join_idi18n = null;
             $join_i18n = 'summit_i18n';
         }
@@ -69,8 +69,9 @@ class Summit extends BaseSummit
         
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'summits'), $join_id);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', $mid, 'subsummits', 'subsummit_id');
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', $join_id);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'ls.main_id', 'summits', 'summit_id');
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lss.linked_id', 'subsummits', 'subsummit_id');
         }
         else
         {
@@ -267,16 +268,24 @@ class Summit extends BaseSummit
             $main_join = $m . '.associations';
             $linked_join = $m . '.LinkedAssociation';
             
-            if (isset($joins['summit_id_has']))
+            if (isset($joins['summit_id']))
             {
-                $q->leftJoin($m . '.associations ls');
-                $q->addWhere("ls.type = 'ss'");
+                $q->leftJoin($main_join . ' ls');
+                
+                if (isset($joins['summit_id_has']))
+                {
+                    $q->addWhere("ls.type = 'ss'");
+                }
             }
             
-            if (isset($joins['subsummit_id_has']))
+            if (isset($joins['subsummit_id']))
             {
-                $q->leftJoin($m . '.LinkedAssociation lss');
-                $q->addWhere("lss.type = 'ss'");
+                $q->leftJoin($linked_join . ' lss');
+                
+                if (isset($joins['subsummit_id_has']))
+                {
+                    $q->addWhere("lss.type = 'ss'");
+                }
             }
         }
         else

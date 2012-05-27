@@ -2106,10 +2106,13 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = $field[1] . ' LIKE make_search_name(?)||\'%\'';
             $values[] = $param;
-            return '_i18n';
             if ($join[1])
             {
                 $join_result = $join[1];
+            }
+            else
+            {
+                $join_result = false;
             }
         }
         

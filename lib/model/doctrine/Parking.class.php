@@ -66,7 +66,7 @@ class Parking extends BaseParking
             $m2 = 'p';
             $midi18n = $mid;
             $join = null;
-            $join_id = 'parking_id';
+            $join_id = null;
             $join_idi18n = null;
             $join_i18n = 'route_i18n';
         }
@@ -83,8 +83,9 @@ class Parking extends BaseParking
         
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'parkings'), $join_id);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', $mid, 'subparkings', 'subparking_id');
+            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', $join_id);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lp.main_id', 'parkings', 'parking_id');
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lpp.linked_id', 'subparkings', 'subparking_id');
         }
         else
         {
@@ -281,16 +282,24 @@ class Parking extends BaseParking
             $main_join = $m . '.associations';
             $linked_join = $m . '.LinkedAssociation';
             
-            if (isset($joins['parking_id_has']))
+            if (isset($joins['parking_id']))
             {
-                $q->leftJoin($m . '.associations lp')
-                  ->addWhere("lp.type = 'pp'");
+                $q->leftJoin($main_join . ' lp');
+                
+                if (isset($joins['parking_id_has']))
+                {
+                    $q->addWhere("lp.type = 'pp'");
+                }
             }
             
-            if (isset($joins['subparking_id_has']))
+            if (isset($joins['subparking_id']))
             {
-                $q->leftJoin($m . '.LinkedAssociation lpp')
-                  ->addWhere("lpp.type = 'pp'");
+                $q->leftJoin($linked_join . ' lpp');
+                
+                if (isset($joins['subparking_id_has']))
+                {
+                    $q->addWhere("lpp.type = 'pp'");
+                }
             }
         }
         else
