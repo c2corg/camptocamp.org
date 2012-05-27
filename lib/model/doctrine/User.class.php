@@ -281,18 +281,22 @@ class User extends BaseUser
                 if (count($friend_ids))
                 {
                     $friend_ids = array_diff($friend_ids, $user_ids);
-                    if (count($friend_ids))
+                }
+                if (count($friend_ids))
+                {
+                    $params_list['friends'] = implode('-', $friend_ids);
+                    if ($is_module)
                     {
-                        $params_list['friends'] = implode('-', $friend_ids);
-                        if ($is_module)
-                        {
-                            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'friends', $join_id);
-                        }
-                        else
-                        {
-                            self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'friends', $join_id);
-                        }
+                        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'friends', $join_id);
                     }
+                    else
+                    {
+                        self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'friends', $join_id);
+                    }
+                }
+                else
+                {
+                    return 'no_result';
                 }
             }
             
@@ -370,7 +374,7 @@ class User extends BaseUser
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'unam', 'orderby', array('user_i18n', 'join_user'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('unam'), 'orderby', array('user_i18n', 'join_user'));
         }
         
         // return if no criteria

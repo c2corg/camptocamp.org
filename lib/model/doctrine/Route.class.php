@@ -468,7 +468,7 @@ class Route extends BaseRoute
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'rnam', 'orderby', array('route_i18n', 'join_route'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('rnam'), 'orderby', array('route_i18n', 'join_route'));
         }
         
         // return if no criteria

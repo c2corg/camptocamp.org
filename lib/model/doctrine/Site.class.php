@@ -258,7 +258,7 @@ class Site extends BaseSite
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'tnam', 'orderby', array('site_i18n', 'join_site'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('tnam'), 'orderby', array('site_i18n', 'join_site'));
         }
         
         // return if no criteria
@@ -365,6 +365,7 @@ class Site extends BaseSite
             $m = 'm';
             $linked = '';
             $main_join = $m . '.associations';
+            $linked_join = $m . '.LinkedAssociation';
             
             if (isset($joins['site_id_has']))
             {

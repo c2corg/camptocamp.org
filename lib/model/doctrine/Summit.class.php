@@ -156,7 +156,7 @@ class Summit extends BaseSummit
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'snam', 'orderby', array('summit_i18n', 'join_summit'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('snam'), 'orderby', array('summit_i18n', 'join_summit'));
         }
         
         // return if no criteria

@@ -257,7 +257,7 @@ class Area extends BaseArea
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'anam', 'orderby', array('area_i18n', 'join_area'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('anam'), 'orderby', array('area_i18n', 'join_area'));
         }
         
         // return if no criteria
@@ -376,6 +376,7 @@ class Area extends BaseArea
             $m = 'm';
             $linked = '';
             $main_join = $m . '.geoassociations';
+            $linked_join = $m . '.LinkedAssociation';
         }
         else
         {

@@ -64,7 +64,6 @@ class Book extends BaseBook
         $conditions = $values = $joins = array();
         
         $m2 = $prefix . 'b';
-        $mid2 = $mid[0] . '.' . $mid[1];
         if ($is_module)
         {
             $m = 'm';
@@ -77,6 +76,8 @@ class Book extends BaseBook
         else
         {
             $m = $m2;
+            $mid = array('l' . $m, $mid);
+            $midi18n = implode('.', $mid);
             $join = $prefix . 'book';
             $join_id = $join . '_id';
             $join_idi18n = $join . '_idi18n';
@@ -163,7 +164,7 @@ class Book extends BaseBook
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'bnam', 'orderby', array('book_i18n', 'join_book'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('bnam'), 'orderby', array('book_i18n', 'join_book'));
         }
         
         // return if no criteria

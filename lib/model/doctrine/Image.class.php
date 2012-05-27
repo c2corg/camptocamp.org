@@ -477,7 +477,7 @@ class Image extends BaseImage
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'inam', 'orderby', array('image_i18n', 'join_image'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('inam'), 'orderby', array('image_i18n', 'join_image'));
         }
         
         // return if no criteria

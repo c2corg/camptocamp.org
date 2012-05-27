@@ -127,7 +127,7 @@ class Product extends BaseProduct
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'fnam', 'orderby', array('product_i18n', 'join_product'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('fnam'), 'orderby', array('product_i18n', 'join_product'));
         }
         
         // return if no criteria
@@ -210,13 +210,14 @@ class Product extends BaseProduct
         $join = 'product';
         if ($is_module)
         {
-            $m = 'm.';
+            $m = 'm';
             $linked = '';
-            $main_join = $m . 'associations';
+            $main_join = $m . '.associations';
+            $linked_join = $m . '.LinkedAssociation';
         }
         else
         {
-            $m = 'lf.';
+            $m = 'lf';
             if ($is_linked)
             {
                 $linked = 'Linked';

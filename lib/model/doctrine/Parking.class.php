@@ -171,7 +171,7 @@ class Parking extends BaseParking
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'pnam', 'orderby', array('parking_i18n', 'join_parking'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('pnam'), 'orderby', array('parking_i18n', 'join_parking'));
         }
         
         // return if no criteria

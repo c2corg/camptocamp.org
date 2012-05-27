@@ -182,7 +182,7 @@ class Hut extends BaseHut
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'hnam', 'orderby', array('hut_i18n', 'join_hut'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('hnam'), 'orderby', array('hut_i18n', 'join_hut'));
         }
         
         // return if no criteria

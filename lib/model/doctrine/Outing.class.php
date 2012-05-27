@@ -280,7 +280,7 @@ class Outing extends BaseOuting
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'onam', 'orderby', array('outing_i18n', 'join_outing'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('onam'), 'orderby', array('outing_i18n', 'join_outing'));
             
             // TODO : remplacer $joins par $joins_order lorsque la gestion des jointures pour le ORDERBY sera en place
             self::buildConditionItem($conditions, $values, $joins, $orderby, 'Order', array('lat', 'lon'), 'orderby', array('summit', 'join_summit'));
@@ -413,6 +413,7 @@ class Outing extends BaseOuting
             $m = 'm';
             $linked = '';
             $main_join = $m . '.associations';
+            $linked_join = $m . '.LinkedAssociation';
         }
         else
         {

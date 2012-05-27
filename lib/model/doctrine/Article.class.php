@@ -146,7 +146,7 @@ class Article extends BaseArticle
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'cnam', 'orderby', array('article_i18n', 'join_article'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('cnam'), 'orderby', array('article_i18n', 'join_article'));
         }
         
         // return if no criteria

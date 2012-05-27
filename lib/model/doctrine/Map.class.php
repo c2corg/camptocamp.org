@@ -55,7 +55,7 @@ class Map extends BaseMap
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', 'mnam', 'orderby', array('map_i18n', 'join_map'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('mnam'), 'orderby', array('map_i18n', 'join_map'));
         }
         
         // return if no criteria
