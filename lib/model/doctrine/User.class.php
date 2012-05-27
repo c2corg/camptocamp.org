@@ -226,11 +226,17 @@ class User extends BaseUser
         $has_name = false;
         if (!$has_id)
         {
+            $has_name = false;
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'u', 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
-                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Mstring', array('mi.search_name', 'upd.search_username'), 'utfnam', $join_i18n);
+                
+                $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'Mstring', array(array($midi18n, 'mi.search_name'), array($midi18n, 'upd.search_username')), 'utfnam', array(array($join_idi18n, $join_i18n), array($join_idi18n, $join_private_data)), array('User', 'UserPrivateData'));
+                if ($has_name === 'no_result')
+                {
+                    return $has_name;
+                }
             }
             
             // friends
@@ -302,11 +308,13 @@ class User extends BaseUser
             
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'uarnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $m . 'i.search_name'), ($is_module ? array('unam', 'name') : 'unam'), array($join_idi18n, $join_i18n), 'User');
-            if ($has_name === 'no_result')
+            $has_name_2 = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $m . 'i.search_name'), ($is_module ? array('unam', 'name') : 'unam'), array($join_idi18n, $join_i18n), 'User');
+            if ($has_name_2 === 'no_result')
             {
-                return $has_name;
+                return $has_name_2;
             }
+            $has_name = $has_name || $has_name_2;
+            
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'upd.search_username'), 'ufnam', array($join_idi18n, $join_private_data), 'UserPrivateData');
             if ($has_name === 'no_result')
             {

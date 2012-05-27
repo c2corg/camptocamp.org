@@ -203,7 +203,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $nb_join = 1;
             $result = true;
             
-            if (is_array($join_ids))
+            if (is_array($join_ids) && !in_array($criteria_type, array('String', 'Mstring')))
             {
                 $join_id = array_shift($join_ids);
             }
@@ -224,12 +224,22 @@ class BaseDocument extends sfDoctrineRecordI18n
                     {
                         $result = false;
                     }
+                    $join_ids = null;
                     break;
                 case 'Istring': self::buildIstringCondition($conditions, $values, $field, $value);
                     //$nb_join = 0;
                     break;
-                case 'Mstring': self::buildMstringCondition($conditions, $values, $field, $value);
-                    //$nb_join = 0;
+                case 'Mstring':
+                    $join_id = self::buildMstringCondition($conditions, $values, $field, $value, $extra, $join_id);
+                    if ($join_id === 'no_result')
+                    {
+                        return $join_id;
+                    }
+                    elseif ($join_id[0] !== true)
+                    {
+                        $result = false;
+                    }
+                    $join_id = array_shift($join_ids);
                     break;
                 case 'Item':    self::buildItemCondition($conditions, $values, $field, $value); break;
                 case 'ItemNull':    self::buildItemNullCondition($conditions, $values, $field, $value); break;
@@ -2129,33 +2139,64 @@ class BaseDocument extends sfDoctrineRecordI18n
      * second part for second field (and thus use AND)
      * Else we use OR on the two fields
      */
-    public static function buildMstringCondition(&$conditions, &$values, $field, $param)
+    public static function buildMstringCondition(&$conditions, &$values, $field, $param, $model, $join = null)
     {
+        $name_list = array();
         $param_list = explode(':', $param, 2);
-        $first_name = urldecode(trim($param_list[0]));
+        $name_list[0] = urldecode(trim($param_list[0]));
         if (count($param_list) == 1)
         {
             // $second_name = $first_name;
-            $second_name = '';
+            $name_list[1] = '';
             $condition_type = ' OR ';
         }
         else
         {
-            $second_name = urldecode(trim($param_list[1]));
+            $name_list[1] = urldecode(trim($param_list[1]));
             $condition_type = ' AND ';
         }
-        $condition_name = array();
-        if (!empty($first_name))
+        
+        $conditions_name = $joins_name = $join_result_list = array();
+        if (empty($join))
         {
-            $condition_name[] = '(' . $field[0] . ' LIKE \'%\'||make_search_name(?)||\'%\')';
-            $values[] = $first_name;
+            $join = array(array(null, null), array(null, null));
         }
-        if (!empty($second_name))
+        
+        $join_result = '';
+        if (!empty($name_list[0]))
         {
-            $condition_name[] = '(' . $field[1] . ' LIKE \'%\'||make_search_name(?)||\'%\')';
-            $values[] = $second_name;
+            $join_result = self::buildStringCondition($conditions_name, $values, $field[0], $name_list[0], $model[0], $join[0]);
+            if (!empty($join_result))
+            {
+                $join_result_list[] = $join_result;
+            }
         }
-        $conditions[] = implode($condition_type, $condition_name);
+        
+        if (!empty($name_list[1]))
+        {
+            if ($join_result === 'no_result')
+            {
+                return $join_result;
+            }
+            
+            $join_result = self::buildStringCondition($conditions_name, $values, $field[1], $name_list[1], $model[1], $join[1]);
+            if ($join_result === 'no_result')
+            {
+                return $join_result;
+            }
+            if (!empty($join_result))
+            {
+                $join_result_list[] = $join_result;
+            }
+        }
+        
+        $conditions[] = implode($condition_type, $conditions_name);
+        if (empty($join_result_list))
+        {
+            $join_result_list = array(null);
+        }
+        
+        return $join_result_list;
     }
 
     public static function buildItemCondition(&$conditions, &$values, $field, $param)

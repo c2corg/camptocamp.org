@@ -126,8 +126,8 @@ class Association extends BaseAssociation
             $query = "SELECT $select " .
                  'FROM documents ' .
                  'WHERE id IN '. 
-                 '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id $where_ids) '.
-                 'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id $where_ids)) '.
+                 "((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id $where_ids) ".
+                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id $where_ids)) ".
                  'ORDER BY id ASC';
 
             $where_array2 = array_merge($where_array, $where_array);

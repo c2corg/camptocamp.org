@@ -359,21 +359,30 @@ class Route extends BaseRoute
         $has_name = false;
         if (!$has_id)
         {
+            $has_name = false;
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'r', 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', null, 'geom', $join);
-                if (self::buildConditionItem($conditions, $values, $joins, $params_list, 'Mstring', array('ri.search_name', 'si.search_name'), 'srnam', $join_i18n))
+                
+                $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'Mstring', array(array($midi18n, 'ri.search_name'), array('ls.main_id', 'si.search_name')), 'srnam', array(array($join_idi18n, $join_i18n), array('summit_idi18n', 'summit_i18n')), array('Route', 'Summit'));
+                if ($has_name === 'no_result')
                 {
-                    $joins['summit_i18n'] = true;
+                    return $has_name;
+                }
+                if (!$has_name && (isset($joins['summit_idi18n']) || isset($joins['summit_i18n'])))
+                {
+                    $joins['join_summit'] = true;
                 }
             }
             
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ri.search_name'), ($is_module ? array('rnam', 'name') : 'rnam'), array($join_idi18n, $join_i18n), 'Route');
-            if ($has_name === 'no_result')
+            $has_name_2 = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ri.search_name'), ($is_module ? array('rnam', 'name') : 'rnam'), array($join_idi18n, $join_i18n), 'Route');
+            if ($has_name_2 === 'no_result')
             {
-                return $has_name;
+                return $has_name_2;
             }
+            $has_name = $has_name || $has_name_2;
+            
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'r', 'activities'), 'ract', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.max_elevation', 'malt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.height_diff_up', 'hdif', $join);
