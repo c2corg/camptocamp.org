@@ -64,9 +64,34 @@ class Association extends BaseAssociation
     
     
     // FIXME: factorize with findAllWithBestName
-    public static function findAllAssociatedDocs($id, $fields = array('*'), $types = null)
+    public static function findAllAssociatedDocs($ids, $fields = array('*'), $types = null)
     {
         $select = implode(', ', $fields);
+        
+        if (!is_array($ids))
+        {
+            $ids = array($ids);
+        }
+        elseif (!count($ids))
+        {
+            return array();
+        }
+        
+        $where_array = $ids;
+        $where_ids = array();
+        foreach ($ids as $id)
+        {
+            $where_ids[] = '?';
+        }
+        $where_ids = implode(', ', $where_ids);
+        if (count($ids) == 1)
+        {
+            $where_ids = '= ' . $where_ids;
+        }
+        else
+        {
+            $where_ids = 'IN ( ' . $where_ids . ' )';
+        }
         
         if ($types)
         {
@@ -76,7 +101,6 @@ class Association extends BaseAssociation
             }
 
             $where2 = array();
-            $where_array = array($id);
             foreach ($types as $type)
             {
                 $where2[] = 'a.type = ?';
@@ -89,8 +113,8 @@ class Association extends BaseAssociation
             $query = "SELECT $select " .
                  'FROM documents ' .
                  'WHERE id IN '. 
-                 "((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND $where) ".
-                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND $where)) ".
+                 "((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id $where_ids AND $where) ".
+                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id $where_ids AND $where)) ".
                  'ORDER BY id ASC';
 
             $results = sfDoctrine::connection()
@@ -102,12 +126,14 @@ class Association extends BaseAssociation
             $query = "SELECT $select " .
                  'FROM documents ' .
                  'WHERE id IN '. 
-                 '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ?) '.
-                 'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ?)) '.
+                 '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id $where_ids) '.
+                 'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id $where_ids)) '.
                  'ORDER BY id ASC';
 
+            $where_array2 = array_merge($where_array, $where_array);
+            
             $results = sfDoctrine::connection()
-                        ->standaloneQuery($query, array($id, $id)) 
+                        ->standaloneQuery($query, $where_array2)
                         ->fetchAll();
         }
                 
