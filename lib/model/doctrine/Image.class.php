@@ -444,8 +444,8 @@ class Image extends BaseImage
         
         if (!empty($conditions))
         {
-            $criteria[0] = $criteria[0] + $conditions;
-            $criteria[1] = $criteria[1] + $values;
+            $criteria[0] += $conditions;
+            $criteria[1] += $values;
         }
         if (!empty($joins))
         {
@@ -455,7 +455,7 @@ class Image extends BaseImage
         {
             $joins['has_id'] = true;
         }
-        $criteria[2] = $criteria[2] + $joins;
+        $criteria[2] += $joins;
         
         return null;
     }
@@ -545,10 +545,10 @@ class Image extends BaseImage
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'hm.user_id', 'users', 'user_id'); // TODO here we should restrict to initial uploader (ticket #333)
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lou.main_id', 'ousers', array('ouser_id', 'join_outing', 'post_outing'));
 
-        $criteria[0] = $criteria[0] + $conditions;
-        $criteria[1] = $criteria[1] + $values;
-        $criteria[2] = $criteria[2] + $joins;
-        $criteria[3] = $criteria[3] + $joins_order;
+        $criteria[0] += $conditions;
+        $criteria[1] += $values;
+        $criteria[2] += $joins;
+        $criteria[3] += $joins_order;
         return $criteria;
     }
     

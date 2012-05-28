@@ -149,8 +149,8 @@ class Hut extends BaseHut
         
         if (!empty($conditions))
         {
-            $criteria[0] = $criteria[0] + $conditions;
-            $criteria[1] = $criteria[1] + $values;
+            $criteria[0] += $conditions;
+            $criteria[1] += $values;
         }
         if (!empty($joins))
         {
@@ -160,7 +160,7 @@ class Hut extends BaseHut
         {
             $joins['has_id'] = true;
         }
-        $criteria[2] = $criteria[2] + $joins;
+        $criteria[2] += $joins;
         
         return null;
     }
@@ -245,10 +245,10 @@ class Hut extends BaseHut
             return $has_name;
         }
 
-        $criteria[0] = $criteria[0] + $conditions;
-        $criteria[1] = $criteria[1] + $values;
-        $criteria[2] = $criteria[2] + $joins;
-        $criteria[3] = $criteria[3] + $joins_order;
+        $criteria[0] += $conditions;
+        $criteria[1] += $values;
+        $criteria[2] += $joins;
+        $criteria[3] += $joins_order;
         return $criteria;
     }
     
