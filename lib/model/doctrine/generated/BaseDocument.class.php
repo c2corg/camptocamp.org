@@ -230,12 +230,12 @@ class BaseDocument extends sfDoctrineRecordI18n
                     //$nb_join = 0;
                     break;
                 case 'Mstring':
-                    $join_id = self::buildMstringCondition($conditions, $values, $field, $value, $extra, $join_id);
+                    $join_ids = self::buildMstringCondition($conditions, $values, $field, $value, $extra, $join_id);
                     if ($join_id === 'no_result')
                     {
                         return $join_id;
                     }
-                    elseif ($join_id[0] !== true)
+                    elseif (count($join_id) != 1 || $join_id[0] !== true)
                     {
                         $result = false;
                     }
@@ -2146,7 +2146,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $name_list[0] = urldecode(trim($param_list[0]));
         if (count($param_list) == 1)
         {
-            // $second_name = $first_name;
+            // $name_list[1] = $name_list[0];
             $name_list[1] = '';
             $condition_type = ' OR ';
         }

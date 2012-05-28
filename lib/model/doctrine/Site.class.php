@@ -199,7 +199,7 @@ class Site extends BaseSite
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ti.culture', 'tcult', $join_i18n);
             
             // book criteria
-            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 't', 'linked_id');
+            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 't', 'main_id');
             if ($has_name === 'no_result')
             {
                 return $has_name;

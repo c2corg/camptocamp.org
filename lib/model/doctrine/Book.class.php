@@ -102,7 +102,7 @@ class Book extends BaseBook
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lbc.linked_id', 'btags', 'join_btag_id');
             }
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $prefix . 'bi.search_name'), ($is_module ? array('bnam', 'name') : $prefix . 'bnam'), array($join_id, $join_i18n), 'Book');
+            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $prefix . 'bi.search_name'), ($is_module ? array('bnam', 'name') : $prefix . 'bnam'), array($join_idi18n, $join_i18n), 'Book');
             if ($has_name === 'no_result')
             {
                 return $has_name;
@@ -256,10 +256,6 @@ class Book extends BaseBook
             }
             $linked_join = $m . '.' . $linked2 . 'LinkedAssociation';
             $join_id = $join . '_id';
-                
-            $q->leftJoin($first_join . " $m");
-            
-            $m .= '.';
             
             if (isset($joins[$join_id]))
             {
@@ -292,7 +288,7 @@ class Book extends BaseBook
                 
                 if (isset($joins[$join]))
                 {
-                    $q->leftJoin($m . $linked . 'Book ' . $prefix . 'b');
+                    $q->leftJoin($m . '.' . $linked . 'Book ' . $prefix . 'b');
                 }
             }
         }

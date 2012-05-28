@@ -97,7 +97,7 @@ class Summit extends BaseSummit
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'si.culture', 'scult', $join_i18n);
             
             // book criteria
-            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 's', 'linked_id');
+            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 's', 'main_id');
             if ($has_name === 'no_result')
             {
                 return $has_name;
@@ -263,7 +263,7 @@ class Summit extends BaseSummit
         $join = 'summit';
         if ($is_module)
         {
-            $m = 'm.';
+            $m = 'm';
             $linked = '';
             $main_join = $m . '.associations';
             $linked_join = $m . '.LinkedAssociation';

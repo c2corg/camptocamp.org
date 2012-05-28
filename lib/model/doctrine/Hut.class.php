@@ -122,7 +122,7 @@ class Hut extends BaseHut
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'hi.culture', 'hcult', $join_i18n);
             
             // book criteria
-            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 'h', 'linked_id');
+            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 'h', 'main_id');
             if ($has_name === 'no_result')
             {
                 return $has_name;

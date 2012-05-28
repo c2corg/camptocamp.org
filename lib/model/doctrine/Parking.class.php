@@ -112,7 +112,7 @@ class Parking extends BaseParking
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'pi.culture', 'pcult', $join_i18n);
             
             // book criteria
-            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 'p', 'linked_id');
+            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 'p', 'main_id');
             if ($has_name === 'no_result')
             {
                 return $has_name;

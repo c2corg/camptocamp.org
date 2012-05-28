@@ -323,7 +323,7 @@ class Route extends BaseRoute
             return null;
         }
         
-        $conditions = $values = $joins = array();
+        $conditions = $values = $joins = $joins_summit = array();
         
         if ($is_module)
         {
@@ -338,7 +338,7 @@ class Route extends BaseRoute
         else
         {
             $m = 'r';
-            $m2 = 'o.';
+            $m2 = 'r.';
             $mid = array('l' . $m, $mid);
             $midi18n = implode('.', $mid);
             $join = 'route';
@@ -365,14 +365,21 @@ class Route extends BaseRoute
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'r', 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', null, 'geom', $join);
                 
-                $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'Mstring', array(array($midi18n, 'ri.search_name'), array('ls.main_id', 'si.search_name')), 'srnam', array(array($join_idi18n, $join_i18n), array('summit_idi18n', 'summit_i18n')), array('Route', 'Summit'));
+                $has_name = self::buildConditionItem($conditions, $values, $joins_summit, $params_list, 'Mstring', array(array('ls.main_id', 'si.search_name'), array($midi18n, 'ri.search_name')), 'srnam', array(array('summit_idi18n', 'summit_i18n'), array($join_idi18n, $join_i18n)), array('Summit', 'Route'));
                 if ($has_name === 'no_result')
                 {
                     return $has_name;
                 }
-                if (!$has_name && (isset($joins['summit_idi18n']) || isset($joins['summit_i18n'])))
+                if ($has_name !== true)
                 {
-                    $joins['join_summit'] = true;
+                    if (isset($joins_summit['summit_idi18n']) || isset($joins_summit['summit_i18n']))
+                    {
+                        $joins_summit['join_summit'] = true;
+                    }
+                    if (isset($joins_summit['route_i18n']))
+                    {
+                        $joins['route_i18n'] = true;
+                    }
                 }
             }
             
@@ -417,7 +424,7 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lrdc.linked_id', 'rdtags', 'rdtag');
             
             // book criteria
-            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 'r', 'linked_id');
+            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 'r', 'main_id');
             if ($has_name === 'no_result')
             {
                 return $has_name;

@@ -417,7 +417,7 @@ class Outing extends BaseOuting
         }
         else
         {
-            $m = 'lo.';
+            $m = 'lo';
             if ($is_linked)
             {
                 $linked = 'Linked';

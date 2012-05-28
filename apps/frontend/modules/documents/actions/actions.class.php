@@ -1932,6 +1932,7 @@ class documentsActions extends c2cActions
                     {
                         $doc_id = $doc['id'];
                         $doc_module = $doc['module'];
+                        
                         // clear their view cache
                         $this->clearCache($doc_module, $doc_id, false, 'view');
                         
@@ -1951,8 +1952,11 @@ class documentsActions extends c2cActions
                         $ids = array();
                         foreach ($associated_docs as $doc)
                         {
+                            $doc_id = $doc['id'];
+                            $doc_module = $doc['module'];
+                            
                             // clear their view cache
-                            $this->clearCache($doc['module'], $doc['id'], false, 'view');
+                            $this->clearCache($doc_module, $doc_id, false, 'view');
                             
                             if (in_array($doc_module, array('summits', 'parkings', 'sites')))
                             {

@@ -487,7 +487,7 @@ class User extends BaseUser
         }
         else
         {
-            $m = 'lu.';
+            $m = 'lu';
             if ($is_linked)
             {
                 $linked = 'Linked';
