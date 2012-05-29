@@ -442,7 +442,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         $module = c2cTools::model2module($model);
         
-        $field_list = call_user_func(array($model, 'buildFieldsList'), false, 'mi', $format, $sort);
+        $field_list = call_user_func(array($model, 'buildFieldsList'), true, 'mi', $format, $sort);
         
         $pager = self::createPager($model, $field_list, $sort);
         $q = $pager->getQuery();
@@ -499,7 +499,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         $module = c2cTools::model2module($model);
         
-        $field_list = call_user_func(array($model, 'buildFieldsList'), true, 'mi', $format, $sort);
+        $field_list = call_user_func(array($model, 'buildFieldsList'), false, 'mi', $format, $sort);
         $pager = self::createPager($model, $field_list, $sort);
         $q = $pager->getQuery();
         
