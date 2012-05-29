@@ -462,7 +462,7 @@ class Route extends BaseRoute
         {
             $joins['has_id'] = true;
         }
-        $criteria[2] += $joins;
+        $criteria[2] += $joins + $joins_summit;
         
         return null;
     }

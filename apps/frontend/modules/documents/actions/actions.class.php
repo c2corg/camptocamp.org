@@ -871,9 +871,10 @@ class documentsActions extends c2cActions
     public function executeList()
     {
         $timer = new sfTimer('executeList');
-        $criteria = $this->getListCriteria();
         
         $module = $this->getModuleName();
+        $model = $this->model_class;
+        $criteria = $this->getListCriteria($model);
         
         // deal with layout
         $layout = $this->getRequestParameter('layout', null);
@@ -968,7 +969,6 @@ class documentsActions extends c2cActions
         }
         else
         {
-            $model = $this->model_class;
             $sort = call_user_func(array('Document', 'getListSortCriteria'), $model, $default_npp, $max_npp);
             $this->pager = call_user_func(array('Document', 'browse'),
                                           $model,
@@ -1045,11 +1045,11 @@ class documentsActions extends c2cActions
         $timer = new sfTimer('executeRss');
         
         $module = $this->getModuleName();
-        $criteria = $this->getListCriteria();
+        $model = $this->model_class;
+        $criteria = $this->getListCriteria($model);
         
         if ($criteria !== 'no_result' && $module != 'documents')
         {
-            $model = $this->model_class;
             $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
             $this->pager = call_user_func(array('Document', 'browse'),
                                           $model,
@@ -1084,7 +1084,7 @@ class documentsActions extends c2cActions
         $this->div = $this->getRequestParameter('div', 'c2cwgt');
         $model = $this->model_class;
         $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
-        $criteria = $this->getListCriteria();
+        $criteria = $this->getListCriteria($model);
         $this->pager = call_user_func(array('Document', 'browse'),
                                       $model,
                                       $sort,
@@ -1120,7 +1120,7 @@ class documentsActions extends c2cActions
         $timer = new sfTimer('executeGeojson');
         $model = $this->model_class;
         $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
-        $criteria = $this->getListCriteria();
+        $criteria = $this->getListCriteria($model);
         $this->pager = call_user_func(array('Document', 'browse'),
                                       $model,
                                       $sort,
@@ -1151,16 +1151,11 @@ class documentsActions extends c2cActions
      * Must be overridden in every module.
      * @return array
      */
-    protected function getListCriteria()
+    protected function getListCriteria($model)
     {
-        if (($name = $this->getRequestParameter('name')) && !empty($name))
-        {
-            return array(array('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\''),
-                         array(urldecode($name)));
-        }
-
-        // else, empty
-        return array();
+        $params_list = c2cTools::getCriteriaRequestParameters();
+        
+        return call_user_func(array($model, 'buildListCriteria'), $params_list);
     }
 
     protected function JSONResponse($results)

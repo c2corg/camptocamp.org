@@ -70,13 +70,6 @@ class booksActions extends documentsActions
         }
     }
 
-    protected function getListCriteria()
-    {
-        $params_list = c2cTools::getCriteriaRequestParameters();
-        
-        return Book::buildListCriteria($params_list);
-    }
-
     protected function filterSearchParameters()
     {
         $out = array();

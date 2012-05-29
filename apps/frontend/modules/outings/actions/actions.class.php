@@ -719,13 +719,6 @@ class outingsActions extends documentsActions
         $this->redirect($route);
     }
 
-    protected function getListCriteria()
-    {   
-        $params_list = c2cTools::getCriteriaRequestParameters();
-        
-        return Outing::buildListCriteria($params_list);
-    }
-
     protected function filterSearchParameters()
     {
         $out = array();

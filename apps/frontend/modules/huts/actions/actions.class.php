@@ -378,13 +378,6 @@ class hutsActions extends documentsActions
         return $this->redirect("routes/edit?link=$summit_id");
     }
 
-    protected function getListCriteria()
-    {
-        $params_list = c2cTools::getCriteriaRequestParameters();
-        
-        return Hut::buildListCriteria($params_list);
-    }
-
     /**
      * Parses REQUEST sent by filter form and keeps only relevant parameters.
      * @return array

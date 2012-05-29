@@ -164,11 +164,4 @@ class areasActions extends documentsActions
 
         return $out;
     }
-
-    protected function getListCriteria()
-    {
-        $params_list = c2cTools::getCriteriaRequestParameters();
-        
-        return Area::buildListCriteria($params_list);
-    }
 }

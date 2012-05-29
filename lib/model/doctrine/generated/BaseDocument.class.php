@@ -433,6 +433,82 @@ class BaseDocument extends sfDoctrineRecordI18n
             $criteria[2] += $joins;
         }
     }
+
+    public static function buildListCriteria($params_list)
+    {   
+        $criteria = $conditions = $values = $joins = $joins_order = array();
+        $criteria[0] = array(); // conditions
+        $criteria[1] = array(); // values
+        $criteria[2] = array(); // joins
+        $criteria[3] = array(); // joins for order
+
+        // criteria for disabling personal filter
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'dcult');
+        
+        // orderby criteria
+        $orderby = c2cTools::getRequestParameter('orderby');
+        if (!empty($orderby))
+        {
+            $orderby = array('orderby' => $orderby);
+            
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('snam'), 'orderby', array('document_i18n', 'join_document'));
+        }
+        
+        // return if no criteria
+        if (isset($joins['all']) || empty($params_list))
+        {
+            $criteria[2] = $joins;
+            $criteria[3] = $joins_order;
+            return $criteria;
+        }
+        
+        // document criteria
+        $m = 'm';
+        $m2 = 'd';
+        $midi18n = $mid;
+        $join = null;
+        $join_id = null;
+        $join_idi18n = null;
+        $join_i18n = 'document_i18n';
+        
+        $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'docs'), $join_id);
+        
+        if (!$has_id)
+        {
+            if ($is_module)
+            {
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
+            }
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'darnd', $join);
+            
+            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'di.search_name'), ($is_module ? array('dnam', 'name') : 'dnam'), array($join_idi18n, $join_i18n), 'Document');
+            if ($has_name === 'no_result')
+            {
+                return $has_name;
+            }
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'dalt', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'di.culture', 'dcult', $join_i18n);
+        }
+        
+        if ($is_module && ($has_id || $has_name))
+        {
+            $joins['has_id'] = true;
+        }
+            
+        
+        // image criteria
+        $has_name = Image::buildImageListCriteria($criteria, $params_list, false);
+        if ($has_name === 'no_result')
+        {
+            return $has_name;
+        }
+
+        $criteria[0] += $conditions;
+        $criteria[1] += $values;
+        $criteria[2] += $joins;
+        $criteria[3] += $joins_order;
+        return $criteria;
+    }
     
     /**
      * Lists documents of current model taking into account search criteria or filters if any.

@@ -302,13 +302,6 @@ class portalsActions extends documentsActions
         }
     }
 
-    protected function getListCriteria()
-    {
-        $params_list = c2cTools::getCriteriaRequestParameters();
-        
-        return Portal::buildListCriteria($params_list);
-    }
-
     /**
      * Parses REQUEST sent by filter form and keeps only relevant parameters.
      * @return array

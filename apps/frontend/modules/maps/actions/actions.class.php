@@ -57,13 +57,6 @@ class mapsActions extends documentsActions
         $this->setErrorAndRedirect('Map creation is prohibited', '@default_index?module=maps');
     }
 
-    protected function getListCriteria()
-    {
-        $params_list = c2cTools::getCriteriaRequestParameters();
-        
-        return Map::buildListCriteria($params_list);
-    }
-
     protected function filterSearchParameters()
     {
         $out = array();

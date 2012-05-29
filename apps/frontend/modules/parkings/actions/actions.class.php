@@ -131,13 +131,6 @@ class parkingsActions extends documentsActions
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
     }
 
-    protected function getListCriteria()
-    {   
-        $params_list = c2cTools::getCriteriaRequestParameters();
-        
-        return Parking::buildListCriteria($params_list);
-    }
-
     protected function filterSearchParameters()
     {
         $out = array();

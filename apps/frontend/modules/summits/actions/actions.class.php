@@ -454,19 +454,6 @@ class summitsActions extends documentsActions
     }
     
     /**
-     * Get list of criteria used to filter items list.
-     * Overriddes the one in parent class.
-     * @return array
-     */
-     
-    protected function getListCriteria()
-    {
-        $params_list = c2cTools::getCriteriaRequestParameters();
-        
-        return Summit::buildListCriteria($params_list);
-    }
-    
-    /**
      * Parses REQUEST sent by filter form and keeps only relevant parameters.
      * @return array
      */

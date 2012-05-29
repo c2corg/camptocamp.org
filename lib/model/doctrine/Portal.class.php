@@ -26,7 +26,7 @@ class Portal extends BasePortal
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'scult', 'ract');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'wcult');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');
@@ -34,7 +34,7 @@ class Portal extends BasePortal
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('snam'), 'orderby', array('summit_i18n', 'join_summit'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('wnam'), 'orderby', array('portal_i18n', 'join_portal'));
         }
         
         // return if no criteria
