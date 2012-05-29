@@ -55,7 +55,7 @@ class Portal extends BasePortal
         $join = null;
         $join_id = null;
         $join_idi18n = null;
-        $join_i18n = 'product_i18n';
+        $join_i18n = 'portal_i18n';
         
         $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'portals'), $join_id);
         

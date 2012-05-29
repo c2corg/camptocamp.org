@@ -141,7 +141,7 @@ class Outing extends BaseOuting
         if (!empty($params))
         {
             $criteria = self::buildListCriteria($params);
-            if (!empty($criteria))
+            if (!empty($criteria[0]))
             {
                 self::buildPagerConditions($q, $criteria);
             }
@@ -171,7 +171,7 @@ class Outing extends BaseOuting
             $join = null;
             $join_id = null;
             $join_idi18n = null;
-            $join_i18n = 'route_i18n';
+            $join_i18n = 'outing_i18n';
         }
         else
         {

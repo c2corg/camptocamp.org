@@ -198,7 +198,7 @@ class User extends BaseUser
             $join = null;
             $join_id = null;
             $join_idi18n = null;
-            $join_i18n = null;
+            $join_i18n = 'user_i18n';
             $join_private_data = null;
         }
         else
@@ -369,12 +369,6 @@ class User extends BaseUser
 
         // criteria for disabling personal filter
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'ucult');
-
-        // criteria to hide users whithout public profile
-        if (!sfContext::getInstance()->getUser()->isConnected())
-        {
-            $conditions[] = 'upd.is_profile_public IS TRUE';
-        }
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');
@@ -448,6 +442,12 @@ class User extends BaseUser
     {
         self::joinOnRegions($q);
         $q->leftJoin('m.private_data upd');
+
+        // criteria to hide users whithout public profile
+        if (!sfContext::getInstance()->getUser()->isConnected())
+        {
+            $q->addWhere('upd.is_profile_public IS TRUE');
+        }
     }
     
     public static function buildUserPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
@@ -609,6 +609,8 @@ class User extends BaseUser
         {
             $data_fields_list = array('upd.login_name', 'upd.topo_name', 'upd.username', 
                                  'm.lon', 'm.lat', 'm.activities', 'm.category');
+            $data_fields_list = array_merge($data_fields_list,
+                                            parent::buildGeoFieldsList());
         }
         else
         {

@@ -319,7 +319,7 @@ class Summit extends BaseSummit
 
         if (isset($joins[$join . '_i18n']))
         {
-            $q->leftJoin($m . '.' . $linked . 'SummitI18n pi');
+            $q->leftJoin($m . '.' . $linked . 'SummitI18n si');
         }
         if (isset($joins['join_sbook']))
         {

@@ -68,7 +68,7 @@ class Parking extends BaseParking
             $join = null;
             $join_id = null;
             $join_idi18n = null;
-            $join_i18n = 'route_i18n';
+            $join_i18n = 'parking_i18n';
         }
         else
         {

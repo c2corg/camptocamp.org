@@ -405,7 +405,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if (c2cTools::getArrayElement($params_list, 'areas'))
         {
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', array('g', 'linked_id'), 'areas', 'join_area');
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', array('g', 'linked_id'), 'areas', 'area_id');
         }
         
         if (c2cTools::getArrayElement($params_list, 'bbox'))
@@ -429,7 +429,6 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         if (!empty($joins))
         {
-            $joins['join_area'] = true;
             $criteria[2] += $joins;
         }
     }
@@ -858,10 +857,10 @@ class BaseDocument extends sfDoctrineRecordI18n
     // this is for use with models which either need filtering on regions, or display of regions names.
     protected static function joinOnMultiRegions($q, &$joins)
     {
-        self::joinOnMulti($q, $joins, 'join_area', 'm.geoassociations g', 3);
+        self::joinOnMulti($q, $joins, 'area_id', 'm.geoassociations g', 3);
     }
 
-    protected static function joinOnLinkedDocMultiRegions($q, &$joins, $types = array(), $use_main_geo_association = true, $join = 'join_area', $m = 'm', $l = 'l', $g = 'g')
+    protected static function joinOnLinkedDocMultiRegions($q, &$joins, $types = array(), $use_main_geo_association = true, $join = 'area_id', $m = 'm', $l = 'l', $g = 'g')
     {
         if (isset($joins[$join]))
         {
@@ -1644,13 +1643,21 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function quickSearchByName($name, $model = 'Document')
     {
+        if ($model = 'User')
+        {
+            $model_2 = 'user';
+        }
+        else
+        {
+            $model_2 = $model;
+        }
         $model_i18n = $model . 'I18n';
         $selected_fields = 'DISTINCT m.id, m.module, mi.culture, mi.name';
 
         $q = Doctrine_Query::create()
              ->select($selected_fields)
              ->from($model_i18n . ' mi')
-             ->leftJoin('mi.' . $model . ' m');
+             ->leftJoin('mi.' . $model_2 . ' m');
         $name = str_replace(array('   ', '  '), array(' ', ' '), $name);
 
         if ($model == 'Route') // search routes based on the name of the route and the attached summits
@@ -1719,10 +1726,18 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
+            if ($model = 'User')
+            {
+                $model_2 = 'user';
+            }
+            else
+            {
+                $model_2 = $model;
+            }
             $q = Doctrine_Query::create()
                  ->select('DISTINCT mi.id')
                  ->from($model . 'I18n' . ' mi')
-                 ->leftJoin('mi.' . $model . ' m')
+                 ->leftJoin('mi.' . $model_2 . ' m')
                  ->where('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL', array($name));
             
             if ($model == 'User' && !$is_connected)
@@ -2379,8 +2394,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $name_list[0] = urldecode(trim($param_list[0]));
         if (count($param_list) == 1)
         {
-            // $name_list[1] = $name_list[0];
-            $name_list[1] = '';
+            $name_list[1] = $name_list[0];
             $condition_type = ' OR ';
         }
         else

@@ -337,7 +337,7 @@ class Image extends BaseImage
         if (!empty($params))
         {
             $criteria = self::buildListCriteria($params);
-            if (!empty($criteria))
+            if (!empty($criteria[0]))
             {
                 self::buildPagerConditions($q, $criteria);
             }
@@ -638,6 +638,10 @@ class Image extends BaseImage
     
     public static function buildPagerConditions(&$q, $criteria)
     {
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
+        
         $route_join = 'm.associations';
         $route_ltype = 'ri';
         $summit_join = 'm.associations';

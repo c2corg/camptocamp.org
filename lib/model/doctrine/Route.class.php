@@ -418,7 +418,7 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.route_length', 'rlen', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'r', 'sub_activities'), 'sub', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.is_on_glacier', 'glac', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ri.culture', 'rcult', 'join_route_i18n');
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ri.culture', 'rcult', $join_i18n);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $m . '.geom_wkt', 'rgeom', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lrd.main_id', 'rdocs', 'rdoc');
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lrdc.linked_id', 'rdtags', 'rdtag');

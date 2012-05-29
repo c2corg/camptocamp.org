@@ -196,7 +196,6 @@ class Association extends BaseAssociation
             }
 
             $where2 = array();
-            $where_array = array($id);
             foreach ($types as $type)
             {
                 $where2[] = 'a.type = ?';
