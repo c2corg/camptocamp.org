@@ -447,7 +447,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $pager = self::createPager($model, $field_list, $sort);
         $q = $pager->getQuery();
         
-        call_user_func(array($model, 'buildMainPagerConditions'), $q);
+        call_user_func(array($model, 'buildMainPagerConditions'), &$q);
         
         $all = false;
         if (isset($criteria[2]['all']))
@@ -457,7 +457,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if (!$all && !empty($criteria[0]))
         {
-            call_user_func(array($model, 'buildPagerConditions'), $q, $criteria);
+            call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
         }
         elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
         {
@@ -500,6 +500,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $module = c2cTools::model2module($model);
         
         $field_list = call_user_func(array($model, 'buildFieldsList'), false, 'mi', $format, $sort);
+        
         $pager = self::createPager($model, $field_list, $sort);
         $q = $pager->getQuery();
         
@@ -511,7 +512,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if (!$all && !empty($criteria[0]))
         {
-            call_user_func(array($model, 'buildPagerConditions'), $q, $criteria);
+            call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
         }
         elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
         {
