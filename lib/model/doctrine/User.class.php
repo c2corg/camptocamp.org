@@ -374,6 +374,10 @@ class User extends BaseUser
         if (!sfContext::getInstance()->getUser()->isConnected())
         {
             $conditions[] = 'upd.is_profile_public IS TRUE';
+            if (isset($joins['all']))
+            {
+                unset($joins['all']);
+            }
         }
         
         // orderby criteria
@@ -389,6 +393,7 @@ class User extends BaseUser
         if (isset($joins['all']) || empty($params_list))
         {
             $criteria[0] = $conditions;
+            $criteria[1] = $values;
             $criteria[2] = $joins;
             $criteria[3] = $joins_order;
             return $criteria;
@@ -445,7 +450,7 @@ class User extends BaseUser
         return $criteria;
     }
 
-    public static function buildMainPagerConditions(&$q)
+    public static function buildMainPagerConditions(&$q, $criteria)
     {
         self::joinOnRegions($q);
         $q->leftJoin('m.private_data upd');

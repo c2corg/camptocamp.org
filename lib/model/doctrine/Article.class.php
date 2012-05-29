@@ -153,6 +153,7 @@ class Article extends BaseArticle
         if (isset($joins['all']) || empty($params_list))
         {
             $criteria[0] = $conditions;
+            $criteria[1] = $values;
             $criteria[2] = $joins;
             $criteria[3] = $joins_order;
             return $criteria;
@@ -237,7 +238,7 @@ class Article extends BaseArticle
         return $criteria;
     }
     
-    public static function buildMainPagerConditions(&$q)
+    public static function buildMainPagerConditions(&$q, $criteria)
     {
     }
     

@@ -230,7 +230,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     //$nb_join = 0;
                     break;
                 case 'Mstring':
-                    $join_ids = self::buildMstringCondition($conditions, $values, $field, $value, $extra, $join_id);
+                    $join_id = self::buildMstringCondition($conditions, $values, $field, $value, $extra, $join_id);
                     if ($join_id === 'no_result')
                     {
                         return $join_id;
@@ -242,7 +242,8 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $join_id = array_shift($join_ids);
                     break;
                 case 'Item':    self::buildItemCondition($conditions, $values, $field, $value); break;
-                case 'ItemNull':    self::buildItemNullCondition($conditions, $values, $field, $value); break;
+                case 'ItemNull':
+                    $result = self::buildItemNullCondition($conditions, $values, $field, $value); break;
                 case 'Multi':   self::buildMultiCondition($conditions, $values, $field, $value); break;
                 case 'Compare': self::buildCompareCondition($conditions, $values, $field, $value); break;
                 case 'Relative': self::buildRelativeCondition($conditions, $values, $field, $value); break;
@@ -336,8 +337,12 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildPersoCriteria(&$conditions, &$values, &$joins, &$params_list, $culture_param, $activity_param = 'act', $na_activities = array())
     {
-        $has_merged = self::buildConditionItem($conditions, $values, $joins, $params_list, 'ItemNull', 'm.redirects_to', 'merged', null);
-        if (!$has_merged)
+        $has_merged = self::buildConditionItem($conditions, $values, $joins, $params_list, 'ItemNull', 'm.redirects_to', 'merged', 'merged');
+        if ($has_merged)
+        {
+            $joins['merged'] = $has_merged;
+        }
+        else
         {
             $conditions[] = 'm.redirects_to IS NULL';
         }
@@ -457,6 +462,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         if (isset($joins['all']) || empty($params_list))
         {
             $criteria[0] = $conditions;
+            $criteria[1] = $values;
             $criteria[2] = $joins;
             $criteria[3] = $joins_order;
             return $criteria;
@@ -523,7 +529,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $pager = self::createPager($model, $field_list, $sort);
         $q = $pager->getQuery();
         
-        call_user_func(array($model, 'buildMainPagerConditions'), &$q);
+        call_user_func(array($model, 'buildMainPagerConditions'), &$q, $criteria);
         
         $all = false;
         if (isset($criteria[2]['all']))
@@ -625,7 +631,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
     }
     
-    public static function buildMainPagerConditions(&$q)
+    public static function buildMainPagerConditions(&$q, $criteria)
     {
     }
     
@@ -1644,7 +1650,7 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function quickSearchByName($name, $model = 'Document')
     {
-        if ($model = 'User')
+        if ($model == 'User')
         {
             $model_2 = 'user';
         }
@@ -1727,7 +1733,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
-            if ($model = 'User')
+            if ($model == 'User')
             {
                 $model_2 = 'user';
             }
@@ -2466,19 +2472,24 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildItemNullCondition(&$conditions, &$values, $field, $param)
     {
-        if (!$param || $param == '-')
+        if (!$param || $param == '-' || $param == 'no')
         {
             $conditions[] = "($field IS NULL)";
+            $result = 'null';
         }
-        elseif ($param == ' ')
+        elseif ($param == ' ' || $param == 'yes')
         {
             $conditions[] = "($field IS NOT NULL)";
+            $result = 'not_null';
         }
         else
         {
             $conditions[] = $field . ' = ?';
             $values[] = $param;
+            $result = $param;
         }
+        
+        return $result;
     }
 
     public static function buildMultiCondition(&$conditions, &$values, $field, $param)

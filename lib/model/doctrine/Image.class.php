@@ -484,6 +484,7 @@ class Image extends BaseImage
         if (isset($joins['all']) || empty($params_list))
         {
             $criteria[0] = $conditions;
+            $criteria[1] = $values;
             $criteria[2] = $joins;
             $criteria[3] = $joins_order;
             return $criteria;
@@ -553,7 +554,7 @@ class Image extends BaseImage
         return $criteria;
     }
     
-    public static function buildMainPagerConditions(&$q)
+    public static function buildMainPagerConditions(&$q, $criteria)
     {
     }
     

@@ -491,6 +491,7 @@ class Route extends BaseRoute
         if (isset($joins['all']) || empty($params_list))
         {
             $criteria[0] = $conditions;
+            $criteria[1] = $values;
             $criteria[2] = $joins;
             $criteria[3] = $joins_order;
             return $criteria;
@@ -555,15 +556,20 @@ class Route extends BaseRoute
         return $criteria;
     }
 
-    public static function buildMainPagerConditions(&$q)
+    public static function buildMainPagerConditions(&$q, $criteria)
     {
+        $joins = $criteria[2];
+        
         self::joinOnRegions($q);
 
         // to get summit info:
-        $q->leftJoin('m.associations lsname')
-          ->leftJoin('lsname.Summit sname')
-          ->leftJoin('sname.SummitI18n snamei')
-          ->addWhere("lsname.type = 'sr'");
+        if (!isset($joins['merged']) || $joins['merged'] == 'null')
+        {
+            $q->leftJoin('m.associations lsname')
+              ->leftJoin('lsname.Summit sname')
+              ->leftJoin('sname.SummitI18n snamei')
+              ->addWhere("lsname.type = 'sr'");
+        }
     }
     
     public static function buildRoutePagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
