@@ -968,8 +968,11 @@ class documentsActions extends c2cActions
         }
         else
         {
-            $this->pager = call_user_func(array($this->model_class, 'browse'),
-                                          $this->getListSortCriteria($default_npp, $max_npp),
+            $model = $this->model_class;
+            $sort = call_user_func(array('Document', 'getListSortCriteria'), $model, $default_npp, $max_npp);
+            $this->pager = call_user_func(array('Document', 'browse'),
+                                          $model,
+                                          $sort,
                                           $criteria,
                                           $format);
             $this->pager->setPage($this->getRequestParameter('page', 1));
@@ -1046,8 +1049,11 @@ class documentsActions extends c2cActions
         
         if ($criteria !== 'no_result' && $module != 'documents')
         {
-            $this->pager = call_user_func(array($this->model_class, 'browse'),
-                                          $this->getListSortCriteria(),
+            $model = $this->model_class;
+            $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
+            $this->pager = call_user_func(array('Document', 'browse'),
+                                          $model,
+                                          $sort,
                                           $criteria);
             $this->pager->setPage($this->getRequestParameter('page', 1));
             $this->pager->init();
@@ -1076,9 +1082,13 @@ class documentsActions extends c2cActions
     public function executeWidget()
     {
         $this->div = $this->getRequestParameter('div', 'c2cwgt');
-        $this->pager = call_user_func(array($this->model_class, 'browse'),
-                                      $this->getListSortCriteria(),
-                                      $this->getListCriteria());
+        $model = $this->model_class;
+        $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
+        $criteria = $this->getListCriteria();
+        $this->pager = call_user_func(array('Document', 'browse'),
+                                      $model,
+                                      $sort,
+                                      $criteria);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 
@@ -1108,9 +1118,13 @@ class documentsActions extends c2cActions
     public function executeGeojson()
     {
         $timer = new sfTimer('executeGeojson');
-        $this->pager = call_user_func(array($this->model_class, 'browse'),
-                                      $this->getListSortCriteria(),
-                                      $this->getListCriteria());
+        $model = $this->model_class;
+        $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
+        $criteria = $this->getListCriteria();
+        $this->pager = call_user_func(array('Document', 'browse'),
+                                      $model,
+                                      $sort,
+                                      $criteria);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
     
@@ -1147,43 +1161,6 @@ class documentsActions extends c2cActions
 
         // else, empty
         return array();
-    }
-
-    /**
-     * Detects list sort parameters: what field to order on, direction and 
-     * number of items per page (npp).
-     * @return array
-     */
-    protected function getListSortCriteria($default_npp = null, $max_npp = 100, $mi = 'mi')
-    {
-        $orderby = $this->getRequestParameter('orderby', NULL);
-        if (empty($default_npp))
-        {
-            $default_npp = c2cTools::mobileVersion() ? sfConfig::get('app_list_mobile_maxline_number')
-                                                     : sfConfig::get('app_list_maxline_number');
-        }
-        $npp = $this->getRequestParameter('npp', $default_npp);
-        if (!empty($max_npp))
-        {
-            $npp = min($npp, $max_npp);
-        }
-        
-        return array('orderby_param' => $orderby,
-                     'order_by' => $this->getSortField($orderby, $mi),
-                     'order'    => $this->getRequestParameter('order', 
-                                                              sfConfig::get('app_list_default_order')),
-                     'npp'      => $npp
-                     );
-    }
-
-    protected function getSortField($orderby, $mi = 'mi')
-    {
-        switch ($orderby)
-        {
-            case 'name': return $mi . '.search_name';
-            case 'module': return 'm.module';
-            default: return NULL;
-        }
     }
 
     protected function JSONResponse($results)
@@ -1966,7 +1943,7 @@ class documentsActions extends c2cActions
                         
                         if (count($ids))
                         {
-                            $associated_docs = findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp', 'tt'));
+                            $associated_docs = Association::findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp', 'tt'));
                             foreach ($associated_docs as $doc)
                             {
                                 // clear their view cache
@@ -1976,7 +1953,7 @@ class documentsActions extends c2cActions
                     }
                     elseif ($module_name == 'routes')
                     {
-                        $associated_docs = findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp'));
+                        $associated_docs = Association::findMainAssociatedDocs($ids, array('id', 'module'), array('ss', 'pp'));
                         foreach ($associated_docs as $doc)
                         {
                             // clear their view cache

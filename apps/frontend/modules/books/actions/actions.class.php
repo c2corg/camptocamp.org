@@ -70,20 +70,6 @@ class booksActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby, $mi = 'mi')
-    {
-        switch ($orderby)
-        {
-            case 'bnam': return $mi . '.search_name';
-            case 'act':  return 'm.activities';
-            case 'auth': return 'm.author';
-            case 'edit': return 'm.editor';
-            case 'btyp': return 'm.book_type';
-            case 'blang': return 'm.langs';
-            default: return NULL;
-        }
-    }
-
     protected function getListCriteria()
     {
         $params_list = c2cTools::getCriteriaRequestParameters();

@@ -204,32 +204,9 @@ class Book extends BaseBook
         return $criteria;
     }
     
-    public static function browse($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('Book', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-    
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('books'))
-        {
-            self::filterOnActivities($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
-    }   
+    public static function buildMainPagerConditions(&$q)
+    {
+    }
     
     public static function buildBookPagerConditions(&$q, &$joins, $is_module = false, $prefix = '', $is_linked = false, $first_join = null, $ltype = null)
     {
@@ -335,12 +312,35 @@ class Book extends BaseBook
         }
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
+        {
+            case 'bnam': return $mi . '.search_name';
+            case 'act':  return 'm.activities';
+            case 'auth': return 'm.author';
+            case 'edit': return 'm.editor';
+            case 'btyp': return 'm.book_type';
+            case 'blang': return 'm.langs';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
     {   
-        $book_field_list = array('m.author', 'm.activities', 'm.editor', 'm.book_types', 'm.langs', 'm.publication_date');
+        if ($main_query)
+        {
+            $data_fields_list = array('m.author', 'm.activities', 'm.editor', 'm.book_types', 'm.langs', 'm.publication_date');
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
         
-        return array_merge(parent::buildFieldsList($mi),
-                           $book_field_list);
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
 
     protected function addPrevNextIdFilters($q, $model)

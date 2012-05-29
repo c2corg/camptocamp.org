@@ -444,35 +444,10 @@ class User extends BaseUser
         return $criteria;
     }
 
-    public static function browse($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('User', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-    
+    public static function buildMainPagerConditions(&$q)
+    {
         self::joinOnRegions($q);
         $q->leftJoin('m.private_data upd');
-
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('users'))
-        {
-            self::filterOnActivities($q);
-            self::filterOnRegions($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
     }
     
     public static function buildUserPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
@@ -613,12 +588,37 @@ class User extends BaseUser
         }
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
     {   
-        return array_merge(parent::buildFieldsList($mi),
-                           parent::buildGeoFieldsList(),
-                           array('upd.login_name', 'upd.topo_name', 'upd.username', 
-                                 'm.lon', 'm.lat', 'm.activities', 'm.category'));
+        switch ($orderby)
+        {
+            case 'unam': return $mi . '.search_name';
+            case 'ufnam': return 'pd.search_username';
+            case 'anam': return 'ai.search_name';
+            case 'act':  return 'm.activities';
+            case 'ucat':  return 'm.category';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    {   
+        if ($main_query)
+        {
+            $data_fields_list = array('upd.login_name', 'upd.topo_name', 'upd.username', 
+                                 'm.lon', 'm.lat', 'm.activities', 'm.category');
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     } 
 
     protected function addPrevNextIdFilters($q, $model)

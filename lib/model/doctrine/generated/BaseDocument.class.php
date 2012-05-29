@@ -198,7 +198,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $value = c2cTools::getArrayElement($params_list, $param);
         }
         
-        if (!is_null($value) || $criteria_type == 'ItemNull')
+        if (!is_null($value))
         {
             $nb_join = 1;
             $result = true;
@@ -336,7 +336,11 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildPersoCriteria(&$conditions, &$values, &$joins, &$params_list, $culture_param, $activity_param = 'act', $na_activities = array())
     {
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'ItemNull', 'm.redirects_to', 'merged', null);
+        $has_merged = self::buildConditionItem($conditions, $values, $joins, $params_list, 'ItemNull', 'm.redirects_to', 'merged', null);
+        if (!$has_merged)
+        {
+            $conditions[] = 'm.redirects_to IS NULL';
+        }
         
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'Config', '', 'all', 'all');
         if (isset($joins['all']))
@@ -434,17 +438,53 @@ class BaseDocument extends sfDoctrineRecordI18n
      * Lists documents of current model taking into account search criteria or filters if any.
      * @return DoctrinePager
      */
-    public static function browse($sort, $criteria, $format = null)
+    public static function browse($model = 'Document', $sort, $criteria, $format = null)
     {
-        $field_list = self::buildFieldsList();
-        $pager = self::createPager('Document', $field_list, $sort);
+        $module = c2cTools::model2module($model);
+        
+        $field_list = call_user_func(array($model, 'buildFieldsList'), false, 'mi', $format, $sort);
+        
+        $pager = self::createPager($model, $field_list, $sort);
         $q = $pager->getQuery();
         
-        // By default only name filter is used since 
-        // it's the only one to apply to all types of documents.
-        if (!empty($criteria) && !empty($criteria[0]))
+        call_user_func(array($model, 'buildMainPagerConditions'), $q);
+        
+        $all = false;
+        if (isset($criteria[2]['all']))
         {
-            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+            $all = $criteria[2]['all'];
+        }
+        
+        if (!$all && !empty($criteria[0]))
+        {
+            call_user_func(array($model, 'buildPagerConditions'), $q, $criteria);
+        }
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
+        {
+            list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module);
+            if ($langs_enable)
+            {
+                self::filterOnLanguages($q);
+            }
+            if ($activities_enable)
+            {
+                self::filterOnActivities($q);
+            }
+            if ($areas_enable)
+            {
+                self::filterOnRegions($q);
+            }
+            
+            if ($module == 'outings' && in_array('cond', $format))
+            {
+                $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
+                $q->addWhere("age(date) < interval '$default_max_age'");
+            }
+        }
+        elseif ($module == 'outings' && in_array('cond', $format))
+        {
+            $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
+            $q->addWhere("age(date) < interval '$default_max_age'");
         }
         else
         {
@@ -453,11 +493,81 @@ class BaseDocument extends sfDoctrineRecordI18n
 
         return $pager;
     }
+    
+    
+    public static function browseId($model = 'Document', $sort, $criteria, $format = null)
+    {
+        $module = c2cTools::model2module($model);
+        
+        $field_list = call_user_func(array($model, 'buildFieldsList'), true, 'mi', $format, $sort);
+        $pager = self::createPager($model, $field_list, $sort);
+        $q = $pager->getQuery();
+        
+        $all = false;
+        if (isset($criteria[2]['all']))
+        {
+            $all = $criteria[2]['all'];
+        }
+        
+        if (!$all && !empty($criteria[0]))
+        {
+            call_user_func(array($model, 'buildPagerConditions'), $q, $criteria);
+        }
+        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
+        {
+            list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module);
+            if ($langs_enable)
+            {
+                self::filterOnLanguages($q);
+            }
+            if ($activities_enable)
+            {
+                self::filterOnActivities($q);
+            }
+            if ($areas_enable)
+            {
+                self::filterOnRegions($q);
+            }
+            
+            if ($module == 'outings' && in_array('cond', $format))
+            {
+                $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
+                $q->addWhere("age(date) < interval '$default_max_age'");
+            }
+        }
+        elseif ($module == 'outings' && in_array('cond', $format))
+        {
+            $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
+            $q->addWhere("age(date) < interval '$default_max_age'");
+        }
+        else
+        {
+            $pager->simplifyCounter();
+        }
+
+        
+    }
+    
+    public static function buildMainPagerConditions(&$q)
+    {
+    }
+    
+    public static function buildPagerConditions(&$q, $criteria)
+    {
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
+        
+        if (!empty($conditions))
+        {
+            $q->addWhere(implode(' AND ', $conditions), $values);
+        }
+    }
 
     /**
      * Sets base Doctrine pager object.
      */
-    protected static function createPager($model, $select, $sort, $redirect_to = false)
+    protected static function createPager($model, $select, $sort, $count = true)
     {
         $order_by = self::buildOrderby($select, $sort);
         
@@ -513,9 +623,55 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $order_by;
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    /**
+     * Detects list sort parameters: what field to order on, direction and 
+     * number of items per page (npp).
+     * @return array
+     */
+    public static function getListSortCriteria($model = 'Document', $default_npp = null, $max_npp = 100, $mi = 'mi')
     {
-        return array('m.id', $mi . '.culture', $mi . '.name', 'm.module', $mi . '.search_name');
+        $orderby = c2cTools::getRequestParameter('orderby');
+        $orderby_field = call_user_func(array($model, 'getSortField'), $orderby, $mi);
+        
+        if (empty($default_npp))
+        {
+            $default_npp = c2cTools::mobileVersion() ? sfConfig::get('app_list_mobile_maxline_number')
+                                                     : sfConfig::get('app_list_maxline_number');
+        }
+        $npp = c2cTools::getRequestParameter('npp', $default_npp);
+        if (!empty($max_npp))
+        {
+            $npp = min($npp, $max_npp);
+        }
+        
+        return array('orderby_param' => $orderby,
+                     'order_by' => $orderby_field,
+                     'order'    => c2cTools::getRequestParameter('order', 
+                                                              sfConfig::get('app_list_default_order')),
+                     'npp'      => $npp
+                     );
+    }
+
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
+        {
+            case 'name': return $mi . '.search_name';
+            case 'module': return 'm.module';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    {
+        if ($main_query)
+        {
+            return array('m.id', $mi . '.culture', $mi . '.name', 'm.module', $mi . '.search_name');
+        }
+        else
+        {
+            return array('m.id');
+        }
     }
 
     protected static function buildGeoFieldsList()

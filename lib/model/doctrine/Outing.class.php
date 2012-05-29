@@ -362,47 +362,9 @@ class Outing extends BaseOuting
         return $criteria;
     }
 
-    public static function browse($sort, $criteria, $format = null)
+    public static function buildMainPagerConditions(&$q)
     {
-        $field_list = self::buildOutingFieldsList($format, $sort);
-        $pager = self::createPager('Outing', $field_list, $sort);
-        $q = $pager->getQuery();
-
         self::joinOnRegions($q);
-
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('outings'))
-        {
-            self::filterOnLanguages($q);
-            self::filterOnActivities($q);
-            self::filterOnRegions($q);
-            
-            if (in_array('cond', $format))
-            {
-                $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
-                $q->addWhere("age(date) < interval '$default_max_age'");
-            }
-        }
-        elseif (in_array('cond', $format))
-        {
-            $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
-            $q->addWhere("age(date) < interval '$default_max_age'");
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
     }
     
     public static function buildOutingPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
@@ -546,24 +508,72 @@ class Outing extends BaseOuting
             $q->addWhere(implode(' AND ', $conditions), $values);
         }
     }
-
-    protected static function buildOutingFieldsList($format = null, $sort, $mi = 'mi')
+    
+    public static function getSortField($orderby, $mi = 'mi')
     {
-        $outings_fields_list = array('m.activities', 'm.date',
-                                     'm.height_diff_up', 'm.max_elevation',
-                                     'v.version', 'hm.user_id', 'u.topo_name', 
-                                     'm.geom_wkt', 'm.conditions_status', 'm.frequentation_status');
-        
-        $conditions_fields_list = (array_intersect($format, array('cond', 'full'))) ?
-                                  array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
-                                        'mi.conditions', 'mi.conditions_levels', 'mi.weather', 'mi.timing')
-                                  : array();
-        
-        $full_fields_list = (in_array('full', $format)) ?
-                            array('m.partial_trip', 'm.min_elevation', 'm.height_diff_down', 'm.outing_length', 'm.outing_with_public_transportation',
-                                  'm.access_status', 'm.glacier_status', 'm.track_status', 'm.hut_status', 'm.lift_status',
-                                  'mi.participants', 'mi.timing', 'mi.access_comments', 'mi.hut_comments', 'mi.description')
-                            : array();
+        switch ($orderby)
+        {
+            case 'onam': return $mi . '.search_name';
+            case 'act':  return 'm.activities';
+            case 'alt':  return 'm.max_elevation';
+            case 'date': return 'm.date';
+            case 'hdif': return 'm.height_diff_up';
+            case 'ddif': return 'm.height_diff_down';
+            case 'cond': return 'm.conditions_status';
+            case 'geom': return 'm.geom_wkt';
+            case 'time': return 'r.duration';
+            case 'fac':  return 'r.facing';
+            case 'ralt': return 'r.elevation';
+            case 'dhei': return 'r.difficulties_height';
+            case 'grat': return 'r.global_rating';
+            case 'erat': return 'r.engagement_rating';
+            case 'prat': return 'r.equipment_rating';
+            case 'frat': return 'r.rock_free_rating';
+            case 'arat': return 'r.aid_rating';
+            case 'irat': return 'r.ice_rating';
+            case 'mrat': return 'r.mixed_rating';
+            case 'trat': return 'r.toponeige_technical_rating';
+            case 'expo': return 'r.toponeige_exposition_rating';
+            case 'lrat': return 'r.labande_global_rating';
+            case 'srat': return 'r.labande_ski_rating';
+            case 'hrat': return 'r.hiking_rating';
+            case 'wrat': return 'r.snowshoeing_rating';
+            case 'anam': return 'ai.search_name';
+            case 'lat': return 's.lat';
+            case 'lon': return 's.lon';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = true, $mi = 'mi', $format = null, $sort = null)
+    {
+        if ($main_query)
+        {
+            $outings_fields_list = array('m.activities', 'm.date',
+                                         'm.height_diff_up', 'm.max_elevation',
+                                         'v.version', 'hm.user_id', 'u.topo_name', 
+                                         'm.geom_wkt', 'm.conditions_status', 'm.frequentation_status');
+            
+            $conditions_fields_list = (array_intersect($format, array('cond', 'full'))) ?
+                                      array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
+                                            'mi.conditions', 'mi.conditions_levels', 'mi.weather', 'mi.timing')
+                                      : array();
+            
+            $full_fields_list = (in_array('full', $format)) ?
+                                array('m.partial_trip', 'm.min_elevation', 'm.height_diff_down', 'm.outing_length', 'm.outing_with_public_transportation',
+                                      'm.access_status', 'm.glacier_status', 'm.track_status', 'm.hut_status', 'm.lift_status',
+                                      'mi.participants', 'mi.timing', 'mi.access_comments', 'mi.hut_comments', 'mi.description')
+                                : array();
+            
+            $data_fields_list = array_merge(parent::buildGeoFieldsList(),
+                                            $outings_fields_list,
+                                            $conditions_fields_list,
+                                            $full_fields_list);
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
         
         $orderby_fields = array();
         if (isset($sort['orderby_param']))
@@ -573,8 +583,8 @@ class Outing extends BaseOuting
             if (in_array($orderby, sfConfig::get('mod_outings_sort_route_criteria')))
             {
                 $orderby_fields[] = 'lr.type'; // if we don't include it, doctrine blocks (chain of join?)
-                $orderby_fields[] = $sort['order_by'];
-            /*    switch ($orderby)
+            //    $orderby_fields[] = $sort['order_by'];
+                switch ($orderby)
                 {
                     case 'fac':  $orderby_fields[] = 'r.facing'; break;
                     case 'ralt': $orderby_fields[] = 'r.elevation'; break;
@@ -593,7 +603,7 @@ class Outing extends BaseOuting
                     case 'hrat': $orderby_fields[] = 'r.hiking_rating'; break;
                     case 'wrat': $orderby_fields[] = 'r.snowshoeing_rating'; break;
                     default: break;
-                } */
+                }
             }
             elseif (in_array($orderby, array('lat', 'lon')))
             {
@@ -605,11 +615,8 @@ class Outing extends BaseOuting
             }
         }
         
-        return array_merge(parent::buildFieldsList($mi),
-                           parent::buildGeoFieldsList(),
-                           $outings_fields_list,
-                           $conditions_fields_list,
-                           $full_fields_list,
+        return array_merge(parent::buildFieldsList($main_query, $mi, $format, $sort),
+                           $data_fields_list,
                            $orderby_fields);
     }
 

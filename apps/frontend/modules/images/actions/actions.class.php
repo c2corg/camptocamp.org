@@ -671,21 +671,6 @@ class imagesActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby, $mi = 'mi')
-    {
-        switch ($orderby)
-        {
-            case 'inam': return $mi . '.search_name';
-            case 'act':  return 'm.activities';
-            case 'icat':  return 'm.categories';
-            case 'auth': return 'm.author';
-            case 'anam': return 'ai.search_name';
-            case 'date': return 'm.date_time';
-            case 'ityp': return 'm.image_type';
-            default: return NULL;
-        }
-    }
-
     protected function getListCriteria()
     {
         $params_list = c2cTools::getCriteriaRequestParameters();

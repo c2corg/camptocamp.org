@@ -228,34 +228,9 @@ class Summit extends BaseSummit
         return $criteria;
     }
     
-    public static function browse($sort, $criteria, $format = null)
+    public static function buildMainPagerConditions(&$q)
     {
-        $pager = self::createPager('Summit', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-        
         self::joinOnRegions($q);
-
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('summits'))
-        {
-            // "filter on regions" is the only filter activated for summits:
-            self::filterOnRegions($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
     }
     
     public static function buildSummitPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
@@ -428,11 +403,38 @@ class Summit extends BaseSummit
         }
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
     {
-        return array_merge(parent::buildFieldsList($mi), 
-                           parent::buildGeoFieldsList(),
-                           array('m.elevation', 'm.summit_type', 'm.lon', 'm.lat'));
+        switch ($orderby)
+        {
+            case 'snam': return $mi . '.search_name';
+            case 'salt': return 'm.elevation';
+            case 'styp': return 'm.summit_type';
+            case 'anam': return 'ai.search_name';
+            case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    {
+        if ($main_query)
+        {
+            $data_fields_list = array('m.elevation', 'm.summit_type', 'm.lon', 'm.lat');
+            $data_fields_list = array_merge($data_fields_list,
+                                            parent::buildGeoFieldsList());
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
 
     public static function listFromRegion($region_id, $buffer, $table = 'summits', $where = '') 

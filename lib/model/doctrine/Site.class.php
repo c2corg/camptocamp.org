@@ -329,34 +329,10 @@ class Site extends BaseSite
         return $criteria;
     }
 
-    public static function browse($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('Site', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-    
+    public static function buildMainPagerConditions(&$q)
+    {
         self::joinOnRegions($q);
-
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('sites'))
-        {
-            self::filterOnRegions($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
-    }   
+    }
     
     public static function buildSitePagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
@@ -521,12 +497,44 @@ class Site extends BaseSite
         }
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
+        {
+            case 'tnam': return $mi . '.search_name';
+            case 'talt': return 'm.elevation';
+            case 'rqua': return 'm.routes_quantity';
+            case 'ttyp': return 'm.site_types';
+            case 'mhei': return 'm.mean_height';
+            case 'mrat': return 'm.mean_rating';
+            case 'tprat': return 'm.equipment_rating';
+            case 'trock': return 'm.rock_types';
+            case 'anam': return 'ai.search_name';
+            case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
     {   
-        return array_merge(parent::buildFieldsList($mi), 
-                           parent::buildGeoFieldsList(),
-                           array('m.routes_quantity', 'm.elevation',
-                                 'm.rock_types', 'm.site_types', 'm.lon', 'm.lat'));
+        if ($main_query)
+        {
+            $data_fields_list = array('m.routes_quantity', 'm.elevation',
+                                 'm.rock_types', 'm.site_types', 'm.lon', 'm.lat');
+            $data_fields_list = array_merge($data_fields_list,
+                                            parent::buildGeoFieldsList());
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
 
     public static function listFromRegion($region_id, $buffer, $table = 'sites', $where = '')

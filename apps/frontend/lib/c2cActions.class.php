@@ -218,10 +218,10 @@ abstract class c2cActions extends sfActions
         
         if ($module_name == 'portals' && $action == '*')
         {
-            $toRemove[] = "documents/_welcome/sf_cache_key/$id*";
-            $toRemove[] = "documents/_prepare/sf_cache_key/$id*";
-            $toRemove[] = "portals/_welcome/sf_cache_key/$id*";
-            $toRemove[] = "portals/_prepare/sf_cache_key/$id*";
+            $toRemove[] = "documents/_welcome/*";
+            $toRemove[] = "documents/_prepare/*";
+            $toRemove[] = "portals/_welcome/*";
+            $toRemove[] = "portals/_prepare/*";
         }
         
         if ($clear_whatsnew)

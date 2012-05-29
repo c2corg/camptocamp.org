@@ -465,21 +465,6 @@ class summitsActions extends documentsActions
         
         return Summit::buildListCriteria($params_list);
     }
-
-    protected function getSortField($orderby, $mi = 'mi')
-    {
-        switch ($orderby)
-        {
-            case 'snam': return $mi . '.search_name';
-            case 'salt': return 'm.elevation';
-            case 'styp': return 'm.summit_type';
-            case 'anam': return 'ai.search_name';
-            case 'geom': return 'm.geom_wkt';
-            case 'lat': return 'm.lat';
-            case 'lon': return 'm.lon';
-            default: return NULL;
-        }
-    }
     
     /**
      * Parses REQUEST sent by filter form and keeps only relevant parameters.

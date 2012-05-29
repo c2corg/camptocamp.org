@@ -57,18 +57,6 @@ class mapsActions extends documentsActions
         $this->setErrorAndRedirect('Map creation is prohibited', '@default_index?module=maps');
     }
 
-    protected function getSortField($orderby, $mi = 'mi')
-    {
-        switch ($orderby)
-        {
-            case 'mnam': return $mi . '.search_name';
-            case 'code': return 'm.code';
-            case 'scal': return 'm.scale';
-            case 'edit': return 'm.editor';
-            default: return NULL;
-        }
-    }
-
     protected function getListCriteria()
     {
         $params_list = c2cTools::getCriteriaRequestParameters();

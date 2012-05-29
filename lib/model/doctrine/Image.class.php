@@ -552,32 +552,8 @@ class Image extends BaseImage
         return $criteria;
     }
     
-    public static function browse($sort, $criteria, $format = null)
+    public static function buildMainPagerConditions(&$q)
     {
-        $pager = self::createPager('Image', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('images'))
-        {
-            self::filterOnActivities($q);
-        //    self::filterOnRegions($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
     }
     
     public static function buildImagePagerConditions(&$q, &$joins, $is_module = false, $ltype = null, $from_users = false)
@@ -751,11 +727,36 @@ class Image extends BaseImage
         $q->addWhere(implode(' AND ', $conditions), $values);
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
     {
-        return array_merge(parent::buildFieldsList($mi),
-                           parent::buildGeoFieldsList(),
-                           array('m.filename', 'm.date_time', 'm.image_type', 'm.lon', 'm.lat'));
+        switch ($orderby)
+        {
+            case 'inam': return $mi . '.search_name';
+            case 'act':  return 'm.activities';
+            case 'icat':  return 'm.categories';
+            case 'auth': return 'm.author';
+            case 'anam': return 'ai.search_name';
+            case 'date': return 'm.date_time';
+            case 'ityp': return 'm.image_type';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    {
+        if ($main_query)
+        {
+            $data_fields_list = array('m.filename', 'm.date_time', 'm.image_type', 'm.lon', 'm.lat');
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
 
     protected function addPrevNextIdFilters($q, $model)

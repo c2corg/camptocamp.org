@@ -842,21 +842,6 @@ class usersActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby, $mi = 'mi')
-    {   
-        switch ($orderby)
-        {
-            case 'unam': return $mi . '.search_name';
-            case 'ufnam': return 'pd.search_username';
-            case 'anam': return 'ai.search_name';
-            case 'act':  return 'm.activities';
-            case 'ucat':  return 'm.category';
-            case 'lat': return 'm.lat';
-            case 'lon': return 'm.lon';
-            default: return NULL;
-        }
-    }
-
     protected function getListCriteria()
     {
         $params_list = c2cTools::getCriteriaRequestParameters();

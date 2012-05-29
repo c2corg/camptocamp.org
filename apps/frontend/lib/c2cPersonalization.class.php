@@ -147,7 +147,7 @@ class c2cPersonalization
      * Tells if user has filters which allow le $modul list to be cahed
      * @return boolean
      */
-    public function getDefaultFilters($module)
+    public static function getDefaultFilters($module)
     {
         switch ($module)
         {

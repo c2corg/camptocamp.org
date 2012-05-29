@@ -131,23 +131,6 @@ class parkingsActions extends documentsActions
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
     }
 
-    protected function getSortField($orderby, $mi = 'mi')
-    {
-        switch ($orderby)
-        {
-            case 'pnam': return $mi . '.search_name';
-            case 'palt': return 'm.elevation';
-            case 'tp':  return 'm.public_transportation_rating';
-            case 'tpty':  return 'm.public_transportation_types';
-            case 'scle':  return 'm.snow_clearance_rating';
-            case 'anam': return 'ai.search_name';
-            case 'geom': return 'm.geom_wkt';
-            case 'lat': return 'm.lat';
-            case 'lon': return 'm.lon';
-            default: return NULL;
-        }
-    } 
-
     protected function getListCriteria()
     {   
         $params_list = c2cTools::getCriteriaRequestParameters();

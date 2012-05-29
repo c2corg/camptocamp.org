@@ -60,21 +60,6 @@ class productsActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby, $mi = 'mi')
-    {
-        switch ($orderby)
-        {
-            case 'fnam': return $mi . '.search_name';
-            case 'falt': return 'm.elevation';
-            case 'ftyp': return 'm.product_type';
-            case 'anam': return 'ai.search_name';
-            case 'geom': return 'm.geom_wkt';
-            case 'lat': return 'm.lat';
-            case 'lon': return 'm.lon';
-            default: return NULL;
-        }
-    }
-
     protected function getListCriteria()
     {
         $params_list = c2cTools::getCriteriaRequestParameters();

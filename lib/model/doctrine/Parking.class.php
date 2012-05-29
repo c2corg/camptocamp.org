@@ -242,35 +242,10 @@ class Parking extends BaseParking
         return $criteria;
     }
 
-    public static function browse($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('Parking', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-    
+    public static function buildMainPagerConditions(&$q)
+    {
         self::joinOnRegions($q);
-
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('parkings'))
-        {
-            // "filter on regions" is the only filter activated for summits:
-            self::filterOnRegions($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
-    }   
+    }
     
     public static function buildParkingPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null, $p = 'p')
     {
@@ -433,11 +408,40 @@ class Parking extends BaseParking
         }
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
+        {
+            case 'pnam': return $mi . '.search_name';
+            case 'palt': return 'm.elevation';
+            case 'tp':  return 'm.public_transportation_rating';
+            case 'tpty':  return 'm.public_transportation_types';
+            case 'scle':  return 'm.snow_clearance_rating';
+            case 'anam': return 'ai.search_name';
+            case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
+            default: return NULL;
+        }
+    } 
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
     {   
-        return array_merge(parent::buildFieldsList($mi), 
-                           parent::buildGeoFieldsList(),
-                           array('m.elevation', 'm.lowest_elevation', 'm.public_transportation_rating', 'm.public_transportation_types', 'm.snow_clearance_rating', 'm.lon', 'm.lat'));
+        if ($main_query)
+        {
+            $data_fields_list = array('m.elevation', 'm.lowest_elevation', 'm.public_transportation_rating', 'm.public_transportation_types', 'm.snow_clearance_rating', 'm.lon', 'm.lat');
+            $data_fields_list = array_merge($data_fields_list,
+                                            parent::buildGeoFieldsList());
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
 
     protected function addPrevNextIdFilters($q, $model)

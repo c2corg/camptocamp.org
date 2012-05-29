@@ -176,34 +176,10 @@ class Product extends BaseProduct
         return $criteria;
     }
 
-    public static function browse($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('Product', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-    
+    public static function buildMainPagerConditions(&$q)
+    {
         self::joinOnRegions($q);
-
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('products'))
-        {
-            self::filterOnRegions($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
-    }   
+    }
     
     public static function buildProductPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
@@ -323,11 +299,38 @@ class Product extends BaseProduct
         }
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
+        {
+            case 'fnam': return $mi . '.search_name';
+            case 'falt': return 'm.elevation';
+            case 'ftyp': return 'm.product_type';
+            case 'anam': return 'ai.search_name';
+            case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
     {   
-        return array_merge(parent::buildFieldsList($mi), 
-                           parent::buildGeoFieldsList(),
-                           array('m.elevation', 'm.product_type', 'm.lon', 'm.lat', 'm.url'));
+        if ($main_query)
+        {
+            $data_fields_list = array('m.elevation', 'm.product_type', 'm.lon', 'm.lat', 'm.url');
+            $data_fields_list = array_merge($data_fields_list,
+                                            parent::buildGeoFieldsList());
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
 
     public static function listFromRegion($region_id, $buffer, $table = 'products', $where = '')

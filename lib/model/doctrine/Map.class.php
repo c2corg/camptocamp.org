@@ -108,39 +108,53 @@ class Map extends BaseMap
         return $criteria;
     }
 
-    public static function browse($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('Map', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
+    public static function buildMainPagerConditions(&$q)
+    {
+        self::joinOnRegions($q);
+    }
     
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
+    public static function buildPagerConditions(&$q, $criteria)
+    {
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
         
-        if (!$all && !empty($criteria[0]))
+        self::joinOnMultiRegions($q, $joins);
+
+        if (!empty($conditions))
         {
-            self::joinOnMultiRegions($q, $criteria[2]);
-            
-            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+            $q->addWhere(implode(' AND ', $conditions), $values);
         }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('maps'))
+    }
+
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
         {
-            self::filterOnRegions($q);
+            case 'mnam': return $mi . '.search_name';
+            case 'code': return 'm.code';
+            case 'scal': return 'm.scale';
+            case 'edit': return 'm.editor';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    {   
+        if ($main_query)
+        {
+            $data_fields_list = array('m.code', 'm.scale', 'm.editor');
+            $data_fields_list = array_merge($data_fields_list,
+                                            parent::buildGeoFieldsList());
         }
         else
         {
-            $pager->simplifyCounter();
+            $data_fields_list = array();
         }
-
-        return $pager;
-    }   
-
-    protected static function buildFieldsList($mi = 'mi')
-    {   
-        return array_merge(parent::buildFieldsList($mi), 
-                           parent::buildGeoFieldsList(),
-                           array('m.code', 'm.scale', 'm.editor'));
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
 }

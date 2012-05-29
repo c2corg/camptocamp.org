@@ -252,62 +252,10 @@ class Hut extends BaseHut
         return $criteria;
     }
     
-    public static function browse($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('Hut', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-    
+    public static function buildMainPagerConditions(&$q)
+    {
         self::joinOnRegions($q);
-
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('huts'))
-        {
-            self::filterOnRegions($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
-    }   
-    
-    public static function browse2($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('Hut', 'm.id', $sort, false);
-        $q = $pager->getQuery();
-    
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('huts'))
-        {
-            self::joinOnRegions($q);
-            self::filterOnRegions($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
-    }   
+    }
     
     public static function buildHutPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
@@ -450,11 +398,41 @@ class Hut extends BaseHut
         }
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
+        {
+            case 'hnam': return $mi . '.search_name';
+            case 'halt': return 'm.elevation';
+            case 'styp': return 'm.shelter_type';
+            case 'hscap': return 'm.staffed_capacity';
+            case 'hucap': return 'm.unstaffed_capacity';
+            case 'act':  return 'm.activities';
+            case 'anam': return 'ai.search_name';
+            case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
     {   
-        return array_merge(parent::buildFieldsList($mi), 
-                           parent::buildGeoFieldsList(),
-                           array('m.elevation', 'm.shelter_type', 'm.activities', 'm.lon', 'm.lat', 'm.staffed_capacity', 'm.unstaffed_capacity', 'm.phone', 'm.url'));
+        if ($main_query)
+        {
+            $data_fields_list = array('m.elevation', 'm.shelter_type', 'm.activities', 'm.lon', 'm.lat', 'm.staffed_capacity', 'm.unstaffed_capacity', 'm.phone', 'm.url');
+            $data_fields_list = array_merge($data_fields_list,
+                                            parent::buildGeoFieldsList());
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
 
     public static function listFromRegion($region_id, $buffer, $table = 'huts', $where = '')

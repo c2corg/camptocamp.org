@@ -718,42 +718,6 @@ class outingsActions extends documentsActions
         c2cTools::log("redirecting to $route");
         $this->redirect($route);
     }
-    
-    protected function getSortField($orderby, $mi = 'mi')
-    {
-        switch ($orderby)
-        {
-            case 'onam': return $mi . '.search_name';
-            case 'act':  return 'm.activities';
-            case 'alt':  return 'm.max_elevation';
-            case 'date': return 'm.date';
-            case 'hdif': return 'm.height_diff_up';
-            case 'ddif': return 'm.height_diff_down';
-            case 'cond': return 'm.conditions_status';
-            case 'geom': return 'm.geom_wkt';
-            case 'time': return 'r.duration';
-            case 'fac':  return 'r.facing';
-            case 'ralt': return 'r.elevation';
-            case 'dhei': return 'r.difficulties_height';
-            case 'grat': return 'r.global_rating';
-            case 'erat': return 'r.engagement_rating';
-            case 'prat': return 'r.equipment_rating';
-            case 'frat': return 'r.rock_free_rating';
-            case 'arat': return 'r.aid_rating';
-            case 'irat': return 'r.ice_rating';
-            case 'mrat': return 'r.mixed_rating';
-            case 'trat': return 'r.toponeige_technical_rating';
-            case 'expo': return 'r.toponeige_exposition_rating';
-            case 'lrat': return 'r.labande_global_rating';
-            case 'srat': return 'r.labande_ski_rating';
-            case 'hrat': return 'r.hiking_rating';
-            case 'wrat': return 'r.snowshoeing_rating';
-            case 'anam': return 'ai.search_name';
-            case 'lat': return 's.lat';
-            case 'lon': return 's.lon';
-            default: return NULL;
-        }
-    }
 
     protected function getListCriteria()
     {   

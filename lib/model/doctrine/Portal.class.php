@@ -12,50 +12,61 @@ class Portal extends BasePortal
         return self::convertStringToArray($value);
     }
 
-    public static function browse($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('Portal', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-    
+    public static function buildMainPagerConditions(&$q)
+    {
         self::joinOnRegions($q);
-
-        $conditions = array();
-        $all = false;
-        if (!empty($criteria))
-        {
-            $conditions = $criteria[0];
-            if (isset($joins['all']))
-            {
-                $all = $conditions['all'];
-                unset($conditions['all']);
-            }
-        }
+    }
+    
+    public static function buildPagerConditions(&$q, $criteria)
+    {
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
         
-        if (!$all && !empty($conditions))
+        self::joinOnMultiRegions($q, $joins);
+        
+        // join with image tables only if needed 
+        if (isset($joins['join_image']))
         {
-            // some criteria have been defined => filter list on these criteria.
-            // In that case, personalization is not taken into account.
-            self::joinOnMultiRegions($q, $conditions);
-
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            Image::buildImagePagerConditions($q, $joins, false, 'fi');
         }
-    /*    elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('portals')
+
+        if (!empty($conditions))
         {
-            self::filterOnRegions($q);
-        }  */
+            $q->addWhere(implode(' AND ', $conditions), $values);
+        }
+    }
+    
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
+        {
+            case 'wnam': return $mi . '.search_name';
+            case 'walt': return 'm.elevation';
+            case 'act':  return 'm.activities';
+            case 'anam': return 'ai.search_name';
+            case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    {   
+        if ($main_query)
+        {
+            $data_fields_list = array('m.activities', 'm.lon', 'm.lat');
+        }
         else
         {
-            $pager->simplifyCounter();
+            $data_fields_list = array();
         }
-
-        return $pager;
-    }   
-
-    protected static function buildFieldsList($mi = 'mi')
-    {   
-        return array_merge(parent::buildFieldsList($mi), 
-                           parent::buildGeoFieldsList(),
-                           array('m.activities', 'm.lon', 'm.lat'));
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
 
     public static function listFromRegion($region_id, $buffer, $table = 'portals', $where = '')

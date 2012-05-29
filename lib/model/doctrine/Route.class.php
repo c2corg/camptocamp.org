@@ -554,11 +554,8 @@ class Route extends BaseRoute
         return $criteria;
     }
 
-    public static function browse($sort, $criteria, $format = null)
+    public static function buildMainPagerConditions(&$q)
     {
-        $pager = self::createPager('Route', self::buildRouteFieldsList($format, $sort), $sort);
-        $q = $pager->getQuery();
-        
         self::joinOnRegions($q);
 
         // to get summit info:
@@ -566,28 +563,6 @@ class Route extends BaseRoute
           ->leftJoin('lsname.Summit sname')
           ->leftJoin('sname.SummitI18n snamei')
           ->addWhere("lsname.type = 'sr'");
-
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('routes'))
-        {
-            self::filterOnActivities($q);
-            self::filterOnRegions($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
     }
     
     public static function buildRoutePagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
@@ -743,9 +718,46 @@ class Route extends BaseRoute
         }
     }
 
-    protected static function buildRouteFieldsList($format = null, $sort, $mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
     {
-        $routes_fields_list = array('m.activities', 'm.max_elevation', 'm.facing',
+        switch ($orderby)
+        {
+            case 'rnam': return 'snamei.search_name';
+            case 'act':  return 'm.activities';
+            case 'anam': return 'ai.search_name';
+            case 'maxa': return 'm.max_elevation';
+            case 'fac':  return 'm.facing';
+            case 'hdif': return 'm.height_diff_up';
+            case 'ddif': return 'm.height_diff_down';
+            case 'time': return 'm.duration';
+            case 'ralt': return 'm.elevation';
+            case 'dhei': return 'm.difficulties_height';
+            case 'grat': return 'm.global_rating';
+            case 'erat': return 'm.engagement_rating';
+            case 'prat': return 'm.equipment_rating';
+            case 'frat': return 'm.rock_free_rating';
+            case 'arat': return 'm.aid_rating';
+            case 'irat': return 'm.ice_rating';
+            case 'mrat': return 'm.mixed_rating';
+            case 'trat': return 'm.toponeige_technical_rating';
+            case 'expo': return 'm.toponeige_exposition_rating';
+            case 'lrat': return 'm.labande_global_rating';
+            case 'srat': return 'm.labande_ski_rating';
+            case 'hrat': return 'm.hiking_rating';
+            case 'wrat': return 'm.snowshoeing_rating';
+            case 'rlen': return 'm.route_length';
+            case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'sname.lat';
+            case 'lon': return 'sname.lon';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    {
+        if ($main_query)
+        {
+            $routes_fields_list = array('m.activities', 'm.max_elevation', 'm.facing',
                                  'm.height_diff_up', 'm.difficulties_height',
                                  'm.global_rating', 'm.engagement_rating', 'm.equipment_rating',
                                  'm.toponeige_technical_rating', 'm.toponeige_exposition_rating',
@@ -757,23 +769,28 @@ class Route extends BaseRoute
                                  'lsname.type', // we don't need this, but if we make JOIN chains, and we don't include every element of the chain, doctrine blocks
                                  'sname.elevation', 'sname.lon', 'sname.lat',
                                  'snamei.name', 'snamei.search_name');
+            $data_fields_list = array_merge($routes_fields_list,
+                                            parent::buildGeoFieldsList());
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
         
-        $extra_fields = array();
+        $orderby_fields = array();
         if (isset($sort['orderby_param']))
         {
             $orderby = $sort['orderby_param'];
             
             if (in_array($orderby, array('ddif')))
             {
-                $extra_fields = array('m.height_diff_down');
+                $orderby_fields = array('m.height_diff_down');
             }
         }
             
-        
-        return array_merge(parent::buildFieldsList($mi), 
-                           parent::buildGeoFieldsList(),
-                           $routes_fields_list,
-                           $extra_fields);
+        return array_merge(parent::buildFieldsList($main_query, $mi, $format, $sort),
+                           $data_fields_list,
+                           $orderby_fields);
     }
 
     protected function addPrevNextIdFilters($q, $model)

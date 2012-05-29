@@ -236,34 +236,9 @@ class Article extends BaseArticle
         return $criteria;
     }
     
-    public static function browse($sort, $criteria, $format = null)
+    public static function buildMainPagerConditions(&$q)
     {
-        $field_list = self::buildFieldsList();
-        $pager = self::createPager('Article', $field_list, $sort);
-        $q = $pager->getQuery();
-    
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn('articles'))
-        {
-            self::filterOnActivities($q);
-            self::filterOnLanguages($q);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
-    }   
+    }
     
     public static function buildArticlePagerConditions(&$q, $joins, $is_module = false, $prefix = '', $is_linked = false, $first_join = null, $ltype = null)
     {
@@ -431,11 +406,34 @@ class Article extends BaseArticle
             $q->addWhere(implode(' AND ', $conditions), $values);
         }
     }
+        
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
+        {
+            case 'cnam': return $mi . '.search_name';
+            case 'act':  return 'm.activities';
+            case 'ccat':  return 'm.categories';
+            case 'ctyp': return 'm.article_type';
+            default: return NULL;
+        }
+    }    
 
-    protected static function buildFieldsList($mi = 'mi')
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
     {   
-        return array_merge(parent::buildFieldsList($mi), 
-                           array('m.categories', 'm.activities', 'm.article_type'));
+        if ($main_query)
+        {
+            $data_fields_list = array('m.categories', 'm.activities', 'm.article_type');
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     } 
 
     protected function addPrevNextIdFilters($q, $model)

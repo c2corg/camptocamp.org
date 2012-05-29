@@ -571,26 +571,6 @@ class sitesActions extends documentsActions
         }
     }
 
-    protected function getSortField($orderby, $mi = 'mi')
-    {
-        switch ($orderby)
-        {
-            case 'tnam': return $mi . '.search_name';
-            case 'talt': return 'm.elevation';
-            case 'rqua': return 'm.routes_quantity';
-            case 'ttyp': return 'm.site_types';
-            case 'mhei': return 'm.mean_height';
-            case 'mrat': return 'm.mean_rating';
-            case 'tprat': return 'm.equipment_rating';
-            case 'trock': return 'm.rock_types';
-            case 'anam': return 'ai.search_name';
-            case 'geom': return 'm.geom_wkt';
-            case 'lat': return 'm.lat';
-            case 'lon': return 'm.lon';
-            default: return NULL;
-        }
-    }
-
     protected function getListCriteria()
     {
         $params_list = c2cTools::getCriteriaRequestParameters();

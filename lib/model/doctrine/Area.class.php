@@ -345,28 +345,9 @@ class Area extends BaseArea
         return $criteria;
     }
 
-    public static function browse($sort, $criteria, $format = null)
-    {   
-        $pager = self::createPager('Area', self::buildFieldsList(), $sort);
-        $q = $pager->getQuery();
-    
-        $all = false;
-        if (isset($criteria[2]['all']))
-        {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            self::buildPagerConditions($q, $criteria);
-        }
-        else
-        {
-            $pager->simplifyCounter();
-        }
-
-        return $pager;
-    }   
+    public static function buildMainPagerConditions(&$q)
+    {
+    }
     
     public static function buildAreaPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)
     {
@@ -550,10 +531,31 @@ class Area extends BaseArea
         }
     }
 
-    protected static function buildFieldsList($mi = 'mi')
+    public static function getSortField($orderby, $mi = 'mi')
+    {
+        switch ($orderby)
+        {
+            case 'anam': return $mi . '.search_name';
+            case 'atyp': return 'm.area_type';
+            default: return NULL;
+        }
+    }
+
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
     {   
-        return array_merge(parent::buildFieldsList($mi), 
-                           array('m.geom_wkt', 'm.area_type'));
+        if ($main_query)
+        {
+            $data_fields_list = array('m.geom_wkt', 'm.area_type');
+        }
+        else
+        {
+            $data_fields_list = array();
+        }
+        
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list, 
+                           $data_fields_list);
     }
     
     public static function getAssociatedAreasData($associated_areas)

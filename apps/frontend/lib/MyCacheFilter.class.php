@@ -103,7 +103,8 @@ class MyCacheFilter extends sfCacheFilter
         $il = 'il=' . $context->getUser()->getCulture();
         $pl = '';
         $pa = '';
-        $c = '&c=' . ((int)$context->getUser()->isConnected() + (int)$context->getUser()->hasCredential('moderator'));
+        $credential = ((int)$context->getUser()->isConnected() + (int)$context->getUser()->hasCredential('moderator'));
+        $c = '&c=' . $credential;
         
         if ($action == 'home' || $module == 'portals' && $action == 'view' || $is_cacheable_filter_list)
         {
@@ -116,7 +117,7 @@ class MyCacheFilter extends sfCacheFilter
                 $module_cache = $module;
             }
             $perso = c2cPersonalization::getInstance();
-            list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module_cache);
+            list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module_cache);
             $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
             $activities_filter = $perso->getActivitiesFilter();
             
@@ -161,7 +162,14 @@ class MyCacheFilter extends sfCacheFilter
                         $uri .= ((strpos($uri, '?')) ? '&' : '?')
                               . 'page=1';
                     }
-                    $c = '';
+                    if ($module == 'outings')
+                    {
+                        $c = '&c=' . min($credential, 1);
+                    }
+                    else
+                    {
+                        $c = '';
+                    }
                     break;
                 
                 default:
@@ -202,7 +210,7 @@ class MyCacheFilter extends sfCacheFilter
         $module_cache = $module;
     }
     $perso = c2cPersonalization::getInstance();
-    list($langs_enable, $areas_enable, $activities_enable) = $perso->getDefaultFilters($module_cache);
+    list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module_cache);
     $are_filters_active = $perso->areFiltersActive();
     $is_main_filter_switch_on = $perso->isMainFilterSwitchOn();
     $count_activities_filter = count($perso->getActivitiesFilter());
