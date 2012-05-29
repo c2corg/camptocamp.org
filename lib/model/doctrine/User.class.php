@@ -369,6 +369,12 @@ class User extends BaseUser
 
         // criteria for disabling personal filter
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'ucult');
+
+        // criteria to hide users whithout public profile
+        if (!sfContext::getInstance()->getUser()->isConnected())
+        {
+            $conditions[] = 'upd.is_profile_public IS TRUE';
+        }
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');
@@ -382,6 +388,7 @@ class User extends BaseUser
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))
         {
+            $criteria[0] = $conditions;
             $criteria[2] = $joins;
             $criteria[3] = $joins_order;
             return $criteria;
@@ -442,12 +449,6 @@ class User extends BaseUser
     {
         self::joinOnRegions($q);
         $q->leftJoin('m.private_data upd');
-
-        // criteria to hide users whithout public profile
-        if (!sfContext::getInstance()->getUser()->isConnected())
-        {
-            $q->addWhere('upd.is_profile_public IS TRUE');
-        }
     }
     
     public static function buildUserPagerConditions(&$q, &$joins, $is_module = false, $is_linked = false, $first_join = null, $ltype = null)

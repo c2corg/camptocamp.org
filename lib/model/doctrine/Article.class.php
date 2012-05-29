@@ -152,6 +152,7 @@ class Article extends BaseArticle
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))
         {
+            $criteria[0] = $conditions;
             $criteria[2] = $joins;
             $criteria[3] = $joins_order;
             return $criteria;
