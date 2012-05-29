@@ -162,7 +162,7 @@ class MyCacheFilter extends sfCacheFilter
                         $uri .= ((strpos($uri, '?')) ? '&' : '?')
                               . 'page=1';
                     }
-                    if ($module == 'outings')
+                    if ($module == 'users')
                     {
                         $c = '&c=' . min($credential, 1);
                     }
