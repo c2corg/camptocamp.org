@@ -202,6 +202,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $nb_join = 1;
             $result = true;
+            $unset_param = true;
             
             if (is_array($join_ids) && !in_array($criteria_type, array('String', 'Mstring')))
             {
@@ -285,7 +286,10 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'Join':    self::buildJoinCondition($joins, $values, $join_id, $value);
                     $join_id = '';
                     break;
-                case 'Order': $nb_join = self::buildOrderCondition($value, $field); break;
+                case 'Order':
+                    $nb_join = self::buildOrderCondition($value, $field);
+                    $unset_param = false;
+                    break;
             }
             
             if ($join_id && $nb_join)
@@ -316,20 +320,23 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
             }
             
-            if (is_array($param))
+            if ($unset_param)
             {
-                if (isset($params_list[$param1]))
+                if (is_array($param))
                 {
-                    unset($params_list[$param1]);
+                    if (isset($params_list[$param1]))
+                    {
+                        unset($params_list[$param1]);
+                    }
+                    if (isset($params_list[$param2]))
+                    {
+                        unset($params_list[$param2]);
+                    }
                 }
-                if (isset($params_list[$param2]))
+                else
                 {
-                    unset($params_list[$param2]);
+                    unset($params_list[$param]);
                 }
-            }
-            else
-            {
-                unset($params_list[$param]);
             }
         }
         else
