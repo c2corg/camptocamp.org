@@ -970,12 +970,13 @@ class documentsActions extends c2cActions
         else
         {
             $sort = call_user_func(array('Document', 'getListSortCriteria'), $model, $default_npp, $max_npp);
+            $page = $this->getRequestParameter('page', 1);
             $this->pager = call_user_func(array('Document', 'browse'),
                                           $model,
                                           $sort,
                                           $criteria,
-                                          $format);
-            $this->pager->setPage($this->getRequestParameter('page', 1));
+                                          $format,
+                                          $page);
             $this->pager->init();
             
             $nb_results = $this->pager->getNbResults();
@@ -1051,11 +1052,13 @@ class documentsActions extends c2cActions
         if ($criteria !== 'no_result' && $module != 'documents')
         {
             $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
+            $page = $this->getRequestParameter('page', 1);
             $this->pager = call_user_func(array('Document', 'browse'),
                                           $model,
                                           $sort,
-                                          $criteria);
-            $this->pager->setPage($this->getRequestParameter('page', 1));
+                                          $criteria,
+                                          null,
+                                          $page);
             $this->pager->init();
 
             $items = $this->pager->getResults('array', 'ESC_RAW');
@@ -1085,11 +1088,13 @@ class documentsActions extends c2cActions
         $model = $this->model_class;
         $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
         $criteria = $this->getListCriteria($model);
+        $page = $this->getRequestParameter('page', 1);
         $this->pager = call_user_func(array('Document', 'browse'),
                                       $model,
                                       $sort,
-                                      $criteria);
-        $this->pager->setPage($this->getRequestParameter('page', 1));
+                                      $criteria,
+                                      null,
+                                      $page);
         $this->pager->init();
 
         $this->setLayout(false);
@@ -1121,11 +1126,13 @@ class documentsActions extends c2cActions
         $model = $this->model_class;
         $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
         $criteria = $this->getListCriteria($model);
+        $page = $this->getRequestParameter('page', 1);
         $this->pager = call_user_func(array('Document', 'browse'),
                                       $model,
                                       $sort,
-                                      $criteria);
-        $this->pager->setPage($this->getRequestParameter('page', 1));
+                                      $criteria,
+                                      null,
+                                      $page);
         $this->pager->init();
     
         $this->setTemplate('../../documents/templates/geojson');

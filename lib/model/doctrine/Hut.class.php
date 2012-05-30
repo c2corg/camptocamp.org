@@ -85,16 +85,19 @@ class Hut extends BaseHut
             $join_i18n = $join . '_i18n';
         }
         
+        $nb_id = 0;
+        $nb_name = 0;
+        
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'huts'), $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'huts'), $join_id);
         }
         else
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'huts', $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'huts', $join_id);
         }
+        $has_id = ($nb_id == 1);
         
-        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -104,11 +107,12 @@ class Hut extends BaseHut
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'harnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'hi.search_name'), ($is_module ? array('hnam', 'name') : 'hnam'), array($join_idi18n, $join_i18n), 'Hut');
-            if ($has_name === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'hi.search_name'), ($is_module ? array('hnam', 'name') : 'hnam'), array($join_idi18n, $join_i18n), 'Hut');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'h', 'activities'), 'hact', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'halt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.shelter_type', 'htyp', $join);
@@ -122,17 +126,17 @@ class Hut extends BaseHut
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'hi.culture', 'hcult', $join_i18n);
             
             // book criteria
-            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 'h', 'main_id');
-            if ($has_name === 'no_result')
+            $nb_name = Book::buildBookListCriteria($criteria, $params_list, false, 'h', 'main_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             // article criteria
-            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'h', 'linked_id');
-            if ($has_name === 'no_result')
+            $nb_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'h', 'linked_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             if (   isset($criteria[2]['join_hbook'])
@@ -149,16 +153,16 @@ class Hut extends BaseHut
         
         if (!empty($conditions))
         {
-            $criteria[0] += $conditions;
-            $criteria[1] += $values;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
         }
         if (!empty($joins))
         {
             $joins['join_hut'] = true;
         }
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
         $criteria[2] += $joins;
         
@@ -247,8 +251,8 @@ class Hut extends BaseHut
             return $has_name;
         }
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;

@@ -347,29 +347,32 @@ class Route extends BaseRoute
             $join_i18n = $join . '_i18n';
         }
         
+        $nb_id = 0;
+        $nb_name = 0;
+        
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'routes'), $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'routes'), $join_id);
         }
         else
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'routes', $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'routes', $join_id);
         }
+        $has_id = ($nb_id == 1);
         
-        $has_name = false;
         if (!$has_id)
         {
-            $has_name = false;
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'r', 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', null, 'geom', $join);
                 
-                $has_name = self::buildConditionItem($conditions, $values, $joins_summit, $params_list, 'Mstring', array(array('ls.main_id', 'si.search_name'), array($midi18n, 'ri.search_name')), 'srnam', array(array('summit_idi18n', 'summit_i18n'), array($join_idi18n, $join_i18n)), array('Summit', 'Route'));
-                if ($has_name === 'no_result')
+                $nb_name = self::buildConditionItem($conditions, $values, $joins_summit, $params_list, 'Mstring', array(array('ls.main_id', 'si.search_name'), array($midi18n, 'ri.search_name')), 'srnam', array(array('summit_idi18n', 'summit_i18n'), array($join_idi18n, $join_i18n)), array('Summit', 'Route'));
+                if ($nb_name === 'no_result')
                 {
-                    return $has_name;
+                    return $nb_name;
                 }
+                $nb_id += $nb_name;
                 if (isset($joins_summit['summit_idi18n']) || isset($joins_summit['summit_i18n']))
                 {
                     $joins_summit['join_summit'] = true;
@@ -380,12 +383,12 @@ class Route extends BaseRoute
                 }
             }
             
-            $has_name_2 = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ri.search_name'), ($is_module ? array('rnam', 'name') : 'rnam'), array($join_idi18n, $join_i18n), 'Route');
-            if ($has_name_2 === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ri.search_name'), ($is_module ? array('rnam', 'name') : 'rnam'), array($join_idi18n, $join_i18n), 'Route');
+            if ($nb_name === 'no_result')
             {
-                return $has_name_2;
+                return $nb_name;
             }
-            $has_name = $has_name || $has_name_2;
+            $nb_id += $nb_name;
             
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'r', 'activities'), 'ract', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.max_elevation', 'malt', $join);
@@ -421,17 +424,17 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lrdc.linked_id', 'rdtags', 'rdtag');
             
             // book criteria
-            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 'r', 'main_id');
-            if ($has_name === 'no_result')
+            $nb_name = Book::buildBookListCriteria($criteria, $params_list, false, 'r', 'main_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             // article criteria
-            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'r', 'linked_id');
-            if ($has_name === 'no_result')
+            $nb_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'r', 'linked_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             if (   isset($criteria[2]['join_rbook'])
@@ -448,16 +451,16 @@ class Route extends BaseRoute
         
         if (!empty($conditions))
         {
-            $criteria[0] += $conditions;
-            $criteria[1] += $values;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
         }
         if (!empty($joins))
         {
             $joins['join_route'] = true;
         }
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
         $criteria[2] += $joins + $joins_summit;
         
@@ -546,8 +549,8 @@ class Route extends BaseRoute
             return $has_name;
         }
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;

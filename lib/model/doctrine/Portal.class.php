@@ -58,8 +58,13 @@ class Portal extends BasePortal
         $join_id = null;
         $join_idi18n = null;
         $join_i18n = 'portal_i18n';
+        $is_module = true;
         
-        $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'portals'), $join_id);
+        $nb_id = 0;
+        $nb_name = 0;
+        
+        $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'portals'), $join_id);
+        $has_id = ($nb_id == 1);
         
         if (!$has_id)
         {
@@ -69,21 +74,21 @@ class Portal extends BasePortal
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'warnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'wi.search_name'), ($is_module ? array('wnam', 'name') : 'wnam'), array($join_idi18n, $join_i18n), 'Portal');
-            if ($has_name === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'wi.search_name'), ($is_module ? array('wnam', 'name') : 'wnam'), array($join_idi18n, $join_i18n), 'Portal');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'walt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'activities'), 'act', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'wi.culture', 'wcult', $join_i18n);
         }
         
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
-            
         
         // image criteria
         $has_name = Image::buildImageListCriteria($criteria, $params_list, false);
@@ -92,8 +97,8 @@ class Portal extends BasePortal
             return $has_name;
         }
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;

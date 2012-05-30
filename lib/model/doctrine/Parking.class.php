@@ -81,18 +81,21 @@ class Parking extends BaseParking
             $join_i18n = $join . '_i18n';
         }
         
+        $nb_id = 0;
+        $nb_name = 0;
+        
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', $join_id);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lp.main_id', 'parkings', 'parking_id');
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lpp.linked_id', 'subparkings', 'subparking_id');
         }
         else
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'parkings', $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'parkings', $join_id);
         }
+        $has_id = ($nb_id == 1);
         
-        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -101,28 +104,29 @@ class Parking extends BaseParking
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'parnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'pi.search_name'), ($is_module ? array('pnam', 'name') : 'pnam'), array($join_idi18n, $join_i18n), 'Parking');
-            if ($has_name === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'pi.search_name'), ($is_module ? array('pnam', 'name') : 'pnam'), array($join_idi18n, $join_i18n), 'Parking');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'palt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.public_transportation_rating', 'tp', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'public_transportation_types'), 'tpty', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'pi.culture', 'pcult', $join_i18n);
             
             // book criteria
-            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 'p', 'main_id');
-            if ($has_name === 'no_result')
+            $nb_name = Book::buildBookListCriteria($criteria, $params_list, false, 'p', 'main_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             // article criteria
-            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'p', 'linked_id');
-            if ($has_name === 'no_result')
+            $nb_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'p', 'linked_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             if (   isset($criteria[2]['join_pbook'])
@@ -139,16 +143,16 @@ class Parking extends BaseParking
         
         if (!empty($conditions))
         {
-            $criteria[0] += $conditions;
-            $criteria[1] += $values;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
         }
         if (!empty($joins))
         {
             $joins['join_parking'] = true;
         }
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
         $criteria[2] += $joins;
         
@@ -237,8 +241,8 @@ class Parking extends BaseParking
             return $has_name;
         }
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;

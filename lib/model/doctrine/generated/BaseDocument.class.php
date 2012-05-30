@@ -185,7 +185,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if (empty($params_list))
         {
-            return false;
+            return 0;
         }
         
         if (is_array($param))
@@ -263,9 +263,9 @@ class BaseDocument extends sfDoctrineRecordI18n
                     }
                     break;
                 case 'MultiId':
-                    $nb_join = self::buildMultiIdCondition($conditions, $values, $field, $value);
-                    $result = ($nb_join > 0);
-                    $nb_join = abs($nb_join);
+                    $infos = self::buildMultiIdCondition($conditions, $values, $field, $value);
+                    $nb_join = $infos['nb_group'];
+                    $result = $infos['nb_id'];
                     if ($join_id && (($value == '-') || ($value == ' ')))
                     {
                         $joins[$join_id . '_has'] = true;
@@ -434,8 +434,8 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if (!empty($conditions))
         {
-            $criteria[0] += $conditions;
-            $criteria[1] += $values;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
         }
         if (!empty($joins))
         {
@@ -482,7 +482,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         $join_idi18n = null;
         $join_i18n = 'document_i18n';
         
-        $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'docs'), $join_id);
+        $nb_id = 0;
+        $nb_name = 0;
+        
+        $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'docs'), $join_id);
+        $has_id = ($nb_id == 1);
         
         if (!$has_id)
         {
@@ -492,18 +496,19 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'darnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'di.search_name'), ($is_module ? array('dnam', 'name') : 'dnam'), array($join_idi18n, $join_i18n), 'Document');
-            if ($has_name === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'di.search_name'), ($is_module ? array('dnam', 'name') : 'dnam'), array($join_idi18n, $join_i18n), 'Document');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'dalt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'di.culture', 'dcult', $join_i18n);
         }
         
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
             
         
@@ -514,8 +519,8 @@ class BaseDocument extends sfDoctrineRecordI18n
             return $has_name;
         }
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;
@@ -525,24 +530,31 @@ class BaseDocument extends sfDoctrineRecordI18n
      * Lists documents of current model taking into account search criteria or filters if any.
      * @return DoctrinePager
      */
-    public static function browse($model = 'Document', $sort, $criteria, $format = null)
+    public static function browse($model = 'Document', $sort, $criteria, $format = null, $page = 1)
     {
         $module = c2cTools::model2module($model);
+        
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
+        $joins_order = $criteria[3];
         
         $field_list = call_user_func(array($model, 'buildFieldsList'), true, 'mi', $format, $sort);
         
         $pager = self::createPager($model, $field_list, $sort);
+        $pager->setPage($page);
+        
         $q = $pager->getQuery();
         
         call_user_func(array($model, 'buildMainPagerConditions'), &$q, $criteria);
         
         $all = false;
-        if (isset($criteria[2]['all']))
+        if (isset($joins['all']))
         {
-            $all = $criteria[2]['all'];
+            $all = $joins['all'];
         }
         
-        if (!$all && !empty($criteria[0]))
+        if (!$all && !empty($conditions))
         {
             call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
         }
@@ -582,13 +594,15 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
     
     
-    public static function browseId($model = 'Document', $sort, $criteria, $format = null)
+    public static function browseId($model = 'Document', $sort, $criteria, $format = null, $page = 1)
     {
         $module = c2cTools::model2module($model);
         
         $field_list = call_user_func(array($model, 'buildFieldsList'), false, 'mi', $format, $sort);
         
         $pager = self::createPager($model, $field_list, $sort);
+        $pager->setPage($page);
+        
         $q = $pager->getQuery();
         
         $all = false;
@@ -2489,7 +2503,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field IS NOT NULL AND $field != 0)";
+            $conditions[] = "$field IS NOT NULL AND $field != 0";
         }
         else
         {
@@ -2507,7 +2521,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif ($param == ' ' || $param == 'yes')
         {
-            $conditions[] = "($field IS NOT NULL)";
+            $conditions[] = "$field IS NOT NULL";
             $result = 'not_null';
         }
         else
@@ -2528,7 +2542,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field IS NOT NULL AND $field != 0)";
+            $conditions[] = "$field IS NOT NULL AND $field != 0";
         }
         else
         {
@@ -2543,7 +2557,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             if ($is_null_only)
             {
-                $conditions[] = "($field IS NULL)";
+                $conditions[] = "$field IS NULL";
             }
             else
             {
@@ -2554,11 +2568,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             if ($is_null_only)
             {
-                $conditions[] = "($field IS NOT NULL)";
+                $conditions[] = "$field IS NOT NULL";
             }
             else
             {
-                $conditions[] = "($field IS NOT NULL AND $field != 0)";
+                $conditions[] = "$field IS NOT NULL AND $field != 0";
             }
         }
         elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
@@ -2649,11 +2663,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if ($param == '-')
         {
-            $conditions[] = "($field_1 = $field_2)";
+            $conditions[] = "$field_1 = $field_2";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field_1 != $field_2)";
+            $conditions[] = "$field_1 != $field_2";
         }
         elseif(preg_match('/^([><]?)(-?)([0-9]*)(~?)([0-9]*)$/', $param, $regs))
         {
@@ -2676,7 +2690,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                         $regs[1] = '>';
                     }
                 }
-                $not_null = "($field_1 >= $field_2) AND ";
+                $not_null = "$field_1 >= $field_2 AND ";
             }
             else
             {
@@ -2696,14 +2710,15 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildListCondition(&$conditions, &$values, $field, $param, $use_not_null = true)
     {
-        $simple_value = false;
+        $nb_id = 0;
+        
         if ($param == '-')
         {
             $conditions[] = "($field IS NULL OR $field = 0)";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field IS NOT NULL AND $field != 0)";
+            $conditions[] = "$field IS NOT NULL AND $field != 0";
         }
         elseif (preg_match('/^([0-9a-z!]*)(-[0-9a-z!]*)*$/', $param, $regs))
         {
@@ -2743,14 +2758,14 @@ class BaseDocument extends sfDoctrineRecordI18n
                     }
                 }
             }
-            if ($nb_conditions = count($condition_array))
+            if ($nb_id = count($condition_array))
             {
-                if ($nb_conditions == 1)
+                if ($nb_id == 1)
                 {
                     $condition[] = $field . ' = ?';
                     $simple_value = true;
                 }
-                elseif ($nb_conditions > 1)
+                elseif ($nb_id > 1)
                 {
                     $condition[] = $field . ' IN ( ' . implode(', ', $condition_array) . ' )';
                 }
@@ -2778,14 +2793,17 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $values[] = $value;
                 }
             }
-            $conditions[] = '(' . implode(') AND (', $conditions_groups) . ')';
+            $conditions[] = implode(' AND ', $conditions_groups);
         }
         
-        return $simple_value;
+        return $nb_id;
     }
 
     public static function buildMultiIdCondition(&$conditions, &$values, $field, $param)
     {
+        $group_id = 0;
+        $nb_id = 0;
+        
         if (($param == '-') || ($param == ' '))
         {
             $field_1 = $field[0] . '1.' . $field[1];
@@ -2795,22 +2813,21 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             elseif ($param == ' ')
             {
-                $conditions[] = "($field_1 IS NOT NULL AND $field_1 != 0)";
+                $conditions[] = "$field_1 IS NOT NULL AND $field_1 != 0";
             }
             
-            return -1;
+            $group_id = 1;
         }
         elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         {
             $field_1 = $field[0] . '1.' . $field[1];
             self::buildCompareCondition($conditions, $values, $field_1, $param, false, false);
-            return -1;
+            $group_id = 1;
         }
         else
         {
             $item_groups = explode(' ', $param);
             $conditions_groups = array();
-            $group_id = 0;
             foreach ($item_groups as $group)
             {
                 $group_id += 1;
@@ -2846,13 +2863,13 @@ class BaseDocument extends sfDoctrineRecordI18n
                         }
                     }
                 }
-                if ($nb_conditions = count($condition_array))
+                if ($nb_id = count($condition_array))
                 {
-                    if ($nb_conditions == 1)
+                    if ($nb_id == 1)
                     {
                         $condition[] = $field_n . ' = ?';
                     }
-                    elseif ($nb_conditions > 1)
+                    elseif ($nb_id > 1)
                     {
                         $condition[] = $field_n . ' IN ( ' . implode(', ', $condition_array) . ' )';
                     }
@@ -2882,9 +2899,15 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
             }
             
-            $conditions[] = '(' . implode(') AND (', $conditions_groups) . ')';
-            return $group_id;
+            $conditions[] = implode(' AND ', $conditions_groups);
+            
+            if ($group_id > 1)
+            {
+                $nb_id = 0;
+            }
         }
+        return array('nb_group' => $group_id,
+                     'nb_id' => $nb_id);
     }
 
     public static function buildLinkedlistCondition(&$conditions, &$values, $field, $param)
@@ -2899,7 +2922,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field_1 IS NOT NULL AND $field_1 != 0)";
+            $conditions[] = "$field_1 IS NOT NULL AND $field_1 != 0";
         }
         else
         {
@@ -2961,7 +2984,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field_1 IS NOT NULL AND NOT (0 = ANY ($field_2)))";
+            $conditions[] = "$field_1 IS NOT NULL AND NOT (0 = ANY ($field_2))";
         }
         else
         {
@@ -3084,7 +3107,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             elseif ($param == ' ')
             {
-                $conditions[] = "($field IS NOT NULL AND $field != 0)";
+                $conditions[] = "$field IS NOT NULL AND $field != 0";
             }
             else
             {
@@ -3110,7 +3133,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             else
             {
-                $conditions[] = "$field <= ? OR $field >= ?";
+                $conditions[] = "($field <= ? OR $field >= ?)";
                 $values[] = $facing1;
                 $values[] = $facing2;
             }
@@ -3121,11 +3144,11 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($param == '-')
         {
-            $conditions[] = "($field IS NULL)";
+            $conditions[] = "$field IS NULL";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "($field IS NOT NULL)";
+            $conditions[] = "$field IS NOT NULL";
         }
         elseif (preg_match('/[YMWD]/', $param, $regs)) // 'since'
         {

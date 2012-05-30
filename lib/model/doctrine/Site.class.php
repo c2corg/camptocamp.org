@@ -160,18 +160,21 @@ class Site extends BaseSite
             $join_i18n = $join . '_i18n';
         }
         
+        $nb_id = 0;
+        $nb_name = 0;
+        
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', $join_id);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'lt.main_id', 'sites', 'site_id');
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Id', 'ltt.linked_id', 'subsites', 'subsite_id');
         }
         else
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'sites', $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'sites', $join_id);
         }
+        $has_id = ($nb_id == 1);
         
-        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -180,11 +183,12 @@ class Site extends BaseSite
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'tarnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ti.search_name'), ($is_module ? array('tnam', 'name') : 'tnam'), array($join_idi18n, $join_i18n), 'Site');
-            if ($has_name === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ti.search_name'), ($is_module ? array('tnam', 'name') : 'tnam'), array($join_idi18n, $join_i18n), 'Site');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'talt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'site_types'), 'ttyp', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'climbing_styles'), 'tcsty', $join);
@@ -199,17 +203,17 @@ class Site extends BaseSite
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ti.culture', 'tcult', $join_i18n);
             
             // book criteria
-            $has_name = Book::buildBookListCriteria($criteria, $params_list, false, 't', 'main_id');
-            if ($has_name === 'no_result')
+            $nb_name = Book::buildBookListCriteria($criteria, $params_list, false, 't', 'main_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             // article criteria
-            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, 't', 'linked_id');
-            if ($has_name === 'no_result')
+            $nb_name = Article::buildArticleListCriteria($criteria, $params_list, false, 't', 'linked_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             if (   isset($criteria[2]['join_tbook'])
@@ -226,16 +230,16 @@ class Site extends BaseSite
         
         if (!empty($conditions))
         {
-            $criteria[0] += $conditions;
-            $criteria[1] += $values;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
         }
         if (!empty($joins))
         {
             $joins['join_site'] = true;
         }
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
         $criteria[2] += $joins;
         
@@ -324,8 +328,8 @@ class Site extends BaseSite
             return $has_name;
         }
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;

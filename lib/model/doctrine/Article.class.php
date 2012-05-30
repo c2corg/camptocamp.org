@@ -84,27 +84,31 @@ class Article extends BaseArticle
         }
         
         $has_id = false;
+        $nb_id = 0;
+        $nb_name = 0;
+        
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', null);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'id', null);
         }
         else // tags are detected here
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, $prefix . 'tags', $prefix . 'tag');
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, $prefix . 'tags', $prefix . 'tag');
         }
+        $has_id = ($nb_id == 1);
         
-        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'activities'), 'act', $join);
             }
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $prefix . 'ci.search_name'), ($is_module ? array('cnam', 'name') : $prefix . 'cnam'), array($join_idi18n, $join_i18n), 'Article');
-            if ($has_name === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $prefix . 'ci.search_name'), ($is_module ? array('cnam', 'name') : $prefix . 'cnam'), array($join_idi18n, $join_i18n), 'Article');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'activities'), $prefix . 'cact', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'categories'), $prefix . 'ccat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m2 . '.article_type', $prefix . 'ctyp', $join);
@@ -113,16 +117,16 @@ class Article extends BaseArticle
         
         if (!empty($conditions))
         {
-            $criteria[0] += $conditions;
-            $criteria[1] += $values;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
         }
         if (!empty($joins))
         {
             $joins['join_' . $prefix . 'article'] = true;
         }
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
         $criteria[2] += $joins;
         
@@ -231,8 +235,8 @@ class Article extends BaseArticle
         // user criteria
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', array('u', 'main_id'), 'users', 'user_id');
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;

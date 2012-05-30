@@ -79,32 +79,37 @@ class Map extends BaseMap
         $join_id = null;
         $join_idi18n = null;
         $join_i18n = null;
+        $is_module = true;
         
-        $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'maps'), $join_id);
+        $nb_id = 0;
+        $nb_name = 0;
         
-        $has_name = false;
+        $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'maps'), $join_id);
+        $has_id = ($nb_id == 1);
+        
         if (!$has_id)
         {
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'marnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'mi.search_name'), ($is_module ? array('mnam', 'name') : 'mnam'), array($join_idi18n, $join_i18n), 'Map');
-            if ($has_name === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'mi.search_name'), ($is_module ? array('mnam', 'name') : 'mnam'), array($join_idi18n, $join_i18n), 'Map');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Istring', $m . '.code', 'code', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.scale', 'scal', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.editor', 'edit', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'mi.culture', 'mcult', $join_i18n);
         }
         
-        if ($has_id || $has_name)
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
         
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;

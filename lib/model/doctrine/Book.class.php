@@ -85,16 +85,19 @@ class Book extends BaseBook
         }
         
         $has_id = false;
+        $nb_id = 0;
+        $nb_name = 0;
+        
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'books'), $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'books'), $join_id);
         }
         else
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, $prefix . 'books', $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, $prefix . 'books', $join_id);
         }
+        $has_id = ($nb_id == 1);
         
-        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -102,21 +105,22 @@ class Book extends BaseBook
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lbc.linked_id', 'btags', 'join_btag_id');
             }
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $prefix . 'bi.search_name'), ($is_module ? array('bnam', 'name') : $prefix . 'bnam'), array($join_idi18n, $join_i18n), 'Book');
-            if ($has_name === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $prefix . 'bi.search_name'), ($is_module ? array('bnam', 'name') : $prefix . 'bnam'), array($join_idi18n, $join_i18n), 'Book');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'activities'), $prefix . 'bact', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'book_types'), $prefix . 'btyp', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, $m2, 'langs'), $prefix . 'blang', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $prefix . 'bi.culture', $prefix . 'bcult', $join_i18n);
             
             // article criteria
-            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, $prefix . 'b', 'linked_id');
-            if ($has_name === 'no_result')
+            $nb_name = Article::buildArticleListCriteria($criteria, $params_list, false, $prefix . 'b', 'linked_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             if (isset($criteria[2]['join_' . $prefix . 'barticle']))
@@ -131,16 +135,16 @@ class Book extends BaseBook
         
         if (!empty($conditions))
         {
-            $criteria[0] += $conditions;
-            $criteria[1] += $values;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
         }
         if (!empty($joins))
         {
             $joins['join_' . $prefix . 'book'] = true;
         }
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
         $criteria[2] += $joins;
         
@@ -199,8 +203,8 @@ class Book extends BaseBook
             return $has_name;
         }
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;

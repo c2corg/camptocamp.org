@@ -393,16 +393,19 @@ class Image extends BaseImage
             $join_i18n = $join . '_i18n';
         }
         
+        $nb_id = 0;
+        $nb_name = 0;
+        
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'images'), $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'images'), $join_id);
         }
         else
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'images', $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'images', $join_id);
         }
+        $has_id = ($nb_id == 1);
         
-        $has_name = false;
         if (!$has_id)
         {
             if ($is_module)
@@ -413,11 +416,12 @@ class Image extends BaseImage
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'iarnd', $join);
             
-            $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ii.search_name'), ($is_module ? array('inam', 'name') : 'inam'), array($join_id, $join_i18n), 'Image');
-            if ($has_name === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ii.search_name'), ($is_module ? array('inam', 'name') : 'inam'), array($join_id, $join_i18n), 'Image');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'i', 'activities'), 'iact', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'ialt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'i', 'categories'), 'icat', $join);
@@ -426,10 +430,10 @@ class Image extends BaseImage
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ii.culture', 'icult', $join_i18n);
             
             // article criteria
-            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'i', 'main_id');
-            if ($has_name === 'no_result')
+            $nb_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'i', 'main_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             if (isset($criteria[2]['join_iarticle']))
@@ -444,16 +448,16 @@ class Image extends BaseImage
         
         if (!empty($conditions))
         {
-            $criteria[0] += $conditions;
-            $criteria[1] += $values;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
         }
         if (!empty($joins))
         {
             $joins['join_image'] = true;
         }
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
         $criteria[2] += $joins;
         
@@ -547,8 +551,8 @@ class Image extends BaseImage
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'hm.user_id', 'users', 'user_id'); // TODO here we should restrict to initial uploader (ticket #333)
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lou.main_id', 'ousers', array('ouser_id', 'join_outing', 'post_outing'));
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;

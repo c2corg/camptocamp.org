@@ -214,29 +214,32 @@ class User extends BaseUser
             $join_private_data = $join . '_pd';
         }
         
+        $nb_id = 0;
+        $nb_name = 0;
+        
         if ($is_module)
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'users'), $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, array('id', 'users'), $join_id);
         }
         else
         {
-            $has_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'users', $join_id);
+            $nb_id = self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', $mid, 'users', $join_id);
         }
+        $has_id = ($nb_id == 1);
         
-        $has_name = false;
         if (!$has_id)
         {
-            $has_name = false;
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'u', 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
                 
-                $has_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'Mstring', array(array($midi18n, 'mi.search_name'), array($midi18n, 'upd.search_username')), 'utfnam', array(array($join_idi18n, $join_i18n), array($join_idi18n, $join_private_data)), array('User', 'UserPrivateData'));
-                if ($has_name === 'no_result')
+                $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'Mstring', array(array($midi18n, 'mi.search_name'), array($midi18n, 'upd.search_username')), 'utfnam', array(array($join_idi18n, $join_i18n), array($join_idi18n, $join_private_data)), array('User', 'UserPrivateData'));
+                if ($nb_name === 'no_result')
                 {
-                    return $has_name;
+                    return $nb_name;
                 }
+                $nb_id += $nb_name;
             }
             
             // friends
@@ -308,27 +311,28 @@ class User extends BaseUser
             
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'uarnd', $join);
             
-            $has_name_2 = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $m . 'i.search_name'), ($is_module ? array('unam', 'name') : 'unam'), array($join_idi18n, $join_i18n), 'User');
-            if ($has_name_2 === 'no_result')
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $m . 'i.search_name'), ($is_module ? array('unam', 'name') : 'unam'), array($join_idi18n, $join_i18n), 'User');
+            if ($nb_name === 'no_result')
             {
-                return $has_name_2;
+                return $nb_name;
             }
-            $has_name = $has_name || $has_name_2;
+            $nb_id += $nb_name;
             
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'upd.search_username'), 'ufnam', array($join_idi18n, $join_private_data), 'UserPrivateData');
-            if ($has_name === 'no_result')
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
+            $nb_id += $nb_name;
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'u', 'activities'), 'uact', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.category', 'ucat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ui.culture', 'ucult', $join_i18n);
             
             // article criteria
-            $has_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'u', 'linked_id');
-            if ($has_name === 'no_result')
+            $nb_name = Article::buildArticleListCriteria($criteria, $params_list, false, 'u', 'linked_id');
+            if ($nb_name === 'no_result')
             {
-                return $has_name;
+                return $nb_name;
             }
             
             if (isset($criteria[2]['join_uarticle']))
@@ -343,16 +347,16 @@ class User extends BaseUser
         
         if (!empty($conditions))
         {
-            $criteria[0] += $conditions;
-            $criteria[1] += $values;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
         }
         if (!empty($joins))
         {
             $joins['join_user'] = true;
         }
-        if ($is_module && ($has_id || $has_name))
+        if ($is_module && $nb_id)
         {
-            $joins['has_id'] = true;
+            $joins['nb_id'] = $nb_id;
         }
         $criteria[2] += $joins;
         
@@ -443,8 +447,8 @@ class User extends BaseUser
             return $has_name;
         }
 
-        $criteria[0] += $conditions;
-        $criteria[1] += $values;
+        $criteria[0] = array_merge($criteria[0], $conditions);
+        $criteria[1] = array_merge($criteria[1], $values);
         $criteria[2] += $joins;
         $criteria[3] += $joins_order;
         return $criteria;
