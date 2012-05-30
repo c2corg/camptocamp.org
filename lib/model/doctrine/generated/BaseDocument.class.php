@@ -215,29 +215,34 @@ class BaseDocument extends sfDoctrineRecordI18n
             switch ($criteria_type)
             {
                 case 'String':
-                    $join_id = self::buildStringCondition($conditions, $values, $field, $value, $extra, $join_id);
-                    if ($join_id === 'no_result')
+                    $infos = self::buildStringCondition($conditions, $values, $field, $value, $extra, $join_id);
+                    if (!$infos['has_result'])
                     {
-                        return $join_id;
+                        return 'no_result';
                     }
-                    elseif ($join_id !== true)
-                    {
-                        $result = false;
-                    }
+                    $result = $infos['nb_result'];
+                    $join_id = $infos['join'];
                     $join_ids = null;
                     break;
                 case 'Istring': self::buildIstringCondition($conditions, $values, $field, $value);
                     //$nb_join = 0;
                     break;
                 case 'Mstring':
-                    $join_id = self::buildMstringCondition($conditions, $values, $field, $value, $extra, $join_id);
-                    if ($join_id === 'no_result')
+                    $infos = self::buildMstringCondition($conditions, $values, $field, $value, $extra, $join_id);
+                    $result = array();
+                    if ($infos === 'no_result')
                     {
-                        return $join_id;
+                        return 'no_result';
                     }
-                    elseif (count($join_id) != 1 || $join_id[0] !== true)
+                    $result = $infos[0]['nb_result'] + $infos[1]['nb_result'];
+                    $join_ids = array();
+                    if ($infos[0]['join'])
                     {
-                        $result = false;
+                        $join_ids[] = $infos[0]['join'];
+                    }
+                    if ($infos[1]['join'])
+                    {
+                        $join_ids[] = $infos[1]['join'];
                     }
                     $join_id = array_shift($join_ids);
                     break;
@@ -2340,7 +2345,11 @@ class BaseDocument extends sfDoctrineRecordI18n
     
     public static function buildStringCondition(&$conditions, &$values, $field, $param, $model, $join = array(null, null))
     {
-        $join_result = '';
+        $has_result = false;
+        $has_id = false;
+        $nb_result = 0;
+        $join_result = null;
+        
         $param = urldecode($param);
         if (strlen($param) > 2)
         {
@@ -2353,35 +2362,32 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $ids[] = $id['id'];
                 }
                 $conditions[] = $field[0] . ' IN (' . implode(',', $ids) . ')';
-                if ($join[0])
+                
+                $has_result = true;
+                $nb_result = count($ids);
+                $join_result = $join[0];
+                if (!$join[0])
                 {
-                    $join_result = $join[0];
+                    $has_id = true;
                 }
-                else
-                {
-                    $join_result = true;
-                }
-            }
-            else
-            {
-                $join_result = 'no_result';
             }
         }
         else
         {
             $conditions[] = $field[1] . ' LIKE make_search_name(?)||\'%\'';
             $values[] = $param;
+            
+            $has_result = true;
             if ($join[1])
             {
                 $join_result = $join[1];
             }
-            else
-            {
-                $join_result = false;
-            }
         }
         
-        return $join_result;
+        return array('has_result' => $has_result,
+                     'has_id' => $has_id,
+                     'nb_result' => $nb_result,
+                     'join' => $join_result);
     }
     
     public static function buildIstringCondition(&$conditions, &$values, $field, $param)
@@ -2403,54 +2409,75 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $name_list[1] = $name_list[0];
             $condition_type = ' OR ';
+            $use_or = true;
         }
         else
         {
             $name_list[1] = urldecode(trim($param_list[1]));
             $condition_type = ' AND ';
+            $use_or = false;
         }
         
-        $conditions_name = $joins_name = $join_result_list = array();
+        $conditions_name = $joins_name = $result_list = array();
         if (empty($join))
         {
             $join = array(array(null, null), array(null, null));
         }
         
-        $join_result = '';
+        $has_result = false;
+        $has_id = false;
+        $nb_result = 0;
+        $join_result = null;
+        $no_result = array('has_result' => false,
+                           'has_id' => false,
+                           'nb_result' => 0,
+                           'join' => null);
+        $nb_no_result = false;
+        
         if (!empty($name_list[0]))
         {
-            $join_result = self::buildStringCondition($conditions_name, $values, $field[0], $name_list[0], $model[0], $join[0]);
-            if (!empty($join_result))
+            $infos = self::buildStringCondition($conditions_name, $values, $field[0], $name_list[0], $model[0], $join[0]);
+            $has_result = $infos['has_result'];
+            if (!$has_result && !$use_or)
             {
-                $join_result_list[] = $join_result;
+                $nb_no_result = true;
             }
+            $result_list[] = $infos;
         }
-        
-        if (!empty($name_list[1]))
+        else
         {
-            if ($join_result === 'no_result')
-            {
-                return $join_result;
-            }
-            
-            $join_result = self::buildStringCondition($conditions_name, $values, $field[1], $name_list[1], $model[1], $join[1]);
-            if ($join_result === 'no_result')
-            {
-                return $join_result;
-            }
-            if (!empty($join_result))
-            {
-                $join_result_list[] = $join_result;
-            }
+            $result_list[] = $no_result;
         }
         
-        $conditions[] = implode($condition_type, $conditions_name);
-        if (empty($join_result_list))
+        if (!empty($name_list[1]) && ($has_result || $use_or))
         {
-            $join_result_list = array(null);
+            $infos = self::buildStringCondition($conditions_name, $values, $field[1], $name_list[1], $model[1], $join[1]);
+            if (!$infos['has_result'] && !$use_or)
+            {
+                $nb_no_result = true;
+            }
+            $result_list[] = $infos;
+        }
+        else
+        {
+            $result_list[] = $no_result;
         }
         
-        return $join_result_list;
+        if ((!$result_list[0]['has_result'] && !$result_list[1]['has_result']) || $nb_no_result)
+        {
+            $result_list = 'no_result';
+        }
+        
+        if (count($conditions_name) == 1)
+        {
+            $conditions[] = $conditions_name[0];
+        }
+        elseif (count($conditions_name) > 1)
+        {
+            $conditions[] = '(' . implode($condition_type, $conditions_name) . ')';
+        }
+        
+        return $result_list;
     }
 
     public static function buildItemCondition(&$conditions, &$values, $field, $param)
@@ -2976,7 +3003,15 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $conditions_groups[] = implode(' AND ', $condition_array);
                 }
             }
-            $conditions[] = '((' . implode (') OR (', $conditions_groups) . '))';
+            if (count($conditions_groups) == 1)
+            {
+                $conditions_groups = $conditions_groups[0];
+            }
+            else
+            {
+                $conditions_groups = '((' . implode (') OR (', $conditions_groups) . '))';
+            }
+            $conditions[] = $conditions_groups;
         }
     }
 

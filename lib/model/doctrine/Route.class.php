@@ -370,16 +370,13 @@ class Route extends BaseRoute
                 {
                     return $has_name;
                 }
-                if ($has_name !== true)
+                if (isset($joins_summit['summit_idi18n']) || isset($joins_summit['summit_i18n']))
                 {
-                    if (isset($joins_summit['summit_idi18n']) || isset($joins_summit['summit_i18n']))
-                    {
-                        $joins_summit['join_summit'] = true;
-                    }
-                    if (isset($joins_summit['route_i18n']))
-                    {
-                        $joins['route_i18n'] = true;
-                    }
+                    $joins_summit['join_summit'] = true;
+                }
+                if (isset($joins_summit['route_i18n']))
+                {
+                    $joins['route_i18n'] = true;
                 }
             }
             
