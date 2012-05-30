@@ -2447,6 +2447,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         else
         {
             $result_list[] = $no_result;
+            $use_or = true;
         }
         
         if (!empty($name_list[1]) && ($has_result || $use_or))
