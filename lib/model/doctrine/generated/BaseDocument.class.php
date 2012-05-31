@@ -582,7 +582,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $model_i18n = $model . 'I18n';
         $field_list = call_user_func(array($model, 'buildFieldsList'), true, 'mi', $format, $sort);
-        $order_by = self::buildOrderby($select, $sort);
+        $order_by = self::buildOrderby($field_list, $sort);
         $where_ids = 'm.id' . $sub_query_result['where'];
         
         $q = Doctrine_Query::create();

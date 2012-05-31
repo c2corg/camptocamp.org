@@ -1019,11 +1019,6 @@ class documentsActions extends c2cActions
             }
         }
         
-        if ($nb_results > 0)
-        {
-            $this->query->init();
-        }
-        
         c2cActions::statsdTiming($this, 'document.executeList', $timer->getElapsedTime('executeList'));
     }
 
@@ -1056,7 +1051,6 @@ class documentsActions extends c2cActions
 
             if ($nb_results > 0)
             {
-                $this->query->init();
                 $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
                 if (isset($items[0]['geoassociations']))
                 {
@@ -1105,11 +1099,6 @@ class documentsActions extends c2cActions
             $nb_results = $infos['nb_results'];
             $this->pager = $infos['pager'];
             $this->query = $infos['query'];
-
-            if ($nb_results > 0)
-            {
-                $this->query->init();
-            }
         }
         else
         {
@@ -1160,11 +1149,6 @@ class documentsActions extends c2cActions
             $nb_results = $infos['nb_results'];
             $this->pager = $infos['pager'];
             $this->query = $infos['query'];
-
-            if ($nb_results > 0)
-            {
-                $this->query->init();
-            }
         }
         else
         {
