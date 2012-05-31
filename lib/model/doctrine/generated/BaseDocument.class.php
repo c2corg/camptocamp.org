@@ -851,11 +851,11 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($main_query)
         {
-            $data_fields = array('m.id', $mi . '.culture', $mi . '.name', 'm.module', $mi . '.search_name');
+            $data_fields_list = array('m.id', $mi . '.culture', $mi . '.name', 'm.module', $mi . '.search_name');
         }
         else
         {
-            $data_fields = array('m.id');
+            $data_fields_list = array('m.id');
         }
         
         $orderby_fields = array();
