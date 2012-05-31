@@ -26,7 +26,7 @@ class Portal extends BasePortal
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'wcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'portals');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

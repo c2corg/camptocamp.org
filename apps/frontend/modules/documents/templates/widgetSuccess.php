@@ -6,7 +6,11 @@ $module = $sf_context->getModuleName();
 echo 'window.c2cwgt.insertContent("';
 echo $div;
 echo '",[';
-$items = $pager->getResults('array', ESC_RAW);
+if ($nb_results > 0)
+{
+    $items = $query->execute(array(), Doctrine::FETCH_ARRAY);
+    $items = Language::parseListItems($items, c2cTools::module2model($module));
+}
 $last_item = end($items);
 foreach ($items as $item)
 {

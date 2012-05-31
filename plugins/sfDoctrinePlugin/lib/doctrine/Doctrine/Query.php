@@ -759,8 +759,8 @@ class Doctrine_Query extends Doctrine_Query_Abstract implements Countable
         $rootAlias = key($this->_aliasMap);
 
         if ( ! empty($this->parts['limit']) && $this->needsSubquery && $table->getAttribute(Doctrine::ATTR_QUERY_LIMIT) == Doctrine::LIMIT_RECORDS) {
-            $this->isLimitSubqueryUsed = true;
-            $needsSubQuery = true;
+        //    $this->isLimitSubqueryUsed = true;
+        //    $needsSubQuery = true;
         }
 
         // process all pending SELECT part subqueries
@@ -1154,7 +1154,7 @@ class Doctrine_Query extends Doctrine_Query_Abstract implements Countable
                                                           'parent'   => $parent,
                                                           'relation' => $relation);
                 if ( ! $relation->isOneToOne()) {
-                   $this->needsSubquery = true;
+                //   $this->needsSubquery = true;
                 }
 
                 $localAlias   = $this->getTableAlias($parent, $table->getTableName());

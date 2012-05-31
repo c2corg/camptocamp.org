@@ -255,7 +255,7 @@ class Site extends BaseSite
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'tcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'sites');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

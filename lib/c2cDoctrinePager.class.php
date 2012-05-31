@@ -8,11 +8,22 @@ class c2cDoctrinePager extends sfDoctrinePager {
   protected $countQuery;
   protected $simpleQuery;
 
-  public function __construct($class, $defaultMaxPerPage = 10)
+  public function __construct($class, $defaultMaxPerPage = 10, $count = 0, $independant_count = false)
   {
     parent::__construct($class, $defaultMaxPerPage);
     $this->simpleQuery = clone $this->getQuery();
-    $this->countQuery = $this->getQuery();
+    if ($independant_count)
+    {
+        $this->countQuery = clone $this->getQuery();
+    }
+    else
+    {
+        $this->countQuery = $this->getQuery();
+    }
+    if ($count)
+    {
+        $this->setNbResults($count);
+    }
   }
 
   public function simplifyCounter() {
@@ -23,12 +34,23 @@ class c2cDoctrinePager extends sfDoctrinePager {
   public function simplifyBaseCounter() {
     $this->countQuery = $this->simpleQuery;
   }
+  
+  public function getCountQuery() {
+    return $this->countQuery;
+  }
+
+  public function init_count()
+  {
+    $count = $this->countQuery->offset(0)->limit(0)->count();
+    $this->setNbResults($count);
+  }
 
   public function init()
   {
-    $count = $this->countQuery->offset(0)->limit(0)->count();
-
-    $this->setNbResults($count);
+    if (!$count)
+    {
+        $this->init_count();
+    }
 
     $p = $this->getQuery();
     $p->offset(0);

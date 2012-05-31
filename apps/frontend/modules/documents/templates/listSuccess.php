@@ -24,7 +24,7 @@ echo start_content_tag($module . '_content');
 
 if (!isset($items) && $nb_results > 0)
 {
-    $items = $pager->getResults('array', ESC_RAW);
+    $items = $query->execute(array(), Doctrine::FETCH_ARRAY);
     $items = Language::parseListItems($items, c2cTools::module2model($module));
 }
 

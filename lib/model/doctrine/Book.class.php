@@ -160,7 +160,7 @@ class Book extends BaseBook
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'bcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'books');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

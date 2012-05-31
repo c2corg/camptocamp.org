@@ -347,7 +347,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $result;
     }
 
-    public static function buildPersoCriteria(&$conditions, &$values, &$joins, &$params_list, $culture_param, $activity_param = 'act', $na_activities = array())
+    public static function buildPersoCriteria(&$conditions, &$values, &$joins, &$params_list, $module, $activity_param = 'act', $na_activities = array())
     {
         $has_merged = self::buildConditionItem($conditions, $values, $joins, $params_list, 'ItemNull', 'm.redirects_to', 'merged', 'merged');
         if ($has_merged)
@@ -368,7 +368,15 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
         }
         
-        $perso = c2cTools::getArrayElement($params_list, 'perso');
+        if (empty($params_list) && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
+        {
+            $perso = 'all';
+        }
+        else
+        {
+            $perso = c2cTools::getArrayElement($params_list, 'perso');
+        }
+        
         if (!empty($perso))
         {
             $perso = explode('-', $perso);
@@ -394,6 +402,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
             }
             
+            $culture_param = c2cTools::Module2Letter($module) . 'cult';
             if (!in_array($culture_param, $params) && array_intersect(array('cult', 'yes', 'all'), $perso))
             {
                 $cultures = c2cPersonalization::getInstance()->getLanguagesFilter();
@@ -459,7 +468,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'dcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'documents');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');
@@ -537,124 +546,191 @@ class BaseDocument extends sfDoctrineRecordI18n
      * Lists documents of current model taking into account search criteria or filters if any.
      * @return DoctrinePager
      */
-    public static function browse($model = 'Document', $sort, $criteria, $format = null, $page = 1)
+    public static function browse($model = 'Document', $sort, $criteria, $format = array(), $page = 1, $count = 0)
     {
-        $module = c2cTools::model2module($model);
+        if ($criteria === 'no_result')
+        {
+            return array('pager' => null,
+                         'nb_results' => 0,
+                         'query' => null);
+        }
         
         $conditions = $criteria[0];
         $values = $criteria[1];
         $joins = $criteria[2];
         $joins_order = $criteria[3];
         
+        $sub_query_result = self::browseId($model, $sort, $criteria, $format, $page, $count);
+        
+        $pager = $sub_query_result['pager'];
+        $nb_results = $sub_query_result['nb_results'];
+        $ids = $sub_query_result['ids'];
+        
+        if ($nb_results == 0)
+        {
+            return array('pager' => null,
+                         'nb_results' => 0,
+                         'query' => null);
+        }
+        elseif ($nb_results == 1 && !array_intersect($format, array('json', 'rss', 'widget')))
+        {
+            return array('pager' => null,
+                         'nb_results' => 1,
+                         'query' => null,
+                         'id' => reset($ids));
+        }
+        
+        $model_i18n = $model . 'I18n';
         $field_list = call_user_func(array($model, 'buildFieldsList'), true, 'mi', $format, $sort);
+        $order_by = self::buildOrderby($select, $sort);
+        $where_ids = 'm.id' . $sub_query_result['where'];
         
-        $pager = self::createPager($model, $field_list, $sort);
-        $pager->setPage($page);
+        $q = Doctrine_Query::create();
         
-        $q = $pager->getQuery();
+        $q->select(implode(',', $select))
+          ->from("$model m")
+          ->leftJoin("m.$model_i18n mi")
+          ->addWhere($where_ids, $ids);
         
+        if ($nb_results > 1)
+        {
+            $q->orderBy($order_by);
+            $criteria[2] = $joins_order;
+        }
         call_user_func(array($model, 'buildMainPagerConditions'), &$q, $criteria);
         
+        return array('pager' => $pager,
+                     'nb_results' => $nb_results,
+                     'query' => $q);
+    }
+    
+    
+    public static function browseId($model = 'Document', $sort, $criteria, $format = array(), $page = 1, $count = 0)
+    {
+        $conditions = $criteria[0];
+        $values = $criteria[1];
+        $joins = $criteria[2];
+        $joins_order = $criteria[3];
+        $joins_pager = $joins + $joins_order;
+        $module = c2cTools::model2module($model);
+        
+        // $npp
+        $npp = $sort['npp'];
+        
+        // $all
         $all = false;
         if (isset($joins['all']))
         {
             $all = $joins['all'];
         }
         
-        if (!$all && !empty($conditions))
-        {
-            call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
-        {
-            list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module);
-            if ($langs_enable)
-            {
-                self::filterOnLanguages($q);
-            }
-            if ($activities_enable)
-            {
-                self::filterOnActivities($q);
-            }
-            if ($areas_enable)
-            {
-                self::filterOnRegions($q);
-            }
-            
-            if ($module == 'outings' && in_array('cond', $format))
-            {
-                $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
-                $q->addWhere("age(date) < interval '$default_max_age'");
-            }
-        }
-        elseif ($module == 'outings' && in_array('cond', $format))
+        // $field_list
+        $mi = c2cTools::Model2Letter($model) . 'i';
+        $field_list = call_user_func(array($model, 'buildFieldsList'), false, $mi, $format, $sort);
+        
+        // specific $conditions
+        if ($module == 'outings' && in_array('cond', $format))
         {
             $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
-            $q->addWhere("age(date) < interval '$default_max_age'");
+            $conditions[] = "age(date) < interval '$default_max_age'";
+        }
+        
+        // $order_by
+        $order_by = self::buildOrderby($field_list, $sort);
+        
+        // $nb_id
+        $nb_id = 0;
+        if (isset($joins['nb_id']))
+        {
+            $nb_id = $joins['nb_id'];
+        }
+        
+        // $pager_count
+        if ($nb_id > 0)
+        {
+            $count = $nb_id;
+        }
+        
+        if ($count > $npp)
+        {
+            $pager_count = 0;
         }
         else
         {
-            $pager->simplifyCounter();
+            $pager_count = $count;
         }
-
-        return $pager;
-    }
-    
-    
-    public static function browseId($model = 'Document', $sort, $criteria, $format = null, $page = 1)
-    {
-        $module = c2cTools::model2module($model);
         
-        $field_list = call_user_func(array($model, 'buildFieldsList'), false, 'mi', $format, $sort);
+        // $independant_count
+        $independant_count = (!$pager_count && count($joins_pager) > count($joins));
         
-        $pager = self::createPager($model, $field_list, $sort);
+        // create pager
+        $pager = new c2cDoctrinePager($model, $npp, $pager_count, $independant_count);
         $pager->setPage($page);
         
-        $q = $pager->getQuery();
-        
-        $all = false;
-        if (isset($criteria[2]['all']))
+        // independant count
+        if ($independant_count)
         {
-            $all = $criteria[2]['all'];
-        }
-        
-        if (!$all && !empty($criteria[0]))
-        {
-            call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
-        }
-        elseif (!$all && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
-        {
-            list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module);
-            if ($langs_enable)
-            {
-                self::filterOnLanguages($q);
-            }
-            if ($activities_enable)
-            {
-                self::filterOnActivities($q);
-            }
-            if ($areas_enable)
-            {
-                self::filterOnRegions($q);
-            }
+            $c = $pager->getCountQuery();
+            $c->select('m.id')
+              ->from("$model m");
             
-            if ($module == 'outings' && in_array('cond', $format))
-            {
-                $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
-                $q->addWhere("age(date) < interval '$default_max_age'");
-            }
+            call_user_func(array($model, 'buildPagerConditions'), &$c, $criteria);
         }
-        elseif ($module == 'outings' && in_array('cond', $format))
+        
+        // pager query
+        $q = $pager->getQuery();
+        $q->select(implode(',', $field_list))
+          ->from("$model m")
+          ->orderBy($order_by);
+        
+        if (!$all && (!empty($conditions) || !empty($joins_order)))
         {
-            $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
-            $q->addWhere("age(date) < interval '$default_max_age'");
+            $criteria[2] = $joins_pager;
+            call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
         }
         else
         {
             $pager->simplifyCounter();
         }
-
         
+        // execute pager query
+        $pager->init();
+        $count = $pager->getNbResults();
+        if ($count == 0)
+        {
+            return array('pager' => null,
+                         'nb_results' => 0,
+                         'ids' => null);
+        }
+        
+        // get ids
+        $items = $pager->getResults('array', ESC_RAW);
+        $ids = array();
+        $where_ids = array();
+        foreach ($items as $item)
+        {
+            $ids[] = $item['id'];
+            $where_ids[] = '?';
+        }
+        $where_ids = implode(', ', $where_ids);
+        $count_ids = count($ids);
+        if ($count_ids == 1)
+        {
+            $where = ' = ' . $where_ids;
+        }
+        else
+        {
+            $where = ' IN ( ' . $where_ids . ' )';
+        }
+        if ($count_ids < $npp)
+        {
+            $count = $count_ids;
+        }
+        
+        return array('pager' => $pager,
+                     'nb_results' => $count,
+                     'ids' => $ids,
+                     'where' => $where);
     }
     
     public static function buildMainPagerConditions(&$q, $criteria)
@@ -681,7 +757,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $order_by = self::buildOrderby($select, $sort);
         
         $model_i18n = $model . 'I18n';
-        $pager = new c2cDoctrinePager($model, $sort['npp']);
+        $pager = new c2cDoctrinePager($model, $sort['npp'], $count);
         
         $q = $pager->getQuery();
         $q->select(implode(',', $select))

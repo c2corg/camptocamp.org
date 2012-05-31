@@ -47,7 +47,7 @@ class Map extends BaseMap
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'mcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'maps');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

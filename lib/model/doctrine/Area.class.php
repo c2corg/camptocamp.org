@@ -253,7 +253,7 @@ class Area extends BaseArea
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'acult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'areas');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

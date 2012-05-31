@@ -1,8 +1,8 @@
 <?php
 $module = $sf_context->getModuleName();
-$items = $pager->getResults('array', ESC_RAW);
-$nb_features = count($items);
-if ($nb_features > 0) {
+if ($nb_results > 0)
+{
+    $items = $query->execute(array(), Doctrine::FETCH_ARRAY);
     $items = Language::parseListItems($items, c2cTools::module2model($module));
 }
 $i = 1;

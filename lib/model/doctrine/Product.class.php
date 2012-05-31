@@ -123,7 +123,7 @@ class Product extends BaseProduct
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'fcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'products');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

@@ -105,6 +105,41 @@ class Outing extends BaseOuting
      */
     public static function listLatest($max_items, $langs, $ranges, $activities, $params = array(), $linked_areas = true, $orderby_date = true)
     {
+        if (count($langs))
+        {
+            $params['ocult'] = implode('-', $langs);
+        }
+        if (count($ranges))
+        {
+            $params['areas'] = implode('-', $ranges);
+        }
+        if (count($activities))
+        {
+            $params['act'] = implode('-', $activities);
+        }
+        
+        $use_subquery = !empty($params);
+        if ($use_subquery)
+        {
+            $criteria = Outing::buildListCriteria($params);
+            
+            $sort = array('orderby_param' => ($orderby_date ? 'date' : null),
+                          'order_by' => ($orderby_date ? 'm.date' : null),
+                          'order'    => 'DESC',
+                          'npp'      => $max_items
+                         );
+            
+            $sub_query_result = self::browseId('Outing', $sort, $criteria, array(), 1, $max_items);
+            
+            $nb_results = $sub_query_result['nb_results'];
+            $ids = $sub_query_result['ids'];
+
+            if ($nb_results == 0)
+            {
+                return array();
+            }
+        }
+        
         $fields = 'm.id, n.culture, n.name, m.date, m.activities, m.max_elevation';
         if ($linked_areas)
         {
@@ -114,9 +149,7 @@ class Outing extends BaseOuting
         $q = Doctrine_Query::create();
         $q->select($fields)
           ->from('Outing m')
-          ->leftJoin('m.OutingI18n n')
-          ->addWhere('m.redirects_to IS NULL')
-          ->limit($max_items);
+          ->leftJoin('m.OutingI18n n');
         
         if ($linked_areas)
         {
@@ -133,20 +166,18 @@ class Outing extends BaseOuting
         {
             $q->orderBy('m.id DESC');
         }
-
-        self::filterOnActivities($q, $activities, 'm', 'o');
-        self::filterOnLanguages($q, $langs, 'n');
-        self::filterOnRegions($q, $ranges, 'g2');
         
-        if (!empty($params))
+        if ($use_subquery)
         {
-            $criteria = self::buildListCriteria($params);
-            if (!empty($criteria[0]))
-            {
-                self::buildPagerConditions($q, $criteria);
-            }
+            $where_ids = 'm.id' . $sub_query_result['where'];
+            $q->addWhere($where_ids, $ids);
         }
-
+        else
+        {
+            $q->addWhere('m.redirects_to IS NULL')
+              ->limit($max_items);
+        }
+        
         $outings = $q->execute(array(), Doctrine::FETCH_ARRAY);
         
         $outings = Outing::fetchAdditionalFields($outings, false, true);
@@ -276,7 +307,7 @@ class Outing extends BaseOuting
         $criteria[3] = array(); // joins for order
 
         // criteria for enabling/disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'ocult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'outings');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');
@@ -286,10 +317,9 @@ class Outing extends BaseOuting
             
             self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('onam'), 'orderby', array('outing_i18n', 'join_outing'));
             
-            // TODO : remplacer $joins par $joins_order lorsque la gestion des jointures pour le ORDERBY sera en place
-            self::buildConditionItem($conditions, $values, $joins, $orderby, 'Order', array('lat', 'lon'), 'orderby', array('summit', 'join_summit'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('lat', 'lon'), 'orderby', array('summit', 'join_summit'));
             
-            self::buildConditionItem($conditions, $values, $joins, $orderby, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', array('route', 'join_route'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', array('route', 'join_route'));
         }
         
         // return if no criteria

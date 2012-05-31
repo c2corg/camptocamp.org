@@ -168,7 +168,7 @@ class Parking extends BaseParking
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'pcult', 'ract');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'parkings', 'ract');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

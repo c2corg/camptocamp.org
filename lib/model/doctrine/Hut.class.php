@@ -178,7 +178,7 @@ class Hut extends BaseHut
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'hcult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'huts');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

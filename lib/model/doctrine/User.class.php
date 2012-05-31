@@ -372,7 +372,7 @@ class User extends BaseUser
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'ucult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'users');
 
         // criteria to hide users whithout public profile
         if (!sfContext::getInstance()->getUser()->isConnected())

@@ -142,7 +142,7 @@ class Article extends BaseArticle
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'ccult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'articles');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

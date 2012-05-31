@@ -314,34 +314,48 @@ class Image extends BaseImage
      */
     public static function listLatest($max_items, $langs, $ranges, $activities, $params = array())
     {
-        $categories_filter = array();
-        foreach (sfConfig::get('app_images_home_categories') as $id)
+        if (count($langs))
         {
-            $categories_filter[] = "$id = ANY (categories)";
+            $params['icult'] = implode('-', $langs);
         }
-        $categories_filter = implode(' OR ', $categories_filter);
+        if (count($ranges))
+        {
+        //    $params['areas'] = implode('-', $ranges);
+        }
+        if (count($activities))
+        {
+            $params['act'] = implode('-', $activities);
+        }
+        
+        $categories = sfConfig::get('app_images_home_categories');
+        $params['icat'] = implode('-', $categories);
 
+        $criteria = Image::buildListCriteria($params);
+        
+        $sort = array('orderby_param' => null,
+                      'order_by' => null,
+                      'order'    => 'DESC',
+                      'npp'      => $max_items
+                     );
+        
+        $sub_query_result = self::browseId('Image', $sort, $criteria, array(), 1, $max_items);
+        
+        $nb_results = $sub_query_result['nb_results'];
+        $ids = $sub_query_result['ids'];
+
+        if ($nb_results == 0)
+        {
+            return array();
+        }
+        
+        $where_ids = 'm.id' . $sub_query_result['where'];
+        
         $q = Doctrine_Query::create();
         $q->select('m.id, n.culture, n.name, m.filename')
           ->from('Image m')
           ->leftJoin('m.ImageI18n n')
-          ->where($categories_filter) // FIXME: needs index?
-          ->addWhere('m.redirects_to IS NULL')
-          ->orderBy('m.id DESC')
-          ->limit($max_items);
-
-        self::filterOnActivities($q, $activities, 'm', 'i');
-        self::filterOnLanguages($q, $langs, 'n');
-        //self::filterOnRegions($q, $ranges, 'g2');
-        
-        if (!empty($params))
-        {
-            $criteria = self::buildListCriteria($params);
-            if (!empty($criteria[0]))
-            {
-                self::buildPagerConditions($q, $criteria);
-            }
-        }
+          ->addWhere($where_ids, $ids)
+          ->orderBy('m.id DESC');
 
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
@@ -473,7 +487,7 @@ class Image extends BaseImage
         $criteria[3] = array(); // joins for order
 
         // criteria for disabling personal filter
-        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'icult');
+        self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'images');
         
         // orderby criteria
         $orderby = c2cTools::getRequestParameter('orderby');

@@ -971,15 +971,15 @@ class documentsActions extends c2cActions
         {
             $sort = call_user_func(array('Document', 'getListSortCriteria'), $model, $default_npp, $max_npp);
             $page = $this->getRequestParameter('page', 1);
-            $this->pager = call_user_func(array('Document', 'browse'),
-                                          $model,
-                                          $sort,
-                                          $criteria,
-                                          $format,
-                                          $page);
-            $this->pager->init();
-            
-            $nb_results = $this->pager->getNbResults();
+            $infos = call_user_func(array('Document', 'browse'),
+                                    $model,
+                                    $sort,
+                                    $criteria,
+                                    $format,
+                                    $page);
+            $nb_results = $infos['nb_results'];
+            $this->pager = $infos['pager'];
+            $this->query = $infos['query'];
         }
         $this->nb_results = $nb_results;
         
@@ -988,22 +988,8 @@ class documentsActions extends c2cActions
             if ($nb_results == 1)
             {
                 // if only one document matches, redirect automatically towards it
-                $results = $this->pager->getResults('array');
-                $model = c2cTools::module2model($module);
-                
-                $item = Language::getTheBest($results, $model);
-                $item = array_shift($item);
-                $item_i18n = $item[$model . 'I18n'][0];
-                
-                sfLoader::loadHelpers(array('General'));
-                if ($module == 'documents')
-                {
-                    $module = $item['module'];
-                }
                 c2cActions::statsdTiming($this, 'document.executeList.redirect', $timer->getElapsedTime('executeList'));
-                $this->redirect('@document_by_id_lang_slug?module=' . $module . 
-                                '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
-                                '&slug=' . make_slug($item_i18n['name']));
+                $this->redirect('@document_by_id?module=' . $module . '&id=' . $infos['id']);
             }
             else
             {
@@ -1033,6 +1019,11 @@ class documentsActions extends c2cActions
             }
         }
         
+        if ($nb_results > 0)
+        {
+            $this->query->init();
+        }
+        
         c2cActions::statsdTiming($this, 'document.executeList', $timer->getElapsedTime('executeList'));
     }
 
@@ -1053,27 +1044,39 @@ class documentsActions extends c2cActions
         {
             $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
             $page = $this->getRequestParameter('page', 1);
-            $this->pager = call_user_func(array('Document', 'browse'),
-                                          $model,
-                                          $sort,
-                                          $criteria,
-                                          null,
-                                          $page);
-            $this->pager->init();
+            $infos = call_user_func(array('Document', 'browse'),
+                                    $model,
+                                    $sort,
+                                    $criteria,
+                                    array('rss'),
+                                    $page);
+            $nb_results = $infos['nb_results'];
+            $this->pager = $infos['pager'];
+            $this->query = $infos['query'];
 
-            $items = $this->pager->getResults('array', 'ESC_RAW');
-            if (isset($items[0]['geoassociations']))
+            if ($nb_results > 0)
             {
-                $items = Language::getTheBestForAssociatedAreas($items);
+                $this->query->init();
+                $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
+                if (isset($items[0]['geoassociations']))
+                {
+                    $items = Language::getTheBestForAssociatedAreas($items);
+                }
+                // Retrieve creator and creation date.
+                $items = Outing::getAssociatedCreatorData($items);
             }
-            // Retrieve creator and creation date.
-            $items = Outing::getAssociatedCreatorData($items);
-            $this->items = $items;
+            else
+            {
+                $items = array();
+            }
         }
         else
         {
-            $this->items = array();
+            $nb_results = 0;
+            $items = array();
         }
+        $this->nb_results = $nb_results;
+        $this->items = $items;
         
         $this->setLayout(false);
         $this->setTemplate('../../documents/templates/rss');
@@ -1085,17 +1088,34 @@ class documentsActions extends c2cActions
     public function executeWidget()
     {
         $this->div = $this->getRequestParameter('div', 'c2cwgt');
+        $module = $this->getModuleName();
         $model = $this->model_class;
-        $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
         $criteria = $this->getListCriteria($model);
-        $page = $this->getRequestParameter('page', 1);
-        $this->pager = call_user_func(array('Document', 'browse'),
-                                      $model,
-                                      $sort,
-                                      $criteria,
-                                      null,
-                                      $page);
-        $this->pager->init();
+        
+        if ($criteria !== 'no_result' && $module != 'documents')
+        {
+            $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
+            $page = $this->getRequestParameter('page', 1);
+            $infos = call_user_func(array('Document', 'browse'),
+                                    $model,
+                                    $sort,
+                                    $criteria,
+                                    array('widget'),
+                                    $page);
+            $nb_results = $infos['nb_results'];
+            $this->pager = $infos['pager'];
+            $this->query = $infos['query'];
+
+            if ($nb_results > 0)
+            {
+                $this->query->init();
+            }
+        }
+        else
+        {
+            $nb_results = 0;
+        }
+        $this->nb_results = $nb_results;
 
         $this->setLayout(false);
         $this->setTemplate('../../documents/templates/widget');
@@ -1124,16 +1144,33 @@ class documentsActions extends c2cActions
     {
         $timer = new sfTimer('executeGeojson');
         $model = $this->model_class;
-        $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
+        $module = $this->getModuleName();
         $criteria = $this->getListCriteria($model);
-        $page = $this->getRequestParameter('page', 1);
-        $this->pager = call_user_func(array('Document', 'browse'),
-                                      $model,
-                                      $sort,
-                                      $criteria,
-                                      null,
-                                      $page);
-        $this->pager->init();
+        
+        if ($criteria !== 'no_result' && $module != 'documents')
+        {
+            $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
+            $page = $this->getRequestParameter('page', 1);
+            $infos = call_user_func(array('Document', 'browse'),
+                                    $model,
+                                    $sort,
+                                    $criteria,
+                                    array('json'),
+                                    $page);
+            $nb_results = $infos['nb_results'];
+            $this->pager = $infos['pager'];
+            $this->query = $infos['query'];
+
+            if ($nb_results > 0)
+            {
+                $this->query->init();
+            }
+        }
+        else
+        {
+            $nb_results = 0;
+        }
+        $this->nb_results = $nb_results;
     
         $this->setTemplate('../../documents/templates/geojson');
 
