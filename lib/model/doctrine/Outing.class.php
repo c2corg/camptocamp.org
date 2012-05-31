@@ -602,8 +602,9 @@ class Outing extends BaseOuting
         if (isset($sort['orderby_param']))
         {
             $orderby = $sort['orderby_param'];
+            $outings_sort_route_criteria = sfConfig::get('mod_outings_sort_route_criteria');
             
-            if (in_array($orderby, sfConfig::get('mod_outings_sort_route_criteria')))
+            if (in_array($orderby, $outings_sort_route_criteria))
             {
                 $orderby_fields[] = 'lr.type'; // if we don't include it, doctrine blocks (chain of join?)
             //    $orderby_fields[] = $sort['order_by'];

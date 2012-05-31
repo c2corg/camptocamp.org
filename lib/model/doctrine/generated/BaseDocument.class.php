@@ -587,7 +587,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $q = Doctrine_Query::create();
         
-        $q->select(implode(',', $select))
+        $q->select(implode(',', $field_list))
           ->from("$model m")
           ->leftJoin("m.$model_i18n mi")
           ->addWhere($where_ids, $ids);
@@ -704,7 +704,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         
         // get ids
-        $items = $pager->getResults('array', ESC_RAW);
+        $items = $pager->getResults('array');
         $ids = array();
         $where_ids = array();
         foreach ($items as $item)

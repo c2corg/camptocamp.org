@@ -47,7 +47,7 @@ class c2cDoctrinePager extends sfDoctrinePager {
 
   public function init()
   {
-    if (!$count)
+    if (!$this->getNbResults())
     {
         $this->init_count();
     }
