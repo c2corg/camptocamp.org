@@ -631,7 +631,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         // specific $conditions
         if ($module == 'outings' && in_array('cond', $format))
         {
-            $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '3W');
+            $default_max_age = sfConfig::get('app_outings_recent_conditions_limit', '3W');
             $conditions[] = "age(date) < interval '$default_max_age'";
         }
         
