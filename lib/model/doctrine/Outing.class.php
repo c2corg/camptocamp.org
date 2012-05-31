@@ -604,45 +604,23 @@ class Outing extends BaseOuting
         if (isset($sort['orderby_param']))
         {
             $orderby = $sort['orderby_param'];
+            
             //FIXME : Don't work : $outings_sort_route_criteria = sfConfig::get('app_outings_sort_route_criteria');
             $outings_sort_route_criteria = array('fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat');
             
             if (in_array($orderby, $outings_sort_route_criteria))
             {
                 $orderby_fields[] = 'lr.type'; // if we don't include it, doctrine blocks (chain of join?)
-            //    $orderby_fields[] = $sort['order_by'];
-                switch ($orderby)
-                {
-                    case 'fac':  $orderby_fields[] = 'r.facing'; break;
-                    case 'ralt': $orderby_fields[] = 'r.elevation'; break;
-                    case 'dhei': $orderby_fields[] = 'r.difficulties_height'; break;
-                    case 'grat': $orderby_fields[] = 'r.global_rating'; break;
-                    case 'erat': $orderby_fields[] = 'r.engagement_rating'; break;
-                    case 'prat': $orderby_fields[] = 'r.equipment_rating'; break;
-                    case 'frat': $orderby_fields[] = 'r.rock_free_rating'; break;
-                    case 'arat': $orderby_fields[] = 'r.aid_rating'; break;
-                    case 'irat': $orderby_fields[] = 'r.ice_rating'; break;
-                    case 'mrat': $orderby_fields[] = 'r.mixed_rating'; break;
-                    case 'trat': $orderby_fields[] = 'r.toponeige_technical_rating'; break;
-                    case 'expo': $orderby_fields[] = 'r.toponeige_exposition_rating'; break;
-                    case 'lrat': $orderby_fields[] = 'r.labande_global_rating'; break;
-                    case 'srat': $orderby_fields[] = 'r.labande_ski_rating'; break;
-                    case 'hrat': $orderby_fields[] = 'r.hiking_rating'; break;
-                    case 'wrat': $orderby_fields[] = 'r.snowshoeing_rating'; break;
-                    default: break;
-                }
             }
             elseif (in_array($orderby, array('lat', 'lon')))
             {
                 $orderby_fields = array('lr.type', 'ls.type', 's.lat', 's.lon');
             }
-            elseif (in_array($orderby, array('ddif')))
-            {
-                $orderby_fields = array('m.height_diff_down');
-            }
         }
         
-        return array_merge(parent::buildFieldsList($main_query, $mi, $format, $sort),
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        
+        return array_merge($base_fields_list,
                            $data_fields_list,
                            $orderby_fields);
     }

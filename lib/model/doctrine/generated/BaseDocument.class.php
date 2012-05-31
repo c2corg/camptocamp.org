@@ -851,12 +851,20 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($main_query)
         {
-            return array('m.id', $mi . '.culture', $mi . '.name', 'm.module', $mi . '.search_name');
+            $data_fields = array('m.id', $mi . '.culture', $mi . '.name', 'm.module', $mi . '.search_name');
         }
         else
         {
-            return array('m.id');
+            $data_fields = array('m.id');
         }
+        
+        $orderby_fields = array();
+        if (isset($sort['order_by']) && !empty($sort['order_by']))
+        {
+            $orderby_fields[] = $sort['order_by'];
+        }
+        
+        return array_merge($data_fields_list, $orderby_fields);
     }
 
     protected static function buildGeoFieldsList()
