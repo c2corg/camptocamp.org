@@ -616,7 +616,7 @@ class sitesActions extends documentsActions
         if ($nb_results == 0) return;
 
         $timer = new sfTimer();
-        $sites = $this->pager->getResults('array');
+        $sites = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
         c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
 
         $timer = new sfTimer();

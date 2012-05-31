@@ -158,7 +158,7 @@ class parkingsActions extends documentsActions
         if ($nb_results == 0) return;
 
         $timer = new sfTimer();
-        $parkings = $this->pager->getResults('array');
+        $parkings = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
         c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
         
         $timer = new sfTimer();

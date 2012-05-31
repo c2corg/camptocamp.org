@@ -97,7 +97,7 @@ class productsActions extends documentsActions
         if ($nb_results == 0) return;
 
         $timer = new sfTimer();
-        $products = $this->pager->getResults('array');
+        $products = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
         c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
         
         $timer = new sfTimer();

@@ -824,7 +824,7 @@ class outingsActions extends documentsActions
         $show_images = $this->show_images;
 
         $timer = new sfTimer();
-        $outings = $this->pager->getResults('array');
+        $outings = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
         c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
 
         $timer = new sfTimer();
