@@ -174,6 +174,10 @@ class imagesActions extends documentsActions
         else
         {
             parent::executeList();
+            $nb_results = $this->nb_results;
+            if ($nb_results == 0) return;
+            
+            $this->items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
             $this->setTemplate('list');
         }
     }

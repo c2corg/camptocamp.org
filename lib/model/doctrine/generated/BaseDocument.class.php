@@ -613,6 +613,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         $joins_order = $criteria[3];
         $joins_pager = $joins + $joins_order;
         $module = c2cTools::model2module($model);
+        $mi = c2cTools::Model2Letter($model) . 'i';
+        
+        // orderby
+        $orderby = $sort['orderby_param'];
+        $sort['order_by'] = call_user_func(array($model, 'getSortField'), $orderby, $mi);
         
         // $npp
         $npp = $sort['npp'];
@@ -625,7 +630,6 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         
         // $field_list
-        $mi = c2cTools::Model2Letter($model) . 'i';
         $field_list = call_user_func(array($model, 'buildFieldsList'), false, $mi, $format, $sort);
         
         // specific $conditions
@@ -859,9 +863,10 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         
         $orderby_fields = array();
-        if (isset($sort['order_by']) && !empty($sort['order_by']))
+        if (isset($sort['orderby_param']) && !empty($sort['orderby_param']))
         {
-            $orderby_fields[] = $sort['order_by'];
+            $orderby = $sort['orderby_param'];
+            $orderby_fields[] = call_user_func(array($model, 'getSortField'), $orderby, $mi);
         }
         
         return array_merge($data_fields_list, $orderby_fields);
