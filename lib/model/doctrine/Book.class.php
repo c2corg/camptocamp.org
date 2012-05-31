@@ -182,7 +182,7 @@ class Book extends BaseBook
         }
         
         // area criteria
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', array('g', 'linked_id'), 'areas', 'join_area');
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', array('g', 'linked_id'), 'areas', 'area_id');
         
         // book / article criteria
         $has_name = Book::buildBookListCriteria($criteria, $params_list, true);
