@@ -118,26 +118,23 @@ class Outing extends BaseOuting
             $params['act'] = implode('-', $activities);
         }
         
-        $use_subquery = !empty($params);
-        if ($use_subquery)
-        {
-            $criteria = Outing::buildListCriteria($params);
-            
-            $sort = array('orderby_param' => ($orderby_date ? 'date' : null),
-                          'order_by' => ($orderby_date ? 'm.date' : null),
-                          'order'    => 'DESC',
-                          'npp'      => $max_items
-                         );
-            
-            $sub_query_result = self::browseId('Outing', $sort, $criteria, array(), 1, $max_items);
-            
-            $nb_results = $sub_query_result['nb_results'];
-            $ids = $sub_query_result['ids'];
+        $criteria = Outing::buildListCriteria($params);
+        
+        $sort = array('orderby_param' => ($orderby_date ? 'date' : null),
+                      'order_by' => ($orderby_date ? 'm.date' : null),
+                      'order'    => 'DESC',
+                      'npp'      => $max_items
+                     );
+        
+        $sub_query_result = self::browseId('Outing', $sort, $criteria, array(), 1, $max_items);
+        
+        $nb_results = $sub_query_result['nb_results'];
+        $ids = $sub_query_result['ids'];
+        $where_ids = 'm.id' . $sub_query_result['where'];
 
-            if ($nb_results == 0)
-            {
-                return array();
-            }
+        if ($nb_results == 0)
+        {
+            return array();
         }
         
         $fields = 'm.id, n.culture, n.name, m.date, m.activities, m.max_elevation';
@@ -149,8 +146,9 @@ class Outing extends BaseOuting
         $q = Doctrine_Query::create();
         $q->select($fields)
           ->from('Outing m')
-          ->leftJoin('m.OutingI18n n');
-        
+          ->leftJoin('m.OutingI18n n')
+          ->addWhere($where_ids, $ids);
+       
         if ($linked_areas)
         {
             $q->leftJoin('m.geoassociations g0')
@@ -165,17 +163,6 @@ class Outing extends BaseOuting
         else
         {
             $q->orderBy('m.id DESC');
-        }
-        
-        if ($use_subquery)
-        {
-            $where_ids = 'm.id' . $sub_query_result['where'];
-            $q->addWhere($where_ids, $ids);
-        }
-        else
-        {
-            $q->addWhere('m.redirects_to IS NULL')
-              ->limit($max_items);
         }
         
         $outings = $q->execute(array(), Doctrine::FETCH_ARRAY);
