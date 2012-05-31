@@ -1,10 +1,5 @@
 <?php
 $module = $sf_context->getModuleName();
-if ($nb_results > 0)
-{
-    $items = $query->execute(array(), Doctrine::FETCH_ARRAY);
-    $items = Language::parseListItems($items, c2cTools::module2model($module));
-}
 $i = 1;
 
 // FIXME: feature partial use Point geometry => what if polygon or line?

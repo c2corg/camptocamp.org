@@ -22,12 +22,6 @@ if (!$mobile_version)
 echo display_content_top('list_content');
 echo start_content_tag($module . '_content');
 
-if (!isset($items) && $nb_results > 0)
-{
-    $items = $query->execute(array(), Doctrine::FETCH_ARRAY);
-    $items = Language::parseListItems($items, c2cTools::module2model($module));
-}
-
 endif;
 
 if ($nb_results == 0):

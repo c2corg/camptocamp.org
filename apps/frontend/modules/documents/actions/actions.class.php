@@ -1019,6 +1019,12 @@ class documentsActions extends c2cActions
             }
         }
         
+        if ($nb_results > 0 && in_array($module, array('areas', 'articles', 'books', 'maps', 'portals', 'users')))
+        {
+            $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
+            $this->items = Language::parseListItems($items, $model);
+        }
+        
         c2cActions::statsdTiming($this, 'document.executeList', $timer->getElapsedTime('executeList'));
     }
 
@@ -1099,12 +1105,24 @@ class documentsActions extends c2cActions
             $nb_results = $infos['nb_results'];
             $this->pager = $infos['pager'];
             $this->query = $infos['query'];
+
+            if ($nb_results > 0)
+            {
+                $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
+                $items = Language::parseListItems($items, $model);
+            }
+            else
+            {
+                $items = array();
+            }
         }
         else
         {
             $nb_results = 0;
+            $items = array();
         }
         $this->nb_results = $nb_results;
+        $this->items = $items;
 
         $this->setLayout(false);
         $this->setTemplate('../../documents/templates/widget');
@@ -1149,12 +1167,24 @@ class documentsActions extends c2cActions
             $nb_results = $infos['nb_results'];
             $this->pager = $infos['pager'];
             $this->query = $infos['query'];
+
+            if ($nb_results > 0)
+            {
+                $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
+                $items = Language::parseListItems($items, $model);
+            }
+            else
+            {
+                $items = array();
+            }
         }
         else
         {
             $nb_results = 0;
+            $items = array();
         }
         $this->nb_results = $nb_results;
+        $this->items = $items;
     
         $this->setTemplate('../../documents/templates/geojson');
 
