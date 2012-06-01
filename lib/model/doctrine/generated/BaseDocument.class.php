@@ -865,6 +865,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $orderby_fields = array();
         if (isset($sort['orderby_param']) && !empty($sort['orderby_param']))
         {
+            $model = self::getModelName();
             $orderby = $sort['orderby_param'];
             $orderby_fields[] = call_user_func(array($model, 'getSortField'), $orderby, $mi);
         }
