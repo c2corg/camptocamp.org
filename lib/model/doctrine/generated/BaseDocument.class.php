@@ -833,7 +833,8 @@ class BaseDocument extends sfDoctrineRecordI18n
             $npp = min($npp, $max_npp);
         }
         
-        return array('orderby_param' => $orderby,
+        return array('model' => $model,
+                     'orderby_param' => $orderby,
                      'order_by' => $orderby_field,
                      'order'    => c2cTools::getRequestParameter('order', 
                                                               sfConfig::get('app_list_default_order')),
@@ -865,7 +866,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $orderby_fields = array();
         if (isset($sort['orderby_param']) && !empty($sort['orderby_param']))
         {
-            $model = self::getModelName();
+            $model = $sort['model'];
             $orderby = $sort['orderby_param'];
             $orderby_fields[] = call_user_func(array($model, 'getSortField'), $orderby, $mi);
         }

@@ -30,11 +30,6 @@ if (!$mobile_version)
 
 echo '<p class="list_header">' . __('images presentation');
 
-if (!isset($items) && $nb_results > 0)
-{
-    $items = $pager->getResults('array', ESC_RAW);
-}
-
 if ($nb_results == 0):
     echo '<br /><br />' . __('there is no %1% to show', array('%1%' => __('images'))) . '</p>';
 else:
