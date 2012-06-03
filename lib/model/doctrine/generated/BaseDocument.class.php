@@ -592,12 +592,33 @@ class BaseDocument extends sfDoctrineRecordI18n
           ->leftJoin("m.$model_i18n mi")
           ->addWhere($where_ids, $ids);
         
+        call_user_func(array($model, 'buildMainPagerConditions'), &$q, $criteria);
+        
         if ($nb_results > 1)
         {
+            if (count($joins_order))
+            {
+                $join = strtolower($model);
+                $remove_join = $join . '_i18n';
+                if (isset($joins_order[$remove_join]))
+                {
+                    unset($joins_order[$remove_join]);
+                }
+                $remove_join = 'join_' . $join;
+                if (count($joins_order) == 1 && isset($joins_order[$remove_join]))
+                {
+                    unset($joins_order[$remove_join]);
+                }
+                if (count($joins_order))
+                {
+                    $criteria[0] = array();
+                    $criteria[1] = array();
+                    $criteria[2] = $joins_order;
+                    call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
+                }
+            }
             $q->orderBy($order_by);
-            $criteria[2] = $joins_order;
         }
-        call_user_func(array($model, 'buildMainPagerConditions'), &$q, $criteria);
         
         return array('pager' => $pager,
                      'nb_results' => $nb_results,
@@ -777,32 +798,53 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     protected static function buildOrderby($select, $sort)
     {
-        if (in_array($sort['order_by'], $select))
+        $sort_order_by = $sort['order_by'];
+        $sort_order = (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+        
+        if ($sort_order_by == 'ai.search_name')
         {
-            $order_by  = $sort['order_by'];
-            $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
-
-            // specific behaviour when sorting by date, use id as second criterion
-            if ($sort['order_by'] == 'm.date')
+            $sort_order_by = array($sort_order_by);
+            if ($model == 'Route')
             {
-                $order_by .= ', m.id';
-                $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+                $sort_order_by[] = 'snamei.search_name';
             }
-            elseif ($sort['order_by'] == 'snamei.search_name')
+            $sort_order_by[] = 'mi.search_name';
+        }
+        
+        if (is_array($sort_order_by) && count(array_intersect($sort_order_by, $select)) == count($sort_order_by))
+        {
+            if (is_array($sort_order_by[0]))
             {
-                $order_by .= ', mi.search_name';
-                $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
-            }
-            elseif ($sort['order_by'] == 'ai.search_name')
-            {
-                if ($model == 'Route')
+                $orderby_list = $sort_order_by[0];
+                $order_list = $sort_order_by[1];
+                foreach ($order_list as $key => $order)
                 {
-                    $order_by .= ', snamei.search_name';
-                    $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+                    if (empty($order))
+                    {
+                        $order_list[$key] = $sort_order;
+                    }
+                    else
+                    {
+                        $order_list[$key] = (strtolower($order) == 'desc') ? ' DESC' : ' ASC';
+                    }
                 }
-                $order_by .= ', mi.search_name';
-                $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
             }
+            else
+            {
+                $orderby_list = $sort_order_by;
+                $order_list = array_fill(0, count($orderby_list), $sort_order);
+            }
+            
+            $order_by = array();
+            foreach ($orderby_list as $key => $item)
+            {
+                $order_by[] = $item . $order_list[$key];
+            }
+            $order_by = implode(', ', $order_by);
+        }
+        elseif (is_string($sort_order_by) && in_array($sort_order_by, $select))
+        {
+            $order_by  = $sort_order_by . $sort_order;
         }
         else
         {
@@ -833,8 +875,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $npp = min($npp, $max_npp);
         }
         
-        return array('model' => $model,
-                     'orderby_param' => $orderby,
+        return array('orderby_param' => $orderby,
                      'order_by' => $orderby_field,
                      'order'    => c2cTools::getRequestParameter('order', 
                                                               sfConfig::get('app_list_default_order')),
@@ -864,11 +905,14 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         
         $orderby_fields = array();
-        if (isset($sort['orderby_param']) && !empty($sort['orderby_param']))
+        if (isset($sort['order_by']) && !empty($sort['order_by']))
         {
-            $model = $sort['model'];
-            $orderby = $sort['orderby_param'];
-            $orderby_fields[] = call_user_func(array($model, 'getSortField'), $orderby, $mi);
+            $sort_order_by = $sort['order_by'];
+            if (!is_array($sort_order_by))
+            {
+                $sort_order_by = array($sort_order_by);
+            }
+            $orderby_fields = $sort_order_by;
         }
         
         return array_merge($data_fields_list, $orderby_fields);

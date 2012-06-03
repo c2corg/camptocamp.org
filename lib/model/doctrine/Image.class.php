@@ -761,6 +761,8 @@ class Image extends BaseImage
             case 'auth': return 'm.author';
             case 'anam': return 'ai.search_name';
             case 'date': return 'm.date_time';
+            case 'odate': return array(array('o.date', 'o.id', 'm.date_time'), array(null, null, 'asc'));
+            case 'oid': return array(array('o.id', 'm.date_time'), array(null, 'asc'));
             case 'ityp': return 'm.image_type';
             default: return NULL;
         }
@@ -779,8 +781,20 @@ class Image extends BaseImage
         
         $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
         
+        $orderby_fields = array();
+        if (isset($sort['orderby_param']))
+        {
+            $orderby = $sort['orderby_param'];
+            
+            if (in_array($orderby, array('oid', 'odate')))
+            {
+                $orderby_fields = array('lo.type');
+            }
+        }
+        
         return array_merge($base_fields_list, 
-                           $data_fields_list);
+                           $data_fields_list,
+                           $orderby_fields);
     }
 
     protected function addPrevNextIdFilters($q, $model)

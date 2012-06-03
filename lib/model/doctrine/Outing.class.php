@@ -120,8 +120,10 @@ class Outing extends BaseOuting
         
         $criteria = Outing::buildListCriteria($params);
         
-        $sort = array('orderby_param' => ($orderby_date ? 'date' : null),
-                      'order_by' => ($orderby_date ? 'm.date' : null),
+        $orderby = $orderby_date ? 'date' : null;
+        $orderby_field = Outing::getSortField($orderby);
+        $sort = array('orderby_param' => $orderby,
+                      'order_by' => $orderby_field,
                       'order'    => 'DESC',
                       'npp'      => $max_items
                      );
@@ -541,7 +543,7 @@ class Outing extends BaseOuting
             case 'onam': return $mi . '.search_name';
             case 'act':  return 'm.activities';
             case 'alt':  return 'm.max_elevation';
-            case 'date': return 'm.date';
+            case 'date': return array('m.date', 'm.id');
             case 'hdif': return 'm.height_diff_up';
             case 'ddif': return 'm.height_diff_down';
             case 'cond': return 'm.conditions_status';
@@ -614,7 +616,7 @@ class Outing extends BaseOuting
             }
             elseif (in_array($orderby, array('lat', 'lon')))
             {
-                $orderby_fields = array('lr.type', 'ls.type', 's.lat', 's.lon');
+                $orderby_fields = array('lr.type', 'ls.type');
             }
         }
         

@@ -484,7 +484,7 @@ class Route extends BaseRoute
         {
             $orderby = array('orderby' => $orderby);
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('rnam'), 'orderby', array('route_i18n', 'join_route'));
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('rnam'), 'orderby', array('route_i18n', 'join_route', 'summit_i18n', 'join_summit'));
         }
         
         // return if no criteria
@@ -727,9 +727,11 @@ class Route extends BaseRoute
 
     public static function getSortField($orderby, $mi = 'mi')
     {
+        $si = ($mi == 'mi') ? 'snamei' : 'si';
+        $s = ($mi == 'mi') ? 'sname' : 's';
         switch ($orderby)
         {
-            case 'rnam': return 'snamei.search_name';
+            case 'rnam': return array("$si.search_name", "$mi.search_name");
             case 'act':  return 'm.activities';
             case 'anam': return 'ai.search_name';
             case 'maxa': return 'm.max_elevation';
@@ -754,8 +756,8 @@ class Route extends BaseRoute
             case 'wrat': return 'm.snowshoeing_rating';
             case 'rlen': return 'm.route_length';
             case 'geom': return 'm.geom_wkt';
-            case 'lat': return 'sname.lat';
-            case 'lon': return 'sname.lon';
+            case 'lat': return "$s.lat";
+            case 'lon': return "$s.lon";
             default: return NULL;
         }
     }
@@ -789,9 +791,12 @@ class Route extends BaseRoute
         {
             $orderby = $sort['orderby_param'];
             
-            if (in_array($orderby, array('ddif')))
+            if (!$main_query)
             {
-                $orderby_fields = array('m.height_diff_down');
+                if ($orderby == 'rnam')
+                {
+                    $orderby_fields[] = 'ls.type';
+                }
             }
         }
             
