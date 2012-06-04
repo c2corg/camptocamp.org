@@ -181,7 +181,8 @@ class imagesActions extends documentsActions
             $nb_results = $this->nb_results;
             if ($nb_results == 0) return;
             
-            $this->items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
+            $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
+            $this->items = Language::parseListItems($items, 'Image');
             $this->setTemplate('list');
         }
     }

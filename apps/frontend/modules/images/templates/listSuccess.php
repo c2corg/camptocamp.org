@@ -38,7 +38,6 @@ else:
     echo $pager_navigation;
     echo pager_nb_results($pager);
     echo '<div class="clearer"></div>';
-    $items = Language::parseListItems($items, 'Image');
 ?>
 <?php foreach ($items as $item): ?>
     <div class="thumb_data">
