@@ -22,7 +22,9 @@ all:
   sort:
     criteria:
       'inam': name
-      'anam': region_name
+      'range': ranges
+      'admin': admin_limits
+      'country': countries
       'auth': author
       'act':  activities
       'icat': categories

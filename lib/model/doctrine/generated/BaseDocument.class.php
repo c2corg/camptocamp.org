@@ -422,12 +422,26 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildAreaCriteria(&$criteria, &$params_list, $m = 'm', $m2 = null, $join = null, $use_around = true)
     {
+        $conditions = $values = $joins = $joins_order = array();
+        
+        // orderby criteria
+        $orderby = c2cTools::getRequestParameter('orderby');
+        if (!empty($orderby))
+        {
+            $orderby = array('orderby' => $orderby);
+            
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('range'), 'orderby', 'range');
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('admin'), 'orderby', 'admin');
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('country'), 'orderby', 'country');
+            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('valley'), 'orderby', 'valley');
+            
+            $criteria[3] += $joins_order;
+        }
+        
         if (empty($params_list))
         {
             return null;
         }
-        
-        $conditions = $values = $joins = array();
         
         if (c2cTools::getArrayElement($params_list, 'areas'))
         {
@@ -913,6 +927,15 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $sort_order_by = array($sort_order_by);
             }
             $orderby_fields = $sort_order_by;
+            
+            $orderby = $sort['orderby_param'];
+            switch ($orderby)
+            {
+                case 'range': $orderby_fields[] = 'gr.type'; break;
+                case 'admin': $orderby_fields[] = 'gd.type'; break;
+                case 'country': $orderby_fields[] = 'gc.type'; break;
+                case 'valley': $orderby_fields[] = 'gv.type'; break;
+            }
         }
         
         return array_merge($data_fields_list, $orderby_fields);
@@ -1023,9 +1046,30 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     // this is for use with models which either need filtering on regions, or display of regions names.
-    protected static function joinOnMultiRegions($q, &$joins)
+    protected static function buildAreaIdPagerConditions($q, &$joins)
     {
         self::joinOnMulti($q, $joins, 'area_id', 'm.geoassociations g', 3);
+        
+        if (isset($joins['range']))
+        {
+            $q->leftJoin('m.geoassociations gr')
+              ->addWhere("gr.type = 'dr'");
+        }
+        if (isset($joins['admin']))
+        {
+            $q->leftJoin('m.geoassociations gd')
+              ->addWhere("gd.type = 'dd'");
+        }
+        if (isset($joins['country']))
+        {
+            $q->leftJoin('m.geoassociations gc')
+              ->addWhere("gc.type = 'dc'");
+        }
+        if (isset($joins['valley']))
+        {
+            $q->leftJoin('m.geoassociations gv')
+              ->addWhere("gv.type = 'dv'");
+        }
     }
 
     protected static function joinOnLinkedDocMultiRegions($q, &$joins, $types = array(), $use_main_geo_association = true, $join = 'area_id', $m = 'm', $l = 'l', $g = 'g')

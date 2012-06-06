@@ -126,7 +126,7 @@ class Map extends BaseMap
         $values = $criteria[1];
         $joins = $criteria[2];
         
-        self::joinOnMultiRegions($q, $joins);
+        self::buildAreaIdPagerConditions($q, $joins);
 
         if (!empty($conditions))
         {

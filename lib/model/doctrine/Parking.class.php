@@ -358,7 +358,7 @@ class Parking extends BaseParking
         $values = $criteria[1];
         $joins = $criteria[2];
         
-        self::joinOnMultiRegions($q, $joins);
+        self::buildAreaIdPagerConditions($q, $joins);
         
         // join with parking / book / article tables only if needed 
         if (isset($joins['join_parking']))
@@ -423,7 +423,10 @@ class Parking extends BaseParking
             case 'tp':  return 'm.public_transportation_rating';
             case 'tpty':  return 'm.public_transportation_types';
             case 'scle':  return 'm.snow_clearance_rating';
-            case 'anam': return 'ai.search_name';
+            case 'range': return 'gr.linked_id';
+            case 'admin': return 'gd.linked_id';
+            case 'country': return 'gc.linked_id';
+            case 'valley': return 'gv.linked_id';
             case 'geom': return 'm.geom_wkt';
             case 'lat': return 'm.lat';
             case 'lon': return 'm.lon';

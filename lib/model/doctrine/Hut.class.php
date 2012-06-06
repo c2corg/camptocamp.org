@@ -349,7 +349,7 @@ class Hut extends BaseHut
         $values = $criteria[1];
         $joins = $criteria[2];
         
-        self::joinOnMultiRegions($q, $joins);
+        self::buildAreaIdPagerConditions($q, $joins);
         
         // join with hut / book / article tables only if needed 
         if (isset($joins['join_hut']))
@@ -414,7 +414,10 @@ class Hut extends BaseHut
             case 'hscap': return 'm.staffed_capacity';
             case 'hucap': return 'm.unstaffed_capacity';
             case 'act':  return 'm.activities';
-            case 'anam': return 'ai.search_name';
+            case 'range': return 'gr.linked_id';
+            case 'admin': return 'gd.linked_id';
+            case 'country': return 'gc.linked_id';
+            case 'valley': return 'gv.linked_id';
             case 'geom': return 'm.geom_wkt';
             case 'lat': return 'm.lat';
             case 'lon': return 'm.lon';

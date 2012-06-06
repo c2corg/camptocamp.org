@@ -4,6 +4,8 @@ all:
       'snam': 'name'
       'salt': 'elevation'
       'styp': 'summit_type'
-      'anam': 'region_name'
+      'range': ranges
+      'admin': admin_limits
+      'country': countries
       'lat': 'location S >> N'
       'lon': 'location W >> E'

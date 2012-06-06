@@ -474,7 +474,7 @@ class Outing extends BaseOuting
         $values = $criteria[1];
         $joins = $criteria[2];
         
-        self::joinOnMultiRegions($q, $joins);
+        self::buildAreaIdPagerConditions($q, $joins);
         
         // join with outing tables only if needed 
         if (isset($joins['join_outing']))
@@ -565,7 +565,10 @@ class Outing extends BaseOuting
             case 'srat': return 'r.labande_ski_rating';
             case 'hrat': return 'r.hiking_rating';
             case 'wrat': return 'r.snowshoeing_rating';
-            case 'anam': return 'ai.search_name';
+            case 'range': return 'gr.linked_id';
+            case 'admin': return 'gd.linked_id';
+            case 'country': return 'gc.linked_id';
+            case 'valley': return 'gv.linked_id';
             case 'lat': return 's.lat';
             case 'lon': return 's.lon';
             default: return NULL;

@@ -14,6 +14,8 @@ all:
       'tp': 'public_transportation_rating'
       'tpty': 'public_transportation_types'
       'scle': 'snow_clearance_rating'
-      'anam': 'region_name'
+      'range': ranges
+      'admin': admin_limits
+      'country': countries
       'lat': 'location S >> N'
       'lon': 'location W >> E'

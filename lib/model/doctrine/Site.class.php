@@ -445,7 +445,7 @@ class Site extends BaseSite
         $values = $criteria[1];
         $joins = $criteria[2];
         
-        self::joinOnMultiRegions($q, $joins);
+        self::buildAreaIdPagerConditions($q, $joins);
 
         // join with site / book / article tables only if needed 
         if (isset($joins['join_site']))
@@ -515,7 +515,10 @@ class Site extends BaseSite
             case 'mrat': return 'm.mean_rating';
             case 'tprat': return 'm.equipment_rating';
             case 'trock': return 'm.rock_types';
-            case 'anam': return 'ai.search_name';
+            case 'range': return 'gr.linked_id';
+            case 'admin': return 'gd.linked_id';
+            case 'country': return 'gc.linked_id';
+            case 'valley': return 'gv.linked_id';
             case 'geom': return 'm.geom_wkt';
             case 'lat': return 'm.lat';
             case 'lon': return 'm.lon';

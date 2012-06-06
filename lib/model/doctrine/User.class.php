@@ -545,7 +545,7 @@ class User extends BaseUser
         $values = $criteria[1];
         $joins = $criteria[2];
         
-        self::joinOnMultiRegions($q, $joins);
+        self::buildAreaIdPagerConditions($q, $joins);
         
         // join with users tables only if needed 
         if (isset($joins['join_user']))
@@ -604,7 +604,10 @@ class User extends BaseUser
         {
             case 'unam': return $mi . '.search_name';
             case 'ufnam': return 'pd.search_username';
-            case 'anam': return 'ai.search_name';
+            case 'range': return 'gr.linked_id';
+            case 'admin': return 'gd.linked_id';
+            case 'country': return 'gc.linked_id';
+            case 'valley': return 'gv.linked_id';
             case 'act':  return 'm.activities';
             case 'ucat':  return 'm.category';
             case 'lat': return 'm.lat';

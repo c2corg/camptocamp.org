@@ -13,6 +13,8 @@ all:
       'fnam': name
       'falt': elevation
       'ftyp': product_type
-      'anam': region_name
+      'range': ranges
+      'admin': admin_limits
+      'country': countries
       'lat': 'location S >> N'
       'lon': 'location W >> E'

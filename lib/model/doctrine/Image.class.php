@@ -759,7 +759,10 @@ class Image extends BaseImage
             case 'act':  return 'm.activities';
             case 'icat':  return 'm.categories';
             case 'auth': return 'm.author';
-            case 'anam': return 'ai.search_name';
+            case 'range': return 'gr.linked_id';
+            case 'admin': return 'gd.linked_id';
+            case 'country': return 'gc.linked_id';
+            case 'valley': return 'gv.linked_id';
             case 'date': return 'm.date_time';
             case 'odate': return array(array('o.date', 'o.id', 'm.date_time'), array(null, null, 'asc'));
             case 'oid': return array(array('o.id', 'm.date_time'), array(null, 'asc'));

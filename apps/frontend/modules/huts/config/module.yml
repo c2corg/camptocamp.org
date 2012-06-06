@@ -16,6 +16,8 @@ all:
       'hscap': staffed_capacity
       'hucap': unstaffed_capacity
       'act':  activities
-      'anam': region_name
+      'range': ranges
+      'admin': admin_limits
+      'country': countries
       'lat': 'location S >> N'
       'lon': 'location W >> E'

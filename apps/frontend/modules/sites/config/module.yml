@@ -105,6 +105,8 @@ all:
       'mrat': mean_rating
       'tprat': equipment_rating
       'trock': rock_types
-      'anam': region_name
+      'range': ranges
+      'admin': admin_limits
+      'country': countries
       'lat': 'location S >> N'
       'lon': 'location W >> E'
