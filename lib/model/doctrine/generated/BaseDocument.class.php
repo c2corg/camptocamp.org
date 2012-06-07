@@ -187,10 +187,9 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if (is_array($sort_orderby_list) && count($sort_orderby_list))
         {
-            $orderby_param_list = array_keys($sort_orderby_list);
             $orderby = $request->getParameter('orderby');
             
-            if ($orderby && !in_array($orderby, $orderby_param_list))
+            if ($orderby && !isset($params_list[$orderby]) && isset($sort_orderby_list[$orderby]))
             {
                 if (!empty($sort_orderby_list[$orderby]))
                 {
