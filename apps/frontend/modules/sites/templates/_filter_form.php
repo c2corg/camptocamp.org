@@ -46,8 +46,8 @@ echo __('routes_quantity') . ' ' . elevation_selector('rqua', '');
 ?>
 <br />
 <?php
-echo __('mean_height') . ' ' . elevation_selector('mhei');
-echo __('mean_rating') . ' ' . range_selector('mrat', 'app_routes_rock_free_ratings', null, true);
+echo __('mean_height') . ' ' . elevation_selector('tmhei');
+echo __('mean_rating') . ' ' . range_selector('tmrat', 'app_routes_rock_free_ratings', null, true);
 ?>
 <br />
 <?php

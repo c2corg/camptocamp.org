@@ -593,8 +593,8 @@ class sitesActions extends documentsActions
         $this->addListParam($out, 'tcsty');
         $this->addCompareParam($out, 'tprat');
         $this->addCompareParam($out, 'rqua');
-        $this->addCompareParam($out, 'mhei');
-        $this->addCompareParam($out, 'mrat');
+        $this->addCompareParam($out, 'tmhei');
+        $this->addCompareParam($out, 'tmrat');
         $this->addListParam($out, 'tfac');
         $this->addListParam($out, 'trock');
         $this->addListParam($out, 'chil');

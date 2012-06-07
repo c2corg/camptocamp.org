@@ -101,8 +101,8 @@ all:
       'talt': elevation
       'rqua': routes_quantity
       'ttyp': site_types
-      'mhei': mean_height
-      'mrat': mean_rating
+      'tmhei': mean_height
+      'tmrat': mean_rating
       'tprat': equipment_rating
       'trock': rock_types
       'range': ranges
@@ -110,3 +110,11 @@ all:
       'country': countries
       'lat': 'location S >> N'
       'lon': 'location W >> E'
+    filled_criteria:
+      'talt': elevation
+      'rqua': routes_quantity
+      'ttyp': site_types
+      'tmhei': mean_height
+      'tmrat': mean_rating
+      'tprat': equipment_rating
+      'trock': rock_types

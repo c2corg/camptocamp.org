@@ -30,6 +30,11 @@ all:
       'icat': categories
       'date': date
       'ityp': image_type
+    filled_criteria:
+      'act':
+      'icat':
+      'date':
+      'ityp':
 
   type:
     list: # list does not contain copyright images

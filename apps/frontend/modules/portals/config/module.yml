@@ -2,10 +2,10 @@ all:
   sort:
     criteria:
       'wnam': name
-      'walt': elevation
       'act':  activities
       'range': ranges
       'admin': admin_limits
       'country': countries
       'lat': 'location S >> N'
       'lon': 'location W >> E'
+    filled_criteria:

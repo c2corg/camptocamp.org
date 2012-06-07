@@ -90,6 +90,28 @@ all:
       'wrat': snowshoeing_rating
       'cond': conditions_status
     route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat' ]
+    filled_criteria:
+      'alt':  oalt
+      'fac':
+      'hdif': odif
+      'ddif': oddif
+      'time':
+      'ralt':
+      'dhei':
+      'grat':
+      'erat':
+      'prat':
+      'frat':
+      'arat':
+      'irat':
+      'mrat':
+      'trat':
+      'expo':
+      'lrat':
+      'srat':
+      'hrat':
+      'wrat':
+      'cond':
   
   recent_conditions_limit: 3W
 

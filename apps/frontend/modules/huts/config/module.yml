@@ -21,3 +21,9 @@ all:
       'country': countries
       'lat': 'location S >> N'
       'lon': 'location W >> E'
+    filled_criteria:
+      'halt':
+      'styp':
+      'hscap':
+      'hucap':
+      'act':

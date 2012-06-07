@@ -179,6 +179,27 @@ class BaseDocument extends sfDoctrineRecordI18n
             return sfDoctrine::getTable($model)->findByDql('id IN (' . implode(',', $ids) . ')');
         }
     }
+    
+    public static function addParamForOrderby(&$params_list, $model)
+    {
+        $module = c2cTools::model2module($model);
+        $sort_orderby_list = sfConfig::get('app_' . $module . '_sort_filled_criteria');
+        
+        if (is_array($sort_orderby_list) && count($sort_orderby_list))
+        {
+            $orderby_param_list = array_keys($sort_orderby_list);
+            $orderby = $request->getParameter('orderby');
+            
+            if ($orderby && !in_array($orderby, $orderby_param_list))
+            {
+                if (!empty($sort_orderby_list[$orderby]))
+                {
+                    $orderby = $sort_orderby_list[$orderby];
+                }
+                $params_list[$orderby] = ' ';
+            }
+        }
+    }
 
     // this function is used to build DB request from query formatted in HTML
     public static function buildConditionItem(&$conditions, &$values, &$joins, &$params_list, $criteria_type, $field, $param, $join_ids = null, $extra = null)
@@ -2592,8 +2613,19 @@ class BaseDocument extends sfDoctrineRecordI18n
     
     public static function buildIstringCondition(&$conditions, &$values, $field, $param)
     {
-        $conditions[] = $field . ' ILIKE ?';
-        $values[] = '%' . urldecode($param) . '%';
+        if ($param == '-')
+        {
+            $conditions[] = "($field IS NULL OR $field = '')";
+        }
+        elseif ($param == ' ')
+        {
+            $conditions[] = "$field IS NOT NULL AND $field != ''";
+        }
+        else
+        {
+            $conditions[] = $field . ' ILIKE ?';
+            $values[] = '%' . urldecode($param) . '%';
+        }
     }
     /*
      * This function is used to search in 2 fields. If we got a :, first part is for first field,

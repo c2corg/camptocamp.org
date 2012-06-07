@@ -16,3 +16,7 @@ all:
       'code': code
       'scal': scale
       'edit': editor
+    filled_criteria:
+      'code':
+      'scal':
+      'edit':

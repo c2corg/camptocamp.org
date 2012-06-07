@@ -71,3 +71,25 @@ all:
       'wrat': snowshoeing_rating
       'rlen': route_length
     route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat' ]
+    filled_criteria:
+      'maxa': malt
+      'fac':
+      'hdif':
+      'ddif':
+      'time':
+      'ralt':
+      'dhei':
+      'grat':
+      'erat':
+      'prat':
+      'frat':
+      'arat':
+      'irat':
+      'mrat':
+      'trat':
+      'expo':
+      'lrat':
+      'srat':
+      'hrat':
+      'wrat':
+      'rlen':

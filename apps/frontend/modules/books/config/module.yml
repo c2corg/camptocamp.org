@@ -19,3 +19,9 @@ all:
       'edit': editor
       'btyp': book_types
       'blang': langs
+    filled_criteria:
+      'act':
+      'auth':
+      'edit':
+      'btyp':
+      'blang':

@@ -260,7 +260,7 @@ function link_to_outings($label)
     return link_to($label, $uri);
 }
 
-function header_list_tag($field_name, $label = NULL, $default_order = '', $simple = false)
+function header_list_tag($field_name, $label = null, $default_order = '', $simple = false)
 {
     if (empty($label))
     {
@@ -323,7 +323,23 @@ function header_list_tag($field_name, $label = NULL, $default_order = '', $simpl
     return "<th$class>" . link_to($label, $uri, array('rel' => 'nofollow')) . '</th>';
 }
 
-
+function region_header_list_tag($label = null, $default_order = '', $simple = false)
+{
+    $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
+    $is_default_list = empty($params_list);
+    
+    $orderby = $request->getParameter('orderby');
+    if (in_array($orderby, array('range', 'admin', 'country', 'valley')))
+    {
+        $orderby_area = $orderby;
+    }
+    else
+    {
+        $orderby_area = 'range';
+    }
+    
+    return header_list_tag($orderby_area, $label, $default_order, $is_default_list || $simple);
+}
 
 function simple_header_list_tag($field_name = '')
 {

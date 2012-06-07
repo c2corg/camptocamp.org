@@ -22,3 +22,7 @@ all:
       'act':  activities
       'ccat': categories
       'ctyp': article_type
+    filled_criteria:
+      'act':
+      'ccat':
+      'ctyp':

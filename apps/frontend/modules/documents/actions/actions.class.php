@@ -1213,6 +1213,8 @@ class documentsActions extends c2cActions
     {
         $params_list = c2cTools::getCriteriaRequestParameters();
         
+        Document::addParamForOrderby($params_list, $model);
+        
         return call_user_func(array($model, 'buildListCriteria'), $params_list);
     }
 

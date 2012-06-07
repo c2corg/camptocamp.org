@@ -14,6 +14,9 @@ all:
       'lon': 'location W >> E'
       'act':  activities
       'ucat': category
+    filled_criteria:
+      'act':
+      'ucat':
 
   category:
     list:
