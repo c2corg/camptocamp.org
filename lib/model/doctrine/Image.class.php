@@ -489,13 +489,11 @@ class Image extends BaseImage
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'images');
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('inam'), 'orderby', array('image_i18n', 'join_image'));
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('inam'), array('image_i18n', 'join_image'));
+        self::buildOrderCondition($joins_order, $orderby_list, array('oid'), array('post_outing', 'join_outing'));
+        self::buildOrderCondition($joins_order, $orderby_list, array('odate'), array('outing', 'join_outing'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))
@@ -765,7 +763,7 @@ class Image extends BaseImage
             case 'valley': return 'gv.linked_id';
             case 'date': return 'm.date_time';
             case 'odate': return array(array('o.date', 'o.id', 'm.date_time'), array(null, null, 'asc'));
-            case 'oid': return array(array('o.id', 'm.date_time'), array(null, 'asc'));
+            case 'oid': return array(array('lo.main_id', 'm.date_time'), array(null, 'asc'));
             case 'ityp': return 'm.image_type';
             default: return NULL;
         }

@@ -1620,6 +1620,8 @@ class documentsActions extends c2cActions
             $this->addParam($sort, 'order');
             $this->addParam($sort, 'orderby2');
             $this->addParam($sort, 'order2');
+            $this->addParam($sort, 'orderby3');
+            $this->addParam($sort, 'order3');
         }
 
         return $sort;

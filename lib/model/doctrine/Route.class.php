@@ -479,13 +479,9 @@ class Route extends BaseRoute
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'routes', 'act', array(8));
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('rnam'), 'orderby', array('route_i18n', 'join_route', 'summit_i18n', 'join_summit'));
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('rnam'), array('route_i18n', 'join_route', 'summit_i18n', 'join_summit'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))

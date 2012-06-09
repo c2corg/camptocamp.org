@@ -258,13 +258,9 @@ class Site extends BaseSite
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'sites');
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('tnam'), 'orderby', array('site_i18n', 'join_site'));
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('tnam'), array('site_i18n', 'join_site'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))

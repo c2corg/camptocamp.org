@@ -385,13 +385,9 @@ class User extends BaseUser
         }
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('unam'), 'orderby', array('user_i18n', 'join_user'));
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('unam'), array('user_i18n', 'join_user'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))

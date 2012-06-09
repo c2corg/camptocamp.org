@@ -256,13 +256,9 @@ class Area extends BaseArea
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'areas');
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('anam'), 'orderby', array('area_i18n', 'join_area'));
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('anam'), array('area_i18n', 'join_area'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))

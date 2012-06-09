@@ -163,13 +163,9 @@ class Book extends BaseBook
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'books');
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('bnam'), 'orderby', array('book_i18n', 'join_book'));
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('bnam'), array('book_i18n', 'join_book'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))

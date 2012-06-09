@@ -181,13 +181,9 @@ class Hut extends BaseHut
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'huts');
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('hnam'), 'orderby', array('hut_i18n', 'join_hut'));
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('hnam'), array('hut_i18n', 'join_hut'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))

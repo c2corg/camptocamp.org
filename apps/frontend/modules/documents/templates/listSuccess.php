@@ -38,8 +38,10 @@ else:
         echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
     }
     
-    $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');
-    $param_order = sfContext::getInstance()->getRequest()->getParameter('order', '');
+    $orderby_params = array('orderby', 'orderby2', 'orderby3');
+    $order_params = array('order', 'order2', 'order3');
+    $orderby_list = c2cTools::getRequestParameterArray($orderby_params, '');
+    $order_list = c2cTools::getRequestParameterArray($order_params, '');
     
     if ($layout != 'light' && !$mobile_version &&
         in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
@@ -73,12 +75,16 @@ else:
                         . ' ' . c2c_submit_tag(__('Send'), array('picto' => 'action_list', 'name' => 'commit_2', 'class' => 'samesize'))
                         . '</div>';
         
-        $params = packUrlParameters('', array('orderby', 'order', 'page'));
+        $params = packUrlParameters('', array('orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'page'));
         
         echo '<form id="filterform" action="/' . $module . '/listredirect" method="post"><div>
-        <input type="hidden" value="' . $params . '" name="params" />
-        <input type="hidden" value="' . $param_orderby . '" name="orderby" />
-        <input type="hidden" value="' . $param_order . '" name="order" /></div>';
+        <input type="hidden" value="' . $params . '" name="params" />';
+        foreach ($orderby_params as $key => $orderby_param)
+        {
+            echo '<input type="hidden" value="' . $orderby_list[$key] . '" name="' . $orderby_param . '" />'
+               . '<input type="hidden" value="' . $order_list[$key] . '" name="' . $order_params[$key] . '" />';
+        }
+        echo '</div>';
         echo $pager_navigation;
         echo $result_types_filter;
         echo pager_nb_results($pager);

@@ -122,9 +122,17 @@ function pager_navigation($pager, $class = array())
         $context = sfContext::getInstance();
         $request = $context->getRequest();
      
-        $orderby = $request->getParameter('orderby');
-        $order = $request->getParameter('order');
-        $params = array('orderby' => $orderby, 'order' => $order);
+        $orderby_params = array('orderby', 'orderby2', 'orderby3');
+        $order_params = array('order', 'order2', 'order3');
+        $orderby_list = c2cTools::getRequestParameterArray($orderby_params);
+        $order_list = c2cTools::getRequestParameterArray($order_params);
+        
+        $params = array();
+        foreach($orderby_params as $key => $orderby_param)
+        {
+            $params[$orderby_params] = $orderby_list[$key];
+            $params[$order_params[$key]] = $order_list[$key];
+        }
      
         $uri = _addUrlParameters(_getBaseUri(), array(), $params);
      
@@ -235,7 +243,7 @@ function link_to_default_order($label, $default_label)
     
     if (isset($param_orderby))
     {
-        $uri = _addUrlParameters(_getBaseUri(), array('orderby', 'order', 'page'));
+        $uri = _addUrlParameters(_getBaseUri(), array('orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'page'));
         return link_to($label, $uri);
     }
     else
@@ -247,7 +255,7 @@ function link_to_default_order($label, $default_label)
 function link_to_conditions($label)
 {
     $params = array('orderby' => 'date', 'order' => 'desc');
-    $uri = _addUrlParameters('/outings/conditions', array('order', 'page', 'orderby'), $params);
+    $uri = _addUrlParameters('/outings/conditions', array('orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'page'), $params);
     
     return link_to($label, $uri);
 }
@@ -311,7 +319,7 @@ function header_list_tag($field_name, $label = null, $default_order = '', $simpl
         $params['page'] = $param_page;
     }
     
-    $uri = _addUrlParameters(_getBaseUri(), array('order', 'page', 'orderby'), $params);
+    $uri = _addUrlParameters(_getBaseUri(), array('orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'page'), $params);
 
     $label = __($label);
     $label = str_replace(array('&nbsp;:', ' :', ':'), '', $label);

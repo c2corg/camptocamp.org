@@ -187,15 +187,18 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if (is_array($sort_orderby_list) && count($sort_orderby_list))
         {
-            $orderby = $request->getParameter('orderby');
+            $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
             
-            if ($orderby && !isset($params_list[$orderby]) && isset($sort_orderby_list[$orderby]))
+            foreach ($orderby_list as $orderby)
             {
-                if (!empty($sort_orderby_list[$orderby]))
+                if (!empty($orderby) && !isset($params_list[$orderby]) && isset($sort_orderby_list[$orderby]))
                 {
-                    $orderby = $sort_orderby_list[$orderby];
+                    if (!empty($sort_orderby_list[$orderby]))
+                    {
+                        $orderby = $sort_orderby_list[$orderby];
+                    }
+                    $params_list[$orderby] = ' ';
                 }
-                $params_list[$orderby] = ' ';
             }
         }
     }
@@ -305,10 +308,6 @@ class BaseDocument extends sfDoctrineRecordI18n
                     break;
                 case 'Join':    self::buildJoinCondition($joins, $values, $join_id, $value);
                     $join_id = '';
-                    break;
-                case 'Order':
-                    $nb_join = self::buildOrderCondition($value, $field);
-                    $unset_param = false;
                     break;
             }
             
@@ -445,18 +444,14 @@ class BaseDocument extends sfDoctrineRecordI18n
         $conditions = $values = $joins = $joins_order = array();
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('range'), 'orderby', 'range');
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('admin'), 'orderby', 'admin');
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('country'), 'orderby', 'country');
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('valley'), 'orderby', 'valley');
-            
-            $criteria[3] += $joins_order;
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('range'), 'range');
+        self::buildOrderCondition($joins_order, $orderby_list, array('admin'), 'admin');
+        self::buildOrderCondition($joins_order, $orderby_list, array('country'), 'country');
+        self::buildOrderCondition($joins_order, $orderby_list, array('valley'), 'valley');
+        
+        $criteria[3] += $joins_order;
         
         if (empty($params_list))
         {
@@ -505,13 +500,9 @@ class BaseDocument extends sfDoctrineRecordI18n
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'documents');
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('snam'), 'orderby', array('document_i18n', 'join_document'));
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('name'), array('document_i18n', 'join_document'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))
@@ -882,7 +873,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         foreach ($orderby_list as $key => $orderby)
         {
-            if (is_null($orderby))
+            if (empty($orderby))
             {
                 break;
             }
@@ -3646,15 +3637,29 @@ class BaseDocument extends sfDoctrineRecordI18n
         array_push($values, $x, $y, round($tolerance));
     }
 
-    public static function buildOrderCondition($param, $values)
+    public static function buildOrderCondition(&$joins, &$orderby_list, $params, $join_ids)
     {
-        if (in_array($param, $values))
+        if (empty($orderby_list))
         {
-            return 1;
+            return 0;
+        }
+        
+        if (array_intersect($params, $orderby_list))
+        {
+            if (!is_array($join_ids))
+            {
+                $join_ids = array($join_ids);
+            }
+            foreach ($join_ids as $join_id)
+            {
+                $joins[$join_id] = true;
+            }
+            
+            return true;
         }
         else
         {
-            return 0;
+            return false;
         } 
     }
 

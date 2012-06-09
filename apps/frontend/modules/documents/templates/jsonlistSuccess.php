@@ -24,11 +24,7 @@ $hasNextPage = ($pager->getPage() != $pager->getLastPage() && $nb_results);
 // compute prev and next uris
 if ($hasPreviousPage || $hasNextPage)
 {
-    $request = sfContext::getInstance()->getRequest();
-    $orderby = $request->getParameter('orderby');
-    $order = $request->getParameter('order');
-    $params = array('orderby' => $orderby, 'order' => $order);
-    $uri = _addUrlParameters(_getBaseUri(), array(), $params);
+    $uri = _addUrlParameters(_getBaseUri(), array('page'));
     $uri .= _getSeparator($uri) . 'page=';
 }
 ?>

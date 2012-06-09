@@ -307,19 +307,14 @@ class Outing extends BaseOuting
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'outings');
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('onam'), array('outing_i18n', 'join_outing'));
+        self::buildOrderCondition($joins_order, $orderby_list, array('lat', 'lon'), array('summit', 'join_summit'));
             
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('onam'), 'orderby', array('outing_i18n', 'join_outing'));
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('lat', 'lon'), 'orderby', array('summit', 'join_summit'));
-            
-            //FIXME : Don't work : $outings_sort_route_criteria = sfConfig::get('app_outings_sort_route_criteria');
-            $outings_sort_route_criteria = array('fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat');
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', $outings_sort_route_criteria, 'orderby', array('route', 'join_route'));
-        }
+        //FIXME : Don't work : $outings_sort_route_criteria = sfConfig::get('app_outings_sort_route_criteria');
+        $outings_sort_route_criteria = array('fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat');
+        self::buildOrderCondition($joins_order, $orderby_list, $outings_sort_route_criteria, array('route', 'join_route'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))

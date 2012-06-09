@@ -29,13 +29,9 @@ class Portal extends BasePortal
         self::buildPersoCriteria($conditions, $values, $joins, $params_list, 'portals');
         
         // orderby criteria
-        $orderby = c2cTools::getRequestParameter('orderby');
-        if (!empty($orderby))
-        {
-            $orderby = array('orderby' => $orderby);
-            
-            self::buildConditionItem($conditions, $values, $joins_order, $orderby, 'Order', array('wnam'), 'orderby', array('portal_i18n', 'join_portal'));
-        }
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        
+        self::buildOrderCondition($joins_order, $orderby_list, array('wnam'), array('portal_i18n', 'join_portal'));
         
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))
