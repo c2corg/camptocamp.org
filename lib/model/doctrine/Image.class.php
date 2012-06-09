@@ -332,9 +332,8 @@ class Image extends BaseImage
 
         $criteria = Image::buildListCriteria($params);
         
-        $sort = array('orderby_param' => null,
-                      'order_by' => null,
-                      'order'    => 'DESC',
+        $sort = array('orderby_params' => array(),
+                      'order_params' => array(),
                       'npp'      => $max_items
                      );
         

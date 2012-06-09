@@ -120,11 +120,19 @@ class Outing extends BaseOuting
         
         $criteria = Outing::buildListCriteria($params);
         
-        $orderby = $orderby_date ? 'date' : null;
-        $orderby_field = Outing::getSortField($orderby);
-        $sort = array('orderby_param' => $orderby,
-                      'order_by' => $orderby_field,
-                      'order'    => 'DESC',
+        if ($orderby_date)
+        {
+            $orderby = array('date');
+            $order = array('desc');
+        }
+        else
+        {
+            $orderby = array();
+            $order = array();
+        }
+        
+        $sort = array('orderby_params' => $orderby,
+                      'order_params' => $order,
                       'npp'      => $max_items
                      );
         
