@@ -413,6 +413,7 @@ class Summit extends BaseSummit
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'snam': return $mi . '.search_name';
             case 'salt': return 'm.elevation';
             case 'styp': return 'm.summit_type';

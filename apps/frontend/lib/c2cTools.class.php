@@ -33,6 +33,25 @@ class c2cTools
         return self::getArrayElement($param_list, $param_name, null, $alt_value);
     }
     
+    public static function getRequestParameterArray($param_name_list, $alt_value_list = null)
+    {
+        $param_list = sfContext::getInstance()->getRequest()->getParameterHolder()->getAll();
+        
+        $result = array();
+        $alt_value = $alt_value_list;
+        foreach ($param_name_list as $key => $param_name)
+        {
+            if (is_array($alt_value_list))
+            {
+                $alt_value = $alt_value_list[$key];
+            }
+            
+            $result[$key] = self::getArrayElement($param_list, $param_name, null, $alt_value);
+        }
+        
+        return $result;
+    }
+    
     public static function getAllRequestParameters()
     {
         $request = sfContext::getInstance()->getRequest();

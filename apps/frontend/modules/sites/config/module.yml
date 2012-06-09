@@ -97,6 +97,7 @@ all:
 
   sort:
     criteria:
+      'id': ID
       'tnam': name
       'talt': elevation
       'rqua': routes_quantity

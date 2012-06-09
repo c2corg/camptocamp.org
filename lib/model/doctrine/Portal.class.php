@@ -128,6 +128,7 @@ class Portal extends BasePortal
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'wnam': return $mi . '.search_name';
             case 'walt': return 'm.elevation';
             case 'act':  return 'm.activities';

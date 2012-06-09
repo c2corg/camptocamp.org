@@ -10,6 +10,7 @@ all:
 
   sort:
     criteria:
+      'id': ID
       'hnam': name
       'halt': elevation
       'styp': shelter_type

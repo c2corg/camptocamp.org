@@ -42,6 +42,7 @@ all:
 
   sort:
     criteria:
+      'id': ID
       'rnam': name 
       'act': activities
       'range': ranges

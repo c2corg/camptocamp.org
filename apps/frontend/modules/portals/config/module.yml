@@ -1,6 +1,7 @@
 all:
   sort:
     criteria:
+      'id': ID
       'wnam': name
       'act':  activities
       'range': ranges

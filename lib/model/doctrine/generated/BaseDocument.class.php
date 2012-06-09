@@ -616,7 +616,6 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $model_i18n = $model . 'I18n';
         $field_list = call_user_func(array($model, 'buildFieldsList'), true, 'mi', $format, $sort);
-        $order_by = self::buildOrderby($field_list, $sort);
         $where_ids = 'm.id' . $sub_query_result['where'];
         
         $q = Doctrine_Query::create();
@@ -651,6 +650,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
                 }
             }
+            $order_by = self::buildOrderby($field_list, $sort);
             $q->orderBy($order_by);
         }
         
@@ -671,8 +671,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $mi = c2cTools::Model2Letter($model) . 'i';
         
         // orderby
-        $orderby = $sort['orderby_param'];
-        $sort['order_by'] = call_user_func(array($model, 'getSortField'), $orderby, $mi);
+        $sort = self::buildSortCriteria($model, $sort['orderby_params'], $sort['order_params'], $sort['npp'], $mi);
         
         // $npp
         $npp = $sort['npp'];
@@ -832,60 +831,25 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     protected static function buildOrderby($select, $sort)
     {
-        $sort_order_by = $sort['order_by'];
-        $sort_order = (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+        $orderby_fields = $sort['orderby_fields'];
+        $orders = $sort['orders'];
         
-        if ($sort_order_by == 'ai.search_name')
+        if (count(array_intersect($orderby_fields, $select)) == count($orderby_fields))
         {
-            $sort_order_by = array($sort_order_by);
-            if ($model == 'Route')
+            $orderby = array();
+            foreach ($orderby_fields as $key => $field)
             {
-                $sort_order_by[] = 'snamei.search_name';
+                $order = (strtolower($orders[$key]) == 'desc') ? ' DESC' : ' ASC';
+                $orderby[] = $field . $order;
             }
-            $sort_order_by[] = 'mi.search_name';
-        }
-        
-        if (is_array($sort_order_by) && count(array_intersect($sort_order_by, $select)) == count($sort_order_by))
-        {
-            if (is_array($sort_order_by[0]))
-            {
-                $orderby_list = $sort_order_by[0];
-                $order_list = $sort_order_by[1];
-                foreach ($order_list as $key => $order)
-                {
-                    if (empty($order))
-                    {
-                        $order_list[$key] = $sort_order;
-                    }
-                    else
-                    {
-                        $order_list[$key] = (strtolower($order) == 'desc') ? ' DESC' : ' ASC';
-                    }
-                }
-            }
-            else
-            {
-                $orderby_list = $sort_order_by;
-                $order_list = array_fill(0, count($orderby_list), $sort_order);
-            }
-            
-            $order_by = array();
-            foreach ($orderby_list as $key => $item)
-            {
-                $order_by[] = $item . $order_list[$key];
-            }
-            $order_by = implode(', ', $order_by);
-        }
-        elseif (is_string($sort_order_by) && in_array($sort_order_by, $select))
-        {
-            $order_by  = $sort_order_by . $sort_order;
+            $orderby = implode(', ', $orderby);
         }
         else
         {
-            $order_by = 'm.id DESC';
+            $orderby = 'm.id DESC';
         }
         
-        return $order_by;
+        return $orderby;
     }
 
     /**
@@ -895,8 +859,8 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function getListSortCriteria($model = 'Document', $default_npp = null, $max_npp = 100, $mi = 'mi')
     {
-        $orderby = c2cTools::getRequestParameter('orderby');
-        $orderby_field = call_user_func(array($model, 'getSortField'), $orderby, $mi);
+        $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
+        $order_list = c2cTools::getRequestParameterArray(array('order', 'order2', 'order3'), sfConfig::get('app_list_default_order'));
         
         if (empty($default_npp))
         {
@@ -909,18 +873,101 @@ class BaseDocument extends sfDoctrineRecordI18n
             $npp = min($npp, $max_npp);
         }
         
-        return array('orderby_param' => $orderby,
-                     'order_by' => $orderby_field,
-                     'order'    => c2cTools::getRequestParameter('order', 
-                                                              sfConfig::get('app_list_default_order')),
-                     'npp'      => $npp
-                     );
+        return self::buildSortCriteria($model, $orderby_list, $order_list, $npp, $mi);
+    }
+    
+    public static function buildSortCriteria($model, $orderby_list, $order_list, $npp, $mi = 'mi')
+    {
+        $sort_orderby_param = $sort_order_param = $sort_orderby_field = $extra_orderby_field = $sort_order = $extra_order = array();
+        
+        foreach ($orderby_list as $key => $orderby)
+        {
+            if (is_null($orderby))
+            {
+                break;
+            }
+            
+            $orderby_field = call_user_func(array($model, 'getSortField'), $orderby, $mi);
+            if (is_null($orderby_field))
+            {
+                break;
+            }
+            $sort_orderby_param[] = $orderby;
+            
+            $order = $order_list[$key];
+            if (!is_array($orderby_field))
+            {
+                if (!in_array($orderby_field, $sort_orderby_field))
+                {
+                    $sort_orderby_field[] = $orderby_field;
+                    $sort_order[] = $order;
+                }
+            }
+            else
+            {
+                if (is_array($orderby_field[0]))
+                {
+                    $orderby_sublist = $orderby_field[0];
+                    $order_sublist = $orderby_field[1];
+                    foreach ($orderby_sublist as $key2 => $order2)
+                    {
+                        if (empty($order2))
+                        {
+                            $order_sublist[$key2] = $order;
+                        }
+                    }
+                }
+                else
+                {
+                    $orderby_sublist = $orderby_field;
+                    $order_sublist = array_fill(0, count($orderby_sublist), $order);
+                }
+                
+                $first_orderby_field = array_shift($orderby_sublist);
+                if (!in_array($first_orderby_field, $sort_orderby_field))
+                {
+                    $sort_orderby_field[] = $first_orderby_field;
+                    $sort_order[] = array_shift($order_sublist);
+                    foreach($orderby_sublist as $key2 => $orderby2)
+                    {
+                        if (!in_array($orderby2, $extra_orderby_field))
+                        {
+                            $extra_orderby_field[] = $orderby2;
+                            $extra_order[] = $order_sublist[$key2];
+                        }
+                    }
+                }
+            }
+        }
+        
+        if (count($sort_orderby_field) == 1 && in_array($orderby_list[0], array('range', 'admin', 'country', 'valley')))
+        {
+            $extra_orderby_field[] = 'm.id';
+            $extra_order[] = 'desc';
+        }
+        
+        foreach($extra_orderby_field as $key2 => $orderby2)
+        {
+            if (!in_array($orderby2, $sort_orderby_field))
+            {
+                $sort_orderby_field[] = $orderby2;
+                $sort_order[] = $extra_order[$key2];
+            }
+        }
+        
+        return array('orderby_params' => $sort_orderby_param,
+                     'orderby_fields' => $sort_orderby_field,
+                     'order_params'   => $sort_order_param,
+                     'orders'         => $sort_order,
+                     'npp'            => $npp
+                    );
     }
 
     public static function getSortField($orderby, $mi = 'mi')
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'name': return $mi . '.search_name';
             case 'module': return 'm.module';
             default: return NULL;
@@ -939,22 +986,20 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         
         $orderby_fields = array();
-        if (isset($sort['order_by']) && !empty($sort['order_by']))
+        if (isset($sort['orderby_fields']) && !empty($sort['orderby_fields']))
         {
-            $sort_order_by = $sort['order_by'];
-            if (!is_array($sort_order_by))
-            {
-                $sort_order_by = array($sort_order_by);
-            }
-            $orderby_fields = $sort_order_by;
+            $orderby_fields = $sort['orderby_fields'];
             
-            $orderby = $sort['orderby_param'];
-            switch ($orderby)
+            $orderby_params = $sort['orderby_params'];
+            foreach ($orderby_params as $param)
             {
-                case 'range': $orderby_fields[] = 'gr.type'; break;
-                case 'admin': $orderby_fields[] = 'gd.type'; break;
-                case 'country': $orderby_fields[] = 'gc.type'; break;
-                case 'valley': $orderby_fields[] = 'gv.type'; break;
+                switch ($param)
+                {
+                    case 'range': $orderby_fields[] = 'gr.type'; break;
+                    case 'admin': $orderby_fields[] = 'gd.type'; break;
+                    case 'country': $orderby_fields[] = 'gc.type'; break;
+                    case 'valley': $orderby_fields[] = 'gv.type'; break;
+                }
             }
         }
         

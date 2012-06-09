@@ -541,6 +541,7 @@ class Area extends BaseArea
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'anam': return $mi . '.search_name';
             case 'atyp': return 'm.area_type';
             default: return NULL;

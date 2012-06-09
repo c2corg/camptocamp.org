@@ -21,15 +21,18 @@ all:
 
   sort:
     criteria:
-      'inam': name
+      'id': ID
+      'date': date short
+      'oid': outing ID
+      'odate': outing date
       'range': ranges
       'admin': admin_limits
       'country': countries
-      'auth': author
       'act':  activities
+      'auth': author
       'icat': categories
-      'date': date
       'ityp': image_type
+      'inam': name
     filled_criteria:
       'act':
       'icat':

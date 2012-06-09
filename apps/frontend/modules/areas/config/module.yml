@@ -9,6 +9,7 @@ all:
 
   sort:
     criteria:
+      'id': ID
       'anam': 'region_name'
       'atype': 'area_type'
     filled_criteria:

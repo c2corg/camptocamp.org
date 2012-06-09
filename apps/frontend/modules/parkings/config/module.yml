@@ -9,6 +9,7 @@ all:
 
   sort:
     criteria:
+      'id': ID
       'pnam': 'name'
       'palt': 'elevation'
       'tp': 'public_transportation_rating'

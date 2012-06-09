@@ -408,6 +408,7 @@ class Hut extends BaseHut
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'hnam': return $mi . '.search_name';
             case 'halt': return 'm.elevation';
             case 'styp': return 'm.shelter_type';

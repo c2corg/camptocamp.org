@@ -507,6 +507,7 @@ class Site extends BaseSite
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'tnam': return $mi . '.search_name';
             case 'talt': return 'm.elevation';
             case 'rqua': return 'm.routes_quantity';

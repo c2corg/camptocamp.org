@@ -322,6 +322,7 @@ class Book extends BaseBook
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'bnam': return $mi . '.search_name';
             case 'act':  return 'm.activities';
             case 'auth': return 'm.author';

@@ -18,6 +18,7 @@ all:
 
   sort:
     criteria:
+      'id': ID
       'cnam': name
       'act':  activities
       'ccat': categories

@@ -418,6 +418,7 @@ class Parking extends BaseParking
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'pnam': return $mi . '.search_name';
             case 'palt': return 'm.elevation';
             case 'tp':  return 'm.public_transportation_rating';

@@ -12,6 +12,7 @@ all:
 
   sort:
     criteria:
+      'id': ID
       'mnam': name
       'code': code
       'scal': scale

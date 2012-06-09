@@ -790,13 +790,13 @@ class Route extends BaseRoute
         }
         
         $orderby_fields = array();
-        if (isset($sort['orderby_param']))
+        if (isset($sort['orderby_params']))
         {
-            $orderby = $sort['orderby_param'];
+            $orderby = $sort['orderby_params'];
             
             if (!$main_query)
             {
-                if ($orderby == 'rnam')
+                if (in_array('rnam', $orderby))
                 {
                     $orderby_fields[] = 'ls.type';
                 }

@@ -1,6 +1,7 @@
 all:
   sort:
     criteria:
+      'id': ID
       'snam': 'name'
       'salt': 'elevation'
       'styp': 'summit_type'

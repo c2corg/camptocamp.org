@@ -1774,6 +1774,12 @@ fieldset .select_title
   margin-right: 1.5em;
 }
 
+#filterform div.orderform
+{
+  display: table-cell;
+  text-align: right;
+}
+
 #filterform .dateform select,
 #filterform .around_form select
 {

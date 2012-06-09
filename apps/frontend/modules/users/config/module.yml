@@ -5,6 +5,7 @@ all:
 
   sort:
     criteria:
+      'id': ID
       'unam': topoguidename
       'ufnam': nick_name
       'range': ranges

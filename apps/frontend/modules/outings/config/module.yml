@@ -60,9 +60,10 @@ all:
 
   sort:
     criteria:
+      'id': ID
       'onam': name
       'act':  activities
-      'date': date
+      'date': date short
       'range': ranges
       'admin': admin_limits
       'country': countries

@@ -309,6 +309,7 @@ class Product extends BaseProduct
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'fnam': return $mi . '.search_name';
             case 'falt': return 'm.elevation';
             case 'ftyp': return 'm.product_type';

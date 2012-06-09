@@ -138,6 +138,7 @@ class Map extends BaseMap
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'mnam': return $mi . '.search_name';
             case 'code': return 'm.code';
             case 'scal': return 'm.scale';

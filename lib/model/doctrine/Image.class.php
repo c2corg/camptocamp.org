@@ -755,6 +755,7 @@ class Image extends BaseImage
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'inam': return $mi . '.search_name';
             case 'act':  return 'm.activities';
             case 'icat':  return 'm.categories';
@@ -785,11 +786,11 @@ class Image extends BaseImage
         $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
         
         $orderby_fields = array();
-        if (isset($sort['orderby_param']))
+        if (isset($sort['orderby_params']))
         {
-            $orderby = $sort['orderby_param'];
+            $orderby = $sort['orderby_params'];
             
-            if (in_array($orderby, array('oid', 'odate')))
+            if (array_intersect($orderby, array('oid', 'odate')))
             {
                 $orderby_fields = array('lo.type');
             }

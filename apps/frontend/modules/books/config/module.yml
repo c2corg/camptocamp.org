@@ -13,6 +13,7 @@ all:
       18: magazine
   sort:
     criteria:
+      'id': ID
       'bnam': name
       'act':  activities
       'auth': author

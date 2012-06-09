@@ -417,6 +417,7 @@ class Article extends BaseArticle
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'cnam': return $mi . '.search_name';
             case 'act':  return 'm.activities';
             case 'ccat':  return 'm.categories';

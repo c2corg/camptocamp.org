@@ -540,6 +540,7 @@ class Outing extends BaseOuting
     {
         switch ($orderby)
         {
+            case 'id':   return 'm.id';
             case 'onam': return $mi . '.search_name';
             case 'act':  return 'm.activities';
             case 'alt':  return 'm.max_elevation';
@@ -606,18 +607,18 @@ class Outing extends BaseOuting
         }
         
         $orderby_fields = array();
-        if (isset($sort['orderby_param']))
+        if (isset($sort['orderby_params']))
         {
-            $orderby = $sort['orderby_param'];
+            $orderby = $sort['orderby_params'];
             
             //FIXME : Don't work : $outings_sort_route_criteria = sfConfig::get('app_outings_sort_route_criteria');
             $outings_sort_route_criteria = array('fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat');
             
-            if (in_array($orderby, $outings_sort_route_criteria))
+            if (array_intersect($orderby, $outings_sort_route_criteria))
             {
                 $orderby_fields[] = 'lr.type'; // if we don't include it, doctrine blocks (chain of join?)
             }
-            elseif (in_array($orderby, array('lat', 'lon')))
+            elseif (array_intersect($orderby, array('lat', 'lon')))
             {
                 $orderby_fields = array('lr.type', 'ls.type');
             }
