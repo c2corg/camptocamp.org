@@ -1616,12 +1616,23 @@ class documentsActions extends c2cActions
         }
         elseif (is_null($result_type) || $module == $result_type)
         {
-            $this->addParam($sort, 'orderby');
-            $this->addParam($sort, 'order');
-            $this->addParam($sort, 'orderby2');
-            $this->addParam($sort, 'order2');
-            $this->addParam($sort, 'orderby3');
-            $this->addParam($sort, 'order3');
+            $default_order = sfConfig::get('app_list_default_order', 'asc');
+            
+            $has_orderby = $this->addParam($sort, 'orderby');
+            if ($has_orderby)
+            {
+                $this->addParam($sort, 'order', $default_order);
+            }
+            $has_orderby = $this->addParam($sort, 'orderby2');
+            if ($has_orderby)
+            {
+                $this->addParam($sort, 'order2', $default_order);
+            }
+            $has_orderby = $this->addParam($sort, 'orderby3');
+            if ($has_orderby)
+            {
+                $this->addParam($sort, 'order3', $default_order);
+            }
         }
 
         return $sort;
@@ -4185,9 +4196,20 @@ class documentsActions extends c2cActions
         }
     }
 
-    protected function addParam(&$out, $field)
+    protected function addParam(&$out, $field, $alt_value = null)
     {
+        $result = false;
+        
         if ($value = $this->getRequestParameter($field))
+        {
+            $result = true;
+        }
+        else
+        {
+            $value = $alt_value;
+        }
+        
+        if ($value)
         {
             if ($value == '_')
             {
@@ -4195,6 +4217,8 @@ class documentsActions extends c2cActions
             }
             $out[] = "$field=$value";
         }
+        
+        return $result;
     }
 
     // reconstruct an around param with the different field

@@ -283,19 +283,20 @@ function header_list_tag($field_name, $label = null, $default_order = '', $simpl
     $request = sfContext::getInstance()->getRequest();
     $params = array();
     $order = $page = '';
+    $base_default_order = sfConfig::get('app_list_default_order', 'asc');
     
     $param_page = $request->getParameter('page', '');
-    $param_order = $request->getParameter('order', '');
+    $param_order = $request->getParameter('order', $base_default_order);
     $param_orderby = $request->getParameter('orderby', '');
     
     $params['orderby'] = $field_name;
     
     if (empty($default_order))
     {
-        $default_order = sfConfig::get('app_list_default_order', 'asc');
+        $default_order = $base_default_order;
     }
     
-    if (!empty($param_order))
+    if (!empty($param_orderby) && !empty($param_order))
     {
         if ($param_orderby == $field_name)
         {

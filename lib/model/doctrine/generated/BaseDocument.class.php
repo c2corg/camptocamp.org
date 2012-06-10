@@ -902,7 +902,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 {
                     $orderby_sublist = $orderby_field[0];
                     $order_sublist = $orderby_field[1];
-                    foreach ($orderby_sublist as $key2 => $order2)
+                    foreach ($order_sublist as $key2 => $order2)
                     {
                         if (empty($order2))
                         {

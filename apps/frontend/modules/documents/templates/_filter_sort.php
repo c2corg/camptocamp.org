@@ -36,7 +36,7 @@ else
 {
     $orderby2_options = $order_options;
 }
-echo select_tag('orderby2', $orderby_options);
+echo select_tag('orderby2', $orderby2_options);
 
 if (!empty($order_default))
 {
