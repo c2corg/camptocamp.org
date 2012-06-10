@@ -584,6 +584,7 @@ class Image extends BaseImage
         else
         {
             $m = 'li';
+            $join_id = $join . '_id';
             
             if (!$from_users)
             {

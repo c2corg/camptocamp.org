@@ -138,19 +138,20 @@ class imagesActions extends documentsActions
         if (!empty($request_array))
         {
             $ids = array_shift($request_array);
-            $this->pager = new c2cDoctrinePager('Image', (c2cTools::mobileVersion() ? sfConfig::get('app_list_mobile_maxline_number')
+            $pager = new c2cDoctrinePager('Image', (c2cTools::mobileVersion() ? sfConfig::get('app_list_mobile_maxline_number')
                                                                                   : sfConfig::get('app_list_maxline_number')));
-            $q = $this->pager->getQuery();
+            $this->pager = $pager;
+            $q = $pager->getQuery();
             $q->select('DISTINCT i.id, i.image_type, i.filename, ii.name, ii.culture, ii.search_name')
               ->from('Image i')
               ->leftJoin('i.associations a ON i.id = a.linked_id')
               ->leftJoin('i.ImageI18n ii')
               ->where('(a.main_id IN (SELECT a2.linked_id FROM Association a2 WHERE a2.main_id IN (' . implode(',', $ids). ') AND a2.type = ?) AND a.type = ?)'
                     . ' OR (a.main_id IN (' . implode(',', $ids). ') AND a.type = ?)', $request_array);
-            $this->pager->setPage($this->getRequestParameter('page', 1));
-            $this->pager->init();
+            $pager->setPage($this->getRequestParameter('page', 1));
+            $pager->init();
             
-            $nb_results = $this->pager->getNbResults();
+            $nb_results = $pager->getNbResults();
             $this->nb_results = $nb_results;
             
             if ($nb_results == 0)

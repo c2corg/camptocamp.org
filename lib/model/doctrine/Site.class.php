@@ -150,8 +150,8 @@ class Site extends BaseSite
         }
         else
         {
-            $m = 's';
-            $m2 = $m;
+            $m = 't';
+            $m2 = 's';
             $mid = array('l' . $m, $mid);
             $midi18n = implode('.', $mid);
             $join = 'site';

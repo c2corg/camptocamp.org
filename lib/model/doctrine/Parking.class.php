@@ -395,7 +395,7 @@ class Parking extends BaseParking
         // join with site tables only if needed 
         if (isset($joins['join_site']))
         {
-            Site::buildSitePagerConditions($q, $joins, false, false, 'm.LinkedAssociation', 'pt');
+            Site::buildSitePagerConditions($q, $joins, false, true, 'm.LinkedAssociation', 'pt');
         }
 
         // join with image tables only if needed 
