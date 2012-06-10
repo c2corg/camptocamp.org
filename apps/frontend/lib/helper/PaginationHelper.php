@@ -336,7 +336,7 @@ function region_header_list_tag($label = null, $default_order = '', $simple = fa
     $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
     $is_default_list = empty($params_list);
     
-    $orderby = $request->getParameter('orderby');
+    $orderby = sfContext::getInstance()->getRequest()->getParameter('orderby');
     if (in_array($orderby, array('range', 'admin', 'country', 'valley')))
     {
         $orderby_area = $orderby;

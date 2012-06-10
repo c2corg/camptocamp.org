@@ -79,9 +79,9 @@ else:
         
         echo '<form id="filterform" action="/' . $module . '/listredirect" method="post"><div>
         <input type="hidden" value="' . $params . '" name="params" />';
-        foreach ($orderby_params as $key => $orderby_param)
+        foreach ($orderby_params as $key => $orderby_params)
         {
-            echo '<input type="hidden" value="' . $orderby_list[$key] . '" name="' . $orderby_param . '" />'
+            echo '<input type="hidden" value="' . $orderby_list[$key] . '" name="' . $orderby_params . '" />'
                . '<input type="hidden" value="' . $order_list[$key] . '" name="' . $order_params[$key] . '" />';
         }
         echo '</div>';

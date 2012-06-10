@@ -825,7 +825,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $orderby_fields = $sort['orderby_fields'];
         $orders = $sort['orders'];
         
-        if (count(array_intersect($orderby_fields, $select)) == count($orderby_fields))
+        if (count($orderby_fields) && count(array_intersect($orderby_fields, $select)) == count($orderby_fields))
         {
             $orderby = array();
             foreach ($orderby_fields as $key => $field)
@@ -3248,7 +3248,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 $items = explode(' ', $group);
                 $condition_array = array();
-                $cond = "(? = ANY ($field_2))";
+                $cond = "? = ANY ($field_2)";
                 foreach ($items as $item)
                 {
                     $not_items = explode('!', $item);
@@ -3286,7 +3286,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             else
             {
-                $conditions_groups = '((' . implode (') OR (', $conditions_groups) . '))';
+                $conditions_groups = '(' . implode (' OR ', $conditions_groups) . ')';
             }
             $conditions[] = $conditions_groups;
         }
