@@ -56,10 +56,12 @@ if (!$mobile_version)
 {
     if (in_array($module_name, array('routes', 'sites')))
     {
+        $module_url = 'o' . $module_name;
         $text = 'List all images of associated outings';
     }
     elseif (in_array($module_name, array('summits', 'parkings', 'huts')))
     {
+        $module_url = 'r' . $module_name;
         $text = 'List all images of associated routes';
     }
     elseif ($nb_images)

@@ -99,35 +99,35 @@ class imagesActions extends documentsActions
     public function executeList()
     {
         $request_array = array();
-        if ($this->hasRequestParameter('summits') && $summit_ids = $this->getRequestParameter('summits'))
+        if ($this->hasRequestParameter('rsummits') && $summit_ids = $this->getRequestParameter('rsummits'))
         {
             if (!in_array($summit_ids, array('-', ' ')))
             {
                 $request_array = array(explode('-', $summit_ids), 'sr', 'ri', 'si');
             }
         }
-        elseif ($this->hasRequestParameter('parkings') && $parking_ids = $this->getRequestParameter('parkings'))
+        elseif ($this->hasRequestParameter('rparkings') && $parking_ids = $this->getRequestParameter('rparkings'))
         {
             if (!in_array($parking_ids, array('-', ' ')))
             {
                 $request_array = array(explode('-', $parking_ids), 'pr', 'ri', 'pi');
             }
         }
-        elseif ($this->hasRequestParameter('huts') && $hut_ids = $this->getRequestParameter('huts'))
+        elseif ($this->hasRequestParameter('rhuts') && $hut_ids = $this->getRequestParameter('rhuts'))
         {
             if (!in_array($hut_ids, array('-', ' ')))
             {
                 $request_array = array(explode('-', $hut_ids), 'hr', 'ri', 'hi');
             }
         }
-        elseif ($this->hasRequestParameter('routes') && $route_ids = $this->getRequestParameter('routes'))
+        elseif ($this->hasRequestParameter('oroutes') && $route_ids = $this->getRequestParameter('oroutes'))
         {
             if (!in_array($route_ids, array('-', ' ')))
             {
                 $request_array = array(explode('-', $route_ids), 'ro', 'oi', 'ri');
             }
         }
-        elseif ($this->hasRequestParameter('sites') && $site_ids = $this->getRequestParameter('sites'))
+        elseif ($this->hasRequestParameter('osites') && $site_ids = $this->getRequestParameter('osites'))
         {
             if (!in_array($site_ids, array('-', ' ')))
             {
