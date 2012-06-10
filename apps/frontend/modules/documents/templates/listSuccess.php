@@ -103,7 +103,7 @@ if (!$mobile_version): ?>
     <tbody>
         <?php
         $date = 0;
-        $orderby_date = ($param_orderby == 'date');
+        $orderby_date = in_array('date', $orderby_list);
         foreach ($items as $item)
         {
             $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd';

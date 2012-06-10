@@ -886,6 +886,8 @@ class BaseDocument extends sfDoctrineRecordI18n
             $sort_orderby_param[] = $orderby;
             
             $order = $order_list[$key];
+            $sort_order_param[] = $order;
+            
             if (!is_array($orderby_field))
             {
                 if (!in_array($orderby_field, $sort_orderby_field))

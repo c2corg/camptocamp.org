@@ -130,7 +130,7 @@ function pager_navigation($pager, $class = array())
         $params = array();
         foreach($orderby_params as $key => $orderby_param)
         {
-            $params[$orderby_params] = $orderby_list[$key];
+            $params[$orderby_param] = $orderby_list[$key];
             $params[$order_params[$key]] = $order_list[$key];
         }
      
