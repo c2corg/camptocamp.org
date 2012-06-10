@@ -745,7 +745,10 @@ class Image extends BaseImage
               ->addWhere('v.version = 1');
         }
         
-        $q->addWhere(implode(' AND ', $conditions), $values);
+        if (!empty($conditions))
+        {
+            $q->addWhere(implode(' AND ', $conditions), $values);
+        }
     }
 
     public static function getSortField($orderby, $mi = 'mi')

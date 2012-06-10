@@ -495,7 +495,7 @@ class Site extends BaseSite
         
         if (!empty($conditions))
         {
-            $q->addWhere(implode(' AND ', $conditions), $criteria);
+            $q->addWhere(implode(' AND ', $conditions), $values);
         }
     }
 
