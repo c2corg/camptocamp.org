@@ -389,16 +389,20 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         if (empty($params_list) && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
         {
-            $perso = 'all';
+            $perso = array();
+            list($langs_enable, $areas_enable, $activities_enable) = $this->getDefaultFilters($module);
+            if ($langs_enable) $perso[] = 'cult';
+            if ($areas_enable) $perso[] = 'areas';
+            if ($activities_enable) $perso[] = 'act';
         }
         else
         {
             $perso = c2cTools::getArrayElement($params_list, 'perso');
+            $perso = explode('-', $perso);
         }
         
         if (!empty($perso))
         {
-            $perso = explode('-', $perso);
             $params = array_keys($params_list);
             
             if (!array_intersect(array('areas', 'bbox', 'around'), $params) && array_intersect(array('areas', 'yes', 'all'), $perso))
@@ -431,7 +435,10 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
             }
             
-            unset($params_list['perso']);
+            if (isset($params_list['perso']))
+            {
+                unset($params_list['perso']);
+            }
             if (empty($params_list))
             {
                 $joins['all'] = true;
