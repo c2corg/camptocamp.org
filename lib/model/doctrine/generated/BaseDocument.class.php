@@ -982,7 +982,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
-            $data_fields_list = array('m.id');
+            $data_fields_list = array('DISTINCT m.id');
         }
         
         $orderby_fields = array();

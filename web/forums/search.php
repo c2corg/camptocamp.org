@@ -589,6 +589,11 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
                 $forum_ids[] = PUB_FORUMS;
                 $forum_ids[] = LOVE_FORUMS;
             }
+            if (isset($_GET['light']))
+            {
+                $forum_ids[] = PARTNER_FORUMS;
+                $forum_ids[] = BUYSELL_FORUMS;
+            }
             if (count($forum_ids))
             {
                 $where_forum_id = implode(', ', $forum_ids);

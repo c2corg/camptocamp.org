@@ -170,7 +170,7 @@ class imagesActions extends documentsActions
             }
             else
             {
-                $this->items = $pager->getResults('array', ESC_RAW);
+                $this->items = $pager->getResults('array');
             }
 
             $this->setPageTitle($this->__($this->getModuleName() . ' list'));

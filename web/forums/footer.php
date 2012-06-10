@@ -161,7 +161,8 @@ if (!$pun_user['is_guest'])
     echo '<a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$all_lang_text.']</a>';
     if ($lang == 'fr')
     {
-        echo ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>';
+        echo '<br /><a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
+           . ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a>';
     }
     echo '<br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a><br />';
     if ($footer_style == 'index' || $footer_style == 'search')
@@ -178,7 +179,8 @@ else
     echo '<a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$all_lang_text.']</a>';
     if ($lang == 'fr')
     {
-        echo ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>';
+        echo '<br /><a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
+           . ' - <a href="search.php?action=show_24h&amp;lang='.$lang.'&amp;light">[light]</a>';
     }
     echo '<br />';
 }
