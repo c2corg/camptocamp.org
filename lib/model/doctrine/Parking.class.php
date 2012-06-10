@@ -365,7 +365,7 @@ class Parking extends BaseParking
         // join with huts tables only if needed 
         if (isset($joins['join_hut']))
         {
-            Hut::buildHutPagerConditions($q, $joins, false, true,'m.LinkedAssociation', 'ph');
+            Hut::buildHutPagerConditions($q, $joins, false, true, 'm.LinkedAssociation', 'ph');
         }
 
         // join with routes tables only if needed 

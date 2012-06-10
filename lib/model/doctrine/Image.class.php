@@ -592,7 +592,7 @@ class Image extends BaseImage
                 
                 if (isset($joins[$join_id]))
                 {
-                    self::joinOnMulti($q, $joins, $join_id, $first_join . " $m", 5);
+                    self::joinOnMulti($q, $joins, $join_id, "m.LinkedAssociation $m", 5);
                     
                     if (isset($joins[$join_id . '_has']))
                     {
