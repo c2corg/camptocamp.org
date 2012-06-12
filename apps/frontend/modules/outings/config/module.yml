@@ -93,9 +93,10 @@ all:
     route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat' ]
     filled_criteria:
       'alt':  oalt
-      'fac':
       'hdif': odif
       'ddif': oddif
+      'cond': ocond
+      'fac':
       'time':
       'ralt':
       'dhei':
@@ -112,7 +113,6 @@ all:
       'srat':
       'hrat':
       'wrat':
-      'cond':
   
   recent_conditions_limit: 3W
 

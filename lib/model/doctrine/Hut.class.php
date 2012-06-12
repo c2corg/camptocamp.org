@@ -407,7 +407,7 @@ class Hut extends BaseHut
             case 'id':   return 'm.id';
             case 'hnam': return $mi . '.search_name';
             case 'halt': return 'm.elevation';
-            case 'styp': return 'm.shelter_type';
+            case 'htyp': return 'm.shelter_type';
             case 'hscap': return 'm.staffed_capacity';
             case 'hucap': return 'm.unstaffed_capacity';
             case 'act':  return 'm.activities';

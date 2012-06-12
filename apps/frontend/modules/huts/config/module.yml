@@ -13,7 +13,7 @@ all:
       'id': ID
       'hnam': name
       'halt': elevation
-      'styp': shelter_type
+      'htyp': shelter_type
       'hscap': staffed_capacity
       'hucap': unstaffed_capacity
       'act':  activities

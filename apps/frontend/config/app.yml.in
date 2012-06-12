@@ -1934,18 +1934,19 @@ all:
   
   huts:
     filled_criteria:
-      'halt':
-      'styp':
-      'hscap':
-      'hucap':
-      'act':
+      'halt': ''
+      'htyp': ''
+      'hscap': ''
+      'hucap': ''
+      'act': ''
   
   outings:
     filled_criteria:
       'alt':  oalt
-      'fac':
       'hdif': odif
       'ddif': oddif
+      'cond': ocond
+      'fac':
       'time':
       'ralt':
       'dhei':
@@ -1962,7 +1963,6 @@ all:
       'srat':
       'hrat':
       'wrat':
-      'cond':
   
   products:
     filled_criteria:
