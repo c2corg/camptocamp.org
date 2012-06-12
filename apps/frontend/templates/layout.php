@@ -17,6 +17,8 @@ elseif ($id == $cda_id)
 else
 {
     $footer_type = null;
+    // alpine club logo is included by css, but only in en
+    if ($lang === 'en') use_stylesheet('/static/css/ac');
 }
 
 if ($sf_context->getActionName() == 'list')
