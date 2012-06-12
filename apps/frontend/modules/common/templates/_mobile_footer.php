@@ -48,7 +48,7 @@ if ((bool)sfConfig::get('app_mobile_version_ads'))
                 <li id="europa"><a href="http://europa.eu/" title="Europe"></a></li>
                 <li id="c2csa"><a href="http://www.camptocamp.com/" title="Camptocamp SA"></a></li>
                 <?php if ($display_ac): ?>
-                <li id="alpineclub"><a href="http://www.alpine-club.org.uk/" title="Alpine Club"><?php echo image_tag('/static/images/alpineclub.png') ?></a></li>
+                <li id="alpineclub"><a href="http://www.alpine-club.org.uk/" title="Alpine Club"></a></li>
                 <?php endif ?>
             </ul><?php
     endif;
