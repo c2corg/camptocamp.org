@@ -183,7 +183,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function addParamForOrderby(&$params_list, $model)
     {
         $module = c2cTools::model2module($model);
-        $sort_orderby_list = sfConfig::get('app_' . $module . '_sort_filled_criteria');
+        $sort_orderby_list = sfConfig::get('app_' . $module . '_filled_criteria');
         
         if (is_array($sort_orderby_list) && count($sort_orderby_list))
         {
