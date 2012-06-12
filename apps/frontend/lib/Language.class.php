@@ -130,7 +130,7 @@ class Language
             {
                 $parsed_array[$key]['associations'] = self::getTheHighest($item['associations'], 'Summit');
                 // once this is done, find his best name
-                $parsed_array[$key]['associations'][0]['Summit'] = self::getTheBest($parsed_array[$key]['associations'][0]['Summit'], 'Summit', $langs, '', false); 
+                $parsed_array[$key]['associations'][0]['Summit'] = self::getTheBest($parsed_array[$key]['associations'][0]['Summit'], 'Summit', $langs, '', false);
             }
         }
         return $parsed_array;

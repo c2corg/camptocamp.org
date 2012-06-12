@@ -25,6 +25,7 @@ else:
     if ($show_images)
     {
         echo '';
+        $nb_images = 0;
     }
     echo '</p>';
     
