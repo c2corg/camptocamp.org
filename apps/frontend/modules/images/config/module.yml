@@ -34,10 +34,10 @@ all:
       'ityp': image_type
       'inam': name
     filled_criteria:
-      'act':
-      'icat':
-      'date':
-      'ityp':
+      'act': ''
+      'icat': ''
+      'date': ''
+      'ityp': ''
 
   type:
     list: # list does not contain copyright images

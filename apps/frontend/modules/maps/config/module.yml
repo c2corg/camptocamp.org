@@ -18,6 +18,6 @@ all:
       'scal': scale
       'edit': editor
     filled_criteria:
-      'code':
-      'scal':
-      'edit':
+      'code': ''
+      'scal': ''
+      'edit': ''

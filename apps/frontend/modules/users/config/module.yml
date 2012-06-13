@@ -16,8 +16,8 @@ all:
       'act':  activities
       'ucat': category
     filled_criteria:
-      'act':
-      'ucat':
+      'act': ''
+      'ucat': ''
 
   category:
     list:

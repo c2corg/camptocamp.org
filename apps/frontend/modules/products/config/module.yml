@@ -20,4 +20,4 @@ all:
       'lat': 'location S >> N'
       'lon': 'location W >> E'
     filled_criteria:
-      'falt':
+      'falt': ''

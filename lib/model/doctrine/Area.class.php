@@ -155,6 +155,13 @@ class Area extends BaseArea
 
     public static function buildAreaListCriteria(&$criteria, &$params_list, $is_module = false, $mid = 'm.id')
     {
+        if (empty($params_list))
+        {
+            return null;
+        }
+        
+        $conditions = $values = $joins = array();
+        
         if ($is_module)
         {
             $m = 'm';

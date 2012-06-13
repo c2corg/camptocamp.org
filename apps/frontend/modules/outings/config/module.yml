@@ -96,23 +96,23 @@ all:
       'hdif': odif
       'ddif': oddif
       'cond': ocond
-      'fac':
-      'time':
-      'ralt':
-      'dhei':
-      'grat':
-      'erat':
-      'prat':
-      'frat':
-      'arat':
-      'irat':
-      'mrat':
-      'trat':
-      'expo':
-      'lrat':
-      'srat':
-      'hrat':
-      'wrat':
+      'fac': ''
+      'time': ''
+      'ralt': ''
+      'dhei': ''
+      'grat': ''
+      'erat': ''
+      'prat': ''
+      'frat': ''
+      'arat': ''
+      'irat': ''
+      'mrat': ''
+      'trat': ''
+      'expo': ''
+      'lrat': ''
+      'srat': ''
+      'hrat': ''
+      'wrat': ''
   
   recent_conditions_limit: 3W
 

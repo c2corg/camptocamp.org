@@ -24,6 +24,6 @@ all:
       'ccat': categories
       'ctyp': article_type
     filled_criteria:
-      'act':
-      'ccat':
-      'ctyp':
+      'act': ''
+      'ccat': ''
+      'ctyp': ''

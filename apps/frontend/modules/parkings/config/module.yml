@@ -21,6 +21,6 @@ all:
       'lat': 'location S >> N'
       'lon': 'location W >> E'
     filled_criteria:
-      'tp':
-      'tpty':
-      'scle':
+      'tp': ''
+      'tpty': ''
+      'scle': ''

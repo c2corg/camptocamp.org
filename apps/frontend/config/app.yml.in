@@ -442,10 +442,10 @@ all:
     home_categories: [ 1, 3, 4, 6, 7, 10, 11, 12, 16 ]
     default_meta:   '/static/images/logo.png'
     filled_criteria:
-      'act':
-      'icat':
-      'date':
-      'ityp':
+      'act': ''
+      'icat': ''
+      'date': ''
+      'ityp': ''
 
   google:
     # google maps key
@@ -637,8 +637,8 @@ all:
     outings_limit: 10 
     # number of outings displayed on user's page
     filled_criteria:
-      'act':
-      'ucat':
+      'act': ''
+      'ucat': ''
         
   documents:
     outings_limit: 10 
@@ -1641,7 +1641,7 @@ all:
       14397: 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord'
       14405: 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord'
     filled_criteria:
-      'atype':
+      'atype': ''
   
   summits:
     summit_types:
@@ -1865,26 +1865,26 @@ all:
       5: R5
     filled_criteria:
       'maxa': malt
-      'fac':
-      'hdif':
-      'ddif':
-      'time':
-      'ralt':
-      'dhei':
-      'grat':
-      'erat':
-      'prat':
-      'frat':
-      'arat':
-      'irat':
-      'mrat':
-      'trat':
-      'expo':
-      'lrat':
-      'srat':
-      'hrat':
-      'wrat':
-      'rlen':
+      'fac': ''
+      'hdif': ''
+      'ddif': ''
+      'time': ''
+      'ralt': ''
+      'dhei': ''
+      'grat': ''
+      'erat': ''
+      'prat': ''
+      'frat': ''
+      'arat': ''
+      'irat': ''
+      'mrat': ''
+      'trat': ''
+      'expo': ''
+      'lrat': ''
+      'srat': ''
+      'hrat': ''
+      'wrat': ''
+      'rlen': ''
 
   parkings:
     public_transportation_ratings:
@@ -1900,9 +1900,9 @@ all:
       2: bus
       3: service_on_demand
     filled_criteria:
-      'tp':
-      'tpty':
-      'scle':
+      'tp': ''
+      'tpty': ''
+      'scle': ''
   
   maps:
     editors:
@@ -1914,23 +1914,23 @@ all:
       2: 1/50000
       3: 1/100000
     filled_criteria:
-      'code':
-      'scal':
-      'edit':
+      'code': ''
+      'scal': ''
+      'edit': ''
   
   articles:
     filled_criteria:
-      'act':
-      'ccat':
-      'ctyp':
+      'act': ''
+      'ccat': ''
+      'ctyp': ''
   
   books:
     filled_criteria:
-      'act':
-      'auth':
-      'edit':
-      'btyp':
-      'blang':
+      'act': ''
+      'auth': ''
+      'edit': ''
+      'btyp': ''
+      'blang': ''
   
   huts:
     filled_criteria:
@@ -1946,27 +1946,27 @@ all:
       'hdif': odif
       'ddif': oddif
       'cond': ocond
-      'fac':
-      'time':
-      'ralt':
-      'dhei':
-      'grat':
-      'erat':
-      'prat':
-      'frat':
-      'arat':
-      'irat':
-      'mrat':
-      'trat':
-      'expo':
-      'lrat':
-      'srat':
-      'hrat':
-      'wrat':
+      'fac': ''
+      'time': ''
+      'ralt': ''
+      'dhei': ''
+      'grat': ''
+      'erat': ''
+      'prat': ''
+      'frat': ''
+      'arat': ''
+      'irat': ''
+      'mrat': ''
+      'trat': ''
+      'expo': ''
+      'lrat': ''
+      'srat': ''
+      'hrat': ''
+      'wrat': ''
   
   products:
     filled_criteria:
-      'falt':
+      'falt': ''
   
   ages:
     values:

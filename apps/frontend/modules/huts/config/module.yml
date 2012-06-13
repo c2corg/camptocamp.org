@@ -23,8 +23,8 @@ all:
       'lat': 'location S >> N'
       'lon': 'location W >> E'
     filled_criteria:
-      'halt':
-      'styp':
-      'hscap':
-      'hucap':
-      'act':
+      'halt': ''
+      'styp': ''
+      'hscap': ''
+      'hucap': ''
+      'act': ''

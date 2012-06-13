@@ -13,4 +13,4 @@ all:
       'anam': 'region_name'
       'atype': 'area_type'
     filled_criteria:
-      'atype':
+      'atype': ''
