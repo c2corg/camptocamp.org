@@ -978,7 +978,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if ($main_query)
         {
-            $data_fields_list = array('m.id', $mi . '.culture', $mi . '.name', 'm.module', $mi . '.search_name');
+            $data_fields_list = array('DISTINCT m.id', $mi . '.culture', $mi . '.name', 'm.module', $mi . '.search_name');
         }
         else
         {
