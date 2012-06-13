@@ -195,8 +195,8 @@ class Area extends BaseArea
             if ($is_module)
             {
                 // self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'a', 'activities'), 'act', $join);
-                self::buildConditionItem($conditions, $values, $joins, 'Bbox', 'geom', 'bbox', $join);
-                self::buildConditionItem($conditions, $values, $joins, 'Around', 'geom', 'around', $join);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bbox', 'geom', 'bbox', $join);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', 'geom', 'around', $join);
             }
             
             $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ai.search_name'), ($is_module ? array('anam', 'name') : 'anam'), array($join_idi18n, $join_i18n), 'Area');
