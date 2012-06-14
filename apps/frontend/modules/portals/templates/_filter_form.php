@@ -14,6 +14,6 @@ echo '<br />' . georef_selector();
 <?php
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('wcult');
 ?>
-<br /><br />
+<br />
 <?php
 include_partial('documents/filter_sort');

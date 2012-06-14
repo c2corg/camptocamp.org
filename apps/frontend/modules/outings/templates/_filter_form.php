@@ -27,7 +27,7 @@ include_partial('huts/huts_short_filter');
 include_partial('parkings/parkings_filter');
 echo __('outing_with_public_transportation') . ' ' . bool_selector('owtp');
 ?>
-<br />
+<br /><br />
 <?php
 echo __('Date') . __('&nbsp;:') . ' ' . date_selector(array('month' => true, 'year' => true, 'day' => true));
 ?>
@@ -41,8 +41,8 @@ if ($is_connected)
 <br />
 <?php
 include_partial('documents/filter_sort', array('orderby_default' => 'date', 'order_default' => 'desc'));
-?>
-<br />
-<?php
-echo label_for('cond', __('Show conditions'), array('title' => __('show conditions of the outings'))) . ' ' . checkbox_tag('cond', 1, false);
 
+echo label_for('cond', __('Show conditions'), array('title' => __('show conditions of the outings'))) . ' ' . checkbox_tag('cond', 1, false);
+?>
+<br /><br />
+<?php

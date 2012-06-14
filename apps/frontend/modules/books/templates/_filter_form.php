@@ -28,6 +28,6 @@ $activities_raw = $sf_data->getRaw('activities');
 echo __('activities') . ' ' . activities_selector(false, true, $activities_raw);
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('bcult');
 ?>
-<br /><br />
+<br />
 <?php
 include_partial('documents/filter_sort');

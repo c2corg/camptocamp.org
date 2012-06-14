@@ -22,6 +22,6 @@ echo '<br />' . georef_selector();
 include_partial('parkings/parkings_filter', array('show_tpty' => false)) ?>
 <br />
 <?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('fcult') ?>
-<br /><br />
+<br />
 <?php
 include_partial('documents/filter_sort');

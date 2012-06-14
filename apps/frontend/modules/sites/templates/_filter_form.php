@@ -14,6 +14,7 @@ $selected_areas_raw = $sf_data->getRaw('selected_areas');
 include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected_areas' => $selected_areas_raw, 'use_personalization' => true));
 ?>
 <br />
+<br />
 <?php
 echo picto_tag('picto_sites') . __('Name:') . ' ' . input_tag('tnam', null, array('autofocus' => 'autofocus'));
 echo __('elevation') . ' ' . elevation_selector('talt');

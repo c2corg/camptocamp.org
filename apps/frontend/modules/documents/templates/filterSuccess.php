@@ -106,10 +106,7 @@ if ($personalization_applied)
 
 if (!isset($ranges)) $ranges = array();
 include_partial("$module/filter_form", array('ranges' => $ranges, 'selected_areas' => $selected_areas, 'activities' => $activities));
-?>
-<br />
-<br />
-<?php
+
 echo c2c_reset_tag(__('Cancel'), array('picto' => 'action_cancel'));
 echo c2c_submit_tag(__('Search'), array('picto' => 'action_filter', 'class' => 'main_button'));
 ?>

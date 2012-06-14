@@ -13,6 +13,7 @@ $selected_areas_raw = $sf_data->getRaw('selected_areas');
 include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected_areas' => $selected_areas_raw, 'use_personalization' => true));
 ?>
 <br />
+<br />
 <?php
 echo picto_tag('picto_maps') . __('Name:') . ' ' . input_tag('mnam', null, array('autofocus' => 'autofocus'));
 echo __('Code:') . ' ' . input_tag('code');

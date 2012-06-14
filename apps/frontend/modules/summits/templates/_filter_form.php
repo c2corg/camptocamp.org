@@ -14,6 +14,7 @@ $selected_areas_raw = $sf_data->getRaw('selected_areas');
 include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected_areas' => $selected_areas_raw, 'use_personalization' => true));
 ?>
 <br />
+<br />
 <?php
 include_partial('summits_filter', array('autofocus' => true));
 echo georef_selector();

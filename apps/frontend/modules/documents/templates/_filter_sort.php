@@ -50,5 +50,4 @@ else
 echo select_tag('order2', $order2_options);
 
 echo '</div>';
-?>
-<br />
+
