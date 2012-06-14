@@ -49,7 +49,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         
         echo $tabs;
 
-        include_partial("$module/nav", array('id'  => $id, 'document' => $document));
+        // liens internes vers les sections repliables du document
         if ($nav_options == null)
         {
             include_partial("$module/nav_anchor");
@@ -58,6 +58,9 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         {
             include_partial("$module/nav_anchor", array('section_list' => $nav_options));
         }
+        
+        // boutons vers des fonctions annexes et de gestion du document
+        include_partial("$module/nav", array('id'  => $id, 'document' => $document));
         
         if ($module != 'users')
         {

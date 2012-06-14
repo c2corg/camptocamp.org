@@ -2787,7 +2787,32 @@ msgstr "<h3>Hébergement et restauration à proximité</h3>Informations sur les 
 
 # [WARNING] needs_review
 msgid "_activities_info"
-msgstr "<h3>Activités</h3>Type d'activités&nbsp;: dans une liste ou un document, passez la souris sur les pictogrammes pour connaître leur signification.<br />Un document peut être associé à une ou plusieurs activités&nbsp;:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski, surf</strong>&nbsp;: randonnée à ski et/ou surf<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>raquette</strong>&nbsp;: randonnée en raquettes<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinisme neige, glace, mixte</strong>&nbsp;: alpinisme sur neige, glace ou mixte (en haute montagne)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>rocher haute montagne</strong>&nbsp;: alpinisme sur rocher, grandes voies en montagne (équipées ou non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>escalade</strong>&nbsp;: bloc, voies d'une ou plusieurs longueurs en falaise (équipées ou non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascade</strong>&nbsp;: cascade de glace hors haute montagne, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>randonnée pédestre</strong>&nbsp;: randonnée pédestre en terrain montagneux (et non en plaine), sur sentier balisé ou non, ou hors sentier<br /><br />La différence entre les activités <strong>escalade</strong> et <strong>rocher haute montagne</strong> se fait principalement sur l'altitude du sommet de la voie, mais pas sur l'équipement. En Europe, les règles suivantes s'appliquent :<br />- altitude < 2100m : escalade<br />- altitude entre 2100m et 2400m : escalade ou rocher haute montagne, mais majoritairement escalade<br />- altitude entre 2400m et 2700m : escalade ou rocher haute montagne, mais majoritairement rocher haute montagne<br />- altitude > 2700m : rocher haute montagne<br />Pour une altitude entre 2100m et 2700m, les 2 activités peuvent être sélectionnées en cas de doute."
+msgstr "<h3>Activités</h3>\n"
+"Type d'activités&nbsp;: dans une liste ou un document, passez la souris sur les pictogrammes pour connaître leur signification.<br />\n"
+"Un document peut être associé à une ou plusieurs activités&nbsp;:<br />\n"
+"<br />\n"
+"<span class=\"picto activity_1\"></span> &nbsp;<strong>ski, surf</strong>&nbsp;: randonnée à ski et/ou surf<br />\n"
+"<br />\n"
+"<span class=\"picto activity_7\"></span> &nbsp;<strong>raquette</strong>&nbsp;: randonnée en raquettes<br />\n"
+"<br />\n"
+"<span class=\"picto activity_2\"></span> &nbsp;<strong>alpinisme neige, glace, mixte</strong>&nbsp;: alpinisme sur neige, glace ou mixte (en haute montagne)<br />\n"
+"<br />\n"
+"<span class=\"picto activity_3\"> &nbsp;<strong>rocher haute montagne</strong>&nbsp;: alpinisme sur rocher, grandes voies en montagne (équipées ou non)<br />\n"
+"<br />\n"
+"<span class=\"picto activity_4\"> &nbsp;<strong>escalade</strong>&nbsp;: bloc, voies d'une ou plusieurs longueurs en falaise (équipées ou non)<br />\n"
+"<br />\n"
+"<span class=\"picto activity_5\"> &nbsp;<strong>cascade</strong>&nbsp;: cascade de glace hors haute montagne, dry-tooling<br />\n"
+"<br />\n"
+"<span class=\"picto activity_6\"> &nbsp;<strong>randonnée pédestre</strong>&nbsp;: randonnée pédestre en terrain montagneux (et non en plaine), sur sentier balisé ou non, ou hors sentier<br />\n"
+"<br />\n"
+"<span class=\"picto activity_8\"> &nbsp;<strong>paraente montagne</strong>&nbsp;: descente en parapente après une montée à pied ou à ski (vol rando, paralpinisme)<br />\n"
+"<br />\n"
+"La différence entre les activités <strong>escalade</strong> et <strong>rocher haute montagne</strong> se fait principalement sur l'altitude du sommet de la voie, mais pas sur l'équipement. En Europe, les règles suivantes s'appliquent :<br />\n"
+"- altitude < 2100m : escalade<br />\n"
+"- altitude entre 2100m et 2400m : escalade ou rocher haute montagne, mais majoritairement escalade<br />\n"
+"- altitude entre 2400m et 2700m : escalade ou rocher haute montagne, mais majoritairement rocher haute montagne<br />\n"
+"- altitude > 2700m : rocher haute montagne<br />\n"
+"Pour une altitude entre 2100m et 2700m, les 2 activités peuvent être sélectionnées en cas de doute."
 
 msgid "_aid_rating_info"
 msgstr "<h3>Cotation escalade artificielle</h3>Cotation des difficultés d'escalade artificielle.<br />La cotation artif correspond à la difficulté maximale de l'escalade artificielle rocheuse, c'est à dire l'escalade consistant à utiliser des points d'aide pour progresser sur un passage donné.<br />L'échelle va de A0 à A6.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/131454/fr\">cotations en artif</a>."
@@ -4364,7 +4389,7 @@ msgid "desert"
 msgstr "non fréquenté"
 
 msgid "detail pic"
-msgstr "détail, zoom"
+msgstr "détail (lieu, itinéraire)"
 
 msgid "deutsch"
 msgstr "allemand"
@@ -5704,6 +5729,12 @@ msgstr "nos partenaires"
 msgid "outing"
 msgstr "sortie"
 
+msgid "outing ID"
+msgstr "ID de la sortie"
+
+msgid "outing date"
+msgstr "Date de la sortie"
+
 msgid "outing form warning"
 msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à votre sortie (date, conditions rencontrées, commentaires personnels). Les informations pérennes relatives à un nouvel itinéraire doivent être reportées dans une page \"itinéraire\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Type de la sortie&nbsp;:</strong> Les sorties en héliski ou sur piste en utilisant les remontées, ne sont pas autorisées. Utilisez le <a href=\"/forums/viewforum.php?id=2\">forum \"Conditions : Neige et Avalanches\"</a> pour relater vos observations.</li><li><strong>Intitulé de la sortie&nbsp;:</strong> Par défaut, il est de la forme \"Sommet : Itinéraire\", mais vous pouvez le modifier pour mentionner la variante empruntée, un enchainement, ou un parcours partiel.</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois la sortie créée, vous pourrez l'associer à d'autres itinéraires ou sites d'escalade (cas d'un enchainement), ainsi qu'aux participants membres (leur donnant droit de modifier la sortie pour ajouter leurs commentaires).</li><li><strong>Amélioration du topoguide&nbsp;:</strong> Si vous trouver l'itinéraire du topoguide insuffisant ou erroné, n'hésitez pas à l'<a href=\"/articles/112382/fr\">améliorer</a>."
 
@@ -6652,6 +6683,12 @@ msgstr "la liste des documents"
 
 msgid "the list is sorted by id"
 msgstr "La liste est triée par date de création des documents."
+
+# [general comment]
+# Utilisé dans les formulaire, autour des sélecteurs d'ordre de tri :
+#   Afficher N résultats par page triés par ... puis par ...
+msgid "then by"
+msgstr "puis par"
 
 msgid "there is no %1% to show"
 msgstr "Il n'y a aucun résultat dans la liste des %1%. Peut-être que vos filtres sont trop restrictifs&nbsp;? Pensez à vérifier l'orthographe des mots recherchés ou à n'en saisir qu'une partie caractéristique."

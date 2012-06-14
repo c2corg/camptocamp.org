@@ -4276,6 +4276,7 @@ msgstr "Descrizione:"
 msgid "desert"
 msgstr "nessuno"
 
+# [WARNING] needs_update
 msgid "detail pic"
 msgstr "dettaglio, zoom"
 
@@ -5624,6 +5625,14 @@ msgstr "i nostri partners"
 msgid "outing"
 msgstr "gita"
 
+# [WARNING] en translation used
+msgid "outing ID"
+msgstr "Outing ID"
+
+# [WARNING] en translation used
+msgid "outing date"
+msgstr "Outing date"
+
 msgid "outing form warning"
 msgstr "<strong>Attenzione&nbsp;!</strong> In questa pagina indicare solo le informazioni relative a la tua gita (condizioni, commenti personali). Le informazioni relative alla descrizione dell'itinerario devono essere inserite nel documento \"itinerario\".<br />Per maggiori informazioni vedere l'<a href=\"/articles/117868/it\">aiuto</a> sull'organizzazione della guida.</li><li><strong>Nome della gita:</strong> Per default, prede la forma \"Cima: Itinerario\", ma puoi modificarlo per indicare le variante seguite, un concatenamento, un percorso parziale...</li><li><strong>Associazione ad altri documenti:</strong> Una volta la gita creata, potrai associarla ad altri itinerari nel caso di un concatenamento, e anche associare altri partecipanti registrati sul sito (cosi potranno anche loro modificare la gita e aggiunger i loro commenti)."
 
@@ -6581,6 +6590,13 @@ msgstr "la lista dei documenti"
 
 msgid "the list is sorted by id"
 msgstr "La lista è ordinata per data di creazione dei documenti."
+
+# [general comment]
+# Utilisé dans les formulaire, autour des sélecteurs d'ordre de tri :
+#   Afficher N résultats par page triés par ... puis par ...
+# [WARNING] en translation used
+msgid "then by"
+msgstr "then by"
 
 msgid "there is no %1% to show"
 msgstr "Nessun risultato nella lista degli %1%. Forse i criteri di ricerca sono troppo selettivi? Verifica l'ortografia delle parole ricercate. Inserisci solo la parte più significativa della parole."

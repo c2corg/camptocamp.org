@@ -212,7 +212,7 @@ msgstr "Es ist nicht erlaubt Regionen zusammenzuschliessen"
 # [general comment]
 # do not forget trailing space
 msgid "Around: "
-msgstr "In der Nähe"
+msgstr "In der Nähe "
 
 msgid "Article"
 msgstr "Artikel"
@@ -725,6 +725,10 @@ msgstr "Das Dokument wurde gelöscht"
 
 msgid "Document does not exist"
 msgstr "Dieses Dokument existiert nicht"
+
+# [WARNING] en translation used
+msgid "Document generated %1% in %2%"
+msgstr "Document generated %1% in %2%ms."
 
 msgid "Document has been deprotected"
 msgstr "Das Dokument wurde freigegeben"
@@ -2508,6 +2512,10 @@ msgstr "Das Zusammenschliessen von Beiträger ist nicht erlaubt"
 
 msgid "Version #%1%, date %2%"
 msgstr "Fassung %1% vom %2%"
+
+# [WARNING] en translation used
+msgid "Version %1% saved %2%"
+msgstr "Version %1% registered %2%"
 
 msgid "Version is missing"
 msgstr "Die Parameter dieser Fassung sind unvollständig."
@@ -4477,6 +4485,7 @@ msgstr "Beschreibung:"
 msgid "desert"
 msgstr "nicht besucht"
 
+# [WARNING] needs_update
 msgid "detail pic"
 msgstr "Detail / Zoom"
 
@@ -5845,6 +5854,14 @@ msgstr "Unsere Partner"
 msgid "outing"
 msgstr "Tour"
 
+# [WARNING] en translation used
+msgid "outing ID"
+msgstr "Outing ID"
+
+# [WARNING] en translation used
+msgid "outing date"
+msgstr "Outing date"
+
 # [WARNING] needs_review
 msgid "outing form warning"
 msgstr "<strong>Warnung!</strong> Geben sie auf dieser Seite ausschliesslich Informationen an, welche spezifisch zu ihrer Tour sind (spezifische Verhältnisse, persönliche Kommentare). Nicht-vergängliche Informationen über eine Route müssen auf der entsprechenden Seite der Route angegeben werden.<li>Mehr Informationen über den Aufbau und die Struktur des Tourenführers finden sie in der entsprechenden <a href=\"/articles/117868/de\">Hilfe</a>.</li><br /><li><strong>Typ der Tour:</strong> Heliskitouren oder Touren im Skigebiet sind nicht zugelassen. Verwenden sie das <a href=\"../../forums/viewforum.php?id=2\">Forum \"Verhältnisse: Schnee und Lawinen\"</a> um ihre Beobachtungen während dieser Touren zu beschreiben.</li><br /><li><strong>Name der Tour: </strong>Standardmässig werden Touren wie folgt benannt: \"Gipfel: Route\", aber sie können den Namen ändern um eine Variation oder einen Begehungsversuch zu beschreiben.</li> <li><strong>Verbindung mit anderen Dokumenten:</strong> Nachdem sie das Tourendokument erstellt haben können sie es mit anderen Routen oder Klettergebieten (bei Verwendung mehrerer Klettergebiete), sowie mit anderen, bei c2c registrierten Benutzern verbinden (und diesen dabei die Berechtigung erteilen die das Tourendokument zu ändern und ihre eigenen Kommentare hinzuzufügen).</li> "
@@ -6836,6 +6853,13 @@ msgstr "Liste der Dokumente"
 
 msgid "the list is sorted by id"
 msgstr "Die Liste ist nach dem Erstellungsdatum der Dokumente geordnet."
+
+# [general comment]
+# Utilisé dans les formulaire, autour des sélecteurs d'ordre de tri :
+#   Afficher N résultats par page triés par ... puis par ...
+# [WARNING] en translation used
+msgid "then by"
+msgstr "then by"
 
 msgid "there is no %1% to show"
 msgstr "Es gibt kein Ergebnis in der Liste der %1%. Vielleicht sind ihre Filter zu restriktiv? Haben sie einen Tippfehler gemacht? Versuchen sie es lediglich mit einem charakteristischen Teil des Wortes."

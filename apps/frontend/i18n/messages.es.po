@@ -125,9 +125,9 @@ msgstr "Añada su itinerario"
 msgid "Add your summit"
 msgstr "Añada su cima"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Advanced search"
-msgstr "Advanced search"
+msgstr "Búsqueda avanzada"
 
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Es importante realizar que tanto lo que escribe que sus seudónimos para el foro y la topo-guía son visible en la web y referenciados por los motores de búsqueda. Usar su nombre verdadero expone a ser referenciado como tal por los motores de búsqueda.<br /> \n"
@@ -212,9 +212,9 @@ msgstr "La fusión de objetos de tipo región no está autorizada"
 
 # [general comment]
 # do not forget trailing space
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Around: "
-msgstr "Around "
+msgstr "Alrededor de "
 
 msgid "Article"
 msgstr "Artículo"
@@ -233,9 +233,9 @@ msgstr "Artículos"
 
 # [general comment]
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Associate new access"
-msgstr "Create a new access route to the hut"
+msgstr "Crear un nuevo itinerario acceso al refugio"
 
 msgid "Associate new outing"
 msgstr "Añadir su salida sobre este itinerario"
@@ -476,9 +476,9 @@ msgstr "Contactarnos"
 # [general comment]
 # [cda]
 # title must remain short
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Contest"
-msgstr "Contest"
+msgstr "Concurso"
 
 msgid "Context:"
 msgstr "Contexto:"
@@ -529,9 +529,9 @@ msgstr "Añadir un mapa"
 # infobulle pour le lien vers le wizard de sortie en mode non connecté (et accessoirement titre de la modalbox)
 # 
 # PAS DE MARKUP, PAS DE RETOUR A LA LIGNE !!!!!!
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Create new outing unconnected"
-msgstr "Please login in order to create a route! If you do not yet have an account, click on \"Signup\". The registration is quickly done and free of charge. Thank you for your future contributions."
+msgstr "Tiene que conectarse para entrar su salida! Si no tiene cuenta, pincha a \"Suscribirse\" y creese su cuenta. Es rapido y gratuito. Gracias por anticipado por su contribucion."
 
 msgid "Create new outing with some help"
 msgstr "Añadir una nueva salida utilizando la ayuda"
@@ -559,9 +559,9 @@ msgstr "Añadir una cima"
 
 # [general comment]
 # Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Created summit synchronized with hut for access"
-msgstr "Created summit synchronized with hut for access"
+msgstr "Creación de la cumbre asociada al refugio para la gestión de los itinerarios de acceso a dicho refugio."
 
 msgid "Creating new areas"
 msgstr "Creación de una nueva región"
@@ -646,17 +646,17 @@ msgstr "Suprimir en ese idioma"
 msgid "Delete geometry"
 msgstr "Suprimir la geometría"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Delete the association with this huts"
-msgstr "Delete the association with this hut"
+msgstr "Quitar el enlace con este refugio"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Delete the association with this routes"
-msgstr "Delete the association with this route"
+msgstr "Quitar el enlace con este itinerario"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Delete the association with this summits"
-msgstr "Delete the association with this summit"
+msgstr "Quitar el enlace con esta cumbre"
 
 msgid "Delete this association"
 msgstr "Suprimir este vinculo"
@@ -728,6 +728,10 @@ msgstr "El documento ha sido borrado"
 msgid "Document does not exist"
 msgstr "Este documento no existe "
 
+# [WARNING] needs_review
+msgid "Document generated %1% in %2%"
+msgstr "Documento creado el %1% en %2%ms."
+
 msgid "Document has been deprotected"
 msgstr "El documento ha sido desprotegido"
 
@@ -784,9 +788,9 @@ msgstr "ED7"
 
 # [general comment]
 # [cda]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Ecomobility"
-msgstr "Ecomobility"
+msgstr "Ecomovilidad"
 
 msgid "Edit"
 msgstr "Modificar"
@@ -873,13 +877,13 @@ msgstr "No se pudo mover el fichero. Inténtelo de nuevo por favor."
 msgid "Failed rasterizing svg file"
 msgstr "La rasterización de la imagen falló"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Failed to create synchronized summit"
-msgstr "Failed to create synchronized summit"
+msgstr "Ha fallado la creación de la cumbre asociada con el refugio"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Failed to synchronize summit"
-msgstr "Fail on automatic update of the summit associated to the hut"
+msgstr "Ha fallado la actualización automatica de la cumbre asociada con el refugio"
 
 msgid "Favorite language:"
 msgstr "Orden de preferencia de idiomas:"
@@ -1153,9 +1157,9 @@ msgstr "Interfaz en:"
 
 # [general comment]
 # error message when invalid request parametes for cda search
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Invalid request parameters"
-msgstr "Invalid request parameters"
+msgstr "Parámetros de búsqueda inválidos"
 
 msgid "Is a child of summit:"
 msgstr "Es una sub-cima de:"
@@ -1193,9 +1197,9 @@ msgstr "sepa más"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "L# button title"
-msgstr "Format the description of a climbing pitch"
+msgstr "Aplicar formato a la descripción de un largo de escalada"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
@@ -1410,9 +1414,9 @@ msgstr "Cambiar su pagina personal"
 
 # [general comment]
 # [cda]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Map"
-msgstr "Map"
+msgstr "Mapa"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
@@ -1721,9 +1725,9 @@ msgstr "El acceso no existe, o sus coordenadas geográficas no se conocen."
 msgid "Parking not found"
 msgstr "El acceso no existe"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Participate to MW %1% contest"
-msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/%1%\">\"Changer d'Approche - Competition</a>&nbsp"
+msgstr "Presentar esta solida al <a href=\"http://www.camptocamp.org/articles/%1%\">concurso cambiar la aproximación</a>&nbsp"
 
 msgid "Password:"
 msgstr "Contraseña:"
@@ -1745,15 +1749,15 @@ msgstr "Página personal"
 
 # [general comment]
 # [cda]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Picturial"
-msgstr "Pictures"
+msgstr "Imágenes"
 
 # [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Place"
-msgstr "Place"
+msgstr "Localización"
 
 msgid "Please enter a valid summit"
 msgstr "por favor, introduzca un nombre de cima válido"
@@ -1796,9 +1800,9 @@ msgstr "Bloquee las modificaciones de este documento"
 
 # [general comment]
 # [cda]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Questions?"
-msgstr "Questions?"
+msgstr "Preguntas?"
 
 msgid "Quick creation of a route"
 msgstr "Creación rápida de un itinerario"
@@ -1984,30 +1988,30 @@ msgstr "Buscar un usuario"
 msgid "Search criteria"
 msgstr "Criterios de búsqueda"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Search in my outings"
-msgstr "Search in my outings"
+msgstr "Buscar entre mis salidas"
 
 # [general comment]
 # [cda]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Search on c2c"
-msgstr "Search on camptocamp"
+msgstr "Buscar en camptocamp"
 
 # [general comment]
 # [cda]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Search outings"
-msgstr "Search of outing reports"
+msgstr "Búsqueda de reseñas de salida"
 
 msgid "Search results"
 msgstr "Resultados de la búsqueda"
 
 # [general comment]
 # [cda]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Search routes"
-msgstr "Search of route datasheet"
+msgstr "Búsqueda de itinerarios"
 
 msgid "Search with google"
 msgstr "Búsqueda en todo el documento:"
@@ -2261,9 +2265,9 @@ msgstr "Esta cima no existe."
 msgid "Summit:"
 msgstr "Cima:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Swisstopo maps"
-msgstr "Swisstopo maps"
+msgstr "mapa Swisstopo"
 
 # [general comment]
 # mobile version : we cannot translate
@@ -2279,9 +2283,9 @@ msgstr "Modificar la licencia"
 msgid "Switch to collaborative license"
 msgstr "Pasar a licencia colaborativa"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Synchronize summit to associated hut"
-msgstr "Automatic update of the summit after a change on associated hut."
+msgstr "Actualización automática de la cumbre después de la modificación del refugio asociado."
 
 msgid "TD"
 msgstr "TD"
@@ -2367,9 +2371,9 @@ msgstr "Esta dirección de email no es valida."
 msgid "This email already exists. Please choose another one."
 msgstr "Esta dirección de email ya existe. Tienes que elegir otra por favor."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "This hut is already linked to a summit"
-msgstr "This hut is already linked to a summit"
+msgstr "Este refugio ya esta asociado con otra cumbre"
 
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Esta nueva salida se asociará con el itinerario '[[routes/%2%|%1%]]' (documento %2%)"
@@ -2497,6 +2501,10 @@ msgstr "La fusión de objetos de tipo utilizador no está autorizada"
 
 msgid "Version #%1%, date %2%"
 msgstr "Versión n°%1% de %2%"
+
+# [WARNING] needs_review
+msgid "Version %1% saved %2%"
+msgstr "Versión %1% registrada el %2%"
 
 msgid "Version is missing"
 msgstr "Los parámetros de versión de este documento son incompletos."
@@ -2721,9 +2729,9 @@ msgstr "Tienes que especificar una dirección de email."
 msgid "You must specify an username"
 msgstr "Tienes que especificar un nombre de usuario."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "You need to login to access to this page"
-msgstr "You need to login to access this page."
+msgstr "Tiene que iniciar su sesión para tener acceso a esta pagina."
 
 msgid "You need to login to create this page"
 msgstr "Te has de conectar para crear esta página."
@@ -3486,15 +3494,15 @@ msgstr "todos los documentos"
 
 # [general comment]
 # a short string when all facings are selected
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "all facings"
-msgstr "all"
+msgstr "todas"
 
 # [general comment]
 # a summary to present best periods when all months are selected
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "all months"
-msgstr "all year round"
+msgstr "todo el año"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -3675,9 +3683,9 @@ msgstr "Contenido de la mochila"
 # [general comment]
 # Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
 # C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "bad choice error"
-msgstr "the selection is incorrect"
+msgstr "la selecion es incorrecta"
 
 msgid "baleares"
 msgstr "Islas Baleares"
@@ -4260,6 +4268,7 @@ msgstr "Descripción:"
 msgid "desert"
 msgstr "no frecuentado"
 
+# [WARNING] needs_update
 msgid "detail pic"
 msgstr "detalle, zoom"
 
@@ -5637,6 +5646,14 @@ msgstr "our partners"
 msgid "outing"
 msgstr "salida"
 
+# [WARNING] en translation used
+msgid "outing ID"
+msgstr "Outing ID"
+
+# [WARNING] en translation used
+msgid "outing date"
+msgstr "Outing date"
+
 msgid "outing form warning"
 msgstr "<strong>¡Cuidado!</strong> En esta página solo debe incluir información acerca de su salida (condiciones encontradas, comentarios personales). Información perenne acerca del itinerario recorrido debe agregarse en la página \"itinerario\" correspondiente. <br />Encontrara mas información acerca de la estructura e la topo-guía en este <a href=\"/articles/117868\">articulo de ayuda</a>.</li><li><strong>Tipo de salida:</strong> Las salidas en heliski o en pistas de centros de esquí usando sus medios mecánicos no están autorizadas. Use el <a href=\"/forums/viewforum.php?id=64\">foro \"Skirando\"</a> para relatar sus observaciones.</li><li><strong>Titulo de la salida:</strong> Por defecto es del tipo \"Cima: Itinerario\" pero lo puede modificar para mencionar una variante, un encadenamiento o un recorrido parcial (intento).</li><li><strong>Asociación a otros documentos:</strong> Una vez creada su salida, la podrá asociar a otros itinerarios o sitios de escalada (en caso de un encadenamiento) así como a otros usuarios registrados quienes participaron en la salida (esto les otorga la posibilidad de modificar el contenido de la salida para agregar sus propios comentarios)."
 
@@ -6614,6 +6631,13 @@ msgstr "la lista de los documentos"
 
 msgid "the list is sorted by id"
 msgstr "La lista es ordenada según la fecha de creación de cada documento"
+
+# [general comment]
+# Utilisé dans les formulaire, autour des sélecteurs d'ordre de tri :
+#   Afficher N résultats par page triés par ... puis par ...
+# [WARNING] en translation used
+msgid "then by"
+msgstr "then by"
 
 msgid "there is no %1% to show"
 msgstr "No hay ningún resultado en la lista de %1%. ¿Quizás sus filtros sean demasiado restrictivos? No se olvide también de averiguar la ortografía o de solo incluir una parte característica de la palabra."

@@ -526,7 +526,7 @@ msgstr "Add a map"
 # PAS DE MARKUP, PAS DE RETOUR A LA LIGNE !!!!!!
 # [WARNING] needs_review
 msgid "Create new outing unconnected"
-msgstr "Please login in order to create a route! If you do not yet have an account, click on \"Signup\". The registration is quickly done and free of charge. Thank you for your future contributions."
+msgstr "Please login in order to create a outing! If you do not yet have an account, click on \"Signup\". The registration is quickly done and free of charge. Thank you for your future contributions."
 
 msgid "Create new outing with some help"
 msgstr "Create new outing with some help"
@@ -556,7 +556,7 @@ msgstr "Add a summit"
 # Texte mis en commentaire de modif lors de la création automatique d'un sommet associé à un refuge.
 # [WARNING] needs_review
 msgid "Created summit synchronized with hut for access"
-msgstr "Created summit synchronized with hut for access"
+msgstr "Created summit synchronized with hut for access."
 
 msgid "Creating new areas"
 msgstr "Creating a new area"
@@ -1724,7 +1724,7 @@ msgstr "This access point doesn’t exist"
 
 # [WARNING] needs_review
 msgid "Participate to MW %1% contest"
-msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/%1%\">\"Changer d'Approche - Competition</a>&nbsp"
+msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/%1%\">Changer d'Approche - Competition</a>&nbsp"
 
 msgid "Password:"
 msgstr "Password:"
@@ -4309,7 +4309,7 @@ msgid "desert"
 msgstr "nobody"
 
 msgid "detail pic"
-msgstr "detail / zoom"
+msgstr "detail (place, route)"
 
 msgid "deutsch"
 msgstr "german"
@@ -5674,6 +5674,12 @@ msgstr "our partners"
 msgid "outing"
 msgstr "outing"
 
+msgid "outing ID"
+msgstr "Outing ID"
+
+msgid "outing date"
+msgstr "Outing date"
+
 msgid "outing form warning"
 msgstr "<strong>Warning!</strong> In this page, only indicate information relating to your outing (specific conditions or personal comments). Permanent information describing a new route must be described on a dedicated \"route\" page.<br />You will find more information about the guidebook’s structure in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Name:</strong>By default, outing names obey the following pattern: \"Summit: Route\", but you can modify it to specify a variation, a sequence or an incomplete trip (attempt).</li><li><strong>Association to other documents:</strong> Once the outing is created, you can associate it to other routes (as in the case of a link-up) or climbing sites, as well as to registered users that have taken part in the outing (thus giving them the right to modify the outing’s page and add their own comments)."
 
@@ -6650,6 +6656,13 @@ msgstr "list of documents"
 
 msgid "the list is sorted by id"
 msgstr "The list is ordered according to each document's date of creation"
+
+# [general comment]
+# Utilisé dans les formulaire, autour des sélecteurs d'ordre de tri :
+#   Afficher N résultats par page triés par ... puis par ...
+# [WARNING] needs_review
+msgid "then by"
+msgstr "then by"
 
 msgid "there is no %1% to show"
 msgstr "There is no results in the list of %1%. Maybe your filters are too restrictive? Do not forget to check your spelling or to only type-in a characteristic part of the word."
