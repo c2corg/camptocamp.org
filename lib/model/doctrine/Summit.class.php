@@ -182,7 +182,7 @@ class Summit extends BaseSummit
 
         // route criteria
         $has_name = Route::buildRouteListCriteria($criteria, $params_list, false, 'linked_id');
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array('r', 'r', 'activities'), 'act', 'join_route');
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array('r', 'r', 'activities'), 'act', array('route', 'join_route'));
         if ($has_name === 'no_result')
         {
             return $has_name;
