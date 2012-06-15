@@ -737,7 +737,7 @@ class BaseDocument extends sfDoctrineRecordI18n
           ->from("$model m")
           ->orderBy($order_by);
         
-        if (!$all && (!empty($conditions) || !empty($joins_order)))
+        if (!$all || !empty($joins_order))
         {
             $criteria[2] = $joins_pager;
             call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
