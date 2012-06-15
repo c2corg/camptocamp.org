@@ -489,10 +489,8 @@ class BaseDocument extends sfDoctrineRecordI18n
             $criteria[0] = array_merge($criteria[0], $conditions);
             $criteria[1] = array_merge($criteria[1], $values);
         }
-        if (!empty($joins))
-        {
-            $criteria[2] += $joins;
-        }
+        $criteria[2] += $joins;
+        $criteria[3] += $joins_order;
     }
 
     public static function buildListCriteria($params_list)
