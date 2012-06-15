@@ -15,6 +15,11 @@ if (!isset($has_title_link))
 {
     $has_title_link = true;
 }
+if (!isset($has_title_rss))
+{
+    $has_title_link = $has_title_link;
+}
+
 if ($has_title_link)
 {
     if (!empty($custom_title_link))
@@ -25,8 +30,10 @@ if ($has_title_link)
     {
         $title_link =  "@default_index?module=$module";
     }
-    
+}
 
+if ($has_title_rss)
+{
     // no rss link in mobile version
     if (!c2cTools::mobileVersion())
     {
