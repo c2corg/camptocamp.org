@@ -1,6 +1,7 @@
 <?php
 $module = $sf_context->getModuleName();
 $i = 1;
+$nb_features = count($items);
 
 // FIXME: feature partial use Point geometry => what if polygon or line?
 ?>
