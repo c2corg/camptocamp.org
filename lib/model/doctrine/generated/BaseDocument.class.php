@@ -3331,12 +3331,16 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if (!empty($param))
         {
-            $join_key = $param;
             if (!empty($join))
             {
-                $join_key .= '_' . $join;
+                $join_key = $param . '_' . $join;
+            }
+            else
+            {
+                $join_key = 'post_' . $param;
             }
             $joins[$join_key] = true;
+            $joins['join_' . $param] = true;
         }
     }
 

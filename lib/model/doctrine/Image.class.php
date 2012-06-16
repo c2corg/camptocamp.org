@@ -510,7 +510,7 @@ class Image extends BaseImage
         
         // image criteria
         $has_name = Image::buildImageListCriteria($criteria, $params_list, true);
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Join', '', 'join', 'id_has');
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Join', '', 'join', '');
         if ($has_name === 'no_result')
         {
             return $has_name;
