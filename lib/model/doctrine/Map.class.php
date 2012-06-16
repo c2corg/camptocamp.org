@@ -54,19 +54,21 @@ class Map extends BaseMap
         
         self::buildOrderCondition($joins_order, $orderby_list, array('mnam'), array('map_i18n', 'join_map'));
         
-        // return if no criteria
-        if (isset($joins['all']) || empty($params_list))
-        {
-            $criteria[0] = $conditions;
-            $criteria[1] = $values;
-            $criteria[2] = $joins;
-            $criteria[3] = $joins_order;
-            return $criteria;
-        }
-        
         // area criteria
         self::buildAreaCriteria($criteria, $params_list, 'm');
 
+        // return if no criteria
+        if (isset($joins['all']) || empty($params_list))
+        {
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
+            $criteria[2] += $joins;
+            $criteria[3] += $joins_order;
+            return $criteria;
+        }
+        
+        // map criteria
+        
         $m = 'm';
         $m2 = 'm';
         $mid = 'm.id';

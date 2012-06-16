@@ -389,16 +389,6 @@ class User extends BaseUser
         
         self::buildOrderCondition($joins_order, $orderby_list, array('unam'), array('user_i18n', 'join_user'));
         
-        // return if no criteria
-        if (isset($joins['all']) || empty($params_list))
-        {
-            $criteria[0] = $conditions;
-            $criteria[1] = $values;
-            $criteria[2] = $joins;
-            $criteria[3] = $joins_order;
-            return $criteria;
-        }
-        
         // area criteria
         self::buildAreaCriteria($criteria, $params_list, 'u');
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'MultiId', array('go', 'linked_id'), 'oareas', 'oarea');
@@ -406,6 +396,16 @@ class User extends BaseUser
         {
             $joins['join_outing'] = true;
             $joins['post_outing'] = true;
+        }
+        
+        // return if no criteria
+        if (isset($joins['all']) || empty($params_list))
+        {
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
+            $criteria[2] += $joins;
+            $criteria[3] += $joins_order;
+            return $criteria;
         }
         
         // user criteria

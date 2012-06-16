@@ -316,18 +316,18 @@ class Outing extends BaseOuting
         $outings_sort_route_criteria = array('fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat');
         self::buildOrderCondition($joins_order, $orderby_list, $outings_sort_route_criteria, array('route', 'join_route'));
         
+        // area criteria
+        self::buildAreaCriteria($criteria, $params_list, 'o');
+        
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))
         {
-            $criteria[0] = $conditions;
-            $criteria[1] = $values;
-            $criteria[2] = $joins;
-            $criteria[3] = $joins_order;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
+            $criteria[2] += $joins;
+            $criteria[3] += $joins_order;
             return $criteria;
         }
-        
-        // area criteria
-        self::buildAreaCriteria($criteria, $params_list, 'o');
         
         // outing / article criteria
         $has_name = Outing::buildOutingListCriteria($criteria, $params_list, true);

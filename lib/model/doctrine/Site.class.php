@@ -262,19 +262,19 @@ class Site extends BaseSite
         
         self::buildOrderCondition($joins_order, $orderby_list, array('tnam'), array('site_i18n', 'join_site'));
         
-        // return if no criteria
-        if (isset($joins['all']) || empty($params_list))
-        {
-            $criteria[0] = $conditions;
-            $criteria[1] = $values;
-            $criteria[2] = $joins;
-            $criteria[3] = $joins_order;
-            return $criteria;
-        }
-        
         // area criteria
         self::buildAreaCriteria($criteria, $params_list, 's');
 
+        // return if no criteria
+        if (isset($joins['all']) || empty($params_list))
+        {
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
+            $criteria[2] += $joins;
+            $criteria[3] += $joins_order;
+            return $criteria;
+        }
+        
         // site criteria
         $has_name = Site::buildSiteListCriteria($criteria, $params_list, true);
         if ($has_name === 'no_result')

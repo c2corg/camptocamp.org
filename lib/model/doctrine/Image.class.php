@@ -495,18 +495,18 @@ class Image extends BaseImage
         self::buildOrderCondition($joins_order, $orderby_list, array('oid'), array('post_outing', 'join_outing'));
         self::buildOrderCondition($joins_order, $orderby_list, array('odate'), array('outing', 'join_outing'));
         
+        // area criteria
+        self::buildAreaCriteria($criteria, $params_list, 'i');
+        
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))
         {
-            $criteria[0] = $conditions;
-            $criteria[1] = $values;
-            $criteria[2] = $joins;
-            $criteria[3] = $joins_order;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
+            $criteria[2] += $joins;
+            $criteria[3] += $joins_order;
             return $criteria;
         }
-        
-        // area criteria
-        self::buildAreaCriteria($criteria, $params_list, 'i');
         
         // image criteria
         $has_name = Image::buildImageListCriteria($criteria, $params_list, true);

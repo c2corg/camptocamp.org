@@ -483,19 +483,19 @@ class Route extends BaseRoute
         
         self::buildOrderCondition($joins_order, $orderby_list, array('rnam'), array('route_i18n', 'join_route', 'summit_i18n', 'join_summit'));
         
-        // return if no criteria
-        if (isset($joins['all']) || empty($params_list))
-        {
-            $criteria[0] = $conditions;
-            $criteria[1] = $values;
-            $criteria[2] = $joins;
-            $criteria[3] = $joins_order;
-            return $criteria;
-        }
-        
         // area criteria
         self::buildAreaCriteria($criteria, $params_list, 'r');
 
+        // return if no criteria
+        if (isset($joins['all']) || empty($params_list))
+        {
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
+            $criteria[2] += $joins;
+            $criteria[3] += $joins_order;
+            return $criteria;
+        }
+        
         // route / book / article criteria
         $has_name = Route::buildRouteListCriteria($criteria, $params_list, true);
         if ($has_name === 'no_result')

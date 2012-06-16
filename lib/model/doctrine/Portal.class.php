@@ -33,18 +33,18 @@ class Portal extends BasePortal
         
         self::buildOrderCondition($joins_order, $orderby_list, array('wnam'), array('portal_i18n', 'join_portal'));
         
+        // area criteria
+        self::buildAreaCriteria($criteria, $params_list, 'w');
+        
         // return if no criteria
         if (isset($joins['all']) || empty($params_list))
         {
-            $criteria[0] = $conditions;
-            $criteria[1] = $values;
-            $criteria[2] = $joins;
-            $criteria[3] = $joins_order;
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
+            $criteria[2] += $joins;
+            $criteria[3] += $joins_order;
             return $criteria;
         }
-        
-        // area criteria
-        self::buildAreaCriteria($criteria, $params_list, 'w');
         
         // portal criteria
         $m = 'm';

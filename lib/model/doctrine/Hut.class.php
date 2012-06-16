@@ -185,19 +185,19 @@ class Hut extends BaseHut
         
         self::buildOrderCondition($joins_order, $orderby_list, array('hnam'), array('hut_i18n', 'join_hut'));
         
-        // return if no criteria
-        if (isset($joins['all']) || empty($params_list))
-        {
-            $criteria[0] = $conditions;
-            $criteria[1] = $values;
-            $criteria[2] = $joins;
-            $criteria[3] = $joins_order;
-            return $criteria;
-        }
-        
         // area criteria
         self::buildAreaCriteria($criteria, $params_list, 'h');
 
+        // return if no criteria
+        if (isset($joins['all']) || empty($params_list))
+        {
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
+            $criteria[2] += $joins;
+            $criteria[3] += $joins_order;
+            return $criteria;
+        }
+        
         // hut / book / article criteria
         $has_name = Hut::buildHutListCriteria($criteria, $params_list, true);
         if ($has_name === 'no_result')

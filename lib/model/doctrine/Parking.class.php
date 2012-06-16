@@ -175,19 +175,19 @@ class Parking extends BaseParking
         
         self::buildOrderCondition($joins_order, $orderby_list, array('pnam'), array('parking_i18n', 'join_parking'));
         
-        // return if no criteria
-        if (isset($joins['all']) || empty($params_list))
-        {
-            $criteria[0] = $conditions;
-            $criteria[1] = $values;
-            $criteria[2] = $joins;
-            $criteria[3] = $joins_order;
-            return $criteria;
-        }
-        
         // area criteria
         self::buildAreaCriteria($criteria, $params_list, 'p');
 
+        // return if no criteria
+        if (isset($joins['all']) || empty($params_list))
+        {
+            $criteria[0] = array_merge($criteria[0], $conditions);
+            $criteria[1] = array_merge($criteria[1], $values);
+            $criteria[2] += $joins;
+            $criteria[3] += $joins_order;
+            return $criteria;
+        }
+        
         // parking / book / article criteria
         $has_name = Parking::buildParkingListCriteria($criteria, $params_list, true);
         if ($has_name === 'no_result')
