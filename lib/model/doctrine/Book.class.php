@@ -323,7 +323,7 @@ class Book extends BaseBook
             case 'act':  return 'm.activities';
             case 'auth': return 'm.author';
             case 'edit': return 'm.editor';
-            case 'btyp': return 'm.book_type';
+            case 'btyp': return 'm.book_types';
             case 'blang': return 'm.langs';
             default: return NULL;
         }
