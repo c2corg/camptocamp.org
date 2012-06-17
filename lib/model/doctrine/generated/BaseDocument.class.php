@@ -390,7 +390,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         if (empty($params_list) && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
         {
             $perso = array();
-            list($langs_enable, $areas_enable, $activities_enable) = $this->getDefaultFilters($module);
+            list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module);
             if ($langs_enable) $perso[] = 'cult';
             if ($areas_enable) $perso[] = 'areas';
             if ($activities_enable) $perso[] = 'act';
@@ -628,11 +628,17 @@ class BaseDocument extends sfDoctrineRecordI18n
             if (count($joins_order))
             {
                 $join = strtolower($model);
+                
                 $remove_join = $join . '_i18n';
                 if (isset($joins_order[$remove_join]))
                 {
                     unset($joins_order[$remove_join]);
                 }
+                if ($model == 'User' && isset($joins_order['user_pd']))
+                {
+                    unset($joins_order['user_pd']);
+                }
+                
                 $remove_join = 'join_' . $join;
                 if (count($joins_order) == 1 && isset($joins_order[$remove_join]))
                 {

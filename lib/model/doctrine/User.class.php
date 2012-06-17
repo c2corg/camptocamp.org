@@ -199,7 +199,7 @@ class User extends BaseUser
             $join_id = null;
             $join_idi18n = null;
             $join_i18n = 'user_i18n';
-            $join_private_data = null;
+            $join_private_data = 'user_pd';
         }
         else
         {
@@ -388,6 +388,7 @@ class User extends BaseUser
         $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
         
         self::buildOrderCondition($joins_order, $orderby_list, array('unam'), array('user_i18n', 'join_user'));
+        self::buildOrderCondition($joins_order, $orderby_list, array('ufnam'), array('user_pd', 'join_user'));
         
         // area criteria
         self::buildAreaCriteria($criteria, $params_list, 'u');
@@ -517,16 +518,16 @@ class User extends BaseUser
                     $q->leftJoin($m . '.' . $linked . 'User u');
                 }
             }
+        }
 
-            if (isset($joins[$join . '_pd']))
-            {
-                $q->leftJoin($m . '.' . $linked . 'UserPrivateData upd');
-            }
+        if (isset($joins[$join . '_pd']))
+        {
+            $q->leftJoin($m . '.' . $linked . 'UserPrivateData upd');
+        }
 
-            if (isset($joins[$join . '_i18n']))
-            {
-                $q->leftJoin($m . '.' . $linked . 'UserI18n ui');
-            }
+        if (isset($joins[$join . '_i18n']))
+        {
+            $q->leftJoin($m . '.' . $linked . 'UserI18n ui');
         }
         
         if (isset($joins['join_uarticle']))
@@ -599,7 +600,7 @@ class User extends BaseUser
         switch ($orderby)
         {
             case 'unam': return $mi . '.search_name';
-            case 'ufnam': return 'pd.search_username';
+            case 'ufnam': return 'upd.search_username';
             case 'range': return 'gr.linked_id';
             case 'admin': return 'gd.linked_id';
             case 'country': return 'gc.linked_id';
