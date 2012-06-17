@@ -19,6 +19,7 @@ $nb_features = count($items);
       },  
       "id": <?php echo $feature['id']; ?>
     }<?php if ($i++ < $nb_features): ?>,<?php endif; ?>
+
   <?php endforeach; ?>
   ]
 }
