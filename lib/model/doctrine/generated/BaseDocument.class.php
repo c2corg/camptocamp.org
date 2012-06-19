@@ -303,7 +303,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'Date':     self::buildDateCondition($conditions, $values, $field, $value); break;
                 case 'Bbox':    self::buildBboxCondition($conditions, $values, $field, $value); break;
                 case 'Around':    self::buildAroundCondition($conditions, $values, $field, $value); break;
-                case 'Config':    self::buildConfigCondition($conditions, $values, $join_id, $value);
+                case 'Config':    self::buildConfigCondition($joins, $join_id, $value);
                     $join_id = '';
                     break;
                 case 'Join':    self::buildJoinCondition($joins, $values, $join_id, $value);
@@ -387,7 +387,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
         }
         
-        if (empty($params_list) && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
+        if (!$has_merged && !isset($joins['all']) && empty($params_list) && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
         {
             $perso = array();
             list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module);
@@ -3317,13 +3317,13 @@ class BaseDocument extends sfDoctrineRecordI18n
         } 
     }
 
-    public static function buildConfigCondition(&$joins, &$values, $join, $param)
+    public static function buildConfigCondition(&$joins, $join, $param)
     {
-        if ($param == 'yes' || $param == '1')
+        if ($param == 'yes' || $param == '1' || $param = ' ')
         {
             $joins[$join] = true;
         }
-        elseif ($param == 'no' || $param == '0')
+        elseif ($param == 'no' || $param == '0' || $param = '-')
         {
             $joins[$join] = false;
         }
