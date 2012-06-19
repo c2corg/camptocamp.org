@@ -579,7 +579,7 @@ class Image extends BaseImage
         if ($is_module)
         {
             $m = 'm';
-            $main_join = $m . 'associations';
+            $main_join = $m . '.associations';
         }
         else
         {
