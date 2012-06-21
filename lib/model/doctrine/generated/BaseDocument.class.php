@@ -197,6 +197,10 @@ class BaseDocument extends sfDoctrineRecordI18n
                     {
                         $orderby = $sort_orderby_list[$orderby];
                     }
+                    if (empty($params_list))
+                    {
+                        $params_list['perso'] = 'ifon';
+                    }
                     $params_list[$orderby] = ' ';
                 }
             }
@@ -387,18 +391,39 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
         }
         
-        if (!$has_merged && !isset($joins['all']) && empty($params_list) && c2cPersonalization::getInstance()->areFiltersActiveAndOn($module))
+        $perso = c2cTools::getArrayElement($params_list, 'perso');
+        if (!empty($perso))
         {
-            $perso = array();
-            list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module);
-            if ($langs_enable) $perso[] = 'cult';
-            if ($areas_enable) $perso[] = 'areas';
-            if ($activities_enable) $perso[] = 'act';
+            $perso = explode('-', $perso);
         }
         else
         {
-            $perso = c2cTools::getArrayElement($params_list, 'perso');
-            $perso = explode('-', $perso);
+            $perso = array();
+        }
+        
+        $filters_active_and_on = c2cPersonalization::getInstance()->areFiltersActiveAndOn($module);
+        
+        if (!$has_merged && !isset($joins['all']))
+        {
+            if (   $filters_active_and_on
+                && (   empty($params_list)
+                    || (   count($perso) == 1
+                        && in_array('ifon', $perso)))
+            )
+            {
+                list($langs_enable, $areas_enable, $activities_enable) = c2cPersonalization::getDefaultFilters($module);
+                if ($langs_enable) $perso[] = 'cult';
+                if ($areas_enable) $perso[] = 'areas';
+                if ($activities_enable) $perso[] = 'act';
+            }
+            elseif (!$filters_active_and_on && in_array('ifon', $perso))
+            {
+                $perso = array();
+            }
+        }
+        else
+        {
+            $perso = array();
         }
         
         if (!empty($perso))
