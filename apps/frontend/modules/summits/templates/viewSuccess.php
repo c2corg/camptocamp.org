@@ -60,8 +60,8 @@ if ($is_not_archive)
                               'route_list_module' => 'summits',
                               'route_list_ids' => $ids,
                               'route_list_linked' => true));
-        echo '</div>';
     }
+    echo '</div>';
     
     echo '<div class="all_associations col_right col_33">';
     include_partial('areas/association',

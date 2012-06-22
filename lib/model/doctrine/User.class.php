@@ -378,6 +378,8 @@ class User extends BaseUser
         if (!sfContext::getInstance()->getUser()->isConnected())
         {
             $conditions[] = 'upd.is_profile_public IS TRUE';
+            $joins['user_pd'] = true;
+            $joins['join_user'] = true;
             if (isset($joins['all']))
             {
                 unset($joins['all']);

@@ -389,6 +389,10 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 return;
             }
+            else
+            {
+                unset($joins['all']);
+            }
         }
         
         $perso = c2cTools::getArrayElement($params_list, 'perso');
@@ -403,7 +407,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $filters_active_and_on = c2cPersonalization::getInstance()->areFiltersActiveAndOn($module);
         
-        if (!$has_merged && !isset($joins['all']))
+        if (!$has_merged)
         {
             if (   $filters_active_and_on
                 && (   empty($params_list)
