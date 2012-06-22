@@ -43,4 +43,4 @@ if (!$mobile_version): ?>
 <link rel="apple-touch-icon-precomposed" href="<?php echo PUN_STATIC_URL; ?>/static/images/apple-touch-icon.png" />
 <link rel="canonical" href="http://<?php echo sfConfig::get('app_classic_version_host').$_SERVER['REQUEST_URI']; ?>" />
 <?php endif; ?>
-<link href="<?php echo PUN_STATIC_URL; ?>/static/images/favicon.ico" rel="shortcut icon"/>
+<link href="<?php echo PUN_STATIC_URL; ?>/static/images/favicon.ico" rel="shortcut icon" />
