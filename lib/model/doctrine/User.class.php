@@ -234,7 +234,7 @@ class User extends BaseUser
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'u', 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
                 
-                $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'Mstring', array(array($midi18n, 'mi.search_name'), array($midi18n, 'upd.search_username')), 'utfnam', array(array($join_idi18n, $join_i18n), array($join_idi18n, $join_private_data)), array('User', 'UserPrivateData'));
+                $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'Mstring', array(array($midi18n, 'ui.search_name'), array($midi18n, 'upd.search_username')), 'utfnam', array(array($join_idi18n, $join_i18n), array($join_idi18n, $join_private_data)), array('User', 'UserPrivateData'));
                 if ($nb_name === 'no_result')
                 {
                     return $nb_name;
@@ -311,7 +311,7 @@ class User extends BaseUser
             
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'uarnd', $join);
             
-            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, $m . 'i.search_name'), ($is_module ? array('unam', 'name') : 'unam'), array($join_idi18n, $join_i18n), 'User');
+            $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ui.search_name'), ($is_module ? array('unam', 'name') : 'unam'), array($join_idi18n, $join_i18n), 'User');
             if ($nb_name === 'no_result')
             {
                 return $nb_name;
