@@ -171,6 +171,14 @@ input.long_input
 {
   padding-right: 0;
 }
+.children_docs tr
+{
+  display: block;
+}
+.children_docs td
+{
+  display: inline;
+}
 
 #routes_summary .list_link
 {

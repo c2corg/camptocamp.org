@@ -48,7 +48,7 @@ if (isset($items))
             {
                 $text_date = format_date($timedate, 'D');
             }
-            if ($timedate != $date)
+            if ($timedate != $date || $is_mobile_version)
             {
                 echo '<time datetime="' . $timedate . '">' . $text_date . '</time>';
                 $date = $timedate;
