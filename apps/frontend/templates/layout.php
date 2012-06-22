@@ -64,6 +64,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     $favicon = ($footer_type == 'cda') ? 'portals/cda_favicon.ico' : 'favicon.ico';
     echo $static_base_url . '/static/images/' . $favicon;
     ?>" />
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://<?php echo sfConfig::get('app_mobile_version_host').$_SERVER['REQUEST_URI']; ?>" />
 </head>
 <body>
     <div id="holder">
