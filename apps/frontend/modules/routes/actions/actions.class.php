@@ -396,6 +396,8 @@ class routesActions extends documentsActions
             {
                 $sr = new Association();
                 $sr->doSaveWithValues($summit_id, $id, 'sr', $user_id); // main, linked, type
+                // clear cache of associated summit ...
+                $this->clearCache('summits', $summit_id, false, 'view');
             }        
 
             // here if we have created a new document and if $this->document->get('geom_wkt') is null, then use associated doc geom associations:
@@ -416,8 +418,11 @@ class routesActions extends documentsActions
             if ($this->new_document && $summit_id && count($hut_asso) > 0)
             {
                 // associate hut to summit 
-                $asso = new Association(); 
-                $asso->doSaveWithValues($hut_asso[0]->get('linked_id'), $id, 'hr', 2); // C2C user
+                $asso = new Association();
+                $hut_id = $hut_asso[0]->get('linked_id');
+                $asso->doSaveWithValues($hut_id, $id, 'hr', 2); // C2C user
+                // clear cache of associated hut ...
+                $this->clearCache('huts', $hut_id, false, 'view');
             }
 
             parent::endEdit(); // redirect to document view
