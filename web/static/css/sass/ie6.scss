@@ -129,7 +129,8 @@
 .action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
 .action_report, .action_help, .action_informations, .action_description,
 .action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc,
-.picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_open_light, .picto_close, .picto_close_light, .picto_add, .picto_rm, .picto_images_light,
+.picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_open_light,
+.picto_close, .picto_close_light, .picto_add, .picto_rm, .picto_images_light, .picto_movie,
 th.order_desc, th.order_asc, .image_list a.view_original, #lightbox_view_original, .image_list a.unlink
 {
   background-image: url(c2chash('/static/images/ie/actions.gif'));
@@ -373,6 +374,10 @@ select.picto_forum, select.picto_forums
 .picto_images_light
 {
   background-position: -8px -1407px;
+}
+.picto_movie
+{
+    background-position: -8px -1440px;
 }
 
 th.order_desc

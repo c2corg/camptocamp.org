@@ -1688,6 +1688,10 @@ msgstr "Outings linked to these images"
 msgid "Outings linked to this route"
 msgstr "Outings linked to the route on this page"
 
+# [WARNING] fr translation used
+msgid "Outings with video"
+msgstr "Sorties avec vidéo"
+
 msgid "PD"
 msgstr "PD"
 

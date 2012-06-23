@@ -95,6 +95,7 @@ CDA_KNOW_MORE = 219827
 
 ; tag article ids
 PARAGLIDING_TAG_ID = 297800
+VIDEO_TAG_ID = 248226
 
 ; portal ids
 CDA_ID = 219879

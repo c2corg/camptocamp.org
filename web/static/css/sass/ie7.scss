@@ -559,7 +559,7 @@ a.external_link, .htext .hextra a.external_link {
 .action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc,
 .action_json, .action_kml, .action_people,
 .picto_rss, .picto_list, .picto_forum, .picto_forums, .picto_info, .picto_tools, .picto_add, .picto_rm,
-.picto_open, .picto_open_light, .picto_close, .picto_close_light,
+.picto_open, .picto_open_light, .picto_close, .picto_close_light, .picto_movie,
 .picto_weather, .picto_snow, .picto_images_light
 {
   background: url(c2chash('/static/images/picto/actions.png')) no-repeat;
@@ -804,6 +804,10 @@ select.picto_forum, select.picto_forums
 .picto_images_light
 {
   background-position: -8px -1407px;
+}
+.picto_movie
+{
+  background-position: -8px -1440px;
 }
 .image_list a.view_original, #lightbox_view_original
 {

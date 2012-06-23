@@ -1685,6 +1685,9 @@ msgstr "Sorties associées à ces images"
 msgid "Outings linked to this route"
 msgstr "Sorties associées à l'itinéraire de cette page"
 
+msgid "Outings with video"
+msgstr "Sorties avec vidéo"
+
 msgid "PD"
 msgstr "PD"
 

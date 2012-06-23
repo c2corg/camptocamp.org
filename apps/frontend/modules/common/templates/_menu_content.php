@@ -254,11 +254,16 @@ show_select=function()
                    . $sublevel_start ?>
                 <ul>
                     <li><?php
+                        echo picto_tag('action_query')
+                           . link_to(__('Search'), '@filter?module=images') ?></li>
+                    <li><?php
                         echo picto_tag('picto_images')
                            . link_to(__('Collaborative images'), 'images/list?ityp=1') ?></li>
                     <li><?php
-                        echo picto_tag('action_query')
-                           . link_to(__('Search'), '@filter?module=images') ?></li>
+                        $video_tag_article = sfConfig::get('app_tags_video');
+                        echo picto_tag('picto_movie')
+                           . link_to(__('Outings with video'), 'outings/list?otags='.
+                           $video_tag_article['id'].'&orderby=date&order=desc')  ?></li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
                            . link_to(__('Help'), getMetaArticleRoute('help_images')) ?></li>

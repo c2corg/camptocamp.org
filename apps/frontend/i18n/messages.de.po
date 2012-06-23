@@ -726,9 +726,9 @@ msgstr "Das Dokument wurde gelöscht"
 msgid "Document does not exist"
 msgstr "Dieses Dokument existiert nicht"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Document generated %1% in %2%"
-msgstr "Document generated %1% in %2%ms."
+msgstr "Dokument wurde erstellt am %1% in %2%ms."
 
 msgid "Document has been deprotected"
 msgstr "Das Dokument wurde freigegeben"
@@ -1686,6 +1686,10 @@ msgstr "Mit diesen Bildern verbundene Touren"
 msgid "Outings linked to this route"
 msgstr "Mit der Route dieser Seite verbundene Touren"
 
+# [WARNING] fr translation used
+msgid "Outings with video"
+msgstr "Sorties avec vidéo"
+
 msgid "PD"
 msgstr "WS"
 
@@ -2513,9 +2517,9 @@ msgstr "Das Zusammenschliessen von Beiträger ist nicht erlaubt"
 msgid "Version #%1%, date %2%"
 msgstr "Fassung %1% vom %2%"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Version %1% saved %2%"
-msgstr "Version %1% registered %2%"
+msgstr "Version %1% gespeichert am %2%"
 
 msgid "Version is missing"
 msgstr "Die Parameter dieser Fassung sind unvollständig."
@@ -2739,9 +2743,9 @@ msgstr "Sie müssen eine Email-Adresse angeben."
 msgid "You must specify an username"
 msgstr "Sie müssen einen Benutzernamen angeben."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "You need to login to access to this page"
-msgstr "You need to login to access this page."
+msgstr "Sie müssen sich einloggen, um auf diese Seite zugreiffen zu können."
 
 msgid "You need to login to create this page"
 msgstr "Sie müssen sich einloggen, um diese Seite zu erstellen."
@@ -5854,13 +5858,13 @@ msgstr "Unsere Partner"
 msgid "outing"
 msgstr "Tour"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "outing ID"
-msgstr "Outing ID"
+msgstr "ID der Tour"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "outing date"
-msgstr "Outing date"
+msgstr "Datum der Tour"
 
 # [WARNING] needs_review
 msgid "outing form warning"
@@ -5980,7 +5984,6 @@ msgstr "Mittlere Neigung (in Grad):"
 msgid "people pic"
 msgstr "Personen"
 
-# [WARNING] en translation used
 msgid "permalink"
 msgstr "Permalink"
 
@@ -6857,9 +6860,9 @@ msgstr "Die Liste ist nach dem Erstellungsdatum der Dokumente geordnet."
 # [general comment]
 # Utilisé dans les formulaire, autour des sélecteurs d'ordre de tri :
 #   Afficher N résultats par page triés par ... puis par ...
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "then by"
-msgstr "then by"
+msgstr "danach bei"
 
 msgid "there is no %1% to show"
 msgstr "Es gibt kein Ergebnis in der Liste der %1%. Vielleicht sind ihre Filter zu restriktiv? Haben sie einen Tippfehler gemacht? Versuchen sie es lediglich mit einem charakteristischen Teil des Wortes."

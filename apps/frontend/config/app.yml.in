@@ -2138,6 +2138,9 @@ all:
     paragliding:
       param: 'stags'
       id: @PARAGLIDING_TAG_ID@
+    video:
+      param: 'otags'
+      id: @VIDEO_TAG_ID@
 
   statsd:
     server_name: @STATSD_HOST@

@@ -723,9 +723,8 @@ msgstr "Il documento è stato cancellato"
 msgid "Document does not exist"
 msgstr "Questo documento non è stato trovato"
 
-# [WARNING] en translation used
 msgid "Document generated %1% in %2%"
-msgstr "Document generated %1% in %2%ms."
+msgstr "Documento generato il %1% in %2%ms."
 
 msgid "Document has been deprotected"
 msgstr "Il documento è stato sprotetto"
@@ -1684,6 +1683,10 @@ msgstr "Gite associate a queste immagini"
 msgid "Outings linked to this route"
 msgstr "Gite associate a l'itinerario di questa pagina"
 
+# [WARNING] fr translation used
+msgid "Outings with video"
+msgstr "Sorties avec vidéo"
+
 msgid "PD"
 msgstr "PD"
 
@@ -2502,9 +2505,8 @@ msgstr "Non è autorizzata l’unione di oggetti del tipo utente"
 msgid "Version #%1%, date %2%"
 msgstr "Versione n°%1% del %2%"
 
-# [WARNING] en translation used
 msgid "Version %1% saved %2%"
-msgstr "Version %1% registered %2%"
+msgstr "Versione %1% registrata il %2%"
 
 msgid "Version is missing"
 msgstr "I parametri di versione di questo documento sono incompleti."
@@ -4276,9 +4278,8 @@ msgstr "Descrizione:"
 msgid "desert"
 msgstr "nessuno"
 
-# [WARNING] needs_update
 msgid "detail pic"
-msgstr "dettaglio, zoom"
+msgstr "dettaglio (luogo, itinerario)"
 
 msgid "deutsch"
 msgstr "tedesco"
@@ -5625,13 +5626,11 @@ msgstr "i nostri partners"
 msgid "outing"
 msgstr "gita"
 
-# [WARNING] en translation used
 msgid "outing ID"
-msgstr "Outing ID"
+msgstr "ID della gita"
 
-# [WARNING] en translation used
 msgid "outing date"
-msgstr "Outing date"
+msgstr "Data della gita"
 
 msgid "outing form warning"
 msgstr "<strong>Attenzione&nbsp;!</strong> In questa pagina indicare solo le informazioni relative a la tua gita (condizioni, commenti personali). Le informazioni relative alla descrizione dell'itinerario devono essere inserite nel documento \"itinerario\".<br />Per maggiori informazioni vedere l'<a href=\"/articles/117868/it\">aiuto</a> sull'organizzazione della guida.</li><li><strong>Nome della gita:</strong> Per default, prede la forma \"Cima: Itinerario\", ma puoi modificarlo per indicare le variante seguite, un concatenamento, un percorso parziale...</li><li><strong>Associazione ad altri documenti:</strong> Una volta la gita creata, potrai associarla ad altri itinerari nel caso di un concatenamento, e anche associare altri partecipanti registrati sul sito (cosi potranno anche loro modificare la gita e aggiunger i loro commenti)."
@@ -5931,7 +5930,7 @@ msgstr "<p><a href=\"/articles/107228/it/link-utili#meteo\">Meteo</a></p>\n"
 "<p><a href=\"/articles/107228/it/link-utili#carto\">Cartografia</a></p>\n"
 "<ul><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico</a></li><li><a href=\"http://map.geo.admin.ch/?lang=it\">map.geo.admin.ch (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#rifugi\">Rifugi</a></p>\n"
-"<ul><li><a href=\"/huts/filter\">Cerca un rifugio</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Rifugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Rifugi CAF</a></li></ul>"
+"<ul><li><a href=\"/huts/filter\">Cerca un rifugio</a></li><li><a href=\"http://www.cai.it/index.php?id=1406&L=0\">Rifugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Rifugi CAF</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
@@ -6594,9 +6593,9 @@ msgstr "La lista è ordinata per data di creazione dei documenti."
 # [general comment]
 # Utilisé dans les formulaire, autour des sélecteurs d'ordre de tri :
 #   Afficher N résultats par page triés par ... puis par ...
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "then by"
-msgstr "then by"
+msgstr "e per"
 
 msgid "there is no %1% to show"
 msgstr "Nessun risultato nella lista degli %1%. Forse i criteri di ricerca sono troppo selettivi? Verifica l'ortografia delle parole ricercate. Inserisci solo la parte più significativa della parole."

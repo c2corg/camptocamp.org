@@ -1659,6 +1659,10 @@ msgstr "Sortides associades a aquestes imatges"
 msgid "Outings linked to this route"
 msgstr "Sortides associades a l'itinerari d'aquesta pàgina"
 
+# [WARNING] fr translation used
+msgid "Outings with video"
+msgstr "Sorties avec vidéo"
+
 msgid "PD"
 msgstr "PD"
 
