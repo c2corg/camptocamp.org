@@ -14,6 +14,11 @@ else
     $sf_response->addStylesheet('/static/css/mobile.css', 'last');
 }
 
+if ($sf_user->getCulture() == 'en')
+{
+    $sf_response->addStylesheet('/static/css/ac.css');
+}
+
 $sf_response->addJavascript('/static/js/prototype.js', 'head_first');
 $sf_response->addJavascript('/static/js/effects.js', 'head');
 $sf_response->addJavascript('/static/js/controls.js', 'head');
