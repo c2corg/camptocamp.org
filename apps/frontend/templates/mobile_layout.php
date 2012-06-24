@@ -52,7 +52,8 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
     ?>" />
     <link rel="apple-touch-icon" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
-    <link rel="canonical" href="http://<?php echo sfConfig::get('app_classic_version_host').$_SERVER['REQUEST_URI']; ?>" />
+    <link rel="canonical" href="http://<?php echo sfConfig::get('app_classic_version_host').
+    ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>
 <body>
     <div id="holder">
