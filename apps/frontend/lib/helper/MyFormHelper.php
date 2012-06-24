@@ -540,14 +540,18 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
     $html = select_tag('type', $options,
                        array('onchange' => $select_js,
                              'class' => 'picto picto_'.$selected,
-                             'id' => $id_prefix.'type',
-                             'placeholder' => __('Search'),
-                             'accesskey' => 'f',
-                             'title' => __('Search on c2c') . ' [alt-shift-f]'));
+                             'id' => $id_prefix.'type'));
+    
+    $input_html_options = array('class' => 'searchbox action_filter',
+                                'id' => $id_prefix.'q',
+                                'type' => 'search',
+                                'placeholder' => __('Search'),
+                                'accesskey' => 'f',
+                                'title' => __('Search on c2c') . ' [alt-shift-f]');
     if ($autocomplete)
     {
         $html .= input_auto_complete_tag('q', '', '@quicksearch',
-                                         array('class' => 'searchbox action_filter', 'id' => $id_prefix.'q', 'type' => 'search'),
+                                         $input_html_options,
                                          array('update_element' => "function (selectedItem) {
                                                   window.location = '/documents/'+selectedItem.id; }",
                                                'min_chars' => sfConfig::get('app_autocomplete_min_chars'),
@@ -555,8 +559,7 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
     }
     else
     {
-        $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'),
-                           array('class' => 'searchbox action_filter', 'id' => $id_prefix.'q', 'type' => 'search'));
+        $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), $input_html_options);
     }
     return $html;
 }

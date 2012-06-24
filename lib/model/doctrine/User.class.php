@@ -468,10 +468,12 @@ class User extends BaseUser
             $linked = '';
             $main_join = $m . '.associations';
             $linked_join = $m . '.LinkedAssociation';
+            $private_data = 'private_data';
         }
         else
         {
             $m = 'lu';
+            $private_data = 'UserPrivateData';
             if ($is_linked)
             {
                 $linked = 'Linked';
@@ -524,7 +526,7 @@ class User extends BaseUser
 
         if (isset($joins[$join . '_pd']))
         {
-            $q->leftJoin($m . '.' . $linked . 'UserPrivateData upd');
+            $q->leftJoin($m . '.' . $linked . $private_data . ' upd');
         }
 
         if (isset($joins[$join . '_i18n']))
