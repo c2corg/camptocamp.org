@@ -18,10 +18,18 @@ else
 
 function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $size = '45')
 {
+    if ($module == 'users')
+    {
+        $placeholder = __('ID or name/nickname');
+    }
+    else
+    {
+        $placeholder = __('Keyword or ID');
+    }
     return input_auto_complete_tag($module . '_name', 
                             $display, // default value in text field 
                             "$module/autocomplete", 
-                            array('size' => $size, 'id' => $field_prefix.'_'.$module.'_name'), 
+                            array('size' => $size, 'id' => $field_prefix.'_'.$module.'_name', 'placeholder' => $placeholder), 
                             array('after_update_element' => "function (inputField, selectedItem) {\$('$update_hidden').value = selectedItem.id;}",
                                   'min_chars' => sfConfig::get('app_autocomplete_min_chars'), // min chars to type
                                   'indicator' => 'indicator'));
