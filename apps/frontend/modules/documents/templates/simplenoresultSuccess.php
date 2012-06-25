@@ -3,7 +3,7 @@ use_helper('Pagination','Form', 'Language', 'MyForm', 'Viewer');
 
 $module = $sf_context->getModuleName();
 
-echo display_title(__('Search'), 'documents');
+echo display_title(__('Search a ' . $module), $module);
 
 if (!c2cTools::mobileVersion())
 {
@@ -22,6 +22,8 @@ echo format_number_choice('[0] No result found|(1,+Inf]Found %nb_result% results
                           0);
 
 include_partial('common/search_form', array('autocomplete' => false, 'prefix' => '_'));
+
+echo '<br /><p>' . link_to(__('Advanced search'), '@filter?module=' . $module) . '</p>';
 
 include_partial("documents/google_result", array('module' => $module, 'query_string' => $query_string));
 
