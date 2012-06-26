@@ -38,7 +38,7 @@ require PUN_ROOT.'include/user/symfony_start.php';
 // This is the same process as we do in our symfony MobileFilter for automatic redirection for mobile version
 // we check if the user agent is one from a smartphone. If so, and if there is no cookie preventing redirection,
 // we redirect
-if (preg_match('/(Mobile|Symbian|Nokia|SAMSUNG|BlackBerry|Mini)/i', $_SERVER['HTTP_USER_AGENT'])) {
+if (!c2cTools::mobileVersion() && preg_match('/(Mobile|Symbian|Nokia|SAMSUNG|BlackBerry|Mini|Android)/i', $_SERVER['HTTP_USER_AGENT'])) {
     // we do not redirect if user has a cookie stating that we shouldn't
     if (!isset($_COOKIE['nomobile']))
     {

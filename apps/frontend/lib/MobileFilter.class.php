@@ -27,6 +27,7 @@ class MobileFilter extends sfFilter
             // - SAMSUNG for Bada and other samsung devices
             // - Mini for Opera Mini
             // Maybe we should add more, but it doesn't represent many visits and users can still directly access mobile version of the site
+            // if you make changes here, be sure also to check web/forums/include/common.php
 
             // we check if the user agent is one from a smartphone. If so, and if there is no cookie preventing redirection,
             // we redirect
