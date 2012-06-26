@@ -166,7 +166,11 @@ else if (isset($_GET['email']))
                             message($lang_common['Invalid e-mail']);
                         
 
-		pun_mail($recipient_email, $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
+		// Send mail to recipient
+        pun_mail($recipient_email, $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
+        
+        // Send copy to sender
+		pun_mail($pun_user['email'], $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
 
 		redirect(htmlspecialchars($_POST['redirect_url']), $lang_misc['E-mail sent redirect']);
 	}
