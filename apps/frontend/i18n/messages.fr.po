@@ -1072,6 +1072,10 @@ msgstr "Ce refuge n'existe pas."
 msgid "Hut:"
 msgstr "Refuge&nbsp;:"
 
+# [WARNING] needs_review
+msgid "ID or name/nickname"
+msgstr "ID ou début du nom/pseudo"
+
 # [general comment]
 # dans l'arbre des couches de l'appli carto
 msgid "IGN maps"
@@ -1187,6 +1191,10 @@ msgstr "Il semble que vous ayez oublié de renseigner un nom ou un fichier."
 # Entrée du menu qui renvoie vers l'article d'aide générale
 msgid "Kesako?"
 msgstr "Késako ?"
+
+# [WARNING] needs_review
+msgid "Keyword or ID"
+msgstr "Mot-clé ou ID"
 
 msgid "Know more"
 msgstr "En savoir plus"

@@ -1067,6 +1067,10 @@ msgstr "Questo rifugio non è stato trovato."
 msgid "Hut:"
 msgstr "Rifugio:"
 
+# [WARNING] needs_review
+msgid "ID or name/nickname"
+msgstr "ID o inizio del nome/nikname"
+
 # [general comment]
 # dans l'arbre des couches de l'appli carto
 msgid "IGN maps"
@@ -1182,6 +1186,10 @@ msgstr "Si è dimenticato un nome oppure il file"
 # Entrée du menu qui renvoie vers l'article d'aide générale
 msgid "Kesako?"
 msgstr "Cos'è?"
+
+# [WARNING] en translation used
+msgid "Keyword or ID"
+msgstr "Keyword or ID"
 
 msgid "Know more"
 msgstr "Per saperne di più"
@@ -1683,9 +1691,9 @@ msgstr "Gite associate a queste immagini"
 msgid "Outings linked to this route"
 msgstr "Gite associate a l'itinerario di questa pagina"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Outings with video"
-msgstr "Sorties avec vidéo"
+msgstr "Gita con video"
 
 msgid "PD"
 msgstr "PD"
@@ -4103,9 +4111,9 @@ msgstr "Condizioni incontrate:"
 msgid "conditions linked to"
 msgstr "lista delle condizioni associate"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "conditions_and_equipment"
-msgstr "Condizioni incontrate:"
+msgstr "Condizioni del terreno, attrezzatura e qualità della roccia (avvicinamento e via):"
 
 msgid "conditions_levels"
 msgstr "Innevamento per zona:"

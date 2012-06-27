@@ -1067,6 +1067,10 @@ msgstr "This hut doesn’t exist"
 msgid "Hut:"
 msgstr "Hut:"
 
+# [WARNING] needs_review
+msgid "ID or name/nickname"
+msgstr "ID or beginning of the name/nickname"
+
 # [general comment]
 # dans l'arbre des couches de l'appli carto
 msgid "IGN maps"
@@ -1184,6 +1188,10 @@ msgstr "It seems you have forgotten a name, or a file"
 # Entrée du menu qui renvoie vers l'article d'aide générale
 msgid "Kesako?"
 msgstr "Who are we?"
+
+# [WARNING] needs_review
+msgid "Keyword or ID"
+msgstr "Keyword or ID"
 
 msgid "Know more"
 msgstr "More"

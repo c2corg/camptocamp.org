@@ -1070,6 +1070,10 @@ msgstr "Diese Hütte existiert nicht."
 msgid "Hut:"
 msgstr "Hütte:"
 
+# [WARNING] en translation used
+msgid "ID or name/nickname"
+msgstr "ID or beginning of the name/nickname"
+
 # [general comment]
 # dans l'arbre des couches de l'appli carto
 msgid "IGN maps"
@@ -1185,6 +1189,10 @@ msgstr "Sie haben vergessen, einen Namen oder eine Datei anzugeben."
 # Entrée du menu qui renvoie vers l'article d'aide générale
 msgid "Kesako?"
 msgstr "Was ist c2c?"
+
+# [WARNING] en translation used
+msgid "Keyword or ID"
+msgstr "Keyword or ID"
 
 msgid "Know more"
 msgstr "Mehr"
