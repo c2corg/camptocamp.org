@@ -584,6 +584,7 @@ class documentsActions extends c2cActions
             $this->getResponse()->addMeta('robots', 'noindex, nofollow');
             $this->metadata = $document->getMetadatas();
             $this->created_at = $this->metadata->get('written_at');
+            $this->current_version = $version;
             $title .= ' :: ' . $this->__('revision') . ' ' . $version;
             $this->associated_docs = array();
 

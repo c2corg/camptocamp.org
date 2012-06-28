@@ -70,12 +70,10 @@ include_partial('documents/annex_docs', array('related_portals' => $related_port
 
 $licenses_array = sfConfig::get('app_licenses_list');
 $license = $licenses_array[$document->get('article_type')];
-include_partial('documents/license', array('license' => $license, 'large' => $show_link_tool));
 
-if (!$mobile_version)
-{
-    include_partial('documents/doc_infos', array('version' => $current_version, 'created_at' => $created_at, 'timer' => $timer));
-}
+include_partial('documents/license', array('license' => $license, 'version' => $current_version,
+                                           'created_at' => (isset($created_at) ? $created_at :  null),
+                                           'timer' => $timer, 'large' => $show_link_tool));
 
 echo end_content_tag();
 

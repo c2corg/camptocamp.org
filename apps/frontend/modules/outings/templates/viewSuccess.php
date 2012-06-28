@@ -181,15 +181,11 @@ if ($is_not_archive)
                           'show_link_to_delete' => $show_link_to_delete));
 }
 
-include_partial('documents/license', array('license' => 'by-nc-nd'));
-
-if (!$mobile_version)
-{
-    $version = $is_moderator ? $current_version : 0;
+$version = $is_moderator ? $current_version : 0;
+include_partial('documents/license', array('license' => 'by-nc-nd', 'version' => $version, 
+                                           'created_at' => (isset($created_at) ? $created_at :  null),
+                                           'timer' => $timer));
     
-    include_partial('documents/doc_infos', array('version' => $version, 'created_at' => $created_at, 'timer' => $timer));
-}
-
 echo end_content_tag();
 
 include_partial('common/content_bottom');

@@ -118,9 +118,10 @@ form.search, .sbox,
   margin: 0 !important;
   padding: 0 !important;
 }
-.doc-infos {
-  margin: 0 !important;
-  padding: 0.6em 0 !important;
+
+.doc_infos {
+  display: block;
+  padding-top: 0.6em 0;
 }
 
 .article_titre_bg

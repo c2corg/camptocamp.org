@@ -163,12 +163,9 @@ if ($is_not_archive && $is_not_merged)
                           'show_link_to_delete' => $show_link_to_delete));
 }
 
-include_partial('documents/license', array('license' => 'by-sa'));
-
-if (!$mobile_version)
-{
-    include_partial('documents/doc_infos', array('version' => $current_version, 'created_at' => $created_at, 'timer' => $timer));
-}
+include_partial('documents/license', array('license' => 'by-sa', 'version' => $current_version,
+                                           'created_at' => (isset($created_at) ? $created_at :  null),
+                                           'timer' => $timer));
 
 echo end_content_tag();
 
