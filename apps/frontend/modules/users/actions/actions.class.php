@@ -260,7 +260,7 @@ class usersActions extends documentsActions
                 $redirect_uri = str_replace('_', '/', $redirect_param);
                 
             }
-            elseif ($referer && !empty($referer))
+            elseif ($referer && !empty($referer) && $referer !== $this->getRequest()->getUri())
             {
                 $redirect_uri = $referer;
             }
