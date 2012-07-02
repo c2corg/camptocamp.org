@@ -1,6 +1,6 @@
 <?php
 $mobile_version = c2cTools::mobileVersion();
- 
+
 $sf_response->addStylesheet('/static/css/main.css', 'first');
 if (!$mobile_version)
 {
@@ -14,7 +14,7 @@ else
     $sf_response->addStylesheet('/static/css/mobile.css', 'last');
 }
 
-if ($sf_user->getCulture() == 'en')
+if (sfContext::getInstance()->getUser()->getCulture() == 'en')
 {
     $sf_response->addStylesheet('/static/css/ac.css');
 }
