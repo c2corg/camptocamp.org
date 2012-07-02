@@ -155,7 +155,8 @@ class articlesActions extends documentsActions
         }
         else
         {
-            $this->redirect('@login_redirect?redirect=articles_myarticles');
+            sfLoader::loadHelpers('Url');
+            $this->redirect(url_for('@login', true).'?redirect=articles/myarticles');
         }
     }
 }

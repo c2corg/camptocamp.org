@@ -193,7 +193,7 @@ class usersActions extends documentsActions
         {
             if (!empty($redirect_param))
             {
-                $redirect_uri = str_replace('_', '/', $redirect_param);
+                $redirect_uri = $redirect_param;
             }
             else
             {
@@ -255,12 +255,12 @@ class usersActions extends documentsActions
 
             // redirect to requested page
             $referer = $this->getRequest()->getReferer();
-            if (!empty($redirect_param))
+            if (!empty($redirect_param)) // explicit redirection after login action
             {
-                $redirect_uri = str_replace('_', '/', $redirect_param);
+                $redirect_uri = $redirect_param;
                 
             }
-            elseif ($referer && !empty($referer) && $referer !== $this->getRequest()->getUri())
+            elseif ($referer && !empty($referer) && $referer !== $this->getRequest()->getUri()) // TODO
             {
                 $redirect_uri = $referer;
             }
@@ -344,7 +344,7 @@ class usersActions extends documentsActions
                     }
                     else
                     {
-                        $redirect_uri = "@signUp_redirect?redirect=$redirect_param";
+                        $redirect_uri = url_for('@signUp', true).'?redirect='.$redirect_param;
                     }
                     return $this->setErrorAndRedirect('Sign up failed, please try again', $redirect_uri);
                 }

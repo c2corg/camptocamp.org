@@ -5,7 +5,7 @@
 homepage:
   url: /
   param: { module: documents, action: home }
-  
+
 whatsnew:
   url: /whatsnew
   param: { module: documents, action: whatsnew }
@@ -26,22 +26,14 @@ signUp:
   url: /signUp
   param: { module: users, action: signUp }
 
-signUp_redirect:
-  url: /signUp/:redirect
-  param: { module: users, action: signUp }
-
 login:
   url: /login
-  param: { module: users, action: login }
-
-login_redirect:
-  url: /login/:redirect
   param: { module: users, action: login }
 
 logout:
   url: /logout
   param: { module: users, action: logout }
-  
+
 sf_captcha:
   url:   /captcha
   param: { module: sfCaptcha, action: index }

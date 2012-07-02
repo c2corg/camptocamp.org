@@ -868,7 +868,8 @@ class outingsActions extends documentsActions
         }
         else
         {
-            $this->redirect('@login_redirect?redirect=outings_myoutings');
+            sfLoader::loadHelpers('Url');
+            $this->redirect(url_for('@login', true).'?redirect=outings/myoutings');
         }
     }
 }

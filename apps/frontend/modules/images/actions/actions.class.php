@@ -943,7 +943,8 @@ class imagesActions extends documentsActions
         }
         else
         {
-            $this->redirect('@login_redirect?redirect=images_myimages');
+            sfLoader::loadHelpers('Url');
+            $this->redirect(url_for('@login', true).'?redirect=images/myimages');
         }
     }
 }

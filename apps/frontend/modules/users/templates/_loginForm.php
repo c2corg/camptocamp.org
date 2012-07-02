@@ -1,18 +1,13 @@
 <?php use_helper('Form', 'MyForm', 'Link'); ?>
-
 <div id="fake_div">
-
 <?php
-if (empty($redirect_param))
+echo form_tag('@login', array('id' => 'loginForm')); 
+include_partial('users/loginFields');
+if (isset($redirect_param) && !empty($redirect_param))
 {
-    $form_action = '@login';
+    echo input_hidden_tag('redirect', $redirect_param);
 }
-else
-{
-    $form_action = "@login_redirect?redirect=$redirect_param";
-}
-echo form_tag($form_action, array('id' => 'loginForm')) ?>
-<?php include_partial('users/loginFields'); ?>
+?>
 <p>
   <?php echo c2c_submit_tag(__('Connect')) ?>
   &nbsp;
