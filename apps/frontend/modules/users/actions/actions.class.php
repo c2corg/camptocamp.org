@@ -260,7 +260,7 @@ class usersActions extends documentsActions
                 $redirect_uri = $redirect_param;
                 
             }
-            elseif ($referer && !empty($referer) && $referer !== $this->getRequest()->getUri()) // TODO
+            elseif ($referer && !empty($referer) && $referer !== $this->getController()->genUrl('@login', true))
             {
                 $redirect_uri = $referer;
             }
