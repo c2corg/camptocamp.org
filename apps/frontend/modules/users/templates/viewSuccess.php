@@ -83,14 +83,18 @@ if ($is_not_archive && $is_not_merged)
                . '</li>';
         }
         echo '</ul>';
-    /*    echo '<p><span class="picto action_list"></span> '
-           . link_to(__('List all user collaborative contribs'), "documents/whatsnew?dtyp=collab&users=$id") . ' ('
-           . link_to(__('creations'), "documents/whatsnew?dtyp=collab&mode=creations&users=$id") . ')'
-           . '</p>';  */
-        echo '<p><span class="picto action_list"></span> '
-           . link_to(__('List all user contribs'), "documents/whatsnew?users=$id") . ' ('
-           . link_to(__('creations'), "documents/whatsnew?mode=creations&users=$id") . ')'
-           . '</p>';
+        
+        if ($is_moderator)
+        {
+        /*    echo '<p><span class="picto action_list"></span> '
+               . link_to(__('List all user collaborative contribs'), "documents/whatsnew?dtyp=collab&users=$id") . ' ('
+               . link_to(__('creations'), "documents/whatsnew?dtyp=collab&mode=creations&users=$id") . ')'
+               . '</p>';  */
+            echo '<p><span class="picto action_list"></span> '
+               . link_to(__('List all user contribs'), "documents/whatsnew?users=$id") . ' ('
+               . link_to(__('creations'), "documents/whatsnew?mode=creations&users=$id") . ')'
+               . '</p>';
+        }
     ?>
         </li>
     </ul>
