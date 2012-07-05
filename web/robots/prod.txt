@@ -612,13 +612,3 @@ Disallow: /products/*/new.rss$
 Disallow: /routes/*/new.rss$
 Disallow: /sites/*/new.rss$
 Disallow: /summits/*/new.rss$
-
-# Disallow mobile robots
-User-agent: Googlebot-Mobile
-Disallow: /
-
-User-Agent: botmobi
-Disallow: /
-
-User-Agent: YahooSeeker/M1A1-R2D2
-Disallow: /

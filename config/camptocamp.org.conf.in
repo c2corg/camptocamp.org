@@ -84,14 +84,17 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
 
     # robots.txt content depends which website version we are on.
     # production version (the one we want to have indexed)
-    RewriteCond %{HTTP_HOST} =www.camptocamp.org
-    RewriteRule ^robots.txt$ /robots/prod.txt [L]
-
+    #RewriteCond %{HTTP_HOST} =www.camptocamp.org
+    #RewriteRule ^robots.txt$ /robots/prod.txt [L]
     # mobile version
-    RewriteCond %{HTTP_HOST} =m.camptocamp.org
-    RewriteRule ^robots.txt$ /robots/mobile.txt [L]
+    #RewriteCond %{HTTP_HOST} =m.camptocamp.org
+    #RewriteRule ^robots.txt$ /robots/mobile.txt [L]
 
-    # dev version, default version
+    # prod version (mobile and www)
+    RewriteCond %{HTTP_HOST} (www|m).camptocamp.org
+    RewriteRule ^robots.txt$ /robots/prod.txt
+
+    # dev version, default version (includes s.camptocamp.org in production)
     RewriteRule ^robots.txt$ /robots/dev.txt [L]
 
     # we skip all files with .something, except for .html, .rss, .gpx etc
