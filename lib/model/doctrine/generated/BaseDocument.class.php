@@ -631,7 +631,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                          'nb_results' => 0,
                          'query' => null);
         }
-        elseif ($nb_results == 1 && !array_intersect($format, array('json', 'rss', 'widget')))
+        elseif ($nb_results == 1 && !array_intersect($format, array('cond', 'json', 'rss', 'widget')))
         {
             return array('pager' => null,
                          'nb_results' => 1,
