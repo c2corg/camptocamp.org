@@ -1,5 +1,6 @@
 <?php
 use_helper('General', 'SmartDate', 'Pagination', 'Link');
+$is_mobile_version = c2cTools::mobileVersion();
 
 if(isset($nb_outings))
 {
@@ -31,8 +32,7 @@ if (isset($items))
     if (count($items))
     {
         echo '<table class="children_docs"><tbody>';
-        
-        $is_mobile_version = c2cTools::mobileVersion();
+
         $culture = $sf_user->getCulture();
         $date = 0;
         foreach ($items as $item)
@@ -103,11 +103,15 @@ if (isset($items))
     }
 }
 
-echo '<p class="list_link">' .
-     picto_tag('action_list') . ' ' .
-     link_to(__('List all linked outings') . $nb_outings, "outings/list?$module=$id&orderby=date&order=desc", array('rel' => 'nofollow')) .
-     ' - ' .
-     link_to(__('cond short'), "outings/conditions?$module=$id&orderby=date&order=desc") .
-     ' - ' .
-     link_to(picto_tag('picto_rss'), "outings/rss?$module=$id&orderby=date&order=desc") .
-     '</p>';
+echo '<p class="list_link">',
+     picto_tag('action_list'), ' ',
+     link_to(__('List all linked outings'), $nb_outings, "outings/list?$module=$id&orderby=date&order=desc", array('rel' => 'nofollow')),
+     ' - ',
+     link_to(__('cond short'), "outings/conditions?$module=$id&orderby=date&order=desc");
+
+if (!$is_mobile_version)
+{
+    echo ' - ', link_to(picto_tag('picto_rss'), "outings/rss?$module=$id&orderby=date&order=desc");
+}
+
+echo '</p>';
