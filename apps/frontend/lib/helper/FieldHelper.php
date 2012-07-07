@@ -528,23 +528,38 @@ function _format_picto_from_list($name, $value, $config, $multiple = false, $raw
         {
             $value = is_array($value) ? array(reset($value)) : array($value);
         }
-        
+
+        $print_separator_counter = 0;
         foreach ($value as $picto_id)
         {
             if (!$picto_id || $picto_id == '0' || !isset($list[$picto_id]))
             {
                 continue;
             }
+
             $picto_text = __($list[$picto_id]);
-            $html[] = '<span class="picto '.$picto_name.'_'.$picto_id.'" title="'.$picto_text.'"></span>';
+
+            if ($printspan)
+            {
+                $print_class = ' printfriendly';
+                if ($print_separator_counter === 0)
+                {
+                    $print_separator_counter = 1;
+                }
+                else
+                {
+                    $print_class .= ' sep';
+                }
+            }
+            else
+            {
+                $print_class = '';
+            }
+
+            $html[] = '<span class="picto '.$picto_name.'_'.$picto_id.$print_class.'" title="'.$picto_text.'"></span>';
             $picto_text_list[] = $picto_text;
         }
         $html = implode($picto_separator, $html);
-        
-        if (!empty($html) && $printspan)
-        {
-            $html = $html . '<span class="printonly">'.implode($text_separator, $picto_text_list).'</span>';
-        }
     }
     else
     {

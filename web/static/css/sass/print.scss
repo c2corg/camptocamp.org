@@ -358,4 +358,17 @@ img.embedded_right
   page-break-inside: avoid;
 }
 
+/* for some picto, we print title value instead:
+   - background images are usually not printed by browsers
+   - sep class is used to display separator */
+.picto.printfriendly {
+  width: auto;
+}
+.picto.printfriendly:after {
+  content: attr(title);
+}
+.picto.printfriendly.sep:before {
+  content: " - ";
+}
+
 } /* end @media */
