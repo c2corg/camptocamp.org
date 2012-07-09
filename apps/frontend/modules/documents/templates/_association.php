@@ -55,9 +55,9 @@ if ($has_associated_docs)
         if (isset($doc['parent_id']) && $doc['id'] == $id)
         {
             $relations = array();
-            foreach ($doc['parent_id'] as $k => $tid)
+            foreach ($doc['parent_relation'] as $tid => $rel)
             {
-                    $relations[$tid] = $doc['parent_relation'][$k];
+                $relations[$tid] = $rel;
             }
         }
     }
@@ -196,25 +196,20 @@ if ($has_associated_docs)
             
             }
 
-            // lionel temp code, to be enhanced // TODO
             // button for changing a relation order
             if (in_array($type, array('ss', 'tt', 'pp')))
             {
                 if ($relations[$doc_id] == 'linked_id')
                 {
-                    $il = 'r';
-                    $cl = ($doclevel > $level) ? 'r' : '';
                     $mi = $id;
                     $li = $doc_id;
                 }
                 else
                 {
-                    $il = 'l';
-                    $cl = ($doclevel > $level) ? '' : 'r';
                     $mi = $doc_id;
                     $li = $id;
                 }
-                echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/move' . $il . $cl . '.png'),
+                echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/move.png'),
                      "@default?module=documents&action=invertAssociation&type=$type&main_id=$mi&linked_id=$li");
             }
         }

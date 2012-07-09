@@ -441,10 +441,7 @@ class Association extends BaseAssociation
                     if ($association_norm['id'] == $result['id'])
                     {
                         $out[$key]['parent_id'][] = $association_norm['parent_id'];
-
-                        // lionel temporary code for having relation direction
-                        $out[$key]['parent_relation'][] = $association_norm['rel_parent'];
-                        // should we add a break here??? TODO (see mutliple level associations)
+                        $out[$key]['parent_relation'][$association_norm['parent_id']] = $association_norm['rel_parent'];
                     }
                 }
             }
@@ -481,6 +478,7 @@ class Association extends BaseAssociation
     // - Add 'is_child' field to right chidren docs
     // There is no SQL request.
     //
+    // enjoy reading...
     public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null, $show_sub_docs = true, $current_doc_id = 0)
     {
         if (!count($parent_docs))
@@ -500,7 +498,7 @@ class Association extends BaseAssociation
             {
                 unset($child_docs[$key]);
             }
-            if ($doc['id'] == $current_doc_id)
+            if ($doc['id'] == $current_doc_id) // we are dealing with current document
             {
                 $child_docs[$key]['is_doc'] = true;
             }
@@ -510,7 +508,8 @@ class Association extends BaseAssociation
         {
             return $parent_docs;
         }
-        
+
+        // internal order between docs
         $order = null;
         if (empty($sort_field))
         {
@@ -529,27 +528,9 @@ class Association extends BaseAssociation
                 default :
                     $sort_field = 'name';
             }
-        }
-        
+        }        
         $child_docs = c2cTools::sortArray($child_docs, $sort_field, null, $order);
-        if ($type != 'ss')
-        {
-            $child_top = $child_bottom = array();
-            foreach ($child_docs as $child_key => $child)
-            {
-                $parent_ids = $child['parent_id'];
-                if (count($parent_ids) > 1)
-                {
-                    $child_top[$child_key] = $child;
-                }
-                else
-                {
-                    $child_bottom[$child_key] = $child;
-                }
-            }
-            $child_docs = array_merge($child_top, $child_bottom);
-        }
-        
+
         $all_docs = array();
         foreach ($parent_docs as $parent_key => $parent)
         {
@@ -559,7 +540,7 @@ class Association extends BaseAssociation
                 $parent_ids = $child['parent_id'];
                 if (in_array($parent['id'], $parent_ids))
                 {
-                    if (($type == 'ss' && $parent['elevation'] < $child['elevation']) || ($type != 'ss' && count($parent_ids) > 1))
+                    if ($child['parent_relation'][$parent['id']] == 'linked_id')
                     {
                         if (!$parent_level)
                         {
