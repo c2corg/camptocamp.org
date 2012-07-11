@@ -47,21 +47,6 @@ if ($has_associated_docs)
         $title = "routes linked to $module and $route_list_module";
     }
 
-    // Temporary code for new ss tt and pp associations
-    //  TODO quite ugly..
-    // idea is to display next to the associated doc the association direction
-    foreach ($associated_docs as $doc)
-    {
-        if (isset($doc['parent_id']) && $doc['id'] == $id)
-        {
-            $relations = array();
-            foreach ($doc['parent_relation'] as $tid => $rel)
-            {
-                $relations[$tid] = $rel;
-            }
-        }
-    }
-
     $doclevel = 10;
     foreach ($associated_docs as $doc)
     {
@@ -144,7 +129,7 @@ if ($has_associated_docs)
             echo link_to($name, $url);
         }
 
-        if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation'])
+        if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation']) // for parkings
         {
             echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
         }
@@ -153,7 +138,7 @@ if ($has_associated_docs)
             echo '&nbsp; ' . $doc['elevation'] . __('meters');
         }
 
-        if (isset($doc['public_transportation_types']))
+        if (isset($doc['public_transportation_types'])) // for parkings
         {
             echo field_pt_picto_if_set($doc, true, true, ' - ');
         }
@@ -199,7 +184,7 @@ if ($has_associated_docs)
             // button for changing a relation order
             if (in_array($type, array('ss', 'tt', 'pp')))
             {
-                if ($relations[$doc_id] == 'linked_id')
+                if ($doclevel < $level)
                 {
                     $mi = $id;
                     $li = $doc_id;
@@ -209,7 +194,7 @@ if ($has_associated_docs)
                     $mi = $doc_id;
                     $li = $id;
                 }
-                echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/move.png'),
+                echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/move.gif'),
                      "@default?module=documents&action=invertAssociation&type=$type&main_id=$mi&linked_id=$li");
             }
         }

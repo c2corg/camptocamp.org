@@ -1,5 +1,8 @@
 @import "blob";
 
+$orange: #f93;
+$title_black: #535354; /* not completely black, used for some titles */
+
 *
 {
   margin: 0;
@@ -118,7 +121,7 @@ a[href^="http://escalade.camptocamp.com"]:after {
   font-size: 0.8em;
   vertical-align: text-top;
   content: "\0000a0[v4]";
-  color: #ff9933;
+  color: $orange;
 }
 
 #clear
@@ -636,8 +639,8 @@ h1 .logo_mini
 }
 .article_title, .article_title a
 {
-  color: #535354;
-  font-family:Georgia, "Times New Roman", Times, serif;
+  color: $title_black;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 26px;
   font-weight: normal;
   text-decoration: none;
@@ -669,7 +672,7 @@ h1 .logo_mini
 #title, .title, .title a
 {
   float: left;
-  color: #535354;
+  color: $title_black;
   font-weight: bold;
   font-size: 12px;
   text-decoration: none;
@@ -691,7 +694,7 @@ h1 .logo_mini
   font-size: 1em;
   font-style: normal;
   font-weight: bold;
-  color: #FF9933;
+  color: $orange;
   text-decoration: none;
   cursor: pointer;
 }
@@ -2836,7 +2839,7 @@ p.abstract em
   overflow: auto;
 }
 
-div.image
+.image
 {
   float: left;
   position: relative;
@@ -2848,7 +2851,7 @@ div.image
   text-align: center;
 }
 
-div.image img
+.image img
 {
   width: 120px;
   height: 120px;
@@ -2862,8 +2865,8 @@ div.image img
 
 .selected_image
 {
-  background-color: #FF9933;
-  border: 1px solid #FF9933;
+  background-color: $orange;
+  border: 1px solid $orange;
 }
 
 .image_list .image_actions
@@ -3260,7 +3263,7 @@ h2.htext a
   font-size: 1.3em;
   font-style: normal;
   font-weight: normal;
-  color: #535354;
+  color: $title_black;
 }
 .articles_content h2.htext
 {
@@ -3294,7 +3297,7 @@ h3.htext, .article h3.htext
   font-size: 1.2em;
   font-style: normal;
   font-weight: bold;
-  color: #535354;
+  color: $title_black;
 }
 h3.htext a
 {
@@ -3318,7 +3321,7 @@ h4.htext a
   font-size: 1.1em;
   font-style: normal;
   font-weight: bold;
-  color: #535354;
+  color: $title_black;
 }
 .articles_content h4.htext a
 {
