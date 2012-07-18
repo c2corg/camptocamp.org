@@ -3071,7 +3071,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             if (count($condition))
             {
-                $conditions_groups[] = '(' . implode (') OR (', $condition) . ')';
+                $conditions_groups[] = '(' . implode(') OR (', $condition) . ')';
             }
             if ($nb_not_conditions = count($not_condition_array))
             {
@@ -3175,7 +3175,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
                 if (count($condition))
                 {
-                    $conditions_groups[] = '(' . implode (') OR (', $condition) . ')';
+                    $conditions_groups[] = '(' . implode(') OR (', $condition) . ')';
                 }
                 if ($nb_not_conditions = count($not_condition_array))
                 {
@@ -3319,7 +3319,12 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
                 if (count($condition_array))
                 {
-                    $conditions_groups[] = implode(' AND ', $condition_array);
+                    $conditions_group = implode(' AND ', $condition_array);
+                    if (count($condition_array) > 1 && count($item_groups) > 1)
+                    {
+                        $conditions_group = '(' . $conditions_group . ')';
+                    }
+                    $conditions_groups[] = $conditions_group;
                 }
             }
             if (count($conditions_groups) == 1)
@@ -3328,7 +3333,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             else
             {
-                $conditions_groups = '(' . implode (' OR ', $conditions_groups) . ')';
+                $conditions_groups = '(' . implode(' OR ', $conditions_groups) . ')';
             }
             $conditions[] = $conditions_groups;
         }

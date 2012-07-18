@@ -358,6 +358,15 @@ class Article extends BaseArticle
             $parking_ltype = 'pr';
             $site_join = 'lo.MainAssociation';
             $site_ltype = 'to';
+            
+            if (   isset($joins['join_summit'])
+                || isset($joins['join_hut'])
+                || isset($joins['join_parking'])
+            )
+            {
+                $joins['join_route'] = true;
+                $joins['post_route'] = true;
+            }
         }
 
         // join with route tables only if needed 

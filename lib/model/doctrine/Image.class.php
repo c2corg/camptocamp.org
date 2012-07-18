@@ -699,6 +699,15 @@ class Image extends BaseImage
             {
                 $q->leftJoin($route_join . ' lou');
             }
+            
+            if (   isset($joins['join_summit'])
+                || isset($joins['join_hut'])
+                || isset($joins['join_parking'])
+            )
+            {
+                $joins['join_route'] = true;
+                $joins['post_route'] = true;
+            }
         }
 
         // join with route tables only if needed 

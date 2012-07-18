@@ -21,6 +21,9 @@ comment:
 list:
   enabled: off
 
+geojson:
+  enabled: off
+
 rss:
   enabled: on
   lifetime: 3600
@@ -69,6 +72,15 @@ _list_body:
   enabled: off
   
 _list_body_changes:
+  enabled: off
+
+_jsonlist_body:
+  enabled: off
+  
+_feature:
+  enabled: off
+  
+_rss_item:
   enabled: off
   
 _nav:
