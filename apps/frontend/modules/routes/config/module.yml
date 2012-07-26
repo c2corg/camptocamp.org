@@ -61,6 +61,7 @@ all:
       'erat': engagement_rating
       'prat': equipment_rating
       'frat': rock_free_rating
+      'rrat': rock_required_rating
       'arat': aid_rating
       'irat': ice_rating
       'mrat': mixed_rating
@@ -71,7 +72,7 @@ all:
       'hrat': hiking_rating
       'wrat': snowshoeing_rating
       'rlen': route_length
-    route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat' ]
+    route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'rrat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat' ]
     filled_criteria:
       'maxa': malt
       'fac':
@@ -84,6 +85,7 @@ all:
       'erat':
       'prat':
       'frat':
+      'rrat':
       'arat':
       'irat':
       'mrat':

@@ -744,6 +744,7 @@ class Route extends BaseRoute
             case 'erat': return 'm.engagement_rating';
             case 'prat': return 'm.equipment_rating';
             case 'frat': return 'm.rock_free_rating';
+            case 'rrat': return 'm.rock_required_rating';
             case 'arat': return 'm.aid_rating';
             case 'irat': return 'm.ice_rating';
             case 'mrat': return 'm.mixed_rating';

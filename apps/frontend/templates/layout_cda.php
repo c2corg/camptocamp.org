@@ -61,7 +61,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
       <ul>
         <li class="active"><?php echo link_to(__('ecomobility'), '@cdasearch'); ?></li>
         <li><a href="http://www.mountainwilderness.fr/component/content/article/3031" target="_blank"><?php echo __('contest') ?></a></li>
-        <li><?php echo link_to(__('picturial'), '@default?module=images&action=list&owtp=yes', array('target' => '_blank')); ?></li>
+        <li><?php echo link_to(__('picturial'), '@default?module=images&action=list&owtp=yes&orderby=oid&order=desc', array('target' => '_blank')); ?></li>
         <li><?php echo f_link_to(__('questions?'), 'viewforum.php?id=42', array('target' => '_blank')); ?></li>
         <li><a href="/map?zoom=7&lat=44.5&lon=3.3&layerNodes=public_transportations&bgLayer=gmap_physical" target="_blank"><?php echo __('map (cda)'); ?></a></li>
       </ul>

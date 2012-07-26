@@ -1395,11 +1395,12 @@ class sfPunBBCodeParser
     }
 
     public static function _processLineItems_callback($matches) {
-        global $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $header_line, $nb_col, $nb_col_max, $doc_module, $cell_index;
+        global $is_line, $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix, $line_reference, $abseil_reference, $first_line, $first_block_line, $header_line, $nb_col, $nb_col_max, $doc_module, $cell_index;
         
         $cell_index = 0;
         
         $marker_type = $matches[1];
+        $is_line = ($marker_type == 'L');
         $new_marker_relative = $matches[2];
         $new_marker_index = $matches[3];
         $new_marker_suffix = $matches[4];
@@ -1739,7 +1740,7 @@ class sfPunBBCodeParser
     
     public static function _processLineReference($matches)
     {
-        global $line_index, $line_index_old, $line_suffix;
+        global $is_line, $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix;
         
         $marker_type = $matches[1];
         $new_marker_relative = $matches[2];
@@ -1748,13 +1749,31 @@ class sfPunBBCodeParser
         $multi_line_relative = $matches[5];
         $multi_line_index = $matches[6];
         
-        if ($marker_type == 'L')
+        if ($is_line)
         {
-            $marker_type = __('route_line_prefix');
+            if ($marker_type == 'L')
+            {
+                $marker_type = __('route_line_prefix');
+            }
+            else
+            {
+                $marker_type = __('route_belay_prefix');
+            }
+            $current_index = $line_index;
+            $current_suffix = $line_suffix;
         }
         else
         {
-            $marker_type = __('route_belay_prefix');
+            if ($marker_type == 'L')
+            {
+                $marker_type = __('route_line_prefix');
+            }
+            else
+            {
+                $marker_type = __('route_abseil_prefix');
+            }
+            $current_index = $abseil_index;
+            $current_suffix = $abseil_suffix;
         }
         
         if (!empty($new_marker_relative) && $new_marker_index == '')
@@ -1768,15 +1787,15 @@ class sfPunBBCodeParser
         
         if ($new_marker_index == '')
         {
-            $line_index_tmp = $line_index;
+            $line_index_tmp = $current_index;
         }
         elseif ($new_marker_relative == '+')
         {
-            $line_index_tmp = $line_index + $new_marker_index;
+            $line_index_tmp = $current_index + $new_marker_index;
         }
         else
         {
-            $line_index_tmp = $line_index - $new_marker_index;
+            $line_index_tmp = $current_index - $new_marker_index;
         }
         
         if ($new_marker_suffix == '_')
@@ -1789,7 +1808,7 @@ class sfPunBBCodeParser
         }
         else
         {
-            $line_suffix_tmp = $line_suffix;
+            $line_suffix_tmp = $current_suffix;
         }
         
         $row_header = $marker_type . $line_index_tmp . $line_suffix_tmp;
