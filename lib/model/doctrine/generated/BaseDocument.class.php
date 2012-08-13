@@ -3405,7 +3405,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $facings = explode('~', $param);
         if (count($facings) == 1)
         {
-            if ($facings = '-')
+            if ($param == '-')
             {
                 $conditions[] = "($field IS NULL OR $field = 0)";
             }
