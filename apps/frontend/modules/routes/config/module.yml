@@ -75,7 +75,6 @@ all:
     route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'rrat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat' ]
     filled_criteria:
       'maxa': malt
-      'fac':
       'hdif':
       'ddif':
       'time':
