@@ -1,4 +1,4 @@
-ca# This file do not support more than 4 levels :
+# This file do not support more than 4 levels :
 # level_1:
 #   level_2:
 #     level_3:
@@ -2014,18 +2014,18 @@ all:
   
   figures:
     list:
-      summits:  13'700
-      routes:   23'900
-      outings:  97'000
-      images:   168'000
-      sites:    2'300
+      summits:  13'900
+      routes:   24'300
+      outings:  99'000
+      images:   175'000
+      sites:    2'400
       huts:     1'550
       parkings: 3'600
       books:    1000
       users:    32'000
-      articles: 620
-      topics:   219'000
-      posts:    1'690'000
+      articles: 630
+      topics:   223'000
+      posts:    1'710'000
 
   profile_cookies:
     list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages' ]
