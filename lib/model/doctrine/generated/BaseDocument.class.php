@@ -191,17 +191,20 @@ class BaseDocument extends sfDoctrineRecordI18n
             
             foreach ($orderby_list as $orderby)
             {
-                if (!empty($orderby) && !isset($params_list[$orderby]) && isset($sort_orderby_list[$orderby]))
+                if (!empty($orderby) && isset($sort_orderby_list[$orderby]))
                 {
                     if (!empty($sort_orderby_list[$orderby]))
                     {
                         $orderby = $sort_orderby_list[$orderby];
                     }
-                    if (empty($params_list))
+                    if (!isset($params_list[$orderby]))
                     {
-                        $params_list['perso'] = 'ifon';
+                        if (empty($params_list))
+                        {
+                            $params_list['perso'] = 'ifon';
+                        }
+                        $params_list[$orderby] = ' ';
                     }
-                    $params_list[$orderby] = ' ';
                 }
             }
         }

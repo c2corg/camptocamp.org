@@ -17,7 +17,7 @@ if (!isset($has_title_link))
 }
 if (!isset($has_title_rss))
 {
-    $has_title_link = $has_title_link;
+    $has_title_rss = $has_title_link;
 }
 
 if ($has_title_link)

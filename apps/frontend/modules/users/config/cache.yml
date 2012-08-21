@@ -28,14 +28,13 @@ mailinglists:
   
 # but we cache other actions :
 contact:
-  enabled:    on
+  enabled: on
 
 login:
   enabled: on
   
 view:
   enabled: on
-  lifetime: 300
 
 # and we do not cache partials (not worth) :
 _logged_in:

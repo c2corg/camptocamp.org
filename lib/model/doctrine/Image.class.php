@@ -645,7 +645,7 @@ class Image extends BaseImage
 
         if (isset($joins[$join . '_i18n']))
         {
-            $q->leftJoin($m . '.' . $linked . 'ImageI18n ii');
+            $q->leftJoin($m . '.' . 'ImageI18n ii');
         }
         
         if (isset($joins['join_iarticle']))
