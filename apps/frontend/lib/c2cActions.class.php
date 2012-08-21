@@ -279,7 +279,7 @@ abstract class c2cActions extends sfActions
         $response->setHttpHeader('Expires', $response->getDate(time() + $age));
     }
 
-    public static function statsdTiming($document, $stat, $time, $prefix=false, $unit='us')
+    public static function statsdTiming($stat, $time, $prefix = false, $unit = 'us')
     {
         switch ($unit)
         {
@@ -297,25 +297,25 @@ abstract class c2cActions extends sfActions
                 break;
         }
 
-        $_prefix = $prefix ? $prefix : self::statsdPrefix($document, false, false);
+        $_prefix = $prefix ? $prefix : self::statsdPrefix(false, false);
         StatsD::timing($_prefix . $stat, $time);
     }
 
-    public static function statsdIncrement($document, $stat, $prefix=false)
+    public static function statsdIncrement($stat, $prefix = false)
     {
-        $_prefix = $prefix ? $prefix : self::statsdPrefix($document, false, false);
+        $_prefix = $prefix ? $prefix : self::statsdPrefix(false, false);
         StatsD::increment($_prefix . $stat);
     }
 
-    public static function statsdPrefix($document, $module=false, $action=false)
+    public static function statsdPrefix($module = false, $action = false)
     {
         if ($module)
         {
             $moduleName = $module;
         }
-        elseif ($document && method_exists($document, 'getModuleName'))
+        elseif (sfContext::hasInstance() && sfContext::getInstance()->getModuleName() != null)
         {
-            $moduleName = $document->getModuleName();
+            $moduleName = sfContext::getInstance()->getModuleName();
         }
         else
         {
@@ -326,9 +326,9 @@ abstract class c2cActions extends sfActions
         {
             $actionName = $action;
         }
-        elseif ($document && method_exists($document, 'getActionName'))
+        elseif (sfContext::hasInstance() && sfContext::getInstance()->getActionName() != null)
         {
-            $actionName = $document->getActionName();
+            $actionName = sfContext::getInstance()->getActionName();
         }
         else
         {

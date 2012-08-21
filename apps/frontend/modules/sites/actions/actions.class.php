@@ -617,15 +617,15 @@ class sitesActions extends documentsActions
 
         $timer = new sfTimer();
         $sites = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
-        c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
+        c2cActions::statsdTiming('pager.getResults', $timer->getElapsedTime());
 
         $timer = new sfTimer();
         Parking::addAssociatedParkings($sites, 'pt'); // add associated parkings infos to $sites
-        c2cActions::statsdTiming($this, 'parking.addAssociatedParkings', $timer->getElapsedTime());
+        c2cActions::statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
 
         $timer = new sfTimer();
         Document::countAssociatedDocuments($sites, 'to', true);
-        c2cActions::statsdTiming($this, 'document.countAssociatedDocuments', $timer->getElapsedTime());
+        c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
 
         $this->items = Language::parseListItems($sites, 'Site');
     }

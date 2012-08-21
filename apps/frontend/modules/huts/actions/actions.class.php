@@ -423,15 +423,15 @@ class hutsActions extends documentsActions
         
         $timer = new sfTimer();
         $huts = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
-        c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
+        c2cActions::statsdTiming('pager.getResults', $timer->getElapsedTime());
 
         $timer = new sfTimer();
         Parking::addAssociatedParkings($huts, 'ph'); // add associated parkings infos to $huts
-        c2cActions::statsdTiming($this, 'parking.addAssociatedParkings', $timer->getElapsedTime());
+        c2cActions::statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
 
         $timer = new sfTimer();
         Document::countAssociatedDocuments($huts, 'hr', true);
-        c2cActions::statsdTiming($this, 'document.countAssociatedDocuments', $timer->getElapsedTime());
+        c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
 
         $this->items = Language::parseListItems($huts, 'Hut');
     }

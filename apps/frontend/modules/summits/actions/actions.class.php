@@ -487,11 +487,11 @@ class summitsActions extends documentsActions
 
         $timer = new sfTimer();
         $summits = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
-        c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
+        c2cActions::statsdTiming('pager.getResults', $timer->getElapsedTime());
 
         $timer = new sfTimer();
         Document::countAssociatedDocuments($summits, 'sr', true);
-        c2cActions::statsdTiming($this, 'document.countAssociatedDocuments', $timer->getElapsedTime());
+        c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
 
         $this->items = Language::parseListItems($summits, 'Summit');
     }

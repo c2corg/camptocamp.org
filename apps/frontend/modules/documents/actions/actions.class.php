@@ -503,7 +503,7 @@ class documentsActions extends c2cActions
         endif; // mobile version
 
         $this->getResponse()->addMeta('robots', 'index, follow');
-        c2cActions::statsdTiming($this, 'document.executeHome', $timer->getElapsedTime('executeHome'));
+        c2cActions::statsdTiming('document.executeHome', $timer->getElapsedTime('executeHome'));
     }
 
 
@@ -545,13 +545,13 @@ class documentsActions extends c2cActions
             // (for caching reasons, this cannot be silent)
             if (!$lang = DocumentI18n::findBestCulture($id, $prefered_cultures, $this->model_class)) 
             {
-                c2cActions::statsdTiming($this, 'document.executeView.redirect', $timer->getElapsedTime('executeView'));
+                c2cActions::statsdTiming('document.executeView.redirect', $timer->getElapsedTime('executeView'));
                 $this->setNotFoundAndRedirect();
             }
             else
             {
                 $document = $this->getDocument($id, $lang, $version);
-                c2cActions::statsdTiming($this, 'document.executeView.redirect', $timer->getElapsedTime('executeView'));
+                c2cActions::statsdTiming('document.executeView.redirect', $timer->getElapsedTime('executeView'));
                 $this->redirectIfSlugMissing($document, $id, $lang, $module);
             }
         }
@@ -562,7 +562,7 @@ class documentsActions extends c2cActions
 
         if (empty($version) && (empty($slug) || ($module != 'routes' && $slug != get_slug($document))) && $module != 'users')
         {
-            c2cActions::statsdTiming($this, 'document.executeView.redirect', $timer->getElapsedTime('executeView'));
+            c2cActions::statsdTiming('document.executeView.redirect', $timer->getElapsedTime('executeView'));
             $this->redirectIfSlugMissing($document, $id, $lang, $module);
         }
 
@@ -682,7 +682,7 @@ class documentsActions extends c2cActions
 
         $this->document = $document;
         $this->languages = $document->getLanguages();
-        c2cActions::statsdTiming($this, 'document.executeView', $timer->getElapsedTime('executeView'));
+        c2cActions::statsdTiming('document.executeView', $timer->getElapsedTime('executeView'));
     }
 
     protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
@@ -740,7 +740,7 @@ class documentsActions extends c2cActions
 
         if (!Document::checkExistence($model, $id))
         {
-            c2cActions::statsdTiming($this, 'document.executeHistory.redirect', $timer->getElapsedTime('executeHistory'));
+            c2cActions::statsdTiming('document.executeHistory.redirect', $timer->getElapsedTime('executeHistory'));
             $this->setNotFoundAndRedirect();
         }
 
@@ -750,7 +750,7 @@ class documentsActions extends c2cActions
             // if culture isn't set, we use the current interface language culture
             // and redirect to the good URL
             $lang = $this->getUser()->getCulture();
-            c2cActions::statsdTiming($this, 'document.executeHistory.redirect', $timer->getElapsedTime('executeHistory'));
+            c2cActions::statsdTiming('document.executeHistory.redirect', $timer->getElapsedTime('executeHistory'));
             $this->redirect('@document_history?module=' . $this->getModuleName() . "&id=$id&lang=$lang"); 
         }
 
@@ -763,7 +763,7 @@ class documentsActions extends c2cActions
         }
         else
         {
-            c2cActions::statsdTiming($this, 'document.executeHistory.redirect', $timer->getElapsedTime('executeHistory'));
+            c2cActions::statsdTiming('document.executeHistory.redirect', $timer->getElapsedTime('executeHistory'));
             $this->setErrorAndRedirect('The requested document does not exist in this language',
                                        '@default_index?module=' . $this->getModuleName());
         }
@@ -780,7 +780,7 @@ class documentsActions extends c2cActions
         $this->setTemplate('../../documents/templates/history');
         $this->setPageTitle($this->document_name . ' :: ' . $this->__('history'));
         $this->getResponse()->addMeta('robots', 'noindex, nofollow');
-        c2cActions::statsdTiming($this, 'document.executeHistory', $timer->getElapsedTime('executeHistory'));
+        c2cActions::statsdTiming('document.executeHistory', $timer->getElapsedTime('executeHistory'));
     }
 
     /**
@@ -795,7 +795,7 @@ class documentsActions extends c2cActions
         // one cannot comment a document which does not exist. 
         if (!$document = DocumentI18n::findName($id, $lang, $this->model_class))
         {
-            c2cActions::statsdTiming($this, 'document.executeComment.redirect', $timer->getElapsedTime('executeComment'));
+            c2cActions::statsdTiming('document.executeComment.redirect', $timer->getElapsedTime('executeComment'));
             $this->setNotFoundAndRedirect();
         }
         
@@ -803,7 +803,7 @@ class documentsActions extends c2cActions
         if ($this->model_class == 'Document')
         {
             $document = Document::find('Document', $id, array('module'));
-            c2cActions::statsdTiming($this, 'document.executeComment.redirect', $timer->getElapsedTime('executeComment'));
+            c2cActions::statsdTiming('document.executeComment.redirect', $timer->getElapsedTime('executeComment'));
             $this->redirect('@document_comment?module=' . $document->get('module') . "&id=$id&lang=$lang", 301); 
         }
 
@@ -822,7 +822,7 @@ class documentsActions extends c2cActions
         $this->setTemplate('../../documents/templates/comment');
         $this->setPageTitle($this->document_name . ' :: ' . $this->__('Comments'));
         $this->getResponse()->addMeta('robots', 'index, follow');
-        c2cActions::statsdTiming($this, 'document.executeComment', $timer->getElapsedTime('executeComment'));
+        c2cActions::statsdTiming('document.executeComment', $timer->getElapsedTime('executeComment'));
     }
 
     /**
@@ -989,7 +989,7 @@ class documentsActions extends c2cActions
             if ($nb_results == 1)
             {
                 // if only one document matches, redirect automatically towards it
-                c2cActions::statsdTiming($this, 'document.executeList.redirect', $timer->getElapsedTime('executeList'));
+                c2cActions::statsdTiming('document.executeList.redirect', $timer->getElapsedTime('executeList'));
                 $this->redirect('@document_by_id?module=' . $module . '&id=' . $infos['id']);
             }
             else
@@ -1026,7 +1026,7 @@ class documentsActions extends c2cActions
             $this->items = Language::parseListItems($items, $model);
         }
         
-        c2cActions::statsdTiming($this, 'document.executeList', $timer->getElapsedTime('executeList'));
+        c2cActions::statsdTiming('document.executeList', $timer->getElapsedTime('executeList'));
     }
 
     /**
@@ -1083,7 +1083,7 @@ class documentsActions extends c2cActions
         $this->setTemplate('../../documents/templates/rss');
         $this->setCacheControl();
         
-        c2cActions::statsdTiming($this, 'document.executeRss', $timer->getElapsedTime('executeRss'));
+        c2cActions::statsdTiming('document.executeRss', $timer->getElapsedTime('executeRss'));
     }
 
     public function executeWidget()
@@ -1190,7 +1190,7 @@ class documentsActions extends c2cActions
         $this->setTemplate('../../documents/templates/geojson');
 
         $this->setJsonResponse();
-        c2cActions::statsdTiming($this, 'document.executeGeojson', $timer->getElapsedTime('executeGeojson'));
+        c2cActions::statsdTiming('document.executeGeojson', $timer->getElapsedTime('executeGeojson'));
     }
 
     /**
@@ -1202,7 +1202,7 @@ class documentsActions extends c2cActions
         $this->documents = Document::getLastDocs($this->__(' :').' ');
         $this->setLayout(false);
         $this->setCacheControl(3600);
-        c2cActions::statsdTiming($this, 'document.executeLatest', $timer->getElapsedTime('executeLatest'));
+        c2cActions::statsdTiming('document.executeLatest', $timer->getElapsedTime('executeLatest'));
     }
 
     /**

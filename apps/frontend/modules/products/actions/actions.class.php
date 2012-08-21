@@ -98,11 +98,11 @@ class productsActions extends documentsActions
 
         $timer = new sfTimer();
         $products = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
-        c2cActions::statsdTiming($this, 'pager.getResults', $timer->getElapsedTime());
+        c2cActions::statsdTiming('pager.getResults', $timer->getElapsedTime());
         
         $timer = new sfTimer();
         Parking::addAssociatedParkings($products, 'pf'); // add associated parkings infos to $products
-        c2cActions::statsdTiming($this, 'parking.addAssociatedParkings', $timer->getElapsedTime());
+        c2cActions::statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
 
         $this->items = Language::parseListItems($products, 'Product');
     }
