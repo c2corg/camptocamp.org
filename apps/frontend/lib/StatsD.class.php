@@ -84,7 +84,7 @@ class StatsD {
         try {
             $host = $config->getConfig('server_name');
             $port = $config->getConfig('server_port');
-            $fp = fsockopen("udp://$host", (int) $port, $errno, $errstr);
+            $fp = @fsockopen("udp://$host", (int) $port, $errno, $errstr);
             if (! $fp) { return; }
             foreach ($sampledData as $stat => $value) {
                 fwrite($fp, "$stat:$value");
