@@ -520,16 +520,15 @@ class c2cPersonalization
                     $fold_cookie_value[$pos] = ($cookie_prefs[$pref.'_home_status'] == 'true') ? 't' : 'f';
                 }
             }
-            $response->setCookie('fold', $fold_cookie_value);
+            $response->setCookie('fold', $fold_cookie_value,
+                                 time() + sfConfig::get('app_personalization_filter_timeout'));
 
             foreach ($cookie_prefs as $cookie_name => $cookie_value)
             {
                 if (in_array($cookie_name, $managed_cookies))
                 {
-                    sfContext::getInstance()
-                        ->getResponse()
-                        ->setCookie($cookie_name, $cookie_value, 
-                                    time() + sfConfig::get('app_personalization_filter_timeout'));
+                    $response->setCookie($cookie_name, $cookie_value, 
+                                         time() + sfConfig::get('app_personalization_filter_timeout'));
                 }
             }
         }

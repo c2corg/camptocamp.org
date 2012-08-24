@@ -36,14 +36,10 @@ class rememberFilter extends sfFilter
 
                 // User has signed in, and is now correctly in symfony session. However, forums
                 // and several personnalization functions rely on cookies, that will be sent with the request,
-                // but are not yet 'available'
+                // but are not yet 'available' from javascript if the value expired from previous sessions (they will be on next page)
                 // easiest solution is to force the browser to reload the current page
-                // FIXME this is a bit hacky. There is possibly a better way to do this (eg by using the request
-                // object, but we need this to be done as quickly as possible)
-                c2cTools::log('{rememberFilter} forcing user to reload current page');
                 $request = $this->getContext()->getRequest();
-                header("location: ".$request->getUri());
-                exit();
+                $this->getContext()->getController()->redirect($request->getUri());
             }
             else
             {

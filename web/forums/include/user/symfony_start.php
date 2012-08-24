@@ -41,9 +41,7 @@ if (!$sf_user->isConnected() && !is_null($cookie))
         {
             $private_data = $dbuser->get('private_data');
             $sf_user->signIn($private_data->getLoginName(), $private_data->getPassword(), true, true);
-            c2cTools::log('{fake rememberFilter in forum} forcing user to reload current page');
-            header("location: ".$request->getUri());
-            exit();
+            $this->getContext()->getController()->redirect($request->getUri());
         }
     }
     else
