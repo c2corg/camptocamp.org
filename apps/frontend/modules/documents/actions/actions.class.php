@@ -2288,7 +2288,7 @@ class documentsActions extends c2cActions
     
     public function executeLatestassociations()
     {
-        $this->pager = AssociationLog::listRecentChangesPager();
+        $this->pager = AssociationLog::listRecentChangesPager($this->getRequestParameter('doc_id', null));
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 
