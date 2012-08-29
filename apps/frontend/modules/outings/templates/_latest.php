@@ -62,7 +62,7 @@ else
     $custom_footer_link = $custom_link;
 }
 
-$conditions_link = 'outings/conditions';
+$conditions_link = '@default?module=outings&action=conditions&orderby=date&order=desc';
 if (!empty($custom_url_params))
 {
     $conditions_link .= '?' . $custom_url_params;

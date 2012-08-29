@@ -57,7 +57,7 @@ show_select=function()
                         <ul>
                             <li><?php
                                 echo picto_tag('action_list')
-                                   . link_to(__('cond short'), 'outings/conditions') ?></li>
+                                   . link_to(__('cond short'), '@default?module=outings&action=conditions&orderby=date&order=desc') ?></li>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
                                 echo picto_tag('action_query')
                                    . link_to(__('Search'), '@filter?module=outings') ?></li>
