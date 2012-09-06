@@ -25,7 +25,10 @@ echo __('categories (multiple selection allowed)');
 <div class="image_form_error"<?php echo isset($image_title) ? ' style="display:none"' : ''?>>
 ↓&nbsp;<?php echo __('this name is too short (4 characters minimum)') ?> &nbsp;↓</div>
 <?php
-$image_title = isset($image_title) ? $image_title : '';
+// if image_title is set, we prefill the title input
+// note that we use raw value, since input_tag will escape values anyway
+// and we thus prevent double escaping
+$image_title = isset($image_title) ? $sf_data->getRaw('image_title') : '';
 echo __('name'), ' ',
      input_tag("name[$image_number]", $image_title, array('maxlength' => '150', 'class' => 'large_input')), ' ';
 echo input_hidden_tag("image_unique_filename[$image_number]", $image_filename);
