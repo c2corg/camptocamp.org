@@ -267,12 +267,12 @@ if (isset($_GET['id']) || isset($_GET['ids']))
         
         
         // clear symfony cache for the corresponding docs view, diff, history.. - in order to have number of comments properly displayed
-        if($old_fid == 1)
+        if(get_is_comment($old_fid))
         {
             $doc_param = get_doc_param($subject);
             c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
         }
-        if($fid == 1)
+        if(get_is_comment($fid))
         {
             $doc_param = get_doc_param($target_subject);
             c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);

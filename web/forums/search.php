@@ -102,7 +102,14 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     }
     
     $forum = array();
-	$forum = (isset($_GET['forum'])) ? $_GET['forum'] : array('-1');
+	$forum_tmp = (isset($_GET['forum'])) ? $_GET['forum'] : array('-1');
+    foreach ($forum_tmp as $tmp_id)
+    {
+        if (preg_match('/^(-1|[\d]+)$/', $tmp_id))
+        {
+            $forum[] = $tmp_id;
+        }
+    }
     
     if (in_array(strval(C2C_BOARD_FORUM), $forum) && !$is_c2c_board)
         message($lang_search['No search permission']);
@@ -128,7 +135,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     {
         $search_title = $lang_search['Recent posts'];
     }
-    else if ($search_action == 'show_user')
+    else if ($search_action == 'show_user' || $search_action == 'show_user_topics')
     {
         $search_title = $lang_search['Posts from user'];
     }
@@ -241,7 +248,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		$search_in = (!isset($_GET['search_in']) || $_GET['search_in'] == 'all') ? 0 : (($_GET['search_in'] == 'message') ? 1 : -1);
 	}
 	// If it's a user search (by id)
-	else if ($action == 'show_user')
+	else if ($action == 'show_user' || $action == 'show_user_topics')
 	{
 		if (isset($_GET['user_id']))
         {
@@ -577,7 +584,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				$num_hits = count($search_ids);
 			}
 		}
-		else if ($action == 'show_new' || $action == 'show_24h' || $action == 'show_user' || $action == 'show_subscriptions' || $action == 'show_unanswered' || $action == 'show_news')
+		else if ($action == 'show_new' || $action == 'show_24h' || $action == 'show_user' || $action == 'show_user_topics' || $action == 'show_subscriptions' || $action == 'show_unanswered' || $action == 'show_news')
 		{
             $forum_ids = array();
             if (!empty($c2c_board_condition))
@@ -593,6 +600,15 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             {
                 $forum_ids[] = PARTNER_FORUMS;
                 $forum_ids[] = BUYSELL_FORUMS;
+            }
+            if (isset($_GET['simple']))
+            {
+                $forum_ids[] = COMMENTS_FORUM;
+                $forum_ids[] = ASSOCIATION_FORUMS;
+                if (empty($c2c_board_condition))
+                {
+                    $forum_ids[] = C2C_BOARD_FORUM;
+                }
             }
             if (count($forum_ids))
             {
@@ -637,6 +653,15 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				if (!$num_hits)
 					message($lang_search['No user posts']);
 			}
+		/*	// If it's a search for topics created by a specific user ID
+			else if ($action == 'show_user_topics')
+			{
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR fp.forum_id=1)'.$where_forum_id.' AND p.poster_id='.$user_id.' GROUP BY t.id') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$num_hits = $db->num_rows($result);
+
+				if (!$num_hits)
+					message($lang_search['No user posts']);
+			} */
 			// If it's a search for subscribed topics
 			else if ($action == 'show_subscriptions')
 			{

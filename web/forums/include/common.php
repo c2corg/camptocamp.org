@@ -109,6 +109,7 @@ define('PUN_ADMIN', 1);
 define('PUN_MOD', 2);
 define('PUN_GUEST', 3);
 define('PUN_MEMBER', 4);
+define('COMMENTS_FORUM', 1);
 define('C2C_BOARD_FORUM', 34);
 define('ALL_NEWS_FORUMS', '18, 85, 86, 87, 89, 48, 90, 91, 92, 93, 94, 100');
 define('PUB_FORUMS', '26');

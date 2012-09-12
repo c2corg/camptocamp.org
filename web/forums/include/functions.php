@@ -1370,7 +1370,7 @@ function get_doc_param($topic_subject)
 
 function get_is_comment($forum_id)
 {
-    return in_array(intval($forum_id), array(1));
+    return in_array(intval($forum_id), array(COMMENTS_FORUM));
 }
 
 function get_is_admmod($forum_id, $moderator_list, $pun_user)
