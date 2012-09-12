@@ -170,7 +170,21 @@ else if (isset($_GET['email']))
         pun_mail($recipient_email, $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
         
         // Send copy to sender
-		pun_mail($pun_user['email'], $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
+		// Load the "form e-mail" template
+		$mail_tpl = trim(file_get_contents(PUN_ROOT.'lang/'.$pun_user['language'].'/mail_templates/form_email_copy.tpl'));
+
+		// The first row contains the subject
+		$first_crlf = strpos($mail_tpl, "\n");
+		$mail_subject = trim(substr($mail_tpl, 8, $first_crlf-8));
+		$mail_message = trim(substr($mail_tpl, $first_crlf));
+
+		$mail_subject = str_replace('<mail_subject>', 'Copy : ' . $subject, $mail_subject);
+		$mail_message = str_replace('<recipient>', $recipient, $mail_message);
+		$mail_message = str_replace('<board_title>', $pun_config['o_board_title'], $mail_message);
+		$mail_message = str_replace('<mail_message>', $message, $mail_message);
+		$mail_message = str_replace('<board_mailer>', $pun_config['o_board_title'].' '.$lang_common['Mailer'], $mail_message);
+		
+        pun_mail($pun_user['email'], $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
 
 		redirect(htmlspecialchars($_POST['redirect_url']), $lang_misc['E-mail sent redirect']);
 	}

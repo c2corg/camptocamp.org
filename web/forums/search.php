@@ -105,7 +105,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	$forum_tmp = (isset($_GET['forum'])) ? $_GET['forum'] : array('-1');
     foreach ($forum_tmp as $tmp_id)
     {
-        if (preg_match('/^(-1|[\d]+)$/', $tmp_id))
+        if (preg_match('/^(-1|\d+)$/', $tmp_id))
         {
             $forum[] = $tmp_id;
         }
