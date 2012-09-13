@@ -164,7 +164,12 @@ if (!$pun_user['is_guest'])
         echo '<br /><a href="search.php?action=show_new&amp;lang='.$lang.'&amp;all">['.$lang.$lang_common['with pub'].']</a>'
            . ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;light">[light]</a>';
     }
-    echo '<br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a><br />';
+    if ($is_admmod_2)
+    {
+        echo ' - <a href="search.php?action=show_new&amp;lang='.$lang.'&amp;simple">[simple]</a>';
+    }
+    echo '<br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a>';
+    echo '<br /><a href="search.php?action=show_user_topics&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your topics'].'</a><br />';
     if ($footer_style == 'index' || $footer_style == 'search')
     {
         echo '<a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';

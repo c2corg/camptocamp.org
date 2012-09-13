@@ -39,6 +39,7 @@ $lang_search = array(
 'Recent posts'				=>	'Missatges recents',
 'Unanswered topics'			=>	'Temes sense resposta',
 'Posts from user'			=>	'Missatges del ',
+'Topics from user'			=>	'Temes del ',
 'Subscriptions topics'		=>	'Meus temes subscrits',
 'New posts'					=>	'Missatges nous des de l\'última visita',
 'News'                      =>  'News',

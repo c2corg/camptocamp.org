@@ -47,6 +47,7 @@ $lang_search = array(
 'Recent posts'				=>	'Azken mezuak erakutsi',
 'Unanswered topics'			=>	'Erantzun gabeko mezuak erakutsi',
 'Posts from user'			=>	'Erakutsi : ',
+'Topics from user'			=>	'Eztabaida : ',
 'Subscriptions topics'		=>	'Harpideturik zauden eztabaidak erakutsi',
 'New posts'					=>	'Azken bisitaz geroztik egon diren mezuak erakutsi',
 'News'                      =>  'News',

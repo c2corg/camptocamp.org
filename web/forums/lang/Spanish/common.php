@@ -152,6 +152,7 @@ $lang_common = array(
 'Show recent posts'		=>	'Muestra mensajes recientes',
 'Show unanswered posts'	=>	'Muestra mensajes sin respuesta',
 'Show your posts'		=>	'Muestra mis mensajes',
+'Show your topics'		=>	'Muestra mis temas',
 'Show subscriptions'	=>	'Muestra mis temas suscritos',
 'Jump to'				=>	'Ir a',
 'Go'					=>	' Ir',		// submit button in forum jump

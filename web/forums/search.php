@@ -135,9 +135,13 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     {
         $search_title = $lang_search['Recent posts'];
     }
-    else if ($search_action == 'show_user' || $search_action == 'show_user_topics')
+    else if ($search_action == 'show_user')
     {
         $search_title = $lang_search['Posts from user'];
+    }
+    else if ($search_action == 'show_user_topics')
+    {
+        $search_title = $lang_search['Topics from user'];
     }
     else if ($search_action == 'show_subscriptions')
     {
@@ -737,7 +741,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             if ($action != null)
             {
                 $search_location .= '&title='.$action;
-				if ($action == 'show_user')
+				if ($action == 'show_user' || $action == 'show_user_topics')
 				{
 					$search_location .= '&user_id='.$user_id;
 				}
@@ -811,7 +815,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		$db->free_result($result);
 
 		// Get username when we show posts from one user
-		if ($search_action == 'show_user')
+		if ($search_action == 'show_user' || $action == 'show_user_topics')
 		{
                         $user_id = $_GET['user_id'];
                         if (is_numeric($user_id))

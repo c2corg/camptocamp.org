@@ -152,6 +152,7 @@ $lang_common = array(
 'Show recent posts'		=>	'K&uuml;rzlich geschriebene Beitr&auml;ge anzeigen',
 'Show unanswered posts'	=>	'Zeige unbeantwortete Beitr&auml;ge',
 'Show your posts'		=>	'Zeige meine Beitr&auml;ge',
+'Show your topics'		=>	'Zeige meine Themen',
 'Show subscriptions'	=>	'Zeige abonnierte Themen',
 'Jump to'				=>	'Wechsel zu',
 'Go'					=>	' Los ',		// DER TASTER IN FORUM JUMP

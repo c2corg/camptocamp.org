@@ -39,6 +39,7 @@ $lang_search = array(
 'Recent posts'				=>	'Messaggi recenti',
 'Unanswered topics'			=>	'Discussioni senza risposta',
 'Posts from user'			=>	'Messaggi: ',
+'Topics from user'			=>	'Argomenti: ',
 'Subscriptions topics'		=>	'Le tue discussioni sottoscritte',
 'New posts'					=>	'Nuovi messaggi dall\'ultima visita',
 'News'                      =>  'News',

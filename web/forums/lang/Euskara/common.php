@@ -152,6 +152,7 @@ $lang_common = array(
 'Show recent posts'		=>	'Azken mezuak erakutsi',
 'Show unanswered posts'	=>	'Erantzun gabeko mezuak erakutsi',
 'Show your posts'		=>	'Zure mezuak erakutsi',
+'Show your topics'		=>	'Zure mezuak eztabaida',
 'Show subscriptions'	=>	'Harpideturik zauden eztabaidak erakutsi',
 'Jump to'				=>	'Foroz aldatu',
 'Go'					=>	' Joan ',		// submit button in forum jump
