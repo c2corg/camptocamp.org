@@ -1,6 +1,6 @@
-Subject : Copie : <mail_subject>
+Subject: Copy: <mail_subject>
 
-Vous avez envoyé le message suivant à <recipient> :
+You sent the following message to <recipient>:
 
 -----------------------------------------------------------------------
 
