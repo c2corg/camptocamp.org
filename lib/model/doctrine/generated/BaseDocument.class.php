@@ -3093,6 +3093,10 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             $conditions[] = implode(' AND ', $conditions_groups);
         }
+        elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        {
+            self::buildCompareCondition($conditions, $values, $field, $param, false, $use_not_null);
+        }
         
         return $nb_id;
     }
