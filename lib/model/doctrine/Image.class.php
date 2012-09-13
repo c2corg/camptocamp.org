@@ -604,12 +604,12 @@ class Image extends BaseImage
             {
                 $main_join = $m . '.MainAssociation';
                 $q->leftJoin("m.history_metadata hm")
-                  ->leftJoin('hm.versions vi')
-                  ->addWhere('vi.version = 1');
+                  ->leftJoin('hm.versions li')
+                  ->addWhere('li.version = 1');
                 
                 if (isset($joins[$join . '_id_has']))
                 {
-                    $q->leftJoin("vi.LinkedAssociation li2")
+                    $q->leftJoin("li.LinkedAssociation li2")
                       ->addWhere("li2.type = '$ltype'");
                 }
             }
@@ -623,20 +623,16 @@ class Image extends BaseImage
                 if (!$from_users)
                 {
                     $q->leftJoin("m.LinkedAssociation $m");
-                }
-                else
-                {
-                    $q->leftJoin("vi.LinkedAssociation $m");
-                }
-                
-                if (   isset($joins['post_' . $join])
-                    || isset($joins[$join])
-                    || isset($joins[$join . '_i18n'])
-                )
-                {
-                    if ($ltype)
+                    
+                    if (   isset($joins['post_' . $join])
+                        || isset($joins[$join])
+                        || isset($joins[$join . '_i18n'])
+                    )
                     {
-                        $q->addWhere($m . ".type = '$ltype'");
+                        if ($ltype)
+                        {
+                            $q->addWhere($m . ".type = '$ltype'");
+                        }
                     }
                 }
                 
