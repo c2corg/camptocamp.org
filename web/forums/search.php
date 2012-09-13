@@ -159,7 +159,8 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     // If a language was supplied
     if (isset($_GET['lang']) && !empty($_GET['lang']))
     {
-        $languages = explode(',', $_GET['lang']);
+        $languages = trim(preg_replace('#\W+#', ' ', $_GET['lang']));
+        $languages = explode(' ', $languages);
         $search_title .= ' [' . implode(', ', $languages) . ']';
         $where_languages = implode('\',\'', $languages);
         $where_culture = "f.culture IN ('" . $where_languages . "') AND ";
@@ -653,15 +654,15 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				if (!$num_hits)
 					message($lang_search['No user posts']);
 			}
-		/*	// If it's a search for topics created by a specific user ID
+			// If it's a search for topics created by a specific user ID
 			else if ($action == 'show_user_topics')
 			{
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR fp.forum_id=1)'.$where_forum_id.' AND p.poster_id='.$user_id.' GROUP BY t.id') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR fp.forum_id=1)'.$where_forum_id.' AND t.posted=p.posted AND p.poster_id='.$user_id.' GROUP BY t.id') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
 				if (!$num_hits)
 					message($lang_search['No user posts']);
-			} */
+			}
 			// If it's a search for subscribed topics
 			else if ($action == 'show_subscriptions')
 			{

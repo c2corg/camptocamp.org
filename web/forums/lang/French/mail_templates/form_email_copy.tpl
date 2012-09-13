@@ -1,4 +1,4 @@
-Subject : Copie : <mail_subject>
+Subject: Copie : <mail_subject>
 
 Vous avez envoyé le message suivant à <recipient> :
 
