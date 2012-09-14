@@ -35,7 +35,17 @@ else:
         {
             echo '<p class="list_header">' . __('to sort by one column, click once or twice in its title') . '</p>';
         }
-        echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
+        echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id'));
+        if ($module == 'outings')
+        {
+            $orderby_images = array('orderby' => 'odate', 'order' => 'desc');
+        }
+        else
+        {
+            $orderby_images = array();
+        }
+        echo ' &nbsp; ' . link_to_outing_images('List all linked images', $module, $orderby_images);
+        echo '</p>';
     }
     
     $orderby_params = array('orderby', 'orderby2', 'orderby3');

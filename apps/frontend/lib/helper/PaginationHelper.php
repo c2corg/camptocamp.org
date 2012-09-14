@@ -268,6 +268,23 @@ function link_to_outings($label)
     return link_to($label, $uri);
 }
 
+function link_to_outing_images($label, $join = '', $orderby = array())
+{
+    $params = array();
+    if (!empty($join))
+    {
+        $join = substr($join, 0, -1);
+        $params[] = $joins;
+    }
+    $params = array_merge($params, $orderby);
+    $uri = '/images/list';
+    $uri .= _addUrlParameters($uri,
+                              array('orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'page'),
+                              $params);
+    
+    return link_to($label, $uri);
+}
+
 function header_list_tag($field_name, $label = null, $default_order = '', $simple = false)
 {
     if (empty($label))
