@@ -2805,8 +2805,9 @@ msgstr "<h3>Access</h3>Description of how to reach the place where a local produ
 msgid "_access_status_info"
 msgstr "<h3>Access</h3>Condition ot the access road the day of the outing: cleared, snowed, or closed.<br />The <i>Conditions</i> field allows to fill in additional information."
 
+# [WARNING] needs_review
 msgid "_accommodation_info"
-msgstr "<h3>Nearby accomodation and restaurants</h3>Information on food and accomodation close to the access point."
+msgstr "<h3>Nearby accomodation, restaurants and cultural heritage</h3>Information on food, accomodation and cultural heritage close to the access point."
 
 # [WARNING] needs_review
 msgid "_activities_info"

@@ -1079,9 +1079,9 @@ msgstr "Ez dago halako mendi-aterperik."
 msgid "Hut:"
 msgstr "Mendi borda:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "ID or name/nickname"
-msgstr "ID or beginning of the name/nickname"
+msgstr "ID o nom/nom d'usuari"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
@@ -2952,6 +2952,7 @@ msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comp
 msgid "_access_status_info"
 msgstr "<h3>Abiapuntua</h3>Ibilbidearen abiapuntura heltzeko ereepideetan aurkituriko egoera: garbitua, elurtua edo itxia.<br /> <i>Abiapuntuarekiko azalpenak</i> eremuak abiapuntuaren araberako iritziak gehitu daitezke."
 
+# [WARNING] needs_update
 msgid "_accommodation_info"
 msgstr "<h3>Inguruetako lo eta jateko tokiak</h3>Abiapuntu inguruko lo egiteko eta jateko tokieri buruzko informazio gehigarria."
 

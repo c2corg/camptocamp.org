@@ -1073,9 +1073,9 @@ msgstr "El refugio no existe"
 msgid "Hut:"
 msgstr "Refugio:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "ID or name/nickname"
-msgstr "ID or beginning of the name/nickname"
+msgstr "ID o nom/nom d'usuari"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
@@ -2802,6 +2802,7 @@ msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comp
 msgid "_access_status_info"
 msgstr "<h3>Acceso</h3>Estado de la carretera el día de la salida (seca, nevada, o cerrada) o datos sobre transportes en comun (horarios & precios).<br />El campo <i>Comentarios sobre el acceso</i> permite ampliar la información."
 
+# [WARNING] needs_update
 msgid "_accommodation_info"
 msgstr "<h3>Alojamiento y comida en las cercanías </h3>Información sobre las posibilidades de comer y alojarse cerca del punto de acceso."
 

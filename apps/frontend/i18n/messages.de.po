@@ -785,9 +785,9 @@ msgstr "AS7"
 
 # [general comment]
 # [cda]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Ecomobility"
-msgstr "Ecomobility"
+msgstr "Sanfte Mobilität"
 
 msgid "Edit"
 msgstr "Ändern"
@@ -2818,6 +2818,7 @@ msgstr "<h33>Zugang<h3>Beschreibung des Zugangs zu einem Verkaufspunkt von lokal
 msgid "_access_status_info"
 msgstr "<h3>Zugang</h3>Zustand der Zufahrtsstrasse am Tag der Tour: geräumt, schneebedeckt oder gesperrt.<br />Im Feld <i>Kommentar zum Strassenzugang oder den öV</i> können zusätzliche Informationen eingetragen werden."
 
+# [WARNING] needs_update
 msgid "_accommodation_info"
 msgstr "<h3>Unterkunft und Verpflegung in der Nähe</h3>Informationen über Ess-, Trink- und Schlafmöglichkeiten in der Nähe des Zugangsorts."
 
@@ -4123,13 +4124,12 @@ msgstr "Das Portal \"Changer d'approche\" wurde von der Europäischen Union mitf
 
 # [general comment]
 # [cda]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "cda presentation"
-msgstr "An idea to <strong>get out without taking your car</strong>?<br/>\n"
-"An good idea \"<strong>local products</strong><br/>\n"
-"changerdapproche.org lists more than 10.000 mountain routes, accessible in public transports : hiking, snowshoeing, climbing routes and crags, mountaineering, paragliding and ice-climbing.<br/>\n"
-"Mountain Wilderness and Camptocamp.org introduce you the greatest european database ever dedicated to ecotourism and ecomobility in mountains. An open database which will integrate your mountain outings in public transports. An interactive database to share your good ideas for ecotourism in valleys.<br/>\n"
-"The pleasure of an outing of that kind begins at your door !"
+msgstr "Eine Idee einmal <strong>ohne Auto raus</strong> zu kommen?<br />\n"
+"Ein Tipp für <strong>lokale Spezialitäten</strong>?<br />\n"
+"Changerdapproche.org eröffnet Dir den Zugang zu mehr als 10.000 Bergtouren, die mit dem öffentlichen Verkehr erreichbar sind: Wander- und Trekkingrouten, Schneeschuh- und Skitouren, Klettertouren, Alpinismus, Gleitschirmfliegen und Eisklettern.<br />\n"
+"Mountain Wilderness und Camptocamp bieten Euch die größte europäische Datenbank zugunsten bewussterer und sanfter Mobilität und Ökotourismus in den Bergen. Eine offene Datenbank, die Ihr selbst durch Eure Bergtouren mit dem öffentlichen Verkehr bereichert. Eine partizipative Datenbank, um gute Ideen, Erfahrungen und Tipps für den Ökotourismus zu berichten und zu teilen. Das Vergnügen einer Bergtour beginnt vor Eurer Haustür!"
 
 msgid "cda sub title"
 msgstr "Das Portal für Berge ohne Autos"
@@ -4582,9 +4582,9 @@ msgstr "Spalten gut zugedeckt - keine Probleme"
 # [general comment]
 # [cda]
 # no uppercase
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "ecomobility"
-msgstr "ecomobility"
+msgstr "sanfte Mobilität"
 
 msgid "edit ?"
 msgstr "ändern?"
@@ -6166,9 +6166,8 @@ msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">Met
 # [general comment]
 # [cda] title of the top left box on home
 # no uppercase
-# [WARNING] en translation used
 msgid "presentation"
-msgstr "presentation"
+msgstr "Präsentation"
 
 msgid "previous area"
 msgstr "Vorige Region"

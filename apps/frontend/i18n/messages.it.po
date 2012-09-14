@@ -2801,6 +2801,7 @@ msgstr "<h3>Accesso</h3>Descrizione dell'accesso a un punto di vendita di prodot
 msgid "_access_status_info"
 msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il giorno della gita: sgombera, innevata, o chiusa<br />Il campo <i>Commenti sull'accesso</i> permette di aggiungere una nota."
 
+# [WARNING] needs_update
 msgid "_accommodation_info"
 msgstr "<h3>Vitto e alloggio nelle vicinanze</h3>Informazioni sulle possibilità di vitto e alloggio nei dintorni del punto di partenza."
 
