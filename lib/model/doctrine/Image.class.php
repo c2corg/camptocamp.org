@@ -605,8 +605,8 @@ class Image extends BaseImage
                 $m = $m . '1';
                 $main_join = $m . '.MainAssociation';
                 $q->leftJoin("m.history_metadata hm")
-                  ->leftJoin('hm.versions $m')
-                  ->addWhere('$m.version = 1');
+                  ->leftJoin("hm.versions $m")
+                  ->addWhere("$m.version = 1");
                 
                 if (isset($joins[$join . '_id_has']))
                 {
