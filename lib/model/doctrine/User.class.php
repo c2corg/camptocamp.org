@@ -440,7 +440,7 @@ class User extends BaseUser
         }
         
         // image criteria
-        $has_name = Image::buildImageListCriteria($criteria, $params_list, false, 'li.document_id');
+        $has_name = Image::buildImageListCriteria($criteria, $params_list, false, 'document_id');
         if ($has_name === 'no_result')
         {
             return $has_name;
