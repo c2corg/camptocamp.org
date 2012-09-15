@@ -21,7 +21,8 @@ if (!isset($items) || count($items) == 0):
 else:
     
     echo '<p class="list_header">'
-       . link_to_outings(__('Show as a list'));
+       . link_to_outings(__('Show as a list'))
+       . ' &nbsp; ' . link_to_associated_images(__('List all linked images'), $module, array('orderby' => 'odate', 'order' => 'desc'));
     if ($show_images)
     {
         echo '';
