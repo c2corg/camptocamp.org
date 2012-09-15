@@ -44,7 +44,7 @@ else:
         {
             $orderby_images = array();
         }
-        echo ' &nbsp; ' . link_to_outing_images('List all linked images', $module, $orderby_images);
+        echo ' &nbsp; ' . link_to_outing_images(__('List all linked images'), $module, $orderby_images);
         echo '</p>';
     }
     

@@ -274,7 +274,7 @@ function link_to_outing_images($label, $join = '', $orderby = array())
     if (!empty($join))
     {
         $join = substr($join, 0, -1);
-        $params[] = $joins;
+        $params['join'] = $join;
     }
     $params = array_merge($params, $orderby);
     $uri = '/images/list';

@@ -4207,6 +4207,10 @@ msgstr "image collaborative"
 msgid "collaborative images"
 msgstr "images collaboratives"
 
+# [WARNING] needs_review
+msgid "collaborative images of associated outings"
+msgstr "images collaboratives des sorties associées"
+
 msgid "comment"
 msgstr "commentaire"
 
