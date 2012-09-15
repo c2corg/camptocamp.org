@@ -39,8 +39,6 @@ function _addUrlParameters($uri, $params_to_ignore = array(), $params = array(),
         unset($request_parameters[$param]);
     }
     
-    $request_parameters = array_merge($request_parameters, $params);
-    
     foreach ($rename_params as $old => $new)
     {
         if (isset($request_parameters[$old]))
@@ -49,7 +47,15 @@ function _addUrlParameters($uri, $params_to_ignore = array(), $params = array(),
             unset($request_parameters[$old]);
             $request_parameters[$new] = $value;
         }
+        if (isset($params[$old]))
+        {
+            $value = $params[$old];
+            unset($params[$old]);
+            $params[$new] = $value;
+        }
     }
+    
+    $request_parameters = array_merge($request_parameters, $params);
     
     $uri = _addParameters($uri, $request_parameters);
     
