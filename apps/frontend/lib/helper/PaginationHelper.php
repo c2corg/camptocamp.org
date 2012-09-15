@@ -27,7 +27,7 @@ function _addParameters($uri, $params = array())
     return $uri;
 }
 
-function _addUrlParameters($uri, $params_to_ignore = array(), $params = array())
+function _addUrlParameters($uri, $params_to_ignore = array(), $params = array(), $rename_params = array())
 {
     $request = sfContext::getInstance()->getRequest();
     $request_parameters = $request->getParameterHolder()->getAll();
@@ -38,7 +38,18 @@ function _addUrlParameters($uri, $params_to_ignore = array(), $params = array())
     {
         unset($request_parameters[$param]);
     }
+    
     $request_parameters = array_merge($request_parameters, $params);
+    
+    foreach ($rename_params as $old => $new)
+    {
+        if (isset($request_parameters[$old]))
+        {
+            $value = $request_parameters[$old];
+            unset($request_parameters[$old]);
+            $request_parameters[$new] = $value;
+        }
+    }
     
     $uri = _addParameters($uri, $request_parameters);
     
@@ -268,11 +279,13 @@ function link_to_outings($label)
     return link_to($label, $uri);
 }
 
-function link_to_outing_images($label, $join = '', $orderby = array())
+function link_to_associated_images($label, $join = '', $orderby = array())
 {
     $params = array();
+    $rename_params['users'] = 'ousers';
     if (!empty($join))
     {
+        $rename_params['act'] = c2cTools::Module2Letter($join) . 'act';
         $join = substr($join, 0, -1);
         $params['join'] = $join;
     }
@@ -280,7 +293,8 @@ function link_to_outing_images($label, $join = '', $orderby = array())
     $uri = '/images/list';
     $uri .= _addUrlParameters($uri,
                               array('orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'page'),
-                              $params);
+                              $params,
+                              $rename_params);
     
     return link_to($label, $uri, array('rel' => 'nofollow'));
 }
