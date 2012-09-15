@@ -257,7 +257,7 @@ function link_to_conditions($label)
     $params = array('orderby' => 'date', 'order' => 'desc');
     $uri = _addUrlParameters('/outings/conditions', array('orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'page'), $params);
     
-    return link_to($label, $uri);
+    return link_to($label, $uri, array('rel' => 'nofollow'));
 }
 
 function link_to_outings($label)
@@ -282,7 +282,7 @@ function link_to_outing_images($label, $join = '', $orderby = array())
                               array('orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'page'),
                               $params);
     
-    return link_to($label, $uri);
+    return link_to($label, $uri, array('rel' => 'nofollow'));
 }
 
 function header_list_tag($field_name, $label = null, $default_order = '', $simple = false)

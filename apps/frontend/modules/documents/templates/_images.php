@@ -79,7 +79,7 @@ if (!$mobile_version)
         echo '<p class="list_link">'
            . picto_tag('picto_images') . ' '
            . link_to(__($text), "images/list?$module_url=$list_ids", array('rel' => 'nofollow'))
-           . ' - ' . link_to(__('collaborative images'), "images/list?ityp=1&join=outing&$module_name=$list_ids", array('rel' => 'nofollow'));
+           . ' - ' . link_to(__('collaborative images of associated outings'), "images/list?ityp=1&join=outing&$module_name=$list_ids&orderby=odate&order=desc", array('rel' => 'nofollow'));
         if ($nb_images && in_array($module_name, array('summits', 'routes', 'sites', 'articles')))
         {
             echo ' - ' . picto_tag('picto_outings') . ' '
