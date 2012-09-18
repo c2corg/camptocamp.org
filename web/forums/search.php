@@ -822,7 +822,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		$db->free_result($result);
 
 		// Get username when we show posts from one user
-		if ($search_action == 'show_user' || $action == 'show_user_topics')
+		if ($search_action == 'show_user' || $search_action == 'show_user_topics')
 		{
                         $user_id = $_GET['user_id'];
                         if (is_numeric($user_id))
