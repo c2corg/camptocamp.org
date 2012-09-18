@@ -608,12 +608,19 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             }
             if (isset($_GET['simple']))
             {
-                $forum_ids[] = COMMENTS_FORUM;
+                if ($action != 'show_user_topics')
+                {
+                    $forum_ids[] = COMMENTS_FORUM;
+                }
                 $forum_ids[] = ASSOCIATION_FORUMS;
                 if (empty($c2c_board_condition))
                 {
                     $forum_ids[] = C2C_BOARD_FORUM;
                 }
+            }
+            if ($action == 'show_user_topics' && !isset($_GET['comments']))
+            {
+                $forum_ids[] = COMMENTS_FORUM;
             }
             if (count($forum_ids))
             {

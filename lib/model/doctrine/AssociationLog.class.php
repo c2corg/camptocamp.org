@@ -26,7 +26,7 @@ class AssociationLog extends BaseAssociationLog
         // filter on a specific doc if needed
         if ($doc_id)
         {
-            $q->where('mi.id=? OR li.id=?', array($doc_id, $doc_id));
+            $q->where('al.main_id=? OR al.linked_id=?', array($doc_id, $doc_id));
         }
         
         $q->orderBy('al.associations_log_id DESC'); // ~ decreasing time (but faster, since there is an index on this field).
