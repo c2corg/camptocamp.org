@@ -27,7 +27,7 @@ function _addParameters($uri, $params = array())
     return $uri;
 }
 
-function _addUrlParameters($uri, $params_to_ignore = array(), $params = array(), $rename_params = array())
+function _addUrlParameters($uri, $params_to_ignore = array(), $params = array(), $rename_params = array(), $params_if_empty = array())
 {
     $request = sfContext::getInstance()->getRequest();
     $request_parameters = $request->getParameterHolder()->getAll();
@@ -53,6 +53,11 @@ function _addUrlParameters($uri, $params_to_ignore = array(), $params = array(),
             unset($params[$old]);
             $params[$new] = $value;
         }
+    }
+    
+    if (empty($request_parameters))
+    {
+        $request_parameters = $params_if_empty;
     }
     
     $request_parameters = array_merge($request_parameters, $params);
@@ -289,8 +294,14 @@ function link_to_associated_images($label, $join = '', $orderby = array())
 {
     $params = array();
     $rename_params['users'] = 'ousers';
+    $perso = array();
     if (!empty($join))
     {
+        $perso_param = c2cPersonalization::getDefaultFiltersUrlParam($join, array('ifon'));
+        if (!empty($perso_param))
+        {
+            $perso['perso'] = $perso_param;
+        }
         $rename_params['act'] = c2cTools::Module2Letter($join) . 'act';
         $join = substr($join, 0, -1);
         $params['join'] = $join;
@@ -300,7 +311,8 @@ function link_to_associated_images($label, $join = '', $orderby = array())
     $uri .= _addUrlParameters($uri,
                               array('orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'page'),
                               $params,
-                              $rename_params);
+                              $rename_params,
+                              $perso);
     
     return link_to($label, $uri, array('rel' => 'nofollow'));
 }

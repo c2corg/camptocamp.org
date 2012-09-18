@@ -205,6 +205,34 @@ class c2cPersonalization
         return $default_filters;
     }
 
+    public static function getDefaultFiltersUrlParam($module, $prefix = array())
+    {
+        list($langs_enable, $areas_enable, $activities_enable) = self::getDefaultFilters($module);
+        
+        $param = array();
+        if ($langs_enable)
+        {
+            $param[] = 'cult';
+        }
+        if ($areas_enable)
+        {
+            $param[] = 'areas';
+        }
+        if ($activities_enable)
+        {
+            $param[] = 'act';
+        }
+        
+        if (count($param))
+        {
+            $param = array_merge($prefix, $param);
+        }
+        
+        $param = implode('-', $param);
+        
+        return $param;
+    }
+    
     /**
      * Tells if user has some filters activated.
      * @return boolean
