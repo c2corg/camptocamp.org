@@ -631,34 +631,55 @@ class c2cTools
         return array();
     }
 
-    /**
-     * Convert lat/lon to swiss coordinates
-     * see http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/topics/survey/sys/refsys/switzerland.parsysrelated1.31216.downloadList.77004.DownloadFile.tmp/swissprojectionfr.pdf
+    /*
+     * Convert from wgs84 to swiss national coordinates
+     * adapted from http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/products/software/products/skripts.html
      */
-    public static function convertLatLonToSwissCoords($lat, $lon)
+    public static function WGS84toCH1903($lat, $long)
     {
-        $x = $lon * (M_PI / 180);
-        $y = $lat * (M_PI / 180);
-        $e2 = 0.006674372230614;
-        $e = sqrt($e2);
-        $alpha = 1.00072913843038;
-        $K = 0.0030667323772751;
-        $lambda0 = 0.129845224143583;
-        $b0 = 0.818694358568627;
-        $R = 6378815.90365;
+        // Convert DEC angle to SEX DMS
+        function DECtoSEX($angle) {
+            // Extract DMS
+            $deg = intval( $angle );
+            $min = intval( ($angle-$deg)*60 );
+            $sec =  ((($angle-$deg)*60)-$min)*60;   
+            // Result in degrees sex (dd.mmss)
+            return $deg + $min/100 + $sec/10000;
+        }
 
-        $Sa1 = log(tan(M_PI / 4.0 - $y / 2.0));
-        $Sa2 = $e / 2.0 
-             * log((1 + $e * sin($y)) 
-             / (1 - $e * sin($y))); 
-        $S = -$alpha * ($Sa1 + $Sa2) + $K; 
-        $b = 2.0 * (atan(exp($S)) - M_PI / 4.0);
-        $I = $alpha * ($x - $lambda0); 
+        // Convert Degrees angle to seconds
+        function DEGtoSEC($angle) {
+            // Extract DMS
+            $deg = intval( $angle );
+            $min = intval( ($angle-$deg)*100 );
+            $sec = ((($angle-$deg)*100) - $min) * 100;
+            // Result in degrees sex (dd.mmss)
+            return $sec + $min*60 + $deg*3600;
+        }
 
- 	    $rotI = atan(sin($I) / (sin($b0) * tan($b) + cos($b0) * cos($I))); 
-        $rotB = asin(cos($b0) * sin($b) - sin($b0) * cos($b)* cos($I)); 
-        $X = $R / 2.0 * log((1 + sin($rotB)) / (1 - sin($rotB))) + 200000.0; 
- 	    $Y = $R * $rotI + 600000.0;
-        return array(round($X), round($Y)); 
+        // Converts degrees dec to sex
+        $lat = DECtoSEX($lat);
+        $long = DECtoSEX($long);
+        // Converts degrees to seconds (sex)
+        $lat = DEGtoSEC($lat);
+        $long = DEGtoSEC($long);
+        // Axiliary values (% Bern)
+        $lat_aux = ($lat - 169028.66)/10000;
+        $long_aux = ($long - 26782.5)/10000;
+        // Process Y
+        $y = 600072.37 
+           + 211455.93 * $long_aux
+           -  10938.51 * $long_aux * $lat_aux
+           -      0.36 * $long_aux * pow($lat_aux, 2)
+           -     44.54 * pow($long_aux, 3);
+        // Process X
+        $x = 200147.07
+           + 308807.95 * $lat_aux
+           +   3745.25 * pow($long_aux, 2)
+           +     76.63 * pow($lat_aux, 2)
+           -    194.56 * pow($long_aux, 2) * $lat_aux
+           +    119.79 * pow($lat_aux, 3);
+
+        return array($x, $y);
     }
 }

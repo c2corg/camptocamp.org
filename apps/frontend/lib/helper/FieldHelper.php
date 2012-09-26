@@ -776,7 +776,7 @@ function field_swiss_coords($document)
     // only document located in Switzerland are concerned
     if (!$isSwiss) return '';
     
-    list($x, $y) = c2cTools::convertLatLonToSwissCoords($document->get('lat'), $document->get('lon'));
+    list($x, $y) = c2cTools::WGS84toCH1903($document->get('lat'), $document->get('lon'));
     $value = sprintf('%d / %d [<a href="http://map.geo.admin.ch/?X=%d&amp;Y=%d&amp;zoom=6&amp;crosshair=cross">%s</a>]',
                       $y, $x, $x, $y, __('map'));
     return _format_data('swiss coords', $value);
