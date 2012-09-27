@@ -600,6 +600,7 @@ class imagesActions extends documentsActions
                 case 'routes': $this->default_license = 1; break;
                 case 'sites': $this->default_license = 1; break;
                 case 'summits': $this->default_license = 1; break;
+                case 'products': $this->default_license = 1; break;
                 case 'users': $this->default_license = 2; break;
                 default: $this->default_license = 2;
             }
@@ -744,6 +745,7 @@ class imagesActions extends documentsActions
             case 'routes':
             case 'sites':
             case 'summits':
+            case 'products':
                 $default_license = 1; break;
             case 'images':
                 // default license is that of associated image
