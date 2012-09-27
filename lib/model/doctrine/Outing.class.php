@@ -231,8 +231,12 @@ class Outing extends BaseOuting
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'o', 'activities'), 'act', $join);
-                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', 'date', 'date', $join);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', 'date', array('date', 'odate'), $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', null, 'geom', $join);
+            }
+            else
+            {
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', $m . '.date', 'odate', $join);
             }
             
             $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'oi.search_name'), ($is_module ? array('onam', 'name') : 'onam'), array($join_idi18n, $join_i18n), 'Outing');
@@ -247,7 +251,6 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.height_diff_down', 'oddif', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Relative', array($m2 . 'height_diff_down', $m2 . 'height_diff_up'), 'odudif', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.outing_length', 'olen', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', $m . '.date', 'odate', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.outing_with_public_transportation', 'owtp', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.partial_trip', 'ptri', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.frequentation_status', 'ofreq', $join);

@@ -1687,6 +1687,7 @@ all:
     global_ratings:
       0: 
       2: F
+      3: F+
       4: PD-
       6: PD
       8: PD+
@@ -1855,7 +1856,6 @@ all:
       3: T3
       4: T4
       5: T5
-      6: T6
     snowshoeing_ratings:
       0:
       1: R1

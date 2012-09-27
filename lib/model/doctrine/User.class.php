@@ -413,6 +413,7 @@ class User extends BaseUser
         
         // user criteria
         $has_name = User::buildUserListCriteria($criteria, $params_list, true);
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'Join', '', 'ijoin', '', 'image');
         if ($has_name === 'no_result')
         {
             return $has_name;
@@ -554,6 +555,12 @@ class User extends BaseUser
             User::buildUserPagerConditions($q, $joins, true);
         }
 
+        // join with image tables only if needed 
+        if (isset($joins['join_image']))
+        {
+            Image::buildImagePagerConditions($q, $joins, false, 'ui', true);
+        }
+
         // join with outings tables only if needed 
         if (   isset($joins['join_route'])
             || isset($joins['join_summit'])
@@ -585,12 +592,6 @@ class User extends BaseUser
 
             // join with geo-associations linked to outings
             self::joinOnLinkedDocMultiRegions($q, $joins, array(), false, 'oarea', null, 'lo', 'go');
-        }
-
-        // join with image tables only if needed 
-        if (isset($joins['join_image']))
-        {
-            Image::buildImagePagerConditions($q, $joins, false, 'ui', true);
         }
 
         if (!empty($conditions))

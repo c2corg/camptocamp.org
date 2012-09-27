@@ -288,7 +288,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $result = self::buildListCondition($conditions, $values, $field, $value, $use_not_null); break;
                 case 'Id':
                     $result = self::buildListCondition($conditions, $values, $field, $value, false);
-                    if ($join_id && (($value == '-') || ($value == ' ')))
+                    if ($join_id && (($value == '-') || ($value == ' ') || ($result == 0)))
                     {
                         $joins[$join_id . '_has'] = true;
                     }
@@ -297,7 +297,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $infos = self::buildMultiIdCondition($conditions, $values, $field, $value);
                     $nb_join = $infos['nb_group'];
                     $result = $infos['nb_id'];
-                    if ($join_id && (($value == '-') || ($value == ' ')))
+                    if ($join_id && (($value == '-') || ($value == ' ') || ($nb_join > 0 && $result == 0)))
                     {
                         $joins[$join_id . '_has'] = true;
                     }
@@ -313,7 +313,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'Config':    self::buildConfigCondition($joins, $join_id, $value);
                     $join_id = '';
                     break;
-                case 'Join':    self::buildJoinCondition($joins, $values, $join_id, $value);
+                case 'Join':    self::buildJoinCondition($joins, $values, $join_id, $value, $extra);
                     $join_id = '';
                     break;
             }
@@ -3074,7 +3074,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             if (count($condition))
             {
-                $conditions_groups[] = '(' . implode(') OR (', $condition) . ')';
+                $conditions_groups[] = '((' . implode(') OR (', $condition) . '))';
             }
             if ($nb_not_conditions = count($not_condition_array))
             {
@@ -3182,7 +3182,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
                 if (count($condition))
                 {
-                    $conditions_groups[] = '(' . implode(') OR (', $condition) . ')';
+                    $conditions_groups[] = '((' . implode(') OR (', $condition) . '))';
                 }
                 if ($nb_not_conditions = count($not_condition_array))
                 {
@@ -3265,7 +3265,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 
             }
             
-            $conditions[] = '(' . implode(') OR (', $conditions_groups) . ')';
+            $conditions[] = '((' . implode(') OR (', $conditions_groups) . '))';
         }
     }
 
@@ -3374,13 +3374,13 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildJoinCondition(&$joins, &$values, $join, $param)
+    public static function buildJoinCondition(&$joins, &$values, $join0 = '', $param, $join1 = '')
     {
         if (!empty($param))
         {
-            if (!empty($join))
+            if (!empty($join0))
             {
-                $join_key = $param . '_' . $join;
+                $join_key = $param . '_' . $join0;
             }
             else
             {
@@ -3388,6 +3388,10 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             $joins[$join_key] = true;
             $joins['join_' . $param] = true;
+            if (!empty($join1))
+            {
+                $joins['join_' . $join1] = true;
+            }
         }
     }
 
