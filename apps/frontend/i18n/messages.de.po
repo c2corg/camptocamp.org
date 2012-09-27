@@ -4295,6 +4295,10 @@ msgstr "Gemeinschaftliches Bild"
 msgid "collaborative images"
 msgstr "Gemeinschaftliche Bilder"
 
+# [WARNING] fr translation used
+msgid "collaborative images of associated outings"
+msgstr "images collaboratives des sorties associées"
+
 msgid "comment"
 msgstr "Kommentar"
 

@@ -2747,7 +2747,7 @@ msgid "Your session is over. Please login again."
 msgstr "La teva sessió ha expirat. Connecta't de nou si et plau."
 
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
-msgstr "[0] Cap resultat trobat. <br />Verifiqueu l'ortografia, la sintaxi o reduïu el numero de paraules per conservar únicament una paraula característica (o part d'una paraula)|(1,+Inf]%nb_result% resultats trobats per %researched_word%"
+msgstr "[0] No s'ha trobat cap resultat. <br />Verifiqueu l'ortografia, la sintaxi o reduïu el número de paraules i conserveu una sola paraula característica (o part d'una paraula)|(1,+Inf]%nb_result% resultats trobats per %researched_word%"
 
 msgid "[0]No comment|[1]1 comment|(1,+Inf]%1% comments"
 msgstr "[0]No hi ha comentaris associats a aquest document.|[1]Hi ha un comentari associat a aquest document.|(1,+Inf]Hi ha %1% comentaris associats a aquest document."
@@ -2761,19 +2761,22 @@ msgstr "[geodata] Edició amb inserció d'una nova geometria"
 # [comment]
 # <h3>Resum / Introducció</h3>Indiqueu en poques paraules un resum i unes notes sobre la temàtica de l'article apareixerà en algunes llistes d'articles<br />Aquestes línies apareixeran a l'inici de l'article.
 msgid "_abstract_info"
-msgstr "<h3>Resum / Introducció</h3>Indiqueu en poques paraules un resum i unes notes sobra la temàtica de l'article apareixerà en algunes llistes d'articles<br />Aquestes línies apareixeran a l'inici de l'article."
+msgstr "<h3>Resum / Introducció</h3>Indiqueu en poques paraules un resum o una introducció al document, que es mostrarà a algunes llistes.<br />Aquestes línies apareixeran a l'inici de l'article.\n"
+"\n"
+"\n"
+"<h3>Résumé / introduction</h3>Indiquez en quelques lignes le résumé ou l'introduction au document, qui sera affiché dans certaines listes.<br />Ces lignes apparaitront au début du document."
 
 msgid "_access_comments_info"
-msgstr "<h3>Comentaris sobre l'accés</h3>: innivació i obertura de les acarreteres i accessos, notes sobre els transports públics."
+msgstr "<h3>Comentaris sobre l'accés per carretera o en transport públic</h3>Informació complementària: innivació i obertura de les carreteres i accessos, notes sobre els transports públics."
 
 msgid "_access_elevation_info"
-msgstr "<h3>Altitud de l'accés</h3>Altitud del punt de partida durant la sortida. Util en hivern quan l'altitud d epartida vaia en funció de la neteja de neu de la carretera."
+msgstr "<h3>Altitud de l'accés</h3>Altitud del punt de partida de la sortida. Útil a l'hivern quan l'altitud de l'inici varia en funció de la neteja de neu de la carretera."
 
 msgid "_access_info"
-msgstr "<h3>Accés</h3>Descripció de l'accés a un punt de venda de productes locals.<br />Si el document està associat a un accés per carretera o transport públic, inseriu només l'itinerari d'aquest accés."
+msgstr "<h3>Accés</h3>Descripció de l'accés a un punt de venda de productes locals.<br />Si el document està associat a un accés per carretera o transport públic, inseriu només l'itinerari des d'aquest accés."
 
 msgid "_access_status_info"
-msgstr "<h3>Accés</h3>Estat de la carretera d'accés fins al punt de partida de la sortida aquell dia&nbsp;: neta, nevada, tancada<br />El camp <i>Comentaris sobre l'accés</i> permet afegir aclariments."
+msgstr "<h3>Accés</h3>Estat de la carretera d'accés fins al punt de partida el dia que es va fer la sortida: neta, nevada, tancada<br />El camp <i>Comentaris sobre l'accés</i> permet afegir aclariments."
 
 # [WARNING] needs_review
 msgid "_accommodation_info"
@@ -2781,15 +2784,40 @@ msgstr "<h3>Allotjament, restauració i patrimoni cultural proper</h3>Informaci�
 
 # [comment]
 # insert snowshoeing in the activities list
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_activities_info"
-msgstr "<h3>Activitats</h3>Tipus d'activitats&nbsp;: passa el ratolí sobre els pictogrames per conèixer la significació.<br />Un document pot estar associat a una o més activitats&nbsp;:<br /><br /><strong>esquí, surf, raquetes</strong>&nbsp;: esquí de muntanya, surf i/o rquetes<br /><br /><strong>alpinisme neu, glaç, mixte</strong>&nbsp;: alpinisme en neu, glaç o mixte (en alta muntanya)<br /><br /><strong>roca alta muntanya</strong>&nbsp;: alpinisme sobre roca, grans víes en muntanya (equipades o no)<br /><br /><strong>escalada</strong>&nbsp;: bloc, víes d'un o més llargs en paret (equipades o no)<br /><br /><strong>cascada</strong>&nbsp;: cascade de gel no en alta muntanya, dry-tooling<br /><br /><strong>trekking</strong>&nbsp;: trekking en terreny muntanyós (i no en plana), en sender balisat o no, o fora de sender"
+msgstr "<h3>Activitats</h3>\n"
+"Tipus d'activitats: passeu el ratolí per damunt dels pictogrames per conèixer-ne el significat.<br />\n"
+"Es pot associar un document a una o a més d'una activitat:<br />\n"
+"<br />\n"
+"<span class=\"picto activity_1\"></span> &nbsp;<strong>esquí, surf</strong>: esquí de muntanya i/o surf<br />\n"
+"<br />\n"
+"<span class=\"picto activity_7\"></span> &nbsp;<strong>raquetes</strong>: excursionisme amb raquetes<br />\n"
+"<br />\n"
+"<span class=\"picto activity_2\"></span> &nbsp;<strong>alpinisme en neu, glaç o mixt</strong>: alpinisme en neu, glaç o mixt (a l'alta muntanya)<br />\n"
+"<br />\n"
+"<span class=\"picto activity_3\"> &nbsp;<strong>escalada d'alta muntanya</strong>&nbsp;: alpinisme en roca, vies llargues (equipades o desequipades)<br />\n"
+"<br />\n"
+"<span class=\"picto activity_4\"> &nbsp;<strong>escalada</strong>: bloc, vies d'un o més llargs en parets (equipades o desequipades)<br />\n"
+"<br />\n"
+"<span class=\"picto activity_5\"> &nbsp;<strong>glaç</strong>: cascades de glaç fora d'alta muntanya, dry-tooling<br />\n"
+"<br />\n"
+"<span class=\"picto activity_6\"> &nbsp;<strong>excursionisme</strong>: excursionisme de mitja i alta muntanya, per senders marcats o no o fora de sender<br />\n"
+"<br />\n"
+"<span class=\"picto activity_8\"> &nbsp;<strong>parapent de muntanya</strong>: descens en parapent després d'haver pujat a peu o amb esquís<br />\n"
+"<br />\n"
+"La diferència entre les activitats <strong>escalada</strong> i <strong>escalada d'alta muntanya</strong> rau en l'altitud del cim on hi ha la via, no en l'equipament. A Europa s'apliquen els següents criteris:<br />\n"
+"- altitud < 2100 m: escalada<br />\n"
+"- altitud entre 2100 m i 2400 m: escalada o escalada d'alta muntanya, però majoritàriament escalada a seques<br />\n"
+"- altitud entre 2400 m i 2700 m: escalada o escalada d'alta muntanya, però majoritàriament escalada d'alta muntanya<br />\n"
+"- altitud > 2700 m: escalada d'alta muntanya<br />\n"
+"Per tant, entre 2100 m i 2700 m es poden seleccionar les dues activitats en cas de dubte"
 
 msgid "_aid_rating_info"
-msgstr "<h3>Cotació escalada artificial.</h3><br />La cotació artificial correspón a la dificultat màxima de lescalada artificial rocosa, és a dir l'escalada que consiteix en utilitzar punts fixes d'ajuda per progressar en un passatge donat.<br />L'escala va de A0 a A6."
+msgstr "<h3>Grau de dificultat en escalada artificial.</h3><br />El grau de dificultat en artificial correspon a la dificultat màxima de l'escalada artificial en roca, és a dir l'escalada que consisteix en utilitzar punts fixes d'ajuda per progressar en un passatge donat.<br />L'escala va de A0 a A6."
 
 msgid "_area_type_info"
-msgstr "<h3>Tipus de regió</h3>Tipus de la regió: massís muntanyós, regió administrativa o país."
+msgstr "<h3>Tipus de regió</h3>Tipus de regió: massís muntanyós, regió administrativa o país."
 
 msgid "_article_type_info"
 msgstr "<h3>Tipus d'article</h3><strong>article col.laboratiu</strong>: <br />Un article col.laboratiu pot ser modificat per qualsevol dels membres de camptocamp.org. Això és particularment interessant pels articles de la categoria <i>enciclopèdia</i> que s'enriqueixen pel mateix sistema de funcionament que Wikipédia.<br /><br /><strong>article personal</strong>:<br />Un article personal només pot ser modificat per l'autor. Això és més adaptat per un article de la categoria relat, per exemple."
@@ -2862,13 +2890,15 @@ msgstr "<h3>Condicions trobades</h3>Detalls de les condicions trobadas en l'itin
 msgid "_conditions_levels_info"
 msgstr "<h3>Innivació per zones</h3>Permet indicar sintèticament les condicions trobades en cada part de l'itinerari.<br />Per afegir una zona, cliqueu en el botó (+).<br /><br /><strong>Lloc / altitud / orientació / hora</strong>: caractéristiques de la zona&nbsp;: sa localització, rang d'altituds, la seva orientació, el seu relleu (clot, corredor...), l'hora de pas.<br /><br /><strong>Tova</strong>: espessor de la neu tova en cm (enfonçament del bastó).<br /><br /><strong>Total</strong>&nbsp;: espessor total de la neu en cm. Deixeu en blanc si no la coneixeu.<br /><br /><strong>Observacions</strong>: qualitat de la neu, anàlisi estratigràfic resumit, qualitat de l'esquí."
 
-# [WARNING] needs_update
 msgid "_conditions_status_info"
-msgstr "<h3>Condicions</h3>Valoració global de les condicions trobades en l'itinerari el dia de la sortida. Utilitzable pel filtre de recerca de sortides.<br />el camp<i>Condicions trobades</i> permet donar informacions complementàries."
+msgstr "<h3>Condicions del terreny</h3>\n"
+"Aquesta casella és una valoració de les condicions del terreny trobades al llarg de l'itinerari durant la sortida, utilitzable als filtres de cerca de les sortides.<br />\n"
+"Les condicions del terreny no tenen pas en compte la meteorologia i es donen en relació a les condicions que cal esperar en condicions normals de l'itinerari quan aquest és més freqüentat. Permeten avaluar la dificultat real en comparació a la que es dóna a les ressenyes.<br />\n"
+"Les condicions fan referència a les que s'ha trobat durant la sortida, en cap cas no són cap extrapolació de les que caldria esperar-hi l'endemà. En cas de bones condicions (o condicions excel·lents), la ponderació entre el plaer experimentat i el risc que s'ha corregut es deixa al criteri de cadascú. Pot anar bé fer-se la pregunta: es podria gaudir més d'aquest itinerari en condicions menys arriscades?<br />\n"
+"El camp <em>Condicions trobades</em> permet donar informació complementària i destriar entre risc, ambient i plaer."
 
-# [WARNING] needs_update
 msgid "_configuration_info"
-msgstr "<h3>Configuració</h3>La configuració descriu el tipus principal de relleu que ens trobem al llarg de l'itinerari o d eles seves dificultats únicament."
+msgstr "<h3>Configuració</h3>La configuració descriu el tipus principal de relleu trobat al llarg de l'itinerari o del tram difícil.<br /><br /><strong>aresta</strong>: Una aresta es caracteritza per un eix principal i dos vessants. L'aproximació es fa, en general, per un dels dos vessants o per l'inici de l'aresta.<br /><br /><strong>canal</strong>: Una canal correspon a un tàlveg. En general està vorejat de roques en forma de pilars o esperons.<br /><br /><strong>cara</strong>: Una cara correspon a una paret \"plana\" o a un esperó on canals i corredors apareixen i desapareixen.<br /><br /><strong>goulotte</strong>: Un corredor és una canal molt dreta (a partir de 70º) i estret (alguns metres de llarg). Als corredors s'hi solen trobar condicions d'escalada en glaç o mixta.<br /><br /><strong>esperó/pilar</strong>: Un esperó o pilar es destaquen clarament d'una cara. En general un esperó ofereix una escalada en roca, però també en neu o glaç. El terme pilar es reserva a la roca.<br /><br /><strong>itinerari d'alta muntanya - recorregut en glacera</strong>: Un itinerari d'alta muntanya i de recorregut en glacera es desenvolupa principalment sobre glacera i la geomorfologia del terreny queda poc caracteritzada. Les caminades per glacera o fins i tot alguns itinerari d'alta muntanya on no hi ha una configuració marcada (com ara la travessa del Mont-blanc) formarien part d'aquest grup. El camp <em>Necessita material de glacera</em> s'ha de marcar si la glacera presenta esquerdes."
 
 msgid "_culture_info"
 msgstr "<h3>Llengüa</h3>Llengüa utilitzada per completar els camps del document.<br />Si la llengüa indicada no correspon a la llengüa que voleu utilitzar, cliqueu sobre l'enllaç <i>escollir una altra llengüa</i>."
@@ -2882,17 +2912,17 @@ msgstr "<h3>Data Hora</h3>Data i hora de la fotografía.<br />Aquesta informaci�
 msgid "_description_info"
 msgstr "<h3>Descripció</h3>Part textual del document. Pels documents de la topo-guía, algunes regles s'han de respectar:<br /><br /><strong>Punt cardinal</strong>:<br />Tot punt cardinal ha de ser expressat exclusivament per les seves sigles internacionals en majúscules: N , E , S , W , NW , NE , SW , SE. La única excepció és el nom de cims&nbsp;: Pic Occidental o Agulla Meridional (i Oriental, Septentrional) s'accepten en lloc de Pic W i Agulla S.<br /><br /><strong>Dades numériques i magnituds físiques</strong>:<br />Les dades numériques han de ser el més sovint possible escrites en xifres.<br />Les unitats han de ser escrites per la seva abreviació en sistema internacional&nbsp;:<br />- m , km: metre, kilometre<br />- h , mn , s: hora, minut , segon<br />- m/h , km/h: metre per hora , kilòmetre per hora<br />- kg: kilogram<br />- °C&nbsp;: grau centigrad<br />- °: pendent en graus<br />El nombre i la unitat no han d'estar separats per un espai, per tal d'evitar un retorn de línia entre els dos: 100m i no cent metres o un centenar de metres, -15°C i no - 15 °C."
 
-# [WARNING] needs_update
 msgid "_difficulties_height_info"
-msgstr "<h3>Desnivells de les dificultats</h3>Desnivell de les dificultats principals d'un ititnerari sense comptar el desnivell de l'aproximació."
+msgstr "<h3>Desnivells de les dificultats</h3>Desnivell de les dificultats principals d'un ititnerari sense comptar el desnivell de l'aproximació.\n"
+"\n"
+"<h3>Desnivell de les dificultats</h3>Desnivell acumulat de les dificultats principals d'un itinerari, en cas que es distingeixi l'aproximació de la via pròpiament dita.<br />No s'ha de confondre amb el desenvolupament d'una via: el desnivell sempre és inferior al desenvolupament."
 
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Alçada a l'inici de les dificultats</h3>Alçada a l'inici de la via, en cas d'un itinerari en què es distingeixi l'aproximació de la via pròpiament dita.<br />No cal omplir aquest camp en cas d'un itinerari fàcil\n"
 "o en què no es distingeixi clarament l'aproximació de la via."
 
-# [WARNING] needs_update
 msgid "_document_type_info"
-msgstr "<h3>Tipus de document</h3>Els diferents tipus de document són :<br />- sortida<br />- itinerari<br />- cim<br />- accès<br />- refugi<br />- sector d'escalada<br />- regió<br />- mapa<br />- llibre<br />- imatge<br />- article<br />- usuari"
+msgstr "<h3>Tipus de document</h3>Els diferents tipus de document són:<br />- sortida<br />- itinerari<br />- cim, coll, llac, paret<br />- accés<br />- refugi<br />- sector d'escalada<br />- regió<br />- mapa<br />- llibre<br />- imatge<br />- article<br />- usuari"
 
 msgid "_down_snow_elevation_info"
 msgstr "<h3>Altitud de desclaçat</h3>Altitud a la que l'autor o els autors de la sortida han hagut de treure's els esquís al descens.<br />El camp <i>Condicions trobades</i> permet donar informacions complementàries."
@@ -4031,6 +4061,10 @@ msgstr "imatge col·laborativa"
 
 msgid "collaborative images"
 msgstr "imatges colaboratives"
+
+# [WARNING] needs_review
+msgid "collaborative images of associated outings"
+msgstr "imatges col·laboratives de les sortides associades"
 
 msgid "comment"
 msgstr "comentari"

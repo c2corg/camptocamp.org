@@ -4089,6 +4089,10 @@ msgstr "immagine collaborativa"
 msgid "collaborative images"
 msgstr "immagini collaborative"
 
+# [WARNING] fr translation used
+msgid "collaborative images of associated outings"
+msgstr "images collaboratives des sorties associées"
+
 msgid "comment"
 msgstr "commenti"
 
