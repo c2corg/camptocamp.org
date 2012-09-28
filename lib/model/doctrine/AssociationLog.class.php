@@ -10,11 +10,11 @@ class AssociationLog extends BaseAssociationLog
      * @param string model name
      * @return Pager
      */
-    public static function listRecentChangesPager($doc_id = null)
+    public static function listRecentChangesPager($doc_id = null, $orderby = null, $npp = 25)
     {
         // TODO: possibility to filter on association type?
 
-        $pager = new sfDoctrinePager('AssociationLog', sfConfig::get('app_list_maxline_number', 25));
+        $pager = new sfDoctrinePager('AssociationLog', $npp);
 
         $q = $pager->getQuery();
         $q->select('al.*, mi.name, mi.search_name, li.name, li.search_name, u.username, u.login_name, u.topo_name')
@@ -29,7 +29,14 @@ class AssociationLog extends BaseAssociationLog
             $q->where('al.main_id=? OR al.linked_id=?', array($doc_id, $doc_id));
         }
         
-        $q->orderBy('al.associations_log_id DESC'); // ~ decreasing time (but faster, since there is an index on this field).
+        if (empty($orderby))
+        {
+            $q->orderBy('al.associations_log_id DESC'); // ~ decreasing time (but faster, since there is an index on this field).
+        }
+        elseif ($orderby == 'uid')
+        {
+            $q->orderBy('u.id ASC');
+        }
 
         return $pager;
     }

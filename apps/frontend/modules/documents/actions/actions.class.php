@@ -2288,7 +2288,20 @@ class documentsActions extends c2cActions
     
     public function executeLatestassociations()
     {
-        $this->pager = AssociationLog::listRecentChangesPager($this->getRequestParameter('doc_id', null));
+        $doc_id = $this->getRequestParameter('id', null);
+        $orderby = $this->getRequestParameter('orderby', null);
+        $default_npp = sfConfig::get('app_list_maxline_number');
+        $npp = $this->getRequestParameter('npp', $default_npp);
+        if ($this->getUser()->hasCredential(sfConfig::get('app_credentials_moderator')))
+        {
+            $max_npp = 1000;
+        }
+        else
+        {
+            $max_npp = 100;
+        }
+        $npp = min($npp, $max_npp);
+        $this->pager = AssociationLog::listRecentChangesPager($doc_id, $orderby, $npp);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 

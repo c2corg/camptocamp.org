@@ -54,6 +54,7 @@ else
 $module_url = $module_name;
 if (!$mobile_version)
 {
+    $orderby = '';
     if (in_array($module_name, array('routes', 'sites')))
     {
         $module_url = 'o' . $module_name;
@@ -68,6 +69,10 @@ if (!$mobile_version)
     {
         $module_url = 'itags';
         $text = 'List all linked images';
+        if ($module_name == 'outings')
+        {
+            $orderby = '&orderby=date&order=asc';
+        }
     }
 
     if (isset($text))
@@ -78,7 +83,7 @@ if (!$mobile_version)
         }
         echo '<p class="list_link">'
            . picto_tag('picto_images') . ' '
-           . link_to(__($text), "images/list?$module_url=$list_ids", array('rel' => 'nofollow'));
+           . link_to(__($text), "images/list?$module_url=$list_ids$orderby", array('rel' => 'nofollow'));
         if ($module_name != 'outings')
         {
             echo ' - ' . link_to(__('collaborative images of associated outings'), "images/list?ityp=1&join=outing&$module_name=$list_ids&orderby=odate&order=desc", array('rel' => 'nofollow'));
