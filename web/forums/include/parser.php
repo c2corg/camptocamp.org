@@ -343,7 +343,7 @@ function handle_quote_tag($poster_name, $post_id)
     {
         $start_quote .= $poster_wrote;
     }
-    else
+    elseif (is_numeric($post_id))
     {
         $post_id = intval($post_id);
         $post_link = '';
@@ -354,8 +354,11 @@ function handle_quote_tag($poster_name, $post_id)
             $rel = ' rel="nofollow"';
         }
         $post_link .= '#p'.$post_id;
-        
         $start_quote .= '<a href="'.$post_link.'"'.$rel.'>'.$poster_wrote.'</a>';
+    }
+    else
+    {
+        $start_quote .= handle_url_tag($post_id, $poster_wrote);
     }
     
     $start_quote .= '</h4><p>';
@@ -762,7 +765,7 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 	if (strpos($text, 'quote') !== false)
 	{
 		$text = str_replace('[quote]', '</p><blockquote><div class="incqbox"><p>', $text);
-		$text = preg_replace('#\[quote=(&quot;|"|&\#039;|\'|)(.*?)\\1\|?((?<=\|)[0-9]+|)\]#se', 'handle_quote_tag(\'$2\', \'$3\')', $text);
+		$text = preg_replace('#\[quote=(&quot;|"|&\#039;|\'|)(.*?)\\1\|?((?<=\|)([0-9]+|[^\]]+)|)\]#se', 'handle_quote_tag(\'$2\', \'$3\')', $text);
 		$text = preg_replace('#\[\/quote\]\s?#', '</p></div></blockquote><p>', $text);
 	}
 

@@ -51,9 +51,9 @@ else
                                                   'user_can_dissociate' => $user_can_dissociate));
 }
 
-$module_url = $module_name;
 if (!$mobile_version)
 {
+    $module_url = $module_url2 = $module_name;
     $orderby = '';
     if (in_array($module_name, array('routes', 'sites')))
     {
@@ -69,7 +69,7 @@ if (!$mobile_version)
     {
         $module_url = 'itags';
         $text = 'List all linked images';
-        if ($module_name == 'outings')
+        if (in_array($module_name, array('outings', 'articles')))
         {
             $orderby = '&orderby=date&order=asc';
         }
@@ -81,17 +81,35 @@ if (!$mobile_version)
         {
             $list_ids = $document_id;
         }
-        echo '<p class="list_link">'
-           . picto_tag('picto_images') . ' '
-           . link_to(__($text), "images/list?$module_url=$list_ids$orderby", array('rel' => 'nofollow'));
-        if ($module_name != 'outings')
+        $text2 = 'collaborative images of associated outings';
+        if ($module_name == 'outings')
         {
-            echo ' - ' . link_to(__('collaborative images of associated outings'), "images/list?ityp=1&join=outing&$module_name=$list_ids&orderby=odate&order=desc", array('rel' => 'nofollow'));
+            $url2 = "images/list?ityp=1&itags=$list_ids&orderby=date&order=asc";
+            $text2 = 'collaborative images';
+        }
+        elseif ($module_name == 'articles')
+        {
+            $url2 = "images/list?ityp=1&dtags=$list_ids&orderby=odate&order=asc";
+            $text2 = 'collaborative images of associated documents';
+        }
+        elseif ($module_name == 'users')
+        {
+            $url2 = "images/list?ityp=1&ousers=$list_ids&orderby=odate&order=asc";
         }
         else
         {
-            echo ' - ' . link_to(__('collaborative images'), "images/list?ityp=1&$module_name=$list_ids&orderby=date&order=asc", array('rel' => 'nofollow'));
+            $url2 = "images/list?ityp=1&join=outing&$module_name=$list_ids&orderby=odate&order=desc";
         }
+        
+        echo '<p class="list_link">'
+           . picto_tag('picto_images') . ' '
+           . link_to(__($text), "images/list?$module_url=$list_ids$orderby", array('rel' => 'nofollow'));
+        
+        if ($module_name != 'images')
+        {
+            echo ' - ' . link_to(__($text2), $url2, array('rel' => 'nofollow'));
+        }
+        
         if ($nb_images && in_array($module_name, array('summits', 'routes', 'sites', 'articles')))
         {
             echo ' - ' . picto_tag('picto_outings') . ' '

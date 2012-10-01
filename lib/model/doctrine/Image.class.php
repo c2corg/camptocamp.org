@@ -439,7 +439,7 @@ class Image extends BaseImage
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'ialt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'i', 'categories'), 'icat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.image_type', 'ityp', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', $m . '.date_time', 'idate', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', $m . '.date_time::date', 'idate', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ii.culture', 'icult', $join_i18n);
             
             // article criteria
@@ -515,6 +515,9 @@ class Image extends BaseImage
         {
             return $has_name;
         }
+        
+        // tagged document criteria
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ldc.main_id', 'dtags', 'dtag');
 
         // summit criteria
         $has_name = Summit::buildSummitListCriteria($criteria, $params_list, false, 'main_id');
@@ -673,6 +676,12 @@ class Image extends BaseImage
         $site_ltype = 'ti';
         
         self::joinOnLinkedDocMultiRegions($q, $joins);
+
+        if (isset($joins['dtag']))
+        {
+            $q->leftJoin('m.associations lid');
+            $q->leftJoin('lid.LinkedLinkedAssociation ldc');
+        }
 
         // join with image tables only if needed 
         if (isset($joins['join_image']))
