@@ -517,7 +517,7 @@ class Image extends BaseImage
         }
         
         // tagged document criteria
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ldc.main_id', 'dtags', 'dtag');
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ldc.linked_id', 'dtags', 'dtag');
 
         // summit criteria
         $has_name = Summit::buildSummitListCriteria($criteria, $params_list, false, 'main_id');

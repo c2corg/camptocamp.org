@@ -53,8 +53,10 @@ else
 
 if (!$mobile_version)
 {
+    $images_link = $outings_link = $link = array();
     $module_url = $module_url2 = $module_name;
     $orderby = '';
+    
     if (in_array($module_name, array('routes', 'sites')))
     {
         $module_url = 'o' . $module_name;
@@ -74,48 +76,56 @@ if (!$mobile_version)
             $orderby = '&orderby=date&order=asc';
         }
     }
-
+    
     if (isset($text))
     {
-        if (!isset($list_ids))
-        {
-            $list_ids = $document_id;
-        }
-        $text2 = 'collaborative images of associated outings';
-        if ($module_name == 'outings')
-        {
-            $url2 = "images/list?ityp=1&itags=$list_ids&orderby=date&order=asc";
-            $text2 = 'collaborative images';
-        }
-        elseif ($module_name == 'articles')
-        {
-            $url2 = "images/list?ityp=1&dtags=$list_ids&orderby=odate&order=asc";
-            $text2 = 'collaborative images of associated documents';
-        }
-        elseif ($module_name == 'users')
-        {
-            $url2 = "images/list?ityp=1&ousers=$list_ids&orderby=odate&order=asc";
-        }
-        else
-        {
-            $url2 = "images/list?ityp=1&join=outing&$module_name=$list_ids&orderby=odate&order=desc";
-        }
-        
-        echo '<p class="list_link">'
-           . picto_tag('picto_images') . ' '
-           . link_to(__($text), "images/list?$module_url=$list_ids$orderby", array('rel' => 'nofollow'));
-        
-        if ($module_name != 'images')
-        {
-            echo ' - ' . link_to(__($text2), $url2, array('rel' => 'nofollow'));
-        }
+        $images_link[] = link_to(__($text), "images/list?$module_url=$list_ids$orderby", array('rel' => 'nofollow'));
         
         if ($nb_images && in_array($module_name, array('summits', 'routes', 'sites', 'articles')))
         {
-            echo ' - ' . picto_tag('picto_outings') . ' '
-               . link_to(__('Outings linked to these images'), "outings/list?itags=$list_ids", array('rel' => 'nofollow'));
+            $outings_link[] = link_to(__('Outings linked to these images'), "outings/list?itags=$list_ids", array('rel' => 'nofollow'));
         }
-        echo '</p>';
+    }
+        
+    if (!isset($list_ids))
+    {
+        $list_ids = $document_id;
+    }
+    $text2 = 'collaborative images of associated outings';
+    if ($module_name == 'outings')
+    {
+        $url2 = "images/list?ityp=1&itags=$list_ids&orderby=date&order=asc";
+        $text2 = 'collaborative images';
+    }
+    elseif ($module_name == 'articles')
+    {
+        $url2 = "images/list?ityp=1&dtags=$list_ids&orderby=odate&order=asc";
+        $text2 = 'collaborative images of associated documents';
+    }
+    else
+    {
+        $url2 = "images/list?ityp=1&join=outing&$module_name=$list_ids&orderby=odate&order=desc";
+    }
+    
+    if (!in_array($module_name, array('images', 'users')))
+    {
+        $images_link[] = link_to(__($text2), $url2, array('rel' => 'nofollow'));
+    }
+    
+    if (count($images_link))
+    {
+        $link[] = picto_tag('picto_images') . ' ' . implode(' - ', $images_link);
+    }
+    if (count($outings_link))
+    {
+        $link[] = picto_tag('picto_outings') . ' ' . implode(' - ', $outings_link);
+    }
+    
+    if (count($link))
+    {
+        echo '<p class="list_link">'
+           . implode(' - ', $link)
+           . '</p>';
     }
 }
 

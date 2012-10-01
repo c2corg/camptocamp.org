@@ -102,14 +102,15 @@ if (isset($items))
         echo __($empty_list_tips);
     }
 }
-$join_outing = ($module_name != 'outings') ? 'join=outing&' : '';
+$join_outing = ($module != 'outings') ? 'join=outing&' : '';
+$module_url = ($module != 'users') ? $module : 'ousers';
 echo '<p class="list_link">',
      picto_tag('action_list'), ' ',
      link_to(__('List all linked outings') . $nb_outings, "outings/list?$module=$id&orderby=date&order=desc", array('rel' => 'nofollow')),
      ' - ',
      link_to(__('cond short'), "outings/conditions?$module=$id&orderby=date&order=desc"),
      ' - ',
-     link_to(__('Images'), "images/list?$join_outing$module=$id&orderby=odate&order=desc", array('rel' => 'nofollow'));
+     link_to(__('Images'), "images/list?$join_outing$module_url=$id&orderby=odate&order=desc", array('rel' => 'nofollow'));
 
 if (!$is_mobile_version)
 {
