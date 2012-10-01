@@ -917,7 +917,10 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			while (list(, $temp) = @each($forum_list))
 			{
 				if ($temp[0] == $search_set[$i]['forum_id'])
-					$forum = '<a href="viewforum.php?id='.$temp[0].'"'.$rel.'>'.pun_htmlspecialchars($temp[1]).'</a>';
+                {
+                    $result_fid = $temp[0];
+					$forum = '<a href="viewforum.php?id='.$result_fid.'"'.$rel.'>'.pun_htmlspecialchars($temp[1]).'</a>';
+                }
 			}
 
 			if ($pun_config['o_censoring'] == '1')
@@ -1026,7 +1029,11 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 					$subject_new_posts = null;
                 }
 
-				$subject = $subject.$by_user;
+				if ($is_admmod && $result_fid == COMMENTS_FORUM)
+                {
+                    $subject .= '&nbsp;[<a href="viewtopic.php?id='.$search_set[$i]['tid'].'">forum</a>]';
+                }
+                $subject .= $by_user;
                 $num_pages_topic = ceil(($search_set[$i]['num_replies'] + 1) / $pun_user['disp_posts']);
 
 				if ($num_pages_topic > 1)
