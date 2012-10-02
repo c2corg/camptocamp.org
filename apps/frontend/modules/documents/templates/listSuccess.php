@@ -108,7 +108,7 @@ else:
 if (!$mobile_version): ?>
 <table class="list">
     <thead>
-        <tr><?php include_partial($module . '/list_header', array('custom_fields' => $custom_fields)); ?></tr>
+        <tr><?php include_partial($module . '/list_header', array('custom_fields' => $sf_data->getRaw('custom_fields'))); ?></tr>
     </thead>
     <tbody>
         <?php
@@ -132,7 +132,7 @@ if (!$mobile_version): ?>
             }
             
             echo '<tr class="' . $table_class . '">';
-            include_partial($module . '/list_body', array('item' => $item, 'custom_fields' => $custom_fields, 'table_class' => $table_class, 'date_light' => $date_light));
+            include_partial($module . '/list_body', array('item' => $item, 'custom_fields' => $sf_data->getRaw('custom_fields'), 'table_class' => $table_class, 'date_light' => $date_light));
             echo '</tr>';
         } ?>
     </tbody>

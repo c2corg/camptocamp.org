@@ -1,8 +1,10 @@
 <?php 
+$custom_fields_raw = $sf_data->getRaw('custom_fields');
+
 echo select_all_header_list_tag();
 echo header_list_tag('unam', 'name');
 echo header_list_tag('fnam', 'nick_name');
-if (in_array('mail', $custom_fields))
+if (in_array('mail', $custom_fields_raw))
 {
     echo simple_header_list_tag('Email short');
 }
