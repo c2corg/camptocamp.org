@@ -551,7 +551,7 @@ class Area extends BaseArea
         }
     }
 
-    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null, $custom_fields = null)
     {   
         if ($main_query)
         {
@@ -562,7 +562,7 @@ class Area extends BaseArea
             $data_fields_list = array();
         }
         
-        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort, $custom_fields);
         
         return array_merge($base_fields_list, 
                            $data_fields_list);

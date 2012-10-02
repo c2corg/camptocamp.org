@@ -56,6 +56,10 @@ if (!$mobile_version)
     $images_link = $outings_link = $link = array();
     $module_url = $module_url2 = $module_name;
     $orderby = '';
+    if (!isset($list_ids))
+    {
+        $list_ids = $document_id;
+    }
     
     if (in_array($module_name, array('routes', 'sites')))
     {
@@ -87,10 +91,6 @@ if (!$mobile_version)
         }
     }
         
-    if (!isset($list_ids))
-    {
-        $list_ids = $document_id;
-    }
     $text2 = 'collaborative images of associated outings';
     if ($module_name == 'outings')
     {
@@ -99,7 +99,7 @@ if (!$mobile_version)
     }
     elseif ($module_name == 'articles')
     {
-        $url2 = "images/list?ityp=1&dtags=$list_ids&orderby=odate&order=asc";
+        $url2 = "images/list?ityp=1&dtags=$list_ids&orderby=date&order=asc";
         $text2 = 'collaborative images of associated documents';
     }
     else

@@ -1031,7 +1031,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 				if ($is_admmod && $result_fid == COMMENTS_FORUM)
                 {
-                    $subject .= '&nbsp;[<a href="viewtopic.php?id='.$search_set[$i]['tid'].'">forum</a>]';
+                    $subject .= '&nbsp;[<a href="viewtopic.php?id='.$search_set[$i]['tid'].'&amp;forum">forum</a>]';
                 }
                 $subject .= $by_user;
                 $num_pages_topic = ceil(($search_set[$i]['num_replies'] + 1) / $pun_user['disp_posts']);

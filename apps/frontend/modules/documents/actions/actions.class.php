@@ -972,15 +972,20 @@ class documentsActions extends c2cActions
         {
             $sort = call_user_func(array('Document', 'getListSortCriteria'), $model, $default_npp, $max_npp);
             $page = $this->getRequestParameter('page', 1);
+            $custom_fields = $this->getRequestParameter('data', '');
+            $custom_fields = explode('-', $custom_fields);
             $infos = call_user_func(array('Document', 'browse'),
                                     $model,
                                     $sort,
                                     $criteria,
                                     $format,
-                                    $page);
+                                    $page,
+                                    0,
+                                    $custom_fields);
             $nb_results = $infos['nb_results'];
             $this->pager = $infos['pager'];
             $this->query = $infos['query'];
+            $this->custom_fields = $custom_fields;
         }
         $this->nb_results = $nb_results;
         

@@ -630,7 +630,7 @@ class Outing extends BaseOuting
             }
         }
         
-        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort, $custom_fields);
         
         return array_merge($base_fields_list,
                            $data_fields_list,

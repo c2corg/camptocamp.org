@@ -608,7 +608,7 @@ class BaseDocument extends sfDoctrineRecordI18n
      * Lists documents of current model taking into account search criteria or filters if any.
      * @return DoctrinePager
      */
-    public static function browse($model = 'Document', $sort, $criteria, $format = array(), $page = 1, $count = 0)
+    public static function browse($model = 'Document', $sort, $criteria, $format = array(), $page = 1, $count = 0, $custom_fields = array())
     {
         if ($criteria === 'no_result')
         {
@@ -643,7 +643,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         
         $model_i18n = $model . 'I18n';
-        $field_list = call_user_func(array($model, 'buildFieldsList'), true, 'mi', $format, $sort);
+        $field_list = call_user_func(array($model, 'buildFieldsList'), true, 'mi', $format, $sort, $custom_fields);
         $where_ids = 'm.id' . $sub_query_result['where'];
         
         $q = Doctrine_Query::create();
@@ -1010,7 +1010,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null, $custom_fields = null)
     {
         if ($main_query)
         {

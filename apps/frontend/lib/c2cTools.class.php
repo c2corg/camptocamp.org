@@ -80,7 +80,7 @@ class c2cTools
         }
         else
         {
-            $others = array('module', 'action', 'orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'npp', 'page', 'format', 'layout');
+            $others = array('module', 'action', 'orderby', 'orderby2', 'orderby3', 'order', 'order2', 'order3', 'npp', 'page', 'format', 'data', 'layout');
         }
         $others = array_fill_keys(array_merge($others, $extra_others), 0);
         return array_diff_key($criteria, $others);

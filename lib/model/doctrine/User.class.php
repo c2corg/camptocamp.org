@@ -618,7 +618,7 @@ class User extends BaseUser
         }
     }
 
-    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null, $custom_fields = null)
     {   
         if ($main_query)
         {
@@ -626,13 +626,17 @@ class User extends BaseUser
                                  'm.lon', 'm.lat', 'm.activities', 'm.category');
             $data_fields_list = array_merge($data_fields_list,
                                             parent::buildGeoFieldsList());
+            if (in_array('mail', $custom_fields) && sfContext::getInstance()->getUser()->hasCredential('moderator'))
+            {
+                $data_fields_list[] = 'upd.email';
+            }
         }
         else
         {
             $data_fields_list = array();
         }
         
-        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort);
+        $base_fields_list = parent::buildFieldsList($main_query, $mi, $format, $sort, $custom_fields);
         
         return array_merge($base_fields_list, 
                            $data_fields_list);

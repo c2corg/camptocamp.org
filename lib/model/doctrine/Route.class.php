@@ -762,7 +762,7 @@ class Route extends BaseRoute
         }
     }
 
-    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null)
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null, $custom_fields = null)
     {
         if ($main_query)
         {
@@ -800,7 +800,7 @@ class Route extends BaseRoute
             }
         }
             
-        return array_merge(parent::buildFieldsList($main_query, $mi, $format, $sort),
+        return array_merge(parent::buildFieldsList($main_query, $mi, $format, $sort, $custom_fields),
                            $data_fields_list,
                            $orderby_fields);
     }
