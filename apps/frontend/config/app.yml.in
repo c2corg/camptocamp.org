@@ -444,7 +444,6 @@ all:
     filled_criteria:
       'act': ''
       'icat': ''
-      'date': ''
       'ityp': ''
 
   google:
