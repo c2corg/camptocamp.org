@@ -582,7 +582,7 @@ class Outing extends BaseOuting
         }
     }
 
-    protected static function buildFieldsList($main_query = true, $mi = 'mi', $format = null, $sort = null)
+    protected static function buildFieldsList($main_query = false, $mi = 'mi', $format = null, $sort = null, $custom_fields = null)
     {
         if ($main_query)
         {

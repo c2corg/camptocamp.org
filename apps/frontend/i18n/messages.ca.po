@@ -3023,7 +3023,7 @@ msgstr "<h3>Desnivell positiu</h3>Desnivell positiu acumulat.<br /><br />Si una 
 
 # [WARNING] needs_update
 msgid "_hiking_rating_info"
-msgstr "<h3>Cotació trekking</h3>Cotació de les dificultats d'un itinerari de trekking.<br />L'escala va de T1 a T6."
+msgstr "<h3>Cotació trekking</h3>Cotació de les dificultats d'un itinerari de trekking.<br />L'escala va de T1 a T5."
 
 msgid "_hours_info"
 msgstr "<h3>Horaris d'obertura</h3>Dates i horaris d'obertura."
@@ -4061,6 +4061,10 @@ msgstr "imatge col·laborativa"
 
 msgid "collaborative images"
 msgstr "imatges colaboratives"
+
+# [WARNING] en translation used
+msgid "collaborative images of associated documents"
+msgstr "collaborative images of associated documents"
 
 # [WARNING] needs_review
 msgid "collaborative images of associated outings"

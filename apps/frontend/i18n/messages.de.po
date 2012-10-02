@@ -3120,7 +3120,7 @@ msgstr "<h3>Höhendifferenz</h3>Kummulierte positive und negative Höhenuntersch
 msgid "_height_diff_up_info"
 msgstr "<h3>Positive Höhendifferenz</h3><u>Tour</u>: Kummulierter positiver Höhenunterschied (Aufstieg) während der Tour.<br />Falls ein GPX-Track hochgeladen wurde und das Feld nicht ausgefüllt wurde, wird die negative Höhendifferenz automatisch aus dem GPX-Track berechnet.<br />br /><u>Route</u>: Für eine Route, bei welcher sich der Zustieg klar von der eigentlichen Route unterscheidet, wird die positive Höhendifferenz wie folgt berechnet: Zustieg + Route + Abstieg (falls Gegenanstiege enthalten sind).<br />Falls die Route üblicherweise von einer Hütte aus begangen wird, berechnet sich der positive Höhenunterschied wie folgt: Zustieg ab der Hütte + Route + Abstieg (falls Gegenanstieg enthalten sind)."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_hiking_rating_info"
 msgstr "Beurteilung der Schwierigkeit von Wanderungen<br /><br/>Zur Beurteilung von Wanderrouten wird die SAC-Wanderskala verwenet.\n"
 "Diese besteht aus folgenden Schwierigkeitsbewertungen:<br/><br/><strong>T1-Wandern</strong>\n"
@@ -3136,9 +3136,8 @@ msgstr "Beurteilung der Schwierigkeit von Wanderungen<br /><br/>Zur Beurteilung 
 "Rückzug schwierig werden.<br /><br /><strong>T5 - anspruchsvolles Alpinwandern</strong>: Oft weglos.\n"
 "Einzelne einfache Kletterstellen. Falls Route markiert: weiss-blau-weiss. Exponiert, anspruchsvolles Gelände, steile Schrofen. Gletscher und Firnfelder mit Ausrutschgefahr.<br /><b>Anforderungen</b>: Bergschuhe. Sichere Geländebeurteilung und sehr\n"
 "gutesOrientierungsvermögen. Gute Alpinerfahrung und im hochalpinen Gelände. Elementare Kenntnisse im Umgang mit Pickel und Seil.<br />\n"
-"<br /><strong>T6 - schwieriges Alpinwandern</strong>: Meist weglos. Kletterstellen bis II. Meist nicht markiert. Häufig sehr exponiert. Heikles Schrofengelände.\n"
-"Gletscher mit erhöhter Ausrutschgefahr.<br/><b>Anforderungen</b>: Ausgezeichnetes Orientierungsvermögen.\n"
-"Ausgereifte Alpinerfahrung und Vertrautheit im Umgang mit alpintechischen Hilfsmitteln.<br /><br />Mehr Informationen finden sie in der Hilfe unter <a href=\"../../articles/106859/de\">Bewertung von Wanderungen</a>."
+"<br />\n"
+"Mehr Informationen finden sie in der Hilfe unter <a href=\"/articles/106859/de\">Bewertung von Wanderungen</a>."
 
 msgid "_hours_info"
 msgstr "<h3>Öffnungzeiten</h3>Öffnungszeiten und -zeiträume"
@@ -4294,6 +4293,10 @@ msgstr "Gemeinschaftliches Bild"
 
 msgid "collaborative images"
 msgstr "Gemeinschaftliche Bilder"
+
+# [WARNING] en translation used
+msgid "collaborative images of associated documents"
+msgstr "collaborative images of associated documents"
 
 # [WARNING] fr translation used
 msgid "collaborative images of associated outings"

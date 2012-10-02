@@ -3090,11 +3090,10 @@ msgstr "<h3>Cotation randonnée</h3>Cotation des difficultés d'un itinéraire d
 "<strong>T4</strong>&nbsp;: Randonnée alpine. Traces parfois manquantes. L'aide des mains est quelquefois nécessaire pour la progression. Terrain déjà assez exposé, pentes herbeuses délicates, pentes mêlées de rochers, névés faciles et passages sur glacier non recouverts de neige.<br />\n"
 "<em>Exigences&nbsp;:</em> Etre familier du terrain exposé. Chaussures de trekking rigides. Une certaine capacité d'évaluation du terrain et une bonne capacité d'orientation. Expérience alpine. En cas de mauvais temps le repli peut s'avérer difficile.<br />\n"
 "<br />\n"
-"<strong>T5</strong>&nbsp;: Randonnée alpine exigeante. Souvent sans traces. Quelques passages d'escalade faciles. Terrain exposé, exigeant, pentes raides mêlées de rochers. Glaciers et névés présentant un risque de glissade.<br />\n"
+"<strong>T5</strong>&nbsp;: Randonnée alpine exigeante. Souvent sans traces. Quelques passages d'escalade faciles (cotation 2 maximum, ponctuellement jusqu'à 3c si le pas est très court et la chute sans conséquence). Terrain exposé, exigeant, pentes raides mêlées de rochers. Petits Glaciers et névés, non crevassés, pouvant nécessiter l'usage de crampons mais ne nécessitant pas, habituellement, le matériel d'encordement. Le matériel et les techniques d'alpinismes peuvent être employés occasionnellement pour un passage ponctuel mais pas comme un moyen de progression continu.<br />\n"
 "<em>Exigences&nbsp;:</em> Chaussures de montagne. Évaluation sûre du terrain et très bonnes capacités d'orientation. Bonne expérience de la haute montagne et connaissances élémentaires du maniement du piolet et de la corde.<br />\n"
 "<br />\n"
-"<strong>T6</strong>&nbsp;: Randonnée alpine difficile. La plupart du temps sans traces, passages d'escalade jusqu'à II. En général non balisé. Souvent très exposé. Pentes mêlées de rochers délicates. Glaciers avec risque accru de glissade.<br />\n"
-"<em>Exigences&nbsp;:</em> Excellente capacité d'orientation. Expérience alpine confirmée et habitude de l'utilisation du matériel technique d'alpinisme.<br />\n"
+"<em>La cotation T6 a été supprimée. Pour les itinéraire plus difficiles que T5, utiliser l'activité \"escalade\" ou \"rocher haute montagne\", ainsi que les cotations associées.</em><br />\n"
 "<br />\n"
 "Voir aussi l'aide sur les <a href=\"/articles/106859/fr\">cotations de randonnée pédestre</a>."
 
@@ -4206,6 +4205,9 @@ msgstr "image collaborative"
 
 msgid "collaborative images"
 msgstr "images collaboratives"
+
+msgid "collaborative images of associated documents"
+msgstr "images collaboratives des documents associés"
 
 # [WARNING] needs_review
 msgid "collaborative images of associated outings"

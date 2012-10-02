@@ -3155,7 +3155,7 @@ msgstr "<h3> Desnibel positiboa</h3> Desnibel positibo metatua.<br /><br /> Ibil
 
 # [WARNING] needs_update
 msgid "_hiking_rating_info"
-msgstr "<h3>Txangoaren zailtasuna</h3>Oinezko txagoaren zailtasuna akotatzen du. <br />Eskala T1 –etik T6-ra doa."
+msgstr "<h3>Txangoaren zailtasuna</h3>Oinezko txagoaren zailtasuna akotatzen du. <br />Eskala T1 –etik T5-ra doa."
 
 # [WARNING] es translation used
 msgid "_hours_info"
@@ -4251,6 +4251,10 @@ msgstr "imagen colaborativa"
 # [WARNING] es translation used
 msgid "collaborative images"
 msgstr "imagenes colaborativas"
+
+# [WARNING] en translation used
+msgid "collaborative images of associated documents"
+msgstr "collaborative images of associated documents"
 
 # [WARNING] fr translation used
 msgid "collaborative images of associated outings"

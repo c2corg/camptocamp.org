@@ -3020,8 +3020,11 @@ msgstr "<h3>Desnivel</h3>Desnivel positivo y/o negativo.<br /><br /><em><u> Sali
 msgid "_height_diff_up_info"
 msgstr "<h3>Desnivel positivo</h3><em><u>Salida</u>:</em><br />Desnivel acumulado de la salida.<br /><br />Si una traza GPX es asociada a la salida y que el campo no esta informado, el desnivel positivo será calculado automáticamente. <br /><br /><em><u>Itinerario</u>:</em><br />Para un itinerario donde se distingue una aproximación de la ruta propiamente dicha, el desnivel positivo se calculara sumando la aproximación y la ruta (+ la vuelta si incluye subidas substanciales).<br />Si se suele usar un refugio para recorrer el itinerario, el desnivel positivo se calculará con la aproximación desde el refugio + la ruta (+ la vuelta).<br /> Si una traza GPX es asociada al itinerario y que el campo no esta informado, el desnivel positivo será calculado automáticamente."
 
+# [WARNING] needs_update
 msgid "_hiking_rating_info"
-msgstr "<h3>Cotación trekking</h3>Cotación de las dificultades sobre un itinerario de caminata pedestre.<br />La escala va de T1 a T6. <br /><br /><strong>T1</strong>: Sendero bien marcado. Terreno llano o de pendiente moderada sin riesgo de caída. El itinerario se puede realizar con zapatillas comunes.<br /><br /><strong>T2</strong>: Sendero siempre marcado. Terreno a veces empinado con posibles riesgos de caída.<br /><br /><strong>T3</strong>: Sendero no siempre visible. Hay tramos expuestos (posiblemente con cadena o cuerda de ayuda), acarreos o zonas de bloques/rocas donde desaparece la huella. Puede haber riesgos de caída de piedras en algunos tramos. Puede hacer falta apoyarse con las manos.<br /><br /><strong>T4</strong>: A veces desaparece la huella. A veces, hace falta usar las manos para superar algún tramo. El terreno ya es bastante expuesto: pendientes de pasto delicadas de transitar, pendientes donde alternan rocas, nevé fácil o algún tramo de glaciar no recubierto de nieve (no hace falta encordarse).<br /><br /><strong>T5</strong>: Suele no haber huella. Terreno expuesto y exigente con pendientes fuertes y algunos pasos de escalada fácil y/o nieve/hielo con riesgo de caída.<br /><br /><strong>T6</strong>: En general no hay huella y hay pasos de escalada que requieren posicionamiento de manos y pies (hasta el 2 en grados franceses). Suelen ser itinerarios muy expuestos, con alto riesgo de caída (en roca o en nieve).<br /><br />Véase también la ayuda sobre <a href=\"/articles/106859/es\">grados en caminata y trekking</a>."
+msgstr "<h3>Cotación trekking</h3>Cotación de las dificultades sobre un itinerario de caminata pedestre.<br />La escala va de T1 a T5. <br /><br /><strong>T1</strong>: Sendero bien marcado. Terreno llano o de pendiente moderada sin riesgo de caída. El itinerario se puede realizar con zapatillas comunes.<br /><br /><strong>T2</strong>: Sendero siempre marcado. Terreno a veces empinado con posibles riesgos de caída.<br /><br /><strong>T3</strong>: Sendero no siempre visible. Hay tramos expuestos (posiblemente con cadena o cuerda de ayuda), acarreos o zonas de bloques/rocas donde desaparece la huella. Puede haber riesgos de caída de piedras en algunos tramos. Puede hacer falta apoyarse con las manos.<br /><br /><strong>T4</strong>: A veces desaparece la huella. A veces, hace falta usar las manos para superar algún tramo. El terreno ya es bastante expuesto: pendientes de pasto delicadas de transitar, pendientes donde alternan rocas, nevé fácil o algún tramo de glaciar no recubierto de nieve (no hace falta encordarse).<br /><br /><strong>T5</strong>: Suele no haber huella. Terreno expuesto y exigente con pendientes fuertes y algunos pasos de escalada fácil y/o nieve/hielo con riesgo de caída.<br />\n"
+"<br />\n"
+"Véase también la ayuda sobre <a href=\"/articles/106859/es\">grados en caminata y trekking</a>."
 
 msgid "_hours_info"
 msgstr "<h3>Horario de apertura</h3>Fechas y horas de apertura."
@@ -4082,6 +4085,10 @@ msgstr "imagen colaborativa"
 
 msgid "collaborative images"
 msgstr "imagenes colaborativas"
+
+# [WARNING] en translation used
+msgid "collaborative images of associated documents"
+msgstr "collaborative images of associated documents"
 
 # [WARNING] fr translation used
 msgid "collaborative images of associated outings"
