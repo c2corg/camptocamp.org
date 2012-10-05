@@ -4206,8 +4206,8 @@ class documentsActions extends c2cActions
                     if (count($has_not))
                     {
                         $has_not = implode('', $has_not);
+                        $has[] = $has_not;
                     }
-                    $has[] = $has_not;
                     $out_temp = implode(' ', $has);
                 }
             }

@@ -125,6 +125,8 @@ all:
       0:
       2: snowboard
       4: beginner_proof
+      6: vtt_approach
+      8: lift_approach
   
   activities_type:
     list:

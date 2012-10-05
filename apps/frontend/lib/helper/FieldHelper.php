@@ -328,7 +328,7 @@ function field_bool_data_from_list($document, $name, $config, $new_items = array
             $value_key = (in_array($key, $value) ? 1 : 0);
             $result[] = _format_bool_data($item, $value_key, false, $show_only_yes, $prefix, $suffix);
         }
-        $result = implode(' ', $value);
+        $result = implode(' ', $result);
     }
     else
     {
