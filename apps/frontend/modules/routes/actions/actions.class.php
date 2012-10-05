@@ -939,7 +939,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'ralt');
         $this->addCompareParam($out, 'dhei');
         $this->addListParam($out, 'act');
-        $this->addListParam($out, 'sub');
+        $this->addListParam($out, 'sub', '', '', true);
         $this->addListParam($out, 'conf');
         $this->addFacingParam($out, 'fac');
         $this->addListParam($out, 'rtyp');

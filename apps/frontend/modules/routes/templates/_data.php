@@ -95,7 +95,8 @@ $activities = $document->getRaw('activities');
         li(field_data_from_list($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings'));
         li(field_data_from_list($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings'));
         li(field_data_from_list($document, 'labande_global_rating', 'app_routes_global_ratings'));
-        li(field_data_from_list_if_set($document, 'sub_activities', 'mod_routes_sub_activities_list', true));
+        li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array(), 2, true));
+        li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array(), 4, true));
     }
 
     if (in_array(6, $activities)) // hiking
@@ -108,6 +109,9 @@ $activities = $document->getRaw('activities');
         li(field_data_from_list($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings'), true);
     }
 
+    li($first = field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array(), 6, true), true);
+    li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array(), 8, true), empty($first));
+    
     if ($document->get('geom_wkt'))
     {
         li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')), true);

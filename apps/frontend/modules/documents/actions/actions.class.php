@@ -4161,7 +4161,7 @@ class documentsActions extends c2cActions
         }
     }
 
-    protected function addListParam(&$out, $field, $rename = '', $default = '')
+    protected function addListParam(&$out, $field, $rename = '', $default = '', $and_op = false)
     {
         $array = $this->getRequestParameter($field);
         if (empty($array) && !empty($default))
@@ -4173,7 +4173,40 @@ class documentsActions extends c2cActions
         {
             if (is_array($array))
             {
-                $out_temp = implode('-', $array);
+                $has = $has_not = array();
+                foreach ($array as $item)
+                {
+                    if (strpos($item, '!') === false)
+                    {
+                        $has[] = $item;
+                    }
+                    else
+                    {
+                        $has_not[] = $item;
+                    }
+                }
+                
+                if (!$and_op)
+                {
+                    if (count($has_not))
+                    {
+                        $has_not = implode('', $has_not);
+                        foreach ($has as $key => $item)
+                        {
+                            $has[$key] = $item . $has_not;
+                        }
+                    }
+                    $out_temp = implode('-', $has);
+                }
+                else
+                {
+                    if (count($has_not))
+                    {
+                        $has_not = implode('', $has_not);
+                    }
+                    $has[] = $has_not;
+                    $out_temp = implode(' ', $has);
+                }
             }
             else
             {

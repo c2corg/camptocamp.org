@@ -58,7 +58,8 @@ echo __('labande_ski_rating') . ' ' . range_selector('srat', 'app_routes_labande
 ?>
 <br />
 <?php
-echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_outings_sub_activities_list', false, false, true);
+echo __('snowboard') . ' ' . bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 2);
+echo __('beginner_proof') . ' ' . bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 4);
 ?>
 </div>
 <div id="snowshoeing_fields" style="display:none">
@@ -74,3 +75,7 @@ echo __('hiking_rating') . ' ' . range_selector('hrat', 'app_routes_hiking_ratin
 echo __('route_length') . ' ' . elevation_selector('olen', 'kilometers');
 ?>
 </div>
+<br />
+<?php 
+echo __('vtt_approach') . ' ' . bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 6);
+echo __('lift_approach') . ' ' . bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 8);

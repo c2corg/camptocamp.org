@@ -1731,7 +1731,7 @@ msgid "Parking not found"
 msgstr "Cet accès n'existe pas."
 
 msgid "Participate to MW %1% contest"
-msgstr "Inscrire cette sortie au <a href=\"http://www.camptocamp.org/articles/%1%\">concours changer d'approche</a>&nbsp"
+msgstr "Inscrire cette sortie au <a href=\"/articles/%1%\">concours changer d'approche</a>&nbsp"
 
 msgid "Password:"
 msgstr "Mot de passe&nbsp;:"
@@ -2856,6 +2856,12 @@ msgstr "<h3>Auteur</h3>Noms du ou des auteur(s) du livre ou de l'image.<br />Pou
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Bulletin Neige et Avalanche</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Pour une sortie réalisée en Suisse, les bulletins de la veille et du jour de la sortie sont aussi disponibles.<br />Attention&nbsp: pour les autres pays, seul le dernier bulletin est disponible, ne correspondant pas au jour de la sortie."
 
+msgid "_beginner_proof_info"
+msgstr "<h3>Initiation</h3>\n"
+"Itinéraire propice à l'initiation.<br />\n"
+"En ski/snowboard, un itinéraire d'initiation est un itinéraire de niveau inférieur ou égale à 3.2 (piste noire), non exposé (E1) et skiant de haut en bas (pas de portage, peu de plat, pas de forêt), permettant de profiter de la descente quel que soit le point où l'on abandonne.<br />\n"
+"Comme le caractère <em>initiation</em> regroupe une plage de difficulté assez large, lors d'une recherche il est utile de préciser la difficulté."
+
 msgid "_best_periods_info"
 msgstr "<h3>Meilleures périodes</h3>Liste des mois durant lesquels le site/secteur est normalement grimpable. Les autres mois sont déconseillés ou interdits (risque d'incendie, nidification...)."
 
@@ -3208,6 +3214,11 @@ msgstr "<h3>Latitude</h3>Latitude du lieu géographique en degrés.<br />Pour un
 msgid "_license_info"
 msgstr "Licence d'utilisation du contenu"
 
+# [WARNING] needs_review
+msgid "_lift_approach_info"
+msgstr "<h3>Approche en remontée mécanique possible</h3>\n"
+"Un remontée mécanique peut être utilisée pour l'approche et/ou le retour de cet itinéraire."
+
 msgid "_lift_status_info"
 msgstr "<h3>Remontées mécaniques</h3>Ouverture des remontée mécaniques proche de l'itinéraire."
 
@@ -3427,6 +3438,10 @@ msgstr "<h3>Précisions sur le déneigement</h3>Informations sur le déneigement
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champ <em>Précisions sur le déneigement</em> permet de donner des informations complémentaires."
 
+msgid "_snowboard_info"
+msgstr "<h3>Adapté au snowboard</h3>\n"
+"Itinéraire comportant très peu de plat ou de traversée."
+
 # [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Cotation raquette</h3>\n"
@@ -3459,11 +3474,12 @@ msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<
 
 msgid "_sub_activities_info"
 msgstr "<h3>Compatible avec</h3>\n"
-"Ce champ indique avec quelles sous activités un itinéraire <em>ski, surf</em> est compatible. Les sous activités sont données à titre indicatif.<br />Plusieurs sous activités peuvent être sélectionnées.<br />\n"
+"Ce champ indique avec quelles sous activités un itinéraire <em>ski, snowboard</em> est compatible. Les sous activités sont données à titre indicatif.<br />Plusieurs sous activités peuvent être sélectionnées.<br />\n"
 "<br />\n"
-"<strong>surf</strong>&nbsp;: Itinéraire comportant très peu de plat ou de traversée.<br />\n"
+"<strong>snowboard</strong>&nbsp;: Itinéraire comportant très peu de plat ou de traversée.<br />\n"
 "<br />\n"
-"<strong>initiation</strong>&nbsp;: Itinéraire propice à l'initiation. En ski/surf, un itinéraire d'initiation est un itinéraire de niveau inférieur ou égale à 3.2 (piste noire), non exposé (E1) et skiant de haut en bas (pas de portage, peu de plat, pas de forêt), permettant de profiter de la descente quel que soit le point où l'on abandonne. Comme le caractère <em>initiation</em> regroupe une plage de difficulté assez large, lors d'une recherche il est utile de préciser la difficulté."
+"<strong>initiation</strong>&nbsp;: Itinéraire propice à l'initiation. En ski/snowboard, un itinéraire d'initiation est un itinéraire de niveau inférieur ou égale à 3.2 (piste noire), non exposé (E1) et skiant de haut en bas (pas de portage, peu de plat, pas de forêt), permettant de profiter de la descente quel que soit le point où l'on abandonne.<br />\n"
+"Comme le caractère <em>initiation</em> regroupe une plage de difficulté assez large, lors d'une recherche il est utile de préciser la difficulté."
 
 msgid "_summit_type_info"
 msgstr "<h3>Type du \"sommet\"</h3>\n"
@@ -3534,6 +3550,14 @@ msgstr "<h3>URL</h3>Adresse web de l'éditeur du livre, du refuge ou du document
 
 msgid "_variants_info"
 msgstr "<h3>Itinéraires associés</h3>Les itinéraires associés au présent itinéraire sont des itinéraires empruntant tout ou partie de ses difficultés.<br />Par exemple, une traversée d'un sommet empruntant à la descente un couloir, et méritant d'être décrite dans un itinéraire à part, doit être associée à l'itinéraire du couloir en aller-retour s'il existe.<br />Par contre, les variantes à l'intérieur des difficultés (couloir possédant 2 sorties, pilier se gravissant par le fil ou par des vires, ...) doivent être décrites dans le même itinéraire.<br />La liste des sorties affichée dans cette page contient les sorties associées au présent itinéraire et les sorties associées aux itinéraires associés. Cela permet d'avoir des descriptions d'itinéraire différents mais des infos conditions communes."
+
+# [WARNING] needs_review
+msgid "_vtt_approach_info"
+msgstr "<h3>Approche en VTT possible</h3>\n"
+"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
+"Cela concerne les approches commençant par :<br />\n"
+"- une piste ou route interdite aux véhicules motorisés<br />\n"
+"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
 
 msgid "_way_back_info"
 msgstr "<h3>Descente des voies</h3>Moyen de descente depuis le sommet des voies et informations utiles&nbsp;:<br /><br /><strong>moulinette</strong>&nbsp;: longueur de corde<br /><br /><strong>rappel</strong>&nbsp;: situation de la ligne de rappel, longueur de corde, présence éventuelle de relais décalés...<br /><br /><strong>à pied</strong>&nbsp;: itinéraire, durée, éventuelles difficultés..."
@@ -5148,6 +5172,10 @@ msgstr "Totale (cm)"
 msgid "license"
 msgstr "Licence&nbsp;:"
 
+# [WARNING] needs_review
+msgid "lift_approach"
+msgstr "approche en remontée mécanique possible"
+
 msgid "lift_status"
 msgstr "Remontées mécaniques&nbsp;:"
 
@@ -6567,7 +6595,7 @@ msgid "snow_ice_mixed"
 msgstr "alpinisme neige, glace, mixte"
 
 msgid "snowboard"
-msgstr "snowboard"
+msgstr "adapté au snowboard"
 
 msgid "snowshoeing"
 msgstr "raquette"
@@ -6958,6 +6986,10 @@ msgstr "Afficher le document"
 
 msgid "visual conditions"
 msgstr "conditions de visu"
+
+# [WARNING] needs_review
+msgid "vtt_approach"
+msgstr "approche en VTT possible"
 
 msgid "waiting for geolocation"
 msgstr "En attente d'informations de localisation..."

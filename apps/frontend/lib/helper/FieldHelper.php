@@ -298,6 +298,48 @@ function field_semantic_date_data($document, $name)
 function field_bool_data($document, $name, $null_equals_no = false, $show_only_yes = false, $prefix = '', $suffix = '')
 {
     $value = $document->get($name);
+    return _format_bool_data($name, $value, $null_equals_no, $show_only_yes, $prefix, $suffix);
+}
+
+function field_bool_data_from_list($document, $name, $config, $new_items = array(), $single_value = 0, $show_only_yes = false, $prefix = '', $suffix = '')
+{
+    $value = $document->get($name);
+    $list = sfConfig::get($config);
+    if (count($new_items))
+    {
+        foreach ($new_items as $key => $item)
+        {
+            $list[$key] = $item;
+        }
+    }
+    if ($single_value)
+    {
+        $single_list = array();
+        $single_list[$single_value] = $list[$single_value];
+        $list = $single_list;
+    }
+    
+    if (!empty($value))
+    {
+        $value = is_array($value) ? $value : Document::convertStringToArray($value);
+        $result = array();
+        foreach ($list as $key => $item)
+        {
+            $value_key = (in_array($key, $value) ? 1 : 0);
+            $result[] = _format_bool_data($item, $value_key, false, $show_only_yes, $prefix, $suffix);
+        }
+        $result = implode(' ', $value);
+    }
+    else
+    {
+        $result = '';
+    }
+    
+    return $result;
+}
+
+function _format_bool_data($name, $value, $null_equals_no = false, $show_only_yes = false, $prefix = '', $suffix = '')
+{
     if (is_null($value))
     {
         if ($null_equals_no)

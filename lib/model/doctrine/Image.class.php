@@ -424,8 +424,12 @@ class Image extends BaseImage
             if ($is_module)
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'i', 'activities'), 'act', $join);
-                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', 'date_time::date', 'date', $join);
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', 'date_time::date', array('date', 'idate'), $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', $join, 'geom', $join);
+            }
+            else
+            {
+                self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', $m . '.date_time::date', 'idate', $join);
             }
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Around', $m2 . '.geom', 'iarnd', $join);
             
@@ -439,7 +443,6 @@ class Image extends BaseImage
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'ialt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'i', 'categories'), 'icat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.image_type', 'ityp', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Date', $m . '.date_time::date', 'idate', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ii.culture', 'icult', $join_i18n);
             
             // article criteria

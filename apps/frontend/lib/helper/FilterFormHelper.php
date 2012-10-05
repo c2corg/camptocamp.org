@@ -452,6 +452,16 @@ function bool_selector($field)
     return $out;
 }
 
+function bool_selector_from_list($field, $config, $value)
+{
+    $list = sfConfig::get($config);
+    $title = $list[$value];
+    $out  = __($title) . ' ';
+    $out .= select_tag($field . '[]', options_for_select(array($value => __('yes'), '!' . $value => __('no')),
+                                                  '', array('include_blank' => true)));
+    return $out;
+}
+
 function georef_selector($title = '')
 {
     if($title == '')
