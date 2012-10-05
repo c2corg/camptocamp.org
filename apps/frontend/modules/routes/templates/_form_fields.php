@@ -121,8 +121,8 @@ echo object_group_dropdown_tag($document, 'toponeige_technical_rating', 'app_rou
 echo object_group_dropdown_tag($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings');
 echo object_group_dropdown_tag($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings');
 echo object_group_dropdown_tag($document, 'labande_global_rating', 'app_routes_global_ratings');
-echo object_group_tag($document, 'sub_activities[]', 'object_checkbox_tag', '', array('value' => 2), true, 'snowboard');
-echo object_group_tag($document, 'sub_activities[]', 'object_checkbox_tag', '', array('value' => 4), true, 'beginner_proof');
+echo object_group_dropdown_tag($document, 'sub_activities', 'mod_routes_sub_activities_list',
+                               array('multiple' => true));
 ?>
 </div>
 
@@ -138,10 +138,6 @@ echo object_group_dropdown_tag($document, 'snowshoeing_rating', 'app_routes_snow
 ?>
 </div>
 
-<?php
-echo object_group_tag($document, 'sub_activities[]', 'object_checkbox_tag', '', array('value' => 8), true, 'vtt_approach');
-echo object_group_tag($document, 'sub_activities[]', 'object_checkbox_tag', '', array('value' => 6), true, 'lift_approach');
-?>
 </div>
 <div class="clear"></div>
 <?php

@@ -303,7 +303,7 @@ function field_bool_data($document, $name, $null_equals_no = false, $show_only_y
 
 function field_bool_data_from_list($document, $name, $config, $new_items = array(), $single_value = 0, $show_only_yes = false, $prefix = '', $suffix = '')
 {
-    $value = $document->get($name);
+    $value = $document->getRaw($name);
     $list = sfConfig::get($config);
     if (count($new_items))
     {
