@@ -4176,13 +4176,16 @@ class documentsActions extends c2cActions
                 $has = $has_not = array();
                 foreach ($array as $item)
                 {
-                    if (strpos($item, '!') === false)
+                    if (!empty($item))
                     {
-                        $has[] = $item;
-                    }
-                    else
-                    {
-                        $has_not[] = $item;
+                        if (strpos($item, '!') === false)
+                        {
+                            $has[] = $item;
+                        }
+                        else
+                        {
+                            $has_not[] = $item;
+                        }
                     }
                 }
                 
