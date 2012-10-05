@@ -4223,11 +4223,14 @@ class documentsActions extends c2cActions
             {
                 $out_temp = str_replace('_', '0', $out_temp);
             }
-            if (!empty($rename))
+            if (!empty($out_temp))
             {
-                $field = $rename;
+                if (!empty($rename))
+                {
+                    $field = $rename;
+                }
+                $out[] = $field . '=' . $out_temp;
             }
-            $out[] = $field . '=' . $out_temp;
         }
     }
 
