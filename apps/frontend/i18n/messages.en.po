@@ -1736,7 +1736,7 @@ msgstr "This access point doesn’t exist"
 
 # [WARNING] needs_review
 msgid "Participate to MW %1% contest"
-msgstr "Submit this outing to the <a href=\"http://www.camptocamp.org/articles/%1%\">Changer d'Approche - Competition</a>&nbsp"
+msgstr "Submit this outing to the <a href=\"/articles/%1%\">Changer d'Approche - Competition</a>&nbsp"
 
 msgid "Password:"
 msgstr "Password:"
@@ -2845,6 +2845,12 @@ msgstr "<h3>Author</h3>Name of the author(s) of the book or picture.<br />Use a 
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Avalanche bulletin</h3>Links to the recent avalanche bulletins covering the area where the document is georeferenced.<br />Warning: for an outing, this is not the bulletin from the day of the outing, unless the outing itself is very recent."
 
+msgid "_beginner_proof_info"
+msgstr "<h3>Initiation</h3>\n"
+"Route suitable for learning an activity.<br />\n"
+"For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent.<br />\n"
+"Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
+
 msgid "_best_periods_info"
 msgstr "<h3>Best time</h3>List of the months in which a climbing site or a particular crag is usually climbable. The other months are usually not advisable or prohibited (wildfire hazard, bird nesting...)."
 
@@ -3149,6 +3155,11 @@ msgstr "<h3>Latitude</h3>Latitude of the geographical place in decimal degrees.<
 msgid "_license_info"
 msgstr "License information"
 
+# [WARNING] needs_review
+msgid "_lift_approach_info"
+msgstr "<h3>Lift approach possible</h3>\n"
+"A lift can be used to approach and / or return of this route."
+
 msgid "_lift_status_info"
 msgstr "<h3>Lift - Cable car</h3>Opening of the lifts near the route."
 
@@ -3359,6 +3370,11 @@ msgid "_snow_clearance_rating_info"
 msgstr "<h3>Snow clearing</h3>Frequency of snow clearing of the road. The field <i>Details on snow clearnig</i> allows for more detailed information."
 
 # [WARNING] needs_review
+msgid "_snowboard_info"
+msgstr "<h3>Snowboard</h3>\n"
+"Route with few flat sections or level traverses."
+
+# [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Snowshoeing grade</h3>\n"
 "Snowshoeing difficulty grading.<br /> \n"
@@ -3386,9 +3402,15 @@ msgstr "<h3>Staffed capacity</h3>Number of \"normal\" bedding places when staffe
 msgid "_staffed_period_info"
 msgstr "<h3>Periods staffed</h3>Approximate periods when staffed.<br />Example: <em>April and May week-ends, end of June. Every day from mid-june to mid-september.</em>"
 
-# [WARNING] needs_update
 msgid "_sub_activities_info"
-msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding</em>). They are given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>skiing</strong>: Most routes are compatible with skiing.<br /><br /><strong>snowboard</strong>: Route with few flat sections or level traverses. All <em>snowboarding</em> routes should also be <em>skiing</em> routes.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent. Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
+msgstr "<h3>Compatible with</h3>\n"
+"This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding</em>). They are given as a rough guide only.<br />\n"
+"Several sub-activities may be selected.<br />\n"
+"<br />\n"
+"<strong>snowboard</strong>: Route with few flat sections or level traverses. <br />\n"
+"<br />\n"
+"<strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent.<br />\n"
+"Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
 
 # [WARNING] needs_update
 msgid "_summit_type_info"
@@ -3447,6 +3469,14 @@ msgstr "<h3>URL</h3>Link to the editor's website or to a downloadable version."
 
 msgid "_variants_info"
 msgstr "<h3>Associated routes</h3>Routes associated to the present route are routes that follow all or part of its difficulties.<br />For example, the traverse of a summit, which deserves a specific route description, but which follows a particular couloir on the way down, must be associated to the route describing the couloir itself (if it exists in the guidebook).<br />On the contrary, variants within the difficulties (a couloir with two exits, a pillar which can be climbed by its main ridge or up ledges on one side) must be described in the same document.<br />The list of outings displayed in this page contains the outings associated to the present route and the outings associated to the associated routes. This allows different route descriptions, but common conditions information."
+
+# [WARNING] fr translation used
+msgid "_vtt_approach_info"
+msgstr "<h3>Approche en VTT possible</h3>\n"
+"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
+"Cela concerne les approches commençant par :<br />\n"
+"- une piste ou route interdite aux véhicules motorisés<br />\n"
+"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
 
 msgid "_way_back_info"
 msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes and useful information:<br /><br /><strong>top-rope</strong>: rope length<br /><br /><strong>rappel</strong>: location of the rappel line, rope length, possible non aligned rappel stations...<br /><br /><strong>on foot</strong>: route, time necessary and possible difficulties..."
@@ -5086,6 +5116,10 @@ msgstr "Total snow (cm)"
 msgid "license"
 msgstr "License:"
 
+# [WARNING] needs_review
+msgid "lift_approach"
+msgstr "lift approach possible"
+
 msgid "lift_status"
 msgstr "Lift or cable-car:"
 
@@ -6538,8 +6572,9 @@ msgstr "Snow clearance:"
 msgid "snow_ice_mixed"
 msgstr "alpine snow, ice, mixed climbing"
 
+# [WARNING] needs_review
 msgid "snowboard"
-msgstr "snowboarding"
+msgstr "suitable to snowboarding"
 
 msgid "snowshoeing"
 msgstr "snowshoeing"
@@ -6939,6 +6974,10 @@ msgstr "Show last version of the document"
 
 msgid "visual conditions"
 msgstr "visual conditions"
+
+# [WARNING] needs_review
+msgid "vtt_approach"
+msgstr "mountain-bike approach possible"
 
 # [WARNING] needs_review
 msgid "waiting for geolocation"

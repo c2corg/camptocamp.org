@@ -1795,7 +1795,7 @@ msgstr "Ez dago halako abiagunerik."
 
 # [WARNING] es translation used
 msgid "Participate to MW %1% contest"
-msgstr "Presentar esta solida al <a href=\"http://www.camptocamp.org/articles/%1%\">concurso cambiar la aproximación</a>&nbsp"
+msgstr "Presentar esta solida al <a href=\"/articles/%1%\">concurso cambiar la aproximación</a>&nbsp"
 
 msgid "Password:"
 msgstr "Pasa hitza:"
@@ -2983,6 +2983,11 @@ msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak.<br />Auto
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Boletines de aludes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
 
+msgid "_beginner_proof_info"
+msgstr "<h3>Hastapenerako ibilbidea</h3>\n"
+"Ekintza baten hastapen ikastaroak emateko egokia, ekintza mota auekeratu behar da. Eskian edo surfean, hastapenerako ibilbide batek 3.2 zailtasuna baino errezagoa behar du, expisiziorik gabe (E1) eta ibilbide guztian zehar ondo eskiatzeko aukera duena. Igoeran zehar ibilbidea edozein puntutan utzi behar bada, jetsiera atsegin bat izan dadin.<br />\n"
+"<em>Hastapen</em> ezaugarria zaitasun desberdinetara ezarri daitekenez, zein zailtasunera egokitzen den aipatzea erabilgarria da."
+
 msgid "_best_periods_info"
 msgstr "<h3>Sasoi egokiena</h3>Eskalada gunera joateko gomendagarri diren hileen zerrenda. Gainontzeko hiletan ez da gomendagarria edo debekatua dago (sute arriskua, habiagintza)"
 
@@ -3233,6 +3238,11 @@ msgstr "<h3>Latitudea</h3> Leku geografiko baten latitudea gradu hamartarretan.<
 msgid "_license_info"
 msgstr "Edukia erabiltzeko lizentzia"
 
+# [WARNING] en translation used
+msgid "_lift_approach_info"
+msgstr "<h3>Lift approach possible</h3>\n"
+"A lift can be used to approach and / or return of this route."
+
 msgid "_lift_status_info"
 msgstr "<h3>Igogailu mekanikoak</h3>Ibilbidetik gertu igogailu mekanikorik badaude, hauen irikitze egoera."
 
@@ -3444,6 +3454,11 @@ msgstr "<h3>Elur garbiketari buruzko xehetasunak</h3>Neguan, errepideko elur gar
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Elurgabetua</h3>Abiapuntura iristeko bidearen elurgabetze frekentzia. <i>Précisions sur le déneigement</i> kampoak gehigarrizko informazioa ematen du."
 
+# [WARNING] needs_review
+msgid "_snowboard_info"
+msgstr "<h3>Snowboard</h3>\n"
+"Lautada eta zeharkapen gutxiko ibilbideak dira."
+
 # [WARNING] es translation used
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Grado en raquetas</h3>\n"
@@ -3477,9 +3492,14 @@ msgstr "<h3>Gordetako sasoia</h3>Gordeta dagoen denboraldia gutxi gora behera.<b
 
 # [comment]
 # h3 mal placé + majuscule au début
-# [WARNING] needs_update
 msgid "_sub_activities_info"
-msgstr "<h3>Zein ekintza dira konpatible</h3>Eremu honetan <i>eskia, surfa</i> zein beste ekintzarekin konpatible diren adierazten du. Ekintza horiek adibide bezala emanak dira.<br />Ekintza bat baino gehiago aukeratu daitezke.<br /><br /><strong>eskia</strong>: ibilbide gehienetarako balio du.<br /><br /><strong>surfa</strong>: lautada eta zeharkapen gutxiko ibilbideak dira - <i>surfa</i>-ko aktibitate guztiak <i>eski</i>-n ere adieraziak izan beharko dira.<br /><br /><strong>Hastapenerako ibilbidea</strong>: ekintza baten hastapen ikastaroak emateko egokia, ekintza mota auekeratu behar da. Eskian edo surfean, hastapenerako ibilbide batek 3.2 zailtasuna baino errezagoa behar du, expisiziorik gabe (E1) eta ibilbide guztian zehar ondo eskiatzeko aukera duena. Igoeran zehar ibilbidea edozein puntutan utzi behar bada, jetsiera atsegin bat izan dadin.\n"
+msgstr "<h3>Zein ekintza dira konpatible</h3>\n"
+"Eremu honetan <i>eskia, snowboard</i> zein beste ekintzarekin konpatible diren adierazten du. Ekintza horiek adibide bezala emanak dira.<br />\n"
+"Ekintza bat baino gehiago aukeratu daitezke.<br />\n"
+"<br />\n"
+"<strong>surfa</strong>: lautada eta zeharkapen gutxiko ibilbideak dira.<br />\n"
+"<br />\n"
+"<strong>Hastapenerako ibilbidea</strong>: ekintza baten hastapen ikastaroak emateko egokia, ekintza mota auekeratu behar da. Eskian edo surfean, hastapenerako ibilbide batek 3.2 zailtasuna baino errezagoa behar du, expisiziorik gabe (E1) eta ibilbide guztian zehar ondo eskiatzeko aukera duena. Igoeran zehar ibilbidea edozein puntutan utzi behar bada, jetsiera atsegin bat izan dadin.<br />\n"
 "<em>Hastapen</em> ezaugarria zaitasun desberdinetara ezarri daitekenez, zein zailtasunera egokitzen den aipatzea erabilgarria da."
 
 # [WARNING] needs_update
@@ -3529,6 +3549,14 @@ msgstr "<h3>URL</h3>Editorearen webgunea edo dokumentua jeisteko gunea."
 # [WARNING] es translation used
 msgid "_variants_info"
 msgstr "<h3>Itinerarios asociados</h3>Los itinerarios asociados al presente itinerario son itinerarios que recorren toda o parte de sus dificultades.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
+
+# [WARNING] fr translation used
+msgid "_vtt_approach_info"
+msgstr "<h3>Approche en VTT possible</h3>\n"
+"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
+"Cela concerne les approches commençant par :<br />\n"
+"- une piste ou route interdite aux véhicules motorisés<br />\n"
+"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
 
 msgid "_way_back_info"
 msgstr "<h3>Luzeeren jeitsiera</h3>Luzeerak gailurretik jeisteko modua eta informazio erabilgarria:<br /><br /><strong>kirol eskalada</strong>: sokaren luzeera<br /><br /><strong>rapela</strong>: rapelaren kokapena, sokaren luzeera, reunio desplazatuak…<br /><br /><strong>ohinez</strong>: ibilbide, denbora, aurki daitezkeen zailtasunak"
@@ -5274,6 +5302,10 @@ msgstr "Edur geruza (cm)"
 msgid "license"
 msgstr "Lizentzia:"
 
+# [WARNING] en translation used
+msgid "lift_approach"
+msgstr "lift approach possible"
+
 msgid "lift_status"
 msgstr "Igogailu mekanikoak:"
 
@@ -6859,6 +6891,7 @@ msgstr "Elur garbiketa:"
 msgid "snow_ice_mixed"
 msgstr "alpinismoa edur, izotz, mixto"
 
+# [WARNING] needs_review
 msgid "snowboard"
 msgstr "snowboard"
 
@@ -7286,6 +7319,10 @@ msgstr "Dokumenturaren azkenengo bertsioa agertu"
 
 msgid "visual conditions"
 msgstr "ikusitako egoera"
+
+# [WARNING] en translation used
+msgid "vtt_approach"
+msgstr "mountain-bike approach possible"
 
 # [WARNING] en translation used
 msgid "waiting for geolocation"

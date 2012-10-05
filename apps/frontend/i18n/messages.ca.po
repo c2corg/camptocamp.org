@@ -1711,7 +1711,7 @@ msgid "Parking not found"
 msgstr "Aquest accés no existeix"
 
 msgid "Participate to MW %1% contest"
-msgstr "Inscriu aquesta sortida al <a href=\"http://www.camptocamp.org/articles/%1%\">concurs \"Changer d'Approche\"</a>&nbsp"
+msgstr "Inscriu aquesta sortida al <a href=\"/articles/%1%\">concurs \"Changer d'Approche\"</a>&nbsp"
 
 msgid "Password:"
 msgstr "Contrasenya:"
@@ -2843,6 +2843,12 @@ msgstr "<h3>Autor</h3>Noms de o dels autor(s) de l'imatge. <br />Per separar els
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Butlletins de Neu i Allaus</h3>Enllaços cap als Butlletins de Neu i Allaus recents de la zona on el document està georeferenciat.<br />Per una sortida feta a Suïssa, els butlletins del dia abans i del dia de la sortida també són disponibles.<br />Atenció: per a la resta de països, només hi ha disponible el darrer butlletí, que per tant no correspondrà al dia de la sortida."
 
+# [WARNING] needs_update
+msgid "_beginner_proof_info"
+msgstr "<h3>Iniciació</h3>\n"
+"Itinerari propici a l'iniciació en una activitat.<br />\n"
+"En esquí/snowboard, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
+
 msgid "_best_periods_info"
 msgstr "<h3>Millors periòdes</h3>Llista dels mesos durant els quals el lloc o l'escola és normalment escalable. Els altres mesos són desaconsellats o prohibits (riscos d'incendi, nidificació....)."
 
@@ -3112,6 +3118,11 @@ msgstr "<h3>Latitud</h3>Latitud del punt geogràfic en graus décimals.<br />Per
 msgid "_license_info"
 msgstr "Llicència de l'utilització del contingut"
 
+# [WARNING] en translation used
+msgid "_lift_approach_info"
+msgstr "<h3>Lift approach possible</h3>\n"
+"A lift can be used to approach and / or return of this route."
+
 msgid "_lift_status_info"
 msgstr "<h3>Remontadors mecànics</h3>Obertura dels remuntadors mecànics propers a l'itinerari."
 
@@ -3319,6 +3330,11 @@ msgstr "<h3>Precisions sobre la retirada de la neu</h3>Informacions sobre la ret
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Retirada de la neu</h3>Frequència de la retirada de la neu de l'accés per carretera. El camp <i>Precisions sobre la retirada de la neu</i> permet donar informacions complementàries."
 
+# [WARNING] needs_review
+msgid "_snowboard_info"
+msgstr "<h3>Snowboard</h3>\n"
+"Itinerari comportant molt poc pla o flanqueig."
+
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Grau de dificultat amb raquetes</h3>\n"
 "Gradació de les dificultats d'un itinerari de raquetes.<br />\n"
@@ -3347,7 +3363,13 @@ msgstr "<h3>Períodes en què el refugi és guardat</h3>Període aproximat en qu
 
 # [WARNING] needs_update
 msgid "_sub_activities_info"
-msgstr "<h3>Compatibilitat amb</h3>Aquest camp indica amb quines sub-activitats un itinerari <i>esquí, surf</i> és compatible. Les sub-activitats són donades a títol indicatiu.<br />Es poden seleccionar més d'una activitat.<br /><br /><strong>esquí</strong>&nbsp;: corespon a la majoria d'itineraris.<br /><br /><strong>surf</strong>&nbsp;: itinerari comportant molt poc pla o flanqueig - tots els itineraris <i>surf</i> han d'estar també indicats com <i>esquí</i>.<br /><br /><strong>iniciació</strong>&nbsp;: itinerari propici a l'iniciació en una subactivitat, que ha des er també seleccionada. En esquí/surf, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
+msgstr "<h3>Compatibilitat amb</h3>\n"
+"Aquest camp indica amb quines sub-activitats un itinerari <i>esquí, snowboard</i> és compatible. Les sub-activitats són donades a títol indicatiu.<br />\n"
+"Es poden seleccionar més d'una activitat.<br />\n"
+"<br />\n"
+"<strong>surf</strong>&nbsp;: itinerari comportant molt poc pla o flanqueig.<br />\n"
+"<br />\n"
+"<strong>iniciació</strong>&nbsp;: itinerari propici a l'iniciació en una subactivitat, que ha des er també seleccionada. En esquí/snowboard, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
 
 # [WARNING] needs_update
 msgid "_summit_type_info"
@@ -3392,6 +3414,14 @@ msgstr "<h3>URL</h3>Adreça web de l'editor del document telecarregable."
 # [WARNING] needs_update
 msgid "_variants_info"
 msgstr "<h3>Itineraris associats</h3>Els itineraris associats a aquest  itinerari són itineraris que recòrren tot o part de les seves dificultats.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
+
+# [WARNING] fr translation used
+msgid "_vtt_approach_info"
+msgstr "<h3>Approche en VTT possible</h3>\n"
+"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
+"Cela concerne les approches commençant par :<br />\n"
+"- une piste ou route interdite aux véhicules motorisés<br />\n"
+"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
 
 msgid "_way_back_info"
 msgstr "<h3>Baixada de las víes</h3>Mitjà de descens de les víes des del cim i informacions utils:<br /><br /><strong>despenjat des d'abaix</strong>: llargada de corda<br /><br /><strong>ràpel</strong>: situació de la línia de ràpel, llargada de corda, presència eventual de reunions fora de la vertical...<br /><br /><strong>a peu</strong>: itinerari, durada, dificultats eventuals..."
@@ -5007,6 +5037,10 @@ msgstr "Total (cm)"
 msgid "license"
 msgstr "Llicència:"
 
+# [WARNING] en translation used
+msgid "lift_approach"
+msgstr "lift approach possible"
+
 msgid "lift_status"
 msgstr "Remuntadors mecànics:"
 
@@ -6431,6 +6465,7 @@ msgstr "Neteja de la neu:"
 msgid "snow_ice_mixed"
 msgstr "neu, glaç, mixt"
 
+# [WARNING] needs_review
 msgid "snowboard"
 msgstr "snowboard"
 
@@ -6835,6 +6870,10 @@ msgstr "Mostra la darrera versió del document"
 
 msgid "visual conditions"
 msgstr "condicions de visu"
+
+# [WARNING] en translation used
+msgid "vtt_approach"
+msgstr "mountain-bike approach possible"
 
 msgid "waiting for geolocation"
 msgstr "Localització en curs..."

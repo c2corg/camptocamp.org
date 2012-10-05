@@ -1731,7 +1731,7 @@ msgstr "Questo accesso non è stato trovato."
 
 # [WARNING] needs_review
 msgid "Participate to MW %1% contest"
-msgstr "Partecipare al <a href=\"http://www.camptocamp.org/articles/%1%\">concorso cambiare approccio</a>&nbsp"
+msgstr "Partecipare al <a href=\"/articles/%1%\">concorso cambiare approccio</a>&nbsp"
 
 msgid "Password:"
 msgstr "Password:"
@@ -2834,6 +2834,12 @@ msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Bollettino valanghe</h3>Link verso i bollettini nivometeo recenti per la zona corrispondente alla georeferenziazione del documento.<br />Per una gita effettuata in Svizzera sono disponibili i bollettini del giorno e del giorno precedente.<br />Attenzione: per gli altri paesi, non si tratta del bollettino del giorno della gita ma solo dell'ultimo disponibile."
 
+msgid "_beginner_proof_info"
+msgstr "<h3>Principianti</h3>\n"
+"Itinerario adatto alla scoperta dell'attività di scialpinismo.<br />\n"
+"In sci/snowboard un itinerario per principianti è di solito facile (difficoltà < 3.2), non esposto in caso di caduta (E1), sciabile dall'inizio alla fine (nessun tratto a piedi, poco piatto, poco bosco), con la possibilità di tornare indietro da qualsiasi punto del percorso godendosi comunque una parte della discesa.<br />\n"
+"Quando si fa una ricerca di itinerari <em>principianti</em> specificare anche la difficoltà nel filtro."
+
 msgid "_best_periods_info"
 msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampicare sulla falesia. Gli altri mesi sono sconsigliati o vietati (rischio incendio, nidificazione...)."
 
@@ -3134,6 +3140,11 @@ msgstr "<h3>Latitudine</h3>Latitudine del luogo geografico in gradi decimali.<br
 msgid "_license_info"
 msgstr "Licenza d'utilizzazione del contenuto"
 
+# [WARNING] en translation used
+msgid "_lift_approach_info"
+msgstr "<h3>Lift approach possible</h3>\n"
+"A lift can be used to approach and / or return of this route."
+
 msgid "_lift_status_info"
 msgstr "<h3>Impianti di rissalita</h3>Apertura degli impianti di risalita prossimi all'itinerario."
 
@@ -3330,6 +3341,11 @@ msgstr "<h3>Precisazioni sullo sgombero della neve</h3>Informazioni sullo sgombe
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
 
+# [WARNING] needs_review
+msgid "_snowboard_info"
+msgstr "<h3>Snowboard</h3>\n"
+"Itinerario con pochissimi tratti pianeggianti o traversi."
+
 # [WARNING] needs_update
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Difficoltà ciaspole</h3>"
@@ -3346,11 +3362,11 @@ msgstr "<h3>Periodo di presenza del gestore</h3>Periodo approssimative durante i
 
 msgid "_sub_activities_info"
 msgstr "<h3>Compatibile con</h3>\n"
-"Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br />\n"
+"Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, snowboard</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br />\n"
 "<br />\n"
-"<strong>sci</strong>: corrisponde allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere lo<i>sci</i>.<br />\n"
+"<strong>snowboard</strong>: itinerario con pochissimi tratti pianeggianti o traversi.<br />\n"
 "<br />\n"
-"<strong>principianti</strong>: itinerario adatto alla scoperta dell'attività di scialpinismo. In sci/surf un itinerario per principianti è di solito facile (difficoltà < 3.2), non esposto in caso di caduta (E1), sciabile dall'inizio alla fine (nessun tratto a piedi, poco piatto, poco bosco), con la possibilità di tornare indietro da qualsiasi punto del percorso godendosi comunque una parte della discesa.\n"
+"<strong>principianti</strong>: itinerario adatto alla scoperta dell'attività di scialpinismo. In sci/snowboard un itinerario per principianti è di solito facile (difficoltà < 3.2), non esposto in caso di caduta (E1), sciabile dall'inizio alla fine (nessun tratto a piedi, poco piatto, poco bosco), con la possibilità di tornare indietro da qualsiasi punto del percorso godendosi comunque una parte della discesa.<br />\n"
 "Quando si fa una ricerca di itinerari <em>principianti</em> specificare anche la difficoltà nel filtro."
 
 # [WARNING] needs_update
@@ -3410,6 +3426,14 @@ msgstr "<h3>URL</h3>Indirizzo web del rifugio, dell'editore del libro o del docu
 # [WARNING] needs_update
 msgid "_variants_info"
 msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono degli itinerari che hanno un percorso comune su un parte significativa delle difficoltà. <br />Per esempio, une traversata a sci di una cima con discesa da un couloir merita un itinerario specifico e deve essere associata come variante all'itinerario in andata ritorno nel couloir. <br />Invece due variante nella parte delle difficoltà (es: un couloir con 2 uscite) devovono essere descritte nello stesso itinerario."
+
+# [WARNING] fr translation used
+msgid "_vtt_approach_info"
+msgstr "<h3>Approche en VTT possible</h3>\n"
+"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
+"Cela concerne les approches commençant par :<br />\n"
+"- une piste ou route interdite aux véhicules motorisés<br />\n"
+"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
 
 msgid "_way_back_info"
 msgstr "<h3>Discesa delle vie</h3>Dettagli per la discesa dall'alto delle vie:<br /><br /><strong>monotiri</strong>: lunghezza della corda<br /><br /><strong>doppie</strong>: dettaglio sulla posizione della soste, lunghezza della corda...<br /><br /><strong>à pied</strong>: itinerario, durata, difficoltà..."
@@ -5036,6 +5060,10 @@ msgstr "Totale (cm)"
 msgid "license"
 msgstr "Licenza:"
 
+# [WARNING] en translation used
+msgid "lift_approach"
+msgstr "lift approach possible"
+
 msgid "lift_status"
 msgstr "Impianti di risalita:"
 
@@ -6471,6 +6499,7 @@ msgstr "Pulizia della strada:"
 msgid "snow_ice_mixed"
 msgstr "alpinismo neve, ghiaccio, misto"
 
+# [WARNING] needs_review
 msgid "snowboard"
 msgstr "snowboard"
 
@@ -6866,6 +6895,10 @@ msgstr "Mostrare l'ultima versione del documento"
 
 msgid "visual conditions"
 msgstr "condizioni de visu"
+
+# [WARNING] en translation used
+msgid "vtt_approach"
+msgstr "mountain-bike approach possible"
 
 msgid "waiting for geolocation"
 msgstr "Localizzazione in corso..."

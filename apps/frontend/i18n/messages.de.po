@@ -1735,7 +1735,7 @@ msgid "Parking not found"
 msgstr "Diese Zufahrt existiert nicht."
 
 msgid "Participate to MW %1% contest"
-msgstr "Diese Tour in den <a href=\"http://www.camptocamp.org/articles/%1%\">Wettbewerb \"Changer d'Approche\"</a> aufnehmen."
+msgstr "Diese Tour in den <a href=\"/articles/%1%\">Wettbewerb \"Changer d'Approche\"</a> aufnehmen."
 
 msgid "Password:"
 msgstr "Passwort:"
@@ -2860,6 +2860,12 @@ msgstr "<h3>Autor</h3>Name des Autor des Buches oder Bildes<br /> Benützen Sie 
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Lawinenbulletin</h3>Link zum aktuellen Lawinenbulletin der Region des Dokuments.<br />Achtung: für eine Tour, es ist nicht den Bulletin am Tag am welchem die Tour gemacht würde."
 
+msgid "_beginner_proof_info"
+msgstr "<h3>Anfänger</h3>\n"
+"Die Route ist geeignet um eine Aktivität zu erlernen.<br />\n"
+"Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewaldeten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr.<br />\n"
+"Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
+
 msgid "_best_periods_info"
 msgstr "<h3>Geeignete Jahreszeit</h3>Liste der Monate, in welchen das Klettern möglich ist. Die anderen Monate sind nicht zum Klettern empfohlen oder es ist verboten in dieser Jahreszeit zu klettern (Brandgefahr, Vogelschutz, etc.)."
 
@@ -3250,6 +3256,11 @@ msgstr "<h3>Geografische Breite</h3>Geographische Breite eines Orts in Dezimalgr
 msgid "_license_info"
 msgstr "Lizenzinformationen des Inhalts"
 
+# [WARNING] en translation used
+msgid "_lift_approach_info"
+msgstr "<h3>Lift approach possible</h3>\n"
+"A lift can be used to approach and / or return of this route."
+
 msgid "_lift_status_info"
 msgstr "<h3>Bergbahnen</h3>Öffnung der Bergbahnen in der nähe der Route."
 
@@ -3478,6 +3489,11 @@ msgid "_snow_clearance_rating_info"
 msgstr "<h3>Schneeräumung</h3>Häufigkeit der Schneeräumung einer Strasse. Im Feld <em>Details zur Schneeräumung</em> können weitere Angaben gemacht werden."
 
 # [WARNING] needs_review
+msgid "_snowboard_info"
+msgstr "<h3>Snowboard</h3>\n"
+"Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen."
+
+# [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Schneeschuhtouren Schwierigkeit</h3>\n"
 "Bewertung der Schwierigkeiten einer Schneeschuhroute<br /><br />\n"
@@ -3499,7 +3515,14 @@ msgid "_staffed_period_info"
 msgstr "<h3>Bewartungszeitraum</h3>Ungefährer Zeitraum, wann die Hütte üblicherweise bewartet ist.<br />Beispiel: <em>Wochenende im April, Mai und Ende September. Täglich von Mitte Juni bis Mitte September.</em>"
 
 msgid "_sub_activities_info"
-msgstr "<h3>Kompatibel mit</h3>Dieses Feld führt aus, mit welchen Unter-Aktivitäten eine <Ski- oder Snowboardroute</em> ausführbar ist. Die Unter-Aktivitäten werden nur ungefähr angegeben.<br />Mehrere Unter-Aktivitäten können angegeben werden.<br /><br /><strong>Snowboard</strong>: Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen.<br /><br /><strong>Anfänger</strong>: Die Route ist geeignet um eine Aktivität zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewaldeten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr. Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
+msgstr "<h3>Kompatibel mit</h3>\n"
+"Dieses Feld führt aus, mit welchen Unter-Aktivitäten eine <Ski- oder Snowboardroute</em> ausführbar ist. Die Unter-Aktivitäten werden nur ungefähr angegeben.<br />\n"
+"Mehrere Unter-Aktivitäten können angegeben werden.<br />\n"
+"<br />\n"
+"<strong>Snowboard</strong>: Die Route beinhaltet nur sehr wenige Flachstücke oder horrizontale Traversen.<br />\n"
+"<br />\n"
+"<strong>Anfänger</strong>: Die Route ist geeignet um eine Aktivität zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewaldeten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr.<br />\n"
+"Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
 
 # [WARNING] needs_review
 msgid "_summit_type_info"
@@ -3573,6 +3596,14 @@ msgstr "<h3>URL</h3>Link auf die Hütte, auf die Website des Autors, oder auf ei
 # [WARNING] needs_review
 msgid "_variants_info"
 msgstr "<h3>Verbundene Routen</h3> Miteinander verbundene Routen sind Routen, welche einen teilweisen identischen Routenverlauf haben oder über dieselben Schwierigkeiten verlaufen.<br /> <br /> Zum Beispiel, eine Überschreitung eines Gipfels, welche durch ein bestimmtes Couloir abgestiegen wird, muss mit der Route verbunden werden, welche das Couloir an sich beschreibt.<br /> Andererseits werden Varianten innerhalb einer Schwierigkeit (z.B. ein Couloir mit zwei Ausstiegen, ein Pfeiler, welcher über den Hauptgrad oder wenig davon Abweichend in der Flanke begangen werden kann, etc.) in derselben Route beschrieben.<br /> <br /> Die auf dieser Seite angezeigten Liste der Touren enthält die Touren, welche mit der Route verbunden sind, sowie die Touren, welche mit den verbundenen Routen verbunden sind. Dies erlaubt einerseits unterschiedliche, spezifische Routenbeschreibungen, aber andererseits auch gemeinsame Informationen über die Verhältnisse."
+
+# [WARNING] fr translation used
+msgid "_vtt_approach_info"
+msgstr "<h3>Approche en VTT possible</h3>\n"
+"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
+"Cela concerne les approches commençant par :<br />\n"
+"- une piste ou route interdite aux véhicules motorisés<br />\n"
+"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
 
 msgid "_way_back_info"
 msgstr "<h3>Abstieg der Route</h3>Üblicher Abstieg vom Gipfel der Route und relevante Infos:<br /><br />\n"
@@ -5249,6 +5280,10 @@ msgstr "gesamte Schneehöhe (cm)"
 msgid "license"
 msgstr "Lizenz:"
 
+# [WARNING] en translation used
+msgid "lift_approach"
+msgstr "lift approach possible"
+
 msgid "lift_status"
 msgstr "Liftanlagen:"
 
@@ -6711,6 +6746,7 @@ msgstr "Schneeräumung:"
 msgid "snow_ice_mixed"
 msgstr "Hochtouren"
 
+# [WARNING] needs_review
 msgid "snowboard"
 msgstr "Snowboard"
 
@@ -7130,6 +7166,10 @@ msgstr "Die aktuellste Version des Dokuments anzeigen"
 
 msgid "visual conditions"
 msgstr "Sichtverhältnisse"
+
+# [WARNING] en translation used
+msgid "vtt_approach"
+msgstr "mountain-bike approach possible"
 
 msgid "waiting for geolocation"
 msgstr "Warte auf Lokalisierung..."

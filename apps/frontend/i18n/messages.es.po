@@ -1739,7 +1739,7 @@ msgstr "El acceso no existe"
 
 # [WARNING] needs_review
 msgid "Participate to MW %1% contest"
-msgstr "Presentar esta solida al <a href=\"http://www.camptocamp.org/articles/%1%\">concurso cambiar la aproximación</a>&nbsp"
+msgstr "Presentar esta solida al <a href=\"/articles/%1%\">concurso cambiar la aproximación</a>&nbsp"
 
 msgid "Password:"
 msgstr "Contraseña:"
@@ -2833,6 +2833,12 @@ msgstr "<h3>Autor</h3>Nombres del o de los autore(s) del libro o de la imagen.<b
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Boletines de aludes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
 
+msgid "_beginner_proof_info"
+msgstr "<h3>Iniciación</h3>\n"
+"Itinerario propicio a la iniciación de una actividad.<br />\n"
+"En esquí y snowboard, un itinerario de iniciación tiene un grado de dificultad inferior a 3.2 (dificultad máxima que se puede encontrar en un centro de esquí), sin exposición (E1) y ofreciendo buen esquí a lo largo del itinerario (ninguna obligación de cargar los esquíes a la espalda, pocas zonas planas, ningún bosque que atravesar), lo que permite aprovechar el descenso desde cualquier punto en el que el principiante abandone el ascenso.<br />\n"
+"Como la característica <em>iniciación</em> se aplica a un amplio rango de dificultades, es útil al buscar un itinerario de iniciación precisar en que nivel de dificultad se busca."
+
 msgid "_best_periods_info"
 msgstr "<h3>Mejores épocas</h3>Lista de los meses en los que se puede escalar en el sitio/sector. Está prohibido o no es aconsejable durante los otros meses (por ejemplo por riesgos de incendios, nidificación de aves protegidos...)."
 
@@ -3119,6 +3125,11 @@ msgstr "<h3>Latitud</h3>Latitud del lugar geográfico en grados decimales.<br />
 msgid "_license_info"
 msgstr "Licencia de uso del contenido"
 
+# [WARNING] en translation used
+msgid "_lift_approach_info"
+msgstr "<h3>Lift approach possible</h3>\n"
+"A lift can be used to approach and / or return of this route."
+
 msgid "_lift_status_info"
 msgstr "<h3>Remontes mecánicos</h3>Apertura de los remontes mecánicos próximos al itinerario."
 
@@ -3326,6 +3337,11 @@ msgid "_snow_clearance_rating_info"
 msgstr "<h3>Limpiado de la nieve</h3>Frecuencia del limpiado del acceso por carretera. El campo <i> Datos sobre el limpiado de la nieve <i> permite acceder a informaciones complementarias."
 
 # [WARNING] needs_review
+msgid "_snowboard_info"
+msgstr "<h3>Snowboard</h3>\n"
+"Itinerario que no comporte mucho llano o travesía."
+
+# [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
 msgstr "<h3>Grado en raquetas</h3>\n"
 "Graduación de la dificultad en raquetas.<br /> \n"
@@ -3353,9 +3369,15 @@ msgstr "<h3> Número de camas durante los períodos de guardia</h3>Numero de cam
 msgid "_staffed_period_info"
 msgstr "<h3>Periodos de guardia</h3>Periodos generales de guardia.<br />Por ejemplo: <em>Fines de semana de abril, mayo y septiembre. Todos los días de junio a agosto.</em>"
 
-# [WARNING] needs_update
 msgid "_sub_activities_info"
-msgstr "<h3>Compatible con</h3>Este campo indica cuales son las subactividades con las que un itinerario de <i> esquí, surf</i> es compatible. Las subactividades se dan a título indicativo.<br />Varias subactividades pueden ser mencionadas.<br /><br /><strong>esquí</strong>: corresponde a la mayor parte de itinerarios.<br /><br /><strong>surf</strong>: itinerario que no comporte mucho llano o travesía - todos los itinerarios <i>surf</i> deben también señalarse compatibles con <i>esquí</i>.<br /><br /><strong>iniciación</strong>: itinerario propicio a la iniciación de una subactividad, que debe también ser mencionada. En esquí y snowboard, un itinerario de iniciación tiene un grado de dificultad inferior a 3.2 (dificultad máxima que se puede encontrar en un centro de esquí), sin exposición (E1) y ofreciendo buen esquí a lo largo del itinerario (ninguna obligación de cargar los esquíes a la espalda, pocas zonas planas, ningún bosque que atravesar), lo que permite aprovechar el descenso desde cualquier punto en el que el principiante abandone el ascenso. Como la característica <em>iniciación</em> se aplica a un amplio rango de dificultades, es útil al buscar un itinerario de iniciación precisar en que nivel de dificultad se busca."
+msgstr "<h3>Compatible con</h3>\n"
+"Este campo indica cuales son las subactividades con las que un itinerario de <i>esquí, snowboard</i> es compatible. Las subactividades se dan a título indicativo.<br />\n"
+"Varias subactividades pueden ser mencionadas.<br />\n"
+"<br />\n"
+"<strong>snowboard</strong>: itinerario que no comporte mucho llano o travesía.<br />\n"
+"<br />\n"
+"<strong>iniciación</strong>: itinerario propicio a la iniciación de una subactividad, que debe también ser mencionada. En esquí y snowboard, un itinerario de iniciación tiene un grado de dificultad inferior a 3.2 (dificultad máxima que se puede encontrar en un centro de esquí), sin exposición (E1) y ofreciendo buen esquí a lo largo del itinerario (ninguna obligación de cargar los esquíes a la espalda, pocas zonas planas, ningún bosque que atravesar), lo que permite aprovechar el descenso desde cualquier punto en el que el principiante abandone el ascenso.<br />\n"
+"Como la característica <em>iniciación</em> se aplica a un amplio rango de dificultades, es útil al buscar un itinerario de iniciación precisar en que nivel de dificultad se busca."
 
 # [WARNING] needs_update
 msgid "_summit_type_info"
@@ -3401,6 +3423,14 @@ msgstr "<h3>URL</h3>Dirección web del editor o de una versión descargargable."
 
 msgid "_variants_info"
 msgstr "<h3>Itinerarios asociados</h3>Los itinerarios asociados al presente itinerario son itinerarios que recorren toda o parte de sus dificultades.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
+
+# [WARNING] fr translation used
+msgid "_vtt_approach_info"
+msgstr "<h3>Approche en VTT possible</h3>\n"
+"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
+"Cela concerne les approches commençant par :<br />\n"
+"- une piste ou route interdite aux véhicules motorisés<br />\n"
+"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
 
 msgid "_way_back_info"
 msgstr "<h3>Bajada de las vías</h3>Posibilidad para bajar de la cima de las vías y datos útiles:<br /><br /><strong>top-rope</strong> (asegurado desde abajo): longitud de cuerda necesaria<br /><br /><strong>rápel</strong>: situación de la línea de rápel, longitud de cuerda, presencia eventual de reuniones decaladas...<br /><br /><strong>a pie</strong>: itinerario, tiempo, posibles dificultades..."
@@ -5054,6 +5084,10 @@ msgstr "Total nieve (cm)"
 msgid "license"
 msgstr "Licencia:"
 
+# [WARNING] en translation used
+msgid "lift_approach"
+msgstr "lift approach possible"
+
 msgid "lift_status"
 msgstr "Medios de elevación:"
 
@@ -6511,6 +6545,7 @@ msgstr "Limpieza de la nieve:"
 msgid "snow_ice_mixed"
 msgstr "alpinismo nieve, hielo, mixto"
 
+# [WARNING] needs_review
 msgid "snowboard"
 msgstr "snowboard"
 
@@ -6917,6 +6952,10 @@ msgstr "Muestra la última versión del documento"
 
 msgid "visual conditions"
 msgstr "condiciones visualizadas"
+
+# [WARNING] en translation used
+msgid "vtt_approach"
+msgstr "mountain-bike approach possible"
 
 # [WARNING] en translation used
 msgid "waiting for geolocation"
