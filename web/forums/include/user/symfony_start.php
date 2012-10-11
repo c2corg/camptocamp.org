@@ -41,7 +41,7 @@ if (!$sf_user->isConnected() && !is_null($cookie))
         {
             $private_data = $dbuser->get('private_data');
             $sf_user->signIn($private_data->getLoginName(), $private_data->getPassword(), true, true);
-            $this->getContext()->getController()->redirect($request->getUri());
+            $context->getController()->redirect($request->getUri());
         }
     }
     else
