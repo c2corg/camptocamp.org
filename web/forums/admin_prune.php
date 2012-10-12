@@ -49,7 +49,7 @@ if (isset($_GET['action']) || isset($_POST['prune']) || isset($_POST['prune_comp
         
             $prune_from = explode(',', $_POST['prune_from']);
         }
-		$prune_sticky = isset($_POST['prune_sticky']) ? '1' : '0';
+		$prune_sticky = intval($_POST['prune_sticky']);
 		$prune_days = intval($_POST['prune_days']);
 		$prune_date = ($prune_days) ? time() - ($prune_days*86400) : -1;
 
