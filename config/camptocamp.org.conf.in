@@ -98,7 +98,7 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     RewriteRule ^robots.txt$ /robots/dev.txt [L]
 
     # we skip all files with .something, except for .html, .rss, .gpx etc
-    RewriteCond %{REQUEST_URI} \..+$
+    RewriteCond %{REQUEST_URI} \.\w$
     RewriteCond %{REQUEST_URI} !\.html$
     RewriteCond %{REQUEST_URI} !(.*\.(rss|gpx|kml|json))$
     RewriteRule .* - [L]

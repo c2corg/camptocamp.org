@@ -4288,12 +4288,12 @@ class documentsActions extends c2cActions
             // param is ok if selector is != 0
             if ($sel != 0)
             {
-                $lat = strtr($this->getRequestParameter($field . '_lat'), '.', ',');
-                $lon = strtr($this->getRequestParameter($field . '_lon'), '.', ',');
+                $lat = $this->getRequestParameter($field . '_lat');
+                $lon = $this->getRequestParameter($field . '_lon');
                 $range = round(1000 * (float) strtr($this->getRequestParameter($field . '_range'), ',', '.'));
 
                 // check that our params are ok or discard
-                if (!preg_match('/^\d+,\d+$/', $lat) || !preg_match('/^\d+,\d+$/', $lon)
+                if (!preg_match('/^-?\d*\.?\d+$/', $lat) || !preg_match('/^-?\d*\.?\d+$/', $lon)
                     || !preg_match('/^\d+$/', $range)) return;
 
                 if (!empty($rename))

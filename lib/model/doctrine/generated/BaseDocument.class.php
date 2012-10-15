@@ -3672,13 +3672,13 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildAroundCondition(&$conditions, &$values, $field, $param)
     {
-        $param = str_replace(array(',', '-', '~'), array('.', ',', ','), $param);
-        $param = explode(',', $param);
-        // some checks on the input values TODO use a regexp for better checks
-        if (count($param) == 3 && is_numeric($param[0]) && is_numeric($param[1]) && is_numeric($param[2]))
-        {
+        // new input format is /$lon,$lat~$range with . as decimal mark
+        // old input format is /$lon-$lat~$range with , as decimal mark
+        if (preg_match('/^(-?\d*\.?\d+),(-?\d*\.?\d+)~(\d+)/', $param, $matches) ||
+            preg_match('/^(-?\d*\.?\d+)-(-?\d*\.?\d+)~(\d+)/', strtr($param, ',', '.'), $matches)) {
             // data could be with lon,lat (EPSG:4326) (with such values, it is very unlikely to be 900913 coordinates
-            if ((-180 < $param[0]) && ($param[0] < 180) && (-90 < $param[1]) && ($param[1] < 90))
+            if ((-180 < (float) $matches[1]) && ((float) $matches[1] < 180) &&
+                (-90 < (float) $matches[2]) && ((float) $matches[2] < 90))
             {
                 $srid = 4326;
             }
@@ -3686,8 +3686,9 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 $srid = 900913;
             }
-            
-            self::buildXYCondition($conditions, $values, $param[0], $param[1], $param[2], $field, $srid);
+
+            self::buildXYCondition($conditions, $values, (float) $matches[1], (float) $matches[2],
+                                   (int) $matches[3], $field, $srid);
         }
     }
     
