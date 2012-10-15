@@ -3673,8 +3673,8 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function buildAroundCondition(&$conditions, &$values, $field, $param)
     {
         // new input format is /$lon,$lat~$range with . as decimal mark
-        // old input format is /$lon-$lat~$range with , as decimal mark
-        if (preg_match('/^(-?\d*\.?\d+),(-?\d*\.?\d+)~(\d+)/', $param, $matches) ||
+        // old input format is /$lon-$lat,$range with , as decimal mark
+        if (preg_match('/^(-?\d*\.?\d+),(-?\d*\.?\d+),(\d+)/', $param, $matches) ||
             preg_match('/^(-?\d*\.?\d+)-(-?\d*\.?\d+)~(\d+)/', strtr($param, ',', '.'), $matches)) {
             // data could be with lon,lat (EPSG:4326) (with such values, it is very unlikely to be 900913 coordinates
             if ((-180 < (float) $matches[1]) && ((float) $matches[1] < 180) &&

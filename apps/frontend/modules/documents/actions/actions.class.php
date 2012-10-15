@@ -4300,7 +4300,7 @@ class documentsActions extends c2cActions
                 {
                     $field = $rename;
                 }
-                $out[] = "$field=$lon-$lat~$range";
+                $out[] = "$field=$lon,$lat,$range";
                 
                 return true;
             }
