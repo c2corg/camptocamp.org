@@ -3619,6 +3619,10 @@ msgstr "Alps - E"
 msgid "alpes_s"
 msgstr "Western Alps - S"
 
+# [WARNING] fr translation used
+msgid "alpinism big portal"
+msgstr "Alpinisme Grandes Courses"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5468,6 +5472,9 @@ msgstr "Molise"
 msgid "mollasse calcaire"
 msgstr "limestone molasse"
 
+msgid "montblanc portal"
+msgstr "Mont Blanc Climbing, Mountaineering and skiing"
+
 msgid "month"
 msgstr "month"
 
@@ -6702,6 +6709,10 @@ msgstr "Show only snow, ice & mixed climbing"
 msgid "switch_to_snowshoeing"
 msgstr "Show only snowshoeing"
 
+# [WARNING] fr translation used
+msgid "ta portal"
+msgstr "TA : Terrain d'Aventure"
+
 msgid "technics"
 msgstr "techniques"
 
@@ -6974,6 +6985,10 @@ msgstr "Show last version of the document"
 
 msgid "visual conditions"
 msgstr "visual conditions"
+
+# [WARNING] fr translation used
+msgid "vosges portal"
+msgstr "Portail Vosges"
 
 # [WARNING] needs_review
 msgid "vtt_approach"

@@ -206,4 +206,86 @@ class Portal extends BasePortal
             }
         }
     }
+
+    public static function getRelatedPortals(&$portal_list, $areas, $routes, $activities = array())
+    {
+        if (count($routes))
+        {
+            $use_route_activities = (empty($activities));
+            $has_ice_route = false;
+            $has_steep_route = false;
+            $has_ta_route = false;
+            $has_alpibig_route = false;
+            $has_raid_route = false;
+            
+            $route_activities = $activities;
+            foreach ($routes as $route)
+            {
+                if ($use_route_activities)
+                {
+                    $route_activities = $route['activities'];
+                    if (!is_array($route_activities))
+                    {
+                        $route_activities = Document::convertStringToArray($route_activities);
+                    }
+                }
+                
+                if (   array_intersect(array(2, 5), $route_activities)
+                    && !$route['ice_rating'] instanceof Doctrine_Null && $route['ice_rating'] > 0)
+                {
+                    $has_ice_route = true;
+                }
+                
+                if (   in_array(1, $route_activities)
+                    && !$route['toponeige_technical_rating'] instanceof Doctrine_Null && $route['toponeige_technical_rating'] >= 10)
+                {
+                    $has_steep_route = true;
+                }
+                
+                if (   in_array(4, $route_activities)
+                    && !$route['global_rating'] instanceof Doctrine_Null && $route['global_rating'] >= 4
+                    && !$route['equipment_rating'] instanceof Doctrine_Null && $route['equipment_rating'] >= 2)
+                {
+                    $has_ta_route = true;
+                }
+                
+                if (   array_intersect(array(2, 3), $route_activities)
+                    && !$route['global_rating'] instanceof Doctrine_Null && $route['global_rating'] >= 18
+                    && !$route['engagement_rating'] instanceof Doctrine_Null && $route['engagement_rating'] >= 4
+                    && ($route['equipment_rating'] instanceof Doctrine_Null || $route['equipment_rating'] == 0 || $route['equipment_rating'] >= 3)
+                    && !$route['difficulties_height'] instanceof Doctrine_Null && $route['difficulties_height'] >= 300)
+                {
+                    $has_alpibig_route = true;
+                }
+                
+                if (!$route['duration'] instanceof Doctrine_Null && $route['duration'] >= 6)
+                {
+                    $has_raid_route = true;
+                }
+            }
+            
+            if ($has_ice_route)
+            {
+                $portal_list[] = 'ice';
+            }
+            if ($has_steep_route)
+            {
+                $portal_list[] = 'steep';
+            }
+            if ($has_ta_route)
+            {
+                $portal_list[] = 'ta';
+            }
+            if ($has_alpibig_route)
+            {
+                $portal_list[] = 'alpibig';
+            }
+            if ($has_raid_route)
+            {
+                $portal_list[] = 'raid';
+            }
+        }
+        
+        Portal::getLocalPortals($portal_list, $areas);
+    }
 }

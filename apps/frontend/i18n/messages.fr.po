@@ -3695,6 +3695,9 @@ msgstr "Alpes Orientales"
 msgid "alpes_s"
 msgstr "Alpes occidentales - S"
 
+msgid "alpinism big portal"
+msgstr "Alpinisme Grandes Courses"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5517,6 +5520,9 @@ msgstr "Molise"
 msgid "mollasse calcaire"
 msgstr "mollasse calcaire"
 
+msgid "montblanc portal"
+msgstr "Alpinisme, grimpe et ski au pays du Mont-Blanc"
+
 msgid "month"
 msgstr "mois"
 
@@ -6717,6 +6723,9 @@ msgstr "Afficher uniquement l'activité neige, glace, mixte"
 msgid "switch_to_snowshoeing"
 msgstr "Afficher uniquement l'activité raquette"
 
+msgid "ta portal"
+msgstr "TA : Terrain d'Aventure"
+
 msgid "technics"
 msgstr "technique"
 
@@ -6986,6 +6995,10 @@ msgstr "Afficher le document"
 
 msgid "visual conditions"
 msgstr "conditions de visu"
+
+# [WARNING] needs_review
+msgid "vosges portal"
+msgstr "Portail Vosges"
 
 # [WARNING] needs_review
 msgid "vtt_approach"

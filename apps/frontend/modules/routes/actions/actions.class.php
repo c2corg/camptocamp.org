@@ -215,24 +215,20 @@ class routesActions extends documentsActions
             $a[] = array_slice($routes_outings, $i * $outings_limit, $outings_limit);
             $this->routes_outings = $a;
             
+            // Get related portals
             $related_portals = array();
-            $activities = $this->document->get('activities');
-            $ice_rating = $this->document->get('ice_rating');
-            if (in_array(5, $activities) || (in_array(2, $activities) && $ice_rating > 0))
-            {
-                $related_portals[] = 'ice';
-            }
-            $toponeige_technical_rating = $this->document->get('toponeige_technical_rating');
-            if (in_array(1, $activities) && $toponeige_technical_rating >= 10)
-            {
-                $related_portals[] = 'steep';
-            }
-            $duration = $this->document->get('duration');
-            if ($duration >= 6)
-            {
-                $related_portals[] = 'raid';
-            }
-            Portal::getLocalPortals($related_portals, $this->associated_areas);
+            $route_data = array();
+            $route_data['activities'] = $this->document->get('activities');
+            $route_data['ice_rating'] = $this->document->get('ice_rating');
+            $route_data['toponeige_technical_rating'] = $this->document->get('toponeige_technical_rating');
+            $route_data['global_rating'] = $this->document->get('global_rating');
+            $route_data['equipment_rating'] = $this->document->get('equipment_rating');
+            $route_data['engagement_rating'] = $this->document->get('engagement_rating');
+            $route_data['difficulties_height'] = $this->document->get('difficulties_height');
+            $route_data['duration'] = $this->document->get('duration');
+            $route_data = array($route_data);
+            
+            Portal::getRelatedPortals($related_portals, $this->associated_areas, $route_data);
             $this->related_portals = $related_portals;
     
             // extract highest associated summit, and prepend its name to display this route's name.

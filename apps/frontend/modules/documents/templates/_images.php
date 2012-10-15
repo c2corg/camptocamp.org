@@ -90,12 +90,16 @@ if (!$mobile_version)
             $outings_link[] = link_to(__('Outings linked to these images'), "outings/list?itags=$list_ids", array('rel' => 'nofollow'));
         }
     }
-        
+    
+    $url2 = '';
     $text2 = 'collaborative images of associated outings';
     if ($module_name == 'outings')
     {
-        $url2 = "images/list?ityp=1&itags=$list_ids&orderby=date&order=asc";
-        $text2 = 'collaborative images';
+        if ($nb_images)
+        {
+            $url2 = "images/list?ityp=1&itags=$list_ids&orderby=date&order=asc";
+            $text2 = 'collaborative images';
+        }
     }
     elseif ($module_name == 'articles')
     {
@@ -107,7 +111,7 @@ if (!$mobile_version)
         $url2 = "images/list?ityp=1&join=outing&$module_name=$list_ids&orderby=odate&order=desc";
     }
     
-    if (!in_array($module_name, array('images', 'users')))
+    if (!empty($url2) && !in_array($module_name, array('images', 'users')))
     {
         $images_link[] = link_to(__($text2), $url2, array('rel' => 'nofollow'));
     }

@@ -63,8 +63,6 @@ class outingsActions extends documentsActions
             $associated_summits = array();
             $associated_huts = array();
             $associated_parkings = array();
-            $has_ice_route = false;
-            $has_steep_route = false;
             if (count($associated_routes))
             {
                 $associated_routes = c2cTools::sortArray($associated_routes, 'duration');
@@ -85,15 +83,6 @@ class outingsActions extends documentsActions
                     else
                     {
                         $default_ids[] = $route['id'];
-                    }
-                    
-                    if (!$route['ice_rating'] instanceof Doctrine_Null && $route['ice_rating'] > 0)
-                    {
-                        $has_ice_route = true;
-                    }
-                    if (!$route['toponeige_technical_rating'] instanceof Doctrine_Null && $route['toponeige_technical_rating'] >= 10)
-                    {
-                        $has_steep_route = true;
                     }
                 }
                 // s'il n'y a pas d'itinéraire de 1 ou 2 jours, on utilise les itinéraires qui ont la plus petite durée
@@ -201,24 +190,12 @@ class outingsActions extends documentsActions
             
             $related_portals = array();
             $activities = $this->document->get('activities');
-            if (in_array(5, $activities) || (in_array(2, $activities) && $has_ice_route))
-            {
-                $related_portals[] = 'ice';
-            }
-            if (in_array(1, $activities) && $has_steep_route)
-            {
-                $related_portals[] = 'steep';
-            }
-            if (count($other_routes))
-            {
-                $related_portals[] = 'raid';
-            }
             $outing_with_public_transportation = $this->document->get('outing_with_public_transportation');
             if (!$outing_with_public_transportation instanceof Doctrine_Null && $outing_with_public_transportation)
             {
                 $related_portals[] = 'cda';
             }
-            Portal::getLocalPortals($related_portals, $this->associated_areas);
+            Portal::getRelatedPortals($related_portals, $this->associated_areas, $associated_routes, $activities);
             $this->related_portals = $related_portals;
     
             $description = array($title, $this->getActivitiesList(), $this->getAreasList());

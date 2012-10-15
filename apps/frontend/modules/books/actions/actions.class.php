@@ -57,11 +57,12 @@ class booksActions extends documentsActions
             $related_portals = array();
             $activities = $this->document->get('activities');
             $book_types = $this->document->get('book_types');
-            if (array_intersect(array(1, 4, 10, 14, 18), $book_types) && in_array(5, $activities))
+            
+            Portal::getRelatedPortals($related_portals, $this->associated_areas, $this->associated_routes, $activities);
+            if (array_intersect(array(1, 4, 10, 14, 18), $book_types) && in_array(5, $activities) && !in_array('ice', $related_portals))
             {
                 $related_portals[] = 'ice';
             }
-            Portal::getLocalPortals($related_portals, $associated_areas);
             $this->related_portals = $related_portals;
     
             $description = array($this->__('book') . ' :: ' . $this->document->get('name'),

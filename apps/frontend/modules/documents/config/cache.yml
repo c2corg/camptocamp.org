@@ -15,7 +15,7 @@ quicksearch:
   
 latestassociations:
   enabled: on
-  lifetime: 60
+  lifetime: 600
 
 latest:
   enabled: on
@@ -26,6 +26,10 @@ latest:
 home:
   enabled: off
   lifetime: 300
+  
+_welcome:
+  enabled: on
+  lifetime: 50000
 
 insertimagetag:
   enabled: off

@@ -67,10 +67,15 @@ class articlesActions extends documentsActions
             $this->associated_areas = $associated_areas;
             
             $related_portals = array();
+            $activities = $this->document->get('activities');
             $categories = $this->document->get('categories');
             if (in_array(7, $categories))
             {
                 $related_portals[] = 'cda';
+            }
+            if (array_intersect(array(2, 3, 8), $categories) && in_array(5, $activities))
+            {
+                $related_portals[] = 'ice';
             }
             Portal::getLocalPortals($related_portals, $associated_areas);
             $this->related_portals = $related_portals;

@@ -2040,8 +2040,12 @@ all:
       1: cda
       2: ice
       3: steep
-      4: raid
-      5: pyrenees
+      4: ta
+      5: alpibig
+      6: raid
+      7: pyrenees
+      8: montblanc
+      9: vosges
     cda:
       id: @CDA_ID@
       name: 'changerdapproche'
@@ -2052,6 +2056,12 @@ all:
     steep:
       id: @STEEP_ID@
       name: 'steep skiing portal'
+    ta:
+      id: @TA_ID@
+      name: 'ta portal'
+    alpibig:
+      id: @ALPIBIG_ID@
+      name: 'alpinism big portal'
     raid:
       id: @RAID_ID@
       name: 'raid portal'
@@ -2059,6 +2069,14 @@ all:
       id: @PYRENEES_ID@
       name: 'pyrenees portal'
       areas_only: [ 14413, 14414, 14412, 14469, 14415, 14416, 294790, 294786, 294791, 294793 ]
+    montblanc:
+      id: @MONTBLANC_ID@
+      name: 'montblanc portal'
+      areas_only: [ 14410, 14404 ]
+    vosges:
+      id: @VOSGES_ID@
+      name: 'vosges portal'
+      areas_only: [ 14419 ]
 
   mw_contest_id: @MW_CONTEST_ID@
 

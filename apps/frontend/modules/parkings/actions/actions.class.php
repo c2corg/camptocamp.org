@@ -114,7 +114,12 @@ class parkingsActions extends documentsActions
             $this->associated_products = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_product')), 'name');
             
             $related_portals = array();
-            Portal::getLocalPortals($related_portals, $this->associated_areas);
+            $public_transportation_rating = $this->document->get('public_transportation_rating');
+            if (array_intersect(array(1, 2, 4, 5), $public_transportation_rating))
+            {
+                $related_portals[] = 'cda';
+            }
+            Portal::getRelatedPortals($related_portals, $this->associated_areas, $associated_routes);
             $this->related_portals = $related_portals;
             
             $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)$this->document->get('geom_wkt'));

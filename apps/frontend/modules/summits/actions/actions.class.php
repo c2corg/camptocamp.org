@@ -106,8 +106,6 @@ class summitsActions extends documentsActions
             $associated_huts = array();
             $associated_parkings = array();
             $associated_routes_books = array();
-            $has_ice_route = false;
-            $has_steep_route = false;
             if (count($associated_routes) || count($associated_sites))
             {
                 foreach ($associated_routes as $route)
@@ -115,21 +113,6 @@ class summitsActions extends documentsActions
                     if ($route['duration'] instanceof Doctrine_Null || $route['duration'] <= 4)
                     {
                         $doc_ids[] = $route['id'];
-                    }
-                    
-                    $activities = Document::convertStringToArray($route['activities']);
-                    if (!$activities instanceof Doctrine_Null)
-                    {
-                        $has_ice_rating = (!$route['ice_rating'] instanceof Doctrine_Null && $route['ice_rating'] > 0);
-                        if (in_array(5, $activities) || (in_array(2, $activities) && $has_ice_rating))
-                        {
-                            $has_ice_route = true;
-                        }
-                        
-                        if (in_array(1, $activities) && !$route['toponeige_technical_rating'] instanceof Doctrine_Null && $route['toponeige_technical_rating'] >= 10)
-                        {
-                            $has_steep_route = true;
-                        }
                     }
                 }
                 
@@ -191,20 +174,12 @@ class summitsActions extends documentsActions
             $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)$this->document->get('geom_wkt'));
             
             $related_portals = array();
-            if ($has_ice_route)
-            {
-                $related_portals[] = 'ice';
-            }
-            if ($has_steep_route)
-            {
-                $related_portals[] = 'steep';
-            }
+            Portal::getRelatedPortals($related_portals, $this->associated_areas, $associated_routes);
             $summit_type_index = $this->document->get('summit_type');
-            if ($summit_type_index == 5)
+            if ($summit_type_index == 5 && !in_array('raid', $related_portals))
             {
                 $related_portals[] = 'raid';
             }
-            Portal::getLocalPortals($related_portals, $this->associated_areas);
             $this->related_portals = $related_portals;
     
             $summit_type_list = sfConfig::get('app_summits_summit_types');
