@@ -507,17 +507,6 @@ function toggleNav(savestatus)
  
     var is_expanded = !content_box.hasClassName('wide');
 
-    // specific handle for ie8-9
-    if (Prototype.Browser.IE &&
-        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) >= 8))
-    {
-        if ($('nav_share')) { $('nav_share').toggle(); }
-        var cssrule = '#nav_edit, #nav_anchor, #nav_tools, #nav_anchor_top, #nav_tools_top'+
-                      ', #nav_anchor_down, #nav_tools_down';
-        $$(cssrule).each(function(elt){elt.toggleClassName('ie8small');});
-        
-    }
-
     if (is_expanded)
     {
         if (content_box)
