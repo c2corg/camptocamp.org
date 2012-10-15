@@ -1384,14 +1384,14 @@ class documentsActions extends c2cActions
     
     public function executeFilterredirect()
     {
-        $route = '/' . $this->getModuleName() . '/list'; 
+        $route = '@default?action=list&module=' . $this->getModuleName(); 
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
             $criteria = array_merge($this->filterSearchParameters(),
                                     $this->filterSortParameters());
             if ($criteria)
             {
-                $route .= '?' . implode('&', $criteria);
+                $route .= '&' . implode('&', $criteria);
             }
         }
         c2cTools::log("redirecting to $route");
