@@ -142,3 +142,6 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
 
 # big crash from our front web controller
 ErrorDocument 500 "<h2>Application error</h2>Symfony application failed to start properly"
+
+# redirect 404 pages directly handled by apache to symfony 404 page
+ErrorDocument 404 /common/error404
