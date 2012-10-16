@@ -115,11 +115,7 @@ class parkingsActions extends documentsActions
             
             $related_portals = array();
             $public_transportation_rating = $this->document->get('public_transportation_rating');
-            if (!is_array($public_transportation_rating))
-            {
-                $public_transportation_rating = Document::convertStringToArray($public_transportation_rating);
-            }
-            if (array_intersect(array(1, 2, 4, 5), $public_transportation_rating))
+            if (in_array($public_transportation_rating, array(1, 2, 4, 5)))
             {
                 $related_portals[] = 'cda';
             }
