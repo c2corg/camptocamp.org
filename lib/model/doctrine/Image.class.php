@@ -496,6 +496,7 @@ class Image extends BaseImage
         
         self::buildOrderCondition($joins_order, $orderby_list, array('inam'), array('image_i18n', 'join_image'));
         self::buildOrderCondition($joins_order, $orderby_list, array('odate'), array('outing', 'join_outing'));
+        self::buildOrderCondition($joins_order, $orderby_list, array('oid'), array('post_outing', 'join_outing'));
         self::buildOrderCondition($joins, $orderby_list, array('oid', 'odate'), array('post_outing', 'join_outing'));
         
         // area criteria
