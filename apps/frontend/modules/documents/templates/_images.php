@@ -73,7 +73,14 @@ if (!$mobile_version)
     }
     elseif ($nb_images)
     {
-        $module_url = 'itags';
+        if ($module_name == 'articles')
+        {
+            $module_url = 'itags';
+        }
+        else
+        {
+            $module_url = $module_name;
+        }
         $text = 'List all linked images';
         if (in_array($module_name, array('outings', 'articles')))
         {
