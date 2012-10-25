@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ google, changerdapproche, camp_f, google, changerdapproche, boutique_c2c, google, camp_h, boutique_c2c, google, google, changerdapproche ]
+    values: [ google, changerdapproche, camp_f, google, changerdapproche, boutique_c2c, cilao, camp_h, boutique_c2c, google, google, changerdapproche ]
   banners:
     list:
       skalp:
@@ -9,13 +9,9 @@ all:
         image: skalp.gif
         alt: "Sk'alp"
       cilao:
-        id: 9
-        type: flash
-        file: cilao_izi22_oz22.swf
-        width: 468
-        height: 60
-        #image: cilao.gif
-        #alt: Cilao
+        id: 54
+        image: cilao2012.gif
+        alt: Cilao
       atelier_escalade:
         id: 3
         image: atelier-escalade.gif
