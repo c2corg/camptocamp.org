@@ -24,7 +24,7 @@
 
 // Make sure no one attempts to run this script "directly"
 if (!defined('PUN'))
-	exit;
+    exit;
 
 // Load the functions script
 require_once PUN_ROOT.'include/functions.php';
@@ -43,25 +43,25 @@ $smiley_img = array('smile.png', 'smile.png', 'neutral.png', 'neutral.png', 'sad
 //
 function preparse_bbcode($text, &$errors, $is_signature = false)
 {
-	// Change all simple BBCodes to lower case
-	$a = array('[B]', '[I]', '[U]', '[S]', '[Q]', '[C]', '[P]', '[/B]', '[/I]', '[/U]', '[/S]', '[/Q]', '[/C]');
-	$b = array('[b]', '[i]', '[u]', '[s]', '[q]', '[c]', '[p]', '[/b]', '[/i]', '[/u]', '[/s]', '[/q]', '[/c]');
-	$text = str_replace($a, $b, $text);
+    // Change all simple BBCodes to lower case
+    $a = array('[B]', '[I]', '[U]', '[S]', '[Q]', '[C]', '[P]', '[/B]', '[/I]', '[/U]', '[/S]', '[/Q]', '[/C]');
+    $b = array('[b]', '[i]', '[u]', '[s]', '[q]', '[c]', '[p]', '[/b]', '[/i]', '[/u]', '[/s]', '[/q]', '[/c]');
+    $text = str_replace($a, $b, $text);
 
-	// Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
-	$base_url = 'http://'.$_SERVER['SERVER_NAME'];
+    // Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
+    $base_url = 'http://'.$_SERVER['SERVER_NAME'];
     
     $a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
-				'#\[url(=\]|\])\s*#i',
-				'#\[url(=|\])((http://)?(w+|m+)\.|)camptocamp\.org(/([^\[\]]+))#i',
-				'#\s*\[/url\]#i',
+                '#\[url(=\]|\])\s*#i',
+                '#\[url(=|\])((http://)?(w+|m+)\.|)camptocamp\.org(/([^\[\]]+))#i',
+                '#\s*\[/url\]#i',
                 '#\[email=("|\'|)(.*?)\\1\]\s*#i',
-				'#\[email(=\]|\])\s*#i',
-				'#\s*\[/email\]#i',
-				'#\[img=\s*("|\'|)(.*?)\\1\s*\]\s*#i',
- 				'#\[img(=\]|\])\s*#i',
-				'#\[img(=|\])' . $base_url . '#i',
-				'#\s*\[/img\]#i',
+                '#\[email(=\]|\])\s*#i',
+                '#\s*\[/email\]#i',
+                '#\[img=\s*("|\'|)(.*?)\\1\s*\]\s*#i',
+                 '#\[img(=\]|\])\s*#i',
+                '#\[img(=|\])' . $base_url . '#i',
+                '#\s*\[/img\]#i',
                 '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
                 '#\[/colou?r\]#i',
                 '#\[(cent(er|re|ré)|<>)\]\s*#i',
@@ -72,18 +72,18 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
                 '#\[/(justif(y|ie|ié|)|=)\]\s?#i'
               );
 
-	$b = array(	'[url=$2]',
-				'[url]',
+    $b = array( '[url=$2]',
+                '[url]',
                 '[url$1$5',
-				'[/url]',
-				'[email=$2]',
-				'[email]',
-				'[/email]',
-				'[img=$2]',
-				'[img]',
+                '[/url]',
+                '[email=$2]',
+                '[email]',
+                '[/email]',
+                '[img=$2]',
+                '[img]',
                 '[img$1',
-				'[/img]',
-				'[color=$2]',
+                '[/img]',
+                '[color=$2]',
                 '[/color]',
                 '[center]',
                 '[/center]'."\n",
@@ -93,60 +93,60 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
                 '[/justify]'."\n"
               );
 
-	if (!$is_signature)
-	{
-		// For non-signatures, we have to do the quote and code tags as well
-		$a[] = '#\[quote=(&quot;|"|\'|)(.*?)\\1\]\s*#i';
-		$a[] = '#\[quote(=\]|\])\s*#i';
-		$a[] = '#\s*\[/quote\]\s?#i';
-		$a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s?#is';
-		$a[] = '#\[spoiler=("|\'|)(.*?)\\1\\]\s*#i';
-		$a[] = '#\[spoiler(=\]|\])\s*#i';
-		$a[] = '#\s*\[/spoiler\]\s?#i';
-		$a[] = '#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i';
-		$a[] = '#\[video\]\s*#i';
-		$a[] = '#\s*\[/video\]\s?#i';
-		$a[] = '#\[p\]\s?#i';
+    if (!$is_signature)
+    {
+        // For non-signatures, we have to do the quote and code tags as well
+        $a[] = '#\[quote=(&quot;|"|\'|)(.*?)\\1\]\s*#i';
+        $a[] = '#\[quote(=\]|\])\s*#i';
+        $a[] = '#\s*\[/quote\]\s?#i';
+        $a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s?#is';
+        $a[] = '#\[spoiler=("|\'|)(.*?)\\1\\]\s*#i';
+        $a[] = '#\[spoiler(=\]|\])\s*#i';
+        $a[] = '#\s*\[/spoiler\]\s?#i';
+        $a[] = '#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i';
+        $a[] = '#\[video\]\s*#i';
+        $a[] = '#\s*\[/video\]\s?#i';
+        $a[] = '#\[p\]\s?#i';
 
-		$b[] = '[quote=$1$2$1]';
-		$b[] = '[quote]';
-		$b[] = '[/quote]'."\n";
-		$b[] = '[code]$1[/code]'."\n";
-		$b[] = '[spoiler=$2]';
-		$b[] = '[spoiler]';
-		$b[] = '[/spoiler]'."\n";
-		$b[] = '[video $2,$4]';
-		$b[] = '[video]';
-		$b[] = '[/video]'."\n";
-		$b[] = '[p]'."\n";
-	}
+        $b[] = '[quote=$1$2$1]';
+        $b[] = '[quote]';
+        $b[] = '[/quote]'."\n";
+        $b[] = '[code]$1[/code]'."\n";
+        $b[] = '[spoiler=$2]';
+        $b[] = '[spoiler]';
+        $b[] = '[/spoiler]'."\n";
+        $b[] = '[video $2,$4]';
+        $b[] = '[video]';
+        $b[] = '[/video]'."\n";
+        $b[] = '[p]'."\n";
+    }
     
     $a[] = '#(?<!^|\n)([ \t]*)(\[(center|right|justify|quote|code|spoiler|video))#i';
     $b[] = '$1'."\n".'$2';
     
-	// Run this baby!
-	$text = preg_replace($a, $b, $text);
+    // Run this baby!
+    $text = preg_replace($a, $b, $text);
 
-	if (!$is_signature)
-	{
-		$overflow = check_tag_order($text, $error);
+    if (!$is_signature)
+    {
+        $overflow = check_tag_order($text, $error);
 
-		if ($error)
-			// A BBCode error was spotted in check_tag_order()
-			$errors[] = $error;
-		elseif ($overflow)
-			// The quote depth level was too high, so we strip out the inner most quote(s)
-			$text = substr($text, 0, $overflow[0]).substr($text, $overflow[1], (strlen($text) - $overflow[0]));
-	}
-	else
-	{
-		global $lang_prof_reg;
+        if ($error)
+            // A BBCode error was spotted in check_tag_order()
+            $errors[] = $error;
+        elseif ($overflow)
+            // The quote depth level was too high, so we strip out the inner most quote(s)
+            $text = substr($text, 0, $overflow[0]).substr($text, $overflow[1], (strlen($text) - $overflow[0]));
+    }
+    else
+    {
+        global $lang_prof_reg;
 
-		if (preg_match('#\[quote=(&quot;|"|\'|)(.*)\\1\]|\[quote\]|\[/quote\]|\[code\]|\[/code\]#i', $text))
-			message($lang_prof_reg['Signature quote/code']);
-	}
+        if (preg_match('#\[quote=(&quot;|"|\'|)(.*)\\1\]|\[quote\]|\[/quote\]|\[code\]|\[/code\]#i', $text))
+            message($lang_prof_reg['Signature quote/code']);
+    }
 
-	return trim($text);
+    return trim($text);
 }
 
 
@@ -155,25 +155,25 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 //
 function preparse_url($text)
 {
-    $a = array(  '#(?<=[^\w]|^)((http://)?(w+|m+)\.|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
+    $a = array( '#(?<=[^\w]|^)((http://)?(w+|m+)\.|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
                 '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=\d+#p(\d+)%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=(\d+)%i'
               );
-	
-    $b = array(	'$4',
+    
+    $b = array( '$4',
                 '#f$1',
                 '#t$1+',
                 '#t$1',
                 '#p$1',
                 '#p$1'
               );
-  	
+      
     $text = preg_replace($a, $b, $text);
 
-	return trim($text);
+    return trim($text);
 }
 
 
@@ -182,122 +182,122 @@ function preparse_url($text)
 //
 function check_tag_order($text, &$error)
 {
-	global $lang_common;
+    global $lang_common;
 
-	// The maximum allowed quote depth
-	$max_depth = 3;
+    // The maximum allowed quote depth
+    $max_depth = 3;
 
-	$cur_index = 0;
-	$q_depth = 0;
+    $cur_index = 0;
+    $q_depth = 0;
 
-	while (true)
-	{
-		// Look for regular code and quote tags
-		$c_start = strpos($text, '[code]');
-		$c_end = strpos($text, '[/code]');
-		$q_start = strpos($text, '[quote]');
-		$q_end = strpos($text, '[/quote]');
+    while (true)
+    {
+        // Look for regular code and quote tags
+        $c_start = strpos($text, '[code]');
+        $c_end = strpos($text, '[/code]');
+        $q_start = strpos($text, '[quote]');
+        $q_end = strpos($text, '[/quote]');
 
-		// Look for [quote=username] style quote tags
-		if (preg_match('#\[quote=(&quot;|"|\'|)(.*)\\1\]#sU', $text, $matches))
-			$q2_start = strpos($text, $matches[0]);
-		else
-			$q2_start = 65536;
+        // Look for [quote=username] style quote tags
+        if (preg_match('#\[quote=(&quot;|"|\'|)(.*)\\1\]#sU', $text, $matches))
+            $q2_start = strpos($text, $matches[0]);
+        else
+            $q2_start = 65536;
 
-		// Deal with strpos() returning false when the string is not found
-		// (65536 is one byte longer than the maximum post length)
-		if ($c_start === false) $c_start = 65536;
-		if ($c_end === false) $c_end = 65536;
-		if ($q_start === false) $q_start = 65536;
-		if ($q_end === false) $q_end = 65536;
+        // Deal with strpos() returning false when the string is not found
+        // (65536 is one byte longer than the maximum post length)
+        if ($c_start === false) $c_start = 65536;
+        if ($c_end === false) $c_end = 65536;
+        if ($q_start === false) $q_start = 65536;
+        if ($q_end === false) $q_end = 65536;
 
-		// If none of the strings were found
-		if (min($c_start, $c_end, $q_start, $q_end, $q2_start) == 65536)
-			break;
+        // If none of the strings were found
+        if (min($c_start, $c_end, $q_start, $q_end, $q2_start) == 65536)
+            break;
 
-		// We are interested in the first quote (regardless of the type of quote)
-		$q3_start = ($q_start < $q2_start) ? $q_start : $q2_start;
+        // We are interested in the first quote (regardless of the type of quote)
+        $q3_start = ($q_start < $q2_start) ? $q_start : $q2_start;
 
-		// We found a [quote] or a [quote=username]
-		if ($q3_start < min($q_end, $c_start, $c_end))
-		{
-			$step = ($q_start < $q2_start) ? 7 : strlen($matches[0]);
+        // We found a [quote] or a [quote=username]
+        if ($q3_start < min($q_end, $c_start, $c_end))
+        {
+            $step = ($q_start < $q2_start) ? 7 : strlen($matches[0]);
 
-			$cur_index += $q3_start + $step;
+            $cur_index += $q3_start + $step;
 
-			// Did we reach $max_depth?
-			if ($q_depth == $max_depth)
-				$overflow_begin = $cur_index - $step;
+            // Did we reach $max_depth?
+            if ($q_depth == $max_depth)
+                $overflow_begin = $cur_index - $step;
 
-			++$q_depth;
-			$text = substr($text, $q3_start + $step);
-		}
+            ++$q_depth;
+            $text = substr($text, $q3_start + $step);
+        }
 
-		// We found a [/quote]
-		elseif ($q_end < min($q_start, $c_start, $c_end))
-		{
-			if ($q_depth == 0)
-			{
-				$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 1'];
-				return;
-			}
+        // We found a [/quote]
+        elseif ($q_end < min($q_start, $c_start, $c_end))
+        {
+            if ($q_depth == 0)
+            {
+                $error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 1'];
+                return;
+            }
 
-			$q_depth--;
-			$cur_index += $q_end+8;
+            $q_depth--;
+            $cur_index += $q_end+8;
 
-			// Did we reach $max_depth?
-			if ($q_depth == $max_depth)
-				$overflow_end = $cur_index;
+            // Did we reach $max_depth?
+            if ($q_depth == $max_depth)
+                $overflow_end = $cur_index;
 
-			$text = substr($text, $q_end+8);
-		}
+            $text = substr($text, $q_end+8);
+        }
 
-		// We found a [code]
-		elseif ($c_start < min($c_end, $q_start, $q_end))
-		{
-			// Make sure there's a [/code] and that any new [code] doesn't occur before the end tag
-			$tmp = strpos($text, '[/code]');
-			$tmp2 = strpos(substr($text, $c_start+6), '[code]');
-			if ($tmp2 !== false)
-				$tmp2 += $c_start+6;
+        // We found a [code]
+        elseif ($c_start < min($c_end, $q_start, $q_end))
+        {
+            // Make sure there's a [/code] and that any new [code] doesn't occur before the end tag
+            $tmp = strpos($text, '[/code]');
+            $tmp2 = strpos(substr($text, $c_start+6), '[code]');
+            if ($tmp2 !== false)
+                $tmp2 += $c_start+6;
 
-			if ($tmp === false || ($tmp2 !== false && $tmp2 < $tmp))
-			{
-				$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 2'];
-				return;
-			}
-			else
-				$text = substr($text, $tmp+7);
+            if ($tmp === false || ($tmp2 !== false && $tmp2 < $tmp))
+            {
+                $error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 2'];
+                return;
+            }
+            else
+                $text = substr($text, $tmp+7);
 
-			$cur_index += $tmp+7;
-		}
+            $cur_index += $tmp+7;
+        }
 
-		// We found a [/code] (this shouldn't happen since we handle both start and end tag in the if clause above)
-		elseif ($c_end < min($c_start, $q_start, $q_end))
-		{
-			$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 3'];
-			return;
-		}
-	}
+        // We found a [/code] (this shouldn't happen since we handle both start and end tag in the if clause above)
+        elseif ($c_end < min($c_start, $q_start, $q_end))
+        {
+            $error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 3'];
+            return;
+        }
+    }
 
-	// If $q_depth <> 0 something is wrong with the quote syntax
-	if ($q_depth)
-	{
-		$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 4'];
-		return;
-	}
-	elseif ($q_depth < 0)
-	{
-		$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 5'];
-		return;
-	}
+    // If $q_depth <> 0 something is wrong with the quote syntax
+    if ($q_depth)
+    {
+        $error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 4'];
+        return;
+    }
+    elseif ($q_depth < 0)
+    {
+        $error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 5'];
+        return;
+    }
 
-	// If the quote depth level was higher than $max_depth we return the index for the
-	// beginning and end of the part we should strip out
-	if (isset($overflow_begin))
-		return array($overflow_begin, $overflow_end);
-	else
-		return null;
+    // If the quote depth level was higher than $max_depth we return the index for the
+    // beginning and end of the part we should strip out
+    if (isset($overflow_begin))
+        return array($overflow_begin, $overflow_end);
+    else
+        return null;
 }
 
 
@@ -306,27 +306,27 @@ function check_tag_order($text, &$error)
 //
 function split_text($text, $start, $end)
 {
-	global $pun_config;
+    global $pun_config;
 
-	$tokens = explode($start, $text);
+    $tokens = explode($start, $text);
 
-	$outside[] = $tokens[0];
+    $outside[] = $tokens[0];
 
-	$num_tokens = count($tokens);
-	for ($i = 1; $i < $num_tokens; ++$i)
-	{
-		$temp = explode($end, $tokens[$i]);
-		$inside[] = $temp[0];
-		$outside[] = $temp[1];
-	}
+    $num_tokens = count($tokens);
+    for ($i = 1; $i < $num_tokens; ++$i)
+    {
+        $temp = explode($end, $tokens[$i]);
+        $inside[] = $temp[0];
+        $outside[] = $temp[1];
+    }
 
-	if ($pun_config['o_indent_num_spaces'] != 8 && $start == '[code]')
-	{
-		$spaces = str_repeat(' ', $pun_config['o_indent_num_spaces']);
-		$inside = str_replace("\t", $spaces, $inside);
-	}
+    if ($pun_config['o_indent_num_spaces'] != 8 && $start == '[code]')
+    {
+        $spaces = str_repeat(' ', $pun_config['o_indent_num_spaces']);
+        $inside = str_replace("\t", $spaces, $inside);
+    }
 
-	return array($inside, $outside);
+    return array($inside, $outside);
 }
 
 
@@ -372,13 +372,13 @@ function handle_quote_tag($poster_name, $post_id)
 //
 function handle_url_tag($url, $link = '')
 {
-	global $showed_post_list, $lang_common, $pun_config;
+    global $showed_post_list, $lang_common, $pun_config;
 
     $hreflang = '';
-	$rel = '';
+    $rel = '';
     
     $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
-	if ($url == '')
+    if ($url == '')
     {
         $url == ' ';
     }
@@ -398,8 +398,10 @@ function handle_url_tag($url, $link = '')
     
     $is_forum_url = false;
     if ($full_url == '' && $link == '')
+    {
         return '';
-    elseif (preg_match('#(?<=[^\w/]|^)/*forums/view(topic|forum).php\?p?id=\d+#i', $full_url, $bah)) 	// Else if it is a forum url
+    }
+    elseif (preg_match('#(?<=[^\w/]|^)/*forums/view(topic|forum).php\?p?id=\d+#i', $full_url, $bah))     // Else if it is a forum url
     {
         $a = array( '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                     '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
@@ -408,7 +410,7 @@ function handle_url_tag($url, $link = '')
                     '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=(\d+)%i'
                   );
 
-        $b = array(	'#f$1',
+        $b = array( '#f$1',
                     '#t$1+',
                     '#t$1',
                     '#p$1',
@@ -417,13 +419,17 @@ function handle_url_tag($url, $link = '')
         $full_url = preg_replace($a, $b, $full_url);
         $is_forum_url = true;
     }
-    elseif (strpos($full_url, 'www.') === 0)			// If it starts with www, we add http://
-		$full_url = 'http://'.$full_url;
-	elseif (strpos($full_url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
-		$full_url = 'ftp://'.$full_url;
-	elseif ((strpos("#/", $full_url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $full_url, $bah)) 	// Else if it doesn't start with abcdef:// nor / nor #, we add http://
+    elseif (strpos($full_url, 'www.') === 0)            // If it starts with www, we add http://
     {
-		$full_url = 'http://'.$full_url;
+        $full_url = 'http://'.$full_url;
+    }
+    elseif (strpos($full_url, 'ftp.') === 0)    // Else if it starts with ftp, we add ftp://
+    {
+        $full_url = 'ftp://'.$full_url;
+    }
+    elseif ((strpos("#/", $full_url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor / nor #, we add http://
+    {
+        $full_url = 'http://'.$full_url;
     }
     else
     {
@@ -480,7 +486,7 @@ function handle_url_tag($url, $link = '')
         $link = stripslashes($link);
     }
 
-    // TODO use objects instead of iframe (but ie doesn't like it with external html...)
+    // possibility to display pdf or ppt via google doc service
     if (preg_match('/\.(ppt|pdf)$/i', $full_url) && !c2cTools::mobileVersion())
     {
         $param_url = str_replace('%', '%25', $full_url);
@@ -522,6 +528,19 @@ function handle_url_tag($url, $link = '')
             $rel = ' rel="nofollow"';
         }
     }
+
+    // for forums, we try to automatically display videos for common providers
+    // FIXME this is not very clean, but we don't want to do complex
+    // regexp for each url, so we first check for presence of some keywords
+    if (preg_match('/(youtu|dailymotion|vimeo)/', $full_url))
+    {
+        $tag = '[video]' . $full_url . '[/video]';
+        $output = do_video($tag);
+        if (strstr($output, 'class="video'))
+        {
+            return $output;
+        }
+    }
   
     return '<a' . $class . ' href="' . $full_url . '"' . $hreflang . $rel . '>' . $link . '</a>' . $suffix;
 }
@@ -532,7 +551,7 @@ function handle_url_tag($url, $link = '')
 //
 function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 {
-	global $lang_common, $pun_config, $pun_user;
+    global $lang_common, $pun_config, $pun_user;
 
     $options = explode(' ', $align);
     $centered = false;
@@ -579,17 +598,17 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
         $image_text = $lang_common['Image link'].'&nbsp;: '.$alt;
     }
 
-	$img_tag = '<a href="'.$url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
+    $img_tag = '<a href="'.$url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
 
     $alt = '&lt;&nbsp;'.$lang_common['Image link'].'&nbsp;: '.$alt.'&nbsp;&gt;';
 
     if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-		$img_tag = '<img class="sigimage'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
+        $img_tag = '<img class="sigimage'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
-	elseif (!$is_signature && $pun_user['show_img'] != '0')
+    elseif (!$is_signature && $pun_user['show_img'] != '0')
     {
-		$img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
+        $img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
     
     if (preg_match('#(^|\s)(\d+)($|\s)#s', $align, $matches))
@@ -602,7 +621,7 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
         $img_tag = '</p><div style="text-align: center;">'.$img_tag.'</div><p>';
     }
 
-	return $img_tag;
+    return $img_tag;
 }
 
 
@@ -611,7 +630,7 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 //
 function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null)
 {
-	global $lang_common, $pun_config, $pun_user;
+    global $lang_common, $pun_config, $pun_user;
 
     $options = explode(' ', $align);
     $centered = false;
@@ -646,10 +665,10 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
         $img_class = '';
     }
         
-//	$base_url_tmp = parse_url($pun_config['o_base_url']);
-//	$base_url = $base_url_tmp['sheme'].'://'.$base_url_tmp['host'].'/uploads/images/';
-	$base_url = PUN_STATIC_URL.'/uploads/images/';
-	
+//    $base_url_tmp = parse_url($pun_config['o_base_url']);
+//    $base_url = $base_url_tmp['sheme'].'://'.$base_url_tmp['host'].'/uploads/images/';
+    $base_url = PUN_STATIC_URL.'/uploads/images/';
+    
     if (in_array('big', $options))
     {
         $size = 'BI';
@@ -663,7 +682,7 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
         $size = 'MI';
     }
     $small_img_url = $base_url.$url.$size.'.'.$ext;
-	
+    
     
     if (preg_match('#(^|\s)(\d+)($|\s)#s', $align, $matches))
     {
@@ -674,9 +693,9 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
     {
         $img_url = $base_url.$url.'.'.$ext;
         $alt_url = $url.'.'.$ext;
-	}
+    }
     
-	if ($alt == null)
+    if ($alt == null)
     {
         $alt = $alt_url;
         $title='';
@@ -688,17 +707,17 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
         $image_text = $lang_common['Image link'].'&nbsp;: '.$alt;
     }
 
-	$img_tag = '<a href="'.$img_url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
+    $img_tag = '<a href="'.$img_url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
 
     $alt = '&lt;&nbsp;'.$lang_common['Image link'].'&nbsp;: '.$alt.'&nbsp;&gt;';
 
     if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-		$img_tag = '<a href="'.$img_url.'"><img class="sigimage'.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
+        $img_tag = '<a href="'.$img_url.'"><img class="sigimage'.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
     }
-	elseif (!$is_signature && $pun_user['show_img'] != '0')
+    elseif (!$is_signature && $pun_user['show_img'] != '0')
     {
-		$img_tag = '<a href="'.$img_url.'"><img class="postimg'.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
+        $img_tag = '<a href="'.$img_url.'"><img class="postimg'.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
     }
     
     if ($centered)
@@ -706,7 +725,7 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
         $img_tag = '</p><div style="text-align: center;">'.$img_tag.'</div><p>';
     }
 
-	return $img_tag;
+    return $img_tag;
 }
 
 
@@ -758,50 +777,50 @@ function handle_email_tag($email, $label = NULL)
 //
 function do_bbcode($text, $is_signature = false, $post_list = array())
 {
-	global $lang_common, $lang_topic, $pun_user, $pun_config, $showed_post_list;
+    global $lang_common, $lang_topic, $pun_user, $pun_config, $showed_post_list;
     
     $showed_post_list = $post_list;
     
-	if (strpos($text, 'quote') !== false)
-	{
-		$text = str_replace('[quote]', '</p><blockquote><div class="incqbox"><p>', $text);
-		$text = preg_replace('#\[quote=(&quot;|"|&\#039;|\'|)(.*?)\\1\|?((?<=\|)\s*([0-9]+|[^\]]+)|)\s*\]#se', 'handle_quote_tag(\'$2\', \'$3\')', $text);
-		$text = preg_replace('#\[\/quote\]\s?#', '</p></div></blockquote><p>', $text);
-	}
+    if (strpos($text, 'quote') !== false)
+    {
+        $text = str_replace('[quote]', '</p><blockquote><div class="incqbox"><p>', $text);
+        $text = preg_replace('#\[quote=(&quot;|"|&\#039;|\'|)(.*?)\\1\|?((?<=\|)\s*([0-9]+|[^\]]+)|)\s*\]#se', 'handle_quote_tag(\'$2\', \'$3\')', $text);
+        $text = preg_replace('#\[\/quote\]\s?#', '</p></div></blockquote><p>', $text);
+    }
 
-	$pattern = array('#\[b\](.*?)\[/b\]#s',
-					 '#\[i\](.*?)\[/i\]#s',
-					 '#\[u\](.*?)\[/u\]#s',
+    $pattern = array('#\[b\](.*?)\[/b\]#s',
+                     '#\[i\](.*?)\[/i\]#s',
+                     '#\[u\](.*?)\[/u\]#s',
                      '#\[s\](.*?)\[/s\]#s',
                      '#\[q\](.*?)\[/q\]#s',
                      '#\[c\](.*?)\[/c\]#s',
-					 '#\[url\]((?:[^\[<]|\[\])*?)\[/url\]#e',
-					 '#\[url=((?:[^\[<]|\[\])*?)\](.*?)\[/url\]#e',
+                     '#\[url\]((?:[^\[<]|\[\])*?)\[/url\]#e',
+                     '#\[url=((?:[^\[<]|\[\])*?)\](.*?)\[/url\]#e',
                      '#\[center\]\s*(.*?)\s*\[/center\]\s?#s',
                      '#\[right\]\s*(.*?)\s*\[/right\]\s?#s',
                      '#\[justify\]\s*(.*?)\s*\[/justify\]\s?#s',
-					 '#\[email\]([^\[<]*?)\[/email\]#e',
-					 '#\[email=([^\[<]*?)\](.*?)\[/email\]#e',
-					 '#\[spoiler(=([^\[]*?)|)\](.*?)\s*\[/spoiler\]\s?#s',
+                     '#\[email\]([^\[<]*?)\[/email\]#e',
+                     '#\[email=([^\[<]*?)\](.*?)\[/email\]#e',
+                     '#\[spoiler(=([^\[]*?)|)\](.*?)\s*\[/spoiler\]\s?#s',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
                      '#\[---+(.*?)\]#s',
                      '#\[picto=?\s*([\w]+)\s*\/\]#s',
                      '#\s?\[p\]\s?#s');
 
-	$replace = array('<strong>$1</strong>',
-					 '<em>$1</em>',
-					 '<span class="bbu">$1</span>',
+    $replace = array('<strong>$1</strong>',
+                     '<em>$1</em>',
+                     '<span class="bbu">$1</span>',
                      '<del>$1</del>',
                      '<q>$1</q>',
                      '<code>$1</code>',
-					 'handle_url_tag(\'$1\')',
-					 'handle_url_tag(\'$1\', \'$2\')',
+                     'handle_url_tag(\'$1\')',
+                     'handle_url_tag(\'$1\', \'$2\')',
                      '</p><div style="text-align: center;"><p>$1</p></div><p>',
                      '</p><div style="text-align: right;"><p>$1</p></div><p>',
                      '</p><div style="text-align: justify;"><p>$1</p></div><p>',
-					 'handle_email_tag(\'$1\')',
-					 'handle_email_tag(\'$1\', \'$2\')',
-					 '</p><blockquote><div class="incqbox" onclick="toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><div style="visibility:hidden; display:none; height:0;"><p>$3</p></div></div></blockquote><p>',
+                     'handle_email_tag(\'$1\')',
+                     'handle_email_tag(\'$1\', \'$2\')',
+                     '</p><blockquote><div class="incqbox" onclick="toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><div style="visibility:hidden; display:none; height:0;"><p>$3</p></div></div></blockquote><p>',
                      '<acronym title="$1">$2</acronym>',
                      '</p><hr /><p>',
                      '<span class="picto $1"> </span>',
@@ -813,12 +832,12 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
         $replace[] = '<span style="color: $1">$2</span>';
     }
     
-	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
-	{
-		$pattern[] = '#\[img=((ht|f)tps?://|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
-		$pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
-		$pattern[] = '#\[img=([0-9_]+)\.(\w+)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
-		$pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
+    if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
+    {
+        $pattern[] = '#\[img=((ht|f)tps?://|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
+        $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
+        $pattern[] = '#\[img=([0-9_]+)\.(\w+)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
+        $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
         
         $is_sig_str = $is_signature ? 'true' : 'false';
         
@@ -826,12 +845,12 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
         $replace[] = 'handle_img_tag(\'$6$8\', \'$5\', '.$is_sig_str.', \'$2\')';
         $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', \'$5\', '.$is_sig_str.', \'$6\')';
         $replace[] = 'handle_c2c_img_tag(\'$6\', \'$7\', \'$5\', '.$is_sig_str.', \'$2\')';
-	}
+    }
 
-	// This thing takes a while! :)
-	$text = preg_replace($pattern, $replace, $text);
+    // This thing takes a while! :)
+    $text = preg_replace($pattern, $replace, $text);
 
-	return $text;
+    return $text;
 }
 
 
@@ -840,9 +859,9 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 //
 function do_clickable($text)
 {
-	global $pun_config;
+    global $pun_config;
     
-	$text = ' '.$text;
+    $text = ' '.$text;
 
     $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
@@ -870,8 +889,8 @@ function do_clickable($text)
         $replace[] = '$2(%)$4 ';
     }
     
-	$text = preg_replace($pattern, $replace, $text);
-	
+    $text = preg_replace($pattern, $replace, $text);
+    
     return substr($text, 1);
 }
 
@@ -881,15 +900,15 @@ function do_clickable($text)
 //
 function do_smilies($text)
 {
-	global $smiley_text, $smiley_img;
+    global $smiley_text, $smiley_img;
 
-	$text = ' '.$text.' ';
+    $text = ' '.$text.' ';
 
-	$num_smilies = count($smiley_text);
-	for ($i = 0; $i < $num_smilies; ++$i)
-		$text = preg_replace("#(?<=.\W|\W.|^\W)".preg_quote($smiley_text[$i], '#')."(?=.\W|\W.|\W$)#m", '$1<img src="'.PUN_STATIC_URL.'/static/images/forums/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" />$2', $text);
+    $num_smilies = count($smiley_text);
+    for ($i = 0; $i < $num_smilies; ++$i)
+        $text = preg_replace("#(?<=.\W|\W.|^\W)".preg_quote($smiley_text[$i], '#')."(?=.\W|\W.|\W$)#m", '$1<img src="'.PUN_STATIC_URL.'/static/images/forums/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" />$2', $text);
 
-	return substr($text, 1, -1);
+    return substr($text, 1, -1);
 }
 
 
@@ -903,7 +922,6 @@ function do_video($text)
         $mobile_version = c2cTools::mobileVersion();
         $width = $mobile_version ? 310 : 400;
         $height = $mobile_version ? 232 : 300;
-        $alternatif = '<strong>Flash plugin needed</strong>';
 
         // first replace all [video] by [video $width,$height]
         // for mobile version, we force the dimensions
@@ -959,16 +977,16 @@ function do_video($text)
 //
 function parse_message($text, $hide_smilies, $post_list = array())
 {
-	global $pun_config, $pun_user, $lang_common, $lang_topic;
+    global $pun_config, $pun_user, $lang_common, $lang_topic;
     
-	if ($pun_config['o_censoring'] == '1')
-		$text = censor_words($text);
+    if ($pun_config['o_censoring'] == '1')
+        $text = censor_words($text);
 
-	// If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
-	if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
-	{
-		list($inside, $outside) = split_text($text, '[code]', '[/code]');
-		
+    // If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
+    if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
+    {
+        list($inside, $outside) = split_text($text, '[code]', '[/code]');
+        
         // Active links between < > or [ ]
         if ($pun_config['o_make_links'] == '1')
         {
@@ -981,8 +999,8 @@ function parse_message($text, $hide_smilies, $post_list = array())
         
         // Implode non code text in one string for next parsing
         $outside = array_map('ltrim', $outside);
-		$text = implode('<">', $outside);
-	}
+        $text = implode('<">', $outside);
+    }
     else
     {
         // Active links between < > or [ ]
@@ -992,52 +1010,52 @@ function parse_message($text, $hide_smilies, $post_list = array())
         }
         
         // Convert applicable characters to HTML entities
-    	$text = pun_htmlspecialchars($text);
+        $text = pun_htmlspecialchars($text);
     }
 
-	if ($pun_config['o_smilies'] == '1' && $pun_user['show_smilies'] == '1' && $hide_smilies == '0')
-		$text = do_smilies($text);
+    if ($pun_config['o_smilies'] == '1' && $pun_user['show_smilies'] == '1' && $hide_smilies == '0')
+        $text = do_smilies($text);
 
-	if ($pun_config['p_message_bbcode'] == '1' && strpos($text, '[') !== false && strpos($text, ']') !== false)
-	{
-		$text = do_bbcode($text, false, $post_list);
+    if ($pun_config['p_message_bbcode'] == '1' && strpos($text, '[') !== false && strpos($text, ']') !== false)
+    {
+        $text = do_bbcode($text, false, $post_list);
         $text = do_video($text);
-	}
+    }
 
-	// Deal with newlines, tabs and multiple spaces
-	$pattern = array("\n", "\t", '	', '  ', '<p><br />');
-	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;', '<p>');
-	$text = str_replace($pattern, $replace, $text);
+    // Deal with newlines, tabs and multiple spaces
+    $pattern = array("\n", "\t", '    ', '  ', '<p><br />');
+    $replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;', '<p>');
+    $text = str_replace($pattern, $replace, $text);
 
-	// If we split up the message before we have to concatenate it together again (code tags)
-	if (isset($inside))
-	{
-		$outside = explode('<">', $text);
-		$text = '';
+    // If we split up the message before we have to concatenate it together again (code tags)
+    if (isset($inside))
+    {
+        $outside = explode('<">', $text);
+        $text = '';
 
-		$num_tokens = count($outside);
+        $num_tokens = count($outside);
 
-		for ($i = 0; $i < $num_tokens; ++$i)
-		{
-			$text .= $outside[$i];
-			if (isset($inside[$i]))
-			{
-				$num_lines = ((substr_count($inside[$i], "\n")) + 2) * 1.4;
-				$height_str = ($num_lines > 35) ? '35em' : $num_lines.'em';
-				$text .= '</p><div class="codebox"><div class="incqbox"><h4>'.$lang_common['Code'].':</h4><div class="scrollbox" style="height: '.$height_str.'"><pre>'.$inside[$i].'</pre></div></div></div><p>';
-			}
-		}
-	}
+        for ($i = 0; $i < $num_tokens; ++$i)
+        {
+            $text .= $outside[$i];
+            if (isset($inside[$i]))
+            {
+                $num_lines = ((substr_count($inside[$i], "\n")) + 2) * 1.4;
+                $height_str = ($num_lines > 35) ? '35em' : $num_lines.'em';
+                $text .= '</p><div class="codebox"><div class="incqbox"><h4>'.$lang_common['Code'].':</h4><div class="scrollbox" style="height: '.$height_str.'"><pre>'.$inside[$i].'</pre></div></div></div><p>';
+            }
+        }
+    }
 
-	// Add paragraph tag around post, but make sure there are no empty paragraphs
-	$text = str_replace('<p></p>', '', '<p>'.$text.'</p>');
-    	
+    // Add paragraph tag around post, but make sure there are no empty paragraphs
+    $text = str_replace('<p></p>', '', '<p>'.$text.'</p>');
+        
     // Add new line in the HTML code
     $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
     $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
     $text = str_replace($pattern, $replace, $text);
 
-	return $text;
+    return $text;
 }
 
 
@@ -1046,28 +1064,28 @@ function parse_message($text, $hide_smilies, $post_list = array())
 //
 function parse_signature($text)
 {
-	global $pun_config, $pun_user, $lang_common, $lang_topic;
+    global $pun_config, $pun_user, $lang_common, $lang_topic;
 
-	if ($pun_config['o_censoring'] == '1')
-		$text = censor_words($text);
+    if ($pun_config['o_censoring'] == '1')
+        $text = censor_words($text);
 
-	if ($pun_config['o_make_links'] == '1')
-		$text = do_clickable($text);
+    if ($pun_config['o_make_links'] == '1')
+        $text = do_clickable($text);
 
-	$text = pun_htmlspecialchars($text);
+    $text = pun_htmlspecialchars($text);
 
-	if ($pun_config['o_smilies_sig'] == '1' && $pun_user['show_smilies'] != '0')
-		$text = do_smilies($text);
+    if ($pun_config['o_smilies_sig'] == '1' && $pun_user['show_smilies'] != '0')
+        $text = do_smilies($text);
 
-	if ($pun_config['p_sig_bbcode'] == '1' && strpos($text, '[') !== false && strpos($text, ']') !== false)
-	{
-		$text = do_bbcode($text, true);
-	}
+    if ($pun_config['p_sig_bbcode'] == '1' && strpos($text, '[') !== false && strpos($text, ']') !== false)
+    {
+        $text = do_bbcode($text, true);
+    }
 
-	// Deal with newlines, tabs and multiple spaces
-	$pattern = array("\n", "\t", '	', '  ', '<p><br />');
-	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;', '<p>');
-	$text = str_replace($pattern, $replace, $text);
+    // Deal with newlines, tabs and multiple spaces
+    $pattern = array("\n", "\t", '    ', '  ', '<p><br />');
+    $replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;', '<p>');
+    $text = str_replace($pattern, $replace, $text);
 
-	return $text;
+    return $text;
 }
