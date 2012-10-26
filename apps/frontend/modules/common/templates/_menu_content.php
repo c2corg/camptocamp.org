@@ -244,8 +244,7 @@ show_select=function()
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li><?php
-                echo picto_tag('picto_portals')
-                   . link_to(ucfirst(__('portals')) . $sublevel_ie7, '@default_index?module=portals') ?>
+                echo link_to(ucfirst(__('portals')) . $sublevel_ie7, '@default_index?module=portals') ?>
                 <?php echo $sublevel_start ?>
                 <ul><?php
                     $portal_list = sfConfig::get('app_portals_id');
