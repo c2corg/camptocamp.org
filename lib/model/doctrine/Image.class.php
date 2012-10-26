@@ -521,7 +521,7 @@ class Image extends BaseImage
         }
         
         // document criteria
-        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lid.linked_id', 'docs', 'doc');
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lid.main_id', 'docs', 'doc');
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ldc.linked_id', 'dtags', 'dtag');
 
         // summit criteria
