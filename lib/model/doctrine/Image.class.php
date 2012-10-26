@@ -520,7 +520,8 @@ class Image extends BaseImage
             return $has_name;
         }
         
-        // tagged document criteria
+        // document criteria
+        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'lid.linked_id', 'docs', 'doc');
         self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'ldc.linked_id', 'dtags', 'dtag');
 
         // summit criteria
@@ -681,10 +682,14 @@ class Image extends BaseImage
         
         self::joinOnLinkedDocMultiRegions($q, $joins);
 
-        if (isset($joins['dtag']))
+        if (   isset($joins['doc'])
+            || isset($joins['dtag']))
         {
             $q->leftJoin('m.associations lid');
-            $q->leftJoin('lid.LinkedLinkedAssociation ldc');
+            if (isset($joins['dtag']))
+            {
+                $q->leftJoin('lid.LinkedLinkedAssociation ldc');
+            }
         }
 
         // join with image tables only if needed 

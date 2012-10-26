@@ -102,7 +102,7 @@ if (isset($items))
         echo __($empty_list_tips);
     }
 }
-$join_outing = ($module != 'outings') ? 'join=outing&' : '';
+$join_outing = (!in_array($module, array('outings', 'users'))) ? 'join=outing&' : '';
 $module_url = ($module != 'users') ? $module : 'ousers';
 echo '<p class="list_link">',
      picto_tag('action_list'), ' ',

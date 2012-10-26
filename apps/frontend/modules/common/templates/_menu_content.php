@@ -187,33 +187,6 @@ show_select=function()
                             <?php endif ?>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
-                    <li><?php
-                        echo picto_tag('picto_portals')
-                           . link_to(ucfirst(__('portals')) . $sublevel_ie7, '@default_index?module=portals') ?>
-                        <?php echo $sublevel_start ?>
-                        <ul>
-                            <li><?php
-                                $cda_config = sfConfig::get('app_portals_cda');
-                                echo picto_tag('picto_portals')
-                                   . link_to(__($cda_config['name']), '@document_by_id?module=portals&id=' . $cda_config['id']) ?></li>
-                            <li><?php
-                                $ice_config = sfConfig::get('app_portals_ice');
-                                echo picto_tag('picto_portals')
-                                   . link_to(__($ice_config['name']), '@document_by_id?module=portals&id=' . $ice_config['id']) ?></li>
-                            <li><?php
-                                $steep_config = sfConfig::get('app_portals_steep');
-                                echo picto_tag('picto_portals')
-                                   . link_to(__($steep_config['name']), '@document_by_id?module=portals&id=' . $steep_config['id']) ?></li>
-                            <li><?php
-                                $raid_config = sfConfig::get('app_portals_raid');
-                                echo picto_tag('picto_portals')
-                                   . link_to(__($raid_config['name']), '@document_by_id?module=portals&id=' . $raid_config['id']) ?></li>
-                            <li class="lilast"><?php
-                                $pyrenees_config = sfConfig::get('app_portals_pyrenees');
-                                echo picto_tag('picto_portals')
-                                   . link_to(__($pyrenees_config['name']), '@document_by_id?module=portals&id=' . $pyrenees_config['id']) ?></li>
-                        </ul> <?php echo $sublevel_end ?>
-                    </li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
                            . link_to(__('Help'), getMetaArticleRoute('help_guide')) ?></li>
@@ -271,81 +244,22 @@ show_select=function()
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li><?php
-                echo link_to(__('Community'), getMetaArticleRoute('association')) ?>
-                <ul>
-                    <li><?php
-                        echo picto_tag('action_people')
-                           . link_to(__('Association') . $sublevel_ie7, getMetaArticleRoute('association'))
-                           . $sublevel_start ?>
-                        <ul>
-                            <li class="lilast"><?php
-                            echo picto_tag('action_comment')
-                               . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum) ?></li>
-                        </ul><?php echo $sublevel_end ?>
-                    </li>
-                    <li><?php
-                        echo picto_tag('picto_users')
-                           . link_to(ucfirst(__('users')) . $sublevel_ie7, '@default_index?module=users'), $sublevel_start ?>
-                        <ul>
-                            <li class="lilast"><?php
-                                echo picto_tag('action_query')
-                                   . link_to(__('Search'), '@filter?module=users') ?></li>
-                        </ul><?php echo $sublevel_end ?>
-                    </li>
-                    <li><?php
-                        echo picto_tag('action_list')
-                           . link_to(__('Shop'), getMetaArticleRoute('shop')) ?></li>
-                    <li><?php
-                        echo picto_tag('action_list')
-                           . link_to(__('c2c website'), getMetaArticleRoute('website_presentation')) ?></li>
-                    <li class="lilast"><?php
-                        echo picto_tag('action_list')
-                           . link_to(__('credits'), getMetaArticleRoute('credits')) ?></li>
-                </ul>
+                echo picto_tag('picto_portals')
+                   . link_to(ucfirst(__('portals')) . $sublevel_ie7, '@default_index?module=portals') ?>
+                <?php echo $sublevel_start ?>
+                <ul><?php
+                    $portal_list = sfConfig::get('app_portals_id');
+                    foreach ($portal_list as $portal_id)
+                    {
+                        $portal_config = sfConfig::get('app_portals_' . $portal_id);
+                        echo '<li>'
+                           , picto_tag('picto_portals')
+                           , link_to(__($portal_config['name']), '@document_by_id?module=portals&id=' . $portal_config['id'])
+                           , '</li>';
+                    } ?>
+                </ul> <?php echo $sublevel_end ?>
             </li>
             <li><?php
-                echo link_to(__('My Camptocamp'), $is_connected ? 'users/mypage' : getMetaArticleRoute('create_account')) ?>
-                <ul>
-                    <?php if ($is_connected): ?>
-                    <li><?php
-                        echo picto_tag('picto_users')
-                           . link_to(__('personal page'), 'users/mypage') ?></li>
-                    <li><?php
-                        echo picto_tag('picto_outings')
-                           . link_to(__('My outings'), 'outings/myoutings') ?></li>
-                    <li><?php
-                        echo picto_tag('picto_images')
-                           . link_to(__('My images'), 'images/myimages') ?></li>
-                    <?php endif ?>
-                    <li><?php
-                        echo picto_tag('picto_tools')
-                           . customize_link_to() ?></li>
-                    <?php if ($is_connected): ?>
-                    <li><?php
-                        echo picto_tag('picto_tools')
-                           . personal_preferences_link_to() ?></li>
-                    <li><?php
-                        echo picto_tag('picto_tools')
-                           . language_preferences_link_to() ?></li>
-                    <li><?php
-                        echo picto_tag('action_edit')
-                           . f_link_to(__('User profile'), 'profile.php?section=personality') ?></li>
-                    <li><?php
-                        echo picto_tag('action_contact')
-                           . link_to(__('Mailing lists link'), 'users/mailinglists') ?></li>
-                <?php else: ?>
-                    <li><?php
-                        echo picto_tag('action_edit')
-                           . link_to(__('create an account?'), getMetaArticleRoute('create_account')) ?></li>
-                    <?php endif;
-                    if ($is_connected): ?>
-                    <li class="lilast"><?php
-                        echo picto_tag('action_cc')
-                           . link_to(__('User image management'), 'users/manageimages') ?></li>
-                    <?php endif ?>
-                </ul>
-            </li>
-            <li id="menulast"><?php
                 echo f_link_to(__('Forum') . $sublevel_ie7, '?lang='. $lang), $sublevel_start ?>
                 <ul>
                     <li><?php
@@ -395,6 +309,81 @@ show_select=function()
                         echo picto_tag('action_help')
                            . link_to(__('Charte'), getMetaArticleRoute('charte_forum')) ?></li>
                 </ul><?php echo $sublevel_end ?>
+            </li>
+            <li><?php
+                echo link_to(__('Community'), getMetaArticleRoute('association')) ?>
+                <ul>
+                    <li><?php
+                        echo picto_tag('action_people')
+                           . link_to(__('Association') . $sublevel_ie7, getMetaArticleRoute('association'))
+                           . $sublevel_start ?>
+                        <ul>
+                            <li class="lilast"><?php
+                            echo picto_tag('action_comment')
+                               . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum) ?></li>
+                        </ul><?php echo $sublevel_end ?>
+                    </li>
+                    <li><?php
+                        echo picto_tag('picto_users')
+                           . link_to(ucfirst(__('users')) . $sublevel_ie7, '@default_index?module=users'), $sublevel_start ?>
+                        <ul>
+                            <li class="lilast"><?php
+                                echo picto_tag('action_query')
+                                   . link_to(__('Search'), '@filter?module=users') ?></li>
+                        </ul><?php echo $sublevel_end ?>
+                    </li>
+                    <li><?php
+                        echo picto_tag('action_list')
+                           . link_to(__('Shop'), getMetaArticleRoute('shop')) ?></li>
+                    <li><?php
+                        echo picto_tag('action_list')
+                           . link_to(__('c2c website'), getMetaArticleRoute('website_presentation')) ?></li>
+                    <li class="lilast"><?php
+                        echo picto_tag('action_list')
+                           . link_to(__('credits'), getMetaArticleRoute('credits')) ?></li>
+                </ul>
+            </li>
+            <li id="menulast"><?php
+                echo link_to(__('My Camptocamp'), $is_connected ? 'users/mypage' : getMetaArticleRoute('create_account')) ?>
+                <ul>
+                    <?php if ($is_connected): ?>
+                    <li><?php
+                        echo picto_tag('picto_users')
+                           . link_to(__('personal page'), 'users/mypage') ?></li>
+                    <li><?php
+                        echo picto_tag('picto_outings')
+                           . link_to(__('My outings'), 'outings/myoutings') ?></li>
+                    <li><?php
+                        echo picto_tag('picto_images')
+                           . link_to(__('My images'), 'images/myimages') ?></li>
+                    <?php endif ?>
+                    <li><?php
+                        echo picto_tag('picto_tools')
+                           . customize_link_to() ?></li>
+                    <?php if ($is_connected): ?>
+                    <li><?php
+                        echo picto_tag('picto_tools')
+                           . personal_preferences_link_to() ?></li>
+                    <li><?php
+                        echo picto_tag('picto_tools')
+                           . language_preferences_link_to() ?></li>
+                    <li><?php
+                        echo picto_tag('action_edit')
+                           . f_link_to(__('User profile'), 'profile.php?section=personality') ?></li>
+                    <li><?php
+                        echo picto_tag('action_contact')
+                           . link_to(__('Mailing lists link'), 'users/mailinglists') ?></li>
+                <?php else: ?>
+                    <li><?php
+                        echo picto_tag('action_edit')
+                           . link_to(__('create an account?'), getMetaArticleRoute('create_account')) ?></li>
+                    <?php endif;
+                    if ($is_connected): ?>
+                    <li class="lilast"><?php
+                        echo picto_tag('action_cc')
+                           . link_to(__('User image management'), 'users/manageimages') ?></li>
+                    <?php endif ?>
+                </ul>
             </li>
         </ul>
         <br class="clearer" />

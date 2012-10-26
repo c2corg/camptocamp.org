@@ -1513,7 +1513,7 @@ msgid "Move"
 msgstr "Déplacer"
 
 msgid "My Camptocamp"
-msgstr "Mon Camptocamp"
+msgstr "Mon c2c"
 
 msgid "My images"
 msgstr "Mes images"
@@ -3217,7 +3217,7 @@ msgstr "Licence d'utilisation du contenu"
 # [WARNING] needs_review
 msgid "_lift_approach_info"
 msgstr "<h3>Approche en remontée mécanique possible</h3>\n"
-"Un remontée mécanique peut être utilisée pour l'approche et/ou le retour de cet itinéraire."
+"Une remontée mécanique peut être utilisée pour l'approche et/ou le retour de cet itinéraire."
 
 msgid "_lift_status_info"
 msgstr "<h3>Remontées mécaniques</h3>Ouverture des remontée mécaniques proche de l'itinéraire."
@@ -3696,7 +3696,7 @@ msgid "alpes_s"
 msgstr "Alpes occidentales - S"
 
 msgid "alpinism big portal"
-msgstr "Alpinisme Grandes Courses"
+msgstr "Alpinisme grandes courses"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5177,7 +5177,7 @@ msgstr "Licence&nbsp;:"
 
 # [WARNING] needs_review
 msgid "lift_approach"
-msgstr "approche en remontée mécanique possible"
+msgstr "Approche en remontée mécanique possible&nbsp;:"
 
 msgid "lift_status"
 msgstr "Remontées mécaniques&nbsp;:"

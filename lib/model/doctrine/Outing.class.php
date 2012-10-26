@@ -131,6 +131,15 @@ class Outing extends BaseOuting
             $order = array();
         }
         
+        if (isset($params['orderby']))
+        {
+            $orderby = array($params['orderby']);
+        }
+        if (isset($params['order']))
+        {
+            $orderby = array($params['order']);
+        }
+        
         $sort = array('orderby_params' => $orderby,
                       'order_params' => $order,
                       'npp'      => $max_items

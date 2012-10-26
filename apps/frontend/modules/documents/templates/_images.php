@@ -79,7 +79,7 @@ if (!$mobile_version)
         }
         else
         {
-            $module_url = $module_name;
+            $module_url = 'docs';
         }
         $text = 'List all linked images';
         if (in_array($module_name, array('outings', 'articles')))
