@@ -155,5 +155,10 @@ $menu_border_color: #999;
   .qck_sw {
     margin: 0 8px 0 0;
     padding-top: 6px;
+    
+    .picto:hover {
+      background-color: #ffdf96;
+      box-shadow: 0 0 8px #fff;
+    }
   }
 }
