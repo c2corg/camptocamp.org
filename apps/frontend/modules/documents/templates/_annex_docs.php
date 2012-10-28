@@ -31,17 +31,26 @@ if (count($related_articles) || count($related_portals))
         
         foreach ($related_portals as $portal)
         {
-            $config = sfConfig::get('app_portals_' . $portal);
+            $portal_config = sfConfig::get('app_portals_' . $portal);
 
-            $text = __($config['name']);
-            if ($portal == 'cda')
+            $text = __($portal_config['name']);
+            if (isset($portal_config['url']) || isset($portal_config['annex_url']))
             {
-                $html = '<a href="http://' . $config['host'] . '">' . $text . '</a>';
+                if (isset($portal_config['url']))
+                {
+                    $portal_url = $portal_config['url'];
+                }
+                else
+                {
+                    $portal_url = $portal_config['annex_url'];
+                }
+                $portal_url = 'http://' . $portal_url;
             }
             else
             {
-                $html = link_to($text, '@document_by_id?module=portals&id=' . $config['id']);
+                $portal_url = '@document_by_id?module=portals&id=' . $portal_config['id'];
             }
+            $html = link_to($text, $portal_url);
             echo li(picto_tag('picto_portals') . ' ' . $html);
         }
         

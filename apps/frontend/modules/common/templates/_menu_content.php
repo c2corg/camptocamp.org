@@ -251,9 +251,17 @@ show_select=function()
                     foreach ($portal_list as $portal_id)
                     {
                         $portal_config = sfConfig::get('app_portals_' . $portal_id);
+                        if (isset($portal_config['url']))
+                        {
+                            $portal_url = 'http://' . $portal_config['url'];
+                        }
+                        else
+                        {
+                            $portal_url = '@document_by_id?module=portals&id=' . $portal_config['id'];
+                        }
                         echo '<li>'
                            , picto_tag('picto_portals')
-                           , link_to(__($portal_config['name']), '@document_by_id?module=portals&id=' . $portal_config['id'])
+                           , link_to(__($portal_config['name']), $portal_url)
                            , '</li>';
                     } ?>
                 </ul> <?php echo $sublevel_end ?>

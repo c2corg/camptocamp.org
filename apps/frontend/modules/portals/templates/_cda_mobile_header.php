@@ -7,7 +7,7 @@ $cda_config = sfConfig::get('app_portals_cda');
 <div id="header">
   <div id="banner_middle">
     <div id="cda_logo">
-    <?php echo link_to('<span>&nbsp;</span>', 'http://m.' . $cda_config['host'] . '/', array('title' => __('changerdapproche'))); ?>
+    <?php echo link_to('<span>&nbsp;</span>', 'http://m.' . $cda_config['annex_url'] . '/', array('title' => __('changerdapproche'))); ?>
     </div>
     <div id="banner_title">
       <h1><?php echo __('changerdapproche') ?></h1>

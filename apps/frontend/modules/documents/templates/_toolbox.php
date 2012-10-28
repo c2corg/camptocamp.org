@@ -3,11 +3,6 @@ if (!isset($default_open))
 {
     $default_open = true;
 }
-$cda = sfConfig::get('app_portals_cda');
-$ice = sfConfig::get('app_portals_ice');
-$steep = sfConfig::get('app_portals_steep');
-$raid = sfConfig::get('app_portals_raid');
-$pyrenees = sfConfig::get('app_portals_pyrenees');
 
 ?>
 <div id="nav_toolbox" class="nav_box">
@@ -29,13 +24,32 @@ $pyrenees = sfConfig::get('app_portals_pyrenees');
                 <li><?php echo link_to(__('Incidents and accidents database'), getMetaArticleRoute('accidents_database', false)) ?></li>
             </ul>
             <p><?php echo ucfirst(__('portals')) ?></p>
-            <ul>
-                <li><a href="http://<?php echo $cda['host'] ?>/"><?php echo __($cda['name']) ?></a></li>
-                <li><?php echo link_to(__($ice['name']), '@document_by_id?module=portals&id=' . $ice['id']) ?></li>
-                <li><?php echo link_to(__($steep['name']), '@document_by_id?module=portals&id=' . $steep['id']) ?></li>
-                <li><?php echo link_to(__($raid['name']), '@document_by_id?module=portals&id=' . $raid['id']) ?></li>
-                <li><?php echo link_to(__($pyrenees['name']), '@document_by_id?module=portals&id=' . $pyrenees['id']) ?></li>
-            </ul>
+            <ul><?php
+                $portal_list = sfConfig::get('app_portals_id');
+                foreach ($portal_list as $portal_id)
+                {
+                    $portal_config = sfConfig::get('app_portals_' . $portal_id);
+                    $text = __($portal_config['name']);
+                    if (isset($portal_config['url']) || isset($portal_config['annex_url']))
+                    {
+                        if (isset($portal_config['url']))
+                        {
+                            $portal_url = $portal_config['url'];
+                        }
+                        else
+                        {
+                            $portal_url = $portal_config['annex_url'];
+                        }
+                        $portal_url = 'http://' . $portal_url;
+                    }
+                    else
+                    {
+                        $portal_url = '@document_by_id?module=portals&id=' . $portal_config['id'];
+                    }
+                    $html = link_to($text, $portal_url);
+                    echo '<li>' . $html . '</li>';
+                }
+            ?></ul>
             <p><?php echo __('Help') ?></p>
             <ul>
                 <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize', false)) ?></li>
