@@ -138,8 +138,8 @@ $menu_border_color: #999;
   
   > ul > li {
     padding: 0 0.37em;
-    &:hover {
-      background-color: #ee9641;
+    &:hover a {
+      text-decoration: underline;
     }
   }
 }
