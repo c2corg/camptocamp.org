@@ -381,6 +381,58 @@ class Route extends BaseRoute
                 {
                     $joins['route_i18n'] = true;
                 }
+                
+                // nousers
+                $user_groups = c2cTools::getArrayElement($params_list, 'nousers');
+                if (!is_null($user_groups))
+                {
+                    $user_groups = explode(' ', $user_groups);
+                    $user_ids = array();
+                    $route_ids = array();
+                    $first_group = true;
+                    foreach ($user_groups as $user_group)
+                    {
+                        $user_group_ids = explode('-', $user_group);
+                        $user_ids = array_merge($user_ids, $user_group_ids);
+                        $conditions_temp = array("a.type = 'ro'", "lo.type = 'uo'");
+                        $values_temp = array();
+                        self::buildListCondition($conditions_temp, $values_temp, 'lu.main_id', $user_group);
+                        $where = implode(' AND ', $conditions_temp);
+                        
+                        $routes = Doctrine_Query::create()
+                         ->select('DISTINCT a.main_id')
+                         ->from('Association a')
+                         ->leftJoin('a.MainMainAssociation lu')
+                         ->where($where, $values_temp)
+                         ->execute(array(), Doctrine::FETCH_ARRAY);
+                        
+                        if (count($routes))
+                        {
+                            $route_group_ids = array();
+                            foreach ($routes as $route)
+                            {
+                                $route_group_ids[] = $route['main_id'];
+                            }
+                            $route_group_ids = array_unique($route_group_ids);
+                            if ($first_group)
+                            {
+                                $route_ids = $route_group_ids;
+                            }
+                            else
+                            {
+                                $route_ids = array_intersect($route_ids, $route_group_ids);
+                            }
+                        }
+                        
+                        $first_group = false;
+                    }
+                    
+                    if (count($route_ids))
+                    {
+                        $params_list['noroutes'] = '!' . implode('!', $route_ids);
+                        self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $mid, 'noroutes', $join_id);
+                    }
+                }
             }
             
             $nb_name = self::buildConditionItem($conditions, $values, $joins, $params_list, 'String', array($midi18n, 'ri.search_name'), ($is_module ? array('rnam', 'name') : 'rnam'), array($join_idi18n, $join_i18n), 'Route');
