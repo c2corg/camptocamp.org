@@ -24,6 +24,10 @@ include_partial('parkings/parkings_filter');
 <br />
 <?php
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('rcult');
+if ($is_connected)
+{
+    echo label_for('myroutes', __('Search in my routes')) . ' ' . field_value_selector('myroutes', 'mod_routes_myroutes_list', false, true, false, 0, false);
+}
 ?>
 <br />
 <?php

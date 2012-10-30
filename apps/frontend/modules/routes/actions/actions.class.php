@@ -911,6 +911,24 @@ class routesActions extends documentsActions
     protected function filterSearchParameters()
     {
         $out = array();
+        
+        if($this->getUser()->isConnected())
+        {
+            $myroutes = $this->getRequestParameter('myroutes', 0);
+            if ($myroutes > 0)
+            {
+                $user_id = $this->getUser()->getId();
+                if ($myroutes == 1)
+                {
+                    $myroutes_param = "users";
+                }
+                else
+                {
+                    $myroutes_param = "nousers";
+                }
+                $out[] = "$myroutes_param=$user_id";
+            }
+        }
 
         $this->addListParam($out, 'areas');
         $this->addAroundParam($out, 'parnd');

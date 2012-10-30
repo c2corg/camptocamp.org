@@ -685,6 +685,16 @@ class imagesActions extends documentsActions
     protected function filterSearchParameters()
     {
         $out = array();
+        
+        if($this->getUser()->isConnected())
+        {
+            $myimages = $this->getRequestParameter('myimages', 0);
+            if ($myimages == 1)
+            {
+                $user_id = $this->getUser()->getId();
+                $out[] = "users=$user_id";
+            }
+        }
 
         $this->addListParam($out, 'areas');
         $this->addAroundParam($out, 'iarnd');

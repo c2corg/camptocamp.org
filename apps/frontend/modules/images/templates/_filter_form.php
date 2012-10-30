@@ -29,11 +29,17 @@ echo __('categories') . ' ' . field_value_selector('icat', 'mod_images_categorie
 echo __('Date:') . ' ' . date_selector(array('month' => true, 'year' => true, 'day' => true));
 ?>
 <br />
-<?php
-echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('icult');
-?>
 <br />
 <?php
 $activities_raw = $sf_data->getRaw('activities');
 echo __('activities') . ' ' . activities_selector(false, false, $activities_raw);
+echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('icult');
+if ($is_connected)
+{
+    echo label_for('myimages', __('Search in my images')) . ' ' . checkbox_tag('myimages', 1, false);
+}
+?>
+<br />
+<br />
+<?php
 include_partial('documents/filter_sort');

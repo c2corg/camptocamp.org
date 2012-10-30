@@ -42,6 +42,12 @@ all:
       6: vtt_approach
       8: lift_approach
 
+  myroutes:
+    list:
+      0:
+      1: already taken
+      2: never taken
+
   sort:
     criteria:
       'id': ID
