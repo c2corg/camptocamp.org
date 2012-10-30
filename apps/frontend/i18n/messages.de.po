@@ -1070,9 +1070,9 @@ msgstr "Diese Hütte existiert nicht."
 msgid "Hut:"
 msgstr "Hütte:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "ID or name/nickname"
-msgstr "ID or beginning of the name/nickname"
+msgstr "ID oder Anfang des Pseudonyms"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
@@ -1190,9 +1190,9 @@ msgstr "Sie haben vergessen, einen Namen oder eine Datei anzugeben."
 msgid "Kesako?"
 msgstr "Was ist c2c?"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Keyword or ID"
-msgstr "Keyword or ID"
+msgstr "Passwort oder ID"
 
 msgid "Know more"
 msgstr "Mehr"
@@ -1514,7 +1514,7 @@ msgid "Move"
 msgstr "Verschieben"
 
 msgid "My Camptocamp"
-msgstr "Mein Camptocamp"
+msgstr "Mein C2C"
 
 msgid "My images"
 msgstr "Meine Bilder"
@@ -1694,9 +1694,9 @@ msgstr "Mit diesen Bildern verbundene Touren"
 msgid "Outings linked to this route"
 msgstr "Mit der Route dieser Seite verbundene Touren"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Outings with video"
-msgstr "Sorties avec vidéo"
+msgstr "Touren mit Videos"
 
 msgid "PD"
 msgstr "WS"
@@ -1999,8 +1999,19 @@ msgstr "Einen Benutzer suchen"
 msgid "Search criteria"
 msgstr "Suchkriterien"
 
+# [WARNING] en translation used
+msgid "Search in my images"
+msgstr "Search in my images"
+
 msgid "Search in my outings"
 msgstr "Suche in meinen Touren"
+
+# [general comment]
+# Titre du critère du filtre d'itinéraire, avec une liste de choix :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "Search in my routes"
+msgstr "Search routes"
 
 # [general comment]
 # [cda]
@@ -3256,10 +3267,10 @@ msgstr "<h3>Geografische Breite</h3>Geographische Breite eines Orts in Dezimalgr
 msgid "_license_info"
 msgstr "Lizenzinformationen des Inhalts"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "_lift_approach_info"
-msgstr "<h3>Lift approach possible</h3>\n"
-"A lift can be used to approach and / or return of this route."
+msgstr "<h3>Zugang mit mechanischen Aufstiegshilfen möglich</h3>\n"
+"Eine mechanische Aufstiegshilfe kann für den Zugang zu dieser Route verwendet werden."
 
 msgid "_lift_status_info"
 msgstr "<h3>Bergbahnen</h3>Öffnung der Bergbahnen in der nähe der Route."
@@ -3597,13 +3608,13 @@ msgstr "<h3>URL</h3>Link auf die Hütte, auf die Website des Autors, oder auf ei
 msgid "_variants_info"
 msgstr "<h3>Verbundene Routen</h3> Miteinander verbundene Routen sind Routen, welche einen teilweisen identischen Routenverlauf haben oder über dieselben Schwierigkeiten verlaufen.<br /> <br /> Zum Beispiel, eine Überschreitung eines Gipfels, welche durch ein bestimmtes Couloir abgestiegen wird, muss mit der Route verbunden werden, welche das Couloir an sich beschreibt.<br /> Andererseits werden Varianten innerhalb einer Schwierigkeit (z.B. ein Couloir mit zwei Ausstiegen, ein Pfeiler, welcher über den Hauptgrad oder wenig davon Abweichend in der Flanke begangen werden kann, etc.) in derselben Route beschrieben.<br /> <br /> Die auf dieser Seite angezeigten Liste der Touren enthält die Touren, welche mit der Route verbunden sind, sowie die Touren, welche mit den verbundenen Routen verbunden sind. Dies erlaubt einerseits unterschiedliche, spezifische Routenbeschreibungen, aber andererseits auch gemeinsame Informationen über die Verhältnisse."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_vtt_approach_info"
-msgstr "<h3>Approche en VTT possible</h3>\n"
-"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
-"Cela concerne les approches commençant par :<br />\n"
-"- une piste ou route interdite aux véhicules motorisés<br />\n"
-"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
+msgstr "<h3>Zugang mit MTB möglich</h3>\n"
+"Der ganze oder ein massgeblicher Teil des Zugangs ab dem höchsten, im Sommer mit dem Auto erreichbaren Punkt dieser Route kann einfach mit dem Mountain Bike gemacht werden.<br />\n"
+"Dies betrifft Zugänge, welche mit folgenden Wegtypen beginnen:<br />\n"
+"- Ein Weg oder eine Strasse, welche für Motorfahrzeuge gesperrt ist<br />\n"
+"- Ein breiter, wenig gefährlicher und wenig steiler Weg, auf welchem MTB zugelassen sind. "
 
 msgid "_way_back_info"
 msgstr "<h3>Abstieg der Route</h3>Üblicher Abstieg vom Gipfel der Route und relevante Infos:<br /><br />\n"
@@ -3746,6 +3757,17 @@ msgstr "Ostalpen"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "alpes_s"
 msgstr "Westalpen - S"
+
+# [WARNING] fr translation used
+msgid "alpinism big portal"
+msgstr "Alpinisme grandes courses"
+
+# [general comment]
+# 1ère option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "already taken"
+msgstr "I've already taken"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4325,13 +4347,13 @@ msgstr "Gemeinschaftliches Bild"
 msgid "collaborative images"
 msgstr "Gemeinschaftliche Bilder"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "collaborative images of associated documents"
-msgstr "collaborative images of associated documents"
+msgstr "gemeinschaftliche Bilder von verbundenen Dokumenten"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "collaborative images of associated outings"
-msgstr "images collaboratives des sorties associées"
+msgstr "gemeinschaftliche Bilder von verbundenen Touren"
 
 msgid "comment"
 msgstr "Kommentar"
@@ -4356,9 +4378,9 @@ msgstr "Angetroffene Verhältnisse (Zustieg und Route):"
 msgid "conditions linked to"
 msgstr "Die Liste der verbundenen Verhältnisse"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "conditions_and_equipment"
-msgstr "Angetroffene Verhältnisse (Zustieg und Route):"
+msgstr "Angetroffene Verhältnisse, Ausrüstung und Felsqualität (Zustieg und Route):"
 
 msgid "conditions_levels"
 msgstr "Schneelage:"
@@ -4657,9 +4679,9 @@ msgstr "Email-Adresse:"
 msgid "emilie_romagne"
 msgstr "Emilia-Romagna"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "empty choice can't be selected with another choice"
-msgstr "empty choice can't be selected with other choices"
+msgstr "eine leere Auswahl kann mit anderen Auswahlen nicht vorgenommen werden"
 
 msgid "encyclopedia"
 msgstr "allgemeines"
@@ -5280,9 +5302,9 @@ msgstr "gesamte Schneehöhe (cm)"
 msgid "license"
 msgstr "Lizenz:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "lift_approach"
-msgstr "lift approach possible"
+msgstr "Zugang mit mechanischen Aufsteighilfen möglich:"
 
 msgid "lift_status"
 msgstr "Liftanlagen:"
@@ -5533,6 +5555,9 @@ msgstr "German"
 msgid "meta_title"
 msgstr "Camptocamp.org"
 
+msgid "metaskirando"
+msgstr "Metaskirando"
+
 msgid "meteofrance-04 ML title"
 msgstr "Alpes de Haute-Provence (04)"
 
@@ -5644,6 +5669,10 @@ msgstr "Molise"
 msgid "mollasse calcaire"
 msgstr "weicher Kalkstein"
 
+# [WARNING] needs_review
+msgid "montblanc portal"
+msgstr "Klettern, Alpinismus und Skifahren im Mont-Blanc-Gebiet"
+
 msgid "month"
 msgstr "Monat"
 
@@ -5719,6 +5748,13 @@ msgstr "Anzahl der verbundenen Gipfel"
 
 msgid "near service"
 msgstr "Dienst in der Nähe"
+
+# [general comment]
+# 2ème option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
+# [WARNING] en translation used
+msgid "never taken"
+msgstr "I've never taken"
 
 msgid "new_password"
 msgstr "Geben Sie Ihr neues Passwort ein:"
@@ -6893,6 +6929,10 @@ msgstr "Nur Hochtouren anzeigen"
 msgid "switch_to_snowshoeing"
 msgstr "Nur Schneeschuhtouren anzeigen"
 
+# [WARNING] fr translation used
+msgid "ta portal"
+msgstr "Terrain d'Aventure"
+
 msgid "technics"
 msgstr "Technik"
 
@@ -7167,9 +7207,13 @@ msgstr "Die aktuellste Version des Dokuments anzeigen"
 msgid "visual conditions"
 msgstr "Sichtverhältnisse"
 
-# [WARNING] en translation used
+# [WARNING] fr translation used
+msgid "vosges portal"
+msgstr "Portail Vosges"
+
+# [WARNING] needs_review
 msgid "vtt_approach"
-msgstr "mountain-bike approach possible"
+msgstr "Zugang mit MTB möglich"
 
 msgid "waiting for geolocation"
 msgstr "Warte auf Lokalisierung..."

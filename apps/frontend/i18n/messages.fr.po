@@ -1513,7 +1513,7 @@ msgid "Move"
 msgstr "Déplacer"
 
 msgid "My Camptocamp"
-msgstr "Mon c2c"
+msgstr "Mon C2C"
 
 msgid "My images"
 msgstr "Mes images"
@@ -1989,8 +1989,17 @@ msgstr "Rechercher un contributeur"
 msgid "Search criteria"
 msgstr "Critères de recherche"
 
+msgid "Search in my images"
+msgstr "Rechercher parmi mes images"
+
 msgid "Search in my outings"
 msgstr "Rechercher parmi mes sorties"
+
+# [general comment]
+# Titre du critère du filtre d'itinéraire, avec une liste de choix :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+msgid "Search in my routes"
+msgstr "Rechercher parmi les itinéraires"
 
 # [general comment]
 # [cda]
@@ -3697,6 +3706,12 @@ msgstr "Alpes occidentales - S"
 
 msgid "alpinism big portal"
 msgstr "Alpinisme grandes courses"
+
+# [general comment]
+# 1ère option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+msgid "already taken"
+msgstr "que j'ai déjà parcourus"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5409,6 +5424,9 @@ msgstr "French"
 msgid "meta_title"
 msgstr "Camptocamp.org"
 
+msgid "metaskirando"
+msgstr "Metaskirando"
+
 msgid "meteofrance-04 ML title"
 msgstr "Alpes de Haute-Provence (04)"
 
@@ -5594,6 +5612,12 @@ msgstr "Nombre de sommets associés"
 
 msgid "near service"
 msgstr "service à proximité"
+
+# [general comment]
+# 2ème option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
+msgid "never taken"
+msgstr "que je n'ai jamais parcourus"
 
 msgid "new_password"
 msgstr "Entrez votre nouveau mot de passe&nbsp;:"
@@ -6724,7 +6748,7 @@ msgid "switch_to_snowshoeing"
 msgstr "Afficher uniquement l'activité raquette"
 
 msgid "ta portal"
-msgstr "TA : Terrain d'Aventure"
+msgstr "Terrain d'Aventure"
 
 msgid "technics"
 msgstr "technique"

@@ -1187,9 +1187,9 @@ msgstr "Si è dimenticato un nome oppure il file"
 msgid "Kesako?"
 msgstr "Cos'è?"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Keyword or ID"
-msgstr "Keyword or ID"
+msgstr "parole chiave o ID"
 
 msgid "Know more"
 msgstr "Per saperne di più"
@@ -1511,7 +1511,7 @@ msgid "Move"
 msgstr "Spostare"
 
 msgid "My Camptocamp"
-msgstr "Il mio Camptocamp"
+msgstr "Il mio C2C"
 
 msgid "My images"
 msgstr "Le mie immagini"
@@ -1993,8 +1993,19 @@ msgstr "Cerca un utente"
 msgid "Search criteria"
 msgstr "Criterio di ricerca"
 
+# [WARNING] en translation used
+msgid "Search in my images"
+msgstr "Search in my images"
+
 msgid "Search in my outings"
 msgstr "Cercare fra le mie gite"
+
+# [general comment]
+# Titre du critère du filtre d'itinéraire, avec une liste de choix :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "Search in my routes"
+msgstr "Search routes"
 
 # [general comment]
 # [cda]
@@ -2886,9 +2897,11 @@ msgstr "<h3>Condizioni incontrate</h3>Dettagli delle condizioni incontrate lungo
 msgid "_conditions_levels_info"
 msgstr "<h3>Innevamento per zona</h3>Permette di indicare sinteticamente le condizioni incontrate per ogni tratto dell'itinerario.<br />Per aggiungere una riga, cliccare sul (+).<br /><br /><strong>Luogo / quota / esposizione / ora </strong>: caratteristiche della zona: la sua localizzazione, la sua quota, la sua esposizione, il suo rilievo (vallone, canale...), l'ora di passaggio.<br /><br /><strong>Soffice</strong>: Spessore di neve soffice in cm (misurato con la racchetta).<br /><br /><strong>Totale</strong>: spessore di neve totale in cm. Da lasciare vuoto se non misurato.<br /><br /><strong>Osservazioni</strong>: qualità della neve, analisi stratigrafica sommaria, qualità dello sci..."
 
-# [WARNING] needs_update
 msgid "_conditions_status_info"
-msgstr "<h3>Condizioni</h3>Giudizio globale sulle condizioni incontrate recentemente sull'itinerario durante la gita. Il criterio è utilizzabile nel filtro di ricerca delle gite<Br />Il campo <i>Condizioni incontrate</i> permette di aggiungere delle informazioni."
+msgstr "<h3>Condizioni del terreno</h3>Giudizio globale sulle condizioni del terreno incontrate sull'itinerario durante la gita. \n"
+"Non si tiene conto del meteo, il giudizio delle condizione è relativo alle condizioni medie che si possono sperare sul itinerario al periodo di frequentazione normale. Consentono di valutare la difficoltà reale rispetto al grado di difficoltà dell'itinerario (cioè in buone condizioni).<br />\n"
+"Le condizioni sono quelle incontrate durante la gita, non quelle estrapolate per il giorno dopo. Per la valutazione delle buone condizione (in particolare a sci), la ponderazione tra il piacere e il rischio rimane molto soggettivo. Uno si puo chiedere se è possibile farsi più piacere con rischi inferiori rispetto a quelli incontrati<br />\n"
+"<br />Il campo <i>Condizioni incontrate</i> permette di aggiungere delle informazioni."
 
 # [WARNING] needs_update
 msgid "_configuration_info"
@@ -2992,9 +3005,8 @@ msgstr "<h3>Lunghezza focale</h3>Lunghezza focale utilizzata nella foto.<br />Qu
 msgid "_forum_code_info"
 msgstr "<h3>codice d’inserimento dell’immagine nel forum</h3>Per inserire questa immagine (in formato ridotto) nel testo, effettuare un copia-incolla del seguente codice html.<br />Per iniziare un nuovo paragrafo sotto l'immagine aggiungere il codice <strong>[p]</strong> alla fine del paragrafo precedente."
 
-# [WARNING] needs_update
 msgid "_frequentation_status_info"
-msgstr "<h3>Frequentazione</h3>Affollamento dell'itinerario il giorno della gita."
+msgstr "<h3>Frequentazione</h3>Affollamento dell'itinerario il giorno della gita.<br /><br /><strong>nessuno</strong>: c'è solo il nostro gruppo<br /><br /><strong>poco affollato</strong>: il numero delle altre persone è inferiore o uguale a quello del nostro gruppo<br /><br /><strong>abbastanza affollato</strong>: il numero delle altre persone è superiore al quello del nostro gruppo ma non ci da fastidio<br /><br /><strong>molto affollato</strong>: il numero delle altre persone è superiore al quello del nostro gruppo e ci da fastidio."
 
 msgid "_gear_info"
 msgstr "<h3>Materiale specifico</h3>Questo campo indica il materiale specifico che occorre portare con sé oltre all'attrezzatura abituale. Il materiale classico per l'attività non deve essere indicato. <br />Alcuni esempi di materiale che <b>non è specifico:</b> <br />- scialpinismo: ARVA, pala, sonda<br />- neve, ghiaccio, misto: ramponi, piccozza<br />- itinerari su ghiacciai: materiale di ghiacciaio<br />- arrampicata su via classica: dadi, fettucce (se non è precisato dimensione e quantità)<br /><br />Per maggiori informazioni, leggere gli articoli \"il contenuto dello zaino\"."
@@ -3017,9 +3029,8 @@ msgstr "<h3> Effettuare facilmente un upload della traccia in formato GPX per il
 msgid "_has_unstaffed_blanket_info"
 msgstr "<h3>Coperte</h3>Indica la presenza di coperte quando il rifugio non è custodito."
 
-# [WARNING] needs_update
 msgid "_has_unstaffed_gas_info"
-msgstr "<h3>Gaz</h3>Indica la presenza di gas (o altri mezzi per cucinare) quando il rifugio non è custodito."
+msgstr "<h3>Gas / fornello</h3>Indica la presenza di gas (o altri mezzi per cucinare) quando il rifugio non è custodito. <br />La presenza di stoviglie deve essere menzionata nella descrizione."
 
 msgid "_has_unstaffed_matress_info"
 msgstr "<h3>Materassi</h3>Indica la presenza di materassi quando il rifugio non è custodito."
@@ -3038,7 +3049,8 @@ msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampi
 
 # [WARNING] needs_update
 msgid "_hiking_rating_info"
-msgstr "<h3>Difficoltà dell'escursione</h3>La scala va da T1 a T5.<br /> <strong>T1 - Escursione:</strong> Sentiero ben tracciato. Terreno pianeggiante o poco inclinato, senza pericolo di cadute esposte. Requisiti: Nessuno, anche con scarpe da ginnastica, orientamento facile, percorribile anche senza cartina topografica.<br /> <strong>T2 - Escursione di montagna:</strong> Sentiero con tracciato evidente e salite regolari. Terreno talvolta ripido, pericolo di cadute esposte non escluso. Requisiti: Passo sicuro, scarponcini da trekking consigliati. Capacità elementari d'orientamento<br /> <strong>T3 - Escursione di montagna impegnativa:</strong> Di regola traccia visibile sul terreno, passaggi esposti possono essere assicurati con corde o catene, eventualmente bisogna servirsi delle mani per l'equilibrio. Singoli passaggi con pericolo di cadute esposte, pietraie, versanti erbosi senza traccia e cosparsi di roccette. Requisiti: Passo sicuro, buoni scarponi da trekking. Discrete capacità d'orientamento Conoscenze base dell'ambiente alpino.<br /> <strong>T4 - Itinerario alpino:</strong> Sentiero non sempre individuabile, itinerario a tratti senza tracciato, talvolta bisogna servirsi delle mani per la progressione. Terreno abbastanza esposto, pendii erbosi delicati, versanti erbosi cosparsi di roccette, facili ghiacciai senza neve. Requisiti: Dimestichezza con terreni esposti, scarponi da trekking robusti. Buone capacità l'orientamento e di valutazione del terreno. Conoscenze dell'ambiente alpino.<br /> <strong>T5 - Itinerario alpino impegnativo:</strong> Spesso senza traccia, singoli facili passaggi d'arrampicata fino al II grado. Terreno esposto e impegnativo, ripidi versanti erbosi cosparsi di roccette, ghiacciai e nevai poco pericolosi. Requisiti: Scarponi da montagna. Ottime capacità d'orientamento e sicurezza nella valutazione del terreno. Buone conoscenze dell'ambiente alpino e conoscenze base dell'impiego di piccozza e corda."
+msgstr "<h3>Difficoltà dell'escursione</h3>La scala va da T1 a T5.<br /> <strong>T1 - Escursione:</strong> Sentiero ben tracciato. Terreno pianeggiante o poco inclinato, senza pericolo di cadute esposte. Requisiti: Nessuno, anche con scarpe da ginnastica, orientamento facile, percorribile anche senza cartina topografica.<br /> <strong>T2 - Escursione di montagna:</strong> Sentiero con tracciato evidente e salite regolari. Terreno talvolta ripido, pericolo di cadute esposte non escluso. Requisiti: Passo sicuro, scarponcini da trekking consigliati. Capacità elementari d'orientamento<br /> <strong>T3 - Escursione di montagna impegnativa:</strong> Di regola traccia visibile sul terreno, passaggi esposti possono essere assicurati con corde o catene, eventualmente bisogna servirsi delle mani per l'equilibrio. Singoli passaggi con pericolo di cadute esposte, pietraie, versanti erbosi senza traccia e cosparsi di roccette. Requisiti: Passo sicuro, buoni scarponi da trekking. Discrete capacità d'orientamento Conoscenze base dell'ambiente alpino.<br /> <strong>T4 - Itinerario alpino:</strong> Sentiero non sempre individuabile, itinerario a tratti senza tracciato, talvolta bisogna servirsi delle mani per la progressione. Terreno abbastanza esposto, pendii erbosi delicati, versanti erbosi cosparsi di roccette, facili ghiacciai senza neve. Requisiti: Dimestichezza con terreni esposti, scarponi da trekking robusti. Buone capacità l'orientamento e di valutazione del terreno. Conoscenze dell'ambiente alpino.<br /> <strong>T5 - Itinerario alpino impegnativo:</strong> Spesso senza traccia, singoli facili passaggi d'arrampicata fino al II grado. Terreno esposto e impegnativo, ripidi versanti erbosi cosparsi di roccette, ghiacciai e nevai poco pericolosi. Requisiti: Scarponi da montagna. Ottime capacità d'orientamento e sicurezza nella valutazione del terreno. Buone conoscenze dell'ambiente alpino e conoscenze base dell'impiego di piccozza e corda.\n"
+"See also help on the <a href=\"/articles/106859/en\">hiking grades</a>."
 
 msgid "_hours_info"
 msgstr "<h3>Orari d'apertura</h3>Date e orari d'apertura."
@@ -3571,6 +3583,16 @@ msgstr "Alpi Orientali"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "alpes_s"
 msgstr "Alpi occidentali - S"
+
+msgid "alpinism big portal"
+msgstr "Grandi itinerari d'alpinismo"
+
+# [general comment]
+# 1ère option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "already taken"
+msgstr "I've already taken"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4114,13 +4136,12 @@ msgstr "immagine collaborativa"
 msgid "collaborative images"
 msgstr "immagini collaborative"
 
-# [WARNING] en translation used
 msgid "collaborative images of associated documents"
-msgstr "collaborative images of associated documents"
+msgstr "immagini collaborativi dei documenti associati"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "collaborative images of associated outings"
-msgstr "images collaboratives des sorties associées"
+msgstr "immagini collaborativi delle gite associate"
 
 msgid "comment"
 msgstr "commenti"
@@ -4153,7 +4174,7 @@ msgid "conditions_levels"
 msgstr "Innevamento per zona:"
 
 msgid "conditions_status"
-msgstr "Condizioni:"
+msgstr "Condizioni del terreno:"
 
 msgid "config corridor"
 msgstr "canale"
@@ -4748,9 +4769,8 @@ msgstr "Immagine ottenuta a partire di un file SVG:"
 msgid "has_unstaffed_blanket"
 msgstr "coperte:"
 
-# [WARNING] needs_update
 msgid "has_unstaffed_gas"
-msgstr "Cucina / Gas:"
+msgstr "Fornello / Gas:"
 
 msgid "has_unstaffed_matress"
 msgstr "Materassi:"
@@ -5060,9 +5080,9 @@ msgstr "Totale (cm)"
 msgid "license"
 msgstr "Licenza:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "lift_approach"
-msgstr "lift approach possible"
+msgstr "Avvicinamento possibile con skilift:"
 
 msgid "lift_status"
 msgstr "Impianti di risalita:"
@@ -5297,6 +5317,9 @@ msgstr "Italian"
 msgid "meta_title"
 msgstr "Camptocamp.org"
 
+msgid "metaskirando"
+msgstr "Metaskirando"
+
 msgid "meteofrance-04 ML title"
 msgstr "Alpi provenzali del Nord (04)"
 
@@ -5409,6 +5432,9 @@ msgstr "Molise"
 msgid "mollasse calcaire"
 msgstr "mollasse calcare"
 
+msgid "montblanc portal"
+msgstr "Alpinismo, arrampicata et scialpinismo nell'aerea del Bianco"
+
 msgid "month"
 msgstr "mese"
 
@@ -5483,6 +5509,13 @@ msgstr "Numero di cime associate"
 
 msgid "near service"
 msgstr "servizio a prossimità"
+
+# [general comment]
+# 2ème option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
+# [WARNING] en translation used
+msgid "never taken"
+msgstr "I've never taken"
 
 msgid "new_password"
 msgstr "Inserisci una nuova password:"
@@ -6623,6 +6656,10 @@ msgstr "Mostrare sollo l'attività alpinismo"
 msgid "switch_to_snowshoeing"
 msgstr "Mostrare solo l'attività ciaspole"
 
+# [WARNING] fr translation used
+msgid "ta portal"
+msgstr "Terrain d'Aventure"
+
 msgid "technics"
 msgstr "tecnica"
 
@@ -6896,9 +6933,13 @@ msgstr "Mostrare l'ultima versione del documento"
 msgid "visual conditions"
 msgstr "condizioni de visu"
 
-# [WARNING] en translation used
+# [WARNING] fr translation used
+msgid "vosges portal"
+msgstr "Portail Vosges"
+
+# [WARNING] needs_review
 msgid "vtt_approach"
-msgstr "mountain-bike approach possible"
+msgstr "avvicinamento possibile in mountain bike"
 
 msgid "waiting for geolocation"
 msgstr "Localizzazione in corso..."

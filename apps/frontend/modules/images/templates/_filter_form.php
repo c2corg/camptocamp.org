@@ -1,6 +1,8 @@
 <?php
 use_helper('FilterForm', 'Form', 'General', 'MyForm');
 
+$is_connected = $sf_user->isConnected();
+
 if (!c2cTools::mobileVersion())
 {
    // put focus on the name field on dom load

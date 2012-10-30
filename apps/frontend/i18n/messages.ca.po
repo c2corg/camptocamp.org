@@ -1497,7 +1497,7 @@ msgid "Move"
 msgstr "Mou"
 
 msgid "My Camptocamp"
-msgstr "El meu Camptocamp"
+msgstr "El meu C2C"
 
 msgid "My images"
 msgstr "Les meves imatges"
@@ -1970,8 +1970,19 @@ msgstr "Cerca un usuari"
 msgid "Search criteria"
 msgstr "Criteris de cerca"
 
+# [WARNING] en translation used
+msgid "Search in my images"
+msgstr "Search in my images"
+
 msgid "Search in my outings"
 msgstr "Cerca entre les meves sortides"
+
+# [general comment]
+# Titre du critère du filtre d'itinéraire, avec une liste de choix :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "Search in my routes"
+msgstr "Search routes"
 
 # [general comment]
 # [cda]
@@ -2843,11 +2854,11 @@ msgstr "<h3>Autor</h3>Noms de o dels autor(s) de l'imatge. <br />Per separar els
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Butlletins de Neu i Allaus</h3>Enllaços cap als Butlletins de Neu i Allaus recents de la zona on el document està georeferenciat.<br />Per una sortida feta a Suïssa, els butlletins del dia abans i del dia de la sortida també són disponibles.<br />Atenció: per a la resta de països, només hi ha disponible el darrer butlletí, que per tant no correspondrà al dia de la sortida."
 
-# [WARNING] needs_update
 msgid "_beginner_proof_info"
 msgstr "<h3>Iniciació</h3>\n"
-"Itinerari propici a l'iniciació en una activitat.<br />\n"
-"En esquí/snowboard, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
+"Itinerari adequat per a la iniciació.<br />\n"
+"Amb esquís/surf, un itinerari d'iniciació té nivell inferior o igual a 3.2 (pista negra), no exposat (E1) i que no implica carregar material, que té pocs trams plans i que no té bosc, cosa que permet una bona baixada des de qualsevol punt.<br />\n"
+"Com que la característica <em>iniciació</em> inclou un ventall ampli de dificultats, és útil indicar la dificultat desitjada a les cerques."
 
 msgid "_best_periods_info"
 msgstr "<h3>Millors periòdes</h3>Llista dels mesos durant els quals el lloc o l'escola és normalment escalable. Els altres mesos són desaconsellats o prohibits (riscos d'incendi, nidificació....)."
@@ -2945,12 +2956,22 @@ msgstr "<h3>Altitud</h3>Altitud en metres del lloc geogràfic.<br />Per una foto
 msgid "_email_info"
 msgstr "<h3>Dirección email</h3>Dirección email de su cuenta camptocamp.org.<br /><br /><em><u>Al inscribirse </u>:</em><br />Indica una dirección de email valida. Si no, la cuenta no se podrá validar y será destruida pocas semanas después. <br />Esta dirección de email nunca aparece en el sitio. Se usa en los siguientes casos:<br />- Otro usuario registrado o invitado le manda un email por la interfaz del sitio (nunca aparece su dirección).<br />- Se suscribió a unas discusiones en el foro y el servidor le señala la llegada de un nuevo mensaje en estas discusiones. <br />- Se suscribió a unas listas de difusión de los boletines nivológicos."
 
-# [WARNING] needs_update
 msgid "_engagement_rating_info"
 msgstr "<h3>Compromís</h3>\n"
 "Compromís de l'itinerari.<br />\n"
-"La cotació compromís és una manera d'avaluar el grau de perill en el qual ens trobaríem si un problema sorgís. Té en compte nombrosos criteris i és forçosament subjectiva. Entre els criteris principals senylarem l'allunyament de la civilització, l'altitud, durada de l'ascenció, possibilitat i dificultat de retirada...<br />\n"
-"L'escala va de I a VI."
+"El grau de compromís és una manera d'avaluar el perill en el qual ens trobaríem si sorgís un problema. Té en compte nombrosos criteris i és forçosament subjectiu. Entre els criteris principals senyalarem l'allunyament de la civilització (refugi, vall, etc.), l'altitud, durada de l'ascensió, possibilitat i dificultat de retirada...<br />\n"
+"<br />\n"
+"<strong>I</strong>: L'itinerari és curt i es fa ràpidament. És possible girar cua en qualsevol moment. Els serveis de rescat es podrien avisar ràpidament i podrien actuar en qualsevol circumstància meteorològica.<br />\n"
+"<br />\n"
+"<strong>II</strong>: L'itinerari és més llarg (al voltant de 4h). És possible girar cua en qualsevol moment. Es podrien alertar els serveis de socors ràpidament.<br />\n"
+"<br />\n"
+"<strong>III</strong>: L'itinerari dura més de mitja jornada i no és forçosament visible des de la civilització. La retirada és possible però comença a ser delicada. En cas de mal temps els serveis de rescat poden tenir grans dificultats per intervenir-hi.<br />\n"
+"<br />\n"
+"<strong>IV</strong>: L'itinerari dura un dia sencer. El recorregut és llarg i en general no és visible des de la civilització. La retirada és delicada i pot haver-hi punts de no retorn. En cas de mal temps l'itinerari pot esdevenir molt perillós i els equips de rescat no hi podrien intervenir.<br />\n"
+"<br />\n"
+"<strong>V</strong>: L'itinerari és molt llarg i demana entre 12 i 24 h d'esforç. L'accés és difícil. La retirada és delicada des de l'atac a la via. De seguida esdevé impossible girar cua. Les escapatòries són poques i delicades. En cas de mal temps o de problema, els participants només poden comptar amb ells mateixos.<br />\n"
+"<br />\n"
+"<strong>VI</strong>: L'itinerari és llarg i pot implicar més d'un dia. L'aproximació és també llarga i delicada, l'itinerari és totalment aïllat. Un cop començat no es pot girar cua i les escapatòries són vies en sí mateixes. Cal autonomia total de la cordada en la dificultat."
 
 # [WARNING] needs_update
 msgid "_equipment_rating_info"
@@ -2983,9 +3004,8 @@ msgstr "<h3>Focal</h3>Distància focal utilitzada.<br />Aquesta informació és 
 msgid "_forum_code_info"
 msgstr "<h3>Codi d'inserció de la imatge al fòrum</h3>Per inserir aquesta imatge (a mida mitjana) a un missatge del fòrum, cal copiar i enganxar el codi següent: feu clic sobre el codi, utilitzeu Ctrl+C per copiar i Ctrl+V per enganxar.<br />Apareixerà una imatge de com a molt 250 píxels de costat, amb un enllaç cap a la ubicació de la imatge.<br /><br />L'atribut donat darrera la barra (|) permet escollir la posició de la miatge&nbsp;:<br />- <strong>dreta</strong>&nbsp;: imatge a la dreta, text a l'esquerra<br />- <strong>esquerra</strong>&nbsp;: imatge a l'esquerra, text a la dreta<br />- <strong>centre</strong>&nbsp;: imatge centrada, sense text ni a dreta ni a esquerra<br />- <strong>inline</strong>&nbsp;: imatge dins del text<br />- <strong>inline_dreta</strong>&nbsp;: imatge dins del text, alineada a la dreta (permet acumular imatges a la dreta, sobre la mateixa línia)<br />- <strong>inline_esquerra</strong>&nbsp;: imatge dins del text, alineada a l'esquerra (permet acumular imatges a l'esquerra, sobre la mateixa línia)<br /><br />Amb l'atribut  <strong>dreta</strong> o <strong>esquerra</strong>, per començar un nou paràgraf sota la imatge, afegeix una <strong>[p]</strong> al final del paràgraf precedent."
 
-# [WARNING] needs_update
 msgid "_frequentation_status_info"
-msgstr "<h3>Frequentació </h3>Frequentació de l'itinerari el dia de la sortida."
+msgstr "<h3>Frequentació </h3>Frequentació de l'itinerari el dia de la sortida.<br />El judici sobre la freqüentació és força subjectiu. Tanmateix, es pot definir una escala en funció de la nosa que hagi provocat la presència d'altra gent seguint l'itinerari.<br /><br /><strong>desert</strong>: no hi ha ningú més fora de nosaltres<br /><br /><strong>poc freqüentat</strong>: hi ha d'altra gent, en menor nombre al nostre propi grup (en cas d'escalada, una altra cordada)<br /><br /><strong>freqüentat</strong>: hi ha d'altra gent, en nombre major al nostre grup, però no ens fem nosa mútuament (en escalada, hi ha dues o tres cordades més ben repartides en l'itinerari)<br /><br /><strong>molt freqüentat</strong>: hi ha més persones, en nombre superior al nostre grup i ens fem nosa mútuament (en escalada, hi ha quatre cordades o més, amb esperes a les reunions, etc.)"
 
 # [WARNING] needs_update
 msgid "_gear_info"
@@ -3027,9 +3047,27 @@ msgstr "<h3>Desnivell</h3>Desnivells positiu i/o negatiu acumulats.<br /><br /><
 msgid "_height_diff_up_info"
 msgstr "<h3>Desnivell positiu</h3>Desnivell positiu acumulat.<br /><br />Si una traça GPX és asssociada a aquest itinerari, el desnivell positiu serà calculat automàticament i substituirà l'antic valor."
 
-# [WARNING] needs_update
 msgid "_hiking_rating_info"
-msgstr "<h3>Cotació trekking</h3>Cotació de les dificultats d'un itinerari de trekking.<br />L'escala va de T1 a T5."
+msgstr "<h3>Escala de dificultats en excursionisme</h3>Grau de dificultats d'un itinerari d'excursionisme. L'escala s'inspira en la proposada pel Club Alpí Suís.<br />\n"
+"<br />\n"
+"<strong>T1</strong>: Caminada. Sender ben traçat. Terreny pla o amb pendents suaus, no hi ha risc de caigudes.<br />\n"
+"<em>Requeriments:</em> Cap, es pot fer amb bambes. L'orientació no suposa cap problema, en general es pot fer fins i tot sense mapa.<br />\n"
+"<br />\n"
+"<strong>T2</strong>: Caminada de muntanya. Sender amb traça ininterrompuda. Terreny de vegades pendent, no és impossible una caiguda.<br />\n"
+"<em>Requeriments:</em> Tenir el peu ferm. Es recomanen les bótes de muntanya. Capacitat mínima d'orientació.<br />\n"
+"<br />\n"
+"<strong>T3</strong>: Caminada exigent per muntanya. Sender no necessàriament visible en tot el recorregut. Els passos exposats poden estar assegurats amb cordes o cadenes. L'ús de les mans pot ser necessari per l'equilibri. Alguns passos exposats tenen risc de caiguda, tarteres, pendents en roca sense traça.<br />\n"
+"<em>Requeriments:</em> Tenir el peu molt ferm. Bones bótes de muntanya. Capacitat d'orientació mitjana. Experiència elemental en muntanya.<br />\n"
+"<br />\n"
+"<strong>T4</strong>: Excursionisme alpí. Recorregut sovint fora de sender. L'ajuda de les mans és de vegades necessària per a la progressió. Terreny ja força exposat, pendents herbosos delicats, pendents de roca, congestes fàcils i passos sobre glacera no recoberts de neu.<br />\n"
+"<em>Requeriments:</em> Cal estar familiaritzat amb el terreny exposat. Bótes rígides. Una certa capacitat d'avaluació del terreny i una bona capacitat d'orientació. Experiència alpina. En cas de mal temps, la retirada pot esdevenir difícil.<br />\n"
+"<br />\n"
+"<strong>T5</strong>: Excursionisme alpí exigent. Sovint fora de sender. Agluns passos d'escalada fàcil (dificultat global màxima 2, puntualment fins a 3c si el pas és molt curt i protegit). Terreny exposat, exigent, pendents forts també en roca, petites glaceres i congestes sense esquerdes, que poden requerir l'ús de grampons però que no  impliquin, habitualment, material d'encordament. Poden fer-se servir el material i les tècniques d'alpinisme per a passos puntuals però com a mitjà de progressió contínua.<br />\n"
+"<em>Requeriments:</em> Botes de muntanya. Avaluació segura del terreny i molt bona capacitat d'orientació. Bona experiència en alta muntanya i coneixements elementals de l'ús del piolet i de la corda.<br />\n"
+"<br />\n"
+"<em>S'ha suprimit el grau de dificultat T6. Per als itineraris més difícils que T5, feu servir l'activitat \"escalada\" o bé \"escalada en alta muntanya\", així com l'escala de dificultats associada.</em><br />\n"
+"<br />\n"
+"Vegeu també l'ajuda a les <a href=\"/articles/106859/fr\">escales de dificultat en excursionisme</a>."
 
 msgid "_hours_info"
 msgstr "<h3>Horaris d'obertura</h3>Dates i horaris d'obertura."
@@ -3118,10 +3156,10 @@ msgstr "<h3>Latitud</h3>Latitud del punt geogràfic en graus décimals.<br />Per
 msgid "_license_info"
 msgstr "Llicència de l'utilització del contingut"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "_lift_approach_info"
-msgstr "<h3>Lift approach possible</h3>\n"
-"A lift can be used to approach and / or return of this route."
+msgstr "<h3>Possible aproximació amb mitjans mecànics</h3>\n"
+"Es pot utilitzar un remuntador mecànic per a l'aproximació i/o la tornada d'aquest itinerari."
 
 msgid "_lift_status_info"
 msgstr "<h3>Remontadors mecànics</h3>Obertura dels remuntadors mecànics propers a l'itinerari."
@@ -3140,11 +3178,10 @@ msgstr "<h3>Altitud de partida mínima</h3>Aéltitud mínima de l'accés en hive
 
 # [WARNING] needs_update
 msgid "_maps_info_info"
-msgstr "<h3>Cartografia</h3>Referències cartogràfiques suplementàries (a part de IGN o CNS).<br />Indiqueu la referència, el títol i l'escala del mapa.<br />Durant una edició: per un punt geogràfic situat a França o a Suïssa, si les coordenades són reportades, els mapes IGN o CNS corresponents s'associaran automàticament. Així, és inutil omplir el camp <i>Cartografia</i> amb aquests mapes."
+msgstr "<h3>Cartografia</h3>Referències cartogràfiques suplementàries (a banda de l'IGN francès o el CNS Suís).<br />Indiqueu la referència, el títol i l'escala del mapa.<br />Si hi ha diversos mapes, separeu-ne les referències amb contrabarres (\\).<br />Durant una edició: en cas d'un punt geogràfic situat a França o a Suïssa, si s'entren les coordenades, els mapes IGN o CNS corresponents s'associaran automàticament. Així, és innecessari omplir el camp <i>Cartografia</i> amb aquests mapes."
 
-# [WARNING] needs_update
 msgid "_maps_info_short_info"
-msgstr "Per un punt geogràfic situat a França o a Suïssa, si les coordenades són reportades, els mapes IGN o CNS corresponents s'associaran automàticament. Així, és inutil omplir el camp <i>Cartografia</i> amb aquests mapes."
+msgstr "No indiqueu els mapes IGN (França) o CNS (Suïssa), donat que s'associen automàticament d'acord amb les coordenades."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Altitud màxima</h3>Altitud màxima a la que s'arriba per aquest itinerari<br /><br />Si una traça GPX és asssociada a aquest itinerari, l'altitud màxima serà calculada automàticament i substituirà l'antic valor."
@@ -3155,13 +3192,11 @@ msgstr "<h3>Alçada màxima</h3>Alçada d ela vía més llarga de l'escola o sec
 msgid "_max_rating_info"
 msgstr "<h3>Cotació màxima</h3>Cotació màxima de les víes les més dures en l'escola o sector.<br />Es dóna típicament sobre l'escala tradicional francesa, que va de 2 a 9b."
 
-# [WARNING] needs_update
 msgid "_mean_height_info"
-msgstr "<h3>Alçada mitjana</h3>Alçada mitjana de les víes d'interés en una escola o sector."
+msgstr "<h3>Alçada mitjana</h3>Alçada mitjana de les vies d'interès en una escola o sector.<br />L'alçada mitjana es determina ordenant les vies per alçada creixent, i després separant-les en dues parts iguals. L'alçada de les vies al punt de separació és l'alçada mitjana."
 
-# [WARNING] needs_update
 msgid "_mean_rating_info"
-msgstr "<h3>Cotació mitjana</h3>Cotació mitjana de les víes les més representatives en l'escola o sector.<br />Es dóna típicament sobre l'escala tradicional francesa, que va de 2 a 9b."
+msgstr "<h3>Dificultat mitjana</h3>Dificultat mitjana de les vies més representatives en l'escola o sector.<br />Es dóna típicament sobre l'escala tradicional francesa, que va de 2 a 9b.<br />La dificultat mitjana es determina ordenant les vies per dificultat creixent i separant-les en dues parts iguals. La dificultat de les vies del tall és la dificultat mitjana."
 
 msgid "_min_elevation_info"
 msgstr "<h3>Altitud mínima</h3>Altitud mínima la que s'arriba per aquest itinerari<br /><br />Si una traça GPX és asssociada a aquest itinerari, l'altitud mínima serà calculada automàticament i substituirà l'antic valor."
@@ -3247,9 +3282,8 @@ msgstr "<h3>Accessibilitat en transports públics </h3>Qualitat de laccés en tr
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipus de transport públic</h3>Tipus de transport públic que permet arribar a aquest accés. Només s'han de descriure els que realment hi arriben<br /><em>Ex: en cas d'un accés cobert per un autobús provinent d'una estació de tren situada a 10 km, només s'ha d'indicar \"autobús\".</em><br /><br /><strong>tren</strong>: tren<br /><br /><strong>autobús</strong>: autobús o cotxe<br /><br /><strong>servei a demanda</strong>: taxi o autobús a demanda, que permet allargar una línia regular, i accessible amb un bitllet de tren o d'autobús"
 
-# [WARNING] needs_update
 msgid "_publication_date_info"
-msgstr "<h3>Data de publicació</h3>Data en la qual el llibre o revista ha estat publicat. Si hi ha més d'una edició, caldrà referir-se a la més recent, o bé s'indicarà la primera i la darrera separades per un guió (per exemple 1983 - 2010). Aquest camp és el mateix en totes les llengües, de manera que s'han d'utilitzar valors numèrics (\"2004\", \"03/2009\", \"07-08/1997\"... )<br />Preferentment s'indicarà només l'any en el cas dels llibres, i l'any i el mes en el cas de les revistes"
+msgstr "<h3>Data de publicació</h3>Data en la qual el llibre o revista ha estat publicat. Si hi ha més d'una edició, caldrà referir-se a la més recent en cas que es tracti d'actualitzacions, o bé s'indicarà la primera si es tracta de reedicions sense modificacions. Aquest camp és el mateix en totes les llengües, de manera que s'han d'utilitzar valors numèrics (\"2004\", \"03/2009\", \"07-08/1997\"... )<br />Preferentment s'indicarà només l'any en el cas dels llibres, i l'any i el mes en el cas de les publicacions periòdiques"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pluja</h3>Exposició del lloc/escola/sector a la pluja.<br />util si la metereologia és dubtosa."
@@ -3415,13 +3449,13 @@ msgstr "<h3>URL</h3>Adreça web de l'editor del document telecarregable."
 msgid "_variants_info"
 msgstr "<h3>Itineraris associats</h3>Els itineraris associats a aquest  itinerari són itineraris que recòrren tot o part de les seves dificultats.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_vtt_approach_info"
-msgstr "<h3>Approche en VTT possible</h3>\n"
-"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
-"Cela concerne les approches commençant par :<br />\n"
-"- une piste ou route interdite aux véhicules motorisés<br />\n"
-"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
+msgstr "<h3>Aproximació en BTT possible</h3>\n"
+"Tot o una part significativa de l'aproximació i/o de la tornada d'aquest itinerari es pot fer fàcilment amb BTT, des del punt més alt d'accés autoritzat durant l'estiu.<br />\n"
+"Això afecta les aproximacions que comencen per:<br />\n"
+"- una pista o ruta prohibida als vehicles de motor<br />\n"
+"- un sender llarg, poc accidentat, poc pendent i autoritzat a la BTT"
 
 msgid "_way_back_info"
 msgstr "<h3>Baixada de las víes</h3>Mitjà de descens de les víes des del cim i informacions utils:<br /><br /><strong>despenjat des d'abaix</strong>: llargada de corda<br /><br /><strong>ràpel</strong>: situació de la línia de ràpel, llargada de corda, presència eventual de reunions fora de la vertical...<br /><br /><strong>a peu</strong>: itinerari, durada, dificultats eventuals..."
@@ -3558,6 +3592,16 @@ msgstr "Alps orientals"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "alpes_s"
 msgstr "Alps occidentals - S"
+
+msgid "alpinism big portal"
+msgstr "Grans itineraris d'alpinisme"
+
+# [general comment]
+# 1ère option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "already taken"
+msgstr "I've already taken"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3936,9 +3980,9 @@ msgstr "Categoria:"
 
 # [general comment]
 # [cda]
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "cda More"
-msgstr "Més..."
+msgstr "Per anar més lluny"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
@@ -4092,9 +4136,8 @@ msgstr "imatge col·laborativa"
 msgid "collaborative images"
 msgstr "imatges colaboratives"
 
-# [WARNING] en translation used
 msgid "collaborative images of associated documents"
-msgstr "collaborative images of associated documents"
+msgstr "imatges col·laboratives dels documents associats"
 
 # [WARNING] needs_review
 msgid "collaborative images of associated outings"
@@ -4123,9 +4166,12 @@ msgstr "Condicions trobades:"
 msgid "conditions linked to"
 msgstr "llista de les condicions associades"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "conditions_and_equipment"
-msgstr "Condicions trobades:"
+msgstr "Condicions del terreny, equipament i qualitat de la roca trobades (aproximació + via):\n"
+"\n"
+"\n"
+"Condicions trobades:"
 
 msgid "conditions_levels"
 msgstr "Quantitat de neu per zones:"
@@ -4296,9 +4342,8 @@ msgstr "Descripció:"
 msgid "desert"
 msgstr "desert"
 
-# [WARNING] needs_update
 msgid "detail pic"
-msgstr "detall, zoom"
+msgstr "detall (lloc, itinerari)"
 
 msgid "deutsch"
 msgstr "alemany"
@@ -5037,9 +5082,9 @@ msgstr "Total (cm)"
 msgid "license"
 msgstr "Llicència:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "lift_approach"
-msgstr "lift approach possible"
+msgstr "Aproximació amb remuntadors mecànics possible:"
 
 msgid "lift_status"
 msgstr "Remuntadors mecànics:"
@@ -5256,9 +5301,8 @@ msgstr "menú"
 msgid "meta_description"
 msgstr "La comunitat de muntanya"
 
-# [WARNING] needs_update
 msgid "meta_keywords"
-msgstr "muntanya, esquí, alpinisme, escalada, trekking, raquetes"
+msgstr "muntanya, esquí de muntanya, surf de muntanya, alpinisme, raquetes, alpinisme, neu, glaç, mixt, corredors, canals, cascades, dry-tooling, roca, escalada, parets, grimpades, excursions a peu"
 
 msgid "meta_language"
 msgstr "ca"
@@ -5271,6 +5315,9 @@ msgstr "Catalan"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"
+
+msgid "metaskirando"
+msgstr "Metaskirando"
 
 msgid "meteofrance-04 ML title"
 msgstr "Alpes de Haute-Provence (04)"
@@ -5383,6 +5430,9 @@ msgstr "Molise"
 msgid "mollasse calcaire"
 msgstr "arenisca"
 
+msgid "montblanc portal"
+msgstr "Alpinisme, escalada i esquí al Mont-Blanc"
+
 msgid "month"
 msgstr "mes"
 
@@ -5454,6 +5504,13 @@ msgstr "Nombre de cims associats"
 
 msgid "near service"
 msgstr "servei a proximiat"
+
+# [general comment]
+# 2ème option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
+# [WARNING] en translation used
+msgid "never taken"
+msgstr "I've never taken"
 
 msgid "new_password"
 msgstr "Entra la teva contrassenya:"
@@ -6540,9 +6597,8 @@ msgstr "Compatible amb:"
 msgid "summit"
 msgstr "cim"
 
-# [WARNING] needs_update
 msgid "summit form warning"
-msgstr "<strong>Atenció!</strong> En aquesta pàgina només indiqueu les informacions relatives a aquest cim: ubicació, geologia, història.... Les informacions dels itineraris i la seva història han d'especificar-se en les pàgines \"itinerari\" dedicades. "
+msgstr "<strong>Atenció!</strong> En aquesta pàgina indiqueu només informació relativa a aquest cim: ubicació, geologia, història, etc. Les descripcions dels itineraris i els seus antecedents històrics s'han d'especificar a les pàgines \"itinerari\" corresponents.<br />Trobareu més informació al respecte de l'organització de la topo-guia a l'<a href=\"/articles/117868/ca\">ajuda</a>.</li><li><strong>Nom del cim:</strong><br />- Un cim ha de ser un lloc geogràfic: cim, coll, bretxa, llac, sector de vies llargues o de cascades de glaç.<br />- Un cim no pot ser un recorregut o una travessa. Aquests s'han de descriure com a itineraris, associats al(s) cim(s) pel(s) qual(s) es passa i/o al cim al voltant del qual es va la volta.<br />- Excepció: per entrar una travessa, creeu un cim <em>Travessa: Nom de la travessa</em>. Associeu-lo després als itineraris que conformen cadascuna de les etapes, o creeu un itinerari que les descrigui totes juntes.</li><li><strong>Georeferenciament:</strong> Per tal que un cim estigui associat a un massís i/o a una regió, cal donar-ne les coordenades geogràfiques."
 
 msgid "summit_id"
 msgstr "Cim:"
@@ -6595,6 +6651,9 @@ msgstr "Mostrar únicament l'activitat alpinisme"
 # [WARNING] needs_review
 msgid "switch_to_snowshoeing"
 msgstr "Mostra només activitats amb raquetes"
+
+msgid "ta portal"
+msgstr "Terreny d'aventura"
 
 msgid "technics"
 msgstr "tècnic"
@@ -6871,9 +6930,13 @@ msgstr "Mostra la darrera versió del document"
 msgid "visual conditions"
 msgstr "condicions de visu"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
+msgid "vosges portal"
+msgstr "Portal Vosges"
+
+# [WARNING] needs_review
 msgid "vtt_approach"
-msgstr "mountain-bike approach possible"
+msgstr "aproximació amb BTT possible"
 
 msgid "waiting for geolocation"
 msgstr "Localització en curs..."

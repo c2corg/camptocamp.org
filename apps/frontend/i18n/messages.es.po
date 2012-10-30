@@ -1518,7 +1518,7 @@ msgid "Move"
 msgstr "Mover"
 
 msgid "My Camptocamp"
-msgstr "Mi Camptocamp"
+msgstr "Mi C2C"
 
 msgid "My images"
 msgstr "Mis imágenes"
@@ -2000,9 +2000,20 @@ msgstr "Buscar un usuario"
 msgid "Search criteria"
 msgstr "Criterios de búsqueda"
 
+# [WARNING] en translation used
+msgid "Search in my images"
+msgstr "Search in my images"
+
 # [WARNING] needs_review
 msgid "Search in my outings"
 msgstr "Buscar entre mis salidas"
+
+# [general comment]
+# Titre du critère du filtre d'itinéraire, avec une liste de choix :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "Search in my routes"
+msgstr "Search routes"
 
 # [general comment]
 # [cda]
@@ -3574,6 +3585,17 @@ msgstr "Alpes E"
 msgid "alpes_s"
 msgstr "Alpes occidentales - S"
 
+# [WARNING] fr translation used
+msgid "alpinism big portal"
+msgstr "Alpinisme grandes courses"
+
+# [general comment]
+# 1ère option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "already taken"
+msgstr "I've already taken"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -5086,7 +5108,7 @@ msgstr "Licencia:"
 
 # [WARNING] en translation used
 msgid "lift_approach"
-msgstr "lift approach possible"
+msgstr "Lift approach possible:"
 
 msgid "lift_status"
 msgstr "Medios de elevación:"
@@ -5324,6 +5346,9 @@ msgstr "Spanish"
 msgid "meta_title"
 msgstr "Camptocamp.org"
 
+msgid "metaskirando"
+msgstr "Metaskirando"
+
 msgid "meteofrance-04 ML title"
 msgstr "Alpes de Haute-Provence (04)"
 
@@ -5436,6 +5461,10 @@ msgstr "Molise"
 msgid "mollasse calcaire"
 msgstr "molaza calcárea"
 
+# [WARNING] en translation used
+msgid "montblanc portal"
+msgstr "Mont Blanc Climbing, Mountaineering and skiing"
+
 msgid "month"
 msgstr "mes"
 
@@ -5509,6 +5538,13 @@ msgstr "Numero de cimas asociadas"
 
 msgid "near service"
 msgstr "servicio a proximidad"
+
+# [general comment]
+# 2ème option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
+# [WARNING] en translation used
+msgid "never taken"
+msgstr "I've never taken"
 
 msgid "new_password"
 msgstr "Entre su nueva contraseña:"
@@ -6677,6 +6713,10 @@ msgstr "Mostrar únicamente la actividad alpisnimo en nievve, hielo & mixto"
 msgid "switch_to_snowshoeing"
 msgstr "Show only snowshoeing"
 
+# [WARNING] fr translation used
+msgid "ta portal"
+msgstr "Terrain d'Aventure"
+
 msgid "technics"
 msgstr "técnica"
 
@@ -6952,6 +6992,10 @@ msgstr "Muestra la última versión del documento"
 
 msgid "visual conditions"
 msgstr "condiciones visualizadas"
+
+# [WARNING] fr translation used
+msgid "vosges portal"
+msgstr "Portail Vosges"
 
 # [WARNING] en translation used
 msgid "vtt_approach"

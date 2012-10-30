@@ -1559,7 +1559,7 @@ msgstr "Mugitu"
 
 # [WARNING] needs_review
 msgid "My Camptocamp"
-msgstr "Nire Camptocamp"
+msgstr "Nire C2C"
 
 # [WARNING] es translation used
 msgid "My images"
@@ -2077,9 +2077,20 @@ msgstr "Erabiltzaile bat aurkitu"
 msgid "Search criteria"
 msgstr "Bilaketa irizpideak"
 
+# [WARNING] en translation used
+msgid "Search in my images"
+msgstr "Search in my images"
+
 # [WARNING] es translation used
 msgid "Search in my outings"
 msgstr "Buscar entre mis salidas"
+
+# [general comment]
+# Titre du critère du filtre d'itinéraire, avec une liste de choix :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "Search in my routes"
+msgstr "Search routes"
 
 # [general comment]
 # [cda]
@@ -3160,7 +3171,9 @@ msgstr "<h3> Desnibel positiboa</h3> Desnibel positibo metatua.<br /><br /> Ibil
 
 # [WARNING] needs_update
 msgid "_hiking_rating_info"
-msgstr "<h3>Txangoaren zailtasuna</h3>Oinezko txagoaren zailtasuna akotatzen du. <br />Eskala T1 –etik T5-ra doa."
+msgstr "<h3>Txangoaren zailtasuna</h3>Oinezko txagoaren zailtasuna akotatzen du. <br />Eskala T1 –etik T5-ra doa.\n"
+"\n"
+"See also help on the <a href=\"/articles/106859/en\">hiking grades</a>"
 
 # [WARNING] es translation used
 msgid "_hours_info"
@@ -3706,6 +3719,17 @@ msgstr "Alpes E"
 # [WARNING] es translation used
 msgid "alpes_s"
 msgstr "Alpes occidentales - S"
+
+# [WARNING] fr translation used
+msgid "alpinism big portal"
+msgstr "Alpinisme grandes courses"
+
+# [general comment]
+# 1ère option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] en translation used
+msgid "already taken"
+msgstr "I've already taken"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5304,7 +5328,7 @@ msgstr "Lizentzia:"
 
 # [WARNING] en translation used
 msgid "lift_approach"
-msgstr "lift approach possible"
+msgstr "Lift approach possible:"
 
 msgid "lift_status"
 msgstr "Igogailu mekanikoak:"
@@ -5558,6 +5582,9 @@ msgstr "Euskara"
 msgid "meta_title"
 msgstr "Camptocamp.org"
 
+msgid "metaskirando"
+msgstr "Metaskirando"
+
 msgid "meteofrance-04 ML title"
 msgstr "Alpes de Haute-Provence (04)"
 
@@ -5672,6 +5699,10 @@ msgstr "Molise"
 msgid "mollasse calcaire"
 msgstr "mollasse kareharria"
 
+# [WARNING] en translation used
+msgid "montblanc portal"
+msgstr "Mont Blanc Climbing, Mountaineering and skiing"
+
 msgid "month"
 msgstr "hilabete"
 
@@ -5753,6 +5784,13 @@ msgstr "Numero de cimas asociadas"
 # [WARNING] es translation used
 msgid "near service"
 msgstr "servicio a proximidad"
+
+# [general comment]
+# 2ème option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
+# [WARNING] en translation used
+msgid "never taken"
+msgstr "I've never taken"
 
 msgid "new_password"
 msgstr "Sartu zure pasa hitz berria:"
@@ -7031,6 +7069,10 @@ msgstr "Bakarrik alpinismoko ekintzak erakutsi"
 msgid "switch_to_snowshoeing"
 msgstr "Show only snowshoeing"
 
+# [WARNING] fr translation used
+msgid "ta portal"
+msgstr "Terrain d'Aventure"
+
 msgid "technics"
 msgstr "teknika"
 
@@ -7319,6 +7361,10 @@ msgstr "Dokumenturaren azkenengo bertsioa agertu"
 
 msgid "visual conditions"
 msgstr "ikusitako egoera"
+
+# [WARNING] fr translation used
+msgid "vosges portal"
+msgstr "Portail Vosges"
 
 # [WARNING] en translation used
 msgid "vtt_approach"

@@ -1515,7 +1515,7 @@ msgid "Move"
 msgstr "Move"
 
 msgid "My Camptocamp"
-msgstr "My Camptocamp"
+msgstr "My C2C"
 
 msgid "My images"
 msgstr "My images"
@@ -1997,9 +1997,19 @@ msgstr "Search for a user"
 msgid "Search criteria"
 msgstr "Search criteria"
 
+msgid "Search in my images"
+msgstr "Search in my images"
+
 # [WARNING] needs_review
 msgid "Search in my outings"
 msgstr "Search in my outings"
+
+# [general comment]
+# Titre du critère du filtre d'itinéraire, avec une liste de choix :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] needs_review
+msgid "Search in my routes"
+msgstr "Search routes"
 
 # [general comment]
 # [cda]
@@ -3621,7 +3631,14 @@ msgstr "Western Alps - S"
 
 # [WARNING] fr translation used
 msgid "alpinism big portal"
-msgstr "Alpinisme Grandes Courses"
+msgstr "Alpinisme grandes courses"
+
+# [general comment]
+# 1ère option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
+# [WARNING] needs_review
+msgid "already taken"
+msgstr "I've already taken"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5122,7 +5139,7 @@ msgstr "License:"
 
 # [WARNING] needs_review
 msgid "lift_approach"
-msgstr "lift approach possible"
+msgstr "Lift approach possible:"
 
 msgid "lift_status"
 msgstr "Lift or cable-car:"
@@ -5358,6 +5375,9 @@ msgstr "English"
 msgid "meta_title"
 msgstr "Camptocamp.org"
 
+msgid "metaskirando"
+msgstr "Metaskirando"
+
 msgid "meteofrance-04 ML title"
 msgstr "Alpes de Haute-Provence (04)"
 
@@ -5547,6 +5567,13 @@ msgstr "Number of associated summits"
 
 msgid "near service"
 msgstr "service close-by"
+
+# [general comment]
+# 2ème option pour le critère suivant, dans le filtre d'itinéraires :
+# Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
+# [WARNING] needs_review
+msgid "never taken"
+msgstr "I've never taken"
 
 msgid "new_password"
 msgstr "Enter new password:"
@@ -6711,7 +6738,7 @@ msgstr "Show only snowshoeing"
 
 # [WARNING] fr translation used
 msgid "ta portal"
-msgstr "TA : Terrain d'Aventure"
+msgstr "Terrain d'Aventure"
 
 msgid "technics"
 msgstr "techniques"
