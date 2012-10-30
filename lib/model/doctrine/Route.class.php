@@ -392,9 +392,7 @@ class Route extends BaseRoute
                     $first_group = true;
                     foreach ($user_groups as $user_group)
                     {
-                        $user_group_ids = explode('-', $user_group);
-                        $user_ids = array_merge($user_ids, $user_group_ids);
-                        $conditions_temp = array("a.type = 'ro'", "lo.type = 'uo'");
+                        $conditions_temp = array("a.type = 'ro'", "lu.type = 'uo'");
                         $values_temp = array();
                         self::buildListCondition($conditions_temp, $values_temp, 'lu.main_id', $user_group);
                         $where = implode(' AND ', $conditions_temp);
