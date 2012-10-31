@@ -532,6 +532,7 @@ class Route extends BaseRoute
         $orderby_list = c2cTools::getRequestParameterArray(array('orderby', 'orderby2', 'orderby3'));
         
         self::buildOrderCondition($joins_order, $orderby_list, array('rnam'), array('route_i18n', 'join_route', 'summit_i18n', 'join_summit'));
+        self::buildOrderCondition($joins_order, $orderby_list, array('lat', 'lon'), array('summit', 'join_summit'));
         
         // area criteria
         self::buildAreaCriteria($criteria, $params_list, 'r');
