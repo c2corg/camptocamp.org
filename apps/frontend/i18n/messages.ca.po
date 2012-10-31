@@ -3176,9 +3176,8 @@ msgstr "<h3>Longitud</h3>Longitud del punt geogràfic en graus décimals.<br />P
 msgid "_lowest_elevation_info"
 msgstr "<h3>Altitud de partida mínima</h3>Aéltitud mínima de l'accés en hivern. Correspon normalment al límit de la retirada mecànica de la neu."
 
-# [WARNING] needs_update
 msgid "_maps_info_info"
-msgstr "<h3>Cartografia</h3>Referències cartogràfiques suplementàries (a banda de l'IGN francès o el CNS Suís).<br />Indiqueu la referència, el títol i l'escala del mapa.<br />Si hi ha diversos mapes, separeu-ne les referències amb contrabarres (\\).<br />Durant una edició: en cas d'un punt geogràfic situat a França o a Suïssa, si s'entren les coordenades, els mapes IGN o CNS corresponents s'associaran automàticament. Així, és innecessari omplir el camp <i>Cartografia</i> amb aquests mapes."
+msgstr "<h3>Cartografia</h3>Referències cartogràfiques suplementàries (a banda de l'IGN francès o el CNS Suís).<br />Indiqueu la referència, el títol i l'escala del mapa.<br />Si hi ha diversos mapes, separeu-ne les referències amb una contrabarra (\\).<br />En cas d'un punt geogràfic situat a França o a Suïssa, si s'entren les coordenades, els mapes IGN o CNS corresponents s'associaran automàticament. Així, és innecessari omplir el camp <i>Cartografia</i> amb aquests mapes."
 
 msgid "_maps_info_short_info"
 msgstr "No indiqueu els mapes IGN (França) o CNS (Suïssa), donat que s'associen automàticament d'acord amb les coordenades."
@@ -3249,9 +3248,8 @@ msgstr "<h3>Sortida amb ecomobilitat</h3>\n"
 msgid "_partial_trip_info"
 msgstr "<h3>Recorregut parcial</h3>Indica si l'itinerari ha estat recoregut parcialment durant la sortida."
 
-# [WARNING] needs_update
 msgid "_participants_info"
-msgstr "<h3>Participants no inscrits</h3>Llista dels participants de la sortida no inscrits a Camptocamp.<br />Els participants de la sortida inscrits a camptocamp.org poden ser directament associats a la sortida donant-lis el dret de modificar la sortida."
+msgstr "<h3>Participants no inscrits</h3>Llista dels participants de la sortida no inscrits a camptocamp.<br />La 1a línia del camp es mostrarà a la mateixa línia que els participants membres de camptocamp. Les línies següents es mostraran a sota.<br />Els participants membres de camptocamp.org s'han d'associar des de la pàgina de consulta de la sortida, un cop aquesta s'hagi creat. Això els dóna dret de modificar la sortida, d'afegir-hi fotos i d'associar d'altres participants membres."
 
 msgid "_password_info"
 msgstr "<h3>Contraseña</h3><em><u>Al conectarse </u>:</em><br />Teclear la contraseña de su cuenta en Camptocamp.org.<br />Si olvido su login y/o su contraseña, puede pedir una nueva contraseña pulsando <em>¿olvidó su contraseña? </em><br /><br /><em><u>Preferencias personales</u>:</em><br />Si quiere modificar su contraseña, teclea uno nuevo. Si no, deje el campo vacío."
@@ -3294,9 +3292,8 @@ msgstr "<h3>Notes</h3>Aquest camp permet completar o matitzar les informacions d
 msgid "_remember_info"
 msgstr "<h3>¿Acordarse de mi?</h3>Seleccionando esta opción, se conectara automáticamente en su próxima visita a camptocamp.org.<br />Si no, será desconectado al cerrar su navegador."
 
-# [WARNING] needs_update
 msgid "_rev_comment_info"
-msgstr "<h3>Informacions sobre les modificacions</h3>Indicat breument en el camp de modificacions aportades al document"
+msgstr "<h3>Informació sobre les modificacions</h3>Indiqueu breument en aquest camp les modificacions fetes al document.<br />Si heu copiat un text des d'una font la llicència de la qual és compatible amb el document, esmenteu-ne l'autor i/o l'enllaç cap a la font dins d'aquest camp."
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Modificacions menors</h3>Marqueu aquesta casella si les modificacions aportades al document no són importants&nbsp;:<br /><br /><strong>texte</strong>&nbsp;: correcció de l'ortografia o de la presentació<br /><br /><strong>altitud i desnivell</strong>&nbsp;: modificacions &lt; 50m<br /><br /><strong>cotació</strong>&nbsp;: modificació d'una divisió (AD a AD+, 3.3 a 3.2)<br /><br /><strong>descripció d'itinerari o de lloc</strong>&nbsp;: petita nota, reformulació d'una frase, però els afegits de variants o rescritures completes no són modificacions menors"
