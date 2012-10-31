@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ google, changerdapproche, camp_f, google, changerdapproche, boutique_c2c, cilao, camp_h, boutique_c2c, google, google, changerdapproche ]
+    values: [ diamir_WIN, changerdapproche, camp_f, diamir_WIN, changerdapproche, boutique_c2c, diamir_WIN, cilao, camp_h, boutique_c2c, diamir_WIN, changerdapproche ]
   banners:
     list:
       skalp:
@@ -190,3 +190,19 @@ all:
         id: 53
         image: camp-gravitezero.gif
         alt: "Gravité Zéro"
+      diamir_WIN:
+        id: 55
+        image: diamir-WIN.gif
+        alt: "Diamir WIN"
+      diamir_Scout11:
+        id: 56
+        image: diamir-Scout11.gif
+        alt: "Diamir Scout 11"
+      diamir_securite:
+        id: 57
+        image: diamir-securite.gif
+        alt: "Diamir Sécurité"
+      diamir_ontour2013:
+        id: 58
+        image: diamir-OnTour2013.gif
+        alt: "Diamir On Tour"
