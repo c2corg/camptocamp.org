@@ -639,7 +639,7 @@ class sfPunBBCodeParser
                                  $image['image_type'],
                                  $path,
                                  $filename . 'BI.' . $extension,
-                                 $title,
+                                 strip_tags($title),
                                  ($show_legend ? '' : $img_class ),
                                  $path,
                                  $filename . $size . $extension,
@@ -657,7 +657,11 @@ class sfPunBBCodeParser
                               array('class' => 'picto_images view_details',
                                     'title'   => __('View image details')));
               }
-              $image_tag = $image_tag . '<figcaption>' . $legend . '</figcaption></figure>';
+              // note: it is safe (at least should be :)) to translate \" to " here
+              // since we only get them because of e modifier for img pre_replace
+              // (elsewhere it is translated to html special chars)
+              // FIXME preg_replace with e delimiter is kinda deprecated,we should rather use preg_replace_callback
+              $image_tag = $image_tag . '<figcaption>' . stripslashes($legend) . '</figcaption></figure>';
         }
 
         if ($centered)
@@ -804,8 +808,8 @@ class sfPunBBCodeParser
                          '#\[imp(ortant)?\]\s*(.*?)\s*\[/imp(ortant)?\]\s?#s',
                          '#\[warn(ing)?\]\s*(.*?)\s*\[/warn(ing)?\]\s?#s',
                          '#\s?\[col(\s+)([\w\s]*)\]\s*(.*?)\s*\[/col\]\s?#se'
-);
-    
+        );
+
         $target = $force_external_links ? '_blank' : '';
         $viewer = $viewer ? 'true' : 'false';
         $replace = array('<strong>$1</strong>',
@@ -2032,7 +2036,6 @@ class sfPunBBCodeParser
             // Active links between < > or [ ]
             $text = self::do_clickable($text);
         }
-    
         $text = self::do_headers($text);
         $text = self::do_lines($text);
         $text = self::do_lists($text);
