@@ -370,7 +370,7 @@ function handle_quote_tag($poster_name, $post_id)
 //
 // Truncate URL if longer than 55 characters (add http:// or ftp:// if missing)
 //
-function handle_url_tag($url, $link = '')
+function handle_url_tag($url, $link = '', $show_video = false)
 {
     global $showed_post_list, $lang_common, $pun_config;
 
@@ -532,7 +532,7 @@ function handle_url_tag($url, $link = '')
     // for forums, we try to automatically display videos for common providers
     // FIXME this is not very clean, but we don't want to do complex
     // regexp for each url, so we first check for presence of some keywords
-    if (preg_match('/(youtu|dailymotion|vimeo)/', $full_url))
+    if ($show_video && preg_match('/(youtu|dailymotion|vimeo)/', $full_url))
     {
         $tag = '[video]' . $full_url . '[/video]';
         $output = do_video($tag);
@@ -780,6 +780,7 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     global $lang_common, $lang_topic, $pun_user, $pun_config, $showed_post_list;
     
     $showed_post_list = $post_list;
+    $show_video = $is_signature ? 'false' : 'true';
     
     if (strpos($text, 'quote') !== false)
     {
@@ -813,8 +814,8 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
                      '<del>$1</del>',
                      '<q>$1</q>',
                      '<code>$1</code>',
-                     'handle_url_tag(\'$1\')',
-                     'handle_url_tag(\'$1\', \'$2\')',
+                     'handle_url_tag(\'$1\', \'\', ' . $show_video . ')',
+                     'handle_url_tag(\'$1\', \'$2\', ' . $show_video . ')',
                      '</p><div style="text-align: center;"><p>$1</p></div><p>',
                      '</p><div style="text-align: right;"><p>$1</p></div><p>',
                      '</p><div style="text-align: justify;"><p>$1</p></div><p>',
