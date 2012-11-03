@@ -387,7 +387,7 @@ function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '', $
     }
     else
     {
-        $text = '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . __($name) . $name_suffix . '</div> ';
+        $text = '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . ucfirst(__($name)) . $name_suffix . '</div> ';
     }
 
     if (!empty($prefix) && !$empty_value)
