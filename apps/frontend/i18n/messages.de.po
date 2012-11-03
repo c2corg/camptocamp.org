@@ -5304,7 +5304,7 @@ msgstr "Lizenz:"
 
 # [WARNING] needs_review
 msgid "lift_approach"
-msgstr "Zugang mit mechanischen Aufsteighilfen möglich:"
+msgstr "Zugang mit mechanischen Aufsteighilfen möglich"
 
 msgid "lift_status"
 msgstr "Liftanlagen:"

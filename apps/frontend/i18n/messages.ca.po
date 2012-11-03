@@ -1970,9 +1970,8 @@ msgstr "Cerca un usuari"
 msgid "Search criteria"
 msgstr "Criteris de cerca"
 
-# [WARNING] en translation used
 msgid "Search in my images"
-msgstr "Search in my images"
+msgstr "Cerca d'entre les meves imatges"
 
 msgid "Search in my outings"
 msgstr "Cerca entre les meves sortides"
@@ -1980,9 +1979,8 @@ msgstr "Cerca entre les meves sortides"
 # [general comment]
 # Titre du critère du filtre d'itinéraire, avec une liste de choix :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
-# [WARNING] en translation used
 msgid "Search in my routes"
-msgstr "Search routes"
+msgstr "Cerca d'entre els itineraris"
 
 # [general comment]
 # [cda]
@@ -3402,9 +3400,36 @@ msgstr "<h3>Compatibilitat amb</h3>\n"
 "<br />\n"
 "<strong>iniciació</strong>&nbsp;: itinerari propici a l'iniciació en una subactivitat, que ha des er també seleccionada. En esquí/snowboard, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
 
-# [WARNING] needs_update
 msgid "_summit_type_info"
-msgstr "<h3>Tipus de \"cim\"</h3>Tipus de punt geogràfic que pugui constituir un objectiu de sortida:<br /><br /><strong>punt culminant</strong>: cim, avant-cim, gendarme<br /><br /><strong>coll</strong>: coll, bretxa<br /><br /><strong>llac</strong>: llac de muntanya<br /><br /><strong>vall</strong>: punt remarcable al fons d'una vall: cascada, llengua de glaciar, monòlit"
+msgstr "<h3>Tipus de \"cim\"</h3>\n"
+"Tipus de punt geogràfic que pugui constituir l'objectiu d'una sortida:<br />\n"
+"<br />\n"
+"<strong>punt culminant</strong>: cim, avant-cim, gendarme<br />\n"
+"<br />\n"
+"<strong>coll</strong>: coll, bretxa<br />\n"
+"<br />\n"
+"<strong>paret</strong>: sector de cascada de glaç o de vies llargues<br />\n"
+"<br />\n"
+"<strong>vall</strong>: punt remarcable al fons d'una vall (cascada, llengua de glacera, monòlit), o bé un un \"súper-cim\" que englobi diferents parets dins d'una mateixa vall\n"
+"<br />\n"
+"<strong>llac</strong>: llac de muntanya<br />\n"
+"<br />\n"
+"<strong>glacera</strong>: glacera o llengua glacial<br />\n"
+"<br />\n"
+"<strong>font</strong>: font o deu<br />\n"
+"<br />\n"
+"<strong>canal de rec</strong>: canal d'irrigació de muntanya<br />\n"
+"<br />\n"
+"<strong>gorja</strong>: gorja o congost practicable a peu<br />\n"
+"<br />\n"
+"<strong>avenc</strong>: avenc, forat<br />\n"
+"<br />\n"
+"<strong>refugi</strong>: \"cim\" creat automàticament en crear un itinerari d'accés aun refugi<br />\n"
+"<br />\n"
+"<strong>travessa</strong>: un \"cim\" de tipus <em>travessa</em> va bé per associar-hi un itinerari-travessa<br />\n"
+"Vegeu l'<a href=\"/articles/106920#raid\">ajuda sobre les travesses</a><br />\n"
+"<br />\n"
+"<strong>altres</strong>: altre punt remarcable: capella, monument, ruïna, etc.<br />"
 
 msgid "_swiss coords_info"
 msgstr "<h3>Coordenades suïsses</h3>Coordenades del lloc geogràfic segons els sistema suís (norma CH1903).<br />Un enllaç permet mostrar el mapa Swisstopo centrat al lloc geogràfic."
@@ -3442,9 +3467,8 @@ msgstr "<h3>Imatge proposada en línia per </h3>.Participant que ha entrat la im
 msgid "_url_info"
 msgstr "<h3>URL</h3>Adreça web de l'editor del document telecarregable."
 
-# [WARNING] needs_update
 msgid "_variants_info"
-msgstr "<h3>Itineraris associats</h3>Els itineraris associats a aquest  itinerari són itineraris que recòrren tot o part de les seves dificultats.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
+msgstr "<h3>Itineraris associats</h3>Els itineraris associats a aquest itinerari són itineraris que recorren tots o part dels seus trams difícils.<br />Per exemple, una travessa d'un cim que a la baixada recorre una canal que mereixi ser descrita en un itinerari a part, s'hauria d'associar a l'itinerari de pujar i baixar per la canal, si existeix.<br />Per contra, les variants a l'interior de les dificultats (un corredor amb dues sortides, una aresta que es fa pel fil o bé per vires laterals, etc.) s'han de descriure dins del mateix itinerari.<br />La llista de sortides mostrada a aquesta pàgina conté sortides associades a aquest itinerari i sortides associades als itineraris associats. Això permet tenir descripcions d'itinerari diferents però informació sobre les condicions trobades comunes."
 
 # [WARNING] needs_review
 msgid "_vtt_approach_info"
@@ -3596,9 +3620,8 @@ msgstr "Grans itineraris d'alpinisme"
 # [general comment]
 # 1ère option pour le critère suivant, dans le filtre d'itinéraires :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
-# [WARNING] en translation used
 msgid "already taken"
-msgstr "I've already taken"
+msgstr "que he seguit alguna vegada"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5081,7 +5104,7 @@ msgstr "Llicència:"
 
 # [WARNING] needs_review
 msgid "lift_approach"
-msgstr "Aproximació amb remuntadors mecànics possible:"
+msgstr "aproximació amb remuntadors mecànics possible"
 
 msgid "lift_status"
 msgstr "Remuntadors mecànics:"
@@ -5095,9 +5118,8 @@ msgstr "Ligúria"
 msgid "limousin"
 msgstr "Llemosí"
 
-# [WARNING] needs_update
 msgid "link contributors in view page"
-msgstr "Els participants membres s'associen directament a la pàgina de consulta de la sortida."
+msgstr "La primera línia d'aquest camp es mostrarà a la mateixa línia que els participants membres de camptocamp. Les línies següents es mostraran a sota.<br />Els participants membres de camptocamp.org s'han d'associar des de la pàgina de consulta de la sortida, un cop aquesta s'ha creat. Això els dóna dret de modificar la sortida, d'afegir-hi fotos i d'associar-hi d'altres participants membres."
 
 msgid "linked routes activities"
 msgstr "Activitats dels itineraris associats:"
@@ -5174,9 +5196,8 @@ msgstr "Llistes de difusió per email des butlletins nivològics"
 msgid "manage images presentation"
 msgstr "Aquesta pàgina us permetrà canviar fàcilment la llicència de les imatges que hagueu penjat a camptocamp.org.<br /><br />Les imatges que apareixien aquí sota són de tipus personal, sota llicència <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Podeu escollir de fer-les disponibles com a contingut col·laboratiu, sota llicència <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, de tal manera que permetreu a la comunitat d'utilitzar-les més lliurement per a la topo-guia.<br />En efecte, només les imatges col·laboratives poden inserir-se al text d'un document col·laboratiu (una foto que il·lustri un itinerari, per exemple), per tal que el text i les imatges quedin sotmeses a la mateixa llicència.<br />Ara per ara no hi ha limitació tècnica (el temps que cal per passar una proporció important de les fotos sota llicència col·laborativa, o bé per suprimir-les del text).<br /><em>Per a més informació, <a href=\"/forums/viewtopic.php?id=155692\">vegeu la discussió al respecte al fòrum</a>.</em><br /><br />Seleccioneu les imatges que desitgeu passar a col·laboratives i després valideu els canvis amb l'ajuda del botó <em>Canviar la llicència</em>.<br /><span style=\"color: red\">Atenció: aquest canvi és irreversible i no es pot canviar la llicència d'una imatge col·laborativa a llicència personal.</span><br /><br />Per facilitar la recerca de les imatges, hi ha diverses llistes disponibles:<br />- <a href=\"/users/manageimages/dtyp/1\">Imatges personals associades a un document col·laboratiu</a> (fora de l'article) - <em>La major part de les imatges inserides a un document col·laboratiu són a aquesta llista, a modificar segons prioritat.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Imatges personals associades a un article col·laboratiu</a><br />- <a href=\"/users/manageimages/dtyp/2\">Imatges personals associades a un document personal</a> (fora de l'article)<br />- <a href=\"/users/manageimages/ctyp/2\">Imatges personals associades a un article personal</a>"
 
-# [WARNING] needs_update
 msgid "mandatory_fields"
-msgstr "Els camps marcats amb un asterisc (*) són obligatoris."
+msgstr "<strong>Plagi:</strong> No copieu del text d'un altre lloc web o d'un llibre, excepte si la seva <a href=\"/articles/106728/ca\">llicència</a> ho permet.</li><li><strong>Punts cardinals:</strong> Feu servir les inicials internacionals en majúscules: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Ajuda contextual:</strong> Hi ha una ajuda disponible per a cada camp: cliqueu el títol del camp per veure-la.</li><li><strong>Paginació:</strong> Es pot donar forma al text i organitzar-lo amb subtítols. S'hi poden inserir imatges de l'àlbum. <a href=\"/articles/151910/ca\">Consulteu l'ajuda</a>.</li><li><strong>Els camps marcats amb un asterisc (*) són obligatoris.</strong></li><li><strong>Modificació:</strong> Després de crear un document, podeu modificar-lo clicant a la pestanya \"Modifica\" (a l'esquerra). No feu servir el botó \"Enrere\" del vostre navegador.</li><li><strong>Supressió:</strong> Per eliminar un document, demaneu-ho als moderadors fent servir el botó \"Alerta d'un problema\" del menú de l'esquerra.</li><li><strong>Fotos i esquemes:</strong> Les fotos i esquemes s'adjunten després de la creació del document, mitjançant l'enllaç de la part baixa de la pàgina <em>Afegeix imatges a aquesta pàgina</em>. Per afegir una imatge reduïda dins del cos del text, feu servir el botó <input type=\"button\" class=\"bbcodeexample\" value=\"img\" /> de la barra d'edició del camp. També podeu copiar-ne el codi, disponible a la pàgina de la imatge. Les imatges s'han d'associar prèviament al document per poder-les inserir al text. En el cas de documents col·laboratius només es poden inserir imatges col·laboratives."
 
 msgid "map"
 msgstr "mapa"
@@ -5294,9 +5315,8 @@ msgstr "mitjà"
 msgid "menu"
 msgstr "menú"
 
-# [WARNING] needs_update
 msgid "meta_description"
-msgstr "La comunitat de muntanya"
+msgstr "Camptocamp.org, la comunitat de muntanya. És un lloc d'intercanvi multilingüe dedicat a l'alpinisme, l'escalada, les cascades de glaç, l'esquí de muntanya, les raquetes i l'excursionisme. Hi trobareu una topo-guia que descriu milers d'itineraris, cims, refugis, així com les condicions de les sortides recents, articles, fòrums, un àlbum de fotos..."
 
 msgid "meta_keywords"
 msgstr "muntanya, esquí de muntanya, surf de muntanya, alpinisme, raquetes, alpinisme, neu, glaç, mixt, corredors, canals, cascades, dry-tooling, roca, escalada, parets, grimpades, excursions a peu"
@@ -5505,9 +5525,8 @@ msgstr "servei a proximiat"
 # [general comment]
 # 2ème option pour le critère suivant, dans le filtre d'itinéraires :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
-# [WARNING] en translation used
 msgid "never taken"
-msgstr "I've never taken"
+msgstr "que no he seguit mai"
 
 msgid "new_password"
 msgstr "Entra la teva contrassenya:"

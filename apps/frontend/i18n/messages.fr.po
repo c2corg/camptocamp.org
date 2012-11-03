@@ -3562,8 +3562,8 @@ msgstr "<h3>Itinéraires associés</h3>Les itinéraires associés au présent it
 
 # [WARNING] needs_review
 msgid "_vtt_approach_info"
-msgstr "<h3>Approche en VTT possible</h3>\n"
-"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
+msgstr "<h3>Approche à VTT possible</h3>\n"
+"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement à VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
 "Cela concerne les approches commençant par :<br />\n"
 "- une piste ou route interdite aux véhicules motorisés<br />\n"
 "- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
@@ -5192,7 +5192,7 @@ msgstr "Licence&nbsp;:"
 
 # [WARNING] needs_review
 msgid "lift_approach"
-msgstr "Approche en remontée mécanique possible&nbsp;:"
+msgstr "approche en remontée mécanique possible"
 
 msgid "lift_status"
 msgstr "Remontées mécaniques&nbsp;:"
@@ -7026,7 +7026,7 @@ msgstr "Portail Vosges"
 
 # [WARNING] needs_review
 msgid "vtt_approach"
-msgstr "approche en VTT possible"
+msgstr "approche à VTT possible"
 
 msgid "waiting for geolocation"
 msgstr "En attente d'informations de localisation..."
