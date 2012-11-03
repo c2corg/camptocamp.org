@@ -3565,8 +3565,8 @@ msgstr "<h3>Itinerarios asociados</h3>Los itinerarios asociados al presente itin
 
 # [WARNING] fr translation used
 msgid "_vtt_approach_info"
-msgstr "<h3>Approche en VTT possible</h3>\n"
-"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement en VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
+msgstr "<h3>Approche à VTT possible</h3>\n"
+"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement à VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
 "Cela concerne les approches commençant par :<br />\n"
 "- une piste ou route interdite aux véhicules motorisés<br />\n"
 "- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
@@ -5328,7 +5328,7 @@ msgstr "Lizentzia:"
 
 # [WARNING] en translation used
 msgid "lift_approach"
-msgstr "Lift approach possible:"
+msgstr "lift approach possible"
 
 msgid "lift_status"
 msgstr "Igogailu mekanikoak:"
