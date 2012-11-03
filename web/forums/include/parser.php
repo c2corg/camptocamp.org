@@ -532,7 +532,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
     // for forums, we try to automatically display videos for common providers
     // FIXME this is not very clean, but we don't want to do complex
     // regexp for each url, so we first check for presence of some keywords
-    if ($show_video && preg_match('/(youtu|dailymotion|vimeo)/', $full_url))
+    if ($show_video && $empty_link && preg_match('/(youtu|dailymotion|vimeo)/', $full_url))
     {
         $tag = '[video]' . $full_url . '[/video]';
         $output = do_video($tag);
