@@ -359,10 +359,10 @@ function _format_bool_data($name, $value, $null_equals_no = false, $show_only_ye
 
     $value = (bool)$value ? 'yes' : 'no';
     $value = __($value);
-    return _format_data($name, $value, false, $prefix, $suffix);
+    return _format_data($name, $value, false, $prefix, $suffix, null, __('&nbsp;:'));
 }
 
-function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '', $id = null)
+function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '', $id = null, $name_suffix = '')
 {
     if (empty($value))
     {
@@ -387,7 +387,7 @@ function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '', $
     }
     else
     {
-        $text = '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . __($name) . '</div> ';
+        $text = '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . __($name) . $name_suffix . '</div> ';
     }
 
     if (!empty($prefix) && !$empty_value)
