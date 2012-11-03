@@ -109,7 +109,7 @@ class PunbbTopics extends BasePunbbTopics
             }
             else
             {
-                foreach ($forums as $lang => $forum)
+                foreach ($a as $lang => $default_forums)
                 {
                     if (isset($forums[$lang]))
                     {
@@ -117,7 +117,7 @@ class PunbbTopics extends BasePunbbTopics
                     }
                     else
                     {
-                        $forums_ids_lang = $a[$lang];
+                        $forums_ids_lang = $default_forums;
                     }
                     $forums_ids = array_merge($forums_ids, $forums_ids_lang);
                 }
