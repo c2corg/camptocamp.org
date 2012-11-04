@@ -14,6 +14,11 @@ latestassociations:
   url: /whatsnew/associations
   param: { module: documents, action: latestassociations }
 
+latestassociations_doc:
+  url: /:module/latestassociations/id/:id
+  param: { action: latestassociations }
+  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users), id: \d+ }
+
 search:
   url: /search/:q/*
   param: { module: documents, action: search }
@@ -305,7 +310,7 @@ doc_merge:
 homepage_by_activity:
   url:   /:activity_name
   param: { module: common, action: customize }
-  requirements: { activity_name: (?:skitouring|snow_ice_mixed|mountain_climbing|rock_climbing|ice_climbing|hiking|snowshoeing) }
+  requirements: { activity_name: (?:skitouring|snow_ice_mixed|mountain_climbing|rock_climbing|ice_climbing|hiking|snowshoeing|paragliding) }
 
 culture_delete:
   url:   /:module/delete/:id/:lang

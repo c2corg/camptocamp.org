@@ -983,14 +983,9 @@ class documentsActions extends c2cActions
                                     0,
                                     $custom_fields);
             $nb_results = $infos['nb_results'];
-            $pager = $infos['pager'];
-            $this->pager = $pager;
+            $this->pager = $infos['pager'];
             $this->query = $infos['query'];
             $this->custom_fields = $custom_fields;
-            if ($nb_results > 0)
-            {
-                $nb_results = $pager->getNbResults();
-            }
         }
         $this->nb_results = $nb_results;
         

@@ -814,10 +814,6 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $where = ' IN ( ' . $where_ids . ' )';
         }
-        if ($count_ids < $npp)
-        {
-            $count = $count_ids;
-        }
         
         return array('pager' => $pager,
                      'nb_results' => $count,

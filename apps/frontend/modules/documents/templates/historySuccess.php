@@ -4,6 +4,7 @@ use_helper('Date', 'History', 'MyForm', 'Language', 'Viewer', 'WikiTabs', 'Smart
 use_javascript('/static/js/diff.js', 'last');
 use_javascript('/static/js/history_tools.js', 'last');
 
+$is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $module = $sf_context->getModuleName();
 $model = c2cTools::module2model($module);
 $i18n_archive = $model . 'I18nArchive';
@@ -46,6 +47,10 @@ $submit_options = array('title' => __('Show differences between selected version
 <p><?php
 echo label_tag('minor_revision_checkbox', __('hide minor revisions'));
 echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'toggle_minor_revision();'));
+if ($is_moderator)
+{
+    echo ' &nbsp; ', link_to(__('History of associations to this document'), "@latestassociations_doc?module=$module&id=$id");
+}
 ?>
 </p>
 
