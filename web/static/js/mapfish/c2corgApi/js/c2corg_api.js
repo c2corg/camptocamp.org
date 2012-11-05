@@ -310,9 +310,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             ['gmap_physical', OpenLayers.i18n('Physical')],
             ['gmap_hybrid', OpenLayers.i18n('Hybrid')],
             ['gmap_normal', OpenLayers.i18n('Normal')],
-            ['OpenStreetMap', OpenLayers.i18n('OpenStreetMap')],
-            ['ign_map', OpenLayers.i18n('IGN maps')],
-            ['ign_orthos', OpenLayers.i18n('IGN orthos')]
+            ['OpenStreetMap', OpenLayers.i18n('OpenStreetMap')]
+            //['ign_map', OpenLayers.i18n('IGN maps')],
+            //['ign_orthos', OpenLayers.i18n('IGN orthos')]
             //['swisstopo_map', OpenLayers.i18n('Swisstopo maps')]
         ];
         
