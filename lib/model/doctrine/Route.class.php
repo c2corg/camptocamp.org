@@ -868,19 +868,19 @@ class Route extends BaseRoute
     {
         $activities = c2cTools::getPossibleActivities($param);
         $orderby = '';
-        if (array_diff($activities, array(1)))
+        if (!array_diff($activities, array(1)))
         {
             $orderby = 'trat';
         }
-        elseif (array_diff($activities, array(2, 3, 4, 5)))
+        elseif (!array_diff($activities, array(2, 3, 4, 5)))
         {
             $orderby = 'grat';
         }
-        elseif (array_diff($activities, array(6)))
+        elseif (!array_diff($activities, array(6)))
         {
             $orderby = 'hrat';
         }
-        elseif (array_diff($activities, array(7)))
+        elseif (!array_diff($activities, array(7)))
         {
             $orderby = 'srat';
         }
