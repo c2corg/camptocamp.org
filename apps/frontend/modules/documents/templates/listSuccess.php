@@ -108,7 +108,10 @@ else:
 if (!$mobile_version): ?>
 <table class="list">
     <thead>
-        <tr><?php include_partial($module . '/list_header', array('custom_fields' => $sf_data->getRaw('custom_fields'))); ?></tr>
+        <tr><?php
+        include_partial($module . '/list_header', array('custom_fields' => $sf_data->getRaw('custom_fields'),
+                                                        'activities'    => $sf_data->getRaw('activities')));
+        ?></tr>
     </thead>
     <tbody>
         <?php

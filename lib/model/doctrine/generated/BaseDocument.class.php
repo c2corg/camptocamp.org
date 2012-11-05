@@ -476,6 +476,14 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $joins['all'] = true;
             }
         }
+        if (isset($params_list[$activity_param]))
+        {
+            $joins['act'] = $params_list[$activity_param];
+        }
+        else
+        {
+            $joins['act'] = '';
+        }
     }
 
     public static function buildAreaCriteria(&$criteria, &$params_list, $m = 'm', $m2 = null, $join = null, $use_around = true)
@@ -690,7 +698,8 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         return array('pager' => $pager,
                      'nb_results' => $nb_results,
-                     'query' => $q);
+                     'query' => $q,
+                     'act' => $joins['act']);
     }
     
     

@@ -862,4 +862,29 @@ class Route extends BaseRoute
         self::filterOnActivities($q);
         self::filterOnRegions($q);
     }
+    
+    // Get orderby parameter to order on rating according to possible activities
+    public static function getDefaultRatingOrderby($param)
+    {
+        $activities = c2cTools::getPossibleActivities($param);
+        $orderby = '';
+        if (array_diff($activities, array(1)))
+        {
+            $orderby = 'trat';
+        }
+        elseif (array_diff($activities, array(2, 3, 4, 5)))
+        {
+            $orderby = 'grat';
+        }
+        elseif (array_diff($activities, array(6)))
+        {
+            $orderby = 'hrat';
+        }
+        elseif (array_diff($activities, array(7)))
+        {
+            $orderby = 'srat';
+        }
+        
+        return $orderby;
+    }
 }

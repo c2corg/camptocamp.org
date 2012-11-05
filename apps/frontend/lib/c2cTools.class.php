@@ -682,4 +682,61 @@ class c2cTools
 
         return array($x, $y);
     }
+    
+    /*
+     * Extraxt activities list from url activities parameter
+     */
+    public static function getPossibleActivities($param)
+    {
+        if ($param == '-')
+        {
+            $activities = array();
+        }
+        elseif ($param == ' ')
+        {
+            $activities = sfConfig::get('app_activities_form');
+            $activities = array_keys($activities);
+        }
+        else
+        {
+            $item_groups = explode('-', $param);
+            $activities = array();
+            $all_activities = sfConfig::get('app_activities_form');
+            $all_activities = array_keys($all_activities);
+            foreach ($item_groups as $group)
+            {
+                $items = explode(' ', $group);
+                $activities_group = $not_activities_group = array();
+                foreach ($items as $item)
+                {
+                    $not_items = explode('!', $item);
+                    $item = array_shift($not_items);
+                    if ($item != '')
+                    {
+                        if (strval($item) != '0')
+                        {
+                            $activities_group[] = $item;
+                            break;
+                        }
+                    }
+                    elseif (count($not_items))
+                    {
+                        $not_activities_group += $not_items;
+                    }
+                }
+                
+                if (count($not_activities_group))
+                {
+                    $activities_group = array_diff($all_activities, $not_activities_group);
+                }
+                if (count($activities_group))
+                {
+                    $activities += $activities_group;
+                }
+            }
+        }
+        
+        return $activities;
+    }
 }
+

@@ -985,6 +985,7 @@ class documentsActions extends c2cActions
             $nb_results = $infos['nb_results'];
             $this->pager = $infos['pager'];
             $this->query = $infos['query'];
+            $this->activities = $infos['act'];
             $this->custom_fields = $custom_fields;
         }
         $this->nb_results = $nb_results;
