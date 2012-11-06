@@ -716,7 +716,7 @@ class c2cTools
                         if (strval($item) != '0')
                         {
                             $activities_group[] = $item;
-                            break;
+                            break 1;
                         }
                     }
                     elseif (count($not_items))
