@@ -721,7 +721,7 @@ class c2cTools
                     }
                     elseif (count($not_items))
                     {
-                        $not_activities_group += $not_items;
+                        $not_activities_group = array_merge($not_activities_group, $not_items);
                     }
                 }
                 
@@ -731,7 +731,7 @@ class c2cTools
                 }
                 if (count($activities_group))
                 {
-                    $activities += $activities_group;
+                    $activities = array_merge($activities, $activities_group);
                 }
             }
         }
