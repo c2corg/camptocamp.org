@@ -133,11 +133,18 @@ class Outing extends BaseOuting
         
         if (isset($params['orderby']))
         {
-            $orderby = array($params['orderby']);
+            $orderby_tmp = array($params['orderby']);
+            if ($orderby_tmp == 'id')
+            {
+                $orderby_date = false;
+                $orderby = array();
+            }
+            unset($params['orderby']);
         }
         if (isset($params['order']))
         {
-            $orderby = array($params['order']);
+            $order = array($params['order']);
+            unset($params['order']);
         }
         
         $sort = array('orderby_params' => $orderby,
@@ -148,13 +155,13 @@ class Outing extends BaseOuting
         $sub_query_result = self::browseId('Outing', $sort, $criteria, array(), 1, $max_items);
         
         $nb_results = $sub_query_result['nb_results'];
-        $ids = $sub_query_result['ids'];
-        $where_ids = 'm.id' . $sub_query_result['where'];
-
         if ($nb_results == 0)
         {
             return array();
         }
+        
+        $ids = $sub_query_result['ids'];
+        $where_ids = 'm.id' . $sub_query_result['where'];
         
         $fields = 'm.id, n.culture, n.name, m.date, m.activities, m.max_elevation';
         if ($linked_areas)
