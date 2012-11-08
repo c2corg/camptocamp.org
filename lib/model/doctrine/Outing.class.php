@@ -155,12 +155,12 @@ class Outing extends BaseOuting
         $sub_query_result = self::browseId('Outing', $sort, $criteria, array(), 1, $max_items);
         
         $nb_results = $sub_query_result['nb_results'];
-        if (empty($nb_results) || !isset($sub_query_result['ids']))
+        $ids = $sub_query_result['ids'];
+        if (empty($nb_results) || empty($ids))
         {
             return array();
         }
         
-        $ids = $sub_query_result['ids'];
         $where_ids = 'm.id' . $sub_query_result['where'];
         
         $fields = 'm.id, n.culture, n.name, m.date, m.activities, m.max_elevation';
