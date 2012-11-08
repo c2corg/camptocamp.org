@@ -2890,6 +2890,8 @@ msgstr "<h3>Appareil photo</h3>Marque et modèle de l'appareil photo.<br />Cette
 msgid "_captcha_info"
 msgstr "<h3>Test anti-spam</h3>Recopier les caractères visible dans l'image. Le test est indifférent aux majuscules/minuscules.<br />Si les caractères sont illisible, vous pouvez la modifier en rechargeant la page. Les données saisies seront perdues (identifiant et adresse email)."
 
+# [general comment]
+# Aide contextuelle du champ : Catégories d'un article
 msgid "_categories_info"
 msgstr "<h3>Catégories d'un article</h3>Plusieurs catégories peuvent être sélectionnées.<br />\n"
 "<br />\n"
@@ -2899,6 +2901,8 @@ msgstr "<h3>Catégories d'un article</h3>Plusieurs catégories peuvent être sé
 "<strong>mobilité douce et écotourisme</strong>&nbsp;: article concernant la mobilité douce et l'écotourisme<br />\n"
 "<strong>expéditions et voyages lointains</strong>&nbsp;: récit ou information concernant une expédition ou un voyage lointain<br />\n"
 "<strong>récits</strong>&nbsp;: récit réel ou fiction<br />\n"
+"<strong>rassemblements / G2G</strong>&nbsp;: article de préparation ou de compte-rendu d'un rassemblement organisés sur camptocamp<br />\n"
+"<strong>tags</strong>&nbsp;: article utilisé pour \"taguer\" des documents en les associant à l'article, permettant de les retrouver facilement et d'effectuer des recherches complexes dans le topoguide<br />\n"
 "<strong>aide, le site c2c</strong>&nbsp;: article à propos du site <em>camptocamp.org</em> (aide, information)<br />\n"
 "<strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br />\n"
 "<strong>brouillon</strong>&nbsp;: article en cours de rédaction (pas de publication sur la page d'accueil)"
@@ -4026,9 +4030,12 @@ msgstr "Camptocamp.org n'est maintenant plus filtré sur les activités"
 msgid "c2c map data"
 msgstr "Objets C2C"
 
+# [general comment]
+# Option de la catégorie d'un article : rassemblements / G2G
+# La catégorie "rassemblements" s'applique aux articles utilisés pour la préparation et les comptes rendus des rassemblements entre membres de camptocamp, organisés sur camptocamp.
 # [WARNING] needs_review
 msgid "c2c meetings"
-msgstr "rassemblements (G2G)"
+msgstr "rassemblements / G2G"
 
 msgid "c2c website"
 msgstr "Le site c2c"
@@ -6760,6 +6767,12 @@ msgstr "Afficher uniquement l'activité raquette"
 
 msgid "ta portal"
 msgstr "Terrain d'Aventure"
+
+# [general comment]
+# Option de la catégorie d'un article : tags
+# La catégorie "tags" s'applique aux articles utilisés pour taguer des document afin de les retrouver facilement, et pour faire des recherches complexes.
+msgid "tags"
+msgstr "tags"
 
 msgid "technics"
 msgstr "technique"

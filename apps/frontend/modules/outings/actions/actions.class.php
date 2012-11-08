@@ -849,4 +849,19 @@ class outingsActions extends documentsActions
             $this->redirect(url_for('@login', true).'?redirect=outings/myoutings');
         }
     }
+
+    public function executeMyStats()
+    {
+        // redirect to user outings list if connected
+        if($this->getUser()->isConnected())
+        {
+            $user_id = $this->getUser()->getId();
+            $this->redirect('stats.camptocamp.org?user='.$user_id);
+        }
+        else
+        {
+            sfLoader::loadHelpers('Url');
+            $this->redirect(url_for('@login', true).'?redirect=outings/mystats');
+        }
+    }
 }

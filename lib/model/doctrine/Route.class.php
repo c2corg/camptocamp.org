@@ -867,22 +867,26 @@ class Route extends BaseRoute
     public static function getDefaultRatingOrderby($param)
     {
         $activities = c2cTools::getPossibleActivities($param);
+        $activities = array_diff($activities, array(8));
         $orderby = '';
-        if (!array_diff($activities, array(1)))
+        if (count($activities))
         {
-            $orderby = 'trat';
-        }
-        elseif (!array_diff($activities, array(2, 3, 4, 5)))
-        {
-            $orderby = 'grat';
-        }
-        elseif (!array_diff($activities, array(6)))
-        {
-            $orderby = 'hrat';
-        }
-        elseif (!array_diff($activities, array(7)))
-        {
-            $orderby = 'srat';
+            if (!array_diff($activities, array(1)))
+            {
+                $orderby = 'trat';
+            }
+            elseif (!array_diff($activities, array(2, 3, 4, 5)))
+            {
+                $orderby = 'grat';
+            }
+            elseif (!array_diff($activities, array(6)))
+            {
+                $orderby = 'hrat';
+            }
+            elseif (!array_diff($activities, array(7)))
+            {
+                $orderby = 'srat';
+            }
         }
         
         return $orderby;

@@ -118,8 +118,6 @@ class Outing extends BaseOuting
             $params['act'] = implode('-', $activities);
         }
         
-        $criteria = Outing::buildListCriteria($params);
-        
         if ($orderby_date)
         {
             $orderby = array('date');
@@ -146,6 +144,8 @@ class Outing extends BaseOuting
             $order = array($params['order']);
             unset($params['order']);
         }
+        
+        $criteria = Outing::buildListCriteria($params);
         
         $sort = array('orderby_params' => $orderby,
                       'order_params' => $order,

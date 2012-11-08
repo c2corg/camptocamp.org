@@ -12,6 +12,8 @@ all:
       7: soft mobility
       8: expeditions
       3: stories
+      9: c2c meetings
+      10: tags
       5: site info
       6: association
       100: draft
