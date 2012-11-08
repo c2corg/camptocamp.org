@@ -1060,6 +1060,9 @@ msgstr "Aide"
 msgid "History"
 msgstr "Versions"
 
+msgid "History of associations to this document"
+msgstr "Historique des associations à ce document"
+
 msgid "Home"
 msgstr "Accueil"
 
@@ -1531,6 +1534,10 @@ msgstr "Ma position"
 
 msgid "My preferences"
 msgstr "Paramètres du compte"
+
+# [WARNING] needs_review
+msgid "My statistics"
+msgstr "Mes statistiques"
 
 msgid "My topics"
 msgstr "Mes discussions"
@@ -4019,6 +4026,10 @@ msgstr "Camptocamp.org n'est maintenant plus filtré sur les activités"
 msgid "c2c map data"
 msgstr "Objets C2C"
 
+# [WARNING] needs_review
+msgid "c2c meetings"
+msgstr "rassemblements (G2G)"
+
 msgid "c2c website"
 msgstr "Le site c2c"
 
@@ -4986,7 +4997,7 @@ msgstr "Mettre le texte sélectionné en italique"
 # [general comment]
 # Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
 msgid "ice climbing portal"
-msgstr "Camptocamp Cascade de glace"
+msgstr "Cascade de glace"
 
 msgid "ice_climbing"
 msgstr "cascade de glace"
@@ -5539,7 +5550,7 @@ msgid "mollasse calcaire"
 msgstr "mollasse calcaire"
 
 msgid "montblanc portal"
-msgstr "Alpinisme, grimpe et ski au pays du Mont-Blanc"
+msgstr "Pays du Mont-Blanc"
 
 msgid "month"
 msgstr "mois"
@@ -6226,7 +6237,7 @@ msgid "publication_date"
 msgstr "Date de publication&nbsp;:"
 
 msgid "pyrenees portal"
-msgstr "Camptocamp Pyrénées"
+msgstr "Pyrénées"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -7022,7 +7033,7 @@ msgstr "conditions de visu"
 
 # [WARNING] needs_review
 msgid "vosges portal"
-msgstr "Portail Vosges"
+msgstr "Vosges"
 
 # [WARNING] needs_review
 msgid "vtt_approach"

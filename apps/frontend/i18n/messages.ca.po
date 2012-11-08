@@ -835,7 +835,7 @@ msgstr "Coordenades buides: actualitza si et plau els camps latitud i longitud"
 # [general comment]
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
 msgid "Enlarge the bar"
-msgstr "Cliqueu sobre la barra per engrandir la columna de l'esquerra"
+msgstr "Cliqueu sobre la barra per engrandir la columna de l\\'esquerra"
 
 msgid "Enlarge the list"
 msgstr "Fer més gran la lista"
@@ -1049,6 +1049,9 @@ msgstr "Ajuda"
 
 msgid "History"
 msgstr "Versions"
+
+msgid "History of associations to this document"
+msgstr "Històric d'associacions a aquest document"
 
 msgid "Home"
 msgstr "Inici"
@@ -1516,6 +1519,10 @@ msgstr "La meva posició"
 msgid "My preferences"
 msgstr "Preferències personals"
 
+# [WARNING] en translation used
+msgid "My statistics"
+msgstr "My statistics"
+
 msgid "My topics"
 msgstr "Els meus temes"
 
@@ -1830,7 +1837,7 @@ msgstr "Redueix el mapa"
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
 msgid "Reduce the bar"
-msgstr "Cliqueu sobre la barra per reduir la columna de l'esquerra"
+msgstr "Cliqueu sobre la barra per reduir la columna de l\\'esquerra"
 
 msgid "Reduce the list"
 msgstr "Redueix la llista"
@@ -2971,10 +2978,27 @@ msgstr "<h3>Compromís</h3>\n"
 "<br />\n"
 "<strong>VI</strong>: L'itinerari és llarg i pot implicar més d'un dia. L'aproximació és també llarga i delicada, l'itinerari és totalment aïllat. Un cop començat no es pot girar cua i les escapatòries són vies en sí mateixes. Cal autonomia total de la cordada en la dificultat."
 
-# [WARNING] needs_update
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualitat de l'equipament present</h3>\n"
-"Aquest camp permet precissar la presència i la qualitat dels punts de protecció per l'escalada.."
+"Aquest camp permet precisar la presència i la qualitat dels punts de protecció per a l'escalada en roca o glaç.<br />\n"
+"<br />\n"
+"<strong>P1 (ben equipat)</strong><br />\n"
+"Via esportiva equipada amb parabolts de 10 o de 12mm, químics, etc. La via no està forçosament equipada per a baixar-la en ràpel.<br />\n"
+"<em><u>Material necessari</u>:</em> de 12 a 14 cintes exprés, d'entre les quals alguna de llarga, 1 o 2 bagues per completar l'equipament als llargs fàcils de II.<br />\n"
+"<br />\n"
+"<strong>P2 (parcialment equipat)</strong><br />\n"
+"- Via clàssica amb equipament abundant i de bona qualitat a base de pitons i algun spit o parabolt. Tanmateix, podria resultar necessari completar o reforçar l'equipament present.<br />\n"
+"- Via clàssica o moderna equipada amb parabolts o pitons només als passos improtegibles i a les reunions.<br />\n"
+"- Via esportiva amb spits de 8mm o altre equipament envellit.<br />\n"
+"<em><u>Material necessari</u>:</em> depèn de la via. En cas d'una via D o més, mínim de 8 tascons, 5 friends, 4 bagues i cintes exprés llargues.<br />\n"
+"<br />\n"
+"<strong>P3 (poc equipat)</strong><br />\n"
+"Via menys clàssica amb poc equipament (la major part dels punts de protecció i de les reunions s'han de posar) i/o l'equipament és de molt mala qualitat.<br />\n"
+"<em><u>Material necessari</u>:</em> Depèn de la via. En cas de vies D o superior, mínim un joc complet de tascons i de friends, del Camalot #0.3 al Camalot #3 - #4, 2 martells, 6 pitons variats.<br />\n"
+"<br />\n"
+"<strong>P4 (desequipat)</strong><br />\n"
+"Via sense equipament o amb alguns punts de qualitat dubtosa.<br />\n"
+"<em><u>Material necessari</u>:</em> Depèn de la via. En vies D o superior, com a mínim el necessari per a les vies de categoria P3."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Temps d'exposició</h3>Duració de l'exposició utilitzada.<br />Aquesta informació és extreta de les dades EXIF del fitxer enviat. És possible eliminar-le abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
@@ -3005,20 +3029,20 @@ msgstr "<h3>Codi d'inserció de la imatge al fòrum</h3>Per inserir aquesta imat
 msgid "_frequentation_status_info"
 msgstr "<h3>Frequentació </h3>Frequentació de l'itinerari el dia de la sortida.<br />El judici sobre la freqüentació és força subjectiu. Tanmateix, es pot definir una escala en funció de la nosa que hagi provocat la presència d'altra gent seguint l'itinerari.<br /><br /><strong>desert</strong>: no hi ha ningú més fora de nosaltres<br /><br /><strong>poc freqüentat</strong>: hi ha d'altra gent, en menor nombre al nostre propi grup (en cas d'escalada, una altra cordada)<br /><br /><strong>freqüentat</strong>: hi ha d'altra gent, en nombre major al nostre grup, però no ens fem nosa mútuament (en escalada, hi ha dues o tres cordades més ben repartides en l'itinerari)<br /><br /><strong>molt freqüentat</strong>: hi ha més persones, en nombre superior al nostre grup i ens fem nosa mútuament (en escalada, hi ha quatre cordades o més, amb esperes a les reunions, etc.)"
 
-# [WARNING] needs_update
 msgid "_gear_info"
-msgstr "<h3>Material específic</h3>Aquest camp permet mencionar el material específic que cal endur-se a més del material habitual. Aquest camp reuneix les informacions lligades al material específic necessari. El material habitual per un itinerari típic d'aquest tipus d'activitat no ha de ser mencionat. Només el material \"exòtic\" (en qualitat o quantitat) s'ha de mencionar.<br />Exemples de mencions inutils:<br />- esquí, surf, raquetes: ARVA, pala, sonda<br />- neu, glaç, mixte: crampons, piolets<br />- itineraire glaciar: materiel de glacier (marcar la casella sobre l'itinerari és suficient)<br />- escalada en terreny poc equipat: empotradors i cintes sense donar més precissions"
+msgstr "<h3>Material específic</h3>Aquest camp permet esmentar el material específic que cal endur-se a més del material habitual. El material necessari per a un itinerari típic de l'activitat no s'ha d'omplir. Només cal indicar el material \"exòtic\" (en qualitat o quantitat).<br />Exemples de mencions innecessàries:<br />- esquí, surf, raquetes: ARVA, pala, sonda<br />- neu, glaç, mixt: grampons, piolets<br />- itinerari de glacera: material de glacera (marcar la casella sobre l'itinerari és suficient)<br />- escalada en terreny poc equipat: tascons i bagues sense donar més precisions<br /><br />Per a més informació, consulteu els articles \"El contingut de la motxilla\", a l'enllaç de sota la línia d'edició. Un cop acabada l'edició, a l'apartat de material necessari hi apareixerà aquest enllaç, seguit del que indiqueu addicionalment en aquest camp."
 
 msgid "_glacier_status_info"
 msgstr "<h3>Glacera</h3>Estat de la glacera atravessada per l'itinerari: ben tapada i fàcilment franquejable, oberta o delicada a atravessar, o clarament infranquejable.<br />El camp <i>Condicions trobades</i> permet donar informacions complementàries."
 
 # [general comment]
 # Aide contextuelle sur la cotation globale.
-# [WARNING] needs_update
 msgid "_global_rating_info"
-msgstr "<h3>Cotació global d'alpinisme</h3>\n"
-"La cotació global d'alpinisme estima les dificultats màximes trobades i la continuitat de les dificultats. Té en compte igualment el grau de compromís.<br />\n"
-"L'escala va de F (fàcil) a ED (extremadament difícil). El darrer grau és obert: ED- ou ED1, ED ou ED2, ED+ ou ED3, puis ED4, ED5, ED6, ED7..."
+msgstr "<h3>Dificultat global en alpinisme</h3>\n"
+"La dificultat global en alpinisme estima les dificultats màximes trobades i la continuïtat de les dificultats. Té en compte igualment l'altitud i la durada de la sortida.<br />\n"
+"L'escala va de F (fàcil) a ED (extremadament difícil). El darrer grau és obert: ED- o ED1, ED o ED2, ED+ o ED3, i després ED4, ED5, ED6, ED7...<br />\n"
+"<br />\n"
+"Vegeu també l'ajuda a la <a href=\"/articles/188413/fr\">dificultat global</a>."
 
 msgid "_gps_data_info"
 msgstr "<strong>Envia fàcilment una traça en format GPX per il·lustrar la teva sortida.</strong><br /><br />Enviar una traça et permetrà baixar-te ulteriorment un KML amb navegació temporal.<br /><br />Si el teu GPS exporta fitxers en format NMEA utilitza <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> per convertir-los en GPX."
@@ -3137,13 +3161,17 @@ msgstr "<h3>ISSN</h3>Número ISSN de la revista o del magazín"
 
 # [general comment]
 # Aide contextuelle sur la cotation globale ski.
-# [WARNING] needs_update
 msgid "_labande_global_rating_info"
-msgstr "<h3>Cotació global esquí</h3>cotació global d'un itinerari a esquí (cotació Labanda).<br />La cotació Labanda global d'esquí és una estimació del nivell general de les dificultats trobades i de la seva continuitat. Té en compte l'altitud i la durada d'una ascenció.<br />L'escala, calcada de la cotació global alpinisme, va de F (fàcil) a ABO (abominablement difícil).<br /><br /><i><b>ATENCIÓ!</b> Es tracta d'una cotació limitada a l'esquí de muntanya, i no una cotació d'alpinisme: un corredor pot merèixer fàcilement un D per l'esquí, a la baixada, mentre que la seva cotació alpinisme, a la pujadaun, no depassaria PD o AD.</i>"
+msgstr "<h3>Dificultat global en esquí</h3>dificultat global d'un itinerari d'esquí (escala Labande).<br />\n"
+"L'escala Labande global d'esquí és una estimació del nivell general de les dificultats trobades i de la seva continuïtat. Té en compte l'altitud i la durada d'una ascensió.<br />\n"
+"L'escala, calcada de la dificultat global en alpinisme, va de F (fàcil) a ED (extremadament difícil). El darrer grau és obert: ED- o ED1, ED o ED2, ED+ o ED3, i després ED4, ED5, ED6, ED7...<br />\n"
+"<br />\n"
+"<em><b>ATENCIÓ!</b> Es tracta d'una escala limitada a l'esquí de muntanya, i no una és aplicable a l'alpinisme: un corredor pot merèixer fàcilment un D per a l'esquí, a la baixada, mentre que la seva dificultat en alpinisme, a la pujada, no depassaria PD o AD.</em><br />\n"
+"<br />\n"
+"Vegeu també l'ajuda a les <a href=\"/articles/107675/fr\">dificultats en esquí i surf</a>."
 
-# [WARNING] needs_update
 msgid "_labande_ski_rating_info"
-msgstr "<h3>Cotació puntual d'esquí</h3>Cotació puntual de baixada a esquí (cotació Labande).<br />La cotació Labande puntual d'esquí és complementària a la cotació global. Avalua la dificultat del passatge el més delicat de la baixada a esquí. Està essencialment lligada a la pendent, però pren en compte també l'esxposició.<br />L'escala va de S1 a S7."
+msgstr "<h3>Dificultat puntual d'esquí</h3>Dificultat puntual de baixada en esquí (escala Labande).<br />La dificultat Labande puntual d'esquí és complementària a la dificultat global. Avalua la dificultat del passatge més delicat de la baixada amb esquís. Està essencialment lligada al pendent, però pren en consideració també l'exposició.<br /><br /><strong>S1</strong>: Itinerari fàcil que no demana cap tècnica particular per avançar amb seguretat: camp obert < 25º, pista forestal.<br /><br /><strong>S2</strong>: Pendents llargs, una mica pendents (25º) o itineraris de fons de vall.<br /><br /><strong>S3</strong>: Pendents de fins a 35º (com les pistes negres més dretes de les estacions d'esquí, amb neu dura). Aquest nivell demana poder baixar amb qualsevol tipus de neu sense dificultats tècniques.<br /><br /><strong>S4</strong>: Pendents de fins a 45º poc exposats, o a partir de 30º i fins a 40º amb exposició forta o pas estret. Es fa indispensable una molt bona tècnica d'esquí.<br /><br /><strong>S5</strong>: Pendents d'entre 45º i 50º o més si l'exposició és baixa. A partir de 40º si l'exposició és forta. A més d'una tècnica perfecta, cal molta sang freda.<br /><br /><strong>S6</strong>: Pendents superiors a 50º amb molta exposició, que és el cas més habitual. Sinó, a partir de 55º en passos curts poc exposats.<br /><br /><strong>S7</strong>: Passos de 60° o més, salt de barres rocalloses en terreny molt pendent o exposat.<br /><br />Vegeu també l'ajuda a les <a href=\"/articles/107675/fr\">escales de dificultat en esqúi, surf i raquetes</a>."
 
 msgid "_langs_info"
 msgstr "<h3>Langues</h3>Idiomas disponibles para este libro."
@@ -3390,15 +3418,15 @@ msgstr "<h3>Nombre de places mentre el refugi és guardat</h3>Nombre de places p
 msgid "_staffed_period_info"
 msgstr "<h3>Períodes en què el refugi és guardat</h3>Període aproximat en què el refugi és guardat.<br />Exemple&nbsp;: <em>Caps de setmana d'abril, maig i finals de setembre. Cada dia des de mitjans de juny fins a mitjans de setembre</em>"
 
-# [WARNING] needs_update
 msgid "_sub_activities_info"
-msgstr "<h3>Compatibilitat amb</h3>\n"
-"Aquest camp indica amb quines sub-activitats un itinerari <i>esquí, snowboard</i> és compatible. Les sub-activitats són donades a títol indicatiu.<br />\n"
-"Es poden seleccionar més d'una activitat.<br />\n"
+msgstr "<h3>Compatible amb</h3>\n"
+"Aquest camp indica les sub-activitats amb què un itinerari d'<i>esquí, snowboard</i> és compatible. Les sub-activitats són donades a títol indicatiu.<br />\n"
+"Es pot seleccionar més d'una sub-activitat.<br />\n"
 "<br />\n"
-"<strong>surf</strong>&nbsp;: itinerari comportant molt poc pla o flanqueig.<br />\n"
+"<strong>surf</strong>: itinerari amb molt pocs trams plans o de flanqueig.<br />\n"
 "<br />\n"
-"<strong>iniciació</strong>&nbsp;: itinerari propici a l'iniciació en una subactivitat, que ha des er també seleccionada. En esquí/snowboard, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
+"<strong>iniciació</strong>: itinerari propici a la iniciació. En esquí/surf, un itinerari d'iniciació ha de ser de nivell inferior o igual a 3.2 (pista negra), no exposat (E1) i esquiable de dalt a baix (sense carregar esquís, trams plans o bosc), que permeti aprofitar la baixada sigui quin sigui el punt on s'abandoni la pujada.<br />\n"
+"Com que la característica <em>iniciació</em> agrupa un rang de dificultats força ampli, en fer una cerca resulta útil indicar la dificultat de l'itinerari."
 
 msgid "_summit_type_info"
 msgstr "<h3>Tipus de \"cim\"</h3>\n"
@@ -3926,6 +3954,10 @@ msgstr "Camptocamp.org no filtra per activitats en aquest moment"
 # titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
 msgid "c2c map data"
 msgstr "Objectes C2C"
+
+# [WARNING] en translation used
+msgid "c2c meetings"
+msgstr "c2c meetings"
 
 msgid "c2c website"
 msgstr "El lloc web C2C"
@@ -4900,7 +4932,7 @@ msgstr "Posar el text seleccionat en cursiva"
 # [general comment]
 # Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
 msgid "ice climbing portal"
-msgstr "Camptocamp Glaç"
+msgstr "Glaç"
 
 msgid "ice_climbing"
 msgstr "cascada de glaç"
@@ -5448,7 +5480,7 @@ msgid "mollasse calcaire"
 msgstr "arenisca"
 
 msgid "montblanc portal"
-msgstr "Alpinisme, escalada i esquí al Mont-Blanc"
+msgstr "Mont-Blanc"
 
 msgid "month"
 msgstr "mes"
@@ -6122,7 +6154,7 @@ msgid "publication_date"
 msgstr "Data de publicació:"
 
 msgid "pyrenees portal"
-msgstr "Camptocamp Pirineus"
+msgstr "Pirineus"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -6948,7 +6980,7 @@ msgstr "condicions de visu"
 
 # [WARNING] needs_review
 msgid "vosges portal"
-msgstr "Portal Vosges"
+msgstr "Vosges"
 
 # [WARNING] needs_review
 msgid "vtt_approach"

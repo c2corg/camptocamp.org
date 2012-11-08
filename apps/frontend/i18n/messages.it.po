@@ -1055,6 +1055,9 @@ msgstr "Aiuto"
 msgid "History"
 msgstr "Versioni"
 
+msgid "History of associations to this document"
+msgstr "Cronologia delle associazioni a questo documento"
+
 msgid "Home"
 msgstr "Home"
 
@@ -1530,6 +1533,10 @@ msgstr "La mia posizione"
 msgid "My preferences"
 msgstr "Impostazioni personali"
 
+# [WARNING] en translation used
+msgid "My statistics"
+msgstr "My statistics"
+
 msgid "My topics"
 msgstr "Le mie discussioni"
 
@@ -1993,9 +2000,8 @@ msgstr "Cerca un utente"
 msgid "Search criteria"
 msgstr "Criterio di ricerca"
 
-# [WARNING] en translation used
 msgid "Search in my images"
-msgstr "Search in my images"
+msgstr "Cercare fra le mie immagini"
 
 msgid "Search in my outings"
 msgstr "Cercare fra le mie gite"
@@ -2003,9 +2009,8 @@ msgstr "Cercare fra le mie gite"
 # [general comment]
 # Titre du critère du filtre d'itinéraire, avec une liste de choix :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
-# [WARNING] en translation used
 msgid "Search in my routes"
-msgstr "Search routes"
+msgstr "Cercare fra i miei itinerari"
 
 # [general comment]
 # [cda]
@@ -3152,10 +3157,10 @@ msgstr "<h3>Latitudine</h3>Latitudine del luogo geografico in gradi decimali.<br
 msgid "_license_info"
 msgstr "Licenza d'utilizzazione del contenuto"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "_lift_approach_info"
-msgstr "<h3>Lift approach possible</h3>\n"
-"A lift can be used to approach and / or return of this route."
+msgstr "<h3>Avvicinamento possibile con gli impianti</h3>\n"
+"Gli impianti possono essere utilizzati per l'avvicinamento o il rientro di questo itinerario."
 
 msgid "_lift_status_info"
 msgstr "<h3>Impianti di rissalita</h3>Apertura degli impianti di risalita prossimi all'itinerario."
@@ -3590,9 +3595,8 @@ msgstr "Grandi itinerari d'alpinismo"
 # [general comment]
 # 1ère option pour le critère suivant, dans le filtre d'itinéraires :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
-# [WARNING] en translation used
 msgid "already taken"
-msgstr "I've already taken"
+msgstr "che ho già percorsi"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3909,6 +3913,10 @@ msgstr "Camptocamp.org non è più filtrato sulle attività"
 # titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
 msgid "c2c map data"
 msgstr "Oggetti C2C"
+
+# [WARNING] en translation used
+msgid "c2c meetings"
+msgstr "c2c meetings"
 
 msgid "c2c website"
 msgstr "Il sito c2c"
@@ -4877,7 +4885,7 @@ msgstr "corsivo"
 # [general comment]
 # Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
 msgid "ice climbing portal"
-msgstr "Camptocamp Cascata"
+msgstr "Cascata"
 
 msgid "ice_climbing"
 msgstr "cascata"
@@ -5082,7 +5090,7 @@ msgstr "Licenza:"
 
 # [WARNING] needs_review
 msgid "lift_approach"
-msgstr "avvicinamento possibile con skilift"
+msgstr "avvicinamento possibile con gli impianti"
 
 msgid "lift_status"
 msgstr "Impianti di risalita:"
@@ -5433,7 +5441,7 @@ msgid "mollasse calcaire"
 msgstr "mollasse calcare"
 
 msgid "montblanc portal"
-msgstr "Alpinismo, arrampicata et scialpinismo nell'aerea del Bianco"
+msgstr "Aerea del Bianco"
 
 msgid "month"
 msgstr "mese"
@@ -5513,9 +5521,8 @@ msgstr "servizio a prossimità"
 # [general comment]
 # 2ème option pour le critère suivant, dans le filtre d'itinéraires :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
-# [WARNING] en translation used
 msgid "never taken"
-msgstr "I've never taken"
+msgstr "che non ho mai percorsi"
 
 msgid "new_password"
 msgstr "Inserisci una nuova password:"
@@ -6130,7 +6137,7 @@ msgid "publication_date"
 msgstr "Data di pubblicazione:"
 
 msgid "pyrenees portal"
-msgstr "Camptocamp Pirenei"
+msgstr "Pirenei"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -6935,7 +6942,7 @@ msgstr "condizioni de visu"
 
 # [WARNING] fr translation used
 msgid "vosges portal"
-msgstr "Portail Vosges"
+msgstr "Vosges"
 
 # [WARNING] needs_review
 msgid "vtt_approach"

@@ -1067,6 +1067,10 @@ msgstr "Laguntza"
 msgid "History"
 msgstr "Bertsioak"
 
+# [WARNING] en translation used
+msgid "History of associations to this document"
+msgstr "History of associations to this document"
+
 msgid "Home"
 msgstr "Sarrera orria"
 
@@ -1581,6 +1585,10 @@ msgstr "Mi posición"
 msgid "My preferences"
 msgstr "Preferentzia pertsonalak"
 
+# [WARNING] en translation used
+msgid "My statistics"
+msgstr "My statistics"
+
 # [WARNING] es translation used
 msgid "My topics"
 msgstr "Mis temas"
@@ -1716,8 +1724,9 @@ msgstr "Bertsio hau ez dago erabilgarri."
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+# [WARNING] es translation used
 msgid "Open all sections"
-msgstr ""
+msgstr "Abrir todas las secciones"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Baimenik gabeko eragiketa: ibilbide bat gutxienez gailur batekin lotu behar da"
@@ -4059,6 +4068,10 @@ msgstr "Camptocamp.org-ek ez du inongo filtrorik ekintzetarako"
 msgid "c2c map data"
 msgstr "Objetos C2C"
 
+# [WARNING] en translation used
+msgid "c2c meetings"
+msgstr "c2c meetings"
+
 # [WARNING] es translation used
 msgid "c2c website"
 msgstr "La pagina c2c"
@@ -5106,7 +5119,7 @@ msgstr "Aukeratutako testua etzan eran jarri"
 # Nom du portail "Cascade de glace" pour les liens vers le portail dans le menu, sur la home, dans la section "annexes" des documents.
 # [WARNING] es translation used
 msgid "ice climbing portal"
-msgstr "Camptocamp Escalada en Hielo"
+msgstr "Escalada en Hielo"
 
 msgid "ice_climbing"
 msgstr "izotz eskalada"
@@ -5701,7 +5714,7 @@ msgstr "mollasse kareharria"
 
 # [WARNING] en translation used
 msgid "montblanc portal"
-msgstr "Mont Blanc Climbing, Mountaineering and skiing"
+msgstr "Mont Blanc"
 
 msgid "month"
 msgstr "hilabete"
@@ -6479,7 +6492,7 @@ msgstr "Fecha de publicación:"
 
 # [WARNING] es translation used
 msgid "pyrenees portal"
-msgstr "Camptocamp Pirineo"
+msgstr "Pirineo"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -7364,7 +7377,7 @@ msgstr "ikusitako egoera"
 
 # [WARNING] fr translation used
 msgid "vosges portal"
-msgstr "Portail Vosges"
+msgstr "Vosges"
 
 # [WARNING] en translation used
 msgid "vtt_approach"
