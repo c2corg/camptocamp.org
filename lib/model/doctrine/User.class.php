@@ -239,7 +239,14 @@ class User extends BaseUser
                 {
                     return $nb_name;
                 }
-                $nb_id += $nb_name;
+                elseif ($nb_name[0]['nb_result'] == 0)
+                {
+                    $nb_id += $nb_name[1]['nb_result'];
+                }
+                elseif ($nb_name[1]['nb_result'] == 0)
+                {
+                    $nb_id += $nb_name[0]['nb_result'];
+                }
             }
             
             // friends

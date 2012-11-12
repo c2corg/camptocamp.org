@@ -372,7 +372,11 @@ class Route extends BaseRoute
                 {
                     return $nb_name;
                 }
-                $nb_id += $nb_name;
+                elseif ($nb_name[0]['nb_result'] == 0)
+                {
+                    $nb_id += $nb_name[1]['nb_result'];
+                }
+                
                 if (isset($joins_summit['summit_idi18n']) || isset($joins_summit['summit_i18n']))
                 {
                     $joins_summit['join_summit'] = true;
