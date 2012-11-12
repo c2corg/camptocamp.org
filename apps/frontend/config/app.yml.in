@@ -2050,7 +2050,6 @@ all:
     cda:
       id: @CDA_ID@
       name: 'changerdapproche'
-      annex_url: 'www.changerdapproche.org'
     metaskirando:
       id: @METASKI_ID@
       name: 'metaskirando'
