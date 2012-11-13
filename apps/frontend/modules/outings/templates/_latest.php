@@ -94,6 +94,17 @@ include_partial('documents/home_section_title',
     <ul class="dated_changes">
     <?php 
     $date = $list_item = 0;
+    $first_item = end($items);
+    $first_year = format_date($first_item['date'], 'yyyy');
+    $current_year = date('Y');
+    if ($current_year - $first_year < 2)
+    {
+        $item_date_format = 'dd/MM';
+    }
+    else
+    {
+        $item_date_format = 'dd/MM/yy';
+    }
     foreach ($items as $item): ?>
         <?php
             // Add class to know if li is odd or even
@@ -107,7 +118,7 @@ include_partial('documents/home_section_title',
             $timedate = $item['date'];
             if ($timedate != $date)
             {
-                echo '<span class="date">' . format_date($timedate, 'dd/MM') . '</span>';
+                echo '<span class="date">' . format_date($timedate, $item_date_format) . '</span>';
                 $date = $timedate;
             }
             
