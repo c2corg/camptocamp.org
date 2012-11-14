@@ -840,6 +840,8 @@ function field_image_details($document)
     $filename = $document->get('filename');
     $file = sfConfig::get('app_upload_dir') . DIRECTORY_SEPARATOR .
             sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR . $filename;
+    if (!file_exists($file)) return '';
+
     $dimensions = getimagesize($file);
     $size = filesize($file);
     $hsize = ($size >= 1048576) ? round(filesize($file) / 1048576, 2) : round(filesize($file) / 1024);
