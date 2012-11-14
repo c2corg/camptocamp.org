@@ -94,7 +94,8 @@ include_partial('documents/home_section_title',
     <ul class="dated_changes">
     <?php 
     $date = $list_item = 0;
-    $first_item = explode('-', end($items));
+    $first_item = end($items);
+    $first_item = explode('-', $first_item['date']);
     $first_month = 12 * intval($first_item[0]) + intval($first_item[0]);
     $current_month = 12 * intval(date('Y')) + intval(date('n'));
     if (($current_month - $first_month) < 12)
