@@ -1,6 +1,7 @@
 <?php
 use_helper('Field', 'MyImage');
 
+$mobile_version = c2cTools::mobileVersion();
 $image_type = $document['image_type'];
 $licenses_array = sfConfig::get('app_licenses_list');
 $license = $licenses_array[$image_type];
@@ -33,7 +34,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
           <?php
           $license_link_opt = array('title' => __("$license title"),
                                     'rel' => 'license');
-          if (!c2cTools::mobileVersion()) $license_link_opt['about'] = image_url($document->get('filename'), null);
+          if (!$mobile_version) $license_link_opt['about'] = image_url($document->get('filename'), null);
           echo link_to('Creative Commons '.__($license), $license_url, $license_link_opt).'</li>';
         }
 
@@ -51,11 +52,13 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         li(field_data_if_set($document, 'fnumber', 'F/'));
         li(field_exposure_time_if_set($document));
         li(field_data_if_set($document, 'iso_speed', '', ' ISO'));
-        
+
+        if (!$mobile_version): 
         li(field_data_if_set($document, 'id', '<input type="text" class="code" value="[img=',
                              ' right]'.$document->get('name').'[/img]"/>', 'topoguide_code'), true);
         li(field_data_if_set($document, 'filename', '<input type="text" class="code" value="[img=',
                              ' '.$sf_params->get('id').' inline]'.$document->get('name').'[/img]"/>', 'forum_code'));
+        endif;
         
         if ($document->get('has_svg'))
         {
