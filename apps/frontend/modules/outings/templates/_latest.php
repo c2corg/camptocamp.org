@@ -95,8 +95,8 @@ include_partial('documents/home_section_title',
     <?php 
     $date = $list_item = 0;
     $first_item = end($items);
-    $first_year = format_date($first_item['date'], 'yyyy');
-    $current_year = date('Y');
+    $first_year = intval(format_date($first_item['date'], 'yyyy'));
+    $current_year = intval(date('Y'));
     if ($current_year - $first_year < 2)
     {
         $item_date_format = 'dd/MM';
