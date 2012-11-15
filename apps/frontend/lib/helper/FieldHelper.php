@@ -805,7 +805,8 @@ function field_coord_data_if_set($document, $name)
 
 function field_swiss_coords($document)
 {
-    if (!isset($document->associated_areas)) return '';
+    if (!$document->get('lat') || !isset($document->associated_areas)) return '';
+
     $isSwiss = false;
     foreach ($document->associated_areas as $area)
     {
@@ -817,7 +818,7 @@ function field_swiss_coords($document)
     }
     // only document located in Switzerland are concerned
     if (!$isSwiss) return '';
-    
+
     list($x, $y) = c2cTools::WGS84toCH1903($document->get('lat'), $document->get('lon'));
     $value = sprintf('%d / %d [<a href="http://map.geo.admin.ch/?X=%d&amp;Y=%d&amp;zoom=6&amp;crosshair=cross">%s</a>]',
                       $y, $x, $x, $y, __('map'));
