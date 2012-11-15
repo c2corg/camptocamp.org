@@ -109,6 +109,7 @@ h1 .article_title
 {
   padding-right: 4px;
   margin-left: 4px;
+  border: 0;
 }
 
 #article_infos_titre, .article_infos_titre {
@@ -615,6 +616,9 @@ li.list_odd
 {
   width: 33%;
 }
+
+@import "mobile_autocomplete";
+
 /*
  * NOTE for the following media queries, smartphone and tablet terms are
  * only indications

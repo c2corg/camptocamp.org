@@ -67,6 +67,7 @@ function geocode_auto_complete($name, $service)
     $out = input_tag($name, '', array('class' => 'geocode_auto_complete' . $service_class,
                                       'placeholder' => __('enter place name'),
                                       'data-noresult' => __('no results')));
+    $out .= content_tag('span', '', array('class' => 'mobile_auto_complete_background'));
     $out .= content_tag('span', '' , array('id' => $name.'_auto_complete', 'class' => 'auto_complete'));
     
     return $out;
