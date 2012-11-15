@@ -2033,6 +2033,11 @@ ul.dated_changes li
   padding: 4px 1px;
 }
 
+ul.dated_changes.show_year li
+{
+  margin: 0 0 0 5.5em;
+}
+
 ul.dated_changes li.even, ul.listed_changes li.even, ul.article_changes li.even, ul.docs_changes li.even
 {
   background-color: #F7F7F7;

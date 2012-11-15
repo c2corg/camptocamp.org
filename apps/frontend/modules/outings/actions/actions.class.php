@@ -856,7 +856,7 @@ class outingsActions extends documentsActions
         if($this->getUser()->isConnected())
         {
             $user_id = $this->getUser()->getId();
-            $this->redirect('stats.camptocamp.org?user='.$user_id);
+            $this->redirect('http://stats.camptocamp.org/user/'.$user_id);
         }
         else
         {

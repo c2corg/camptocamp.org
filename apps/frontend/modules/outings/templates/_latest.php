@@ -90,14 +90,13 @@ include_partial('documents/home_section_title',
 <div id="last_outings_section_container" class="home_container_text">
 <?php if (count($items) == 0): ?>
     <p><?php echo __('No recent changes available') ?></p>
-<?php else: ?>
-    <ul class="dated_changes">
-    <?php 
+<?php else: 
     $date = $list_item = 0;
     $first_item = end($items);
     $first_item = explode('-', $first_item['date']);
-    $first_month = 12 * intval($first_item[0]) + intval($first_item[0]);
+    $first_month = 12 * intval($first_item[0]) + intval($first_item[1]);
     $current_month = 12 * intval(date('Y')) + intval(date('n'));
+    $ul_class = 'dated_changes';
     if (($current_month - $first_month) < 12)
     {
         $item_date_format = 'dd/MM';
@@ -105,7 +104,9 @@ include_partial('documents/home_section_title',
     else
     {
         $item_date_format = 'dd/MM/yy';
+        $ul_class .= ' show_year';
     }
+    echo '<ul class="' . $ul_class . '">';
     foreach ($items as $item): ?>
         <?php
             // Add class to know if li is odd or even
