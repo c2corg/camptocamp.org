@@ -147,8 +147,11 @@ $$('.geocode_auto_complete').each(function(obj) {
                     afterUpdateElement: function(inputField, selectedItem) {
                       $(name + '_lat').value = selectedItem.getAttribute('data-lat');
                       $(name + '_lon').value = selectedItem.getAttribute('data-lon');
-                      // TODO only for mobile version
-                      inputField.blur();
+                      // Autocompleter gives back focus to input elements,
+                      // which we don't want for mobile version
+                      if ($$('html')[0].hasClassName('mobile')) {
+                        inputField.blur();
+                      }
                     }
                   });
 });
