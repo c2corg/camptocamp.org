@@ -1,5 +1,6 @@
 /* autocomplete in mobile version */
 $h: 30px;
+$f: 16px;
 
 // correctly position our input on top of page
 .content_article {
@@ -8,35 +9,43 @@ $h: 30px;
 
 .auto_complete {
   border: 0;
-  font-size: 16px;
+  font-size: $f;
 }
 
-#filterform .geocode_auto_complete:focus {
-  @include box-sizing(border-box);
-  font-size: 16px; // make it more readable + prevent autozoom on focus from mobile browsers
-  height: $h;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+#filterform .geocode_auto_complete {
+  & + .mobile_auto_complete_background, ~ .mobile_auto_complete_escape {
+    display: none;
+  }
 
-  & + .mobile_auto_complete_background {
-    background-color: white;
-    display: block;
+  &:focus {
+    @include box-sizing(border-box);
+    font-size: $f; // make it more readable + prevent autozoom on focus from mobile browsers
+    height: $h;
     left: 0;
-    min-height: 100%;
-    padding-top: $h;
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 600;
+
+    & + .mobile_auto_complete_background {
+      background-color: white;
+      display: block;
+      left: 0;
+      min-height: 100%;
+      padding-top: $h;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 599;
+    }
+
+    & ~ .mobile_auto_complete_escape {
+      display: block;
+      font-size: $f;
+      position: absolute;
+      right: 10px;
+      top: ($h - $f) / 2;
+      z-index: 601;
+    }
   }
 }
-
-// TODO
-// indicator for feedback
-// small explanation text
-// button to cancel
-// prevent back to focus from scriptaculous -> afterUpdateElement. Only for mobile
-// hash to go back to entry /or/ save position onFocus + restore onBlur ?

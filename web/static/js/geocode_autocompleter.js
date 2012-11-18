@@ -10,6 +10,7 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
   initialize: function(element, update, serviceCallbackPrefix, options) {
     this.baseInitialize(element, update, options);
     this.serviceCallbackPrefix = serviceCallbackPrefix || '';
+    this.options.keepFocus = (typeof this.options.keepFocus == 'undefined') ? true : this.options.keepFocus;
     // if the element has class geonames, we use this service, else we use nominatim (http://wiki.openstreetmap.org/wiki/Nominatim)
     if ($(element).hasClassName('geonames')) {
       this.service = 'geonames';
@@ -30,7 +31,7 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
                 '.handleJSON&lang=' + document.documentElement.lang + '&name_startsWith=' +
                 encodeURIComponent(this.getToken());
     } else {
-      request = 'http://nominatim.openstreetmap.org/search?format=json&limit=10&json_callback.' + 
+      request = 'http://nominatim.openstreetmap.org/search?format=json&limit=10&json_callback=' + 
                 this.serviceCallbackPrefix + '.handleJSON&email=dev@campto' + 'camp.org&q=' +
                 encodeURIComponent(this.getToken());
     }
@@ -79,6 +80,42 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
     a.async = 1;
     a.src = url;
     h.appendChild(a);
+  },
+
+  // Base.Autocompleter puts back focus to the input element after element selection
+  // which we don't want in mobile version
+  // so the following function is basic copy/paste with juste the possibility to
+  // disable focus() with options
+  updateElement: function(selectedElement) {
+    if (this.options.updateElement) {
+      this.options.updateElement(selectedElement);
+      return;
+    }
+    var value = '';
+    if (this.options.select) {
+      var nodes = $(selectedElement).select('.' + this.options.select) || [];
+      if(nodes.length>0) value = Element.collectTextNodes(nodes[0], this.options.select);
+    } else
+      value = Element.collectTextNodesIgnoreClass(selectedElement, 'informal');
+
+    var bounds = this.getTokenBounds();
+    if (bounds[0] != -1) {
+      var newValue = this.element.value.substr(0, bounds[0]);
+      var whitespace = this.element.value.substr(bounds[0]).match(/^\s+/);
+      if (whitespace)
+        newValue += whitespace[0];
+      this.element.value = newValue + value + this.element.value.substr(bounds[1]);
+    } else {
+      this.element.value = value;
+    }
+    this.oldElementValue = this.element.value;
+
+    if (this.options.keepFocus) {
+      this.element.focus();
+    }
+
+    if (this.options.afterUpdateElement)
+      this.options.afterUpdateElement(this.element, selectedElement);
   }
 });
 
@@ -139,21 +176,34 @@ C2C.geo.update_around_on_select_change = function(elt) {
   }
 };
 
+var mobile = $$('html')[0].hasClassName('mobile');
 $$('.geocode_auto_complete').each(function(obj) {
   var name = obj.id;
-  C2C.geo[name] = new Autocompleter.Geocode(name, name + '_auto_complete', 
-                                            'C2C.geo.' + name, {
-                    minChars: 3, indicator: 'indicator',
-                    afterUpdateElement: function(inputField, selectedItem) {
-                      $(name + '_lat').value = selectedItem.getAttribute('data-lat');
-                      $(name + '_lon').value = selectedItem.getAttribute('data-lon');
-                      // Autocompleter gives back focus to input elements,
-                      // which we don't want for mobile version
-                      if ($$('html')[0].hasClassName('mobile')) {
-                        inputField.blur();
+  C2C.geo[name] = new Autocompleter.Geocode(name,
+                    name + '_auto_complete', 
+                    'C2C.geo.' + name, {
+                      minChars: 3, indicator: 'indicator',
+                      keepFocus: !mobile,
+                      afterUpdateElement: function(inputField, selectedItem) {
+                        $(name + '_lat').value = selectedItem.getAttribute('data-lat');
+                        $(name + '_lon').value = selectedItem.getAttribute('data-lon');
                       }
-                    }
-                  });
+                    });
+  if (mobile) {
+    var offset;
+    obj.observe('focus', function(event) {
+      // save current page offset
+      offset = window.pageYOffset;
+      window.scrollTo(0, 0);
+      // move indicator to one better location
+      $('indicator').style.top = '35px';
+    }).observe('blur', function(event) {
+      // scroll back to where we were before selecting input
+      window.scrollTo(0, offset);
+      // reset indicator position
+       $('indicator').style.top = '5px';
+    });
+  }
 });
 
 })();
