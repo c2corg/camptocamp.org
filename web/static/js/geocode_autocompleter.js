@@ -196,12 +196,12 @@ $$('.geocode_auto_complete').each(function(obj) {
       offset = window.pageYOffset;
       window.scrollTo(0, 0);
       // move indicator to one better location
-      $('indicator').addClassName('auto_complete');
+      $('indicator').addClassName('auto_complete_pos');
     }).observe('blur', function(event) {
       // scroll back to where we were before selecting input
       window.scrollTo(0, offset);
       // reset indicator position
-       $('indicator').removeClassName('auto_complete');
+       $('indicator').removeClassName('auto_complete_pos');
     });
   }
 });
