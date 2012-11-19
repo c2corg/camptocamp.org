@@ -49,3 +49,8 @@ $f: 16px;
     }
   }
 }
+
+// move indicator so that it is displayed just under the input
+#indicator.auto_complete {
+  top: 35px;
+}
