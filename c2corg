@@ -59,6 +59,8 @@ List of options:
                             generated files. Default is '<?php
                             echo $OPTIONS['writableowner']; ?>'.
  --build                    Build mapping system JS files and CSS files.
+ --buildjs                  Build only mapping system JS files.
+ --buildcss                 Build only CSS files.
 
 <?php
     exit();
@@ -166,6 +168,8 @@ function processArgs() {
                break;
 
            case '--build':
+           case '--buildjs':
+           case '--buildcss':
                setOption($i);
                break;
 
@@ -787,7 +791,8 @@ function getFileRevisionInfo($file = 'head') {
 
 function buildMapJsFiles() {
     global $OPTIONS;
-    if (!array_key_exists('build', $OPTIONS)) return;
+    if (!array_key_exists('build', $OPTIONS) &&
+        !array_key_exists('buildjs', $OPTIONS)) return;
     
     if (!hasCommand('jsbuild --help')) {
         info('Aborted build of map JS files: jsbuild is not available.');
@@ -803,7 +808,8 @@ function buildMapJsFiles() {
 
 function buildSassFiles() {
     global $OPTIONS;
-    if (!array_key_exists('build', $OPTIONS)) return;
+    if (!array_key_exists('build', $OPTIONS) &&
+        !array_key_exists('buildcss', $OPTIONS)) return;
 
     if (!hasCommand('sass --help')) {
         info('Aborted build of CSS files: sass is not available.');
