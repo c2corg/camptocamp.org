@@ -712,11 +712,14 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
     if (!$db->num_rows($result))
         message($lang_misc['No moved topics selected']);
     
-    $topics = array();
+    $topics = $topic_ids = array();
     while ($row = $db->fetch_row($result))
-        $topics[] = $row[0];
+    {
+        $topics[] = $row;
+        $topic_ids[] = $row[0];
+    }
     
-    $topics = implode(',', $topics);
+    $topic_ids = implode(',', $topic_ids);
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_misc['Moderate'];
 	require PUN_ROOT.'header.php';
@@ -726,12 +729,12 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 	<h2><?php echo $lang_misc['Delete moved topics'] ?></h2>
 	<div class="box">
 		<form method="post" action="moderate.php?fid=<?php echo $fid ?>">
-			<input type="hidden" name="topics" value="<?php echo $topics ?>" />
+			<input type="hidden" name="topics" value="<?php echo $topic_ids ?>" />
 			<div class="inform">
 				<fieldset>
 					<legend><?php echo $lang_misc['Confirm delete legend'] ?></legend>
 					<div class="infldset"><?php
-    while ($cur_topic = $db->fetch_assoc($result))
+    foreach ($topics as $cur_topic)
     {
         if ($cur_topic['moved_to'] != 0)
 		{
