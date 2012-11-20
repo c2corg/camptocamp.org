@@ -51,6 +51,7 @@ $lang_misc = array(
 'Move topics redirect'		=>	'Temes moguts. Redirigint &hellip;',
 'Confirm delete legend'		=>	'Per favor confirmeu l\'esborrat',
 'Delete topics'				=>	'Esborra temes',
+'Delete moved topics'       =>	'Delete moved topics',
 'Delete topics comply'		=>	'Esteu segur de voleu esborrar els temes seleccionats?',
 'Delete topics redirect'	=>	'Temes esborrats. Redirigint &hellip;',
 'Confirm merge legend'		=>	'Veuillez confirmer la fusion',
@@ -64,6 +65,7 @@ $lang_misc = array(
 'Close topic redirect'		=>	'Tema tancat. Redirigint &hellip;',
 'Close topics redirect'		=>	'Temes tancats. Redirigint &hellip;',
 'No topics selected'		=>	'Heu de seleccionar almenys un tema per a moure/esborrar/obrir/tancar.',
+'No moved topics selected'  =>  'No moved topics selected',
 'Stick topic redirect'		=>	'Tema marcat com a permanent. Redirigint &hellip;',
 'Unstick topic redirect'	=>	'Tema desmarcat com a permanent. Redirigint &hellip;',
 

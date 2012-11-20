@@ -51,6 +51,7 @@ $lang_misc = array(
 'Move topics redirect'		=>	'Topics moved. Redirecting &hellip;',
 'Confirm delete legend'		=>	'Please confirm deletion',
 'Delete topics'				=>	'Delete topics',
+'Delete moved topics'       =>	'Delete moved topics',
 'Delete topics comply'		=>	'Are you sure you want to delete the selected topics?',
 'Delete topics redirect'	=>	'Topics deleted. Redirecting &hellip;',
 'Confirm merge legend'		=>	'Please confirm the merge',
@@ -64,6 +65,7 @@ $lang_misc = array(
 'Close topic redirect'		=>	'Topic closed. Redirecting &hellip;',
 'Close topics redirect'		=>	'Topics closed. Redirecting &hellip;',
 'No topics selected'		=>	'You must select at least one topic for move/delete/open/close.',
+'No moved topics selected'  =>  'No moved topics selected',
 'Stick topic redirect'		=>	'Topic sticked. Redirecting &hellip;',
 'Unstick topic redirect'	=>	'Topic unsticked. Redirecting &hellip;',
 

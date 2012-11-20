@@ -309,7 +309,6 @@ if (isset($_GET['tid']))
 		    <input type="button" class="picto action_create" onclick="$$('#punmoderate form .multidelete input[type=checkbox]').each(function(obj){obj.checked=true;});" alt="<?php echo $lang_misc['Select all'] ?>" title="" value="<?php echo $lang_misc['Select all'] ?>" name="<?php echo $lang_misc['Select all'] ?>"/>&nbsp;&nbsp;
 		    <input type="button" class="picto action_rm" onclick="$$('#punmoderate form .multidelete input[type=checkbox]').each(function(obj){obj.checked=false;});" alt="<?php echo $lang_misc['Deselect all'] ?>" title="" value="<?php echo $lang_misc['Deselect all'] ?>" name="<?php echo $lang_misc['Deselect all'] ?>"/>&nbsp;&nbsp;
 		    <input type="submit" class="picto action_next" name="move_posts" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
-		    <input type="submit" class="picto action_delete" name="delete_posts" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> />
 		</p>
 		<div class="clearer"></div>
 	</div>
@@ -709,16 +708,22 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
     $topics = implode(',', $topics);
 
     // Get topic subjects
-    $result = $db->query('SELECT id, subject, moved_to FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    $result = $db->query('SELECT id, subject, moved_to FROM '.$db->prefix.'topics WHERE id IN('.$topics.') AND moved_to != 0') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
     if (!$db->num_rows($result))
-        message($lang_common['Bad request']);
+        message($lang_misc['No moved topics selected']);
+    
+    $topics = array();
+    while ($row = $db->fetch_row($result))
+        $topics[] = $row[0];
+    
+    $topics = implode(',', $topics);
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_misc['Moderate'];
 	require PUN_ROOT.'header.php';
 
 ?>
 <div class="blockform">
-	<h2><?php echo $lang_misc['Delete topics'] ?></h2>
+	<h2><?php echo $lang_misc['Delete moved topics'] ?></h2>
 	<div class="box">
 		<form method="post" action="moderate.php?fid=<?php echo $fid ?>">
 			<input type="hidden" name="topics" value="<?php echo $topics ?>" />
@@ -991,7 +996,7 @@ else
 		    <input type="button" class="picto action_rm" onclick="$$('#punmoderate form .tcmod input[type=checkbox]').each(function(obj){obj.checked=false;});" alt="<?php echo $lang_misc['Deselect all'] ?>" title="" value="<?php echo $lang_misc['Deselect all'] ?>" name="<?php echo $lang_misc['Deselect all'] ?>"/>&nbsp;&nbsp;
 		    <input type="submit" class="picto action_merge" name="merge_topics" value="<?php echo $lang_misc['Merge'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
 		    <input type="submit" class="picto action_next" name="move_topics" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
-		    <input type="submit" class="picto action_delete" name="delete_topics" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
+		    <input type="submit" class="picto action_delete" name="delete_topics" value="<?php echo $lang_misc['Delete moved topics'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
 		    <input type="submit" class="picto action_unprotect" name="open" value="<?php echo $lang_misc['Open'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
 		    <input type="submit" class="picto action_protect" name="close" value="<?php echo $lang_misc['Close'] ?>"<?php echo $button_status ?> />
 		</p>

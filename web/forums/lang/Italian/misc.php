@@ -51,6 +51,7 @@ $lang_misc = array(
 'Move topics redirect'		=>	'Discussioni spostate. Reindirizzamento &hellip;',
 'Confirm delete legend'		=>	'Per favore conferma l\'eliminazione',
 'Delete topics'				=>	'Elimina discussioni',
+'Delete moved topics'       =>	'Delete moved topics',
 'Delete topics comply'		=>	'Sei sicuro di voler eliminare le discussioni selezionate?',
 'Delete topics redirect'	=>	'Discussioni eliminate. Reindirizzamento &hellip;',
 'Confirm merge legend'		=>	'Veuillez confirmer la fusion',
@@ -64,6 +65,7 @@ $lang_misc = array(
 'Close topic redirect'		=>	'Discussione chiusa. Reindirizzamento &hellip;',
 'Close topics redirect'		=>	'Discussioni chiuse. Reindirizzamento &hellip;',
 'No topics selected'		=>	'Devi selezionare almeno una discussione da spostare/eliminare/aprire/chiudere.',
+'No moved topics selected'  =>  'No moved topics selected',
 'Stick topic redirect'		=>	'Discussione messa in rilievo. Reindirizzamento &hellip;',
 'Unstick topic redirect'	=>	'Discussione non pi&ugrave; in rilievo. Reindirizzamento &hellip;',
 

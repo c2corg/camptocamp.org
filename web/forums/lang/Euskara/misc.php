@@ -103,6 +103,7 @@ $lang_misc = array(
 
 'Delete topics'				=>	'Eztabaidak ezabatu',
 
+'Delete moved topics'       =>	'Delete moved topics',
 'Delete topics comply'		=>	'Ziur al zaude aukeratutako eztabaidak ezabatu nai dituzula&#160;?',
 
 'Delete topics redirect'	=>	'Ezbatidak ezabatuak izan dira. Ber bideratu &hellip;',
@@ -124,6 +125,7 @@ $lang_misc = array(
 
 'No topics selected'		=>	'Gutxienez eztabaida bat aukeratu behar duzu Mugitu/Ezabatu/Iraki/Itxi ahal izateko.',
 
+'No moved topics selected'  =>  'No moved topics selected',
 'Stick topic redirect'		=>	'Jatorrizko eztabaida. Ber bideratu &hellip;',
 
 'Unstick topic redirect'	=>	'Eztabaida askatua. Ber bideratu &hellip;',
