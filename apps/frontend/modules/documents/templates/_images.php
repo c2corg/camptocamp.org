@@ -104,7 +104,7 @@ if (!$mobile_version)
     {
         if ($nb_images)
         {
-            $url2 = "images/list?ityp=1&itags=$list_ids&orderby=date&order=asc";
+            $url2 = "images/list?ityp=1&docs=$list_ids&orderby=date&order=asc";
             $text2 = 'collaborative images';
         }
     }

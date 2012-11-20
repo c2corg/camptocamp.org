@@ -3,6 +3,7 @@ use_helper('Button', 'Ajax', 'Javascript');
 
 $module = $sf_context->getModuleName();
 $lang = $document->getCulture();
+$is_connected = $sf_user->isConnected();
 $has_rights = $sf_user->hasCredential('moderator');
 $redirected = $document->get('redirects_to');
 $is_archive = $document->isArchive();
@@ -36,10 +37,12 @@ $is_protected = $document->get('is_protected');
             <?php if ($has_rights && !$is_archive && !$redirected): ?>
                 <li><?php echo button_refresh_geo_associations($module, $id) ?></li>
             <?php endif ?>
-            <?php if ($sf_user->isConnected() && !$redirected && !$is_archive && !$is_protected): ?>
+            <?php if ($is_connected && !$redirected && !$is_archive && !$is_protected): ?>
                 <li><?php echo button_add_outing($id) ?></li>
             <?php endif ?>
-            <li><?php echo button_rss($module, $lang, $id) ?></li>
+            <?php if ($is_connected && !$redirected): ?>
+                <li><?php echo button_rss($module, $lang, $id) ?></li>
+            <?php endif ?>
             <li><?php echo button_report() ?></li>
             <li><?php echo button_help() ?></li>
         </ul>

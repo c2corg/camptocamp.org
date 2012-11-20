@@ -3,6 +3,7 @@ use_helper('Button', 'Ajax', 'Javascript');
 
 $module = $sf_context->getModuleName();
 $lang = $document->getCulture();
+$is_connected = $sf_user->isConnected();
 $has_rights = $sf_user->hasCredential('moderator');
 $redirected = $document->get('redirects_to');
 $is_archive = $document->isArchive();
@@ -32,7 +33,9 @@ $is_archive = $document->isArchive();
             <?php if ($has_rights && !$is_archive): ?>
                 <li><?php echo button_clear_cache($module, $id) ?></li>
             <?php endif ?>
-            <li><?php echo button_rss($module, $lang, $id) ?></li>
+            <?php if ($is_connected && !$redirected): ?>
+                <li><?php echo button_rss($module, $lang, $id) ?></li>
+            <?php endif ?>
             <li><?php echo button_report() ?></li>
             <li><?php echo button_help() ?></li>
         </ul>

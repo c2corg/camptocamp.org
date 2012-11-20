@@ -15,7 +15,6 @@ $has_rights = $sf_user->hasCredential('moderator');
                 <li><?php echo button_back($module) ?></li>
             <?php endif ?>
             <li><?php echo button_search($module) ?></li>
-            <li><?php echo button_rss($module, $lang, $id) ?></li>
             <li><?php echo button_mail($id); ?></li>
             <?php if ($is_connected): ?>
                 <li><?php echo button_pm($id) ?></li>

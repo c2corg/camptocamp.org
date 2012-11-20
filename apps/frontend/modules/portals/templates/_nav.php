@@ -3,6 +3,7 @@ use_helper('Button', 'Ajax', 'Javascript');
 
 $module = $sf_context->getModuleName();
 $lang = $document->getCulture();
+$is_connected = $sf_user->isConnected();
 $has_rights = $sf_user->hasCredential('moderator');
 $redirected = $document->get('redirects_to');
 $is_archive = $document->isArchive();
