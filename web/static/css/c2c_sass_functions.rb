@@ -5,7 +5,7 @@ module Sass::Script::Functions
 
   # Given the (css) path to a file, returns it prefixed with the 'hash'
   # (which is in fact the 8 first chars of mda5, which is shorter and
-  # provides enough differentiation between two versions of a file
+  # provides enough differentiation between two versions of a file)
   def c2chash(file)
     assert_type file, :String
     ffile = "../.." + file.value

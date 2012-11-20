@@ -5,8 +5,7 @@ default:
     description:  meta_description
     keywords:     meta_keywords
 
-  stylesheets:
-    - /static/css/main.css: { media: all }
+  # stylesheets:
   # javascripts should not be specified here if not application-wide
 
   has_layout:     on

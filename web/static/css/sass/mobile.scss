@@ -1,5 +1,10 @@
 @import "blob";
 
+// css specific for mobile version
+
+$mobile: true;
+@import "main";
+
 html, body, #holder
 {
   min-width: 240px;
@@ -754,29 +759,10 @@ li.list_odd
     display: none;
   }
 
-  /*
-   * Snow conditions tables (to be improved)
-   */
-  .extraheight, #_conditions_levels
+  .extraheight
   {
     width: 100% !important;
     height: auto;
-  }
-
-  #level_place, #level_comment
-  {
-    width: 50%;
-  }
-
-  #level_snow_height_soft, #level_snow_height_total
-  {
-    width: auto;
-  }
-
-  #conditions_levels_table th, #conditions_levels_table td
-  {
-    display: block;
-    float: left;
   }
 
   /*

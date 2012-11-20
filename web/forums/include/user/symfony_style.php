@@ -1,9 +1,9 @@
 <?php
 $mobile_version = c2cTools::mobileVersion();
 
-$sf_response->addStylesheet('/static/css/main.css', 'first');
 if (!$mobile_version)
 {
+    $sf_response->addStylesheet('/static/css/default.css', 'first');
     $sf_response->addStylesheet('/static/css/wimg.css');
     $sf_response->addStylesheet('/static/css/menu.css');
     $sf_response->addStylesheet('/static/css/modalbox.css');

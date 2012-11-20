@@ -52,6 +52,7 @@ class MobileFilter extends sfFilter
                 }
             }
 
+            $context->getResponse()->addStylesheet('/static/css/default.css');
             $context->getResponse()->addStylesheet('/static/css/wimg.css'); // data uri images that are used only in www version
             $context->getResponse()->addStylesheet('/static/css/menu.css');
             $context->getResponse()->addStylesheet('/static/css/print.css', 'print');
