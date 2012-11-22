@@ -43,17 +43,6 @@
          offset="1"
          id="stop3785" />
     </linearGradient>
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3781"
-       id="radialGradient3815"
-       gradientUnits="userSpaceOnUse"
-       cx="180.11888"
-       cy="872.24332"
-       fx="180.11888"
-       fy="872.24332"
-       r="120"
-       gradientTransform="translate(-454.07837,93.45387)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3781"
@@ -86,10 +75,10 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="776"
-     inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     inkscape:window-x="1272"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -99,7 +88,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -108,13 +97,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-732.36218)">
-    <image
-       y="721.52917"
-       x="402.6727"
-       id="image2993"
-       xlink:href="file:///home/tai/chroot-c2corg-lenny/var/www/camptocamp.org/web/static/images/modules/images.png"
-       height="320"
-       width="320" />
     <rect
        y="830.10901"
        x="19.749998"
