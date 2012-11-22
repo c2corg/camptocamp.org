@@ -1,7 +1,10 @@
+// css for standard site
+@function -c2c-mobile() { @return false; }
+@function -c2c-standard() { @return true; }
+@function -c2c-pixelratio() { @return 1; }
+
 @import "blob";
 
-// css for standard site
-$mobile: false;
 @import "main";
 
 @import "outing_wizard";
