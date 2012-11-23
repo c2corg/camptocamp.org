@@ -14,7 +14,7 @@ module Sass::Script::Functions
     hash = MD5.new(File.read(ffile))
     Sass::Script::String.new("/" + hash.to_s[0,8] + file.value)
   rescue
-    raise Sass::SyntaxError.new("File " + file.value + ffile + " not found")
+    raise Sass::SyntaxError.new("File " + file.value + " not found")
   end
 
   declare :c2chash, :args => [:file]
@@ -29,7 +29,7 @@ module Sass::Script::Functions
     Sass::Script::String.new("data:image/" + File.extname(ffile)[1..-1] \
       + ";base64," + Base64.encode64(File.read(ffile)).strip.gsub(/\n/,''))
   rescue
-     raise Sass::SyntaxError.new("File " + file.value + " not found")
+     raise Sass::SyntaxError.new("File " + file.value + " not found") # not really a syntax error, but...
   end
 
   declare :datauri, :args => [:file]
@@ -37,8 +37,8 @@ module Sass::Script::Functions
 
   # Given a file and a pixel ratio, return best candidate file
   # For example, looking for file img.png with pixelratio 2 will
-  # return img.2.png if it exits, img.png otherwise
-  # A pixelratio will end with no suffix appended
+  # return img2x.png if it exits, img.png otherwise
+  # A pixelratio of 1 will end with no suffix appended
   def pixelratio_file(file, pixelratio)
     assert_type file, :String
     assert_type pixelratio, :Number
@@ -52,7 +52,8 @@ module Sass::Script::Functions
       if File.exists?(pixelratio_filepath)
         filepath = pixelratio_filepath
       else
-        Sass::Util.sass_warn("Warning: using default pixel ratio file for " + file.value)
+        Sass::Util.sass_warn("Warning: using default pixel ratio file for " + file.value +
+                             " (" + pixelratio.to_s + "x version not available)")
       end
     end
     filepath

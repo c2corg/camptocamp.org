@@ -1456,8 +1456,9 @@ a.close_btn {
   @include -c2c-datauri-background('/static/images/cc-by-nc-nd.png', no-repeat 0);
 }
 
+// not so often used (only some books, thus not using datauri)
 .picto.copyright {
-  @include -c2c-datauri-background('/static/images/copyright.png', no-repeat 0);
+  @include -c2c-hashurl-background('/static/images/copyright.png', no-repeat 0);
 }
 
 .picto.cc-by-sa-mini
@@ -4663,8 +4664,9 @@ span.cotometre_result {
   @include -c2c-datauri-background('/static/images/cc-by-nc-nd_mini.png', no-repeat 0);
 }
 
+// not so often used (just some books) thus not using datauri
 .thumb_data_img div.license_3, .image_list div.license_3 {
-  @include -c2c-datauri-background('/static/images/copyright_mini.png', no-repeat 0);
+  @include -c2c-hashurl-background('/static/images/copyright_mini.png', no-repeat 0);
 }
 
 /* embedded google search */
