@@ -487,7 +487,7 @@ select.menu_select
 }
 
 #mobile_home, .logo_mini {
-  background: url(-c2c-datauri('/static/images/logo_mini.png')) no-repeat 0;
+  @include -c2c-datauri-background('/static/images/logo_mini.png', no-repeat 0);
 }
 
 #mobile_home span
