@@ -7,12 +7,12 @@
  */
 .warning_message
 {
-  background-image: url(c2chash('/static/images/ie/warning.gif'));
+  background-image: url(-c2c-hashurl('/static/images/ie/warning.gif'));
 }
 
 .important_message, .global_form_error, .preview_warning, .mandatory_fields_warning
 {
-  background-image: url(c2chash('/static/images/ie/important.gif'));
+  background-image: url(-c2c-hashurl('/static/images/ie/important.gif'));
 }
 
 /* borders and logos sprites */
@@ -30,16 +30,16 @@
 .thumb_data_img div.license_2, .image_list div.license_2,
 .thumb_data_img div.license_3, .image_list div.license_3
 {
-  background-image: url(c2chash('/static/images/ie/borders_and_logos.gif'));
+  background-image: url(-c2c-hashurl('/static/images/ie/borders_and_logos.gif'));
 }
 
 #europesengage a, #paca a, #languedoc a, #mw_logo, #cda_logo {
-  background: url(c2chash('/static/images/portals/cda.gif')) no-repeat;
+  background: url(-c2c-hashurl('/static/images/portals/cda.gif')) no-repeat;
 }
 
 .ombre_haut, .ombre_bas, #footer
 {
-  background-image:url(c2chash('/static/images/borders_repeat_x.gif'));
+  background-image:url(-c2c-hashurl('/static/images/borders_repeat_x.gif'));
 }
 #footer
 {
@@ -55,7 +55,7 @@
 
 .article_title_img
 {
-  background-image: url(c2chash('/static/images/ie/modules.gif'));
+  background-image: url(-c2c-hashurl('/static/images/ie/modules.gif'));
 }
 /* position with +3px +3px */
 .img_title_areas
@@ -133,7 +133,7 @@
 .picto_close, .picto_close_light, .picto_add, .picto_rm, .picto_images_light, .picto_movie,
 th.order_desc, th.order_asc, .image_list a.view_original, #lightbox_view_original, .image_list a.unlink
 {
-  background-image: url(c2chash('/static/images/ie/actions.gif'));
+  background-image: url(-c2c-hashurl('/static/images/ie/actions.gif'));
 }
 .action_edit span, .action_edit
 {
@@ -397,7 +397,7 @@ th.order_asc
 .picto_8, .picto_11, .picto_12, .picto_6, .picto_2, .picto_14, .picto_15,
 .image_list a.view_details, #lightbox_view_details
 {
-  background-image: url(c2chash('/static/images/ie/modules_mini.gif'));
+  background-image: url(-c2c-hashurl('/static/images/ie/modules_mini.gif'));
 }
 .picto_areas, .picto_4
 {
@@ -529,13 +529,13 @@ th.order_asc
 .img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images, .img_module_portals, .img_module_products,
 .img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users, a.logged_as
 {
-  background-image: url(c2chash('/static/images/ie/modules_mini.gif'));
+  background-image: url(-c2c-hashurl('/static/images/ie/modules_mini.gif'));
 }
 
 .img_action_search, .img_action_create, .img_action_list, .img_action_mail, .img_action_comment,
 .img_action_query, .img_action_edit, .img_action_help, .img_action_informations, .img_action_cc
 {
-  background-image: url(c2chash('/static/images/ie/actions.gif'));
+  background-image: url(-c2c-hashurl('/static/images/ie/actions.gif'));
 }
 
 /* Latest outings decoration */
@@ -547,7 +547,7 @@ th.order_asc
 .freq_1, .freq_2, .freq_3, .freq_4,
 option.picto_act
 {
-  background-image: url(c2chash('/static/images/ie/activities_mini.gif'));
+  background-image: url(-c2c-hashurl('/static/images/ie/activities_mini.gif'));
 }
 
 .activity_6, option.act_6
@@ -674,7 +674,7 @@ option.picto_act
 /* Navigation */
 #wizard_button ul
 {
-  list-style-image:url(c2chash('/static/images/ie/plus.gif'));
+  list-style-image:url(-c2c-hashurl('/static/images/ie/plus.gif'));
 }
 #nav_anchor li, #nav_tools li, #wizard_button li
 {
@@ -699,15 +699,15 @@ option.picto_act
 }
 #wizard_button_down
 {
-  background: transparent url(c2chash('/static/images/wizard_bottom.gif')) no-repeat scroll 0 0;
+  background: transparent url(-c2c-hashurl('/static/images/wizard_bottom.gif')) no-repeat scroll 0 0;
 }
 .nav_box_top
 {
-  background: transparent url(c2chash('/static/images/bg_nav_top.png')) no-repeat scroll 0 0;
+  background: transparent url(-c2c-hashurl('/static/images/bg_nav_top.png')) no-repeat scroll 0 0;
 }
 .nav_box_down
 {
-  background: transparent url(c2chash('/static/images/bg_nav_bottom.png')) no-repeat scroll 0 0;
+  background: transparent url(-c2c-hashurl('/static/images/bg_nav_bottom.png')) no-repeat scroll 0 0;
 }
 .nav_box_content
 {
@@ -715,7 +715,7 @@ option.picto_act
 }
 #nav_anchor_down, #nav_tools_down, #nav_license_down
 {
-  background: transparent url(c2chash('/static/images/menu_gauche_bas.gif'))  no-repeat scroll 0 0;
+  background: transparent url(-c2c-hashurl('/static/images/menu_gauche_bas.gif'))  no-repeat scroll 0 0;
 }
 
 #nav_about p, #nav_prepare p, #nav_toolbox p, #nav_news p
@@ -755,7 +755,7 @@ a.link_nav_anchor, a.nav_edit
 }
 #footer_border_right
 {
-  background: white url(c2chash('/static/images/footer_border_right.gif')) no-repeat scroll right;
+  background: white url(-c2c-hashurl('/static/images/footer_border_right.gif')) no-repeat scroll right;
 }
 #footer_partners
 {
@@ -1046,21 +1046,21 @@ div.img_box
 
 /* ie6 and ie7 don't support data uris */
 a.external_link, .htext .hextra a.external_link {
-  background: transparent url(c2chash('/static/images/extlink.gif')) left center no-repeat;
+  background: transparent url(-c2c-hashurl('/static/images/extlink.gif')) left center no-repeat;
 }
 #order li
 {
-  background: url(c2chash('/static/images/picto/drag.gif')) no-repeat 5px;
+  background: url(-c2c-hashurl('/static/images/picto/drag.gif')) no-repeat 5px;
 }
 
 .c2cui_picto.action_create
 {
-  background: url(c2chash('/static/images/ie/add.gif')) no-repeat 0;
+  background: url(-c2c-hashurl('/static/images/ie/add.gif')) no-repeat 0;
 }
 
 .c2cui_picto.action_filter, #google_search_submit, #q
 {
-  background: url(c2chash('/static/images/ie/search.gif')) no-repeat 0;
+  background: url(-c2c-hashurl('/static/images/ie/search.gif')) no-repeat 0;
 }
 
 #google_search_submit, #q {
@@ -1069,32 +1069,32 @@ a.external_link, .htext .hextra a.external_link {
 
 .c2cui_picto.action_cancel
 {
-  background: url(c2chash('/static/images/ie/cancel.gif')) no-repeat 0;
+  background: url(-c2c-hashurl('/static/images/ie/cancel.gif')) no-repeat 0;
 }
 
 .c2cui_picto.action_list
 {
-  background: url(c2chash('/static/images/ie/list.gif')) no-repeat 0;
+  background: url(-c2c-hashurl('/static/images/ie/list.gif')) no-repeat 0;
 }
 
 .c2cui_picto.action_edit
 {
-  background: url(c2chash('/static/images/ie/edit.gif')) no-repeat 0;
+  background: url(-c2c-hashurl('/static/images/ie/edit.gif')) no-repeat 0;
 }
 
 .c2cui_picto.action_rm
 {
-  background: url(c2chash('/static/images/ie/rm.gif')) no-repeat 0;
+  background: url(-c2c-hashurl('/static/images/ie/rm.gif')) no-repeat 0;
 }
 
 .nav_box_text ul, ul.listed_changes li, ul.children_docs li
 {
-  list-style-image: url(c2chash('/static/images/ie/puce2.gif'));
+  list-style-image: url(-c2c-hashurl('/static/images/ie/puce2.gif'));
 }
 
 .form-row .fieldname
 {
-  background:transparent url(c2chash('/static/images/ie/help2.gif')) no-repeat scroll 0 6px;
+  background:transparent url(-c2c-hashurl('/static/images/ie/help2.gif')) no-repeat scroll 0 6px;
 }
 
 #banner_logo
@@ -1119,7 +1119,7 @@ a.external_link, .htext .hextra a.external_link {
 }
 #splitter_arrow
 {
-  background: url(c2chash('/static/images/ie/borders_and_logos.gif')) no-repeat;
+  background: url(-c2c-hashurl('/static/images/ie/borders_and_logos.gif')) no-repeat;
   background-position: -190px -141px;
 }
 #splitter_arrow.maximize
@@ -1276,6 +1276,6 @@ span.license_mini_bysa {
 }
 
 /* lightbox datauri fallback */
-#prevLink:hover, #prevLink:visited:hover { background: url(c2chash('/static/images/prev_black.gif')) left 15% no-repeat; }
-#nextLink:hover, #nextLink:visited:hover { background: url(c2chash('/static/images/next_black.gif')) right 15% no-repeat; }
-#imageData #bottomNavClose { background: url(c2chash('/static/images/close_lightbox.gif')) 0 0 no-repeat; }
+#prevLink:hover, #prevLink:visited:hover { background: url(-c2c-hashurl('/static/images/prev_black.gif')) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(-c2c-hashurl('/static/images/next_black.gif')) right 15% no-repeat; }
+#imageData #bottomNavClose { background: url(-c2c-hashurl('/static/images/close_lightbox.gif')) 0 0 no-repeat; }
