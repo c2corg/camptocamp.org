@@ -36,7 +36,7 @@
 // return background property with image
 // as hash+url and set background-size if appropriate
 @mixin -c2c-hashurl-background($file, $suffix: null) {
-  @include -c2c-background('hash', $file, $suffix);
+  @include -c2c-background('hashurl', $file, $suffix);
 }
 
 // return background property with image as datauri

@@ -11,8 +11,8 @@ module Sass::Script::Functions
     assert_type pixelratio, :Number
 
     ffile = pixelratio_file(file, pixelratio)
-    hash = MD5.new(File.read(ffile))
-    Sass::Script::String.new("/" + hash.to_s[0,8] + file.value)
+    hash = MD5.new(File.read("../.." + ffile))
+    Sass::Script::String.new("/" + hash.to_s[0,8] + ffile)
   rescue
     raise Sass::SyntaxError.new("File " + file.value + " not found")
   end
@@ -27,7 +27,7 @@ module Sass::Script::Functions
 
     ffile = pixelratio_file(file, pixelratio)
     Sass::Script::String.new("data:image/" + File.extname(ffile)[1..-1] \
-      + ";base64," + Base64.encode64(File.read(ffile)).strip.gsub(/\n/,''))
+      + ";base64," + Base64.encode64(File.read("../.." + ffile)).strip.gsub(/\n/,''))
   rescue
      raise Sass::SyntaxError.new("File " + file.value + " not found") # not really a syntax error, but...
   end
@@ -43,13 +43,13 @@ module Sass::Script::Functions
     assert_type file, :String
     assert_type pixelratio, :Number
 
-    filepath = "../.." + file.value
+    filepath = file.value
     if pixelratio.value != 1
       ext = File.extname(file.value)
       basename = File.basename(file.value, ext)
       dir = File.dirname(file.value)
-      pixelratio_filepath = "../.." + dir + "/" + basename + pixelratio.value.to_s + "x" + ext
-      if File.exists?(pixelratio_filepath)
+      pixelratio_filepath = dir + "/" + basename + pixelratio.value.to_s + "x" + ext
+      if File.exists?("../.." + pixelratio_filepath)
         filepath = pixelratio_filepath
       else
         Sass::Util.sass_warn("Warning: using default pixel ratio file for " + file.value +
