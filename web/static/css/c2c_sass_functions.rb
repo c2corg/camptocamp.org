@@ -48,7 +48,7 @@ module Sass::Script::Functions
       ext = File.extname(file.value)
       basename = File.basename(file.value, ext)
       dir = File.dirname(file.value)
-      pixelratio_filepath = dir + "/" + basename + pixelratio.value.to_s + "x" + ext
+      pixelratio_filepath = dir + "/" + basename + "@" + pixelratio.value.to_s + "x" + ext
       if File.exists?("../.." + pixelratio_filepath)
         filepath = pixelratio_filepath
       else
