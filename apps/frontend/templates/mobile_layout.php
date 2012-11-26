@@ -44,7 +44,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
     ?>
     <script type="text/javascript">
     (function(m){var l='<?php echo trim(minify_get_main_stylesheets($combine, $debug)); ?>',r=window.devicePixelRatio||1;
-    if(r>1){l=l.replace(m,m+(r>=2?2:1.5)+'x');}document.write(l);})('mobile');
+    if(r>1){l=l.replace(m,m+'@'+(r>=2?2:1.5)+'x');}document.write(l);})('mobile');
     </script>
     <?php
         minify_include_custom_stylesheets($combine, $debug);
