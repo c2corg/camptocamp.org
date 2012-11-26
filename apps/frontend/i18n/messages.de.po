@@ -1058,9 +1058,9 @@ msgstr "Hilfe"
 msgid "History"
 msgstr "Versionen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "History of associations to this document"
-msgstr "History of associations to this document"
+msgstr "Frühere Verbindungen zu diesem Dokument"
 
 msgid "Home"
 msgstr "Startseite"
@@ -1571,9 +1571,9 @@ msgstr "Eine neue Route hinzufügen"
 msgid "New routes article"
 msgstr "Geschichte der Eröffnungen"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "No GPX track, please edit this document to add some"
-msgstr "Für dieses Bild sind keine geographischen Angaben verfügbar. Editieren Sie dieses Dokument, um Angaben hinzuzufügen."
+msgstr "Kein GPS-Track: Bearbeiten sie dieses Dokument, um welche hinzuzufügen."
 
 msgid "No associated document found"
 msgstr "Kein verknüpftes Dokument wurde gefunden"
@@ -1601,9 +1601,9 @@ msgstr "keine Datei wurde hochgeladen "
 msgid "No geodata available"
 msgstr "Dieses Dokument enthält noch keine Geodaten."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "No geom info, please edit this document to add some"
-msgstr "Für dieses Bild sind keine geographischen Angaben verfügbar. Editieren Sie dieses Dokument, um Angaben hinzuzufügen."
+msgstr "Bearbeiten sie dieses Dokument, um geographische Informationen hinzuzufügen."
 
 msgid "No image has been edited"
 msgstr "Kein Bild wurde geändert"
@@ -2007,9 +2007,8 @@ msgstr "Einen Benutzer suchen"
 msgid "Search criteria"
 msgstr "Suchkriterien"
 
-# [WARNING] en translation used
 msgid "Search in my images"
-msgstr "Search in my images"
+msgstr "Suche in meinen Bildern"
 
 msgid "Search in my outings"
 msgstr "Suche in meinen Touren"
@@ -2017,9 +2016,8 @@ msgstr "Suche in meinen Touren"
 # [general comment]
 # Titre du critère du filtre d'itinéraire, avec une liste de choix :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
-# [WARNING] en translation used
 msgid "Search in my routes"
-msgstr "Search routes"
+msgstr "Suche in den Routen"
 
 # [general comment]
 # [cda]
@@ -2897,11 +2895,13 @@ msgstr "<h3>Kamera</h3>Marke und Modell der Kamera. <br />Diese Informationen we
 msgid "_captcha_info"
 msgstr "<h3>Anti-spam-Test</h3>Schreiben Sie die im Bild sichtbaren Buchstaben ab. Bei diesem Test wird nicht zwischen Klein- und Großschreibung unterschieden.<br />Falls sie die Buchstaben nicht lesen können, laden sie die Seite neu, um ein neues Bild zu erhalten. Dabei werden davor eingegebene Daten (Benutzername und Email-Addresse) gelöscht."
 
+# [general comment]
+# Aide contextuelle du champ : Catégories d'un article
 # [comment]
 # Brouillion: Chaos? Wirres? Baustelle? etwas anderes?
 # 
 # VS: --> In Bearbeitung
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Kategorie eines Beitrags</h3>\n"
 "Mehrere Kategorien können ausgewählt werden.<br /><br /><strong>Gebirgsumwelt</strong>: Allgemeine, nicht-ändernde\n"
@@ -3377,7 +3377,7 @@ msgid "_outing_length_info"
 msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verbunden ist.<br />Dieser Wert ist aus dem verbundenen GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Benützung des öV</h3>Gibt an, ob die An- und Abreise einer Tour mit öffentlichen Verkehrsmitteln (oder per Velo) gemacht wurde, was ein praktisches Suchkriterium ist. Skilifte werden dabei nicht berücksichtigt.<br />Wenn dieses Feld angekreuzt wird, erscheint die Tour auf auf dem <a href=\"http://www.changerdapproche.org\">Changer d'approche</a>-Portal.<br />Das Feld ist optional und kann unbeantwortet belassen werden, obschon der öV verwendet wurde."
+msgstr "<h3>Benützung des öV</h3>Gibt an, ob die An- und Abreise einer Tour mit öffentlichen Verkehrsmitteln (oder per Velo) gemacht wurde, was ein praktisches Suchkriterium ist. Skilifte werden dabei nicht berücksichtigt.<br />Wenn dieses Feld angekreuzt wird, erscheint die Tour auf auf dem <a href=\"hhttp://www.camptocamp.org/portals/219879\">Changer d'approche</a>-Portal.<br />Das Feld ist optional und kann unbeantwortet belassen werden, obschon der öV verwendet wurde."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Unvollständige Begehung</h3>Gibt an, ob eine Route während einer Tour nur teilweise begangen wurde."
@@ -3773,9 +3773,9 @@ msgstr "Alpinisme grandes courses"
 # [general comment]
 # 1ère option pour le critère suivant, dans le filtre d'itinéraires :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcouru]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "already taken"
-msgstr "I've already taken"
+msgstr "die ich schon ausgeführt habe"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4091,6 +4091,9 @@ msgstr "Camptocamp.org ist nicht mehr auf einzelne Bergsportaktivitäten eingesc
 msgid "c2c map data"
 msgstr "c2c-Objekte"
 
+# [general comment]
+# Option de la catégorie d'un article : rassemblements / G2G
+# La catégorie "rassemblements" s'applique aux articles utilisés pour la préparation et les comptes rendus des rassemblements entre membres de camptocamp, organisés sur camptocamp.
 # [WARNING] en translation used
 msgid "c2c meetings"
 msgstr "c2c meetings"
@@ -4569,9 +4572,8 @@ msgstr "Beschreibung:"
 msgid "desert"
 msgstr "nicht besucht"
 
-# [WARNING] needs_update
 msgid "detail pic"
-msgstr "Detail / Zoom"
+msgstr "Detail (Ort, Route)"
 
 msgid "deutsch"
 msgstr "deutsch"
@@ -5764,9 +5766,9 @@ msgstr "Dienst in der Nähe"
 # [general comment]
 # 2ème option pour le critère suivant, dans le filtre d'itinéraires :
 # Rechercher parmi les itinéraires [que j'ai déjà parcourus] / [que je n'ai jamais parcourus]
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "never taken"
-msgstr "I've never taken"
+msgstr "die ich noch nie ausgeführt habe"
 
 msgid "new_password"
 msgstr "Geben Sie Ihr neues Passwort ein:"
@@ -6945,6 +6947,13 @@ msgstr "Nur Schneeschuhtouren anzeigen"
 msgid "ta portal"
 msgstr "Terrain d'Aventure"
 
+# [general comment]
+# Option de la catégorie d'un article : tags
+# La catégorie "tags" s'applique aux articles utilisés pour taguer des document afin de les retrouver facilement, et pour faire des recherches complexes.
+# [WARNING] needs_review
+msgid "tags"
+msgstr "Tags"
+
 msgid "technics"
 msgstr "Technik"
 
@@ -7219,9 +7228,8 @@ msgstr "Die aktuellste Version des Dokuments anzeigen"
 msgid "visual conditions"
 msgstr "Sichtverhältnisse"
 
-# [WARNING] fr translation used
 msgid "vosges portal"
-msgstr "Vosges"
+msgstr "Vogesen"
 
 # [WARNING] needs_review
 msgid "vtt_approach"

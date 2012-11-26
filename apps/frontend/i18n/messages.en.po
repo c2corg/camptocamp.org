@@ -2881,6 +2881,8 @@ msgstr "<h3>Camera</h3>Make and model of the camera.<br />This information is ex
 msgid "_captcha_info"
 msgstr "<h3>Captcha test</h3>Copy the characters visible in the image. The test is not case sensitive.<br />If you cannot read the characters, reload the page to obtain a new set. Any data previously entered will be lost (username and e-mail address)."
 
+# [general comment]
+# Aide contextuelle du champ : Catégories d'un article
 # [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Article categories</h3>More than one category may be selected.<br /><br /><strong>encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>stories</strong>: Real or fiction stories and reports<br /><br /><strong>website info</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em>"
@@ -3274,7 +3276,7 @@ msgid "_outing_length_info"
 msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation or ecomobility (including access by bike), which is a helpful search criterion. Ski lifts are not taken into account. Checking the field will make the outing appear in the <a href=\"http://www.changerdapproche.org\">drop your car portal</a>.<br />The field is optional, and can be unchecked even if PT were used."
+msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation or ecomobility (including access by bike), which is a helpful search criterion. Ski lifts are not taken into account. Checking the field will make the outing appear in the <a href=\"http://www.camptocamp.org/portals/219879\">drop your car portal</a>.<br />The field is optional, and can be unchecked even if PT were used."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered partially during the outing."
@@ -3957,6 +3959,9 @@ msgstr "Camptocamp.org is no longer customized by activity"
 msgid "c2c map data"
 msgstr "C2C items"
 
+# [general comment]
+# Option de la catégorie d'un article : rassemblements / G2G
+# La catégorie "rassemblements" s'applique aux articles utilisés pour la préparation et les comptes rendus des rassemblements entre membres de camptocamp, organisés sur camptocamp.
 # [WARNING] needs_review
 msgid "c2c meetings"
 msgstr "c2c meetings"
@@ -6751,6 +6756,12 @@ msgstr "Show only snowshoeing"
 # [WARNING] fr translation used
 msgid "ta portal"
 msgstr "Terrain d'Aventure"
+
+# [general comment]
+# Option de la catégorie d'un article : tags
+# La catégorie "tags" s'applique aux articles utilisés pour taguer des document afin de les retrouver facilement, et pour faire des recherches complexes.
+msgid "tags"
+msgstr "tags"
 
 msgid "technics"
 msgstr "techniques"

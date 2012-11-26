@@ -3020,6 +3020,8 @@ msgstr "<h3>Argazki kamera</h3>Argazki kamararen marka eta modeloa.<br />Informa
 msgid "_captcha_info"
 msgstr "<h3>Anti-spam testa</h3>Ber-idatzi irudian ikusten diren letrak. Testa maiskula eta minuskulei indiferentea da.<br />Karaktereak ezin badira irakurri, alatu zenezake orria berriro kargatzen. Sartutako datuak galdu egingo dira (identifikatzailea eta email helbidea)."
 
+# [general comment]
+# Aide contextuelle du champ : Catégories d'un article
 # [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Artikuluen kategori zerrenda</h3><br /><strong>enziklopedia</strong>: mendiari buruzko informazio orokorra duten artikuluak<br /><br /><strong>gertakizunak</strong>: gertakizun bati buruzko artikuluak<br /><br /><strong>gertaerak</strong>: egitako edo fikziozko gertaerak<br /><br /><strong>webguneran bizitza</strong>: webguneari buruzko artikuluak <i>camptocamp.org</i><br /><br /><strong>asosiazioa</strong>: <i>Camptocamp Association</i>-ri buruzko artikuluak"
@@ -3356,7 +3358,7 @@ msgstr "<h3>Luzeera</h3>Ibilbide edo irteerara loturiko GPX aztarnaren luzeera.<
 
 # [WARNING] es translation used
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común o ecomobilidad (incluyendo bicicleta) para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Tachar la casilla hará aparecer su salida en el <a href=\"http://www.changerdapproche.org\">portal de las montañas sin coche</a>.<br />Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
+msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común o ecomobilidad (incluyendo bicicleta) para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Tachar la casilla hará aparecer su salida en el <a href=\"http://www.camptocamp.org/portals/219879\">portal de las montañas sin coche</a>.<br />Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Ibilbide partziala</h3>Ibilbidea osoa egin ezean adierazi behar da."
@@ -4068,6 +4070,9 @@ msgstr "Camptocamp.org-ek ez du inongo filtrorik ekintzetarako"
 msgid "c2c map data"
 msgstr "Objetos C2C"
 
+# [general comment]
+# Option de la catégorie d'un article : rassemblements / G2G
+# La catégorie "rassemblements" s'applique aux articles utilisés pour la préparation et les comptes rendus des rassemblements entre membres de camptocamp, organisés sur camptocamp.
 # [WARNING] en translation used
 msgid "c2c meetings"
 msgstr "c2c meetings"
@@ -7085,6 +7090,13 @@ msgstr "Show only snowshoeing"
 # [WARNING] fr translation used
 msgid "ta portal"
 msgstr "Terrain d'Aventure"
+
+# [general comment]
+# Option de la catégorie d'un article : tags
+# La catégorie "tags" s'applique aux articles utilisés pour taguer des document afin de les retrouver facilement, et pour faire des recherches complexes.
+# [WARNING] en translation used
+msgid "tags"
+msgstr "tags"
 
 msgid "technics"
 msgstr "teknika"

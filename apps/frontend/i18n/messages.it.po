@@ -2868,6 +2868,9 @@ msgstr "<h3>Apparecchio fotografico</h3>marca e modello della macchina fotografi
 msgid "_captcha_info"
 msgstr "<h3>Test anti-spam</h3>Ricopiare i caratteri visibili sull'immagine. Il test è indifferente alle maiuscole/minuscole.<br />Se i caratteri sono illeggibili, basta ricaricare la pagina."
 
+# [general comment]
+# Aide contextuelle du champ : Catégories d'un article
+# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Categorie di un articolo</h3>Più categorie possono essere selezionate.<br /><br />\n"
 "<strong>ambiente montanaro </strong>: informazioni generale sulla montagna (geologia, biotopo, neve e valanghe, ...)<br />\n"
@@ -3246,7 +3249,7 @@ msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata alla gita.<br />
 
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Gita in ecomobilità</h3> Indica se la gita è stata fatta usando i mezzi pubblici o la bici per accedere al punto di partenza (Gli impianti di risalita non devono essere considerati come mezzi pubblici). Consente di fare una ricerca per trovare più facilmente questo tipo di gite.<br />\n"
-"Le gite con ecomobilità compaiono sul portale <a href=\"http://www.changerdapproche.org\">Cambiare approccio</a>."
+"Le gite con ecomobilità compaiono sul portale <a href=\"http://www.camptocamp.org/portals/219879\">Cambiare approccio</a>."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Percorso parziale</h3>Indica se, durante la gita, l'itinerario è stato percorso solo parzialmente."
@@ -3914,6 +3917,9 @@ msgstr "Camptocamp.org non è più filtrato sulle attività"
 msgid "c2c map data"
 msgstr "Oggetti C2C"
 
+# [general comment]
+# Option de la catégorie d'un article : rassemblements / G2G
+# La catégorie "rassemblements" s'applique aux articles utilisés pour la préparation et les comptes rendus des rassemblements entre membres de camptocamp, organisés sur camptocamp.
 # [WARNING] en translation used
 msgid "c2c meetings"
 msgstr "c2c meetings"
@@ -6666,6 +6672,13 @@ msgstr "Mostrare solo l'attività ciaspole"
 # [WARNING] fr translation used
 msgid "ta portal"
 msgstr "Terrain d'Aventure"
+
+# [general comment]
+# Option de la catégorie d'un article : tags
+# La catégorie "tags" s'applique aux articles utilisés pour taguer des document afin de les retrouver facilement, et pour faire des recherches complexes.
+# [WARNING] en translation used
+msgid "tags"
+msgstr "tags"
 
 msgid "technics"
 msgstr "tecnica"
