@@ -2047,6 +2047,7 @@ all:
       8: pyrenees
       9: montblanc
       10: vosges
+      11: firstascent
     cda:
       id: @CDA_ID@
       name: 'changerdapproche'
@@ -2081,6 +2082,9 @@ all:
       id: @VOSGES_ID@
       name: 'vosges portal'
       areas_only: [ 14419 ]
+    firstascent:
+      id: @FIRSTASCENT_ID@
+      name: 'New routes article'
 
   mw_contest_id: @MW_CONTEST_ID@
 

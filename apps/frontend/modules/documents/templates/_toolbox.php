@@ -18,9 +18,6 @@ if (!isset($default_open))
                 <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
                                          array('title'=> __('cotometre long')),
                                          array('width' => 600)) ?></li>
-                <?php if ($sf_user->getCulture() == 'fr'): ?>
-                    <li><?php echo link_to(__('New routes article'), getMetaArticleRoute('home_articles', false, 'chroniques-ouvertures')) ?></li>
-                <?php endif; ?>
                 <li><?php echo link_to(__('Incidents and accidents database'), getMetaArticleRoute('accidents_database', false)) ?></li>
             </ul>
             <p><?php echo ucfirst(__('portals')) ?></p>
