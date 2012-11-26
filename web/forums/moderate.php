@@ -715,8 +715,12 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
     $topics = $topic_ids = array();
     while ($row = $db->fetch_row($result))
     {
-        $topics[] = $row;
-        $topic_ids[] = $row[0];
+        $item = array();
+        $item['id'] = $row['id'];
+        $item['moved_to'] = $row['moved_to'];
+        $item['subject'] = $row['subject'];
+        $topics[] = $item;
+        $topic_ids[] = $item['id'];
     }
     
     $topic_ids = implode(',', $topic_ids);
