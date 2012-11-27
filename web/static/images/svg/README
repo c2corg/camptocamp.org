@@ -5,3 +5,16 @@ However, at some point, it will be neccessary to have a svg version of our picto
 Thus, the idea is here to recreate a SVG version of our pictos, for future use. When relevant, please try to keep the SVG so that the rendered png is as similar as the existing ones
 
 nb: some of the SVG are derived from the tango project (http://tango.freedesktop.org/), released in the public domain
+    some other are taken from the Creative Commons website (http://creativecommons.org/about/downloads)
+
+
+==== About @2x and @1.5x files ====
+They are used for devices with pixel ratio > 1
+For @2x, it is quite straightforward, but for @1.5x, it can be problematic for pictos with even dimensions (e.g. 25x25px)
+In such cases, tests have shown that in general it is better looking if we use one pixel more than one pixel left (e.g. 38x38px rather than 37x37px)
+
+Also it might be possible that for such pictos, we keep the @1x version since it is not so important (eg partners logo in footer) or not really better
+looking and thus not worth the additional bytes cost
+
+nb. you can see which files are using @x versions when running the build file from css directory: a warning is issued
+when the default image is used (this warning doesn't appear when using c2corg though)
