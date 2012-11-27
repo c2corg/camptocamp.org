@@ -713,7 +713,7 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
         message($lang_misc['No moved topics selected']);
     
     $topics = $topic_ids = array();
-    while ($row = $db->fetch_row($result))
+    while ($row = $db->fetch_assoc($result))
     {
         $item = array();
         $item['id'] = $row['id'];
