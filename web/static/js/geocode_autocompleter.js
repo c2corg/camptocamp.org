@@ -164,9 +164,9 @@ C2C.geo.update_around_on_select_change = function(elt) {
             $(elt + '_lat').value = position.coords.latitude;
             $(elt + '_lon').value = position.coords.longitude;
           },
-          function(msg) {
+          function(error) {
             $(elt + '_geolocation_waiting').hide();
-            $(elt + '_geolocation_failed').show();
+            $(elt + '_geolocation_' + (error.code === 1 ? 'denied' : 'failed')).show();
           });
       } else {
         // geolocation not supported by browser
@@ -194,7 +194,7 @@ $$('.geocode_auto_complete').each(function(obj) {
     obj.observe('focus', function(event) {
       // save current page offset
       offset = window.pageYOffset;
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 1);
       // move indicator to one better location
       $('indicator').addClassName('auto_complete_pos');
     }).observe('blur', function(event) {

@@ -330,6 +330,8 @@ function around_selector($name, $multiline = false)
     $out .= __('waiting for geolocation') . '</span>';
     $out .= '<span id="' . $name . '_geolocation_failed" style="display:none">';
     $out .= __('geolocation failed') . '</span>';
+    $out .= '<span id="' . $name . '_geolocation_denied" style="display:none">';
+    $out .= __('geolocation denied') . '</span>';
 
     // manual coordinates
     // TODO

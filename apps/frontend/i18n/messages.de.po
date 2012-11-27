@@ -4927,6 +4927,10 @@ msgstr "Sportgeschäft"
 msgid "geo_export_info"
 msgstr "<h3>Exportieren</h3>Die geografischen Koordinaten könne in den folgenden Formaten heruntergeladen werden:<br /><br /> <strong>GPX</strong>:<br /> Das Standarddatenformat für geographische Koordinaten auf XML-Basis. GPX wird inzwischen von den allermeisten GPS-Geräten unterstützt und falls nicht kann das Format einfach transformiert werden (mit Applikationen wie <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (on-line) or <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (Software)).<br /><br /> <strong>KML</strong>:<br /> Geodatenformat, welches vor allem von Google Earth, Google Maps und World Wind verwendet wird.<br /><br /><strong>JSON</strong>:<br /> Das JavaScript-Datenaustauschformat wird vor allen von Webapplikationen verwendet."
 
+# [WARNING] en translation used
+msgid "geolocation denied"
+msgstr "You must share your location for this functionality to work"
+
 # [WARNING] needs_review
 msgid "geolocation failed"
 msgstr "Die Geolokalisierung ist fehlgeschlagen"

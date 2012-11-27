@@ -4711,6 +4711,10 @@ msgstr "negozio di sport"
 msgid "geo_export_info"
 msgstr "<h3>Esporta</h3>Le coordinate geografiche del documento possono essere caricate in uno dei formati proposti."
 
+# [WARNING] en translation used
+msgid "geolocation denied"
+msgstr "You must share your location for this functionality to work"
+
 msgid "geolocation failed"
 msgstr "E' impossibile determinare la posizione"
 

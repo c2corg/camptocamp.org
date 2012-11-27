@@ -4826,6 +4826,10 @@ msgid "geo_export_info"
 msgstr "<h3>Exportació</h3>Les coordenades geogràfiques del document poden ser telecarregades en un dels formats proposats.\n"
 "<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML dedades geogràfiques utilitzat per lamajoria de GPS, o fàcilment convertible gràcies a <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en línea) o <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de dades geogràfiques principalment utilitzat per Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'intercanvi de dades JavaScript, utilitzat per aplicacions web"
 
+# [WARNING] en translation used
+msgid "geolocation denied"
+msgstr "You must share your location for this functionality to work"
+
 msgid "geolocation failed"
 msgstr "La posició és impossible de determinar"
 

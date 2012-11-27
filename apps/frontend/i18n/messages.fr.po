@@ -4823,6 +4823,10 @@ msgstr "magasin de sport, location, réparation"
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Les coordonnées géographiques du document peuvent être téléchargées dans l'un des formats suivant&nbsp;:<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML de données géographiques, accepté par de plus en plus de GPS, ou facilement convertible grace à <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en ligne) ou <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de données géographiques utilisé principalement par Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'échange de données JavaScript, utilisé par des applications web"
 
+# [WARNING] needs_review
+msgid "geolocation denied"
+msgstr "Vous devez autoriser l'accès à votre position pour cette fonctionnalité"
+
 msgid "geolocation failed"
 msgstr "Impossible de déterminer la position"
 

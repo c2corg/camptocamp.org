@@ -4728,6 +4728,10 @@ msgstr "<h3>Exportar</h3>Las coordenadas geográficas del documento pueden estar
 "<br /><br /><strong>GPX</strong>&nbsp;:<br />formato standard XML de datos geográficos, aceptado por la mayoría de GPS, o fácilmente convertible gracias a <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en línea) o <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />formato de datos geográficos utilizado principalmente por Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />formato de intercambio de datos JavaScript, utilizado por aplicaciones web"
 
 # [WARNING] en translation used
+msgid "geolocation denied"
+msgstr "You must share your location for this functionality to work"
+
+# [WARNING] en translation used
 msgid "geolocation failed"
 msgstr "Geolocalisation failed"
 

@@ -4764,6 +4764,10 @@ msgid "geo_export_info"
 msgstr "<h3>Export</h3>Geographical coordinates of the document can be downloaded in one of the following formats:<br />standard XML format for geographical coordinates, supported by more and more GPS devices, or easily transformed using tools such as <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (online) or <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (software)<br /><br /><strong>KML</strong>:<br />geographical data format mainly used in Google Earth, Google Map and World Wind<br /><br /><strong>JSON</strong>:<br />JavaScript data exchange format, used by web applications"
 
 # [WARNING] needs_review
+msgid "geolocation denied"
+msgstr "You must share your location for this functionality to work"
+
+# [WARNING] needs_review
 msgid "geolocation failed"
 msgstr "Geolocalisation failed"
 

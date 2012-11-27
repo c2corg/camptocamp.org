@@ -4925,6 +4925,10 @@ msgid "geo_export_info"
 msgstr "<h3>ExportExportatu</h3>Dokumentuaren koordenatu geografikoak hurrengo formatoetan deskargatu daiteke."
 
 # [WARNING] en translation used
+msgid "geolocation denied"
+msgstr "You must share your location for this functionality to work"
+
+# [WARNING] en translation used
 msgid "geolocation failed"
 msgstr "Geolocalisation failed"
 
