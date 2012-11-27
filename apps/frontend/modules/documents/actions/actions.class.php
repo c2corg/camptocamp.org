@@ -560,7 +560,7 @@ class documentsActions extends c2cActions
         // no need to test whether document has been found :
         // already done in getDocument method.
 
-        if (empty($version) && (empty($slug) || ($module != 'routes' && $module != 'users' && $slug != get_slug($document))))
+        if (empty($version) && $module != 'users' && (empty($slug) || ($module != 'routes' && $slug != get_slug($document))))
         {
             c2cActions::statsdTiming('document.executeView.redirect', $timer->getElapsedTime('executeView'));
             $this->redirectIfSlugMissing($document, $id, $lang, $module);
