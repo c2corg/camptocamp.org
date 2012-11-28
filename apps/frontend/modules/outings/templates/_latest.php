@@ -92,9 +92,13 @@ include_partial('documents/home_section_title',
     <p><?php echo __('No recent changes available') ?></p>
 <?php else: 
     $date = $list_item = 0;
-    $first_item = end($items);
-    $first_item = explode('-', $first_item['date']);
-    $first_month = 12 * intval($first_item[0]) + intval($first_item[1]);
+    // if last outing is more than 1 year old, also append year
+    foreach($items as $item)
+    {
+        $first_date = $item['date'];
+    }
+    list($year, $month, ) = explode('-', $first_date);
+    $first_month = 12 * intval($year) + intval($month);
     $current_month = 12 * intval(date('Y')) + intval(date('n'));
     $ul_class = 'dated_changes';
     if (($current_month - $first_month) < 12)
