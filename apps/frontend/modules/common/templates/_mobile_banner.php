@@ -1,4 +1,5 @@
 <div id="mobile_banner">
+<?php if (sfConfig::get('app_production') == 1): ?>
 <script type="text/javascript"><!--
  /* <![CDATA[ */
  window.googleAfmcRequest = {
@@ -18,4 +19,7 @@
  /* ]]> */
 //--></script>
 <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_afmc_ads.js"></script>
+<?php else: ?>
+<div style="text-align: center"><img src="http://fakeimg.pl/320x50/282828/eae0d0/?text=Publicit%C3%A9" /></div>
+<?php endif ?>
 </div>

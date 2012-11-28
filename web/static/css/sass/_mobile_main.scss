@@ -660,8 +660,8 @@ li.list_odd
   }
 }
 
-/* specific rules for smartphones (not tablets) - device width <= 480px */
-@media screen and (max-device-width:480px)
+/* specific rules for smartphones (not tablets) - width <= 600px */
+@media screen and (max-width:600px)
 {
   /*
    * the upper menu of the forum are all left aligned instead of having a two column presentation
@@ -709,8 +709,8 @@ li.list_odd
   }
 }
 
-/* specific rules for tablets - min device width >= 768px */
-@media screen and (min-device-width:768px)
+/* specific rules for tablets - min width >= 600px */
+@media screen and (min-width:600px)
 {
   /*
    * Move banner in the footer
