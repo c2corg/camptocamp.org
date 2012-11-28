@@ -70,7 +70,7 @@ function geocode_auto_complete($name, $service)
                                       'data-noresult' => __('no results')));
     if ($mobile_version)
     {
-        $out .= content_tag('span', '', array('class' => 'mobile_auto_complete_background'));
+        $out .= content_tag('span', '<br />'.__('autocomplete_help'), array('class' => 'mobile_auto_complete_background'));
         $out .= content_tag('span', 'X', array('class' => 'mobile_auto_complete_escape'));
     }
     $out .= content_tag('span', '' , array('id' => $name.'_auto_complete', 'class' => 'auto_complete'));

@@ -3828,6 +3828,10 @@ msgstr "Autor (s):"
 msgid "author short"
 msgstr "Autor"
 
+# [WARNING] en translation used
+msgid "autocomplete_help"
+msgstr "Type search term above and matching items will appear here."
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.

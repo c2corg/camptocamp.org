@@ -3835,6 +3835,12 @@ msgstr "Auteur(s)&nbsp;:"
 msgid "author short"
 msgstr "Auteur"
 
+# [comment]
+# il faut un s à correspondant ?
+# [WARNING] needs_review
+msgid "autocomplete_help"
+msgstr "Tapez le début du nom recherché ci-dessus et les éléments correspondant s'afficheront ici."
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
