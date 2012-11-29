@@ -1311,7 +1311,16 @@ function avalanche_link($id, $name, $date = null)
 {
     if ($date)
     {
-        $url_list = sfConfig::get('app_areas_avalanche_archive_url');
+        $day = format_date($date, 'yyyyMMdd');
+        $archive_old_limit_list = sfConfig::get('app_areas_avalanche_archive_old_limit');
+        if (isset($archive_old_limit_list[$id]) && $day <= $archive_old_limit_list[$id])
+        {
+            $url_list = sfConfig::get('app_areas_avalanche_archive_url_old');
+        }
+        else
+        {
+            $url_list = sfConfig::get('app_areas_avalanche_archive_url');
+        }
     }
     else
     {
@@ -1361,7 +1370,6 @@ function avalanche_link($id, $name, $date = null)
             {
                 $year += 1;
             }
-            $day = format_date($date, 'yyyyMMdd');
             $url = sprintf($url, $year, $lang, $day, $lang);
         }
     }
