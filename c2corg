@@ -742,19 +742,32 @@ function updateRevisionInfo() {
     fwrite($handle, '    ' . getFileRevisionInfo() . "\n");
 
     foreach ($dirs as $dir => $filetype) {
-        foreach (getDirTimestampInfo($dir, '.'.$filetype) as $line) {
+        foreach (getDirHashInfo($dir, '.'.$filetype) as $line) {
             fwrite($handle, "    $line\n");
         }
     }
+    // special behaviour for mobile[@x].css. Due to the way it is inserted in web page (via js)
+    // because of pixel ratio, we compute the hash for all pixelratio versions at once.
+    // we could be smarter, but that would be even more complicated, and probably
+    // not worth it
+    fwrite($handle, "    /static/css/mobile.css: '" . substr(md5(
+        md5_file('web/static/css/mobile.css') .
+        md5_file('web/static/css/mobile@1.5x.css') .
+        md5_file('web/static/css/mobile@2x.css')
+    ), 0, 8) . "'\n");
 
     fclose($handle);
 }
 
-function getDirTimestampInfo($dir, $pattern) {
+function getDirHashInfo($dir, $pattern) {
     $files = glob($dir.'/*'.$pattern);
     $list = array();
+
     foreach ($files as $file) {
-        $list[] = substr($file, 3) . ': \'' . substr(md5_file($file), 0, 8) . '\'';
+        if (!preg_match('/mobile(@1.5x|@2x)?.css/', $file))
+        {
+            $list[] = substr($file, 3) . ': \'' . substr(md5_file($file), 0, 8) . '\'';
+        }
     }
     return $list;
 }
