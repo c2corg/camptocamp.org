@@ -4,13 +4,11 @@ $mobile_version = c2cTools::mobileVersion();
 if (!$mobile_version)
 {
     $sf_response->addStylesheet('/static/css/default.css', 'first');
-    $sf_response->addStylesheet('/static/css/wimg.css');
     $sf_response->addStylesheet('/static/css/menu.css');
     $sf_response->addStylesheet('/static/css/modalbox.css');
 }
 else
 {
-    $sf_response->addStylesheet('/static/css/mimg.css');
     $sf_response->addStylesheet('/static/css/mobile.css', 'last');
 }
 
@@ -33,9 +31,14 @@ $debug = defined('PUN_DEBUG');
 
 if ($mobile_version): ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<?php endif;
-
+<script type="text/javascript">
+(function(m){var l='<?php echo trim(minify_get_main_stylesheets(!$debug, $debug)); ?>',r=window.devicePixelRatio||1;
+if(r>1){l=l.replace(m,m+'@'+(r>=2?2:1.5)+'x');}document.write(l);})('mobile');
+</script>
+<?php else:
 minify_include_main_stylesheets(!$debug, $debug);
+endif;
+
 minify_include_head_javascripts(!$debug, $debug);
 
 if (!$mobile_version): ?>
