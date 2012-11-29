@@ -2055,37 +2055,57 @@ all:
     cda:
       id: @CDA_ID@
       name: 'changerdapproche'
+      menu: 1
+      home: 1
     metaskirando:
       id: @METASKI_ID@
       name: 'metaskirando'
       url: 'metaskirando.camptocamp.org'
+      menu: 1
+      home: 1
     ice:
       id: @ICE_ID@
       name: 'ice climbing portal'
+      menu: 1
+      home: 1
     steep:
       id: @STEEP_ID@
       name: 'steep skiing portal'
+      menu: 1
+      home: 1
     ta:
       id: @TA_ID@
       name: 'ta portal'
+      menu: 1
+      home: 1
     alpibig:
       id: @ALPIBIG_ID@
       name: 'alpinism big portal'
+      menu: 1
+      home: 1
     raid:
       id: @RAID_ID@
       name: 'raid portal'
+      menu: 1
+      home: 1
     pyrenees:
       id: @PYRENEES_ID@
       name: 'pyrenees portal'
       areas_only: [ 14413, 14414, 14412, 14469, 14415, 14416, 294790, 294786, 294791, 294793 ]
+      menu: 1
+      home: 1
     montblanc:
       id: @MONTBLANC_ID@
       name: 'montblanc portal'
       areas_only: [ 14410, 14404 ]
+      menu: 1
+      home: 1
     vosges:
       id: @VOSGES_ID@
       name: 'vosges portal'
       areas_only: [ 14419 ]
+      menu: 1
+      home: 1
     firstascent:
       id: @FIRSTASCENT_ID@
       name: 'New routes article'

@@ -19,6 +19,12 @@ if (!isset($default_open))
                                          array('title'=> __('cotometre long')),
                                          array('width' => 600)) ?></li>
                 <li><?php echo link_to(__('Incidents and accidents database'), getMetaArticleRoute('accidents_database', false)) ?></li>
+                <li><?php
+                    $portal_config = sfConfig::get('app_portals_firstascent');
+                    $text = __($portal_config['name']);
+                    $portal_url = '@document_by_id?module=portals&id=' . $portal_config['id'];
+                    echo link_to($text, $portal_url);
+                ?></li>
             </ul>
             <p><?php echo ucfirst(__('portals')) ?></p>
             <ul><?php
@@ -26,25 +32,28 @@ if (!isset($default_open))
                 foreach ($portal_list as $portal_id)
                 {
                     $portal_config = sfConfig::get('app_portals_' . $portal_id);
-                    $text = __($portal_config['name']);
-                    if (isset($portal_config['url']) || isset($portal_config['annex_url']))
+                    if (isset($portal_config['home']) && $portal_config['home'])
                     {
-                        if (isset($portal_config['url']))
+                        $text = __($portal_config['name']);
+                        if (isset($portal_config['url']) || isset($portal_config['annex_url']))
                         {
-                            $portal_url = $portal_config['url'];
+                            if (isset($portal_config['url']))
+                            {
+                                $portal_url = $portal_config['url'];
+                            }
+                            else
+                            {
+                                $portal_url = $portal_config['annex_url'];
+                            }
+                            $portal_url = 'http://' . $portal_url;
                         }
                         else
                         {
-                            $portal_url = $portal_config['annex_url'];
+                            $portal_url = '@document_by_id?module=portals&id=' . $portal_config['id'];
                         }
-                        $portal_url = 'http://' . $portal_url;
+                        $html = link_to($text, $portal_url);
+                        echo '<li>' . $html . '</li>';
                     }
-                    else
-                    {
-                        $portal_url = '@document_by_id?module=portals&id=' . $portal_config['id'];
-                    }
-                    $html = link_to($text, $portal_url);
-                    echo '<li>' . $html . '</li>';
                 }
             ?></ul>
             <p><?php echo __('Help') ?></p>

@@ -187,6 +187,9 @@ show_select=function()
                             <?php endif ?>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
+                    <li><?php
+                        echo picto_tag('action_filter')
+                           . link_to(ucfirst(__('tags')), 'articles/list?ccat=10') ?></li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
                            . link_to(__('Help'), getMetaArticleRoute('help_guide')) ?></li>
@@ -251,18 +254,21 @@ show_select=function()
                     foreach ($portal_list as $portal_id)
                     {
                         $portal_config = sfConfig::get('app_portals_' . $portal_id);
-                        if (isset($portal_config['url']))
+                        if (isset($portal_config['menu']) && $portal_config['menu'])
                         {
-                            $portal_url = 'http://' . $portal_config['url'];
+                            if (isset($portal_config['url']))
+                            {
+                                $portal_url = 'http://' . $portal_config['url'];
+                            }
+                            else
+                            {
+                                $portal_url = '@document_by_id?module=portals&id=' . $portal_config['id'];
+                            }
+                            echo '<li>'
+                               , picto_tag('picto_portals')
+                               , link_to(__($portal_config['name']), $portal_url)
+                               , '</li>';
                         }
-                        else
-                        {
-                            $portal_url = '@document_by_id?module=portals&id=' . $portal_config['id'];
-                        }
-                        echo '<li>'
-                           , picto_tag('picto_portals')
-                           , link_to(__($portal_config['name']), $portal_url)
-                           , '</li>';
                     } ?>
                 </ul> <?php echo $sublevel_end ?>
             </li>
