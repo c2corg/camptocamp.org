@@ -239,6 +239,13 @@ class outingsActions extends documentsActions
         //Test if form is submitted or not
         if ($this->success) // form submitted and success (doc has been saved)
         {
+            // if this is the first version of the outing (aka creation)
+            // set a flash message to encourage to also enhance the corresponding route
+            if (is_null($this->document->getVersion()))
+            {
+                $this->setNotice('thanks for new outing');
+            }
+
             // try to perform association with linked_doc (if pertinent)
             $associated_id = $this->getRequestParameter('document_id');
             $user_id = $this->getUser()->getId();
