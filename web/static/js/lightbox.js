@@ -176,7 +176,7 @@ Lightbox.prototype = {
 
         document.observe('click', (function(event){
             if (Event.element(event).tagName.toUpperCase() == 'SVG') return; // xbrrr - findElement will fail if called on svg tag
-            var target = event.findElement('a[rel^=lightbox]') || event.findElement('area[rel^=lightbox]');
+            var target = event.findElement('a[data-lightbox]') || event.findElement('area[data-lightbox]');
             if (target) {
                 event.stop();
                 this.start(target);
@@ -199,16 +199,17 @@ Lightbox.prototype = {
         new Effect.Appear(this.overlay, { duration: this.overlayDuration, from: 0.0, to: LightboxOptions.overlayOpacity });
 
         this.imageArray = [];
-        var imageNum = 0;       
+        var imageNum = 0;
+        var attribute = imageLink.getAttribute("data-lightbox");
 
-        if ((imageLink.getAttribute("rel") == 'lightbox')){
+        if (!attribute){
             // if image is NOT part of a set, add single image to imageArray
             var pieces = imageLink.id.split('_');
             this.imageArray.push([imageLink.href, imageLink.title, pieces[1], pieces[2]]);
         } else {
             // if image is part of a set..
             this.imageArray = 
-                $$(imageLink.tagName + '[href][rel="' + imageLink.rel + '"]').
+                $$(imageLink.tagName + '[href][data-lightbox="' + attribute + '"]').
                 collect(function(anchor){ var pieces = anchor.id.split('_'); return [anchor.href, anchor.title, pieces[1], pieces[2]]; }).
                 uniq();
             

@@ -48,7 +48,7 @@ foreach($images as $image)
                         ($mobile_version ? "@document_by_id_lang_slug?module=images&id=$image_id&lang=$lang&slug=$slug"
                                            : absolute_link(image_url($image['filename'], 'big', true), true)),
                         array('title' => $caption,
-                              'rel' => 'lightbox[document_images]',
+                              'data-lightbox' => 'document_images',
                               'class' => 'view_big',
                               'id' => 'lightbox_' . $image_id . '_' . $image_type));
 
