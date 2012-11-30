@@ -11,7 +11,7 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $lang = $sf_user->getCulture();
 
-display_page_header('books', $document, $id, $metadata, $current_version, '', '', $section_list);
+display_page_header('books', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/Book');
 
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');

@@ -6,7 +6,7 @@
 
 sfLoader::loadHelpers('Javascript');
 
-function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_options = null)
+function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_options = null, $item_type = '')
 {
     $is_archive = $document->isArchive();
     $mobile_version = c2cTools::mobileVersion();
@@ -69,7 +69,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         }
     }
 
-    echo display_content_top('doc_content');
+    echo display_content_top('doc_content', $item_type);
 
     echo start_content_tag($content_class);
 
@@ -128,7 +128,7 @@ function display_title($title_name = '', $module = null, $nav_status = true, $na
     }
 }
 
-function display_content_top($wrapper_class = '')
+function display_content_top($wrapper_class = '', $item_type = '')
 {
     $mobile_version = c2cTools::mobileVersion();
     
@@ -137,7 +137,10 @@ function display_content_top($wrapper_class = '')
         $wrapper_class = ' class="' . $wrapper_class . '"';
     }
 
-    return '<div id="wrapper_context"' . $wrapper_class . '>' .
+    //schema.org item type
+    $itemscope = empty($item_type) ? '' : ' itemscope itemtype="' . $item_type . '"';
+
+    return '<div id="wrapper_context"' . $wrapper_class . $itemscope . '>' .
            (!$mobile_version ? '<div class="ombre_haut"><div class="ombre_haut_corner_right"></div>' .
                                '<div class="ombre_haut_corner_left"></div></div>' : '');
 }

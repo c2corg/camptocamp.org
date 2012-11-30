@@ -24,115 +24,124 @@ function loadTooltipsViewRessources()
 
 loadTooltipsViewRessources();
 
-function field_data($document, $name, $prefix = '', $suffix = '', $title = '')
+function field_data($document, $name, $options = array())
 {
     $value = $document->get($name);
+    $title = _option($options, 'title', '');
     
     if (empty($title))
     {
         $title = $name;
     }
     
-    return field_data_arg($title, $value, $prefix, $suffix);
+    return field_data_arg($title, $value, $options);
 }
 
-function field_data_arg($name, $value, $prefix = '', $suffix = '')
+function field_data_arg($name, $value, $options = array())
 {
     if (empty($value))
     {
         $value = '';
     }
 
-    return _format_data($name, $value, false, $prefix, $suffix);
+    return _format_data($name, $value, $options);
 }
 
-function field_data_if_set($document, $name, $prefix = '', $suffix = '', $title = '')
+function field_data_if_set($document, $name, $options = array())
 {
     $value = $document->get($name);
+    $title = _option($options, 'title', '');
     
     if (empty($title))
     {
         $title = $name;
     }
     
-    return field_data_arg_if_set($title, $value, $prefix, $suffix);
+    return field_data_arg_if_set($title, $value, $options);
 }
 
-function field_data_arg_if_set($name, $value, $prefix = '', $suffix = '')
+function field_data_arg_if_set($name, $value, $options = array())
 {
     if (!check_not_empty($value))
     {
         return '';
     }
     
-    return _format_data($name, $value, false, $prefix, $suffix);
+    return _format_data($name, $value, $options);
 }
 
-function field_data_range($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
+function field_data_range($document, $name_min, $name_max, $options = array())
 {
-	$value_min = $document->get($name_min);
+    $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
     
-    return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
+    return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $options);
 }
 
-function field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
+function field_data_arg_range($name_min, $name_max, $value_min, $value_max, $options = array())
 {
+    $range_only = _option($options, 'range_only', false);
+
     $name = $name_min . '_' . $name_max;
     if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
     {
-        return _format_data_range($name, $value_min, $value_max, false, $separator, $prefix_min, $prefix_max, $suffix);
+        return _format_data_range($name, $value_min, $value_max, $options);
     }
-	else if (!empty($value_min) && empty($value_max))
-	{
-		return _format_data($name_min, $value_min, false, '', $suffix);
-	}
-	else if (empty($value_min) && !empty($value_max))
-	{
-		return _format_data($name_max, $value_max, false, '', $suffix);
-	}
+    else if (!empty($value_min) && empty($value_max))
+    {
+        return _format_data($name_min, $value_min, $options);
+    }
+    else if (empty($value_min) && !empty($value_max))
+    {
+        return _format_data($name_max, $value_max, $options);
+    }
     else
     {
         return _format_data($name, '');
     }
 }
 
-function field_data_range_if_set($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
+function field_data_range_if_set($document, $name_min, $name_max, $options = array())
 {
-	$value_min = $document->get($name_min);
+    $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
     
-    return field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
+    return field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_max, $options);
 }
 
-function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
+function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_max, $options = array())
 {
     if (empty($value_min) && empty($value_max))
     {
         return '';
     }
     
-	return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
+	return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $options);
 }
 
-function field_data_from_list($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '', $title_id = null, $new_items = array())
+function field_data_from_list($document, $name, $config, $options = array())
 {
+    $title = _option($options, 'title', '');
+
     if (empty($title))
     {
         $title = $name;
     }
 
-    return _format_data_from_list($title, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix, $title_id, false, $new_items);
+    return _format_data_from_list($title, $document->getRaw($name), $config, $options);
 }
 
-function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '', $title_id = null, $new_items = array())
+function field_data_from_list_if_set($document, $name, $config, $options = array())
 {
     $value = $document->getRaw($name);
+    $title = _option($options, 'title', $name);
+
     if (!check_not_empty($value) || $value == '0')
     {
         return '';
     }
-    if ($multiple)
+
+    if (isset($options['multiple']) && $options['multiple'])
     {
         $value = is_array($value) ? $value : Document::convertStringToArray($value);
         if (empty($value))
@@ -141,18 +150,17 @@ function field_data_from_list_if_set($document, $name, $config, $multiple = fals
         }
     }
     
-    if (empty($title))
-    {
-        $title = $name;
-    }
-
-    return _format_data_from_list($title, $value, $config, $multiple, $raw, $prefix, $suffix, $title_id, true, $new_items);
+    return _format_data_from_list($title, $value, $config, $options);
 }
 
-function field_data_range_from_list($document, $name_min, $name_max, $name_if_equal = '', $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
+function field_data_range_from_list($document, $name_min, $name_max, $options = array())
 {
-	$value_min = $document->get($name_min);
+    $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
+    $range_only = _option($options, 'range_only', false);
+    $name_if_equal = _option($options, 'name_if_equal', '');
+    $prefix = isset($option['prefix']) ? $option['prefix'] : '';
+    $suffix = isset($option['suffix']) ? $option['suffix'] : '';
     $name = $name_min . '_' . $name_max;
     $div_id = null;
     
@@ -184,23 +192,29 @@ function field_data_range_from_list($document, $name_min, $name_max, $name_if_eq
     
     if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
     {
-        return _format_data_range_from_list($name, $value_min, $value_max, $separator, $config, $raw, $prefix, $suffix, $div_id);
+        return _format_data_range_from_list($name, $value_min, $value_max, $config, $options);
     }
-	else if (!empty($value_min) && empty($value_max))
-	{
-		return _format_data_from_list($name_min, $value_min, $config, false, $raw, $prefix_min, $suffix_min);
-	}
-	else if (empty($value_min) && !empty($value_max))
-	{
-		return _format_data_from_list($name_max, $value_max, $config, false, $raw, $prefix_max, $suffix_max);
-	}
     else
     {
-        return _format_data($name, '', $raw, $prefix_min, $suffix_min);
+        $options['prefix'] = $prefix_min;
+        $options['suffix'] = $suffix_min;
+
+        if (!empty($value_min) && empty($value_max))
+        {
+            return _format_data_from_list($name_min, $value_min, $config, $options);
+        }
+        else if (empty($value_min) && !empty($value_max))
+        {
+            return _format_data_from_list($name_max, $value_max, $config, $options);
+        }
+        else
+        {
+            return _format_data($name, '', $options);
+        }
     }
 }
 
-function field_data_range_from_list_if_set($document, $name_min, $name_max, $name_if_equal = '', $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
+function field_data_range_from_list_if_set($document, $name_min, $name_max, $config, $options = array())
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
@@ -209,67 +223,87 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $nam
         return '';
     }
     
-	return field_data_range_from_list($document, $name_min, $name_max, $name_if_equal, $separator, $config, $range_only, $raw, $prefix, $suffix);
+    return field_data_range_from_list($document, $name_min, $name_max, $config, $options);
 }
 
-function field_picto_from_list($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $picto_separator = ' ', $text_separator = ' - ', $prefix = '', $suffix = '')
+function field_picto_from_list($document, $name, $config, $options = array())
 {
-    return _format_picto_from_list($name, $document->getRaw($name), $config, $multiple, $raw, $printspan, $picto_name, $picto_separator, $text_separator, $prefix, $suffix);
+    return _format_picto_from_list($name, $document->getRaw($name), $config, $options);
 }
 
-function field_picto_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $picto_separator = ' ', $text_separator = ' - ', $prefix = '', $suffix = '')
+function field_picto_from_list_if_set($document, $name, $config, $options = array())
 {
     $value = $document->getRaw($name);
     if (!check_not_empty($value))
     {
         return '';
     }
-    return _format_picto_from_list($name, $value, $config, $multiple, $raw, $printspan, $picto_name, $picto_separator, $text_separator, $prefix, $suffix);
+
+    return _format_picto_from_list($name, $value, $config, $options);
 }
 
-function field_activities_data($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+function field_activities_data($document, $options = array())
 {
-    return field_picto_from_list($document, 'activities', 'app_activities_list', true, $raw, $printspan, 'activity', ' ', ' - ', $prefix, $suffix);
+    $options['multiple'] = true;
+    $options['picto_name'] = 'activity';
+    $options['picto_separator'] = ' ';
+    $options['text_separator'] = ', ';
+
+    return field_picto_from_list($document, 'activities', 'app_activities_list', $options);
 }
 
 function field_activities_data_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    return field_picto_from_list_if_set($document, 'activities', 'app_activities_list', true, $raw, $printspan, 'activity', ' ', ' - ', $prefix, $suffix);
+    return field_picto_from_list_if_set($document, 'activities', 'app_activities_list',
+        array('multiple' => true, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'activity',
+        'picto_separator' => ' ', 'text_separator' => ' - ', 'prefix' => $prefix, 'suffix' => $suffix));
 }
 
 function _activities_data($activities, $printspan = false, $picto_separator = ' ')
 {
-    return _format_picto_from_list('activities', $activities, 'app_activities_list', true, true, $printspan, 'activity', $picto_separator, ' - ');
+    return _format_picto_from_list('activities', $activities, 'app_activities_list',
+        array('multiple' => true, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'activity',
+        'picto_separator' => $picto_separator, 'text_separator' => ' - '));
 }
 
 function field_pt_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    return field_picto_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types', true, $raw, $printspan, 'pt', ' ', ', ', $prefix, $suffix);
+    return field_picto_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types',
+        array('multiple' => true, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'pt', 'picto_separator' => ' ',
+        'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix));
 }
 
 function _pt_picto_if_set($pt_types, $printspan = false)
 {
-    return _format_picto_from_list('public_transportation_types', $pt_types, 'app_parkings_public_transportation_types', true, true, $printspan, 'pt', ' ', ', ');
+    return _format_picto_from_list('public_transportation_types', $pt_types, 'app_parkings_public_transportation_types',
+        array('multiple' => true, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'pt',
+        'picto_separator' => ' ', 'text_separator' => ', '));
 }
 
 function field_frequentation_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    return field_picto_from_list_if_set($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list', false, $raw, $printspan, 'freq', ' ', ', ', $prefix, $suffix);
+    return field_picto_from_list_if_set($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list',
+        array('multiple' => false, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'freq', 'picto_separator' => ' ',
+        'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix));
 }
 
 function _frequentation_picto_if_set($frequentation, $printspan = false)
 {
-    return _format_picto_from_list('frequentation_status', $frequentation, 'mod_outings_frequentation_statuses_list', false, true, $printspan, 'freq');
+    return _format_picto_from_list('frequentation_status', $frequentation, 'mod_outings_frequentation_statuses_list',
+        array('multiple' => false, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'freq'));
 }
 
 function field_conditions_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    return field_picto_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list', false, $raw, $printspan, 'cond', ' ', ', ', $prefix, $suffix);
+    return field_picto_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list',
+        array('multiple' => false, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'cond', 'picto_separator' => ' ', 'text_separator' => ', ',
+        'prefix' => $prefix, 'suffix' => $suffix));
 }
 
 function _conditions_picto_if_set($conditions, $printspan = false)
 {
-    return _format_picto_from_list('conditions_status', $conditions, 'mod_outings_conditions_statuses_list', false, true, $printspan, 'cond');
+    return _format_picto_from_list('conditions_status', $conditions, 'mod_outings_conditions_statuses_list',
+        array('multiple' => false, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'cond'));
 }
 
 function field_date_data($document, $name)
@@ -295,14 +329,17 @@ function field_semantic_date_data($document, $name)
  * null_equals_no : use this if a null value equals a 'no'
  * show_only_yes : use this if you only want to display the field if it is true
  */
-function field_bool_data($document, $name, $null_equals_no = false, $show_only_yes = false, $prefix = '', $suffix = '')
+function field_bool_data($document, $name, $options = array())
 {
     $value = $document->get($name);
-    return _format_bool_data($name, $value, $null_equals_no, $show_only_yes, $prefix, $suffix);
+    return _format_bool_data($name, $value, $options);
 }
 
-function field_bool_data_from_list($document, $name, $config, $new_items = array(), $single_value = 0, $show_only_yes = false, $prefix = '', $suffix = '')
+function field_bool_data_from_list($document, $name, $config, $options = array())
 {
+    $new_items = _option($options, 'new_items', array());
+    $single_value = _option($options, 'single_value', 0);
+
     $value = $document->getRaw($name);
     $list = sfConfig::get($config);
     if (count($new_items))
@@ -326,7 +363,7 @@ function field_bool_data_from_list($document, $name, $config, $new_items = array
         foreach ($list as $key => $item)
         {
             $value_key = (in_array($key, $value) ? 1 : 0);
-            $result[] = _format_bool_data($item, $value_key, false, $show_only_yes, $prefix, $suffix);
+            $result[] = _format_bool_data($item, $value_key, $options);
         }
         $result = implode(' ', $result);
     }
@@ -338,8 +375,11 @@ function field_bool_data_from_list($document, $name, $config, $new_items = array
     return $result;
 }
 
-function _format_bool_data($name, $value, $null_equals_no = false, $show_only_yes = false, $prefix = '', $suffix = '')
+function _format_bool_data($name, $value, $options = array())
 {
+    $null_equals_no = _option($options, 'null_equals_no', false);
+    $show_only_yes = _option($options, 'show_only_yes', false);
+
     if (is_null($value))
     {
         if ($null_equals_no)
@@ -357,13 +397,20 @@ function _format_bool_data($name, $value, $null_equals_no = false, $show_only_ye
         return '';
     }
 
-    $value = (bool)$value ? 'yes' : 'no';
-    $value = __($value);
-    return _format_data($name, $value, false, $prefix, $suffix, null, __('&nbsp;:'));
+    $value = (bool)$value ? __('yes') : __('no');
+    $options['name_suffix'] = __('&nbsp;:');
+    return _format_data($name, $value, $options);
 }
 
-function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '', $id = null, $name_suffix = '')
+function _format_data($name, $value, $options = array())
 {
+    $raw = _option($options, 'raw', false);
+    $id = _option($options, 'id', $name);
+    $prefix = _option($options, 'prefix', '');
+    $suffix = _option($options, 'suffix', '');
+    $name_suffix = _option($options, 'name_suffix', '');
+    $microdata = _option($options, 'microdata', null);
+
     if (empty($value))
     {
         $empty_value = true;
@@ -374,21 +421,16 @@ function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '', $
     {
         $empty_value = false;
         $div_class = '';
+
+        if ($microdata)
+        {
+            is_string($microdata) ? $value = content_tag('span', $value, array('itemprop' => $microdata)) :
+                                    $value = content_tag('span', $value, $microdata);
+        }
     }
 
-    if (empty($id))
-    {
-        $id = $name;
-    }
-    
-    if ($raw)
-    {
-        $text = '';
-    }
-    else
-    {
-        $text = '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . ucfirst(__($name)) . $name_suffix . '</div> ';
-    }
+    $text = ($raw) ? '' :
+            '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . ucfirst(__($name)) . $name_suffix . '</div> ';
 
     if (!empty($prefix) && !$empty_value)
     {
@@ -405,8 +447,14 @@ function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '', $
     return $text;
 }
 
-function _format_data_range($name, $value_min, $value_max, $raw = false, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '')
+function _format_data_range($name, $value_min, $value_max, $options = array())
 {
+    $raw = _option($options, 'raw', false);
+    $separator = _option($options, 'separator', ' / ');
+    $prefix_min = _option($options, 'prefix_min', '');
+    $prefix_max = _option($options, 'prefix_max', '');
+    $suffix = _option($options, 'suffix', '');
+
     if ($raw)
     {
         $text = '';
@@ -466,8 +514,12 @@ function _format_data_range($name, $value_min, $value_max, $raw = false, $separa
     return $text;
 }
 
-function _format_data_from_list($name, $value, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $id = null, $ifset = false, $new_items = array())
+function _format_data_from_list($name, $value, $config, $options = array())
 {
+    $new_items = _option($options, 'new_items', array());
+    $multiple = _option($options, 'multiple', false);
+    $ifset = _option($options, 'ifset', false);
+
     $list = sfConfig::get($config);
     if (count($new_items))
     {
@@ -504,15 +556,18 @@ function _format_data_from_list($name, $value, $config, $multiple = false, $raw 
     }
     else
     {
-        return _format_data($name, $value, $raw, $prefix, $suffix, $id);
+        return _format_data($name, $value, $options);
     }
 }
 
-function _format_data_range_from_list($name, $value_min, $value_max, $separator = ' / ', $config, $raw = false, $prefix = '', $suffix = '', $div_id = null)
+function _format_data_range_from_list($name, $value_min, $value_max, $config, $options = array())
 {
     $list = sfConfig::get($config);
     $value = '';
-    
+    $prefix = _option($options, 'prefix', '');
+    $suffix = _option($options, 'suffix', '');
+    $separator = _option($option, 'separator', ' / ');
+
     if (is_array($prefix))
     {
         $prefix_min = $prefix[0];
@@ -534,7 +589,7 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
     }
     
     
-	if (!empty($value_min))
+    if (!empty($value_min))
     {
         $value .= $prefix_min . _get_field_value_in_list($list, $value_min) . $suffix_min;
     }
@@ -552,13 +607,18 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
         }
     }
 
-    return _format_data($name, $value, $raw, '', '', $div_id);
+    return _format_data($name, $value, $options);
 }
 
-function _format_picto_from_list($name, $value, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $picto_separator = ' ', $text_separator = ' - ', $prefix = '', $suffix = '')
+function _format_picto_from_list($name, $value, $config, $options = array())
 {
     if (!empty($value))
     {
+        $multiple = _option($options, 'multiple', false);
+        $printspan = _option($options, 'printspan', false);
+        $picto_name = _option($options, 'picto_name', '');
+        $picto_separator = _option($options, 'picto_separator', '');
+
         $html = array();
         $picto_text_list = array();
         $list = sfConfig::get($config);
@@ -608,7 +668,7 @@ function _format_picto_from_list($name, $value, $config, $multiple = false, $raw
         $html = '';
     }
 
-    return _format_data($name, $html, $raw, $prefix, $suffix);
+    return _format_data($name, $html, $options);
 }
 
 function _get_field_value_in_list($list, $key)
@@ -654,6 +714,7 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
     $show_label = _option($options, 'show_label', true);
     $show_images = _option($options, 'show_images', true);
     $class = _option($options, 'class', '');
+
     if (!empty($class))
     {
         $class = ' ' . $class;
@@ -700,7 +761,7 @@ function field_url_data($document, $name, $raw = false, $link_text = '', $prefix
         return '';
     }
 
-    return  _format_data($name, $value, $raw, $prefix, $suffix);
+    return  _format_data($name, $value, array('raw'=>$raw, 'prefix'=>$prefix, 'suffix'=>$suffix));
 }
 
 function field_url_data_if_set($document, $name, $raw = false, $link_text = '', $prefix = '', $suffix = '')
@@ -722,7 +783,7 @@ function field_phone($document, $name, $prefix = '', $suffix = '', $title = '', 
         return '';
     }
 
-    return  _format_data($name, $value, false, $prefix, $suffix);
+    return  _format_data($name, $value, array('prefix'=>$prefix, 'suffix'=>$suffix));
 }
 
 function field_phone_if_set($document, $name, $prefix = '', $suffix = '', $title = '')
@@ -800,7 +861,7 @@ function field_coord_data_if_set($document, $name)
     $min = floor($minTemp);
     $sec = floor(60 * 100 * ($minTemp - $min)) /100;
     $value = $deg . '° ' . $min . "' " . $sec . '" ' . str_replace('°', '', $suffix);
-    return _format_data($name, $value, false, '', '');
+    return _format_data($name, $value);
 }
 
 function field_swiss_coords($document)
@@ -833,7 +894,7 @@ function field_exposure_time_if_set($document, $name = 'exposure_time', $prefix 
         return '';
     }
 
-    return _format_data($name, round(1/$value), false, $prefix, $suffix);
+    return _format_data($name, round(1/$value), array('prefix'=>$prefix, 'suffix'=>$suffix));
 }
 
 function field_image_details($document)
@@ -1157,7 +1218,7 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false,
         $difficulties_height = NULL;
     }
 
-    $facing = field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true);
+    $facing = field_data_from_list_if_set($route, 'facing', 'app_routes_facings', array('raw' => true));
 
     if ($add_tooltips)
     {
@@ -1296,16 +1357,17 @@ function _option(&$options, $name, $default = null)
 
   if (array_key_exists($name, $options))
   {
-    $value = $options[$name];
-    unset($options[$name]);
+      $value = $options[$name];
+      unset($options[$name]);
   }
   else
   {
-    $value = $default;
+      $value = $default;
   }
 
   return $value;
 }
+
 
 function avalanche_link($id, $name, $date = null)
 {
@@ -1437,4 +1499,11 @@ function weather_link($id, $name)
         }
         return array($title, implode(' ', $weather_names));
     }
+}
+
+// insert a microdata as meta tag
+// use sparingly and when info is not displayed
+function microdata_meta($itemprop, $content)
+{
+    return tag('meta', array('itemprop' => $itemprop, 'content' => $content));
 }

@@ -14,7 +14,7 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobil
 $section_list = array('map' => (boolean)($document->get('geom_wkt')),
                       'images' => (boolean)count($associated_images));
 
-display_page_header('images', $document, $id, $metadata, $current_version, '', '', $section_list);
+display_page_header('images', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/ImageObject');
 
 echo start_section_tag('Image', 'view');
 $lang = $sf_user->getCulture();

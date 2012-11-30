@@ -6,21 +6,22 @@ $activities = $document->getRaw('activities');
 <ul class="data col_left col_33">
     <?php
     li(field_activities_data($document));
-    li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', 'elevation separator', '', '', 'meters'));
-    li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', 'height diff separator', '+', '-', 'meters', true));
+    li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', array('separator' => 'elevation separator', 'suffix' => 'meters')));
+    li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', array('separator' => 'height diff separator',
+        'prefix_min' => '+', 'prefix_max' => '-', 'suffix' => 'meters', 'range_only' => true)));
     //FIXME disabled since computation by postgis seems incorrect
-    //li(field_data_if_set($document, 'route_length', '', 'kilometers'));
+    //li(field_data_if_set($document, 'route_length', array('suffix' => 'kilometers')));
 
     if (array_intersect(array(1,2,3,4,5), $activities)) // ski, snow or mountain or rock or ice_climbing
     {
         $value = $document->get('elevation');
         li(field_data_arg_if_set('difficulties_start_elevation', $value, '', 'meters'));
-        li(field_data_if_set($document, 'difficulties_height', '', 'meters'));
+        li(field_data_if_set($document, 'difficulties_height', array('suffix' => 'meters')));
     }
 
     if (array_intersect(array(1,2,3,4,7), $activities)) // ski, snow or mountain or rock_climbing
     {
-        li(field_data_from_list_if_set($document, 'configuration', 'mod_routes_configurations_list', true));
+        li(field_data_from_list_if_set($document, 'configuration', 'mod_routes_configurations_list', array('multiple' => true)));
     }
     
     li(field_data_from_list_if_set($document, 'facing', 'app_routes_facings'));
@@ -33,7 +34,7 @@ $activities = $document->getRaw('activities');
     {
         $new_items[2] = 'loop_short';
     }
-    li(field_data_from_list_if_set($document, 'route_type', 'mod_routes_route_types_list', false, false, '', '', '', null, $new_items));
+    li(field_data_from_list_if_set($document, 'route_type', 'mod_routes_route_types_list', array('new_items' => $new_items)));
     
     $duration = field_data_from_list_if_set($document, 'duration', 'mod_routes_durations_list');
     if ($duration)
@@ -74,7 +75,8 @@ $activities = $document->getRaw('activities');
         {
             $suffix = '';
         }
-        li(field_data_range_from_list_if_set($document, 'rock_free_rating', 'rock_required_rating', 'rock_free_and_required_rating', 'rock rating separator', 'app_routes_rock_free_ratings', false, false, '', $suffix));
+        li(field_data_range_from_list_if_set($document, 'rock_free_rating', 'rock_required_rating', 'app_routes_rock_free_ratings',
+            array('name_if_equal' => 'rock_free_and_required_rating', 'separator' => 'rock rating separator', 'suffix' => $suffix)));
         li(field_data_from_list_if_set($document, 'aid_rating', 'app_routes_aid_ratings'));
     }
 
@@ -95,8 +97,8 @@ $activities = $document->getRaw('activities');
         li(field_data_from_list($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings'));
         li(field_data_from_list($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings'));
         li(field_data_from_list($document, 'labande_global_rating', 'app_routes_global_ratings'));
-        li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array(), 2, true));
-        li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array(), 4, true));
+        li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array('single_value' => 2, 'show_only_yes' => true)));
+        li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array('single_value' => 4, 'show_only_yes' => true)));
     }
 
     if (in_array(6, $activities)) // hiking
@@ -109,8 +111,8 @@ $activities = $document->getRaw('activities');
         li(field_data_from_list($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings'), true);
     }
 
-    li($first = field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array(), 6, true), true);
-    li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array(), 8, true), empty($first));
+    li($first = field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array('single_value' => 6, 'show_only_yes' => true)), true);
+    li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array('single_value' => 8, 'show_only_yes' => true)), empty($first));
     
     if ($document->get('geom_wkt'))
     {

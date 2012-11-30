@@ -3,17 +3,17 @@
     <ul id="article_gauche_5050" class="data">
         <?php
         li(field_data_from_list($document, 'shelter_type', 'mod_huts_shelter_types_list'));
-        li(field_data($document, 'elevation', '', 'meters'));
+        li(field_data($document, 'elevation', array('suffix' => 'meters')));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
         li(field_swiss_coords($document));
-        li(field_bool_data($document, 'is_staffed', true));
+        li(field_bool_data($document, 'is_staffed', array('null_equals_no' => true)));
         li(field_data_if_set($document, 'staffed_capacity'));
         li(field_data_if_set($document, 'unstaffed_capacity'));
-        li(field_bool_data($document, 'has_unstaffed_matress', true));
-        li(field_bool_data($document, 'has_unstaffed_blanket', true));
-        li(field_bool_data($document, 'has_unstaffed_gas', true));
-        li(field_bool_data($document, 'has_unstaffed_wood', true));
+        li(field_bool_data($document, 'has_unstaffed_matress', array('null_equals_no' => true)));
+        li(field_bool_data($document, 'has_unstaffed_blanket', array('null_equals_no' => true)));
+        li(field_bool_data($document, 'has_unstaffed_gas', array('null_equals_no' => true)));
+        li(field_bool_data($document, 'has_unstaffed_wood', array('null_equals_no' => true)));
         li(field_phone_if_set($document, 'phone'));
         li(field_url_data_if_set($document, 'url'));
         li(field_activities_data($document)); 
