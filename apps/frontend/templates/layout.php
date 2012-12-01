@@ -67,7 +67,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     <link rel="alternate" media="only screen and (max-width: 640px)" href="http://<?php echo sfConfig::get('app_mobile_version_host').
     ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
     <div id="holder">
         <header id="page_header">
         <?php

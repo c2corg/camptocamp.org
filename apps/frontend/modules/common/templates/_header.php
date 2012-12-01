@@ -2,13 +2,11 @@
 use_helper('Language', 'Link', 'Flash', 'MyForm', 'Javascript', 'Ajax', 'General');
 echo ajax_feedback();
 ?>
-
 <div id="header">
   <?php
   echo link_to(content_tag('span', '',
                            array('id' => 'banner_logo', 'title' => 'Camptocamp.org')),
-               '@homepage');
-  ?>
+               '@homepage'); ?>
   <div id="banner_middle">
     <div id="log">
       <div class="log_elt">

@@ -127,6 +127,7 @@ function generate_path()
     $sf_context = sfContext::getInstance();
     $module = $sf_context->getModuleName();
     $action = $sf_context->getActionName();
+    $forum = (bool)(strstr($sf_context->getRequest()->getUri(), 'forums'));
 
     if ($action == 'home')
     {
@@ -135,7 +136,7 @@ function generate_path()
 
     $path = __('Context:') . ' ' . link_to(__('Home'), '@homepage');
 
-    if (strstr($sf_context->getRequest()->getUri(), 'forums'))
+    if ($forum)
     {
         use_helper('Forum');
         $path .= ' &gt; ' . f_link_to(__('Forum'), '?lang='. $sf_context->getUser()->getCulture());
@@ -145,7 +146,7 @@ function generate_path()
         $path .= ' &gt; ' . link_to(ucfirst(__($module)), "@default_index?module=$module");
     }
 
-    return '<nav id="path">' . $path . '</nav>';
+    return '<nav ' . ($forum ? '' : 'itemprop="breadcrumb" ') . 'id="path">' . $path . '</nav>';
 }
 
 function list_link($item, $module, $prefix = null)
