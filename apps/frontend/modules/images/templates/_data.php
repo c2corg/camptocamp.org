@@ -7,6 +7,7 @@ $licenses_array = sfConfig::get('app_licenses_list');
 $license = $licenses_array[$image_type];
 $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get('app_licenses_url_suffix') . $sf_user->getCulture();
 
+// put here meta tags for microdata which would be invalid inside ul tag
 echo microdata_meta('name', $document->getName());
 ?>
     <ul class="data col_left col_66">
@@ -27,9 +28,8 @@ echo microdata_meta('name', $document->getName());
             li(_format_data($uploaded_by_title, link_to($user['name'], "@document_by_id?module=users&id=" . $user['id'], $options)));
         }
         li(field_data_if_set($document, 'author', array('microdata' => 'author')));
-        ?>
-        <?php li(field_data_from_list_if_set($document, 'image_type', 'mod_images_type_full_list')); ?>
-        <?php
+        li(field_data_from_list_if_set($document, 'image_type', 'mod_images_type_full_list'));
+
         if ($image_type != 3) // 3 = copyright
         {
           ?>
@@ -43,7 +43,7 @@ echo microdata_meta('name', $document->getName());
 
         li(field_image_details($document));
         li(field_data_if_set($document, 'date_time', array('microdata' => 
-            array('itemprop' => 'dateCreated', 'datetime' => str_replace(' ', 'T', $document->getDateTime())))), true);
+            array('tag' => 'time', 'itemprop' => 'dateCreated', 'datetime' => str_replace(' ', 'T', $document->getDateTime())))), true);
         li(field_data_if_set($document, 'elevation', array('suffix' => 'meters')));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));

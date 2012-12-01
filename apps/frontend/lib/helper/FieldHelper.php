@@ -425,7 +425,7 @@ function _format_data($name, $value, $options = array())
         if ($microdata)
         {
             is_string($microdata) ? $value = content_tag('span', $value, array('itemprop' => $microdata)) :
-                                    $value = content_tag('span', $value, $microdata);
+                                    $value = content_tag(_option($microdata, 'tag', 'span'), $value, $microdata);
         }
     }
 
@@ -741,8 +741,12 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
     return $out;
 }
 
-function field_url_data($document, $name, $raw = false, $link_text = '', $prefix = '', $suffix = '', $ifset = false)
+function field_url_data($document, $name, $options = array())
 {
+    $link_text = _option($options, 'link_text', '');
+    $ifset = _option($options, 'ifset', false);
+    $microdata = _option($options, 'microdata');
+
     $value = $document->get($name);
     if ($value)
     {
@@ -754,19 +758,21 @@ function field_url_data($document, $name, $raw = false, $link_text = '', $prefix
         {
             $displayvalue = $link_text;
         }
-        $value = '<a href="' . $value . '">' . $displayvalue . '</a>';
+        $itemprop = empty($microdata) ? '' : ' itemprop="'.$microdata.'"';
+        $value = '<a' . $itemprop . ' href="' . $value . '">' . $displayvalue . '</a>';
     }
     elseif ($ifset)
     {
         return '';
     }
 
-    return  _format_data($name, $value, array('raw'=>$raw, 'prefix'=>$prefix, 'suffix'=>$suffix));
+    return  _format_data($name, $value, $options);
 }
 
-function field_url_data_if_set($document, $name, $raw = false, $link_text = '', $prefix = '', $suffix = '')
+function field_url_data_if_set($document, $name, $options = array())
 {
-    return field_url_data($document, $name, $raw, $link_text, $prefix, $suffix, true);
+    $options['ifset'] = true;
+    return field_url_data($document, $name, $options);
 }
 
 function field_phone($document, $name, $prefix = '', $suffix = '', $title = '', $ifset = false)

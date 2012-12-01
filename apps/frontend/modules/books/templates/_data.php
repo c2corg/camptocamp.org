@@ -9,7 +9,7 @@ echo microdata_meta('name', $document->getName());
     li(field_data_if_set($document, 'editor', array('microdata' => 'publisher')));
     li(field_data_if_set($document, 'isbn', in_array('18', $document->getRaw('book_types')) ?
         array('title' => 'issn') : array('title' => 'isbn', 'microdata' => 'isbn')));
-    li(field_url_data_if_set($document, 'url'));
+    li(field_url_data_if_set($document, 'url', array('microdata' => 'url')));
     li(field_activities_data($document));
     li(field_data_if_set($document, 'nb_pages', array('microdata' => 'numberOfPages')));
     li(field_data_if_set($document, 'publication_date', array('microdata' => 'datePublished')));
