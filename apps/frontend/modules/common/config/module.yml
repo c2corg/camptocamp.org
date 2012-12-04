@@ -212,5 +212,5 @@ all:
         alt: "Expé"
       montania:
         id: 60
-        image: montania.gif
+        image: mammut.gif
         alt: "Montania Sport"
