@@ -38,7 +38,7 @@ if ($pun_user['g_id'] > PUN_ADMIN)
 if (isset($_POST['form_sent']))
 {
 	// Custom referrer check (so we can output a custom error message)
-	if (!preg_match('#^'.preg_quote(str_replace('www.', '', $pun_config['o_base_url']).'/admin_options.php', '#').'#i', str_replace('www.', '', (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''))))
+	if (!preg_match('#^'.preg_quote(str_replace(array('www.', 'm.', 'pre-prod.dev.'), '', $pun_config['o_base_url']).'/admin_options.php', '#').'#i', str_replace(array('www.', 'm.', 'pre-prod.dev.'), '', (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''))))
 		message($lang_common['Bad referrer']);
 
 	$form = array_map('trim', $_POST['form']);
