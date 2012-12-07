@@ -40,7 +40,9 @@ google_ad_height = 60;
     $id = isset($banner['id_'.$culture]) ? $banner['id_'.$culture] : $banner['id']; ?>
     <a href="<?php echo $counter_base_url . $id ?>"><?php
     $image = isset($banner['image_'.$culture]) ? $banner['image_'.$culture] : $banner['image'];
+    $size = @getimagesize('static/images/pub/' . $image);
     echo image_tag(sfConfig::get('app_static_url') . '/static/images/pub/' . $image,
-                   array('id' => 'banner', 'alt' => $banner['alt'], 'title' => $banner['alt'])) ;
+                   array('id' => 'banner', 'alt' => $banner['alt'], 'title' => $banner['alt'],
+                         'width' => $size[0], 'height' => $size[1]));
     ?></a>
 <?php endif ?>
