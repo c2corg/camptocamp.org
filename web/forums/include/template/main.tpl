@@ -7,6 +7,7 @@
 </head>
 
 <body>
+<div id="holder">
 <header id="page_header">
 <pun_include "symfony_head.php">
 </header>
