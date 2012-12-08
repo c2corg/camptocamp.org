@@ -52,7 +52,7 @@ else:
     echo link_to(image_tag($thumb_url, array('class' => 'img', 'alt' => $title)),
                  ($mobile_version ? $image_route : absolute_link(image_url($filename, 'big', true), true)),
                  array('title' => $title,
-                       'rel' => 'lightbox[document_images]',
+                       'data-lightbox' => 'document_images',
                        'class' => 'view_big',
                        'id' => 'lightbox_' . $item['id'] . '_' . $image_type));
     ?>
