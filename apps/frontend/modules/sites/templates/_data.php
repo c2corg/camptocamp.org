@@ -2,7 +2,7 @@
 
     <ul id="article_gauche_5050" class="data">
         <?php
-        li(field_data_from_list($document, 'site_types', 'app_sites_site_types', array('raw' => true)));
+        li(field_data_from_list($document, 'site_types', 'app_sites_site_types', array('multiple' => true)));
         li(field_data_if_set($document, 'elevation', array('suffix' => 'meters')));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
