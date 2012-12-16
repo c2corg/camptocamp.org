@@ -2109,6 +2109,9 @@ all:
     firstascent:
       id: @FIRSTASCENT_ID@
       name: 'New routes article'
+    accident:
+      id: @ACCIDENT_ID@
+      name: 'Incidents and accidents database'
 
   mw_contest_id: @MW_CONTEST_ID@
 

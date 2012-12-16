@@ -18,7 +18,12 @@ if (!isset($default_open))
                 <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
                                          array('title'=> __('cotometre long')),
                                          array('width' => 600)) ?></li>
-                <li><?php echo link_to(__('Incidents and accidents database'), getMetaArticleRoute('accidents_database', false)) ?></li>
+                <li><?php
+                    $portal_config = sfConfig::get('app_portals_accident');
+                    $text = __($portal_config['name']);
+                    $portal_url = '@document_by_id?module=portals&id=' . $portal_config['id'];
+                    echo link_to($text, $portal_url);
+                ?></li>
                 <li><?php
                     $portal_config = sfConfig::get('app_portals_firstascent');
                     $text = __($portal_config['name']);
