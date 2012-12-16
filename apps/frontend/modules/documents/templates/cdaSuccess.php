@@ -48,7 +48,6 @@ $mobile_version = c2cTools::mobileVersion();
     ?>
     <div class="img_title"><?php echo __($img_title); ?></div>
   </a>
-  <br />
   <div class="image2">
     <a href="/forums/viewforum.php?id=42" target="_blank">
       <?php
