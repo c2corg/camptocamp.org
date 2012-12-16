@@ -3828,9 +3828,9 @@ msgstr "Autor (s):"
 msgid "author short"
 msgstr "Autor"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "autocomplete_help"
-msgstr "Type search term above and matching items will appear here."
+msgstr "Escrigueu el començament del nom cercat aquí sobre i els elements que s'hi corresponguin es mostraran aquí."
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4830,9 +4830,9 @@ msgid "geo_export_info"
 msgstr "<h3>Exportació</h3>Les coordenades geogràfiques del document poden ser telecarregades en un dels formats proposats.\n"
 "<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML dedades geogràfiques utilitzat per lamajoria de GPS, o fàcilment convertible gràcies a <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en línea) o <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de dades geogràfiques principalment utilitzat per Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'intercanvi de dades JavaScript, utilitzat per aplicacions web"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "geolocation denied"
-msgstr "You must share your location for this functionality to work"
+msgstr "Heu de compartir la vostra localització per a aquesta funcionalitat"
 
 msgid "geolocation failed"
 msgstr "La posició és impossible de determinar"
@@ -6770,6 +6770,10 @@ msgstr "tècnic"
 
 msgid "terms of use"
 msgstr "Condicions d'utilització"
+
+# [WARNING] needs_review
+msgid "thanks for new outing"
+msgstr "Gràcies per la vostra sortida! No dubteu a millorar la descripció de l'itinerari associat."
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.

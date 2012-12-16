@@ -6694,6 +6694,10 @@ msgstr "tecnica"
 msgid "terms of use"
 msgstr "Condizioni di uso"
 
+# [WARNING] en translation used
+msgid "thanks for new outing"
+msgstr "Thank you for your outing! Feel free to also improve the description of the associated route."
+
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
 msgid "the (list)"

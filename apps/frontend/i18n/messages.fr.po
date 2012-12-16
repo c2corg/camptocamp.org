@@ -6790,6 +6790,10 @@ msgstr "technique"
 msgid "terms of use"
 msgstr "Conditions d'utilisation"
 
+# [WARNING] needs_review
+msgid "thanks for new outing"
+msgstr "Merci pour votre sortie ! N'hésitez pas à également améliorer la description de l'itinéraire associé."
+
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
 msgid "the (list)"

@@ -1707,9 +1707,9 @@ msgstr "Salidas asociadas a estas imágenes"
 msgid "Outings linked to this route"
 msgstr "Salidas asociadas a la ruta descrita en esta pagina"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Outings with video"
-msgstr "Sorties avec vidéo"
+msgstr "Outings with video"
 
 msgid "PD"
 msgstr "PD"
@@ -4163,9 +4163,9 @@ msgstr "imagenes colaborativas"
 msgid "collaborative images of associated documents"
 msgstr "collaborative images of associated documents"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "collaborative images of associated outings"
-msgstr "images collaboratives des sorties associées"
+msgstr "collaborative images of the associated outings"
 
 msgid "comment"
 msgstr "comentario"
@@ -6754,6 +6754,10 @@ msgstr "técnica"
 
 msgid "terms of use"
 msgstr "Condiciones de utilización"
+
+# [WARNING] en translation used
+msgid "thanks for new outing"
+msgstr "Thank you for your outing! Feel free to also improve the description of the associated route."
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
