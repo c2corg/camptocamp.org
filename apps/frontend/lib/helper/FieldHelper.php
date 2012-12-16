@@ -153,7 +153,7 @@ function field_data_from_list_if_set($document, $name, $config, $options = array
     return _format_data_from_list($title, $value, $config, $options);
 }
 
-function field_data_range_from_list($document, $name_min, $name_max, $options = array())
+function field_data_range_from_list($document, $name_min, $name_max, $config, $options = array())
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
