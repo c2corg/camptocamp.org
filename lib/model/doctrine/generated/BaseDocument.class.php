@@ -640,14 +640,16 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             return array('pager' => null,
                          'nb_results' => 0,
-                         'query' => null);
+                         'query' => null,
+                         'act' => null);
         }
         elseif ($nb_results == 1 && !array_intersect($format, array('cond', 'json', 'rss', 'widget')))
         {
             return array('pager' => null,
                          'nb_results' => 1,
                          'query' => null,
-                         'id' => reset($ids));
+                         'id' => reset($ids),
+                         'act' => $joins['act']);
         }
         
         $model_i18n = $model . 'I18n';

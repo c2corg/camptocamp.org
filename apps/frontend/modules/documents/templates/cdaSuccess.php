@@ -14,7 +14,6 @@ $mobile_version = c2cTools::mobileVersion();
   </div>
 </div>
 <div class='column row1 span-5'>
-  </a>
     <a href="<?php echo url_for('@cdasearch'); ?>">
       <?php
         $img_title = __('ecomobility');
@@ -24,13 +23,22 @@ $mobile_version = c2cTools::mobileVersion();
     </a>
 </div>
 <div class='column row1 span-5'>
-    <a href="http://www.mountainwilderness.fr/component/content/article/3031" target="_blank">
+    <a href="http://ecrins.changerdapproche.org" target="_blank">
       <?php
-        $img_title = __('contest');
-        echo image_tag('/static/images/cda/slide2.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
+        $img_title = '&eacute;crins';
+        echo image_tag('/static/images/cda/slide8_small.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
       ?>
       <div class="img_title"><?php echo __($img_title); ?></div>
     </a>
+  <div class="image2">
+    <a href="http://www.mountainwilderness.fr/component/content/article/3031" target="_blank">
+      <?php
+        $img_title = __('contest');
+        echo image_tag('/static/images/cda/slide2_small.jpg',array('alt'=>__($img_title),'title'=>__($img_title)));
+      ?>
+      <div class="img_title"><?php echo __($img_title); ?></div>
+    </a>
+  </div>
 </div>
 <div class='column row1 last span-5'>
   <a href="<?php echo url_for('@default?action=list&module=images&owtp=yes&orderby=oid&order=desc'); ?>" target="_blank">
