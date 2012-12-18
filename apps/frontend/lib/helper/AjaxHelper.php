@@ -16,11 +16,11 @@ function ajax_feedback($inline = false)
 
     $ajax_success_feedback = content_tag('div', '', array('id' => $afs,
                                                           'class' => $style,
-                                                          'style' => 'display: none;'));
+                                                          'style' => 'display:none;'));
 
     $ajax_failure_feedback = content_tag('div', '', array('id' => $aff,
                                                           'class' => $style,
-                                                          'style' => 'display: none;'));
+                                                          'style' => 'display:none;'));
 
     return $indicator.$ajax_success_feedback.$ajax_failure_feedback;
 }

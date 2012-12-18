@@ -2827,7 +2827,7 @@ msgstr "<h3>Access</h3>Condition ot the access road the day of the outing: clear
 msgid "_accommodation_info"
 msgstr "<h3>Nearby accomodation, restaurants and cultural heritage</h3>Information on food, accomodation and cultural heritage close to the access point."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Activities</h3>Activity type: position your mouse on the pictograms to reveal their meaning.<br />A document can be associated to one or more activities:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski- and snowboard-touring, snowshoing</strong>: ski-touring and ski-mountaineering, snowboard-touring and/or snowshoing<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>snowshoing</strong>: snowshoeing<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpine snow, ice and mixed climbing</strong>: alpinism with snow, ice or mixed climbing (in high mountain terrain)<br /><br /><<img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;strong>alpine rock climbing</strong>: alpinism on rock, big-wall climbs in the moutain (bolted or not)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>rock climbing</strong>: bouldering, single or multi-pitch climbing (bolted or not) on lowland cliffs and crags<br /><br />img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>ice climbing</strong>: lowland ice-falls, dry-tooling crags<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Hiking</strong>: scrambling, hiking and trekking in the mountains (not in the lowlands), on or away from marked tracks and trails.<br /><br />The difference between <strong>rock climbing</strong> and <strong>alpine rock climbing</strong> is mainly based on the altitude of the summit, not on the type of equipment. In the Alps, the following rules apply:<br />- altitude < 2000m: rock climbing<br />- altitude between 2100m and 2400m: rock climbing or alpine rock climbing, but generally the former<br />- altitude between 2400m and 2700m: rock climbing or alpine rock climbing, but generally the latter<br />- altitude > 2700m: alpine rock climbing<br />For altitudes between 2100m and 2700m, both activities can be selected in case of doubt."
 
@@ -4844,16 +4844,16 @@ msgid "has_svg"
 msgstr "Picture generated from an SVG file:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Blanket:"
+msgstr "Blanket"
 
 msgid "has_unstaffed_gas"
-msgstr "Cooker / gas:"
+msgstr "Cooker / gas"
 
 msgid "has_unstaffed_matress"
-msgstr "Matress:"
+msgstr "Matress"
 
 msgid "has_unstaffed_wood"
-msgstr "Heating:"
+msgstr "Heating"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5059,7 +5059,7 @@ msgid "is_profile_public"
 msgstr "Allow access to your profile page for unregistered visitors (and  search engines):"
 
 msgid "is_staffed"
-msgstr "Staffed:"
+msgstr "Staffed"
 
 msgid "isbn"
 msgstr "ISBN: "
@@ -5804,7 +5804,7 @@ msgid "outing_length"
 msgstr "Length:"
 
 msgid "outing_with_public_transportation"
-msgstr "Use of PT:"
+msgstr "Use of PT"
 
 msgid "outings"
 msgstr "outings"
@@ -5877,7 +5877,7 @@ msgid "partial equipment"
 msgstr "P2 (partially bolted)"
 
 msgid "partial_trip"
-msgstr "Uncomplete trip:"
+msgstr "Uncomplete trip"
 
 msgid "participants"
 msgstr "Unregistered participants:"

@@ -206,7 +206,7 @@ table.children_docs tr:hover
   background-color: #EEEEEE;
 }
 
-
+/*
 .error, .notice, .warning
 {
   z-index: 1000;
@@ -234,7 +234,7 @@ table.children_docs tr:hover
   background-color: #ffaa66;
   border-color: #f5900c;
 }
-
+*/
 tr.current_version td
 {
   font-weight: bold;
@@ -1209,83 +1209,8 @@ p.default_text div.add_content
 #preview #title, #preview .title, .diff-section .title
 {
   clear: left;
-  margin:5px 0;
+  margin: 5px 0;
   padding-top: 0.5em;
-}
-
-
-/* Ajax interactions */
-
-#ajax_feedback_success
-{
-  z-index: 1000;
-  background-color: #5eff95;
-  border: 1px solid #00a231;
-}
-
-#ajax_feedback_failure
-{
-  z-index: 1000;
-  background-color: #ffaaa7;
-  border: 1px solid #ff001f;
-}
-
-#fields_tooltip
-{
-  z-index: 999;
-  background-color: #ffc;
-  padding: 10px;
-  padding-bottom: 20px;
-  width: auto;
-  max-width:50%;
-  position: fixed;
-  border: 1px solid #aaa;
-  @include border-radius(10px);
-}
-
-#fields_tooltip #close_info
-{
-  text-align:right;
-  cursor:pointer;
-  text-decoration:underline;
-  color: #666;
-  font-size:0.9em;
-}
-
-.ajax_inline_feedback
-{
-  z-index: 1000;
-  padding: 5px;
-  margin: 5px 0;
-}
-
-.ajax_feedback
-{
-  z-index: 1000;
-  position: fixed;
-  top: 5px;
-  left: 5px;
-  padding: 5px;
-  margin: 5px 0;
-}
-
-.feedback
-{
-  z-index: 1000;
-  background-color: #f19914;
-  color: #fff;
-  text-align: center;
-}
-
-#indicator, #indicator2
-{
-  position: fixed;
-  z-index: 1000;
-  top: 5px;
-  left: 5px;
-  padding: 5px;
-  background: #f00;
-  color: #fff;
 }
 
 a.close_btn {
@@ -4692,6 +4617,7 @@ span.cotometre_result {
   background-color: #fff !important;
 }
 
+@import "feedback";
 @import "google_translate";
 @import "buttons";
 @import "html5";

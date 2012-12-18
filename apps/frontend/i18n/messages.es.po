@@ -4809,16 +4809,16 @@ msgid "has_svg"
 msgstr "Imagen generada a partir de un archivo SVG:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Mantas:"
+msgstr "Mantas"
 
 msgid "has_unstaffed_gas"
-msgstr "Cocina /Gas:"
+msgstr "Cocina /Gas"
 
 msgid "has_unstaffed_matress"
-msgstr "Colchones:"
+msgstr "Colchones"
 
 msgid "has_unstaffed_wood"
-msgstr "Calefacción:"
+msgstr "Calefacción"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5024,7 +5024,7 @@ msgid "is_profile_public"
 msgstr "¿Autorizar que visitantes ocasionales acceden a su pagina personal?:"
 
 msgid "is_staffed"
-msgstr "Guardado:"
+msgstr "Guardado"
 
 msgid "isbn"
 msgstr "ISBN: "
@@ -5780,7 +5780,7 @@ msgid "outing_length"
 msgstr "Longitud: "
 
 msgid "outing_with_public_transportation"
-msgstr "Uso de transporte en común:"
+msgstr "Uso de transporte en común"
 
 msgid "outings"
 msgstr "salidas"
@@ -5855,7 +5855,7 @@ msgid "partial equipment"
 msgstr "P2 (equipado en parte)"
 
 msgid "partial_trip"
-msgstr "Trayecto parcial:"
+msgstr "Trayecto parcial"
 
 msgid "participants"
 msgstr "Participantes no inscritos:"

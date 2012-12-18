@@ -2843,7 +2843,7 @@ msgstr "<h3>Unterkunft und Verpflegung in der Nähe</h3>Informationen über Ess-
 # "Schneeschuhlaufen" für Österreicher klingt das eigenartig, da man mit Schneeschuhen "geht" und nicht "läuft". Ist Schneeschuhwandern als Kompromiss auch für Deutsche annehmbar?
 # 
 # Schneeschuhwandern ist gut und sogar in der Schweiz verständlich
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren sie mit der Maus darüber.<br />Ein Dokument kann mit mehreren Aktivitäten verbunden sein:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>Ski-, Snowboardtouren</strong>: Ski- und/oder Snowboardtouren<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp<strong>Hochtouren</strong>: Bergsteigen auf Schnee, Eis, Gletscher und kombiniertem Gelände im Hochgebirge<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>Alpinklettern</strong>: Alpines Klettern von Mehrseillängen-Routen im Hochgebirge; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>Sportklettern</strong>: Bouldern, Ein- oder Mehrseillängen-Routen an Felswänden; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>Eisklettern</strong>&nbsp;: Eisklettern ausserhalb des Hochgebirges, Dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Wandern</strong>: Wandern im Gebirge (und nicht im Flachland); auf markierten Wegen oder nicht<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>Schneeschuhwandern</strong>: Wandern im Gebirge mit Schneeschuhen; auf markierten Routen oder nicht.<br /><br />\n"
 "Der Unterschied zwischen den Aktivitäten <strong>Sportklettern</strong> und <strong>Alpinklettern</strong> ist hauptsächlich die Seehöhe der Route, nicht aber die Einrichtung der Route. In Europa gelten folgenden Regeln: <br />- Höhe < 2100m : Sportklettern<br />- Höhe zwischen 2100m und 2400m : Sportklettern oder Alpinklettern, aber hauptsächlich Sportklettern<br />- Höhe zwischen 2400m und 2700m : Sportklettern oder Alpinklettern, aber hauptsächlich Alpinklettern<br />- Höhe > 2700m : Alpinklettern<br />Für eine Höhe zwischen 2100m und 2700m, können beide Aktivitäten gewählt werden."
@@ -5007,16 +5007,16 @@ msgid "has_svg"
 msgstr "Das Bild wurde aus einer SVG-Datei generiert:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Decken:"
+msgstr "Decken"
 
 msgid "has_unstaffed_gas"
-msgstr "Kochherd / Gas:"
+msgstr "Kochherd / Gas"
 
 msgid "has_unstaffed_matress"
-msgstr "Matratzen:"
+msgstr "Matratzen"
 
 msgid "has_unstaffed_wood"
-msgstr "Heizung:"
+msgstr "Heizung"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5221,7 +5221,7 @@ msgid "is_profile_public"
 msgstr "Den Zugang zu ihrer persönlichen Seite nicht registrierten Beuschern erlauben:"
 
 msgid "is_staffed"
-msgstr "Bewartung:"
+msgstr "Bewartung"
 
 msgid "isbn"
 msgstr "ISBN:"
@@ -5982,7 +5982,7 @@ msgid "outing_length"
 msgstr "Länge:"
 
 msgid "outing_with_public_transportation"
-msgstr "Mit öV gemachte Tour:"
+msgstr "Mit öV gemachte Tour"
 
 msgid "outings"
 msgstr "Touren"
@@ -6055,7 +6055,7 @@ msgid "partial equipment"
 msgstr "P2 (teilweise eingerichtet)"
 
 msgid "partial_trip"
-msgstr "Teilweise begangen:"
+msgstr "Teilweise begangen"
 
 msgid "participants"
 msgstr "Nicht eingeschriebene Teilnehmer:"
@@ -6968,9 +6968,9 @@ msgstr "Technik"
 msgid "terms of use"
 msgstr "Benutzungsbedingungen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "thanks for new outing"
-msgstr "Thank you for your outing! Feel free to also improve the description of the associated route."
+msgstr "Besten Dank für deine Tour! Beweigere dich nicht die Routenbeschreibung zu verbessern."
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.

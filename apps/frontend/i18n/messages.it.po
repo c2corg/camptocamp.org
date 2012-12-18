@@ -2821,7 +2821,7 @@ msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il gi
 msgid "_accommodation_info"
 msgstr "<h3>Vitto e alloggio nelle vicinanze</h3>Informazioni sulle possibilità di vitto e alloggio nei dintorni del punto di partenza."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Attività</h3>Tipo di attività: passare il mouse sulle icone per leggere l'attività corrispondente.<br />Un documento può essere associato a una o più attività:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp; <strong>sci, snowboard</strong>: sci alpinismo o snowboard<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>ciaspole</strong>&nbsp;: escursionismo con le ciaspole<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinismo neve, ghiaccio, misto</strong>: alpinismo su neve, ghiaccio o misto (in alta montagna)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>roccia in alta montagna</strong>: alpinismo su roccia, lunghe vie in montagna (protette e non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate e non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>escursionismo</strong>: gite a piedi (e non in piano), su sentieri segnalati e non, oppure fuori dai sentieri<br /><br />La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio, nelle Alpi, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considera necessario conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
 
@@ -4789,16 +4789,16 @@ msgid "has_svg"
 msgstr "Immagine ottenuta a partire di un file SVG:"
 
 msgid "has_unstaffed_blanket"
-msgstr "coperte:"
+msgstr "Coperte"
 
 msgid "has_unstaffed_gas"
-msgstr "Fornello / Gas:"
+msgstr "Fornello / Gas"
 
 msgid "has_unstaffed_matress"
-msgstr "Materassi:"
+msgstr "Materassi"
 
 msgid "has_unstaffed_wood"
-msgstr "Riscaldamento:"
+msgstr "Riscaldamento"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4999,7 +4999,7 @@ msgid "is_profile_public"
 msgstr "Autorizzare l'accesso della tuo profilo agli utenti non registrati:"
 
 msgid "is_staffed"
-msgstr "Custodito:"
+msgstr "Custodito"
 
 msgid "isbn"
 msgstr "ISBN:"
@@ -5739,7 +5739,7 @@ msgid "outing_length"
 msgstr "Lunghezza:"
 
 msgid "outing_with_public_transportation"
-msgstr "Gita in ecomobilità:"
+msgstr "Gita in ecomobilità"
 
 msgid "outings"
 msgstr "gite"
@@ -5812,7 +5812,7 @@ msgid "partial equipment"
 msgstr "P2 (parzialmente attrezzato)"
 
 msgid "partial_trip"
-msgstr "Percorso parziale:"
+msgstr "Percorso parziale"
 
 msgid "participants"
 msgstr "Partecipanti:"

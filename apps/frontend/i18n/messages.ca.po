@@ -2817,7 +2817,6 @@ msgstr "<h3>Allotjament, restauració i patrimoni cultural proper</h3>Informaci�
 
 # [comment]
 # insert snowshoeing in the activities list
-# [WARNING] needs_review
 msgid "_activities_info"
 msgstr "<h3>Activitats</h3>\n"
 "Tipus d'activitats: passeu el ratolí per damunt dels pictogrames per conèixer-ne el significat.<br />\n"
@@ -2829,15 +2828,15 @@ msgstr "<h3>Activitats</h3>\n"
 "<br />\n"
 "<span class=\"picto activity_2\"></span> &nbsp;<strong>alpinisme en neu, glaç o mixt</strong>: alpinisme en neu, glaç o mixt (a l'alta muntanya)<br />\n"
 "<br />\n"
-"<span class=\"picto activity_3\"> &nbsp;<strong>escalada d'alta muntanya</strong>&nbsp;: alpinisme en roca, vies llargues (equipades o desequipades)<br />\n"
+"<span class=\"picto activity_3\"></span> &nbsp;<strong>escalada d'alta muntanya</strong>&nbsp;: alpinisme en roca, vies llargues (equipades o desequipades)<br />\n"
 "<br />\n"
-"<span class=\"picto activity_4\"> &nbsp;<strong>escalada</strong>: bloc, vies d'un o més llargs en parets (equipades o desequipades)<br />\n"
+"<span class=\"picto activity_4\"></span> &nbsp;<strong>escalada</strong>: bloc, vies d'un o més llargs en parets (equipades o desequipades)<br />\n"
 "<br />\n"
-"<span class=\"picto activity_5\"> &nbsp;<strong>glaç</strong>: cascades de glaç fora d'alta muntanya, dry-tooling<br />\n"
+"<span class=\"picto activity_5\"></span> &nbsp;<strong>glaç</strong>: cascades de glaç fora d'alta muntanya, dry-tooling<br />\n"
 "<br />\n"
-"<span class=\"picto activity_6\"> &nbsp;<strong>excursionisme</strong>: excursionisme de mitja i alta muntanya, per senders marcats o no o fora de sender<br />\n"
+"<span class=\"picto activity_6\"></span> &nbsp;<strong>excursionisme</strong>: excursionisme de mitja i alta muntanya, per senders marcats o no o fora de sender<br />\n"
 "<br />\n"
-"<span class=\"picto activity_8\"> &nbsp;<strong>parapent de muntanya</strong>: descens en parapent després d'haver pujat a peu o amb esquís<br />\n"
+"<span class=\"picto activity_8\"></span> &nbsp;<strong>parapent de muntanya</strong>: descens en parapent després d'haver pujat a peu o amb esquís<br />\n"
 "<br />\n"
 "La diferència entre les activitats <strong>escalada</strong> i <strong>escalada d'alta muntanya</strong> rau en l'altitud del cim on hi ha la via, no en l'equipament. A Europa s'apliquen els següents criteris:<br />\n"
 "- altitud < 2100 m: escalada<br />\n"
@@ -4904,16 +4903,16 @@ msgid "has_svg"
 msgstr "Imatge obtinguda a partir d'un fitxer svg&nbsp;:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Mantes:"
+msgstr "Mantes"
 
 msgid "has_unstaffed_gas"
-msgstr "Cuina / Gas:"
+msgstr "Cuina / Gas"
 
 msgid "has_unstaffed_matress"
-msgstr "Matalassos:"
+msgstr "Matalassos"
 
 msgid "has_unstaffed_wood"
-msgstr "Fusta:"
+msgstr "Fusta"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5113,7 +5112,7 @@ msgid "is_profile_public"
 msgstr "Autoritza l'accés a la teva pàgina personal als visitants anònims (i als motors de cerca):"
 
 msgid "is_staffed"
-msgstr "Guardat:"
+msgstr "Guardat"
 
 msgid "isbn"
 msgstr "ISBN: "
@@ -5845,7 +5844,7 @@ msgid "outing_length"
 msgstr "Distància: "
 
 msgid "outing_with_public_transportation"
-msgstr "Sortida amb ecomobilitat:"
+msgstr "Sortida amb ecomobilitat"
 
 msgid "outings"
 msgstr "sortides"
@@ -5918,7 +5917,7 @@ msgid "partial equipment"
 msgstr "P2 (parcialment equipat)"
 
 msgid "partial_trip"
-msgstr "Recorregut parcial:"
+msgstr "Recorregut parcial"
 
 msgid "participants"
 msgstr "Participants no inscrits:"
