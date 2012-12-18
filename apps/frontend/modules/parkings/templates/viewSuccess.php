@@ -11,7 +11,7 @@ $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 
-display_page_header('parkings', $document, $id, $metadata, $current_version, '', '', $section_list);
+display_page_header('parkings', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/ParkingFacility');
 
 // lang-independent content starts here
 

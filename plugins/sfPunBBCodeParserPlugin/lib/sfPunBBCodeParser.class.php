@@ -491,7 +491,7 @@ class sfPunBBCodeParser
         return $image_tag;
     }
 
-    public static function handle_img_id_tag($image_id, $align, $legend = '', $images = null, $filter_image_type =true)
+    public static function handle_img_id_tag($image_id, $align, $legend = '', $images = null, $filter_image_type = true)
     {
         if ($images == null) return '';
 
@@ -634,7 +634,7 @@ class sfPunBBCodeParser
         }
         else
         {
-            $image_tag = sprintf('<a data-lightbox="embedded_images" id="lightbox_%s_%s_embedded" class="view_big" href="%s/%s"%s><img%s src="%s/%s" alt="%s"/></a>',
+            $image_tag = sprintf('<a data-lightbox="embedded_images" id="lightbox_%s_%s_embedded" class="view_big" href="%s/%s"%s><img%s src="%s/%s" alt="%s" itemprop="image" /></a>',
                                  $image['id'],
                                  $image['image_type'],
                                  $path,
@@ -643,7 +643,7 @@ class sfPunBBCodeParser
                                  ($show_legend ? '' : $img_class ),
                                  $path,
                                  $filename . $size . $extension,
-                                 $alt);
+                                 $alt); // alt todo use title if available.....
         }
         
         if ($show_legend)

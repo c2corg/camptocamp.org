@@ -44,12 +44,20 @@ echo microdata_meta('name', $document->getName());
         li(field_image_details($document));
         li(field_data_if_set($document, 'date_time', array('microdata' => 
             array('tag' => 'time', 'itemprop' => 'dateCreated', 'datetime' => str_replace(' ', 'T', $document->getDateTime())))), true);
-        li(field_data_if_set($document, 'elevation', array('suffix' => 'meters')));
-        li(field_coord_data_if_set($document, 'lon'));
-        li(field_coord_data_if_set($document, 'lat'));
-        li(field_swiss_coords($document));
+
+        if (check_not_empty_doc($document, 'elevation') || check_not_empty_doc($document, 'lon'))
+        {
+            echo '<li itemprop="contentLocation" itemscope itemtype="http://schema.org/Place">',
+                 '<ul itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">';
+            li(field_data_if_set($document, 'elevation', array('suffix' => 'meters', 'microdata' => 'elevation')));
+            li(field_coord_data_if_set($document, 'lon', array('microdata' => 'longitude')));
+            li(field_coord_data_if_set($document, 'lat', array('microdata' => 'latitude')));
+            li(field_swiss_coords($document));
+            echo '</ul></li>';
+        }
+
         li(field_activities_data_if_set($document));
-        li(field_data_from_list_if_set($document, 'categories', 'mod_images_categories_list', array('multiple' => true, false, 'title_id' => 'image_categories')));
+        li(field_data_from_list_if_set($document, 'categories', 'mod_images_categories_list', array('multiple' => true, 'title_id' => 'image_categories')));
 
         li(field_data_if_set($document, 'camera_name'), true);
         li(field_data_if_set($document, 'focal_length', array('suffix' => 'mm')));

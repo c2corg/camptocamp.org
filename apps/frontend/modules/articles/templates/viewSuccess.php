@@ -10,7 +10,7 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 
-display_page_header('articles', $document, $id, $metadata, $current_version);
+display_page_header('articles', $document, $id, $metadata, $current_version, '', '', null, 'http://schema.org/Article');
 
 // lang-dependent content
 echo start_section_tag('Article', 'description');

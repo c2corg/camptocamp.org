@@ -12,7 +12,16 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
 
-display_page_header('products', $document, $id, $metadata, $current_version, '', '', $section_list);
+switch ($document->get('product_type'))
+{
+    case 2: $item_type = 'Restaurant'; break;
+    case 3: $item_type = 'GroceryStore'; break;
+    case 4: $item_type = 'BarOrPub'; break;
+    case 5: $item_type = 'SportingGoodsStore'; break;
+    case 1:
+    default: $item_type = 'LocalBusiness'; break;
+}
+display_page_header('products', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/'.$item_type);
 
 // lang-independent content starts here
 

@@ -10,9 +10,12 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
-$is_gite = ($document->get('shelter_type') == 5);
+$shelter_type = $document->get('shelter_type');
+$is_gite = ($shelter_type == 5);
 
-display_page_header('huts', $document, $id, $metadata, $current_version, '', '', $section_list);
+// if the document is shelter or bivouac, call it simple Place, else LodgingBusiness
+$item_type = in_array($shelter_type, array(2, 3)) ? 'Place' : 'LodgingBusiness';
+display_page_header('huts', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/'.$item_type);
 
 // lang-independent content starts here
 

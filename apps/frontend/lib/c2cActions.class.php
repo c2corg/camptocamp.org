@@ -38,7 +38,7 @@ abstract class c2cActions extends sfActions
             c2cTools::log('ajax messageAndRedirect | ' . $message);
             $error_remove = "";
             
-            if($name == 'error')
+            if ($name == 'error')
             {
                 $this->getResponse()->setStatusCode(404);
             }

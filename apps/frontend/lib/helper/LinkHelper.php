@@ -98,23 +98,7 @@ function phone_link($phone = '')
         if (!ereg('[0-9\+-]+', $simple_phone)) return $phone;
 
         $link = content_tag('a', $phone, array('href' => 'tel:'.$simple_phone));
-        if (sfContext::getInstance()->getRequest()->isXmlHttpRequest())
-        {
-            return $link;
-        }
-        else // same kind of protection as for emails
-        {
-            $js = '';
-            $string = str_split($link, 12);
-            foreach ($string as $part)
-            {
-                $s = array('<', '>');
-                $r = array('%3C', '%3E');
-                $part = str_replace($s, $r, addslashes($part));
-                $js .= "document.write(unescape('$part'));";
-            }
-            return javascript_tag($js);
-        }
+        return $link;
     }
     else
     {

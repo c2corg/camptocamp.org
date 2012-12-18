@@ -775,7 +775,7 @@ function field_url_data_if_set($document, $name, $options = array())
     return field_url_data($document, $name, $options);
 }
 
-function field_phone($document, $name, $prefix = '', $suffix = '', $title = '', $ifset = false)
+function field_phone($document, $name, $ifset = false, $options = array())
 {
     use_helper('Link');
 
@@ -789,12 +789,12 @@ function field_phone($document, $name, $prefix = '', $suffix = '', $title = '', 
         return '';
     }
 
-    return  _format_data($name, $value, array('prefix'=>$prefix, 'suffix'=>$suffix));
+    return  _format_data($name, $value, $options);
 }
 
-function field_phone_if_set($document, $name, $prefix = '', $suffix = '', $title = '')
+function field_phone_if_set($document, $name, $options)
 {
-    return field_phone($document, $name, $prefix = '', $suffix = '', $title = '', true);
+    return field_phone($document, $name, true, $options);
 }
 
 function field_export($module, $id, $lang, $version = null)
@@ -839,10 +839,12 @@ function field_getdirections($id)
                          'class' => 'external_link')) . '</div>';
 }
 
-function field_coord_data_if_set($document, $name) 
+function field_coord_data_if_set($document, $name, $options = array()) 
 {
-    $value = $document->get($name);
-    if (empty($value))
+    $microdata = _option($options, 'microdata', null);
+
+    $raw_value = $document->get($name);
+    if (empty($raw_value))
     {   
         return ''; 
     }
@@ -850,24 +852,25 @@ function field_coord_data_if_set($document, $name)
     switch ($name)
     {
         case 'lat':
-            $suffix = ($value < 0) ? '°S' : '°N';
+            $suffix = ($raw_value < 0) ? '°S' : '°N';
             break;
 
         case 'lon':
-            $suffix = ($value < 0) ? '°W' : '°E';
+            $suffix = ($raw_value < 0) ? '°W' : '°E';
             break;
 
         default:
             $suffix = '';
     }
 
-    $value = abs($value);
+    $value = abs($raw_value);
     $deg = floor($value);
     $minTemp = 60 * ($value - $deg);
     $min = floor($minTemp);
     $sec = floor(60 * 100 * ($minTemp - $min)) /100;
     $value = $deg . '° ' . $min . "' " . $sec . '" ' . str_replace('°', '', $suffix);
-    return _format_data($name, $value);
+
+    return _format_data($name, $value) . ($microdata ? microdata_meta($microdata, $raw_value) : '');
 }
 
 function field_swiss_coords($document)

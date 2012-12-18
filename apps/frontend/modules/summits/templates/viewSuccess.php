@@ -11,7 +11,13 @@ $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 
-display_page_header('summits', $document, $id, $metadata, $current_version, '', '', $section_list);
+switch ($document->get('summit_type'))
+{
+    case 1: $item_type = 'http://schema.org/Mountain'; break;
+    case 5: $item_type = ''; break;
+    default: $item_type = 'http://schema.org/Landform'; break;
+}
+display_page_header('summits', $document, $id, $metadata, $current_version, '', '', $section_list, $item_type);
 
 // language-independent content starts here
 echo start_section_tag('Information', 'data');
