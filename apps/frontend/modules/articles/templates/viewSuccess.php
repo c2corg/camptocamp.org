@@ -9,18 +9,20 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
+$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('articles', $document, $id, $metadata, $current_version, '', '', null, 'http://schema.org/Article');
 
 // lang-dependent content
 echo start_section_tag('Article', 'description');
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation,
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
+                                                'needs_translation' => $needs_translation,
                                                 'images' => $associated_images, 'filter_image_type' => ($document->get('article_type') == 1)));
 echo end_section_tag();
 
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');
-include_partial('data', array('document' => $document));
+include_partial('data', array('document' => $document, 'nb_comments' => $nb_comments));
 if ($is_not_archive)
 {
     echo '<div class="all_associations">';
@@ -62,7 +64,7 @@ if ($is_not_archive && $is_not_merged):
                                                   'is_protected' => $document->get('is_protected'))); 
     }
     
-    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
 
 endif;
 

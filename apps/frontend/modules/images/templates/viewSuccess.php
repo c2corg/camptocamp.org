@@ -13,12 +13,13 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $section_list = array('map' => (boolean)($document->get('geom_wkt')),
                       'images' => (boolean)count($associated_images));
+$lang = $sf_user->getCulture();
+$module = $sf_context->getModuleName();
+$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('images', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/ImageObject');
 
 echo start_section_tag('Image', 'view');
-$lang = $sf_user->getCulture();
-$module = $sf_context->getModuleName();
 echo display_picture($document->get('filename'), 'big', null, $document->get('name'));
 if (!$mobile_version): ?>
 <p class="tips"><?php echo __('Click to display original image') ?></p>
@@ -40,7 +41,7 @@ if ($is_not_archive && $is_not_merged)
 {
     $document->associated_areas = $associated_areas;
 }
-include_partial('data', array('document' => $document, 'user' => $creator));
+include_partial('data', array('document' => $document, 'user' => $creator, 'nb_comments' => $nb_comments));
 if ($is_not_archive)
 {
     echo '<div class="all_associations col_right col_33">';
@@ -48,7 +49,6 @@ if ($is_not_archive)
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     echo '</div>';
 }
-include_partial('documents/geom_warning', array('document' => $document));
 echo end_section_tag();
 
 include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
@@ -120,7 +120,7 @@ if ($is_not_archive && $is_not_merged):
                                                   'is_protected' => $document->get('is_protected')));
     }
 
-    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
 
     include_partial('documents/annex_docs', array('related_portals' => $related_portals));
 

@@ -12,6 +12,7 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $shelter_type = $document->get('shelter_type');
 $is_gite = ($shelter_type == 5);
+$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 // if the document is shelter or bivouac, call it simple Place, else LodgingBusiness
 $item_type = in_array($shelter_type, array(2, 3)) ? 'Place' : 'LodgingBusiness';
@@ -24,7 +25,7 @@ if ($is_not_archive && $is_not_merged)
 {
     $document->associated_areas = $associated_areas;
 }
-include_partial('data', array('document' => $document));
+include_partial('data', array('document' => $document, 'nb_comments' => $nb_comments));
 
 if ($is_not_archive)
 {
@@ -156,7 +157,7 @@ if ($is_not_archive && $is_not_merged)
                                               'dissociation' => 'moderator',
                                               'is_protected' => $document->get('is_protected')));
 
-    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
 
     // annex docs section
     include_partial('documents/annex_docs',

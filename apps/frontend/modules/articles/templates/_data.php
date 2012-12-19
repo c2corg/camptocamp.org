@@ -1,4 +1,12 @@
-<?php use_helper('Field'); ?>
+<?php use_helper('Field');
+// put here meta tags for microdata that cannot be inside ul tags
+echo microdata_meta('name', $document->getName());
+if ($nb_comments)
+{
+    echo microdata_meta('interactionCount', $nb_comments . ' UserComments');
+    echo microdata_meta('discussionUrl', url_for('@document_comment?module=articles&id='.$sf_params->get('id').'&lang='.$sf_params->get('lang')));
+}
+?>
 <ul id="article_gauche_5050" class="data">
     <?php
     disp_doc_type('article');

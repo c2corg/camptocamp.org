@@ -9,13 +9,14 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
-$lang = $sf_user->getCulture();
+$lang = $sf_params->get('lang');
+$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('books', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/Book');
 
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');
-include_partial('data', array('document' => $document));
+include_partial('data', array('document' => $document, 'nb_comments' => $nb_comments));
 if ($is_not_archive)
 {
     echo '<div class="all_associations">';
@@ -144,7 +145,7 @@ if ($is_not_archive && $is_not_merged)
         echo end_section_tag();
     }
 
-    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
 
     include_partial('documents/annex_docs', array('related_portals' => $related_portals));
 }

@@ -64,12 +64,12 @@ if ($is_not_archive && $is_not_merged)
                           'display_info' => true));
 
     include_partial('documents/association',
-                        array('associated_docs' => $associated_sites, 
-                              'module' => 'sites',  // this is the module of the documents displayed by this partial
-                              'document' => $document,
-                              'show_link_to_delete' => $show_link_to_delete,
-                              'type' => 'to', // site-outing
-                              'strict' => false)); // no strict looking for main_id in column main of Association table
+                    array('associated_docs' => $associated_sites, 
+                          'module' => 'sites',  // this is the module of the documents displayed by this partial
+                          'document' => $document,
+                          'show_link_to_delete' => $show_link_to_delete,
+                          'type' => 'to', // site-outing
+                          'strict' => false)); // no strict looking for main_id in column main of Association table
 }
 else
 {
@@ -133,11 +133,12 @@ if ($is_not_archive && $is_not_merged && $is_connected && !$is_moderator)
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');
-include_partial('documents/i18n_section', array('document' => $document,
-                                                'languages' => $sf_data->getRaw('languages'),
-                                                'needs_translation' => $needs_translation,
-                                                'images' => $associated_images,
-                                                'associated_areas' => isset($associated_areas) ? $associated_areas : null));
+include_partial('documents/i18n_section',
+                array('document' => $document,
+                      'languages' => $sf_data->getRaw('languages'),
+                      'needs_translation' => $needs_translation,
+                      'images' => $associated_images,
+                      'associated_areas' => isset($associated_areas) ? $associated_areas : null));
 echo end_section_tag();
 
 include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
