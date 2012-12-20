@@ -4,6 +4,7 @@ use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Field', 'S
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $sf_params->get('id');
+$lang = $document->getCulture();
 $date = field_semantic_date_data($document, 'date');
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
@@ -12,13 +13,12 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $activities = $document->getRaw('activities');
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
+$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
-display_page_header('outings', $document, $id, $metadata, $current_version, $date, ', ', $section_list);
+display_page_header('outings', $document, $id, $metadata, $current_version, $date, ', ', $section_list, 'http://schema.org/Article');
 
 // lang-independent content starts here
-
 echo start_section_tag('Information', 'data');
-
 $participants = explode("\n", $document->get('participants'), 2);
 $participants_str = trim($participants[0]);
 if (!empty($participants_str))
@@ -113,7 +113,7 @@ if ($is_not_archive)
     echo '</div>';
 }
 
-include_partial('data', array('document' => $document));
+include_partial('data', array('document' => $document, 'nb_comments' => $nb_comments));
 
 if ($show_link_tool)
 {
@@ -155,9 +155,7 @@ if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_conne
 
 if ($mobile_version)
 {
-    $lang = $document->getCulture();
-
-    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
 
     if ($is_connected)
     {
