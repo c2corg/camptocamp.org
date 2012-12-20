@@ -254,6 +254,12 @@ msgstr "Das Verbinden ist fehlsgeschlagen."
 msgid "Association not allowed"
 msgstr "Diese Verbindung ist nicht erlaubt"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
+# [WARNING] en translation used
+msgid "Associations history"
+msgstr "Associations history"
+
 msgid "At least one file failed to upload"
 msgstr "mindestens eine Datei fehlt oder wurde nicht korrekt hochgeladen"
 
@@ -2577,6 +2583,12 @@ msgstr "Nachrichten von diesem Benutzer ansehen "
 msgid "View original image"
 msgstr "Das Bild in Originalgrösse anzeigen"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
+# [WARNING] fr translation used
+msgid "View the associations history of the document"
+msgstr "Voir l'historique des associations et désassociations du document"
+
 msgid "View user profile"
 msgstr "Profil dieses Benutzers ansehen "
 
@@ -3481,7 +3493,7 @@ msgstr "<h3>Anzahl der Kletterrouten</h3>Ungefähre Anzahl der Routen in einem G
 msgid "_scale_info"
 msgstr "<h3>Kartenmassstab</h3>Massstab der Landeskarte"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_shelter_type_info"
 msgstr "<h3>Typ der Unterkunft</h3> Es werden folgende Arten von Unterkünften unterschieden:<br /><br /><strong>Hütte: </strong>Gebäude mit permanenter Struktur, welche vollständig vor Wind und Niederschlag schützt. Eine Hütte kann bewartet, unbewartet oder typischerweise nur während gewisser Zeiträume bewartet sein.<br /><br /><strong>Herberge</strong>: Einfache Unterkunft im Dorf, am Tourenanfang, oder ein Etappenort. Eine Herberge ist ein einfaches Hotel, welches von Personal geführt wird, Zimmer und zumeist Mahlzeiten anbietet. Zumeist sind Herbergen verkehrstechnisch gut erschlossen.<br /><br /><strong>Biwak oder Schutzhütte</strong>: Entweder ein Gebäude mit permanenter Struktur oder ein eingerichteter Ort unter Felsen, wenig komfortabel für einen längeren Aufenthalt<br /><br /><strong>Biwakplatz</strong>: Dauerhaft eingerichteter Platz, welcher sich zum biwakieren (ohne Zelt) oder campieren (mit Zelt) eignet. Ein Biwakplatz ist flach (natürlicherweise oder terrassiert) und etvl. durch Mauern vom Wind etwas geschützt.<br /><br /><strong>Basislager</strong>: Platz, welcher üblicherweise regelmäsig als Ausgangspunkt für längere Touren mit Nachschublogistik (Basislager) verwendet wird. Kann Gebäude oder Einrichtungen enthalten, welche nicht zum Übernachten dienen (z.B. Toiletten, etc.)<br /><br />Eine sogenannte “Biwakschachtel” oder “italienisches Biwak” (Metallcontainer) ist entweder als “Hütte” oder als “Biwak oder Schutzhütte” zu klassifizieren."
 

@@ -33,6 +33,7 @@ $is_protected = $document->get('is_protected');
             <?php endif ?>
             <?php if ($has_rights && !$is_archive): ?>
                 <li><?php echo button_clear_cache($module, $id) ?></li>
+                <li><?php echo button_associations_history($module, $id) ?></li>
             <?php endif ?>
             <?php if ($has_rights && !$is_archive && !$redirected): ?>
                 <li><?php echo button_refresh_geo_associations($module, $id) ?></li>

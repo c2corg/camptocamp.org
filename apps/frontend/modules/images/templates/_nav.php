@@ -32,6 +32,7 @@ $is_archive = $document->isArchive();
             <?php endif ?>
             <?php if ($has_rights && !$is_archive): ?>
                 <li><?php echo button_clear_cache($module, $id) ?></li>
+                <li><?php echo button_associations_history($module, $id) ?></li>
             <?php endif ?>
             <?php if ($is_connected && !$redirected): ?>
                 <li><?php echo button_rss($module, $lang, $id) ?></li>

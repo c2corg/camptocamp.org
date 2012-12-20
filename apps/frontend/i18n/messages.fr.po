@@ -263,6 +263,11 @@ msgstr "L'association a échoué."
 msgid "Association not allowed"
 msgstr "Cette association n'est pas permise"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
+msgid "Associations history"
+msgstr "Historique des associations"
+
 msgid "At least one file failed to upload"
 msgstr "au moins un fichier est manquant ou n'a pu être transmis correctement"
 
@@ -2557,6 +2562,11 @@ msgstr "Voir les messages écrits par cet utilisateur"
 
 msgid "View original image"
 msgstr "Voir l'image à sa taille originale"
+
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
+msgid "View the associations history of the document"
+msgstr "Voir l'historique des associations et désassociations du document"
 
 msgid "View user profile"
 msgstr "Voir le profil de cet utilisateur"

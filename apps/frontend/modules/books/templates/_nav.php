@@ -27,6 +27,7 @@ $is_archive = $document->isArchive();
                 <li><?php echo button_delete($module, $id) ?></li>
                 <li><?php echo button_delete_culture($module, $id, $document->get('culture')) ?></li>
                 <li><?php echo button_clear_cache($module, $id) ?></li>
+                <li><?php echo button_associations_history($module, $id) ?></li>
             <?php endif ?>
             <?php if ($is_connected && !$redirected): ?>
                 <li><?php echo button_rss($module, $lang, $id) ?></li>

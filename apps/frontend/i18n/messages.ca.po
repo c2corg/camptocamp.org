@@ -255,6 +255,12 @@ msgstr "L'associació no ha funcionat."
 msgid "Association not allowed"
 msgstr "Aquesta associació no està permesa"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
+# [WARNING] en translation used
+msgid "Associations history"
+msgstr "Associations history"
+
 msgid "At least one file failed to upload"
 msgstr "manca almenys un fitxer o no s'ha pogut transmetre correctament"
 
@@ -2554,6 +2560,12 @@ msgstr "Mostra els missatges escrits per aquest usuari"
 
 msgid "View original image"
 msgstr "Mostra la imatge a la seva mida original"
+
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
+# [WARNING] fr translation used
+msgid "View the associations history of the document"
+msgstr "Voir l'historique des associations et désassociations du document"
 
 msgid "View user profile"
 msgstr "Mostra el perfil d'aquest usuari"

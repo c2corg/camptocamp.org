@@ -33,6 +33,7 @@ $is_protected = $document->get('is_protected');
             <?php endif ?>
             <?php if ($has_rights && !$is_archive): ?>
                 <li><?php echo button_clear_cache($module, $id) ?></li>
+                <li><?php echo button_associations_history($module, $id) ?></li>
             <?php endif;
             /* we only give the possibility to refresh if the route has an attached gpx
                Else, it would erase geoassociations herited from the summits */

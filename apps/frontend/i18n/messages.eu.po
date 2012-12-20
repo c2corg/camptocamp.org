@@ -256,6 +256,12 @@ msgstr "Loturak ez da ondo egin."
 msgid "Association not allowed"
 msgstr "Baimenik gabeko lotura"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
+# [WARNING] en translation used
+msgid "Associations history"
+msgstr "Associations history"
+
 msgid "At least one file failed to upload"
 msgstr "gutxienez fitxero bat falta da edo ez da ongi bidali"
 
@@ -2689,6 +2695,12 @@ msgstr "Erabiltzaile honek idatzirko mezuak ikusi"
 
 msgid "View original image"
 msgstr "Irudia bere tamainu originalean ikusi"
+
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
+# [WARNING] fr translation used
+msgid "View the associations history of the document"
+msgstr "Voir l'historique des associations et désassociations du document"
 
 msgid "View user profile"
 msgstr "Erabiltzaile honen profila ikusi"

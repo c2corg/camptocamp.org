@@ -29,6 +29,7 @@ $has_rights = $sf_user->hasCredential('moderator');
                 <?php endif ?>
                 <?php if ($has_rights && !$is_archive): ?>
                     <li><?php echo button_clear_cache($module, $id) ?></li>
+                    <li><?php echo button_associations_history($module, $id) ?></li>
                 <?php endif ?>
             <?php endif ?>
             <li><?php echo button_report() ?></li>

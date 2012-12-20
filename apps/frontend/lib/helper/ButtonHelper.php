@@ -131,6 +131,14 @@ function button_refresh_geo_associations($module, $id)
                          'post' => true));
 }
 
+function button_associations_history($module, $id)
+{
+    return link_to(__('Associations history'),
+                   "@latestassociations_doc?module=$module&id=$id",
+                   array('title' => __('View the associations history of the document'),
+                         'class' => 'picto_add nav_edit'));
+}
+
 function button_merge($module, $id) 
 {
     use_helper('ModalBox');

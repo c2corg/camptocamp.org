@@ -256,6 +256,12 @@ msgstr "L'associazione è fallita."
 msgid "Association not allowed"
 msgstr "Questa associazione non è autorizzata"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
+# [WARNING] en translation used
+msgid "Associations history"
+msgstr "Associations history"
+
 msgid "At least one file failed to upload"
 msgstr "manca almeno uno filo o non è stato trasferito correttamente"
 
@@ -2563,6 +2569,12 @@ msgstr "Vedi i messaggi scritti da questo utente"
 
 msgid "View original image"
 msgstr "Vedere l'immagine nel formato originale"
+
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
+# [WARNING] fr translation used
+msgid "View the associations history of the document"
+msgstr "Voir l'historique des associations et désassociations du document"
 
 msgid "View user profile"
 msgstr "Vedi il profilo di questo utente"

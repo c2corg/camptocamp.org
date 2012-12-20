@@ -255,6 +255,12 @@ msgstr "La asociación ha fracasado."
 msgid "Association not allowed"
 msgstr "Esta asociación no es permitida"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
+# [WARNING] en translation used
+msgid "Associations history"
+msgstr "Associations history"
+
 msgid "At least one file failed to upload"
 msgstr "por lo menos un fichero falta o no ha sido transmitido correctamente"
 
@@ -2568,6 +2574,12 @@ msgstr "Ver los mensajes escritos por este usuario"
 msgid "View original image"
 msgstr "Ver la imagen en su tamaño original"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
+# [WARNING] fr translation used
+msgid "View the associations history of the document"
+msgstr "Voir l'historique des associations et désassociations du document"
+
 msgid "View user profile"
 msgstr "Ver el perfil de este usuario"
 
@@ -3335,6 +3347,7 @@ msgstr "<h3>Echelle</h3>Escala del mapa."
 
 # [comment]
 # La palabra "edificio" se uso para no suponer que todos entendimos lo mismo con "refugio" o "casa"...
+# [WARNING] needs_update
 msgid "_shelter_type_info"
 msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>edificio</strong>: construcción sólida, totalmente impermeable al viento y a la lluvia<br /><br /><strong>cabaña</strong>: construcción precaria (o cueva en la roca) poco cómoda para una estadía prolongada <br /><br /><strong>lugar de vivac </strong>: lugar de acampe (con o sin carpa), plano. Puede tener pircas de piedra para abrigarse del viento. Los \\\" bivacco\\\" italianos (cabañas de chapa) se categorizarán como <em>casas</em> o <em>cabañas </em><br /><br /><strong>campo base </strong>: lugar usado todos los anos como campo base. Puede haber edificios o cabañas permanentes que no se usan para dormir (baños…)"
 

@@ -252,6 +252,12 @@ msgstr "Association failed."
 msgid "Association not allowed"
 msgstr "Association not allowed"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
+# [WARNING] needs_review
+msgid "Associations history"
+msgstr "Associations history"
+
 msgid "At least one file failed to upload"
 msgstr "At least one file failed to upload or was not forwarded"
 
@@ -2567,6 +2573,12 @@ msgstr "View messages written by this user"
 msgid "View original image"
 msgstr "View original picture"
 
+# [general comment]
+# Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
+# [WARNING] fr translation used
+msgid "View the associations history of the document"
+msgstr "Voir l'historique des associations et désassociations du document"
+
 msgid "View user profile"
 msgstr "View user profile"
 
@@ -3367,6 +3379,7 @@ msgstr "<h3>Scale</h3>Scale of the map."
 
 # [comment]
 # The term "building" was kept as it does not suppose a shared understanding of the term "hut" or "refuge".
+# [WARNING] needs_update
 msgid "_shelter_type_info"
 msgstr "<h3>Shelter type</h3>Shelter or hut type:<br /><br /><strong>building</strong>: permanent structure, air- and watertight<br /><br /><strong>shelter</strong>: permanent stone, wood or metal shelter, not comfortable for an extended stay<br /><br /><strong>camp site</strong>: established bivouac or camping sites (with or without tents), flat (naturally or laid low), and possibly airtight through low walls. Italian \"bivouacs\" (sheet metal shelters) must be classified as <em>building</em> or <em>shelter</em><br /><br /><strong>basecamp</strong>: site regularly used as base camps, possibly including buildings or shelters not for bedding (toilets...)"
 
