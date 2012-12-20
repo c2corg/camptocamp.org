@@ -1237,6 +1237,7 @@ a.close_btn {
   margin: 0 20px;
   background-repeat: repeat-x;
 }
+
 #footer.map_content
 {
   height: 40px;
@@ -1251,6 +1252,7 @@ a.close_btn {
 
   #footer_border_right
   {
+     background: url(-c2c-datauri('/static/images/footer_border_right.gif')) no-repeat 0;
     float: right;
   }
 
