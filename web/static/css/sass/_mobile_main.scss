@@ -1,6 +1,5 @@
 // css specific for mobile version
-@function -c2c-mobile() { @return true; }
-@function -c2c-standard() { @return false; }
+$mobile: true;
 
 @import "main";
 
@@ -403,7 +402,7 @@ div.blockform form, div.fakeform
   margin: 0;
 }
 
-/* mobile header and menu */
+// mobile header and menu
 .select_button
 {
   color: #ffffff;

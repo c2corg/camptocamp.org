@@ -206,35 +206,6 @@ table.children_docs tr:hover
   background-color: #EEEEEE;
 }
 
-/*
-.error, .notice, .warning
-{
-  z-index: 1000;
-  position: fixed;
-  top: 5px;
-  left: 5px;
-  padding: 5px;
-  border: 1px solid black;
-}
-
-.error
-{
-  background-color: #ffb2a9;
-  border-color: #ff0016;
-}
-
-.notice
-{
-  background-color: #77f44c;
-  border-color: #008a17;
-}
-
-.warning
-{
-  background-color: #ffaa66;
-  border-color: #f5900c;
-}
-*/
 tr.current_version td
 {
   font-weight: bold;
@@ -359,7 +330,7 @@ em.mandatory_asterisk
 }
 
 // following logos are only used in standard version
-@if -c2c-standard() {
+@if $standard {
   #banner_logo
   {
     position: absolute;
@@ -824,7 +795,7 @@ span.default_text, p.default_text
   padding-top: 0.7em;
 }
 
-@if -c2c-standard() {
+@if $standard {
   #splitter
   {
     position: absolute;
@@ -1243,7 +1214,7 @@ a.close_btn {
   height: 40px;
 }
 
-@if -c2c-standard() {
+@if $standard {
   #footer_border_left
   {
     background: url(-c2c-datauri('/static/images/footer_border_left.gif')) no-repeat 0;
@@ -1394,7 +1365,7 @@ a.close_btn {
   height: 15px;
 }
 
-@if -c2c-standard() {
+@if $standard {
   .cc_gen
   {
     background: url(-c2c-datauri('/static/images/cc_gen.png')) no-repeat 0;
@@ -2181,7 +2152,7 @@ fieldset .select_title
   font-size: 0.9em;
   font-weight: bold;
   // we only display question mark logo in standard version
-  @if -c2c-mobile() {
+  @if $mobile {
     padding-left: 2px;
   } @else {
     background: transparent url(-c2c-datauri('/static/images/picto/help2.png')) no-repeat scroll 0 6px;
@@ -2497,7 +2468,7 @@ ul.docs_changes li img
 
 // drag and drop for languages order preferences is only available
 // in standard version
-@if -c2c-standard() {
+@if $standard {
   #order li
   {
     margin: 0.3em 0;
@@ -2704,7 +2675,7 @@ ul.list404 li
 
 // 'view', 'edit', 'history'... tabs
 // only for standard version
-@if -c2c-standard() {
+@if $standard {
   .ombre_haut
   {
     background-image: url(-c2c-datauri('/static/images/ombre_haut.gif'));
@@ -4256,7 +4227,7 @@ table.list th, table#pagehistory th
   padding: 0.2em 0.3em;
 }
 
-@if -c2c-standard() {
+@if $standard {
   .child_routes td:first-child
   {
     padding-left: 22px;
@@ -4466,8 +4437,8 @@ td.history_buttons {
   white-space: nowrap;
 }
 
-/* paypal */
-@if -c2c-standard() {
+// paypal
+@if $standard {
   #paypal-button
   {
     background: url(-c2c-datauri('/static/images/paypal-button.png')) no-repeat 0;

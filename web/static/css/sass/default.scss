@@ -1,12 +1,9 @@
 // css for standard site
-@function -c2c-mobile() { @return false; }
-@function -c2c-standard() { @return true; }
-@function -c2c-pixelratio() { @return 1; }
+$pixelratio: 1;
+$mobile: false;
 
 @import "blob";
-
 @import "main";
-
 @import "outing_wizard";
 @import "addthis";
 @import "plupload";

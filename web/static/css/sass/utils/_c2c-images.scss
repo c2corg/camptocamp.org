@@ -43,7 +43,7 @@
 // in standard version and hash+url in mobile one
 // and set background-size if appropriate
 @mixin -c2c-datauri-for-standard-only-background($file, $suffix: null) {
-  @if -c2c-mobile() {
+  @if $mobile {
     @include -c2c-background('hashurl', $file, $suffix);
   } @else {
     @include -c2c-background('datauri', $file, $suffix);
@@ -54,9 +54,9 @@
   $property: background;
   $url: null;
   @if $type == 'hashurl' {
-    $url: url(c2chash($file, -c2c-pixelratio()))
+    $url: url(c2chash($file, $pixelratio))
   } @else {
-    $url: url(datauri($file, -c2c-pixelratio()))
+    $url: url(datauri($file, $pixelratio))
   }
   @if $suffix == null {
     background-image: $url;
@@ -69,7 +69,7 @@
 // if device pixel ratio != 1
 // include background-size
 @mixin -c2c-background-size($file) {
-  @if -c2c-pixelratio() != 1 {
+  @if $pixelratio != 1 {
     $sizes: file_dimensions($file);
     @include experimental(background-size, $sizes, -moz, -webkit, -o, not -ms, not -khtml);
   }
@@ -82,7 +82,7 @@
 // in mobile version (usually not in the interface, but
 // some articles might use the pictos)
 @function -c2c-datauri-for-standard-only($file) {
-  @if -c2c-mobile() {
+  @if $mobile {
     @return c2chash($file);
   } @else {
     @return datauri($file);

@@ -1,5 +1,5 @@
 // css specific for mobile version
-@function -c2c-pixelratio() { @return 1; }
+$pixelratio: 1;
 
 @import "blob";
 @import "mobile_main";
