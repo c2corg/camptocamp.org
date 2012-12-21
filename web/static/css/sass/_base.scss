@@ -2898,9 +2898,12 @@ ul.list404 li
     background: url(-c2c-datauri('/static/images/bg_nav.png')) repeat-x bottom left;
   }
 
+  // specific for portals with maps + images
   #nav_images #last_image_list
   {
     padding-left: 31px;
+    overflow: auto;
+    height: auto;
   }
 
   .nav_box_top, .nav_box_down
@@ -3188,11 +3191,15 @@ p.abstract em
   margin: auto;
   display: block;
 }
+
 #view
 {
   width: 100%;
   overflow: auto;
 }
+
+// thumbnail images
+$dim: 120px;
 
 .image
 {
@@ -3201,15 +3208,51 @@ p.abstract em
   padding: 2px;
   border: 1px solid #cccccc;
   margin: 4px;
-  width: 120px;
-  height: 120px;
+  width: $dim;
+  height: $dim;
   text-align: center;
 }
 
-.image img
-{
-  width: 120px;
-  height: 120px;
+.image {
+  img, a {
+    width: $dim;
+    height: $dim;
+  }
+  a {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+// for images on home or portals
+// add an overlay with image title
+// on hover
+// once transition on pseudo-elements will be
+// more widely supported,maybe use ::after to generate
+// the overlay
+@if $standard {
+  .image {
+    .thumbnail-overlay {
+      background-color: black;
+      opacity: .8;
+      color: white;
+      text-decoration: none;
+      width: $dim;
+      height: $dim;
+      line-height: $dim;
+      position: relative;
+      @include transition(.3s linear top);
+      span {
+        display: inline-block;
+        width: $dim;
+        line-height: normal;
+        vertical-align: middle;
+      }
+    }
+    &:hover .thumbnail-overlay {
+      top: -$dim;
+    }
+  }
 }
 
 #insertimagetag_list
@@ -3228,7 +3271,7 @@ p.abstract em
 {
   position: absolute;
   top: 2px;
-  width: 120px;
+  width: $dim;
   background-color: silver;
 }
 
@@ -3237,7 +3280,7 @@ p.abstract em
   background-color: #fff;
 }
 
-#last_images #last_image_list
+#last_image_list
 {
   overflow: hidden;
   height: 130px;
@@ -3287,17 +3330,17 @@ p.abstract em
 
 .image_list img
 {
-  width: 120px;
-  height: 120px;
+  width: $dim;
+  height: $dim;
 }
 
 .img_box a.view_details
 {
-  width:16px;
-  height:16px;
-  text-indent:-9999px;
-  float:right;
-  margin-left:3px
+  width: 16px;
+  height: 16px;
+  text-indent: -9999px;
+  float: right;
+  margin-left: 3px
 }
 
 /* file to upload */

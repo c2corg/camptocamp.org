@@ -37,27 +37,22 @@ if (!isset($home_section))
     $home_section = true;
 }
 
-if ($home_section)
-{
+if ($home_section):
     include_partial('documents/home_section_title',
                     array('module' => 'images',
                           'custom_title_text' => $custom_title_text,
                           'custom_title_link' => $custom_title_link,
-                          'custom_rss_link' => $custom_rss_link));
-?>
-    <div class="home_container_text" id="last_images_section_container"><?php
-}
-else
-{
-?>
+                          'custom_rss_link' => $custom_rss_link)); ?>
+    <div class="home_container_text" id="last_images_section_container">
+<?php else: ?>
 <div id="nav_images" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
-        <?php
+    <?php
     echo nav_title('images', __('Latest images'), 'images', 'last', $custom_title_link, $custom_rss_link, __("Subscribe to latest images creations"));
-        ?>
-        <div class="nav_box_text" id="nav_images_section_container"><?php
-}
+    ?>
+    <div class="nav_box_text" id="nav_images_section_container">
+<?php endif;
 
 if (count($items) == 0)
 {
@@ -67,10 +62,8 @@ if (count($items) == 0)
 else
 {
     ?>
-    <div id="last_image_list"><?php
-    foreach ($items as $item)
-    {
-        ?>
+    <div id="last_image_list">
+    <?php foreach ($items as $item): ?>
         <div class="image">
             <?php 
             $id = $item['id'];
@@ -81,13 +74,16 @@ else
             $lang = $i18n['culture'];
             $title = $i18n['name'];
             
+            $overlay_text = content_tag('span', $title);
+            $overlay_tag = c2cTools::mobileVersion() ? '' :
+                content_tag('div', $overlay_text, array('class' => 'thumbnail-overlay'));
             $image_tag = image_tag(image_url($filename, 'small'),
                                    array('title' => $title, 'alt' => $title));
-            echo link_to($image_tag, "@document_by_id_lang_slug?module=images&id=$id&lang=$lang&slug=" . make_slug($i18n['name']));
-        ?>
-        </div><?php
-    }
-    ?>
+            echo link_to($image_tag . $overlay_tag,
+                         "@document_by_id_lang_slug?module=images&id=$id&lang=$lang&slug=" . make_slug($i18n['name']));
+            ?>
+        </div>
+    <?php endforeach; ?>
     </div><?php
 }
 
