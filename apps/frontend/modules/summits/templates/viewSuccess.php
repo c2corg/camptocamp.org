@@ -18,7 +18,8 @@ switch ($document->get('summit_type'))
     case 5: $item_type = ''; break;
     default: $item_type = 'http://schema.org/Landform'; break;
 }
-display_page_header('summits', $document, $id, $metadata, $current_version, '', '', $section_list, $item_type);
+display_page_header('summits', $document, $id, $metadata, $current_version,
+                    array('section_list' => $section_list, 'item_type' => $item_type, 'nb_comments' => $nb_comments));
 
 // language-independent content starts here
 echo start_section_tag('Information', 'data');

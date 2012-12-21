@@ -12,7 +12,8 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
 
-display_page_header('users', $document, $id, $metadata, $current_version, '', '', $section_list);
+display_page_header('users', $document, $id, $metadata, $current_version,
+                    array('section_list' => $section_list));
 
 echo start_section_tag('Personal information', 'data');
 include_partial('data', array('document' => $document, 'forum_nickname' => $forum_nickname,

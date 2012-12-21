@@ -22,7 +22,9 @@ switch ($document->get('product_type'))
     case 1:
     default: $item_type = 'LocalBusiness'; break;
 }
-display_page_header('products', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/'.$item_type);
+display_page_header('products', $document, $id, $metadata, $current_version,
+                    array('section_list' => $section_list, 'item_type' => 'http://schema.org/'.$item_type,
+                          'nb_comments' => $nb_comments));
 
 // lang-independent content starts here
 

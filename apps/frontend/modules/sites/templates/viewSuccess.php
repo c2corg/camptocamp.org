@@ -13,7 +13,8 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
-display_page_header('sites', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/Landform');
+display_page_header('sites', $document, $id, $metadata, $current_version,
+                    array('section_list' => $section_list, 'item_type' => 'http://schema.org/Landform', 'nb_comments' => $nb_comments));
 
 // lang-independent content starts here
 

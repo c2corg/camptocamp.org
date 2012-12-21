@@ -15,7 +15,9 @@ $activities = $document->getRaw('activities');
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
-display_page_header('outings', $document, $id, $metadata, $current_version, $date, ', ', $section_list, 'http://schema.org/Article');
+display_page_header('outings', $document, $id, $metadata, $current_version,
+                    array('prepend' => $date, 'separator' => ', ', 'section_list' => $section_list,
+                          'item_type' => 'http://schema.org/Article', 'nb_comments' => $nb_comments));
 
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');

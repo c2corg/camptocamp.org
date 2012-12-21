@@ -6,7 +6,7 @@
 
 sfLoader::loadHelpers('Javascript');
 
-function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_options = null, $item_type = '')
+function display_page_header($module, $document, $id, $metadata, $current_version, $options = array())
 {
     $is_archive = $document->isArchive();
     $mobile_version = c2cTools::mobileVersion();
@@ -14,6 +14,11 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     $lang = $document->getCulture();
     $version = ($is_archive ? $document->getVersion() : NULL);
     $slug = '';
+    $prepend = _option($options, 'prepend', '');
+    $separator = _option($options, 'separator', '');
+    $nav_options = _option($options, 'nav_options');
+    $item_type = _option($options, 'item_type', '');
+    $nb_comments = _option($options, 'nb_comments');
     
     if (!$is_archive)
     {
@@ -32,7 +37,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         $url = "@document_by_id_lang_version?module=$module&id=$id&lang=$lang&version=$version";
     }
     
-    if ($prepend != '')
+    if (!empty($prepend))
     {
         $prepend .=  $separator;
     }
@@ -45,7 +50,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
 
         sfLoader::loadHelpers('WikiTabs');
         
-        $tabs = tabs_list_tag($id, $lang, $document->isAvailable(), 'view', $version, $slug);
+        $tabs = tabs_list_tag($id, $lang, $document->isAvailable(), 'view', $version, $slug, $nb_comments);
         
         echo $tabs;
 

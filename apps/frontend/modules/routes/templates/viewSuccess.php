@@ -11,18 +11,20 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 $activities = $document->getRaw('activities');
 $lang = $document->getCulture();
+$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 if (!isset($highest_summit_name)) {
     // TODO: always get summit name even in archive pages
     $highest_summit_name = '';
 }
-display_page_header('routes', $document, $id, $metadata, $current_version, $highest_summit_name, __('&nbsp;:').' ');
+display_page_header('routes', $document, $id, $metadata, $current_version,
+                    array('prepend' => $highest_summit_name, 'separator' =>  __('&nbsp;:').' ',
+                          'item_type' => 'http://schema.org/Article', 'nb_comments' => $b_comments));
 
 // lang-independent content starts here
-
 echo start_section_tag('Information', 'data');
 $has_associated_huts = count($associated_huts);
-include_partial('data', array('document' => $document, 'has_associated_huts' => $has_associated_huts));
+include_partial('data', array('document' => $document, 'has_associated_huts' => $has_associated_huts, 'nb_comments' => $nb_comments));
 
 if ($is_not_archive)
 {
@@ -348,7 +350,10 @@ if ($is_not_archive && $is_not_merged)
                           'dissociation' => 'moderator',
                           'is_protected' => $document->get('is_protected')));
 
-    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+    if ($mobile_version)
+    {
+        include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
+    }
 
     // annex docs section
     include_partial('documents/annex_docs',

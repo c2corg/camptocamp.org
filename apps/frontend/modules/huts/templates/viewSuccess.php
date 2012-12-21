@@ -16,7 +16,8 @@ $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 // if the document is shelter or bivouac, call it simple Place, else LodgingBusiness
 $item_type = in_array($shelter_type, array(2, 3)) ? 'Place' : 'LodgingBusiness';
-display_page_header('huts', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/'.$item_type);
+display_page_header('huts', $document, $id, $metadata, $current_version,
+                    array('section_list' => $section_list, 'item_type' => 'http://schema.org/'.$item_type, 'nb_comments' => $nb_comments));
 
 // lang-independent content starts here
 

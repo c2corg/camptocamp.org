@@ -12,7 +12,8 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobil
 $lang = $sf_params->get('lang');
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
-display_page_header('books', $document, $id, $metadata, $current_version, '', '', $section_list, 'http://schema.org/Book');
+display_page_header('books', $document, $id, $metadata, $current_version,
+                    array('section_list' => $section_list, 'item_type' => 'http://schema.org/Book', 'nb_comments' => $nb_comments));
 
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');
