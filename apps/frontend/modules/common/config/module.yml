@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_Scout11, changerdapproche, camp_f, diamir_Scout11, montania, ibex, diamir_Scout11, cilao, camp_h, boutique_c2c, diamir_Scout11, changerdapproche ]
+    values: [ diamir_Scout11, changerdapproche, camp_c, diamir_Scout11, montania, google, diamir_Scout11, cilao, camp_c, boutique_c2c, diamir_Scout11, changerdapproche ]
   banners:
     list:
       skalp:
@@ -218,3 +218,11 @@ all:
         id: 61
         image: ibex.gif
         alt: "Livres de montagne Ibex Books"
+      camp_b:
+        id: 62
+        image: camp-b.gif
+        alt: ""
+      camp_c:
+        id: 63
+        image: camp-c.gif
+        alt: ""
