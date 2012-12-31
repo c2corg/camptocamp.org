@@ -193,7 +193,7 @@ function processArgs() {
             replaceDotIn();
             //makeMapservWrapperExecutable();
             //installPlugins();
-            fixLegacyZendCompatibilityModeIssue(); // must get run before symfony stuff kicks in
+            rmLegacyPhpSettings(); // must get run before symfony stuff kicks in
             generateMoFiles();
             launchCleanCache();
             buildMapJsFiles(); // must be done before revision info
@@ -209,7 +209,7 @@ function processArgs() {
             
             checkCacheDir();
             replaceDotIn();
-            fixLegacyZendCompatibilityModeIssue(); // must get run before symfony stuff kicks in
+            rmLegacyPhpSettings(); // must get run before symfony stuff kicks in
             generateMoFiles();
             //makeMapservWrapperExecutable();
             buildMapJsFiles(); // must be done before revision info
@@ -837,10 +837,10 @@ function buildSassFiles() {
 }
 
 
-function fixLegacyZendCompatibilityModeIssue() {
+function rmLegacyPhpSettings() {
 
     $brokenfile = "./lib/vendor/symfony/data/config/php.yml";
-    $re = '/.*zend\.ze1_compatibility_mode.*/';
+    $re = '/.*(zend\.ze1_compatibility_mode|register_globals|magic_quotes_).*/';
 
     if (is_writable($brokenfile)) {
         $dump = file_get_contents($brokenfile);
