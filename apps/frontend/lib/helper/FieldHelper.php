@@ -1360,24 +1360,6 @@ function format_book_data($books, $type, $main_id, $is_moderator = false)
     return $html;
 }
 
-function _option(&$options, $name, $default = null)
-{
-  if (empty($options)) return $default;
-
-  if (array_key_exists($name, $options))
-  {
-      $value = $options[$name];
-      unset($options[$name]);
-  }
-  else
-  {
-      $value = $default;
-  }
-
-  return $value;
-}
-
-
 function avalanche_link($id, $name, $date = null)
 {
     if ($date)

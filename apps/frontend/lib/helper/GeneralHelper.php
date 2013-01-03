@@ -153,3 +153,20 @@ function check_not_empty($value)
 {
     return (!$value instanceof Doctrine_Null && !empty($value));
 }
+
+function _option(&$options, $name, $default = null)
+{
+    if (empty($options)) return $default;
+
+    if (array_key_exists($name, $options))
+    {
+        $value = $options[$name];
+        unset($options[$name]);
+    }
+    else
+    {
+        $value = $default;
+    }
+
+    return $value;
+}
