@@ -19,7 +19,7 @@ if (!isset($highest_summit_name)) {
 }
 display_page_header('routes', $document, $id, $metadata, $current_version,
                     array('prepend' => $highest_summit_name, 'separator' =>  __('&nbsp;:').' ',
-                          'item_type' => 'http://schema.org/Article', 'nb_comments' => $b_comments));
+                          'item_type' => 'http://schema.org/Article', 'nb_comments' => $nb_comments));
 
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');
