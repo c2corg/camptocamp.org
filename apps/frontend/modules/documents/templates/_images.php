@@ -171,24 +171,23 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
     echo link_to(picto_tag('picto_add', $add) . $add,
                  "@image_upload?mod=$module_name&document_id=$document_id",
                  array('onclick' => $js, 'title' => $add));
+
+    // if user is not the author, and only the author can add images,
+    // hide the button for uploading images to the document.
+    // Moreover, if they are no images linked, simply hide the section
     if (isset($author_specific) && $author_specific)
     {
-        echo javascript_tag("if (!user_is_author) $('add_images_button').hide();");
+        if ($nb_images)
+        {
+            echo javascript_tag("if (!user_is_author) $('add_images_button').hide();");
+        }
+        else
+        {
+            echo javascript_tag("if (!user_is_author) { $('images_tbg').hide(); $('images_section_container').hide(); }");
+        }
     }
     ?>
     </div>
 <?php endif;
 
 echo end_section_tag();
-
-if ($nb_images > 0 && !$mobile_version)
-{
-    // FIXME: find and delete sortable_feedback div
-    echo '<!--[if IE 6]>', javascript_tag("
-document.observe('dom:loaded', function(){
-$$('.image_list .image').each(function(obj){
-obj.down('.image_actions').hide();obj.down('.image_license').hide();
-obj.observe('mouseover', function(e){obj.down('.image_actions').show();obj.down('.image_license').show();});
-obj.observe('mouseout', function(e){obj.down('.image_actions').hide();obj.down('.image_license').hide();});
-});});"), '<![endif]-->';
-}
