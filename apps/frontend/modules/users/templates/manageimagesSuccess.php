@@ -49,7 +49,7 @@ else:
     echo link_to(image_tag($thumb_url, array('class' => 'img', 'alt' => $title)),
                  absolute_link(image_url($filename, 'big', true), true),
                  array('title' => $title,
-                       'rel' => 'lightbox[document_images]',
+                       'data-lightbox' => 'document_images',
                        'class' => 'view_big',
                        'id' => 'lightbox_' . $image_id . '_' . $image_type));
     ?>
