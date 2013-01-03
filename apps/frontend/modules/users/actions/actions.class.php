@@ -31,7 +31,7 @@ class usersActions extends documentsActions
         $id = $this->getRequestParameter('id');
 
         parent::executeView();
-        $hasPublicProfile = $this->document->hasPublicProfile();
+        $hasPublicProfile = UserPrivateData::hasPublicProfile( $this->document->getId());
 
         if (!$this->getUser()->isConnected() && !$hasPublicProfile)
         {
