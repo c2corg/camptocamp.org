@@ -4,7 +4,7 @@
  * $Id: ViewerHelper.php 2202 2007-10-27 13:42:55Z alex $
  */
 
-sfLoader::loadHelpers('Javascript');
+sfLoader::loadHelpers('Javascript', 'General');
 
 function display_page_header($module, $document, $id, $metadata, $current_version, $options = array())
 {
