@@ -30,18 +30,20 @@ class usersActions extends documentsActions
     {
         $id = $this->getRequestParameter('id');
 
-        if (!$this->getUser()->isConnected() && !UserPrivateData::hasPublicProfile($id))
+        parent::executeView();
+        $hasPublicProfile = $this->document->hasPublicProfile();
+
+        if (!$this->getUser()->isConnected() && !$hasPublicProfile)
         {
             // page owner has not allowed anonymous users to access his personal page
             $this->setTemplate('login');
         }
         else
         {
-            parent::executeView();
 
             if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
             {
-                if (UserPrivateData::hasPublicProfile($id))
+                if ($hasPublicProfile)
                 {
                     $this->getResponse()->addMeta('robots', 'index, follow');
                 }
