@@ -74,7 +74,7 @@ else
             $lang = $i18n['culture'];
             $title = $i18n['name'];
             
-            $overlay_text = content_tag('span', $title);
+            $overlay_text = content_tag('span', $title, array('class' => 'thumbnail-desc'));
             $overlay_tag = c2cTools::mobileVersion() ? '' :
                 content_tag('div', $overlay_text, array('class' => 'thumbnail-overlay'));
             $image_tag = image_tag(image_url($filename, 'small'),
