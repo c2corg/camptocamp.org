@@ -2898,7 +2898,7 @@ ul.list404 li
     background: url(-c2c-datauri('/static/images/bg_nav.png')) repeat-x bottom left;
   }
 
-  // specific for portals with maps + images
+  // specific for portals with map + images
   #nav_images #last_image_list
   {
     padding-left: 31px;
@@ -3198,151 +3198,6 @@ p.abstract em
   overflow: auto;
 }
 
-// thumbnail images
-$dim: 120px;
-
-.image
-{
-  float: left;
-  position: relative;
-  padding: 2px;
-  border: 1px solid #cccccc;
-  margin: 4px;
-  width: $dim;
-  height: $dim;
-  text-align: center;
-}
-
-.image {
-  img, a {
-    width: $dim;
-    height: $dim;
-  }
-  a {
-    display: block;
-    overflow: hidden;
-  }
-}
-
-// for images on home or portals
-// add an overlay with image title
-// on hover
-// once transition on pseudo-elements will be
-// more widely supported,maybe use ::after to generate
-// the overlay
-@if $standard {
-  .image {
-    .thumbnail-overlay {
-      background-color: black;
-      opacity: .8;
-      color: white;
-      text-decoration: none;
-      width: $dim;
-      height: $dim;
-      line-height: $dim;
-      position: relative;
-      @include transition(.3s linear top);
-      span {
-        display: inline-block;
-        width: $dim;
-        line-height: normal;
-        vertical-align: middle;
-      }
-    }
-    &:hover .thumbnail-overlay {
-      top: -$dim;
-    }
-  }
-}
-
-#insertimagetag_list
-{
-  max-height: 340px;
-  overflow: auto;
-}
-
-.selected_image
-{
-  background-color: $orange;
-  border: 1px solid $orange;
-}
-
-.image_list .image_actions
-{
-  position: absolute;
-  top: 2px;
-  width: $dim;
-  background-color: silver;
-}
-
-.image_list .image_actions a:hover, .image_list .image_actions span:hover
-{
-  background-color: #fff;
-}
-
-#last_image_list
-{
-  overflow: hidden;
-  height: 130px;
-}
-
-.image_list .image_actions a, .image_list .image_actions span
-{
-  float: right;
-  height: 20px;
-  text-indent: -999999px;
-  width: 30px;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.image_list a.view_details
-{
-  background-position: 7px 2px !important;
-  float: right;
-}
-
-.image_list a.view_original
-{
-  background-position: 6px !important;
-  float: left;
-}
-
-.image_list a.unlink
-{
-  background-position: 7px !important;
-  float: left;
-}
-
-.image_list a.edit_image
-{
-  float: left;
-}
-
-.image_list div.image_license
-{
-  position: absolute;
-  top: 107px;
-  left: 2px;
-  width: 80px;
-  height: 15px;
-}
-
-.image_list img
-{
-  width: $dim;
-  height: $dim;
-}
-
-.img_box a.view_details
-{
-  width: 16px;
-  height: 16px;
-  text-indent: -9999px;
-  float: right;
-  margin-left: 3px
-}
-
 /* file to upload */
 
 #add_file_link:hover
@@ -3384,7 +3239,7 @@ p.file_to_upload_categories_title
 
 .file_to_upload_button, .file_to_upload_info, .file_to_upload_categories
 {
-  margin:5px;
+  margin: 5px;
 }
 
 .file_to_upload_button, .file_to_upload_info
@@ -4634,6 +4489,7 @@ span.cotometre_result {
 }
 
 @import "feedback";
+@import "thumbnails";
 @import "google_translate";
 @import "buttons";
 @import "html5";
