@@ -39,7 +39,7 @@ $dim: 120px;
       height: $dim;
       top: 0; // FF won't transition default values
       position: relative;
-      @include transition(.3s linear top);
+      @include transition(.3s linear top .2s);
     }
 
     &:hover .thumbnail-overlay {
