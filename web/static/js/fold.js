@@ -638,34 +638,6 @@ function emptyFeedback(aff)
     Element.hide($(aff));
 }
 
-// show form, show minus, hide plus
-function showForm(form_id) 
-{
-    Element.show($(form_id + '_form'));
-    Element.hide($(form_id + '_add'));
-    Element.show($(form_id + '_hide'));
-}
-
-// hide form, hide minus, show plus
-function hideForm(form_id)
-{
-    Element.hide($(form_id + '_form'));
-    Element.hide($(form_id + '_hide'));
-    Element.show($(form_id + '_add'));
-}
-
-// toggle select, form, minus, plus
-function toggleForm(form_id)
-{
-    var association_content = $(form_id + '_association');
-    
-    if (association_content)
-    {
-        association_content.toggleClassName('hide');
-        association_content.toggleClassName('show');
-    }
-}
-
 // (un)select all list
 function selectAllList()
 {
