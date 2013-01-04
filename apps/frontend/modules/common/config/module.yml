@@ -212,7 +212,7 @@ all:
         alt: "Expé"
       montania:
         id: 60
-        image: merino.gif
+        image: montania_arcteryx.gif
         alt: "Montania Sport"
       ibex:
         id: 61
@@ -220,9 +220,9 @@ all:
         alt: "Livres de montagne Ibex Books"
       camp_b:
         id: 62
-        image: camp-b.gif
+        image: camp-b2.gif
         alt: ""
       camp_c:
         id: 63
-        image: camp-c.gif
+        image: camp-c2.gif
         alt: ""
