@@ -13,7 +13,7 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobil
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('parkings', $document, $id, $metadata, $current_version,
-                    array('section_list' => $section_list, 'item_type' => 'http://schema.org/ParkingFacility', 'nb_comments' => $nb_comments));
+                    array('nav_options' => $section_list, 'item_type' => 'http://schema.org/ParkingFacility', 'nb_comments' => $nb_comments));
 
 // lang-independent content starts here
 

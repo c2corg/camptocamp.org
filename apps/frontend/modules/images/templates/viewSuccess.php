@@ -18,7 +18,7 @@ $module = $sf_context->getModuleName();
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('images', $document, $id, $metadata, $current_version,
-                    array('section_list' => $section_list, 'item_type' => 'http://schema.org/ImageObject', 'nb_comments' => $nb_comments));
+                    array('nav_options' => $section_list, 'item_type' => 'http://schema.org/ImageObject', 'nb_comments' => $nb_comments));
 
 echo start_section_tag('Image', 'view');
 echo display_picture($document->get('filename'), 'big', null, $document->get('name'));
