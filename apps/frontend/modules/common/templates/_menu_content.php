@@ -369,6 +369,9 @@ show_select=function()
                     <li><?php
                         echo picto_tag('picto_images')
                            . link_to(__('My images'), 'images/myimages') ?></li>
+                    <li><?php
+                        echo picto_tag('picto_outings')
+                           . link_to(__('My statistics'), 'outings/mystats') ?></li>
                     <?php endif ?>
                     <li><?php
                         echo picto_tag('picto_tools')

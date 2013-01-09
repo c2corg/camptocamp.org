@@ -112,6 +112,11 @@ echo '<p class="list_link">',
      ' - ',
      link_to(__('Images'), "images/list?$join_outing$module_url=$id&orderby=odate&order=desc", array('rel' => 'nofollow'));
 
+if ($module == 'users')
+{
+    echo ' - ', link_to(__('Statistics'), 'http://' . sfConfig::get('app_statistics_base_url') . '/user/' . $id);
+}
+     
 if (!$is_mobile_version)
 {
     echo ' - ', link_to(picto_tag('picto_rss'), "outings/rss?$module=$id&orderby=date&order=desc");

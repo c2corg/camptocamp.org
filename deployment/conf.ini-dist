@@ -131,3 +131,5 @@ PRODUCTION = false
 
 MW_CONTEST_ID = 330348
 MW_CONTEST_ENABLED = false
+
+STATISTICS_URL = stats.camptocamp.org

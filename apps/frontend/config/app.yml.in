@@ -2197,3 +2197,6 @@ all:
   statsd:
     server_name: @STATSD_HOST@
     server_port: @STATSD_PORT@
+
+  statistics:
+    base_url: @STATISTICS_URL@

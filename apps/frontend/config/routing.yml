@@ -259,6 +259,10 @@ myoutings:
   url: /outings/myoutings
   param: { module: outings, action: myOutings }
 
+mystats:
+  url: /outings/mystats
+  param: { module: outings, action: myStats }
+
 myimages:
   url: /images/myimages
   param: { module: images, action: myImages }
