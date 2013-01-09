@@ -10,7 +10,7 @@ if ($nb_comments)
 ?>
 <ul id="article_gauche_5050" class="data">
     <?php
-    li(field_data_from_list($document, 'product_type', 'mod_products_types_list', true));
+    li(field_data_from_list($document, 'product_type', 'mod_products_types_list', array('multiple' => true)));
     if (check_not_empty_doc($document, 'elevation') || check_not_empty_doc($document, 'lon'))
     {
         echo '<li><ul itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">';
