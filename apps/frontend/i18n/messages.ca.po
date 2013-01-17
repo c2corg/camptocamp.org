@@ -257,9 +257,8 @@ msgstr "Aquesta associació no està permesa"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
-# [WARNING] en translation used
 msgid "Associations history"
-msgstr "Associations history"
+msgstr "Històric d'associacions"
 
 msgid "At least one file failed to upload"
 msgstr "manca almenys un fitxer o no s'ha pogut transmetre correctament"
@@ -2146,6 +2145,10 @@ msgstr "Llistat de sortides amb ecomobilitat"
 msgid "Static map"
 msgstr "Mapa"
 
+# [WARNING] needs_review
+msgid "Statistics"
+msgstr "Estadística"
+
 msgid "Step 1: choose a summit"
 msgstr "Etapa 1: escolliu un cim"
 
@@ -2563,9 +2566,8 @@ msgstr "Mostra la imatge a la seva mida original"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
-# [WARNING] fr translation used
 msgid "View the associations history of the document"
-msgstr "Voir l'historique des associations et désassociations du document"
+msgstr "Vegeu l'històric de les associacions i dissociacions del document"
 
 msgid "View user profile"
 msgstr "Mostra el perfil d'aquest usuari"
@@ -5065,6 +5067,7 @@ msgstr "Imatges:"
 msgid "image_new_version"
 msgstr "Nova versió de l'imatge:"
 
+# [WARNING] needs_review
 msgid "image_type"
 msgstr "Tipus d'imatge:"
 

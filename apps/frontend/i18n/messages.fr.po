@@ -2146,6 +2146,9 @@ msgstr "Liste des sorties en mobilité douce"
 msgid "Static map"
 msgstr "Carte"
 
+msgid "Statistics"
+msgstr "Statistiques"
+
 msgid "Step 1: choose a summit"
 msgstr "Étape 1&nbsp;: choisissez un sommet"
 
@@ -5066,7 +5069,7 @@ msgid "image_new_version"
 msgstr "Nouvelle version de l'image&nbsp;:"
 
 msgid "image_type"
-msgstr "Type d'image&nbsp;:"
+msgstr "Type d'image (licence)&nbsp;:"
 
 msgid "images"
 msgstr "images"

@@ -1543,9 +1543,9 @@ msgstr "Mein Standort"
 msgid "My preferences"
 msgstr "Persönliche Einstellungen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "My statistics"
-msgstr "My statistics"
+msgstr "Meine Statistiken"
 
 msgid "My topics"
 msgstr "Meine Themen"
@@ -2163,6 +2163,10 @@ msgstr "Liste der Touren, welche mit nachhaltiger Moblität durchgeführt wurden
 
 msgid "Static map"
 msgstr "Karte"
+
+# [WARNING] needs_review
+msgid "Statistics"
+msgstr "Statistiken"
 
 msgid "Step 1: choose a summit"
 msgstr "Schritt 1: Einen Gipfel auswählen"
@@ -5172,6 +5176,7 @@ msgstr "Bilder:"
 msgid "image_new_version"
 msgstr "Neue Version des Bilds"
 
+# [WARNING] needs_review
 msgid "image_type"
 msgstr "Bildtyp:"
 

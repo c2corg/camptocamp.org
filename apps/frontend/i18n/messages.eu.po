@@ -2261,6 +2261,10 @@ msgstr "Lista de salidas realizadas con ecomobilidad"
 msgid "Static map"
 msgstr "Mapa"
 
+# [WARNING] needs_review
+msgid "Statistics"
+msgstr "Estatistikak"
+
 msgid "Step 1: choose a summit"
 msgstr "1. pausua: aukeratu gailur bat"
 
@@ -5189,9 +5193,9 @@ msgstr "Irudia:"
 msgid "image_new_version"
 msgstr "Nueva versión de la imagen:"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "image_type"
-msgstr "Tipo de imagen:"
+msgstr "Picture type:"
 
 msgid "images"
 msgstr "irudiak"

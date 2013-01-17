@@ -236,7 +236,7 @@ msgstr "Articoli"
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
 # [WARNING] needs_review
 msgid "Associate new access"
-msgstr "Crea un nuovo itinerario per l'accesso dal rifugio"
+msgstr "Crea un nuovo itinerario per l'accesso al rifugio"
 
 msgid "Associate new outing"
 msgstr "Aggiungi una gita a questo itinerario"
@@ -258,9 +258,8 @@ msgstr "Questa associazione non è autorizzata"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
-# [WARNING] en translation used
 msgid "Associations history"
-msgstr "Associations history"
+msgstr "Cronologia delle associazioni"
 
 msgid "At least one file failed to upload"
 msgstr "manca almeno uno filo o non è stato trasferito correttamente"
@@ -1539,9 +1538,9 @@ msgstr "La mia posizione"
 msgid "My preferences"
 msgstr "Impostazioni personali"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "My statistics"
-msgstr "My statistics"
+msgstr "Le mie statistiche"
 
 msgid "My topics"
 msgstr "Le mie discussioni"
@@ -2154,6 +2153,10 @@ msgstr "Lista delle gite con ecomobilità"
 msgid "Static map"
 msgstr "Mappa"
 
+# [WARNING] needs_review
+msgid "Statistics"
+msgstr "Statistica"
+
 msgid "Step 1: choose a summit"
 msgstr "Passo 1&nbsp;: scegliere una cima"
 
@@ -2572,9 +2575,8 @@ msgstr "Vedere l'immagine nel formato originale"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
-# [WARNING] fr translation used
 msgid "View the associations history of the document"
-msgstr "Voir l'historique des associations et désassociations du document"
+msgstr "Vedere la cronologia delle associazioni di questo documento "
 
 msgid "View user profile"
 msgstr "Vedi il profilo di questo utente"
@@ -3936,9 +3938,9 @@ msgstr "Oggetti C2C"
 # [general comment]
 # Option de la catégorie d'un article : rassemblements / G2G
 # La catégorie "rassemblements" s'applique aux articles utilisés pour la préparation et les comptes rendus des rassemblements entre membres de camptocamp, organisés sur camptocamp.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "c2c meetings"
-msgstr "c2c meetings"
+msgstr "raduni / G2G"
 
 msgid "c2c website"
 msgstr "Il sito c2c"
@@ -4951,6 +4953,7 @@ msgstr "Immagine:"
 msgid "image_new_version"
 msgstr "Nuova versione dell'immagine:"
 
+# [WARNING] needs_review
 msgid "image_type"
 msgstr "Tipo d'immagine:"
 
@@ -6706,9 +6709,9 @@ msgstr "tecnica"
 msgid "terms of use"
 msgstr "Condizioni di uso"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "thanks for new outing"
-msgstr "Thank you for your outing! Feel free to also improve the description of the associated route."
+msgstr "Grazie per la tua gita! Non esitare a improvare la descrizione dell'itinerario associato."
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.

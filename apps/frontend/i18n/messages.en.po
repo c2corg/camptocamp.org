@@ -2165,6 +2165,9 @@ msgstr "List of outings carried out by ecomobility"
 msgid "Static map"
 msgstr "Map"
 
+msgid "Statistics"
+msgstr "Statistics"
+
 msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
 
@@ -5013,7 +5016,7 @@ msgid "image_new_version"
 msgstr "New picture version:"
 
 msgid "image_type"
-msgstr "Picture type:"
+msgstr "Picture type (license):"
 
 msgid "images"
 msgstr "pictures"

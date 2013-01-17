@@ -2165,6 +2165,10 @@ msgstr "Lista de salidas realizadas con ecomobilidad"
 msgid "Static map"
 msgstr "Mapa"
 
+# [WARNING] needs_review
+msgid "Statistics"
+msgstr "Estadística"
+
 msgid "Step 1: choose a summit"
 msgstr "Etapa 1: elija una cima"
 
@@ -4975,6 +4979,7 @@ msgstr "Imagen:"
 msgid "image_new_version"
 msgstr "Nueva versión de la imagen:"
 
+# [WARNING] needs_review
 msgid "image_type"
 msgstr "Tipo de imagen:"
 
