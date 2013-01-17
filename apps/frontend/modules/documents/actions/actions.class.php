@@ -559,9 +559,11 @@ class documentsActions extends c2cActions
         $document = $this->getDocument($id, $lang, $version); 
         // no need to test whether document has been found :
         // already done in getDocument method.
+c2cTools::log("$slug   ".get_slug($document)); 
 
         if (empty($version) && $module != 'users' && (empty($slug) || ($module != 'routes' && $slug != get_slug($document))))
         {
+c2cTools::log("to redirectIfSlugmissing"); 
             c2cActions::statsdTiming('document.executeView.redirect', $timer->getElapsedTime('executeView'));
             $this->redirectIfSlugMissing($document, $id, $lang, $module);
         }
@@ -2996,12 +2998,14 @@ class documentsActions extends c2cActions
         {
             $identifier = ($model == 'Document') ? $this->__(substr($item['module'], 0, -1)) . ' ' : '' ; // if module = documents, add the object type inside brackets
             $postidentifier = ($model == 'Outing') ? ' (' . $item['date'] . ')' : ''; // if outings, we append the date
-            $postidentifier .= ($model == 'Book') ? ('<em>' .(check_not_empty($item['author']) ? ' - ' . $item['author'] : '') .
-                                                     (check_not_empty($item['publication_date']) ? ' - ' . $item['publication_date'] : '') . '</em>')
+            $postidentifier = ($model == 'Summit') ? ' - ' . $item['elevation'] . $this->__('meters') : ''; // if summit, append elevation
+            $postidentifier .= ($model == 'Book') ? ((check_not_empty($item['author']) ? ' - ' . $item['author'] : '') .
+                                                     (check_not_empty($item['publication_date']) ? ' - ' . $item['publication_date'] : ''))
                                                   : ''; // if book, append author and publication date
-            $postidentifier .= (isset($item['area_name'])) ? ' <em>('.$item['area_name'].')</em>' : ''; // if region attached, we append it
+            $postidentifier .= (isset($item['area_name'])) ? ' ('.$item['area_name'].')' : ''; // if region attached, we append it
             $postidentifier .= ($model == 'User') ? ' (' . $item['private_data']['username']. ')' : ''; // if user, append forum nickname
-            $html .= '<li id="'.$item['id'].'">'.$item[$this->model_class . 'I18n'][0]['name']."$postidentifier [$identifier" . $item['id'] . ']</li>';
+            $html .= '<li id="'.$item['id'].'">'.$item[$this->model_class . 'I18n'][0]['name'].'<span class="informal">'.
+                     "<em>$postidentifier</em> <small>[$identifier" . $item['id'] . ']</small></span></li>';
         }
         if (isset($exact_matches))
         {

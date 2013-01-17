@@ -1936,9 +1936,14 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             $where_vars = $use_docid ? array($name) : array($name, $name);
         }
-        else if ($model == 'Book') // retrive author and publication date
+        else if ($model == 'Book') // retrieve author and publication date
         {
             $select = 'mi.name, m.id, m.module, m.author, m.publication_date';
+            $where_vars = array($name);
+        }
+        else if ($model == 'Summit') // retrieve elevation
+        {
+            $select = 'mi.name, m.id, m.module, m.elevation';
             $where_vars = array($name);
         }
         else
