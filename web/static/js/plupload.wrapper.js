@@ -41,12 +41,12 @@ PlUploadWrapper = {
         delt.style.height = (nelt.getHeight() - 12) + 'px';
         delt.style.width = (nelt.getWidth() - 12) + 'px';
         plupload.addEvent(document.documentElement, 'dragenter',
-                          function() { delt.style.opacity = 1; });
+                          function() { delt.style.zIndex = 1; });
         /* Idea here would be to use dragleave event, but someone thought that it would
            be funnier to fire dragleave when hovering child elements...
            Instead, we hide delt when mouse goes out of document */
         plupload.addEvent(document.documentElement, 'mouseout',
-                          function() { delt.style.opacity = 0; });
+                          function() { delt.style.zIndex = -1; });
       }
     });
 
