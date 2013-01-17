@@ -638,6 +638,17 @@ function emptyFeedback(aff)
     Element.hide($(aff));
 }
 
+// toggle select, form, minus, plus 
+function toggleForm(form_id)
+{
+    var association_content = $(form_id + '_association');
+    if (association_content)
+    {
+        association_content.toggleClassName('hide');
+        association_content.toggleClassName('show');
+    }
+}
+
 // (un)select all list
 function selectAllList()
 {
