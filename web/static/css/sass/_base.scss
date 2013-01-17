@@ -1125,6 +1125,11 @@ p.default_text div.add_content
   margin: 0.3em 0.5em 0 0;
 }
 
+.doc_add > form
+{
+  display: inline-block;
+}
+
 .short_descr
 {
   margin: 0.3em 0;
