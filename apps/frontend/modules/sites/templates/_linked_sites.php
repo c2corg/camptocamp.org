@@ -17,7 +17,8 @@ if (count($associated_sites) == 0): ?>
             <li class="child_site" id="<?php echo $idstring ?>">
             <?php
             echo link_to($site->get('name'), '@document_by_id?module=sites&id=' . $site_id)
-                        . ' - ' . field_data_from_list_if_set($site, 'site_types', 'app_sites_site_types', true, true);
+                        . ' - ' . field_data_from_list_if_set($site, 'site_types', 'app_sites_site_types',
+                                      array('multiple' => true, 'raw' => true));
 
             if ($is_moderator && !$mobile_version)
             {
