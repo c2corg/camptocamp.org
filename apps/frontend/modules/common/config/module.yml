@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_securite, changerdapproche, camp_c, diamir_securite, montania, google, diamir_securite, cilao, camp_c, boutique_c2c, diamir_securite, changerdapproche ]
+    values: [ google, changerdapproche, camp_c, google, montania, google, google, cilao, camp_c, boutique_c2c, google, changerdapproche ]
   banners:
     list:
       skalp:
