@@ -28,10 +28,7 @@ echo object_group_dropdown_tag($document, 'categories', 'mod_images_categories_l
                                false, null, 'image_categories');
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
-if ($image_type == 1 || $image_type == 3) // collaborative or copyright image
-{
-    echo file_upload_tag('image_new_version', false, 'file', true);
-}
+echo file_upload_tag('image_new_version', false, 'file', true);
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext', 'abstract' => true));
 
 include_partial('documents/form_history');
