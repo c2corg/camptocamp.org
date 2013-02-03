@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ google, changerdapproche, camp_c, google, montania, google, google, cilao, camp_c, boutique_c2c, google, changerdapproche ]
+    values: [ google, changerdapproche, camp_d, google, montania, google, google, cilao, camp_d, boutique_c2c, google, changerdapproche ]
   banners:
     list:
       skalp:
@@ -167,8 +167,8 @@ all:
         image: camp-gants.gif
         alt: "Camp gants"
       camp_d:
-        id: 48
-        image: camp-d.gif
+        id: 65
+        image: camp-d2.gif
         alt: ""
       camp_e:
         id: 49
