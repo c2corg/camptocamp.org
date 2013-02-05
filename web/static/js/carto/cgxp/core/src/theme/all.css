@@ -1,0 +1,560 @@
+div.x-panel a {
+    text-decoration: none;
+}
+div.x-panel a:hover {
+    text-decoration: underline;
+}
+
+/* gxp_zoomtoextent */
+.x-toolbar .gxp-icon-zoomtoextent, .x-menu .gxp-icon-zoomtoextent {
+    background-image: url(../../../gxp/src/theme/img/silk/arrow_inout.png);
+}
+
+/* gxp_navigationhistory */
+.x-toolbar .gxp-icon-zoom-previous, .x-menu .gxp-icon-zoom-previous {
+    background-image: url(../../../gxp/src/theme/img/silk/arrow_left.png);
+}
+.x-toolbar .gxp-icon-zoom-next, .x-menu .gxp-icon-zoom-next {
+    background-image: url(../../../gxp/src/theme/img/silk/arrow_right.png);
+}
+
+/* gxp_zoom */
+.x-toolbar .gxp-icon-zoom, .x-menu .gxp-icon-zoom {
+    background-image: url(../../../gxp/src/theme/img/silk/magnifier.png);
+}
+.x-toolbar .gxp-icon-zoom-in, .x-menu .gxp-icon-zoom-in {
+    background-image: url(../../../gxp/src/theme/img/silk/magnifier_zoom_in.png);
+}
+.x-toolbar .gxp-icon-zoom-out, .x-menu .gxp-icon-zoom-out {
+    background-image: url("../../../gxp/src/theme/img/silk/magnifier_zoom_out.png");
+}
+
+/* fix button position for ie */
+.x-form-file-wrap table.x-form-file-btn {
+    top: 0;
+}
+.x-panel-bwrap {
+    font-family: tahoma,arial,verdana,sans-serif;
+}
+
+/* cgxp_disclaimer */
+.disclaimer-ct {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    width: 300px;
+}
+.disclaimer-item {
+    font-size: 12px;
+    padding: 5px;
+}
+.disclaimer-ct .disclaimer-item {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    margin: 5px 0 0;
+    width: 100%;
+}
+
+/* cgxp_measure */
+.x-btn .cgxp-icon-measure-point, .x-menu-item .cgxp-icon-measure-point, .x-tree-node .cgxp-icon-measure-point {
+    background-image: url('img/bullet_orange.png');
+}
+.x-btn .cgxp-icon-measure-length, .x-menu-item .cgxp-icon-measure-length, .x-tree-node .cgxp-icon-measure-length {
+    background-image: url(img/ruler.png);
+}
+.x-btn .cgxp-icon-measure-area, .x-menu-item .cgxp-icon-measure-area, .x-tree-node .cgxp-icon-measure-area {
+   background-image: url(img/ruler_square.png);
+}
+.x-btn .cgxp-icon-measure-azimuth, .x-menu-item .cgxp-icon-measure-azimuth, .x-tree-node .cgxp-icon-measure-azimuth {
+   background-image: url(img/ruler_triangle.png);
+}
+
+/*.x-btn .cgxp-icon-googleearthview, .x-tree-node .cgxp-icon-googleearthview {*/
+/* cgxp_googleearthview */
+.x-toolbar .cgxp-icon-googleearthview, .x-menu .cgxp-icon-googleearthview {
+    background-image: url(img/google_earth.png);
+}
+
+/* cgxp_streetview */
+.x-toolbar .cgxp-icon-streetview, .x-menu .cgxp-icon-streetview {
+    background-image: url(img/streetview.png);
+}
+
+.x-toolbar .permalink, .x-menu .permalink {
+    background: url(img/permalink.png) top left no-repeat;
+}
+.x-toolbar .info, .x-menu .info {
+    background: url(img/information.png) top left no-repeat;
+}
+.x-toolbar .infotooltip, .x-menu .infotooltip {
+    background: url(img/cursor.png) top left no-repeat;
+}
+.x-toolbar .help, .x-menu .help {
+    background: url(img/help.png) top left no-repeat;
+}
+.x-toolbar .print, .x-menu .print {
+    background: url(img/printer.png) top left no-repeat;
+}
+
+div.olControlOverviewMapElement {
+    border-radius: 0.4em 0 0 0;
+}
+div.olControlScaleLine, div.olControlMousePosition, div.baseLayersOpacitySlider, div.olControlOverviewMapElement {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 11px;
+    bottom: 0;
+}
+div.olControlScaleLine, div.olControlMousePosition, div.baseLayersOpacitySlider {
+    height: 26px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+div.olControlScaleLine {
+    padding: 0 5px;
+    line-height: 16px;
+    -moz-border-radius: 0 0.4em 0 0;
+    border-radius: 0 0.4em 0 0;
+    left: 0;
+}
+div.olControlScaleLine div.olControlScaleLineTop {
+    border: solid 2px white;
+    border-top: none;
+    margin-top: 5px;
+}
+div.olControlMousePosition {
+    padding: 0 5px;
+    right: 0;
+    line-height: 26px;
+    -moz-border-radius: 0.4em 0 0 0;
+    border-radius: 0.4em 0 0 0;
+}
+div.baseLayersOpacitySlider {
+    position: absolute;
+    z-index: 1015;
+    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    -moz-border-radius: 0.4em 0.4em 0 0;
+    border-radius: 0.4em 0.4em 0 0;
+}
+div.baseLayersOpacitySlider .opacityToolbar {
+     background: none;
+     border: 0;
+}
+.olControlAttribution {
+    bottom: 5em;
+    right: 1em;
+}
+.tools-baselayer-label {
+    margin-right: 1em;
+}
+.layertree .layertree-bbar {
+    background-color: transparent;
+    background-image: none;
+}
+.gx-tree-layer-actions {
+    float: right;
+}
+.gx-tree-layer-action {
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 16px;
+    display: none;
+}
+.x-tree-node-over .gx-tree-layer-action {
+    display: inline-block;
+}
+.gx-tree-layer-actions .up {
+    background: transparent url(img/bullet_arrow_up.png);
+}
+.gx-tree-layer-actions .down {
+    background: transparent url(img/bullet_arrow_down.png);
+}
+.gx-tree-layer-actions .metadata {
+    background: transparent url(img/page_world.png) no-repeat;
+    margin-right: 3px;
+}
+.gx-tree-layer-actions .opacity {
+    background: transparent url(img/layer_opacity.png) no-repeat;
+}
+.gx-tree-layer-actions .delete {
+    background: transparent url(img/layer_delete.gif) no-repeat center center;
+}
+.gx-tree-layer-actions .disabled {
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+.gx-tree-layer-actions .zoomtoscale {
+    background: transparent url(img/magnifier--arrow.png) no-repeat;
+    margin-right: 3px;
+}
+.gx-tree-layer-actions .showin3d {
+    background: transparent url(img/google_earth.png) no-repeat;
+    margin-right: 3px;
+}
+.x-tree-root-node li {
+    padding: 4px 0;
+    margin: 4px;
+    border-bottom: 1px solid #eee;
+    -moz-box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+}
+.x-tree-root-node li li {
+    padding: 0;
+    margin: 0;
+    border-bottom: 0;
+    -moz-box-sizing: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+.x-tree-node-theme {
+    padding-top: 2px;
+    font-weight: bold;
+}
+.x-tree-node-el {
+    /* apparently mandatory for IE to correctly hide the components */
+    border-bottom: 1px solid transparent;
+}
+.x-tree-node-el .no-icon {
+    width: 0;
+}
+.x-tree-node-leaf .x-tree-node-icon {
+    width: 20px;
+}
+.x-tree-node-leaf .x-tree-node-icon-wms {
+    vertical-align: middle;
+    height: 10px;
+}
+/* Extjs fixes «top !important» for IE8, which is wrong here */
+.ext-strict .ext-ie8 .x-tree-node-icon-wms {
+    vertical-align: middle !important;
+}
+.gx-tree-node-loading {
+    background: transparent url(img/loading.gif) no-repeat 75% 2px;
+}
+.x-tree-node .x-slider-horz {
+    margin-left: 18px;
+}
+.gx-tree-layer-actions .legend {
+    background: transparent url(img/legend.png) no-repeat;
+    margin-right: 2px;
+}
+.gx-tree-layer-actions .legend-on {
+    background: transparent url(img/legend-up.png) no-repeat;
+}
+.x-tree-node .gx-tree-layer-outofrange .x-tree-node-icon {
+    opacity: 0.5;
+}
+.gx-tree-layer-outofrange .x-tree-node-anchor span {
+    color: #777;
+}
+
+.toolwindow {
+    border: 1px solid #D0D0D0;
+    border-top: 0;
+    padding: 2px;
+    background-color: #F0F0F0;
+}
+.toolwindow .x-toolbar {
+    background: none;
+    border-width: 0 !important;
+}
+.toolwindow .x-tool-close {
+    position: absolute;
+    right: 2px;
+    z-index: 2;
+}
+
+.loading {
+    background-image: url(img/loading.gif);
+}
+
+.opacityToolbar {
+    background: white;
+    border: 0;
+}
+
+.x-btn button.query {
+    background: transparent url(img/cog_go.png);
+}
+
+div.external-documents div.x-panel-body {
+    padding: 5px;
+}
+
+div.legend div.x-plain-tl {
+    height: 15px;
+}
+div.legend img {
+    display: block;
+}
+div.legend label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+div.legend label.layerparam-label {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.pdf-window .x-window-mc {
+    font-weight: normal;
+    text-align: center;
+}
+.pdf-window .x-window-mc .x-panel, .pdf-window .x-window-mc .x-panel-body {
+    border: 0;
+    background-color: transparent;
+}
+.pdf-window .x-window-mc .x-panel-body {
+    padding: 5px;
+}
+.pdf-window .x-window-mc table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* theme selector */
+.themes .x-btn-mc em {
+    text-align: left;
+}
+.themes .x-btn-mc em button {
+    font-weight: bold;
+}
+.themes .x-btn-text {
+    background: url(img/map.png);
+}
+.theme-selector {
+    background: white;
+    font-size: 11px;
+    font-family: tahoma,arial,verdana,sans-serif;
+}
+.theme-selector .thumb {
+    background: #dddddd;
+    padding: 3px;
+    margin: 0 auto;
+    display: table;
+    line-height: 0;
+}
+.theme-selector .thumb img {
+    height: 60px;
+    width: 110px;
+}
+.theme-selector .thumb-wrap {
+    float: left;
+    margin: 4px;
+    margin-right: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+.theme-selector .thumb-wrap span {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.theme-selector .x-view-over {
+    border:1px solid #dddddd;
+    background-color: #efefef;
+    padding: 4px;
+}
+
+.theme-selector .x-view-selected {
+    background-color: #eff5fb;
+    border: 1px solid #99bbe8;
+    padding: 4px;
+}
+
+/* search */
+
+.x-combo-list-group {
+    background-color: #dfdfdf;
+    font-weight: bold;
+    padding: 4px 0;
+}
+#search-tip ul {
+    list-style-type: disc;
+    margin-left: 15px;
+}
+#search-tip strong {
+    font-weight: bold;
+}
+
+#search-tip em, #search-tip em strong {
+    font-style: italic;
+}
+
+/* layertree legend */
+
+.legend_level_1 {
+    margin-left: 52px;
+}
+.legend_level_2 {
+    margin-left: 66px;
+}
+.legend_level_3 {
+    margin-left: 80px;
+}
+
+/* cgxp featuregrid */
+#featuregrid-container .x-panel-body {
+    font-size: 12px;
+}
+
+/* cgxp featureswindow */
+.x-grid3-row-body table.detail th {
+    font-weight: bold;
+    padding-right: 4px;
+    text-align: right;
+    vertical-align: top;
+}
+.x-grid3-row-body table.detail,
+.x-grid3-row-body table.detail a:link {
+    color: #5f5f5f;
+}
+
+.x-grid3-row-body table.detail a:link {
+    text-decoration: underline;
+}
+
+.x-toolbar .queryResultMessage {
+    font-style: italic;
+}
+/* because IE doesnt assign any special style to abbr element by default, we need to add some visual aid */
+.ext-ie .queryResultMessage abbr {
+    text-decoration: underline;
+}
+
+/* cgxp layertree message */
+.layertree-msg {
+    color: white;
+    font-weight: bold;
+    background-color: #FFA500;
+    margin: 10px 5px 5px 5px;
+    padding: 10px;
+    border-radius: 0.3em;
+}
+
+.wms-browser-combo {
+    padding: 0;
+    margin: 1px 0 0 0;
+}
+.wms-browser-connect-btn {
+    padding: 0;
+    margin: 0 0 0 5px;
+}
+.wms-browser-description-fieldset {
+    padding-right: 0;
+    padding-top: 5px;
+}
+.wms-browser-layername-label {
+    margin-right: 5px;
+}
+.wms-browser-layername-textfield {
+    margin-top: 1px;
+    margin-right: 5px;
+}
+.wms-browser-tree {
+    padding-top: 5px;
+}
+div.x-panel div.x-panel-bbar div.wms-browser-toolbar {
+    margin-top: 5px;
+    background: none;
+    border: none;
+}
+
+/* cgxp profile */
+.csv {
+    position: absolute;
+    z-index: 2;
+    bottom: 5px;
+    right: 5px;
+}
+.dygraph-legend {
+    font-size: 12px !important;
+    text-align: right !important;
+    background-color: transparent !important;
+}
+.dygraph-legend,
+.dygraph-xlabel,
+.dygraph-ylabel,
+.dygraph-axis-label-x,
+.dygraph-axis-label-y {
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size: 12px;
+}
+
+/* cgxp floor slider */
+.floor-window {
+    width: 55px;
+}
+.floor-window .x-window-mc {
+    background-color: white
+}
+.floor-window ul {
+    line-height: 13px;
+    text-align: right;
+}
+.floor-window ul li, .floor-window .x-slider-thumb {
+    cursor: pointer;
+}
+.floor-window ul li a {
+    color: black;
+}
+.floor-window ul li a:hover {
+    text-decoration: none;
+}
+.floor-window ul li a:focus {
+    color: white;
+    background-color: black;
+}
+
+/* cgxp query builder */
+.x-panel-tbar .invisible-toolbar {
+  background: none !important;
+  border: 0px none #ffffff !important;
+  margin: 5px 0px;
+}
+.permalink .x-window-body {
+    border: none;
+    background: none;
+}
+.permalink .x-window-mc {
+    border: none;
+    background: #f4f4f4;
+}
+
+/* CGXP add KML */
+.x-toolbar .x-form-file-btn {
+    margin-top: 2px;
+}
+.ext-ie .x-toolbar .x-form-file-btn {
+    margin-top: 1px;
+}
+
+/* text in toolbar like login */
+.ext-webkit .x-toolbar .xtb-text {
+    padding-top: 1px;
+}
+
+/* WMS browser */
+.x-tree-node-leaf .x-tree-node-noicon {
+    background-image: none;
+}
+.x-tree-node-leaf .x-tree-node-icon-unsupported {
+    background-image: url("../../../gxp/src/theme/img/decline.png");
+}
+.x-tree-node-leaf .x-tree-node-icon-queryable {
+    background-image: url("img/information.png");
+}
+div.x-panel .olControlZoom a:hover {
+    text-decoration: none;
+}
