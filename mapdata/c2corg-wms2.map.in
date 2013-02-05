@@ -30,8 +30,17 @@ END
 
 LAYER
   NAME summits
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
   METADATA
     "wms_title"    "summits"   ##required
+    "gml_include_items" "all"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "point"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
   END
   TYPE POINT
   STATUS ON
@@ -73,7 +82,7 @@ LAYER
   END
 
   CLASS
-    NAME " "  ## hack not to avoid having a label in legends 
+    NAME "summits" 
     STYLE
       SYMBOL ../web/static/images/modules/summits_mini.png
       COLOR 0 0 0
@@ -84,8 +93,17 @@ END # Layer
 
 LAYER
   NAME huts
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
   METADATA
     "wms_title"    "huts"   ##required
+    "gml_include_items" "all"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "point"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
   END
   TYPE POINT
   STATUS ON
@@ -118,7 +136,7 @@ LAYER
   END
 
   CLASS
-    NAME " "  ## hack not to avoid having a label in legends 
+    NAME "hut" 
     STYLE
       SYMBOL ../web/static/images/modules/huts_mini.png
       COLOR 0 0 0

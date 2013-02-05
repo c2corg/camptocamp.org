@@ -693,10 +693,6 @@ function updateRevisionInfo() {
                   'web/forums/style' => 'css',
                   'web/forums/style/imports' => 'css',
                   'web/static/js/dyncat' => 'js',
-                  /* TODO are those ones still used? */
-                  'web/static/js/openlayers_sfl' => 'js',
-                  'web/static/js/cartoweb/lib' => 'js',
-                  'web/static/js/cartoweb/lib/Query' => 'js',
                   /* mapfish css */
                   'web/static/js/mapfish/mfbase/ext/resources/css' => 'css',
                   'web/static/js/mapfish/mfbase/geoext/resources/css' => 'css',
@@ -717,6 +713,8 @@ function updateRevisionInfo() {
                   'web/static/js/mapfish/geoportal' => 'js',
                   'web/static/js/mapfish/MapFishApi/js' => 'js',
                   'web/static/js/mapfish/c2corgApi/js' => 'js',
+                  'web/static/js/carto' => 'js',
+                  'web/static/js/carto/build' => 'js',
                   'web/static/js/mapfish/app' => 'js');
 
     fwrite($handle, "\n  # auto generated\n");

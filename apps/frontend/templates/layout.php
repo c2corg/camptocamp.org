@@ -85,9 +85,12 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
             </div>
         </div>
         <?php
+        // FIXME
+        if ($action != 'map') {
         include_partial('common/footer', array('sf_cache_key' => $footer_type . '_' . $lang,
                                                'lang_code' => $lang_code,
                                                'footer_type' => $footer_type));
+        }
         ?>
     </div>
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>

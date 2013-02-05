@@ -94,15 +94,23 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     $html .= '<div id="fake_clear"></div>';
     $html .= '</div></section>';
 
+    // new CGXP code
+    $html .= javascript_tag("
+        var map = new c2corg.Map({
+          div: 'map',
+          addLayerSwitcher: true,
+          layers: ['summits']
+        });
+    ");
+
     if (sfConfig::get('app_async_map', true))
     {
         use_helper('MyMinify');
         // FIXME if using ie for async load, set $debug to true, because minifying the js currently breaks ie
-        $c2c_script_url = minify_get_combined_files_url(array('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js',
-                                                              '/static/js/mapfish/mfbase/ext/ext-all.js',
-                                                              '/static/js/mapfish/build/c2corgApi.js',
-                                                              '/static/js/popup.js',
-                                                              '/static/js/docmap.js'),
+        $c2c_script_url = minify_get_combined_files_url(array('/static/js/carto/build/xapi.js',
+                                                              '/static/js/carto/build/lang-fr.js',
+                                                              //'/static/js/popup.js',
+                                                              '/static/js/carto/docmap.js'),
                                                         (bool)sfConfig::get('app_minify_debug'));
 
         // FIXME extjs uses document.write with ie, so we cannot for the moment use async loading with ie
@@ -131,30 +139,10 @@ function _loadJsMapTools()
 {
     $response = sfContext::getInstance()->getResponse();
 
-    use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/ext-all.css', 'custom');
-    use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/xtheme-gray.css', 'custom');
-    use_stylesheet('/static/js/mapfish/mfbase/geoext/resources/css/gxtheme-gray.css', 'custom');
-    use_stylesheet('/static/js/mapfish/mfbase/openlayers/theme/default/style.css', 'custom');
-    use_stylesheet('/static/css/popup.css', 'custom');
-    use_stylesheet('/static/js/mapfish/MapFishApi/css/api.css', 'custom');
-    use_stylesheet('/static/js/mapfish/c2corgApi/css/api.css', 'custom');
-
-    // it is not possible to load google maps api v2 asynchronously since it uses document.write
-    // upgrade to v3 to enable (using &callback=some_function param) TODO
-    // We use api <= 3.6 https://github.com/openlayers/openlayers/commit/b17c7b69f25ce0ddbaf720f91b7d48328b005831
-    //use_javascript('http://maps.googleapis.com/maps/api/js?v=3.6&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
-    use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
-
-    // FIXME following files will only be loaded by internet explorer when in async mode using conditional comments
-    // (extjs 2 cannot be loaded async with ie, it uses document.write)
-    use_javascript('/static/js/ie9mapfix.js', 'maps');
-    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
-    use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');
-    //use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'maps');
-    
-    use_javascript('/static/js/mapfish/build/c2corgApi.js', 'maps');
-    use_javascript('/static/js/popup.js', 'maps');
-    use_javascript('/static/js/docmap.js', 'maps');
+    use_stylesheet('/static/js/carto/build/xapi.css', 'custom');
+    use_javascript('/static/js/carto/build/xapi.js', 'maps');
+    use_javascript('/static/js/carto/build/lang-fr.js', 'maps');
+    use_javascript('/static/js/carto/docmap.js', 'maps');
 }
 
 _loadJsMapTools();
