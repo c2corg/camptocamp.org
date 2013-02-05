@@ -16,8 +16,9 @@ echo ajax_feedback();
 <?php 
 $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
 echo global_form_errors_tag();
-echo form_tag('outings/wizard');
-echo input_hidden_tag('summit_id', '0');
+// we put intentionally this input here outside the form element, because many users type
+// enter key before the server returned possible values, which would have validated the form and
+// thrown an error (invalid summit name)
 echo __('Summit:');
 echo input_auto_complete_tag('summits_name', 
                             '', // default value in text field 
@@ -41,6 +42,9 @@ echo input_auto_complete_tag('summits_name',
                                                             ";}",
                                   'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                   'indicator' => 'indicator'));
+
+echo form_tag('outings/wizard');
+echo input_hidden_tag('summit_id', '0');
 ?>
 <p id="summit_link" style="display: none">
 <a href="#" onclick="window.open('/summits/' + $('summit_id').value);"><?php echo __('Show the summit') ?></a>
@@ -68,8 +72,8 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <hr />
 <h4><?php echo __('Step 2: choose a route')  ?></h4>
 <p> <!-- For some unknown reason, ie7&8 don't like spans here, they want divs... Else, AjaxUpdater get stuck for apparently no reason -->
-<!--[if IE]> <![if !IE]> <![endif]--><span id="divRoutes" name="divRoutes"></span><!--[if IE]> <![endif]> <![endif]-->
-<!--[if IE]><div id="divRoutes" name="divRoutes"></div><![endif]-->
+<!--[if IE]> <![if !IE]> <![endif]--><span id="divRoutes"></span><!--[if IE]> <![endif]> <![endif]-->
+<!--[if IE]><div id="divRoutes"></div><![endif]-->
 </p>
 
 <p id="wizard_routes_descr" style="display: none">
