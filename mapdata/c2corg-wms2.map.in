@@ -21,7 +21,8 @@ WEB
 END
 
 PROJECTION
-  "init=epsg:4326"   ##required
+  #"init=epsg:4326"   ##required
+  "init=epsg:900913"   ##required
 END
 
 #
@@ -139,6 +140,42 @@ LAYER
     NAME "hut" 
     STYLE
       SYMBOL ../web/static/images/modules/huts_mini.png
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME access  ## all access including public transportations
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
+  METADATA
+    "wms_title"    "access"   ##required
+    "gml_include_items" "all"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "point"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom FROM parkings USING UNIQUE id USING SRID=900913"
+  FILTER ("redirects_to" IS NULL)
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  OPACITY ALPHA
+  
+  # public_transportation accesses are handled by a dedicated layer
+  
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    STYLE
+      SYMBOL ../web/static/images/modules/parkings_mini.png
       COLOR 0 0 0
     END
   END

@@ -23,9 +23,9 @@ Ext.onReady(function() {
     var wmsURL = "/cgi-bin/c2corg_wms";
 
     // Themes definitions
-    var THEMES = {
+    /*var THEMES = {
         "local": [{"icon": "/static/js/carto/images/blank.gif", "children": [{"isExpanded": false, "isInternalWMS": true, "name": "Topoguide", "isBaseLayer": false, "children": [{"name": "summits", "queryable": 1, "legend": true, "isChecked": true, "childLayers": [], "id": 2, "type": "internal WMS", "public": true, "imageType": null, "icon": "http://s.camptocamp.org/static/images/modules/summits_mini.png"}, {"name": "huts", "queryable": 1, "legend": true, "isChecked": true, "childLayers": [], "id": 3, "type": "internal WMS", "public": true, "imageType": null, "icon": "http://s.camptocamp.org/static/images/modules/huts_mini.png"}]}], "display": true, "name": "c2corg"}]
-    };
+    };*/
 
     // Server errors (if any)
     var serverError = [];
@@ -67,17 +67,6 @@ Ext.onReady(function() {
                 ]
             },
             {
-                id: "featuregrid-container",
-                xtype: "panel",
-                layout: "fit",
-                region: "south",
-                height: 160,
-                split: true,
-                collapseMode: "mini",
-                hidden: true,
-                bodyStyle: 'background-color: transparent;'
-            },
-            {
                 layout: "accordion",
                 id: "left-panel",
                 region: "west",
@@ -102,26 +91,17 @@ Ext.onReady(function() {
         // configuration of all tool plugins for this application
         tools: [
         {
-            ptype: "cgxp_layertree",
+            ptype: "c2corg_layertree",
             id: "layertree",
             outputConfig: {
                 header: false,
                 flex: 1,
                 layout: "fit",
-                autoScroll: true,
-                themes: THEMES,
-                defaultThemes: ["c2corg"],
-                wmsURL: wmsURL
+                autoScroll: true
             },
+            url: wmsURL,
+            initialThemes: ['access'],
             outputTarget: "layerpanel"
-        },
-        {
-            ptype: "cgxp_featuregrid",
-            id: "featureGrid",
-            csvURL: "http://c2cpc59.camptocamp.com/c2corg/wsgi/csv",
-            maxFeatures: 200,
-            outputTarget: "featuregrid-container",
-            events: EVENTS
         },
         {
             ptype: "cgxp_mapopacityslider",
@@ -154,34 +134,9 @@ Ext.onReady(function() {
             toggleGroup: "maptools"
         },
         {
-            ptype: "cgxp_getfeature",
-            actionTarget: "center.tbar",
-            toggleGroup: "maptools",
-            events: EVENTS,
-            themes: THEMES,
-            mapserverURL: wmsURL,
-            WFSTypes: ["summits", "huts"]
-        },
-        {
-            ptype: "cgxp_contextualdata",
-            actionTarget: "center.tbar",
-            toggleGroup: "maptools"
-        },
-        {
             ptype: "cgxp_menushortcut",
             actionTarget: "center.tbar",
             type: '->'
-        },
-        {
-            ptype: "cgxp_redlining",
-            toggleGroup: "maptools",
-            actionTarget: "center.tbar",
-            layerManagerUrl: "http://c2cpc59.camptocamp.com/c2corg/wsgi/proj/lib/cgxp/sandbox/LayerManager/ux/"
-        },
-        {
-            ptype: "cgxp_menushortcut",
-            actionTarget: "center.tbar",
-            type: '-'
         },
         {
             ptype: "cgxp_geonames",
@@ -191,26 +146,6 @@ Ext.onReady(function() {
             ptype: "cgxp_help",
             url: "http://www.camptocamp.org/articles/252637/fr/aide-topoguide-cartographie-tutoriel-d-utilisation-de-l-outil-cartographique-avec-captures-d-ecran",
             actionTarget: "center.tbar"
-        },
-        {
-            ptype: "cgxp_scalechooser",
-            actionTarget: "center.bbar"
-        },
-        {
-            ptype: "cgxp_addkmlfile",
-            actionTarget: "center.bbar"
-        },{
-            ptype: "cgxp_menushortcut",
-            actionTarget: "center.bbar",
-            type: '->'
-        },{
-            ptype: "cgxp_mousecoordinates",
-            actionTarget: "center.bbar",
-            controlConfig: {
-                 displayProjection: "EPSG:4326",
-                 numDigits: 6,
-                 prefix: "Longitude / latitude : "
-            }
         }],
 
         // layer sources
@@ -242,7 +177,6 @@ Ext.onReady(function() {
                 new OpenLayers.Control.PanZoomBar({panIcons: false}),
                 new OpenLayers.Control.ArgParser(),
                 new OpenLayers.Control.Attribution(),
-                new OpenLayers.Control.LayerSwitcher(),
                 new OpenLayers.Control.ScaleLine({
                     geodesic: true,
                     bottomInUnits: false,
@@ -303,17 +237,6 @@ Ext.onReady(function() {
                     ref: 'ign_ortho',
                     group : 'background'
                 }, IGN_OPTIONS)]
-            },{
-                source: "olsource",
-                type: "OpenLayers.Layer.WMS",
-                args: ["sommets", wmsURL, {
-                    layers: 'summits',
-                    transparent: true,
-                    format: 'image/png'
-                },{
-                    transitionEffect: 'resize',
-                    singleTile: true
-                }]
             }],
             items: []
         }
