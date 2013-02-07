@@ -65,26 +65,6 @@ Ext.onReady(function() {
                 items: [
                     "app-map"
                 ]
-            },
-            {
-                layout: "accordion",
-                id: "left-panel",
-                region: "west",
-                width: 300,
-                minWidth: 300,
-                split: true,
-                collapseMode: "mini",
-                border: false,
-                defaults: {width: 300},
-                items: [{
-                    xtype: "panel",
-                    title: OpenLayers.i18n("layertree"),
-                    id: 'layerpanel',
-                    layout: "vbox",
-                    layoutConfig: {
-                        align: "stretch"
-                    }
-                }]
             }]
         },
 
@@ -94,14 +74,15 @@ Ext.onReady(function() {
             ptype: "c2corg_layertree",
             id: "layertree",
             outputConfig: {
-                header: false,
-                flex: 1,
-                layout: "fit",
-                autoScroll: true
+                closable: false,
+                title: "Objets Camptocamp",
+                collapsible: true,
+                header: true,
+                width: 250
             },
             url: wmsURL,
-            initialThemes: ['access'],
-            outputTarget: "layerpanel"
+            //initialThemes: ['access'],
+            outputTarget: null
         },
         {
             ptype: "cgxp_mapopacityslider",
@@ -183,17 +164,18 @@ Ext.onReady(function() {
                     bottomOutUnits: false
                 }),
                 new OpenLayers.Control.OverviewMap({
-                    size: new OpenLayers.Size(200, 100),
+                    size: new OpenLayers.Size(180, 120),
                     mapOptions: {
                         theme: null
                     },
-                    minRatio: 64,
-                    maxRatio: 64,
+                    minRatio: 16,
+                    maxRatio: 32,
                     layers: [new OpenLayers.Layer.OSM("OSM", [
                             'http://a.tile.openstreetmap.org/${z}/${x}/${y}.png',
                             'http://b.tile.openstreetmap.org/${z}/${x}/${y}.png',
                             'http://c.tile.openstreetmap.org/${z}/${x}/${y}.png'
                         ], {
+                            buffer: 0,
                             transitionEffect: 'resize'
                         }
                     )]

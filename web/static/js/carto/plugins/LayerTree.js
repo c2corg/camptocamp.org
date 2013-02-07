@@ -25,6 +25,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
         }, config || {});
 
         this.tree = cgxp.plugins.LayerTree.superclass.addOutput.call(this, config);
+        //this.tree.findParentByType('window').alignTo(this.target.mapPanel, "tr-tr", [-10, 10]);
         return this.tree;
     }
 });
