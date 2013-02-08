@@ -80,9 +80,8 @@ Ext.onReady(function() {
                 header: true,
                 width: 250
             },
-            url: wmsURL,
-            //initialThemes: ['access'],
-            outputTarget: null
+            initialThemes: ['summits'],
+            url: wmsURL
         },
         {
             ptype: "cgxp_mapopacityslider",

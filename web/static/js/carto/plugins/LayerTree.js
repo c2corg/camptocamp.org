@@ -25,13 +25,14 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
         }, config || {});
 
         this.tree = cgxp.plugins.LayerTree.superclass.addOutput.call(this, config);
-        //this.tree.findParentByType('window').alignTo(this.target.mapPanel, "tr-tr", [-10, 10]);
+        this.tree.findParentByType('window').alignTo(this.target.mapPanel.getEl(), "tr-tr", [-20, 45]);
         return this.tree;
     }
 });
 
 Ext.preg(c2corg.plugins.LayerTree.prototype.ptype, c2corg.plugins.LayerTree);
 
+// FIXME: remove hard-coded base URL for static images
 
 Ext.namespace("c2corg.tree");
 
@@ -43,35 +44,35 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
     useArrows: true,
 
     mapPanel: null,
+    initialState: null,
     initialThemes: null,
-    url: null,
-
+    
     stateEvents: ["layervisibilitychange"],
     stateId: 'tree',
 
+    url: null,
+    layers: {},
+
     initComponent: function() {
-        
-        var layerNodeUI = Ext.extend(GeoExt.tree.LayerNodeUI, new GeoExt.tree.TreeNodeUIEventMixin());
-        this.loader = new Ext.tree.TreeLoader({
-                          uiProviders: {
-                              layer: layerNodeUI,
-                          }
-                      });
+        this.addLayers();
         this.root = {
             children: this.getThemes()
         };
         c2corg.tree.LayerTree.superclass.initComponent.call(this, arguments);
+
+        this.addEvents(
+            /** private: event[layervisibilitychange]
+             *  Fires after a checkbox state changes
+             */
+            "layervisibilitychange"
+        );
+        this.on('checkchange', function(node, checked) {
+            this.fireEvent("layervisibilitychange");
+        }, this);
     },
 
-    getLayerStore: function() {
-        if (this.layerStore) {
-            return this.layerStore;
-        }
+    addLayers: function() {
 
-        var WFS_STRATEGY = new OpenLayers.Strategy.BBOX({
-            resFactor: 1,
-            ratio: 1
-        }); 
         var WFS_PROTOCOL_OPTIONS = { 
             url: this.url,
             maxFeatures: 200,
@@ -128,47 +129,45 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             }, {context: context})
         });
 
-        this.summits = new OpenLayers.Layer.Vector("summits", {
-                    strategies: [WFS_STRATEGY],
-                    protocol: new OpenLayers.Protocol.WFS(Ext.apply({
-                        featureType: 'summits'
-                    }, WFS_PROTOCOL_OPTIONS)),
-                    isBaseLayer: false,
-                    visibility: false,
-                    styleMap: styleMap
-                });
-        this.access = new OpenLayers.Layer.Vector("access", {
-                    strategies: [WFS_STRATEGY],
-                    protocol: new OpenLayers.Protocol.WFS(Ext.apply({
-                        featureType: 'access'
-                    }, WFS_PROTOCOL_OPTIONS)),
-                    isBaseLayer: false,
-                    visibility: false,
-                    styleMap: styleMap
-                });
-        this.huts = new OpenLayers.Layer.Vector("huts", {
-                    strategies: [WFS_STRATEGY],
-                    protocol: new OpenLayers.Protocol.WFS(Ext.apply({
-                        featureType: 'huts'
-                    }, WFS_PROTOCOL_OPTIONS)),
-                    isBaseLayer: false,
-                    visibility: false,
-                    styleMap: styleMap
-                });
-
-        this.layerStore = new GeoExt.data.LayerStore({
-            map: this.mapPanel.map,
-            layers: [ this.summits, this.access, this.huts ]
-        });
-        return this.layerStore;
+        this.layers = {
+            "summits": new OpenLayers.Layer.Vector("summits", {
+                strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1, ratio: 1})],
+                protocol: new OpenLayers.Protocol.WFS(Ext.apply({
+                    featureType: 'summits'
+                }, WFS_PROTOCOL_OPTIONS)),
+                isBaseLayer: false,
+                visibility: false,
+                styleMap: styleMap
+            }),
+            "access":new OpenLayers.Layer.Vector("access", {
+                strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1, ratio: 1})],
+                protocol: new OpenLayers.Protocol.WFS(Ext.apply({
+                    featureType: 'access'
+                }, WFS_PROTOCOL_OPTIONS)),
+                isBaseLayer: false,
+                visibility: false,
+                styleMap: styleMap
+            }),
+            "huts": new OpenLayers.Layer.Vector("huts", {
+                strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1, ratio: 1})],
+                protocol: new OpenLayers.Protocol.WFS(Ext.apply({
+                    featureType: 'huts'
+                }, WFS_PROTOCOL_OPTIONS)),
+                isBaseLayer: false,
+                visibility: false,
+                styleMap: styleMap
+            })
+        };
+        for (var i in this.layers) {
+            this.mapPanel.map.addLayer(this.layers[i]);
+        }
     },
 
     getThemes: function() {
         return [{
             text: "Sommets",
             nodeType: "gx_layer",
-            layerStore: this.getLayerStore(),
-            layer: "summits",
+            layer: this.layers["summits"],
             icon: "http://s.camptocamp.org/static/images/modules/summits_mini.png",
             expanded: false,
             children: [{
@@ -187,22 +186,55 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
         }, {
             text: "Accès",
             nodeType: "gx_layer",
-            layerStore: this.getLayerStore(),
-            layer: "access",
+            layer: this.layers["access"],
             icon: "http://s.camptocamp.org/static/images/modules/parkings_mini.png",
             leaf: true
         }, {
             text: "Refuges",
             nodeType: "gx_layer",
-            layerStore: this.getLayerStore(),
-            layer: "huts",
+            layer: this.layers["huts"],
             icon: "http://s.camptocamp.org/static/images/modules/huts_mini.png",
-            leaf: true
+            expanded: false,
+            children: [{
+                text: 'camp',
+                leaf: true
+            }, {
+                text: 'bivouac',
+                leaf: true
+            }]
         }];
     },
     
+    /** api: method[applyState]
+     *  :arg state: ``Object``
+     */
+    applyState: function(state) {
+        // actual state is loaded later in delayedApplyState to prevent
+        // the layer from being displayed under the baselayers
+        this.initialState = state;
+    },   
+
+    /** private: method[delayedApplyState]
+     */
     delayedApplyState: function() {
-      // TODO
+        if (this.initialState && this.initialState.layers) {
+            this.initialThemes = Ext.isArray(this.initialState.layers)
+                                 ? this.initialState.layers
+                                 : [this.initialState.layers];
+        }
+    },
+
+    getState: function() {
+        var layers = [], state = {};
+        for (var i in this.layers) {
+            if (this.layers[i].getVisibility()) {
+                layers.push(i);
+            }
+        }
+        if (layers) {
+            state['layers'] = layers.join(",");
+        }
+        return state;
     },
 
     loadInitialThemes: function() {
@@ -215,9 +247,8 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
         }
     },
 
-    // TODO: move in a dedicated plugin?
     makeThemesInteractive: function() {
-        var layers = [this.summits, this.access, this.huts];
+        var layers = [this.layers["summits"], this.layers["access"], this.layers["huts"]];
         var selectControl = new OpenLayers.Control.SelectFeature(
             layers, {
                 multiple: false,
@@ -241,7 +272,6 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             });
         this.mapPanel.map.addControl(selectControl);
         selectControl.activate();
-
     }
 });
 
