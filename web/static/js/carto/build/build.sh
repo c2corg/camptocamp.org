@@ -3,7 +3,7 @@
 # See http://github.com/whitmo/jstools
 
 # build without removing comments and spaces:
-#jsbuild -u app.cfg
+jsbuild -u app.cfg
 
 # build and minify
-jsbuild app.cfg
+#jsbuild app.cfg
