@@ -1,3 +1,12 @@
+/*
+ * @requires OpenLayers/Request.js
+ * @include OpenLayers/Strategy/BBOX.js
+ * @include OpenLayers/Protocol/WFS/v1_0_0.js
+ * @include OpenLayers/Protocol/WFS.js
+ * @include OpenLayers/Control/SelectFeature.js
+ * @include GeoExt/widgets/tree/LayerNode.js
+ */
+
 Ext.namespace("c2corg.plugins");
 
 c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
@@ -5,7 +14,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
     ptype: "c2corg_layertree",
 
     init: function() {
-        cgxp.plugins.LayerTree.superclass.init.apply(this, arguments);
+        c2corg.plugins.LayerTree.superclass.init.apply(this, arguments);
         this.target.on('ready', this.viewerReady, this);
     },
 
@@ -24,7 +33,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
             initialThemes: this.initialThemes || []
         }, config || {});
 
-        this.tree = cgxp.plugins.LayerTree.superclass.addOutput.call(this, config);
+        this.tree = c2corg.plugins.LayerTree.superclass.addOutput.call(this, config);
         this.tree.findParentByType('window').alignTo(this.target.mapPanel.getEl(), "tr-tr", [-20, 45]);
         return this.tree;
     }

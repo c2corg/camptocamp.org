@@ -817,7 +817,7 @@ function buildMapJsFiles() {
         return;
     }
 
-    chdir('web/static/js/mapfish/build');
+    chdir('web/static/js/carto/build');
     info('Building mapping JS files (may take some time)...');
     execWrapper('./build.sh');
     info('Mapping JS files built.');

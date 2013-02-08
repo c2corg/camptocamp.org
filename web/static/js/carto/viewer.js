@@ -8,10 +8,10 @@ Ext.onReady(function() {
     OpenLayers.Number.thousandsSeparator = ' ';
     OpenLayers.IMAGE_RELOAD_ATTEMPTS = 5;
     OpenLayers.DOTS_PER_INCH = 72;
-    //OpenLayers.ProxyHost = "http://c2cpc59.camptocamp.com/c2corg/wsgi/ogcproxy?url=";
     OpenLayers.ImgPath = "/static/js/carto/cgxp/core/src/theme/img/ol/";
+    
+    // TODO: lang
     OpenLayers.Lang.setCode("fr");
-
     // GeoExt global settings
     GeoExt.Lang.set("fr");
 
@@ -19,13 +19,7 @@ Ext.onReady(function() {
     var INITIAL_EXTENT = [376681.67533691, 5282104.4018836, 1504280.7164429, 6107624.3072486];
     var RESTRICTED_EXTENT = [-20037508.34, -20037508.34, 20037508.34, 20037508.34];
 
-    //var wmsURL = "http://test-alex.dev.camptocamp.org/cgi-bin/c2corg_wms";
-    var wmsURL = "/cgi-bin/c2corg_wms";
-
-    // Themes definitions
-    /*var THEMES = {
-        "local": [{"icon": "/static/js/carto/images/blank.gif", "children": [{"isExpanded": false, "isInternalWMS": true, "name": "Topoguide", "isBaseLayer": false, "children": [{"name": "summits", "queryable": 1, "legend": true, "isChecked": true, "childLayers": [], "id": 2, "type": "internal WMS", "public": true, "imageType": null, "icon": "http://s.camptocamp.org/static/images/modules/summits_mini.png"}, {"name": "huts", "queryable": 1, "legend": true, "isChecked": true, "childLayers": [], "id": 3, "type": "internal WMS", "public": true, "imageType": null, "icon": "http://s.camptocamp.org/static/images/modules/huts_mini.png"}]}], "display": true, "name": "c2corg"}]
-    };*/
+    var mapserverUrl = "/cgi-bin/c2corg_wms";
 
     // Server errors (if any)
     var serverError = [];
@@ -81,7 +75,7 @@ Ext.onReady(function() {
                 width: 250
             },
             initialThemes: ['summits'],
-            url: wmsURL
+            url: mapserverUrl
         },
         {
             ptype: "cgxp_mapopacityslider",
