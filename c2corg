@@ -693,29 +693,15 @@ function updateRevisionInfo() {
                   'web/forums/style' => 'css',
                   'web/forums/style/imports' => 'css',
                   'web/static/js/dyncat' => 'js',
-                  /* mapfish css */
+                  /* mapfish css FIXME */
                   'web/static/js/mapfish/mfbase/ext/resources/css' => 'css',
                   'web/static/js/mapfish/mfbase/geoext/resources/css' => 'css',
                   'web/static/js/mapfish/mfbase/openlayers/theme/default' => 'css',
                   'web/static/js/mapfish/MapFishApi/css' => 'css',
                   'web/static/js/mapfish/c2corgApi/css' => 'css',
-                  /* mapfish js */
-                  'web/static/js/mapfish/mfbase/ext/adapter/ext' => 'js',
-                  'web/static/js/mapfish/mfbase/ext' => 'js',
-                  'web/static/js/mapfish/build' => 'js',
-                  'web/static/js/mapfish/c2corgApi/js' => 'js',
-                  'web/static/js/mapfish/mfbase/openlayers/lib' => 'js',
-                  'web/static/js/mapfish/mfbase/geoext/lib' => 'js',
-                  'web/static/js/mapfish/mfbase/mapfish' => 'js',
-                  'web/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang' => 'js',
-                  'web/static/js/mapfish/mfbase/ext/source/locale' => 'js',
-                  'web/static/js/mapfish/mfbase/mapfish/lang' => 'js',
-                  'web/static/js/mapfish/geoportal' => 'js',
-                  'web/static/js/mapfish/MapFishApi/js' => 'js',
-                  'web/static/js/mapfish/c2corgApi/js' => 'js',
+                  /* carto js */
                   'web/static/js/carto' => 'js',
-                  'web/static/js/carto/build' => 'js',
-                  'web/static/js/mapfish/app' => 'js');
+                  'web/static/js/carto/build' => 'js');
 
     fwrite($handle, "\n  # auto generated\n");
     fwrite($handle, "  versions:\n");

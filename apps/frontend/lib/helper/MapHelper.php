@@ -87,29 +87,31 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     
     $html .= '<section class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
     $html .= '<div id="map" style="height:' . $height . 'px;width:100%">';
-    $html .= '<div id="mapLoading">'.image_tag($app_static_url . '/static/images/indicator.gif');
-    $html .= __('Map is loading...') . '</div>';
+    //$html .= '<div id="mapLoading">'.image_tag($app_static_url . '/static/images/indicator.gif');
+    //$html .= __('Map is loading...') . '</div>';
     $html .= '</div>';
-    $html .= '<div id="scale"></div>';
     $html .= '<div id="fake_clear"></div>';
     $html .= '</div></section>';
 
     // new CGXP code
     $html .= javascript_tag("
-        var map = new c2corg.Map({
-          div: 'map',
-          addLayerSwitcher: true,
-          layers: ['summits']
-        });
+    window.onload = function() {
+            var map = new c2corg.Map({
+                div: 'map',
+                addLayerSwitcher: true,
+                layers: ['summits']
+            });
+    };
     ");
 
+/*
+// TODO: asynchronous map loading
     if (sfConfig::get('app_async_map', true))
     {
         use_helper('MyMinify');
         // FIXME if using ie for async load, set $debug to true, because minifying the js currently breaks ie
         $c2c_script_url = minify_get_combined_files_url(array('/static/js/carto/build/xapi.js',
                                                               '/static/js/carto/build/lang-fr.js',
-                                                              //'/static/js/popup.js',
                                                               '/static/js/carto/docmap.js'),
                                                         (bool)sfConfig::get('app_minify_debug'));
 
@@ -119,6 +121,7 @@ if (!Prototype.Browser.IE) { var c2corgloadMapAsync = true; }
 function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0]; a.async = 1; a.src = jsurl; h.appendChild(a); }
 function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); }}');
     }
+*/
 
     return $html;
 }
@@ -142,7 +145,7 @@ function _loadJsMapTools()
     use_stylesheet('/static/js/carto/build/xapi.css', 'custom');
     use_javascript('/static/js/carto/build/xapi.js', 'maps');
     use_javascript('/static/js/carto/build/lang-fr.js', 'maps');
-    use_javascript('/static/js/carto/docmap.js', 'maps');
+    use_javascript('/static/js/carto/xapi.js', 'maps');
 }
 
 _loadJsMapTools();
