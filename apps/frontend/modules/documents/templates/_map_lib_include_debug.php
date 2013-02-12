@@ -241,3 +241,5 @@ use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Control/ArgParse
 
 // Project-specific plugins
 use_javascript('/static/js/carto/plugins/LayerTree.js', 'maps');
+use_javascript('/static/js/carto/plugins/ShowFeatures.js', 'maps');
+use_javascript('/static/js/carto/plugins/GeoRef.js', 'maps');

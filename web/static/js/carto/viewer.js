@@ -24,7 +24,6 @@ Ext.onReady(function() {
 
         tools: [{
             ptype: "c2corg_layertree",
-            id: "layertree",
             outputConfig: {
                 closable: false,
                 title: OpenLayers.i18n("Camptocamp Objects"),

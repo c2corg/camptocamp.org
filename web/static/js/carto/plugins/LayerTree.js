@@ -1,5 +1,7 @@
 /*
+ * @requires plugins/Tool.js
  * @requires OpenLayers/Request.js
+ * @include OpenLayers/Layer/Vector.js
  * @include OpenLayers/Strategy/BBOX.js
  * @include OpenLayers/Protocol/WFS/v1_0_0.js
  * @include OpenLayers/Protocol/WFS.js
@@ -148,7 +150,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 visibility: false,
                 styleMap: styleMap
             }),
-            "access":new OpenLayers.Layer.Vector("access", {
+            "access": new OpenLayers.Layer.Vector("access", {
                 strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1, ratio: 1})],
                 protocol: new OpenLayers.Protocol.WFS(Ext.apply({
                     featureType: 'access'
@@ -270,7 +272,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                         location: feature
                     });
                     popup.show();
-                    var popupUrl = feature.data.module + '/popup/' + feature.data.id + '/raw/true';
+                    var popupUrl = '/' + feature.data.module + '/popup/' + feature.data.id + '/raw/true';
                     popup.load({
                         url: popupUrl,
                         timeout: 60,
