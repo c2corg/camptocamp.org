@@ -80,30 +80,24 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
         $init_center = '[' . $init_center . ']';
     }
     
-    $html = javascript_tag("var objectsToShow = " . _makeFeatureCollection($objects_list) . ",
-    layersList = $layers_list,
-    initCenter = $init_center;");
-    
-    $html .= '<section class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
+    $html  = '<section class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
     $html .= '<div id="map" style="height:' . $height . 'px;width:auto">';
     $html .= '<div id="mapLoading" style="position:absolute">'.image_tag($app_static_url . '/static/images/indicator.gif');
     $html .= __('Map is loading...') . '</div>';
     $html .= '</div>';
-    $html .= '<div id="fake_clear"></div>';
     $html .= '</div></section>';
 
-    // new CGXP code
     $html .= javascript_tag("
-        window.onload = function() {
+        Event.observe(window, 'load', function() {
             c2corg.Map({
                 div: 'map',
                 lang: '$lang',
                 loading: 'mapLoading',
-                layers: layersList,
-                center: initCenter,
-                features: objectsToShow
+                layers: $layers_list,
+                center: $init_center,
+                features: " . _makeFeatureCollection($objects_list) . "
             });
-        };
+        });
     ");
 
 /*
@@ -150,13 +144,6 @@ function _addAssociatedDocsWithGeom($docs, &$objects_list)
     }
 }
 
-// TODO: move in more generic code?
-function _isDebug()
-{
-    $request = sfContext::getInstance()->getRequest();
-    return $request->getParameter('debug', false);
-}
-
 function _loadJsMapTools()
 {
     $debug = sfContext::getInstance()->getRequest()->getParameter('debug', false);
@@ -166,7 +153,7 @@ function _loadJsMapTools()
         use_stylesheet('/static/js/carto/build/app.css', 'custom');
         use_javascript('/static/js/carto/build/app.js', 'maps');
     }
-    use_javascript('/static/js/carto/build/lang-fr.js', 'maps');
+    use_javascript('/static/js/carto/build/lang-fr.js', 'maps'); // FIXME
     use_javascript('/static/js/carto/embedded.js', 'maps');
 }
 

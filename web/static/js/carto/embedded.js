@@ -11,6 +11,7 @@ c2corg.Map = function(config) {
         lang: "fr",
         layers: [],
         features: null,
+        georef: null,
         basemap: "google_terrain"
     });
 
@@ -56,19 +57,20 @@ c2corg.Map = function(config) {
         actionTarget: "map.tbar",
         toggleGroup: "maptools"
     },
-    /*{
-        ptype: "c2corg_georef",
-        actionTarget: "map.tbar",
-        toggleGroup: "maptools",
-        callback: function(lonlat) {
-            document.getElementById('lon').value = lonlat.lon;
-            document.getElementById('lat').value = lonlat.lat;
-        }
-    },*/
     {
         ptype: "c2corg_showfeatures",
         features: config.features
     }];
+
+    if (config.georef) {
+        tools.push({
+            ptype: "c2corg_georef",
+            actionTarget: "map.tbar",
+            toggleGroup: "maptools",
+            initialState: config.georef.initialState,
+            callback: config.georef.callback
+        });
+    }
     
     viewer = new gxp.Viewer({
         portalConfig: {
