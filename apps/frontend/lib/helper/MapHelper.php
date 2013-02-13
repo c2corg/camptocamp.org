@@ -95,7 +95,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     // new CGXP code
     $html .= javascript_tag("
         window.onload = function() {
-            var map = new c2corg.Map({
+            c2corg.Map({
                 div: 'map',
                 lang: '$lang',
                 loading: 'mapLoading',
@@ -162,8 +162,6 @@ function _loadJsMapTools()
     $debug = sfContext::getInstance()->getRequest()->getParameter('debug', false);
     if ($debug) {
         include_partial('documents/map_lib_include_debug');
-        use_javascript('/static/js/carto/config/config.js', 'maps');
-        use_javascript('/static/js/carto/config/base.js', 'maps');
     } else {
         use_stylesheet('/static/js/carto/build/app.css', 'custom');
         use_javascript('/static/js/carto/build/app.js', 'maps');

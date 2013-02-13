@@ -2,6 +2,7 @@
  * @requires plugins/Tool.js
  * @include OpenLayers/Layer/Vector.js
  * @include OpenLayers/Format/GeoJSON.js
+ * @include styles.js
  */
 
 Ext.namespace("c2corg.plugins");
@@ -40,17 +41,9 @@ c2corg.plugins.ShowFeatures = Ext.extend(gxp.plugins.Tool, {
     },
 
     createVectorLayer: function() {
-        var styleMap = new OpenLayers.StyleMap({
-            "default": new OpenLayers.Style({
-                strokeColor: "yellow",
-                strokeWidth: 2,
-                fillColor: "yellow",
-                fillOpacity: 0.1,
-                graphicWidth: 16,
-                graphicHeight: 16,
-                externalGraphic: "/static/images/modules/${module}_mini.png",
-                cursor: "pointer"
-            })
+        var styleMap = c2corg.styleMap({
+            points: { pointRadius: 10 },
+            lines: { strokeWidth: 3 }
         });
 
         this.layer = new OpenLayers.Layer.Vector("features", {

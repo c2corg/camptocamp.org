@@ -24,7 +24,7 @@ c2corg.Map = function(config) {
         ptype: "c2corg_layertree",
         outputConfig: {
             closable: false,
-            title: OpenLayers.i18n("Camptocamp Objects"),
+            title: OpenLayers.i18n("c2c data"),
             collapsible: true,
             header: true,
             width: 250

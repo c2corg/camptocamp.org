@@ -4,8 +4,6 @@ $lang = $sf_user->getCulture();
 
 if ($debug) {
     include_partial('documents/map_lib_include_debug');
-    use_javascript('/static/js/carto/config/config.js', 'maps');
-    use_javascript('/static/js/carto/config/base.js', 'maps');
 } else {
     use_stylesheet('/static/js/carto/build/app.css', 'last');
     use_javascript('/static/js/carto/build/app.js', 'maps');

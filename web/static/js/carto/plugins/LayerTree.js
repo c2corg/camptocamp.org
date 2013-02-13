@@ -7,6 +7,8 @@
  * @include OpenLayers/Protocol/WFS.js
  * @include OpenLayers/Control/SelectFeature.js
  * @include GeoExt/widgets/tree/LayerNode.js
+ * @include styles.js
+ * @include i18n.js
  */
 
 Ext.namespace("c2corg.plugins");
@@ -42,8 +44,6 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
 });
 
 Ext.preg(c2corg.plugins.LayerTree.prototype.ptype, c2corg.plugins.LayerTree);
-
-// FIXME: remove hard-coded base URL for static images
 
 Ext.namespace("c2corg.tree");
 
@@ -91,54 +91,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             srsName: "EPSG:900913"
         };
 
-        var context = {
-            getIcon: function(feature) {
-                if (feature.geometry instanceof OpenLayers.Geometry.Point) {
-                    var attr = feature.attributes;
-                    if (attr.module == "summits") {
-                        if (attr.summit_type == 1) {
-                            return "http://s.camptocamp.org/static/images/modules/summits_mini.png";
-                        }
-                        if (attr.summit_type == 2) {
-                            return "http://s.camptocamp.org/static/images/picto/pass.png";
-                        }
-                        if (attr.summit_type == 3) {
-                            return "http://s.camptocamp.org/static/images/picto/lake.png";
-                        }
-                        if (attr.summit_type == 4) {
-                            return "http://s.camptocamp.org/static/images/picto/crag.png";
-                        }
-                        return "http://s.camptocamp.org/static/images/modules/summits_mini.png";
-                    }
-                    if (attr.module == "parkings") {
-                        return "http://s.camptocamp.org/static/images/modules/parkings_mini.png";
-                    }
-                    if (attr.module == "huts") {
-                        return "http://s.camptocamp.org/static/images/modules/huts_mini.png";
-                    }
-                    return null;
-                }
-                return null;
-            }
-        };
-
-        // TODO: be able to pass styles in the plugin's config
-        var styleMap = new OpenLayers.StyleMap({
-            "default": new OpenLayers.Style({
-                externalGraphic: "${getIcon}", // TODO: directly use a ${picto} from WFS response
-                cursor: 'pointer',
-                graphicWidth: 16,
-                graphicHeight: 16,
-                //graphicYOffset: -8,
-                //graphicXOffset: -8
-            }, {context: context}),
-            "select": new OpenLayers.Style({
-                //externalGraphic: "${getIcon}",
-                //graphicWidth: 16,
-                //graphicHeight: 16,
-                //graphicYOffset: 0
-            }, {context: context})
-        });
+        var styleMap = c2corg.styleMap();
 
         this.layers = {
             "summits": new OpenLayers.Layer.Vector("summits", {
@@ -176,41 +129,41 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
     getThemes: function() {
         return [{
-            text: "Sommets",
+            text: c2corg.i18n("summits"),
             nodeType: "gx_layer",
             layer: this.layers["summits"],
-            icon: "http://s.camptocamp.org/static/images/modules/summits_mini.png",
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/summits_mini.png",
             expanded: false,
             children: [{
-                text: 'col',
-                icon: "http://s.camptocamp.org/static/images/picto/pass.png",
+                text: c2corg.i18n("pass"),
+                icon: c2corg.config.staticBaseUrl + "/static/images/picto/pass.png",
                 leaf: true
             },{
-                text: 'lac',
-                icon: "http://s.camptocamp.org/static/images/picto/lake.png",
+                text: c2corg.i18n("lake"),
+                icon: c2corg.config.staticBaseUrl + "/static/images/picto/lake.png",
                 leaf: true
             },{
-                text: 'vallon',
-                icon: "http://s.camptocamp.org/static/images/picto/crag.png",
+                text: c2corg.i18n("valley"),
+                icon: c2corg.config.staticBaseUrl + "/static/images/picto/crag.png",
                 leaf: true
             }]  
         }, {
-            text: "Accès",
+            text: c2corg.i18n("parkings"),
             nodeType: "gx_layer",
             layer: this.layers["access"],
-            icon: "http://s.camptocamp.org/static/images/modules/parkings_mini.png",
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/parkings_mini.png",
             leaf: true
         }, {
-            text: "Refuges",
+            text: c2corg.i18n("huts"),
             nodeType: "gx_layer",
             layer: this.layers["huts"],
-            icon: "http://s.camptocamp.org/static/images/modules/huts_mini.png",
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/huts_mini.png",
             expanded: false,
             children: [{
-                text: 'camp',
+                text: c2corg.i18n("gite"),
                 leaf: true
             }, {
-                text: 'bivouac',
+                text: c2corg.i18n("camping area"),
                 leaf: true
             }]
         }];
