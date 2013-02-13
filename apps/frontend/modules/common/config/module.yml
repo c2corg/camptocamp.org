@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ google, changerdapproche, camp_c, google, montania, google, google, cilao, camp_c, boutique_c2c, google, changerdapproche ]
+    values: [ diamir_ontour2013, changerdapproche, camp_c, diamir_ontour2013, montania, portail_glace, diamir_ontour2013, cilao, camp_c, boutique_c2c, diamir_ontour2013, changerdapproche ]
   banners:
     list:
       skalp:
@@ -94,7 +94,7 @@ all:
         image: diamir_on_tour2010.gif
         alt: "Diamir on tour"
       portail_glace:
-        id: 22
+        id: 66
         image: portail_glace.png
         alt: "Portail cascade de glace Camptocamp"
       baechli:
