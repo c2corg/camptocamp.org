@@ -152,7 +152,12 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             nodeType: "gx_layer",
             layer: this.layers["access"],
             icon: c2corg.config.staticBaseUrl + "/static/images/modules/parkings_mini.png",
-            leaf: true
+            expanded: false,
+            children: [{
+                text: c2corg.i18n("public_transportations"),
+                icon: c2corg.config.staticBaseUrl + "/static/images/picto/parking_green.png",
+                leaf: true
+            }]
         }, {
             text: c2corg.i18n("huts"),
             nodeType: "gx_layer",
@@ -161,9 +166,11 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             expanded: false,
             children: [{
                 text: c2corg.i18n("gite"),
+                icon: c2corg.config.staticBaseUrl + "/static/images/picto/gite.png",
                 leaf: true
             }, {
                 text: c2corg.i18n("camping area"),
+                icon: c2corg.config.staticBaseUrl + "/static/images/picto/camp.png",
                 leaf: true
             }]
         }];
