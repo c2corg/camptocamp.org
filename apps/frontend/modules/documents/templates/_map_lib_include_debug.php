@@ -13,7 +13,7 @@ use_stylesheet('/static/js/carto/cgxp/ext.ux/ColorPicker/ressources/colorpicker.
 use_stylesheet('/static/js/carto/cgxp/ext/Ext/examples/ux/css/Spinner.css', 'last');
 
 use_javascript('/static/js/carto/cgxp/ext/Ext/adapter/ext/ext-base.js', 'maps');
-use_javascript('/static/js/carto/cgxp/ext/Ext/ext-all.js', 'maps');
+use_javascript('/static/js/carto/cgxp/ext/Ext/ext-all-debug.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/SingleFile.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Console.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/BaseTypes.js', 'maps');
