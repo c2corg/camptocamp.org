@@ -129,7 +129,7 @@ MINIFY_DEBUG =  false
 ; Whether this version is the official camptocamp
 PRODUCTION = false
 
-MW_CONTEST_ID = 330348
-MW_CONTEST_ENABLED = false
+MW_CONTEST_ID = 407724
+MW_CONTEST_ENABLED = true
 
 STATISTICS_URL = stats.camptocamp.org
