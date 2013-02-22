@@ -2165,7 +2165,6 @@ msgstr "Lista de salidas realizadas con ecomobilidad"
 msgid "Static map"
 msgstr "Mapa"
 
-# [WARNING] needs_review
 msgid "Statistics"
 msgstr "Estadística"
 
@@ -3673,6 +3672,9 @@ msgstr "Aquitania"
 msgid "aragon"
 msgstr "Aragón"
 
+msgid "aran ML title"
+msgstr "Valle de Arán (catalán y castellano)"
+
 msgid "area"
 msgstr "región"
 
@@ -4009,6 +4011,9 @@ msgstr "catalán"
 msgid "catalogne"
 msgstr "Cataluña"
 
+msgid "catalunya ML title"
+msgstr "Pirineos Catalanes (catalán)"
+
 msgid "categories"
 msgstr "Categorías:"
 
@@ -4073,7 +4078,7 @@ msgstr "Desnivel:"
 
 # [WARNING] needs_review
 msgid "cda_prepare_outing_box"
-msgstr "<p>Tiempo</p><ul><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espana)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Suiza)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li></ul> <p>Aludes</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin francés </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Boletin suizo</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Boletin italiano</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Transporte</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trenes en Europa)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (Francia)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suiza)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italia)</a></li></ul> <p>Otros</p><ul><li><a href=\"http://veloski.fr/\">bici+esquí (en francés)</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (en francés)</li></ul>"
+msgstr "<p>Tiempo</p><ul><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espana)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Suiza)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li></ul> <p>Aludes</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin francés </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/index_EN\">Boletin suizo</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Boletin italiano</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Transporte</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trenes en Europa)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (Francia)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suiza)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italia)</a></li></ul> <p>Otros</p><ul><li><a href=\"http://veloski.fr/\">bici+esquí (en francés)</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (en francés)</li></ul>"
 
 # [WARNING] en translation used
 msgid "cda_search_outings_tips"
@@ -4171,7 +4176,7 @@ msgid "collaborative content"
 msgstr "Contenido colaborativo"
 
 msgid "collaborative image"
-msgstr "imagen colaborativa"
+msgstr "imagen colaborativa (CC-by-sa)"
 
 msgid "collaborative images"
 msgstr "imagenes colaborativas"
@@ -5921,7 +5926,7 @@ msgid "personal content"
 msgstr "Contenido personal"
 
 msgid "personal image"
-msgstr "imagen personal"
+msgstr "imagen personal (CC-by-nc-nd)"
 
 # [WARNING] needs_review
 msgid "personal images"
@@ -6080,7 +6085,7 @@ msgstr "Prefered valleys"
 # 
 # Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
-msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (España)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo Francia</a></li><li><a href=\"http://www.meteosuisse.ch\">Météo Suiza</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/SAndes.html\">Meteo Exploration (Argentina & Chile)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/TrAndes.html\">Meteo Exploration (Andes tropicales)</a></li></ul> <p>Aludes</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Boletin AEMET para el Pirineo Navarro y Aragonés</a></li><li><a href=\" http://www.meteocat.com/mediamb_xemec/servmet/marcs/marc_muntanya.html\">Boletin Météo CAT para el Pirineo catalán</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin Météo France</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Suiza)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li><li><a href=\"http://clubandino.org/bn1/details.asp\">Boletines del CA Bariloche (Argentina)</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines FR & CH por email</a></li></ul> <p>Cartografía</p><ul><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (España)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Suiza)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italia)</a></li></ul> <p>Refugios</p><ul><li><a href=\"http://www.feec.org/Informacio%20Gral/Refugis/ref_mon.php\">Refugios FEEC (Cataluña)</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugios CAF (Francia)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Refugios CAS (Suiza)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugios CAI (Italia)</a></li></ul>"
+msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (España)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo Francia</a></li><li><a href=\"http://www.meteosuisse.ch\">Météo Suiza</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/SAndes.html\">Meteo Exploration (Argentina & Chile)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/TrAndes.html\">Meteo Exploration (Andes tropicales)</a></li></ul> <p>Aludes</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Boletin AEMET para el Pirineo Navarro y Aragonés</a></li><li><a href=\" http://www.meteocat.com/mediamb_xemec/servmet/marcs/marc_muntanya.html\">Boletin Météo CAT para el Pirineo catalán</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin Météo France</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF (Suiza)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li><li><a href=\"http://clubandino.org/bn1/details.asp\">Boletines del CA Bariloche (Argentina)</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines FR & CH por email</a></li></ul> <p>Cartografía</p><ul><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (España)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Suiza)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italia)</a></li></ul> <p>Refugios</p><ul><li><a href=\"http://www.feec.org/Informacio%20Gral/Refugis/ref_mon.php\">Refugios FEEC (Cataluña)</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugios CAF (Francia)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Refugios CAS (Suiza)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugios CAI (Italia)</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home

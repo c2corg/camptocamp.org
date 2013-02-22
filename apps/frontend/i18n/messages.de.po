@@ -256,9 +256,8 @@ msgstr "Diese Verbindung ist nicht erlaubt"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document
-# [WARNING] en translation used
 msgid "Associations history"
-msgstr "Associations history"
+msgstr "Chronik der Verbindungen"
 
 msgid "At least one file failed to upload"
 msgstr "mindestens eine Datei fehlt oder wurde nicht korrekt hochgeladen"
@@ -2589,9 +2588,8 @@ msgstr "Das Bild in Originalgrösse anzeigen"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
-# [WARNING] fr translation used
 msgid "View the associations history of the document"
-msgstr "Voir l'historique des associations et désassociations du document"
+msgstr "Die Chronik der erstellten und gelöschten Verbindungen zum Dokument anzeigen"
 
 msgid "View user profile"
 msgstr "Profil dieses Benutzers ansehen "
@@ -3782,9 +3780,9 @@ msgstr "Ostalpen"
 msgid "alpes_s"
 msgstr "Westalpen - S"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "alpinism big portal"
-msgstr "Alpinisme grandes courses"
+msgstr "Hochtouren"
 
 # [general comment]
 # 1ère option pour le critère suivant, dans le filtre d'itinéraires :
@@ -3840,6 +3838,9 @@ msgstr "Aquitanien"
 
 msgid "aragon"
 msgstr "Aragonien"
+
+msgid "aran ML title"
+msgstr "Val d'Aran (katalanisch und spanisch)"
 
 msgid "area"
 msgstr "Region"
@@ -3907,9 +3908,9 @@ msgstr "Autor(en):"
 msgid "author short"
 msgstr "Autor/in"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "autocomplete_help"
-msgstr "Type search term above and matching items will appear here."
+msgstr "Geben sie den Beginn des Suchbegriffs ein und die gefundenen Elemente werden angezeigt."
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4114,9 +4115,9 @@ msgstr "c2c-Objekte"
 # [general comment]
 # Option de la catégorie d'un article : rassemblements / G2G
 # La catégorie "rassemblements" s'applique aux articles utilisés pour la préparation et les comptes rendus des rassemblements entre membres de camptocamp, organisés sur camptocamp.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "c2c meetings"
-msgstr "c2c meetings"
+msgstr "c2c Treffen"
 
 msgid "c2c website"
 msgstr "c2c Website"
@@ -4177,6 +4178,9 @@ msgstr "katalanisch"
 
 msgid "catalogne"
 msgstr "Katalonien"
+
+msgid "catalunya ML title"
+msgstr "Katalanische Pyrenäen (katalanisch)"
 
 msgid "categories"
 msgstr "Kategorien:"
@@ -4258,7 +4262,7 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Wetter</a></p>\n"
 "Lawinenverhältnisse</a>\n"
 "</p>\n"
 "<ul>\n"
-"<li><a href=\"http://www.slf.ch/lawineninfo/index_DE\">SLF (Schweiz)</a></li>\n"
+"<li><a href=\"http://www.slf.ch/index_DE\">SLF (Schweiz)</a></li>\n"
 "<li><a\n"
 "href=\"http://www.alpenverein.at/portal/Wetter/Lawinenbericht.php\">Lawinenportal\n"
 "OEAV (Österreich)</a></li>\n"
@@ -4377,7 +4381,7 @@ msgid "collaborative content"
 msgstr "Gemeinschaftlicher Inhalt"
 
 msgid "collaborative image"
-msgstr "Gemeinschaftliches Bild"
+msgstr "Gemeinschaftliches Bild (CC-by-sa)"
 
 msgid "collaborative images"
 msgstr "Gemeinschaftliche Bilder"
@@ -4947,9 +4951,9 @@ msgstr "Sportgeschäft"
 msgid "geo_export_info"
 msgstr "<h3>Exportieren</h3>Die geografischen Koordinaten könne in den folgenden Formaten heruntergeladen werden:<br /><br /> <strong>GPX</strong>:<br /> Das Standarddatenformat für geographische Koordinaten auf XML-Basis. GPX wird inzwischen von den allermeisten GPS-Geräten unterstützt und falls nicht kann das Format einfach transformiert werden (mit Applikationen wie <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (on-line) or <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (Software)).<br /><br /> <strong>KML</strong>:<br /> Geodatenformat, welches vor allem von Google Earth, Google Maps und World Wind verwendet wird.<br /><br /><strong>JSON</strong>:<br /> Das JavaScript-Datenaustauschformat wird vor allen von Webapplikationen verwendet."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "geolocation denied"
-msgstr "You must share your location for this functionality to work"
+msgstr "Sie müssen ihre Position freigeben, um diese Funktion nutzen zu können."
 
 # [WARNING] needs_review
 msgid "geolocation failed"
@@ -4974,9 +4978,9 @@ msgstr "Herberge"
 msgid "glacier"
 msgstr "Gletscher"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "glacier config can't be selected with another config"
-msgstr "the \"glacier travel\" configuration can be selected only if any other configuration does not match"
+msgstr "Die Kategorie \"Hochtour - Gletscherroute\" kann nur ausgewählt werden, fall keine andere Kategorie zutrifft."
 
 msgid "glacier gear"
 msgstr "Gletscherausrüstung"
@@ -6052,9 +6056,9 @@ msgstr "Die Karte verschieben"
 msgid "paragliding"
 msgstr "Gleitschirmfliegen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "paragliding can not be selected alone"
-msgstr "when \"paragliding\" activity is selected, the activity corresponding to the rise must be selected"
+msgstr "Wenn die Aktivität \"Gleitschirmfliegen\" gewählt wird, muss auch die entsprechende Aktivität für den Aufstieg ausgewählt werden."
 
 msgid "parking"
 msgstr "Zugangsort"
@@ -6119,7 +6123,7 @@ msgid "personal content"
 msgstr "Persönlicher Inhalt"
 
 msgid "personal image"
-msgstr "persönliches Bild"
+msgstr "persönliches Bild (CC-by-nc-nd)"
 
 msgid "personal images"
 msgstr "eigene Bilder"
@@ -6278,7 +6282,7 @@ msgstr "Bevorzugte Täler"
 # - I removed the links to french departments BRAs, since it's not very usefull for german speaking people
 # [WARNING] needs_review
 msgid "prepare_outing_box"
-msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><a href=\"http://www.dwd.de/\">Deutscher Wetterdienst</a></li><li><a href=\"http://www.wetter.at/wetter/oesterreich/\">Wetter.at (Österreich)</li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul><p>Lawinenbulletins</p><ul><li><a href=\"http://www.slf.ch/lawineninfo/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.lawinenwarndienst-bayern.de/index.php\">Lawinenwarndienst Bayern</a></li><li><a href=\"http://www.lawinen.at/austria/\">Österreich</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://map.geo.admin.ch/?lang=de\">map.geo.admin.ch (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portalecartografico (Italien)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spanien)</a></li></ul><p>Mobilität</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa)</a></li><li><a href=\"http://fahrplan.oebb.at\">ÖBB (Österreich)</a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/routes/filter>Detaillierte Routensuche auf c2c</li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Aktuelle Verhältnisse auf c2c</a></li></ul>"
+msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><a href=\"http://www.dwd.de/\">Deutscher Wetterdienst</a></li><li><a href=\"http://www.wetter.at/wetter/oesterreich/\">Wetter.at (Österreich)</li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul><p>Lawinenbulletins</p><ul><li><a href=\"http://www.slf.ch/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.lawinenwarndienst-bayern.de/index.php\">Lawinenwarndienst Bayern</a></li><li><a href=\"http://www.lawinen.at/austria/\">Österreich</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://map.geo.admin.ch/?lang=de\">map.geo.admin.ch (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portalecartografico (Italien)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spanien)</a></li></ul><p>Mobilität</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa)</a></li><li><a href=\"http://fahrplan.oebb.at\">ÖBB (Österreich)</a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/routes/filter>Detaillierte Routensuche auf c2c</li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Aktuelle Verhältnisse auf c2c</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
@@ -6426,9 +6430,9 @@ msgstr "ziemlich besucht"
 msgid "raid"
 msgstr "Mehrtagesroute"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "raid portal"
-msgstr "Treks and expeditions"
+msgstr "Mehrtagestouren und Expeditionen"
 
 msgid "rain_proof"
 msgstr "Regen:"

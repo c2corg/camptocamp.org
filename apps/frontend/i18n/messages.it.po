@@ -2831,13 +2831,32 @@ msgstr "<h3>Accesso</h3>Descrizione dell'accesso a un punto di vendita di prodot
 msgid "_access_status_info"
 msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il giorno della gita: sgombera, innevata, o chiusa<br />Il campo <i>Commenti sull'accesso</i> permette di aggiungere una nota."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_accommodation_info"
-msgstr "<h3>Vitto e alloggio nelle vicinanze</h3>Informazioni sulle possibilità di vitto e alloggio nei dintorni del punto di partenza."
+msgstr "<h3>Vitto, alloggio nelle vicinanze e patrimonio culturale</h3>Informazioni sulle possibilità di vitto, alloggio e patrimonio culturale nei dintorni del punto di partenza."
 
-# [WARNING] needs_update
 msgid "_activities_info"
-msgstr "<h3>Attività</h3>Tipo di attività: passare il mouse sulle icone per leggere l'attività corrispondente.<br />Un documento può essere associato a una o più attività:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp; <strong>sci, snowboard</strong>: sci alpinismo o snowboard<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>ciaspole</strong>&nbsp;: escursionismo con le ciaspole<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinismo neve, ghiaccio, misto</strong>: alpinismo su neve, ghiaccio o misto (in alta montagna)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>roccia in alta montagna</strong>: alpinismo su roccia, lunghe vie in montagna (protette e non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate e non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>escursionismo</strong>: gite a piedi (e non in piano), su sentieri segnalati e non, oppure fuori dai sentieri<br /><br />La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio, nelle Alpi, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considera necessario conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
+msgstr "<h3>Attività</h3>\n"
+"Tipo di attività: passare il mouse sulle icone per leggere l'attività corrispondente.<br />\n"
+"Un documento può essere associato a una o più attività:<br />\n"
+"<br />\n"
+"<span class=\"picto activity_1\"></span> &nbsp;<strong>sci, snowboard</strong>: sci alpinismo o snowboard<br />\n"
+"<br />\n"
+"<span class=\"picto activity_7\"></span> &nbsp;<strong>ciaspole</strong>: escursionismo con le ciaspole<br />\n"
+"<br />\n"
+"<span class=\"picto activity_2\"></span> &nbsp;<strong>alpinismo neve, ghiaccio, misto</strong>: alpinismo su neve, ghiaccio o misto (in alta montagna)<br />\n"
+"<br />\n"
+"<span class=\"picto activity_3\"></span> &nbsp;<strong>roccia in alta montagna</strong>: alpinismo su roccia, lunghe vie in montagna (attrezzate o no)<br />\n"
+"<br />\n"
+"<span class=\"picto activity_4\"></span> &nbsp;<strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate o no)<br />\n"
+"<br />\n"
+"<span class=\"picto activity_5\"></span> &nbsp;<strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br />\n"
+"<br />\n"
+"<span class=\"picto activity_6\"></span> &nbsp;<strong>escursionismo</strong>:  gite a piedi in montagna, su sentieri segnalati e non, oppure fuori dai sentieri<br />\n"
+"<br />\n"
+"<span class=\"picto activity_8\"></span> &nbsp;<strong>parapendio</strong>: discesa in parapendio dopo una salita a piedi o a sci<br />\n"
+"<br />\n"
+"La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio in Europa, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considera necessario conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
 
 msgid "_aid_rating_info"
 msgstr "<h3>Valutazione della difficoltà in artificiale</h3>Valutazione delle difficoltà in arrampicata artificiale.<br />La valutazione artificiale corrisponde alla difficoltà massima della scalata artificiale su roccia, cioè la scalata che utilizza dei punti d'aiuto per la progressione su un determinato passaggio.<br />La scala va da A0 a A6.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/131454\">gradi di difficoltà in artificiale</a>."
@@ -2884,15 +2903,17 @@ msgstr "<h3>Test anti-spam</h3>Ricopiare i caratteri visibili sull'immagine. Il 
 
 # [general comment]
 # Aide contextuelle du champ : Catégories d'un article
-# [WARNING] needs_update
 msgid "_categories_info"
-msgstr "<h3>Categorie di un articolo</h3>Più categorie possono essere selezionate.<br /><br />\n"
+msgstr "<h3>Categorie di un articolo</h3>Più categorie possono essere selezionate.<br />\n"
+"<br />\n"
 "<strong>ambiente montanaro </strong>: informazioni generale sulla montagna (geologia, biotopo, neve e valanghe, ...)<br />\n"
 "<strong>materiale e tecnica</strong>: articolo sul materiale (descrizioni, uso...) o una tecnica (pratica, allenamento, )<br />\n"
 "<strong>complementi alla guida</strong>: articoli per dettagliare un parte di un documento della guida (ceni storici per un itinerario, una cima, un rifugio, geologia di un massiccio...)<br />\n"
 "<strong>ecomobilità e ecoturismo</strong>: articoli sull'ecomobilità e l'ecotourisma<br />\n"
 "<strong>spedizioni e viaggi</strong>: racconti o informazioni su una spedizione o un viaggio<br />\n"
 "<strong>racconti</strong>: racconti legati alla montagna<br />\n"
+"<strong>raduni / G2G</strong>: articoli per la preparazione e la relazione di un raduno camptocamp<br />\n"
+"<strong>tags</strong>: articoli usati per associare documenti usando un \"tag\" in modo di ritrovarli<br />\n"
 "<strong>aiuto, il sito c2c</strong>: articoli sul sito <em>camptocamp.org</em> (aiuto, informazioni)<br />\n"
 "<strong>associazione</strong>: articoli su <em>Camptocamp Association</em> che gestisce il sito\n"
 "<strong>bozza</strong>: articoli in corso di redazione (non vengono pubblicati sulla home)"
@@ -3664,6 +3685,9 @@ msgstr "Aquitania"
 msgid "aragon"
 msgstr "Aragona"
 
+msgid "aran ML title"
+msgstr "Val d'Aran (catalano e spagnolo)"
+
 msgid "area"
 msgstr "regione"
 
@@ -3728,9 +3752,9 @@ msgstr "Autore/i:"
 msgid "author short"
 msgstr "Autore"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "autocomplete_help"
-msgstr "Type search term above and matching items will appear here."
+msgstr "Digitare l'inizio del nome cercato e gli elementi corrispondenti comparirono."
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4003,6 +4027,9 @@ msgstr "catalano"
 msgid "catalogne"
 msgstr "Catalogna"
 
+msgid "catalunya ML title"
+msgstr "Pirenei Catalani (catalano)"
+
 msgid "categories"
 msgstr "Categorie:"
 
@@ -4064,7 +4091,7 @@ msgstr "Dislivello:"
 
 # [WARNING] en translation used
 msgid "cda_prepare_outing_box"
-msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spain)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">French avalanche bulletin </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Swiss avalanche bulletin</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Italian avalanche bulletin</a></li><li><a href=\"/users/mailinglists\">Receive the bulletins by email</a></li></ul> <p>Transport</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trains in Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (trains in France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (trains in Switzerland)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (trains in Italy)</a></li></ul> <p>Others</p><ul><li><a href=\"http://veloski.fr/\">ski-biking</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (in French)</li></ul>"
+msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spain)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">French avalanche bulletin </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/index_EN\">Swiss avalanche bulletin</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Italian avalanche bulletin</a></li><li><a href=\"/users/mailinglists\">Receive the bulletins by email</a></li></ul> <p>Transport</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trains in Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (trains in France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (trains in Switzerland)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (trains in Italy)</a></li></ul> <p>Others</p><ul><li><a href=\"http://veloski.fr/\">ski-biking</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (in French)</li></ul>"
 
 # [WARNING] needs_review
 msgid "cda_search_outings_tips"
@@ -4162,7 +4189,7 @@ msgid "collaborative content"
 msgstr "Contenuto collaborativo"
 
 msgid "collaborative image"
-msgstr "immagine collaborativa"
+msgstr "immagine collaborativa (CC-by-sa)"
 
 # [WARNING] needs_review
 msgid "collaborative images"
@@ -4729,9 +4756,8 @@ msgstr "negozio di sport"
 msgid "geo_export_info"
 msgstr "<h3>Esporta</h3>Le coordinate geografiche del documento possono essere caricate in uno dei formati proposti."
 
-# [WARNING] en translation used
 msgid "geolocation denied"
-msgstr "You must share your location for this functionality to work"
+msgstr "Devi autorizzare l'acceso alla tua posizione per usare questa funzionalità"
 
 msgid "geolocation failed"
 msgstr "E' impossibile determinare la posizione"
@@ -5170,7 +5196,6 @@ msgstr "lungo"
 msgid "longitude / latitude: "
 msgstr "Longitudine / latitudine:"
 
-# [WARNING] needs_update
 msgid "loop"
 msgstr "giro / discesa a piedi"
 
@@ -5877,7 +5902,7 @@ msgid "personal content"
 msgstr "Contenuto personale"
 
 msgid "personal image"
-msgstr "immagine personale"
+msgstr "immagine personale (CC-by-nc-nd)"
 
 # [WARNING] needs_review
 msgid "personal images"
@@ -6041,7 +6066,7 @@ msgid "prepare_outing_box"
 msgstr "<p><a href=\"/articles/107228/it/link-utili#meteo\">Meteo</a></p>\n"
 "<ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#bollettini-valanghe\">Valanghe</a></p>\n"
-"<ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul>\n"
+"<ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/index_IT\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#carto\">Cartografia</a></p>\n"
 "<ul><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico</a></li><li><a href=\"http://map.geo.admin.ch/?lang=it\">map.geo.admin.ch (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#rifugi\">Rifugi</a></p>\n"

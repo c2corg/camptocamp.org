@@ -2145,7 +2145,6 @@ msgstr "Llistat de sortides amb ecomobilitat"
 msgid "Static map"
 msgstr "Mapa"
 
-# [WARNING] needs_review
 msgid "Statistics"
 msgstr "Estadística"
 
@@ -3160,19 +3159,27 @@ msgstr "<h3>Dificultat en glaç</h3>\n"
 "Escala de dificultats en glaç.<br />L'escala de dificultat en glaç avalua la dificultat màxima de l'escalada en glaç.<br />\n"
 "L'escala va d'1 a 7+.<br />\n"
 "<br />\n"
-"- [b]Grau 3[/b]: Escalada poc inclinada (75º) amb nombrosos ressalts. El glaç és gruixut i compacte.\n"
-"- [b]Grau 3+ [/b]: Ídem que el grau 3 però amb un ressalt més dret (80º).\n"
-"- [b]Grau 4 [/b]: Escalada que presenta un pas pendent (85º) que pot arribar a 10m d'altura. El glaç és gruixut i compacte.\n"
-"- [b]Grau 4+[/b]: Com l'anterior, però el pas pendent pot ser quasi vertical i més llarg, de fins a 15m d'altura.\n"
-"- [b]Grau 5 [/b]: Escalada amb una secció vertical d'uns 20m. El glaç comença a separar-se i prendre formes particulars: coliflors o d'altres relleus. En cascada de glaç, es tracta en general de columnes.\n"
-"- [b]Grau 5+[/b]: Escalada amb una secció vertical d'uns 30m. L'escalada esdevé força tècnica.\n"
-"- [b]Grau 6[/b]: Escalada amb una secció vertical de 40 a 50m. L'escalada és tècnica. El glaç pot estar particularment separat.\n"
-"- [b]Grau 6+[/b]: Escalada totalment vertical que pot presentar petits desploms, per exemple per passar d'un ressalt a l'altre.\n"
-"- [b]Grau 7[/b]: Escalada extrema. Molt pendent, pot ser desplomada en diversos metres. La tècnica (gestual, sobretot) utilitzada per l'alpinista s'assembla a la de l'escalada en roca.\n"
+"<strong>Grau 3<strong>: Escalada poc inclinada (75º) amb nombrosos ressalts. El glaç és gruixut i compacte.<br />\n"
+"<br />\n"
+"<strong>Grau 3+<strong>: Ídem que el grau 3 però amb un ressalt més dret (80º).<br />\n"
+"<br />\n"
+"<strong>Grau 4<strong>: Escalada que presenta un pas pendent (85º) que pot arribar a 10m d'altura. El glaç és gruixut i compacte.<br />\n"
+"<br />\n"
+"<strong>Grau 4+<strong>: Com l'anterior, però el pas pendent pot ser quasi vertical i més llarg, de fins a 15m d'altura.<br />\n"
+"<br />\n"
+"<strong>Grau 5<strong>: Escalada amb una secció vertical d'uns 20m. El glaç comença a separar-se i prendre formes particulars: coliflors o d'altres relleus. En cascada de glaç, es tracta en general de columnes.<br />\n"
+"<br />\n"
+"<strong>Grau 5+<strong>: Escalada amb una secció vertical d'uns 30m. L'escalada esdevé força tècnica.<br />\n"
+"<br />\n"
+"<strong>Grau 6<strong>: Escalada amb una secció vertical de 40 a 50m. L'escalada és tècnica. El glaç pot estar particularment separat.<br />\n"
+"<br />\n"
+"<strong>Grau 6+<strong>: Escalada totalment vertical que pot presentar petits desploms, per exemple per passar d'un ressalt a l'altre.<br />\n"
+"<br />\n"
+"<strong>Grau 7<strong>: Escalada extrema. Molt pendent, pot ser desplomada en diversos metres. La tècnica (gestual, sobretot) utilitzada per l'alpinista s'assembla a la de l'escalada en roca.<br />\n"
 "<br />\n"
 "Vegeu també l'ajuda:<br />\n"
-"- <a href=\"/articles/106871/ca/ajuda-topo-guia-dificultats-en-neu-glac-i-mixt#dificultats-en-glac</a>\n"
-"- <a href=\"/articles/146949/fr#cotation-technique-glace\">Cotation technique glace en cascade</a><br />"
+"- <a href=\"/articles/106871/ca/ajuda-topo-guia-dificultats-en-neu-glac-i-mixt#dificultats-en-glac</a><br />\n"
+"- <a href=\"/articles/146949/fr#cotation-technique-glace\">Dificultat tècnica en cascades de glaç</a>"
 
 msgid "_image_categories_info"
 msgstr "<h3>Categories d'una imatge</h3>\n"
@@ -3778,6 +3785,9 @@ msgstr "Aquitània"
 msgid "aragon"
 msgstr "Aragó"
 
+msgid "aran ML title"
+msgstr "Vall d'Aran (català i castellà)"
+
 msgid "area"
 msgstr "regió"
 
@@ -4109,6 +4119,9 @@ msgstr "català"
 msgid "catalogne"
 msgstr "Catalunya"
 
+msgid "catalunya ML title"
+msgstr "Pirineus Catalans (català)"
+
 msgid "categories"
 msgstr "Categories:"
 
@@ -4173,7 +4186,7 @@ msgid "cda_prepare_outing_box"
 msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Previsions meteorològiques</a></p>\n"
 "<ul><li><a href=\"http://www.meteo.cat/servmet/index.html\">Méteo Catalunya</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">Méteo Espanya</a></li><li><a href=\"http://www.meteosuisse.ch\">Méteo Suïssa</a></li><li><a href=\"http://meteolive.leonardo.it\">Méteo Itàlia</a></li></ul>\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#bera\">Allaus</a></p>\n"
-"<ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Butlletí d'allaus (Catalunya)</a></li><li><a href=\"http://www.lauegi.conselharan.org/\">Conselh Generau (Aran)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Butlletí Méteo France</a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">SLF Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA Itàlia</a></li><li><a href=\"/users/mailinglists\">Rebeu els butlletins al correu</a></li></ul>\n"
+"<ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Butlletí d'allaus (Catalunya)</a></li><li><a href=\"http://www.lauegi.conselharan.org/\">Conselh Generau (Aran)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Butlletí Méteo France</a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA Itàlia</a></li><li><a href=\"/users/mailinglists\">Rebeu els butlletins al correu</a></li></ul>\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p>\n"
 "<ul><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>\n"
 "<p>Altres</p>\n"
@@ -4273,7 +4286,7 @@ msgid "collaborative content"
 msgstr "Contingut col·laboratiu"
 
 msgid "collaborative image"
-msgstr "imatge col·laborativa"
+msgstr "imatge col·laborativa (CC-by-sa)"
 
 msgid "collaborative images"
 msgstr "imatges colaboratives"
@@ -5067,9 +5080,8 @@ msgstr "Imatges:"
 msgid "image_new_version"
 msgstr "Nova versió de l'imatge:"
 
-# [WARNING] needs_review
 msgid "image_type"
-msgstr "Tipus d'imatge:"
+msgstr "Tipus d'imatge (llicència):"
 
 msgid "images"
 msgstr "imatges"
@@ -5979,7 +5991,7 @@ msgid "personal content"
 msgstr "Contingut personal"
 
 msgid "personal image"
-msgstr "imatge personal"
+msgstr "imatge personal (CC-by-nc-nd)"
 
 msgid "personal images"
 msgstr "imatges personals"
@@ -6131,7 +6143,7 @@ msgstr "Valls preferides"
 # 
 # Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
-msgstr "<p>Previsions meteorològiques</p><ul><li><a href=\"http://www.meteo.cat/servmet/index.html\">Catalunya</a></li><li><a href=\"http://www.meteo.ad/previsio.php?idioma=0\">Andorra</a></li><li><a href=\" http://france.meteofrance.com/?LIEUID=FRANCE\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">Espanya</a></li><li><a href=\"http://www.meteosuisse.ch\">Suïssa</a></li><li><a href=\"http://meteolive.leonardo.it\">Itàlia</a></li></ul> <p>Allaus</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Catalunya</a></li><li><a href=\"http://www.lauegi.conselharan.org/2010/aplicacion/boletin.php\">Aran</a></li><li><a href=\" http://www.meteo.ad/neu.php?idioma=0\">Andorra</a></li><li><a href=\"http://france.meteofrance.com/france/montagne?85205.path=montagnebulletinneige\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Espanya</a></li><li><a href=http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR>Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Itàlia</a></li><li><a href=\"/users/mailinglists\">Rep els butlletins per email</a></li></ul> <p>Gruixos de neu</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_gruix_neu.php\">Catalunya</a></li><li><a href=\" http://www.meteo.fr/temps/france/nivose/\">França</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.icc.cat/vissir3/\">Catalunya</a></li><li><a href=\"http://www.geoportail.fr/\">França</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">Espanya</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">Suïssa</a></li><li><a href=\"http://www.pcn.minambiente.it\">Itàlia</a></li></ul> <p>Refugis</p><ul><li><a href=\"http://www.feec.cat/refugis\">Catalunya (FEEC)</a></li><li><a href=\"http://www.ffcam.fr/refuges_centres_de_montagne.html\">França (CAF)</a></li><li><a href=\"http://www.sac-cas.ch/fr/cabanes/chercher-une-cabane.html\">Suïssa (CAS)</a></li><li><a href=\"http://www.cai.it/index.php?id=6\">Itàlia (CAI) </a></li></ul> <p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p><ul><li><a href=\"http://mct.gencat.cat/\">Mapa continu del trànsit</a></li><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>"
+msgstr "<p>Previsions meteorològiques</p><ul><li><a href=\"http://www.meteo.cat/servmet/index.html\">Catalunya</a></li><li><a href=\"http://www.meteo.ad/previsio.php?idioma=0\">Andorra</a></li><li><a href=\" http://france.meteofrance.com/?LIEUID=FRANCE\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">Espanya</a></li><li><a href=\"http://www.meteosuisse.ch\">Suïssa</a></li><li><a href=\"http://meteolive.leonardo.it\">Itàlia</a></li></ul> <p>Allaus</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Catalunya</a></li><li><a href=\"http://www.lauegi.conselharan.org/2010/aplicacion/boletin.php\">Aran</a></li><li><a href=\" http://www.meteo.ad/neu.php?idioma=0\">Andorra</a></li><li><a href=\"http://france.meteofrance.com/france/montagne?85205.path=montagnebulletinneige\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Espanya</a></li><li><a href=http://www.slf.ch/index_EN>Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Itàlia</a></li><li><a href=\"/users/mailinglists\">Rep els butlletins per email</a></li></ul> <p>Gruixos de neu</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_gruix_neu.php\">Catalunya</a></li><li><a href=\" http://www.meteo.fr/temps/france/nivose/\">França</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.icc.cat/vissir3/\">Catalunya</a></li><li><a href=\"http://www.geoportail.fr/\">França</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">Espanya</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">Suïssa</a></li><li><a href=\"http://www.pcn.minambiente.it\">Itàlia</a></li></ul> <p>Refugis</p><ul><li><a href=\"http://www.feec.cat/refugis\">Catalunya (FEEC)</a></li><li><a href=\"http://www.ffcam.fr/refuges_centres_de_montagne.html\">França (CAF)</a></li><li><a href=\"http://www.sac-cas.ch/fr/cabanes/chercher-une-cabane.html\">Suïssa (CAS)</a></li><li><a href=\"http://www.cai.it/index.php?id=6\">Itàlia (CAI) </a></li></ul> <p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p><ul><li><a href=\"http://mct.gencat.cat/\">Mapa continu del trànsit</a></li><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
