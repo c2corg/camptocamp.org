@@ -342,7 +342,7 @@ class Image extends BaseImage
         $nb_results = $sub_query_result['nb_results'];
         $ids = $sub_query_result['ids'];
 
-        if ($nb_results == 0)
+        if ($nb_results == 0 || empty($ids))
         {
             return array();
         }
