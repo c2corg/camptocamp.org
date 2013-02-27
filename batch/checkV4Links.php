@@ -61,7 +61,8 @@ foreach($lookup as $table => $fields)
 
         foreach ($documents as $doc)
         {
-            $docs[$docid] = $doc;
+            echo 'http://' . $SERVER_NAME . '/' . strtolower($table) . 's/'
+                        . $doc['id'] . '/' . $doc['culture'] . ' "' . $doc['name'] . '"' . "\n";
         }
     }
     catch (Exception $e)
@@ -70,12 +71,5 @@ foreach($lookup as $table => $fields)
         echo ("A problem occured during retrieve\n");
         throw $e;
     }
-}
-
-echo "# LIST OF DOCUMENTS WITH PROBLEMS\n";
-foreach ($docs as $docid => $doc)
-{
-    echo 'http://' . $SERVER_NAME . '/' . strtolower($doc['type']) . 's/'
-            . $doc['id'] . '/' . $doc['culture'] . ' "' . $doc['name'] . '"' . "\n";
 }
 
