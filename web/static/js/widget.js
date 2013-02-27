@@ -1,4 +1,4 @@
-window.c2cwgt = {};
+window.c2cwgt = window.c2cgwt || {};
 
 window.c2cwgt.callExternalScript = function (url) {
   var n = document.createElement("script");
@@ -37,14 +37,14 @@ window.c2cwgt.insertContent = function (id, content) {
 };
 
 function showC2CWidget (content) {
-  window.c2cwgt.callExternalCss("http://www.camptocamp.org/static/css/c2cwgt.css");
+  window.c2cwgt.callExternalCss("http://s.camptocamp.org/static/css/c2cwgt.css");
 
   var title = content.title || 'camptocamp.org';
   var div = document.getElementById(content.div);
   var inserted = '<h1>' + title + '</h1>'
     + '<div class="c2cwgt_loading"></div>'
     + '<a class="c2cwgt_link" href="http://www.camptocamp.org" title="http://www.camptocamp.org">'
-    + '<img src="http://www.camptocamp.org/static/images/logo_mini.png"></a>';
+    + '<img src="http://s.camptocamp.org/static/images/logo_mini.png"></a>';
     div.innerHTML = inserted;
     div.className = "c2cwgt";
 
@@ -57,4 +57,11 @@ function showC2CWidget (content) {
   }
   url = url + "?div=" + content.div;
   window.c2cwgt.callExternalScript(url);
+}
+
+// this script should be called asynchronously, and c2cwgt.params should be declared
+// if params doesn't exist, user is probably using a synchronous call and will execute
+// callExternalScript by himself
+if (window.c2cwgt.params) {
+  window.c2cwgt.showC2CWidget(c2cwgt.params);
 }
