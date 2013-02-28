@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_ontour2013, changerdapproche, camp_b, diamir_ontour2013, montania, portail_glace, diamir_ontour2013, cilao, camp_b, boutique_c2c, diamir_ontour2013, changerdapproche ]
+    values: [ diamir_ontour2013, rayonrando, camp_b, diamir_ontour2013, montania, portail_glace, diamir_ontour2013, cilao, camp_b, boutique_c2c, diamir_ontour2013, changerdapproche ]
   banners:
     list:
       skalp:
@@ -203,7 +203,7 @@ all:
         image: diamir-securite.gif
         alt: "Diamir Sécurité"
       diamir_ontour2013:
-        id: 58
+        id: 67
         image: diamir-OnTour2013.gif
         alt: "Diamir On Tour"
       expe:
@@ -230,3 +230,8 @@ all:
         id: 64
         image: camp-a.gif
         alt: ""
+      rayonrando:
+        type: flash
+        width: 468
+        height: 60
+        file: rayonrando.swf
