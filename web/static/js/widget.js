@@ -1,4 +1,4 @@
-window.c2cwgt = window.c2cgwt || {};
+window.c2cwgt = window.c2cwgt || {};
 
 window.c2cwgt.callExternalScript = function (url) {
   var n = document.createElement("script");
