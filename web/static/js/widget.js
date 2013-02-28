@@ -36,6 +36,8 @@ window.c2cwgt.insertContent = function (id, content) {
   div.insertBefore(inserted, div.childNodes[1]);
 };
 
+// rather put it in c2cwgt object
+// but kept as is for compatibility
 function showC2CWidget (content) {
   window.c2cwgt.callExternalCss("http://s.camptocamp.org/static/css/c2cwgt.css");
 
@@ -60,8 +62,11 @@ function showC2CWidget (content) {
 }
 
 // this script should be called asynchronously, and c2cwgt.params should be declared
-// if params doesn't exist, user is probably using a synchronous call and will execute
-// callExternalScript by himself
+// if params variable doesn't exist, user is probably using a synchronous call and will
+// execute callExternalScript() by himself
 if (window.c2cwgt.params) {
-  window.c2cwgt.showC2CWidget(c2cwgt.params);
+  var params = [].concat(window.c2cwgt.params);
+  for (var i=0; i<params.length; i++) {
+    showC2CWidget(params[i]);
+  }
 }
