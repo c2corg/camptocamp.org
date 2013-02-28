@@ -27,7 +27,8 @@ foreach ($parameters as $param => $value)
 </form>
 <script type="text/javascript">
 function updateWidgetCode() {
-  var code = "&lt;script type=\"text/javascript\"&gt;\n";
+  var code = "&lt;div id=\"c2cwidget\" /&gt;\n"
+  code += "&lt;script type=\"text/javascript\"&gt;\n";
   code += "(function(d, t, w) {\n";
   code += "  w.c2cwgt = w.c2cwgt || {};\n";
   code += "  w.c2cwgt.params = {\n";
