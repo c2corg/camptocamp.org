@@ -191,6 +191,12 @@ msgstr "Sei sicuro di volere cancellare la versione italiana di questo documento
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Sicuro di volere cancellare la geometria di questo documento?"
 
+# [general comment]
+# escape ' by \' if you use them
+# [WARNING] en translation used
+msgid "Are you sure you want to rotate the image?"
+msgstr "Are you sure you want to rotate the image?"
+
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Sei sicuro di volere cancellare l'associazione con l'immagine %1% intitolata \"%2%\"?"
 
@@ -1116,6 +1122,14 @@ msgstr "Licenza dell'immagine:"
 msgid "Image not found"
 msgstr "Quest’immagine non è stata trovata."
 
+# [WARNING] en translation used
+msgid "Image rotated successfully"
+msgstr "Image rotated successfully"
+
+# [WARNING] en translation used
+msgid "Image rotation"
+msgstr "Image rotation"
+
 # [general comment]
 # Currently, copyright pictures are only of book covers
 # [WARNING] needs_review
@@ -1926,6 +1940,26 @@ msgstr "Tipo di revisione"
 
 msgid "Revision data"
 msgstr "Informazioni (opzionale) sulle modifiche"
+
+# [general comment]
+# Keep this quite short
+# [WARNING] en translation used
+msgid "Rotate -90"
+msgstr "Rotate left"
+
+# [general comment]
+# Keep this quite short
+# [WARNING] en translation used
+msgid "Rotate 90"
+msgstr "Rotate right"
+
+# [WARNING] en translation used
+msgid "Rotate the image by -90"
+msgstr "Rotate the image by 90° counter-clockwise"
+
+# [WARNING] en translation used
+msgid "Rotate the image by 90"
+msgstr "Rotate the image by 90° clockwise"
 
 msgid "Route not found"
 msgstr "Questo itinerario non è stato trovato."
@@ -2930,9 +2964,22 @@ msgstr "<h3>Stile di arrampicata</h3>Stile generale delle vie: placca, verticale
 msgid "_code_info"
 msgstr "<h3>Codice</h3>Codice di riferimento della carta."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_conditions_and_equipment_info"
-msgstr "<h3>Condizioni incontrate</h3>Dettagli delle condizioni incontrate lungo l'itinerario.<br />Queste informazioni sono molto importanti per coloro che vogliono effettuare la stessa gita, ma sono suscettibili di perdere rapidamente la loro validità. Verificare dunque la data della gita prima di usare queste informazioni.<br /><br />Nota per compilare questi campi:<br /><br />L'itinerario effettivamente percorso deve essere riassunto se ci sono varianti possibili o nel caso in cui uno si è fermato prima della cima.<br /><br />Per un itinerario sulla neve, indicare l'attività valangativa osservata: Osservazione diretta o tracce di vecchie valanghe.<br /><br />Le <i>Condizioni incontrate</i> e l'<i>Innevamento per zona</i> sono importante per valutare l'evoluzione della neve nei giorni successivi, bisogna curare queste informazioni."
+msgstr "<h3>Condizioni incontrate</h3>\n"
+"Dettagli delle condizioni incontrate lungo l'itinerario e l'avvicinamento. Secondo il stagione e l'attività : quantità e qualità di neve o ghiaccio, quantità e qualità dell'attrezzatura, qualità della roccia per le vie su roccia... E' anche utile indicare le condizioni osservate sugli altri itinerari della zona (in particolare in cascata di ghiaccio)  <br />\n"
+"Queste informazioni sono suscettibili di perdere rapidamente la loro validità, verificare la data della gita prima di usare queste informazioni.<br />\n"
+"<br />\n"
+"Le condizioni meteo non vanno riportate in questa rubrica.<br />\n"
+"<br />\n"
+"<strong>Per compilare questa rubrica:</strong><br />\n"
+"Ricordare che queste informazioni sono molto importanti per coloro che vogliono effettuare la stessa gita, quindi compilare questa rubrica con precisione e oggettività. <br />\n"
+"<br />\n"
+"L'itinerario effettivamente percorso deve essere riassunto se ci sono varianti possibili o nel caso in cui uno si è fermato prima della cima.<br />\n"
+"<br />\n"
+"Per un itinerario sulla neve, indicare l'attività valangativa osservata: osservazione diretta o tracce di vecchie valanghe.<br />\n"
+"<br />\n"
+"Le <i>Condizioni incontrate</i> e l'<i>Innevamento per zona</i> sono importante per valutare l'evoluzione della neve nei giorni successivi, bisogna curare queste informazioni."
 
 msgid "_conditions_info"
 msgstr "<h3>Condizioni incontrate</h3>Dettagli delle condizioni incontrate lungo l'itinerario.<br />Queste informazioni sono molto importanti per coloro che vogliono effettuare la stessa gita, ma sono suscettibili di perdere rapidamente la loro validità. Verificare dunque la data della gita prima di usare queste informazioni.<br /><br />Nota per compilare questi campi:<br /><br />L'itinerario effettivamente percorso deve essere riassunto se ci sono varianti possibili o nel caso in cui uno si è fermato prima della cima.<br /><br />Per un itinerario sulla neve, indicare l'attività valangativa osservata: Osservazione diretta o tracce di vecchie valanghe.<br /><br />Le <i>Condizioni incontrate</i> e l'<i>Innevamento per zona</i> sono importante per valutare l'evoluzione della neve nei giorni successivi, bisogna curare queste informazioni."
@@ -3090,10 +3137,27 @@ msgstr "<h3>Dislivello</h3>Dislivello cumulato.<br /><br /><em><u>Gita</u>:</em>
 msgid "_height_diff_up_info"
 msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampicata...) dove si distingue l'approccio dalla via stessa, il dislivello positivo è calcolato: dislivello dell'approccio più quello della via (+ il rientro).<br /><br />Se un rifugio è usato di solito per raggiungere l'itinerario, il dislivello positivo è calcolato a partire del rifugio."
 
-# [WARNING] needs_update
 msgid "_hiking_rating_info"
-msgstr "<h3>Difficoltà dell'escursione</h3>La scala va da T1 a T5.<br /> <strong>T1 - Escursione:</strong> Sentiero ben tracciato. Terreno pianeggiante o poco inclinato, senza pericolo di cadute esposte. Requisiti: Nessuno, anche con scarpe da ginnastica, orientamento facile, percorribile anche senza cartina topografica.<br /> <strong>T2 - Escursione di montagna:</strong> Sentiero con tracciato evidente e salite regolari. Terreno talvolta ripido, pericolo di cadute esposte non escluso. Requisiti: Passo sicuro, scarponcini da trekking consigliati. Capacità elementari d'orientamento<br /> <strong>T3 - Escursione di montagna impegnativa:</strong> Di regola traccia visibile sul terreno, passaggi esposti possono essere assicurati con corde o catene, eventualmente bisogna servirsi delle mani per l'equilibrio. Singoli passaggi con pericolo di cadute esposte, pietraie, versanti erbosi senza traccia e cosparsi di roccette. Requisiti: Passo sicuro, buoni scarponi da trekking. Discrete capacità d'orientamento Conoscenze base dell'ambiente alpino.<br /> <strong>T4 - Itinerario alpino:</strong> Sentiero non sempre individuabile, itinerario a tratti senza tracciato, talvolta bisogna servirsi delle mani per la progressione. Terreno abbastanza esposto, pendii erbosi delicati, versanti erbosi cosparsi di roccette, facili ghiacciai senza neve. Requisiti: Dimestichezza con terreni esposti, scarponi da trekking robusti. Buone capacità l'orientamento e di valutazione del terreno. Conoscenze dell'ambiente alpino.<br /> <strong>T5 - Itinerario alpino impegnativo:</strong> Spesso senza traccia, singoli facili passaggi d'arrampicata fino al II grado. Terreno esposto e impegnativo, ripidi versanti erbosi cosparsi di roccette, ghiacciai e nevai poco pericolosi. Requisiti: Scarponi da montagna. Ottime capacità d'orientamento e sicurezza nella valutazione del terreno. Buone conoscenze dell'ambiente alpino e conoscenze base dell'impiego di piccozza e corda.\n"
-"See also help on the <a href=\"/articles/106859/en\">hiking grades</a>."
+msgstr "<h3>Difficoltà dell'escursione</h3>Questa scala è inspirata di quella del Club Alpino Svizzero. La scala va da T1 a T5.<br /> \n"
+"<br /> \n"
+"<strong>T1 - Escursione:</strong> Sentiero ben tracciato. Terreno pianeggiante o poco inclinato, senza pericolo di cadute esposte. <br />\n"
+"Requisiti: Nessuno, anche con scarpe da ginnastica, orientamento facile, percorribile anche senza cartina topografica.<br /> \n"
+"<br />\n"
+"<strong>T2 - Escursione di montagna:</strong> Sentiero con tracciato evidente e salite regolari. Terreno talvolta ripido, pericolo di cadute esposte non escluso.<br />\n"
+"Requisiti: Passo sicuro, scarponcini da trekking consigliati. Capacità elementari d'orientamento.<br />\n"
+"<br />\n"
+"<strong>T3 - Escursione di montagna impegnativa:</strong> Di regola traccia visibile sul terreno, passaggi esposti possono essere assicurati con corde o catene, eventualmente bisogna servirsi delle mani per l'equilibrio. Singoli passaggi con pericolo di cadute esposte, pietraie, versanti erbosi senza traccia e cosparsi di roccette. <br />\n"
+"Requisiti: Passo sicuro, buoni scarponi da trekking. Discrete capacità d'orientamento Conoscenze base dell'ambiente alpino.<br /> \n"
+"<br />\n"
+"<strong>T4 - Itinerario alpino:</strong> Sentiero non sempre individuabile, itinerario a tratti senza tracciato, talvolta bisogna servirsi delle mani per la progressione. Terreno abbastanza esposto, pendii erbosi delicati, versanti erbosi cosparsi di roccette, facili ghiacciai senza neve.\n"
+"<br />Requisiti: Dimestichezza con terreni esposti, scarponi da trekking robusti. Buone capacità l'orientamento e di valutazione del terreno. Conoscenze dell'ambiente alpino.<br />\n"
+"<br />\n"
+"<strong>T5 - Itinerario alpino impegnativo:</strong> Spesso senza traccia, singoli facili passaggi d'arrampicata fino al II grado(anche 3c se tratto molto corto e non esposto). Terreno esposto e impegnativo, ripidi versanti erbosi cosparsi di roccette, ghiacciai e nevai poco pericolosi.<br />\n"
+"Requisiti: Scarponi da montagna. Ottime capacità d'orientamento e sicurezza nella valutazione del terreno. Buone conoscenze dell'ambiente alpino e conoscenze base dell'impiego di piccozza e corda.<br />\n"
+"<br />\n"
+"<em>La difficoltà T6 è stata cancellata. Per gli itinerari più difficile del T5, usare l'attività \"arrampicata\" o \"roccia alta montagna\" con i gradi associati.</em><br />\n"
+"<br />\n"
+"Leggere l'articolo <a href=\"/articles/106859/it\">Scala difficoltà escursionismo</a>."
 
 msgid "_hours_info"
 msgstr "<h3>Orari d'apertura</h3>Date e orari d'apertura."
@@ -3424,7 +3488,7 @@ msgstr "<h3>Compatibile con</h3>\n"
 "<strong>principianti</strong>: itinerario adatto alla scoperta dell'attività di scialpinismo. In sci/snowboard un itinerario per principianti è di solito facile (difficoltà < 3.2), non esposto in caso di caduta (E1), sciabile dall'inizio alla fine (nessun tratto a piedi, poco piatto, poco bosco), con la possibilità di tornare indietro da qualsiasi punto del percorso godendosi comunque una parte della discesa.<br />\n"
 "Quando si fa una ricerca di itinerari <em>principianti</em> specificare anche la difficoltà nel filtro."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_summit_type_info"
 msgstr "<h3>Tipo di \"cima\"</h3>\n"
 "Tipo di punto geografico che può essere costituito dalla meta della gita:<br />\n"
@@ -3439,7 +3503,21 @@ msgstr "<h3>Tipo di \"cima\"</h3>\n"
 "<br />\n"
 "<strong>lago</strong>: lago di montagna<br />\n"
 "<br />\n"
-"<strong>raid</strong>: una \"cima\" di tipo <em>raid</em> è utile per associarci un itinerario-raid<br />Leggere l'<a href=\"/articles/106920#raid\">aiuto sui raid</a>"
+"<strong>ghiacciaio</strong><br />\n"
+"<br />\n"
+"<strong>sorgente</strong><br />\n"
+"<br />\n"
+"<strong>\"bisse / béal\"</strong>: canale d'irrigazione in montagne<br />\n"
+"<br />\n"
+"<strong>canyon</strong>: canyon praticabile a piedi<br />\n"
+"<br />\n"
+"<strong>abisso</strong><br />\n"
+"<br />\n"
+"<strong>rifugio</strong>: \"cima\" creata automaticamente alla creazione di un itinerario di accesso al rifugio<br />\n"
+"<br />\n"
+"<strong>raid</strong>: una \"cima\" di tipo <em>raid</em> è utile per associarci un itinerario-raid<br />Leggere l'<a href=\"/articles/106920#raid\">aiuto sui raid</a>\n"
+"<br />\n"
+"<strong>altro</strong>: altro punto particolare: chiesetta, monumento, rovine..."
 
 msgid "_swiss coords_info"
 msgstr "<h3>Coordinati svizzeri</h3>Coordinati geografici nel sistema svizzera (CH1903).<br />Il link consente di vedere la mappa Swisstopo centrata sul luogo geografico."

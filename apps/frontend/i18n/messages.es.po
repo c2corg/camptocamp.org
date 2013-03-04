@@ -190,6 +190,12 @@ msgstr "¿Estás seguro de que quieres suprimir la versión italiana de este doc
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "¿Está seguro de que quiere suprimir la geometría de este documento?"
 
+# [general comment]
+# escape ' by \' if you use them
+# [WARNING] en translation used
+msgid "Are you sure you want to rotate the image?"
+msgstr "Are you sure you want to rotate the image?"
+
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "¿Seguro que quiere desasociar la imagen %1% nombrada \"%2\"?"
 
@@ -1124,6 +1130,14 @@ msgstr "Licencia de la imagen:"
 msgid "Image not found"
 msgstr "La imagen no existe."
 
+# [WARNING] en translation used
+msgid "Image rotated successfully"
+msgstr "Image rotated successfully"
+
+# [WARNING] en translation used
+msgid "Image rotation"
+msgstr "Image rotation"
+
 # [general comment]
 # Currently, copyright pictures are only of book covers
 # [WARNING] needs_review
@@ -1936,6 +1950,26 @@ msgstr "Naturaleza de la revisión"
 
 msgid "Revision data"
 msgstr "Informaciones (opcionales) sobre les modificaciones"
+
+# [general comment]
+# Keep this quite short
+# [WARNING] en translation used
+msgid "Rotate -90"
+msgstr "Rotate left"
+
+# [general comment]
+# Keep this quite short
+# [WARNING] en translation used
+msgid "Rotate 90"
+msgstr "Rotate right"
+
+# [WARNING] en translation used
+msgid "Rotate the image by -90"
+msgstr "Rotate the image by 90° counter-clockwise"
+
+# [WARNING] en translation used
+msgid "Rotate the image by 90"
+msgstr "Rotate the image by 90° clockwise"
 
 msgid "Route not found"
 msgstr "El itinerario no existe."

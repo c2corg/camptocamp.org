@@ -22,6 +22,8 @@ $is_archive = $document->isArchive();
             <?php if ($has_rights && !$is_archive && !$redirected): ?>
                 <li><?php echo button_protect($module, $id, $document->get('is_protected'));?></li>
                 <li><?php echo button_merge($module, $id) ?></li>
+                <li><?php echo button_rotate(90, $id) ?></li>
+                <li><?php echo button_rotate(-90, $id) ?></li>
             <?php endif ?>
             <?php if ($has_rights && !$is_archive): ?>
                 <li><?php echo button_delete($module, $id) ?></li>

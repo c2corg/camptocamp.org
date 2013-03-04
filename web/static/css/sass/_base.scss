@@ -1680,6 +1680,14 @@ select.picto_forum, select.picto_forums
   @include -c2c-datauri-for-standard-only-background('/static/images/picto/delete.png', no-repeat 0);
 }
 
+.action_rotate_90 {
+   @include -c2c-datauri-for-standard-only-background('/static/images/picto/rotateright.png', no-repeat 0);
+}
+
+.action_rotate_-90 {
+  @include -c2c-datauri-for-standard-only-background('/static/images/picto/rotateleft.png', no-repeat 0);
+}
+
 .action_del_light {
   @include -c2c-datauri-for-standard-only-background('/static/images/picto/delete_light.png', no-repeat 0);
 }

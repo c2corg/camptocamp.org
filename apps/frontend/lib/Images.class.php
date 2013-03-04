@@ -204,12 +204,46 @@ class Images
             exec('convert', $stdout);
             if (strpos($stdout[0], 'ImageMagick') === false)
             {
-                throw new Exception(sprintf("ImageMagick convert command not found"));
+                throw new Exception('ImageMagick convert command not found');
             }
 
             exec('convert '.escapeshellarg("$file").' -auto-orient '.escapeshellarg("$file"));
         }
 
         // else, we do nothing...
+    }
+
+    /*
+     * Rotate an image by 90 or -90 degrees
+     */
+    public static function rotateImage($input_file, $output_file, $degrees = 90)
+    {
+        $degrees = ($degrees === 90) ? $degrees : -90;
+
+        if (!file_exists($input_file))
+        {
+            throw new Exception('Cannot rotate non-existing file!');
+        }
+
+        if (sfConfig::get('app_images_tool') === 'imagemagick') { // use image magick
+            exec('convert', $stdout);
+            if (strpos($stdout[0], 'ImageMagick') === false)
+            {
+                throw new Exception('ImageMagick convert command not found');
+            }
+
+            exec('convert '.escapeshellarg("$input_file").' -rotate '.$degrees.' '.escapeshellarg("$output_file"));
+
+        }
+        else // use php-gd
+        {
+            if (!extension_loaded('gd'))
+            {
+                throw new Exception('GD not enabled. Check your php.ini file');
+            }
+
+            // TODO
+            throw new Exception('GD based image rotation not yet implemented in c2c');
+        }
     }
 }

@@ -609,6 +609,81 @@ class imagesActions extends documentsActions
         // display form
     }
 
+    public function executeRotate()
+    {
+        $id = $this->getRequestParameter('id');
+        $referer = $this->getRequest()->getReferer();
+        $degrees = (int) $this->getRequestParameter('degrees');
+
+        if ($degrees !== 90 && $degrees !== -90)
+        {
+            var_dump($degrees); exit;
+            $referer = $this->getRequest()->getReferer();
+            $this->setErrorAndRedirect('Bad rotation value', $referer);
+        }
+
+        $doc = Document::find('Image', $id);
+        $this->document = $doc;
+
+        if (!$doc)
+        {
+            $this->setErrorAndRedirect('Image not found', $referer);
+        }
+
+        // check if the user has the right for editing the image
+        $this->filterAuthorizedPeople($id);
+
+        $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
+                    sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
+        $upload_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
+                      sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR;
+
+        list($filename, $extension) = Images::getFileNameParts($doc->getFilename());
+        $unique_filename = c2cTools::generateUniqueName();
+
+        // because images on production get migrated after a while on a different server
+        // we need to check if the file exists on disk before trying to rotate the image
+        if (!file_exists($upload_dir.$filename.$extension))
+        {
+            $this->setErrorAndRedirect('Image cannot be rotated anymore', $referer);
+        }
+
+        Images::rotateImage($upload_dir.$filename.$extension, $temp_dir.$unique_filename.$extension, $degrees);
+        Images::generateThumbnails($unique_filename, $extension, $temp_dir);
+        if (!Images::moveAll($unique_filename.$extension, $temp_dir, $upload_dir))
+        {
+            $this->setErrorAndRedirect('Rotation failed', $referer);
+        }
+
+        // create new image document version
+        try
+        {
+            $conn = sfDoctrine::Connection();
+            $conn->beginTransaction();
+
+            $history_metadata = new HistoryMetadata();
+            $history_metadata->setComment('Image rotation');
+            $history_metadata->set('is_minor', false);
+            $history_metadata->set('user_id', $this->getUser()->getId());
+            $history_metadata->save();
+
+            $doc->set('filename', $unique_filename . $extension);
+            $doc->save();
+
+            $conn->commit();
+        }
+        catch (Exception $e)
+        {
+            $conn->rollback();
+            Images::removeAll($unique_filename.$extension, $upload_dir);
+            $this->setErrorAndRedirect('Rotation failed', $referer);
+        }
+
+        // clear cache and redirect to view
+        $this->clearCache('images', $id);
+        $this->setNoticeAndRedirect('Image rotated successfully', $referer);
+    }
+
     public function executeDiff()
     {
         $id = $this->getRequestParameter('id');

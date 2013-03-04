@@ -199,6 +199,12 @@ msgstr "Êtes-vous sûr de vouloir supprimer la version italienne de ce document
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Êtes-vous sûr de vouloir effacer la géométrie de ce document ?"
 
+# [general comment]
+# escape ' by \' if you use them
+# [WARNING] needs_review
+msgid "Are you sure you want to rotate the image?"
+msgstr "Êtes-vous surs de vouloir tourner l'image ?"
+
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Êtes vous sûr de vouloir dissocier l'image %1% nommée \"%2%\" ?"
 
@@ -1121,6 +1127,14 @@ msgstr "Licence de l'image&nbsp;:"
 msgid "Image not found"
 msgstr "Cette image n'existe pas."
 
+# [WARNING] needs_review
+msgid "Image rotated successfully"
+msgstr "L'image a été tournée correctement"
+
+# [WARNING] needs_review
+msgid "Image rotation"
+msgstr "Rotation de l'image"
+
 # [general comment]
 # Currently, copyright pictures are only of book covers
 # [WARNING] needs_review
@@ -1923,6 +1937,26 @@ msgstr "Nature de la révision"
 
 msgid "Revision data"
 msgstr "Informations (optionnelles) sur les modifications"
+
+# [general comment]
+# Keep this quite short
+# [WARNING] needs_review
+msgid "Rotate -90"
+msgstr "Pivoter à gauche"
+
+# [general comment]
+# Keep this quite short
+# [WARNING] needs_review
+msgid "Rotate 90"
+msgstr "Pivoter à droite"
+
+# [WARNING] needs_review
+msgid "Rotate the image by -90"
+msgstr "Tourner l'image de 90° dans le sens anti-horaire"
+
+# [WARNING] needs_review
+msgid "Rotate the image by 90"
+msgstr "Tourner l'image de 90° dans le sens horaire"
 
 msgid "Route not found"
 msgstr "Cet itinéraire n'existe pas."
@@ -5989,7 +6023,7 @@ msgid "personal content"
 msgstr "Contenu personnel"
 
 msgid "personal image"
-msgstr "image \\\"personnelle\\\" (CC-by-nc-nd)"
+msgstr "image personnelle (CC-by-nc-nd)"
 
 msgid "personal images"
 msgstr "images personnelles"

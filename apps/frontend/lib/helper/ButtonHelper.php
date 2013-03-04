@@ -93,6 +93,16 @@ function button_delete($module, $id)
                          'confirm' => __('Are you sure you want to delete this document in every language?')));
 }
 
+function button_rotate($degrees, $id)
+{
+    return link_to(__("Rotate $degrees"),
+                   "@default?module=images&action=rotate&id=$id&degrees=$degrees",
+                   array('title' => __("Rotate the image by $degrees"),
+                         'class' => "action_rotate_$degrees nav_edit",
+                         'post' => true,
+                         'confirm' => __('Are you sure you want to rotate the image?')));
+}
+
 function button_delete_culture($module, $id, $culture)
 {
     return link_to(__('Delete culture'),
