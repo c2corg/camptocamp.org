@@ -98,7 +98,7 @@ function button_rotate($degrees, $id)
     return link_to(__("Rotate $degrees"),
                    "@default?module=images&action=rotate&id=$id&degrees=$degrees",
                    array('title' => __("Rotate the image by $degrees"),
-                         'class' => "action_rotate_$degrees nav_edit",
+                         'class' => "action_rotate_$degrees action_rotate nav_edit",
                          'post' => true,
                          'confirm' => __('Are you sure you want to rotate the image?')));
 }

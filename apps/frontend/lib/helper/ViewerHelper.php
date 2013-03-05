@@ -19,7 +19,8 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     $nav_options = _option($options, 'nav_options');
     $item_type = _option($options, 'item_type', '');
     $nb_comments = _option($options, 'nb_comments');
-    
+    $creator_id = _option($options, 'creator_id');
+
     if (!$is_archive)
     {
         if ($module != 'users')
@@ -65,7 +66,9 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         }
         
         // boutons vers des fonctions annexes et de gestion du document
-        include_partial("$module/nav", array('id'  => $id, 'document' => $document));
+        include_partial("$module/nav", isset($creator_id) ? 
+                                       array('id'  => $id, 'document' => $document, 'creator_id' => $creator_id) :
+                                       array('id'  => $id, 'document' => $document));
         
         if ($module != 'users')
         {

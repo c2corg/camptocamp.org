@@ -22,8 +22,14 @@ $is_archive = $document->isArchive();
             <?php if ($has_rights && !$is_archive && !$redirected): ?>
                 <li><?php echo button_protect($module, $id, $document->get('is_protected'));?></li>
                 <li><?php echo button_merge($module, $id) ?></li>
+            <?php endif ?>
+            <?php if ($is_connected && !$is_archive && !$redirected): ?>
                 <li><?php echo button_rotate(90, $id) ?></li>
                 <li><?php echo button_rotate(-90, $id) ?></li>
+                <?php if (!$has_rights && $document->get('image_type') == 2) // hide buttons if by-nc-nd and not author?
+                {
+                    echo javascript_tag('if ('.$creator_id.'!=parseInt($(\'name_to_use\').href.split(\'/\').reverse()[0])) { $$(\'.action_rotate\').invoke(\'hide\'); }');
+                } ?>
             <?php endif ?>
             <?php if ($has_rights && !$is_archive): ?>
                 <li><?php echo button_delete($module, $id) ?></li>

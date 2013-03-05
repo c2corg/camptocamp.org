@@ -655,26 +655,30 @@ class imagesActions extends documentsActions
             $this->setErrorAndRedirect('Rotation failed', $referer);
         }
 
-        // create new image document version
+        // we don't create a new image document version, instead we directly
+        // update the filename field and clear cache
+        // We need to change it everytime it appears, since we could have several image versions
+        // with same filename (if non-i18n data like categroies has been changed)
         try
         {
             $conn = sfDoctrine::Connection();
             $conn->beginTransaction();
 
-            $history_metadata = new HistoryMetadata();
-            $history_metadata->setComment('Image rotation');
-            $history_metadata->set('is_minor', false);
-            $history_metadata->set('user_id', $this->getUser()->getId());
-            $history_metadata->save();
-
-            $doc->set('filename', $unique_filename . $extension);
-            $doc->save();
+            Doctrine_Query::create()
+                ->update('ImageArchive ia')
+                ->set('ia.filename', '?') // FIXME probably due because beta version of doctrine, but param is passed in next command (we need escaping)
+                ->where('ia.id = ? AND ia.filename = ?', array($unique_filename.$extension, $id, $filename.$extension))
+                ->execute();
 
             $conn->commit();
+
+            // Delete old files
+            Images::removeAll($filename.$extension, $upload_dir);
         }
         catch (Exception $e)
         {
             $conn->rollback();
+            // delete rotated images
             Images::removeAll($unique_filename.$extension, $upload_dir);
             $this->setErrorAndRedirect('Rotation failed', $referer);
         }
