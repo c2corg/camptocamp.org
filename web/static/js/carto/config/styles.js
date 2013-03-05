@@ -63,6 +63,10 @@ c2corg.styleMap = function (config) {
         "summits": points,
         "parkings": points,
         "huts": points,
+        "sites": points,
+        "users": points,
+        "images": points,
+        "products": points,
         "routes": lines,
         "outings": lines
     };

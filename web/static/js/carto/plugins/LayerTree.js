@@ -82,45 +82,31 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
         }, this);
     },
 
+    createVectorLayer: function(options) {
+        return new OpenLayers.Layer.Vector(options.name, {
+            strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1, ratio: 1})],
+            protocol: new OpenLayers.Protocol.WFS({
+                featureType: options.featureType,
+                url: this.url,
+                maxFeatures: options.maxFeatures || 200,
+                geometryName: "geom",
+                srsName: "EPSG:900913"
+            }),
+            isBaseLayer: false,
+            visibility: false,
+            styleMap: c2corg.styleMap()
+        });
+    },
+
     addLayers: function() {
-
-        var WFS_PROTOCOL_OPTIONS = { 
-            url: this.url,
-            maxFeatures: 200,
-            geometryName: "geom",
-            srsName: "EPSG:900913"
-        };
-
-        var styleMap = c2corg.styleMap();
-
         this.layers = {
-            "summits": new OpenLayers.Layer.Vector("summits", {
-                strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1, ratio: 1})],
-                protocol: new OpenLayers.Protocol.WFS(Ext.apply({
-                    featureType: 'summits'
-                }, WFS_PROTOCOL_OPTIONS)),
-                isBaseLayer: false,
-                visibility: false,
-                styleMap: styleMap
-            }),
-            "access": new OpenLayers.Layer.Vector("access", {
-                strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1, ratio: 1})],
-                protocol: new OpenLayers.Protocol.WFS(Ext.apply({
-                    featureType: 'access'
-                }, WFS_PROTOCOL_OPTIONS)),
-                isBaseLayer: false,
-                visibility: false,
-                styleMap: styleMap
-            }),
-            "huts": new OpenLayers.Layer.Vector("huts", {
-                strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1, ratio: 1})],
-                protocol: new OpenLayers.Protocol.WFS(Ext.apply({
-                    featureType: 'huts'
-                }, WFS_PROTOCOL_OPTIONS)),
-                isBaseLayer: false,
-                visibility: false,
-                styleMap: styleMap
-            })
+            "summits": this.createVectorLayer({name: "summits", featureType: "summits"}),
+            "access": this.createVectorLayer({name: "access", featureType: "access"}),
+            "huts": this.createVectorLayer({name: "huts", featureType: "huts"}),
+            "sites": this.createVectorLayer({name: "sites", featureType: "sites"}),
+            "users": this.createVectorLayer({name: "users", featureType: "users"}),
+            "images": this.createVectorLayer({name: "images", featureType: "images"}),
+            "products": this.createVectorLayer({name: "products", featureType: "products"})
         };
         for (var i in this.layers) {
             this.mapPanel.map.addLayer(this.layers[i]);
@@ -173,6 +159,30 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 icon: c2corg.config.staticBaseUrl + "/static/images/picto/camp.png",
                 leaf: true
             }]
+        }, {
+            text: c2corg.i18n("sites"),
+            nodeType: "gx_layer",
+            layer: this.layers["sites"],
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/sites_mini.png",
+            leaf: true
+        }, {
+            text: c2corg.i18n("users"),
+            nodeType: "gx_layer",
+            layer: this.layers["users"],
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/users_mini.png",
+            leaf: true
+        }, {
+            text: c2corg.i18n("images"),
+            nodeType: "gx_layer",
+            layer: this.layers["images"],
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/images_mini.png",
+            leaf: true
+        }, {
+            text: c2corg.i18n("products"),
+            nodeType: "gx_layer",
+            layer: this.layers["products"],
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/products_mini.png",
+            leaf: true
         }];
     },
     
@@ -219,7 +229,10 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
     },
 
     makeThemesInteractive: function() {
-        var layers = [this.layers["summits"], this.layers["access"], this.layers["huts"]];
+        var layers = [];
+        for (var name in this.layers) {
+            layers.push(this.layers[name]);
+        }
         var selectControl = new OpenLayers.Control.SelectFeature(
             layers, {
                 multiple: false,
