@@ -1,21 +1,26 @@
 #mapPort {
     height: auto;
-      width: auto;
-        padding: 20px;
-          min-height: 350px;
+    width: auto;
+    padding: 20px;
+    min-height: 350px;
 }
 
 #mapLoading {
-  padding-top: 100px;
+    padding-top: 100px;
     text-align:center;
-      font-weight: bold;
+    font-weight: bold;
 }
 
 
 #mapheader .x-panel-bwrap, #mapheader .x-panel-body {
-  overflow: visible;
+    overflow: visible;
 }
 
 /*#mapheader {
   height: 140px !important;
 }*/
+
+/* FIXME: put in global map CSS files */
+.x-tree-node-leaf .gx-tree-layer-icon {
+    background-image: none;
+}

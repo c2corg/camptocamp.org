@@ -35,7 +35,7 @@ LAYER
   DUMP True
   METADATA
     "wms_title"    "summits"   ##required
-    "gml_include_items" "all"
+    "gml_include_items" "id,module,elevation,summit_type"
     "gml_types" "auto"
     "gml_featureid" "id"
     "gml_geom_type" "point"
@@ -98,7 +98,7 @@ LAYER
   DUMP True
   METADATA
     "wms_title"    "huts"   ##required
-    "gml_include_items" "all"
+    "gml_include_items" "id,module,shelter_type,elevation"
     "gml_types" "auto"
     "gml_featureid" "id"
     "gml_geom_type" "point"
@@ -151,7 +151,7 @@ LAYER
   DUMP True
   METADATA
     "wms_title"    "access"   ##required
-    "gml_include_items" "all"
+    "gml_include_items" "id,module,elevation,public_transportation_rating,public_transportation_types"
     "gml_types" "auto"
     "gml_featureid" "id"
     "gml_geom_type" "point"
@@ -239,7 +239,7 @@ LAYER
   DUMP True
   METADATA
     "wms_title"    "sites"   ##required
-    "gml_include_items" "all"
+    "gml_include_items" "id,module,routes_quantity,climbing_styles,equipment_rating,max_height"
     "gml_types" "auto"
     "gml_featureid" "id"
     "gml_geom_type" "point"
@@ -272,7 +272,7 @@ LAYER
   DUMP True
   METADATA
     "wms_title"    "users"   ##required
-    "gml_include_items" "all"
+    "gml_include_items" "id,module,category"
     "gml_types" "auto"
     "gml_featureid" "id"
     "gml_geom_type" "point"
@@ -304,7 +304,7 @@ LAYER
   DUMP True
   METADATA
     "wms_title"    "images"   ##required
-    "gml_include_items" "all"
+    "gml_include_items" "id,module,activities,categories,filename"
     "gml_types" "auto"
     "gml_featureid" "id"
     "gml_geom_type" "point"
@@ -336,7 +336,7 @@ LAYER
   DUMP True
   METADATA
     "wms_title"    "products"   ##required
-    "gml_include_items" "all"
+    "gml_include_items" "id,module,product_type"
     "gml_types" "auto"
     "gml_featureid" "id"
     "gml_geom_type" "point"
@@ -364,8 +364,17 @@ END # Layer
 
 LAYER
   NAME routes
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
   METADATA
     "wms_title"    "routes"   ##required
+    "gml_include_items" "id,module,activities"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "line"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
   END
   TYPE LINE
   STATUS ON
@@ -387,8 +396,17 @@ END # Layer
 
 LAYER
   NAME ranges
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
   METADATA
     "wms_title"    "ranges"   ##required
+    "gml_include_items" "all"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "multipolygon"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
   END
   TYPE POLYGON
   STATUS ON
@@ -410,8 +428,17 @@ END # Layer
 
 LAYER
   NAME countries
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
   METADATA
     "wms_title"    "countries"   ##required
+    "gml_include_items" "all"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "multipolygon"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
   END
   TYPE POLYGON
   STATUS ON
@@ -433,8 +460,17 @@ END # Layer
 
 LAYER
   NAME admin_limits
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
   METADATA
     "wms_title"    "admin_limits"   ##required
+    "gml_include_items" "all"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "multipolygon"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
   END
   TYPE POLYGON
   STATUS ON
@@ -456,8 +492,17 @@ END # Layer
 
 LAYER
   NAME maps
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
   METADATA
     "wms_title"    "maps"   ##required
+    "gml_include_items" "all"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "multipolygon"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
   END
   TYPE POLYGON
   STATUS ON
@@ -478,8 +523,17 @@ END # Layer
 
 LAYER
   NAME outings
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
   METADATA
     "wms_title"    "outings"   ##required
+    "gml_include_items" "all"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "multiline"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
   END
   TYPE LINE
   STATUS ON

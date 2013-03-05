@@ -16,9 +16,14 @@ c2corg.styleMap = function (config) {
         graphicOpacity: 1,
         externalGraphic: c2corg.config.staticBaseUrl + "/static/images/${icon}"
     }),
-        lines =  Ext.applyIf(config.lines || {}, {
+        lines = Ext.applyIf(config.lines || {}, {
             strokeColor: "yellow",
             strokeWidth: 2
+        }),
+        polygons = Ext.applyIf(config.polygons || {}, {
+            strokeColor: "yellow",
+            strokeWidth: 2,
+            fillOpacity: 0
         });
 
     /*
@@ -68,7 +73,11 @@ c2corg.styleMap = function (config) {
         "images": points,
         "products": points,
         "routes": lines,
-        "outings": lines
+        "outings": lines,
+        "ranges": polygons,
+        "maps": polygons,
+        "countries": polygons,
+        "admin_limits": polygons
     };
     styleMap.addUniqueValueRules("default", "module", lookup, context);
     return styleMap;

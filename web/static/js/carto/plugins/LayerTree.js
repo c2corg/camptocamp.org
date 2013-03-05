@@ -63,6 +63,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
     url: null,
     layers: {},
+    styleMap: null,
 
     initComponent: function() {
         this.addLayers();
@@ -82,6 +83,13 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
         }, this);
     },
 
+    getStyleMap: function() {
+        if (!this.styleMap) {
+            this.styleMap = c2corg.styleMap();
+        }
+        return this.styleMap;
+    },
+
     createVectorLayer: function(options) {
         return new OpenLayers.Layer.Vector(options.name, {
             strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1, ratio: 1})],
@@ -94,7 +102,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             }),
             isBaseLayer: false,
             visibility: false,
-            styleMap: c2corg.styleMap()
+            styleMap: this.getStyleMap()
         });
     },
 
@@ -106,7 +114,13 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             "sites": this.createVectorLayer({name: "sites", featureType: "sites"}),
             "users": this.createVectorLayer({name: "users", featureType: "users"}),
             "images": this.createVectorLayer({name: "images", featureType: "images"}),
-            "products": this.createVectorLayer({name: "products", featureType: "products"})
+            "products": this.createVectorLayer({name: "products", featureType: "products"}),
+            "routes": this.createVectorLayer({name: "routes", featureType: "routes", maxFeatures: 50}),
+            "outings": this.createVectorLayer({name: "outings", featureType: "outings", maxFeatures: 50}),
+            "maps": this.createVectorLayer({name: "maps", featureType: "maps"}),
+            "ranges": this.createVectorLayer({name: "ranges", featureType: "ranges"}),
+            "admin_limits": this.createVectorLayer({name: "admin_limits", featureType: "admin_limits"}),
+            "countries": this.createVectorLayer({name: "countries", featureType: "countries"})
         };
         for (var i in this.layers) {
             this.mapPanel.map.addLayer(this.layers[i]);
@@ -183,6 +197,47 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             layer: this.layers["products"],
             icon: c2corg.config.staticBaseUrl + "/static/images/modules/products_mini.png",
             leaf: true
+        }, {
+            text: c2corg.i18n("routes"),
+            nodeType: "gx_layer",
+            layer: this.layers["routes"],
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/routes_mini.png",
+            leaf: true
+        }, {
+            text: c2corg.i18n("outings"),
+            nodeType: "gx_layer",
+            layer: this.layers["outings"],
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/outings_mini.png",
+            leaf: true
+        }, {
+            text: c2corg.i18n("maps"),
+            nodeType: "gx_layer",
+            layer: this.layers["maps"],
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/maps_mini.png",
+            leaf: true
+        }, {
+            text: c2corg.i18n("areas"),
+            expanded: false,
+            icon: c2corg.config.staticBaseUrl + "/static/images/modules/areas_mini.png",
+            children: [{
+                text: c2corg.i18n("ranges"),
+                nodeType: "gx_layer",
+                layer: this.layers["ranges"],
+                icon: Ext.BLANK_IMAGE_URL,
+                leaf: true
+            }, {
+                text: c2corg.i18n("admin boundaries"),
+                nodeType: "gx_layer",
+                layer: this.layers["admin_limits"],
+                icon: Ext.BLANK_IMAGE_URL,
+                leaf: true
+            }, {
+                text: c2corg.i18n("countries"),
+                nodeType: "gx_layer",
+                layer: this.layers["countries"],
+                icon: Ext.BLANK_IMAGE_URL,
+                leaf: true
+            }]
         }];
     },
     
