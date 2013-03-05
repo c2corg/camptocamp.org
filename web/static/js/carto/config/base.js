@@ -46,7 +46,7 @@ c2corg.base = {
         }
     },
 
-    init: function(lang) {
+    init: function (lang) {
         // Ext global settings
         Ext.BLANK_IMAGE_URL = "/static/js/carto/cgxp/ext/Ext/resources/images/default/s.gif";
         Ext.QuickTips.init();
@@ -63,7 +63,7 @@ c2corg.base = {
         GeoExt.Lang.set(lang);
     },
 
-    getControls: function() {
+    getControls: function () {
         return [
             new OpenLayers.Control.Navigation(),
             new OpenLayers.Control.KeyboardDefaults(),
@@ -74,24 +74,24 @@ c2corg.base = {
                 geodesic: true,
                 bottomInUnits: false,
                 bottomOutUnits: false
-            }), 
+            }),
             new OpenLayers.Control.OverviewMap({
                 size: new OpenLayers.Size(180, 120),
                 mapOptions: {
                     theme: null
-                },  
-                minRatio: 16, 
-                maxRatio: 32, 
+                },
+                minRatio: 16,
+                maxRatio: 32,
                 layers: [new OpenLayers.Layer.OSM("OSM", [
                         'http://a.tile.openstreetmap.org/${z}/${x}/${y}.png',
                         'http://b.tile.openstreetmap.org/${z}/${x}/${y}.png',
                         'http://c.tile.openstreetmap.org/${z}/${x}/${y}.png'
-                    ], {
+                    ],{
                         buffer: 0,
                         transitionEffect: 'resize'
-                    }   
-                )]  
-            })  
+                    }
+                )]
+            })
         ];
     }
 };

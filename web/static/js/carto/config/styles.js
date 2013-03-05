@@ -8,18 +8,18 @@
 
 Ext.namespace("c2corg");
 
-c2corg.styleMap = function(config) {
+c2corg.styleMap = function (config) {
 
-    config = config || {};    
+    config = config || {};
     var points = Ext.applyIf(config.points || {}, {
         pointRadius: 8,
         graphicOpacity: 1,
         externalGraphic: c2corg.config.staticBaseUrl + "/static/images/${icon}"
-    });
-    var lines =  Ext.applyIf(config.lines || {}, {
-        strokeColor: "yellow",
-        strokeWidth: 2
-    });
+    }),
+        lines =  Ext.applyIf(config.lines || {}, {
+            strokeColor: "yellow",
+            strokeWidth: 2
+        });
 
     /*
     // TODO: rename summits picto with names containing the "summit_type" attribute
@@ -29,7 +29,7 @@ c2corg.styleMap = function(config) {
     }, points);
     */
     
-    var context = function(feature) {
+    var context = function (feature) {
         var attr = feature.attributes; 
         if (feature.geometry instanceof OpenLayers.Geometry.Point) {
             attr.icon = "modules/" + attr.module + "_mini.png";

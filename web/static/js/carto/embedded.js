@@ -4,7 +4,7 @@
 
 Ext.namespace("c2corg");
 
-c2corg.Map = function(config) {
+c2corg.Map = function (config) {
 
     config = Ext.applyIf(config, {
         id: config.div + "-map",
@@ -21,7 +21,7 @@ c2corg.Map = function(config) {
     var mapConfig = c2corg.base.map;
     mapConfig.id = config.id;
     
-    var tools = [{ 
+    var tools = [{
         ptype: "c2corg_layertree",
         outputConfig: {
             closable: false,
@@ -30,7 +30,7 @@ c2corg.Map = function(config) {
             header: true,
             width: 250
         },
-        initialThemes: config.layers, 
+        initialThemes: config.layers,
         url: c2corg.config.mapserverUrl
     },
     {
@@ -84,7 +84,7 @@ c2corg.Map = function(config) {
         map: mapConfig
     });
 
-    viewer.on('ready', function() {
+    viewer.on('ready', function () {
         
         // remove loading message if any
         if (config.loading) {
@@ -97,11 +97,11 @@ c2corg.Map = function(config) {
             var map = this.mapPanel.map, center = config.center;
             var lonlat = new OpenLayers.LonLat(center[0], center[1]);
             lonlat = lonlat.transform("EPSG:4326", map.getProjection());
-            map.setCenter(lonlat, center[2]); 
+            map.setCenter(lonlat, center[2]);
         }
     
         // FIXME: resize event is not detected
-        viewer.portal.body.on('resize', function() {
+        viewer.portal.body.on('resize', function () {
             viewer.portal.doLayout();
         });
     }, viewer, config);

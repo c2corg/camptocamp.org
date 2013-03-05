@@ -1,4 +1,4 @@
-Ext.onReady(function() {
+Ext.onReady(function () {
 
     // Set OpenLayers/GeoExt params + lang
     c2corg.base.init("fr");
