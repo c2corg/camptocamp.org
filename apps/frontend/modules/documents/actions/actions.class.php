@@ -4578,6 +4578,40 @@ c2cTools::log("to redirectIfSlugmissing");
         $this->setJsonResponse();
     }
  
+    public function executeTooltipPreview() {
+        $module = $this->getRequestParameter('module');
+        $id = $this->getRequestParameter('id');
+
+        if ($module == 'users' && !$this->getUser()->isConnected() && !UserPrivateData::hasPublicProfile($id))
+        {
+            $this->name = $this->__('not available');
+        }
+        else
+        {
+            $model = c2cTools::module2model($module);
+            $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
+            $i18n = Doctrine_Query::create()
+                    ->select('m.culture, m.name')
+                    ->from("${model}I18n m")
+                    ->where('m.id = ?', array($id))
+                    ->execute();
+            $old_lang = 200;
+            foreach($i18n as $name)
+            {
+                $lang_pos = array_search($name->get('culture'), $langs);
+                if ($lang_pos === false) $lang_pos = 10;
+                // test if language is prefered over the older
+                if ($lang_pos < $old_lang)
+                {
+                    $old_lang = $lang_pos;
+                    $uname = $name->get('name');
+                }
+            }
+            $this->name = $uname;
+        }
+
+        $this->setJsonResponse();
+    }
  
     public function executeTooltipTest() {
         $bbox = $this->getRequestParameter('bbox');

@@ -288,9 +288,9 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
         for (var name in this.layers) {
             layers.push(this.layers[name]);
         }
-        var selectControl = new OpenLayers.Control.SelectFeature(
+        var clickControl = new OpenLayers.Control.SelectFeature(
             layers, {
-                multiple: false,
+                clickout: true,
                 onSelect: function(feature) {
                     var popup = new GeoExt.Popup({
                         width: 440,
@@ -309,9 +309,88 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 },
                 scope: this
             });
-        this.mapPanel.map.addControl(selectControl);
-        selectControl.activate();
+        
+        var hoverControl = new c2corg.control.hoverFeature(layers, {});
+        
+        this.mapPanel.map.addControl(hoverControl);
+        this.mapPanel.map.addControl(clickControl);
+
+        hoverControl.activate();
+        clickControl.activate();
     }
 });
 
 Ext.reg('c2corg_layertree', c2corg.tree.LayerTree);
+
+Ext.namespace("c2corg.control");
+
+c2corg.control.hoverFeature = OpenLayers.Class(OpenLayers.Control.SelectFeature, {
+    hover: true,
+    highlightOnly: true,
+    protocol: null,
+    listening: true,
+
+    initialize: function(layers, options) {
+        OpenLayers.Control.SelectFeature.prototype.initialize.apply(this, [layers, options]);
+
+        this.protocol = new OpenLayers.Protocol.HTTP({
+            url: '/documents/tooltipPreview',
+            format: new OpenLayers.Format.JSON(),
+            params: {}
+        }); 
+
+        this.events.on({
+            //beforefeaturehighlighted: this.report,
+            featurehighlighted: this.showPreview,
+            featureunhighlighted: this.hidePreview,
+            scope: this
+        });
+    },
+    
+    showPreview: function(e) {
+        if (!this.listening) {
+            return;
+        }
+        this.listening = false;
+        var feature = e.feature;
+        this.currentFeature = feature;
+        this.protocol.read({
+            params: {
+                module: feature.data.module,
+                id: feature.data.id
+            },
+            callback: function(result) {
+                if (result.success()) {
+                    if (this.currentFeature.geometry instanceof OpenLayers.Geometry.Point) {
+                        var lonlat = new OpenLayers.LonLat(this.currentFeature.geometry.x,
+                                                           this.currentFeature.geometry.y);
+                    } else {
+                        // FIXME: would be better to use the cursor position
+                        var lonlat = this.currentFeature.bounds.getCenterLonLat();
+                    }
+                    var px = this.map.getViewPortPxFromLonLat(lonlat);
+                    this.div.innerHTML = OpenLayers.i18n('${item}. Click to show info', {
+                        item: result.features.name
+                    });
+                    this.div.style.top = (px.y + 10) + 'px';
+                    this.div.style.left = (px.x + 10) + 'px';
+                    this.div.style.display = "block";
+                }
+            },
+            scope: this
+        });
+    },
+
+    hidePreview: function(e) {
+        this.div.innerHTML = "";
+        this.div.style.display = "none";
+        this.listening = true;
+    },
+
+    draw: function() {
+        OpenLayers.Control.prototype.draw.apply(this, arguments);
+        this.div.id = "tooltip_tooltip";
+        this.div.style.display = "none";
+        return this.div;
+    }
+});
