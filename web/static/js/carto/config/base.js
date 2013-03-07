@@ -63,9 +63,14 @@ c2corg.base = {
         GeoExt.Lang.set(lang);
     },
 
-    getControls: function () {
+    getControls: function (options) {
+        options = Ext.applyIf(options || {}, {
+            zoomWheelEnabled: true
+        });
         return [
-            new OpenLayers.Control.Navigation(),
+            new OpenLayers.Control.Navigation({
+                zoomWheelEnabled: options.zoomWheelEnabled
+            }),
             new OpenLayers.Control.KeyboardDefaults(),
             new OpenLayers.Control.PanZoomBar({panIcons: false}),
             new OpenLayers.Control.ArgParser(),
@@ -136,15 +141,20 @@ c2corg.base.basemaps = [{
     }, c2corg.base.ignOptions)]
 }];
 
-c2corg.base.map = {
-    xtype: 'cgxp_mappanel',
-    extent: c2corg.base.initialExtent,
-    maxExtent: c2corg.base.restrictedExtent,
-    restrictedExtent: c2corg.base.restrictedExtent,
-    stateId: "map",
-    projection: new OpenLayers.Projection("EPSG:900913"),
-    units: "m",
-    controls: c2corg.base.getControls(),
-    layers: c2corg.base.basemaps,
-    items: []
+c2corg.base.getMap = function(options) {
+    options = Ext.applyIf(options || {}, {
+        controls: {}
+    });
+    return {
+        xtype: 'cgxp_mappanel',
+        extent: c2corg.base.initialExtent,
+        maxExtent: c2corg.base.restrictedExtent,
+        restrictedExtent: c2corg.base.restrictedExtent,
+        stateId: "map",
+        projection: new OpenLayers.Projection("EPSG:900913"),
+        units: "m",
+        controls: c2corg.base.getControls(options.controls),
+        layers: c2corg.base.basemaps,
+        items: []
+    }
 };

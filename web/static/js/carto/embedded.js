@@ -18,7 +18,9 @@ c2corg.Map = function (config) {
     // Set OpenLayers/GeoExt params + lang
     c2corg.base.init(config.lang);
 
-    var mapConfig = c2corg.base.map;
+    var mapConfig = c2corg.base.getMap({
+        controls: { zoomWheelEnabled: false }
+    });
     mapConfig.id = config.id;
     
     var tools = [{
