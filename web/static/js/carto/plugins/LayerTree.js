@@ -5,6 +5,8 @@
  * @include OpenLayers/Strategy/BBOX.js
  * @include OpenLayers/Protocol/WFS/v1_0_0.js
  * @include OpenLayers/Protocol/WFS.js
+ * @include OpenLayers/Protocol/HTTP.js
+ * @include OpenLayers/Format/JSON.js
  * @include OpenLayers/Control/SelectFeature.js
  * @include GeoExt/widgets/tree/LayerNode.js
  * @include styles.js
