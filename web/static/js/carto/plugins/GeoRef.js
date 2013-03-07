@@ -15,6 +15,7 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
 
     callback: null,
     initialState: null,
+    initialLonlat: null,
 
     markerLayer: null,
     marker: null,
@@ -31,11 +32,11 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
         map.addLayer(this.markerLayer);
 
         if (this.initialState && this.initialState.lon & this.initialState.lat) {
-            var lonlat = new OpenLayers.LonLat(this.initialState.lon, this.initialState.lat);
-            lonlat = lonlat.transform("EPSG:4326", map.getProjection());
-            map.setCenter(lonlat, this.initialState.zoom);
+            this.initialLonlat = new OpenLayers.LonLat(this.initialState.lon, this.initialState.lat);
+            this.initialLonlat.transform("EPSG:4326", map.getProjection());
+            map.setCenter(this.initialLonlat, this.initialState.zoom);
 
-            this.createMarker(lonlat); 
+            this.createMarker(this.initialLonlat); 
         }
     },
 
@@ -52,8 +53,9 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
 
     updateLonlat: function(lonlat) {
         this.createMarker(lonlat);
-        this.callback(lonlat.transform(this.target.mapPanel.map.getProjection(),
-                                       "EPSG:4326"));
+        var lonlat2 = lonlat.clone();
+        lonlat2.transform(this.target.mapPanel.map.getProjection(), "EPSG:4326");
+        this.callback(lonlat2);
     },
 
     addActions: function() {
@@ -62,15 +64,43 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
             callback: this.updateLonlat,
             callbackName: "updateLonlat"
         });
-        var action = new GeoExt.Action(Ext.apply({
+        var actions = [];
+        actions.push(new GeoExt.Action(Ext.apply({
             allowDepress: true,
             enableToggle: true,
+            pressed: true,
             map: this.target.mapPanel.map,
-            text: c2corg.i18n("Georef"),
+            text: c2corg.i18n("Georef Tool"),
+            tooltip: c2corg.i18n("Click on the map to locate item"),
             toggleGroup: this.toggleGroup,
             control: control
-        }, this.actionConfig));
-        return c2corg.plugins.GeoRef.superclass.addActions.apply(this, [action]);
+        }, this.actionConfig)));
+
+        actions.push(new Ext.Action({
+            text: c2corg.i18n("Reset georef"),
+            tooltip: c2corg.i18n("Cancel changes"),
+            handler: function() {
+                if (this.initialLonlat) {
+                    var map = this.target.mapPanel.map;
+                    this.createMarker(this.initialLonlat);
+                    this.callback(
+                        this.initialLonlat.clone().transform(
+                            map.getProjection(), "EPSG:4326"
+                        )
+                    );
+                    map.setCenter(this.initialLonlat, this.initialZoom);                                       
+                } else {
+                    if (this.marker) {
+                        this.marker.destroy();
+                        this.marker = null;
+                    }
+                    this.callback(null);
+                }
+            },
+            scope: this
+        }));
+
+        return c2corg.plugins.GeoRef.superclass.addActions.apply(this, [actions]);
     }
 });
 

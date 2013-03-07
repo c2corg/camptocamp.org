@@ -71,6 +71,16 @@ c2corg.Map = function (config) {
             callback: config.georef.callback
         });
     }
+
+    tools.push({
+        ptype: "cgxp_menushortcut",
+        actionTarget: "map.tbar",
+        type: '->'
+    },
+    {
+        ptype: "cgxp_geonames",
+        actionTarget: "map.tbar"
+    });
     
     viewer = new gxp.Viewer({
         portalConfig: {

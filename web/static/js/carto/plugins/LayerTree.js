@@ -369,7 +369,7 @@ c2corg.control.hoverFeature = OpenLayers.Class(OpenLayers.Control.SelectFeature,
                         var lonlat = this.currentFeature.bounds.getCenterLonLat();
                     }
                     var px = this.map.getViewPortPxFromLonLat(lonlat);
-                    this.div.innerHTML = OpenLayers.i18n('${item}. Click to show info', {
+                    this.div.innerHTML = c2corg.i18n('${item}. Click to show info', {
                         item: result.features.name
                     });
                     this.div.style.top = (px.y + 10) + 'px';

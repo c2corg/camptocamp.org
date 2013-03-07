@@ -31,8 +31,13 @@ function show_georef_map($lon, $lat, $lang, $layer)
                         zoom: 15
                     },
                     callback: function(lonlat) {
-                        $('lon').value = Math.round(lonlat.lon*1E6)/1E6;
-                        $('lat').value = Math.round(lonlat.lat*1E6)/1E6;
+                        if (lonlat) {
+                            $('lon').value = Math.round(lonlat.lon*1E6)/1E6;
+                            $('lat').value = Math.round(lonlat.lat*1E6)/1E6;
+                        } else {
+                            $('lon').value = '';
+                            $('lat').value = '';
+                        }
                         c2corg.coords.update_degminsec('lon');
                         c2corg.coords.update_degminsec('lat');
                     }
