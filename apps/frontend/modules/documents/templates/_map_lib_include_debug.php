@@ -249,7 +249,7 @@ use_javascript('/static/js/carto/plugins/GeoRef.js', 'maps');
 
 // Project-specific configs and tools
 use_javascript('/static/js/carto/config/config.js', 'maps');
+use_javascript('/static/js/carto/tools/i18n.js', 'maps');
 use_javascript('/static/js/carto/config/base.js', 'maps');
 use_javascript('/static/js/carto/config/styles.js', 'maps');
-use_javascript('/static/js/carto/tools/i18n.js', 'maps');
 use_javascript('/static/js/carto/tools/coords.js', 'maps');

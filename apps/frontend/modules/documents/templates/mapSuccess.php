@@ -9,10 +9,11 @@ if ($debug) {
     use_javascript('/static/js/carto/build/app.js', 'maps');
 }
 use_stylesheet('/static/js/carto/viewer.css', 'last'); // TODO: build CSS
-use_javascript('/static/js/carto/build/lang-fr.js', 'maps'); // TODO: $lang
+use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
 use_javascript('/static/js/carto/viewer.js', 'maps');
 
 include_partial('documents/map_i18n');
+print javascript_tag("mapLang = '$lang';");
 ?>
 
 <div id="mapPort">

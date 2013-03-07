@@ -1,5 +1,6 @@
 /**
  * @requires config.js
+ * @requires i18n.js
  * @requires OpenLayers/Control/Navigation.js
  * @requires OpenLayers/Control/KeyboardDefaults.js
  * @requires OpenLayers/Control/PanZoomBar.js
@@ -123,7 +124,7 @@ c2corg.base.basemaps = [{
     type: "OpenLayers.Layer.WMTS",
     group: 'background',
     args: [Ext.applyIf({
-        name: OpenLayers.i18n("IGN - cartes"),
+        name: c2corg.i18n("IGN maps"),
         layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
         ref: 'ign_maps',
         group : 'background'
@@ -133,7 +134,7 @@ c2corg.base.basemaps = [{
     type: "OpenLayers.Layer.WMTS",
     group: 'background',
     args: [Ext.applyIf({
-        name: OpenLayers.i18n("IGN - Orthos"),
+        name: c2corg.i18n("IGN orthos"),
         layer: "ORTHOIMAGERY.ORTHOPHOTOS",
         numZoomLevels: 20,
         ref: 'ign_ortho',

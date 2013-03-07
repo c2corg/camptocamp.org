@@ -58,13 +58,14 @@ function show_georef_map($lon, $lat, $lang, $layer)
 function _loadJsOamTools()
 {
     $debug = sfContext::getInstance()->getRequest()->getParameter('debug', false);
+    $lang = sfContext::getInstance()->getUser()->getCulture();
     if ($debug) {
         include_partial('documents/map_lib_include_debug');
     } else {
         use_stylesheet('/static/js/carto/build/app.css', 'custom');
         use_javascript('/static/js/carto/build/app.js', 'maps');
     }
-    use_javascript('/static/js/carto/build/lang-fr.js', 'maps'); // FIXME
+    use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
     use_javascript('/static/js/carto/embedded.js', 'maps');
 }
 
