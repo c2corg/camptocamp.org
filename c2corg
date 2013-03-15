@@ -618,24 +618,7 @@ function rmdirr($dir, $keepDirs = false) {
         @rmdir($dir);
 }
 
-function installDoctrine() {
-    if (!hasCommand('svn --help')) {
-        info('Installing Doctrine failed: svn is not available on your system.');
-        exit;
-    }
-
-    chdir('plugins');
-    rmdirr('sfDoctrinePlugin');
-    info('Downloading sfDoctrinePlugin...');
-    execWrapper(sprintf('svn co -q -r %d %s', SF_DOCTRINE_SVN_REV, SF_DOCTRINE_SVN_PATH));
-    info('Doctrine has been downloaded.');
-
-    chdir(dirname(__FILE__));
-}
-
 function installPlugins() {
-
-    //installDoctrine();
 
     info('Installing Symfony plugins...');
     
