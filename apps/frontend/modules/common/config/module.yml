@@ -238,4 +238,4 @@ all:
       raid:
         id: 68
         image: c2c-raid.png
-        alt: "Portail C2C Raids & Exp√dition"
+        alt: "Portail C2C Raids/Expeditions"
