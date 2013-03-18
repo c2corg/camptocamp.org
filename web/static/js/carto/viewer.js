@@ -16,6 +16,9 @@ Ext.onReady(function () {
                 region: 'center',
                 layout: 'border',
                 id: 'center',
+                border: true,
+                bodyStyle: 'background: none',
+                margins: '5 20 0 20',
                 tbar: [],
                 bbar: [],
                 items: ["app-map"]

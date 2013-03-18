@@ -24,3 +24,7 @@
 .x-tree-node-leaf .gx-tree-layer-icon {
     background-image: none;
 }
+
+.x-border-layout-ct {
+    background-color: white;
+}
