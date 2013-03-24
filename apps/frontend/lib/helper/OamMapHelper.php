@@ -65,6 +65,7 @@ function _loadJsOamTools()
         use_stylesheet('/static/js/carto/build/app.css', 'custom');
         use_javascript('/static/js/carto/build/app.js', 'maps');
     }
+    use_stylesheet('/static/js/carto/carto.css', 'custom'); // FIXME: build CSS
     use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
     use_javascript('/static/js/carto/embedded.js', 'maps');
 }

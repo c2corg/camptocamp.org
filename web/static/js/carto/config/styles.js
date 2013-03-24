@@ -24,7 +24,18 @@ c2corg.styleMap = function (config) {
             strokeColor: "yellow",
             strokeWidth: 2,
             fillOpacity: 0
-        });
+        }),
+        pointsHover = Ext.applyIf({
+            graphicOpacity: 0.6
+        }, points),
+        linesHover = Ext.applyIf({
+            strokeColor: "red",
+            strokeWidth: 3
+        }, lines),
+        polygonsHover = Ext.applyIf({
+            strokeColor: "red",
+            strokeWidth: 3
+        }, polygons);
 
     /*
     // TODO: rename summits picto with names containing the "summit_type" attribute
@@ -78,7 +89,24 @@ c2corg.styleMap = function (config) {
         "maps": polygons,
         "countries": polygons,
         "admin_limits": polygons
+    },
+        lookupHover = {
+        "summits": pointsHover,
+        "parkings": pointsHover,
+        "huts": pointsHover,
+        "sites": pointsHover,
+        "users": pointsHover,
+        "images": pointsHover,
+        "products": pointsHover,
+        "routes": linesHover,
+        "outings": linesHover,
+        "ranges": polygonsHover,
+        "maps": polygonsHover,
+        "countries": polygonsHover,
+        "admin_limits": polygonsHover
     };
+
     styleMap.addUniqueValueRules("default", "module", lookup, context);
+    styleMap.addUniqueValueRules("temporary", "module", lookupHover, context);
     return styleMap;
 };

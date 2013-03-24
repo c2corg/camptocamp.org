@@ -329,6 +329,7 @@ Ext.namespace("c2corg.control");
 c2corg.control.hoverFeature = OpenLayers.Class(OpenLayers.Control.SelectFeature, {
     hover: true,
     highlightOnly: true,
+    renderIntent: "temporary",
     protocol: null,
     listening: true,
 
@@ -391,7 +392,7 @@ c2corg.control.hoverFeature = OpenLayers.Class(OpenLayers.Control.SelectFeature,
 
     draw: function() {
         OpenLayers.Control.prototype.draw.apply(this, arguments);
-        this.div.id = "tooltip_tooltip";
+        this.div.className = "tooltip_tooltip";
         this.div.style.display = "none";
         return this.div;
     }
