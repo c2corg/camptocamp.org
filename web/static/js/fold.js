@@ -228,6 +228,11 @@ function toggleView(container_id)
                 c2corg.embeddedMap.init.delay(0.6);
             }
         }
+    } else if (container_id == 'elevation_profile_container') {
+        if (!div.visible() && !div.hasClassName('profile_loaded'))
+        {
+            c2c_load_elevation_profile();
+        }
     }
 }
 

@@ -12,7 +12,8 @@ $mobile_version =  c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $activities = $document->getRaw('activities');
-$section_list = array('map' => (boolean)($document->get('geom_wkt')));
+$has_wkt = (boolean)($document->get('geom_wkt'));
+$section_list = array('map' => $has_wkt, 'elevation_profile' => $has_wkt);
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('outings', $document, $id, $metadata, $current_version,
@@ -145,6 +146,8 @@ echo end_section_tag();
 
 include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
 
+include_partial('documents/elevation_profile_section', array('id' => $id, 'lang' => $lang));
+
 if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_connected))
 {
     include_partial('documents/images',
@@ -157,7 +160,7 @@ if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_conne
 
 if ($mobile_version)
 {
-    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
+    include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
 
     if ($is_connected)
     {

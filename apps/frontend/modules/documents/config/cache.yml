@@ -163,3 +163,6 @@ _annex_docs:
 
 _doc_infos:
   enabled: off
+
+_elevation_profile:
+  enabled: off
