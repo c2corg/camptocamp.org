@@ -146,7 +146,10 @@ echo end_section_tag();
 
 include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
 
-include_partial('documents/elevation_profile_section', array('id' => $id, 'lang' => $lang));
+if ($has_wkt)
+{
+    include_partial('documents/elevation_profile_section', array('id' => $id, 'lang' => $lang));
+}
 
 if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_connected))
 {

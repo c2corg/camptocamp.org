@@ -1,0 +1,37 @@
+#elevation_profile_container_section_container {
+  font: 10px sans-serif;
+
+  .axis path,
+  .axis line {
+      fill: none;
+        stroke: #000;
+          shape-rendering: crispEdges;
+  }
+
+  .line {
+      fill: none;
+        stroke: #FF9933;
+          stroke-width: 3px;
+  }
+
+  .circle {
+      fill: white;
+        stroke: #FF9933;
+          stroke-width: 2px;
+  }
+
+  line.target {
+      stroke: lightgray;
+        stroke-width: 1px;
+  }
+
+  .bubble {
+      font-size: 12px;
+  }
+
+  .overlay {
+      fill: none;
+        pointer-events: all;
+  }
+}
+// TODO make this clean
