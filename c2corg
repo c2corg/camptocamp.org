@@ -777,7 +777,7 @@ function getFileRevisionInfoGit($tmpfile) {
     $cmd = 'git show HEAD --pretty=format:%h | head -n1 > ' . $tmpfile;
     execWrapper($cmd);
     if ($version_info = file_get_contents($tmpfile)) {
-        return($version_info);
+        return("head: " . $version_info);
     } else {
         info('Failed updating revision info');
         return;
