@@ -13,8 +13,8 @@ echo start_section_tag('Elevation profile', 'elevation_profile_container', 'clos
   </div>
   <form class="xaxis-dimension">
     <?php echo __('x axis:') ?><br />
-    <label><input type="radio" name="profile_mode" value="distance" checked /> Distance</label>
-    <label><input type="radio" name="profile_mode" value="time" /> Time</label>
+    <label><input type="radio" name="profile_mode" value="distance" checked /> <?php echo __('Distance') ?></label>
+    <label><input type="radio" name="profile_mode" value="time" /> <?php echo __('Time') ?></label>
   </form>
 </div>
 <div id="elevation_profile">
