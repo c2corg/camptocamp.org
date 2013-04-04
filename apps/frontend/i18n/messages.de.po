@@ -714,6 +714,14 @@ msgstr "Die Daten von <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a
 msgid "Distance"
 msgstr "Entfernung"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+# [comment]
+# Entfernung???
+# [WARNING] needs_review
+msgid "Distance (km)"
+msgstr "Distanz (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "Das Dokument %1% wurde mit dem Dokument %2% zusammengeschlossen."
 
@@ -767,6 +775,18 @@ msgstr "Die Dokumente sind nicht vom gleichen Typ und können nicht zusammengesc
 
 msgid "Donate to Camptocamp Association"
 msgstr "Eine Spende an den Camptocamp-Verein leisten, dem Verein beitreten oder seinen Mitgliederbeitrag bezahlen"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+# [WARNING] en translation used
+msgid "Duration"
+msgstr "Duration"
+
+# [WARNING] en translation used
+msgid "Duration (hrs)"
+msgstr "Duration (h)"
 
 msgid "E"
 msgstr "O"
@@ -838,6 +858,23 @@ msgstr "\"%1%\" bearbeiten"
 
 msgid "Editor:"
 msgstr "Verlag:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+msgid "Elevation"
+msgstr "Höhe"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "Elevation (m)"
+msgstr "Höhe (m ü. M.)"
+
+# [WARNING] needs_review
+msgid "Elevation profile"
+msgstr "Höhenprofil"
 
 msgid "Email short"
 msgstr "Email"
@@ -2476,6 +2513,15 @@ msgstr "Dieser Benutzer hat noch keine Tour eingetragen."
 
 msgid "This username already exists. Please choose another one."
 msgstr "Dieser Benutzername existiert bereits. Bitte suchen Sie sich einen anderen aus."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+# [WARNING] needs_review
+msgid "Time"
+msgstr "Zeit"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>Um die Erstellung ihres Benutzerprofils zu bestätigen, müssen sie sich auf der Webseite mit ihren Anmeldedaten identifizieren.</b> Falls sie möchten, können sie anschliessend ihr Passwort ändern. Wenn die Identifizierung nicht innerhalb von %1% Tagen geschieht, wird Ihr Benutzerprofil automatisch gelöscht."
@@ -7353,6 +7399,12 @@ msgstr "Ungültiges Bildformat"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] fr translation used
+msgid "x axis:"
+msgstr "Voir le profil en fonction de&nbsp;:"
 
 msgid "year"
 msgstr "Jahr"

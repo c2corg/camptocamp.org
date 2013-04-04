@@ -719,6 +719,11 @@ msgstr "<a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> Errepide dat
 msgid "Distance"
 msgstr "Distantzia"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+msgid "Distance (km)"
+msgstr "Distantzia (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "%1% dokumentua %2% rekin bateratua izan da."
 
@@ -773,6 +778,18 @@ msgstr "Dokumentuak ez dira mota berdinekoak, ondorioz ezin dira bateratu"
 # [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
 msgstr "CamptoCamp elkarteari donazioa bat egin"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+# [WARNING] en translation used
+msgid "Duration"
+msgstr "Duration"
+
+# [WARNING] en translation used
+msgid "Duration (hrs)"
+msgstr "Duration (h)"
 
 msgid "E"
 msgstr "E"
@@ -844,6 +861,26 @@ msgstr "\"%1%\"-ko edizioa"
 
 msgid "Editor:"
 msgstr "Argitaratzailea:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+# [comment]
+# Garaiera ??
+# [WARNING] needs_review
+msgid "Elevation"
+msgstr "Altitudea"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "Elevation (m)"
+msgstr "Garaiera (m)"
+
+# [WARNING] es translation used
+msgid "Elevation profile"
+msgstr "Perfil de elevación"
 
 msgid "Email short"
 msgstr "E-mail"
@@ -2584,6 +2621,15 @@ msgstr "Erabiltzaile honek ez du oraindik irteerarik sortu."
 
 msgid "This username already exists. Please choose another one."
 msgstr "Erabiltzaile izen hau iada erabilia da. Mesedez beste bat erabili."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+# [WARNING] needs_review
+msgid "Time"
+msgstr "Ordua"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>Zure kontuaren sorrera baieztatzeko, ondorengo koneksio informazioen bitartez identifikatu web gunean.</b> Nahi ezkero, pasa hitza aldatzeko aukera izango duzu. %1% egunetan inolako ekintzarik ez badago, kontua automatikoki ezabatuko da.."
@@ -7524,6 +7570,12 @@ msgstr "Formato de imagen no valido"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] fr translation used
+msgid "x axis:"
+msgstr "Voir le profil en fonction de&nbsp;:"
 
 # [WARNING] es translation used
 msgid "year"

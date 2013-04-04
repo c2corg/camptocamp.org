@@ -193,9 +193,9 @@ msgstr "Sicuro di volere cancellare la geometria di questo documento?"
 
 # [general comment]
 # escape ' by \' if you use them
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Are you sure you want to rotate the image?"
-msgstr "Are you sure you want to rotate the image?"
+msgstr "Sei sicuro di di volere girare l'immagine?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Sei sicuro di volere cancellare l'associazione con l'immagine %1% intitolata \"%2%\"?"
@@ -711,6 +711,11 @@ msgstr "Mostrare le strade (<a href=\"http://www.openstreetmap.org/\">OpenStreet
 msgid "Distance"
 msgstr "Distanza"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+msgid "Distance (km)"
+msgstr "Distanza (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "Il documento %1% è stato unito con il documento %2%."
 
@@ -764,6 +769,18 @@ msgstr "Sono documenti di diversi tipi. Non possono essere uniti."
 # [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
 msgstr "Fare un dono a Camptocamp Association"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+# [WARNING] en translation used
+msgid "Duration"
+msgstr "Duration"
+
+# [WARNING] en translation used
+msgid "Duration (hrs)"
+msgstr "Duration (h)"
 
 msgid "E"
 msgstr "E"
@@ -834,6 +851,26 @@ msgstr "Edizione di \"%1%\""
 
 msgid "Editor:"
 msgstr "Editore:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+# [comment]
+# Altezza ??
+# [WARNING] needs_review
+msgid "Elevation"
+msgstr "Altitudine"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "Elevation (m)"
+msgstr "Altezza (m s.l.m.)"
+
+# [WARNING] needs_review
+msgid "Elevation profile"
+msgstr "Profilo elevazione"
 
 msgid "Email short"
 msgstr "Email"
@@ -1122,13 +1159,13 @@ msgstr "Licenza dell'immagine:"
 msgid "Image not found"
 msgstr "Quest’immagine non è stata trovata."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Image rotated successfully"
-msgstr "Image rotated successfully"
+msgstr "L'immagine è stata girata"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Image rotation"
-msgstr "Image rotation"
+msgstr "Rotazione dell'immagine"
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
@@ -1943,23 +1980,21 @@ msgstr "Informazioni (opzionale) sulle modifiche"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
 msgid "Rotate -90"
-msgstr "Rotate left"
+msgstr "Girare a sinistra"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
 msgid "Rotate 90"
-msgstr "Rotate right"
+msgstr "Girare a destra"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Rotate the image by -90"
-msgstr "Rotate the image by 90° counter-clockwise"
+msgstr "Girare l'immagine di 90° nel senso anti-orario"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Rotate the image by 90"
-msgstr "Rotate the image by 90° clockwise"
+msgstr "Girare l'immagine di 90° nel senso orario"
 
 msgid "Route not found"
 msgstr "Questo itinerario non è stato trovato."
@@ -2465,6 +2500,15 @@ msgstr "Questo utente non ha gite associate."
 
 msgid "This username already exists. Please choose another one."
 msgstr "Questo nome utente esiste già. Devi sceglierne un altro."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+# [WARNING] needs_review
+msgid "Time"
+msgstr "ora"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>Per confermare la creazione del tuo account, è necessario accedere al sito con le informazioni di connessione allegate.</b> Solo dopo potrai modificare la Password se necessario. Nel caso non venisse conclusa l’operazione, il conto sarà automaticamente annullato dopo %1% giorni."
@@ -3560,13 +3604,13 @@ msgstr "<h3>URL</h3>Indirizzo web del rifugio, dell'editore del libro o del docu
 msgid "_variants_info"
 msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono degli itinerari che hanno un percorso comune su un parte significativa delle difficoltà. <br />Per esempio, une traversata a sci di una cima con discesa da un couloir merita un itinerario specifico e deve essere associata come variante all'itinerario in andata ritorno nel couloir. <br />Invece due variante nella parte delle difficoltà (es: un couloir con 2 uscite) devovono essere descritte nello stesso itinerario."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_vtt_approach_info"
-msgstr "<h3>Approche à VTT possible</h3>\n"
-"Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement à VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
-"Cela concerne les approches commençant par :<br />\n"
-"- une piste ou route interdite aux véhicules motorisés<br />\n"
-"- un sentier large, peu accidenté, peu pentu, et autorisé aux VTT"
+msgstr "<h3>Avvicinamento in MTB possibile</h3>\n"
+"Almeno una parte significativa dell'avvicinamento di questo itinerario puo essere fato facilmente in MTB (mountain bike).<br />\n"
+"Ad esempio :<br />\n"
+"- une pista o strada vietata ai veicoli a motori,<br />\n"
+"- sentiero poco accidentato e poco ripido autorizzato agli MTB."
 
 msgid "_way_back_info"
 msgstr "<h3>Discesa delle vie</h3>Dettagli per la discesa dall'alto delle vie:<br /><br /><strong>monotiri</strong>: lunghezza della corda<br /><br /><strong>doppie</strong>: dettaglio sulla posizione della soste, lunghezza della corda...<br /><br /><strong>à pied</strong>: itinerario, durata, difficoltà..."
@@ -7142,6 +7186,12 @@ msgstr "Formato d'immagine invalido"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] fr translation used
+msgid "x axis:"
+msgstr "Voir le profil en fonction de&nbsp;:"
 
 msgid "year"
 msgstr "anno"

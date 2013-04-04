@@ -203,7 +203,7 @@ msgstr "Êtes-vous sûr de vouloir effacer la géométrie de ce document ?"
 # escape ' by \' if you use them
 # [WARNING] needs_review
 msgid "Are you sure you want to rotate the image?"
-msgstr "Êtes-vous surs de vouloir tourner l'image ?"
+msgstr "Êtes-vous sûr de vouloir tourner l'image ?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Êtes vous sûr de vouloir dissocier l'image %1% nommée \"%2%\" ?"
@@ -717,6 +717,11 @@ msgstr "Afficher les données routières de <a href=\"http://www.openstreetmap.o
 msgid "Distance"
 msgstr "Distance"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+msgid "Distance (km)"
+msgstr "Distance (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "Le document %1% a été fusionné avec le document %2%."
 
@@ -771,6 +776,16 @@ msgstr "Les documents ne sont pas du même type, et ne peuvent donc pas être fu
 # ajouter adhésion
 msgid "Donate to Camptocamp Association"
 msgstr "Faire un don à Camptocamp Association, adhérer ou renouveler sa cotisation"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+msgid "Duration"
+msgstr "Durée"
+
+msgid "Duration (hrs)"
+msgstr "Durée (h)"
 
 msgid "E"
 msgstr "E"
@@ -841,6 +856,25 @@ msgstr "Édition de \"%1%\""
 
 msgid "Editor:"
 msgstr "Éditeur&nbsp;:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+msgid "Elevation"
+msgstr "Altitude"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+msgid "Elevation (m)"
+msgstr "Altitude (m)"
+
+# [comment]
+# Google utilise profil d'élévation ?
+# profil topographique ?
+# [WARNING] needs_review
+msgid "Elevation profile"
+msgstr "Profil d'altitude"
 
 msgid "Email short"
 msgstr "Courriel"
@@ -2457,6 +2491,14 @@ msgstr "Cet utilisateur n'a pas encore saisi de sortie."
 
 msgid "This username already exists. Please choose another one."
 msgstr "Ce nom d'utilisateur existe déjà. Merci d'en choisir un autre."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+msgid "Time"
+msgstr "Heure"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>Pour confirmer la création de votre compte, il vous faut vous identifier sur le site à l'aide de ces informations de connexion.</b> Vous pourrez alors modifier votre mot de passe si nécessaire. En l'absence de toute action de votre part, ce compte sera automatiquement détruit au bout de %1% jours."
@@ -7168,6 +7210,12 @@ msgstr "Format d'image invalide"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "x axis:"
+msgstr "Voir le profil en fonction de&nbsp;:"
 
 msgid "year"
 msgstr "an"

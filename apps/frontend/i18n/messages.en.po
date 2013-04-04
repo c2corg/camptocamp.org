@@ -709,6 +709,11 @@ msgstr "Display road data from <a href=\"http://www.openstreetmap.org/\">OpenStr
 msgid "Distance"
 msgstr "Distance"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+msgid "Distance (km)"
+msgstr "Distance (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "Document %1% has been merged into document %2%."
 
@@ -763,6 +768,18 @@ msgstr "Document types differ, thus cannot be merged"
 # [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
 msgstr "Donate to Camptocamp Association"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+# [WARNING] needs_review
+msgid "Duration"
+msgstr "Duration"
+
+# [WARNING] needs_review
+msgid "Duration (hrs)"
+msgstr "Duration (h)"
 
 msgid "E"
 msgstr "E"
@@ -834,6 +851,22 @@ msgstr "Edition of \"%1%\""
 
 msgid "Editor:"
 msgstr "Editor:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+msgid "Elevation"
+msgstr "Elevation"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "Elevation (m)"
+msgstr "Elevation (m)"
+
+msgid "Elevation profile"
+msgstr "Elevation profile"
 
 msgid "Email short"
 msgstr "E-Mail"
@@ -2468,6 +2501,15 @@ msgstr "This user hasn't contributed any outings yet"
 
 msgid "This username already exists. Please choose another one."
 msgstr "This username already exists. Please choose another one."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+# [WARNING] needs_review
+msgid "Time"
+msgstr "Time"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>To activate your account, please login to the website. You will be able to change your password.</b> Inactivated account will be deleted after %1% days."
@@ -7165,6 +7207,12 @@ msgstr "Invalid picture format"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] fr translation used
+msgid "x axis:"
+msgstr "Voir le profil en fonction de&nbsp;:"
 
 msgid "year"
 msgstr "year"
