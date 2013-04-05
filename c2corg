@@ -693,11 +693,7 @@ function updateRevisionInfo() {
                   'web/forums/style' => 'css',
                   'web/forums/style/imports' => 'css',
                   'web/static/js/dyncat' => 'js',
-                  /* mapfish css FIXME */
-                  'web/static/js/mapfish/mfbase/ext/resources/css' => 'css',
-                  'web/static/js/mapfish/mfbase/geoext/resources/css' => 'css',
-                  'web/static/js/mapfish/mfbase/openlayers/theme/default' => 'css',
-                  'web/static/js/mapfish/MapFishApi/css' => 'css',
+                  /* TODO: is this still used ? */
                   'web/static/js/mapfish/c2corgApi/css' => 'css',
                   /* carto js */
                   'web/static/js/carto' => 'js',
