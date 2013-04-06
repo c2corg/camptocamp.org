@@ -1,5 +1,7 @@
 <?php
 use_helper('MyMinify');
+
+$mobile = c2cTools::mobileVersion();
 echo start_section_tag('Elevation profile', 'elevation_profile_container', 'closed');
 ?>
 <div class="elevation_profile_loading ui-spinner">
@@ -12,9 +14,9 @@ echo start_section_tag('Elevation profile', 'elevation_profile_container', 'clos
        And later on, options like move the map, ... -->
   </div>
   <form class="xaxis-dimension">
-    <?php echo __('x axis:') ?><br />
-    <label><input type="radio" name="profile_mode" value="distance" checked /> <?php echo __('Distance') ?></label>
-    <label><input type="radio" name="profile_mode" value="time" /> <?php echo __('Time') ?></label>
+    <span class="xaxis-label"><?php echo __('x axis:') ?></span>
+    <label><input type="radio" name="profile_mode" value="distance" checked /> <?php echo __('Distance'); ?></label>
+    <label><input type="radio" name="profile_mode" value="time" /> <?php echo __('Time'); ?></label>
   </form>
 </div>
 <div id="elevation_profile">
@@ -23,10 +25,17 @@ echo start_section_tag('Elevation profile', 'elevation_profile_container', 'clos
 echo end_section_tag();
 
 // FIXME d3js uses functions unsupported by ie<=8 but
-// feature detecting svg support should be enough//
+// feature detecting svg support should be enough
 $script_url = minify_get_combined_files_url(array('/static/js/d3.v3.js',
                                                   '/static/js/elevation_profile.js'),
                                             (bool) sfConfig::get('app_minify_debug'));
+// notes:
+// - first test is to test for support of inline svg
+// - we also test if css animations are supported; else replace the spinner
+//   by an animated gif. We d'ont test for css transforms support (also needed)
+//   since every browser supporting animations supports transforms
+// - c2c_load_elevation_profile is called once the section is opened, and
+//   ensures the js is only loaded once
 $js = "(function() { \"use strict\";
 var div = document.createElement('div');
 div.innerHTML = '<svg/>';
@@ -34,7 +43,6 @@ var svg_supported = (div.firstChild && div.firstChild.namespaceURI) == 'http://w
 if (!svg_supported) {
   $('elevation_profile_container_tbg').hide();
 } else {
-  // some constants
   window.c2cprofile = {
     track: '" . url_for("@export_gpx?module=outings&id=$id&lang=$lang") . "',
     i18n: {
@@ -49,10 +57,6 @@ if (!svg_supported) {
       kilometers: '" . __('kilometers') . "'
     }
   };
-  // we test if css animations are supported, else replace the spinner by
-  // an animated gif
-  // we don't test for css transform support (which is also needed) since every
-  // browser that supports animations also supports transforms
   var animation = false;
   var props = ['animationName', 'WebkitAnimationName', 'MozAnimationName',
                'oAnimationName', 'msAnimationName'];
@@ -69,11 +73,18 @@ if (!svg_supported) {
     elt.innerHTML = '" . image_tag('/static/images/indicator.gif') . "';
     elt.removeClassName('ui-spinner');
   }
-  // define function for opening+change class once intializaed
   window.c2c_load_elevation_profile = function() {
     c2c_asyncload('$script_url');
     $('elevation_profile_container_section_container').addClassName('profile_loaded');
   }
 }})()";
+
+// In mobile version, we don't have the dynamic map, so we don't have c2c_asyncload defined
+// FIXME the function should be defined at top level and could be used for addthis and analytics snippets (and more...)
+if ($mobile)
+{
+    $js = 'function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0];' .
+          'a.async = 1; a.src = jsurl; h.appendChild(a); }' . $js;
+}
 
 echo javascript_tag($js);

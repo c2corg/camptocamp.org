@@ -48,5 +48,9 @@
   &.left {
     width: 250px;
     float: left;
+
+    .xaxis-label {
+      display: block;
+    }
   }
 }
