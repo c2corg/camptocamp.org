@@ -50,11 +50,10 @@ echo start_content_tag($module . '_content');
 // display warning if editing from an archive version
 if (!empty($editing_archive))
 {
-    $warning_archive = '<p class="warning_message">' . __('Warning: you are editing an archive version!') . '</p>';
-    echo $warning_archive;
+    echo '<p class="warning_message">', __('Warning: you are editing an archive version!'), '</p>';
 }
 
-if ($linked_with): ?>
+if ($new_document): ?>
     <p class="warning_message">
     <?php echo smart_format(__("This new $module will be linked with $linked_module '[[$linked_module/%2%|%1%]]' (document %2%)",
                                array('%1%' => $linked_name,
