@@ -42,6 +42,7 @@ div.innerHTML = '<svg/>';
 var svg_supported = (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
 if (!svg_supported) {
   $('elevation_profile_container_tbg').hide();
+  $('elevation_profile_nav').hide();
 } else {
   window.c2cprofile = {
     track: '" . url_for("@export_gpx?module=outings&id=$id&lang=$lang") . "',
