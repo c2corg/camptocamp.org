@@ -42,34 +42,43 @@
       var points = parser.parseFromString(request.responseText, 'text/xml')
                          .documentElement.getElementsByTagName("trkpt");
 
-      // some files won't have time elements. We need to handle that
-      var time_available = !!points[0].getElementsByTagName("time").length;
+      try { 
+        // some files won't have time elements. We need to handle that
+        var time_available = !!points[0].getElementsByTagName("time").length;
 
-      if (!time_available) {
-        $$('.xaxis-dimension')[0].hide();
-      }
+        if (!time_available) {
+          $$('.xaxis-dimension')[0].hide();
+        }
 
-      // build data points from gpx information
-      var startDate = time_available ? new Date((points[0].getElementsByTagName("time"))[0].textContent) : null;
-      data.push({
-        date: startDate,
-        ele: +points[0].getElementsByTagName("ele")[0].textContent,
-        d: 0,
-        elapsed: time_available ? 0 : null
-      });
-      for (var i=1; i<points.length; i++) {
-        d = greatArc.distance({
-          source: [points[i].getAttribute("lon"), points[i].getAttribute("lat")],
-          target: [points[i-1].getAttribute("lon"), points[i-1].getAttribute("lat")]
-        }) * 6371;
-        var date = time_available ? new Date(points[i].getElementsByTagName("time")[0].textContent) : null;
+        // build data points from gpx information
+        var startDate = time_available ? new Date((points[0].getElementsByTagName("time"))[0].textContent) : null;
         data.push({
-          date: date,
-          ele: +points[i].getElementsByTagName("ele")[0].textContent,
-          d: dtot + d,
-          elapsed: time_available ? date - startDate : null,
+          date: startDate,
+          ele: +points[0].getElementsByTagName("ele")[0].textContent,
+          d: 0,
+          elapsed: time_available ? 0 : null
         });
-        dtot +=d;
+        for (var i=1; i<points.length; i++) {
+          d = greatArc.distance({
+            source: [points[i].getAttribute("lon"), points[i].getAttribute("lat")],
+            target: [points[i-1].getAttribute("lon"), points[i-1].getAttribute("lat")]
+          }) * 6371;
+          var date = time_available ? new Date(points[i].getElementsByTagName("time")[0].textContent) : null;
+          data.push({
+            date: date,
+            ele: +points[i].getElementsByTagName("ele")[0].textContent,
+            d: dtot + d,
+            elapsed: time_available ? date - startDate : null,
+          });
+          dtot +=d;
+        }
+      } catch(err) {
+        if (data.length) {
+          alert('An error occured and not some points have been ignored!');
+        } else {
+          alert('Sorry, but something went wrong! Please contact us');
+          return;
+        }
       }
 
       // Add an SVG element with the desired dimensions and margin
