@@ -1135,20 +1135,11 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
     }
 }
 
-function li($string, $separator = false)
+function li($content, $options = array())
 {
-    if (!empty($string))
+    if (!empty($content))
     {
-        if ($separator)
-        {
-            $options = " class=\"separator\"";
-        }
-        else
-        {
-            $options = "";
-        }
-        
-        echo "<li$options>$string</li>\n";
+        echo content_tag('li', $content, $options);
     }
 }
 
