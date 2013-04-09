@@ -226,9 +226,11 @@ function object_group_dropdown_tag($object, $fieldname, $config, $options = null
         }
     }
     $choices = array_map('__', sfConfig::get($config));
-    if (isset($options['na']))
+
+    // values that should be excluded
+    $na = _option($options, 'na', null);
+    if ($na)
     {
-        $na = $options['na'];
         $choices = array_diff_ukey($choices, array_flip($na), 'strcmp');
     }
     
@@ -472,9 +474,7 @@ function bbcode_toolbar_img_tag($document, $target_id)
     }
 
     $title = __('img button title');
-    //return button_tag('insert img', 'img', $options);
     return tag('input', array_merge(array('value' => 'img',
-                                          'alt' => $title,
                                           'title' => $title,
                                           'type' => 'button',
                                           'name'  => 'insert img'),

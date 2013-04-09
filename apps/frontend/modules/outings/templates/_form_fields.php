@@ -41,7 +41,7 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 ?>
 </div>
 <div class="article_droite_5050">
-    <p><?php echo __('select activities according to outing') ?></p>
+    <?php echo __('select activities according to outing') ?>
 </div>
 <div class="article_gauche_5050">
 <?php
