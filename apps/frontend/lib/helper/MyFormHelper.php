@@ -123,37 +123,51 @@ function group_tag($label, $fieldname, $callback = 'input_tag', $value = null, $
            end_group_tag();
 }
 
-function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $labelname = null, $label_id = null, $prefix = '', $tips = '')
+function object_group_tag($object, $fieldname, $options = array())
 {
+    $callback = _option($options, 'callback', 'object_input_tag');
+    $suffix = _option($options, 'suffix', '');
+    $prefix = _option($options, 'prefix', '');
+    $check_mandatory = _option($options, 'check_mandatory', true);
+    $label_name = _option($options, 'label_name', null);
+    $label_id = _option($options, 'label_id', $label_name);
+    $tips = _option($options, 'tips', '');
+
     $method = _convert_fieldname_to_method($fieldname);
     $mandatory = $check_mandatory && is_mandatory($fieldname);
 
-    if (empty($label_id))
-    {
-        $label_id = $labelname;
-    }
-    
-    if (empty($callback))
-    {
-        $callback = 'object_input_tag';
-    }
     $no_label = ($callback == 'object_checkbox_tag');
 
     $out  = $mandatory 
             ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
             : start_group_tag();
-    $out .= label_tag($fieldname, $labelname, $mandatory, null, $label_id, $no_label);
-    $out .= form_error($fieldname) . ' <div style="display:inline">';
-    if ($prefix)
+    $out .= label_tag($fieldname, $label_name, $mandatory, null, $label_id, $no_label);
+    $out .= form_error($fieldname) . ' <span>';
+
+    // special case where we use BFC: idea is to have the prefix on the left, and the input taking all
+    // remaining space after that. This requires some extra markup. FIXME could probably be made cleaner
+    if ($prefix && !$suffix && isset($options['class']) && $options['class'] == 'bfc_input')
     {
-        $out .= $prefix . ' ';
+        $out .= '<span class="bfc_float_left">' . $prefix . '</span><span class="bfc_wrap">' .
+                $callback($object, $method, $options) . '</span></span>';
     }
-    $out .= $callback($object, $method, $options) . '</div>';
+    else
+    {
+        if ($prefix)
+        {
+            $out .= $prefix . ' ';
+        }
+
+        $out .= $callback($object, $method, $options) . '</span>';
+    }
+
+    // display suffix right after the input (for example unit)
     if ($suffix)
     {
         $out .= '&nbsp;' . __($suffix);
     }
-    if ($tips)
+
+    if ($tips) // remove ????? FIXME
     {
         if ($tips === true)
         {
@@ -161,6 +175,7 @@ function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $
         }
         $out .= '<div class="float-tips">' . __($tips) . '</div>';
     }
+
     $out .= end_group_tag();
 
     return $out;

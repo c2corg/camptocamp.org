@@ -27,11 +27,11 @@ echo mandatory_fields_warning(array(('outing form warning')));
 
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
+echo object_group_tag($document, 'name', array('class' => 'long_input'));
 
 echo form_section_title('Information', 'form_info', 'preview_info');
 
-echo object_group_tag($document, 'date', 'object_input_date_tag', '', array('year_start' => 1990, 'year_end' => date('Y')));
+echo object_group_tag($document, 'date', array('callback' => 'object_input_date_tag', 'year_start' => 1990, 'year_end' => date('Y')));
 ?>
 <div class="article_gauche_5050">
 <?php
@@ -45,22 +45,22 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 </div>
 <div class="article_gauche_5050">
 <?php
-echo object_group_tag($document, 'partial_trip', 'object_checkbox_tag');
-echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'partial_trip', array('callback' => 'object_checkbox_tag'));
+echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 <div id="outings_height_diff_down">
 <?php
-echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
 <div id="outings_length">
 <?php
-echo object_group_tag($document, 'outing_length', null, 'kilometers', array('class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
+echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers', 'class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
 ?>
 </div>
 <?php
-echo object_group_tag($document, 'outing_with_public_transportation', 'object_checkbox_tag', '', array('onchange' => 'switch_mw_contest_visibility()'));
+echo object_group_tag($document, 'outing_with_public_transportation', array('callback' => 'object_checkbox_tag', 'onchange' => 'switch_mw_contest_visibility()'));
 if ($mw_contest_enabled == true)
 {
 $mw_checked = false;
@@ -85,12 +85,12 @@ echo checkbox_tag('mw_contest_associate', 1, $mw_checked, array('onchange' => 's
 <?php
 }
 echo object_group_dropdown_tag($document, 'access_status', 'mod_outings_access_statuses_list');
-echo object_group_tag($document, 'access_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'access_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 <div id="outings_snow_elevation">
 <?php
-echo object_group_tag($document, 'up_snow_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'down_snow_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'up_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'down_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
 </div>

@@ -22,7 +22,7 @@
     echo end_fieldset_tag();
     
     echo fieldset_tag('Manage your email');
-    echo object_group_tag($user_private_data, 'email', null, '', array('class' => 'medium_input', 'type' => 'email'));
+    echo object_group_tag($user_private_data, 'email', array('class' => 'medium_input', 'type' => 'email'));
     echo end_fieldset_tag();?>
     <div class="form-row">
     <?php
@@ -44,7 +44,7 @@
     end_fieldset_tag();
 
     echo fieldset_tag('Manage your profile page');
-    echo object_group_tag($user_private_data, 'is_profile_public', 'object_checkbox_tag');
+    echo object_group_tag($user_private_data, 'is_profile_public', array('callback' => 'object_checkbox_tag'));
     echo end_fieldset_tag() ?>
     
     <ul class="action_buttons">

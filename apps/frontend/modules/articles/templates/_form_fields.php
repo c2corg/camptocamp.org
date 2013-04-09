@@ -20,7 +20,7 @@ echo mandatory_fields_warning(array(('article form warning')));
 
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
+echo object_group_tag($document, 'name', array('class' => 'long_input'));
 
 echo form_section_title('Information', 'form_info', 'preview_info');
 

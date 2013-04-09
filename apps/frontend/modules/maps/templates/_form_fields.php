@@ -9,13 +9,13 @@ echo mandatory_fields_warning();
 
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
+echo object_group_tag($document, 'name', array('class' => 'long_input'));
 
 echo form_section_title('Information', 'form_info', 'preview_info');
 
 echo object_group_dropdown_tag($document, 'editor', 'mod_maps_editors_list');
 echo object_group_dropdown_tag($document, 'scale', 'mod_maps_scales_list');
-echo object_group_tag($document, 'code', null, '', array('class' => 'long_input'));
+echo object_group_tag($document, 'code', array('class' => 'long_input'));
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
