@@ -46,10 +46,6 @@
         // some files won't have time elements. We need to handle that
         var time_available = !!points[0].getElementsByTagName("time").length;
 
-        if (!time_available) {
-          $$('.xaxis-dimension')[0].hide();
-        }
-
         // build data points from gpx information
         var startDate = time_available ? new Date((points[0].getElementsByTagName("time"))[0].textContent) : null;
         data.push({
@@ -63,6 +59,10 @@
             source: [points[i].getAttribute("lon"), points[i].getAttribute("lat")],
             target: [points[i-1].getAttribute("lon"), points[i-1].getAttribute("lat")]
           }) * 6371;
+          // it sometimes happen that SOME of the points don't have a <time>
+          // In that case, we decide not to take time into account at all
+          // FIXME could something better be done?
+          time_available = time_available && !!points[i].getElementsByTagName("time").length;
           var date = time_available ? new Date(points[i].getElementsByTagName("time")[0].textContent) : null;
           data.push({
             date: date,
@@ -72,13 +72,13 @@
           });
           dtot +=d;
         }
-      } catch(err) {
-        if (data.length) {
-          alert('An error occured and not some points have been ignored!');
-        } else {
-          alert('Sorry, but something went wrong! Please contact us');
-          return;
+
+        if (!time_available) {
+          $$('.xaxis-dimension')[0].hide();
         }
+      } catch(err) {
+        alert('Sorry, but something went wrong! Please contact us');
+        return;
       }
 
       // Add an SVG element with the desired dimensions and margin
