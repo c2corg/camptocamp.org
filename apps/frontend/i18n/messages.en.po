@@ -1797,7 +1797,7 @@ msgstr "This access point doesn’t exist"
 
 # [WARNING] needs_review
 msgid "Participate to MW %1% contest"
-msgstr "Submit this outing to the <a href=\"/articles/%1%\">Changer d'Approche - Competition</a>&nbsp"
+msgstr "Submit this outing to the <a href=\"/articles/%1%\">Changer d'Approche - Competition</a>&nbsp;"
 
 msgid "Password:"
 msgstr "Password:"

@@ -1787,7 +1787,7 @@ msgid "Parking not found"
 msgstr "Aquest accés no existeix"
 
 msgid "Participate to MW %1% contest"
-msgstr "Inscriu aquesta sortida al <a href=\"/articles/%1%\">concurs \"Changer d'Approche\"</a>&nbsp"
+msgstr "Inscriu aquesta sortida al <a href=\"/articles/%1%\">concurs \"Changer d'Approche\"</a>&nbsp;"
 
 msgid "Password:"
 msgstr "Contrasenya:"
@@ -6604,7 +6604,7 @@ msgstr "[mostra]"
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
-msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practicades durant la sortida</strong>:<ul class=\"text\"><li>Si l'itinerari comporta més d'una activitat, hi haurà més d'una activitat pre-seleccionada, de manera que pot ser que calgui desseleccionar-ne alguna.</li><li>Si associeu d'altres itineraris a la sortida, penseu a tenir en compte l'activitat d'aquests itineraris</li></li></ul></ul>"
+msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practicades durant la sortida</strong>:<ul class=\"text\"><li>Si l'itinerari comporta més d'una activitat, hi haurà més d'una activitat pre-seleccionada, de manera que pot ser que calgui desseleccionar-ne alguna.</li><li>Si associeu d'altres itineraris a la sortida, penseu a tenir en compte l'activitat d'aquests itineraris</li></ul></li></ul>"
 
 msgid "select an image file"
 msgstr "Escolliu una imatge:&nbsp;"

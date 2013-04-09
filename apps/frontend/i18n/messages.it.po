@@ -1794,7 +1794,7 @@ msgstr "Questo accesso non è stato trovato."
 
 # [WARNING] needs_review
 msgid "Participate to MW %1% contest"
-msgstr "Partecipare al <a href=\"/articles/%1%\">concorso cambiare approccio</a>&nbsp"
+msgstr "Partecipare al <a href=\"/articles/%1%\">concorso cambiare approccio</a>&nbsp;"
 
 msgid "Password:"
 msgstr "Password:"
@@ -6582,7 +6582,7 @@ msgstr "[vedere]"
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
-msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></li></ul></ul>"
+msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></ul></li></ul>"
 
 msgid "select an image file"
 msgstr "Scegliere un'immagine:&nbsp;"

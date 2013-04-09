@@ -1861,7 +1861,7 @@ msgstr "Ez dago halako abiagunerik."
 
 # [WARNING] es translation used
 msgid "Participate to MW %1% contest"
-msgstr "Presentar esta solida al <a href=\"/articles/%1%\">concurso cambiar la aproximación</a>&nbsp"
+msgstr "Presentar esta solida al <a href=\"/articles/%1%\">concurso cambiar la aproximación</a>&nbsp;"
 
 msgid "Password:"
 msgstr "Pasa hitza:"

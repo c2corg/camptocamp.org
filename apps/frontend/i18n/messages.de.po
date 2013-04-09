@@ -1799,7 +1799,7 @@ msgid "Parking not found"
 msgstr "Diese Zufahrt existiert nicht."
 
 msgid "Participate to MW %1% contest"
-msgstr "Diese Tour in den <a href=\"/articles/%1%\">Wettbewerb \"Changer d'Approche\"</a> aufnehmen."
+msgstr "Diese Tour in den <a href=\"/articles/%1%\">Wettbewerb \"Changer d'Approche\"</a> aufnehmen.&nbsp;"
 
 msgid "Password:"
 msgstr "Passwort:"
@@ -6757,7 +6757,7 @@ msgstr "[anzeigen]"
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
-msgstr "<ul class=\"text\"><li>Wählen sie nur diejenigen Aktivitäten aus, welche sie während ihrer Tour unternommen haben: <ul class=\"text\"><li>Falls die Route mehreren Aktivitätstypen zugewiesen ist, werden diese vorausgewählt, d.h. sie müssen eventuell gewisse Aktivitäten deaktivieren.</li> <li>Wenn sie andere Routen mit der Route verbinden stellen sie sicher, dass deren Aktivitätstypen auf ihre Tour zutreffen.</li></li></ul></ul> "
+msgstr "<ul class=\"text\"><li>Wählen sie nur diejenigen Aktivitäten aus, welche sie während ihrer Tour unternommen haben: <ul class=\"text\"><li>Falls die Route mehreren Aktivitätstypen zugewiesen ist, werden diese vorausgewählt, d.h. sie müssen eventuell gewisse Aktivitäten deaktivieren.</li> <li>Wenn sie andere Routen mit der Route verbinden stellen sie sicher, dass deren Aktivitätstypen auf ihre Tour zutreffen.</li></ul></li></ul> "
 
 msgid "select an image file"
 msgstr "Wählen sie ein Bild:&nbsp;"
