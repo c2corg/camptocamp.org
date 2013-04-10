@@ -18,9 +18,6 @@ _linked_outings:
 _feature:
   enabled: off
 
-_elevation_profile:
-  enabled: off
-
 filter:
   enabled: off
 

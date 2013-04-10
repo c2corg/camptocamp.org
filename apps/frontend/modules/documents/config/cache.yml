@@ -164,5 +164,5 @@ _annex_docs:
 _doc_infos:
   enabled: off
 
-_elevation_profile:
+_elevation_profile_section:
   enabled: off
