@@ -45,7 +45,7 @@ if (!svg_supported) {
   $('elevation_profile_nav').hide();
 } else {
   window.c2cprofile = {
-    track: '" . url_for("@export_gpx?module=outings&id=$id&lang=$lang") . "',
+    track: '" . url_for("@export_gpx?module=outings&id=$id&lang=") . $sf_user->getCulture() . "',
     i18n: {
       yLegend: '" . __('Elevation (m)') . "',
       x1Legend: '" . __('Distance (km)') . "',
