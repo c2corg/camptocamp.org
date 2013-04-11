@@ -2108,28 +2108,11 @@ c2cTools::log("to redirectIfSlugmissing");
      * Returns a 3D or 4D WKT 
      */
     protected function getWktFromFileUpload($request)
-    {
-        $fileName = $request->getFileName('gps_data');
-        
-        // FIXME: $fileSize is always 0 : Symfony bug ?
-        $fileSize = $request->getFileSize($fileName);
-        c2cTools::log("Uploaded file size: $fileSize");
-        if ($fileSize > sfConfig::get('app_traces_maxfilesize'))
-        {
-            // FIXME : feedback info
-            return false;
-        }
-                           
-        if ($request->hasFileError($fileName))
-        {
-            // FIXME : feedback info
-            return false;
-        }
-            
+    {    
         $path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . c2cTools::generateUniqueName(); 
         $status = $request->moveFile('gps_data', $path);
         $type = c2cTools::getFileType($path); 
-        c2cTools::log("File $fileName uploaded to: $path with status: $status and a file type of: $type");
+        c2cTools::log("File uploaded to: $path with status: $status and a file type of: $type");
         
         $finalPath = $path;
         $wkt = NULL;
