@@ -991,7 +991,7 @@ c2cTools::log("to redirectIfSlugmissing");
             $this->custom_fields = $custom_fields;
         }
         $this->nb_results = $nb_results;
-        
+
         if (in_array('list', $format))
         {
             if ($nb_results == 1)
@@ -1775,6 +1775,7 @@ c2cTools::log("to redirectIfSlugmissing");
         // repopulate form after an error 
         // NB: this might also be done via fillin: enabled: true in validate/edit.yml 
         $this->document = $this->populateFromRequest($this->document);
+
         $this->document_name = $this->document->get('name');
         
         $linked_doc_id = $this->getRequestParameter('summit_id', 0) + $this->getRequestParameter('document_id', 0);
@@ -1804,6 +1805,9 @@ c2cTools::log("to redirectIfSlugmissing");
         // populate objects for form display depending on what we are doing (creating, editing)
         $this->setEditFormInformation();
 
+        // All modules will use the same template
+        $this->setTemplate('../../documents/templates/edit');
+
         $document = $this->document;
         $module_name = $this->getModuleName();
         $this->document_name = $document->get('name');
@@ -1829,10 +1833,11 @@ c2cTools::log("to redirectIfSlugmissing");
             // or upload a new version of an image
             $request = $this->getRequest();
             
-            if ($request->hasFiles() && $request->getFileName('file'))
+            if ($request->hasFiles())
             {
                 c2cTools::log('request has files');
-                if ($module_name == 'images') // new image version
+
+                if ($request->getFileName('image_new_version') && $module_name == 'images') // new image version
                 {
                     c2cTools::log('new image uploaded');
                     $base_path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR;
@@ -1840,7 +1845,7 @@ c2cTools::log("to redirectIfSlugmissing");
                     $upload_dir = $base_path . sfConfig::get('app_images_directory_name');
                     $filename = $request->getFiles();
                     $unique_filename = c2cTools::generateUniqueName();
-                    $file_ext = Images::detectExtension($filename['file']['tmp_name']);
+                    $file_ext = Images::detectExtension($filename['image_new_version']['tmp_name']);
 
                     // upload file in a temporary folder
                     $new_location = $temp_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext;
@@ -1851,7 +1856,7 @@ c2cTools::log("to redirectIfSlugmissing");
                         '&lang=' . $this->document->getCulture() .
                         '&slug=' . get_slug($this->document);
 
-                    if (!$request->moveFile('file', $new_location))
+                    if (!$request->moveFile('image_new_version', $new_location))
                     {
                         return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
                     }
@@ -1880,9 +1885,9 @@ c2cTools::log("to redirectIfSlugmissing");
                     // populate with new exif data, if any...
                     $document->populateWithExifDataFrom($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext);
                 }
-                else // wkt / gpx
+
+                if ($request->getFileName('gps_data') && in_array($module_name, array('routes', 'outings'))) // gpx file
                 {
-                    // TODO check that it is a gpx file with a validator
                     // it is necessary to preserve both tests nested.
                     if ($wkt = $this->getWktFromFileUpload($request))
                     {
@@ -1902,6 +1907,11 @@ c2cTools::log("to redirectIfSlugmissing");
                             c2cTools::log('height diff down set from wkt : ' . $_a['down']);                        
                         }
                         $message = '[geodata] ' . ((!$message) ? "Edit with geometry upload" : $message);
+                    }
+                    else
+                    {
+                        $this->getRequest()->setError('gps_data', 'could not parse gpx');
+                        return false;
                     }
                 }
             }
@@ -2049,8 +2059,6 @@ c2cTools::log("to redirectIfSlugmissing");
             }
         }
 
-        // All modules will use the same template
-        $this->setTemplate('../../documents/templates/edit');
         // js to autosave edit forms. see also https://github.com/marcuswestin/store.js?
         // FIXME temporarily disabled because it causes the browser to choke every 20-30s
         /*$response = $this->getResponse();
@@ -2101,7 +2109,7 @@ c2cTools::log("to redirectIfSlugmissing");
      */
     protected function getWktFromFileUpload($request)
     {
-        $fileName = $request->getFileName('file');
+        $fileName = $request->getFileName('gps_data');
         
         // FIXME: $fileSize is always 0 : Symfony bug ?
         $fileSize = $request->getFileSize($fileName);
@@ -2119,7 +2127,7 @@ c2cTools::log("to redirectIfSlugmissing");
         }
             
         $path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . c2cTools::generateUniqueName(); 
-        $status = $request->moveFile('file', $path);
+        $status = $request->moveFile('gps_data', $path);
         $type = c2cTools::getFileType($path); 
         c2cTools::log("File $fileName uploaded to: $path with status: $status and a file type of: $type");
         

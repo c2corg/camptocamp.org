@@ -35,7 +35,7 @@ fields:
       imagetype_error:   you have no right to switch from collaborative to personal picture
     myChoiceValidator:
       config_choice: mod_images_type_full_list
-  file:
+  image_new_version:
     file:           True
     myImageValidator:
       upload_error:          file failed to upload

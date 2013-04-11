@@ -75,7 +75,7 @@ fields:
   lift_status:
     myChoiceValidator:
       config_choice: mod_outings_lift_statuses_list
-  file:
+  gps_data:
     file: true
     myFileMimeTypeValidator:
       allowed:       'application/gpx+xml'

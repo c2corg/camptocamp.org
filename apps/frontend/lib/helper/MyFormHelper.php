@@ -300,11 +300,13 @@ function object_group_bbcode_tag($object, $fieldname, $field_title = null, $opti
     return $out;
 }
 
-function file_upload_tag($fieldname, $mandatory = false, $filetag = 'file', $form_error = false)
+function file_upload_tag($fieldname, $filetag = null)
 {
+    $filetag = isset($filetag) ? $filetag: $fieldname;
+
     return start_group_tag() . 
-           label_tag($fieldname, '', $mandatory) .
-           (($form_error) ? form_error($filetag) : '') .
+           label_tag($fieldname) .
+           form_error($filetag) .
            input_file_tag($filetag) . 
            end_group_tag();
 }
