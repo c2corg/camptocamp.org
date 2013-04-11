@@ -1910,7 +1910,7 @@ c2cTools::log("to redirectIfSlugmissing");
                     }
                     else
                     {
-                        $this->getRequest()->setError('gps_data', 'could not parse gpx');
+                        $this->getRequest()->setError('gps_data', 'invalid gpx file');
                         return false;
                     }
                 }

@@ -39,7 +39,7 @@ class ParseGeo
     {
         $xml = c2cTools::simplexmlLoadFile($path);
         // TODO: handle files with only one waypoint for point update ?
-        // TODO : handle multilines geometries ?
+        // TODO: handle multilines geometries ?
         $i = 0;
         $wkta = array();
         // we merge all tracks and track segments together.
@@ -69,6 +69,29 @@ class ParseGeo
                 }
             }
         }
+        // we also look for routes
+        foreach ($xml->rte as $rte)
+        {
+            foreach ($rte->rtept as $pt)
+            {
+                $_ll = $pt['lon'] . ' ' . $pt['lat'];
+                switch ($dim)
+                {
+                    case 2:
+                        $wkta[] = $_ll;
+                        break;
+                    case 3:
+                        $wkta[] = ($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0' ;
+                        break;
+                    case 4:
+                        // converts 2007-07-12T06:55:21Z into absolute unix time for easy storage
+                        $wkta[] = (($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0') . ' ' .
+                                  (($pt->time) ? strtotime($pt->time) : '0') ;
+                        break;
+                }
+                $i++;
+            }
+        }
         
         if ($i)
         {
@@ -77,7 +100,7 @@ class ParseGeo
         }
         else
         {
-            c2cTools::log("gpx2wkt : no track found");
+            c2cTools::log("gpx2wkt : no track or route found");
             return false;
         }
     }
