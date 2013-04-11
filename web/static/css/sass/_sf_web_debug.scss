@@ -1,0 +1,17 @@
+// for an unknown reason, when minified, rule {#sfWebDebug .sfWebDebugTop} from
+// lib/vendor/symfony/data/web/sf/sf_web_debug/css/main.css gets rewritten to
+// {sfWebDebug .top}
+// So we simply repaste it here
+// Ideally, we would only load this if toolbar is enabled, but this is so small
+// that it probably isn't worth adding the logic
+#sfWebDebug .sfWebDebugTop
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 9999;
+  background-color: #efefef;
+  border-bottom: 1px solid #aaa;
+}
