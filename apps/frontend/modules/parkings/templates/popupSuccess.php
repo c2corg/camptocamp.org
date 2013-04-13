@@ -76,7 +76,7 @@ if ($nb_routes)
 if ($image)
 {
     echo $image;
-    echo javascript_tag('init_slideshow();');
+    echo javascript_tag('C2C.init_slideshow();');
 }
 if (!empty($data_list))
 {
@@ -114,6 +114,6 @@ if ($nb_routes)
     echo '</div>';
 }
 
-echo javascript_tag('init_popup();');
+echo javascript_tag('C2C.init_popup();');
 
 //echo make_c2c_link($route, $nb_routes && ($description || $image), $raw);

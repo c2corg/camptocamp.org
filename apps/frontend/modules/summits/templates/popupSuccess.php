@@ -36,7 +36,7 @@ if ($description || $image):
 
 if ($image)
 {
-    echo javascript_tag('init_slideshow();');
+    echo javascript_tag('C2C.init_slideshow();');
 }
 
 echo make_routes_title(__('Linked routes'), $nb_routes);
@@ -60,4 +60,4 @@ if ($nb_routes)
     echo '</div>';
 }
 
-echo javascript_tag('init_popup();');
+echo javascript_tag('C2C.init_popup();');

@@ -24,7 +24,7 @@ if (!$raw && $image)
 <div class="popup_desc"><?php
 if ($image) {
     echo $image;
-    echo javascript_tag('init_slideshow();');
+    echo javascript_tag('C2C.init_slideshow();');
 }
 ?>
 <ul class="data">
@@ -63,6 +63,6 @@ li(field_data_from_list_if_set($document, 'lift_status', 'mod_outings_lift_statu
 </div>
 <?php
 
-echo javascript_tag('init_popup();');
+echo javascript_tag('C2C.init_popup();');
 
 //echo make_c2c_link($route, false, $raw);

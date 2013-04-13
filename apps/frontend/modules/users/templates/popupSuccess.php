@@ -23,7 +23,7 @@ $image = make_thumbnail_slideshow($associated_images);
 if ($image)
 {
     echo $image;
-    echo javascript_tag('init_slideshow();');
+    echo javascript_tag('C2C.init_slideshow();');
 }
 ?>
 <ul class="data">
