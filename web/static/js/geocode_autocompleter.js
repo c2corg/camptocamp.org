@@ -119,91 +119,86 @@ Autocompleter.Geocode = Class.create(Autocompleter.Base, {
   }
 });
 
-(function() {
+(function(C2C) {
 
-"use strict";
+  "use strict";
 
-window.C2C = window.C2C || {};
+  C2C.geo = C2C.geo || {};
 
-C2C.geo = C2C.geo || {};
+  C2C.geo.update_around_on_select_change = function(elt) {
+    var index = $(elt + '_sel').options.selectedIndex;
 
-C2C.geo.update_around_on_select_change = function(elt) {
-  var index = $(elt + '_sel').options.selectedIndex;
+    // reset fields and hide all inner spans
+    $(elt + '_lat').value = '';
+    $(elt + '_lon').value = '';
+    $(elt + '_range_span').show();
+    $(elt + '_geocode',
+      elt + '_geolocation_not_supported',
+      elt + '_geolocation_waiting',
+      elt + '_geolocation_failed').invoke('hide');
 
-  // reset fields and hide all inner spans
-  $(elt + '_lat').value = '';
-  $(elt + '_lon').value = '';
-  $(elt + '_range_span').show();
-  $(elt + '_geocode',
-    elt + '_geolocation_not_supported',
-    elt + '_geolocation_waiting',
-    elt + '_geolocation_failed').invoke('hide');
+    if (index === 0) {
+      $(elt + '_span').hide();
+    } else {
+      // display high level span
+      $(elt + '_span').show();
 
-  if (index === 0)
-  {
-    $(elt + '_span').hide();
-  }
-  else
-  {
-    // display high level span
-    $(elt + '_span').show();
-
-    // display only relevant inner span
-    if (index === 1) { // geocode autocompleter
-      $(elt + '_geocode').show();
-    } else if (index === 2) { // user geolocalization
-      $(elt + '_range_span').hide();
-      // detect geolocation correctly
-      // https://github.com/Modernizr/Modernizr/blob/633a5ac/modernizr.js#L478-490
-      if ('geolocation' in navigator) {
-        $(elt + '_geolocation_waiting').show();
-        navigator.geolocation.getCurrentPosition(
-          function(position) {
-            $(elt + '_geolocation_waiting').hide();
-            $(elt + '_range_span').show();
-            $(elt + '_lat').value = position.coords.latitude;
-            $(elt + '_lon').value = position.coords.longitude;
-          },
-          function(error) {
-            $(elt + '_geolocation_waiting').hide();
-            $(elt + '_geolocation_' + (error.code === 1 ? 'denied' : 'failed')).show();
-          });
-      } else {
-        // geolocation not supported by browser
-        $(elt + '_geolocation_not_supported').show();
+      // display only relevant inner span
+      if (index === 1) { // geocode autocompleter
+        $(elt + '_geocode').show();
+      } else if (index === 2) { // user geolocalization
+        $(elt + '_range_span').hide();
+        // detect geolocation correctly
+        // https://github.com/Modernizr/Modernizr/blob/633a5ac/modernizr.js#L478-490
+        if ('geolocation' in navigator) {
+          $(elt + '_geolocation_waiting').show();
+          navigator.geolocation.getCurrentPosition(
+            function(position) {
+              $(elt + '_geolocation_waiting').hide();
+              $(elt + '_range_span').show();
+              $(elt + '_lat').value = position.coords.latitude;
+              $(elt + '_lon').value = position.coords.longitude;
+            },
+            function(error) {
+              $(elt + '_geolocation_waiting').hide();
+              $(elt + '_geolocation_' + (error.code === 1 ? 'denied' : 'failed')).show();
+            });
+        } else {
+          // geolocation not supported by browser
+          $(elt + '_geolocation_not_supported').show();
+        }
       }
     }
-  }
-};
+  };
 
-var mobile = $$('html')[0].hasClassName('mobile');
-$$('.geocode_auto_complete').each(function(obj) {
-  var name = obj.id;
-  C2C.geo[name] = new Autocompleter.Geocode(name,
-                    name + '_auto_complete', 
-                    'C2C.geo.' + name, {
-                      minChars: 3, indicator: 'indicator',
-                      keepFocus: !mobile,
-                      afterUpdateElement: function(inputField, selectedItem) {
-                        $(name + '_lat').value = selectedItem.getAttribute('data-lat');
-                        $(name + '_lon').value = selectedItem.getAttribute('data-lon');
-                      }
-                    });
-  if (mobile) {
-    var offset;
-    obj.observe('focus', function(event) {
-      // save current page offset
-      offset = window.pageYOffset;
-      window.scrollTo(0, 1);
-      // move indicator to one better location
-      $('indicator').addClassName('auto_complete_pos');
-    }).observe('blur', function(event) {
-      // scroll back to where we were before selecting input
-      window.scrollTo(0, offset);
-      // reset indicator position
-       $('indicator').removeClassName('auto_complete_pos');
-    });
-  }
-});
+  var mobile = $$('html')[0].hasClassName('mobile');
+  $$('.geocode_auto_complete').each(function(obj) {
+    var name = obj.id;
+    C2C.geo[name] = new Autocompleter.Geocode(name,
+                      name + '_auto_complete', 
+                      'C2C.geo.' + name, {
+                        minChars: 3, indicator: 'indicator',
+                        keepFocus: !mobile,
+                        afterUpdateElement: function(inputField, selectedItem) {
+                          $(name + '_lat').value = selectedItem.getAttribute('data-lat');
+                          $(name + '_lon').value = selectedItem.getAttribute('data-lon');
+                        }
+                      });
+    if (mobile) {
+      var offset;
+      obj.observe('focus', function(event) {
+        // save current page offset
+        offset = window.pageYOffset;
+        window.scrollTo(0, 1);
+        // move indicator to one better location
+        $('indicator').addClassName('auto_complete_pos');
+      }).observe('blur', function(event) {
+        // scroll back to where we were before selecting input
+        window.scrollTo(0, offset);
+        // reset indicator position
+        $('indicator').removeClassName('auto_complete_pos');
+      });
+    }
+  });
 
-})();
+})(window.C2C = window.C2C || {});
