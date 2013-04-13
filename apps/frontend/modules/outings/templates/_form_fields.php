@@ -36,7 +36,7 @@ echo object_group_tag($document, 'date', array('callback' => 'object_input_date_
 <div class="article_gauche_5050">
 <?php
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
-                               array('multiple' => true, 'onchange' => 'hide_outings_unrelated_fields()', 'na' => array(0)),
+                               array('multiple' => true, 'onchange' => 'C2C.hide_outings_unrelated_fields()', 'na' => array(0)),
                                true, null, null, '', '', 'picto_act act_');
 ?>
 </div>
@@ -60,7 +60,7 @@ echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers'
 ?>
 </div>
 <?php
-echo object_group_tag($document, 'outing_with_public_transportation', array('callback' => 'object_checkbox_tag', 'onchange' => 'switch_mw_contest_visibility()'));
+echo object_group_tag($document, 'outing_with_public_transportation', array('callback' => 'object_checkbox_tag', 'onchange' => 'C2C.switch_mw_contest_visibility();'));
 if ($mw_contest_enabled == true)
 {
 $mw_checked = false;
@@ -79,7 +79,7 @@ if (isset($associated_articles) && count($associated_articles))
 <div id="mw_contest"> 
 <?php
 echo __('Participate to MW %1% contest', array('%1%' => sfConfig::get('app_mw_contest_id')));
-echo checkbox_tag('mw_contest_associate', 1, $mw_checked, array('onchange' => 'switch_mw_contest_association();'));
+echo checkbox_tag('mw_contest_associate', 1, $mw_checked, array('onchange' => 'C2C.switch_mw_contest_association();'));
 ?>
 </div>
 <?php
