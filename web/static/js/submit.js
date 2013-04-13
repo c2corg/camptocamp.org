@@ -40,7 +40,7 @@ function remLink(link_type, main_id, linked_id, main_doc, strict)
         new Ajax.Updater(
             {success:type_linked_id,failure:'ajax_feedback_failure'},
             '/documents/removeAssociation/main_' + link_type + '_id/' + main_id + '/linked_id/' + linked_id + '/type/' + link_type + '/strict/' + strict,
-            {asynchronous:true, evalScripts:false, method:'post', onComplete:function(request, json){Element.hide('indicator');setTimeout('emptyFeedback("ajax_feedback_failure")', 4000);}, onFailure:function(request, json){Element.show('ajax_feedback_failure');}, onLoading:function(request, json){Element.hide('del_' + type_linked_id);Element.show('indicator');}, onSuccess:function(request, json){$$('#'+type_linked_id+', .'+type_linked_id).each(Element.hide);}}
+            {asynchronous:true, evalScripts:false, method:'post', onComplete:function(request, json){Element.hide('indicator');setTimeout('C2C.emptyFeedback("ajax_feedback_failure")', 4000);}, onFailure:function(request, json){Element.show('ajax_feedback_failure');}, onLoading:function(request, json){Element.hide('del_' + type_linked_id);Element.show('indicator');}, onSuccess:function(request, json){$$('#'+type_linked_id+', .'+type_linked_id).each(Element.hide);}}
         );
     }
     return false;

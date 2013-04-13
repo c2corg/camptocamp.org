@@ -90,7 +90,7 @@ function c2c_form_remote_add_element($url, $updated_success, $updated_failure = 
                                  'success'  => "Element.hide('$updated_failure');if($('{$updated_success}_rsummits_name')){".
                                                "$('{$updated_success}_rsummits_name').value='';$('{$updated_success}_associated_routes').hide();}".
                                                ($removed_id == null ? '' : "$('$removed_id').hide();"),
-                                 'failure'  => "Element.show('$updated_failure');setTimeout('emptyFeedback(" .'"'. $updated_failure .'"'. ")', 4000);"));
+                                 'failure'  => "Element.show('$updated_failure');setTimeout('C2C.emptyFeedback(" .'"'. $updated_failure .'"'. ")', 4000);"));
 }
 
 function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc = true,
@@ -155,7 +155,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     {
         $picto_add_rm = '<span class="assoc_img picto_add" title="' . __('show form') . '"></span>'
                    . '<span class="assoc_img picto_rm" title="' . __('hide form') . '"></span>';
-        $picto_add_rm = link_to_function($picto_add_rm, "toggleForm('${field_prefix}_form')");
+        $picto_add_rm = link_to_function($picto_add_rm, "C2C.toggleForm('${field_prefix}_form')");
         
         $title = '<div id="_association_tool" class="section_subtitle extra">' . (in_array('users', $modules_list) ? __('Link an existing user or document') : __('Link an existing document')) . __('&nbsp;:') . '</div> ';
         
@@ -164,7 +164,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
         {
             $pictos .= picto_tag('picto_' . $module, __($module));
         }
-        $pictos = link_to_function($pictos, "toggleForm('${field_prefix}_form')");
+        $pictos = link_to_function($pictos, "C2C.toggleForm('${field_prefix}_form')");
         $pictos = '<div class="short_data">' . $pictos . '</div>';
         
         $out = '<div class="one_kind_association empty_content">'

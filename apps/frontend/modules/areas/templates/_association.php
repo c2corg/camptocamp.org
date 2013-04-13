@@ -133,7 +133,7 @@ if ($has_weather || $has_avalanche_bulletin)
                    . '<span class="linked_elt">' . implode(', ', $label) . '</span>';
 
             echo '<div class="box_title" id="weather_box_title" title="' . __('section open') . '">'
-           . link_to_function($label, "toggleBox('weather')") 
+           . link_to_function($label, "C2C.toggleBox('weather')") 
            . '</div>'
            . '<div id="weather_box" style="display:none;">';
         }

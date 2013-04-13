@@ -162,7 +162,7 @@ function start_content_tag($content_class = '', $home = false)
         $content_class = ' ' . $content_class;
     }
 
-    $js_tag = javascript_tag($home ? 'setNav(true);' : 'setNav();'); // TODO to move smwhr else ?
+    $js_tag = javascript_tag($home ? 'C2C.setNav(true);' : 'C2C.setNav();'); // TODO to move smwhr else ?
 
     return '<div class="content_article">' . (!$mobile_version ? '<div id="splitter" title="' . __('Reduce the bar') .
            '"></div>' . $js_tag : '') . '<article class="article' . $content_class . '">';

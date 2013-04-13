@@ -99,7 +99,7 @@ function toggle_query(checkbox) {
 function highlight_object(fid) {
     if (!__map_is_visible()) {
         // make the map visible
-        toggleView(div_id_container, true, tip_close);
+        C2C.toggleView(div_id_container, true, tip_close);
     }
     __highlight_object(__getFeatureByFid(fid));
 }
