@@ -28,7 +28,7 @@
     echo object_group_dropdown_tag(null, 'global_rating', 'app_routes_global_ratings', $options, false);
 
     // add a submit button and end section
-    echo c2c_submit_tag(__('Search'), array('picto' => 'action_filter', 'onclick' => 'do_search(this.form); return false;'));
+    echo c2c_submit_tag(__('Search'), array('picto' => 'action_filter', 'onclick' => 'C2C.do_search(this.form); return false;'));
     echo end_section_tag();
 
     // start section (includer will take care of ending it)
