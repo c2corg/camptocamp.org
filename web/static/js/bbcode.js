@@ -4,7 +4,7 @@
 
   var bbisMozilla = (navigator.userAgent.toLowerCase().indexOf('gecko')!=-1) ? true : false;
   var bbregexp = new RegExp("[\r]","gi");
-  var opening_tag, closing_tag;
+  var opening_tag, closing_tag, selec_2;
 
   C2C.storeCaret = function(selec, targetElm)
   {
