@@ -172,4 +172,4 @@
     }
   }
 
-}(window.C2C = window.C2C || {});
+})(window.C2C = window.C2C || {});
