@@ -442,7 +442,7 @@ function bb_button_tag($name, $value, $textarea_id, $options = array())
     return tag('input', array_merge(array('value' => $value,
                                           'type' => 'button',
                                           'name'  => $name,
-                                          'onclick' => "storeCaret('$value', '$textarea_id')",
+                                          'onclick' => "C2C.storeCaret('$value', '$textarea_id')",
                                           'title' => $title),
                                     $options)) . ' ';
 }
@@ -471,9 +471,9 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
            ($line_tag ? bb_button_tag('line_button', 'L#', $target_id, array('class' => 'rlineb')) : '') . ' &nbsp; ' .
            link_to(__('Help'), getMetaArticleRoute('formatting', false, 'path')) . ' ' .
            picto_tag('picto_close', __('Reduce the text box'),
-                     array('onclick' => "changeTextareaSize('$target_id', false)")) .
+                     array('onclick' => "C2C.changeTextareaSize('$target_id', false)")) .
            picto_tag('picto_open', __('Enlarge the text box'),
-                     array('onclick' => "changeTextareaSize('$target_id', true)")) .
+                     array('onclick' => "C2C.changeTextareaSize('$target_id', true)")) .
            end_group_tag();
 }
 
