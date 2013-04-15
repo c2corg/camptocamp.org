@@ -1,6 +1,10 @@
+(function(C2C) {
+
+"use strict";
+
 var activities = [];
 
-function update_on_select_change(field, optionIndex)
+C2C.update_on_select_change = function(field, optionIndex)
 {
     var index = $(field + '_sel').value;
     if (index == '0' || index === ' ' || index == '-' || index >= 4)
@@ -35,7 +39,7 @@ function update_on_select_change(field, optionIndex)
             $(field + '_span3').hide();
         }
     }
-}
+};
 
 function initialize_select()
 {
@@ -51,7 +55,7 @@ function initialize_select()
 }
 
 // see hide_unrelated_fields() in routes.js
-function hide_unrelated_filter_fields(current_activity)
+C2C.hide_unrelated_filter_fields = function(current_activity)
 {
     if (activities.indexOf(current_activity) != -1)
     {
@@ -164,7 +168,7 @@ function hide_unrelated_filter_fields(current_activity)
         
         $('conf').size = select_size;
     }
-}
+};
 
 function initialize_activities()
 {
@@ -189,7 +193,7 @@ document.observe('dom:loaded', function()
     initialize_select();
 });
 
-function changeSelectSize(select_id, up_down)
+C2C.changeSelectSize = function(select_id, up_down)
 {
     var height = $(select_id).offsetHeight;
     if(up_down)
@@ -201,4 +205,6 @@ function changeSelectSize(select_id, up_down)
         height = Math.max(100, height - 150);
     }
     $(select_id).style.height = height + "px";
-}
+};
+
+})(window.C2C = window.C2C || {});
