@@ -1,1 +1,1 @@
-add_tooltips('.fieldname');
+C2C.add_tooltips('.fieldname');
