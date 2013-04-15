@@ -64,7 +64,7 @@ if ($new_document): ?>
 echo global_form_errors_tag();
 echo form_tag("@document_edit?module=$module&id=&lang=", 
               array('multipart' => true, // needed for gpx upload to work
-                    'onsubmit' => 'submitonce(this)',
+                    'onsubmit' => 'C2C.submitonce(this)',
                     'id' => 'editform'));
 
 if ($new_document)

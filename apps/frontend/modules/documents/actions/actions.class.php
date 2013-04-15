@@ -2108,7 +2108,7 @@ c2cTools::log("to redirectIfSlugmissing");
      * Returns a 3D or 4D WKT 
      */
     protected function getWktFromFileUpload($request)
-    {    
+    {
         $path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . c2cTools::generateUniqueName(); 
         $status = $request->moveFile('gps_data', $path);
         $type = c2cTools::getFileType($path); 
@@ -4061,7 +4061,7 @@ c2cTools::log("to redirectIfSlugmissing");
                                                                                         'url' => 'summits/getroutes',
                                                                                         'with' => "'summit_id=' + $('$summit_id').value + '&div_prefix=${field_prefix}_&div_name=document_id'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
-                                                                                        'complete' => "Element.hide('indicator');getWizardRouteRatings('${field_prefix}_document_id');",
+                                                                                        'complete' => "Element.hide('indicator');C2C.getWizardRouteRatings('${field_prefix}_document_id');",
                                                                                         'success'  => "Element.show('${field_prefix}_associated_routes');",
                                                                                         'failure'  => "Element.show('$updated_failure');" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",

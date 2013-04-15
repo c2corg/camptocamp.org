@@ -32,7 +32,7 @@ else:
 
 
     echo form_tag("@user_manage_images?module=users",
-                  array('onsubmit' => 'submitonce(this)',
+                  array('onsubmit' => 'C2C.submitonce(this)',
                         'id' => 'editform'));
 ?>
 <?php foreach ($items as $item): ?>

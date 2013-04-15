@@ -102,7 +102,7 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
     $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
     $tips = ($tips == null) ? 'Delete this association' : $tips;
     return link_to(picto_tag('action_del_light', __($tips)), '#',
-                         array('onclick' => "remLink('$link_type', $main_id, $linked_id, $main_doc, $strict); return false;"));
+                         array('onclick' => "C2C.remLink('$link_type', $main_id, $linked_id, $main_doc, $strict); return false;"));
 }
 
 /**
