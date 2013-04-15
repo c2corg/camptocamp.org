@@ -774,13 +774,11 @@ msgstr "Fare un dono a Camptocamp Association"
 # Pour indiquer la durée écoulée
 # 
 # "Durée 2:13:45"
-# [WARNING] en translation used
 msgid "Duration"
-msgstr "Duration"
+msgstr "Durata"
 
-# [WARNING] en translation used
 msgid "Duration (hrs)"
-msgstr "Duration (h)"
+msgstr "Durata (h)"
 
 msgid "E"
 msgstr "E"
@@ -7189,9 +7187,9 @@ msgstr "Web"
 
 # [general comment]
 # Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "x axis:"
-msgstr "Voir le profil en fonction de&nbsp;:"
+msgstr "Vedere il profilo in funzione di:"
 
 msgid "year"
 msgstr "anno"

@@ -772,13 +772,11 @@ msgstr "Feu un donatiu a l'associació Camptocamp, adheriu-vos-hi o actualitzeu 
 # Pour indiquer la durée écoulée
 # 
 # "Durée 2:13:45"
-# [WARNING] en translation used
 msgid "Duration"
-msgstr "Duration"
+msgstr "Durada"
 
-# [WARNING] en translation used
 msgid "Duration (hrs)"
-msgstr "Duration (h)"
+msgstr "Durada (h)"
 
 msgid "E"
 msgstr "E"
@@ -866,9 +864,9 @@ msgstr "Altitud"
 msgid "Elevation (m)"
 msgstr "Cota (msnm)"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Elevation profile"
-msgstr "Perfil de elevación"
+msgstr "Perfil d'alçades"
 
 msgid "Email short"
 msgstr "E-mail"
@@ -7206,9 +7204,9 @@ msgstr "Web"
 
 # [general comment]
 # Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "x axis:"
-msgstr "Voir le profil en fonction de&nbsp;:"
+msgstr "Vegeu el perfil en funció de:"
 
 msgid "year"
 msgstr "any"
