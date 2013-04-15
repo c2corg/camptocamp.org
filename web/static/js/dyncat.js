@@ -1,4 +1,8 @@
 /* Contribution prise sur http://www.actulab.com/les-cookies-en-javascript.php */
+(function() {
+
+"use strict";
+
 var date = new Date();
 date.setFullYear(date.getFullYear()+1);
 
@@ -136,3 +140,5 @@ if (window.attachEvent) {
 } else if (window.addEventListener) {
 	window.addEventListener("load",catfind, false);
 }
+
+})();
