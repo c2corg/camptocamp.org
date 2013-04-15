@@ -602,7 +602,7 @@ foreach ($posts_list as $cur_post)
 
 			// Now let's deal with the contact links (E-mail and URL)
 			if (!$pun_user['is_guest'])
-				$user_contacts[] = '<a href="javascript:paste_nick(\''.pun_jsspecialchars($cur_post['username']).'\');">'.$lang_topic['Nick copy'].'</a>';
+				$user_contacts[] = '<a href="javascript:C2C.paste_nick(\''.pun_jsspecialchars($cur_post['username']).'\');">'.$lang_topic['Nick copy'].'</a>';
 			if (($poster_data['email_setting'] == '0' && !$pun_user['is_guest']) || $pun_user['g_id'] < PUN_GUEST)
 				$user_contacts[] = '<a href="mailto:'.$poster_data['email'].'">'.$lang_common['E-mail'].'</a>';
 			else if ($poster_data['email_setting'] == '1' || $pun_user['is_guest'])
@@ -634,7 +634,7 @@ foreach ($posts_list as $cur_post)
 			$user_info[] = '<dd>IP: <a href="moderate.php?get_host='.$cur_post['id'].'">'.$cur_post['poster_ip'].'</a>';
 
 		if (!$pun_user['is_guest'])
-			$user_contacts[] = '<a href="javascript:paste_nick(\''.pun_jsspecialchars($cur_post['username']).'\');">'.$lang_topic['Nick copy'].'</a>';
+			$user_contacts[] = '<a href="javascript:C2C.paste_nick(\''.pun_jsspecialchars($cur_post['username']).'\');">'.$lang_topic['Nick copy'].'</a>';
 		
 		if ($pun_config['o_show_user_info'] == '1' && $cur_post['poster_email'] != '')
         {
@@ -686,7 +686,7 @@ foreach ($posts_list as $cur_post)
 			{
 				$post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'" rel="nofollow">'.$lang_topic['Quoted reply'].'</a>';
 				if (!$pun_user['is_guest'] && !$mobile)
-					$post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>';
+					$post_actions[] = '<li class="postquote"><a onmouseover="C2C.get_quote_text();" href="javascript:C2C.paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>';
 			}
 		}
 	}
@@ -705,7 +705,7 @@ foreach ($posts_list as $cur_post)
         $post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'">'.$lang_topic['Quoted reply'].'</a>';
         if (!$mobile)
 	{
-		$post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
+		$post_actions[] = '<li class="postquote"><a onmouseover="C2C.get_quote_text();" href="javascript:C2C.paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
 	}
     //  Remove '<li class="postdelete"><a href="delete.php?id='.$cur_post['id'].'">'.$lang_topic['Delete'].'</a>'.$lang_topic['Link separator'].'</li>' because delete function occurs high server load.
     // To be put back when this function will be corrected. (bad english but titise fait expres !)

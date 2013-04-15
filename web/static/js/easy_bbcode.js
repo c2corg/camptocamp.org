@@ -1,7 +1,57 @@
+// bbcode for forums
+(function(C2C) {
+
+"use strict";
+
 var quote_text = '';
 var nickname_postid  = '';
 
-function toggle_spoiler(spoiler)
+function storeCaret(textEl)
+{
+        if (textEl.createTextRange)
+        {
+                textEl.caretPos = document.selection.createRange().duplicate();
+        }
+}
+
+function getCaretPosition(txtarea)
+{
+        var caretPos = {};
+
+        // simple Gecko/Opera way
+        if(txtarea.selectionStart || txtarea.selectionStart === 0)
+        {
+                caretPos.start = txtarea.selectionStart;
+                caretPos.end = txtarea.selectionEnd;
+        }
+        // dirty and slow IE way
+        else if(document.selection)
+        {
+                // get current selection
+                var range = document.selection.createRange();
+
+                // a new selection of the whole textarea
+                var range_all = document.body.createTextRange();
+                range_all.moveToElementText(txtarea);
+
+                // calculate selection start point by moving beginning of range_all to beginning of range
+                var sel_start;
+                for (sel_start = 0; range_all.compareEndPoints('StartToStart', range) < 0; sel_start++)
+                {
+                        range_all.moveStart('character', 1);
+                }
+
+                txtarea.sel_start = sel_start;
+
+                // we ignore the end value for IE, this is already dirty enough and we don't need it
+                caretPos.start = txtarea.sel_start;
+                caretPos.end = txtarea.sel_start;
+        }
+
+        return caretPos;
+}
+
+C2C.toggle_spoiler = function(spoiler)
 {
 	var text_box=spoiler.getElementsByTagName('div')[0];
 	if (text_box.style.visibility != 'hidden')
@@ -16,9 +66,9 @@ function toggle_spoiler(spoiler)
 		text_box.style.display='block';
 		text_box.style.height='';
 	}
-}
+};
 
-function get_quote_text()
+C2C.get_quote_text = function()
 {
 	var parentNode = null;
 	if (window.getSelection)
@@ -87,54 +137,9 @@ function get_quote_text()
                         nickname_postid = nickname + '|' + postid;
 		}
 	}
-}
+};
 
-function storeCaret(textEl)
-{
-	if (textEl.createTextRange)
-	{
-		textEl.caretPos = document.selection.createRange().duplicate();
-	}
-}
-
-function getCaretPosition(txtarea)
-{
-	var caretPos = {};
-	
-	// simple Gecko/Opera way
-	if(txtarea.selectionStart || txtarea.selectionStart === 0)
-	{
-		caretPos.start = txtarea.selectionStart;
-		caretPos.end = txtarea.selectionEnd;
-	}
-	// dirty and slow IE way
-	else if(document.selection)
-	{
-		// get current selection
-		var range = document.selection.createRange();
-
-		// a new selection of the whole textarea
-		var range_all = document.body.createTextRange();
-		range_all.moveToElementText(txtarea);
-		
-		// calculate selection start point by moving beginning of range_all to beginning of range
-		var sel_start;
-		for (sel_start = 0; range_all.compareEndPoints('StartToStart', range) < 0; sel_start++)
-		{		
-			range_all.moveStart('character', 1);
-		}
-	
-		txtarea.sel_start = sel_start;
-	
-		// we ignore the end value for IE, this is already dirty enough and we don't need it
-		caretPos.start = txtarea.sel_start;
-		caretPos.end = txtarea.sel_start;
-	}
-
-	return caretPos;
-}
-
-function insert_text(open, close, quote_enable)
+C2C.insert_text = function(open, close, quote_enable)
 {
 	var msgfield = (document.all) ? document.all.req_message : (document.forms['post'] ? document.forms['post']['req_message'] : document.forms['edit']['req_message']);
 
@@ -189,9 +194,9 @@ function insert_text(open, close, quote_enable)
 	msgfield.scrollTop = st;
 	msgfield.focus();
 	return;
-}
+};
 
-function paste_quote(default_poster)
+C2C.paste_quote = function(default_poster)
 {
 	if (quote_text == '')
 	{
@@ -200,18 +205,18 @@ function paste_quote(default_poster)
 	}
 	var startq = '[quote=' + nickname_postid + ']\n';
 	var endq = quote_text + '\n[/quote]\n';
-	insert_text(startq, endq, true);
+	C2C.insert_text(startq, endq, true);
 	quote_text = '';
-}
+};
 
-function paste_nick(user_name)
+C2C.paste_nick = function(user_name)
 {
 	var startq = user_name;
 	var endq = '';
-	insert_text(startq, endq);
-}
+	C2C.insert_text(startq, endq);
+};
 
-function changeTextareaRows(textarea_id, up_down)
+C2C.changeTextareaRows = function(textarea_id, up_down)
 {
     var rows = $(textarea_id).rows;
     if(up_down)
@@ -223,4 +228,7 @@ function changeTextareaRows(textarea_id, up_down)
         rows = Math.max(5, rows - 5);
     }
     $(textarea_id).rows = rows;
-}
+};
+
+
+})(window.C2C = window.C2C || {});
