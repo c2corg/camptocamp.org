@@ -117,6 +117,7 @@
     }
   }
 
+  var bbcode_toolbar;
   function initBBcode() {
     bbcode_toolbar = $$('.bbcodetoolcontainer');
     var textbox_list = Array();
