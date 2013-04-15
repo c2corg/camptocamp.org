@@ -128,8 +128,7 @@
       });
         
       textbox_list.each(function(t) {
-        textbox = $(t);
-        textbox.observe('focus', showBBcode);
+        $(t).observe('focus', showBBcode);
       });
     }
   }
