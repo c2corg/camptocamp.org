@@ -2117,6 +2117,8 @@ c2cTools::log("to redirectIfSlugmissing");
         $finalPath = $path;
         $wkt = NULL;
         // we rename file according to true type
+        // FIXME as for now we only accept gpx,
+        // this is kinda redundant...
         if ($type)
         {
             $status = rename($path, "$path.$type");
