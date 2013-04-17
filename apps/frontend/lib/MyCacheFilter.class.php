@@ -95,11 +95,6 @@ class MyCacheFilter extends sfCacheFilter
         }
         
         $uri = sfRouting::getInstance()->getCurrentInternalUri();
-        if ($action == 'view')
-        {
-            $uri_tmp = explode('&slug=', $uri);
-            $uri = $uri_tmp[0];
-        }
         $il = 'il=' . $context->getUser()->getCulture();
         $pl = '';
         $pa = '';
