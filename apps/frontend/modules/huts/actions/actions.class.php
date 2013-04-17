@@ -53,7 +53,7 @@ class hutsActions extends documentsActions
             }
             $this->associated_summits = $associated_summits;
 
-            if ($is_gite)
+            /*if ($is_gite)
             {
                 $parking_ids = array();
                 foreach ($associated_parkings as $parking)
@@ -73,6 +73,28 @@ class hutsActions extends documentsActions
             }
             else
             {
+                $this->ids = $current_doc_id;
+            }*/
+            if ($is_gite)
+            {
+                $parking_ids = array();
+                foreach ($associated_parkings as $parking)
+                {
+                    $parking_ids[] = $parking['id'];
+                }
+
+                $associated_parking_docs = Association::findWithBestName($parking_ids, $prefered_cultures, array('pr', 'pt'), false, true);
+
+                $associated_routes = array_filter($associated_parking_docs, array('c2cTools', 'is_route'));
+
+                $associated_parking_sites = c2cTools::sortArrayByName(array_filter($associated_parking_docs, array('c2cTools', 'is_site')));
+                $this->associated_sites = array_merge($this->associated_sites,$associated_parking_sites);
+                $this->ids = implode('-', $parking_ids);
+            }
+            else
+            {
+                $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
+                $this->associated_sites = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_site')));
                 $this->ids = $current_doc_id;
             }
 

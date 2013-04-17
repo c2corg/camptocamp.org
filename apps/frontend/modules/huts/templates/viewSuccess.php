@@ -62,7 +62,7 @@ if ($is_not_archive)
                               'module' => 'sites', 
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
-                              'type' => 'ht', // hut-site
+                              'type' => $is_gite ? '' : 'ht', // hut-site, no link available if gite
                               'strict' => true ));
     }
     
