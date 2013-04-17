@@ -3,10 +3,10 @@
   "use strict";
 
   C2C.submitonce = function(aform) {
-    switchFormButtonsStatus(aform, true);
+    C2C.switchFormButtonsStatus(aform, true);
   };
 
-  function switchFormButtonsStatus(aform, disable) {
+  C2C.switchFormButtonsStatus = function(aform, disable) {
     if (document.all || document.getElementById){
       var tmp_dom_obj;
       for (var i=0; i < aform.length; i++){        

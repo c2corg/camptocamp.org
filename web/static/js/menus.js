@@ -1,3 +1,5 @@
+// this is ie6 only
+
 var startList = function() {
     var nav, no, i;
     var m = document.getElementById("menu_content");

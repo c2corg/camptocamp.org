@@ -170,7 +170,7 @@
       {
           alert(confirm_outing_paragliding_message);
           Event.stop(e);
-          switchFormButtonsStatus($('editform'), false);
+          C2C.switchFormButtonsStatus($('editform'), false);
           return false;
       }
     
@@ -214,7 +214,7 @@
           !confirm(confirm_outing_activities_message))
       {
           Event.stop(e);
-          switchFormButtonsStatus($('editform'), false);
+          C2C.switchFormButtonsStatus($('editform'), false);
           outing_activities_already_tested = true;
       }
   }
@@ -242,7 +242,7 @@
           !confirm(confirm_outing_date_message))
       {
           Event.stop(e);
-          switchFormButtonsStatus($('editform'), false);
+          C2C.switchFormButtonsStatus($('editform'), false);
           outing_date_already_tested = true;
       }
   }
