@@ -68,31 +68,58 @@ C2C.toggle_spoiler = function(spoiler)
 	}
 };
 
+
+// try to correct a bit the selected text so that the result is more readable
+// especially with regards to links
+// (e.g. shorten http://www.my ... link were badly pasted)
+// It will work most of the time, but will fail in many (but rare) situations
+// TODO We could be more clever and translate the html to bbcode. This would allow
+// a better text pasting (images, font settings, ...),
+// but wiould also be more complicated hardly maintainable
+function correctLinks(text, html)
+{
+        var links = $(html).getElementsByTagName('a');
+        for (var i = 0, length = links.length; i < length; i++) {
+                var title = links[i].childNodes[0].nodeValue;
+                var href = links[i].getAttribute('href');
+                if (/https?:\/\//.test(title)) {
+			text = text.replace(links[i].childNodes[0].nodeValue, href);
+                }
+		else
+		{
+			text = text.replace(title, '[url=' + href + ']' + title + '[/url]');
+		}
+	}
+	return text;
+}
+
 C2C.get_quote_text = function()
 {
 	var parentNode = null;
+        var quote;
+        var text;
+        var html;
 	if (window.getSelection)
 	{
-		quote_text = window.getSelection();
-                if (quote_text != '')
+		quote = window.getSelection();
+                if (quote.rangeCount)
 		{
-			parentNode = $(window.getSelection().anchorNode.parentNode);	
+			parentNode = $(quote.anchorNode.parentNode);
+			text = quote.toString();
+			// in case of multiple selection, we keep only the first one
+			html = document.createElement('div');
+			html.appendChild(quote.getRangeAt(0).cloneContents());
 		}
 	}
-	else if (document.getSelection)
+	else if (document.selection && document.selection.type == 'Text')
 	{
-		quote_text = document.getSelection();
-		if (quote_text != '')
+		quote = document.selection.createRange();
+		if (quote.text != '')
 		{
-			parentNode = $(document.getSelection().anchorNode.parentNode);
-		}
-	}
-	else if (document.selection && document.selection.createRange())
-	{
-		quote_text = document.selection.createRange().text;
-		if (quote_text != '')
-		{
-			parentNode = $(document.selection.createRange().parentElement());
+			parentNode = $(quote.parentElement());
+			text = quote.text;
+			html = document.createElement('div');
+			html.innerHTML = quote.htmlText;
 		}
 	}
 
@@ -106,6 +133,8 @@ C2C.get_quote_text = function()
 		}
 		else
 		{
+                        quote_text = correctLinks(text, html);
+
 			// retrieve poster nickname and post id (different whether on post.php or viewtopic.php and invited user)
 			var nickname = blockpost.previous('.postleft').down('strong');
 			if (nickname.down('a'))
