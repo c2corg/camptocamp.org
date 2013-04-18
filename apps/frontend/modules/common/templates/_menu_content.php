@@ -6,28 +6,8 @@ $sublevel_ie7 = '<!--[if gte IE 7]><!-->';
 $sublevel_start = '<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->';
 $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
 ?>
-
-<script type="text/javascript"><!--
-hide_select = function() {}; show_select = function() {};
-//--></script>
-<!--[if lt IE 7]>
-<script type="text/javascript" src="<?php echo sfConfig::get('app_static_url') . '/' . sfTimestamp::getTimestamp('/static/js/menus.js') ?>/static/js/menus.js"></script>
-<script>
-Event.observe(window,'load',startList);var selectList=document.getElementsByTagName('select');hide_select=function()
-{if(selectList)
-{var len=selectList.length;if(len>0)
-{for(i=0;i<len;i++)
-{selectList[i].style.display='none';}}}}
-show_select=function()
-{if(selectList)
-{var len=selectList.length;if(len>0)
-{for(i=0;i<len;i++)
-{selectList[i].style.display='';}}}}
-</script>
-<![endif]-->
-
     <div id="menu_content">
-        <ul onmouseover="hide_select();" onmouseout="show_select();">
+        <ul>
             <li><?php
                 echo link_to(__('Home') . $sublevel_ie7, '@homepage')
                    . $sublevel_start ?>
@@ -402,5 +382,8 @@ show_select=function()
                 </ul>
             </li>
         </ul>
+        <!--[if lt IE 7]>
+        <script type="text/javascript" src="<?php echo sfConfig::get('app_static_url') . '/' . sfTimestamp::getTimestamp('/static/js/menus.js') ?>/static/js/menus.js"></script>
+        <![endif]-->
         <br class="clearer" />
     </div>
