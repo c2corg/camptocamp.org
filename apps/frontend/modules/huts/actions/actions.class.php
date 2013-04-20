@@ -53,28 +53,6 @@ class hutsActions extends documentsActions
             }
             $this->associated_summits = $associated_summits;
 
-            /*if ($is_gite)
-            {
-                $parking_ids = array();
-                foreach ($associated_parkings as $parking)
-                {
-                    $parking_ids[] = $parking['id'];
-                }
-                
-                $route_ids = array();
-                foreach ($associated_routes as $route)
-                {
-                    $route_ids[] = $route['id'];
-                }
-                
-                $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, 'pr', false, true, $route_ids);
-                $associated_routes = array_merge($associated_routes, $associated_parking_routes);
-                $this->ids = implode('-', $parking_ids);
-            }
-            else
-            {
-                $this->ids = $current_doc_id;
-            }*/
             if ($is_gite)
             {
                 $parking_ids = array();
