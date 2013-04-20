@@ -93,7 +93,7 @@ if ($home_section)
 </div>
 <?php
 $cookie_position = array_search('last_images', sfConfig::get('app_personalization_cookie_fold_positions'));
-echo javascript_tag('C2C.setHomeFolderStatus(\'last_images\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
+echo javascript_tag('C2C.setSectionStatus(\'last_images\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
 }
 else
 {
