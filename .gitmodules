@@ -1,3 +1,6 @@
 [submodule "lib/vendor/symfony"]
 	path = lib/vendor/symfony
 	url = http://github.com/c2corg/symfony-1.0.11.git
+[submodule "web/static/js/carto/cgxp"]
+	path = web/static/js/carto/cgxp
+	url = git@github.com:camptocamp/cgxp.git
