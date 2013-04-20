@@ -4,3 +4,6 @@
 [submodule "web/static/js/carto/cgxp"]
 	path = web/static/js/carto/cgxp
 	url = git@github.com:camptocamp/cgxp.git
+[submodule "lib/geoPHP"]
+	path = lib/geoPHP
+	url = git@github.com:phayes/geoPHP.git
