@@ -19,7 +19,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
             // a polygon object
             // As a workaround, we have replaced polygons by linestrings in javascript code. This was not working well with
             // multipolygons.
-            // Eventually we directly modify this helper to replace MULTIPOLYGON by MULTINLINESTRINGS
+            // Eventually we directly modify this helper to replace MULTIPOLYGON by MULTILINESTRINGS
             $geom = $document->get('geom_wkt');
             if (substr($geom, 0, 7) == 'POLYGON')
             {
@@ -29,7 +29,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
             {
                 $geom = str_replace(array('MULTIPOLYGON', '((', '))'), array('MULTILINESTRING', '(', ')'), $geom);
             }
-            $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}", $document->get('id'), $document->get('module'), $geom);
+            $objects_list[] = _convertObjectToGeoJSON($document->get('id'), $document->get('module'), $geom);
         }
     }
 
@@ -56,11 +56,11 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     
     if (is_null($height))
     {
-        $height = 300;
+        $height = 400;
     }
     else
     {
-        $height = min(800, max(300, $height));
+        $height = min(800, max(400, $height));
     }
     
     if (is_null($center))
@@ -80,29 +80,35 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
         $init_center = '[' . $init_center . ']';
     }
     
-    $html = javascript_tag("var mapLang = '$lang',
-    objectsToShow = [" . implode(', ', $objects_list) . "],
-    layersList = $layers_list,
-    initCenter = $init_center;");
-    
-    $html .= '<section class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
-    $html .= '<div id="map" style="height:' . $height . 'px;width:100%">';
-    $html .= '<div id="mapLoading">'.image_tag($app_static_url . '/static/images/indicator.gif');
+    $html  = '<section class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
+    $html .= '<div id="map" style="height:' . $height . 'px;width:auto">';
+    $html .= '<div id="mapLoading" style="position:absolute">'.image_tag($app_static_url . '/static/images/indicator.gif');
     $html .= __('Map is loading...') . '</div>';
     $html .= '</div>';
-    $html .= '<div id="scale"></div>';
-    $html .= '<div id="fake_clear"></div>';
     $html .= '</div></section>';
 
+    $html .= javascript_tag("
+        Event.observe(window, 'load', function() {
+            c2corg.Map({
+                div: 'map',
+                lang: '$lang',
+                loading: 'mapLoading',
+                layers: $layers_list,
+                center: $init_center,
+                features: " . _makeFeatureCollection($objects_list) . "
+            });
+        });
+    ");
+
+/*
+// TODO: asynchronous map loading
     if (sfConfig::get('app_async_map', true))
     {
         use_helper('MyMinify');
         // FIXME if using ie for async load, set $debug to true, because minifying the js currently breaks ie
-        $c2c_script_url = minify_get_combined_files_url(array('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js',
-                                                              '/static/js/mapfish/mfbase/ext/ext-all.js',
-                                                              '/static/js/mapfish/build/c2corgApi.js',
-                                                              '/static/js/popup.js',
-                                                              '/static/js/docmap.js'),
+        $c2c_script_url = minify_get_combined_files_url(array('/static/js/carto/build/xapi.js',
+                                                              '/static/js/carto/build/lang-fr.js',
+                                                              '/static/js/carto/docmap.js'),
                                                         (bool)sfConfig::get('app_minify_debug'));
 
         // FIXME extjs uses document.write with ie, so we cannot for the moment use async loading with ie
@@ -111,8 +117,20 @@ if (!Prototype.Browser.IE) { var c2corgloadMapAsync = true; }
 function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0]; a.async = 1; a.src = jsurl; h.appendChild(a); }
 function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); }}');
     }
+*/
 
     return $html;
+}
+
+function _convertObjectToGeoJSON($id, $module, $wkt) {
+    return sprintf('{ "type": "Feature", "geometry": %s, "id": %d, ' .
+                   '"properties": { "module": "%s", "name": "%s" } }',
+                   geoPHP::load($wkt, 'wkt')->out('json'),
+                   $id, $module, "FIXME");
+}
+
+function _makeFeatureCollection($features) {
+    return '{ "type": "FeatureCollection", "features": [' . implode(',', $features) . '] }';
 }
 
 function _addAssociatedDocsWithGeom($docs, &$objects_list)
@@ -121,40 +139,24 @@ function _addAssociatedDocsWithGeom($docs, &$objects_list)
     {
         if (!empty($doc['pointwkt']))
         {
-            $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}",
-                                      $doc['id'], $doc['module'], $doc['pointwkt']);
+            $objects_list[] = _convertObjectToGeoJSON($doc['id'], $doc['module'], $doc['pointwkt']);
         }
     }
 }
 
 function _loadJsMapTools()
 {
-    $response = sfContext::getInstance()->getResponse();
-
-    use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/ext-all.css', 'custom');
-    use_stylesheet('/static/js/mapfish/mfbase/ext/resources/css/xtheme-gray.css', 'custom');
-    use_stylesheet('/static/js/mapfish/mfbase/geoext/resources/css/gxtheme-gray.css', 'custom');
-    use_stylesheet('/static/js/mapfish/mfbase/openlayers/theme/default/style.css', 'custom');
-    use_stylesheet('/static/css/popup.css', 'custom');
-    use_stylesheet('/static/js/mapfish/MapFishApi/css/api.css', 'custom');
-    use_stylesheet('/static/js/mapfish/c2corgApi/css/api.css', 'custom');
-
-    // it is not possible to load google maps api v2 asynchronously since it uses document.write
-    // upgrade to v3 to enable (using &callback=some_function param) TODO
-    // We use api <= 3.6 https://github.com/openlayers/openlayers/commit/b17c7b69f25ce0ddbaf720f91b7d48328b005831
-    //use_javascript('http://maps.googleapis.com/maps/api/js?v=3.6&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
-    use_javascript('http://maps.google.com/maps?file=api&v=2&sensor=false&key=' . sfConfig::get('app_google_maps_key'));
-
-    // FIXME following files will only be loaded by internet explorer when in async mode using conditional comments
-    // (extjs 2 cannot be loaded async with ie, it uses document.write)
-    use_javascript('/static/js/ie9mapfix.js', 'maps');
-    use_javascript('/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'maps');
-    use_javascript('/static/js/mapfish/mfbase/ext/ext-all.js', 'maps');
-    //use_javascript('/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'maps');
-    
-    use_javascript('/static/js/mapfish/build/c2corgApi.js', 'maps');
-    use_javascript('/static/js/popup.js', 'maps');
-    use_javascript('/static/js/docmap.js', 'maps');
+    $debug = sfContext::getInstance()->getRequest()->getParameter('debug', false);
+    $lang = sfContext::getInstance()->getUser()->getCulture();
+    if ($debug) {
+        include_partial('documents/map_lib_include_debug');
+    } else {
+        use_stylesheet('/static/js/carto/build/app.css', 'custom');
+        use_javascript('/static/js/carto/build/app.js', 'maps');
+    }
+    use_stylesheet('/static/js/carto/carto.css', 'custom'); // FIXME: build CSS
+    use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
+    use_javascript('/static/js/carto/embedded.js', 'maps');
 }
 
 _loadJsMapTools();

@@ -5,7 +5,7 @@
 $lon = $document->get('lon') ? $document->get('lon') : 0;
 $lat = $document->get('lat') ? $document->get('lat') : 0;
 echo __('Regions are detected automatically according to coordinates')."\n".
-    link_to_function(__('Use map'), "c2corg.docGeoref.init($lon,$lat)").
+    link_to_function(__('Use map'), "openGeorefMap($lon,$lat)").
     __(' to point location'); 
 ?></p>
 <?php 

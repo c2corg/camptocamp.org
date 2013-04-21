@@ -1,0 +1,9 @@
+@import url("../../css/popup.css");
+
+.tooltip_tooltip {
+    background-color: white;
+    color: black;
+    padding: 2px;
+    opacity:0.8;
+    filter:alpha(opacity=80);
+}

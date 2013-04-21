@@ -4,7 +4,6 @@ c2corg_map_translations = {
     'Map data': \"" . __('Map data') . "\",
     'Search': \"" . __('Search') . "\",
     'Help': \"" . __('Help') . "\",
-    'help detail': \"" . str_replace("\n", '', __('map help text')) . "\",
     'no item selected': \"" . __('no item selected on map') . "\",
     'Expand map': \"" . __('Expand map') . "\",
     'Reduce map': \"" . __('Reduce map') . "\",

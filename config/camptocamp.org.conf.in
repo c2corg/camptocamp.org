@@ -75,12 +75,13 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     # /path_to_js_or_css (minimized, short ttl)
     # /no/path_to_js_or_css (not minimized, short ttl)
     RewriteCond %{REQUEST_URI} \.(css|js)$
-    RewriteRule ^(([a-f0-9]{8})/?(no)?/)?(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$4&$3&$2 [L]
+    RewriteRule ^(([a-f0-9]{8})?/?(no)?/)?(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$4&$3&$2 [L]
 
     # Versioning of the images used in css
     # /static/images/12345/path_to_image
     RewriteCond %{REQUEST_URI} \.(png|jpg|gif)$
     RewriteRule ^[a-f0-9]{8}/static/images/(.*\.(png|jpg|gif))$ /static/images/$1 [L,NC]
+    RewriteRule ^(([a-f0-9]{8})?/?(no)?)?/static/js/(.*\.(png|jpg|gif))$ /static/js/$4  [L,NC]
 
     # robots.txt
     # prod version (mobile and www)

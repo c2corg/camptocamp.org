@@ -9,3 +9,8 @@ autoload:
     name:           "Base documents actions"
     ext:            .php
     path:           %SF_APP_DIR%/modules/documents/actions/
+
+  geoPHP:
+    name:           "GeoPHP"
+    ext:            .inc
+    path:           %SF_LIB_DIR%/geoPHP/
