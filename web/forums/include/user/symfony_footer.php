@@ -32,7 +32,10 @@ include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_AP
              DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'. 
              DIRECTORY_SEPARATOR.($mobile_version ? '_mobile_footer.php' : '_footer.php'));
 
-?></div><?php
+?></div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>jQuery.noConflict();</script>
+<?php
 
 $punbb_file = basename($_SERVER['PHP_SELF']);
 

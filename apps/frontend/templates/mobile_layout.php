@@ -84,6 +84,8 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         ?>
     </div>
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>jQuery.noConflict();</script>
     <?php minify_include_body_javascripts($combine, $debug);
           include_partial('common/tracker') ?>
 </body>
