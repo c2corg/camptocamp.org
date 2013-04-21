@@ -5,9 +5,8 @@
     init: function() {
       var section = $('.article_contenu').first();
       // add goog-trans-section class to section to translate (the i18n part of the doc)
-      section.addClass('goog-trans-section');
-      // add translation button
-      section.prepend('<div class="goog-trans-control"></div>');
+      // and add translation button
+      section.addClass('goog-trans-section').prepend('<div class="goog-trans-control"></div>');
       // retrieve interface culture
       var culture = document.documentElement.lang;
       // asynchronously load google translator js
