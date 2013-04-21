@@ -99,6 +99,6 @@ else
 </div>
 <?php
 $cookie_position = array_search('last_msgs', sfConfig::get('app_personalization_cookie_fold_positions'));
-echo javascript_tag('C2C.setHomeFolderStatus(\'last_msgs\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
+echo javascript_tag('C2C.setSectionStatus(\'last_msgs\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
 ?>
 </div>

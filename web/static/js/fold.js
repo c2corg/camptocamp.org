@@ -91,54 +91,6 @@
       if (top_box) {top_box.toggleClassName('small');}
   };
 
-  /**
-   * This function is called during the page loading to hide a home section if needed
-   */
-  C2C.setHomeFolderStatus = function(container_id, position, default_opened)
-  {
-      var img = $(container_id + '_toggle');
-      var title_div = $(container_id + '_section_title');
-      var top_box = $(container_id).down('.nav_box_top');
-      // retrieve cookie value if any
-      var cookie_name = 'fold=';
-      var clen = document.cookie.length;
-      var alt_down = open_close[0];
-      var i = 0;
-      while (i < clen)
-      {
-          var j=i+cookie_name.length;
-          if (document.cookie.substring(i, j)==cookie_name)
-          {
-              var opened = getCookieValue(j)[position];
-              if (opened == 't')
-              {
-                  return;
-              }
-              else if (opened == 'f')
-              {
-                  $(container_id+'_section_container').hide();
-                  img.title = alt_down;
-                  title_div.title = alt_down;
-                  if (top_box) {top_box.addClassName('small');}
-                  return;
-              }
-              else
-              {
-                  break;
-              }
-          }
-          i = document.cookie.indexOf(" ",i)+1;
-          if (i === 0) { break; }
-      }
-      // no existing cookie_value
-      if (!default_opened)
-      {
-          $(container_id+'_section_container').hide();
-          img.title = alt_down;
-          title_div.title = alt_down;
-          if (top_box) {top_box.addClassName('small');}
-      }
-  };
 
   function getContainer(obj)
   {
@@ -238,77 +190,6 @@
       }
   };
 
-  /**
-   * This function is called during the page loading to hide a section if needed
-   * TODO factorize with home sections
-   */
-  C2C.setSectionStatus = function(container_id, position, default_opened)
-  {
-      var f = function() {
-          div.hide();
-          img.removeClassName('picto_close');
-          img.addClassName('picto_open');
-          img.alt = '+';
-          img.title = alt_down;
-          div.title = alt_down;
-          tip.innerHTML = '[' + alt_down + ']';
-      };
-
-      // FIXME specific behaviour for the map, can we avoid this?
-      var g = function() {
-          if (container_id == 'map_container' && typeof(c2corgloadMapAsync) != 'undefined' && c2corgloadMapAsync) {
-              document.observe('dom:loaded', asyncloadmap);
-          }
-      };
-
-      var img = $(container_id + '_toggle');
-      var div = $(container_id + '_section_container');
-      var tip = $('tip_' + container_id);
-      // retrieve cookie value if any
-      var cookie_name = 'fold=';
-      var clen = document.cookie.length;
-      var alt_down = open_close[0];
-      var i = 0;
-      while (i < clen)
-      {
-          var j=i+cookie_name.length;
-          if (document.cookie.substring(i, j)==cookie_name)
-          {
-              var opened = getCookieValue(j)[position];
-              // IE7...
-              if (Prototype.Browser.IE &&
-                 (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7))
-               {
-                  opened = getCookieValue(j).substring(position, position + 1);
-              }
-              if (opened == 't')
-              {
-                  g();
-                  return;
-              }
-              else if (opened == 'f')
-              {
-                  f();
-                  return;
-              }
-              else
-              {
-                  break;
-              }
-          }
-          i = document.cookie.indexOf(" ",i)+1;
-          if (i === 0) { break; }
-      }
-      // no existing cookie_value
-      if (!default_opened)
-      {
-          f();
-      }
-      else
-      {
-          g();
-      }
-  };
 
   /**
    * Hide or show a single box
@@ -547,55 +428,6 @@
       }
   }
 
-  C2C.setNav = function(is_home)
-  {
-    // search for cookie
-    var cookie_name = 'fold=';
-    var clen = document.cookie.length;
-    var i = 0;
-    while (i < clen)
-    {
-        var j=i+cookie_name.length;
-        if (document.cookie.substring(i, j)==cookie_name)
-        {
-            var opened = getCookieValue(j)[nav_status_cookie_position];
-            if (opened == 't')
-            {
-                return;
-            }
-            else if (opened == 'f')
-            {
-                if (is_home)
-                {
-                    toggleHomeNav(false);
-                }
-                else
-                {
-                    toggleNav(false);
-                }
-                return;
-            }
-            else
-            {
-                break;
-            }
-        }
-        i=document.cookie.indexOf(" ",i)+1;
-        if (i === 0) { break; }
-      }
-      // no cookie, use default
-      if (!default_nav_status)
-      {
-          if (is_home)
-          {
-              toggleHomeNav(false);
-          }
-          else
-          {
-              toggleNav(false);
-          }
-      }
-  };
 
   function set_splitter_pos(ypos)
   {

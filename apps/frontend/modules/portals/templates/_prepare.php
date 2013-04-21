@@ -31,7 +31,7 @@ include_partial('documents/home_section_title',
 </div>
 <?php
 $cookie_position = array_search('nav_prepare', sfConfig::get('app_personalization_cookie_fold_positions'));
-echo javascript_tag('C2C.setHomeFolderStatus(\'nav_prepare\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
+echo javascript_tag('C2C.setSectionStatus(\'nav_prepare\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
 ?>
 </div>
 <?php

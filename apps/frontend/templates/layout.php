@@ -2,7 +2,7 @@
 $lang_code = __('meta_language');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
-$action = sfContext::getInstance()->getActionName();
+$action = $sf_context->getActionName();
 $id = $sf_params->get('id');
 $cda_config = sfConfig::get('app_portals_cda');
 $cda_id = isset($cda_config['id']) ? $cda_config['id'] : -1;
@@ -34,8 +34,7 @@ use_helper('MyMinify', 'MetaLink');
 
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/fold.js', 'head_last');
-?>
+$response->addJavascript('/static/js/fold.js', 'head_last'); ?>
 <!doctype html>
 <html lang="<?php echo $lang_code ?>">
 <head>
@@ -68,6 +67,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
+    <?php include_partial('common/section_close'); ?>
     <div id="holder">
         <header id="page_header">
         <?php
@@ -98,6 +98,6 @@ $response->addJavascript('/static/js/fold.js', 'head_last');
     minify_include_maps_javascripts($combine);
     include_partial('common/tracker', array('addthis' => sfContext::getInstance()->getResponse()->hasParameter('addthis', 'helper/asset/addthis')));
     // Prompt ie6 users to install Chrome Frame - no adm rights required. chromium.org/developers/how-tos/chrome-frame-getting-started ?>
-    <!--[if lt IE 7 ]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script><![endif]-->
+    <!--[if lt IE 7 ]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script><![endif]-->
 </body>
 </html>

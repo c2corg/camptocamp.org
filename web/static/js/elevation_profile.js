@@ -1,5 +1,4 @@
 (function() {
-  "use strict";
 
   var i18n = window.c2cprofile.i18n;
   var mobile = $$('html')[0].hasClassName('mobile');
@@ -11,10 +10,10 @@
     $$('.elevation_profile_controls')[0].addClassName('left');
   }
 
-  var size = { width: width, height: 300 },
-    margin = { top: 20, right: 20, bottom: 30, left: 50 },
-    width = size.width - margin.left - margin.right,
-    height = size.height - margin.top - margin.bottom;
+  var size = { width: width, height: 300 };
+  var margin = { top: 20, right: 20, bottom: 30, left: 50 };
+  width = size.width - margin.left - margin.right;
+  var height = size.height - margin.top - margin.bottom;
 
   // d3.xml() is not working well with ie9 and ie10
   // so instead, we retrieve the text and use DOMParser on it
@@ -29,10 +28,10 @@
     .get(function(error, request) {
       var greatArc = d3.geo.greatArc();
       var mode = "distance";
+      var time_available;
       var data = [];
       var dtot = 0;
       var d;
-      var duration;
 
       // hide loading div, displat regular ones
       $$('.elevation_profile_controls')[0].show();
@@ -44,7 +43,7 @@
 
       try { 
         // some files won't have time elements. We need to handle that
-        var time_available = !!points[0].getElementsByTagName("time").length;
+        time_available = !!points[0].getElementsByTagName("time").length;
 
         // build data points from gpx information
         var startDate = time_available ? new Date((points[0].getElementsByTagName("time"))[0].textContent) : null;
@@ -68,7 +67,7 @@
             date: date,
             ele: +points[i].getElementsByTagName("ele")[0].textContent,
             d: dtot + d,
-            elapsed: time_available ? date - startDate : null,
+            elapsed: time_available ? date - startDate : null
           });
           dtot +=d;
         }
@@ -77,7 +76,7 @@
           $$('.xaxis-dimension')[0].hide();
         }
       } catch(err) {
-        alert('Sorry, but something went wrong! Please contact us');
+        alert('Sorry, but something went wrong! Please contact us - ' + err);
         return;
       }
 
@@ -147,12 +146,13 @@
         .style("text-anchor", "end")
         .text(i18n.x1Legend);
 
+      var startLine;
       if (!mobile) {
         // horizontal line, but with same number of points
         // for eye-friendly transition
-        var startline = d3.svg.line()
+        startline = d3.svg.line()
           .x(function(d) { return x1(d.d); })
-          .y(function(d) { return y(yExtent[0]); });
+          .y(function() { return y(yExtent[0]); });
       }
 
       // data lines
@@ -277,11 +277,11 @@
           }
 
           d3.select(".x.axis")
-            .call(axis)
+            .call(axis);
           d3.select(".x.axis.legend")
             .text(legend);
         });
       }
     });
 
-})()
+})();
