@@ -1,14 +1,13 @@
-(function (C2C) {
-
-  "use strict";
+(function (C2C, $) {
 
   C2C.GoogleTranslator = {
 
     init: function() {
+      var section = $('.article_contenu').first();
       // add goog-trans-section class to section to translate (the i18n part of the doc)
-      $$('.article_contenu')[0].addClassName('goog-trans-section');
+      section.addClass('goog-trans-section');
       // add translation button
-      $$('.article_contenu')[0].insert({top: new Element('div', {'class': 'goog-trans-control'})});
+      section.prepend('<div class="goog-trans-control"></div>')
       // retrieve interface culture
       var culture = document.documentElement.lang;
       // asynchronously load google translator js
@@ -27,6 +26,6 @@
     }
   };
 
-  Event.observe(window, 'load', function() { C2C.GoogleTranslator.init(); });
+  $(document).ready(C2C.GoogleTranslator.init);
 
-})(window.C2C = window.C2C || {});
+})(window.C2C = window.C2C || {}, jQuery);
