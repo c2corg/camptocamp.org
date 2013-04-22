@@ -1,31 +1,29 @@
-(function(C2C) {
+(function(C2C, $) {
 
-"use strict";
+  C2C.add_tooltips = function(css_class_to_observe) {
+    // once dom loaded, load tooltip info via an ajax request
+    // when clicking the field label
+    $(function() {
+      $(css_class_to_observe).click(function() {
 
-C2C.add_tooltips = function(css_class_to_observe)
-{
-    document.observe('dom:loaded', function(){
-        $$(css_class_to_observe).each(function(obj){
-            obj.observe('click', function(e){
-            new Ajax.Updater('fields_tooltip',
-                                    '/common/getinfo', 
-                                    { asynchronous:true, 
-                                      postBody: 'elt=' + obj.id,
-                                      evalScripts:false, 
-                                      method:'post', 
-                                      onSuccess:function(request, json){
-                                                        Element.hide('indicator');Element.show('fields_tooltip');
-                                                        },
-                                      onFailure:function(request, json){
-                                                        Element.hide('indicator');
-                                                        },
-                                      onLoading:function(request, json){
-                                                        Element.hide('fields_tooltip');Element.show('indicator');}
-                                    }
-                        );  
-            });
+        var indicator = $('#indicator');
+        var tooltip = $('#fields_tooltip');
+
+        tooltip.hide();
+        indicator.show();
+
+        $.post('/common/getinfo', {
+          elt: this.id
+        }).done(function(data) {
+          indicator.hide();
+          tooltip.html(data);
+          tooltip.show();
+        }).fail(function() {
+          indicator.hide();
         });
-    });
-};
 
-})(window.C2C = window.C2C || {});
+      });
+    });
+  };
+
+})(window.C2C = window.C2C || {}, jQuery);
