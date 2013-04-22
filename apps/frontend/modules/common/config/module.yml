@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ raid, rayonrando, camp_a, chamMtnFest, montania, google, changerdapproche, cilao, camp_a, boutique_c2c, raid, changerdapproche ]
+    values: [ raid, rayonrando, camp_b, chamMtnFest, montania, google, changerdapproche, cilao, camp_b, boutique_c2c, raid, changerdapproche ]
   banners:
     list:
       skalp:
@@ -241,5 +241,5 @@ all:
         alt: "Portail C2C Raids/Expeditions"
       chamMtnFest:
         id: 69
-        image: chamMtnFest.gif
+        image: chamMtnFest2.gif
         alt: "Chamonix Mountain Festival"
