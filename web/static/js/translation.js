@@ -25,6 +25,7 @@
     }
   };
 
-  $(document).ready(C2C.GoogleTranslator.init);
+  // init once dom loaded
+  $(C2C.GoogleTranslator.init);
 
 })(window.C2C = window.C2C || {}, jQuery);
