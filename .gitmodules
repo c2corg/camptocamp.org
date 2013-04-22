@@ -7,3 +7,6 @@
 [submodule "lib/geoPHP"]
 	path = lib/geoPHP
 	url = http://github.com/phayes/geoPHP.git
+[submodule "web/static/js/third-parties/d3"]
+	path = web/static/js/third-parties/d3
+	url = http://github.com/mbostock/d3.git
