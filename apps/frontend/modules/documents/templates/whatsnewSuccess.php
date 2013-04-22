@@ -31,7 +31,7 @@ echo start_content_tag($module . '_content');
 ?>
 <p class="whatsnew_controls"><?php echo __('Recent changes list in category: %1%',
                  array('%1%' => __($module)))  ?>
- &nbsp; [<?php echo link_to_function(__('toggle date info'), 'C2C.tog()') ?>]
+ &nbsp; [<?php echo link_to_function(__('toggle date info'), 'C2C.toggle_time()') ?>]
 </p>
 
 <p class="whatsnew_controls">
