@@ -123,7 +123,7 @@ c2corg.docGeoref = (function() {
     return {
         init: function(lon, lat) {
             // do not init if already loaded or if section is closed
-            if (map_already_loaded == true) {
+            if (map_already_loaded) {
               return;
             }
             
@@ -238,7 +238,7 @@ function update_degminsec(field)
     // deal with commas instead of points
     $(field).value = ($(field).value).replace(',', '.');
     
-    if ($(field).value == '') {
+    if ($(field).value === '') {
         $(field + '_deg').value = $(field + '_min').value = $(field + '_sec').value = '';
         return;
     }
