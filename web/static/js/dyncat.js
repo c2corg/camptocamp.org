@@ -8,7 +8,7 @@
 
   // save preference in cookie (1 year expiration time)
   function saveCookie(value) {
-    document.cookie = cookie_name + '=' + escape(value) +
+    document.cookie = cookie_name + '=' + value +
       '; expires=' + date.toGMTString();
   }
 
