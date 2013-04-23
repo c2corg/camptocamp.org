@@ -802,11 +802,14 @@ class usersActions extends documentsActions
         $pref_name = $this->getRequestParameter('name');
         $pref_value = $this->getRequestParameter('value');
 
-        $valid_prefs = sfConfig::get('app_personalization_cookie_fold_positions');
-
-        if (!in_array(substr($pref_name, 0, -12), $valid_prefs))
-        {
-            return $this->ajax_feedback('');
+        // if not forum categories, it is a section
+        // check if section exists
+        if ($pref_name != sfConfig::get('app_personalization_cookie_forum_categories_name')) {
+            $valid_prefs = sfConfig::get('app_personalization_cookie_fold_positions');
+            if (!in_array(substr($pref_name, 0, -12), $valid_prefs))
+            {
+                return $this->ajax_feedback('');
+            }
         }
 
         c2cPersonalization::saveFilter($pref_name, $pref_value,
