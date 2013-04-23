@@ -4,9 +4,7 @@
 
     // FIXME: totalResults seems to vary depending on the startIndex??
     // thus we are not creating a classical pager, only prev and next (if they exist)
-    displayPager: function (response) {
-      var link, img, url_params;
-
+    displayPager: function(response) {
       var pagesDiv = $('<div class="pages_navigation"/>');
 
       // previous page
