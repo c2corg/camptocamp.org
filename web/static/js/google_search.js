@@ -10,8 +10,7 @@
       // previous page
       if (response.queries.previousPage) {
         pagesDiv.append('<a href="#" onclick="C2C.GoogleSearch.search()"><span class="picto action_first" title="' +
-                        C2C.GoogleSearch.i18n[0] + '"></span></a>',
-                        document.createTextNode('\u00a0\u00a0'),
+                        C2C.GoogleSearch.i18n[0] + '"></span></a>\u00a0\u00a0' +
                         '<a href="#" onclick="C2C.GoogleSearch.search(\'&start=' + response.queries.previousPage[0].startIndex +
                         '\')"><span class="picto action_back" title="' + C2C.GoogleSearch.i18n[1] + '"></span></a>');
       }
@@ -61,7 +60,7 @@
           var title_str = results[i].title.split(' ::')[0];
           tbody
             .append($('<tr/>').addClass('table_list_' + (i%2 ? 'even' : 'odd'))
-              .append('<td><a href="' + results[i].link + '">' + title_str + '</a></td>',
+              .append('<td><a href="' + results[i].link + '">' + title_str + '</a></td>' +
                       '<td>' + results[i].htmlSnippet + '</td>'));
         }
 
