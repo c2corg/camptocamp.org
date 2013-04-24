@@ -230,7 +230,7 @@ function update_decimal_coord(field)
     {
         sec = 0;
     }
-    $(field).value = sign * Math.round(1000000 * (deg + min/60 + sec/3600)) / 1000000;
+    $(field).value = sign * Math.round(1000000 * (deg + min/60 + sec/3600)) / 1000000;
 }
 
 function update_degminsec(field)
@@ -252,7 +252,7 @@ function update_degminsec(field)
     if (degreesTemp < 0)
     {
         sign = -1;
-        degreesTemp = -1 * degreesTemp;
+        degreesTemp = -1 * degreesTemp;
     }
     else
     {
