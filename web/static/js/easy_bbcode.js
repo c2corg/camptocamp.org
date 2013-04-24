@@ -96,7 +96,7 @@
         quote_text = correctLinks(text, html);
 
         // retrieve poster nickname and post id (different whether on post.php or viewtopic.php and invited user)
-        var nickname = blockpost.prevAll('.postleft:first').find('strong:first').text();
+        var nickname = blockpost.prevAll('.postleft:first strong:first').text();
         if (nickname.indexOf('[') != -1 || nickname.indexOf(']') != -1) {
           if (nickname.indexOf('"') == -1) {
             nickname = '"' + nickname + '"';

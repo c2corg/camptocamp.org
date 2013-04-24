@@ -42,7 +42,7 @@
 
         // add anchor link in left navigation menu
         var anchor_title = $('#buy_books_toggle')[0].nextSibling.data;
-        $('#nav_anchor_content').find('ul').append(
+        $('#nav_anchor_content ul').append(
           $('<li/>').append('<a href="#buy_books" class="picto_books link_nav_anchor" title="' +
                             anchor_title + '">' + anchor_title + '</a>'));
       }
