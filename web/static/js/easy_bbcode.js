@@ -1,8 +1,6 @@
 // bbcode for forums
 (function(C2C, $) {
 
-"use strict";
-
   var quote_text = '';
   var nickname_postid  = '';
 
@@ -34,7 +32,6 @@
 
       // we ignore the end value for IE, this is already dirty enough and we don't need it
       caretPos.start = txtarea.sel_start;
-      caretPos.end = txtarea.sel_start;
     }
 
     return caretPos;
@@ -55,7 +52,7 @@
   function correctLinks(text, html) {
     var links = $(html).find('a').each(function() {
         var title = $(this).text();
-        var href = $(this).attr('href');
+        var href = this.href;
         if (/https?:\/\//.test(title)) {
           text = text.replace(title, href);
         } else {

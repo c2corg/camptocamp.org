@@ -442,7 +442,7 @@ function bb_button_tag($name, $value, $textarea_id, $options = array())
     return tag('input', array_merge(array('value' => $value,
                                           'type' => 'button',
                                           'name'  => $name,
-                                          'onclick' => "C2C.storeCaret('$value', '$textarea_id')",
+                                          'onclick' => "C2C.insertBbcode('$value', '$textarea_id')",
                                           'title' => $title),
                                     $options)) . ' ';
 }

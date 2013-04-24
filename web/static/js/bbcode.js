@@ -4,7 +4,9 @@
   var img_tag;
 
   // apply bbcode button
-  C2C.storeCaret = function(selec, targetElm) {
+  // this is more complex than for the forums,
+  // because we more complex bbcodes
+  C2C.insertBbcode = function(selec, targetElm) {
     var opening_tag, closing_tag, selec_2;
 
     switch (selec) {
@@ -151,7 +153,7 @@
     }
     img_tag += "\n";
 
-    C2C.storeCaret('img', $('#div').val());
+    C2C.insertBbcode('img', $('#div').val());
     Modalbox.hide();
   };
 
