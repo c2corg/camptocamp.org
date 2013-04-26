@@ -114,7 +114,7 @@
           show.hiking = true;
           break;
 
-        case 7: // paragliding
+        case 7: // snowshoeing
           show.snowshoeing = true;
         }
     });
