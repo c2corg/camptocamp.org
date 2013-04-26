@@ -1,257 +1,212 @@
-(function(C2C) {
+(function(C2C, $) {
 
-  "use strict";
+  // Mountain wilderness contest stuff
 
-  C2C.switch_mw_contest_visibility = function()
-  {
-      if ($('mw_contest') != undefined) {
-          if ($('outing_with_public_transportation').checked)
-          {
-              $('mw_contest').show();
-          }
-          else
-          {
-              // hide mw div, uncheck contest checkbox
-              $('mw_contest').hide();
-              if ($('pseudo_id') == undefined && $('mw_contest_associate').checked)
-              {
-                  // de-associated
-                  new Ajax.Request(
-                    '/documents/removeAssociation/main_oc_id/' + $F('id') + '/linked_id/' + mw_contest_article_id + '/type/oc/strict/1',
-                    {asynchronous:true,
-                     evalScripts:false,
-                     method:'post',
-                     onComplete: function (request, json) {
-                       Element.hide('indicator');
-                     },
-                     onFailure: function (request, json) {
-                       Element.show('ajax_feedback_failure');
-                       $('mw_contest_associate').checked = true;
-                       setTimeout('C2C.emptyFeedback("ajax_feedback_failure")', 4000);
-                     },
-                     onLoading: function (request, json) {
-                       Element.show('indicator');
-                     },
-                     onSuccess: function(request, json) {
-                       $('mw_contest_associate').checked = false;
-                       Element.hide('ajax_feedback_failure');
-                     }
-                   });
-              }
-          }
-      }
+  function mw_associate() {
+    var indicator = $('#indicator');
+
+    indicator.show();
+    $.post('/documents/addAssociation/main_id/' + $('#id').val() +
+           '/document_module/articles/document_id/' + mw_contest_article_id
+    ).always(function() {
+      indicator.hide();
+    }).done(function(data) {
+      $('#ajax_feedback_failure').hide();
+    }).fail(function(data) {
+      $('#ajax_feedback_failure').show();
+      mw_contest_associate.attr('checked', false);
+      setTimeout(function() {
+        C2C.emptyFeedback("ajax_feedback_failure");
+      }, 4000);
+    });
   }
 
-  C2C.switch_mw_contest_association = function()
-  {
-      if ($('pseudo_id') == undefined) {
-          if ($('mw_contest_associate').checked)
-          {
-              // associate
-              new Ajax.Request(
-                '/outings/addAssociation/main_id/' + $F('id') + '/document_module/articles/document_id/' + mw_contest_article_id,
-                {asynchronous:true,
-                 evalScripts:false,
-                 method:'post',
-                 onComplete: function (request, json) {
-                   Element.hide('indicator');
-                 },
-                 onFailure: function (request, json) {
-                   Element.show('ajax_feedback_failure');
-                   $('mw_contest_associate').checked = false;
-                   setTimeout('C2C.emptyFeedback("ajax_feedback_failure")', 4000);
-                 },
-                 onLoading: function (request, json) {
-                   Element.show('indicator');
-                 },
-                 onSuccess: function(request, json) {
-                   Element.hide('ajax_feedback_failure');
-                 }
-                });
-          }
-          else
-          {
-              // de-associated
-              new Ajax.Request(
-                '/documents/removeAssociation/main_oc_id/' + $F('id') + '/linked_id/' + mw_contest_article_id + '/type/oc/strict/1',
-                {asynchronous:true,
-                 evalScripts:false,
-                 method:'post',
-                 onComplete: function (request, json) {
-                   Element.hide('indicator');
-                   setTimeout('C2C.emptyFeedback("ajax_feedback_failure")', 4000);
-                 },
-                 onFailure: function (request, json) {
-                   Element.show('ajax_feedback_failure');
-                 },
-                 onLoading: function (request, json) {
-                   Element.show('indicator');
-                 }
-                });
-          }
-      }
+  function mw_de_associate() {
+    var indicator = $('#indicator');
+
+    indicator.show();
+    $.post('/documents/removeAssociation/main_oc_id/' + $('#id').val() +
+           '/linked_id/' + mw_contest_article_id + '/type/oc/strict/1'
+    ).always(function() {
+      indicator.hide();
+    }).done(function(data) {
+      $(mw_contest_associate).attr('checked', false);
+      $('#ajax_feedback_failure').hide();
+    }).fail(function() {
+      $('#ajax_feedback_failure').show();
+      $(mw_contest_associate).attr('checked', true);
+      setTimeout(function() {
+        C2C.emptyFeedback("ajax_feedback_failure");
+      }, 4000);
+    });
   }
 
+  C2C.switch_mw_contest_visibility = function() {
+    var mw_contest = $('#mw_contest');
+    var mw_contest_associate = $('#mw_contest_associate');
 
-  C2C.hide_outings_unrelated_fields = function()
-  {
-      var show_flags =
-      [
-          'outings_glacier',
-          'outings_snow_elevation',
-          'outings_track',
-          'outings_conditions_levels',
-          'outings_length',
-          'outings_height_diff_down'
-      ];
-      var show_outings_glacier,
-          show_outings_snow_elevation,
-          show_outings_track,
-          show_outings_conditions_levels,
-          show_outings_length,
-          show_outings_height_diff_down;
+    if (mw_contest.length) {
+      if ($('#outing_with_public_transportation').is(':checked')) {
+        mw_contest.show();
+      } else {
+        // hide mw div, uncheck contest checkbox
+        mw_contest.hide();
 
-      show_flags.each(function(flag)
-      {
-          eval('show_' + flag + ' = false');
-      });
+        if (!$('#pseudo_id').length && $(mw_contest_associate).is(':checked')) {
+          // de-associated
+          mw_de_associate();
+        }
+      }
+    }
+  };
 
-      var activities = $A($F($('activities')));
-      activities.each(function(activity)
-      {
-          if (activity == 1 || activity == 2 || activity == 5 || activity == 7)
-          {
-              show_outings_snow_elevation = true;
-              show_outings_track = true;
-              show_outings_conditions_levels = true;
-          }
-          if (activity == 1 || activity == 2 || activity == 3 || activity == 7)
-          {
-              show_outings_glacier = true;
-          }
-          if (activity == 1 || activity == 6 || activity == 7)
-          {
-              show_outings_length = true;
-              show_outings_height_diff_down = true;
-          }
-          else
-          {
-              if (Math.round($('outing_length').value) > 0)
-              {
-                  show_outings_length = true;
-              }
-              if (Math.round($('height_diff_down').value) > 0)
-              {
-                  show_outings_height_diff_down = true;
-              }
-          }
-      });
+  C2C.switch_mw_contest_association = function() {
 
-      show_flags.each(function(flag)
-      {
-          if (eval('show_' + flag))
-          {
-              $(flag).show();
-          }
-          else
-          {
-              $(flag).hide();
-          }
-      });
+    mw_contest_associate = $('#mw_contest_associate');
+
+    if (!$('#pseudo_id').length) {
+      if (mw_contest_associate.is(':checked')) {
+        // associate
+        mw_associate();
+      } else {
+        // de-associated
+        mw_de_associate();
+      }
+    }
+  };
+
+  // hide some fields depending on selected activities
+  C2C.hide_outings_unrelated_fields = function() {
+    var show_flags = [
+      'outings_glacier',
+      'outings_snow_elevation',
+      'outings_track',
+      'outings_conditions_levels',
+      'outings_length',
+      'outings_height_diff_down'
+    ];
+    var show = {};
+    for (var i = 0; i < show_flags.length; i++) {
+      show[show_flags[i]] = false;
+    }
+
+    var activities = $('#activities').val();
+
+    $.each(activities, function (i, activity) {
+      if (activity == 1 || activity == 2 || activity == 5 || activity == 7) {
+        show.outings_snow_elevation = true;
+        show.outings_track = true;
+        show.outings_conditions_levels = true;
+      }
+      if (activity == 1 || activity == 2 || activity == 3 || activity == 7) {
+        show.outings_glacier = true;
+      }
+      if (activity == 1 || activity == 6 || activity == 7) {
+        show.outings_length = true;
+        show.outings_height_diff_down = true;
+      } else {
+        if (Math.round($('#outing_length').val()) > 0) {
+          show.outings_length = true;
+        }
+        if (Math.round($('#height_diff_down').val()) > 0) {
+          show.outings_height_diff_down = true;
+        }
+      }
+    });
+
+    $.each(show_flags, function(i, flag) {
+      $('#' + flag + '_fields').toggle(show[flag]);
+    });
+  };
+
+  function disableForm(e) {
+    e.stopPropagation();
+    C2C.switchFormButtonsStatus($('#editform'), false);
+    return false;
   }
 
-  var check_outing_activities = function(e)
-  {
-      var activities_para = $A($F($('activities')));
+  // if some activities are active, ask the user
+  // if it is ok:
+  // often routes are multi-activity but the outing shouldn't
+  function check_outing_activities(e) {
+    var activities = $('#activities').val();
 
-      if (   activities_para.length == 1
-          && activities_para[0] == 8
-         )
-      {
-          alert(confirm_outing_paragliding_message);
-          Event.stop(e);
-          C2C.switchFormButtonsStatus($('editform'), false);
-          return false;
-      }
+    // paragliding
+    if (activities.length == 1 && activities[0] == 8) {
+
+      alert(confirm_outing_paragliding_message);
+      disableForm(e);
+      return false;
+    }
     
-      if (outing_activities_already_tested)
-      {
-          // no need to check activities twice
-          return;
-      }
+    if (outing_activities_already_tested) {
+      // no need to check activities twice
+      return;
+    }
 
-      var activities = [];
-      var i = 0;
-      activities_para.each(function(activity)
-      {
-          if (activity != 8)
-          {
-              activities[i] = activity;
-              i++;
-          }
-      });
-    
-      if (activities.length == 2)
-      {
-          activities.sortBy(function(s){return Math.round(s);});
-          var act_0 = activities[0];
-          var act_1 = activities[1];
-          if ((act_0 == 2 && act_1 == 3) ||
-              (act_0 == 2 && act_1 == 5) ||
-              (act_0 == 2 && act_1 == 7) ||
-              (act_0 == 3 && act_1 == 4) ||
-              (act_0 == 3 && act_1 == 6) ||
-              (act_0 == 4 && act_1 == 6))
-          {
-              // no need to check activities for these pairs
-              return;
-          }
+    // remove paragliding for next rules
+    for (var i = 0; i <activities.length; i++) {
+      if (activities[i] != 8) {
+        activities.splice(i, 1);
+        break;
       }
-    
-      // ask for confirmation if nb activities is > 1
-      if ($('revision').value.length == 0 &&
-          activities.length > 1 &&
-          !confirm(confirm_outing_activities_message))
-      {
-          Event.stop(e);
-          C2C.switchFormButtonsStatus($('editform'), false);
-          outing_activities_already_tested = true;
+    }
+
+    if (activities.length == 2) {
+      activities.sort();
+      var act_0 = activities[0];
+      var act_1 = activities[1];
+
+      if ((act_0 == 2 && act_1 == 3) ||
+          (act_0 == 2 && act_1 == 5) ||
+          (act_0 == 2 && act_1 == 7) ||
+          (act_0 == 3 && act_1 == 4) ||
+          (act_0 == 3 && act_1 == 6) ||
+          (act_0 == 4 && act_1 == 6)) {
+        // no need to check activities for these pairs
+        return;
       }
+    }
+    
+    // ask for confirmation if nb activities is > 1
+    if (!$('#revision').val() && activities.length > 1 &&
+        !confirm(confirm_outing_activities_message)) {
+      disableForm(e);
+      outing_activities_already_tested = true;
+    }
   }
 
-  var check_outing_date = function(e)
-  {
-      if (outing_date_already_tested)
-      {
-          // no need to check date twice
-          return;
-      }
+  function check_outing_date(e) {
+    if (outing_date_already_tested) {
+      // no need to check date twice
+      return;
+    }
 
-      var year = $('date_year').value;
-      var month = $('date_month').value;
-      var day = $('date_day').value;
+    var year = $('#date_year').val();
+    var month = $('#date_month').val();
+    var day = $('#date_day').val();
 
-      var now = new Date();
+    var now = new Date();
 
-      // ask for confirmation if outing date is today and if it is sooner than 14:00
-      if ($('revision').value.length == 0 &&
-          year == now.getFullYear() &&
-          month == (now.getMonth() + 1) &&
-          day == now.getDate() &&
-          now.getHours() <= 14 &&
-          !confirm(confirm_outing_date_message))
-      {
-          Event.stop(e);
-          C2C.switchFormButtonsStatus($('editform'), false);
-          outing_date_already_tested = true;
-      }
+    // ask for confirmation if outing date is today and if it is sooner than 14:00
+    if (!$('#revision').val() &&
+        year == now.getFullYear() &&
+        month == (now.getMonth() + 1) &&
+        day == now.getDate() &&
+        now.getHours() <= 14 &&
+        !confirm(confirm_outing_date_message)) {
+      disableForm(e);
+      outing_date_already_tested = true;
+    }
   }
 
-  document.observe('dom:loaded', C2C.hide_outings_unrelated_fields);
-  document.observe('dom:loaded', C2C.switch_mw_contest_visibility);
-  document.observe('dom:loaded', function() {
-      Event.observe('editform', 'submit', check_outing_activities);
-      Event.observe('editform', 'submit', check_outing_date);
+  // be sure to hide fields on startup if needed
+  $(C2C.hide_outings_unrelated_fields);
+  $(C2C.switch_mw_contest_visibility);
+
+  $('#editform').submit(function(e) {
+    check_outing_activities(e);
+    check_outing_date(e);
   });
 
-})(window.C2C = window.C2C || {});
+})(window.C2C = window.C2C || {}, jQuery);
