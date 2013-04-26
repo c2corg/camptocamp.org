@@ -3,9 +3,6 @@ use_helper('Object', 'Language', 'Validation', 'MyForm', 'Javascript', 'Escaping
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/parkings.js', 'last');
 
-javascript_tag('field_default = new Array();field_default[0] = Array(\'public_transportation_description\', "'
-               . __('public_transportation_description_default') . '");');
-
 // Here document = parking
 echo '<div>';
 display_document_edit_hidden_tags($document);
@@ -38,7 +35,7 @@ echo object_group_bbcode_tag($document, 'description', __('road access'));
 ?>
 <div id="tp_desc">
 <?php
-echo object_group_bbcode_tag($document, 'public_transportation_description', null, array('onfocus' => 'hideFieldDefault(0)'));
+echo object_group_bbcode_tag($document, 'public_transportation_description', null, array('placeholder' => __('public_transportation_description_default')));
 ?>
 </div>
 <div id="snow_desc">

@@ -66,57 +66,6 @@
     return false;
   };
 
-  function showFieldDefault(field, enable) {
-    if (field_default[field][2]) {
-      var field_id = field_default[field][0];
-      if (enable) {
-        $(field_id).value = field_default[field][1];
-        $(field_id).style.color = 'gray';
-      } else {
-        $(field_id).value = '';
-        $(field_id).style.color = 'black';
-      }
-    }
-  }
-
-  C2C.showAllFieldDefault = function(enable) {
-    if (typeof(field_default) != 'undefined') {
-      for (var i=0; i < field_default.length; i++) {
-        showFieldDefault(i, enable);
-      }
-    }
-  };
-
-  function initFieldDefault() {
-    if (typeof(field_default)!='undefined' && typeof(ga_done)!='undefined') {
-      var field_id;
-      for (var i=0; i < field_default.length; i++) {
-        field_id = field_default[i][0];
-        if ($(field_id).value == '') {
-          field_default[i][2] = true;
-          showFieldDefault(i, true);
-        } else {
-          field_default[i][2] = false;
-        }
-      }
-    }
-  }
-
-  function hideFieldDefault(field) {
-    if (field_default[field][2]) {
-      showFieldDefault(field, false);
-      field_default[field][2] = false;
-    }
-  }
-
-  function hideAllFieldDefault() {
-    if (typeof(field_default)!='undefined') {
-      for (var i=0; i < field_default.length; i++) {
-        hideFieldDefault(i);
-      }
-    }
-  }
-
   var bbcode_toolbar;
   function initBBcode() {
     bbcode_toolbar = $$('.bbcodetoolcontainer');
@@ -147,10 +96,6 @@
 
   document.observe('dom:loaded', function() {
     initBBcode();
-    initFieldDefault();
-    if ($('editform')) {
-      Event.observe('editform', 'submit', hideAllFieldDefault);
-    }
   });
 
 })(window.C2C = window.C2C || {});

@@ -4865,9 +4865,9 @@ msgid "gear and technique"
 msgstr "materiale e tecnica"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
-msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE:\\n- per lo sci: ARVA, pala, sonda\\n- alpinismo neve, ghiaccio, misto: ramponi, piccozza\\n- itinerari su ghiacciai: materiale di sicurezza su ghiaccio"
+msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE: ARVA, pala, sonda per lo sci, ramponi, piccozza (alpinismo neve, ghiaccio, misto), materiale di sicurezza su ghiaccio (itinerari su ghiacciai)"
 
 msgid "gear_shop"
 msgstr "negozio di sport"
@@ -6292,6 +6292,10 @@ msgstr "bar"
 msgid "public_transportation_description"
 msgstr "Accesso con i mezzi pubblici:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 msgid "public_transportation_description_default"
 msgstr "Precisare le informazioni necessarie per accedere a questo punto di partenza con i mezzi pubblici: aziende di trasporto, sito web, telefono, numero della linea, frequenza ed orari, prezzo."
 
@@ -6483,6 +6487,9 @@ msgstr "R"
 msgid "route_history"
 msgstr "Cenni storici:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 msgid "route_history_default"
 msgstr "Mettere qua informazioni sui ceni storici dell'itinerario: data e partecipanti della prima salita, della riattrezzatura, delle salite o discese (per lo sci) notevole..."
 

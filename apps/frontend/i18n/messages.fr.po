@@ -4912,9 +4912,9 @@ msgid "gear and technique"
 msgstr "matériel et techniques"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
-msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Seul le matériel \\\"exotique\\\" (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles:\\n- ARVA, pelle, sonde\\n- crampons, piolets\\n- matériel de glacier (la case \\\"nécessite le matériel de glacier\\\" suffit)\\n- coinceurs et sangles sans plus de précision."
+msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Seul le matériel &quot;exotique&quot; (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles: ARVA, pelle, sonde, crampons, piolets, matériel de glacier (la case &quot;nécessite le matériel de glacier&quot; suffit), coinceurs et sangles sans plus de précision."
 
 # [WARNING] needs_review
 msgid "gear_shop"
@@ -6329,6 +6329,10 @@ msgstr "bar"
 msgid "public_transportation_description"
 msgstr "Accès en transports en commun&nbsp;:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 msgid "public_transportation_description_default"
 msgstr "Précisez ici les informations nécessaires pour accéder à ce point de départ en transports en commun : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
 
@@ -6515,6 +6519,9 @@ msgstr "R"
 msgid "route_history"
 msgstr "Historique de l'itinéraire&nbsp;:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 msgid "route_history_default"
 msgstr "Précisez ici l'historique de l'itinéraire : date et participants de l'ouverture ou de l'équipement, des ascensions ou descentes marquantes (première, en solo, en hivernale, premières répétitions...)."
 

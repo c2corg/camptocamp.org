@@ -5019,10 +5019,10 @@ msgid "gear and technique"
 msgstr "Ausrüstung und Technik"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "gear_default"
-msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung benötigt wird. Nur das zusätzliche, \"exotische\" Material (Qualität und Menge) soll genannt werden. <br /> Beispiele von unnötigen Aufzählungen: \\n- Bei Skitouren: LVS, Felle, Lawinensonde, etc. (in der üblichen Skitourenausrüstung enthalten) \\n- Bei Alpintouren mit Gletscherbegehung: Steigeisen, Pickel (in entsprechender Standartausrüstung enthalten und dort aufgeführt). \\n- Bei Gletschertouren: Gletscherausrüstung (ankreuzen des Felds \"benötigt Gletscherausrüstung\" genügt) \\n- Beim Klettern: Friends, Keile und Schlingen ohne genauere Angabe des Typs und der Menge (bitte Nummern und Anzahl angeben).  "
+msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung benötigt wird. Nur das zusätzliche, &quot;exotische&quot; Material (Qualität und Menge) soll genannt werden. Beispiele von unnötigen Aufzählungen: LVS, Felle, Lawinensonde, etc. (Bei Skitouren in der üblichen Skitourenausrüstung enthalten), Steigeisen, Pickel (Bei Alpintouren mit Gletscherbegehung in entsprechender Standartausrüstung enthalten und dort aufgeführt), Gletscherausrüstung (Bei Gletschertouren - ankreuzen des Felds &quot;benötigt Gletscherausrüstung&quot; genügt), Friends, Keile und Schlingen ohne genauere Angabe des Typs und der Menge (Beim Klettern - bitte Nummern und Anzahl angeben).  "
 
 msgid "gear_shop"
 msgstr "Sportgeschäft"
@@ -6463,6 +6463,10 @@ msgstr "Bar"
 msgid "public_transportation_description"
 msgstr "Erreichbarkeit mit öffentlichen Verkehrsmitteln:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 # [WARNING] needs_review
 msgid "public_transportation_description_default"
 msgstr "Führen sie hier die Informationen aus, um diesen Zugangsort mit öffentlichen Verkehrsmitteln zu erreichen: Transportunternehmen, Website (falls vorhanden), Telefonnummer des Transportunternehmens, Nummer der Verkehrslinie, Fahrplan, Preise, etc."
@@ -6660,6 +6664,9 @@ msgstr "R"
 msgid "route_history"
 msgstr "Geschichte der Route:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 msgid "route_history_default"
 msgstr "Führen sie hier die Geschichte der Route aus: Datum und Teilnehmer der Erstbegehung, bemerkenswerte Begehungen (z.B. erste Solo- oder Winterbegehung im Auf-/Abstieg, Wiederholungen, etc.)."
 
