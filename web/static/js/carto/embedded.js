@@ -22,7 +22,7 @@ c2corg.Map = function (config) {
         controls: { zoomWheelEnabled: false }
     });
     mapConfig.id = config.id;
-    
+
     var tools = [{
         ptype: "c2corg_layertree",
         outputConfig: {
@@ -111,7 +111,7 @@ c2corg.Map = function (config) {
             lonlat = lonlat.transform("EPSG:4326", map.getProjection());
             map.setCenter(lonlat, center[2]);
         }
-    
+
         // FIXME: resize event is not detected
         viewer.portal.body.on('resize', function () {
             viewer.portal.doLayout();
