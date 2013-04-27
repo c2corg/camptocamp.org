@@ -229,7 +229,7 @@
     if (select_all)
     {
       select_all.observe('change', selectAllList);
-    }*/
+    }
   }
 
 
