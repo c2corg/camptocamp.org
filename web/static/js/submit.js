@@ -13,7 +13,7 @@
     var indicator = $('#indicator');
 
     indicator.show();
-    
+
     $.get('/routes/getratings', {
       'id': $('#' + div_id).val()
     }).always(function() {
@@ -60,7 +60,6 @@
     return false;
   };
 
-
   // bbcode toolbar, initiated once dom loaded
   $(function() {
     var bbcode_toolbars = $('.bbcodetoolcontainer');
@@ -69,6 +68,7 @@
     // hide all bbcode toolbars
     bbcode_toolbars.attr('visibility', 'hidden');
 
+    // hide / show toolbars on blur / focus
     bbcode_toolbars.next().focus(function() {
       $(this).prev().attr('visibility', 'visible');
     }).blur(function() {

@@ -3,10 +3,6 @@ use_helper('Object', 'Language', 'Validation', 'MyForm', 'Button', 'ModalBox');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/routes.js', 'last');
 
-javascript_tag('field_default = new Array();field_default[0] = Array(\'gear\', "' .
-               __('gear_default') . '");field_default[1] = Array(\'route_history\', "' .
-               __('route_history_default') . '");');
-
 // Here document = route
 echo '<div>';
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
@@ -147,7 +143,7 @@ echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'medlargetext', 'abstract' => true, 'route_line' => true));
 echo object_group_bbcode_tag($document, 'remarks', null, array('no_img' => true));
-echo object_group_bbcode_tag($document, 'gear', 'specific gear', array('class' => 'smalltext', 'onfocus' => 'hideFieldDefault(0)', 'no_img' => true));
+echo object_group_bbcode_tag($document, 'gear', 'specific gear', array('class' => 'smalltext', 'placeholder' => __('gear_default'), 'no_img' => true));
 
 $backpack_content_list = array('pack_ski' => 'pack_skitouring',
                                'pack_snow_easy' => 'pack_snow_ice_mixed_easy',
@@ -178,7 +174,7 @@ if (isset($associated_books) && count($associated_books))
        format_book_data($associated_books, 'br', null, false), '</div>';
 }
 
-echo object_group_bbcode_tag($document, 'route_history', null, array('onfocus' => 'hideFieldDefault(1)'));
+echo object_group_bbcode_tag($document, 'route_history', null, array('placeholder' => __('route_history_default')));
 ?>
 </div>
 <?php

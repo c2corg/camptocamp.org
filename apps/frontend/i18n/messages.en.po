@@ -4854,9 +4854,9 @@ msgid "gear and technique"
 msgstr "gear and techniques"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
-msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. Only \\\"exotic\\\" gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned:\\n- ARVA beeper, shovel, probe\\n- crampons, ice axe or tools\\n- crevasse rescue gear (ticking the box \\\"requires glacier gear\\\" is enough)\\n- friends, stoppers and slings with no detail on number and sizes."
+msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. Only &quot;exotic&quot; gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned: ARVA beeper, shovel, probe, crampons, ice axe or tools, crevasse rescue gear (ticking the box &quot;requires glacier gear&quot; is enough), friends, stoppers and slings with no detail on number and sizes."
 
 # [WARNING] needs_review
 msgid "gear_shop"
@@ -6295,6 +6295,10 @@ msgstr "bar"
 msgid "public_transportation_description"
 msgstr "Public transport access:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 msgid "public_transportation_description_default"
 msgstr "Detail here the informations necessary for reaching the access point using public transportation: companies, websites, telephone numbers, lines, schedueles and prices..."
 
@@ -6494,6 +6498,9 @@ msgstr "B"
 msgid "route_history"
 msgstr "Route history:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 msgid "route_history_default"
 msgstr "Detail here the route's history: date and participants of the first ascent or bolting, most remarquable ascents or descents (first, first solo, first winter ascents/descents, initial repetitions...)."
 

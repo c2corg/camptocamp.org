@@ -5019,10 +5019,10 @@ msgid "gear and technique"
 msgstr "material y técnicas"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 # [WARNING] es translation used
 msgid "gear_default"
-msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \\\"raro\\\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\\n- esquí, snowboard, raquetas: ARVA, pala, sonda\\n- nieve, hielo & mixto: crampones, piqueta\\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \\\"itinerario glaciar\\\" es suficiente)\\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
+msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo &quot;raro&quot; (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles: ARVA, pala, sonda (esquí, snowboard, raquetas), crampones, piqueta (nieve, hielo & mixto), material para de seguridad y rescate en grietas (itinerario glaciar - tachar la casilla &quot;itinerario glaciar&quot; es suficiente), escalada en vías poco equipadas (P2-P4) (móviles y cintas sin mayor detalle)"
 
 # [WARNING] es translation used
 msgid "gear_shop"
@@ -6585,6 +6585,10 @@ msgstr "bar"
 msgid "public_transportation_description"
 msgstr "Garraio publikoz iritsi:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 # [WARNING] es translation used
 msgid "public_transportation_description_default"
 msgstr "Detallar aquí las informaciones necesarias para llegar a este acceso con transportes en común: compañías, sitio web, números de teléfono, líneas, horarios, precios & tarifas..."
@@ -6791,9 +6795,12 @@ msgstr "R"
 msgid "route_history"
 msgstr "Ibilbide historiala:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 # [WARNING] es translation used
 msgid "route_history_default"
-msgstr "Detallar aquí la historia del itinerario.\\nPara una via de escalada, se pueden mencionar la fecha de apertura, de equipamiento o re-equipamientos y los participantes.\\nPara una ruta de alpinismo o de esquí, se pueden mencionar las ascensiones (o descensos) notables como la primera, el primer solo, la primera invernal etc.\\nLa historia general de la cima (p. ej. primer ascensión absoluta) se debe detallar en la pagina de la cima y no en la de un itinerario."
+msgstr "Detallar aquí la historia del itinerario. Para una via de escalada, se pueden mencionar la fecha de apertura, de equipamiento o re-equipamientos y los participantes. Para una ruta de alpinismo o de esquí, se pueden mencionar las ascensiones (o descensos) notables como la primera, el primer solo, la primera invernal etc. La historia general de la cima (p. ej. primer ascensión absoluta) se debe detallar en la pagina de la cima y no en la de un itinerario."
 
 msgid "route_length"
 msgstr "Luzeera: "

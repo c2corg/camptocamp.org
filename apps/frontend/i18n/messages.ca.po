@@ -4921,9 +4921,9 @@ msgid "gear and technique"
 msgstr "material i tècniques"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
-msgstr "Indiqueu aquí el material específic que cal dur a banda de l'equipament habitual. Només cal mencionar el material \\\"estrany\\\" (en qualitat o en quantitat). Exemples de mencions inútils:\\n- ARVA, pells de foca, sonda\\n- grampons, piolets\\n- material de glacera (n'hi ha prou amb marcar la casella \\\"itinerari de glacera\\\")\\n- bagues i friends sense més detall."
+msgstr "Indiqueu aquí el material específic que cal dur a banda de l'equipament habitual. Només cal mencionar el material &quot;estrany&quot; (en qualitat o en quantitat). Exemples de mencions inútils: ARVA, pells de foca, sonda, grampons, piolets, material de glacera (n'hi ha prou amb marcar la casella &quot;itinerari de glacera&quot;), bagues i friends sense més detall."
 
 # [WARNING] needs_review
 msgid "gear_shop"
@@ -6319,6 +6319,10 @@ msgstr "bar"
 msgid "public_transportation_description"
 msgstr "Accés en transport públic:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 msgid "public_transportation_description_default"
 msgstr "Indiqueu aquí la informació necessària per accedir a aquest punt de partida amb transport públic: companyia de transports, número de línia, lloc web si n'hi ha, número de telèfon de la companyia, freqüències, horaris, preu."
 
@@ -6505,6 +6509,9 @@ msgstr "R"
 msgid "route_history"
 msgstr "Històric:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 msgid "route_history_default"
 msgstr "Indiqueu aquí la història de l'itinerari: data i participants a l'obertura o a l'equipament, ascensions o descensos remarcables (primera, en solitari, en hivernal, primeres repeticions, etc.)."
 
