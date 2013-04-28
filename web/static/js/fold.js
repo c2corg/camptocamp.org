@@ -224,12 +224,6 @@
     $('#routes_section_container .title2').click(C2C.handleRoutes);
     $('#close_routes').click(hideAllRoutes);
     $('#open_routes').click(showAllRoutes);
-    
-    var select_all = $('select_all');
-    if (select_all)
-    {
-      select_all.observe('change', selectAllList);
-    }
   }
 
 
