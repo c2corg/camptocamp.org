@@ -22,15 +22,14 @@ $action = $sf_context->getActionName();
 
 if ($mobile):
   if ($action == 'home' || ($module == 'portals' && $action == 'view')):
-  // fold_init_home_mobile.js ~ 490b
+  // fold_init_home_mobile.js ~ 510b
 ?>
 (function(e,t){e.shouldHide=function(e,n){var o=/fold=([tfx]{20});/.exec(t.cookie)
 if(o)switch(o[1].charAt(e)){case"t":return!1
-case"f":return!0}return!n},e.setSectionStatus=function(n,o,i){if(e.shouldHide(o,i)){if("map_container"==n)return!0
-var a=open_close[0]
-t.getElementById(n+"_section_container").style.display="none",t.getElementById(n+"_toggle").title=a
-var s=t.getElementById(n).getElementsByClassName("nav_box_top")
-s&&(s.classNam+=" small")}}})(window.C2C=window.C2C||{},document)
+case"f":return!0}return!n},e.setSectionStatus=function(n,o,a){if(e.shouldHide(o,a)){if("map_container"==n)return!0
+var s=open_close[0]
+t.getElementById(n+"_section_container").style.display="none",t.getElementById(n+"_toggle").title=s
+for(var l=t.getElementById(n).getElementsByClassName("nav_box_top"),i=0;i<l.length;i++)l[i].className+=" small"}}})(window.C2C=window.C2C||{},document)
 <?php
   else:
   // fold init_default_mobile.js ~280b
@@ -42,17 +41,16 @@ case"f":return!0}return!n},e.setSectionStatus=function(t,n,o){return e.shouldHid
   endif;
 else:
   if ($action == 'home' || ($module == 'portals' && $action == 'view')):
-  // fold_init_home.js ~710b
+  // fold_init_home.js ~730b
 ?>
-(function(e,t){e.shouldHide=function(e,n){var o=/fold=([tfx]{20});/.exec(t.cookie)
-if(o)switch(o[1].charAt(e)){case"t":return!1
-case"f":return!0}return!n},e.setSectionStatus=function(n,o,i){if(e.shouldHide(o,i))if("nav"==n){if(/MSIE [67].0/.exec(navigator.userAgent))return
+(function(e,t){e.shouldHide=function(e,n){var a=/fold=([tfx]{20});/.exec(t.cookie)
+if(a)switch(a[1].charAt(e)){case"t":return!1
+case"f":return!0}return!n},e.setSectionStatus=function(n,a,o){if(e.shouldHide(a,o))if("nav"==n){if(/MSIE [67].0/.exec(navigator.userAgent))return
 t.getElementById("wrapper_context").className+=" no_nav"
-for(var a=t.getElementsByClassName("nav_box"),s=0;s<a.length;s++)a[s].style.display="none"}else{if("map_container"==n)return!0
-var c=open_close[0]
-t.getElementById(n+"_section_container").style.display="none",t.getElementById(n+"_toggle").title=c
-var r=t.getElementById(n).getElementsByClassName("nav_box_top")
-r&&(r.classNam+=" small")}}})(window.C2C=window.C2C||{},document)
+for(var s=t.getElementsByClassName("nav_box"),l=0;l<s.length;l++)s[l].style.display="none"}else{if("map_container"==n)return!0
+var r=open_close[0]
+t.getElementById(n+"_section_container").style.display="none",t.getElementById(n+"_toggle").title=r
+for(var i=t.getElementById(n).getElementsByClassName("nav_box_top"),l=0;l<i.length;l++)i[l].className+=" small"}}})(window.C2C=window.C2C||{},document)
 <?php
   else:
   // fold_init_default.js ~410b
