@@ -52,7 +52,7 @@
       title.attr('title', open_close[2]);
     }
 
-    div.toggle(600);
+    div.slideToggle(600);
 
     registerFoldStatus(container_id, cookie_position, !is_open);
 
@@ -99,7 +99,7 @@
       .toggleClass('picto_open picto_close');
     $('#' + container_id + '_section_title').attr('title', alt);
     $('#tip_' + container_id).html('[' + alt + ']');
-    div.toggle(400);
+    div.slideToggle(400);
 
     // FIXME maybe we should make this less specific... or move this logic somewhere else
     // specific behaviour for the map and elevation profile
@@ -137,7 +137,7 @@
       .toggleClass('picto_open_light picto_close_light');
     $('#' + box_id + '_box_title').attr('title', alt);
 
-    div.toggle(200);
+    div.slideToggle(200);
   };
 
   // show / hide routes (e.g. in summit pages) depending on user
