@@ -46,3 +46,6 @@ _edit_in_place:
 
 _content_bottom:
   enabled: off
+
+_section_close:
+  enabled: off
