@@ -300,7 +300,7 @@
 
     content_box.toggleClass('wide');
     splitter.toggleClass('maximize')
-      .attr('title', wide ? open_close[3] : open_close[2]);
+      .attr('title', splitter.data(wide ? 'title-reduce' : 'title-enlarge'));
 
     unhighlight_splitter();
 
@@ -318,8 +318,9 @@
 
     // init splitter title and class
     if ($('#content_box').hasClass('wide') || $('#wrapper_context').hasClass('no_nav')) {
-      splitter.addClass('maximize')
-        .attr('title', open_close[2]);
+      splitter.addClass('maximize').attr('title', splitter.data('title-enlarge'));
+    } else {
+      splitter.attr('title', splitter.data('title-reduce'));
     }
 
     // add event handlers on splitter
