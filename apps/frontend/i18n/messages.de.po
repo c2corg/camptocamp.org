@@ -714,6 +714,14 @@ msgstr "Die Daten von <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a
 msgid "Distance"
 msgstr "Entfernung"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+# [comment]
+# Entfernung???
+# [WARNING] needs_review
+msgid "Distance (km)"
+msgstr "Distanz (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "Das Dokument %1% wurde mit dem Dokument %2% zusammengeschlossen."
 
@@ -767,6 +775,18 @@ msgstr "Die Dokumente sind nicht vom gleichen Typ und können nicht zusammengesc
 
 msgid "Donate to Camptocamp Association"
 msgstr "Eine Spende an den Camptocamp-Verein leisten, dem Verein beitreten oder seinen Mitgliederbeitrag bezahlen"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+# [WARNING] en translation used
+msgid "Duration"
+msgstr "Duration"
+
+# [WARNING] en translation used
+msgid "Duration (hrs)"
+msgstr "Duration (h)"
 
 msgid "E"
 msgstr "O"
@@ -838,6 +858,23 @@ msgstr "\"%1%\" bearbeiten"
 
 msgid "Editor:"
 msgstr "Verlag:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+msgid "Elevation"
+msgstr "Höhe"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "Elevation (m)"
+msgstr "Höhe (m ü. M.)"
+
+# [WARNING] needs_review
+msgid "Elevation profile"
+msgstr "Höhenprofil"
 
 msgid "Email short"
 msgstr "Email"
@@ -1762,7 +1799,7 @@ msgid "Parking not found"
 msgstr "Diese Zufahrt existiert nicht."
 
 msgid "Participate to MW %1% contest"
-msgstr "Diese Tour in den <a href=\"/articles/%1%\">Wettbewerb \"Changer d'Approche\"</a> aufnehmen."
+msgstr "Diese Tour in den <a href=\"/articles/%1%\">Wettbewerb \"Changer d'Approche\"</a> aufnehmen.&nbsp;"
 
 msgid "Password:"
 msgstr "Passwort:"
@@ -2476,6 +2513,15 @@ msgstr "Dieser Benutzer hat noch keine Tour eingetragen."
 
 msgid "This username already exists. Please choose another one."
 msgstr "Dieser Benutzername existiert bereits. Bitte suchen Sie sich einen anderen aus."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+# [WARNING] needs_review
+msgid "Time"
+msgstr "Zeit"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>Um die Erstellung ihres Benutzerprofils zu bestätigen, müssen sie sich auf der Webseite mit ihren Anmeldedaten identifizieren.</b> Falls sie möchten, können sie anschliessend ihr Passwort ändern. Wenn die Identifizierung nicht innerhalb von %1% Tagen geschieht, wird Ihr Benutzerprofil automatisch gelöscht."
@@ -4973,10 +5019,10 @@ msgid "gear and technique"
 msgstr "Ausrüstung und Technik"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 # [WARNING] needs_review
 msgid "gear_default"
-msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung benötigt wird. Nur das zusätzliche, \"exotische\" Material (Qualität und Menge) soll genannt werden. <br /> Beispiele von unnötigen Aufzählungen: \\n- Bei Skitouren: LVS, Felle, Lawinensonde, etc. (in der üblichen Skitourenausrüstung enthalten) \\n- Bei Alpintouren mit Gletscherbegehung: Steigeisen, Pickel (in entsprechender Standartausrüstung enthalten und dort aufgeführt). \\n- Bei Gletschertouren: Gletscherausrüstung (ankreuzen des Felds \"benötigt Gletscherausrüstung\" genügt) \\n- Beim Klettern: Friends, Keile und Schlingen ohne genauere Angabe des Typs und der Menge (bitte Nummern und Anzahl angeben).  "
+msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung benötigt wird. Nur das zusätzliche, &quot;exotische&quot; Material (Qualität und Menge) soll genannt werden. Beispiele von unnötigen Aufzählungen: LVS, Felle, Lawinensonde, etc. (Bei Skitouren in der üblichen Skitourenausrüstung enthalten), Steigeisen, Pickel (Bei Alpintouren mit Gletscherbegehung in entsprechender Standartausrüstung enthalten und dort aufgeführt), Gletscherausrüstung (Bei Gletschertouren - ankreuzen des Felds &quot;benötigt Gletscherausrüstung&quot; genügt), Friends, Keile und Schlingen ohne genauere Angabe des Typs und der Menge (Beim Klettern - bitte Nummern und Anzahl angeben).  "
 
 msgid "gear_shop"
 msgstr "Sportgeschäft"
@@ -6417,6 +6463,10 @@ msgstr "Bar"
 msgid "public_transportation_description"
 msgstr "Erreichbarkeit mit öffentlichen Verkehrsmitteln:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 # [WARNING] needs_review
 msgid "public_transportation_description_default"
 msgstr "Führen sie hier die Informationen aus, um diesen Zugangsort mit öffentlichen Verkehrsmitteln zu erreichen: Transportunternehmen, Website (falls vorhanden), Telefonnummer des Transportunternehmens, Nummer der Verkehrslinie, Fahrplan, Preise, etc."
@@ -6614,6 +6664,9 @@ msgstr "R"
 msgid "route_history"
 msgstr "Geschichte der Route:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 msgid "route_history_default"
 msgstr "Führen sie hier die Geschichte der Route aus: Datum und Teilnehmer der Erstbegehung, bemerkenswerte Begehungen (z.B. erste Solo- oder Winterbegehung im Auf-/Abstieg, Wiederholungen, etc.)."
 
@@ -6711,7 +6764,7 @@ msgstr "[anzeigen]"
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
-msgstr "<ul class=\"text\"><li>Wählen sie nur diejenigen Aktivitäten aus, welche sie während ihrer Tour unternommen haben: <ul class=\"text\"><li>Falls die Route mehreren Aktivitätstypen zugewiesen ist, werden diese vorausgewählt, d.h. sie müssen eventuell gewisse Aktivitäten deaktivieren.</li> <li>Wenn sie andere Routen mit der Route verbinden stellen sie sicher, dass deren Aktivitätstypen auf ihre Tour zutreffen.</li></li></ul></ul> "
+msgstr "<ul class=\"text\"><li>Wählen sie nur diejenigen Aktivitäten aus, welche sie während ihrer Tour unternommen haben: <ul class=\"text\"><li>Falls die Route mehreren Aktivitätstypen zugewiesen ist, werden diese vorausgewählt, d.h. sie müssen eventuell gewisse Aktivitäten deaktivieren.</li> <li>Wenn sie andere Routen mit der Route verbinden stellen sie sicher, dass deren Aktivitätstypen auf ihre Tour zutreffen.</li></ul></li></ul> "
 
 msgid "select an image file"
 msgstr "Wählen sie ein Bild:&nbsp;"
@@ -7353,6 +7406,12 @@ msgstr "Ungültiges Bildformat"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] fr translation used
+msgid "x axis:"
+msgstr "Voir le profil en fonction de&nbsp;:"
 
 msgid "year"
 msgstr "Jahr"

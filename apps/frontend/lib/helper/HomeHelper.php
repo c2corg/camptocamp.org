@@ -10,7 +10,7 @@ function nav_title($id, $title, $icon, $id_prefix = 'nav', $link = '', $rss_link
     $option1 = __('section close');
     $option2 = __('section open');
     $html = '<div id="' . $id . '_section_title" class="nav_box_title" title="' . $option1 .
-            '" onclick="toggleHomeSectionView(\'' . $id . '\', ' . $cookie_position . '); return false;">';
+            '" onclick="C2C.toggleHomeSectionView(\'' . $id . '\', ' . $cookie_position . '); return false;">';
     $html .= '<div id="' . $id . '_toggle" class="nav_box_image picto_' . $icon . '"></div>';
     if (!empty($rss_link))
     {

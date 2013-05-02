@@ -1,4 +1,8 @@
-function add_tooltips(css_class_to_observe)
+(function(C2C) {
+
+"use strict";
+
+C2C.add_tooltips = function(css_class_to_observe)
 {
     document.observe('dom:loaded', function(){
         $$(css_class_to_observe).each(function(obj){
@@ -22,4 +26,6 @@ function add_tooltips(css_class_to_observe)
             });
         });
     });
-}
+};
+
+})(window.C2C = window.C2C || {});

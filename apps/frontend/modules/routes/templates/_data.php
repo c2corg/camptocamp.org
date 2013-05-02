@@ -66,7 +66,7 @@ if ($nb_comments)
 
     if (array_intersect(array(2,3,4,5), $activities)) // snow or mountain, rock or ice_climbing
     {
-        li(field_data_from_list($document, 'global_rating', 'app_routes_global_ratings'), true);
+        li(field_data_from_list($document, 'global_rating', 'app_routes_global_ratings'), array('class' => 'separator'));
         li(field_data_from_list($document, 'engagement_rating', 'app_routes_engagement_ratings'));
     }
 
@@ -100,7 +100,7 @@ if ($nb_comments)
 
     if (in_array(1, $activities)) // skitouring
     {
-        li(field_data_from_list($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings'), true);
+        li(field_data_from_list($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings'), array('class' => 'separator'));
         li(field_data_from_list($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings'));
         li(field_data_from_list($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings'));
         li(field_data_from_list($document, 'labande_global_rating', 'app_routes_global_ratings'));
@@ -110,20 +110,22 @@ if ($nb_comments)
 
     if (in_array(6, $activities)) // hiking
     {
-        li(field_data_from_list($document, 'hiking_rating', 'app_routes_hiking_ratings'), true);
+        li(field_data_from_list($document, 'hiking_rating', 'app_routes_hiking_ratings'), array('class' => 'separator'));
     }
 
     if (in_array(7, $activities)) // snowshoeing
     {
-        li(field_data_from_list($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings'), true);
+        li(field_data_from_list($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings'), array('class' => 'separator'));
     }
 
-    li($first = field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array('single_value' => 6, 'show_only_yes' => true)), true);
+    li($first = field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array('single_value' => 6, 'show_only_yes' => true)),
+       array('class' => 'separator'));
     li(field_bool_data_from_list($document, 'sub_activities', 'mod_routes_sub_activities_list', array('single_value' => 8, 'show_only_yes' => true)), empty($first));
     
     if ($document->get('geom_wkt'))
     {
-        li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')), true);
+        li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')),
+           array('class' => 'separator'));
     }
     ?>
 </ul>

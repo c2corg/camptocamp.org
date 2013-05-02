@@ -16,7 +16,7 @@ _linked_outings:
   enabled: off
 
 _feature:
-  enabled: off 
+  enabled: off
 
 filter:
   enabled: off

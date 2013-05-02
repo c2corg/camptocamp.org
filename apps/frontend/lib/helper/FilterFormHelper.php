@@ -16,7 +16,7 @@ function elevation_selector($fieldname, $unit = 'meters')
                                             '-' => __('nonwell informed'))
                                      );
     $out = select_tag($fieldname . '_sel', $option_tags,
-                      array('onchange' => "update_on_select_change('$fieldname', 3)"));
+                      array('onchange' => "C2C.update_on_select_change('$fieldname', 3)"));
     $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
     $out .= input_tag($fieldname, NULL, array('class' => 'short_input'));
     $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
@@ -36,7 +36,7 @@ function range_selector($fieldname, $config, $unit = NULL, $i18n = false)
                                             '-' => __('nonwell informed'))
                                      );
     $out = select_tag($fieldname . '_sel', $option_tags,
-                      array('onchange' => "update_on_select_change('$fieldname', 3)"));
+                      array('onchange' => "C2C.update_on_select_change('$fieldname', 3)"));
     $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
     $out .= topo_dropdown($fieldname, $config, $i18n);
     $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
@@ -50,33 +50,6 @@ function range_selector($fieldname, $config, $unit = NULL, $i18n = false)
     return '<span class="lineform">' . $out . '</span>';
 }
 
-function update_on_select_change()
-{
-    return javascript_tag(
-'function update_on_select_change(field, optionIndex)
-{
-    index = $(field + \'_sel\').options.selectedIndex;
-    if (index == \'0\' || index > optionIndex)
-    {
-        $(field + \'_span1\').hide();
-        $(field + \'_span2\').hide();
-    }
-    else
-    {
-        $(field + \'_span1\').show();
-        if (index == optionIndex)
-        {
-            $(field + \'_span2\').show();
-        }
-        else
-        {
-            $(field + \'_span2\').hide();
-        }
-    }
-}'
-    );
-}
-
 function facings_selector($fieldname)
 {
     $option_tags = options_for_select(array('0' => '',
@@ -86,7 +59,7 @@ function facings_selector($fieldname)
                                             '-' => __('nonwell informed'))
                                      );     
     $out = select_tag($fieldname . '_sel', $option_tags,
-                      array('onchange' => "update_on_select_change('$fieldname', 2)"));
+                      array('onchange' => "C2C.update_on_select_change('$fieldname', 2)"));
     $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
     $out .= topo_dropdown($fieldname, 'app_routes_facings');
     $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
@@ -216,7 +189,7 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
             $out[] = '<div class="' . $col_class . '">';
         }
         
-        $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
+        $options = $onclick ? array('onclick' => "C2C.hide_unrelated_filter_fields($activity_id)")
                             : array();
         $checked = in_array($activity_id, $filtered_activities) ? true : false;
 
@@ -362,7 +335,7 @@ function date_selector($include_blanks = array('month' => false, 'day' => false,
                                             '=' => __('equal'))
                                      );
     $out = select_tag('date_sel', $option_tags,
-                      array('onchange' => "update_on_select_change('date', 4)"));
+                      array('onchange' => "C2C.update_on_select_change('date', 4)"));
     
     $out .= '<span id="date_span1" style="display:none"> ';
     $out .= my_input_date_tag('date', NULL, array('class' => 'medium_input',

@@ -75,8 +75,11 @@ fields:
   lift_status:
     myChoiceValidator:
       config_choice: mod_outings_lift_statuses_list
-  file:
+  gps_data:
     file: true
+    sfFileValidator:
+      max_size: 2097152
+      max_size_error: file is too big
     myFileMimeTypeValidator:
       allowed:       'application/gpx+xml'
       type_error:    invalid gpx file

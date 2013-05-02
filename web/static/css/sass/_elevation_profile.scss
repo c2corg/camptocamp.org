@@ -1,37 +1,56 @@
-#elevation_profile_container_section_container {
+@import "ui-spinner";
+@include ui-spinner(#fff, 46px, lightgray, $orange, .8, 3s);
+
+#elevation_profile {
   font: 10px sans-serif;
 
   .axis path,
   .axis line {
-      fill: none;
-        stroke: #000;
-          shape-rendering: crispEdges;
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
   }
 
   .line {
-      fill: none;
-        stroke: #FF9933;
-          stroke-width: 3px;
+    fill: none;
+    stroke: $orange;
+    stroke-width: 3px;
   }
 
   .circle {
-      fill: white;
-        stroke: #FF9933;
-          stroke-width: 2px;
+    fill: white;
+    stroke: $orange;
+    stroke-width: 2px;
   }
 
   line.target {
-      stroke: lightgray;
-        stroke-width: 1px;
+    stroke: lightgray;
+    stroke-width: 1px;
   }
 
   .bubble {
-      font-size: 12px;
+    font-size: 12px;
   }
 
   .overlay {
-      fill: none;
-        pointer-events: all;
+    fill: none;
+    pointer-events: all;
   }
 }
-// TODO make this clean
+
+.elevation_profile_controls {
+  @if $standard {
+    label {
+      display: block;
+    }
+  }
+
+  &.left {
+    width: 250px;
+    float: left;
+
+    .xaxis-label {
+      display: block;
+    }
+  }
+}

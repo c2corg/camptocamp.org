@@ -13,8 +13,7 @@
                                                    'complete' => "Element.show('preview');Element.show('form_buttons_up'); $$('span.goto_preview').each(function(elem){elem.show()});" . 
                                                                  visual_effect('highlight', 'preview') . 
                                                                  "Element.hide('indicator');",
-                                                   'before' => "showAllFieldDefault(false);",
-                                                   'after' => "showAllFieldDefault(true); $$('span.goto_preview').each(function(elem){elem.show()});"),
+                                                   'after' => "$$('span.goto_preview').each(function(elem){elem.show()});"),
                                              array('class' => 'c2cui_btnr'))) ?></li>
 
   <li><?php echo c2c_submit_tag(__($new ? 'Create' : 'Update'), 

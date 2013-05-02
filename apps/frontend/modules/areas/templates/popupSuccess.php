@@ -27,7 +27,7 @@ if (!$raw && $image)
 <div class="popup_desc"><?php
 if ($image) {
     echo $image;
-    echo javascript_tag('init_slideshow();');
+    echo javascript_tag('C2C.init_slideshow();');
 }
 ?>
 <ul class="data">

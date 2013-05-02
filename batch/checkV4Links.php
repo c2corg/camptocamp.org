@@ -1,7 +1,5 @@
 <?php
 
-// This script lists all pictures inserted in collaborative documents that are still personal pictures.
-
 define('SF_ROOT_DIR',    realpath(dirname(__FILE__).'/..'));
 define('SF_APP',         'frontend');
 define('SF_ENVIRONMENT', 'prod');

@@ -3,10 +3,6 @@ use_helper('Object', 'Language', 'Validation', 'MyForm', 'Button', 'ModalBox');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/routes.js', 'last');
 
-javascript_tag('field_default = new Array();field_default[0] = Array(\'gear\', "' .
-               __('gear_default') . '");field_default[1] = Array(\'route_history\', "' .
-               __('route_history_default') . '");');
-
 // Here document = route
 echo '<div>';
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
@@ -29,37 +25,37 @@ include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
 
 $prefix = $linked_name . __('&nbsp;:');
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'), true, null, null, $prefix);
+echo object_group_tag($document, 'name', array('prefix' => $prefix, 'class' => 'bfc_input'));
 
 echo form_section_title('Information', 'form_info', 'preview_info');
 
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
-                               array('multiple' => true, 'onchange' => 'hide_unrelated_fields()', 'na' => array(0, 8)),
+                               array('multiple' => true, 'onchange' => 'C2C.hide_unrelated_fields()', 'na' => array(0, 8)),
                                true, null, null, '', '', 'picto_act act_');
 ?>
 <div id="data_fields">
 <div class="article_gauche_5050">
 <?php
-echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'min_elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'min_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 <div id="ski_snow_mountain_hiking_fields">
 <?php
-echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
 <div id="hiking2_fields">
 <?php
-echo object_group_tag($document, 'route_length', null, 'kilometers', array('class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
+echo object_group_tag($document, 'route_length', array('suffix' => 'kilometers', 'class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
 
 ?>
 </div>
 
 <div id="ski_snow_mountain_rock_ice_fields">
 <?php
-echo object_group_tag($document, 'elevation', null, __('meters'), array('class' => 'short_input', 'type' => 'number'), true, 'difficulties_start_elevation');
-echo object_group_tag($document, 'difficulties_height', null, __('meters'), array('class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'label_name' => 'difficulties_start_elevation'));
+echo object_group_tag($document, 'difficulties_height', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
 <?php
@@ -69,7 +65,7 @@ echo object_group_dropdown_tag($document, 'duration', 'mod_routes_durations_list
 ?>
 <div id="ski_snow_mountain_fields">
 <?php
-echo object_group_tag($document, 'is_on_glacier', 'object_checkbox_tag');
+echo object_group_tag($document, 'is_on_glacier', array('callback' => 'object_checkbox_tag'));
 ?>
 </div>
 
@@ -84,7 +80,7 @@ echo object_group_dropdown_tag($document, 'configuration', 'mod_routes_configura
 <div class="article_droite_5050">
 <div id="ski_snow_fields">
 <?php
-echo object_group_tag($document, 'slope', null, '', array('class' => 'long_input'));
+echo object_group_tag($document, 'slope', array('class' => 'long_input'));
 ?>
 </div>
 
@@ -147,7 +143,7 @@ echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'medlargetext', 'abstract' => true, 'route_line' => true));
 echo object_group_bbcode_tag($document, 'remarks', null, array('no_img' => true));
-echo object_group_bbcode_tag($document, 'gear', 'specific gear', array('class' => 'smalltext', 'onfocus' => 'hideFieldDefault(0)', 'no_img' => true));
+echo object_group_bbcode_tag($document, 'gear', 'specific gear', array('class' => 'smalltext', 'placeholder' => __('gear_default'), 'no_img' => true));
 
 $backpack_content_list = array('pack_ski' => 'pack_skitouring',
                                'pack_snow_easy' => 'pack_snow_ice_mixed_easy',
@@ -178,7 +174,7 @@ if (isset($associated_books) && count($associated_books))
        format_book_data($associated_books, 'br', null, false), '</div>';
 }
 
-echo object_group_bbcode_tag($document, 'route_history', null, array('onfocus' => 'hideFieldDefault(1)'));
+echo object_group_bbcode_tag($document, 'route_history', null, array('placeholder' => __('route_history_default')));
 ?>
 </div>
 <?php

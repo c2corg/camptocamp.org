@@ -31,7 +31,7 @@ echo start_content_tag($module . '_content');
 ?>
 <p class="whatsnew_controls"><?php echo __('Recent changes list in category: %1%',
                  array('%1%' => __($module)))  ?>
- &nbsp; [<?php echo link_to_function(__('toggle date info'), 'tog()') ?>]
+ &nbsp; [<?php echo link_to_function(__('toggle date info'), 'C2C.tog()') ?>]
 </p>
 
 <p class="whatsnew_controls">
@@ -45,7 +45,7 @@ echo $pager_navigation;
 <?php
 echo '<strong>' . __('minor_tag') . '</strong> = ' . __('minor modification') . '<br />';
 echo label_tag('minor_revision_checkbox', __('hide minor revisions'));
-echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'toggle_minor_revision();'));
+echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'C2C.toggle_minor_revision();'));
 ?>
 </p>
 

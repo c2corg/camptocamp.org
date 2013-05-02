@@ -1,30 +1,51 @@
 <?php
 use_helper('MyMinify');
+
+$mobile = c2cTools::mobileVersion();
 echo start_section_tag('Elevation profile', 'elevation_profile_container', 'closed');
 ?>
-<!-- TODO make that cleaner -->
-<form>
-  <label><input type="radio" name="profile_mode" value="distance" checked /> Distance</label>
-  <label><input type="radio" name="profile_mode" value="time" /> Time</label>
-</form>
+<div class="elevation_profile_loading ui-spinner">
+   <span class="side side-left"><span class="fill"></span></span>
+  <span class="side side-right"><span class="fill"></span></span>
+</div>
+<div class="elevation_profile_controls" style="display: none;">
+  <div>
+  <!-- TODO add some information here? like number of points, ...
+       And later on, options like move the map, ... -->
+  </div>
+  <form class="xaxis-dimension">
+    <span class="xaxis-label"><?php echo __('x axis:') ?></span>
+    <label><input type="radio" name="profile_mode" value="distance" checked /> <?php echo __('Distance'); ?></label>
+    <label><input type="radio" name="profile_mode" value="time" /> <?php echo __('Time'); ?></label>
+  </form>
+</div>
+<div id="elevation_profile">
+</div>
 <?php
 echo end_section_tag();
 
-// FIXME d3js uses function sunsupported by ie<=8 but
-// feature detecting svg support should be enough//
+// FIXME d3js uses functions unsupported by ie<=8 but
+// feature detecting svg support should be enough
 $script_url = minify_get_combined_files_url(array('/static/js/d3.v3.js',
                                                   '/static/js/elevation_profile.js'),
                                             (bool) sfConfig::get('app_minify_debug'));
-$js = "var div = document.createElement('div');
+// notes:
+// - first test is to test for support of inline svg
+// - we also test if css animations are supported; else replace the spinner
+//   by an animated gif. We d'ont test for css transforms support (also needed)
+//   since every browser supporting animations supports transforms
+// - c2c_load_elevation_profile is called once the section is opened, and
+//   ensures the js is only loaded once
+$js = "(function() { \"use strict\";
+var div = document.createElement('div');
 div.innerHTML = '<svg/>';
 var svg_supported = (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
-
 if (!svg_supported) {
   $('elevation_profile_container_tbg').hide();
+  $('elevation_profile_nav').hide();
 } else {
-  // some constants
   window.c2cprofile = {
-    track: '" . url_for("@export_gpx?module=outings&id=$id&lang=$lang") . "',
+    track: '" . url_for("@export_gpx?module=outings&id=$id&lang=" . $sf_user->getCulture()) . "',
     i18n: {
       yLegend: '" . __('Elevation (m)') . "',
       x1Legend: '" . __('Distance (km)') . "',
@@ -37,23 +58,34 @@ if (!svg_supported) {
       kilometers: '" . __('kilometers') . "'
     }
   };
-  // define function for opening+change class once intializaed
-  function c2c_load_elevation_profile() {
+  var animation = false;
+  var props = ['animationName', 'WebkitAnimationName', 'MozAnimationName',
+               'oAnimationName', 'msAnimationName'];
+  var elt = $$('.ui-spinner .fill')[0];
+  for (var i in props) {
+    var prop = props[i];
+    if (elt.style[prop] !== undefined) {
+      animation = true;
+      break;
+    }
+  }
+  if (!animation) {
+    elt = $$('.elevation_profile_loading')[0];
+    elt.innerHTML = '" . image_tag('/static/images/indicator.gif') . "';
+    elt.removeClassName('ui-spinner');
+  }
+  window.c2c_load_elevation_profile = function() {
     c2c_asyncload('$script_url');
     $('elevation_profile_container_section_container').addClassName('profile_loaded');
   }
-}";
+}})()";
 
-// TODO
-// - i18n
-// - waiting UI (use beautiful waiting svg :p)
-// - nav
-// - not supproted -> also hide nav?
-// - mobile -> no animation !
-// mobile version
-// is y'a pas d'altitude ??
-// function()()
-// gpx sans time
-// check also altitude...
+// In mobile version, we don't have the dynamic map, so we don't have c2c_asyncload defined
+// FIXME the function should be defined at top level and could be used for addthis and analytics snippets (and more...)
+if ($mobile)
+{
+    $js = 'function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0];' .
+          'a.async = 1; a.src = jsurl; h.appendChild(a); }' . $js;
+}
 
 echo javascript_tag($js);

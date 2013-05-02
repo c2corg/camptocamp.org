@@ -11,7 +11,7 @@ if (count($associated_images) == 0): ?>
     $caption = $image['name'];
     $image_tag = image_tag(image_url($image['filename'], 'small'),
                                      array('alt' => $caption, 'title' => $caption, 'class' => 'insertimagetag',
-                                           'onclick' => 'updateSelectedImage(this)')); ?>
+                                           'onclick' => 'C2C.updateSelectedImage(this)')); ?>
     <div class="image<?php if ($image == $associated_images[0]): echo ' selected_image'; endif; ?>" id="insertimagetag_id<?php echo $image['id'] ?>">
         <div class="image_actions">
             <?php echo $image_tag ?>
@@ -23,7 +23,7 @@ if (count($associated_images) == 0): ?>
     <fieldset class="separator">
         <legend><?php echo __('options') ?></legend>
         <p>
-<?php echo checkbox_tag('customlegend', 'customlegend', false, array('onclick' => 'doUpdateLegend();'))
+<?php echo checkbox_tag('customlegend', 'customlegend', false, array('onclick' => 'C2C.doUpdateLegend();'))
          . ' ' . label_for('customlegend', __('Custom legend')) . ' '
          . input_tag('legend', $associated_images[0]['name'], array('class' => 'medium_input', 'disabled' => 'disabled')); ?>
         </p>
@@ -44,7 +44,7 @@ if (count($associated_images) == 0): ?>
 <?php echo input_hidden_tag('id', $associated_images[0]['id']). input_hidden_tag('div', $div); ?>
 </form>
 <ul class="action_buttons">
-  <li><?php echo button_tag(__('Insert'), array('onclick' => 'doInsertImgTag()',
+  <li><?php echo button_tag(__('Insert'), array('onclick' => 'C2C.doInsertImgTag()',
                                                 'picto' => 'action_create')); ?></li>
   <li><?php echo button_tag(__('Cancel'), array('onclick' => 'Modalbox.hide();',
                                                 'picto' => 'action_cancel')); ?></li>

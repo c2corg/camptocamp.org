@@ -56,7 +56,7 @@ function make_c2c_link($route, $raw = false, $has_image = false, $has_text = fal
     }
     $html .= '</p>';
     
-    $html .= javascript_tag('init_popup();');
+    $html .= javascript_tag('C2C.init_popup();');
     
     return $html;
 }

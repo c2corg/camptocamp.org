@@ -33,7 +33,7 @@ if ($nb_comments)
     
     if ($document->get('geom_wkt'))
     {
-        li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')), true);
+        li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')), array('class' => 'separator'));
     }
     ?>
 </ul>

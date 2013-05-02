@@ -398,9 +398,6 @@ all:
     filter_hdop_switch:       true
     filter_hdop_value:        4    
 
-  traces:
-    maxfilesize: 512000       # 512 ko maybe more ?
-  
   upload_dir: uploads
 
   mime_file: '../misc/magic.mime'

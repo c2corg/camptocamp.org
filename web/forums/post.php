@@ -1251,7 +1251,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 		else
 			$postername = pun_htmlspecialchars($cur_post['poster']);
 		
-		$nick_copy = '<a href="javascript:paste_nick(\''.pun_jsspecialchars($cur_post['poster']).'\');">'.$lang_topic['Nick copy'].'</a>';
+		$nick_copy = '<a href="javascript:C2C.paste_nick(\''.pun_jsspecialchars($cur_post['poster']).'\');">'.$lang_topic['Nick copy'].'</a>';
 
 		$cur_post['message'] = parse_message($cur_post['message'], $cur_post['hide_smilies']);
 
@@ -1288,7 +1288,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 			</div>
 			<div class="clearer"></div>
 			<?php if (!$mobile): ?>
-			<div class="postfootright"><ul><li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote('<?php echo pun_jsspecialchars($q_poster).'|'.$cur_post['id'] ?>');"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
+			<div class="postfootright"><ul><li class="postquote"><a onmouseover="C2C.get_quote_text();" href="javascript:C2C.paste_quote('<?php echo pun_jsspecialchars($q_poster).'|'.$cur_post['id'] ?>');"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
 			<?php endif; ?>
 		</div>
 	</div>

@@ -9,13 +9,13 @@ echo mandatory_fields_warning(array(('summit form warning')));
 
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
+echo object_group_tag($document, 'name', array('class' => 'long_input'));
 
 echo form_section_title('Information', 'form_info', 'preview_info');
 
 include_partial('documents/oam_coords', array('document' => $document)); // lon, lat fields + OAM map
-echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input', 'type' => 'number'));
-echo object_group_tag($document, 'maps_info', null, '', array('class' => 'medium2_input'), true, null, null, '', true);
+echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
+echo object_group_tag($document, 'maps_info', array('class' => 'medium2_input'), true, null, null, '', true);
 echo object_group_dropdown_tag($document, 'summit_type', 'app_summits_summit_types');
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');

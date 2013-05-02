@@ -13,14 +13,23 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobil
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
-switch ($document->get('product_type'))
+// we can have multiple product type values
+$product_types = $document->get('product_type');
+if ($product_types->count() == 1)
 {
-    case 2: $item_type = 'Restaurant'; break;
-    case 3: $item_type = 'GroceryStore'; break;
-    case 4: $item_type = 'BarOrPub'; break;
-    case 5: $item_type = 'SportingGoodsStore'; break;
-    case 1:
-    default: $item_type = 'LocalBusiness'; break;
+    switch ($product_types[0])
+    {
+        case 2: $item_type = 'Restaurant'; break;
+        case 3: $item_type = 'GroceryStore'; break;
+        case 4: $item_type = 'BarOrPub'; break;
+        case 5: $item_type = 'SportingGoodsStore'; break;
+        case 1:
+        default: $item_type = 'LocalBusiness'; break;
+    }
+}
+else
+{
+    $item_type = 'LocalBusiness';
 }
 display_page_header('products', $document, $id, $metadata, $current_version,
                     array('nav_options' => $section_list, 'item_type' => 'http://schema.org/'.$item_type,

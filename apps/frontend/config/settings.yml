@@ -43,6 +43,12 @@ all:
     timeout:                86400
     prototype_web_dir:      /static
 
+    # following settings are defined so that if SF_ENVIRONEMENT in web.index.php isn't an existing target,
+    # they will be applied anyway. We use same settings as prod environement
+    no_script_name:        on
+    cache:                 on
+    etag:                  on
+
   .actions:
     # if a module require an authentification, this is the default redirection
     login_module:           users

@@ -95,11 +95,11 @@ if (!isset($home_section))
 if ($home_section)
 {
     $cookie_position = array_search($section_id, sfConfig::get('app_personalization_cookie_fold_positions'));
-    $toggle = "toggleHomeSectionView('$section_id', $cookie_position); return false;";
+    $toggle = "C2C.toggleHomeSectionView('$section_id', $cookie_position); return false;";
 }
 else
 {
-    $toggle = "toggleView('$section_id'); return false;";
+    $toggle = "C2C.toggleView('$section_id'); return false;";
 }
 $toggle_tooltip = $option1;
 $onclick = ' onclick="' . $toggle . '" title="' . $toggle_tooltip . '"';

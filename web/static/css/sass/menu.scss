@@ -131,7 +131,7 @@ $menu_border_color: #999;
       }
     }
 
-    &:hover ul, &.over ul {
+    &:hover ul, &.over ul { // last rule if for ie6 which supports :hover only for <a>, see menus.js
       visibility: visible;
     }
   }

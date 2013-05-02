@@ -76,6 +76,6 @@ if (count($items) == 0): ?>
 </div>
 <?php
 $cookie_position = array_search('last_docs', sfConfig::get('app_personalization_cookie_fold_positions'));
-echo javascript_tag('setHomeFolderStatus(\'last_docs\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
+echo javascript_tag('C2C.setSectionStatus(\'last_docs\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
 ?>
 </div>

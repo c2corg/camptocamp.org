@@ -46,7 +46,7 @@ $submit_options = array('title' => __('Show differences between selected version
 
 <p><?php
 echo label_tag('minor_revision_checkbox', __('hide minor revisions'));
-echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'toggle_minor_revision();'));
+echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'C2C.toggle_minor_revision();'));
 if ($is_moderator)
 {
     echo ' &nbsp; ', link_to(__('History of associations to this document'), "@latestassociations_doc?module=$module&id=$id");

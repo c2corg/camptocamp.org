@@ -2046,6 +2046,27 @@ fieldset .select_title
   vertical-align: baseline;
 }
 
+// for having a prefix and an input using all space left
+// we use block formatting context
+.bfc_wrap
+{
+  display: block;
+  overflow: hidden;
+  padding-left: .2em;
+  padding-right: .5em;
+}
+.bfc_float_left
+{
+  float: left;
+  // because it is floated, it doesn't follow the vertical-align property. Compensate 'by hand'
+  line-height: 1.5em;
+  margin: 0.3em 0;
+}
+.bfc_input
+{
+  width: 100%;
+}
+
 .select_title .picto, #filterform .select_title .picto, .checkbox_list .picto
 {
   margin: 0 0.3em;
@@ -4506,4 +4527,5 @@ span.cotometre_result {
 @import "google_translate";
 @import "buttons";
 @import "elevation_profile";
+@import "sf_web_debug";
 @import "html5";

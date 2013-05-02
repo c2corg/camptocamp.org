@@ -78,6 +78,22 @@ if ($has_geom || $show_map)
     }
     echo show_map('map_container', $document, $sf_user->getCulture(), $layers_list, $height, $center, $has_geom);
     echo end_section_tag(true);
+// fold_init_map.js ~ 390b ?>
+<script>
+(function(e,t){var n=e.setSectionStatus
+e.setSectionStatus=function(e,o,i){if(n(e,o,i)){var a=open_close[0],c=t.getElementById(e+"_section_container")
+c.style.display="none",c.title=a
+var s=t.getElementById(e+"_toggle")
+s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,t.getElementById("tip_"+e).innerHTML="["+a+"]"}}})(window.C2C=window.C2C||{},document)
+</script>
+<?php
     $cookie_position = array_search('map_container', sfConfig::get('app_personalization_cookie_fold_positions'));
-    echo javascript_tag('setSectionStatus(\'map_container\', '.$cookie_position.', true);');
+?>
+<script>
+C2C.setSectionStatus('map_container', <?php echo $cookie_position ?>, true);
+if (!C2C.shouldHide(<?php echo $cookie_position ?>, true) && typeof(c2corgloadMapAsync) != 'undefined' && c2corgloadMapAsync) {
+  document.observe('dom:loaded', asyncloadmap);
+}
+</script>
+<?php
 }

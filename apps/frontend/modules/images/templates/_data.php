@@ -47,7 +47,8 @@ if ($nb_comments)
 
     li(field_image_details($document));
     li(field_data_if_set($document, 'date_time', array('microdata' => 
-       array('tag' => 'time', 'itemprop' => 'dateCreated', 'datetime' => str_replace(' ', 'T', $document->getDateTime())))), true);
+       array('tag' => 'time', 'itemprop' => 'dateCreated', 'datetime' => str_replace(' ', 'T', $document->getDateTime())))),
+       array('class' => 'separator'));
 
     if (check_not_empty_doc($document, 'elevation') || check_not_empty_doc($document, 'lon'))
     {
@@ -63,7 +64,7 @@ if ($nb_comments)
     li(field_activities_data_if_set($document));
     li(field_data_from_list_if_set($document, 'categories', 'mod_images_categories_list', array('multiple' => true, 'title_id' => 'image_categories')));
 
-    li(field_data_if_set($document, 'camera_name'), true);
+    li(field_data_if_set($document, 'camera_name'), array('class' => 'separator'));
     li(field_data_if_set($document, 'focal_length', array('suffix' => 'mm')));
     li(field_data_if_set($document, 'fnumber', array('prefix' => 'F/')));
     li(field_exposure_time_if_set($document));
@@ -71,7 +72,7 @@ if ($nb_comments)
 
     if (!$mobile_version): 
     li(field_data_if_set($document, 'id', array('prefix' => '<input type="text" class="code" value="[img=',
-                         'suffix' => ' right]'.$document->get('name').'[/img]"/>', 'title' => 'topoguide_code')), true);
+                         'suffix' => ' right]'.$document->get('name').'[/img]"/>', 'title' => 'topoguide_code')), array('class' => 'separator'));
     li(field_data_if_set($document, 'filename', array('prefix' => '<input type="text" class="code" value="[img=',
                          'suffix' => ' '.$sf_params->get('id').' inline]'.$document->get('name').'[/img]"/>',
                          'title' => 'forum_code')));

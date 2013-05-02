@@ -56,6 +56,6 @@ if (count($items) == 0): ?>
 </div>
 <?php
 $cookie_position = array_search('on_the_web', sfConfig::get('app_personalization_cookie_fold_positions'));
-echo javascript_tag('setHomeFolderStatus(\'on_the_web\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
+echo javascript_tag('C2C.setSectionStatus(\'on_the_web\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
 ?>
 </div>

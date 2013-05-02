@@ -307,7 +307,7 @@ class summitsActions extends documentsActions
             return $this->ajax_feedback('Please chose a "select" container ID in "remote_function"');
         }
 
-        $output = $this->__('Route:') . ' <select id="' . $div_id . '" name="' . $div_name . '" onchange="getWizardRouteRatings(\'' . $div_id . '\');">';
+        $output = $this->__('Route:') . ' <select id="' . $div_id . '" name="' . $div_name . '" onchange="C2C.getWizardRouteRatings(\'' . $div_id . '\');">';
         foreach ($routes as $route)
         {
             $output .= '<option value="' . $route['id'] . '">' . $route['name'] . '</option>';

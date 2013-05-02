@@ -32,9 +32,9 @@ $mobile_version = c2cTools::mobileVersion();
         {
             echo ' -&nbsp;' .
             picto_tag('picto_close', __('Reduce the list'),
-                      array('onclick' => "changeSelectSize('places', false)")) .
+                      array('onclick' => "C2C.changeSelectSize('places', false)")) .
             picto_tag('picto_open', __('Enlarge the list'),
-                      array('onclick' => "changeSelectSize('places', true)"));
+                      array('onclick' => "C2C.changeSelectSize('places', true)"));
         }
         ?>
     </legend>

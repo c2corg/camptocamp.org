@@ -20,7 +20,7 @@
     li(field_activities_data_if_set($document));
     li(field_data_from_list_if_set($document, 'category', 'mod_users_category_list'));
     
-    li(field_coord_data_if_set($document, 'lon'), true);
+    li(field_coord_data_if_set($document, 'lon'), array('class' => 'separator'));
     li(field_coord_data_if_set($document, 'lat'));
     if ($document->get('geom_wkt'))
     {

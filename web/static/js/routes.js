@@ -1,9 +1,13 @@
-function hide_unrelated_fields()
+(function(C2C) {
+
+"use strict";
+
+C2C.hide_unrelated_fields = function()
 {
     var show_data, show_ski, show_ski_snow, show_ski_snow_mountain, show_ski_snow_mountain_rock,
         show_ski_snow_mountain_rock_ice, show_ski_snow_mountain_hiking, show_snow_ice, show_rock_mountain,
         show_snow_mountain_rock_ice, show_hiking, show_hiking2, show_pack_ski, show_pack_snow_easy,
-        show_pack_mountain_easy, show_pack_rock_bolted, show_pack_ice, show_pack_hiking;
+        show_pack_mountain_easy, show_pack_rock_bolted, show_pack_ice, show_pack_hiking, show_snowshoeing;
 
     var show_flags = [
         'data',
@@ -153,6 +157,8 @@ function hide_unrelated_fields()
             }
         });
     }
-}
+};
 
-document.observe('dom:loaded', hide_unrelated_fields);
+document.observe('dom:loaded', C2C.hide_unrelated_fields);
+
+})(window.C2C = window.C2C || {});

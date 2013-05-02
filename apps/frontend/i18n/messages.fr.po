@@ -203,7 +203,7 @@ msgstr "Êtes-vous sûr de vouloir effacer la géométrie de ce document ?"
 # escape ' by \' if you use them
 # [WARNING] needs_review
 msgid "Are you sure you want to rotate the image?"
-msgstr "Êtes-vous surs de vouloir tourner l'image ?"
+msgstr "Êtes-vous sûr de vouloir tourner l'image ?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Êtes vous sûr de vouloir dissocier l'image %1% nommée \"%2%\" ?"
@@ -717,6 +717,11 @@ msgstr "Afficher les données routières de <a href=\"http://www.openstreetmap.o
 msgid "Distance"
 msgstr "Distance"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+msgid "Distance (km)"
+msgstr "Distance (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "Le document %1% a été fusionné avec le document %2%."
 
@@ -771,6 +776,16 @@ msgstr "Les documents ne sont pas du même type, et ne peuvent donc pas être fu
 # ajouter adhésion
 msgid "Donate to Camptocamp Association"
 msgstr "Faire un don à Camptocamp Association, adhérer ou renouveler sa cotisation"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+msgid "Duration"
+msgstr "Durée"
+
+msgid "Duration (hrs)"
+msgstr "Durée (h)"
 
 msgid "E"
 msgstr "E"
@@ -841,6 +856,25 @@ msgstr "Édition de \"%1%\""
 
 msgid "Editor:"
 msgstr "Éditeur&nbsp;:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+msgid "Elevation"
+msgstr "Altitude"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+msgid "Elevation (m)"
+msgstr "Altitude (m)"
+
+# [comment]
+# Google utilise profil d'élévation ?
+# profil topographique ?
+# [WARNING] needs_review
+msgid "Elevation profile"
+msgstr "Profil d'altitude"
 
 msgid "Email short"
 msgstr "Courriel"
@@ -1757,7 +1791,7 @@ msgid "Parking not found"
 msgstr "Cet accès n'existe pas."
 
 msgid "Participate to MW %1% contest"
-msgstr "Inscrire cette sortie au <a href=\"/articles/%1%\">concours changer d'approche</a>&nbsp"
+msgstr "Inscrire cette sortie au <a href=\"/articles/%1%\">concours changer d'approche</a>&nbsp;"
 
 msgid "Password:"
 msgstr "Mot de passe&nbsp;:"
@@ -2457,6 +2491,14 @@ msgstr "Cet utilisateur n'a pas encore saisi de sortie."
 
 msgid "This username already exists. Please choose another one."
 msgstr "Ce nom d'utilisateur existe déjà. Merci d'en choisir un autre."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+msgid "Time"
+msgstr "Heure"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>Pour confirmer la création de votre compte, il vous faut vous identifier sur le site à l'aide de ces informations de connexion.</b> Vous pourrez alors modifier votre mot de passe si nécessaire. En l'absence de toute action de votre part, ce compte sera automatiquement détruit au bout de %1% jours."
@@ -4870,9 +4912,9 @@ msgid "gear and technique"
 msgstr "matériel et techniques"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
-msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Seul le matériel \\\"exotique\\\" (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles:\\n- ARVA, pelle, sonde\\n- crampons, piolets\\n- matériel de glacier (la case \\\"nécessite le matériel de glacier\\\" suffit)\\n- coinceurs et sangles sans plus de précision."
+msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Seul le matériel &quot;exotique&quot; (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles: ARVA, pelle, sonde, crampons, piolets, matériel de glacier (la case &quot;nécessite le matériel de glacier&quot; suffit), coinceurs et sangles sans plus de précision."
 
 # [WARNING] needs_review
 msgid "gear_shop"
@@ -6287,6 +6329,10 @@ msgstr "bar"
 msgid "public_transportation_description"
 msgstr "Accès en transports en commun&nbsp;:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 msgid "public_transportation_description_default"
 msgstr "Précisez ici les informations nécessaires pour accéder à ce point de départ en transports en commun : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
 
@@ -6473,6 +6519,9 @@ msgstr "R"
 msgid "route_history"
 msgstr "Historique de l'itinéraire&nbsp;:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 msgid "route_history_default"
 msgstr "Précisez ici l'historique de l'itinéraire : date et participants de l'ouverture ou de l'équipement, des ascensions ou descentes marquantes (première, en solo, en hivernale, premières répétitions...)."
 
@@ -6572,7 +6621,7 @@ msgstr "[afficher]"
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
-msgstr "<ul class=\"text\"><li><strong>Sélectionnez uniquement les activités pratiquées durant la sortie</strong>&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées, il faudra peut-etre en déselectionner certaines.</li><li>Si vous associez d'autres itinéraires à la sortie pensez à tenir compte de l'activité de ces itinéraires</li></li></ul></ul>"
+msgstr "<ul class=\"text\"><li><strong>Sélectionnez uniquement les activités pratiquées durant la sortie</strong>&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées, il faudra peut-etre en déselectionner certaines.</li><li>Si vous associez d'autres itinéraires à la sortie pensez à tenir compte de l'activité de ces itinéraires</li></ul></li></ul>"
 
 msgid "select an image file"
 msgstr "Choisissez une image&nbsp;:&nbsp;"
@@ -7168,6 +7217,12 @@ msgstr "Format d'image invalide"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "x axis:"
+msgstr "Voir le profil en fonction de&nbsp;:"
 
 msgid "year"
 msgstr "an"

@@ -709,6 +709,11 @@ msgstr "Display road data from <a href=\"http://www.openstreetmap.org/\">OpenStr
 msgid "Distance"
 msgstr "Distance"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+msgid "Distance (km)"
+msgstr "Distance (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "Document %1% has been merged into document %2%."
 
@@ -763,6 +768,18 @@ msgstr "Document types differ, thus cannot be merged"
 # [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
 msgstr "Donate to Camptocamp Association"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+# [WARNING] needs_review
+msgid "Duration"
+msgstr "Duration"
+
+# [WARNING] needs_review
+msgid "Duration (hrs)"
+msgstr "Duration (h)"
 
 msgid "E"
 msgstr "E"
@@ -834,6 +851,22 @@ msgstr "Edition of \"%1%\""
 
 msgid "Editor:"
 msgstr "Editor:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+msgid "Elevation"
+msgstr "Elevation"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "Elevation (m)"
+msgstr "Elevation (m)"
+
+msgid "Elevation profile"
+msgstr "Elevation profile"
 
 msgid "Email short"
 msgstr "E-Mail"
@@ -1764,7 +1797,7 @@ msgstr "This access point doesn’t exist"
 
 # [WARNING] needs_review
 msgid "Participate to MW %1% contest"
-msgstr "Submit this outing to the <a href=\"/articles/%1%\">Changer d'Approche - Competition</a>&nbsp"
+msgstr "Submit this outing to the <a href=\"/articles/%1%\">Changer d'Approche - Competition</a>&nbsp;"
 
 msgid "Password:"
 msgstr "Password:"
@@ -2468,6 +2501,15 @@ msgstr "This user hasn't contributed any outings yet"
 
 msgid "This username already exists. Please choose another one."
 msgstr "This username already exists. Please choose another one."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+# [WARNING] needs_review
+msgid "Time"
+msgstr "Time"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>To activate your account, please login to the website. You will be able to change your password.</b> Inactivated account will be deleted after %1% days."
@@ -4812,9 +4854,9 @@ msgid "gear and technique"
 msgstr "gear and techniques"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
-msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. Only \\\"exotic\\\" gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned:\\n- ARVA beeper, shovel, probe\\n- crampons, ice axe or tools\\n- crevasse rescue gear (ticking the box \\\"requires glacier gear\\\" is enough)\\n- friends, stoppers and slings with no detail on number and sizes."
+msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. Only &quot;exotic&quot; gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned: ARVA beeper, shovel, probe, crampons, ice axe or tools, crevasse rescue gear (ticking the box &quot;requires glacier gear&quot; is enough), friends, stoppers and slings with no detail on number and sizes."
 
 # [WARNING] needs_review
 msgid "gear_shop"
@@ -6253,6 +6295,10 @@ msgstr "bar"
 msgid "public_transportation_description"
 msgstr "Public transport access:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 msgid "public_transportation_description_default"
 msgstr "Detail here the informations necessary for reaching the access point using public transportation: companies, websites, telephone numbers, lines, schedueles and prices..."
 
@@ -6452,6 +6498,9 @@ msgstr "B"
 msgid "route_history"
 msgstr "Route history:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 msgid "route_history_default"
 msgstr "Detail here the route's history: date and participants of the first ascent or bolting, most remarquable ascents or descents (first, first solo, first winter ascents/descents, initial repetitions...)."
 
@@ -7165,6 +7214,12 @@ msgstr "Invalid picture format"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] fr translation used
+msgid "x axis:"
+msgstr "Voir le profil en fonction de&nbsp;:"
 
 msgid "year"
 msgstr "year"

@@ -719,6 +719,11 @@ msgstr "<a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> Errepide dat
 msgid "Distance"
 msgstr "Distantzia"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+msgid "Distance (km)"
+msgstr "Distantzia (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "%1% dokumentua %2% rekin bateratua izan da."
 
@@ -773,6 +778,18 @@ msgstr "Dokumentuak ez dira mota berdinekoak, ondorioz ezin dira bateratu"
 # [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
 msgstr "CamptoCamp elkarteari donazioa bat egin"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+# [WARNING] en translation used
+msgid "Duration"
+msgstr "Duration"
+
+# [WARNING] en translation used
+msgid "Duration (hrs)"
+msgstr "Duration (h)"
 
 msgid "E"
 msgstr "E"
@@ -844,6 +861,26 @@ msgstr "\"%1%\"-ko edizioa"
 
 msgid "Editor:"
 msgstr "Argitaratzailea:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+# [comment]
+# Garaiera ??
+# [WARNING] needs_review
+msgid "Elevation"
+msgstr "Altitudea"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "Elevation (m)"
+msgstr "Garaiera (m)"
+
+# [WARNING] es translation used
+msgid "Elevation profile"
+msgstr "Perfil de elevación"
 
 msgid "Email short"
 msgstr "E-mail"
@@ -1824,7 +1861,7 @@ msgstr "Ez dago halako abiagunerik."
 
 # [WARNING] es translation used
 msgid "Participate to MW %1% contest"
-msgstr "Presentar esta solida al <a href=\"/articles/%1%\">concurso cambiar la aproximación</a>&nbsp"
+msgstr "Presentar esta solida al <a href=\"/articles/%1%\">concurso cambiar la aproximación</a>&nbsp;"
 
 msgid "Password:"
 msgstr "Pasa hitza:"
@@ -2584,6 +2621,15 @@ msgstr "Erabiltzaile honek ez du oraindik irteerarik sortu."
 
 msgid "This username already exists. Please choose another one."
 msgstr "Erabiltzaile izen hau iada erabilia da. Mesedez beste bat erabili."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+# [WARNING] needs_review
+msgid "Time"
+msgstr "Ordua"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>Zure kontuaren sorrera baieztatzeko, ondorengo koneksio informazioen bitartez identifikatu web gunean.</b> Nahi ezkero, pasa hitza aldatzeko aukera izango duzu. %1% egunetan inolako ekintzarik ez badago, kontua automatikoki ezabatuko da.."
@@ -4973,10 +5019,10 @@ msgid "gear and technique"
 msgstr "material y técnicas"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 # [WARNING] es translation used
 msgid "gear_default"
-msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \\\"raro\\\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\\n- esquí, snowboard, raquetas: ARVA, pala, sonda\\n- nieve, hielo & mixto: crampones, piqueta\\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \\\"itinerario glaciar\\\" es suficiente)\\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
+msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo &quot;raro&quot; (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles: ARVA, pala, sonda (esquí, snowboard, raquetas), crampones, piqueta (nieve, hielo & mixto), material para de seguridad y rescate en grietas (itinerario glaciar - tachar la casilla &quot;itinerario glaciar&quot; es suficiente), escalada en vías poco equipadas (P2-P4) (móviles y cintas sin mayor detalle)"
 
 # [WARNING] es translation used
 msgid "gear_shop"
@@ -6539,6 +6585,10 @@ msgstr "bar"
 msgid "public_transportation_description"
 msgstr "Garraio publikoz iritsi:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 # [WARNING] es translation used
 msgid "public_transportation_description_default"
 msgstr "Detallar aquí las informaciones necesarias para llegar a este acceso con transportes en común: compañías, sitio web, números de teléfono, líneas, horarios, precios & tarifas..."
@@ -6745,9 +6795,12 @@ msgstr "R"
 msgid "route_history"
 msgstr "Ibilbide historiala:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 # [WARNING] es translation used
 msgid "route_history_default"
-msgstr "Detallar aquí la historia del itinerario.\\nPara una via de escalada, se pueden mencionar la fecha de apertura, de equipamiento o re-equipamientos y los participantes.\\nPara una ruta de alpinismo o de esquí, se pueden mencionar las ascensiones (o descensos) notables como la primera, el primer solo, la primera invernal etc.\\nLa historia general de la cima (p. ej. primer ascensión absoluta) se debe detallar en la pagina de la cima y no en la de un itinerario."
+msgstr "Detallar aquí la historia del itinerario. Para una via de escalada, se pueden mencionar la fecha de apertura, de equipamiento o re-equipamientos y los participantes. Para una ruta de alpinismo o de esquí, se pueden mencionar las ascensiones (o descensos) notables como la primera, el primer solo, la primera invernal etc. La historia general de la cima (p. ej. primer ascensión absoluta) se debe detallar en la pagina de la cima y no en la de un itinerario."
 
 msgid "route_length"
 msgstr "Luzeera: "
@@ -7524,6 +7577,12 @@ msgstr "Formato de imagen no valido"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] fr translation used
+msgid "x axis:"
+msgstr "Voir le profil en fonction de&nbsp;:"
 
 # [WARNING] es translation used
 msgid "year"

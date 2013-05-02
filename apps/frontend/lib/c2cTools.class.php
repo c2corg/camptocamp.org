@@ -123,7 +123,7 @@ class c2cTools
 
     
     /**
-     * A method to get file type (KML, KMZ, GPX, JPG, GIF, PNG ...)
+     * A method to get file type/extension (KML, KMZ, GPX, JPG, GIF, PNG ...)
      */
     public static function getFileType($path)
     {
@@ -133,9 +133,6 @@ class c2cTools
         
         switch ($type)
         {
-            /*case 'text/xml':
-                $xml = self::simplexmlLoadFile($path);
-                return $xml->getName();*/
             case 'application/vnd.google-earth.kmz': return 'kmz';
             case 'application/vnd.google-earth.kml+xml': return 'kml';
             case 'application/gpx+xml': return 'gpx';
@@ -144,6 +141,7 @@ class c2cTools
             case 'image/jpeg': return 'jpg';
             case 'image/gif': return 'gif';
             case 'image/svg+xml': return 'svg';
+            case 'text/xml': return 'xml';
             default: return false;
         }
     }

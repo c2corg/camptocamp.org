@@ -148,7 +148,7 @@ include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/ma
 
 if ($has_wkt)
 {
-    include_partial('documents/elevation_profile_section', array('id' => $id, 'lang' => $lang));
+    include_partial('documents/elevation_profile_section', array('id' => $id));
 }
 
 if ($is_not_archive && $is_not_merged && (count($associated_images) || $is_connected))

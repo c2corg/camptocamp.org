@@ -192,9 +192,9 @@ msgstr "Estàs segur de voler suprimir la geometria d'aquest document?"
 
 # [general comment]
 # escape ' by \' if you use them
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Are you sure you want to rotate the image?"
-msgstr "Are you sure you want to rotate the image?"
+msgstr "Esteu segur de voler girar la imatge?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Estàs segur que vols dissociar la imatge %1% anomenada \"%2\"?"
@@ -710,6 +710,11 @@ msgstr "Mostra les dades de la xarxa viària d'<a href=\"http://www.openstreetma
 msgid "Distance"
 msgstr "Distància"
 
+# [general comment]
+# Abcisse poiur les profils GPS
+msgid "Distance (km)"
+msgstr "Distància (km)"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "El document %1% ha estat fusionat amb el document %2%."
 
@@ -762,6 +767,16 @@ msgstr "Els documents no són del mateix tipus i, per tant, no poden fusionar-se
 
 msgid "Donate to Camptocamp Association"
 msgstr "Feu un donatiu a l'associació Camptocamp, adheriu-vos-hi o actualitzeu la quota"
+
+# [general comment]
+# Pour indiquer la durée écoulée
+# 
+# "Durée 2:13:45"
+msgid "Duration"
+msgstr "Durada"
+
+msgid "Duration (hrs)"
+msgstr "Durada (h)"
 
 msgid "E"
 msgstr "E"
@@ -832,6 +847,26 @@ msgstr "Edició de \"%1%\""
 
 msgid "Editor:"
 msgstr "Editor:"
+
+# [general comment]
+# same as http://c2ci18n.appspot.com/translations/edit/89 but without semicolon
+# 
+# see comments for alternatives ???
+# [comment]
+# Cota ??
+# [WARNING] needs_review
+msgid "Elevation"
+msgstr "Altitud"
+
+# [general comment]
+# ordonnées pour les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "Elevation (m)"
+msgstr "Cota (msnm)"
+
+# [WARNING] needs_review
+msgid "Elevation profile"
+msgstr "Perfil d'alçades"
 
 msgid "Email short"
 msgstr "E-mail"
@@ -1118,13 +1153,13 @@ msgstr "Llicència de la imatge:"
 msgid "Image not found"
 msgstr "Aquesta imatge no existeix."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Image rotated successfully"
-msgstr "Image rotated successfully"
+msgstr "La imatge s'ha girat correctament"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Image rotation"
-msgstr "Image rotation"
+msgstr "Rotació de la imatge"
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
@@ -1750,7 +1785,7 @@ msgid "Parking not found"
 msgstr "Aquest accés no existeix"
 
 msgid "Participate to MW %1% contest"
-msgstr "Inscriu aquesta sortida al <a href=\"/articles/%1%\">concurs \"Changer d'Approche\"</a>&nbsp"
+msgstr "Inscriu aquesta sortida al <a href=\"/articles/%1%\">concurs \"Changer d'Approche\"</a>&nbsp;"
 
 msgid "Password:"
 msgstr "Contrasenya:"
@@ -1934,23 +1969,23 @@ msgstr "Informació (opcional) sobre les modificacions"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Rotate -90"
-msgstr "Rotate left"
+msgstr "Gira cap a l'esquerra"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Rotate 90"
-msgstr "Rotate right"
+msgstr "Gira cap a la dreta"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Rotate the image by -90"
-msgstr "Rotate the image by 90° counter-clockwise"
+msgstr "Gira la imatge 90º en sentit antihorari"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Rotate the image by 90"
-msgstr "Rotate the image by 90° clockwise"
+msgstr "Gira la imatge 90º en sentit horari"
 
 msgid "Route not found"
 msgstr "Aquest itinerari no existeix."
@@ -2455,6 +2490,15 @@ msgstr "Aquest usuari encara no ha entrat cap sortida."
 
 msgid "This username already exists. Please choose another one."
 msgstr "Aquest nom d'usuari ja existeix. Escull-ne un altre, si et plau."
+
+# [general comment]
+# GPS profile legend
+# 
+# time like in "Time: 12:15"
+# 
+# [WARNING] needs_review
+msgid "Time"
+msgstr "Hora"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>Per confirmar la creació del teu compte, cal que t'identifiquis utilitzant les teves dades de connexió. En qualsevol moment podràs canviar la teva contrasenya.</b> En cas de no detectar cap connexió de la teva part aquest compte es destruirà al cap de %1% dies."
@@ -4877,9 +4921,9 @@ msgid "gear and technique"
 msgstr "material i tècniques"
 
 # [general comment]
-# Respecter les \n et \"
+# no linebreaks allowed, use &quot; for quotes (")
 msgid "gear_default"
-msgstr "Indiqueu aquí el material específic que cal dur a banda de l'equipament habitual. Només cal mencionar el material \\\"estrany\\\" (en qualitat o en quantitat). Exemples de mencions inútils:\\n- ARVA, pells de foca, sonda\\n- grampons, piolets\\n- material de glacera (n'hi ha prou amb marcar la casella \\\"itinerari de glacera\\\")\\n- bagues i friends sense més detall."
+msgstr "Indiqueu aquí el material específic que cal dur a banda de l'equipament habitual. Només cal mencionar el material &quot;estrany&quot; (en qualitat o en quantitat). Exemples de mencions inútils: ARVA, pells de foca, sonda, grampons, piolets, material de glacera (n'hi ha prou amb marcar la casella &quot;itinerari de glacera&quot;), bagues i friends sense més detall."
 
 # [WARNING] needs_review
 msgid "gear_shop"
@@ -6275,6 +6319,10 @@ msgstr "bar"
 msgid "public_transportation_description"
 msgstr "Accés en transport públic:"
 
+# [general comment]
+# no line breaks
+# 
+# use &quot; if you need quotes (")
 msgid "public_transportation_description_default"
 msgstr "Indiqueu aquí la informació necessària per accedir a aquest punt de partida amb transport públic: companyia de transports, número de línia, lloc web si n'hi ha, número de telèfon de la companyia, freqüències, horaris, preu."
 
@@ -6461,6 +6509,9 @@ msgstr "R"
 msgid "route_history"
 msgstr "Històric:"
 
+# [general comment]
+# use &quot; if you need quotes
+# no line breaks
 msgid "route_history_default"
 msgstr "Indiqueu aquí la història de l'itinerari: data i participants a l'obertura o a l'equipament, ascensions o descensos remarcables (primera, en solitari, en hivernal, primeres repeticions, etc.)."
 
@@ -6558,7 +6609,7 @@ msgstr "[mostra]"
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
-msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practicades durant la sortida</strong>:<ul class=\"text\"><li>Si l'itinerari comporta més d'una activitat, hi haurà més d'una activitat pre-seleccionada, de manera que pot ser que calgui desseleccionar-ne alguna.</li><li>Si associeu d'altres itineraris a la sortida, penseu a tenir en compte l'activitat d'aquests itineraris</li></li></ul></ul>"
+msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practicades durant la sortida</strong>:<ul class=\"text\"><li>Si l'itinerari comporta més d'una activitat, hi haurà més d'una activitat pre-seleccionada, de manera que pot ser que calgui desseleccionar-ne alguna.</li><li>Si associeu d'altres itineraris a la sortida, penseu a tenir en compte l'activitat d'aquests itineraris</li></ul></li></ul>"
 
 msgid "select an image file"
 msgstr "Escolliu una imatge:&nbsp;"
@@ -7157,6 +7208,12 @@ msgstr "Format d'imatge no vàlid"
 # "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
+
+# [general comment]
+# Texte pour changer l'abcisse entre distance et durée sur les profils d'altitude GPS
+# [WARNING] needs_review
+msgid "x axis:"
+msgstr "Vegeu el perfil en funció de:"
 
 msgid "year"
 msgstr "any"

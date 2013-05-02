@@ -1,1 +1,1 @@
-add_tooltips('.section_subtitle');
+C2C.add_tooltips('.section_subtitle');

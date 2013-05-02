@@ -6,7 +6,7 @@
 $lang_code = __('meta_language');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
-$action = sfContext::getInstance()->getActionName();
+$action = $sf_context->getActionName();
 $id = $sf_params->get('id');
 $cda_config = sfConfig::get('app_portals_cda');
 $cda_id = isset($cda_config['id']) ? $cda_config['id'] : -1;
@@ -61,6 +61,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
     ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>
 <body>
+    <?php include_partial('common/section_close'); ?>
     <div id="holder">
         <header id="page_header">
         <?php

@@ -35,9 +35,10 @@ if ($has_geom || $show_map)
     echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, false);
     echo '<div class="section" id="map_container_section_container">';
 
-    $map_url = 'http://maps.google.com/maps/api/staticmap?size=310x310&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;';
-    $map_options = array();
+    $map_url = 'http://maps.google.com/maps/api/staticmap?size=310x310&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;key='
+               . sfConfig::get('app_google_api_key') . '&amp;';
 
+    $map_options = array();
     
     $module = $document->module;
     if ($module == 'summits' || $module == 'parkings' || $module == 'sites' ||
@@ -94,5 +95,5 @@ if ($has_geom || $show_map)
 
     echo '</div>', end_section_tag(true);
     $cookie_position = array_search('map_container', sfConfig::get('app_personalization_cookie_fold_positions'));
-    echo javascript_tag('setSectionStatus(\'map_container\', '.$cookie_position.', true);');
+    echo javascript_tag('C2C.setSectionStatus(\'map_container\', '.$cookie_position.', true);');
 }
