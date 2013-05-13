@@ -5,3 +5,10 @@
     opacity:0.8;
     filter:alpha(opacity=80);
 }
+
+
+/* osm attribution is too high
+   reste value from web/static/js/carto/cgxp/core/src/theme/all.css */
+.olControlAttribution {
+    bottom: .5em;
+}
