@@ -173,13 +173,17 @@ function _loadJsMapTools()
     $async_map = sfConfig::get('app_async_map', false);
     $lang = sfContext::getInstance()->getUser()->getCulture();
 
-    if ($debug) {
+    if ($debug)
+    {
         include_partial('documents/map_lib_include_debug');
-    } else {
+    }
+    else
+    {
         use_stylesheet('/static/js/carto/build/app.css', 'custom');
         if (!$async_map) use_javascript('/static/js/carto/build/app.js', 'maps');
     }
 
+    use_stylesheet('/static/css/popup.css', 'custom');
     use_stylesheet('/static/js/carto/carto.css', 'custom'); // FIXME: build CSS
 
     if (!$async_map)
