@@ -87,18 +87,41 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     $html .= '</div>';
     $html .= '</div></section>';
 
-    $html .= javascript_tag("
-        Event.observe(window, 'load', function() {
-            c2corg.Map({
-                div: 'map',
-                lang: '$lang',
-                loading: 'mapLoading',
-                layers: $layers_list,
-                center: $init_center,
-                features: " . _makeFeatureCollection($objects_list) . "
-            });
-        });
-    ");
+    $async_map = sfConfig::get('app_async_map', false) &&
+                 !sfContext::getInstance()->getRequest()->getParameter('debug', false);
+
+    $js = "
+        function map_init() {
+          c2corg.Map({
+            div: 'map',
+            lang: '$lang',
+            loading: 'mapLoading',
+            layers: $layers_list,
+            center: $init_center,
+            features: " . _makeFeatureCollection($objects_list) . "
+          });
+        }";
+
+    // asynchronous map loading
+    if ($async_map)
+    {
+        use_helper('MyMinify');
+        $c2c_script_url = minify_get_combined_files_url(
+          array('/static/js/carto/build/app.js', "/static/js/carto/build/lang-$lang.js", '/static/js/carto/embedded.js'),
+          (bool) sfConfig::get('app_minify_debug'));
+
+        $js .= "
+            function c2c_asyncload(jsurl) {
+              var a = document.createElement('script'),
+              h = document.getElementsByTagName('head')[0];
+              a.async = 1; a.src = jsurl; h.appendChild(a);
+            }
+            function map_load_async() {
+                c2c_asyncload('$c2c_script_url');
+            }";
+    }
+
+    $html .= javascript_tag($js);
 
 /*
 // TODO: asynchronous map loading
@@ -147,16 +170,23 @@ function _addAssociatedDocsWithGeom($docs, &$objects_list)
 function _loadJsMapTools()
 {
     $debug = sfContext::getInstance()->getRequest()->getParameter('debug', false);
+    $async_map = sfConfig::get('app_async_map', false);
     $lang = sfContext::getInstance()->getUser()->getCulture();
+
     if ($debug) {
         include_partial('documents/map_lib_include_debug');
     } else {
         use_stylesheet('/static/js/carto/build/app.css', 'custom');
-        use_javascript('/static/js/carto/build/app.js', 'maps');
+        if (!$async_map) use_javascript('/static/js/carto/build/app.js', 'maps');
     }
+
     use_stylesheet('/static/js/carto/carto.css', 'custom'); // FIXME: build CSS
-    use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
-    use_javascript('/static/js/carto/embedded.js', 'maps');
+
+    if (!$async_map)
+    {
+        use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
+        use_javascript('/static/js/carto/embedded.js', 'maps');
+    }
 }
 
 _loadJsMapTools();
