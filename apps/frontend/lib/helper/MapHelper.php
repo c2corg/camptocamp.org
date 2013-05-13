@@ -186,7 +186,7 @@ function _loadJsMapTools()
     use_stylesheet('/static/css/popup.css', 'custom');
     use_stylesheet('/static/js/carto/carto.css', 'custom'); // FIXME: build CSS
 
-    if (!$async_map)
+    if (!$async_map || $debug)
     {
         use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
         use_javascript('/static/js/carto/embedded.js', 'maps');
