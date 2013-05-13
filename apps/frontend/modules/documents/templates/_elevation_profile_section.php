@@ -36,7 +36,7 @@ $script_url = minify_get_combined_files_url(array('/static/js/d3.v3.js',
 //   since every browser supporting animations supports transforms
 // - c2c_load_elevation_profile is called once the section is opened, and
 //   ensures the js is only loaded once
-$js = "(function() { \"use strict\";
+$js = "(function() {
 var div = document.createElement('div');
 div.innerHTML = '<svg/>';
 var svg_supported = (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
@@ -81,8 +81,10 @@ if (!svg_supported) {
 }})()";
 
 // In mobile version, we don't have the dynamic map, so we don't have c2c_asyncload defined
+// Also if async map loading is disabled
 // FIXME the function should be defined at top level and could be used for addthis and analytics snippets (and more...)
-if ($mobile)
+// + logic is somewhat not very clear...
+if ($mobile || !sfConfig::get('app_async_map', false))
 {
     $js = 'function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0];' .
           'a.async = 1; a.src = jsurl; h.appendChild(a); }' . $js;
