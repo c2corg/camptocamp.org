@@ -5067,7 +5067,7 @@ msgstr "gouffre"
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 msgid "home_description"
-msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la cascade de glace, la randonnée à ski, à raquette ou à pied. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a> avec plus de 20&nbsp;000 itinéraires, les <a href=\"/outings/conditions\">conditions</a> des sorties récentes, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...<br />C'est un espace collaboratif géré par une <a href=\"/articles/106726/fr\">association</a> privilégiant les <a href=\"/articles/106728/fr\">contenus libres de droit</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> (gratuitement) et à contribuer au site&nbsp;!"
+msgstr "Camptocamp.org est un site communautaire dédié aux sports de montagne. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a>, les <a href=\"/outings/conditions\">conditions</a> de courses, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...  Camptocamp.org est géré par une <a href=\"/articles/106726/fr\">association</a> à but non lucratif, qui a fait le choix de <a href=\"/articles/106728/fr\">contenus sous licences libres</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> et à contribuer&nbsp;! "
 
 msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
