@@ -183,8 +183,7 @@ function _loadJsMapTools()
         if (!$async_map) use_javascript('/static/js/carto/build/app.js', 'maps');
     }
 
-    use_stylesheet('/static/css/popup.css', 'custom');
-    use_stylesheet('/static/js/carto/carto.css', 'custom'); // FIXME: build CSS
+    use_stylesheet('/static/css/carto.css', 'custom');
 
     if (!$async_map || $debug)
     {

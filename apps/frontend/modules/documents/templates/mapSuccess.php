@@ -11,9 +11,8 @@ else
     use_stylesheet('/static/js/carto/build/app.css', 'last');
     use_javascript('/static/js/carto/build/app.js', 'maps');
 }
-use_stylesheet('/static/css/popup.css', 'last');
-use_stylesheet('/static/js/carto/carto.css', 'last'); // TODO: build CSS
-use_stylesheet('/static/js/carto/viewer.css', 'last'); // TODO: build CSS
+use_stylesheet('/static/css/carto.css', 'last');
+use_stylesheet('/static/css/viewer.css', 'last');
 use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
 use_javascript('/static/js/carto/viewer.js', 'maps');
 
