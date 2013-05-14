@@ -7,7 +7,7 @@
     @include opacity(.8);
 }
 
-/* c2c layers icons */
+// c2c layers icons
 .x-tree-node-leaf .gx-tree-layer-icon {
     background-image: none;
     height: 16px;
@@ -15,8 +15,24 @@
     padding: 0 2px;
 }
 
-/* osm attribution is too high on the map
-   restore value from web/static/js/carto/cgxp/core/src/theme/all.css */
+// osm attribution is too high on the map
+// restore value from web/static/js/carto/cgxp/core/src/theme/all.css
 .olControlAttribution {
     bottom: .5em;
+}
+
+// google logo conflicts with the scaleline
+// we move it up a bit
+img[src*='google_white'] {
+    top: -20px !important
+}
+
+// we don't want the bad-looking black background for the scaleline
+
+
+// we don't want the bad-looking black background for the scaleline
+div.olControlScaleLine {
+    background-color: transparent;
+    padding-left: 2px;
+    padding-bottom: 2px;
 }
