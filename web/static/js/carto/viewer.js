@@ -87,7 +87,7 @@ Ext.onReady(function () {
 
         // map and layers
         map: Ext.apply({
-            id: "app-map", // id needed to reference map in portalConfig above
+            id: "app-map" // id needed to reference map in portalConfig above
         }, c2corg.base.getMap())
     });
 
