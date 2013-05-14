@@ -1,11 +1,19 @@
+@import "blob";
+
 .tooltip_tooltip {
     background-color: white;
     color: black;
     padding: 2px;
-    opacity:0.8;
-    filter:alpha(opacity=80);
+    @include opacity(.8);
 }
 
+/* c2c layers icons */
+.x-tree-node-leaf .gx-tree-layer-icon {
+    background-image: none;
+    height: 16px;
+    width: 16px;
+    padding: 0 2px;
+}
 
 /* osm attribution is too high on the map
    restore value from web/static/js/carto/cgxp/core/src/theme/all.css */
