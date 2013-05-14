@@ -123,25 +123,6 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
 
     $html .= javascript_tag($js);
 
-/*
-// TODO: asynchronous map loading
-    if (sfConfig::get('app_async_map', true))
-    {
-        use_helper('MyMinify');
-        // FIXME if using ie for async load, set $debug to true, because minifying the js currently breaks ie
-        $c2c_script_url = minify_get_combined_files_url(array('/static/js/carto/build/xapi.js',
-                                                              '/static/js/carto/build/lang-fr.js',
-                                                              '/static/js/carto/docmap.js'),
-                                                        (bool)sfConfig::get('app_minify_debug'));
-
-        // FIXME extjs uses document.write with ie, so we cannot for the moment use async loading with ie
-        $html .= javascript_tag('
-if (!Prototype.Browser.IE) { var c2corgloadMapAsync = true; }
-function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0]; a.async = 1; a.src = jsurl; h.appendChild(a); }
-function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); }}');
-    }
-*/
-
     return $html;
 }
 
