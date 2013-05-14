@@ -22,12 +22,12 @@ c2corg.Map = function (config) {
         controls: { zoomWheelEnabled: false }
     });
     mapConfig.id = config.id;
-    
+ 
     var tools = [{
         ptype: "c2corg_layertree",
         outputConfig: {
             closable: false,
-            title: OpenLayers.i18n("c2c data"),
+            title: c2corg.i18n("c2c data"),
             collapsible: true,
             header: true,
             width: 250
