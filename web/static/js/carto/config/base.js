@@ -80,23 +80,6 @@ c2corg.base = {
                 geodesic: true,
                 bottomInUnits: false,
                 bottomOutUnits: false
-            }),
-            new OpenLayers.Control.OverviewMap({
-                size: new OpenLayers.Size(180, 120),
-                mapOptions: {
-                    theme: null
-                },
-                minRatio: 16,
-                maxRatio: 32,
-                layers: [new OpenLayers.Layer.OSM("OSM", [
-                        'http://a.tile.openstreetmap.org/${z}/${x}/${y}.png',
-                        'http://b.tile.openstreetmap.org/${z}/${x}/${y}.png',
-                        'http://c.tile.openstreetmap.org/${z}/${x}/${y}.png'
-                    ],{
-                        buffer: 0,
-                        transitionEffect: 'resize'
-                    }
-                )]
             })
         ];
     }
@@ -107,19 +90,17 @@ c2corg.base.basemaps = [{
     name: "mapnik",
     group: 'background',
     ref: 'osm'
-},
-{
+}, {
     source: "google",
     name: "TERRAIN",
     group: 'background',
     ref: "google_terrain"
-},
-{
+}, {
     source: "google",
     name: "HYBRID",
     group: 'background',
     ref: "google_hybrid"
-},{
+}, {
     source: "olsource",
     type: "OpenLayers.Layer.WMTS",
     group: 'background',
@@ -129,7 +110,7 @@ c2corg.base.basemaps = [{
         ref: 'ign_maps',
         group : 'background'
     }, c2corg.base.ignOptions)]
-},{
+}, {
     source: "olsource",
     type: "OpenLayers.Layer.WMTS",
     group: 'background',
@@ -157,5 +138,5 @@ c2corg.base.getMap = function(options) {
         controls: c2corg.base.getControls(options.controls),
         layers: c2corg.base.basemaps,
         items: []
-    }
+    };
 };
