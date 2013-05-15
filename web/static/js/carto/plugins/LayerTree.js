@@ -182,63 +182,67 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             icon: c2corg.config.staticBaseUrl + "/static/images/modules/sites_mini.png",
             leaf: true
         }, {
-            text: c2corg.i18n("users"),
-            nodeType: "gx_layer",
-            layer: this.layers["users"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/users_mini.png",
-            leaf: true
-        }, {
-            text: c2corg.i18n("images"),
-            nodeType: "gx_layer",
-            layer: this.layers["images"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/images_mini.png",
-            leaf: true
-        }, {
-            text: c2corg.i18n("products"),
-            nodeType: "gx_layer",
-            layer: this.layers["products"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/products_mini.png",
-            leaf: true
-        }, {
             text: c2corg.i18n("routes"),
             nodeType: "gx_layer",
             layer: this.layers["routes"],
             icon: c2corg.config.staticBaseUrl + "/static/images/modules/routes_mini.png",
             leaf: true
         }, {
-            text: c2corg.i18n("outings"),
-            nodeType: "gx_layer",
-            layer: this.layers["outings"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/outings_mini.png",
-            leaf: true
-        }, {
-            text: c2corg.i18n("maps"),
-            nodeType: "gx_layer",
-            layer: this.layers["maps"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/maps_mini.png",
-            leaf: true
-        }, {
-            text: c2corg.i18n("areas"),
+            text: c2corg.i18n("other"),
             expanded: false,
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/areas_mini.png",
             children: [{
-                text: c2corg.i18n("ranges"),
+                text: c2corg.i18n("users"),
                 nodeType: "gx_layer",
-                layer: this.layers["ranges"],
-                icon: Ext.BLANK_IMAGE_URL,
+                layer: this.layers["users"],
+                icon: c2corg.config.staticBaseUrl + "/static/images/modules/users_mini.png",
                 leaf: true
             }, {
-                text: c2corg.i18n("admin boundaries"),
+                text: c2corg.i18n("images"),
                 nodeType: "gx_layer",
-                layer: this.layers["admin_limits"],
-                icon: Ext.BLANK_IMAGE_URL,
+                layer: this.layers["images"],
+                icon: c2corg.config.staticBaseUrl + "/static/images/modules/images_mini.png",
                 leaf: true
             }, {
-                text: c2corg.i18n("countries"),
+                text: c2corg.i18n("products"),
                 nodeType: "gx_layer",
-                layer: this.layers["countries"],
-                icon: Ext.BLANK_IMAGE_URL,
+                layer: this.layers["products"],
+                icon: c2corg.config.staticBaseUrl + "/static/images/modules/products_mini.png",
                 leaf: true
+            }, {
+                text: c2corg.i18n("outings"),
+                nodeType: "gx_layer",
+                layer: this.layers["outings"],
+                icon: c2corg.config.staticBaseUrl + "/static/images/modules/outings_mini.png",
+                leaf: true
+            }, {
+                text: c2corg.i18n("maps"),
+                nodeType: "gx_layer",
+                layer: this.layers["maps"],
+                icon: c2corg.config.staticBaseUrl + "/static/images/modules/maps_mini.png",
+                leaf: true
+            }, {
+                text: c2corg.i18n("areas"),
+                expanded: false,
+                icon: c2corg.config.staticBaseUrl + "/static/images/modules/areas_mini.png",
+                children: [{
+                    text: c2corg.i18n("ranges"),
+                    nodeType: "gx_layer",
+                    layer: this.layers["ranges"],
+                    icon: Ext.BLANK_IMAGE_URL,
+                    leaf: true
+                }, {
+                    text: c2corg.i18n("admin boundaries"),
+                    nodeType: "gx_layer",
+                    layer: this.layers["admin_limits"],
+                    icon: Ext.BLANK_IMAGE_URL,
+                    leaf: true
+                }, {
+                    text: c2corg.i18n("countries"),
+                    nodeType: "gx_layer",
+                    layer: this.layers["countries"],
+                    icon: Ext.BLANK_IMAGE_URL,
+                    leaf: true
+                }]
             }]
         }];
     },
