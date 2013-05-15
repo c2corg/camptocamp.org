@@ -71,8 +71,7 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
   margin: 0 !important;
   height: 100% !important;
   width: 100%;
-  opacity: 0;
-  filter: alpha(opacity = 0); /* ie */
+  @include opacity(0);
 }
 
 .c2cui_picto {
