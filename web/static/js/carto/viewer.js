@@ -29,7 +29,7 @@ Ext.onReady(function () {
             ptype: "c2corg_layertree",
             outputConfig: {
                 closable: false,
-                title: c2corg.i18n("c2c data"),
+                title: OpenLayers.i18n("c2c data"),
                 collapsible: true,
                 header: true,
                 width: 250
@@ -75,8 +75,8 @@ Ext.onReady(function () {
         {
             ptype: "cgxp_geonames",
             actionTarget: "center.tbar",
-            emptyText: c2corg.i18n("Go to..."),
-            loadingText: c2corg.i18n("Please wait..."),
+            emptyText: OpenLayers.i18n("Go to..."),
+            loadingText: OpenLayers.i18n("Please wait..."),
             url: "http://api.geonames.org/searchJSON?featureClass=P&featureClass=T" +
                  "&username=c2corg&lang=" + OpenLayers.Lang.getCode()
         },

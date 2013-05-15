@@ -3,8 +3,6 @@ use_helper('Form', 'Javascript');
 
 function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $center = null, $has_geom = null)
 {
-    include_partial('documents/map_i18n');
-
     // define div identifiers
     $map_container_div_id   = $container_div . '_section_container';
     $app_static_url = sfConfig::get('app_static_url');

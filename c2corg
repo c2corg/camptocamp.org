@@ -212,7 +212,7 @@ function processArgs() {
             rmLegacyPhpSettings(); // must get run before symfony stuff kicks in
             generateMoFiles();
             //makeMapservWrapperExecutable();
-            buildMapJsFiles(); // must be done before revision info
+            buildMapJsFiles(true); // must be done before revision info
             buildSassFiles(true);
             updateRevisionInfo();
             launchCleanCache();
@@ -690,11 +690,7 @@ function updateRevisionInfo() {
     $dirs = array('web/static/css' => 'css',
                   'web/static/js' => 'js',
                   /* forums TODO CHECK should not be here anymore */
-                  'web/forums/style' => 'css',
-                  'web/forums/style/imports' => 'css',
                   'web/static/js/dyncat' => 'js',
-                  /* TODO: is this still used ? */
-                  'web/static/js/mapfish/c2corgApi/css' => 'css',
                   /* carto js */
                   'web/static/js/carto' => 'js',
                   'web/static/js/carto/build' => 'js');
@@ -789,9 +785,10 @@ function getFileRevisionInfoGit($tmpfile) {
     }
 }
 
-function buildMapJsFiles() {
+function buildMapJsFiles($refresh = false) {
     global $OPTIONS;
-    if (!array_key_exists('build', $OPTIONS) &&
+    if ($refresh &&
+        !array_key_exists('build', $OPTIONS) &&
         !array_key_exists('buildjs', $OPTIONS)) return;
 
     if (!hasCommand('jsbuild --help')) {

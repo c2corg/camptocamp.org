@@ -131,113 +131,113 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
     getThemes: function() {
         return [{
-            text: c2corg.i18n("summits"),
+            text: OpenLayers.i18n("summits"),
             nodeType: "gx_layer",
             layer: this.layers["summits"],
             icon: c2corg.config.staticBaseUrl + "/static/images/modules/summits_mini.png",
             expanded: false,
             children: [{
-                text: c2corg.i18n("pass"),
+                text: OpenLayers.i18n("pass"),
                 icon: c2corg.config.staticBaseUrl + "/static/images/picto/pass.png",
                 leaf: true
             },{
-                text: c2corg.i18n("lake"),
+                text: OpenLayers.i18n("lake"),
                 icon: c2corg.config.staticBaseUrl + "/static/images/picto/lake.png",
                 leaf: true
             },{
-                text: c2corg.i18n("valley"),
+                text: OpenLayers.i18n("valley"),
                 icon: c2corg.config.staticBaseUrl + "/static/images/picto/crag.png",
                 leaf: true
             }]  
         }, {
-            text: c2corg.i18n("parkings"),
+            text: OpenLayers.i18n("parkings"),
             nodeType: "gx_layer",
             layer: this.layers["access"],
             icon: c2corg.config.staticBaseUrl + "/static/images/modules/parkings_mini.png",
             expanded: false,
             children: [{
-                text: c2corg.i18n("public_transportations"),
+                text: OpenLayers.i18n("public_transportations"),
                 icon: c2corg.config.staticBaseUrl + "/static/images/picto/parking_green.png",
                 leaf: true
             }]
         }, {
-            text: c2corg.i18n("huts"),
+            text: OpenLayers.i18n("huts"),
             nodeType: "gx_layer",
             layer: this.layers["huts"],
             icon: c2corg.config.staticBaseUrl + "/static/images/modules/huts_mini.png",
             expanded: false,
             children: [{
-                text: c2corg.i18n("gite"),
+                text: OpenLayers.i18n("gite"),
                 icon: c2corg.config.staticBaseUrl + "/static/images/picto/gite.png",
                 leaf: true
             }, {
-                text: c2corg.i18n("camping area"),
+                text: OpenLayers.i18n("camping area"),
                 icon: c2corg.config.staticBaseUrl + "/static/images/picto/camp.png",
                 leaf: true
             }]
         }, {
-            text: c2corg.i18n("sites"),
+            text: OpenLayers.i18n("sites"),
             nodeType: "gx_layer",
             layer: this.layers["sites"],
             icon: c2corg.config.staticBaseUrl + "/static/images/modules/sites_mini.png",
             leaf: true
         }, {
-            text: c2corg.i18n("routes"),
+            text: OpenLayers.i18n("routes"),
             nodeType: "gx_layer",
             layer: this.layers["routes"],
             icon: c2corg.config.staticBaseUrl + "/static/images/modules/routes_mini.png",
             leaf: true
         }, {
-            text: c2corg.i18n("other"),
+            text: OpenLayers.i18n("other"),
             expanded: false,
             children: [{
-                text: c2corg.i18n("users"),
+                text: OpenLayers.i18n("users"),
                 nodeType: "gx_layer",
                 layer: this.layers["users"],
                 icon: c2corg.config.staticBaseUrl + "/static/images/modules/users_mini.png",
                 leaf: true
             }, {
-                text: c2corg.i18n("images"),
+                text: OpenLayers.i18n("images"),
                 nodeType: "gx_layer",
                 layer: this.layers["images"],
                 icon: c2corg.config.staticBaseUrl + "/static/images/modules/images_mini.png",
                 leaf: true
             }, {
-                text: c2corg.i18n("products"),
+                text: OpenLayers.i18n("products"),
                 nodeType: "gx_layer",
                 layer: this.layers["products"],
                 icon: c2corg.config.staticBaseUrl + "/static/images/modules/products_mini.png",
                 leaf: true
             }, {
-                text: c2corg.i18n("outings"),
+                text: OpenLayers.i18n("outings"),
                 nodeType: "gx_layer",
                 layer: this.layers["outings"],
                 icon: c2corg.config.staticBaseUrl + "/static/images/modules/outings_mini.png",
                 leaf: true
             }, {
-                text: c2corg.i18n("maps"),
+                text: OpenLayers.i18n("maps"),
                 nodeType: "gx_layer",
                 layer: this.layers["maps"],
                 icon: c2corg.config.staticBaseUrl + "/static/images/modules/maps_mini.png",
                 leaf: true
             }, {
-                text: c2corg.i18n("areas"),
+                text: OpenLayers.i18n("areas"),
                 expanded: false,
                 icon: c2corg.config.staticBaseUrl + "/static/images/modules/areas_mini.png",
                 children: [{
-                    text: c2corg.i18n("ranges"),
+                    text: OpenLayers.i18n("ranges"),
                     nodeType: "gx_layer",
                     layer: this.layers["ranges"],
                     icon: Ext.BLANK_IMAGE_URL,
                     leaf: true
                 }, {
-                    text: c2corg.i18n("admin boundaries"),
+                    text: OpenLayers.i18n("admin boundaries"),
                     nodeType: "gx_layer",
                     layer: this.layers["admin_limits"],
                     icon: Ext.BLANK_IMAGE_URL,
                     leaf: true
                 }, {
-                    text: c2corg.i18n("countries"),
+                    text: OpenLayers.i18n("countries"),
                     nodeType: "gx_layer",
                     layer: this.layers["countries"],
                     icon: Ext.BLANK_IMAGE_URL,
@@ -376,7 +376,7 @@ c2corg.control.hoverFeature = OpenLayers.Class(OpenLayers.Control.SelectFeature,
                         var lonlat = this.currentFeature.bounds.getCenterLonLat();
                     }
                     var px = this.map.getViewPortPxFromLonLat(lonlat);
-                    this.div.innerHTML = c2corg.i18n('${item}. Click to show info', {
+                    this.div.innerHTML = OpenLayers.i18n('${item}. Click to show info', {
                         item: result.features.name
                     });
                     this.div.style.top = (px.y + 10) + 'px';

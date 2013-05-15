@@ -105,7 +105,7 @@ c2corg.base.basemaps = [{
     type: "OpenLayers.Layer.WMTS",
     group: 'background',
     args: [Ext.applyIf({
-        name: c2corg.i18n("IGN maps"),
+        name: OpenLayers.i18n("IGN maps"),
         layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
         ref: 'ign_maps',
         group : 'background'
@@ -115,7 +115,7 @@ c2corg.base.basemaps = [{
     type: "OpenLayers.Layer.WMTS",
     group: 'background',
     args: [Ext.applyIf({
-        name: c2corg.i18n("IGN orthos"),
+        name: OpenLayers.i18n("IGN orthos"),
         layer: "ORTHOIMAGERY.ORTHOPHOTOS",
         numZoomLevels: 20,
         ref: 'ign_ortho',

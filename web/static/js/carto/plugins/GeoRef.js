@@ -70,15 +70,15 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
             enableToggle: true,
             pressed: true,
             map: this.target.mapPanel.map,
-            text: c2corg.i18n("Georef Tool"),
-            tooltip: c2corg.i18n("Click on the map to locate item"),
+            text: OpenLayers.i18n("Georef Tool"),
+            tooltip: OpenLayers.i18n("Click on the map to locate item"),
             toggleGroup: this.toggleGroup,
             control: control
         }, this.actionConfig)));
 
         actions.push(new Ext.Action({
-            text: c2corg.i18n("Reset georef"),
-            tooltip: c2corg.i18n("Cancel changes"),
+            text: OpenLayers.i18n("Reset georef"),
+            tooltip: OpenLayers.i18n("Cancel changes"),
             handler: function() {
                 if (this.initialLonlat) {
                     var map = this.target.mapPanel.map;

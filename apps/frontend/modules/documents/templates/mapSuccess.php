@@ -15,8 +15,6 @@ use_stylesheet('/static/css/carto.css', 'last');
 use_stylesheet('/static/css/viewer.css', 'last');
 use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
 use_javascript('/static/js/carto/viewer.js', 'maps');
-
-include_partial('documents/map_i18n');
 ?>
 
 <div id="mapPort">

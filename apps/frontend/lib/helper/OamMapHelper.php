@@ -3,8 +3,6 @@ use_helper('Javascript', 'I18N');
 
 function show_georef_map($lon, $lat, $layer)
 {
-    include_partial('documents/map_i18n');
-
     $lang = sfContext::getInstance()->getUser()->getCulture();
 
     if (empty($layer))
