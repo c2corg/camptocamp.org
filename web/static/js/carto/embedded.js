@@ -81,7 +81,11 @@ c2corg.Map = function (config) {
     },
     {
         ptype: "cgxp_geonames",
-        actionTarget: "map.tbar"
+        actionTarget: "map.tbar",
+        emptyText: c2corg.i18n("Go to..."),
+        loadingText: c2corg.i18n("Please wait..."),
+        url: "http://api.geonames.org/searchJSON?featureClass=P&featureClass=T" +
+             "&username=c2corg&lang=" + config.lang
     });
     
     viewer = new gxp.Viewer({
