@@ -28,9 +28,6 @@ img[src*='google_white'] {
 }
 
 // we don't want the bad-looking black background for the scaleline
-
-
-// we don't want the bad-looking black background for the scaleline
 div.olControlScaleLine {
     background-color: transparent;
     padding-left: 2px;
@@ -41,4 +38,14 @@ div.olControlScaleLine {
 .opacityToolbar {
   border: none !important;
   background-color: transparent;
+}
+
+// compensate rounded inputs for maps
+input[type=text].x-form-field {
+    @include border-radius(0);
+}
+
+#map_container p.default_text
+{
+  padding-top: 0.7em;
 }

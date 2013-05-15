@@ -1,5 +1,6 @@
 @import "blob";
-/* css specific for the full page map tool */
+
+// css specific for the full page map tool
 
 #mapPort {
     height: auto;
@@ -16,13 +17,19 @@
 
 
 #mapheader .x-panel-bwrap, #mapheader .x-panel-body {
-    overflow: visible;
+    overflow: visible;   
 }
 
-/*#mapheader {
-  height: 140px !important;
-}*/
+// the page header has some parent elements that change
+// the font, we don't want that
+#page_header {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    a {
+        text-decoration: underline;
+    }
+}
 
+// remove disgracious gray background on top of page
 .x-border-layout-ct {
     background-color: white;
 }

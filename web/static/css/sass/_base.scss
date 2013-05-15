@@ -784,17 +784,6 @@ span.default_text, p.default_text
   color: #808080;
 }
 
-/* compensate rounded inputs for maps */
-#map .x-form-field, #mappanel .x-form-field
-{
-  @include border-radius(0);
-}
-
-#map_container p.default_text
-{
-  padding-top: 0.7em;
-}
-
 @if $standard {
   #splitter
   {
