@@ -4,7 +4,6 @@
  * @include OpenLayers/Layer/Markers.js
  * @include OpenLayers/Marker.js
  * @include OpenLayers/Icon.js
- * @include i18n.js
  */
 
 Ext.namespace("c2corg.plugins");

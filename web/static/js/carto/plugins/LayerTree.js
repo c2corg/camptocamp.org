@@ -10,7 +10,6 @@
  * @include OpenLayers/Control/SelectFeature.js
  * @include GeoExt/widgets/tree/LayerNode.js
  * @include styles.js
- * @include i18n.js
  */
 
 Ext.namespace("c2corg.plugins");

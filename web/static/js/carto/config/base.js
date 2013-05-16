@@ -1,6 +1,5 @@
 /**
  * @requires config.js
- * @requires i18n.js
  * @requires OpenLayers/Control/Navigation.js
  * @requires OpenLayers/Control/KeyboardDefaults.js
  * @requires OpenLayers/Control/PanZoomBar.js
