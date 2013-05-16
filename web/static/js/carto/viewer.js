@@ -55,6 +55,10 @@ Ext.onReady(function () {
             toggleGroup: "maptools"
         },
         {
+            ptype: "c2corg_myposition",
+            actionTarget: "center.tbar"
+        },
+        {
             ptype: "gxp_navigationhistory",
             actionTarget: "center.tbar"
         },
