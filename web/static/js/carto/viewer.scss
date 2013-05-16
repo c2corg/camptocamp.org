@@ -24,9 +24,11 @@
 // the font, we don't want that
 #page_header {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    a {
-        text-decoration: underline;
-    }
+}
+
+// also restore links aspect
+#banner_middle a {
+    text-decoration: underline;
 }
 
 // remove disgracious gray background on top of page
