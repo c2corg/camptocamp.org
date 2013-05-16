@@ -6,7 +6,6 @@
  * @requires OpenLayers/Control/ArgParser.js
  * @requires OpenLayers/Control/Attribution.js
  * @requires OpenLayers/Control/ScaleLine.js
- * @requires OpenLayers/Control/OverviewMap.js
  * @requires OpenLayers/Control/NavigationHistory.js
  */
 
