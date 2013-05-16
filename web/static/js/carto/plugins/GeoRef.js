@@ -27,6 +27,7 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
     viewerReady: function() {
         var map = this.target.mapPanel.map;
 
+        // display picto if lat lon exist
         this.markerLayer = new OpenLayers.Layer.Markers("Markers");
         map.addLayer(this.markerLayer);
 
@@ -37,6 +38,21 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
 
             this.createMarker(this.initialLonlat); 
         }
+
+        // watch lat lon fields and update markers if needed
+        var inputs = ['lon', 'lon_deg', 'lon_min', 'lon_sec', 'lat', 'lat_deg', 'lat_min', 'lat_sec'];
+        Ext.select(inputs).on('change', function(evt, elm) {
+            var lon = Ext.getDom('lon').value;
+            var lat = Ext.getDom('lat').value;
+            if (!isNaN(lon) && !isNaN(lat)) {
+                //move map
+                var position = new OpenLayers.LonLat(lon, lat);
+                position.transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
+                map.setCenter(position);
+                // move marker
+                this.createMarker(position);
+            }
+        }, this);
     },
 
     createMarker: function(lonlat) {

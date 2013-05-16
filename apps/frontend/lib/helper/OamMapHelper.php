@@ -50,8 +50,6 @@ function show_georef_map($lon, $lat, $layer)
             });
         };";
 
-    // TODO: update marker position if coords are changed by hand in form
-
     // asynchronous map loading
     if ($async_map)
     {

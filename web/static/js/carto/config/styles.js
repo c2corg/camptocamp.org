@@ -4,6 +4,7 @@
 
 /**
  * See http://docs.openlayers.org/library/feature_styling.html
+ * This script configures how the features are styled on the map
  */
 
 Ext.namespace("c2corg");
