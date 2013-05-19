@@ -444,12 +444,8 @@ all:
       'ityp': ''
 
   google:
-    # google maps key
     # google apis key
-    # see https://code.google.com/apis/console
-    # this one is configured to be used from *.camptocamp.org,
-    # and localhost only
-    api_key: 'AIzaSyDXFlFziDDG2ThH47z1V3-KmAS6_vA5GUg'
+    api_key: '@GOOGLE_API_KEY@'
     # google custom search engines
     # see http://www.google.com/cse
     cse:
@@ -465,6 +461,7 @@ all:
       forums: '013271627684039046788:rqqb4ydcfim'
 
   geoportail_key: '@GEOPORTAIL_KEY@'
+
   async_map: true
 
   # this section is used to set group names that are stored in bdd

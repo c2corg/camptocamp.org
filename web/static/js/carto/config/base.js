@@ -41,7 +41,8 @@ c2corg.base = {
             ptype: "cgxp_osmsource"
         },
         "google": {
-            ptype: "cgxp_googlesource"
+            ptype: "cgxp_googlesource",
+            otherParams: "sensor=false&key=" + c2corg.config.googleKey
         }
     },
 

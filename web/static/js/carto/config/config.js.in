@@ -6,5 +6,6 @@ c2corg.config = {
     staticBaseUrl: "@STATIC_BASE_URL@",
     mapserverUrl:  "/cgi-bin/c2corg_wms",
     ignKey:        "@GEOPORTAIL_KEY@",
+    googleKey:     "@GOOGLE_API_KEY@",
     helpUrl:       "/articles/252637"
 };
