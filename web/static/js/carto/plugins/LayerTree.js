@@ -20,7 +20,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
 
     init: function() {
         c2corg.plugins.LayerTree.superclass.init.apply(this, arguments);
-        this.target.on('ready', this.viewerReady, this);
+        this.target.on("ready", this.viewerReady, this);
     },
 
     viewerReady: function() {
@@ -39,7 +39,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
         }, config || {});
 
         this.tree = c2corg.plugins.LayerTree.superclass.addOutput.call(this, config);
-        this.tree.findParentByType('window').alignTo(this.target.mapPanel.getEl(), "tr-tr", [-20, 45]);
+        this.tree.findParentByType("window").alignTo(this.target.mapPanel.getEl(), "tr-tr", [-20, 45]);
         return this.tree;
     }
 });
@@ -50,7 +50,7 @@ Ext.namespace("c2corg.tree");
 
 c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
-    baseCls: 'layertree',
+    baseCls: "layertree",
     enableDD: false,
     rootVisible: false,
     useArrows: true,
@@ -60,7 +60,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
     initialThemes: null,
     
     stateEvents: ["layervisibilitychange"],
-    stateId: 'tree',
+    stateId: "tree",
 
     url: null,
     layers: {},
@@ -79,7 +79,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
              */
             "layervisibilitychange"
         );
-        this.on('checkchange', function(node, checked) {
+        this.on("checkchange", function(node, checked) {
             this.fireEvent("layervisibilitychange");
         }, this);
     },
@@ -133,7 +133,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             text: OpenLayers.i18n("summits"),
             nodeType: "gx_layer",
             layer: this.layers["summits"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/summits_mini.png",
+            iconCls: "picto_summits",
             expanded: false,
             children: [{
                 text: OpenLayers.i18n("pass"),
@@ -152,7 +152,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             text: OpenLayers.i18n("parkings"),
             nodeType: "gx_layer",
             layer: this.layers["access"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/parkings_mini.png",
+            iconCls: "picto_parkings",
             expanded: false,
             children: [{
                 text: OpenLayers.i18n("public_transportations"),
@@ -163,7 +163,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             text: OpenLayers.i18n("huts"),
             nodeType: "gx_layer",
             layer: this.layers["huts"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/huts_mini.png",
+            iconCls: "picto_huts",
             expanded: false,
             children: [{
                 text: OpenLayers.i18n("gite"),
@@ -178,13 +178,13 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             text: OpenLayers.i18n("sites"),
             nodeType: "gx_layer",
             layer: this.layers["sites"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/sites_mini.png",
+            iconCls: "picto_sites",
             leaf: true
         }, {
             text: OpenLayers.i18n("routes"),
             nodeType: "gx_layer",
             layer: this.layers["routes"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/routes_mini.png",
+            iconCls: "picto_routes",
             leaf: true
         }, {
             text: OpenLayers.i18n("other"),
@@ -193,31 +193,31 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 text: OpenLayers.i18n("users"),
                 nodeType: "gx_layer",
                 layer: this.layers["users"],
-                icon: c2corg.config.staticBaseUrl + "/static/images/modules/users_mini.png",
+                iconCls: "picot_users",
                 leaf: true
             }, {
                 text: OpenLayers.i18n("images"),
                 nodeType: "gx_layer",
                 layer: this.layers["images"],
-                icon: c2corg.config.staticBaseUrl + "/static/images/modules/images_mini.png",
+                iconCls: "picto_images",
                 leaf: true
             }, {
                 text: OpenLayers.i18n("products"),
                 nodeType: "gx_layer",
                 layer: this.layers["products"],
-                icon: c2corg.config.staticBaseUrl + "/static/images/modules/products_mini.png",
+                iconCls: "picto_products",
                 leaf: true
             }, {
                 text: OpenLayers.i18n("outings"),
                 nodeType: "gx_layer",
                 layer: this.layers["outings"],
-                icon: c2corg.config.staticBaseUrl + "/static/images/modules/outings_mini.png",
+                iconCls: "picto_outings",
                 leaf: true
             }, {
                 text: OpenLayers.i18n("maps"),
                 nodeType: "gx_layer",
                 layer: this.layers["maps"],
-                icon: c2corg.config.staticBaseUrl + "/static/images/modules/maps_mini.png",
+                iconCls: "picto_maps",
                 leaf: true
             }, {
                 text: OpenLayers.i18n("areas"),
@@ -273,7 +273,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             }
         }
         if (layers) {
-            state['layers'] = layers.join(",");
+            state["layers"] = layers.join(",");
         }
         return state;
     },
@@ -301,15 +301,15 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                         width: 440,
                         height: 200,
                         autoScroll: true,
-                        cls: 'popup_content',
+                        cls: "popup_content",
                         location: feature
                     });
                     popup.show();
-                    var popupUrl = '/' + feature.data.module + '/popup/' + feature.data.id + '/raw/true';
+                    var popupUrl = "/" + feature.data.module + "/popup/" + feature.data.id + "/raw/true";
                     popup.load({
                         url: popupUrl,
                         timeout: 60,
-                        text: OpenLayers.i18n('Please wait...')
+                        text: OpenLayers.i18n("Please wait...")
                     });
                 },
                 scope: this
@@ -325,7 +325,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
     }
 });
 
-Ext.reg('c2corg_layertree', c2corg.tree.LayerTree);
+Ext.reg("c2corg_layertree", c2corg.tree.LayerTree);
 
 Ext.namespace("c2corg.control");
 
@@ -340,7 +340,7 @@ c2corg.control.hoverFeature = OpenLayers.Class(OpenLayers.Control.SelectFeature,
         OpenLayers.Control.SelectFeature.prototype.initialize.apply(this, [layers, options]);
 
         this.protocol = new OpenLayers.Protocol.HTTP({
-            url: '/documents/tooltipPreview',
+            url: "/documents/tooltipPreview",
             format: new OpenLayers.Format.JSON(),
             params: {}
         }); 
@@ -375,11 +375,11 @@ c2corg.control.hoverFeature = OpenLayers.Class(OpenLayers.Control.SelectFeature,
                         var lonlat = this.currentFeature.bounds.getCenterLonLat();
                     }
                     var px = this.map.getViewPortPxFromLonLat(lonlat);
-                    this.div.innerHTML = OpenLayers.i18n('${item}. Click to show info', {
+                    this.div.innerHTML = OpenLayers.i18n("${item}. Click to show info", {
                         item: result.features.name
                     });
-                    this.div.style.top = (px.y + 10) + 'px';
-                    this.div.style.left = (px.x + 10) + 'px';
+                    this.div.style.top = (px.y + 10) + "px";
+                    this.div.style.left = (px.x + 10) + "px";
                     this.div.style.display = "block";
                 }
             },
