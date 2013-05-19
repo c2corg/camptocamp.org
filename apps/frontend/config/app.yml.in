@@ -445,11 +445,10 @@ all:
 
   google:
     # google maps key
-    maps_key: @GMAPS_KEY@
     # google apis key
     # see https://code.google.com/apis/console
     # this one is configured to be used from *.camptocamp.org,
-    # c2cpc23.camptocamp.com and localhost only
+    # and localhost only
     api_key: 'AIzaSyDXFlFziDDG2ThH47z1V3-KmAS6_vA5GUg'
     # google custom search engines
     # see http://www.google.com/cse
