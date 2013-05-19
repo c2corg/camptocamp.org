@@ -2,6 +2,9 @@
 # It requires the jsbuild binary, a tool from the python jstools suite
 # See http://github.com/whitmo/jstools
 
+# exit as soon as one command fails
+set -e
+
 # Create c2c map i18n files
 mkdir tmp
 for culture in fr it de en es ca eu
