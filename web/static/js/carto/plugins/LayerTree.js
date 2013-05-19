@@ -137,15 +137,15 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             expanded: false,
             children: [{
                 text: OpenLayers.i18n("pass"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/pass.png",
+                iconCls: "picto_pass",
                 leaf: true
             },{
                 text: OpenLayers.i18n("lake"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/lake.png",
+                iconCls: "picto_lake",
                 leaf: true
             },{
                 text: OpenLayers.i18n("valley"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/crag.png",
+                iconCls: "picto_crag",
                 leaf: true
             }]  
         }, {
@@ -156,7 +156,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             expanded: false,
             children: [{
                 text: OpenLayers.i18n("public_transportations"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/parking_green.png",
+                iconCls: "picto_parking_green",
                 leaf: true
             }]
         }, {
@@ -167,11 +167,11 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             expanded: false,
             children: [{
                 text: OpenLayers.i18n("gite"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/gite.png",
+                iconCls: "picto_gite",
                 leaf: true
             }, {
                 text: OpenLayers.i18n("camping area"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/camp.png",
+                iconCls: "picto_camp",
                 leaf: true
             }]
         }, {
@@ -193,7 +193,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 text: OpenLayers.i18n("users"),
                 nodeType: "gx_layer",
                 layer: this.layers["users"],
-                iconCls: "picot_users",
+                iconCls: "picto_users",
                 leaf: true
             }, {
                 text: OpenLayers.i18n("images"),
@@ -222,24 +222,24 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             }, {
                 text: OpenLayers.i18n("areas"),
                 expanded: false,
-                icon: c2corg.config.staticBaseUrl + "/static/images/modules/areas_mini.png",
+                iconCls: "picto_areas",
                 children: [{
                     text: OpenLayers.i18n("ranges"),
                     nodeType: "gx_layer",
                     layer: this.layers["ranges"],
-                    icon: Ext.BLANK_IMAGE_URL,
+                    iconCls: "picto_blank",
                     leaf: true
                 }, {
                     text: OpenLayers.i18n("admin boundaries"),
                     nodeType: "gx_layer",
                     layer: this.layers["admin_limits"],
-                    icon: Ext.BLANK_IMAGE_URL,
+                    iconCls: "picto_blank",
                     leaf: true
                 }, {
                     text: OpenLayers.i18n("countries"),
                     nodeType: "gx_layer",
                     layer: this.layers["countries"],
-                    icon: Ext.BLANK_IMAGE_URL,
+                    iconCls: "picto_blank",
                     leaf: true
                 }]
             }]

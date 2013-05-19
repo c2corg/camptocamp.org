@@ -48,3 +48,16 @@ input[type=text].x-form-field {
 {
   padding-top: 0.7em;
 }
+
+// pictos for layertree that are not indcluded in base css
+// note that !important is only needed for the treelayer from maps (css specificty)
+// TODO maybe we can do something better...
+$pictos: pass, lake, crag, parking_green, gite, camp;
+@each $picto in $pictos {
+  .picto_#{$picto} {
+    @include -c2c-datauri-background('/static/images/picto/#{$picto}.png', no-repeat 0 !important);
+  }
+}
+.picto_blank {
+  @include -c2c-datauri-background('/static/js/carto/cgxp/ext/Ext/resources/images/default/s.gif', no-repeat 0 !important);
+}
