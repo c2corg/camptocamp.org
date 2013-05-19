@@ -82,5 +82,6 @@ OpenLayers.Util.extend(OpenLayers.Lang.<?php echo $culture ?>, {
   "Please wait...": "<?php echo __(' loading...')?>",
   //"${nb_items} items. Click to show info": "<?php echo __('${nb_items} items. Click to show info')?>",
   "${item}. Click to show info": "<?php echo __('${item}. Click to show info')?>",
-  //"Map URL": "<?php echo __('Map URL')?>"
+  //"Map URL": "<?php echo __('Map URL')?>",
+  "More...": "<?php echo __('More...')?>"
 });

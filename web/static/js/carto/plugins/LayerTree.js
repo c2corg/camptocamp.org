@@ -187,7 +187,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             iconCls: "picto_routes",
             leaf: true
         }, {
-            text: OpenLayers.i18n("other"),
+            text: OpenLayers.i18n("More..."),
             expanded: false,
             children: [{
                 text: OpenLayers.i18n("users"),
