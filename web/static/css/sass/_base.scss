@@ -1217,7 +1217,7 @@ a.close_btn {
 
   #footer_border_right
   {
-     background: url(-c2c-datauri('/static/images/footer_border_right.gif')) no-repeat 0;
+    background: url(-c2c-datauri('/static/images/footer_border_right.gif')) no-repeat 0;
     float: right;
   }
 
@@ -1231,6 +1231,7 @@ a.close_btn {
   .map_content #footer_border_left, .map_content #footer_border_right
   {
     height: 40px;
+    background-position-y: 0;
   }
 }
 

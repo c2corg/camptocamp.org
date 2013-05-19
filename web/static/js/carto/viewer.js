@@ -9,7 +9,6 @@ Ext.onReady(function () {
             items: [{
                 region: "north",
                 id: 'mapheader',
-                //margins: '0 0 20 0',
                 contentEl: 'page_header'
             },
             {
@@ -22,6 +21,12 @@ Ext.onReady(function () {
                 tbar: [],
                 bbar: [],
                 items: ["app-map"]
+            },
+            {
+                region: "south",
+                id: "mapfooter",
+                contentEl: "footer",
+                margins: '10 0 0 0'
             }]
         },
 
