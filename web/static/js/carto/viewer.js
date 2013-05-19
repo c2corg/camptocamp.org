@@ -49,12 +49,6 @@ Ext.onReady(function () {
             defaultBaseLayerRef: "google_terrain"
         },
         {
-            ptype: "gxp_zoomtoextent",
-            actionTarget: "center.tbar",
-            closest: true,
-            extent: c2corg.base.initialExtent
-        },
-        {
             ptype: "cgxp_zoom",
             actionTarget: "center.tbar",
             toggleGroup: "maptools"
