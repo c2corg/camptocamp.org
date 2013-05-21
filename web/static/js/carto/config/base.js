@@ -26,10 +26,10 @@ c2corg.base = {
         matrixSet: "PM",
         style: "normal",
         numZoomLevels: 19,
-        attribution: "&copy;IGN <a href="http://www.geoportail.fr/" target="_blank">" +
-                     "<img src="http://api.ign.fr/geoportail/api/js/2.0.0beta/theme/geoportal/img/logo_gp.gif">" +
-                     "</a> <a href="http://www.geoportail.gouv.fr/depot/api/cgu/licAPI_CGUF.pdf" " +
-                     "alt="TOS" title="TOS" target="_blank">Terms of Service</a>"
+        attribution: '&copy;IGN <a href="http://www.geoportail.fr/" target="_blank">' +
+                     '<img src="http://api.ign.fr/geoportail/api/js/2.0.0beta/theme/geoportal/img/logo_gp.gif">' +
+                     '</a> <a href="http://www.geoportail.gouv.fr/depot/api/cgu/licAPI_CGUF.pdf" ' +
+                     'alt="TOS" title="TOS" target="_blank">' + OpenLayers.i18n('Terms of Service') + '</a>'
     },
 
     // layer sources
