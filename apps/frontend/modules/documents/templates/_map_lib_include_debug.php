@@ -228,6 +228,7 @@ use_javascript('/static/js/carto/cgxp/core/src/script/CGXP/widgets/tree/TreeNode
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Handler/Polygon.js', 'maps');
 use_javascript('/static/js/carto/cgxp/core/src/script/CGXP/plugins/Geonames.js', 'maps');
 use_javascript('/static/js/carto/cgxp/core/src/script/CGXP/plugins/MenuShortcut.js', 'maps');
+use_javascript('/static/js/carto/cgxp/core/src/script/CGXP/plugins/MyPosition.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers.addins/URLCompressed/lib/OpenLayers/Format/URLCompressed.js', 'maps');
 use_javascript('/static/js/carto/cgxp/sandbox/FeatureEditing/ux/widgets/form/FeatureEditingPanel.js', 'maps');
 use_javascript('/static/js/carto/cgxp/sandbox/FeatureEditing/ux/widgets/form/RedLiningPanel.js', 'maps');
@@ -245,7 +246,6 @@ use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Icon.js', 'maps'
 use_javascript('/static/js/carto/plugins/LayerTree.js', 'maps');
 use_javascript('/static/js/carto/plugins/ShowFeatures.js', 'maps');
 use_javascript('/static/js/carto/plugins/GeoRef.js', 'maps');
-use_javascript('/static/js/carto/plugins/MyPosition.js', 'maps');
 
 // Project-specific configs and tools
 use_javascript('/static/js/carto/config/config.js', 'maps');
