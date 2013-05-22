@@ -6,7 +6,7 @@
 set -e
 
 # Create c2c map i18n files
-mkdir tmp
+mkdir -p tmp
 for culture in fr it de en es ca eu
 do
   php mapi18n.php $culture > tmp/map-i18n-$culture.js
