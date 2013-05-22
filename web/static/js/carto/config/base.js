@@ -88,16 +88,19 @@ c2corg.base.basemaps = [{
     source: "osm",
     name: "mapnik",
     group: "background",
+    visibility: false,
     ref: "osm"
 }, {
     source: "google",
     name: "TERRAIN",
     group: "background",
+    visibility: false,
     ref: "google_terrain"
 }, {
     source: "google",
     name: "HYBRID",
     group: "background",
+    visibility: false,
     ref: "google_hybrid"
 }, {
     source: "olsource",
@@ -107,6 +110,7 @@ c2corg.base.basemaps = [{
         name: OpenLayers.i18n("IGN maps"),
         layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
         ref: "ign_maps",
+        visibility: false,
         group : "background"
     }, c2corg.base.ignOptions)]
 }, {
@@ -118,6 +122,7 @@ c2corg.base.basemaps = [{
         layer: "ORTHOIMAGERY.ORTHOPHOTOS",
         numZoomLevels: 20,
         ref: "ign_ortho",
+        visibility: false,
         group : "background"
     }, c2corg.base.ignOptions)]
 }];
