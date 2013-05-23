@@ -39,7 +39,6 @@ Ext.onReady(function () {
                 header: true,
                 width: 250
             },
-            //initialThemes: ['summits'],
             url: c2corg.config.mapserverUrl
         },
         {

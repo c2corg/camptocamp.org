@@ -68,7 +68,7 @@ OpenLayers.Util.extend(OpenLayers.Lang.<?php echo $culture ?>, {
   //"See next item": "<?php echo __('next page')?>",
   //"See previous item": "<?php echo __('previous page')?>",
   //"length measure": "<?php echo __('length measure')?>",
-  "My position": "<?php echo __('My position')?>",
+  //"My position": "<?php echo __('My position')?>",
   //"Measure": "<?php echo __('Distance')?>",
   //"map query": "<?php echo __('map query')?>",
   "Go to...": "<?php echo __('Go to...')?>",
