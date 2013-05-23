@@ -19,7 +19,7 @@ Ext.onReady(function () {
                 bodyStyle: 'background: none',
                 margins: '5 20 0 20',
                 tbar: [],
-                bbar: [],
+                //bbar: [], // uncomment before adding tools to bottom toolbar
                 items: ["app-map"]
             },
             {
