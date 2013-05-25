@@ -6984,6 +6984,8 @@ msgstr "huella, sendero"
 msgid "track_status"
 msgstr "Huella:"
 
+# [general comment]
+# sur la page user, lien vers la liste des modifs par d'autres utilisateurs des docs qu'on a créés ou modifiés
 # [WARNING] en translation used
 msgid "tracking"
 msgstr "tracking"

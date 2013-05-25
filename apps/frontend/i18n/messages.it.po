@@ -6981,6 +6981,8 @@ msgstr "traccia, sentiero"
 msgid "track_status"
 msgstr "Traccia:"
 
+# [general comment]
+# sur la page user, lien vers la liste des modifs par d'autres utilisateurs des docs qu'on a créés ou modifiés
 # [WARNING] needs_review
 msgid "tracking"
 msgstr "segui"
