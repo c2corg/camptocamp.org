@@ -31,18 +31,11 @@ function include_body_javascripts($debug = false)
     return _include_javascripts(array('first', '', 'last'), $debug, $already_seen);
 }
 
-// those javascripts are never minified (aka $debug = true)
-// see other helper
-function include_maps_javascripts()
+function include_maps_javascripts($debug = false)
 {
-    if (sfConfig::get('app_async_map', true) && sfContext::getInstance()->getRequest()->getparameter('action') != 'map')
+    if (!sfConfig::get('app_async_map', true) || sfContext::getInstance()->getRequest()->getparameter('action') == 'map')
     {
-        $js = _include_javascripts(array('maps'), true);
-        return empty($js) ? '' : '<!--[if IE]>' . $js . '<![endif]-->';
-    }
-    else
-    {
-        return _include_javascripts(array('maps'), true);
+        return _include_javascripts(array('maps'), $debug);
     }
 }
 

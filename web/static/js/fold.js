@@ -107,8 +107,11 @@
       registerFoldStatus(container_id, 15, !div.visible());
 
       // load map if needed
+      // - presence of mapLoading div shows that map has not been created yet
+      // - if map_load_async is defined, the map js should be retrieved asynchonously
+      // - the delay is to ensure that div is opened and ready for initiating the map
       if (!div_visible && $('#mapLoading').length) {
-        setTimeout(c2corgloadMapAsync ? asyncloadmap : c2corg.embeddedMap.init, 600);
+        setTimeout(typeof map_load_async !== 'undefined' ? asyncloadmap : map_init, 600);
       }
     } else if (container_id == 'elevation_profile_container') {
       if (!div_visible && !div.hasClass('profile_loaded')) {

@@ -1,10 +1,10 @@
 <?php
 use_helper('Javascript', 'I18N');
 
-function show_georef_map($lon, $lat, $lang, $layer)
+function show_georef_map($lon, $lat, $layer)
 {
-    include_partial('documents/map_i18n');
-    
+    $lang = sfContext::getInstance()->getUser()->getCulture();
+
     if (empty($layer))
     {
         $layer = sfContext::getInstance()->getModuleName();
@@ -16,9 +16,14 @@ function show_georef_map($lon, $lat, $lang, $layer)
     $html .= '</div>';
     $html .= '</div>';
 
-    $html .= javascript_tag("
-        openGeorefMap = function(lon, lat) {
+    $async_map = sfConfig::get('app_async_map', false) &&
+                 !sfContext::getInstance()->getRequest()->getParameter('debug', false);
+
+    $js = "
+        map_init = function() {
             Ext.get('georef_container').show();
+            var lon = Ext.getDom('lon') && Ext.getDom('lon').value || 0;
+            var lat = Ext.getDom('lat') && Ext.getDom('lat').value || 0;
             c2corg.Map({
                 div: 'map',
                 lang: '$lang',
@@ -43,14 +48,41 @@ function show_georef_map($lon, $lat, $lang, $layer)
                     }
                 }
             });
-        };
-    "); 
-    // TODO: update marker position if coords are changed by hand in form
+        };";
 
-    if (!$lon && !$lat && !in_array($layer, array('sites', 'users', 'images', 'portals'))) // TODO this is broken with ie, do not launch it automatically in this case
+    // asynchronous map loading
+    if ($async_map)
     {
-        $html .= javascript_tag("if(!Prototype.Browser.IE) {Event.observe(window, 'load', function(){openGeorefMap(0,0);});}");
+        use_helper('MyMinify');
+        $c2c_script_url = minify_get_combined_files_url(
+          array('/static/js/carto/build/app.js', "/static/js/carto/build/lang-$lang.js", '/static/js/carto/embedded.js'),
+          (bool) sfConfig::get('app_minify_debug'));
+
+        $js .= "
+            function c2c_asyncload(jsurl) {
+              var a = document.createElement('script'),
+              h = document.getElementsByTagName('head')[0];
+              a.async = 1; a.src = jsurl; h.appendChild(a);
+            }
+            function map_load_async() {
+                c2c_asyncload('$c2c_script_url');
+            }";
     }
+
+    // if coordinates not set, open automatically open the map
+    if (!$lon && !$lat && !in_array($layer, array('sites', 'users', 'images', 'portals')))
+    {
+        if ($async_map)
+        {
+            $js .= "map_load_async();";
+        }
+        else
+        {
+            $js .= "Event.observe(window, 'load', map_init)";
+        }
+    }
+
+    $html .= javascript_tag($js);
     
     return $html;
 }
@@ -58,16 +90,25 @@ function show_georef_map($lon, $lat, $lang, $layer)
 function _loadJsOamTools()
 {
     $debug = sfContext::getInstance()->getRequest()->getParameter('debug', false);
+    $async_map = sfConfig::get('app_async_map', false);
     $lang = sfContext::getInstance()->getUser()->getCulture();
-    if ($debug) {
+
+    if ($debug)
+    {
         include_partial('documents/map_lib_include_debug');
-    } else {
-        use_stylesheet('/static/js/carto/build/app.css', 'custom');
-        use_javascript('/static/js/carto/build/app.js', 'maps');
     }
-    use_stylesheet('/static/js/carto/carto.css', 'custom'); // FIXME: build CSS
-    use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
-    use_javascript('/static/js/carto/embedded.js', 'maps');
+    else
+    {
+        use_stylesheet('/static/css/carto_base.css', 'custom');
+        if (!$async_map) use_javascript('/static/js/carto/build/app.js', 'maps');
+    }
+    use_stylesheet('/static/css/carto.css', 'custom');
+
+    if (!$async_map || $debug)
+    {
+        use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
+        use_javascript('/static/js/carto/embedded.js', 'maps');
+    }
 }
 
 _loadJsOamTools();

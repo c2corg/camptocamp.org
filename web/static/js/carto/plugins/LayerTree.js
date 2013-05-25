@@ -10,7 +10,6 @@
  * @include OpenLayers/Control/SelectFeature.js
  * @include GeoExt/widgets/tree/LayerNode.js
  * @include styles.js
- * @include i18n.js
  */
 
 Ext.namespace("c2corg.plugins");
@@ -21,7 +20,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
 
     init: function() {
         c2corg.plugins.LayerTree.superclass.init.apply(this, arguments);
-        this.target.on('ready', this.viewerReady, this);
+        this.target.on("ready", this.viewerReady, this);
     },
 
     viewerReady: function() {
@@ -40,7 +39,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
         }, config || {});
 
         this.tree = c2corg.plugins.LayerTree.superclass.addOutput.call(this, config);
-        this.tree.findParentByType('window').alignTo(this.target.mapPanel.getEl(), "tr-tr", [-20, 45]);
+        this.tree.findParentByType("window").alignTo(this.target.mapPanel.getEl(), "tr-tr", [-20, 45]);
         return this.tree;
     }
 });
@@ -51,7 +50,7 @@ Ext.namespace("c2corg.tree");
 
 c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
-    baseCls: 'layertree',
+    baseCls: "layertree",
     enableDD: false,
     rootVisible: false,
     useArrows: true,
@@ -61,7 +60,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
     initialThemes: null,
     
     stateEvents: ["layervisibilitychange"],
-    stateId: 'tree',
+    stateId: "tree",
 
     url: null,
     layers: {},
@@ -80,7 +79,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
              */
             "layervisibilitychange"
         );
-        this.on('checkchange', function(node, checked) {
+        this.on("checkchange", function(node, checked) {
             this.fireEvent("layervisibilitychange");
         }, this);
     },
@@ -131,114 +130,118 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
     getThemes: function() {
         return [{
-            text: c2corg.i18n("summits"),
+            text: OpenLayers.i18n("summits"),
             nodeType: "gx_layer",
             layer: this.layers["summits"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/summits_mini.png",
+            iconCls: "picto_summits",
             expanded: false,
             children: [{
-                text: c2corg.i18n("pass"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/pass.png",
+                text: OpenLayers.i18n("pass"),
+                iconCls: "picto_pass",
                 leaf: true
             },{
-                text: c2corg.i18n("lake"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/lake.png",
+                text: OpenLayers.i18n("lake"),
+                iconCls: "picto_lake",
                 leaf: true
             },{
-                text: c2corg.i18n("valley"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/crag.png",
+                text: OpenLayers.i18n("valley"),
+                iconCls: "picto_crag",
                 leaf: true
             }]  
         }, {
-            text: c2corg.i18n("parkings"),
+            text: OpenLayers.i18n("parkings"),
             nodeType: "gx_layer",
             layer: this.layers["access"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/parkings_mini.png",
+            iconCls: "picto_parkings",
             expanded: false,
             children: [{
-                text: c2corg.i18n("public_transportations"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/parking_green.png",
+                text: OpenLayers.i18n("public_transportations"),
+                iconCls: "picto_parking_green",
                 leaf: true
             }]
         }, {
-            text: c2corg.i18n("huts"),
+            text: OpenLayers.i18n("huts"),
             nodeType: "gx_layer",
             layer: this.layers["huts"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/huts_mini.png",
+            iconCls: "picto_huts",
             expanded: false,
             children: [{
-                text: c2corg.i18n("gite"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/gite.png",
+                text: OpenLayers.i18n("gite"),
+                iconCls: "picto_gite",
                 leaf: true
             }, {
-                text: c2corg.i18n("camping area"),
-                icon: c2corg.config.staticBaseUrl + "/static/images/picto/camp.png",
+                text: OpenLayers.i18n("camping area"),
+                iconCls: "picto_camp",
                 leaf: true
             }]
         }, {
-            text: c2corg.i18n("sites"),
+            text: OpenLayers.i18n("sites"),
             nodeType: "gx_layer",
             layer: this.layers["sites"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/sites_mini.png",
+            iconCls: "picto_sites",
             leaf: true
         }, {
-            text: c2corg.i18n("users"),
-            nodeType: "gx_layer",
-            layer: this.layers["users"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/users_mini.png",
-            leaf: true
-        }, {
-            text: c2corg.i18n("images"),
-            nodeType: "gx_layer",
-            layer: this.layers["images"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/images_mini.png",
-            leaf: true
-        }, {
-            text: c2corg.i18n("products"),
-            nodeType: "gx_layer",
-            layer: this.layers["products"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/products_mini.png",
-            leaf: true
-        }, {
-            text: c2corg.i18n("routes"),
+            text: OpenLayers.i18n("routes"),
             nodeType: "gx_layer",
             layer: this.layers["routes"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/routes_mini.png",
+            iconCls: "picto_routes",
             leaf: true
         }, {
-            text: c2corg.i18n("outings"),
-            nodeType: "gx_layer",
-            layer: this.layers["outings"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/outings_mini.png",
-            leaf: true
-        }, {
-            text: c2corg.i18n("maps"),
-            nodeType: "gx_layer",
-            layer: this.layers["maps"],
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/maps_mini.png",
-            leaf: true
-        }, {
-            text: c2corg.i18n("areas"),
+            text: OpenLayers.i18n("More..."),
             expanded: false,
-            icon: c2corg.config.staticBaseUrl + "/static/images/modules/areas_mini.png",
             children: [{
-                text: c2corg.i18n("ranges"),
+                text: OpenLayers.i18n("users"),
                 nodeType: "gx_layer",
-                layer: this.layers["ranges"],
-                icon: Ext.BLANK_IMAGE_URL,
+                layer: this.layers["users"],
+                iconCls: "picto_users",
                 leaf: true
             }, {
-                text: c2corg.i18n("admin boundaries"),
+                text: OpenLayers.i18n("images"),
                 nodeType: "gx_layer",
-                layer: this.layers["admin_limits"],
-                icon: Ext.BLANK_IMAGE_URL,
+                layer: this.layers["images"],
+                iconCls: "picto_images",
                 leaf: true
             }, {
-                text: c2corg.i18n("countries"),
+                text: OpenLayers.i18n("products"),
                 nodeType: "gx_layer",
-                layer: this.layers["countries"],
-                icon: Ext.BLANK_IMAGE_URL,
+                layer: this.layers["products"],
+                iconCls: "picto_products",
                 leaf: true
+            }, {
+                text: OpenLayers.i18n("outings"),
+                nodeType: "gx_layer",
+                layer: this.layers["outings"],
+                iconCls: "picto_outings",
+                leaf: true
+            }, {
+                text: OpenLayers.i18n("maps"),
+                nodeType: "gx_layer",
+                layer: this.layers["maps"],
+                iconCls: "picto_maps",
+                leaf: true
+            }, {
+                text: OpenLayers.i18n("areas"),
+                expanded: false,
+                iconCls: "picto_areas",
+                children: [{
+                    text: OpenLayers.i18n("ranges"),
+                    nodeType: "gx_layer",
+                    layer: this.layers["ranges"],
+                    iconCls: "picto_blank",
+                    leaf: true
+                }, {
+                    text: OpenLayers.i18n("admin boundaries"),
+                    nodeType: "gx_layer",
+                    layer: this.layers["admin_limits"],
+                    iconCls: "picto_blank",
+                    leaf: true
+                }, {
+                    text: OpenLayers.i18n("countries"),
+                    nodeType: "gx_layer",
+                    layer: this.layers["countries"],
+                    iconCls: "picto_blank",
+                    leaf: true
+                }]
             }]
         }];
     },
@@ -270,7 +273,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             }
         }
         if (layers) {
-            state['layers'] = layers.join(",");
+            state["layers"] = layers.join(",");
         }
         return state;
     },
@@ -298,15 +301,15 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                         width: 440,
                         height: 200,
                         autoScroll: true,
-                        cls: 'popup_content',
+                        cls: "popup_content",
                         location: feature
                     });
                     popup.show();
-                    var popupUrl = '/' + feature.data.module + '/popup/' + feature.data.id + '/raw/true';
+                    var popupUrl = "/" + feature.data.module + "/popup/" + feature.data.id + "/raw/true";
                     popup.load({
                         url: popupUrl,
                         timeout: 60,
-                        text: OpenLayers.i18n('Please wait...')
+                        text: OpenLayers.i18n("Please wait...")
                     });
                 },
                 scope: this
@@ -322,7 +325,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
     }
 });
 
-Ext.reg('c2corg_layertree', c2corg.tree.LayerTree);
+Ext.reg("c2corg_layertree", c2corg.tree.LayerTree);
 
 Ext.namespace("c2corg.control");
 
@@ -337,7 +340,7 @@ c2corg.control.hoverFeature = OpenLayers.Class(OpenLayers.Control.SelectFeature,
         OpenLayers.Control.SelectFeature.prototype.initialize.apply(this, [layers, options]);
 
         this.protocol = new OpenLayers.Protocol.HTTP({
-            url: '/documents/tooltipPreview',
+            url: "/documents/tooltipPreview",
             format: new OpenLayers.Format.JSON(),
             params: {}
         }); 
@@ -372,11 +375,11 @@ c2corg.control.hoverFeature = OpenLayers.Class(OpenLayers.Control.SelectFeature,
                         var lonlat = this.currentFeature.bounds.getCenterLonLat();
                     }
                     var px = this.map.getViewPortPxFromLonLat(lonlat);
-                    this.div.innerHTML = c2corg.i18n('${item}. Click to show info', {
+                    this.div.innerHTML = OpenLayers.i18n("${item}. Click to show info", {
                         item: result.features.name
                     });
-                    this.div.style.top = (px.y + 10) + 'px';
-                    this.div.style.left = (px.x + 10) + 'px';
+                    this.div.style.top = (px.y + 10) + "px";
+                    this.div.style.left = (px.x + 10) + "px";
                     this.div.style.display = "block";
                 }
             },

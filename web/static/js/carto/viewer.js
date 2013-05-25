@@ -1,7 +1,7 @@
 Ext.onReady(function () {
 
     // Set OpenLayers/GeoExt params + lang
-    c2corg.base.init(mapLang || "fr");
+    c2corg.base.init(document.documentElement.lang);
     
     app = new gxp.Viewer({
         portalConfig: {
@@ -9,7 +9,6 @@ Ext.onReady(function () {
             items: [{
                 region: "north",
                 id: 'mapheader',
-                //margins: '0 0 20 0',
                 contentEl: 'page_header'
             },
             {
@@ -20,8 +19,14 @@ Ext.onReady(function () {
                 bodyStyle: 'background: none',
                 margins: '5 20 0 20',
                 tbar: [],
-                bbar: [],
+                //bbar: [], // uncomment before adding tools to bottom toolbar
                 items: ["app-map"]
+            },
+            {
+                region: "south",
+                id: "mapfooter",
+                contentEl: "footer",
+                margins: '10 0 0 0'
             }]
         },
 
@@ -29,12 +34,11 @@ Ext.onReady(function () {
             ptype: "c2corg_layertree",
             outputConfig: {
                 closable: false,
-                title: c2corg.i18n("c2c data"),
+                title: OpenLayers.i18n("c2c data"),
                 collapsible: true,
                 header: true,
                 width: 250
             },
-            //initialThemes: ['summits'],
             url: c2corg.config.mapserverUrl
         },
         {
@@ -44,15 +48,13 @@ Ext.onReady(function () {
             defaultBaseLayerRef: "google_terrain"
         },
         {
-            ptype: "gxp_zoomtoextent",
-            actionTarget: "center.tbar",
-            closest: true,
-            extent: c2corg.base.initialExtent
-        },
-        {
             ptype: "cgxp_zoom",
             actionTarget: "center.tbar",
             toggleGroup: "maptools"
+        },
+        {
+            ptype: "cgxp_myposition",
+            actionTarget: "center.tbar"
         },
         {
             ptype: "gxp_navigationhistory",
@@ -74,7 +76,11 @@ Ext.onReady(function () {
         },
         {
             ptype: "cgxp_geonames",
-            actionTarget: "center.tbar"
+            actionTarget: "center.tbar",
+            emptyText: OpenLayers.i18n("Go to..."),
+            loadingText: OpenLayers.i18n("Please wait..."),
+            url: "http://api.geonames.org/searchJSON?featureClass=P&featureClass=T" +
+                 "&username=c2corg&lang=" + OpenLayers.Lang.getCode()
         },
         {
             ptype: "cgxp_help",
@@ -87,7 +93,7 @@ Ext.onReady(function () {
 
         // map and layers
         map: Ext.apply({
-            id: "app-map", // id needed to reference map in portalConfig above
+            id: "app-map" // id needed to reference map in portalConfig above
         }, c2corg.base.getMap())
     });
 

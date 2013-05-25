@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ raid, rayonrando, camp_b, chamMtnFest, montania, google, changerdapproche, cilao, camp_b, boutique_c2c, raid, changerdapproche ]
+    values: [ raid, rayonrando, camp_g, chamMtnFest, montania, bd_zpole, changerdapproche, cilao, camp_g, boutique_c2c, raid, changerdapproche ]
   banners:
     list:
       skalp:
@@ -175,16 +175,16 @@ all:
         image: camp-e.gif
         alt: ""
       camp_f:
-        id: 50
-        image: camp-f.gif
+        id: 74
+        image: camp-f2.gif
         alt: ""
       camp_g:
-        id: 51
-        image: camp-g.gif
+        id: 75
+        image: camp-g2.gif
         alt: ""
       camp_h:
-        id: 52
-        image: camp-h.gif
+        id: 76
+        image: camp-h2.gif
         alt: ""
       camp_gravitezero:
         id: 53
@@ -212,7 +212,7 @@ all:
         alt: "Expé"
       montania:
         id: 60
-        image: montania_deuter.gif
+        image: montania_patagonia.gif
         alt: "Montania Sport"
       ibex:
         id: 61
@@ -234,7 +234,7 @@ all:
         type: flash
         width: 468
         height: 60
-        file: rayonrando.swf
+        file: rayonrando2.swf
       raid:
         id: 68
         image: c2c-raid.png
@@ -243,3 +243,26 @@ all:
         id: 69
         image: chamMtnFest2.gif
         alt: "Chamonix Mountain Festival"
+      camp_i:
+        id: 73
+        image: camp-i.gif
+        alt: ""
+      bd_revolt:
+        id: 70
+        type: flash
+        width: 468
+        height: 60
+        file: bd_revolt_FR.swf
+      bd_zpole:
+        id: 71
+        type: flash
+        width: 468
+        height: 60
+        file: bd_z-pole_FR.swf
+      bd_vector:
+        id: 72
+        type: flash
+        width: 468
+        height: 60
+        file: bd_vector_FR.swf
+

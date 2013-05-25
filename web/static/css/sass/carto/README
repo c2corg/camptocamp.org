@@ -1,0 +1,7 @@
+The .scss files here are symbolic links to .css files from CGXP/GXP/OpenLayers in web/static/js/carto folder.
+This allows us to easily build the map tool css file with sass
+Note that all image paths are wrong, BUT, as we overwrite them and uriencode them, this is no problem (except for the
+fallback for browsers that don't support data uris, aka IE<8)
+
+
+This list should be consistent with appas/frontend/modules/documents/templates/_map_lib_include_debug.php

@@ -4977,6 +4977,7 @@ msgstr "chasm"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
+# [WARNING] needs_update
 msgid "home_description"
 msgstr "Es un lugar de intercambio multilingüe dedicado al alpinismo, a la escalada en roca, la escalada en hielo y mixto (dry-tooling), al esquí de montaña y al senderismo. Encontrara una <a href=\"/articles/117868\"> topo-guía </a> con más de 20&nbsp;000 itinerarios, las <a href=\"/outings/conditions\">condiciones</a> encontradas en las salidas más recientes, <a href=\"/articles\">artículos</a>, <a href=\"/forums/?lang=es\">foros</a>, un <a href=\"/images\">álbum</a>...<br />Es un espacio colaborativo gestionado por una <a href=\"/articles/106726 \">asociación</a> que privilegia los <a href=\"/articles/106728 \"> contenidos libres de derechos </a>. ¡No dude en <a href=\"/signUp\"> registrarse</a>  (gratuitamente) y a contribuir al sitio!"
 

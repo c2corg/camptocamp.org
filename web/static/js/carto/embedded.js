@@ -77,11 +77,15 @@ c2corg.Map = function (config) {
     tools.push({
         ptype: "cgxp_menushortcut",
         actionTarget: "map.tbar",
-        type: '->'
+        type: "->"
     },
     {
         ptype: "cgxp_geonames",
-        actionTarget: "map.tbar"
+        actionTarget: "map.tbar",
+        emptyText: OpenLayers.i18n("Go to..."),
+        loadingText: OpenLayers.i18n("Please wait..."),
+        url: "http://api.geonames.org/searchJSON?featureClass=P&featureClass=T" +
+             "&username=c2corg&lang=" + config.lang
     });
     
     viewer = new gxp.Viewer({
@@ -96,7 +100,7 @@ c2corg.Map = function (config) {
         map: mapConfig
     });
 
-    viewer.on('ready', function () {
+    viewer.on("ready", function () {
         
         // remove loading message if any
         if (config.loading) {
@@ -113,8 +117,14 @@ c2corg.Map = function (config) {
         }
 
         // FIXME: resize event is not detected
-        viewer.portal.body.on('resize', function () {
+        viewer.portal.body.on("resize", function () {
             viewer.portal.doLayout();
         });
     }, viewer, config);
 };
+
+// if map_load_async is defined, it means that carto js has been loaded asynchronously,
+// and we should now init the map
+if (typeof map_load_async !== "undefined") {
+    map_init();
+}

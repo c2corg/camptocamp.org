@@ -3,8 +3,6 @@ use_helper('Form', 'Javascript');
 
 function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $center = null, $has_geom = null)
 {
-    include_partial('documents/map_i18n');
-
     // define div identifiers
     $map_container_div_id   = $container_div . '_section_container';
     $app_static_url = sfConfig::get('app_static_url');
@@ -87,37 +85,41 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     $html .= '</div>';
     $html .= '</div></section>';
 
-    $html .= javascript_tag("
-        Event.observe(window, 'load', function() {
-            c2corg.Map({
-                div: 'map',
-                lang: '$lang',
-                loading: 'mapLoading',
-                layers: $layers_list,
-                center: $init_center,
-                features: " . _makeFeatureCollection($objects_list) . "
-            });
-        });
-    ");
+    $async_map = sfConfig::get('app_async_map', false) &&
+                 !sfContext::getInstance()->getRequest()->getParameter('debug', false);
 
-/*
-// TODO: asynchronous map loading
-    if (sfConfig::get('app_async_map', true))
+    $js = "
+        function map_init() {
+          c2corg.Map({
+            div: 'map',
+            lang: '$lang',
+            loading: 'mapLoading',
+            layers: $layers_list,
+            center: $init_center,
+            features: " . _makeFeatureCollection($objects_list) . "
+          });
+        }";
+
+    // asynchronous map loading
+    if ($async_map)
     {
         use_helper('MyMinify');
-        // FIXME if using ie for async load, set $debug to true, because minifying the js currently breaks ie
-        $c2c_script_url = minify_get_combined_files_url(array('/static/js/carto/build/xapi.js',
-                                                              '/static/js/carto/build/lang-fr.js',
-                                                              '/static/js/carto/docmap.js'),
-                                                        (bool)sfConfig::get('app_minify_debug'));
+        $c2c_script_url = minify_get_combined_files_url(
+          array('/static/js/carto/build/app.js', "/static/js/carto/build/lang-$lang.js", '/static/js/carto/embedded.js'),
+          (bool) sfConfig::get('app_minify_debug'));
 
-        // FIXME extjs uses document.write with ie, so we cannot for the moment use async loading with ie
-        $html .= javascript_tag('
-if (!Prototype.Browser.IE) { var c2corgloadMapAsync = true; }
-function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0]; a.async = 1; a.src = jsurl; h.appendChild(a); }
-function asyncloadmap() { if (!Prototype.Browser.IE) { c2c_asyncload(\''.$c2c_script_url.'\'); }}');
+        $js .= "
+            function c2c_asyncload(jsurl) {
+              var a = document.createElement('script'),
+              h = document.getElementsByTagName('head')[0];
+              a.async = 1; a.src = jsurl; h.appendChild(a);
+            }
+            function map_load_async() {
+                c2c_asyncload('$c2c_script_url');
+            }";
     }
-*/
+
+    $html .= javascript_tag($js);
 
     return $html;
 }
@@ -147,16 +149,26 @@ function _addAssociatedDocsWithGeom($docs, &$objects_list)
 function _loadJsMapTools()
 {
     $debug = sfContext::getInstance()->getRequest()->getParameter('debug', false);
+    $async_map = sfConfig::get('app_async_map', false);
     $lang = sfContext::getInstance()->getUser()->getCulture();
-    if ($debug) {
+
+    if ($debug)
+    {
         include_partial('documents/map_lib_include_debug');
-    } else {
-        use_stylesheet('/static/js/carto/build/app.css', 'custom');
-        use_javascript('/static/js/carto/build/app.js', 'maps');
     }
-    use_stylesheet('/static/js/carto/carto.css', 'custom'); // FIXME: build CSS
-    use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
-    use_javascript('/static/js/carto/embedded.js', 'maps');
+    else
+    {
+        use_stylesheet('/static/css/carto_base.css', 'custom');
+        if (!$async_map) use_javascript('/static/js/carto/build/app.js', 'maps');
+    }
+
+    use_stylesheet('/static/css/carto.css', 'custom');
+
+    if (!$async_map || $debug)
+    {
+        use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
+        use_javascript('/static/js/carto/embedded.js', 'maps');
+    }
 }
 
 _loadJsMapTools();

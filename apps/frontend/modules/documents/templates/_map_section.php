@@ -91,8 +91,8 @@ s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,
 ?>
 <script>
 C2C.setSectionStatus('map_container', <?php echo $cookie_position ?>, true);
-if (!C2C.shouldHide(<?php echo $cookie_position ?>, true) && typeof(c2corgloadMapAsync) != 'undefined' && c2corgloadMapAsync) {
-  document.observe('dom:loaded', asyncloadmap);
+if (!C2C.shouldHide(<?php echo $cookie_position ?>, true)) {
+  document.observe('dom:loaded', (typeof map_load_async !== 'undefined') ? map_load_async : map_init);
 }
 </script>
 <?php

@@ -4,7 +4,6 @@
  * @include OpenLayers/Layer/Markers.js
  * @include OpenLayers/Marker.js
  * @include OpenLayers/Icon.js
- * @include i18n.js
  */
 
 Ext.namespace("c2corg.plugins");
@@ -28,6 +27,7 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
     viewerReady: function() {
         var map = this.target.mapPanel.map;
 
+        // display picto if lat lon exist
         this.markerLayer = new OpenLayers.Layer.Markers("Markers");
         map.addLayer(this.markerLayer);
 
@@ -38,6 +38,21 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
 
             this.createMarker(this.initialLonlat); 
         }
+
+        // watch lat lon fields and update markers if needed
+        var inputs = ['lon', 'lon_deg', 'lon_min', 'lon_sec', 'lat', 'lat_deg', 'lat_min', 'lat_sec'];
+        Ext.select(inputs).on('change', function(evt, elm) {
+            var lon = Ext.getDom('lon').value;
+            var lat = Ext.getDom('lat').value;
+            if (!isNaN(lon) && !isNaN(lat)) {
+                //move map
+                var position = new OpenLayers.LonLat(lon, lat);
+                position.transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
+                map.setCenter(position);
+                // move marker
+                this.createMarker(position);
+            }
+        }, this);
     },
 
     createMarker: function(lonlat) {
@@ -70,15 +85,15 @@ c2corg.plugins.GeoRef = Ext.extend(gxp.plugins.Tool, {
             enableToggle: true,
             pressed: true,
             map: this.target.mapPanel.map,
-            text: c2corg.i18n("Georef Tool"),
-            tooltip: c2corg.i18n("Click on the map to locate item"),
+            text: OpenLayers.i18n("Georef Tool"),
+            tooltip: OpenLayers.i18n("Click on the map to locate item"),
             toggleGroup: this.toggleGroup,
             control: control
         }, this.actionConfig)));
 
         actions.push(new Ext.Action({
-            text: c2corg.i18n("Reset georef"),
-            tooltip: c2corg.i18n("Cancel changes"),
+            text: OpenLayers.i18n("Reset georef"),
+            tooltip: OpenLayers.i18n("Cancel changes"),
             handler: function() {
                 if (this.initialLonlat) {
                     var map = this.target.mapPanel.map;

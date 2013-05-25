@@ -1,0 +1,51 @@
+@import "blob";
+
+// css specific for the full page map tool
+
+#mapPort {
+    height: auto;
+    width: auto;
+    padding: 20px;
+    min-height: 350px;
+}
+
+#mapLoading {
+    padding-top: 100px;
+    text-align:center;
+    font-weight: bold;
+}
+
+
+#mapheader .x-panel-bwrap, #mapheader .x-panel-body {
+    overflow: visible;   
+}
+
+// the page header has some parent elements that change
+// the font, we don't want that
+#page_header {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+// also restore links aspect
+#banner_middle a {
+    text-decoration: underline;
+}
+
+// remove disgracious gray background on top of page
+.x-border-layout-ct {
+    background-color: white;
+}
+
+// reposition logo and ad
+#banner_logo {
+    top: -5px;
+}
+
+#pub {
+    top: 5px;
+}
+
+// my position icon
+.x-toolbar .myposition {
+    background-image: url(-c2c-datauri('/static/js/carto/cgxp/core/src/theme/img/myposition.gif'));
+}

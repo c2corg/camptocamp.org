@@ -1,13 +1,11 @@
 /**
  * @requires config.js
- * @requires i18n.js
  * @requires OpenLayers/Control/Navigation.js
  * @requires OpenLayers/Control/KeyboardDefaults.js
  * @requires OpenLayers/Control/PanZoomBar.js
  * @requires OpenLayers/Control/ArgParser.js
  * @requires OpenLayers/Control/Attribution.js
  * @requires OpenLayers/Control/ScaleLine.js
- * @requires OpenLayers/Control/OverviewMap.js
  * @requires OpenLayers/Control/NavigationHistory.js
  */
 
@@ -31,7 +29,7 @@ c2corg.base = {
         attribution: '&copy;IGN <a href="http://www.geoportail.fr/" target="_blank">' +
                      '<img src="http://api.ign.fr/geoportail/api/js/2.0.0beta/theme/geoportal/img/logo_gp.gif">' +
                      '</a> <a href="http://www.geoportail.gouv.fr/depot/api/cgu/licAPI_CGUF.pdf" ' +
-                     'alt="TOS" title="TOS" target="_blank">Terms of Service</a>'
+                     'alt="TOS" title="TOS" target="_blank">' + OpenLayers.i18n('Terms of Service') + '</a>'
     },
 
     // layer sources
@@ -43,7 +41,8 @@ c2corg.base = {
             ptype: "cgxp_osmsource"
         },
         "google": {
-            ptype: "cgxp_googlesource"
+            ptype: "cgxp_googlesource",
+            otherParams: "sensor=false&key=" + c2corg.config.googleKey
         }
     },
 
@@ -53,12 +52,12 @@ c2corg.base = {
         Ext.QuickTips.init();
     
         // OpenLayers global settings
-        OpenLayers.Number.thousandsSeparator = ' ';
+        OpenLayers.Number.thousandsSeparator = " ";
         OpenLayers.IMAGE_RELOAD_ATTEMPTS = 5;
         OpenLayers.DOTS_PER_INCH = 72;
         OpenLayers.ImgPath = "/static/js/carto/cgxp/core/src/theme/img/ol/";
     
-        lang = lang || 'fr';
+        lang = lang || "fr";
         OpenLayers.Lang.setCode(lang);
         // GeoExt global settings
         GeoExt.Lang.set(lang);
@@ -80,23 +79,6 @@ c2corg.base = {
                 geodesic: true,
                 bottomInUnits: false,
                 bottomOutUnits: false
-            }),
-            new OpenLayers.Control.OverviewMap({
-                size: new OpenLayers.Size(180, 120),
-                mapOptions: {
-                    theme: null
-                },
-                minRatio: 16,
-                maxRatio: 32,
-                layers: [new OpenLayers.Layer.OSM("OSM", [
-                        'http://a.tile.openstreetmap.org/${z}/${x}/${y}.png',
-                        'http://b.tile.openstreetmap.org/${z}/${x}/${y}.png',
-                        'http://c.tile.openstreetmap.org/${z}/${x}/${y}.png'
-                    ],{
-                        buffer: 0,
-                        transitionEffect: 'resize'
-                    }
-                )]
             })
         ];
     }
@@ -105,40 +87,43 @@ c2corg.base = {
 c2corg.base.basemaps = [{
     source: "osm",
     name: "mapnik",
-    group: 'background',
-    ref: 'osm'
-},
-{
+    group: "background",
+    visibility: false,
+    ref: "osm"
+}, {
     source: "google",
     name: "TERRAIN",
-    group: 'background',
+    group: "background",
+    visibility: false,
     ref: "google_terrain"
-},
-{
+}, {
     source: "google",
     name: "HYBRID",
-    group: 'background',
+    group: "background",
+    visibility: false,
     ref: "google_hybrid"
-},{
+}, {
     source: "olsource",
     type: "OpenLayers.Layer.WMTS",
-    group: 'background',
+    group: "background",
     args: [Ext.applyIf({
-        name: c2corg.i18n("IGN maps"),
+        name: OpenLayers.i18n("IGN maps"),
         layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
-        ref: 'ign_maps',
-        group : 'background'
+        ref: "ign_maps",
+        visibility: false,
+        group : "background"
     }, c2corg.base.ignOptions)]
-},{
+}, {
     source: "olsource",
     type: "OpenLayers.Layer.WMTS",
-    group: 'background',
+    group: "background",
     args: [Ext.applyIf({
-        name: c2corg.i18n("IGN orthos"),
+        name: OpenLayers.i18n("IGN orthos"),
         layer: "ORTHOIMAGERY.ORTHOPHOTOS",
         numZoomLevels: 20,
-        ref: 'ign_ortho',
-        group : 'background'
+        ref: "ign_ortho",
+        visibility: false,
+        group : "background"
     }, c2corg.base.ignOptions)]
 }];
 
@@ -147,7 +132,7 @@ c2corg.base.getMap = function(options) {
         controls: {}
     });
     return {
-        xtype: 'cgxp_mappanel',
+        xtype: "cgxp_mappanel",
         extent: c2corg.base.initialExtent,
         maxExtent: c2corg.base.restrictedExtent,
         restrictedExtent: c2corg.base.restrictedExtent,
@@ -157,5 +142,5 @@ c2corg.base.getMap = function(options) {
         controls: c2corg.base.getControls(options.controls),
         layers: c2corg.base.basemaps,
         items: []
-    }
+    };
 };
