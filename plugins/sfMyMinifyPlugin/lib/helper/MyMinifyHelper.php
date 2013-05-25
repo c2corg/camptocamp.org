@@ -108,24 +108,17 @@ function minify_get_combined_files_url($files, $debug = false)
   return $app_static_url . $prefix . join($files, ',');
 }
 
-/** Those javascripts for maps break with ie when trying to minify them, so that we just combine them
-    TODO see what happens if we use an other minifier like yuicompressor? */
-function minify_get_maps_javascripts($combine = true)
+function minify_get_maps_javascripts($combine = true, $debug = false)
 {
   if (!$combine)
   {
     use_helper('MyJavascriptStyleSheet');
-    return include_maps_javascripts();
+    return include_maps_javascripts($debug);
   }
 
-  if (sfConfig::get('app_async_map', true) && sfContext::getInstance()->getRequest()->getparameter('action') != 'map')
+  if (!sfConfig::get('app_async_map', true) || sfContext::getInstance()->getRequest()->getparameter('action') == 'map')
   {
-    $js = minify_get_javascripts(array('maps'), true);
-    return empty($js) ? '' : '<!--[if IE]>' . $js . '<![endif]-->';
-  }
-  else
-  {
-    return minify_get_javascripts(array('maps'), true);
+    return minify_get_javascripts(array('maps'), $debug);
   }
 }
 
@@ -139,9 +132,9 @@ function minify_include_body_javascripts($combine = true, $debug = false)
   echo minify_get_body_javascripts($combine, $debug);
 }
 
-function minify_include_maps_javascripts($combine = true)
+function minify_include_maps_javascripts($combine = true, $debug = false)
 {
-  echo minify_get_maps_javascripts($combine);
+  echo minify_get_maps_javascripts($combine, $debug);
 }
 
 function minify_get_main_stylesheets($combine = true, $debug = false)

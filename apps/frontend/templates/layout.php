@@ -93,7 +93,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last'); ?>
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
     <?php
     minify_include_body_javascripts($combine, $debug);
-    minify_include_maps_javascripts($combine);
+    minify_include_maps_javascripts($combine, $debug);
     include_partial('common/tracker', array('addthis' => sfContext::getInstance()->getResponse()->hasParameter('addthis', 'helper/asset/addthis')));
     // Prompt ie6 users to install Chrome Frame - no adm rights required. chromium.org/developers/how-tos/chrome-frame-getting-started ?>
     <!--[if lt IE 7 ]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script><![endif]-->
