@@ -38,6 +38,9 @@ div.olControlScaleLine {
   border: none !important;
   background-color: transparent;
 }
+.x-toolbar.opacityToolbar {
+  background-image: none;
+}
 
 // compensate rounded inputs for maps
 input[type=text].x-form-field {
