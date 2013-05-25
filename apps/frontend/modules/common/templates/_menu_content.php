@@ -382,8 +382,5 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                 </ul>
             </li>
         </ul>
-        <!--[if lt IE 7]>
-        <script type="text/javascript" src="<?php echo sfConfig::get('app_static_url') . '/' . sfTimestamp::getTimestamp('/static/js/menus.js') ?>/static/js/menus.js"></script>
-        <![endif]-->
         <br class="clearer" />
     </div>
