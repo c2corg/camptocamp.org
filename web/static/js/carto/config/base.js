@@ -61,6 +61,52 @@ c2corg.base = {
         OpenLayers.Lang.setCode(lang);
         // GeoExt global settings
         GeoExt.Lang.set(lang);
+
+        c2corg.base.basemaps = [{
+            source: "osm",
+            name: "mapnik",
+            title: OpenLayers.i18n("OpenStreetMap"),
+            group: "background",
+            visibility: false,
+            ref: "osm"
+        }, {
+            source: "google",
+            name: "TERRAIN",
+            title: OpenLayers.i18n("Gmaps physical"),
+            group: "background",
+            visibility: false,
+            ref: "google_terrain"
+        }, {
+            source: "google",
+            name: "HYBRID",
+            title: OpenLayers.i18n("Gmaps hybrid"),
+            group: "background",
+            visibility: false,
+            ref: "google_hybrid"
+        }, {
+            source: "olsource",
+            type: "OpenLayers.Layer.WMTS",
+            group: "background",
+            args: [Ext.applyIf({
+                name: OpenLayers.i18n("IGN maps"),
+                layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
+                ref: "ign_maps",
+                visibility: false,
+                group : "background"
+            }, c2corg.base.ignOptions)]
+        }, {
+            source: "olsource",
+            type: "OpenLayers.Layer.WMTS",
+            group: "background",
+            args: [Ext.applyIf({
+                name: OpenLayers.i18n("IGN orthos"),
+                layer: "ORTHOIMAGERY.ORTHOPHOTOS",
+                numZoomLevels: 20,
+                ref: "ign_ortho",
+                visibility: false,
+                group : "background"
+            }, c2corg.base.ignOptions)]
+        }];
     },
 
     getControls: function (options) {
@@ -83,49 +129,6 @@ c2corg.base = {
         ];
     }
 };
-
-c2corg.base.basemaps = [{
-    source: "osm",
-    name: "mapnik",
-    group: "background",
-    visibility: false,
-    ref: "osm"
-}, {
-    source: "google",
-    name: "TERRAIN",
-    group: "background",
-    visibility: false,
-    ref: "google_terrain"
-}, {
-    source: "google",
-    name: "HYBRID",
-    group: "background",
-    visibility: false,
-    ref: "google_hybrid"
-}, {
-    source: "olsource",
-    type: "OpenLayers.Layer.WMTS",
-    group: "background",
-    args: [Ext.applyIf({
-        name: OpenLayers.i18n("IGN maps"),
-        layer: "GEOGRAPHICALGRIDSYSTEMS.MAPS",
-        ref: "ign_maps",
-        visibility: false,
-        group : "background"
-    }, c2corg.base.ignOptions)]
-}, {
-    source: "olsource",
-    type: "OpenLayers.Layer.WMTS",
-    group: "background",
-    args: [Ext.applyIf({
-        name: OpenLayers.i18n("IGN orthos"),
-        layer: "ORTHOIMAGERY.ORTHOPHOTOS",
-        numZoomLevels: 20,
-        ref: "ign_ortho",
-        visibility: false,
-        group : "background"
-    }, c2corg.base.ignOptions)]
-}];
 
 c2corg.base.getMap = function(options) {
     options = Ext.applyIf(options || {}, {
