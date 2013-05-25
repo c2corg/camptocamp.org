@@ -99,7 +99,7 @@ function _loadJsOamTools()
     }
     else
     {
-        use_stylesheet('/static/js/carto/build/app.css', 'custom');
+        use_stylesheet('/static/css/carto_base.css', 'custom');
         if (!$async_map) use_javascript('/static/js/carto/build/app.js', 'maps');
     }
     use_stylesheet('/static/css/carto.css', 'custom');

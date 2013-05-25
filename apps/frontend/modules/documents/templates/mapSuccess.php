@@ -8,7 +8,7 @@ if ($debug)
 }
 else
 {
-    use_stylesheet('/static/js/carto/build/app.css', 'last');
+    use_stylesheet('/static/css/carto_base.css', 'last');
     use_javascript('/static/js/carto/build/app.js', 'maps');
 }
 use_stylesheet('/static/css/carto.css', 'last');
