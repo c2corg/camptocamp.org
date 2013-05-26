@@ -3,18 +3,22 @@
 <ul id="article_gauche_5050" class="data">
     <?php
     disp_doc_type('user');
-    disp_nickname(html_entity_decode($forum_nickname));
-    if ($forum_moderator && $topoguide_moderator)
+
+    if (!$is_archive)
     {
-        disp_moderator('forum topoguide moderator');
-    }
-    else if ($forum_moderator && !$topoguide_moderator)
-    {
-        disp_moderator('forum moderator');
-    }
-    else if (!$forum_moderator && $topoguide_moderator)
-    {
-        disp_moderator('topoguide moderator');
+        disp_nickname(html_entity_decode($forum_nickname));
+        if ($forum_moderator && $topoguide_moderator)
+        {
+            disp_moderator('forum topoguide moderator');
+        }
+        else if ($forum_moderator && !$topoguide_moderator)
+        {
+            disp_moderator('forum moderator');
+        }
+        else if (!$forum_moderator && $topoguide_moderator)
+        {
+            disp_moderator('topoguide moderator');
+        }
     }
 
     li(field_activities_data_if_set($document));
