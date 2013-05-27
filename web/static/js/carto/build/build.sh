@@ -18,5 +18,3 @@ jsbuild app.cfg
 
 # clear c2c map i18n files
 rm -r tmp/
-
-# TODO: build CSS

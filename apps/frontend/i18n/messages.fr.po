@@ -1132,7 +1132,7 @@ msgstr "carte IGN"
 # [general comment]
 # dans l'arbre des couches de l'appli carto
 msgid "IGN orthos"
-msgstr "images aériennes IGN"
+msgstr "orthophotos IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Ce nouveau mot de passe ne prendra effet que lorsque vous l'utiliserez pour la première fois. Vous pourrez ensuite le modifier dans votre profil personnel. Si vous n'avez pas demandé la génération d'un nouveau mot de passe, vous pouvez simplement ignorer ce message."
@@ -7009,6 +7009,8 @@ msgstr "trace, sentier"
 msgid "track_status"
 msgstr "Trace&nbsp;:"
 
+# [general comment]
+# sur la page user, lien vers la liste des modifs par d'autres utilisateurs des docs qu'on a créés ou modifiés
 msgid "tracking"
 msgstr "suivi"
 

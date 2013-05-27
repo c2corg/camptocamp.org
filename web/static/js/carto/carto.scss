@@ -67,7 +67,7 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
 
 // Heareafter we include some picto as datauri, so that the borwser doesn't download them
 // (seems to work at least in FF and Chrome)
-// Also, this overrides wrng relatve paths from sass-built map css file
+// Also, this overrides wrong relatve paths from sass-built map css file
 
 .x-tree-node-expanded .x-tree-node-icon { // expanded folder in layer tree
   background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/tree/folder-open.gif'));
@@ -150,6 +150,14 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
   background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/button/s-arrow-noline.gif'));
 }
 
+.x-toolbar {
+  .x-btn-over, .x-btn-click, .x-btn-menu-active, .x-btn-pressed {
+    .x-btn-mc em.x-btn-split {
+      background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/gray/button/s-arrow-o.gif'));
+    }
+  }
+}
+
 // resizing the c2c layers popup
 .x-resizable-over, .x-resizable-pinned {
   .x-resizable-handle-south, .x-resizable-handle-north {
@@ -172,6 +180,30 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
   }
 }
 
+.x-shadow {
+  .xsml, .xsmr {
+    background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/shadow-lr.png'));
+  }
+  .xsmc {
+    background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/shadow-c.png'));
+  }
+  .xstl, .xstc, .xstr, .xsbl, .xsbc, .xsbr {
+    background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/shadow.png'));
+  }
+}
+
+.x-menu {
+  background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/menu/menu.gif'));
+}
+
+.x-menu-item-active {
+  background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/menu/item-over.gif'));
+}
+
+.x-menu-item-checked .x-menu-group-item .x-menu-item-icon {
+  background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/menu/group-checked.gif'));
+}
+
 .x-form-text, textarea.x-form-field {
   background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/form/text-bg.gif'));
 }
@@ -182,6 +214,13 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
 
 .x-tree-node-leaf .x-tree-node-icon {
   background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/tree/leaf.gif'));
+}
+
+.gx-popup-anc {
+  background-image: url(-c2c-datauri('/static/js/carto/cgxp/geoext/resources/images/gray/anchor.png'));
+  &.top {
+    background-image: url(-c2c-datauri('/static/js/carto/cgxp/geoext/resources/images/gray/anchor-top.png'));
+  }
 }
 
 // TODO this is a whole sprite, we probably only need a small part of it, so that some optimization is possible

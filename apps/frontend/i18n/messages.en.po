@@ -7002,6 +7002,8 @@ msgstr "trail, track"
 msgid "track_status"
 msgstr "Track:"
 
+# [general comment]
+# sur la page user, lien vers la liste des modifs par d'autres utilisateurs des docs qu'on a créés ou modifiés
 # [WARNING] needs_review
 msgid "tracking"
 msgstr "tracking"

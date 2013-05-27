@@ -7196,6 +7196,8 @@ msgstr "Wegverlauf"
 msgid "track_status"
 msgstr "Spur:"
 
+# [general comment]
+# sur la page user, lien vers la liste des modifs par d'autres utilisateurs des docs qu'on a créés ou modifiés
 # [WARNING] needs_review
 msgid "tracking"
 msgstr "Nachverfolgung"

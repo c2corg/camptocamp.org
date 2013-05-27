@@ -113,13 +113,16 @@
       if (!div_visible && $('#mapLoading').length) {
         setTimeout(typeof map_load_async !== 'undefined' ? asyncloadmap : map_init, 600);
       }
+
+      // also toggle the c2clayer widget
+      $('.x-window.x-resizable-pinned').toggle();
+
     } else if (container_id == 'elevation_profile_container') {
       if (!div_visible && !div.hasClass('profile_loaded')) {
         c2c_load_elevation_profile();
       }
     }
   };
-
 
   /**
    * Hide or show a single box (like weather box in outings)
