@@ -266,11 +266,11 @@ function _activities_data($activities, $printspan = false, $picto_separator = ' 
         'picto_separator' => $picto_separator, 'text_separator' => ' - '));
 }
 
-function field_pt_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+function field_pt_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '', $show_if_empty = true)
 {
     return field_picto_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types',
         array('multiple' => true, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'pt', 'picto_separator' => ' ',
-        'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix));
+        'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix, 'show_if_empty' => $show_if_empty));
 }
 
 function _pt_picto_if_set($pt_types, $printspan = false)
@@ -410,9 +410,15 @@ function _format_data($name, $value, $options = array())
     $suffix = _option($options, 'suffix', '');
     $name_suffix = _option($options, 'name_suffix', '');
     $microdata = _option($options, 'microdata', null);
+    $show_if_empty = _option($options, 'show_if_empty', true);
 
     if (empty($value))
     {
+        if (!$show_if_empty)
+        {
+            return '';
+        }
+
         $empty_value = true;
         $value = '<span class="default_text">' . __('nonwell informed') . '</span>';
         $div_class = ' default_text';
