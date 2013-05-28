@@ -227,3 +227,8 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
 .x-date-mp-ybtn a, .x-tool, .olControlPanPanel div, .olControlZoomPanel div {
   background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/gray/panel/tool-sprites.gif'));
 }
+
+// loading spinner for geonames autocomplete
+.loading-indicator {
+  background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/grid/loading.gif'));
+}
