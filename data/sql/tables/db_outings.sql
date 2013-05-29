@@ -132,7 +132,7 @@ $BODY$
             NEW.lat:=Y(geomT); -- of centroid
             NEW.elevation:=Z(geomT); -- of centroid
             -- we automatically update the following fields from the geom generated via GPX or KML upload:
-            NEW.outing_length := round(length3D(NEW.geom));
+            NEW.outing_length := round(ST_length(ST_Transform(NEW.geom,4326),true));
             b = box3D(NEW.geom);
             i := round(zmin(b));
             IF i > 0 THEN
