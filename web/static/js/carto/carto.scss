@@ -65,6 +65,18 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
   @include -c2c-datauri-background('/static/js/carto/cgxp/ext/Ext/resources/images/default/s.gif', no-repeat 0 !important);
 }
 
+// x-tree-node background correction
+.x-tree-node .x-tree-selected {
+  background-color: transparent;
+}
+
+.x-tree-node .x-tree-node-over {
+  background-color: #eee;
+  input[type=checkbox] {
+    margin-top: none;
+  }
+}
+
 // Heareafter we include some picto as datauri, so that the borwser doesn't download them
 // (seems to work at least in FF and Chrome)
 // Also, this overrides wrong relatve paths from sass-built map css file
@@ -232,3 +244,5 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
 .loading-indicator {
   background-image: url(-c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/grid/loading.gif'));
 }
+
+
