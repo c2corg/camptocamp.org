@@ -147,7 +147,7 @@ c2corg.controls.Click = OpenLayers.Class(OpenLayers.Control, {
         this.handler = new OpenLayers.Handler.Click(
             this, {
                 'click': this.onClick,
-                scope: this,
+                scope: this
             }, this.handlerOptions
         );
     }, 
