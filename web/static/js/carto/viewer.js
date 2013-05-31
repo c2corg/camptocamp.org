@@ -3,7 +3,7 @@ Ext.onReady(function () {
     // Set OpenLayers/GeoExt params + lang
     c2corg.base.init(document.documentElement.lang);
     
-    app = new gxp.Viewer({
+    var app = new gxp.Viewer({
         portalConfig: {
             layout: "border",
             items: [{
