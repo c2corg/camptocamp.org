@@ -185,6 +185,9 @@
                   map_init.delay(0.6);
               }
           }
+
+          // also toggle the c2clayer widget
+          $$('.x-window.x-resizable-pinned').invoke('toggle');
       } else if (container_id == 'elevation_profile_container') {
           if (!div.visible() && !div.hasClassName('profile_loaded'))
           {

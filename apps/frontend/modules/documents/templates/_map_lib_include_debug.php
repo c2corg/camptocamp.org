@@ -4,13 +4,8 @@ use_stylesheet('/static/js/carto/cgxp/ext/Ext/resources/css/xtheme-gray.css', 'l
 use_stylesheet('/static/js/carto/cgxp/openlayers/theme/default/style.css', 'last');
 use_stylesheet('/static/js/carto/cgxp/geoext/resources/css/popup.css', 'last');
 use_stylesheet('/static/js/carto/cgxp/geoext/resources/css/gxtheme-gray.css', 'last');
-use_stylesheet('/static/js/carto/cgxp/geoext.ux/ux/Measure/resources/css/measure.css', 'last');
-use_stylesheet('/static/js/carto/cgxp/sandbox/FeatureEditing/resources/css/feature-editing.css', 'last');
-use_stylesheet('/static/js/carto/cgxp/styler/theme/css/styler.css', 'last');
 use_stylesheet('/static/js/carto/cgxp/gxp/src/theme/all.css', 'last');
 use_stylesheet('/static/js/carto/cgxp/core/src/theme/all.css', 'last');
-use_stylesheet('/static/js/carto/cgxp/ext.ux/ColorPicker/ressources/colorpicker.css', 'last');
-use_stylesheet('/static/js/carto/cgxp/ext/Ext/examples/ux/css/Spinner.css', 'last');
 
 use_javascript('/static/js/carto/cgxp/ext/Ext/adapter/ext/ext-base.js', 'maps');
 use_javascript('/static/js/carto/cgxp/ext/Ext/ext-all-debug.js', 'maps');
