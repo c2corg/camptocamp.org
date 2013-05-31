@@ -115,9 +115,9 @@ c2corg.Map = function (config) {
             lonlat = lonlat.transform("EPSG:4326", map.getProjection());
             map.setCenter(lonlat, center[2]);
         }
-    
-        // FIXME: resize event is not detected
-        viewer.portal.body.on("resize", function () {
+
+        // TODO layertree should also be moved accordingly
+        Ext.select(window).on("resize", function () {
             viewer.portal.doLayout();
         });
     }, viewer, config);
