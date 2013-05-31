@@ -27,6 +27,19 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
         this.tree.delayedApplyState();
         this.tree.loadInitialThemes();
         this.tree.makeThemesInteractive();
+
+        // listen on window resize to be sure that the
+        // window won't go out of the map
+        Ext.select(window).on("resize", function() {
+            var w = this.tree.findParentByType("window");
+            var m = this.target.mapPanel.getEl();
+            var xy = w.el.getAlignToXY(m, "tr-tr", [-5, 0]);
+            var pos = w.getPosition();
+
+            if (xy[0] <= pos[0]) {
+                w.alignTo(m, "tr-tr", [-20, pos[1]-xy[1]]);
+            }
+        }, this);
     },
 
     addOutput: function(config) {
