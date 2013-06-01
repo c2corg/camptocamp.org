@@ -140,7 +140,7 @@ $BODY$
             NEW.lat:=Y(geomT); -- of centroid
             -- nb don't touch to route elevation, used for another purpose
             -- we automatically update the following fields from the geom generated via GPX or KML upload:
-            NEW.route_length := round(length3D(NEW.geom));
+            NEW.route_length := round(ST_length(ST_Transform(NEW.geom,4326),true));
             b = box3D(NEW.geom);
             IF (TG_OP = 'UPDATE') THEN
                 IF OLD.min_elevation IS NULL THEN
