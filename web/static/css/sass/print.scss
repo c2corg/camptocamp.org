@@ -39,7 +39,6 @@ p {
 .ombre_haut,
 .ombre_bas,
 .splitter,
-#GmapLayerTreeForm,
 .action_toggle,
 .switch_lang,
 .olControlPanZoomBar,
@@ -102,16 +101,12 @@ form.search, .sbox,
 }
 
 /* carto */
-#mappanel {
-  left: 0 !important;
+.x-panel-tbar, .x-window {
+  display: none !important;
 }
 
-.olControlScaleLine {
-  bottom: 5px !important;
-}
-
-.gpControlLogo, .olLayerGoogleCopyright, .olControlAttribution {
-  left: 70px !important;
+.x-panel-body {
+  border: none !important;
 }
 /* fin carto */
 
