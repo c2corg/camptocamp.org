@@ -93,7 +93,7 @@ c2corg.Map = function (config) {
              "&username=c2corg&lang=" + config.lang
     });
     
-    viewer = new gxp.Viewer({
+    var viewer = new gxp.Viewer({
         portalConfig: {
             renderTo: config.div,
             height: Ext.get(config.div).getHeight(),
@@ -121,8 +121,7 @@ c2corg.Map = function (config) {
             map.setCenter(lonlat, center[2]);
         }
 
-        // FIXME: resize event is not detected
-        viewer.portal.body.on("resize", function () {
+        Ext.select(window).on("resize", function () {
             viewer.portal.doLayout();
         });
     }, viewer, config);

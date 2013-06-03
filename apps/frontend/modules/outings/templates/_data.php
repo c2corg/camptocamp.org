@@ -4,7 +4,7 @@ $activities = $document->getRaw('activities');
 
 if (isset($preview) && $preview)
 {
-    $participants = field_text_data_if_set($document, 'participants', null, array('show_images' => false));
+    $participants = field_text_data_if_set($document, 'participants', null, array('show_images' => false));//
     if (!empty($participants))
     {
         echo '<div class="all_associations col_left col_66">'
@@ -12,7 +12,7 @@ if (isset($preview) && $preview)
            . '</div>';
     }
 }
-
+ 
 // put here meta tags for microdata that cannot be inside ul tags
 echo microdata_meta('name', $document->getName());
 if ($nb_comments)
@@ -28,8 +28,8 @@ if ($nb_comments)
     li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', array('separator' => 'elevation separator', 'suffix' => 'meters')));
     li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', array('separator' => 'height diff separator', 'prefix_min' => '+',
         'prefix_max' => '-', 'suffix' => 'meters', 'range_only' => true)));
-    //FIXME disabled since it outputs wrong results
-    //li(field_data_if_set($document, 'outing_length', array('suffix' => 'kilometers')));
+    // fixed ok 
+    li(field_data_if_set($document, 'outing_length', array('suffix' => 'kilometers')));
     if ($document->get('geom_wkt'))
     {
         li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')));

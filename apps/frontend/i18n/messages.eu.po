@@ -399,6 +399,12 @@ msgstr "Camptocamp.org en 5. bertsioaren %1% azterketa"
 msgid "Cancel"
 msgstr "Baliogabetu"
 
+# [general comment]
+# Infobulle du bouton "Reset georef"
+# [WARNING] en translation used
+msgid "Cancel georef changes"
+msgstr "Cancel georef changes"
+
 msgid "Change your password"
 msgstr "Zure pasa hitza aldatu"
 
@@ -431,6 +437,12 @@ msgstr "Dokumentu honen katxe-a eguneratu"
 
 msgid "Clear document cache (short)"
 msgstr "Katxe-a eguneratu"
+
+# [general comment]
+# Infobulle du bouton "Georef Tool"
+# [WARNING] en translation used
+msgid "Click on the map to locate item"
+msgstr "Click on the map to locate the document"
 
 msgid "Click to display original image"
 msgstr "Irudian klikatu bere berezko neurrian ikusteko "
@@ -978,6 +990,12 @@ msgstr "Eskualdeak (eta mapak) eguneratu dira"
 
 msgid "Geometry has been deleted"
 msgstr "Dokumentu honen geometria ezabatua izan da"
+
+# [general comment]
+# Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
+# [WARNING] en translation used
+msgid "Georef Tool"
+msgstr "Georef Tool"
 
 msgid "Get Help"
 msgstr "Laguntza lortu"
@@ -2035,6 +2053,12 @@ msgstr "La versión del documento solicitada no se encontró"
 
 msgid "Reserved to logged users"
 msgstr "Konektatuko kideei erreserbatua"
+
+# [general comment]
+# Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
+# [WARNING] en translation used
+msgid "Reset georef"
+msgstr "Reset georef"
 
 # [WARNING] es translation used
 msgid "Results %1% - %2% of %3%"

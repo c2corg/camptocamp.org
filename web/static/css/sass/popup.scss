@@ -1,11 +1,12 @@
 @import "blob";
 
-.popup_content .x-window-body {
+$img_dim: 80px;
+
+.popup_content {
   position:relative;
   top: 0;
   left: 0;
   width: 400px;
-  background-color: white;
   padding: 5px;
 
   h3 {
@@ -59,8 +60,9 @@
   margin: 2px 4px 1px 0;
   padding: 0;
   border: 0;
-  width: 120px;
-  height: 120px;
+  width: $img_dim;
+  height: $img_dim;
+  position: relative;
 
   li {
     position: absolute;
@@ -73,8 +75,8 @@
       margin: 0;
       padding: 0;
       display: block;
-      max-width: 120px;
-      max-height: 120px;
+      max-width: $img_dim;
+      max-height: $img_dim;
     }
   }
 }

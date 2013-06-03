@@ -27,6 +27,19 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
         this.tree.delayedApplyState();
         this.tree.loadInitialThemes();
         this.tree.makeThemesInteractive();
+
+        // listen on window resize to be sure that the
+        // window won't go out of the map
+        Ext.select(window).on("resize", function() {
+            var w = this.tree.findParentByType("window");
+            var m = this.target.mapPanel.getEl();
+            var xy = w.el.getAlignToXY(m, "tr-tr", [-5, 0]);
+            var pos = w.getPosition();
+
+            if (xy[0] <= pos[0]) {
+                w.alignTo(m, "tr-tr", [-20, pos[1]-xy[1]]);
+            }
+        }, this);
     },
 
     addOutput: function(config) {
@@ -64,6 +77,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
     url: null,
     layers: {},
+    popups: [],
     styleMap: null,
 
     initComponent: function() {
@@ -297,6 +311,19 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             layers, {
                 clickout: true,
                 onSelect: function(feature) {
+
+                    // close existing pinned popups
+                    for (var i = 0; i < this.popups.length; i++) {
+                      if (!this.popups[i].body.dom) { // clean closed popups
+                        this.popups.splice(i, 1);
+                        i--;
+                      } else if (!this.popups[i].draggable) { // draggable popups are unpinned
+                        this.popups[i].close();
+                        this.popups.splice(i, 1);
+                        i--;
+                      }
+                    }
+
                     var popup = new GeoExt.Popup({
                         width: 440,
                         height: 200,
@@ -309,8 +336,11 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                     popup.load({
                         url: popupUrl,
                         timeout: 60,
-                        text: OpenLayers.i18n("Please wait...")
+                        text: OpenLayers.i18n("Please wait..."),
+                        scripts: true
                     });
+
+                    this.popups.push(popup);
                 },
                 scope: this
             });

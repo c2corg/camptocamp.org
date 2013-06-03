@@ -18,7 +18,7 @@ if (!empty($description)) {
 
 $image = make_thumbnail_slideshow($associated_images);
 
-if (!$raw && ($image || $nb_routes))
+if (!$raw && $image)
 {
     echo insert_popup_js();
 }
@@ -28,11 +28,4 @@ $desc_class = 'popup_desc';
 ?>
 <div class="<?php echo $desc_class ?>"><?php echo $image . $description; ?></div>
 <?php endif;
-if ($image)
-{
-    echo javascript_tag('C2C.init_slideshow();');
-}
-
 echo javascript_tag('C2C.init_popup();');
-
-//echo make_c2c_link($route, $description || $image, $raw);
