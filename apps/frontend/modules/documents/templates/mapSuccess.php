@@ -15,6 +15,7 @@ else
 use_stylesheet('/static/css/carto.css', 'custom');
 use_stylesheet('/static/css/viewer.css', 'custom');
 use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
+use_javascript('/static/js/popup.js', 'maps');
 use_javascript('/static/js/carto/viewer.js', 'maps');
 ?>
 
