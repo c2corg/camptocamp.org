@@ -336,7 +336,8 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                     popup.load({
                         url: popupUrl,
                         timeout: 60,
-                        text: OpenLayers.i18n("Please wait...")
+                        text: OpenLayers.i18n("Please wait..."),
+                        scripts: true
                     });
 
                     this.popups.push(popup);

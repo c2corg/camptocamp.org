@@ -55,7 +55,8 @@ function show_georef_map($lon, $lat, $layer)
     {
         use_helper('MyMinify');
         $c2c_script_url = minify_get_combined_files_url(
-          array('/static/js/carto/build/app.js', "/static/js/carto/build/lang-$lang.js", '/static/js/carto/embedded.js'),
+          array('/static/js/carto/build/app.js', "/static/js/carto/build/lang-$lang.js",
+               '/static/js/popup.js', '/static/js/carto/embedded.js'),
           (bool) sfConfig::get('app_minify_debug'));
 
         $js .= "
@@ -108,6 +109,7 @@ function _loadJsOamTools()
     if (!$async_map || $debug)
     {
         use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
+        use_javascript('/static/js/popup.js', 'maps');
         use_javascript('/static/js/carto/embedded.js', 'maps');
     }
 }
