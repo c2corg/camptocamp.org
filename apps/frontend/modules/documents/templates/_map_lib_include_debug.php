@@ -6,6 +6,7 @@ use_stylesheet('/static/js/carto/cgxp/geoext/resources/css/popup.css', 'last');
 use_stylesheet('/static/js/carto/cgxp/geoext/resources/css/gxtheme-gray.css', 'last');
 use_stylesheet('/static/js/carto/cgxp/gxp/src/theme/all.css', 'last');
 use_stylesheet('/static/js/carto/cgxp/core/src/theme/all.css', 'last');
+use_stylesheet('/static/css/popup.css', 'last');
 
 use_javascript('/static/js/carto/cgxp/ext/Ext/adapter/ext/ext-base.js', 'maps');
 use_javascript('/static/js/carto/cgxp/ext/Ext/ext-all-debug.js', 'maps');
