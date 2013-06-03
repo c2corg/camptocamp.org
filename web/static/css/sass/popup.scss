@@ -7,7 +7,12 @@ $img_dim: 80px;
   top: 0;
   left: 0;
   width: 400px;
-  padding: 5px;
+
+  &.external {
+    background-color: white;
+    padding: 5px;
+    width: auto;
+  }
 
   h3 {
     margin: 0 30px 0 0;
