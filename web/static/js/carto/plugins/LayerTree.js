@@ -77,6 +77,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
     url: null,
     layers: {},
+    popups: [],
     styleMap: null,
 
     initComponent: function() {
@@ -310,6 +311,19 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             layers, {
                 clickout: true,
                 onSelect: function(feature) {
+
+                    // close existing pinned popups
+                    for (var i = 0; i < this.popups.length; i++) {
+                      if (!this.popups[i].body.dom) { // clean closed popups
+                        this.popups.splice(i, 1);
+                        i--;
+                      } else if (!this.popups[i].draggable) { // draggable popups are unpinned
+                        this.popups[i].close();
+                        this.popups.splice(i, 1);
+                        i--;
+                      }
+                    }
+
                     var popup = new GeoExt.Popup({
                         width: 440,
                         height: 200,
@@ -324,6 +338,8 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                         timeout: 60,
                         text: OpenLayers.i18n("Please wait...")
                     });
+
+                    this.popups.push(popup);
                 },
                 scope: this
             });
