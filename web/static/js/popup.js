@@ -38,6 +38,16 @@
         C2C.init_slideshow.bind(popup)();
       }
 
+      // if the popup is used on a map, we need to make sure that
+      // activities section (if present) can be toggled
+      // TODO code is using ids, but this should be changed because we can have
+      // more than one popup on the map
+      popup.select('#routes_section_container .title2').each(function(elt) {
+        elt.observe('click', function() {
+          this.next().toggle();
+        });
+      });
+
     });
   };
 
