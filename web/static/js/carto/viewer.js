@@ -67,7 +67,12 @@ Ext.onReady(function () {
         {
             ptype: "cgxp_measure",
             actionTarget: "center.tbar",
-            toggleGroup: "maptools"
+            toggleGroup: "maptools",
+            pointMeterTemplate: new Ext.Template(
+                '<table class="measure point"><tr>',
+                '<td>WGS 84: </td>',
+                '<td>{latd}&deg;N {lond}&deg;E</td>',
+                '</tr></table>', {compiled: true})
         },
         {
             ptype: "cgxp_menushortcut",

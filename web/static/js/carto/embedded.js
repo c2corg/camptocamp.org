@@ -57,7 +57,12 @@ c2corg.Map = function (config) {
     {
         ptype: "cgxp_measure",
         actionTarget: "map.tbar",
-        toggleGroup: "maptools"
+        toggleGroup: "maptools",
+        pointMeterTemplate: new Ext.Template(
+            '<table class="measure point"><tr>',
+            '<td>WGS 84: </td>',
+            '<td>{latd}&deg;N {lond}&deg;E</td>',
+            '</tr></table>', {compiled: true})
     },
     {
         ptype: "c2corg_showfeatures",
