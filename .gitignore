@@ -32,3 +32,4 @@ web/static/js/carto/build/lang-*.js
 web/static/js/carto/config/config.js
 web/static/opensearch/description.xml
 web/stats/settings.php
+web/uploads
