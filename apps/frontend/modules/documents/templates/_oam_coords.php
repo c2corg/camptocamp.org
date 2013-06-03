@@ -8,9 +8,25 @@ $lat = $document->get('lat') ? $document->get('lat') : 0;
 $async_map = sfConfig::get('app_async_map', false) &&
              !sfContext::getInstance()->getRequest()->getParameter('debug', false);
 
-echo __('Regions are detected automatically according to coordinates')."\n".
-    link_to_function(__('Use map'), $async_map ? 'map_load_async()' : 'map_init()').
-    __(' to point location'); 
+// load or toggle map when clicking on the link
+// - presence of mapLoading div shows that map has not been created yet
+// - if map_load_async is defined, the map js should be retrieved asynchonously
+// - the delay is to ensure that div is opened and ready for initiating the map
+$map_init = $async_map ? 'map_load_async()' : 'map_init()';
+$js = "
+if (document.getElementById('mapLoading')) {
+  $map_init;
+} else {
+  var elt = document.getElementById('georef_container');
+  if (elt.style.display === 'none') {
+    elt.style.display = '';
+  } else {
+    elt.style.display = 'none';
+  }
+}";
+
+echo __('Regions are detected automatically according to coordinates'), " ",
+     link_to_function(__('Use map'), $js) , __(' to point location'); 
 ?></p>
 <?php 
 echo object_coord_tag($document, 'lon', '°E');
