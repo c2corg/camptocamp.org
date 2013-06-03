@@ -404,6 +404,12 @@ msgstr "Camptocamp.org version 5 révision %1%"
 msgid "Cancel"
 msgstr "Annuler"
 
+# [general comment]
+# Infobulle du bouton "Reset georef"
+# [WARNING] needs_review
+msgid "Cancel georef changes"
+msgstr "Réinitialiser le géoréférencement du document"
+
 msgid "Change your password"
 msgstr "Changer votre mot de passe"
 
@@ -436,6 +442,11 @@ msgstr "Mettre à jour le cache de ce document"
 
 msgid "Clear document cache (short)"
 msgstr "Rafraîchir le cache"
+
+# [general comment]
+# Infobulle du bouton "Georef Tool"
+msgid "Click on the map to locate item"
+msgstr "Cliquez sur la carte pour géoréférencer le document"
 
 msgid "Click to display original image"
 msgstr "Cliquez sur l'image pour l'afficher à sa taille originale"
@@ -969,6 +980,12 @@ msgstr "Les régions (et cartes) ont été mises à jour"
 
 msgid "Geometry has been deleted"
 msgstr "La géométrie de ce document a été effacée"
+
+# [general comment]
+# Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
+# [WARNING] needs_review
+msgid "Georef Tool"
+msgstr "Géoréférencer"
 
 msgid "Get Help"
 msgstr "Obtenir de l'aide"
@@ -1947,6 +1964,12 @@ msgstr "La version du document demandée n'a pas été trouvée"
 
 msgid "Reserved to logged users"
 msgstr "Réservé aux membres connectés"
+
+# [general comment]
+# Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
+# [WARNING] needs_review
+msgid "Reset georef"
+msgstr "Réinitialiser"
 
 msgid "Results %1% - %2% of %3%"
 msgstr "Résultats <b>%1%</b> à <b>%2%</b> sur un total de <b>%3%</b>"

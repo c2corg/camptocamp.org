@@ -28,7 +28,7 @@ OpenLayers.Util.extend(OpenLayers.Lang.<?php echo $culture ?>, {
   //"no item selected": "<?php echo __('no item selected on map')?>",
   //"Expand map": "<?php echo __('Expand map')?>",
   //"Reduce map": "<?php echo __('Reduce map')?>",
-  "longitude / latitude: ": "<?php echo __('longitude / latitude: ')?>",
+  //"longitude / latitude: ": "<?php echo __('longitude / latitude: ')?>",
   "c2c data": "<?php echo __('c2c map data')?>",
   "summits": "<?php echo __('summits')?>",
   "parkings": "<?php echo __('parkings')?>",
@@ -58,7 +58,7 @@ OpenLayers.Util.extend(OpenLayers.Lang.<?php echo $culture ?>, {
   "OpenStreetMap": "<?php echo __('OpenStreetMap')?>",
   "IGN maps": "<?php echo __('IGN maps')?>",
   "IGN orthos": "<?php echo __('IGN orthos')?>",
-  "Swisstopo maps": "<?php echo __('Swisstopo maps')?>",
+  //"Swisstopo maps": "<?php echo __('Swisstopo maps')?>",
   //"Clear": "<?php echo __('Clear')?>",
   //"max extent": "<?php echo __('max extent')?>",
   //"pan": "<?php echo __('pan')?>",
@@ -83,5 +83,9 @@ OpenLayers.Util.extend(OpenLayers.Lang.<?php echo $culture ?>, {
   //"${nb_items} items. Click to show info": "<?php echo __('${nb_items} items. Click to show info')?>",
   "${item}. Click to show info": "<?php echo __('${item}. Click to show info')?>",
   //"Map URL": "<?php echo __('Map URL')?>",
-  "More...": "<?php echo __('More...')?>"
+  "More...": "<?php echo __('More...')?>",
+  "Georef Tool": "<?php echo __('Georef Tool')?>",
+  "Click on the map to locate item": "<?php echo __('Click on the map to locate item')?>",
+  "Reset georef": "<?php echo __('Reset georef')?>",
+  "Cancel changes": "<?php echo __('Cancel georef changes')?>"
 });

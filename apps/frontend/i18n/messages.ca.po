@@ -397,6 +397,12 @@ msgstr "Camptocamp.org versió 5 revisió %1%"
 msgid "Cancel"
 msgstr "Cancel·la"
 
+# [general comment]
+# Infobulle du bouton "Reset georef"
+# [WARNING] en translation used
+msgid "Cancel georef changes"
+msgstr "Cancel georef changes"
+
 msgid "Change your password"
 msgstr "Canvia la teva contrasenya"
 
@@ -429,6 +435,12 @@ msgstr "Actualitza la memòria cau del document."
 
 msgid "Clear document cache (short)"
 msgstr "Actualitza la memòria cau"
+
+# [general comment]
+# Infobulle du bouton "Georef Tool"
+# [WARNING] en translation used
+msgid "Click on the map to locate item"
+msgstr "Click on the map to locate the document"
 
 msgid "Click to display original image"
 msgstr "Premeu sobre l'imatge per mostrar-la en la seva mida original"
@@ -959,6 +971,12 @@ msgstr "Les regions (i mapes) han estat actualitzats"
 
 msgid "Geometry has been deleted"
 msgstr "La geometria d'aquest document ha estat esborrada"
+
+# [general comment]
+# Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
+# [WARNING] en translation used
+msgid "Georef Tool"
+msgstr "Georef Tool"
 
 msgid "Get Help"
 msgstr "Ajuda"
@@ -1940,6 +1958,12 @@ msgstr "La versió del document sol.licitada no s'ha trobat"
 
 msgid "Reserved to logged users"
 msgstr "Reservat als membres connectats"
+
+# [general comment]
+# Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
+# [WARNING] en translation used
+msgid "Reset georef"
+msgstr "Reset georef"
 
 msgid "Results %1% - %2% of %3%"
 msgstr "Resultats <b>%1%</b> - <b>%2%</b> de <b>%3%</b>"
