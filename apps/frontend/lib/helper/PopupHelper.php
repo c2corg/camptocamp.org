@@ -49,7 +49,6 @@ function insert_popup_js()
             '/static/js/prototype.js',
             '/static/js/scriptaculous.js',
             '/static/js/effects.js',
-            '/static/js/fold.js',
             '/static/js/popup.js')) .
         '"></script>';
 }
