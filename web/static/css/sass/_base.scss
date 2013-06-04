@@ -1844,11 +1844,19 @@ select.picto_forum, select.picto_forums
   @include -c2c-datauri-background('/static/images/picto/skitouring_light_mini.png', no-repeat 0);
 }
 
-// note that !important is only needed for the treelayer from maps (css specificty)
-// TODO maybe we can do something better...
 @each $module in $modules {
   .picto_#{$module} {
-    @include -c2c-datauri-background('/static/images/modules/#{$module}_mini.png', no-repeat 0 !important);
+    @include -c2c-datauri-background('/static/images/modules/#{$module}_mini.png', no-repeat 0);
+  }
+}
+
+// The following is for the map c2c layer switcher
+// we need some specificty to overwrite default images
+// Note: put here and not in carto.scss since we don't want the data uri
+// to be present twice (once in default.css and once in carto.css)
+@each $module in $modules {
+  .x-tree-node-el .x-tree-node-icon.picto_#{$module} {
+    @extend .picto_#{$module};
   }
 }
 
