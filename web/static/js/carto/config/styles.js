@@ -88,6 +88,7 @@ c2corg.styleMap = function (config) {
         "routes": lines,
         "outings": lines,
         "maps": polygons,
+        "areas": polygons, // so that areas can be displayed as map features
         "ranges": polygons,
         "countries": polygons,
         "admin_limits": polygons
