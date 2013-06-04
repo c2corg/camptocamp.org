@@ -52,7 +52,7 @@ echo ajax_feedback();
         {
             echo link_to_remote($html, 
                           array('update' => '', 
-                                'url'    => "/common/switchallfilters", // FIXME: replace by a routing rule.
+                                'url'    => "@default?module=common&action=switchallfilters",
                                 'loading' => "Element.show('indicator')",
                                 'success' => "Element.toggle('filter_switch_on'); Element.toggle('filter_switch_off'); window.location.reload();"));
         }

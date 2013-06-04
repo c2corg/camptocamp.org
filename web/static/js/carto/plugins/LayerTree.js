@@ -328,6 +328,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                         width: 440,
                         height: 200,
                         autoScroll: true,
+                        resizable: false,
                         cls: "popup_content",
                         location: feature
                     });

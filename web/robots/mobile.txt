@@ -157,6 +157,21 @@ Disallow: /sites/new.rss
 Disallow: /summits/new.rss
 # widget
 Disallow: /widgetgenerator
+# popups
+Disallow: /areas/popup/
+Disallow: /articles/popup/
+Disallow: /books/popup/
+Disallow: /documents/popup/
+Disallow: /huts/popup/
+Disallow: /images/popup/
+Disallow: /maps/popup/
+Disallow: /outings/popup/
+Disallow: /parkings/popup/
+Disallow: /portals/popup/
+Disallow: /products/popup/
+Disallow: /routes/popup/
+Disallow: /sites/popup/
+Disallow: /summits/popup/
 
 User-Agent: botmobi
 Crawl-delay: 120
@@ -310,6 +325,21 @@ Disallow: /sites/new.rss
 Disallow: /summits/new.rss
 # widget
 Disallow: /widgetgenerator
+# popups
+Disallow: /areas/popup/
+Disallow: /articles/popup/
+Disallow: /books/popup/
+Disallow: /documents/popup/
+Disallow: /huts/popup/
+Disallow: /images/popup/
+Disallow: /maps/popup/
+Disallow: /outings/popup/
+Disallow: /parkings/popup/
+Disallow: /portals/popup/
+Disallow: /products/popup/
+Disallow: /routes/popup/
+Disallow: /sites/popup/
+Disallow: /summits/popup/
 
 User-Agent: YahooSeeker/M1A1-R2D2
 Crawl-delay: 120
@@ -463,7 +493,21 @@ Disallow: /sites/new.rss
 Disallow: /summits/new.rss
 # widget
 Disallow: /widgetgenerator
-
+# popups
+Disallow: /areas/popup/
+Disallow: /articles/popup/
+Disallow: /books/popup/
+Disallow: /documents/popup/
+Disallow: /huts/popup/
+Disallow: /images/popup/
+Disallow: /maps/popup/
+Disallow: /outings/popup/
+Disallow: /parkings/popup/
+Disallow: /portals/popup/
+Disallow: /products/popup/
+Disallow: /routes/popup/
+Disallow: /sites/popup/
+Disallow: /summits/popup/
 
 User-agent: Mediapartners-Google*
 Crawl-delay: 120
@@ -617,3 +661,18 @@ Disallow: /sites/new.rss
 Disallow: /summits/new.rss
 # widget
 Disallow: /widgetgenerator
+# popups
+Disallow: /areas/popup/
+Disallow: /articles/popup/
+Disallow: /books/popup/
+Disallow: /documents/popup/
+Disallow: /huts/popup/
+Disallow: /images/popup/
+Disallow: /maps/popup/
+Disallow: /outings/popup/
+Disallow: /parkings/popup/
+Disallow: /portals/popup/
+Disallow: /products/popup/
+Disallow: /routes/popup/
+Disallow: /sites/popup/
+Disallow: /summits/popup/

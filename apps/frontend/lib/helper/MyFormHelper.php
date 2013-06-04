@@ -864,8 +864,8 @@ function c2c_button($value, $options, $btn = null)
     $btn = is_null($btn) ? tag('input', array_merge(array('value' => $value), $options))
                          : $btn;
     
-    return '<span class="'. $class . '"><span class="c2cui_btno"><span class="c2cui_btnin' .
-           $picto . '">' . $value . '</span></span>' . $btn . '</span>';
+    return '<span class="'. $class . '">' . $btn . '<span class="c2cui_btno">' .
+           '<span class="c2cui_btnin' . $picto . '">' . $value . '</span></span></span>';
 }
 
 function my_radiobutton_tag($name, $value, $checked = false, $options = array())

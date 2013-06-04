@@ -67,7 +67,7 @@ echo form_tag("@document_edit?module=$module&id=&lang=",
                     'onsubmit' => 'C2C.submitonce(this)',
                     'id' => 'editform'));
 
-if ($new_document)
+if ($new_document && $linked_with)
 {
     $pseudo_id = $module . '_' . mt_rand();
     echo input_hidden_tag('pseudo_id', $pseudo_id);

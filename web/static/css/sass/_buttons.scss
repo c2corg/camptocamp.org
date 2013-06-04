@@ -21,6 +21,28 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
   text-shadow: 0 1px 0 white;
   cursor: pointer;
   @include transition(0.1s linear all);
+
+  &:hover {
+    border-color: #777;
+    @include box-shadow(0 1px 2px #ccc);
+  }
+
+  &:active {
+    border-color: #000;
+    background-image: -moz-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* firefox 3.6+ */
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e3e3e3), to(#f9f9f9)); /* safari 4+ */
+    background-image: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* chrome, safari 5.1+ */
+    background-image: -o-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* opera 11.1+ */
+    background-image: -ms-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* ie 10+ */
+    background-image: linear-gradient(top, #e3e3e3, #f9f9f9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e3e3', endColorstr='#f9f9f9', GradientType=0);
+  }
+
+  // disbabled
+  &:disabled + .c2cui_btno {
+    color: gray;
+  }
+
 }
 
 .c2cui_btn {
@@ -32,22 +54,6 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 
 .c2cui_btn.main_button {
   font-weight: bold;
-}
-
-.c2cui_btn:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {
-  border-color: #777;
-  @include box-shadow(0 1px 2px #ccc);
-}
-
-.c2cui_btn:active, input[type=submit]:active, input[type=reset]:active, input[type=button]:active {
-  border-color: #000;
-  background-image: -moz-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* firefox 3.6+ */
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e3e3e3), to(#f9f9f9)); /* safari 4+ */
-  background-image: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* chrome, safari 5.1+ */
-  background-image: -o-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* opera 11.1+ */
-  background-image: -ms-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* ie 10+ */
-  background-image: linear-gradient(top, #e3e3e3, #f9f9f9 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e3e3', endColorstr='#f9f9f9', GradientType=0);
 }
 
 .c2cui_btno {
@@ -87,3 +93,10 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
   height: 1.5em;
   line-height: 1.5em;
 }
+
+/* disabled buttons */
+/*input[type=submit], input[type=reset], input[type=button] {
+  &:disabled + .c2cui_btno {
+    color: gray;
+  }
+}*/
