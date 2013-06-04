@@ -35,7 +35,9 @@ c2corg.styleMap = function (config) {
         }, lines),
         polygonsHover = Ext.applyIf({
             strokeColor: "red",
-            strokeWidth: 3
+            strokeWidth: 3,
+            fillColor: "red",
+            fillOpacity: .5
         }, polygons);
 
     /*
