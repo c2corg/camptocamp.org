@@ -17,26 +17,26 @@ c2corg.styleMap = function (config) {
         graphicOpacity: 1,
         externalGraphic: c2corg.config.staticBaseUrl + "/static/images/${icon}"
     }),
-        lines = Ext.applyIf(config.lines || {}, {
-            strokeColor: "yellow",
-            strokeWidth: 2
-        }),
-        polygons = Ext.applyIf(config.polygons || {}, {
-            strokeColor: "yellow",
-            strokeWidth: 2,
-            fillOpacity: 0
-        }),
-        pointsHover = Ext.applyIf({
-            graphicOpacity: 0.6
-        }, points),
-        linesHover = Ext.applyIf({
-            strokeColor: "red",
-            strokeWidth: 3
-        }, lines),
-        polygonsHover = Ext.applyIf({
-            strokeColor: "red",
-            strokeWidth: 3
-        }, polygons);
+    lines = Ext.applyIf(config.lines || {}, {
+        strokeColor: "yellow",
+        strokeWidth: 2
+    }),
+    polygons = Ext.applyIf(config.polygons || {}, {
+        strokeColor: "yellow",
+        strokeWidth: 2,
+        fillOpacity: 0
+    }),
+    pointsHover = Ext.applyIf({
+        graphicOpacity: 0.6
+    }, points),
+    linesHover = Ext.applyIf({
+        strokeColor: "red",
+        strokeWidth: 3
+    }, lines),
+    polygonsHover = Ext.applyIf({
+        strokeColor: "red",
+        strokeWidth: 3
+    }, polygons);
 
     /*
     // TODO: rename summits picto with names containing the "summit_type" attribute
@@ -76,6 +76,7 @@ c2corg.styleMap = function (config) {
     var styleMap = new OpenLayers.StyleMap({
         cursor: 'pointer'
     });
+
     var lookup = {
         "summits": points,
         "parkings": points,
@@ -86,12 +87,12 @@ c2corg.styleMap = function (config) {
         "products": points,
         "routes": lines,
         "outings": lines,
-        "ranges": polygons,
         "maps": polygons,
+        "ranges": polygons,
         "countries": polygons,
         "admin_limits": polygons
     },
-        lookupHover = {
+    lookupHover = {
         "summits": pointsHover,
         "parkings": pointsHover,
         "huts": pointsHover,
@@ -101,8 +102,8 @@ c2corg.styleMap = function (config) {
         "products": pointsHover,
         "routes": linesHover,
         "outings": linesHover,
-        "ranges": polygonsHover,
         "maps": polygonsHover,
+        "ranges": polygonsHover,
         "countries": polygonsHover,
         "admin_limits": polygonsHover
     };
