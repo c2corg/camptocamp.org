@@ -16,8 +16,17 @@ display_page_header('users', $document, $id, $metadata, $current_version,
                     array('nav_options' => $section_list));
 
 echo start_section_tag('Personal information', 'data');
-include_partial('data', array('document' => $document, 'forum_nickname' => $forum_nickname,
-                              'forum_moderator' => $forum_moderator, 'topoguide_moderator' => $topoguide_moderator));
+
+// if archive, we don't display forum nickname or moderator status
+if ($is_not_archive)
+{
+    include_partial('data', array('document' => $document, 'forum_nickname' => $forum_nickname,
+                                  'forum_moderator' => $forum_moderator, 'topoguide_moderator' => $topoguide_moderator));
+}
+else
+{
+    include_partial('data', array('document' => $document, 'is_archive' => true));
+}
 
 if ($is_not_archive)
 {

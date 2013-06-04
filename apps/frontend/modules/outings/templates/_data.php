@@ -28,7 +28,6 @@ if ($nb_comments)
     li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', array('separator' => 'elevation separator', 'suffix' => 'meters')));
     li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', array('separator' => 'height diff separator', 'prefix_min' => '+',
         'prefix_max' => '-', 'suffix' => 'meters', 'range_only' => true)));
-    // fixed ok 
     li(field_data_if_set($document, 'outing_length', array('suffix' => 'kilometers')));
     if ($document->get('geom_wkt'))
     {
