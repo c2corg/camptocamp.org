@@ -397,6 +397,12 @@ msgstr "Camptocamp.org versió 5 revisió %1%"
 msgid "Cancel"
 msgstr "Cancel·la"
 
+# [general comment]
+# Infobulle du bouton "Reset georef"
+# [WARNING] needs_review
+msgid "Cancel georef changes"
+msgstr "Reinicia el georeferenciament del document"
+
 msgid "Change your password"
 msgstr "Canvia la teva contrasenya"
 
@@ -429,6 +435,11 @@ msgstr "Actualitza la memòria cau del document."
 
 msgid "Clear document cache (short)"
 msgstr "Actualitza la memòria cau"
+
+# [general comment]
+# Infobulle du bouton "Georef Tool"
+msgid "Click on the map to locate item"
+msgstr "Cliqueu al mapa per georeferenciar el document"
 
 msgid "Click to display original image"
 msgstr "Premeu sobre l'imatge per mostrar-la en la seva mida original"
@@ -854,13 +865,11 @@ msgstr "Editor:"
 # see comments for alternatives ???
 # [comment]
 # Cota ??
-# [WARNING] needs_review
 msgid "Elevation"
 msgstr "Altitud"
 
 # [general comment]
 # ordonnées pour les profils d'altitude GPS
-# [WARNING] needs_review
 msgid "Elevation (m)"
 msgstr "Cota (msnm)"
 
@@ -961,6 +970,12 @@ msgstr "Les regions (i mapes) han estat actualitzats"
 
 msgid "Geometry has been deleted"
 msgstr "La geometria d'aquest document ha estat esborrada"
+
+# [general comment]
+# Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
+# [WARNING] needs_review
+msgid "Georef Tool"
+msgstr "Georeferenciació"
 
 msgid "Get Help"
 msgstr "Ajuda"
@@ -1943,6 +1958,12 @@ msgstr "La versió del document sol.licitada no s'ha trobat"
 msgid "Reserved to logged users"
 msgstr "Reservat als membres connectats"
 
+# [general comment]
+# Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
+# [WARNING] needs_review
+msgid "Reset georef"
+msgstr "Reinicia"
+
 msgid "Results %1% - %2% of %3%"
 msgstr "Resultats <b>%1%</b> - <b>%2%</b> de <b>%3%</b>"
 
@@ -2496,7 +2517,6 @@ msgstr "Aquest nom d'usuari ja existeix. Escull-ne un altre, si et plau."
 # 
 # time like in "Time: 12:15"
 # 
-# [WARNING] needs_review
 msgid "Time"
 msgstr "Hora"
 
@@ -5075,8 +5095,7 @@ msgstr "avenc"
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 msgid "home_description"
-msgstr "Camptocamp.org és una web col·laborativa dedicada als esports de muntanya com l'alpinisme, l'escalada en roca o en glaç, l'esquí de muntanya i les excursions a peu o amb raquetes. És un lloc d'intercanvi obert a tothom !\n"
-"Hi trobareu una <a href=\"/articles/117868\"> topo-guía </a> amb més de 20&nbsp;000 itineraris, les <a href=\"/outings/conditions\">condicions</a> trobades en les sortides més recents, <a href=\"/articles\">artícles</a>, <a href=\"/forums/?lang=es\">forums</a>, un <a href=\"/images\">álbum</a>...<br />És un espai col.laboratiu gestionat per una   <a href=\"/articles/106726 \">associació </a> sense ànim de lucre que privilegia els <a href=\"/articles/106728 \"> continguts lliures de drets </a>. ¡No dubteu a <a href=\"/signUp\"> registrar-vos</a>  (gratuïtament) i hi contribuir!"
+msgstr "Camptocamp.org és una web col·laborativa dedicada als esports de muntanya. Hi trobareu un munt de <a href=\"/articles/117868\">ressenyes</a>, informació molt útil sobre les <a href=\"/outings/conditions\">conditions recents</a> trobades a les últimes sortides, <a href=\"/articles\">articles</a>, <a href=\"/forums/?lang=ca\">fòrums</a>, un <a href=\"/images\">àlbum</a> de fotos, etc.  Camptocamp està gestionat per una <a href=\"/articles/106726/fr\">associació</a> sense ànim de lucre que ha triat treballar amb <a href=\"/articles/106728\">continguts sota llicència lliure</a>. No dubteu gens a <a href=\"/signUp\">inscriure-us-hi</a> i a contribuir-hi!"
 
 msgid "home_welcome"
 msgstr "«Benvingut/da a Camptocamp.org!»"
@@ -6999,9 +7018,10 @@ msgstr "traça, sender"
 msgid "track_status"
 msgstr "Traça:"
 
-# [WARNING] needs_review
+# [general comment]
+# sur la page user, lien vers la liste des modifs par d'autres utilisateurs des docs qu'on a créés ou modifiés
 msgid "tracking"
-msgstr "seguit"
+msgstr "modificacions posteriors"
 
 msgid "trad"
 msgstr "terreny d'aventura"

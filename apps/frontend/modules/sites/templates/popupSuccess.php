@@ -32,7 +32,6 @@ if (!$raw && $image)
 if ($image)
 {
     echo $image;
-    echo javascript_tag('C2C.init_slideshow();');
 }
 ?>
 <ul class="data">
@@ -53,5 +52,3 @@ if ($description)
 <?php
 
 echo javascript_tag('C2C.init_popup();');
-
-//echo make_c2c_link($route, false, $raw);

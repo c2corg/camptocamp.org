@@ -124,6 +124,11 @@ tr
   width: 12px;
 }
 
+.map_content #footer_border_left, .map_content #footer_border_right
+{
+  background-position-y: -30px;
+}
+
 #footer_partners
 {
   height: 80px;

@@ -15,7 +15,7 @@ $webdir = sfConfig::get('sf_web_dir');
 $serveExtensions = array('css', 'js');
 
 // is debug mode set?
-if (isset($_GET['no'])) {
+if (isset($_GET['no/'])) {
   $debug = true;
 }
 else
@@ -50,7 +50,7 @@ if (isset($_GET['f']))
       require 'Minify.php';
 
       // check for URI versioning
-      if (preg_match('/&\\d/', $_SERVER['QUERY_STRING'])) {
+      if (preg_match('/&[a-f0-9]{8}\/$/', $_SERVER['QUERY_STRING'])) {
         $maxAge = 31536000;
       }
       else

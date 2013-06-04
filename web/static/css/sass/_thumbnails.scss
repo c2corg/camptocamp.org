@@ -34,7 +34,7 @@ $dim: 120px;
       color: white;
       text-decoration: none;
       line-height: $dim;
-      opacity: .8;
+      @include opacity(.8);
       width: $dim;
       height: $dim;
       top: 0; // FF, opera or IE won't transition default values

@@ -42,13 +42,13 @@ STATIC_HOST =
 ; static content server base URL (leave empty if same than dymamic pages)
 STATIC_BASE_URL =
 
-; mapping config
-; for locahost, use: ABQIAAAAfTZbNLTbUMrBtZ9eB3FzsBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxT9k2f3y-8CR69y-OvQTy4Befc8Yg
-; not needed when using gmaps api v3
-GMAPS_KEY = <gmaps_key>
-
 ; IGN API key
 GEOPORTAIL_KEY = 8496962411014383560
+; Google API key. This one below is used on production and configured for access
+; from *.camptocamp.org/* and localhost only
+; Create one adapted for your needs (if needed) from https://code.google.com/apis/console
+GOOGLE_API_KEY = AIzaSyDXFlFziDDG2ThH47z1V3-KmAS6_vA5GUg
+
 
 MAPSERV = /usr/lib/cgi-bin/mapserv
 

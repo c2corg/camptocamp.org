@@ -216,10 +216,10 @@ function object_coord_tag($object, $fieldname, $suffix)
     $out .= form_error($fieldname) . ' <div style="display:inline">';
     $out .= input_tag($fieldname, $degdec,
                       array('class' => 'medium_input',
-                            'onkeyup' => "update_degminsec('$fieldname');"));
+                            'onkeyup' => "c2corg.coords.update_degminsec('$fieldname');"));
     $out .= '</div>';
     $out .= '&nbsp;' . __($suffix) . ' &nbsp; / &nbsp; ';
-    $options = array('class' => 'short_input', 'onkeyup' => "update_decimal_coord('$fieldname');");
+    $options = array('class' => 'short_input', 'onkeyup' => "c2corg.coords.update_decimal('$fieldname');");
     $out .= input_tag($fieldname . '_deg', $deg, $options) . ' ' .  __($suffix) . ' ';
     $out .= input_tag($fieldname . '_min', $min, $options) . " ' ";
     $out .= input_tag($fieldname . '_sec', $sec, $options) . ' "';

@@ -52,9 +52,9 @@ Possible actions:
 List of options:
 
  --debug                    Turn on output debugging.
- --conf                     Name of the .ini file containing server-specific 
+ --conf                     Name of the .ini file containing server-specific
                             parameters (located in deployment/ directory).
- --writableowner OWNER      The user who should have write permissions for 
+ --writableowner OWNER      The user who should have write permissions for
                             generated files. Default is '<?php
                             echo $OPTIONS['writableowner']; ?>'.
  --build                    Build mapping system JS files and CSS files.
@@ -93,11 +93,11 @@ checkRegisterArgcArgv();
 function setOption(&$i, $takesArgument = false, $defaultValue = NULL) {
     global $OPTIONS;
     $option = substr($_SERVER['argv'][$i], 2);
-    
+
     $argument = true;
     if ($takesArgument) {
         $i++;
-        if (!isset($_SERVER['argv'][$i]) || 
+        if (!isset($_SERVER['argv'][$i]) ||
             substr($_SERVER['argv'][$i], 0, 2) == '--') {
 
             if (is_null($defaultValue)) {
@@ -110,7 +110,7 @@ function setOption(&$i, $takesArgument = false, $defaultValue = NULL) {
             $argument = $_SERVER['argv'][$i];
         }
     }
-    
+
     $OPTIONS[$option] = $argument;
 }
 
@@ -118,14 +118,14 @@ function setOption(&$i, $takesArgument = false, $defaultValue = NULL) {
 $logLevel = LOG_LEVEL_DEBUG;
 
 function processArgs() {
-    
+
     global $OPTIONS;
     global $logLevel;
     $action = ACTION_NOP;
 
     // default log level
     $logLevel = LOG_LEVEL_INFO;
-    
+
     //loop through our arguments and see what the user selected
     for ($i = 1; $i < $_SERVER['argc']; $i++) {
         switch ($_SERVER['argv'][$i]) {
@@ -134,11 +134,11 @@ function processArgs() {
                info($_SERVER['argv'][0] . ' ' . C2CORG_SETUP_REVISION);
                exit;
                break;
-    
+
             case '--debug':
                 $logLevel = LOG_LEVEL_DEBUG;
                 break;
-                
+
             case '--install':
                 $action = ACTION_INSTALL;
                 break;
@@ -173,11 +173,11 @@ function processArgs() {
                break;
 
            default:
-               throw new InstallException('Unknown option ' . 
+               throw new InstallException('Unknown option ' .
                    $_SERVER['argv'][$i] . " \nUse --help for usage");
         }
     }
-    
+
     switch ($action) {
         case ACTION_NOP:
             info('No action given, doing nothing. Use --help to see usage');
@@ -205,14 +205,14 @@ function processArgs() {
 
         case ACTION_REFRESH:
             info('Refreshing configuration and i18n...');
-            
+
             checkCacheDir();
             replaceDotIn();
             rmLegacyPhpSettings(); // must get run before symfony stuff kicks in
             generateMoFiles();
             //makeMapservWrapperExecutable();
-            buildMapJsFiles(); // must be done before revision info
-            buildSassFiles();
+            buildMapJsFiles(true); // must be done before revision info
+            buildSassFiles(true);
             updateRevisionInfo();
             launchCleanCache();
             //execWrapper('php symfony fix-perms');
@@ -245,7 +245,7 @@ function processArgs() {
 }
 
 if (strpos($_SERVER['argv'][0], 'c2corg') !== false) {
-    try {        
+    try {
         processArgs();
     } catch (InstallException $e) {
         showFailure($e);
@@ -255,24 +255,24 @@ if (strpos($_SERVER['argv'][0], 'c2corg') !== false) {
 function logMessage($level, $message) {
     global $logLevel;
     if ($level >= $logLevel) {
-        print " > $message\n";   
-    }   
+        print " > $message\n";
+    }
 }
 
 function debug($message) {
-    logMessage(LOG_LEVEL_DEBUG, $message);   
+    logMessage(LOG_LEVEL_DEBUG, $message);
 }
 
 function info($message) {
-    logMessage(LOG_LEVEL_INFO, $message);   
+    logMessage(LOG_LEVEL_INFO, $message);
 }
 
 function warn($message) {
-    logMessage(LOG_LEVEL_WARN, $message);   
+    logMessage(LOG_LEVEL_WARN, $message);
 }
 
 function fail($message) {
-    logMessage(LOG_LEVEL_FAIL, $message);   
+    logMessage(LOG_LEVEL_FAIL, $message);
 }
 
 function showFailure(InstallException $exception) {
@@ -282,9 +282,9 @@ function showFailure(InstallException $exception) {
     fail('The installation process encountered an error and was aborted.');
     fail('See the message below for an explanation of the problem.');
     fail('If you want more information to find out the problem, try again with the --debug parameter.');
-    
-    fail("\n\nError message: {$exception->getMessage()}\n");   
-    fail('Installation aborted');   
+
+    fail("\n\nError message: {$exception->getMessage()}\n");
+    fail('Installation aborted');
     exit(-1);
 }
 
@@ -330,10 +330,10 @@ function execWrapper($command, $quiet=false) {
     $output = implode("\n", $output);
     if ($status)
         throw new InstallException("Failure while launching \"$command\" (output is $output)");
-    
+
     if (!$quiet)
         debug($output);
-    
+
 }
 
 function hasCommand($command) {
@@ -389,20 +389,20 @@ function setPermissionsCallback($file, $context) {
 
     if (!is_dir($file) || fileIgnored(basename($file)))
         return;
-        
+
     debug("Handling dir $file");
     $writableOwner = $OPTIONS['writableowner'];
 
     if (@chown($file, $writableOwner))
         debug("\"$file\" is now owned by $writableOwner");
-    else if (@chmod($file, 0777)) 
+    else if (@chmod($file, 0777))
         debug("\"$file\" is now writable by everybody, including $writableOwner");
     else
-        info("WARNING: unable to set permissions on \"$file\"");   
+        info("WARNING: unable to set permissions on \"$file\"");
 }
 
 function createConfigCallback($file, $context) {
-    
+
     if (is_dir($file) || fileIgnored(basename($file)))
         return;
 
@@ -410,7 +410,7 @@ function createConfigCallback($file, $context) {
         $target = substr($file, 0, strlen($file) - 5);
         if (file_exists($target)) {
             debug("Target config file $target already exists, skipping");
-            return; 
+            return;
         }
         debug("copying $file to $target");
         copy($file, $target);
@@ -418,9 +418,9 @@ function createConfigCallback($file, $context) {
 }
 
 function createConfig() {
-    
+
     info("Copying .ini.dist files into .ini (if not existing)");
-    
+
     //crawl('some_dir', 'createConfigCallback');
 }
 
@@ -433,17 +433,17 @@ function replaceDotInCallback($file, $context) {
         return;
 
     debug("Handling $file");
-    
+
     $target_filename = substr($file, 0, strlen($file) - strlen('.in'));
     if (file_exists($target_filename)) {
         debug("Target $target_filename already exists, it is deleted");
         unlink($target_filename);
     }
-    
+
     $content = file_get_contents($file);
-    
+
     $new_content = str_replace($context['search'], $context['replace'], $content);
-    file_put_contents($target_filename, $new_content);    
+    file_put_contents($target_filename, $new_content);
 }
 
 function getSearchReplaceContext() {
@@ -460,7 +460,7 @@ function getSearchReplaceContext() {
         }
         $vars['SF_ENVIRONMENT'] = $OPTIONS['conf'];
     } else {
-        $configFile .= 'default.ini'; 
+        $configFile .= 'default.ini';
         $vars['SF_ENVIRONMENT'] = 'default';
     }
 
@@ -494,7 +494,7 @@ function getSearchReplaceContext() {
 
     $context = array();
     $context['search'] = array_keys($vars);
-    $context['replace'] = array_values($vars); 
+    $context['replace'] = array_values($vars);
     return $context;
 }
 
@@ -602,15 +602,15 @@ function rmdirr($dir, $keepDirs = false) {
     if (!$dh)
         return;
     while ($file = readdir($dh)) {
-        if ($file == '.' || $file == '..') 
+        if ($file == '.' || $file == '..')
             continue;
         $fullpath = $dir . '/' . $file;
 
         if (!is_dir($fullpath) || is_link($fullpath))
             unlink($fullpath);
-        else 
+        else
             rmdirr($fullpath, $keepDirs);
-    }    
+    }
     closedir($dh);
 
     if (!$keepDirs)
@@ -620,7 +620,7 @@ function rmdirr($dir, $keepDirs = false) {
 function installPlugins() {
 
     info('Installing Symfony plugins...');
-    
+
     // removes version files if exist
     $files_to_remove = array('.channels', '.depdb', '.depdblock', '.lock', '.pearrc', '.registry');
     foreach ($files_to_remove as $file) {
@@ -635,7 +635,7 @@ function installPlugins() {
             unlink($file);
         }
     }
-    
+
 
     // this has been disabled and plugins are in the repository
     /*
@@ -661,7 +661,7 @@ function makeMapservWrapperExecutable() {
         info('Failed to make mapserv wrapper executable: only works with Unix systems.');
         return;
     }
-    
+
     try {
         execWrapper('chmod a+x web/static/cgi-bin/mapserv_c2corg');
         execWrapper('chmod a+x web/static/cgi-bin/c2corg4osm');
@@ -689,34 +689,10 @@ function updateRevisionInfo() {
     $dirs = array('web/static/css' => 'css',
                   'web/static/js' => 'js',
                   /* forums TODO CHECK should not be here anymore */
-                  'web/forums/style' => 'css',
-                  'web/forums/style/imports' => 'css',
                   'web/static/js/dyncat' => 'js',
-                  /* TODO are those ones still used? */
-                  'web/static/js/openlayers_sfl' => 'js',
-                  'web/static/js/cartoweb/lib' => 'js',
-                  'web/static/js/cartoweb/lib/Query' => 'js',
-                  /* mapfish css */
-                  'web/static/js/mapfish/mfbase/ext/resources/css' => 'css',
-                  'web/static/js/mapfish/mfbase/geoext/resources/css' => 'css',
-                  'web/static/js/mapfish/mfbase/openlayers/theme/default' => 'css',
-                  'web/static/js/mapfish/MapFishApi/css' => 'css',
-                  'web/static/js/mapfish/c2corgApi/css' => 'css',
-                  /* mapfish js */
-                  'web/static/js/mapfish/mfbase/ext/adapter/ext' => 'js',
-                  'web/static/js/mapfish/mfbase/ext' => 'js',
-                  'web/static/js/mapfish/build' => 'js',
-                  'web/static/js/mapfish/c2corgApi/js' => 'js',
-                  'web/static/js/mapfish/mfbase/openlayers/lib' => 'js',
-                  'web/static/js/mapfish/mfbase/geoext/lib' => 'js',
-                  'web/static/js/mapfish/mfbase/mapfish' => 'js',
-                  'web/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang' => 'js',
-                  'web/static/js/mapfish/mfbase/ext/source/locale' => 'js',
-                  'web/static/js/mapfish/mfbase/mapfish/lang' => 'js',
-                  'web/static/js/mapfish/geoportal' => 'js',
-                  'web/static/js/mapfish/MapFishApi/js' => 'js',
-                  'web/static/js/mapfish/c2corgApi/js' => 'js',
-                  'web/static/js/mapfish/app' => 'js');
+                  /* carto js */
+                  'web/static/js/carto' => 'js',
+                  'web/static/js/carto/build' => 'js');
 
     fwrite($handle, "\n  # auto generated\n");
     fwrite($handle, "  versions:\n");
@@ -801,33 +777,36 @@ function getFileRevisionInfoGit($tmpfile) {
     $cmd = 'git show HEAD --pretty=format:%h | head -n1 > ' . $tmpfile;
     execWrapper($cmd);
     if ($version_info = file_get_contents($tmpfile)) {
-        return($version_info);
+        return("head: " . $version_info);
     } else {
         info('Failed updating revision info');
         return;
     }
 }
 
-function buildMapJsFiles() {
+function buildMapJsFiles($refresh = false) {
     global $OPTIONS;
-    if (!array_key_exists('build', $OPTIONS) &&
+    if ($refresh &&
+        !array_key_exists('build', $OPTIONS) &&
         !array_key_exists('buildjs', $OPTIONS)) return;
-    
+
     if (!hasCommand('jsbuild --help')) {
         info('Aborted build of map JS files: jsbuild is not available.');
         return;
     }
 
-    chdir('web/static/js/mapfish/build');
+    chdir('web/static/js/carto/build');
     info('Building mapping JS files (may take some time)...');
     execWrapper('./build.sh');
     info('Mapping JS files built.');
     chdir(dirname(__FILE__));
 }
 
-function buildSassFiles() {
+function buildSassFiles($refresh = false) {
     global $OPTIONS;
-    if (!array_key_exists('build', $OPTIONS) &&
+
+    if ($refresh &&
+        !array_key_exists('build', $OPTIONS) &&
         !array_key_exists('buildcss', $OPTIONS)) return;
 
     if (!hasCommand('sass --help')) {
@@ -839,7 +818,7 @@ function buildSassFiles() {
     info('Building CSS files...');
     execWrapper('./build.sh');
     info('CSS files built.');
-    chdir(dirname(__FILE__)); 
+    chdir(dirname(__FILE__));
 }
 
 

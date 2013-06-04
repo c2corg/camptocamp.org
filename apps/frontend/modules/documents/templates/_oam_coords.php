@@ -4,9 +4,29 @@
 <?php 
 $lon = $document->get('lon') ? $document->get('lon') : 0;
 $lat = $document->get('lat') ? $document->get('lat') : 0;
-echo __('Regions are detected automatically according to coordinates')."\n".
-    link_to_function(__('Use map'), "c2corg.docGeoref.init($lon,$lat)").
-    __(' to point location'); 
+
+$async_map = sfConfig::get('app_async_map', false) &&
+             !sfContext::getInstance()->getRequest()->getParameter('debug', false);
+
+// load or toggle map when clicking on the link
+// - presence of mapLoading div shows that map has not been created yet
+// - if map_load_async is defined, the map js should be retrieved asynchonously
+// - the delay is to ensure that div is opened and ready for initiating the map
+$map_init = $async_map ? 'map_load_async()' : 'map_init()';
+$js = "
+if (document.getElementById('mapLoading')) {
+  $map_init;
+} else {
+  var elt = document.getElementById('georef_container');
+  if (elt.style.display === 'none') {
+    elt.style.display = '';
+  } else {
+    elt.style.display = 'none';
+  }
+}";
+
+echo __('Regions are detected automatically according to coordinates'), " ",
+     link_to_function(__('Use map'), $js) , __(' to point location'); 
 ?></p>
 <?php 
 echo object_coord_tag($document, 'lon', '°E');
@@ -14,5 +34,5 @@ echo object_coord_tag($document, 'lat', '°N');
 ?>
 </div>
 <?php 
-echo show_georef_map($lon, $lat, $sf_params->get('lang'), $document->get('module'));
+echo show_georef_map($lon, $lat, $document->get('module'));
 ?>

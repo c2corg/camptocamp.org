@@ -394,6 +394,12 @@ msgstr "Camptocamp.org version 5 revision %1%"
 msgid "Cancel"
 msgstr "Cancel"
 
+# [general comment]
+# Infobulle du bouton "Reset georef"
+# [WARNING] needs_review
+msgid "Cancel georef changes"
+msgstr "Cancel georef changes"
+
 msgid "Change your password"
 msgstr "Change your password"
 
@@ -425,6 +431,12 @@ msgstr "Update document cache"
 
 msgid "Clear document cache (short)"
 msgstr "Update cache"
+
+# [general comment]
+# Infobulle du bouton "Georef Tool"
+# [WARNING] needs_review
+msgid "Click on the map to locate item"
+msgstr "Click on the map to locate the document"
 
 msgid "Click to display original image"
 msgstr "Click to display the picture in its original size"
@@ -962,6 +974,12 @@ msgstr "Areas (and maps) have been updated"
 
 msgid "Geometry has been deleted"
 msgstr "Geometry has been deleted"
+
+# [general comment]
+# Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
+# [WARNING] needs_review
+msgid "Georef Tool"
+msgstr "Georef Tool"
 
 msgid "Get Help"
 msgstr "Get Help"
@@ -1955,6 +1973,12 @@ msgstr "The requested version of the document could not be found"
 
 msgid "Reserved to logged users"
 msgstr "Reserved to logged users"
+
+# [general comment]
+# Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
+# [WARNING] needs_review
+msgid "Reset georef"
+msgstr "Reset georef"
 
 msgid "Results %1% - %2% of %3%"
 msgstr "Results <b>%1%</b> - <b>%2%</b> of <b>%3%</b>"
@@ -5010,6 +5034,7 @@ msgstr "chasm"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
+# [WARNING] needs_update
 msgid "home_description"
 msgstr "It's a multi-language site dedicated to mountaineering, rock and ice climbing, ski-touring, snowshoeing and hiking. You'll find a <a href=\"http://www.camptocamp.org/articles/117868\">guidebook</a> with more than 20&nbsp;000 routes described, outings describing recent <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>, <a href=\"http://www.camptocamp.org/articles\">articles</a>, <a href=\"http://www.camptocamp.org/forums/?lang=en\">forums</a>, an <a href=\"http://www.camptocamp.org/images\">album</a>...<br />The website is a collaborative endeavour managed by a not-for-profit <a href=\"http://www.camptocamp.org/articles/106726\">organization</a> focusing on <a href=\"http://www.camptocamp.org/articles/106728\">free content</a>. Do not hesitate: <a href=\"http://www.camptocamp.org/signUp\">subscribe</a> (it's free) and start contributing!"
 
@@ -7001,6 +7026,8 @@ msgstr "trail, track"
 msgid "track_status"
 msgstr "Track:"
 
+# [general comment]
+# sur la page user, lien vers la liste des modifs par d'autres utilisateurs des docs qu'on a créés ou modifiés
 # [WARNING] needs_review
 msgid "tracking"
 msgstr "tracking"

@@ -404,6 +404,12 @@ msgstr "Camptocamp.org version 5 révision %1%"
 msgid "Cancel"
 msgstr "Annuler"
 
+# [general comment]
+# Infobulle du bouton "Reset georef"
+# [WARNING] needs_review
+msgid "Cancel georef changes"
+msgstr "Réinitialiser le géoréférencement du document"
+
 msgid "Change your password"
 msgstr "Changer votre mot de passe"
 
@@ -436,6 +442,11 @@ msgstr "Mettre à jour le cache de ce document"
 
 msgid "Clear document cache (short)"
 msgstr "Rafraîchir le cache"
+
+# [general comment]
+# Infobulle du bouton "Georef Tool"
+msgid "Click on the map to locate item"
+msgstr "Cliquez sur la carte pour géoréférencer le document"
 
 msgid "Click to display original image"
 msgstr "Cliquez sur l'image pour l'afficher à sa taille originale"
@@ -970,6 +981,12 @@ msgstr "Les régions (et cartes) ont été mises à jour"
 msgid "Geometry has been deleted"
 msgstr "La géométrie de ce document a été effacée"
 
+# [general comment]
+# Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
+# [WARNING] needs_review
+msgid "Georef Tool"
+msgstr "Géoréférencer"
+
 msgid "Get Help"
 msgstr "Obtenir de l'aide"
 
@@ -1132,7 +1149,7 @@ msgstr "carte IGN"
 # [general comment]
 # dans l'arbre des couches de l'appli carto
 msgid "IGN orthos"
-msgstr "images aériennes IGN"
+msgstr "orthophotos IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Ce nouveau mot de passe ne prendra effet que lorsque vous l'utiliserez pour la première fois. Vous pourrez ensuite le modifier dans votre profil personnel. Si vous n'avez pas demandé la génération d'un nouveau mot de passe, vous pouvez simplement ignorer ce message."
@@ -1947,6 +1964,12 @@ msgstr "La version du document demandée n'a pas été trouvée"
 
 msgid "Reserved to logged users"
 msgstr "Réservé aux membres connectés"
+
+# [general comment]
+# Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
+# [WARNING] needs_review
+msgid "Reset georef"
+msgstr "Réinitialiser"
 
 msgid "Results %1% - %2% of %3%"
 msgstr "Résultats <b>%1%</b> à <b>%2%</b> sur un total de <b>%3%</b>"
@@ -5067,7 +5090,7 @@ msgstr "gouffre"
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 msgid "home_description"
-msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la cascade de glace, la randonnée à ski, à raquette ou à pied. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a> avec plus de 20&nbsp;000 itinéraires, les <a href=\"/outings/conditions\">conditions</a> des sorties récentes, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...<br />C'est un espace collaboratif géré par une <a href=\"/articles/106726/fr\">association</a> privilégiant les <a href=\"/articles/106728/fr\">contenus libres de droit</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> (gratuitement) et à contribuer au site&nbsp;!"
+msgstr "Camptocamp.org est un site communautaire dédié aux sports de montagne. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a>, les <a href=\"/outings/conditions\">conditions</a> de courses, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...  Camptocamp.org est géré par une <a href=\"/articles/106726/fr\">association</a> à but non lucratif, qui a fait le choix de <a href=\"/articles/106728/fr\">contenus sous licences libres</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> et à contribuer&nbsp;! "
 
 msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
@@ -7009,6 +7032,8 @@ msgstr "trace, sentier"
 msgid "track_status"
 msgstr "Trace&nbsp;:"
 
+# [general comment]
+# sur la page user, lien vers la liste des modifs par d'autres utilisateurs des docs qu'on a créés ou modifiés
 msgid "tracking"
 msgstr "suivi"
 

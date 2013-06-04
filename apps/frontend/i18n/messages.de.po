@@ -395,6 +395,12 @@ msgstr "Camptocamp.org Version 5.%1%"
 msgid "Cancel"
 msgstr "Abbrechen"
 
+# [general comment]
+# Infobulle du bouton "Reset georef"
+# [WARNING] en translation used
+msgid "Cancel georef changes"
+msgstr "Cancel georef changes"
+
 msgid "Change your password"
 msgstr "Passwort ändern"
 
@@ -430,6 +436,12 @@ msgstr "Den Cache dieses Dokuments aktualisieren"
 
 msgid "Clear document cache (short)"
 msgstr "Den Cache auffrischen"
+
+# [general comment]
+# Infobulle du bouton "Georef Tool"
+# [WARNING] en translation used
+msgid "Click on the map to locate item"
+msgstr "Click on the map to locate the document"
 
 msgid "Click to display original image"
 msgstr "Auf das Bild klicken, um es in Originalgrösse anzuzeigen"
@@ -971,6 +983,12 @@ msgstr "Die Regionen (und die Karten) wurden aktualisiert"
 
 msgid "Geometry has been deleted"
 msgstr "Die Geometrie dieses Dokumentes wurde entfernt"
+
+# [general comment]
+# Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
+# [WARNING] en translation used
+msgid "Georef Tool"
+msgstr "Georef Tool"
 
 msgid "Get Help"
 msgstr "Hilfe erhalten"
@@ -1957,6 +1975,12 @@ msgstr "Die Fassung des gewünschten Dokument wurde nicht gefunden"
 
 msgid "Reserved to logged users"
 msgstr "Nur für die angemeldeten Benutzer bestimmt"
+
+# [general comment]
+# Bouton pour annuler le géoréfenrecement en cours sur la carte lors de l'édition d'un document
+# [WARNING] en translation used
+msgid "Reset georef"
+msgstr "Reset georef"
 
 msgid "Results %1% - %2% of %3%"
 msgstr "Ergebnisse <b>%1%</b> - <b>%2%</b> von insgesamt <b>%3%</b>"
@@ -5175,6 +5199,7 @@ msgstr "Höhle"
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 # [comment]
 # etwas freiere Übersetzung um die Attraktivität der Einstiegsseite zu erhöhen.
+# [WARNING] needs_update
 msgid "home_description"
 msgstr "c2c ist ein mehrsprachiger Austauschort zum Alpinismus aller Spielarten wie z.B. Hochtouren, Klettern, Wandern, Skitouren, und Eisklettern.<br /> Stöbern sie im <a href=\"/articles/117868\">Tourenführer</a>, welcher mehr als 20&nbsp;000 Routen enhält, oder informieren sie sich über die <a href=\"/outings/conditions\">aktuellen Verhältnisse</a> der letzten Touren. Diskutieren sie im <a href=\"/forums/?lang=de\">Forum</a> mit, oder bestaunen sie Bilder eines <a href=\"/images\">Fotoalbums</a>.<br />c2c versteht sich als gemeinschaftlicher Ort und bevorzugt und fördert <a href=\"/articles/106728\">Copyright-freie Inhalte</a>. Zögern sie nicht und machen sie <a href=\"http://www.camptocamp.org/signUp\">mit</a>!"
 
@@ -7195,6 +7220,8 @@ msgstr "Wegverlauf"
 msgid "track_status"
 msgstr "Spur:"
 
+# [general comment]
+# sur la page user, lien vers la liste des modifs par d'autres utilisateurs des docs qu'on a créés ou modifiés
 # [WARNING] needs_review
 msgid "tracking"
 msgstr "Nachverfolgung"
