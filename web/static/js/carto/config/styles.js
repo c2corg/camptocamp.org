@@ -59,7 +59,7 @@ c2corg.styleMap = function (config) {
                     if (attr.summit_type == 4) attr.icon = "picto/crag.png";
                     // FIXME: other types?
                 }
-            } else if (attr.module == "parkings") {
+            } else if (attr.module == "parkings" || attr.module == "public_transportations") {
                 if (typeof attr.public_transportation_rating != "undefined") {
                     if (["1","2","4","5"].indexOf(attr.public_transportation_rating) != -1) {
                         attr.icon = "picto/parking_green.png";
@@ -82,6 +82,7 @@ c2corg.styleMap = function (config) {
     var lookup = {
         "summits": points,
         "parkings": points,
+        "public_transportations": points,
         "huts": points,
         "sites": points,
         "users": points,
@@ -98,6 +99,7 @@ c2corg.styleMap = function (config) {
     lookupHover = {
         "summits": pointsHover,
         "parkings": pointsHover,
+        "public_transportations": pointsHover,
         "huts": pointsHover,
         "sites": pointsHover,
         "users": pointsHover,
