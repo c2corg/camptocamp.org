@@ -210,8 +210,17 @@ END # Layer
 
 LAYER
   NAME public_transportations
+  TEMPLATE fooOnlyForWFSGetFeature
+  DUMP True
   METADATA
     "wms_title"    "public_transportations"   ##required
+    "gml_include_items" "id,module,elevation,public_transportation_rating,public_transportation_types"
+    "gml_types" "auto"
+    "gml_featureid" "id"
+    "gml_geom_type" "point"
+    "gml_geometries" "geom"
+    "wfs_enable_request" "*"
+    "wms_enable_request" "*"
   END
   TYPE POINT
   STATUS ON

@@ -17,26 +17,28 @@ c2corg.styleMap = function (config) {
         graphicOpacity: 1,
         externalGraphic: c2corg.config.staticBaseUrl + "/static/images/${icon}"
     }),
-        lines = Ext.applyIf(config.lines || {}, {
-            strokeColor: "yellow",
-            strokeWidth: 2
-        }),
-        polygons = Ext.applyIf(config.polygons || {}, {
-            strokeColor: "yellow",
-            strokeWidth: 2,
-            fillOpacity: 0
-        }),
-        pointsHover = Ext.applyIf({
-            graphicOpacity: 0.6
-        }, points),
-        linesHover = Ext.applyIf({
-            strokeColor: "red",
-            strokeWidth: 3
-        }, lines),
-        polygonsHover = Ext.applyIf({
-            strokeColor: "red",
-            strokeWidth: 3
-        }, polygons);
+    lines = Ext.applyIf(config.lines || {}, {
+        strokeColor: "yellow",
+        strokeWidth: 2
+    }),
+    polygons = Ext.applyIf(config.polygons || {}, {
+        strokeColor: "yellow",
+        strokeWidth: 2,
+        fillOpacity: 0
+    }),
+    pointsHover = Ext.applyIf({
+        graphicOpacity: 0.6
+    }, points),
+    linesHover = Ext.applyIf({
+        strokeColor: "red",
+        strokeWidth: 3
+    }, lines),
+    polygonsHover = Ext.applyIf({
+        strokeColor: "red",
+        strokeWidth: 3,
+        fillColor: "red",
+        fillOpacity: .5
+    }, polygons);
 
     /*
     // TODO: rename summits picto with names containing the "summit_type" attribute
@@ -57,7 +59,7 @@ c2corg.styleMap = function (config) {
                     if (attr.summit_type == 4) attr.icon = "picto/crag.png";
                     // FIXME: other types?
                 }
-            } else if (attr.module == "parkings") {
+            } else if (attr.module == "parkings" || attr.module == "public_transportations") {
                 if (typeof attr.public_transportation_rating != "undefined") {
                     if (["1","2","4","5"].indexOf(attr.public_transportation_rating) != -1) {
                         attr.icon = "picto/parking_green.png";
@@ -76,9 +78,11 @@ c2corg.styleMap = function (config) {
     var styleMap = new OpenLayers.StyleMap({
         cursor: 'pointer'
     });
+
     var lookup = {
         "summits": points,
         "parkings": points,
+        "public_transportations": points,
         "huts": points,
         "sites": points,
         "users": points,
@@ -86,14 +90,16 @@ c2corg.styleMap = function (config) {
         "products": points,
         "routes": lines,
         "outings": lines,
-        "ranges": polygons,
         "maps": polygons,
+        "areas": polygons, // so that areas can be displayed as map features
+        "ranges": polygons,
         "countries": polygons,
         "admin_limits": polygons
     },
-        lookupHover = {
+    lookupHover = {
         "summits": pointsHover,
         "parkings": pointsHover,
+        "public_transportations": pointsHover,
         "huts": pointsHover,
         "sites": pointsHover,
         "users": pointsHover,
@@ -101,8 +107,8 @@ c2corg.styleMap = function (config) {
         "products": pointsHover,
         "routes": linesHover,
         "outings": linesHover,
-        "ranges": polygonsHover,
         "maps": polygonsHover,
+        "ranges": polygonsHover,
         "countries": polygonsHover,
         "admin_limits": polygonsHover
     };
