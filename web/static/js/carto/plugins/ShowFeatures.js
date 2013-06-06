@@ -27,7 +27,10 @@ c2corg.plugins.ShowFeatures = Ext.extend(gxp.plugins.Tool, {
 
             var format = new OpenLayers.Format.GeoJSON(),
                 features = format.read(this.features, "FeatureCollection");
+
             this.layer.addFeatures(features);
+
+            if (!features.length) return;
 
             if (features.length > 1 || 
                 !(features[0].geometry instanceof OpenLayers.Geometry.Point)) { 
