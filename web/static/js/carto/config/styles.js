@@ -12,6 +12,8 @@ Ext.namespace("c2corg");
 c2corg.styleMap = function (config) {
 
     config = config || {};
+
+    // define the different styles for map features
     var points = Ext.applyIf(config.points || {}, {
         pointRadius: 8,
         graphicOpacity: 1,
@@ -37,8 +39,18 @@ c2corg.styleMap = function (config) {
         strokeColor: "red",
         strokeWidth: 3,
         fillColor: "red",
-        fillOpacity: .5
-    }, polygons);
+        fillOpacity: 0.5
+    }, polygons),
+    labels = Ext.applyIf(config.labels || {}, {
+        label: "${name}",
+        fontColor: "#f93",
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        fontSize: "12px",
+        labelOutlineColor: "#fff",
+        labelOutlineWidth: 3,
+        labelYOffset: -18
+    });
 
     /*
     // TODO: rename summits picto with names containing the "summit_type" attribute
@@ -73,7 +85,7 @@ c2corg.styleMap = function (config) {
             }
         }
         return attr;
-    }
+    };
 
     var styleMap = new OpenLayers.StyleMap({
         cursor: 'pointer'
@@ -115,5 +127,13 @@ c2corg.styleMap = function (config) {
 
     styleMap.addUniqueValueRules("default", "module", lookup, context);
     styleMap.addUniqueValueRules("temporary", "module", lookupHover, context);
+
+    // features that have label=true property will have their label
+    // displayed on the map
+    var lookupLabel = {
+        "true": labels
+    };
+    styleMap.addUniqueValueRules("default", "label", lookupLabel);
+
     return styleMap;
 };
