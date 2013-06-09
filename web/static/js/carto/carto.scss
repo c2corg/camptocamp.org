@@ -1,5 +1,12 @@
 @import "blob";
 
+// ext-all.css does some kind of reset that conflicts
+// with us
+// FIXME: more missing?
+strong {
+  font-weight: bold;
+}
+
 .tooltip_tooltip {
   background-color: white;
   color: black;
