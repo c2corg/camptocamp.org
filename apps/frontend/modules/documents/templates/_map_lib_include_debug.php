@@ -198,7 +198,6 @@ use_javascript('/static/js/carto/cgxp/geoext/lib/GeoExt/data/ScaleStore.js', 'ma
 use_javascript('/static/js/carto/cgxp/geoext/lib/GeoExt/data/FeatureStore.js', 'maps');
 use_javascript('/static/js/carto/cgxp/sandbox/Styler/ux/widgets/StyleSelectorComboBox.js', 'maps');
 use_javascript('/static/js/carto/cgxp/sandbox/FeatureEditing/ux/widgets/plugins/ExportFeature.js', 'maps');
-use_javascript('/static/js/carto/cgxp/core/src/script/CGXP/widgets/GoogleEarthPanel.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Renderer/VML.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Protocol/HTTP.js', 'maps');
 use_javascript('/static/js/carto/cgxp/sandbox/FeatureEditing/ux/widgets/plugins/CloseFeatureDialog.js', 'maps');
@@ -242,6 +241,7 @@ use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Icon.js', 'maps'
 use_javascript('/static/js/carto/plugins/LayerTree.js', 'maps');
 use_javascript('/static/js/carto/plugins/ShowFeatures.js', 'maps');
 use_javascript('/static/js/carto/plugins/GeoRef.js', 'maps');
+use_javascript('/static/js/carto/plugins/FullScreen.js', 'maps');
 
 // Project-specific configs and tools
 use_javascript('/static/js/carto/config/config.js', 'maps');
