@@ -1,6 +1,6 @@
 @import "blob";
 
-#lightbox{	position: absolute;	left: 0; width: 100%; z-index: 100; text-align: center; line-height: 0;}
+#lightbox{	position: absolute;	left: 0; width: 100%; z-index: 9060; text-align: center; line-height: 0;}
 #lightbox img{ width: auto; height: auto;}
 #lightbox a img{ border: none; }
 
@@ -39,4 +39,4 @@
   background: url(datauri('/static/images/close_lightbox.gif')) 0 0 no-repeat;
 }
 
-#overlay{ position: absolute; top: 0; left: 0; z-index: 90; width: 100%; height: 500px; background-color: #000; }
+#overlay{ position: absolute; top: 0; left: 0; z-index: 9050; width: 100%; height: 500px; background-color: #000; }

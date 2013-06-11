@@ -21,8 +21,10 @@ c2corg.plugins.ShowFeatures = Ext.extend(gxp.plugins.Tool, {
     },
 
     viewerReady: function() {
-        if (this.features) {
+        if (this.features && this.features.features.length) {
             this.map = this.target.mapPanel.map;
+
+            // add features to the map
             this.createVectorLayer();
 
             var format = new OpenLayers.Format.GeoJSON(),
@@ -30,8 +32,16 @@ c2corg.plugins.ShowFeatures = Ext.extend(gxp.plugins.Tool, {
 
             this.layer.addFeatures(features);
 
-            if (!features.length) return;
-
+            // define behaviour on hover
+            var hoverCtrl = new OpenLayers.Control.SelectFeature(this.layer, {
+                hover: true,
+                highlightOnly: true,
+                renderIntent: "temporary"
+            });
+            this.map.addControl(hoverCtrl);
+            hoverCtrl.activate();
+ 
+            // center and zoom map
             if (features.length > 1 || 
                 !(features[0].geometry instanceof OpenLayers.Geometry.Point)) { 
                 this.map.zoomToExtent(this.layer.getDataExtent());
