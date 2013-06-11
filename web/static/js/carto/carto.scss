@@ -63,6 +63,11 @@ input[type=text].x-form-field {
   padding-top: 0.7em;
 }
 
+// fullscreen icon
+.x-toolbar .fullscreen {
+  background-image: url(-c2c-datauri('/static/images/picto/maximize.png'));
+}
+
 // pictos for layertree that are not indcluded in base css
 // note that !important is only needed for the treelayer from maps (css specificty)
 // TODO maybe we can do something better...
@@ -120,9 +125,6 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
   }
   .gxp-icon-zoom-next {
     background-image: url(-c2c-datauri('/static/js/carto/cgxp/gxp/src/theme/img/silk/arrow_right.png'));
-  }
-  .permalink {
-    background-image: url(-c2c-datauri('/static/js/carto/cgxp/core/src/theme/img/permalink.png'));
   }
   .help {
     background-image: url(-c2c-datauri('/static/js/carto/cgxp/core/src/theme/img/help.png'));

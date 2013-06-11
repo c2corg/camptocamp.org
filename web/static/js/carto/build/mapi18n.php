@@ -26,7 +26,7 @@ OpenLayers.Util.extend(OpenLayers.Lang.<?php echo $culture ?>, {
   //"Search": "<?php echo __('Search')?>",
   //"Help": "<?php echo __('Help')?>",
   //"no item selected": "<?php echo __('no item selected on map')?>",
-  //"Expand map": "<?php echo __('Expand map')?>",
+  "Expand map": "<?php echo __('Expand map')?>",
   //"Reduce map": "<?php echo __('Reduce map')?>",
   //"longitude / latitude: ": "<?php echo __('longitude / latitude: ')?>",
   "c2c data": "<?php echo __('c2c map data')?>",
