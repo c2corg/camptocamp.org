@@ -30,7 +30,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
 
         // listen on window resize to be sure that the
         // window won't go out of the map
-        Ext.select(window).on("resize", function() {
+        Ext.EventManager.onWindowResize(function() {
             var w = this.tree.findParentByType("window");
             var m = this.target.mapPanel.getEl();
             var xy = w.el.getAlignToXY(m, "tr-tr", [-5, 0]);

@@ -27,7 +27,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
             {
                 $geom = str_replace(array('MULTIPOLYGON', '((', '))'), array('MULTILINESTRING', '(', ')'), $geom);
             }
-            $objects_list[] = _convertObjectToGeoJSON($document->get('id'), $document->get('module'), $geom);
+            $objects_list[] = _convertObjectToGeoJSON($document->get('id'), $document->get('module'), $geom, $document->getRaw('name'));
         }
     }
 
@@ -125,15 +125,28 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     return $html;
 }
 
-function _convertObjectToGeoJSON($id, $module, $wkt) {
-    return sprintf('{ "type": "Feature", "geometry": %s, "id": %d, ' .
-                   '"properties": { "module": "%s", "name": "%s" } }',
-                   geoPHP::load($wkt, 'wkt')->out('json'),
-                   $id, $module, "FIXME");
+// build a geojson representation of a document
+// FIXME it may seem strange to decode geoPHP output, but it is easier for manipulation
+//and escaping to keep it as an array and to json_encode at the end. We also need the internal
+// representation to be translated to something suitable with geoJson too...
+function _convertObjectToGeoJSON($id, $module, $wkt, $name) {
+    return array(
+        'type' => 'Feature',
+        'geometry' => json_decode(geoPHP::load($wkt, 'wkt')->out('json')),
+        'id' => $id,
+        'properties' => array(
+            'module' => $module,
+            'name' => $name,
+            'label' => in_array($module, array('images', 'sites', 'users', 'huts',
+                       'parkings', 'products', 'summits')) ? 'true' : 'false'
+        ));
 }
 
 function _makeFeatureCollection($features) {
-    return '{ "type": "FeatureCollection", "features": [' . implode(',', $features) . '] }';
+    return json_encode(array(
+        'type' => 'FeatureCollection',
+        'features' => $features
+    ));
 }
 
 function _addAssociatedDocsWithGeom($docs, &$objects_list)
@@ -142,7 +155,7 @@ function _addAssociatedDocsWithGeom($docs, &$objects_list)
     {
         if (!empty($doc['pointwkt']))
         {
-            $objects_list[] = _convertObjectToGeoJSON($doc['id'], $doc['module'], $doc['pointwkt']);
+            $objects_list[] = _convertObjectToGeoJSON($doc['id'], $doc['module'], $doc['pointwkt'], $doc->getRaw('name'));
         }
     }
 }

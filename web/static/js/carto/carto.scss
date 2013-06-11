@@ -1,5 +1,12 @@
 @import "blob";
 
+// ext-all.css does some kind of reset that conflicts
+// with us
+// FIXME: more missing?
+strong {
+  font-weight: bold;
+}
+
 .tooltip_tooltip {
   background-color: white;
   color: black;
@@ -54,6 +61,11 @@ input[type=text].x-form-field {
 #map_container p.default_text
 {
   padding-top: 0.7em;
+}
+
+// fullscreen icon
+.x-toolbar .fullscreen {
+  background-image: url(-c2c-datauri('/static/images/picto/maximize.png'));
 }
 
 // pictos for layertree that are not indcluded in base css
@@ -113,9 +125,6 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
   }
   .gxp-icon-zoom-next {
     background-image: url(-c2c-datauri('/static/js/carto/cgxp/gxp/src/theme/img/silk/arrow_right.png'));
-  }
-  .permalink {
-    background-image: url(-c2c-datauri('/static/js/carto/cgxp/core/src/theme/img/permalink.png'));
   }
   .help {
     background-image: url(-c2c-datauri('/static/js/carto/cgxp/core/src/theme/img/help.png'));

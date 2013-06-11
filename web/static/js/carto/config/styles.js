@@ -12,6 +12,8 @@ Ext.namespace("c2corg");
 c2corg.styleMap = function (config) {
 
     config = config || {};
+
+    // define the different styles for c2c layers items
     var points = Ext.applyIf(config.points || {}, {
         pointRadius: 8,
         graphicOpacity: 1,
@@ -37,8 +39,21 @@ c2corg.styleMap = function (config) {
         strokeColor: "red",
         strokeWidth: 3,
         fillColor: "red",
-        fillOpacity: .5
+        fillOpacity: 0.5
     }, polygons);
+
+    // display a label when hovering point features in embedded map
+    var labelsHover = Ext.applyIf(config.labelsHover || {}, {
+        graphicOpacity: 1,
+        label: "${name}",
+        fontColor: "#f93",
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        fontSize: "10px",
+        labelOutlineColor: "#fff",
+        labelOutlineWidth: 3,
+        labelYOffset: 18
+    });
 
     /*
     // TODO: rename summits picto with names containing the "summit_type" attribute
@@ -73,12 +88,13 @@ c2corg.styleMap = function (config) {
             }
         }
         return attr;
-    }
+    };
 
     var styleMap = new OpenLayers.StyleMap({
         cursor: 'pointer'
     });
 
+    // style lookups for c2c layers
     var lookup = {
         "summits": points,
         "parkings": points,
@@ -115,5 +131,13 @@ c2corg.styleMap = function (config) {
 
     styleMap.addUniqueValueRules("default", "module", lookup, context);
     styleMap.addUniqueValueRules("temporary", "module", lookupHover, context);
+
+    // features that have label=true property will have their label
+    // displayed on the map
+    var lookupLabel = {
+        "true": labelsHover
+    };
+    styleMap.addUniqueValueRules("temporary", "label", lookupLabel);
+
     return styleMap;
 };

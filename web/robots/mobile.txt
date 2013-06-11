@@ -27,6 +27,7 @@ Disallow: /products/list/orderby
 Disallow: /routes/list/orderby
 Disallow: /sites/list/orderby
 Disallow: /summits/list/orderby
+Disallow: /users/list/orderby
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit
@@ -42,6 +43,7 @@ Disallow: /products/edit
 Disallow: /routes/edit
 Disallow: /sites/edit
 Disallow: /summits/edit
+Disallow: /users/edit
 # documents versions
 Disallow: /areas/history/
 Disallow: /articles/history/
@@ -57,6 +59,7 @@ Disallow: /products/history/
 Disallow: /routes/history/
 Disallow: /sites/history/
 Disallow: /summits/history/
+Disallow: /users/history/
 # documents diffs
 Disallow: /areas/diff/
 Disallow: /articles/diff/
@@ -72,6 +75,7 @@ Disallow: /products/diff/
 Disallow: /routes/diff/
 Disallow: /sites/diff/
 Disallow: /summits/diff/
+Disallow: /users/diff/
 # documents queries
 Disallow: /areas/query
 Disallow: /articles/query
@@ -87,6 +91,7 @@ Disallow: /products/query
 Disallow: /routes/query
 Disallow: /sites/query
 Disallow: /summits/query
+Disallow: /users/query
 # outings conditions
 Disallow: /outings/conditions/
 # documents updates
@@ -105,6 +110,7 @@ Disallow: /products/whatsnew
 Disallow: /routes/whatsnew
 Disallow: /sites/whatsnew
 Disallow: /summits/whatsnew
+Disallow: /users/whatsnew
 # forum
 Disallow: /forums/extern.php
 Disallow: /forums/misc.php
@@ -125,6 +131,7 @@ Disallow: /products/rss
 Disallow: /routes/rss
 Disallow: /sites/rss
 Disallow: /summits/rss
+Disallow: /users/rss
 Disallow: /static/rss
 Disallow: /static/rss/latest_docs.rss
 Disallow: /areas/feed.rss
@@ -141,6 +148,7 @@ Disallow: /products/feed.rss
 Disallow: /routes/feed.rss
 Disallow: /sites/feed.rss
 Disallow: /summits/feed.rss
+Disallow: /users/feed.rss
 Disallow: /areas/new.rss
 Disallow: /articles/new.rss
 Disallow: /books/new.rss
@@ -155,6 +163,7 @@ Disallow: /products/new.rss
 Disallow: /routes/new.rss
 Disallow: /sites/new.rss
 Disallow: /summits/new.rss
+Disallow: /users/new.rss
 # widget
 Disallow: /widgetgenerator
 # popups
@@ -172,6 +181,7 @@ Disallow: /products/popup/
 Disallow: /routes/popup/
 Disallow: /sites/popup/
 Disallow: /summits/popup/
+Disallow: /users/popup/
 
 User-Agent: botmobi
 Crawl-delay: 120
@@ -195,6 +205,7 @@ Disallow: /products/list/orderby
 Disallow: /routes/list/orderby
 Disallow: /sites/list/orderby
 Disallow: /summits/list/orderby
+Disallow: /users/list/orderby
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit
@@ -210,6 +221,7 @@ Disallow: /products/edit
 Disallow: /routes/edit
 Disallow: /sites/edit
 Disallow: /summits/edit
+Disallow: /users/edit
 # documents versions
 Disallow: /areas/history/
 Disallow: /articles/history/
@@ -225,6 +237,7 @@ Disallow: /products/history/
 Disallow: /routes/history/
 Disallow: /sites/history/
 Disallow: /summits/history/
+Disallow: /users/history/
 # documents diffs
 Disallow: /areas/diff/
 Disallow: /articles/diff/
@@ -240,6 +253,7 @@ Disallow: /products/diff/
 Disallow: /routes/diff/
 Disallow: /sites/diff/
 Disallow: /summits/diff/
+Disallow: /users/diff/
 # documents queries
 Disallow: /areas/query
 Disallow: /articles/query
@@ -255,6 +269,7 @@ Disallow: /products/query
 Disallow: /routes/query
 Disallow: /sites/query
 Disallow: /summits/query
+Disallow: /users/query
 # outings conditions
 Disallow: /outings/conditions/
 # documents updates
@@ -273,6 +288,7 @@ Disallow: /products/whatsnew
 Disallow: /routes/whatsnew
 Disallow: /sites/whatsnew
 Disallow: /summits/whatsnew
+Disallow: /users/whatsnew
 # forum
 Disallow: /forums/extern.php
 Disallow: /forums/misc.php
@@ -293,6 +309,7 @@ Disallow: /products/rss
 Disallow: /routes/rss
 Disallow: /sites/rss
 Disallow: /summits/rss
+Disallow: /users/rss
 Disallow: /static/rss
 Disallow: /static/rss/latest_docs.rss
 Disallow: /areas/feed.rss
@@ -309,6 +326,7 @@ Disallow: /products/feed.rss
 Disallow: /routes/feed.rss
 Disallow: /sites/feed.rss
 Disallow: /summits/feed.rss
+Disallow: /users/feed.rss
 Disallow: /areas/new.rss
 Disallow: /articles/new.rss
 Disallow: /books/new.rss
@@ -323,6 +341,7 @@ Disallow: /products/new.rss
 Disallow: /routes/new.rss
 Disallow: /sites/new.rss
 Disallow: /summits/new.rss
+Disallow: /users/new.rss
 # widget
 Disallow: /widgetgenerator
 # popups
@@ -340,6 +359,7 @@ Disallow: /products/popup/
 Disallow: /routes/popup/
 Disallow: /sites/popup/
 Disallow: /summits/popup/
+Disallow: /users/popup/
 
 User-Agent: YahooSeeker/M1A1-R2D2
 Crawl-delay: 120
@@ -363,6 +383,7 @@ Disallow: /products/list/orderby
 Disallow: /routes/list/orderby
 Disallow: /sites/list/orderby
 Disallow: /summits/list/orderby
+Disallow: /users/list/orderby
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit
@@ -378,6 +399,7 @@ Disallow: /products/edit
 Disallow: /routes/edit
 Disallow: /sites/edit
 Disallow: /summits/edit
+Disallow: /users/edit
 # documents versions
 Disallow: /areas/history/
 Disallow: /articles/history/
@@ -393,6 +415,7 @@ Disallow: /products/history/
 Disallow: /routes/history/
 Disallow: /sites/history/
 Disallow: /summits/history/
+Disallow: /users/history/
 # documents diffs
 Disallow: /areas/diff/
 Disallow: /articles/diff/
@@ -408,6 +431,7 @@ Disallow: /products/diff/
 Disallow: /routes/diff/
 Disallow: /sites/diff/
 Disallow: /summits/diff/
+Disallow: /users/diff/
 # documents queries
 Disallow: /areas/query
 Disallow: /articles/query
@@ -423,6 +447,7 @@ Disallow: /products/query
 Disallow: /routes/query
 Disallow: /sites/query
 Disallow: /summits/query
+Disallow: /users/query
 # outings conditions
 Disallow: /outings/conditions/
 # documents updates
@@ -441,6 +466,7 @@ Disallow: /products/whatsnew
 Disallow: /routes/whatsnew
 Disallow: /sites/whatsnew
 Disallow: /summits/whatsnew
+Disallow: /users/whatsnew
 # forum
 Disallow: /forums/extern.php
 Disallow: /forums/misc.php
@@ -461,6 +487,7 @@ Disallow: /products/rss
 Disallow: /routes/rss
 Disallow: /sites/rss
 Disallow: /summits/rss
+Disallow: /users/rss
 Disallow: /static/rss
 Disallow: /static/rss/latest_docs.rss
 Disallow: /areas/feed.rss
@@ -477,6 +504,7 @@ Disallow: /products/feed.rss
 Disallow: /routes/feed.rss
 Disallow: /sites/feed.rss
 Disallow: /summits/feed.rss
+Disallow: /users/feed.rss
 Disallow: /areas/new.rss
 Disallow: /articles/new.rss
 Disallow: /books/new.rss
@@ -491,6 +519,7 @@ Disallow: /products/new.rss
 Disallow: /routes/new.rss
 Disallow: /sites/new.rss
 Disallow: /summits/new.rss
+Disallow: /users/new.rss
 # widget
 Disallow: /widgetgenerator
 # popups
@@ -508,6 +537,7 @@ Disallow: /products/popup/
 Disallow: /routes/popup/
 Disallow: /sites/popup/
 Disallow: /summits/popup/
+Disallow: /users/popup/
 
 User-agent: Mediapartners-Google*
 Crawl-delay: 120
@@ -531,6 +561,7 @@ Disallow: /products/list/orderby
 Disallow: /routes/list/orderby
 Disallow: /sites/list/orderby
 Disallow: /summits/list/orderby
+Disallow: /users/list/orderby
 # documents edition
 Disallow: /areas/edit
 Disallow: /articles/edit
@@ -546,6 +577,7 @@ Disallow: /products/edit
 Disallow: /routes/edit
 Disallow: /sites/edit
 Disallow: /summits/edit
+Disallow: /users/edit
 # documents versions
 Disallow: /areas/history/
 Disallow: /articles/history/
@@ -561,6 +593,7 @@ Disallow: /products/history/
 Disallow: /routes/history/
 Disallow: /sites/history/
 Disallow: /summits/history/
+Disallow: /users/history/
 # documents diffs
 Disallow: /areas/diff/
 Disallow: /articles/diff/
@@ -576,6 +609,7 @@ Disallow: /products/diff/
 Disallow: /routes/diff/
 Disallow: /sites/diff/
 Disallow: /summits/diff/
+Disallow: /users/diff/
 # documents queries
 Disallow: /areas/query
 Disallow: /articles/query
@@ -591,6 +625,7 @@ Disallow: /products/query
 Disallow: /routes/query
 Disallow: /sites/query
 Disallow: /summits/query
+Disallow: /users/query
 # outings conditions
 Disallow: /outings/conditions/
 # documents updates
@@ -609,6 +644,7 @@ Disallow: /products/whatsnew
 Disallow: /routes/whatsnew
 Disallow: /sites/whatsnew
 Disallow: /summits/whatsnew
+Disallow: /users/whatsnew
 # forum
 Disallow: /forums/extern.php
 Disallow: /forums/misc.php
@@ -629,6 +665,7 @@ Disallow: /products/rss
 Disallow: /routes/rss
 Disallow: /sites/rss
 Disallow: /summits/rss
+Disallow: /users/rss
 Disallow: /static/rss
 Disallow: /static/rss/latest_docs.rss
 Disallow: /areas/feed.rss
@@ -645,6 +682,7 @@ Disallow: /products/feed.rss
 Disallow: /routes/feed.rss
 Disallow: /sites/feed.rss
 Disallow: /summits/feed.rss
+Disallow: /users/feed.rss
 Disallow: /areas/new.rss
 Disallow: /articles/new.rss
 Disallow: /books/new.rss
@@ -659,6 +697,7 @@ Disallow: /products/new.rss
 Disallow: /routes/new.rss
 Disallow: /sites/new.rss
 Disallow: /summits/new.rss
+Disallow: /users/new.rss
 # widget
 Disallow: /widgetgenerator
 # popups
@@ -676,3 +715,4 @@ Disallow: /products/popup/
 Disallow: /routes/popup/
 Disallow: /sites/popup/
 Disallow: /summits/popup/
+Disallow: /users/popup/
