@@ -121,8 +121,7 @@ c2corg.Map = function (config) {
             map.setCenter(lonlat, center[2]);
         }
 
-        // TODO layertree should also be moved accordingly
-        Ext.select(window).on("resize", function () {
+        Ext.EventManager.onWindowResize(function () {
             viewer.portal.doLayout();
         });
     }, viewer, config);
