@@ -13,7 +13,7 @@ c2corg.styleMap = function (config) {
 
     config = config || {};
 
-    // define the different styles for map features
+    // define the different styles for c2c layers items
     var points = Ext.applyIf(config.points || {}, {
         pointRadius: 8,
         graphicOpacity: 1,
@@ -40,16 +40,19 @@ c2corg.styleMap = function (config) {
         strokeWidth: 3,
         fillColor: "red",
         fillOpacity: 0.5
-    }, polygons),
-    labels = Ext.applyIf(config.labels || {}, {
+    }, polygons);
+
+    // display a label when hovering point features in embedded map
+    var labelsHover = Ext.applyIf(config.labelsHover || {}, {
+        graphicOpacity: 1,
         label: "${name}",
         fontColor: "#f93",
         fontFamily: "sans-serif",
         fontWeight: "bold",
-        fontSize: "12px",
+        fontSize: "10px",
         labelOutlineColor: "#fff",
         labelOutlineWidth: 3,
-        labelYOffset: -18
+        labelYOffset: 18
     });
 
     /*
@@ -91,6 +94,7 @@ c2corg.styleMap = function (config) {
         cursor: 'pointer'
     });
 
+    // style lookups for c2c layers
     var lookup = {
         "summits": points,
         "parkings": points,
@@ -131,9 +135,9 @@ c2corg.styleMap = function (config) {
     // features that have label=true property will have their label
     // displayed on the map
     var lookupLabel = {
-        "true": labels
+        "true": labelsHover
     };
-    styleMap.addUniqueValueRules("default", "label", lookupLabel);
+    styleMap.addUniqueValueRules("temporary", "label", lookupLabel);
 
     return styleMap;
 };
