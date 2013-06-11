@@ -572,7 +572,7 @@ function _format_data_range_from_list($name, $value_min, $value_max, $config, $o
     $value = '';
     $prefix = _option($options, 'prefix', '');
     $suffix = _option($options, 'suffix', '');
-    $separator = _option($option, 'separator', ' / ');
+    $separator = _option($options, 'separator', ' / ');
 
     if (is_array($prefix))
     {
