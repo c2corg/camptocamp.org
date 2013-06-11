@@ -51,8 +51,9 @@ c2corg.Map = function (config) {
         actionTarget: "map.tbar"
     },
     {
-        ptype: "cgxp_permalink",
-        actionTarget: "map.tbar"
+        ptype: "c2corg_fullscreen",
+        actionTarget: "map.tbar",
+        actionTooltip: OpenLayers.i18n("Expand map")
     },
     {
         ptype: "cgxp_measure",
