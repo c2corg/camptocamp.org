@@ -21,7 +21,7 @@ msgid " to point location"
 msgstr " per entrar la localització. Per convertir coordenades suïsses, utilitzeu <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">l'eina de Swisstopo</a>."
 
 msgid "${item}. Click to show info"
-msgstr "${item}. Feu clic per veure la informació."
+msgstr "${item}. <small>Feu clic per veure la informació</small>"
 
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
