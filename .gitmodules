@@ -10,3 +10,6 @@
 [submodule "plugins/sfMyMinifyPlugin/minify"]
 	path = plugins/sfMyMinifyPlugin/minify
 	url = http://github.com/mrclay/minify.git
+[submodule "lib/UglifyJS"]
+	path = lib/UglifyJS
+	url = http://github.com/mishoo/UglifyJS
