@@ -7,3 +7,6 @@
 [submodule "lib/geoPHP"]
 	path = lib/geoPHP
 	url = http://github.com/phayes/geoPHP.git
+[submodule "plugins/sfMyMinifyPlugin/minify"]
+	path = plugins/sfMyMinifyPlugin/minify
+	url = http://github.com/mrclay/minify.git
