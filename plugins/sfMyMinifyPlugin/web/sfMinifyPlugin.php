@@ -49,7 +49,7 @@ if (isset($_GET['f']))
       set_include_path(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'minify'.DIRECTORY_SEPARATOR.'min'.DIRECTORY_SEPARATOR.'lib');
 
       // minify class loading
-      require 'Minify/Loader.php';
+      require 'Minify'.DIRECTORY_SEPARATOR.'Loader.php';
       Minify_Loader::register();
 
       // Config stuff. NOte that we DON'T USE min/config.php file
@@ -71,6 +71,18 @@ if (isset($_GET['f']))
       if ($debug) // debug = we don't minify. But we don't add /* line numbers */ (thus option debug = false)
       {
         $options['minifiers'] = array(Minify::TYPE_JS => '', Minify::TYPE_CSS => '');
+      }
+      else
+      {
+        // CSS will be handled by CSSMin (default)
+        // Use UglifyJS for JS
+        require dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'UglifyJSCompiler.php';
+
+        Minify_UglifyJSCompiler::$UglifyJSExecutable = dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.
+            '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'UglifyJS'.DIRECTORY_SEPARATOR.
+            'bin'.DIRECTORY_SEPARATOR.'uglifyjs';
+
+        $options['minifiers'][Minify::TYPE_JS] = array('Minify_UglifyJSCompiler', 'minify');
       }
 
       if (sfConfig::get('sf_cache'))
