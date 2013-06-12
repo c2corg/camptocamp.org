@@ -29,7 +29,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
         this.tree.makeThemesInteractive();
 
         // listen on window resize to be sure that the
-        // window won't go out of the map
+        // c2c layers window won't go out of the map
         Ext.EventManager.onWindowResize(function() {
             var w = this.tree.findParentByType("window");
             var m = this.target.mapPanel.getEl();
@@ -100,7 +100,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
     getStyleMap: function() {
         if (!this.styleMap) {
-            this.styleMap = c2corg.styleMap();
+            this.styleMap = c2corg.styleMap('c2clayer');
         }
         return this.styleMap;
     },
@@ -314,6 +314,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
         for (var name in this.layers) {
             layers.push(this.layers[name]);
         }
+
         var clickControl = new OpenLayers.Control.SelectFeature(
             layers, {
                 clickout: true,
@@ -352,14 +353,29 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 },
                 scope: this
             });
-        
-        var hoverControl = new c2corg.control.hoverFeature(layers, {});
-        
+
+        var hoverControl = new c2corg.control.hoverFeature(layers);
+ 
         this.mapPanel.map.addControl(hoverControl);
         this.mapPanel.map.addControl(clickControl);
 
-        hoverControl.activate();
-        clickControl.activate();
+        // FIXME we only activate the controls when at least on layer is active
+        // This beacause we want a hoverControl for features displayed on the embedded map (see ShowFeatures.js)
+        // Unfortunately we cannot add controls here and there on different sets of layers, only the last defined one
+        // will get the events. (that's also why ShowFeatures plugin is called first in embedded.js)
+        // This is the easiest solution for now, the drawback being that you cannot get the hover effect on features if you
+        // have activated on of the c2c objetcs layers.
+        // An other solution could be to make this plugin aware of the feature layer from ShowFeature plugin, have only one other control
+        // on all those layers and distinguish afterwards, or even merge the two plugins together, but this is more changes and quite dirty
+        this.on("layervisibilitychange", function() {
+            if (this.getChecked().length) {
+                hoverControl.activate();
+                clickControl.activate();
+            } else {
+                hoverControl.deactivate();
+                clickControl.deactivate();
+            }
+        }, this);
     }
 });
 

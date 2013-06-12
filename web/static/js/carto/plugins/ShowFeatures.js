@@ -33,6 +33,7 @@ c2corg.plugins.ShowFeatures = Ext.extend(gxp.plugins.Tool, {
             this.layer.addFeatures(features);
 
             // define behaviour on hover
+            // note that this will only work if no c2c object layer is selected (see LayerTree.js)
             var hoverCtrl = new OpenLayers.Control.SelectFeature(this.layer, {
                 hover: true,
                 highlightOnly: true,
@@ -54,7 +55,7 @@ c2corg.plugins.ShowFeatures = Ext.extend(gxp.plugins.Tool, {
     },
 
     createVectorLayer: function() {
-        var styleMap = c2corg.styleMap({
+        var styleMap = c2corg.styleMap('embeddedfeature', {
             points: { pointRadius: 10 },
             lines: { strokeWidth: 3 }
         });
