@@ -21,7 +21,7 @@ msgid " to point location"
 msgstr " für die Lokalisierung. Um schweizerische Koordinaten umzurechnen, benützen sie dieses <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">Tool von Swisstopo</a>."
 
 msgid "${item}. Click to show info"
-msgstr "${item}. Klicken sie für weitere Informationen. "
+msgstr "${item}. <small>Klicken sie für weitere Informationen</small> "
 
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
@@ -5201,7 +5201,7 @@ msgstr "Höhle"
 # etwas freiere Übersetzung um die Attraktivität der Einstiegsseite zu erhöhen.
 # [WARNING] needs_update
 msgid "home_description"
-msgstr "c2c ist ein mehrsprachiger Austauschort zum Alpinismus aller Spielarten wie z.B. Hochtouren, Klettern, Wandern, Skitouren, und Eisklettern.<br /> Stöbern sie im <a href=\"/articles/117868\">Tourenführer</a>, welcher mehr als 20&nbsp;000 Routen enhält, oder informieren sie sich über die <a href=\"/outings/conditions\">aktuellen Verhältnisse</a> der letzten Touren. Diskutieren sie im <a href=\"/forums/?lang=de\">Forum</a> mit, oder bestaunen sie Bilder eines <a href=\"/images\">Fotoalbums</a>.<br />c2c versteht sich als gemeinschaftlicher Ort und bevorzugt und fördert <a href=\"/articles/106728\">Copyright-freie Inhalte</a>. Zögern sie nicht und machen sie <a href=\"http://www.camptocamp.org/signUp\">mit</a>!"
+msgstr "c2c ist ein mehrsprachiger Austauschort zum Alpinismus aller Spielarten wie z.B. Hochtouren, Klettern, Wandern, Skitouren, und Eisklettern.<br /> Stöbern Sie im <a href=\"/articles/117868\">Tourenführer</a>, welcher mehr als 20&nbsp;000 Routen enhält, oder informieren Sie sich über die <a href=\"/outings/conditions\">aktuellen Verhältnisse</a> der letzten Touren. Diskutieren Sie im <a href=\"/forums/?lang=de\">Forum</a> mit, oder bestaunen Sie Bilder eines <a href=\"/images\">Fotoalbums</a>.<br />c2c versteht sich als gemeinschaftlicher Ort und bevorzugt und fördert <a href=\"/articles/106728\">Copyright-freie Inhalte</a>. Zögern Sie nicht und machen Sie <a href=\"http://www.camptocamp.org/signUp\">mit</a>!"
 
 msgid "home_welcome"
 msgstr "«Willkommen auf Camptocamp.org!»"

@@ -13,3 +13,6 @@
 [submodule "web/static/js/third-parties/html5shiv"]
 	path = web/static/js/third-parties/html5shiv
 	url = http://github.com/aFarkas/html5shiv.git
+[submodule "plugins/sfMyMinifyPlugin/minify"]
+	path = plugins/sfMyMinifyPlugin/minify
+	url = http://github.com/mrclay/minify.git

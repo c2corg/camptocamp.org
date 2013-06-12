@@ -5,15 +5,22 @@
 /**
  * See http://docs.openlayers.org/library/feature_styling.html
  * This script configures how the features are styled on the map
+ *
+ * We have in fact two cases, which share a lot in common:
+ * - c2c layers (for both the embedded and full map)
+ * - document features (only on the embedded map, e.g. the summit on a summit document)
+ * We thus customize the stylemap depending on the given layer type
  */
 
 Ext.namespace("c2corg");
 
-c2corg.styleMap = function (config) {
+c2corg.styleMap = function (layertype, config) {
 
+    // type should be "c2clayer" or "embeddedfeature"
+    layertype = layertype || 'c2clayer';
     config = config || {};
 
-    // define the different styles for c2c layers items
+    // following styles will be common for each case
     var points = Ext.applyIf(config.points || {}, {
         pointRadius: 8,
         graphicOpacity: 1,
@@ -27,33 +34,34 @@ c2corg.styleMap = function (config) {
         strokeColor: "yellow",
         strokeWidth: 2,
         fillOpacity: 0
-    }),
-    pointsHover = Ext.applyIf({
-        graphicOpacity: 0.6
-    }, points),
-    linesHover = Ext.applyIf({
-        strokeColor: "red",
-        strokeWidth: 3
-    }, lines),
-    polygonsHover = Ext.applyIf({
-        strokeColor: "red",
-        strokeWidth: 3,
-        fillColor: "red",
-        fillOpacity: 0.5
-    }, polygons);
-
-    // display a label when hovering point features in embedded map
-    var labelsHover = Ext.applyIf(config.labelsHover || {}, {
-        graphicOpacity: 1,
-        label: "${name}",
-        fontColor: "#f93",
-        fontFamily: "sans-serif",
-        fontWeight: "bold",
-        fontSize: "10px",
-        labelOutlineColor: "#fff",
-        labelOutlineWidth: 3,
-        labelYOffset: 18
     });
+
+    if (layertype === "c2clayer") { // these ones are only for c2c layers
+        var pointsHover = Ext.applyIf({
+            graphicOpacity: 0.8
+        }, points),
+        linesHover = Ext.applyIf({
+            strokeColor: "red",
+            strokeWidth: 3
+        }, lines),
+        polygonsHover = Ext.applyIf({
+            strokeColor: "red",
+            strokeWidth: 3,
+            fillColor: "red",
+            fillOpacity: 0.5
+        }, polygons);
+    } else { // display a label when hovering point features in embedded map
+        var pointsHover = Ext.applyIf(config.pointsHover || {}, {
+            label: "${name}",
+            fontColor: "#f93",
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            fontSize: "10px",
+            labelOutlineColor: "#fff",
+            labelOutlineWidth: 3,
+            labelYOffset: 18
+        });
+    }
 
     /*
     // TODO: rename summits picto with names containing the "summit_type" attribute
@@ -62,7 +70,11 @@ c2corg.styleMap = function (config) {
         externalGraphic: c2corg.config.staticBaseUrl + "/static/images/picto/summit_${summit_type}.png" 
     }, points);
     */
-    
+
+    // for c2c layers, we might change the icon of some items depending on their type
+    // for now, this is only applied for c2c layers, since we don't define summit or parking type
+    // for embedded features
+    // FIXME should we?
     var context = function (feature) {
         var attr = feature.attributes; 
         if (feature.geometry instanceof OpenLayers.Geometry.Point) {
@@ -107,37 +119,55 @@ c2corg.styleMap = function (config) {
         "routes": lines,
         "outings": lines,
         "maps": polygons,
-        "areas": polygons, // so that areas can be displayed as map features
-        "ranges": polygons,
-        "countries": polygons,
-        "admin_limits": polygons
-    },
-    lookupHover = {
-        "summits": pointsHover,
-        "parkings": pointsHover,
-        "public_transportations": pointsHover,
-        "huts": pointsHover,
-        "sites": pointsHover,
-        "users": pointsHover,
-        "images": pointsHover,
-        "products": pointsHover,
-        "routes": linesHover,
-        "outings": linesHover,
-        "maps": polygonsHover,
-        "ranges": polygonsHover,
-        "countries": polygonsHover,
-        "admin_limits": polygonsHover
+        "areas": polygons, // embedded map features
+        "ranges": polygons, // c2c layers
+        "countries": polygons, // c2c layers
+        "admin_limits": polygons // c2c layers
     };
+
+    var lookupHover;
+    if (layertype === "c2clayer") { 
+        lookupHover = {
+            "summits": pointsHover,
+            "parkings": pointsHover,
+            "public_transportations": pointsHover,
+            "huts": pointsHover,
+            "sites": pointsHover,
+            "users": pointsHover,
+            "images": pointsHover,
+            "products": pointsHover,
+            "routes": linesHover,
+            "outings": linesHover,
+            "maps": polygonsHover,
+            "ranges": polygonsHover,
+            "countries": polygonsHover,
+            "admin_limits": polygonsHover
+        };
+    } else {
+        lookupHover = {
+            "summits": pointsHover,
+            "parkings": pointsHover,
+            "huts": pointsHover,
+            "sites": pointsHover,
+            "users": pointsHover,
+            "images": pointsHover,
+            "products": pointsHover,
+            "routes": lines,
+            "outings": lines,
+            "maps": polygons,
+            "areas": polygons
+        };
+    }
 
     styleMap.addUniqueValueRules("default", "module", lookup, context);
     styleMap.addUniqueValueRules("temporary", "module", lookupHover, context);
 
     // features that have label=true property will have their label
     // displayed on the map
-    var lookupLabel = {
+/*    var lookupLabel = {
         "true": labelsHover
     };
-    styleMap.addUniqueValueRules("temporary", "label", lookupLabel);
+    styleMap.addUniqueValueRules("ltemporary", "label", lookupLabel);*/
 
     return styleMap;
 };

@@ -23,7 +23,7 @@ msgid " to point location"
 msgstr " pour saisir la localisation. Pour convertir des coordonnées suisses, utilisez cet <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">outil de Swisstopo</a>."
 
 msgid "${item}. Click to show info"
-msgstr "${item}. Cliquez pour voir les détails."
+msgstr "${item}. <small>Cliquez pour voir les détails</small>"
 
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.

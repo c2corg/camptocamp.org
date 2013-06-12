@@ -46,8 +46,13 @@ if (isset($_GET['f']))
 
     if(!$error)
     {
-      set_include_path(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'min'.DIRECTORY_SEPARATOR.'lib');
-      require 'Minify.php';
+      set_include_path(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'minify'.DIRECTORY_SEPARATOR.'min'.DIRECTORY_SEPARATOR.'lib');
+
+      // minify class loading
+      require 'Minify/Loader.php';
+      Minify_Loader::register();
+
+      // Config stuff. NOte that we DON'T USE min/config.php file
 
       // check for URI versioning
       if (preg_match('/&[a-f0-9]{8}\/$/', $_SERVER['QUERY_STRING'])) {
@@ -58,10 +63,12 @@ if (isset($_GET['f']))
         $maxAge = 86400;
       }
 
-      // debug = we don't minify. But we don't add /* line numbers */
-      $options = array('files' => $files, 'maxAge' => $maxAge, 'debug' => false);
+      $options = array('files' => $files,
+                       'maxAge' => $maxAge,
+                       'debug' => false,
+                       'bubbleCssImports' => false);
 
-      if ($debug)
+      if ($debug) // debug = we don't minify. But we don't add /* line numbers */ (thus option debug = false)
       {
         $options['minifiers'] = array(Minify::TYPE_JS => '', Minify::TYPE_CSS => '');
       }
@@ -75,6 +82,8 @@ if (isset($_GET['f']))
         }
         Minify::setCache($minifyCachePath);
       }
+
+      // serve the file
       Minify::serve('Files', $options);
       exit();
     }

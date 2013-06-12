@@ -24,6 +24,10 @@ c2corg.Map = function (config) {
     mapConfig.id = config.id;
 
     var tools = [{
+        ptype: "c2corg_showfeatures",
+        features: config.features
+    },
+    {
         ptype: "c2corg_layertree",
         outputConfig: {
             closable: false,
@@ -64,10 +68,6 @@ c2corg.Map = function (config) {
             '<td>WGS 84: </td>',
             '<td>{latd}&deg;N {lond}&deg;E</td>',
             '</tr></table>', {compiled: true})
-    },
-    {
-        ptype: "c2corg_showfeatures",
-        features: config.features
     }];
 
     if (config.georef) {
