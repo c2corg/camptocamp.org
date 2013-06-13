@@ -234,7 +234,7 @@ all:
         type: flash
         width: 468
         height: 60
-        file: rayonrando2.swf
+        file: rayonrando3.swf
       raid:
         id: 68
         image: c2c-raid.png
