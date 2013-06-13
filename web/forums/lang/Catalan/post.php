@@ -8,7 +8,7 @@ $lang_post = array(
 'Too long subject'		=>	'Els assumptes no poden contenir més de 70 caràcters.',
 'No message'			=>	'Heu d\'introduir un missatge.',
 'Too long message'		=>	'Els missatges no poden contenir més de 65535 caràcters (64 KB).',
-'New posts error'		=>	'Au moins une nouvelle réponse a été postée depuis votre dernière lecture de la discussion. Elle est visible sous le formulaire.',
+'New posts error'		=>	'Hi ha almenys una nova resposta penjada d\'ençà del darrer cop que heu llegit la discussió. La podeu veure sota el formulari.',
 
 // Posting
 'Post errors'			=>	'Errors del missatge',
@@ -18,16 +18,16 @@ $lang_post = array(
 'Post redirect'			=>	'Missatge introduït. Redirigint &hellip;',
 'Post a reply'			=>	'Publica resposta',
 'Post new topic'		=>	'Nou tema',
-'Hide smilies'			=>	'No mostrar els smilies com a icones',
+'Hide smilies'			=>	'No mostris els smilies com a icones',
 'Subscribe'				=>	'Subscriure\'m a aquest tema',
 'Topic review'			=>	'Revisa tema (els més nous primer)',
-'Flood start'			=>	'Al menys',
-'flood end'				=>	'segons han de transcórrer entre missatges. Per favor espereu un poc i proveu-ho de nou.',
+'Flood start'			=>	'Almenys',
+'flood end'				=>	'segons han de transcórrer entre missatges. Si us plau, espereu-vos una mica i proveu-ho de nou.',
 'Preview'				=>	'Previsualitza',	// submit button to preview message
 
 // Edit post
 'Edit post legend'		=>	'Edita el missatge i envia els canvis',
-'Silent edit'			=>	'Edició silenciosa (no mostra "Editat per ..." al veure el tema)',
+'Silent edit'			=>	'Edició silenciosa (no mostra "Editat per ..." en veure el tema)',
 'Edit post'				=>	'Edita missatge',
 'Edit redirect'			=>	'Missatge actualitzat. Redirigint &hellip;',
 
