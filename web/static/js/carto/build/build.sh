@@ -12,9 +12,13 @@ do
   php mapi18n.php $culture > tmp/map-i18n-$culture.js
 done
 
+# Remove existing files
+# so to make sure that we don't keep old obsolete built js files
+rm *.js
+
 # Build and minify js files with jsbuild
 # Use -u to build without removing comments and spaces
 jsbuild app.cfg
 
-# clear c2c map i18n files
+# clear c2c map temp i18n files
 rm -r tmp/
