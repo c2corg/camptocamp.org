@@ -59,6 +59,9 @@ function _include_javascripts($position_array = array('first', '', 'last'), $deb
 
             foreach ($files as $file)
             {
+                // be sure to normalize files with .js at the end
+                $file .= substr($file, -3) === '.js' ? '' : '.js';
+
                 if (isset($already_seen[$file])) continue;
 
                 $already_seen[$file] = 1;

@@ -23,7 +23,9 @@ function minify_get_body_javascripts($combine = true, $debug = false)
   $response->setParameter('javascripts_included', true, 'symfony/view/asset');
 
   // prototype is added with position='' by JavascriptHelper. We don't want it here (added in head)
-  $my_already_seen = array(sfConfig::get('sf_prototype_web_dir').'/js/prototype' => 1);
+  $my_already_seen['/static/js/prototype.js'] = 1;
+  $my_already_seen['/static/js/effects.js'] = 1;
+  $my_already_seen['/static/js/controls.js'] = 1;
 
   return minify_get_javascripts(array('first', '', 'last'), $debug, $my_already_seen);
 }
@@ -48,6 +50,9 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
       $options = array_merge(array('type' => 'text/javascript'));
       foreach ($files as $file)
       {
+        // be sure to normalize files with .js at the end
+        $file .= substr($file, -3) === '.js' ? '' : '.js';
+
         if (isset($already_seen[$file])) continue;
 
         $already_seen[$file] = 1;
