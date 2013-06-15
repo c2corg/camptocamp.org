@@ -3,55 +3,55 @@
 // Language definitions used by the Private Message System-mod
 $lang_pms = array(
 	// Common
-	'Messages'				=>		'Mensajes',
-	'Message'				=>		'Mensaje',
-	'Save message'			=>		'Salvar mensaje',
-	'Send'					=>		'Enviar',
+	'Messages'				=>		'Missatges',
+	'Message'				=>		'Missatge',
+	'Save message'			=>		'Desa el missatge',
+	'Send'					=>		'Envia',
 
-	// Mensaje
-	'Inbox'					=>		'Entrada',
-	'Outbox'					=>		'Enviados',
-	'Box0'					=>		'Cambiar a Bandeja de Enviados',
-	'Box1'					=>		'Cambiar a Bandeja de Entrada',
-	'Action'					=>		'Acción',
-	'Reply'					=>		'Contestar',
-	'Delete'					=>		'Borrar',
-	'Quote'					=>		'Citar',
-	'Date'					=>		'Fecha',
-	'Status'					=>		'Estado del mensaje:',
-	'Subject'				=>		'Asunto',
-	'Sender'					=>		'Enviar',
-	'Receiver'				=>		'Receiver',
-	'Private Menssages'	=> 	'Mensaje Privado',
-	'New message'			=>		'Enviar nuevo mensaje',
-	'Multidelete'					=>	'Delete multiple messages',
-	'Delete messages comply'	=> 'Are you sure you want to delete the selected messages?',
-	'Deleted redirect'			=> 'Messages deleted. Redirecting ...',
-	'Read redirect'				=> 'All messages marked as read. Redirecting...',
-	'Mark all'			=>		'Mark all messages as read',
+	// Message
+	'Inbox'					=>		'Safata d\'entrada',
+	'Outbox'					=>		'Enviats',
+	'Box0'					=>		'Canvia a safata d\'enviats',
+	'Box1'					=>		'Canvia a safata d\'entrada',
+	'Action'					=>		'Acció',
+	'Reply'					=>		'Respon',
+	'Delete'					=>		'Esborra',
+	'Quote'					=>		'Cita',
+	'Date'					=>		'Data',
+	'Status'					=>		'Estat del missatge:',
+	'Subject'				=>		'Assumpte',
+	'Sender'					=>		'Envia',
+	'Receiver'				=>		'Destinatari',
+	'Private Menssages'	=> 	'Missatges privats',
+	'New message'			=>		'Envia missatge nou',
+	'Multidelete'					=>	'Esborra diversos missatges',
+	'Delete messages comply'	=> 'Esteu segur de voler esborrar els missatges seleccionats?',
+	'Deleted redirect'			=> 'Missatges esborrats. Redirigint...',
+	'Read redirect'				=> 'Tots els missatges estan marcats com a llegits. Redirigint...',
+	'Mark all'			=>		'Marca tots els missatges com a llegits',
 
 	// Viewtopic
 	'PM'						=>		'MP',
 
 	// Profile
-	'Quick message'		=> 	'Enviar message privado',
-	'Show smilies'			=>		'Mostrar smilies',
+	'Quick message'		=> 	'Envia missatge privat',
+	'Show smilies'			=>		'Mostra els smilies',
 
-	// Enviar or delete message
-	'Send to'				=> 	'Enviar a',
-	'Send a message'		=>		'Enviar un mensaje',
-	'Delete message'		=>		'Borrar mensaje',
-	'Del redirect'			=>		'Mensaje borrado, redirigiendo...',
-	'Sent redirect'		=>		'Mensaje enviados al usuario, redirigiendo...',
+	// Send or delete message
+	'Send to'				=> 	'Envia a',
+	'Send a message'		=>		'Envia un missatge',
+	'Delete message'		=>		'Esborra el missatge',
+	'Del redirect'			=>		'Missatge esborrat. Redirigint...',
+	'Sent redirect'		=>		'Missatge enviat a l\'usuari. Redirigint...',
 
-	// Errors and Mensaje
-	'No messages'			=>		'No Mensaje',
-	'New messages'			=>		'Hay un nuevo mensaje',
-	'No user'				=>		'No hay usuarios con es nick.',
-	'Full inbox'			=>		'¡Tu bandeja de entrada esta llena!',
-	'Inbox full'			=>		'La bandeja de entrada de ese usuarios esta llena. No puedes enviarle un MP a ese usuario.',
-	'Sent full'				=>		'No puedo salvar el mensaje en la carpeta de enviados, ¡esta llena!.',
-	'Flood start'			=>		'Menos de ',
-	'Flood end'				=>		'segundos han pasado desde el último MP. Por favor, espere un poco para enviar otro.',
-	'Trop Users'			=>		'Votre message est destiné à trop de personnes à la fois.'
+	// Errors and Message
+	'No messages'			=>		'No hi ha missatges',
+	'New messages'			=>		'Teniu un missatge nou',
+	'No user'				=>		'No hi ha cap usuari amb aquest nom.',
+	'Full inbox'			=>		'La teva safata d\'entrada està plena!',
+	'Inbox full'			=>		'Aquest usuari té la safata d\'entrada plena, i per tant no podeu enviar-li missatges privats.',
+	'Sent full'				=>		'No podeu desar el missatge a la carpeta d\'Enviats perquè està plena.',
+	'Flood start'			=>		'Han passat menys de ',
+	'Flood end'				=>		'segons des del darrer MP. Si us plau, espereu-vos una mica a enviar-ne un altre.',
+	'Trop Users'			=>		'El vostre missatge està dirigit a massa destinataris.'
 );

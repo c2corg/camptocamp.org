@@ -687,8 +687,6 @@ function updateRevisionInfo() {
 
     $dirs = array('web/static/css' => 'css',
                   'web/static/js' => 'js',
-                  /* forums TODO CHECK should not be here anymore */
-                  'web/static/js/dyncat' => 'js',
                   /* carto js */
                   'web/static/js/carto' => 'js',
                   'web/static/js/carto/build' => 'js');
