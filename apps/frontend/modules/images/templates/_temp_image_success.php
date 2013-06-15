@@ -33,6 +33,7 @@ echo __('name'), ' ',
      input_tag("name[$image_number]", $image_title, array('maxlength' => '150', 'class' => 'large_input')), ' ';
 echo input_hidden_tag("image_unique_filename[$image_number]", $image_filename);
 
+echo '<br /><br />';
 $license_choices = array_map('__', sfConfig::get('mod_images_type_list'));
 if ($default_license == 1) // collaborative licence is mandatory if it is the one proposed by default
 {
