@@ -4498,7 +4498,7 @@ class documentsActions extends c2cActions
                  break;
             case 'gmaps':
             default:
-                 $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name, $lang);
+                 $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $lang);
                  break;
         }
         $this->redirect($url);

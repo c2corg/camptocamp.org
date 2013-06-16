@@ -1,10 +1,10 @@
 <?php
 
-function gmaps_direction_link($from_lat, $from_lon, $to_lat, $to_lon, $to_name, $lang)
+function gmaps_direction_link($from_lat, $from_lon, $to_lat, $to_lon, $lang)
 {
     $baseurl = 'http://maps.google.com/maps';
     $from_code = (empty($from_lat) || empty($from_lon)) ? '' : "$from_lat,$from_lon";
-    $to_code = "$to_lat,$to_lon" . (empty($to_name) ? '' : '+%28'.strtr($to_name, array('%28'=>'%5B', '%29'=>'%5D')).'%29');
+    $to_code = "$to_lat,$to_lon";
     $lang_code = "&hl=$lang&ie=UTF8";
     $zoom_code = empty($from_code) ? "&z=12" : '';
 
