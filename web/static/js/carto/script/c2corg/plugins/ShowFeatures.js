@@ -2,7 +2,7 @@
  * @requires plugins/Tool.js
  * @include OpenLayers/Layer/Vector.js
  * @include OpenLayers/Format/GeoJSON.js
- * @include styles.js
+ * @include c2corg/config/styles.js
  */
 
 Ext.namespace("c2corg.plugins");

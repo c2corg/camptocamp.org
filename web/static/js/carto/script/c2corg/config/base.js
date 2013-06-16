@@ -1,5 +1,5 @@
 /**
- * @requires config.js
+ * @requires c2corg/config/config.js
  * @requires OpenLayers/Control/Navigation.js
  * @requires OpenLayers/Control/KeyboardDefaults.js
  * @requires OpenLayers/Control/PanZoomBar.js
