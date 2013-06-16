@@ -163,6 +163,8 @@ try
         else
         {
             // now, what append ???
+            // try to get more info on what could make it fail
+            var_dump($xml->asXML());
             var_dump($response);
 
             foreach ($response->errors->error as $error)
