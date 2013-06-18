@@ -1,0 +1,32 @@
+.swipe-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  z-index: 3;
+}
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+height: inherit;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+height: inherit;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+height: inherit;
+}
+
+.swipe-img {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+height: inherit;
+}

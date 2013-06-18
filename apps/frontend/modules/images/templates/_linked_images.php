@@ -45,7 +45,7 @@ foreach($images as $image)
     }
 
     $view_big = link_to($image_tag,
-                        ($mobile_version ? "@document_by_id_lang_slug?module=images&id=$image_id&lang=$lang&slug=$slug"
+                        (!$mobile_version ? "@document_by_id_lang_slug?module=images&id=$image_id&lang=$lang&slug=$slug"
                                            : absolute_link(image_url($image['filename'], 'big', true), true)),
                         array('title' => $caption,
                               'data-lightbox' => 'document_images',
