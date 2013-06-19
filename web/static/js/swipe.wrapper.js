@@ -5,6 +5,9 @@
 //      js async load
 //      when too many images could crash - to be tested
 //      i18N
+//      disable zoom
+//      links to other version
+//      enable for documents embedded images?
 
 (function(C2C) {
 
@@ -15,7 +18,6 @@
     // regsiter events for starting the swipejs based gallery
     function init() {
       // TODO use event delegation ?
-      // TODO embedded images
       images = $$('.image a[data-lightbox]');
 
       images.each(function(o, i) {
@@ -29,6 +31,9 @@
     // prepare and start the slideshow
     function start(startSlide) {
       startSlide = startSlide || 0;
+
+      // temporarily disable zoom
+      disableZoom();
 
       // build DOM for displaying the images
       var wrapper = Builder.node('div', { 'class': 'swipe-wrap' });
@@ -99,6 +104,7 @@
     }
 
     // this function gets executed after a new slide is displayed
+    // and is used to update image information
     function onSlideChange(index, elt) {
       $$('.swipe-index')[0].update((index + 1) + ' / ' + swipe.getNumSlides());
       $$('.swipe-title')[0].update(images[index].title);
@@ -107,11 +113,13 @@
       links[1].href = images[index].href;
     }
 
+    // show image information panel
     function showMeta() {
       window.clearTimeout(timer);
       translateY(meta, 0);
     }
 
+    // hide image information panel
     function hideMeta() {
       window.clearTimeout(timer);
       timer = (function() {
@@ -127,6 +135,7 @@
       swipe.kill();
       overlay.remove();
       background.remove();
+      enableZoom();
       swipe = overlay = background = null;
     }
 
@@ -137,7 +146,15 @@
       style.msTransform =
       style.MozTransform =
       style.OTransform = 'translateY(' + dist + 'px)';
-  }
+    }
+
+    function disableZoom() {
+      $$('meta[name="viewport"]')[0].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    }
+
+    function enableZoom() {
+      $$('meta[name="viewport"]')[0].content = "width=device-width";
+    }
 
     return init();
 
