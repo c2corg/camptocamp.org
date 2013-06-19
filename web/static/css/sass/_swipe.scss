@@ -1,38 +1,41 @@
 // css for swipejs based gallery
 
-.swipe-overlay {
-  height: 100%;
+.swipe-background, .swipe-overlay {
   width: 100%;
   background-color: black;
   position: absolute;
   z-index: 3;
 }
 
+.swipe-overlay {
+  height: 100%;
+}
+
 .swipe {
   overflow: hidden;
   visibility: hidden;
   position: relative;
-height: inherit;
+  height: inherit;
 }
 
 .swipe-wrap {
   overflow: hidden;
   position: relative;
-height: inherit;
+  height: inherit;
 }
 
 .swipe-wrap > div {
   float: left;
   width: 100%;
   position: relative;
-height: inherit;
+  height: inherit;
 }
 
 .swipe-img {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-height: inherit;
+  height: inherit;
 }
 
 $meta_hor_padding: 8px;

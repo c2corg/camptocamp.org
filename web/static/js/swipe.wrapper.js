@@ -10,11 +10,7 @@
 
   C2C.swipe = function() {
 
-    var images = null;
-    var swipe = null;
-    var overlay = null;
-    var meta = null;
-    var timer = null;
+    var images, swipe, overlay, background, meta, timer;
 
     // regsiter events for starting the swipejs based gallery
     function init() {
@@ -47,7 +43,7 @@
         Builder.node('br'),
         Builder.node('span', { 'class': 'swipe-links' }, [
           Builder.node('a', 'Image originale'),
-          '  ',
+          ' - ',
           Builder.node('a', 'Informations')
         ]),
         Builder.node('span', { 'class': 'swipe-index' })
@@ -59,10 +55,14 @@
         Builder.node('div', { 'class': 'swipe-close' })
       ]);
 
+      background = Builder.node('div', { 'class': 'swipe-background' });
+
       var body = $$('body')[0];
+      body.appendChild(background);
       body.appendChild(overlay);
 
-      // position the overlay div correctly on screen
+      // position the overlay divs correctly on screen
+      background.style.height = $('holder').getHeight() + 'px';
       overlay.style.top = document.viewport.getScrollOffsets()[1] + 'px';
 
       $$('.swipe-close')[0].observe('click', function() {
@@ -109,14 +109,12 @@
 
     function showMeta() {
       window.clearTimeout(timer);
-      //meta.show();
       translateY(meta, 0);
     }
 
     function hideMeta() {
       window.clearTimeout(timer);
       timer = (function() {
-        //meta.hide();
         translateY(meta, meta.getHeight());
       }).delay(4);
     }
@@ -128,7 +126,8 @@
       if (!swipe) return;
       swipe.kill();
       overlay.remove();
-      swipe = overlay = null;
+      background.remove();
+      swipe = overlay = background = null;
     }
 
     // adapted from swipe.js
