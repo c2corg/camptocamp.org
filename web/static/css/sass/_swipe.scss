@@ -1,0 +1,75 @@
+// css for swipejs based gallery
+
+.swipe-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  z-index: 3;
+}
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+height: inherit;
+}
+
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+height: inherit;
+}
+
+.swipe-wrap > div {
+  float: left;
+  width: 100%;
+  position: relative;
+height: inherit;
+}
+
+.swipe-img {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+height: inherit;
+}
+
+$meta_hor_padding: 8px;
+$meta_vert_padding: 4px;
+
+.swipe-meta {
+  background-color: rgb(34, 34,34); // fallback
+  background-color: rgba(34, 34,34, .6);
+  color: #d6d6d6;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: $meta_vert_padding $meta_hor_padding;
+  @include box-sizing(border-box);
+
+  @include transition(transform, 1s);
+}
+
+.swipe-links a {
+  color: #d6d6d6;
+}
+
+.swipe-index {
+  font-size: small;
+  position: absolute;
+  right: $meta_hor_padding;
+  bottom: $meta_vert_padding;
+}
+
+$close_size: 50px;
+$close_pad: 2px;
+
+.swipe-close {
+  background: url(-c2c-datauri('/static/images/picto/swipe_close.png')) top right no-repeat; // TODO pixelratio friendly button
+  position: absolute;
+  top: $close_pad;
+  right: $close_pad;
+  width: $close_size;
+  height: $close_size;
+}
