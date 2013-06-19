@@ -66,7 +66,7 @@
       overlay.style.top = document.viewport.getScrollOffsets()[1] + 'px';
 
       $$('.swipe-close')[0].observe('click', function() {
-        location.hash = '';
+        location.hash = '#_'; // use dummy hash since using '' or '#' would cause page scroll to top
         stop();
       });
 
@@ -78,7 +78,7 @@
         callback: onSlideChange
       });
 
-      // display info on first page
+      // display info on first slide
       onSlideChange(startSlide);
       hideMeta();
 
