@@ -17,7 +17,6 @@ else
     // TODO use async_load?
     use_javascript('/static/js/swipe.js', 'last');
     use_javascript('/static/js/swipe.wrapper.js', 'last');
-    use_stylesheet('/static/css/swipe.css');
 }
 
 // FIXME Why is this useful ?
