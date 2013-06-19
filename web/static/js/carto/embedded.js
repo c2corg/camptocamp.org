@@ -19,7 +19,10 @@ c2corg.Map = function (config) {
     c2corg.base.init(config.lang);
 
     var mapConfig = c2corg.base.getMap({
-        controls: { zoomWheelEnabled: false }
+        controls: {
+            zoomWheelEnabled: false,
+            keyboardEnabled: false
+        }
     });
     mapConfig.id = config.id;
  
