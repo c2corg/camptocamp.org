@@ -12,9 +12,8 @@ if (!$mobile_version)
     // add lightbox ressources
     addLbMinimalRessources();
 }
-else
+else if ($moderator)
 {
-    // TODO use async_load?
     use_javascript('/static/js/swipe.js', 'last');
     use_javascript('/static/js/swipe.wrapper.js', 'last');
 }
