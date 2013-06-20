@@ -62,6 +62,17 @@
     max-width: $BI_max;
     max-height: $BI_max;
   }
+
+  &:before {
+    display: inline-block;
+    content: '...';
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+  }
 }
 
 $meta_hor_padding: 8px;
