@@ -111,13 +111,16 @@ c2corg.base = {
 
     getControls: function (options) {
         options = Ext.applyIf(options || {}, {
-            zoomWheelEnabled: true
+            zoomWheelEnabled: true,
+            keyboardEnabled: true
         });
         return [
             new OpenLayers.Control.Navigation({
                 zoomWheelEnabled: options.zoomWheelEnabled
             }),
-            new OpenLayers.Control.KeyboardDefaults(),
+            new OpenLayers.Control.KeyboardDefaults({
+                autoActivate: options.keyboardEnabled
+            }),
             new OpenLayers.Control.PanZoomBar({panIcons: false}),
             new OpenLayers.Control.ArgParser(),
             new OpenLayers.Control.Attribution(),

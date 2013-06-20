@@ -12,6 +12,11 @@ if (!$mobile_version)
     // add lightbox ressources
     addLbMinimalRessources();
 }
+else if ($moderator)
+{
+    use_javascript('/static/js/swipe.js', 'last');
+    use_javascript('/static/js/swipe.wrapper.js', 'last');
+}
 
 // FIXME Why is this useful ?
 $sf_user->setAttribute('module', $module_name);

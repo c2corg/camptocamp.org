@@ -1,0 +1,103 @@
+// css for swipejs based gallery
+
+.swipe-background, .swipe-overlay {
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  z-index: 3;
+}
+
+.swipe-overlay {
+  height: 100%;
+  overflow: hidden;
+}
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+  height: inherit;
+}
+
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+  height: inherit;
+}
+
+.swipe-wrap > div {
+  float: left;
+  width: 100%;
+  position: relative;
+  height: inherit;
+
+  // see css-tricks.com/centering-in-the-unknown
+  // using table display would disable the following max-width/height properties
+  text-align: center;
+  font-size: 0;
+  &:before {
+    content: ' ';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+.swipe-img {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: inherit;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+
+  $MI_max: 300px; // displaying MI images bigger would be too blurry (original size: 250px max)
+  $BI_max: 800px;
+  &[style*='MI.'] {
+    max-width: $MI_max;
+    max-height: $MI_max;
+  }
+  &[style*='BI.'] {
+    max-width: $BI_max;
+    max-height: $BI_max;
+  }
+}
+
+$meta_hor_padding: 8px;
+$meta_vert_padding: 4px;
+
+.swipe-meta {
+  background-color: rgb(34, 34,34); // fallback
+  background-color: rgba(34, 34,34, .6);
+  color: #d6d6d6;
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  padding: $meta_vert_padding $meta_hor_padding;
+  @include box-sizing(border-box);
+  @include transition(transform, 1s);
+}
+
+.swipe-links a {
+  color: #d6d6d6;
+}
+
+.swipe-index {
+  font-size: small;
+  position: absolute;
+  right: $meta_hor_padding;
+  bottom: $meta_vert_padding;
+}
+
+$close_size: 50px;
+$close_pad: 2px;
+
+.swipe-close {
+  background: url(-c2c-datauri('/static/images/picto/swipe_close.png')) top right no-repeat; // TODO pixelratio friendly button
+  position: absolute;
+  top: $close_pad;
+  right: $close_pad;
+  width: $close_size;
+  height: $close_size;
+}

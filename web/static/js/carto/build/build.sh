@@ -14,7 +14,7 @@ done
 
 # Remove existing files
 # so to make sure that we don't keep old obsolete built js files
-rm *.js
+rm -f *.js
 
 # Build and minify js files with jsbuild
 # Use -u to build without removing comments and spaces

@@ -174,7 +174,10 @@ if ($mobile_version)
                      "@document_edit_archive?module=outings&id=$id&lang=$lang&version=$version"),
              '</div>';
         
-        echo javascript_tag("if (!user_is_author) $('edit_outing_button').hide();");
+        if ($is_not_archive && $is_not_merged && $is_connected && !$is_moderator)
+        {
+            echo javascript_tag("if (!user_is_author) $('edit_outing_button').hide();");
+        }
     }
 }
 
