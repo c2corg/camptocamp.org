@@ -359,6 +359,13 @@ msgstr "Torna a la llista de cims"
 msgid "Back to users list"
 msgstr "Torna a la llista d'usuaris"
 
+# [general comment]
+# link to the BI version of an image (limited to 800px max)
+# In the context, it is rather big (compared to MI, max 250px)
+# [WARNING] en translation used
+msgid "Big size"
+msgstr "Big size"
+
 msgid "Bookmark"
 msgstr "Posar en els meus favorits"
 
@@ -1208,6 +1215,14 @@ msgid "Information"
 msgstr "Informació"
 
 # [general comment]
+# link to the informations on an image (image document page)
+# 
+# check if the meaning is correct in your language
+# [WARNING] needs_review
+msgid "Informations"
+msgstr "Informacions"
+
+# [general comment]
 # il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
 msgid "Insert"
 msgstr "Inserir"
@@ -1736,6 +1751,14 @@ msgstr "Operació no autoritzada: es tracta de la darrera associació d'aquest t
 
 msgid "Operation not allowed"
 msgstr "Operació no autoritzada."
+
+# [general comment]
+# link to the original image
+# 
+# Try to keep it short
+# [WARNING] en translation used
+msgid "Original image"
+msgstr "Original image"
 
 msgid "Oups!"
 msgstr "Ep! S'han detectat els problemes següents:"

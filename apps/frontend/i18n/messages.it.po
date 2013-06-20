@@ -359,6 +359,13 @@ msgstr "Torna alla lista delle cime"
 msgid "Back to users list"
 msgstr "Torna alla lista degli utenti"
 
+# [general comment]
+# link to the BI version of an image (limited to 800px max)
+# In the context, it is rather big (compared to MI, max 250px)
+# [WARNING] en translation used
+msgid "Big size"
+msgstr "Big size"
+
 msgid "Bookmark"
 msgstr "Aggiungi ai Segnalibri"
 
@@ -1215,6 +1222,14 @@ msgid "Information"
 msgstr "Informazione"
 
 # [general comment]
+# link to the informations on an image (image document page)
+# 
+# check if the meaning is correct in your language
+# [WARNING] needs_review
+msgid "Informations"
+msgstr "Informazioni"
+
+# [general comment]
 # il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
 msgid "Insert"
 msgstr "Inserire"
@@ -1744,6 +1759,14 @@ msgstr "Operazione non autorizzata: si tratta dell’ultima associazione di ques
 
 msgid "Operation not allowed"
 msgstr "Operazione non autorizzata."
+
+# [general comment]
+# link to the original image
+# 
+# Try to keep it short
+# [WARNING] en translation used
+msgid "Original image"
+msgstr "Original image"
 
 msgid "Oups!"
 msgstr "Attenzione, sono stati riscontrati i problemi seguenti:"

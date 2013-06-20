@@ -1,18 +1,15 @@
 // touch-friendly gallery for mobile version
 // built around swipe.js
 
-// TODO best image candidate? tablet != smartphones
-//      js async load
+// TODO js async load
 //      when too many images could crash - to be tested
-//      i18N
-//      links to other version
 //      enable for documents embedded images?
 
 (function(C2C) {
 
   C2C.swipe = function() {
 
-    var images, swipe, overlay, background, meta, timer;
+    var images, swipe, overlay, background, meta, timer, img_type;
 
     // regsiter events for starting the swipejs based gallery
     function init() {
@@ -34,27 +31,30 @@
       // temporarily disable zoom
       disableZoom();
 
+      // depending on screen width, we use MI or BI images
+      // MI are ~10-15ko, BI are ~100ko
+      // TODO might need tweaking and maybe we should take pixelratio into account too
+      img_type = (document.viewport.getWidth() > 400) ? 'BI' : 'MI';
+
       // build DOM for displaying the images
       var wrapper = Builder.node('div', { 'class': 'swipe-wrap' });
       images.each(function(o) {
-        // depending on screen width, we use MI or BI images
-        // MI are ~10-15ko, BI are ~100ko
-        // TODO might need tweaking and maybe we should take pixelratio into account too
-        var img_type = (document.viewport.getWidth() > 400) ? 'BI' : 'MI';
-
         var img = o.down('img').src.replace('SI', img_type);
         wrapper.appendChild(Builder.node('div',
           Builder.node('div', { 'class': 'swipe-img', 'style': 'background-image: url(' + img + ')' })));
       });
 
+      var links = [];
+      if (img_type === 'MI') {
+        links.push(Builder.node('a', swipe_i18n['Big size']), ' - ');
+      }
+      links.push(Builder.node('a', swipe_i18n['Original image']),
+        ' - ', Builder.node('a', swipe_i18n['Informations']));
+
       meta = Builder.node('div', { 'class': 'swipe-meta' }, [
         Builder.node('span', { 'class': 'swipe-title' }),
         Builder.node('br'),
-        Builder.node('span', { 'class': 'swipe-links' }, [
-          Builder.node('a', 'Image originale'),
-          ' - ',
-          Builder.node('a', 'Informations')
-        ]),
+        Builder.node('span', { 'class': 'swipe-links' }, links),
         Builder.node('span', { 'class': 'swipe-index' })
       ]);
 
@@ -113,8 +113,14 @@
       $$('.swipe-index')[0].update((index + 1) + ' / ' + swipe.getNumSlides());
       $$('.swipe-title')[0].update(images[index].title);
       var links = $$('.swipe-links a');
-      links[0].href = images[index].down('img').src.replace('SI', '');
-      links[1].href = images[index].href;
+      var src = images[index].down('img').src;
+      if (img_type === 'MI') {
+        links[0].href = src.replace('SI', 'BI');
+        links[1].href = src.replace('SI', '');
+      } else {
+        links[0].href = src.replace('SI', '');
+      }
+      links.last().href = images[index].href;
     }
 
     // show image information panel
