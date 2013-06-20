@@ -709,6 +709,13 @@ li.list_odd
   }
 }
 
+/* on mobile versio, text input fields should be have an at least 16px font to prevent autozoom */
+textarea, .pun textarea, input[type=text], input[type="password"], input[type="email"], input[type="number"],
+input[type="range"], input[type="date"], input[type="color"], input[type="search"]{
+  font-size: 16px;
+}
+
+
 /* specific rules for tablets - min width >= 600px */
 @media screen and (min-width:600px)
 {
