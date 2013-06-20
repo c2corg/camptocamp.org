@@ -356,6 +356,13 @@ msgstr "Back to summits list"
 msgid "Back to users list"
 msgstr "Back to users list"
 
+# [general comment]
+# link to the BI version of an image (limited to 800px max)
+# In the context, it is rather big (compared to MI, max 250px)
+# [WARNING] needs_review
+msgid "Big size"
+msgstr "Big size"
+
 msgid "Bookmark"
 msgstr "Bookmark"
 
@@ -1216,6 +1223,14 @@ msgid "Information"
 msgstr "Informations"
 
 # [general comment]
+# link to the informations on an image (image document page)
+# 
+# check if the meaning is correct in your language
+# [WARNING] needs_review
+msgid "Informations"
+msgstr "Informations"
+
+# [general comment]
 # il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
 msgid "Insert"
 msgstr "Insert"
@@ -1749,6 +1764,13 @@ msgstr "Operation forbidden: this is the last association of this type"
 
 msgid "Operation not allowed"
 msgstr "Operation not allowed."
+
+# [general comment]
+# link to the original image
+# 
+# Try to keep it short
+msgid "Original image"
+msgstr "Original image"
 
 msgid "Oups!"
 msgstr "Warning! These problems have been detected:"
