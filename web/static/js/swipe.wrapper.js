@@ -1,7 +1,7 @@
 // touch-friendly gallery for mobile version
 // built around swipe.js
 
-// TODO js async load
+// TODO js async load?
 //      when too many images could crash - to be tested
 //      enable for documents embedded images?
 
@@ -49,7 +49,7 @@
         links.push(Builder.node('a', swipe_i18n['Big size']), ' - ');
       }
       links.push(Builder.node('a', swipe_i18n['Original image']),
-        ' - ', Builder.node('a', swipe_i18n['Informations']));
+        ' - ', Builder.node('a', swipe_i18n.Informations));
 
       meta = Builder.node('div', { 'class': 'swipe-meta' }, [
         Builder.node('span', { 'class': 'swipe-title' }),
