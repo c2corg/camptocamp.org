@@ -9,7 +9,7 @@
  * @include OpenLayers/Format/JSON.js
  * @include OpenLayers/Control/SelectFeature.js
  * @include GeoExt/widgets/tree/LayerNode.js
- * @include styles.js
+ * @include c2corg/config/styles.js
  */
 
 Ext.namespace("c2corg.plugins");
@@ -24,6 +24,9 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
     },
 
     viewerReady: function() {
+        var w = this.tree.findParentByType("window");
+        w.el.show(); // we don't use w.show() since it would grab focus
+
         this.tree.delayedApplyState();
         this.tree.loadInitialThemes();
         this.tree.makeThemesInteractive();
@@ -31,7 +34,6 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
         // listen on window resize to be sure that the
         // c2c layers window won't go out of the map
         Ext.EventManager.onWindowResize(function() {
-            var w = this.tree.findParentByType("window");
             var m = this.target.mapPanel.getEl();
             var xy = w.el.getAlignToXY(m, "tr-tr", [-5, 0]);
             var pos = w.getPosition();
@@ -52,7 +54,7 @@ c2corg.plugins.LayerTree = Ext.extend(gxp.plugins.Tool, {
         }, config || {});
 
         this.tree = c2corg.plugins.LayerTree.superclass.addOutput.call(this, config);
-        this.tree.findParentByType("window").alignTo(this.target.mapPanel.getEl(), "tr-tr", [-20, 45]);
+        this.tree.findParentByType("window").hide().alignTo(this.target.mapPanel.getEl(), "tr-tr", [-20, 45]);
         return this.tree;
     }
 });

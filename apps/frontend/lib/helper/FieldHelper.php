@@ -840,8 +840,8 @@ function field_getdirections($id)
                    array('title' => __($title, array('%1%' => 'Bing Maps')),
                          'class' => 'external_link'))
            . ' ' .
-           link_to('Mapquest/OSM', "@getdirections?id=$id&service=openmapquest",
-                   array('title' => __($title, array('%1%' => __('Mapquest/OSM'))),
+           link_to('OSRM', "@getdirections?id=$id&service=osrm",
+                   array('title' => __($title, array('%1%' => __('OSRM'))),
                          'class' => 'external_link')) . '</div>';
 }
 

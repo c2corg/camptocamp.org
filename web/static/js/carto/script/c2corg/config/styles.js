@@ -1,5 +1,5 @@
 /*
- * @requires config.js
+ * @requires c2corg/config/config.js
  */
 
 /**
