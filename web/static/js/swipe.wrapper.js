@@ -5,7 +5,6 @@
 //      js async load
 //      when too many images could crash - to be tested
 //      i18N
-//      disable zoom
 //      links to other version
 //      enable for documents embedded images?
 
@@ -38,7 +37,12 @@
       // build DOM for displaying the images
       var wrapper = Builder.node('div', { 'class': 'swipe-wrap' });
       images.each(function(o) {
-        var img = o.down('img').src.replace('SI', 'MI');
+        // depending on screen width, we use MI or BI images
+        // MI are ~10-15ko, BI are ~100ko
+        // TODO might need tweaking and maybe we should take pixelratio into account too
+        var img_type = (document.viewport.getWidth() > 400) ? 'BI' : 'MI';
+
+        var img = o.down('img').src.replace('SI', img_type);
         wrapper.appendChild(Builder.node('div',
           Builder.node('div', { 'class': 'swipe-img', 'style': 'background-image: url(' + img + ')' })));
       });
