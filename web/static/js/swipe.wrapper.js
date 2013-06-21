@@ -46,10 +46,10 @@
 
       var links = [];
       if (img_type === 'MI') {
-        links.push(Builder.node('a', swipe_i18n['Big size']), ' - ');
+        links.push(Builder.node('a', C2C.swipe_i18n['Big size']), ' - ');
       }
-      links.push(Builder.node('a', swipe_i18n['Original image']),
-        ' - ', Builder.node('a', swipe_i18n.Informations));
+      links.push(Builder.node('a', C2C.swipe_i18n['Original image']),
+        ' - ', Builder.node('a', C2C.swipe_i18n.Informations));
 
       meta = Builder.node('div', { 'class': 'swipe-meta' }, [
         Builder.node('span', { 'class': 'swipe-title' }),
