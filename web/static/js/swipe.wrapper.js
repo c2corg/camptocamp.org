@@ -63,7 +63,7 @@
         Builder.node('span', { 'class': 'swipe-index' })
       ]);
 
-      overlay = Builder.node('div', { 'class': 'swipe-overlay' }, [
+      overlay = Builder.node('div', { id: 'swipe', 'class': 'swipe-overlay' }, [
         Builder.node('div', { 'class': 'swipe' }, wrapper),
         meta,
         Builder.node('div', { 'class': 'swipe-close' })
