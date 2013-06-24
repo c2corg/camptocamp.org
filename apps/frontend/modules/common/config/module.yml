@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ raid, rayonrando, camp_g, google, montania, bd_revolt, changerdapproche, cilao, camp_g, boutique_c2c, raid, changerdapproche ]
+    values: [ raid, rayonrando, camp_g, mdlt, montania, bd_revolt, changerdapproche, cilao, camp_g, boutique_c2c, raid, changerdapproche ]
   banners:
     list:
       skalp:
@@ -265,4 +265,8 @@ all:
         width: 468
         height: 60
         file: bd_vector_FR.swf
+      mdlt:
+        id: 77
+        image: mdlt.jpg
+        alt: "Montagnes de la Terre"
 
