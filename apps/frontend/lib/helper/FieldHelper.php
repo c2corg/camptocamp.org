@@ -914,17 +914,17 @@ function field_exposure_time_if_set($document, $name = 'exposure_time', $prefix 
 
 function field_image_details($document)
 {
-    $filename = $document->get('filename');
-    $file = sfConfig::get('app_upload_dir') . DIRECTORY_SEPARATOR .
-            sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR . $filename;
-    if (!file_exists($file)) return '';
+    $size = $document->get('file_size');
+    $width = $document->get('width');
+    $height = $document->get('height');
 
-    $dimensions = getimagesize($file);
-    $size = filesize($file);
-    $hsize = ($size >= 1048576) ? round(filesize($file) / 1048576, 2) : round(filesize($file) / 1024);
+    // old images don't have these values in the db
+    if ($size == null || $width == null) return '';
+
+    $hsize = ($size >= 1048576) ? round($size / 1048576, 2) : round($size / 1024);
     return _format_data('image_details', __(($size >= 1048576) ? '%1% x %2% px, %3% Mo' : '%1% x %2% px, %3% Ko', 
-                                            array('%1%' => $dimensions[0],
-                                                  '%2%' => $dimensions[1],
+                                            array('%1%' => $width,
+                                                  '%2%' => $height,
                                                   '%3%' => $hsize)));
 }
 
