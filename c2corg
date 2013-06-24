@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 
 // Directories to create:
 $DIRS_TO_CREATE = array('persistent' => array('web/forums/img/avatars', 'web/uploads', 'web/uploads/images'),
-                        'flushable'  => array('web/forums/cache', 'log', 'web/uploads/images_temp'));
+                        'flushable'  => array('web/forums/cache', 'log', 'web/uploads/images_temp', 'web/static/rss'));
 
 // Directories containing server-specific config files
 $CONFIG_DIRS = array('apps/frontend/config', 'batch', 'config', 'data/sql',
