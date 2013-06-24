@@ -98,7 +98,7 @@
             tr.setAttribute('class', 'table_list_odd');
           }
 
-          title_str = result.title.split(' ::')[0];
+          var title_str = result.title.split(' ::')[0];
       
           var title = new Element('td');
           title.innerHTML = '<a href="' + result.link + '">' + title_str + '</a>';

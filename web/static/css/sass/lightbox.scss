@@ -1,42 +1,151 @@
 @import "blob";
 
-#lightbox{	position: absolute;	left: 0; width: 100%; z-index: 9060; text-align: center; line-height: 0;}
-#lightbox img{ width: auto; height: auto;}
-#lightbox a img{ border: none; }
+$radius: 4px;
 
-#outerImageContainer{ position: relative; background-color: #000; width: 250px; height: 250px; margin: 0 auto; }
-#imageContainer{ padding: 10px; font-size:0;}
-
-#loading{ position: absolute; top: 40%; left: 0%; height: 25%; width: 100%; text-align: center; line-height: 0; }
-#hoverNav{ position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }
-#imageContainer>#hoverNav{ left: 0;}
-#hoverNav a{ outline: none;}
-
-#prevLink, #nextLink{ width: 49%; height: 100%; background-image: url(data:image/gif;base64,AAAA); /* Trick IE into showing hover */ display: block; }
-#prevLink { left: 0; float: left;}
-#nextLink { right: 0; float: right;}
-#prevLink:hover, #prevLink:visited:hover { background: url(datauri('/static/images/prev_black.gif')) left 15% no-repeat; }
-#nextLink:hover, #nextLink:visited:hover { background: url(datauri('/static/images/next_black.gif')) right 15% no-repeat; }
-
-#imageDataContainer{ font: 12px Verdana, Helvetica, sans-serif; background-color: #000; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%	; }
-
-#imageData
-{
-  padding: 0 10px;
-  color: #ccc;
-  text-align: left;
+#lightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: black;
+  @include opacity(0.8);
+  display: none;
 }
-#imageData #caption{ font-weight: bold;	}
-#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 0.2em;	}			
-#imageData #bottomNavClose
-{
-  display: inline-block;
-  width: 26px;
-  height: 26px;
-  float: right;
-  padding-left: 1em;
+
+#lightbox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+  line-height: 0;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-weight: normal;
+}
+#lightbox img {
+  width: 100%;
+  height: 100%;
+}
+#lightbox img[src$="indicator.gif"] {
+  width: auto;
+  height: auto;
+}
+#lightbox a img {
+  border: none;
+}
+
+.lb-outerContainer {
+  position: relative;
+  background-color: black;
+  *zoom: 1;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  @include border-radius($radius);
+}
+.lb-outerContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.lb-container {
+  padding: 10px;
+}
+
+.lb-loader {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+}
+
+.lb-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.lb-container > .nav {
+  left: 0;
+}
+
+.lb-nav a {
   outline: none;
-  background: url(datauri('/static/images/close_lightbox.gif')) 0 0 no-repeat;
 }
 
-#overlay{ position: absolute; top: 0; left: 0; z-index: 9050; width: 100%; height: 500px; background-color: #000; }
+.lb-prev, .lb-next {
+  width: 49%;
+  height: 100%;
+  background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+  /* Trick IE into showing hover */
+  display: block;
+}
+
+.lb-prev {
+  left: 0;
+  float: left;
+}
+
+.lb-next {
+  right: 0;
+  float: right;
+}
+
+.lb-prev:hover {
+  background: url(datauri('/static/images/prev.png')) left 48% no-repeat;
+}
+
+.lb-next:hover {
+  background: url(datauri('/static/images/next.png')) right 48% no-repeat;
+}
+
+.lb-dataContainer {
+  margin: 0 auto;
+  padding-top: 5px;
+  *zoom: 1;
+  width: 100%;
+  @include border-bottom-radius($radius);
+}
+.lb-dataContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.lb-data {
+  padding: 0 10px;
+  color: #bbbbbb;
+  .lb-details {
+    width: 85%;
+    float: left;
+    text-align: left;
+    line-height: 1.1em;
+  }
+  .lb-caption {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1em;
+  }
+  .lb-more {
+    display: block;
+    clear: left;
+    padding-bottom: 1em;
+    font-size: 11px;
+  }
+  .lb-close {
+    width: 35px;
+    float: right;
+    padding-bottom: 0.7em;
+    outline: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
