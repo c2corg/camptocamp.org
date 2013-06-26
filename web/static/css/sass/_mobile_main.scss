@@ -274,11 +274,6 @@ div.postmsg h4
   padding: 6px;
 }
 
-.qjump select
-{
-  width: auto;
-}
-
 .pun .txtarea
 {
   width: 100%;
@@ -355,6 +350,15 @@ div.blockform form, div.fakeform
 #punmessage_list .blocktable {
   width: auto !important;
   margin-left: 0 !important;
+}
+
+// forum compose box
+a.smiley {
+  margin-right: 6px;
+}
+
+#punwrap input[type=button] {
+  margin-top: .4em;
 }
 
 /* footer */
@@ -704,6 +708,13 @@ li.list_odd
     width: auto;
   }
 }
+
+/* on mobile versio, text input fields should be have an at least 16px font to prevent autozoom */
+textarea, .pun textarea, input[type=text], input[type="password"], input[type="email"], input[type="number"],
+input[type="range"], input[type="date"], input[type="color"], input[type="search"]{
+  font-size: 16px;
+}
+
 
 /* specific rules for tablets - min width >= 600px */
 @media screen and (min-width:600px)

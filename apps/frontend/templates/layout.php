@@ -16,7 +16,7 @@ elseif ($id == $cda_id)
 }
 else
 {
-    $footer_type = null;
+    $footer_type = 'normal';
     // alpine club logo is included by css, but only in en
     if ($lang === 'en') use_stylesheet('/static/css/ac');
 }
@@ -70,7 +70,7 @@ $response->addJavascript('/static/js/fold.js'); ?>
     <div id="holder">
         <header id="page_header">
         <?php
-        $header_partial = ($action == 'view' && isset($footer_type) && $footer_type == 'cda') ? 'portals/cda_header' : 'common/header';
+        $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_header' : 'common/header';
         include_partial($header_partial, array('lang_code' => $lang_code));
 
         if (sfConfig::get('app_production') != 1)

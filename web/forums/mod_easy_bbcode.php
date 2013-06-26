@@ -40,9 +40,11 @@ if (!isset($bbcode_field))
 							<input type="button" value="Img" name="Img" onclick="C2C.insert_text('[img]','[/img]')" title="<?php echo $lang_common['Img button help']; ?>"/>
 							<input type="button" value="Code" name="Code" onclick="C2C.insert_text('[code]','[/code]')" title="<?php echo $lang_common['Code button help']; ?>"/>
 							<input type="button" value="Quote" name="Quote" onclick="C2C.insert_text('[quote]','[/quote]')" title="<?php echo $lang_common['Quote button help']; ?>"/>
+<?php if (!$mobile): ?>
                             &nbsp; &nbsp; <a href="/forums/help.php"><?php echo $lang_common['Help']; ?></a>
                             &nbsp; <span title="<?php echo $lang_common['Reduce the text box']; ?>" class="picto picto_close" onclick="C2C.changeTextareaRows('<?php echo $bbcode_field; ?>', false)"></span>
                             <span title="<?php echo $lang_common['Enlarge the text box']; ?>" class="picto picto_open" onclick="C2C.changeTextareaRows('<?php echo $bbcode_field; ?>', true)"></span>
+<?php endif; ?>
 						</div>
 						<div style="padding-top: 4px">
 <?php
@@ -59,7 +61,7 @@ for ($i = 0; $i < $num_smilies; ++$i)
 		continue;
 
 	if (!in_array($smiley_img[$i], $smiley_dups))
-		echo "\t\t\t\t\t\t\t".'<a href="javascript:C2C.insert_text(\' '.$smiley_text[$i].' \', \'\');"><img src="'.PUN_STATIC_URL.'/static/images/forums/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" /></a>'."\n";
+		echo "\t\t\t\t\t\t\t".'<a class="smiley" href="javascript:C2C.insert_text(\' '.$smiley_text[$i].' \', \'\');"><img src="'.PUN_STATIC_URL.'/static/images/forums/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" /></a>'."\n";
 
 	$smiley_dups[] = $smiley_img[$i];
 }
