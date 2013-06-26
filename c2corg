@@ -192,6 +192,7 @@ function processArgs() {
             //makeMapservWrapperExecutable();
             //installPlugins();
             rmLegacyPhpSettings(); // must get run before symfony stuff kicks in
+            patchFclose();
             generateMoFiles();
             launchCleanCache();
             buildMapJsFiles(); // must be done before revision info
@@ -208,6 +209,7 @@ function processArgs() {
             checkCacheDir();
             replaceDotIn();
             rmLegacyPhpSettings(); // must get run before symfony stuff kicks in
+            patchFclose();
             generateMoFiles();
             //makeMapservWrapperExecutable();
             buildMapJsFiles(true); // must be done before revision info
@@ -837,4 +839,19 @@ function rmLegacyPhpSettings() {
 
 }
 
+function patchFclose() {
+    // see http://trac.symfony-project.org/ticket/3880
+    $brokenfile = "./lib/vendor/symfony/lib/config/sfConfigCache.class.php";
+
+    if (is_writable($brokenfile)) {
+        $dump = file_get_contents($brokenfile);
+        if (strpos($dump, 'fclose') !== false) {
+            $fixed = str_replace('fclose', 'closedir', $dump);
+            $ret = file_put_contents($brokenfile, $fixed) ? 'success' : 'failure';
+            info("Patching symfony broken yaml file: $ret");
+        }
+    } else {
+        info("Unable to patch '$brokenfile', please check path or permissions.");
+    }
+}
 

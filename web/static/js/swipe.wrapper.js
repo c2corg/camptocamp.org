@@ -13,9 +13,14 @@
 
     // regsiter events for starting the swipejs based gallery
     function init() {
+      // do not activate swipe gallery if touch is not supported
+      if (!('ontouchstart' in window) && 
+          !(window.DocumentTouch && document instanceof DocumentTouch)) {
+        return;
+      }
+
       // TODO use event delegation ?
       images = $$('.image a[data-lightbox]');
-
       images.each(function(o, i) {
         o.observe('click', function(e) {
           e.stop();
@@ -58,7 +63,7 @@
         Builder.node('span', { 'class': 'swipe-index' })
       ]);
 
-      overlay = Builder.node('div', { 'class': 'swipe-overlay' }, [
+      overlay = Builder.node('div', { id: 'swipe', 'class': 'swipe-overlay' }, [
         Builder.node('div', { 'class': 'swipe' }, wrapper),
         meta,
         Builder.node('div', { 'class': 'swipe-close' })
