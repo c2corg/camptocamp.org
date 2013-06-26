@@ -10,7 +10,7 @@ $action = $sf_context->getActionName();
 $id = $sf_params->get('id');
 $cda_config = sfConfig::get('app_portals_cda');
 $cda_id = isset($cda_config['id']) ? $cda_config['id'] : -1;
-$footer_type = $id == $cda_id) ? 'cda' : 'normal';
+$footer_type = ($id == $cda_id) ? 'cda' : 'normal';
 
 use_helper('MyMinify', 'MetaLink');
 
