@@ -8,7 +8,7 @@ echo '<div class="image_list">';
 $images = $images->getRawValue();
 usort($images, array('c2cTools', 'cmpDateTimeDesc'));
 
-if ($mobile_version && $user_can_dissociate) // tmp: only for moderators
+if ($mobile_version)
 {
     $swipe_i18n = array_map('__', array('Big size', 'Original image', 'Informations'));
     echo javascript_tag('var swipe_i18n = {"Big size": "'.__('Big size').'",
