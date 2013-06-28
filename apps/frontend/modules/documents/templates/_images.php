@@ -12,7 +12,7 @@ if (!$mobile_version)
     // add lightbox ressources
     addLbMinimalRessources();
 }
-else if ($moderator)
+else
 {
     use_javascript('/static/js/swipe.js', 'last');
     use_javascript('/static/js/swipe.wrapper.js', 'last');
