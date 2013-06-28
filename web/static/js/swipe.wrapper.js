@@ -101,6 +101,12 @@
         .observe('touchstart', showMeta)
         .observe('touchend', hideMeta);
 
+      // prevent page scroll when touching the information panel
+      // this shouldn't prevent the click event
+      meta.observe('touchmove', function(event) {
+        event.preventDefault();
+      });
+
       // use location hash in order to cancel gallery
       // if user pushes back button
       // TODO use history api once better supported in the mobile world
