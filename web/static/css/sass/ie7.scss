@@ -1143,5 +1143,6 @@ span.license_mini_bysa {
 img { -ms-interpolation-mode: bicubic; }
 
 /* lightbox datauri fallback */
-#prevLink:hover, #prevLink:visited:hover { background: url(-c2c-hashurl('/static/images/prev.png')) left 15% no-repeat; }
-#nextLink:hover, #nextLink:visited:hover { background: url(-c2c-hashurl('/static/images/next.png')) right 15% no-repeat; }
+#prevLink:hover, #prevLink:visited:hover { background: url(-c2c-hashurl('/static/images/prev_black.gif')) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(-c2c-hashurl('/static/images/next_black.gif')) right 15% no-repeat; }
+#imageData #bottomNavClose { background: url(-c2c-hashurl('/static/images/close_lightbox.gif')) 0 0 no-repeat; }
