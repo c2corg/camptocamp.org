@@ -191,6 +191,7 @@ function processArgs() {
             replaceDotIn();
             //makeMapservWrapperExecutable();
             //installPlugins();
+            patchFclose();
             generateMoFiles();
             launchCleanCache();
             buildMapJsFiles(); // must be done before revision info
@@ -206,6 +207,7 @@ function processArgs() {
 
             checkCacheDir();
             replaceDotIn();
+            patchFclose();
             generateMoFiles();
             //makeMapservWrapperExecutable();
             buildMapJsFiles(true); // must be done before revision info
@@ -814,5 +816,21 @@ function buildSassFiles($refresh = false) {
     execWrapper('./build.sh');
     info('CSS files built.');
     chdir(dirname(__FILE__));
+}
+
+function patchFclose() {
+    // see http://trac.symfony-project.org/ticket/3880
+    $brokenfile = "./lib/vendor/symfony/lib/config/sfConfigCache.class.php";
+
+    if (is_writable($brokenfile)) {
+        $dump = file_get_contents($brokenfile);
+        if (strpos($dump, 'fclose') !== false) {
+            $fixed = str_replace('fclose', 'closedir', $dump);
+            $ret = file_put_contents($brokenfile, $fixed) ? 'success' : 'failure';
+            info("Patching symfony broken yaml file: $ret");
+        }
+    } else {
+        info("Unable to patch '$brokenfile', please check path or permissions.");
+    }
 }
 

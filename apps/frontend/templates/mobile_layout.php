@@ -10,10 +10,7 @@ $action = $sf_context->getActionName();
 $id = $sf_params->get('id');
 $cda_config = sfConfig::get('app_portals_cda');
 $cda_id = isset($cda_config['id']) ? $cda_config['id'] : -1;
-if ($id == $cda_id)
-{
-    $footer_type = 'cda';
-}
+$footer_type = ($id == $cda_id) ? 'cda' : 'normal';
 
 use_helper('MyMinify', 'MetaLink');
 
@@ -67,7 +64,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         <?php
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_mobile_header' : 'common/mobile_header';
         include_partial($header_partial, array('lang_code' => $lang_code,
-                                               'footer_type' => isset($footer_type) ? $footer_type : 'normal'));
+                                               'footer_type' => $footer_type));
         if (sfConfig::get('app_production') != 1)
         {
             include_partial('common/dev_env');
@@ -80,7 +77,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         </div>
         <?php
         include_partial('common/mobile_footer', array('lang_code' => $lang_code,
-                                                      'footer_type' => isset($footer_type) ? $footer_type : 'normal'));
+                                                      'footer_type' => $footer_type));
         ?>
     </div>
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
