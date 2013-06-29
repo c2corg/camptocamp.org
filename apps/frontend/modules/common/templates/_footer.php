@@ -67,7 +67,7 @@ endif;
             <?php echo link_to(__('contact'), getMetaArticleRoute('contact')) ?> |
             <?php echo link_to(__('terms of use'), getMetaArticleRoute('conditions')) ?> |
             <?php echo link_to(__('content license'), getMetaArticleRoute('licenses')) ?> |
-            <?php echo link_to(__('Developers'), 'https://dev.camptocamp.org/trac/c2corg') ?> |
+            <?php echo link_to(__('Developers'), 'https://trac.dev.camptocamp.org/') ?> |
             <?php echo link_to(__('credits'), getMetaArticleRoute('credits'));
             if (!empty($mobile_hostname) && !$is_map)
             {
