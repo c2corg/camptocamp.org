@@ -635,7 +635,7 @@ class documentsActions extends c2cActions
                 $this->associated_images = Document::fetchAdditionalFieldsFor(
                                             array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                             'Image', 
-                                            array('filename', 'image_type', 'date_time'));
+                                            array('filename', 'image_type', 'date_time', 'width', 'height'));
             }
             // display geo associated docs:
             if (!in_array($module, array('articles', 'books')))

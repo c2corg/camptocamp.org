@@ -168,7 +168,7 @@ class sitesActions extends documentsActions
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                                         array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                         'Image', 
-                                        array('filename', 'image_type', 'date_time'));
+                                        array('filename', 'image_type', 'date_time', 'width', 'height'));
             
             
             $site_types = $this->document->get('site_types');

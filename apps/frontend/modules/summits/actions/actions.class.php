@@ -168,7 +168,7 @@ class summitsActions extends documentsActions
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                                         array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                         'Image', 
-                                        array('filename', 'image_type', 'date_time'));
+                                        array('filename', 'image_type', 'date_time', 'width', 'height'));
             
             $cab = count($associated_books);
             $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)$this->document->get('geom_wkt'));
