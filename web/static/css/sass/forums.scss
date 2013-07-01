@@ -352,6 +352,11 @@ a .postimg {
     max-width: 100%;
 }
 
+div.postright {
+  max-width: 100%;
+  @include box-sizing(border-box);
+}
+
 /* 7.5 Turn off the poster information column for preview */
 
 #postpreview div.postright {

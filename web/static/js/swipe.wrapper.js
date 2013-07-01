@@ -2,7 +2,7 @@
 // built around swipe.js
 
 // TODO js async load?
-//      when too many images could crash - to be tested
+//      when too many images could crash - to be tested - best would be to only set bg property for next and prev 5, and to update after each change
 //      enable for documents embedded images?
 
 (function(C2C) {
@@ -51,9 +51,9 @@
 
       var links = [];
       if (img_type === 'MI') {
-        links.push(Builder.node('a', swipe_i18n['Big size']), ' - ');
+        links.push(Builder.node('a'), ' - ');
       }
-      links.push(Builder.node('a', swipe_i18n['Original image']),
+      links.push(Builder.node('a'),
         ' - ', Builder.node('a', swipe_i18n.Informations));
 
       meta = Builder.node('div', { 'class': 'swipe-meta' }, [
@@ -124,6 +124,26 @@
       $$('.swipe-index')[0].update((index + 1) + ' / ' + swipe.getNumSlides());
       $$('.swipe-title')[0].update(images[index].title);
       var links = $$('.swipe-links a');
+      var img = images[index].down('img');
+
+      if (img.hasAttribute('data-width')) {
+        var width = img.getAttribute('data-width');
+        var height = img.getAttribute('data-height');
+        if (img_type === 'MI') {
+          links[0].update(imagesize(350, width, height));
+          links[1].update(imagesize(800, width, height));
+        } else {
+          links[0].update(imagesize(800, width, height));
+        }
+      } else {
+        if (img_type === 'MI') {
+          links[0].update(swipe_i18n['Big size']);
+          links[1].update(swipe_i18n['Original image']);
+        } else {
+          links[0].update(swipe_i18n['Original image']);
+        }
+      }
+
       var src = images[index].down('img').src;
       if (img_type === 'MI') {
         links[0].href = src.replace('SI', 'BI');
@@ -175,6 +195,15 @@
 
     function enableZoom() {
       $$('meta[name="viewport"]')[0].content = "width=device-width";
+    }
+
+    function imagesize(max, width, height) {
+      var ratio = Math.min(max/width, max/height);
+      if (ratio >= 1) {
+        return width + 'x' + height;
+      } else {
+        return Math.round(ratio*width) + 'x' + Math.round(ratio*height);
+      }
     }
 
     return init();
