@@ -169,7 +169,6 @@ function button_protect($module, $id, $document_is_protected)
     $protect_title = __('Protect this document');
     $unprotect_title = __('Unprotect this document');
 
-    //FIXME: package in a standard JS file, minified ?
     echo javascript_tag('
         function update_protectBtn()
         {
