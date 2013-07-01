@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 
 // Directories to create:
 $DIRS_TO_CREATE = array('persistent' => array('web/forums/img/avatars', 'web/uploads', 'web/uploads/images'),
-                        'flushable'  => array('web/forums/cache', 'log', 'web/uploads/images_temp'));
+                        'flushable'  => array('web/forums/cache', 'log', 'web/uploads/images_temp', 'web/static/rss'));
 
 // Directories containing server-specific config files
 $CONFIG_DIRS = array('apps/frontend/config', 'batch', 'config', 'data/sql',
@@ -191,8 +191,6 @@ function processArgs() {
             replaceDotIn();
             //makeMapservWrapperExecutable();
             //installPlugins();
-            rmLegacyPhpSettings(); // must get run before symfony stuff kicks in
-            patchFclose();
             generateMoFiles();
             launchCleanCache();
             buildMapJsFiles(); // must be done before revision info
@@ -208,8 +206,6 @@ function processArgs() {
 
             checkCacheDir();
             replaceDotIn();
-            rmLegacyPhpSettings(); // must get run before symfony stuff kicks in
-            patchFclose();
             generateMoFiles();
             //makeMapservWrapperExecutable();
             buildMapJsFiles(true); // must be done before revision info
@@ -818,40 +814,5 @@ function buildSassFiles($refresh = false) {
     execWrapper('./build.sh');
     info('CSS files built.');
     chdir(dirname(__FILE__));
-}
-
-
-function rmLegacyPhpSettings() {
-
-    $brokenfile = "./lib/vendor/symfony/data/config/php.yml";
-    $re = '/.*(zend\.ze1_compatibility_mode|register_globals|magic_quotes_).*/';
-
-    if (is_writable($brokenfile)) {
-        $dump = file_get_contents($brokenfile);
-        if (preg_match($re, $dump)) {
-            $fixed = preg_replace($re, '', $dump);
-            $ret = file_put_contents($brokenfile, $fixed) ? 'success' : 'failure';
-            info("Patching symfony broken yaml file: $ret");
-        }
-    } else {
-        info("Unable to patch '$brokenfile', please check path or permissions.");
-    }
-
-}
-
-function patchFclose() {
-    // see http://trac.symfony-project.org/ticket/3880
-    $brokenfile = "./lib/vendor/symfony/lib/config/sfConfigCache.class.php";
-
-    if (is_writable($brokenfile)) {
-        $dump = file_get_contents($brokenfile);
-        if (strpos($dump, 'fclose') !== false) {
-            $fixed = str_replace('fclose', 'closedir', $dump);
-            $ret = file_put_contents($brokenfile, $fixed) ? 'success' : 'failure';
-            info("Patching symfony broken yaml file: $ret");
-        }
-    } else {
-        info("Unable to patch '$brokenfile', please check path or permissions.");
-    }
 }
 
