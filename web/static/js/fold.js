@@ -49,7 +49,7 @@
         div.css('display', 'block'); // for ie6-7 only
       }
     } else {
-      title.attr('title', open_close[2]);
+      title.attr('title', open_close[0]);
     }
 
     div.slideToggle(600);
