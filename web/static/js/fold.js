@@ -287,7 +287,7 @@
     $('.nav_box').toggle();
     wrapper.toggleClass('no_nav');
     splitter.toggleClass('maximize')
-      .attr('title', wide ? open_close[3] : open_close[2]);
+      .attr('title', splitter.data(wide ? 'title-reduce' : 'title-enlarge'));
 
     unhighlight_splitter();
 
