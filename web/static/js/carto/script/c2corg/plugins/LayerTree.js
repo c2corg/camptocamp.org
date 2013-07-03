@@ -369,6 +369,11 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
         // have activated on of the c2c objetcs layers.
         // An other solution could be to make this plugin aware of the feature layer from ShowFeature plugin, have only one other control
         // on all those layers and distinguish afterwards, or even merge the two plugins together, but this is more changes and quite dirty
+        if (this.getChecked().length) {
+          hoverControl.activate();
+          clickControl.activate();
+        }
+
         this.on("layervisibilitychange", function() {
             if (this.getChecked().length) {
                 hoverControl.activate();
