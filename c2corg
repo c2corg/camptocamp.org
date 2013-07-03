@@ -302,7 +302,7 @@ function crawl($dir, $function, $context=null) {
     if (!$dh)
         return false;
     while ($file = readdir($dh)) {
-        if ($file == '.' || $file == '..' || $file == '.svn' || $file == '.git')
+        if ($file == '.' || $file == '..' || $file == '.git')
             continue;
         $fullpath = "$dir/$file";
 
@@ -377,7 +377,7 @@ function checkCacheDir() {
 }
 
 function fileIgnored($file) {
-    return in_array($file, array('..', '.', '.svn', '.git'));
+    return in_array($file, array('..', '.', '.git'));
 }
 
 function setPermissionsCallback($file, $context) {
@@ -674,7 +674,7 @@ function makeMapservWrapperExecutable() {
  * of js and css files
  */
 function updateRevisionInfo() {
-    if (isWin32() || !hasCommand('svn --help') || !hasCommand('git --help')) {
+    if (isWin32() || !hasCommand('git --help')) {
         debug('Updating revision info failed.');
         return;
     }
@@ -734,10 +734,7 @@ function getFileRevisionInfo($file = 'head') {
     }
 
     try {
-        if (file_exists('.svn')) {
-            $line = getFileRevisionInfoSvn($file = 'head', $tmpfile);
-        }
-        elseif (file_exists('.git')) {
+        if (file_exists('.git')) {
             $line = getFileRevisionInfoGit($tmpfile);
         }
         else {
@@ -750,22 +747,6 @@ function getFileRevisionInfo($file = 'head') {
         unlink($tmpfile);
     }
     return $line;
-}
-
-function getFileRevisionInfoSvn($file = 'head', $tmpfile) {
-    if ($file === 'head') {
-        $cmd = 'LANG=C svn info | grep "Last Changed Rev:" > ' . $tmpfile;
-    } else {
-        $cmd = 'LANG=C svn info ' . $file . ' | grep "Last Changed Rev:" > ' . $tmpfile;
-    }
-    execWrapper($cmd);
-    if ($version_info = file_get_contents($tmpfile)) {
-        $revision_array = explode(': ', $version_info);
-        return((empty($file) ? "head" : "$file") . ': ' . $revision_array[1]);
-    } else {
-        info('Failed updating revision info');
-        return;
-    }
 }
 
 function getFileRevisionInfoGit($tmpfile) {
