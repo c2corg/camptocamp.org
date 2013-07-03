@@ -21,6 +21,10 @@
 
       // TODO use event delegation ?
       images = $$('.image a[data-lightbox]');
+
+      // don't use swipe gallery if more than 30 images (too laggy)
+      if (images.length > 30) return;
+
       images.each(function(o, i) {
         o.observe('click', function(e) {
           e.stop();
