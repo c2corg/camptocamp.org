@@ -211,4 +211,4 @@
 
   $(C2C.swipe);
 
-/bin/bash: q: command not found
+})(window.C2C = window.C2C || {});
