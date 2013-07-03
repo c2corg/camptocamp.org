@@ -362,9 +362,8 @@ msgstr "Torna a la llista d'usuaris"
 # [general comment]
 # link to the BI version of an image (limited to 800px max)
 # In the context, it is rather big (compared to MI, max 250px)
-# [WARNING] en translation used
 msgid "Big size"
-msgstr "Big size"
+msgstr "Mida gran"
 
 msgid "Bookmark"
 msgstr "Posar en els meus favorits"
@@ -1154,6 +1153,12 @@ msgstr "Aquesta nova contrasenya no serà validada fins que l'utilitzis per prim
 msgid "Image"
 msgstr "Imatge"
 
+# [general comment]
+# We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
+# [WARNING] en translation used
+msgid "Image cannot be rotated anymore"
+msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+
 msgid "Image could not be loaded"
 msgstr "No es pot mostrar la imatge"
 
@@ -1756,9 +1761,8 @@ msgstr "Operació no autoritzada."
 # link to the original image
 # 
 # Try to keep it short
-# [WARNING] en translation used
 msgid "Original image"
-msgstr "Original image"
+msgstr "Imatge original"
 
 msgid "Oups!"
 msgstr "Ep! S'han detectat els problemes següents:"
@@ -4310,7 +4314,7 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Previsions meteoro
 "<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p>\n"
 "<ul><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>\n"
 "<p>Altres</p>\n"
-"<ul><li><a href=\"http://www.senderismeentransportpublic.blogspot.com/\">Senderisme en transport públic</a></li><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://transportpublic.org/\">transportpublic.org</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
+"<ul><li><a href=\"http://senderismeentren.cat/\">Senderisme amb tren</a></li><li><a href=\"http://www.senderismeentransportpublic.blogspot.com/\">Senderisme amb transport públic</a></li><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://transportpublic.org/\">transportpublic.org</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
 # [WARNING] needs_review
 msgid "cda_search_outings_tips"

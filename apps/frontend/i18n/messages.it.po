@@ -1161,6 +1161,12 @@ msgstr "Questa nuova password verrà attivato solo una volta che l'avrai usata. 
 msgid "Image"
 msgstr "Immagine"
 
+# [general comment]
+# We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
+# [WARNING] en translation used
+msgid "Image cannot be rotated anymore"
+msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+
 msgid "Image could not be loaded"
 msgstr "Impossibile di vedere l'immagine"
 

@@ -1167,6 +1167,12 @@ msgstr "Dieses neuen Passwort wird erst gültig, wenn Sie es das erste Mal benut
 msgid "Image"
 msgstr "Bild"
 
+# [general comment]
+# We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
+# [WARNING] en translation used
+msgid "Image cannot be rotated anymore"
+msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+
 msgid "Image could not be loaded"
 msgstr "Es ist unmöglich das Bild anzuzeigen"
 
