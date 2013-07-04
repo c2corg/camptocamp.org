@@ -468,6 +468,8 @@ class summitsActions extends documentsActions
         Document::countAssociatedDocuments($summits, 'sr', true);
         c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
 
+        Area::sortAssociatedAreas($summits);
+
         $this->items = Language::parseListItems($summits, 'Summit');
     }
 

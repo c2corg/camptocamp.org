@@ -833,7 +833,9 @@ class outingsActions extends documentsActions
             Image::addAssociatedImages($outings, 'oi');
             c2cActions::statsdTiming('image.addAssociatedImages', $timer->getElapsedTime());
         }
-        
+
+        Area::sortAssociatedAreas($outings);
+
         $this->items = Language::parseListItems($outings, 'Outing', !$show_images);
     }
 

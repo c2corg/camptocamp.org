@@ -428,6 +428,8 @@ class hutsActions extends documentsActions
         Document::countAssociatedDocuments($huts, 'hr', true);
         c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
 
+        Area::sortAssociatedAreas($huts);
+
         $this->items = Language::parseListItems($huts, 'Hut');
     }
 }
