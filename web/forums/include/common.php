@@ -80,22 +80,6 @@ $pun_start = ((float)$usec + (float)$sec);
 // Make sure PHP reports all errors except E_NOTICE. PunBB supports E_ALL, but a lot of scripts it may interact with, do not.
 error_reporting(E_ALL ^ E_NOTICE);
 
-// Turn off magic_quotes_runtime
-set_magic_quotes_runtime(0);
-
-// Strip slashes from GET/POST/COOKIE (if magic_quotes_gpc is enabled)
-if (get_magic_quotes_gpc())
-{
-	function stripslashes_array($array)
-	{
-		return is_array($array) ? array_map('stripslashes_array', $array) : stripslashes($array);
-	}
-
-	$_GET = stripslashes_array($_GET);
-	$_POST = stripslashes_array($_POST);
-	$_COOKIE = stripslashes_array($_COOKIE);
-}
-
 // Seed the random number generator
 mt_srand((double)microtime()*1000000);
 
