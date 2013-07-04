@@ -17,6 +17,6 @@ $feed->setLanguage($lang);
 
 foreach ($items as $item)
 {
-   get_partial("$module/rss_item", array('feed' => &$feed, 'item' => $item)); 
+   get_partial("$module/rss_item", array('feed' => $feed, 'item' => $item));
 }
 echo $feed->asXml(ESC_RAW);
