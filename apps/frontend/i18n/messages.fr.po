@@ -1163,6 +1163,11 @@ msgstr "Ce nouveau mot de passe ne prendra effet que lorsque vous l'utiliserez p
 msgid "Image"
 msgstr "Image"
 
+# [general comment]
+# We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
+msgid "Image cannot be rotated anymore"
+msgstr "L'image ne peut pas être tournée, elle n'est plus directement accessible"
+
 msgid "Image could not be loaded"
 msgstr "Impossible d'afficher l'image"
 

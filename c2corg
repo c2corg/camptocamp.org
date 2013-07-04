@@ -302,7 +302,7 @@ function crawl($dir, $function, $context=null) {
     if (!$dh)
         return false;
     while ($file = readdir($dh)) {
-        if ($file == '.' || $file == '..' || $file == '.svn' || $file == '.git')
+        if ($file == '.' || $file == '..' || $file == '.git')
             continue;
         $fullpath = "$dir/$file";
 
@@ -377,7 +377,7 @@ function checkCacheDir() {
 }
 
 function fileIgnored($file) {
-    return in_array($file, array('..', '.', '.svn', '.git'));
+    return in_array($file, array('..', '.', '.git'));
 }
 
 function setPermissionsCallback($file, $context) {
@@ -674,7 +674,7 @@ function makeMapservWrapperExecutable() {
  * of js and css files
  */
 function updateRevisionInfo() {
-    if (isWin32() || !hasCommand('svn --help') || !hasCommand('git --help')) {
+    if (isWin32() || !hasCommand('git --help')) {
         debug('Updating revision info failed.');
         return;
     }
@@ -692,7 +692,9 @@ function updateRevisionInfo() {
     fwrite($handle, "\n  # auto generated\n");
     fwrite($handle, "  versions:\n");
 
-    fwrite($handle, '    ' . getFileRevisionInfo() . "\n");
+    fwrite($handle, '    head: ' . getRevisionInfo('%h') . "\n");
+    fwrite($handle, '    date: ' . getRevisionInfo('%at') . "\n");
+    fwrite($handle, "\n");
 
     foreach ($dirs as $dir => $filetype) {
         foreach (getDirHashInfo($dir, '.'.$filetype) as $line) {
@@ -725,58 +727,26 @@ function getDirHashInfo($dir, $pattern) {
     return $list;
 }
 
-// was previously used to retrieve the revision for every file (now we use timestamp)
-// Now only used to get revision number for footer
-function getFileRevisionInfo($file = 'head') {
-    $tmpfile = 'tmp_revinfo';
-    if (file_exists($tmpfile)) {
-        unlink($tmpfile);
-    }
+// Used to get revision informations for footer
+function getRevisionInfo($format) {
+    if (file_exists('.git')) {
+        $output = '';
+        $status = 0;
 
-    try {
-        if (file_exists('.svn')) {
-            $line = getFileRevisionInfoSvn($file = 'head', $tmpfile);
+        $cmd = "git show HEAD --pretty=format:$format | head -n1";
+        exec($cmd, $output, $status);
+
+        if ($status != 0) {
+            info("Error while running: '$cmd'");
+            $line = 0;
+        } else {
+            $line = $output[0];
         }
-        elseif (file_exists('.git')) {
-            $line = getFileRevisionInfoGit($tmpfile);
-        }
-        else {
-            $line = "$file" . ": unsupported VCS";
-        }
-    } catch (InstallException $e) {
-        $line = "$file" . ": unknown";
-    }
-    if (file_exists($tmpfile)) {
-        unlink($tmpfile);
+    } else {
+        info("Unsupported VCS");
+        $line = 0;
     }
     return $line;
-}
-
-function getFileRevisionInfoSvn($file = 'head', $tmpfile) {
-    if ($file === 'head') {
-        $cmd = 'LANG=C svn info | grep "Last Changed Rev:" > ' . $tmpfile;
-    } else {
-        $cmd = 'LANG=C svn info ' . $file . ' | grep "Last Changed Rev:" > ' . $tmpfile;
-    }
-    execWrapper($cmd);
-    if ($version_info = file_get_contents($tmpfile)) {
-        $revision_array = explode(': ', $version_info);
-        return((empty($file) ? "head" : "$file") . ': ' . $revision_array[1]);
-    } else {
-        info('Failed updating revision info');
-        return;
-    }
-}
-
-function getFileRevisionInfoGit($tmpfile) {
-    $cmd = 'git show HEAD --pretty=format:%h | head -n1 > ' . $tmpfile;
-    execWrapper($cmd);
-    if ($version_info = file_get_contents($tmpfile)) {
-        return("head: " . $version_info);
-    } else {
-        info('Failed updating revision info');
-        return;
-    }
 }
 
 function buildMapJsFiles($refresh = false) {

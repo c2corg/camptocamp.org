@@ -663,7 +663,7 @@ class BaseDocument extends sfDoctrineRecordI18n
           ->leftJoin("m.$model_i18n mi")
           ->addWhere($where_ids, $ids);
         
-        call_user_func(array($model, 'buildMainPagerConditions'), &$q, $criteria);
+        $model::buildMainPagerConditions($q, $criteria);
         
         if ($nb_results > 1)
         {
@@ -691,7 +691,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $criteria[0] = array();
                     $criteria[1] = array();
                     $criteria[2] = $joins_order;
-                    call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
+                    $model::buildPagerConditions($q, $criteria);
                 }
             }
             $order_by = self::buildOrderby($field_list, $sort);
@@ -777,7 +777,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $c->select('m.id')
               ->from("$model m");
             
-            call_user_func(array($model, 'buildPagerConditions'), &$c, $criteria);
+            $model::buildPagerConditions ($c, $criteria);
         }
         
         // pager query
@@ -789,7 +789,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         if (!$all || !empty($joins_order))
         {
             $criteria[2] = $joins_pager;
-            call_user_func(array($model, 'buildPagerConditions'), &$q, $criteria);
+            $model::buildPagerConditions ($q, $criteria);
         }
         else
         {

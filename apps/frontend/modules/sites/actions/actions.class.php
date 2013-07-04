@@ -627,6 +627,8 @@ class sitesActions extends documentsActions
         Document::countAssociatedDocuments($sites, 'to', true);
         c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
 
+        Area::sortAssociatedAreas($sites);
+
         $this->items = Language::parseListItems($sites, 'Site');
     }
 }
