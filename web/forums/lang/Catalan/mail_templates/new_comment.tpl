@@ -1,11 +1,11 @@
-Subject: Nouveau commentaire
+Subject: Nou comentari
 
-<replier> a commenté un document parmi vos sorties, images ou articles personnels. Vous avez été automatiquement abonné à la discussion.
+En / na <replier> ha fet un comentari a una de les vostres sortides, imatges o articles personals. Heu estat subscrit/a automàticament a la discussió.
 
-Le message est situé ici <post_url>
+Trobareu el missatge aquí <post_url>
 
-Vous pouvez vous désabonner de la discussion en suivant ce lien <unsubscribe_url>
+Podeu donar-vos de baixa de la subscripció a la discussió seguint aquest enllaç <unsubscribe_url>
 
 -- 
 <board_mailer>
-(Ne pas répondre à ce message)
+(No respongueu aquest missatge)
