@@ -104,6 +104,8 @@ class productsActions extends documentsActions
         Parking::addAssociatedParkings($products, 'pf'); // add associated parkings infos to $products
         c2cActions::statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
 
+        Area::sortAssociatedAreas($products);
+
         $this->items = Language::parseListItems($products, 'Product');
     }
 }

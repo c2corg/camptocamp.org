@@ -1014,6 +1014,8 @@ class routesActions extends documentsActions
         Document::countAssociatedDocuments($routes, 'ro', true); // number of associated outings
         c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
 
+        Area::sortAssociatedAreas($routes);
+
         $this->items = Language::parseListItems($routes, 'Route');
     }
 }

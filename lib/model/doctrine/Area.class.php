@@ -578,4 +578,18 @@ class Area extends BaseArea
         return c2cTools::sortArrayByName($areas);
     }
 
+    // sort the areas associated to a list of documents via the 'geoassociations' entry
+    public static function sortAssociatedAreas(&$documents)
+    {
+        // we want to sort ranges first, then admin limits and countries
+        // good thing is, corresponding association types (dr, dd, dc, dv) are
+        // already alphabetically ordered
+        foreach ($documents as &$document)
+        {
+            usort($document['geoassociations'], function ($a, $b) {
+                return ($a['type'] < $b['type']) ? 1 : -1;
+            });
+        }
+    }
+
 }

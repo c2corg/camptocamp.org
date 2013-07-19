@@ -170,6 +170,8 @@ class parkingsActions extends documentsActions
         Document::countAssociatedDocuments($parkings, 'pr', true);
         c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
 
+        Area::sortAssociatedAreas($parkings);
+
         $this->items = Language::parseListItems($parkings, 'Parking');
     }
 }
