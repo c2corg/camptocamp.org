@@ -27,7 +27,7 @@ foreach($images as $image)
     $tag_attributes = array('alt' => $caption, 'title' => $caption);
     foreach(array('width', 'height', 'file_size') as $prop)
     {
-        if (check_not_empty($image[$prop]))
+        if (isset($image[$prop]) && check_not_empty($image[$prop]))
         {
             $tag_attributes['data-'.$prop] = $image[$prop];
         }
