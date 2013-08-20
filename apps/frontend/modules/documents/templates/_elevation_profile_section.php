@@ -26,7 +26,7 @@ echo end_section_tag();
 
 // FIXME d3js uses functions unsupported by ie<=8 but
 // feature detecting svg support should be enough
-$script_url = minify_get_combined_files_url(array('/static/js/d3.v3.js',
+$script_url = minify_get_combined_files_url(array('/static/js/d3.min.js',
                                                   '/static/js/elevation_profile.js'),
                                             (bool) sfConfig::get('app_minify_debug'));
 // notes:
