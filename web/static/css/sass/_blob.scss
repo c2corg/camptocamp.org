@@ -7,6 +7,7 @@ $mobile: false !default;
 $standard: not $mobile;
 
 // following functions are adapted from compass
+@import "utils/background-clip";
 @import "utils/border-radius";
 @import "utils/box-sizing";
 @import "utils/opacity";
