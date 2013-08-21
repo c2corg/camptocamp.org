@@ -36,7 +36,6 @@
       });
 
       uploader.bind('Init', function(up, params) {
-        Modalbox.resizeToContent();
         $('#pickfiles').removeAttr('disabled');
 
         // drag&drop look&feel
@@ -66,7 +65,7 @@
             var script = document.createElement('script');
             script.src = this.backup_js;
             document.getElementsByTagName('head')[0].appendChild(script);
-            Modalbox.show(this.backup_url);
+            $.modalbox.show({remote: this.backup_url});
             return;
 
           // file is with wrong extension, or too big (svg and gif files cannot be resized)
@@ -132,7 +131,6 @@
             );
           }
         });
-        Modalbox.resizeToContent();
         up.refresh();  // Reposition Flash/Silverlight
         window.setTimeout(function() {
           up.start();
@@ -155,7 +153,6 @@
         $('.images_submit').show();
         $('#'+file.id).html(response.response);
         //new Effect.Highlight(elt); TODO
-        Modalbox.resizeToContent();
       });
     },
 
@@ -163,14 +160,13 @@
     displayError: function(file, errormsg) {
       $('#'+file.id).html($('<div class="image_upload_entry"></div>')
         .append(
-          $('<a href="#" style="float: right;" onclick="$(this).up().hide(); Modalbox.resizeToContent(); return false;">' +
+          $('<a href="#" style="float: right;" onclick="$(this).up().hide(); return false;">' +
             '<span class="picto action_cancel"></span></a>'),
           document.createTextNode(file.name),
           $('<div class="global_form_error"><ul><li>'+errormsg+'</li></ul></div>'))
       );
 
       //new Effect.Highlight(elt); TODO
-      Modalbox.resizeToContent();
     },
 
     cancelUpload: function(file) {
@@ -195,13 +191,11 @@
         if ($(this).val().replace(/^\s+|\s+$/g,"").length < 4) {
           if (!form_error.is(':visible')) {
             form_error.show();
-            Modalbox.resizeToContent();
           }
           allow_submit = false;
         } else {
           if (form_error.is(':visible')) {
             form_error.hide();
-            Modalbox.resizeToContent();
           }
         }
       });

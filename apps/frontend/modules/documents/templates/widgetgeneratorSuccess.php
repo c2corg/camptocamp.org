@@ -52,7 +52,7 @@ $('wgt_title').observe('keyup', function(event) {
 updateWidgetCode();
 </script>
 <ul class="action_buttons">
-  <li><?php echo button_tag('Close', __('Close'), array('onclick' => 'Modalbox.hide();',
+  <li><?php echo button_tag('Close', __('Close'), array('onclick' => 'jQuery.modalbox.hide();',
                                                         'class' => 'picto action_cancel',
                                                         'title' => null)); ?></li>
 </ul>

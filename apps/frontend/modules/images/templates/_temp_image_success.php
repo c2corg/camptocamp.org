@@ -2,7 +2,7 @@
 use_helper('Form', 'MyImage', 'Button', 'Javascript');
 
 echo link_to_function(picto_tag('action_cancel', __('close')),
-                                '$(this).up().remove();Modalbox.resizeToContent()',
+                                '$(this).up().remove();',
                                  array('style' => 'float:right;'));
 echo image_tag(image_url($image_filename, 'small', false, true), array('class' => 'temp'));
 echo __('categories (multiple selection allowed)');

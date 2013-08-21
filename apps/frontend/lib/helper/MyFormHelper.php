@@ -480,11 +480,13 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
 function bbcode_toolbar_img_tag($document, $target_id)
 {
     $id = $document->getId();
+
     $options = array('title' => __('Insert image'),
-                     'onclick' => "Modalbox.show('/insertimagetag/" . $document->getModule() . '/'
-                                                  . $id . "/$target_id', "
-                                                  . _options_for_javascript(array('title' => 'this.title', 'width' => 710))
-                                                  . "); return false;");
+                     'onclick' => "jQuery.modalbox.show(" .
+                         _options_for_javascript(array('title' => 'this.title', 'width' => 710,
+                                                      'remote' => "'/insertimagetag/" . $document->getModule() . "/$id/$target_id'")) .
+                         '); return false;');
+
     if (!(isset($id) && trim($id) != ''))
     {
         $options['disabled'] = 'disabled';

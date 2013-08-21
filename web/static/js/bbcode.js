@@ -154,7 +154,7 @@
     img_tag += "\n";
 
     C2C.insertBbcode('img', $('#div').val());
-    Modalbox.hide();
+    $.modalbox.hide();
   };
 
 })(window.C2C = window.C2C || {}, jQuery);
