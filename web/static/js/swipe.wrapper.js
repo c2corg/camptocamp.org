@@ -135,9 +135,9 @@
         var height = img.getAttribute('data-height');
         if (img_type === 'MI') {
           links[0].update(imagesize(800, width, height));
-          links[1].update(imagesize(2000, width, height));
+          links[1].update(imagesize(20000, width, height));
         } else {
-          links[0].update(imagesize(2000, width, height));
+          links[0].update(imagesize(20000, width, height));
         }
       } else {
         if (img_type === 'MI') {
