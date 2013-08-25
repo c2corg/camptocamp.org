@@ -459,10 +459,6 @@ a.external_link, .htext .hextra a.external_link {
 .sbox select.picto_documents, .sbox select.picto_1 {
   background-position: -6px -102px;
 }
-.image_list a.view_details, #lightbox_view_details
-{
-  background: url(-c2c-hashurl('/static/images/modules/modules_mini.png')) no-repeat -1px -166px;
-}
 
 .article_title_img
 {
@@ -814,9 +810,20 @@ select.picto_forum, select.picto_forums
 {
   background-position: -8px -1440px;
 }
+
+.image_list a.view_details, #lightbox_view_details
+{
+  background: url(-c2c-hashurl('/static/images/modules/modules_mini.png')) no-repeat -1px -166px;
+}
+
 .image_list a.view_original, #lightbox_view_original
 {
   background: url(-c2c-hashurl('/static/images/picto/actions.png')) no-repeat -2px -673px;
+}
+
+.image_list a.edit_image
+{
+  background: url(-c2c-hashurl('/static/images/picto/actions.png')) no-repeat -1px -294px;
 }
 
 .image_list a.unlink
