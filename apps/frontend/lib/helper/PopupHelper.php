@@ -31,8 +31,8 @@ function make_thumbnail_slideshow($images) {
     foreach($images as $image) {
         $count += 1;
         $caption = $image['name'];
-        $style = ($count != 1) ? ' style="display:none"' : '';
-        $output .= "<li$style>" . image_tag(image_url($image['filename'], 'medium'),
+        $class = ($count != 1) ? '' : ' class="popup-img-active"';
+        $output .= "<li$class>" . image_tag(image_url($image['filename'], 'medium'),
                                             array('alt' => $caption, 'title' => $caption))
                  . '</li>';
     }
@@ -44,12 +44,9 @@ function make_thumbnail_slideshow($images) {
 
 function insert_popup_js()
 {
-    return '<script type="text/javascript" src="' . 
-        minify_get_combined_files_url(array(
-            '/static/js/prototype.js',
-            '/static/js/scriptaculous.js',
-            '/static/js/effects.js',
-            '/static/js/popup.js')) .
+    return '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>jQuery.noConflict();</script><script type="text/javascript" src="' .
+        minify_get_combined_files_url(array('/static/js/popup.js')) . // TODO
         '"></script>';
 }
 

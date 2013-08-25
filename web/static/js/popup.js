@@ -1,54 +1,45 @@
-(function(C2C) {
+(function(C2C, $) {
 
   // image slideshow stuff
-  var delay = 4;
+  var delay = 4000;
 
-  function fadeInOut(frame, lis) {
+  function showNextImage(frame, lis) {
     var next_frame = (frame == lis.length - 1) ? 0 : frame + 1;
 
-    new Effect.Parallel([
-      new Effect.Fade(lis[frame]),
-      new Effect.Appear(lis[next_frame])
-    ], {
-      afterFinish: function() {
-        fadeInOut.delay(delay, next_frame, lis);
-      }
-    });
+    $(lis[frame]).removeClass('popup-img-active');
+    $(lis[next_frame]).addClass('popup-img-active');
+
+    window.setTimeout(function() { showNextImage(next_frame, lis) }, delay);
   }
 
   C2C.init_slideshow = function() {
-    var lis = this.select('.popup_slideimages li');
-    fadeInOut.delay(delay, 0, lis);
+    var lis = $(this).find('.popup_slideimages li');
+    window.setTimeout(function() { showNextImage(0, lis) }, delay);
   };
 
   C2C.init_popup = function() {
     // we might have more than one popup on the screen, so we go through
     // each of them and init if needed
-    var popups = $$('.popup_content');
-    
-    popups.each(function(popup) {
+    var popups = $('.popup_content').each(function() {
+      var $this = $(this);
 
       // do not init if already done
-      if (popup.hasClassName('c2c-init')) return;
+      if ($this.hasClass('c2c-init')) return;
 
-      popup.addClassName('c2c-init');
+      $this.addClass('c2c-init');
 
       // init slideshow
-      if (popup.select('.popup_slideimages img').length > 1) {
-        C2C.init_slideshow.bind(popup)();
+      if ($this.find('.popup_slideimages img').length > 1) {
+        $.proxy(C2C.init_slideshow, this)();
       }
 
       // if the popup is used on a map, we need to make sure that
       // activities section (if present) can be toggled
-      // TODO code is using ids, but this should be changed because we can have
-      // more than one popup on the map
-      popup.select('#routes_section_container .title2').each(function(elt) {
-        elt.observe('click', function() {
-          this.next().toggle();
-        });
+      $this.on('click', '.title2', function() {
+        $(this).next().toggle();
       });
 
     });
   };
 
-})(window.C2C = window.C2C || {});
+})(window.C2C = window.C2C || {}, jQuery);
