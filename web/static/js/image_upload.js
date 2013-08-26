@@ -1,163 +1,162 @@
-ImageUpload = {
+// upload images using iframes. Obsoleted by plupload, but will still be used by ie8&9
 
-  // construct the iframe object that will store the form result
-  frame : function(c) {
-    var n = 'f' + Math.floor(Math.random() * 99999);
-    var i = new Element('iframe', { style: 'display:none', src: 'about:blank', id: n, name: n, onload: "ImageUpload.loaded('"+n+"')" });
-    var d = new Element('div');
-    d.appendChild(i);
-    document.body.appendChild(d);
+(function(C2C, $) {
 
-    if (c && typeof(c.onComplete) == 'function') {
-      i.onComplete = c.onComplete;
-    }
+  C2C.ImageUpload = {
 
-    return n;
-  },
+    // construct the iframe object that will store the form result
+    frame: function(c) {
+      var n = 'f' + Math.floor(Math.random() * 99999);
+      var i = $('<iframe/>', {
+        style: 'display:none',
+        src: 'about:blank',
+        id: n,
+        name: n,
+        onload: "C2C.ImageUpload.loaded('"+n+"')"
+      });
+      $('body').append($('<div/>').append(i));
 
-  // set target attribute to form, so that its result is loaded in the iframe,
-  // keeping current page open
-  form : function(f, name) {
-    f.setAttribute('target', name);
-  },
-
-  // submit the form
-  submit : function(f, c) {
-    if (!ImageUpload.validateFilename()) {
-      $('image_selection').down('.image_form_error').show();
-      return false;
-    }
-    $('image_selection').down('.image_form_error').hide();
-    var upload_id = ImageUpload.frame(c);
-    ImageUpload.form(f, upload_id);
-    if (c && typeof(c.onStart) == 'function') {
-      return c.onStart(upload_id, f);
-    } else {
-      return true;
-    }
-  },
-
-  // called when the iframe has finished loading
-  loaded : function(id) {
-    var i = $(id);
-    var d;
-    if (i.contentDocument) {
-      d = i.contentDocument;
-    } else if (i.contentWindow) {
-      d = i.contentWindow.document;
-    } else {
-      d = window.frames[id].document;
-    }
-
-    if (d.location.href == 'about:blank') {
-      return;
-    }
-
-    if (typeof(i.onComplete) == 'function') {
-      i.onComplete(id, d.body.innerHTML);
-    }
-  },
-
-  validateFilename : function() {
-    var reg = /\.(png|jpeg|jpg|gif|svg)$/i;
-    // test if file api is implemented
-    if ($('image_file').files) {
-      var files = $('image_file').files;
-      if (files.length > 4) return false;
-      for (var i = 0; i < files.length; i++) {
-        if (!reg.test(files[i].name)) return false;
+      if (c && typeof(c.onComplete) == 'function') {
+        i[0].onComplete = c.onComplete;
       }
-      return true;
-    } else {
-      name = $F('image_file');
-      if (name == '') { return false; }
-      return reg.test(name);
-    }
-  },
 
-  validateImageForms : function(pe) {
-    if ($('MB_content') === null) {
-      pe.stop();
-      return null;
-    }
+      return n;
+    },
 
-    var allow_submit = true;
-    var images = $$('.image_upload_entry input');
-    if (images.length > 0) {
-      $$('.image_upload_entry').each(function(obj) {
-        // if not displayed, remove it from dom (because BlindUp doesn't remove from dom)
-        if (obj.style.display == 'none') {
-          obj.remove();
+    // set target attribute to form, so that its result is loaded in the iframe,
+    // keeping current page open
+    form: function(f, name) {
+      f.attr('target', name);
+    },
+
+    // submit the form
+    submit: function(f, c) {
+      if (!C2C.ImageUpload.validateFilename()) {
+        $('image_selection .image_form_error').show();
+        return false;
+      }
+
+      $('image_selection .image_form_error').hide();
+      var upload_id = C2C.ImageUpload.frame(c);
+      C2C.ImageUpload.form(f, upload_id);
+      if (c && typeof(c.onStart) == 'function') {
+        return c.onStart(upload_id, f);
+      } else {
+        return true;
+      }
+    },
+
+    // called when the iframe has finished loading
+    loaded: function(id) {
+      var i = document.getElementById(id), d;
+
+      if (i.contentDocument) {
+        d = i.contentDocument;
+      } else if (i.contentWindow) {
+        d = i.contentWindow.document;
+      } else {
+        d = window.frames[id].document;
+      }
+
+      if (d.location.href == 'about:blank') {
+        return;
+      }
+
+      if (typeof(i.onComplete) == 'function') {
+        i.onComplete(id, d.body.innerHTML);
+      }
+    },
+
+    validateFilename: function() {
+      var reg = /\.(png|jpeg|jpg|gif|svg)$/i;
+      // test if file api is implemented
+      var files = document.getElementById('image_file').files;
+      if (files) {
+        if (files.length > 4) return false;
+        for (var i = 0; i < files.length; i++) {
+          if (!reg.test(files[i].name)) return false;
+        }
+        return true;
+      } else {
+        name = document.getElementById('image_file').value;
+        if (name === '') { return false; }
+        return reg.test(name);
+      }
+    },
+
+    validateImageForms: function(pe) {
+      if (!$('#modalbox').hasClass('in')) { // means modalbox is closed
+        pe.stop();
+        return null;
+      }
+
+      var allow_submit = true;
+
+      $('.image_upload_entry').each(function() {
+        if (this.style.display == 'none') {
+          $(this).remove();
           return;
         }
-        if (obj.down('input')) {
-          if (obj.down('input').value.length < 4) {
-            obj.down('.image_form_error').show();
-            allow_submit = false;
-          } else {
-            obj.down('.image_form_error').hide();
-          }
+        if ($(this).find('input').length) {
+          allow_submit = ($(this).find('input').val().length >= 4);
+          $(this).find('.image_form_error').toggle(!allow_submit);
         }
       });
-      if (allow_submit) {
-        $$('.images_submit').invoke('enable');
+
+      if (allow_submit && $('.image_upload_entry input').length) {
+        $('.images_submit').removeAttr('disabled');
       } else {
-        $$('.images_submit').invoke('disable');
+        $('.images_submit').attr('disabled', 'disabled');
       }
-    } else {
-      $$('.images_submit').invoke('disable');
-    }
-  },
+    },
 
-  startCallback : function(upload_id, f) {
-    // create entry for the image
-    var loadingImg = new Element('img', { src: _static_url + '/static/images/indicator.gif' });
-    var fileText = new Element('span');
-    // file names
-    if ($('image_file').files) {
-      var fa = [];
-      for (var i = 0; i < $('image_file').files.length; i++) {
-        fa[i] = $('image_file').files[i].name;
+    startCallback: function(upload_id, f) {
+      // create entry for the image
+      // file names
+      var files = document.getElementById('image_file').files, filenames;
+      if (files) {
+        var fa = [];
+        for (var i = 0, l = files.length; i < l; i++) {
+          fa[i] = files[i].name;
+        }
+        filenames = fa.join(', ');
+      } else {
+        filenames = document.getElementById('image_file').value;
       }
-      var filenames = fa.join(', ');
-    } else {
-      var filenames = $F('image_file')
+                
+      $('#files_to_upload').prepend($('<div id="u'+upload_id+'"/>')
+        .append('<span>'+filenames+' </span>',
+                '<img src="' + _static_url + '/static/images/indicator.gif" />'));
+
+      return true;
+    },
+
+    completeCallback: function(upload_id, response) {
+      $('#u'+upload_id).html(response);
+      new Effect.Highlight('u'+upload_id); // TODO
+    },
+
+    showNewInputFile: function(image_number) {
+      $('#image_number').attr('value', image_number);
+      new Effect.Appear('image_selection'); // TODO
+    },
+
+    onchangeCallback: function() {
+      if (C2C.ImageUpload.submit($('#form_file_input'), {
+            'onStart': C2C.ImageUpload.startCallback,
+            'onComplete': C2C.ImageUpload.completeCallback
+          })) {
+        $('#form_file_input').submit();
+        var image_number = parseInt($('#image_number').val(), 10) + 1;
+
+        // empty file input and visual effect
+        $('#image_selection').hide();
+        $('#image_selection label').html($('#image_add_str').html());
+        document.getElementById('form_file_input').reset();
+
+        window.setTimeout(function() { C2C.ImageUpload.showNewInputFile(image_number); }, 1500);
+      }
     }
-    fileText.update(filenames+' ');
-    var imageDiv = new Element('div', { id: 'u'+upload_id });
+  };
 
-    imageDiv.appendChild(fileText);
-    imageDiv.appendChild(loadingImg);
-    $('files_to_upload').insert({ top: imageDiv });
-
-    return true;
-  },
-
-  completeCallback : function(upload_id, response) {
-    $('u'+upload_id).update(response);
-    new Effect.Highlight('u'+upload_id);
-  },
-
-  showNewInputFile : function(image_number) {
-    $('image_number').writeAttribute('value', image_number);
-    new Effect.Appear('image_selection');
-  },
-
-  onchangeCallback: function() {
-    if (ImageUpload.submit($('form_file_input'), {
-          'onStart' : ImageUpload.startCallback,
-          'onComplete' : ImageUpload.completeCallback
-        })) {
-      $('form_file_input').submit();
-      var image_number = parseInt($F('image_number'), 10) + 1;
-
-      // empty file input and visual effect
-      $('image_selection').hide();
-      $('image_selection').down('label').update($('image_add_str').innerHTML);
-      $('form_file_input').reset();
-
-      ImageUpload.showNewInputFile.delay(1.5, image_number);
-    }
-  }
-};
-alert('plop');
+})(window.C2C = window.C2C || {}, jQuery);
