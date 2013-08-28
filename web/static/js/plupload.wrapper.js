@@ -151,7 +151,8 @@
       // show server response
       uploader.bind('FileUploaded', function(up, file, response) {
         $('.images_submit').show();
-        $('#'+file.id).html(response.response);
+        $('#'+file.id).html(response.response)
+          .find('.tmp-image-close').click(function() { $(this).parent().remove(); });
         //new Effect.Highlight(elt); TODO
       });
     },

@@ -2279,8 +2279,14 @@ input.long_input
 
 .image_upload_entry input
 {
-  width:250px;
-  margin-right:20px;
+  width: 250px;
+  margin-right: 20px;
+}
+
+.image_upload_entry .tmp-image-close
+{
+  cursor: pointer;
+  float: right;
 }
 
 .article_gauche_5050 input.long_input, .article_droite_5050 input.long_input

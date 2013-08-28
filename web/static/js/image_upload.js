@@ -132,13 +132,13 @@
     },
 
     completeCallback: function(upload_id, response) {
-      $('#u'+upload_id).html(response);
-      new Effect.Highlight('u'+upload_id); // TODO
+      $('#u'+upload_id).html(response)
+        .find('.tmp-image-close').click(function() { $(this).parent().remove(); });
     },
 
     showNewInputFile: function(image_number) {
       $('#image_number').attr('value', image_number);
-      new Effect.Appear('image_selection'); // TODO
+      $('#image_selection').fadeIn();
     },
 
     onchangeCallback: function() {
