@@ -152,8 +152,7 @@
       uploader.bind('FileUploaded', function(up, file, response) {
         $('.images_submit').show();
         $('#'+file.id).html(response.response)
-          .find('.tmp-image-close').click(function() { $(this).parent().remove(); });
-        //new Effect.Highlight(elt); TODO
+          .find('.tmp-image-close').click(C2C.PlUploadWrapper.removeEntry);
       });
     },
 
@@ -161,13 +160,21 @@
     displayError: function(file, errormsg) {
       $('#'+file.id).html($('<div class="image_upload_entry"></div>')
         .append(
-          $('<a href="#" style="float: right;" onclick="$(this).up().hide(); return false;">' +
-            '<span class="picto action_cancel"></span></a>'),
+          $('<span class="picto action_cancel tmp-image-close"></span>').click(C2C.PlUploadWrapper.removeEntry),
           document.createTextNode(file.name),
           $('<div class="global_form_error"><ul><li>'+errormsg+'</li></ul></div>'))
       );
+    },
 
-      //new Effect.Highlight(elt); TODO
+    removeEntry: function() {
+      if (!cssAnimationSupported) {
+        $(this).parent().remove();
+      } else {
+        $(this).parent().addClass('removed')
+          .one('webkitAnimationEnd animationend', function(e) {
+            $(this).remove();
+          });
+      }
     },
 
     cancelUpload: function(file) {
@@ -209,5 +216,23 @@
     }
 
   };
+
+  // test if css animation and transforms are supported
+  // (all browsers that support animation also support 2d transforms)
+  function testCssAnimationAndTransforms() {
+    var animation = false;
+    var props = ['animationName', 'WebkitAnimationName', 'MozAnimationName'];
+    var elt = $('div')[0];
+    for (var i in props) {
+      var prop = props[i];
+      if (elt.style[prop] !== undefined) {
+        animation = true;
+        break;
+      }
+    }
+    return animation;
+  }
+
+  var cssAnimationSupported = testCssAnimationAndTransforms();
 
 })(window.C2C = window.C2C || {}, jQuery);

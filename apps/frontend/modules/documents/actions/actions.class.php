@@ -2284,7 +2284,7 @@ class documentsActions extends c2cActions
         }
         $this->setPageTitle($page_title);
     }
-    
+ 
     public function executeLatestassociations()
     {
         $doc_id = $this->getRequestParameter('id', null);
