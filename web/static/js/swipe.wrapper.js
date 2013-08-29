@@ -130,9 +130,9 @@
         var height = img.data('height');
         if (img_type === 'MI') {
           links.eq(0).text(imagesize(800, width, height));
-          links.eq(1).text(imagesize(2000, width, height));
+          links.eq(1).text(imagesize(20000, width, height));
         } else {
-          links.eq(0).text(imagesize(2000, width, height));
+          links.eq(0).text(imagesize(20000, width, height));
         }
       } else {
         if (img_type === 'MI') {
