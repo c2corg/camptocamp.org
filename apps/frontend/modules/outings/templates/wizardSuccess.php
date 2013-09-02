@@ -47,7 +47,7 @@ echo form_tag('outings/wizard');
 echo input_hidden_tag('summit_id', '0');
 ?>
 <p id="summit_link" style="display: none">
-<a href="#" onclick="window.open('/summits/' + $('summit_id').value);"><?php echo __('Show the summit') ?></a>
+<a href="#" onclick="window.open('/summits/' + jQuery('#summit_id').val());"><?php echo __('Show the summit') ?></a>
 </p>
 <p id="wizard_summit_create" class="wizard_tip"><?php echo __('No summit matching your search?') . ' ' . 
 link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p>
@@ -64,7 +64,7 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <hr />
 <h4><?php echo __('Step 2: Create a route')  ?></h4>
 <p class="wizard_tip">
-<a href="#" onclick="window.open('/routes/edit/link/' + $('summit_id').value);"><?php echo __('Add your route') ?></a>
+<a href="#" onclick="window.open('/routes/edit/link/' + jQuery('#summit_id').val());"><?php echo __('Add your route') ?></a>
 </p>
 </div>
 
@@ -80,10 +80,12 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <?php echo __('Short description: '); ?>
 <span id="routes_descr"><?php echo __('not available'); ?></span>
 <br />
-<a href="#" onclick="window.open('/routes/' + $('routes').options[$('routes').selectedIndex].value);"><?php echo __('Show the route') ?></a>
+<a href="#" onclick="window.open('/routes/' + jQuery('routes').val();">
+  <?php echo __('Show the route') ?>
+</a>
 </p> <!-- wizard_route_descr -->
 <p class="wizard_tip"><?php echo __('No route matching your search?') . ' '; ?>
-<a href="#" onclick="window.location.href='/routes/edit/link/' + $('summit_id').value; return false;"><?php echo __('Add your route') ?></a></p>
+<a href="#" onclick="window.location.href='/routes/edit/link/' + jQuery('#summit_id').val(); return false;"><?php echo __('Add your route') ?></a></p>
 
 <div id="last_ok" style="display: none;">
 <hr />
@@ -91,7 +93,7 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <?php 
 echo form_tag('outings/edit', 'method=get');
 echo input_hidden_tag('link', '0');
-echo c2c_submit_tag(__('New outing'), array('onclick' => '$("link").value = $("routes").options[$("routes").selectedIndex].value',
+echo c2c_submit_tag(__('New outing'), array('onclick' => 'jQuery("#link").val(jQuery("#routes").val());',
                                             'title' => __('Add your outing'),
                                             'picto' => 'action_create'));
 ?>
