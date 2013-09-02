@@ -44,6 +44,8 @@
     },
 
     show: function() {
+      // toggle flash advertisment
+      $('#pub object').css('visibility', 'hidden');
       this.isShown = true;
       this.escape();
       if (!!this.options.backdrop && this.options.backdrop != 'static') {
@@ -53,6 +55,8 @@
     },
 
     hide: function() {
+      // toggle flash advertisment
+      $('#pub object').css('visibility', 'visible');
       this.isShown = false;
       this.escape();
       $('.modal-backdrop').off('click.dismiss.modal');
