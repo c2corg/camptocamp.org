@@ -929,6 +929,7 @@ msgstr "FAQ"
 msgid "FAQ short"
 msgstr "FAQ"
 
+# [WARNING] needs_update
 msgid "Failed moving uploaded file"
 msgstr "Il cambiamento di nome del file non è stato registrato. Provare di nuovo."
 

@@ -936,6 +936,7 @@ msgstr "Preguntas frecuentes"
 msgid "FAQ short"
 msgstr "FAQ"
 
+# [WARNING] needs_update
 msgid "Failed moving uploaded file"
 msgstr "No se pudo mover el fichero. Inténtelo de nuevo por favor."
 
