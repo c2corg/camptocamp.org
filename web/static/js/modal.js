@@ -28,7 +28,10 @@
     if (this.options.remote) {
       this.$element.find('.modal-body')
         .append('<div class="modal-loading"/>')
-        .load(this.options.remote);
+        .load(this.options.remote, function() {
+          // set focus on input autofocus if it exists
+          $(this).find('input[autofocus]').focus();
+        });
     } // if no remote option, we display the box as is
   };
 
