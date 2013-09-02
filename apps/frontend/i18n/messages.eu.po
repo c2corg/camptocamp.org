@@ -942,6 +942,7 @@ msgstr "Ohizko galderak"
 msgid "FAQ short"
 msgstr "FAQ"
 
+# [WARNING] needs_update
 msgid "Failed moving uploaded file"
 msgstr "Fitxeroaren izen aldaketak oker bat eman du. Berriro saiatu."
 

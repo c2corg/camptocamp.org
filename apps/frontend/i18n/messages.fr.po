@@ -934,7 +934,7 @@ msgid "FAQ short"
 msgstr "FAQ"
 
 msgid "Failed moving uploaded file"
-msgstr "Le renommage d'un fichier a échoué. Merci de réessayer."
+msgstr "Le renommage d'un fichier a échoué. Si cela se reproduit, merci de contacter la modération."
 
 msgid "Failed rasterizing svg file"
 msgstr "L'image vectorielle n'a pas pu être convertie en image matricielle"

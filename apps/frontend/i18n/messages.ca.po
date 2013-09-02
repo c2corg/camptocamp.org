@@ -923,6 +923,7 @@ msgstr "Preguntes més freqüents"
 msgid "FAQ short"
 msgstr "FAQ"
 
+# [WARNING] needs_update
 msgid "Failed moving uploaded file"
 msgstr "El canvi de nom d'un fitxer a fallat. Intenta-ho de nou, si et plau."
 
@@ -1155,9 +1156,8 @@ msgstr "Imatge"
 
 # [general comment]
 # We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
-# [WARNING] en translation used
 msgid "Image cannot be rotated anymore"
-msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+msgstr "No es pot girar la imatge perquè ja no s'hi pot accedir directament."
 
 msgid "Image could not be loaded"
 msgstr "No es pot mostrar la imatge"
