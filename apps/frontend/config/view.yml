@@ -7,6 +7,7 @@ default:
 
   # stylesheets:
   # javascripts should not be specified here if not application-wide
+  javascripts: [ /static/js/queue.js ]
 
   has_layout:     on
   layout:         layout
