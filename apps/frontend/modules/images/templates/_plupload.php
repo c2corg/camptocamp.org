@@ -21,6 +21,7 @@ $validation = sfConfig::get('app_images_validation');
 echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, array('id' => 'form_file_input'));
 ?>
 <input type="button" value="<?php echo __('Add images') ?>" id="pickfiles" disabled="disabled" />
+<span class="plupload-drag-drop" style="display:none"><?php echo __('or drag & drop files') ?></span>
 <?php echo button_to_function(__('save'), "$$('.images_submit').invoke('hide'); $('images_validate_form').submit()",
                               array('style' => 'display:none', 'disabled' => 'disabled', 'class' => 'images_submit')); ?>
 </form>

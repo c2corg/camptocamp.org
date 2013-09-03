@@ -923,9 +923,8 @@ msgstr "Preguntes més freqüents"
 msgid "FAQ short"
 msgstr "FAQ"
 
-# [WARNING] needs_update
 msgid "Failed moving uploaded file"
-msgstr "El canvi de nom d'un fitxer a fallat. Intenta-ho de nou, si et plau."
+msgstr "El canvi de nom d'un fitxer a fallat. Si torna a passar, contacteu amb els moderadors."
 
 msgid "Failed rasterizing svg file"
 msgstr "No s'ha pogut convertir la imatge vectorial en matricial"
@@ -1223,9 +1222,8 @@ msgstr "Informació"
 # link to the informations on an image (image document page)
 # 
 # check if the meaning is correct in your language
-# [WARNING] needs_review
 msgid "Informations"
-msgstr "Informacions"
+msgstr "Informació"
 
 # [general comment]
 # il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
@@ -5922,6 +5920,10 @@ msgstr "obert no guardat"
 
 msgid "options"
 msgstr "Opcions"
+
+# [WARNING] en translation used
+msgid "or drag & drop files"
+msgstr "or drag&drop files from computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
