@@ -36,7 +36,7 @@
       });
 
       uploader.bind('Init', function(up, params) {
-        $('#pickfiles').removeAttr('disabled');
+        $('#pickfiles').prop('disabled', false);
 
         // drag&drop look&feel
         if (up.features.dragdrop) {
@@ -209,9 +209,9 @@
       });
 
       if (allow_submit) {
-        $('.images_submit').removeAttr('disabled');
+        $('.images_submit').prop('disabled', false);
       } else {
-        $('.images_submit').attr('disabled', 'disabled');
+        $('.images_submit').prop('disabled', true);
       }
     }
 
