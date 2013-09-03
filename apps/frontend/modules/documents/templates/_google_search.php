@@ -24,15 +24,14 @@ use_helper('Form');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/google_search.js', 'last');
 echo __('Search with google');
-echo form_tag('http://www.google.com/search', array('method'=>'get', 'onsubmit' => 'C2C.GoogleSearch.q=$F(\'google_search_input\'); C2C.GoogleSearch.search(); return false;'));
-$gwm = 'url(http://www.google.com/coop/intl/'.__('meta_language').'/images/google_custom_search_watermark.gif) no-repeat scroll left center #fff';
-$nogwm = "none repeat scroll 0 0 #fff";
+echo form_tag('http://www.google.com/search', array('method'=>'get',
+    'onsubmit' => 'C2C.GoogleSearch.q=jQuery("#google_search_input").val(); C2C.GoogleSearch.search(); return false;'));
 echo input_tag('q', null, array('id'=>'google_search_input',
-                                'onblur' => "if (this.value == '') this.style.background = '$gwm';",
-                                'onfocus' => "this.style.background = '$nogwm';",
-                                'style' => 'background: '.$gwm));
+                                'data-lang' => __('meta_language'),
+                                'onblur' => "if (this.value == '') this.className = '';",
+                                'onfocus' => "this.className = 'no-logo';"));
 echo input_hidden_tag('sitesearch', "camptocamp.org/$module"); ?>
-<div id="google_search_submit" onclick="this.up().submit();"></div>
+<div id="google_search_submit" onclick="jQuery(this).parent().submit();"></div>
 </form>
 <div id="google_search_results"></div>
 </div>
