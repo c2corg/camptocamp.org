@@ -36,7 +36,7 @@ if ($document->get('snow_clearance_rating') != 4)
 }
 
 $data = field_data_from_list_if_set($document, 'public_transportation_rating', 'app_parkings_public_transportation_ratings', false, false, '', '', __('public_transportation_rating short'));
-$data .= field_pt_picto_if_set($document, true, true, ' - ');
+$data .= field_pt_picto_if_set($document, true, ' - ');
 if (!empty($data))
 {
     $data_list[] = $data;

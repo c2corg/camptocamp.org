@@ -140,7 +140,7 @@ if ($has_associated_docs)
 
         if (isset($doc['public_transportation_types'])) // for parkings
         {
-            echo field_pt_picto_if_set($doc, true, true, ' - ', '', false);
+            echo field_pt_picto_if_set($doc, true, ' - ', '', false);
         }
         
         if ($has_route_list_link)
