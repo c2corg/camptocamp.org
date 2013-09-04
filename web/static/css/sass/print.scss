@@ -169,7 +169,6 @@ body, html, #holder,
 {
   width: auto !important;
   margin: 0 !important;
-  padding: 0 !important;
   float: none !important;
   overflow: visible !important;
   position: relative !important;
@@ -261,6 +260,16 @@ ul.data, .all_associations
 }
 .linked_elt a {
   color: black !important;
+}
+
+.linked_elt {
+  padding-left: 0;
+  &.level2 {
+    padding-left:20px;
+  }
+  &.level3 {
+    padding-left:40px;
+  }
 }
 
 ul.children_docs 
