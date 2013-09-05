@@ -455,7 +455,7 @@ class Summit extends BaseSummit
     }
 
     // sub summits are defined by the association order
-    public static function getSubSummits($id, $elevation)
+    public static function getSubSummits($id)
     {
         $query = 'SELECT m.id FROM summits m WHERE m.id IN '
                . '(SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND type = ?) '
