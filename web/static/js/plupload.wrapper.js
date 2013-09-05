@@ -36,6 +36,7 @@ PlUploadWrapper = {
 
       // drag&drop look&feel
       if (up.features.dragdrop) {
+        $$('.plupload-drag-drop')[0].show();
         var delt = $('plupload_ondrag');
         var nelt = $('plupload_normal');
         delt.style.height = (nelt.getHeight() - 12) + 'px';

@@ -1,9 +1,8 @@
 // Ajax and flash feedback, tooltips fields
-.error, .notice, .warning, .ajax_feedback
-{
+.error, .notice, .warning, .ajax_feedback {
   z-index: 1000;
   border: 1px solid;
-  @if -c2c-standard() {
+  @if $standard {
     margin: 5px 0;
     padding: 5px;
     position: fixed;
@@ -23,41 +22,35 @@
   }
 }
 
-.error, #ajax_feedback_failure
-{
+.error, #ajax_feedback_failure {
   background-color: #ffb2a9;
   border-color: #ff0016;
 }
 
-.notice, #ajax_feedback_success
-{
+.notice, #ajax_feedback_success {
   background-color: #77f44c;
   border-color: #008a17;
 }
 
-.warning
-{
+.warning {
   background-color: #ffaa66;
   border-color: #f5900c;
 }
 
-.ajax_inline_feedback
-{
+.ajax_inline_feedback {
   z-index: 1000;
   padding: 5px;
   margin: 5px 0;
 }
 
-.feedback
-{
+.feedback {
   z-index: 1000;
   background-color: #f19914;
   color: #fff;
   text-align: center;
 }
 
-#indicator, #indicator2
-{
+#indicator, #indicator2 {
   position: fixed;
   z-index: 1000;
   top: 5px;
@@ -67,8 +60,7 @@
   color: #fff;
 }
 
-#fields_tooltip
-{
+#fields_tooltip {
   z-index: 999;
   background-color: #ffc;
   padding: 10px;
@@ -80,12 +72,10 @@
   @include border-radius(10px);
 }
 
-#fields_tooltip #close_info
-{
+#close_info {
   text-align: right;
   cursor: pointer;
   text-decoration: underline;
   color: #666;
   font-size: 0.9em;
 }
-

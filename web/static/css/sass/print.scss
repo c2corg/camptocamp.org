@@ -169,7 +169,6 @@ body, html, #holder,
 {
   width: auto !important;
   margin: 0 !important;
-  padding: 0 !important;
   float: none !important;
   overflow: visible !important;
   position: relative !important;
@@ -261,6 +260,16 @@ ul.data, .all_associations
 }
 .linked_elt a {
   color: black !important;
+}
+
+.linked_elt {
+  padding-left: 0;
+  &.level2 {
+    padding-left: 1em;
+  }
+  &.level3 {
+    padding-left: 2em;
+  }
 }
 
 ul.children_docs 
@@ -356,13 +365,25 @@ img.embedded_right
 /* for some picto, we print title value instead:
    - background images are usually not printed by browsers
    - sep class is used to display separator */
-.picto.printfriendly {
-  width: auto;
+// TODO sep automatique
+span.picto {
+  width: 0;
+  &.pt_1, &.pt_2, &.pt_3,
+  &.activity_1, &.activity_2, &.activity_3, &.activity_4, 
+  &.activity_5, &.activity_6, &.activity_7, &.activity_8  {
+    width: auto;
+    background-image: none;
+    &:after {
+      content: attr(title);
+    }
+  }
 }
-.picto.printfriendly:after {
-  content: attr(title);
-}
-.picto.printfriendly.sep:before {
+
+// display a separator
+// TODO a css only solution would be ideal, but it is either impossible or
+// very verbose since we have to watch for a set of classes
+// we could ahve used ~ + or not:(first:child) selectors
+.picto.sep:before {
   content: " - ";
 }
 

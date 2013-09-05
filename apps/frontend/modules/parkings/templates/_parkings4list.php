@@ -20,7 +20,7 @@ foreach ($parkings as $parking)
     }
     if (isset($parking['public_transportation_types']))
     {
-        $link .= field_pt_picto_if_set($parking, true, true, ' - ');
+        $link .= field_pt_picto_if_set($parking, true, ' - ');
     }
     $html[] = $link;
 }

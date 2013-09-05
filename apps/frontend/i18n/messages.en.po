@@ -928,7 +928,7 @@ msgid "FAQ short"
 msgstr "FAQ"
 
 msgid "Failed moving uploaded file"
-msgstr "Renaming file failed. Please try again."
+msgstr "Renaming file failed. Please contact the moderation team if it happens again."
 
 msgid "Failed rasterizing svg file"
 msgstr "Rasterisation of the image failed"
@@ -4588,7 +4588,7 @@ msgstr "Altitude where difficulties start:"
 # [comment]
 # J'ai repris une mise en garde de summitpost.org. Ca ressemble à du bla bla légal américain mais ça devrait marcher...
 msgid "disclaimer notice"
-msgstr "Neither Camptocamp-Association nor its contributor guarantee the accuracy or quality of this website's contents. Under no circumstances shall Camptocamp-Association or its contributors be liable for any content, including, but not limited to, the subject matter of any content, any errors or omissions in any content, or for any loss, injury, or damage of any kind incurred as a result of the use of any content available on camptocamp.org"
+msgstr "Neither Camptocamp-Association nor its contributors guarantee the accuracy or quality of this website's contents. Under no circumstances shall Camptocamp-Association or its contributors be liable for any content, including, but not limited to, the subject matter of any content, any errors or omissions in any content, or for any loss, injury, or damage of any kind incurred as a result of the use of any content available on camptocamp.org"
 
 msgid "do not duplicate linked books"
 msgstr "The following books are already associated to the document, there is no need to include them in the field:"
@@ -5881,6 +5881,10 @@ msgstr "open but unstaffed"
 
 msgid "options"
 msgstr "Options"
+
+# [WARNING] needs_review
+msgid "or drag & drop files"
+msgstr "or drag&drop files from computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre

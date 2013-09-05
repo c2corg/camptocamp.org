@@ -929,6 +929,7 @@ msgstr "FAQ"
 msgid "FAQ short"
 msgstr "FAQ"
 
+# [WARNING] needs_update
 msgid "Failed moving uploaded file"
 msgstr "Il cambiamento di nome del file non è stato registrato. Provare di nuovo."
 
@@ -5880,6 +5881,10 @@ msgstr "aperto senza gestore"
 
 msgid "options"
 msgstr "Opzioni"
+
+# [WARNING] en translation used
+msgid "or drag & drop files"
+msgstr "or drag&drop files from computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre

@@ -935,6 +935,7 @@ msgstr "Häufig gestellte Fragen"
 msgid "FAQ short"
 msgstr "FAQ"
 
+# [WARNING] needs_update
 msgid "Failed moving uploaded file"
 msgstr "Die Umbenennung der Datei schlug fehl. Bitte versuchen Sie es erneut."
 
@@ -6062,6 +6063,10 @@ msgstr "geöffnet, nicht bewirtschaftet"
 
 msgid "options"
 msgstr "Optionen"
+
+# [WARNING] en translation used
+msgid "or drag & drop files"
+msgstr "or drag&drop files from computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre

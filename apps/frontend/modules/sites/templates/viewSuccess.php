@@ -146,7 +146,7 @@ if ($is_not_archive && $is_not_merged)
                     $date = $timedate;
                 }
                 ?></td><td><?php
-				echo field_activities_data($outing, array('raw' => true, 'printspan' => false));
+				echo field_activities_data($outing, array('raw' => true));
                 ?></td><td><?php
                 $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
                 $lang = $outing->get('culture');

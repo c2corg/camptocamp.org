@@ -934,7 +934,7 @@ msgid "FAQ short"
 msgstr "FAQ"
 
 msgid "Failed moving uploaded file"
-msgstr "Le renommage d'un fichier a échoué. Merci de réessayer."
+msgstr "Le renommage d'un fichier a échoué. Si cela se reproduit, merci de contacter la modération."
 
 msgid "Failed rasterizing svg file"
 msgstr "L'image vectorielle n'a pas pu être convertie en image matricielle"
@@ -5917,6 +5917,10 @@ msgstr "ouvert non gardé"
 
 msgid "options"
 msgstr "Options"
+
+# [WARNING] needs_review
+msgid "or drag & drop files"
+msgstr "ou glisser-déposer des images depuis l'ordinateur"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre

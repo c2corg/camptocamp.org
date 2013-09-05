@@ -461,7 +461,7 @@ class Summit extends BaseSummit
                . 'WHERE m.id IN '
                . '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND type = ?) '
                . 'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND type = ?)) '
-               . 'AND m.elevation < ? '
+               . 'AND m.elevation <= ? '
                . 'ORDER BY m.id ASC';
 
         $results = sfDoctrine::connection()
