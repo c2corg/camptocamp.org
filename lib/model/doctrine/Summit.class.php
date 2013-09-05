@@ -453,19 +453,16 @@ class Summit extends BaseSummit
         self::joinOnRegions($q);
         self::filterOnRegions($q);
     }
-    
+
+    // sub summits are defined by the association order
     public static function getSubSummits($id, $elevation)
     {
-        $query = 'SELECT m.id, m.elevation '
-               . 'FROM summits m '
-               . 'WHERE m.id IN '
-               . '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND type = ?) '
-               . 'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND type = ?)) '
-               . 'AND m.elevation < ? '
+        $query = 'SELECT m.id FROM summits m WHERE m.id IN '
+               . '(SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND type = ?) '
                . 'ORDER BY m.id ASC';
 
         $results = sfDoctrine::connection()
-                    ->standaloneQuery($query, array($id, 'ss', $id, 'ss', $elevation))
+                    ->standaloneQuery($query, array($id, 'ss'))
                     ->fetchAll();
         return $results;
     }
