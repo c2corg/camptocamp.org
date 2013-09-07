@@ -59,6 +59,9 @@ class outingsActions extends documentsActions
                 }
             }
             
+            // the routes/sites linked to the outing will be used to retrieve 2-hops docs like summits,
+            // huts, parkings....
+            // However, we need some special handling with raid routes (more than 2 days)
             $parent_ids = $other_ids = $other_routes = $default_ids = array();
             $associated_summits = array();
             $associated_huts = array();
@@ -120,7 +123,8 @@ class outingsActions extends documentsActions
                     $parent_ids[] = $site['id'];
                 }
             }
-            
+
+            // now retrieve the associated docs (summits, huts, parkings)
             if (count($parent_ids))
             {
                 $associated_route_docs = Association::findWithBestName($parent_ids, $prefered_cultures, array('sr', 'hr', 'pr', 'pt'), false, false);
@@ -161,7 +165,8 @@ class outingsActions extends documentsActions
             $this->associated_huts = $associated_huts;
             $this->associated_parkings = $associated_parkings;
             $this->associated_routes = $associated_routes;
-            
+
+            // associated users
             $associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
             if (count($associated_users) >= 2)
             {
@@ -187,7 +192,8 @@ class outingsActions extends documentsActions
                 $associated_users = array_merge($creator, $associated_users_2);
             }
             $this->associated_users = $associated_users;
-            
+
+            // related portals
             $related_portals = array();
             $activities = $this->document->get('activities');
             $outing_with_public_transportation = $this->document->get('outing_with_public_transportation');

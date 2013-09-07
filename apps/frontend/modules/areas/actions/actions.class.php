@@ -70,7 +70,7 @@ class areasActions extends documentsActions
         parent::executeView();
         if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
-            // get associated outings
+            // get last geo-associated outings
             $current_doc_id = $this->getRequestParameter('id');
             $latest_outings = array();
             $nb_outings = 0;

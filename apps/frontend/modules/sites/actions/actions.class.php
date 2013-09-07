@@ -31,8 +31,9 @@ class sitesActions extends documentsActions
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
             $parent_ids = $sites_ids = $site_docs_ids = $child_types = array();
-            
-            $main_associated_sites = $this->associated_sites;
+
+            // TODO explain
+            $main_associated_sites = $this->associated_sites; // TODO
             if (count($main_associated_sites))
             {
                 $associated_sites = Association::addChildWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id, true);
