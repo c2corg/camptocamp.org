@@ -86,6 +86,12 @@ $radius: 4px;
   background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
   /* Trick IE into showing hover */
   display: block;
+  @include opacity(0);
+  @include transition(opacity 0.6s);
+
+  &:hover {
+    @include opacity(1);
+  }
 }
 
 .lb-prev {
@@ -144,8 +150,12 @@ $radius: 4px;
     float: right;
     padding-bottom: 0.7em;
     outline: none;
+    @include opacity(0.7);
+    @include transition(opacity 0.2s);
+
     &:hover {
       cursor: pointer;
+      @include opacity(1);
     }
   }
 }

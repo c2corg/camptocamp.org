@@ -54,7 +54,7 @@ lightbox = new Lightbox options
 
     function LightboxOptions() {
       if (!/MSIE [67].0/.exec(navigator.userAgent)) {
-        this.fileCloseImage = 'data:image/gif;base64,R0lGODlhGgAaAOMJAKWlpaioqKampqioqKioqKenp6ioqKioqKioqP///////////////////////////yH5BAEKAA8ALAAAAAAaABoAAARt8A1Tnr04X2KGROChjdcBItOJiGRmnpS6tqVMPO/JknlYqzuXLIgbanqzo/GnayFZT1oRGJVOZU2rBZnVbrFELTcs5fq85i7tWXUu20ogBs48z5f1ZLxLF8oLeG4qHHJiKh1qVjkeExVeGx0PEQA7';
+        this.fileCloseImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAMAAAC6CgRnAAAAPFBMVEX///8AAAD9/f2CgoKAgIAAAAAAAAAAAABLS0sAAAAAAACqqqqqqqq6urpKSkpISEgAAAC7u7u5ubn////zbsMcAAAAE3RSTlMASv6rqwAWS5YMC7/AyZWVFcrJCYaKfAAAAHhJREFUeF590kkOgCAQRFEaFVGc+/53FYmbz6JqBbyQMFSYuoQuV+iTflnstI7ssLXRvMWRaEMs84e2uVckuZe6knL0hiSPObXhj6ChzoEkIolIIpKIO4joICAIeDd7QGIfCCjOKe9HEk8mnxpIAup/F31RPZP9fAG3IAyBSJe0igAAAABJRU5ErkJggg==';
       } else {
         this.fileCloseImage = _static_url + '/static/images/close_lightbox.gif';
       }
