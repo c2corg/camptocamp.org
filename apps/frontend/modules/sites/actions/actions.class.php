@@ -32,19 +32,27 @@ class sitesActions extends documentsActions
             $current_doc_id = $this->getRequestParameter('id');
             $parent_ids = $sites_ids = $site_docs_ids = $child_types = array();
 
-            // TODO explain
-            $main_associated_sites = $this->associated_sites; // TODO
+            // if we have sub-(sub)-sites, we also want to display the outings and images linked to these sites
+            $main_associated_sites = $this->associated_sites;
             if (count($main_associated_sites))
             {
                 $associated_sites = Association::addChildWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id, true);
-                
-                if (count($main_associated_sites) > 1 || count($associated_sites) == 1)
+
+                $i = reset($associated_sites);
+                while(!isset($i['is_doc']))
                 {
-                    foreach ($main_associated_sites as $site)
-                    {
-                        $sites_ids[] = $site['id'];
-                    }
-                    
+                    $i = next($associated_sites);
+                }
+                $doc_level = $i['level'];
+                $i = next($associated_sites);
+                while($i !== false && $i['level'] > $doc_level)
+                {
+                    $site_ids[] = $i['id'];
+                    $i = next($associated_sites);
+                }
+
+                if (count($site_ids)) // TODO explain (+check with original) This is quite unclear here
+                {
                     $site_docs = array_filter($this->associated_docs, array('c2cTools', 'is_image'));
                     foreach ($site_docs as $doc)
                     {
@@ -58,8 +66,10 @@ class sitesActions extends documentsActions
             {
                 $associated_sites = $main_associated_sites;
             }
-            
+
             $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
+
+            // also add the sites linked to linked summits ?? TODO
             if (count($associated_summits))
             {
                 foreach ($associated_summits as $summit)
@@ -75,7 +85,8 @@ class sitesActions extends documentsActions
                 $associated_summits_sites = Association::findWithBestName($summit_ids, $prefered_cultures, 'st', true, true, $summit_docs_ids);
                 $associated_sites = array_merge($associated_sites, $associated_summits_sites);
             }
-            
+
+            // TODO TODO TODO
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
@@ -87,7 +98,8 @@ class sitesActions extends documentsActions
             }
             
             $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
-            
+
+            // TODO TODO TODO 
             $parent_ids = array_merge($parent_ids, $sites_ids);
             if (count($parent_ids)) // "sites" can have no linked doc
             {
