@@ -516,6 +516,7 @@ class Association extends BaseAssociation
         // add relation information to 1-hop docs
         foreach ($parent_docs as $id => $doc)
         {
+            $parent_docs[$id]['link_tools'] = true; // mark it has directly linked to doc: we can display association tools to moderators
             $doc['parent_relation'] = array();
             foreach ($child_docs as $doc2)
             {
@@ -540,7 +541,7 @@ class Association extends BaseAssociation
         // get all docs that don't have parents and put them in the output list with level 1
         foreach($all_docs as $id => $doc)
         {
-            if (array_search('parent', $doc['parent_relation']) === false)
+            if (!isset($doc['parent_relation']) || array_search('parent', $doc['parent_relation']) === false)
             {
                 $doc['level'] = 1;
                 $output[] = $doc;

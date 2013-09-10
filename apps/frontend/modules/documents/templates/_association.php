@@ -60,7 +60,9 @@ if ($has_associated_docs)
             $class .= ' level' . $doc['level'];
         }
 
-        if ((isset($doc['parent_relation']) && !$is_doc) || (isset($is_extra) && $is_extra))
+        // unless required by the template, extra docs are the ones that are not directly linked to the
+        // document, but shown as sub or super doc in a hierarchy
+        if ((isset($doc['parent_relation']) && !isset($doc['link_tools']) && !$is_doc) || (isset($is_extra) && $is_extra))
         {
             $class .= ' extra';
         }
@@ -147,7 +149,7 @@ if ($has_associated_docs)
 
         // display tools for manipulating associations if user is moderator and displayed doc
         // is directly linked to current doc
-        if ($show_link_to_delete && isset($doc['parent_relation']) && isset($doc['parent_relation'][$id]))
+        if ($show_link_to_delete && isset($doc['link_tools']))
         {
             $tips = (isset($doc['ghost_id']) && isset($ghost_module)) ? 'Delete the association with this ' . $module : null;
             
