@@ -29,7 +29,7 @@ class parkingsActions extends documentsActions
             $main_associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
 
             // Idea here is to retrieve not only the routes linked directly to the parking, but also the ones 
-            // associated to the sub-parkings
+            // associated to the sub(-sub)-parkings
             $parking_ids = array();
             if (count($main_associated_parkings))
             {
@@ -37,7 +37,7 @@ class parkingsActions extends documentsActions
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
 
                 // simply go through the list and get the next items that have a bigger level
-                $i = current($associated_parkings);
+                $i = reset($associated_parkings);
                 while(!isset($i['is_doc']))
                 {
                     $i = next($associated_parkings);
