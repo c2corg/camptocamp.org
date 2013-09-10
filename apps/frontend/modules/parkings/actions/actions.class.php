@@ -27,19 +27,25 @@ class parkingsActions extends documentsActions
             $current_doc_id = $this->getRequestParameter('id');
             
             $main_associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
-            
+
+            // Idea here is to retrieve not only the routes linked directly to the parking, but also the ones 
+            // associated to the sub-parkings
+            // TODO 2-hops hierarchy
             $parking_ids = array();
             if (count($main_associated_parkings))
             {
                 $associated_parkings = Association::addChildWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id, true);
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
-                
-                if (count($main_associated_parkings) > 1 || count($associated_parkings) == 1)
+
+                foreach ($associated_parkings as $parking)
                 {
-                    foreach ($main_associated_parkings as $parking)
+                    if ($parking['id'] == $current_doc_id && isset($parking['parent_relation']))
                     {
-                        $parking_ids[] = $parking['id'];
+                        $parking_ids = array_keys(array_filter($parking['parent_relation'], function($var) {
+                          return ($var === 'linked_id');
+                        }));
                     }
+                    break;
                 }
                 
                 if (count($parking_ids))
@@ -52,15 +58,15 @@ class parkingsActions extends documentsActions
             {
                 $associated_parkings = $main_associated_parkings;
             }
-            
             $this->associated_parkings = $associated_parkings;
             
             array_unshift($parking_ids, $current_doc_id);
             $this->ids = implode('-', $parking_ids);
-            
+
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
-            
+
+            // related books (associated to the above mentioned routes)
             $route_ids = array();
             $associated_routes_books = array();
             if (count($associated_routes))
@@ -96,7 +102,7 @@ class parkingsActions extends documentsActions
                 $cab = count($associated_books);
             }
             
-            // get associated outings
+            // get associated outings (to the above mentionned routes)
             $latest_outings = array();
             $nb_outings = 0;
             if (count($associated_routes))
@@ -108,11 +114,14 @@ class parkingsActions extends documentsActions
             }
             $this->latest_outings = $latest_outings;
             $this->nb_outings = $nb_outings;
-            
+
+            // associated huts
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
-            
+
+            // asscoiated products
             $this->associated_products = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_product')), 'name');
-            
+
+            // related portals
             $related_portals = array();
             $public_transportation_rating = $this->document->get('public_transportation_rating');
             if (in_array($public_transportation_rating, array(1, 2, 4, 5)))
