@@ -30,24 +30,26 @@ class parkingsActions extends documentsActions
 
             // Idea here is to retrieve not only the routes linked directly to the parking, but also the ones 
             // associated to the sub-parkings
-            // TODO 2-hops hierarchy
             $parking_ids = array();
             if (count($main_associated_parkings))
             {
                 $associated_parkings = Association::addChildWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id, true);
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
 
-                foreach ($associated_parkings as $parking)
+                // simply go through the list and get the next items that have a bigger level
+                $i = current($associated_parkings);
+                while(!isset($i['is_doc']))
                 {
-                    if ($parking['id'] == $current_doc_id && isset($parking['parent_relation']))
-                    {
-                        $parking_ids = array_keys(array_filter($parking['parent_relation'], function($var) {
-                          return ($var === 'linked_id');
-                        }));
-                    }
-                    break;
+                    $i = next($associated_parkings);
                 }
-                
+                $doc_level = $i['level'];
+                $i = next($associated_parkings);
+                while($i !== false && $i['level'] > $doc_level)
+                {
+                    $parking_ids[] = $i['id'];
+                    $i = next($associated_parkings);
+                }
+ 
                 if (count($parking_ids))
                 {
                     $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, array('pr', 'ph', 'pf'));
