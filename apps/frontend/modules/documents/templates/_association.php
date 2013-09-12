@@ -114,7 +114,7 @@ if ($has_associated_docs)
 
         echo $is_doc ? '<span class="current">' . $name . '</span>' : link_to($name, $url);
 
-        // elevartion info
+        // elevation info
         if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation']) // for parkings
         {
             echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');

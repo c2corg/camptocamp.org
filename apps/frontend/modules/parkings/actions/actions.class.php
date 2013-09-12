@@ -30,6 +30,7 @@ class parkingsActions extends documentsActions
 
             // Idea here is to retrieve not only the routes linked directly to the parking, but also the ones 
             // associated to the sub(-sub)-parkings
+            // We also do this for products and huts
             $parking_ids = array();
             if (count($main_associated_parkings))
             {
@@ -52,8 +53,8 @@ class parkingsActions extends documentsActions
  
                 if (count($parking_ids))
                 {
-                    $associated_parking_routes = Association::findLinkedDocsWithBestName($parking_ids, $prefered_cultures, array('pr', 'ph', 'pf'));
-                    $this->associated_docs = array_merge($this->associated_docs, $associated_parking_routes);
+                    $this->associated_docs = array_merge($this->associated_docs,
+                        Association::findLinkedDocsWithBestName($parking_ids, $prefered_cultures, array('pr', 'ph', 'pf')));
                 }
             }
             else
