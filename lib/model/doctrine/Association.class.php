@@ -548,7 +548,7 @@ class Association extends BaseAssociation
                 unset($all_docs[$id]);
             }
         }
-        c2cTools::sortArray($output, $sort_field, null, $order);
+        $output = c2cTools::sortArray($output, $sort_field, null, $order);
 
         // for each level 1 doc, get corresponding children and insert them into the list
         // repeat the same process for level 2 docs
@@ -572,7 +572,7 @@ class Association extends BaseAssociation
                 }
                 if (count($sub_docs))
                 {
-                    c2cTools::sortArray($sub_docs, $sort_field, null, $order);
+                    $sub_docs = c2cTools::sortArray($sub_docs, $sort_field, null, $order);
                     array_splice($output, $pos + 1, 0, $sub_docs);
                 }
             }
