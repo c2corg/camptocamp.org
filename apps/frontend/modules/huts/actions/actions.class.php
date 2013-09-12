@@ -31,7 +31,7 @@ class hutsActions extends documentsActions
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
-                $associated_parkings = Association::addChildWithBestName($associated_parkings, $prefered_cultures, 'pp');
+                $associated_parkings = Association::createHierarchyWithBestName($associated_parkings, $prefered_cultures, 'pp');
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;
@@ -65,7 +65,7 @@ class hutsActions extends documentsActions
                     $parking_ids[] = $parking['id'];
                 }
 
-                $associated_parking_docs = Association::findWithBestName($parking_ids, $prefered_cultures, array('pr', 'pt'), false, true);
+                $associated_parking_docs = Association::findLinkedDocsWithBestName($parking_ids, $prefered_cultures, array('pr', 'pt'), false, true);
 
                 $associated_routes = array_filter($associated_parking_docs, array('c2cTools', 'is_route'));
 
@@ -137,7 +137,7 @@ class hutsActions extends documentsActions
                     {
                         $book_ids[] = $book['id'];
                     }
-                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('br'), false, false, $book_ids);
+                    $associated_route_docs = Association::findLinkedDocsWithBestName($route_ids, $prefered_cultures, array('br'), false, false, $book_ids);
                     if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'name');

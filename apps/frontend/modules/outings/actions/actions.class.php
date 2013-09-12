@@ -127,7 +127,7 @@ class outingsActions extends documentsActions
             // now retrieve the associated docs (summits, huts, parkings)
             if (count($parent_ids))
             {
-                $associated_route_docs = Association::findWithBestName($parent_ids, $prefered_cultures, array('sr', 'hr', 'pr', 'pt'), false, false);
+                $associated_route_docs = Association::findLinkedDocsWithBestName($parent_ids, $prefered_cultures, array('sr', 'hr', 'pr', 'pt'), false, false);
                 if (count($associated_route_docs))
                 {
                     $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');

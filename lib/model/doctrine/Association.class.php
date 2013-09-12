@@ -318,8 +318,7 @@ class Association extends BaseAssociation
      * $get_linked: depending on the association, the element will be main_id or linked_id
      * $current_doc_ids: docs to exclude from the results
      */
-     // TODO function name is not very accurate///
-    public static function findWithBestName($ids, $user_prefered_langs, $types = null, $get_associated_ids = false, $get_linked = true, $current_doc_ids = null)
+    public static function findLinkedDocsWithBestName($ids, $user_prefered_langs, $types = null, $get_associated_ids = false, $get_linked = true, $current_doc_ids = null)
     {
         if (!is_array($ids))
         {
@@ -457,23 +456,22 @@ class Association extends BaseAssociation
     
     // Search the list of linked docs to documents
     // Return a flat and ordered list with all docs with hierarchical information
-    // TODO name of function and parent/child_docs vars are not accurate
-    public static function addChildWithBestName($parent_docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $keep_current_doc = false, $sort_field = null, $show_sub_docs = true)
+    public static function createHierarchyWithBestName($docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $keep_current_doc = false, $sort_field = null, $show_sub_docs = true)
     {
-        if (!count($parent_docs))
+        if (!count($docs))
         {
-            return $parent_docs;
+            return $docs;
         }
 
         $parent_ids = array();
-        foreach ($parent_docs as $doc)
+        foreach ($docs as $doc)
         {
             $parent_ids[] = $doc['id'];
         }
 
-        $child_docs = self::findWithBestName($parent_ids, $user_prefered_langs, $type, true, true, ($keep_current_doc ? null : $current_doc_id));
+        $linked_docs = self::findLinkedDocsWithBestName($parent_ids, $user_prefered_langs, $type, true, true, ($keep_current_doc ? null : $current_doc_id));
 
-        return self::addChild($parent_docs, $child_docs, $type, $sort_field, $show_sub_docs, $current_doc_id);
+        return self::createHierarchy($docs, $linked_docs, $type, $sort_field, $show_sub_docs, $current_doc_id);
     }
 
     // Given a list of documents and a list of linked docs, along with parent-child relations,
@@ -484,12 +482,13 @@ class Association extends BaseAssociation
     // docD - level 1
     // docE - level 2, child of docD
     // docF - level 3, child of docE
-    // TODO change function name and parent / child vars
-    public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null, $show_sub_docs = true, $current_doc_id = 0)
+    //
+    // No DB request is done
+    public static function createHierarchy($docs, $linked_docs, $type = null, $sort_field = null, $show_sub_docs = true, $current_doc_id = 0)
     {
-        if (!count($parent_docs))
+        if (!count($docs))
         {
-            return $parent_docs;
+            return $docs;
         }
 
         // internal order between docs of same level
@@ -514,19 +513,19 @@ class Association extends BaseAssociation
         }
 
         // add relation information to 1-hop docs
-        foreach ($parent_docs as $id => $doc)
+        foreach ($docs as $id => $doc)
         {
-            $parent_docs[$id]['link_tools'] = true; // mark it has directly linked to doc: we can display association tools to moderators
+            $docs[$id]['link_tools'] = true; // mark it has directly linked to doc: we can display association tools to moderators
             $doc['parent_relation'] = array();
-            foreach ($child_docs as $doc2)
+            foreach ($linked_docs as $doc2)
             {
                 if (isset($doc2['parent_relation'][$doc['id']]))
                 {
-                    $parent_docs[$id]['parent_relation'][$doc2['id']] = ($doc2['parent_relation'][$doc['id']] == 'parent') ? 'child' : 'parent';
+                    $docs[$id]['parent_relation'][$doc2['id']] = ($doc2['parent_relation'][$doc['id']] == 'parent') ? 'child' : 'parent';
                 }
             }
         }
-        $all_docs = array_merge($parent_docs, $child_docs);
+        $all_docs = array_merge($docs, $linked_docs);
 
         // Mark original document
         foreach ($all_docs as $key => $doc)

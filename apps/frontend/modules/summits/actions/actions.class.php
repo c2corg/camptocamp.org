@@ -46,7 +46,7 @@ class summitsActions extends documentsActions
             $summit_ids = array();
             if (count($main_associated_summits))
             {
-                $associated_summits = Association::addChildWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id, true);
+                $associated_summits = Association::createHierarchyWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id, true);
 
                 // simply go through the list and get the next items that have a bigger level
                 $i = reset($associated_summits);
@@ -70,7 +70,7 @@ class summitsActions extends documentsActions
                     {
                         $summit_docs_ids[] = $doc['id'];
                     }
-                    $associated_summit_docs = Association::findWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'),
+                    $associated_summit_docs = Association::findLinkedDocsWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'),
                         false, true, $summit_docs_ids);
 
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_docs);
@@ -125,7 +125,7 @@ class summitsActions extends documentsActions
                     {
                         $book_ids[] = $book['id'];
                     }
-                    $associated_route_docs = Association::findWithBestName($doc_ids, $prefered_cultures, array('hr', 'ht', 'pr', 'pt', 'br'),
+                    $associated_route_docs = Association::findLinkedDocsWithBestName($doc_ids, $prefered_cultures, array('hr', 'ht', 'pr', 'pt', 'br'),
                         false, false, $book_ids);
 
                     if (count($associated_route_docs))
@@ -296,7 +296,7 @@ class summitsActions extends documentsActions
             $ids[] = $sub['id'];
         }
         
-        $routes = Association::findWithBestName($ids, $this->getUser()->getCulturesForDocuments(), 'sr');
+        $routes = Association::findLinkedDocsWithBestName($ids, $this->getUser()->getCulturesForDocuments(), 'sr');
         $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:') . ' ');
         $routes = c2cTools::sortArrayByName($routes);
         

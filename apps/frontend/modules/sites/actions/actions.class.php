@@ -36,7 +36,7 @@ class sitesActions extends documentsActions
             $main_associated_sites = $this->associated_sites;
             if (count($main_associated_sites))
             {
-                $associated_sites = Association::addChildWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id, true);
+                $associated_sites = Association::createHierarchyWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id, true);
 
                 $i = reset($associated_sites);
                 while(!isset($i['is_doc']))
@@ -82,7 +82,7 @@ class sitesActions extends documentsActions
                     $sites_ids[] = $site['id'];
                 }
                 $summit_docs_ids = array_merge($sites_ids, array($current_doc_id));
-                $associated_summits_sites = Association::findWithBestName($summit_ids, $prefered_cultures, 'st', true, true, $summit_docs_ids);
+                $associated_summits_sites = Association::findLinkedDocsWithBestName($summit_ids, $prefered_cultures, 'st', true, true, $summit_docs_ids);
                 $associated_sites = array_merge($associated_sites, $associated_summits_sites);
             }
 
@@ -103,12 +103,12 @@ class sitesActions extends documentsActions
             $parent_ids = array_merge($parent_ids, $sites_ids);
             if (count($parent_ids)) // "sites" can have no linked doc
             {
-                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
+                $associated_childs = Association::findLinkedDocsWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
                 $this->associated_docs = array_merge($this->associated_docs, $associated_childs);
             
                 if (count($associated_parkings))
                 {
-                    $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                    $associated_parkings = Association::createHierarchy($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
                 }
                 
                 if (count($sites_ids))

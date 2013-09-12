@@ -67,7 +67,7 @@ class routesActions extends documentsActions
             $parent_ids = array_merge($parent_ids, $route_ids);
             if (count($parent_ids))
             {
-                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro', 'sh'), true, true);
+                $associated_childs = Association::findLinkedDocsWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro', 'sh'), true, true);
             }
             else
             {
@@ -77,7 +77,7 @@ class routesActions extends documentsActions
             // TODO same
             if (count($main_associated_summits))
             {
-                $associated_summits = Association::addChild($main_associated_summits, array_filter($associated_childs,
+                $associated_summits = Association::createHierarchy($main_associated_summits, array_filter($associated_childs,
                     array('c2cTools', 'is_summit')), 'ss', null, false);
             }
             else
@@ -154,7 +154,7 @@ class routesActions extends documentsActions
             
             if (count($associated_parkings))
             {
-                $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                $associated_parkings = Association::createHierarchy($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;

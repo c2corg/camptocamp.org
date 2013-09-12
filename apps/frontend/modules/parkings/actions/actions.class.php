@@ -33,7 +33,7 @@ class parkingsActions extends documentsActions
             $parking_ids = array();
             if (count($main_associated_parkings))
             {
-                $associated_parkings = Association::addChildWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id, true);
+                $associated_parkings = Association::createHierarchyWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id, true);
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
 
                 // simply go through the list and get the next items that have a bigger level
@@ -52,7 +52,7 @@ class parkingsActions extends documentsActions
  
                 if (count($parking_ids))
                 {
-                    $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, array('pr', 'ph', 'pf'));
+                    $associated_parking_routes = Association::findLinkedDocsWithBestName($parking_ids, $prefered_cultures, array('pr', 'ph', 'pf'));
                     $this->associated_docs = array_merge($this->associated_docs, $associated_parking_routes);
                 }
             }
@@ -83,7 +83,7 @@ class parkingsActions extends documentsActions
                 
                 if (count($route_ids))
                 {
-                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('br'), false, false);
+                    $associated_route_docs = Association::findLinkedDocsWithBestName($route_ids, $prefered_cultures, array('br'), false, false);
                     if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'name');
