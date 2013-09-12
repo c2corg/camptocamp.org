@@ -52,12 +52,12 @@ if ($has_associated_docs)
         $is_doc = (isset($doc['is_doc']) && $doc['is_doc']);
         $doc_id = $doc['id'];
         $idstring = isset($type) ? ' id="' . $type . '_' . ($revert_ids ? $id : $doc_id) . '"' : '';
-        $level = 0;
         $class = 'linked_elt';
+        $level = isset($doc['level']) ? $doc['level'] : 0;
 
-        if (isset($doc['level']) && $doc['level'] > 1)
+        if ($level > 1)
         {
-            $class .= ' level' . $doc['level'];
+            $class .= ' level' . $level;
         }
 
         // unless required by the template, extra docs are the ones that are not directly linked to the
