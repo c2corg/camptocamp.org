@@ -554,7 +554,7 @@ class Association extends BaseAssociation
         // repeat the same process for level 2 docs
         for ($level=2; $level<=3; $level++)
         {
-
+            $offset = 1;
             foreach ($output as $pos => $sorted_doc)
             {
                 // only go through level 2 docs on second run
@@ -573,7 +573,8 @@ class Association extends BaseAssociation
                 if (count($sub_docs))
                 {
                     $sub_docs = c2cTools::sortArray($sub_docs, $sort_field, null, $order);
-                    array_splice($output, $pos + 1, 0, $sub_docs);
+                    array_splice($output, $pos + $offset, 0, $sub_docs);
+                    $offset = $offset + count($sub_docs);
                 }
             }
         }
