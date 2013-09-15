@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="320"
+   height="320"
+   id="svg3109"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="C:\Users\tai\Documents\Lionel personnel\Github\camptocamp.org\web\static\images\svg\bus.svg"
+   inkscape:export-filename="/home/tai/svgc2c/bus.png"
+   inkscape:export-xdpi="4.5"
+   inkscape:export-ydpi="4.5">
+  <defs
+     id="defs3111" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="-63.271162"
+     inkscape:cy="204.60056"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1157"
+     inkscape:window-height="732"
+     inkscape:window-x="78"
+     inkscape:window-y="78"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3114">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-342.38565,-248.18833)">
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#545455;fill-opacity:1;fill-rule:evenodd;stroke:#545455;stroke-width:4.46705389px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 425.24289,250.42186 c -8.11016,0.61186 -16.35482,0.11213 -24.42921,1.67515 -6.73551,2.69805 -10.50574,4.40854 -16.33266,9.0737 -6.10257,7.18352 -10.89822,13.208 -13.68035,25.26677 -3.88348,72.02026 -7.84263,143.93379 -11.72606,215.95413 -0.76422,11.09661 2.73648,13.1607 5.72345,15.2159 5.63658,2.94133 10.6622,1.7602 15.77429,2.93151 0.27472,9.88988 0.5628,19.7043 0.83758,29.59423 0.051,5.25682 -0.52291,11.50838 5.44421,13.81994 8.64254,1.49159 15.39321,0.59328 26.66274,0.83758 9.12211,-0.11347 12.53343,1.49686 13.95954,-4.04827 0,-13.42864 -5e-5,-26.77485 0,-40.20348 50.44822,0 100.87317,0 151.32144,0 0.59769,10.75867 0.37925,21.9066 0.97717,32.66532 -1.43299,6.42974 1.87924,12.10567 7.67774,12.28441 20.11841,0.16796 31.6921,1.28797 34.48008,-0.69798 4.19657,-2.16071 2.20775,-34.77504 2.7919,-45.08933 20.17764,-0.99705 -1.50415,9.9e-4 13.26157,-0.41856 9.39037,-0.9601 6.59569,-3.79864 7.81734,-11.16764 -4.33795,-72.29904 -7.10887,-144.21346 -11.44682,-216.5125 -1.47123,-10.47439 -6.21738,-20.8506 -14.09914,-29.59423 -7.77844,-10.39193 -17.07215,-10.05337 -27.36071,-11.58642 -55.89222,0 -111.76193,-5e-5 -167.6541,0 z m 154.39254,19.12458 c 7.37828,2.11363 8.21625,13.68026 4.18786,21.77688 -3.24393,4.72395 -10.66719,2.68604 -22.89365,3.2107 -43.93851,-0.0179 -89.37511,0.0268 -133.31362,0 -6.78113,-1.39118 -10.28719,-7.35483 -8.93412,-16.05347 0.7527,-3.44535 2.17381,-6.71578 6.97977,-8.09654 51.32698,-0.25641 102.64677,-0.58094 153.97376,-0.83757 z m -161.23271,39.6451 c 59.613,0.58978 119.21574,0.90655 178.82173,1.67515 11.05154,1.06727 17.53744,12.12733 17.03064,22.47486 2.71723,25.81336 5.37932,51.6621 8.09654,77.47546 0.32163,9.76748 -8.83333,22.87931 -19.82255,27.5003 -10.08986,1.03828 -20.39608,-0.46636 -30.5714,0.13937 -56.60927,-0.2162 -113.13881,-0.48195 -169.74804,-0.69797 -13.18214,-3.92297 -20.33997,-18.77784 -17.86821,-31.82776 2.22128,-28.23581 4.04027,-56.54513 6.56099,-84.73442 3.21306,-11.94625 17.56377,-11.92145 27.5003,-12.00522 z m -8.09655,144.48126 c 12.32908,0 22.33527,10.00625 22.33527,22.33527 -4e-5,12.32903 -10.00619,22.33527 -22.33527,22.33527 -12.3291,0 -22.33526,-10.00624 -22.33526,-22.33527 -5e-5,-12.32902 10.00616,-22.33527 22.33526,-22.33527 z m 194.03766,0 c 12.32906,-4e-5 22.33526,10.00621 22.33526,22.33527 0,12.32903 -10.0062,22.33527 -22.33526,22.33527 -12.32908,-5e-5 -22.33528,-10.0062 -22.33528,-22.33527 0,-12.32911 10.0062,-22.33527 22.33528,-22.33527 z"
+       id="path3433"
+       inkscape:export-filename="/home/popeye/Bureau/bus.png"
+       inkscape:export-xdpi="160.81393"
+       inkscape:export-ydpi="160.81393" />
+  </g>
+</svg>
