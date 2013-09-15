@@ -4131,6 +4131,10 @@ msgstr "biografie"
 msgid "bisse"
 msgstr "Suone"
 
+# [WARNING] fr translation used
+msgid "boat"
+msgstr "ligne maritime"
+
 msgid "book"
 msgstr "Buch"
 

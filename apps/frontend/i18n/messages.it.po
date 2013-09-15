@@ -4023,6 +4023,10 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "channel"
 
+# [WARNING] fr translation used
+msgid "boat"
+msgstr "ligne maritime"
+
 msgid "book"
 msgstr "libro"
 

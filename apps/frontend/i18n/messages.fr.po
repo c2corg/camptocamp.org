@@ -4066,6 +4066,10 @@ msgstr "biographie"
 msgid "bisse"
 msgstr "bisse / béal"
 
+# [WARNING] needs_review
+msgid "boat"
+msgstr "ligne maritime"
+
 msgid "book"
 msgstr "livre"
 
