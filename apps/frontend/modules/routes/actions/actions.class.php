@@ -26,7 +26,7 @@ class routesActions extends documentsActions
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
             $parent_ids = array();
-            
+
             $main_associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
             if (count($main_associated_summits))
             {
@@ -35,10 +35,12 @@ class routesActions extends documentsActions
                     $parent_ids[] = $summit['id'];
                 }
             }
-            
+            // routes associated with this route (eg because they share most of the route)
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
 
+            // We will display the outings linked to associated routes in a separate section
+            // but not for the raids
             $route_ids = array();
             if (count($associated_routes))
             {
@@ -50,7 +52,8 @@ class routesActions extends documentsActions
                     }
                 }
             }
-            
+
+            // we will also get parkings linked to linked parkings // TODO is that ok ???
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
@@ -59,30 +62,36 @@ class routesActions extends documentsActions
                     $parent_ids[] = $parking['id'];
                 }
             }
-            
+
+            // TODO this part is not clear yet...
             $parent_ids = array_merge($parent_ids, $route_ids);
             if (count($parent_ids))
             {
-                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro', 'sh'), true, true);
+                $associated_childs = Association::findLinkedDocsWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro', 'sh'), true, true);
             }
             else
             {
                 $associated_childs = array();
             }
-            
+
+            // TODO same
             if (count($main_associated_summits))
             {
-                $associated_summits = Association::addChild($main_associated_summits, array_filter($associated_childs, array('c2cTools', 'is_summit')), 'ss', null, false);
+                $associated_summits = Association::createHierarchy($main_associated_summits, array_filter($associated_childs,
+                    array('c2cTools', 'is_summit')), 'ss', null, false);
             }
             else
             {
                 $associated_summits = $main_associated_summits;
             }
 
+            // directly and indirectly linked huts
             $associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             $associated_summit_huts = array_filter($associated_childs, array('c2cTools', 'is_hut'));
             
             // remove the summit if it is linked to a hut
+            // because in that case it is a ghost summit of the hut, and
+            // shouldn't be displayed
             $summit_huts = array();
             foreach ($associated_summit_huts as $summit_hut)
             {
@@ -110,7 +119,8 @@ class routesActions extends documentsActions
             }
             $this->associated_huts = array_merge($summit_huts, $associated_huts);
             $this->associated_summits = $associated_summits;
-            
+
+            // get all the outings from route and associated routes
             $outing_ids = $associated_routes_outings = array();
             if (count($route_ids))
             {
@@ -144,7 +154,7 @@ class routesActions extends documentsActions
             
             if (count($associated_parkings))
             {
-                $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                $associated_parkings = Association::createHierarchy($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;
