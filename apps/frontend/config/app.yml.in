@@ -1895,6 +1895,8 @@ all:
       1: train
       2: bus
       3: service_on_demand
+      4: boat
+      #9: cable_car
     filled_criteria:
       'tp': ''
       'tpty': ''

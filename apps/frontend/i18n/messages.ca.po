@@ -4063,6 +4063,10 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "Feixa / canal / camí tallat a la roca"
 
+# [WARNING] fr translation used
+msgid "boat"
+msgstr "ligne maritime"
+
 msgid "book"
 msgstr "llibre"
 

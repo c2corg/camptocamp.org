@@ -4001,6 +4001,10 @@ msgstr "biography"
 msgid "bisse"
 msgstr "channel"
 
+# [WARNING] fr translation used
+msgid "boat"
+msgstr "ligne maritime"
+
 msgid "book"
 msgstr "book"
 
