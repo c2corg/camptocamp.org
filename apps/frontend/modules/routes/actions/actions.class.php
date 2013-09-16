@@ -53,7 +53,7 @@ class routesActions extends documentsActions
                 }
             }
 
-            // we will also get parkings linked to linked parkings // TODO is that ok ???
+            // we will also get parkings linked to linked parkings
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
@@ -63,7 +63,7 @@ class routesActions extends documentsActions
                 }
             }
 
-            // TODO this part is not clear yet...
+            // 2-hops summits, parkings, outings, huts
             $parent_ids = array_merge($parent_ids, $route_ids);
             if (count($parent_ids))
             {
@@ -74,7 +74,6 @@ class routesActions extends documentsActions
                 $associated_childs = array();
             }
 
-            // TODO same
             if (count($main_associated_summits))
             {
                 $associated_summits = Association::createHierarchy($main_associated_summits, array_filter($associated_childs,
