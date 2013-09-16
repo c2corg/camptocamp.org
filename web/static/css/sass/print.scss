@@ -387,4 +387,17 @@ span.picto {
   content: " - ";
 }
 
+// when cablecar displayed with other tc type, we add a + before to indicate that the parking
+// is accessible via TC + cable car
+// we use simply .picto and not .pt_1, .pt_2, ?pt_4, .pt_4, since this is shorter and sepcific enough
+.picto, #filterform td .picto {
+  &~ .pt_9 {
+    margin-left: 0;
+  }
+  &~ .pt_9:before {
+    left: 0;
+    content: " + ";
+  }
+}
+
 } /* end @media */
