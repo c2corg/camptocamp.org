@@ -1778,7 +1778,7 @@ select.picto_forum, select.picto_forums
 // when cablecar displayed with other tc type, we add a + before to indicate that the parking
 // is accessible via TC + cable car
 // we use simply .picto and not .pt_1, .pt_2, ?pt_4, .pt_4, since this is shorter and sepcific enough
-.picto {
+.picto, #filterform td .picto {
   &~ .pt_9 {
     margin-left: 1em;
   }
@@ -2064,7 +2064,7 @@ fieldset .select_title
 {
   margin: 0 0.5em 0 0;
 }
-#filterform td .picto
+#filterform td .picto // lists table
 {
   margin: 0;
 }
