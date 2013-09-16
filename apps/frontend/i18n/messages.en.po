@@ -3448,6 +3448,7 @@ msgstr "<h3>Public transport access</h3>Necessary information for reaching the a
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Public transport access</h3>Reliability and quality of public transport access within a reasonable walking distance.<br />The field <i>Public transport access</i> allows for additional information.<br/><br/><strong>regular service</strong>: at least one round trip per day, every day and at any season.<br/><br/><strong>poor service</strong>: service only for some periods of the year, or only few days a week.<br/><br/><strong>service close-by</strong>: no direct public transport access, but a nearby stop is within reasonnable walking range.<br/><br/><strong>no service</strong>: no public transport for this access point."
 
+# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
@@ -4003,7 +4004,7 @@ msgstr "channel"
 
 # [WARNING] fr translation used
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "boat"
 
 msgid "book"
 msgstr "book"
@@ -4129,6 +4130,14 @@ msgstr "Camptocamp.org is a collaborative website providing information on outdo
 
 msgid "c2corg news"
 msgstr "Camptocamp News"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [comment]
+# should we sue aerial lift isntead?
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "cable car"
 
 msgid "calabre"
 msgstr "Calabria"

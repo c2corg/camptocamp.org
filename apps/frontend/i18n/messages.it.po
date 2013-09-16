@@ -3473,6 +3473,7 @@ msgstr "<h3>Accesso con i mezzi pubblici</h3>Informazioni necessarie per acceder
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i mezzi pubblici, con eventualmente une avvicinamento ragionevole fino alla partenza dell'itinerario.<br />Il campo <i>Accesso con i mezzi pubblici</i> permette di dare informazioni complementari. <br /><br /><strong>servizio regolare</strong>: C'è almeno un andata-ritorno per giorno (con orari ragionevoli), tutti i giorni.<br /><br /><strong>servizio stagionale</strong>: C'è almeno un andata-ritorno per giorno (con orari ragionevoli), tutti i giorni ma su una parte dell'anno solamente.<br /><br /><strong>servizio ridotto</strong>: L'accesso è raggiungibile solo alcuni giorni o con orari poco comodi. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>servizio a prossimità</strong>: L'accesso non è direttamente raggiungibile con i servizi pubblici, ma c'è una fermata a prossimità che consente di raggiungerlo con un tempo di marcia ragionevole. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>nessun servizio</strong: L'accesso non è raggiungibile con i mezzi pubblici."
 
+# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di raggiungere l'accesso. Indicare solo i mezzi che raggiungono effettivamente questo accesso.<br /><em>Per esempio: se si usa il treno e poi il bus, scegliere unicamente \"bus\".</em><br /><br /><strong>treno</strong>: treno<br /><br /><strong>bus</strong>: bus<br /><br /><strong>servizio a richiesta</strong>: tassi o pulmino da prenotare in modo di raggiungere l'accesso dalla fermata di bus o dalla stazione ferroviere"
 
@@ -4025,7 +4026,7 @@ msgstr "channel"
 
 # [WARNING] fr translation used
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "boat"
 
 msgid "book"
 msgstr "libro"
@@ -4152,6 +4153,12 @@ msgstr "Camptocamp.org è un sito collaborativo dedicato agli sporti di montagna
 
 msgid "c2corg news"
 msgstr "L'attualità di c2c"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "funivia"
 
 msgid "calabre"
 msgstr "Calabria"
