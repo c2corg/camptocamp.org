@@ -6,7 +6,10 @@ $item_i18n = $item_i18n[0];
   "name": <?php echo json_encode($item_i18n['name']) ?>,
   "url": "<?php echo jsonlist_url($item_i18n, 'parkings') ?>",
   "elevation": <?php echo $item['elevation'] ?>,
-  <?php if (isset($item['lowest_elevation']) && is_scalar($item['lowest_elevation'])): ?>
+  <?php if (is_scalar($item['lat'])): ?>
+  "latitude": <?php echo $item['lat'] ?>,
+  "longitude": <?php echo $item['lon'] ?>,
+  <?php endif; if (isset($item['lowest_elevation']) && is_scalar($item['lowest_elevation'])): ?>
   "lowestElevation": <?php echo $item['lowest_elevation'] ?>,
   <?php endif; if (is_int($item['snow_clearance_rating']) && $item['snow_clearance_rating'] != 4): ?>
   "snowClearance": <?php echo $item['snow_clearance_rating'] ?>,

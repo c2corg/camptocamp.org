@@ -6,6 +6,10 @@ $item_i18n = $item_i18n[0];
   "name": <?php echo json_encode($item_i18n['name']) ?>,
   "url": "<?php echo jsonlist_url($item_i18n, 'sites') ?>",
   "elevation": <?php echo $item['elevation'] ?>,
+  <?php if (is_scalar($item['lat'])): ?>
+  "latitude": <?php echo $item['lat'] ?>,
+  "longitude": <?php echo $item['lon'] ?>,
+  <?php endif ?>
   "routes": <?php echo $item['routes_quantity'] ?>,
   "site_types": <?php echo json_encode(BaseDocument::convertStringToArray($item['site_types'])) ?>,
   "rock_types": <?php echo json_encode(BaseDocument::convertStringToArray($item['rock_types'])) ?>,
