@@ -280,8 +280,10 @@ class imagesActions extends documentsActions
                 c2cTools::log("created $nb_created geo associations for image $image_id");
             }
 
-            // remove cache of calling page
-            $this->clearCache($mod, $document_id, true, 'view');
+            // remove cache of calling page (where the image has been uploaded)
+            $this->clearCache($mod, $document_id, false, 'view');
+            // a new image has been uploaded, clear cache for images lists and whatsnew
+            $this->clearCache('images', 0, true);
 
             return $this->setNoticeAndRedirect('image successfully uploaded', $redir_route . '#images');
         }
@@ -575,7 +577,9 @@ class imagesActions extends documentsActions
             }
             
             // remove cache of calling page
-            $this->clearCache($mod, $document_id, true, 'view');
+            $this->clearCache($mod, $document_id, false, 'view');
+            // a new image has been uploaded, clear cache for images lists and whatsnew
+            $this->clearCache('images', 0, true);
             
             return $this->setNoticeAndRedirect('image successfully uploaded', $redir_route . '#images');
         }
@@ -684,6 +688,7 @@ class imagesActions extends documentsActions
         }
 
         // clear cache and redirect to view
+        // TODO clear view cache for linked docs
         $this->clearCache('images', $id);
         $this->setNoticeAndRedirect('Image rotated successfully', $referer);
     }
@@ -866,6 +871,9 @@ class imagesActions extends documentsActions
             $check_doc = Document::find($check_model, $check_id);
             $fields = sfConfig::get('mod_images_bbcode_fields_' . $check_module);
 
+            // clear linked doc cache
+            $this->clearCache($check_module, $check_id);
+
             $languages = $check_doc->getLanguages();
             foreach ($languages as $language)
             {
@@ -900,7 +908,6 @@ class imagesActions extends documentsActions
                         . strtolower($check_model) . ' ' . $check_id . ' (' . $language . ')');
                     $check_doc->save();
                     $conn->commit();
-                    $this->clearCache($check_module, $check_id, true);
                 }
                 else
                 {
@@ -908,6 +915,9 @@ class imagesActions extends documentsActions
                 }
             }
         }
+
+        // clear images lists and whatsnew cache
+        $this->clearCache('images', 0, true);
     }
 
     private function handleImage($image_name, $tmp_name, $temp_dir, $index = 1)
