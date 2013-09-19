@@ -65,7 +65,7 @@ if ($hidden_subject)
 }
 else
 {
-    $subject_title = '<label><strong>'.$lang_common['Subject'].'</strong><br />';
+    $subject_title = '<strong>'.$lang_common['Subject'].'</strong><br />';
 }
 
 
