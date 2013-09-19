@@ -503,7 +503,7 @@ function get_paginated_activities($value, $hide_picto = false, $picto_separator 
             }
             else
             {
-                $out[] = '<span class="activity_' . $activity_num . ' picto printfriendly" title="' . $name . '"></span>';
+                $out[] = '<span class="activity_' . $activity_num . ' picto" title="' . $name . '"></span>';
             }
         }
     }
