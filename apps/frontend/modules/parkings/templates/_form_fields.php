@@ -22,8 +22,12 @@ echo object_group_dropdown_tag($document, 'public_transportation_rating', 'app_p
 ?>
 <div id="tp_types">
 <?php
+// special handling for public_transportation_types. Cablecar (9) should be presented separately
 echo object_group_dropdown_tag($document, 'public_transportation_types', 'app_parkings_public_transportation_types',
-                               array('multiple' => true));
+                               array('multiple' => true, 'na' => array('cable_car' => 9)));
+echo start_group_tag(), label_tag('cable_car_access'), ' <span>',
+     checkbox_tag('public_transportation_types[]', 9, in_array(9, $document->getRaw('public_transportation_types')),
+                  array('id' => 'cable_car_access')), '</span>', end_group_tag();
 ?>
 </div>
 <?php
