@@ -131,7 +131,6 @@ function object_group_tag($object, $fieldname, $options = array())
     $check_mandatory = _option($options, 'check_mandatory', true);
     $label_name = _option($options, 'label_name', null);
     $label_id = _option($options, 'label_id', $label_name);
-    $tips = _option($options, 'tips', '');
 
     $method = _convert_fieldname_to_method($fieldname);
     $mandatory = $check_mandatory && is_mandatory($fieldname);
@@ -165,15 +164,6 @@ function object_group_tag($object, $fieldname, $options = array())
     if ($suffix)
     {
         $out .= '&nbsp;' . __($suffix);
-    }
-
-    if ($tips) // remove ????? FIXME
-    {
-        if ($tips === true)
-        {
-            $tips = '_' . $fieldname . '_short_info';
-        }
-        $out .= '<div class="float-tips">' . __($tips) . '</div>';
     }
 
     $out .= end_group_tag();
