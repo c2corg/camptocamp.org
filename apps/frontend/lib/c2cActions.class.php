@@ -209,12 +209,16 @@ abstract class c2cActions extends sfActions
             sfToolkit::clearGlob($cache_dir . $item);
         }
     }
-    
-    protected function clearCache($module_name, $id, $clear_whatsnew = true, $action = '*', $clear_list = false)
+
+    // clear whatsnew indicates whether the list and whatsnew pages should be removed from cache (they have a ong lifetime) 
+    protected function clearCache($module_name, $id, $clear_whatsnew = true, $action = '*')
     {
         $module_name = ($module_name=='documents') ? '*' : $module_name ;
     
-        $toRemove[] = "$module_name/$action/id/$id/*";
+        if (is_int($id) && $id>0)
+        {
+            $toRemove[] = "$module_name/$action/id/$id/*";
+        }
         
         if ($module_name == 'portals' && $action == '*')
         {

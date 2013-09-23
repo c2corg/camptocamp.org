@@ -1,5 +1,7 @@
 // css for swipejs based gallery
 
+$gray: #d6d6d6;
+
 .swipe-background, .swipe-overlay {
   width: 100%;
   background-color: black;
@@ -83,7 +85,7 @@ $meta_vert_padding: 4px;
 .swipe-meta {
   background-color: rgb(34, 34,34); // fallback
   background-color: rgba(34, 34,34, .6);
-  color: #d6d6d6;
+  color: $gray;
   position: absolute;
   bottom: -1px;
   width: 100%;
@@ -93,7 +95,16 @@ $meta_vert_padding: 4px;
 }
 
 .swipe-links a {
-  color: #d6d6d6;
+  color: $gray;
+}
+
+.swipe-quality-switch {
+  font-weight: 900;
+  font-size: 80%;
+  background-color: $gray;
+  color: black;
+  @include border-radius(2px);
+  padding: 1px;
 }
 
 .swipe-index {

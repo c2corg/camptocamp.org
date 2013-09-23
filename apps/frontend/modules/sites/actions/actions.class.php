@@ -51,7 +51,8 @@ class sitesActions extends documentsActions
                     $i = next($associated_sites);
                 }
 
-                if (count($site_ids)) // TODO explain (+check with original) This is quite unclear here
+                // we want to display on the page the images and outings of the subsites
+                if (count($site_ids))
                 {
                     $site_docs = array_filter($this->associated_docs, array('c2cTools', 'is_image'));
                     foreach ($site_docs as $doc)
@@ -69,7 +70,7 @@ class sitesActions extends documentsActions
 
             $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
 
-            // also add the sites linked to linked summits ?? TODO
+            // we display sub-sub-sites one the page, but also the others sites linked to the same summits
             if (count($associated_summits))
             {
                 foreach ($associated_summits as $summit)
@@ -86,7 +87,7 @@ class sitesActions extends documentsActions
                 $associated_sites = array_merge($associated_sites, $associated_summits_sites);
             }
 
-            // TODO TODO TODO
+            // associated parkings 2-hop hierarchy
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
@@ -99,7 +100,7 @@ class sitesActions extends documentsActions
             
             $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
 
-            // TODO TODO TODO 
+            // all outings (directly or indirectly linked) 
             $parent_ids = array_merge($parent_ids, $sites_ids);
             if (count($parent_ids)) // "sites" can have no linked doc
             {

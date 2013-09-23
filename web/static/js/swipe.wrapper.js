@@ -40,10 +40,12 @@
       // temporarily disable zoom
       disableZoom();
 
-      // depending on screen width, we use MI or BI images
+      // depending on screen width, we use MI or BI images by default
+      // use stored setting if any
       // MI are ~10-15ko, BI are ~100ko
       // TODO might need tweaking and maybe we should take pixelratio into account too
-      img_type = (document.viewport.getWidth() > 400) ? 'BI' : 'MI';
+      img_type = (window.localStorage && localStorage.getItem('swipe-quality')) ||
+                 ((document.viewport.getWidth() > 400) ? 'BI' : 'MI');
 
       // build DOM for displaying the images
       var wrapper = Builder.node('div', { 'class': 'swipe-wrap' });
@@ -57,8 +59,10 @@
       if (img_type === 'MI') {
         links.push(Builder.node('a'), ' - ');
       }
-      links.push(Builder.node('a'),
-        ' - ', Builder.node('a', swipe_i18n.Informations));
+      links.push(Builder.node('a'), ' - ',
+        Builder.node('a', swipe_i18n.Informations), '  ',
+        Builder.node('span', { 'class': 'swipe-quality-switch' }, img_type == 'MI' ? 'LQ' : 'HQ')
+          .observe('click', switchQuality));
 
       meta = Builder.node('div', { 'class': 'swipe-meta' }, [
         Builder.node('span', { 'class': 'swipe-title' }),
@@ -156,6 +160,16 @@
         links[0].href = src.replace('SI', '');
       }
       links.last().href = images[index].href;
+    }
+
+    // switch quality
+    function switchQuality(event) {
+      event.preventDefault();
+      if (window.localStorage) {
+        localStorage.setItem('swipe-quality', img_type == 'MI' ? 'BI' : 'MI');
+      }
+      $$('.swipe-background, .swipe-overlay').invoke('remove');
+      start(swipe.getPos());
     }
 
     // show image information panel

@@ -7,7 +7,10 @@ $item_i18n = $item_i18n[0];
   "url": "<?php echo jsonlist_url($item_i18n, 'products') ?>",
   "productTypes": <?php echo json_encode($item['product_type']) ?>,
   "elevation": <?php echo $item['elevation'] ?>,
-  <?php if (check_not_empty((string) $item['url'])): ?>
+  <?php if (is_scalar($item['lat'])): ?>
+  "latitude": <?php echo $item['lat'] ?>,
+  "longitude": <?php echo $item['lon'] ?>,
+  <?php endif; if (check_not_empty((string) $item['url'])): ?>
   "website": "<?php echo $item['url'] ?>",
   <?php endif ?>
   "nbLinkedImages": <?php echo isset($item['nb_images']) ?  $item['nb_images'] : 0 ?>,
