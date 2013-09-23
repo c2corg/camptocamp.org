@@ -19,7 +19,7 @@ echo select_tag('nam_type',
 ?>
 <br />
 <?php
-echo __('category') . ' ' . field_value_selector('ucat', 'mod_users_category_list', false, false, true);
+echo __('category') . ' ' . field_value_selector('ucat', 'mod_users_category_list', array('keepfirst' => false, 'multiple' => true));
 echo georef_selector();
 ?>
 <br />

@@ -8,4 +8,4 @@ echo __('elevation') . ' ' . elevation_selector('falt');
 ?>
 <br />
 <?php
-echo __('product_type') . ' ' . field_value_selector('ftyp', 'mod_products_types_list', false, false, true);
+echo __('product_type') . ' ' . field_value_selector('ftyp', 'mod_products_types_list', array('keepfirst' => false, 'multiple' => true));
