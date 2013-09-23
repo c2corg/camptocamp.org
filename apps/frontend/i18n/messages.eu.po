@@ -4110,9 +4110,11 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [WARNING] es translation used
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "transbordador"
 
 msgid "book"
 msgstr "liburua"
@@ -4250,6 +4252,12 @@ msgstr "Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Denoi zabaldu
 # [WARNING] es translation used
 msgid "c2corg news"
 msgstr "Noticias de c2c"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "teleferiko"
 
 msgid "calabre"
 msgstr "Calabria"

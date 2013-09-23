@@ -3419,6 +3419,7 @@ msgstr "<h3>Acceso en transportes públicos</h3>Informaciones necesarias para ir
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Accesibilidad en transportes públicos</h3>Calidad del acceso en transportes públicos, a veces asociado con una caminata razonable.<br />El campo <i>Acceso en transportes públicos</i> permite acceder a informaciones complementarias.<br /><br /><strong>Servicio frecuente</strong>: Hay por lo menos una ida y vuelta diaria hacia el acceso, todos los días, todo el ano. <br /><br /><strong>Servicio reducido</strong>: Hay servicio en temporada o solo algunos dias de la semana. Conviene dar detalles en el campo <em>Acceso en transporte público </em>.<br /><br /><strong>Servicio a proximidad</strong>: Se puede llegar al acceso mediante una aproximación razonable desde un lugar accesible en transporte público. Conviene agregar un enlace al acceso más cercano en el campo <em>Acceso en transporte público </em>.<br /><br /><strong>Ningún servicio </strong>: No se puede llegar al acceso en transporte público."
 
+# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
 
@@ -3963,9 +3964,11 @@ msgstr "biografía"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [WARNING] needs_review
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "transbordador"
 
 msgid "book"
 msgstr "libro"
@@ -4092,6 +4095,12 @@ msgstr "Camptocamp.org es una web colaborativa dedicada a los deportes de monta�
 
 msgid "c2corg news"
 msgstr "Noticias de c2c"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "teleférico"
 
 msgid "calabre"
 msgstr "Calabria"

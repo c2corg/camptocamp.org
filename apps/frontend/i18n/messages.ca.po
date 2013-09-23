@@ -4063,9 +4063,11 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "Feixa / canal / camí tallat a la roca"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [WARNING] needs_review
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "transbordador"
 
 msgid "book"
 msgstr "llibre"
@@ -4191,6 +4193,12 @@ msgstr "Camptocamp.org és un web col.laboratiu dedicat als esports de muntanya 
 
 msgid "c2corg news"
 msgstr "L'actualitat de C2C"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] es translation used
+msgid "cable_car"
+msgstr "teleférico"
 
 msgid "calabre"
 msgstr "Calàbria"
