@@ -1,13 +1,6 @@
 <?php
 use_helper('FilterForm', 'General');
 
-if (!c2cTools::mobileVersion())
-{
-   // put focus on the name field on dom load
-   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
-   document.observe(\'dom:loaded\', function() { $(\'tnam\').focus(); })};');
-}
-
 echo around_selector('tarnd');
 $ranges_raw = $sf_data->getRaw('ranges');
 $selected_areas_raw = $sf_data->getRaw('selected_areas');
