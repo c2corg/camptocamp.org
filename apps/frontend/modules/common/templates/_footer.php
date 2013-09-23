@@ -73,7 +73,7 @@ endif;
             {
                 echo ' | ' . link_to(__('mobile version'), 'http://'.$mobile_hostname,
                                      array('id' => 'm-link',
-                                           'onclick' => "document.cookie='nomobile=; expires=Thu, 01-Jan-70 00:00:01 GMT;';"));
+                                           'onclick' => "document.cookie='nomobile=;expires=Thu, 01-Jan-70 00:00:01 GMT;';"));
             }
             ?>
             <script type="text/javascript">
