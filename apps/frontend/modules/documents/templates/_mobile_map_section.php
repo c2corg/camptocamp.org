@@ -35,7 +35,7 @@ if ($has_geom || $show_map)
     echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, false);
     echo '<div class="section" id="map_container_section_container">';
 
-    $map_url = 'http://maps.google.com/maps/api/staticmap?size=310x310&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;key='
+    $map_url = 'http://maps.googleapis.com/maps/api/staticmap?size=310x310&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;key='
                . sfConfig::get('app_google_api_key') . '&amp;';
 
     $map_options = array();

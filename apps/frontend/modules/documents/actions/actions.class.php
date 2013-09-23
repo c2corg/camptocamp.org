@@ -614,22 +614,27 @@ class documentsActions extends c2cActions
                 $this->created_at = $version_infos['created_at'];
             }
             
-            // display associated docs:
-            if ($module == 'users')
-            {
-                $association_type = array('ui');
-            }
-            else
-            {
-                $association_type = null;
-            }
+            // retrieve associated docs
+            // some additional docs can bre retrieved in module/executeView, like two hops summits
+
+            // contains all documents directly linked
+            $association_type = ($module == 'users') ? array('ui') : null;
             $this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures, $association_type);
+
+            // all the linked articles
             $this->associated_articles = array_filter($this->associated_docs, array('c2cTools', 'is_article'));
+
+            // linked sites
             $this->associated_sites = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_site')));
+
+            // linked books. For summits and huts, the displayed books are the one linked to the linked routes
             if (!in_array($module, array('summits', 'huts')))
             {
                 $this->associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
             }
+
+            // linked images
+            // For sites and summits, we will dislay images linked to the summit/site AND its subsummits/subsites
             if (!in_array($module, array('summits', 'sites')))
             {
                 $this->associated_images = Document::fetchAdditionalFieldsFor(
@@ -637,7 +642,8 @@ class documentsActions extends c2cActions
                                             'Image', 
                                             array('filename', 'image_type', 'date_time', 'width', 'height'));
             }
-            // display geo associated docs:
+
+            // Geo associated docs
             if (!in_array($module, array('articles', 'books')))
             {
                 $associated_areas = GeoAssociation::findAreasWithBestName($id, $prefered_cultures);

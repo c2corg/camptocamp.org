@@ -4110,6 +4110,10 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "channel"
 
+# [WARNING] fr translation used
+msgid "boat"
+msgstr "ligne maritime"
+
 msgid "book"
 msgstr "liburua"
 
@@ -6124,6 +6128,10 @@ msgstr "irekia zaintzailerik gabe"
 # [WARNING] es translation used
 msgid "options"
 msgstr "Opciones"
+
+# [WARNING] en translation used
+msgid "or drag & drop files"
+msgstr "or drag&drop files from computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre

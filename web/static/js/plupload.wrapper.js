@@ -40,6 +40,7 @@
 
         // drag&drop look&feel
         if (up.features.dragdrop) {
+          $('.plupload-drag-drop').show();
           var delt = $('#plupload_ondrag');
           var nelt = $('#plupload_normal');
           delt.height(nelt.height() - 12).width(nelt.width() - 12);

@@ -47,30 +47,22 @@ if ($has_associated_docs)
         $title = "routes linked to $module and $route_list_module";
     }
 
-    $doclevel = 10;
     foreach ($associated_docs as $doc)
     {
         $is_doc = (isset($doc['is_doc']) && $doc['is_doc']);
         $doc_id = $doc['id'];
         $idstring = isset($type) ? ' id="' . $type . '_' . ($revert_ids ? $id : $doc_id) . '"' : '';
-        $level = 0;
         $class = 'linked_elt';
+        $level = isset($doc['level']) ? $doc['level'] : 0;
 
-        if (isset($doc['level']))
+        if ($level > 1)
         {
-            $level = $doc['level'];
-            if ($level > 1)
-            {
-                $class .= ' level' . $doc['level'];
-            }
+            $class .= ' level' . $level;
         }
 
-        if ($is_doc)
-        {
-            $doclevel = $level;
-        }
-
-        if ((isset($doc['parent_id']) && !$is_doc) || (isset($is_extra) && $is_extra))
+        // unless required by the template, extra docs are the ones that are not directly linked to the
+        // document, but shown as sub or super doc in a hierarchy
+        if ((isset($doc['parent_relation']) && !isset($doc['link_tools']) && !$is_doc) || (isset($is_extra) && $is_extra))
         {
             $class .= ' extra';
         }
@@ -120,15 +112,9 @@ if ($has_associated_docs)
             }
         }
 
-        if ($is_doc)
-        {
-            echo '<span class="current">' . $name . '</span>';
-        }
-        else
-        {
-            echo link_to($name, $url);
-        }
+        echo $is_doc ? '<span class="current">' . $name . '</span>' : link_to($name, $url);
 
+        // elevation info
         if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation']) // for parkings
         {
             echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
@@ -138,9 +124,10 @@ if ($has_associated_docs)
             echo '&nbsp; ' . $doc['elevation'] . __('meters');
         }
 
+        // public transportation info
         if (isset($doc['public_transportation_types'])) // for parkings
         {
-            echo field_pt_picto_if_set($doc, true, true, ' - ', '', false);
+            echo field_pt_picto_if_set($doc, true, ' - ', '', false);
         }
         
         if ($has_route_list_link)
@@ -160,47 +147,38 @@ if ($has_associated_docs)
                                      'rel' => 'nofollow'));
         }
 
-        if (!isset($doc['parent_id']) and $show_link_to_delete)
+        // display tools for manipulating associations if user is moderator and displayed doc
+        // is directly linked to current doc
+        if ($show_link_to_delete && isset($doc['link_tools']))
         {
-            if (isset($doc['ghost_id']) && isset($ghost_module))
-            {
-                $tips = 'Delete the association with this ' . $module;
-            }
-            else
-            {
-                $tips = null;
-            }
+            $tips = (isset($doc['ghost_id']) && isset($ghost_module)) ? 'Delete the association with this ' . $module : null;
             
-            echo c2c_link_to_delete_element($type, $revert_ids ? $id : $doc_id, $revert_ids ? $doc_id : $id, false, (int) $strict, null, 'indicator', $tips);
+            echo c2c_link_to_delete_element($type, $revert_ids ? $id : $doc_id, $revert_ids ? $doc_id : $id,
+                false, (int) $strict, null, 'indicator', $tips);
             
             if (isset($doc['ghost_id']) && isset($ghost_module))
             {
                 $ghost_id = $doc['ghost_id'];
                 $tips = 'Delete the association with this ' . $ghost_module;
-                echo c2c_link_to_delete_element($ghost_type, $revert_ghost_ids ? $id : $ghost_id, $revert_ghost_ids ? $ghost_id : $id, false, (int) $strict, null, 'indicator', $tips);
+                echo c2c_link_to_delete_element($ghost_type, $revert_ghost_ids ? $id : $ghost_id,
+                    $revert_ghost_ids ? $ghost_id : $id, false, (int) $strict, null, 'indicator', $tips);
             
             }
 
             // button for changing a relation order
             if (in_array($type, array('ss', 'tt', 'pp')))
             {
-                if ($doclevel < $level)
-                {
-                    $mi = $id;
-                    $li = $doc_id;
-                }
-                else
-                {
-                    $mi = $doc_id;
-                    $li = $id;
-                }
+                list($mi, $li) = ($doc['parent_relation'][$id] == 'parent') ?
+                    array($id, $doc_id) : array($doc_id, $id);
+
                 echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/move.gif'),
-                     "@default?module=documents&action=invertAssociation&type=$type&main_id=$mi&linked_id=$li");
+                    "@default?module=documents&action=invertAssociation&type=$type&main_id=$mi&linked_id=$li");
             }
         }
 
         echo $is_inline ? '</span>' : '</div>';
     }
+
     if ($is_inline)
     {
         if ($has_merge_inline)

@@ -63,7 +63,7 @@ if (count($associated_documents))
         echo ' ' . list_link($doc, $module);
         if ($module == 'outings')
         {
-            echo ' - ' . field_activities_data($doc, array('raw' => true, 'printspan' => false)) . ' - ' . field_semantic_date_data($doc, 'date');
+            echo ' - ' . field_activities_data($doc, array('raw' => true)) . ' - ' . field_semantic_date_data($doc, 'date');
         }
         if ($show_link_to_delete)
         {

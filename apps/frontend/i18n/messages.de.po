@@ -4131,6 +4131,10 @@ msgstr "biografie"
 msgid "bisse"
 msgstr "Suone"
 
+# [WARNING] fr translation used
+msgid "boat"
+msgstr "ligne maritime"
+
 msgid "book"
 msgstr "Buch"
 
@@ -6063,6 +6067,10 @@ msgstr "geöffnet, nicht bewirtschaftet"
 
 msgid "options"
 msgstr "Optionen"
+
+# [WARNING] en translation used
+msgid "or drag & drop files"
+msgstr "or drag&drop files from computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre

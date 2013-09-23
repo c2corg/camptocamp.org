@@ -261,7 +261,6 @@ class Association extends BaseAssociation
 
     public static function findAllWithBestName($id, $user_prefered_langs, $types = null)
     {
-        // elevation field is used to guess most important associated doc
         // we use lon/lat instead of geom_wkt to avoid retrieving heavy routes/areas wkt
         $fields = 'm.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name, makePointWkt(m.lon, m.lat) as pointwkt';
         
@@ -319,7 +318,7 @@ class Association extends BaseAssociation
      * $get_linked: depending on the association, the element will be main_id or linked_id
      * $current_doc_ids: docs to exclude from the results
      */
-    public static function findWithBestName($ids, $user_prefered_langs, $types = null, $get_associated_ids = false, $get_linked = true, $current_doc_ids = null)
+    public static function findLinkedDocsWithBestName($ids, $user_prefered_langs, $types = null, $get_associated_ids = false, $get_linked = true, $current_doc_ids = null)
     {
         if (!is_array($ids))
         {
@@ -369,7 +368,7 @@ class Association extends BaseAssociation
 
                 $where .= implode(' OR ', $where2 ) . ' )';
             }
-            
+
             if (!empty($current_doc_ids))
             {
                 if (!is_array($current_doc_ids))
@@ -420,7 +419,7 @@ class Association extends BaseAssociation
             $doc_ids = implode(', ', $where_ids);
         }
 
-        $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' . // elevation field is used to guess most important associated doc
+        $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' .
                  'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
                  'WHERE mi.id IN '. 
                  "($doc_ids) " .
@@ -429,7 +428,7 @@ class Association extends BaseAssociation
         $results = sfDoctrine::connection()
                         ->standaloneQuery($query, $where_array)
                         ->fetchAll();
-        
+
         $out = self::setBestName($results, $user_prefered_langs);
         
         if ($get_associated_ids)
@@ -440,76 +439,59 @@ class Association extends BaseAssociation
                 {
                     if ($association_norm['id'] == $result['id'])
                     {
-                        $out[$key]['parent_id'][] = $association_norm['parent_id'];
-                        $out[$key]['parent_relation'][$association_norm['parent_id']] = $association_norm['rel_parent'];
+                        $out[$key]['parent_relation'][$association_norm['parent_id']] = $association_norm['rel_parent'] === 'linked_id' ?
+                            'child' : 'parent';
+                    }
+                    if ($association_norm['parent_id'] == $result['id'])
+                    {
+                        $out[$key]['parent_relation'][$association_norm['id']] = $association_norm['rel_parent'] === 'linked_id' ?
+                            'parent' : 'child';
                     }
                 }
             }
         }
-        
+
         return $out;
     }
     
-    //
-    // Search children docs of parents_docs
-    // Return a list with parents_docs + children docs
-    //
-    public static function addChildWithBestName($parent_docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $keep_current_doc = false, $sort_field = null, $show_sub_docs = true)
+    // Search the list of linked docs to documents
+    // Return a flat and ordered list with all docs with hierarchical information
+    public static function createHierarchyWithBestName($docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $keep_current_doc = false, $sort_field = null, $show_sub_docs = true)
     {
-        if (!count($parent_docs))
+        if (!count($docs))
         {
-            return $parent_docs;
+            return $docs;
         }
-        
+
         $parent_ids = array();
-        foreach ($parent_docs as $doc)
+        foreach ($docs as $doc)
         {
             $parent_ids[] = $doc['id'];
         }
-        
-        $child_docs = self::findWithBestName($parent_ids, $user_prefered_langs, $type, true, true, ($keep_current_doc ? null : $current_doc_id));
-        
-        return self::addChild($parent_docs, $child_docs, $type, $sort_field, $show_sub_docs, $current_doc_id);
+
+        $linked_docs = self::findLinkedDocsWithBestName($parent_ids, $user_prefered_langs, $type, true, true, ($keep_current_doc ? null : $current_doc_id));
+
+        return self::createHierarchy($docs, $linked_docs, $type, $sort_field, $show_sub_docs, $current_doc_id);
     }
 
+    // Given a list of documents and a list of linked docs, along with parent-child relations,
+    // output a flat list of the documents, but ordered and annotated with the hierarchy, like:
+    // docA - level 1
+    // docB - level 2, child of docA
+    // docC - level 2, child of docA, [current doc]
+    // docD - level 1
+    // docE - level 2, child of docD
+    // docF - level 3, child of docE
     //
-    // - Remove parents_docs from child_docs
-    // - Order child_docs
-    // - Add 'is_child' field to right chidren docs
-    // There is no SQL request.
-    //
-    // enjoy reading...
-    public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null, $show_sub_docs = true, $current_doc_id = 0)
+    // No DB request is done
+    public static function createHierarchy($docs, $linked_docs, $type = null, $sort_field = null, $show_sub_docs = true, $current_doc_id = 0)
     {
-        if (!count($parent_docs))
+        if (!count($docs))
         {
-            return $parent_docs;
-        }
-        
-        $parent_ids = array();
-        foreach ($parent_docs as $doc)
-        {
-            $parent_ids[] = $doc['id'];
-        }
-        
-        foreach ($child_docs as $key => $doc)
-        {
-            if (in_array($doc['id'], $parent_ids))
-            {
-                unset($child_docs[$key]);
-            }
-            if ($doc['id'] == $current_doc_id) // we are dealing with current document
-            {
-                $child_docs[$key]['is_doc'] = true;
-            }
-        }
-        
-        if (!count($child_docs))
-        {
-            return $parent_docs;
+            return $docs;
         }
 
-        // internal order between docs
+        // internal order between docs of same level
         $order = null;
         if (empty($sort_field))
         {
@@ -528,103 +510,75 @@ class Association extends BaseAssociation
                 default :
                     $sort_field = 'name';
             }
-        }        
-        $child_docs = c2cTools::sortArray($child_docs, $sort_field, null, $order);
+        }
 
-        $all_docs = array();
-        foreach ($parent_docs as $parent_key => $parent)
+        // add relation information to 1-hop docs
+        foreach ($docs as $id => $doc)
         {
-            $parent_level = 0;
-            foreach ($child_docs as $child_key => $child)
+            $docs[$id]['link_tools'] = true; // mark it has directly linked to doc: we can display association tools to moderators
+            $doc['parent_relation'] = array();
+            foreach ($linked_docs as $doc2)
             {
-                $parent_ids = $child['parent_id'];
-                if (in_array($parent['id'], $parent_ids))
+                if (isset($doc2['parent_relation'][$doc['id']]))
                 {
-                    if ($child['parent_relation'][$parent['id']] == 'linked_id')
-                    {
-                        if (!$parent_level)
-                        {
-                            $parent_level = 2;
-                        }
-                        if (!isset($child['doc_set']))
-                        {
-                            $child['level'] = 1;
-                            $all_docs[] = $child;
-                            $child_docs[$child_key]['level'] = $child['level'];
-                            $child_docs[$child_key]['doc_set'] = true;
-                        }
-                        foreach ($parent_docs as $parent_key2 => $parent2)
-                        {
-                            if ($type == 'ss' && ($parent2['id'] != $parent['id']))
-                            {
-                                continue;
-                            }
-                            if (!isset($parent2['doc_set']) && in_array($parent2['id'], $parent_ids))
-                            {
-                                $parent2['level'] = $child['level'] + 1;
-                                $parent2['is_child'] = true;
-                                $all_docs[] = $parent2;
-                                $parent_docs[$parent_key2]['level'] = $parent2['level'];
-                                $parent_docs[$parent_key2]['doc_set'] = true;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (!$parent_level)
-                        {
-                            $parent_level = 1;
-                        }
-                        if (!isset($parent_docs[$parent_key]['doc_set']))
-                        {
-                            $parent['level'] = $parent_level;
-                            $all_docs[] = $parent;
-                            $parent_docs[$parent_key]['level'] = $parent['level'];
-                            $parent_docs[$parent_key]['doc_set'] = true;
-                        }
-                        if (!isset($child['doc_set']))
-                        {
-                            $child['level'] = $parent_level + 1;
-                            $child['is_child'] = true;
-                            if ($show_sub_docs)
-                            {
-                                $all_docs[] = $child;
-                            }
-                            $child_docs[$child_key]['level'] = $child['level'];
-                            $child_docs[$child_key]['doc_set'] = true;
-                            
-                            if ($type == 'ss')
-                            {
-                                foreach ($parent_docs as $parent_key2 => $parent2)
-                                {
-                                    if (!isset($parent2['doc_set']) && in_array($parent2['id'], $parent_ids))
-                                    {
-                                        $parent2['level'] = $child['level'] + 1;
-                                        $parent2['is_child'] = true;
-                                        $all_docs[] = $parent2;
-                                        $parent_docs[$parent_key2]['level'] = $parent2['level'];
-                                        $parent_docs[$parent_key2]['doc_set'] = true;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    $docs[$id]['parent_relation'][$doc2['id']] = ($doc2['parent_relation'][$doc['id']] == 'parent') ? 'child' : 'parent';
                 }
-            }
-            if (!isset($parent_docs[$parent_key]['doc_set']))
-            {
-                if (!$parent_level)
-                {
-                    $parent_level = 1;
-                }
-                $parent['level'] = $parent_level;
-                $all_docs[] = $parent;
-                $parent_docs[$parent_key]['level'] = $parent['level'];
-                $parent_docs[$parent_key]['doc_set'] = true;
             }
         }
-        
-        return $all_docs;
+        $all_docs = array_merge($docs, $linked_docs);
+
+        // Mark original document
+        foreach ($all_docs as $key => $doc)
+        {
+            if ($doc['id'] == $current_doc_id)
+            {
+                $all_docs[$key]['is_doc'] = true;
+                break;
+            }
+        }
+
+        // get all docs that don't have parents and put them in the output list with level 1
+        foreach($all_docs as $id => $doc)
+        {
+            if (!isset($doc['parent_relation']) || array_search('parent', $doc['parent_relation']) === false)
+            {
+                $doc['level'] = 1;
+                $output[] = $doc;
+                unset($all_docs[$id]);
+            }
+        }
+        $output = c2cTools::sortArray($output, $sort_field, null, $order);
+
+        // for each level 1 doc, get corresponding children and insert them into the list
+        // repeat the same process for level 2 docs
+        for ($level=2; $level<=3; $level++)
+        {
+            $offset = 1;
+            foreach ($output as $pos => $sorted_doc)
+            {
+                // only go through level 2 docs on second run
+                if ($level == 3 && $sorted_doc['level'] !== 2) continue;
+
+                $sub_docs = array();
+                foreach ($all_docs as $id => $doc)
+                {
+                    if (array_key_exists($sorted_doc['id'], $doc['parent_relation'])) // it can only be a child
+                    {
+                        $doc['level'] = $level;
+                        $sub_docs[] = $doc;
+                        unset($all_docs[$id]);
+                    }
+                }
+                if (count($sub_docs))
+                {
+                    $sub_docs = c2cTools::sortArray($sub_docs, $sort_field, null, $order);
+                    array_splice($output, $pos + $offset, 0, $sub_docs);
+                    $offset = $offset + count($sub_docs);
+                }
+            }
+        }
+
+        return $output;
     }
 
     public static function countLinked($main_id, $type = null)

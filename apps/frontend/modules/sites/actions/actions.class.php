@@ -31,19 +31,29 @@ class sitesActions extends documentsActions
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
             $parent_ids = $sites_ids = $site_docs_ids = $child_types = array();
-            
+
+            // if we have sub-(sub)-sites, we also want to display the outings and images linked to these sites
             $main_associated_sites = $this->associated_sites;
             if (count($main_associated_sites))
             {
-                $associated_sites = Association::addChildWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id, true);
-                
-                if (count($main_associated_sites) > 1 || count($associated_sites) == 1)
+                $associated_sites = Association::createHierarchyWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id, true);
+
+                $i = reset($associated_sites);
+                while(!isset($i['is_doc']))
                 {
-                    foreach ($main_associated_sites as $site)
-                    {
-                        $sites_ids[] = $site['id'];
-                    }
-                    
+                    $i = next($associated_sites);
+                }
+                $doc_level = $i['level'];
+                $i = next($associated_sites);
+                while($i !== false && $i['level'] > $doc_level)
+                {
+                    $site_ids[] = $i['id'];
+                    $i = next($associated_sites);
+                }
+
+                // we want to display on the page the images and outings of the subsites
+                if (count($site_ids))
+                {
                     $site_docs = array_filter($this->associated_docs, array('c2cTools', 'is_image'));
                     foreach ($site_docs as $doc)
                     {
@@ -57,8 +67,10 @@ class sitesActions extends documentsActions
             {
                 $associated_sites = $main_associated_sites;
             }
-            
+
             $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
+
+            // we display sub-sub-sites one the page, but also the others sites linked to the same summits
             if (count($associated_summits))
             {
                 foreach ($associated_summits as $summit)
@@ -71,10 +83,11 @@ class sitesActions extends documentsActions
                     $sites_ids[] = $site['id'];
                 }
                 $summit_docs_ids = array_merge($sites_ids, array($current_doc_id));
-                $associated_summits_sites = Association::findWithBestName($summit_ids, $prefered_cultures, 'st', true, true, $summit_docs_ids);
+                $associated_summits_sites = Association::findLinkedDocsWithBestName($summit_ids, $prefered_cultures, 'st', true, true, $summit_docs_ids);
                 $associated_sites = array_merge($associated_sites, $associated_summits_sites);
             }
-            
+
+            // associated parkings 2-hop hierarchy
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
@@ -86,16 +99,17 @@ class sitesActions extends documentsActions
             }
             
             $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
-            
+
+            // all outings (directly or indirectly linked) 
             $parent_ids = array_merge($parent_ids, $sites_ids);
             if (count($parent_ids)) // "sites" can have no linked doc
             {
-                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
+                $associated_childs = Association::findLinkedDocsWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
                 $this->associated_docs = array_merge($this->associated_docs, $associated_childs);
             
                 if (count($associated_parkings))
                 {
-                    $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                    $associated_parkings = Association::createHierarchy($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
                 }
                 
                 if (count($sites_ids))

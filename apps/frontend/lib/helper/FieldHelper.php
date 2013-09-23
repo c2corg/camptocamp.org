@@ -252,58 +252,58 @@ function field_activities_data($document, $options = array())
     return field_picto_from_list($document, 'activities', 'app_activities_list', $options);
 }
 
-function field_activities_data_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+function field_activities_data_if_set($document, $raw = false, $prefix = '', $suffix = '')
 {
     return field_picto_from_list_if_set($document, 'activities', 'app_activities_list',
-        array('multiple' => true, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'activity',
+        array('multiple' => true, 'raw' => $raw, 'picto_name' => 'activity',
         'picto_separator' => ' ', 'text_separator' => ' - ', 'prefix' => $prefix, 'suffix' => $suffix));
 }
 
-function _activities_data($activities, $printspan = false, $picto_separator = ' ')
+function _activities_data($activities, $picto_separator = ' ')
 {
     return _format_picto_from_list('activities', $activities, 'app_activities_list',
-        array('multiple' => true, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'activity',
+        array('multiple' => true, 'raw' => true, 'picto_name' => 'activity',
         'picto_separator' => $picto_separator, 'text_separator' => ' - '));
 }
 
-function field_pt_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '', $show_if_empty = true)
+function field_pt_picto_if_set($document, $raw = false, $prefix = '', $suffix = '', $show_if_empty = true)
 {
     return field_picto_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types',
-        array('multiple' => true, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'pt', 'picto_separator' => ' ',
+        array('multiple' => true, 'raw' => $raw, 'picto_name' => 'pt', 'picto_separator' => ' ',
         'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix, 'show_if_empty' => $show_if_empty));
 }
 
-function _pt_picto_if_set($pt_types, $printspan = false)
+function _pt_picto_if_set($pt_types)
 {
     return _format_picto_from_list('public_transportation_types', $pt_types, 'app_parkings_public_transportation_types',
-        array('multiple' => true, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'pt',
+        array('multiple' => true, 'raw' => true, 'picto_name' => 'pt',
         'picto_separator' => ' ', 'text_separator' => ', '));
 }
 
-function field_frequentation_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+function field_frequentation_picto_if_set($document, $raw = false, $prefix = '', $suffix = '')
 {
     return field_picto_from_list_if_set($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list',
-        array('multiple' => false, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'freq', 'picto_separator' => ' ',
+        array('multiple' => false, 'raw' => $raw, 'picto_name' => 'freq', 'picto_separator' => ' ',
         'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix));
 }
 
-function _frequentation_picto_if_set($frequentation, $printspan = false)
+function _frequentation_picto_if_set($frequentation)
 {
     return _format_picto_from_list('frequentation_status', $frequentation, 'mod_outings_frequentation_statuses_list',
-        array('multiple' => false, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'freq'));
+        array('multiple' => false, 'raw' => true, 'picto_name' => 'freq'));
 }
 
-function field_conditions_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+function field_conditions_picto_if_set($document, $raw = false, $prefix = '', $suffix = '')
 {
     return field_picto_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list',
-        array('multiple' => false, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'cond', 'picto_separator' => ' ', 'text_separator' => ', ',
+        array('multiple' => false, 'raw' => $raw, 'picto_name' => 'cond', 'picto_separator' => ' ', 'text_separator' => ', ',
         'prefix' => $prefix, 'suffix' => $suffix));
 }
 
-function _conditions_picto_if_set($conditions, $printspan = false)
+function _conditions_picto_if_set($conditions)
 {
     return _format_picto_from_list('conditions_status', $conditions, 'mod_outings_conditions_statuses_list',
-        array('multiple' => false, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'cond'));
+        array('multiple' => false, 'raw' => true, 'picto_name' => 'cond'));
 }
 
 function field_date_data($document, $name)
@@ -621,7 +621,6 @@ function _format_picto_from_list($name, $value, $config, $options = array())
     if (!empty($value))
     {
         $multiple = _option($options, 'multiple', false);
-        $printspan = _option($options, 'printspan', false);
         $picto_name = _option($options, 'picto_name', '');
         $picto_separator = _option($options, 'picto_separator', '');
 
@@ -647,24 +646,17 @@ function _format_picto_from_list($name, $value, $config, $options = array())
 
             $picto_text = __($list[$picto_id]);
 
-            if ($printspan)
+            $print_sep = '';
+            if ($print_separator_counter === 0)
             {
-                $print_class = ' printfriendly';
-                if ($print_separator_counter === 0)
-                {
-                    $print_separator_counter = 1;
-                }
-                else
-                {
-                    $print_class .= ' sep';
-                }
+                $print_separator_counter = 1;
             }
             else
             {
-                $print_class = '';
+                $print_sep = ' sep';
             }
 
-            $html[] = '<span class="picto '.$picto_name.'_'.$picto_id.$print_class.'" title="'.$picto_text.'"></span>';
+            $html[] = '<span class="picto '.$picto_name.'_'.$picto_id.$print_sep.'" title="'.$picto_text.'"></span>';
             $picto_text_list[] = $picto_text;
         }
         $html = implode($picto_separator, $html);
@@ -1102,7 +1094,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
         {
             if ($show_activities)
             {
-                $groups[] = _activities_data($climbing_activities, false, '&nbsp;');
+                $groups[] = _activities_data($climbing_activities, '&nbsp;');
             }
             $groups[] = implode('/', $main_climbing);
             $groups[] = implode('/', $climbing);

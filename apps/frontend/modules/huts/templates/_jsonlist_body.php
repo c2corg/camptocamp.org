@@ -7,7 +7,10 @@ $item_i18n = $item_i18n[0];
   "url": "<?php echo jsonlist_url($item_i18n, 'huts') ?>",
   "type": <?php echo $item['shelter_type'] ?>,
   "elevation": <?php echo $item['elevation'] ?>,
-  <?php if (is_scalar($item['staffed_capacity']) && $item['staffed_capacity'] >= 0): ?>
+  <?php if (is_scalar($item['lat'])): ?>
+  "latitude": <?php echo $item['lat'] ?>,
+  "longitude": <?php echo $item['lon'] ?>,
+  <?php endif; if (is_scalar($item['staffed_capacity']) && $item['staffed_capacity'] >= 0): ?>
   "staffedCapacity": <?php echo $item['staffed_capacity'] ?>,
   <?php endif; if (is_scalar($item['unstaffed_capacity']) && $item['unstaffed_capacity'] >= 0): ?>
   "unstaffedCapacity": <?php echo $item['unstaffed_capacity'] ?>,
