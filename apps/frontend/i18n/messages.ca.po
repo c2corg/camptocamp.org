@@ -3022,6 +3022,10 @@ msgstr "<h3>Millors periòdes</h3>Llista dels mesos durant els quals el lloc o l
 msgid "_book_types_info"
 msgstr "<h3>Tipus d'obra</h3>Tipus de llibre.<br />Se'n pot seleccionar més d'un."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Aparell</h3>Marca i model de la càmera fotogràfica.<br />Aquesta informació s'extreu de les dades EXIF del fitxer enviat. És possible eliminar-la abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
 
@@ -4197,6 +4201,10 @@ msgstr "L'actualitat de C2C"
 # Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
 msgid "cable_car"
 msgstr "remuntadors mecànics"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calàbria"

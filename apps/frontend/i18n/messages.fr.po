@@ -3020,6 +3020,10 @@ msgstr "<h3>Meilleures périodes</h3>Liste des mois durant lesquels le site/sect
 msgid "_book_types_info"
 msgstr "<h3>Type d'ouvrage</h3>Type du livre.<br />Plusieurs types peuvent être sélectionnés."
 
+# [WARNING] needs_review
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Appareil photo</h3>Marque et modèle de l'appareil photo.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
 
@@ -4200,6 +4204,10 @@ msgstr "L'actualité de c2c"
 # Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
 msgid "cable_car"
 msgstr "remontées mécaniques"
+
+# [WARNING] needs_review
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabre"

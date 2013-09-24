@@ -3164,6 +3164,10 @@ msgstr "<h3>Sasoi egokiena</h3>Eskalada gunera joateko gomendagarri diren hileen
 msgid "_book_types_info"
 msgstr "<h3>Lan mota</h3>Liburu mota.<br />Mota desberdinak aukeratu daitezke."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Argazki kamera</h3>Argazki kamararen marka eta modeloa.<br />Informazio hau, jeitsitako EXIF fitxerotik atereak izango dira. Argazki programa bat erabiliz hau kendu daiteke bidalia izan aurretik."
 
@@ -4258,6 +4262,10 @@ msgstr "Noticias de c2c"
 # [WARNING] needs_review
 msgid "cable_car"
 msgstr "teleferiko"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"

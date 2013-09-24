@@ -3025,6 +3025,10 @@ msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampic
 msgid "_book_types_info"
 msgstr "<h3>Tipo di libro</h3>Tipo di libro.<br />E' possibile scegliere tra molte opzioni differenti."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Apparecchio fotografico</h3>marca e modello della macchina fotografica.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
 
@@ -4161,6 +4165,10 @@ msgstr "L'attualità di c2c"
 # [WARNING] needs_review
 msgid "cable_car"
 msgstr "funivia"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"

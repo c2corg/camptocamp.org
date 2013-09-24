@@ -3018,6 +3018,10 @@ msgstr "<h3>Best time</h3>List of the months in which a climbing site or a parti
 msgid "_book_types_info"
 msgstr "<h3>Type of book</h3>Type of book.<br />Various types of book can be selected."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Camera</h3>Make and model of the camera.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
@@ -4142,6 +4146,10 @@ msgstr "Camptocamp News"
 # [WARNING] needs_review
 msgid "cable_car"
 msgstr "cable car"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"
