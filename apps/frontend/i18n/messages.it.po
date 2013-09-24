@@ -4024,9 +4024,11 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [WARNING] needs_review
 msgid "boat"
-msgstr "boat"
+msgstr "traghetto"
 
 msgid "book"
 msgstr "libro"

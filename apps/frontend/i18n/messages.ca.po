@@ -4063,9 +4063,10 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "Feixa / canal / camí tallat a la roca"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
 msgid "boat"
-msgstr "boat"
+msgstr "transbordador"
 
 msgid "book"
 msgstr "llibre"
@@ -4194,9 +4195,8 @@ msgstr "L'actualitat de C2C"
 
 # [general comment]
 # Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
-# [WARNING] es translation used
 msgid "cable_car"
-msgstr "teleférico"
+msgstr "remuntadors mecànics"
 
 msgid "calabre"
 msgstr "Calàbria"
@@ -5931,9 +5931,9 @@ msgstr "obert no guardat"
 msgid "options"
 msgstr "Opcions"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "or drag & drop files"
-msgstr "or drag&drop files from computer"
+msgstr "o arrossegueu les imatges des de l'ordinador"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre

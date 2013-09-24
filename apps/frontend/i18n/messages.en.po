@@ -4002,9 +4002,13 @@ msgstr "biography"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [comment]
+# maybe simply boat. According to wikipedia, ferry in english primilarly targets passengers transportation.
+# [WARNING] needs_review
 msgid "boat"
-msgstr "boat"
+msgstr "ferry"
 
 msgid "book"
 msgstr "book"

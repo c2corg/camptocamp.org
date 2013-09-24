@@ -4066,9 +4066,10 @@ msgstr "biographie"
 msgid "bisse"
 msgstr "bisse / béal"
 
-# [WARNING] needs_review
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
 msgid "boat"
-msgstr "boat"
+msgstr "bateau"
 
 msgid "book"
 msgstr "livre"

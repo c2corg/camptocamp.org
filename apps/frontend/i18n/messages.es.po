@@ -3964,9 +3964,10 @@ msgstr "biografía"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
 msgid "boat"
-msgstr "boat"
+msgstr "transbordador"
 
 msgid "book"
 msgstr "libro"
