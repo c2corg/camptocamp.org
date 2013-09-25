@@ -274,6 +274,8 @@ function field_pt_picto_if_set($document, $raw = false, $prefix = '', $suffix = 
     if (!$raw)
     {
         $value = $document->getRaw('public_transportation_types');
+        if (($key = array_search("0", $value)) !== false) unset($value[$key]);
+
         if (sizeof($value) === 1 && reset($value) === "9")
         {
             $options['label'] = 'access deserved by:';
