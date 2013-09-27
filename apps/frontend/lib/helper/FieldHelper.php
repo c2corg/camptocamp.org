@@ -268,9 +268,22 @@ function _activities_data($activities, $picto_separator = ' ')
 
 function field_pt_picto_if_set($document, $raw = false, $prefix = '', $suffix = '', $show_if_empty = true)
 {
+    // special handling for cablecar, change label if it is the only selected option
+    $options = array('multiple' => true, 'raw' => $raw, 'picto_name' => 'pt', 'picto_separator' => ' ',
+                     'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix, 'show_if_empty' => $show_if_empty);
+    if (!$raw)
+    {
+        $value = $document->getRaw('public_transportation_types');
+        if (($key = array_search("0", $value)) !== false) unset($value[$key]); // on display, changed by symfony
+        if (($key = array_search("", $value)) !== false) unset($value[$key]); // on preview
+
+        if (sizeof($value) === 1 && reset($value) === "9")
+        {
+            $options['label'] = 'access deserved by:';
+        }
+    }
     return field_picto_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types',
-        array('multiple' => true, 'raw' => $raw, 'picto_name' => 'pt', 'picto_separator' => ' ',
-        'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix, 'show_if_empty' => $show_if_empty));
+        $options);
 }
 
 function _pt_picto_if_set($pt_types)
@@ -411,6 +424,7 @@ function _format_data($name, $value, $options = array())
     $name_suffix = _option($options, 'name_suffix', '');
     $microdata = _option($options, 'microdata', null);
     $show_if_empty = _option($options, 'show_if_empty', true);
+    $label = _option($options, 'label', $name);
 
     if (empty($value))
     {
@@ -436,7 +450,7 @@ function _format_data($name, $value, $options = array())
     }
 
     $text = ($raw) ? '' :
-            '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . ucfirst(__($name)) . $name_suffix . '</div> ';
+            '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . ucfirst(__($label)) . $name_suffix . '</div> ';
 
     if (!empty($prefix) && !$empty_value)
     {

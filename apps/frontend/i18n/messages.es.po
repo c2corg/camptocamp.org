@@ -3010,6 +3010,10 @@ msgstr "<h3>Mejores épocas</h3>Lista de los meses en los que se puede escalar e
 msgid "_book_types_info"
 msgstr "<h3>clase de obra</h3>clase de libro.<br />Se puede seleccionar varias clases."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Cámara de fotos</h3>Marca y modelo de la cámara de fotos.<br />Esta información viene de los datos EXIF del fichero descargado. Es posible cancelarlos antes de mandar la foto, con la ayuda de un software de fotografía."
 
@@ -3966,7 +3970,6 @@ msgstr "channel"
 
 # [general comment]
 # ligne maritime / fluviale / lacustre pour le transport de passagers
-# [WARNING] needs_review
 msgid "boat"
 msgstr "transbordador"
 
@@ -4101,6 +4104,10 @@ msgstr "Noticias de c2c"
 # [WARNING] needs_review
 msgid "cable_car"
 msgstr "teleférico"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"

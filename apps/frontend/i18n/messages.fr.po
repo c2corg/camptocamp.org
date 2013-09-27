@@ -3020,6 +3020,10 @@ msgstr "<h3>Meilleures périodes</h3>Liste des mois durant lesquels le site/sect
 msgid "_book_types_info"
 msgstr "<h3>Type d'ouvrage</h3>Type du livre.<br />Plusieurs types peuvent être sélectionnés."
 
+# [WARNING] needs_review
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Appareil photo</h3>Marque et modèle de l'appareil photo.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
 
@@ -3506,7 +3510,7 @@ msgid "_public_transportation_rating_info"
 msgstr "<h3>Accessibilité en transports en commun</h3>Qualité de l'accès en transport en commun, éventuellement moyennant une marche raisonnable.<br />Le champ <em>Accès en transports en commun</em> permet de donner des informations complémentaires.<br /><br /><strong>service régulier</strong>&nbsp;: L'accès est desservi par au moins un aller-retour par jour, 7 jours sur 7, 12 mois sur 12.<br /><br /><strong>service saisonnier</strong>&nbsp;: L'accès est desservi par au moins un aller-retour par jour, 7 jours sur 7, mais sur une partie de l'année seulement.<br /><br /><strong>service réduit</strong>&nbsp;: L'accès est desservi seulement certains jours de la semaine, et pas forcément toute l'année. Des précisions sont souhaitables dans le champ <em>Accès en transports en commun</em>.<br /><br /><strong>service à proximité</strong>&nbsp;: L'accès n'est pas desservi directement par un transport public, mais un arrêt à proximité permet de le rejoindre moyennant une marche raisonnable. Un lien vers l'accès situé à proximité est souhaitable dans le champ <em>Accès en transports en commun</em>.<br /><br /><strong>pas de service</strong>&nbsp;: L'accès n'est pas desservi par un transport en commun."
 
 msgid "_public_transportation_types_info"
-msgstr "<h3>Type de transport en commun</h3>Type de transport en commun desservant l'accès. Seuls les transports aboutissant effectivement à l'accès doivent être considérés.<br /><em>Ex: pour un accès desservi par un bus depuis une gare ferroviaire à 10km, seul \"bus\" sera indiqué.</em><br /><br /><strong>train</strong>&nbsp;: train<br /><br /><strong>bus</strong>&nbsp;: bus ou car<br /><br /><strong>service à la demande</strong>&nbsp;: taxi ou navette à la demande, permettant de prolonger une ligne régulière, et accessible avec un billet de train ou de bus<br /><strong>bateau</strong>&nbsp;: ligne maritime, lacustre ou fluviale régulière permettant le transport de passagers"
+msgstr "<h3>Type de transport en commun</h3>Type de transport en commun desservant l'accès. Seuls les transports aboutissant effectivement à l'accès doivent être considérés.<br /><em>Ex: pour un accès desservi par un bus depuis une gare ferroviaire à 10km, seul \"bus\" sera indiqué.</em><br /><br /><strong>train</strong>&nbsp;: train<br /><br /><strong>bus</strong>&nbsp;: bus ou car<br /><br /><strong>service à la demande</strong>&nbsp;: taxi ou navette à la demande, permettant de prolonger une ligne régulière, et accessible avec un billet de train ou de bus<br /><br /><strong>bateau</strong>&nbsp;: ligne maritime, lacustre ou fluviale régulière permettant le transport de passagers"
 
 msgid "_publication_date_info"
 msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se référera à la version la plus récente s'il s'agit de mises à jour, à la première si il s'agit de rééditions sans modification. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )<br />On indiquera de préférence l'année seule pour un livre, et le mois pour les périodiques"
@@ -4200,6 +4204,10 @@ msgstr "L'actualité de c2c"
 # Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
 msgid "cable_car"
 msgstr "remontées mécaniques"
+
+# [WARNING] needs_review
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabre"
