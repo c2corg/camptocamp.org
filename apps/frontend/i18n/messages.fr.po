@@ -3746,6 +3746,9 @@ msgstr "Résumé&nbsp;/ introduction&nbsp;:"
 msgid "access"
 msgstr "Accès&nbsp;:"
 
+msgid "access deserved by:"
+msgstr "Accès desservi par&nbsp;:"
+
 msgid "access_comments"
 msgstr "Commentaires sur l'accès routier ou TC&nbsp;:"
 
@@ -7307,6 +7310,10 @@ msgstr "oui"
 
 msgid "yesterday, at %1%"
 msgstr "hier, à %1%"
+
+# [WARNING] needs_review
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "Vous ne pouvez pas sélectionner de transports en commun si le champ 'accessibilité' n'est pas compatible"
 
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"

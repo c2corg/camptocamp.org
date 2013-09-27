@@ -3634,6 +3634,10 @@ msgstr "Resumen / introducción:"
 msgid "access"
 msgstr "Acceso:"
 
+# [WARNING] en translation used
+msgid "access deserved by:"
+msgstr "Served by:"
+
 msgid "access_comments"
 msgstr "Comentarios sobre el acceso en vehiculo o en transporte en común:"
 
@@ -7298,6 +7302,10 @@ msgstr "si"
 
 msgid "yesterday, at %1%"
 msgstr "ayer, a las %1%"
+
+# [WARNING] en translation used
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from collaborative picture"

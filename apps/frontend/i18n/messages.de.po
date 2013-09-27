@@ -3807,6 +3807,10 @@ msgstr "Zusammenfassung / Einleitung:"
 msgid "access"
 msgstr "Zugang:"
 
+# [WARNING] en translation used
+msgid "access deserved by:"
+msgstr "Served by:"
+
 msgid "access_comments"
 msgstr "Kommentare zum Zugang:"
 
@@ -7506,6 +7510,10 @@ msgstr "ja"
 
 msgid "yesterday, at %1%"
 msgstr "gestern, um %1%"
+
+# [WARNING] en translation used
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 msgid "you have no right to switch from collaborative picture"
 msgstr "Sie verfügen nicht über die notwendigen Zugriffsrechte, um den Bildtyp dieses gemeinschaftlichen Bilds zu ändern"

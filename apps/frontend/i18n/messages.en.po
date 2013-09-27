@@ -3676,6 +3676,10 @@ msgstr "Abstract:"
 msgid "access"
 msgstr "Access:"
 
+# [WARNING] needs_review
+msgid "access deserved by:"
+msgstr "Served by:"
+
 msgid "access_comments"
 msgstr "Comments on access:"
 
@@ -7316,6 +7320,10 @@ msgstr "yes"
 
 msgid "yesterday, at %1%"
 msgstr "yesterday, at %1%"
+
+# [WARNING] needs_review
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"
