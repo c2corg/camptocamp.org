@@ -51,6 +51,8 @@ fields:
       max_error:    this name is too long (150 characters maximum)
   public_transportation_types:
     myPtTypesValidator:
+      pt_rating: public_transportation_rating
+      pt_rating_choice_error: you cannot select public transportation types without appropriate service rating
       exclusive_choice_error: empty choice can't be selected with another choice
   public_transportation_rating:
     myChoiceValidator:
