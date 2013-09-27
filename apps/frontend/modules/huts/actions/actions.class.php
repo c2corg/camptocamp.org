@@ -320,7 +320,8 @@ class hutsActions extends documentsActions
 
                 // create first version of document, with culture and geometry of hut document
                 $hut_elevation = $document['elevation'];
-                $hut_geom = $document['geom_wkt'];
+                $hut_lat = $document['lat'];
+                $hut_lon = $document['lon'];
                 $hut_culture = $document->getCulture();
                 $hut_name = $document['name'];
 
@@ -335,8 +336,8 @@ class hutsActions extends documentsActions
                 $summit->set('name', $hut_name);
                 $summit->set('elevation', $hut_elevation);
                 $summit->set('summit_type', 100); // set summit type to ' hut'
-
-                $summit->set('geom_wkt', $hut_geom);
+                $summit->set('lat', $hut_lat);
+                $summit->set('lon', $hut_lon);
                 $summit->save();
 
                 $conn->commit();

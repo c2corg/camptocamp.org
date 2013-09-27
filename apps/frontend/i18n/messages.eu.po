@@ -3164,6 +3164,10 @@ msgstr "<h3>Sasoi egokiena</h3>Eskalada gunera joateko gomendagarri diren hileen
 msgid "_book_types_info"
 msgstr "<h3>Lan mota</h3>Liburu mota.<br />Mota desberdinak aukeratu daitezke."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Argazki kamera</h3>Argazki kamararen marka eta modeloa.<br />Informazio hau, jeitsitako EXIF fitxerotik atereak izango dira. Argazki programa bat erabiliz hau kendu daiteke bidalia izan aurretik."
 
@@ -3762,6 +3766,10 @@ msgstr "Laburpena / sarrera:"
 msgid "access"
 msgstr "Acceso:"
 
+# [WARNING] en translation used
+msgid "access deserved by:"
+msgstr "Served by:"
+
 msgid "access_comments"
 msgstr "Abiaguneari buruzko iritzia:"
 
@@ -4110,9 +4118,11 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [WARNING] es translation used
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "transbordador"
 
 msgid "book"
 msgstr "liburua"
@@ -4250,6 +4260,16 @@ msgstr "Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Denoi zabaldu
 # [WARNING] es translation used
 msgid "c2corg news"
 msgstr "Noticias de c2c"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "teleferiko"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"
@@ -7661,6 +7681,10 @@ msgstr "bai"
 
 msgid "yesterday, at %1%"
 msgstr "atzo, %1%-tan"
+
+# [WARNING] en translation used
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from collaborative picture"
