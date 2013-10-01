@@ -3,17 +3,17 @@ use_helper('AutoComplete', 'General', 'Field');
 
 $has_associated_docs = count($associated_docs);
 $has_extra_docs = (isset($extra_docs) && check_not_empty($extra_docs));
+$show_link_to_delete = isset($show_link_to_delete) ? $show_link_to_delete : false;
+$two_hops_list = isset($two_hops_list) ? $two_hops_list : false; // if we gathered two hops documents, we should only display unlink button when relevant
 if (isset($document))
 {
     $id = $document->get('id');
 }
-if (!isset($show_link_to_delete))
-{
-    $show_link_to_delete = false;
-}
 // correctly set main_id and linked_id
 $module_letter = c2cTools::Module2Letter($module);
 $revert_ids = isset($type) ? (substr($type,0,1) != $module_letter) : null;
+
+// ghost summit-huts case
 if (isset($ghost_module))
 {
     $ghost_module_letter = c2cTools::Module2Letter($ghost_module);
@@ -149,7 +149,7 @@ if ($has_associated_docs)
 
         // display tools for manipulating associations if user is moderator and displayed doc
         // is directly linked to current doc
-        if ($show_link_to_delete && isset($doc['link_tools']))
+        if ($show_link_to_delete && (!$two_hops_list || isset($doc['link_tools'])))
         {
             $tips = (isset($doc['ghost_id']) && isset($ghost_module)) ? 'Delete the association with this ' . $module : null;
             

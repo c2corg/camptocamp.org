@@ -34,7 +34,7 @@ if ($is_not_archive)
     
     if ($is_not_merged)
     {
-        if ($is_moderator)
+        if ($is_moderator) // these are ghost summits and shouldn't be displayed to regular users
         {
             include_partial('documents/association',
                             array('associated_docs' => $associated_summits, 
@@ -54,6 +54,7 @@ if ($is_not_archive)
                               'route_list_linked' => true,
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
+                              'two_hops_list' => true,
                               'type' => 'ph', // parking-hut
                               'strict' => true));
 

@@ -45,6 +45,7 @@ if ($is_not_archive)
                               'reduce_name' => true,
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
+                              'two_hops_list' => true,
                               'type' => 'tt', // site-site
                               'strict' => false )); // no strict looking for main_id in column main of Association table
                               // warning : strict is set to false since association can be with other sites
@@ -71,6 +72,7 @@ if ($is_not_archive)
                               'module' => 'parkings',  // this is the module of the documents displayed by this partial
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
+                              'two_hops_list' => true,
                               'type' => 'pt', // parking-site
                               'strict' => true )); // strict looking for main_id in column main of Association table
     }
