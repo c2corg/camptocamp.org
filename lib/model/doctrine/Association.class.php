@@ -537,6 +537,25 @@ class Association extends BaseAssociation
             }
         }
 
+        // if documents from different hierarchical levels are linked, we might have duplicates at that point
+        // we should remove them
+        $ids = $keys = array();
+        foreach($all_docs as $key => $doc)
+        {
+            if ($pos = array_search($doc['id'], $ids))
+            {
+                $all_docs[$keys[$pos]]['parent_relation'] = isset($all_docs[$keys[$pos]]['parent_relation']) ?
+                    $all_docs[$keys[$pos]]['parent_relation'] + $doc['parent_relation'] :
+                    $doc['parent_relation'];
+                unset($all_docs[$key]);
+            }
+            else
+            {
+                $ids[] = $doc['id'];
+                $keys[] = $key;
+            }
+        }
+
         // get all docs that don't have parents and put them in the output list with level 1
         foreach($all_docs as $id => $doc)
         {
