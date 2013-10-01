@@ -51,7 +51,6 @@ if ($is_not_archive)
                               'route_list_linked' => false, 
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
-                              'two_hops_list' => true,
                               'type' => 'sr', // summit-route
                               'strict' => true )); // strict looking for main_id in column main of Association table                         
         
@@ -84,7 +83,6 @@ if ($is_not_archive)
                               'route_list_linked' => true, 
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
-                              'two_hops_list' => true,
                               'type' => 'pr', // parking-route
                               'strict' => true ));
     }

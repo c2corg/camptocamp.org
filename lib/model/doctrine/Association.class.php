@@ -515,7 +515,6 @@ class Association extends BaseAssociation
         // add relation information to 1-hop docs
         foreach ($docs as $id => $doc)
         {
-            $docs[$id]['link_tools'] = true; // mark it has directly linked to doc: we can display association tools to moderators
             $doc['parent_relation'] = array();
             foreach ($linked_docs as $doc2)
             {

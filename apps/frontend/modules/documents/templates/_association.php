@@ -2,9 +2,8 @@
 use_helper('AutoComplete', 'General', 'Field');
 
 $has_associated_docs = count($associated_docs);
-$has_extra_docs = (isset($extra_docs) && check_not_empty($extra_docs));
+$has_extra_docs = isset($extra_docs) && check_not_empty($extra_docs);
 $show_link_to_delete = isset($show_link_to_delete) ? $show_link_to_delete : false;
-$two_hops_list = isset($two_hops_list) ? $two_hops_list : false; // if we gathered two hops documents, we should only display unlink button when relevant
 if (isset($document))
 {
     $id = $document->get('id');
@@ -62,7 +61,7 @@ if ($has_associated_docs)
 
         // unless required by the template, extra docs are the ones that are not directly linked to the
         // document, but shown as sub or super doc in a hierarchy
-        if ((isset($doc['parent_relation']) && !isset($doc['link_tools']) && !$is_doc) || (isset($is_extra) && $is_extra))
+        if ((isset($doc['parent_relation']) && !isset($doc['directly_linked']) && !$is_doc) || (isset($is_extra) && $is_extra))
         {
             $class .= ' extra';
         }
@@ -149,7 +148,7 @@ if ($has_associated_docs)
 
         // display tools for manipulating associations if user is moderator and displayed doc
         // is directly linked to current doc
-        if ($show_link_to_delete && (!$two_hops_list || isset($doc['link_tools'])))
+        if ($show_link_to_delete && isset($doc['directly_linked']))
         {
             $tips = (isset($doc['ghost_id']) && isset($ghost_module)) ? 'Delete the association with this ' . $module : null;
             

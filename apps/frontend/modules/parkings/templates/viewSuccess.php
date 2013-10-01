@@ -35,7 +35,6 @@ if ($is_not_archive)
                               'module' => 'parkings', 
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
-                              'two_hops_list' => true,
                               'type' => 'pp', // parkings-parkings
                               'strict' => false )); // no strict looking for main_id in column main of Association table
         

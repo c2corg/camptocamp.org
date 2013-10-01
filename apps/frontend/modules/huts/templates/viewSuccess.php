@@ -54,7 +54,6 @@ if ($is_not_archive)
                               'route_list_linked' => true,
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
-                              'two_hops_list' => true,
                               'type' => 'ph', // parking-hut
                               'strict' => true));
 
