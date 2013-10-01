@@ -456,8 +456,7 @@ class Association extends BaseAssociation
     
     // Search the list of linked docs to documents
     // Return a flat and ordered list with all docs with hierarchical information
-//  $type = null, $current_doc_id = 0, $keep_current_doc = false, $sort_field = null, $show_sub_docs = true)
-    public static function createHierarchyWithBestName($docs, $user_prefered_langs, $options = array());
+    public static function createHierarchyWithBestName($docs, $user_prefered_langs, $options = array())
     {
         $type = _option($options, 'type');
         $current_doc_id = _option($options, 'current_doc_id', 0);
@@ -497,7 +496,7 @@ class Association extends BaseAssociation
     {
         $type = _option($options, 'type');
         $sort_field =  _option($options, 'sort_field');
-        $show_sub_docs =  _option($options, 'show_sub_docs', true); // TODO
+        $show_sub_docs =  _option($options, 'show_sub_docs', true);
         $current_doc_id =  _option($options, 'current_doc_id', 0);
 
         if (!count($docs))
@@ -606,6 +605,29 @@ class Association extends BaseAssociation
                     $sub_docs = c2cTools::sortArray($sub_docs, $sort_field, null, $order);
                     array_splice($output, $pos + $offset, 0, $sub_docs);
                     $offset = $offset + count($sub_docs);
+                }
+            }
+        }
+
+        if (!$show_sub_docs)
+        {
+            // we don't want to display extra docs that are not parent from directly linked docs
+            // as this would be useless information in some cases (for example, if I have a route linked to zermatt
+            // I don't want to have the sub-parkings of zermatt listed in the route document)
+
+            // we simply go from deepest level and remove leaves which are not dorectly linked
+            for ($level = 3; $level > 0; $level--)
+            {
+                $temp = null;
+                foreach (array_reverse($output, true) as $key => $doc)
+                {
+                    if ($doc['level'] === $level &&
+                        !isset($doc['directly_linked']) &&
+                        (!isset($temp) || $temp['level'] <= $level))
+                    {
+                      unset($output[$key]);
+                    }
+                    $temp = $doc;
                 }
             }
         }

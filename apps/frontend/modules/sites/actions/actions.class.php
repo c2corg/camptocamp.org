@@ -112,7 +112,7 @@ class sitesActions extends documentsActions
                 {
                     $associated_parkings = Association::createHierarchy($associated_parkings,
                         array_filter($associated_childs, array('c2cTools', 'is_parking')),
-                        array('type' => 'pp'));
+                        array('type' => 'pp', 'show_sub_docs' => false));
                 }
                 
                 if (count($sites_ids))
