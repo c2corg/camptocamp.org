@@ -345,8 +345,14 @@ img.embedded_right
   font-size: 0.9em;
 }
 
-.qrcode
-{
+// important and warning messages
+.warning_message, .important_message {
+  border: 1px solid black;
+  background: none;
+  padding-left: 8px;
+}
+
+.qrcode {
   display: block !important;
   float: right;
 }
