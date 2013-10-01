@@ -456,8 +456,15 @@ class Association extends BaseAssociation
     
     // Search the list of linked docs to documents
     // Return a flat and ordered list with all docs with hierarchical information
-    public static function createHierarchyWithBestName($docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $keep_current_doc = false, $sort_field = null, $show_sub_docs = true)
+//  $type = null, $current_doc_id = 0, $keep_current_doc = false, $sort_field = null, $show_sub_docs = true)
+    public static function createHierarchyWithBestName($docs, $user_prefered_langs, $options = array());
     {
+        $type = _option($options, 'type');
+        $current_doc_id = _option($options, 'current_doc_id', 0);
+        $keep_current_doc = _option($options, 'keep_current_doc', false);
+        $sort_field = _option($options, 'sort_field');
+        $show_sub_docs = _option($options, 'show_sub_docs', true);
+
         if (!count($docs))
         {
             return $docs;
@@ -469,9 +476,11 @@ class Association extends BaseAssociation
             $parent_ids[] = $doc['id'];
         }
 
-        $linked_docs = self::findLinkedDocsWithBestName($parent_ids, $user_prefered_langs, $type, true, true, ($keep_current_doc ? null : $current_doc_id));
+        $linked_docs = self::findLinkedDocsWithBestName($parent_ids, $user_prefered_langs, $type, true, true,
+            ($keep_current_doc ? null : $current_doc_id));
 
-        return self::createHierarchy($docs, $linked_docs, $type, $sort_field, $show_sub_docs, $current_doc_id);
+        return self::createHierarchy($docs, $linked_docs, array('type' => $type, 'sort_field' => $sort_field,
+            'show_sub_docs' => $show_sub_docs, 'current_doc_id' => $current_doc_id));
     }
 
     // Given a list of documents and a list of linked docs, along with parent-child relations,
@@ -484,8 +493,13 @@ class Association extends BaseAssociation
     // docF - level 3, child of docE
     //
     // No DB request is done
-    public static function createHierarchy($docs, $linked_docs, $type = null, $sort_field = null, $show_sub_docs = true, $current_doc_id = 0)
+    public static function createHierarchy($docs, $linked_docs, $options = array())
     {
+        $type = _option($options, 'type');
+        $sort_field =  _option($options, 'sort_field');
+        $show_sub_docs =  _option($options, 'show_sub_docs', true); // TODO
+        $current_doc_id =  _option($options, 'current_doc_id', 0);
+
         if (!count($docs))
         {
             return $docs;

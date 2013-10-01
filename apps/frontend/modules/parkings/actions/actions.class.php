@@ -34,7 +34,8 @@ class parkingsActions extends documentsActions
             $parking_ids = array();
             if (count($main_associated_parkings))
             {
-                $associated_parkings = Association::createHierarchyWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id, true);
+                $associated_parkings = Association::createHierarchyWithBestName($main_associated_parkings, $prefered_cultures,
+                    array('type' => 'pp', 'current_doc_id' => $current_doc_id, 'keep_current_doc' => true);
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
 
                 // simply go through the list and get the next items that have a bigger level
