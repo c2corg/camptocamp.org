@@ -98,10 +98,10 @@ if ($is_not_archive)
     
     if ($is_not_merged)
     {
-        include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits', 'is_extra' => true));
+        include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits'));
         
-        include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts', 'is_extra' => true));
-        include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
+        include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
+        include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'));
     }
 
     $avalanche_bulletin = array_intersect(array(1,2,5,7), $activities);
