@@ -1934,7 +1934,7 @@ class documentsActions extends c2cActions
                 $this->redirectToView();
                 return;
             }
-            
+
             // we prevent here concurrent edition :
 
             // fake data so that second test always fails on summit creation (and when document is an archive) :
@@ -1944,7 +1944,6 @@ class documentsActions extends c2cActions
             // test if id exists (summit update) before checking concurrent edition
             // and if this is not an archive (editing an old document to reverse wrong changes)
             // (because only useful for document update) :
-                        
             if (($id = $this->getRequestParameter('id')) && (!$this->getRequestParameter('editing_archive')))
             {
                 $rev_when_edition_begun = $this->getRequestParameter('revision');
@@ -2068,6 +2067,9 @@ class documentsActions extends c2cActions
                 }
             }
         }
+
+        // Go through simple heuristics to check for potential vandalism
+       Vandalism::check($this->document);
 
         // js to autosave edit forms. see also https://github.com/marcuswestin/store.js?
         // FIXME temporarily disabled because it causes the browser to choke every 20-30s
