@@ -72,10 +72,13 @@ endif;
             if (!empty($mobile_hostname) && !$is_map)
             {
                 echo ' | ' . link_to(__('mobile version'), 'http://'.$mobile_hostname,
-                                     array('class' => 'mobile_link',
-                                           'onclick' => "document.cookie='nomobile=; expires=Thu, 01-Jan-70 00:00:01 GMT;'; document.location.href = document.location.href.replace('$classic_hostname', '$mobile_hostname'); return false;"));
+                                     array('id' => 'm-link',
+                                           'onclick' => "document.cookie='nomobile=;expires=Thu, 01-Jan-70 00:00:01 GMT;';"));
             }
             ?>
+            <script type="text/javascript">
+              document.getElementById('m-link').href = document.location.href.replace('<?php echo $classic_hostname ?>', '<?php echo $mobile_hostname ?>');
+            </script>
             </p>
 <?php
 if (!$is_map):

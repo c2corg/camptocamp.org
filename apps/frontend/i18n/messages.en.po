@@ -3018,6 +3018,10 @@ msgstr "<h3>Best time</h3>List of the months in which a climbing site or a parti
 msgid "_book_types_info"
 msgstr "<h3>Type of book</h3>Type of book.<br />Various types of book can be selected."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Camera</h3>Make and model of the camera.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
@@ -3448,6 +3452,7 @@ msgstr "<h3>Public transport access</h3>Necessary information for reaching the a
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Public transport access</h3>Reliability and quality of public transport access within a reasonable walking distance.<br />The field <i>Public transport access</i> allows for additional information.<br/><br/><strong>regular service</strong>: at least one round trip per day, every day and at any season.<br/><br/><strong>poor service</strong>: service only for some periods of the year, or only few days a week.<br/><br/><strong>service close-by</strong>: no direct public transport access, but a nearby stop is within reasonnable walking range.<br/><br/><strong>no service</strong>: no public transport for this access point."
 
+# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
@@ -3670,6 +3675,10 @@ msgstr "Abstract:"
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
 msgid "access"
 msgstr "Access:"
+
+# [WARNING] needs_review
+msgid "access deserved by:"
+msgstr "Served by:"
 
 msgid "access_comments"
 msgstr "Comments on access:"
@@ -4001,9 +4010,13 @@ msgstr "biography"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [comment]
+# maybe simply boat. According to wikipedia, ferry in english primilarly targets passengers transportation.
+# [WARNING] needs_review
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "ferry"
 
 msgid "book"
 msgstr "book"
@@ -4129,6 +4142,18 @@ msgstr "Camptocamp.org is a collaborative website providing information on outdo
 
 msgid "c2corg news"
 msgstr "Camptocamp News"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [comment]
+# should we sue aerial lift isntead?
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "cable car"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"
@@ -7295,6 +7320,10 @@ msgstr "yes"
 
 msgid "yesterday, at %1%"
 msgstr "yesterday, at %1%"
+
+# [WARNING] needs_review
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"

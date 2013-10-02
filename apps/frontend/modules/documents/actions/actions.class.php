@@ -615,11 +615,17 @@ class documentsActions extends c2cActions
             }
             
             // retrieve associated docs
-            // some additional docs can bre retrieved in module/executeView, like two hops summits
+            // some additional docs can be retrieved in module/executeView, like two hops summits
 
             // contains all documents directly linked
             $association_type = ($module == 'users') ? array('ui') : null;
-            $this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures, $association_type);
+            $associated_docs =  Association::findAllWithBestName($id, $prefered_cultures, $association_type);
+            // mark them (useful information)
+            foreach($associated_docs as &$doc)
+            {
+                $doc['directly_linked'] = true;
+            }
+            $this->associated_docs = $associated_docs;
 
             // all the linked articles
             $this->associated_articles = array_filter($this->associated_docs, array('c2cTools', 'is_article'));

@@ -3010,6 +3010,10 @@ msgstr "<h3>Mejores épocas</h3>Lista de los meses en los que se puede escalar e
 msgid "_book_types_info"
 msgstr "<h3>clase de obra</h3>clase de libro.<br />Se puede seleccionar varias clases."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Cámara de fotos</h3>Marca y modelo de la cámara de fotos.<br />Esta información viene de los datos EXIF del fichero descargado. Es posible cancelarlos antes de mandar la foto, con la ayuda de un software de fotografía."
 
@@ -3419,6 +3423,7 @@ msgstr "<h3>Acceso en transportes públicos</h3>Informaciones necesarias para ir
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Accesibilidad en transportes públicos</h3>Calidad del acceso en transportes públicos, a veces asociado con una caminata razonable.<br />El campo <i>Acceso en transportes públicos</i> permite acceder a informaciones complementarias.<br /><br /><strong>Servicio frecuente</strong>: Hay por lo menos una ida y vuelta diaria hacia el acceso, todos los días, todo el ano. <br /><br /><strong>Servicio reducido</strong>: Hay servicio en temporada o solo algunos dias de la semana. Conviene dar detalles en el campo <em>Acceso en transporte público </em>.<br /><br /><strong>Servicio a proximidad</strong>: Se puede llegar al acceso mediante una aproximación razonable desde un lugar accesible en transporte público. Conviene agregar un enlace al acceso más cercano en el campo <em>Acceso en transporte público </em>.<br /><br /><strong>Ningún servicio </strong>: No se puede llegar al acceso en transporte público."
 
+# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
 
@@ -3628,6 +3633,10 @@ msgstr "Resumen / introducción:"
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
 msgid "access"
 msgstr "Acceso:"
+
+# [WARNING] en translation used
+msgid "access deserved by:"
+msgstr "Served by:"
 
 msgid "access_comments"
 msgstr "Comentarios sobre el acceso en vehiculo o en transporte en común:"
@@ -3963,9 +3972,10 @@ msgstr "biografía"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "transbordador"
 
 msgid "book"
 msgstr "libro"
@@ -4092,6 +4102,16 @@ msgstr "Camptocamp.org es una web colaborativa dedicada a los deportes de monta�
 
 msgid "c2corg news"
 msgstr "Noticias de c2c"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "teleférico"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"
@@ -7282,6 +7302,10 @@ msgstr "si"
 
 msgid "yesterday, at %1%"
 msgstr "ayer, a las %1%"
+
+# [WARNING] en translation used
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from collaborative picture"

@@ -3037,6 +3037,10 @@ msgstr "<h3>Geeignete Jahreszeit</h3>Liste der Monate, in welchen das Klettern m
 msgid "_book_types_info"
 msgstr "<h3>Typ des Buches</h3>Typ des Buchs<br />Mehrere Typ können ausgewählt werden."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Kamera</h3>Marke und Modell der Kamera. <br />Diese Informationen werden aus den EXIF-Datei des hochgeladenen Bildes extrahiert. Sie können diese Informationen vor dem Hochladen des Bildes mit einer Fotografie oder Imaging-Software löschen."
 
@@ -3556,6 +3560,7 @@ msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Notwendige Info
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Einfachheit der Erreichbarkeit mit öffentlichen Verkehrsmitteln, etvl. durch eine verhältnismässige Gehdistanz.<br />Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> können zusätzliche Informationen angegeben werden.<br /><br /><strong>Regelmässiger Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen und ganzjährig gewährleistet.<br /><br /><strong>Saisonale Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen gewährleistet, aber nur zu gewissen Jahreszeiten<br /><br /><strong>Eingeschränkte Erschliessung</strong>: Verbindungen nur während gewissen Tagen und eventuell nur während gewissen Jahreszeiten gewährleistet. Details zu der Erschliessung sollten im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> angegeben werden.<br /><br /><strong>Erschliessung in der Nähe</strong>: Der Ort ist nicht direkt erschlossen, kann aber mit einem verhältnismässigen Fussmarsch erreicht werden. Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> kann der Fussmarsch und die Haltestelle näher beschrieben werden.<br /><br /><strong>Keine Erschliessung</strong>: Keine Verbindung mit öffentlichen Verkehrsmitteln, d.h. der Ort kann mit öV nicht mit verhältnismässigem Aufwand erreicht werden."
 
+# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Typ des öffentlichen Verkehrsmittel</h3>\n"
 "Typ des öffentlichen Verkehrsmittels, welches den Zugangsort erschliesst. Dabei ist nur das Verkehrsmittel anzugeben, welches den\n"
@@ -3801,6 +3806,10 @@ msgstr "Zusammenfassung / Einleitung:"
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
 msgid "access"
 msgstr "Zugang:"
+
+# [WARNING] en translation used
+msgid "access deserved by:"
+msgstr "Served by:"
 
 msgid "access_comments"
 msgstr "Kommentare zum Zugang:"
@@ -4131,9 +4140,11 @@ msgstr "biografie"
 msgid "bisse"
 msgstr "Suone"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [WARNING] needs_review
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "Fähre"
 
 msgid "book"
 msgstr "Buch"
@@ -4265,6 +4276,16 @@ msgstr "Camptocamp.org ist eine \"Mitmach-Website\" für Bergsportarten wie Hoch
 
 msgid "c2corg news"
 msgstr "Aktuelles von c2c"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "Luftseilbahn"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Kalabrien"
@@ -7489,6 +7510,10 @@ msgstr "ja"
 
 msgid "yesterday, at %1%"
 msgstr "gestern, um %1%"
+
+# [WARNING] en translation used
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 msgid "you have no right to switch from collaborative picture"
 msgstr "Sie verfügen nicht über die notwendigen Zugriffsrechte, um den Bildtyp dieses gemeinschaftlichen Bilds zu ändern"

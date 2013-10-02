@@ -213,12 +213,9 @@ abstract class c2cActions extends sfActions
     // clear whatsnew indicates whether the list and whatsnew pages should be removed from cache (they have a ong lifetime) 
     protected function clearCache($module_name, $id, $clear_whatsnew = true, $action = '*')
     {
-        $module_name = ($module_name=='documents') ? '*' : $module_name ;
+        $module_name = ($module_name=='documents') ? '*' : $module_name;
     
-        if (is_int($id) && $id>0)
-        {
-            $toRemove[] = "$module_name/$action/id/$id/*";
-        }
+        $toRemove[] = "$module_name/$action/id/$id/*";
         
         if ($module_name == 'portals' && $action == '*')
         {

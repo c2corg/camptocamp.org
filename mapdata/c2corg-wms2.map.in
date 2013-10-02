@@ -48,7 +48,7 @@ LAYER
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
   DATA "geom FROM summits USING UNIQUE id USING SRID=900913"
-  FILTER ("redirects_to" IS NULL AND "summit_type" != 5)
+  FILTER ("redirects_to" IS NULL AND "summit_type" NOT IN (5, 100))
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END

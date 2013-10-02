@@ -189,7 +189,7 @@ else
                        . summarize_route($route, true, false, $avalaible_activities, true)
                        . $georef;
 
-                    if ($show_link_to_delete)
+                    if ($show_link_to_delete && isset($route['directly_linked']))
                     {
                         echo c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict);
                     }
@@ -205,7 +205,7 @@ else
                        . $georef
                        . '</td>';
 
-                    if ($show_link_to_delete)
+                    if ($show_link_to_delete && isset($route['directly_linked']))
                     {
                         echo '<td>'
                            . c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict)

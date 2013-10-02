@@ -94,18 +94,18 @@ class routesActions extends documentsActions
             $summit_huts = array();
             foreach ($associated_summit_huts as $summit_hut)
             {
-                $summit_hut_parent_id = current($summit_hut['parent_id']);
                 foreach ($associated_huts as $key1 => $hut)
                 {
-                    if ($summit_hut['id'] == $hut['id'])
+                    if ($summit_hut['id'] == $hut['id']) // a hut is both directly linked and linked to a linked summit, the summit is thus a ghost
                     {
-                        $hut['ghost_id'] = $summit_hut_parent_id;
+                        $linked = array_keys($summit_hut['parent_relation']);
+                        $hut['ghost_id'] = array_shift($linked);
                         $summit_huts[] = $hut;
                         unset($associated_huts[$key1]);
                         
                         foreach ($associated_summits as $key2 => $summit)
                         {
-                            if ($summit['id'] == $summit_hut_parent_id)
+                            if ($summit['id'] == $hut['ghost_id'])
                             {
                                 unset($associated_summits[$key2]);
                                 break;

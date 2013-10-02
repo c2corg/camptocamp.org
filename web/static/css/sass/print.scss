@@ -368,7 +368,7 @@ img.embedded_right
 // TODO sep automatique
 span.picto {
   width: 0;
-  &.pt_1, &.pt_2, &.pt_3, &.pt_4
+  &.pt_1, &.pt_2, &.pt_3, &.pt_4, &.pt_9,
   &.activity_1, &.activity_2, &.activity_3, &.activity_4, 
   &.activity_5, &.activity_6, &.activity_7, &.activity_8  {
     width: auto;
@@ -386,6 +386,19 @@ span.picto {
 // we could ahve used ~ + or not:(first:child) selectors
 .picto.sep:before {
   content: " - ";
+}
+
+// when cablecar displayed with other tc type, we add a + before to indicate that the parking
+// is accessible via TC + cable car
+// we use simply .picto and not .pt_1, .pt_2, ?pt_4, .pt_4, since this is shorter and sepcific enough
+.picto, #filterform td .picto {
+  &~ .pt_9 {
+    margin-left: 0;
+  }
+  &~ .pt_9:before {
+    left: 0;
+    content: " + ";
+  }
 }
 
 } /* end @media */

@@ -13,10 +13,13 @@ $has_pt_access = ($document->get('public_transportation_rating') != 3);
 if ($has_pt_access)
 {
     echo field_text_data($document, 'public_transportation_description', null, array('needs_translation' => $needs_translation, 'images' => $images));
-    
-    $link_text = __('outings using PT from this access point');
-    $url = "outings/list?parkings=$ids&owtp=yes&orderby=date&order=desc";
-    echo '<p class="big_tips">' . link_to($link_text, $url, array('rel' => 'nofollow')) . "</p>\n";
+
+    if ($sf_params->get('action') != 'preview')
+    {
+        $link_text = __('outings using PT from this access point');
+        $url = "outings/list?parkings=$ids&owtp=yes&orderby=date&order=desc";
+        echo '<p class="big_tips">' . link_to($link_text, $url, array('rel' => 'nofollow')) . "</p>\n";
+    }
 }
 else
 {

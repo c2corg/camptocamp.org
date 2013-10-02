@@ -3022,6 +3022,10 @@ msgstr "<h3>Millors periòdes</h3>Llista dels mesos durant els quals el lloc o l
 msgid "_book_types_info"
 msgstr "<h3>Tipus d'obra</h3>Tipus de llibre.<br />Se'n pot seleccionar més d'un."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+
 msgid "_camera_name_info"
 msgstr "<h3>Aparell</h3>Marca i model de la càmera fotogràfica.<br />Aquesta informació s'extreu de les dades EXIF del fitxer enviat. És possible eliminar-la abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
 
@@ -3508,6 +3512,7 @@ msgstr "<h3>Accés en transport públic</h3>Informació necessària per accedir 
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Accessibilitat en transport públic </h3>Qualitat de l'accés en transport públic, eventualment acompanyat d'una caminada raonable.<br />El camp <i>Accés en tranport públic</i> permet permet donar informació complementària.<br /><br /><strong>servei regular</strong>: L'accés compta almenys amb una anada i tornada per dia, 7 dies a la setmana, 12 mesos l'any.<br /><br /><strong>servei de temporada</strong>: L'accés està cobert almenys amb una anada i tornada per dia, 7 dies a la setmana, però només durant una part de l'any.<br /><br /><strong>servei reduït</strong>: L'accés està cobert només alguns dies a la setmana, i no forçosament durant tot l'any. És desitjable afegir precisions al camp <em>Accés en transport públic</em>.<br /><br /><strong>servei a proximitat</strong>: L'accés no queda cobert directament per un transport públic, però una parada propera permet arribar-hi mitjançant una caminada raonable. És desitjable un enllaç cap a l'accés situat a proximitat al camp <em>Accés en transport públic</em>.<br /><br /><strong>sense servei</strong>: L'accés no compta amb cap transport públic."
 
+# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipus de transport públic</h3>Tipus de transport públic que permet arribar a aquest accés. Només s'han de descriure els que realment hi arriben<br /><em>Ex: en cas d'un accés cobert per un autobús provinent d'una estació de tren situada a 10 km, només s'ha d'indicar \"autobús\".</em><br /><br /><strong>tren</strong>: tren<br /><br /><strong>autobús</strong>: autobús o cotxe<br /><br /><strong>servei a demanda</strong>: taxi o autobús a demanda, que permet allargar una línia regular, i accessible amb un bitllet de tren o d'autobús"
 
@@ -3740,6 +3745,10 @@ msgstr "Resum / introducció:"
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
 msgid "access"
 msgstr "Accés:"
+
+# [WARNING] en translation used
+msgid "access deserved by:"
+msgstr "Served by:"
 
 msgid "access_comments"
 msgstr "Comentaris sobre l'accés:"
@@ -4063,9 +4072,10 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "Feixa / canal / camí tallat a la roca"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "transbordador"
 
 msgid "book"
 msgstr "llibre"
@@ -4191,6 +4201,15 @@ msgstr "Camptocamp.org és un web col.laboratiu dedicat als esports de muntanya 
 
 msgid "c2corg news"
 msgstr "L'actualitat de C2C"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+msgid "cable_car"
+msgstr "remuntadors mecànics"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calàbria"
@@ -5925,9 +5944,9 @@ msgstr "obert no guardat"
 msgid "options"
 msgstr "Opcions"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "or drag & drop files"
-msgstr "or drag&drop files from computer"
+msgstr "o arrossegueu les imatges des de l'ordinador"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
@@ -7279,6 +7298,10 @@ msgstr "si"
 
 msgid "yesterday, at %1%"
 msgstr "ahir, a les %1%"
+
+# [WARNING] en translation used
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"
