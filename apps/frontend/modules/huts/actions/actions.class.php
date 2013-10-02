@@ -70,7 +70,7 @@ class hutsActions extends documentsActions
                 $associated_routes = array_filter($associated_parking_docs, array('c2cTools', 'is_route'));
 
                 $associated_parking_sites = c2cTools::sortArrayByName(array_filter($associated_parking_docs, array('c2cTools', 'is_site')));
-                $this->associated_sites = array_merge($this->associated_sites,$associated_parking_sites);
+                $this->associated_sites = array_merge($this->associated_sites,$associated_parking_sites); // associated sites should be empty!! Else it violates moderation rules
                 $this->ids = implode('-', $parking_ids);
             }
             else
