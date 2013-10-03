@@ -88,6 +88,7 @@ echo object_group_tag($document, 'slope', array('class' => 'long_input'));
 <?php
 echo object_group_dropdown_tag($document, 'global_rating', 'app_routes_global_ratings');
 echo object_group_dropdown_tag($document, 'engagement_rating', 'app_routes_engagement_ratings');
+echo object_group_dropdown_tag($document, 'objective_risk_rating', 'app_routes_objective_risk_ratings');
 echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_ratings_list');
 ?>
 </div>
@@ -97,6 +98,7 @@ echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_rat
 echo object_group_dropdown_tag($document, 'rock_free_rating', 'app_routes_rock_free_ratings');
 echo object_group_dropdown_tag($document, 'rock_required_rating', 'app_routes_rock_free_ratings');
 echo object_group_dropdown_tag($document, 'aid_rating', 'app_routes_aid_ratings');
+echo object_group_dropdown_tag($document, 'exposition_rating', 'mod_routes_exposition_ratings_list');
 ?>
 </div>
 
