@@ -34,7 +34,7 @@ all:
       4: config goulotte
       7: config glacier
 
-  exposition_ratings:
+  rock_exposition_ratings:
     list:
       0:
       1: E1

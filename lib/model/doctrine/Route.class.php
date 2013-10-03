@@ -311,7 +311,7 @@ class Route extends BaseRoute
         return self::returnPosIntOrNull($value);
     }
 
-    public static function filterSetExposition_rating($value)
+    public static function filterSetRock_exposition_rating($value)
     {
         return self::returnPosIntOrNull($value);
     }

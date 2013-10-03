@@ -89,7 +89,7 @@ if (isset($nb_comments) && $nb_comments)
         li(field_data_range_from_list_if_set($document, 'rock_free_rating', 'rock_required_rating', 'app_routes_rock_free_ratings',
             array('name_if_equal' => 'rock_free_and_required_rating', 'separator' => 'rock rating separator', 'suffix' => $suffix)));
         li(field_data_from_list_if_set($document, 'aid_rating', 'app_routes_aid_ratings'));
-        li(field_data_from_list_if_set($document, 'exposition_rating', 'mod_routes_exposition_ratings_list'));
+        li(field_data_from_list_if_set($document, 'rock_exposition_rating', 'mod_routes_rock_exposition_ratings_list'));
     }
 
     if (array_intersect(array(2,5), $activities)) // snow or ice_climbing
