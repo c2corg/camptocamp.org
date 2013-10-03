@@ -1083,7 +1083,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
     if ($format == 'html' || $format == 'table')
     {
         $act_filter_enable = is_array($avalaible_activities);
-        $groups = $ski1 = $ski2 = $main_climbing = $climbing = array();
+        $groups = $ski1 = $ski2 = $main_climbing = $climbing1 = $climbing2 = array();
 
         if ($topo_ski) $ski1[] = $topo_ski;
         if ($topo_exp) $ski1[] = $topo_exp;
@@ -1091,12 +1091,12 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
         if ($labande_ski) $ski2[] = $labande_ski;
         if ($global) $main_climbing[] = $global;
         if ($engagement) $main_climbing[] = $engagement;
-        if ($objective_risk) $main_climbing[] = $objective_risk;
-        if ($equipment) $main_climbing[] = $equipment;
-        if ($aid) $climbing[] = $aid;
-        if ($rock_free_and_required) $climbing[] = $rock_free_and_required;
-        if ($ice) $climbing[] = $ice;
-        if ($mixed) $climbing[] = $mixed;
+        if ($objective_risk) $climbing1[] = $objective_risk;
+        if ($equipment) $climbing1[] = $equipment;
+        if ($aid) $climbing2[] = $aid;
+        if ($rock_free_and_required) $climbing2[] = $rock_free_and_required;
+        if ($ice) $climbing2[] = $ice;
+        if ($mixed) $climbing2[] = $mixed;
 
         if ((!$act_filter_enable || array_intersect(array(1), $avalaible_activities)) && $ski_activities = array_intersect(array(1), $activities))
         {
@@ -1114,7 +1114,8 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
                 $groups[] = _activities_data($climbing_activities, '&nbsp;');
             }
             $groups[] = implode('/', $main_climbing);
-            $groups[] = implode('/', $climbing);
+            $groups[] = implode('/', $climbing1);
+            $groups[] = implode('/', $climbing2);
         }
         if ((!$act_filter_enable || array_intersect(array(6), $avalaible_activities)) && $hiking_activities = array_intersect(array(6), $activities))
         {
