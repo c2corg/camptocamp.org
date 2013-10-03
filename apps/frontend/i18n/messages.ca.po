@@ -3022,9 +3022,9 @@ msgstr "<h3>Millors periòdes</h3>Llista dels mesos durant els quals el lloc o l
 msgid "_book_types_info"
 msgstr "<h3>Tipus d'obra</h3>Tipus de llibre.<br />Se'n pot seleccionar més d'un."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_cable_car_access_info"
-msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+msgstr "Indica si el document \"aparcament\" és l'estació d'arribada o una d'intermitja d'un remuntador mecànic."
 
 msgid "_camera_name_info"
 msgstr "<h3>Aparell</h3>Marca i model de la càmera fotogràfica.<br />Aquesta informació s'extreu de les dades EXIF del fitxer enviat. És possible eliminar-la abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
@@ -3512,9 +3512,8 @@ msgstr "<h3>Accés en transport públic</h3>Informació necessària per accedir 
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Accessibilitat en transport públic </h3>Qualitat de l'accés en transport públic, eventualment acompanyat d'una caminada raonable.<br />El camp <i>Accés en tranport públic</i> permet permet donar informació complementària.<br /><br /><strong>servei regular</strong>: L'accés compta almenys amb una anada i tornada per dia, 7 dies a la setmana, 12 mesos l'any.<br /><br /><strong>servei de temporada</strong>: L'accés està cobert almenys amb una anada i tornada per dia, 7 dies a la setmana, però només durant una part de l'any.<br /><br /><strong>servei reduït</strong>: L'accés està cobert només alguns dies a la setmana, i no forçosament durant tot l'any. És desitjable afegir precisions al camp <em>Accés en transport públic</em>.<br /><br /><strong>servei a proximitat</strong>: L'accés no queda cobert directament per un transport públic, però una parada propera permet arribar-hi mitjançant una caminada raonable. És desitjable un enllaç cap a l'accés situat a proximitat al camp <em>Accés en transport públic</em>.<br /><br /><strong>sense servei</strong>: L'accés no compta amb cap transport públic."
 
-# [WARNING] needs_update
 msgid "_public_transportation_types_info"
-msgstr "<h3>Tipus de transport públic</h3>Tipus de transport públic que permet arribar a aquest accés. Només s'han de descriure els que realment hi arriben<br /><em>Ex: en cas d'un accés cobert per un autobús provinent d'una estació de tren situada a 10 km, només s'ha d'indicar \"autobús\".</em><br /><br /><strong>tren</strong>: tren<br /><br /><strong>autobús</strong>: autobús o cotxe<br /><br /><strong>servei a demanda</strong>: taxi o autobús a demanda, que permet allargar una línia regular, i accessible amb un bitllet de tren o d'autobús"
+msgstr "<h3>Tipus de transport públic</h3>Tipus de transport públic que permet arribar a aquest accés. Només s'han de descriure els que realment hi arriben<br /><em>Ex: en cas d'un accés cobert per un autobús provinent d'una estació de tren situada a 10 km, només s'ha d'indicar \"autobús\".</em><br /><br /><strong>tren</strong>: tren<br /><br /><strong>autobús</strong>: autobús o cotxe<br /><br /><strong>servei a demanda</strong>: taxi o autobús a demanda, que permet allargar una línia regular, i accessible amb un bitllet de tren o d'autobús<br /><br /><strong>ferri</strong>: línia marítima, lacustre o fluvial regular de transport de passatgers"
 
 msgid "_publication_date_info"
 msgstr "<h3>Data de publicació</h3>Data en la qual el llibre o revista ha estat publicat. Si hi ha més d'una edició, caldrà referir-se a la més recent en cas que es tracti d'actualitzacions, o bé s'indicarà la primera si es tracta de reedicions sense modificacions. Aquest camp és el mateix en totes les llengües, de manera que s'han d'utilitzar valors numèrics (\"2004\", \"03/2009\", \"07-08/1997\"... )<br />Preferentment s'indicarà només l'any en el cas dels llibres, i l'any i el mes en el cas de les publicacions periòdiques"
@@ -3746,9 +3745,8 @@ msgstr "Resum / introducció:"
 msgid "access"
 msgstr "Accés:"
 
-# [WARNING] en translation used
 msgid "access deserved by:"
-msgstr "Served by:"
+msgstr "Accessible amb:"
 
 msgid "access_comments"
 msgstr "Comentaris sobre l'accés:"
@@ -4207,9 +4205,9 @@ msgstr "L'actualitat de C2C"
 msgid "cable_car"
 msgstr "remuntadors mecànics"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "cable_car_access"
-msgstr "Desservi par des remontées mécaniques"
+msgstr "Accessible amb remuntadors mecànics"
 
 msgid "calabre"
 msgstr "Calàbria"
@@ -7299,9 +7297,9 @@ msgstr "si"
 msgid "yesterday, at %1%"
 msgstr "ahir, a les %1%"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "you cannot select public transportation types without appropriate service rating"
-msgstr "You cannot select public transportation types if the accessibility field is not compatible"
+msgstr "No es pot seleccionar cap mode de transport públic si el camp \"accessibilitat\" no hi és compatible"
 
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"
