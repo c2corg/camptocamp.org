@@ -3419,6 +3419,24 @@ msgstr "Please confirm your new password."
 msgid "_nick_name_info"
 msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br />This name can be modified and is identical to the username by default."
 
+# [WARNING] fr translation used
+msgid "_objective_risk_rating_info"
+msgstr "<h3>Risques Objectifs</h3>\n"
+"Les risques pris en compte sont les avalanches naturelles de neige, les chutes de sérac, les chutes naturelles de pierre, les chutes naturelles de stalactite et la fragilité du support. Les risques liés directement à l'action humaine ne sont pris en compte hormis l’effondrement de la structure provenant de la fragilité du support déclenché par le pratiquant lui même. Les avalanches, chutes de pierre et de stalactites déclenchés par le pratiquant ou une autre cordée ne sont pas pris en compte.\n"
+"La partie technique, l'approche et le retour sont pris en compte dans l'échelle des risques objectifs. <br />\n"
+"<br />\n"
+"<strong>X1</strong>&nbsp;: Risques objectifs faibles. <a href=\"/summits/256956/fr\">Villard Reymond - 3 cigares</a><br />\n"
+"<br />\n"
+"<strong>X2</strong>&nbsp;: Risques objectifs modérés. <a href=\"/routes/54271/fr\">Colère du Ciel</a><br />\n"
+"<br />\n"
+"<strong>X3</strong>&nbsp;: Risques objectifs marqués. <a href=\"/routes/56412/fr\">Délire du Chacal</a>, <a href=\"routes/55560/fr\">Caturgeas</a><br />\n"
+"<br />\n"
+"<strong>X4</strong>&nbsp;: Risques objectifs sévères. Chute de Sérac : Anecdotique, couloir en S.<br />\n"
+"<br />\n"
+"<strong>X5</strong>&nbsp;: Risques objectifs très sévères. La même chose que X4 en pire.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur la <a href=\"articles/146949/fr#risques-objectifs\">Risques Objectifs</a>. "
+
 msgid "_outing_length_info"
 msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
@@ -3474,6 +3492,25 @@ msgstr "<h3>Information on your changes</h3>Indicate briefly the changes you mad
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Minor modification</h3>Check this box if the modifications made to the document are not important:<br /><br /><strong>text</strong>: bad spelling correction or text shaped<br /><br /><strong>altitude and vertical climb</strong>: modifications &lt; 50m<br /><br /><strong>grade</strong>: modification of a division only (AD to AD+, 3.3 to 3.2)<br /><br /><strong>route or place description</strong>: small note, sentence rephrasing, but variants or complete rewrites are no minor modifications"
+
+# [WARNING] fr translation used
+msgid "_rock_exposition_rating_info"
+msgstr "<h3>Cotation Exposition</h3>\n"
+"La cotation Exposition E est basée sur les conséquences de la chute.  Le grimpeur ne se blesse pas dans les 3 premiers niveaux (E1, E2, E3). La progression dans la cotation correspond à l'augmentation de la longueur de chute potentielle (ou la distance entre les protections). Pour les niveaux plus élevés (E4, E5, E6) la chute entrainera des blessures. Le cotation correspond à la sévérité des conséquences de la chute depuis la fracture de cheville jusqu'à la mort. <br />\n"
+"<br />\n"
+"<strong>E1</strong>&nbsp;: Surprotégé avec des points à demeure ou des bonnes protections amovibles tous les mètres depuis le sol. Pas de mouvement obligatoire.<br />\n"
+"<br />\n"
+"<strong>E2</strong>&nbsp;: Bien protégé avec des points à demeure ou des bonnes protections amovibles depuis le sol.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<br />\n"
+"<strong>E3</strong>&nbsp;: La chute va être longue mais sans conséquences physiques. Les points à demeure ou protections amovibles sont espacés.<br />\n"
+"<br />\n"
+"<strong>E4</strong>&nbsp;: La chute n'est pas bénigne. Elle entraîne un accident mineur même si les points à demeure ou protections amovibles ne sont pas trop espacés.<br />\n"
+"<br />\n"
+"<strong>E5</strong>&nbsp;: La chute est dangereuse. Elle entraînerait un accident grave. E5 correspond a des points à demeure très espacés, des protections amovibles suffisamment mauvaises ou un petit retour au sol/vire.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<br />\n"
+"<strong>E6</strong>&nbsp;: La même chose que E5 mais considérez que vous avez eu de la chance si vous tombez sans mourir dans un E6 même en ayant protégé.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur la <a href=\"/articles/133323/fr#cotation-exposition\">Cotation Exposition</a>. "
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Free climb grade</h3>Rating of the free climb difficulties.<br />The rating represents the maximum rock free climb difficulty.<br />It is given based on the french scale, wich goes from 2 to 9b.<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
@@ -5880,6 +5917,10 @@ msgstr "information not available"
 msgid "novel"
 msgstr "story"
 
+# [WARNING] fr translation used
+msgid "objective_risk_rating"
+msgstr "Risques objectifs&nbsp;:"
+
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
@@ -6533,6 +6574,12 @@ msgid "rock_climbing (single-pitch)"
 msgstr "rock climbing (single-pitch)"
 
 # [general comment]
+# exposition rocher
+# [WARNING] needs_review
+msgid "rock_exposition_rating"
+msgstr "Rock exposure grade:"
+
+# [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 # [comment]
@@ -7066,6 +7113,8 @@ msgstr "Code for inserting the picture in the guidebook:"
 msgid "topoguidename"
 msgstr "Guidebook name"
 
+# [general comment]
+# exposition ski
 msgid "toponeige_exposition_rating"
 msgstr "Toponeige exposure grade:"
 
