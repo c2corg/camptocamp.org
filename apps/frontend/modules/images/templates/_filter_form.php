@@ -18,7 +18,7 @@ echo '<br /><br />' . georef_selector();
 ?>
 </div>
 <?php
-echo __('categories') . ' ' . field_value_selector('icat', 'mod_images_categories_list', false, false, true, 8);
+echo __('categories') . ' ' . field_value_selector('icat', 'mod_images_categories_list', array('keepfirst' => false, 'multiple' => true, 'size' => 8));
 ?>
 <br />
 <?php

@@ -1748,7 +1748,7 @@ select.picto_forum, select.picto_forums
 .activity_3, .activity_3_light, .activity_4, .activity_4_light,
 .activity_5, .activity_5_light, .activity_6, .activity_6_light,
 .activity_7, .activity_7_light, .activity_8, .activity_8_light,
-.pt_1, .pt_2, .pt_3, .pt_4,
+.pt_1, .pt_2, .pt_3, .pt_4, .pt_9,
 .freq_1, .freq_2, .freq_3, .freq_4
 {
   width: 16px;
@@ -1769,6 +1769,26 @@ select.picto_forum, select.picto_forums
 
 .pt_4 { // rarely used, so keep as a separate file
   @include -c2c-hashurl-background('/static/images/picto/boat_mini.png', no-repeat 0);
+}
+
+.pt_9{ // rarely used, so keep as a separate file
+  @include -c2c-hashurl-background('/static/images/picto/cable_car_mini.png', no-repeat 0);
+}
+
+// when cablecar displayed with other tc type, we add a + before to indicate that the parking
+// is accessible via TC + cable car
+// we use simply .picto and not .pt_1, .pt_2, ?pt_4, .pt_4, since this is shorter and sepcific enough
+.picto, #filterform td .picto {
+  &~ .pt_9 {
+    margin-left: 1em;
+  }
+  &~ .pt_9:before {
+    position: relative;
+    left: -1em;
+    content: "+";
+    font-weight: bold;
+    color: #545455;
+  }
 }
 
 .freq_1 {
@@ -2045,7 +2065,7 @@ fieldset .select_title
 {
   margin: 0 0.5em 0 0;
 }
-#filterform td .picto
+#filterform td .picto // lists table
 {
   margin: 0;
 }

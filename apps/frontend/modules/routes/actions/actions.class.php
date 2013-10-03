@@ -76,8 +76,9 @@ class routesActions extends documentsActions
 
             if (count($main_associated_summits))
             {
-                $associated_summits = Association::createHierarchy($main_associated_summits, array_filter($associated_childs,
-                    array('c2cTools', 'is_summit')), 'ss', null, false);
+                $associated_summits = Association::createHierarchy($main_associated_summits,
+                    array_filter($associated_childs, array('c2cTools', 'is_summit')),
+                    array('type' => 'ss', 'show_sub_docs' => false));
             }
             else
             {
@@ -94,18 +95,18 @@ class routesActions extends documentsActions
             $summit_huts = array();
             foreach ($associated_summit_huts as $summit_hut)
             {
-                $summit_hut_parent_id = current($summit_hut['parent_id']);
                 foreach ($associated_huts as $key1 => $hut)
                 {
-                    if ($summit_hut['id'] == $hut['id'])
+                    if ($summit_hut['id'] == $hut['id']) // a hut is both directly linked and linked to a linked summit, the summit is thus a ghost
                     {
-                        $hut['ghost_id'] = $summit_hut_parent_id;
+                        $linked = array_keys($summit_hut['parent_relation']);
+                        $hut['ghost_id'] = array_shift($linked);
                         $summit_huts[] = $hut;
                         unset($associated_huts[$key1]);
                         
                         foreach ($associated_summits as $key2 => $summit)
                         {
-                            if ($summit['id'] == $summit_hut_parent_id)
+                            if ($summit['id'] == $hut['ghost_id'])
                             {
                                 unset($associated_summits[$key2]);
                                 break;
@@ -153,7 +154,9 @@ class routesActions extends documentsActions
             
             if (count($associated_parkings))
             {
-                $associated_parkings = Association::createHierarchy($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                $associated_parkings = Association::createHierarchy($associated_parkings,
+                    array_filter($associated_childs, array('c2cTools', 'is_parking')),
+                    array('type' => 'pp', 'show_sub_docs' => false));
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;
@@ -660,7 +663,19 @@ class routesActions extends documentsActions
         {
             $engagement_ratings = $this->getRequestParameter('engagement_rating');
             $where = $this->getWhereClause(
-                $engagement_ratings, 'mod_routes_engagement_ratings_list', 'routes.engagement_rating = ?');
+                $engagement_ratings, 'app_routes_engagement_ratings', 'routes.engagement_rating = ?');
+            if (!is_null($where))
+            {
+                $where_array[] = $where['where_string'];
+                $tmp = array_merge($where_params, $where['where_params']);
+                $where_params = $tmp;
+            }
+        }
+        if ($this->hasRequestParameter('objective_risk_rating'))
+        {
+            $objective_risk_ratings = $this->getRequestParameter('objective_risk_rating');
+            $where = $this->getWhereClause(
+                $objective_risk_ratings, 'app_routes_objective_risks_ratings', 'routes.objective_risks_rating = ?');
             if (!is_null($where))
             {
                 $where_array[] = $where['where_string'];
@@ -764,6 +779,18 @@ class routesActions extends documentsActions
                 $where_params = $tmp;
             }
         }
+        if ($this->hasRequestParameter('rock_exposition_rating'))
+        {
+            $rock_exposition_ratings = $this->getRequestParameter('rock_exposition_rating');
+            $where = $this->getWhereClause(
+                $rock_exposition_ratings, 'mod_routes_rock_exposition_rating_list', 'routes.rock_exposition_rating = ?');
+            if (!is_null($where))
+            {
+                $where_array[] = $where['where_string'];
+                $tmp = array_merge($where_params, $where['where_params']);
+                $where_params = $tmp;
+            }
+        }
         if ($this->hasRequestParameter('hiking_rating'))
         {
             $hiking_ratings = $this->getRequestParameter('hiking_rating');
@@ -804,6 +831,7 @@ class routesActions extends documentsActions
                 'routes.facing',
                 'routes.configuration',
                 'routes.engagement_rating',
+                'routes.objective_risk_rating',
                 'routes.equipment_rating',
                 'routes.sub_activities',
                 'routes.toponeige_exposition_rating',
@@ -812,6 +840,7 @@ class routesActions extends documentsActions
                 'routes.mixed_rating',
                 'routes.rock_free_rating',
                 'routes.aid_rating',
+                'routes.rock_exposition_rating',
                 'routes.hiking_rating',
                 'routes.snowshoeing_rating'
             ),
@@ -850,11 +879,11 @@ class routesActions extends documentsActions
         {
             return $this->ajax_feedback('Missing id parameter');
         }
-    
-        $fields = array('activities', 'facing', 'height_diff_up', 'global_rating', 'engagement_rating',
+//TODO 
+        $fields = array('activities', 'facing', 'height_diff_up', 'global_rating', 'engagement_rating', 'objective_risk_rating',
                         'toponeige_technical_rating', 'toponeige_exposition_rating', 'labande_ski_rating',
                         'labande_global_rating', 'rock_free_rating', 'ice_rating', 'mixed_rating', 
-                        'aid_rating', 'hiking_rating', 'snowshoeing_rating');
+                        'aid_rating', 'rock_exposition_rating', 'hiking_rating', 'snowshoeing_rating');
          
         $this->data = Document::find('Route', $id, $fields);
         if (!$this->data)
@@ -968,17 +997,19 @@ class routesActions extends documentsActions
         $this->addListParam($out, 'rtyp');
         $this->addCompareParam($out, 'time');
         $this->addCompareParam($out, 'trat');
-        $this->addCompareParam($out, 'expo');
+        $this->addCompareParam($out, 'sexpo');
         $this->addCompareParam($out, 'lrat');
         $this->addCompareParam($out, 'srat');
         $this->addCompareParam($out, 'grat');
         $this->addCompareParam($out, 'erat');
+        $this->addCompareParam($out, 'orrat');
         $this->addCompareParam($out, 'prat');
         $this->addCompareParam($out, 'irat');
         $this->addCompareParam($out, 'mrat');
         $this->addCompareParam($out, 'frat');
         $this->addCompareParam($out, 'rrat');
         $this->addCompareParam($out, 'arat');
+        $this->addCompareParam($out, 'rexpo');
         $this->addCompareParam($out, 'hrat');
         $this->addCompareParam($out, 'wrat');
         $this->addCompareParam($out, 'rlen');

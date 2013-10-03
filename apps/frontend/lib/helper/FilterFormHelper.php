@@ -3,7 +3,7 @@
  * $Id: FilterFormHelper.php 2538 2007-12-20 16:08:35Z alex $
  */
 
-use_helper('Form', 'MyForm', 'Javascript');
+use_helper('Form', 'MyForm', 'Javascript', 'General');
 
 function elevation_selector($fieldname, $unit = 'meters')
 {
@@ -238,26 +238,42 @@ function translate_sort_param($label)
     return str_replace(array(' :', ':'), '', __($label));
 }
 
-function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $multiple = false, $size = 0, $filled_options = true)
+function field_value_selector($name, $conf, $options)
 {
-    $options = array_map('__', sfConfig::get($conf));
+    $blank = _option($options, 'blank', false);
+    $keepfirst = _option($options, 'keepfirst', true);
+    $multiple = _option($options, 'multiple', false);
+    $size = _option($options, 'size', 0);
+    $filled_options = _option($options, 'filled_options', true);
+    $exclude = _option($options, 'exclude', null);
+
+    $values = array_map('__', sfConfig::get($conf));
+    if ($exclude)
+    {
+        $exclude = is_array($exclude) ? $exclude : array($exclude);
+        foreach ($exclude as $value)
+        {
+            unset($values[$value]);
+        }
+    }
     if (!$keepfirst)
     {
-        unset($options[0]);
+        unset($values[0]);
     }
     if ($filled_options)
     {
-        $options[' '] = __('filled in');
-        $options['_'] = __('nonwell informed');
+        $values[' '] = __('filled in');
+        $values['_'] = __('nonwell informed');
     }
-    $option_tags = options_for_select($options, '',
+    $option_tags = options_for_select($values, '',
                                       array('include_blank' => $blank));
+
     if ($multiple)
     {
         $select_param = array('multiple' => true);
         if ($size == 0)
         {
-            $size = count($options);
+            $size = count($values);
             if ($filled_options)
             {
                 $size -= 2;
@@ -433,7 +449,8 @@ function bool_selector_from_list($field, $config, $value)
     $title = $list[$value];
     $out  = ucfirst(__($title)) . __('&nbsp;:') . ' ';
     $out .= select_tag($field . '[]', options_for_select(array($value => __('yes'), '!' . $value => __('no')),
-                                                  '', array('include_blank' => true)));
+                                                  '', array('include_blank' => true)),
+                       array('id' => get_id_from_name($field) . '_' . $value));
     return $out;
 }
 

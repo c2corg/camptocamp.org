@@ -3037,12 +3037,6 @@ msgstr "<h3>Geeignete Jahreszeit</h3>Liste der Monate, in welchen das Klettern m
 msgid "_book_types_info"
 msgstr "<h3>Typ des Buches</h3>Typ des Buchs<br />Mehrere Typ können ausgewählt werden."
 
-# [WARNING] fr translation used
-msgid "_cable_car_access_info"
-msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
-"<br />\n"
-"Voir aussi l'aide sur les <a href=\"/articles/238570/fr#cablecar\">accès de type 'remontée mécanique'</a>."
-
 msgid "_camera_name_info"
 msgstr "<h3>Kamera</h3>Marke und Modell der Kamera. <br />Diese Informationen werden aus den EXIF-Datei des hochgeladenen Bildes extrahiert. Sie können diese Informationen vor dem Hochladen des Bildes mit einer Fotografie oder Imaging-Software löschen."
 
@@ -3147,7 +3141,6 @@ msgstr "<h3>Höhe</h3>Die Seehöhe, d.h. die Höhe über dem Meeresspiegel, eine
 msgid "_email_info"
 msgstr "<h3>Email-Adresse</h3>Die Email-Adresse für ihr camptocamp.org-Profil.<br /><br /><em><u>Während der Registrierung</u>:</em><br />Fügen sie eine gültige Email-Adresse ein. Andernfalls wird das Profil nicht bestätigt und nach einigen Wochen gelöscht.<br />Diese Email-Adresse erscheint nie auf camptocamp.org. Sie wird in folgenden Fällen verwendet:<br />- Ein anderes Mitlied sendet ihnen eine Email durch die camptocamp-Website (Ihre Email-Adresse wird dabei nicht angezeigt).<br />- Wenn sie Forendiskussionen abonniert haben und der Server sie über neue Beiträge informieren möchte.<br />- Sie haben sich in der Maillingliste für Lawinenlageberichte eingeschrieben, und diese werden ihnen auf die Email-Adresse zugestellt."
 
-# [WARNING] needs_update
 msgid "_engagement_rating_info"
 msgstr "<h3>Ernsthaftigkeitsgrad</h3>\n"
 "Ernsthaftigkeit einer Route<br />\n"
@@ -3353,7 +3346,7 @@ msgstr "<h3>Schwierigkeitsskala Eisklettern</h3>\n"
 "<br />\n"
 "<strong>7-7+</strong>: Extreme Kletterei. Sehr steil, kann während mehrere Meter überhängend sein. Die Technik des Kletterers (besonders die Bewegungsabläufe) sind ähnlich wie diejenigen des Felskletterns.<br />\n"
 "<br />\n"
-"Siehe auch in der Hilfe unter <a href=\"/articles/106871#ice\">Schwierigkeitsskala Schnee, Eis- und Mixedklettern</a>."
+"Siehe auch in der Hilfe unter <a href=\"/articles/106871/en\">Schwierigkeitsskala Schnee, Eis- und Mixedklettern</a>."
 
 # [WARNING] needs_update
 msgid "_image_categories_info"
@@ -3528,14 +3521,6 @@ msgstr "Zur Bestätigung bitte das neue Passwort eintragen."
 msgid "_nick_name_info"
 msgstr "<h3>Forenpseudonym</h3>Name, welcher in den Foren der Website verwendet wird.<br /><br />Dieser Name kann jederzeit geändert werden. Standardmässig wird der Benutzername als Forumpseudonym verwendet."
 
-# [WARNING] en translation used
-msgid "_objective_risk_rating_info"
-msgstr "<h3>Objective Danger</h3>\n"
-"The Objective Danger scale evaluates the risk of natural snow avalanches, serac avalanches, natural rockfall, natural stalactite fall and fragility of the waterfall ice. The danger coming from human behavior is not in this Objective Danger scale except for the falling down of the waterfall ice triggered by the climber.\n"
-"Approach, tehcnical section and return are evaluate in the risk scale.<br />\n"
-"<br />\n"
-"See also help on <a href=\"articles/146949#objective-danger\">objective danger grades</a>."
-
 msgid "_outing_length_info"
 msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verbunden ist.<br />Dieser Wert ist aus dem verbundenen GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
 
@@ -3571,7 +3556,6 @@ msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Notwendige Info
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Einfachheit der Erreichbarkeit mit öffentlichen Verkehrsmitteln, etvl. durch eine verhältnismässige Gehdistanz.<br />Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> können zusätzliche Informationen angegeben werden.<br /><br /><strong>Regelmässiger Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen und ganzjährig gewährleistet.<br /><br /><strong>Saisonale Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen gewährleistet, aber nur zu gewissen Jahreszeiten<br /><br /><strong>Eingeschränkte Erschliessung</strong>: Verbindungen nur während gewissen Tagen und eventuell nur während gewissen Jahreszeiten gewährleistet. Details zu der Erschliessung sollten im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> angegeben werden.<br /><br /><strong>Erschliessung in der Nähe</strong>: Der Ort ist nicht direkt erschlossen, kann aber mit einem verhältnismässigen Fussmarsch erreicht werden. Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> kann der Fussmarsch und die Haltestelle näher beschrieben werden.<br /><br /><strong>Keine Erschliessung</strong>: Keine Verbindung mit öffentlichen Verkehrsmitteln, d.h. der Ort kann mit öV nicht mit verhältnismässigem Aufwand erreicht werden."
 
-# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Typ des öffentlichen Verkehrsmittel</h3>\n"
 "Typ des öffentlichen Verkehrsmittels, welches den Zugangsort erschliesst. Dabei ist nur das Verkehrsmittel anzugeben, welches den\n"
@@ -3594,24 +3578,6 @@ msgstr "<h3>Information zu den Änderungen</h3>Beschreiben sie kurz die Änderun
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Unwesentliche Änderung</h3>Aktivieren sie dieses Kästchen, wenn sie lediglich geringfügige Änderungen am Dokument vorgenommen haben:<br /><br /><strong>Text:</strong> Verbesserung der Orthographie, Grammatik oder stilistische Textanpassungen<br /><br /><strong>Höhe und Höhenunterschiede:</strong> Änderungen &lt; 50m<br /><br /><strong>Bewertungen:</strong> Veränderungen innerhalb eines Grades (ZS+ anstelle von ZS, 3.3. anstelle von 3.2.)<br /><br /><strong>Routen- oder Ortsbeschreibung:</strong> Kleine Anmerkungen oder Neuformulierung von Sätzen. Das Hinzufügen von Varianten oder das komplette Neuschreiben von Dokumenten sind keine unwesentlichen Änderungen."
-
-# [WARNING] en translation used
-msgid "_rock_exposition_rating_info"
-msgstr "<h3>Runout Grade</h3>\n"
-"The Runout Grade based on the consequence of a fall. The climber will not be hurt in the first three levels, therefore, the difference between E1, E2 and E3 is the length of the fall (or the distance between pro). For the higher levels (Ex4, Ex5, Ex6) the climber will get hurt and the levels represent the increasing severity of the consequences, from a broken ankle to death. The Ex for the french word exposition, which can mean danger.<br />\n"
-"<br />\n"
-"<strong>E1</strong>&nbsp;: Over protected with bolts/pitons or good, solid protections minimum every meter ground up. No obligatory move.<br />\n"
-"<br />\n"
-"<strong>E2</strong>&nbsp;: Well protected with bolts/pitons or good, solid protections ground up.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
-"<br />\n"
-"<strong>E3</strong>&nbsp;: Falls will be long but will not cause injury. Bolts or protection will be widely spaced.<br />\n"
-"<br />\n"
-"<strong>E4</strong>&nbsp;: The fall could cause slight injuries even if bolts or protections are not widely spaced.<br />\n"
-"<br />\n"
-"<strong>E5</strong>&nbsp;: The fall will cause serious injuries. An E5 might suggest widely-spaced bolts, just enough lousy protections or a small grounder.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
-"<br />\n"
-"<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
-"<br />"
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Bewertung Felsklettern</h3>Bewertung der Schwierigkeiten beim Felsklettern.<br />Die Bewertung bezieht sich auf die schwierigste Stelle, welche frei, d.h. ohne aktive Hilfspunkte, geklettert wird.<br />Dazu wird die französische Skala verwendet, welche von 2 bis 9b reicht.<br /><br />Siehe auch in der Hilfe unter <a href=\"/articles/133323\">Bewertung Felsklettern</a>."
@@ -3770,7 +3736,6 @@ msgstr "<h3>Tourenführerpseudonym</h3>Sichtbarer Name im Tourenführer der Webs
 msgid "_topoguide_code_info"
 msgstr "<h3>Code um ein Bild in den Tourenführer einzufügen<br /></h3>Um dieses Bild in den Text eines Dokuments des Tourenführers einzufügen(in verkleinerter Grösse), kopieren und fügen sie den folgenden Codeein (Strg+C um zu kopieren, Strc+V um einzufügen).<br /><br />Die folgenden Bedingungen müssen erfüllt sein um ein Bild einzufügen:<br />- Das Bild muss bereits mit dem Dokument verbunden sein.<br />- Falls sie das Bild in ein gemeinschaftliches Dokument einfügenwollen, muss es sich um ein gemeinschaftliches Bild handeln. Um denBildtyp zu wechseln, verwenden sie das&nbsp;<em> <ahref=\"/users/manageimages\">Tool zum Bearbeiten der persönlichen Bilder</a>.</em><br /><br />Sie können in der Bearbeitungseite des Dokuments auch direkt den Codedes Bilds einfügen indem sie den <input value=\"img\" type=\"button\">Knopf von der Werkzeugleiste benutzen. Nur Bilder welche sie obigenBedingungen erfüllen sind verfügbar.<br /><br />Standartmässig wird Bild rechtsbündig angeordnet und mit einem Rahmenund seiner Legende ausgestattet. Mit den untenstehende Attributen imEröffnungstag können sie die Formatierung des Bilds anpassen:<br /><br />- <strong>right</strong>: Das Bild wir rechts plaziert, der Text links<br />- <strong>left</strong>: Das bild wird links plaziert, der Text rechts<br />- <strong>center</strong>: Das Bild wird in der Mitte zentriert, keinText weder links noch rechts<br />- <strong>inline</strong>: Bild ist innerhalb des Textflusses (sog.in-line Position)<br />- <strong>inline_right</strong>: Bild ist innerhalb des Textflusses,rechts (erlaubt die Stapelung von Bilder rechts auf derselben Linie)<br />- <strong>inline_left</strong>: Bild ist innerhalb des Textflusses,links (erlaubt die Stapelung von Bilder links auf derselben Linie)<br />- <strong>no_border</strong>: Bild ohne Rahmen, aber mit unterhalb desBilds plazierter Legende<br />- <strong>no_legend</strong>: Die Legende des Bilds wird nur alsTooltip dargestellt, kein Rahmen<br /><br />Wenn sie das Attribut <strong>right</strong> oder <strong>left </strong>verwendenund einen neuen Abschnitt unterhalb des Bildes beginnen möchten, fügensie ein <strong>[p]</strong> Tag am Ende des vorangehenden Abschnitts ein."
 
-# [WARNING] needs_update
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Ausgesetztheit</h3> Bewertung der Ausgesetztheit bei der Skiabfahrt (toponeige).<br /> Die Ausgesetztheit beschreibt das Verletzungsrisiko bei einem Sturz und nimmt dabei die objektiven Gefahren (Steinschlag, Eisabruch, etc.) nicht in Betracht.<br /> <br /> <strong>E1</strong>: Die Ausgesetztheit basiert ausschliesslich auf der Hangneigung. Das Verletzungsrisiko ist demnach vor allem bei Hartschnee und/oder grosser Steilheit gegeben.<br /> <br /> <strong>E2</strong>&nbsp; Zur Hangneigung kommen Hindernisse, welche das Verletzungsrisiko erhöhen, z.B. kleine Felsbarierren.<br /> <br /> <strong>E3</strong>: Bei einem Sturz, Absturz über eine grosse Felsbarierre, durch ein gefährliches Couloir. Der Tod ist wahrscheinlich.<br /> <br /> <strong>E4</strong>: Bei einem Sturz, Absturz über eine grosse Wand oder ein enges Couloir. Der Tod ist quasi sicher.<br /> <br /> Siehe auch in der Hilfe zu <a href=\"../../articles/107675\">Bewertungen von Ski- und Snowboardrouten.</a>"
 
@@ -3836,10 +3801,6 @@ msgstr "Zusammenfassung / Einleitung:"
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
 msgid "access"
 msgstr "Zugang:"
-
-# [WARNING] en translation used
-msgid "access deserved by:"
-msgstr "Served by:"
 
 msgid "access_comments"
 msgstr "Kommentare zum Zugang:"
@@ -4170,11 +4131,9 @@ msgstr "biografie"
 msgid "bisse"
 msgstr "Suone"
 
-# [general comment]
-# ligne maritime / fluviale / lacustre pour le transport de passagers
-# [WARNING] needs_review
+# [WARNING] fr translation used
 msgid "boat"
-msgstr "Fähre"
+msgstr "ligne maritime"
 
 msgid "book"
 msgstr "Buch"
@@ -4306,16 +4265,6 @@ msgstr "Camptocamp.org ist eine \"Mitmach-Website\" für Bergsportarten wie Hoch
 
 msgid "c2corg news"
 msgstr "Aktuelles von c2c"
-
-# [general comment]
-# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
-# [WARNING] needs_review
-msgid "cable_car"
-msgstr "Luftseilbahn"
-
-# [WARNING] fr translation used
-msgid "cable_car_access"
-msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Kalabrien"
@@ -6088,10 +6037,6 @@ msgstr "Information nicht zur Verfügung "
 msgid "novel"
 msgstr "Bericht/Erzählung"
 
-# [WARNING] en translation used
-msgid "objective_risk_rating"
-msgstr "Objective Danger"
-
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
@@ -6736,15 +6681,6 @@ msgid "rock_climbing (single-pitch)"
 msgstr "Klettergarten"
 
 # [general comment]
-# exposition rocher
-# 
-# Faut-il préciser "rocher" dans les trads ?
-# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
-# [WARNING] needs_update
-msgid "rock_exposition_rating"
-msgstr "Exposition:"
-
-# [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
@@ -7301,9 +7237,6 @@ msgstr "HTML-Kurzschreibweise zum Bildeinfügen:"
 msgid "topoguidename"
 msgstr "Tourenführer Name"
 
-# [general comment]
-# exposition ski
-# [WARNING] needs_update
 msgid "toponeige_exposition_rating"
 msgstr "Exposition:"
 
@@ -7556,10 +7489,6 @@ msgstr "ja"
 
 msgid "yesterday, at %1%"
 msgstr "gestern, um %1%"
-
-# [WARNING] en translation used
-msgid "you cannot select public transportation types without appropriate service rating"
-msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 msgid "you have no right to switch from collaborative picture"
 msgstr "Sie verfügen nicht über die notwendigen Zugriffsrechte, um den Bildtyp dieses gemeinschaftlichen Bilds zu ändern"

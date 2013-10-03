@@ -4,7 +4,7 @@ use_helper('General');
 <br /><br />
 <?php
 $activities_raw = $sf_data->getRaw('activities');
-echo __('activities') . ' ' . field_value_selector('acttyp', 'mod_outings_activities_type_list', false, false, false, 0, false);
+echo __('activities') . ' ' . field_value_selector('acttyp', 'mod_outings_activities_type_list', array('keepfirst' => false, 'filled_options' => false));
 echo activities_selector(true, true, $activities_raw);
 echo __('max_elevation') . ' ' . elevation_selector('oalt');
 echo __('height_diff_up') . ' ' . elevation_selector('odif');
@@ -49,7 +49,7 @@ echo __('mixed_rating') . ' ' . range_selector('mrat', 'app_routes_mixed_ratings
 <br />
 <?php 
 echo __('toponeige_technical_rating') . ' ' . range_selector('trat', 'app_routes_toponeige_technical_ratings');
-echo __('toponeige_exposition_rating') . ' ' . range_selector('expo', 'app_routes_toponeige_exposition_ratings');
+echo __('toponeige_exposition_rating') . ' ' . range_selector('sexpo', 'app_routes_toponeige_exposition_ratings');
 ?>
 <br />
 <?php

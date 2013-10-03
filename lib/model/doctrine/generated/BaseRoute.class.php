@@ -25,6 +25,7 @@ class BaseRoute extends BaseDocument
         $this->hasColumn('configuration', 'string', null); // array
         $this->hasColumn('global_rating', 'smallint', null);
         $this->hasColumn('engagement_rating', 'smallint', null);
+        $this->hasColumn('objective_risk_rating', 'smallint', null);
         $this->hasColumn('equipment_rating', 'smallint', null);
         $this->hasColumn('is_on_glacier', 'boolean', null);
         $this->hasColumn('sub_activities', 'string', null); // array
@@ -37,6 +38,7 @@ class BaseRoute extends BaseDocument
         $this->hasColumn('rock_free_rating', 'smallint', null);
         $this->hasColumn('rock_required_rating', 'smallint', null);
         $this->hasColumn('aid_rating', 'smallint', null);
+        $this->hasColumn('rock_exposition_rating', 'smallint', null);
         $this->hasColumn('hiking_rating', 'smallint', null);
         $this->hasColumn('snowshoeing_rating', 'smallint', null);
     }

@@ -34,7 +34,7 @@ if ($is_not_archive)
     
     if ($is_not_merged)
     {
-        if ($is_moderator)
+        if ($is_moderator) // these are ghost summits and shouldn't be displayed to regular users
         {
             include_partial('documents/association',
                             array('associated_docs' => $associated_summits, 

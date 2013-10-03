@@ -6736,6 +6736,9 @@ msgid "rock_climbing (single-pitch)"
 msgstr "Klettergarten"
 
 # [general comment]
+<<<<<<< HEAD
+# Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+=======
 # exposition rocher
 # 
 # Faut-il préciser "rocher" dans les trads ?
@@ -6746,6 +6749,7 @@ msgstr "Exposition:"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+>>>>>>> master
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
 msgstr "Freier und obligatorischer Schwierigkeitsgrad:"

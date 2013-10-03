@@ -22,13 +22,13 @@ else
 {
     $site_type_list = 'app_sites_site_types_new';
 }
-echo __('site_types') . ' ' . field_value_selector('ttyp', $site_type_list, false, false, true);
-echo __('climbing_styles') . ' ' . field_value_selector('tcsty', 'app_climbing_styles_list', false, false, true);
+echo __('site_types') . ' ' . field_value_selector('ttyp', $site_type_list, array('keepfirst' => false, 'multiple' => true));
+echo __('climbing_styles') . ' ' . field_value_selector('tcsty', 'app_climbing_styles_list', array('keepfirst' => false, 'multiple' => true));
 ?>
 <br />
 <?php
-echo __('facings') . ' ' . field_value_selector('tfac', 'mod_sites_facings_list', false, false, true, 5);
-echo __('rock_types') . ' ' . field_value_selector('trock', 'app_rock_types_list', false, false, true, 5);
+echo __('facings') . ' ' . field_value_selector('tfac', 'mod_sites_facings_list', array('keepfirst' => false, 'multiple' => true, 'size' => 5));
+echo __('rock_types') . ' ' . field_value_selector('trock', 'app_rock_types_list', array('keepfirst' => false, 'multiple' => true, 'size' => 5));
 ?>
 <br />
 <?php
@@ -45,8 +45,8 @@ echo __('mean_rating') . ' ' . range_selector('tmrat', 'app_routes_rock_free_rat
 ?>
 <br />
 <?php
-echo __('children_proof') . ' ' . field_value_selector('chil', 'mod_sites_children_proof_list', false, false, true);
-echo __('rain_proof') . ' ' . field_value_selector('rain', 'mod_sites_rain_proof_list', false, false, true);
+echo __('children_proof') . ' ' . field_value_selector('chil', 'mod_sites_children_proof_list', array('keepfirst' => false, 'multiple' => true));
+echo __('rain_proof') . ' ' . field_value_selector('rain', 'mod_sites_rain_proof_list', array('keepfirst' => false, 'multiple' => true));
 ?>
 <br />
 <?php

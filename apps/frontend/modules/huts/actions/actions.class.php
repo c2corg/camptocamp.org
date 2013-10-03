@@ -31,7 +31,8 @@ class hutsActions extends documentsActions
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
-                $associated_parkings = Association::createHierarchyWithBestName($associated_parkings, $prefered_cultures, 'pp');
+                $associated_parkings = Association::createHierarchyWithBestName($associated_parkings, $prefered_cultures,
+                    array('type' => 'pp'));
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;
@@ -70,7 +71,7 @@ class hutsActions extends documentsActions
                 $associated_routes = array_filter($associated_parking_docs, array('c2cTools', 'is_route'));
 
                 $associated_parking_sites = c2cTools::sortArrayByName(array_filter($associated_parking_docs, array('c2cTools', 'is_site')));
-                $this->associated_sites = array_merge($this->associated_sites,$associated_parking_sites);
+                $this->associated_sites = array_merge($this->associated_sites,$associated_parking_sites); // associated sites should be empty!! Else it violates moderation rules
                 $this->ids = implode('-', $parking_ids);
             }
             else
@@ -320,7 +321,8 @@ class hutsActions extends documentsActions
 
                 // create first version of document, with culture and geometry of hut document
                 $hut_elevation = $document['elevation'];
-                $hut_geom = $document['geom_wkt'];
+                $hut_lat = $document['lat'];
+                $hut_lon = $document['lon'];
                 $hut_culture = $document->getCulture();
                 $hut_name = $document['name'];
 
@@ -335,8 +337,8 @@ class hutsActions extends documentsActions
                 $summit->set('name', $hut_name);
                 $summit->set('elevation', $hut_elevation);
                 $summit->set('summit_type', 100); // set summit type to ' hut'
-
-                $summit->set('geom_wkt', $hut_geom);
+                $summit->set('lat', $hut_lat);
+                $summit->set('lon', $hut_lon);
                 $summit->save();
 
                 $conn->commit();

@@ -3164,6 +3164,12 @@ msgstr "<h3>Sasoi egokiena</h3>Eskalada gunera joateko gomendagarri diren hileen
 msgid "_book_types_info"
 msgstr "<h3>Lan mota</h3>Liburu mota.<br />Mota desberdinak aukeratu daitezke."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/238570/fr#cablecar\">accès de type 'remontée mécanique'</a>."
+
 msgid "_camera_name_info"
 msgstr "<h3>Argazki kamera</h3>Argazki kamararen marka eta modeloa.<br />Informazio hau, jeitsitako EXIF fitxerotik atereak izango dira. Argazki programa bat erabiliz hau kendu daiteke bidalia izan aurretik."
 
@@ -3503,6 +3509,14 @@ msgstr "Konfirmatzeko, sartu zure pasa-hitz berria."
 msgid "_nick_name_info"
 msgstr "<h3>Seudo foro</h3>Nombre que aparece en los foros del sitio.<br /><br />Este nombre se puede modificar. Por defecto, es idéntico al nombre de <i>login</i>."
 
+# [WARNING] en translation used
+msgid "_objective_risk_rating_info"
+msgstr "<h3>Objective Danger</h3>\n"
+"The Objective Danger scale evaluates the risk of natural snow avalanches, serac avalanches, natural rockfall, natural stalactite fall and fragility of the waterfall ice. The danger coming from human behavior is not in this Objective Danger scale except for the falling down of the waterfall ice triggered by the climber.\n"
+"Approach, tehcnical section and return are evaluate in the risk scale.<br />\n"
+"<br />\n"
+"See also help on <a href=\"articles/146949#objective-danger\">objective danger grades</a>."
+
 msgid "_outing_length_info"
 msgstr "<h3>Luzeera</h3>Ibilbide edo irteerara loturiko GPX aztarnaren luzeera.<br /> Informazio hau GPX aztarnaren bitartez kalkulatzen da eta ez da erabilgarria aztarna bat honezkero loturik egon ezean.<br />Luzeera beridatzi egingo da aztarna berri bat gordetzen den bakoitzean."
 
@@ -3562,6 +3576,24 @@ msgstr "<h3> Aldaketen gaineko informazioa</h3>Eremu honetan dokumentuan sartuta
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Aldaketa txikia</h3> Dokumentuari ghitutako aldaketak garrantzitsuak ez badira, markatu eremu hau:<br /><br /><strong>textua</strong>: ortografia zuzntzea edo formato aldaketa<br /><br /><strong> altuera eta desnibela</strong>: aldaketak &lt; 50m<br /><br /><strong>zailtasuna</strong>: maila bateko aldakea (AD à tik AD+ era, 3.3 à tik 3.2 ra)<br /><br /><strong>ibilbide edo leku baten deskripzioa</strong>&nbspohar txiki bat, esaldi baten egitura aldatzea, sahiesbide bat gehitzea edo ibilbidea berridaztea ez dira aladaketa txikiak."
+
+# [WARNING] en translation used
+msgid "_rock_exposition_rating_info"
+msgstr "<h3>Runout Grade</h3>\n"
+"The Runout Grade based on the consequence of a fall. The climber will not be hurt in the first three levels, therefore, the difference between E1, E2 and E3 is the length of the fall (or the distance between pro). For the higher levels (Ex4, Ex5, Ex6) the climber will get hurt and the levels represent the increasing severity of the consequences, from a broken ankle to death. The Ex for the french word exposition, which can mean danger.<br />\n"
+"<br />\n"
+"<strong>E1</strong>&nbsp;: Over protected with bolts/pitons or good, solid protections minimum every meter ground up. No obligatory move.<br />\n"
+"<br />\n"
+"<strong>E2</strong>&nbsp;: Well protected with bolts/pitons or good, solid protections ground up.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<br />\n"
+"<strong>E3</strong>&nbsp;: Falls will be long but will not cause injury. Bolts or protection will be widely spaced.<br />\n"
+"<br />\n"
+"<strong>E4</strong>&nbsp;: The fall could cause slight injuries even if bolts or protections are not widely spaced.<br />\n"
+"<br />\n"
+"<strong>E5</strong>&nbsp;: The fall will cause serious injuries. An E5 might suggest widely-spaced bolts, just enough lousy protections or a small grounder.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<br />\n"
+"<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
+"<br />"
 
 # [WARNING] needs_update
 msgid "_rock_free_rating_info"
@@ -3695,6 +3727,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 msgid "_topoguide_code_info"
 msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+C para copiarlo y Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />Por defecto, la imagen se mostrara a la derecha, con la leyenda debajo, en un marco. Los atributos de la baliza de apertura permiten modificar su presentación:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
+# [WARNING] needs_update
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizioa</h3>Eski jeitsierako esposizioari lotua dago(edur gida).<br />Esposizioak, erori eskero izan daiteken sauri arriskua adierazten du, maldaz gain: Esposizio txikiko baina malda haundiako toki batek ez du sauri gabeko erorketarik suposatzen.<br />Berau E1-tik (inungo oztoporik) E4-ra (izugarrizko jauzia)doa."
 
@@ -3761,6 +3794,10 @@ msgstr "Laburpena / sarrera:"
 # [WARNING] es translation used
 msgid "access"
 msgstr "Acceso:"
+
+# [WARNING] en translation used
+msgid "access deserved by:"
+msgstr "Served by:"
 
 msgid "access_comments"
 msgstr "Abiaguneari buruzko iritzia:"
@@ -4110,9 +4147,11 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [WARNING] es translation used
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "transbordador"
 
 msgid "book"
 msgstr "liburua"
@@ -4250,6 +4289,16 @@ msgstr "Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Denoi zabaldu
 # [WARNING] es translation used
 msgid "c2corg news"
 msgstr "Noticias de c2c"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "teleferiko"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"
@@ -6096,6 +6145,10 @@ msgstr "informazioa ez dago eskuragarri"
 msgid "novel"
 msgstr "eleberria"
 
+# [WARNING] en translation used
+msgid "objective_risk_rating"
+msgstr "Objective Danger"
+
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
@@ -6807,6 +6860,15 @@ msgid "rock_climbing (single-pitch)"
 msgstr "eskalada (eskola)"
 
 # [general comment]
+# exposition rocher
+# 
+# Faut-il préciser "rocher" dans les trads ?
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# [WARNING] needs_update
+msgid "rock_exposition_rating"
+msgstr "Arriskua:"
+
+# [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 # [WARNING] es translation used
@@ -7391,6 +7453,9 @@ msgstr "Irudia sartzeko kodea:"
 msgid "topoguidename"
 msgstr "Nombre en la topo-guía"
 
+# [general comment]
+# exposition ski
+# [WARNING] needs_update
 msgid "toponeige_exposition_rating"
 msgstr "Arriskua:"
 
@@ -7661,6 +7726,10 @@ msgstr "bai"
 
 msgid "yesterday, at %1%"
 msgstr "atzo, %1%-tan"
+
+# [WARNING] en translation used
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from collaborative picture"

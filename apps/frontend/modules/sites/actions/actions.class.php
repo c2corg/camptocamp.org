@@ -36,7 +36,8 @@ class sitesActions extends documentsActions
             $main_associated_sites = $this->associated_sites;
             if (count($main_associated_sites))
             {
-                $associated_sites = Association::createHierarchyWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id, true);
+                $associated_sites = Association::createHierarchyWithBestName($main_associated_sites, $prefered_cultures,
+                    array('type' => 'tt', 'current_doc_id' => $current_doc_id, 'keep_current_doc' => true));
 
                 $i = reset($associated_sites);
                 while(!isset($i['is_doc']))
@@ -109,7 +110,9 @@ class sitesActions extends documentsActions
             
                 if (count($associated_parkings))
                 {
-                    $associated_parkings = Association::createHierarchy($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                    $associated_parkings = Association::createHierarchy($associated_parkings,
+                        array_filter($associated_childs, array('c2cTools', 'is_parking')),
+                        array('type' => 'pp', 'show_sub_docs' => false));
                 }
                 
                 if (count($sites_ids))

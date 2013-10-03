@@ -127,7 +127,7 @@ class Route extends BaseRoute
                                             array_filter($associated_docs, array('c2cTools', 'is_route')), 
                                             'Route', 
                                             array('activities', 'global_rating', 'height_diff_up', 'difficulties_height',
-                                                  'facing', 'engagement_rating', 'toponeige_technical_rating', 
+                                                  'facing', 'engagement_rating', 'objective_risk_rating', 'toponeige_technical_rating', 
                                                   'toponeige_exposition_rating', 'labande_ski_rating',
                                                   'labande_global_rating', 'rock_free_rating', 'rock_required_rating', 'geom_wkt',
                                                   'ice_rating', 'mixed_rating', 'aid_rating', 'hiking_rating', 'snowshoeing_rating',
@@ -256,6 +256,11 @@ class Route extends BaseRoute
         return self::returnPosIntOrNull($value);
     }
 
+    public static function filterSetObjective_risk_rating($value)
+    {
+        return self::returnPosIntOrNull($value);
+    }
+
     public static function filterSetEquipment_rating($value)
     {
         return self::returnPosIntOrNull($value);
@@ -302,6 +307,11 @@ class Route extends BaseRoute
     }
 
     public static function filterSetAid_rating($value)
+    {
+        return self::returnPosIntOrNull($value);
+    }
+
+    public static function filterSetRock_exposition_rating($value)
     {
         return self::returnPosIntOrNull($value);
     }
@@ -457,7 +467,7 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.equipment_rating', 'prat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.duration', 'time', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.toponeige_technical_rating', 'trat', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.toponeige_exposition_rating', 'expo', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.toponeige_exposition_rating', 'sexpo', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.labande_global_rating', 'lrat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.labande_ski_rating', 'srat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.ice_rating', 'irat', $join);
@@ -465,8 +475,10 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.rock_free_rating', 'frat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.rock_required_rating', 'rrat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.aid_rating', 'arat', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.rock_exposition_rating', 'rexpo', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.global_rating', 'grat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.engagement_rating', 'erat', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.objective_risk_rating', 'orrat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.hiking_rating', 'hrat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.snowshoeing_rating', 'wrat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.route_length', 'rlen', $join);
@@ -782,37 +794,39 @@ class Route extends BaseRoute
         $s = ($mi == 'mi') ? 'sname' : 's';
         switch ($orderby)
         {
-            case 'rnam': return array("$si.search_name", "$mi.search_name");
-            case 'act':  return 'm.activities';
-            case 'range': return 'gr.linked_id';
-            case 'admin': return 'gd.linked_id';
+            case 'rnam':    return array("$si.search_name", "$mi.search_name");
+            case 'act':     return 'm.activities';
+            case 'range':   return 'gr.linked_id';
+            case 'admin':   return 'gd.linked_id';
             case 'country': return 'gc.linked_id';
-            case 'valley': return 'gv.linked_id';
-            case 'maxa': return 'm.max_elevation';
-            case 'fac':  return 'm.facing';
-            case 'hdif': return 'm.height_diff_up';
-            case 'ddif': return 'm.height_diff_down';
-            case 'time': return 'm.duration';
-            case 'ralt': return 'm.elevation';
-            case 'dhei': return 'm.difficulties_height';
-            case 'grat': return 'm.global_rating';
-            case 'erat': return 'm.engagement_rating';
-            case 'prat': return 'm.equipment_rating';
-            case 'frat': return 'm.rock_free_rating';
-            case 'rrat': return 'm.rock_required_rating';
-            case 'arat': return 'm.aid_rating';
-            case 'irat': return 'm.ice_rating';
-            case 'mrat': return 'm.mixed_rating';
-            case 'trat': return 'm.toponeige_technical_rating';
-            case 'expo': return 'm.toponeige_exposition_rating';
-            case 'lrat': return 'm.labande_global_rating';
-            case 'srat': return 'm.labande_ski_rating';
-            case 'hrat': return 'm.hiking_rating';
-            case 'wrat': return 'm.snowshoeing_rating';
-            case 'rlen': return 'm.route_length';
-            case 'geom': return 'm.geom_wkt';
-            case 'lat': return "$s.lat";
-            case 'lon': return "$s.lon";
+            case 'valley':  return 'gv.linked_id';
+            case 'maxa':    return 'm.max_elevation';
+            case 'fac':     return 'm.facing';
+            case 'hdif':    return 'm.height_diff_up';
+            case 'ddif':    return 'm.height_diff_down';
+            case 'time':    return 'm.duration';
+            case 'ralt':    return 'm.elevation';
+            case 'dhei':    return 'm.difficulties_height';
+            case 'grat':    return 'm.global_rating';
+            case 'erat':    return 'm.engagement_rating';
+            case 'orrat':   return 'm.objective_risk_rating';
+            case 'prat':    return 'm.equipment_rating';
+            case 'frat':    return 'm.rock_free_rating';
+            case 'rrat':    return 'm.rock_required_rating';
+            case 'arat':    return 'm.aid_rating';
+            case 'rexpo':   return 'm.rock_exposition_rating';
+            case 'irat':    return 'm.ice_rating';
+            case 'mrat':    return 'm.mixed_rating';
+            case 'trat':    return 'm.toponeige_technical_rating';
+            case 'sexpo':    return 'm.toponeige_exposition_rating';
+            case 'lrat':    return 'm.labande_global_rating';
+            case 'srat':    return 'm.labande_ski_rating';
+            case 'hrat':    return 'm.hiking_rating';
+            case 'wrat':    return 'm.snowshoeing_rating';
+            case 'rlen':    return 'm.route_length';
+            case 'geom':    return 'm.geom_wkt';
+            case 'lat':     return "$s.lat";
+            case 'lon':     return "$s.lon";
             default: return NULL;
         }
     }
@@ -823,11 +837,11 @@ class Route extends BaseRoute
         {
             $routes_fields_list = array('m.activities', 'm.max_elevation', 'm.facing',
                                  'm.height_diff_up', 'm.difficulties_height',
-                                 'm.global_rating', 'm.engagement_rating', 'm.equipment_rating',
-                                 'm.toponeige_technical_rating', 'm.toponeige_exposition_rating',
+                                 'm.global_rating', 'm.engagement_rating', 'm.objective_risk_rating',
+                                 'm.equipment_rating', 'm.toponeige_technical_rating', 'm.toponeige_exposition_rating',
                                  'm.labande_ski_rating', 'm.labande_global_rating',
                                  'm.rock_free_rating', 'm.rock_required_rating',
-                                 'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
+                                 'm.ice_rating', 'm.mixed_rating', 'm.aid_rating', 'm.rock_exposition_rating',
                                  'm.hiking_rating', 'm.snowshoeing_rating',
                                  'm.route_length',
                                  'lsname.type', // we don't need this, but if we make JOIN chains, and we don't include every element of the chain, doctrine blocks

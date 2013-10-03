@@ -3018,6 +3018,12 @@ msgstr "<h3>Best time</h3>List of the months in which a climbing site or a parti
 msgid "_book_types_info"
 msgstr "<h3>Type of book</h3>Type of book.<br />Various types of book can be selected."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/238570/fr#cablecar\">accès de type 'remontée mécanique'</a>."
+
 msgid "_camera_name_info"
 msgstr "<h3>Camera</h3>Make and model of the camera.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
@@ -3095,6 +3101,7 @@ msgstr "<h3>Elevation</h3>Elevation in meters of the geographical location.<br /
 msgid "_email_info"
 msgstr "<h3>E-mail address</h3>The e-mail address for your Camptocamp.org account.<br /><br /><em><u>Upon registration</u>:</em><br />Enter a valid e-mail. Otherwise the account won't be validated and will expire a few weeks later.<br />This e-mail address will never appear on camptocamp. It is used in the following cases:<br />- Another member or guest sends you an e-mail through the website's interface (your e-mail is not unveiled).<br />- You have subscribed to forum threads, and the server warns you about new messages on these threads.<br />- You subscribed to mailing lists for avalanche bulletins."
 
+# [WARNING] needs_update
 msgid "_engagement_rating_info"
 msgstr "<h3>Commitment grade</h3>\n"
 "Route commitment.<br />\n"
@@ -3259,7 +3266,7 @@ msgstr "<h3>Ice climbing grade</h3>\n"
 "<br />\n"
 "<strong>7-7+</strong>: Extreme climb. Really stiff, it may be overhanging for several meters. The technique (among which gestural) used by the alpinist is similar to that of a rock climber.<br />\n"
 "<br />\n"
-"See also the help on <a href=\"/articles/106871/en\">snow, ice and mixed climbing grades</a>."
+"See also the help on <a href=\"/articles/106871/en#ice\">snow, ice and mixed climbing grades</a>."
 
 # [WARNING] needs_update
 msgid "_image_categories_info"
@@ -3415,6 +3422,14 @@ msgstr "Please confirm your new password."
 msgid "_nick_name_info"
 msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br />This name can be modified and is identical to the username by default."
 
+# [WARNING] needs_review
+msgid "_objective_risk_rating_info"
+msgstr "<h3>Objective Danger</h3>\n"
+"The Objective Danger scale evaluates the risk of natural snow avalanches, serac avalanches, natural rockfall, natural stalactite fall and fragility of the waterfall ice. The danger coming from human behavior is not in this Objective Danger scale except for the falling down of the waterfall ice triggered by the climber.\n"
+"Approach, tehcnical section and return are evaluate in the risk scale.<br />\n"
+"<br />\n"
+"See also help on <a href=\"articles/146949#objective-danger\">objective danger grades</a>."
+
 msgid "_outing_length_info"
 msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
@@ -3448,6 +3463,7 @@ msgstr "<h3>Public transport access</h3>Necessary information for reaching the a
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Public transport access</h3>Reliability and quality of public transport access within a reasonable walking distance.<br />The field <i>Public transport access</i> allows for additional information.<br/><br/><strong>regular service</strong>: at least one round trip per day, every day and at any season.<br/><br/><strong>poor service</strong>: service only for some periods of the year, or only few days a week.<br/><br/><strong>service close-by</strong>: no direct public transport access, but a nearby stop is within reasonnable walking range.<br/><br/><strong>no service</strong>: no public transport for this access point."
 
+# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
@@ -3469,6 +3485,23 @@ msgstr "<h3>Information on your changes</h3>Indicate briefly the changes you mad
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Minor modification</h3>Check this box if the modifications made to the document are not important:<br /><br /><strong>text</strong>: bad spelling correction or text shaped<br /><br /><strong>altitude and vertical climb</strong>: modifications &lt; 50m<br /><br /><strong>grade</strong>: modification of a division only (AD to AD+, 3.3 to 3.2)<br /><br /><strong>route or place description</strong>: small note, sentence rephrasing, but variants or complete rewrites are no minor modifications"
+
+msgid "_rock_exposition_rating_info"
+msgstr "<h3>Runout Grade</h3>\n"
+"The Runout Grade based on the consequence of a fall. The climber will not be hurt in the first three levels, therefore, the difference between E1, E2 and E3 is the length of the fall (or the distance between pro). For the higher levels (Ex4, Ex5, Ex6) the climber will get hurt and the levels represent the increasing severity of the consequences, from a broken ankle to death. The Ex for the french word exposition, which can mean danger.<br />\n"
+"<br />\n"
+"<strong>E1</strong>&nbsp;: Over protected with bolts/pitons or good, solid protections minimum every meter ground up. No obligatory move.<br />\n"
+"<br />\n"
+"<strong>E2</strong>&nbsp;: Well protected with bolts/pitons or good, solid protections ground up.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<br />\n"
+"<strong>E3</strong>&nbsp;: Falls will be long but will not cause injury. Bolts or protection will be widely spaced.<br />\n"
+"<br />\n"
+"<strong>E4</strong>&nbsp;: The fall could cause slight injuries even if bolts or protections are not widely spaced.<br />\n"
+"<br />\n"
+"<strong>E5</strong>&nbsp;: The fall will cause serious injuries. An E5 might suggest widely-spaced bolts, just enough lousy protections or a small grounder.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<br />\n"
+"<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
+"<br />"
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Free climb grade</h3>Rating of the free climb difficulties.<br />The rating represents the maximum rock free climb difficulty.<br />It is given based on the french scale, wich goes from 2 to 9b.<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
@@ -3606,7 +3639,7 @@ msgid "_topoguide_code_info"
 msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modify the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />By default, the picture is placed on the right within a frame with its legend. The attributes given with the opening tag allow to choose the picture's presentation:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br />- <strong>no_border</strong>: picture with its legend below, but without surrounding frame<br />- <strong>no_legend</strong>: picture with its legend as tooltip only, without frame<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring and ski-mountaineering</a>."
+msgstr "<h3>Ski exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring and ski-mountaineering</a>."
 
 msgid "_toponeige_technical_rating_info"
 msgstr "<h3>Toponeige technical skiing grade</h3>Technical grade for downhill skiing difficulties (toponeige).<br />This is not a punctual rating: it depends on the length and configuration of the difficulties rather than the hardest section only.<br />It includes 5 levels. Each level is divided into 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. The 5th level is open-ended: 5.4, 5.5, 5.6...<br /><br /><strong>1.x</strong>: Initiation. Slopes do not exceed 30° with no narrow sections. Vertical descent is less than 800m.<br /><br /><strong>2.x</strong>: Few technical difficulties. Slopes do no exceed 35°.<br /><br /><strong>3.x</strong>: Some technical sections. Long slopes at 35° with very short sections at 40-45°.<br /><br /><strong>4.x</strong>: Couloir or steep skiing : slopes between 40 and 45° over more than 200m vertical.<br /><br /><strong>5.x</strong>: Starts with slopes of 45°-50° during more than 300m vertical or above 50° for more than 100m vertical.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring and ski-mountaineering</a>."
@@ -3670,6 +3703,10 @@ msgstr "Abstract:"
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
 msgid "access"
 msgstr "Access:"
+
+# [WARNING] needs_review
+msgid "access deserved by:"
+msgstr "Served by:"
 
 msgid "access_comments"
 msgstr "Comments on access:"
@@ -4001,9 +4038,13 @@ msgstr "biography"
 msgid "bisse"
 msgstr "channel"
 
-# [WARNING] fr translation used
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [comment]
+# maybe simply boat. According to wikipedia, ferry in english primilarly targets passengers transportation.
+# [WARNING] needs_review
 msgid "boat"
-msgstr "ligne maritime"
+msgstr "ferry"
 
 msgid "book"
 msgstr "book"
@@ -4129,6 +4170,18 @@ msgstr "Camptocamp.org is a collaborative website providing information on outdo
 
 msgid "c2corg news"
 msgstr "Camptocamp News"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [comment]
+# should we sue aerial lift isntead?
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "cable car"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"
@@ -5855,6 +5908,9 @@ msgstr "information not available"
 msgid "novel"
 msgstr "story"
 
+msgid "objective_risk_rating"
+msgstr "Objective Danger"
+
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
@@ -6508,6 +6564,14 @@ msgid "rock_climbing (single-pitch)"
 msgstr "rock climbing (single-pitch)"
 
 # [general comment]
+# exposition rocher
+# 
+# Faut-il préciser "rocher" dans les trads ?
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+msgid "rock_exposition_rating"
+msgstr "Runout grade:"
+
+# [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 # [comment]
@@ -7041,8 +7105,10 @@ msgstr "Code for inserting the picture in the guidebook:"
 msgid "topoguidename"
 msgstr "Guidebook name"
 
+# [general comment]
+# exposition ski
 msgid "toponeige_exposition_rating"
-msgstr "Toponeige exposure grade:"
+msgstr "Ski exposure grade:"
 
 msgid "toponeige_technical_rating"
 msgstr "Toponeige technical grade:"
@@ -7295,6 +7361,10 @@ msgstr "yes"
 
 msgid "yesterday, at %1%"
 msgstr "yesterday, at %1%"
+
+# [WARNING] needs_review
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"

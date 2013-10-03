@@ -46,7 +46,8 @@ class summitsActions extends documentsActions
             $summit_ids = array();
             if (count($main_associated_summits))
             {
-                $associated_summits = Association::createHierarchyWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id, true);
+                $associated_summits = Association::createHierarchyWithBestName($main_associated_summits, $prefered_cultures,
+                    array('type' => 'ss', 'current_doc_id' => $current_doc_id, 'keep_current_doc' => true));
 
                 // simply go through the list and get the next items that have a bigger level
                 $i = reset($associated_summits);
