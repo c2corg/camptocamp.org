@@ -256,6 +256,11 @@ class Route extends BaseRoute
         return self::returnPosIntOrNull($value);
     }
 
+    public static function filterSetObjective_risk_rating($value)
+    {
+        return self::returnPosIntOrNull($value);
+    }
+
     public static function filterSetEquipment_rating($value)
     {
         return self::returnPosIntOrNull($value);
@@ -302,6 +307,11 @@ class Route extends BaseRoute
     }
 
     public static function filterSetAid_rating($value)
+    {
+        return self::returnPosIntOrNull($value);
+    }
+
+    public static function filterSetExposition_rating($value)
     {
         return self::returnPosIntOrNull($value);
     }

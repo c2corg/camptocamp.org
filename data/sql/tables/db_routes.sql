@@ -23,6 +23,7 @@ CREATE TABLE app_routes_archives (
     configuration smallint[],
     global_rating smallint,
     engagement_rating smallint,
+    objective_risk_rating smallint,
     equipment_rating smallint,
     is_on_glacier boolean,
     sub_activities smallint[],
@@ -35,8 +36,8 @@ CREATE TABLE app_routes_archives (
     rock_free_rating smallint,
     rock_required_rating smallint,
     aid_rating smallint,
-    hiking_rating smallint,
-    snowshoeing_rating smallint
+    exposition_rating smallint,
+    anowshoeing_rating smallint
 ) INHERITS (app_documents_archives);
 
 ALTER TABLE ONLY app_routes_archives ADD CONSTRAINT routes_archives_pkey PRIMARY KEY (route_archive_id);
@@ -73,7 +74,7 @@ CREATE INDEX app_routes_i18n_archives_document_i18n_archive_id_idx ON app_routes
 
 -- Views --
 
-CREATE OR REPLACE VIEW routes AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.activities, sa.facing, sa.height_diff_up, sa.height_diff_down, sa.route_type, sa.route_length, sa.min_elevation, sa.max_elevation, sa.duration, sa.slope, sa.difficulties_height, sa.configuration, sa.global_rating, sa.engagement_rating, sa.equipment_rating, sa.is_on_glacier, sa.sub_activities, sa.toponeige_technical_rating, sa.toponeige_exposition_rating, sa.labande_ski_rating, sa.labande_global_rating, sa.ice_rating, sa.mixed_rating, sa.rock_free_rating, sa.rock_required_rating, sa.aid_rating, sa.hiking_rating, sa.snowshoeing_rating, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt FROM app_routes_archives sa WHERE sa.is_latest_version; 
+CREATE OR REPLACE VIEW routes AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.activities, sa.facing, sa.height_diff_up, sa.height_diff_down, sa.route_type, sa.route_length, sa.min_elevation, sa.max_elevation, sa.duration, sa.slope, sa.difficulties_height, sa.configuration, sa.global_rating, sa.engagement_rating, sa.objective_risk_rating, sa.equipment_rating, sa.is_on_glacier, sa.sub_activities, sa.toponeige_technical_rating, sa.toponeige_exposition_rating, sa.labande_ski_rating, sa.labande_global_rating, sa.ice_rating, sa.mixed_rating, sa.rock_free_rating, sa.rock_required_rating, sa.aid_rating, sa.exposition_rating, sa.hiking_rating, sa.snowshoeing_rating, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt FROM app_routes_archives sa WHERE sa.is_latest_version; 
 INSERT INTO "geometry_columns" VALUES ('','public','routes','geom',3,900913,'LINESTRING');
 
 CREATE OR REPLACE VIEW routes_i18n AS SELECT sa.id, sa.culture, sa.name, sa.search_name, sa.description, sa.remarks, sa.gear, sa.external_resources, sa.route_history, sa.v4_id, sa.v4_app FROM app_routes_i18n_archives sa WHERE sa.is_latest_version;
@@ -82,12 +83,12 @@ CREATE OR REPLACE VIEW routes_i18n AS SELECT sa.id, sa.culture, sa.name, sa.sear
 
 CREATE OR REPLACE RULE insert_routes AS ON INSERT TO routes DO INSTEAD 
 (
-    INSERT INTO app_routes_archives (id, module, is_protected, redirects_to, activities, facing, height_diff_up, height_diff_down, route_type, duration, slope, difficulties_height, configuration, global_rating, engagement_rating, equipment_rating, is_on_glacier, sub_activities, toponeige_technical_rating, toponeige_exposition_rating, labande_ski_rating, labande_global_rating, ice_rating, mixed_rating, rock_free_rating, rock_required_rating, aid_rating, hiking_rating, snowshoeing_rating, geom, geom_wkt, is_latest_version, min_elevation, max_elevation, elevation, route_length) VALUES (NEW.id, 'routes', NEW.is_protected, NEW.redirects_to, NEW.activities, NEW.facing, NEW.height_diff_up, NEW.height_diff_down, NEW.route_type, NEW.duration, NEW.slope, NEW.difficulties_height, NEW.configuration, NEW.global_rating, NEW.engagement_rating, NEW.equipment_rating, NEW.is_on_glacier, NEW.sub_activities, NEW.toponeige_technical_rating, NEW.toponeige_exposition_rating, NEW.labande_ski_rating, NEW.labande_global_rating, NEW.ice_rating, NEW.mixed_rating, NEW.rock_free_rating, NEW.rock_required_rating, NEW.aid_rating, NEW.hiking_rating, NEW.snowshoeing_rating, NEW.geom, NEW.geom_wkt, true, NEW.min_elevation, NEW.max_elevation, NEW.elevation, NEW.route_length)
+    INSERT INTO app_routes_archives (id, module, is_protected, redirects_to, activities, facing, height_diff_up, height_diff_down, route_type, duration, slope, difficulties_height, configuration, global_rating, engagement_rating, objective_risk_rating, equipment_rating, is_on_glacier, sub_activities, toponeige_technical_rating, toponeige_exposition_rating, labande_ski_rating, labande_global_rating, ice_rating, mixed_rating, rock_free_rating, rock_required_rating, aid_rating, exposition_rating, hiking_rating, snowshoeing_rating, geom, geom_wkt, is_latest_version, min_elevation, max_elevation, elevation, route_length) VALUES (NEW.id, 'routes', NEW.is_protected, NEW.redirects_to, NEW.activities, NEW.facing, NEW.height_diff_up, NEW.height_diff_down, NEW.route_type, NEW.duration, NEW.slope, NEW.difficulties_height, NEW.configuration, NEW.global_rating, NEW.engagement_rating, NEW.objective_risk_rating, NEW.equipment_rating, NEW.is_on_glacier, NEW.sub_activities, NEW.toponeige_technical_rating, NEW.toponeige_exposition_rating, NEW.labande_ski_rating, NEW.labande_global_rating, NEW.ice_rating, NEW.mixed_rating, NEW.rock_free_rating, NEW.rock_required_rating, NEW.aid_rating, NEW.exposition_rating, NEW.hiking_rating, NEW.snowshoeing_rating, NEW.geom, NEW.geom_wkt, true, NEW.min_elevation, NEW.max_elevation, NEW.elevation, NEW.route_length)
 );
 
 CREATE OR REPLACE RULE update_routes AS ON UPDATE TO routes DO INSTEAD 
 (
-    INSERT INTO app_routes_archives (id, module, is_protected, redirects_to, activities, facing, height_diff_up, height_diff_down, route_type, duration, slope, difficulties_height, configuration, global_rating, engagement_rating, equipment_rating, is_on_glacier, sub_activities, toponeige_technical_rating, toponeige_exposition_rating, labande_ski_rating, labande_global_rating, ice_rating, mixed_rating, rock_free_rating, rock_required_rating, aid_rating, hiking_rating, snowshoeing_rating, geom, geom_wkt, is_latest_version, min_elevation, max_elevation, elevation, route_length) VALUES (NEW.id, 'routes', NEW.is_protected, NEW.redirects_to, NEW.activities, NEW.facing, NEW.height_diff_up, NEW.height_diff_down, NEW.route_type, NEW.duration, NEW.slope, NEW.difficulties_height, NEW.configuration, NEW.global_rating, NEW.engagement_rating, NEW.equipment_rating, NEW.is_on_glacier, NEW.sub_activities, NEW.toponeige_technical_rating, NEW.toponeige_exposition_rating, NEW.labande_ski_rating, NEW.labande_global_rating, NEW.ice_rating, NEW.mixed_rating, NEW.rock_free_rating, NEW.rock_required_rating, NEW.aid_rating, NEW.hiking_rating, NEW.snowshoeing_rating, NEW.geom, NEW.geom_wkt, true, NEW.min_elevation, NEW.max_elevation, NEW.elevation, NEW.route_length)
+    INSERT INTO app_routes_archives (id, module, is_protected, redirects_to, activities, facing, height_diff_up, height_diff_down, route_type, duration, slope, difficulties_height, configuration, global_rating, engagement_rating, objective_risk_rating, equipment_rating, is_on_glacier, sub_activities, toponeige_technical_rating, toponeige_exposition_rating, labande_ski_rating, labande_global_rating, ice_rating, mixed_rating, rock_free_rating, rock_required_rating, aid_rating, exposition_rating, hiking_rating, snowshoeing_rating, geom, geom_wkt, is_latest_version, min_elevation, max_elevation, elevation, route_length) VALUES (NEW.id, 'routes', NEW.is_protected, NEW.redirects_to, NEW.activities, NEW.facing, NEW.height_diff_up, NEW.height_diff_down, NEW.route_type, NEW.duration, NEW.slope, NEW.difficulties_height, NEW.configuration, NEW.global_rating, NEW.engagement_rating, NEW.objective_risk_rating, NEW.equipment_rating, NEW.is_on_glacier, NEW.sub_activities, NEW.toponeige_technical_rating, NEW.toponeige_exposition_rating, NEW.labande_ski_rating, NEW.labande_global_rating, NEW.ice_rating, NEW.mixed_rating, NEW.rock_free_rating, NEW.rock_required_rating, NEW.aid_rating, NEW.exposition_rating, NEW.hiking_rating, NEW.snowshoeing_rating, NEW.geom, NEW.geom_wkt, true, NEW.min_elevation, NEW.max_elevation, NEW.elevation, NEW.route_length)
 ); 
 
 CREATE OR REPLACE RULE insert_routes_i18n AS ON INSERT TO routes_i18n DO INSTEAD 
