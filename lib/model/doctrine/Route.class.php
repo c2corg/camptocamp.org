@@ -127,7 +127,7 @@ class Route extends BaseRoute
                                             array_filter($associated_docs, array('c2cTools', 'is_route')), 
                                             'Route', 
                                             array('activities', 'global_rating', 'height_diff_up', 'difficulties_height',
-                                                  'facing', 'engagement_rating', 'toponeige_technical_rating', 
+                                                  'facing', 'engagement_rating', 'objective_risk_rating', 'toponeige_technical_rating', 
                                                   'toponeige_exposition_rating', 'labande_ski_rating',
                                                   'labande_global_rating', 'rock_free_rating', 'rock_required_rating', 'geom_wkt',
                                                   'ice_rating', 'mixed_rating', 'aid_rating', 'hiking_rating', 'snowshoeing_rating',

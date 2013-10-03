@@ -837,6 +837,7 @@ class Outing extends BaseOuting
                                    'labande_global_rating');
         $route_climbing_fields = array ('global_rating',
                                         'engagement_rating',
+                                        'objective_risk_rating',
                                         'rock_free_rating',
                                         'rock_required_rating',
                                         'ice_rating',
