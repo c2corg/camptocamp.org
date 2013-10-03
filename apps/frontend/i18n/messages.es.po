@@ -3012,7 +3012,9 @@ msgstr "<h3>clase de obra</h3>clase de libro.<br />Se puede seleccionar varias c
 
 # [WARNING] fr translation used
 msgid "_cable_car_access_info"
-msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/238570/fr#cablecar\">accès de type 'remontée mécanique'</a>."
 
 msgid "_camera_name_info"
 msgstr "<h3>Cámara de fotos</h3>Marca y modelo de la cámara de fotos.<br />Esta información viene de los datos EXIF del fichero descargado. Es posible cancelarlos antes de mandar la foto, con la ayuda de un software de fotografía."
@@ -3091,6 +3093,7 @@ msgstr "<h3>Altitud</h3>Altitud en metros del lugar geográfico.<br />Para una f
 msgid "_email_info"
 msgstr "<h3>Dirección email</h3>Dirección email de su cuenta camptocamp.org.<br /><br /><em><u>Al inscribirse </u>:</em><br />Indica una dirección de email valida. Si no, la cuenta no se podrá validar y será destruida pocas semanas después. <br />Esta dirección de email nunca aparece en el sitio. Se usa en los siguientes casos:<br />- Otro usuario registrado o invitado le manda un email por la interfaz del sitio (nunca aparece su dirección).<br />- Se suscribió a unas discusiones en el foro y el servidor le señala la llegada de un nuevo mensaje en estas discusiones. <br />- Se suscribió a unas listas de difusión de los boletines nivológicos."
 
+# [WARNING] needs_update
 msgid "_engagement_rating_info"
 msgstr "<h3>Compromiso</h3>\n"
 "Compromiso del itinerario.<br />\n"
@@ -3242,7 +3245,7 @@ msgstr "<h3>Cotación hielo</h3>\n"
 "<br />\n"
 "<strong>Grado 7</strong>: Escalada extrema. Muy empinada, puede ser desplomada durante varios metros. La técnica requerida es mas parecida a la del escalador en roca.<br />\n"
 "<br />\n"
-"Véase también la ayuda sobre <a href=\"/articles/106871/es\">grados en nieve, hielo y mixto</a>."
+"Véase también la ayuda sobre <a href=\"/articles/106871/es#ice\">grados en nieve, hielo y mixto</a>."
 
 # [WARNING] needs_update
 msgid "_image_categories_info"
@@ -3390,23 +3393,13 @@ msgstr "Para confirmarlo, por favor teclea su nueva contraseña."
 msgid "_nick_name_info"
 msgstr "<h3>Seudo foro</h3>Nombre que aparece en los foros del sitio.<br /><br />Este nombre se puede modificar. Por defecto, es idéntico al nombre de <i>login</i>."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_objective_risk_rating_info"
-msgstr "<h3>Risques Objectifs</h3>\n"
-"Les risques pris en compte sont les avalanches naturelles de neige, les chutes de sérac, les chutes naturelles de pierre, les chutes naturelles de stalactite et la fragilité du support. Les risques liés directement à l'action humaine ne sont pris en compte hormis l’effondrement de la structure provenant de la fragilité du support déclenché par le pratiquant lui même. Les avalanches, chutes de pierre et de stalactites déclenchés par le pratiquant ou une autre cordée ne sont pas pris en compte.\n"
-"La partie technique, l'approche et le retour sont pris en compte dans l'échelle des risques objectifs. <br />\n"
+msgstr "<h3>Objective Danger</h3>\n"
+"The Objective Danger scale evaluates the risk of natural snow avalanches, serac avalanches, natural rockfall, natural stalactite fall and fragility of the waterfall ice. The danger coming from human behavior is not in this Objective Danger scale except for the falling down of the waterfall ice triggered by the climber.\n"
+"Approach, tehcnical section and return are evaluate in the risk scale.<br />\n"
 "<br />\n"
-"<strong>X1</strong>&nbsp;: Risques objectifs faibles. <a href=\"/summits/256956/fr\">Villard Reymond - 3 cigares</a><br />\n"
-"<br />\n"
-"<strong>X2</strong>&nbsp;: Risques objectifs modérés. <a href=\"/routes/54271/fr\">Colère du Ciel</a><br />\n"
-"<br />\n"
-"<strong>X3</strong>&nbsp;: Risques objectifs marqués. <a href=\"/routes/56412/fr\">Délire du Chacal</a>, <a href=\"routes/55560/fr\">Caturgeas</a><br />\n"
-"<br />\n"
-"<strong>X4</strong>&nbsp;: Risques objectifs sévères. Chute de Sérac : Anecdotique, couloir en S.<br />\n"
-"<br />\n"
-"<strong>X5</strong>&nbsp;: Risques objectifs très sévères. La même chose que X4 en pire.<br />\n"
-"<br />\n"
-"Voir aussi l'aide sur la <a href=\"articles/146949/fr#risques-objectifs\">Risques Objectifs</a>. "
+"See also help on <a href=\"articles/146949#objective-danger\">objective danger grades</a>."
 
 msgid "_outing_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traza GPX asociada a la salida.<br />Esta información es calculada automáticamente a partir del archivo GPX asociado, y no está disponible para un documento que no incluya una traza GPX.<br />La longitud será substituida si una nueva traza GPX es asociada al documento."
@@ -3464,24 +3457,23 @@ msgstr "<h3>Informaciones sobre las modificaciones</h3>Indique brevemente en est
 msgid "_rev_is_minor_info"
 msgstr "<h3>Modificación menor</h3>Puntea la casilla si las modificaciones traídas al documento no son importantes:<br /><br /><strong>texto</strong>: corrección de la ortografía o de la puesta en forma<br /><br /><strong>altitud y desnivel</strong>: modificaciones &lt; 50m<br /><br /><strong>cotación</strong>: modificación de una división (AD a AD+, 3.3 a 3.2)<br /><br /><strong>descripción de itinerario o de lugar</strong>: pequeña nota, reformulación de una frase, pero los añadidos de variantes o las reescrituras completas no son modificaciones menores"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_rock_exposition_rating_info"
-msgstr "<h3>Cotation Exposition</h3>\n"
-"La cotation Exposition E est basée sur les conséquences de la chute.  Le grimpeur ne se blesse pas dans les 3 premiers niveaux (E1, E2, E3). La progression dans la cotation correspond à l'augmentation de la longueur de chute potentielle (ou la distance entre les protections). Pour les niveaux plus élevés (E4, E5, E6) la chute entrainera des blessures. Le cotation correspond à la sévérité des conséquences de la chute depuis la fracture de cheville jusqu'à la mort. <br />\n"
+msgstr "<h3>Runout Grade</h3>\n"
+"The Runout Grade based on the consequence of a fall. The climber will not be hurt in the first three levels, therefore, the difference between E1, E2 and E3 is the length of the fall (or the distance between pro). For the higher levels (Ex4, Ex5, Ex6) the climber will get hurt and the levels represent the increasing severity of the consequences, from a broken ankle to death. The Ex for the french word exposition, which can mean danger.<br />\n"
 "<br />\n"
-"<strong>E1</strong>&nbsp;: Surprotégé avec des points à demeure ou des bonnes protections amovibles tous les mètres depuis le sol. Pas de mouvement obligatoire.<br />\n"
+"<strong>E1</strong>&nbsp;: Over protected with bolts/pitons or good, solid protections minimum every meter ground up. No obligatory move.<br />\n"
 "<br />\n"
-"<strong>E2</strong>&nbsp;: Bien protégé avec des points à demeure ou des bonnes protections amovibles depuis le sol.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<strong>E2</strong>&nbsp;: Well protected with bolts/pitons or good, solid protections ground up.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
 "<br />\n"
-"<strong>E3</strong>&nbsp;: La chute va être longue mais sans conséquences physiques. Les points à demeure ou protections amovibles sont espacés.<br />\n"
+"<strong>E3</strong>&nbsp;: Falls will be long but will not cause injury. Bolts or protection will be widely spaced.<br />\n"
 "<br />\n"
-"<strong>E4</strong>&nbsp;: La chute n'est pas bénigne. Elle entraîne un accident mineur même si les points à demeure ou protections amovibles ne sont pas trop espacés.<br />\n"
+"<strong>E4</strong>&nbsp;: The fall could cause slight injuries even if bolts or protections are not widely spaced.<br />\n"
 "<br />\n"
-"<strong>E5</strong>&nbsp;: La chute est dangereuse. Elle entraînerait un accident grave. E5 correspond a des points à demeure très espacés, des protections amovibles suffisamment mauvaises ou un petit retour au sol/vire.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<strong>E5</strong>&nbsp;: The fall will cause serious injuries. An E5 might suggest widely-spaced bolts, just enough lousy protections or a small grounder.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
 "<br />\n"
-"<strong>E6</strong>&nbsp;: La même chose que E5 mais considérez que vous avez eu de la chance si vous tombez sans mourir dans un E6 même en ayant protégé.<br />\n"
-"<br />\n"
-"Voir aussi l'aide sur la <a href=\"/articles/133323/fr#cotation-exposition\">Cotation Exposition</a>. "
+"<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
+"<br />"
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Cotación libre</h3>Cotación de las dificultades de la escalada rocosa en libre.<br />La cotación libre evalúa la dificultad máxima de la escalada en libre.<br />Se da sobre la escala francesa tradicional que va de 1 a 9b.<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
@@ -3605,6 +3597,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 msgid "_topoguide_code_info"
 msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+C para copiarlo y Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />Por defecto, la imagen se mostrara a la derecha, con la leyenda debajo, en un marco. Los atributos de la baliza de apertura permiten modificar su presentación:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
+# [WARNING] needs_update
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposición</h3>Cotación de la exposición de descenso en esquí (cotación Toponeige).<br />La exposición describe la gravedad de las heridas en caso de caída, independientemente de la inclinación de la pendiente: una exposición débil en una pendiente fuerte no garantiza una caída sin consecuencias.<br />La escala va de E1 (ningún obstáculo) a E4 (grandes precipicios):<br /><br /><strong>Exposición 1</strong>: La exposición solo es el de la pendiente en si. Sin embargo, el riesgo de lastimarse es importante en caso de nieve dura y/o de pendiente fuerte.<br /><br /><strong>Exposición 2</strong>: Además de la exposición por la misma pendiente, hay obstáculos que pueden resultar en daño adicional (por ejemplo, corredores que no son perfectamente rectos están categorizados así).<br /><br /><strong>Exposición 3</strong>: En caso de caída, la muerte es probable (por ejemplo con barreras de roca o seracs o en el caso de corredores muy sinuosos con percusión probable).<br /><br /><strong>Exposición 4</strong>: En caso de caída, la muerte es inevitable (por ejemplo con acantilados altos y percusión múltiples…).<br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí y surf</a>."
 
@@ -5889,9 +5882,9 @@ msgstr "información no disponible"
 msgid "novel"
 msgstr "novela"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "objective_risk_rating"
-msgstr "Risques objectifs&nbsp;:"
+msgstr "Objective Danger"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -6548,7 +6541,10 @@ msgstr "escalada (vías de un largo)"
 
 # [general comment]
 # exposition rocher
-# [WARNING] needs_review
+# 
+# Faut-il préciser "rocher" dans les trads ?
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# [WARNING] needs_update
 msgid "rock_exposition_rating"
 msgstr "Exposición:"
 
@@ -7094,6 +7090,7 @@ msgstr "Nombre en la topo-guía"
 
 # [general comment]
 # exposition ski
+# [WARNING] needs_update
 msgid "toponeige_exposition_rating"
 msgstr "Exposición:"
 
