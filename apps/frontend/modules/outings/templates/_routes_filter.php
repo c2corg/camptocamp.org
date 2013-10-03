@@ -49,7 +49,7 @@ echo __('mixed_rating') . ' ' . range_selector('mrat', 'app_routes_mixed_ratings
 <br />
 <?php 
 echo __('toponeige_technical_rating') . ' ' . range_selector('trat', 'app_routes_toponeige_technical_ratings');
-echo __('toponeige_exposition_rating') . ' ' . range_selector('expo', 'app_routes_toponeige_exposition_ratings');
+echo __('toponeige_exposition_rating') . ' ' . range_selector('sexpo', 'app_routes_toponeige_exposition_ratings');
 ?>
 <br />
 <?php

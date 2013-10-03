@@ -3525,6 +3525,24 @@ msgstr "Zur Bestätigung bitte das neue Passwort eintragen."
 msgid "_nick_name_info"
 msgstr "<h3>Forenpseudonym</h3>Name, welcher in den Foren der Website verwendet wird.<br /><br />Dieser Name kann jederzeit geändert werden. Standardmässig wird der Benutzername als Forumpseudonym verwendet."
 
+# [WARNING] fr translation used
+msgid "_objective_risk_rating_info"
+msgstr "<h3>Risques Objectifs</h3>\n"
+"Les risques pris en compte sont les avalanches naturelles de neige, les chutes de sérac, les chutes naturelles de pierre, les chutes naturelles de stalactite et la fragilité du support. Les risques liés directement à l'action humaine ne sont pris en compte hormis l’effondrement de la structure provenant de la fragilité du support déclenché par le pratiquant lui même. Les avalanches, chutes de pierre et de stalactites déclenchés par le pratiquant ou une autre cordée ne sont pas pris en compte.\n"
+"La partie technique, l'approche et le retour sont pris en compte dans l'échelle des risques objectifs. <br />\n"
+"<br />\n"
+"<strong>X1</strong>&nbsp;: Risques objectifs faibles. <a href=\"/summits/256956/fr\">Villard Reymond - 3 cigares</a><br />\n"
+"<br />\n"
+"<strong>X2</strong>&nbsp;: Risques objectifs modérés. <a href=\"/routes/54271/fr\">Colère du Ciel</a><br />\n"
+"<br />\n"
+"<strong>X3</strong>&nbsp;: Risques objectifs marqués. <a href=\"/routes/56412/fr\">Délire du Chacal</a>, <a href=\"routes/55560/fr\">Caturgeas</a><br />\n"
+"<br />\n"
+"<strong>X4</strong>&nbsp;: Risques objectifs sévères. Chute de Sérac : Anecdotique, couloir en S.<br />\n"
+"<br />\n"
+"<strong>X5</strong>&nbsp;: Risques objectifs très sévères. La même chose que X4 en pire.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur la <a href=\"articles/146949/fr#risques-objectifs\">Risques Objectifs</a>. "
+
 msgid "_outing_length_info"
 msgstr "<h3>Länge</h3>Gesamtlänge des GPX-Tracks, welcher mit der Tour verbunden ist.<br />Dieser Wert ist aus dem verbundenen GPX-Track berechnet und ist ohne GPX-Track nicht verfügbar.<br />Die Länge wird überschrieben, wenn ein neuer GPX-Track mit dem Dokument verbunden wird."
 
@@ -3583,6 +3601,25 @@ msgstr "<h3>Information zu den Änderungen</h3>Beschreiben sie kurz die Änderun
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Unwesentliche Änderung</h3>Aktivieren sie dieses Kästchen, wenn sie lediglich geringfügige Änderungen am Dokument vorgenommen haben:<br /><br /><strong>Text:</strong> Verbesserung der Orthographie, Grammatik oder stilistische Textanpassungen<br /><br /><strong>Höhe und Höhenunterschiede:</strong> Änderungen &lt; 50m<br /><br /><strong>Bewertungen:</strong> Veränderungen innerhalb eines Grades (ZS+ anstelle von ZS, 3.3. anstelle von 3.2.)<br /><br /><strong>Routen- oder Ortsbeschreibung:</strong> Kleine Anmerkungen oder Neuformulierung von Sätzen. Das Hinzufügen von Varianten oder das komplette Neuschreiben von Dokumenten sind keine unwesentlichen Änderungen."
+
+# [WARNING] fr translation used
+msgid "_rock_exposition_rating_info"
+msgstr "<h3>Cotation Exposition</h3>\n"
+"La cotation Exposition E est basée sur les conséquences de la chute.  Le grimpeur ne se blesse pas dans les 3 premiers niveaux (E1, E2, E3). La progression dans la cotation correspond à l'augmentation de la longueur de chute potentielle (ou la distance entre les protections). Pour les niveaux plus élevés (E4, E5, E6) la chute entrainera des blessures. Le cotation correspond à la sévérité des conséquences de la chute depuis la fracture de cheville jusqu'à la mort. <br />\n"
+"<br />\n"
+"<strong>E1</strong>&nbsp;: Surprotégé avec des points à demeure ou des bonnes protections amovibles tous les mètres depuis le sol. Pas de mouvement obligatoire.<br />\n"
+"<br />\n"
+"<strong>E2</strong>&nbsp;: Bien protégé avec des points à demeure ou des bonnes protections amovibles depuis le sol.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<br />\n"
+"<strong>E3</strong>&nbsp;: La chute va être longue mais sans conséquences physiques. Les points à demeure ou protections amovibles sont espacés.<br />\n"
+"<br />\n"
+"<strong>E4</strong>&nbsp;: La chute n'est pas bénigne. Elle entraîne un accident mineur même si les points à demeure ou protections amovibles ne sont pas trop espacés.<br />\n"
+"<br />\n"
+"<strong>E5</strong>&nbsp;: La chute est dangereuse. Elle entraînerait un accident grave. E5 correspond a des points à demeure très espacés, des protections amovibles suffisamment mauvaises ou un petit retour au sol/vire.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<br />\n"
+"<strong>E6</strong>&nbsp;: La même chose que E5 mais considérez que vous avez eu de la chance si vous tombez sans mourir dans un E6 même en ayant protégé.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur la <a href=\"/articles/133323/fr#cotation-exposition\">Cotation Exposition</a>. "
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Bewertung Felsklettern</h3>Bewertung der Schwierigkeiten beim Felsklettern.<br />Die Bewertung bezieht sich auf die schwierigste Stelle, welche frei, d.h. ohne aktive Hilfspunkte, geklettert wird.<br />Dazu wird die französische Skala verwendet, welche von 2 bis 9b reicht.<br /><br />Siehe auch in der Hilfe unter <a href=\"/articles/133323\">Bewertung Felsklettern</a>."
@@ -6058,6 +6095,10 @@ msgstr "Information nicht zur Verfügung "
 msgid "novel"
 msgstr "Bericht/Erzählung"
 
+# [WARNING] fr translation used
+msgid "objective_risk_rating"
+msgstr "Risques objectifs&nbsp;:"
+
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
@@ -6702,6 +6743,12 @@ msgid "rock_climbing (single-pitch)"
 msgstr "Klettergarten"
 
 # [general comment]
+# exposition rocher
+# [WARNING] needs_review
+msgid "rock_exposition_rating"
+msgstr "Exposition:"
+
+# [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
@@ -7258,6 +7305,8 @@ msgstr "HTML-Kurzschreibweise zum Bildeinfügen:"
 msgid "topoguidename"
 msgstr "Tourenführer Name"
 
+# [general comment]
+# exposition ski
 msgid "toponeige_exposition_rating"
 msgstr "Exposition:"
 

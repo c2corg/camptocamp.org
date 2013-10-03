@@ -1859,6 +1859,13 @@ all:
       3: R3
       4: R4
       5: R5
+    objective_risk_ratings:
+      0:
+      2:  X1
+      4:  X2
+      6:  X3
+      8:  X4
+      10: X5
     filled_criteria:
       'maxa': malt
       'fac': ''
