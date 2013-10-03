@@ -69,6 +69,11 @@ if (isset($nb_comments) && $nb_comments)
         li(field_data_from_list($document, 'engagement_rating', 'app_routes_engagement_ratings'));
     }
 
+    if (array_intersect(array(2,3,5), $activities)) // snow, mountain or ice_climbing
+    {
+        li(field_data_from_list_if_set($document, 'objective_risk_rating', 'app_routes_objective_risk_ratings'));
+    }
+
     if (array_intersect(array(3,4), $activities)) // rock_climbing or mountain_climbing
     {
         $equipment_rating = $document->getRaw('equipment_rating');
