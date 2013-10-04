@@ -3489,7 +3489,7 @@ msgstr "<h3>Risques objectifs</h3>\n"
 "<br />\n"
 "<strong>X5</strong>&nbsp;: Risques objectifs très sévères. La même chose que X4 en pire.<br />\n"
 "<br />\n"
-"Voir aussi l'aide sur la <a href=\"articles/146949/fr#objective-danger\">cotation des risques objectifs</a>."
+"Voir aussi l'aide sur la <a href=\"/articles/146949/fr#objective-danger\">cotation des risques objectifs</a>."
 
 msgid "_outing_length_info"
 msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire emprunté au cours de la sortie.<br />Si une trace GPX est associée à la sortie, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
