@@ -1,7 +1,7 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'Button', 'ModalBox');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/routes.js', 'last');
+$response->addJavascript('/static/js/routes_edit.js', 'last');
 
 // Here document = route
 echo '<div>';
