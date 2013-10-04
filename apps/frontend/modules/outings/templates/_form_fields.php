@@ -1,10 +1,11 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript', 'Escaping', 'General');
 
-$mw_contest_enabled = true; //sfConfig::get('app_mw_contest_enabled'); // shunt for mw contest
+$mw_contest_enabled = sfConfig::get('app_mw_contest_enabled'); // shunt for mw contest
 
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/outings.js', 'last');
+if ($mw_contest_enabled) $response->addJavascript('/static/js/mw.js', 'last');
 
 echo javascript_tag("var confirm_outing_date_message = '" . addslashes(__('Has this outing really been done today?')) . "';
 var outing_date_already_tested = false;
