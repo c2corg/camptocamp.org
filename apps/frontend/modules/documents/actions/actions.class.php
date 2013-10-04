@@ -4094,24 +4094,6 @@ class documentsActions extends c2cActions
     }
 
     /**  
-     * This function is used to get hut specific query paramaters.
-     * To be overridden in extended class.
-     */
-    protected function getQueryParams() {
-        $where_array  = array();
-        $where_params = array();
-        $params = array(
-            'select' => array(
-            ),
-            'where'  => array(
-                'where_array'  => $where_array,
-                'where_params' => $where_params
-            )
-        );
-        return $params; 
-    }    
-
-    /**  
      * This function is used to get a DB query result formatted in HTML.
      * To be overridden in extended class.
      */

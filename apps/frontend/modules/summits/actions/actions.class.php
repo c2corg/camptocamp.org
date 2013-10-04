@@ -212,39 +212,6 @@ class summitsActions extends documentsActions
     }
 
     /**
-     * This function is used to get summit specific query paramaters. It is used
-     * from the generic action class (in the documents module).
-     */
-    protected function getQueryParams() {
-        $where_array  = array();
-        $where_params = array();
-        if ($this->hasRequestParameter('min_elevation'))
-        {
-            $min_elevation = $this->getRequestParameter('min_elevation');
-            if (!empty($min_elevation)) {
-                $where_array[]  = 'summits.elevation >= ?';
-                $where_params[] = $min_elevation;
-            }
-        }
-        if ($this->hasRequestParameter('max_elevation'))
-        {
-            $max_elevation = $this->getRequestParameter('max_elevation');
-            if (!empty($max_elevation)) {
-                $where_array[]  = 'summits.elevation <= ?';
-                $where_params[] = $max_elevation;
-            }
-        }
-        $params = array(
-            'select' => array('summits.elevation'),
-            'where'  => array(
-                'where_array'  => $where_array,
-                'where_params' => $where_params
-            )
-        );
-        return $params; 
-    }
-   
-    /**
      * This function is used to get a DB query result formatted in HTML. It is used
      * from the generic action class (in the documents module)
      */
