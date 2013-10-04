@@ -3479,7 +3479,7 @@ msgstr "<h3>Objective Danger</h3>\n"
 "The Objective Danger scale evaluates the risk of natural snow avalanches, serac avalanches, natural rockfall, natural stalactite fall and fragility of the waterfall ice. The danger coming from human behavior is not in this Objective Danger scale except for the falling down of the waterfall ice triggered by the climber.\n"
 "Approach, tehcnical section and return are evaluate in the risk scale.<br />\n"
 "<br />\n"
-"See also help on <a href=\"articles/146949#objective-danger\">objective danger grades</a>."
+"See also help on <a href=\"/articles/146949#objective-danger\">objective danger grades</a>."
 
 msgid "_outing_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traça GPX associada a la sortida.<br />Aquesta informació es calcula a partir de la traça GPX associada, i no és disponible per a un document que no compti amb una traça GPX. <br />La longitud serà substituïda si una nova traça GPX és associada al document."

@@ -59,6 +59,7 @@
       'ski_snow_mountain_rock_ice',
       'snow_ice',
       'snow_mountain_rock_ice',
+      'snow_mountain_ice',
       'rock_mountain',
       'hiking',
       'snowshoeing'
@@ -87,6 +88,7 @@
           show.snow = true;
           show.snow_ice = true;
           show.snow_mountain_rock_ice = true;
+          show.snow_mountain_ice = true;
           break;
 
         case 3: // mountain_climbing
@@ -94,6 +96,7 @@
           show.ski_snow_mountain_rock = true;
           show.ski_snow_mountain_rock_ice = true;
           show.snow_mountain_rock_ice = true;
+          show.snow_mountain_ice = true;
           show.rock_mountain = true;
           break;
 
@@ -108,6 +111,7 @@
           show.ski_snow_mountain_rock_ice = true;
           show.snow_ice = true;
           show.snow_mountain_rock_ice = true;
+          show.snow_mountain_ice = true;
           break;
 
         case 6: // hiking

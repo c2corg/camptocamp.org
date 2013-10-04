@@ -44,12 +44,16 @@ echo __('is_on_glacier') . ' ' . bool_selector('glac');
 <?php
 echo __('global_rating') . ' ' . range_selector('grat', 'app_routes_global_ratings');
 echo __('engagement_rating') . ' ' . range_selector('erat', 'app_routes_engagement_ratings');
-echo __('objective_risk_rating') . ' ' . range_selector('orrat', 'app_routes_objective_risk_ratings');
 ?>
 <br />
 <?php
 echo __('equipment_rating') . ' ' . range_selector('prat', 'app_equipment_ratings_list', null, true);
 ?>
+<span id="snow_mountain_ice_fields" style="display:none">
+<?php
+echo __('objective_risk_rating') . ' ' . range_selector('orrat', 'app_routes_objective_risk_ratings');
+?>
+</span>
 </div>
 <div id="rock_mountain_fields" style="display:none">
 <?php

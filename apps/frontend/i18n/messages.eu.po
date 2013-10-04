@@ -3515,7 +3515,7 @@ msgstr "<h3>Objective Danger</h3>\n"
 "The Objective Danger scale evaluates the risk of natural snow avalanches, serac avalanches, natural rockfall, natural stalactite fall and fragility of the waterfall ice. The danger coming from human behavior is not in this Objective Danger scale except for the falling down of the waterfall ice triggered by the climber.\n"
 "Approach, tehcnical section and return are evaluate in the risk scale.<br />\n"
 "<br />\n"
-"See also help on <a href=\"articles/146949#objective-danger\">objective danger grades</a>."
+"See also help on <a href=\"/articles/146949#objective-danger\">objective danger grades</a>."
 
 msgid "_outing_length_info"
 msgstr "<h3>Luzeera</h3>Ibilbide edo irteerara loturiko GPX aztarnaren luzeera.<br /> Informazio hau GPX aztarnaren bitartez kalkulatzen da eta ez da erabilgarria aztarna bat honezkero loturik egon ezean.<br />Luzeera beridatzi egingo da aztarna berri bat gordetzen den bakoitzean."
