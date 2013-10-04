@@ -1,8 +1,8 @@
-(function(C2C, $) {
+(function($) {
 
   // hide some parts of the editing form
   // depending on selected activities 
-  C2C.hide_unrelated_fields = function() {
+  function hide_unrelated_fields() {
 
     var show = {};
     var show_flags = [
@@ -128,9 +128,12 @@
     }
     
     $('input.rlineb').toggle(show.snow_mountain_rock_ice);
-  };
+  }
+
+  // check fields state every time the activity selection changes
+  $('#activities').on('change', hide_unrelated_fields);
 
   // be sure to hide fields once dom loaded
-  $(C2C.hide_unrelated_fields);
+  hide_unrelated_fields();
 
-})(window.C2C = window.C2C || {}, jQuery);
+})(jQuery);

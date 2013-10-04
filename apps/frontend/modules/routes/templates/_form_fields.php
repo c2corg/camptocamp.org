@@ -30,7 +30,7 @@ echo object_group_tag($document, 'name', array('prefix' => $prefix, 'class' => '
 echo form_section_title('Information', 'form_info', 'preview_info');
 
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
-                               array('multiple' => true, 'onchange' => 'C2C.hide_unrelated_fields()', 'na' => array(0, 8)),
+                               array('multiple' => true, 'na' => array(0, 8)),
                                true, null, null, '', '', 'picto_act act_');
 ?>
 <div id="data_fields">

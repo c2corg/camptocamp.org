@@ -41,7 +41,7 @@
     });
   }
 
-  C2C.switch_mw_contest_visibility = function() {
+  function switch_mw_contest_visibility() {
     var mw_contest = $('#mw_contest');
     var mw_contest_associate = $('#mw_contest_associate');
 
@@ -58,9 +58,9 @@
         }
       }
     }
-  };
+  }
 
-  C2C.switch_mw_contest_association = function() {
+  function switch_mw_contest_association() {
 
     mw_contest_associate = $('#mw_contest_associate');
 
@@ -73,10 +73,10 @@
         mw_de_associate();
       }
     }
-  };
+  }
 
   // hide some fields depending on selected activities
-  C2C.hide_outings_unrelated_fields = function() {
+  function hide_outings_unrelated_fields() {
     var show_flags = [
       'outings_glacier',
       'outings_snow_elevation',
@@ -115,9 +115,9 @@
     });
 
     $.each(show_flags, function(i, flag) {
-      $('#' + flag + '_fields').toggle(show[flag]);
+      $('#' + flag).toggle(show[flag]);
     });
-  };
+  }
 
   function disableForm(e) {
     e.stopPropagation();
@@ -201,9 +201,13 @@
   }
 
   // be sure to hide fields on startup if needed
-  $(C2C.hide_outings_unrelated_fields);
-  $(C2C.switch_mw_contest_visibility);
+  hide_outings_unrelated_fields();
+  switch_mw_contest_visibility();
 
+  // register events
+  $('#outing_with_public_transportation').on('change', switch_mw_contest_visibility);
+  $('#mw_contest_associate').on('change', switch_mw_contest_association);
+  $('#activities').on('change', hide_outings_unrelated_fields);
   $('#editform').submit(function(e) {
     check_outing_activities(e);
     check_outing_date(e);
