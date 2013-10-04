@@ -1083,18 +1083,19 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
     if ($format == 'html' || $format == 'table')
     {
         $act_filter_enable = is_array($avalaible_activities);
-        $groups = $ski1 = $ski2 = $main_climbing = $climbing1 = $climbing2 = array();
+        $groups = $ski1 = $ski2 = $climbing1 = $climbing2 = $climbing3 = $climbing4 = array();
 
         if ($topo_ski) $ski1[] = $topo_ski;
         if ($topo_exp) $ski1[] = $topo_exp;
         if ($labande_global) $ski2[] = $labande_global;
         if ($labande_ski) $ski2[] = $labande_ski;
-        if ($global) $main_climbing[] = $global;
-        if ($engagement) $main_climbing[] = $engagement;
-        if ($objective_risk) $climbing1[] = $objective_risk;
-        if ($equipment) $climbing1[] = $equipment;
-        if ($aid) $climbing2[] = $aid;
-        if ($rock_free_and_required) $climbing2[] = $rock_free_and_required;
+        if ($global) $climbing1[] = $global;
+        if ($engagement) $climbing2[] = $engagement;
+        if ($objective_risk) $climbing2[] = $objective_risk;
+        if ($equipment) $climbing3[] = $equipment;
+        if ($rock_exposition) $climbing3[] = $rock_exposition;
+        if ($aid) $climbing4[] = $aid;
+        if ($rock_free_and_required) $climbing4[] = $rock_free_and_required;
         if ($ice) $climbing2[] = $ice;
         if ($mixed) $climbing2[] = $mixed;
 
@@ -1113,9 +1114,10 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
             {
                 $groups[] = _activities_data($climbing_activities, '&nbsp;');
             }
-            $groups[] = implode('/', $main_climbing);
             $groups[] = implode('/', $climbing1);
             $groups[] = implode('/', $climbing2);
+            $groups[] = implode('/', $climbing3);
+            $groups[] = implode('/', $climbing4);
         }
         if ((!$act_filter_enable || array_intersect(array(6), $avalaible_activities)) && $hiking_activities = array_intersect(array(6), $activities))
         {

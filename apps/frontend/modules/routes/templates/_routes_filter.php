@@ -63,7 +63,7 @@ echo __('rock_required_rating') . ' ' . range_selector('rrat', 'app_routes_rock_
 <br />
 <?php
 echo __('aid_rating') . ' ' . range_selector('arat', 'app_routes_aid_ratings');
-echo __('rock_exposition_rating') . ' ' . range_selector('rexpo', 'mod_routes_rock_exposition_ratings_list');
+echo __('rock_exposition_rating') . ' ' . range_selector('rexpo', 'app_routes_rock_exposition_ratings');
 ?>
 </div>
 <div id="snow_ice_fields" style="display:none">

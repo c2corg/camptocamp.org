@@ -843,6 +843,7 @@ class Outing extends BaseOuting
                                         'ice_rating',
                                         'mixed_rating',
                                         'aid_rating',
+                                        'rock_exposition_rating',
                                         'equipment_rating');
         $route_hiking_fields = array ('hiking_rating');
         $route_snowshoeing_fields = array ('snowshoeing_rating');
