@@ -499,7 +499,6 @@ class routesActions extends documentsActions
         {
             return $this->ajax_feedback('Missing id parameter');
         }
-//TODO 
         $fields = array('activities', 'facing', 'height_diff_up', 'global_rating', 'engagement_rating', 'objective_risk_rating',
                         'toponeige_technical_rating', 'toponeige_exposition_rating', 'labande_ski_rating',
                         'labande_global_rating', 'rock_free_rating', 'ice_rating', 'mixed_rating', 
