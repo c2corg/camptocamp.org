@@ -19,36 +19,6 @@ class areasActions extends documentsActions
     protected $geom_dims = 2; 
 
     /**
-     * This function is used to get summit specific query paramaters. It is used
-     * from the generic action class (in the documents module).
-     */
-    protected function getQueryParams() {
-        $where_array  = array();
-        $where_params = array();
-        if ($this->hasRequestParameter('area_type'))
-        {
-            $area_types = $this->getRequestParameter('area_type');
-            $list = sfConfig::get('mod_areas_area_types_list');
-            $where = $this->getWhereClause(
-                $area_types, 'mod_areas_area_types_list', 'areas.area_type = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        $params = array(
-            'select' => array('areas.area_type'),
-            'where'  => array(
-                'where_array'  => $where_array,
-                'where_params' => $where_params
-            )
-        );
-        return $params; 
-    }
-   
-    /**
      * This function is used to get a DB query result formatted in HTML. It is used
      * from the generic action class (in the documents module)
      */
