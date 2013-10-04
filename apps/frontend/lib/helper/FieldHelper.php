@@ -987,6 +987,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         $show_activities,
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'engagement_rating', 'app_routes_engagement_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'objective_risk_rating', 'app_routes_objective_risk_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings', $format, $add_tooltips),
@@ -995,6 +996,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'rock_exposition_rating', 'app_routes_rock_exposition_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'equipment_rating', 'app_equipment_ratings_list', $format, $add_tooltips, true, 'P'),
         _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings', $format, $add_tooltips)
@@ -1075,25 +1077,28 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
     }
 }
 
-function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaible_activities = null, $show_activities = true, $global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
-                               $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing)
+function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaible_activities = null, $show_activities = true,
+             $global, $engagement, $objective_risk, $topo_ski, $topo_exp, $labande_ski, $labande_global,
+             $rock_free_and_required, $ice, $mixed, $aid, $rock_exposition, $equipment, $hiking, $snowshoeing)
 {
     if ($format == 'html' || $format == 'table')
     {
         $act_filter_enable = is_array($avalaible_activities);
-        $groups = $ski1 = $ski2 = $main_climbing = $climbing = array();
+        $groups = $ski1 = $ski2 = $climbing1 = $climbing2 = $climbing3 = $climbing4 = array();
 
         if ($topo_ski) $ski1[] = $topo_ski;
         if ($topo_exp) $ski1[] = $topo_exp;
         if ($labande_global) $ski2[] = $labande_global;
         if ($labande_ski) $ski2[] = $labande_ski;
-        if ($global) $main_climbing[] = $global;
-        if ($engagement) $main_climbing[] = $engagement;
-        if ($equipment) $main_climbing[] = $equipment;
-        if ($aid) $climbing[] = $aid;
-        if ($rock_free_and_required) $climbing[] = $rock_free_and_required;
-        if ($ice) $climbing[] = $ice;
-        if ($mixed) $climbing[] = $mixed;
+        if ($global) $climbing1[] = $global;
+        if ($engagement) $climbing2[] = $engagement;
+        if ($objective_risk) $climbing2[] = $objective_risk;
+        if ($equipment) $climbing3[] = $equipment;
+        if ($rock_exposition) $climbing3[] = $rock_exposition;
+        if ($aid) $climbing4[] = $aid;
+        if ($rock_free_and_required) $climbing4[] = $rock_free_and_required;
+        if ($ice) $climbing2[] = $ice;
+        if ($mixed) $climbing2[] = $mixed;
 
         if ((!$act_filter_enable || array_intersect(array(1), $avalaible_activities)) && $ski_activities = array_intersect(array(1), $activities))
         {
@@ -1110,8 +1115,10 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
             {
                 $groups[] = _activities_data($climbing_activities, '&nbsp;');
             }
-            $groups[] = implode('/', $main_climbing);
-            $groups[] = implode('/', $climbing);
+            $groups[] = implode('/', $climbing1);
+            $groups[] = implode('/', $climbing2);
+            $groups[] = implode('/', $climbing3);
+            $groups[] = implode('/', $climbing4);
         }
         if ((!$act_filter_enable || array_intersect(array(6), $avalaible_activities)) && $hiking_activities = array_intersect(array(6), $activities))
         {
@@ -1142,7 +1149,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
     }
     elseif ($format == 'json')
     {
-        return array_merge($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
+        return array_merge($global, $engagement, $objective_risk, $topo_ski, $topo_exp, $labande_ski, $labande_global,
                            $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing);
     }
 }

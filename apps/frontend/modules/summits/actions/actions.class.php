@@ -46,7 +46,8 @@ class summitsActions extends documentsActions
             $summit_ids = array();
             if (count($main_associated_summits))
             {
-                $associated_summits = Association::createHierarchyWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id, true);
+                $associated_summits = Association::createHierarchyWithBestName($main_associated_summits, $prefered_cultures,
+                    array('type' => 'ss', 'current_doc_id' => $current_doc_id, 'keep_current_doc' => true));
 
                 // simply go through the list and get the next items that have a bigger level
                 $i = reset($associated_summits);
@@ -210,39 +211,6 @@ class summitsActions extends documentsActions
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
     }
 
-    /**
-     * This function is used to get summit specific query paramaters. It is used
-     * from the generic action class (in the documents module).
-     */
-    protected function getQueryParams() {
-        $where_array  = array();
-        $where_params = array();
-        if ($this->hasRequestParameter('min_elevation'))
-        {
-            $min_elevation = $this->getRequestParameter('min_elevation');
-            if (!empty($min_elevation)) {
-                $where_array[]  = 'summits.elevation >= ?';
-                $where_params[] = $min_elevation;
-            }
-        }
-        if ($this->hasRequestParameter('max_elevation'))
-        {
-            $max_elevation = $this->getRequestParameter('max_elevation');
-            if (!empty($max_elevation)) {
-                $where_array[]  = 'summits.elevation <= ?';
-                $where_params[] = $max_elevation;
-            }
-        }
-        $params = array(
-            'select' => array('summits.elevation'),
-            'where'  => array(
-                'where_array'  => $where_array,
-                'where_params' => $where_params
-            )
-        );
-        return $params; 
-    }
-   
     /**
      * This function is used to get a DB query result formatted in HTML. It is used
      * from the generic action class (in the documents module)

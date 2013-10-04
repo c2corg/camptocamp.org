@@ -456,8 +456,14 @@ class Association extends BaseAssociation
     
     // Search the list of linked docs to documents
     // Return a flat and ordered list with all docs with hierarchical information
-    public static function createHierarchyWithBestName($docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $keep_current_doc = false, $sort_field = null, $show_sub_docs = true)
+    public static function createHierarchyWithBestName($docs, $user_prefered_langs, $options = array())
     {
+        $type = _option($options, 'type');
+        $current_doc_id = _option($options, 'current_doc_id', 0);
+        $keep_current_doc = _option($options, 'keep_current_doc', false);
+        $sort_field = _option($options, 'sort_field');
+        $show_sub_docs = _option($options, 'show_sub_docs', true);
+
         if (!count($docs))
         {
             return $docs;
@@ -469,9 +475,11 @@ class Association extends BaseAssociation
             $parent_ids[] = $doc['id'];
         }
 
-        $linked_docs = self::findLinkedDocsWithBestName($parent_ids, $user_prefered_langs, $type, true, true, ($keep_current_doc ? null : $current_doc_id));
+        $linked_docs = self::findLinkedDocsWithBestName($parent_ids, $user_prefered_langs, $type, true, true,
+            ($keep_current_doc ? null : $current_doc_id));
 
-        return self::createHierarchy($docs, $linked_docs, $type, $sort_field, $show_sub_docs, $current_doc_id);
+        return self::createHierarchy($docs, $linked_docs, array('type' => $type, 'sort_field' => $sort_field,
+            'show_sub_docs' => $show_sub_docs, 'current_doc_id' => $current_doc_id));
     }
 
     // Given a list of documents and a list of linked docs, along with parent-child relations,
@@ -484,8 +492,13 @@ class Association extends BaseAssociation
     // docF - level 3, child of docE
     //
     // No DB request is done
-    public static function createHierarchy($docs, $linked_docs, $type = null, $sort_field = null, $show_sub_docs = true, $current_doc_id = 0)
+    public static function createHierarchy($docs, $linked_docs, $options = array())
     {
+        $type = _option($options, 'type');
+        $sort_field =  _option($options, 'sort_field');
+        $show_sub_docs =  _option($options, 'show_sub_docs', true);
+        $current_doc_id =  _option($options, 'current_doc_id', 0);
+
         if (!count($docs))
         {
             return $docs;
@@ -592,6 +605,29 @@ class Association extends BaseAssociation
                     $sub_docs = c2cTools::sortArray($sub_docs, $sort_field, null, $order);
                     array_splice($output, $pos + $offset, 0, $sub_docs);
                     $offset = $offset + count($sub_docs);
+                }
+            }
+        }
+
+        if (!$show_sub_docs)
+        {
+            // we don't want to display extra docs that are not parent from directly linked docs
+            // as this would be useless information in some cases (for example, if I have a route linked to zermatt
+            // I don't want to have the sub-parkings of zermatt listed in the route document)
+
+            // we simply go from deepest level and remove leaves which are not dorectly linked
+            for ($level = 3; $level > 0; $level--)
+            {
+                $temp = null;
+                foreach (array_reverse($output, true) as $key => $doc)
+                {
+                    if ($doc['level'] === $level &&
+                        !isset($doc['directly_linked']) &&
+                        (!isset($temp) || $temp['level'] <= $level))
+                    {
+                      unset($output[$key]);
+                    }
+                    $temp = $doc;
                 }
             }
         }

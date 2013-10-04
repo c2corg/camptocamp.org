@@ -76,8 +76,9 @@ class routesActions extends documentsActions
 
             if (count($main_associated_summits))
             {
-                $associated_summits = Association::createHierarchy($main_associated_summits, array_filter($associated_childs,
-                    array('c2cTools', 'is_summit')), 'ss', null, false);
+                $associated_summits = Association::createHierarchy($main_associated_summits,
+                    array_filter($associated_childs, array('c2cTools', 'is_summit')),
+                    array('type' => 'ss', 'show_sub_docs' => false));
             }
             else
             {
@@ -153,7 +154,9 @@ class routesActions extends documentsActions
             
             if (count($associated_parkings))
             {
-                $associated_parkings = Association::createHierarchy($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                $associated_parkings = Association::createHierarchy($associated_parkings,
+                    array_filter($associated_childs, array('c2cTools', 'is_parking')),
+                    array('type' => 'pp', 'show_sub_docs' => false));
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;
@@ -470,360 +473,6 @@ class routesActions extends documentsActions
     }
 
     /**
-     * This function is used to get summit specific query paramaters. It is used
-     * from the generic action class (in the documents module).
-     */
-    protected function getQueryParams() {
-        $where_array  = array();
-        $where_params = array();
-        if ($this->hasRequestParameter('min_min_elevation'))
-        {
-            $min_min_elevation = $this->getRequestParameter('min_min_elevation');
-            if (!empty($min_min_elevation)) {
-                $where_array[]  = 'routes.min_elevation >= ?';
-                $where_params[] = $min_min_elevation;
-            }
-        }
-        if ($this->hasRequestParameter('max_min_elevation'))
-        {
-            $max_min_elevation = $this->getRequestParameter('max_min_elevation');
-            if (!empty($max_min_elevation)) {
-                $where_array[]  = 'routes.min_elevation <= ?';
-                $where_params[] = $max_min_elevation;
-            }
-        }
-        if ($this->hasRequestParameter('min_max_elevation'))
-        {
-            $min_max_elevation = $this->getRequestParameter('min_max_elevation');
-            if (!empty($min_max_elevation)) {
-                $where_array[]  = 'routes.max_elevation >= ?';
-                $where_params[] = $min_max_elevation;
-            }
-        }
-        if ($this->hasRequestParameter('max_max_elevation'))
-        {
-            $max_max_elevation = $this->getRequestParameter('max_max_elevation');
-            if (!empty($max_max_elevation)) {
-                $where_array[]  = 'routes.max_elevation <= ?';
-                $where_params[] = $max_max_elevation;
-            }
-        }
-        if ($this->hasRequestParameter('min_height_diff_up'))
-        {
-            $min_height_diff_up = $this->getRequestParameter('min_height_diff_up');
-            if (!empty($min_height_diff_up)) {
-                $where_array[]  = 'routes.height_diff_up >= ?';
-                $where_params[] = $min_height_diff_up;
-            }
-        }
-        if ($this->hasRequestParameter('max_height_diff_up'))
-        {
-            $max_height_diff_up = $this->getRequestParameter('max_height_diff_up');
-            if (!empty($max_height_diff_up)) {
-                $where_array[]  = 'routes.height_diff_up <= ?';
-                $where_params[] = $max_height_diff_up;
-            }
-        }
-        if ($this->hasRequestParameter('min_duration'))
-        {
-            $min_duration = $this->getRequestParameter('min_duration');
-            if (!empty($min_duration)) {
-                $where_array[]  = 'routes.duration >= ?';
-                $where_params[] = $min_duration;
-            }
-        }
-        if ($this->hasRequestParameter('max_duration'))
-        {
-            $max_duration = $this->getRequestParameter('max_duration');
-            if (!empty($max_duration)) {
-                $where_array[]  = 'routes.duration <= ?';
-                $where_params[] = $max_duration;
-            }
-        }
-        if ($this->hasRequestParameter('activities'))
-        {
-            $activities = $this->getRequestParameter('activities');
-            $where = $this->getWhereClause(
-                $activities, 'app_activities_list', '? = ANY (routes.activities)');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('global_rating'))
-        {
-            $global_ratings = $this->getRequestParameter('global_rating');
-            $where = $this->getWhereClause(
-                $global_ratings, 'mod_routes_global_ratings_list', 'routes.global_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('route_type'))
-        {
-            $route_types = $this->getRequestParameter('route_type');
-            $where = $this->getWhereClause(
-                $route_types, 'mod_routes_route_types_list', 'routes.route_type = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('min_height_diff_down'))
-        {
-            $min_height_diff_down = $this->getRequestParameter('min_height_diff_down');
-            if (!empty($min_height_diff_down)) {
-                $where_array[]  = 'routes.height_diff_down >= ?';
-                $where_params[] = $min_height_diff_down;
-            }
-        }
-        if ($this->hasRequestParameter('max_height_diff_down'))
-        {
-            $max_height_diff_down = $this->getRequestParameter('max_height_diff_down');
-            if (!empty($max_height_diff_down)) {
-                $where_array[]  = 'routes.height_diff_down <= ?';
-                $where_params[] = $max_height_diff_down;
-            }
-        }
-        if ($this->hasRequestParameter('min_route_length'))
-        {
-            $min_route_length = $this->getRequestParameter('min_route_length');
-            if (!empty($min_route_length)) {
-                $where_array[]  = 'routes.route_length >= ?';
-                $where_params[] = $min_route_length;
-            }
-        }
-        if ($this->hasRequestParameter('max_route_length'))
-        {
-            $max_route_length = $this->getRequestParameter('max_route_length');
-            if (!empty($max_route_length)) {
-                $where_array[]  = 'routes.route_length <= ?';
-                $where_params[] = $max_route_length;
-            }
-        }
-        if ($this->hasRequestParameter('min_difficulties_height'))
-        {
-            $min_difficulties_height = $this->getRequestParameter('min_difficulties_height');
-            if (!empty($min_difficulties_height)) {
-                $where_array[]  = 'routes.difficulties_height >= ?';
-                $where_params[] = $min_difficulties_height;
-            }
-        }
-        if ($this->hasRequestParameter('max_difficulties_height'))
-        {
-            $max_difficulties_height = $this->getRequestParameter('max_difficulties_height');
-            if (!empty($max_difficulties_height)) {
-                $where_array[]  = 'routes.difficulties_height <= ?';
-                $where_params[] = $max_difficulties_height;
-            }
-        }
-        if ($this->hasRequestParameter('is_on_glacier'))
-        {
-            $is_on_glacier = $this->getRequestParameter('is_on_glacier');
-            if (!empty($is_on_glacier)) {
-                $falsetrue = $is_on_glacier == 0 ? 'false' : 'true';
-                $where_array[]  = 'routes.is_on_glacier = ' . $falsetrue;
-            }
-        }
-        if ($this->hasRequestParameter('facing'))
-        {
-            $facings = $this->getRequestParameter('facing');
-            $where = $this->getWhereClause(
-                $facings, 'mod_routes_facings_list', 'routes.facing = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('configuration'))
-        {
-            $configurations = $this->getRequestParameter('configuration');
-            $where = $this->getWhereClause(
-                $configurations, 'mod_routes_configurations_list', '? = ANY (routes.configuration)');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('engagement_rating'))
-        {
-            $engagement_ratings = $this->getRequestParameter('engagement_rating');
-            $where = $this->getWhereClause(
-                $engagement_ratings, 'mod_routes_engagement_ratings_list', 'routes.engagement_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('equipment_rating'))
-        {
-            $equipment_ratings = $this->getRequestParameter('equipment_rating');
-            $where = $this->getWhereClause(
-                $equipment_ratings, 'app_equipment_ratings_list', 'routes.equipment_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('sub_activities'))
-        {
-            $sub_activities = $this->getRequestParameter('sub_activities');
-            $where = $this->getWhereClause(
-                $activities, 'mod_routes_sub_activities_list', '? = ANY (routes.sub_activities)');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('toponeige_exposition_rating'))
-        {
-            $toponeige_exposition_ratings = $this->getRequestParameter('toponeige_exposition_rating');
-            $where = $this->getWhereClause(
-                $toponeige_exposition_ratings, 'mod_routes_toponeige_exposition_ratings_list', 'routes.toponeige_exposition_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('labande_ski_rating'))
-        {
-            $labande_ski_ratings = $this->getRequestParameter('labande_ski_rating');
-            $where = $this->getWhereClause(
-                $labande_ski_ratings, 'mod_routes_labande_ski_ratings_list', 'routes.labande_ski_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('ice_rating'))
-        {
-            $ice_ratings = $this->getRequestParameter('ice_rating');
-            $where = $this->getWhereClause(
-                $ice_ratings, 'mod_routes_ice_ratings_list', 'routes.ice_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('mixed_rating'))
-        {
-            $mixed_ratings = $this->getRequestParameter('mixed_rating');
-            $where = $this->getWhereClause(
-                $mixed_ratings, 'mod_routes_mixed_ratings_list', 'routes.mixed_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('rock_free_rating'))
-        {
-            $rock_free_ratings = $this->getRequestParameter('rock_free_rating');
-            $where = $this->getWhereClause(
-                $rock_free_ratings, 'mod_routes_rock_free_ratings_list', 'routes.rock_free_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('aid_rating'))
-        {
-            $aid_ratings = $this->getRequestParameter('aid_rating');
-            $where = $this->getWhereClause(
-                $aid_ratings, 'mod_routes_aid_ratings_list', 'routes.aid_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('hiking_rating'))
-        {
-            $hiking_ratings = $this->getRequestParameter('hiking_rating');
-            $where = $this->getWhereClause(
-                $hiking_ratings, 'mod_routes_hiking_ratings_list', 'routes.hiking_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('snowshoeing_rating'))
-        {
-            $snowshoeing_ratings = $this->getRequestParameter('snowshoeing_rating');
-            $where = $this->getWhereClause(
-                $snowshoeing_ratings, 'mod_routes_snowshoeing_ratings_list', 'routes.snowshoeing_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        $params = array(
-            'select' => array(
-                'routes.min_elevation',
-                'routes.max_elevation',
-                'routes.height_diff_up',
-                'routes.duration',
-                'routes.activities',
-                'routes.global_rating',
-                'routes.route_type',
-                'routes.height_diff_down',
-                'routes.route_length',
-                'routes.difficulties_height',
-                'routes.is_on_glacier',
-                'routes.facing',
-                'routes.configuration',
-                'routes.engagement_rating',
-                'routes.equipment_rating',
-                'routes.sub_activities',
-                'routes.toponeige_exposition_rating',
-                'routes.labande_ski_rating',
-                'routes.ice_rating',
-                'routes.mixed_rating',
-                'routes.rock_free_rating',
-                'routes.aid_rating',
-                'routes.hiking_rating',
-                'routes.snowshoeing_rating'
-            ),
-            'where'  => array(
-                'where_array'  => $where_array,
-                'where_params' => $where_params
-            )
-        );
-        return $params; 
-    }
-
-    /**
      * This function is used to get a DB query result formatted in HTML. It is used
      * from the generic action class (in the documents module)
      */
@@ -850,11 +499,10 @@ class routesActions extends documentsActions
         {
             return $this->ajax_feedback('Missing id parameter');
         }
-    
-        $fields = array('activities', 'facing', 'height_diff_up', 'global_rating', 'engagement_rating',
+        $fields = array('activities', 'facing', 'height_diff_up', 'global_rating', 'engagement_rating', 'objective_risk_rating',
                         'toponeige_technical_rating', 'toponeige_exposition_rating', 'labande_ski_rating',
                         'labande_global_rating', 'rock_free_rating', 'ice_rating', 'mixed_rating', 
-                        'aid_rating', 'hiking_rating', 'snowshoeing_rating');
+                        'aid_rating', 'rock_exposition_rating', 'hiking_rating', 'snowshoeing_rating');
          
         $this->data = Document::find('Route', $id, $fields);
         if (!$this->data)
@@ -968,17 +616,19 @@ class routesActions extends documentsActions
         $this->addListParam($out, 'rtyp');
         $this->addCompareParam($out, 'time');
         $this->addCompareParam($out, 'trat');
-        $this->addCompareParam($out, 'expo');
+        $this->addCompareParam($out, 'sexpo');
         $this->addCompareParam($out, 'lrat');
         $this->addCompareParam($out, 'srat');
         $this->addCompareParam($out, 'grat');
         $this->addCompareParam($out, 'erat');
+        $this->addCompareParam($out, 'orrat');
         $this->addCompareParam($out, 'prat');
         $this->addCompareParam($out, 'irat');
         $this->addCompareParam($out, 'mrat');
         $this->addCompareParam($out, 'frat');
         $this->addCompareParam($out, 'rrat');
         $this->addCompareParam($out, 'arat');
+        $this->addCompareParam($out, 'rexpo');
         $this->addCompareParam($out, 'hrat');
         $this->addCompareParam($out, 'wrat');
         $this->addCompareParam($out, 'rlen');

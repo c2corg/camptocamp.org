@@ -3022,7 +3022,9 @@ msgstr "<h3>Type d'ouvrage</h3>Type du livre.<br />Plusieurs types peuvent être
 
 # [WARNING] needs_review
 msgid "_cable_car_access_info"
-msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique."
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/238570/fr#cablecar\">accès de type 'remontée mécanique'</a>."
 
 msgid "_camera_name_info"
 msgstr "<h3>Appareil photo</h3>Marque et modèle de l'appareil photo.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
@@ -3149,7 +3151,11 @@ msgstr "<h3>Engagement</h3>\n"
 "<br />\n"
 "<strong>V</strong>&nbsp;: L'itinéraire est très long et demande entre 12 et 24h d'effort. L'accès est difficile. La retraite est délicate dès l'attaque de la voie. Rapidement il n'est plus possible de faire demi-tour. Les échappatoires sont rares et délicats. En cas de mauvais temps ou de problème, les alpinistes doivent compter sur eux-même.<br />\n"
 "<br />\n"
-"<strong>VI</strong>&nbsp;: L'itinéraire est long et peut demander plusieurs jours. L'approche est aussi longue et délicate, l'itinéraire est totalement isolé. Une fois engagé, il n'est plus possible de faire demi-tour et les échappatoires sont des courses en soi. Une totale autonomie de la cordée est requise dans la difficulté."
+"<strong>VI</strong>&nbsp;: L'itinéraire est long et peut demander plusieurs jours. L'approche est aussi longue et délicate, l'itinéraire est totalement isolé. Une fois engagé, il n'est plus possible de faire demi-tour et les échappatoires sont des courses en soi. Une totale autonomie de la cordée est requise dans la difficulté.<br />\n"
+"<br />\n"
+"Voir aussi l'aide&nbsp;:<br />\n"
+"- <a href=\"/articles/133323/fr#engagement\">Cotation engagement en rocher</a><br />\n"
+"- <a href=\"/articles/106871/fr#engagement\">Cotation engagement en alpinisme neige, glace et mixte</a>"
 
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualité de l'équipement en place</h3>\n"
@@ -3296,8 +3302,8 @@ msgstr "<h3>Cotation glace</h3>\n"
 "<strong>6+</strong>&nbsp;: Escalade totalement verticale et pouvant présenter des petits surplombs, par exemple pour passer d’un rideau à un autre.<br /><br /><strong>7-7+</strong>&nbsp;: Escalade extrême. Très raide, elle peut être surplombante sur plusieurs mètres. La technique (gestuelle, notamment) utilisée par l’alpiniste s’apparente alors à celle d’un grimpeur en rocher.<br />\n"
 "<br />\n"
 "Voir aussi l'aide&nbsp;:<br />\n"
-"- <a href=\"/articles/146949/fr#cotation-technique-glace\">Cotation technique glace en cascade</a><br />\n"
-"- <a href=\"/articles/106871/fr#difficultes-en-glace\">Cotation technique glace en alpinisme neige, glace et mixte</a>"
+"- <a href=\"/articles/146949/fr#ice\">Cotation technique glace en cascade</a><br />\n"
+"- <a href=\"/articles/106871/fr#ice\">Cotation technique glace en alpinisme neige, glace et mixte</a>"
 
 msgid "_image_categories_info"
 msgstr "<h3>Catégories d'une image</h3>\n"
@@ -3468,6 +3474,23 @@ msgstr "Pour confirmation, saisissez votre nouveau mot de passe."
 msgid "_nick_name_info"
 msgstr "<h3>Pseudo forum</h3>Nom apparaissant dans la partie forum du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
 
+msgid "_objective_risk_rating_info"
+msgstr "<h3>Risques objectifs</h3>\n"
+"Les risques pris en compte sont les avalanches naturelles de neige, les chutes de sérac, les chutes naturelles de pierre, les chutes naturelles de stalactite et la fragilité du support. Les risques liés directement à l'action humaine ne sont pris en compte hormis l’effondrement de la structure provenant de la fragilité du support déclenché par le pratiquant lui même. Les avalanches, chutes de pierre et de stalactites déclenchés par le pratiquant ou une autre cordée ne sont pas pris en compte.\n"
+"La partie technique, l'approche et le retour sont pris en compte dans l'échelle des risques objectifs. <br />\n"
+"<br />\n"
+"<strong>X1</strong>&nbsp;: Risques objectifs faibles. <a href=\"/summits/256956/fr\">Villard Reymond - 3 cigares</a><br />\n"
+"<br />\n"
+"<strong>X2</strong>&nbsp;: Risques objectifs modérés. <a href=\"/routes/54271/fr\">Colère du Ciel</a><br />\n"
+"<br />\n"
+"<strong>X3</strong>&nbsp;: Risques objectifs marqués. <a href=\"/routes/56412/fr\">Délire du Chacal</a>, <a href=\"routes/55560/fr\">Caturgeas</a><br />\n"
+"<br />\n"
+"<strong>X4</strong>&nbsp;: Risques objectifs sévères. Chute de Sérac : Anecdotique, couloir en S.<br />\n"
+"<br />\n"
+"<strong>X5</strong>&nbsp;: Risques objectifs très sévères. La même chose que X4 en pire.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur la <a href=\"/articles/146949/fr#objective-danger\">cotation des risques objectifs</a>."
+
 msgid "_outing_length_info"
 msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire emprunté au cours de la sortie.<br />Si une trace GPX est associée à la sortie, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
@@ -3529,6 +3552,24 @@ msgstr "<h3>Informations sur les modifications</h3>Indiquez brièvement dans ce 
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Modification mineure</h3>Cochez cette case si les modifications apportées au document ne sont pas importantes&nbsp;:<br /><br /><strong>texte</strong>&nbsp;: correction de l'orthographe ou de la mise en forme<br /><br /><strong>altitude et dénivelé</strong>&nbsp;: modifications &lt; 50m<br /><br /><strong>cotation</strong>&nbsp;: modification d'une division (AD à AD+, 3.3 à 3.2)<br /><br /><strong>description d'itinéraire ou de lieu</strong>&nbsp;: petite remarque, reformulation d'une phrase, mais les ajouts de variantes ou les réécritures complètes ne sont pas des modifications mineures."
+
+msgid "_rock_exposition_rating_info"
+msgstr "<h3>Exposition en rocher</h3>\n"
+"La cotation Exposition E pour les itinéraires d'escalade rocheuse est basée sur les conséquences de la chute.  Le grimpeur ne se blesse pas dans les 3 premiers niveaux (E1, E2, E3). La progression dans la cotation correspond à l'augmentation de la longueur de chute potentielle (ou la distance entre les protections). Pour les niveaux plus élevés (E4, E5, E6) la chute entrainera des blessures. Le cotation correspond à la sévérité des conséquences de la chute depuis la fracture de cheville jusqu'à la mort. <br />\n"
+"<br />\n"
+"<strong>E1</strong>&nbsp;: Surprotégé avec des points à demeure ou des bonnes protections amovibles tous les mètres depuis le sol. Pas de mouvement obligatoire.<br />\n"
+"<br />\n"
+"<strong>E2</strong>&nbsp;: Bien protégé avec des points à demeure ou des bonnes protections amovibles depuis le sol.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<br />\n"
+"<strong>E3</strong>&nbsp;: La chute va être longue mais sans conséquences physiques. Les points à demeure ou protections amovibles sont espacés.<br />\n"
+"<br />\n"
+"<strong>E4</strong>&nbsp;: La chute n'est pas bénigne. Elle entraîne un accident mineur même si les points à demeure ou protections amovibles ne sont pas trop espacés.<br />\n"
+"<br />\n"
+"<strong>E5</strong>&nbsp;: La chute est dangereuse. Elle entraînerait un accident grave. E5 correspond a des points à demeure très espacés, des protections amovibles suffisamment mauvaises ou un petit retour au sol/vire.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<br />\n"
+"<strong>E6</strong>&nbsp;: La même chose que E5 mais considérez que vous avez eu de la chance si vous tombez sans mourir dans un E6 même en ayant protégé.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur la <a href=\"/articles/133323/fr#exposition\">cotation exposition en rocher</a>. "
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Cotation libre</h3>\n"
@@ -3685,7 +3726,7 @@ msgid "_topoguide_code_info"
 msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />Par défaut, l'image est affichée à droite, avec la légende en dessous, dans un cadre. Les attributs dans la balise ouvrante permettent de modifier la présentation&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br />- <strong>no_border</strong>&nbsp;: image avec légende en dessous, sans cadre<br />- <strong>no_legend</strong>&nbsp;: image avec légende en info-bulle, sans cadre<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Exposition</h3>Cotation de l'exposition de descente à ski (toponeige).<br />L'exposition décrit le risque de blessure en cas de chute, autre que la pente elle même&nbsp;: une faible exposition mais une forte pente ne garantit pas une chute sans conséquence.<br /><br /><strong>E1</strong>&nbsp;: L’exposition est celle de la pente elle-même. Le risque de blessure est cependant important sur neige dure et/ou pente forte.<br /><br /><strong>E2</strong>&nbsp;: A l'exposition de la pente s'ajoute des obstacles aggravant les blessures : petite barre rocheuse sans risque de percussion, couloir en \"S\".<br /><br /><strong>E3</strong>&nbsp;: En cas de chute, saut d'une grosse barre rocheuse ou couloir tortueux, risque probable de percussion. Mort probable.<br /><br /><strong>E4</strong>&nbsp;: En cas de chute, saut d'une haute paroi ou couloir très étroit, percussion garantie. Mort certaine.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski et surf</a>."
+msgstr "<h3>Exposition ski</h3>Cotation de l'exposition de descente à ski (toponeige).<br />L'exposition décrit le risque de blessure en cas de chute, autre que la pente elle même&nbsp;: une faible exposition mais une forte pente ne garantit pas une chute sans conséquence.<br /><br /><strong>E1</strong>&nbsp;: L’exposition est celle de la pente elle-même. Le risque de blessure est cependant important sur neige dure et/ou pente forte.<br /><br /><strong>E2</strong>&nbsp;: A l'exposition de la pente s'ajoute des obstacles aggravant les blessures : petite barre rocheuse sans risque de percussion, couloir en \"S\".<br /><br /><strong>E3</strong>&nbsp;: En cas de chute, saut d'une grosse barre rocheuse ou couloir tortueux, risque probable de percussion. Mort probable.<br /><br /><strong>E4</strong>&nbsp;: En cas de chute, saut d'une haute paroi ou couloir très étroit, percussion garantie. Mort certaine.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski et surf</a>."
 
 msgid "_toponeige_technical_rating_info"
 msgstr "<h3>Cotation technique</h3>Cotation des difficultés techniques de descente à ski (toponeige).<br />Ce n'est pas une cotation ponctuelle&nbsp;: elle dépend de la longueur et de la configuration des difficultés.<br />Elle comprend 5 degrés. Chaque degré est divisé en 3&nbsp;: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Le 5ème degré est ouvert sur le haut&nbsp;: 5.4, 5.5, 5.6...<br /><br /><strong>1.x</strong>&nbsp;: Niveau initiation. Les pentes n’excèdent pas 30°. Les passages ne sont pas trop étroits. Le dénivelé est inférieur à 800m.<br /><br /><strong>2.x</strong>&nbsp;: Peu de difficultés techniques. Les pentes n’excèdent pas 35°.<br /><br /><strong>3.x</strong>&nbsp;: Présence de passages techniques. Pentes longues à 35°, quelques passages très courts jusqu’à 40-45°.<br /><br /><strong>4.x</strong>&nbsp;: Ski de couloir ou pente raide. Pentes à 40 ou 45° sur plus de 200m.<br /><br /><strong>5.x</strong>&nbsp;: Pente à 45°/50° sur plus de 300m ou de plus de 50° sur 100m.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski et surf</a>."
@@ -5908,6 +5949,9 @@ msgstr "information non disponible"
 msgid "novel"
 msgstr "récit"
 
+msgid "objective_risk_rating"
+msgstr "Risques objectifs&nbsp;:"
+
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
@@ -6547,6 +6591,15 @@ msgid "rock_climbing (single-pitch)"
 msgstr "escalade (couenne)"
 
 # [general comment]
+# exposition rocher
+# 
+# Faut-il préciser "rocher" dans les trads ?
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# [WARNING] needs_review
+msgid "rock_exposition_rating"
+msgstr "Exposition (rocher)&nbsp;:"
+
+# [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
@@ -7061,8 +7114,10 @@ msgstr "Code d'insertion dans le topoguide&nbsp;:"
 msgid "topoguidename"
 msgstr "Nom topoguide"
 
+# [general comment]
+# exposition ski
 msgid "toponeige_exposition_rating"
-msgstr "Exposition&nbsp;:"
+msgstr "Exposition ski&nbsp;:"
 
 msgid "toponeige_technical_rating"
 msgstr "Cotation technique&nbsp;:"

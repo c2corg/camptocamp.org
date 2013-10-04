@@ -35,7 +35,6 @@ if ($has_associated_docs)
     }
     $is_first = true;
     $reduce_name = (isset($reduce_name) && $reduce_name);
-    $is_extra = (isset($is_extra) && $is_extra);
     $has_route_list_link = (isset($route_list_module) && !empty($route_list_ids) && !c2cTools::mobileVersion());
 
     if ($has_route_list_link)
@@ -61,7 +60,7 @@ if ($has_associated_docs)
 
         // unless required by the template, extra docs are the ones that are not directly linked to the
         // document, but shown as sub or super doc in a hierarchy
-        if ((isset($doc['parent_relation']) && !isset($doc['directly_linked']) && !$is_doc) || (isset($is_extra) && $is_extra))
+        if (!isset($doc['directly_linked']) && !$is_doc)
         {
             $class .= ' extra';
         }
@@ -82,6 +81,7 @@ if ($has_associated_docs)
         
         if ($module != 'users')
         {
+            // name hierarchical display
             $name = $doc['name'];
             if ($level > 1 || $reduce_name)
             {

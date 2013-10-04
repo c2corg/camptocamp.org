@@ -92,11 +92,18 @@ echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_rat
 ?>
 </div>
 
+<div id="snow_mountain_ice_fields">
+<?php
+echo object_group_dropdown_tag($document, 'objective_risk_rating', 'app_routes_objective_risk_ratings');
+?>
+</div>
+
 <div id="rock_mountain_fields">
 <?php
 echo object_group_dropdown_tag($document, 'rock_free_rating', 'app_routes_rock_free_ratings');
 echo object_group_dropdown_tag($document, 'rock_required_rating', 'app_routes_rock_free_ratings');
 echo object_group_dropdown_tag($document, 'aid_rating', 'app_routes_aid_ratings');
+echo object_group_dropdown_tag($document, 'rock_exposition_rating', 'app_routes_rock_exposition_ratings');
 ?>
 </div>
 

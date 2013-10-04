@@ -75,12 +75,14 @@ C2C.hide_unrelated_filter_fields = function(current_activity)
         'ski_snow_mountain_rock_ice',
         'snow_ice',
         'snow_mountain_rock_ice',
+        'snow_mountain_ice',
         'rock_mountain',
         'hiking',
         'snowshoeing'
     ];
     var show_ski, show_ski_snow_mountain, show_ski_snow_mountain_rock, show_ski_snow_mountain_rock_ice,
-        show_snow_ice, show_snow_mountain_rock_ice, show_rock_mountain, show_hiking, show_snowshoeing;
+        show_snow_ice, show_snow_mountain_rock_ice, show_snow_mountain_ice, show_rock_mountain,
+        show_hiking, show_snowshoeing;
 
     show_flags.each(function(flag)
     {
@@ -106,6 +108,7 @@ C2C.hide_unrelated_filter_fields = function(current_activity)
                 show_snow = true;
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
+                show_snow_mountain_ice = true;
                 break;
 
             case 3: // mountain_climbing
@@ -113,6 +116,7 @@ C2C.hide_unrelated_filter_fields = function(current_activity)
                 show_ski_snow_mountain_rock = true;
                 show_ski_snow_mountain_rock_ice = true;
                 show_snow_mountain_rock_ice = true;
+                show_snow_mountain_ice = true;
                 show_rock_mountain = true;
                 break;
 
@@ -127,6 +131,7 @@ C2C.hide_unrelated_filter_fields = function(current_activity)
                 show_ski_snow_mountain_rock_ice = true;
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
+                show_snow_mountain_ice = true;
                 break;
 
             case 6: // hiking

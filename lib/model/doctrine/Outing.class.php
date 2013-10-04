@@ -332,7 +332,7 @@ class Outing extends BaseOuting
         self::buildOrderCondition($joins_order, $orderby_list, array('lat', 'lon'), array('summit', 'join_summit'));
             
         //FIXME : Don't work : $outings_sort_route_criteria = sfConfig::get('app_outings_sort_route_criteria');
-        $outings_sort_route_criteria = array('fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat');
+        $outings_sort_route_criteria = array('fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'sexpo', 'lrat', 'srat', 'hrat', 'wrat');
         self::buildOrderCondition($joins_order, $orderby_list, $outings_sort_route_criteria, array('route', 'join_route'));
         
         // area criteria
@@ -583,7 +583,7 @@ class Outing extends BaseOuting
             case 'irat': return 'r.ice_rating';
             case 'mrat': return 'r.mixed_rating';
             case 'trat': return 'r.toponeige_technical_rating';
-            case 'expo': return 'r.toponeige_exposition_rating';
+            case 'sexpo': return 'r.toponeige_exposition_rating';
             case 'lrat': return 'r.labande_global_rating';
             case 'srat': return 'r.labande_ski_rating';
             case 'hrat': return 'r.hiking_rating';
@@ -634,7 +634,7 @@ class Outing extends BaseOuting
             $orderby = $sort['orderby_params'];
             
             //FIXME : Don't work : $outings_sort_route_criteria = sfConfig::get('app_outings_sort_route_criteria');
-            $outings_sort_route_criteria = array('fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat');
+            $outings_sort_route_criteria = array('fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'sexpo', 'lrat', 'srat', 'hrat', 'wrat');
             
             if (array_intersect($orderby, $outings_sort_route_criteria))
             {
@@ -837,11 +837,13 @@ class Outing extends BaseOuting
                                    'labande_global_rating');
         $route_climbing_fields = array ('global_rating',
                                         'engagement_rating',
+                                        'objective_risk_rating',
                                         'rock_free_rating',
                                         'rock_required_rating',
                                         'ice_rating',
                                         'mixed_rating',
                                         'aid_rating',
+                                        'rock_exposition_rating',
                                         'equipment_rating');
         $route_hiking_fields = array ('hiking_rating');
         $route_snowshoeing_fields = array ('snowshoeing_rating');

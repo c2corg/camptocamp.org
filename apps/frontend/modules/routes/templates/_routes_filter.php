@@ -49,6 +49,11 @@ echo __('engagement_rating') . ' ' . range_selector('erat', 'app_routes_engageme
 <?php
 echo __('equipment_rating') . ' ' . range_selector('prat', 'app_equipment_ratings_list', null, true);
 ?>
+<span id="snow_mountain_ice_fields" style="display:none">
+<?php
+echo __('objective_risk_rating') . ' ' . range_selector('orrat', 'app_routes_objective_risk_ratings');
+?>
+</span>
 </div>
 <div id="rock_mountain_fields" style="display:none">
 <?php
@@ -56,7 +61,10 @@ echo __('rock_free_rating') . ' ' . range_selector('frat', 'app_routes_rock_free
 echo __('rock_required_rating') . ' ' . range_selector('rrat', 'app_routes_rock_free_ratings');
 ?>
 <br />
-<?php echo __('aid_rating') . ' ' . range_selector('arat', 'app_routes_aid_ratings'); ?>
+<?php
+echo __('aid_rating') . ' ' . range_selector('arat', 'app_routes_aid_ratings');
+echo __('rock_exposition_rating') . ' ' . range_selector('rexpo', 'app_routes_rock_exposition_ratings');
+?>
 </div>
 <div id="snow_ice_fields" style="display:none">
 <?php
@@ -68,7 +76,7 @@ echo __('mixed_rating') . ' ' . range_selector('mrat', 'app_routes_mixed_ratings
 <br />
 <?php
 echo __('toponeige_technical_rating') . ' ' . range_selector('trat', 'app_routes_toponeige_technical_ratings');
-echo __('toponeige_exposition_rating') . ' ' . range_selector('expo', 'app_routes_toponeige_exposition_ratings');
+echo __('toponeige_exposition_rating') . ' ' . range_selector('sexpo', 'app_routes_toponeige_exposition_ratings');
 ?>
 <br />
 <?php
