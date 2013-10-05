@@ -6597,7 +6597,7 @@ msgstr "escalade (couenne)"
 # -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
 # [WARNING] needs_review
 msgid "rock_exposition_rating"
-msgstr "Exposition (rocher)&nbsp;:"
+msgstr "Exposition rocher&nbsp;:"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
