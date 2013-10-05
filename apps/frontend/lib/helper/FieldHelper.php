@@ -1084,7 +1084,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
     if ($format == 'html' || $format == 'table')
     {
         $act_filter_enable = is_array($avalaible_activities);
-        $groups = $ski1 = $ski2 = $climbing1 = $climbing2 = $climbing3 = $climbing4 = array();
+        $groups = $ski1 = $ski2 = $climbing1 = $climbing2 = $climbing3 = $climbing4 = $climbing5 = array();
 
         if ($topo_ski) $ski1[] = $topo_ski;
         if ($topo_exp) $ski1[] = $topo_exp;
@@ -1097,8 +1097,8 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
         if ($rock_exposition) $climbing3[] = $rock_exposition;
         if ($aid) $climbing4[] = $aid;
         if ($rock_free_and_required) $climbing4[] = $rock_free_and_required;
-        if ($ice) $climbing2[] = $ice;
-        if ($mixed) $climbing2[] = $mixed;
+        if ($ice) $climbing5[] = $ice;
+        if ($mixed) $climbing5[] = $mixed;
 
         if ((!$act_filter_enable || array_intersect(array(1), $avalaible_activities)) && $ski_activities = array_intersect(array(1), $activities))
         {
@@ -1109,16 +1109,18 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
             $groups[] = implode('/', $ski1);
             $groups[] = implode('/', $ski2);
         }
-        if ((!$act_filter_enable || array_intersect(array(2,3,4,5), $avalaible_activities)) && $climbing_activities = array_intersect(array(2,3,4,5), $activities))
+        if ((!$act_filter_enable || array_intersect(array(2,3,4,5), $avalaible_activities)) &&
+            $climbing_activities = array_intersect(array(2,3,4,5), $activities))
         {
             if ($show_activities)
             {
                 $groups[] = _activities_data($climbing_activities, '&nbsp;');
             }
-            $groups[] = implode('/', $climbing1);
-            $groups[] = implode('/', $climbing2);
-            $groups[] = implode('/', $climbing3);
-            $groups[] = implode('/', $climbing4);
+
+            for ($i = 1; $i <= 5; $i++)
+            {
+                $groups[] = implode('/', ${'climbing' . $i});
+            }
         }
         if ((!$act_filter_enable || array_intersect(array(6), $avalaible_activities)) && $hiking_activities = array_intersect(array(6), $activities))
         {
