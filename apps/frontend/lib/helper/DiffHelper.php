@@ -137,9 +137,11 @@ function get_field_value($field_name, $module, $abstract_value)
         case 'rock_free_rating': $conf = 'app_routes_rock_free_ratings'; break;
         case 'rock_required_rating': $conf = 'app_routes_rock_free_ratings'; break;
         case 'aid_rating': $conf = 'app_routes_aid_ratings'; break;
+        case 'rock_exposition_rating': $conf = 'app_routes_rock_exposition_ratings'; break;
         case 'configuration': $conf = 'mod_routes_configurations_list'; break;
         case 'global_rating': $conf = 'app_routes_global_ratings'; break;
         case 'engagement_rating': $conf = 'app_routes_engagement_ratings'; break;
+        case 'objective_risk_rating': $conf = 'app_routes_objective_risk_ratings'; break;
         case 'hiking_rating': $conf = 'app_routes_hiking_ratings'; break;
         case 'max_rating': $conf = 'mod_sites_rock_free_ratings_list'; break;
         case 'min_rating': $conf = 'mod_sites_rock_free_ratings_list'; break;
