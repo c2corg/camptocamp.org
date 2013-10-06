@@ -157,4 +157,20 @@
     $.modalbox.hide();
   };
 
+  // bbcode toolbar, initiated once dom loaded
+  $(function() {
+    var bbcode_toolbars = $('.bbcodetoolcontainer');
+    var textareas = bbcode_toolbars.next();
+
+    // hide all bbcode toolbars
+    bbcode_toolbars.attr('visibility', 'hidden');
+
+    // hide / show toolbars on blur / focus
+    bbcode_toolbars.next().focus(function() {
+      $(this).prev().attr('visibility', 'visible');
+    }).blur(function() {
+      $(this).prev().attr('visibility', 'hidden');
+    });
+  });
+
 })(window.C2C = window.C2C || {}, jQuery);
