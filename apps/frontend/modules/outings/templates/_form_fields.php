@@ -50,12 +50,12 @@ echo object_group_tag($document, 'partial_trip', array('callback' => 'object_che
 echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
-<div id="outings_height_diff_down">
+<div data-act-filter="1 6 7 height_diff_down">
 <?php
 echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
-<div id="outings_length">
+<div data-act-filter="1 6 7 length">
 <?php
 echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers', 'class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
 ?>
@@ -88,7 +88,7 @@ echo checkbox_tag('mw_contest_associate', 1, $mw_checked);
 echo object_group_dropdown_tag($document, 'access_status', 'mod_outings_access_statuses_list');
 echo object_group_tag($document, 'access_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
-<div id="outings_snow_elevation">
+<div data-act-filter="1 2 5 7">
 <?php
 echo object_group_tag($document, 'up_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 echo object_group_tag($document, 'down_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
@@ -99,12 +99,12 @@ echo object_group_tag($document, 'down_snow_elevation', array('suffix' => 'meter
 <?php
 echo object_group_dropdown_tag($document, 'conditions_status', 'mod_outings_conditions_statuses_list');
 ?>
-<div id="outings_glacier">
+<div data-act-filter="1 2 3 7">
 <?php
 echo object_group_dropdown_tag($document, 'glacier_status', 'mod_outings_glacier_statuses_list');
 ?>
 </div>
-<div id="outings_track">
+<div data-act-filter="1 2 5 7">
 <?php
 echo object_group_dropdown_tag($document, 'track_status', 'mod_outings_track_statuses_list');
 ?>
@@ -122,7 +122,7 @@ echo file_upload_tag('gps_data');
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 ?>
-<div id="outings_conditions_levels">
+<div data-act-filter="1 2 5 7">
 <?php
 // conditions levels fields:
 echo start_group_tag();

@@ -458,7 +458,7 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
            bb_button_tag('url_button', 'url', $target_id, array('style' => 'text-decoration:underline')) .
            ($img_tag ? bbcode_toolbar_img_tag($document, $target_id) : '') .
            ($abs_tag ? bb_button_tag('abs_button', 'abs', $target_id) : '') .
-           ($line_tag ? bb_button_tag('line_button', 'L#', $target_id, array('class' => 'rlineb')) : '') . ' &nbsp; ' .
+           ($line_tag ? bb_button_tag('line_button', 'L#', $target_id, array('data-act-filter' => '1 2 3 4')) : '') . ' &nbsp; ' .
            link_to(__('Help'), getMetaArticleRoute('formatting', false, 'path')) . ' ' .
            picto_tag('picto_close', __('Reduce the text box'),
                      array('onclick' => "C2C.changeTextareaSize('$target_id', false)")) .

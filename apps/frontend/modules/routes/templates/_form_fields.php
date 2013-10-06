@@ -33,26 +33,26 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'na' => array(0, 8)),
                                true, null, null, '', '', 'picto_act act_');
 ?>
-<div id="data_fields">
+<div data-act-filter="none">
 <div class="article_gauche_5050">
 <?php
 echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 echo object_group_tag($document, 'min_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
-<div id="ski_snow_mountain_hiking_fields">
+<div data-act-filter="1 2 3 6">
 <?php
 echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
-<div id="hiking2_fields">
+<div  data-act-filter="6">
 <?php
 echo object_group_tag($document, 'route_length', array('suffix' => 'kilometers', 'class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
 
 ?>
 </div>
 
-<div id="ski_snow_mountain_rock_ice_fields">
+<div data-act-filter="1 2 3 4 5">
 <?php
 echo object_group_tag($document, 'elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number', 'label_name' => 'difficulties_start_elevation'));
 echo object_group_tag($document, 'difficulties_height', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
@@ -63,13 +63,13 @@ echo object_group_dropdown_tag($document, 'facing', 'app_routes_facings');
 echo object_group_dropdown_tag($document, 'route_type', 'mod_routes_route_types_list');
 echo object_group_dropdown_tag($document, 'duration', 'mod_routes_durations_list', array('na' => array(0)), true, null, null, 'days', 2);
 ?>
-<div id="ski_snow_mountain_fields">
+<div data-act-filter="1 2 3 7">
 <?php
 echo object_group_tag($document, 'is_on_glacier', array('callback' => 'object_checkbox_tag'));
 ?>
 </div>
 
-<div id="ski_snow_mountain_rock_fields">
+<div data-act-filter="1 2 3 4 7">
 <?php
 echo object_group_dropdown_tag($document, 'configuration', 'mod_routes_configurations_list',
                                array('multiple' => true));
@@ -78,13 +78,13 @@ echo object_group_dropdown_tag($document, 'configuration', 'mod_routes_configura
 </div>
 
 <div class="article_droite_5050">
-<div id="ski_snow_fields">
+<div data-act-filter="1 2 7">
 <?php
 echo object_group_tag($document, 'slope', array('class' => 'long_input'));
 ?>
 </div>
 
-<div id="snow_mountain_rock_ice_fields">
+<div data-act-filter="2 3 4 5">
 <?php
 echo object_group_dropdown_tag($document, 'global_rating', 'app_routes_global_ratings');
 echo object_group_dropdown_tag($document, 'engagement_rating', 'app_routes_engagement_ratings');
@@ -92,13 +92,13 @@ echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_rat
 ?>
 </div>
 
-<div id="snow_mountain_ice_fields">
+<div data-act-filter="2 3 5">
 <?php
 echo object_group_dropdown_tag($document, 'objective_risk_rating', 'app_routes_objective_risk_ratings');
 ?>
 </div>
 
-<div id="rock_mountain_fields">
+<div data-act-filter="3 4">
 <?php
 echo object_group_dropdown_tag($document, 'rock_free_rating', 'app_routes_rock_free_ratings');
 echo object_group_dropdown_tag($document, 'rock_required_rating', 'app_routes_rock_free_ratings');
@@ -107,14 +107,14 @@ echo object_group_dropdown_tag($document, 'rock_exposition_rating', 'app_routes_
 ?>
 </div>
 
-<div id="snow_ice_fields">
+<div data-act-filter="2 5">
 <?php
 echo object_group_dropdown_tag($document, 'ice_rating', 'app_routes_ice_ratings');
 echo object_group_dropdown_tag($document, 'mixed_rating', 'app_routes_mixed_ratings');
 ?>
 </div>
 
-<div id="ski_fields">
+<div data-act-filter="1">
 <?php
 $cotometre = '&nbsp; '
            . m_link_to(__('cotometre'), '@tool?action=cotometre',
@@ -129,13 +129,13 @@ echo object_group_dropdown_tag($document, 'sub_activities', 'mod_routes_sub_acti
 ?>
 </div>
 
-<div id="hiking_fields">
+<div data-act-filter="6">
 <?php
 echo object_group_dropdown_tag($document, 'hiking_rating', 'app_routes_hiking_ratings');
 ?>
 </div>
 
-<div id="snowshoeing_fields">
+<div data-act-filter="7">
 <?php
 echo object_group_dropdown_tag($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings');
 ?>
@@ -152,18 +152,18 @@ echo object_group_bbcode_tag($document, 'description', null, array('class' => 'm
 echo object_group_bbcode_tag($document, 'remarks', null, array('no_img' => true));
 echo object_group_bbcode_tag($document, 'gear', 'specific gear', array('class' => 'smalltext', 'placeholder' => __('gear_default'), 'no_img' => true));
 
-$backpack_content_list = array('pack_ski' => 'pack_skitouring',
-                               'pack_snow_easy' => 'pack_snow_ice_mixed_easy',
-                               'pack_mountain_easy' => 'pack_mountain_climbing_easy',
-                               'pack_rock_bolted' => 'pack_rock_climbing_bolted',
-                               'pack_ice' => 'pack_ice',
-                               'pack_hiking' => 'pack_hiking');
+$backpack_content_list = array('pack_skitouring' => '1',
+                               'pack_snow_ice_mixed_easy' => '2',
+                               'pack_mountain_climbing_easy' => '3',
+                               'pack_rock_climbing_bolted' => '4',
+                               'pack_ice' => '2 5',
+                               'pack_hiking' => '6');
 
-foreach ($backpack_content_list as $pack_id => $backpack_content)
+foreach ($backpack_content_list as $backpack_content => $activities_filter)
 {
     $link_text = __($backpack_content);
     $url = getMetaArticleRoute($backpack_content, false);
-    $backpack_content_links[] = '<span id="' . $pack_id . '_fields">'
+    $backpack_content_links[] = '<span data-act-filter="' . $activities_filter . '">'
                               . link_to($link_text, $url, array('onclick' => "window.open(this.href);return false;"))
                               . '</span>';
 }

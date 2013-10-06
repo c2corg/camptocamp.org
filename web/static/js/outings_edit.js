@@ -1,47 +1,26 @@
 (function(C2C, $) {
 
-  // hide some fields depending on selected activities
-  function hide_outings_unrelated_fields() {
-    var show_flags = [
-      'outings_glacier',
-      'outings_snow_elevation',
-      'outings_track',
-      'outings_conditions_levels',
-      'outings_length',
-      'outings_height_diff_down'
-    ];
-    var show = {};
-    for (var i = 0; i < show_flags.length; i++) {
-      show[show_flags[i]] = false;
-    }
-
+  // hide some parts of the editing form
+  // depending on selected activities
+  function hide_unrelated_fields() {
+    // show/hide data-act-filter tags depending on selected activities
     var activities = $('#activities').val();
 
-    $.each(activities, function (i, activity) {
-      if (activity == 1 || activity == 2 || activity == 5 || activity == 7) {
-        show.outings_snow_elevation = true;
-        show.outings_track = true;
-        show.outings_conditions_levels = true;
-      }
-      if (activity == 1 || activity == 2 || activity == 3 || activity == 7) {
-        show.outings_glacier = true;
-      }
-      if (activity == 1 || activity == 6 || activity == 7) {
-        show.outings_length = true;
-        show.outings_height_diff_down = true;
-      } else {
-        if (Math.round($('#outing_length').val()) > 0) {
-          show.outings_length = true;
-        }
-        if (Math.round($('#height_diff_down').val()) > 0) {
-          show.outings_height_diff_down = true;
-        }
-      }
+    $('[data-act-filter]').hide();
+
+    if (!!activities) $.each(activities, function (i, activity) {
+      $('[data-act-filter~='+ activity +']').show();
     });
 
-    $.each(show_flags, function(i, flag) {
-      $('#' + flag).toggle(show[flag]);
-    });
+    // following fields should still be shown under certain conditions
+    // (if activity criteria not met)
+    if (Math.round($('#outing_length').val()) > 0) {
+      $('[data-act-filter~="length"]').show();
+    }
+
+    if (Math.round($('#height_diff_down').val()) > 0) {
+      $('[data-act-filter~="height_diff_down"]').show();
+    }
   }
 
   function disableForm(e) {
@@ -126,10 +105,10 @@
   }
 
   // be sure to hide fields on startup if needed
-  hide_outings_unrelated_fields();
+  hide_unrelated_fields();
 
   // register events
-  $('#activities').on('change', hide_outings_unrelated_fields);
+  $('#activities').on('change', hide_unrelated_fields);
   $('#editform').submit(function(e) {
     check_outing_activities(e);
     check_outing_date(e);

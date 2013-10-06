@@ -189,8 +189,6 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
             $out[] = '<div class="' . $col_class . '">';
         }
         
-        $options = $onclick ? array('onclick' => "C2C.hide_unrelated_filter_fields($activity_id)")
-                            : array();
         $checked = in_array($activity_id, $filtered_activities) ? true : false;
 
         $activity_id_list = explode('-', $activity_id);
@@ -205,11 +203,11 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         $label_text .= __($activity);
         if ($ckeckbox)
         {
-            $input_tag = checkbox_tag($param . '[]', $value, $checked, $options);
+            $input_tag = checkbox_tag($param . '[]', $value, $checked);
         }
         else
         {
-            $input_tag = my_radiobutton_tag($param . '[]', $value, $checked, $options);
+            $input_tag = my_radiobutton_tag($param . '[]', $value, $checked);
         }
         $out[] = $input_tag . ' ' . 
                  label_for($param . '_' . $value, $label_text);
