@@ -14,14 +14,6 @@ else // action
     sfLoader::loadHelpers('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button');
 }
 
-function loadTooltipsEditRessources()
-{
-    $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript('/static/js/submit.js', 'last');
-}
-
-loadTooltipsEditRessources();
-
 function _get_mandatory_fields()
 {
     $module = sfContext::getInstance()->getModuleName();

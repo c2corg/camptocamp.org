@@ -37,7 +37,7 @@ function loadRessources()
 {
     $response = sfContext::getInstance()->getResponse();
 
-    // TODO temp
+    // TODO temp for jquery branch, remove once transition finished
     $response->addJavascript('/static/js/prototype.js', 'head_first');
     $response->addJavascript('/static/js/builder.js', 'first');
     $response->addJavascript('/static/js/effects.js', 'head'); // needed by controls.js
@@ -49,7 +49,6 @@ function loadRessources()
         $response->addJavascript('/static/js/modal.js', 'last');
         $response->addStylesheet('/static/css/modal.css', 'last');
     }
-    $response->addJavascript('/static/js/submit.js', 'last');
 }
 
 loadRessources();

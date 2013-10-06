@@ -1,31 +1,5 @@
 (function(C2C, $) {
 
-  C2C.submitonce = function(aform) {
-    C2C.switchFormButtonsStatus(aform, true);
-  };
-
-  C2C.switchFormButtonsStatus = function(form, disable) {
-    $(form).find('input[type=submit], input[type=button]').attr('disabled', 'disabled');
-  };
-
-  // outings wizard: retrieve route ratings
-  C2C.getWizardRouteRatings = function(div_id) {
-    var indicator = $('#indicator');
-
-    indicator.show();
-
-    $.get('/routes/getratings', {
-      'id': $('#' + div_id).val()
-    }).always(function() {
-      indicator.hide();
-    }).done(function(data) {
-      $('#' + div_id + '_descr').html(data);
-      $('#wizard_' + div_id + '_descr').show();
-    }).fail(function() {
-      $('#wizard_' + div_id + '_descr').hide();
-    });
-  };
-
   // unlink a document
   C2C.remLink = function(link_type, main_id, linked_id, main_doc, strict) {
 
