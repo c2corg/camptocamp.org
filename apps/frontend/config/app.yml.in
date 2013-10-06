@@ -1657,19 +1657,11 @@ all:
     filled_criteria:
 
   sites:
-    site_types_new:
-      0:
-      2: school
-      4: boulder
-      12: climbing_gym
     site_types:
       0:
       2: school
       4: boulder
       12: climbing_gym
-      6: multi-pitches
-      8: trad
-      9: mountain
     filled_criteria:
       'talt': elevation
       'rqua': routes_quantity
