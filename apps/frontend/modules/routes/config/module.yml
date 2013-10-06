@@ -34,16 +34,6 @@ all:
       4: config goulotte
       7: config glacier
 
-  rock_exposition_ratings:
-    list:
-      0:
-      1: E1
-      2: E2
-      3: E3
-      4: E4
-      5: E5
-      6: E6
-      
   sub_activities:
     list:
       0:

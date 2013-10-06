@@ -103,7 +103,7 @@ echo object_group_dropdown_tag($document, 'objective_risk_rating', 'app_routes_o
 echo object_group_dropdown_tag($document, 'rock_free_rating', 'app_routes_rock_free_ratings');
 echo object_group_dropdown_tag($document, 'rock_required_rating', 'app_routes_rock_free_ratings');
 echo object_group_dropdown_tag($document, 'aid_rating', 'app_routes_aid_ratings');
-echo object_group_dropdown_tag($document, 'rock_exposition_rating', 'mod_routes_rock_exposition_ratings_list');
+echo object_group_dropdown_tag($document, 'rock_exposition_rating', 'app_routes_rock_exposition_ratings');
 ?>
 </div>
 

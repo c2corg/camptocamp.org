@@ -128,9 +128,9 @@ class Route extends BaseRoute
                                             'Route', 
                                             array('activities', 'global_rating', 'height_diff_up', 'difficulties_height',
                                                   'facing', 'engagement_rating', 'objective_risk_rating', 'toponeige_technical_rating', 
-                                                  'toponeige_exposition_rating', 'labande_ski_rating',
-                                                  'labande_global_rating', 'rock_free_rating', 'rock_required_rating', 'geom_wkt',
-                                                  'ice_rating', 'mixed_rating', 'aid_rating', 'hiking_rating', 'snowshoeing_rating',
+                                                  'toponeige_exposition_rating', 'labande_ski_rating', 'labande_global_rating', 'rock_free_rating',
+                                                  'rock_required_rating', 'geom_wkt', 'ice_rating', 'mixed_rating', 'aid_rating',
+                                                  'rock_exposition_rating', 'hiking_rating', 'snowshoeing_rating',
                                                   'max_elevation', 'equipment_rating', 'duration'));
 
         // TODO: do additional fields fetching + summit name fetching at once (one query instead of 2)
@@ -818,7 +818,7 @@ class Route extends BaseRoute
             case 'irat':    return 'm.ice_rating';
             case 'mrat':    return 'm.mixed_rating';
             case 'trat':    return 'm.toponeige_technical_rating';
-            case 'sexpo':    return 'm.toponeige_exposition_rating';
+            case 'sexpo':   return 'm.toponeige_exposition_rating';
             case 'lrat':    return 'm.labande_global_rating';
             case 'srat':    return 'm.labande_ski_rating';
             case 'hrat':    return 'm.hiking_rating';
