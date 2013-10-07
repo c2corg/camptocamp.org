@@ -3489,7 +3489,10 @@ msgstr "<h3>Risques objectifs</h3>\n"
 "<br />\n"
 "<strong>X5</strong>&nbsp;: Risques objectifs très sévères. La même chose que X4 en pire.<br />\n"
 "<br />\n"
-"Voir aussi l'aide sur la <a href=\"/articles/146949/fr#objective-danger\">cotation des risques objectifs</a>."
+"Voir aussi l'aide&nbsp;:<br />\n"
+"- <a href=\"/articles/146949/fr#objective-danger\">Cotation des risques objectifs en cascade de glace et dry-tooling</a><br />\n"
+"- <a href=\"/articles/106871/fr#objective-danger\">Cotation des risques objectifs en alpinisme neige, glace et mixte</a><br />\n"
+"- <a href=\"/articles/133323/fr#objective-danger\">Cotation des risques objectifs en rocher haute montagne</a>"
 
 msgid "_outing_length_info"
 msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire emprunté au cours de la sortie.<br />Si une trace GPX est associée à la sortie, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
@@ -3628,7 +3631,18 @@ msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du 
 # 
 # A conserver en "needs review" ?
 msgid "_site_types_info"
-msgstr "<h3>Type de site d'escalade</h3>Type d'escalade praticable sur le site/secteur&nbsp;:<br /><br /><strong>couenne</strong>&nbsp;: escalade sur voies d'une longueur<br /><br /><strong>bloc</strong>&nbsp;: escalade sur bloc<br /><br /><strong>S.A.E.</strong>&nbsp;: escalade sur Structure Artificielle d'Escalade - à associer au type de rocher <em>résine</em><br /><br />Plusieurs types de site peuvent être sélectionnés."
+msgstr "<h3>Type de site d'escalade</h3>\n"
+"Type d'escalade praticable sur le site/secteur&nbsp;:<br />\n"
+"<br />\n"
+"<strong>couenne</strong>&nbsp;: escalade sur voies d'une longueur<br />\n"
+"<br />\n"
+"<strong>bloc</strong>&nbsp;: escalade sur bloc<br />\n"
+"<br />\n"
+"<strong>S.A.E.</strong>&nbsp;: escalade sur Structure Artificielle d'Escalade - à associer au type de rocher <em>résine</em><br />\n"
+"<br />\n"
+"Plusieurs types de site peuvent être sélectionnés.<br />\n"
+"<br />\n"
+"Une falaise de grandes voies doit être décrite dans un document \"sommet-falaise\", et chaque grande voie sera décrite dans un <a href=\"/articles/106920#route\">itinéraire</a>."
 
 msgid "_slope_info"
 msgstr "<h3>Pente</h3>Inclinaison maximale et longueur des pentes de neige ou de glace rencontrées."
@@ -6597,7 +6611,7 @@ msgstr "escalade (couenne)"
 # -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
 # [WARNING] needs_review
 msgid "rock_exposition_rating"
-msgstr "Exposition (rocher)&nbsp;:"
+msgstr "Exposition rocher&nbsp;:"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.

@@ -85,7 +85,7 @@ all:
       'irat': ice_rating
       'mrat': mixed_rating
       'trat': toponeige_technical_rating
-      'expo': toponeige_exposition_rating
+      'sexpo': toponeige_exposition_rating
       'lrat': labande_global_rating
       'srat': labande_ski_rating
       'hrat': hiking_rating
@@ -110,7 +110,7 @@ all:
       'irat': ''
       'mrat': ''
       'trat': ''
-      'expo': ''
+      'sexpo': ''
       'lrat': ''
       'srat': ''
       'hrat': ''
