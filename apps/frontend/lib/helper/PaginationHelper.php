@@ -303,6 +303,7 @@ function link_to_associated_images($label, $join = '', $orderby = array())
             $perso['perso'] = $perso_param;
         }
         $rename_params['act'] = c2cTools::Module2Letter($join) . 'act';
+        $rename_params['id'] = $join;
         $join = substr($join, 0, -1);
         $params['join'] = $join;
     }
