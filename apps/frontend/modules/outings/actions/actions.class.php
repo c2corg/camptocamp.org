@@ -550,7 +550,7 @@ class outingsActions extends documentsActions
         $this->addListParam($out, 'sub', '', '', true);
         $this->addFacingParam($out, 'fac');
         $this->addCompareParam($out, 'trat');
-        $this->addCompareParam($out, 'expo');
+        $this->addCompareParam($out, 'sexpo');
         $this->addCompareParam($out, 'lrat');
         $this->addCompareParam($out, 'srat');
         $this->addCompareParam($out, 'grat');
