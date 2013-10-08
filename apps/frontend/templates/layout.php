@@ -36,7 +36,7 @@ $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/fold.js'); ?>
 <!doctype html>
-<html lang="<?php echo $lang_code ?>">
+<html lang="<?php echo $lang_code ?>" data-static-url="<?php echo sfConfig::get('app_static_url') ?>">
 <head>
     <meta charset="utf-8">
     <?php
