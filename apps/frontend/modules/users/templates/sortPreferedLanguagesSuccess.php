@@ -14,7 +14,6 @@ echo customization_nav('langpref');
         <?php endforeach ?>
     </ol>
 <?php
-    $div_to_update = sfConfig::get('app_ajax_feedback_div_name_success');
     echo end_fieldset_tag();
     echo __('Reorder these languages according to your preferences, using drag-and-drop');
 ?>

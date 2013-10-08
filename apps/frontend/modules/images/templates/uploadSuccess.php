@@ -1,7 +1,7 @@
 <?php
 use_helper('Ajax', 'Form', 'Javascript', 'MyForm', 'Escaping', 'General');
 
-$validation     = sfConfig::get('app_images_validation');
+$validation = sfConfig::get('app_images_validation');
 ?>
 <div id="image_upload">
 <p class="tips">
@@ -21,31 +21,28 @@ echo global_form_errors_tag();
 
 echo form_tag('images/upload?mod=' . $sf_params->get('mod') . '&document_id=' . $sf_params->get('document_id'),
               array('multipart' => true));
-//echo input_hidden_tag('MAX_FILE_SIZE', 2 * $validation['weight']);
 ?>
   <div id="files_to_upload">
     <?php include_partial('file_form', array('image_number' => 0, 'default_license' => $default_license == null ? 2 : $default_license)) ?>
   </div>
-  <p><?php echo picto_tag('picto_add') ?> <a href="javascript:void(0)" id="add_file_link"><?php echo __('add an other file') ?></a></p>
+  <p><?php echo picto_tag('picto_add') ?> <a href="#" id="add_file_link"><?php echo __('add an other file') ?></a></p>
   <?php
   echo submit_tag(__('save'), array('id' => 'submit_files', ));
 
-  echo ajax_feedback(true);
 
-  echo javascript_tag(" // TODO
+  echo javascript_queue("
   var next_file_id = 1;
 
-  $('submit_files').observe('click', function() {
-      $('indicator').show();
+  jQuery('#submit_files').click(function() {
+      jQuery('#indicator').show();
   });
 
-  $('add_file_link').observe('click', function() {
-      new_fields = '" . 
-      addcslashes(get_partial('file_form', array('image_number' => 'next_file_id_var', 'default_license' => $default_license == null ? 2 : $default_license)), "\0..\37\\'\"\/") .
+  jQuery('#add_file_link').click(function() {
+      var new_fields = '" . 
+      addcslashes(get_partial('file_form', array('image_number' => '%%next_file_id%%', 'default_license' => $default_license == null ? 2 : $default_license)), "\0..\37\\'\"\/") .
       "';
-
-      new_fields = new_fields.gsub('next_file_id_var', next_file_id);
-      new Insertion.Bottom('files_to_upload', new_fields);
+      new_fields = new_fields.replace('%%next_file_id%%', next_file_id, 'g');
+      jQuery('#files_to_upload').append(new_fields);
       next_file_id++;
   });
   ");
