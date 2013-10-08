@@ -36,21 +36,18 @@ echo tips_tag('if you select nothing / deselect all, no filter is applied');
     <fieldset>
       <legend><?php echo __('places_to_display') ?></legend>
       <p class="select_title">
-      <?php  echo link_to_remote(__('ranges'),
-                                 array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter',
-                                       'loading' => 'Element.show("indicator")',
-                                       'complete' => 'Element.hide("indicator")')) . ' - ' .
-                  link_to_remote(__('regions'),
-                                 array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=3&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter',
-                                       'loading' => 'Element.show("indicator")',
-                                       'complete' => 'Element.hide("indicator")')) . ' - ' .
-                  link_to_remote(__('countries'),
-                                 array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter',
-                                       'loading' => 'Element.show("indicator")',
-                                       'complete' => 'Element.hide("indicator")'));
+      <?php  echo link_to_function(__('ranges'), "jQuery('#indicator').show(); 
+                    jQuery.ajax({ url: '" . url_for('/areas/getmultipleselect?area_type=1&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter') . "' })
+                      .always(function() { jQuery('#indicator').hide(); })
+                      .done(function(data) { jQuery('#pref_area_selector').html(data); })") . ' - ' .
+                  link_to_function(__('regions'), "jQuery('#indicator').show();
+                    jQuery.ajax({ url: '" . url_for('/areas/getmultipleselect?area_type=3&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter') . "' })
+                      .always(function() { jQuery('#indicator').hide(); })
+                      .done(function(data) { jQuery('#pref_area_selector').html(data); })") . ' - ' .
+                  link_to_function(__('countries'), "jQuery('#indicator').show();
+                    jQuery.ajax({ url: '" . url_for('/areas/getmultipleselect?area_type=2&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter') . "' })
+                      .always(function() { jQuery('#indicator').hide(); })
+                      .done(function(data) { jQuery('#pref_area_selector').html(data); })");
       ?>
       </p>
       <div id="pref_area_selector">

@@ -153,7 +153,6 @@ endif;
 
 if ($show_images && $nb_images > 0 && !$mobile_version)
 {
-// FIXME: find and delete sortable_feedback div
 echo '<!--[if IE 6]>', javascript_tag("
 document.observe('dom:loaded', function(){
 $$('.image_list .image').each(function(obj){

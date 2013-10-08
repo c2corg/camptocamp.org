@@ -105,6 +105,44 @@ function remove_accents($name)
 }
 
 /*
+ * Global filter switcher, used in the different headers (mobile, cda...)
+ */
+function filters_switcher_link($mainFilterSwitchOn)
+{
+    $options_on = $options_off = array();
+    $options_on['id'] = 'filter_switch_on';
+    $options_off['id'] = 'filter_switch_off';
+
+    if ($mainFilterSwitchOn)
+    {
+        $options_off['style'] = 'display: none;';
+    }
+    else
+    {
+        $options_on['style'] = 'display: none;';
+    }
+
+    $html = picto_tag('action_on', __('some filters active'), $options_on);
+    $html .= picto_tag('action_off', __('some filters have been defined but are not activated'), $options_off);
+
+    if (defined('PUN_ROOT'))
+    {
+        // we are in the forum
+        // it is not possible to activate/disactivate filter because the FiltersSwitchFilter will not get executed.
+        // moreover, forums are not filtered on activities, regions, langs.
+        return $html;
+    }
+    else
+    {
+        return link_to_function($html, "jQuery('#indicator').show();" .
+          "jQuery.ajax({ url: '" . url_for('@default?module=common&action=switchallfilters') . "' })" .
+            ".done(function() { jQuery('#filter_switch_on, #filter_switch_off').toggle(); window.location.reload(); })" .
+            ".always(function() { jQuery('#indicator').hide(); })");
+
+    }
+}
+
+/*
 * This fonction formate a <span> element to show a picto.
 */
 function picto_tag($picto_name, $title = '', $options = null)

@@ -9,14 +9,9 @@
            '/document_module/articles/document_id/' + mw_contest_article_id
     ).always(function() {
       indicator.hide();
-    }).done(function(data) {
-      $('#ajax_feedback_failure').hide();
     }).fail(function(data) {
-      $('#ajax_feedback_failure').show();
       mw_contest_associate.attr('checked', false);
-      setTimeout(function() {
-        C2C.emptyFeedback("ajax_feedback_failure");
-      }, 4000);
+      C2C.showFailure();
     });
   }
 
@@ -30,13 +25,9 @@
       indicator.hide();
     }).done(function(data) {
       $(mw_contest_associate).attr('checked', false);
-      $('#ajax_feedback_failure').hide();
     }).fail(function() {
-      $('#ajax_feedback_failure').show();
       $(mw_contest_associate).attr('checked', true);
-      setTimeout(function() {
-        C2C.emptyFeedback("ajax_feedback_failure");
-      }, 4000);
+      C2C.showFailure();
     });
   }
 

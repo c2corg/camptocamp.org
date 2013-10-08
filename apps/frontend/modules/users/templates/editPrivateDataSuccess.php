@@ -4,9 +4,6 @@
     
     echo customization_nav('personal');
 
-    // handle ajax errors
-    echo ajax_feedback(true); // true == inline feedback
-                              // FIXME conflicts with other similar ajax feedback divs ids
     // handle non ajax error form
     echo global_form_errors_tag();
 

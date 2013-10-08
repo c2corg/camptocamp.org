@@ -13,21 +13,19 @@ $mobile_version = c2cTools::mobileVersion();
         {
             echo picto_tag('picto_areas') . ' - ';
         }
-        echo link_to_remote(__('ranges'), 
-                array(  'update' => 'area_selector', 
-                        'url' => '/areas/getmultipleselect?area_type=1', 
-                        'loading' => 'Element.show("indicator")', 
-                        'complete' => 'Element.hide("indicator")')) . ' - ' .
-             link_to_remote(__('regions'), 
-                array(  'update' => 'area_selector', 
-                        'url' => '/areas/getmultipleselect?area_type=3', 
-                        'loading' => 'Element.show("indicator")', 
-                        'complete' => 'Element.hide("indicator")')) . ' - ' .
-             link_to_remote(__('countries'), 
-                array(  'update' => 'area_selector', 
-                        'url' => '/areas/getmultipleselect?area_type=2', 
-                        'loading' => 'Element.show("indicator")', 
-                        'complete' => 'Element.hide("indicator")'));
+        echo link_to_function(__('ranges'), "jQuery('#indicator').show();
+               jQuery.ajax({ url: '" . url_for('/areas/getmultipleselect?area_type=1') . "' })
+                 .always(function() { jQuery('#indicator').hide(); })
+                 .done(function(data) { jQuery('#area_selector').html(data); })") . ' - ' .
+             link_to_function(__('regions'), "jQuery('#indicator').show();
+               jQuery.ajax({ url: '" . url_for('/areas/getmultipleselect?area_type=3') . "' })
+                 .always(function() { jQuery('#indicator').hide(); })
+                 .done(function(data) { jQuery('#area_selector').html(data); })") . ' - ' .
+             link_to_function(__('countries'), "jQuery('#indicator').show();
+               jQuery.ajax({ url: '" . url_for('/areas/getmultipleselect?area_type=2') . "' })
+                 .always(function() { jQuery('#indicator').hide(); })
+                 .done(function(data) { jQuery('#area_selector').html(data); })");
+
         if (!$mobile_version)
         {
             echo ' -&nbsp;' .

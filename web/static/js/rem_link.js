@@ -20,13 +20,9 @@
              '/linked_id/' + linked_id + '/type/' + link_type + '/strict/' + strict
       ).always(function() {
         indicator.hide();
-        setTimeout(function() {
-          C2C.emptyFeedback('ajax_feedback_failure');
-        }, 4000);
       }).fail(function(data) {
-        $('#ajax_feedback_failure').html(data).show();
+        C2C.showFailure(data.responseText);
       }).done(function(data) {
-        $('#' + type_linked_id).html(data);
         $('#' + type_linked_id + ', .' + type_linked_id).hide();
       });
     }
