@@ -305,33 +305,6 @@ function button_print()
                                   'class' => 'action_print nav_edit'));
 }
 
-function button_bookmark()
-{
-    use_helper('Javascript');
-    $js = "function bookmark(title,url){
-        if (window.sidebar)
-        {
-            window.sidebar.addPanel(title, url, \"\");
-        }
-        else if(window.opera && window.print)
-        {
-            var elem = document.createElement('a');
-            elem.setAttribute('href',url);
-            elem.setAttribute('title',title);
-            elem.setAttribute('rel','sidebar');
-            elem.click();
-        }
-        else if(document.all)
-        {
-            window.external.AddFavorite(url, title);
-        }
-    }";
-    return javascript_tag($js) . link_to_function(__('Bookmark'),
-                            'bookmark(document.title,self.location)',
-                            array('title' => __("Bookmark current document"),
-                                  'class' => 'action_bookmark nav_edit'));
-}
-
 function button_report()
 {
     use_helper('Forum');
