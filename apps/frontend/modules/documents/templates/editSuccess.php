@@ -11,7 +11,6 @@ if (!$mobile_version)
 {
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript('/static/js/tooltips.js', 'last');
-    $response->addJavascript('/static/js/tooltips_edit.js', 'last');
 }
 
 if ($linked_doc)

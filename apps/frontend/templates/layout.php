@@ -89,7 +89,6 @@ $response->addJavascript('/static/js/fold.js'); ?>
                                                'footer_type' => $footer_type));
         ?>
     </div>
-    <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>jQuery.noConflict();</script>
     <?php

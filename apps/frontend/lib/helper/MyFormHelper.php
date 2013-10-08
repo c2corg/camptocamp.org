@@ -310,7 +310,8 @@ function label_tag($id, $labelname = null, $mandatory = false, $options = null, 
         $label_id = $id;
     }
     
-    $default_options = array('class' => sfConfig::get('app_form_label_class', 'fieldname'), 'id' => '_' . $label_id);
+    $default_options = array('class' => sfConfig::get('app_form_label_class', 'fieldname'),
+        'id' => '_' . $label_id, 'data-tooltip' => '');
 
     if (!is_null($options))
     {
