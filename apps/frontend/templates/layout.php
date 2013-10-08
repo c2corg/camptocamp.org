@@ -50,8 +50,8 @@ $response->addJavascript('/static/js/fold.js'); ?>
         minify_include_main_stylesheets($combine, $debug);
         minify_include_custom_stylesheets($combine, $debug); /* here go portal specific css, and maps css (which are not present on every page) */
     ?>
-    <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url. '/' . sfTimestamp::getTimestamp('/static/css/ie7.css'); ?>/static/css/ie7.css" /><![endif]-->
-    <!--[if lt IE 9]><script src="<?php echo $static_base_url. '/' . sfTimestamp::getTimestamp(array('/static/js/html5shiv.js','/static/js/autofocus.js', '/static/js/indexof.js')); ?>/static/js/html5shiv.js,/static/js/autofocus.js,/static/js/indexof.js"></script><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo  minify_get_combined_files_url('/static/css/ie7.css', $debug) ?>" /><![endif]-->
+    <!--[if lt IE 9]><script src="<?php echo minify_get_combined_files_url(array('/static/js/html5shiv.js','/static/js/autofocus.js', '/static/js/indexof.js'), $debug) ?>"></script><![endif]-->
     <?php
         minify_include_head_javascripts($combine, $debug);
         echo auto_discovery_link_tag('rss', $rss);

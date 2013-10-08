@@ -42,9 +42,8 @@ endif;
 minify_include_head_javascripts(!$debug, $debug);
 
 if (!$mobile_version): ?>
-<!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL . '/' . sfTimestamp::getTimestamp('/static/css/ie6.css'); ?>/static/css/ie6.css" /><![endif]-->
-<!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL . '/' . sfTimestamp::getTimestamp('/static/css/ie7.css'); ?>/static/css/ie7.css" /><![endif]-->
-<!--[if lt IE 9]><script src="<?php echo PUN_STATIC_URL . '/' . sfTimestamp::getTimestamp('/static/js/html5shiv.js'); ?>/static/js/html5shiv.js"></script><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo  minify_get_combined_files_url('/static/css/ie7.css') ?>" /><![endif]-->
+<!--[if lt IE 9]><script src="<?php echo minify_get_combined_files_url(array('/static/js/html5shiv.js','/static/js/autofocus.js', '/static/js/indexof.js')) ?>"></script><![endif]-->
 <link rel="alternate" media="only screen and (max-width: 640px)" href="http://<?php echo sfConfig::get('app_mobile_version_host').$_SERVER['REQUEST_URI']; ?>" />
 <?php else: ?>
 <link rel="apple-touch-icon" href="<?php echo PUN_STATIC_URL; ?>/static/images/apple-touch-icon.png" />
