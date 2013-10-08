@@ -28,7 +28,7 @@ function c2c_form_remote_tag($url, $options = array())
     $js = "jQuery('#indicator').show();
 jQuery.post('$url', jQuery(this).serialize())
   .always(function() { jQuery('#indicator').hide(); })
-  .fail(function(data) { C2C.showFailure(data); })
+  .fail(function(data) { C2C.showFailure(data.responseText); })
   .success(function(data) { C2C.showSuccess(data); });
 return false;";
   

@@ -7,7 +7,6 @@
     // handle non ajax error form
     echo global_form_errors_tag();
 
-    //echo form_tag('@user_edit');
     echo c2c_form_remote_tag('@user_edit');
 ?>
   <div id="customize">
