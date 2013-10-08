@@ -151,16 +151,6 @@ else:
     echo $pager_navigation;
 endif;
 
-if ($show_images && $nb_images > 0 && !$mobile_version)
-{
-echo '<!--[if IE 6]>', javascript_tag("
-document.observe('dom:loaded', function(){
-$$('.image_list .image').each(function(obj){
-obj.observe('mouseover', function(e){obj.down('.image_actions').show();obj.down('.image_license').show();});
-obj.observe('mouseout', function(e){obj.down('.image_actions').hide();obj.down('.image_license').hide();});
-});});"), '<![endif]-->';
-}
-
 echo end_content_tag();
 
 include_partial('common/content_bottom') ?>
