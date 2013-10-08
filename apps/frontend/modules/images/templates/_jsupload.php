@@ -48,6 +48,6 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 <?php echo button_to_function(__('save'), "jQuery('.images_submit').hide(); $('#images_validate_form').submit()", array('disabled' => 'disabled', 'class' => 'images_submit')); ?>
 </div>
 <?php
-echo javascript_tag('new PeriodicalExecuter(C2C.ImageUpload.validateImageForms, 1)');
+echo javascript_tag('C2C.ImageUpload.init()');
 ?>
 </form>

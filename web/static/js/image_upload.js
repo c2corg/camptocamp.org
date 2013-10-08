@@ -4,6 +4,12 @@
 
   C2C.ImageUpload = {
 
+    pe: null,
+
+    init: function() {
+       pe = setInterval(C2C.ImageUpload.validateImageForms, 500);
+    },
+
     // construct the iframe object that will store the form result
     frame: function(c) {
       var n = 'f' + Math.floor(Math.random() * 99999);
@@ -86,7 +92,7 @@
 
     validateImageForms: function(pe) {
       if (!$('#modalbox').hasClass('in')) { // means modalbox is closed
-        pe.stop();
+        clearInterval(pe);
         return null;
       }
 

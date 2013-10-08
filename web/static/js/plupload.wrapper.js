@@ -12,6 +12,7 @@
      */
 
     image_number: 0,
+    pe: null,
 
     init: function(upload_url, backup_url, backup_js, i18n) {
 
@@ -55,6 +56,8 @@
           plupload.addEvent(document.documentElement, 'mouseout', function() {
             delt.css('zIndex', -1);
           });
+
+          pe = setInterval(C2C.PlUploadWrapper.validateImageForms, 500);
         }
       });
 
@@ -186,9 +189,9 @@
     // same function as in images_upload.js
     // used to validate with javascript that image information is correct
     // factorize? (is it worth it?)
-    validateImageForms: function(pe) {
+    validateImageForms: function() {
       if (!$('#modalbox').hasClass('in')) { // means modalbox is closed
-        pe.stop();
+        clearInterval(pe);
         return null;
       }
 
