@@ -78,29 +78,28 @@ function geocode_auto_complete($name, $service)
     return $out;
 }
 
-function c2c_form_remote_add_element($url, $updated_success, $updated_failure = null, $indicator = 'indicator', $removed_id = null)
+function c2c_form_remote_add_element($url, $updated_success, $indicator = 'indicator', $removed_id = null)
 {
-    $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
+    $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
     return form_remote_tag(array('update' => array('success' => $updated_success, 'failure' => $updated_failure),
                                  'position' => 'bottom',
                                  'url' => $url,
                                  'method' => 'post',
                                  'loading' => "Element.show('$indicator')",
-                                 'complete' => "Element.hide('$indicator');",
+                                 'complete' => "Element.hide('$indicator')",
                                  'success'  => "Element.hide('$updated_failure');if($('{$updated_success}_rsummits_name')){".
                                                "$('{$updated_success}_rsummits_name').value='';$('{$updated_success}_associated_routes').hide();}".
                                                ($removed_id == null ? '' : "$('$removed_id').hide();"),
-                                 'failure'  => "Element.show('$updated_failure');setTimeout('C2C.emptyFeedback(" .'"'. $updated_failure .'"'. ")', 4000);"));
+                                 'failure'  => "C2C.showFailure()"));
 }
 
 function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc = true,
                                     $strict = 1, $updated_failure = null, $indicator = 'indicator',
                                     $tips = null)
 {
-     $response = sfContext::getInstance()->getResponse()->addJavascript('/static/js/rem_link.js', 'last');
+    $response = sfContext::getInstance()->getResponse()->addJavascript('/static/js/rem_link.js', 'last');
     // NB : $del_image_id is for internal use, but will be useful when we have several delete forms in same page
     $main_doc = ($main_doc) ? 'true' : 'false';
-    $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
     $tips = ($tips == null) ? 'Delete this association' : $tips;
     return link_to(picto_tag('action_del_light', __($tips)), '#',
                          array('onclick' => "C2C.remLink('$link_type', $main_id, $linked_id, $main_doc, $strict); return false;"));
@@ -140,7 +139,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
                                 'complete' => "Element.hide('indicator')"));
 
     // form start
-    $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix, null, $indicator, $removed_id);
+    $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix, $indicator, $removed_id);
 
     // default form content
     $out .= '<div id="' . $field_prefix . '_form' . '" class="ac_form">'

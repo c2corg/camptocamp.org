@@ -34,26 +34,12 @@ abstract class c2cActions extends sfActions
     {
         if ($this->isAjaxCall())
         {
-            //TODO: find a way to hide this message automaticly with js
             c2cTools::log('ajax messageAndRedirect | ' . $message);
             $error_remove = "";
             
             if ($name == 'error')
             {
                 $this->getResponse()->setStatusCode(404);
-            }
-            else
-            {
-                // auto remove error classes on fields
-                sfLoader::loadHelpers(array('Javascript', 'Tag'));
-                $field_error = sfConfig::get('app_form_field_error');
-                $error_remove = javascript_tag("
-                    // remove all errors
-                    if($$('.$field_error').size() > 0)
-                    {
-                        $$('.$field_error').invoke('removeClassName', '$field_error');
-                    }
-                ");
             }
 
             return $this->renderText($error_remove . $js . $this->__($message, $vars));

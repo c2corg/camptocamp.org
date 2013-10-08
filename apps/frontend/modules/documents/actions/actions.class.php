@@ -2069,7 +2069,7 @@ class documentsActions extends c2cActions
         }
 
         // Go through simple heuristics to check for potential vandalism
-       Vandalism::check($this->document);
+        Vandalism::check($this->document);
 
         // js to autosave edit forms. see also https://github.com/marcuswestin/store.js?
         // FIXME temporarily disabled because it causes the browser to choke every 20-30s
@@ -3809,7 +3809,7 @@ class documentsActions extends c2cActions
         $mode = $this->getRequestParameter('mode'); 
         $strict = $this->getRequestParameter('strict', 1); // whether 'remove action' should be strictly restrained to main and linked or reversed. 
         $icon = $this->getRequestParameter('icon');
-        
+
         // if session is time-over
         if (!$user_id)
         {
@@ -4070,14 +4070,14 @@ class documentsActions extends c2cActions
                                                                 $('$summit_id').value = selectedItem.id;
                                                                 ". remote_function(array(
                                                                                         'update' => array(
-                                                                                                        'success' => $div_select, 
+                                                                                                        'success' => $div_select,
                                                                                                         'failure' => $updated_failure),
                                                                                         'url' => 'summits/getroutes',
                                                                                         'with' => "'summit_id=' + $('$summit_id').value + '&div_prefix=${field_prefix}_&div_name=document_id'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
                                                                                         'complete' => "Element.hide('indicator');C2C.getWizardRouteRatings('${field_prefix}_document_id');",
                                                                                         'success'  => "Element.show('${field_prefix}_associated_routes');",
-                                                                                        'failure'  => "Element.show('$updated_failure');" . 
+                                                                                        'failure'  => "C2C.showFailure();" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
                                     'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                     'indicator' => 'indicator')); 
