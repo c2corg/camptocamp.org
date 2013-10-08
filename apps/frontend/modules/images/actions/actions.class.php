@@ -960,11 +960,11 @@ class imagesActions extends documentsActions
                 $iptc = iptcparse($info['APP13']);
                 if (isset($iptc['2#105'])) // title
                 {
-                    $image_title = $iptc['2#105'][0];
+                    $image_title = $trim(iptc['2#105'][0]);
                 }
                 else if (isset($iptc['2#120'])) // comment
                 {
-                    $image_title = $iptc['2#120'][0];
+                    $image_title = trim($iptc['2#120'][0]);
                 }
             }
         }
