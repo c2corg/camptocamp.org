@@ -224,10 +224,10 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
     if ($current_page != 0)
     {
         $navigation .= link_to_function(picto_tag('action_first', __('first page')),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}0'))");
+                                        "jQuery('#${div_prefix}$current_page, #${div_prefix}0').slideToggle(1000)");
         $navigation .= '&nbsp;';
         $navigation .= link_to_function(picto_tag('action_back', __('previous page')),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($current_page-1)."'))");
+                                        "jQuery('#${div_prefix}$current_page, #${div_prefix}".($current_page-1)."').slideToggle(1000)");
         $navigation .= '&nbsp;';
     }
 
@@ -241,7 +241,7 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
     while (($i < $begin + 5) && ($i < $nb_pages))
     {
         $links[] = ($i == $current_page) ? $i+1 :
-                   link_to_function($i+1, "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}$i'))");
+                   link_to_function($i+1, "jQuery('#${div_prefix}$current_page, #${div_prefix}$i').slideToggle(1000)");
         $i++;
     }
     $navigation .= join('&nbsp;&nbsp;', $links);
@@ -250,10 +250,10 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
     {
         $navigation .= '&nbsp;';
         $navigation .= link_to_function(picto_tag('action_next', __('next page')),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($current_page+1)."'))");
+                                        "jQuery('#${div_prefix}$current_page, #${div_prefix}".($current_page+1)."').slideToggle(1000)");
         $navigation .= '&nbsp;';
         $navigation .= link_to_function(picto_tag('action_last', __('last page')),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($nb_pages-1)."'))");
+                                        "jQuery('#${div_prefix}$current_page, #${div_prefix}".($nb_pages-1)."').slideToggle(1000)");
     }
 
     return '<div class="pages_navigation">' . $navigation . '</div>';
