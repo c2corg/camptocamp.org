@@ -135,7 +135,7 @@ function filters_switcher_link($mainFilterSwitchOn)
     else
     {
         return link_to_function($html, "jQuery('#indicator').show();" .
-          "jQuery.ajax({ url: '" . url_for('@default?module=common&action=switchallfilters') . "' })" .
+          "jQuery.ajax('" . url_for('@default?module=common&action=switchallfilters') . "')" .
             ".done(function() { jQuery('#filter_switch_on, #filter_switch_off').toggle(); window.location.reload(); })" .
             ".always(function() { jQuery('#indicator').hide(); })");
 

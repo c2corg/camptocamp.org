@@ -32,7 +32,7 @@ echo form_tag('images/upload?mod=' . $sf_params->get('mod') . '&document_id=' . 
 
   echo ajax_feedback(true);
 
-  echo javascript_tag("
+  echo javascript_tag(" // TODO
   var next_file_id = 1;
 
   $('submit_files').observe('click', function() {

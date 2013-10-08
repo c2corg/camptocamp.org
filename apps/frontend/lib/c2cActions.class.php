@@ -62,7 +62,7 @@ abstract class c2cActions extends sfActions
     {
         $errors = $this->getRequest()->getErrors();
         $field_error = sfConfig::get('app_form_field_error');
-        $js_errors = "'" . implode("','",array_keys($errors)) . "'";
+        $js_errors = "'#" .implode(", #", array_keys($errors)) . "'";
 
         $this->getResponse()->setStatusCode(404);
 

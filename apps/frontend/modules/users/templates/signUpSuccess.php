@@ -3,8 +3,6 @@
 <div id="fake_div">
 
 <?php
-// handle ajax errors
-echo ajax_feedback(true); // true == inline feedback
 // handle non ajax error form
 echo global_form_errors_tag();
 

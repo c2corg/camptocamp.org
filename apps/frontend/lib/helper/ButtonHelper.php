@@ -175,24 +175,22 @@ function button_protect($module, $id, $document_is_protected)
 
     $js = "var btn = jQuery(this), indicator = jQuery('#indicator');
 indicator.show();
-jQuery.ajax({
-  url: '" . url_for("@doc_protect?module=$module&id=$id") . "',
-}).done(function(data) {
-  var tmp =  btn.text();
-  btn.text(btn.attr('data-alt-content'))
-    .attr({
-      'class': btn.attr('data-alt-class'),
-      title: btn.attr('data-alt-title'),
-      'data-alt-class': btn.attr('class'),
-      'data-alt-title': btn.attr('title'),
-      'data-alt-content': tmp
-    });
-  C2C.showSuccess(data);
-}).fail(function(data) {
-  C2C.showFailure(data);
-}).always(function() {
-  indicator.hide();
-})";
+jQuery.ajax('" . url_for("@doc_protect?module=$module&id=$id") . "')
+  .done(function(data) {
+    var tmp =  btn.text();
+    btn.text(btn.attr('data-alt-content'))
+      .attr({
+        'class': btn.attr('data-alt-class'),
+        title: btn.attr('data-alt-title'),
+        'data-alt-class': btn.attr('class'),
+        'data-alt-title': btn.attr('title'),
+        'data-alt-content': tmp
+      });
+    C2C.showSuccess(data);})
+  .fail(function(data) {
+    C2C.showFailure(data);})
+  .always(function() {
+    indicator.hide();})";
 
     return link_to_function($msg, $js,
                             array('title' => $title,
