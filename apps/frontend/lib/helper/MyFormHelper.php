@@ -7,11 +7,11 @@
 // FIXME dirty trick
 if (function_exists('use_helper')) // template
 {
-    use_helper('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button');
+    use_helper('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button', 'JavascriptQueue');
 }
 else // action
 {
-    sfLoader::loadHelpers('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button');
+    sfLoader::loadHelpers('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button', 'JavascriptQueue');
 }
 
 function _get_mandatory_fields()
@@ -626,8 +626,6 @@ function radiobutton_tag_selected_if($radio_name, $value, $value_to_compare_with
 
 function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_after = true, $i18n = true, $list_class = 'checkbox_list', $nokey = false, $picto='')
 {
-    //$toReturn = link_to_function('do not filter', "$$('#$list_name input[type=checkbox]').invoke('disable'); $('$list_name').hide(); this.hide();");
-    
     $toReturn = '<ol class="' . $list_class . '" id="' . $list_name . '">';
     
     if ($checkboxes_array[0] == null) 
@@ -651,7 +649,7 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_aft
         }
 
     	$checkbox_toReturn = checkbox_tag($list_name . '[]', $value_to_use, $checked,
-                                  array('id' => $list_name . '_' . $checkbox, 'onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));
+                                  array('id' => $list_name . '_' . $checkbox, 'onclick' => "this.parentNode.className = (this.parentNode.className == 'checked') ? '' : 'checked'"));
         
         if ($label_after)
         {
@@ -665,7 +663,7 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_aft
     	$toReturn .= '</li>';
     }
     
-    return $toReturn .= '</ol>';
+    return $toReturn . '</ol>';
 }
 
 function checkbox_nokey_list($list_name, $checkboxes_array, $compare_array, $label_after = true, $i18n = true, $list_class = 'checkbox_list')

@@ -18,11 +18,7 @@ if (document.getElementById('mapLoading')) {
   $map_init;
 } else {
   var elt = document.getElementById('georef_container');
-  if (elt.style.display === 'none') {
-    elt.style.display = '';
-  } else {
-    elt.style.display = 'none';
-  }
+  elt.style.display = (elt.style.display === 'none') ? '' : 'none';
 }";
 
 echo __('Regions are detected automatically according to coordinates'), " ",

@@ -3,7 +3,7 @@
   <?php echo form_error("image_$image_number"); ?>
   <div class="file_to_upload_button">
   <?php echo link_to_function(picto_tag('picto_rm', __('delete this file')),
-                              "$('div_image_" . $image_number . "').remove()") ?>
+                              "jQuery('#div_image_" . $image_number . "').remove()") ?>
   </div>
   <div class="file_to_upload_info"><p><?php
   echo __('File:') . ' ' . input_file_tag("image_file[$image_number]");

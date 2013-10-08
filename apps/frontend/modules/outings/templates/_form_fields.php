@@ -138,22 +138,6 @@ if (empty($conditions_levels))
     }
 }
 ?>
-<script type="text/javascript">
-//<![CDATA[
-var conditions_levels_fields = new Array(<?php echo "'" . implode("','", $level_fields) . "'" ?>);
-var conditions_levels_next_id = <?php echo count($conditions_levels) ?>;
-
-function addConditionLevel()
-{
-    new_line = '<?php echo addcslashes(get_partial('conditions_level', array('fields' => $level_fields,
-                                                                                    'level'  => 'level_var', 
-                                                                                    'data'   => NULL)), "\0..\37\\'\"\/") ?>';
-    new_line = new_line.gsub('level_var', conditions_levels_next_id);
-    new Insertion.Bottom('conditions_levels_tbody', new_line);
-    conditions_levels_next_id++;
-}
-//]]>
-</script>
 <table id="conditions_levels_table">
   <colgroup></colgroup>
   <?php foreach ($level_fields as $field): ?>
@@ -161,8 +145,7 @@ function addConditionLevel()
   <?php endforeach ?>
   <thead>
     <tr>
-      <th><?php echo link_to_function(picto_tag('picto_add', __('add a condition level')),
-                                      'addConditionLevel()') ?></th>
+      <th><?php echo link_to(picto_tag('picto_add', __('add a condition level')), '#', array('class' => 'add-condition-level')) ?></th>
       <?php foreach ($level_fields as $field): ?>
         <th><?php echo __($field) ?></th>
       <?php endforeach ?>
@@ -178,6 +161,24 @@ function addConditionLevel()
   </tbody>
 </table>
 <?php
+echo javascript_queue("
+var tbody = jQuery('#conditions_levels_tbody');
+var next_id =  tbody.find('tr').length;
+
+jQuery('.add-condition-level').click(function(e) {
+  e.preventDefault();
+  tbody.append('" . addcslashes(get_partial('conditions_level', array('fields' => $level_fields,
+                                                                       'level'  => '%%var%%',
+                                                                       'data'   => null)), "\0..\37\\'\"\/") .
+  "'.replace(/%%var%%/g, next_id));
+  next_id++;
+});
+
+tbody.on('click', '.remove-condition-level', function(e) {
+  e.preventDefault();
+  jQuery(this).closest('tr').remove();
+});
+");
 echo end_group_tag();
 ?>
 </div>
