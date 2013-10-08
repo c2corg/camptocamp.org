@@ -38,7 +38,9 @@ if ($is_not_archive)
     // between document owner and others
     if ($is_connected && !$is_moderator && $is_not_merged)
     {
-        echo javascript_tag('var user_is_author = ('.$id.' == parseInt($(\'name_to_use\').href.split(\'/\').reverse()[0]))');
+        echo javascript_tag('if ('.$id.' == document.getElementById("name_to_use").getAttribute("data-user-id")) {
+          document.body.setAttribute("data-user-author", true);
+        }');
     }
 }
 echo end_section_tag();

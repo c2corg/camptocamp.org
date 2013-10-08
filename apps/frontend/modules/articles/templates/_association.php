@@ -106,7 +106,9 @@ if ($show_link_tool)
 
     if (!$is_moderator && $is_connected && ($document->get('article_type') == 2))
     {
-        echo javascript_tag("if (!user_is_author) { $('doc_add').hide(); $('ac_form').hide(); }");
+        echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) {
+          document.getElementById('association_tool').style.display = 'none';
+        }");
     }
 ?>
     </div>

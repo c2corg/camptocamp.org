@@ -183,11 +183,14 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
     {
         if ($nb_images)
         {
-            echo javascript_tag("if (!user_is_author) $('add_images_button').hide();");
+            echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('add_images_button').style.display = 'none';");
         }
         else
         {
-            echo javascript_tag("if (!user_is_author) { $('images_tbg').hide(); $('images_section_container').hide(); }");
+            echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) {
+              document.getElementById('images_tbg').style.display = 'none';
+              document.getElementById('images_section_container').style.display = 'none';
+            }");
         }
     }
     ?>

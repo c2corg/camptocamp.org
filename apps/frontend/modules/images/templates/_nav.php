@@ -1,5 +1,5 @@
 <?php 
-use_helper('Button', 'Ajax', 'Javascript');
+use_helper('Button', 'Ajax', 'Javascript', 'JavascriptQueue');
 
 $module = $sf_context->getModuleName();
 $lang = $document->getCulture();
@@ -28,7 +28,9 @@ $is_archive = $document->isArchive();
                 <li><?php echo button_rotate(-90, $id) ?></li>
                 <?php if (!$has_rights && $document->get('image_type') == 2) // hide buttons if by-nc-nd and not author?
                 {
-                    echo javascript_tag('if ('.$creator_id.'!=parseInt($(\'name_to_use\').href.split(\'/\').reverse()[0])) { $$(\'.action_rotate\').invoke(\'hide\'); }');
+                    echo javascript_queue('if ('.$creator_id.' != jQuery("#name_to_use").attr("data-user-id")) {
+                      jQuery(".action_rotate").hide();
+                    }');
                 } ?>
             <?php endif ?>
             <?php if ($has_rights && !$is_archive): ?>

@@ -91,7 +91,9 @@ if ($is_not_archive)
         {
             $associated_users_ids[] = $user['id'];
         }
-        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\').reverse()[0])) != -1);');
+        echo javascript_tag('if (['.implode(',', $associated_users_ids).'].indexOf(parseInt(document.getElementById("name_to_use").getAttribute("data-user-id"))) != -1) {
+          document.body.setAttribute("data-user-author", true);
+        }');
     }
     
     echo '<div class="all_associations col_right col_33">';
@@ -131,7 +133,7 @@ echo end_section_tag();
 
 if ($is_not_archive && $is_not_merged && $is_connected && !$is_moderator)
 {
-    echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.empty_content', '#map_container p.default_text').invoke('hide'); }");
+    echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('_association_tool').style.display = 'none';");
 }
 
 // lang-dependent content
@@ -176,7 +178,7 @@ if ($mobile_version)
         
         if ($is_not_archive && $is_not_merged && $is_connected && !$is_moderator)
         {
-            echo javascript_tag("if (!user_is_author) $('edit_outing_button').hide();");
+            echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('edit_outing_button').style.display = 'none';");
         }
     }
 }
