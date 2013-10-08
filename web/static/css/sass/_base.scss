@@ -2523,13 +2523,6 @@ ul.docs_changes li img
   left: 300px;
 }
 
-.form-row #order
-{
-  width:130px;
-  padding: 0.2em;
-  margin: 0 0 0 160px;
-}
-
 .field_error
 {
   border: 1px solid #ff0031;
@@ -2538,20 +2531,24 @@ ul.docs_changes li img
 // drag and drop for languages order preferences is only available
 // in standard version
 @if $standard {
-  #order li
-  {
-    margin: 0.3em 0;
-    border: 1px solid #000;
-    @include border-radius(4px);
-    padding: 0.2em 0.2em 0.2em 35px;
-    list-style-type: none;
-    background: url(-c2c-datauri('/static/images/picto/drag.gif')) no-repeat 5px;
-  }
+  #languages-order {
+    width:130px;
+    padding: 0.2em;
+    margin: 0 0 0 160px;
 
-  #order li:hover
-  {
-    cursor: pointer;
-    background-color: #ccc;
+    li {
+      margin: 0.3em 0;
+      border: 1px solid #000;
+      @include border-radius(4px);
+      padding: 0.2em 0.2em 0.2em 35px;
+      list-style-type: none;
+      background: url(-c2c-datauri('/static/images/picto/drag.gif')) no-repeat 5px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #ccc;
+      }
+    }
   }
 }
 
