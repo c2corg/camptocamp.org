@@ -7321,6 +7321,12 @@ msgstr "within a radius of"
 msgid "wl button title"
 msgstr "Insertar un vínculo interno"
 
+# [general comment]
+# placeholder pour le titre d'une image
+# [WARNING] en translation used
+msgid "write a caption"
+msgstr "Write a caption"
+
 msgid "wrong file type"
 msgstr "Formato de imagen no valido"
 

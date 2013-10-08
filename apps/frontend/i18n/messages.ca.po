@@ -3473,13 +3473,28 @@ msgstr "Per confirmar-ho, entreu de nou la vostra contrasenya."
 msgid "_nick_name_info"
 msgstr "<h3>Pseudònim per al fòrum</h3>Nom que apareixerà als fòrums del lloc web.<br /><br />Aquest nom pot modificar-se. Per defecte es prendrà el teu nom d'usuari."
 
-# [WARNING] en translation used
+# [comment]
+# - Dirigir a l'apartat de perill objectiu de l'article, com a la versió fr.
+# - Adaptar exemples a sortides en ca.
+# [WARNING] needs_review
 msgid "_objective_risk_rating_info"
-msgstr "<h3>Objective Danger</h3>\n"
-"The Objective Danger scale evaluates the risk of natural snow avalanches, serac avalanches, natural rockfall, natural stalactite fall and fragility of the waterfall ice. The danger coming from human behavior is not in this Objective Danger scale except for the falling down of the waterfall ice triggered by the climber.\n"
-"Approach, tehcnical section and return are evaluate in the risk scale.<br />\n"
+msgstr "<h3>Riscos objectius</h3>\n"
+"S'hi tenen en compte les allaus naturals de neu, les caigudes de seracs, les esllavissades o caigudes de pedres, el despreniment d'estalactites i la fragilitat del suport. Els riscos relacionats directament amb l'acció humana no es tenen en compte, a excepció de l'esfondrament del suport provocada pel participant. Les allaus, caigudes de pedres i d'estalactites desencadenades pel participant o per alguna altra cordada no es tenen en compte. L'escala de riscos objectius contempla tant el tram tècnic com l'aproximació i la tornada. <br />\n"
 "<br />\n"
-"See also help on <a href=\"/articles/146949#objective-danger\">objective danger grades</a>."
+"<strong>X1</strong>: Riscos objectius febles. <a href=\"/summits/256956/fr\">Villard Reymond - 3 cigares</a><br />\n"
+"<br />\n"
+"<strong>X2</strong>: Riscos objectius moderats. <a href=\"/routes/54271/fr\">Colère du Ciel</a><br />\n"
+"<br />\n"
+"<strong>X3</strong>: Riscos objectius marcats. <a href=\"/routes/56412/fr\">Délire du Chacal</a>, <a href=\"routes/55560/fr\">Caturgeas</a><br />\n"
+"<br />\n"
+"<strong>X4</strong>: Riscos objectius severs. Caiguda de serac: Anecdotique, couloir en S.<br />\n"
+"<br />\n"
+"<strong>X5</strong>: Riscos objectius molt severs. El mateix que X4 però pitjor.<br />\n"
+"<br />\n"
+"Vegeu també l'ajuda:<br />\n"
+"- <a href=\"/articles/146949/fr#objective-danger\">Graduació dels riscos objectius en cascades de glaç i dry-tooling</a><br />\n"
+"- <a href=\"/articles/106871/fr#objective-danger\">Graduació dels riscos objectius en alpinisme de neu, glaç i mixt</a><br />\n"
+"- <a href=\"/articles/133323/fr#objective-danger\">Graduació dels riscos objectius en escalada clàssica</a>"
 
 msgid "_outing_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traça GPX associada a la sortida.<br />Aquesta informació es calcula a partir de la traça GPX associada, i no és disponible per a un document que no compti amb una traça GPX. <br />La longitud serà substituïda si una nova traça GPX és associada al document."
@@ -3542,23 +3557,27 @@ msgstr "<h3>Informació sobre les modificacions</h3>Indiqueu breument en aquest 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Modificacions menors</h3>Marqueu aquesta casella si les modificacions aportades al document no són importants:<br /><br /><strong>text</strong>: correcció de l'ortografia o de la presentació<br /><br /><strong>altitud i desnivell</strong>: modificacions &lt; 50m<br /><br /><strong>dificultat</strong>: modificació d'una escala de dificultat (AD a AD+, 3.3 a 3.2)<br /><br /><strong>descripció d'itinerari o de lloc</strong>: petita nota, reformulació d'una frase. Els afegits de variants o modificació de les descripcions completes no són modificacions menors."
 
-# [WARNING] en translation used
+# [comment]
+# - Adaptar a exemples en ca.
+# - Redirigir als articles en ca.
+# [WARNING] needs_review
 msgid "_rock_exposition_rating_info"
-msgstr "<h3>Runout Grade</h3>\n"
-"The Runout Grade based on the consequence of a fall. The climber will not be hurt in the first three levels, therefore, the difference between E1, E2 and E3 is the length of the fall (or the distance between pro). For the higher levels (Ex4, Ex5, Ex6) the climber will get hurt and the levels represent the increasing severity of the consequences, from a broken ankle to death. The Ex for the french word exposition, which can mean danger.<br />\n"
+msgstr "<h3>Exposició en escalada en roca</h3>\n"
+"La graduació Exposició E per als itineraris d'escalada en roca es basa en les conseqüències de la caiguda. L'escalador no resulta ferit en els tres primers nivells (E1, E2, E3). La progressió al llarg de la graduació correspon a l'augment de la longitud de la caiguda potencial (o de la distància entre les proteccions). Per als nivells més elevats (E4, E5, E6), la caiguda implicarà ferides. La graduació correspon a la severitat de les conseqüències de la caiguda des de desllorigar-se el turmell fins a la mort. <br />\n"
 "<br />\n"
-"<strong>E1</strong>&nbsp;: Over protected with bolts/pitons or good, solid protections minimum every meter ground up. No obligatory move.<br />\n"
+"<strong>E1</strong>: Sobreprotegit amb punts d'ancoratge existents o bé fàcil de protegir des del terra a cada metre. No hi ha moviments obligats.<br />\n"
 "<br />\n"
-"<strong>E2</strong>&nbsp;: Well protected with bolts/pitons or good, solid protections ground up.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<strong>E2</strong>: Ben protegit amb punts d'ancoratge existents o de bon protegir des de terra.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
 "<br />\n"
-"<strong>E3</strong>&nbsp;: Falls will be long but will not cause injury. Bolts or protection will be widely spaced.<br />\n"
+"<strong>E3</strong>: La caiguda serà llarga però sense conseqüències físiques. Els punts d'ancoratge existents o les proteccions que anem posant són espaiats.<br />\n"
 "<br />\n"
-"<strong>E4</strong>&nbsp;: The fall could cause slight injuries even if bolts or protections are not widely spaced.<br />\n"
+"<strong>E4</strong>: La caiguda no és benigne. Implica un accident menor fins i tot si els punts d'ancoratge o les proteccions que posem no són gaire espaiats.<br />\n"
 "<br />\n"
-"<strong>E5</strong>&nbsp;: The fall will cause serious injuries. An E5 might suggest widely-spaced bolts, just enough lousy protections or a small grounder.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<strong>E5</strong>: La caiguda és perillosa. Implicaria un accident creu. E5 correspon a punts d'ancoratge molt espaiats, proteccions a col·locar força dolentes o bé la presència del terra o d'una vira.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
 "<br />\n"
-"<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
-"<br />"
+"<strong>E6</strong>: El mateix que per a E5 però en què es considera que s'és afortunat si es cau sense morir fins i tot havent protegit la via.<br />\n"
+"<br />\n"
+"Vegeu també l'ajuda sobre la <a href=\"/articles/133323/fr#exposition\">graduació de l'exposició en roca</a>. "
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Dificultat lliure</h3>\n"
@@ -5939,9 +5958,8 @@ msgstr "informació no disponible"
 msgid "novel"
 msgstr "relat"
 
-# [WARNING] en translation used
 msgid "objective_risk_rating"
-msgstr "Objective Danger"
+msgstr "Riscos objectius:"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -7312,6 +7330,12 @@ msgstr "en un radi de"
 
 msgid "wl button title"
 msgstr "Inserir un enllaç intern"
+
+# [general comment]
+# placeholder pour le titre d'une image
+# [WARNING] en translation used
+msgid "write a caption"
+msgstr "Write a caption"
 
 msgid "wrong file type"
 msgstr "Format d'imatge no vàlid"

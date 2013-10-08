@@ -7696,6 +7696,12 @@ msgstr "within a radius of"
 msgid "wl button title"
 msgstr "Barne link bat sartu"
 
+# [general comment]
+# placeholder pour le titre d'une image
+# [WARNING] en translation used
+msgid "write a caption"
+msgstr "Write a caption"
+
 # [WARNING] es translation used
 msgid "wrong file type"
 msgstr "Formato de imagen no valido"
