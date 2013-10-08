@@ -7529,6 +7529,12 @@ msgstr "im Umkreis von"
 msgid "wl button title"
 msgstr "Einen internen Link einfügen "
 
+# [general comment]
+# placeholder pour le titre d'une image
+# [WARNING] en translation used
+msgid "write a caption"
+msgstr "Write a caption"
+
 msgid "wrong file type"
 msgstr "Ungültiges Bildformat"
 
