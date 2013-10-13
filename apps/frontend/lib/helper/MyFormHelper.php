@@ -552,12 +552,13 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
                                 'title' => __('Search on c2c') . ' [alt-shift-f]');
     if ($autocomplete)
     {
-        $html .= input_auto_complete_tag('q', '', '@quicksearch',
-                                         $input_html_options,
-                                         array('update_element' => "function (selectedItem) {
-                                                  window.location = '/documents/'+selectedItem.id; }",
-                                               'min_chars' => sfConfig::get('app_autocomplete_min_chars'),
-                                               'with' => "'q='+$('${id_prefix}q').value+'&type='+$('${id_prefix}type').value"));
+        $html .= input_tag('q', '', $input_html_options);
+        $html .= javascript_queue("jQuery('#q').c2cAutocomplete({
+          url: '" . url_for('@quicksearch') . "',
+          minChars: " .  sfConfig::get('app_autocomplete_min_chars') . ",
+          params: 'q=' + jQuery('#${id_prefix}q').val() + '&type=' + jQuery('#${id_prefix}type').val(),
+          onSelect: function() {  window.location = '/documents/' + this.id; }
+        });");
     }
     else
     {
