@@ -37,11 +37,11 @@ function show_georef_map($lon, $lat, $layer)
                     },
                     callback: function(lonlat) {
                         if (lonlat) {
-                            $('lon').value = Math.round(lonlat.lon*1E6)/1E6;
-                            $('lat').value = Math.round(lonlat.lat*1E6)/1E6;
+                            Ext.getDom('lon').value = Math.round(lonlat.lon*1E6)/1E6;
+                            Ext.getDom('lat').value = Math.round(lonlat.lat*1E6)/1E6;
                         } else {
-                            $('lon').value = '';
-                            $('lat').value = '';
+                            Ext.getDom('lon').value = '';
+                            Ext.getDom('lat').value = '';
                         }
                         c2corg.coords.update_degminsec('lon');
                         c2corg.coords.update_degminsec('lat');
