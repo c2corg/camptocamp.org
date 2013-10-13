@@ -28,7 +28,7 @@
     if (this.options.remote) {
       this.$element.find('.modal-body')
         .append('<div class="modal-loading"/>')
-        .load(this.options.remote, function() {
+        .load(this.options.remote, 'modal=true', function() {
           // set focus on input autofocus if it exists
           $(this).find('input[autofocus]').focus();
         });
