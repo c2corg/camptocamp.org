@@ -11,7 +11,6 @@ use_helper('MyMinify', 'MetaLink', 'Forum', 'Link', 'Language', 'Ajax');
 
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/fold.js');
 ?>
 <!doctype html>
 <html lang="<?php echo $lang_code ?>">

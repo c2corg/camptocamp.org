@@ -16,7 +16,6 @@ use_helper('MyMinify', 'MetaLink');
 
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/fold.js');
 
 // alpine club logo is included by css, but only in en
 if ($lang === 'en') use_stylesheet('/static/css/ac');
