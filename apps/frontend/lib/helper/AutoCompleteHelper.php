@@ -26,7 +26,6 @@ function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $d
       url: '" . url_for("$module/autocomplete") . "',
       minChars: " . sfConfig::get('app_autocomplete_min_chars') . ",
       onSelect: function() {
-        console.log(this);
         jQuery('#$update_hidden').val(this.id);
       }
     });");
@@ -88,7 +87,7 @@ jQuery.post('$url', jQuery(this).serialize())
   .success(function(data) {
     jQuery('#$updated_success').append(data);
     if (jQuery('#${updated_success}_rsummits_name').hide().length) {
-      jQuery('#${updated_success}_associated_routes, #$removed_id').hide();
+      jQuery('#${updated_success}_associated_routes". ($removed_id ? ", #$removed_id" : '') ."').hide();
     }
   });
 return false;";
@@ -112,6 +111,7 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
                          array('onclick' => "C2C.remLink('$link_type', $main_id, $linked_id, $main_doc, $strict); return false;"));
 }
 
+
 /**
  * Create a form that allow to link the current document with several kinds of other docs
  *
@@ -128,22 +128,24 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
 {
     $modules_list = array_intersect(sfConfig::get('app_modules_list'), $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
-    $select_js = 'var c=this.classNames().each(function(i){$(\'dropdown_modules\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
-    $select_modules = select_tag('dropdown_modules', options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
-                                 array('onchange' => $select_js, 'class' => 'picto picto_' . $default_selected));
+    $select_modules = select_tag('dropdown_modules',
+        options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
+        array('class' => 'picto picto_' . $default_selected));
     
     $picto_add = ($hide) ? '' : picto_tag('picto_add', (in_array('users', $modules_list) ? __('Link an existing user or document') : __('Link an existing document'))) . ' ';
     
     $out = $picto_add . $select_modules;
 
-    // update form when user changes the document type
-    $out .= observe_field('dropdown_modules',
-                          array('update' => $field_prefix . '_form',
-                                'url' => "/$module/getautocomplete",
-                                'with' => "'module_id=' + value + '&field_prefix=$field_prefix'",
-                                'script' => 'true',
-                                'loading' => "Element.show('indicator')",
-                                'complete' => "Element.hide('indicator')"));
+    $out .= javascript_queue("
+jQuery('#dropdown_modules').change(function() {
+  var value = jQuery(this).val(), indicator = jQuery('#indicator').show();
+  jQuery(this).attr('class', 'picto picto_' + value);
+  jQuery.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix')
+    .always(function() {
+      indicator.hide();
+    })
+    .done(function(data) { jQuery('#${field_prefix}_form').html(data); });
+});");
 
     // form start
     $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix, $indicator, $removed_id);

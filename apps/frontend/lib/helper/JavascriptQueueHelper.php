@@ -24,11 +24,11 @@ function javascript_queue($js) {
 
   if (sfContext::getInstance()->getRequest()->isXmlHttpRequest())
   {
-      echo javascript_tag('(function(C2C) {' . $js . '})(window.C2C = window.C2C || {});');
+      return javascript_tag('(function(C2C) {' . $js . '})(window.C2C = window.C2C || {});');
   }
   else
   {
-      echo javascript_tag('(function(C2C, _q) { _q.push(function() {' . $js .
+      return javascript_tag('(function(C2C, _q) { _q.push(function() {' . $js .
           '}); })(window.C2C = window.C2C || {}, window.C2C._q = window.C2C._q || [])');
   }
 }

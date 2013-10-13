@@ -268,8 +268,10 @@ class summitsActions extends documentsActions
         $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:') . ' ');
         $routes = c2cTools::sortArrayByName($routes);
         
-        $msg = $this->__('No associated route found');
-        if (count($routes) == 0) return $this->ajax_feedback("<option value='0'>$msg</option>");
+        if (count($routes) == 0)
+        {
+            return $this->ajax_feedback($this->__('No associated route found'));
+        }
 
         if (!$div_id)
         {
