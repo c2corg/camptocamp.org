@@ -246,7 +246,6 @@ abstract class c2cActions extends sfActions
 
     protected function ajax_feedback_autocomplete($msg)
     {
-        //return $this->renderText('<ul><li id="0"><div class="feedback">'.$this->__($msg).'</div></li></ul>');
         return $this->renderText('<ul><div class="feedback">'.$this->__($msg).'</div></ul>');
     }
 

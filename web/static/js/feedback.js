@@ -1,5 +1,7 @@
 (function(C2C, $) {
-  
+
+  var mobile = $('html').hasClass('mobile');
+
   C2C.showFailure = function(text) {
     showFeedback('failure', text);
   };
@@ -13,17 +15,23 @@
     if (text) {
       div.html(text);
     }
-    div
-      .show()
-      .delay(3000)
-      .animate({
-        opacity: 0
-      }, {
-        duration: 1500,
-        complete: function() {
-          $(this).hide().css('opacity', 1);
-        }
+    div.show();
+
+    if (!mobile) {
+      div.delay(3000)
+        .animate({
+          opacity: 0
+        }, {
+          duration: 1500,
+          complete: function() {
+            $(this).hide().css('opacity', 1);
+          }
+        });
+    } else {
+      div.click(function() {
+        $(this).hide();
       });
+    }
   }
 
 })(window.C2C = window.C2C || {}, jQuery);
