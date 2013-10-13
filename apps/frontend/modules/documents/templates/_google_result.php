@@ -18,5 +18,5 @@ C2C.GoogleSearch.i18n = new Array('" . implode("', '", $google_i18n) . "');" .
 "C2C.GoogleSearch.base_url = 'https://www.googleapis.com/customsearch/v1?key=" . sfConfig::get('app_google_api_key') .
 '&cx=' . $cse[$module] . "&callback=C2C.GoogleSearch.handleResponse';
 C2C.GoogleSearch.q = '" . urlencode($query_string) . "';
-Event.observe(window, 'load', function() { C2C.GoogleSearch.search(); });");
+C2C.GoogleSearch.search();");
 endif;
