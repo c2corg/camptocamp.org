@@ -163,13 +163,13 @@
     var textareas = bbcode_toolbars.next();
 
     // hide all bbcode toolbars
-    bbcode_toolbars.attr('visibility', 'hidden');
+    bbcode_toolbars.css('visibility', 'hidden');
 
     // hide / show toolbars on blur / focus
     bbcode_toolbars.next().focus(function() {
-      $(this).prev().attr('visibility', 'visible');
+      $(this).prev().css('visibility', 'visible');
     }).blur(function() {
-      $(this).prev().attr('visibility', 'hidden');
+      $(this).prev().css('visibility', 'hidden');
     });
   });
 
