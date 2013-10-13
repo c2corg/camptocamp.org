@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer');
+use_helper('Language', 'Sections', 'Viewer', 'JavascriptQueue');
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
@@ -147,13 +147,13 @@ include_partial('documents/license', array('license' => 'by-sa', 'version' => $c
 
 echo end_content_tag();
 
-if ($mobile_version)
+if (!$mobile_version)
 {
-  $js = 'if (navigator.geolocation) {
+  $js = 'if ("geolocation" in navigator) {
 navigator.geolocation.getCurrentPosition(function(position) {
-$(\'get_directions\').nextSiblings().each(function(link) {
-link.href = link.href + \'?lon=\' + position.coords.longitude + \'&lat=\' + position.coords.latitude})})}';
-  echo javascript_tag($js);
+jQuery("#get_directions").next().each(function() {
+this.href = this.href + \'?lon=\' + position.coords.longitude + \'&lat=\' + position.coords.latitude})})}';
+  echo javascript_queue($js);
 }
 
 include_partial('common/content_bottom');

@@ -26,30 +26,31 @@ foreach ($parameters as $param => $value)
 </p>
 </form>
 <script type="text/javascript">
-function updateWidgetCode() {
-  var code = "&lt;div id=\"c2cwidget\" /&gt;\n";
-  code += "&lt;script type=\"text/javascript\"&gt;\n";
-  code += "(function(d, t, w) {\n";
-  code += "  w.c2cwgt = w.c2cwgt || {};\n";
-  code += "  w.c2cwgt.params = {\n";
-  code += "    div : \"c2cwidget\",\n",
-  code += "    title : \"" + $('wgt_title').value + "\",\n";
-  code += "    module : \"<?php echo $sf_request->getParameter('mod'); ?>\",\n";
-  code += "    params : \"<?php echo $paramstring; ?>\"\n";
-  code += "  };\n";
-  code += "  var js = d.createElement(t), fjs = d.getElementsByTagName(t)[0];\n";
-  code += "  js.async = 1; js.src = 'http://s.camptocamp.org/static/js/widget.js';\n";
-  code += "  fjs.parentNode.insertBefore(js, fjs);\n"
-  code += "} (document, 'script', window));\n";
-  code += "&lt;/script&gt;";
+(function() {
+  
+  function updateWidgetCode() {
+    var code = "&lt;div id=\"c2cwidget\" /&gt;\n";
+    code += "&lt;script type=\"text/javascript\"&gt;\n";
+    code += "(function(d, t, w) {\n";
+    code += "  w.c2cwgt = w.c2cwgt || {};\n";
+    code += "  w.c2cwgt.params = {\n";
+    code += "    div : \"c2cwidget\",\n",
+    code += "    title : \"" + jQuery('#wgt_title').val() + "\",\n";
+    code += "    module : \"<?php echo $sf_request->getParameter('mod'); ?>\",\n";
+    code += "    params : \"<?php echo $paramstring; ?>\"\n";
+    code += "  };\n";
+    code += "  var js = d.createElement(t), fjs = d.getElementsByTagName(t)[0];\n";
+    code += "  js.async = 1; js.src = 'http://s.camptocamp.org/static/js/widget.js';\n";
+    code += "  fjs.parentNode.insertBefore(js, fjs);\n"
+    code += "} (document, 'script', window));\n";
+    code += "&lt;/script&gt;";
 
+    jQuery('#wgt_code').val(code.unescapeHTML());n
+  }
 
-  $('wgt_code').setValue(code.unescapeHTML());
-}
-$('wgt_title').observe('keyup', function(event) {
+  jQuery('#wgt_title').keyup(updateWidgetCode);
   updateWidgetCode();
-});
-updateWidgetCode();
+})();
 </script>
 <ul class="action_buttons">
   <li><?php echo button_tag('Close', __('Close'), array('onclick' => 'jQuery.modalbox.hide();',

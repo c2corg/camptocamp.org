@@ -8,7 +8,7 @@ include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected
 echo '<br /><br />' . __('User:') . ' ' . input_tag('unam', null, array('autofocus' => 'autofocus'));
 echo select_tag('nam_type',
                 options_for_select(array('unam'=>__('topoguide name only'), 'ufnam'=>__('forum name only'), 'utfnam'=>__('forum and topoguide names')), 'unam'),
-                array('onchange'=>'$(\'unam\').name = this.value'));
+                array('onchange'=>'jQuery("#unam").attr("name", this.value)'));
 ?>
 <br />
 <?php
