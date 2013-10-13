@@ -92,6 +92,6 @@ s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,
 <script>
 C2C.setSectionStatus('map_container', <?php echo $cookie_position ?>, true);
 </script>
-<?php echo javascript_queue("if (!C2C.shouldHide(<?php echo $cookie_position ?>, true)) { (typeof map_load_async !== 'undefined') ? map_load_async() : map_init(); }");
+<?php echo javascript_queue("if (!C2C.shouldHide($cookie_position, true)) { (typeof map_load_async !== 'undefined') ? map_load_async() : map_init(); }");
 
 }

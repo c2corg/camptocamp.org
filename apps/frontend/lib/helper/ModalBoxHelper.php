@@ -37,13 +37,6 @@ function loadRessources()
 {
     $response = sfContext::getInstance()->getResponse();
 
-    // TODO temp for jquery branch, remove once transition finished
-    $response->addJavascript('/static/js/prototype.js', 'head_first');
-    $response->addJavascript('/static/js/builder.js', 'first');
-    $response->addJavascript('/static/js/effects.js', 'head'); // needed by controls.js
-    $response->addJavascript('/static/js/dragdrop.js', 'first'); // needed for sorting lists in modalboxes
-    $response->addJavascript('/static/js/controls.js', 'head'); // needed in head for autocomplete in modalboxes 
-
     if (!c2cTools::mobileVersion())
     {
         $response->addJavascript('/static/js/modal.js', 'last');

@@ -44,9 +44,8 @@ function make_thumbnail_slideshow($images) {
 
 function insert_popup_js()
 {
-    return '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>jQuery.noConflict();</script><script type="text/javascript" src="' .
-        minify_get_combined_files_url(array('/static/js/popup.js')) . // TODO
+    return '<script type="text/javascript" src="' .
+        minify_get_combined_files_url(array('/static/js/jquery.min.js', '/static/js/popup.js')) .
         '"></script>';
 }
 

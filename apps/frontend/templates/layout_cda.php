@@ -91,8 +91,6 @@ $response = sfContext::getInstance()->getResponse();
   </div>
   <?php endif; ?>
 </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>jQuery.noConflict();</script>
     <?php
     minify_include_body_javascripts($combine, $debug);
     minify_include_maps_javascripts($combine);
