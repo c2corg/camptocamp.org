@@ -22,3 +22,6 @@
 [submodule "web/static/js/third-parties/html5sortable"]
 	path = web/static/js/third-parties/html5sortable
 	url = https://github.com/farhadi/html5sortable.git
+[submodule "web/static/js/third-parties/jquery_jeditable"]
+	path = web/static/js/third-parties/jquery_jeditable
+	url = https://github.com/tuupola/jquery_jeditable.git

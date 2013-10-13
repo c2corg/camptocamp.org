@@ -260,12 +260,17 @@ hr
   margin-top: 10px;
 }
 
-.front_message
+.front_message // yellow edit in place on homepage
 {
-  background: #ffc;
+  background-color: #ffc;
   padding:8px 20px;
   margin-bottom: 15px;
   width: auto !important;
+  @include transition(background-color, 1s);
+
+  &.editable:hover {
+    background-color: #ff8;
+  }
 }
 
 .inplaceeditor-form textarea, .inplaceeditor-form

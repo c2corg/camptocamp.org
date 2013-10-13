@@ -1,9 +1,8 @@
-<?php use_helper('JavascriptQueue', 'Form');
+<?php
+use_helper('JavascriptQueue', 'Form', 'MyMinify');
 
-// note: we don't use the symfony in_place_editor_tag since it directly returns a javascript tag,
-// which we want to pass through JavascriptQueue (+ code si quite simple)
-
-if (!empty($message) || $sf_user->hasCredential('moderator')):
+if (!empty($message) || $sf_user->hasCredential('moderator'))
+{
     $output_message = empty($message) ? __('No message defined. Click to edit')
                                       : $sf_data->getRaw('message'); // unescaped data : we trust moderators ! 
     ?>
@@ -12,31 +11,23 @@ if (!empty($message) || $sf_user->hasCredential('moderator')):
     if ($sf_user->hasCredential('moderator'))
     {
         echo javascript_queue("
-Object.extend(Ajax.InPlaceEditor.prototype, {
-  onLoadedExternalText: function(transport) {
-    Element.removeClassName(this.form, this.options.loadingClassName);
-    this.editField.disabled = false;
-    this.editField.value = transport.responseText;
-    Field.scrollFreeActivate(this.editField);
-  }
-});
-new Ajax.InPlaceEditor('edit_me', '" . url_for('@default?module=common&action=edit&lang='.$sf_user->getCulture()) . "', {
-  cancelText: '" . __('Cancel') . "',
-  okText: '" . __('Update') . "',
-  savingText: '" . __('saving...') . "',
-  cols: 40,
-  rows: 2,
-  highlightEndColor: '#ffc'
-});
-");
-
-/*        echo input_in_place_editor_tag('edit_me', 'common/edit?lang=' . $sf_user->getCulture(), array(
-                'cols'              => 40,
-                'rows'              => 2,
-                'highlightendcolor' => '#ffffcc',
-                'cancel_text'       => __('Cancel'),
-                'save_text'         => __('Update')
-        ));*/
+          jQuery.ajax({
+            url: '" . minify_get_combined_files_url('/static/js/jquery.jeditable.js') . "',
+            dataType: 'script',
+            cache: true})
+          .done(function() {
+            jQuery('#edit_me')
+              .addClass('editable')
+              .editable('"  . url_for('@default?module=common&action=edit&lang='.$sf_user->getCulture()) . "', {
+                type: 'textarea',
+                submit: '<input type=\"submit\" value=\"" . __('Update') . "\" />',
+                cancel: '<input type=\"submit\" value=\"" . __('Cancel') . "\" />',
+                indicator: '" . __('saving...') . "',
+                tooltip: '" . __('Click to edit') . "',
+                onblur: 'ignore',
+                rows: 4
+              });
+          });");
     }
-endif;
+}
 ?>
