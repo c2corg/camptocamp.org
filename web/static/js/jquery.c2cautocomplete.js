@@ -110,7 +110,8 @@
       offset = that.el.offset();
       that.suggestionsContainer.css({
         top: (offset.top + that.el.outerHeight()),
-        left: offset.left
+        left: offset.left,
+        width: that.element.offsetWidth
       });
     },
 
@@ -241,6 +242,8 @@
       var that = this,
           options = that.options,
           indicator = $('#'+options.indicator);
+
+      that.fixPosition(); // needed for mobile version
 
       if ($.isPlainObject(options.params)) {
         options.params[options.paramName] = q;
