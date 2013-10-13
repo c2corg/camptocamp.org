@@ -818,7 +818,8 @@ function c2c_reset_tag($value = 'Reset', $options = array())
 
 function c2c_submit_tag($value = 'Submit', $options = array())
 {
-    return c2c_button($value, array_merge(array('type' => 'submit', 'name' => 'commit'), _convert_options_to_javascript(_convert_options($options))));
+    return c2c_button($value, array_merge(array('type' => 'submit', 'name' => 'commit'),
+                                 _convert_options_to_javascript(_convert_options($options))));
 }
 
 function c2c_button($value, $options, $btn = null)

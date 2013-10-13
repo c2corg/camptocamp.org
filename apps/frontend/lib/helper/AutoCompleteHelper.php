@@ -8,31 +8,30 @@
 if (isset($sf_user))
 {
     // we are in a template 
-    use_helper('Javascript','Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'General');
+    use_helper('JavascriptQueue','Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'General');
 }
 else
 {
     // we are in an action
-    sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'Javascript', 'General'));
+    sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'JavascriptQueue', 'General'));
 }
 
 function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $size = '45')
 {
-    if ($module == 'users')
-    {
-        $placeholder = __('ID or name/nickname');
-    }
-    else
-    {
-        $placeholder = __('Keyword or ID');
-    }
-    return input_auto_complete_tag($module . '_name', 
-                            $display, // default value in text field 
-                            "$module/autocomplete", 
-                            array('size' => $size, 'id' => $field_prefix.'_'.$module.'_name', 'placeholder' => $placeholder), 
-                            array('after_update_element' => "function (inputField, selectedItem) {\$('$update_hidden').value = selectedItem.id;}",
-                                  'min_chars' => sfConfig::get('app_autocomplete_min_chars'), // min chars to type
-                                  'indicator' => 'indicator'));
+    $id = $field_prefix.'_'.$module.'_name';
+    $tag = input_tag($module . '_name', $display, array('size' => $size,
+               'id' => $id,
+               'placeholder' => ($module == 'users') ? __('ID or name/nickname') :  __('Keyword or ID')));
+    $js = javascript_queue("jQuery('#$id').c2cAutocomplete({
+      url: '" . url_for("$module/autocomplete") . "',
+      minChars: " . sfConfig::get('app_autocomplete_min_chars') . ",
+      onSelect: function() {
+        console.log(this);
+        jQuery('#$update_hidden').val(this.id);
+      }
+    });");
+
+    return $tag . $js;
 }
 
 function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $display_button = true)
@@ -44,7 +43,7 @@ function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display
     $out = c2c_input_auto_complete($module, $update_hidden, $field_prefix, $display);
     $out .= ($display_button) ? c2c_submit_tag(__('Link'), array(
                                     'class' => 'samesize',
-                                    'onclick' => "$('$field').value = '';",
+                                    'onclick' => "jQuery('#$field').val('');",
                                     'picto' =>  'action_create')) : '';
     return $out;
 }
@@ -80,17 +79,25 @@ function geocode_auto_complete($name, $service)
 
 function c2c_form_remote_add_element($url, $updated_success, $indicator = 'indicator', $removed_id = null)
 {
-    $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
-    return form_remote_tag(array('update' => array('success' => $updated_success, 'failure' => $updated_failure),
-                                 'position' => 'bottom',
-                                 'url' => $url,
-                                 'method' => 'post',
-                                 'loading' => "Element.show('$indicator')",
-                                 'complete' => "Element.hide('$indicator')",
-                                 'success'  => "Element.hide('$updated_failure');if($('{$updated_success}_rsummits_name')){".
-                                               "$('{$updated_success}_rsummits_name').value='';$('{$updated_success}_associated_routes').hide();}".
-                                               ($removed_id == null ? '' : "$('$removed_id').hide();"),
-                                 'failure'  => "C2C.showFailure()"));
+    $url = url_for($url);
+
+    $js = "jQuery('#indicator').show();
+jQuery.post('$url', jQuery(this).serialize())
+  .always(function() { jQuery('#indicator').hide(); })
+  .fail(function(data) { C2C.showFailure(data.responseText); })
+  .success(function(data) {
+    jQuery('#$updated_success').append(data);
+    if (jQuery('#${updated_success}_rsummits_name').hide().length) {
+      jQuery('#${updated_success}_associated_routes, #$removed_id').hide();
+    }
+  });
+return false;";
+
+    $options['action'] = $url;
+    $options['method'] = isset($options['method']) ? $options['method'] : 'post';
+    $options['onsubmit'] = $js;
+
+    return tag('form', $options, true);
 }
 
 function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc = true,
