@@ -299,7 +299,7 @@ function around_selector($name, $multiline = false)
 
     $out = __('Around: ');
     $out .= select_tag($name . '_sel', $option_tags,
-                       array('onchange' => "C2C.geo.update_around_on_select_change('$name')"));
+                       array('onchange' => "C2C.update_around_on_select_change('$name')"));
     $out .= input_hidden_tag($name . '_lat');
     $out .= input_hidden_tag($name . '_lon');
 

@@ -8,12 +8,12 @@
 if (isset($sf_user))
 {
     // we are in a template 
-    use_helper('JavascriptQueue','Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'General');
+    use_helper('JavascriptQueue','Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'General', 'MyMinify');
 }
 else
 {
     // we are in an action
-    sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'JavascriptQueue', 'General'));
+    sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'JavascriptQueue', 'General', 'MyMinify'));
 }
 
 function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $size = '45')
@@ -53,13 +53,6 @@ function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display
 function geocode_auto_complete($name, $service)
 {
     $mobile_version = c2cTools::mobileVersion();
-    $context = sfContext::getInstance();
-
-    $response = $context->getResponse();
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir').'/js/effects');
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir').'/js/controls');
-    // following script will automatically intanciate Geocode.Autocompleter
-    $response->addJavascript('/static/js/geocode_autocompleter');
 
     $service_class = ($service === 'nominatim') ? ' nominatim' : ' geonames';
 
@@ -71,8 +64,12 @@ function geocode_auto_complete($name, $service)
         $out .= content_tag('span', '<br />'.__('autocomplete_help'), array('class' => 'mobile_auto_complete_background'));
         $out .= content_tag('span', 'X', array('class' => 'mobile_auto_complete_escape'));
     }
-    $out .= content_tag('span', '' , array('id' => $name.'_auto_complete', 'class' => 'auto_complete'));
-    
+
+    // following script will automatically intanciate geocode autocompleter
+    $out .= javascript_queue('jQuery.ajax({
+      url: "' . minify_get_combined_files_url('/static/js/geocode_autocompleter.js') . '",
+      dataType: "script",
+      cache: true});');
     return $out;
 }
 

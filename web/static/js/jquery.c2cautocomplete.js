@@ -15,7 +15,8 @@
         minChars: 3, // minimum number of characters that must be entered before an ajax request is made
         indicator: 'indicator', // html id of an element to display while the ajax request is in progress
         params: {}, // additional parameters; in format field=value&another=value or as an object
-        onSelect: null // callback to be fired once an entry has been selected
+        onSelect: null, // callback to be fired once an entry has been selected
+        getService: null // you can specifu your own way to retrieve suggestions (defaults to ajax request), using the promise interface
       },
       keys = {
         ESC: 27,
@@ -248,10 +249,9 @@
       }
 
       indicator.show();
-      $.ajax({
-        url: options.url,
-        data: options.params
-      }).always(function() {
+
+      $.when(options.getService ? options.getService.call(that, q) : $.get(options.url, options.params))
+      .always(function() {
         indicator.hide();
         that.visible = true;
       }).done(function(data) {
@@ -302,6 +302,7 @@
       that.currentValue = text;
       that.el.val(text);
 
+      // TODO rather use trigger?
       if ($.isFunction(onSelectCallback)) {
         onSelectCallback.call(selected.get(0));
       }
