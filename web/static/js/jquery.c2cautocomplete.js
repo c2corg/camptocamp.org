@@ -297,12 +297,14 @@
 
     select: function(selected) {
       var that = this,
-          text = selected.contents(':not(.informal)').text();
-          onSelectCallback = that.options.onSelect;
-
+          onSelectCallback = that.options.onSelect,
+          text = selected.contents().filter(function() {
+            return this.nodeType === 3 || !$(this).hasClass('informal');
+          }).text();
       that.hide();
 
       that.currentValue = text;
+
       that.el.val(text);
 
       // TODO rather use trigger?
