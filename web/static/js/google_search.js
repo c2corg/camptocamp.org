@@ -1,6 +1,6 @@
 (function(C2C, $) {
 
-  Object.extend(C2C.GoogleSearch = C2C.GoogleSearch || {}, {
+  $.extend(C2C.GoogleSearch = C2C.GoogleSearch || {}, {
 
     // FIXME: totalResults seems to vary depending on the startIndex??
     // thus we are not creating a classical pager, only prev and next (if they exist)
