@@ -7352,6 +7352,12 @@ msgstr "dans un rayon de "
 msgid "wl button title"
 msgstr "Insérer un lien interne"
 
+# [general comment]
+# placeholder pour le titre d'une image
+# [WARNING] needs_review
+msgid "write a caption"
+msgstr "Rédiger une légende"
+
 msgid "wrong file type"
 msgstr "Format d'image invalide"
 

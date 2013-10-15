@@ -30,8 +30,9 @@ echo __('categories (multiple selection allowed)');
 // and we thus prevent double escaping
 $image_title = isset($image_title) ? $sf_data->getRaw('image_title') : '';
 echo __('name'), ' ',
-     input_tag("name[$image_number]", $image_title, array('maxlength' => '150', 'class' => 'large_input')), ' ';
-echo input_hidden_tag("image_unique_filename[$image_number]", $image_filename);
+     input_tag("name[$image_number]", $image_title, array('maxlength' => '150', 'class' => 'large_input',
+         'placeholder' => __('write a caption'))),
+     ' ', input_hidden_tag("image_unique_filename[$image_number]", $image_filename);
 
 echo '<br /><br />';
 $license_choices = array_map('__', sfConfig::get('mod_images_type_list'));

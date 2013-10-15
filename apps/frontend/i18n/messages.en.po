@@ -7334,6 +7334,12 @@ msgstr "within a radius of"
 msgid "wl button title"
 msgstr "Insert an intern url"
 
+# [general comment]
+# placeholder pour le titre d'une image
+# [WARNING] needs_review
+msgid "write a caption"
+msgstr "Write a caption"
+
 msgid "wrong file type"
 msgstr "Invalid picture format"
 
