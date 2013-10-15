@@ -45,7 +45,7 @@ if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'messag
 }
 if (!c2cTools::mobileVersion())
 {
-    $sf_response->addJavascript('/static/js/modalbox.js');
+    $sf_response->addJavascript('/static/js/modal.js');
 }
 
 $debug = defined('PUN_DEBUG');

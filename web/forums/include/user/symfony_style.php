@@ -5,7 +5,7 @@ if (!$mobile_version)
 {
     $sf_response->addStylesheet('/static/css/default.css', 'first');
     $sf_response->addStylesheet('/static/css/menu.css');
-    $sf_response->addStylesheet('/static/css/modalbox.css');
+    $sf_response->addStylesheet('/static/css/modal.css');
 }
 else
 {
@@ -17,10 +17,7 @@ if (sfContext::getInstance()->getUser()->getCulture() == 'en')
     $sf_response->addStylesheet('/static/css/ac.css');
 }
 
-$sf_response->addJavascript('/static/js/prototype.js', 'head_first');
-$sf_response->addJavascript('/static/js/effects.js', 'head');
-$sf_response->addJavascript('/static/js/controls.js', 'head');
-$sf_response->addJavascript('/static/js/submit.js');
+$sf_response->addJavascript('/static/js/jquery.min.js', 'first');
 if ($mobile_version)
 {
     $sf_response->addJavascript('/static/js/viewport_fix.js');

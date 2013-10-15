@@ -1,5 +1,5 @@
 <?php
-use_helper('Ajax', 'Form', 'Javascript', 'MyForm', 'Escaping');
+use_helper('Ajax', 'Form', 'Javascript', 'MyForm', 'Escaping', 'MyMinify');
 
 $validation = sfConfig::get('app_images_validation');
 ?>
