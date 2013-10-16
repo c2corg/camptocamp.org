@@ -462,7 +462,7 @@ all:
 
   geoportail_key: '@GEOPORTAIL_KEY@'
 
-  async_map: true
+  async_map: false
 
   # this section is used to set group names that are stored in bdd
   # easy management :D
