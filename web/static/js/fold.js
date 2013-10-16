@@ -185,20 +185,6 @@
     });
   }
 
-  // link to specific part of routes list when grouped by activity
-  // TODO not sure this is useful (hashtags already in html ??)
-  C2C.linkRoutes = function(activity_id) {
-    showRoutes(activity_id);
-    var container = $('#routes_section_container .title2.' + activity_id);
-    var anchor = container.attr('id');
-
-    if (!anchor) {
-      anchor = Math.random().toString(36).substr(2, 5); // TODO is that necessary?
-      container.attr('id', anchor);
-    }
-    window.location.href = '#' + anchor;
-  };
-
   /**
    * This function is called to hide routes depending on their activities and the user prefs
    */
