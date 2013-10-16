@@ -3579,6 +3579,19 @@ msgstr "<h3>Exposició en escalada en roca</h3>\n"
 "<br />\n"
 "Vegeu també l'ajuda sobre la <a href=\"/articles/133323/fr#exposition\">graduació de l'exposició en roca</a>. "
 
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Dificultat lliure i lliure obligada</h3>\n"
+"Escala de dificultats d'escalada en roca en lliure i en lliure obligat.<br />\n"
+"- La dificultat lliure avalua la dificultat màxima de l'escalada lliure en roca.<br />\n"
+"- La dificultat lliure obligada avalua la dificultat màxima obligada de l'escalada lliure en roca. Es correspon a la dificultat de la part de les dificultats que queda un cop que s'han exhaurit totes les possibilitats de \"fer trampes\" utilitzant els punts d'ancoratge.<br />\n"
+"<br />\n"
+"Es donen segons l'escala francesa tradicionalment utilitzada, que va de 2 a 9b.<br />\n"
+"<br />\n"
+"Vegeu també l'ajuda a les <a href=\"/articles/133323/ca\">escala de dificultats d'escalada en roca (Escalada i roca en alta muntanya)</a>."
+
 msgid "_rock_free_rating_info"
 msgstr "<h3>Dificultat lliure</h3>\n"
 "Escala de dificultats d'escalada en roca en lliure.<br />\n"
@@ -3729,9 +3742,8 @@ msgstr "<h3>Nom topo-guia</h3>Nom que apareix a la topo-guia del lloc.<br /><br 
 msgid "_topoguide_code_info"
 msgstr "<h3>Codi d'inserció a la topo-guia</h3>Per inserir aquesta imatge (de mida reduïda) al text d'un document topo-guia, copieu i enganxeu el codi següent: cliqueu sobre el codi, aleshores feu Ctrl+C per copiar i Ctrl+V per enganxar.<br /><br />La imatge ha de complir les següents condicions:<br />- La imatge ha d'haver estat anteriorment associada al document.<br />- Si es tracta d'un document col·laboratiu, la imatge també ho ha de ser. <em>Per modificar el tipus d'imatge, editeu-la o feu servir l'<a href=\"/users/manageimages\">eina de gestió de les imatges personals</a>.</em><br /><br />D'aquesta manera podreu inserir el codi de la imatge directament des de la pàgina d'edició del document, amb l'ajuda del botó <input type=\"button\" value=\"img\" /> de la barra d'eines: només estaran disponibles les imatges que compleixin les anteriors condicions.<br /><br />Per defecte, la imatge es mostrarà a la dreta, amb la llegenda a sota, dins d'un requadre. Els atributs de la balisa d'obertura permeten modificar-ne la presentació:<br />- <strong>dreta</strong>: imatge alineada a la dreta, text a l'essquerra<br />- <strong>esquerra</strong>: imatge alineada a l'esquerra, text a la dreta<br />- <strong>centre</strong>: imatge centrada, sense text ni a dreta ni a esquerra<br />- <strong>inline</strong>: imatge dins del text<br />- <strong>inline_dreta</strong>: imatge dins del text, alineada a la dreta (permet acumular imatges a la dreta sobre la mateixa alineació)<br />- <strong>inline_esquerra</strong>: imatge dins del text, alineada a l'esquerra (permet d'acumular imatges a l'esquerra sobre la mateixa alineació)<br />- <strong>no_border</strong>: imatge amb llegenda a sota, sense requadre<br />- <strong>no_legend</strong>: imatge amb llegenda en indicador de funció, sense requadre<br /><br />Amb l'atribut <strong>dreta</strong> o <strong>esquerra</strong>, per començar un nou paràgraf sota la imatge, afegiu una <strong>[p]</strong> al final del paràgraf precedent."
 
-# [WARNING] needs_update
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Exposició</h3>Grau d'exposició del descens amb esquís (escala Toponeige).<br />L'exposició descriu el risc de ferides en cas de caiguda, a part del pendent en sí mateix: una feble exposició però un pendent fort no garanteix una caiguda sense conseqüències.<br />L'escala va de E1 (cap obstacle) a E4 (grans precipicis de roca).<br /><strong>E1</strong>: L'exposició és la del pendent en sí. El risc de ferida és tanmateix important sobre neu dura i/o pendent fort.<br /><br /><strong>E2</strong>: A l'exposició del pendent s'hi afegeixen obstacles que agreujarien les ferides: petita barra de roca sense risc d'impacte, corredor sinuós.<br /><br /><strong>E3</strong>: En cas de caiguda, salt d'una gran barra rocallosa o corredor tortuós, risc probable d'impacte. Mort probable.<br /><br /><strong>E4</strong>: En cas de caiguda, salt d'una paret alta o d'un corredor molt estret, impacte garantit. Mort segura.<br /><br />Vegeu també l'ajuda a les <a href=\"/articles/107675/ca\">dificultats en esquí i surf</a>."
+msgstr "<h3>Exposició</h3>Grau d'exposició del descens amb esquís (escala Toponeige).<br />L'exposició descriu el risc de ferides en cas de caiguda, a part del pendent en si mateix: una exposició feble però un pendent fort no garanteix una caiguda sense conseqüències.<br /><br /><strong>E1</strong>: l'exposició és la del pendent en si. El risc de ferida és tanmateix important sobre neu dura i/o pendent fort.<br /><br /><strong>E2</strong>: a l'exposició del pendent s'hi afegeixen obstacles que agreujarien les ferides: petita barra de roca sense risc d'impacte, corredor sinuós.<br /><br /><strong>E3</strong>: En cas de caiguda, salt d'una gran barra rocallosa o corredor tortuós, risc probable d'impacte. Mort probable.<br /><br /><strong>E4</strong>: En cas de caiguda, salt d'una paret alta o corredor molt estret, impacte garantit. Mort segura.<br /><br />Vegeu també l'ajuda a les <a href=\"/articles/107675/ca\">dificultats en esquí i surf</a>."
 
 msgid "_toponeige_technical_rating_info"
 msgstr "<h3>Dificultat tècnica</h3>Dificultat tècnica de descens amb esquís (escala Toponeige).<br />No és una dificulutat puntual: depèn de la llargada i de la configuració de les dificultats.<br />Comprèn 5 graus. Cada grau està dividit en 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. El 5è grau està obert per dalt: 5.4, 5.5, etc.<br /><br /><strong>1.x</strong>: Nivell d'iniciació. Els pendents no passen de 30º. Els passos no són gaire estrets. El desnivell és inferior a 800m.<br /><br /><strong>2.x</strong>: Poques dificultats tècniques. Els pendents no passen de 35º.<br /><br /><strong>3.x</strong>: Presència de passos tècnics. Pendents llargs de 35º, alguns passos molt curts de fins a 40-45º.<br /><br /><strong>4.x</strong>: Esquí de canal o pendent fort. Pendents de 40 o 45º en més de 200m.<br /><br /><strong>5.x</strong>: Pendent de 45/50º en més de 300m o de més de 50º en 100m.<br /><br />Vegeu també l'article sobre la <a href=\"/articles/107675/fr\">dificultat en esquí i surf</a>."
@@ -3759,7 +3771,7 @@ msgstr "<h3>Itineraris associats</h3>Els itineraris associats a aquest itinerari
 
 # [WARNING] needs_review
 msgid "_vtt_approach_info"
-msgstr "<h3>Aproximació en BTT possible</h3>\n"
+msgstr "<h3>Aproximació amb BTT possible</h3>\n"
 "Tot o una part significativa de l'aproximació i/o de la tornada d'aquest itinerari es pot fer fàcilment amb BTT, des del punt més alt d'accés autoritzat durant l'estiu.<br />\n"
 "Això afecta les aproximacions que comencen per:<br />\n"
 "- una pista o ruta prohibida als vehicles de motor<br />\n"
@@ -6600,6 +6612,9 @@ msgstr "Dificultat lliure i obligada:"
 msgid "rock_free_rating"
 msgstr "Cotació lliure:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Dificultat lliure > obligada:"
 
@@ -7333,9 +7348,9 @@ msgstr "Inserir un enllaç intern"
 
 # [general comment]
 # placeholder pour le titre d'une image
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "write a caption"
-msgstr "Write a caption"
+msgstr "Escrigueu un peu de foto"
 
 msgid "wrong file type"
 msgstr "Format d'imatge no vàlid"

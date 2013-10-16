@@ -1,6 +1,6 @@
 Subject: Copy: <mail_subject>
 
-You sent the following message to <recipient>:
+Heu enviat el següent missatge a en / na <recipient>:
 
 -----------------------------------------------------------------------
 

@@ -3529,6 +3529,23 @@ msgstr "<h3>Runout Grade</h3>\n"
 "<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
 "<br />"
 
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+# [WARNING] needs_review
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Valutazione in libera</h3>\n"
+"Valutazione delle difficoltà su roccia in libera.<br />\n"
+"La valutazione delle difficoltà in libera corrisponde alla difficoltà massima in roccia senza artificiale.<br />\n"
+"<br />\n"
+"<h3>Valutazione in libera obbligatorio</h3>\n"
+"Valutazione delle difficoltà obbligatorie in libera su roccia.<br />\n"
+"La valutazione del passaggio obbligatorio in libera corrisponde alla valutazione della parte di difficoltà che resta una volta che sono state eliminate tutte le possibilità di \"trucchi\" utilizzando un punto d'aiuto.<br />\n"
+"<br />\n"
+"La scala utilizzata è quella tradizionale francese che va dal 2 al 9b.<br />\n"
+"<br />\n"
+"Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
+
 msgid "_rock_free_rating_info"
 msgstr "<h3>Valutazione in libera</h3>Valutazione delle difficoltà su roccia in libera.<br />La valutazione delle difficoltà in libera corrisponde alla difficoltà massima in roccia senza artificiale.<br />La scala utilizzata è quella tradizionale francese che va dal 2 al 9b.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
@@ -6574,6 +6591,9 @@ msgstr "Difficoltà in libera e obbligatoria:"
 msgid "rock_free_rating"
 msgstr "Difficoltà in libera:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 # [WARNING] needs_review
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Difficoltà in libera > obblig.:"

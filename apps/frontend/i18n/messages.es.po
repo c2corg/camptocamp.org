@@ -3475,6 +3475,23 @@ msgstr "<h3>Runout Grade</h3>\n"
 "<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
 "<br />"
 
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+# [WARNING] needs_review
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Cotación libre</h3>\n"
+"Cotación de las dificultades de la escalada rocosa en libre.<br />\n"
+"La cotación libre evalúa la dificultad máxima de la escalada en libre.<br />\n"
+"<br />\n"
+"<h3>Cotación libre obligatoria</h3>\n"
+"Cotación de las dificultades obligatorias de escalada rocosa en libre.<br />\n"
+"La cotación libre obligatoria evalúa la dificultad máxima obligatoria de la escalada libre rocosa. Corresponde a la cotación de las dificultades que quedan una vez eliminadas todas las posibilidades de ayudarse utilizando un anclaje (fijo o movíl).<br />\n"
+"<br />\n"
+"Se da sobre la escala francesa tradicional que va de 1 a 9b.<br />\n"
+"<br />\n"
+"Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
+
 msgid "_rock_free_rating_info"
 msgstr "<h3>Cotación libre</h3>Cotación de las dificultades de la escalada rocosa en libre.<br />La cotación libre evalúa la dificultad máxima de la escalada en libre.<br />Se da sobre la escala francesa tradicional que va de 1 a 9b.<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
 
@@ -6557,6 +6574,9 @@ msgstr "Grado en libre y grado obligatorio:"
 msgid "rock_free_rating"
 msgstr "Cotación libre:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 # [WARNING] needs_review
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Cotación libre > oblig.:"
