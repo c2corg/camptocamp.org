@@ -60,8 +60,8 @@ lightbox = new Lightbox options
         this.fileCloseImage = _static_url + '/static/images/close_lightbox.gif';
       }
       this.fileLoadingImage = _static_url + '/static/images/indicator.gif';
-      this.resizeDuration = 700;
-      this.fadeDuration = 500;
+      this.resizeDuration = 500;
+      this.fadeDuration = 300;
       this.labelImage = "";
       this.labelOf = "/";
     }
