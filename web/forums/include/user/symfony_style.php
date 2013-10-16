@@ -18,16 +18,12 @@ if (sfContext::getInstance()->getUser()->getCulture() == 'en')
 }
 
 $sf_response->addJavascript('/static/js/jquery.min.js', 'first');
-if ($mobile_version)
-{
-    $sf_response->addJavascript('/static/js/viewport_fix.js');
-}
 
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
 $debug = defined('PUN_DEBUG');
 
 if ($mobile_version): ?>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="initial-scale=1" />
 <script type="text/javascript">
 (function(m){var l='<?php echo trim(minify_get_main_stylesheets(!$debug, $debug)); ?>',r=window.devicePixelRatio||1;
 if(r>1){l=l.replace(m,m+'@'+(r>=2?2:1.5)+'x');}document.write(l);})('mobile');
