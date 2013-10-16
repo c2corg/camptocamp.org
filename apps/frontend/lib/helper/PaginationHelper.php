@@ -408,11 +408,16 @@ function simple_header_list_tag($field_name = '')
 
 function select_all_header_list_tag($title = '')
 {
+    use_helper('JavascriptQueue');
+
     if (!empty($title))
     {
         $title = ' title="' . $title . '"';
     }
-    return "<th$title>" . '<input type="checkbox" id="select_all" /></th>';
+    return "<th$title>" . '<input type="checkbox" id="select_all" /></th>' .
+        javascript_queue("$('#select_all').change(function() {
+          $('table.list td input[type=checkbox]').attr('checked', $(this).is(':checked'));
+        });");
 }
 
 function picto_header_list_tag($picto, $title = '')

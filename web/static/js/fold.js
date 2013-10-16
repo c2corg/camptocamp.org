@@ -360,17 +360,6 @@
     initHomeSections();
     initRoutes();
     initSplitter();
-
-    // TODO move that elsewhere?
-    // select all in list pages
-    $('#select_all').change(function() {
-      $('table.list td input[type=checkbox]').attr('checked', $(this).is(':checked'));
-    });
-
-    // TODO idem
-    // when clicking in codes in image pages, select whole input
-    $('input.code').click(function() { $(this).select(); });
-
   });
 
 })(window.C2C = window.C2C || {}, jQuery);

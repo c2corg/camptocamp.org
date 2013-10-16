@@ -71,9 +71,9 @@ if (isset($nb_comments) && $nb_comments)
     li(field_data_if_set($document, 'iso_speed', array('suffix' => ' ISO')));
 
     if (!$mobile_version): 
-    li(field_data_if_set($document, 'id', array('prefix' => '<input type="text" class="code" value="[img=',
+    li(field_data_if_set($document, 'id', array('prefix' => '<input type="text" class="code" onclick="$(this).select()" value="[img=',
                          'suffix' => ' right]'.$document->get('name').'[/img]"/>', 'title' => 'topoguide_code')), array('class' => 'separator'));
-    li(field_data_if_set($document, 'filename', array('prefix' => '<input type="text" class="code" value="[img=',
+    li(field_data_if_set($document, 'filename', array('prefix' => '<input type="text" class="code" onclick="$(this).select()" value="[img=',
                          'suffix' => ' '.$sf_params->get('id').' inline]'.$document->get('name').'[/img]"/>',
                          'title' => 'forum_code')));
     endif;
