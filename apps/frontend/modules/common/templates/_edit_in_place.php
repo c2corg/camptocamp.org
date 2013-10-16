@@ -12,7 +12,7 @@ if (!empty($message) || $sf_user->hasCredential('moderator'))
     {
         echo javascript_queue("
           $.ajax({
-            url: '" . minify_get_combined_files_url('/static/js/$.jeditable.js') . "',
+            url: '" . minify_get_combined_files_url('/static/js/jquery.jeditable.js') . "',
             dataType: 'script',
             cache: true})
           .done(function() {

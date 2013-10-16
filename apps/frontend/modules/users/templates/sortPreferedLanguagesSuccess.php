@@ -19,7 +19,7 @@ echo customization_nav('langpref');
 ?>
 <script>
 $.ajax({
-  url: '<?php echo minify_get_combined_files_url('/static/js/$.sortable.js') ?>',
+  url: '<?php echo minify_get_combined_files_url('/static/js/jquery.sortable.js') ?>',
   dataType: "script",
   cache: true })
 .done(function() {
