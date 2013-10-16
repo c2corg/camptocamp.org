@@ -31,7 +31,7 @@ jQuery('#summits_name').c2cAutocomplete({
       })
       .fail(function(data) {
         jQuery('#wizard_route, #wizard_hints, #wizard_route_descr').hide();
-        jQUery('#summit_link, #wizard_no_route').show();
+        jQuery('#summit_link, #wizard_no_route').show();
         C2C.showFailure(data.responseText);
       })
   }
