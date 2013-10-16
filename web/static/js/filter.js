@@ -68,6 +68,21 @@
       $('[data-act-filter~='+ activity +']').show();
     });
 
+    // some configuration should only be available if
+    // activity 2 (snow, ice, mixed) is selected
+    // not that not all browser allow to hide option tags, so we also
+    // disable them
+    var select = $('#conf'), select_size;
+    var options = select.find('option:eq(4), option:eq(5)');
+    if (activities && $.inArray("2", activities) !== -1) {
+      select_size = 6;
+      options.prop('disabled', false).show();
+    } else {
+      select_size = 4;
+      options.prop('disabled', true).hide();
+    }
+    select.attr('size', select_size);
+
   }
 
   $('#actform').on('click', "input[name='act[]']", function() {

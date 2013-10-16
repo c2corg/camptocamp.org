@@ -15,21 +15,18 @@
       $('[data-act-filter~='+ activity +']').show();
     });
 
-    // some configuration sshould only be available if
+    // some configuration should only be available if
     // activity 2 (snow, ice, mixed) is selected
     // not that not all browser allow to hide option tags, so we also
     // disable them
     var select = $('#configuration');
     var options = select.find('option:eq(5), option:eq(6)');
-    if (activities && $.inArray("2", activities) !== -1)
-    {
+    if (activities && $.inArray("2", activities) !== -1) {
       var select_size = 7;
-      options.prop('disabled', false)
-        .show();
+      options.prop('disabled', false).show();
     } else {
       var select_size = 5;
-      options.prop('disabled', true)
-        .hide();
+      options.prop('disabled', true).hide();
     }
     select.attr('size', select_size);
 
