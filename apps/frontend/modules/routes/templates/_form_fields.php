@@ -92,15 +92,12 @@ echo object_group_dropdown_tag($document, 'engagement_rating', 'app_routes_engag
 </div>
 
 <div data-act-filter="2 3 5">
-<?php
-echo object_group_dropdown_tag($document, 'objective_risk_rating', 'app_routes_objective_risk_ratings');
-?>
+<?php echo object_group_dropdown_tag($document, 'objective_risk_rating', 'app_routes_objective_risk_ratings') ?>
 </div>
 
 <div data-act-filter="2 3 4 5">
-<?php
-echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_ratings_list');
-?>
+<?php echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_ratings_list') ?>
+</div>
 
 <div data-act-filter="3 4">
 <?php
