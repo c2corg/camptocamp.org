@@ -1,4 +1,7 @@
 <?php
+
+use_helper('JavascriptQueue');
+
 if (!isset($has_geom))
 {
     $has_geom = (boolean)($document->get('geom_wkt'));
