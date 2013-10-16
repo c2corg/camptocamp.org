@@ -15,7 +15,7 @@ class MobileFilter extends sfFilter
             $context->getResponse()->setParameter($context->getModuleName().'_'.$context->getActionName().'_layout', 'mobile_layout', 'symfony/action/view');
             $context->getResponse()->addStylesheet('/static/css/mobile.css', 'last');
 
-            $context->getResponse()->addJavascript('/static/js/viewport_fix.js');
+            $context->getResponse()->addJavascript('/static/js/viewport_fix.js', 'last');
         }
         else
         {

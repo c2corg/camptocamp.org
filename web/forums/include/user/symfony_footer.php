@@ -32,11 +32,9 @@ include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_AP
              DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'. 
              DIRECTORY_SEPARATOR.($mobile_version ? '_mobile_footer.php' : '_footer.php'));
 
-?></div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>jQuery.noConflict();</script>
+?>
+</div>
 <?php
-
 $punbb_file = basename($_SERVER['PHP_SELF']);
 
 if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
