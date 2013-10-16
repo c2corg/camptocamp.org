@@ -20,7 +20,7 @@ echo start_section_tag('Personal information', 'data');
 // if archive, we don't display forum nickname or moderator status
 if ($is_not_archive)
 {
-    include_partial('data', array('document' => $document, 'forum_nickname' => $forum_nickname,
+    include_partial('data', array('document' => $document, 'forum_nickname' => $forum_nickname, 'is_archive' => false,
                                   'forum_moderator' => $forum_moderator, 'topoguide_moderator' => $topoguide_moderator));
 }
 else
