@@ -104,14 +104,14 @@
     // FIXME maybe we should make this less specific... or move this logic somewhere else
     // specific behaviour for the map and elevation profile
     if (container_id == 'map_container') {
-      registerFoldStatus(container_id, 15, !div.visible());
+      registerFoldStatus(container_id, 15, !div_visible);
 
       // load map if needed
       // - presence of mapLoading div shows that map has not been created yet
-      // - if map_load_async is defined, the map js should be retrieved asynchonously
+      // - if C2C.async_map_init is defined, the map js should be retrieved asynchonously
       // - the delay is to ensure that div is opened and ready for initiating the map
       if (!div_visible && $('#mapLoading').length) {
-        setTimeout(typeof map_load_async !== 'undefined' ? asyncloadmap : map_init, 600);
+        setTimeout(typeof C2C.async_map_init !== 'undefined' ? C2C.async_map_init : C2C.map_init, 600);
       }
 
       // also toggle the c2clayer widget

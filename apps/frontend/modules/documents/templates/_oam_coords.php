@@ -9,10 +9,10 @@ $async_map = sfConfig::get('app_async_map', false) &&
              !sfContext::getInstance()->getRequest()->getParameter('debug', false);
 
 // load or toggle map when clicking on the link
+// - it is assumed that for sync mode, js is already loaded
 // - presence of mapLoading div shows that map has not been created yet
-// - if map_load_async is defined, the map js should be retrieved asynchonously
 // - the delay is to ensure that div is opened and ready for initiating the map
-$map_init = $async_map ? 'map_load_async()' : 'map_init()';
+$map_init = $async_map ? 'C2C.async_map_init()' : 'C2C.map_init()';
 $js = "
 if (document.getElementById('mapLoading')) {
   $map_init;

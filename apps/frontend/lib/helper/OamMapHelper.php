@@ -1,5 +1,5 @@
 <?php
-use_helper('Javascript', 'I18N');
+use_helper('JavascriptQueue', 'I18N');
 
 function show_georef_map($lon, $lat, $layer)
 {
@@ -20,7 +20,7 @@ function show_georef_map($lon, $lat, $layer)
                  !sfContext::getInstance()->getRequest()->getParameter('debug', false);
 
     $js = "
-        map_init = function() {
+        C2C.map_init = function() {
             Ext.get('georef_container').show();
             var lon = Ext.getDom('lon') && Ext.getDom('lon').value || 0;
             var lat = Ext.getDom('lat') && Ext.getDom('lat').value || 0;
@@ -59,15 +59,15 @@ function show_georef_map($lon, $lat, $layer)
                '/static/js/popup.js', '/static/js/carto/embedded.js'),
           (bool) sfConfig::get('app_minify_debug'));
 
-        $js .= "
-            function c2c_asyncload(jsurl) {
-              var a = document.createElement('script'),
-              h = document.getElementsByTagName('head')[0];
-              a.async = 1; a.src = jsurl; h.appendChild(a);
-            }
-            function map_load_async() {
-                c2c_asyncload('$c2c_script_url');
-            }";
+        $js .= "C2C.async_map_init = function() {
+          $.ajax({
+            url: '$c2c_script_url',
+            dataType: 'script',
+            cache: true
+          }).done(function() {
+            C2C.map_init();
+          });
+        };"; 
     }
 
     // if coordinates not set, open automatically open the map
@@ -75,15 +75,15 @@ function show_georef_map($lon, $lat, $layer)
     {
         if ($async_map)
         {
-            $js .= "map_load_async();";
+            $js .= "C2C.async_map_init()";
         }
         else
         {
-            $js .= "Event.observe(window, 'load', map_init)";
+            $js .= "window.onload = C2C.map_init";
         }
     }
 
-    $html .= javascript_tag($js);
+    $html .= javascript_queue($js);
     
     return $html;
 }
