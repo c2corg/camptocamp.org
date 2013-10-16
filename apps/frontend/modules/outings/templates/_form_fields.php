@@ -162,10 +162,10 @@ if (empty($conditions_levels))
 </table>
 <?php
 echo javascript_queue("
-var tbody = jQuery('#conditions_levels_tbody');
+var tbody = $('#conditions_levels_tbody');
 var next_id =  tbody.find('tr').length;
 
-jQuery('.add-condition-level').click(function(e) {
+$('.add-condition-level').click(function(e) {
   e.preventDefault();
   tbody.append('" . addcslashes(get_partial('conditions_level', array('fields' => $level_fields,
                                                                        'level'  => '%%var%%',
@@ -176,7 +176,7 @@ jQuery('.add-condition-level').click(function(e) {
 
 tbody.on('click', '.remove-condition-level', function(e) {
   e.preventDefault();
-  jQuery(this).closest('tr').remove();
+  $(this).closest('tr').remove();
 });
 ");
 echo end_group_tag();

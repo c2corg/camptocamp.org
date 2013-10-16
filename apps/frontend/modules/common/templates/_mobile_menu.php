@@ -73,4 +73,4 @@ if ($is_connected)
     </div>
   </div>
 </div>
-<?php echo javascript_queue('jQuery(".menu_select").change(function() { window.location = jQuery(this).find("option:selected").val(); });') ?>
+<?php echo javascript_queue('$(".menu_select").change(function() { window.location = $(this).find("option:selected").val(); });') ?>

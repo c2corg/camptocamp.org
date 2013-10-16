@@ -151,7 +151,7 @@ if (!$mobile_version)
 {
   $js = 'if ("geolocation" in navigator) {
 navigator.geolocation.getCurrentPosition(function(position) {
-jQuery("#get_directions").next().each(function() {
+$("#get_directions").next().each(function() {
 this.href = this.href + \'?lon=\' + position.coords.longitude + \'&lat=\' + position.coords.latitude})})}';
   echo javascript_queue($js);
 }

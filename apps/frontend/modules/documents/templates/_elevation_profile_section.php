@@ -40,8 +40,8 @@ $js = "var div = document.createElement('div');
 div.innerHTML = '<svg/>';
 var svg_supported = (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
 if (!svg_supported) {
-  jQuery('#elevation_profile_container_tbg').hide();
-  jQuery('#elevation_profile_nav').hide();
+  $('#elevation_profile_container_tbg').hide();
+  $('#elevation_profile_nav').hide();
 } else {
   window.c2cprofile = {
     track: '" . url_for("@export_gpx?module=outings&id=$id&lang=" . $sf_user->getCulture()) . "',
@@ -59,7 +59,7 @@ if (!svg_supported) {
   };
   var animation = false;
   var props = ['animationName', 'WebkitAnimationName', 'MozAnimationName'];
-  var elt = jQuery('.ui-spinner .fill')[0];
+  var elt = $('.ui-spinner .fill')[0];
   for (var i in props) {
     var prop = props[i];
     if (elt.style[prop] !== undefined) {
@@ -68,13 +68,13 @@ if (!svg_supported) {
     }
   }
   if (!animation) {
-    elt = jQuery('.elevation_profile_loading')
+    elt = $('.elevation_profile_loading')
       .html('" . image_tag('/static/images/indicator.gif') . "')
       .removeClass('ui-spinner');
   }
   window.c2c_load_elevation_profile = function() {
     c2c_asyncload('$script_url');
-    jQuery('#elevation_profile_container_section_container').addClass('profile_loaded');
+    $('#elevation_profile_container_section_container').addClass('profile_loaded');
   }
 }";
 

@@ -33,16 +33,16 @@ echo form_tag('images/upload?mod=' . $sf_params->get('mod') . '&document_id=' . 
   echo javascript_queue("
   var next_file_id = 1;
 
-  jQuery('#submit_files').click(function() {
-      jQuery('#indicator').show();
+  $('#submit_files').click(function() {
+      $('#indicator').show();
   });
 
-  jQuery('#add_file_link').click(function() {
+  $('#add_file_link').click(function() {
       var new_fields = '" . 
       addcslashes(get_partial('file_form', array('image_number' => '%%next_file_id%%', 'default_license' => $default_license == null ? 2 : $default_license)), "\0..\37\\'\"\/") .
       "';
       new_fields = new_fields.replace('%%next_file_id%%', next_file_id, 'g');
-      jQuery('#files_to_upload').append(new_fields);
+      $('#files_to_upload').append(new_fields);
       next_file_id++;
   });
   ");

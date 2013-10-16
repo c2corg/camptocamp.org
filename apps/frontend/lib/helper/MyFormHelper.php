@@ -465,7 +465,7 @@ function bbcode_toolbar_img_tag($document, $target_id)
     $id = $document->getId();
 
     $options = array('title' => __('Insert image'),
-                     'onclick' => "jQuery.modalbox.show(" .
+                     'onclick' => "$.modalbox.show(" .
                          _options_for_javascript(array('title' => 'this.title', 'width' => 710,
                                                       'remote' => "'/insertimagetag/" . $document->getModule() . "/$id/$target_id'")) .
                          '); return false;');
@@ -553,10 +553,10 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
     if ($autocomplete)
     {
         $html .= input_tag('q', '', $input_html_options);
-        $html .= javascript_queue("jQuery('#q').c2cAutocomplete({
+        $html .= javascript_queue("$('#q').c2cAutocomplete({
           url: '" . url_for('@quicksearch') . "',
           minChars: " .  sfConfig::get('app_autocomplete_min_chars') . ",
-          params: 'q=' + jQuery('#${id_prefix}q').val() + '&type=' + jQuery('#${id_prefix}type').val(),
+          params: 'q=' + $('#${id_prefix}q').val() + '&type=' + $('#${id_prefix}type').val(),
           onSelect: function() {  window.location = '/documents/' + this.id; }
         });");
     }

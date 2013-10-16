@@ -22,11 +22,11 @@ function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $d
     $tag = input_tag($module . '_name', $display, array('size' => $size,
                'id' => $id,
                'placeholder' => ($module == 'users') ? __('ID or name/nickname') :  __('Keyword or ID')));
-    $js = javascript_queue("jQuery('#$id').c2cAutocomplete({
+    $js = javascript_queue("$('#$id').c2cAutocomplete({
       url: '" . url_for("$module/autocomplete") . "',
       minChars: " . sfConfig::get('app_autocomplete_min_chars') . ",
       onSelect: function() {
-        jQuery('#$update_hidden').val(this.id);
+        $('#$update_hidden').val(this.id);
       }
     });");
 
@@ -42,7 +42,7 @@ function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display
     $out = c2c_input_auto_complete($module, $update_hidden, $field_prefix, $display);
     $out .= ($display_button) ? c2c_submit_tag(__('Link'), array(
                                     'class' => 'samesize',
-                                    'onclick' => "jQuery('#$field').val('');",
+                                    'onclick' => "$('#$field').val('');",
                                     'picto' =>  'action_create')) : '';
     return $out;
 }
@@ -66,7 +66,7 @@ function geocode_auto_complete($name, $service)
     }
 
     // following script will automatically intanciate geocode autocompleter
-    $out .= javascript_queue('jQuery.ajax({
+    $out .= javascript_queue('$.ajax({
       url: "' . minify_get_combined_files_url('/static/js/geocode_autocompleter.js') . '",
       dataType: "script",
       cache: true});');
@@ -77,14 +77,14 @@ function c2c_form_remote_add_element($url, $updated_success, $indicator = 'indic
 {
     $url = url_for($url);
 
-    $js = "jQuery('#indicator').show();
-jQuery.post('$url', jQuery(this).serialize())
-  .always(function() { jQuery('#indicator').hide(); })
+    $js = "$('#indicator').show();
+$.post('$url', $(this).serialize())
+  .always(function() { $('#indicator').hide(); })
   .fail(function(data) { C2C.showFailure(data.responseText); })
   .success(function(data) {
-    jQuery('#$updated_success').append(data);
-    if (jQuery('#${updated_success}_rsummits_name').hide().length) {
-      jQuery('#${updated_success}_associated_routes". ($removed_id ? ", #$removed_id" : '') ."').hide();
+    $('#$updated_success').append(data);
+    if ($('#${updated_success}_rsummits_name').hide().length) {
+      $('#${updated_success}_associated_routes". ($removed_id ? ", #$removed_id" : '') ."').hide();
     }
   });
 return false;";
@@ -134,14 +134,14 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     $out = $picto_add . $select_modules;
 
     $out .= javascript_queue("
-jQuery('#dropdown_modules').change(function() {
-  var value = jQuery(this).val(), indicator = jQuery('#indicator').show();
-  jQuery(this).attr('class', 'picto picto_' + value);
-  jQuery.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix')
+$('#dropdown_modules').change(function() {
+  var value = $(this).val(), indicator = $('#indicator').show();
+  $(this).attr('class', 'picto picto_' + value);
+  $.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix')
     .always(function() {
       indicator.hide();
     })
-    .done(function(data) { jQuery('#${field_prefix}_form').html(data); });
+    .done(function(data) { $('#${field_prefix}_form').html(data); });
 });");
 
     // form start

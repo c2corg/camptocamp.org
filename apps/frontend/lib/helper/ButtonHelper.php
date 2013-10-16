@@ -173,9 +173,9 @@ function button_protect($module, $id, $document_is_protected)
     $class = $document_is_protected ? 'action_unprotect' : 'action_protect';
     $title = $document_is_protected ? $unprotect_title : $protect_title;
 
-    $js = "var btn = jQuery(this), indicator = jQuery('#indicator');
+    $js = "var btn = $(this), indicator = $('#indicator');
 indicator.show();
-jQuery.ajax('" . url_for("@doc_protect?module=$module&id=$id") . "')
+$.ajax('" . url_for("@doc_protect?module=$module&id=$id") . "')
   .done(function(data) {
     var tmp =  btn.text();
     btn.text(btn.attr('data-alt-content'))
@@ -361,7 +361,7 @@ function button_widget($parameters)
                    array('title' => __('Generate widget'),
                          'class' => 'picto_tools nav_edit',
                          'query_string' => 'mod=' . $parameters['module'] . $paramstring,
-                         'onclick' => "jQuery.modalbox.show({remote:'" . url_for('@widget_generator') . '?mod=' . $parameters['module'] . $paramstring 
+                         'onclick' => "$.modalbox.show({remote:'" . url_for('@widget_generator') . '?mod=' . $parameters['module'] . $paramstring 
                                       . "',title:this.title,width:710});return false;",
                          'rel' => 'nofollow'));
 }

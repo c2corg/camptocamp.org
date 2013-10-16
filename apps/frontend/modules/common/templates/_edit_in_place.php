@@ -11,12 +11,12 @@ if (!empty($message) || $sf_user->hasCredential('moderator'))
     if ($sf_user->hasCredential('moderator'))
     {
         echo javascript_queue("
-          jQuery.ajax({
-            url: '" . minify_get_combined_files_url('/static/js/jquery.jeditable.js') . "',
+          $.ajax({
+            url: '" . minify_get_combined_files_url('/static/js/$.jeditable.js') . "',
             dataType: 'script',
             cache: true})
           .done(function() {
-            jQuery('#edit_me')
+            $('#edit_me')
               .addClass('editable')
               .editable('"  . url_for('@default?module=common&action=edit&lang='.$sf_user->getCulture()) . "', {
                 type: 'textarea',

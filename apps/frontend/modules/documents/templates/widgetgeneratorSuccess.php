@@ -35,7 +35,7 @@ foreach ($parameters as $param => $value)
     code += "  w.c2cwgt = w.c2cwgt || {};\n";
     code += "  w.c2cwgt.params = {\n";
     code += "    div : \"c2cwidget\",\n",
-    code += "    title : \"" + jQuery('#wgt_title').val() + "\",\n";
+    code += "    title : \"" + $('#wgt_title').val() + "\",\n";
     code += "    module : \"<?php echo $sf_request->getParameter('mod'); ?>\",\n";
     code += "    params : \"<?php echo $paramstring; ?>\"\n";
     code += "  };\n";
@@ -45,15 +45,15 @@ foreach ($parameters as $param => $value)
     code += "} (document, 'script', window));\n";
     code += "&lt;/script&gt;";
 
-    jQuery('#wgt_code').val(code.unescapeHTML());n
+    $('#wgt_code').val(code.unescapeHTML());n
   }
 
-  jQuery('#wgt_title').keyup(updateWidgetCode);
+  $('#wgt_title').keyup(updateWidgetCode);
   updateWidgetCode();
 })();
 </script>
 <ul class="action_buttons">
-  <li><?php echo button_tag('Close', __('Close'), array('onclick' => 'jQuery.modalbox.hide();',
+  <li><?php echo button_tag('Close', __('Close'), array('onclick' => '$.modalbox.hide();',
                                                         'class' => 'picto action_cancel',
                                                         'title' => null)); ?></li>
 </ul>

@@ -28,8 +28,8 @@ $is_archive = $document->isArchive();
                 <li><?php echo button_rotate(-90, $id) ?></li>
                 <?php if (!$has_rights && $document->get('image_type') == 2) // hide buttons if by-nc-nd and not author?
                 {
-                    echo javascript_queue('if ('.$creator_id.' != jQuery("#name_to_use").attr("data-user-id")) {
-                      jQuery(".action_rotate").hide();
+                    echo javascript_queue('if ('.$creator_id.' != $("#name_to_use").attr("data-user-id")) {
+                      $(".action_rotate").hide();
                     }');
                 } ?>
             <?php endif ?>

@@ -27,7 +27,7 @@ function m_link_to($name, $url, $html_options = array(), $modal_options = array(
 
     if (!c2cTools::mobileVersion())
     {
-        $html_options['onclick'] = "jQuery.modalbox.show($js_options); return false;";
+        $html_options['onclick'] = "$.modalbox.show($js_options); return false;";
     }
 
     return link_to($name, $url, $html_options);

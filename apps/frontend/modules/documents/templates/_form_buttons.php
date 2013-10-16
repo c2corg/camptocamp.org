@@ -7,10 +7,10 @@
   <li><?php
 
   // TODO highlight effect
-  $js = "jQuery('#indicator').show();
-  jQuery.post('" . url_for("$module/preview") . "', jQuery(this.form).serialize())
-    .always(function() { jQuery('#indicator').hide(); jQuery('.goto_preview').show(); })
-    .done(function(data) { jQuery('#preview').html(data).show(); jQuery('#form_buttons_up').show(); });
+  $js = "$('#indicator').show();
+  $.post('" . url_for("$module/preview") . "', $(this.form).serialize())
+    .always(function() { $('#indicator').hide(); $('.goto_preview').show(); })
+    .done(function(data) { $('#preview').html(data).show(); $('#form_buttons_up').show(); });
   return false;";
 
   echo c2c_button(__('Preview'), array('picto' => 'action_filter', 'class' => 'main_button'),

@@ -21,9 +21,9 @@ function cotometre_rating(slope, height, skiability) {
 }
 
 function cotometre_technical_grade() {
-  var skiability = parseFloat(jQuery("input[name=skiability]:checked").first().val());
-  var slope = parseFloat(jQuery("#slope").val());
-  var height = parseFloat(jQuery("#height").val());
+  var skiability = parseFloat($("input[name=skiability]:checked").first().val());
+  var slope = parseFloat($("#slope").val());
+  var height = parseFloat($("#height").val());
   
   if (isNaN(slope) || slope < 20.0 || slope > 80.0) {
     alert("' . __('pente limites') . '");
@@ -37,7 +37,7 @@ function cotometre_technical_grade() {
 
   var rating = cotometre_rating(slope, height, skiability);
   
-  jQuery("#cotometre_result").html(\'<div id="cotometre_result">' . __('proposed grade') . '<br /><span class="cotometre_result">\' + rating + " </span></div>");
+  $("#cotometre_result").html(\'<div id="cotometre_result">' . __('proposed grade') . '<br /><span class="cotometre_result">\' + rating + " </span></div>");
 }');
 ?>
 <div id="fake_div">

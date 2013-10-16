@@ -1,11 +1,11 @@
 <?php
 use_helper('JavascriptiQueue');
 
-echo javascript_queue("jQuery('#image_type').change(function() {
-  var i = jQuery(this).val();
-  jQuery('#license_collab').toggle(i == 2);
-  jQuery('#license_perso').toggle(i == 1);
-  jQuery('#license_copyright').toggle(i == 3);
+echo javascript_queue("$('#image_type').change(function() {
+  var i = $(this).val();
+  $('#license_collab').toggle(i == 2);
+  $('#license_perso').toggle(i == 1);
+  $('#license_copyright').toggle(i == 3);
 });");
 ?>
 <div id="license_collab" style="display:<?php echo ($license == 'by-sa') ? 'block' : 'none' ?>">

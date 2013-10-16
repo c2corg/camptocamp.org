@@ -134,11 +134,10 @@ function filters_switcher_link($mainFilterSwitchOn)
     }
     else
     {
-        return link_to_function($html, "jQuery('#indicator').show();" .
-          "jQuery.ajax('" . url_for('@default?module=common&action=switchallfilters') . "')" .
-            ".done(function() { jQuery('#filter_switch_on, #filter_switch_off').toggle(); window.location.reload(); })" .
-            ".always(function() { jQuery('#indicator').hide(); })");
-
+        return link_to_function($html, "$('#indicator').show();" .
+          "$.ajax('" . url_for('@default?module=common&action=switchallfilters') . "')" .
+            ".done(function() { $('#filter_switch_on, #filter_switch_off').toggle(); window.location.reload(); })" .
+            ".always(function() { $('#indicator').hide(); })");
     }
 }
 

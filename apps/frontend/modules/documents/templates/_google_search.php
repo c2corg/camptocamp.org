@@ -21,13 +21,13 @@ C2C.GoogleSearch.alternate_url = 'http://www.google.com/cse?cx=" . $cse[$module]
 <?php
 echo __('Search with google');
 echo form_tag('http://www.google.com/search', array('method'=>'get',
-    'onsubmit' => 'C2C.GoogleSearch.q=jQuery("#google_search_input").val(); C2C.GoogleSearch.search(); return false;'));
+    'onsubmit' => 'C2C.GoogleSearch.q=$("#google_search_input").val(); C2C.GoogleSearch.search(); return false;'));
 echo input_tag('q', null, array('id'=>'google_search_input',
                                 'data-lang' => __('meta_language'),
                                 'onblur' => "if (this.value == '') this.className = '';",
                                 'onfocus' => "this.className = 'no-logo';"));
 echo input_hidden_tag('sitesearch', "camptocamp.org/$module"); ?>
-<div id="google_search_submit" onclick="jQuery(this).parent().submit();"></div>
+<div id="google_search_submit" onclick="$(this).parent().submit();"></div>
 </form>
 <div id="google_search_results"></div>
 </div>

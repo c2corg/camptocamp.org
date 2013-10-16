@@ -46,7 +46,7 @@ if (count($associated_images) == 0): ?>
 <ul class="action_buttons">
   <li><?php echo button_tag(__('Insert'), array('onclick' => 'C2C.doInsertImgTag()',
                                                 'picto' => 'action_create')); ?></li>
-  <li><?php echo button_tag(__('Cancel'), array('onclick' => 'jQuery.modalbox.hide();',
+  <li><?php echo button_tag(__('Cancel'), array('onclick' => '$.modalbox.hide();',
                                                 'picto' => 'action_cancel')); ?></li>
 </ul>
 <?php endif; ?>

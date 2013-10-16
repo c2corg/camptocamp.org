@@ -14,11 +14,11 @@ function display_flash_message($type)
         if (!c2cTools::mobileVersion())
         {
             // show feedback div, highlight it, and then fade it out and remove it
-            $js = javascript_queue("jQuery('#$type').delay(3000).animate({opacity:0}, {duration:1500, complete: function() { jQuery(this).hide(); }});");
+            $js = javascript_queue("$('#$type').delay(3000).animate({opacity:0}, {duration:1500, complete: function() { $(this).hide(); }});");
         }
         else
         {
-            $js = javascript_queue("jQuery('#$type').click(function() { jQuery(this).hide(); });");
+            $js = javascript_queue("$('#$type').click(function() { $(this).hide(); });");
         }
 
         return $message . $js;

@@ -13,7 +13,7 @@ else
 }
 ?>
 
-<a href="javascript:void(0)" class="close_btn" onclick="jQuery('#preview, #form_buttons_up').hide();"><?php echo __('close') ?></a>
+<a href="javascript:void(0)" class="close_btn" onclick="$('#preview, #form_buttons_up').hide();"><?php echo __('close') ?></a>
 
 <h2><?php echo __($title) ?></h2>
 <p class="preview_warning"><?php echo __($warning) ?></p>
@@ -45,4 +45,4 @@ else
 <?php echo '<a href="#form_desc"><span class="tips">[' . __('Go back to form') . ']</span></a>' ?>
 </div>
 <br/><br/>
-<a href="javascript:void(0)" class="close_btn" onclick="jQuery('#preview, #form_buttons_up').hide();"><?php echo __('close') ?></a>
+<a href="javascript:void(0)" class="close_btn" onclick="$('#preview, #form_buttons_up').hide();"><?php echo __('close') ?></a>

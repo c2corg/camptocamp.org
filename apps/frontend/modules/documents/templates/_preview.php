@@ -4,11 +4,11 @@
 </div>
 
 <?php if ($concurrent_edition) {
-echo javascript_queue("jQuery.post('" . url_for($sf_context->getModuleName() . "/ViewCurrent?id=$id&lang=$lang") ."')
+echo javascript_queue("$.post('" . url_for($sf_context->getModuleName() . "/ViewCurrent?id=$id&lang=$lang") ."')
 .done(function(data) {
-  var preview = jQuery('#preview');
+  var preview = $('#preview');
   preview.html(data).show();
-  jQuery('html, body').animate({scrollTop: preview.offset().top - 35}, 2000);
+  $('html, body').animate({scrollTop: preview.offset().top - 35}, 2000);
 });");
 
 }

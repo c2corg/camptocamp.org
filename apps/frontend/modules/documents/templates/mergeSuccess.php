@@ -16,10 +16,10 @@ echo input_hidden_tag('from_id', $sf_params->get('from_id'));
 </div>
 
 <script type="text/javascript">
-jQuery('#indicator').show();
-jQuery.ajax('<?php echo url_for("/$module/getautocomplete?module_name=$module&button=0")?>')
-  .always(function() { jQuery('#indicator').hide(); })
-  .done(function(data) { jQuery('#ac_form').html(data); });
+$('#indicator').show();
+$.ajax('<?php echo url_for("/$module/getautocomplete?module_name=$module&button=0")?>')
+  .always(function() { $('#indicator').hide(); })
+  .done(function(data) { $('#ac_form').html(data); });
 </script>
 <p><?php echo c2c_submit_tag(__('Merge')) ?></p>
 </form>

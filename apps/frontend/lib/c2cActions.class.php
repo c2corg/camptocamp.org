@@ -46,7 +46,7 @@ abstract class c2cActions extends sfActions
                 // auto remove error classes on fields
                 sfLoader::loadHelpers(array('Javascript', 'Tag'));
                 $field_error = sfConfig::get('app_form_field_error');
-                $error_remove = javascript_tag("jQuery('.$field_error').removeClass('$field_error');");
+                $error_remove = javascript_tag("$('.$field_error').removeClass('$field_error');");
             }
 
             return $this->renderText($error_remove . $js . $this->__($message, $vars));
@@ -69,8 +69,8 @@ abstract class c2cActions extends sfActions
         sfLoader::loadHelpers(array('Javascript', 'Tag'));
         // add error class on fields via js
         $js = javascript_tag("
-            jQuery('.$field_error').removeClass('$field_error'); // remove all errors
-            jQuery($js_errors).addClass('$field_error'); // display new ones (if any)");
+            $('.$field_error').removeClass('$field_error'); // remove all errors
+            $($js_errors).addClass('$field_error'); // display new ones (if any)");
 
         // global form error
         $toReturn = $this->__('Oups!') . '<ul>';
