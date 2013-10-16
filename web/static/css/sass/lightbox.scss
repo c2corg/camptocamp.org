@@ -42,6 +42,7 @@ $radius: 4px;
   height: 250px;
   margin: 0 auto;
   @include border-top-radius($radius);
+  *padding-bottom: 20px; // ie7 hack
 }
 .lb-outerContainer:after {
   content: "";
