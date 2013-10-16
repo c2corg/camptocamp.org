@@ -41,7 +41,7 @@ $radius: 4px;
   width: 250px;
   height: 250px;
   margin: 0 auto;
-  @include border-radius($radius);
+  @include border-top-radius($radius);
 }
 .lb-outerContainer:after {
   content: "";
@@ -113,6 +113,7 @@ $radius: 4px;
 }
 
 .lb-dataContainer {
+  background-color: black;
   margin: 0 auto;
   padding-top: 5px;
   *zoom: 1;
