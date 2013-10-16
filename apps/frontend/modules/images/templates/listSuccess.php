@@ -11,7 +11,7 @@ if (!$mobile_version)
     addLbMinimalRessources();
 }
 
-echo display_title(__('images list'), $sf_params->get('module'), false);
+echo display_title(__('images list'), $sf_params->get('module'), false, 'list_nav');
 
 if (!c2cTools::mobileVersion())
 {

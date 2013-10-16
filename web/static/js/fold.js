@@ -14,7 +14,7 @@
 
     // update position with value
     cookie_value = cookie_value.substr(0, position) +  value + cookie_value.substr(position + 1);
-    document.cookie = 'fold=' + cookie_value + '; expires=' + date.toGMTString();
+    document.cookie = 'fold=' + cookie_value + '; expires=' + date.toGMTString() + '; path=/';
   }
 
   /**
