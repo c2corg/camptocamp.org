@@ -25,3 +25,6 @@
 [submodule "web/static/js/third-parties/jquery_jeditable"]
 	path = web/static/js/third-parties/jquery_jeditable
 	url = https://github.com/tuupola/jquery_jeditable.git
+[submodule "web/static/js/third-parties/tinycon"]
+	path = web/static/js/third-parties/tinycon
+	url = https://github.com/tommoor/tinycon.git
