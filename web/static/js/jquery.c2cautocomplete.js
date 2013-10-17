@@ -16,7 +16,7 @@
         indicator: 'indicator', // html id of an element to display while the ajax request is in progress
         params: {}, // additional parameters; in format field=value&another=value or as an object
         onSelect: null, // callback to be fired once an entry has been selected
-        getService: null // you can specifu your own way to retrieve suggestions (defaults to ajax request), using the promise interface
+        getService: null // you can specify your own way to retrieve suggestions (defaults to ajax request), using the promise interface
       },
       keys = {
         ESC: 27,
@@ -38,6 +38,7 @@
     this.onChangeInterval = null;
     this.currentValue = this.element.value;
     this.suggestionsContainer = null;
+    this.requestCount = 0;
 
     this.init();
   }
@@ -111,7 +112,6 @@
       that.suggestionsContainer.css({
         top: (offset.top + that.el.outerHeight()),
         left: offset.left,
-        width: that.element.offsetWidth
       });
     },
 
@@ -240,8 +240,7 @@
 
     getSuggestions: function(q) {
       var that = this,
-          options = that.options,
-          indicator = $('#'+options.indicator);
+          options = that.options;
 
       that.fixPosition(); // needed for mobile version
 
@@ -251,16 +250,24 @@
         options.params = options.paramName + '=' + q + '&' + options.params;
       }
 
-      indicator.show();
+      that.showProgress();
 
       $.when(options.getService ? options.getService.call(that, q) : $.get(options.url, options.params))
       .always(function() {
-        indicator.hide();
+        that.hideProgress();
         that.visible = true;
       }).done(function(data) {
         // Display suggestions only if returned query matches current value
         if (q == $.trim(that.currentValue)) {
-          that.suggestionsContainer.html(data).show();
+          // adjust width (in case input width changed)
+          // and display results
+          that.suggestionsContainer
+            .width(that.el.outerWidth() -2)
+            .html(data)
+            .show();
+          // select first entry by default
+          that.selectedIndex = 0;
+          that.suggestionsContainer.find('ul > li').first().addClass(that.options.selectedClass);
         }
       }).fail(function(data) {
         that.suggestionsContainer.html(data.responseText).show();
@@ -319,6 +326,24 @@
       that.visible = false;
       that.selectedInex = -1;
       that.suggestionsContainer.hide();
+    },
+
+    showProgress: function() {
+      var that = this;
+
+      that.requestCount++;
+      $('#'+that.options.indicator).show();
+      that.el.addClass('loading');
+    },
+
+    hideProgress: function() {
+      var that = this;
+
+      that.requestCount--;
+      if (!that.requestCount) {
+        $('#'+that.options.indicator).hide();
+        that.el.removeClass('loading');
+      }
     }
   };
 
