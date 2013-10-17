@@ -158,7 +158,4 @@ include_partial($template_root.'/license', array('license' => $license));
 <?php
 echo end_content_tag();
 
-// i18n for the script that periodically saves the form - temporarily disabled
-//echo javascript_tag('var i18n_loaddraftform = \'' . __('load draft?') . '\';');
-
 include_partial('common/content_bottom') ?>

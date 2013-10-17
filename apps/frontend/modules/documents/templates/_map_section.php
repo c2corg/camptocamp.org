@@ -100,7 +100,7 @@ s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,
 
     if (!$async_map)
     {
-        echo javascript_queue("if (!C2C.shouldHide($cookie_position, true)) {  window.onload = C2C.map_init; }"); // TODO can't we do better with jquery??
+        echo javascript_queue("if (!C2C.shouldHide($cookie_position, true)) {  $(window).load(C2C.map_init); }");
     }
     else
     {

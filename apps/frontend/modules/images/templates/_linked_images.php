@@ -11,10 +11,9 @@ usort($images, array('c2cTools', 'cmpDateTimeDesc'));
 if ($mobile_version)
 {
     use_helper('JavascriptQueue');
-    $swipe_i18n = array_map('__', array('Big size', 'Original image', 'Informations'));
-    echo javascript_queue('C2C.swipe_i18n = {"Big size": "'.__('Big size').'",
-        "Original image": "'.__('Original image').'",
-        "Informations": "'.__('Informations').'"};');
+    echo javascript_queue('C2C.swipe_i18n = {"Big size": "'.__('Big size').'",'.
+        '"Original image": "'.__('Original image').'",'.
+        '"Informations": "'.__('Informations').'"};');
 }
 
 foreach($images as $image)

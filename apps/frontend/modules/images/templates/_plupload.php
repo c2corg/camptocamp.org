@@ -37,7 +37,9 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 <?php
 $backup_url = url_for("@image_jsupload?mod=$mod&document_id=$document_id");
 $backup_js = minify_get_combined_files_url('/static/js/image_upload.js');
-echo javascript_tag("var plupload_i18n = { badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."', sending: '".__('plupload sending')."', waiting: '".__('plupload waiting')."', serverop: '".__('plupload serverop')."', cancel: '".__('cancel')."' };
-C2C.PlUploadWrapper.init('/images/addpltempimage/mod/$mod/document_id/$document_id', '$backup_url', '$backup_js', plupload_i18n);");
+echo javascript_tag("C2C.PlUploadWrapper.init('/images/addpltempimage/mod/$mod/document_id/$document_id', '$backup_url', '$backup_js', {" .
+    "badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."'," .
+    "sending: '".__('plupload sending')."', waiting: '".__('plupload waiting')."', serverop: '".__('plupload serverop')."', cancel: '".__('cancel')."'" .
+"});");
 ?>
 </form>

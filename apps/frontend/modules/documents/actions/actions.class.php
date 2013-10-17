@@ -2071,11 +2071,6 @@ class documentsActions extends c2cActions
         // Go through simple heuristics to check for potential vandalism
         Vandalism::check($this->document);
 
-        // js to autosave edit forms. see also https://github.com/marcuswestin/store.js?
-        // FIXME temporarily disabled because it causes the browser to choke every 20-30s
-        /*$response = $this->getResponse();
-        $response->addJavascript('/static/js/jstorage.js', 'last');
-        $response->addJavascript('/static/js/formsave.js', 'last');*/
         // module specific actions
         $this->endEdit();
     }

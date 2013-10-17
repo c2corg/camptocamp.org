@@ -101,7 +101,7 @@ function init_js_var($default_nav_status = true, $nav_status_pref = 'default_nav
     $connected_string = ($connected) ? "\n" . 'confirm_msg = \'' . __('Are you sure?') . '\';' : '';
     $nav_status_cookie_position = array_search($nav_status_pref, sfConfig::get('app_personalization_cookie_fold_positions'));
     $js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close') . "');\n" .
-                              'default_nav_status = ' . $default_nav_status . ';' . $connected_string .
+                             'default_nav_status = ' . $default_nav_status . ';' . $connected_string .
                              'var nav_status_string = \''.$nav_status_pref.'\';var nav_status_cookie_position='.$nav_status_cookie_position);
     return $js_var;
 }

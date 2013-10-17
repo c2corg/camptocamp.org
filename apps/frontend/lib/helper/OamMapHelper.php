@@ -79,7 +79,7 @@ function show_georef_map($lon, $lat, $layer)
         }
         else
         {
-            $js .= "window.onload = C2C.map_init";
+            $js .= "$(window).load(C2C.map_init)";
         }
     }
 
