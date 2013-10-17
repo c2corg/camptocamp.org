@@ -1,5 +1,5 @@
 <?php
-use_helper('JavascriptiQueue');
+use_helper('JavascriptQueue');
 
 echo javascript_queue("$('#image_type').change(function() {
   var i = $(this).val();
