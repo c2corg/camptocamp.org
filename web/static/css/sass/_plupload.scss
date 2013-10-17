@@ -65,10 +65,10 @@
 // TODO we should create a mixin and use @content fro keyframes once our sass version
 // is recent enough
 .image_upload_entry {
-  @include experimental(animation, new-image-animation .4s linear forwards);
+  @include experimental(animation, new-image-animation .25s linear forwards);
 
   &.removed {
-    @include experimental(animation, remove-image-animation .4s linear forwards);
+    @include experimental(animation, remove-image-animation .25s linear forwards);
   }
 }
 
