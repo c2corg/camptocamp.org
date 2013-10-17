@@ -29,6 +29,7 @@ echo object_coord_tag($document, 'lon', '°E');
 echo object_coord_tag($document, 'lat', '°N');
 ?>
 </div>
-<?php 
-echo show_georef_map($lon, $lat, $document->get('module'));
+<?php
+$module = $document->get('module');
+echo show_georef_map($lon, $lat, $module === 'parkings' ? 'access' : $module);
 ?>
