@@ -39,7 +39,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         echo include_metas();
     ?>
     <script type="text/javascript">
-    (function(m,w){var l='<?php echo trim(minify_get_main_stylesheets($combine,$debug)); ?>',r=1
+    (function(m,w){var l='<?php echo trim(minify_get_main_stylesheets($combine, $debug)); ?>',r=1
     w.devicePixelRatio?r=w.devicePixelRatio:"matchMedia"in w&&w.matchMedia&&(w.matchMedia("(min-resolution: 2dppx)").matches||w.matchMedia("(min-resolution: 192dpi)").matches?r=2:(w.matchMedia("(min-resolution: 1.5dppx)").matches||w.matchMedia("(min-resolution: 144dpi)").matches)&&(r=1.5))
     if(r>1){l=l.replace(m,m+'@'+(r>=2?2:1.5)+'x');}document.write(l);})('mobile',window);
     </script>
