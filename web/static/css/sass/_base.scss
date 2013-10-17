@@ -15,7 +15,7 @@ html, body, #holder {
   background-color: #fff;
 }
 
-html>body, html>body #holder {
+body, #holder {
   height: auto;
 }
 
@@ -260,12 +260,17 @@ hr
   margin-top: 10px;
 }
 
-.front_message
+.front_message // yellow edit in place on homepage
 {
-  background: #ffc;
+  background-color: #ffc;
   padding:8px 20px;
   margin-bottom: 15px;
   width: auto !important;
+  @include transition(background-color, 1s);
+
+  &.editable:hover {
+    background-color: #ff8;
+  }
 }
 
 .inplaceeditor-form textarea, .inplaceeditor-form
@@ -2303,8 +2308,14 @@ input.long_input
 
 .image_upload_entry input
 {
-  width:250px;
-  margin-right:20px;
+  width: 250px;
+  margin-right: 20px;
+}
+
+.image_upload_entry .tmp-image-close
+{
+  cursor: pointer;
+  float: right;
 }
 
 .article_gauche_5050 input.long_input, .article_droite_5050 input.long_input
@@ -2517,13 +2528,6 @@ ul.docs_changes li img
   left: 300px;
 }
 
-.form-row #order
-{
-  width:130px;
-  padding: 0.2em;
-  margin: 0 0 0 160px;
-}
-
 .field_error
 {
   border: 1px solid #ff0031;
@@ -2532,20 +2536,24 @@ ul.docs_changes li img
 // drag and drop for languages order preferences is only available
 // in standard version
 @if $standard {
-  #order li
-  {
-    margin: 0.3em 0;
-    border: 1px solid #000;
-    @include border-radius(4px);
-    padding: 0.2em 0.2em 0.2em 35px;
-    list-style-type: none;
-    background: url(-c2c-datauri('/static/images/picto/drag.gif')) no-repeat 5px;
-  }
+  #languages-order {
+    width:130px;
+    padding: 0.2em;
+    margin: 0 0 0 160px;
 
-  #order li:hover
-  {
-    cursor: pointer;
-    background-color: #ccc;
+    li {
+      margin: 0.3em 0;
+      border: 1px solid #000;
+      @include border-radius(4px);
+      padding: 0.2em 0.2em 0.2em 35px;
+      list-style-type: none;
+      background: url(-c2c-datauri('/static/images/picto/drag.gif')) no-repeat 5px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #ccc;
+      }
+    }
   }
 }
 
@@ -2633,7 +2641,8 @@ ul.list404 li
   width: 250px;
 }
 
-#MB_content .form-row .fieldname {
+// no ? picto for labels in modalbox
+.modal .form-row .fieldname {
   background: transparent none repeat scroll 0 0;
   cursor:auto;
   padding-left: 0;
@@ -2685,11 +2694,11 @@ ul.list404 li
 
 /* modalbox customization */
 
-#MB_frame .article_title
+.modal .article_title
 {
   font-size: 24px;
-  padding:0;
-  margin:0 0 10px 0;
+  padding: 0;
+  margin: 0 0 10px 0;
 }
 
 #customize #home_left_content
@@ -2707,26 +2716,6 @@ ul.list404 li
 {
  clear: both;
  margin-bottom: 0.3em;
-}
-
-/* NO EFFECT DUE TO CSS INCLUSION ORDER !!
-#MB_caption
-{
-  font: bold 14px "Lucida Grande", Arial, sans-serif;
-}
-*/
-
-#MB_content
-{
-  background-color: #fff;
-}
-
-#MB_close
-{
-  top: 0 !important;
-  padding: 0 !important;
-  font-size: 30px !important;
-  line-height: 28px !important;
 }
 
 /* when a MB link is opened without calling to MB function */
@@ -3205,7 +3194,7 @@ p.abstract em
   width: 350px;
   background:#FFFFFF none repeat scroll 0 0;
   border:1px solid #BBBBBB;
-  z-index:1000;
+  z-index:10002;
 }
 
 #associated_docs_section_container div.auto_complete
@@ -3888,22 +3877,22 @@ ol.text ol.text ol.text
 
 .home_title_text
 {
-  text-transform:uppercase;
-  word-spacing:-1.5px;
+  text-transform: uppercase;
+  word-spacing: -1.5px;
   line-height: 1.3em;
   min-height: 22px;
   padding-left: 5px;
   padding-top: 0.1em;
-  display:block;
-  margin-left:22px;
-  margin-right:21px;
+  display: block;
+  margin-left: 22px;
+  margin-right: 21px;
   color: #666;
 }
 
 .home_title_text a
 {
-  color:#f93;
-  text-decoration:none;
+  color: #f93;
+  text-decoration: none;
 }
 
 .home_title_left, .home_title_right, .nav_title_right
@@ -4554,6 +4543,7 @@ span.cotometre_result {
 @import "feedback";
 @import "thumbnails";
 @import "google_translate";
+@import "google_search";
 @import "buttons";
 @import "elevation_profile";
 @import "sf_web_debug";

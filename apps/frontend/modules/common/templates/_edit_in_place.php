@@ -1,6 +1,8 @@
-<?php use_helper('Javascript', 'Form');
+<?php
+use_helper('JavascriptQueue', 'Form', 'MyMinify');
 
-if (!empty($message) || $sf_user->hasCredential('moderator')):
+if (!empty($message) || $sf_user->hasCredential('moderator'))
+{
     $output_message = empty($message) ? __('No message defined. Click to edit')
                                       : $sf_data->getRaw('message'); // unescaped data : we trust moderators ! 
     ?>
@@ -8,28 +10,24 @@ if (!empty($message) || $sf_user->hasCredential('moderator')):
     <?php 
     if ($sf_user->hasCredential('moderator'))
     {
-        echo javascript_tag("Object.extend(Ajax.InPlaceEditor.prototype, {
-    onLoadedExternalText: function(transport) {
-        Element.removeClassName(this.form, this.options.loadingClassName);
-        this.editField.disabled = false;
-        this.editField.value = transport.responseText;
-        Field.scrollFreeActivate(this.editField);
+        echo javascript_queue("
+          $.ajax({
+            url: '" . minify_get_combined_files_url('/static/js/jquery.jeditable.js') . "',
+            dataType: 'script',
+            cache: true})
+          .done(function() {
+            $('#edit_me')
+              .addClass('editable')
+              .editable('"  . url_for('@default?module=common&action=edit&lang='.$sf_user->getCulture()) . "', {
+                type: 'textarea',
+                submit: '<input type=\"submit\" value=\"" . __('Update') . "\" />',
+                cancel: '<input type=\"submit\" value=\"" . __('Cancel') . "\" />',
+                indicator: '" . __('saving...') . "',
+                tooltip: '" . __('Click to edit') . "',
+                onblur: 'ignore',
+                rows: 4
+              });
+          });");
     }
-});
-
-Object.extend(Ajax.InPlaceEditor.prototype, {
-    getText: function() {
-        return (this.element.innerHTML).replace(/<br>/g, '<br />');
-    }
-});
-");
-        echo input_in_place_editor_tag('edit_me', 'common/edit?lang=' . $sf_user->getCulture(), array(
-                'cols'              => 40,
-                'rows'              => 2,
-                'highlightendcolor' => '#ffffcc',
-                'cancel_text'       => __('Cancel'),
-                'save_text'         => __('Update')
-        ));
-    }
-endif;
+}
 ?>

@@ -1,10 +1,7 @@
 <?php
-use_helper('Ajax', 'AutoComplete', 'Form', 'MyForm');
-echo ajax_feedback();
+use_helper('JavascriptQueue', 'AutoComplete', 'Form', 'MyForm');
 ?>
 <span class="article_title"><?php echo __('Outing Wizard'); ?></span>
-
-<div id="indicator2" style="display: none;"><?php echo __(' loading...'); ?></div>
 
 <div id="fake_div">
 
@@ -14,40 +11,37 @@ echo ajax_feedback();
 <h4><?php echo __('Step 1: choose a summit'); ?></h4>
 <div id="wizard_summit">
 <?php 
-$updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
 echo global_form_errors_tag();
-// we put intentionally this input here outside the form element, because many users type
-// enter key before the server returned possible values, which would have validated the form and
-// thrown an error (invalid summit name)
-echo __('Summit:');
-echo input_auto_complete_tag('summits_name', 
-                            '', // default value in text field 
-                            "summits/autocomplete", 
-                            array('size' => '35'), 
-                            array('after_update_element' => "function (inputField, selectedItem) {".
-                                                            "$('summit_id').value = selectedItem.id;Element.show('indicator2');".
-                                                            "Element.hide('wizard_no_route');Element.hide('wizard_hints');". 
-                                                             remote_function(array('update' => array('success' => 'divRoutes', 
-                                                                                                     'failure' => $updated_failure),
-                                                                                   'url' => 'summits/getroutes',
-                                                                                   'indicator' => 'indicator2', // does not work for an unknown reason.
-                                                                                   'with' => "'summit_id=' + $('summit_id').value + '&div_name=routes'",
-                                                                                   'complete' => "Element.hide('indicator2');C2C.getWizardRouteRatings('routes');",
-                                                                                   'success'  => "Element.hide('wizard_no_route');Element.show('summit_link');".
-                                                                                                 "Element.show('wizard_route');Element.show('last_ok');",
-                                                                                   'failure'  => "Element.hide('wizard_route');Element.hide('wizard_hints');".
-                                                                                                 "Element.hide('wizard_route_descr');Element.show('$updated_failure');".
-                                                                                                 "Element.show('summit_link');Element.show('wizard_no_route');" . 
-                                                                                                 visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))).
-                                                            ";}",
-                                  'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
-                                  'indicator' => 'indicator'));
+echo __('Summit:') . input_tag('summits_name', '', array('size' => '35'));
+echo javascript_queue("var indicator = $('#indicator');
+$('#summits_name').c2cAutocomplete({
+  url: '" . url_for('summits/autocomplete') . "',
+  minChars: " . sfConfig::get('app_autocomplete_min_chars') . ",
+  onSelect: function() {
+    $('#summit_id').val(this.id);
+    $('#wizard_no_route, #wizard_hints').hide();
+    $.get('" . url_for('summits/getroutes') . "',
+               'summit_id=' + $('#summit_id').val() + '&div_name=routes')
+      .always(function() { indicator.hide(); })
+      .done(function(data) {
+        $('#divRoutes').html(data);
+        $('#wizard_no_route').hide();
+        $('#summit_link, #wizard_route, #last_ok').show();
+        C2C.getWizardRouteRatings('routes');
+      })
+      .fail(function(data) {
+        $('#wizard_route, #wizard_hints, #wizard_route_descr').hide();
+        $('#summit_link, #wizard_no_route').show();
+        C2C.showFailure(data.responseText);
+      })
+  }
+});");
 
 echo form_tag('outings/wizard');
 echo input_hidden_tag('summit_id', '0');
 ?>
 <p id="summit_link" style="display: none">
-<a href="#" onclick="window.open('/summits/' + $('summit_id').value);"><?php echo __('Show the summit') ?></a>
+<a href="#" onclick="window.open('/summits/' + $('#summit_id').val());"><?php echo __('Show the summit') ?></a>
 </p>
 <p id="wizard_summit_create" class="wizard_tip"><?php echo __('No summit matching your search?') . ' ' . 
 link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p>
@@ -64,7 +58,7 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <hr />
 <h4><?php echo __('Step 2: Create a route')  ?></h4>
 <p class="wizard_tip">
-<a href="#" onclick="window.open('/routes/edit/link/' + $('summit_id').value);"><?php echo __('Add your route') ?></a>
+<a href="#" onclick="window.open('/routes/edit/link/' + $('#summit_id').val());"><?php echo __('Add your route') ?></a>
 </p>
 </div>
 
@@ -80,10 +74,12 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <?php echo __('Short description: '); ?>
 <span id="routes_descr"><?php echo __('not available'); ?></span>
 <br />
-<a href="#" onclick="window.open('/routes/' + $('routes').options[$('routes').selectedIndex].value);"><?php echo __('Show the route') ?></a>
+<a href="#" onclick="window.open('/routes/' + $('routes').val();">
+  <?php echo __('Show the route') ?>
+</a>
 </p> <!-- wizard_route_descr -->
 <p class="wizard_tip"><?php echo __('No route matching your search?') . ' '; ?>
-<a href="#" onclick="window.location.href='/routes/edit/link/' + $('summit_id').value; return false;"><?php echo __('Add your route') ?></a></p>
+<a href="#" onclick="window.location.href='/routes/edit/link/' + $('#summit_id').val(); return false;"><?php echo __('Add your route') ?></a></p>
 
 <div id="last_ok" style="display: none;">
 <hr />
@@ -91,7 +87,7 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <?php 
 echo form_tag('outings/edit', 'method=get');
 echo input_hidden_tag('link', '0');
-echo c2c_submit_tag(__('New outing'), array('onclick' => '$("link").value = $("routes").options[$("routes").selectedIndex].value',
+echo c2c_submit_tag(__('New outing'), array('onclick' => '$("#link").val($("#routes").val());',
                                             'title' => __('Add your outing'),
                                             'picto' => 'action_create'));
 ?>

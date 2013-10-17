@@ -76,7 +76,7 @@ else
                 }
                 else
                 {
-                    $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="C2C.linkRoutes(\'act' . $activity_index . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
+                    $activity_summary[] = '<a href="#' . $activity . '_routes" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
                 }
             }
         }

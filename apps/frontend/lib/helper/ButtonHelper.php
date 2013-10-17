@@ -162,45 +162,43 @@ function button_merge($module, $id)
 
 function button_protect($module, $id, $document_is_protected)
 {
-    use_helper('Ajax', 'Javascript');
+    use_helper('Javascript');
     
     $protect = ucfirst(__('protect')); 
     $unprotect = ucfirst(__('deprotect')); 
     $protect_title = __('Protect this document');
     $unprotect_title = __('Unprotect this document');
 
-    echo javascript_tag('
-        function update_protectBtn()
-        {
-            var protect_value = \'' . $protect . '\';
-            var unprotect_value = \'' . $unprotect .' \';
-            var protect_title = \'' . $protect_title .' \';
-            var unprotect_title = \'' . $unprotect_title .' \';
-            
-            var protect_btn = $("protect_btn");
-
-            protect_btn.toggleClassName("action_protect");
-            protect_btn.toggleClassName("action_unprotect");
-            (protect_btn.innerHTML == protect_value)? protect_btn.update(unprotect_value) : protect_btn.update(protect_value);
-            protect_btn.title = (protect_btn.title == unprotect_title) ? unprotect_title : (protect_title);
-        }
-    ');
-
-    $msg = $document_is_protected ? $unprotect : $protect ;
+    $msg = $document_is_protected ? $unprotect : $protect;
     $class = $document_is_protected ? 'action_unprotect' : 'action_protect';
     $title = $document_is_protected ? $unprotect_title : $protect_title;
 
-    return link_to_remote($msg, 
-                          array('update' => sfConfig::get('app_ajax_feedback_div_name_success'), 
-                                'url'    => "@doc_protect?module=$module&id=$id",
-                                'complete' => "update_protectBtn(), Element.hide('indicator'), Element.show('" . 
-                                              sfConfig::get('app_ajax_feedback_div_name_success') . "'), " . 
-                                              visual_effect('fade', sfConfig::get('app_ajax_feedback_div_name_success'), 
-                                                            array('duration' => '2')),
-                                'loading' => 'Element.show(\'indicator\')'),
-                          array('title' => $title,
-                                'class' => $class . ' nav_edit',
-                                'id' => 'protect_btn'));
+    $js = "var btn = $(this), indicator = $('#indicator');
+indicator.show();
+$.ajax('" . url_for("@doc_protect?module=$module&id=$id") . "')
+  .done(function(data) {
+    var tmp =  btn.text();
+    btn.text(btn.attr('data-alt-content'))
+      .attr({
+        'class': btn.attr('data-alt-class'),
+        title: btn.attr('data-alt-title'),
+        'data-alt-class': btn.attr('class'),
+        'data-alt-title': btn.attr('title'),
+        'data-alt-content': tmp
+      });
+    C2C.showSuccess(data);})
+  .fail(function(data) {
+    C2C.showFailure(data);})
+  .always(function() {
+    indicator.hide();})";
+
+    return link_to_function($msg, $js,
+                            array('title' => $title,
+                                  'class' => $class . ' nav_edit',
+                                  'id' => 'protect_btn',
+                                  'data-alt-class' => ($document_is_protected ? 'action_protect' : 'action_unprotect') . ' nav_edit',
+                                  'data-alt-content' => $document_is_protected ? $protect : $unprotect,
+                                  'data-alt-title' =>  $title = $document_is_protected ? $protect_title : $unprotect_title));
 }
 
 function button_back($module)
@@ -305,33 +303,6 @@ function button_print()
                                   'class' => 'action_print nav_edit'));
 }
 
-function button_bookmark()
-{
-    use_helper('Javascript');
-    $js = "function bookmark(title,url){
-        if (window.sidebar)
-        {
-            window.sidebar.addPanel(title, url, \"\");
-        }
-        else if(window.opera && window.print)
-        {
-            var elem = document.createElement('a');
-            elem.setAttribute('href',url);
-            elem.setAttribute('title',title);
-            elem.setAttribute('rel','sidebar');
-            elem.click();
-        }
-        else if(document.all)
-        {
-            window.external.AddFavorite(url, title);
-        }
-    }";
-    return javascript_tag($js) . link_to_function(__('Bookmark'),
-                            'bookmark(document.title,self.location)',
-                            array('title' => __("Bookmark current document"),
-                                  'class' => 'action_bookmark nav_edit'));
-}
-
 function button_report()
 {
     use_helper('Forum');
@@ -367,8 +338,8 @@ function button_share()
     // see http://support.addthis.com/customer/portal/articles/381260-google-analytics-integration
     sfContext::getInstance()->getResponse()->setParameter('addthis', true, 'helper/asset/addthis');
     $addthis_js = '<script type="text/javascript">
-var addthis_config = {services_exclude: \'print, favorites\',ui_header_color: \'#000000\',ui_header_background: \'#d2cabc\',
-data_ga_property: \''.sfConfig::get('app_ganalytics_key').'\',data_ga_social: true};
+var addthis_config = {services_exclude: "print, favorites",ui_header_color: "#000000",ui_header_background: "#d2cabc",
+data_ga_property: "'.sfConfig::get('app_ganalytics_key').'",data_ga_social: true};
 var addthis_localize = {share_caption:"'.__('Bookmark & Share').'",more:"'.__('More...').'"};
 </script>';
     return $addthis_js.link_to('<span class="share_bookmark '.__('meta_language') .'"></span>',
@@ -390,8 +361,8 @@ function button_widget($parameters)
                    array('title' => __('Generate widget'),
                          'class' => 'picto_tools nav_edit',
                          'query_string' => 'mod=' . $parameters['module'] . $paramstring,
-                         'onclick' => "Modalbox.show('" . url_for('@widget_generator') . '?mod=' . $parameters['module'] . $paramstring 
-                                      . "', {title:this.title,width:710});return false;",
+                         'onclick' => "$.modalbox.show({remote:'" . url_for('@widget_generator') . '?mod=' . $parameters['module'] . $paramstring 
+                                      . "',title:this.title,width:710});return false;",
                          'rel' => 'nofollow'));
 }
 

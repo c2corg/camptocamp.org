@@ -18,7 +18,6 @@ function loadTooltipsViewRessources()
     {
         $response = sfContext::getInstance()->getResponse();
         $response->addJavascript('/static/js/tooltips.js', 'last');
-        $response->addJavascript('/static/js/tooltips_view.js', 'last');
     }
 }
 
@@ -449,8 +448,11 @@ function _format_data($name, $value, $options = array())
         }
     }
 
-    $text = ($raw) ? '' :
-            '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . ucfirst(__($label)) . $name_suffix . '</div> ';
+    $text = ($raw) ? '' : content_tag('div', ucfirst(__($name)) . $name_suffix,
+        array('class' => 'section_subtitle' . $div_class, 'id' => '_' . $id, 'data-tooltip' => ''));
+    $text .= ' ';
+
+
 
     if (!empty($prefix) && !$empty_value)
     {
@@ -481,7 +483,8 @@ function _format_data_range($name, $value_min, $value_max, $options = array())
     }
     else
     {
-        $text = '<div class="section_subtitle" id="_'. $name .'">' . __($name) . '</div> ';
+        $text = content_tag('div', __($name), array('class' => 'section_subtitle',
+            'id' => '_'.$name, 'data-tooltip' => '')) . ' ';
     }
 
     if (!empty($value_min) && !empty($value_max) && $value_min == $value_max)
@@ -734,7 +737,8 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
 
     if ($show_label)
     {
-        $label = '<div class="section_subtitle htext' . $class . '" id="_' . $name .'">' . __($label) . "</div>\n";
+        $label = content_tag('div', __($label), array('class' => 'section_subtitle htext',
+            'id' => '_'.$name, 'data-tooltip' => '')) . "\n";
     }
     else
     {
@@ -817,7 +821,8 @@ function field_export($module, $id, $lang, $version = null)
     $route_suffix .= "module=$module&id=$id&lang=$lang";
                   
     $title = 'download geo data under %1% format';
-    return '<div class="no_print"><span class="section_subtitle" id="geo_export">' . __('Export:') . '</span>'
+    return '<div class="no_print">' . content_tag('span', __('Export:'), array('class' => 'section_subtitle',
+               'id' => 'geo_export', 'data-tooltip' => ''))
            . ' ' . picto_tag('action_gps') . ' ' .
            link_to('GPX', "@export_gpx$route_suffix",
                    array('title' => __($title, array('%1%' => 'GPX')), 'rel' => 'nofollow'))
@@ -832,7 +837,8 @@ function field_export($module, $id, $lang, $version = null)
 function field_getdirections($id)
 {
     $title = 'Use %1% to see directions to this parking';
-    return '<div class="no_print"><span class="section_subtitle" id="get_directions">' . __('Get directions:') . '</span>'
+    return '<div class="no_print">' . content_tag('span', __('Get directions:'), array('class' => 'section_subtitle',
+               'id' => 'get_directions', 'data-tooltip' => ''))
            . ' ' .
            link_to('Google', "@getdirections?id=$id&service=gmaps",
                    array('title' => __($title, array('%1%' => 'Google Maps')),

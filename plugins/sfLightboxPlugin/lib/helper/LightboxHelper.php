@@ -73,46 +73,13 @@
   }  
   
   /**
-   * Return a link_to a lightbox modal popup
-   * 
-   * @author Demental
-   * @since 1.0.0 - 7 feb 2007
-   */
-  function light_modallink($text, $link, $options = array())
-  {
-    _addLbRessources(true);
-    $options = _parse_attributes($options);
-
-    //myTools::dump($options, '$options', 0);
-
-    $options['rel'] = 'modalbox';
-    $options['class'] = isset($options['class']) ? $options['class'] : '';
-
-    if (!$options['class']) {
-        if(key_exists('speed', $options)) {
-            $options['class'] .= 'resizespeed_'. $options['speed'];
-            unset($options['speed']);
-        }
-
-        if(key_exists('size', $options)) {
-            $options['class'] .= ($options['class'] ? ' ' : ''). 'blocksize_'.$options['size'];
-            unset($options['size']);
-        }
-    }
-
-    //myTools::dump($options, '$options', 1);
-
-    return link_to($text, $link, $options);
-  }
-  
-  /**
    * Private function that adds the lightbox ressources
    * 
    * @access private
    * @author COil
    * @since 1.0.0 - 5 feb 2007
    */
-  function _addLbRessources($modal = false)
+  function _addLbRessources()
   {
     // Prototype & scriptaculous: no need since loaded each time for menu
     $response = sfContext::getInstance()->getResponse();
@@ -122,11 +89,6 @@
     // Lightbox specific
     $response->addJavascript('/static/js/lightbox.js');
     $response->addStylesheet('/static/css/lightbox.css');      
-
-    if ($modal) {
-        $response->addJavascript('/static/js/modalbox.js');
-        $response->addStylesheet('/static/js/modalbox.css');      	
-    }
   }
   
   /**

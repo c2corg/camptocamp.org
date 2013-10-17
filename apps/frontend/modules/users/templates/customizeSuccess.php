@@ -2,8 +2,6 @@
 use_helper('MyForm', 'Language', 'Javascript', 'Ajax', 'Link');
 
 echo customization_nav('customize');
-echo ajax_feedback(true); // true == inline feedback
-                          // FIXME this conflicts with the one already declared (same ids)
 ?>
 
 <div id="fake_div">
@@ -36,21 +34,18 @@ echo tips_tag('if you select nothing / deselect all, no filter is applied');
     <fieldset>
       <legend><?php echo __('places_to_display') ?></legend>
       <p class="select_title">
-      <?php  echo link_to_remote(__('ranges'),
-                                 array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter',
-                                       'loading' => 'Element.show("indicator")',
-                                       'complete' => 'Element.hide("indicator")')) . ' - ' .
-                  link_to_remote(__('regions'),
-                                 array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=3&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter',
-                                       'loading' => 'Element.show("indicator")',
-                                       'complete' => 'Element.hide("indicator")')) . ' - ' .
-                  link_to_remote(__('countries'),
-                                 array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter',
-                                       'loading' => 'Element.show("indicator")',
-                                       'complete' => 'Element.hide("indicator")'));
+      <?php  echo link_to_function(__('ranges'), "$('#indicator').show(); 
+                    $.ajax('" . url_for('/areas/getmultipleselect?area_type=1&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter') . "')
+                      .always(function() { $('#indicator').hide(); })
+                      .done(function(data) { $('#pref_area_selector').html(data); })") . ' - ' .
+                  link_to_function(__('regions'), "$('#indicator').show();
+                    $.ajax('" . url_for('/areas/getmultipleselect?area_type=3&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter') . "')
+                      .always(function() { $('#indicator').hide(); })
+                      .done(function(data) { $('#pref_area_selector').html(data); })") . ' - ' .
+                  link_to_function(__('countries'), "$('#indicator').show();
+                    $.ajax('" . url_for('/areas/getmultipleselect?area_type=2&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places_filter') . "')
+                      .always(function() { $('#indicator').hide(); })
+                      .done(function(data) { $('#pref_area_selector').html(data); })");
       ?>
       </p>
       <div id="pref_area_selector">

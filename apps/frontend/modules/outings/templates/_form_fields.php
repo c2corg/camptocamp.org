@@ -4,7 +4,8 @@ use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript
 $mw_contest_enabled = sfConfig::get('app_mw_contest_enabled'); // shunt for mw contest
 
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/outings.js', 'last');
+$response->addJavascript('/static/js/outings_edit.js', 'last');
+if ($mw_contest_enabled) $response->addJavascript('/static/js/mw.js', 'last');
 
 echo javascript_tag("var confirm_outing_date_message = '" . addslashes(__('Has this outing really been done today?')) . "';
 var outing_date_already_tested = false;
@@ -36,7 +37,7 @@ echo object_group_tag($document, 'date', array('callback' => 'object_input_date_
 <div class="article_gauche_5050">
 <?php
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
-                               array('multiple' => true, 'onchange' => 'C2C.hide_outings_unrelated_fields()', 'na' => array(0)),
+                               array('multiple' => true, 'na' => array(0)),
                                true, null, null, '', '', 'picto_act act_');
 ?>
 </div>
@@ -49,18 +50,18 @@ echo object_group_tag($document, 'partial_trip', array('callback' => 'object_che
 echo object_group_tag($document, 'max_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 echo object_group_tag($document, 'height_diff_up', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
-<div id="outings_height_diff_down">
+<div data-act-filter="1 6 7 height_diff_down">
 <?php
 echo object_group_tag($document, 'height_diff_down', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
 </div>
-<div id="outings_length">
+<div data-act-filter="1 6 7 length">
 <?php
 echo object_group_tag($document, 'outing_length', array('suffix' => 'kilometers', 'class' => 'short_input'));//, 'type' => 'number')); TODO disabled until it is correctly handled by chrome
 ?>
 </div>
 <?php
-echo object_group_tag($document, 'outing_with_public_transportation', array('callback' => 'object_checkbox_tag', 'onchange' => 'C2C.switch_mw_contest_visibility();'));
+echo object_group_tag($document, 'outing_with_public_transportation', array('callback' => 'object_checkbox_tag'));
 if ($mw_contest_enabled == true)
 {
 $mw_checked = false;
@@ -79,7 +80,7 @@ if (isset($associated_articles) && count($associated_articles))
 <div id="mw_contest"> 
 <?php
 echo __('Participate to MW %1% contest', array('%1%' => sfConfig::get('app_mw_contest_id')));
-echo checkbox_tag('mw_contest_associate', 1, $mw_checked, array('onchange' => 'C2C.switch_mw_contest_association();'));
+echo checkbox_tag('mw_contest_associate', 1, $mw_checked);
 ?>
 </div>
 <?php
@@ -87,7 +88,7 @@ echo checkbox_tag('mw_contest_associate', 1, $mw_checked, array('onchange' => 'C
 echo object_group_dropdown_tag($document, 'access_status', 'mod_outings_access_statuses_list');
 echo object_group_tag($document, 'access_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 ?>
-<div id="outings_snow_elevation">
+<div data-act-filter="1 2 5 7">
 <?php
 echo object_group_tag($document, 'up_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
 echo object_group_tag($document, 'down_snow_elevation', array('suffix' => 'meters', 'class' => 'short_input', 'type' => 'number'));
@@ -98,12 +99,12 @@ echo object_group_tag($document, 'down_snow_elevation', array('suffix' => 'meter
 <?php
 echo object_group_dropdown_tag($document, 'conditions_status', 'mod_outings_conditions_statuses_list');
 ?>
-<div id="outings_glacier">
+<div data-act-filter="1 2 3 7">
 <?php
 echo object_group_dropdown_tag($document, 'glacier_status', 'mod_outings_glacier_statuses_list');
 ?>
 </div>
-<div id="outings_track">
+<div data-act-filter="1 2 5 7">
 <?php
 echo object_group_dropdown_tag($document, 'track_status', 'mod_outings_track_statuses_list');
 ?>
@@ -121,7 +122,7 @@ echo file_upload_tag('gps_data');
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 ?>
-<div id="outings_conditions_levels">
+<div data-act-filter="1 2 5 7">
 <?php
 // conditions levels fields:
 echo start_group_tag();
@@ -137,22 +138,6 @@ if (empty($conditions_levels))
     }
 }
 ?>
-<script type="text/javascript">
-//<![CDATA[
-var conditions_levels_fields = new Array(<?php echo "'" . implode("','", $level_fields) . "'" ?>);
-var conditions_levels_next_id = <?php echo count($conditions_levels) ?>;
-
-function addConditionLevel()
-{
-    new_line = '<?php echo addcslashes(get_partial('conditions_level', array('fields' => $level_fields,
-                                                                                    'level'  => 'level_var', 
-                                                                                    'data'   => NULL)), "\0..\37\\'\"\/") ?>';
-    new_line = new_line.gsub('level_var', conditions_levels_next_id);
-    new Insertion.Bottom('conditions_levels_tbody', new_line);
-    conditions_levels_next_id++;
-}
-//]]>
-</script>
 <table id="conditions_levels_table">
   <colgroup></colgroup>
   <?php foreach ($level_fields as $field): ?>
@@ -160,8 +145,7 @@ function addConditionLevel()
   <?php endforeach ?>
   <thead>
     <tr>
-      <th><?php echo link_to_function(picto_tag('picto_add', __('add a condition level')),
-                                      'addConditionLevel()') ?></th>
+      <th><?php echo link_to(picto_tag('picto_add', __('add a condition level')), '#', array('class' => 'add-condition-level')) ?></th>
       <?php foreach ($level_fields as $field): ?>
         <th><?php echo __($field) ?></th>
       <?php endforeach ?>
@@ -177,6 +161,24 @@ function addConditionLevel()
   </tbody>
 </table>
 <?php
+echo javascript_queue("
+var tbody = $('#conditions_levels_tbody');
+var next_id =  tbody.find('tr').length;
+
+$('.add-condition-level').click(function(e) {
+  e.preventDefault();
+  tbody.append('" . addcslashes(get_partial('conditions_level', array('fields' => $level_fields,
+                                                                       'level'  => '%%var%%',
+                                                                       'data'   => null)), "\0..\37\\'\"\/") .
+  "'.replace(/%%var%%/g, next_id));
+  next_id++;
+});
+
+tbody.on('click', '.remove-condition-level', function(e) {
+  e.preventDefault();
+  $(this).closest('tr').remove();
+});
+");
 echo end_group_tag();
 ?>
 </div>

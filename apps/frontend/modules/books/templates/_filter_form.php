@@ -1,12 +1,6 @@
 <?php
 use_helper('FilterForm', 'General');
 
-if (!c2cTools::mobileVersion())
-{
-   // put focus on the name field on dom load
-   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
-   document.observe(\'dom:loaded\', function() { $(\'bnam\').focus(); })};');
-}
 ?>
 <div class="fieldgroup">
 <?php

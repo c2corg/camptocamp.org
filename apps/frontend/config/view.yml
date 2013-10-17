@@ -7,6 +7,7 @@ default:
 
   # stylesheets:
   # javascripts should not be specified here if not application-wide
+  javascripts: [ /static/js/jquery.min.js, /static/js/jquery.c2cautocomplete.js, /static/js/feedback.js, /static/js/fold.js, /static/js/queue.js, /static/js/misc.js ]
 
   has_layout:     on
   layout:         layout

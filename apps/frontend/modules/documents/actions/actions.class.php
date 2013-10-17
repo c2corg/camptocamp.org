@@ -2069,13 +2069,8 @@ class documentsActions extends c2cActions
         }
 
         // Go through simple heuristics to check for potential vandalism
-       Vandalism::check($this->document);
+        Vandalism::check($this->document);
 
-        // js to autosave edit forms. see also https://github.com/marcuswestin/store.js?
-        // FIXME temporarily disabled because it causes the browser to choke every 20-30s
-        /*$response = $this->getResponse();
-        $response->addJavascript('/static/js/jstorage.js', 'last');
-        $response->addJavascript('/static/js/formsave.js', 'last');*/
         // module specific actions
         $this->endEdit();
     }
@@ -2298,7 +2293,7 @@ class documentsActions extends c2cActions
         }
         $this->setPageTitle($page_title);
     }
-    
+ 
     public function executeLatestassociations()
     {
         $doc_id = $this->getRequestParameter('id', null);
@@ -3809,7 +3804,7 @@ class documentsActions extends c2cActions
         $mode = $this->getRequestParameter('mode'); 
         $strict = $this->getRequestParameter('strict', 1); // whether 'remove action' should be strictly restrained to main and linked or reversed. 
         $icon = $this->getRequestParameter('icon');
-        
+
         // if session is time-over
         if (!$user_id)
         {
@@ -4059,30 +4054,31 @@ class documentsActions extends c2cActions
             $div_select = $field_prefix . '_routes_select';
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
 
+            $id = $field_prefix . '_rsummits_name';
             $out = input_hidden_tag('summit_id', '0', array('id' => $summit_id))
                  . input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
                  . __('Summit : ')
-                 . input_auto_complete_tag('summits_name', 
-                            '', // default value in text field 
-                            "summits/autocomplete",                            
-                            array('size' => '45', 'id' => $field_prefix .'_rsummits_name'), 
-                            array('after_update_element' => "function (inputField, selectedItem) { 
-                                                                $('$summit_id').value = selectedItem.id;
-                                                                ". remote_function(array(
-                                                                                        'update' => array(
-                                                                                                        'success' => $div_select, 
-                                                                                                        'failure' => $updated_failure),
-                                                                                        'url' => 'summits/getroutes',
-                                                                                        'with' => "'summit_id=' + $('$summit_id').value + '&div_prefix=${field_prefix}_&div_name=document_id'",
-                                                                                        'loading'  => "Element.show('indicator');", // does not work for an unknown reason
-                                                                                        'complete' => "Element.hide('indicator');C2C.getWizardRouteRatings('${field_prefix}_document_id');",
-                                                                                        'success'  => "Element.show('${field_prefix}_associated_routes');",
-                                                                                        'failure'  => "Element.show('$updated_failure');" . 
-                                                    visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
-                                    'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
-                                    'indicator' => 'indicator')); 
-            $out .= '<div id="'.$field_prefix.'_associated_routes" name="associated_routes" style="display:none;">';
-            $out .= '<div id="' . $div_select . '" name="' . $div_select . '"></div>';
+                 . input_tag('summits_name', '', array('size' => 45, 'id' => $id))
+                 . '<div id="'.$field_prefix.'_associated_routes" name="associated_routes" style="display:none;">'
+                 . '<div id="' . $div_select . '" name="' . $div_select . '"></div>'
+
+                 . javascript_queue("var indicator = $('#indicator');" .
+                 "$('#$id').c2cAutocomplete({" .
+                     "url: '" . url_for("summits/autocomplete") . "'," .
+                     "minChars: " . sfConfig::get('app_autocomplete_min_chars') . "," .
+                     "onSelect: function() {" .
+                       "$('#$summit_id').val(this.id);" .
+                       "indicator.show();" .
+                       "$.get('" . url_for('summits/getroutes') . "'," .
+                         "'summit_id=' + $('#$summit_id').val() + '&div_prefix=${field_prefix}_&div_name=document_id')" .
+                         ".always(function() { indicator.hide(); })" .
+                         ".fail(function(data) { C2C.showFailure(data.responseText); })" .
+                         ".done(function(data) {" .
+                           "$('#$div_select').html(data).parent().show();" .
+                           "C2C.getWizardRouteRatings('${field_prefix}_document_id');" .
+                         "});" .
+                 "}});");
+
             if ($this->getRequestParameter('button') != '0')
             {
                 $out .= c2c_submit_tag(__('Link'), array('class' => 'samesize', 'picto' => 'action_create'));

@@ -34,7 +34,6 @@ abstract class c2cActions extends sfActions
     {
         if ($this->isAjaxCall())
         {
-            //TODO: find a way to hide this message automaticly with js
             c2cTools::log('ajax messageAndRedirect | ' . $message);
             $error_remove = "";
             
@@ -47,13 +46,7 @@ abstract class c2cActions extends sfActions
                 // auto remove error classes on fields
                 sfLoader::loadHelpers(array('Javascript', 'Tag'));
                 $field_error = sfConfig::get('app_form_field_error');
-                $error_remove = javascript_tag("
-                    // remove all errors
-                    if($$('.$field_error').size() > 0)
-                    {
-                        $$('.$field_error').invoke('removeClassName', '$field_error');
-                    }
-                ");
+                $error_remove = javascript_tag("$('.$field_error').removeClass('$field_error');");
             }
 
             return $this->renderText($error_remove . $js . $this->__($message, $vars));
@@ -69,31 +62,15 @@ abstract class c2cActions extends sfActions
     {
         $errors = $this->getRequest()->getErrors();
         $field_error = sfConfig::get('app_form_field_error');
-        $js_errors = "'" . implode("','",array_keys($errors)) . "'";
+        $js_errors = "'#" .implode(", #", array_keys($errors)) . "'";
 
         $this->getResponse()->setStatusCode(404);
 
         sfLoader::loadHelpers(array('Javascript', 'Tag'));
         // add error class on fields via js
         $js = javascript_tag("
-            // remove all errors
-            $$('.$field_error').invoke('removeClassName', '$field_error');
-
-            // get some vars
-            var length = \"$js_errors\".split(',').length;
-            var errors = $($js_errors);
-
-            // check if there si one or more errors
-            if(length > 1)
-            {
-                errors.invoke('addClassName','$field_error');
-            }
-            else
-            {
-                errors.addClassName('$field_error');
-            }
-
-        ");
+            $('.$field_error').removeClass('$field_error'); // remove all errors
+            $($js_errors).addClass('$field_error'); // display new ones (if any)");
 
         // global form error
         $toReturn = $this->__('Oups!') . '<ul>';
@@ -269,7 +246,6 @@ abstract class c2cActions extends sfActions
 
     protected function ajax_feedback_autocomplete($msg)
     {
-        //return $this->renderText('<ul><li id="0"><div class="feedback">'.$this->__($msg).'</div></li></ul>');
         return $this->renderText('<ul><div class="feedback">'.$this->__($msg).'</div></ul>');
     }
 

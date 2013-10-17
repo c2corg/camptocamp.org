@@ -16,7 +16,6 @@ use_helper('MyMinify', 'MetaLink');
 
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/fold.js', 'head_last');
 
 // alpine club logo is included by css, but only in en
 if ($lang === 'en') use_stylesheet('/static/css/ac');
@@ -31,7 +30,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         echo include_http_metas();
         echo include_title();
     ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1" />
     <?php // Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading ?>
     <meta http-equiv="cleartype" content="on">
     <?php
@@ -81,7 +80,6 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
                                                       'footer_type' => $footer_type));
         ?>
     </div>
-    <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
     <?php minify_include_body_javascripts($combine, $debug);
           include_partial('common/tracker') ?>
 </body>

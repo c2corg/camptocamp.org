@@ -1,5 +1,5 @@
 <?php
-use_helper('General', 'Forum');
+use_helper('General', 'Forum', 'JavascriptQueue');
 
 $menu_search = array(
     '#' => ' ',
@@ -73,8 +73,4 @@ if ($is_connected)
     </div>
   </div>
 </div>
-<?php echo javascript_tag('$$(\'#mobile_menu select\').each(function(o) {
-                             o.observe(\'change\', function(e) {
-                               window.location=this.options[this.selectedIndex].value }
-                             )}
-                           );');
+<?php echo javascript_queue('$(".menu_select").change(function() { window.location = $(this).find("option:selected").val(); });') ?>

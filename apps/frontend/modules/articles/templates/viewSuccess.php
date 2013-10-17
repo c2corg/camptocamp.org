@@ -46,7 +46,9 @@ if ($is_not_archive && $is_not_merged):
         {
             $associated_users_ids[] = $user['id'];
         }
-        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\').reverse()[0])) != -1)');
+        echo javascript_tag('if (['.implode(',', $associated_users_ids).'].indexOf(parseInt(document.getElementById("name_to_use").getAttribute("data-user-id"))) != -1) {
+          document.body.setAttribute("data-user-author", true);
+        }');
     }
 
     if (!$is_personal_article || count($associated_documents) || $is_connected)

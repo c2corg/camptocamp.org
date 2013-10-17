@@ -23,7 +23,7 @@ if (count($associated_images) == 0): ?>
     <fieldset class="separator">
         <legend><?php echo __('options') ?></legend>
         <p>
-<?php echo checkbox_tag('customlegend', 'customlegend', false, array('onclick' => 'C2C.doUpdateLegend();'))
+<?php echo checkbox_tag('customlegend', 'customlegend', false, array('onclick' => 'C2C.doUpdateImageLegend();'))
          . ' ' . label_for('customlegend', __('Custom legend')) . ' '
          . input_tag('legend', $associated_images[0]['name'], array('class' => 'medium_input', 'disabled' => 'disabled')); ?>
         </p>
@@ -46,7 +46,7 @@ if (count($associated_images) == 0): ?>
 <ul class="action_buttons">
   <li><?php echo button_tag(__('Insert'), array('onclick' => 'C2C.doInsertImgTag()',
                                                 'picto' => 'action_create')); ?></li>
-  <li><?php echo button_tag(__('Cancel'), array('onclick' => 'Modalbox.hide();',
+  <li><?php echo button_tag(__('Cancel'), array('onclick' => '$.modalbox.hide();',
                                                 'picto' => 'action_cancel')); ?></li>
 </ul>
 <?php endif; ?>

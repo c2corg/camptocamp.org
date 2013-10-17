@@ -32,8 +32,9 @@ include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_AP
              DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'. 
              DIRECTORY_SEPARATOR.($mobile_version ? '_mobile_footer.php' : '_footer.php'));
 
-?></div><?php
-
+?>
+</div>
+<?php
 $punbb_file = basename($_SERVER['PHP_SELF']);
 
 if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
@@ -42,7 +43,7 @@ if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'messag
 }
 if (!c2cTools::mobileVersion())
 {
-    $sf_response->addJavascript('/static/js/modalbox.js');
+    $sf_response->addJavascript('/static/js/modal.js');
 }
 
 $debug = defined('PUN_DEBUG');

@@ -1,13 +1,6 @@
 <?php
 use_helper('FilterForm', 'General');
 
-if (!c2cTools::mobileVersion())
-{
-   // put focus on the name field on dom load
-   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
-   document.observe(\'dom:loaded\', function() { $(\'anam\').focus(); })};');
-}
-
 echo picto_tag('picto_areas') . __('region_name') . ' ' . input_tag('anam', null, array('autofocus' => 'autofocus'));
 echo __('area_type') . ' ' . field_value_selector('atyp', 'mod_areas_area_types_list');
 ?>

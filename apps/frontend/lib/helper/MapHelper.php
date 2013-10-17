@@ -1,5 +1,5 @@
 <?php
-use_helper('Form', 'Javascript');
+use_helper('Form', 'JavascriptQueue');
 
 function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $center = null, $has_geom = null)
 {
@@ -89,16 +89,16 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
                  !sfContext::getInstance()->getRequest()->getParameter('debug', false);
 
     $js = "
-        function map_init() {
-          c2corg.Map({
-            div: 'map',
-            lang: '$lang',
-            loading: 'mapLoading',
-            layers: $layers_list,
-            center: $init_center,
-            features: " . _makeFeatureCollection($objects_list) . "
-          });
-        }";
+      C2C.map_init = function() {
+        c2corg.Map({
+          div: 'map',
+          lang: '$lang',
+          loading: 'mapLoading',
+          layers: $layers_list,
+          center: $init_center,
+          features: " . _makeFeatureCollection($objects_list) . "
+        });
+       }";
 
     // asynchronous map loading
     if ($async_map)
@@ -110,17 +110,18 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
           (bool) sfConfig::get('app_minify_debug'));
 
         $js .= "
-            function c2c_asyncload(jsurl) {
-              var a = document.createElement('script'),
-              h = document.getElementsByTagName('head')[0];
-              a.async = 1; a.src = jsurl; h.appendChild(a);
-            }
-            function map_load_async() {
-                c2c_asyncload('$c2c_script_url');
-            }";
+        C2C.async_map_init = function() {
+          $.ajax({
+            url: '$c2c_script_url',
+            dataType: 'script',
+            cache: true
+          }).done(function() {
+            C2C.map_init();
+          });
+        };";
     }
 
-    $html .= javascript_tag($js);
+    $html .= javascript_queue($js);
 
     return $html;
 }
