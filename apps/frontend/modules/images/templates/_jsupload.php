@@ -48,6 +48,7 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 <?php echo button_to_function(__('save'), "$('.images_submit').hide(); $('#images_validate_form').submit()", array('disabled' => 'disabled', 'class' => 'images_submit')); ?>
 </div>
 <?php
-echo javascript_tag('C2C.ImageUpload.init()');
+$image_upload_js = minify_get_combined_files_url('/static/js/image_upload.js');
+echo javascript_tag("$.ajax({ url: '$image_upload_js', dataType: 'script', cache: true }).done(C2C.ImageUpload.init)');");
 ?>
 </form>

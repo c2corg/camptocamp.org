@@ -155,13 +155,10 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
     {
         // note: ie<=7 doesn't support jsupload nor plupload
         case 'js':
-            $response->addJavascript('/static/js/image_upload.js', 'last');
             $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' . url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .
                   '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';
             break;
         case 'plupload':
-            $response->addJavascript('/static/js/plupload.c2c.js', 'last');
-            $response->addJavascript('/static/js/plupload.wrapper.js', 'last');
             $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' .
                   url_for("@image_jsupload?mod=$module_name&document_id=$document_id").'?plupload=true' .
                   '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';

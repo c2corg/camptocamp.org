@@ -4,8 +4,8 @@
 
     /**
      * TODO / notes:
-     * - html5 runtime is currently only available for firefox 3.5+ and chrome 9+, since other browser don't support multipart and image resizing
-     * - silverlight runtime finally removed, because it doesn't support exif yet, and html5 || flash probably covers more than 99% of users
+     * - html5 runtime is currently only available for recent browsers, since other browser don't support multipart and image resizing
+     * - silverlight runtime reoved, since it doesn't support exif yet, and html5+flash probably covers more than 99% of users
      * - add some server side work to enhance image quality?
      * - better behaviour for SVGs (eg enable chunking for file >2mB)
      * - use static url for swf file (but we then need crossdomain.xml file)
@@ -66,10 +66,15 @@
           // no available runtime with all desired features,
           // load needed js and redirect to backup upload system
           case plupload.INIT_ERROR:
-            var script = document.createElement('script');
-            script.src = this.backup_js;
-            document.getElementsByTagName('head')[0].appendChild(script);
-            $.modalbox.show({remote: this.backup_url});
+            $.ajax({
+              url: this.backup_js,
+              dataType: 'script',
+              cache: true
+            }).done(function() {
+              $.modalbox.show({
+                remote: this.backup_url
+              });
+            });
             return;
 
           // file is with wrong extension, or too big (svg and gif files cannot be resized)
