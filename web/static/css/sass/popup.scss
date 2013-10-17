@@ -143,6 +143,13 @@ $img_dim: 80px;
     height: $img_dim;
     line-height: $img_dim;
     text-align: center;
+
+    // transition effect
+    @include transition(opacity 1s linear);
+    @include opacity(0);
+    &.popup-img-active {
+      @include opacity(1);
+    }
   
     img {
       margin: 0;

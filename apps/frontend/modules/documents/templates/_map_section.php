@@ -1,4 +1,7 @@
 <?php
+
+use_helper('JavascriptQueue');
+
 if (!isset($has_geom))
 {
     $has_geom = (boolean)($document->get('geom_wkt'));
@@ -86,14 +89,22 @@ c.style.display="none",c.title=a
 var s=t.getElementById(e+"_toggle")
 s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,t.getElementById("tip_"+e).innerHTML="["+a+"]"}}})(window.C2C=window.C2C||{},document)
 </script>
-<?php
-    $cookie_position = array_search('map_container', sfConfig::get('app_personalization_cookie_fold_positions'));
-?>
-<script>
-C2C.setSectionStatus('map_container', <?php echo $cookie_position ?>, true);
-if (!C2C.shouldHide(<?php echo $cookie_position ?>, true)) {
-  document.observe('dom:loaded', (typeof map_load_async !== 'undefined') ? map_load_async : map_init);
-}
-</script>
-<?php
+    <?php
+        $cookie_position = array_search('map_container', sfConfig::get('app_personalization_cookie_fold_positions'));
+    ?>
+    <script>
+    C2C.setSectionStatus('map_container', <?php echo $cookie_position ?>, true);
+    </script>
+    <?php
+    $async_map = sfConfig::get('app_async_map', false) && !sfContext::getInstance()->getRequest()->getParameter('debug', false);
+
+    if (!$async_map)
+    {
+        echo javascript_queue("if (!C2C.shouldHide($cookie_position, true)) {  $(window).load(C2C.map_init); }");
+    }
+    else
+    {
+        echo javascript_queue("if (!C2C.shouldHide($cookie_position, true)) { C2C.async_map_init(); }");
+    }
+
 }

@@ -3595,6 +3595,21 @@ msgstr "<h3>Runout Grade</h3>\n"
 "<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
 "<br />"
 
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+# [WARNING] needs_update
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Zailtasun librea</h3>\n"
+"Harkaitz eskalada libreko zailtasunen akotazioa.<br />\n"
+"Zailtasun libreak harkaitz eskalada libreko zailtasun maximoa adierazten du.<br />\n"
+"<br />\n"
+"<h3>Nahitaezko zailtasuna librean</h3>\n"
+"Arkaitz eskalada librean nahitaezko zailtasunen akotazioa.<br />\n"
+"Nahitaezko zailtasunak, librean baino beste inongo aukerarik ez dagoenenan aurkituko dugun zailtasuna adierazten du. Hau da, nahitaez librean eskalatu beharreko zailtasuna \"iruzur\" mota guztiak erabili ostean.<br />\n"
+"<br />\n"
+"Frantziako eskala tradizionala erabiltzen da, 2-tik 9b-ra doana."
+
 # [WARNING] needs_update
 msgid "_rock_free_rating_info"
 msgstr "<h3>Zailtasun librea</h3>Harkaitz eskalada libreko zailtasunen akotazioa.<br />Zailtasun libreak harkaitz eskalada libreko zailtasun maximoa adierazten du.<br />Frantziako eskala tradizionala erabiltzen da, 2-tik 9b-ra doana."
@@ -6878,6 +6893,9 @@ msgstr "Grado en libre y grado obligatorio:"
 msgid "rock_free_rating"
 msgstr "Librean zailtasuna:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 # [WARNING] needs_review
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Librean zailtasuna > nahitaezko:"

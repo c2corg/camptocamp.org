@@ -1,13 +1,13 @@
-(function() {
+(function($) {
 
   var i18n = window.c2cprofile.i18n;
-  var mobile = $$('html')[0].hasClassName('mobile');
+  var mobile = $('html').hasClass('mobile');
 
   // we don't use #elevation_profile_container_section_container
-  var width = $('elevation_profile_container_tbg').getWidth();
+  var width = $('#elevation_profile_container_tbg').width();
   if (!mobile || window.innerWidth > 1000) {
     width -= 250;
-    $$('.elevation_profile_controls')[0].addClassName('left');
+    $('.elevation_profile_controls').addClass('left');
   }
 
   var size = { width: width, height: 300 };
@@ -34,8 +34,8 @@
       var d;
 
       // hide loading div, displat regular ones
-      $$('.elevation_profile_controls')[0].show();
-      $$('.elevation_profile_loading')[0].hide();
+      $('.elevation_profile_controls').show();
+      $('.elevation_profile_loading').hide();
 
       var parser = new DOMParser();
       var points = parser.parseFromString(request.responseText, 'text/xml')
@@ -73,7 +73,7 @@
         }
 
         if (!time_available) {
-          $$('.xaxis-dimension')[0].hide();
+          $('.xaxis-dimension').hide();
         }
       } catch(err) {
         alert('Sorry, but something went wrong! Please contact us - ' + err);
@@ -284,4 +284,4 @@
       }
     });
 
-})();
+})(jQuery);

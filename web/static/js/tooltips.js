@@ -1,31 +1,29 @@
-(function(C2C) {
+(function(C2C, $) {
 
-"use strict";
+  var indicator = $('#indicator');
+  var tooltip = $('<div/>', {
+    id: 'fields_tooltip',
+    'class': 'ajax_feedback',
+    style: 'display: none'
+  }).click(function() {
+    $(this).hide();
+  });
 
-C2C.add_tooltips = function(css_class_to_observe)
-{
-    document.observe('dom:loaded', function(){
-        $$(css_class_to_observe).each(function(obj){
-            obj.observe('click', function(e){
-            new Ajax.Updater('fields_tooltip',
-                                    '/common/getinfo', 
-                                    { asynchronous:true, 
-                                      postBody: 'elt=' + obj.id,
-                                      evalScripts:false, 
-                                      method:'post', 
-                                      onSuccess:function(request, json){
-                                                        Element.hide('indicator');Element.show('fields_tooltip');
-                                                        },
-                                      onFailure:function(request, json){
-                                                        Element.hide('indicator');
-                                                        },
-                                      onLoading:function(request, json){
-                                                        Element.hide('fields_tooltip');Element.show('indicator');}
-                                    }
-                        );  
-            });
-        });
+  $('body').append(tooltip);
+
+  $('[data-tooltip]').click(function() {
+    tooltip.hide();
+    indicator.show();
+
+    $.post('/common/getinfo', {
+      elt: this.id
+    }).done(function(data) {
+      indicator.hide();
+      tooltip.html(data);
+      tooltip.show();
+    }).fail(function() {
+      indicator.hide();
     });
-};
+  });
 
-})(window.C2C = window.C2C || {});
+})(window.C2C = window.C2C || {}, jQuery);

@@ -8,31 +8,29 @@
 if (isset($sf_user))
 {
     // we are in a template 
-    use_helper('Javascript','Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'General');
+    use_helper('JavascriptQueue','Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'General', 'MyMinify');
 }
 else
 {
     // we are in an action
-    sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'Javascript', 'General'));
+    sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'JavascriptQueue', 'General', 'MyMinify'));
 }
 
 function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $size = '45')
 {
-    if ($module == 'users')
-    {
-        $placeholder = __('ID or name/nickname');
-    }
-    else
-    {
-        $placeholder = __('Keyword or ID');
-    }
-    return input_auto_complete_tag($module . '_name', 
-                            $display, // default value in text field 
-                            "$module/autocomplete", 
-                            array('size' => $size, 'id' => $field_prefix.'_'.$module.'_name', 'placeholder' => $placeholder), 
-                            array('after_update_element' => "function (inputField, selectedItem) {\$('$update_hidden').value = selectedItem.id;}",
-                                  'min_chars' => sfConfig::get('app_autocomplete_min_chars'), // min chars to type
-                                  'indicator' => 'indicator'));
+    $id = $field_prefix.'_'.$module.'_name';
+    $tag = input_tag($module . '_name', $display, array('size' => $size,
+               'id' => $id,
+               'placeholder' => ($module == 'users') ? __('ID or name/nickname') :  __('Keyword or ID')));
+    $js = javascript_queue("$('#$id').c2cAutocomplete({
+      url: '" . url_for("$module/autocomplete") . "',
+      minChars: " . sfConfig::get('app_autocomplete_min_chars') . ",
+      onSelect: function() {
+        $('#$update_hidden').val(this.id);
+      }
+    });");
+
+    return $tag . $js;
 }
 
 function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $display_button = true)
@@ -44,7 +42,7 @@ function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display
     $out = c2c_input_auto_complete($module, $update_hidden, $field_prefix, $display);
     $out .= ($display_button) ? c2c_submit_tag(__('Link'), array(
                                     'class' => 'samesize',
-                                    'onclick' => "$('$field').value = '';",
+                                    'onclick' => "$('#$field').val('');",
                                     'picto' =>  'action_create')) : '';
     return $out;
 }
@@ -55,13 +53,6 @@ function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display
 function geocode_auto_complete($name, $service)
 {
     $mobile_version = c2cTools::mobileVersion();
-    $context = sfContext::getInstance();
-
-    $response = $context->getResponse();
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir').'/js/effects');
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir').'/js/controls');
-    // following script will automatically intanciate Geocode.Autocompleter
-    $response->addJavascript('/static/js/geocode_autocompleter');
 
     $service_class = ($service === 'nominatim') ? ' nominatim' : ' geonames';
 
@@ -73,37 +64,50 @@ function geocode_auto_complete($name, $service)
         $out .= content_tag('span', '<br />'.__('autocomplete_help'), array('class' => 'mobile_auto_complete_background'));
         $out .= content_tag('span', 'X', array('class' => 'mobile_auto_complete_escape'));
     }
-    $out .= content_tag('span', '' , array('id' => $name.'_auto_complete', 'class' => 'auto_complete'));
-    
+
+    // following script will automatically intanciate geocode autocompleter
+    $out .= javascript_queue('$.ajax({
+      url: "' . minify_get_combined_files_url('/static/js/geocode_autocompleter.js') . '",
+      dataType: "script",
+      cache: true});');
     return $out;
 }
 
-function c2c_form_remote_add_element($url, $updated_success, $updated_failure = null, $indicator = 'indicator', $removed_id = null)
+function c2c_form_remote_add_element($url, $updated_success, $indicator = 'indicator', $removed_id = null)
 {
-    $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
-    return form_remote_tag(array('update' => array('success' => $updated_success, 'failure' => $updated_failure),
-                                 'position' => 'bottom',
-                                 'url' => $url,
-                                 'method' => 'post',
-                                 'loading' => "Element.show('$indicator')",
-                                 'complete' => "Element.hide('$indicator');",
-                                 'success'  => "Element.hide('$updated_failure');if($('{$updated_success}_rsummits_name')){".
-                                               "$('{$updated_success}_rsummits_name').value='';$('{$updated_success}_associated_routes').hide();}".
-                                               ($removed_id == null ? '' : "$('$removed_id').hide();"),
-                                 'failure'  => "Element.show('$updated_failure');setTimeout('C2C.emptyFeedback(" .'"'. $updated_failure .'"'. ")', 4000);"));
+    $url = url_for($url);
+
+    $js = "$('#indicator').show();
+$.post('$url', $(this).serialize())
+  .always(function() { $('#indicator').hide(); })
+  .fail(function(data) { C2C.showFailure(data.responseText); })
+  .success(function(data) {
+    $('#$updated_success').append(data);
+    if ($('#${updated_success}_rsummits_name').hide().length) {
+      $('#${updated_success}_associated_routes". ($removed_id ? ", #$removed_id" : '') ."').hide();
+    }
+  });
+return false;";
+
+    $options['action'] = $url;
+    $options['method'] = isset($options['method']) ? $options['method'] : 'post';
+    $options['onsubmit'] = $js;
+
+    return tag('form', $options, true);
 }
 
 function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc = true,
                                     $strict = 1, $updated_failure = null, $indicator = 'indicator',
                                     $tips = null)
 {
+    $response = sfContext::getInstance()->getResponse()->addJavascript('/static/js/rem_link.js', 'last');
     // NB : $del_image_id is for internal use, but will be useful when we have several delete forms in same page
     $main_doc = ($main_doc) ? 'true' : 'false';
-    $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
     $tips = ($tips == null) ? 'Delete this association' : $tips;
     return link_to(picto_tag('action_del_light', __($tips)), '#',
                          array('onclick' => "C2C.remLink('$link_type', $main_id, $linked_id, $main_doc, $strict); return false;"));
 }
+
 
 /**
  * Create a form that allow to link the current document with several kinds of other docs
@@ -121,25 +125,27 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
 {
     $modules_list = array_intersect(sfConfig::get('app_modules_list'), $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
-    $select_js = 'var c=this.classNames().each(function(i){$(\'dropdown_modules\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
-    $select_modules = select_tag('dropdown_modules', options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
-                                 array('onchange' => $select_js, 'class' => 'picto picto_' . $default_selected));
+    $select_modules = select_tag('dropdown_modules',
+        options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
+        array('class' => 'picto picto_' . $default_selected));
     
     $picto_add = ($hide) ? '' : picto_tag('picto_add', (in_array('users', $modules_list) ? __('Link an existing user or document') : __('Link an existing document'))) . ' ';
     
     $out = $picto_add . $select_modules;
 
-    // update form when user changes the document type
-    $out .= observe_field('dropdown_modules',
-                          array('update' => $field_prefix . '_form',
-                                'url' => "/$module/getautocomplete",
-                                'with' => "'module_id=' + value + '&field_prefix=$field_prefix'",
-                                'script' => 'true',
-                                'loading' => "Element.show('indicator')",
-                                'complete' => "Element.hide('indicator')"));
+    $out .= javascript_queue("
+$('#dropdown_modules').change(function() {
+  var value = $(this).val(), indicator = $('#indicator').show();
+  $(this).attr('class', 'picto picto_' + value);
+  $.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix')
+    .always(function() {
+      indicator.hide();
+    })
+    .done(function(data) { $('#${field_prefix}_form').html(data); });
+});");
 
     // form start
-    $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix, null, $indicator, $removed_id);
+    $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix, $indicator, $removed_id);
 
     // default form content
     $out .= '<div id="' . $field_prefix . '_form' . '" class="ac_form">'

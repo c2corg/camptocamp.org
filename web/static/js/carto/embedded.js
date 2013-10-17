@@ -25,7 +25,7 @@ c2corg.Map = function (config) {
         }
     });
     mapConfig.id = config.id;
- 
+
     var tools = [{
         ptype: "c2corg_showfeatures",
         features: config.features
@@ -130,9 +130,3 @@ c2corg.Map = function (config) {
         });
     }, viewer, config);
 };
-
-// if map_load_async is defined, it means that carto js has been loaded asynchronously,
-// and we should now init the map
-if (typeof map_load_async !== "undefined") {
-    map_init();
-}

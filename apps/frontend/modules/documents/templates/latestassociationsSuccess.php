@@ -12,7 +12,7 @@ echo start_content_tag();
 
 ?>
 <p class="whatsnew_controls"><?php echo __('Recent associations list') . ' '; ?>
-[<?php echo link_to_function(__('toggle date info'), 'C2C.tog()') ?>]
+[<?php echo link_to_function(__('toggle date info'), 'C2C.toggle_time()') ?>]
 </p>
 
 <p class="whatsnew_controls">

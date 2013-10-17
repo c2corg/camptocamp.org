@@ -1,6 +1,9 @@
 // Ajax and flash feedback, tooltips fields
+
+$z: 100001; // should be the highest one on document, even higher than modalbox & co
+
 .error, .notice, .warning, .ajax_feedback {
-  z-index: 1000;
+  z-index: $z;
   border: 1px solid;
   @if $standard {
     margin: 5px 0;
@@ -38,13 +41,13 @@
 }
 
 .ajax_inline_feedback {
-  z-index: 1000;
+  z-index: 10001;
   padding: 5px;
   margin: 5px 0;
 }
 
 .feedback {
-  z-index: 1000;
+  z-index: $z;
   background-color: #f19914;
   color: #fff;
   text-align: center;
@@ -52,13 +55,15 @@
 
 #indicator, #indicator2 {
   position: fixed;
-  z-index: 1000;
+  z-index: $z;
   top: 5px;
   left: 5px;
   padding: 5px;
   background: #f00;
   color: #fff;
 }
+
+// fields tooltips to be moved in separate file
 
 #fields_tooltip {
   z-index: 999;

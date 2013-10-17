@@ -3613,6 +3613,25 @@ msgstr "<h3>Runout Grade</h3>\n"
 "<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
 "<br />"
 
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+# [WARNING] needs_review
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Bewertung Felsklettern</h3>\n"
+"Bewertung der Schwierigkeiten beim Felsklettern.<br />\n"
+"Die Bewertung bezieht sich auf die schwierigste Stelle, welche frei, d.h. ohne aktive Hilfspunkte, geklettert wird.<br />\n"
+"<br />\n"
+"<h3>Obligatorischer Schwierigkeitsgrad</h3>\n"
+"Bewertung der obligatorischen Schwierigkeiten einer Kletterei.<br />\n"
+"Dieser Grad gibt an, welche Schwierigkeiten eine Route noch hat, wenn\n"
+"sämtliche \"Moglereien\" durch das uneingeschränkte Verwenden von\n"
+"Hilfspunkten ausgeschöpft werden. Wenn ein Kletterer eine Route durchsteigen will muss er mindestens den obligatorischen Schwierigkeitsgrad zwingend beherrschen.<br />\n"
+"<br />\n"
+"Dazu wird die französische Skala verwendet, welche von 2 bis 9b reicht.<br />\n"
+"<br />\n"
+"Siehe auch in der Hilfe unter <a href=\"/articles/133323\">Bewertung Felsklettern</a>."
+
 msgid "_rock_free_rating_info"
 msgstr "<h3>Bewertung Felsklettern</h3>Bewertung der Schwierigkeiten beim Felsklettern.<br />Die Bewertung bezieht sich auf die schwierigste Stelle, welche frei, d.h. ohne aktive Hilfspunkte, geklettert wird.<br />Dazu wird die französische Skala verwendet, welche von 2 bis 9b reicht.<br /><br />Siehe auch in der Hilfe unter <a href=\"/articles/133323\">Bewertung Felsklettern</a>."
 
@@ -6753,6 +6772,9 @@ msgstr "Freier und obligatorischer Schwierigkeitsgrad:"
 msgid "rock_free_rating"
 msgstr "Schwierigkeitsgrad:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 # [WARNING] needs_review
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Schwierigkeitsgrad > Oblig.:"

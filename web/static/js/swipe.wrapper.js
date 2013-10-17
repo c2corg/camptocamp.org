@@ -2,10 +2,9 @@
 // built around swipe.js
 
 // TODO js async load?
-//      when too many images could crash - to be tested - best would be to only set bg property for next and prev 5, and to update after each change
 //      enable for documents embedded images?
 
-(function(C2C) {
+(function(C2C, $) {
 
   C2C.swipe = function() {
 
@@ -19,16 +18,15 @@
         return;
       }
 
-      // TODO use event delegation ?
-      images = $$('.image a[data-lightbox]');
+      images = $('.image a[data-lightbox]');
 
-      // don't use swipe gallery if more than 30 images (too laggy)
+      // gets too laggy when they are too many slides
       if (images.length > 30) return;
 
-      images.each(function(o, i) {
-        o.observe('click', function(e) {
-          e.stop();
-          start(i);
+      images.each(function(index) {
+        $(this).click(function(event) {
+          event.preventDefault();
+          start(index);
         });
       });
     }
@@ -48,52 +46,51 @@
                  ((document.viewport.getWidth() > 400) ? 'BI' : 'MI');
 
       // build DOM for displaying the images
-      var wrapper = Builder.node('div', { 'class': 'swipe-wrap' });
-      images.each(function(o) {
-        var img = o.down('img').src.replace('SI', img_type);
-        wrapper.appendChild(Builder.node('div',
-          Builder.node('div', { 'class': 'swipe-img', 'style': 'background-image: url(' + img + ')' })));
+      var wrapper = $('<div/>', { 'class': 'swipe-wrap' });
+
+      images.each(function() {
+        var img = $(this).find('img')[0].src.replace('SI', img_type);
+        wrapper.append($('<div><div class="swipe-img" style="background-image:url(' + img + ')"></div></div>'));
       });
 
       var links = [];
       if (img_type === 'MI') {
-        links.push(Builder.node('a'), ' - ');
+        links.push('<a/> - ');
       }
-      links.push(Builder.node('a'), ' - ',
-        Builder.node('a', swipe_i18n.Informations), '  ',
-        Builder.node('span', { 'class': 'swipe-quality-switch' }, img_type == 'MI' ? 'LQ' : 'HQ')
-          .observe('click', switchQuality));
+      links.push($('<a/> - <a>' + swipe_i18n.Informations + '</a>'),
+        $('<span/>', { 'class': 'swipe-quality-switch' })
+          .append(img_type == 'MI' ? 'LQ' : 'HQ')
+          .click(switchQuality));
 
-      meta = Builder.node('div', { 'class': 'swipe-meta' }, [
-        Builder.node('span', { 'class': 'swipe-title' }),
-        Builder.node('br'),
-        Builder.node('span', { 'class': 'swipe-links' }, links),
-        Builder.node('span', { 'class': 'swipe-index' })
-      ]);
 
-      overlay = Builder.node('div', { id: 'swipe', 'class': 'swipe-overlay' }, [
-        Builder.node('div', { 'class': 'swipe' }, wrapper),
+      meta = $('<div/>', { 'class': 'swipe-meta' }).append(
+        $('<span/>', { 'class': 'swipe-title' }),
+        $('<br>'),
+        $('<span/>', { 'class': 'swipe-links' }).append(links),
+        $('<span/>', { 'class': 'swipe-index' })
+      );
+
+      overlay = $('<div/>', { id: 'swipe', 'class': 'swipe-overlay' }).append(
+        $('<div/>', { 'class': 'swipe' }).append(wrapper),
         meta,
-        Builder.node('div', { 'class': 'swipe-close' })
-      ]);
+        $('<div/>', { 'class': 'swipe-close' })
+      );
 
-      background = Builder.node('div', { 'class': 'swipe-background' });
+      background = $('<div/>', { 'class': 'swipe-background' });
 
-      var body = $$('body')[0];
-      body.appendChild(background);
-      body.appendChild(overlay);
+      $('body').append(background, overlay);
 
       // position the overlay divs correctly on screen
-      background.style.height = $('holder').getHeight() + 'px';
-      overlay.style.top = document.viewport.getScrollOffsets()[1] + 'px';
+      background.height($('#holder').height());
+      overlay.css('top', $(document).scrollTop());
 
-      $$('.swipe-close')[0].observe('click', function() {
+      $('.swipe-close').click(function() {
         location.hash = '#_'; // use dummy hash since using '' or '#' would cause page scroll to top
         stop();
       });
 
       // launch Swipe
-      swipe = new Swipe($$('.swipe')[0], {
+      swipe = new Swipe($('.swipe')[0], {
         startSlide: startSlide,
         disableScroll: true,
         continuous: false,
@@ -105,13 +102,13 @@
       hideMeta();
 
       // register events
-      $$('.swipe-wrap')[0]
-        .observe('touchstart', showMeta)
-        .observe('touchend', hideMeta);
+      $('.swipe-wrap')
+        .on('touchstart', showMeta)
+        .on('touchend', hideMeta);
 
       // prevent page scroll when touching the information panel
       // this shouldn't prevent the click event
-      meta.observe('touchmove', function(event) {
+      meta.on('touchmove', function(event) {
         event.preventDefault();
       });
 
@@ -119,7 +116,7 @@
       // if user pushes back button
       // TODO use history api once better supported in the mobile world
       location.hash = '#swipe';
-      Event.observe(window, 'hashchange', function() {
+      $(window).on('hashchange', function() {
         if (location.hash !== '#swipe') {
           stop();
         }
@@ -129,37 +126,37 @@
     // this function gets executed after a new slide is displayed
     // and is used to update image information
     function onSlideChange(index, elt) {
-      $$('.swipe-index')[0].update((index + 1) + ' / ' + swipe.getNumSlides());
-      $$('.swipe-title')[0].update(images[index].title);
-      var links = $$('.swipe-links a');
-      var img = images[index].down('img');
+      $('.swipe-index').text((index + 1) + ' / ' + swipe.getNumSlides());
+      $('.swipe-title').text(images.get(index).title);
+      var links = $('.swipe-links a');
+      var img = images.eq(index).find('img').first();
 
-      if (img.hasAttribute('data-width')) {
-        var width = img.getAttribute('data-width');
-        var height = img.getAttribute('data-height');
+      if (img.data('width')) {
+        var width = img.data('width');
+        var height = img.data('height');
         if (img_type === 'MI') {
-          links[0].update(imagesize(800, width, height));
-          links[1].update(imagesize(20000, width, height));
+          links.eq(0).text(imagesize(800, width, height));
+          links.eq(1).text(imagesize(20000, width, height));
         } else {
-          links[0].update(imagesize(20000, width, height));
+          links.eq(0).text(imagesize(20000, width, height));
         }
       } else {
         if (img_type === 'MI') {
-          links[0].update(swipe_i18n['Big size']);
-          links[1].update(swipe_i18n['Original image']);
+          links.eq(0).text(swipe_i18n['Big size']);
+          links.eq(1).text(swipe_i18n['Original image']);
         } else {
-          links[0].update(swipe_i18n['Original image']);
+          links.eq(0).text(swipe_i18n['Original image']);
         }
       }
 
-      var src = images[index].down('img').src;
+      var src = images.eq(index).find('img')[0].src;
       if (img_type === 'MI') {
-        links[0].href = src.replace('SI', 'BI');
-        links[1].href = src.replace('SI', '');
+        links.eq(0).attr('href', src.replace('SI', 'BI'));
+        links.eq(1).attr('href', src.replace('SI', ''));
       } else {
-        links[0].href = src.replace('SI', '');
+        links.eq(0).attr('href',  src.replace('SI', ''));
       }
-      links.last().href = images[index].href;
+      links.last().attr('href', images.get(index).href);
     }
 
     // switch quality
@@ -182,7 +179,7 @@
     function hideMeta() {
       window.clearTimeout(timer);
       timer = (function() {
-        translateY(meta, meta.getHeight());
+        translateY(meta, meta.height());
       }).delay(4);
     }
 
@@ -200,7 +197,7 @@
 
     // adapted from swipe.js
     function translateY(elt, dist) {
-      var style = elt.style;
+      var style = elt.get(0).style;
       style.webkitTransform = 'translate(0,' + dist + 'px)' + 'translateZ(0)'; // enable GPU
       style.msTransform =
       style.MozTransform =
@@ -208,11 +205,11 @@
     }
 
     function disableZoom() {
-      $$('meta[name="viewport"]')[0].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no";
+      $('meta[name="viewport"]').attr('content', 'width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no');
     }
 
     function enableZoom() {
-      $$('meta[name="viewport"]')[0].content = "width=device-width";
+      $('meta[name="viewport"]').attr('content', 'width=device-width');
     }
 
     function imagesize(max, width, height) {
@@ -228,6 +225,6 @@
 
   };
 
-  Event.observe(window, 'dom:loaded', C2C.swipe);
+  $(C2C.swipe);
 
 })(window.C2C = window.C2C || {});

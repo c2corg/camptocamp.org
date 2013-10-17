@@ -32,27 +32,7 @@ $cda_config = sfConfig::get('app_portals_cda');
     $perso = c2cPersonalization::getInstance();
     if ($perso->areFiltersActive())
     {
-        $options_on = $options_off = array();
-        $options_on['id'] = 'filter_switch_on';
-        $options_off['id'] = 'filter_switch_off';
-        
-        if ($perso->isMainFilterSwitchOn())
-        {
-            $options_off['style'] = 'display: none;';
-        }
-        else
-        {
-            $options_on['style'] = 'display: none;';
-        }
-        
-        $html = picto_tag('action_on', __('some filters active'), $options_on);
-        $html .= picto_tag('action_off', __('some filters have been defined but are not activated'), $options_off);
-        
-        echo link_to_remote($html, 
-                      array('update' => '', 
-                            'url'    => "/common/switchallfilters", // FIXME: replace by a routing rule.
-                            'loading' => "Element.show('indicator')",
-                            'success' => "Element.toggle('filter_switch_on'); Element.toggle('filter_switch_off'); window.location.reload();"));
+        echo filters_switcher_link($perso->isMainFilterSwitchOn());
     }
     ?>
        | <?php echo select_interface_language() ?>

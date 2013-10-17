@@ -3503,6 +3503,23 @@ msgstr "<h3>Runout Grade</h3>\n"
 "<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
 "<br />"
 
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+# [WARNING] needs_review
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Free climb grade</h3>\n"
+"Rating of the free climb difficulties.<br />\n"
+"The rating represents the maximum rock free climb difficulty.<br />\n"
+"<br />\n"
+"<h3>Free climb grade required</h3>\n"
+"Rating of the required free climb difficulties.<br />\n"
+"The free climb grade required represents the maximum rock free climb difficulty. It corresponds to the rating of the difficulties that remain after all \"cheating\" possibilities using aid points are exhausted.<br />\n"
+"<br />\n"
+"It is given based on the french scale, wich goes from 2 to 9b.<br />\n"
+"<br />\n"
+"See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
+
 msgid "_rock_free_rating_info"
 msgstr "<h3>Free climb grade</h3>Rating of the free climb difficulties.<br />The rating represents the maximum rock free climb difficulty.<br />It is given based on the french scale, wich goes from 2 to 9b.<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
 
@@ -6583,6 +6600,9 @@ msgstr "Free and required grade:"
 msgid "rock_free_rating"
 msgstr "Free climb grade:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 # [WARNING] needs_review
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Free climb grade > required:"

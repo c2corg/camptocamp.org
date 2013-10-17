@@ -1,7 +1,6 @@
 <?php 
 use_helper('Form', 'MyForm', 'Javascript', 'Ajax', 'Viewer');
 $module = $sf_context->getModuleName();
-echo ajax_feedback(); 
 
 echo display_title(__('Merge'));
 ?>
@@ -16,21 +15,12 @@ echo input_hidden_tag('from_id', $sf_params->get('from_id'));
 <?php // this div will be updated after page loading, via ajax. ?>
 </div>
 
-<script type="text/javascript"> 
-//<![CDATA[
-function au()
-{
-    new Ajax.Updater('ac_form', '/<?php echo $module ?>/getautocomplete', {asynchronous:true, evalScripts:true, onComplete:function(request, json){Element.hide('indicator')}, onLoading:function(request, json){Element.show('indicator')}, parameters:'module_name=<?php echo $module ?>&button=0'})
-}
-
-if (window.addEventListener) { 
-    window.addEventListener('load', au(), false); 
-} else if (window.attachEvent) { 
-    window.attachEvent('onload', au()); 
-} 
-//]]>
+<script type="text/javascript">
+$('#indicator').show();
+$.ajax('<?php echo url_for("/$module/getautocomplete?module_name=$module&button=0")?>')
+  .always(function() { $('#indicator').hide(); })
+  .done(function(data) { $('#ac_form').html(data); });
 </script>
-
 <p><?php echo c2c_submit_tag(__('Merge')) ?></p>
 </form>
 

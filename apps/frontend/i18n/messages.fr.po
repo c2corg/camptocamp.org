@@ -3574,6 +3574,19 @@ msgstr "<h3>Exposition en rocher</h3>\n"
 "<br />\n"
 "Voir aussi l'aide sur la <a href=\"/articles/133323/fr#exposition\">cotation exposition en rocher</a>. "
 
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Cotations libre et libre obligatoire</h3>\n"
+"Cotations des difficultés d'escalade rocheuse en libre et en  libre obligatoire.<br />\n"
+"- La cotation libre évalue la difficulté maximale de l'escalade libre rocheuse.<br />\n"
+"- La cotation libre obligatoire évalue la difficulté maximale obligatoire de l'escalade libre rocheuse. Elle correspond à la cotation de la partie des difficultés qui reste une fois que l'on a épuisé toutes les possibilités de \"triche\" en utilisant un point d'aide.<br />\n"
+"<br />\n"
+"Elles se donnent sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
+
 msgid "_rock_free_rating_info"
 msgstr "<h3>Cotation libre</h3>\n"
 "Cotation des difficultés d'escalade rocheuse en libre.<br />\n"
@@ -6622,6 +6635,9 @@ msgstr "Cotation libre et obligatoire&nbsp;:"
 msgid "rock_free_rating"
 msgstr "Cotation libre&nbsp;:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Cotation libre > oblig.&nbsp;:"
 

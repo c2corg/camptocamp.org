@@ -11,7 +11,6 @@ if (!$mobile_version)
 {
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript('/static/js/tooltips.js', 'last');
-    $response->addJavascript('/static/js/tooltips_edit.js', 'last');
 }
 
 if ($linked_doc)
@@ -158,8 +157,5 @@ include_partial($template_root.'/license', array('license' => $license));
 
 <?php
 echo end_content_tag();
-
-// i18n for the script that periodically saves the form - temporarily disabled
-//echo javascript_tag('var i18n_loaddraftform = \'' . __('load draft?') . '\';');
 
 include_partial('common/content_bottom') ?>

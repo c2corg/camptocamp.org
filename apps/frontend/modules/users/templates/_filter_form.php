@@ -1,13 +1,6 @@
 <?php
 use_helper('FilterForm');
 
-if (!c2cTools::mobileVersion())
-{
-   // put focus on the name field on dom load
-   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
-   document.observe(\'dom:loaded\', function() { $(\'unam\').focus(); })};');
-}
-
 echo around_selector('uarnd');
 $ranges_raw = $sf_data->getRaw('ranges');
 $selected_areas_raw = $sf_data->getRaw('selected_areas');
@@ -15,7 +8,7 @@ include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected
 echo '<br /><br />' . __('User:') . ' ' . input_tag('unam', null, array('autofocus' => 'autofocus'));
 echo select_tag('nam_type',
                 options_for_select(array('unam'=>__('topoguide name only'), 'ufnam'=>__('forum name only'), 'utfnam'=>__('forum and topoguide names')), 'unam'),
-                array('onchange'=>'$(\'unam\').name = this.value'));
+                array('onchange'=>'$("#unam").attr("name", this.value)'));
 ?>
 <br />
 <?php

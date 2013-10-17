@@ -1,23 +1,15 @@
-(function(C2C) {
+(function(C2C, $) {
 
+  // hide some fields depending on selected public transportation or snow clearance value
   C2C.hide_parkings_unrelated_fields = function() {
-    var value = $('public_transportation_rating').options[$('public_transportation_rating').selectedIndex].value;
-    if(value != '3' && value != '0') {
-      $('tp_types').show();
-      $('tp_desc').show();
-    } else {
-      $('tp_types').hide();
-      $('tp_desc').hide();
-    }
-    
-    value = $('snow_clearance_rating').options[$('snow_clearance_rating').selectedIndex].value;
-    if(value != '4' && value != '0') {
-      $('snow_desc').show();
-    } else{
-      $('snow_desc').hide();
-    }
+
+    var value = $('#public_transportation_rating').val();
+    $('#tp_types, #tp_desc').toggle(value != '3' && value != '0');
+
+    value = $('#snow_clearance_rating').val();    
+    $('#snow_desc').toggle(value != '4' && value != '0');
   }
 
-  document.observe('dom:loaded', C2C.hide_parkings_unrelated_fields);
+  $(C2C.hide_parkings_unrelated_fields);
 
-})(window.C2C = window.C2C || {});
+})(window.C2C = window.C2C || {}, jQuery);
