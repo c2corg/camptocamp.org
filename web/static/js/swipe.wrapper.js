@@ -4,11 +4,11 @@
 // TODO js async load?
 //      enable for documents embedded images?
 
-(function(C2C, $) {
+(function(C2C, $, window, document) {
 
   C2C.swipe = function() {
 
-    var images, swipe, overlay, background, meta, timer, img_type;
+    var images, swipe, overlay, background, meta, timer, img_type, i18n;
 
     // regsiter events for starting the swipejs based gallery
     function init() {
@@ -22,6 +22,8 @@
 
       // gets too laggy when they are too many slides
       if (images.length > 30) return;
+
+      i18n = C2C.swipe_i18n;
 
       images.each(function(index) {
         $(this).click(function(event) {
@@ -43,7 +45,7 @@
       // MI are ~10-15ko, BI are ~100ko
       // TODO might need tweaking and maybe we should take pixelratio into account too
       img_type = (window.localStorage && localStorage.getItem('swipe-quality')) ||
-                 ((document.viewport.getWidth() > 400) ? 'BI' : 'MI');
+                 ($(document).width() > 400 ? 'BI' : 'MI');
 
       // build DOM for displaying the images
       var wrapper = $('<div/>', { 'class': 'swipe-wrap' });
@@ -57,7 +59,7 @@
       if (img_type === 'MI') {
         links.push('<a/> - ');
       }
-      links.push($('<a/> - <a>' + swipe_i18n.Informations + '</a>'),
+      links.push($('<a/> - <a>' + i18n.Informations + '</a>'),
         $('<span/>', { 'class': 'swipe-quality-switch' })
           .append(img_type == 'MI' ? 'LQ' : 'HQ')
           .click(switchQuality));
@@ -142,10 +144,10 @@
         }
       } else {
         if (img_type === 'MI') {
-          links.eq(0).text(swipe_i18n['Big size']);
-          links.eq(1).text(swipe_i18n['Original image']);
+          links.eq(0).text(i18n['Big size']);
+          links.eq(1).text(i18n['Original image']);
         } else {
-          links.eq(0).text(swipe_i18n['Original image']);
+          links.eq(0).text(i18n['Original image']);
         }
       }
 
@@ -165,7 +167,7 @@
       if (window.localStorage) {
         localStorage.setItem('swipe-quality', img_type == 'MI' ? 'BI' : 'MI');
       }
-      $$('.swipe-background, .swipe-overlay').invoke('remove');
+      $('.swipe-background, .swipe-overlay').remove();
       start(swipe.getPos());
     }
 
@@ -178,9 +180,9 @@
     // hide image information panel
     function hideMeta() {
       window.clearTimeout(timer);
-      timer = (function() {
-        translateY(meta, meta.height());
-      }).delay(4);
+      timer = window.setTimeout(function() {
+        translateY(meta, meta.outerHeight());
+      }, 4000);
     }
 
     // stop the gallery and clean the dom
@@ -225,6 +227,6 @@
 
   };
 
-  $(C2C.swipe);
+  C2C.swipe();
 
-})(window.C2C = window.C2C || {});
+})(window.C2C = window.C2C || {}, jQuery, window, document);
