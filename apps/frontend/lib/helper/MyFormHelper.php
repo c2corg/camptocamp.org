@@ -556,9 +556,8 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
         $html .= javascript_queue("$('#q').c2cAutocomplete({
           url: '" . url_for('@quicksearch') . "',
           minChars: " .  sfConfig::get('app_autocomplete_min_chars') . ",
-          params: 'q=' + $('#${id_prefix}q').val() + '&type=' + $('#${id_prefix}type').val(),
-          onSelect: function() {  window.location = '/documents/' + this.id; }
-        });");
+          params: 'q=' + $('#${id_prefix}q').val() + '&type=' + $('#${id_prefix}type').val()
+        }).on('itemselect', function(e, item) {  window.location = '/documents/' + item.id; });");
     }
     else
     {

@@ -15,7 +15,6 @@
         minChars: 3, // minimum number of characters that must be entered before an ajax request is made
         indicator: 'indicator', // html id of an element to display while the ajax request is in progress
         params: {}, // additional parameters; in format field=value&another=value or as an object
-        onSelect: null, // callback to be fired once an entry has been selected
         getService: null // you can specify your own way to retrieve suggestions (defaults to ajax request), using the promise interface
       },
       keys = {
@@ -304,7 +303,6 @@
 
     select: function(selected) {
       var that = this,
-          onSelectCallback = that.options.onSelect,
           text = selected.contents().filter(function() {
             return this.nodeType === 3 || !$(this).hasClass('informal');
           }).text();
@@ -314,10 +312,7 @@
 
       that.el.val(text);
 
-      // TODO rather use trigger?
-      if ($.isFunction(onSelectCallback)) {
-        onSelectCallback.call(selected.get(0));
-      }
+      that.el.trigger('itemselect', [ selected.get(0) ]);
     },
 
     hide: function() {
