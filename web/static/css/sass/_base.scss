@@ -2542,16 +2542,19 @@ ul.docs_changes li img
     margin: 0 0 0 160px;
 
     li {
-      margin: 0.3em 0;
-      border: 1px solid #000;
-      @include border-radius(4px);
-      padding: 0.2em 0.2em 0.2em 35px;
       list-style-type: none;
-      background: url(-c2c-datauri('/static/images/picto/drag.gif')) no-repeat 5px;
 
-      &:hover {
-        cursor: pointer;
-        background-color: #ccc;
+      &[id^=lang_] {
+        margin: 0.3em 0;
+        padding: 0.2em 0.2em 0.2em 35px;
+        border: 1px solid #000;
+        @include border-radius(4px);
+        background: url(-c2c-datauri('/static/images/picto/drag.gif')) no-repeat 5px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #ccc;
+        }
       }
     }
   }
