@@ -2556,6 +2556,14 @@ ul.docs_changes li img
           background-color: #ccc;
         }
       }
+
+      &:first-child.sortable-placeholder {
+        margin-top: 0.3em;
+      }
+
+      &:last-child.sortable-placeholder {
+        margin-bottom: 0.3em;
+      }
     }
   }
 }

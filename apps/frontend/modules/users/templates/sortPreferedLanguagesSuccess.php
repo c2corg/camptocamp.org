@@ -23,7 +23,7 @@ $.ajax({
   dataType: "script",
   cache: true })
 .done(function() {
-  $('#languages-order').sortable({forcePlaceholderSize: true}).bind('sortupdate', function() {
+  $('#languages-order').sortable({forcePlaceholderSize: true}).on('sortupdate', function() {
     $('#indicator').show();
     $.post('<?php echo url_for('users/sortPreferedLanguages') ?>',
                 $('#languages-order li').map(function() { return 'order[]=' + this.id.match(/^lang_(.*)$/)[1]; }).get().join('&'))
