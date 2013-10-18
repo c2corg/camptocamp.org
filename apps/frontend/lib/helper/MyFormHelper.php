@@ -273,7 +273,8 @@ function object_group_bbcode_tag($object, $fieldname, $field_title = null, $opti
             ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
             : start_group_tag();
     $out .= label_tag($fieldname, $field_title, $mandatory, 
-                      array('class' => sfConfig::get('app_form_label_class') . ' extraheight', 'id' => '_' . $label_id));
+                      array('class' => sfConfig::get('app_form_label_class') . ' extraheight',
+                            'id' => '_' . $label_id, 'data-tooltip' => ''));
     $out .= '<div>';
     $out .= bbcode_textarea_tag($object, $fieldname, $options);
     $out .= '</div>';
