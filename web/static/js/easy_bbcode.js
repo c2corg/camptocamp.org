@@ -96,7 +96,7 @@
         quote_text = correctLinks(text, html);
 
         // retrieve poster nickname and post id (different whether on post.php or viewtopic.php and invited user)
-        var nickname = blockpost.prevAll('.postleft:first strong:first').text();
+        var nickname = blockpost.prevAll('.postleft').last().find('strong').first().text();
         if (nickname.indexOf('[') != -1 || nickname.indexOf(']') != -1) {
           if (nickname.indexOf('"') == -1) {
             nickname = '"' + nickname + '"';
@@ -106,11 +106,9 @@
         } 
 
         // retrieve post id
-        var postid = parseInt(blockpost.parents('.inbox:first').attr('id').substring(1), 10);
-        if (isNaN(postid)) {
-          postid = blockpost.find('.blockpost:first').attr('id').substring(1);
-        }
-                        
+        var postid = parseInt((blockpost.closest('.inbox').attr('id') ||
+                               blockpost.closest('.blockpost').attr('id')).substring(1), 10);
+ 
         nickname_postid = nickname + '|' + postid;
       }
     }
