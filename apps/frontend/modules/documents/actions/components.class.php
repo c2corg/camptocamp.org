@@ -11,7 +11,7 @@ class documentsComponents extends sfComponents
         $timePunbbMsg = $user->getAttribute('TimePunbbMsg', 0);
         $request = $this->getRequest();
     
-        if ( (time() - $timePunbbMsg) > (60*10)
+        if ( (time() - $timePunbbMsg) > (60*5)
                 || $timePunbbMsg == 0 
                 || (strstr($request->getUri(), 'message_list.php') !== false 
                 && $request->hasParameter('id') === true) )

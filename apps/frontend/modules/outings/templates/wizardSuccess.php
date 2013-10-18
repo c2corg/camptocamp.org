@@ -16,25 +16,24 @@ echo __('Summit:') . input_tag('summits_name', '', array('size' => '35'));
 echo javascript_queue("var indicator = $('#indicator');
 $('#summits_name').c2cAutocomplete({
   url: '" . url_for('summits/autocomplete') . "',
-  minChars: " . sfConfig::get('app_autocomplete_min_chars') . ",
-  onSelect: function() {
-    $('#summit_id').val(this.id);
-    $('#wizard_no_route, #wizard_hints').hide();
-    $.get('" . url_for('summits/getroutes') . "',
-               'summit_id=' + $('#summit_id').val() + '&div_name=routes')
-      .always(function() { indicator.hide(); })
-      .done(function(data) {
-        $('#divRoutes').html(data);
-        $('#wizard_no_route').hide();
-        $('#summit_link, #wizard_route, #last_ok').show();
-        C2C.getWizardRouteRatings('routes');
-      })
-      .fail(function(data) {
-        $('#wizard_route, #wizard_hints, #wizard_route_descr').hide();
-        $('#summit_link, #wizard_no_route').show();
-        C2C.showFailure(data.responseText);
-      })
-  }
+  minChars: " . sfConfig::get('app_autocomplete_min_chars') . "
+}).on('itemselect', function(e, item) {
+  $('#summit_id').val(item.id);
+  $('#wizard_no_route, #wizard_hints').hide();
+  $.get('" . url_for('summits/getroutes') . "',
+             'summit_id=' + $('#summit_id').val() + '&div_name=routes')
+    .always(function() { indicator.hide(); })
+    .done(function(data) {
+      $('#divRoutes').html(data);
+      $('#wizard_no_route').hide();
+      $('#summit_link, #wizard_route, #last_ok').show();
+      C2C.getWizardRouteRatings('routes');
+    })
+    .fail(function(data) {
+      $('#wizard_route, #wizard_hints, #wizard_route_descr').hide();
+      $('#summit_link, #wizard_no_route').show();
+      C2C.showFailure(data.responseText);
+    })
 });");
 
 echo form_tag('outings/wizard');

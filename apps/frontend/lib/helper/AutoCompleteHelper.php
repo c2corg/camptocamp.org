@@ -24,10 +24,9 @@ function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $d
                'placeholder' => ($module == 'users') ? __('ID or name/nickname') :  __('Keyword or ID')));
     $js = javascript_queue("$('#$id').c2cAutocomplete({
       url: '" . url_for("$module/autocomplete") . "',
-      minChars: " . sfConfig::get('app_autocomplete_min_chars') . ",
-      onSelect: function() {
-        $('#$update_hidden').val(this.id);
-      }
+      minChars: " . sfConfig::get('app_autocomplete_min_chars') . "
+    }).on('itemselect', function(e, item) {
+      $('#$update_hidden').val(item.id);
     });");
 
     return $tag . $js;

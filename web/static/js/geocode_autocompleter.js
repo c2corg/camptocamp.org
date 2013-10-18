@@ -104,11 +104,10 @@
 
   var input = $('.geocode_auto_complete'), name = input[0].id;
   input.c2cAutocomplete({
-    getService: getSuggestions,
-    onSelect : function() {
-      $('#' + name + '_lat').val(this.getAttribute('data-lat'));
-      $('#' + name + '_lon').val(this.getAttribute('data-lon'));
-    }
+    getService: getSuggestions
+  }).on('itemselect', function(event, item) {
+    $('#' + name + '_lat').val(item.getAttribute('data-lat'));
+    $('#' + name + '_lon').val(item.getAttribute('data-lon'));
   });
 
   if ($('html').hasClass('mobile')) {

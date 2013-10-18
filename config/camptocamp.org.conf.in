@@ -122,6 +122,13 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|svg|svgz|ico|appcache|manifest|htc)$" >
       Header unset X-UA-Compatible
     </FilesMatch>
+
+    # we want to enable CORS for the favicon, so that we can use it in canvas
+    # this is used for modifying the site favicon with PM count
+    # see https://developer.mozilla.org/en-US/docs/HTML/CORS_Enabled_Image
+    <Files "favicon.ico">
+      Header set Access-Control-Allow-Origin "*"
+    </Files>
 </IfModule>
 
 # makes images, css and js expire one week later in client cache

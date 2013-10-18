@@ -4,7 +4,7 @@
 		
 		// Check for new messages
 		$result_messages = $db->query('SELECT COUNT(id) FROM '.$db->prefix.'messages WHERE showed=0 AND owner='.$pun_user['id']) or error('Unable to check for new messages', __FILE__, __LINE__, $db->error());
-		if ($db->result($result_messages, 0)){
+		if ($nb_new = $db->result($result_messages, 0)){
 			$tpl_temp .= "\n\t\t\t\t".'<li class="pmlink"><strong><a href="message_list.php">'.$lang_pms['New messages'].'</a></strong></li>';
 		}
 		// Check if the inbox is full
@@ -17,4 +17,7 @@
 				$tpl_temp .= "\n\t\t\t\t".'<li class="pmlink"><strong><a href="message_list.php">'.$lang_pms['Full inbox'].'</a></strong></li>';
 		}
 	}
-?>
+
+  // The _getMsg component of symfony is called on each page call. It only verifies new PMs every 10 minutes
+  // As every forum page does this check, we update vars accordingly
+  $sf_user->setAttribute('NbPunbbMsg', $nb_new);

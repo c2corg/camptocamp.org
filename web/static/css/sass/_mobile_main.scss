@@ -427,8 +427,11 @@ select.menu_select
   left: 0;
   top: 0;
   width: 100%;
+  padding: 0;
   padding-top: 5px;
   padding-bottom: 5px;
+  @include box-sizing(content-box);
+  border: none;
 }
 
 .menu_item
@@ -709,9 +712,11 @@ li.list_odd
   }
 }
 
-/* on mobile versio, text input fields should be have an at least 16px font to prevent autozoom */
+// on mobile versio, text input fields should be have an at least 16px font to prevent autozoom
 textarea, .pun textarea, input[type=text], input[type="password"], input[type="email"], input[type="number"],
-input[type="range"], input[type="date"], input[type="color"], input[type="search"]{
+input[type="range"], input[type="date"], input[type="color"], input[type="search"],
+// we also change some elements accordingly for visual consistency
+select, #google_search_submit {
   font-size: 16px;
 }
 

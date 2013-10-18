@@ -4055,8 +4055,7 @@ class documentsActions extends c2cActions
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
 
             $id = $field_prefix . '_rsummits_name';
-            $out = input_hidden_tag('summit_id', '0', array('id' => $summit_id))
-                 . input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
+            $out = input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
                  . __('Summit : ')
                  . input_tag('summits_name', '', array('size' => 45, 'id' => $id))
                  . '<div id="'.$field_prefix.'_associated_routes" name="associated_routes" style="display:none;">'
@@ -4064,20 +4063,19 @@ class documentsActions extends c2cActions
 
                  . javascript_queue("var indicator = $('#indicator');" .
                  "$('#$id').c2cAutocomplete({" .
-                     "url: '" . url_for("summits/autocomplete") . "'," .
-                     "minChars: " . sfConfig::get('app_autocomplete_min_chars') . "," .
-                     "onSelect: function() {" .
-                       "$('#$summit_id').val(this.id);" .
-                       "indicator.show();" .
-                       "$.get('" . url_for('summits/getroutes') . "'," .
-                         "'summit_id=' + $('#$summit_id').val() + '&div_prefix=${field_prefix}_&div_name=document_id')" .
-                         ".always(function() { indicator.hide(); })" .
-                         ".fail(function(data) { C2C.showFailure(data.responseText); })" .
-                         ".done(function(data) {" .
-                           "$('#$div_select').html(data).parent().show();" .
-                           "C2C.getWizardRouteRatings('${field_prefix}_document_id');" .
-                         "});" .
-                 "}});");
+                   "url: '" . url_for("summits/autocomplete") . "'," .
+                   "minChars: " . sfConfig::get('app_autocomplete_min_chars') .
+                 "}).on('itemselect', function(e, item) {" .
+                   "indicator.show();" .
+                   "$.get('" . url_for('summits/getroutes') . "'," .
+                     "'summit_id=' + item.id + '&div_prefix=${field_prefix}_&div_name=document_id')" .
+                     ".always(function() { indicator.hide(); })" .
+                     ".fail(function(data) { C2C.showFailure(data.responseText); })" .
+                     ".done(function(data) {" .
+                       "$('#$div_select').html(data).parent().show();" .
+                       "C2C.getWizardRouteRatings('${field_prefix}_document_id');" .
+                     "});" .
+                 "});");
 
             if ($this->getRequestParameter('button') != '0')
             {

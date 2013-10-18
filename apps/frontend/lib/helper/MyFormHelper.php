@@ -273,7 +273,8 @@ function object_group_bbcode_tag($object, $fieldname, $field_title = null, $opti
             ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
             : start_group_tag();
     $out .= label_tag($fieldname, $field_title, $mandatory, 
-                      array('class' => sfConfig::get('app_form_label_class') . ' extraheight', 'id' => '_' . $label_id));
+                      array('class' => sfConfig::get('app_form_label_class') . ' extraheight',
+                            'id' => '_' . $label_id, 'data-tooltip' => ''));
     $out .= '<div>';
     $out .= bbcode_textarea_tag($object, $fieldname, $options);
     $out .= '</div>';
@@ -556,9 +557,8 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
         $html .= javascript_queue("$('#q').c2cAutocomplete({
           url: '" . url_for('@quicksearch') . "',
           minChars: " .  sfConfig::get('app_autocomplete_min_chars') . ",
-          params: 'q=' + $('#${id_prefix}q').val() + '&type=' + $('#${id_prefix}type').val(),
-          onSelect: function() {  window.location = '/documents/' + this.id; }
-        });");
+          params: 'q=' + $('#${id_prefix}q').val() + '&type=' + $('#${id_prefix}type').val()
+        }).on('itemselect', function(e, item) {  window.location = '/documents/' + item.id; });");
     }
     else
     {

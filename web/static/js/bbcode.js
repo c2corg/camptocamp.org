@@ -162,14 +162,13 @@
     var bbcode_toolbars = $('.bbcodetoolcontainer');
     var textareas = bbcode_toolbars.next();
 
-    // hide all bbcode toolbars
+    // hide all bbcode toolbars on start
     bbcode_toolbars.css('visibility', 'hidden');
 
-    // hide / show toolbars on blur / focus
+    // hide all toolbars except the one related to the textarea on  focus
     bbcode_toolbars.next().focus(function() {
+      bbcode_toolbars.css('visibility', 'hidden');
       $(this).prev().css('visibility', 'visible');
-    }).blur(function() {
-      $(this).prev().css('visibility', 'hidden');
     });
   });
 
