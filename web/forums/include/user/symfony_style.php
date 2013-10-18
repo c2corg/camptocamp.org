@@ -12,7 +12,7 @@ else
     $sf_response->addStylesheet('/static/css/mobile.css', 'last');
 }
 
-if (sfContext::getInstance()->getUser()->getCulture() == 'en')
+if ($sf_user->getCulture() == 'en')
 {
     $sf_response->addStylesheet('/static/css/ac.css');
 }
