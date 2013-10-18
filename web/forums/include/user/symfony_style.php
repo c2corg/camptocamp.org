@@ -17,8 +17,6 @@ if (sfContext::getInstance()->getUser()->getCulture() == 'en')
     $sf_response->addStylesheet('/static/css/ac.css');
 }
 
-$sf_response->addJavascript('/static/js/jquery.min.js', 'first');
-
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
 $debug = defined('PUN_DEBUG');
 
@@ -32,8 +30,6 @@ if(r>1){l=l.replace(m,m+'@'+(r>=2?2:1.5)+'x');}document.write(l);})('mobile',win
 <?php else:
 minify_include_main_stylesheets(!$debug, $debug);
 endif;
-
-minify_include_head_javascripts(!$debug, $debug);
 
 if (!$mobile_version): ?>
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo  minify_get_combined_files_url('/static/css/ie7.css') ?>" /><![endif]-->

@@ -45,7 +45,6 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
     </script>
     <?php
         minify_include_custom_stylesheets($combine, $debug);
-        minify_include_head_javascripts($combine, $debug);
         echo include_meta_links();
     ?>
     <link rel="shortcut icon" href="<?php
