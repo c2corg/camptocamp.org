@@ -103,6 +103,7 @@ lightbox = new Lightbox options
       $lightbox = $('#lightbox');
       $lightbox.hide().on('click', function(e) {
         if ($(e.target).attr('id') === 'lightbox') _this.end();
+        if ($(e.target).is('a')) return true; // our custom links aren't clickable without
         return false;
       });
       $lightbox.find('.lb-outerContainer').on('click', function(e) {
