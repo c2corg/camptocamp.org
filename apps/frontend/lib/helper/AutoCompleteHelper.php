@@ -82,7 +82,7 @@ $.post('$url', $(this).serialize())
   .fail(function(data) { C2C.showFailure(data.responseText); })
   .success(function(data) {
     $('#$updated_success').append(data);
-    if ($('#${updated_success}_rsummits_name').hide().length) {
+    if ($('#${updated_success}_rsummits_name').val('').length) {
       $('#${updated_success}_associated_routes". ($removed_id ? ", #$removed_id" : '') ."').hide();
     }
   });
