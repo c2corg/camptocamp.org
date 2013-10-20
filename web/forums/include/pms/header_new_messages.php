@@ -20,4 +20,5 @@
 
   // The _getMsg component of symfony is called on each page call. It only verifies new PMs every 10 minutes
   // As every forum page does this check, we update vars accordingly
+  $sf_user = isset($sf_user) ? $sf_user :  sfContext::getInstance()->getUser();
   $sf_user->setAttribute('NbPunbbMsg', $nb_new);

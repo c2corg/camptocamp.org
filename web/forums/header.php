@@ -153,7 +153,7 @@ function process_form(the_form)
 
 if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
 {
-$sf_response->addJavascript('/static/js/dyncat.js');
+    $sf_response->addJavascript('/static/js/dyncat.js');
 }
 
 $tpl_temp = trim(ob_get_contents());
