@@ -821,7 +821,7 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
                      '</p><div style="text-align: justify;"><p>$1</p></div><p>',
                      'handle_email_tag(\'$1\')',
                      'handle_email_tag(\'$1\', \'$2\')',
-                     '</p><blockquote><div class="incqbox" onclick="C2C.toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><div style="visibility:hidden; display:none; height:0;"><p>$3</p></div></div></blockquote><p>',
+                     '</p><blockquote><div class="incqbox" onclick="C2C.toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><div style="display:none;"><p>$3</p></div></div></blockquote><p>',
                      '<acronym title="$1">$2</acronym>',
                      '</p><hr /><p>',
                      '<span class="picto $1"> </span>',
