@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ raid, rayonrando, camp_d, google, montania, bd_vector, changerdapproche, google, camp_d, boutique_c2c, raid, changerdapproche ]
+    values: [ raid, rayonrando, camp_i, google, montania, bd_vector, changerdapproche, google, camp_i, boutique_c2c, raid, changerdapproche ]
   banners:
     list:
       skalp:
@@ -212,7 +212,7 @@ all:
         alt: "Expé"
       montania:
         id: 60
-        image: montania_vac.gif
+        image: montania_ski.gif
         alt: "Montania Sport"
       ibex:
         id: 61
