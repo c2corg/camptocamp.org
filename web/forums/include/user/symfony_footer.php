@@ -39,14 +39,15 @@ $punbb_file = basename($_SERVER['PHP_SELF']);
 
 $sf_response->addJavascript('/static/js/jquery.min.js', 'first');
 $sf_response->addJavascript('/static/js/feedback.js');
+$sf_response->addJavascript('/static/js/queue.js');
 
 if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
 {
     $sf_response->addJavascript('/static/js/easy_bbcode.js');
 }
+
 if (!c2cTools::mobileVersion())
 {
-    $sf_response->addJavascript('/static/js/queue.js');
     $sf_response->addJavascript('/static/js/modal.js');
 }
 
