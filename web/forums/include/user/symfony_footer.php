@@ -41,10 +41,11 @@ $sf_response->addJavascript('/static/js/jquery.min.js', 'first');
 $sf_response->addJavascript('/static/js/feedback.js');
 $sf_response->addJavascript('/static/js/queue.js');
 
-if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
-{
+// in order to optimize cache, we always include the following js (about 2k once compressed...)
+//if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
+//{
     $sf_response->addJavascript('/static/js/easy_bbcode.js');
-}
+//}
 
 if (!c2cTools::mobileVersion())
 {

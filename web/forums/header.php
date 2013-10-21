@@ -151,10 +151,13 @@ function process_form(the_form)
 
 }
 
-if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
-{
+// in orde rto optimize cache for forums js, we always include following js
+// so that every forum page has the same js file
+// moreover the file is rather small (<1k once compressed)
+//if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
+//{
     $sf_response->addJavascript('/static/js/dyncat.js');
-}
+//}
 
 $tpl_temp = trim(ob_get_contents());
 $tpl_main = str_replace('<pun_head>', $tpl_temp, $tpl_main);
