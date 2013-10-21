@@ -16,7 +16,12 @@
   z-index: 9999;
   background-color: black;
   @include opacity(0);
-  @include transition(all 0.5s);
+  // old safari doesn't proceed transition of visibility, so we have to specify exact parameter and not all
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+
   visibility: hidden;
 }
 
@@ -56,7 +61,12 @@ $default-width: 500px;
   // 3d transition effect
   @include experimental(transform, rotateX(-60deg));
   @include experimental(transform-origin, 50% 0);
-  @include transition(all 0.5s);
+  // easiest would be to use @include transition(all 0.5s), but as before, old safari bugs because of visibility
+  // and our compass transition mixin is not yet powerfull enough for mixin vendor prefixes for css property and css value, so...
+  -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 // once modalbox is active

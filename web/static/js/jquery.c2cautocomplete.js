@@ -110,7 +110,7 @@
       offset = that.el.offset();
       that.suggestionsContainer.css({
         top: (offset.top + that.el.outerHeight()),
-        left: offset.left,
+        left: offset.left
       });
     },
 
