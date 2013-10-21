@@ -33,7 +33,7 @@
       var alt_down = open_close[0];
       document.getElementById(container + '_section_container').style.display = 'none';
       document.getElementById(container + '_toggle').title = alt_down;
-      var top_box = document.getElementById(container).getElementsByClassName('nav_box_top');
+      var top_box = document.querySelectorAll('#' + container + ' .nav_box_top');
       for (var i = 0; i < top_box.length; i++) {
         top_box[i].className += ' small';
       }
