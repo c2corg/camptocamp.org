@@ -11,7 +11,7 @@
   font-size: 1.1em;
 }
 
-#wizard_hints h4
+.wizard_hints h4
 {
   font-style: italic;
   color: #aaa;
@@ -23,7 +23,7 @@
   margin-bottom: 10px;
 }
 
-#outing_wizard input, #outing_wizard select
+#outing_wizard input, #outing_wizard select[name=routes]
 {
   margin-left: 3px;
   width: 450px;
