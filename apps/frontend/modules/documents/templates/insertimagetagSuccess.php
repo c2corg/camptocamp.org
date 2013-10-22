@@ -23,25 +23,25 @@ if (count($associated_images) == 0): ?>
     <fieldset class="separator">
         <legend><?php echo __('options') ?></legend>
         <p>
-<?php echo checkbox_tag('customlegend', 'customlegend', false, array('onclick' => 'C2C.doUpdateImageLegend();'))
+<?php echo checkbox_tag('customlegend', 'customlegend', false, array('id' => 'inserted_image_customlegend', 'onclick' => 'C2C.doUpdateImageLegend();'))
          . ' ' . label_for('customlegend', __('Custom legend')) . ' '
-         . input_tag('legend', $associated_images[0]['name'], array('class' => 'medium_input', 'disabled' => 'disabled')); ?>
+         . input_tag('legend', $associated_images[0]['name'], array('id' => 'inserted_image_legend', 'class' => 'medium_input', 'disabled' => 'disabled')); ?>
         </p>
         <p>
 <?php
     echo __('Alignment') . ' '
-       . radiobutton_tag('alignment', 'right',  1, array('id' => 'alignment1')) . ' ' . label_for('alignment1', __('right')) . ' '
-       . radiobutton_tag('alignment', 'left',   0, array('id' => 'alignment2')) . ' ' . label_for('alignment2', __('left')) . ' '
-       . radiobutton_tag('alignment', 'center', 0, array('id' => 'alignment3')) . ' ' . label_for('alignment3', __('center')) . ' '
-       . radiobutton_tag('alignment', 'inline', 0, array('id' => 'alignment4')) . ' ' . label_for('alignment4', __('inline'));
+       . radiobutton_tag('inserted_image_alignment', 'right',  1, array('id' => 'alignment1')) . ' ' . label_for('alignment1', __('right')) . ' '
+       . radiobutton_tag('inserted_image_alignment', 'left',   0, array('id' => 'alignment2')) . ' ' . label_for('alignment2', __('left')) . ' '
+       . radiobutton_tag('inserted_image_alignment', 'center', 0, array('id' => 'alignment3')) . ' ' . label_for('alignment3', __('center')) . ' '
+       . radiobutton_tag('inserted_image_alignment', 'inline', 0, array('id' => 'alignment4')) . ' ' . label_for('alignment4', __('inline'));
     echo '</p><p>';
     echo label_for('hideborderlegend', __('hideborderlegend')) . ' '
-       . checkbox_tag('hideborderlegend', 'hideborderlegend', false);
+       . checkbox_tag('hideborderlegend', 'hideborderlegend', false, array('id' => 'inserted_image_hideborderlegend'));
 ?>
         </p>
     </fieldset>
 </div>
-<?php echo input_hidden_tag('id', $associated_images[0]['id']). input_hidden_tag('div', $div); ?>
+<?php echo input_hidden_tag('inserted_image_id', $associated_images[0]['id']). input_hidden_tag('inserted_image_div', $div); ?>
 </form>
 <ul class="action_buttons">
   <li><?php echo button_tag(__('Insert'), array('onclick' => 'C2C.doInsertImgTag()',
