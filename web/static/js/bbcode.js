@@ -116,12 +116,13 @@
   // if custom legend option is unchecked, be sure to
   // update corresponding field value with original legend
   C2C.doUpdateImageLegend = function() {
-    var custom = $('#customlegend').is(':checked');
+    var custom = $('#inserted_image_customlegend').is(':checked');
     if (custom) {
-      $('#legend').removeAttr('disabled');
+      $('#inserted_image_legend').removeAttr('disabled');
     } else {
-      $('#legend').attr('disabled', 'disabled')
-                  .val($('.selected_image img').first().attr('alt'));
+      $('#inserted_image_legend')
+        .attr('disabled', 'disabled')
+        .val($('.selected_image img').first().attr('alt'));
     }
   };
 
@@ -136,24 +137,24 @@
     C2C.doUpdateImageLegend();
 
     // update for id
-    $('#id').value = selected.attr('id').substring(17);
+    $('#inserted_image_id').val(selected.attr('id').substring(17));
   };
 
   // finally insert tag in textarea
   C2C.doInsertImgTag = function() {
-    var align = $('input[name=alignment]:checked').last().val() || '';
-    var borderlegend = $('#hideborderlegend').is(':checked') ? ' no_border no_legend' : '';
+    var align = $('input[name=inserted_image_alignment]:checked').last().val() || '';
+    var borderlegend = $('#inserted_image_hideborderlegend').is(':checked') ? ' no_border no_legend' : '';
 
     // build tag
-    img_tag = '[img=' + $('#id').val() + ' ' + align + borderlegend;
-    if ($('#customlegend').is(':checked')) {
-      img_tag += ']' + $('#legend').val() + '[/img]';
+    img_tag = '[img=' + $('#inserted_image_id').val() + ' ' + align + borderlegend;
+    if ($('#inserted_image_customlegend').is(':checked')) {
+      img_tag += ']' + $('#inserted_image_legend').val() + '[/img]';
     } else {
       img_tag += '/]';
     }
     img_tag += "\n";
 
-    C2C.insertBbcode('img', $('#div').val());
+    C2C.insertBbcode('img', $('#inserted_image_div').val());
     $.modalbox.hide();
   };
 
