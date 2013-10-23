@@ -2301,6 +2301,13 @@ msgstr "Schritt 2: Eine Route eintragen"
 msgid "Step 2: choose a route"
 msgstr "Schritt 2: Eine Route auswählen"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "Schritt 2: Das Erstellen des Toureneintrags bestätigen und diesen bearbeiten"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "Schritt 3: Das Erstellen des Toureneintrags bestätigen und diesen bearbeiten"
 

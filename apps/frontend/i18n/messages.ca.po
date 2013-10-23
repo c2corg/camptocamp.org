@@ -2271,6 +2271,13 @@ msgstr "Etapa 2: crea un itinerari."
 msgid "Step 2: choose a route"
 msgstr "Etapa 2: escolliu un itinerari"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "Etapa 2: Confirma per accedir a la pàgina d'edició de la teva sortida"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "Etapa 3: Confirma per accedir a la pàgina d'edició de la teva sortida"
 

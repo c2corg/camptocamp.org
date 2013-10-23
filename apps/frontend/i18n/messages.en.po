@@ -2296,6 +2296,13 @@ msgstr "Step 2: create a route"
 msgid "Step 2: choose a route"
 msgstr "Step 2: choose a route"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "Step 2: Confirm to create your outing and access its edit page"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "Step 3: Confirm to create your outing and access its edit page"
 

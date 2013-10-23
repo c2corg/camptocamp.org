@@ -2287,6 +2287,13 @@ msgstr "Passo 2&nbsp;: creare un itinerario"
 msgid "Step 2: choose a route"
 msgstr "Passo 2&nbsp;: scegliere un itinerario"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "Passo 2: confermare per accedere alla pagina di edizione della gita"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "Passo 3: confermare per accedere alla pagina di edizione della gita"
 
