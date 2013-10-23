@@ -4,7 +4,7 @@
  */
 
 /* common for topoguide specific buttons and forum */
-input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
+input[type=submit], input[type=reset], input[type=button], button, .c2cui_btn {
   margin: 0 0.5em 0 0;
   @include border-radius(4px);
   border: 1px solid #c0c0c0;
@@ -45,9 +45,9 @@ input[type=submit], input[type=reset], input[type=button], .c2cui_btn {
 
 }
 
-// "standalone" buttons, add some padding
-input[type=button] {
-  padding: 2px;
+// "standalone" buttons, add some padding. c2c buttons inputs have class .c2cui_btnr
+input[type=submit], input[type=reset], input[type=button], button {
+  padding: 4px;
 }
 
 .c2cui_btn {
