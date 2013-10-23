@@ -9,10 +9,10 @@
 
       // previous page
       if (response.queries.previousPage) {
-        pagesDiv.append('<a href="#" onclick="C2C.GoogleSearch.search()"><span class="picto action_first" title="' +
+        pagesDiv.append('<a href="#" onclick="C2C.GoogleSearch.search(); return false;"><span class="picto action_first" title="' +
                         C2C.GoogleSearch.i18n[0] + '"></span></a>\u00a0\u00a0' +
                         '<a href="#" onclick="C2C.GoogleSearch.search(\'&start=' + response.queries.previousPage[0].startIndex +
-                        '\')"><span class="picto action_back" title="' + C2C.GoogleSearch.i18n[1] + '"></span></a>');
+                        '\'); return false;"><span class="picto action_back" title="' + C2C.GoogleSearch.i18n[1] + '"></span></a>');
       }
 
       // current results
@@ -25,7 +25,7 @@
       // next page
       if (response.queries.nextPage) {
         pagesDiv.append('<a href="#" onclick="C2C.GoogleSearch.search(\'&start=' + response.queries.nextPage[0].startIndex +
-                        '\')"><span class="picto action_next" title="' + C2C.GoogleSearch.i18n[2] + '"></span></a>');
+                        '\'); return false;"><span class="picto action_next" title="' + C2C.GoogleSearch.i18n[2] + '"></span></a>');
       }
 
       $('#google_search_results').append(pagesDiv);

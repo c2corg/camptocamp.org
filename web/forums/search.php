@@ -1115,105 +1115,85 @@ if (isset($_GET['lang']))
 	<div class="box">
 <!-- embedded google search -->
 <script type="text/javascript">
-//<![CDATA[ 
-var GoogleSearch = {
+(function(C2C, _q) { _q.push(function() {
+  C2C.GoogleSearch = {
 
-  base_url: 'https://www.googleapis.com/customsearch/v1?key=AIzaSyDXFlFziDDG2ThH47z1V3-KmAS6_vA5GUg&cx=013271627684039046788:rqqb4ydcfim&callback=GoogleSearch.handleResponse',
-  alternate_url: 'http://www.google.com/cse?cx=013271627684039046788:rqqb4ydcfim',
+    base_url: 'https://www.googleapis.com/customsearch/v1?key=AIzaSyDXFlFziDDG2ThH47z1V3-KmAS6_vA5GUg&cx=013271627684039046788:rqqb4ydcfim&callback=C2C.GoogleSearch.handleResponse',
+    alternate_url: 'http://www.google.com/cse?cx=013271627684039046788:rqqb4ydcfim',
 
-  displayPager: function(response) {
-    var link, img, url_params;
+    displayPager: function(response) {
+      var pagesP = $('<p class="pagelink conl"/>');
 
-    var pagesP = new Element('p', { 'class': 'pagelink conl' });
-
-    // previous page
-    if (response.queries.previousPage) {
-      link = new Element('a', { href: 'javascript:GoogleSearch.search()' }).update('<<');
-      pagesP.appendChild(link);
-
-      pagesP.appendChild(document.createTextNode('\u00a0\u00a0'));
-
-      url_params = '&start=' + response.queries.previousPage[0].startIndex;
-      link = new Element('a', { href: 'javascript:GoogleSearch.search(\''+url_params+'\')' }).update('<');
-      pagesP.appendChild(link);
-    }
-
-    // current results
-    if (response.queries.previousPage || response.queries.nextPage) {
-      var start = response.queries.request[0].startIndex;
-      var end = start + response.queries.request[0].count;
-      pagesP.appendChild(document.createTextNode('\u00a0\u00a0' + start + '\u00a0-\u00a0' + end + '\u00a0\u00a0'));
-    }
-
-    // next page
-    if (response.queries.nextPage) {
-      url_params = '&start=' + response.queries.nextPage[0].startIndex;
-      link = new Element('a', { href: 'javascript:GoogleSearch.search(\''+url_params+'\')' }).update('>');
-      pagesP.appendChild(link);
-    }
-
-    var contentDiv = $('google_search_results');
-    contentDiv.appendChild(pagesP);
-  },
-
-  handleResponse: function(response) {
-
-    if (response.error) {
-      // redirect to the google cse page
-      var url = this.alternate_url + '&q=' + $F('google_search_input');
-      window.location = url;
-      return;
-    }
-
-    if (response.items && response.items.length > 0) {
-      var contentDiv = $('google_search_results');
-      $(contentDiv).update('');
-      var results = response.items;
-
-      var table = new Element('table', { style: 'border-style:solid; border-width:1px; border-color:#ff9933;' });
-
-      var tbody = new Element('tbody');
-
-      for (var i = 0; i < results.length; i++) {
-        var result = results[i];
-
-        var tr = new Element('tr');
-
-        var title = new Element('td', { style: 'background-color:#e2e2e2' });
-        title.innerHTML = '<a href="' + result.link + '">' + result.title + '</a>';
-
-        var content = new Element('td');
-        content.innerHTML = result.htmlSnippet;
-
-        tr.appendChild(title);
-        tr.appendChild(content);
-        tbody.appendChild(tr);
+      // previous page
+      if (response.queries.previousPage) {
+        pagesP.append('<a href="#" onclick="C2C.GoogleSearch.search(); return false;">&lt;&lt;</a>\u00a0\u00a0' +
+                      '<a href="#" onclick="C2C.GoogleSearch.search(\'&start='+response.queries.previousPage[0].startIndex+'\'); return false;">&lt</a>');
       }
-      table.appendChild(tbody);
-      contentDiv.appendChild(table);
 
-      this.displayPager(response);
-    } else {
-      $('google_search_results').update('<?php echo __('No result') ?>');
+      // current results
+      if (response.queries.previousPage || response.queries.nextPage) {
+        var start = response.queries.request[0].startIndex;
+        var end = start + response.queries.request[0].count;
+        pagesP.append('<span>\u00a0\u00a0' + start + '\u00a0-\u00a0' + end + '\u00a0\u00a0</span>');
+      }
+
+      // next page
+      if (response.queries.nextPage) {
+        pagesP.append('<a href="#" onclick="C2C.GoogleSearch.search(\'&start=' + response.queries.nextPage[0].startIndex +
+                      '\'); return false;">&gt;</a>');
+      }
+
+      $('#google_search_results').append(pagesP);
+    },
+
+    handleResponse: function(response) {
+      if (response.error) {
+        // redirect to the google cse page
+        var url = this.alternate_url + '&q=' + $('#google_search_input').val();
+        window.location = url;
+        return;
+      }
+
+      if (response.items && response.items.length > 0) {
+        var results = response.items;
+
+         var tbody = $('<tbody/>');
+         for (var i = 0, len = results.length; i < len; i++) {
+           var title_str = results[i].title.split(' ::')[0];
+           tbody
+             .append($('<tr/>')
+               .append('<td style="background-color:#e2e2e2"><a href="' + results[i].link + '">' + title_str + '</a></td>' +
+                       '<td>' + results[i].htmlSnippet + '</td>'));
+         }
+
+         $('#google_search_results')
+           .html($('<table style="border-style:solid; border-width:1px; border-color:#ff9933;"/>')
+             .append(tbody));
+
+         C2C.GoogleSearch.displayPager(response);
+      } else {
+        $('#google_search_results').text('<?php echo __('No result') ?>');
+      }
+    },
+
+    search: function(params) {
+      // load script asynchronously
+      // once loaded, it will call handleResponse()
+      var url = this.base_url + '&q=' + $('#google_search_input').val();
+      if (params) url += params;
+
+      // note: maybe use $.getJson
+      var a = document.createElement('script');
+      var h = document.getElementsByTagName('head')[0];
+      a.async = 1;
+      a.src = url;
+      h.appendChild(a);
     }
-  },
-
-  search: function(params) {
-    // load script asynchronously
-    // once loaded, it will call handleResponse()
-    var url = this.base_url + '&q=' + $F('google_search_input');
-    if (params) url += params;
-    var head = $$('head')[0];
-    var script = new Element('script', { type: 'text/javascript',
-                                         async: true,
-                                         src:   url });
-    head.appendChild(script);
-  }
-};
-//]]>
+  };
+}); })(window.C2C = window.C2C || {}, window.C2C._q = window.C2C._q || [])
 </script>
 <!-- end embedded google search script -->
-        <form id="gsearch" method="get" action="http://www.google.com/search" onsubmit="GoogleSearch.search(); return false;">
+        <form id="gsearch" method="get" action="http://www.google.com/search" onsubmit="C2C.GoogleSearch.search(); return false;">
 			<div class="inform">
                 <fieldset>
                     <legend><?php echo $lang_search['Google Search'] ?></legend>
