@@ -2266,7 +2266,7 @@ msgid "Statistics"
 msgstr "Statistiques"
 
 msgid "Step 1: choose a summit"
-msgstr "Étape 1&nbsp;: choisissez un sommet"
+msgstr "Étape 1&nbsp;: choisissez un sommet, col, lac, falaise, ou un site d'escalade"
 
 msgid "Step 2: Create a route"
 msgstr "Étape 2&nbsp;: créez un itinéraire"
@@ -4101,6 +4101,8 @@ msgstr "Le contenu du sac"
 # [general comment]
 # Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
 # C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
+# [comment]
+# Sélection erronée
 # [WARNING] needs_review
 msgid "bad choice error"
 msgstr "la sélection est incorrecte"
@@ -4400,16 +4402,45 @@ msgstr "Difficulté&nbsp;:"
 msgid "cda_elevation"
 msgstr "Dénivelé&nbsp;:"
 
-# [WARNING] needs_review
 msgid "cda_prepare_outing_box"
 msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
-"<ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espagne)</a></li></ul>\n"
+"<ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo France</a></li>\n"
+"<li><a href=\"http://www.meteosuisse.ch\">MétéoSuisse</a></li>\n"
+"<li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li>\n"
+"<li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espagne)</a></li></ul>\n"
+"\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#bera\">Avalanches</a></p>\n"
-"<ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a>&nbsp;: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/index_FR\">SLF (Suisse)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li><li><a href=\"/users/mailinglists\">Recevoir les bulletins par email</a></li></ul>\n"
+"<ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a> : \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li>\n"
+"<li><a href=\"http://www.slf.ch/index_FR\">SLF (Suisse)</a></li>\n"
+"<li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li>\n"
+"<li><a href=\"/users/mailinglists\">Recevoir les bulletins par email</a></li></ul>\n"
+"\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p>\n"
-"<ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (France)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoie)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Hautes-Alpes)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul>\n"
+"<ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li>\n"
+"<li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (France)</a></li>\n"
+"<li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li>\n"
+"<li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoie)</a></li>\n"
+"<li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont Blanc)</a></li>\n"
+"<li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Hautes-Alpes)</a></li>\n"
+"<li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li>\n"
+"<li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul>\n"
+"\n"
 "<p>Autres</p>\n"
-"<ul><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
+"<ul><li><a href=\"http://veloski.fr/\">Véloski</a></li>\n"
+"<li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
 # [WARNING] needs_review
 msgid "cda_search_outings_tips"
@@ -4958,6 +4989,11 @@ msgstr "le fichier dépasse les dimensions maximales autorisées (8192x2048 px)"
 msgid "file is too small"
 msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
 
+# [general comment]
+# image size in bytes (used in diffs when a new image has been uploaded
+msgid "file_size"
+msgstr "Taille de l'image&nbsp;:"
+
 msgid "filename"
 msgstr "Image&nbsp;:"
 
@@ -5159,6 +5195,9 @@ msgstr "Chauffage"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "haute_normandie"
 msgstr "Haute-Normandie"
+
+msgid "height"
+msgstr "Hauteur de l'image&nbsp;:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -7365,6 +7404,11 @@ msgstr "Utiliser les même critères que cette liste"
 # 
 msgid "widget generator help"
 msgstr "Camptocamp vous offre la possibilité d'intégrer à votre site internet ou blog un widget qui affiche une liste de contenus du topoguide. Vous pouvez ainsi par exemple afficher vos dernières sorties, les derniers sommets ajoutés au topoguide, ou toute autre liste qui vous trotte dans la tête.<br /><br />Spécifiez le titre que vous voulez donner à votre widget, puis copiez le code ci-dessous dans votre page web. C'est tout !<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Plus d'information</a>"
+
+# [general comment]
+# image width
+msgid "width"
+msgstr "Largeur de l'image&nbsp;:"
 
 msgid "with rain"
 msgstr "exposé à la pluie"

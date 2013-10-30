@@ -1890,8 +1890,15 @@ class documentsActions extends c2cActions
                     {
                         return $this->setErrorAndRedirect('image dir unavailable', $redir_route);
                     }
-                    // update filename
+                    // update filename and image properties
                     $document->set('filename', $unique_filename . $file_ext);
+                    $size = getimagesize($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext);
+                    if ($size)
+                    {
+                        $document->set('width', $size[0]);
+                        $document->set('height', $size[1]);
+                    }
+                    $document->set('file_size', filesize($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext));
                     // populate with new exif data, if any...
                     $document->populateWithExifDataFrom($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext);
                 }

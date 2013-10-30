@@ -2390,6 +2390,7 @@ msgstr "Mapa"
 msgid "Statistics"
 msgstr "Estatistikak"
 
+# [WARNING] needs_update
 msgid "Step 1: choose a summit"
 msgstr "1. pausua: aukeratu gailur bat"
 
@@ -5038,6 +5039,12 @@ msgstr "la imagen sobrepasa las dimensiones máximas autorizadas (8192x2048 px)"
 msgid "file is too small"
 msgstr "La imagen es de dimensiones demasiado pequeñas (minimo: 16x16 px)"
 
+# [general comment]
+# image size in bytes (used in diffs when a new image has been uploaded
+# [WARNING] en translation used
+msgid "file_size"
+msgstr "File size:"
+
 msgid "filename"
 msgstr "Irudia:"
 
@@ -5261,6 +5268,10 @@ msgstr "Egurra"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "haute_normandie"
 msgstr "Normandia Garaia"
+
+# [WARNING] en translation used
+msgid "height"
+msgstr "Image height:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -7710,6 +7721,12 @@ msgstr "Usar los mismos criterios que en esta lista"
 # [WARNING] es translation used
 msgid "widget generator help"
 msgstr "Camptocamp le ofrece la posibilidad de inserir un widget en su sitio web o blog para mostrar una lista de contenido de la topo-guía. Puede por ejemplo mostrar sus más recientes salidas, las últimas cimas añadidas a la topo-guía o cualquier otra lista que se le ocurre. <br /><br />Debe dar un titulo y copiar el código propuesto en su página web. ¡Nada más complicado que esto!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Mas información</a>"
+
+# [general comment]
+# image width
+# [WARNING] en translation used
+msgid "width"
+msgstr "Image width:"
 
 msgid "with rain"
 msgstr "euriak jo dezake"
