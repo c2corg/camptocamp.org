@@ -493,7 +493,7 @@ all:
 
   licenses:
     base_url: 'http://creativecommons.org/licenses/'
-    url_suffix: '/2.0/fr/deed.'
+    url_suffix: '/3.0/deed.'
     list:
       1: by-sa
       2: by-nc-nd
