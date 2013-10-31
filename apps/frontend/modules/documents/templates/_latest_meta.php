@@ -23,7 +23,9 @@ include_partial('documents/home_section_title',
 ?>
 <?php
 echo javascript_tag('
-var rssurl = "' . html_entity_decode(html_entity_decode($feed_url)) . '";
+(function(C2C) {
+  C2C.meta_feed_url = "' . html_entity_decode(html_entity_decode($feed_url)) . '";
+})(window.C2C = window.C2C || {});
 ');
 ?>
 <div id="on_the_web_section_container" class="home_container_text">

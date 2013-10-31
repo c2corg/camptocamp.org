@@ -1,6 +1,6 @@
-(function($) {
+(function(C2C, $) {
   $(function() {
-    $.get(rssurl, function(data) {
+    $.get(C2C.meta_feed_url, function(data) {
         var $xml = $(data);
         $xml.find("item").each(function() {
             var $this = $(this),
@@ -15,4 +15,4 @@
         });
     });
   });
-})(jQuery);
+})(window.C2C = window.C2C || {}, jQuery);
