@@ -1,6 +1,6 @@
 (function(C2C, $) {
   $(function() {
-    $.get(C2C.meta_feed_url, function(data) {
+    $.get(C2C.meta_feed_url).done(function(data) {
       var $xml = $(data);
       $xml.find("item").each(function() {
         var $this = $(this),
