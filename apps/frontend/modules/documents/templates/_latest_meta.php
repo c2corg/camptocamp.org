@@ -29,7 +29,7 @@ echo javascript_tag('
 ');
 ?>
 <div id="on_the_web_section_container" class="home_container_text">
-<ul id="on_the_web_section_list">
+<ul id="on_the_web_section_list" class="dated_changes">
 </ul>
 <div class="home_link_list">
 <?php echo link_to('meta.camptocamp.org', sfConfig::get('app_meta_engine_base_url')) ?>
