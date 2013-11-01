@@ -22,6 +22,19 @@ function show_documents_diff($document1, $document2, $fields, $module)
         {
             $diff = show_imgs_diff($field1, $field2);
         }
+        else if ($field == 'conditions_levels')
+        {
+            $fs = array($field1, $field2);
+            foreach($fs as &$f)
+            {
+                foreach($f as &$row)
+                {
+                    $row = implode(' | ', $row);
+                }
+                $f = implode("\n", $f);
+            }
+            $diff = show_texts_diff($fs[0], $fs[1], true);
+        }
         else
         {
             if (is_int($field1) || is_int($field2))
@@ -120,7 +133,6 @@ function get_field_value($field_name, $module, $abstract_value)
         case 'lift_status': $conf = 'mod_outings_lift_statuses_list'; break;
         case 'glacier_status': $conf = 'mod_outings_glacier_statuses_list'; break;
         case 'track_status': $conf = 'mod_outings_track_statuses_list'; break;
-        case 'conditions_levels': $conf = 'mod_outings_conditions_levels_fields'; break;
         case 'public_transportation_rating' : $conf = 'app_parkings_public_transportation_ratings'; break;
         case 'public_transportation_types': $conf = 'app_parkings_public_transportation_types'; break;
         case 'snow_clearance_rating': $conf = 'mod_parkings_snow_clearance_ratings_list'; break;

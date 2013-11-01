@@ -2263,7 +2263,7 @@ msgid "Statistics"
 msgstr "Estadística"
 
 msgid "Step 1: choose a summit"
-msgstr "Etapa 1: escolliu un cim"
+msgstr "1r pas: escolliu un cim"
 
 msgid "Step 2: Create a route"
 msgstr "Etapa 2: crea un itinerari."
@@ -2271,6 +2271,13 @@ msgstr "Etapa 2: crea un itinerari."
 msgid "Step 2: choose a route"
 msgstr "Etapa 2: escolliu un itinerari"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "Etapa 2: Confirma per accedir a la pàgina d'edició de la teva sortida"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "Etapa 3: Confirma per accedir a la pàgina d'edició de la teva sortida"
 
@@ -3139,7 +3146,6 @@ msgstr "<h3>Altitud</h3>Altitud en metres del lloc geogràfic.<br />Per una foto
 msgid "_email_info"
 msgstr "<h3>Adreça de correu electrònic</h3>Adreça mail del compte Camptocamp.org.<br /><br /><em><u>En inscriure's</u>:</em><br />Entreu una adreça mail vàlida. Sinó, el compte no podrà validar-se i serà destruït algunes setmanes més tard.<br />Aquesta adreça mail no apareix mai a la web. S'utilitza en els següents casos:<br />- Un altre membre o un convidat us envia un correu mitjançant la web (la vostra adreça no es revela).<br />- Esteu subscrit a les discussions del fòrum i el servidor us adverteix de la publicació de nous missatges sobre aquestes discussions.<br />- Esteu subscrit a llistes de distribució de butlletins de neu i allaus."
 
-# [WARNING] needs_update
 msgid "_engagement_rating_info"
 msgstr "<h3>Compromís</h3>\n"
 "Compromís de l'itinerari.<br />\n"
@@ -3155,7 +3161,11 @@ msgstr "<h3>Compromís</h3>\n"
 "<br />\n"
 "<strong>V</strong>: L'itinerari és molt llarg i demana entre 12 i 24 h d'esforç. L'accés és difícil. La retirada és delicada des de l'atac a la via. De seguida esdevé impossible girar cua. Les escapatòries són poques i delicades. En cas de mal temps o de problema, els participants només poden comptar amb ells mateixos.<br />\n"
 "<br />\n"
-"<strong>VI</strong>: L'itinerari és llarg i pot implicar més d'un dia. L'aproximació és també llarga i delicada, l'itinerari és totalment aïllat. Un cop començat no es pot girar cua i les escapatòries són vies en sí mateixes. Cal autonomia total de la cordada en la dificultat."
+"<strong>VI</strong>: L'itinerari és llarg i pot implicar més d'un dia. L'aproximació és també llarga i delicada, l'itinerari és totalment aïllat. Un cop començat no es pot girar cua i les escapatòries són vies en sí mateixes. Cal autonomia total de la cordada en la dificultat.<br />\n"
+"<br />\n"
+"Vegeu també l'ajuda:<br />\n"
+"- <a href=\"/articles/133323/ca/ajuda-topo-guia-escala-de-dificultats-d-escalada-en-roca-escalada-i-roca-en-alta-muntanya</a><br />\n"
+"- <a href=\"/articles/106871/ca/ajuda-topo-guia-dificultats-en-neu-glac-i-mixt</a>"
 
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualitat de l'equipament present</h3>\n"
@@ -4948,6 +4958,12 @@ msgstr "la imatge sobrepassa les dimensions màximes autoritzades (8192x2048 px)
 msgid "file is too small"
 msgstr "L'imatge és de dimensions massa petites (minimo: 16x16 px)"
 
+# [general comment]
+# image size in bytes (used in diffs when a new image has been uploaded
+# [WARNING] en translation used
+msgid "file_size"
+msgstr "File size:"
+
 msgid "filename"
 msgstr "Imatge:"
 
@@ -5148,6 +5164,10 @@ msgstr "Fusta"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "haute_normandie"
 msgstr "Alta Normandia"
+
+# [WARNING] en translation used
+msgid "height"
+msgstr "Image height:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -7336,6 +7356,12 @@ msgstr "Fes servir els mateixos criteris que a aquesta llista"
 # 
 msgid "widget generator help"
 msgstr "Camptocamp us ofereix la possibilitat d'integrar al vostre lloc web o blog un widget que mostra una llista de continguts de la topo-guia. Podeu, per exemple, mostrar les vostres darreres sortides, els darrers cims que heu introduït a la topo-guia, o qualsevol altra llista que us balli pel cap.<br /><br />Indiqueu el títol que voleu donar al vostre widget i després copieu el codi d'aquí sota a la vostra pàgina web. Així de senzill!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Més informació</a>"
+
+# [general comment]
+# image width
+# [WARNING] en translation used
+msgid "width"
+msgstr "Image width:"
 
 msgid "with rain"
 msgstr "exposat a la pluja"

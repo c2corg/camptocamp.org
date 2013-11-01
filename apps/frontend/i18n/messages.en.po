@@ -2287,6 +2287,7 @@ msgstr "Map"
 msgid "Statistics"
 msgstr "Statistics"
 
+# [WARNING] needs_update
 msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
 
@@ -2296,6 +2297,13 @@ msgstr "Step 2: create a route"
 msgid "Step 2: choose a route"
 msgstr "Step 2: choose a route"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "Step 2: Confirm to create your outing and access its edit page"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "Step 3: Confirm to create your outing and access its edit page"
 
@@ -4880,6 +4888,11 @@ msgstr "the file is too large (maximum size is 8192x2048 px)"
 msgid "file is too small"
 msgstr "the file is too small (minimum size is 16x16 px)"
 
+# [general comment]
+# image size in bytes (used in diffs when a new image has been uploaded
+msgid "file_size"
+msgstr "File size:"
+
 msgid "filename"
 msgstr "Picture:"
 
@@ -5084,6 +5097,10 @@ msgstr "Heating"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "haute_normandie"
 msgstr "Upper Normandy"
+
+# [WARNING] needs_review
+msgid "height"
+msgstr "Image height:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -7344,6 +7361,11 @@ msgstr "Use the same criteria as in this list"
 # 
 msgid "widget generator help"
 msgstr "Camptocamp offers you the possibility to insert a widget to your website or blog that displays a list of contents of the guidebook. This way you can for example display your latest outings, the most recent summits added to the guidebook, or any other list you may think of.<br /><br />Specify the title you wish to use, then copy the code displayed below in your web page. That's all there is to it!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">More help</a>"
+
+# [general comment]
+# image width
+msgid "width"
+msgstr "Image width:"
 
 msgid "with rain"
 msgstr "exposed"

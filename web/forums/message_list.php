@@ -391,9 +391,9 @@ if(isset($_GET['action']) && $_GET['action'] == 'multidelete')
 {
 ?>
 		<p class="postlink conr">
-		    <input type="button" class="picto action_create" onclick="$$('#punmessage_list form .tca input[type=checkbox]').each(function(obj){obj.checked=true;});" alt="<?php echo $lang_misc['Select all'] ?>" title="" value="<?php echo $lang_misc['Select all'] ?>" name="<?php echo $lang_misc['Select all'] ?>"/>&nbsp;&nbsp;
-		    <input type="button" class="picto action_rm" onclick="$$('#punmessage_list form .tca input[type=checkbox]').each(function(obj){obj.checked=false;});" alt="<?php echo $lang_misc['Deselect all'] ?>" title="" value="<?php echo $lang_misc['Deselect all'] ?>" name="<?php echo $lang_misc['Deselect all'] ?>"/>&nbsp;&nbsp;
-            <input type="hidden" name="box" value="<?php echo $box	; ?>"><input type="submit" class="picto action_delete" value="<?php echo $lang_pms['Delete']; ?>">
+		    <input type="button" onclick="$('#punmessage_list form .tca input[type=checkbox]').prop('checked', true);" alt="<?php echo $lang_misc['Select all'] ?>" title="" value="<?php echo $lang_misc['Select all'] ?>" name="<?php echo $lang_misc['Select all'] ?>"/>&nbsp;&nbsp;
+		    <input type="button" onclick="$('#punmessage_list form .tca input[type=checkbox]').prop('checked', false);" alt="<?php echo $lang_misc['Deselect all'] ?>" title="" value="<?php echo $lang_misc['Deselect all'] ?>" name="<?php echo $lang_misc['Deselect all'] ?>"/>&nbsp;&nbsp;
+            <input type="hidden" name="box" value="<?php echo $box	; ?>"><input type="submit" value="<?php echo $lang_pms['Delete']; ?>">
         </p>
 <?php
 }

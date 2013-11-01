@@ -144,6 +144,12 @@ msgstr "Posizione:"
 msgid "All fields are mandatory"
 msgstr "Tutti i campi sono obbligatori."
 
+# [comment]
+# altre possibilità:
+# - Tutti gli argomenti
+# - Tutti i post
+# - Tutti i messaggi
+# - Tutto
 # [WARNING] needs_review
 msgid "All topics"
 msgstr "Tutte le discussioni"
@@ -195,7 +201,7 @@ msgstr "Sicuro di volere cancellare la geometria di questo documento?"
 # escape ' by \' if you use them
 # [WARNING] needs_review
 msgid "Are you sure you want to rotate the image?"
-msgstr "Sei sicuro di di volere girare l'immagine?"
+msgstr "Sei sicuro di voler ruotare l'immagine?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Sei sicuro di volere cancellare l'associazione con l'immagine %1% intitolata \"%2%\"?"
@@ -406,9 +412,9 @@ msgstr "Cancella"
 
 # [general comment]
 # Infobulle du bouton "Reset georef"
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Cancel georef changes"
-msgstr "Cancel georef changes"
+msgstr "Ripristinare il georiferimento del documento"
 
 msgid "Change your password"
 msgstr "Cambia la password"
@@ -929,7 +935,9 @@ msgstr "FAQ"
 msgid "FAQ short"
 msgstr "FAQ"
 
-# [WARNING] needs_update
+# [comment]
+# Rinomina fallita. Si prega di contattare la moderazione se succede di nuovo.
+# [WARNING] needs_review
 msgid "Failed moving uploaded file"
 msgstr "Il cambiamento di nome del file non è stato registrato. Provare di nuovo."
 
@@ -1010,7 +1018,7 @@ msgstr "Aiuto generale"
 
 # [WARNING] needs_review
 msgid "Go back to form"
-msgstr "Tornare al formulario"
+msgstr "Tornare al modulo"
 
 msgid "Go to next area"
 msgstr "Andare alla regione seguente"
@@ -1164,9 +1172,9 @@ msgstr "Immagine"
 
 # [general comment]
 # We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Image cannot be rotated anymore"
-msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+msgstr "Impossibile ruotare l'immagine. Non sei abilitato ad accedere a questo file."
 
 msgid "Image could not be loaded"
 msgstr "Impossibile di vedere l'immagine"
@@ -1193,6 +1201,8 @@ msgstr "Quest’immagine non è stata trovata."
 msgid "Image rotated successfully"
 msgstr "L'immagine è stata girata"
 
+# [comment]
+# Ruotare l'immagine?
 # [WARNING] needs_review
 msgid "Image rotation"
 msgstr "Rotazione dell'immagine"
@@ -1232,7 +1242,6 @@ msgstr "Informazione"
 # link to the informations on an image (image document page)
 # 
 # check if the meaning is correct in your language
-# [WARNING] needs_review
 msgid "Informations"
 msgstr "Informazioni"
 
@@ -1771,9 +1780,9 @@ msgstr "Operazione non autorizzata."
 # link to the original image
 # 
 # Try to keep it short
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Original image"
-msgstr "Original image"
+msgstr "Immagine originale"
 
 msgid "Oups!"
 msgstr "Attenzione, sono stati riscontrati i problemi seguenti:"
@@ -2040,13 +2049,11 @@ msgstr "Girare a sinistra"
 msgid "Rotate 90"
 msgstr "Girare a destra"
 
-# [WARNING] needs_review
 msgid "Rotate the image by -90"
-msgstr "Girare l'immagine di 90° nel senso anti-orario"
+msgstr "Ruotare l'immagine di 90 gradi in senso antiorario"
 
-# [WARNING] needs_review
 msgid "Rotate the image by 90"
-msgstr "Girare l'immagine di 90° nel senso orario"
+msgstr "Ruotare l'immagine di 90 gradi in senso orario"
 
 msgid "Route not found"
 msgstr "Questo itinerario non è stato trovato."
@@ -2177,9 +2184,8 @@ msgstr "Le versioni richieste non esistono"
 
 # [general comment]
 # Texte de bouton dans un formulaire.
-# [WARNING] needs_review
 msgid "Send"
-msgstr "Mandare"
+msgstr "Invia"
 
 msgid "Send a mail to this user"
 msgstr "Manda un Email a questo utente"
@@ -2278,6 +2284,7 @@ msgstr "Mappa"
 msgid "Statistics"
 msgstr "Statistica"
 
+# [WARNING] needs_update
 msgid "Step 1: choose a summit"
 msgstr "Passo 1&nbsp;: scegliere una cima"
 
@@ -2287,6 +2294,13 @@ msgstr "Passo 2&nbsp;: creare un itinerario"
 msgid "Step 2: choose a route"
 msgstr "Passo 2&nbsp;: scegliere un itinerario"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "Passo 2: confermare per accedere alla pagina di edizione della gita"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "Passo 3: confermare per accedere alla pagina di edizione della gita"
 
@@ -2560,7 +2574,7 @@ msgstr "Questo nome utente esiste già. Devi sceglierne un altro."
 # 
 # [WARNING] needs_review
 msgid "Time"
-msgstr "ora"
+msgstr "Ora"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
 msgstr "<b>Per confermare la creazione del tuo account, è necessario accedere al sito con le informazioni di connessione allegate.</b> Solo dopo potrai modificare la Password se necessario. Nel caso non venisse conclusa l’operazione, il conto sarà automaticamente annullato dopo %1% giorni."
@@ -2679,6 +2693,8 @@ msgstr "Consulta"
 
 # [general comment]
 # Link to the document page from a comment page in mobile version
+# [comment]
+# Torna al documento
 # [WARNING] needs_review
 msgid "View comments document"
 msgstr "Vedere il documento"
@@ -3878,9 +3894,8 @@ msgstr "amatore"
 # [general comment]
 # quelle est l'utilisation de cette chaine ?
 # -> le pluriel du type de contributeur (amateur -> amateurs)
-# [WARNING] needs_review
 msgid "amateurs"
-msgstr "amatori"
+msgstr "dilettanti"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -4081,7 +4096,6 @@ msgstr "channel"
 
 # [general comment]
 # ligne maritime / fluviale / lacustre pour le transport de passagers
-# [WARNING] needs_review
 msgid "boat"
 msgstr "traghetto"
 
@@ -4335,9 +4349,40 @@ msgstr "Difficoltà:"
 msgid "cda_elevation"
 msgstr "Dislivello:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "cda_prepare_outing_box"
-msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spain)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">French avalanche bulletin </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/index_EN\">Swiss avalanche bulletin</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Italian avalanche bulletin</a></li><li><a href=\"/users/mailinglists\">Receive the bulletins by email</a></li></ul> <p>Transport</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trains in Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (trains in France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (trains in Switzerland)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (trains in Italy)</a></li></ul> <p>Others</p><ul><li><a href=\"http://veloski.fr/\">ski-biking</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (in French)</li></ul>"
+msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Meteo</a></p>\n"
+"<ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo France</a></li>\n"
+"<li><a href=\"http://www.meteosuisse.ch\">MeteoSvizzera</a></li>\n"
+"<li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li>\n"
+"<li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spagna)</a></li></ul>\n"
+"<p><a href=\"/articles/107228/fr/liens-utiles#bera\">Valanghe</a></p>\n"
+"<ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a> : \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74 (Alta Savoia)</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73 (Savoia)</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a (Corsica)</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b (Corsica)</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> \n"
+"<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li>\n"
+"<li><a href=\"http://www.slf.ch/index_FR\">SLF (Svizzera)</a></li>\n"
+"<li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li>\n"
+"<li><a href=\"/users/mailinglists\">Ricevere i bollettini via email</a></li></ul>\n"
+"\n"
+"<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Mezzi di trasporto</a></p>\n"
+"<ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li>\n"
+"<li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (France)</a></li>\n"
+"<li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li>\n"
+"<li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li>\n"
+"<li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Monte Bianco)</a></li>\n"
+"<li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Hautes-Alpes)</a></li>\n"
+"<li><a href=\"http://www.cff.ch/\">CFF (Svizzera)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul>"
 
 # [WARNING] needs_review
 msgid "cda_search_outings_tips"
@@ -4568,7 +4613,7 @@ msgstr "Crea un nickname personalizzato"
 
 # [WARNING] needs_review
 msgid "create an account?"
-msgstr "Creare il suo account?"
+msgstr "Creare il tuo account?"
 
 msgid "created_at"
 msgstr "creato il"
@@ -4893,6 +4938,12 @@ msgstr "l'immagine oltrepassa le dimensioni autorizzate (8192x2048 px)"
 msgid "file is too small"
 msgstr "l'immagine è troppo piccola (min: 16x16 px)"
 
+# [general comment]
+# image size in bytes (used in diffs when a new image has been uploaded
+# [WARNING] en translation used
+msgid "file_size"
+msgstr "File size:"
+
 msgid "filename"
 msgstr "Immagine:"
 
@@ -5092,6 +5143,10 @@ msgstr "Riscaldamento"
 msgid "haute_normandie"
 msgstr "Alta Normandia"
 
+# [WARNING] en translation used
+msgid "height"
+msgstr "Image height:"
+
 msgid "height diff separator"
 msgstr " / "
 
@@ -5144,7 +5199,7 @@ msgstr "abisso"
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 # [WARNING] needs_update
 msgid "home_description"
-msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 20&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
+msgstr "E' un luogo di scambio d'informazioni multilingue dedicato all'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una <a href=\"/articles/117868\">guida interattiva</a> con più di 20&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> che privilegia i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
 
 msgid "home_welcome"
 msgstr "Benvenuto!"
@@ -5228,7 +5283,7 @@ msgstr "Nuova versione dell'immagine:"
 
 # [WARNING] needs_review
 msgid "image_type"
-msgstr "Tipo d'immagine:"
+msgstr "Tipo d'immagine(licenza):"
 
 msgid "images"
 msgstr "immagini"
@@ -5755,7 +5810,7 @@ msgstr "montagna"
 
 # [WARNING] needs_review
 msgid "mountain environment"
-msgstr "ambiante montanaro "
+msgstr "ambiente montanaro "
 
 msgid "mountain_climbing"
 msgstr "roccia alta-montagna"
@@ -7324,6 +7379,12 @@ msgstr "Usare gli stessi criteri che per questa lista"
 msgid "widget generator help"
 msgstr "Camptocamp ti offre la possibilità di integrare al tuo sito internet o al tuo blog un widget per mostrare una lista di documenti della guida di c2c. Per esempio, puoi avere la lista delle tue ultime gite o delle ultime gite nella tua regione preferita...<br /><br />Dai un titolo al tuo widget, e copia il codice seguente nella tua pagina web.<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Informazione di più.</a>"
 
+# [general comment]
+# image width
+# [WARNING] en translation used
+msgid "width"
+msgstr "Image width:"
+
 msgid "with rain"
 msgstr "bagnato in caso di pioggia"
 
@@ -7336,9 +7397,9 @@ msgstr "Inserire un link interno"
 
 # [general comment]
 # placeholder pour le titre d'une image
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "write a caption"
-msgstr "Write a caption"
+msgstr "Scrivere una didascalia"
 
 msgid "wrong file type"
 msgstr "Formato d'immagine invalido"
