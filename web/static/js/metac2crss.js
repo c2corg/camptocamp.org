@@ -4,6 +4,7 @@
       var $xml = $(data);
       var count = 0;
       var date;
+
       $xml.find("item").each(function() {
         var $this = $(this),
           item = {
@@ -14,6 +15,9 @@
             author: $this.find("author").text()
           }
 
+        if (count == 0) {
+          $("#on_the_web_section_list").html("");
+        }
         count++;
         if (count > 10) { return; }
         li_class = (count % 2) ? "even" : "odd";
