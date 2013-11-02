@@ -48,7 +48,7 @@
 
           plupload.addEvent(document.documentElement, 'dragenter', function() {
             delt.css('zIndex', 1);
-         });
+          });
 
           /* Idea here would be to use dragleave event, but someone thought that it would
              be funnier to fire dragleave when hovering child elements...
@@ -57,8 +57,9 @@
             delt.css('zIndex', -1);
           });
 
-          pe = setInterval(C2C.PlUploadWrapper.validateImageForms, 500);
         }
+
+        pe = setInterval(C2C.PlUploadWrapper.validateImageForms, 500);
       });
 
       uploader.bind('Error', function(up, err) {
