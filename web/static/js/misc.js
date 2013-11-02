@@ -14,6 +14,9 @@
 
   // outings wizard: retrieve route ratings
   C2C.getWizardRouteRatings = function(div_id) {
+    // also update link field with selected item
+    $('#link').val($('#' + div_id).val());
+
     var indicator = $('#indicator');
 
     indicator.show();
