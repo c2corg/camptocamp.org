@@ -716,6 +716,12 @@ msgstr "Details"
 msgid "Developers"
 msgstr "Entwickler"
 
+# [general comment]
+# Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
+# [WARNING] needs_review
+msgid "Did you mean %1%?"
+msgstr "Meinten Sie %1%?"
+
 msgid "Diffing versions of %1% in %2%."
 msgstr "Unterschiede der Fassungen von %1% nach %2%."
 

@@ -28,3 +28,6 @@
 [submodule "web/static/js/third-parties/tinycon"]
 	path = web/static/js/third-parties/tinycon
 	url = https://github.com/tommoor/tinycon.git
+[submodule "web/static/js/third-parties/mailcheck"]
+	path = web/static/js/third-parties/mailcheck
+	url = https://github.com/Kicksend/mailcheck.git

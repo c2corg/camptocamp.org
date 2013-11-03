@@ -711,6 +711,11 @@ msgstr "Details"
 msgid "Developers"
 msgstr "Developers"
 
+# [general comment]
+# Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
+msgid "Did you mean %1%?"
+msgstr "Did you mean %1%?"
+
 msgid "Diffing versions of %1% in %2%."
 msgstr "Difference between versions of %1% to %2%."
 
