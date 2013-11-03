@@ -721,6 +721,12 @@ msgstr "Xehetasunak"
 msgid "Developers"
 msgstr "Egileak"
 
+# [general comment]
+# Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
+# [WARNING] es translation used
+msgid "Did you mean %1%?"
+msgstr "Quiso decir %1%?"
+
 msgid "Diffing versions of %1% in %2%."
 msgstr "%1% en bertsioaren desberdintasunak %2%-n."
 
