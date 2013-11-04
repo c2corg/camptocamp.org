@@ -492,7 +492,7 @@ all:
 #      0: {field: elevation, unit: meters}
 
   licenses:
-    base_url: 'http://creativecommons.org/licenses/'
+    base_url: '//creativecommons.org/licenses/'
     url_suffix: '/3.0/deed.'
     list:
       1: by-sa
