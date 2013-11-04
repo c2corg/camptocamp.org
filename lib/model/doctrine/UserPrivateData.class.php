@@ -11,14 +11,17 @@ class UserPrivateData extends BaseUserPrivateData
      * @param string $pwd
      * @return hashed string
      */
-    public static function hash($pwd)
+    public static function hash($pwd, $salt = null)
     {
-        return Punbb::punHash($pwd);
-    }
-
-    public static function filterSetPassword($pwd)
-    {
-        return self::hash($pwd);
+        // if salt is null, this use the old hash function
+        if (empty($salt))
+        {
+            return Punbb::punHash($pwd);
+        }
+        else
+        {
+            return hash('sha256', $salt.$pwd);
+        }
     }
 
     public static function filterSetPassword_tmp($pwd)
@@ -45,6 +48,17 @@ class UserPrivateData extends BaseUserPrivateData
                              ->limit(1)
                              ->execute()
                              ->getFirst();
+    }
+
+    public static function retrieveSalt($login_name)
+    {
+         return Doctrine_Query::create()
+                              ->select('u.salt')
+                              ->from('UserPrivateData u')
+                              ->where('u.login_name = ?', $login_name)
+                              ->limit(1)
+                              ->execute()
+                              ->getFirst();
     }
 
     public static function hasPublicProfile($id)
@@ -76,6 +90,11 @@ class UserPrivateData extends BaseUserPrivateData
         }
 
         return $pwd;
+    }
+
+    public static function generateSalt()
+    {
+        return base64_encode(openssl_random_pseudo_bytes(128));
     }
 
     public static function retrieveByLoginNameOrEmail($loginNameOrEmail)

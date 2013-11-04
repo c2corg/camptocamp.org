@@ -135,7 +135,15 @@ class myUser extends sfBasicSecurityUser
 
         $return = false;
 
-        $hashed_pwd = Punbb::punHash($password);
+        $salt = UserPrivateData::retrieveSalt($login_name);
+        if ($salt === false) // login name not in database
+        {
+            return false;
+        }
+        else
+        {
+            $salt = $salt->salt;
+        }
 
         if ($password_is_hashed)
         {
@@ -143,9 +151,11 @@ class myUser extends sfBasicSecurityUser
         }
         else
         {
+            $hashed_pwd = UserPrivateData::hash($password, $salt);
             $user = User::retrieve($login_name, $hashed_pwd);
         }
 
+        // maybe the user requested a new password, check if password_tmp is ok
         if (!$user && !$password_is_hashed)
         {
             // This block is not used when password is hashed. Indeed password is hashed only
@@ -164,7 +174,10 @@ class myUser extends sfBasicSecurityUser
                 // user used his tmp password
                 $user_private_data = $user->get('private_data');
                 // set password to tmp password
-                $user_private_data->set('password', $password);
+                $salt = UserPrivateData::generateSalt();
+                $hash = UserPrivateData::hash(password, $salt);
+                $user_private_data->set('salt', $salt);
+                $user_private_data->set('password', $hash);
                 // delete tmp password
                 $user_private_data->set('password_tmp', null);
 
@@ -181,6 +194,35 @@ class myUser extends sfBasicSecurityUser
                 c2cTools::log('user is active');
 
                 $user_id = $user->get('id');
+
+                // if we went there with the old hash algorithm (simple hash, no salt),
+                // then update the db with so that we use the new algorithm next time
+                if (empty($salt) && !$password_is_hashed)
+                {
+                    c2cTools::log('upgrading user to new hash algorithm');
+
+                    $conn = sfDoctrine::Connection();
+                    try
+                    {
+                        // generate a new salt
+                        $salt = UserPrivateData::generateSalt();
+                        // compute the hash
+                        $hash = UserPrivateData::hash($password, $salt);
+
+                        // save both in user's database record
+                        $user_private_data = UserPrivateData::find($user_id);
+                        $user_private_data->setPassword($hash);
+                        $user_private_data->setSalt($salt);
+                        $user_private_data->save();
+                        $conn->commit();
+                    }
+                    catch (Exception $e)
+                    {
+                        $conn->rollback();
+                        c2cTools::log('could not upgrade user to new hash algorithm');
+                    }
+                }
+
                 $user_culture = $user->get('private_data')->getPreferedCulture();
 
                 // when user signs-in it confirms his signup
@@ -282,18 +324,6 @@ class myUser extends sfBasicSecurityUser
         return $return;
     }
 
-    protected function generateRandomKey( $len = 20 )
-    {
-        $string = '';
-        $pool = 'abcdefghijklmnopqrstuvwzyzABCDEFGHIJKLMNOPQRSTUVWZYZ0123456789';
-        for ( $i = 1; $i <= $len; $i++ )
-        {
-            $string .= substr( $pool, rand( 0, 61 ), 1 );
-        }
-
-        return md5( $string );
-    }
-
     public function signOut()
     {
         // remove cookie if exist
@@ -331,7 +361,9 @@ class myUser extends sfBasicSecurityUser
         $private_data->setLoginName($login_name);
         $private_data->setUsername($login_name); // username is used as nickname in forum, need to be set
         $private_data->setTopoName($user->getName());
-        $private_data->setPassword($password);
+        $salt = UserPrivateData::generateSalt();
+        $private_data->setSalt($salt);
+        $private_data->setPassword(UserPrivateData::hash($password, $salt));
         $private_data->setEmail($email);
         $private_data->setPreferedLanguageList($this->getCulturesForDocuments());
         $private_data->setId($user->getId());

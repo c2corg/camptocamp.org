@@ -316,7 +316,7 @@ class usersActions extends documentsActions
                 $login_name = strtolower(trim($this->getRequestParameter('login_name')));
                 $email = trim($this->getRequestParameter('email'));
 
-                // generate password
+                // generate a new password
                 $password = UserPrivateData::generatePwd();
 
                 if ($this->getUser()->signUp($login_name, $password, $email))
@@ -365,6 +365,12 @@ class usersActions extends documentsActions
         }
     }
 
+    // not that we use a special field (password_tmp) because we don't want to override the legitimate password
+    // we don't know if the user requesting a new password is the legitimate one!
+    // also not that we use the 'old' hash system (no salt) for storing it, but this isn't a real problem, since
+    // it is randomly generated, so we don't care if someone can crack it (if someone can get the hash, the server
+    // is probably compromised, the goal is rather protect user generated passwords like the one they probably use for
+    // many accounts...)
     public function executeLostPassword()
     {
         if ($this->getRequest()->getMethod() == sfRequest::GET )
@@ -463,9 +469,13 @@ class usersActions extends documentsActions
             $conn = sfDoctrine::Connection();
             try
             {
-                if (!empty($password))
+                if (!empty($password)) // a new password has been set
                 {
-                    $user_private_data->setPassword($password);
+                    // compute a new salt
+                    $salt = UserPrivateData::generateSalt();
+                    $hash = UserPrivateData::hash($password, $salt);
+                    $user_private_data->setSalt($salt);
+                    $user_private_data->setPassword($hash);
                 }
     
                 if (!is_null($email))

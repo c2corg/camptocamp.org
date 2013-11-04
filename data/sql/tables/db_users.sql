@@ -26,6 +26,7 @@ CREATE INDEX app_users_archives_document_archive_id_idx ON app_users_archives US
 -- Some data do not require versioning
 CREATE TABLE app_users_private_data (
     password_tmp character varying(40),
+    salt character varying(172),                   -- size of base64_encode(openssl_random_pseudo_bytes(128)), doctrine doesn't go well with bytea
     topo_name character varying(200),              -- this name is used for the guidebook
     login_name character varying(200),             -- this is the symfony username ! username field is now used as a nickname !!! because of punbb...
     search_username character varying(200),         -- for searching on username (forum name)
