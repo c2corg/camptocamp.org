@@ -1,8 +1,8 @@
 <?php
-/**
- * User management customization.
- * @version $Id: myUser.class.php 2476 2007-12-05 12:46:40Z fvanderbiest $
- */
+// FIXME this is a bit dirty. We cannot use autoload features since there is no class. Is there a better way for this?
+// compatibility with password_* function from php 5.5
+require_once(sfConfig::get('sf_lib_dir').DIRECTORY_SEPARATOR.'password_compat'.
+             DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'password.php');
 
 class myUser extends sfBasicSecurityUser
 {
@@ -135,24 +135,28 @@ class myUser extends sfBasicSecurityUser
 
         $return = false;
 
-        $salt = UserPrivateData::retrieveSalt($login_name);
-        if ($salt === false) // login name not in database
+        // we need to retrieve the stored hash for the correspondings user to:
+        // - the salt is stored there, needed for verifiying the password
+        // - allows us to check whether it is still an old hash, without salt
+        $upd = UserPrivateData::retrieveByLoginName($login_name);
+        if (!$upd) // login name not in database
         {
             return false;
         }
         else
         {
-            $salt = $salt->salt;
+            $userid = $upd->id;
+            $hash_tmp = $upd->password_tmp;
+            $hash = $upd->password;
         }
 
-        if ($password_is_hashed)
+        if ($password_is_hashed) 
         {
-            $user = User::retrieve($login_name, $password);
+            $user = ($password === $hash) ? sfDoctrine::getTable('User')->find($userid) : false;
         }
         else
         {
-            $hashed_pwd = UserPrivateData::hash($password, $salt);
-            $user = User::retrieve($login_name, $hashed_pwd);
+            $user = $this->check_password($password, $hash) ? sfDoctrine::getTable('User')->find($userid) : false;
         }
 
         // maybe the user requested a new password, check if password_tmp is ok
@@ -165,7 +169,7 @@ class myUser extends sfBasicSecurityUser
             c2cTools::log('base login failed, start trying with password_temp');
 
             // user not found, try with tmp password
-            $user = User::retrieveTmp($login_name, $hashed_pwd);
+            $user = $this->check_password($password, $hash_tmp) ? sfDoctrine::getTable('User')->find($userid) : false;
 
             if ($user)
             {
@@ -174,10 +178,7 @@ class myUser extends sfBasicSecurityUser
                 // user used his tmp password
                 $user_private_data = $user->get('private_data');
                 // set password to tmp password
-                $salt = UserPrivateData::generateSalt();
-                $hash = UserPrivateData::hash(password, $salt);
-                $user_private_data->set('salt', $salt);
-                $user_private_data->set('password', $hash);
+                $user_private_data->set('password', $password);
                 // delete tmp password
                 $user_private_data->set('password_tmp', null);
 
@@ -197,22 +198,15 @@ class myUser extends sfBasicSecurityUser
 
                 // if we went there with the old hash algorithm (simple hash, no salt),
                 // then update the db with so that we use the new algorithm next time
-                if (empty($salt) && !$password_is_hashed)
+                if (!$password_is_hashed && password_needs_rehash($hash, PASSWORD_DEFAULT))
                 {
                     c2cTools::log('upgrading user to new hash algorithm');
 
                     $conn = sfDoctrine::Connection();
                     try
                     {
-                        // generate a new salt
-                        $salt = UserPrivateData::generateSalt();
-                        // compute the hash
-                        $hash = UserPrivateData::hash($password, $salt);
-
-                        // save both in user's database record
                         $user_private_data = UserPrivateData::find($user_id);
-                        $user_private_data->setPassword($hash);
-                        $user_private_data->setSalt($salt);
+                        $user_private_data->setPassword($password);
                         $user_private_data->save();
                         $conn->commit();
                     }
@@ -361,9 +355,7 @@ class myUser extends sfBasicSecurityUser
         $private_data->setLoginName($login_name);
         $private_data->setUsername($login_name); // username is used as nickname in forum, need to be set
         $private_data->setTopoName($user->getName());
-        $salt = UserPrivateData::generateSalt();
-        $private_data->setSalt($salt);
-        $private_data->setPassword(UserPrivateData::hash($password, $salt));
+        $private_data->setPassword($password);
         $private_data->setEmail($email);
         $private_data->setPreferedLanguageList($this->getCulturesForDocuments());
         $private_data->setId($user->getId());
@@ -546,5 +538,14 @@ class myUser extends sfBasicSecurityUser
     {
         $this->setAttribute('filters_switch', $status);
     }
-    
+
+    // check if provided password matches the hash
+    protected function check_password($password, $hash)
+    {
+        // check whether the stored hash is using password_hash() or Punbb::hash()
+        $password_needs_rehash = password_needs_rehash($hash, PASSWORD_DEFAULT);
+
+        return ((!$password_needs_rehash && password_verify($password, $hash)) ||
+                ($password_needs_rehash && Punbb::punHash($password) === $hash));
+    }
 }

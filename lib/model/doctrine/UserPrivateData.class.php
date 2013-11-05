@@ -1,7 +1,8 @@
 <?php
-/**
- * $Id: UserPrivateData.class.php 2349 2007-11-15 15:00:05Z fvanderbiest $
- */
+// FIXME this is a bit dirty. We cannot use autoload features since there is no class. Is there a better way for this?
+// compatibility with password_* function from php 5.5
+require_once(sfConfig::get('sf_lib_dir').DIRECTORY_SEPARATOR.'password_compat'.
+             DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'password.php');
 
 class UserPrivateData extends BaseUserPrivateData
 {
@@ -11,17 +12,14 @@ class UserPrivateData extends BaseUserPrivateData
      * @param string $pwd
      * @return hashed string
      */
-    public static function hash($pwd, $salt = null)
+    public static function hash($pwd)
     {
-        // if salt is null, this use the old hash function
-        if (empty($salt))
-        {
-            return Punbb::punHash($pwd);
-        }
-        else
-        {
-            return hash('sha256', $salt.$pwd);
-        }
+        return password_hash($pwd, PASSWORD_DEFAULT);
+    }
+
+    public static function filterSetPassword($pwd)
+    {
+        return self::hash($pwd);
     }
 
     public static function filterSetPassword_tmp($pwd)
@@ -48,17 +46,6 @@ class UserPrivateData extends BaseUserPrivateData
                              ->limit(1)
                              ->execute()
                              ->getFirst();
-    }
-
-    public static function retrieveSalt($login_name)
-    {
-         return Doctrine_Query::create()
-                              ->select('u.salt')
-                              ->from('UserPrivateData u')
-                              ->where('u.login_name = ?', $login_name)
-                              ->limit(1)
-                              ->execute()
-                              ->getFirst();
     }
 
     public static function hasPublicProfile($id)
@@ -92,11 +79,6 @@ class UserPrivateData extends BaseUserPrivateData
         return $pwd;
     }
 
-    public static function generateSalt()
-    {
-        return base64_encode(openssl_random_pseudo_bytes(128));
-    }
-
     public static function retrieveByLoginNameOrEmail($loginNameOrEmail)
     {
         $loginNameOrEmail = strtolower($loginNameOrEmail);
@@ -104,6 +86,16 @@ class UserPrivateData extends BaseUserPrivateData
                              ->from('UserPrivateData u')
                              ->where('u.login_name = ? OR u.email = ?',
                                      array($loginNameOrEmail, $loginNameOrEmail))
+                             ->limit(1)
+                             ->execute()
+                             ->getFirst();
+    }
+
+    public static function retrieveByLoginName($loginName)
+    {
+        return Doctrine_Query::create()
+                             ->from('UserPrivateData u')
+                             ->where('u.login_name = ?', strtolower($loginName))
                              ->limit(1)
                              ->execute()
                              ->getFirst();

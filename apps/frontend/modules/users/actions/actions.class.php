@@ -367,10 +367,6 @@ class usersActions extends documentsActions
 
     // not that we use a special field (password_tmp) because we don't want to override the legitimate password
     // we don't know if the user requesting a new password is the legitimate one!
-    // also not that we use the 'old' hash system (no salt) for storing it, but this isn't a real problem, since
-    // it is randomly generated, so we don't care if someone can crack it (if someone can get the hash, the server
-    // is probably compromised, the goal is rather protect user generated passwords like the one they probably use for
-    // many accounts...)
     public function executeLostPassword()
     {
         if ($this->getRequest()->getMethod() == sfRequest::GET )
@@ -471,11 +467,7 @@ class usersActions extends documentsActions
             {
                 if (!empty($password)) // a new password has been set
                 {
-                    // compute a new salt
-                    $salt = UserPrivateData::generateSalt();
-                    $hash = UserPrivateData::hash($password, $salt);
-                    $user_private_data->setSalt($salt);
-                    $user_private_data->setPassword($hash);
+                    $user_private_data->setPassword($password);
                 }
     
                 if (!is_null($email))
@@ -531,7 +523,7 @@ class usersActions extends documentsActions
             
             if (!empty($password))
             {
-                Punbb::signIn($user_private_data->getId(), $user_private_data->password);
+                Punbb::signIn($user_private_data->getId(), $user_private_data->password); // TODO
             }
 
             $lang = $this->getUser()->getCulture();

@@ -13,9 +13,8 @@ class BaseUserPrivateData extends sfDoctrineRecord
         $this->hasColumn('username', 'string', 200); // this is the name for the forum
         $this->hasColumn('login_name', 'string', 200, array('unique')); // this is the login
         $this->hasColumn('topo_name', 'string', 200); // this is the name for guidebook
-        $this->hasColumn('password', 'string', 64);
-        $this->hasColumn('password_tmp', 'string', 40);
-        $this->hasColumn('salt', 'string', 128);
+        $this->hasColumn('password', 'string', 255);
+        $this->hasColumn('password_tmp', 'string', 255);
         $this->hasColumn('email', 'string', 100);
         $this->hasColumn('document_culture', 'string', 20);
         $this->hasColumn('v4_id', 'smallint', 5);
