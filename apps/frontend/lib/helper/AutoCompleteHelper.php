@@ -124,6 +124,13 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
 {
     $modules_list = array_intersect(sfConfig::get('app_modules_list'), $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
+
+    // for site-site, parking-parking or summit-summit associations, be explicit about association direction
+    if (in_array($module, array('sites', 'parkings', 'summits')))
+    {
+        $modules_list_i18n[array_search($module, $modules_list)] = __('sub-' . $module);
+    }
+
     $select_modules = select_tag('dropdown_modules',
         options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
         array('class' => 'picto picto_' . $default_selected));

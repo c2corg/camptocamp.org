@@ -59,7 +59,7 @@ else
             <?php echo link_to(__('credits'), getMetaArticleRoute('credits'));
             if (!empty($mobile_hostname) && !$is_map)
             {
-                echo ' | ' . link_to(__('mobile version'), 'http://'.$mobile_hostname,
+                echo ' | ' . link_to(__('mobile version'), '//'.$mobile_hostname,
                                      array('id' => 'm-link',
                                            'onclick' => "document.cookie='nomobile=;expires=Thu, 01-Jan-70 00:00:01 GMT;';"));
             }

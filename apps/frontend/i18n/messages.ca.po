@@ -710,6 +710,12 @@ msgstr "Detalls"
 msgid "Developers"
 msgstr "Programadors"
 
+# [general comment]
+# Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
+# [WARNING] es translation used
+msgid "Did you mean %1%?"
+msgstr "Quiso decir %1%?"
+
 msgid "Diffing versions of %1% in %2%."
 msgstr "Diferències entre les versions de %1% en %2%."
 
@@ -6970,6 +6976,22 @@ msgstr "Esquí de forts pendents"
 
 msgid "stories"
 msgstr "narracions, contes, relats"
+
+# [WARNING] en translation used
+msgid "sub-parkings"
+msgstr "sub-access points"
+
+# [WARNING] fr translation used
+msgid "sub-sites"
+msgstr "sous-sites d'escalade"
+
+# [general comment]
+# same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
+# 
+# In that case, 
+# [WARNING] en translation used
+msgid "sub-summits"
+msgstr "sub- summits, passes, lakes and cliffs"
 
 msgid "sub_activities"
 msgstr "Compatible amb:"

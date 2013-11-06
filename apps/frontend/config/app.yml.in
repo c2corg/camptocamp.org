@@ -462,7 +462,7 @@ all:
 
   geoportail_key: '@GEOPORTAIL_KEY@'
 
-  async_map: false
+  async_map: true
 
   # this section is used to set group names that are stored in bdd
   # easy management :D
@@ -492,7 +492,7 @@ all:
 #      0: {field: elevation, unit: meters}
 
   licenses:
-    base_url: 'http://creativecommons.org/licenses/'
+    base_url: '//creativecommons.org/licenses/'
     url_suffix: '/3.0/deed.'
     list:
       1: by-sa

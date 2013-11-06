@@ -719,6 +719,12 @@ msgstr "Dettagli"
 msgid "Developers"
 msgstr "Sviluppatori"
 
+# [general comment]
+# Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
+# [WARNING] needs_review
+msgid "Did you mean %1%?"
+msgstr "Forse cercavi %1%?"
+
 msgid "Diffing versions of %1% in %2%."
 msgstr "Differenze tra le versioni di %1% in %2%."
 
@@ -6988,6 +6994,22 @@ msgstr "Sci ripido"
 
 msgid "stories"
 msgstr "racconti"
+
+# [WARNING] en translation used
+msgid "sub-parkings"
+msgstr "sub-access points"
+
+# [WARNING] fr translation used
+msgid "sub-sites"
+msgstr "sous-sites d'escalade"
+
+# [general comment]
+# same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
+# 
+# In that case, 
+# [WARNING] en translation used
+msgid "sub-summits"
+msgstr "sub- summits, passes, lakes and cliffs"
 
 msgid "sub_activities"
 msgstr "Compatibile con:"
