@@ -7025,6 +7025,21 @@ msgstr "Ski de pente raide"
 msgid "stories"
 msgstr "récits, contes, nouvelles"
 
+msgid "sub-parkings"
+msgstr "sous-accès"
+
+# [WARNING] needs_review
+msgid "sub-sites"
+msgstr "sous-sites d'escalade"
+
+# [general comment]
+# same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
+# 
+# In that case, 
+# [WARNING] needs_review
+msgid "sub-summits"
+msgstr "sous-sommets, cols, lacs, falaises"
+
 msgid "sub_activities"
 msgstr "Compatible avec&nbsp;:"
 
