@@ -119,7 +119,7 @@
 
     } else if (container_id == 'elevation_profile_container') {
       if (!div_visible && !div.hasClass('profile_loaded')) {
-        c2c_load_elevation_profile();
+        C2C.load_elevation_profile();
       }
     }
   };
