@@ -43,7 +43,7 @@ if (!svg_supported) {
   $('#elevation_profile_container_tbg').hide();
   $('#elevation_profile_nav').hide();
 } else {
-  window.c2cprofile = {
+  C2C.elevation_profile_data = {
     track: '" . url_for("@export_gpx?module=outings&id=$id&lang=" . $sf_user->getCulture()) . "',
     i18n: {
       yLegend: '" . __('Elevation (m)') . "',
@@ -72,20 +72,15 @@ if (!svg_supported) {
       .html('" . image_tag('/static/images/indicator.gif') . "')
       .removeClass('ui-spinner');
   }
-  window.c2c_load_elevation_profile = function() {
-    c2c_asyncload('$script_url');
-    $('#elevation_profile_container_section_container').addClass('profile_loaded');
+  C2C.load_elevation_profile = function() {
+    $.ajax({
+      url: '$script_url',
+      dataType: 'script',
+      cache: true
+    }).done(function() {
+      $('#elevation_profile_container_section_container').addClass('profile_loaded');
+    });
   }
 }";
-
-// In mobile version, we don't have the dynamic map, so we don't have c2c_asyncload defined
-// Also if async map loading is disabled
-// FIXME the function should be defined at top level and could be used for addthis and analytics snippets (and more...)
-// + logic is somewhat not very clear...
-if ($mobile || !sfConfig::get('app_async_map', false))
-{
-    echo javascript_tag('function c2c_asyncload(jsurl) { var a = document.createElement("script"), h = document.getElementsByTagName("head")[0];' .
-        'a.async = 1; a.src = jsurl; h.appendChild(a); }');
-}
 
 echo javascript_queue($js);

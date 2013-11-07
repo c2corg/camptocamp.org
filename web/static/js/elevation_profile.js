@@ -1,6 +1,6 @@
 (function($) {
 
-  var i18n = window.c2cprofile.i18n;
+  var i18n = C2C.elevation_profile_data.i18n;
   var mobile = $('html').hasClass('mobile');
 
   // we don't use #elevation_profile_container_section_container
@@ -17,7 +17,7 @@
 
   // d3.xml() is not working well with ie9 and ie10
   // so instead, we retrieve the text and use DOMParser on it
-  d3.xhr(window.c2cprofile.track, "application/xml")
+  d3.xhr(C2C.elevation_profile_data.track, "application/xml")
     // TODO progress events?
     //.on("progress", function() {
     //  console.log(d3.event.loaded);
