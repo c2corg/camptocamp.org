@@ -82,7 +82,7 @@
    * Hide or show a container
    */
   C2C.toggleView = function(container_id) {
-    var alt, sign;
+    var alt, sign, complete = null;
     var div = $('#' + container_id + '_section_container');
     
     var div_visible = div.is(':visible');
@@ -99,7 +99,6 @@
       .toggleClass('picto_open picto_close');
     $('#' + container_id + '_section_title').attr('title', alt);
     $('#tip_' + container_id).html('[' + alt + ']');
-    div.slideToggle(400);
 
     // FIXME maybe we should make this less specific... or move this logic somewhere else
     // specific behaviour for the map and elevation profile
@@ -109,9 +108,8 @@
       // load map if needed
       // - presence of mapLoading div shows that map has not been created yet
       // - if C2C.async_map_init is defined, the map js should be retrieved asynchonously
-      // - the delay is to ensure that div is opened and ready for initiating the map
       if (!div_visible && $('#mapLoading').length) {
-        setTimeout(typeof C2C.async_map_init !== 'undefined' ? C2C.async_map_init : C2C.map_init, 600);
+        complete = typeof C2C.async_map_init !== 'undefined' ? C2C.async_map_init : C2C.map_init;
       }
 
       // also toggle the c2clayer widget
@@ -119,9 +117,11 @@
 
     } else if (container_id == 'elevation_profile_container') {
       if (!div_visible && !div.hasClass('profile_loaded')) {
-        C2C.load_elevation_profile();
+        complete = C2C.load_elevation_profile;
       }
     }
+
+    div.slideToggle(400, complete);
   };
 
   /**

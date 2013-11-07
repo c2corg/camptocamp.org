@@ -98,7 +98,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
           center: $init_center,
           features: " . _makeFeatureCollection($objects_list) . "
         });
-       }";
+       };";
 
     // asynchronous map loading
     if ($async_map)
@@ -115,9 +115,7 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
             url: '$c2c_script_url',
             dataType: 'script',
             cache: true
-          }).done(function() {
-            C2C.map_init();
-          });
+          }).done(C2C.map_init);
         };";
     }
 
