@@ -212,7 +212,7 @@ all:
         alt: "Expé"
       montania:
         id: 60
-        image: montania_arcteryx2.gif
+        image: montania_bd.gif
         alt: "Montania Sport"
       ibex:
         id: 61
