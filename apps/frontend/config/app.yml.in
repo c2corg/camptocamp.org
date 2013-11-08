@@ -2041,6 +2041,7 @@ all:
     debug: @MINIFY_DEBUG@
 
   production: @PRODUCTION@
+  https_login: @HTTPS_LOGIN@
 
   portals:
     filled_criteria:
