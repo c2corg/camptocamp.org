@@ -2064,7 +2064,7 @@ all:
     metaskirando:
       id: @METASKI_ID@
       name: 'metaskirando'
-      url: 'metaskirando.camptocamp.org'
+      url: 'http://metaskirando.camptocamp.org'
       menu: 1
       home: 1
     ice:
