@@ -58,6 +58,7 @@ class Punbb
     }
 
     /**
+     * old punbb hash function
      * @return string
      */
     public static function punHash($str)
@@ -76,8 +77,8 @@ class Punbb
 
     private static function punSetcookie($user_id, $password_hash, $expire)
     {
-          // the global from punbb original function
-          self::loadConfig();
+        // the global from punbb original function
+        self::loadConfig();
 
         // Enable sending of a P3P header by removing // from the following line
         // (try this if login is failing in IE6)
@@ -104,24 +105,6 @@ class Punbb
         }
     }
 
-    /**
-     * Randomly generate a password with the given number of characters.
-     * @param integer
-     * @return string
-     */
-    private static function randomPass($length)
-    {
-        $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-        $password = '';
-        for ($i = 0; $i < $length; ++$i)
-        {
-            $password .= substr($chars, (mt_rand() % strlen($chars)), 1);
-        }
-
-        return $password;
-    }
-    
     public static function getNbMessages($subjects)
     {
         // warning: 2 seq scans:

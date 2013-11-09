@@ -11,7 +11,7 @@ class PunbbComm extends BasePunbbComm
                              ->select('p.id, p.poster, p.poster_id, p.poster_email, p.message, p.posted, p.topic_id, t.id, t.poster, t.subject, t.num_replies,t.forum_id')
                              ->from('PunbbComm p, p.Topic t')
                              ->where('t.forum_id = 1 AND t.id = p.topic_id AND t.subject = ?', array($topic_subject))
-		                     ->orderby('p.id')
+		                         ->orderby('p.id')
                              ->execute();
     }
     

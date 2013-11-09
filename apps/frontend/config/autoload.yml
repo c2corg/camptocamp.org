@@ -14,3 +14,7 @@ autoload:
     name:           "GeoPHP"
     ext:            .inc
     path:           %SF_LIB_DIR%/geoPHP/
+
+  # override symfony default to avoid unnecessary loads
+  project:
+    exclude:        [model, symfony, geoPHP, password_compat]

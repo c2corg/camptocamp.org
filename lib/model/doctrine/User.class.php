@@ -66,18 +66,6 @@ class User extends BaseUser
         return ($nb > 0) ? true : false ;
     }
 
-    public static function retrieve($username, $password)
-    {
-        return Doctrine_Query::create()
-                             ->from('User')
-                             ->where('User.private_data.login_name = ? AND User.private_data.password = ?',
-                                     array($username, $password))
-                             ->limit(1)
-                             ->execute()
-                             ->getFirst();
-    }
-
-
     /**
      * add user to groups
      *
@@ -94,24 +82,6 @@ class User extends BaseUser
             $user_group->group_id = $group_id;
             $user_group->save();
         }
-    }
-
-    /**
-     * Try to retrieve the user using his temporary password field
-     *
-     * @param string $username
-     * @param string $password
-     * @return user_or_doctrine_null_object
-     */
-    public static function retrieveTmp($username, $password)
-    {
-        return Doctrine_Query::create()
-                             ->from('User')
-                             ->where('User.private_data.login_name = ? AND User.private_data.password_tmp = ?',
-                                     array(strtolower($username), $password))
-                             ->limit(1)
-                             ->execute()
-                             ->getFirst();
     }
 
     public static function getOutOfDatePendingUserIds()
