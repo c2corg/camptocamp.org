@@ -109,13 +109,19 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
                 '/static/js/popup.js', '/static/js/carto/embedded.js'),
           (bool) sfConfig::get('app_minify_debug'));
 
+        // Ext.onReady doesn't seem to fire if extjs is loaded after the dom has been loaded
+        // (but works in chrome???)
+        // so we manually trigger it to be sure
         $js .= "
         C2C.async_map_init = function() {
           $.ajax({
             url: '$c2c_script_url',
             dataType: 'script',
             cache: true
-          }).done(C2C.map_init);
+          }).done(function() {
+            C2C.map_init();
+            Ext.EventManager.fireDocReady();
+          });
         };";
     }
 

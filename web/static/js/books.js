@@ -52,7 +52,7 @@
       var a = document.createElement('script');
       var h = document.getElementsByTagName('head')[0];
       a.async = 1;
-      a.src = 'http://books.google.com/books?bibkeys=' + escape(book_isbn) +
+      a.src = '//books.google.com/books?bibkeys=' + escape(book_isbn) +
               '&jscmd=viewapi&callback=C2C.GoogleBooks.show';
       h.appendChild(a);
     }

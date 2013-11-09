@@ -5,7 +5,7 @@
 use_helper('Form', 'JavascriptQueue');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/google_search.js', 'last');
-echo image_tag('http://www.google.com/uds/css/small-logo.png');
+echo image_tag('//www.google.com/uds/css/small-logo.png');
 echo __('Results from google for %1%', array('%1%' => $query_string)); ?>
 <div id="google_search_results"></div>
 </div>

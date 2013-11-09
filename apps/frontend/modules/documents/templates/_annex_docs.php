@@ -44,7 +44,7 @@ if (count($related_articles) || count($related_portals))
                 {
                     $portal_url = $portal_config['annex_url'];
                 }
-                $portal_url = 'http://' . $portal_url;
+                $portal_url = $portal_url;
             }
             else
             {

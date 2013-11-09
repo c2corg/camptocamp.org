@@ -3715,7 +3715,7 @@ class documentsActions extends c2cActions
             $email_recipient = UserPrivateData::find($linked_id)->getEmail();
             $email_subject = $this->__('You have been associated to an outing');
             $server = $_SERVER['SERVER_NAME'];
-            $outing_link = "http://$server/outings/$main_id";
+            $outing_link = 'http'.(empty($_SERVER['HTTPS']) ? '' : 's')."://$server/outings/$main_id";
             $htmlBody = $this->__('You have been associated to outing %1% details', array('%1%' => '<a href="' . $outing_link . '">' . $outing_link . '</a>'));
 
             $mail = new sfMail();

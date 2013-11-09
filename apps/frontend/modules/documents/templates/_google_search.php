@@ -15,12 +15,12 @@ echo javascript_queue("C2C.GoogleSearch = C2C.GoogleSearch || {};
 C2C.GoogleSearch.i18n = new Array('" . implode("', '", $google_i18n) . "');" .
 "C2C.GoogleSearch.base_url = 'https://www.googleapis.com/customsearch/v1?key=" . sfConfig::get('app_google_api_key') .
 '&cx=' . $cse[$module] . "&callback=C2C.GoogleSearch.handleResponse';
-C2C.GoogleSearch.alternate_url = 'http://www.google.com/cse?cx=" . $cse[$module] ."';");
+C2C.GoogleSearch.alternate_url = 'https://www.google.com/cse?cx=" . $cse[$module] ."';");
 ?>
 <div id="google_search">
 <?php
 echo __('Search with google');
-echo form_tag('http://www.google.com/search', array('method'=>'get',
+echo form_tag('https://www.google.com/search', array('method'=>'get',
     'onsubmit' => 'C2C.GoogleSearch.q=$("#google_search_input").val(); C2C.GoogleSearch.search(); return false;'));
 echo input_tag('q', null, array('id'=>'google_search_input',
                                 'data-lang' => __('meta_language'),

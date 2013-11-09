@@ -343,7 +343,7 @@ data_ga_property: "'.sfConfig::get('app_ganalytics_key').'",data_ga_social: true
 var addthis_localize = {share_caption:"'.__('Bookmark & Share').'",more:"'.__('More...').'"};
 </script>';
     return $addthis_js.link_to('<span class="share_bookmark '.__('meta_language') .'"></span>',
-                               'http://www.addthis.com/bookmark.php',
+                               '//www.addthis.com/bookmark.php',
                                 array('class' => 'addthis_button'));
 }
 
@@ -368,10 +368,10 @@ function button_widget($parameters)
 
 function buttons_facebook_twitter_c2c()
 {
-    return '<a href="http://www.facebook.com/pages/Camptocamporg/175865161596" '
+    return '<a href="https://www.facebook.com/pages/Camptocamporg/175865161596" '
            . 'title="' . __('Camptocamp on Facebook') . '">'
            . '<span id="facebook_logo"></span></a>&nbsp;'
-           . '<a href="http://twitter.com/camptocamporg" '
+           . '<a href="https://twitter.com/camptocamporg" '
            . 'title="' . __('Camptocamp on Twitter') . '">'
            . '<span id="twitter_logo"></span></a>&nbsp;'
            . '<a href="https://plus.google.com/104270548458536561874/" '
