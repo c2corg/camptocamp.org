@@ -4,7 +4,7 @@
  */
 (function(C2C, $) {
 
-  C2C.GoogleBooks = {
+  $.extend(C2C.GoogleBooks = C2C.GoogleBooks || {}, {
 
     show: function(booksInfo) {
       var has_results = false;
@@ -20,14 +20,14 @@
         // build result html
         var li = $('<li/>');
         li.append('<a href="' + info_url + '" class="external_link">' +
-                  google_books_translation + '</a><br>');
+                  C2C.GoogleBooks.translation + '</a><br>');
 
         if (thumbnail_url) {
           li.append('<a href="' + info_url + '"><img src="' + thumbnail_url + '"></a>');
         }
 
         if (preview_url && preview != 'noview') {
-          li.append('<a href="' + preview_url + '"><img src="' + preview_logo_src + '"></a>');
+          li.append('<a href="' + preview_url + '"><img src="' + C2C.GoogleBooks.preview_logo_src + '"></a>');
         } else {
           li.append('<img src="http://books.google.com/googlebooks/images/poweredby.png">');
         }
@@ -52,15 +52,9 @@
       var a = document.createElement('script');
       var h = document.getElementsByTagName('head')[0];
       a.async = 1;
-      a.src = '//books.google.com/books?bibkeys=' + escape(book_isbn) +
+      a.src = '//books.google.com/books?bibkeys=' + escape(C2C.GoogleBooks.book_isbn) +
               '&jscmd=viewapi&callback=C2C.GoogleBooks.show';
       h.appendChild(a);
     }
-  };
-
-  // search book references by google when dom loaded
-  if (typeof(book_isbn) !== 'undefined') {
-    $(C2C.GoogleBooks.search);
-  }
-
+  });
 })(window.C2C = window.C2C || {}, jQuery);
