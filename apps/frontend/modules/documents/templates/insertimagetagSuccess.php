@@ -24,7 +24,7 @@ if (count($associated_images) == 0): ?>
         <legend><?php echo __('options') ?></legend>
         <p>
 <?php echo checkbox_tag('customlegend', 'customlegend', false, array('id' => 'inserted_image_customlegend', 'onclick' => 'C2C.doUpdateImageLegend();'))
-         . ' ' . label_for('customlegend', __('Custom legend')) . ' '
+         . ' ' . label_for('inserted_image_customlegend', __('Custom legend')) . ' '
          . input_tag('legend', $associated_images[0]['name'], array('id' => 'inserted_image_legend', 'class' => 'medium_input', 'disabled' => 'disabled')); ?>
         </p>
         <p>
@@ -35,7 +35,7 @@ if (count($associated_images) == 0): ?>
        . radiobutton_tag('inserted_image_alignment', 'center', 0, array('id' => 'alignment3')) . ' ' . label_for('alignment3', __('center')) . ' '
        . radiobutton_tag('inserted_image_alignment', 'inline', 0, array('id' => 'alignment4')) . ' ' . label_for('alignment4', __('inline'));
     echo '</p><p>';
-    echo label_for('hideborderlegend', __('hideborderlegend')) . ' '
+    echo label_for('inserted_image_hideborderlegend', __('hideborderlegend')) . ' '
        . checkbox_tag('hideborderlegend', 'hideborderlegend', false, array('id' => 'inserted_image_hideborderlegend'));
 ?>
         </p>
