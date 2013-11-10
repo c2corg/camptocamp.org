@@ -23,20 +23,21 @@ if (count($associated_images) == 0): ?>
     <fieldset class="separator">
         <legend><?php echo __('options') ?></legend>
         <p>
-<?php echo checkbox_tag('customlegend', 'customlegend', false, array('id' => 'inserted_image_customlegend', 'onclick' => 'C2C.doUpdateImageLegend();'))
-         . ' ' . label_for('inserted_image_customlegend', __('Custom legend')) . ' '
-         . input_tag('legend', $associated_images[0]['name'], array('id' => 'inserted_image_legend', 'class' => 'medium_input', 'disabled' => 'disabled')); ?>
+<?php echo content_tag('label', checkbox_tag('customlegend', 'customlegend', false,
+                       array('id' => 'inserted_image_customlegend', 'onclick' => 'C2C.doUpdateImageLegend();'))
+               . ' ' . __('Custom legend')) . ' '
+        . input_tag('legend', $associated_images[0]['name'], array('id' => 'inserted_image_legend', 'class' => 'medium_input', 'disabled' => 'disabled')); ?>
         </p>
         <p>
 <?php
     echo __('Alignment') . ' '
-       . radiobutton_tag('inserted_image_alignment', 'right',  1, array('id' => 'alignment1')) . ' ' . label_for('alignment1', __('right')) . ' '
-       . radiobutton_tag('inserted_image_alignment', 'left',   0, array('id' => 'alignment2')) . ' ' . label_for('alignment2', __('left')) . ' '
-       . radiobutton_tag('inserted_image_alignment', 'center', 0, array('id' => 'alignment3')) . ' ' . label_for('alignment3', __('center')) . ' '
-       . radiobutton_tag('inserted_image_alignment', 'inline', 0, array('id' => 'alignment4')) . ' ' . label_for('alignment4', __('inline'));
+       . content_tag('label', radiobutton_tag('inserted_image_alignment', 'right',  1, array('id' => 'alignment1')) . ' ' . __('right')) . ' '
+       . content_tag('label', radiobutton_tag('inserted_image_alignment', 'left',   0, array('id' => 'alignment2')) . ' ' . __('left')) . ' '
+       . content_tag('label', radiobutton_tag('inserted_image_alignment', 'center', 0, array('id' => 'alignment3')) . ' ' . __('center')) . ' '
+       . content_tag('label', radiobutton_tag('inserted_image_alignment', 'inline', 0, array('id' => 'alignment4')) . ' ' . __('inline'));
     echo '</p><p>';
-    echo label_for('inserted_image_hideborderlegend', __('hideborderlegend')) . ' '
-       . checkbox_tag('hideborderlegend', 'hideborderlegend', false, array('id' => 'inserted_image_hideborderlegend'));
+    echo content_tag('label',  __('hideborderlegend') . ' ' . checkbox_tag('hideborderlegend', 'hideborderlegend',
+             false, array('id' => 'inserted_image_hideborderlegend')));
 ?>
         </p>
     </fieldset>
