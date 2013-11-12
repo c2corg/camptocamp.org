@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer'); 
+use_helper('Language', 'Sections', 'Viewer', 'JavascriptQueue', 'MyMinify'); 
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
@@ -126,9 +126,7 @@ if ($is_not_archive && $is_not_merged)
     if ($document['isbn'])
     {
         // TODO checks on ISBN value (multiple isbns?)
-        $response = sfContext::getInstance()->getResponse();
-        $response->addJavascript('/static/js/books.js');
-
+        $script = minify_get_combined_files_url('/static/js/books.js'); 
         $isbn_or_issn = 'ISBN:';
         foreach ($document['book_types'] as $type)
         {
@@ -140,9 +138,17 @@ if ($is_not_archive && $is_not_merged)
         }
 
         echo start_section_tag('Buy the book', 'buy_books', 'opened', false, false, true);
-        echo javascript_tag("var preview_logo_src = 'http://books.google.com/intl/$lang/googlebooks/images/gbs_preview_button1.png';"
-                            . 'var google_books_translation = \''.__('Google Book Search').'\';'
-                            . 'var book_isbn = \''.$isbn_or_issn.$document['isbn'].'\';');
+        echo javascript_queue("$.extend(C2C.GoogleBooks = C2C.GoogleBooks || {}, {
+          preview_logo_src: 'http://books.google.com/intl/$lang/googlebooks/images/gbs_preview_button1.png'," . "
+          translation: '" . __('Google Book Search') . "'," . "
+          book_isbn: '" . $isbn_or_issn . $document['isbn'] . "'});
+        $.ajax({
+          url: '$script',
+          dataType: 'script',
+          cache: true })
+        .done(function() {
+          C2C.GoogleBooks.search();
+        });");
         echo end_section_tag();
     }
 

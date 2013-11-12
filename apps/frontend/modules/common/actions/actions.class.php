@@ -16,6 +16,19 @@ class commonActions extends c2cActions
     public function executeError404()
     {
       // show the c2corg 404 error
+
+      // except if host is static host. We really don't want to display standard 404 page to static host:
+      // - there would be a lot of links for home & co, but using the static host, thus leading to 403s!
+      // - we really don't want symfony to set cookies on static host
+      if (sfContext::getInstance()->getRequest()->getHost() == sfConfig::get('app_static_version_host'))
+      {
+          header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
+          header_remove('Set-Cookie');
+          echo "<!doctype html>
+          <html><head><title>404 Not Found</title></head><body><h1>Not Found</h1>
+          <p>File not found on this server.</p></body></html>";
+          exit;
+      }
     }
     
     /**
