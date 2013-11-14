@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ raid, rayonrando, camp_c, google, montania, bd_vector, changerdapproche, google, camp_c, boutique_c2c, raid, changerdapproche ]
+    values: [ diamir_vipec, rayonrando, camp_c, diamir_vipec, montania, bd_vector, changerdapproche, diamir_vipec, camp_c, boutique_c2c, raid, diamir_vipec ]
   banners:
     list:
       skalp:
@@ -195,7 +195,7 @@ all:
         image: diamir-WIN.gif
         alt: "Diamir WIN"
       diamir_Scout11:
-        id: 56
+        id: 78
         image: diamir-Scout11.gif
         alt: "Diamir Scout 11"
       diamir_securite:
@@ -269,4 +269,12 @@ all:
         id: 77
         image: mdlt.jpg
         alt: "Montagnes de la Terre"
+      diamir_vipec:
+        id: 79
+        image: diamir-vipec.gif
+        alt: "Diamir Vipec"
+      diamir_colorclip:
+        id: 79
+        image: diamir-colorclip.gif
+        alt: "Diamir Color Clip"      
 
