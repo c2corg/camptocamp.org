@@ -1,0 +1,30 @@
+#images_wizard_ondrag {
+  font-size: 2em;
+  font-style: normal;
+  font-weight: bold;
+  background-color: white;
+  border: 6px solid #f93;
+  text-align: center;
+  position: absolute;
+
+  p {
+    margin-top: 1.5em;
+  }
+}
+
+#images_wizard {
+  background-color: white;
+
+  div {
+    margin-bottom: 8px;
+  }
+
+  label {
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  input[type=text] {
+    width: 250px;
+  }
+}

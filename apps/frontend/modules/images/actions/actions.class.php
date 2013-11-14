@@ -294,6 +294,12 @@ class imagesActions extends documentsActions
         }
     }
 
+    public function executeForumWizard()
+    {
+        // would be more logically in web/forums, but symfony helpers (especially i18n)
+        // are of great help here
+    }
+
     public function handleErrorJsupload()
     {
         // we discard the images, and do redirect to document
