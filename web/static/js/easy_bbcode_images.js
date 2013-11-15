@@ -30,14 +30,18 @@
     $('#images_wizard').off('dragenter dragover drop');
   };
 
-  // uplaod a local file to imgur
+  // upload a local file to imgur
   C2C.upload_local_file = function(files) {
     var file = files[0];
 
-    if (!file.type.match(/image.*/)) {
+    if (!file || !file.type.match(/image.*/)) {
       return;
     }
 
+    // note: I tried to simply use FormData rather than retrieving the base64, but then there is
+    // a problem with CORS, not sure exactly why, since it accepts our preflighted requests with
+    // current method
+    // anyway, browser support for FileReader or FormData is the same
     var reader = new FileReader();
 
     reader.onload = function(imgdata) {
@@ -48,8 +52,10 @@
         $('#images_wizard_select').prop('disabled', true);
       }).fail(function(jqXHR) {
         alert('Sorry but an error occure, when uploading image on imgur');
-        C2C.insertText('[img]', '[/img]');
+        C2C.insert_text('[img]', '[/img]');
         C2C.close_images_wizard();
+      }).progress(function(progress) {
+        console.log('progress'+progress);
       });
     };
     reader.readAsDataURL(file);
@@ -78,13 +84,30 @@
     }
   }
 
+  // note that we hacked it a bit so that we can use 'progress'
+  // callbacks. We cannot directly use Deferred.notify on this so
+  // we fake it.
   function imgurUpload(imgdata) {
+    var progressClbks = [];
+
     var indicator = $('#indicator');
     indicator.show();
-    return $.ajax({
+
+    var req = $.ajax({
       url: 'https://api.imgur.com/3/image',
       method: 'POST',
       headers: headers,
+      xhr: function() { // 'hack' for upload progress events
+        var req = $.ajaxSettings.xhr();
+        if (req && req.upload) {
+          req.upload.addEventListener('progress', function(e) {
+            if (e.lengthComputable) {
+              notifyProgress(parseInt(e.loaded / e.total * 100, 10));
+            }
+          }, false);
+        }
+        return req;
+      },
       data: {
         image: imgdata,
         type: 'base64'
@@ -92,6 +115,22 @@
     }).always(function() {
       indicator.hide();
     });
+
+    req.progress = function(f) {
+      progressClbks.push(f);
+      return req;
+    }
+
+    function notifyProgress(progress) {
+      var i = 0, length = progressClbks.length;
+      for (; i < length; i++) {
+        if (typeof progressClbks[i] == 'function') {
+          progressClbks[i].call(req, progress);
+        }
+      }
+    }
+
+    return req;
   }
 
 })(window.C2C = window.C2C || {}, jQuery);
