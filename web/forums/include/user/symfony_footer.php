@@ -45,9 +45,13 @@ $sf_response->addJavascript('/static/js/queue.js');
 //if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
 //{
     $sf_response->addJavascript('/static/js/easy_bbcode.js');
+    if (!$mobile_version)
+    {
+        $sf_response->addJavascript('/static/js/easy_bbcode_images.js');
+    }
 //}
 
-if (!c2cTools::mobileVersion())
+if (!$mobile_version)
 {
     $sf_response->addJavascript('/static/js/modal.js');
 }
