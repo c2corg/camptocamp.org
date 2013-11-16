@@ -47,7 +47,7 @@ if (!$sf_user->isConnected() && !is_null($cookie))
     else
     {
         // delete cookie value in client so that no more requests are made to the db
-        $response->setCookie($remember_cookie, '');
+        $context->getResponse()->setCookie($remember_cookie, '');
     }
 }
 
