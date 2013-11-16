@@ -47,7 +47,7 @@ $sf_response->addJavascript('/static/js/queue.js');
     $sf_response->addJavascript('/static/js/easy_bbcode.js');
 //}
 
-if (!c2cTools::mobileVersion())
+if (!$mobile_version)
 {
     $sf_response->addJavascript('/static/js/modal.js');
 }

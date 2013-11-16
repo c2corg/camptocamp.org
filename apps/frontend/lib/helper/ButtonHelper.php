@@ -188,7 +188,7 @@ $.ajax('" . url_for("@doc_protect?module=$module&id=$id") . "')
       });
     C2C.showSuccess(data);})
   .fail(function(data) {
-    C2C.showFailure(data);})
+    C2C.showFailure(data.responseText);})
   .always(function() {
     indicator.hide();})";
 

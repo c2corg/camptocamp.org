@@ -92,7 +92,7 @@ if (isset($_POST['form_sent']))
         $_POST['req_username'] = $multiuser[$ju];
 	
 	// Get userid
-	$result = $db->query('SELECT u.id, u.username, u.group_id, g.g_pm_limit FROM '.$db->prefix.'users AS u INNER JOIN '.$db->prefix.'groups AS g ON u.group_id=g.g_id WHERE u.id != 1 AND u.username = \''.addslashes($_POST['req_username']).'\'') or error('Unable to get user id', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT u.id, u.username, u.group_id, g.g_pm_limit FROM '.$db->prefix.'users AS u INNER JOIN '.$db->prefix.'groups AS g ON u.group_id=g.g_id WHERE u.id != 1 AND u.username = \''.$db->escape($_POST['req_username']).'\'') or error('Unable to get user id', __FILE__, __LINE__, $db->error());
 
 	// Send message
 	if(list($id, $receiver, $status, $receiver_pm_limit) = $db->fetch_row($result))
@@ -118,9 +118,9 @@ if (isset($_POST['form_sent']))
 		// "Send" message
 		$db->query('INSERT INTO '.$db->prefix.'messages (owner, subject, message, sender, sender_id, sender_ip, smileys, showed, status, posted) VALUES(
 			\''.$id.'\',
-			\''.addslashes($subject).'\',
-			\''.addslashes($message).'\',
-			\''.addslashes($pun_user['username']).'\',
+			\''.$db->escape($subject).'\',
+			\''.$db->escape($message).'\',
+			\''.$db->escape($pun_user['username']).'\',
 			\''.$pun_user['id'].'\',
 			\''.get_remote_address().'\',
 			\''.$hide_smilies.'\',
@@ -134,9 +134,9 @@ if (isset($_POST['form_sent']))
         {
 			$db->query('INSERT INTO '.$db->prefix.'messages (owner, subject, message, sender, sender_id, sender_ip, smileys, showed, status, posted) VALUES(
 				\''.$pun_user['id'].'\',
-				\''.addslashes($subject).'\',
-				\''.addslashes($message).'\',
-				\''.addslashes($receiver).'\',
+				\''.$db->escape($subject).'\',
+				\''.$db->escape($message).'\',
+				\''.$db->escape($receiver).'\',
 				\''.$id.'\',
 				\''.get_remote_address().'\',
 				\''.$hide_smilies.'\',
