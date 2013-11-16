@@ -46,6 +46,9 @@
 
     reader.onload = function(imgdata) {
       var base64 = imgdata.target.result.substr(imgdata.target.result.indexOf('base64,')+7);
+
+      var indicator = $('#indicator');
+      indicator.show();
       imgurUpload(base64).done(function(result) {
         imgur_deletehash = result.data.deletehash;
         $('#images_wizard_url').val(result.data.link).prop('disabled', true);
@@ -56,6 +59,8 @@
         C2C.close_images_wizard();
       }).progress(function(progress) {
         console.log('progress'+progress);
+      }).always(function() {
+        indicator.hide();
       });
     };
     reader.readAsDataURL(file);
@@ -89,10 +94,6 @@
   // we fake it.
   function imgurUpload(imgdata) {
     var progressClbks = [];
-
-    var indicator = $('#indicator');
-    indicator.show();
-
     var req = $.ajax({
       url: 'https://api.imgur.com/3/image',
       method: 'POST',
@@ -112,8 +113,6 @@
         image: imgdata,
         type: 'base64'
       }
-    }).always(function() {
-      indicator.hide();
     });
 
     req.progress = function(f) {
