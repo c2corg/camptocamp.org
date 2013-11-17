@@ -1,14 +1,16 @@
-#images_wizard_ondrag {
-  font-size: 2em;
-  font-style: normal;
-  font-weight: bold;
-  background-color: white;
-  border: 6px solid #f93;
-  text-align: center;
-  position: absolute;
+#global-drop-overlay {
+  background: none repeat scroll 0 0 #424242;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include opacity(.8);
+  z-index: 10001;
+  display: none;
 
-  p {
-    margin-top: 1.5em;
+  &.active {
+    display: block;
   }
 }
 
@@ -26,5 +28,9 @@
 
   input[type=text] {
     width: 250px;
+  }
+
+  input[type=file] {
+    display: none;
   }
 }
