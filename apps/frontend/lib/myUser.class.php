@@ -1,8 +1,8 @@
 <?php
-/**
- * User management customization.
- * @version $Id: myUser.class.php 2476 2007-12-05 12:46:40Z fvanderbiest $
- */
+// FIXME this is a bit dirty. We cannot use autoload features since there is no class. Is there a better way for this?
+// compatibility with password_* function from php 5.5
+require_once(sfConfig::get('sf_lib_dir').DIRECTORY_SEPARATOR.'password_compat'.
+             DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'password.php');
 
 class myUser extends sfBasicSecurityUser
 {
@@ -135,17 +135,31 @@ class myUser extends sfBasicSecurityUser
 
         $return = false;
 
-        $hashed_pwd = Punbb::punHash($password);
-
-        if ($password_is_hashed)
+        // we need to retrieve the stored hash for the correspondings user to:
+        // - the salt is stored there, needed for verifiying the password
+        // - allows us to check whether it is still an old hash, without salt
+        $upd = UserPrivateData::retrieveByLoginName($login_name);
+        if (!$upd) // login name not in database
         {
-            $user = User::retrieve($login_name, $password);
+            return false;
         }
         else
         {
-            $user = User::retrieve($login_name, $hashed_pwd);
+            $userid = $upd->id;
+            $hash_tmp = $upd->password_tmp;
+            $hash = $upd->password;
         }
 
+        if ($password_is_hashed) 
+        {
+            $user = ($password === $hash) ? sfDoctrine::getTable('User')->find($userid) : false;
+        }
+        else
+        {
+            $user = $this->check_password($password, $hash) ? sfDoctrine::getTable('User')->find($userid) : false;
+        }
+
+        // maybe the user requested a new password, check if password_tmp is ok
         if (!$user && !$password_is_hashed)
         {
             // This block is not used when password is hashed. Indeed password is hashed only
@@ -155,7 +169,7 @@ class myUser extends sfBasicSecurityUser
             c2cTools::log('base login failed, start trying with password_temp');
 
             // user not found, try with tmp password
-            $user = User::retrieveTmp($login_name, $hashed_pwd);
+            $user = $this->check_password($password, $hash_tmp) ? sfDoctrine::getTable('User')->find($userid) : false;
 
             if ($user)
             {
@@ -181,6 +195,28 @@ class myUser extends sfBasicSecurityUser
                 c2cTools::log('user is active');
 
                 $user_id = $user->get('id');
+
+                // if we went there with the old hash algorithm (simple hash, no salt),
+                // then update the db with so that we use the new algorithm next time
+                if (!$password_is_hashed && password_needs_rehash($hash, PASSWORD_DEFAULT))
+                {
+                    c2cTools::log('upgrading user to new hash algorithm');
+
+                    $conn = sfDoctrine::Connection();
+                    try
+                    {
+                        $user_private_data = UserPrivateData::find($user_id);
+                        $user_private_data->setPassword($password);
+                        $user_private_data->save();
+                        $conn->commit();
+                    }
+                    catch (Exception $e)
+                    {
+                        $conn->rollback();
+                        c2cTools::log('could not upgrade user to new hash algorithm');
+                    }
+                }
+
                 $user_culture = $user->get('private_data')->getPreferedCulture();
 
                 // when user signs-in it confirms his signup
@@ -280,18 +316,6 @@ class myUser extends sfBasicSecurityUser
         }
 
         return $return;
-    }
-
-    protected function generateRandomKey( $len = 20 )
-    {
-        $string = '';
-        $pool = 'abcdefghijklmnopqrstuvwzyzABCDEFGHIJKLMNOPQRSTUVWZYZ0123456789';
-        for ( $i = 1; $i <= $len; $i++ )
-        {
-            $string .= substr( $pool, rand( 0, 61 ), 1 );
-        }
-
-        return md5( $string );
     }
 
     public function signOut()
@@ -514,5 +538,14 @@ class myUser extends sfBasicSecurityUser
     {
         $this->setAttribute('filters_switch', $status);
     }
-    
+
+    // check if provided password matches the hash
+    protected function check_password($password, $hash)
+    {
+        // check whether the stored hash is using password_hash() or Punbb::hash()
+        $password_needs_rehash = password_needs_rehash($hash, PASSWORD_DEFAULT);
+
+        return ((!$password_needs_rehash && password_verify($password, $hash)) ||
+                ($password_needs_rehash && Punbb::punHash($password) === $hash));
+    }
 }
