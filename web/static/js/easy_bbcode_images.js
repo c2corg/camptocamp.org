@@ -3,12 +3,13 @@
   // If the browser is modern enough, we replace the onclick event with our own function
   if (!!(window.File && window.FileList && window.FileReader)) {
 
-    var imgur_data,
+    var imgur_data, i18n,
         headers = {
           Authorization: 'Client-ID 7aa5a3fe49976d5',
           Accept: 'application/json'
         },
-        drop_overlay = $('<div/>', { id: 'global-drop-overlay' }).appendTo('body');
+        drop_overlay = $('<div/>', { id: 'global-drop-overlay' })
+          .appendTo('body');
 
     // replace handlers on [img] button
     $('input[name=Img]')
@@ -16,7 +17,7 @@
       .on('click', function () {
         $.modalbox.show({
           remote: '/images/forums/wizard',
-          title: this.title
+          title: 'TODO get this from data-attribute'
         });
         $(document).on('keyup.fiw', function(e) {
           if (e.which == 27) {
@@ -27,10 +28,12 @@
         });
       });
 
-    C2C.init_forums_images_wizard = function() {
+    C2C.init_forums_images_wizard = function(_i18n) {
       var file_input = $('#images_wizard_file'),
           file_button = $('#images_wizard_select_file'),
           url_input = $('#images_wizard_url');
+
+      i18n = _i18n;
 
       // click to select a local file
       file_input.change(function() {
@@ -46,17 +49,14 @@
         console.log(e.target.value);
         var that = this;
         setTimeout(function() {
-          var url = $(that).val();
-          if (url.match(/^https?:\/\//)) { // does it looks like an url?
-            insert_url_code(url);
-          }
+          handle_url($(that).val());
         }, 100);
       })
       // else wait for user to press enter
       .on('keyup.fiw', function(e) {
         var url = $(this).val();
-        if (e.which == 13 && url.match(/^https?:\/\//)) {
-          insert_url_code(url);
+        if (e.which == 13) {
+          handle_url(url);
         }
       });
 
@@ -102,11 +102,13 @@
     reader.onload = function(imgdata) {
       var base64 = imgdata.target.result.substr(imgdata.target.result.indexOf('base64,')+7);
 
-      $('#images_wizard').append($('<img/>', { src: imgdata.target.result,
-        style: 'max-width: 100px' }));
+      var progress = $('<div class="progress"/>');
+      $('#images_wizard')
+        .append($('<div><br/><br/>'+i18n.wait+'<br/><br/></div>'))
+        .append($('<div class="progress_bar"/>')
+          .append(progress))
+        .find('ul').hide();
 
-      var indicator = $('#indicator');
-      indicator.show();
       imgurUpload(base64).done(function(result) {
         // check if modal is still there and has not been closed
         if ($('#modalbox').hasClass('in')) {
@@ -124,19 +126,49 @@
           C2C.insert_text('[img]', '[/img]');
           close_images_wizard();
         }
-      }).progress(function(progress) {
-        console.log('progress'+progress);
-      }).always(function() {
-        indicator.hide();
+      }).progress(function(p) {
+        progress.width(p + '%');
       });
     };
     reader.readAsDataURL(file);
   }
 
+  function handle_url(url) {
+    var parts, criteria, indicator = $('#indicator');
+
+    // url of a direct link to c2c image
+    if (parts = url.match(/^https?:\/\/\w+\.camptocamp\.org\/uploads\/images\/([0-9]{10}_[0-9]+)(SI|MI|BI)?.(jpg|png|gif)/)) {
+      criteria = 'filename/' + parts[1] + '.' + parts[3];
+    }
+    // c2c image page
+    else if (parts = url.match(/^https?:\/\/\w+\.camptocamp\.org\/images\/([0-9]+)/)) {
+      criteria = 'id/' + parts[1];
+    }
+    // does it looks like an url?
+    else if (url.match(/^https?:\/\//)) {
+      insert_url_code(url);
+      return;
+    }
+    // obviously not a valid url, let the user continue typing
+    else {
+      return;
+    }
+
+    indicator.show();
+    $.get('/images/find/' + criteria).done(function(data) {
+      C2C.insert_text('[img=' + data.filename + ' ' + data.id + ' inline]', '[/img]');
+      close_images_wizard();
+    }).fail(function() {
+      // won't work, but print code
+      insert_url_code(url);
+    }).always(function() {
+      indicator.hide();
+    });
+  }
+
   // insert code if image url is given
   function insert_url_code(url) {
     C2C.insert_text('[img='+url+']', '[/img]');
-
     close_images_wizard();
   }
 
