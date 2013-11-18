@@ -21,20 +21,4 @@ SYMBOL
    END
 END
 
-SYMBOL
-    NAME 'border'
-    TYPE VECTOR
-    POINTS
-        0 0
-        1 0
-        1 0.8
-        0 0.8
-        0 0
-    END
-    STYLE
-        10 6 1 6
-    END
-    FILLED TRUE
-END
-
 END # end of SYMBOLSET
