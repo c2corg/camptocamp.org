@@ -792,10 +792,8 @@ function options_with_classes_for_select($options = array(), $selected = '', $ht
                 $option_options['class'] = $class_prefix . $suffix;
             }
 
-            if (
-                (is_array($selected) && in_array(strval($key), $selected, true))
-                ||
-                (strval($key) == strval($selected))
+            if ((is_array($selected) && in_array(strval($key), $selected, true)) ||
+                (!is_array($selected) && strval($key) == strval($selected))
             )
             {
                 $option_options['selected'] = 'selected';
