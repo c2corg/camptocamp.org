@@ -635,12 +635,12 @@ function paginate($num_pages, $cur_page, $link_to, $rel = '', $prev_next = false
             if ($cur_page > 1)
             {
                 $page = $cur_page - 1;
-                $pages[] = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'>< '.$lang_common['Previous'].'</a>';
+                $pages[] = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'>&lt; '.$lang_common['Previous'].'</a>';
             }
             if ($cur_page < $num_pages)
             {
                 $page = $cur_page + 1;
-                $next_link = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'>'.$lang_common['Next'].' ></a>';
+                $next_link = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'>'.$lang_common['Next'].' &gt;</a>';
             }
         }
         
