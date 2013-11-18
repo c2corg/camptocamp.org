@@ -72,7 +72,11 @@
         e.stopPropagation();
         e.preventDefault();
         drop_overlay.removeClass('active');
-        upload_local_file(e.originalEvent.dataTransfer.files);
+        if (e.originalEvent.dataTransfer.files.length) {
+          upload_local_file(e.originalEvent.dataTransfer.files);
+        } else if (e.originalEvent.dataTransfer.getData('URL')) {
+          handle_url(e.originalEvent.dataTransfer.getData('URL'));
+        }
       });
     };
   }
@@ -141,7 +145,7 @@
       criteria = 'id/' + parts[1];
     }
     // does it looks like an url?
-    else if (url.match(/^https?:\/\//)) {
+    else if (url.match(/^https?:\/\/.*\.(jpg|jpeg|png|gif)$/i)) {
       insert_url_code(url);
       return;
     }
