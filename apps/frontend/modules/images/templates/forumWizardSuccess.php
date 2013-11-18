@@ -11,7 +11,7 @@
     <li id="images_wizard_url">
       <div class="images_wizard_image" />
       <span><?php echo __('Image on the internet') ?></span>
-      <input type="text" id="images_wizard_url" placeholder="<?php echo __('enter URL or paste it from clipboard') ?>" />
+      <input type="text" id="images_wizard_url_input" placeholder="<?php echo __('enter URL or paste it from clipboard') ?>" />
     </li>
   </ul>
 </div>

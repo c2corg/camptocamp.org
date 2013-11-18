@@ -320,14 +320,14 @@ class imagesActions extends documentsActions
         }
         else
         {
-            $this->setNotFoundAndRedirect();
+            return $this->ajax_feedback('Not found');
         }
 
         $result = $q->execute()->getFirst();
 
         if ($result === false)
         {
-            $this->setNotFoundAndRedirect();
+            return $this->ajax_feedback('Not found');
         }
         else
         {

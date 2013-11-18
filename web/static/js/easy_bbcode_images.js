@@ -31,7 +31,7 @@
     C2C.init_forums_images_wizard = function(_i18n) {
       var file_input = $('#images_wizard_file'),
           file_button = $('#images_wizard_select_file'),
-          url_input = $('#images_wizard_url');
+          url_input = $('#images_wizard_url_input');
 
       i18n = _i18n;
 
@@ -45,8 +45,6 @@
 
       // detect if user pasted an url
       url_input.on('paste.fiw', function(e) {
-        console.log('pasted!');
-        console.log(e.target.value);
         var that = this;
         setTimeout(function() {
           handle_url($(that).val());
@@ -54,9 +52,8 @@
       })
       // else wait for user to press enter
       .on('keyup.fiw', function(e) {
-        var url = $(this).val();
         if (e.which == 13) {
-          handle_url(url);
+          handle_url($(this).val());
         }
       });
 
@@ -100,8 +97,6 @@
     var reader = new FileReader();
 
     reader.onload = function(imgdata) {
-      var base64 = imgdata.target.result.substr(imgdata.target.result.indexOf('base64,')+7);
-
       var progress = $('<div class="progress"/>');
       $('#images_wizard')
         .append($('<div><br/><br/>'+i18n.wait+'<br/><br/></div>'))
@@ -109,6 +104,7 @@
           .append(progress))
         .find('ul').hide();
 
+      var base64 = imgdata.target.result.substr(imgdata.target.result.indexOf('base64,')+7);
       imgurUpload(base64).done(function(result) {
         // check if modal is still there and has not been closed
         if ($('#modalbox').hasClass('in')) {
