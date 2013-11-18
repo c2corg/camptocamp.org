@@ -7,7 +7,7 @@ $item_i18n = $item_i18n[0];
 {
   "name": <?php echo json_encode($item_i18n['name']) ?>,
   "url": "<?php echo jsonlist_url($item_i18n, 'routes') ?>",
-  "hasTrack": <?php echo strlen($item['geom_wkt']) > 0 // TODO boolean ?>,
+  "hasTrack": <?php echo strlen($item['geom_wkt']) > 0 ? 'true' : 'false' ?>,
   "activities": <?php echo json_encode(BaseDocument::convertStringToArray($item['activities'])) ?>,
   "nbLinkedImages": <?php echo isset($item['nb_images']) ?  $item['nb_images'] : 0 ?>,
   "nbComments": <?php echo isset($item['nb_comments']) ? $item['nb_comments'] : 0 ?>,
