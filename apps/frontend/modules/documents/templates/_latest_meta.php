@@ -65,12 +65,14 @@ $.get("' . html_entity_decode(html_entity_decode($feed_url)) . '").done(function
       + "</li>"
     );
   });
+}).fail(function() {
+  $("#on_the_web_section_list").html("' . __('No recent changes available') . '");
 });
 ');
 ?>
 <div id="on_the_web_section_container" class="home_container_text">
 <ul id="on_the_web_section_list" class="dated_changes">
-<li><?php echo __('No recent changes available') ?></li>
+<li><?php echo image_tag(sfConfig::get('app_static_url') . '/static/images/indicator.gif') . __(' loading...'); ?></li>
 </ul>
 <div class="home_link_list">
 <?php echo link_to('meta.camptocamp.org', sfConfig::get('app_meta_engine_base_url')) ?>
