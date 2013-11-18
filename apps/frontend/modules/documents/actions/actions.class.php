@@ -452,34 +452,21 @@ class documentsActions extends c2cActions
         $this->latest_articles = Article::listLatest($mobile_version ? sfConfig::get('app_recent_documents_articles_mobile_limit')
                                                                      : sfConfig::get('app_recent_documents_articles_limit'),
                                                      $langs, $activities);
-        
+
         $latest_images = Image::listLatest($mobile_version ? sfConfig::get('app_recent_documents_images_mobile_limit')
                                                            : sfConfig::get('app_recent_documents_images_limit'),
                                            $langs, $ranges, $activities);
         $this->latest_images = Language::getTheBest($latest_images, 'Image');
-        
+
         // outings from metaengine:
         $region_ids     = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
         $activity_ids   = c2cTools::convertC2cActivityIdsToMetaIds($activities);
-        $metaengine_url = sfConfig::get('app_meta_engine_base_url') . 
-                          'outings?system_id=2,3,4' . 
-                          '&orderby=outing_date' . 
-                          '&outing_lang=' . implode(',', $langs) . 
-                          '&activity_ids=' . implode(',', $activity_ids) .
-                          '&region_id=' . implode(',', $region_ids);
-        
-        try
-        {
-            $feed = sfFeedPeer::createFromWeb($metaengine_url);
-            $this->meta_items = sfFeedPeer::aggregate(array($feed),
-                                                      array('limit' => sfConfig::get('app_recent_documents_metaengine_limit')))
-                                          ->getItems();
-        }
-        catch (Exception $e)
-        {
-            // for instance if metaengine is down.
-            $this->meta_items = array();
-        }
+        $this->meta_feed_url = sfConfig::get('app_meta_engine_base_url') .
+                               'outings?system_id=2,3,4' .
+                               '&orderby=outing_date' .
+                               '&outing_lang=' . implode(',', $langs) .
+                               '&activity_ids=' . implode(',', $activity_ids) .
+                               '&region_id=' . implode(',', $region_ids);
 
         // forum latest active threads
         $this->latest_threads = PunbbTopics::listLatest($mobile_version ? sfConfig::get('app_recent_documents_threads_mobile_limit')
