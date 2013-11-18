@@ -31,3 +31,6 @@
 [submodule "web/static/js/third-parties/mailcheck"]
 	path = web/static/js/third-parties/mailcheck
 	url = https://github.com/Kicksend/mailcheck.git
+[submodule "lib/password_compat"]
+	path = lib/password_compat
+	url = https://github.com/ircmaxell/password_compat.git
