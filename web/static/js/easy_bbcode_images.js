@@ -17,7 +17,7 @@
       .on('click', function () {
         $.modalbox.show({
           remote: '/images/forums/wizard',
-          title: 'TODO get this from data-attribute'
+          title: $(this).attr('data-wizard-title')
         });
         $(document).on('keyup.fiw', function(e) {
           if (e.which == 27) {

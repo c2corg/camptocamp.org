@@ -6,7 +6,7 @@
   <ul>
     <li id="images_wizard_select_file">
       <div class="images_wizard_image" />
-      <?php echo __('Click here to select an image from your computer or drag&drop it') ?>
+      <?php echo __('select image or dragdrop') ?>
     </li>
     <li id="images_wizard_url">
       <div class="images_wizard_image" />
