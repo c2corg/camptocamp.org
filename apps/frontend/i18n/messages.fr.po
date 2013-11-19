@@ -1194,6 +1194,12 @@ msgstr "Licence de l'image&nbsp;:"
 msgid "Image not found"
 msgstr "Cette image n'existe pas."
 
+# [general comment]
+# assistant image forum
+# [WARNING] needs_review
+msgid "Image on the internet"
+msgstr "Image sur Internet"
+
 # [WARNING] needs_review
 msgid "Image rotated successfully"
 msgstr "L'image a été tournée correctement"
@@ -3491,7 +3497,7 @@ msgstr "<h3>Risques objectifs</h3>\n"
 "Les risques pris en compte sont les avalanches naturelles de neige, les chutes de sérac, les chutes naturelles de pierre, les chutes naturelles de stalactite et la fragilité du support. Les risques liés directement à l'action humaine ne sont pris en compte hormis l’effondrement de la structure provenant de la fragilité du support déclenché par le pratiquant lui même. Les avalanches, chutes de pierre et de stalactites déclenchés par le pratiquant ou une autre cordée ne sont pas pris en compte.\n"
 "La partie technique, l'approche et le retour sont pris en compte dans l'échelle des risques objectifs. <br />\n"
 "<br />\n"
-"<strong>X1</strong>&nbsp;: Risques objectifs faibles. <a href=\"/summits/256956/fr\">Villard Reymond - 3 cigares</a><br />\n"
+"<strong>X1</strong>&nbsp;: Risques objectifs faibles.\n"
 "<br />\n"
 "<strong>X2</strong>&nbsp;: Risques objectifs modérés. <a href=\"/routes/54271/fr\">Colère du Ciel</a><br />\n"
 "<br />\n"
@@ -3551,7 +3557,7 @@ msgid "_public_transportation_types_info"
 msgstr "<h3>Type de transport en commun</h3>Type de transport en commun desservant l'accès. Seuls les transports aboutissant effectivement à l'accès doivent être considérés.<br /><em>Ex: pour un accès desservi par un bus depuis une gare ferroviaire à 10km, seul \"bus\" sera indiqué.</em><br /><br /><strong>train</strong>&nbsp;: train<br /><br /><strong>bus</strong>&nbsp;: bus ou car<br /><br /><strong>service à la demande</strong>&nbsp;: taxi ou navette à la demande, permettant de prolonger une ligne régulière, et accessible avec un billet de train ou de bus<br /><br /><strong>bateau</strong>&nbsp;: ligne maritime, lacustre ou fluviale régulière permettant le transport de passagers"
 
 msgid "_publication_date_info"
-msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se référera à la version la plus récente s'il s'agit de mises à jour, à la première si il s'agit de rééditions sans modification. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )<br />On indiquera de préférence l'année seule pour un livre, et le mois pour les périodiques"
+msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se référera à la version la plus récente s'il s'agit de mises à jour, à la première si il s'agit de rééditions sans modification. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\"... )<br />On indiquera de préférence l'année seule pour un livre, et le mois pour les périodiques"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pluie</h3>Exposition du site/secteur à la pluie.<br />Utile si le temps est incertain."
@@ -4571,14 +4577,14 @@ msgid "cond short"
 msgstr "Conditions"
 
 msgid "conditions"
-msgstr "Conditions rencontrées (approche + voie)&nbsp;:"
+msgstr "Conditions rencontrées (approche, voie, et à proximité)&nbsp;:"
 
 msgid "conditions linked to"
 msgstr "la liste des conditions associées"
 
 # [WARNING] needs_review
 msgid "conditions_and_equipment"
-msgstr "Conditions de terrain, équipement et qualité du rocher rencontrés (approche + voie)&nbsp;:"
+msgstr "Conditions de terrain, équipement et qualité du rocher rencontrés (approche, voie, et à proximité)&nbsp;:"
 
 msgid "conditions_levels"
 msgstr "Enneigement par zones&nbsp;:"
@@ -4881,6 +4887,10 @@ msgstr "Engagement&nbsp;:"
 msgid "english"
 msgstr "anglais"
 
+# [WARNING] needs_review
+msgid "enter URL or paste it from clipboard"
+msgstr "URL de l'image"
+
 msgid "enter place name"
 msgstr "Saisir un nom de lieu"
 
@@ -5066,6 +5076,9 @@ msgstr "Le forum utilise votre nom d'utilisateur ou votre pseudo s'il existe"
 
 msgid "forum_code"
 msgstr "Code d'insertion dans le forum&nbsp;:"
+
+msgid "forums images wizard failure"
+msgstr "Image non valide"
 
 msgid "francais"
 msgstr "français"
@@ -6306,7 +6319,7 @@ msgstr "Le fichier est n\\'est pas d\\'un type autorisé, ou il ne peut être re
 # [general comment]
 # Drag & drop pour l'upload d'images
 msgid "plupload drop"
-msgstr "Déposez des images ici"
+msgstr "Déposez des images"
 
 msgid "plupload extension"
 msgstr "Fichiers image"
@@ -6832,6 +6845,10 @@ msgstr "<ul class=\"text\"><li><strong>Sélectionnez uniquement les activités p
 
 msgid "select an image file"
 msgstr "Choisissez une image&nbsp;:&nbsp;"
+
+# [WARNING] needs_review
+msgid "select image or dragdrop"
+msgstr "Cliquez pour sélectionner une image depuis votre ordinateur ou faites un glisser-déposer"
 
 msgid "selected admin_limits"
 msgstr "Régions administratives pré-sélectionnées"
@@ -7392,6 +7409,9 @@ msgstr "Vosges"
 # [WARNING] needs_review
 msgid "vtt_approach"
 msgstr "approche à VTT possible"
+
+msgid "wait while image is uploaded"
+msgstr "Patientez pendant le chargement de votre image"
 
 msgid "waiting for geolocation"
 msgstr "En attente d'informations de localisation..."

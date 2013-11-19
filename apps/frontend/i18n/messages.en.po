@@ -1196,6 +1196,12 @@ msgstr "Picture's license:"
 msgid "Image not found"
 msgstr "This picture doesn’t exist."
 
+# [general comment]
+# assistant image forum
+# [WARNING] needs_review
+msgid "Image on the internet"
+msgstr "Image on the internet"
+
 # [WARNING] needs_review
 msgid "Image rotated successfully"
 msgstr "Image rotated successfully"
@@ -3480,9 +3486,8 @@ msgstr "<h3>Public transport access</h3>Reliability and quality of public transp
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
-# [WARNING] needs_update
 msgid "_publication_date_info"
-msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
+msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\"..."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Rain</h3>Exposure of the climbing site or particular crag to rainfall.<br />Useful if weather is uncertain."
@@ -4459,6 +4464,7 @@ msgstr "Estimate the technical skiing grade (toponeige)"
 msgid "cond short"
 msgstr "Conditions"
 
+# [WARNING] needs_update
 msgid "conditions"
 msgstr "Conditions (incl. approach):"
 
@@ -4780,6 +4786,10 @@ msgstr "Commitment grade:"
 msgid "english"
 msgstr "english"
 
+# [WARNING] needs_review
+msgid "enter URL or paste it from clipboard"
+msgstr "enter URL or paste it from clipboard"
+
 msgid "enter place name"
 msgstr "Enter a location name"
 
@@ -4965,6 +4975,9 @@ msgstr "Forum use your username or your nickname"
 
 msgid "forum_code"
 msgstr "Code for inserting a picture in the forum:"
+
+msgid "forums images wizard failure"
+msgstr "Invalid image"
 
 msgid "francais"
 msgstr "french"
@@ -6771,6 +6784,10 @@ msgid "select an image file"
 msgstr "Chose an image:&nbsp;"
 
 # [WARNING] needs_review
+msgid "select image or dragdrop"
+msgstr "Click here to select an image from your computer or drag and drop it"
+
+# [WARNING] needs_review
 msgid "selected admin_limits"
 msgstr "Pre-selected administrative regions"
 
@@ -7347,6 +7364,9 @@ msgstr "Vosges"
 # [WARNING] needs_review
 msgid "vtt_approach"
 msgstr "mountain-bike approach possible"
+
+msgid "wait while image is uploaded"
+msgstr "Please wait while the image is being transferred"
 
 # [WARNING] needs_review
 msgid "waiting for geolocation"
