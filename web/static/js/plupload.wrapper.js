@@ -1,4 +1,5 @@
 (function(C2C, $) {
+  var dropid = 'global-drop-overlay';
 
   C2C.PlUploadWrapper = {
 
@@ -24,7 +25,7 @@
         runtimes: 'html5,flash', // rq: flash is not working well with FF (getFlashObj() null ?) but anyway, html5 is fine with firefox
         browse_button: 'pickfiles',
         container: 'container', // when using the body as container, flash shim is badly placed when scrolling, so we attach it to the modalbox
-        drop_element: 'plupload_tips',
+        drop_element: dropid,
         file_data_name: 'image_file',
         multipart: true,
         url: upload_url,
@@ -41,26 +42,24 @@
 
         // drag&drop look&feel
         if (up.features.dragdrop) {
-          $('.plupload-drag-drop').show();
-          var delt = $('#plupload_ondrag');
-          var nelt = $('#plupload_normal');
-          delt.height(nelt.height() - 12).width(nelt.width() - 12);
+          $('#'+dropid).remove(); // be sure it is there only once
+          var drop_overlay = $('<div id="'+dropid+'"><span>'+this.i18n.drop+'</span></div>').appendTo('body');
 
-          plupload.addEvent(document.documentElement, 'dragenter', function() {
-            delt.css('zIndex', 1);
+          plupload.addEvent(document, 'dragenter', function(e) {
+            if ($('#modalbox').hasClass('in') && $('#image_upload').is(':visible')) {
+              drop_overlay.addClass('active');
+            }
           });
 
-          /* Idea here would be to use dragleave event, but someone thought that it would
-             be funnier to fire dragleave when hovering child elements...
-             Instead, we hide delt when mouse goes out of document */
-          plupload.addEvent(document.documentElement, 'mouseout', function() {
-            delt.css('zIndex', -1);
+          plupload.addEvent(document, 'dragleave', function(e) {
+            if (e.target.id == dropid || (e.target.offsetParent && e.target.offsetParent.id == dropid)) {
+              drop_overlay.removeClass('active');
+            }
           });
-
         }
 
         pe = setInterval(C2C.PlUploadWrapper.validateImageForms, 500);
-      });
+      }, this);
 
       uploader.bind('Error', function(up, err) {
         switch(err.code) {
@@ -127,6 +126,8 @@
       uploader.bind('FilesAdded', function(up, files) {
         var waiting = this.i18n.waiting;
         var cancel = this.i18n.cancel;
+
+        $('#'+dropid).removeClass('active');
 
         $.each(files, function(i, file) {
           // do not display files that have been rejected
