@@ -36,7 +36,7 @@ function load() {
         item[v] = $this.find(v).text();
       });
 
-      if (count == 0) section_list.html("");
+      if (!count) section_list.html("");
       count++;
       if (count > 10) return;
 
