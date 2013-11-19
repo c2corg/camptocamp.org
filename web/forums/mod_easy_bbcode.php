@@ -37,7 +37,7 @@ if (!isset($bbcode_field))
 							<input type="button" value=" C " name="C" onclick="C2C.insert_text('[c]','[/c]')" title="<?php echo $lang_common['C button help']; ?>"/>
 							<input type="button" value="http://" name="Url" onclick="C2C.insert_text('[url=]','[/url]')" title="<?php echo $lang_common['http button help']; ?>"/>
 							<input type="button" value="@" name="Email" onclick="C2C.insert_text('[email=]','[/email]')" title="<?php echo $lang_common['@ button help']; ?>"/>
-							<input type="button" value="Img" name="Img" onclick="C2C.insert_text('[img]','[/img]')" title="<?php echo $lang_common['Img button help']; ?>"/>
+							<input type="button" value="Img" name="Img" onclick="C2C.insert_text('[img]','[/img]')" title="<?php echo $lang_common['Img button help']; ?>" data-wizard-title=""<?php echo $lang_common['Img wizard title']; ?>" />
 							<input type="button" value="Code" name="Code" onclick="C2C.insert_text('[code]','[/code]')" title="<?php echo $lang_common['Code button help']; ?>"/>
 							<input type="button" value="Quote" name="Quote" onclick="C2C.insert_text('[quote]','[/quote]')" title="<?php echo $lang_common['Quote button help']; ?>"/>
 <?php if (!$mobile): ?>
