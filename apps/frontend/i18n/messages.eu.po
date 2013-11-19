@@ -1211,6 +1211,12 @@ msgstr "Irudiaren lizentzia:"
 msgid "Image not found"
 msgstr "Ez dago halako irudirik."
 
+# [general comment]
+# assistant image forum
+# [WARNING] en translation used
+msgid "Image on the internet"
+msgstr "Image on the internet"
+
 # [WARNING] en translation used
 msgid "Image rotated successfully"
 msgstr "Image rotated successfully"
@@ -3573,7 +3579,7 @@ msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le
 
 # [WARNING] es translation used
 msgid "_publication_date_info"
-msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Euria</h3>Eskalada gunearen esposizioa euriarekiko.<br />Egokia eguraldia ezegonkorra bada."
@@ -4592,6 +4598,7 @@ msgstr "Estimar el grado técnico en esquí (sistema toponeige)"
 msgid "cond short"
 msgstr "Egoera"
 
+# [WARNING] needs_update
 msgid "conditions"
 msgstr "Aurkituriko egoera:"
 
@@ -4922,6 +4929,10 @@ msgid "english"
 msgstr "ingelesa"
 
 # [WARNING] en translation used
+msgid "enter URL or paste it from clipboard"
+msgstr "enter URL or paste it from clipboard"
+
+# [WARNING] en translation used
 msgid "enter place name"
 msgstr "Enter a location name"
 
@@ -5128,6 +5139,10 @@ msgstr "Foroak zure erabiltzaile izena edo ezizena erabiliko du existitzen bada"
 # [WARNING] es translation used
 msgid "forum_code"
 msgstr "Código de inserción de la imagen en el foro:"
+
+# [WARNING] en translation used
+msgid "forums images wizard failure"
+msgstr "Invalid image"
 
 msgid "francais"
 msgstr "frantsesa"
@@ -7082,6 +7097,10 @@ msgid "select an image file"
 msgstr "Chose an image:&nbsp;"
 
 # [WARNING] en translation used
+msgid "select image or dragdrop"
+msgstr "Click here to select an image from your computer or drag and drop it"
+
+# [WARNING] en translation used
 msgid "selected admin_limits"
 msgstr "Pre-selected administrative regions"
 
@@ -7704,6 +7723,10 @@ msgstr "Vosges"
 # [WARNING] en translation used
 msgid "vtt_approach"
 msgstr "mountain-bike approach possible"
+
+# [WARNING] en translation used
+msgid "wait while image is uploaded"
+msgstr "Please wait while the image is being transferred"
 
 # [WARNING] en translation used
 msgid "waiting for geolocation"

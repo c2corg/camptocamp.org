@@ -144,6 +144,7 @@ msgstr "Alineació:"
 msgid "All fields are mandatory"
 msgstr "Tots els camps són obligatoris."
 
+# [WARNING] needs_review
 msgid "All topics"
 msgstr "Tots els temes"
 
@@ -712,9 +713,8 @@ msgstr "Programadors"
 
 # [general comment]
 # Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
-# [WARNING] es translation used
 msgid "Did you mean %1%?"
-msgstr "Quiso decir %1%?"
+msgstr "Volíeu dir %1%?"
 
 msgid "Diffing versions of %1% in %2%."
 msgstr "Diferències entre les versions de %1% en %2%."
@@ -1184,6 +1184,12 @@ msgstr "Llicència de la imatge:"
 
 msgid "Image not found"
 msgstr "Aquesta imatge no existeix."
+
+# [general comment]
+# assistant image forum
+# [WARNING] en translation used
+msgid "Image on the internet"
+msgstr "Image on the internet"
 
 # [WARNING] needs_review
 msgid "Image rotated successfully"
@@ -3497,7 +3503,7 @@ msgid "_objective_risk_rating_info"
 msgstr "<h3>Riscos objectius</h3>\n"
 "S'hi tenen en compte les allaus naturals de neu, les caigudes de seracs, les esllavissades o caigudes de pedres, el despreniment d'estalactites i la fragilitat del suport. Els riscos relacionats directament amb l'acció humana no es tenen en compte, a excepció de l'esfondrament del suport provocada pel participant. Les allaus, caigudes de pedres i d'estalactites desencadenades pel participant o per alguna altra cordada no es tenen en compte. L'escala de riscos objectius contempla tant el tram tècnic com l'aproximació i la tornada. <br />\n"
 "<br />\n"
-"<strong>X1</strong>: Riscos objectius febles. <a href=\"/summits/256956/fr\">Villard Reymond - 3 cigares</a><br />\n"
+"<strong>X1</strong>: Riscos objectius febles.\n"
 "<br />\n"
 "<strong>X2</strong>: Riscos objectius moderats. <a href=\"/routes/54271/fr\">Colère du Ciel</a><br />\n"
 "<br />\n"
@@ -3556,7 +3562,7 @@ msgid "_public_transportation_types_info"
 msgstr "<h3>Tipus de transport públic</h3>Tipus de transport públic que permet arribar a aquest accés. Només s'han de descriure els que realment hi arriben<br /><em>Ex: en cas d'un accés cobert per un autobús provinent d'una estació de tren situada a 10 km, només s'ha d'indicar \"autobús\".</em><br /><br /><strong>tren</strong>: tren<br /><br /><strong>autobús</strong>: autobús o cotxe<br /><br /><strong>servei a demanda</strong>: taxi o autobús a demanda, que permet allargar una línia regular, i accessible amb un bitllet de tren o d'autobús<br /><br /><strong>ferri</strong>: línia marítima, lacustre o fluvial regular de transport de passatgers"
 
 msgid "_publication_date_info"
-msgstr "<h3>Data de publicació</h3>Data en la qual el llibre o revista ha estat publicat. Si hi ha més d'una edició, caldrà referir-se a la més recent en cas que es tracti d'actualitzacions, o bé s'indicarà la primera si es tracta de reedicions sense modificacions. Aquest camp és el mateix en totes les llengües, de manera que s'han d'utilitzar valors numèrics (\"2004\", \"03/2009\", \"07-08/1997\"... )<br />Preferentment s'indicarà només l'any en el cas dels llibres, i l'any i el mes en el cas de les publicacions periòdiques"
+msgstr "<h3>Data de publicació</h3>Data en la qual el llibre o revista ha estat publicat. Si hi ha més d'una edició, caldrà referir-se a la més recent en cas que es tracti d'actualitzacions, o bé s'indicarà la primera si es tracta de reedicions sense modificacions. Aquest camp és el mateix en totes les llengües, de manera que s'han d'utilitzar valors numèrics (\"2004\", \"03/2009\"... )<br />Preferentment s'indicarà només l'any en el cas dels llibres, i l'any i el mes en el cas de les publicacions periòdiques"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pluja</h3>Exposició del lloc/escola/sector a la pluja.<br />útil si la meteorologia és dubtosa."
@@ -4533,13 +4539,14 @@ msgstr "Estima el grau tècnic en esquí"
 msgid "cond short"
 msgstr "Condicions"
 
+# [WARNING] needs_update
 msgid "conditions"
 msgstr "Condicions trobades:"
 
 msgid "conditions linked to"
 msgstr "llista de les condicions associades"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "conditions_and_equipment"
 msgstr "Condicions del terreny, equipament i qualitat de la roca trobades (aproximació + via):\n"
 "\n"
@@ -4851,6 +4858,10 @@ msgstr "Compromís:"
 msgid "english"
 msgstr "anglès"
 
+# [WARNING] en translation used
+msgid "enter URL or paste it from clipboard"
+msgstr "enter URL or paste it from clipboard"
+
 msgid "enter place name"
 msgstr "Entreu un nom de lloc"
 
@@ -4966,9 +4977,8 @@ msgstr "L'imatge és de dimensions massa petites (minimo: 16x16 px)"
 
 # [general comment]
 # image size in bytes (used in diffs when a new image has been uploaded
-# [WARNING] en translation used
 msgid "file_size"
-msgstr "File size:"
+msgstr "Mida de la imatge"
 
 msgid "filename"
 msgstr "Imatge:"
@@ -5037,6 +5047,10 @@ msgstr "El forum utilitza el vostre nom d'usuari o el pseudònim si existeix"
 
 msgid "forum_code"
 msgstr "Codi d'inserció al fòrum&nbsp;:"
+
+# [WARNING] en translation used
+msgid "forums images wizard failure"
+msgstr "Invalid image"
 
 msgid "francais"
 msgstr "francès"
@@ -5171,9 +5185,8 @@ msgstr "Fusta"
 msgid "haute_normandie"
 msgstr "Alta Normandia"
 
-# [WARNING] en translation used
 msgid "height"
-msgstr "Image height:"
+msgstr "Altura de la imatge:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -6625,9 +6638,9 @@ msgstr "escola d'escalada"
 # 
 # Faut-il préciser "rocher" dans les trads ?
 # -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "rock_exposition_rating"
-msgstr "Exposició:"
+msgstr "Grau d'exposició en escalada:"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
@@ -6782,6 +6795,10 @@ msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practic
 
 msgid "select an image file"
 msgstr "Escolliu una imatge:&nbsp;"
+
+# [WARNING] en translation used
+msgid "select image or dragdrop"
+msgstr "Click here to select an image from your computer or drag and drop it"
 
 msgid "selected admin_limits"
 msgstr "Regions administratives preseleccionades"
@@ -6977,21 +6994,20 @@ msgstr "Esquí de forts pendents"
 msgid "stories"
 msgstr "narracions, contes, relats"
 
-# [WARNING] en translation used
 msgid "sub-parkings"
-msgstr "sub-access points"
+msgstr "sub-accés"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "sub-sites"
-msgstr "sous-sites d'escalade"
+msgstr "sub-lloc d'escalada"
 
 # [general comment]
 # same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
 # 
 # In that case, 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "sub-summits"
-msgstr "sub- summits, passes, lakes and cliffs"
+msgstr "sub-cims, colls, estanys, parets"
 
 msgid "sub_activities"
 msgstr "Compatible amb:"
@@ -7009,7 +7025,7 @@ msgid "summit_type"
 msgstr "Tipus:"
 
 msgid "summits"
-msgstr "cims, colls, llacs, parets"
+msgstr "cims, colls, estanys, parets"
 
 msgid "summits list"
 msgstr "Llista de cims, colls, llacs, parets"
@@ -7049,7 +7065,7 @@ msgstr "Mostrar únicament l'activitat alpinisme"
 
 # [WARNING] needs_review
 msgid "switch_to_snowshoeing"
-msgstr "Mostra només activitats amb raquetes"
+msgstr "Mostra només l'activitat raquetes"
 
 msgid "ta portal"
 msgstr "Terreny d'aventura"
@@ -7165,9 +7181,8 @@ msgstr "Nom a la topo-guia"
 
 # [general comment]
 # exposition ski
-# [WARNING] needs_update
 msgid "toponeige_exposition_rating"
-msgstr "Exposició:"
+msgstr "Grau d'exposició en esquí:"
 
 msgid "toponeige_technical_rating"
 msgstr "Cotació tècnica:"
@@ -7347,6 +7362,10 @@ msgstr "Vosges"
 msgid "vtt_approach"
 msgstr "aproximació amb BTT possible"
 
+# [WARNING] en translation used
+msgid "wait while image is uploaded"
+msgstr "Please wait while the image is being transferred"
+
 msgid "waiting for geolocation"
 msgstr "Localització en curs..."
 
@@ -7381,9 +7400,8 @@ msgstr "Camptocamp us ofereix la possibilitat d'integrar al vostre lloc web o bl
 
 # [general comment]
 # image width
-# [WARNING] en translation used
 msgid "width"
-msgstr "Image width:"
+msgstr "Amplada de la imatge:"
 
 msgid "with rain"
 msgstr "exposat a la pluja"

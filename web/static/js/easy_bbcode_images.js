@@ -8,8 +8,7 @@
           Authorization: 'Client-ID 7aa5a3fe49976d5',
           Accept: 'application/json'
         },
-        drop_overlay = $('<div/>', { id: 'global-drop-overlay' })
-          .appendTo('body');
+        drop_overlay = $('<div/>', { id: 'global-drop-overlay' }).appendTo('body');
 
     // replace handlers on [img] button
     $('input[name=Img]')
@@ -23,7 +22,7 @@
           if (e.which == 27) {
             close_images_wizard();
           }
-        }).on('click.fiw', '[data-dismiss="modal"]', function(e) {
+        }).on('click.fiw', '[data-dismiss="modal"]', function() {
           close_images_wizard();
         });
       });
@@ -43,6 +42,11 @@
         file_input.click();
       });
 
+      // easy focus for input field
+      $('#images_wizard_url').click(function() {
+        url_input.focus();
+      });
+
       // detect if user pasted an url
       url_input.on('paste.fiw', function(e) {
         var that = this;
@@ -58,8 +62,6 @@
       });
 
       $(document).on('dragenter.fiw', function(e) {
-        e.stopPropagation();
-        e.preventDefault();
         drop_overlay.addClass('active');
       }).on('dragleave.fiw', function(e) {
         if (e.target.id == drop_overlay.get(0).id) {
@@ -116,8 +118,6 @@
         // check if modal is still there and has not been closed
         if ($('#modalbox').hasClass('in')) {
           imgur_data = result.data;
-          $('#images_wizard_url').val(result.data.link).prop('disabled', true);
-          $('#images_wizard_select').prop('disabled', true);
           insert_imgur_code();
         } else {
           clean_imgur(result.data.deletehash);

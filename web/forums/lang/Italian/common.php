@@ -25,8 +25,8 @@ setlocale(LC_CTYPE, $locale);
 */
 
 // Language definitions for frequently used strings
-$lang_common = array(
 
+$lang_common = array(
 // Text orientation and encoding
 'lang_direction'		=>	'ltr',	// ltr (Left-To-Right) or rtl (Right-To-Left)
 'lang_encoding'			=>	'UTF-8',
@@ -94,6 +94,17 @@ $lang_common = array(
 'Replies'				=>	'Risposte',
 'Author'				=>	'Autore',
 'Pages'					=>	'Pagine',
+'B button help'     =>  'formatare il testo selezionato per renderlo in grassetto',
+'I button help'     =>  'formatare il testo per renderlo corsivo',
+'U button help'     =>  'per sottolineare il testo',
+'S button help'     =>  'per barrare il testo',
+'C button help'     =>  'monospace',
+'http button help'    =>  'inserire un link sul testo selezionato o attivare l\'url selezionato',
+'@ button help'     =>  'inserire un indirizzo e-mail sul testo selezionato o attivare l\'indirizzo selezionato',
+'Img button help'   =>  'inserire un\' imaggine accessibile sul net'
+'Img wizard title' => 'Inserire un\' imaggine',
+'Code button help'    =>  'codice',
+'Quote button help'   =>  'citazione',
 'Help'					=>	'Aiuto',
 'Reduce the text box'	=>	'Ridurre questo blocco',
 'Enlarge the text box'	=>	'Ingrandire questo blocco',
