@@ -47,7 +47,7 @@
       url_input.on('paste.fiw', function(e) {
         var that = this;
         setTimeout(function() {
-          handle_url($(that).val());
+          handle_url($(that).val(), true);
         }, 100);
       })
       // else wait for user to press enter
@@ -76,6 +76,8 @@
           upload_local_file(e.originalEvent.dataTransfer.files);
         } else if (e.originalEvent.dataTransfer.getData('URL')) {
           handle_url(e.originalEvent.dataTransfer.getData('URL'));
+        } else {
+          error();
         }
       });
     };
@@ -90,7 +92,8 @@
   function upload_local_file(files) {
     var file = files[0];
 
-    if (!file || !file.type.match(/image.*/)) {
+    if (!file || !file.type.match(/image\/(jpe?g|jpg|png|gif)/)) {
+      error();
       return;
     }
 
@@ -122,7 +125,7 @@
       }).fail(function() {
         // check if modal is still there and has not been closed
         if ($('#modalbox').hasClass('in')) {
-          alert('Sorry but an error occure, when uploading image on imgur');
+          error();
           C2C.insert_text('[img]', '[/img]');
           close_images_wizard();
         }
@@ -133,7 +136,7 @@
     reader.readAsDataURL(file);
   }
 
-  function handle_url(url) {
+  function handle_url(url, pasted) {
     var parts, criteria, indicator = $('#indicator');
 
     // url of a direct link to c2c image
@@ -145,12 +148,15 @@
       criteria = 'id/' + parts[1];
     }
     // does it looks like an url?
-    else if (url.match(/^https?:\/\/.*\.(jpg|jpeg|png|gif)$/i)) {
+    else if (url.match(/^https?:\/\/.*\.(jpe?g|png|gif)$/i)) {
       insert_url_code(url);
       return;
     }
     // obviously not a valid url, let the user continue typing
     else {
+      if (!pasted) {
+        error();
+      }
       return;
     }
 
@@ -159,11 +165,14 @@
       C2C.insert_text('[img=' + data.filename + ' ' + data.id + ' inline]', '[/img]');
       close_images_wizard();
     }).fail(function() {
-      // won't work, but print code
-      insert_url_code(url);
+      error();
     }).always(function() {
       indicator.hide();
     });
+  }
+
+  function error() {
+    C2C.showFailure(i18n.failure);
   }
 
   // insert code if image url is given

@@ -16,5 +16,6 @@
   </ul>
 </div>
 <script>C2C.init_forums_images_wizard({
-  wait: "<?php echo __('wait while image is uploaded') ?>"
+  wait: "<?php echo __('wait while image is uploaded') ?>",
+  failure: "<?php echo __('forums images wizard failure') ?>"
 });</script>
