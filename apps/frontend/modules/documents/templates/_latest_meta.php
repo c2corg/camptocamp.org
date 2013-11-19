@@ -21,53 +21,50 @@ include_partial('documents/home_section_title',
                       'custom_title_icon' => 'outings'));
 ?>
 <?php
+$cookie_position = array_search('on_the_web', sfConfig::get('app_personalization_cookie_fold_positions'));
+
 echo javascript_queue('
-$.get("' . html_entity_decode(html_entity_decode($feed_url)) . '").done(function(data) {
-  var $xml = $(data);
-  var count = 0;
-  var date;
+var loaded = false, section_list = $("#on_the_web_section_list");
 
-  $xml.find("item").each(function() {
-    var $this = $(this),
-      item = {
-        title: $this.find("title").text(),
-        link: $this.find("link").text(),
-        description: $this.find("description").text(),
-        pubDate: $this.find("pubDate").text(),
-        author: $this.find("author").text()
+function load() {
+  $.get("' . $sf_data->getRaw('feed_url') . '").done(function(data) {
+    var $xml = $(data), date, count = 0;
+
+    $xml.find("item").each(function() {
+      var $this = $(this), item = {}, els;
+      $.each(["title", "link", "description", "pubDate", "author"], function(i, v) {
+        item[v] = $this.find(v).text();
+      });
+
+      if (count == 0) section_list.html("");
+      count++;
+      if (count > 10) return;
+
+      if (date != item.pubDate) {
+        els = item.pubDate.split("-");
+        datespan =  $("<span/>", { "class": "date",  text: els[2] + "/" + els[1] });
+      } else {
+        datespan = "";
       }
+      date = item.pubDate;
+      lang = item.description.split(" , ")[5];
+      author = item.author.substring(item.author.indexOf("(") - 1);
 
-    if (count == 0) {
-      $("#on_the_web_section_list").html("");
-    }
-    count++;
-    if (count > 10) { return; }
-    li_class = (count % 2) ? "even" : "odd";
-
-    if (date != item["pubDate"]) {
-      elems = item["pubDate"].split("-");
-      datespan = "<span class=\"date\">" + elems[2] + "/" + elems[1] + "</span>";
-    } else {
-      datespan = "";
-    }
-
-    date = item["pubDate"];
-    lang = item["description"].split(" , ")[5];
-    author = item["author"].substring(item["author"].indexOf("(") - 1);
-
-    $("#on_the_web_section_list").append(
-      "<li class=\"" + li_class + "\">"
-      + datespan
-      + "<a href=\"" + item["link"] + "\" "
-      + "hreflang=\"" + lang + "\""
-      + ">" + item["title"] + "</a> "
-      + "<span class=\"meta\">" + author + "</span>"
-      + "</li>"
-    );
+      section_list.append($("<li/>", { "class": (count % 2) ? "even" : "odd" })
+        .append(datespan, $("<a/>", { href: item.link, hreflang: lang, text: item.title }),
+          $("<span/>", { "class": "meta", text: author })));
+    });
+  }).fail(function() {
+    section_list.html("' . __('No recent changes available') . '");
   });
-}).fail(function() {
-  $("#on_the_web_section_list").html("' . __('No recent changes available') . '");
-});
+  loaded = true;
+}
+
+if (!C2C.shouldHide('. $cookie_position . ', true)) {
+  load();
+} else {
+  $("#on_the_web_toggle").click(function() { if (!loaded) load(); });
+}
 ');
 ?>
 <div id="on_the_web_section_container" class="home_container_text">
@@ -79,7 +76,6 @@ $.get("' . html_entity_decode(html_entity_decode($feed_url)) . '").done(function
 </div>
 </div>
 <?php
-$cookie_position = array_search('on_the_web', sfConfig::get('app_personalization_cookie_fold_positions'));
 echo javascript_tag('C2C.setSectionStatus(\'on_the_web\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
 ?>
 </div>
