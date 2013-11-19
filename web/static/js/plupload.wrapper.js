@@ -137,7 +137,7 @@
                 .append(
                   $('<div class="plupload_progress_bar"><div class="plupload_progress"></div></div>'),
                   $('<span class="plupload_text">'+file.name+' <b>'+waiting+'</b> </span>'),
-                  $('<a href="#" onclick="C2C.PlUploadWrapper.cancelUpload(\''+file.id+'\')">'+cancel+'</a>')
+                  $('<a/>', { href: '#', text: cancel, click: function() { C2C.PlUploadWrapper.cancelUpload(file.id); } })
                 )
             );
           }
