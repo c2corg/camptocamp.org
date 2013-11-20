@@ -1,6 +1,6 @@
 <div id="on_the_web" class="latest">
 <?php
-use_helper('SmartDate');
+use_helper('SmartDate', 'JavascriptQueue');
 
 $response = sfContext::getInstance()->getResponse();
 
