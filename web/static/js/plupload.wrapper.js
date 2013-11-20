@@ -56,6 +56,11 @@
               drop_overlay.removeClass('active');
             }
           });
+
+          // be sure to hide drop_overlay even if no correct file has been dropped
+          plupload.addEvent(drop_overlay[0], 'drop', function(e) {
+            drop_overlay.removeClass('active');
+          });
         }
 
         pe = setInterval(C2C.PlUploadWrapper.validateImageForms, 500);
@@ -230,7 +235,7 @@
 
   // test if css animation and transforms are supported
   // (all browsers that support animation also support 2d transforms)
-  function testCssAnimationAndTransforms() {
+  var cssAnimationSupported = (function() {
     var animation = false;
     var props = ['animationName', 'WebkitAnimationName', 'MozAnimationName'];
     var elt = $('div')[0];
@@ -242,8 +247,6 @@
       }
     }
     return animation;
-  }
-
-  var cssAnimationSupported = testCssAnimationAndTransforms();
+  })();
 
 })(window.C2C = window.C2C || {}, jQuery);
