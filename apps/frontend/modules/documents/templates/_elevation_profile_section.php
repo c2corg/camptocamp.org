@@ -83,7 +83,7 @@ if (!svg_supported) {
   }
 
   var section = $('#elevation_profile_container_section_container');
-  $('#elevation_profile_container_section_title').click(function() {
+  $('#elevation_profile_container').click(function() {
     if (!section.hasClass('profile_loaded')) {
       load_elevation_profile();
     }

@@ -64,7 +64,6 @@
    * Add some properties and observers to have '+' and '-' pictos for folding sections
    */
   function initHomeSections() {
-
     $('.nav_box_title, .home_title').mouseover(function() {
       var img = $(this).children(':first');
       var savedClass = img.attr('class').split(' ')[1];
@@ -75,6 +74,19 @@
       var img = $(this).children(':first');
       img.removeClass('picto_close picto_open')
         .addClass(img.data('savedClass'));
+    });
+  }
+
+  function initSectionsToggle() {
+    $('[data-toggle-view]').click(function (e) {
+      var $this = $(this);
+      e.preventDefault();
+      e.stopPropagation();
+      if (cp = parseInt($this.attr('data-cookie-position'), 10)) {
+        C2C.toggleHomeSectionView($this.attr('data-toggle-view'), cp);
+      } else {
+        C2C.toggleView($(this).attr('data-toggle-view'));
+      }
     });
   }
 
@@ -338,6 +350,7 @@
   // initialization
 
   $(function() {
+    initSectionsToggle();
     initHomeSections();
     initRoutes();
     initSplitter();
