@@ -215,6 +215,7 @@ class myUser extends sfBasicSecurityUser
                         $conn->rollback();
                         c2cTools::log('could not upgrade user to new hash algorithm');
                     }
+                    $hash = $user_private_data->getPassword();
                 }
 
                 $user_culture = $user->get('private_data')->getPreferedCulture();
@@ -233,7 +234,7 @@ class myUser extends sfBasicSecurityUser
                 }
                 else
                 {
-                    Punbb::signIn($user_id, $hashed_pwd);
+                    Punbb::signIn($user_id, $hash);
                 }
                 
                 c2cTools::log('logged in punbb');
@@ -247,7 +248,9 @@ class myUser extends sfBasicSecurityUser
                     // remove old keys
                     RememberKey::deleteOldKeys();
 
-                    // remove other keys from this user (and only matching this IP ? what about the people whose IP changes every day ?)
+                    // remove other keys from this user (and only matching this IP ? what about the people
+                    // whose IP changes every day ?)
+
                     //RememberKey::deleteOtherKeysForUserId($user_id);
                     // this is no more useful, since key is now specific to user (see warning below).
                     

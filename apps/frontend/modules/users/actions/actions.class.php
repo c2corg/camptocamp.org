@@ -523,7 +523,8 @@ class usersActions extends documentsActions
             
             if (!empty($password))
             {
-                Punbb::signIn($user_private_data->getId(), $user_private_data->password); // TODO
+                // user updated is password. We need to update the login to punbb
+                Punbb::signIn($user_private_data->getId(), $user_private_data->password);
             }
 
             $lang = $this->getUser()->getCulture();
