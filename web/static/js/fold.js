@@ -114,11 +114,6 @@
 
       // also toggle the c2clayer widget
       $('.x-window.x-resizable-pinned').toggle();
-
-    } else if (container_id == 'elevation_profile_container') {
-      if (!div_visible && !div.hasClass('profile_loaded')) {
-        complete = C2C.load_elevation_profile;
-      }
     }
 
     div.slideToggle(400, complete);

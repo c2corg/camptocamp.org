@@ -24,7 +24,7 @@ echo start_section_tag('Elevation profile', 'elevation_profile_container', 'clos
 <?php
 echo end_section_tag();
 
-// FIXME d3js uses functions unsupported by ie<=8 but
+// note: d3js uses functions unsupported by ie<=8 but
 // feature detecting svg support should be enough
 $script_url = minify_get_combined_files_url(array('/static/js/d3.min.js',
                                                   '/static/js/elevation_profile.js'),
@@ -72,7 +72,7 @@ if (!svg_supported) {
       .html('" . image_tag('/static/images/indicator.gif') . "')
       .removeClass('ui-spinner');
   }
-  C2C.load_elevation_profile = function() {
+  load_elevation_profile = function() {
     $.ajax({
       url: '$script_url',
       dataType: 'script',
@@ -81,6 +81,14 @@ if (!svg_supported) {
       $('#elevation_profile_container_section_container').addClass('profile_loaded');
     });
   }
+
+  var section = $('#elevation_profile_container_section_container');
+  $('#elevation_profile_container_section_title').click(function() {
+    if (!section.hasClass('profile_loaded')) {
+      load_elevation_profile();
+    }
+  });
+
 }";
 
 echo javascript_queue($js);
