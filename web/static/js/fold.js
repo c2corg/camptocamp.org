@@ -37,7 +37,7 @@
   /**
    * Hide or show an home section
    */
-  C2C.toggleHomeSectionView = function(container_id, cookie_position) {
+  function toggleHomeSectionView(container_id, cookie_position) {
     var div = $('#' + container_id + '_section_container');
     var title = $('#' + container_id + '_section_title, #' + container_id + '_toggle');
 
@@ -57,7 +57,7 @@
     registerFoldStatus(container_id, cookie_position, !is_open);
 
     $('#' + container_id + ' .nav_box_top').toggleClass('small');
-  };
+  }
 
 
   /**
@@ -83,9 +83,9 @@
       e.preventDefault();
       e.stopPropagation();
       if (cp = parseInt($this.attr('data-cookie-position'), 10)) {
-        C2C.toggleHomeSectionView($this.attr('data-toggle-view'), cp);
+        toggleHomeSectionView($this.attr('data-toggle-view'), cp);
       } else {
-        C2C.toggleView($(this).attr('data-toggle-view'));
+        toggleView($this.attr('data-toggle-view'));
       }
     });
   }
@@ -93,7 +93,7 @@
   /**
    * Hide or show a container
    */
-  C2C.toggleView = function(container_id) {
+  function toggleView(container_id) {
     var alt, sign, complete = null;
     var div = $('#' + container_id + '_section_container');
     
@@ -129,7 +129,7 @@
     }
 
     div.slideToggle(400, complete);
-  };
+  }
 
   /**
    * Hide or show a single box (like weather box in outings)
