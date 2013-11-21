@@ -1590,7 +1590,7 @@ all:
       14275: 95
       14120: 974
     avalanche_country_url:
-      france: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT'
+      france: 'www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/d/avdept'
     avalanche_url:
       14067: 'www.slf.ch/lawinenbulletin/index_'
       14257: 'www.lawinen.at/austria/'
@@ -1611,13 +1611,13 @@ all:
     avalanche_archive_old_limit:
       14067: '20121125'
     avalanche_archive_url_old:
-      14067: 'www.slf.ch/schneeinfo/Archiv/lwdarchiv/%s/nb/%s/html/%s_nb_%s_bw.html'
+      14067: 'www.slf.ch/schneeinfo/Archiv/lwdarchiv/%s/nb/%s/pdf/%s_nb_%s_bw.pdf'
     avalanche_archive_url:
-      14067: 'www.slf.ch/schneeinfo/Archiv/lwdarchiv/%s/nb/%s/html/%s1700_gk_c_%s_complete.html'
+      14067: 'www.slf.ch/schneeinfo/Archiv/lwdarchiv/%s/nb/%s/pdf/%s1700_gk_c_%s_complete.pdf'
     weather_country_name:
       france: 'Météo France'
     weather_country_url:
-      france: 'france.meteofrance.com/france/meteo?PREVISIONS_PORTLET.path=previsionsdept%2FDEPT'
+      france: 'www.meteofrance.com/previsions-meteo-france/d/dept'
     weather_name:
       14067: [ 'MeteoSwiss', 'Meteocentrale' ]
       14267: 'AEMET'
