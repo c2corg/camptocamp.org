@@ -20,7 +20,7 @@
   /**
    * Save fold pref in cookie and profile
    */
-  function registerFoldStatus(pref_name, cookie_position, opened) {
+  C2C.registerFoldStatus = function(pref_name, cookie_position, opened) {
 
     // if user logged, save pref in profile
     if ($('#name_to_use').length) {
@@ -32,7 +32,7 @@
 
     // save pref in cookie
     setFoldCookie(cookie_position, opened);
-  }
+  };
 
   /**
    * Hide or show an home section
@@ -94,7 +94,7 @@
    * Hide or show a container
    */
   function toggleView(container_id) {
-    var alt, sign, complete = null;
+    var alt, sign;
     var div = $('#' + container_id + '_section_container');
     
     var div_visible = div.is(':visible');
@@ -112,23 +112,7 @@
     $('#' + container_id + '_section_title').attr('title', alt);
     $('#tip_' + container_id).html('[' + alt + ']');
 
-    // FIXME maybe we should make this less specific... or move this logic somewhere else
-    // specific behaviour for the map and elevation profile
-    if (container_id == 'map_container') {
-      registerFoldStatus(container_id, 15, !div_visible);
-
-      // load map if needed
-      // - presence of mapLoading div shows that map has not been created yet
-      // - if C2C.async_map_init is defined, the map js should be retrieved asynchonously
-      if (!div_visible && $('#mapLoading').length) {
-        complete = typeof C2C.async_map_init !== 'undefined' ? C2C.async_map_init : C2C.map_init;
-      }
-
-      // also toggle the c2clayer widget
-      $('.x-window.x-resizable-pinned').toggle();
-    }
-
-    div.slideToggle(400, complete);
+    div.slideToggle(400);
   }
 
   /**

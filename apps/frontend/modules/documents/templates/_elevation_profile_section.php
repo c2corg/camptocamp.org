@@ -72,23 +72,13 @@ if (!svg_supported) {
       .html('" . image_tag('/static/images/indicator.gif') . "')
       .removeClass('ui-spinner');
   }
-  load_elevation_profile = function() {
+  $('#elevation_profile_container').one('click', function() {
     $.ajax({
       url: '$script_url',
       dataType: 'script',
       cache: true
-    }).done(function() {
-      $('#elevation_profile_container_section_container').addClass('profile_loaded');
     });
-  }
-
-  var section = $('#elevation_profile_container_section_container');
-  $('#elevation_profile_container').click(function() {
-    if (!section.hasClass('profile_loaded')) {
-      load_elevation_profile();
-    }
   });
-
 }";
 
 echo javascript_queue($js);

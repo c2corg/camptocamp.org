@@ -24,7 +24,7 @@ include_partial('documents/home_section_title',
 $cookie_position = array_search('on_the_web', sfConfig::get('app_personalization_cookie_fold_positions'));
 
 echo javascript_queue('
-var loaded = false, section_list = $("#on_the_web_section_list");
+var section_list = $("#on_the_web_section_list");
 
 function load() {
   $.get("' . $sf_data->getRaw('feed_url') . '").done(function(data) {
@@ -57,13 +57,12 @@ function load() {
   }).fail(function() {
     section_list.html("' . __('No recent changes available') . '");
   });
-  loaded = true;
 }
 
 if (!C2C.shouldHide('. $cookie_position . ', true)) {
   load();
 } else {
-  $("#on_the_web_toggle").click(function() { if (!loaded) load(); });
+  $("#on_the_web_toggle").one("click", load);
 }
 ');
 ?>
