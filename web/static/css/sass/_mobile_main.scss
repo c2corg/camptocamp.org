@@ -371,6 +371,11 @@ a.smiley {
   input[type=button].no-small-screen {
     display: none;
   }
+
+  // also make sure that invited users email input isn't too big
+  input[name=email] {
+    max-width: 280px;
+  }
 }
 
 @media screen and (max-width:600px) {
