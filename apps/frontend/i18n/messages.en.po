@@ -1196,6 +1196,12 @@ msgstr "Picture's license:"
 msgid "Image not found"
 msgstr "This picture doesn’t exist."
 
+# [general comment]
+# assistant image forum
+# [WARNING] needs_review
+msgid "Image on the internet"
+msgstr "Image on the internet"
+
 # [WARNING] needs_review
 msgid "Image rotated successfully"
 msgstr "Image rotated successfully"
@@ -3480,9 +3486,8 @@ msgstr "<h3>Public transport access</h3>Reliability and quality of public transp
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
-# [WARNING] needs_update
 msgid "_publication_date_info"
-msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
+msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\"..."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Rain</h3>Exposure of the climbing site or particular crag to rainfall.<br />Useful if weather is uncertain."
@@ -4459,6 +4464,7 @@ msgstr "Estimate the technical skiing grade (toponeige)"
 msgid "cond short"
 msgstr "Conditions"
 
+# [WARNING] needs_update
 msgid "conditions"
 msgstr "Conditions (incl. approach):"
 
@@ -4780,6 +4786,10 @@ msgstr "Commitment grade:"
 msgid "english"
 msgstr "english"
 
+# [WARNING] needs_review
+msgid "enter URL or paste it from clipboard"
+msgstr "enter URL or paste it from clipboard"
+
 msgid "enter place name"
 msgstr "Enter a location name"
 
@@ -4965,6 +4975,9 @@ msgstr "Forum use your username or your nickname"
 
 msgid "forum_code"
 msgstr "Code for inserting a picture in the forum:"
+
+msgid "forums images wizard failure"
+msgstr "Invalid image"
 
 msgid "francais"
 msgstr "french"
@@ -6343,7 +6356,7 @@ msgstr "Prefered valleys"
 # 
 # Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
-msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Météo France (in French)</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF (Switzerland, in English)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italy, in Italian)</a></li><li><a href=\"http://www.avalanches.org\">European Avalanche Services</a></li><li><a href=\"/users/mailinglists\">Receive avalanche bulletins by email</a></li></ul> <p>Maps</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Switzerland)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italy)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spain)</a></li></ul> <p>Huts</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">CAF (France)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">SAC (Switzerland)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">CAI (Italy)</a></li></ul>"
+msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">Météo France (in French)</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF (Switzerland, in English)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italy, in Italian)</a></li><li><a href=\"http://www.avalanches.org\">European Avalanche Services</a></li><li><a href=\"/users/mailinglists\">Receive avalanche bulletins by email</a></li></ul> <p>Maps</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Switzerland)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italy)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spain)</a></li></ul> <p>Huts</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">CAF (France)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">SAC (Switzerland)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">CAI (Italy)</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
@@ -6769,6 +6782,10 @@ msgstr "Select only those activities practiced during your outing:<ul class=\"te
 
 msgid "select an image file"
 msgstr "Chose an image:&nbsp;"
+
+# [WARNING] needs_review
+msgid "select image or dragdrop"
+msgstr "Click here to select an image from your computer or drag and drop it"
 
 # [WARNING] needs_review
 msgid "selected admin_limits"
@@ -7347,6 +7364,9 @@ msgstr "Vosges"
 # [WARNING] needs_review
 msgid "vtt_approach"
 msgstr "mountain-bike approach possible"
+
+msgid "wait while image is uploaded"
+msgstr "Please wait while the image is being transferred"
 
 # [WARNING] needs_review
 msgid "waiting for geolocation"

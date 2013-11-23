@@ -1203,6 +1203,12 @@ msgstr "Lizenz des Bildes:"
 msgid "Image not found"
 msgstr "Dieses Bild existiert nicht."
 
+# [general comment]
+# assistant image forum
+# [WARNING] en translation used
+msgid "Image on the internet"
+msgstr "Image on the internet"
+
 # [WARNING] en translation used
 msgid "Image rotated successfully"
 msgstr "Image rotated successfully"
@@ -3592,7 +3598,7 @@ msgstr "<h3>Typ des öffentlichen Verkehrsmittel</h3>\n"
 "Zugangsort bedient. <em>Z.B. wenn ein Zugangsort mit einem Bus erschlossen ist, welcher vom 10km entfernten Bahnhof startet, dann wird nur \"Bus\" angegeben.</em><br /><br /><strong>Zug:</strong><span style=\"font-weight: bold;\"></span> Zug<br /><br /><strong>Bus:&nbsp;</strong> Postauto oder Bus<br /><br /><strong>Auf Anfrage</strong>: Taxi, Rufbus, oder Abholdienst"
 
 msgid "_publication_date_info"
-msgstr "<h3>Veröffentlichungsdatum</h3>Datum, an welchem das Buch oder die Zeitschrift veröffentlicht wurde. Falls mehrere Auflage der Publikation existieren, wird auf die aktuellste Auflage Bezug genommen, oder man gibt die erste und letzte Auflage separiert durch einen Trennstrich (z.B. 1983 – 2010) an. Dieses Feld ist dasselbe in allen Sprachen, weshalb ausschliesslich nummerische Datumsangaben verwendet werden sollten (\"2004\", \"03/2009\", \"07-08/1997\", etc.).<br/> Bei Büchern wird beim Publikationsdatum lediglich die Jahrzahl angeben, bei Zeitschriften das Jahr und den Monat."
+msgstr "<h3>Veröffentlichungsdatum</h3>Datum, an welchem das Buch oder die Zeitschrift veröffentlicht wurde. Falls mehrere Auflage der Publikation existieren, wird auf die aktuellste Auflage Bezug genommen, oder man gibt die erste und letzte Auflage separiert durch einen Trennstrich (z.B. 1983 – 2010) an. Dieses Feld ist dasselbe in allen Sprachen, weshalb ausschliesslich nummerische Datumsangaben verwendet werden sollten (\"2004\", \"03/2009\", etc.).<br/> Bei Büchern wird beim Publikationsdatum lediglich die Jahrzahl angeben, bei Zeitschriften das Jahr und den Monat."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Regen</h3>Ausgesetztheit gegenüber Niederschlag des Gebiets/Sektors.<br />Nützlich, wenn die Witterungsverhältnisse unsicher sind."
@@ -4633,13 +4639,14 @@ msgstr "Den Schwierigkeitsgrad einschätzen"
 msgid "cond short"
 msgstr "Verhältnisse"
 
+# [WARNING] needs_update
 msgid "conditions"
 msgstr "Angetroffene Verhältnisse (Zustieg und Route):"
 
 msgid "conditions linked to"
 msgstr "Die Liste der verbundenen Verhältnisse"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "conditions_and_equipment"
 msgstr "Angetroffene Verhältnisse, Ausrüstung und Felsqualität (Zustieg und Route):"
 
@@ -4952,6 +4959,10 @@ msgstr "Ernsthaftigkeitsgrad:"
 msgid "english"
 msgstr "englisch"
 
+# [WARNING] en translation used
+msgid "enter URL or paste it from clipboard"
+msgstr "enter URL or paste it from clipboard"
+
 msgid "enter place name"
 msgstr "Einen Ortsnamen eingeben"
 
@@ -5136,6 +5147,10 @@ msgstr "Im Forum wird ihr Benutzername oder Nickname benutzt, sofern er exisiter
 
 msgid "forum_code"
 msgstr "Code um ein Bild in das Forum einzufügen:"
+
+# [WARNING] en translation used
+msgid "forums images wizard failure"
+msgstr "Invalid image"
 
 msgid "francais"
 msgstr "französisch"
@@ -6523,7 +6538,7 @@ msgstr "Bevorzugte Täler"
 # - I removed the links to french departments BRAs, since it's not very usefull for german speaking people
 # [WARNING] needs_review
 msgid "prepare_outing_box"
-msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><a href=\"http://www.dwd.de/\">Deutscher Wetterdienst</a></li><li><a href=\"http://www.wetter.at/wetter/oesterreich/\">Wetter.at (Österreich)</li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul><p>Lawinenbulletins</p><ul><li><a href=\"http://www.slf.ch/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.lawinenwarndienst-bayern.de/index.php\">Lawinenwarndienst Bayern</a></li><li><a href=\"http://www.lawinen.at/austria/\">Österreich</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://map.geo.admin.ch/?lang=de\">map.geo.admin.ch (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portalecartografico (Italien)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spanien)</a></li></ul><p>Mobilität</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa)</a></li><li><a href=\"http://fahrplan.oebb.at\">ÖBB (Österreich)</a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/routes/filter>Detaillierte Routensuche auf c2c</li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Aktuelle Verhältnisse auf c2c</a></li></ul>"
+msgstr "<p>Wetterberichte</p><ul><li><a href=\"http://www.meteoschweiz.ch/\">MeteoSchweiz</a></li><li><a href=\"http://www.dwd.de/\">Deutscher Wetterdienst</a></li><li><a href=\"http://www.wetter.at/wetter/oesterreich/\">Wetter.at (Österreich)</li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">MéteoFrance</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spanien)</a></li></ul><p>Lawinenbulletins</p><ul><li><a href=\"http://www.slf.ch/index_DE\">SLF (Schweiz)</a></li><li><a href=\"http://www.lawinenwarndienst-bayern.de/index.php\">Lawinenwarndienst Bayern</a></li><li><a href=\"http://www.lawinen.at/austria/\">Österreich</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">BRA Météo France</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italien)</a></li><li><a href=\"/users/mailinglists\">Bulletin per Email abonnieren</a></li></ul><p>Kartenmaterial</p><ul><li><a href=\"http://map.geo.admin.ch/?lang=de\">map.geo.admin.ch (Schweiz)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Frankreich)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portalecartografico (Italien)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spanien)</a></li></ul><p>Mobilität</p><ul><li><a href=\"http://www.sbb.ch/\">SBB (Schweiz)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">DeutscheBahn (Europa)</a></li><li><a href=\"http://fahrplan.oebb.at\">ÖBB (Österreich)</a></li><li><a href=\"http://www.sncf.com/\">SNCF (Frankreich)</a> - <a href=\"http://www.ter-sncf.com/\">TER (Frankreich)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italien)</a></li><li><a href=\"http://www.info-routiere.net/serveurs_vocaux.html\">DDE (Frankreich)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Schweiz)</a></li></ul><p>Andere</p><ul><li><a href=\"/huts/filter\">Hütten</a></li><li><a href=\"/routes/filter>Detaillierte Routensuche auf c2c</li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Aktuelle Verhältnisse auf c2c</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
@@ -6941,6 +6956,10 @@ msgstr "<ul class=\"text\"><li>Wählen sie nur diejenigen Aktivitäten aus, welc
 
 msgid "select an image file"
 msgstr "Wählen sie ein Bild:&nbsp;"
+
+# [WARNING] en translation used
+msgid "select image or dragdrop"
+msgstr "Click here to select an image from your computer or drag and drop it"
 
 # [WARNING] needs_review
 msgid "selected admin_limits"
@@ -7548,6 +7567,10 @@ msgstr "Vogesen"
 # [WARNING] needs_review
 msgid "vtt_approach"
 msgstr "Zugang mit MTB möglich"
+
+# [WARNING] en translation used
+msgid "wait while image is uploaded"
+msgstr "Please wait while the image is being transferred"
 
 msgid "waiting for geolocation"
 msgstr "Warte auf Lokalisierung..."

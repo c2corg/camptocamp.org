@@ -1203,6 +1203,12 @@ msgstr "Licenza dell'immagine:"
 msgid "Image not found"
 msgstr "Quest’immagine non è stata trovata."
 
+# [general comment]
+# assistant image forum
+# [WARNING] en translation used
+msgid "Image on the internet"
+msgstr "Image on the internet"
+
 # [WARNING] needs_review
 msgid "Image rotated successfully"
 msgstr "L'immagine è stata girata"
@@ -3516,7 +3522,7 @@ msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di ra
 
 # [WARNING] en translation used
 msgid "_publication_date_info"
-msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
+msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\"..."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pioggia</h3>Esposizione della falesia alla pioggia.<br />Utile se il tempo è incerto !"
@@ -4516,13 +4522,14 @@ msgstr "Stimare la difficoltà sciistica"
 msgid "cond short"
 msgstr "Condizioni"
 
+# [WARNING] needs_update
 msgid "conditions"
 msgstr "Condizioni incontrate:"
 
 msgid "conditions linked to"
 msgstr "lista delle condizioni associate"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "conditions_and_equipment"
 msgstr "Condizioni del terreno, attrezzatura e qualità della roccia (avvicinamento e via):"
 
@@ -4831,6 +4838,10 @@ msgstr "Difficoltà / impegno complessivo:"
 msgid "english"
 msgstr "inglese"
 
+# [WARNING] en translation used
+msgid "enter URL or paste it from clipboard"
+msgstr "enter URL or paste it from clipboard"
+
 msgid "enter place name"
 msgstr "Entra un nome di luogo"
 
@@ -5017,6 +5028,10 @@ msgstr "Il forum userà il nome utente oppure il nickname, se esiste."
 
 msgid "forum_code"
 msgstr "Codice d’inserimento dell’immagine nel forum:"
+
+# [WARNING] en translation used
+msgid "forums images wizard failure"
+msgstr "Invalid image"
 
 msgid "francais"
 msgstr "francese"
@@ -6382,7 +6397,7 @@ msgid "prepare_outing_box"
 msgstr "<p><a href=\"/articles/107228/it/link-utili#meteo\">Meteo</a></p>\n"
 "<ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#bollettini-valanghe\">Valanghe</a></p>\n"
-"<ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/index_IT\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul>\n"
+"<ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/index_IT\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">BRA Météo France (Francia)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#carto\">Cartografia</a></p>\n"
 "<ul><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico</a></li><li><a href=\"http://map.geo.admin.ch/?lang=it\">map.geo.admin.ch (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#rifugi\">Rifugi</a></p>\n"
@@ -6799,6 +6814,10 @@ msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attivit�
 
 msgid "select an image file"
 msgstr "Scegliere un'immagine:&nbsp;"
+
+# [WARNING] en translation used
+msgid "select image or dragdrop"
+msgstr "Click here to select an image from your computer or drag and drop it"
 
 msgid "selected admin_limits"
 msgstr "Regioni amministrative pre-selezionate"
@@ -7368,6 +7387,10 @@ msgstr "Vosges"
 # [WARNING] needs_review
 msgid "vtt_approach"
 msgstr "avvicinamento possibile in mountain bike"
+
+# [WARNING] en translation used
+msgid "wait while image is uploaded"
+msgstr "Please wait while the image is being transferred"
 
 msgid "waiting for geolocation"
 msgstr "Localizzazione in corso..."

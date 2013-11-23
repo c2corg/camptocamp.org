@@ -1202,6 +1202,12 @@ msgstr "Licencia de la imagen:"
 msgid "Image not found"
 msgstr "La imagen no existe."
 
+# [general comment]
+# assistant image forum
+# [WARNING] en translation used
+msgid "Image on the internet"
+msgstr "Image on the internet"
+
 # [WARNING] en translation used
 msgid "Image rotated successfully"
 msgstr "Image rotated successfully"
@@ -3454,7 +3460,7 @@ msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le
 
 # [WARNING] needs_update
 msgid "_publication_date_info"
-msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Lluvia</h3>Exposición del sitio/sector a la lluvia.<br />útil en caso de tiempo inseguro."
@@ -4422,6 +4428,7 @@ msgstr "Estimar el grado técnico en esquí (sistema toponeige)"
 msgid "cond short"
 msgstr "Condiciones"
 
+# [WARNING] needs_update
 msgid "conditions"
 msgstr "Condiciones encontradas (incl. aproximación):"
 
@@ -4744,6 +4751,10 @@ msgid "english"
 msgstr "inglés"
 
 # [WARNING] en translation used
+msgid "enter URL or paste it from clipboard"
+msgstr "enter URL or paste it from clipboard"
+
+# [WARNING] en translation used
 msgid "enter place name"
 msgstr "Enter a location name"
 
@@ -4932,6 +4943,10 @@ msgstr "El foro utiliza su nombre de usuario o su seudónimo si existe"
 
 msgid "forum_code"
 msgstr "Código de inserción de la imagen en el foro:"
+
+# [WARNING] en translation used
+msgid "forums images wizard failure"
+msgstr "Invalid image"
 
 msgid "francais"
 msgstr "francés"
@@ -6321,7 +6336,7 @@ msgstr "Prefered valleys"
 # 
 # Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
-msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (España)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo Francia</a></li><li><a href=\"http://www.meteosuisse.ch\">Météo Suiza</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/SAndes.html\">Meteo Exploration (Argentina & Chile)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/TrAndes.html\">Meteo Exploration (Andes tropicales)</a></li></ul> <p>Aludes</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Boletin AEMET para el Pirineo Navarro y Aragonés</a></li><li><a href=\" http://www.meteocat.com/mediamb_xemec/servmet/marcs/marc_muntanya.html\">Boletin Météo CAT para el Pirineo catalán</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin Météo France</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF (Suiza)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li><li><a href=\"http://clubandino.org/bn1/details.asp\">Boletines del CA Bariloche (Argentina)</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines FR & CH por email</a></li></ul> <p>Cartografía</p><ul><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (España)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Suiza)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italia)</a></li></ul> <p>Refugios</p><ul><li><a href=\"http://www.feec.org/Informacio%20Gral/Refugis/ref_mon.php\">Refugios FEEC (Cataluña)</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugios CAF (Francia)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Refugios CAS (Suiza)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugios CAI (Italia)</a></li></ul>"
+msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (España)</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">Météo Francia</a></li><li><a href=\"http://www.meteosuisse.ch\">Météo Suiza</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/SAndes.html\">Meteo Exploration (Argentina & Chile)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/TrAndes.html\">Meteo Exploration (Andes tropicales)</a></li></ul> <p>Aludes</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Boletin AEMET para el Pirineo Navarro y Aragonés</a></li><li><a href=\" http://www.meteocat.com/mediamb_xemec/servmet/marcs/marc_muntanya.html\">Boletin Météo CAT para el Pirineo catalán</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">Boletin Météo France</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF (Suiza)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li><li><a href=\"http://clubandino.org/bn1/details.asp\">Boletines del CA Bariloche (Argentina)</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines FR & CH por email</a></li></ul> <p>Cartografía</p><ul><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (España)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Suiza)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italia)</a></li></ul> <p>Refugios</p><ul><li><a href=\"http://www.feec.org/Informacio%20Gral/Refugis/ref_mon.php\">Refugios FEEC (Cataluña)</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugios CAF (Francia)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Refugios CAS (Suiza)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugios CAI (Italia)</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
@@ -6749,6 +6764,10 @@ msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul c
 # [WARNING] en translation used
 msgid "select an image file"
 msgstr "Chose an image:&nbsp;"
+
+# [WARNING] en translation used
+msgid "select image or dragdrop"
+msgstr "Click here to select an image from your computer or drag and drop it"
 
 # [WARNING] en translation used
 msgid "selected admin_limits"
@@ -7335,6 +7354,10 @@ msgstr "Vosges"
 # [WARNING] en translation used
 msgid "vtt_approach"
 msgstr "mountain-bike approach possible"
+
+# [WARNING] en translation used
+msgid "wait while image is uploaded"
+msgstr "Please wait while the image is being transferred"
 
 # [WARNING] en translation used
 msgid "waiting for geolocation"
