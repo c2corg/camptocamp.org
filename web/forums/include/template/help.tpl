@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="<pun_content_direction>">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<pun_char_encoding>" />
+<meta name="viewport" content="initial-scale=1" />
 <pun_head>
 </head>
 <body>
