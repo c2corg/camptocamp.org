@@ -197,5 +197,4 @@
     textarea.attr('rows', rows);
   };
 
-
 })(window.C2C = window.C2C || {}, jQuery);

@@ -25,8 +25,8 @@ setlocale(LC_CTYPE, $locale);
 */
 
 // Language definitions for frequently used strings
-$lang_common = array(
 
+$lang_common = array(
 // Text orientation and encoding
 'lang_direction'		=>	'ltr',	// ltr (Left-To-Right) or rtl (Right-To-Left)
 'lang_encoding'			=>	'UTF-8',
@@ -94,6 +94,17 @@ $lang_common = array(
 'Replies'				=>	'Respostes',
 'Author'				=>	'Autor',
 'Pages'					=>	'Pàgines',
+'B button help'     =>  'fica en negreta el text seleccionat',
+'I button help'     =>  'fica en cursiva el text seleccionat',
+'U button help'     =>  'subratlla el text seleccionat',
+'S button help'     =>  'tatxa el text seleccionat',
+'C button help'     =>  'lletres a amplada fixa',
+'http button help'    =>  'inserir un enllaç en el text seleccionat o activar l\'enllaç seleccionat',
+'@ button help'     =>  'inserir un email en el text seleccionat o activar l\'email seleccionat',
+'Img button help'   =>  'inserir una imatge a partir de l\'enllaç cap a una imatge d\'internet',
+'Img wizard title' => 'Inserir una imatge',
+'Code button help'    =>  'ficar el text seleccionat en un marc a caràcters d\'amplada fixa',
+'Quote button help'   =>  'ficar el text seleccionat en un marc de citació',
 'Help'					=>	'Ajuda',
 'Reduce the text box'	=>	'Redueix la zona de text',
 'Enlarge the text box'	=>	'Engrandeix la zona de text',
@@ -166,7 +177,8 @@ $lang_common = array(
 'Debug table'			=>	'Informació de depuració',
 'Move posts'			=>	'Desplaça múltiples missatges',
 
-//For extern.php RSS feed
+
+// For extern.php RSS feed
 'RSS Desc Active'		=>	'Últims temes actius a',	// board_title will be appended to this string
 'RSS Desc New'			=>	'Últims temes a',	// board_title will be appended to this string
 // CaptchaBox entries

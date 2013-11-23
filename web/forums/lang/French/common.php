@@ -25,7 +25,7 @@ setlocale(LC_CTYPE, $locale);
 */
 
 // Language definitions for frequently used strings
- 
+
 $lang_common = array(
 // Text orientation and encoding
 'lang_direction'		=>	'ltr',	// ltr (Left-To-Right) or rtl (Right-To-Left)
@@ -42,13 +42,13 @@ $lang_common = array(
 'No view'				=>	'Vous n\'avez pas l\'autorisation d\'accéder à ces forums.',
 'No permission'			=>	'Vous n\'avez pas l\'autorisation d\'afficher cette page.',
 'Bad referrer'			=>	'Mauvais HTTP_REFERER. Vous avez été renvoyé sur cette page par une source inconnue ou interdite. Si le problème persiste, assurez-vous que le champ \'URL de base\' de la page Admin/Options est correctement renseigné et que vous visitez ces forums en utilisant cette URL. Plus d\'informations pourront être trouvées dans la documentation de PunBB.',
- 
+
 // Topic/forum indicators
 'New icon'				=>	'Il y a des nouveaux messages',
 'Normal icon'			=>	'<!-- -->',
 'Closed icon'			=>	'Cette discussion est fermée',
 'Redirect icon'			=>	'Forum de redirection',
- 
+
 // Miscellaneous
 'Announcement'			=>	'Annonce',
 'Options'				=>	'Options',
@@ -102,6 +102,7 @@ $lang_common = array(
 'http button help'		=>	'Insérer un lien sur le texte sélectionné, ou activer l\'url sélectionnée',
 '@ button help'			=>	'Insérer une adresse email sur le texte sélectionné, ou activer l\'adresse sélectionnée',
 'Img button help'		=>	'Insérer une image accessible sur le net',
+'Img wizard title' => 'Insérer une image',
 'Code button help'		=>	'Formater le texte sélectionné en boite de code (police à chasse fixe)',
 'Quote button help'		=>	'Formater le texte sélectionné en boite de citation',
 'Help'					=>	'Aide',

@@ -294,6 +294,48 @@ class imagesActions extends documentsActions
         }
     }
 
+    public function executeForumWizard()
+    {
+        // would be more logically in web/forums, but symfony helpers (especially i18n)
+        // are of great help here
+    }
+
+    // find an image id and filename by its id or filename
+    public function executeFind()
+    {
+        $id = $this->getRequestParameter('id', null);
+        $filename = $this->getRequestParameter('filename', null);
+
+        $q = Doctrine_Query::create()
+                           ->select('i.id, i.filename')
+                           ->from('Image i');
+
+        if (preg_match('/^\d+$/', $id))
+        {
+            $q->where('i.id = ?', array(intval($id)));
+        }
+        else if (preg_match('/^\d{10}_\d+\.(jpg|png|gif)$$/', $filename))
+        {
+            $q->where('i.filename = ?', array($filename));
+        }
+        else
+        {
+            return $this->ajax_feedback('Not found');
+        }
+
+        $result = $q->execute()->getFirst();
+
+        if ($result === false)
+        {
+            return $this->ajax_feedback('Not found');
+        }
+        else
+        {
+            $this->getResponse()->setContentType('application/json');
+            return $this->renderText(json_encode(array('id' => $result->id, 'filename' => $result->filename)));
+        }
+    }
+
     public function handleErrorJsupload()
     {
         // we discard the images, and do redirect to document
