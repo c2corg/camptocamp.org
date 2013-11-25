@@ -1,14 +1,24 @@
 <?php
+// google analytics tracker notes
+// - we set coockie domain to www.camptocamp.org / m.camptocamp.org because analytic would otherwise use *.camptocamp.org
+//   we don't want cookies to be sent with s.camptocamp.org
+// - dimensions are used for tracking forum pageviews, and user status (connected or not). Since we use universal analytics,
+//   the scope is configured on analyrics website 
+// - we use IP anonymization, we loose some geographic accuracy, but...
+
 $k = c2cTools::mobileVersion() ? sfConfig::get('app_mobile_ganalytics_key') : sfConfig::get('app_ganalytics_key');
 // keep connection status with analytics
 $status = $sf_user->isConnected() ? 'Member' : 'Visitor';
 // track forum id on viewtopic and viewforum pages
-$forum_track = isset($tracker_forum_id) ? ",['_setCustomVar',2,'Forum','$tracker_forum_id',3]": '';
+$forum_track = isset($tracker_forum_id) ? ",'dimension2':'$tracker_forum_id'" : '';
 ?>
-<script type="text/javascript">
-var _gaq = [['_setAccount','<?php echo $k ?>'],['_setDomainName','none'],['_setCustomVar',1,'Status','<?php echo $status?>',2]<?php echo $forum_track ?>,['_trackPageview']];
-(function(d, t) { var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-g.async = 1; g.src = '//www.google-analytics.com/ga.js'; s.parentNode.insertBefore(g, s); }(document, 'script'));
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create','<?php echo $k ?>',{'cookieDomain':window.location.host});
+ga('send','pageview',{'anonymizeIp':true,'dimension1':'<?php echo $status?>'<?php echo $forum_track ?>});
 <?php 
 // addthis script must be added after ga tracker for google analytics integration, it will be loaded asynchronously
 if ($addthis): ?>
