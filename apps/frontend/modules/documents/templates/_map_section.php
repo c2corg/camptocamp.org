@@ -98,13 +98,19 @@ s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,
     <?php
     $async_map = sfConfig::get('app_async_map', false) && !sfContext::getInstance()->getRequest()->getParameter('debug', false);
 
-    if (!$async_map)
-    {
-        echo javascript_queue("if (!C2C.shouldHide($cookie_position, true)) {  $(window).load(C2C.map_init); }");
-    }
-    else
-    {
-        echo javascript_queue("if (!C2C.shouldHide($cookie_position, true)) { C2C.async_map_init(); }");
-    }
+    $init = $async_map ? 'C2C.async_map_init();' : '$(window).load(C2C.map_init);';
+    $delayed_init = $async_map ? 'C2C.async_map_init' : 'C2C.map_init';
+
+    echo javascript_queue("
+      var id = 'map_container';
+      if (!C2C.shouldHide($cookie_position, true)) {".
+        $init
+    ."} else {
+        $('#'+id).one('click', " . $delayed_init . ");
+      }
+      $('#'+id).click(function() {
+        C2C.registerFoldStatus(id, $cookie_position, !$('#'+id+'_section_container').is(':visible'));
+        $('.x-window.x-resizable-pinned').toggle();
+      }); ");
 
 }

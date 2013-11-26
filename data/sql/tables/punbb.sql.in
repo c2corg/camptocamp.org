@@ -355,7 +355,7 @@ CREATE TABLE punbb_users (
     id serial NOT NULL,
     group_id integer DEFAULT 4 NOT NULL,
     username character varying(200) DEFAULT ''::character varying NOT NULL,
-    "password" character varying(40) DEFAULT ''::character varying NOT NULL,
+    "password" character varying(255) DEFAULT ''::character varying NOT NULL,
     email character varying(200) DEFAULT ''::character varying NOT NULL,
     title character varying(50),
     realname character varying(40),

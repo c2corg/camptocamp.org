@@ -5,7 +5,6 @@ $validation = sfConfig::get('app_images_validation');
 ?>
 <div id="image_upload">
 <div id="plupload_tips" class="tips">
-<div id="plupload_ondrag" style="z-index:-1;"><p><?php echo __('plupload drop') ?></p></div>
 <div id="plupload_normal">
 <?php echo __('plupload introduction text',
               array('%1%' => implode(', ', $validation['file_extensions']),
@@ -41,7 +40,8 @@ $backup_js = minify_get_combined_files_url('/static/js/image_upload.js');
 echo javascript_tag("$.ajax({ url: '$plupload_js', dataType: 'script', cache: true })" .
 ".done(function() { C2C.PlUploadWrapper.init('/images/addpltempimage/mod/$mod/document_id/$document_id', '$backup_url', '$backup_js', {" .
     "badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."'," .
-    "sending: '".__('plupload sending')."', waiting: '".__('plupload waiting')."', serverop: '".__('plupload serverop')."', cancel: '".__('cancel')."'" .
+    "sending: '".__('plupload sending')."', waiting: '".__('plupload waiting')."', serverop: '".__('plupload serverop')."'," .
+    "cancel: '".__('cancel')."', drop: '".__('plupload drop')."'" .
   "});" .
 "});");
 ?>

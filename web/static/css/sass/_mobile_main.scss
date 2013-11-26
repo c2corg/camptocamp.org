@@ -224,7 +224,7 @@ input.long_input
   float: none;
 }
 
-/* try to make forums more compact */
+/* try to make forums more compact TODO move to specific file */
 #punwrap
 {
   margin-left: 0;
@@ -341,7 +341,7 @@ div.blockform form, div.fakeform
   float: none !important;
 }
 
-/* MP */
+// MP
 #punmessage_list .blockmenu {
   width: auto !important;
   float: none !important;
@@ -364,6 +364,40 @@ a.smiley {
 
 #punwrap input[type=button] {
   margin-top: .4em;
+}
+
+// for small screens, hide some buttons
+@media screen and (max-width:480px) {
+  input[type=button].no-small-screen {
+    display: none;
+  }
+
+  // also make sure that invited users email input isn't too big
+  input[name=email] {
+    max-width: 280px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  /*
+   * the upper menu of the forum are all left aligned instead of having a two column presentation
+   */
+  .pun .block .conl, .pun .block .conr {
+    width: 100%;
+    padding: 0;
+    float: left;
+    clear: left;
+    text-align: left;
+  }
+
+  /*
+   * We hide some elements in the forums, like some columns, signatures, ...
+   * because .tc2 columns should sometimes be hideen, sometimes not (and we want to avoid
+   * too many changes to punbb), we use a specific hide4smartphone class
+   */
+  .postsignature, .hide4smartphone {
+    display: none;
+  }
 }
 
 /* footer */
@@ -672,27 +706,6 @@ li.list_odd
 @media screen and (max-width:600px)
 {
   /*
-   * the upper menu of the forum are all left aligned instead of having a two column presentation
-   */
-  .pun .block .conl, .pun .block .conr
-  {
-    width: 100%;
-    padding: 0;
-    float: left;
-    clear: left;
-    text-align: left;
-  }
-
-  /*
-   * We hide some elements in the forums, like some columns, signatures, ...
-   * because .tc2 columns should sometimes be hideen, sometimes not (and we want to avoid
-   * too many changes to punbb), we use a specific hide4smartphone class
-   */
-  .postsignature, .hide4smartphone {
-    display: none;
-  }
-
-  /*
    * Do not lose space on the left to display outings dates
    */
   ul.dated_changes li
@@ -717,7 +730,7 @@ li.list_odd
   }
 }
 
-// on mobile versio, text input fields should be have an at least 16px font to prevent autozoom
+// on mobile version, text input fields should be have an at least 16px font to prevent autozoom
 textarea, .pun textarea, input[type=text], input[type="password"], input[type="email"], input[type="number"],
 input[type="range"], input[type="date"], input[type="color"], input[type="search"],
 // we also change some elements accordingly for visual consistency

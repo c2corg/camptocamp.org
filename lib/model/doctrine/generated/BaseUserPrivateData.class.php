@@ -13,15 +13,15 @@ class BaseUserPrivateData extends sfDoctrineRecord
         $this->hasColumn('username', 'string', 200); // this is the name for the forum
         $this->hasColumn('login_name', 'string', 200, array('unique')); // this is the login
         $this->hasColumn('topo_name', 'string', 200); // this is the name for guidebook
-        $this->hasColumn('password', 'string', 40);
-        $this->hasColumn('password_tmp', 'string', 40);
+        $this->hasColumn('password', 'string', 255);
+        $this->hasColumn('password_tmp', 'string', 255);
         $this->hasColumn('email', 'string', 100);
         $this->hasColumn('document_culture', 'string', 20);
         $this->hasColumn('v4_id', 'smallint', 5);
         $this->hasColumn('registered', 'smallint', null);
         $this->hasColumn('is_profile_public', 'boolean', null, array('default' => false));
         $this->hasColumn('pref_cookies', 'string');
-         $this->hasColumn('group_id', 'integer'); // forum group (aka admin, moderator etc)
+        $this->hasColumn('group_id', 'integer'); // forum group (aka admin, moderator etc)
         
         // forum informations
         $this->hasColumn('language', 'string', 25, array('default' => 'English'));

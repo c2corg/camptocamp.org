@@ -1,4 +1,5 @@
 (function(C2C, $) {
+  var dropid = 'global-drop-overlay';
 
   C2C.PlUploadWrapper = {
 
@@ -24,7 +25,7 @@
         runtimes: 'html5,flash', // rq: flash is not working well with FF (getFlashObj() null ?) but anyway, html5 is fine with firefox
         browse_button: 'pickfiles',
         container: 'container', // when using the body as container, flash shim is badly placed when scrolling, so we attach it to the modalbox
-        drop_element: 'plupload_tips',
+        drop_element: dropid,
         file_data_name: 'image_file',
         multipart: true,
         url: upload_url,
@@ -41,26 +42,29 @@
 
         // drag&drop look&feel
         if (up.features.dragdrop) {
-          $('.plupload-drag-drop').show();
-          var delt = $('#plupload_ondrag');
-          var nelt = $('#plupload_normal');
-          delt.height(nelt.height() - 12).width(nelt.width() - 12);
+          $('#'+dropid).remove(); // be sure it is there only once
+          var drop_overlay = $('<div id="'+dropid+'"><span>'+this.i18n.drop+'</span></div>').appendTo('body');
 
-          plupload.addEvent(document.documentElement, 'dragenter', function() {
-            delt.css('zIndex', 1);
+          plupload.addEvent(document, 'dragenter', function(e) {
+            if ($('#modalbox').hasClass('in') && $('#image_upload').is(':visible')) {
+              drop_overlay.addClass('active');
+            }
           });
 
-          /* Idea here would be to use dragleave event, but someone thought that it would
-             be funnier to fire dragleave when hovering child elements...
-             Instead, we hide delt when mouse goes out of document */
-          plupload.addEvent(document.documentElement, 'mouseout', function() {
-            delt.css('zIndex', -1);
+          plupload.addEvent(document, 'dragleave', function(e) {
+            if (e.target.id == dropid || (e.target.offsetParent && e.target.offsetParent.id == dropid)) {
+              drop_overlay.removeClass('active');
+            }
           });
 
+          // be sure to hide drop_overlay even if no correct file has been dropped
+          plupload.addEvent(drop_overlay[0], 'drop', function(e) {
+            drop_overlay.removeClass('active');
+          });
         }
 
         pe = setInterval(C2C.PlUploadWrapper.validateImageForms, 500);
-      });
+      }, this);
 
       uploader.bind('Error', function(up, err) {
         switch(err.code) {
@@ -128,6 +132,8 @@
         var waiting = this.i18n.waiting;
         var cancel = this.i18n.cancel;
 
+        $('#'+dropid).removeClass('active');
+
         $.each(files, function(i, file) {
           // do not display files that have been rejected
           if (file.status != plupload.FAILED) {
@@ -136,7 +142,7 @@
                 .append(
                   $('<div class="plupload_progress_bar"><div class="plupload_progress"></div></div>'),
                   $('<span class="plupload_text">'+file.name+' <b>'+waiting+'</b> </span>'),
-                  $('<a href="#" onclick="C2C.PlUploadWrapper.cancelUpload(\''+file.id+'\')">'+cancel+'</a>')
+                  $('<a/>', { href: '#', text: cancel, click: function() { C2C.PlUploadWrapper.cancelUpload(file.id); } })
                 )
             );
           }
@@ -229,7 +235,7 @@
 
   // test if css animation and transforms are supported
   // (all browsers that support animation also support 2d transforms)
-  function testCssAnimationAndTransforms() {
+  var cssAnimationSupported = (function() {
     var animation = false;
     var props = ['animationName', 'WebkitAnimationName', 'MozAnimationName'];
     var elt = $('div')[0];
@@ -241,8 +247,6 @@
       }
     }
     return animation;
-  }
-
-  var cssAnimationSupported = testCssAnimationAndTransforms();
+  })();
 
 })(window.C2C = window.C2C || {}, jQuery);

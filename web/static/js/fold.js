@@ -20,7 +20,7 @@
   /**
    * Save fold pref in cookie and profile
    */
-  function registerFoldStatus(pref_name, cookie_position, opened) {
+  C2C.registerFoldStatus = function(pref_name, cookie_position, opened) {
 
     // if user logged, save pref in profile
     if ($('#name_to_use').length) {
@@ -32,12 +32,12 @@
 
     // save pref in cookie
     setFoldCookie(cookie_position, opened);
-  }
+  };
 
   /**
    * Hide or show an home section
    */
-  C2C.toggleHomeSectionView = function(container_id, cookie_position) {
+  function toggleHomeSectionView(container_id, cookie_position) {
     var div = $('#' + container_id + '_section_container');
     var title = $('#' + container_id + '_section_title, #' + container_id + '_toggle');
 
@@ -57,14 +57,13 @@
     registerFoldStatus(container_id, cookie_position, !is_open);
 
     $('#' + container_id + ' .nav_box_top').toggleClass('small');
-  };
+  }
 
 
   /**
    * Add some properties and observers to have '+' and '-' pictos for folding sections
    */
   function initHomeSections() {
-
     $('.nav_box_title, .home_title').mouseover(function() {
       var img = $(this).children(':first');
       var savedClass = img.attr('class').split(' ')[1];
@@ -78,11 +77,24 @@
     });
   }
 
+  function initSectionsToggle() {
+    $('[data-toggle-view]').click(function (e) {
+      var $this = $(this);
+      e.preventDefault();
+      e.stopPropagation();
+      if (cp = parseInt($this.attr('data-cookie-position'), 10)) {
+        toggleHomeSectionView($this.attr('data-toggle-view'), cp);
+      } else {
+        toggleView($this.attr('data-toggle-view'));
+      }
+    });
+  }
+
   /**
    * Hide or show a container
    */
-  C2C.toggleView = function(container_id) {
-    var alt, sign, complete = null;
+  function toggleView(container_id) {
+    var alt, sign;
     var div = $('#' + container_id + '_section_container');
     
     var div_visible = div.is(':visible');
@@ -100,29 +112,8 @@
     $('#' + container_id + '_section_title').attr('title', alt);
     $('#tip_' + container_id).html('[' + alt + ']');
 
-    // FIXME maybe we should make this less specific... or move this logic somewhere else
-    // specific behaviour for the map and elevation profile
-    if (container_id == 'map_container') {
-      registerFoldStatus(container_id, 15, !div_visible);
-
-      // load map if needed
-      // - presence of mapLoading div shows that map has not been created yet
-      // - if C2C.async_map_init is defined, the map js should be retrieved asynchonously
-      if (!div_visible && $('#mapLoading').length) {
-        complete = typeof C2C.async_map_init !== 'undefined' ? C2C.async_map_init : C2C.map_init;
-      }
-
-      // also toggle the c2clayer widget
-      $('.x-window.x-resizable-pinned').toggle();
-
-    } else if (container_id == 'elevation_profile_container') {
-      if (!div_visible && !div.hasClass('profile_loaded')) {
-        complete = C2C.load_elevation_profile;
-      }
-    }
-
-    div.slideToggle(400, complete);
-  };
+    div.slideToggle(400);
+  }
 
   /**
    * Hide or show a single box (like weather box in outings)
@@ -343,6 +334,7 @@
   // initialization
 
   $(function() {
+    initSectionsToggle();
     initHomeSections();
     initRoutes();
     initSplitter();

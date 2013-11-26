@@ -1,15 +1,28 @@
 /* plupload specific styles */
-#plupload_ondrag {
-  font-size: 2em;
-  font-style: normal;
-  font-weight: bold;
-  background-color: white;
-  border: 6px solid #f93;
+#global-drop-overlay {
+  background: none repeat scroll 0 0 black;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   text-align: center;
-  position: absolute;
+  @include opacity(0);
+  @include transition(all .5s linear);
+  z-index: -1000;
+  display: table;
 
-  p {
-    margin-top: 1.5em;
+  &.active {
+    @include opacity(.6);
+    z-index: 100001;
+  }
+
+  span {
+    display: table-cell;
+    vertical-align: middle;
+    color: white;
+    font-weight: 700;
+    font-size: 64px;
   }
 }
 
@@ -62,7 +75,7 @@
   margin-bottom: 2px;
 }
 
-// TODO we should create a mixin and use @content fro keyframes once our sass version
+// TODO we should create a mixin and use @content for keyframes once our sass version
 // is recent enough
 .image_upload_entry {
   @include experimental(animation, new-image-animation .25s linear forwards);

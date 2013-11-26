@@ -61,8 +61,9 @@ if ($has_conditions || $has_conditions_levels)
         $condition_name = 'conditions_and_equipment';
     }
     $lang = $needs_translation ? ' lang="' . $needs_translation . '"' : '';
-    $conditions_title = '<div class="section_subtitle htext" id="_' . $condition_name . '">' . __($condition_name)
-                        . '</div><div class="field_value"' . $lang . '>';
+    $conditions_title = content_tag('div', __($condition_name), array('class' => 'section_subtitle htext',
+            'id' => '_'.$condition_name, 'data-tooltip' => ''))
+                        . '<div class="field_value"' . $lang . '>';
     
     if ($has_conditions_levels)
     {

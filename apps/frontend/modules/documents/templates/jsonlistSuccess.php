@@ -33,10 +33,11 @@ if ($hasPreviousPage || $hasNextPage)
 }
 ?>
 {                                                                                          
-  "type": "application/json",                                                              
+  "type": "application/json",
   "totalItems": <?php echo $totalItems; ?>,
   "count": <?php echo $count; ?>,
   "startIndex": <?php echo $startIndex; ?>,
+  "currentPage": "<?php echo sfContext::getInstance()->getRequest()->getUri(); ?>",
 <?php if ($hasNextPage): ?>
   "nextPage": "<?php echo absolute_link(url_for($uri . $pager->getNextPage())); ?>",
 <?php endif; if ($hasPreviousPage): ?>
