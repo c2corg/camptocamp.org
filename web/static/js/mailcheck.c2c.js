@@ -16,7 +16,7 @@
   // and other common ones
                   "me.com", "mac.com", "live.com", "googlemail.com", "facebook.com", "gmx.com",
                   "mail.com", "outlook.com", "verizon.net" ];
-  var tlds = [ "co.uk", "com", "net", "org", "info", "edu", "gov", "fr", "it", "de", "es", "cat", "eus" ] 
+  var tlds = [ "co.uk", "com", "net", "org", "info", "edu", "gov", "fr", "it", "de", "es", "cat", "eu" ] 
 
   // check email value on blur
   email_input.on('blur', function() {
