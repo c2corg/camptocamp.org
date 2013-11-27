@@ -44,12 +44,12 @@
     var is_open = div.is(':visible');
 
     if (!is_open) {
-      title.attr('title', open_close[1]);
+      title.attr('title', C2C.section_close);
       if (/MSIE [67].0/.exec(navigator.userAgent)) {
         div.css('display', 'block'); // for ie6-7 only
       }
     } else {
-      title.attr('title', open_close[0]);
+      title.attr('title', C2C.section_open);
     }
 
     div.slideToggle(600);
@@ -100,10 +100,10 @@
     var div_visible = div.is(':visible');
 
     if (div_visible) {
-      alt = open_close[0];
+      alt = C2C.section_open;
       sign = '+';
     } else {
-      alt = open_close[1];
+      alt = C2C.section_close;
       sign = '-';
     }
 
@@ -123,10 +123,10 @@
     var div = $('#' + box_id + '_box');
 
     if (!div.is(':visible')) {
-      alt = open_close[1];
+      alt = C2C.section_close;
       sign = '-';
     } else {
-      alt = open_close[0];
+      alt = C2C.section_open;
       sign = '+';
     }
  
@@ -264,7 +264,7 @@
     unhighlight_splitter();
 
     if (savestatus) {
-      registerFoldStatus(nav_status_string, nav_status_cookie_position, wide);
+      registerFoldStatus(C2C.nav_status_string, C2C.nav_status_cookie_position, wide);
     }
   }
 
@@ -283,7 +283,7 @@
     unhighlight_splitter();
 
     if (savestatus) {
-      registerFoldStatus(nav_status_string, nav_status_cookie_position, wide);
+      registerFoldStatus(C2C.nav_status_string, C2C.nav_status_cookie_position, wide);
     }
   }
   

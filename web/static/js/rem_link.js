@@ -3,7 +3,7 @@
   // unlink a document
   C2C.remLink = function(link_type, main_id, linked_id, main_doc, strict) {
 
-    if (confirm(confirm_msg)) {
+    if (confirm(C2C.confirm_msg)) {
       var type_linked_id = link_type + '_';
       if (main_doc) {
         type_linked_id = type_linked_id + linked_id;

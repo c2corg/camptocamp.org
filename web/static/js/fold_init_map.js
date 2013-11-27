@@ -18,7 +18,7 @@
   C2C.setSectionStatus = function (container, position, default_opened) {
 
     if (orig(container, position, default_opened)) { // true only if we have to hide the map section
-      var alt_down = open_close[0];
+      var alt_down = C2C.section_open;
       var div = document.getElementById(container + '_section_container');
       div.style.display = 'none';
       div.title = alt_down;

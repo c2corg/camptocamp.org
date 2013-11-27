@@ -84,7 +84,7 @@ if ($has_geom || $show_map)
 // fold_init_map.js ~ 390b ?>
 <script>
 (function(e,t){var n=e.setSectionStatus
-e.setSectionStatus=function(e,o,i){if(n(e,o,i)){var a=open_close[0],c=t.getElementById(e+"_section_container")
+e.setSectionStatus=function(e,o,i){if(n(e,o,i)){var a=e.section_open,c=t.getElementById(e+"_section_container")
 c.style.display="none",c.title=a
 var s=t.getElementById(e+"_toggle")
 s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,t.getElementById("tip_"+e).innerHTML="["+a+"]"}}})(window.C2C=window.C2C||{},document)
