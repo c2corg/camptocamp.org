@@ -39,7 +39,7 @@
     } else if (container == 'map_container') { // this will be handled by fold_init_map.js
       return true;
     } else { // hide home section
-      var alt_down = open_close[0];
+      var alt_down = C2C.section_open;
       document.getElementById(container + '_section_container').style.display = 'none';
       document.getElementById(container + '_toggle').title = alt_down;
       var top_box = document.querySelectorAll('#' + container + ' .nav_box_top');

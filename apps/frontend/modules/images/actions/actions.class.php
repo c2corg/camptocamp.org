@@ -729,9 +729,18 @@ class imagesActions extends documentsActions
             $this->setErrorAndRedirect('Rotation failed', $referer);
         }
 
-        // clear cache and redirect to view
-        // TODO clear view cache for linked docs
+        // clear cache of current doc 
         $this->clearCache('images', $id);
+        
+        // clear views of the associated docs in every language (content+interface):
+        $associated_docs = Association::findAllAssociatedDocs($id, array('id', 'module'));
+        foreach ($associated_docs as $doc)
+        {
+            // clear their view cache
+            $this->clearCache($doc['module'], $doc['id'], false, 'view');
+        }
+        
+        // redirect to view
         $this->setNoticeAndRedirect('Image rotated successfully', $referer);
     }
 

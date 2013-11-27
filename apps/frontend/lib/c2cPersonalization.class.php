@@ -555,7 +555,7 @@ class c2cPersonalization
             // erase all managed cookies or replace values with the one in profile
             foreach ($managed_cookies as $cookie_name)
             {
-                if (in_array($cookie_name, $cookie_prefs))
+                if (array_key_exists($cookie_name, $cookie_prefs))
                 {
                      $response->setCookie($cookie_name, $cookie_prefs[$cookie_name],
                          time() + sfConfig::get('app_personalization_filter_timeout'));

@@ -27,7 +27,7 @@ if ($mobile):
 (function(e,t){e.shouldHide=function(e,n){var o=/fold=([tfx]{20});/.exec(t.cookie)
 if(o)switch(o[1].charAt(e)){case"t":return!1
 case"f":return!0}return!n},e.setSectionStatus=function(n,o,a){if(e.shouldHide(o,a)){if("map_container"==n)return!0
-var s=open_close[0]
+var s=e.section_open
 t.getElementById(n+"_section_container").style.display="none",t.getElementById(n+"_toggle").title=s
 for(var l=t.querySelectorAll("#"+n+" .nav_box_top"),i=0;i<l.length;i++)l[i].className+=" small"}}})(window.C2C=window.C2C||{},document)
 <?php
@@ -48,7 +48,7 @@ if(a)switch(a[1].charAt(e)){case"t":return!1
 case"f":return!0}return!n},e.setSectionStatus=function(n,a,o){if(e.shouldHide(a,o))if("nav"==n){if(/MSIE [67].0/.exec(navigator.userAgent))return
 t.getElementById("wrapper_context").className+=" no_nav"
 for(var s=t.querySelectorAll(".nav_box"),l=0;l<s.length;l++)s[l].style.display="none"}else{if("map_container"==n)return!0
-var r=open_close[0]
+var r=e.section_open
 t.getElementById(n+"_section_container").style.display="none",t.getElementById(n+"_toggle").title=r
 for(var i=t.querySelectorAll("#"+n+" .nav_box_top"),l=0;l<i.length;l++)i[l].className+=" small"}}})(window.C2C=window.C2C||{},document)
 <?php

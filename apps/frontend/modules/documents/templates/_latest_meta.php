@@ -59,7 +59,7 @@ function load() {
   });
 }
 
-if (!C2C.shouldHide('. $cookie_position . ', true)) {
+if (!C2C.shouldHide('. $cookie_position . ', true) && $("#on_the_web").is(":visible")) {
   load();
 } else {
   $("#on_the_web_toggle").one("click", load);

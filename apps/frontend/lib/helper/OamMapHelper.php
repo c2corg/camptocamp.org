@@ -66,6 +66,7 @@ function show_georef_map($lon, $lat, $layer)
             cache: true
           }).done(function() {
             C2C.map_init();
+            Ext.EventManager.fireDocReady();
           });
         };"; 
     }
