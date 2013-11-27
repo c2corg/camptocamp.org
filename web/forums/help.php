@@ -158,7 +158,7 @@ for ($i = 0; $i < $num_smilies; ++$i)
 		}
 	}
 
-	echo ' '.$lang_help['produces'].' <img src="img/smilies/'.$cur_img.'" width="15" height="15" alt="'.$cur_text.'" /><br />'."\n";
+	echo ' '.$lang_help['produces'].' <img src="/static/images/forums/smilies/'.$cur_img.'" width="15" height="15" alt="'.$cur_text.'" /><br />'."\n";
 }
 
 ?>
