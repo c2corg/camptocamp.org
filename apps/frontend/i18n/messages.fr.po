@@ -88,8 +88,35 @@ msgstr "Document non trouvé"
 msgid "A document can not be linked to itself"
 msgstr "Un document ne peut pas être associé à lui-même"
 
+msgid "A gite can not be linked to a route"
+msgstr "Un gite ne peut pas être associé à un itinéraire"
+
 msgid "A new password has been asked for your account."
 msgstr "La génération d'un nouveau mot de passe a été demandée pour votre compte Camptocamp.org. Vous pouvez à présent vous identifier en utilisant les informations de connexion ci dessous."
+
+msgid "A parking can not be linked to a hut if a main/sub parking is already linked to it"
+msgstr "Un accès ne peut pas être associé à un refuge si un sur/sous accès de cet accès est déjà associé au refuge"
+
+msgid "A parking can not be linked to a route if a main/sub parking is already linked to it"
+msgstr "Un accès ne peut pas être associé à un itinéraire si un sur/sous accès de cet accès est déjà associé à l'itinéraire"
+
+msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
+msgstr "Un accès ne peut pas être associé à un site de couenne ou de bloc si un sur/sous accès de cet accès est déjà associé au site"
+
+msgid "A site can not be linked to more than one summit"
+msgstr "Un site de couenne/bloc ne peut pas être associé à plus d'un sommet"
+
+msgid "A sub parking can not be linked to more than one main parking"
+msgstr "Un sous-accès ne peut pas être associé à plus d'un sur-accès"
+
+msgid "A sub site can not be linked to more than one main site"
+msgstr "Un secteur de couenne/bloc ne peut pas être associé à plus d'un site de couenne/bloc"
+
+msgid "A sub summit can not be linked to more than one main summit"
+msgstr "Un sous-sommet ne peut pas être associé à plus d'un sur-sommet"
+
+msgid "A summit can not be linked to a sub site"
+msgstr "Un sommet ne peut pas être associé à un secteur de couenne/bloc, mais seulement au site principal"
 
 msgid "AD"
 msgstr "AD"
@@ -5369,7 +5396,7 @@ msgstr "Insérer une image"
 # [general comment]
 # message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
 msgid "imgur notice %1%"
-msgstr "Les images importées depuis votre ordinateur seront hébergées sur %1%"
+msgstr "Les images importées depuis votre ordinateur seront hébergées sur %1%. La pérennité de l'hebergement n'est pas de la responsabilité de camptocamp."
 
 msgid "imported from v4"
 msgstr "Transféré depuis la version 4 du site"
