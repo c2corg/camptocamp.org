@@ -3695,7 +3695,7 @@ class documentsActions extends c2cActions
         
         if ($linked_module_new == 'routes')
         {
-            if ($main_module_new == 'huts' && $linked_document_new->get('shelter_type') == 5)
+            if ($main_module_new == 'huts' && $main_document_new->get('shelter_type') == 5)
             {
                 return $this->ajax_feedback('A gite can not be linked to a route');
             }
