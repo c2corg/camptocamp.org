@@ -177,7 +177,7 @@ include_partial('documents/home_section_title',
            link_to(__('recent conditions'), $conditions_link)
            . ' - ' .
            link_to(__('Prepare outing'), getMetaArticleRoute('prepare_outings'));
-      if ($sf_user->isConnected())
+      if ($sf_user->isConnected() && !c2cTools::mobileVersion())
       {
            echo ' - ' . button_wizard();
       }
