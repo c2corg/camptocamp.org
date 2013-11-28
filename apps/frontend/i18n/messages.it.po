@@ -5318,6 +5318,12 @@ msgstr "Un'immagine può essere associata a uno o più documenti. Per aggiungere
 msgid "img button title"
 msgstr "Inserire un'immagine"
 
+# [general comment]
+# message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
+# [WARNING] en translation used
+msgid "imgur notice %1%"
+msgstr "Images from your computer will be hosted on %1%1"
+
 msgid "imported from v4"
 msgstr "proveniente dalla versione 4 del sito"
 
@@ -6397,7 +6403,7 @@ msgid "prepare_outing_box"
 msgstr "<p><a href=\"/articles/107228/it/link-utili#meteo\">Meteo</a></p>\n"
 "<ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#bollettini-valanghe\">Valanghe</a></p>\n"
-"<ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/index_IT\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul>\n"
+"<ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/index_IT\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">BRA Météo France (Francia)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#carto\">Cartografia</a></p>\n"
 "<ul><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico</a></li><li><a href=\"http://map.geo.admin.ch/?lang=it\">map.geo.admin.ch (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/it/link-utili#rifugi\">Rifugi</a></p>\n"

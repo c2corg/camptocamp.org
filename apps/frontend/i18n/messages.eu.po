@@ -5459,6 +5459,12 @@ msgstr "Una imagen puede ser asociada a varios documentos, usando la herramiento
 msgid "img button title"
 msgstr "Irudi bat sartu"
 
+# [general comment]
+# message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
+# [WARNING] en translation used
+msgid "imgur notice %1%"
+msgstr "Images from your computer will be hosted on %1%1"
+
 msgid "imported from v4"
 msgstr "4. bertsiotik ekarri"
 

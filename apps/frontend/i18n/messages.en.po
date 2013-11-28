@@ -5274,6 +5274,11 @@ msgstr "A picture may be associated to one or more documents, using the tool ava
 msgid "img button title"
 msgstr "Insert a picture"
 
+# [general comment]
+# message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
+msgid "imgur notice %1%"
+msgstr "Images from your computer will be hosted on %1%1"
+
 msgid "imported from v4"
 msgstr "imported from v4 version"
 
@@ -6356,7 +6361,7 @@ msgstr "Prefered valleys"
 # 
 # Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
-msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Météo France (in French)</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF (Switzerland, in English)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italy, in Italian)</a></li><li><a href=\"http://www.avalanches.org\">European Avalanche Services</a></li><li><a href=\"/users/mailinglists\">Receive avalanche bulletins by email</a></li></ul> <p>Maps</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Switzerland)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italy)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spain)</a></li></ul> <p>Huts</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">CAF (France)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">SAC (Switzerland)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">CAI (Italy)</a></li></ul>"
+msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">Météo France (in French)</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF (Switzerland, in English)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italy, in Italian)</a></li><li><a href=\"http://www.avalanches.org\">European Avalanche Services</a></li><li><a href=\"/users/mailinglists\">Receive avalanche bulletins by email</a></li></ul> <p>Maps</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Switzerland)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italy)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spain)</a></li></ul> <p>Huts</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">CAF (France)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">SAC (Switzerland)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">CAI (Italy)</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home

@@ -1187,9 +1187,9 @@ msgstr "Aquesta imatge no existeix."
 
 # [general comment]
 # assistant image forum
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Image on the internet"
-msgstr "Image on the internet"
+msgstr "Imatge a internet"
 
 # [WARNING] needs_review
 msgid "Image rotated successfully"
@@ -4539,16 +4539,15 @@ msgstr "Estima el grau tècnic en esquí"
 msgid "cond short"
 msgstr "Condicions"
 
-# [WARNING] needs_update
 msgid "conditions"
-msgstr "Condicions trobades:"
+msgstr "Condicions trobades (aproximació, via, i a proximitat):"
 
 msgid "conditions linked to"
 msgstr "llista de les condicions associades"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "conditions_and_equipment"
-msgstr "Condicions del terreny, equipament i qualitat de la roca trobades (aproximació + via):\n"
+msgstr "Condicions del terreny, equipament i qualitat de la roca trobades (aproximació, via i a proximitat):\n"
 "\n"
 "\n"
 "Condicions trobades:"
@@ -4858,9 +4857,9 @@ msgstr "Compromís:"
 msgid "english"
 msgstr "anglès"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "enter URL or paste it from clipboard"
-msgstr "enter URL or paste it from clipboard"
+msgstr "URL de la imatge"
 
 msgid "enter place name"
 msgstr "Entreu un nom de lloc"
@@ -5048,9 +5047,8 @@ msgstr "El forum utilitza el vostre nom d'usuari o el pseudònim si existeix"
 msgid "forum_code"
 msgstr "Codi d'inserció al fòrum&nbsp;:"
 
-# [WARNING] en translation used
 msgid "forums images wizard failure"
-msgstr "Invalid image"
+msgstr "La imatge no és vàlida"
 
 msgid "francais"
 msgstr "francès"
@@ -5334,6 +5332,12 @@ msgstr "Una mateixa imatge es pot associar a més d'un document, mitjançant l'e
 
 msgid "img button title"
 msgstr "Inserir una imatge"
+
+# [general comment]
+# message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
+# [WARNING] en translation used
+msgid "imgur notice %1%"
+msgstr "Images from your computer will be hosted on %1%1"
 
 msgid "imported from v4"
 msgstr "Importat des de la versió 4 del web"
@@ -6390,7 +6394,7 @@ msgstr "Valls preferides"
 # 
 # Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
-msgstr "<p>Previsions meteorològiques</p><ul><li><a href=\"http://www.meteo.cat/servmet/index.html\">Catalunya</a></li><li><a href=\"http://www.meteo.ad/previsio.php?idioma=0\">Andorra</a></li><li><a href=\" http://france.meteofrance.com/?LIEUID=FRANCE\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">Espanya</a></li><li><a href=\"http://www.meteosuisse.ch\">Suïssa</a></li><li><a href=\"http://meteolive.leonardo.it\">Itàlia</a></li></ul> <p>Allaus</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Catalunya</a></li><li><a href=\"http://www.lauegi.conselharan.org/2010/aplicacion/boletin.php\">Aran</a></li><li><a href=\" http://www.meteo.ad/neu.php?idioma=0\">Andorra</a></li><li><a href=\"http://france.meteofrance.com/france/montagne?85205.path=montagnebulletinneige\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Espanya</a></li><li><a href=http://www.slf.ch/index_EN>Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Itàlia</a></li><li><a href=\"/users/mailinglists\">Rep els butlletins per email</a></li></ul> <p>Gruixos de neu</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_gruix_neu.php\">Catalunya</a></li><li><a href=\" http://www.meteo.fr/temps/france/nivose/\">França</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.icc.cat/vissir3/\">Catalunya</a></li><li><a href=\"http://www.geoportail.fr/\">França</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">Espanya</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">Suïssa</a></li><li><a href=\"http://www.pcn.minambiente.it\">Itàlia</a></li></ul> <p>Refugis</p><ul><li><a href=\"http://www.feec.cat/refugis\">Catalunya (FEEC)</a></li><li><a href=\"http://www.ffcam.fr/refuges_centres_de_montagne.html\">França (CAF)</a></li><li><a href=\"http://www.sac-cas.ch/fr/cabanes/chercher-une-cabane.html\">Suïssa (CAS)</a></li><li><a href=\"http://www.cai.it/index.php?id=6\">Itàlia (CAI) </a></li></ul> <p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p><ul><li><a href=\"http://mct.gencat.cat/\">Mapa continu del trànsit</a></li><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>"
+msgstr "<p>Previsions meteorològiques</p><ul><li><a href=\"http://www.meteo.cat/servmet/index.html\">Catalunya</a></li><li><a href=\"http://www.meteo.ad/previsio.php?idioma=0\">Andorra</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">Espanya</a></li><li><a href=\"http://www.meteosuisse.ch\">Suïssa</a></li><li><a href=\"http://meteolive.leonardo.it\">Itàlia</a></li></ul> <p>Allaus</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Catalunya</a></li><li><a href=\"http://www.lauegi.conselharan.org/2010/aplicacion/boletin.php\">Aran</a></li><li><a href=\" http://www.meteo.ad/neu.php?idioma=0\">Andorra</a></li><li><a href=\"http://france.meteofrance.com/france/montagne?85205.path=montagnebulletinneige\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Espanya</a></li><li><a href=http://www.slf.ch/index_EN>Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Itàlia</a></li><li><a href=\"/users/mailinglists\">Rep els butlletins per email</a></li></ul> <p>Gruixos de neu</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_gruix_neu.php\">Catalunya</a></li><li><a href=\" http://www.meteo.fr/temps/france/nivose/\">França</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.icc.cat/vissir3/\">Catalunya</a></li><li><a href=\"http://www.geoportail.fr/\">França</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">Espanya</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">Suïssa</a></li><li><a href=\"http://www.pcn.minambiente.it\">Itàlia</a></li></ul> <p>Refugis</p><ul><li><a href=\"http://www.feec.cat/refugis\">Catalunya (FEEC)</a></li><li><a href=\"http://www.ffcam.fr/refuges_centres_de_montagne.html\">França (CAF)</a></li><li><a href=\"http://www.sac-cas.ch/fr/cabanes/chercher-une-cabane.html\">Suïssa (CAS)</a></li><li><a href=\"http://www.cai.it/index.php?id=6\">Itàlia (CAI) </a></li></ul> <p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p><ul><li><a href=\"http://mct.gencat.cat/\">Mapa continu del trànsit</a></li><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
@@ -6796,9 +6800,9 @@ msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practic
 msgid "select an image file"
 msgstr "Escolliu una imatge:&nbsp;"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "select image or dragdrop"
-msgstr "Click here to select an image from your computer or drag and drop it"
+msgstr "Cliqueu per seleccionar una imatge des del vostre ordinador o bé arrossegueu-les i deixeu-les anar"
 
 msgid "selected admin_limits"
 msgstr "Regions administratives preseleccionades"
@@ -7362,9 +7366,8 @@ msgstr "Vosges"
 msgid "vtt_approach"
 msgstr "aproximació amb BTT possible"
 
-# [WARNING] en translation used
 msgid "wait while image is uploaded"
-msgstr "Please wait while the image is being transferred"
+msgstr "Espereu-vos mentre puja la imatge"
 
 msgid "waiting for geolocation"
 msgstr "Localització en curs..."
