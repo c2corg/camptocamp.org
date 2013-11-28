@@ -54,7 +54,7 @@
 
     div.slideToggle(600);
 
-    registerFoldStatus(container_id, cookie_position, !is_open);
+    C2C.registerFoldStatus(container_id, cookie_position, !is_open);
 
     $('#' + container_id + ' .nav_box_top').toggleClass('small');
   }
@@ -264,7 +264,7 @@
     unhighlight_splitter();
 
     if (savestatus) {
-      registerFoldStatus(C2C.nav_status_string, C2C.nav_status_cookie_position, wide);
+      C2C.registerFoldStatus(C2C.nav_status_string, C2C.nav_status_cookie_position, wide);
     }
   }
 
@@ -283,7 +283,7 @@
     unhighlight_splitter();
 
     if (savestatus) {
-      registerFoldStatus(C2C.nav_status_string, C2C.nav_status_cookie_position, wide);
+      C2C.registerFoldStatus(C2C.nav_status_string, C2C.nav_status_cookie_position, wide);
     }
   }
   
