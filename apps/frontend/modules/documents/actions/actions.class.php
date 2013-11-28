@@ -3691,6 +3691,21 @@ class documentsActions extends c2cActions
                     return $this->ajax_feedback('This hut is already linked to a summit');
                 }
             }
+            if ($main_module_new == 'parkings')
+            {
+                $associations_pp = Association::findAllAssociations($main_id_new, 'pp');
+                $associations_ph = Association::findAllAssociations($linked_id_new, 'ph');
+                foreach ($associations_pp as $a_pp)
+                {
+                    foreach ($associations_ph as $a_ph)
+                    {
+                        if ($a_pp['main_id'] == $a_ph['main_id'] || $a_pp['linked_id'] == $a_ph['main_id'])
+                        {
+                            return $this->ajax_feedback('A parking can not be linked to a hut if a main/sub parking is already linked to it');
+                        }
+                    }
+                }
+            }
         }
         
         if ($linked_module_new == 'routes')
@@ -3734,6 +3749,21 @@ class documentsActions extends c2cActions
                 if (Association::countAllMain(array($linked_id_new), 'tt'))
                 {
                     return $this->ajax_feedback('A summit can not be linked to a sub site');
+                }
+            }
+            if ($main_module_new == 'parkings')
+            {
+                $associations_pp = Association::findAllAssociations($main_id_new, 'pp');
+                $associations_pt = Association::findAllAssociations($linked_id_new, 'pt');
+                foreach ($associations_pp as $a_pp)
+                {
+                    foreach ($associations_pt as $a_pt)
+                    {
+                        if ($a_pp['main_id'] == $a_pt['main_id'] || $a_pp['linked_id'] == $a_pt['main_id'])
+                        {
+                            return $this->ajax_feedback('A parking can not be linked to a site if a main/sub parking is already linked to it');
+                        }
+                    }
                 }
             }
         }
