@@ -124,12 +124,19 @@ include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/ma
 // associated outings section starts here
 if ($is_not_archive && $is_not_merged)
 {
-    echo start_section_tag('Linked outings', 'outings');
+    if ($nb_outings > 0 || !in_array(12, $site_types))
+    {
+        echo start_section_tag('Linked outings', 'outings');
+    }
+    
     if ($nb_outings == 0)
     {
-    ?>
-        <p class="default_text"><?php echo __('No linked outing to this site') ?></p>
-    <?php
+        if (!in_array(12, $site_types))
+        {
+            ?>
+                <p class="default_text"><?php echo __('No linked outing to this site') ?></p>
+            <?php
+        }
     }
     else
     {
@@ -178,7 +185,10 @@ if ($is_not_archive && $is_not_merged)
                        "outings/edit?link=$id")
              . '</div>';
     }
-    echo end_section_tag();
+    if ($nb_outings > 0 || !in_array(12, $site_types))
+    {
+        echo end_section_tag();
+    }
 
     include_partial('documents/images',
                     array('images' => $associated_images,
