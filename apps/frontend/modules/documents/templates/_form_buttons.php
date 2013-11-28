@@ -6,11 +6,14 @@
 <ul class="action_buttons">
   <li><?php
 
-  // TODO highlight effect
   $js = "$('#indicator').show();
   $.post('" . url_for("$module/preview") . "', $(this.form).serialize())
     .always(function() { $('#indicator').hide(); $('.goto_preview').show(); })
-    .done(function(data) { $('#preview').html(data).show(); $('#form_buttons_up').show(); });
+    .done(function(data) {
+      var preview = $('#preview');
+      preview.html(data).addClass('highlight').show();
+      setTimeout(function() { preview.removeClass('highlight') }, 400);
+      $('#form_buttons_up').show(); });
   return false;";
 
   echo c2c_button(__('Preview'), array('picto' => 'action_filter', 'class' => 'main_button'),
