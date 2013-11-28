@@ -1145,35 +1145,42 @@ p.default_text div.add_content
 {
   margin-top: 15px;
   text-align: justify;
-}
+  @include experimental(transition, all 1s);
 
-#preview .clearing
-{
-  padding: 5px 0;
-}
+  &.highlight
+  {
+    background-color: #ff9;
+    @include experimental(transition-duration, 0s);
+  }
 
-#preview .article_title
-{
-  margin: 10px 5px 10px 0;
-  padding-left: 33px;
-}
+  .clearing
+  {
+    padding: 5px 0;
+  }
 
-#preview .article_title_img
-{
-  margin-left: 0;
-}
+  .article_title
+  {
+    margin: 10px 5px 10px 0;
+    padding-left: 33px;
+  }
 
-#preview #article_gauche_5050, #preview .article_gauche_5050
-{
-  float:none;
-}
+  .article_title_img
+  {
+    margin-left: 0;
+  }
 
-#preview .preview
-{
-  clear: both;
-  display: block;
-  margin-bottom: 15px;
-  position: relative;
+  #article_gauche_5050, .article_gauche_5050
+  {
+    float: none;
+  }
+
+  .preview
+  {
+    clear: both;
+    display: block;
+    margin-bottom: 15px;
+    position: relative;
+  }
 }
 
 #preview #title, #preview .title, .diff-section .title

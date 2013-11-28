@@ -86,8 +86,44 @@ msgstr "Document no trobat"
 msgid "A document can not be linked to itself"
 msgstr "No es pot associar un document a sí mateix"
 
+# [WARNING] en translation used
+msgid "A gite can not be linked to a route"
+msgstr "A valley accomodation can not be linked to a route"
+
 msgid "A new password has been asked for your account."
 msgstr "Heu demanat la creació d'una nova contrasenya per al vostre compte Camptocamp.org. Ja podeu identificar-vos utilitzant les següents dades de connexió."
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a hut if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a hut if a main/sub access point of this access is already linked to this hut"
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a route if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a route if a main/sub access point of this access is already linked to this route"
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a climbing site if a main/sub access point of this access is already linked to this site"
+
+# [WARNING] en translation used
+msgid "A site can not be linked to more than one summit"
+msgstr "A climbing site can not be linked to more than one summit"
+
+# [WARNING] en translation used
+msgid "A sub parking can not be linked to more than one main parking"
+msgstr "A sub access point can not be linked to more than one main access point"
+
+# [WARNING] en translation used
+msgid "A sub site can not be linked to more than one main site"
+msgstr "A climbing sector can not be linked to more than one climbing site"
+
+# [WARNING] en translation used
+msgid "A sub summit can not be linked to more than one main summit"
+msgstr "A sub summit can not be linked to more than one main summit"
+
+# [WARNING] en translation used
+msgid "A summit can not be linked to a sub site"
+msgstr "A summit can not be linked to a climbing sector, but only to the main climbing site"
 
 msgid "AD"
 msgstr "AD"
@@ -4857,9 +4893,9 @@ msgstr "Compromís:"
 msgid "english"
 msgstr "anglès"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "enter URL or paste it from clipboard"
-msgstr "enter URL or paste it from clipboard"
+msgstr "URL de la imatge"
 
 msgid "enter place name"
 msgstr "Entreu un nom de lloc"
@@ -5047,9 +5083,8 @@ msgstr "El forum utilitza el vostre nom d'usuari o el pseudònim si existeix"
 msgid "forum_code"
 msgstr "Codi d'inserció al fòrum&nbsp;:"
 
-# [WARNING] en translation used
 msgid "forums images wizard failure"
-msgstr "Invalid image"
+msgstr "La imatge no és vàlida"
 
 msgid "francais"
 msgstr "francès"
@@ -5333,6 +5368,12 @@ msgstr "Una mateixa imatge es pot associar a més d'un document, mitjançant l'e
 
 msgid "img button title"
 msgstr "Inserir una imatge"
+
+# [general comment]
+# message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
+# [WARNING] en translation used
+msgid "imgur notice %1%"
+msgstr "Images from your computer will be hosted on %1%1"
 
 msgid "imported from v4"
 msgstr "Importat des de la versió 4 del web"
@@ -6795,9 +6836,9 @@ msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practic
 msgid "select an image file"
 msgstr "Escolliu una imatge:&nbsp;"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "select image or dragdrop"
-msgstr "Click here to select an image from your computer or drag and drop it"
+msgstr "Cliqueu per seleccionar una imatge des del vostre ordinador o bé arrossegueu-les i deixeu-les anar"
 
 msgid "selected admin_limits"
 msgstr "Regions administratives preseleccionades"
@@ -7361,9 +7402,8 @@ msgstr "Vosges"
 msgid "vtt_approach"
 msgstr "aproximació amb BTT possible"
 
-# [WARNING] en translation used
 msgid "wait while image is uploaded"
-msgstr "Please wait while the image is being transferred"
+msgstr "Espereu-vos mentre puja la imatge"
 
 msgid "waiting for geolocation"
 msgstr "Localització en curs..."
