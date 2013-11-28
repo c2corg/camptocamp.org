@@ -3550,6 +3550,7 @@ class documentsActions extends c2cActions
 
         switch ($linked_module)
         {
+            case 'huts': $fields = array('id', 'is_protected', 'shelter_type'); break;
             case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
             case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
             case 'documents': $fields = array('id', 'is_protected', 'module'); break; // FIXME prevent such case?
@@ -3575,6 +3576,7 @@ class documentsActions extends c2cActions
 
         switch ($main_module)
         {
+            case 'huts': $fields = array('id', 'is_protected', 'shelter_type'); break;
             case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
             case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
             case 'documents': $fields = array('id', 'is_protected', 'module'); break; // FIXME prevent such case?
@@ -3619,6 +3621,10 @@ class documentsActions extends c2cActions
                     {
                         return $this->ajax_feedback('You do not have the right to link a document to a personal article');
                     }
+                }
+                if (($main_module_new == 'outings') && (!Association::find($user_id, $main_id_new, 'uo')))
+                {
+                    return $this->ajax_feedback('You do not have the right to link an article to another user outing');
                 }
             }
             
@@ -3672,10 +3678,6 @@ class documentsActions extends c2cActions
                 {
                     return $this->ajax_feedback('You do not have the right to link a site to another user outing');
                 }
-                if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                {
-                    return $this->ajax_feedback('You do not have the right to link an article to another user outing');
-                }
             }
         }
         
@@ -3687,6 +3689,73 @@ class documentsActions extends c2cActions
                 if (count($associations))
                 {
                     return $this->ajax_feedback('This hut is already linked to a summit');
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'routes')
+        {
+            if ($main_module_new == 'huts' && $linked_document_new->get('shelter_type') == 5)
+            {
+                return $this->ajax_feedback('A gite can not be linked to a route');
+            }
+            if ($main_module_new == 'parkings')
+            {
+                $associations_pp = Association::findAllAssociations($main_id_new, 'pp');
+                $associations_pr = Association::findAllAssociations($linked_id_new, 'pr');
+                foreach ($associations_pp as $a_pp)
+                {
+                    foreach ($associations_pr as $a_pr)
+                    {
+                        if ($a_pp['main_id'] == $a_pr['main_id'] || $a_pp['linked_id'] == $a_pr['main_id'])
+                        {
+                            return $this->ajax_feedback('A parking can not be linked to a route if a main/sub parking is already linked to it');
+                        }
+                    }
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'sites')
+        {
+            if ($main_module_new == 'sites')
+            {
+                if (Association::countAllMain(array($linked_id_new), 'tt'))
+                {
+                    return $this->ajax_feedback('A sub site can not be linked to more than one main site');
+                }
+            }
+            if ($main_module_new == 'summits')
+            {
+                if (Association::countAllMain(array($linked_id_new), 'st'))
+                {
+                    return $this->ajax_feedback('A site can not be linked to more than one summit');
+                }
+                if (Association::countAllMain(array($linked_id_new), 'tt'))
+                {
+                    return $this->ajax_feedback('A summit can not be linked to a sub site');
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'summits')
+        {
+            if ($main_module_new == 'summits')
+            {
+                if (Association::countAllMain(array($linked_id_new), 'ss'))
+                {
+                    return $this->ajax_feedback('A sub summit can not be linked to more than one main summit');
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'parkings')
+        {
+            if ($main_module_new == 'parkings')
+            {
+                if (Association::countAllMain(array($linked_id_new), 'pp'))
+                {
+                    return $this->ajax_feedback('A sub parking can not be linked to more than one main parking');
                 }
             }
         }
