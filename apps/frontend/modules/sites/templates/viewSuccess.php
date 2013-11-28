@@ -10,6 +10,7 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
+$site_types = $document->getRaw('site_types');
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
@@ -169,7 +170,7 @@ if ($is_not_archive && $is_not_merged)
         include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'sites', 'nb_outings' => $nb_outings));
     }
 
-    if ($show_link_tool)
+    if ($show_link_tool && !in_array(12, $site_types))
     {
         echo '<div class="add_content">'
              . link_to(picto_tag('picto_add', __('Associate new outing')) .
