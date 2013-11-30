@@ -515,28 +515,18 @@ td.tc2, td.tc3, td.tcmod, #viewprofile dd, div.forminfo,
 
 $main-color: #ffba4f;
 
-@mixin background-gradient($from: #ff9834, $to: #ffbe80)
-{
-    background-image: -moz-linear-gradient(top, $from, $to 100.0%); /* firefox 3.6+ */
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($from), to($to)); /* safari 4+ */
-    background-image: -webkit-linear-gradient(top, $from, $to 100.0%); /* chrome, safari 5.1+ */
-    background-image: -o-linear-gradient(top, $from, $to 100.0%); /* opera 11.1+ */
-    background-image: -ms-linear-gradient(top, $from, $to 100.0%); /* ie 10+ */
-    background-image: linear-gradient(top, $from, $to 100.0%)
-}
-
 .pun h2, div.blockpost h2, #brdmenu
 {
     background-color: $main-color;
     color: #fff;
-    @include background-gradient(#ff9834, #ffbe80);
+    @include background-image(linear-gradient(top, #ff9834, #ffbe80));
 }
 
 /* colors for c2c-association forums */
 .pun.c2c-asso h2, .c2c-asso div.blockpost h2, .c2c-asso #brdmenu
 {
     background-color: #9f77b3;
-    @include background-gradient(#7b4e90, #b791c8);
+    @include background-image(linear-gradient(top, #7b4e90, #b791c8));
 }
 .pun.c2c-asso h2 a
 {

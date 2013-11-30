@@ -11,14 +11,8 @@ input[type=submit], input[type=reset], input[type=button], button, .c2cui_btn {
   border-bottom-color: #939393;
   border-right-color: #939393;
   background: #f4f4f4; /* old browsers */
-  background: -moz-linear-gradient(top, #f9f9f9 0%, #e3e3e3 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#e3e3e3)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #f9f9f9 0%,#e3e3e3 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #f9f9f9 0%,#e3e3e3 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #f9f9f9 0%,#e3e3e3 100%); /* IE10+ */
-  background: linear-gradient(top, #f9f9f9 0%,#e3e3e3 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#e3e3e3',GradientType=0 ); /* IE6-9 */
-  text-shadow: 0 1px 0 white;
+  @include background(linear-gradient(top, #f9f9f9 0%,#e3e3e3 100%));
+  @include text-shadow(0 1px 0 white);
   cursor: pointer;
   @include transition(0.1s linear all);
 
@@ -29,13 +23,7 @@ input[type=submit], input[type=reset], input[type=button], button, .c2cui_btn {
 
   &:active {
     border-color: #000;
-    background-image: -moz-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* firefox 3.6+ */
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e3e3e3), to(#f9f9f9)); /* safari 4+ */
-    background-image: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* chrome, safari 5.1+ */
-    background-image: -o-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* opera 11.1+ */
-    background-image: -ms-linear-gradient(top, #e3e3e3, #f9f9f9 100%); /* ie 10+ */
-    background-image: linear-gradient(top, #e3e3e3, #f9f9f9 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e3e3', endColorstr='#f9f9f9', GradientType=0);
+    @include background-image(linear-gradient(top, #e3e3e3, #f9f9f9 100%));
   }
 
   // disbabled
