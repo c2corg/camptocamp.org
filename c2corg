@@ -779,7 +779,7 @@ function buildSassFiles($refresh = false) {
         return;
     }
 
-    chdir('web/static/css');
+    chdir('web/static/sass');
     info('Building CSS files...');
     execWrapper('./build.sh');
     info('CSS files built.');
