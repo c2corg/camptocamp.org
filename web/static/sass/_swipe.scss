@@ -46,7 +46,7 @@ $gray: #d6d6d6;
 }
 
 .swipe-img {
-  background-size: contain;
+  @include background-size(contain);
   background-position: center;
   background-repeat: no-repeat;
   height: inherit;

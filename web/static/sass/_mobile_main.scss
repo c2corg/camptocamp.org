@@ -514,10 +514,7 @@ select.menu_select
 }
 
 .menu_select {
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
 #mobile_home

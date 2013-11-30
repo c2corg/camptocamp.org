@@ -158,7 +158,7 @@ $menu_border_color: #999;
     
     .picto:hover {
       background-color: #ffdf96;
-      box-shadow: 0 0 8px #fff;
+      @include box-shadow(0 0 8px #fff);
     }
   }
 }

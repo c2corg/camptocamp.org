@@ -48,7 +48,7 @@
   }
 
   &:hover .images_wizard_image {
-    @include experimental(transform, rotate(5deg));
+    @include rotate(5deg);
   }
 }
 

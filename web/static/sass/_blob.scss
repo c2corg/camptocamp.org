@@ -6,7 +6,10 @@ $pixelratio: 1 !default;
 $mobile: false !default;
 $standard: not $mobile;
 
-// following functions are adapted from compass
+// compass
+$experimental-support-for-khtml: false;
+$legacy-support-for-ie6: false;
+$legacy-support-for-mozilla: false;
 @import "compass/css3";
 
 // custom functions

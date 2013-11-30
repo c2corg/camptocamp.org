@@ -46,7 +46,7 @@ $default-duration: 3s;
             position: absolute;
             width: $hole-size;
             height: $hole-size;
-            border-radius: 50%;
+            @include border-radius(50%);
             top: $hole-position;
             left: $hole-position;
             display: block;
@@ -111,7 +111,7 @@ $default-duration: 3s;
 
 .ui-spinner {
     position: relative;
-    border-radius: 100%;
+    @include border-radius(100%);
 
     .side {
         width: 50%;
@@ -120,7 +120,7 @@ $default-duration: 3s;
         position: absolute;
 
        .fill {
-            border-radius: 999px;
+            @include border-radius(999px);
             position: absolute;
             width: 100%;
             height: 100%;
@@ -137,7 +137,7 @@ $default-duration: 3s;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             @include experimental(animation-name, ui-spinner-rotate-left);
-            @include experimental(transform-origin, 0 50%);
+            @include transform-origin(0 50%);
         }
     }
 
@@ -149,7 +149,7 @@ $default-duration: 3s;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
             @include experimental(animation-name, ui-spinner-rotate-right);
-            @include experimental(transform-origin, 100% 50%);
+            @include transform-origin(100% 50%);
         }
     }
 }

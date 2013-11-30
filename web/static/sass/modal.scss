@@ -59,8 +59,8 @@ $default-width: 500px;
   @include opacity(0);
 
   // 3d transition effect
-  @include experimental(transform, rotateX(-60deg));
-  @include experimental(transform-origin, 50% 0);
+  @include rotateX(-60deg);
+  @include transform-origin(50% 0);
   // easiest would be to use @include transition(all 0.5s), but as before, old safari bugs because of visibility
   // and our compass transition mixin is not yet powerfull enough for mixin vendor prefixes for css property and css value, so...
   -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
@@ -74,7 +74,7 @@ $default-width: 500px;
   visibility: visible;
 
   & .modal-content {
-    @include experimental(transform, rotateX(0deg));
+    @include rotateX(0deg);
     @include opacity(1);
   }
 }

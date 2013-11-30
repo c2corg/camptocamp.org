@@ -1145,12 +1145,12 @@ p.default_text div.add_content
 {
   margin-top: 15px;
   text-align: justify;
-  @include experimental(transition, all 1s);
+  @include transition(all 1s);
 
   &.highlight
   {
     background-color: #ff9;
-    @include experimental(transition-duration, 0s);
+    @include transition-duration(0s);
   }
 
   .clearing
