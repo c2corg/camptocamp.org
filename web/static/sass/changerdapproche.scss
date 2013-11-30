@@ -229,7 +229,7 @@ a.logged_as
 }
 
 #mw_logo, #cda_logo , #europesengage a, #paca a, #languedoc a, #alpes_maritimes a, #aquitaine a {
-  background: url(c2chash('/static/images/portals/cda_4285.png')) no-repeat;
+  background: -c2c-hashurl('/static/images/portals/cda_4285.png') no-repeat;
 }
 #mw_logo
 {

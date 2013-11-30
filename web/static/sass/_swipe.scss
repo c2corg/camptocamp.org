@@ -119,7 +119,7 @@ $close_size: 50px;
 $close_pad: 2px;
 
 .swipe-close {
-  background: url(-c2c-datauri('/static/images/picto/swipe_close.png')) top right no-repeat; // TODO pixelratio friendly button
+  background: -c2c-datauri('/static/images/picto/swipe_close.png') top right no-repeat; // TODO pixelratio friendly button
   position: absolute;
   top: $close_pad;
   right: $close_pad;

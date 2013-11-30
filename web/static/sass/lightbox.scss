@@ -105,11 +105,11 @@ $radius: 4px;
 }
 
 .lb-prev:hover {
-  background: url(datauri('/static/images/prev.png')) left 48% no-repeat;
+  background: -c2c-datauri('/static/images/prev.png') left 48% no-repeat;
 }
 
 .lb-next:hover {
-  background: url(datauri('/static/images/next.png')) right 48% no-repeat;
+  background: -c2c-datauri('/static/images/next.png') right 48% no-repeat;
 }
 
 .lb-dataContainer {

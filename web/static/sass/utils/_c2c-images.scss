@@ -14,17 +14,18 @@
 //   hdpi version is not found
 // - when using standard image instead of hdpi, a warning is raised
 
-// see c2c_sass_functions.rb
-// for the definition of c2chash and datauri functions
-
 // return datauri of file
+// you should use it in conjunction with background-size if pixelratio != 1
+// or directly use one of -c2c-background mixins
 @function -c2c-datauri($file) {
-  @return datauri($file);
+  @return inline-image(pixelratio_file($file, $pixelratio));
 }
 
 // return url+hash of file
+// you should use it in conjunction with background-size if pixelratio != 1
+// or directly use one of -c2c-background mixins
 @function -c2c-hashurl($file) {
-  @return c2chash($file);
+  @return image-url(pixelratio_file($file, $pixelratio));
 }
 
 // return background property with image
@@ -54,9 +55,9 @@
   $property: background;
   $url: null;
   @if $type == 'hashurl' {
-    $url: url(c2chash($file, $pixelratio))
+    $url: -c2c-hashurl($file)
   } @else {
-    $url: url(datauri($file, $pixelratio))
+    $url: -c2c-datauri($file)
   }
   @if $suffix == null {
     background-image: $url;
@@ -70,8 +71,9 @@
 // include background-size
 @mixin -c2c-background-size($file) {
   @if $pixelratio != 1 {
-    $sizes: file_dimensions($file);
-    @include background-size($sizes);
+    @if pixelratio_available($file, $pixelratio) {
+      @include background-size(image-width($file) image-height($file));
+    }
   }
 }
 
@@ -83,8 +85,8 @@
 // some articles might use the pictos)
 @function -c2c-datauri-for-standard-only($file) {
   @if $mobile {
-    @return c2chash($file);
+    @return -c2c-hashurl($file);
   } @else {
-    @return datauri($file);
+    @return -c2c-datauri($file);
   }
 }

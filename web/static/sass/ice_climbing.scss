@@ -57,20 +57,20 @@ a.close_btn, div.selected_image,
 
 #banner_logo
 {
-  background-image: url(c2chash('/static/images/portals/ice_logo.png'));
+  background-image: -c2c-hashurl('/static/images/portals/ice_logo.png');
   background-position: 0;
 }
 
 .article_title_img
 {
-  background-image: url(c2chash('/static/images/portals/ice_modules.png'));
+  background-image: -c2c-hashurl('/static/images/portals/ice_modules.png');
   /* rq we only have one possible case: portal */
   background-position: -11px -709px;
 }
 
 a.logged_as
 {
-  background-image: url(c2chash('/static/images/portals/ice_modules_mini.png'));
+  background-image: -c2c-hashurl('/static/images/portals/ice_modules_mini.png');
   background-position: -8px -392px;
 }
 
@@ -82,7 +82,7 @@ a.logged_as
 .img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images, .img_module_portals, .img_module_products,
 .img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users
 {
-  background-image: url(c2chash('/static/images/portals/ice_modules_mini.png'));
+  background-image: -c2c-hashurl('/static/images/portals/ice_modules_mini.png');
 }
 .picto_areas, .picto_4
 {
@@ -211,7 +211,7 @@ a.logged_as
 .img_action_query, .img_action_edit, .img_action_help, .img_action_informations, .img_action_cc,
 .img_action_tools, .img_action_people
 {
-  background-image: url(c2chash('/static/images/portals/ice_actions.png'));
+  background-image: -c2c-hashurl('/static/images/portals/ice_actions.png');
 }
 .action_edit span, .action_edit
 {

@@ -20,7 +20,7 @@
 
   ul {
     padding: 0;
-    list-style-image: url('http://s.camptocamp.org' + c2chash('/static/images/picto/puce2.png'));
+    list-style-image: -c2c-hashurl('/static/images/picto/puce2.png');
     list-style-type: disc;
     margin: 0.7em 0.5em 0.5em 1.5em;
     vertical-align: top;
@@ -64,5 +64,5 @@
   height: 31px;
   margin-left: auto;
   margin-right: auto;
-  background: white url('http://s.camptocamp.org' + c2chash('/static/images/ajax/ajax-loader2.gif')) no-repeat scroll center;
+  background: white -c2c-hashurl('/static/images/ajax/ajax-loader2.gif') no-repeat scroll center;
 }

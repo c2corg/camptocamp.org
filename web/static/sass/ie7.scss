@@ -93,17 +93,17 @@ tr
 
 #wizard_button .action_create
 {
-  background: url(-c2c-hashurl('/static/images/picto/add.png')) no-repeat 1px 1px;
+  background: -c2c-hashurl('/static/images/picto/add.png') no-repeat 1px 1px;
 }
 
 .nav_box_text ul, ul.listed_changes li, ul.children_docs li
 {
-  list-style-image: url(-c2c-hashurl('/static/images/picto/puce2.png'));
+  list-style-image: -c2c-hashurl('/static/images/picto/puce2.png');
 }
 
 .nav_box_content
 {
-  background: url(-c2c-hashurl('/static/images/bg_nav.png')) repeat-x bottom left;
+  background: -c2c-hashurl('/static/images/bg_nav.png') repeat-x bottom left;
 }
 
 .image_list div.image_actions
@@ -294,12 +294,12 @@ div.file_to_upload_categories select
 
 /* ie6 and ie7 don't support data uris */
 a.external_link, .htext .hextra a.external_link {
-  background: transparent url(-c2c-hashurl('/static/images/extlink.gif')) left center no-repeat;
+  background: transparent -c2c-hashurl('/static/images/extlink.gif') left center no-repeat;
 }
 
 #order li
 {
-  background: url(-c2c-hashurl('/static/images/picto/drag.gif')) no-repeat 5px;
+  background: -c2c-hashurl('/static/images/picto/drag.gif') no-repeat 5px;
 }
 
 
@@ -307,12 +307,12 @@ a.external_link, .htext .hextra a.external_link {
    buttons is $^*@! */
 .c2cui_picto.action_create
 {
-  background: url(-c2c-hashurl('/static/images/picto/add.png')) no-repeat 0;
+  background: -c2c-hashurl('/static/images/picto/add.png') no-repeat 0;
 }
 
 .c2cui_picto.action_filter, #google_search_submit, #q
 {
-  background: url(-c2c-hashurl('/static/images/picto/search.png')) no-repeat 0;
+  background: -c2c-hashurl('/static/images/picto/search.png') no-repeat 0;
 }
 
 /*#google_search_submit, #q {
@@ -321,22 +321,22 @@ a.external_link, .htext .hextra a.external_link {
 
 .c2cui_picto.action_cancel
 {
-  background: url(-c2c-hashurl('/static/images/picto/cancel.png')) no-repeat 0;
+  background: -c2c-hashurl('/static/images/picto/cancel.png') no-repeat 0;
 }
 
 .c2cui_picto.action_list
 {
-  background: url(-c2c-hashurl('/static/images/picto/list.png')) no-repeat 0;
+  background: -c2c-hashurl('/static/images/picto/list.png') no-repeat 0;
 }
 
 .c2cui_picto.action_edit
 {
-  background: url(-c2c-hashurl('/static/images/picto/edit.png')) no-repeat 0;
+  background: -c2c-hashurl('/static/images/picto/edit.png') no-repeat 0;
 }
 
 .c2cui_picto.action_rm
 {
-  background: url(-c2c-hashurl('/static/images/picto/rm.png')) no-repeat 0;
+  background: -c2c-hashurl('/static/images/picto/rm.png') no-repeat 0;
 }
 
 /* ie7 doesn't support data uris, so let's use css sprites (see img.css) */
@@ -346,7 +346,7 @@ a.external_link, .htext .hextra a.external_link {
 .picto_1, .picto_4, .picto_3, .picto_13, .picto_7, .picto_9, .picto_10, .picto_5,
 .picto_8, .picto_11, .picto_12, .picto_6, .picto_2, .picto_14, .picto_15
 {
-  background: url(-c2c-hashurl('/static/images/modules/modules_mini.png')) no-repeat;
+  background: -c2c-hashurl('/static/images/modules/modules_mini.png') no-repeat;
 }
 .picto_areas, .picto_4
 {
@@ -462,7 +462,7 @@ a.external_link, .htext .hextra a.external_link {
 
 .article_title_img
 {
-  background: url(-c2c-hashurl('/static/images/modules/modules.png')) no-repeat;
+  background: -c2c-hashurl('/static/images/modules/modules.png') no-repeat;
 }
 .img_title_areas
 {
@@ -532,7 +532,7 @@ a.external_link, .htext .hextra a.external_link {
 /* 'view', 'edit', 'history'... tabs */
 .ombre_haut, .ombre_bas, #footer
 {
-  background-image: url(-c2c-hashurl('/static/images/borders_repeat_x.png'));
+  background-image: -c2c-hashurl('/static/images/borders_repeat_x.png');
 }
 
 #footer
@@ -548,7 +548,7 @@ a.external_link, .htext .hextra a.external_link {
 
 .form-row .fieldname
 {
-  background: transparent url(-c2c-hashurl('/static/images/picto/help2.png')) no-repeat scroll 0 6px;
+  background: transparent -c2c-hashurl('/static/images/picto/help2.png') no-repeat scroll 0 6px;
 }
 
 /* action images */
@@ -563,7 +563,7 @@ a.external_link, .htext .hextra a.external_link {
 .picto_open, .picto_open_light, .picto_close, .picto_close_light, .picto_movie,
 .picto_weather, .picto_snow, .picto_images_light
 {
-  background: url(-c2c-hashurl('/static/images/picto/actions.png')) no-repeat;
+  background: -c2c-hashurl('/static/images/picto/actions.png') no-repeat;
 }
 
 .action_edit span, .action_edit
@@ -813,27 +813,27 @@ select.picto_forum, select.picto_forums
 
 .image_list a.view_details, #lightbox_view_details
 {
-  background: url(-c2c-hashurl('/static/images/modules/modules_mini.png')) no-repeat -1px -166px;
+  background: -c2c-hashurl('/static/images/modules/modules_mini.png') no-repeat -1px -166px;
 }
 
 .image_list a.view_original, #lightbox_view_original
 {
-  background: url(-c2c-hashurl('/static/images/picto/actions.png')) no-repeat -2px -673px;
+  background: -c2c-hashurl('/static/images/picto/actions.png') no-repeat -2px -673px;
 }
 
 .image_list a.edit_image
 {
-  background: url(-c2c-hashurl('/static/images/picto/actions.png')) no-repeat -1px -294px;
+  background: -c2c-hashurl('/static/images/picto/actions.png') no-repeat -1px -294px;
 }
 
 .image_list a.unlink
 {
-  background: url(-c2c-hashurl('/static/images/picto/actions.png')) no-repeat -1px -609px;
+  background: -c2c-hashurl('/static/images/picto/actions.png') no-repeat -1px -609px;
 }
 
 th.order_desc, th.order_asc
 {
-  background: url(-c2c-hashurl('/static/images/picto/actions.png')) no-repeat;
+  background: -c2c-hashurl('/static/images/picto/actions.png') no-repeat;
 }
 /* position: 3px 6px */
 th.order_desc
@@ -854,7 +854,7 @@ th.order_asc
 .freq_1, .freq_2, .freq_3, .freq_4,
 option.picto_act
 {
-  background: url(-c2c-hashurl('/static/images/picto/activities_mini.png')) no-repeat;
+  background: -c2c-hashurl('/static/images/picto/activities_mini.png') no-repeat;
 }
 
 .activity_6, option.act_6
@@ -965,7 +965,7 @@ option.picto_act
 .thumb_data_img div.license_2, .image_list div.license_2,
 .thumb_data_img div.license_3, .image_list div.license_3
 {
-  background: url(-c2c-hashurl('/static/images/borders_and_logos.png')) no-repeat;
+  background: -c2c-hashurl('/static/images/borders_and_logos.png') no-repeat;
 }
 #banner_logo
 {
@@ -989,7 +989,7 @@ option.picto_act
 }
 #splitter_arrow
 {
-  background: url(-c2c-hashurl('/static/images/borders_and_logos.png')) no-repeat;
+  background: -c2c-hashurl('/static/images/borders_and_logos.png') no-repeat;
   background-position: -190px -141px;
 }
 #splitter_arrow.maximize
@@ -1150,5 +1150,5 @@ span.license_mini_bysa {
 img { -ms-interpolation-mode: bicubic; }
 
 /* lightbox datauri fallback */
-#prevLink:hover, #prevLink:visited:hover { background: url(-c2c-hashurl('/static/images/prev.png')) left 15% no-repeat; }
-#nextLink:hover, #nextLink:visited:hover { background: url(-c2c-hashurl('/static/images/next.png')) right 15% no-repeat; }
+#prevLink:hover, #prevLink:visited:hover { background: -c2c-hashurl('/static/images/prev.png') left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: -c2c-hashurl('/static/images/next.png') right 15% no-repeat; }
