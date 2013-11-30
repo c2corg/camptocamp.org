@@ -774,8 +774,8 @@ function buildSassFiles($refresh = false) {
         !array_key_exists('build', $OPTIONS) &&
         !array_key_exists('buildcss', $OPTIONS)) return;
 
-    if (!hasCommand('sass --help')) {
-        info('Aborted build of CSS files: sass is not available.');
+    if (!hasCommand('compass')) {
+        info('Aborted build of CSS files: compass is not available.');
         return;
     }
 

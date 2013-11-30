@@ -71,7 +71,7 @@
 @mixin -c2c-background-size($file) {
   @if $pixelratio != 1 {
     $sizes: file_dimensions($file);
-    @include experimental(background-size, $sizes, -moz, -webkit, -o, not -ms, not -khtml);
+    @include background-size($sizes);
   }
 }
 
