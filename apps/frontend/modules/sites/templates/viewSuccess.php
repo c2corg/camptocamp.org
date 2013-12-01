@@ -160,7 +160,7 @@ if ($is_not_archive && $is_not_merged)
                 $lang = $outing->get('culture');
                 echo link_to($outing->get('name'), 
                              '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $lang . '&slug=' . get_slug($outing),
-                             ($lang != $culture) ? array('hreflang' => $lang) : null) .  
+                             array('hreflang' => $lang)) .
                      ' - ' . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']) .
                      (isset($outing['nb_images']) ? 

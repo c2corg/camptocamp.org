@@ -66,7 +66,7 @@ if (count($items) == 0): ?>
             echo '<div class="last_docs_list_text">';
             echo link_to($title,
                          "@document_by_id_lang_slug?module=$doc_module&id=$doc_id&lang=$doc_lang&slug=$doc_slug",
-                         ($doc_lang != $culture) ? array('hreflang' => $doc_lang) : null);
+                         array('hreflang' => $doc_lang));
             echo '</div>';
         ?>
             </li>

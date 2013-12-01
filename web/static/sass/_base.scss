@@ -4,6 +4,8 @@ $title_black: #535354; // not completely black, used for some titles
 $modules: areas, articles, books, huts, images, maps, outings, parkings,
           routes, sites, summits, users, products, portals, documents;
 
+$languages: fr, it, de, en, es, ca, eu;
+
 * {
   margin: 0;
   padding: 0;
@@ -106,11 +108,18 @@ a.external_link, .htext .hextra a.external_link {
   padding-left: 14px;
 }  
 
+// display language after link when it differs from current page
 a[hreflang]:after {
   font-size: 0.8em;
   vertical-align: text-top;
   content: "\0000a0[" attr(hreflang) "]";
 }
+@each $language in $languages {
+  html[lang=#{$language}] a[hreflang=#{$language}]:after {
+    content: none;
+  }
+}
+
 
 // visually highlight links from c2c v4
 a[href^="http://alpinisme.camptocamp.com"]:after,
