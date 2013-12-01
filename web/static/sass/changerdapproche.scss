@@ -1,0 +1,316 @@
+@import "blob";
+
+html, body, #holder, #content_box
+{
+  background-color:white;
+}
+
+#header
+{
+  height: auto;
+}
+
+#banner_title
+{
+  display: -moz-inline-box;
+  display: inline-block;
+  margin-left: 10px;
+  float: left;
+}
+
+#c2c_mw_logos
+{
+  display: -moz-inline-box;
+  display: inline-block;
+  float:right;
+  margin-top: 6px;
+}
+
+#cda_logo
+{
+  margin: 6px 0 0 20px;
+  display: -moz-inline-box;
+  display: inline-block;
+  float: left;
+}
+#cda_logo a
+{
+  text-decoration: none;
+}
+
+#banner_title h1
+{
+  display: none;
+}
+
+#cda_title, #cda_title a, #cda_sub_title
+{
+  font: "DejaVu Sans Condensed", DejaVu, condensed;
+  letter-spacing: 0.1em;
+  color: #f47b22;
+  text-decoration: none;
+}
+#cda_title
+{
+  font-size: 3.4em;
+}
+#cda_sub_title
+{
+  margin-top: 0.5em;
+  font-size: 1.8em;
+}
+
+
+#banner_middle
+{
+  height:auto;
+  float: right;
+  clear: right;
+  margin: 0 20px 0 0;
+  z-index: 3;
+  background: none;
+}
+
+.log_elt
+{
+  padding: 0;
+}
+
+a.logged_as
+{
+  padding: 0;
+  background: none;
+}
+
+#banner_logo, #mw_logo
+{
+  position: relative;
+  float: right;
+  clear: none;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  left: auto;
+  top: auto;
+  z-index: 2;
+}
+
+#mw_logo
+{
+  clear: right;
+  margin-right: 20px;
+}
+
+#cda_context
+{
+  padding: 5px 20px 0 20px;
+}
+
+#cda_background_left
+{
+  width: 275px;
+  float: left;
+  overflow: hidden;
+}
+
+#cda_background_right
+{
+  min-height: 100%; 
+  position: relative;
+  float: none;
+  width: auto;
+  padding-left: 20px;
+  overflow: hidden;
+  background: white; 
+}
+
+#home_left_content, #home_right_content
+{
+  padding-top: 20px;
+  overflow: hidden;
+}
+
+#cda_background_left > div
+{
+  clear: both;
+  float: left;
+  width: 100%;
+  padding: 0;
+}
+
+#cda_background_left #last_images #last_image_list,
+#cda_background_left #last_videos #last_video_list
+{
+  overflow: visible;
+  height: auto;
+}
+
+.video
+{
+  text-align: center;
+}
+
+.home_title, #wizard_button
+{
+  height: auto;
+  margin-bottom: 15px;
+  border: 0;
+  @include border-radius(3px);
+}
+
+#nav_about
+{
+  margin-top: 0;
+}
+
+.home_title, .home_title_left, .home_title_right
+{
+  background-color:#F1F1F1;
+}
+
+.home_title_text, .home_title_left, .home_title_right
+{
+  font-size: 1.1em;
+}
+
+.home_title_left, .home_title_right
+{
+  margin-top: 0.83em;
+  top: -8px;
+}
+
+.home_title_text
+{
+  line-height: 1.75em;
+  text-transform: none;
+  font-weight: bold;
+  word-spacing: 0;
+  padding-top: 0;
+}
+.home_title_text, .home_title_text a
+{
+  color: #51a77a;
+}
+
+#wizard_button
+{
+  margin-top: 10px;
+}
+
+#wizard_button, #wizard_button .home_title_left
+{
+  background-color:#51a77a;
+}
+
+#wizard_button .home_title_text a
+{
+  color: #ffffff;
+}
+
+.cda_content #footer_cc
+{
+  margin-left: 0;
+}
+
+.cda_content #footer_partners
+{
+  position: relative;
+  width: auto;
+  left: 0;
+}
+
+#partners li {
+  margin-right: 20px;
+}
+
+#partners_tips
+{
+  font-variant: normal;
+  font-size: 0.9em;
+}
+
+#mw_logo, #cda_logo , #europesengage a, #paca a, #languedoc a, #alpes_maritimes a, #aquitaine a {
+  background: -c2c-hashurl('/static/images/portals/cda_4285.png') no-repeat;
+}
+#mw_logo
+{
+  width:55px;
+  height:88px;
+  z-index: 2;
+  background-position: -162px -2px;
+}
+#cda_logo
+{
+  width:74px;
+  height:75px;
+  z-index: 2;
+  background-position: -217px -2px;
+}
+#europesengage a {
+  background-position: 0 0;
+  width: 161px;
+  height: 103px;
+}
+#paca a {
+  background-position: -292px 0;
+  width: 233px;
+  height: 88px;
+}
+#languedoc a {
+  background-position: -525px 0;
+  width: 167px;
+  height: 88px;
+}
+#alpes_maritimes a {
+  background-position: -692px 0;
+  width: 166px;
+  height: 88px;
+}
+#aquitaine a {
+  background-position: -858px 0;
+  width: 95px;
+  height: 88px;
+}
+
+
+/* mobile */
+.mobile #banner_middle
+{
+  float: left;
+  margin: 0 10px 0 0;
+}
+.mobile #cda_logo
+{
+  margin: 2px 0 2px 2px;
+}
+.mobile #banner_tittle
+{
+  margin-bottom: 3px;
+}
+.mobile #cda_title
+{
+  font-size: 1.3em;
+}
+.mobile #cda_sub_title
+{
+  font-size: 0.9em;
+}
+.mobile .log_elt
+{
+  margin-left: 86px;
+  padding: 2px 0 1px 0;
+}
+
+.mobile #cda_context
+{
+  padding: 0 4px 0 0;
+  margin-left: 4px;
+}
+.mobile #cda_background_right
+{
+  padding: 0;
+}
+.mobile #home_left_content
+{
+  padding-top: 10px;
+}
+

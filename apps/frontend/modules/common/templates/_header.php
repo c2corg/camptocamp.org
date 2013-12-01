@@ -25,37 +25,7 @@ echo ajax_feedback();
     $perso = c2cPersonalization::getInstance();
     if ($perso->areFiltersActive())
     {
-        $options_on = $options_off = array();
-        $options_on['id'] = 'filter_switch_on';
-        $options_off['id'] = 'filter_switch_off';
-        
-        if ($perso->isMainFilterSwitchOn())
-        {
-            $options_off['style'] = 'display: none;';
-        }
-        else
-        {
-            $options_on['style'] = 'display: none;';
-        }
-        
-        $html = picto_tag('action_on', __('some filters active'), $options_on);
-        $html .= picto_tag('action_off', __('some filters have been defined but are not activated'), $options_off);
-        
-        if (defined('PUN_ROOT'))
-        {
-            // we are in the forum
-            // it is not possible to activate/disactivate filter because the FiltersSwitchFilter will not get executed.
-            // moreover, forums are not filtered on activities, regions, langs.
-            echo $html;
-        }
-        else
-        {
-            echo link_to_remote($html, 
-                          array('update' => '', 
-                                'url'    => "@default?module=common&action=switchallfilters",
-                                'loading' => "Element.show('indicator')",
-                                'success' => "Element.toggle('filter_switch_on'); Element.toggle('filter_switch_off'); window.location.reload();"));
-        }
+        echo filters_switcher_link($perso->isMainFilterSwitchOn());
     }
     ?>
       </div>

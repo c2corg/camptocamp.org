@@ -3,7 +3,7 @@
  * $Id: FilterFormHelper.php 2538 2007-12-20 16:08:35Z alex $
  */
 
-use_helper('Form', 'MyForm', 'Javascript');
+use_helper('Form', 'MyForm', 'Javascript', 'General');
 
 function elevation_selector($fieldname, $unit = 'meters')
 {
@@ -189,8 +189,6 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
             $out[] = '<div class="' . $col_class . '">';
         }
         
-        $options = $onclick ? array('onclick' => "C2C.hide_unrelated_filter_fields($activity_id)")
-                            : array();
         $checked = in_array($activity_id, $filtered_activities) ? true : false;
 
         $activity_id_list = explode('-', $activity_id);
@@ -205,11 +203,11 @@ function activities_selector($onclick = false, $use_personalization = false, $fi
         $label_text .= __($activity);
         if ($ckeckbox)
         {
-            $input_tag = checkbox_tag($param . '[]', $value, $checked, $options);
+            $input_tag = checkbox_tag($param . '[]', $value, $checked);
         }
         else
         {
-            $input_tag = my_radiobutton_tag($param . '[]', $value, $checked, $options);
+            $input_tag = my_radiobutton_tag($param . '[]', $value, $checked);
         }
         $out[] = $input_tag . ' ' . 
                  label_for($param . '_' . $value, $label_text);
@@ -238,26 +236,42 @@ function translate_sort_param($label)
     return str_replace(array(' :', ':'), '', __($label));
 }
 
-function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $multiple = false, $size = 0, $filled_options = true)
+function field_value_selector($name, $conf, $options)
 {
-    $options = array_map('__', sfConfig::get($conf));
+    $blank = _option($options, 'blank', false);
+    $keepfirst = _option($options, 'keepfirst', true);
+    $multiple = _option($options, 'multiple', false);
+    $size = _option($options, 'size', 0);
+    $filled_options = _option($options, 'filled_options', true);
+    $exclude = _option($options, 'exclude', null);
+
+    $values = array_map('__', sfConfig::get($conf));
+    if ($exclude)
+    {
+        $exclude = is_array($exclude) ? $exclude : array($exclude);
+        foreach ($exclude as $value)
+        {
+            unset($values[$value]);
+        }
+    }
     if (!$keepfirst)
     {
-        unset($options[0]);
+        unset($values[0]);
     }
     if ($filled_options)
     {
-        $options[' '] = __('filled in');
-        $options['_'] = __('nonwell informed');
+        $values[' '] = __('filled in');
+        $values['_'] = __('nonwell informed');
     }
-    $option_tags = options_for_select($options, '',
+    $option_tags = options_for_select($values, '',
                                       array('include_blank' => $blank));
+
     if ($multiple)
     {
         $select_param = array('multiple' => true);
         if ($size == 0)
         {
-            $size = count($options);
+            $size = count($values);
             if ($filled_options)
             {
                 $size -= 2;
@@ -285,7 +299,7 @@ function around_selector($name, $multiline = false)
 
     $out = __('Around: ');
     $out .= select_tag($name . '_sel', $option_tags,
-                       array('onchange' => "C2C.geo.update_around_on_select_change('$name')"));
+                       array('onchange' => "C2C.update_around_on_select_change('$name')"));
     $out .= input_hidden_tag($name . '_lat');
     $out .= input_hidden_tag($name . '_lon');
 
@@ -433,7 +447,8 @@ function bool_selector_from_list($field, $config, $value)
     $title = $list[$value];
     $out  = ucfirst(__($title)) . __('&nbsp;:') . ' ';
     $out .= select_tag($field . '[]', options_for_select(array($value => __('yes'), '!' . $value => __('no')),
-                                                  '', array('include_blank' => true)));
+                                                  '', array('include_blank' => true)),
+                       array('id' => get_id_from_name($field) . '_' . $value));
     return $out;
 }
 

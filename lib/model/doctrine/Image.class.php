@@ -134,7 +134,7 @@ class Image extends BaseImage
         $seconds = $dms[2];
         //c2cTools::log("$degree-$minutes-$seconds");
         $dms = self::frac_to_dec($degree) + self::frac_to_dec($minutes)/60 + self::frac_to_dec($seconds)/3600;
-        return sprintf('%01.6f', $dms);
+        return floatval(sprintf('%01.6f', $dms));
     }
 
     public static function customSave($name, $filename, $associated_doc_id, $user_id, $model, $activities = array(), $categories = array(), $image_type = 1)
@@ -150,18 +150,31 @@ class Image extends BaseImage
         $image->setCulture(sfContext::getInstance()->getUser()->getCulture());
         $image->set('name', $name);
         $image->set('filename', $filename);
+
+        // get and store image dimensions and size
+        $size = getimagesize($from . DIRECTORY_SEPARATOR . $filename);
+        if ($size)
+        {
+            $image->set('width', $size[0]);
+            $image->set('height', $size[1]);
+        }
+        $image->set('file_size', filesize($from . DIRECTORY_SEPARATOR . $filename));
+
         // here, read eventual lon, lat, elevation and other interesting fields from exif tag...
         // (nb: always after $image->set('filename', $filename))
         $image->populateWithExifDataFrom($from . DIRECTORY_SEPARATOR . $filename);
+
         // here, copy activities field from the linked document (if it exists):
         if (!empty($activities))
         {
             $image->set('activities', $activities);
         }
+
         if (!empty($categories))
         {
             $image->set('categories', $categories);
         }
+
         $image->set('image_type', $image_type);
         $image->set('has_svg', Images::hasSVG($filename, $from));
         // then save:
@@ -235,8 +248,11 @@ class Image extends BaseImage
                     $lat = self::convertDMSToDecimal($exif['GPSLatitude']);
                 }
 
-		// some images come with (0,0) coordinates. Skip such cases
-                if ($lon != 0 && $lat != 0)
+		            // some images come with (0,0) coordinates. Skip such cases
+                // also skip obviously wrong values (it happens)
+                if (($lon != 0 && $lat != 0) &&
+                    (abs($lat) < 90) &&
+                    (abs($lon) < 180))
                 {
                     $this->set('lon', $lon);
                     $this->set('lat', $lat);

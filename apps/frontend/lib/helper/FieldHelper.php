@@ -18,7 +18,6 @@ function loadTooltipsViewRessources()
     {
         $response = sfContext::getInstance()->getResponse();
         $response->addJavascript('/static/js/tooltips.js', 'last');
-        $response->addJavascript('/static/js/tooltips_view.js', 'last');
     }
 }
 
@@ -252,58 +251,71 @@ function field_activities_data($document, $options = array())
     return field_picto_from_list($document, 'activities', 'app_activities_list', $options);
 }
 
-function field_activities_data_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+function field_activities_data_if_set($document, $raw = false, $prefix = '', $suffix = '')
 {
     return field_picto_from_list_if_set($document, 'activities', 'app_activities_list',
-        array('multiple' => true, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'activity',
+        array('multiple' => true, 'raw' => $raw, 'picto_name' => 'activity',
         'picto_separator' => ' ', 'text_separator' => ' - ', 'prefix' => $prefix, 'suffix' => $suffix));
 }
 
-function _activities_data($activities, $printspan = false, $picto_separator = ' ')
+function _activities_data($activities, $picto_separator = ' ')
 {
     return _format_picto_from_list('activities', $activities, 'app_activities_list',
-        array('multiple' => true, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'activity',
+        array('multiple' => true, 'raw' => true, 'picto_name' => 'activity',
         'picto_separator' => $picto_separator, 'text_separator' => ' - '));
 }
 
-function field_pt_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '', $show_if_empty = true)
+function field_pt_picto_if_set($document, $raw = false, $prefix = '', $suffix = '', $show_if_empty = true)
 {
+    // special handling for cablecar, change label if it is the only selected option
+    $options = array('multiple' => true, 'raw' => $raw, 'picto_name' => 'pt', 'picto_separator' => ' ',
+                     'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix, 'show_if_empty' => $show_if_empty);
+    if (!$raw)
+    {
+        $value = $document->getRaw('public_transportation_types');
+        if (($key = array_search("0", $value)) !== false) unset($value[$key]); // on display, changed by symfony
+        if (($key = array_search("", $value)) !== false) unset($value[$key]); // on preview
+
+        if (sizeof($value) === 1 && reset($value) === "9")
+        {
+            $options['label'] = 'access deserved by:';
+        }
+    }
     return field_picto_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types',
-        array('multiple' => true, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'pt', 'picto_separator' => ' ',
-        'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix, 'show_if_empty' => $show_if_empty));
+        $options);
 }
 
-function _pt_picto_if_set($pt_types, $printspan = false)
+function _pt_picto_if_set($pt_types)
 {
     return _format_picto_from_list('public_transportation_types', $pt_types, 'app_parkings_public_transportation_types',
-        array('multiple' => true, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'pt',
+        array('multiple' => true, 'raw' => true, 'picto_name' => 'pt',
         'picto_separator' => ' ', 'text_separator' => ', '));
 }
 
-function field_frequentation_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+function field_frequentation_picto_if_set($document, $raw = false, $prefix = '', $suffix = '')
 {
     return field_picto_from_list_if_set($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list',
-        array('multiple' => false, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'freq', 'picto_separator' => ' ',
+        array('multiple' => false, 'raw' => $raw, 'picto_name' => 'freq', 'picto_separator' => ' ',
         'text_separator' => ', ', 'prefix' => $prefix, 'suffix' => $suffix));
 }
 
-function _frequentation_picto_if_set($frequentation, $printspan = false)
+function _frequentation_picto_if_set($frequentation)
 {
     return _format_picto_from_list('frequentation_status', $frequentation, 'mod_outings_frequentation_statuses_list',
-        array('multiple' => false, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'freq'));
+        array('multiple' => false, 'raw' => true, 'picto_name' => 'freq'));
 }
 
-function field_conditions_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+function field_conditions_picto_if_set($document, $raw = false, $prefix = '', $suffix = '')
 {
     return field_picto_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list',
-        array('multiple' => false, 'raw' => $raw, 'printspan' => $printspan, 'picto_name' => 'cond', 'picto_separator' => ' ', 'text_separator' => ', ',
+        array('multiple' => false, 'raw' => $raw, 'picto_name' => 'cond', 'picto_separator' => ' ', 'text_separator' => ', ',
         'prefix' => $prefix, 'suffix' => $suffix));
 }
 
-function _conditions_picto_if_set($conditions, $printspan = false)
+function _conditions_picto_if_set($conditions)
 {
     return _format_picto_from_list('conditions_status', $conditions, 'mod_outings_conditions_statuses_list',
-        array('multiple' => false, 'raw' => true, 'printspan' => $printspan, 'picto_name' => 'cond'));
+        array('multiple' => false, 'raw' => true, 'picto_name' => 'cond'));
 }
 
 function field_date_data($document, $name)
@@ -411,6 +423,7 @@ function _format_data($name, $value, $options = array())
     $name_suffix = _option($options, 'name_suffix', '');
     $microdata = _option($options, 'microdata', null);
     $show_if_empty = _option($options, 'show_if_empty', true);
+    $label = _option($options, 'label', $name);
 
     if (empty($value))
     {
@@ -435,8 +448,11 @@ function _format_data($name, $value, $options = array())
         }
     }
 
-    $text = ($raw) ? '' :
-            '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . ucfirst(__($name)) . $name_suffix . '</div> ';
+    $text = ($raw) ? '' : content_tag('div', ucfirst(__($name)) . $name_suffix,
+        array('class' => 'section_subtitle' . $div_class, 'id' => '_' . $id, 'data-tooltip' => ''));
+    $text .= ' ';
+
+
 
     if (!empty($prefix) && !$empty_value)
     {
@@ -467,7 +483,8 @@ function _format_data_range($name, $value_min, $value_max, $options = array())
     }
     else
     {
-        $text = '<div class="section_subtitle" id="_'. $name .'">' . __($name) . '</div> ';
+        $text = content_tag('div', __($name), array('class' => 'section_subtitle',
+            'id' => '_'.$name, 'data-tooltip' => '')) . ' ';
     }
 
     if (!empty($value_min) && !empty($value_max) && $value_min == $value_max)
@@ -621,7 +638,6 @@ function _format_picto_from_list($name, $value, $config, $options = array())
     if (!empty($value))
     {
         $multiple = _option($options, 'multiple', false);
-        $printspan = _option($options, 'printspan', false);
         $picto_name = _option($options, 'picto_name', '');
         $picto_separator = _option($options, 'picto_separator', '');
 
@@ -647,24 +663,17 @@ function _format_picto_from_list($name, $value, $config, $options = array())
 
             $picto_text = __($list[$picto_id]);
 
-            if ($printspan)
+            $print_sep = '';
+            if ($print_separator_counter === 0)
             {
-                $print_class = ' printfriendly';
-                if ($print_separator_counter === 0)
-                {
-                    $print_separator_counter = 1;
-                }
-                else
-                {
-                    $print_class .= ' sep';
-                }
+                $print_separator_counter = 1;
             }
             else
             {
-                $print_class = '';
+                $print_sep = ' sep';
             }
 
-            $html[] = '<span class="picto '.$picto_name.'_'.$picto_id.$print_class.'" title="'.$picto_text.'"></span>';
+            $html[] = '<span class="picto '.$picto_name.'_'.$picto_id.$print_sep.'" title="'.$picto_text.'"></span>';
             $picto_text_list[] = $picto_text;
         }
         $html = implode($picto_separator, $html);
@@ -728,7 +737,8 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
 
     if ($show_label)
     {
-        $label = '<div class="section_subtitle htext' . $class . '" id="_' . $name .'">' . __($label) . "</div>\n";
+        $label = content_tag('div', __($label), array('class' => 'section_subtitle htext',
+            'id' => '_'.$name, 'data-tooltip' => '')) . "\n";
     }
     else
     {
@@ -811,7 +821,8 @@ function field_export($module, $id, $lang, $version = null)
     $route_suffix .= "module=$module&id=$id&lang=$lang";
                   
     $title = 'download geo data under %1% format';
-    return '<div class="no_print"><span class="section_subtitle" id="geo_export">' . __('Export:') . '</span>'
+    return '<div class="no_print">' . content_tag('span', __('Export:'), array('class' => 'section_subtitle',
+               'id' => 'geo_export', 'data-tooltip' => ''))
            . ' ' . picto_tag('action_gps') . ' ' .
            link_to('GPX', "@export_gpx$route_suffix",
                    array('title' => __($title, array('%1%' => 'GPX')), 'rel' => 'nofollow'))
@@ -826,7 +837,8 @@ function field_export($module, $id, $lang, $version = null)
 function field_getdirections($id)
 {
     $title = 'Use %1% to see directions to this parking';
-    return '<div class="no_print"><span class="section_subtitle" id="get_directions">' . __('Get directions:') . '</span>'
+    return '<div class="no_print">' . content_tag('span', __('Get directions:'), array('class' => 'section_subtitle',
+               'id' => 'get_directions', 'data-tooltip' => ''))
            . ' ' .
            link_to('Google', "@getdirections?id=$id&service=gmaps",
                    array('title' => __($title, array('%1%' => 'Google Maps')),
@@ -840,8 +852,8 @@ function field_getdirections($id)
                    array('title' => __($title, array('%1%' => 'Bing Maps')),
                          'class' => 'external_link'))
            . ' ' .
-           link_to('Mapquest/OSM', "@getdirections?id=$id&service=openmapquest",
-                   array('title' => __($title, array('%1%' => __('Mapquest/OSM'))),
+           link_to('OSRM', "@getdirections?id=$id&service=osrm",
+                   array('title' => __($title, array('%1%' => __('OSRM'))),
                          'class' => 'external_link')) . '</div>';
 }
 
@@ -914,17 +926,17 @@ function field_exposure_time_if_set($document, $name = 'exposure_time', $prefix 
 
 function field_image_details($document)
 {
-    $filename = $document->get('filename');
-    $file = sfConfig::get('app_upload_dir') . DIRECTORY_SEPARATOR .
-            sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR . $filename;
-    if (!file_exists($file)) return '';
+    $size = $document->get('file_size');
+    $width = $document->get('width');
+    $height = $document->get('height');
 
-    $dimensions = getimagesize($file);
-    $size = filesize($file);
-    $hsize = ($size >= 1048576) ? round(filesize($file) / 1048576, 2) : round(filesize($file) / 1024);
+    // old images don't have these values in the db
+    if ($size == null || $width == null) return '';
+
+    $hsize = ($size >= 1048576) ? round($size / 1048576, 2) : round($size / 1024);
     return _format_data('image_details', __(($size >= 1048576) ? '%1% x %2% px, %3% Mo' : '%1% x %2% px, %3% Ko', 
-                                            array('%1%' => $dimensions[0],
-                                                  '%2%' => $dimensions[1],
+                                            array('%1%' => $width,
+                                                  '%2%' => $height,
                                                   '%3%' => $hsize)));
 }
 
@@ -981,6 +993,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         $show_activities,
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'engagement_rating', 'app_routes_engagement_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'objective_risk_rating', 'app_routes_objective_risk_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings', $format, $add_tooltips),
@@ -989,6 +1002,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $format, $add_tooltips),
+        _filter_ratings_data($document, 'rock_exposition_rating', 'app_routes_rock_exposition_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'equipment_rating', 'app_equipment_ratings_list', $format, $add_tooltips, true, 'P'),
         _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings', $format, $add_tooltips)
@@ -1069,25 +1083,28 @@ function _filter_ratings_rock($document, $format = 'html', $add_tooltips = false
     }
 }
 
-function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaible_activities = null, $show_activities = true, $global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
-                               $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing)
+function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaible_activities = null, $show_activities = true,
+             $global, $engagement, $objective_risk, $topo_ski, $topo_exp, $labande_ski, $labande_global,
+             $rock_free_and_required, $ice, $mixed, $aid, $rock_exposition, $equipment, $hiking, $snowshoeing)
 {
     if ($format == 'html' || $format == 'table')
     {
         $act_filter_enable = is_array($avalaible_activities);
-        $groups = $ski1 = $ski2 = $main_climbing = $climbing = array();
+        $groups = $ski1 = $ski2 = $climbing1 = $climbing2 = $climbing3 = $climbing4 = $climbing5 = array();
 
         if ($topo_ski) $ski1[] = $topo_ski;
         if ($topo_exp) $ski1[] = $topo_exp;
         if ($labande_global) $ski2[] = $labande_global;
         if ($labande_ski) $ski2[] = $labande_ski;
-        if ($global) $main_climbing[] = $global;
-        if ($engagement) $main_climbing[] = $engagement;
-        if ($equipment) $main_climbing[] = $equipment;
-        if ($aid) $climbing[] = $aid;
-        if ($rock_free_and_required) $climbing[] = $rock_free_and_required;
-        if ($ice) $climbing[] = $ice;
-        if ($mixed) $climbing[] = $mixed;
+        if ($global) $climbing1[] = $global;
+        if ($engagement) $climbing2[] = $engagement;
+        if ($objective_risk) $climbing2[] = $objective_risk;
+        if ($equipment) $climbing3[] = $equipment;
+        if ($rock_exposition) $climbing3[] = $rock_exposition;
+        if ($aid) $climbing4[] = $aid;
+        if ($rock_free_and_required) $climbing4[] = $rock_free_and_required;
+        if ($ice) $climbing5[] = $ice;
+        if ($mixed) $climbing5[] = $mixed;
 
         if ((!$act_filter_enable || array_intersect(array(1), $avalaible_activities)) && $ski_activities = array_intersect(array(1), $activities))
         {
@@ -1098,14 +1115,18 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
             $groups[] = implode('/', $ski1);
             $groups[] = implode('/', $ski2);
         }
-        if ((!$act_filter_enable || array_intersect(array(2,3,4,5), $avalaible_activities)) && $climbing_activities = array_intersect(array(2,3,4,5), $activities))
+        if ((!$act_filter_enable || array_intersect(array(2,3,4,5), $avalaible_activities)) &&
+            $climbing_activities = array_intersect(array(2,3,4,5), $activities))
         {
             if ($show_activities)
             {
-                $groups[] = _activities_data($climbing_activities, false, '&nbsp;');
+                $groups[] = _activities_data($climbing_activities, '&nbsp;');
             }
-            $groups[] = implode('/', $main_climbing);
-            $groups[] = implode('/', $climbing);
+
+            for ($i = 1; $i <= 5; $i++)
+            {
+                $groups[] = implode('/', ${'climbing' . $i});
+            }
         }
         if ((!$act_filter_enable || array_intersect(array(6), $avalaible_activities)) && $hiking_activities = array_intersect(array(6), $activities))
         {
@@ -1136,7 +1157,7 @@ function _route_ratings_sum_up($format = 'html', $activities = array(), $avalaib
     }
     elseif ($format == 'json')
     {
-        return array_merge($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
+        return array_merge($global, $engagement, $objective_risk, $topo_ski, $topo_exp, $labande_ski, $labande_global,
                            $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $snowshoeing);
     }
 }

@@ -224,10 +224,10 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
     if ($current_page != 0)
     {
         $navigation .= link_to_function(picto_tag('action_first', __('first page')),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}0'))");
+                                        "$('#${div_prefix}$current_page, #${div_prefix}0').slideToggle(1000)");
         $navigation .= '&nbsp;';
         $navigation .= link_to_function(picto_tag('action_back', __('previous page')),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($current_page-1)."'))");
+                                        "$('#${div_prefix}$current_page, #${div_prefix}".($current_page-1)."').slideToggle(1000)");
         $navigation .= '&nbsp;';
     }
 
@@ -241,7 +241,7 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
     while (($i < $begin + 5) && ($i < $nb_pages))
     {
         $links[] = ($i == $current_page) ? $i+1 :
-                   link_to_function($i+1, "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}$i'))");
+                   link_to_function($i+1, "$('#${div_prefix}$current_page, #${div_prefix}$i').slideToggle(1000)");
         $i++;
     }
     $navigation .= join('&nbsp;&nbsp;', $links);
@@ -250,10 +250,10 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
     {
         $navigation .= '&nbsp;';
         $navigation .= link_to_function(picto_tag('action_next', __('next page')),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($current_page+1)."'))");
+                                        "$('#${div_prefix}$current_page, #${div_prefix}".($current_page+1)."').slideToggle(1000)");
         $navigation .= '&nbsp;';
         $navigation .= link_to_function(picto_tag('action_last', __('last page')),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($nb_pages-1)."'))");
+                                        "$('#${div_prefix}$current_page, #${div_prefix}".($nb_pages-1)."').slideToggle(1000)");
     }
 
     return '<div class="pages_navigation">' . $navigation . '</div>';
@@ -303,6 +303,7 @@ function link_to_associated_images($label, $join = '', $orderby = array())
             $perso['perso'] = $perso_param;
         }
         $rename_params['act'] = c2cTools::Module2Letter($join) . 'act';
+        $rename_params['id'] = $join;
         $join = substr($join, 0, -1);
         $params['join'] = $join;
     }
@@ -407,11 +408,16 @@ function simple_header_list_tag($field_name = '')
 
 function select_all_header_list_tag($title = '')
 {
+    use_helper('JavascriptQueue');
+
     if (!empty($title))
     {
         $title = ' title="' . $title . '"';
     }
-    return "<th$title>" . '<input type="checkbox" id="select_all" /></th>';
+    return "<th$title>" . '<input type="checkbox" id="select_all" /></th>' .
+        javascript_queue("$('#select_all').change(function() {
+          $('table.list td input[type=checkbox]').attr('checked', $(this).is(':checked'));
+        });");
 }
 
 function picto_header_list_tag($picto, $title = '')
@@ -503,7 +509,7 @@ function get_paginated_activities($value, $hide_picto = false, $picto_separator 
             }
             else
             {
-                $out[] = '<span class="activity_' . $activity_num . ' picto printfriendly" title="' . $name . '"></span>';
+                $out[] = '<span class="activity_' . $activity_num . ' picto" title="' . $name . '"></span>';
             }
         }
     }

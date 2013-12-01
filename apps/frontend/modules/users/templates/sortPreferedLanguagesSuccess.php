@@ -1,29 +1,35 @@
-<?php use_helper('Link', 'Language', 'MyForm', 'Ajax'); 
+<?php use_helper('Link', 'Language', 'MyForm', 'MyMinify', 'JavascriptQueue'); 
 
 echo '<div id="fake_div">';
 
 echo customization_nav('langpref');
 
-// handle ajax errors
-echo ajax_feedback(true); // true == inline feedback ?>
+?>
 
 <div id="customize" class="form-row">
 <?php echo fieldset_tag('Favorite language:'); ?>
-    <ol id="order">
+    <ol id="languages-order">
         <?php foreach ($sf_user->getPreferedLanguageList() as $language_code): ?>
           <li id="<?php echo "lang_" . $language_code ?>"><?php echo format_language_c2c($language_code) ?></li>
         <?php endforeach ?>
     </ol>
 <?php
-     $div_to_update = sfConfig::get('app_ajax_feedback_div_name_success');
-      echo sortable_element('order', array(
-      'url'    => 'users/sortPreferedLanguages',
-      'loading' => "Element.show('indicator');",
-      'update' => $div_to_update,
-      'complete' => "Element.hide('indicator'); Element.show('$div_to_update');" . visual_effect('highlight', $div_to_update),
-      )) ?>
-    <?php echo end_fieldset_tag();
-echo __('Reorder these languages according to your preferences, using drag-and-drop');
+    echo end_fieldset_tag();
+    echo __('Reorder these languages according to your preferences, using drag-and-drop');
+
+    echo javascript_queue("$.ajax({
+  url: '" . minify_get_combined_files_url('/static/js/jquery.sortable.js') . "',
+  dataType: 'script',
+  cache: true })
+.done(function() {
+  $('#languages-order').sortable({forcePlaceholderSize: true}).on('sortupdate', function() {
+    $('#indicator').show();
+    $.post('" . url_for('users/sortPreferedLanguages') . "',
+                $('#languages-order li').map(function() { return 'order[]=' + this.id.match(/^lang_(.*)$/)[1]; }).get().join('&'))
+      .always(function() { $('#indicator').hide(); })
+      .done(function(data) { C2C.showSuccess(data); });
+  });
+});");
 ?>
 </div>
 <!-- end div customize -->

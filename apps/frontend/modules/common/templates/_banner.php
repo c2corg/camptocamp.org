@@ -18,13 +18,9 @@ if (isset($banner['type']) && $banner['type'] == 'flash'): //// CUSTOM FLASH BAN
 
 
 <?php elseif (isset($banner['type']) && $banner['type'] == 'adsense'): //// GOOGLE ADSENSE //// ?>
-<script type="text/javascript"><!--
-google_ad_client = "pub-8662990478599655";
-google_ad_slot = "5346820278";
-google_ad_width = 468;
-google_ad_height = 60;
-//--></script>
-<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-8662990478599655" data-ad-slot="5346820278"></ins>
+<script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
 
 <?php elseif (isset($banner['type']) && $banner['type'] == 'netaffiliation'): //// NETAFFILIATION //// ?>
@@ -40,7 +36,7 @@ google_ad_height = 60;
     $id = isset($banner['id_'.$culture]) ? $banner['id_'.$culture] : $banner['id']; ?>
     <a href="<?php echo $counter_base_url . $id ?>"><?php
     $image = isset($banner['image_'.$culture]) ? $banner['image_'.$culture] : $banner['image'];
-    $size = @getimagesize('static/images/pub/' . $image);
+    $size = @getimagesize(sfConfig::get('sf_web_dir') . '/static/images/pub/' . $image);
     echo image_tag(sfConfig::get('app_static_url') . '/static/images/pub/' . $image,
                    array('id' => 'banner', 'alt' => $banner['alt'], 'title' => $banner['alt'],
                          'width' => $size[0], 'height' => $size[1]));

@@ -1,7 +1,8 @@
 <?php
 use_helper('Form', 'MyForm', 'Javascript');
 // cotometre from BLMS (http://paleo.blms.free.fr/cotometre/cotometre.php)
-echo javascript_tag('compute_rating = function(slope, height, skiability) {
+echo javascript_tag('
+function cotometre_rating(slope, height, skiability) {
   var inter = Math.tan(Math.PI * slope/180) + 0.1 * Math.log(height);
   inter += skiability * (inter - 1);
   
@@ -19,25 +20,24 @@ echo javascript_tag('compute_rating = function(slope, height, skiability) {
   return "≥5.8";
 }
 
-compute_technical_grade = function() {
-  var skiability = parseFloat($$(\'input[name=skiability]:checked\').first().value);
-  var slope = parseFloat($F(\'slope\'));
-  var height = parseFloat($F(\'height\'));
+function cotometre_technical_grade() {
+  var skiability = parseFloat($("input[name=skiability]:checked").first().val());
+  var slope = parseFloat($("#slope").val());
+  var height = parseFloat($("#height").val());
   
   if (isNaN(slope) || slope < 20.0 || slope > 80.0) {
-    alert(\'' . __('pente limites') . '\');
+    alert("' . __('pente limites') . '");
     return false;
   }
   
   if (isNaN(height) || height < 50.0 || height > 3000.0) {
-    alert(\'' . __('deniv limites') . '\');
+    alert("' . __('deniv limites') . '");
     return false;
   }
 
-  var rating = compute_rating(slope, height, skiability);
+  var rating = cotometre_rating(slope, height, skiability);
   
-  //$(\'cotometreresult\').replace(\'<span id="cotometreresult">' . __('proposed grade') . '\' + rating + \'</span>\');
-  $(\'cotometre_result\').replace(\'<div id="cotometre_result">' . __('proposed grade') . '<br /><span class="cotometre_result">\' + rating + \' </span></div>\');
+  $("#cotometre_result").html(\'<div id="cotometre_result">' . __('proposed grade') . '<br /><span class="cotometre_result">\' + rating + " </span></div>");
 }');
 ?>
 <div id="fake_div">
@@ -65,7 +65,7 @@ echo label_tag('height', __('denivele'), false, array('class' => 'fieldname')),
      input_tag('height', '', array('class' => 'short_input'));
 ?></p><p>
 <?php
-echo c2c_submit_tag(__('compute technical grade'), array('onclick' => 'compute_technical_grade(); return false;'));
+echo c2c_submit_tag(__('compute technical grade'), array('onclick' => 'cotometre_technical_grade(); return false;'));
 ?>
 </p>
 </div>

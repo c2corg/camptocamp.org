@@ -11,7 +11,6 @@ if (!$mobile_version)
 {
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript('/static/js/tooltips.js', 'last');
-    $response->addJavascript('/static/js/tooltips_edit.js', 'last');
 }
 
 if ($linked_doc)
@@ -53,7 +52,7 @@ if (!empty($editing_archive))
     echo '<p class="warning_message">', __('Warning: you are editing an archive version!'), '</p>';
 }
 
-if ($new_document): ?>
+if ($new_document && $linked_with): ?>
     <p class="warning_message">
     <?php echo smart_format(__("This new $module will be linked with $linked_module '[[$linked_module/%2%|%1%]]' (document %2%)",
                                array('%1%' => $linked_name,
@@ -158,8 +157,5 @@ include_partial($template_root.'/license', array('license' => $license));
 
 <?php
 echo end_content_tag();
-
-// i18n for the script that periodically saves the form - temporarily disabled
-//echo javascript_tag('var i18n_loaddraftform = \'' . __('load draft?') . '\';');
 
 include_partial('common/content_bottom') ?>

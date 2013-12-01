@@ -33,7 +33,7 @@ all:
       2: config corridor
       4: config goulotte
       7: config glacier
-      
+
   sub_activities:
     list:
       0:
@@ -67,20 +67,22 @@ all:
       'dhei': difficulties_height
       'grat': global_rating
       'erat': engagement_rating
+      'orrat': objective_risk_rating
       'prat': equipment_rating
       'frat': rock_free_rating
       'rrat': rock_required_rating
       'arat': aid_rating
+      'rexpo': rock_exposition_rating
       'irat': ice_rating
       'mrat': mixed_rating
       'trat': toponeige_technical_rating
-      'expo': toponeige_exposition_rating
+      'sexpo': toponeige_exposition_rating
       'lrat': labande_global_rating
       'srat': labande_ski_rating
       'hrat': hiking_rating
       'wrat': snowshoeing_rating
       'rlen': route_length
-    route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'rrat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat' ]
+    route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'orrat', 'prat', 'frat', 'rrat', 'arat', 'rexpo', 'irat', 'mrat', 'trat', 'sexpo', 'lrat', 'srat', 'hrat', 'wrat' ]
     filled_criteria:
       'maxa': malt
       'hdif':
@@ -90,14 +92,16 @@ all:
       'dhei':
       'grat':
       'erat':
+      'orrat':
       'prat':
       'frat':
       'rrat':
       'arat':
+      'rexpo':
       'irat':
       'mrat':
       'trat':
-      'expo':
+      'sexpo':
       'lrat':
       'srat':
       'hrat':

@@ -198,7 +198,7 @@ if ($is_not_archive && $is_not_merged)
                     $date = $timedate;
                 }
                 echo (!$mobile_version ? '</td><td>' : ' - ' );
-                echo field_activities_data($outing, array('raw' => true, 'printspan' => false));
+                echo field_activities_data($outing, array('raw' => true));
                 echo (!$mobile_version ? '</td><td>' : ' - ' );
                 $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
                 $georef = '';
@@ -279,7 +279,7 @@ if ($is_not_archive && $is_not_merged)
                         $date = $timedate;
                     }
                     echo (!$mobile_version ? '</td><td>' : ' - ' );
-                    echo field_activities_data($outing, array('raw' => true, 'printspan' => false));
+                    echo field_activities_data($outing, array('raw' => true));
                     echo (!$mobile_version ? '</td><td>' : ' - ' );
                     $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
                     $georef = '';

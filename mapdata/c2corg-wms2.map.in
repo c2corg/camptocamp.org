@@ -30,7 +30,7 @@ END
 #
 
 LAYER
-  NAME summits
+  NAME "summits"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -48,7 +48,7 @@ LAYER
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
   DATA "geom FROM summits USING UNIQUE id USING SRID=900913"
-  FILTER ("redirects_to" IS NULL AND "summit_type" != 5)
+  FILTER ("redirects_to" IS NULL AND "summit_type" NOT IN (5, 100))
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -93,7 +93,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME huts
+  NAME "huts"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -146,7 +146,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME access  ## all access including public transportations
+  NAME "access"  ## all access including public transportations
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -182,7 +182,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME other_access  ## parkings without public transportations
+  NAME "other_access"  ## parkings without public transportations
   METADATA
     "wms_title"    "other_access"   ##required
   END
@@ -209,7 +209,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME public_transportations
+  NAME "public_transportations"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -243,7 +243,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME sites
+  NAME "sites"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -276,7 +276,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME users
+  NAME "users"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -308,7 +308,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME images
+  NAME "images"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -340,7 +340,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME products
+  NAME "products"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -372,7 +372,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME routes
+  NAME "routes"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -404,7 +404,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME ranges
+  NAME "ranges"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -436,7 +436,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME countries
+  NAME "countries"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -468,7 +468,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME admin_limits
+  NAME "admin_limits"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -500,7 +500,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME maps
+  NAME "maps"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA
@@ -531,7 +531,7 @@ LAYER
 END # Layer
 
 LAYER
-  NAME outings
+  NAME "outings"
   TEMPLATE fooOnlyForWFSGetFeature
   DUMP True
   METADATA

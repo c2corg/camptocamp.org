@@ -136,4 +136,10 @@ class BaseDocumentI18n extends sfDoctrineRecord
     {
         return BaseDocument::returnNullIfEmpty($value);
     }
+
+    // validators look at string length after trim, but be sure to trim it before storing in database
+    public static function filterSetName($value)
+    {
+        return trim($value);
+    }
 }

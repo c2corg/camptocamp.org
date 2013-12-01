@@ -25,8 +25,8 @@ setlocale(LC_CTYPE, $locale);
 */
 
 // Language definitions for frequently used strings
-$lang_common = array(
 
+$lang_common = array(
 // Text orientation and encoding
 'lang_direction'		=>	'ltr',	// ltr (Left-To-Right) or rtl (Right-To-Left)
 'lang_encoding'			=>	'UTF-8',
@@ -94,6 +94,17 @@ $lang_common = array(
 'Replies'				=>	'Replies',
 'Author'				=>	'Author',
 'Pages'					=>	'Pages',
+'B button help'     =>  'Bold',
+'I button help'     =>  'Italic',
+'U button help'     =>  'Underline',
+'S button help'     =>  'Strikethrough',
+'C button help'     =>  'Monospaced font',
+'http button help'    =>  'Insert Link',
+'@ button help'     =>  'Email address',
+'Img button help'   =>  'Image from web',
+'Img wizard title' => 'Insert an image',
+'Code button help'    =>  'Code',
+'Quote button help'   =>  'Quote',
 'Help'					=>	'Help',
 'Reduce the text box'	=>	'Reduce the text box',
 'Enlarge the text box'	=>	'Enlarge the text box',
@@ -108,6 +119,10 @@ $lang_common = array(
 'Important information'	=>	'Important information',
 'Write message legend'	=>	'Write your message and submit',
 'all'                   =>  'all',
+'Previous'              =>  'Previous',
+'Next'                  =>  'Next',
+'see embedded'          =>  '[show]',
+'close embedded'        =>  '[hide]',
 
 // Title
 'Title'					=>	'Title',
@@ -165,6 +180,7 @@ $lang_common = array(
 'Delete posts'			=>	'Delete multiple posts',
 'Debug table'			=>	'Debug information',
 'Move posts'			=>	'Déplacer plusieurs messages',
+
 
 // For extern.php RSS feed
 'RSS Desc Active'		=>	'The most recently active topics at',	// board_title will be appended to this string

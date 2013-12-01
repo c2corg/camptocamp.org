@@ -35,15 +35,7 @@ echo object_group_dropdown_tag($document, 'facings', 'mod_sites_facings_list', a
 </div>
 <div class="article_droite_5050">
 <?php
-if ($sf_user->hasCredential(sfConfig::get('app_credentials_moderator')))
-{
-    $site_type_list = 'app_sites_site_types';
-}
-else
-{
-    $site_type_list = 'app_sites_site_types_new';
-}
-echo object_group_dropdown_tag($document, 'site_types', $site_type_list,
+echo object_group_dropdown_tag($document, 'site_types', 'app_sites_site_types',
                                array('multiple' => true, 'na' => array(0)));
 echo object_group_dropdown_tag($document, 'rock_types', 'app_rock_types_list',
                                array('multiple' => true));

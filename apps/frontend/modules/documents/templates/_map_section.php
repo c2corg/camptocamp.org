@@ -1,4 +1,7 @@
 <?php
+
+use_helper('JavascriptQueue');
+
 if (!isset($has_geom))
 {
     $has_geom = (boolean)($document->get('geom_wkt'));
@@ -81,19 +84,33 @@ if ($has_geom || $show_map)
 // fold_init_map.js ~ 390b ?>
 <script>
 (function(e,t){var n=e.setSectionStatus
-e.setSectionStatus=function(e,o,i){if(n(e,o,i)){var a=open_close[0],c=t.getElementById(e+"_section_container")
+e.setSectionStatus=function(e,o,i){if(n(e,o,i)){var a=e.section_open,c=t.getElementById(e+"_section_container")
 c.style.display="none",c.title=a
 var s=t.getElementById(e+"_toggle")
 s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,t.getElementById("tip_"+e).innerHTML="["+a+"]"}}})(window.C2C=window.C2C||{},document)
 </script>
-<?php
-    $cookie_position = array_search('map_container', sfConfig::get('app_personalization_cookie_fold_positions'));
-?>
-<script>
-C2C.setSectionStatus('map_container', <?php echo $cookie_position ?>, true);
-if (!C2C.shouldHide(<?php echo $cookie_position ?>, true)) {
-  document.observe('dom:loaded', (typeof map_load_async !== 'undefined') ? map_load_async : map_init);
-}
-</script>
-<?php
+    <?php
+        $cookie_position = array_search('map_container', sfConfig::get('app_personalization_cookie_fold_positions'));
+    ?>
+    <script>
+    C2C.setSectionStatus('map_container', <?php echo $cookie_position ?>, true);
+    </script>
+    <?php
+    $async_map = sfConfig::get('app_async_map', false) && !sfContext::getInstance()->getRequest()->getParameter('debug', false);
+
+    $init = $async_map ? 'C2C.async_map_init();' : '$(window).load(C2C.map_init);';
+    $delayed_init = $async_map ? 'C2C.async_map_init' : 'C2C.map_init';
+
+    echo javascript_queue("
+      var id = 'map_container';
+      if (!C2C.shouldHide($cookie_position, true)) {".
+        $init
+    ."} else {
+        $('#'+id).one('click', " . $delayed_init . ");
+      }
+      $('#'+id).click(function() {
+        C2C.registerFoldStatus(id, $cookie_position, !$('#'+id+'_section_container').is(':visible'));
+        $('.x-window.x-resizable-pinned').toggle();
+      }); ");
+
 }

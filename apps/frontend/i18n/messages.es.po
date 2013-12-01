@@ -86,8 +86,44 @@ msgstr "Documento no encontrado"
 msgid "A document can not be linked to itself"
 msgstr "No se puede asociar un documento asimismo"
 
+# [WARNING] en translation used
+msgid "A gite can not be linked to a route"
+msgstr "A valley accomodation can not be linked to a route"
+
 msgid "A new password has been asked for your account."
 msgstr "Se pidió la creación de una nueva contraseña para su cuenta Camptocamp.org. Ya puede identificarse utilizando los siguientes datos de conexión."
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a hut if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a hut if a main/sub access point of this access is already linked to this hut"
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a route if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a route if a main/sub access point of this access is already linked to this route"
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a climbing site if a main/sub access point of this access is already linked to this site"
+
+# [WARNING] en translation used
+msgid "A site can not be linked to more than one summit"
+msgstr "A climbing site can not be linked to more than one summit"
+
+# [WARNING] en translation used
+msgid "A sub parking can not be linked to more than one main parking"
+msgstr "A sub access point can not be linked to more than one main access point"
+
+# [WARNING] en translation used
+msgid "A sub site can not be linked to more than one main site"
+msgstr "A climbing sector can not be linked to more than one climbing site"
+
+# [WARNING] en translation used
+msgid "A sub summit can not be linked to more than one main summit"
+msgstr "A sub summit can not be linked to more than one main summit"
+
+# [WARNING] en translation used
+msgid "A summit can not be linked to a sub site"
+msgstr "A summit can not be linked to a climbing sector, but only to the main climbing site"
 
 msgid "AD"
 msgstr "AD"
@@ -358,6 +394,13 @@ msgstr "Volver a la lista de cimas"
 
 msgid "Back to users list"
 msgstr "Volver a la lista de usuarios"
+
+# [general comment]
+# link to the BI version of an image (limited to 800px max)
+# In the context, it is rather big (compared to MI, max 250px)
+# [WARNING] en translation used
+msgid "Big size"
+msgstr "Big size"
 
 msgid "Bookmark"
 msgstr "Poner en mis registros"
@@ -712,6 +755,12 @@ msgstr "Detalles"
 msgid "Developers"
 msgstr "Programadores"
 
+# [general comment]
+# Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
+# [WARNING] needs_review
+msgid "Did you mean %1%?"
+msgstr "Quiso decir %1%?"
+
 msgid "Diffing versions of %1% in %2%."
 msgstr "Diferencias entre las versiones de %1% en %2%."
 
@@ -929,6 +978,7 @@ msgstr "Preguntas frecuentes"
 msgid "FAQ short"
 msgstr "FAQ"
 
+# [WARNING] needs_update
 msgid "Failed moving uploaded file"
 msgstr "No se pudo mover el fichero. Inténtelo de nuevo por favor."
 
@@ -1161,6 +1211,12 @@ msgstr "Esta nueva contraseña no será validada hasta que la utilice por primer
 msgid "Image"
 msgstr "Imagen"
 
+# [general comment]
+# We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
+# [WARNING] en translation used
+msgid "Image cannot be rotated anymore"
+msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+
 msgid "Image could not be loaded"
 msgstr "No se puede mostrar la imagen"
 
@@ -1181,6 +1237,12 @@ msgstr "Licencia de la imagen:"
 
 msgid "Image not found"
 msgstr "La imagen no existe."
+
+# [general comment]
+# assistant image forum
+# [WARNING] en translation used
+msgid "Image on the internet"
+msgstr "Image on the internet"
 
 # [WARNING] en translation used
 msgid "Image rotated successfully"
@@ -1220,6 +1282,14 @@ msgstr "Base de datos de accidentes e incidentes"
 
 msgid "Information"
 msgstr "Informaciones"
+
+# [general comment]
+# link to the informations on an image (image document page)
+# 
+# check if the meaning is correct in your language
+# [WARNING] en translation used
+msgid "Informations"
+msgstr "Informations"
 
 # [general comment]
 # il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
@@ -1754,6 +1824,14 @@ msgstr "Operación no autorizada: es la última asociación de este tipo"
 msgid "Operation not allowed"
 msgstr "Operación no autorizada."
 
+# [general comment]
+# link to the original image
+# 
+# Try to keep it short
+# [WARNING] en translation used
+msgid "Original image"
+msgstr "Original image"
+
 msgid "Oups!"
 msgstr "¡Oups! Se detectan los problemas siguientes:"
 
@@ -2260,6 +2338,7 @@ msgstr "Mapa"
 msgid "Statistics"
 msgstr "Estadística"
 
+# [WARNING] needs_update
 msgid "Step 1: choose a summit"
 msgstr "Etapa 1: elija una cima"
 
@@ -2269,6 +2348,13 @@ msgstr "Etapa 2: cree un itinerario"
 msgid "Step 2: choose a route"
 msgstr "Etapa 2: elija un itinerario"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "Etapa 2: Confirme para añadir su salida y acceder a su pagina de edición"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "Etapa 3: Confirme para añadir su salida y acceder a su pagina de edición"
 
@@ -2980,6 +3066,12 @@ msgstr "<h3>Mejores épocas</h3>Lista de los meses en los que se puede escalar e
 msgid "_book_types_info"
 msgstr "<h3>clase de obra</h3>clase de libro.<br />Se puede seleccionar varias clases."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/238570/fr#cablecar\">accès de type 'remontée mécanique'</a>."
+
 msgid "_camera_name_info"
 msgstr "<h3>Cámara de fotos</h3>Marca y modelo de la cámara de fotos.<br />Esta información viene de los datos EXIF del fichero descargado. Es posible cancelarlos antes de mandar la foto, con la ayuda de un software de fotografía."
 
@@ -3057,6 +3149,7 @@ msgstr "<h3>Altitud</h3>Altitud en metros del lugar geográfico.<br />Para una f
 msgid "_email_info"
 msgstr "<h3>Dirección email</h3>Dirección email de su cuenta camptocamp.org.<br /><br /><em><u>Al inscribirse </u>:</em><br />Indica una dirección de email valida. Si no, la cuenta no se podrá validar y será destruida pocas semanas después. <br />Esta dirección de email nunca aparece en el sitio. Se usa en los siguientes casos:<br />- Otro usuario registrado o invitado le manda un email por la interfaz del sitio (nunca aparece su dirección).<br />- Se suscribió a unas discusiones en el foro y el servidor le señala la llegada de un nuevo mensaje en estas discusiones. <br />- Se suscribió a unas listas de difusión de los boletines nivológicos."
 
+# [WARNING] needs_update
 msgid "_engagement_rating_info"
 msgstr "<h3>Compromiso</h3>\n"
 "Compromiso del itinerario.<br />\n"
@@ -3208,7 +3301,7 @@ msgstr "<h3>Cotación hielo</h3>\n"
 "<br />\n"
 "<strong>Grado 7</strong>: Escalada extrema. Muy empinada, puede ser desplomada durante varios metros. La técnica requerida es mas parecida a la del escalador en roca.<br />\n"
 "<br />\n"
-"Véase también la ayuda sobre <a href=\"/articles/106871/es\">grados en nieve, hielo y mixto</a>."
+"Véase también la ayuda sobre <a href=\"/articles/106871/es#ice\">grados en nieve, hielo y mixto</a>."
 
 # [WARNING] needs_update
 msgid "_image_categories_info"
@@ -3356,6 +3449,14 @@ msgstr "Para confirmarlo, por favor teclea su nueva contraseña."
 msgid "_nick_name_info"
 msgstr "<h3>Seudo foro</h3>Nombre que aparece en los foros del sitio.<br /><br />Este nombre se puede modificar. Por defecto, es idéntico al nombre de <i>login</i>."
 
+# [WARNING] en translation used
+msgid "_objective_risk_rating_info"
+msgstr "<h3>Objective Danger</h3>\n"
+"The Objective Danger scale evaluates the risk of natural snow avalanches, serac avalanches, natural rockfall, natural stalactite fall and fragility of the waterfall ice. The danger coming from human behavior is not in this Objective Danger scale except for the falling down of the waterfall ice triggered by the climber.\n"
+"Approach, tehcnical section and return are evaluate in the risk scale.<br />\n"
+"<br />\n"
+"See also help on <a href=\"/articles/146949#objective-danger\">objective danger grades</a>."
+
 msgid "_outing_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traza GPX asociada a la salida.<br />Esta información es calculada automáticamente a partir del archivo GPX asociado, y no está disponible para un documento que no incluya una traza GPX.<br />La longitud será substituida si una nueva traza GPX es asociada al documento."
 
@@ -3389,12 +3490,13 @@ msgstr "<h3>Acceso en transportes públicos</h3>Informaciones necesarias para ir
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Accesibilidad en transportes públicos</h3>Calidad del acceso en transportes públicos, a veces asociado con una caminata razonable.<br />El campo <i>Acceso en transportes públicos</i> permite acceder a informaciones complementarias.<br /><br /><strong>Servicio frecuente</strong>: Hay por lo menos una ida y vuelta diaria hacia el acceso, todos los días, todo el ano. <br /><br /><strong>Servicio reducido</strong>: Hay servicio en temporada o solo algunos dias de la semana. Conviene dar detalles en el campo <em>Acceso en transporte público </em>.<br /><br /><strong>Servicio a proximidad</strong>: Se puede llegar al acceso mediante una aproximación razonable desde un lugar accesible en transporte público. Conviene agregar un enlace al acceso más cercano en el campo <em>Acceso en transporte público </em>.<br /><br /><strong>Ningún servicio </strong>: No se puede llegar al acceso en transporte público."
 
+# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
 
 # [WARNING] needs_update
 msgid "_publication_date_info"
-msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Lluvia</h3>Exposición del sitio/sector a la lluvia.<br />útil en caso de tiempo inseguro."
@@ -3410,6 +3512,41 @@ msgstr "<h3>Informaciones sobre las modificaciones</h3>Indique brevemente en est
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Modificación menor</h3>Puntea la casilla si las modificaciones traídas al documento no son importantes:<br /><br /><strong>texto</strong>: corrección de la ortografía o de la puesta en forma<br /><br /><strong>altitud y desnivel</strong>: modificaciones &lt; 50m<br /><br /><strong>cotación</strong>: modificación de una división (AD a AD+, 3.3 a 3.2)<br /><br /><strong>descripción de itinerario o de lugar</strong>: pequeña nota, reformulación de una frase, pero los añadidos de variantes o las reescrituras completas no son modificaciones menores"
+
+# [WARNING] en translation used
+msgid "_rock_exposition_rating_info"
+msgstr "<h3>Runout Grade</h3>\n"
+"The Runout Grade based on the consequence of a fall. The climber will not be hurt in the first three levels, therefore, the difference between E1, E2 and E3 is the length of the fall (or the distance between pro). For the higher levels (Ex4, Ex5, Ex6) the climber will get hurt and the levels represent the increasing severity of the consequences, from a broken ankle to death. The Ex for the french word exposition, which can mean danger.<br />\n"
+"<br />\n"
+"<strong>E1</strong>&nbsp;: Over protected with bolts/pitons or good, solid protections minimum every meter ground up. No obligatory move.<br />\n"
+"<br />\n"
+"<strong>E2</strong>&nbsp;: Well protected with bolts/pitons or good, solid protections ground up.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<br />\n"
+"<strong>E3</strong>&nbsp;: Falls will be long but will not cause injury. Bolts or protection will be widely spaced.<br />\n"
+"<br />\n"
+"<strong>E4</strong>&nbsp;: The fall could cause slight injuries even if bolts or protections are not widely spaced.<br />\n"
+"<br />\n"
+"<strong>E5</strong>&nbsp;: The fall will cause serious injuries. An E5 might suggest widely-spaced bolts, just enough lousy protections or a small grounder.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<br />\n"
+"<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
+"<br />"
+
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+# [WARNING] needs_review
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Cotación libre</h3>\n"
+"Cotación de las dificultades de la escalada rocosa en libre.<br />\n"
+"La cotación libre evalúa la dificultad máxima de la escalada en libre.<br />\n"
+"<br />\n"
+"<h3>Cotación libre obligatoria</h3>\n"
+"Cotación de las dificultades obligatorias de escalada rocosa en libre.<br />\n"
+"La cotación libre obligatoria evalúa la dificultad máxima obligatoria de la escalada libre rocosa. Corresponde a la cotación de las dificultades que quedan una vez eliminadas todas las posibilidades de ayudarse utilizando un anclaje (fijo o movíl).<br />\n"
+"<br />\n"
+"Se da sobre la escala francesa tradicional que va de 1 a 9b.<br />\n"
+"<br />\n"
+"Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Cotación libre</h3>Cotación de las dificultades de la escalada rocosa en libre.<br />La cotación libre evalúa la dificultad máxima de la escalada en libre.<br />Se da sobre la escala francesa tradicional que va de 1 a 9b.<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
@@ -3533,6 +3670,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 msgid "_topoguide_code_info"
 msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+C para copiarlo y Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />Por defecto, la imagen se mostrara a la derecha, con la leyenda debajo, en un marco. Los atributos de la baliza de apertura permiten modificar su presentación:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
+# [WARNING] needs_update
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposición</h3>Cotación de la exposición de descenso en esquí (cotación Toponeige).<br />La exposición describe la gravedad de las heridas en caso de caída, independientemente de la inclinación de la pendiente: una exposición débil en una pendiente fuerte no garantiza una caída sin consecuencias.<br />La escala va de E1 (ningún obstáculo) a E4 (grandes precipicios):<br /><br /><strong>Exposición 1</strong>: La exposición solo es el de la pendiente en si. Sin embargo, el riesgo de lastimarse es importante en caso de nieve dura y/o de pendiente fuerte.<br /><br /><strong>Exposición 2</strong>: Además de la exposición por la misma pendiente, hay obstáculos que pueden resultar en daño adicional (por ejemplo, corredores que no son perfectamente rectos están categorizados así).<br /><br /><strong>Exposición 3</strong>: En caso de caída, la muerte es probable (por ejemplo con barreras de roca o seracs o en el caso de corredores muy sinuosos con percusión probable).<br /><br /><strong>Exposición 4</strong>: En caso de caída, la muerte es inevitable (por ejemplo con acantilados altos y percusión múltiples…).<br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí y surf</a>."
 
@@ -3598,6 +3736,10 @@ msgstr "Resumen / introducción:"
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
 msgid "access"
 msgstr "Acceso:"
+
+# [WARNING] en translation used
+msgid "access deserved by:"
+msgstr "Served by:"
 
 msgid "access_comments"
 msgstr "Comentarios sobre el acceso en vehiculo o en transporte en común:"
@@ -3933,6 +4075,11 @@ msgstr "biografía"
 msgid "bisse"
 msgstr "channel"
 
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+msgid "boat"
+msgstr "transbordador"
+
 msgid "book"
 msgstr "libro"
 
@@ -4058,6 +4205,16 @@ msgstr "Camptocamp.org es una web colaborativa dedicada a los deportes de monta�
 
 msgid "c2corg news"
 msgstr "Noticias de c2c"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "teleférico"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"
@@ -4307,6 +4464,7 @@ msgstr "Estimar el grado técnico en esquí (sistema toponeige)"
 msgid "cond short"
 msgstr "Condiciones"
 
+# [WARNING] needs_update
 msgid "conditions"
 msgstr "Condiciones encontradas (incl. aproximación):"
 
@@ -4629,6 +4787,10 @@ msgid "english"
 msgstr "inglés"
 
 # [WARNING] en translation used
+msgid "enter URL or paste it from clipboard"
+msgstr "enter URL or paste it from clipboard"
+
+# [WARNING] en translation used
 msgid "enter place name"
 msgstr "Enter a location name"
 
@@ -4744,6 +4906,12 @@ msgstr "la imagen sobrepasa las dimensiones máximas autorizadas (8192x2048 px)"
 msgid "file is too small"
 msgstr "La imagen es de dimensiones demasiado pequeñas (minimo: 16x16 px)"
 
+# [general comment]
+# image size in bytes (used in diffs when a new image has been uploaded
+# [WARNING] en translation used
+msgid "file_size"
+msgstr "File size:"
+
 msgid "filename"
 msgstr "Imagen:"
 
@@ -4811,6 +4979,10 @@ msgstr "El foro utiliza su nombre de usuario o su seudónimo si existe"
 
 msgid "forum_code"
 msgstr "Código de inserción de la imagen en el foro:"
+
+# [WARNING] en translation used
+msgid "forums images wizard failure"
+msgstr "Invalid image"
 
 msgid "francais"
 msgstr "francés"
@@ -4949,6 +5121,10 @@ msgstr "Calefacción"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "haute_normandie"
 msgstr "Alta Normandía"
+
+# [WARNING] en translation used
+msgid "height"
+msgstr "Image height:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -5102,6 +5278,12 @@ msgstr "Una imagen puede ser asociada a varios documentos, usando la herramiento
 
 msgid "img button title"
 msgstr "Insertar una imagen"
+
+# [general comment]
+# message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
+# [WARNING] en translation used
+msgid "imgur notice %1%"
+msgstr "Images from your computer will be hosted on %1%1"
 
 msgid "imported from v4"
 msgstr "Importado desde la versión 4"
@@ -5798,6 +5980,10 @@ msgstr "información no disponible"
 msgid "novel"
 msgstr "novela"
 
+# [WARNING] en translation used
+msgid "objective_risk_rating"
+msgstr "Objective Danger"
+
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
@@ -5828,6 +6014,10 @@ msgstr "abierto no guardado"
 
 msgid "options"
 msgstr "Opciones"
+
+# [WARNING] en translation used
+msgid "or drag & drop files"
+msgstr "or drag&drop files from computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
@@ -6188,7 +6378,7 @@ msgstr "Prefered valleys"
 # 
 # Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
-msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (España)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo Francia</a></li><li><a href=\"http://www.meteosuisse.ch\">Météo Suiza</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/SAndes.html\">Meteo Exploration (Argentina & Chile)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/TrAndes.html\">Meteo Exploration (Andes tropicales)</a></li></ul> <p>Aludes</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Boletin AEMET para el Pirineo Navarro y Aragonés</a></li><li><a href=\" http://www.meteocat.com/mediamb_xemec/servmet/marcs/marc_muntanya.html\">Boletin Météo CAT para el Pirineo catalán</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin Météo France</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF (Suiza)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li><li><a href=\"http://clubandino.org/bn1/details.asp\">Boletines del CA Bariloche (Argentina)</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines FR & CH por email</a></li></ul> <p>Cartografía</p><ul><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (España)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Suiza)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italia)</a></li></ul> <p>Refugios</p><ul><li><a href=\"http://www.feec.org/Informacio%20Gral/Refugis/ref_mon.php\">Refugios FEEC (Cataluña)</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugios CAF (Francia)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Refugios CAS (Suiza)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugios CAI (Italia)</a></li></ul>"
+msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (España)</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">Météo Francia</a></li><li><a href=\"http://www.meteosuisse.ch\">Météo Suiza</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/SAndes.html\">Meteo Exploration (Argentina & Chile)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/TrAndes.html\">Meteo Exploration (Andes tropicales)</a></li></ul> <p>Aludes</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Boletin AEMET para el Pirineo Navarro y Aragonés</a></li><li><a href=\" http://www.meteocat.com/mediamb_xemec/servmet/marcs/marc_muntanya.html\">Boletin Météo CAT para el Pirineo catalán</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">Boletin Météo France</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF (Suiza)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li><li><a href=\"http://clubandino.org/bn1/details.asp\">Boletines del CA Bariloche (Argentina)</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines FR & CH por email</a></li></ul> <p>Cartografía</p><ul><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (España)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">map.geo.admin.ch (Suiza)</a></li><li><a href=\"http://www.pcn.minambiente.it\">Portale cartografico (Italia)</a></li></ul> <p>Refugios</p><ul><li><a href=\"http://www.feec.org/Informacio%20Gral/Refugis/ref_mon.php\">Refugios FEEC (Cataluña)</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugios CAF (Francia)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Refugios CAS (Suiza)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugios CAI (Italia)</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
@@ -6448,6 +6638,15 @@ msgid "rock_climbing (single-pitch)"
 msgstr "escalada (vías de un largo)"
 
 # [general comment]
+# exposition rocher
+# 
+# Faut-il préciser "rocher" dans les trads ?
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# [WARNING] needs_update
+msgid "rock_exposition_rating"
+msgstr "Exposición:"
+
+# [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
@@ -6456,6 +6655,9 @@ msgstr "Grado en libre y grado obligatorio:"
 msgid "rock_free_rating"
 msgstr "Cotación libre:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 # [WARNING] needs_review
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Cotación libre > oblig.:"
@@ -6604,6 +6806,10 @@ msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul c
 # [WARNING] en translation used
 msgid "select an image file"
 msgstr "Chose an image:&nbsp;"
+
+# [WARNING] en translation used
+msgid "select image or dragdrop"
+msgstr "Click here to select an image from your computer or drag and drop it"
 
 # [WARNING] en translation used
 msgid "selected admin_limits"
@@ -6812,6 +7018,22 @@ msgstr "Steep skiing"
 msgid "stories"
 msgstr "historias, relatos"
 
+# [WARNING] en translation used
+msgid "sub-parkings"
+msgstr "sub-access points"
+
+# [WARNING] fr translation used
+msgid "sub-sites"
+msgstr "sous-sites d'escalade"
+
+# [general comment]
+# same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
+# 
+# In that case, 
+# [WARNING] en translation used
+msgid "sub-summits"
+msgstr "sub- summits, passes, lakes and cliffs"
+
 msgid "sub_activities"
 msgstr "Compatible con:"
 
@@ -6987,6 +7209,9 @@ msgstr "Código de inserción de la imagen en la topo-guía:"
 msgid "topoguidename"
 msgstr "Nombre en la topo-guía"
 
+# [general comment]
+# exposition ski
+# [WARNING] needs_update
 msgid "toponeige_exposition_rating"
 msgstr "Exposición:"
 
@@ -7173,6 +7398,10 @@ msgid "vtt_approach"
 msgstr "mountain-bike approach possible"
 
 # [WARNING] en translation used
+msgid "wait while image is uploaded"
+msgstr "Please wait while the image is being transferred"
+
+# [WARNING] en translation used
 msgid "waiting for geolocation"
 msgstr "Waiting for localisation..."
 
@@ -7207,6 +7436,12 @@ msgstr "Usar los mismos criterios que en esta lista"
 msgid "widget generator help"
 msgstr "Camptocamp le ofrece la posibilidad de inserir un widget en su sitio web o blog para mostrar una lista de contenido de la topo-guía. Puede por ejemplo mostrar sus más recientes salidas, las últimas cimas añadidas a la topo-guía o cualquier otra lista que se le ocurre. <br /><br />Debe dar un titulo y copiar el código propuesto en su página web. ¡Nada más complicado que esto!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Mas información</a>"
 
+# [general comment]
+# image width
+# [WARNING] en translation used
+msgid "width"
+msgstr "Image width:"
+
 msgid "with rain"
 msgstr "expuesto a la lluvia"
 
@@ -7216,6 +7451,12 @@ msgstr "within a radius of"
 
 msgid "wl button title"
 msgstr "Insertar un vínculo interno"
+
+# [general comment]
+# placeholder pour le titre d'une image
+# [WARNING] en translation used
+msgid "write a caption"
+msgstr "Write a caption"
 
 msgid "wrong file type"
 msgstr "Formato de imagen no valido"
@@ -7244,6 +7485,10 @@ msgstr "si"
 
 msgid "yesterday, at %1%"
 msgstr "ayer, a las %1%"
+
+# [WARNING] en translation used
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from collaborative picture"

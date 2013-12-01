@@ -16,7 +16,7 @@ elseif ($id == $cda_id)
 }
 else
 {
-    $footer_type = null;
+    $footer_type = 'normal';
     // alpine club logo is included by css, but only in en
     if ($lang === 'en') use_stylesheet('/static/css/ac');
 }
@@ -34,9 +34,9 @@ use_helper('MyMinify', 'MetaLink');
 
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/fold.js', 'head_last'); ?>
+?>
 <!doctype html>
-<html lang="<?php echo $lang_code ?>">
+<html lang="<?php echo $lang_code ?>" data-static-url="<?php echo sfConfig::get('app_static_url') ?>">
 <head>
     <meta charset="utf-8">
     <?php
@@ -50,11 +50,9 @@ $response->addJavascript('/static/js/fold.js', 'head_last'); ?>
         minify_include_main_stylesheets($combine, $debug);
         minify_include_custom_stylesheets($combine, $debug); /* here go portal specific css, and maps css (which are not present on every page) */
     ?>
-    <!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url . '/' . sfTimestamp::getTimestamp('/static/css/ie6.css'); ?>/static/css/ie6.css" /><![endif]-->
-    <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url. '/' . sfTimestamp::getTimestamp('/static/css/ie7.css'); ?>/static/css/ie7.css" /><![endif]-->
-    <!--[if lt IE 9]><script src="<?php echo $static_base_url. '/' . sfTimestamp::getTimestamp('/static/js/html5shiv.js'); ?>/static/js/html5shiv.js"></script><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo  minify_get_combined_files_url('/static/css/ie7.css', $debug) ?>" /><![endif]-->
+    <!--[if lt IE 9]><script src="<?php echo minify_get_combined_files_url(array('/static/js/html5shiv.js','/static/js/autofocus.js', '/static/js/indexof.js'), $debug) ?>"></script><![endif]-->
     <?php
-        minify_include_head_javascripts($combine, $debug);
         echo auto_discovery_link_tag('rss', $rss);
         echo include_meta_links();
     ?>
@@ -63,7 +61,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last'); ?>
     $favicon = ($footer_type == 'cda') ? 'portals/cda_favicon.ico' : 'favicon.ico';
     echo $static_base_url . '/static/images/' . $favicon;
     ?>" />
-    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://<?php echo sfConfig::get('app_mobile_version_host').
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="//<?php echo sfConfig::get('app_mobile_version_host').
     ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -71,7 +69,7 @@ $response->addJavascript('/static/js/fold.js', 'head_last'); ?>
     <div id="holder">
         <header id="page_header">
         <?php
-        $header_partial = ($action == 'view' && isset($footer_type) && $footer_type == 'cda') ? 'portals/cda_header' : 'common/header';
+        $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_header' : 'common/header';
         include_partial($header_partial, array('lang_code' => $lang_code));
 
         if (sfConfig::get('app_production') != 1)
@@ -90,7 +88,6 @@ $response->addJavascript('/static/js/fold.js', 'head_last'); ?>
                                                'footer_type' => $footer_type));
         ?>
     </div>
-    <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
     <?php
     minify_include_body_javascripts($combine, $debug);
     minify_include_maps_javascripts($combine, $debug);

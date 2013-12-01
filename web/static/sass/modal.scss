@@ -1,0 +1,142 @@
+@import "blob";
+
+// this css is inspired from
+// - twitter bootstrap modalbox http://getbootstrap.com/
+//   released under the Apache 2.0 license 
+// - nifty modal effects by codrops http://tympanus.net/codrops/2013/06/25/nifty-modal-window-effects/
+//   released under MIT license
+
+// Background
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: black;
+  @include opacity(0);
+  // old safari doesn't proceed transition of visibility, so we have to specify exact parameter and not all
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+
+  visibility: hidden;
+}
+
+.modal.in ~ .modal-backdrop {
+  @include opacity(0.8);
+  visibility: visible;
+}
+
+// Base modal
+$default-width: 500px;
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  z-index: 10000;
+  width: $default-width; // default width, possibly overriden by js
+  margin-left: $default-width/-2;
+  top: 0;
+  visibility: hidden;
+
+  // 3d transition effect
+  @include experimental(perspective, 1300px);
+  @include experimental(backface-visibility, hidden);
+}
+
+.modal-content {
+  background-color: white;
+  border: 1px solid #999;
+  border: 1px solid rgba(0,0,0,.3);
+  @include border-bottom-radius(4px);
+  @include box-shadow(0 3px 7px rgba(0,0,0,0.3));
+  @include background-clip(padding-box);
+  // Remove focus outline from opened modal
+  outline: none;
+  @include opacity(0);
+
+  // 3d transition effect
+  @include rotateX(-60deg);
+  @include transform-origin(50% 0);
+  // easiest would be to use @include transition(all 0.5s), but as before, old safari bugs because of visibility
+  // and our compass transition mixin is not yet powerfull enough for mixin vendor prefixes for css property and css value, so...
+  -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+// once modalbox is active
+.modal.in {
+  visibility: visible;
+
+  & .modal-content {
+    @include rotateX(0deg);
+    @include opacity(1);
+  }
+}
+
+.modal-header {
+  padding: 9px 15px;
+  border-bottom: 1px solid #eee;
+
+  // Close icon
+  .close {
+    background-color: white;
+    cursor: pointer;
+    float: right;
+    margin-top: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    border: none;
+    @include opacity(.2);
+    @include text-shadow(0 1px 0 white);
+    &:hover, &:focus {
+      @include opacity(.4);
+    }
+  }
+
+  // Heading
+  h3 {
+    margin: 0;
+    line-height: 30px;
+  }
+}
+
+// Body (where all modal content resides)
+.modal-body {
+  position: relative;
+  overflow-y: auto;
+  padding: 15px;
+  min-height: 100px;
+}
+
+// Footer
+.modal-footer {
+  padding-top: 6px;
+  @include border-radius(0 0 6px 6px);
+  @include box-shadow(inset 0 1px 0 white);
+}
+
+.modal-loading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  @include box-sizing(border-box);
+  background: white url(/static/images/indicator.gif) no-repeat 50% 50%; // used in js without hash, so we don't use it here
+  display: none;
+}
+
+.modal.in .modal-loading {
+  display: block;
+}
+
+.modal input.long_input {
+  width: 60%;
+}

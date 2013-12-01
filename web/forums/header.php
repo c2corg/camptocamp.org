@@ -151,14 +151,13 @@ function process_form(the_form)
 
 }
 
-if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
-{
-$sf_response->addJavascript('/static/js/dyncat.js');
-}
-
-$user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : '';
-if (strpos($user_agent, 'msie') !== false && strpos($user_agent, 'windows') !== false && strpos($user_agent, 'opera') === false)
-        $sf_response->addJavascript('/static/js/minmax.js');
+// in orde rto optimize cache for forums js, we always include following js
+// so that every forum page has the same js file
+// moreover the file is rather small (<1k once compressed)
+//if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
+//{
+    $sf_response->addJavascript('/static/js/dyncat.js');
+//}
 
 $tpl_temp = trim(ob_get_contents());
 $tpl_main = str_replace('<pun_head>', $tpl_temp, $tpl_main);

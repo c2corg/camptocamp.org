@@ -1,6 +1,6 @@
 Subject: <mail_subject>
 
-<sender> de <board_title> vos ha enviat un missatge. Podeu respondre a <sender> simplement responent a aquest correu electrònic.
+En / na <sender> de <board_title> us ha enviat un missatge. Podeu respondre en / na <sender> simplement responent a aquest correu electrònic.
 
 El missatge és el següent:
 -----------------------------------------------------------------------

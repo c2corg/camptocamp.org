@@ -32,17 +32,28 @@ include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_AP
              DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'. 
              DIRECTORY_SEPARATOR.($mobile_version ? '_mobile_footer.php' : '_footer.php'));
 
-?></div><?php
-
+?>
+</div>
+<?php
 $punbb_file = basename($_SERVER['PHP_SELF']);
 
-if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
-{
+$sf_response->addJavascript('/static/js/jquery.min.js', 'first');
+$sf_response->addJavascript('/static/js/feedback.js');
+$sf_response->addJavascript('/static/js/queue.js');
+
+// in order to optimize cache, we always include the following js (about 2k once compressed...)
+//if (in_array($punbb_file, array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
+//{
     $sf_response->addJavascript('/static/js/easy_bbcode.js');
-}
-if (!c2cTools::mobileVersion())
+    if (!$mobile_version)
+    {
+        $sf_response->addJavascript('/static/js/easy_bbcode_images.js');
+    }
+//}
+
+if (!$mobile_version)
 {
-    $sf_response->addJavascript('/static/js/modalbox.js');
+    $sf_response->addJavascript('/static/js/modal.js');
 }
 
 $debug = defined('PUN_DEBUG');

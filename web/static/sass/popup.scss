@@ -1,0 +1,163 @@
+@import "blob";
+
+$img_dim: 80px;
+
+.popup_content {
+  position:relative;
+  top: 0;
+  left: 0;
+  width: 400px;
+
+  // background when included in 3rd party website 
+  &.external {
+    background-color: white;
+    padding: 5px;
+    width: auto;
+  }
+
+  // backgournd when displayed in a map
+  .x-window-body {
+    background-color: white;
+  }
+
+  .article_title_img {
+    margin: 0 0.3em 0 0;
+  }
+
+  h3 {
+    margin: 0 30px 0 0;
+    padding: 0;
+    border: 0;
+    height: auto;
+    line-height: 1.1em;
+    font-size:1.1em;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+  }
+
+  &.external h3 {
+    margin: 6px 82px 0px 3px;
+    height: 34px;
+  }
+
+  .popup_desc {
+    display: block;
+    margin-bottom: 3px;
+    padding-right: 2px;
+    text-align: justify;
+    overflow: auto;
+  }
+
+  &.external .popup_desc {
+    padding: 0 4px 0 4px;
+  }
+
+  ul {
+    &.data {
+      margin: 0 0 5px 0;
+    }
+
+    &.children_docs {
+      clear: left;
+      margin: 0;
+      padding: 0 3px 0 0;
+    }
+
+    .section_subtitle {
+      font-size: .9em;
+    }
+  }
+
+  h4 {
+    clear: left;
+    text-align: left;
+    padding: 0 18px 0 5px;
+    margin-top: 5px;
+    height: 1.3em;
+    line-height: 1.3em;
+    overflow: hidden;
+    font-size: 1em;
+    font-weight: normal;
+    font-style: italic;
+    background-color: #E8E8E8;
+
+    span {
+      float: left;
+    }
+  }
+
+  .title2.htext {
+    font-size: 1em;
+    font-style: normal;
+    font-weight: bold;
+    color: #ff9933;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .children_docs li {
+    margin: 0 0 0 18px;
+  }
+
+  .more_text {
+    font-size: 0.9em;
+  }
+
+  .section_subtitle {
+    display: inline;
+    font-style: italic;
+    font-weight: bold;
+    color: #FF9933;
+  }
+}
+
+// logo to be displayed when popup embedded in 3rd-party website
+.popup_logo {
+  position:absolute;
+  top: 0px;
+  right: 0;
+  @include -c2c-datauri-background('/static/images/logo_mini.png', no-repeat 0);
+}
+
+// popup images slideshow
+.popup_slideimages {
+  display: inline;
+  clear: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: $img_dim;
+  height: $img_dim;
+  position: relative;
+  overflow: hidden;
+
+  li {
+    position: absolute;
+    display: block;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    width: $img_dim;
+    height: $img_dim;
+    line-height: $img_dim;
+    text-align: center;
+
+    // transition effect
+    @include transition(opacity 1s linear);
+    @include opacity(0);
+    &.popup-img-active {
+      @include opacity(1);
+    }
+  
+    img {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      vertical-align: middle;
+      max-width: $img_dim;
+      max-height: $img_dim;
+    }
+  }
+}

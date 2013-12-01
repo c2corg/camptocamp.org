@@ -452,34 +452,21 @@ class documentsActions extends c2cActions
         $this->latest_articles = Article::listLatest($mobile_version ? sfConfig::get('app_recent_documents_articles_mobile_limit')
                                                                      : sfConfig::get('app_recent_documents_articles_limit'),
                                                      $langs, $activities);
-        
+
         $latest_images = Image::listLatest($mobile_version ? sfConfig::get('app_recent_documents_images_mobile_limit')
                                                            : sfConfig::get('app_recent_documents_images_limit'),
                                            $langs, $ranges, $activities);
         $this->latest_images = Language::getTheBest($latest_images, 'Image');
-        
+
         // outings from metaengine:
         $region_ids     = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
         $activity_ids   = c2cTools::convertC2cActivityIdsToMetaIds($activities);
-        $metaengine_url = sfConfig::get('app_meta_engine_base_url') . 
-                          'outings?system_id=2,3,4' . 
-                          '&orderby=outing_date' . 
-                          '&outing_lang=' . implode(',', $langs) . 
-                          '&activity_ids=' . implode(',', $activity_ids) .
-                          '&region_id=' . implode(',', $region_ids);
-        
-        try
-        {
-            $feed = sfFeedPeer::createFromWeb($metaengine_url);
-            $this->meta_items = sfFeedPeer::aggregate(array($feed),
-                                                      array('limit' => sfConfig::get('app_recent_documents_metaengine_limit')))
-                                          ->getItems();
-        }
-        catch (Exception $e)
-        {
-            // for instance if metaengine is down.
-            $this->meta_items = array();
-        }
+        $this->meta_feed_url = sfConfig::get('app_meta_engine_base_url') .
+                               'outings?system_id=2,3,4' .
+                               '&orderby=outing_date' .
+                               '&outing_lang=' . implode(',', $langs) .
+                               '&activity_ids=' . implode(',', $activity_ids) .
+                               '&region_id=' . implode(',', $region_ids);
 
         // forum latest active threads
         $this->latest_threads = PunbbTopics::listLatest($mobile_version ? sfConfig::get('app_recent_documents_threads_mobile_limit')
@@ -614,30 +601,42 @@ class documentsActions extends c2cActions
                 $this->created_at = $version_infos['created_at'];
             }
             
-            // display associated docs:
-            if ($module == 'users')
+            // retrieve associated docs
+            // some additional docs can be retrieved in module/executeView, like two hops summits
+
+            // contains all documents directly linked
+            $association_type = ($module == 'users') ? array('ui') : null;
+            $associated_docs =  Association::findAllWithBestName($id, $prefered_cultures, $association_type);
+            // mark them (useful information)
+            foreach($associated_docs as &$doc)
             {
-                $association_type = array('ui');
+                $doc['directly_linked'] = true;
             }
-            else
-            {
-                $association_type = null;
-            }
-            $this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures, $association_type);
+            $this->associated_docs = $associated_docs;
+
+            // all the linked articles
             $this->associated_articles = array_filter($this->associated_docs, array('c2cTools', 'is_article'));
+
+            // linked sites
             $this->associated_sites = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_site')));
+
+            // linked books. For summits and huts, the displayed books are the one linked to the linked routes
             if (!in_array($module, array('summits', 'huts')))
             {
                 $this->associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
             }
+
+            // linked images
+            // For sites and summits, we will dislay images linked to the summit/site AND its subsummits/subsites
             if (!in_array($module, array('summits', 'sites')))
             {
                 $this->associated_images = Document::fetchAdditionalFieldsFor(
                                             array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                             'Image', 
-                                            array('filename', 'image_type', 'date_time'));
+                                            array('filename', 'image_type', 'date_time', 'width', 'height'));
             }
-            // display geo associated docs:
+
+            // Geo associated docs
             if (!in_array($module, array('articles', 'books')))
             {
                 $associated_areas = GeoAssociation::findAreasWithBestName($id, $prefered_cultures);
@@ -1878,8 +1877,15 @@ class documentsActions extends c2cActions
                     {
                         return $this->setErrorAndRedirect('image dir unavailable', $redir_route);
                     }
-                    // update filename
+                    // update filename and image properties
                     $document->set('filename', $unique_filename . $file_ext);
+                    $size = getimagesize($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext);
+                    if ($size)
+                    {
+                        $document->set('width', $size[0]);
+                        $document->set('height', $size[1]);
+                    }
+                    $document->set('file_size', filesize($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext));
                     // populate with new exif data, if any...
                     $document->populateWithExifDataFrom($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext);
                 }
@@ -1922,7 +1928,7 @@ class documentsActions extends c2cActions
                 $this->redirectToView();
                 return;
             }
-            
+
             // we prevent here concurrent edition :
 
             // fake data so that second test always fails on summit creation (and when document is an archive) :
@@ -1932,7 +1938,6 @@ class documentsActions extends c2cActions
             // test if id exists (summit update) before checking concurrent edition
             // and if this is not an archive (editing an old document to reverse wrong changes)
             // (because only useful for document update) :
-                        
             if (($id = $this->getRequestParameter('id')) && (!$this->getRequestParameter('editing_archive')))
             {
                 $rev_when_edition_begun = $this->getRequestParameter('revision');
@@ -2057,11 +2062,9 @@ class documentsActions extends c2cActions
             }
         }
 
-        // js to autosave edit forms. see also https://github.com/marcuswestin/store.js?
-        // FIXME temporarily disabled because it causes the browser to choke every 20-30s
-        /*$response = $this->getResponse();
-        $response->addJavascript('/static/js/jstorage.js', 'last');
-        $response->addJavascript('/static/js/formsave.js', 'last');*/
+        // Go through simple heuristics to check for potential vandalism
+        Vandalism::check($this->document);
+
         // module specific actions
         $this->endEdit();
     }
@@ -2284,7 +2287,7 @@ class documentsActions extends c2cActions
         }
         $this->setPageTitle($page_title);
     }
-    
+ 
     public function executeLatestassociations()
     {
         $doc_id = $this->getRequestParameter('id', null);
@@ -3547,6 +3550,7 @@ class documentsActions extends c2cActions
 
         switch ($linked_module)
         {
+            case 'huts': $fields = array('id', 'is_protected', 'shelter_type'); break;
             case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
             case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
             case 'documents': $fields = array('id', 'is_protected', 'module'); break; // FIXME prevent such case?
@@ -3572,6 +3576,7 @@ class documentsActions extends c2cActions
 
         switch ($main_module)
         {
+            case 'huts': $fields = array('id', 'is_protected', 'shelter_type'); break;
             case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
             case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
             case 'documents': $fields = array('id', 'is_protected', 'module'); break; // FIXME prevent such case?
@@ -3616,6 +3621,10 @@ class documentsActions extends c2cActions
                     {
                         return $this->ajax_feedback('You do not have the right to link a document to a personal article');
                     }
+                }
+                if (($main_module_new == 'outings') && (!Association::find($user_id, $main_id_new, 'uo')))
+                {
+                    return $this->ajax_feedback('You do not have the right to link an article to another user outing');
                 }
             }
             
@@ -3669,10 +3678,6 @@ class documentsActions extends c2cActions
                 {
                     return $this->ajax_feedback('You do not have the right to link a site to another user outing');
                 }
-                if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                {
-                    return $this->ajax_feedback('You do not have the right to link an article to another user outing');
-                }
             }
         }
         
@@ -3684,6 +3689,103 @@ class documentsActions extends c2cActions
                 if (count($associations))
                 {
                     return $this->ajax_feedback('This hut is already linked to a summit');
+                }
+            }
+            if ($main_module_new == 'parkings')
+            {
+                $associations_pp = Association::findAllAssociations($main_id_new, 'pp');
+                $associations_ph = Association::findAllAssociations($linked_id_new, 'ph');
+                foreach ($associations_pp as $a_pp)
+                {
+                    foreach ($associations_ph as $a_ph)
+                    {
+                        if ($a_pp['main_id'] == $a_ph['main_id'] || $a_pp['linked_id'] == $a_ph['main_id'])
+                        {
+                            return $this->ajax_feedback('A parking can not be linked to a hut if a main/sub parking is already linked to it');
+                        }
+                    }
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'routes')
+        {
+            if ($main_module_new == 'huts' && $main_document_new->get('shelter_type') == 5)
+            {
+                return $this->ajax_feedback('A gite can not be linked to a route');
+            }
+            if ($main_module_new == 'parkings')
+            {
+                $associations_pp = Association::findAllAssociations($main_id_new, 'pp');
+                $associations_pr = Association::findAllAssociations($linked_id_new, 'pr');
+                foreach ($associations_pp as $a_pp)
+                {
+                    foreach ($associations_pr as $a_pr)
+                    {
+                        if ($a_pp['main_id'] == $a_pr['main_id'] || $a_pp['linked_id'] == $a_pr['main_id'])
+                        {
+                            return $this->ajax_feedback('A parking can not be linked to a route if a main/sub parking is already linked to it');
+                        }
+                    }
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'sites')
+        {
+            if ($main_module_new == 'sites')
+            {
+                if (Association::countAllMain(array($linked_id_new), 'tt'))
+                {
+                    return $this->ajax_feedback('A sub site can not be linked to more than one main site');
+                }
+            }
+            if ($main_module_new == 'summits')
+            {
+                if (Association::countAllMain(array($linked_id_new), 'st'))
+                {
+                    return $this->ajax_feedback('A site can not be linked to more than one summit');
+                }
+                if (Association::countAllMain(array($linked_id_new), 'tt'))
+                {
+                    return $this->ajax_feedback('A summit can not be linked to a sub site');
+                }
+            }
+            if ($main_module_new == 'parkings')
+            {
+                $associations_pp = Association::findAllAssociations($main_id_new, 'pp');
+                $associations_pt = Association::findAllAssociations($linked_id_new, 'pt');
+                foreach ($associations_pp as $a_pp)
+                {
+                    foreach ($associations_pt as $a_pt)
+                    {
+                        if ($a_pp['main_id'] == $a_pt['main_id'] || $a_pp['linked_id'] == $a_pt['main_id'])
+                        {
+                            return $this->ajax_feedback('A parking can not be linked to a site if a main/sub parking is already linked to it');
+                        }
+                    }
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'summits')
+        {
+            if ($main_module_new == 'summits')
+            {
+                if (Association::countAllMain(array($linked_id_new), 'ss'))
+                {
+                    return $this->ajax_feedback('A sub summit can not be linked to more than one main summit');
+                }
+            }
+        }
+        
+        if ($linked_module_new == 'parkings')
+        {
+            if ($main_module_new == 'parkings')
+            {
+                if (Association::countAllMain(array($linked_id_new), 'pp'))
+                {
+                    return $this->ajax_feedback('A sub parking can not be linked to more than one main parking');
                 }
             }
         }
@@ -3699,7 +3801,7 @@ class documentsActions extends c2cActions
             $email_recipient = UserPrivateData::find($linked_id)->getEmail();
             $email_subject = $this->__('You have been associated to an outing');
             $server = $_SERVER['SERVER_NAME'];
-            $outing_link = "http://$server/outings/$main_id";
+            $outing_link = 'http'.(empty($_SERVER['HTTPS']) ? '' : 's')."://$server/outings/$main_id";
             $htmlBody = $this->__('You have been associated to outing %1% details', array('%1%' => '<a href="' . $outing_link . '">' . $outing_link . '</a>'));
 
             $mail = new sfMail();
@@ -3795,7 +3897,7 @@ class documentsActions extends c2cActions
         $mode = $this->getRequestParameter('mode'); 
         $strict = $this->getRequestParameter('strict', 1); // whether 'remove action' should be strictly restrained to main and linked or reversed. 
         $icon = $this->getRequestParameter('icon');
-        
+
         // if session is time-over
         if (!$user_id)
         {
@@ -4045,30 +4147,29 @@ class documentsActions extends c2cActions
             $div_select = $field_prefix . '_routes_select';
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
 
-            $out = input_hidden_tag('summit_id', '0', array('id' => $summit_id))
-                 . input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
+            $id = $field_prefix . '_rsummits_name';
+            $out = input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
                  . __('Summit : ')
-                 . input_auto_complete_tag('summits_name', 
-                            '', // default value in text field 
-                            "summits/autocomplete",                            
-                            array('size' => '45', 'id' => $field_prefix .'_rsummits_name'), 
-                            array('after_update_element' => "function (inputField, selectedItem) { 
-                                                                $('$summit_id').value = selectedItem.id;
-                                                                ". remote_function(array(
-                                                                                        'update' => array(
-                                                                                                        'success' => $div_select, 
-                                                                                                        'failure' => $updated_failure),
-                                                                                        'url' => 'summits/getroutes',
-                                                                                        'with' => "'summit_id=' + $('$summit_id').value + '&div_prefix=${field_prefix}_&div_name=document_id'",
-                                                                                        'loading'  => "Element.show('indicator');", // does not work for an unknown reason
-                                                                                        'complete' => "Element.hide('indicator');C2C.getWizardRouteRatings('${field_prefix}_document_id');",
-                                                                                        'success'  => "Element.show('${field_prefix}_associated_routes');",
-                                                                                        'failure'  => "Element.show('$updated_failure');" . 
-                                                    visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
-                                    'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
-                                    'indicator' => 'indicator')); 
-            $out .= '<div id="'.$field_prefix.'_associated_routes" name="associated_routes" style="display:none;">';
-            $out .= '<div id="' . $div_select . '" name="' . $div_select . '"></div>';
+                 . input_tag('summits_name', '', array('size' => 45, 'id' => $id))
+                 . '<div id="'.$field_prefix.'_associated_routes" name="associated_routes" style="display:none;">'
+                 . '<div id="' . $div_select . '" name="' . $div_select . '"></div>'
+
+                 . javascript_queue("var indicator = $('#indicator');" .
+                 "$('#$id').c2cAutocomplete({" .
+                   "url: '" . url_for("summits/autocomplete") . "'," .
+                   "minChars: " . sfConfig::get('app_autocomplete_min_chars') .
+                 "}).on('itemselect', function(e, item) {" .
+                   "indicator.show();" .
+                   "$.get('" . url_for('summits/getroutes') . "'," .
+                     "'summit_id=' + item.id + '&div_prefix=${field_prefix}_&div_name=document_id')" .
+                     ".always(function() { indicator.hide(); })" .
+                     ".fail(function(data) { C2C.showFailure(data.responseText); })" .
+                     ".done(function(data) {" .
+                       "$('#$div_select').html(data).parent().show();" .
+                       "C2C.getWizardRouteRatings('${field_prefix}_document_id');" .
+                     "});" .
+                 "});");
+
             if ($this->getRequestParameter('button') != '0')
             {
                 $out .= c2c_submit_tag(__('Link'), array('class' => 'samesize', 'picto' => 'action_create'));
@@ -4078,24 +4179,6 @@ class documentsActions extends c2cActions
         
         return $this->renderText($out);
     }
-
-    /**  
-     * This function is used to get hut specific query paramaters.
-     * To be overridden in extended class.
-     */
-    protected function getQueryParams() {
-        $where_array  = array();
-        $where_params = array();
-        $params = array(
-            'select' => array(
-            ),
-            'where'  => array(
-                'where_array'  => $where_array,
-                'where_params' => $where_params
-            )
-        );
-        return $params; 
-    }    
 
     /**  
      * This function is used to get a DB query result formatted in HTML.
@@ -4493,9 +4576,12 @@ class documentsActions extends c2cActions
             case 'openmapquest':
                  $url = openmapquest_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $lang);
                  break;
+            case 'osrm':
+                 $url = osrm_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $lang);
+                 break;
             case 'gmaps':
             default:
-                 $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name, $lang);
+                 $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $lang);
                  break;
         }
         $this->redirect($url);

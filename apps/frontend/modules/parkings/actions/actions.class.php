@@ -27,40 +27,50 @@ class parkingsActions extends documentsActions
             $current_doc_id = $this->getRequestParameter('id');
             
             $main_associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
-            
+
+            // Idea here is to retrieve not only the routes linked directly to the parking, but also the ones 
+            // associated to the sub(-sub)-parkings
+            // We also do this for products and huts
             $parking_ids = array();
             if (count($main_associated_parkings))
             {
-                $associated_parkings = Association::addChildWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id, true);
+                $associated_parkings = Association::createHierarchyWithBestName($main_associated_parkings, $prefered_cultures,
+                    array('type' => 'pp', 'current_doc_id' => $current_doc_id, 'keep_current_doc' => true));
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
-                
-                if (count($main_associated_parkings) > 1 || count($associated_parkings) == 1)
+
+                // simply go through the list and get the next items that have a bigger level
+                $i = reset($associated_parkings);
+                while(!isset($i['is_doc']))
                 {
-                    foreach ($main_associated_parkings as $parking)
-                    {
-                        $parking_ids[] = $parking['id'];
-                    }
+                    $i = next($associated_parkings);
                 }
-                
+                $doc_level = $i['level'];
+                $i = next($associated_parkings);
+                while($i !== false && $i['level'] > $doc_level)
+                {
+                    $parking_ids[] = $i['id'];
+                    $i = next($associated_parkings);
+                }
+ 
                 if (count($parking_ids))
                 {
-                    $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, array('pr', 'ph', 'pf'));
-                    $this->associated_docs = array_merge($this->associated_docs, $associated_parking_routes);
+                    $this->associated_docs = array_merge($this->associated_docs,
+                        Association::findLinkedDocsWithBestName($parking_ids, $prefered_cultures, array('pr', 'ph', 'pf')));
                 }
             }
             else
             {
                 $associated_parkings = $main_associated_parkings;
             }
-            
             $this->associated_parkings = $associated_parkings;
             
             array_unshift($parking_ids, $current_doc_id);
             $this->ids = implode('-', $parking_ids);
-            
+
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
-            
+
+            // related books (associated to the above mentioned routes)
             $route_ids = array();
             $associated_routes_books = array();
             if (count($associated_routes))
@@ -75,7 +85,7 @@ class parkingsActions extends documentsActions
                 
                 if (count($route_ids))
                 {
-                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('br'), false, false);
+                    $associated_route_docs = Association::findLinkedDocsWithBestName($route_ids, $prefered_cultures, array('br'), false, false);
                     if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'name');
@@ -96,7 +106,7 @@ class parkingsActions extends documentsActions
                 $cab = count($associated_books);
             }
             
-            // get associated outings
+            // get associated outings (to the above mentionned routes)
             $latest_outings = array();
             $nb_outings = 0;
             if (count($associated_routes))
@@ -108,11 +118,14 @@ class parkingsActions extends documentsActions
             }
             $this->latest_outings = $latest_outings;
             $this->nb_outings = $nb_outings;
-            
+
+            // associated huts
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
-            
+
+            // asscoiated products
             $this->associated_products = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_product')), 'name');
-            
+
+            // related portals
             $related_portals = array();
             $public_transportation_rating = $this->document->get('public_transportation_rating');
             if (in_array($public_transportation_rating, array(1, 2, 4, 5)))
@@ -169,6 +182,8 @@ class parkingsActions extends documentsActions
         $timer = new sfTimer();
         Document::countAssociatedDocuments($parkings, 'pr', true);
         c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+
+        Area::sortAssociatedAreas($parkings);
 
         $this->items = Language::parseListItems($parkings, 'Parking');
     }

@@ -27,7 +27,8 @@ class productsActions extends documentsActions
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
-                $associated_parkings = Association::addChildWithBestName($associated_parkings, $prefered_cultures, 'pp');
+                $associated_parkings = Association::createHierarchyWithBestName($associated_parkings, $prefered_cultures,
+                    array('type' => 'pp'));
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;
@@ -103,6 +104,8 @@ class productsActions extends documentsActions
         $timer = new sfTimer();
         Parking::addAssociatedParkings($products, 'pf'); // add associated parkings infos to $products
         c2cActions::statsdTiming('parking.addAssociatedParkings', $timer->getElapsedTime());
+
+        Area::sortAssociatedAreas($products);
 
         $this->items = Language::parseListItems($products, 'Product');
     }

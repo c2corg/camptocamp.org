@@ -462,7 +462,7 @@ all:
 
   geoportail_key: '@GEOPORTAIL_KEY@'
 
-  async_map: false
+  async_map: true
 
   # this section is used to set group names that are stored in bdd
   # easy management :D
@@ -482,6 +482,8 @@ all:
      ads:  @MOBILE_VERSION_ADS@
   classic_version:
      host: @CLASSIC_VERSION_HOST@
+  static_version:
+     host: @STATIC_HOST@
   
   # For each module, fields that are displayed in tooltips
   # Note: right now, there is none, but let's keep this block and the 
@@ -492,8 +494,8 @@ all:
 #      0: {field: elevation, unit: meters}
 
   licenses:
-    base_url: 'http://creativecommons.org/licenses/'
-    url_suffix: '/2.0/fr/deed.'
+    base_url: '//creativecommons.org/licenses/'
+    url_suffix: '/3.0/deed.'
     list:
       1: by-sa
       2: by-nc-nd
@@ -1588,7 +1590,7 @@ all:
       14275: 95
       14120: 974
     avalanche_country_url:
-      france: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT'
+      france: 'www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/d/avdept'
     avalanche_url:
       14067: 'www.slf.ch/lawinenbulletin/index_'
       14257: 'www.lawinen.at/austria/'
@@ -1609,13 +1611,13 @@ all:
     avalanche_archive_old_limit:
       14067: '20121125'
     avalanche_archive_url_old:
-      14067: 'www.slf.ch/schneeinfo/Archiv/lwdarchiv/%s/nb/%s/html/%s_nb_%s_bw.html'
+      14067: 'www.slf.ch/schneeinfo/Archiv/lwdarchiv/%s/nb/%s/pdf/%s_nb_%s_bw.pdf'
     avalanche_archive_url:
-      14067: 'www.slf.ch/schneeinfo/Archiv/lwdarchiv/%s/nb/%s/html/%s1700_gk_c_%s_complete.html'
+      14067: 'www.slf.ch/schneeinfo/Archiv/lwdarchiv/%s/nb/%s/pdf/%s1700_gk_c_%s_complete.pdf'
     weather_country_name:
       france: 'Météo France'
     weather_country_url:
-      france: 'france.meteofrance.com/france/meteo?PREVISIONS_PORTLET.path=previsionsdept%2FDEPT'
+      france: 'www.meteofrance.com/previsions-meteo-france/d/dept'
     weather_name:
       14067: [ 'MeteoSwiss', 'Meteocentrale' ]
       14267: 'AEMET'
@@ -1657,19 +1659,11 @@ all:
     filled_criteria:
 
   sites:
-    site_types_new:
-      0:
-      2: school
-      4: boulder
-      12: climbing_gym
     site_types:
       0:
       2: school
       4: boulder
       12: climbing_gym
-      6: multi-pitches
-      8: trad
-      9: mountain
     filled_criteria:
       'talt': elevation
       'rqua': routes_quantity
@@ -1859,6 +1853,21 @@ all:
       3: R3
       4: R4
       5: R5
+    objective_risk_ratings:
+      0:
+      2:  X1
+      4:  X2
+      6:  X3
+      8:  X4
+      10: X5
+    rock_exposition_ratings:
+      0:
+      1: E1
+      2: E2
+      3: E3
+      4: E4
+      5: E5
+      6: E6
     filled_criteria:
       'maxa': malt
       'fac': ''
@@ -1869,13 +1878,15 @@ all:
       'dhei': ''
       'grat': ''
       'erat': ''
+      'rexpo': ''
       'prat': ''
       'frat': ''
       'arat': ''
+      'orrat': ''
       'irat': ''
       'mrat': ''
       'trat': ''
-      'expo': ''
+      'sexpo': ''
       'lrat': ''
       'srat': ''
       'hrat': ''
@@ -1895,6 +1906,8 @@ all:
       1: train
       2: bus
       3: service_on_demand
+      4: boat
+      9: cable_car
     filled_criteria:
       'tp': ''
       'tpty': ''
@@ -1954,7 +1967,7 @@ all:
       'irat': ''
       'mrat': ''
       'trat': ''
-      'expo': ''
+      'sexpo': ''
       'lrat': ''
       'srat': ''
       'hrat': ''
@@ -2010,18 +2023,18 @@ all:
   
   figures:
     list:
-      summits:  14'700
-      routes:   26'000
-      outings:  110'000
-      images:   220'000
-      sites:    2'500
-      huts:     1'700
-      parkings: 3'900
-      books:    1'130
-      users:    35'600
-      articles: 680
-      topics:   238'000
-      posts:    1'830'000
+      summits:  15'200
+      routes:   27'300
+      outings:  118'000
+      images:   245'000
+      sites:    2'600
+      huts:     1'800
+      parkings: 4'050
+      books:    1'200
+      users:    37'500
+      articles: 690
+      topics:   247'000
+      posts:    1'900'000
 
   profile_cookies:
     list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages' ]
@@ -2053,7 +2066,7 @@ all:
     metaskirando:
       id: @METASKI_ID@
       name: 'metaskirando'
-      url: 'metaskirando.camptocamp.org'
+      url: 'http://metaskirando.camptocamp.org'
       menu: 1
       home: 1
     ice:

@@ -1,16 +1,12 @@
 <?php
-/**
- * Ajax Helper
- * @version $Id: AjaxHelper.php 2216 2007-10-29 15:34:07Z jbaubort $
- */
-use_helper('Tag', 'Javascript');
+use_helper('Tag');
 
 function ajax_feedback($inline = false)
 {
     $afs = sfConfig::get('app_ajax_feedback_div_name_success');
     $aff = sfConfig::get('app_ajax_feedback_div_name_failure');
 
-    $indicator = content_tag('div', __(' loading...'), array('id' => 'indicator', 'style' => 'display: none;'));
+    $indicator = content_tag('div', __(' loading...'), array('id' => 'indicator', 'style' => 'display:none;'));
 
     $style = ($inline) ? sfConfig::get('app_ajax_feedback_div_style_inline') : sfConfig::get('app_ajax_feedback_div_style_absolute');
 
@@ -27,17 +23,18 @@ function ajax_feedback($inline = false)
 
 function c2c_form_remote_tag($url, $options = array())
 {
-    $afs = sfConfig::get('app_ajax_feedback_div_name_success');
-    $aff = sfConfig::get('app_ajax_feedback_div_name_failure');
+    $url = url_for($url);
 
-    return form_remote_tag(array(
-            'update'   => array('success' => $afs,
-                                'failure' => $aff),
-            'url'      => $url,
-            'loading'  => "Element.show('indicator')",
-            'complete' => "Element.hide('indicator'); ",
-            'success'  => "Element.show('$afs'); Element.hide('$aff');" . visual_effect('highlight', $afs),
-            'failure'  => "Element.hide('$afs'); Element.show('$aff');" . visual_effect('highlight', $aff),
-            'script' => true,
-    ), $options);
+    $js = "$('#indicator').show();
+$.post('$url', $(this).serialize())
+  .always(function() { $('#indicator').hide(); })
+  .fail(function(data) { C2C.showFailure(data.responseText); })
+  .success(function(data) { C2C.showSuccess(data); });
+return false;";
+  
+    $options['action'] = $url;
+    $options['method'] = isset($options['method']) ? $options['method'] : 'post';
+    $options['onsubmit'] = $js;
+
+    return tag('form', $options, true);
 }

@@ -10,16 +10,12 @@ $action = $sf_context->getActionName();
 $id = $sf_params->get('id');
 $cda_config = sfConfig::get('app_portals_cda');
 $cda_id = isset($cda_config['id']) ? $cda_config['id'] : -1;
-if ($id == $cda_id)
-{
-    $footer_type = 'cda';
-}
+$footer_type = ($id == $cda_id) ? 'cda' : 'normal';
 
 use_helper('MyMinify', 'MetaLink');
 
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/fold.js', 'head_last');
 
 // alpine club logo is included by css, but only in en
 if ($lang === 'en') use_stylesheet('/static/css/ac');
@@ -34,7 +30,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         echo include_http_metas();
         echo include_title();
     ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1" />
     <?php // Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading ?>
     <meta http-equiv="cleartype" content="on">
     <?php
@@ -43,12 +39,12 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         echo include_metas();
     ?>
     <script type="text/javascript">
-    (function(m){var l='<?php echo trim(minify_get_main_stylesheets($combine, $debug)); ?>',r=window.devicePixelRatio||1;
-    if(r>1){l=l.replace(m,m+'@'+(r>=2?2:1.5)+'x');}document.write(l);})('mobile');
+    (function(m,w){var l='<?php echo trim(minify_get_main_stylesheets($combine, $debug)); ?>',r=1
+    w.devicePixelRatio?r=w.devicePixelRatio:"matchMedia"in w&&w.matchMedia&&(w.matchMedia("(min-resolution: 2dppx)").matches||w.matchMedia("(min-resolution: 192dpi)").matches?r=2:(w.matchMedia("(min-resolution: 1.5dppx)").matches||w.matchMedia("(min-resolution: 144dpi)").matches)&&(r=1.5))
+    if(r>1){l=l.replace(m,m+'@'+(r>=2?2:1.5)+'x');}document.write(l);})('mobile',window);
     </script>
     <?php
         minify_include_custom_stylesheets($combine, $debug);
-        minify_include_head_javascripts($combine, $debug);
         echo include_meta_links();
     ?>
     <link rel="shortcut icon" href="<?php
@@ -57,7 +53,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
     ?>" />
     <link rel="apple-touch-icon" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
-    <link rel="canonical" href="http://<?php echo sfConfig::get('app_classic_version_host').
+    <link rel="canonical" href="//<?php echo sfConfig::get('app_classic_version_host').
     ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>
 <body>
@@ -67,7 +63,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         <?php
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_mobile_header' : 'common/mobile_header';
         include_partial($header_partial, array('lang_code' => $lang_code,
-                                               'footer_type' => isset($footer_type) ? $footer_type : 'normal'));
+                                               'footer_type' => $footer_type));
         if (sfConfig::get('app_production') != 1)
         {
             include_partial('common/dev_env');
@@ -80,10 +76,9 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         </div>
         <?php
         include_partial('common/mobile_footer', array('lang_code' => $lang_code,
-                                                      'footer_type' => isset($footer_type) ? $footer_type : 'normal'));
+                                                      'footer_type' => $footer_type));
         ?>
     </div>
-    <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
     <?php minify_include_body_javascripts($combine, $debug);
           include_partial('common/tracker') ?>
 </body>

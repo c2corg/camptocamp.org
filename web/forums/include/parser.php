@@ -495,10 +495,10 @@ function handle_url_tag($url, $link = '', $show_video = false)
             $param_url = 'http://www.camptocamp.org' . $param_url;
         }
         $suffix = ' <a class="embedded_ppt_pdf" href="#" style="display:none" onclick="$(this).next().show(); $(this).hide();' .
-                  ' $(this).next(1).remove(); return false;">' . $lang_common['close embedded'] . '</a>' .
-                  ' <a class="embedded_ppt_pdf" href="#" onclick="$(this).insert({after:\'&lt;iframe class=&quot;embedded_ppt_pdf&quot;' .
-                  ' src=&quot;http://docs.google.com/gview?url=' . $param_url . '&amp;embedded=true&quot;&gt;&lt;/object&gt;&lt;/object&gt;\'});' .
-                  ' $(this).previous().show(); $(this).hide(); return false;">' . $lang_common['see embedded'] . '</a>';
+                  ' $(this).next().next().remove(); return false;">' . __('close embedded') . '</a>' .
+                  ' <a class="embedded_ppt_pdf" href="#" onclick="$(this).after(\'<iframe class=\\\'embedded_ppt_pdf\\\'' .
+                  ' src=\\\'http://docs.google.com/gview?url=' . $param_url . '&amp;embedded=true\\\'></iframe>\');' .
+                  ' $(this).prev().show(); $(this).hide(); return false;">' . __('see embedded') . '</a>';
     }
     else
     {
@@ -821,7 +821,7 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
                      '</p><div style="text-align: justify;"><p>$1</p></div><p>',
                      'handle_email_tag(\'$1\')',
                      'handle_email_tag(\'$1\', \'$2\')',
-                     '</p><blockquote><div class="incqbox" onclick="C2C.toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><div style="visibility:hidden; display:none; height:0;"><p>$3</p></div></div></blockquote><p>',
+                     '</p><blockquote><div class="incqbox" onclick="C2C.toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><div style="display:none;"><p>$3</p></div></div></blockquote><p>',
                      '<acronym title="$1">$2</acronym>',
                      '</p><hr /><p>',
                      '<span class="picto $1"> </span>',

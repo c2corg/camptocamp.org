@@ -1,0 +1,41 @@
+/* outing wizard */
+
+#outing_wizard
+{
+  margin-bottom: 30px;
+}
+
+#outing_wizard h4
+{
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.wizard_hints h4
+{
+  font-style: italic;
+  color: #aaa;
+}
+
+#outing_wizard hr
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#outing_wizard input, #outing_wizard select[name=routes]
+{
+  margin-left: 3px;
+  width: 450px;
+  padding: 2px;
+}
+
+#merge_wizard input
+{
+  width: 550px;
+}
+
+.wizard_tip {
+  font-size: .9em;
+  color: #aaa;
+}

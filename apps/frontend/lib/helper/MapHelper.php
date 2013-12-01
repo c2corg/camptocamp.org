@@ -1,5 +1,5 @@
 <?php
-use_helper('Form', 'Javascript');
+use_helper('Form', 'JavascriptQueue');
 
 function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $center = null, $has_geom = null)
 {
@@ -89,38 +89,43 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
                  !sfContext::getInstance()->getRequest()->getParameter('debug', false);
 
     $js = "
-        function map_init() {
-          c2corg.Map({
-            div: 'map',
-            lang: '$lang',
-            loading: 'mapLoading',
-            layers: $layers_list,
-            center: $init_center,
-            features: " . _makeFeatureCollection($objects_list) . "
-          });
-        }";
+      C2C.map_init = function() {
+        c2corg.Map({
+          div: 'map',
+          lang: '$lang',
+          loading: 'mapLoading',
+          layers: $layers_list,
+          center: $init_center,
+          features: " . _makeFeatureCollection($objects_list) . "
+        });
+       };";
 
     // asynchronous map loading
     if ($async_map)
     {
         use_helper('MyMinify');
         $c2c_script_url = minify_get_combined_files_url(
-          array('/static/js/carto/build/app.js', "/static/js/carto/build/lang-$lang.js",
+          array('/static/js/carto/build/carto.min.js', "/static/js/carto/build/lang-$lang.min.js",
                 '/static/js/popup.js', '/static/js/carto/embedded.js'),
           (bool) sfConfig::get('app_minify_debug'));
 
+        // Ext.onReady doesn't seem to fire if extjs is loaded after the dom has been loaded
+        // (but works in chrome???)
+        // so we manually trigger it to be sure
         $js .= "
-            function c2c_asyncload(jsurl) {
-              var a = document.createElement('script'),
-              h = document.getElementsByTagName('head')[0];
-              a.async = 1; a.src = jsurl; h.appendChild(a);
-            }
-            function map_load_async() {
-                c2c_asyncload('$c2c_script_url');
-            }";
+        C2C.async_map_init = function() {
+          $.ajax({
+            url: '$c2c_script_url',
+            dataType: 'script',
+            cache: true
+          }).done(function() {
+            C2C.map_init();
+            Ext.EventManager.fireDocReady();
+          });
+        };";
     }
 
-    $html .= javascript_tag($js);
+    $html .= javascript_queue($js);
 
     return $html;
 }
@@ -174,14 +179,14 @@ function _loadJsMapTools()
     {
         use_stylesheet('/static/css/carto_base.css', 'custom');
         use_stylesheet('/static/css/popup.css', 'custom');
-        if (!$async_map) use_javascript('/static/js/carto/build/app.js', 'maps');
+        if (!$async_map) use_javascript('/static/js/carto/build/carto.min.js', 'maps');
     }
 
     use_stylesheet('/static/css/carto.css', 'custom');
 
     if (!$async_map || $debug)
     {
-        use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
+        use_javascript("/static/js/carto/build/lang-$lang.min.js", 'maps');
         use_javascript('/static/js/popup.js', 'maps');
         use_javascript('/static/js/carto/embedded.js', 'maps');
     }

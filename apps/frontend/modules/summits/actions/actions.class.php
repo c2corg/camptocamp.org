@@ -26,7 +26,8 @@ class summitsActions extends documentsActions
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
 
-            // if summit is associated to a hut, redirect to hut unless ?redirect=no is appended (after a slug!)
+            // ghost summits, used for adding routes to huts
+            // if summit is associated directly to a hut, redirect to hut unless ?redirect=no is appended (after a slug!)
             $associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
             if (count($associated_huts) > 0 && $this->getRequestParameter('redirect') != 'no')
             {
@@ -39,34 +40,29 @@ class summitsActions extends documentsActions
             // main associated summits are summits directly linked to this one
             $main_associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
             $associated_sites = $this->associated_sites;
-            
+
+            // idea here is to display some docs (routes, images, sites), not only if they are directly linked to the summit,
+            // but also if they are linked to a sub(-sub)-summit
             $summit_ids = array();
             if (count($main_associated_summits))
             {
-                // we gather all summits linked to the main associated summits
-                $associated_summits = Association::addChildWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id, true);
-                
-                $elevation = $this->document->get('elevation');
-                foreach ($main_associated_summits as $summit)
+                $associated_summits = Association::createHierarchyWithBestName($main_associated_summits, $prefered_cultures,
+                    array('type' => 'ss', 'current_doc_id' => $current_doc_id, 'keep_current_doc' => true));
+
+                // simply go through the list and get the next items that have a bigger level
+                $i = reset($associated_summits);
+                while(!isset($i['is_doc']))
                 {
-                    if ($summit['elevation'] <= $elevation)
-                    {
-                        $summit_ids[] = $summit['id'];
-                    }
+                    $i = next($associated_summits);
                 }
-                if (!empty($summit_ids))
+                $doc_level = $i['level'];
+                $i = next($associated_summits);
+                while($i !== false && $i['level'] > $doc_level)
                 {
-                    $parent_ids = $summit_ids;
-                    foreach ($associated_summits as $key => $summit)
-                    {
-                        $summit_id = $summit['id'];
-                        if (isset($summit['parent_id']) && isset($summit['is_child']) && $summit['is_child'] && array_intersect($summit['parent_id'], $parent_ids))
-                        {
-                            $summit_ids[] = $summit_id;
-                        }
-                    }
+                    $summit_ids[] = $i['id'];
+                    $i = next($associated_summits);
                 }
-                
+
                 if (count($summit_ids))
                 {
                     $summit_docs = array_filter($this->associated_docs, array('c2cTools', 'is_site_route_image'));
@@ -75,7 +71,9 @@ class summitsActions extends documentsActions
                     {
                         $summit_docs_ids[] = $doc['id'];
                     }
-                    $associated_summit_docs = Association::findWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'), false, true, $summit_docs_ids);
+                    $associated_summit_docs = Association::findLinkedDocsWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'),
+                        false, true, $summit_docs_ids);
+
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_docs);
                     
                     $associated_summit_sites = c2cTools::sortArrayByName(array_filter($associated_summit_docs, array('c2cTools', 'is_site')));
@@ -128,12 +126,16 @@ class summitsActions extends documentsActions
                     {
                         $book_ids[] = $book['id'];
                     }
-                    $associated_route_docs = Association::findWithBestName($doc_ids, $prefered_cultures, array('hr', 'ht', 'pr', 'pt', 'br'), false, false, $book_ids);
+                    $associated_route_docs = Association::findLinkedDocsWithBestName($doc_ids, $prefered_cultures, array('hr', 'ht', 'pr', 'pt', 'br'),
+                        false, false, $book_ids);
+
                     if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
                         $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
-                        $associated_parkings = Parking::getAssociatedParkingsData(array_filter($associated_route_docs, array('c2cTools', 'is_parking')));
+                        $associated_parkings = Parking::getAssociatedParkingsData(array_filter($associated_route_docs,
+                            array('c2cTools', 'is_parking')));
+
                         $associated_routes_books = c2cTools::sortArray(array_filter($associated_route_docs, array('c2cTools', 'is_book')), 'name');
                         foreach ($associated_routes_books as $key => $book)
                         {
@@ -168,7 +170,7 @@ class summitsActions extends documentsActions
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                                         array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                         'Image', 
-                                        array('filename', 'image_type', 'date_time'));
+                                        array('filename', 'image_type', 'date_time', 'width', 'height'));
             
             $cab = count($associated_books);
             $this->section_list = array('books' => ($cab != 0), 'map' => (boolean)$this->document->get('geom_wkt'));
@@ -209,39 +211,6 @@ class summitsActions extends documentsActions
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
     }
 
-    /**
-     * This function is used to get summit specific query paramaters. It is used
-     * from the generic action class (in the documents module).
-     */
-    protected function getQueryParams() {
-        $where_array  = array();
-        $where_params = array();
-        if ($this->hasRequestParameter('min_elevation'))
-        {
-            $min_elevation = $this->getRequestParameter('min_elevation');
-            if (!empty($min_elevation)) {
-                $where_array[]  = 'summits.elevation >= ?';
-                $where_params[] = $min_elevation;
-            }
-        }
-        if ($this->hasRequestParameter('max_elevation'))
-        {
-            $max_elevation = $this->getRequestParameter('max_elevation');
-            if (!empty($max_elevation)) {
-                $where_array[]  = 'summits.elevation <= ?';
-                $where_params[] = $max_elevation;
-            }
-        }
-        $params = array(
-            'select' => array('summits.elevation'),
-            'where'  => array(
-                'where_array'  => $where_array,
-                'where_params' => $where_params
-            )
-        );
-        return $params; 
-    }
-   
     /**
      * This function is used to get a DB query result formatted in HTML. It is used
      * from the generic action class (in the documents module)
@@ -288,19 +257,21 @@ class summitsActions extends documentsActions
             return $this->ajax_feedback('Summit not found'); 
         }
         
-        $sub_summits = Summit::getSubSummits($id, $summit['elevation']);
+        $sub_summits = Summit::getSubSummits($id);
         $ids = array($id);
         foreach ($sub_summits as $sub)
         {
             $ids[] = $sub['id'];
         }
         
-        $routes = Association::findWithBestName($ids, $this->getUser()->getCulturesForDocuments(), 'sr');
+        $routes = Association::findLinkedDocsWithBestName($ids, $this->getUser()->getCulturesForDocuments(), 'sr');
         $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:') . ' ');
         $routes = c2cTools::sortArrayByName($routes);
         
-        $msg = $this->__('No associated route found');
-        if (count($routes) == 0) return $this->ajax_feedback("<option value='0'>$msg</option>");
+        if (count($routes) == 0)
+        {
+            return $this->ajax_feedback($this->__('No associated route found'));
+        }
 
         if (!$div_id)
         {
@@ -467,6 +438,8 @@ class summitsActions extends documentsActions
         $timer = new sfTimer();
         Document::countAssociatedDocuments($summits, 'sr', true);
         c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+
+        Area::sortAssociatedAreas($summits);
 
         $this->items = Language::parseListItems($summits, 'Summit');
     }

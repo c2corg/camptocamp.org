@@ -6,7 +6,7 @@ if (count($associated_routes) == 0)
     echo "\n" . '<p class="default_text">' . __('No linked route') . '</p>';
 }
 else
-{ 
+{
     if (!isset($is_popup))
     {
         $is_popup = false;
@@ -76,7 +76,7 @@ else
                 }
                 else
                 {
-                    $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="C2C.linkRoutes(\'act' . $activity_index . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
+                    $activity_summary[] = '<a href="#' . $activity . '_routes" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
                 }
             }
         }
@@ -189,7 +189,7 @@ else
                        . summarize_route($route, true, false, $avalaible_activities, true)
                        . $georef;
 
-                    if ($show_link_to_delete)
+                    if ($show_link_to_delete && isset($route['directly_linked']))
                     {
                         echo c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict);
                     }
@@ -205,7 +205,7 @@ else
                        . $georef
                        . '</td>';
 
-                    if ($show_link_to_delete)
+                    if ($show_link_to_delete && isset($route['directly_linked']))
                     {
                         echo '<td>'
                            . c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict)

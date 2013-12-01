@@ -31,19 +31,30 @@ class sitesActions extends documentsActions
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
             $parent_ids = $sites_ids = $site_docs_ids = $child_types = array();
-            
+
+            // if we have sub-(sub)-sites, we also want to display the outings and images linked to these sites
             $main_associated_sites = $this->associated_sites;
             if (count($main_associated_sites))
             {
-                $associated_sites = Association::addChildWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id, true);
-                
-                if (count($main_associated_sites) > 1 || count($associated_sites) == 1)
+                $associated_sites = Association::createHierarchyWithBestName($main_associated_sites, $prefered_cultures,
+                    array('type' => 'tt', 'current_doc_id' => $current_doc_id, 'keep_current_doc' => true));
+
+                $i = reset($associated_sites);
+                while(!isset($i['is_doc']))
                 {
-                    foreach ($main_associated_sites as $site)
-                    {
-                        $sites_ids[] = $site['id'];
-                    }
-                    
+                    $i = next($associated_sites);
+                }
+                $doc_level = $i['level'];
+                $i = next($associated_sites);
+                while($i !== false && $i['level'] > $doc_level)
+                {
+                    $site_ids[] = $i['id'];
+                    $i = next($associated_sites);
+                }
+
+                // we want to display on the page the images and outings of the subsites
+                if (count($site_ids))
+                {
                     $site_docs = array_filter($this->associated_docs, array('c2cTools', 'is_image'));
                     foreach ($site_docs as $doc)
                     {
@@ -57,8 +68,10 @@ class sitesActions extends documentsActions
             {
                 $associated_sites = $main_associated_sites;
             }
-            
+
             $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
+
+            // we display sub-sub-sites one the page, but also the others sites linked to the same summits
             if (count($associated_summits))
             {
                 foreach ($associated_summits as $summit)
@@ -71,10 +84,11 @@ class sitesActions extends documentsActions
                     $sites_ids[] = $site['id'];
                 }
                 $summit_docs_ids = array_merge($sites_ids, array($current_doc_id));
-                $associated_summits_sites = Association::findWithBestName($summit_ids, $prefered_cultures, 'st', true, true, $summit_docs_ids);
+                $associated_summits_sites = Association::findLinkedDocsWithBestName($summit_ids, $prefered_cultures, 'st', true, true, $summit_docs_ids);
                 $associated_sites = array_merge($associated_sites, $associated_summits_sites);
             }
-            
+
+            // associated parkings 2-hop hierarchy
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
@@ -86,16 +100,19 @@ class sitesActions extends documentsActions
             }
             
             $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
-            
+
+            // all outings (directly or indirectly linked) 
             $parent_ids = array_merge($parent_ids, $sites_ids);
             if (count($parent_ids)) // "sites" can have no linked doc
             {
-                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
+                $associated_childs = Association::findLinkedDocsWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
                 $this->associated_docs = array_merge($this->associated_docs, $associated_childs);
             
                 if (count($associated_parkings))
                 {
-                    $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                    $associated_parkings = Association::createHierarchy($associated_parkings,
+                        array_filter($associated_childs, array('c2cTools', 'is_parking')),
+                        array('type' => 'pp', 'show_sub_docs' => false));
                 }
                 
                 if (count($sites_ids))
@@ -168,7 +185,7 @@ class sitesActions extends documentsActions
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                                         array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                         'Image', 
-                                        array('filename', 'image_type', 'date_time'));
+                                        array('filename', 'image_type', 'date_time', 'width', 'height'));
             
             
             $site_types = $this->document->get('site_types');
@@ -257,261 +274,6 @@ class sitesActions extends documentsActions
         $this->clearCache('sites', $id, false, 'view');
 
         $this->setNoticeAndRedirect('Geoassociations refreshed', "@document_by_id?module=sites&id=$id");
-    }
-
-    /**
-     * This function is used to get site specific query paramaters. It is used
-     * from the generic action class (in the documents module).
-     */
-    protected function getQueryParams() {
-        $where_array  = array();
-        $where_params = array();
-        if ($this->hasRequestParameter('min_elevation'))
-        {
-            $min_elevation = $this->getRequestParameter('min_elevation');
-            if (!empty($min_elevation)) {
-                $where_array[]  = 'sites.elevation >= ?';
-                $where_params[] = $min_elevation;
-            }
-        }
-        if ($this->hasRequestParameter('max_elevation'))
-        {
-            $max_elevation = $this->getRequestParameter('max_elevation');
-            if (!empty($max_elevation)) {
-                $where_array[]  = 'sites.elevation <= ?';
-                $where_params[] = $max_elevation;
-            }
-        }
-        if ($this->hasRequestParameter('min_routes_quantity'))
-        {
-            $min_routes_quantity = $this->getRequestParameter('min_routes_quantity');
-            if (!empty($min_routes_quantity)) {
-                $where_array[]  = 'sites.routes_quantity >= ?';
-                $where_params[] = $min_routes_quantity;
-            }
-        }
-        if ($this->hasRequestParameter('max_routes_quantity'))
-        {
-            $max_routes_quantity = $this->getRequestParameter('max_routes_quantity');
-            if (!empty($max_routes_quantity)) {
-                $where_array[]  = 'sites.routes_quantity <= ?';
-                $where_params[] = $max_routes_quantity;
-            }
-        }
-        if ($this->hasRequestParameter('min_min_rating'))
-        {
-            $min_min_rating = $this->getRequestParameter('min_min_rating');
-            if (!empty($min_min_rating)) {
-                $where_array[]  = 'sites.min_rating >= ?';
-                $where_params[] = $min_min_rating;
-            }
-        }
-        if ($this->hasRequestParameter('max_min_rating'))
-        {
-            $max_min_rating = $this->getRequestParameter('max_min_rating');
-            if (!empty($max_min_rating)) {
-                $where_array[]  = 'sites.min_rating <= ?';
-                $where_params[] = $max_min_rating;
-            }
-        }
-        if ($this->hasRequestParameter('min_max_rating'))
-        {
-            $min_max_rating = $this->getRequestParameter('min_max_rating');
-            if (!empty($min_max_rating)) {
-                $where_array[]  = 'sites.max_rating >= ?';
-                $where_params[] = $min_max_rating;
-            }
-        }
-        if ($this->hasRequestParameter('max_max_rating'))
-        {
-            $max_max_rating = $this->getRequestParameter('max_max_rating');
-            if (!empty($max_max_rating)) {
-                $where_array[]  = 'sites.max_rating <= ?';
-                $where_params[] = $max_max_rating;
-            }
-        }
-        if ($this->hasRequestParameter('min_mean_rating'))
-        {
-            $min_mean_rating = $this->getRequestParameter('min_mean_rating');
-            if (!empty($min_mean_rating)) {
-                $where_array[]  = 'sites.mean_rating >= ?';
-                $where_params[] = $min_mean_rating;
-            }
-        }
-        if ($this->hasRequestParameter('max_mean_rating'))
-        {
-            $max_mean_rating = $this->getRequestParameter('max_mean_rating');
-            if (!empty($max_mean_rating)) {
-                $where_array[]  = 'sites.mean_rating <= ?';
-                $where_params[] = $max_mean_rating;
-            }
-        }
-        if ($this->hasRequestParameter('min_min_height'))
-        {
-            $min_min_height = $this->getRequestParameter('min_min_height');
-            if (!empty($min_min_height)) {
-                $where_array[]  = 'sites.min_height >= ?';
-                $where_params[] = $min_min_height;
-            }
-        }
-        if ($this->hasRequestParameter('max_min_height'))
-        {
-            $max_min_height = $this->getRequestParameter('max_min_height');
-            if (!empty($max_min_height)) {
-                $where_array[]  = 'sites.min_height <= ?';
-                $where_params[] = $max_min_height;
-            }
-        }
-        if ($this->hasRequestParameter('min_max_height'))
-        {
-            $min_max_height = $this->getRequestParameter('min_max_height');
-            if (!empty($min_max_height)) {
-                $where_array[]  = 'sites.max_height >= ?';
-                $where_params[] = $min_max_height;
-            }
-        }
-        if ($this->hasRequestParameter('max_max_height'))
-        {
-            $max_max_height = $this->getRequestParameter('max_max_height');
-            if (!empty($max_max_height)) {
-                $where_array[]  = 'sites.max_height <= ?';
-                $where_params[] = $max_max_height;
-            }
-        }
-        if ($this->hasRequestParameter('min_mean_height'))
-        {
-            $min_mean_height = $this->getRequestParameter('min_mean_height');
-            if (!empty($min_mean_height)) {
-                $where_array[]  = 'sites.mean_height >= ?';
-                $where_params[] = $min_mean_height;
-            }
-        }
-        if ($this->hasRequestParameter('max_mean_height'))
-        {
-            $max_mean_height = $this->getRequestParameter('max_mean_height');
-            if (!empty($max_mean_height)) {
-                $where_array[]  = 'sites.mean_height <= ?';
-                $where_params[] = $max_mean_height;
-            }
-        }
-        if ($this->hasRequestParameter('climbing_styles'))
-        {
-            $climbing_styles = $this->getRequestParameter('climbing_styles');
-            $where = $this->getWhereClause(
-                $climbing_styles, 'mod_sites_climbing_styles_list', '? = ANY (sites.climbing_styles)');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('rock_types'))
-        {
-            $rock_types = $this->getRequestParameter('rock_types');
-            $where = $this->getWhereClause(
-                $rock_types, 'mod_sites_rock_types_list', '? = ANY (sites.rock_types)');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('site_types'))
-        {
-            $site_types = $this->getRequestParameter('site_types');
-            $where = $this->getWhereClause(
-                $site_types, 'app_sites_site_types', '? = ANY (sites.site_types)');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('children_proof'))
-        {
-            $children_proofs = $this->getRequestParameter('children_proof');
-            $where = $this->getWhereClause(
-                $children_proofs, 'mod_sites_children_proof_list', 'sites.children_proof = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('rain_proof'))
-        {
-            $rain_proofs = $this->getRequestParameter('rain_proof');
-            $where = $this->getWhereClause(
-                $rain_proofs, 'mod_sites_rain_proof_list', 'sites.rain_proof = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('facings'))
-        {
-            $facings = $this->getRequestParameter('facings');
-            $where = $this->getWhereClause(
-                $facings, 'mod_sites_facings_list', '? = ANY (sites.facings)');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('equipment_rating'))
-        {
-            $equipment_ratings = $this->getRequestParameter('equipment_rating');
-            $where = $this->getWhereClause(
-                $equipment_ratings, 'app_equipment_ratings_list', 'sites.equipment_rating = ?');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        if ($this->hasRequestParameter('best_periods'))
-        {
-            $best_periods = $this->getRequestParameter('best_periods');
-            $where = $this->getWhereClause(
-                $best_periods, 'mod_sites_best_periods_list', '? = ANY (sites.best_periods)');
-            if (!is_null($where))
-            {
-                $where_array[] = $where['where_string'];
-                $tmp = array_merge($where_params, $where['where_params']);
-                $where_params = $tmp;
-            }
-        }
-        $params = array(
-            'select' => array(
-                'sites.elevation',
-                'sites.routes_quantity',
-                'sites.min_rating',
-                'sites.max_rating',
-                'sites.mean_rating',
-                'sites.min_height',
-                'sites.max_height',
-                'sites.mean_height',
-                'sites.climbing_styles',
-                'sites.rock_types',
-                'sites.facings',
-                'sites.equipment_rating',
-                'sites.best_periods'
-            ),
-            'where'  => array(
-                'where_array'  => $where_array,
-                'where_params' => $where_params
-            )
-        );
-        return $params; 
     }
 
     /**
@@ -626,6 +388,8 @@ class sitesActions extends documentsActions
         $timer = new sfTimer();
         Document::countAssociatedDocuments($sites, 'to', true);
         c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+
+        Area::sortAssociatedAreas($sites);
 
         $this->items = Language::parseListItems($sites, 'Site');
     }

@@ -1,7 +1,8 @@
 <?php
-/**
- * $Id: UserPrivateData.class.php 2349 2007-11-15 15:00:05Z fvanderbiest $
- */
+// FIXME this is a bit dirty. We cannot use autoload features since there is no class. Is there a better way for this?
+// compatibility with password_* function from php 5.5
+require_once(sfConfig::get('sf_lib_dir').DIRECTORY_SEPARATOR.'password_compat'.
+             DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'password.php');
 
 class UserPrivateData extends BaseUserPrivateData
 {
@@ -13,7 +14,7 @@ class UserPrivateData extends BaseUserPrivateData
      */
     public static function hash($pwd)
     {
-        return Punbb::punHash($pwd);
+        return password_hash($pwd, PASSWORD_DEFAULT);
     }
 
     public static function filterSetPassword($pwd)
@@ -85,6 +86,16 @@ class UserPrivateData extends BaseUserPrivateData
                              ->from('UserPrivateData u')
                              ->where('u.login_name = ? OR u.email = ?',
                                      array($loginNameOrEmail, $loginNameOrEmail))
+                             ->limit(1)
+                             ->execute()
+                             ->getFirst();
+    }
+
+    public static function retrieveByLoginName($loginName)
+    {
+        return Doctrine_Query::create()
+                             ->from('UserPrivateData u')
+                             ->where('u.login_name = ?', strtolower($loginName))
                              ->limit(1)
                              ->execute()
                              ->getFirst();

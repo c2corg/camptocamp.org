@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEV="/dev/mapper/vg0-volatile"
+DEV="/dev/volatile"
 
 if [ $(id -u) != 0 ]; then
   echo "this script can only be run as root"

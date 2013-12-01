@@ -24,13 +24,15 @@ class articlesActions extends documentsActions
         
         if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
-            // here, we add the summit name to route names :
+            // Add the summit name to route
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
             $associated_routes = Route::addBestSummitName($associated_routes, $this->__(' :').' ');
-            // here we include the outings additional data
+
+            // Include outings additional data
             $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
             $associated_outings = Outing::fetchAdditionalFields($associated_outings);
 
+            // group all linked docs except images in a single list
             $associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_route'));
             $associated_docs = array_filter($associated_docs, array('c2cTools', 'is_not_outing'));
             $associated_docs = array_filter($associated_docs, array('c2cTools', 'is_not_image'));
@@ -49,7 +51,7 @@ class articlesActions extends documentsActions
             $this->associated_users = array_filter($associated_docs, array('c2cTools', 'is_user'));
             $this->associated_documents = $associated_docs;
             
-            // add linked docs areas (except users)
+            // Retrieve linked docs areas (except users)
             $parent_ids = array();
             $associated_areas = array();
             foreach ($this->associated_docs as $doc)
@@ -65,7 +67,10 @@ class articlesActions extends documentsActions
                 $associated_areas = GeoAssociation::findAreasWithBestName($parent_ids, $prefered_cultures);
             }
             $this->associated_areas = $associated_areas;
-            
+
+            // retrieve related portals, depending on article category
+            // Soft mobility articles => changedapproche
+            // ice activity + gear, stories or expeditions => ice portal
             $related_portals = array();
             $activities = $this->document->get('activities');
             $categories = $this->document->get('categories');

@@ -1,0 +1,86 @@
+// Ajax and flash feedback, tooltips fields
+
+$z: 100001; // should be the highest one on document, even higher than modalbox & co
+
+.error, .notice, .warning, .ajax_feedback {
+  z-index: $z;
+  border: 1px solid;
+  @if $standard {
+    margin: 5px 0;
+    padding: 5px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+  } @else {
+    padding: 10px;
+    padding-right: 2em;
+    &::after {
+      content: "X";
+      font-size: 1.5em;
+      font-weight: bold;
+      position: absolute;
+      right: 0.5em;
+      top: 5px;
+    }
+  }
+}
+
+.error, #ajax_feedback_failure {
+  background-color: #ffb2a9;
+  border-color: #ff0016;
+}
+
+.notice, #ajax_feedback_success {
+  background-color: #77f44c;
+  border-color: #008a17;
+}
+
+.warning {
+  background-color: #ffaa66;
+  border-color: #f5900c;
+}
+
+.ajax_inline_feedback {
+  z-index: 10001;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.feedback {
+  z-index: $z;
+  background-color: #f19914;
+  color: #fff;
+  text-align: center;
+}
+
+#indicator, #indicator2 {
+  position: fixed;
+  z-index: $z;
+  top: 5px;
+  left: 5px;
+  padding: 5px;
+  background: #f00;
+  color: #fff;
+}
+
+// fields tooltips to be moved in separate file
+
+#fields_tooltip {
+  z-index: 999;
+  background-color: #ffc;
+  padding: 10px;
+  padding-bottom: 20px;
+  width: auto;
+  max-width:50%;
+  position: fixed;
+  border: 1px solid #aaa;
+  @include border-radius(10px);
+}
+
+#close_info {
+  text-align: right;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #666;
+  font-size: 0.9em;
+}

@@ -68,6 +68,10 @@ if (isset($_GET['f']))
                        'debug' => false,
                        'bubbleCssImports' => false);
 
+      // Do not minify files with names containing .min or -min before the extension 
+      // (only works with MinApp Controller)
+      $options['minApp']['noMinPattern'] = '@[-\\.]min\\.(?:js|css)$@i';
+
       if ($debug) // debug = we don't minify. But we don't add /* line numbers */ (thus option debug = false)
       {
         $options['minifiers'] = array(Minify::TYPE_JS => '', Minify::TYPE_CSS => '');
@@ -96,7 +100,7 @@ if (isset($_GET['f']))
       }
 
       // serve the file
-      Minify::serve('Files', $options);
+      Minify::serve('MinApp', $options);
       exit();
     }
   }

@@ -10,6 +10,7 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
+$site_types = $document->getRaw('site_types');
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
@@ -123,12 +124,19 @@ include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/ma
 // associated outings section starts here
 if ($is_not_archive && $is_not_merged)
 {
-    echo start_section_tag('Linked outings', 'outings');
+    if ($nb_outings > 0 || !in_array(12, $site_types))
+    {
+        echo start_section_tag('Linked outings', 'outings');
+    }
+    
     if ($nb_outings == 0)
     {
-    ?>
-        <p class="default_text"><?php echo __('No linked outing to this site') ?></p>
-    <?php
+        if (!in_array(12, $site_types))
+        {
+            ?>
+                <p class="default_text"><?php echo __('No linked outing to this site') ?></p>
+            <?php
+        }
     }
     else
     {
@@ -146,7 +154,7 @@ if ($is_not_archive && $is_not_merged)
                     $date = $timedate;
                 }
                 ?></td><td><?php
-				echo field_activities_data($outing, array('raw' => true, 'printspan' => false));
+				echo field_activities_data($outing, array('raw' => true));
                 ?></td><td><?php
                 $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
                 $lang = $outing->get('culture');
@@ -169,7 +177,7 @@ if ($is_not_archive && $is_not_merged)
         include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'sites', 'nb_outings' => $nb_outings));
     }
 
-    if ($show_link_tool)
+    if ($show_link_tool && !in_array(12, $site_types))
     {
         echo '<div class="add_content">'
              . link_to(picto_tag('picto_add', __('Associate new outing')) .
@@ -177,7 +185,10 @@ if ($is_not_archive && $is_not_merged)
                        "outings/edit?link=$id")
              . '</div>';
     }
-    echo end_section_tag();
+    if ($nb_outings > 0 || !in_array(12, $site_types))
+    {
+        echo end_section_tag();
+    }
 
     include_partial('documents/images',
                     array('images' => $associated_images,

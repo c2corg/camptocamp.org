@@ -40,6 +40,7 @@ class rememberFilter extends sfFilter
                 // easiest solution is to force the browser to reload the current page
                 $request = $this->getContext()->getRequest();
                 $this->getContext()->getController()->redirect($request->getUri());
+                exit;
             }
             else
             {

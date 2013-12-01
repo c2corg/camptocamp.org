@@ -1,12 +1,6 @@
 <?php
 use_helper('FilterForm', 'General');
 
-if (!c2cTools::mobileVersion())
-{
-   // put focus on the name field on dom load
-   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
-   document.observe(\'dom:loaded\', function() { $(\'bnam\').focus(); })};');
-}
 ?>
 <div class="fieldgroup">
 <?php
@@ -16,8 +10,8 @@ echo '<br /><br /><div class="fieldname">' . __('editor') . ' </div>' . input_ta
 ?>
 </div>
 <?php
-echo __('book_types') . ' ' . field_value_selector('btyp', 'mod_books_book_types_list', false, false, true);
-echo __('langs') . ' ' . field_value_selector('blang', 'app_languages_book', false, false, true);
+echo __('book_types') . ' ' . field_value_selector('btyp', 'mod_books_book_types_list', array('keepfirst' => false, 'multiple' => true));
+echo __('langs') . ' ' . field_value_selector('blang', 'app_languages_book', array('keepfirst' => false, 'multiple' => true));
 ?>
 <br />
 <?php

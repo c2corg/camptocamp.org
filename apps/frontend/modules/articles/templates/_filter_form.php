@@ -1,12 +1,6 @@
 <?php
 use_helper('FilterForm', 'General');
 
-if (!c2cTools::mobileVersion())
-{
-   // put focus on the name field on dom load
-   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
-   document.observe(\'dom:loaded\', function() { $(\'cnam\').focus(); })};');
-}
 $ranges_raw = $sf_data->getRaw('ranges');
 $selected_areas_raw = $sf_data->getRaw('selected_areas');
 include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected_areas' => $selected_areas_raw, 'use_personalization' => false));
@@ -14,11 +8,11 @@ include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected
 <div class="fieldgroup">
 <?php
 echo '<div class="fieldname">' . picto_tag('picto_articles') . __('name') . ' </div>' . input_tag('cnam', null, array('autofocus' => 'autofocus'));
-echo '<br /><br /><div class="fieldname">' . __('article_type') . ' </div>' . field_value_selector('ctyp', 'mod_articles_article_types_list', true);
+echo '<br /><br /><div class="fieldname">' . __('article_type') . ' </div>' . field_value_selector('ctyp', 'mod_articles_article_types_list', array('blank' => true));
 ?>
 </div>
 <?php
-echo __('categories') . ' ' . field_value_selector('ccat', 'mod_articles_categories_list', false, false, true, 9);
+echo __('categories') . ' ' . field_value_selector('ccat', 'mod_articles_categories_list', array('keepfirst' => false, 'multiple' => true, 'size' => 9));
 ?>
 <br />
 <?php

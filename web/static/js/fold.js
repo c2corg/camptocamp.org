@@ -1,5 +1,211 @@
-(function(C2C) {
-  "use strict";
+(function(C2C, $) {
+
+  /**
+   * Set a pref_value for 'fold' cookie
+   */
+  function setFoldCookie(position, value) {
+    value = value ? 't' : 'f';
+    var date = new Date();
+    date.setFullYear(date.getFullYear()+1);
+
+    // retrieve current cookie value
+    var cookie_value = /fold=([tfx]{20});/.exec(document.cookie);
+    cookie_value = cookie_value ? cookie_value[1] :  'xxxxxxxxxxxxxxxxxxxx'; // size 20
+
+    // update position with value
+    cookie_value = cookie_value.substr(0, position) +  value + cookie_value.substr(position + 1);
+    document.cookie = 'fold=' + cookie_value + '; expires=' + date.toGMTString() + '; path=/';
+  }
+
+  /**
+   * Save fold pref in cookie and profile
+   */
+  C2C.registerFoldStatus = function(pref_name, cookie_position, opened) {
+
+    // if user logged, save pref in profile
+    if ($('#name_to_use').length) {
+      $.post('/users/savepref', {
+        'name': pref_name + '_home_status',
+        'value': !!opened
+      });
+    }
+
+    // save pref in cookie
+    setFoldCookie(cookie_position, opened);
+  };
+
+  /**
+   * Hide or show an home section
+   */
+  function toggleHomeSectionView(container_id, cookie_position) {
+    var div = $('#' + container_id + '_section_container');
+    var title = $('#' + container_id + '_section_title, #' + container_id + '_toggle');
+
+    var is_open = div.is(':visible');
+
+    if (!is_open) {
+      title.attr('title', C2C.section_close);
+      if (/MSIE [67].0/.exec(navigator.userAgent)) {
+        div.css('display', 'block'); // for ie6-7 only
+      }
+    } else {
+      title.attr('title', C2C.section_open);
+    }
+
+    div.slideToggle(600);
+
+    C2C.registerFoldStatus(container_id, cookie_position, !is_open);
+
+    $('#' + container_id + ' .nav_box_top').toggleClass('small');
+  }
+
+
+  /**
+   * Add some properties and observers to have '+' and '-' pictos for folding sections
+   */
+  function initHomeSections() {
+    $('.nav_box_title, .home_title').mouseover(function() {
+      var img = $(this).children(':first');
+      var savedClass = img.attr('class').split(' ')[1];
+      img.data('savedClass', savedClass)
+        .removeClass(savedClass)
+        .addClass('picto_' + ($(this).next().is(':visible') ? 'close' : 'open'));
+    }).mouseout(function() {
+      var img = $(this).children(':first');
+      img.removeClass('picto_close picto_open')
+        .addClass(img.data('savedClass'));
+    });
+  }
+
+  function initSectionsToggle() {
+    $('[data-toggle-view]').click(function (e) {
+      var $this = $(this);
+      e.preventDefault();
+      e.stopPropagation();
+      if (cp = parseInt($this.attr('data-cookie-position'), 10)) {
+        toggleHomeSectionView($this.attr('data-toggle-view'), cp);
+      } else {
+        toggleView($this.attr('data-toggle-view'));
+      }
+    });
+  }
+
+  /**
+   * Hide or show a container
+   */
+  function toggleView(container_id) {
+    var alt, sign;
+    var div = $('#' + container_id + '_section_container');
+    
+    var div_visible = div.is(':visible');
+
+    if (div_visible) {
+      alt = C2C.section_open;
+      sign = '+';
+    } else {
+      alt = C2C.section_close;
+      sign = '-';
+    }
+
+    $('#' + container_id + '_toggle').attr('alt', sign)
+      .toggleClass('picto_open picto_close');
+    $('#' + container_id + '_section_title').attr('title', alt);
+    $('#tip_' + container_id).html('[' + alt + ']');
+
+    div.slideToggle(400);
+  }
+
+  /**
+   * Hide or show a single box (like weather box in outings)
+   */
+  C2C.toggleBox = function(box_id) {
+    var alt, sign;
+    var div = $('#' + box_id + '_box');
+
+    if (!div.is(':visible')) {
+      alt = C2C.section_close;
+      sign = '-';
+    } else {
+      alt = C2C.section_open;
+      sign = '+';
+    }
+ 
+    $('#toggle_' + box_id).attr('alt', sign)
+      .toggleClass('picto_open_light picto_close_light');
+    $('#' + box_id + '_box_title').attr('title', alt);
+
+    div.slideToggle(200);
+  };
+
+  // show / hide routes (e.g. in summit pages) depending on user
+  // selected activities
+
+  function toggleRoutes(activity_id) {
+    $('#' + activity_id).toggleClass('picto_open_light picto_close_light'); 
+    $('.child_routes.' + activity_id).toggle(200);
+  }
+
+  C2C.handleRoutes = function() {
+    var activity_id = $(this).attr('class').split(' ').pop();
+    toggleRoutes(activity_id);
+  };
+
+  function showRoutes(activity_id) { // TODO refactoring needed :)
+    toggleRoutes(activity_id);
+  }
+
+  function hideRoutes(activity_id) {
+    toggleRoutes(activity_id);
+  }
+
+  function showAllRoutes() {
+    var activities = $('#routes_section_container .title2');
+
+    activities.each(function() {
+      var activity_id = $(this).attr('class').split(' ').pop();
+      showRoutes(activity_id);
+    });
+    window.location.href = '#routes_summary';
+  }
+
+  function hideAllRoutes() {
+    var activities = $('#routes_section_container .title2');
+    activities.each(function() {
+      var activity_id = $(this).attr('class').split(' ').pop();
+      hideRoutes(activity_id);
+    });
+  }
+
+  /**
+   * This function is called to hide routes depending on their activities and the user prefs
+   */
+  C2C.initRoutes = function() {
+    var activities_to_show = $('#quick_switch').attr('class').split(' ');
+    if (activities_to_show.length) {
+      $('.child_routes').each(function() {
+        var activity_id = $(this).attr('class').split(' ').pop();
+        if ($.inArray(activity_id, activities_to_show)) {
+          $(this).hide();
+          $('#' + activity_id).toggleClass('picto_close_light picto_open_light');
+        }
+      });
+    }
+  };
+
+  // toggle association form 
+  C2C.toggleForm = function(form_id) {
+    $('#' + form_id + '_association').toggleClass('hide show');
+  };
+
+  function initRoutes() {
+    // handle routes display
+    $('#routes_section_container .title2').click(C2C.handleRoutes);
+    $('#close_routes').click(hideAllRoutes);
+    $('#open_routes').click(showAllRoutes);
+  }
+
+
+  // splitter and left navigation stuff
 
   /**
    * 0: splitter not displayed
@@ -9,600 +215,129 @@
    */
   var splitter_status = 0;
 
-  function getCookieValue(offset)
-  {
-      var endstr=document.cookie.indexOf (";", offset);
-      if (endstr==-1) { endstr=document.cookie.length; }
-      return unescape(document.cookie.substring(offset, endstr));
+  function highlight_splitter(ypos) {
+    $('#splitter, .ombre_haut_corner_left, .ombre_bas_corner_left').toggleClass('hl');
+    $('body').append('<div id="splitter_arrow"></div>');
+    set_splitter_pos(ypos);
+    splitter_status = 2;
   }
 
-  /**
-   * Set a pref_value for 'fold' cookie
-   */
-  function setFoldCookie(position, value)
-  {
-      if (value) { value = 't'; } else { value = 'f'; }
-      var cookie_name = "fold=";
-      var date = new Date();
-      date.setFullYear(date.getFullYear()+1);
-      // retrieve current cookie value
-      var clen = document.cookie.length;
-      var i = 0;
-      var cookie_value = 'xxxxxxxxxxxxxxxxxxxx'; // size 20
-      while (i < clen)
-      {
-          var j = i + cookie_name.length;
-          if (document.cookie.substring(i, j) == cookie_name)
-          {
-              cookie_value = getCookieValue(j);
-          }
-          i = document.cookie.indexOf(" ",i)+1;
-          if (i === 0) { break; }
-      }
-      // update position with value
-      cookie_value = cookie_value.substr(0, position) +  value + cookie_value.substr(position+1);
-      document.cookie = "fold=" + escape(cookie_value) + "; expires=" + date.toGMTString() + "; path=/";
+  function unhighlight_splitter() {
+    $('#splitter, .ombre_haut_corner_left, .ombre_bas_corner_left').toggleClass('hl');
+    $('#splitter_arrow').remove();
+    splitter_status = 0;
   }
 
-  /**
-   * If user is logged, initiate ajax request to save pref in profile
-   */
-  function registerFoldStatus(pref_name, cookie_position, opened)
-  {
-      if ($('name_to_use') !== null) { // logged user
-           new Ajax.Request('/users/savepref', {
-                            method: 'post',
-                            parameters: {'name': pref_name + '_home_status', 'value': escape(opened) }
-                            });
-      }
-      setFoldCookie(cookie_position, opened);
+  function set_splitter_pos(ypos) {
+    var arrow = $('#splitter_arrow');
+    var splitter = $('#splitter');
+    var offset = splitter.offset().left;
+
+    if (!arrow.length) { return; }
+
+    if (splitter.hasClass('maximize')) {
+      arrow.addClass('maximize');
+      arrow.css('left', offset + 20 + 'px');
+    } else {
+      arrow.css('left', offset - 10 + 'px');
+    }
+    arrow.css('top', ypos + 'px');
   }
 
-  /**
-   * Hide or show an home section
-   */
-  C2C.toggleHomeSectionView = function(container_id, cookie_position)
-  {
-      var div = $(container_id + '_section_container');
-      var img = $(container_id + '_toggle');
-      var title_div = $(container_id + '_section_title');
-      var top_box = $(container_id).down('.nav_box_top');
-      var alt_up = open_close[1];
-      var alt_down = open_close[0];
-      if (!div.visible())
-      {
-          img.title = alt_up;
-          title_div.title = alt_up;
-          new Effect.BlindDown(div, {duration:0.6});
-          if (Prototype.Browser.IE &&
-              (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7))
-          {
-              div.style.display = 'block'; // for ie6-7 only
-          }
-          registerFoldStatus(container_id, cookie_position, true);
-      }
-      else
-      {
-          img.title = alt_down;
-          title_div.title = alt_down;
-          new Effect.BlindUp(div, {duration:0.6});
-          registerFoldStatus(container_id, cookie_position, false);
-      }
-      if (top_box) {top_box.toggleClassName('small');}
-  };
-
-
-  function getContainer(obj)
-  {
-      var cnId = obj.id;
-      var prefix = cnId.substring(0, cnId.indexOf('_section_title'));
-      return $(prefix + '_section_container');
+  function move_splitter_arrow(e) {
+    set_splitter_pos(e.pageY);
   }
 
-  /**
-   * Add some properties and observers to have '+' and '-' pictos for folding sections
-   */
-  function initHome()
-  {
-      var home_obj = $$('.nav_box_title', '.home_title');
-      if (home_obj.length > 0)
-      {
-          home_obj.each(function(obj) {
-              obj.observe('mouseover', function(e) {
-                  var img = obj.down();
-                  img.savedClass = $w(img.className)[1]; // the second class argument must be replaced
-                  img.removeClassName(img.savedClass);
-                  if (getContainer(obj).visible())
-                  {
-                      img.addClassName('picto_close');
-                  }
-                  else
-                  {
-                      img.addClassName('picto_open');
-                  }
-              });
-              obj.observe('mouseout', function(e) {
-                  var img = obj.down();
-                  img.removeClassName('picto_close');
-                  img.removeClassName('picto_open');
-                  img.addClassName(img.savedClass);
-              });
-          });
-      }
+  function toggleHomeNav(savestatus) {
+    // no left menu folding for ie6-7
+    if (/MSIE [67].0/.exec(navigator.userAgent)) return;
+
+    var wrapper = $('#wrapper_context');
+    var splitter = $('#splitter');
+    var wide = wrapper.hasClass('no_nav');
+
+    $('.nav_box').toggle();
+    wrapper.toggleClass('no_nav');
+    splitter.toggleClass('maximize')
+      .attr('title', splitter.data(wide ? 'title-reduce' : 'title-enlarge'));
+
+    unhighlight_splitter();
+
+    if (savestatus) {
+      C2C.registerFoldStatus(C2C.nav_status_string, C2C.nav_status_cookie_position, wide);
+    }
   }
 
-  /**
-   * Hide or show a container
-   */
-  C2C.toggleView = function(container_id)
-  {
-      var div = $(container_id + '_section_container');
-      var img_div = $(container_id + '_toggle');
-      var section_title = $(container_id + '_section_title');
-      var tip = $('tip_' + container_id);
-      var alt_up = open_close[1];
-      var alt_down = open_close[0];
-    
-      if (!div.visible())
-      {
-          img_div.removeClassName('picto_open');
-          img_div.addClassName('picto_close');
-          img_div.alt = '-';
-          if (tip)
-          {
-              tip.innerHTML = '[' + alt_up + ']';
-          }
-          section_title.title = alt_up;
-          div.style.height = '';
-          new Effect.BlindDown(div, {duration:0.4});
-      }
-      else
-      {
-          img_div.removeClassName('picto_close');
-          img_div.addClassName('picto_open');
-          img_div.alt = '+';
-          if (tip)
-          {
-              tip.innerHTML = '[' + alt_down + ']';
-          }
-          section_title.title = alt_down;
-          new Effect.BlindUp(div, {duration:0.4});
-      }
+  function toggleNav(savestatus) {
+    // no left menu folding for ie6-7
+    if (/MSIE [67].0/.exec(navigator.userAgent)) return;
 
-      // FIXME maybe we should make this less specific...
-      // specific behaviour for the map (save in pref + map init)
-      if (container_id == 'map_container') {
-          registerFoldStatus(container_id, 15, !div.visible());
+    var content_box = $('#content_box');
+    var splitter = $('#splitter');
+    var wide = content_box.hasClass('wide');
 
-          // load map if needed
-          // - presence of mapLoading div shows that map has not been created yet
-          // - if map_load_async is defined, the map js should be retrieved asynchonously
-          // - the delay is to ensure that div is opened and ready for initiating the map
-          if (!div.visible() && $('mapLoading')) {
-              if (typeof map_load_async !== 'undefined') {
-                  map_load_async.delay(0.6);
-              } else {
-                  map_init.delay(0.6);
-              }
-          }
+    content_box.toggleClass('wide');
+    splitter.toggleClass('maximize')
+      .attr('title', splitter.data(wide ? 'title-reduce' : 'title-enlarge'));
 
-          // also toggle the c2clayer widget
-          $$('.x-window.x-resizable-pinned').invoke('toggle');
-      } else if (container_id == 'elevation_profile_container') {
-          if (!div.visible() && !div.hasClassName('profile_loaded'))
-          {
-              c2c_load_elevation_profile();
-          }
-      }
-  };
+    unhighlight_splitter();
 
+    if (savestatus) {
+      C2C.registerFoldStatus(C2C.nav_status_string, C2C.nav_status_cookie_position, wide);
+    }
+  }
+  
+  function initSplitter() {
+    var splitter = $('#splitter');
+    var splitter_timer = null;
 
-  /**
-   * Hide or show a single box
-   */
-  C2C.toggleBox = function(box_id)
-  {
-      var div = $(box_id + '_box');
-      var img_div = $('toggle_' + box_id);
-      var box_title = $(box_id + '_box_title');
-      var alt_up = open_close[1];
-      var alt_down = open_close[0];
-    
-      if (!div.visible())
-      {
-          img_div.removeClassName('picto_open_light');
-          img_div.addClassName('picto_close_light');
-          img_div.alt = '-';
-          box_title.title = alt_up;
-          div.style.height = '';
-          new Effect.BlindDown(div, {duration:0.2});
-      }
-      else
-      {
-          img_div.removeClassName('picto_close_light');
-          img_div.addClassName('picto_open_light');
-          img_div.alt = '+';
-          box_title.title = alt_down;
-          new Effect.BlindUp(div, {duration:0.2});
-      }
-  };
+    // handle splitter (but not for ie6-7)
+    if (/MSIE [67].0/.exec(navigator.userAgent)) return;
 
-  function toggleRoutes(activity_id)
-  {
-      var div = $$('.child_routes.' + activity_id)[0];
-      var img_div = $(activity_id);
-    
-      if (!div.visible())
-      {
-          img_div.removeClassName('picto_open_light');
-          img_div.addClassName('picto_close_light');
-          div.style.height = '';
-          new Effect.BlindDown(div, {duration:0.2});
-      }
-      else
-      {
-          img_div.removeClassName('picto_close_light');
-          img_div.addClassName('picto_open_light');
-          new Effect.BlindUp(div, {duration:0.2});
-      }
+    // init splitter title and class
+    if ($('#content_box').hasClass('wide') || $('#wrapper_context').hasClass('no_nav')) {
+      splitter.addClass('maximize').attr('title', splitter.data('title-enlarge'));
+    } else {
+      splitter.attr('title', splitter.data('title-reduce'));
+    }
+
+    // add event handlers on splitter
+    splitter.mouseover(function(e) {
+      switch (splitter_status) {
+        case 3:
+          clearTimeout(splitter_timer);
+          splitter_status = 2;
+          break;
+        case 0:
+          var _ypos = e.pageY;
+          splitter_timer = setTimeout(function() {
+            highlight_splitter(_ypos);
+          }, 50);
+          splitter_status = 1;
+          break;
+       }
+    }).mouseout(function() {
+      switch (splitter_status) {
+        case 1:
+          clearTimeout(splitter_timer);
+          splitter_status = 0;
+          break;
+        case 2:
+          splitter_timer = setTimeout(unhighlight_splitter, 600);
+          splitter_status = 3;
+          break;
+        }
+      }).mousemove(move_splitter_arrow)
+      .click($('#wrapper_context').hasClass('home') ? toggleHomeNav : toggleNav);
   }
 
-  C2C.handleRoutes = function(event)
-  {
-      var activity_id = $w(this.className).last();
-      toggleRoutes(activity_id);
-  };
+  // initialization
 
-  function showRoutes(activity_id)
-  {
-      var div = $$('.child_routes.' + activity_id)[0];
-      var img_div = $(activity_id);
-    
-      if (!div.visible())
-      {
-          img_div.removeClassName('picto_open_light');
-          img_div.addClassName('picto_close_light');
-          div.style.height = '';
-          new Effect.BlindDown(div, {duration:0.2});
-      }
-  }
-
-  function hideRoutes(activity_id)
-  {
-      var div = $$('.child_routes.' + activity_id)[0];
-      var img_div = $(activity_id);
-    
-      if (div.visible())
-      {
-          img_div.removeClassName('picto_close_light');
-          img_div.addClassName('picto_open_light');
-          new Effect.BlindUp(div, {duration:0.2});
-      }
-  }
-
-  function showAllRoutes()
-  {
-      var activities = $$('#routes_section_container .title2');
-      activities.each(function(a)
-      {
-          var activity_id = $w(a.className).last();
-          showRoutes(activity_id);
-      });
-      window.location.href = '#routes_summary';
-  }
-
-  function hideAllRoutes()
-  {
-      var activities = $$('#routes_section_container .title2');
-      activities.each(function(a)
-      {
-          var activity_id = $w(a.className).last();
-          hideRoutes(activity_id);
-      });
-  }
-
-  C2C.linkRoutes = function(activity_id)
-  {
-      showRoutes(activity_id);
-      var anchor = $$('#routes_section_container .title2.' + activity_id)[0].identify();
-      window.location.href = '#' + anchor;
-  };
-
-  /**
-   * This function is called to hide routes depending on their activities and the user prefs
-   */
-  C2C.initRoutes = function()
-  {
-      var activities_to_show = $w($('quick_switch').className);
-      if (activities_to_show.length !== 0)
-      {
-          var routes = $$('.child_routes');
-          if (routes.length !== 0)
-          {
-              routes.each(function(r)
-              {
-                  var activity_id = $w(r.className).last();
-                  if (!activities_to_show.include(activity_id))
-                  {
-                      var img_div = $(activity_id);
-                      r.hide();
-                      img_div.removeClassName('picto_close_light');
-                      img_div.addClassName('picto_open_light');
-                  }
-              });
-          }
-      }
-  };
-
-  function unhighlight_splitter()
-  {
-      var topleftcorner = $$('.ombre_haut_corner_left')[0];
-      var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
-      var splitter = $('splitter');
-
-      if (!splitter.hasClassName('hl')) { return; }
-
-      splitter.removeClassName('hl');
-      topleftcorner.toggleClassName('hl');
-      bottomleftcorner.toggleClassName('hl');
-
-      if ($('splitter_arrow')) { $('splitter_arrow').remove(); }
-
-      splitter_status = 0;
-  }
-
-  function toggleHomeNav(savestatus)
-  {
-      // no left menu folding for ie6-7
-      if (Prototype.Browser.IE &&
-          (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7))
-      {
-          return;
-      }
-
-      var wrapper = $('wrapper_context');
-      var nav_box = $$('.nav_box');
-      var splitter = $('splitter');
-
-      var is_open = !wrapper.hasClassName('no_nav');
-
-      if (is_open)
-      {
-          wrapper.addClassName('no_nav');
-          nav_box.each(function(n) {n.hide();});
-          splitter.title = open_close[2];
-          splitter.addClassName('maximize');
-      }
-      else
-      {
-          wrapper.removeClassName('no_nav');
-          nav_box.each(function(n) {n.show();});
-          splitter.title = open_close[3];
-          splitter.removeClassName('maximize');
-      }
-      unhighlight_splitter();
-
-      if (savestatus) {
-        registerFoldStatus(nav_status_string, nav_status_cookie_position, !is_open);
-      }
-  }
-
-  function toggleNav(savestatus)
-  {
-      // no left menu folding for ie6-7
-      if (Prototype.Browser.IE &&
-          (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7))
-      {
-          return;
-      }
-
-      var content_box = $('content_box');
-      var splitter = $('splitter');
- 
-      var is_expanded = !content_box.hasClassName('wide');
-
-      if (is_expanded)
-      {
-          if (content_box)
-          {
-              content_box.addClassName('wide');
-          }
-          if (splitter)
-          {
-              splitter.title = open_close[2];
-              splitter.addClassName('maximize');
-          }
-      }
-      else
-      {
-          if (content_box)
-          {
-              content_box.removeClassName('wide');
-          }
-          if (splitter)
-          {
-              splitter.title = open_close[3];
-              splitter.removeClassName('maximize');
-          }
-      }
-
-      if (splitter) { unhighlight_splitter(); }
-
-      if (savestatus)
-      {
-          registerFoldStatus(nav_status_string, nav_status_cookie_position, !is_expanded);
-      }
-  }
-
-
-  function set_splitter_pos(ypos)
-  {
-      var arrow = $('splitter_arrow');
-      var splitter = $('splitter');
-      var offset = splitter.cumulativeOffset();
-
-      if (!arrow) { return; }
-
-      if (splitter.hasClassName('maximize'))
-      {
-          arrow.addClassName('maximize');
-          arrow.style.left = offset[0] + 20 + 'px';
-      }
-      else
-      {
-          arrow.style.left = offset[0] - 10 + 'px';
-      }
-      arrow.style.top = ypos + 'px';
-  }
-
-  function highlight_splitter(ypos)
-  {
-      var topleftcorner = $$('.ombre_haut_corner_left')[0];
-      var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
-
-      $('splitter').addClassName('hl');
-      topleftcorner.toggleClassName('hl');
-      bottomleftcorner.toggleClassName('hl');
-
-      var arrow = new Element('div', { id: 'splitter_arrow' });
-      document.body.appendChild(arrow);
-      set_splitter_pos(ypos);
-
-      splitter_status = 2;
-  }
-
-  function move_splitter_arrow(e)
-  {
-      set_splitter_pos(Event.pointerY(e));
-  }
-
-  // empty ajax feedback div
-  C2C.emptyFeedback = function(aff)
-  {
-      $(aff).innerHTML="";
-      Element.hide($(aff));
-  };
-
-  // toggle select, form, minus, plus 
-  C2C.toggleForm = function(form_id)
-  {
-      var association_content = $(form_id + '_association');
-      if (association_content)
-      {
-          association_content.toggleClassName('hide');
-          association_content.toggleClassName('show');
-      }
-  };
-
-  // (un)select all list
-  function selectAllList()
-  {
-      var checkbox_list = $$('table.list td input[type=checkbox]');
-      var value = $('select_all').checked;
-      checkbox_list.each(function(obj)
-      {
-          obj.checked = value;
-      });
-  }
-
-  function initObserve()
-  {
-      var splitter = $('splitter');
-      var splitter_timer = null;
-
-      // handle splitter (but not for ie6-7)
-      if (splitter && !(Prototype.Browser.IE &&
-                        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7)))
-      {
-          if (splitter.up(1).hasClassName('home'))
-          {
-              splitter.observe('click', toggleHomeNav);
-          }
-          else
-          {
-              splitter.observe('click', toggleNav);
-          }
-
-          splitter.observe('mouseover', function(e)
-          {
-              switch (splitter_status)
-              {
-                  case 3:
-                      clearTimeout(splitter_timer);
-                      splitter_status = 2;
-                      break;
-                  case 0:
-                      var _ypos = Event.pointerY(e); 
-                      splitter_timer = setTimeout(function() {
-                        highlight_splitter(_ypos);
-                      }, 50);
-                      splitter_status = 1;
-                      break;
-                  default:
-                      break;
-              }
-          });
-          splitter.observe('mouseout', function()
-          {
-              switch (splitter_status)
-              {
-                  case 1:
-                      clearTimeout(splitter_timer);
-                      splitter_status = 0;
-                      break;
-                  case 2:
-                      splitter_timer = setTimeout(unhighlight_splitter, 600);
-                      splitter_status = 3;
-                      break;
-                  default:
-                      break;
-              }
-          });
-          splitter.observe('mousemove', move_splitter_arrow);
-      }
-
-      // handle routes display
-      var routes_section = $$('#routes_section_container .title2');
-      if (routes_section.length > 0)
-      {
-          routes_section.each(function(t)
-          {
-              t.observe('click', C2C.handleRoutes);
-          });
-      }
-
-      var close_routes = $$('#close_routes');
-      if (close_routes.length > 0)
-      {
-          close_routes[0].observe('click', hideAllRoutes);
-      }
-    
-      var open_routes = $$('#open_routes');
-      if (open_routes.length > 0)
-      {
-          open_routes[0].observe('click', showAllRoutes);
-      }
-    
-      var img_code = $$('input.code');
-      if (img_code.length > 0)
-      {
-          img_code.each(function(code)
-          {
-              code.observe('click', code.select);
-          });
-      }
-    
-      var select_all = $('select_all');
-      if (select_all)
-      {
-          select_all.observe('change', selectAllList);
-      }
-  }
-
-  Event.observe(window, 'load', function()
-  {
-      initHome();
-      initObserve();
+  $(function() {
+    initSectionsToggle();
+    initHomeSections();
+    initRoutes();
+    initSplitter();
   });
 
-})(window.C2C = window.C2C || {});
+})(window.C2C = window.C2C || {}, jQuery);

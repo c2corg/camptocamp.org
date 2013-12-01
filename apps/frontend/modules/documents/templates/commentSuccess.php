@@ -203,8 +203,7 @@ endforeach;
     if ($sf_user->getId() > 1 || in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
     {
         $add_comment_link = f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow'));
-        echo '<p class="postlink conl">' , $add_comment_link , '</p>'
-           , '<p class="postlink conr">' , $add_comment_link , '</p>';
+        echo '<p class="postlink conl">' , $add_comment_link , '</p>';
     } ?>
     <p class="pagelink conr"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
 <?php

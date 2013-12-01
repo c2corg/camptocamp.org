@@ -12,6 +12,11 @@ if (!$mobile_version)
     // add lightbox ressources
     addLbMinimalRessources();
 }
+else
+{
+    use_javascript('/static/js/swipe.js', 'last');
+    use_javascript('/static/js/swipe.wrapper.js', 'last');
+}
 
 // FIXME Why is this useful ?
 $sf_user->setAttribute('module', $module_name);
@@ -39,9 +44,7 @@ if ($nb_images == 0)
 else
 {
     echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
-    // param for ajax reorder
     ?>
-    <div id="sortable_feedback" class="<?php echo sfConfig::get('app_ajax_feedback_div_style_inline') ?>" style="display:none;"></div>
     <p class="tips"><?php if (!$mobile_version) echo __('click thumbnails top-right corner to see image details') ?></p>
     <?php
     
@@ -150,22 +153,18 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
     $upload_method = sfConfig::get('app_images_upload_method', 'js');
     switch ($upload_method)
     {
+        // note: ie<=7 doesn't support jsupload nor plupload
         case 'js':
-            $response->addJavascript('/static/js/image_upload.js', 'last');
-            $js = 'if (!Prototype.Browser.IE || (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) > 7)) { url = \'' .
-                  url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .
-                  '\' } else { url = this.href; } Modalbox.show(url, {title:this.title, width:700}); return false;';
+            $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' . url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .
+                  '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';
             break;
         case 'plupload':
-            $response->addJavascript('/static/js/plupload.c2c.js', 'last');
-            $response->addJavascript('/static/js/plupload.wrapper.js', 'last');
-            $js = 'if (!Prototype.Browser.IE || (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) > 7)) { url = \'' .
+            $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' .
                   url_for("@image_jsupload?mod=$module_name&document_id=$document_id").'?plupload=true' .
-                  '\' } else { url = this.href; } Modalbox.show(url, {title:this.title, width:700}); return false;';
-            break;
+                  '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';
             break;
         default:
-            $js = 'Modalbox.show(\''.url_for("@image_upload?mod=$module_name&document_id=$document_id").'\', {title:this.title, width:700}); return false;';
+            $js = '$.modalbox.show({remote:\''.url_for("@image_upload?mod=$module_name&document_id=$document_id").'\',title:this.title,width:700}); return false;';
             break;
     }
     echo link_to(picto_tag('picto_add', $add) . $add,
@@ -179,11 +178,14 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
     {
         if ($nb_images)
         {
-            echo javascript_tag("if (!user_is_author) $('add_images_button').hide();");
+            echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('add_images_button').style.display = 'none';");
         }
         else
         {
-            echo javascript_tag("if (!user_is_author) { $('images_tbg').hide(); $('images_section_container').hide(); }");
+            echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) {
+              document.getElementById('images_tbg').style.display = 'none';
+              document.getElementById('images_section_container').style.display = 'none';
+            }");
         }
     }
     ?>

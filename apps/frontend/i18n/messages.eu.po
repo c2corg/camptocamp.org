@@ -89,8 +89,44 @@ msgstr "Dokumentua ez da aurkitu"
 msgid "A document can not be linked to itself"
 msgstr "Dokumentu bat ezin da dokumentu berberari lotu"
 
+# [WARNING] en translation used
+msgid "A gite can not be linked to a route"
+msgstr "A valley accomodation can not be linked to a route"
+
 msgid "A new password has been asked for your account."
 msgstr "Pasa hitz berri bat eskatu da zure Camptocamp.org-eko konturako. Ondorengo koneksio datuak erabiliz konektatu zaitezke hemendik aurrera."
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a hut if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a hut if a main/sub access point of this access is already linked to this hut"
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a route if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a route if a main/sub access point of this access is already linked to this route"
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a climbing site if a main/sub access point of this access is already linked to this site"
+
+# [WARNING] en translation used
+msgid "A site can not be linked to more than one summit"
+msgstr "A climbing site can not be linked to more than one summit"
+
+# [WARNING] en translation used
+msgid "A sub parking can not be linked to more than one main parking"
+msgstr "A sub access point can not be linked to more than one main access point"
+
+# [WARNING] en translation used
+msgid "A sub site can not be linked to more than one main site"
+msgstr "A climbing sector can not be linked to more than one climbing site"
+
+# [WARNING] en translation used
+msgid "A sub summit can not be linked to more than one main summit"
+msgstr "A sub summit can not be linked to more than one main summit"
+
+# [WARNING] en translation used
+msgid "A summit can not be linked to a sub site"
+msgstr "A summit can not be linked to a climbing sector, but only to the main climbing site"
 
 msgid "AD"
 msgstr "AD"
@@ -359,6 +395,13 @@ msgstr "Gailurren zerrendara itzuli"
 
 msgid "Back to users list"
 msgstr "Erabiltzaileen zerrendara itzuli"
+
+# [general comment]
+# link to the BI version of an image (limited to 800px max)
+# In the context, it is rather big (compared to MI, max 250px)
+# [WARNING] en translation used
+msgid "Big size"
+msgstr "Big size"
 
 msgid "Bookmark"
 msgstr "Gustokoenetan sartu"
@@ -714,6 +757,12 @@ msgstr "Xehetasunak"
 msgid "Developers"
 msgstr "Egileak"
 
+# [general comment]
+# Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
+# [WARNING] es translation used
+msgid "Did you mean %1%?"
+msgstr "Quiso decir %1%?"
+
 msgid "Diffing versions of %1% in %2%."
 msgstr "%1% en bertsioaren desberdintasunak %2%-n."
 
@@ -935,6 +984,7 @@ msgstr "Ohizko galderak"
 msgid "FAQ short"
 msgstr "FAQ"
 
+# [WARNING] needs_update
 msgid "Failed moving uploaded file"
 msgstr "Fitxeroaren izen aldaketak oker bat eman du. Berriro saiatu."
 
@@ -1170,6 +1220,12 @@ msgstr "Pasa hitz berria, zure lehenengo koneksiorako baliagarria izango da. Ond
 msgid "Image"
 msgstr "Irudia"
 
+# [general comment]
+# We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
+# [WARNING] en translation used
+msgid "Image cannot be rotated anymore"
+msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+
 msgid "Image could not be loaded"
 msgstr "Ezin da irudia erakutsi"
 
@@ -1190,6 +1246,12 @@ msgstr "Irudiaren lizentzia:"
 
 msgid "Image not found"
 msgstr "Ez dago halako irudirik."
+
+# [general comment]
+# assistant image forum
+# [WARNING] en translation used
+msgid "Image on the internet"
+msgstr "Image on the internet"
 
 # [WARNING] en translation used
 msgid "Image rotated successfully"
@@ -1229,6 +1291,14 @@ msgid "Incidents and accidents database"
 msgstr "Base de datos de accidentes e incidentes"
 
 msgid "Information"
+msgstr "Informazioa"
+
+# [general comment]
+# link to the informations on an image (image document page)
+# 
+# check if the meaning is correct in your language
+# [WARNING] needs_review
+msgid "Informations"
 msgstr "Informazioa"
 
 # [general comment]
@@ -1812,6 +1882,14 @@ msgstr "Baimen gabeko eragiketa: mota hontako azken lotura da"
 msgid "Operation not allowed"
 msgstr "Onartu gabeko eragiketa."
 
+# [general comment]
+# link to the original image
+# 
+# Try to keep it short
+# [WARNING] en translation used
+msgid "Original image"
+msgstr "Original image"
+
 msgid "Oups!"
 msgstr "Oups! Ondorengo okerrak aurkitu dira:"
 
@@ -2360,6 +2438,7 @@ msgstr "Mapa"
 msgid "Statistics"
 msgstr "Estatistikak"
 
+# [WARNING] needs_update
 msgid "Step 1: choose a summit"
 msgstr "1. pausua: aukeratu gailur bat"
 
@@ -2369,6 +2448,13 @@ msgstr "2. pausua: ibilbidea sortu"
 msgid "Step 2: choose a route"
 msgstr "2. pausua: aukeratu ibilbide bat"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "2. pausua: zure irteera editatzeko orrialde-rako sarrera baieztatu"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "3. pausua: zure irteera editatzeko orrialde-rako sarrera baieztatu"
 
@@ -3134,6 +3220,12 @@ msgstr "<h3>Sasoi egokiena</h3>Eskalada gunera joateko gomendagarri diren hileen
 msgid "_book_types_info"
 msgstr "<h3>Lan mota</h3>Liburu mota.<br />Mota desberdinak aukeratu daitezke."
 
+# [WARNING] fr translation used
+msgid "_cable_car_access_info"
+msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
+"<br />\n"
+"Voir aussi l'aide sur les <a href=\"/articles/238570/fr#cablecar\">accès de type 'remontée mécanique'</a>."
+
 msgid "_camera_name_info"
 msgstr "<h3>Argazki kamera</h3>Argazki kamararen marka eta modeloa.<br />Informazio hau, jeitsitako EXIF fitxerotik atereak izango dira. Argazki programa bat erabiliz hau kendu daiteke bidalia izan aurretik."
 
@@ -3473,6 +3565,14 @@ msgstr "Konfirmatzeko, sartu zure pasa-hitz berria."
 msgid "_nick_name_info"
 msgstr "<h3>Seudo foro</h3>Nombre que aparece en los foros del sitio.<br /><br />Este nombre se puede modificar. Por defecto, es idéntico al nombre de <i>login</i>."
 
+# [WARNING] en translation used
+msgid "_objective_risk_rating_info"
+msgstr "<h3>Objective Danger</h3>\n"
+"The Objective Danger scale evaluates the risk of natural snow avalanches, serac avalanches, natural rockfall, natural stalactite fall and fragility of the waterfall ice. The danger coming from human behavior is not in this Objective Danger scale except for the falling down of the waterfall ice triggered by the climber.\n"
+"Approach, tehcnical section and return are evaluate in the risk scale.<br />\n"
+"<br />\n"
+"See also help on <a href=\"/articles/146949#objective-danger\">objective danger grades</a>."
+
 msgid "_outing_length_info"
 msgstr "<h3>Luzeera</h3>Ibilbide edo irteerara loturiko GPX aztarnaren luzeera.<br /> Informazio hau GPX aztarnaren bitartez kalkulatzen da eta ez da erabilgarria aztarna bat honezkero loturik egon ezean.<br />Luzeera beridatzi egingo da aztarna berri bat gordetzen den bakoitzean."
 
@@ -3515,7 +3615,7 @@ msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le
 
 # [WARNING] es translation used
 msgid "_publication_date_info"
-msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima o de la primera y ultima separadas por un guión (por ej. 1983 - 2010). Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Euria</h3>Eskalada gunearen esposizioa euriarekiko.<br />Egokia eguraldia ezegonkorra bada."
@@ -3532,6 +3632,39 @@ msgstr "<h3> Aldaketen gaineko informazioa</h3>Eremu honetan dokumentuan sartuta
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Aldaketa txikia</h3> Dokumentuari ghitutako aldaketak garrantzitsuak ez badira, markatu eremu hau:<br /><br /><strong>textua</strong>: ortografia zuzntzea edo formato aldaketa<br /><br /><strong> altuera eta desnibela</strong>: aldaketak &lt; 50m<br /><br /><strong>zailtasuna</strong>: maila bateko aldakea (AD à tik AD+ era, 3.3 à tik 3.2 ra)<br /><br /><strong>ibilbide edo leku baten deskripzioa</strong>&nbspohar txiki bat, esaldi baten egitura aldatzea, sahiesbide bat gehitzea edo ibilbidea berridaztea ez dira aladaketa txikiak."
+
+# [WARNING] en translation used
+msgid "_rock_exposition_rating_info"
+msgstr "<h3>Runout Grade</h3>\n"
+"The Runout Grade based on the consequence of a fall. The climber will not be hurt in the first three levels, therefore, the difference between E1, E2 and E3 is the length of the fall (or the distance between pro). For the higher levels (Ex4, Ex5, Ex6) the climber will get hurt and the levels represent the increasing severity of the consequences, from a broken ankle to death. The Ex for the french word exposition, which can mean danger.<br />\n"
+"<br />\n"
+"<strong>E1</strong>&nbsp;: Over protected with bolts/pitons or good, solid protections minimum every meter ground up. No obligatory move.<br />\n"
+"<br />\n"
+"<strong>E2</strong>&nbsp;: Well protected with bolts/pitons or good, solid protections ground up.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<br />\n"
+"<strong>E3</strong>&nbsp;: Falls will be long but will not cause injury. Bolts or protection will be widely spaced.<br />\n"
+"<br />\n"
+"<strong>E4</strong>&nbsp;: The fall could cause slight injuries even if bolts or protections are not widely spaced.<br />\n"
+"<br />\n"
+"<strong>E5</strong>&nbsp;: The fall will cause serious injuries. An E5 might suggest widely-spaced bolts, just enough lousy protections or a small grounder.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<br />\n"
+"<strong>E6</strong>&nbsp;:The same as E5 but consider yourself lucky if you plummet off an E6 without dying, even when properly protected.<br />\n"
+"<br />"
+
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+# [WARNING] needs_update
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Zailtasun librea</h3>\n"
+"Harkaitz eskalada libreko zailtasunen akotazioa.<br />\n"
+"Zailtasun libreak harkaitz eskalada libreko zailtasun maximoa adierazten du.<br />\n"
+"<br />\n"
+"<h3>Nahitaezko zailtasuna librean</h3>\n"
+"Arkaitz eskalada librean nahitaezko zailtasunen akotazioa.<br />\n"
+"Nahitaezko zailtasunak, librean baino beste inongo aukerarik ez dagoenenan aurkituko dugun zailtasuna adierazten du. Hau da, nahitaez librean eskalatu beharreko zailtasuna \"iruzur\" mota guztiak erabili ostean.<br />\n"
+"<br />\n"
+"Frantziako eskala tradizionala erabiltzen da, 2-tik 9b-ra doana."
 
 # [WARNING] needs_update
 msgid "_rock_free_rating_info"
@@ -3665,6 +3798,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 msgid "_topoguide_code_info"
 msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+C para copiarlo y Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />Por defecto, la imagen se mostrara a la derecha, con la leyenda debajo, en un marco. Los atributos de la baliza de apertura permiten modificar su presentación:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
+# [WARNING] needs_update
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizioa</h3>Eski jeitsierako esposizioari lotua dago(edur gida).<br />Esposizioak, erori eskero izan daiteken sauri arriskua adierazten du, maldaz gain: Esposizio txikiko baina malda haundiako toki batek ez du sauri gabeko erorketarik suposatzen.<br />Berau E1-tik (inungo oztoporik) E4-ra (izugarrizko jauzia)doa."
 
@@ -3731,6 +3865,10 @@ msgstr "Laburpena / sarrera:"
 # [WARNING] es translation used
 msgid "access"
 msgstr "Acceso:"
+
+# [WARNING] en translation used
+msgid "access deserved by:"
+msgstr "Served by:"
 
 msgid "access_comments"
 msgstr "Abiaguneari buruzko iritzia:"
@@ -4080,6 +4218,12 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "channel"
 
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+# [WARNING] es translation used
+msgid "boat"
+msgstr "transbordador"
+
 msgid "book"
 msgstr "liburua"
 
@@ -4216,6 +4360,16 @@ msgstr "Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Denoi zabaldu
 # [WARNING] es translation used
 msgid "c2corg news"
 msgstr "Noticias de c2c"
+
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+# [WARNING] needs_review
+msgid "cable_car"
+msgstr "teleferiko"
+
+# [WARNING] fr translation used
+msgid "cable_car_access"
+msgstr "Desservi par des remontées mécaniques"
 
 msgid "calabre"
 msgstr "Calabria"
@@ -4480,6 +4634,7 @@ msgstr "Estimar el grado técnico en esquí (sistema toponeige)"
 msgid "cond short"
 msgstr "Egoera"
 
+# [WARNING] needs_update
 msgid "conditions"
 msgstr "Aurkituriko egoera:"
 
@@ -4810,6 +4965,10 @@ msgid "english"
 msgstr "ingelesa"
 
 # [WARNING] en translation used
+msgid "enter URL or paste it from clipboard"
+msgstr "enter URL or paste it from clipboard"
+
+# [WARNING] en translation used
 msgid "enter place name"
 msgstr "Enter a location name"
 
@@ -4933,6 +5092,12 @@ msgstr "la imagen sobrepasa las dimensiones máximas autorizadas (8192x2048 px)"
 msgid "file is too small"
 msgstr "La imagen es de dimensiones demasiado pequeñas (minimo: 16x16 px)"
 
+# [general comment]
+# image size in bytes (used in diffs when a new image has been uploaded
+# [WARNING] en translation used
+msgid "file_size"
+msgstr "File size:"
+
 msgid "filename"
 msgstr "Irudia:"
 
@@ -5010,6 +5175,10 @@ msgstr "Foroak zure erabiltzaile izena edo ezizena erabiliko du existitzen bada"
 # [WARNING] es translation used
 msgid "forum_code"
 msgstr "Código de inserción de la imagen en el foro:"
+
+# [WARNING] en translation used
+msgid "forums images wizard failure"
+msgstr "Invalid image"
 
 msgid "francais"
 msgstr "frantsesa"
@@ -5156,6 +5325,10 @@ msgstr "Egurra"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "haute_normandie"
 msgstr "Normandia Garaia"
+
+# [WARNING] en translation used
+msgid "height"
+msgstr "Image height:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -5321,6 +5494,12 @@ msgstr "Una imagen puede ser asociada a varios documentos, usando la herramiento
 
 msgid "img button title"
 msgstr "Irudi bat sartu"
+
+# [general comment]
+# message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
+# [WARNING] en translation used
+msgid "imgur notice %1%"
+msgstr "Images from your computer will be hosted on %1%1"
 
 msgid "imported from v4"
 msgstr "4. bertsiotik ekarri"
@@ -6062,6 +6241,10 @@ msgstr "informazioa ez dago eskuragarri"
 msgid "novel"
 msgstr "eleberria"
 
+# [WARNING] en translation used
+msgid "objective_risk_rating"
+msgstr "Objective Danger"
+
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
@@ -6094,6 +6277,10 @@ msgstr "irekia zaintzailerik gabe"
 # [WARNING] es translation used
 msgid "options"
 msgstr "Opciones"
+
+# [WARNING] en translation used
+msgid "or drag & drop files"
+msgstr "or drag&drop files from computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
@@ -6769,6 +6956,15 @@ msgid "rock_climbing (single-pitch)"
 msgstr "eskalada (eskola)"
 
 # [general comment]
+# exposition rocher
+# 
+# Faut-il préciser "rocher" dans les trads ?
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# [WARNING] needs_update
+msgid "rock_exposition_rating"
+msgstr "Arriskua:"
+
+# [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 # [WARNING] es translation used
@@ -6778,6 +6974,9 @@ msgstr "Grado en libre y grado obligatorio:"
 msgid "rock_free_rating"
 msgstr "Librean zailtasuna:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 # [WARNING] needs_review
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Librean zailtasuna > nahitaezko:"
@@ -6938,6 +7137,10 @@ msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul c
 # [WARNING] en translation used
 msgid "select an image file"
 msgstr "Chose an image:&nbsp;"
+
+# [WARNING] en translation used
+msgid "select image or dragdrop"
+msgstr "Click here to select an image from your computer or drag and drop it"
 
 # [WARNING] en translation used
 msgid "selected admin_limits"
@@ -7165,6 +7368,22 @@ msgstr "Steep skiing"
 msgid "stories"
 msgstr "errezitaldia"
 
+# [WARNING] en translation used
+msgid "sub-parkings"
+msgstr "sub-access points"
+
+# [WARNING] fr translation used
+msgid "sub-sites"
+msgstr "sous-sites d'escalade"
+
+# [general comment]
+# same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
+# 
+# In that case, 
+# [WARNING] en translation used
+msgid "sub-summits"
+msgstr "sub- summits, passes, lakes and cliffs"
+
 msgid "sub_activities"
 msgstr "Konpatiblea da:"
 
@@ -7353,6 +7572,9 @@ msgstr "Irudia sartzeko kodea:"
 msgid "topoguidename"
 msgstr "Nombre en la topo-guía"
 
+# [general comment]
+# exposition ski
+# [WARNING] needs_update
 msgid "toponeige_exposition_rating"
 msgstr "Arriskua:"
 
@@ -7545,6 +7767,10 @@ msgid "vtt_approach"
 msgstr "mountain-bike approach possible"
 
 # [WARNING] en translation used
+msgid "wait while image is uploaded"
+msgstr "Please wait while the image is being transferred"
+
+# [WARNING] en translation used
 msgid "waiting for geolocation"
 msgstr "Waiting for localisation..."
 
@@ -7583,6 +7809,12 @@ msgstr "Usar los mismos criterios que en esta lista"
 msgid "widget generator help"
 msgstr "Camptocamp le ofrece la posibilidad de inserir un widget en su sitio web o blog para mostrar una lista de contenido de la topo-guía. Puede por ejemplo mostrar sus más recientes salidas, las últimas cimas añadidas a la topo-guía o cualquier otra lista que se le ocurre. <br /><br />Debe dar un titulo y copiar el código propuesto en su página web. ¡Nada más complicado que esto!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Mas información</a>"
 
+# [general comment]
+# image width
+# [WARNING] en translation used
+msgid "width"
+msgstr "Image width:"
+
 msgid "with rain"
 msgstr "euriak jo dezake"
 
@@ -7592,6 +7824,12 @@ msgstr "within a radius of"
 
 msgid "wl button title"
 msgstr "Barne link bat sartu"
+
+# [general comment]
+# placeholder pour le titre d'une image
+# [WARNING] en translation used
+msgid "write a caption"
+msgstr "Write a caption"
 
 # [WARNING] es translation used
 msgid "wrong file type"
@@ -7623,6 +7861,10 @@ msgstr "bai"
 
 msgid "yesterday, at %1%"
 msgstr "atzo, %1%-tan"
+
+# [WARNING] en translation used
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "You cannot select public transportation types if the accessibility field is not compatible"
 
 # [WARNING] en translation used
 msgid "you have no right to switch from collaborative picture"

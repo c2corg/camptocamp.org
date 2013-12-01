@@ -64,8 +64,8 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     # last condition is because of next rule :)
     # nb: also works if STATIC_HOST is empty
     RewriteCond %{HTTP_HOST} =@STATIC_HOST@
-    RewriteCond %{REQUEST_URI} !(.*\.(js|css|png|jpg|jpeg|gif|ico|xml|svg|swf|xap))$
-    RewriteCond %{REQUEST_URI} !sfMinifyPlugin.php$
+    RewriteCond %{REQUEST_URI} !\.(js|css|png|jpg|jpeg|gif|ico|xml|svg|swf|xap)$
+    RewriteCond %{REQUEST_URI} !(sfMinifyPlugin|index).php$
     RewriteRule .* - [F,L]
 
     # Combine and minify JavaScript and CSS
@@ -92,12 +92,8 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     # we skip all files with .something, except for .html, .rss, .gpx etc
     RewriteCond %{REQUEST_URI} \.\w$
     RewriteCond %{REQUEST_URI} !\.html$
-    RewriteCond %{REQUEST_URI} !(.*\.(rss|gpx|kml|json))$
+    RewriteCond %{REQUEST_URI} !\.(rss|gpx|kml|json)$
     RewriteRule .* - [L]
-
-    # RSS feed
-    RewriteCond %{REQUEST_URI} \.rss$
-    RewriteRule ^(.rss)$ index.php [QSA,L]
 
     # forums are not handled by symfony
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -122,6 +118,13 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
     <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|svg|svgz|ico|appcache|manifest|htc)$" >
       Header unset X-UA-Compatible
     </FilesMatch>
+
+    # we want to enable CORS for the favicon, so that we can use it in canvas
+    # this is used for modifying the site favicon with PM count
+    # see https://developer.mozilla.org/en-US/docs/HTML/CORS_Enabled_Image
+    <Files "favicon.ico">
+      Header set Access-Control-Allow-Origin "*"
+    </Files>
 </IfModule>
 
 # makes images, css and js expire one week later in client cache

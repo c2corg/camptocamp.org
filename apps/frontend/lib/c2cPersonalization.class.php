@@ -533,14 +533,8 @@ class c2cPersonalization
         }
         else
         {
-            // erase all managed cookies and replace values with the one in profile
-            foreach ($managed_cookies as $cookie)
-            {
-                $response->setCookie($cookie, '');
-            }
-
-            // fold cookie
-            $fold_cookie_value = str_repeat('x', sfConfig::get('app_personalization_cookie_fold_size'));
+            // set fold cookie
+            $fold_cookie_value = $default = str_repeat('x', sfConfig::get('app_personalization_cookie_fold_size'));
             foreach ($fold_prefs as $pos => $pref)
             {
                 if (isset($cookie_prefs[$pref.'_home_status']))
@@ -548,15 +542,27 @@ class c2cPersonalization
                     $fold_cookie_value[$pos] = ($cookie_prefs[$pref.'_home_status'] == 'true') ? 't' : 'f';
                 }
             }
-            $response->setCookie('fold', $fold_cookie_value,
-                                 time() + sfConfig::get('app_personalization_filter_timeout'));
-
-            foreach ($cookie_prefs as $cookie_name => $cookie_value)
+            if ($fold_cookie_value != $default)
             {
-                if (in_array($cookie_name, $managed_cookies))
+                $response->setCookie('fold', $fold_cookie_value,
+                    time() + sfConfig::get('app_personalization_filter_timeout'));
+            }
+            else
+            {
+                $response->setCookie('fold', '');
+            }
+
+            // erase all managed cookies or replace values with the one in profile
+            foreach ($managed_cookies as $cookie_name)
+            {
+                if (array_key_exists($cookie_name, $cookie_prefs))
                 {
-                    $response->setCookie($cookie_name, $cookie_value, 
-                                         time() + sfConfig::get('app_personalization_filter_timeout'));
+                     $response->setCookie($cookie_name, $cookie_prefs[$cookie_name],
+                         time() + sfConfig::get('app_personalization_filter_timeout'));
+                }
+                else
+                {
+                    $response->setCookie($cookie_name, '');
                 }
             }
         }

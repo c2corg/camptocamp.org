@@ -280,8 +280,10 @@ class imagesActions extends documentsActions
                 c2cTools::log("created $nb_created geo associations for image $image_id");
             }
 
-            // remove cache of calling page
-            $this->clearCache($mod, $document_id, true, 'view');
+            // remove cache of calling page (where the image has been uploaded)
+            $this->clearCache($mod, $document_id, false, 'view');
+            // a new image has been uploaded, clear cache for images lists and whatsnew
+            $this->clearCache('images', 0, true);
 
             return $this->setNoticeAndRedirect('image successfully uploaded', $redir_route . '#images');
         }
@@ -289,6 +291,48 @@ class imagesActions extends documentsActions
         {
             if ($request->hasParameter('plupload')) $this->plupload = true;
             // display form
+        }
+    }
+
+    public function executeForumWizard()
+    {
+        // would be more logically in web/forums, but symfony helpers (especially i18n)
+        // are of great help here
+    }
+
+    // find an image id and filename by its id or filename
+    public function executeFind()
+    {
+        $id = $this->getRequestParameter('id', null);
+        $filename = $this->getRequestParameter('filename', null);
+
+        $q = Doctrine_Query::create()
+                           ->select('i.id, i.filename')
+                           ->from('Image i');
+
+        if (preg_match('/^\d+$/', $id))
+        {
+            $q->where('i.id = ?', array(intval($id)));
+        }
+        else if (preg_match('/^\d{10}_\d+\.(jpg|png|gif)$$/', $filename))
+        {
+            $q->where('i.filename = ?', array($filename));
+        }
+        else
+        {
+            return $this->ajax_feedback('Not found');
+        }
+
+        $result = $q->execute()->getFirst();
+
+        if ($result === false)
+        {
+            return $this->ajax_feedback('Not found');
+        }
+        else
+        {
+            $this->getResponse()->setContentType('application/json');
+            return $this->renderText(json_encode(array('id' => $result->id, 'filename' => $result->filename)));
         }
     }
 
@@ -575,7 +619,9 @@ class imagesActions extends documentsActions
             }
             
             // remove cache of calling page
-            $this->clearCache($mod, $document_id, true, 'view');
+            $this->clearCache($mod, $document_id, false, 'view');
+            // a new image has been uploaded, clear cache for images lists and whatsnew
+            $this->clearCache('images', 0, true);
             
             return $this->setNoticeAndRedirect('image successfully uploaded', $redir_route . '#images');
         }
@@ -683,8 +729,18 @@ class imagesActions extends documentsActions
             $this->setErrorAndRedirect('Rotation failed', $referer);
         }
 
-        // clear cache and redirect to view
+        // clear cache of current doc 
         $this->clearCache('images', $id);
+        
+        // clear views of the associated docs in every language (content+interface):
+        $associated_docs = Association::findAllAssociatedDocs($id, array('id', 'module'));
+        foreach ($associated_docs as $doc)
+        {
+            // clear their view cache
+            $this->clearCache($doc['module'], $doc['id'], false, 'view');
+        }
+        
+        // redirect to view
         $this->setNoticeAndRedirect('Image rotated successfully', $referer);
     }
 
@@ -866,6 +922,9 @@ class imagesActions extends documentsActions
             $check_doc = Document::find($check_model, $check_id);
             $fields = sfConfig::get('mod_images_bbcode_fields_' . $check_module);
 
+            // clear linked doc cache
+            $this->clearCache($check_module, $check_id);
+
             $languages = $check_doc->getLanguages();
             foreach ($languages as $language)
             {
@@ -900,7 +959,6 @@ class imagesActions extends documentsActions
                         . strtolower($check_model) . ' ' . $check_id . ' (' . $language . ')');
                     $check_doc->save();
                     $conn->commit();
-                    $this->clearCache($check_module, $check_id, true);
                 }
                 else
                 {
@@ -908,6 +966,9 @@ class imagesActions extends documentsActions
                 }
             }
         }
+
+        // clear images lists and whatsnew cache
+        $this->clearCache('images', 0, true);
     }
 
     private function handleImage($image_name, $tmp_name, $temp_dir, $index = 1)
@@ -950,11 +1011,11 @@ class imagesActions extends documentsActions
                 $iptc = iptcparse($info['APP13']);
                 if (isset($iptc['2#105'])) // title
                 {
-                    $image_title = $iptc['2#105'][0];
+                    $image_title = trim($iptc['2#105'][0]);
                 }
                 else if (isset($iptc['2#120'])) // comment
                 {
-                    $image_title = $iptc['2#120'][0];
+                    $image_title = trim($iptc['2#120'][0]);
                 }
             }
         }

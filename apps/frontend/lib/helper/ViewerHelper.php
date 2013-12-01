@@ -95,21 +95,27 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     }
 }
 
-function init_js_var($default_nav_status = true, $nav_status_pref = 'default_nav', $connected = false)
+function init_js_var($default_nav_status = true, $nav_status_pref = 'default_nav')
 {
-    $default_nav_status = ($default_nav_status) ? 'true' : 'false';
-    $connected_string = ($connected) ? "\n" . 'confirm_msg = \'' . __('Are you sure?') . '\';' : '';
-    $nav_status_cookie_position = array_search($nav_status_pref, sfConfig::get('app_personalization_cookie_fold_positions'));
-    $js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Enlarge the bar').
-                             '\', \''.__('Reduce the bar')."');\n" . 'default_nav_status = ' . $default_nav_status . ';' . $connected_string .
-                             'var nav_status_string = \''.$nav_status_pref.'\';var nav_status_cookie_position='.$nav_status_cookie_position);
-    return $js_var;
+    $vars = array('default_nav_status' => ($default_nav_status) ? 'true' : 'false',
+                  'confirm_msg' =>  __('Are you sure?'),
+                  'section_open' => __('section open'),
+                  'section close' => __('section close'),
+                  'nav_status_string' => $nav_status_pref,
+                  'nav_status_cookie_position' => array_search($nav_status_pref, sfConfig::get('app_personalization_cookie_fold_positions')));
+
+    $js = '(function(C2C){';
+    foreach ($vars as $var => $value) {
+      $js .= "C2C['$var'] = " . (is_int($value) ? $value : "'$value'") . ";";
+    }
+    $js .= '})(window.C2C = window.C2C || {});';
+
+    return javascript_tag($js);
 }
 
 function display_title($title_name = '', $module = null, $nav_status = true, $nav_status_pref = 'default_nav', $url = '')
 {
-    $connected = true; //$this->getContext()->getUser()->isConnected();
-    $js_var = init_js_var($nav_status, $nav_status_pref, $connected);
+    $js_var = init_js_var($nav_status, $nav_status_pref);
     
     if (!empty($url))
     {
@@ -162,10 +168,10 @@ function start_content_tag($content_class = '', $home = false)
         $content_class = ' ' . $content_class;
     }
 
-    $js_tag = javascript_tag("C2C.setSectionStatus('nav', nav_status_cookie_position, default_nav_status)"); // TODO to move smwhr else ? + C2C
+    $js_tag = javascript_tag("C2C.setSectionStatus('nav', C2C.nav_status_cookie_position, C2C.default_nav_status)"); // TODO move smwhr else?
 
-    return '<div class="content_article">' . (!$mobile_version ? '<div id="splitter" title="' . __('Reduce the bar') .
-           '"></div>' . $js_tag : '') . '<article class="article' . $content_class . '">';
+    return '<div class="content_article">' . (!$mobile_version ? '<div id="splitter" data-title-reduce="' . __('Reduce the bar') .
+           '" data-title-enlarge="' . __('Enlarge the bar') . '"></div>' . $js_tag : '') . '<article class="article' . $content_class . '">';
 
 }
 

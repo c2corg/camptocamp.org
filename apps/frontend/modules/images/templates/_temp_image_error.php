@@ -1,7 +1,5 @@
 <?php
 use_helper('MyForm', 'Javascript');
-echo link_to_function(picto_tag('action_cancel', __('close')),
-                      '$(this).up().hide();Modalbox.resizeToContent();',
-                      array('style' => 'float:right;'));
+echo picto_tag('action_cancel', __('close'), array('class' => 'tmp-image-close'));
 echo $image_name;
 echo global_form_errors_tag();

@@ -25,8 +25,8 @@ setlocale(LC_CTYPE, $locale);
 */
 
 // Language definitions for frequently used strings
-$lang_common = array(
 
+$lang_common = array(
 // Text orientation and encoding
 'lang_direction'		=>	'ltr',	// ltr (Left-To-Right) or rtl (Right-To-Left)
 'lang_encoding'			=>	'UTF-8',
@@ -94,6 +94,17 @@ $lang_common = array(
 'Replies'				=>	'Respuestas',
 'Author'				=>	'Autor',
 'Pages'					=>	'Páginas',
+'B button help'     =>  'pon en negrita el texto seleccionado',
+'I button help'     =>  'pon en cursiva el texto seleccionado',
+'U button help'     =>  'subrayar el texto seleccionado',
+'S button help'     =>  'tacha el texto seleccionado',
+'C button help'     =>  'caracteres de ancho fijo',
+'http button help'    =>  'inserta un enlace en el texto seleccionado o activa el enlace seleccionado',
+'@ button help'     =>  'inserta un email en el texto seleccionado o activa el email seleccionado',
+'Img button help'   =>  'insertar una imagen a partir del enlace a una imagen en internet',
+'Img wizard title' => 'Insertar una imagen',
+'Code button help'    =>  'poner el texto seleccionado en un recuadro a caracteres de ancho fijo',
+'Quote button help'   =>  'poner el texto seleccionado en un recuadro de citación',
 'Help'					=>	'Ayuda',
 'Reduce the text box'	=>	'Disminuir la zona de texto',
 'Enlarge the text box'	=>	'Aumentar la zona de texto',

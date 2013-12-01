@@ -26,18 +26,23 @@ class hutsActions extends documentsActions
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
             $is_gite = ($this->document->get('shelter_type') == 5);
-            
+
+            // retrieve 2-hops parkings
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
-                $associated_parkings = Association::addChildWithBestName($associated_parkings, $prefered_cultures, 'pp');
+                $associated_parkings = Association::createHierarchyWithBestName($associated_parkings, $prefered_cultures,
+                    array('type' => 'pp'));
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;
 
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
 
+            // associated summits
             $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'name');
+            $this->associated_summits = $associated_summits;
+
             $summit_ids = $summit_routes_tmp = $summit_routes_ids = array();
             if (count($associated_summits))
             {
@@ -51,8 +56,8 @@ class hutsActions extends documentsActions
                     $summit_routes_ids[] = $route['linked_id'];
                 }
             }
-            $this->associated_summits = $associated_summits;
 
+            // for a gite, routes  and sites are not directly linked. We retrieve the routes linked to the linked parkings
             if ($is_gite)
             {
                 $parking_ids = array();
@@ -61,12 +66,12 @@ class hutsActions extends documentsActions
                     $parking_ids[] = $parking['id'];
                 }
 
-                $associated_parking_docs = Association::findWithBestName($parking_ids, $prefered_cultures, array('pr', 'pt'), false, true);
+                $associated_parking_docs = Association::findLinkedDocsWithBestName($parking_ids, $prefered_cultures, array('pr', 'pt'), false, true);
 
                 $associated_routes = array_filter($associated_parking_docs, array('c2cTools', 'is_route'));
 
                 $associated_parking_sites = c2cTools::sortArrayByName(array_filter($associated_parking_docs, array('c2cTools', 'is_site')));
-                $this->associated_sites = array_merge($this->associated_sites,$associated_parking_sites);
+                $this->associated_sites = array_merge($this->associated_sites,$associated_parking_sites); // associated sites should be empty!! Else it violates moderation rules
                 $this->ids = implode('-', $parking_ids);
             }
             else
@@ -76,11 +81,24 @@ class hutsActions extends documentsActions
                 $this->ids = $current_doc_id;
             }
 
-            // routes linked to the hut
+            // get additional data for routes
             $associated_routes = Route::getAssociatedRoutesData($associated_routes, $this->__(' :').' ', reset($summit_ids));
 
             // these are the routes where the hut act as a summit
-            $associated_summit_routes = array();
+            // they are displayed in a specific section
+            $summit_ids = $summit_routes_tmp = $summit_routes_ids = $associated_summit_routes = array();
+            if (count($associated_summits)) // we have one "ghost summit"
+            {
+                foreach ($associated_summits as $summit) // there should be only one...
+                {
+                    $summit_ids[] = $summit['id'];
+                }
+                $summit_routes_tmp = Association::countAllLinked($summit_ids, 'sr');
+                foreach ($summit_routes_tmp as $route)
+                {
+                    $summit_routes_ids[] = $route['linked_id'];
+                }
+            }
             if (count($summit_routes_ids))
             {
                 foreach ($associated_routes as $key => $route)
@@ -95,9 +113,12 @@ class hutsActions extends documentsActions
             
             $this->associated_routes = $associated_routes;
             $this->associated_summit_routes = $associated_summit_routes;
-            
+
+            // We retrieve both the books directly linked
             $associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
-            
+
+            // AND the books linked to linked routes
+            // FIXME we should probably also do this with linked sites
             $route_ids = array();
             $associated_routes_books = array();
             if (count($associated_routes))
@@ -117,7 +138,7 @@ class hutsActions extends documentsActions
                     {
                         $book_ids[] = $book['id'];
                     }
-                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('br'), false, false, $book_ids);
+                    $associated_route_docs = Association::findLinkedDocsWithBestName($route_ids, $prefered_cultures, array('br'), false, false, $book_ids);
                     if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'name');
@@ -129,7 +150,13 @@ class hutsActions extends documentsActions
                     }
                 }
             }
-            
+            $associated_books = array_merge($associated_books, $associated_routes_books);
+            if (count($associated_books))
+            {
+                $associated_books = Book::getAssociatedBooksData($associated_books);
+            }
+            $this->associated_books = $associated_books;
+
             // get associated outings
             $latest_outings = array();
             $nb_outings = 0;
@@ -150,13 +177,7 @@ class hutsActions extends documentsActions
             $this->latest_outings = $latest_outings;
             $this->nb_outings = $nb_outings;
             
-            $associated_books = array_merge($associated_books, $associated_routes_books);
-            if (count($associated_books))
-            {
-                $associated_books = Book::getAssociatedBooksData($associated_books);
-            }
-            $this->associated_books = $associated_books;
-            
+            // possibly related portals
             $related_portals = array();
             Portal::getRelatedPortals($related_portals, $this->associated_areas, $associated_routes);
             $this->related_portals = $related_portals;
@@ -300,7 +321,8 @@ class hutsActions extends documentsActions
 
                 // create first version of document, with culture and geometry of hut document
                 $hut_elevation = $document['elevation'];
-                $hut_geom = $document['geom_wkt'];
+                $hut_lat = $document['lat'];
+                $hut_lon = $document['lon'];
                 $hut_culture = $document->getCulture();
                 $hut_name = $document['name'];
 
@@ -315,8 +337,8 @@ class hutsActions extends documentsActions
                 $summit->set('name', $hut_name);
                 $summit->set('elevation', $hut_elevation);
                 $summit->set('summit_type', 100); // set summit type to ' hut'
-
-                $summit->set('geom_wkt', $hut_geom);
+                $summit->set('lat', $hut_lat);
+                $summit->set('lon', $hut_lon);
                 $summit->save();
 
                 $conn->commit();
@@ -427,6 +449,8 @@ class hutsActions extends documentsActions
         $timer = new sfTimer();
         Document::countAssociatedDocuments($huts, 'hr', true);
         c2cActions::statsdTiming('document.countAssociatedDocuments', $timer->getElapsedTime());
+
+        Area::sortAssociatedAreas($huts);
 
         $this->items = Language::parseListItems($huts, 'Hut');
     }

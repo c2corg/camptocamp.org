@@ -10,11 +10,11 @@ else
 {
     use_stylesheet('/static/css/carto_base.css', 'custom');
     use_stylesheet('/static/css/popup.css', 'custom');
-    use_javascript('/static/js/carto/build/app.js', 'maps');
+    use_javascript('/static/js/carto/build/carto.min.js', 'maps');
 }
 use_stylesheet('/static/css/carto.css', 'custom');
 use_stylesheet('/static/css/viewer.css', 'custom');
-use_javascript("/static/js/carto/build/lang-$lang.js", 'maps');
+use_javascript("/static/js/carto/build/lang-$lang.min.js", 'maps');
 use_javascript('/static/js/popup.js', 'maps');
 use_javascript('/static/js/carto/viewer.js', 'maps');
 ?>

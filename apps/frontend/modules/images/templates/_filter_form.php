@@ -3,12 +3,6 @@ use_helper('FilterForm', 'Form', 'General', 'MyForm');
 
 $is_connected = $sf_user->isConnected();
 
-if (!c2cTools::mobileVersion())
-{
-   // put focus on the name field on dom load
-   echo javascript_tag('if (!("autofocus" in document.createElement("input"))) {
-   document.observe(\'dom:loaded\', function() { $(\'inam\').focus(); })};');
-}
 echo around_selector('iarnd');
 $ranges_raw = $sf_data->getRaw('ranges');
 $selected_areas_raw = $sf_data->getRaw('selected_areas');
@@ -24,7 +18,7 @@ echo '<br /><br />' . georef_selector();
 ?>
 </div>
 <?php
-echo __('categories') . ' ' . field_value_selector('icat', 'mod_images_categories_list', false, false, true, 8);
+echo __('categories') . ' ' . field_value_selector('icat', 'mod_images_categories_list', array('keepfirst' => false, 'multiple' => true, 'size' => 8));
 ?>
 <br />
 <?php

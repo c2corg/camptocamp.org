@@ -8,6 +8,14 @@ echo '<div class="image_list">';
 $images = $images->getRawValue();
 usort($images, array('c2cTools', 'cmpDateTimeDesc'));
 
+if ($mobile_version)
+{
+    use_helper('JavascriptQueue');
+    echo javascript_queue('C2C.swipe_i18n = {"Big size": "'.__('Big size').'",'.
+        '"Original image": "'.__('Original image').'",'.
+        '"Informations": "'.__('Informations').'"};');
+}
+
 foreach($images as $image)
 {
     $caption = $image['name'];
@@ -16,8 +24,15 @@ foreach($images as $image)
     $image_id = $image['id'];
     $image_type = $image['image_type'];
 
-    $image_tag = image_tag(image_url($image['filename'], 'small'),
-                           array('alt' => $caption, 'title' => $caption));
+    $tag_attributes = array('alt' => $caption, 'title' => $caption);
+    foreach(array('width', 'height', 'file_size') as $prop)
+    {
+        if (isset($image[$prop]) && check_not_empty($image[$prop]))
+        {
+            $tag_attributes['data-'.$prop] = $image[$prop];
+        }
+    }
+    $image_tag = image_tag(image_url($image['filename'], 'small'), $tag_attributes);
                            
     $view_details = link_to('details', "@document_by_id_lang_slug?module=images&id=$image_id&lang=$lang&slug=$slug", 
                             array('class' => 'view_details', 'title' => __('View image details')));

@@ -9,7 +9,7 @@ $BODY$
     DECLARE
         rev integer;
     BEGIN
-	SELECT INTO rev dv.version FROM app_documents_versions dv WHERE dv.document_id=document_id AND dv.culture=culture AND dv.documents_versions_id IN (SELECT MAX(dv.documents_versions_id) FROM app_documents_versions dv GROUP BY dv.document_id, dv.culture);
+	SELECT INTO rev dv.version FROM app_documents_versions dv WHERE dv.document_id=latest_version.document_id AND dv.culture=latest_version.culture AND dv.documents_versions_id IN (SELECT MAX(dv.documents_versions_id) FROM app_documents_versions dv GROUP BY dv.document_id, dv.culture);
 	IF rev IS NULL THEN
 	    RETURN 0; -- 0 validated --
 	ELSE
@@ -27,7 +27,7 @@ $BODY$
     DECLARE
         doc_id integer;
     BEGIN
-		SELECT INTO doc_id MAX(app_documents_archives.document_archive_id) FROM app_documents_archives WHERE app_documents_archives.id = document_id;
+		SELECT INTO doc_id MAX(app_documents_archives.document_archive_id) FROM app_documents_archives WHERE app_documents_archives.id = latest_document_archive_id.document_id;
 	IF doc_id IS NULL THEN 
 	    RETURN 1; 
 	ELSE
@@ -42,7 +42,7 @@ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION document_exists(document_id integer) RETURNS boolean AS 
 $BODY$
     BEGIN
-	   RETURN EXISTS(SELECT 1 FROM documents WHERE documents.id=document_id);
+	   RETURN EXISTS(SELECT 1 FROM documents WHERE documents.id=document_exists.document_id);
     END;
 $BODY$
 LANGUAGE plpgsql;
@@ -52,7 +52,7 @@ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION document_exists_in(lang char(2), document_id integer) RETURNS boolean AS 
 $BODY$
     BEGIN
-	   RETURN EXISTS(SELECT 1 FROM documents_i18n WHERE documents_i18n.id=document_id AND documents_i18n.culture=lang);
+	   RETURN EXISTS(SELECT 1 FROM documents_i18n WHERE documents_i18n.id=document_exists_in.document_id AND documents_i18n.culture=document_exists_in.lang);
     END;
 $BODY$
 LANGUAGE plpgsql;
@@ -64,7 +64,7 @@ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION exists_in_documents_versions(doc_id integer, lang char(2), timestp timestamp without time zone) RETURNS boolean AS 
 $BODY$
     BEGIN
-	    RETURN EXISTS(SELECT 1 FROM (SELECT * FROM latest_documents_versions_records) AS latest WHERE latest.document_id=doc_id AND latest.culture=lang AND latest.created_at=timestp);
+	    RETURN EXISTS(SELECT 1 FROM (SELECT * FROM latest_documents_versions_records) AS latest WHERE latest.document_id=exists_in_documents_versions.doc_id AND latest.culture=exists_in_documents_versions.lang AND latest.created_at=exists_in_documents_versions.timestp);
     END;
 $BODY$
 LANGUAGE plpgsql;
@@ -77,7 +77,7 @@ $BODY$
     DECLARE
         doc_i18n_id integer;
     BEGIN
-        SELECT INTO doc_i18n_id document_i18n_archive_id FROM app_documents_i18n_archives WHERE id = document_id AND culture = lang AND document_i18n_archive_id IN (SELECT MAX(document_i18n_archive_id) FROM app_documents_i18n_archives GROUP BY id, culture);
+        SELECT INTO doc_i18n_id document_i18n_archive_id FROM app_documents_i18n_archives WHERE id = latest_document_i18n_archive_id.document_id AND culture = latest_document_i18n_archive_id.lang AND document_i18n_archive_id IN (SELECT MAX(document_i18n_archive_id) FROM app_documents_i18n_archives GROUP BY id, culture);
 	IF doc_i18n_id IS NULL THEN
 	    RETURN 1;
 	ELSE
@@ -96,7 +96,7 @@ $BODY$
     DECLARE
         hist_md_id integer;
     BEGIN
-        SELECT INTO hist_md_id history_metadata_id FROM app_history_metadata WHERE written_at = t;
+        SELECT INTO hist_md_id history_metadata_id FROM app_history_metadata WHERE written_at = current_history_metadata_id.t;
 	IF hist_md_id IS NULL THEN
 	    RETURN 1; 
 	ELSE
@@ -409,11 +409,11 @@ $BODY$
         user RECORD;
     BEGIN
         FOR user IN SELECT logged, user_id, idle FROM punbb_online WHERE logged < max_online LOOP
-            IF user.logged < max_visit THEN 
-                EXECUTE 'UPDATE punbb_users SET last_visit =' || user.logged || ', read_topics = NULL WHERE id = ' || user.user_id;
-                EXECUTE 'DELETE FROM punbb_online WHERE user_id = ' || user.user_id;
-            ELSEIF user.idle = 0 THEN
-                EXECUTE 'UPDATE punbb_online SET idle = 1 WHERE user_id = ' || user.user_id;
+            IF logged < punbb_update_users_online.max_visit THEN
+                EXECUTE 'UPDATE punbb_users SET last_visit =' || logged || ', read_topics = NULL WHERE id = ' || user_id;
+                EXECUTE 'DELETE FROM punbb_online WHERE user_id = ' || user_id;
+            ELSEIF idle = 0 THEN
+                EXECUTE 'UPDATE punbb_online SET idle = 1 WHERE user_id = ' || user_id;
             END IF;
         END LOOP;
         RETURN 1;

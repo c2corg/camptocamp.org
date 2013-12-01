@@ -86,8 +86,44 @@ msgstr "Document no trobat"
 msgid "A document can not be linked to itself"
 msgstr "No es pot associar un document a sí mateix"
 
+# [WARNING] en translation used
+msgid "A gite can not be linked to a route"
+msgstr "A valley accomodation can not be linked to a route"
+
 msgid "A new password has been asked for your account."
 msgstr "Heu demanat la creació d'una nova contrasenya per al vostre compte Camptocamp.org. Ja podeu identificar-vos utilitzant les següents dades de connexió."
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a hut if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a hut if a main/sub access point of this access is already linked to this hut"
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a route if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a route if a main/sub access point of this access is already linked to this route"
+
+# [WARNING] en translation used
+msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
+msgstr "An access point can not be linked to a climbing site if a main/sub access point of this access is already linked to this site"
+
+# [WARNING] en translation used
+msgid "A site can not be linked to more than one summit"
+msgstr "A climbing site can not be linked to more than one summit"
+
+# [WARNING] en translation used
+msgid "A sub parking can not be linked to more than one main parking"
+msgstr "A sub access point can not be linked to more than one main access point"
+
+# [WARNING] en translation used
+msgid "A sub site can not be linked to more than one main site"
+msgstr "A climbing sector can not be linked to more than one climbing site"
+
+# [WARNING] en translation used
+msgid "A sub summit can not be linked to more than one main summit"
+msgstr "A sub summit can not be linked to more than one main summit"
+
+# [WARNING] en translation used
+msgid "A summit can not be linked to a sub site"
+msgstr "A summit can not be linked to a climbing sector, but only to the main climbing site"
 
 msgid "AD"
 msgstr "AD"
@@ -144,6 +180,7 @@ msgstr "Alineació:"
 msgid "All fields are mandatory"
 msgstr "Tots els camps són obligatoris."
 
+# [WARNING] needs_review
 msgid "All topics"
 msgstr "Tots els temes"
 
@@ -358,6 +395,12 @@ msgstr "Torna a la llista de cims"
 
 msgid "Back to users list"
 msgstr "Torna a la llista d'usuaris"
+
+# [general comment]
+# link to the BI version of an image (limited to 800px max)
+# In the context, it is rather big (compared to MI, max 250px)
+msgid "Big size"
+msgstr "Mida gran"
 
 msgid "Bookmark"
 msgstr "Posar en els meus favorits"
@@ -704,6 +747,11 @@ msgstr "Detalls"
 msgid "Developers"
 msgstr "Programadors"
 
+# [general comment]
+# Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
+msgid "Did you mean %1%?"
+msgstr "Volíeu dir %1%?"
+
 msgid "Diffing versions of %1% in %2%."
 msgstr "Diferències entre les versions de %1% en %2%."
 
@@ -918,7 +966,7 @@ msgid "FAQ short"
 msgstr "FAQ"
 
 msgid "Failed moving uploaded file"
-msgstr "El canvi de nom d'un fitxer a fallat. Intenta-ho de nou, si et plau."
+msgstr "El canvi de nom d'un fitxer a fallat. Si torna a passar, contacteu amb els moderadors."
 
 msgid "Failed rasterizing svg file"
 msgstr "No s'ha pogut convertir la imatge vectorial en matricial"
@@ -1147,6 +1195,11 @@ msgstr "Aquesta nova contrasenya no serà validada fins que l'utilitzis per prim
 msgid "Image"
 msgstr "Imatge"
 
+# [general comment]
+# We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
+msgid "Image cannot be rotated anymore"
+msgstr "No es pot girar la imatge perquè ja no s'hi pot accedir directament."
+
 msgid "Image could not be loaded"
 msgstr "No es pot mostrar la imatge"
 
@@ -1167,6 +1220,12 @@ msgstr "Llicència de la imatge:"
 
 msgid "Image not found"
 msgstr "Aquesta imatge no existeix."
+
+# [general comment]
+# assistant image forum
+# [WARNING] needs_review
+msgid "Image on the internet"
+msgstr "Imatge a internet"
 
 # [WARNING] needs_review
 msgid "Image rotated successfully"
@@ -1205,6 +1264,13 @@ msgid "Incidents and accidents database"
 msgstr "Base de dades d'accidents i incidents"
 
 msgid "Information"
+msgstr "Informació"
+
+# [general comment]
+# link to the informations on an image (image document page)
+# 
+# check if the meaning is correct in your language
+msgid "Informations"
 msgstr "Informació"
 
 # [general comment]
@@ -1737,6 +1803,13 @@ msgstr "Operació no autoritzada: es tracta de la darrera associació d'aquest t
 msgid "Operation not allowed"
 msgstr "Operació no autoritzada."
 
+# [general comment]
+# link to the original image
+# 
+# Try to keep it short
+msgid "Original image"
+msgstr "Imatge original"
+
 msgid "Oups!"
 msgstr "Ep! S'han detectat els problemes següents:"
 
@@ -2238,7 +2311,7 @@ msgid "Statistics"
 msgstr "Estadística"
 
 msgid "Step 1: choose a summit"
-msgstr "Etapa 1: escolliu un cim"
+msgstr "1r pas: escolliu un cim"
 
 msgid "Step 2: Create a route"
 msgstr "Etapa 2: crea un itinerari."
@@ -2246,6 +2319,13 @@ msgstr "Etapa 2: crea un itinerari."
 msgid "Step 2: choose a route"
 msgstr "Etapa 2: escolliu un itinerari"
 
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/1440
+msgid "Step 2: confirm to create outing"
+msgstr "Etapa 2: Confirma per accedir a la pàgina d'edició de la teva sortida"
+
+# [general comment]
+# almost a copy of http://c2ci18n.appspot.com/translations/edit/3068002
 msgid "Step 3: confirm to create outing"
 msgstr "Etapa 3: Confirma per accedir a la pàgina d'edició de la teva sortida"
 
@@ -2997,6 +3077,10 @@ msgstr "<h3>Millors periòdes</h3>Llista dels mesos durant els quals el lloc o l
 msgid "_book_types_info"
 msgstr "<h3>Tipus d'obra</h3>Tipus de llibre.<br />Se'n pot seleccionar més d'un."
 
+# [WARNING] needs_review
+msgid "_cable_car_access_info"
+msgstr "Indica si el document \"aparcament\" és l'estació d'arribada o una d'intermitja d'un remuntador mecànic."
+
 msgid "_camera_name_info"
 msgstr "<h3>Aparell</h3>Marca i model de la càmera fotogràfica.<br />Aquesta informació s'extreu de les dades EXIF del fitxer enviat. És possible eliminar-la abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
 
@@ -3125,7 +3209,11 @@ msgstr "<h3>Compromís</h3>\n"
 "<br />\n"
 "<strong>V</strong>: L'itinerari és molt llarg i demana entre 12 i 24 h d'esforç. L'accés és difícil. La retirada és delicada des de l'atac a la via. De seguida esdevé impossible girar cua. Les escapatòries són poques i delicades. En cas de mal temps o de problema, els participants només poden comptar amb ells mateixos.<br />\n"
 "<br />\n"
-"<strong>VI</strong>: L'itinerari és llarg i pot implicar més d'un dia. L'aproximació és també llarga i delicada, l'itinerari és totalment aïllat. Un cop començat no es pot girar cua i les escapatòries són vies en sí mateixes. Cal autonomia total de la cordada en la dificultat."
+"<strong>VI</strong>: L'itinerari és llarg i pot implicar més d'un dia. L'aproximació és també llarga i delicada, l'itinerari és totalment aïllat. Un cop començat no es pot girar cua i les escapatòries són vies en sí mateixes. Cal autonomia total de la cordada en la dificultat.<br />\n"
+"<br />\n"
+"Vegeu també l'ajuda:<br />\n"
+"- <a href=\"/articles/133323/ca/ajuda-topo-guia-escala-de-dificultats-d-escalada-en-roca-escalada-i-roca-en-alta-muntanya</a><br />\n"
+"- <a href=\"/articles/106871/ca/ajuda-topo-guia-dificultats-en-neu-glac-i-mixt</a>"
 
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualitat de l'equipament present</h3>\n"
@@ -3275,8 +3363,8 @@ msgstr "<h3>Dificultat en glaç</h3>\n"
 "<strong>Grau 7<strong>: Escalada extrema. Molt pendent, pot ser desplomada en diversos metres. La tècnica (gestual, sobretot) utilitzada per l'alpinista s'assembla a la de l'escalada en roca.<br />\n"
 "<br />\n"
 "Vegeu també l'ajuda:<br />\n"
-"- <a href=\"/articles/106871/ca/ajuda-topo-guia-dificultats-en-neu-glac-i-mixt#dificultats-en-glac</a><br />\n"
-"- <a href=\"/articles/146949/fr#cotation-technique-glace\">Dificultat tècnica en cascades de glaç</a>"
+"- <a href=\"/articles/106871/ca#ice</a><br />\n"
+"- <a href=\"/articles/146949#ice\">Dificultat tècnica en cascades de glaç</a>"
 
 msgid "_image_categories_info"
 msgstr "<h3>Categories d'una imatge</h3>\n"
@@ -3443,6 +3531,29 @@ msgstr "Per confirmar-ho, entreu de nou la vostra contrasenya."
 msgid "_nick_name_info"
 msgstr "<h3>Pseudònim per al fòrum</h3>Nom que apareixerà als fòrums del lloc web.<br /><br />Aquest nom pot modificar-se. Per defecte es prendrà el teu nom d'usuari."
 
+# [comment]
+# - Dirigir a l'apartat de perill objectiu de l'article, com a la versió fr.
+# - Adaptar exemples a sortides en ca.
+# [WARNING] needs_review
+msgid "_objective_risk_rating_info"
+msgstr "<h3>Riscos objectius</h3>\n"
+"S'hi tenen en compte les allaus naturals de neu, les caigudes de seracs, les esllavissades o caigudes de pedres, el despreniment d'estalactites i la fragilitat del suport. Els riscos relacionats directament amb l'acció humana no es tenen en compte, a excepció de l'esfondrament del suport provocada pel participant. Les allaus, caigudes de pedres i d'estalactites desencadenades pel participant o per alguna altra cordada no es tenen en compte. L'escala de riscos objectius contempla tant el tram tècnic com l'aproximació i la tornada. <br />\n"
+"<br />\n"
+"<strong>X1</strong>: Riscos objectius febles.\n"
+"<br />\n"
+"<strong>X2</strong>: Riscos objectius moderats. <a href=\"/routes/54271/fr\">Colère du Ciel</a><br />\n"
+"<br />\n"
+"<strong>X3</strong>: Riscos objectius marcats. <a href=\"/routes/56412/fr\">Délire du Chacal</a>, <a href=\"routes/55560/fr\">Caturgeas</a><br />\n"
+"<br />\n"
+"<strong>X4</strong>: Riscos objectius severs. Caiguda de serac: Anecdotique, couloir en S.<br />\n"
+"<br />\n"
+"<strong>X5</strong>: Riscos objectius molt severs. El mateix que X4 però pitjor.<br />\n"
+"<br />\n"
+"Vegeu també l'ajuda:<br />\n"
+"- <a href=\"/articles/146949/fr#objective-danger\">Graduació dels riscos objectius en cascades de glaç i dry-tooling</a><br />\n"
+"- <a href=\"/articles/106871/fr#objective-danger\">Graduació dels riscos objectius en alpinisme de neu, glaç i mixt</a><br />\n"
+"- <a href=\"/articles/133323/fr#objective-danger\">Graduació dels riscos objectius en escalada clàssica</a>"
+
 msgid "_outing_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traça GPX associada a la sortida.<br />Aquesta informació es calcula a partir de la traça GPX associada, i no és disponible per a un document que no compti amb una traça GPX. <br />La longitud serà substituïda si una nova traça GPX és associada al document."
 
@@ -3484,10 +3595,10 @@ msgid "_public_transportation_rating_info"
 msgstr "<h3>Accessibilitat en transport públic </h3>Qualitat de l'accés en transport públic, eventualment acompanyat d'una caminada raonable.<br />El camp <i>Accés en tranport públic</i> permet permet donar informació complementària.<br /><br /><strong>servei regular</strong>: L'accés compta almenys amb una anada i tornada per dia, 7 dies a la setmana, 12 mesos l'any.<br /><br /><strong>servei de temporada</strong>: L'accés està cobert almenys amb una anada i tornada per dia, 7 dies a la setmana, però només durant una part de l'any.<br /><br /><strong>servei reduït</strong>: L'accés està cobert només alguns dies a la setmana, i no forçosament durant tot l'any. És desitjable afegir precisions al camp <em>Accés en transport públic</em>.<br /><br /><strong>servei a proximitat</strong>: L'accés no queda cobert directament per un transport públic, però una parada propera permet arribar-hi mitjançant una caminada raonable. És desitjable un enllaç cap a l'accés situat a proximitat al camp <em>Accés en transport públic</em>.<br /><br /><strong>sense servei</strong>: L'accés no compta amb cap transport públic."
 
 msgid "_public_transportation_types_info"
-msgstr "<h3>Tipus de transport públic</h3>Tipus de transport públic que permet arribar a aquest accés. Només s'han de descriure els que realment hi arriben<br /><em>Ex: en cas d'un accés cobert per un autobús provinent d'una estació de tren situada a 10 km, només s'ha d'indicar \"autobús\".</em><br /><br /><strong>tren</strong>: tren<br /><br /><strong>autobús</strong>: autobús o cotxe<br /><br /><strong>servei a demanda</strong>: taxi o autobús a demanda, que permet allargar una línia regular, i accessible amb un bitllet de tren o d'autobús"
+msgstr "<h3>Tipus de transport públic</h3>Tipus de transport públic que permet arribar a aquest accés. Només s'han de descriure els que realment hi arriben<br /><em>Ex: en cas d'un accés cobert per un autobús provinent d'una estació de tren situada a 10 km, només s'ha d'indicar \"autobús\".</em><br /><br /><strong>tren</strong>: tren<br /><br /><strong>autobús</strong>: autobús o cotxe<br /><br /><strong>servei a demanda</strong>: taxi o autobús a demanda, que permet allargar una línia regular, i accessible amb un bitllet de tren o d'autobús<br /><br /><strong>ferri</strong>: línia marítima, lacustre o fluvial regular de transport de passatgers"
 
 msgid "_publication_date_info"
-msgstr "<h3>Data de publicació</h3>Data en la qual el llibre o revista ha estat publicat. Si hi ha més d'una edició, caldrà referir-se a la més recent en cas que es tracti d'actualitzacions, o bé s'indicarà la primera si es tracta de reedicions sense modificacions. Aquest camp és el mateix en totes les llengües, de manera que s'han d'utilitzar valors numèrics (\"2004\", \"03/2009\", \"07-08/1997\"... )<br />Preferentment s'indicarà només l'any en el cas dels llibres, i l'any i el mes en el cas de les publicacions periòdiques"
+msgstr "<h3>Data de publicació</h3>Data en la qual el llibre o revista ha estat publicat. Si hi ha més d'una edició, caldrà referir-se a la més recent en cas que es tracti d'actualitzacions, o bé s'indicarà la primera si es tracta de reedicions sense modificacions. Aquest camp és el mateix en totes les llengües, de manera que s'han d'utilitzar valors numèrics (\"2004\", \"03/2009\"... )<br />Preferentment s'indicarà només l'any en el cas dels llibres, i l'any i el mes en el cas de les publicacions periòdiques"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pluja</h3>Exposició del lloc/escola/sector a la pluja.<br />útil si la meteorologia és dubtosa."
@@ -3503,6 +3614,41 @@ msgstr "<h3>Informació sobre les modificacions</h3>Indiqueu breument en aquest 
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Modificacions menors</h3>Marqueu aquesta casella si les modificacions aportades al document no són importants:<br /><br /><strong>text</strong>: correcció de l'ortografia o de la presentació<br /><br /><strong>altitud i desnivell</strong>: modificacions &lt; 50m<br /><br /><strong>dificultat</strong>: modificació d'una escala de dificultat (AD a AD+, 3.3 a 3.2)<br /><br /><strong>descripció d'itinerari o de lloc</strong>: petita nota, reformulació d'una frase. Els afegits de variants o modificació de les descripcions completes no són modificacions menors."
+
+# [comment]
+# - Adaptar a exemples en ca.
+# - Redirigir als articles en ca.
+# [WARNING] needs_review
+msgid "_rock_exposition_rating_info"
+msgstr "<h3>Exposició en escalada en roca</h3>\n"
+"La graduació Exposició E per als itineraris d'escalada en roca es basa en les conseqüències de la caiguda. L'escalador no resulta ferit en els tres primers nivells (E1, E2, E3). La progressió al llarg de la graduació correspon a l'augment de la longitud de la caiguda potencial (o de la distància entre les proteccions). Per als nivells més elevats (E4, E5, E6), la caiguda implicarà ferides. La graduació correspon a la severitat de les conseqüències de la caiguda des de desllorigar-se el turmell fins a la mort. <br />\n"
+"<br />\n"
+"<strong>E1</strong>: Sobreprotegit amb punts d'ancoratge existents o bé fàcil de protegir des del terra a cada metre. No hi ha moviments obligats.<br />\n"
+"<br />\n"
+"<strong>E2</strong>: Ben protegit amb punts d'ancoratge existents o de bon protegir des de terra.  <a href=\"/routes/54224/fr\">Pujolidal</a><br />\n"
+"<br />\n"
+"<strong>E3</strong>: La caiguda serà llarga però sense conseqüències físiques. Els punts d'ancoratge existents o les proteccions que anem posant són espaiats.<br />\n"
+"<br />\n"
+"<strong>E4</strong>: La caiguda no és benigne. Implica un accident menor fins i tot si els punts d'ancoratge o les proteccions que posem no són gaire espaiats.<br />\n"
+"<br />\n"
+"<strong>E5</strong>: La caiguda és perillosa. Implicaria un accident creu. E5 correspon a punts d'ancoratge molt espaiats, proteccions a col·locar força dolentes o bé la presència del terra o d'una vira.  <a href=\"/routes/54334/fr\">Snake Dike</a><br />\n"
+"<br />\n"
+"<strong>E6</strong>: El mateix que per a E5 però en què es considera que s'és afortunat si es cau sense morir fins i tot havent protegit la via.<br />\n"
+"<br />\n"
+"Vegeu també l'ajuda sobre la <a href=\"/articles/133323/fr#exposition\">graduació de l'exposició en roca</a>. "
+
+# [general comment]
+# Aide contextuelle du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans la page d'un itinéraire.
+msgid "_rock_free_and_required_rating_info"
+msgstr "<h3>Dificultat lliure i lliure obligada</h3>\n"
+"Escala de dificultats d'escalada en roca en lliure i en lliure obligat.<br />\n"
+"- La dificultat lliure avalua la dificultat màxima de l'escalada lliure en roca.<br />\n"
+"- La dificultat lliure obligada avalua la dificultat màxima obligada de l'escalada lliure en roca. Es correspon a la dificultat de la part de les dificultats que queda un cop que s'han exhaurit totes les possibilitats de \"fer trampes\" utilitzant els punts d'ancoratge.<br />\n"
+"<br />\n"
+"Es donen segons l'escala francesa tradicionalment utilitzada, que va de 2 a 9b.<br />\n"
+"<br />\n"
+"Vegeu també l'ajuda a les <a href=\"/articles/133323/ca\">escala de dificultats d'escalada en roca (Escalada i roca en alta muntanya)</a>."
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Dificultat lliure</h3>\n"
@@ -3655,7 +3801,7 @@ msgid "_topoguide_code_info"
 msgstr "<h3>Codi d'inserció a la topo-guia</h3>Per inserir aquesta imatge (de mida reduïda) al text d'un document topo-guia, copieu i enganxeu el codi següent: cliqueu sobre el codi, aleshores feu Ctrl+C per copiar i Ctrl+V per enganxar.<br /><br />La imatge ha de complir les següents condicions:<br />- La imatge ha d'haver estat anteriorment associada al document.<br />- Si es tracta d'un document col·laboratiu, la imatge també ho ha de ser. <em>Per modificar el tipus d'imatge, editeu-la o feu servir l'<a href=\"/users/manageimages\">eina de gestió de les imatges personals</a>.</em><br /><br />D'aquesta manera podreu inserir el codi de la imatge directament des de la pàgina d'edició del document, amb l'ajuda del botó <input type=\"button\" value=\"img\" /> de la barra d'eines: només estaran disponibles les imatges que compleixin les anteriors condicions.<br /><br />Per defecte, la imatge es mostrarà a la dreta, amb la llegenda a sota, dins d'un requadre. Els atributs de la balisa d'obertura permeten modificar-ne la presentació:<br />- <strong>dreta</strong>: imatge alineada a la dreta, text a l'essquerra<br />- <strong>esquerra</strong>: imatge alineada a l'esquerra, text a la dreta<br />- <strong>centre</strong>: imatge centrada, sense text ni a dreta ni a esquerra<br />- <strong>inline</strong>: imatge dins del text<br />- <strong>inline_dreta</strong>: imatge dins del text, alineada a la dreta (permet acumular imatges a la dreta sobre la mateixa alineació)<br />- <strong>inline_esquerra</strong>: imatge dins del text, alineada a l'esquerra (permet d'acumular imatges a l'esquerra sobre la mateixa alineació)<br />- <strong>no_border</strong>: imatge amb llegenda a sota, sense requadre<br />- <strong>no_legend</strong>: imatge amb llegenda en indicador de funció, sense requadre<br /><br />Amb l'atribut <strong>dreta</strong> o <strong>esquerra</strong>, per començar un nou paràgraf sota la imatge, afegiu una <strong>[p]</strong> al final del paràgraf precedent."
 
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Exposició</h3>Grau d'exposició del descens amb esquís (escala Toponeige).<br />L'exposició descriu el risc de ferides en cas de caiguda, a part del pendent en sí mateix: una feble exposició però un pendent fort no garanteix una caiguda sense conseqüències.<br />L'escala va de E1 (cap obstacle) a E4 (grans precipicis de roca).<br /><strong>E1</strong>: L'exposició és la del pendent en sí. El risc de ferida és tanmateix important sobre neu dura i/o pendent fort.<br /><br /><strong>E2</strong>: A l'exposició del pendent s'hi afegeixen obstacles que agreujarien les ferides: petita barra de roca sense risc d'impacte, corredor sinuós.<br /><br /><strong>E3</strong>: En cas de caiguda, salt d'una gran barra rocallosa o corredor tortuós, risc probable d'impacte. Mort probable.<br /><br /><strong>E4</strong>: En cas de caiguda, salt d'una paret alta o d'un corredor molt estret, impacte garantit. Mort segura.<br /><br />Vegeu també l'ajuda a les <a href=\"/articles/107675/ca\">dificultats en esquí i surf</a>."
+msgstr "<h3>Exposició</h3>Grau d'exposició del descens amb esquís (escala Toponeige).<br />L'exposició descriu el risc de ferides en cas de caiguda, a part del pendent en si mateix: una exposició feble però un pendent fort no garanteix una caiguda sense conseqüències.<br /><br /><strong>E1</strong>: l'exposició és la del pendent en si. El risc de ferida és tanmateix important sobre neu dura i/o pendent fort.<br /><br /><strong>E2</strong>: a l'exposició del pendent s'hi afegeixen obstacles que agreujarien les ferides: petita barra de roca sense risc d'impacte, corredor sinuós.<br /><br /><strong>E3</strong>: En cas de caiguda, salt d'una gran barra rocallosa o corredor tortuós, risc probable d'impacte. Mort probable.<br /><br /><strong>E4</strong>: En cas de caiguda, salt d'una paret alta o corredor molt estret, impacte garantit. Mort segura.<br /><br />Vegeu també l'ajuda a les <a href=\"/articles/107675/ca\">dificultats en esquí i surf</a>."
 
 msgid "_toponeige_technical_rating_info"
 msgstr "<h3>Dificultat tècnica</h3>Dificultat tècnica de descens amb esquís (escala Toponeige).<br />No és una dificulutat puntual: depèn de la llargada i de la configuració de les dificultats.<br />Comprèn 5 graus. Cada grau està dividit en 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. El 5è grau està obert per dalt: 5.4, 5.5, etc.<br /><br /><strong>1.x</strong>: Nivell d'iniciació. Els pendents no passen de 30º. Els passos no són gaire estrets. El desnivell és inferior a 800m.<br /><br /><strong>2.x</strong>: Poques dificultats tècniques. Els pendents no passen de 35º.<br /><br /><strong>3.x</strong>: Presència de passos tècnics. Pendents llargs de 35º, alguns passos molt curts de fins a 40-45º.<br /><br /><strong>4.x</strong>: Esquí de canal o pendent fort. Pendents de 40 o 45º en més de 200m.<br /><br /><strong>5.x</strong>: Pendent de 45/50º en més de 300m o de més de 50º en 100m.<br /><br />Vegeu també l'article sobre la <a href=\"/articles/107675/fr\">dificultat en esquí i surf</a>."
@@ -3683,7 +3829,7 @@ msgstr "<h3>Itineraris associats</h3>Els itineraris associats a aquest itinerari
 
 # [WARNING] needs_review
 msgid "_vtt_approach_info"
-msgstr "<h3>Aproximació en BTT possible</h3>\n"
+msgstr "<h3>Aproximació amb BTT possible</h3>\n"
 "Tot o una part significativa de l'aproximació i/o de la tornada d'aquest itinerari es pot fer fàcilment amb BTT, des del punt més alt d'accés autoritzat durant l'estiu.<br />\n"
 "Això afecta les aproximacions que comencen per:<br />\n"
 "- una pista o ruta prohibida als vehicles de motor<br />\n"
@@ -3715,6 +3861,9 @@ msgstr "Resum / introducció:"
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
 msgid "access"
 msgstr "Accés:"
+
+msgid "access deserved by:"
+msgstr "Accessible amb:"
 
 msgid "access_comments"
 msgstr "Comentaris sobre l'accés:"
@@ -4038,6 +4187,11 @@ msgstr "biografia"
 msgid "bisse"
 msgstr "Feixa / canal / camí tallat a la roca"
 
+# [general comment]
+# ligne maritime / fluviale / lacustre pour le transport de passagers
+msgid "boat"
+msgstr "transbordador"
+
 msgid "book"
 msgstr "llibre"
 
@@ -4163,6 +4317,15 @@ msgstr "Camptocamp.org és un web col.laboratiu dedicat als esports de muntanya 
 msgid "c2corg news"
 msgstr "L'actualitat de C2C"
 
+# [general comment]
+# Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
+msgid "cable_car"
+msgstr "remuntadors mecànics"
+
+# [WARNING] needs_review
+msgid "cable_car_access"
+msgstr "Accessible amb remuntadors mecànics"
+
 msgid "calabre"
 msgstr "Calàbria"
 
@@ -4287,7 +4450,7 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Previsions meteoro
 "<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p>\n"
 "<ul><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>\n"
 "<p>Altres</p>\n"
-"<ul><li><a href=\"http://www.senderismeentransportpublic.blogspot.com/\">Senderisme en transport públic</a></li><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://transportpublic.org/\">transportpublic.org</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
+"<ul><li><a href=\"http://senderismeentren.cat/\">Senderisme amb tren</a></li><li><a href=\"http://www.senderismeentransportpublic.blogspot.com/\">Senderisme amb transport públic</a></li><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://transportpublic.org/\">transportpublic.org</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
 # [WARNING] needs_review
 msgid "cda_search_outings_tips"
@@ -4413,14 +4576,14 @@ msgid "cond short"
 msgstr "Condicions"
 
 msgid "conditions"
-msgstr "Condicions trobades:"
+msgstr "Condicions trobades (aproximació, via, i a proximitat):"
 
 msgid "conditions linked to"
 msgstr "llista de les condicions associades"
 
 # [WARNING] needs_review
 msgid "conditions_and_equipment"
-msgstr "Condicions del terreny, equipament i qualitat de la roca trobades (aproximació + via):\n"
+msgstr "Condicions del terreny, equipament i qualitat de la roca trobades (aproximació, via i a proximitat):\n"
 "\n"
 "\n"
 "Condicions trobades:"
@@ -4730,6 +4893,10 @@ msgstr "Compromís:"
 msgid "english"
 msgstr "anglès"
 
+# [WARNING] needs_review
+msgid "enter URL or paste it from clipboard"
+msgstr "URL de la imatge"
+
 msgid "enter place name"
 msgstr "Entreu un nom de lloc"
 
@@ -4843,6 +5010,11 @@ msgstr "la imatge sobrepassa les dimensions màximes autoritzades (8192x2048 px)
 msgid "file is too small"
 msgstr "L'imatge és de dimensions massa petites (minimo: 16x16 px)"
 
+# [general comment]
+# image size in bytes (used in diffs when a new image has been uploaded
+msgid "file_size"
+msgstr "Mida de la imatge"
+
 msgid "filename"
 msgstr "Imatge:"
 
@@ -4910,6 +5082,9 @@ msgstr "El forum utilitza el vostre nom d'usuari o el pseudònim si existeix"
 
 msgid "forum_code"
 msgstr "Codi d'inserció al fòrum&nbsp;:"
+
+msgid "forums images wizard failure"
+msgstr "La imatge no és vàlida"
 
 msgid "francais"
 msgstr "francès"
@@ -5043,6 +5218,9 @@ msgstr "Fusta"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "haute_normandie"
 msgstr "Alta Normandia"
+
+msgid "height"
+msgstr "Altura de la imatge:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -5190,6 +5368,12 @@ msgstr "Una mateixa imatge es pot associar a més d'un document, mitjançant l'e
 
 msgid "img button title"
 msgstr "Inserir una imatge"
+
+# [general comment]
+# message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
+# [WARNING] en translation used
+msgid "imgur notice %1%"
+msgstr "Images from your computer will be hosted on %1%1"
 
 msgid "imported from v4"
 msgstr "Importat des de la versió 4 del web"
@@ -5865,6 +6049,9 @@ msgstr "informació no disponible"
 msgid "novel"
 msgstr "relat"
 
+msgid "objective_risk_rating"
+msgstr "Riscos objectius:"
+
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
@@ -5895,6 +6082,10 @@ msgstr "obert no guardat"
 
 msgid "options"
 msgstr "Opcions"
+
+# [WARNING] needs_review
+msgid "or drag & drop files"
+msgstr "o arrossegueu les imatges des de l'ordinador"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
@@ -6239,7 +6430,7 @@ msgstr "Valls preferides"
 # 
 # Do not hesitate to customize links to your language
 msgid "prepare_outing_box"
-msgstr "<p>Previsions meteorològiques</p><ul><li><a href=\"http://www.meteo.cat/servmet/index.html\">Catalunya</a></li><li><a href=\"http://www.meteo.ad/previsio.php?idioma=0\">Andorra</a></li><li><a href=\" http://france.meteofrance.com/?LIEUID=FRANCE\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">Espanya</a></li><li><a href=\"http://www.meteosuisse.ch\">Suïssa</a></li><li><a href=\"http://meteolive.leonardo.it\">Itàlia</a></li></ul> <p>Allaus</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Catalunya</a></li><li><a href=\"http://www.lauegi.conselharan.org/2010/aplicacion/boletin.php\">Aran</a></li><li><a href=\" http://www.meteo.ad/neu.php?idioma=0\">Andorra</a></li><li><a href=\"http://france.meteofrance.com/france/montagne?85205.path=montagnebulletinneige\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Espanya</a></li><li><a href=http://www.slf.ch/index_EN>Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Itàlia</a></li><li><a href=\"/users/mailinglists\">Rep els butlletins per email</a></li></ul> <p>Gruixos de neu</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_gruix_neu.php\">Catalunya</a></li><li><a href=\" http://www.meteo.fr/temps/france/nivose/\">França</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.icc.cat/vissir3/\">Catalunya</a></li><li><a href=\"http://www.geoportail.fr/\">França</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">Espanya</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">Suïssa</a></li><li><a href=\"http://www.pcn.minambiente.it\">Itàlia</a></li></ul> <p>Refugis</p><ul><li><a href=\"http://www.feec.cat/refugis\">Catalunya (FEEC)</a></li><li><a href=\"http://www.ffcam.fr/refuges_centres_de_montagne.html\">França (CAF)</a></li><li><a href=\"http://www.sac-cas.ch/fr/cabanes/chercher-une-cabane.html\">Suïssa (CAS)</a></li><li><a href=\"http://www.cai.it/index.php?id=6\">Itàlia (CAI) </a></li></ul> <p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p><ul><li><a href=\"http://mct.gencat.cat/\">Mapa continu del trànsit</a></li><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>"
+msgstr "<p>Previsions meteorològiques</p><ul><li><a href=\"http://www.meteo.cat/servmet/index.html\">Catalunya</a></li><li><a href=\"http://www.meteo.ad/previsio.php?idioma=0\">Andorra</a></li><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">Espanya</a></li><li><a href=\"http://www.meteosuisse.ch\">Suïssa</a></li><li><a href=\"http://meteolive.leonardo.it\">Itàlia</a></li></ul> <p>Allaus</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Catalunya</a></li><li><a href=\"http://www.lauegi.conselharan.org/2010/aplicacion/boletin.php\">Aran</a></li><li><a href=\" http://www.meteo.ad/neu.php?idioma=0\">Andorra</a></li><li><a href=\"http://france.meteofrance.com/france/montagne?85205.path=montagnebulletinneige\">França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&amp;p=arn1\">Espanya</a></li><li><a href=http://www.slf.ch/index_EN>Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Itàlia</a></li><li><a href=\"/users/mailinglists\">Rep els butlletins per email</a></li></ul> <p>Gruixos de neu</p><ul><li><a href=\"http://www.igc.cat/web/ca/allaus_gruix_neu.php\">Catalunya</a></li><li><a href=\" http://www.meteo.fr/temps/france/nivose/\">França</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.icc.cat/vissir3/\">Catalunya</a></li><li><a href=\"http://www.geoportail.fr/\">França</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">Espanya</a></li><li><a href=\"http://map.geo.admin.ch/?lang=en\">Suïssa</a></li><li><a href=\"http://www.pcn.minambiente.it\">Itàlia</a></li></ul> <p>Refugis</p><ul><li><a href=\"http://www.feec.cat/refugis\">Catalunya (FEEC)</a></li><li><a href=\"http://www.ffcam.fr/refuges_centres_de_montagne.html\">França (CAF)</a></li><li><a href=\"http://www.sac-cas.ch/fr/cabanes/chercher-une-cabane.html\">Suïssa (CAS)</a></li><li><a href=\"http://www.cai.it/index.php?id=6\">Itàlia (CAI) </a></li></ul> <p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p><ul><li><a href=\"http://mct.gencat.cat/\">Mapa continu del trànsit</a></li><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>"
 
 # [general comment]
 # [cda] title of the top left box on home
@@ -6483,6 +6674,15 @@ msgid "rock_climbing (single-pitch)"
 msgstr "escola d'escalada"
 
 # [general comment]
+# exposition rocher
+# 
+# Faut-il préciser "rocher" dans les trads ?
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# [WARNING] needs_review
+msgid "rock_exposition_rating"
+msgstr "Grau d'exposició en escalada:"
+
+# [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans la page d'un itinéraire et dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
 msgid "rock_free_and_required_rating"
@@ -6491,6 +6691,9 @@ msgstr "Dificultat lliure i obligada:"
 msgid "rock_free_rating"
 msgstr "Cotació lliure:"
 
+# [general comment]
+# Doublon non utilisé de http://c2ci18n.appspot.com/translations/edit/15057
+# (à vérifier)
 msgid "rock_free_rating_rock_required_rating"
 msgstr "Dificultat lliure > obligada:"
 
@@ -6632,6 +6835,10 @@ msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practic
 
 msgid "select an image file"
 msgstr "Escolliu una imatge:&nbsp;"
+
+# [WARNING] needs_review
+msgid "select image or dragdrop"
+msgstr "Cliqueu per seleccionar una imatge des del vostre ordinador o bé arrossegueu-les i deixeu-les anar"
 
 msgid "selected admin_limits"
 msgstr "Regions administratives preseleccionades"
@@ -6827,6 +7034,21 @@ msgstr "Esquí de forts pendents"
 msgid "stories"
 msgstr "narracions, contes, relats"
 
+msgid "sub-parkings"
+msgstr "sub-accés"
+
+# [WARNING] needs_review
+msgid "sub-sites"
+msgstr "sub-lloc d'escalada"
+
+# [general comment]
+# same usage as http://c2ci18n.appspot.com/translations/edit/1058 but we precise that these are sub-summits
+# 
+# In that case, 
+# [WARNING] needs_review
+msgid "sub-summits"
+msgstr "sub-cims, colls, estanys, parets"
+
 msgid "sub_activities"
 msgstr "Compatible amb:"
 
@@ -6843,7 +7065,7 @@ msgid "summit_type"
 msgstr "Tipus:"
 
 msgid "summits"
-msgstr "cims, colls, llacs, parets"
+msgstr "cims, colls, estanys, parets"
 
 msgid "summits list"
 msgstr "Llista de cims, colls, llacs, parets"
@@ -6883,7 +7105,7 @@ msgstr "Mostrar únicament l'activitat alpinisme"
 
 # [WARNING] needs_review
 msgid "switch_to_snowshoeing"
-msgstr "Mostra només activitats amb raquetes"
+msgstr "Mostra només l'activitat raquetes"
 
 msgid "ta portal"
 msgstr "Terreny d'aventura"
@@ -6997,8 +7219,10 @@ msgstr "Codi d'inserció de la imatge:"
 msgid "topoguidename"
 msgstr "Nom a la topo-guia"
 
+# [general comment]
+# exposition ski
 msgid "toponeige_exposition_rating"
-msgstr "Exposició:"
+msgstr "Grau d'exposició en esquí:"
 
 msgid "toponeige_technical_rating"
 msgstr "Cotació tècnica:"
@@ -7178,6 +7402,9 @@ msgstr "Vosges"
 msgid "vtt_approach"
 msgstr "aproximació amb BTT possible"
 
+msgid "wait while image is uploaded"
+msgstr "Espereu-vos mentre puja la imatge"
+
 msgid "waiting for geolocation"
 msgstr "Localització en curs..."
 
@@ -7210,6 +7437,11 @@ msgstr "Fes servir els mateixos criteris que a aquesta llista"
 msgid "widget generator help"
 msgstr "Camptocamp us ofereix la possibilitat d'integrar al vostre lloc web o blog un widget que mostra una llista de continguts de la topo-guia. Podeu, per exemple, mostrar les vostres darreres sortides, els darrers cims que heu introduït a la topo-guia, o qualsevol altra llista que us balli pel cap.<br /><br />Indiqueu el títol que voleu donar al vostre widget i després copieu el codi d'aquí sota a la vostra pàgina web. Així de senzill!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Més informació</a>"
 
+# [general comment]
+# image width
+msgid "width"
+msgstr "Amplada de la imatge:"
+
 msgid "with rain"
 msgstr "exposat a la pluja"
 
@@ -7218,6 +7450,12 @@ msgstr "en un radi de"
 
 msgid "wl button title"
 msgstr "Inserir un enllaç intern"
+
+# [general comment]
+# placeholder pour le titre d'une image
+# [WARNING] needs_review
+msgid "write a caption"
+msgstr "Escrigueu un peu de foto"
 
 msgid "wrong file type"
 msgstr "Format d'imatge no vàlid"
@@ -7246,6 +7484,10 @@ msgstr "si"
 
 msgid "yesterday, at %1%"
 msgstr "ahir, a les %1%"
+
+# [WARNING] needs_review
+msgid "you cannot select public transportation types without appropriate service rating"
+msgstr "No es pot seleccionar cap mode de transport públic si el camp \"accessibilitat\" no hi és compatible"
 
 # [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"

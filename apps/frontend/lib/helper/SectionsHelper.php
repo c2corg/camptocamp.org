@@ -11,8 +11,6 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
     $picto_class = ($state == 'opened') ? 'picto_close' : 'picto_open';
     $status = __(($state == 'opened') ? 'section close' : 'section open');
 
-    $toggle = "C2C.toggleView('$container_id')";
-    
     $label = picto_tag($picto_class, '', array('id' => $container_id . '_toggle')) . __($label);
     if ($show_tip && !c2cTools::mobileVersion())
     {
@@ -29,9 +27,8 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
     $style = $hide ? '" style="display:none' : '';
 
     $html  = '<div class="' . $class . '" id="' . $container_id . '_tbg' . $style . '">'
-           . '<a id="' . $container_id . '"></a>'
            . '<div class="title" id="' . $container_id . '_section_title" title="' . $status . '">'
-           . link_to_function($label, $toggle)
+           . '<a href="#" id="' . $container_id . '" data-toggle-view="' . $container_id . '">' . $label . '</a>'
            . $up
            . '</div>'
            . '</div>';

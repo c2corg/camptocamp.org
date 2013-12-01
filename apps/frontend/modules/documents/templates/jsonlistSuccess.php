@@ -13,13 +13,17 @@ if (!isset($items) && $nb_results > 0)
 elseif ($nb_results == 0)
 {
     $items = array();
+    $totalItems = $startIndex = $count = $hasPreviousPage = $hasNextPage = 0;
 }
 
-$totalItems = $pager->getNbResults();
-$startIndex = $pager->getMaxPerPage() * ($pager->getPage() - 1) + 1;
-$count = min($pager->getMaxPerPage(), $pager->getNbResults() - ($pager->getPage() - 1) * ($pager->getMaxPerPage()));
-$hasPreviousPage = ($pager->getPage() != 1);
-$hasNextPage = ($pager->getPage() != $pager->getLastPage() && $nb_results);
+if (isset($pager))
+{
+    $totalItems = $pager->getNbResults();
+    $startIndex = $pager->getMaxPerPage() * ($pager->getPage() - 1) + 1;
+    $count = min($pager->getMaxPerPage(), $pager->getNbResults() - ($pager->getPage() - 1) * ($pager->getMaxPerPage()));
+    $hasPreviousPage = ($pager->getPage() != 1);
+    $hasNextPage = ($pager->getPage() != $pager->getLastPage() && $nb_results);
+}
 
 // compute prev and next uris
 if ($hasPreviousPage || $hasNextPage)
@@ -29,10 +33,11 @@ if ($hasPreviousPage || $hasNextPage)
 }
 ?>
 {                                                                                          
-  "type": "application/json",                                                              
+  "type": "application/json",
   "totalItems": <?php echo $totalItems; ?>,
   "count": <?php echo $count; ?>,
   "startIndex": <?php echo $startIndex; ?>,
+  "currentPage": "<?php echo sfContext::getInstance()->getRequest()->getUri(); ?>",
 <?php if ($hasNextPage): ?>
   "nextPage": "<?php echo absolute_link(url_for($uri . $pager->getNextPage())); ?>",
 <?php endif; if ($hasPreviousPage): ?>

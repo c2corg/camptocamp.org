@@ -1,9 +1,6 @@
 <div id="fake_div">
 <?php use_helper('Form', 'Validation', 'Ajax', 'Link', 'MyForm');
 
-// handle ajax errors
-echo ajax_feedback(true); // true == inline feedback
-                          // FIXME conflicts with ajax feedback divs already in the doc
 // handle non ajax error form
 echo global_form_errors_tag();
 

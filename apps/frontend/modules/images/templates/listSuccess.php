@@ -11,7 +11,7 @@ if (!$mobile_version)
     addLbMinimalRessources();
 }
 
-echo display_title(__('images list'), $sf_params->get('module'), false);
+echo display_title(__('images list'), $sf_params->get('module'), false, 'list_nav');
 
 if (!c2cTools::mobileVersion())
 {
@@ -72,19 +72,7 @@ else:
     </div>
 <?php endforeach ?>
 <div style="clear:both"><?php echo $pager_navigation; ?></div>
-<?php
-if (!$mobile_version)
-{
-    echo '<!--[if IE 6]>', javascript_tag("
-Event.observe(window, 'load', function(){
-$$('.thumb_data_img').each(function(obj){
-obj.down('.image_license').hide();
-obj.observe('mouseover', function(e){obj.down('.image_license').show();});
-obj.observe('mouseout', function(e){obj.down('.image_license').hide();});
-});});"), '<![endif]-->';
-}
-
-endif;
+<?php endif;
 
 echo end_content_tag();
 

@@ -1,8 +1,6 @@
 <?php
 use_helper('Language', 'Sections', 'Viewer', 'MyImage', 'Link', 'AutoComplete', 'General');
 
-$ajax_failure_feedback = sfConfig::get('app_ajax_feedback_div_name_failure');
-
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $sf_params->get('id');

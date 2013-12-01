@@ -25,8 +25,8 @@ setlocale(LC_CTYPE, $locale);
 */
 
 // SPRACHDEFINITIONEN FUER HAEUFIG GEBRAUCHTE ZEICHENKETTEN
-$lang_common = array(
 
+$lang_common = array(
 // TEXTORIENTIERUNG UND VERSCHLUESSELUNG
 'lang_direction'		=>	'ltr',	// ltr (Left-To-Right) ODER rtl (Right-To-Left)
 'lang_encoding'			=>	'UTF-8',
@@ -94,6 +94,17 @@ $lang_common = array(
 'Replies'				=>	'Antworten',
 'Author'				=>	'Autor',
 'Pages'					=>	'Seiten',
+'B button help'     =>  'Fett',
+'I button help'     =>  'Kursiv',
+'U button help'     =>  'Unterstrichen',
+'S button help'     =>  'Durchgestrichen',
+'C button help'     =>  'Monospace',
+'http button help'    =>  'Hyperlink',
+'@ button help'     =>  'Email',
+'Img button help'   =>  'Bild',
+'Img wizard title' => 'Bild einfügen',
+'Code button help'    =>  'Code',
+'Quote button help'   =>  'Quotierung',
 'Help'					=>	'Hilfe',
 'Reduce the text box'	=>	'Reduce the text box',
 'Enlarge the text box'	=>	'Enlarge the text box',
@@ -108,6 +119,10 @@ $lang_common = array(
 'Important information'	=>	'Wichtige Information',
 'Write message legend'	=>	'Schreiben Sie hier Ihren Beitrag',
 'all'                   =>  'alle',
+'Previous'              =>  'Zurück',
+'Next'                  =>  'Vorher',
+'see embedded'          =>  '[zeigen]',
+'close embedded'        =>  '[verstecken]',
 
 // Title
 'Title'					=>	'Titel',
@@ -166,10 +181,10 @@ $lang_common = array(
 'Debug table'			=>	'Debug Information',
 'Move posts'			=>	'Déplacer plusieurs messages',
 
+
 // For extern.php RSS feed
 'RSS Desc Active'		=>	'Das zuletzt aktive Thema aus:',	// board_title will be appended to this string
 'RSS Desc New'			=>	'Das neueste Thema aus:',					// board_title will be appended to this string
-
 // CaptchaBox entries
 'captchabox post tip'		=>  'Click in the dark area of the image to send your post.',
 'captchabox reg tip'		=>  'Click in the dark area of the image to register.',
@@ -177,3 +192,4 @@ $lang_common = array(
 'captchabox denied'		=>  'You have used all your tries for the Captcha. Try again later.',
 'captchabox img title'		=>  'Click the box for next step'
 );
+

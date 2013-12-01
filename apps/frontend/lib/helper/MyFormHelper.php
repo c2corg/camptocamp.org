@@ -7,20 +7,12 @@
 // FIXME dirty trick
 if (function_exists('use_helper')) // template
 {
-    use_helper('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button');
+    use_helper('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button', 'JavascriptQueue');
 }
 else // action
 {
-    sfLoader::loadHelpers('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button');
+    sfLoader::loadHelpers('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button', 'JavascriptQueue');
 }
-
-function loadTooltipsEditRessources()
-{
-    $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript('/static/js/submit.js', 'last');
-}
-
-loadTooltipsEditRessources();
 
 function _get_mandatory_fields()
 {
@@ -131,7 +123,6 @@ function object_group_tag($object, $fieldname, $options = array())
     $check_mandatory = _option($options, 'check_mandatory', true);
     $label_name = _option($options, 'label_name', null);
     $label_id = _option($options, 'label_id', $label_name);
-    $tips = _option($options, 'tips', '');
 
     $method = _convert_fieldname_to_method($fieldname);
     $mandatory = $check_mandatory && is_mandatory($fieldname);
@@ -165,15 +156,6 @@ function object_group_tag($object, $fieldname, $options = array())
     if ($suffix)
     {
         $out .= '&nbsp;' . __($suffix);
-    }
-
-    if ($tips) // remove ????? FIXME
-    {
-        if ($tips === true)
-        {
-            $tips = '_' . $fieldname . '_short_info';
-        }
-        $out .= '<div class="float-tips">' . __($tips) . '</div>';
     }
 
     $out .= end_group_tag();
@@ -291,7 +273,8 @@ function object_group_bbcode_tag($object, $fieldname, $field_title = null, $opti
             ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
             : start_group_tag();
     $out .= label_tag($fieldname, $field_title, $mandatory, 
-                      array('class' => sfConfig::get('app_form_label_class') . ' extraheight', 'id' => '_' . $label_id));
+                      array('class' => sfConfig::get('app_form_label_class') . ' extraheight',
+                            'id' => '_' . $label_id, 'data-tooltip' => ''));
     $out .= '<div>';
     $out .= bbcode_textarea_tag($object, $fieldname, $options);
     $out .= '</div>';
@@ -328,7 +311,8 @@ function label_tag($id, $labelname = null, $mandatory = false, $options = null, 
         $label_id = $id;
     }
     
-    $default_options = array('class' => sfConfig::get('app_form_label_class', 'fieldname'), 'id' => '_' . $label_id);
+    $default_options = array('class' => sfConfig::get('app_form_label_class', 'fieldname'),
+        'id' => '_' . $label_id, 'data-tooltip' => '');
 
     if (!is_null($options))
     {
@@ -442,7 +426,7 @@ function bb_button_tag($name, $value, $textarea_id, $options = array())
     return tag('input', array_merge(array('value' => $value,
                                           'type' => 'button',
                                           'name'  => $name,
-                                          'onclick' => "C2C.storeCaret('$value', '$textarea_id')",
+                                          'onclick' => "C2C.insertBbcode('$value', '$textarea_id')",
                                           'title' => $title),
                                     $options)) . ' ';
 }
@@ -468,7 +452,7 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
            bb_button_tag('url_button', 'url', $target_id, array('style' => 'text-decoration:underline')) .
            ($img_tag ? bbcode_toolbar_img_tag($document, $target_id) : '') .
            ($abs_tag ? bb_button_tag('abs_button', 'abs', $target_id) : '') .
-           ($line_tag ? bb_button_tag('line_button', 'L#', $target_id, array('class' => 'rlineb')) : '') . ' &nbsp; ' .
+           ($line_tag ? bb_button_tag('line_button', 'L#', $target_id, array('data-act-filter' => '1 2 3 4')) : '') . ' &nbsp; ' .
            link_to(__('Help'), getMetaArticleRoute('formatting', false, 'path')) . ' ' .
            picto_tag('picto_close', __('Reduce the text box'),
                      array('onclick' => "C2C.changeTextareaSize('$target_id', false)")) .
@@ -480,11 +464,13 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
 function bbcode_toolbar_img_tag($document, $target_id)
 {
     $id = $document->getId();
+
     $options = array('title' => __('Insert image'),
-                     'onclick' => "Modalbox.show('/insertimagetag/" . $document->getModule() . '/'
-                                                  . $id . "/$target_id', "
-                                                  . _options_for_javascript(array('title' => 'this.title', 'width' => 710))
-                                                  . "); return false;");
+                     'onclick' => "$.modalbox.show(" .
+                         _options_for_javascript(array('title' => 'this.title', 'width' => 710,
+                                                      'remote' => "'/insertimagetag/" . $document->getModule() . "/$id/$target_id'")) .
+                         '); return false;');
+
     if (!(isset($id) && trim($id) != ''))
     {
         $options['disabled'] = 'disabled';
@@ -553,7 +539,7 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
         }
     }
     $options = options_with_classes_for_select($list, $selected, array(), 'picto picto_');
-    $select_js = 'var c=this.classNames().each(function(i){$(\''.$id_prefix.'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
+    $select_js = 'this.setAttribute("class", "picto picto_" + this.options[this.selectedIndex].value);';
     $html = select_tag('type', $options,
                        array('onchange' => $select_js,
                              'class' => 'picto picto_'.$selected,
@@ -567,12 +553,12 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
                                 'title' => __('Search on c2c') . ' [alt-shift-f]');
     if ($autocomplete)
     {
-        $html .= input_auto_complete_tag('q', '', '@quicksearch',
-                                         $input_html_options,
-                                         array('update_element' => "function (selectedItem) {
-                                                  window.location = '/documents/'+selectedItem.id; }",
-                                               'min_chars' => sfConfig::get('app_autocomplete_min_chars'),
-                                               'with' => "'q='+$('${id_prefix}q').value+'&type='+$('${id_prefix}type').value"));
+        $html .= input_tag('q', '', $input_html_options);
+        $html .= javascript_queue("$('#q').c2cAutocomplete({
+          url: '" . url_for('@quicksearch') . "',
+          minChars: " .  sfConfig::get('app_autocomplete_min_chars') . ",
+          params: 'q=' + $('#${id_prefix}q').val() + '&type=' + $('#${id_prefix}type').val()
+        }).on('itemselect', function(e, item) {  window.location = '/documents/' + item.id; });");
     }
     else
     {
@@ -621,7 +607,7 @@ function portal_search_box_tag($params, $current_module)
     }
     $selected = 'routes';
     $options = options_with_classes_for_select($list, $selected, array(), 'picto picto_');
-    $select_js = 'var c=this.classNames().each(function(i){$(\'wtype\').removeClassName(i)});this.addClassName(\'picto picto_\'+($F(this).split(\'/\'))[0]);';
+    $select_js = 'this.setAttribute("class", "picto picto_" + this.options[this.selectedIndex].value.split(\'/\')[0]);';
     $html = '<input type="hidden" value="' . $main_filter . '" name="params" />';
     $html .= select_tag('wtype', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected, 'placeholder' => __('Search'))); 
     $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox'));
@@ -642,8 +628,6 @@ function radiobutton_tag_selected_if($radio_name, $value, $value_to_compare_with
 
 function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_after = true, $i18n = true, $list_class = 'checkbox_list', $nokey = false, $picto='')
 {
-    //$toReturn = link_to_function('do not filter', "$$('#$list_name input[type=checkbox]').invoke('disable'); $('$list_name').hide(); this.hide();");
-    
     $toReturn = '<ol class="' . $list_class . '" id="' . $list_name . '">';
     
     if ($checkboxes_array[0] == null) 
@@ -667,7 +651,7 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_aft
         }
 
     	$checkbox_toReturn = checkbox_tag($list_name . '[]', $value_to_use, $checked,
-                                  array('id' => $list_name . '_' . $checkbox, 'onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));
+                                  array('id' => $list_name . '_' . $checkbox, 'onclick' => "this.parentNode.className = (this.parentNode.className == 'checked') ? '' : 'checked'"));
         
         if ($label_after)
         {
@@ -681,7 +665,7 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_aft
     	$toReturn .= '</li>';
     }
     
-    return $toReturn .= '</ol>';
+    return $toReturn . '</ol>';
 }
 
 function checkbox_nokey_list($list_name, $checkboxes_array, $compare_array, $label_after = true, $i18n = true, $list_class = 'checkbox_list')
@@ -808,10 +792,8 @@ function options_with_classes_for_select($options = array(), $selected = '', $ht
                 $option_options['class'] = $class_prefix . $suffix;
             }
 
-            if (
-                (is_array($selected) && in_array(strval($key), $selected, true))
-                ||
-                (strval($key) == strval($selected))
+            if ((is_array($selected) && in_array(strval($key), $selected, true)) ||
+                (!is_array($selected) && strval($key) == strval($selected))
             )
             {
                 $option_options['selected'] = 'selected';
@@ -835,7 +817,8 @@ function c2c_reset_tag($value = 'Reset', $options = array())
 
 function c2c_submit_tag($value = 'Submit', $options = array())
 {
-    return c2c_button($value, array_merge(array('type' => 'submit', 'name' => 'commit'), _convert_options_to_javascript(_convert_options($options))));
+    return c2c_button($value, array_merge(array('type' => 'submit', 'name' => 'commit'),
+                                 _convert_options_to_javascript(_convert_options($options))));
 }
 
 function c2c_button($value, $options, $btn = null)

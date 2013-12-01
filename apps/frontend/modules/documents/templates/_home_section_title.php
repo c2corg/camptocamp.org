@@ -85,36 +85,28 @@ $title_icon = empty($custom_title_icon) ? $module : $custom_title_icon;
 
 $section_id = empty($custom_section_id) ? "last_$module" : $custom_section_id;
 
-$option1 = __('section close');
-$option2 = __('section open');
-
 if (!isset($home_section))
 {
     $home_section = true;
 }
+
+$toggle = ' data-toggle-view="'. $section_id . '" title="' . __('section close') . '"';
 if ($home_section)
 {
     $cookie_position = array_search($section_id, sfConfig::get('app_personalization_cookie_fold_positions'));
-    $toggle = "C2C.toggleHomeSectionView('$section_id', $cookie_position); return false;";
+    $toggle .= ' data-cookie-position="'. $cookie_position . '"';
 }
-else
-{
-    $toggle = "C2C.toggleView('$section_id'); return false;";
-}
-$toggle_tooltip = $option1;
-$onclick = ' onclick="' . $toggle . '" title="' . $toggle_tooltip . '"';
-
 ?>
 <div class="home_title" id="<?php echo $section_id; ?>_section_title"<?php
     if (!$has_title_link)
     {
-        echo $onclick;
+        echo $toggle;
     }
     ?>>
     <div id="<?php echo $section_id; ?>_toggle" class="home_title_left picto_<?php echo $title_icon; ?>"<?php
     if ($has_title_link)
     {
-        echo $onclick;
+        echo $toggle;
     }
     ?>></div>
     <?php echo $rss; ?>

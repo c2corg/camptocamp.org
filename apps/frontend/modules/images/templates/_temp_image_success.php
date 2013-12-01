@@ -1,9 +1,7 @@
 <?php
 use_helper('Form', 'MyImage', 'Button', 'Javascript');
 
-echo link_to_function(picto_tag('action_cancel', __('close')),
-                                '$(this).up().hide();Modalbox.resizeToContent();',
-                                 array('style' => 'float:right;'));
+echo picto_tag('action_cancel', __('close'), array('class' => 'tmp-image-close'));
 echo image_tag(image_url($image_filename, 'small', false, true), array('class' => 'temp'));
 echo __('categories (multiple selection allowed)');
 ?>
@@ -30,9 +28,11 @@ echo __('categories (multiple selection allowed)');
 // and we thus prevent double escaping
 $image_title = isset($image_title) ? $sf_data->getRaw('image_title') : '';
 echo __('name'), ' ',
-     input_tag("name[$image_number]", $image_title, array('maxlength' => '150', 'class' => 'large_input')), ' ';
-echo input_hidden_tag("image_unique_filename[$image_number]", $image_filename);
+     input_tag("name[$image_number]", $image_title, array('maxlength' => '150', 'class' => 'large_input',
+         'placeholder' => __('write a caption'))),
+     ' ', input_hidden_tag("image_unique_filename[$image_number]", $image_filename);
 
+echo '<br /><br />';
 $license_choices = array_map('__', sfConfig::get('mod_images_type_list'));
 if ($default_license == 1) // collaborative licence is mandatory if it is the one proposed by default
 {

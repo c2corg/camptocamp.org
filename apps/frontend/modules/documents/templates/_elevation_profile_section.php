@@ -1,5 +1,5 @@
 <?php
-use_helper('MyMinify');
+use_helper('MyMinify', 'JavascriptQueue');
 
 $mobile = c2cTools::mobileVersion();
 echo start_section_tag('Elevation profile', 'elevation_profile_container', 'closed');
@@ -24,9 +24,9 @@ echo start_section_tag('Elevation profile', 'elevation_profile_container', 'clos
 <?php
 echo end_section_tag();
 
-// FIXME d3js uses functions unsupported by ie<=8 but
+// note: d3js uses functions unsupported by ie<=8 but
 // feature detecting svg support should be enough
-$script_url = minify_get_combined_files_url(array('/static/js/d3.v3.js',
+$script_url = minify_get_combined_files_url(array('/static/js/d3.min.js',
                                                   '/static/js/elevation_profile.js'),
                                             (bool) sfConfig::get('app_minify_debug'));
 // notes:
@@ -36,15 +36,14 @@ $script_url = minify_get_combined_files_url(array('/static/js/d3.v3.js',
 //   since every browser supporting animations supports transforms
 // - c2c_load_elevation_profile is called once the section is opened, and
 //   ensures the js is only loaded once
-$js = "(function() {
-var div = document.createElement('div');
+$js = "var div = document.createElement('div');
 div.innerHTML = '<svg/>';
 var svg_supported = (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
 if (!svg_supported) {
-  $('elevation_profile_container_tbg').hide();
-  $('elevation_profile_nav').hide();
+  $('#elevation_profile_container_tbg').hide();
+  $('#elevation_profile_nav').hide();
 } else {
-  window.c2cprofile = {
+  C2C.elevation_profile_data = {
     track: '" . url_for("@export_gpx?module=outings&id=$id&lang=" . $sf_user->getCulture()) . "',
     i18n: {
       yLegend: '" . __('Elevation (m)') . "',
@@ -59,9 +58,8 @@ if (!svg_supported) {
     }
   };
   var animation = false;
-  var props = ['animationName', 'WebkitAnimationName', 'MozAnimationName',
-               'oAnimationName', 'msAnimationName'];
-  var elt = $$('.ui-spinner .fill')[0];
+  var props = ['animationName', 'WebkitAnimationName', 'MozAnimationName'];
+  var elt = $('.ui-spinner .fill')[0];
   for (var i in props) {
     var prop = props[i];
     if (elt.style[prop] !== undefined) {
@@ -70,24 +68,17 @@ if (!svg_supported) {
     }
   }
   if (!animation) {
-    elt = $$('.elevation_profile_loading')[0];
-    elt.innerHTML = '" . image_tag('/static/images/indicator.gif') . "';
-    elt.removeClassName('ui-spinner');
+    elt = $('.elevation_profile_loading')
+      .html('" . image_tag('/static/images/indicator.gif') . "')
+      .removeClass('ui-spinner');
   }
-  window.c2c_load_elevation_profile = function() {
-    c2c_asyncload('$script_url');
-    $('elevation_profile_container_section_container').addClassName('profile_loaded');
-  }
-}})()";
+  $('#elevation_profile_container').one('click', function() {
+    $.ajax({
+      url: '$script_url',
+      dataType: 'script',
+      cache: true
+    });
+  });
+}";
 
-// In mobile version, we don't have the dynamic map, so we don't have c2c_asyncload defined
-// Also if async map loading is disabled
-// FIXME the function should be defined at top level and could be used for addthis and analytics snippets (and more...)
-// + logic is somewhat not very clear...
-if ($mobile || !sfConfig::get('app_async_map', false))
-{
-    $js = 'function c2c_asyncload(jsurl) { var a = document.createElement(\'script\'), h = document.getElementsByTagName(\'head\')[0];' .
-          'a.async = 1; a.src = jsurl; h.appendChild(a); }' . $js;
-}
-
-echo javascript_tag($js);
+echo javascript_queue($js);

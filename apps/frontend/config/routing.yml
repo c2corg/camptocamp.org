@@ -229,6 +229,10 @@ image_jsupload:
   param: { module: images, action: jsupload }
   requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users), document_id: \d+ }
 
+image_forums_upload: # would be more logic to have this in web/forums, but symfony helpers are of great help
+  url: /images/forums/wizard
+  param: { module: images, action: forumWizard }
+
 image_tag:
   url: /insertimagetag/:mod/:id/:div
   param: { module: documents, action: insertimagetag }
@@ -338,7 +342,7 @@ ordered_list:
 getdirections:
   url: /getdirections/to/:id/with/:service
   param: { module: parkings, action: getdirections }
-  requirements: { id: \d+, service: (?:gmaps|yahoo|livesearch|openmapquest) }
+  requirements: { id: \d+, service: (?:gmaps|yahoo|livesearch|openmapquest|osrm) }
 
 cda:
   url: /cda
