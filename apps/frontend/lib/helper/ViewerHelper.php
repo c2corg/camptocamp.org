@@ -106,7 +106,7 @@ function init_js_var($default_nav_status = true, $nav_status_pref = 'default_nav
 
     $js = '(function(C2C){';
     foreach ($vars as $var => $value) {
-      $js .= "C2C['$var'] = " . (is_int($value) ? $value : "'$value'") . ";";
+      $js .= "C2C.$var = " . (is_int($value) ? $value : "'$value'") . ";";
     }
     $js .= '})(window.C2C = window.C2C || {});';
 
