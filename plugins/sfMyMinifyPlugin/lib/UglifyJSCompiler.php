@@ -6,8 +6,7 @@
  */
 class Minify_UglifyJSCompiler {
 
-  public static $nodeExecutable = 'nodejs';
-  public static $UglifyJSExecutable = null;
+  public static $UglifyJSExecutable = 'uglifyjs';
   public static $tempDir = null;
 
   public static function minify($js, $options = array()) {
@@ -28,13 +27,13 @@ class Minify_UglifyJSCompiler {
   }
 
   private static function _getCmd($userOptions, $file) {
-    return self::$nodeExecutable . ' ' . escapeshellarg(self::$UglifyJSExecutable) .
-      ' -nc ' . escapeshellarg($file);
+    return self::$UglifyJSExecutable . ' -nc ' . escapeshellarg($file);
   }
 
   private static function _prepare() {
-    if (!is_file(self::$UglifyJSExecutable)) {
-      throw new Exception('Minify UglifyJS Compiler: could not find uglifyjs (' . self::$UglifyJSExecutable . ')');
+    $test = shell_exec("which uglifyjs");
+    if (empty($test)) {
+      throw new Exception('Minify UglifyJS Compiler: could not find uglifyjs');
     }
   }
 

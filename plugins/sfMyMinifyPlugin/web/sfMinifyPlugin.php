@@ -82,10 +82,6 @@ if (isset($_GET['f']))
         // Use UglifyJS for JS
         require dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'UglifyJSCompiler.php';
 
-        Minify_UglifyJSCompiler::$UglifyJSExecutable = dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.
-            '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'UglifyJS'.DIRECTORY_SEPARATOR.
-            'bin'.DIRECTORY_SEPARATOR.'uglifyjs';
-
         $options['minifiers'][Minify::TYPE_JS] = array('Minify_UglifyJSCompiler', 'minify');
       }
 
