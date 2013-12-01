@@ -276,6 +276,13 @@ class sfPunBBCodeParser
      */
     public static function handle_url_tag($url, $link = '', $viewer = true, $target = '')
     {
+        // prevent double inclusion of links (happens for example if we use [url=http://example.com]http://example.com[/url]
+        // if we have a <a> tag in link just skip the inner content.
+        if (!empty($link) && strpos($link, '<a') !== false)
+        {
+            $link = '';
+        }
+
         $hreflang = '';
         $rel = '';
         
