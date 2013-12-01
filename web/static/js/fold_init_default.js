@@ -23,7 +23,7 @@
   };
 
   // hide a section according to preference cookie or default value
-  C2C.setSectionStatus = function (container, position, default_opened) {
+  C2C.setSectionStatus = function(container, position, default_opened) {
 
     if (!C2C.shouldHide(position, default_opened)) return;
 
