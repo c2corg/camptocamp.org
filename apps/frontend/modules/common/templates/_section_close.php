@@ -24,7 +24,7 @@ if ($mobile):
   if ($action == 'home' || ($module == 'portals' && $action == 'view')):
   // fold_init_home_mobile.js ~ 510b
 ?>
-(function(e,t){e.shouldHide=function(e,n){var o=/fold=([tfx]{20});/.exec(t.cookie)
+(function(e,t){e.shouldHide=function(e,n){var o=/(?:^|;)\s?fold=([tfx]{20})(?:;|$)/.exec(t.cookie)
 if(o)switch(o[1].charAt(e)){case"t":return!1
 case"f":return!0}return!n},e.setSectionStatus=function(n,o,a){if(e.shouldHide(o,a)){if("map_container"==n)return!0
 var s=e.section_open
@@ -34,7 +34,7 @@ for(var l=t.querySelectorAll("#"+n+" .nav_box_top"),i=0;i<l.length;i++)l[i].clas
   else:
   // fold init_default_mobile.js ~280b
 ?>
-(function(e,t){e.shouldHide=function(e,n){var o=/fold=([tfx]{20});/.exec(t.cookie)
+(function(e,t){e.shouldHide=function(e,n){var o=/(?:^|;)\s?fold=([tfx]{20})(?:;|$)/.exec(t.cookie)
 if(o)switch(o[1].charAt(e)){case"t":return!1
 case"f":return!0}return!n},e.setSectionStatus=function(t,n,o){return e.shouldHide(n,o)?"map_container"==t:void 0}})(window.C2C=window.C2C||{},document)
 <?php
@@ -43,7 +43,7 @@ else:
   if ($action == 'home' || ($module == 'portals' && $action == 'view')):
   // fold_init_home.js ~730b
 ?>
-(function(e,t){e.shouldHide=function(e,n){var a=/fold=([tfx]{20});/.exec(t.cookie)
+(function(e,t){e.shouldHide=function(e,n){var a=/(?:^|;)\s?fold=([tfx]{20})(?:;|$)/.exec(t.cookie)
 if(a)switch(a[1].charAt(e)){case"t":return!1
 case"f":return!0}return!n},e.setSectionStatus=function(n,a,o){if(e.shouldHide(a,o))if("nav"==n){if(/MSIE [67].0/.exec(navigator.userAgent))return
 t.getElementById("wrapper_context").className+=" no_nav"
@@ -55,7 +55,7 @@ for(var i=t.querySelectorAll("#"+n+" .nav_box_top"),l=0;l<i.length;l++)i[l].clas
   else:
   // fold_init_default.js ~410b
 ?>
-(function(e,t){e.shouldHide=function(e,n){var o=/fold=([tfx]{20});/.exec(t.cookie)
+(function(e,t){e.shouldHide=function(e,n){var o=/(?:^|;)\s?fold=([tfx]{20})(?:;|$)/.exec(t.cookie)
 if(o)switch(o[1].charAt(e)){case"t":return!1
 case"f":return!0}return!n},e.setSectionStatus=function(n,o,i){if(e.shouldHide(o,i))if("nav"==n){if(/MSIE [67].0/.exec(navigator.userAgent))return
 var a=t.getElementById("content_box")

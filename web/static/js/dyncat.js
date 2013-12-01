@@ -22,7 +22,7 @@
   $(function (save_on_server) {
 
     if ($('#punindex').length) {
-      var re = new RegExp(cookie_name + '=([01_]+);');
+      var re = new RegExp('(?:^|;)\\s?' + cookie_name + '=([01_]+)(?:;|$)','i');
       var cookie_value = re.exec(document.cookie);
       var pref_save = cookie_value ? cookie_value[1].split('_') : [];
 

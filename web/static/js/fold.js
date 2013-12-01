@@ -9,7 +9,7 @@
     date.setFullYear(date.getFullYear()+1);
 
     // retrieve current cookie value
-    var cookie_value = /fold=([tfx]{20});/.exec(document.cookie);
+    var cookie_value = /(?:^|;)\s?fold=([tfx]{20})(?:;|$)/.exec(document.cookie);
     cookie_value = cookie_value ? cookie_value[1] :  'xxxxxxxxxxxxxxxxxxxx'; // size 20
 
     // update position with value
