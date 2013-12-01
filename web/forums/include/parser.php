@@ -515,11 +515,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
         // si la langue est mentionnée et si elle est diffférente de la langue de l'interface, ajout du hreflang
         if (preg_match('#^/\w+/[\d]+/(\w{2})(/[\w-]+)?#i', $full_url, $params))
         {
-            $user_lang = sfContext::getInstance()->getUser()->getCulture();
-            if ($params[1] != $user_lang)
-            {
-                $hreflang = ' hreflang="' . $params[1] . '"';
-            }
+            $hreflang = ' hreflang="' . $params[1] . '"';
         }
         
         // "nofollow" sur lien vers liste avec critère sur intitulé
