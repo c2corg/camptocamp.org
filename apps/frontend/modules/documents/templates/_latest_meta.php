@@ -20,6 +20,7 @@ include_partial('documents/home_section_title',
                                                            'title' => __('Subscribe to latest outings from MetaEngine'))),
                       'custom_title_icon' => 'outings'));
 ?>
+<div id="on_the_web_section_container" class="home_container_text">
 <?php
 $cookie_position = array_search('on_the_web', sfConfig::get('app_personalization_cookie_fold_positions'));
 
@@ -59,14 +60,13 @@ function load() {
   });
 }
 
-if (!C2C.shouldHide('. $cookie_position . ', true) && $("#on_the_web").is(":visible")) {
+if (!C2C.shouldHide('. $cookie_position . ', ' . (!$default_open ? 'false' : 'true') . ') && $("#on_the_web").is(":visible")) {
   load();
 } else {
   $("#on_the_web_toggle").one("click", load);
 }
 ');
 ?>
-<div id="on_the_web_section_container" class="home_container_text">
 <ul id="on_the_web_section_list" class="dated_changes">
 <li><?php echo image_tag(sfConfig::get('app_static_url') . '/static/images/indicator.gif') . __(' loading...'); ?></li>
 </ul>
