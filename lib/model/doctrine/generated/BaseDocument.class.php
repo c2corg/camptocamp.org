@@ -3292,13 +3292,31 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $field_1 = $field_2 = $field;
         }
+
+        // unfortunately, we use postgresql arrays with integers only EXCEPT for books langs
+        // so we need special handling ine the two blocks below. Note that tehre is no equivalent to 0 value for books
+        // TODO update code so that languages in books are coded with integers...
         if ($param == '-')
         {
-            $conditions[] = "($field_1 IS NULL OR 0 = ANY ($field_2))";
+            if ($field_1 === 'm.langs')
+            {
+                $conditions[] = "($field_1 IS NULL)";
+            }
+            else
+            {
+                $conditions[] = "($field_1 IS NULL OR 0 = ANY ($field_2))";
+            }
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field_1 IS NOT NULL AND NOT (0 = ANY ($field_2))";
+            if ($field_1 === 'm.langs')
+            {
+                $conditions[] = "($field_1 IS NOT NULL)";
+            }
+            else
+            {
+                $conditions[] = "$field_1 IS NOT NULL AND NOT (0 = ANY ($field_2))";
+            }
         }
         else
         {
