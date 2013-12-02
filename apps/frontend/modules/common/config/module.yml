@@ -167,9 +167,9 @@ all:
         image: camp-gants.gif
         alt: "Camp gants"
       camp_d:
-        id: 65
-        image: camp-d2.gif
-        alt: ""
+        id: 81
+        image: camp-chameleon.gif
+        alt: "Camp Chameleon"
       camp_e:
         id: 49
         image: camp-e.gif
@@ -219,17 +219,17 @@ all:
         image: ibex.gif
         alt: "Livres de montagne Ibex Books"
       camp_b:
-        id: 62
-        image: camp-b2.gif
-        alt: ""
+        id: 83
+        image: camp-rapid.gif
+        alt: "Camp Rapid Race"
       camp_c:
-        id: 63
-        image: camp-c2.gif
-        alt: ""
+        id: 80
+        image: camp-skin.gif
+        alt: "Camp Skin"
       camp_a:
-        id: 64
-        image: camp-a.gif
-        alt: ""
+        id: 82
+        image: camp-xdream.gif
+        alt: "Camp X-Dream"
       rayonrando:
         type: flash
         width: 468
