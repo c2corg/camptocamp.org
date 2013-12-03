@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_Scout11, rayonrando, camp_c, diamir_Scout11, montania, bd_vector, changerdapproche, diamir_Scout11, camp_c, boutique_c2c, raid, diamir_Scout11 ]
+    values: [ diamir_Scout11, portail_glace, camp_c, diamir_vipec, montania, bd_vector, changerdapproche, diamir_Scout11, camp_c, boutique_c2c, raid, diamir_vipec ]
   banners:
     list:
       skalp:
@@ -167,9 +167,9 @@ all:
         image: camp-gants.gif
         alt: "Camp gants"
       camp_d:
-        id: 65
-        image: camp-d2.gif
-        alt: ""
+        id: 81
+        image: camp-chameleon.gif
+        alt: "Camp Chameleon"
       camp_e:
         id: 49
         image: camp-e.gif
@@ -212,24 +212,24 @@ all:
         alt: "Expé"
       montania:
         id: 60
-        image: montania_bd.gif
+        image: montania_northface3.gif
         alt: "Montania Sport"
       ibex:
         id: 61
         image: ibex.gif
         alt: "Livres de montagne Ibex Books"
       camp_b:
-        id: 62
-        image: camp-b2.gif
-        alt: ""
+        id: 83
+        image: camp-rapid.gif
+        alt: "Camp Rapid Race"
       camp_c:
-        id: 63
-        image: camp-c2.gif
-        alt: ""
+        id: 80
+        image: camp-skin.gif
+        alt: "Camp Skin"
       camp_a:
-        id: 64
-        image: camp-a.gif
-        alt: ""
+        id: 82
+        image: camp-xdream.gif
+        alt: "Camp X-Dream"
       rayonrando:
         type: flash
         width: 468
