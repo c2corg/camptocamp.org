@@ -276,6 +276,13 @@ class sfPunBBCodeParser
      */
     public static function handle_url_tag($url, $link = '', $viewer = true, $target = '')
     {
+        // prevent double inclusion of links (happens for example if we use [url=http://example.com]http://example.com[/url]
+        // if we have a <a> tag in link just skip the inner content.
+        if (!empty($link) && strpos($link, '<a') !== false)
+        {
+            $link = '';
+        }
+
         $hreflang = '';
         $rel = '';
         
@@ -414,13 +421,9 @@ class sfPunBBCodeParser
         //    {
         //        $full_url = $params[1];
         //    }
-            // si la langue est mentionnée et si elle est diffférente de la langue de l'interface, ajout du hreflang
             if (preg_match('#^/\w+/[\d]+/(\w{2})(/[\w-]+)?#i', $full_url, $params))
             {
-                if ($params[1] != sfContext::getInstance()->getUser()->getCulture())
-                {
-                    $hreflang = ' hreflang="' . $params[1] . '"';
-                }
+                $hreflang = ' hreflang="' . $params[1] . '"';
             }
             
             // "nofollow" sur lien vers liste avec critère sur intitulé

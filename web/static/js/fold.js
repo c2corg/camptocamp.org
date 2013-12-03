@@ -1,5 +1,7 @@
 (function(C2C, $) {
 
+  var oldie = /MSIE [67].0/.exec(navigator.userAgent);
+
   /**
    * Set a pref_value for 'fold' cookie
    */
@@ -9,7 +11,7 @@
     date.setFullYear(date.getFullYear()+1);
 
     // retrieve current cookie value
-    var cookie_value = /fold=([tfx]{20});/.exec(document.cookie);
+    var cookie_value = /(?:^|;)\s?fold=([tfx]{20})(?:;|$)/.exec(document.cookie);
     cookie_value = cookie_value ? cookie_value[1] :  'xxxxxxxxxxxxxxxxxxxx'; // size 20
 
     // update position with value
@@ -45,7 +47,7 @@
 
     if (!is_open) {
       title.attr('title', C2C.section_close);
-      if (/MSIE [67].0/.exec(navigator.userAgent)) {
+      if (oldie) {
         div.css('display', 'block'); // for ie6-7 only
       }
     } else {
@@ -250,7 +252,7 @@
 
   function toggleHomeNav(savestatus) {
     // no left menu folding for ie6-7
-    if (/MSIE [67].0/.exec(navigator.userAgent)) return;
+    if (oldie) return;
 
     var wrapper = $('#wrapper_context');
     var splitter = $('#splitter');
@@ -270,7 +272,7 @@
 
   function toggleNav(savestatus) {
     // no left menu folding for ie6-7
-    if (/MSIE [67].0/.exec(navigator.userAgent)) return;
+    if (oldie) return;
 
     var content_box = $('#content_box');
     var splitter = $('#splitter');
@@ -292,7 +294,7 @@
     var splitter_timer = null;
 
     // handle splitter (but not for ie6-7)
-    if (/MSIE [67].0/.exec(navigator.userAgent)) return;
+    if (oldie) return;
 
     // init splitter title and class
     if ($('#content_box').hasClass('wide') || $('#wrapper_context').hasClass('no_nav')) {

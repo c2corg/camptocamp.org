@@ -20,7 +20,7 @@ else
 $link = '@document_by_id?module=users&id=' . $item['history_metadata']['user_private_data']['id'];
 ?>
 <td>
-<?php echo link_to($item[$model_i18n]['name'], $uri, ($lang != __('meta_language')) ? array('hreflang' => $lang) : null) ?>
+<?php echo link_to($item[$model_i18n]['name'], $uri, array('hreflang' => $lang)) ?>
 </td><td>
 <?php echo smart_date($item['created_at']) ?>
 </td><td>

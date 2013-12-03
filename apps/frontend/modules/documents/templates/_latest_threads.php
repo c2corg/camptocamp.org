@@ -72,9 +72,8 @@ else
 
             $num_replies = $item['num_replies'];
             $lang = $forum_langs[$item['forum_id']];
-            $html_options = ($lang != $culture) ? array('hreflang' => $lang) : null;
             echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new',
-                          ($lang != $culture) ? array('hreflang' => $lang) : null);
+                           array('hreflang' => $lang));
             if ($num_replies > 0): ?>
                 <span class="meta"><?php echo f_link_to("($num_replies)", 'viewtopic.php?id=' . $item['id'] . '&action=last') ?></span>
             <?php endif; ?>

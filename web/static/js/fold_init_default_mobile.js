@@ -11,7 +11,7 @@
   // check in the preferences cookie whether a section (identified by its index)
   // should be hidden
   C2C.shouldHide = function(position, default_opened) {
-    var cookie_value = /fold=([tfx]{20});/.exec(document.cookie);
+    var cookie_value = /(?:^|;)\s?fold=([tfx]{20})(?:;|$)/.exec(document.cookie);
     if (cookie_value) {
       switch (cookie_value[1].charAt(position)) {
         case 't': return false;
@@ -23,7 +23,7 @@
   };
 
   // hide a section according to preference cookie or default value
-  C2C.setSectionStatus = function (container, position, default_opened) {
+  C2C.setSectionStatus = function(container, position, default_opened) {
 
     if (!C2C.shouldHide(position, default_opened)) return;
 

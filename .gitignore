@@ -26,7 +26,7 @@ web/forums/cache/
 web/forums/config.php
 web/forums/img/avatars/
 web/index.php
-web/static/css/.sass-cache/
+web/static/sass/.sass-cache/
 web/static/css/*.css
 web/static/js/carto/build/carto.min.js
 web/static/js/carto/build/lang-*.js

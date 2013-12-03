@@ -100,13 +100,13 @@ function init_js_var($default_nav_status = true, $nav_status_pref = 'default_nav
     $vars = array('default_nav_status' => ($default_nav_status) ? 'true' : 'false',
                   'confirm_msg' =>  __('Are you sure?'),
                   'section_open' => __('section open'),
-                  'section close' => __('section close'),
+                  'section_close' => __('section close'),
                   'nav_status_string' => $nav_status_pref,
                   'nav_status_cookie_position' => array_search($nav_status_pref, sfConfig::get('app_personalization_cookie_fold_positions')));
 
     $js = '(function(C2C){';
     foreach ($vars as $var => $value) {
-      $js .= "C2C['$var'] = " . (is_int($value) ? $value : "'$value'") . ";";
+      $js .= "C2C.$var = " . (is_int($value) ? $value : "'$value'") . ";";
     }
     $js .= '})(window.C2C = window.C2C || {});';
 

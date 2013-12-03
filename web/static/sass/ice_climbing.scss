@@ -1,0 +1,434 @@
+@import "blob";
+
+/* ice climbing style for portals */
+
+.article .title2.htext,
+.content_article .section_subtitle,
+.add_content, .add_content a,
+.form-row .fieldname, #toolform .fieldname
+#article_infos_titre, .article_infos_titre,
+.home_title_text a, .nav_box_title_text a,
+.nav_box_title, .wizard_title,
+.link_nav_news, .home_link_list a
+{
+  color: #759AE6;
+}
+
+.htext .hcolor
+{
+  color: #759AE6 !important;
+}
+
+#splitter.hl, div.selected_image
+{
+  border-color: #759AE6;
+}
+
+.menu_item,
+a.close_btn, div.selected_image,
+.translate_button a,
+#menu_up, #menu_content li,
+#wizard_button_content
+{
+  background-color: #759AE6;
+}
+
+#wizard_button_top, #wizard_button_down
+{
+  display: none;
+}
+
+#wizard_button_content
+{
+  height: auto;
+  padding: 5px 0;
+  border: 0;
+  @include border-left-radius(6px);
+  @include border-right-radius(0);
+}
+
+#wizard_button .nav_box_title_text a
+{
+  color: #ffffff;
+}
+
+/* pictos */
+
+
+#banner_logo
+{
+  background-image: -c2c-hashurl('/static/images/portals/ice_logo.png');
+  background-position: 0;
+}
+
+.article_title_img
+{
+  background-image: -c2c-hashurl('/static/images/portals/ice_modules.png');
+  /* rq we only have one possible case: portal */
+  background-position: -11px -709px;
+}
+
+a.logged_as
+{
+  background-image: -c2c-hashurl('/static/images/portals/ice_modules_mini.png');
+  background-position: -8px -392px;
+}
+
+.picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images,
+.picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites,
+.picto_summits, .picto_users, .picto_documents, .picto_products, .picto_portals,
+.picto_1, .picto_4, .picto_3, .picto_13, .picto_7, .picto_9, .picto_10, .picto_5,
+.picto_8, .picto_11, .picto_12, .picto_6, .picto_2, .picto_14, .picto_15,
+.img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images, .img_module_portals, .img_module_products,
+.img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users
+{
+  background-image: -c2c-hashurl('/static/images/portals/ice_modules_mini.png');
+}
+.picto_areas, .picto_4
+{
+  background-position: -8px -8px;
+}
+.picto_articles, .picto_11
+{
+  background-position: -8px -40px;
+}
+.picto_books, .picto_12
+{
+  background-position: -8px -72px;
+}
+.picto_huts, .picto_10
+{
+  background-position: -8px -136px;
+}
+.picto_images, .picto_8
+{
+  background-position: -8px -168px;
+}
+.picto_maps, .picto_6
+{
+  background-position: -8px -200px;
+}
+.picto_outings, .picto_5
+{
+  background-position: -8px -232px;
+}
+.picto_parkings, .picto_9
+{
+  background-position: -8px -264px;
+}
+.picto_routes, .picto_7
+{
+  background-position: -8px -296px;
+}
+.picto_sites, .picto_13
+{
+  background-position: -8px -328px;
+}
+.picto_summits, .picto_3
+{
+  background-position: -8px -360px;
+}
+.picto_users, .picto_2, a.logged_as
+{
+  background-position: -8px -392px;
+}
+.picto_products, .picto_14
+{
+  background-position: -8px -419px;
+}
+.picto_portals, .picto_15
+{
+  background-position: -8px -451px;
+}
+.picto_documents, .picto_1 {
+  background-position: -8px -104px;
+}
+/* sbox select has extra padding we need to deal with */
+.sbox select.picto_areas, .sbox select.picto_4
+{
+  background-position: -6px -6px;
+}
+.sbox select.picto_articles, .sbox select.picto_11
+{
+  background-position: -6px -38px;
+}
+.sbox select.picto_books, .sbox select.picto_12
+{
+  background-position: -6px -70px;
+}
+.sbox select.picto_huts, .sbox select.picto_10
+{
+  background-position: -6px -134px;
+}
+.sbox select.picto_images, .sbox select.picto_8
+{
+  background-position: -6px -166px;
+}
+.sbox select.picto_maps, .sbox select.picto_6
+{
+  background-position: -6px -198px;
+}
+.sbox select.picto_outings, .sbox select.picto_5
+{
+  background-position: -6px -230px;
+}
+.sbox select.picto_parkings, .sbox select.picto_9
+{
+  background-position: -6px -262px;
+}
+.sbox select.picto_routes, .sbox select.picto_7
+{
+  background-position: -6px -294px;
+}
+.sbox select.picto_sites, .sbox select.picto_13
+{
+  background-position: -6px -326px;
+}
+.sbox select.picto_summits, .sbox select.picto_3
+{
+  background-position: -6px -358px;
+}
+.sbox select.picto_users, .sbox select.picto_2
+{
+  background-position: -6px -390px;
+}
+.sbox select.picto_documents, .sbox select.picto_1 {
+  background-position: -6px -102px;
+}
+
+
+.action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
+.action_delete, .action_del_light, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
+.action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last, .action_up, .action_down,
+.action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
+.action_report, .action_rm, .action_help, .action_informations, .action_description,
+.action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc,
+.action_json, .action_kml, .action_people,
+.picto_rss, .picto_list, .picto_forum, .picto_forums, .picto_info, .picto_tools, .picto_add, .picto_rm,
+.picto_open, .picto_open_light, .picto_close, .picto_close_light,
+.picto_weather, .picto_snow,
+.img_action_search, .img_action_create, .img_action_list, .img_action_mail, .img_action_comment,
+.img_action_query, .img_action_edit, .img_action_help, .img_action_informations, .img_action_cc,
+.img_action_tools, .img_action_people
+{
+  background-image: -c2c-hashurl('/static/images/portals/ice_actions.png');
+}
+.action_edit span, .action_edit
+{
+  background-position: -8px -295px;
+}
+
+.action_list span, .action_list
+{
+  background-position: -8px -418px;
+}
+
+.action_filter span, .action_filter
+{
+  background-position: -8px -674px;
+}
+
+.action_delete
+{
+  background-position: -8px -232px;
+}
+
+.action_del_light
+{
+  background-position: -8px -1215px;
+}
+
+.action_protect
+{
+  background-position: -8px -547px;
+}
+
+.action_unprotect
+{
+  background-position: -8px -739px;
+}
+.action_merge
+{
+  background-position: -8px -451px;
+}
+
+.action_rss, .action_rss_new
+{
+  background-position: -8px -643px;
+}
+
+.action_query
+{
+  background-position: -8px -675px;
+}
+
+.action_create
+{
+  background-position: -8px -8px;
+}
+
+.action_cancel
+{
+  background-position: -8px -104px;
+}
+
+.action_back
+{
+  background-position: -8px -40px;
+}
+
+.action_next
+{
+  background-position: -8px -827px;
+}
+
+.action_first
+{
+  background-position: -8px -859px;
+}
+
+.action_last
+{
+  background-position: -8px -891px;
+}
+
+.action_up
+{
+  background-position: -8px -1311px;
+}
+
+.action_down
+{
+  background-position: -8px -1343px;
+}
+
+.action_people
+{
+  background-position: -8px -1375px;
+}
+
+.action_contact
+{
+  background-position: -8px -326px;
+}
+
+.action_view
+{
+  background-position: -8px -200px;
+}
+
+.action_print
+{
+  background-position: -8px -515px;
+}
+.action_bookmark
+{
+  background-position: -8px -72px;
+}
+
+.action_tag
+{
+  background-position: -8px -957px;
+}
+
+.action_report
+{
+  background-position: -8px -579px;
+}
+
+.action_rm
+{
+  background-position: -8px -611px;
+}
+
+.action_help
+{
+  background-position: -8px -355px;
+}
+
+.action_informations
+{
+  background-position: -8px -387px;
+}
+
+.action_description
+{
+  background-position: -8px -264px;
+}
+
+.action_comment span, .action_comment
+{
+  background-position: -8px -167px;
+}
+.action_on
+{
+  background-position: -8px -1021px;
+}
+
+.action_off
+{
+  background-position: -8px -989px;
+}
+
+.action_cc
+{
+  background-position: -8px -1055px;
+}
+
+.picto_list
+{
+  background-position: -8px -419px;
+}
+.picto_forum, .picto_forums
+{
+  background-position: -8px -168px;
+}
+select.picto_forum, select.picto_forums
+{
+  background-position: -6px -166px;
+}
+.picto_info
+{
+  background-position: -8px -387px;
+}
+.picto_tools
+{
+  background-position: -8px -707px;
+}
+.picto_open
+{
+  background-position: -8px -483px;
+}
+.picto_open_light
+{
+  background-position: -8px -1151px;
+}
+.picto_close
+{
+  background-position: -8px -136px;
+}
+.picto_close_light
+{
+  background-position: -8px -1183px;
+}
+.picto_add
+{
+  background-position: -8px -8px;
+}
+.picto_rm
+{
+  background-position: -8px -611px;
+}
+.picto_rss
+{
+  background-position: -8px -643px;
+}
+.picto_weather
+{
+  background-position: -8px -1247px;
+}
+.picto_snow
+{
+  background-position: -8px -1279px;
+}
+

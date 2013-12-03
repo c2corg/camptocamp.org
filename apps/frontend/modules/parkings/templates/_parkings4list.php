@@ -8,8 +8,7 @@ foreach ($parkings as $parking)
     $culture =  $parking['ParkingI18n'][0]['culture'];
     $url = '@document_by_id_lang_slug?module=parkings&id=' . $parking['id'] . '&lang=' . $culture .
            '&slug=' . make_slug($parking['ParkingI18n'][0]['name']);
-    $link = link_to($name, $url, ($culture != sfContext::getInstance()->getUser()->getCulture() ?
-                array('hreflang' => $culture) : array()));
+    $link = link_to($name, $url, array('hreflang' => $culture));
     if (isset($parking['lowest_elevation']) && is_scalar($parking['lowest_elevation']) && $parking['lowest_elevation'] != $parking['elevation'])
     {
         $link .= '&nbsp; ' . $parking['lowest_elevation'] . __('meters') . __('range separator') . $parking['elevation'] . __('meters');

@@ -15,7 +15,7 @@
   var orig = C2C.setSectionStatus;
 
   // hide a section according to preference cookie or default value
-  C2C.setSectionStatus = function (container, position, default_opened) {
+  C2C.setSectionStatus = function(container, position, default_opened) {
 
     if (orig(container, position, default_opened)) { // true only if we have to hide the map section
       var alt_down = C2C.section_open;

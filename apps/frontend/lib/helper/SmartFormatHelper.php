@@ -174,9 +174,7 @@ function parse_links($s, $mode = 'no_translation', $nl_to_br = false)
             if (!empty($link))
             {
                 $lang = extract_lang($link);
-                // we don't set hreflang if the target has the same culture
-                $lang = ($lang == sfContext::getInstance()->getUser()->getCulture()) ? '' : $lang;
-                $out[] = empty($lang) ? link_to($string, $link): link_to($string, $link, array('hreflang' => $lang));
+                $out[] = link_to($string, $link, array('hreflang' => sfContext::getInstance()->getUser()->getCulture()));
                 $end = substr($e, $d + 2);
             }
             else

@@ -18,7 +18,7 @@ if (!isset($default_open))
             <?php foreach ($items as $item): 
                  $lang = $forum_langs[$item['forum_id']]; ?>
                  <li><?php echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new',
-                                          ($lang != $culture) ? array('hreflang' => $lang) : null) ?></li>
+                                          array('hreflang' => $lang)) ?></li>
             <?php endforeach ?>
             </ul>
         </div>

@@ -374,6 +374,13 @@ function handle_url_tag($url, $link = '', $show_video = false)
 {
     global $showed_post_list, $lang_common, $pun_config;
 
+    // prevent double inclusion of links (happens for example if we use [url=http://example.com]http://example.com[/url]
+    // if we have a <a> tag in link just skip the inner content.
+    if (!empty($link) && strpos($link, '<a') !== false)
+    {
+        $link = '';
+    }
+
     $hreflang = '';
     $rel = '';
     
@@ -515,11 +522,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
         // si la langue est mentionnée et si elle est diffférente de la langue de l'interface, ajout du hreflang
         if (preg_match('#^/\w+/[\d]+/(\w{2})(/[\w-]+)?#i', $full_url, $params))
         {
-            $user_lang = sfContext::getInstance()->getUser()->getCulture();
-            if ($params[1] != $user_lang)
-            {
-                $hreflang = ' hreflang="' . $params[1] . '"';
-            }
+            $hreflang = ' hreflang="' . $params[1] . '"';
         }
         
         // "nofollow" sur lien vers liste avec critère sur intitulé
@@ -541,7 +544,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
             return $output;
         }
     }
-  
+
     return '<a' . $class . ' href="' . $full_url . '"' . $hreflang . $rel . '>' . $link . '</a>' . $suffix;
 }
 
@@ -778,7 +781,7 @@ function handle_email_tag($email, $label = NULL)
 function do_bbcode($text, $is_signature = false, $post_list = array())
 {
     global $lang_common, $lang_topic, $pun_user, $pun_config, $showed_post_list;
-    
+
     $showed_post_list = $post_list;
     $show_video = $is_signature ? 'false' : 'true';
     
