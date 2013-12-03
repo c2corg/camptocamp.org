@@ -782,7 +782,6 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 {
     global $lang_common, $lang_topic, $pun_user, $pun_config, $showed_post_list;
 
-var_dump($text); 
     $showed_post_list = $post_list;
     $show_video = $is_signature ? 'false' : 'true';
     

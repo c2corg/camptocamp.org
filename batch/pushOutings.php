@@ -132,7 +132,7 @@ foreach ($latest_outings as $outing)
     }
     
     $item->addChild('original_outing_id', $id); 
-    $item->addChild('url', "http://www.camptocamp.org/outings/$id/$lang/" . make_slug($outing['name'])); 
+    $item->addChild('url', "http://www.camptocamp.org/outings/$id/$lang/" . make_slug(htmlspecialchars($object->get('name'))));
 }
 
 if (!$n)
@@ -164,8 +164,8 @@ try
         {
             // now, what append ???
             // try to get more info on what could make it fail
-            var_dump($xml->asXML());
-            var_dump($response);
+            //var_dump($xml->asXML());
+            //var_dump($response);
 
             foreach ($response->errors->error as $error)
             {
