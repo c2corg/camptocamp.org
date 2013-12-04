@@ -842,19 +842,19 @@ function field_getdirections($id)
            . ' ' .
            link_to('Google', "@getdirections?id=$id&service=gmaps",
                    array('title' => __($title, array('%1%' => 'Google Maps')),
-                         'class' => 'external_link'))
+                         'class' => 'external_link', 'rel' => 'no-follow'))
            . ' ' .
            link_to('Yahoo!', "@getdirections?id=$id&service=yahoo",
                    array('title' => __($title, array('%1%' => __('Yahoo! Maps'))),
-                         'class' => 'external_link'))
+                         'class' => 'external_link', 'rel' => 'no-follow'))
            . ' ' .
            link_to('Bing Maps', "@getdirections?id=$id&service=livesearch",
                    array('title' => __($title, array('%1%' => 'Bing Maps')),
-                         'class' => 'external_link'))
+                         'class' => 'external_link', 'rel' => 'no-follow'))
            . ' ' .
            link_to('OSRM', "@getdirections?id=$id&service=osrm",
                    array('title' => __($title, array('%1%' => __('OSRM'))),
-                         'class' => 'external_link')) . '</div>';
+                         'class' => 'external_link', 'rel' => 'no-follow')) . '</div>';
 }
 
 function field_coord_data_if_set($document, $name, $options = array()) 

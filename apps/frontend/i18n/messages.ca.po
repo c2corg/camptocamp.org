@@ -86,44 +86,35 @@ msgstr "Document no trobat"
 msgid "A document can not be linked to itself"
 msgstr "No es pot associar un document a sí mateix"
 
-# [WARNING] en translation used
 msgid "A gite can not be linked to a route"
-msgstr "A valley accomodation can not be linked to a route"
+msgstr "Un hostal no es pot associar a un itinerari"
 
 msgid "A new password has been asked for your account."
 msgstr "Heu demanat la creació d'una nova contrasenya per al vostre compte Camptocamp.org. Ja podeu identificar-vos utilitzant les següents dades de connexió."
 
-# [WARNING] en translation used
 msgid "A parking can not be linked to a hut if a main/sub parking is already linked to it"
-msgstr "An access point can not be linked to a hut if a main/sub access point of this access is already linked to this hut"
+msgstr "No es pot associar un accés \"A\" a un refugi \"R\" si \"A\" té un accés principal o un sub-accés que ja estigui associat a \"R\"."
 
-# [WARNING] en translation used
 msgid "A parking can not be linked to a route if a main/sub parking is already linked to it"
-msgstr "An access point can not be linked to a route if a main/sub access point of this access is already linked to this route"
+msgstr "No es pot associar un accés \"A\" a un itinerari \"I\" si \"A\" té un accés principal o un sub-accés que ja estigui associat a \"I\"."
 
-# [WARNING] en translation used
 msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
-msgstr "An access point can not be linked to a climbing site if a main/sub access point of this access is already linked to this site"
+msgstr "No es pot associar un accés \"A\" a un sector de totxo \"T\" si \"A\" té un accés principal o un sub-accés que ja estigui associat a \"T\"."
 
-# [WARNING] en translation used
 msgid "A site can not be linked to more than one summit"
-msgstr "A climbing site can not be linked to more than one summit"
+msgstr "Un sector de totxo no es pot associar a més d'un cim"
 
-# [WARNING] en translation used
 msgid "A sub parking can not be linked to more than one main parking"
-msgstr "A sub access point can not be linked to more than one main access point"
+msgstr "Un sub-accés no pot estar associat a més d'un accés principal"
 
-# [WARNING] en translation used
 msgid "A sub site can not be linked to more than one main site"
-msgstr "A climbing sector can not be linked to more than one climbing site"
+msgstr "Un sector de totxo/bloc no pot pas estar associat a més d'un lloc de totxo/bloc"
 
-# [WARNING] en translation used
 msgid "A sub summit can not be linked to more than one main summit"
-msgstr "A sub summit can not be linked to more than one main summit"
+msgstr "No es pot associar un sub-cim a més d'un cim principal"
 
-# [WARNING] en translation used
 msgid "A summit can not be linked to a sub site"
-msgstr "A summit can not be linked to a climbing sector, but only to the main climbing site"
+msgstr "No es pot associar un cim a un sector de totxo/bloc sinó que només pot estar associat a un lloc princpial"
 
 msgid "AD"
 msgstr "AD"
@@ -5371,9 +5362,9 @@ msgstr "Inserir una imatge"
 
 # [general comment]
 # message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
-# [WARNING] en translation used
+# [WARNING] needs_update
 msgid "imgur notice %1%"
-msgstr "Images from your computer will be hosted on %1%1"
+msgstr "Les imatges importades des del vostre ordinador seran allotjades a %1%. La perennitat de l'allotjament no és responsabilitat de camptocamp."
 
 msgid "imported from v4"
 msgstr "Importat des de la versió 4 del web"

@@ -5283,7 +5283,8 @@ msgstr "Insertar una imagen"
 # message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
 # [WARNING] en translation used
 msgid "imgur notice %1%"
-msgstr "Images from your computer will be hosted on %1%1"
+msgstr "Images from your computer will be hosted on %1%. The durability of the hosting is not the responsibility of camptocamp.<br />\n"
+"For your photos taken during your outings in the mountains, rather upload them on your outing, or on your profile."
 
 msgid "imported from v4"
 msgstr "Importado desde la versión 4"

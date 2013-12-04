@@ -94,7 +94,7 @@
   function upload_local_file(files) {
     var file = files[0];
 
-    if (!file || !file.type.match(/image\/(jpe?g|jpg|png|gif)/)) {
+    if (!file || !file.type.match(/image\/(jpe?g|png|gif)|application\/pdf/)) {
       error();
       return;
     }
@@ -186,7 +186,7 @@
     // we do not display original, but the small thumbnail
     // and wrap it into a link to imgur
     var parts = imgur_data.link.match(/([^\\]*)(\.\w+)$/);
-    C2C.insert_text('[url=http://imgur.com/'+imgur_data.id+'][img='+parts[1]+'t'+parts[2]+']', '[/img][/url]');
+    C2C.insert_text('[url=http://imgur.com/'+imgur_data.id+'][img='+parts[1]+'m'+parts[2]+']', '[/img][/url]');
 
     close_images_wizard();
   }
