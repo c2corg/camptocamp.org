@@ -1,5 +1,5 @@
 <!doctype html>
-<html dir="<pun_content_direction>">
+<html dir="<pun_content_direction>" lang="<pun_meta_language>">
 <head>
 <meta charset="utf-8">
 <pun_head>

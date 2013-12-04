@@ -48,6 +48,9 @@ else
 $tpl_main = str_replace('<pun_content_direction>', $lang_common['lang_direction'], $tpl_main);
 // END SUBST - <pun_content_direction>
 
+// START SUBST - <pun_meta_language>
+$tpl_main = str_replace('<pun_meta_language>', $lang_common['meta_language'], $tpl_main);
+// END SUBST - <pun_meta_language>
 
 // START SUBST - <pun_char_encoding>
 $tpl_main = str_replace('<pun_char_encoding>', $lang_common['lang_encoding'], $tpl_main);
