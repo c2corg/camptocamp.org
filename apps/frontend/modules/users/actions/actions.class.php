@@ -468,6 +468,10 @@ class usersActions extends documentsActions
                 if (!empty($password)) // a new password has been set
                 {
                     $user_private_data->setPassword($password);
+
+                    // since the password has been changed, we remove all the remember me keys
+                    // attached to this user.
+                    RememberKey::deleteKeys($user_id);
                 }
     
                 if (!is_null($email))
