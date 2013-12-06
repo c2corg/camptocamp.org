@@ -266,7 +266,7 @@ class myUser extends sfBasicSecurityUser
                     $rk = new RememberKey();
                     $rk->set('remember_key', $key);
                     $rk->set('user', $user);
-                    $rk->set('ip_address', $_SERVER[ 'REMOTE_ADDR' ] );
+                    $rk->set('ip_address', isset($_SERVER['HTTP_X_ORIGIN_IP']) ? $_SERVER['HTTP_X_ORIGIN_IP'] : $_SERVER['REMOTE_ADDR']);
                     $rk->save();
 
                     // make key as a cookie
