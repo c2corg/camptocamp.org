@@ -518,7 +518,9 @@ class usersActions extends documentsActions
             {
                 sfLoader::loadHelpers(array('Javascript', 'Tag'));
                 // update the name to use (after the welcome)
-                $js = javascript_tag("$('#name_to_use').html('" . $user_private_data->get('topo_name') . "')");
+                // and be sure to reset password value
+                $js = javascript_tag("$('#name_to_use').html('" . $user_private_data->get('topo_name') . "');
+                $('#current_password').val('')");
             }
             else
             {

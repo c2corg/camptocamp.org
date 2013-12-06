@@ -5,7 +5,13 @@ fields:
     group:            password_group
     sfCompareValidator:
       check:          password
-      compare_error:  The two passwords do not match      
+      compare_error:  The two passwords do not match
+
+  current_password:
+    required:       yes
+      msg:          Your current password is required before applying changes
+    myCurrentPasswordValidator:
+      bad_password_error: Wrong current password!
   
   email:
     required:       yes

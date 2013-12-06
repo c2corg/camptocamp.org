@@ -156,7 +156,7 @@ class myUser extends sfBasicSecurityUser
         }
         else
         {
-            $user = $this->check_password($password, $hash) ? sfDoctrine::getTable('User')->find($userid) : false;
+            $user = self::check_password($password, $hash) ? sfDoctrine::getTable('User')->find($userid) : false;
         }
 
         // maybe the user requested a new password, check if password_tmp is ok
@@ -169,7 +169,7 @@ class myUser extends sfBasicSecurityUser
             c2cTools::log('base login failed, start trying with password_temp');
 
             // user not found, try with tmp password
-            $user = $this->check_password($password, $hash_tmp) ? sfDoctrine::getTable('User')->find($userid) : false;
+            $user = self::check_password($password, $hash_tmp) ? sfDoctrine::getTable('User')->find($userid) : false;
 
             if ($user)
             {
@@ -544,7 +544,7 @@ class myUser extends sfBasicSecurityUser
     }
 
     // check if provided password matches the hash
-    protected function check_password($password, $hash)
+    public static function check_password($password, $hash)
     {
         // check whether the stored hash is using password_hash() or Punbb::hash()
         $password_needs_rehash = password_needs_rehash($hash, PASSWORD_DEFAULT);
