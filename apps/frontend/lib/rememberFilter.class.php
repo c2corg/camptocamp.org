@@ -22,6 +22,7 @@ class rememberFilter extends sfFilter
                                           ->where('rk.remember_key = ?', $cookie_value)
                                           ->execute()
                                           ->getFirst();
+
             if ($remember_key)
             {
                 c2cTools::log('{rememberFilter} user found from his cookie');
@@ -46,6 +47,10 @@ class rememberFilter extends sfFilter
             {
                 // delete cookie value in client so that no more requests are made to the db
                 sfContext::getInstance()->getResponse()->setCookie($cookie_name, '');
+
+                // log this in statsd
+                c2cActions::statsdIncrement('bad_remember_cookie',
+                    'symfony.' . sfConfig::get('sf_environment') . '.users.');
             }
         }
         
