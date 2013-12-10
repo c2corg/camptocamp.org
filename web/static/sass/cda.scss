@@ -58,7 +58,7 @@
 }
 
 #partenaires {
-  background-image: url(c2chash("/static/images/cda/partenaires.jpg"));
+  background-image: -c2c-hashurl("/static/images/cda/partenaires.jpg");
   padding-top: 0px;
   height: 136px;
   width: 331px;
