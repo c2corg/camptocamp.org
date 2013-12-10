@@ -12,7 +12,7 @@
   <div id="customize">
     <?php
     echo fieldset_tag('Current password');
-    echo _('Your current password is needed before modifying these properties');
+    echo __('Your current password is needed before modifying these properties');
     echo group_tag('current_password', 'current_password', 'input_password_tag', null, array('class' => 'medium_input'));
     echo end_fieldset_tag();
 

@@ -2821,6 +2821,10 @@ msgstr "Con traza GPS:"
 msgid "Wrong association type"
 msgstr "Tipo de asociación no autorizada."
 
+# [WARNING] en translation used
+msgid "Wrong current password!"
+msgstr "You typed a wrong password"
+
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
@@ -2980,6 +2984,14 @@ msgstr "La cadena anti-spam que indicó no es correcta."
 
 msgid "Your are connected as "
 msgstr "Está conectado como "
+
+# [WARNING] en translation used
+msgid "Your current password is needed before modifying these properties"
+msgstr "Your current password is needed before modifying following properties"
+
+# [WARNING] en translation used
+msgid "Your current password is required before applying changes"
+msgstr "Your current password is required"
 
 msgid "Your images have been successfully updated"
 msgstr "Sus imágenes han sido actualizadas con éxito"
@@ -4587,6 +4599,10 @@ msgstr "punto culminante"
 
 msgid "current version"
 msgstr "versión actual"
+
+# [WARNING] en translation used
+msgid "current_password"
+msgstr "Enter current password:"
 
 msgid "dangerous"
 msgstr "poco adaptado"

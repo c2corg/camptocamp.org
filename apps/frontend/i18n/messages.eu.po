@@ -2951,6 +2951,10 @@ msgstr "Con traza GPS:"
 msgid "Wrong association type"
 msgstr "Lotura mota ez dago onartua."
 
+# [WARNING] en translation used
+msgid "Wrong current password!"
+msgstr "You typed a wrong password"
+
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 # [WARNING] es translation used
@@ -3130,6 +3134,14 @@ msgstr "Idatziriko kate anti-spam a ez da zuzena."
 
 msgid "Your are connected as "
 msgstr "Zu zara "
+
+# [WARNING] en translation used
+msgid "Your current password is needed before modifying these properties"
+msgstr "Your current password is needed before modifying following properties"
+
+# [WARNING] en translation used
+msgid "Your current password is required before applying changes"
+msgstr "Your current password is required"
 
 # [WARNING] es translation used
 msgid "Your images have been successfully updated"
@@ -4758,6 +4770,10 @@ msgstr "goreneko puntua"
 
 msgid "current version"
 msgstr "oraingo bertsioa"
+
+# [WARNING] en translation used
+msgid "current_password"
+msgstr "Enter current password:"
 
 msgid "dangerous"
 msgstr "gutxi egokitua"

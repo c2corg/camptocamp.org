@@ -2831,6 +2831,10 @@ msgstr "Mit GPS Spur:"
 msgid "Wrong association type"
 msgstr "Dieser Typ von Verbindung ist nicht erlaubt"
 
+# [WARNING] en translation used
+msgid "Wrong current password!"
+msgstr "You typed a wrong password"
+
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
@@ -2990,6 +2994,14 @@ msgstr "Die von ihnen angegebene Anti-Spam-Zeichenabfolge ist falsch."
 
 msgid "Your are connected as "
 msgstr "Sie sind eingeloggt als "
+
+# [WARNING] en translation used
+msgid "Your current password is needed before modifying these properties"
+msgstr "Your current password is needed before modifying following properties"
+
+# [WARNING] en translation used
+msgid "Your current password is required before applying changes"
+msgstr "Your current password is required"
 
 msgid "Your images have been successfully updated"
 msgstr "Die Bilder wurden erfolgreich aktualisiert"
@@ -4802,6 +4814,10 @@ msgstr "Kulminationspunkt"
 
 msgid "current version"
 msgstr "aktuelle Version"
+
+# [WARNING] needs_review
+msgid "current_password"
+msgstr "Geben Sie Ihr aktuelles Passwort ein:"
 
 msgid "dangerous"
 msgstr "wenig sicher"
