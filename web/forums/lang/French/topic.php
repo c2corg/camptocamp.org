@@ -18,6 +18,7 @@ $lang_topic = array(
 'Edit'				=>	'Modifier',
 'Quoted reply'		=>	'Répondre en citant',
 'Quote'				=>	'Citer le texte sélectionné',
+'Quote short' =>  'Citer',
 'Is subscribed'		=>	'Vous êtes abonné à cette discussion',
 'Unsubscribe'		=>	'Désabonner',
 'Subscribe'			=>	'S\'abonner à cette discussion',

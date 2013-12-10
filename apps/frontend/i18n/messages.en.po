@@ -2817,6 +2817,10 @@ msgstr "With GPS track:"
 msgid "Wrong association type"
 msgstr "Wrong association type"
 
+# [WARNING] needs_review
+msgid "Wrong current password!"
+msgstr "You typed a wrong password"
+
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
@@ -2977,6 +2981,13 @@ msgstr "You should specify valid Turing number"
 
 msgid "Your are connected as "
 msgstr "Your are "
+
+# [WARNING] needs_review
+msgid "Your current password is needed before modifying these properties"
+msgstr "Your current password is needed before modifying following properties"
+
+msgid "Your current password is required before applying changes"
+msgstr "Your current password is required"
 
 msgid "Your images have been successfully updated"
 msgstr "Your images have been successfully updated"
@@ -4624,6 +4635,9 @@ msgstr "culmen"
 
 msgid "current version"
 msgstr "current version"
+
+msgid "current_password"
+msgstr "Enter current password:"
 
 msgid "dangerous"
 msgstr "unsuitable"

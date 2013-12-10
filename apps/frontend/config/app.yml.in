@@ -314,7 +314,6 @@ all:
   remember_key:
     expiration_age: 2678400 # = 31 days
     cookie_name:    c2c_remember
-    random:         899cfcae74ca2beb07b3c8420ad9667b
     
   ajax_feedback:
     div_name_success:  ajax_feedback_success
@@ -2066,7 +2065,7 @@ all:
     metaskirando:
       id: @METASKI_ID@
       name: 'metaskirando'
-      url: 'http://metaskirando.camptocamp.org'
+      url: 'metaskirando.camptocamp.org'
       menu: 1
       home: 1
     ice:

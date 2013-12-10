@@ -468,6 +468,10 @@ class usersActions extends documentsActions
                 if (!empty($password)) // a new password has been set
                 {
                     $user_private_data->setPassword($password);
+
+                    // since the password has been changed, we remove all the remember me keys
+                    // attached to this user.
+                    RememberKey::deleteKeys($user_id);
                 }
     
                 if (!is_null($email))
@@ -514,7 +518,9 @@ class usersActions extends documentsActions
             {
                 sfLoader::loadHelpers(array('Javascript', 'Tag'));
                 // update the name to use (after the welcome)
-                $js = javascript_tag("$('#name_to_use').html('" . $user_private_data->get('topo_name') . "')");
+                // and be sure to reset password value
+                $js = javascript_tag("$('#name_to_use').html('" . $user_private_data->get('topo_name') . "');
+                $('#current_password').val('')");
             }
             else
             {

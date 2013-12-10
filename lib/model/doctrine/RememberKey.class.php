@@ -44,5 +44,28 @@ class RememberKey extends BaseRememberKey
             return false;
         }
     }
-    
+
+    public static function generateRandomKey()
+    {
+        return md5(base64_encode(openssl_random_pseudo_bytes(30)));
+    }
+
+    public static function deleteKey($key, $userid)
+    {
+        Doctrine_Query::create()
+                      ->delete()
+                      ->from('RememberKey rk')
+                      ->where('rk.remember_key = ? AND rk.user_id = ?', array($key, $userid))
+                      ->execute();
+    }
+
+    // delete all keys of a user
+    public static function deleteKeys($userid)
+    {
+        Doctrine_Query::create()
+                      ->delete()
+                      ->from('RememberKey rk')
+                      ->where('rk.user_id = ?', $userid)
+                      ->execute();
+    }
 }

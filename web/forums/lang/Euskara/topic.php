@@ -18,6 +18,7 @@ $lang_topic = array(
 'Edit'				=>	'Aldatu',
 'Quoted reply'		=>	'Erantzun zitatuz',
 'Quote'				=>	'Aukeratutako testua zitatu',
+'Quote short' =>  'Zitatu',
 'Is subscribed'		=>	'Eztabaida honetara harpidetuta zaude',
 'Unsubscribe'		=>	'Harpidetza utzi',
 'Subscribe'			=>	'Eztabaida honetara harpidetu',

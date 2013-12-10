@@ -2790,6 +2790,9 @@ msgstr "Avec trace GPS&nbsp;:"
 msgid "Wrong association type"
 msgstr "Le type d'association n'est pas autorisé"
 
+msgid "Wrong current password!"
+msgstr "Mot de passe incorrect"
+
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
@@ -2948,6 +2951,12 @@ msgstr "La chaine anti-spam que vous avez indiquée est incorrecte."
 
 msgid "Your are connected as "
 msgstr "Vous êtes "
+
+msgid "Your current password is needed before modifying these properties"
+msgstr "Votre mot de passe actuel est requis pour pouvoir modifier les éléments ci-dessous"
+
+msgid "Your current password is required before applying changes"
+msgstr "Votre mot de passe actuel est requis"
 
 msgid "Your images have been successfully updated"
 msgstr "Les images ont été mises à jour avec succès"
@@ -4722,6 +4731,9 @@ msgstr "point culminant"
 msgid "current version"
 msgstr "version actuelle"
 
+msgid "current_password"
+msgstr "Entrez votre mot de passe actuel&nbsp;:"
+
 msgid "dangerous"
 msgstr "peu adapté"
 
@@ -6465,7 +6477,7 @@ msgstr "Vallées préférées"
 # mise à jour lien BERA météofrance
 msgid "prepare_outing_box"
 msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
-"<ul><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espagne)</a></li></ul>\n"
+"<ul><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MétéoSuisse</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espagne)</a></li></ul>\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#bera\">Avalanches</a></p>\n"
 "<ul><li><a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches\">BRA Météo France</a>&nbsp;: <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept74\">74</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept73\">73</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept38\">38</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept06\">06</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept05\">05</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept04\">04</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept2A\">2a</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept2B\">2b</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept66\">66</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept65\">65</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept31\">31</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept09\">09</a> <a href=\"http://www.meteofrance.com/previsions-meteo-montagne/bulletin-avalanches/hautes-alpes/avdept64\">64</a></li><li><a href=\"http://www.slf.ch/index_FR\">SLF (Suisse)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li><li><a href=\"/users/mailinglists\">Recevoir les bulletins par email</a></li></ul>\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#carto\">Cartographie</a></p>\n"

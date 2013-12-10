@@ -18,6 +18,7 @@ $lang_topic = array(
 'Edit'				=>	'Edita',
 'Quoted reply'		=>	'Respondre citant el text',
 'Quote'				=>	'Cita',
+'Quote short' =>  'Cita',
 'Is subscribed'		=>	'Actualment esteu subscrit a aquest tema',
 'Unsubscribe'		=>	'Cancel.la subscripció',
 'Subscribe'			=>	'Subscriure\'s a aquest tema',

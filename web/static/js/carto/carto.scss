@@ -261,4 +261,6 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
   background-image: -c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/grid/loading.gif');
 }
 
-
+.loading {
+  background-image: -c2c-datauri('/static/js/carto/cgxp/core/src/theme/img/loading.gif');
+}

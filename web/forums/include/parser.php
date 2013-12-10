@@ -51,18 +51,20 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
     // Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
     $base_url = 'http://'.$_SERVER['SERVER_NAME'];
     
-    $a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
+    $a = array( '#\[url=("|\'|)(.*?)\\1\s*\]\s*#i',
                 '#\[url(=\]|\])\s*#i',
-                '#\[url(=|\])((http://)?(w+|m+)\.|)camptocamp\.org(/([^\[\]]+))#i',
                 '#\s*\[/url\]#i',
-                '#\[email=("|\'|)(.*?)\\1\]\s*#i',
+                '#\[url=(.*?)\]\\1\[/url\]#i',
+                '#\[url(=|\])((https?:)?(//)?(w+|m+)\.|)camptocamp\.org(/([^\[\]]+))#i',
+                '#\[email=("|\'|)(.*?)\\1\s*\]\s*#i',
                 '#\[email(=\]|\])\s*#i',
                 '#\s*\[/email\]#i',
+                '#\[email=(.*?)\]\\1\[/email\]#i',
                 '#\[img=\s*("|\'|)(.*?)\\1\s*\]\s*#i',
-                 '#\[img(=\]|\])\s*#i',
+                '#\[img(=\]|\])\s*#i',
                 '#\[img(=|\])' . $base_url . '#i',
                 '#\s*\[/img\]#i',
-                '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
+                '#\[colou?r=("|\'|)(.*?)\\1\s*\]\s*#i',
                 '#\[/colou?r\]#i',
                 '#\[(cent(er|re|ré)|<>)\]\s*#i',
                 '#\[/(cent(er|re|ré)|<>)\]\s?#i',
@@ -74,11 +76,13 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 
     $b = array( '[url=$2]',
                 '[url]',
-                '[url$1$5',
                 '[/url]',
+                '[url]$1[/url]',
+                '[url$1$6',
                 '[email=$2]',
                 '[email]',
                 '[/email]',
+                '[email]$1[/email]',
                 '[img=$2]',
                 '[img]',
                 '[img$1',
@@ -96,11 +100,11 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
     if (!$is_signature)
     {
         // For non-signatures, we have to do the quote and code tags as well
-        $a[] = '#\[quote=(&quot;|"|\'|)(.*?)\\1\]\s*#i';
+        $a[] = '#\[quote=(&quot;|"|\'|)(.*?)\\1\s*\]\s*#i';
         $a[] = '#\[quote(=\]|\])\s*#i';
         $a[] = '#\s*\[/quote\]\s?#i';
         $a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s?#is';
-        $a[] = '#\[spoiler=("|\'|)(.*?)\\1\\]\s*#i';
+        $a[] = '#\[spoiler=("|\'|)(.*?)\\1\]\s*#i';
         $a[] = '#\[spoiler(=\]|\])\s*#i';
         $a[] = '#\s*\[/spoiler\]\s?#i';
         $a[] = '#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i';
@@ -155,7 +159,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 //
 function preparse_url($text)
 {
-    $a = array( '#(?<=[^\w]|^)((http://)?(w+|m+)\.|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
+    $a = array( '#(?<=[^\w]|^)((https?:)?(//)?(w+|m+)\.|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
                 '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
@@ -163,7 +167,7 @@ function preparse_url($text)
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=(\d+)%i'
               );
     
-    $b = array( '$4',
+    $b = array( '$5',
                 '#f$1',
                 '#t$1+',
                 '#t$1',
@@ -390,7 +394,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
         $url == ' ';
     }
 
-    $full_url = preg_replace('#^((http://)?(w+|m+)\.|(?<!\.))camptocamp\.org/?(.*)#', '/${4}', $full_url);
+    $full_url = preg_replace('#^((https?:)?(//)?(w+|m+)\.|(?<!\.))camptocamp\.org/?(.*)#', '/${5}', $full_url);
     if ($empty_link = (empty($link) || $link == $url))
     {
         if ($full_url == '/')

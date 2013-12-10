@@ -156,7 +156,7 @@ class myUser extends sfBasicSecurityUser
         }
         else
         {
-            $user = $this->check_password($password, $hash) ? sfDoctrine::getTable('User')->find($userid) : false;
+            $user = self::check_password($password, $hash) ? sfDoctrine::getTable('User')->find($userid) : false;
         }
 
         // maybe the user requested a new password, check if password_tmp is ok
@@ -169,7 +169,7 @@ class myUser extends sfBasicSecurityUser
             c2cTools::log('base login failed, start trying with password_temp');
 
             // user not found, try with tmp password
-            $user = $this->check_password($password, $hash_tmp) ? sfDoctrine::getTable('User')->find($userid) : false;
+            $user = self::check_password($password, $hash_tmp) ? sfDoctrine::getTable('User')->find($userid) : false;
 
             if ($user)
             {
@@ -242,44 +242,36 @@ class myUser extends sfBasicSecurityUser
                 // remember?
                 if ($remember)
                 {
-                    c2cTools::log('remember me requested');
+                    c2cTools::log('remember me requested / or renew');
+
+                    $context = sfContext::getInstance();
+                    $remember_cookie = sfConfig::get('app_remember_key_cookie_name', 'c2corg_remember');
+
+                    // if remember_cookie was set in the request, it means that we are renewing it
+                    // in that case, be sure to remove the old one
+                    $remember_key = $context->getRequest()->getCookie($remember_cookie);
+                    if ($remember_key)
+                    {
+                        RememberKey::deleteKey($remember_key, $user_id);
+                    }
 
                     // TODO : move remove old keys in a batch
                     // remove old keys
                     RememberKey::deleteOldKeys();
 
-                    // remove other keys from this user (and only matching this IP ? what about the people
-                    // whose IP changes every day ?)
+                    // generate a new random key
+                    $key = RememberKey::generateRandomKey();
 
-                    //RememberKey::deleteOtherKeysForUserId($user_id);
-                    // this is no more useful, since key is now specific to user (see warning below).
-                    
-                    // generate new keys
-                    //$key = $this->generateRandomKey();
-                    // this was wrong : the remember key should be specific at least to this user, not random.
-                    // because logging oneself to another machine and invoking remember_me would cause losing remember_me on the first machine
-                    // yet, someone might want to be auto-identified on several computers (@home, @work ...)
-                    
-                    // (warning : this is a potential security breach for users if they use a shared computer)
-                    $key = md5($user->get('private_data')->get('password') . sfConfig::get('app_remember_key_random') . $user_id);
-                    // using id+pwd, it should be unique for each user.
-
-                    // save key if it does not already exist
-                    if (!RememberKey::existsKey($key))
-                    {
-                        $rk = new RememberKey();
-                        $rk->set('remember_key', $key);
-                        $rk->set('user', $user);
-                        $rk->set('ip_address', $_SERVER[ 'REMOTE_ADDR' ] );
-                        $rk->save();
-                    }
+                    // save key
+                    $rk = new RememberKey();
+                    $rk->set('remember_key', $key);
+                    $rk->set('user', $user);
+                    $rk->set('ip_address', isset($_SERVER['HTTP_X_ORIGIN_IP']) ? $_SERVER['HTTP_X_ORIGIN_IP'] : $_SERVER['REMOTE_ADDR']);
+                    $rk->save();
 
                     // make key as a cookie
-                    $remember_cookie = sfConfig::get('app_remember_key_cookie_name', 'c2corg_remember');
                     $expiration_age = sfConfig::get('app_remember_key_expiration_age', 30 * 24 * 3600);
-                    sfContext::getInstance()
-                                 ->getResponse()
-                                 ->setCookie($remember_cookie, $key, time() + $expiration_age);
+                    $context->getResponse()->setCookie($remember_cookie, $key, time() + $expiration_age);
                 }
                 else
                 {
@@ -323,10 +315,19 @@ class myUser extends sfBasicSecurityUser
 
     public function signOut()
     {
-        // remove cookie if exist
-        $remember_cookie = sfConfig::get( 'app_remember_key_cookie_name', 'c2corg_remember' );
-        sfContext::getInstance()->getResponse()->setCookie($remember_cookie, '');
-        sfContext::getInstance()->getResponse()->setCookie('temp_remember', '');
+        $context =  sfContext::getInstance();
+
+        // remove cookies if exist
+        $remember_cookie = sfConfig::get('app_remember_key_cookie_name', 'c2corg_remember');
+        $context->getResponse()->setCookie($remember_cookie, '');
+        $context->getResponse()->setCookie('temp_remember', '');
+
+        // remove remember key from db
+        $remember_key = $context->getRequest()->getCookie($remember_cookie);
+        if ($remember_key)
+        {
+            RememberKey::deleteKey($remember_key, $this->getId());
+        }
 
         // delete attributes in session == remove credentials
         $this->getAttributeHolder()->clear();
@@ -543,7 +544,7 @@ class myUser extends sfBasicSecurityUser
     }
 
     // check if provided password matches the hash
-    protected function check_password($password, $hash)
+    public static function check_password($password, $hash)
     {
         // check whether the stored hash is using password_hash() or Punbb::hash()
         $password_needs_rehash = password_needs_rehash($hash, PASSWORD_DEFAULT);

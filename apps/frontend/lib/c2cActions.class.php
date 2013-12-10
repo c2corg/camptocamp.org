@@ -46,7 +46,7 @@ abstract class c2cActions extends sfActions
                 // auto remove error classes on fields
                 sfLoader::loadHelpers(array('Javascript', 'Tag'));
                 $field_error = sfConfig::get('app_form_field_error');
-                $error_remove = javascript_tag("$('.$field_error').removeClass('$field_error');");
+                $error_remove = javascript_tag("$('.$field_error').removeClass('$field_error');$('.form_error').hide()");
             }
 
             return $this->renderText($error_remove . $js . $this->__($message, $vars));
@@ -63,24 +63,26 @@ abstract class c2cActions extends sfActions
         $errors = $this->getRequest()->getErrors();
         $field_error = sfConfig::get('app_form_field_error');
         $js_errors = "'#" .implode(", #", array_keys($errors)) . "'";
+        $arrow = sfConfig::get('sf_validation_error_prefix', '');
 
         $this->getResponse()->setStatusCode(404);
 
         sfLoader::loadHelpers(array('Javascript', 'Tag'));
         // add error class on fields via js
-        $js = javascript_tag("
-            $('.$field_error').removeClass('$field_error'); // remove all errors
-            $($js_errors).addClass('$field_error'); // display new ones (if any)");
+        $js  = "$('.$field_error').removeClass('$field_error');";
+        $js .= "$('.form_error').hide();";// remove all errors
+        $js .= "$($js_errors).addClass('$field_error');"; // display new ones (if any);
 
         // global form error
         $toReturn = $this->__('Oups!') . '<ul>';
         foreach($errors as $name => $error)
         {
+            $js .= "$('#error_for_$name').html('" . $arrow . $this->__($error) . $arrow . "').show();";
             $toReturn .= '<li>' . $this->__($error) . '</li>';
         }
         $toReturn .= '</ul>';
 
-        return $this->renderText($js.$toReturn);
+        return $this->renderText(javascript_tag($js).$toReturn);
     }
 
     // generalist handle error (no need to set handle error on every form error)

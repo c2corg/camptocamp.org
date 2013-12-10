@@ -340,7 +340,7 @@ function button_share()
     sfContext::getInstance()->getResponse()->setParameter('addthis', true, 'helper/asset/addthis');
     $addthis_js = '<script type="text/javascript">
 var addthis_config = {services_exclude: "print, favorites",ui_header_color: "#000000",ui_header_background: "#d2cabc"},
-var addthis_localize = {share_caption:"'.__('Bookmark & Share').'",more:"'.__('More...').'"};
+    addthis_localize = {share_caption:"'.__('Bookmark & Share').'",more:"'.__('More...').'"};
 </script>';
     return $addthis_js.link_to('<span class="share_bookmark '.__('meta_language') .'"></span>',
                                '//www.addthis.com/bookmark.php',
