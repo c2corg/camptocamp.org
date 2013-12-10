@@ -34,3 +34,6 @@
 [submodule "lib/password_compat"]
 	path = lib/password_compat
 	url = https://github.com/ircmaxell/password_compat.git
+[submodule "web/static/js/third-parties/jQuery-ajaxTransport-XDomainRequest"]
+	path = web/static/js/third-parties/jQuery-ajaxTransport-XDomainRequest
+	url = https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest.git

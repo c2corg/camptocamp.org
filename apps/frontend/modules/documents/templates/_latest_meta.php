@@ -1,6 +1,6 @@
 <div id="on_the_web" class="latest">
 <?php
-use_helper('SmartDate', 'JavascriptQueue');
+use_helper('SmartDate', 'JavascriptQueue', 'MyMinify');
 
 $response = sfContext::getInstance()->getResponse();
 
@@ -23,11 +23,13 @@ include_partial('documents/home_section_title',
 <div id="on_the_web_section_container" class="home_container_text">
 <?php
 $cookie_position = array_search('on_the_web', sfConfig::get('app_personalization_cookie_fold_positions'));
+// script that allow ie8 and ie9 to make the CORS request
+$script_url = minify_get_combined_files_url('/static/js/jquery.xdomainrequest.min.js', (bool) sfConfig::get('app_minify_debug'));
 
 echo javascript_queue('
 var section_list = $("#on_the_web_section_list");
 
-function load() {
+function load2() {
   $.get("' . $sf_data->getRaw('feed_url') . '").done(function(data) {
     var $xml = $(data), date, count = 0;
 
@@ -58,6 +60,14 @@ function load() {
   }).fail(function() {
     section_list.html("' . __('No recent changes available') . '");
   });
+}
+
+function load() {
+  if (window.XDomainRequest) {
+    $.ajax({url: "' . $script_url . '",dataType: "script",cache: true}).done(load2);
+  } else {
+    load2();
+  }
 }
 
 if (!C2C.shouldHide('. $cookie_position . ', ' . (!$default_open ? 'false' : 'true') . ') && $("#on_the_web").is(":visible")) {
