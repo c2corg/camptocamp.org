@@ -1287,9 +1287,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 				</div>
 			</div>
 			<div class="clearer"></div>
-			<?php if (!$mobile): ?>
-			<div class="postfootright"><ul><li class="postquote"><a onmouseover="C2C.get_quote_text();" href="javascript:C2C.paste_quote('<?php echo pun_jsspecialchars($q_poster).'|'.$cur_post['id'] ?>');"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
-			<?php endif; ?>
+			<div class="postfootright"><ul><li class="postquote"><a onmouseover="C2C.get_quote_text();" href="#" onclick="C2C.paste_quote('<?php echo pun_jsspecialchars($q_poster).'|'.$cur_post['id'] ?>'); return false;"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
 		</div>
 	</div>
 <?php

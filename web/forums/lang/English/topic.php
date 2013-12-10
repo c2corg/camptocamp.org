@@ -18,6 +18,7 @@ $lang_topic = array(
 'Edit'				=>	'Edit',
 'Quoted reply'		=>	'Reply with quote',
 'Quote'				=>	'Quote the selected text',
+'Quote short' =>  'Quote',
 'Is subscribed'		=>	'You are currently subscribed to this topic',
 'Unsubscribe'		=>	'Unsubscribe',
 'Subscribe'			=>	'Subscribe to this topic',
