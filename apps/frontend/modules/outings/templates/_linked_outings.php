@@ -1,6 +1,7 @@
 <?php
 use_helper('General', 'SmartDate', 'Pagination', 'Link');
 $is_mobile_version = c2cTools::mobileVersion();
+$is_connected = $sf_user->isConnected();
 
 if(isset($nb_outings))
 {
