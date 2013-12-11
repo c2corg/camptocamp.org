@@ -71,7 +71,7 @@ class outingsActions extends documentsActions
                 $associated_routes = c2cTools::sortArray($associated_routes, 'duration');
                 foreach ($associated_routes as $route)
                 {
-                    // pour les docs de 2ème niveau, on retient uniquement les itinéraires de 1 ou 2 jours
+                    // pour les docs de 2ï¿½me niveau, on retient uniquement les itinï¿½raires de 1 ou 2 jours
                     if (!$route['duration'] instanceof Doctrine_Null)
                     {
                         if ($route['duration'] <= 4)
@@ -88,8 +88,8 @@ class outingsActions extends documentsActions
                         $default_ids[] = $route['id'];
                     }
                 }
-                // s'il n'y a pas d'itinéraire de 1 ou 2 jours, on utilise les itinéraires qui ont la plus petite durée
-                // s'il n'y en a pas non plus, on utilise les itinéraire dont la durée est non renseignée
+                // s'il n'y a pas d'itinï¿½raire de 1 ou 2 jours, on utilise les itinï¿½raires qui ont la plus petite durï¿½e
+                // s'il n'y en a pas non plus, on utilise les itinï¿½raire dont la durï¿½e est non renseignï¿½e
                 if (!count($parent_ids))
                 {
                     if (count($other_routes) > 1)
@@ -590,6 +590,14 @@ class outingsActions extends documentsActions
      */
     public function executeList()
     {
+        // redirect to user outings list if connected and if myoutings criteria is set
+        if($this->getUser()->isConnected() && $this->getRequestParameter('myoutings'))
+        {
+            sfLoader::loadHelpers(array('Pagination'));
+            $user_id = $this->getUser()->getId();
+            $this->redirect(_addUrlParameters(_getBaseUri(), array('myoutings'), array('users' => $user_id)));
+        }
+        
         // TODO something to do if outings where filtered on route ratings?
         parent::executeList();
 
