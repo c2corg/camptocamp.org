@@ -166,9 +166,11 @@
     return;
   };
 
-  C2C.paste_quote = function(default_poster) {
+  C2C.paste_quote = function(default_poster, use_href) {
 
     if (quote_text === '') {
+      if (use_href) return true;
+
       // no text has been selected. Display quote bbcode though
       nickname_postid = default_poster;
     }
@@ -177,6 +179,8 @@
     var endq = quote_text + '\n[/quote]\n';
     C2C.insert_text(startq, endq, true);
     quote_text = '';
+
+    return false;
   };
 
   C2C.paste_nick = function(user_name) {
