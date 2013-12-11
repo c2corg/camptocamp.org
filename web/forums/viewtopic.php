@@ -716,8 +716,15 @@ foreach ($posts_list as $cur_post)
             $post_actions[] = '<li class="movepost"><a href="movepost.php?id='.$cur_post['id'].'">'.$lang_topic['Move'].'</a>';
         }
         $post_actions[] = '<li class="postedit"><a href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a>';
-        $post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'">'.$lang_topic['Quoted reply'].'</a>';
-        $post_actions[] = '<li class="postquote"><a onmouseover="C2C.get_quote_text();" href="#" onclick="return C2C.paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
+        if ($mobile)
+        {
+            $post_actions[] = '<li class="postquote"><a onmouseover="C2C.get_quote_text();" href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'" onclick="return C2C.paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote short'].'</a>';
+        }
+        else
+        {
+            $post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'">'.$lang_topic['Quoted reply'].'</a>';
+            $post_actions[] = '<li class="postquote"><a onmouseover="C2C.get_quote_text();" href="#" onclick="C2C.paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');return false;">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
+        }
     //  Remove '<li class="postdelete"><a href="delete.php?id='.$cur_post['id'].'">'.$lang_topic['Delete'].'</a>'.$lang_topic['Link separator'].'</li>' because delete function occurs high server load.
     // To be put back when this function will be corrected. (bad english but titise fait expres !)
     }

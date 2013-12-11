@@ -261,6 +261,8 @@ $pictos: pass, lake, crag, parking_green, gite, camp;
   background-image: -c2c-datauri('/static/js/carto/cgxp/ext/Ext/resources/images/default/grid/loading.gif');
 }
 
+// defined in web/static/sass/carto/_cgxp-all.scss this rule sets a
+// background image for loading class, but is far too generic!
 .loading {
-  background-image: -c2c-datauri('/static/js/carto/cgxp/core/src/theme/img/loading.gif');
+  background-image: none;
 }
