@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_Scout11, portail_glace, camp_d, diamir_vipec, montania, bd_vector, changerdapproche, diamir_Scout11, camp_d, boutique_c2c, cilao, diamir_vipec ]
+    values: [ diamir_Scout11, portail_glace, camp_d, diamir_vipec, montania, bd_vector, changerdapproche, diamir_Scout11, camp_d, mdlt, cilao, diamir_vipec ]
   banners:
     list:
       skalp:
@@ -267,7 +267,7 @@ all:
         file: bd_vector_FR.swf
       mdlt:
         id: 77
-        image: mdlt.jpg
+        image: mdlt-hiver.jpg
         alt: "Montagnes de la Terre"
       diamir_vipec:
         id: 79
