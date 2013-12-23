@@ -88,5 +88,7 @@
   $('#actform').on('click', "input[name='act[]']", function() {
     hide_unrelated_filter_fields();
   });
+  // run it once
+  hide_unrelated_filter_fields();
 
 })(window.C2C = window.C2C || {}, jQuery);
