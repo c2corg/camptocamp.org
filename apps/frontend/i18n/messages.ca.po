@@ -135,7 +135,7 @@ msgid "Add"
 msgstr "Afegeix"
 
 msgid "Add a post"
-msgstr "Publicar un missatge"
+msgstr "Publica un missatge"
 
 msgid "Add associated summit :"
 msgstr "Afegeix un cim associat:"
@@ -665,6 +665,9 @@ msgstr "Aquest document ha estat fusionat i, per tant, no pot ser desprotegit."
 
 msgid "Current document has been merged into document %1%"
 msgstr "Aquest document ha estat fusionat amb el document %1%."
+
+msgid "Current password"
+msgstr "Contrasenya actual"
 
 msgid "Current version"
 msgstr "Versió actual"
@@ -2037,6 +2040,7 @@ msgstr "Resultats de Google per \"%1%\""
 msgid "Retrieve Forgotten Password"
 msgstr "Retroba la meva contrasenya perduda"
 
+# [WARNING] needs_update
 msgid "Retype your password:"
 msgstr "Reescriu la contrasenya:"
 
@@ -2786,9 +2790,8 @@ msgstr "Amb traça de GPS:"
 msgid "Wrong association type"
 msgstr "Tipus d'associació no autoritzada."
 
-# [WARNING] en translation used
 msgid "Wrong current password!"
-msgstr "You typed a wrong password"
+msgstr "Contrasenya incorrecta"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
@@ -2949,13 +2952,11 @@ msgstr "La seqüència anti-spam que has indicat és incorrecta."
 msgid "Your are connected as "
 msgstr "Estàs connectat com a "
 
-# [WARNING] en translation used
 msgid "Your current password is needed before modifying these properties"
-msgstr "Your current password is needed before modifying following properties"
+msgstr "Fa falta la vostra contrasenya actual per poder modificar els següents elements"
 
-# [WARNING] en translation used
 msgid "Your current password is required before applying changes"
-msgstr "Your current password is required"
+msgstr "Fa falta la vostra contrasenya actual"
 
 msgid "Your images have been successfully updated"
 msgstr "Les imatges s'han actualitzat amb èxit"
@@ -4704,9 +4705,8 @@ msgstr "punt culminant"
 msgid "current version"
 msgstr "versió actual"
 
-# [WARNING] en translation used
 msgid "current_password"
-msgstr "Enter current password:"
+msgstr "Escrigueu la vostra contrasenya actual:"
 
 msgid "dangerous"
 msgstr "perillós"

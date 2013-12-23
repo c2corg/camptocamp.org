@@ -680,6 +680,10 @@ msgstr "Dieses Dokument wurde mit einem andern zusammengeschlossen und kann dahe
 msgid "Current document has been merged into document %1%"
 msgstr "Das aktuelle Dokument wurde mit dem Dokument %1% zusammengeschlossen."
 
+# [WARNING] needs_review
+msgid "Current password"
+msgstr "Aktuelles Passwort"
+
 msgid "Current version"
 msgstr "Aktuelle Fassung"
 
@@ -2070,7 +2074,7 @@ msgid "Retrieve Forgotten Password"
 msgstr "Vergessenes Passwort wiederherstellen"
 
 msgid "Retype your password:"
-msgstr "Passwort nochmals eingeben:"
+msgstr "Neues Passwort nochmals eingeben:"
 
 msgid "Rev comment"
 msgstr "Information zu den Änderungen:"

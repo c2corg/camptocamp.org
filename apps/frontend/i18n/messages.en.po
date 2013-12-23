@@ -675,6 +675,9 @@ msgstr "The document has been merged, thus cannot be unprotected."
 msgid "Current document has been merged into document %1%"
 msgstr "The document has been merged into document %1%."
 
+msgid "Current password"
+msgstr "Current password"
+
 msgid "Current version"
 msgstr "Current version"
 
@@ -2065,7 +2068,7 @@ msgid "Retrieve Forgotten Password"
 msgstr "Retrieve forgotten password"
 
 msgid "Retype your password:"
-msgstr "Type again your password:"
+msgstr "Type again your new password:"
 
 msgid "Rev comment"
 msgstr "Information on your changes:"
