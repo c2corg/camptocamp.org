@@ -15,7 +15,8 @@
       $('.modal').width(this.options.width)
         .css('margin-left', Math.round(this.options.width / -2));
     } else {
-      $('.modal').removeAttr('style');
+      // reset style, unless modal was already open
+      $('.modal').not('.in').removeAttr('style');
     }
 
     $('.modal-backdrop').toggle(!!this.options.backdrop);
@@ -23,7 +24,9 @@
     this.$element = $('#modalbox')
       .on('click.dismiss.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this));
 
-    this.$element.find('.modal-header h3').text(this.options.title || '');
+    if (this.options.title) {
+      this.$element.not('.in').find('.modal-header h3').text(this.options.title)
+    }
 
     if (this.options.remote) {
       this.$element.find('.modal-body')
