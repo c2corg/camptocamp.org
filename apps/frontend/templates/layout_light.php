@@ -29,7 +29,7 @@ use_helper('MyMinify', 'MetaLink');
         echo include_title();
         echo auto_discovery_link_tag('rss', $rss);
     ?>
-    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="<?php echo minify_get_combined_files_url('/static/js/html5shiv.js', $debug) ?>"></script><![endif]-->
     <?php
         echo include_meta_links();
     ?>
