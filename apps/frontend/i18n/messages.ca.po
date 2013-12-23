@@ -271,7 +271,7 @@ msgid "Associate new access"
 msgstr "Crea un nou itinerari d'accés al refugi"
 
 msgid "Associate new outing"
-msgstr "Afegir una sortida en aquest itinerari"
+msgstr "Afegeix una sortida en aquest itinerari"
 
 msgid "Associate new route"
 msgstr "Crear un nou itinerari associat"
@@ -297,7 +297,7 @@ msgid "At least one file failed to upload"
 msgstr "manca almenys un fitxer o no s'ha pogut transmetre correctament"
 
 msgid "At least one file has incorrect type"
-msgstr "almenys un fitxer està en un format no autoritzat (jpeg, gif, png)"
+msgstr "almenys un fitxer està en un format no autoritzat (ha de ser jpeg, gif o png)"
 
 # [comment]
 # al menys un fitxer és massa gran (2 Mb)
@@ -308,7 +308,7 @@ msgid "At least one file is too large"
 msgstr "al menys un fitxer depassa les dimensions màximes autoritzades (8192x2048 px)"
 
 msgid "At least one file is too small"
-msgstr "al menys un fitxer és de dimensions massa petites (mínim: 16x16 px)"
+msgstr "almenys un fitxer és de dimensions massa petites (mínim: 16x16 px)"
 
 msgid "At least one image type is not given"
 msgstr "No s'ha indicat el tipus d'imatge per almenys una de les imatges"
@@ -394,7 +394,7 @@ msgid "Big size"
 msgstr "Mida gran"
 
 msgid "Bookmark"
-msgstr "Posar en els meus favorits"
+msgstr "Posa-ho als meus preferits"
 
 # [general comment]
 # Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
@@ -1130,14 +1130,14 @@ msgid "Google Book Search"
 msgstr "Cerca de llibres de Google"
 
 msgid "Guidebook"
-msgstr "Topo-guia"
+msgstr "Guia de ressenyes"
 
 # [WARNING] needs_review
 msgid "Guidebook / Map"
-msgstr "Topo-guia / Mapa"
+msgstr "Guia de ressenyes / Mapa"
 
 msgid "Guidebook contribs:"
-msgstr "Contribucions a la topo-guia:"
+msgstr "Contribucions a la guia de ressenyes:"
 
 msgid "Guidebook help"
 msgstr "Manual d'ajuda"
@@ -1705,7 +1705,7 @@ msgid "No available image for insertion"
 msgstr "No hi ha imatges disponibles per a l'inserció"
 
 msgid "No contribution for this user"
-msgstr "Aquest usuari encara no ha fet contribucions a la topo-guia."
+msgstr "Aquest usuari encara no ha fet contribucions a la guia de ressenyes."
 
 msgid "No difference"
 msgstr "No hi ha diferències."
@@ -2192,7 +2192,7 @@ msgid "See"
 msgstr "Consulta"
 
 msgid "Select a name to use in guidebook"
-msgstr "Selecciona el nom que vols fer servir a la topo-guia"
+msgstr "Selecciona el nom que vols fer servir a la guia de ressenyes"
 
 msgid "Select all"
 msgstr "Selecciona-ho tot"
@@ -2492,11 +2492,11 @@ msgid "Thanks for using Camptocamp.org!"
 msgstr "Gràcies per la teva contribució a Camptocamp.org!"
 
 msgid "The Camptocamp.org team"
-msgstr "<b>És important saber que el contingut dels teus escrits, així com els vostres pseudònims (fòrum i topo-guia), seran visibles a la xarxa i arxivats per motors de cerca.</b> Fer servir els vostres noms i cognoms com a pseudònim us exposa, doncs, a ser detectats per aquests motors.<br />\n"
+msgstr "<b>És important saber que el contingut dels teus escrits, així com els vostres pseudònims (fòrum i guia de ressenyes), seran visibles a la xarxa i arxivats per motors de cerca.</b> Fer servir els vostres noms i cognoms com a pseudònim us exposa, doncs, a ser detectats per aquests motors.<br />\n"
 "<br />\n"
 "Us aconsellem de no comunicar les vostres dades privades sinó en privat, per correu o per missatge personal, i no als fòrums públics.<br />\n"
 "L'adreça emails corresponent a la vostra inscripció només és visible pels moderadors i, per defecte, el vostre perfil només és visible pels membres de camptocamp.org.<br />\n"
-"És possible canviar d'email i de pseudònim (fòrum o topo-guia) quan es vulgui, però només els canvis d'email i de pseudònim de la topo-guia tenen caràcter retroactiu: tot missatge penjat al fòrum es mostrarà definitivament amb el pseudònim vigent al moment de penjar-lo.<br />\n"
+"És possible canviar d'email i de pseudònim (fòrum o guia de ressenyes) quan es vulgui, però només els canvis d'email i de pseudònim de la guia de ressenyes tenen caràcter retroactiu: tot missatge penjat al fòrum es mostrarà definitivament amb el pseudònim vigent al moment de penjar-lo.<br />\n"
 "<br />\n"
 "camptocamp.org considera que aquest advertiment anterior a la utilització del lloc és suficient per no haver d'accedir a eventuals peticions de supressió de missatges o de comentaris d'usuaris que no hagin tingut aquestes recomanacions.<br />\n"
 "<br />\n"
@@ -2926,7 +2926,7 @@ msgid "You must specify a nickname"
 msgstr "Has d'especificar un pseudònim per als fòrums."
 
 msgid "You must specify a topo name"
-msgstr "Has de triar el nom que apareixerà a la topo-guia."
+msgstr "Has de triar el nom que apareixerà a la guia de ressenyes."
 
 msgid "You must specify an email"
 msgstr "Has d'especificar una adreça email."
@@ -3098,12 +3098,12 @@ msgstr "<h3>Categories d'un article</h3>Es poden triar diferents categories.<br 
 "<br />\n"
 "<strong>entorn muntanyenc</strong>: informació general i perenne sobre la muntanya (geologia, biòtop, neu i allaus, etc.)<br />\n"
 "<strong>material tècnic</strong>: article sobre un material (descripció, utilització, manteniment) o una tècnica (gest, entrenament)<br />\n"
-"<strong>complements a la topo-guia</strong>: article que detalla una part d'un document de la topo-guia (històric d'un itinerari o d'un refugi, geologia d'un massís o d'un cim, etc.)<br />\n"
+"<strong>complements a la guia de ressenyes</strong>: article que detalla una part d'un document de la guia de ressenyes (històric d'un itinerari o d'un refugi, geologia d'un massís o d'un cim, etc.)<br />\n"
 "<strong>ecomobilitat i ecoturisme</strong>: article sobre l'ecomobilitat i l'ecoturisme<br />\n"
 "<strong>expedicions i viatges llunyans</strong>: ressenya o informació sobre una expedició o un viatge llunyà<br />\n"
 "<strong>narració</strong>: narració real o ficció<br />\n"
 "<strong>trobades / G2G</strong>: article de preparació o de resum de resultats d'una trobada organitzada per camptocamp<br />\n"
-"<strong>etiquetes</strong>: article emprat per \"etiquetar\" documents associant-los a l'article, fet que permet trobar-los fàcilment i fer cerques complexes a la topo-guia<br />\n"
+"<strong>etiquetes</strong>: article emprat per \"etiquetar\" documents associant-los a l'article, fet que permet trobar-los fàcilment i fer cerques complexes a la guia de ressenyes<br />\n"
 "<strong>ajuda, el lloc c2c</strong>: article a propòsit del web <em>camptocamp.org</em> (ajuda, informació)<br />\n"
 "<strong>associació</strong>: article a propòsit de <em>Camptocamp Association</em><br />\n"
 "<strong>esborrany</strong>: article que s'està redactant (i que encara no apareix a la pàgina d'inici)"
@@ -3170,7 +3170,7 @@ msgid "_date_time_info"
 msgstr "<h3>Data Hora</h3>Data i hora de la fotografia.<br />Aquesta informació s'extreu de les dades EXIF del fitxer enviat. És possible eliminar-la abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
 
 msgid "_description_info"
-msgstr "<h3>Descripció</h3>Part textual del document. En el cas dels documents de la topo-guia, s'han de respectar algunes regles:<br /><br /><strong>Punt cardinal</strong>:<br />Tot punt cardinal s'ha d'expressar exclusivament per les seves sigles internacionals en majúscules: N, E, S, W, NW, NE, SW, SE. L'única excepció és el nom de cims: Pic Occidental o Agulla Meridional (i Oriental, Septentrional) s'accepten en lloc de Pic W i Agulla S.<br /><br /><strong>Dades numèriques i magnituds físiques</strong>:<br />Les dades numèriques s'han d'escriure prioritàriament en xifres.<br />Les unitats han de ser escrites per la seva abreviació en sistema internacional:<br />- m , km: metre, quilòmetre<br />- h , mn , s: hora, minut, segon<br />- m/h, km/h: metre per hora, quilòmetre per hora<br />- kg: quilogram<br />- °C: grau centígrad<br />- °: pendent en graus<br />El nombre i la unitat no han d'estar separats per un espai, per tal d'evitar un salt de línia entre els dos: 100m i no cent metres o un centenar de metres, -15°C i no - 15 °C."
+msgstr "<h3>Descripció</h3>Part textual del document. En el cas dels documents de la guia de ressenyes, s'han de respectar algunes regles:<br /><br /><strong>Punt cardinal</strong>:<br />Tot punt cardinal s'ha d'expressar exclusivament per les seves sigles internacionals en majúscules: N, E, S, W, NW, NE, SW, SE. L'única excepció és el nom de cims: Pic Occidental o Agulla Meridional (i Oriental, Septentrional) s'accepten en lloc de Pic W i Agulla S.<br /><br /><strong>Dades numèriques i magnituds físiques</strong>:<br />Les dades numèriques s'han d'escriure prioritàriament en xifres.<br />Les unitats han de ser escrites per la seva abreviació en sistema internacional:<br />- m , km: metre, quilòmetre<br />- h , mn , s: hora, minut, segon<br />- m/h, km/h: metre per hora, quilòmetre per hora<br />- kg: quilogram<br />- °C: grau centígrad<br />- °: pendent en graus<br />El nombre i la unitat no han d'estar separats per un espai, per tal d'evitar un salt de línia entre els dos: 100m i no cent metres o un centenar de metres, -15°C i no - 15 °C."
 
 msgid "_difficulties_height_info"
 msgstr "<h3>Desnivells de les dificultats</h3>Desnivell de les dificultats principals d'un ititnerari sense comptar el desnivell de l'aproximació.\n"
@@ -3216,8 +3216,8 @@ msgstr "<h3>Compromís</h3>\n"
 "<strong>VI</strong>: L'itinerari és llarg i pot implicar més d'un dia. L'aproximació és també llarga i delicada, l'itinerari és totalment aïllat. Un cop començat no es pot girar cua i les escapatòries són vies en sí mateixes. Cal autonomia total de la cordada en la dificultat.<br />\n"
 "<br />\n"
 "Vegeu també l'ajuda:<br />\n"
-"- <a href=\"/articles/133323/ca/ajuda-topo-guia-escala-de-dificultats-d-escalada-en-roca-escalada-i-roca-en-alta-muntanya</a><br />\n"
-"- <a href=\"/articles/106871/ca/ajuda-topo-guia-dificultats-en-neu-glac-i-mixt</a>"
+"- <a href=\"/articles/133323/ca/ajuda-guia-de-ressenyes-escala-de-dificultats-d-escalada-en-roca-escalada-i-roca-en-alta-muntanya</a><br />\n"
+"- <a href=\"/articles/106871/ca/ajuda-guia-de-ressenyes-dificultats-en-neu-glac-i-mixt</a>"
 
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualitat de l'equipament present</h3>\n"
@@ -3254,7 +3254,7 @@ msgid "_facings_info"
 msgstr "<h3>Orientacions</h3>Llista de diferents orientacions del lloc/escola/sector.<br />El camp <i>Notes</i> permet donar informació complementària."
 
 msgid "_filename_info"
-msgstr "<h3>Codi d'inserció a la topo-guia</h3>Per inserir aquesta imatge (en format mitjà) a un text de la topo-guia, copieu-enganxeu el codi següent: clic sobre el codi, després Ctrl+A Ctrl+C per copiar, i Ctrl+V per enganxar.<br />Es mostrarà una miniatura de 250 píxels com a molt de costat, que conté un enllaç que permet mostrar la imatge amb 800 píxels de costat sobre fons negre.<br /><br />L'atribut que hi ha dins de la balisa que s'obre permet triar l'emplaçament de la foto:<br />- <strong>right</strong>: imatge enganxada a la dreta, text a l'esquerra<br />- <strong>left</strong>: imatge enganxada a l'esquerra, text a la dreta<br />- <strong>center</strong>: imatge centrada, sense text ni a l'esquerra ni a la dreta<br />- <strong>inline</strong>: imatge dins del text<br />- <strong>inline_right</strong>: imatge dins del text, enganxada a la dreta (permet apilar imatges a la dreta sobre la mateixa línia<br />- <strong>inline_left</strong>: imatge dins del text, enganxada a l'esquerra (permet apilar imatges a l'esquerra sobre la mateixa línia)<br /><br />Amb l'atribut <strong>right</strong> o <strong>left</strong>, per començar un nou paràgraf sota la imatge, afegiu la balisa <strong>[p]</strong> al final del paràgraf precedent."
+msgstr "<h3>Codi d'inserció a la guia de ressenyes</h3>Per inserir aquesta imatge (en format mitjà) a un text de la guia de ressenyes, copieu-enganxeu el codi següent: clic sobre el codi, després Ctrl+A Ctrl+C per copiar, i Ctrl+V per enganxar.<br />Es mostrarà una miniatura de 250 píxels com a molt de costat, que conté un enllaç que permet mostrar la imatge amb 800 píxels de costat sobre fons negre.<br /><br />L'atribut que hi ha dins de la balisa que s'obre permet triar l'emplaçament de la foto:<br />- <strong>right</strong>: imatge enganxada a la dreta, text a l'esquerra<br />- <strong>left</strong>: imatge enganxada a l'esquerra, text a la dreta<br />- <strong>center</strong>: imatge centrada, sense text ni a l'esquerra ni a la dreta<br />- <strong>inline</strong>: imatge dins del text<br />- <strong>inline_right</strong>: imatge dins del text, enganxada a la dreta (permet apilar imatges a la dreta sobre la mateixa línia<br />- <strong>inline_left</strong>: imatge dins del text, enganxada a l'esquerra (permet apilar imatges a l'esquerra sobre la mateixa línia)<br /><br />Amb l'atribut <strong>right</strong> o <strong>left</strong>, per començar un nou paràgraf sota la imatge, afegiu la balisa <strong>[p]</strong> al final del paràgraf precedent."
 
 msgid "_fnumber_info"
 msgstr "<h3>Obertura:</h3>Obertura del diafragma utilitzada.<br />Aquesta informació s'extreu de les dades EXIF del fitxer enviat. És possible eliminar-la abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
@@ -3398,13 +3398,13 @@ msgid "_image_new_version_info"
 msgstr "<h3>Nova versió de la imatge</h3>Pots utilitzar aquest camp per incloure una nova versió de la imatge (típicament una versió millorada o a la que has inclòs el traçat d'una via)"
 
 msgid "_image_type_info"
-msgstr "<h3>Tipus d'imatge</h3><strong>imatge col·laborativa</strong>:<br />Una imatge col·laborativa es difon sota llicència <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a>. Es pot copiar i modificar.<br />A la topo-guia, una imatge col·laborativa (tant si n'ets l'autor com si no) està sotmesa a les següents regles:<br />- guardat de la imatge a un document col·laboratiu: <strong>sí</strong><br />- associació a un document col·laboratiu: <strong>sí</strong><br />- inserció al text d'un document col·laboratiu: <strong>sí</strong><br />- L'associació, la inserció o el guardat d'una imatge a un document personal només està permesa a l'autor o autors del document.<br /><br /><strong>imatge personal</strong>:<br />Una imatge personal es difon sota llicència <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Es pot copiar però no modificar, excepte per l'autor.<br />A la topo-guia una imatge personal (tant si n'ets l'autor com si no) està sotmesa a les regles següents:<br />- guardat a un document col·laboratiu: <strong>no</strong><br />- associació a un document col·laboratiu: <strong>sí</strong> (després d'haver-la guardat a un document personal)<br />- inserció al text d'un document col·laboratiu: <strong>no</strong><br />- L'associació, la inserció o el guardat d'una imatge personal a un document personal està reservat només a l'autor o autors del document.<br /><br /><strong>imatge sotmeses a copyright</strong>:<br />Excepcionalment es pot no difondre una imatge sotmesa a llicència Creative Commons. Les imatges sotmeses a copyright corresponent a algunes cobertes de llibre, els autors i/o editors dels quals en són els propietaris. Són presents a camptocamp només a títol il·lustratiu. No es poden utilitzar aquestes imatges sense demanar-ho a qui en tingui la propietat."
+msgstr "<h3>Tipus d'imatge</h3><strong>imatge col·laborativa</strong>:<br />Una imatge col·laborativa es difon sota llicència <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a>. Es pot copiar i modificar.<br />A la guia de ressenyes, una imatge col·laborativa (tant si n'ets l'autor com si no) està sotmesa a les següents regles:<br />- guardat de la imatge a un document col·laboratiu: <strong>sí</strong><br />- associació a un document col·laboratiu: <strong>sí</strong><br />- inserció al text d'un document col·laboratiu: <strong>sí</strong><br />- L'associació, la inserció o el guardat d'una imatge a un document personal només està permesa a l'autor o autors del document.<br /><br /><strong>imatge personal</strong>:<br />Una imatge personal es difon sota llicència <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Es pot copiar però no modificar, excepte per l'autor.<br />A la guia de ressenyes, una imatge personal (tant si n'ets l'autor com si no) està sotmesa a les regles següents:<br />- guardat a un document col·laboratiu: <strong>no</strong><br />- associació a un document col·laboratiu: <strong>sí</strong> (després d'haver-la guardat a un document personal)<br />- inserció al text d'un document col·laboratiu: <strong>no</strong><br />- L'associació, la inserció o el guardat d'una imatge personal a un document personal està reservat només a l'autor o autors del document.<br /><br /><strong>imatge sotmeses a copyright</strong>:<br />Excepcionalment es pot no difondre una imatge sotmesa a llicència Creative Commons. Les imatges sotmeses a copyright corresponent a algunes cobertes de llibre, els autors i/o editors dels quals en són els propietaris. Són presents a camptocamp només a títol il·lustratiu. No es poden utilitzar aquestes imatges sense demanar-ho a qui en tingui la propietat."
 
 msgid "_is_on_glacier_info"
 msgstr "<h3>Necessita material de glacera</h3>Itinerari que passa per glaceres que poden presentar esquerdes."
 
 msgid "_is_profile_public_info"
-msgstr "<h3>Autoritza l'accés a la vostra pàgina personal als visitants anònims</h3>Marcant aquesta casella, autoritzeu l'accés a la vostra pàgina personal als visitants no identificats. Els motors de cerca també tindran accés a aquesta pàgina i podran indexar-la.<br />Sinó, només els membres identificats podran llegir aquesta pàgina.<br />La vostra pàgina personal conté:<br />- la vostra presentació, amb forma de text lliure (opcional)<br />- la llista de les vostres sortides<br />- la llista de les vostres contribucions a la topo-guia (itineraris, articles, etc.)<br />- la llista de les vostres fotos<br />- la llista dels vostres missatges als fòrums"
+msgstr "<h3>Autoritza l'accés a la vostra pàgina personal als visitants anònims</h3>Marcant aquesta casella, autoritzeu l'accés a la vostra pàgina personal als visitants no identificats. Els motors de cerca també tindran accés a aquesta pàgina i podran indexar-la.<br />Sinó, només els membres identificats podran llegir aquesta pàgina.<br />La vostra pàgina personal conté:<br />- la vostra presentació, amb forma de text lliure (opcional)<br />- la llista de les vostres sortides<br />- la llista de les vostres contribucions a la guia de ressenyes (itineraris, articles, etc.)<br />- la llista de les vostres fotos<br />- la llista dels vostres missatges als fòrums"
 
 msgid "_is_staffed_info"
 msgstr "<h3>Guardat</h3>Indica si el refugi és guardat una part de l'any."
@@ -3521,10 +3521,10 @@ msgstr "<h3>Dificultat en mixt</h3>\n"
 "Vegeu també l'ajuda a les <a href=\"/articles/106871/ca\">Dificultats en neu, glaç i mixt</a>."
 
 msgid "_moderator status_info"
-msgstr "<h3>Moderació</h3>Si l'usuari té estatus de moderador, aleshores és moderador de la topo-guia i/o dels fòrums"
+msgstr "<h3>Moderació</h3>Si l'usuari té estatus de moderador, aleshores és moderador de la guia de ressenyes i/o dels fòrums"
 
 msgid "_name_info"
-msgstr "<h3>Nom</h3>Nom o títol de l'objecte o del document.<br /><br /><strong>Punt cardinal</strong>:<br />Tot punt cardinal de la topo-guia, ha d'expressar-se exclusivament per les seves sigles internacionals en majúscula: N, E, S, W, NW, NE, SW, SE. L'única excepció és el cas dels noms de cim: Pic Occidental ou Agulla Meridional (i Oriental, Septentrional) són acceptats en lloc de Pic W i agulla S.<br /><br /><strong>Nom d'un itinerari</strong>:<br />- Comporta el nom de la via únicament. El nom del cim s'afegeix quan es mostra el document.<br />- Ha de ser el més neutre i el més discriminable possible.<br />- Ha d'estar composat preferentment per l'orientació del vessant, cara, pilar, o aresta recorreguda per les dificultats.<br />- Si l'itinerari recorre una via coneguda per un nom propi, aquest pot ser utilitzat.<br />- El títol \"via normal\" s'ha d'evitar en general, perquè n'hi pot haver diverses (des de dues valls diferents, p.ex) i la via normal pot variar segons la temporada de l'any (a causa de la neu, p.ex.). Si de totes maneres és útil mencionar-la, ha de ser afegit entre parèntesi darrere del vessant: <i>Aresta S (via normal)</i>.<br /><br /><strong>Nom d'una sortida</strong>:<br />El nom és lliure. Per defecte, es fixa a <i>nom del cim: nom de l'itinerari</i>, però no s'actualitza automàticament en cas que canviï algun dels dos noms."
+msgstr "<h3>Nom</h3>Nom o títol de l'objecte o del document.<br /><br /><strong>Punt cardinal</strong>:<br />Tot punt cardinal de la guia de ressenyes, ha d'expressar-se exclusivament per les seves sigles internacionals en majúscula: N, E, S, W, NW, NE, SW, SE. L'única excepció és el cas dels noms de cim: Pic Occidental ou Agulla Meridional (i Oriental, Septentrional) són acceptats en lloc de Pic W i agulla S.<br /><br /><strong>Nom d'un itinerari</strong>:<br />- Comporta el nom de la via únicament. El nom del cim s'afegeix quan es mostra el document.<br />- Ha de ser el més neutre i el més discriminable possible.<br />- Ha d'estar composat preferentment per l'orientació del vessant, cara, pilar, o aresta recorreguda per les dificultats.<br />- Si l'itinerari recorre una via coneguda per un nom propi, aquest pot ser utilitzat.<br />- El títol \"via normal\" s'ha d'evitar en general, perquè n'hi pot haver diverses (des de dues valls diferents, p.ex) i la via normal pot variar segons la temporada de l'any (a causa de la neu, p.ex.). Si de totes maneres és útil mencionar-la, ha de ser afegit entre parèntesi darrere del vessant: <i>Aresta S (via normal)</i>.<br /><br /><strong>Nom d'una sortida</strong>:<br />El nom és lliure. Per defecte, es fixa a <i>nom del cim: nom de l'itinerari</i>, però no s'actualitza automàticament en cas que canviï algun dels dos noms."
 
 msgid "_nb_pages_info"
 msgstr "<h3>Número de pàgines</h3>Número de pàgines del llibre. Si un llibre té diverses edicions es farà referència a la més recent."
@@ -3799,10 +3799,10 @@ msgid "_timing_info"
 msgstr "<h3>Hora de sortida / horari</h3>Permet indicar els horaris de la sortida, com per exemple;:<br />- hores de sortida i de retorn<br />- hora d'arribada al cim o durada de la pujada<br />- en esquí: hora de l'inici de la baixada<br /><br /><i>ATENCIÓ: aquest horari és el que ha realitzat l'autor de la sortida! Pot haver-hi variacions importants en funció de les condicions en aquell moment, de la forma física i del nivell tècnic de cadascú.</i>"
 
 msgid "_topo_name_info"
-msgstr "<h3>Nom topo-guia</h3>Nom que apareix a la topo-guia del lloc.<br /><br />Aquest nom es pot modificar. Per defecte és idèntic a l'identificador."
+msgstr "<h3>Nom guia de ressenyes</h3>Nom que apareix a la guia de ressenyes del lloc.<br /><br />Aquest nom es pot modificar. Per defecte és idèntic a l'identificador."
 
 msgid "_topoguide_code_info"
-msgstr "<h3>Codi d'inserció a la topo-guia</h3>Per inserir aquesta imatge (de mida reduïda) al text d'un document topo-guia, copieu i enganxeu el codi següent: cliqueu sobre el codi, aleshores feu Ctrl+C per copiar i Ctrl+V per enganxar.<br /><br />La imatge ha de complir les següents condicions:<br />- La imatge ha d'haver estat anteriorment associada al document.<br />- Si es tracta d'un document col·laboratiu, la imatge també ho ha de ser. <em>Per modificar el tipus d'imatge, editeu-la o feu servir l'<a href=\"/users/manageimages\">eina de gestió de les imatges personals</a>.</em><br /><br />D'aquesta manera podreu inserir el codi de la imatge directament des de la pàgina d'edició del document, amb l'ajuda del botó <input type=\"button\" value=\"img\" /> de la barra d'eines: només estaran disponibles les imatges que compleixin les anteriors condicions.<br /><br />Per defecte, la imatge es mostrarà a la dreta, amb la llegenda a sota, dins d'un requadre. Els atributs de la balisa d'obertura permeten modificar-ne la presentació:<br />- <strong>dreta</strong>: imatge alineada a la dreta, text a l'essquerra<br />- <strong>esquerra</strong>: imatge alineada a l'esquerra, text a la dreta<br />- <strong>centre</strong>: imatge centrada, sense text ni a dreta ni a esquerra<br />- <strong>inline</strong>: imatge dins del text<br />- <strong>inline_dreta</strong>: imatge dins del text, alineada a la dreta (permet acumular imatges a la dreta sobre la mateixa alineació)<br />- <strong>inline_esquerra</strong>: imatge dins del text, alineada a l'esquerra (permet d'acumular imatges a l'esquerra sobre la mateixa alineació)<br />- <strong>no_border</strong>: imatge amb llegenda a sota, sense requadre<br />- <strong>no_legend</strong>: imatge amb llegenda en indicador de funció, sense requadre<br /><br />Amb l'atribut <strong>dreta</strong> o <strong>esquerra</strong>, per començar un nou paràgraf sota la imatge, afegiu una <strong>[p]</strong> al final del paràgraf precedent."
+msgstr "<h3>Codi d'inserció a la guia de ressenyes</h3>Per inserir aquesta imatge (de mida reduïda) al text d'un document de la guia de ressenyes, copieu i enganxeu el codi següent: cliqueu sobre el codi, aleshores feu Ctrl+C per copiar i Ctrl+V per enganxar.<br /><br />La imatge ha de complir les següents condicions:<br />- La imatge ha d'haver estat anteriorment associada al document.<br />- Si es tracta d'un document col·laboratiu, la imatge també ho ha de ser. <em>Per modificar el tipus d'imatge, editeu-la o feu servir l'<a href=\"/users/manageimages\">eina de gestió de les imatges personals</a>.</em><br /><br />D'aquesta manera podreu inserir el codi de la imatge directament des de la pàgina d'edició del document, amb l'ajuda del botó <input type=\"button\" value=\"img\" /> de la barra d'eines: només estaran disponibles les imatges que compleixin les anteriors condicions.<br /><br />Per defecte, la imatge es mostrarà a la dreta, amb la llegenda a sota, dins d'un requadre. Els atributs de la balisa d'obertura permeten modificar-ne la presentació:<br />- <strong>dreta</strong>: imatge alineada a la dreta, text a l'essquerra<br />- <strong>esquerra</strong>: imatge alineada a l'esquerra, text a la dreta<br />- <strong>centre</strong>: imatge centrada, sense text ni a dreta ni a esquerra<br />- <strong>inline</strong>: imatge dins del text<br />- <strong>inline_dreta</strong>: imatge dins del text, alineada a la dreta (permet acumular imatges a la dreta sobre la mateixa alineació)<br />- <strong>inline_esquerra</strong>: imatge dins del text, alineada a l'esquerra (permet d'acumular imatges a l'esquerra sobre la mateixa alineació)<br />- <strong>no_border</strong>: imatge amb llegenda a sota, sense requadre<br />- <strong>no_legend</strong>: imatge amb llegenda en indicador de funció, sense requadre<br /><br />Amb l'atribut <strong>dreta</strong> o <strong>esquerra</strong>, per començar un nou paràgraf sota la imatge, afegiu una <strong>[p]</strong> al final del paràgraf precedent."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposició</h3>Grau d'exposició del descens amb esquís (escala Toponeige).<br />L'exposició descriu el risc de ferides en cas de caiguda, a part del pendent en si mateix: una exposició feble però un pendent fort no garanteix una caiguda sense conseqüències.<br /><br /><strong>E1</strong>: l'exposició és la del pendent en si. El risc de ferida és tanmateix important sobre neu dura i/o pendent fort.<br /><br /><strong>E2</strong>: a l'exposició del pendent s'hi afegeixen obstacles que agreujarien les ferides: petita barra de roca sense risc d'impacte, corredor sinuós.<br /><br /><strong>E3</strong>: En cas de caiguda, salt d'una gran barra rocallosa o corredor tortuós, risc probable d'impacte. Mort probable.<br /><br /><strong>E4</strong>: En cas de caiguda, salt d'una paret alta o corredor molt estret, impacte garantit. Mort segura.<br /><br />Vegeu també l'ajuda a les <a href=\"/articles/107675/ca\">dificultats en esquí i surf</a>."
@@ -4063,7 +4063,7 @@ msgid "article body"
 msgstr "Cos de l'article:"
 
 msgid "article form warning"
-msgstr "<strong>Restriccions:</strong> Hi ha certs continguts que no s'admeten als articles però que poden ser acceptats a d'altres parts del lloc web.<br />- Anuncis d'esdeveniments o manifestacions: feu servir el <a href=\"/forums/search.php?action=show_news&amp;lang=fr\">fòrum \"Actualitats\"</a>.<br />- Publicitat d'un professional: feu servir la vostra pàgina personal o el <a href=\"/forums/viewforum.php?id=17\">fòrum corresponent</a>.<br />- Petits anuncis: feu servir els fòrums corresponents.<br />- Itinerari, condicions trobades durant una sortida: feu servir la<a href=\"/articles/117868/fr\">topo-guia</a>."
+msgstr "<strong>Restriccions:</strong> Hi ha certs continguts que no s'admeten als articles però que poden ser acceptats a d'altres parts del lloc web.<br />- Anuncis d'esdeveniments o manifestacions: feu servir el <a href=\"/forums/search.php?action=show_news&amp;lang=fr\">fòrum \"Actualitats\"</a>.<br />- Publicitat d'un professional: feu servir la vostra pàgina personal o el <a href=\"/forums/viewforum.php?id=17\">fòrum corresponent</a>.<br />- Petits anuncis: feu servir els fòrums corresponents.<br />- Itinerari, condicions trobades durant una sortida: feu servir la<a href=\"/articles/117868\">guia de ressenyes</a>."
 
 msgid "article_type"
 msgstr "Tipus d'article:"
@@ -5073,7 +5073,7 @@ msgid "for outings"
 msgstr "de les sortides"
 
 msgid "forum and topoguide names"
-msgstr "Nom a la topo-guia i pseudònim al fòrum"
+msgstr "Nom a la guia de ressenyes i pseudònim al fòrum"
 
 msgid "forum moderator"
 msgstr "moderador dels fòrums"
@@ -5082,7 +5082,7 @@ msgid "forum name only"
 msgstr "Només pseudònim al fòrum"
 
 msgid "forum topoguide moderator"
-msgstr "moderador dels fòrums i de la topo-guia"
+msgstr "moderador dels fòrums i de la guia de ressenyes"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "El forum utilitza el vostre nom d'usuari o el pseudònim si existeix"
@@ -5623,7 +5623,7 @@ msgid "mailing lists"
 msgstr "Llistes de difusió per email des butlletins nivològics"
 
 msgid "manage images presentation"
-msgstr "Aquesta pàgina us permetrà canviar fàcilment la llicència de les imatges que hagueu penjat a camptocamp.org.<br /><br />Les imatges que apareixien aquí sota són de tipus personal, sota llicència <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Podeu escollir de fer-les disponibles com a contingut col·laboratiu, sota llicència <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, de tal manera que permetreu a la comunitat d'utilitzar-les més lliurement per a la topo-guia.<br />En efecte, només les imatges col·laboratives poden inserir-se al text d'un document col·laboratiu (una foto que il·lustri un itinerari, per exemple), per tal que el text i les imatges quedin sotmeses a la mateixa llicència.<br />Ara per ara no hi ha limitació tècnica (el temps que cal per passar una proporció important de les fotos sota llicència col·laborativa, o bé per suprimir-les del text).<br /><em>Per a més informació, <a href=\"/forums/viewtopic.php?id=155692\">vegeu la discussió al respecte al fòrum</a>.</em><br /><br />Seleccioneu les imatges que desitgeu passar a col·laboratives i després valideu els canvis amb l'ajuda del botó <em>Canviar la llicència</em>.<br /><span style=\"color: red\">Atenció: aquest canvi és irreversible i no es pot canviar la llicència d'una imatge col·laborativa a llicència personal.</span><br /><br />Per facilitar la recerca de les imatges, hi ha diverses llistes disponibles:<br />- <a href=\"/users/manageimages/dtyp/1\">Imatges personals associades a un document col·laboratiu</a> (fora de l'article) - <em>La major part de les imatges inserides a un document col·laboratiu són a aquesta llista, a modificar segons prioritat.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Imatges personals associades a un article col·laboratiu</a><br />- <a href=\"/users/manageimages/dtyp/2\">Imatges personals associades a un document personal</a> (fora de l'article)<br />- <a href=\"/users/manageimages/ctyp/2\">Imatges personals associades a un article personal</a>"
+msgstr "Aquesta pàgina us permetrà canviar fàcilment la llicència de les imatges que hagueu penjat a camptocamp.org.<br /><br />Les imatges que apareixien aquí sota són de tipus personal, sota llicència <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Podeu escollir de fer-les disponibles com a contingut col·laboratiu, sota llicència <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, de tal manera que permetreu a la comunitat d'utilitzar-les més lliurement per a la guia de ressenyes.<br />En efecte, només les imatges col·laboratives poden inserir-se al text d'un document col·laboratiu (una foto que il·lustri un itinerari, per exemple), per tal que el text i les imatges quedin sotmeses a la mateixa llicència.<br />Ara per ara no hi ha limitació tècnica (el temps que cal per passar una proporció important de les fotos sota llicència col·laborativa, o bé per suprimir-les del text).<br /><em>Per a més informació, <a href=\"/forums/viewtopic.php?id=155692\">vegeu la discussió al respecte al fòrum</a>.</em><br /><br />Seleccioneu les imatges que desitgeu passar a col·laboratives i després valideu els canvis amb l'ajuda del botó <em>Canviar la llicència</em>.<br /><span style=\"color: red\">Atenció: aquest canvi és irreversible i no es pot canviar la llicència d'una imatge col·laborativa a llicència personal.</span><br /><br />Per facilitar la recerca de les imatges, hi ha diverses llistes disponibles:<br />- <a href=\"/users/manageimages/dtyp/1\">Imatges personals associades a un document col·laboratiu</a> (fora de l'article) - <em>La major part de les imatges inserides a un document col·laboratiu són a aquesta llista, a modificar segons prioritat.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Imatges personals associades a un article col·laboratiu</a><br />- <a href=\"/users/manageimages/dtyp/2\">Imatges personals associades a un document personal</a> (fora de l'article)<br />- <a href=\"/users/manageimages/ctyp/2\">Imatges personals associades a un article personal</a>"
 
 msgid "mandatory_fields"
 msgstr "<strong>Plagi:</strong> No copieu del text d'un altre lloc web o d'un llibre, excepte si la seva <a href=\"/articles/106728/ca\">llicència</a> ho permet.</li><li><strong>Punts cardinals:</strong> Feu servir les inicials internacionals en majúscules: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Ajuda contextual:</strong> Hi ha una ajuda disponible per a cada camp: cliqueu el títol del camp per veure-la.</li><li><strong>Paginació:</strong> Es pot donar forma al text i organitzar-lo amb subtítols. S'hi poden inserir imatges de l'àlbum. <a href=\"/articles/151910/ca\">Consulteu l'ajuda</a>.</li><li><strong>Els camps marcats amb un asterisc (*) són obligatoris.</strong></li><li><strong>Modificació:</strong> Després de crear un document, podeu modificar-lo clicant a la pestanya \"Modifica\" (a l'esquerra). No feu servir el botó \"Enrere\" del vostre navegador.</li><li><strong>Supressió:</strong> Per eliminar un document, demaneu-ho als moderadors fent servir el botó \"Alerta d'un problema\" del menú de l'esquerra.</li><li><strong>Fotos i esquemes:</strong> Les fotos i esquemes s'adjunten després de la creació del document, mitjançant l'enllaç de la part baixa de la pàgina <em>Afegeix imatges a aquesta pàgina</em>. Per afegir una imatge reduïda dins del cos del text, feu servir el botó <input type=\"button\" class=\"bbcodeexample\" value=\"img\" /> de la barra d'edició del camp. També podeu copiar-ne el codi, disponible a la pàgina de la imatge. Les imatges s'han d'associar prèviament al document per poder-les inserir al text. En el cas de documents col·laboratius només es poden inserir imatges col·laboratives."
@@ -5746,7 +5746,7 @@ msgid "menu"
 msgstr "menú"
 
 msgid "meta_description"
-msgstr "Camptocamp.org, la comunitat de muntanya. És un lloc d'intercanvi multilingüe dedicat a l'alpinisme, l'escalada, les cascades de glaç, l'esquí de muntanya, les raquetes i l'excursionisme. Hi trobareu una topo-guia que descriu milers d'itineraris, cims, refugis, així com les condicions de les sortides recents, articles, fòrums, un àlbum de fotos..."
+msgstr "Camptocamp.org, la comunitat de muntanya. És un lloc d'intercanvi multilingüe dedicat a l'alpinisme, l'escalada, les cascades de glaç, l'esquí de muntanya, les raquetes i l'excursionisme. Hi trobareu una guia de ressenyes que descriu milers d'itineraris, cims, refugis, així com les condicions de les sortides recents, articles, fòrums, un àlbum de fotos..."
 
 msgid "meta_keywords"
 msgstr "muntanya, esquí de muntanya, surf de muntanya, alpinisme, raquetes, alpinisme, neu, glaç, mixt, corredors, canals, cascades, dry-tooling, roca, escalada, parets, grimpades, excursions a peu"
@@ -6159,7 +6159,7 @@ msgid "outing date"
 msgstr "Data de la sortida"
 
 msgid "outing form warning"
-msgstr "<strong>Atenció!</strong> A aquesta pàgina només hi heu d'indicar informació informació relativa a la vostra sortida (data, condicions trobades, comentaris personals). La informació relativa a un nou itinerari s'ha de facilitar a la pàgina de l'\"itinerari\" corresponent.<br />Trobareu més informació al respecte de l'organització de la topo-guia a l'<a href=\"/articles/117868/fr\">ajuda</a>.</li><li><strong>Tipus de sortida:</strong> No s'admeten les sortides en heliesquí o que s'hagin fet a pistes fent ús dels remuntadors mecànics. Fer servir el <a href=\"/forums/viewforum.php?id=2\">fòrum \"Condicions: neu i allaus\"</a> per explicar les vostres observacions.</li><li><strong>Títol de la sortida:</strong> Per defecte tindrà format \"Cim: Itinerari\", però podeu modificar-lo per mencionar la variant que s'ha seguit, un encadenament o un recorregut parcial de l'itinerari.</li><li><strong>Associació a d'altres documents:</strong> Un cop s'ha creat la sortida, podreu associar-la a d'altres itineraris o llocs d'escalada (en cas d'un encadenament), o als participants membres (donant-los dret de modificar la sortida per a adjuntar-hi els seus comentaris).</li><li><strong>Millora de la topo-guia:</strong> Si trobeu un itinerari de la topo-guia insuficient o erroni, no dubteu a <a href=\"/articles/112382/fr\">millorar-lo</a>."
+msgstr "<strong>Atenció!</strong> A aquesta pàgina només hi heu d'indicar informació informació relativa a la vostra sortida (data, condicions trobades, comentaris personals). La informació relativa a un nou itinerari s'ha de facilitar a la pàgina de l'\"itinerari\" corresponent.<br />Trobareu més informació al respecte de l'organització de la guia de ressenyes a l'<a href=\"/articles/117868\">ajuda</a>.</li><li><strong>Tipus de sortida:</strong> No s'admeten les sortides en heliesquí o que s'hagin fet a pistes fent ús dels remuntadors mecànics. Fer servir el <a href=\"/forums/viewforum.php?id=2\">fòrum \"Condicions: neu i allaus\"</a> per explicar les vostres observacions.</li><li><strong>Títol de la sortida:</strong> Per defecte tindrà format \"Cim: Itinerari\", però podeu modificar-lo per mencionar la variant que s'ha seguit, un encadenament o un recorregut parcial de l'itinerari.</li><li><strong>Associació a d'altres documents:</strong> Un cop s'ha creat la sortida, podreu associar-la a d'altres itineraris o llocs d'escalada (en cas d'un encadenament), o als participants membres (donant-los dret de modificar la sortida per a adjuntar-hi els seus comentaris).</li><li><strong>Millora de la guia de ressenyes:</strong> Si trobeu un itinerari de la guia de ressenyes insuficient o erroni, no dubteu a <a href=\"/articles/112382\">millorar-lo</a>."
 
 msgid "outing_length"
 msgstr "Distància: "
@@ -6382,7 +6382,7 @@ msgid "portals list"
 msgstr "Llista dels portals"
 
 msgid "portals presentation"
-msgstr "Un portal és un punt d'accés a una part específica de la topo-guia i dels fòrums"
+msgstr "Un portal és un punt d'accés a una part específica de la guia de ressenyes i dels fòrums"
 
 msgid "possible crossing"
 msgstr "delicat - passatge amb precaució"
@@ -6915,7 +6915,7 @@ msgid "sites list"
 msgstr "Llista de zones d'escalada (totxos, blocs, rocòdrom)"
 
 msgid "sites presentation"
-msgstr "Un sector d'escalada pot ser una zona de totxo (vies d'un sol llarg, de qualitat i equipament diversos), una zona de bloc (boulder) o un rocòdrom.<br />Les vies llargues a parets i en mitjana muntanya es descriuran com a \"itineraris\" de la topo-guia."
+msgstr "Un sector d'escalada pot ser una zona de totxo (vies d'un sol llarg, de qualitat i equipament diversos), una zona de bloc (boulder) o un rocòdrom.<br />Les vies llargues a parets i en mitjana muntanya es descriuran com a \"itineraris\" de la guia de ressenyes."
 
 # [general comment]
 # sites d'escalades (version courte)
@@ -7063,7 +7063,7 @@ msgid "summit"
 msgstr "cim"
 
 msgid "summit form warning"
-msgstr "<strong>Atenció!</strong> En aquesta pàgina indiqueu només informació relativa a aquest cim: ubicació, geologia, història, etc. Les descripcions dels itineraris i els seus antecedents històrics s'han d'especificar a les pàgines \"itinerari\" corresponents.<br />Trobareu més informació al respecte de l'organització de la topo-guia a l'<a href=\"/articles/117868/ca\">ajuda</a>.</li><li><strong>Nom del cim:</strong><br />- Un cim ha de ser un lloc geogràfic: cim, coll, bretxa, llac, sector de vies llargues o de cascades de glaç.<br />- Un cim no pot ser un recorregut o una travessa. Aquests s'han de descriure com a itineraris, associats al(s) cim(s) pel(s) qual(s) es passa i/o al cim al voltant del qual es va la volta.<br />- Excepció: per entrar una travessa, creeu un cim <em>Travessa: Nom de la travessa</em>. Associeu-lo després als itineraris que conformen cadascuna de les etapes, o creeu un itinerari que les descrigui totes juntes.</li><li><strong>Georeferenciament:</strong> Per tal que un cim estigui associat a un massís i/o a una regió, cal donar-ne les coordenades geogràfiques."
+msgstr "<strong>Atenció!</strong> En aquesta pàgina indiqueu només informació relativa a aquest cim: ubicació, geologia, història, etc. Les descripcions dels itineraris i els seus antecedents històrics s'han d'especificar a les pàgines \"itinerari\" corresponents.<br />Trobareu més informació al respecte de l'organització de la guia de ressenyes a l'<a href=\"/articles/117868/ca\">ajuda</a>.</li><li><strong>Nom del cim:</strong><br />- Un cim ha de ser un lloc geogràfic: cim, coll, bretxa, llac, sector de vies llargues o de cascades de glaç.<br />- Un cim no pot ser un recorregut o una travessa. Aquests s'han de descriure com a itineraris, associats al(s) cim(s) pel(s) qual(s) es passa i/o al cim al voltant del qual es va la volta.<br />- Excepció: per entrar una travessa, creeu un cim <em>Travessa: Nom de la travessa</em>. Associeu-lo després als itineraris que conformen cadascuna de les etapes, o creeu un itinerari que les descrigui totes juntes.</li><li><strong>Georeferenciament:</strong> Per tal que un cim estigui associat a un massís i/o a una regió, cal donar-ne les coordenades geogràfiques."
 
 msgid "summit_id"
 msgstr "Cim:"
@@ -7202,29 +7202,29 @@ msgid "topics"
 msgstr "discussions"
 
 msgid "topo"
-msgstr "topo-guía"
+msgstr "guia de ressenyes"
 
 msgid "topo pic"
 msgstr "traçat, esquema"
 
 msgid "topoName_desc"
-msgstr "Nom que es mostra a la topo-guia:"
+msgstr "Nom que es mostra a la guia de ressenyes:"
 
 msgid "topoguide moderator"
-msgstr "moderador de al topo-guia"
+msgstr "moderador de la guia de ressenyes"
 
 msgid "topoguide name only"
-msgstr "Només el nom de la topo-guia"
+msgstr "Nom a la guia de ressenyes únicament"
 
 # [WARNING] needs_review
 msgid "topoguide supplements"
-msgstr "complements a la topo-guia"
+msgstr "complements a la guia de ressenyes"
 
 msgid "topoguide_code"
-msgstr "Codi d'inserció de la imatge:"
+msgstr "Codi d'inserció de la imatge a la guia de ressenyes:"
 
 msgid "topoguidename"
-msgstr "Nom a la topo-guia"
+msgstr "Nom a la guia de ressenyes"
 
 # [general comment]
 # exposition ski
@@ -7232,7 +7232,7 @@ msgid "toponeige_exposition_rating"
 msgstr "Grau d'exposició en esquí:"
 
 msgid "toponeige_technical_rating"
-msgstr "Cotació tècnica:"
+msgstr "Dificultat tècnica:"
 
 msgid "toscane"
 msgstr "Toscana"
@@ -7442,7 +7442,7 @@ msgstr "Fes servir els mateixos criteris que a aquesta llista"
 # TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN, IT & DE
 # 
 msgid "widget generator help"
-msgstr "Camptocamp us ofereix la possibilitat d'integrar al vostre lloc web o blog un widget que mostra una llista de continguts de la topo-guia. Podeu, per exemple, mostrar les vostres darreres sortides, els darrers cims que heu introduït a la topo-guia, o qualsevol altra llista que us balli pel cap.<br /><br />Indiqueu el títol que voleu donar al vostre widget i després copieu el codi d'aquí sota a la vostra pàgina web. Així de senzill!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Més informació</a>"
+msgstr "Camptocamp us ofereix la possibilitat d'integrar al vostre lloc web o blog un widget que mostra una llista de continguts de la guia de ressenyes. Podeu, per exemple, mostrar les vostres darreres sortides, els darrers cims que heu introduït a la guia de ressenyes, o qualsevol altra llista que us balli pel cap.<br /><br />Indiqueu el títol que voleu donar al vostre widget i després copieu el codi d'aquí sota a la vostra pàgina web. Així de senzill!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Més informació</a>"
 
 # [general comment]
 # image width
