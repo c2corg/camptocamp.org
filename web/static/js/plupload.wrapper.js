@@ -15,11 +15,7 @@
     image_number: 0,
     pe: null,
 
-    init: function(upload_url, backup_url, backup_js, i18n) {
-
-      this.backup_url = backup_url;
-      this.backup_js = backup_js;
-      this.i18n = i18n;
+    init: function(upload_url, backup_url, i18n) {
 
       var uploader = new plupload.Uploader({
         runtimes: 'html5,flash', // rq: flash is not working well with FF (getFlashObj() null ?) but anyway, html5 is fine with firefox
@@ -31,7 +27,7 @@
         url: upload_url,
         flash_swf_url: '/static/js/plupload/plupload.flash.swf',
         filters: [{
-          title: this.i18n.extensions,
+          title: i18n.extensions,
           extensions: "jpeg,jpg,gif,png,svg"
         }],
         required_features: 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have all of these features will fail
@@ -43,7 +39,7 @@
         // drag&drop look&feel
         if (up.features.dragdrop) {
           $('#'+dropid).remove(); // be sure it is there only once
-          var drop_overlay = $('<div id="'+dropid+'"><span>'+this.i18n.drop+'</span></div>').appendTo('body');
+          var drop_overlay = $('<div id="'+dropid+'"><span>'+i18n.drop+'</span></div>').appendTo('body');
 
           plupload.addEvent(document, 'dragenter', function(e) {
             if ($('#modalbox').hasClass('in') && $('#image_upload').is(':visible')) {
@@ -71,26 +67,18 @@
           // no available runtime with all desired features,
           // load needed js and redirect to backup upload system
           case plupload.INIT_ERROR:
-            $.ajax({
-              url: this.backup_js,
-              dataType: 'script',
-              cache: true
-            }).done(function() {
-              $.modalbox.show({
-                remote: this.backup_url
-              });
-            });
+            $.modalbox.show({ remote: backup_url });
             return;
 
           // file is with wrong extension, or too big (svg and gif files cannot be resized)
           case plupload.FILE_SIZE_ERROR:
           case plupload.FILE_EXTENSION_ERROR:
-            this.displayError(err.file, this.i18n.badselect);
+            this.displayError(err.file, i18n.badselect);
             break;
 
           // other errors
           default:
-            this.displayError(err.file, this.i18n.unknownerror + ' (' + err.message + ')');
+            this.displayError(err.file, i18n.unknownerror + ' (' + err.message + ')');
             break;
         }
         up.refresh(); // reposition Flash/Silverlight
@@ -105,7 +93,7 @@
         this.image_number++;
 
         var div = $('#'+file.id);
-        div.find('b:first').html(this.i18n.sending);
+        div.find('b:first').html(i18n.sending);
         div.find('a:first').remove();
 
         up.settings.multipart_params = {
@@ -129,8 +117,8 @@
       }, this);
 
       uploader.bind('FilesAdded', function(up, files) {
-        var waiting = this.i18n.waiting;
-        var cancel = this.i18n.cancel;
+        var waiting = i18n.waiting;
+        var cancel = i18n.cancel;
 
         $('#'+dropid).removeClass('active');
 
@@ -158,7 +146,7 @@
         var div = $('#'+file.id);
 
         if (file.percent >= 95) {
-          div.find('b:first').html(this.i18n.serverop);
+          div.find('b:first').html(i18n.serverop);
         }
 
         div.find('.plupload_progress:first').width(file.percent);
