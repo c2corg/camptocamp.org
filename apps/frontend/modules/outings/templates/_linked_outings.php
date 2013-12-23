@@ -1,6 +1,7 @@
 <?php
 use_helper('General', 'SmartDate', 'Pagination', 'Link');
 $is_mobile_version = c2cTools::mobileVersion();
+$is_connected = $sf_user->isConnected();
 
 if(isset($nb_outings))
 {
@@ -115,6 +116,10 @@ echo '<p class="list_link">',
 if ($module == 'users')
 {
     echo ' - ', link_to(__('Statistics'), 'http://' . sfConfig::get('app_statistics_base_url') . '/user/' . $id);
+}
+else if ($is_connected)
+{
+    echo ' - ', link_to(__('My outings'), "outings/list?$module=$id&myoutings=1&orderby=date&order=desc");
 }
      
 if (!$is_mobile_version)

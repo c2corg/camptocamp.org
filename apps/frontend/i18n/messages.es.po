@@ -680,6 +680,10 @@ msgstr "Este documento ha sido fusionado, y no puede ser desprotegido."
 msgid "Current document has been merged into document %1%"
 msgstr "Este documento ha sido fusionado con el documento %1%."
 
+# [WARNING] en translation used
+msgid "Current password"
+msgstr "Current password"
+
 msgid "Current version"
 msgstr "Versión actual"
 
@@ -2072,6 +2076,7 @@ msgstr "Resultados Google para \"%1%\""
 msgid "Retrieve Forgotten Password"
 msgstr "Obtener su contraseña perdida"
 
+# [WARNING] needs_update
 msgid "Retype your password:"
 msgstr "Reescribe la contraseña:"
 

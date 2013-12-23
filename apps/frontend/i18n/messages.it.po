@@ -683,6 +683,10 @@ msgstr "Questo documento è stato unito ad un altro, quindi non può essere spro
 msgid "Current document has been merged into document %1%"
 msgstr "Questo documento è stato unito con il documento %1%."
 
+# [WARNING] en translation used
+msgid "Current password"
+msgstr "Current password"
+
 msgid "Current version"
 msgstr "Versione attuale"
 
@@ -2072,6 +2076,7 @@ msgstr "Risultati di Google per \"%1%\""
 msgid "Retrieve Forgotten Password"
 msgstr "Ho perso la password"
 
+# [WARNING] needs_update
 msgid "Retype your password:"
 msgstr "Riscrivi la password:"
 
@@ -2797,7 +2802,7 @@ msgid "Weather forecast"
 msgstr "Previsioni del tempo"
 
 msgid "Welcome %1%"
-msgstr "Benvenuto %1% !"
+msgstr "Benvenuto %1%!"
 
 # [general comment]
 # vs: avec ou sans c2c.org?

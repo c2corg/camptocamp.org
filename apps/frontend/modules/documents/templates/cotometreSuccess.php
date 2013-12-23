@@ -22,8 +22,8 @@ function cotometre_rating(slope, height, skiability) {
 
 function cotometre_technical_grade() {
   var skiability = parseFloat($("input[name=skiability]:checked").first().val());
-  var slope = parseFloat($("#slope").val());
-  var height = parseFloat($("#height").val());
+  var slope = parseFloat($("#coto_slope").val());
+  var height = parseFloat($("#coto_height").val());
   
   if (isNaN(slope) || slope < 20.0 || slope > 80.0) {
     alert("' . __('pente limites') . '");
@@ -58,11 +58,11 @@ echo label_tag('skiability', __('skiabilite'), false, array('class' => 'fieldnam
 ?></p><p>
 <?php
 echo label_tag('slope', __('pentemoyenne'), false, array('class' => 'fieldname')),
-     input_tag('slope', '', array('class' => 'short_input'));
+     input_tag('coto_slope', '', array('class' => 'short_input'))
 ?></p><p>
 <?php
 echo label_tag('height', __('denivele'), false, array('class' => 'fieldname')), 
-     input_tag('height', '', array('class' => 'short_input'));
+     input_tag('coto_height', '', array('class' => 'short_input'));
 ?></p><p>
 <?php
 echo c2c_submit_tag(__('compute technical grade'), array('onclick' => 'cotometre_technical_grade(); return false;'));

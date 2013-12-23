@@ -36,9 +36,8 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 <?php
 $plupload_js = minify_get_combined_files_url(array('/static/js/plupload.c2c.js', '/static/js/plupload.wrapper.js'));
 $backup_url = url_for("@image_jsupload?mod=$mod&document_id=$document_id");
-$backup_js = minify_get_combined_files_url('/static/js/image_upload.js');
 echo javascript_tag("$.ajax({ url: '$plupload_js', dataType: 'script', cache: true })" .
-".done(function() { C2C.PlUploadWrapper.init('/images/addpltempimage/mod/$mod/document_id/$document_id', '$backup_url', '$backup_js', {" .
+".done(function() { C2C.PlUploadWrapper.init('/images/addpltempimage/mod/$mod/document_id/$document_id', '$backup_url', {" .
     "badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."'," .
     "sending: '".__('plupload sending')."', waiting: '".__('plupload waiting')."', serverop: '".__('plupload serverop')."'," .
     "cancel: '".__('cancel')."', drop: '".__('plupload drop')."'" .

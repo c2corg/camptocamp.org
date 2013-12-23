@@ -672,6 +672,9 @@ msgstr "Ce document a été fusionné, et ne peut donc être déprotégé."
 msgid "Current document has been merged into document %1%"
 msgstr "Ce document a été fusionné avec le document %1%."
 
+msgid "Current password"
+msgstr "Mot de passe actuel"
+
 msgid "Current version"
 msgstr "Version actuelle"
 
@@ -2044,7 +2047,7 @@ msgid "Retrieve Forgotten Password"
 msgstr "Retrouver mon mot de passe perdu"
 
 msgid "Retype your password:"
-msgstr "Retaper votre mot de passe&nbsp;:"
+msgstr "Retaper votre mot nouveau de passe&nbsp;:"
 
 msgid "Rev comment"
 msgstr "Informations sur les modifications&nbsp;:"
