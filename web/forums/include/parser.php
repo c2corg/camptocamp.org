@@ -960,7 +960,7 @@ function do_video($text)
             '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$6"></iframe>',
             '<iframe class="video youtube-player" width="$2" height="$3" src="http://www.youtube.com/embed/$5"></iframe>',
             // dailymotion
-            '<iframe width="$2" height="$3" src="http://www.dailymotion.com/embed/video/$4?theme=none&amp;wmode=transparent"></iframe>',
+            '<iframe class="video" width="$2" height="$3" src="http://www.dailymotion.com/embed/video/$4?theme=none&amp;wmode=transparent"></iframe>',
             // googlevideo
             '<object class="video" width="$2" height="$3" data="http://video.google.com/googleplayer.swf?docId=$4"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4" /><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
             // vimeo
