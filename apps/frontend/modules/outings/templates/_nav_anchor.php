@@ -20,8 +20,11 @@ $id = $sf_params->get('id');
                 echo li(button_anchor('Elevation profile', 'elevation_profile_container', 'picto_routes', $module, $id, $lang),
                         array('id' => 'elevation_profile_nav'));
             }
+            if ($section_list['images'])
+            {
+                echo li(button_anchor('Images', 'images', 'picto_images', $module, $id, $lang), array('id' => 'images_anchor'));
+            }
             ?>
-            <li><?php echo button_anchor('Images', 'images', 'picto_images', $module, $id, $lang); ?></li>
         </ul>
     </div>
     <div id="nav_anchor_down"></div>
