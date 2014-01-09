@@ -2551,18 +2551,24 @@ ul.docs_changes li img
 
 // drag and drop for languages order preferences is only available
 // in standard version
-@if $standard {
+//@if $standard {
   #languages-order {
     width:130px;
     padding: 0.2em;
-    margin: 0 0 0 160px;
+    @if $standard {
+      margin: 0 0 0 160px;
+    }
 
     li {
       list-style-type: none;
 
       &[id^=lang_] {
         margin: 0.3em 0;
-        padding: 0.2em 0.2em 0.2em 35px;
+        @if $standard {
+          padding: 0.2em 0.2em 0.2em 35px;
+        } @else {
+          padding: 0.6em 0.6em 0.6em 38px;
+        }
         border: 1px solid #000;
         @include border-radius(4px);
         background: -c2c-datauri('/static/images/picto/drag.gif') no-repeat 5px;
@@ -2582,7 +2588,7 @@ ul.docs_changes li img
       }
     }
   }
-}
+//}
 
 .bbcodetoolcontainer input, input.bbcodeexample
 {
