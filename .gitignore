@@ -31,6 +31,7 @@ web/static/css/*.css
 web/static/js/carto/build/carto.min.js
 web/static/js/carto/build/lang-*.js
 web/static/js/carto/script/c2corg/config/config.js
+web/static/images/home-sprites-*.png
 web/static/opensearch/description.xml
 web/static/rss/latest_docs.rss
 web/stats/settings.php
