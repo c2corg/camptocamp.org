@@ -1923,9 +1923,6 @@ class sfPunBBCodeParser
                     '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]https?://(www\.)?vimeo\.com/(\d+)(\#.*)?\[/video\]#isU',
                     // metacafe http://www.metacafe.com/watch/4003782/best_shot_of_movie_troy(/|.swf)
                     '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]https?://www\.metacafe\.com/watch/(\d+/[_a-z]+)(/|\.swf)(\#.*)?\[/video\]#isU',
-                    // sevenload http://fr.sevenload.com/emissions/La-Chaine-Techno/episodes/aPsY9N8-Le-Talk-iPhone-Episode-08
-                    //           http://de.sevenload.com/sendungen/zoom-in/folgen/1AtoCcG-Der-Schneeleopard-startet-fuer-Ghana-in-Vancouver
-                    '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]https?://[a-z]{2}\.sevenload\.com/(.*/)(\w+)-[-\w]*(\#.*)?\[/video\]#isU',
                 );
 
                 $replacements = array(
@@ -1939,9 +1936,7 @@ class sfPunBBCodeParser
                     // vimeo
                     '<iframe class="video" src="//player.vimeo.com/video/$5?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="$2" height="$3"></iframe>',
                     // metacafe
-                    '<object class="video" width="$2" height="$3" data="http://www.metacafe.com/fplayer/$4.swf"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf" /><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3" /></object>',
-                    // sevenload
-                    '<object class="video" width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true" /><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash" /></object>',
+                    '<iframe class="video" src="http://www.metacafe.com/embed/$4/" width="$2" height="$3" allowFullScreen frameborder=0></iframe>',
                 );
             }
             else
