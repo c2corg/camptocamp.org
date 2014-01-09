@@ -478,14 +478,14 @@ class documentsActions extends c2cActions
                                                                                           : sfConfig::get('app_recent_documents_mountain_news_limit'),
                                                                           $langs, $activities);
 
-        if (!$mobile_version):
-        // c2c news
-        $this->latest_c2c_news = PunbbTopics::listLatestC2cNews(sfConfig::get('app_recent_documents_c2c_news_limit'), $langs);
-        
         // Custom welcome message:
         $prefered_langs = $this->getUser()->getCulturesForDocuments();
         $this->message = Message::find($prefered_langs[0]);
 
+        if (!$mobile_version):
+        // c2c news
+        $this->latest_c2c_news = PunbbTopics::listLatestC2cNews(sfConfig::get('app_recent_documents_c2c_news_limit'), $langs);
+        
         $this->figures = sfConfig::get('app_figures_list');
         endif; // mobile version
 
