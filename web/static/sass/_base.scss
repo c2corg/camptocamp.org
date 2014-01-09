@@ -2549,46 +2549,43 @@ ul.docs_changes li img
   border: 1px solid #ff0031;
 }
 
-// drag and drop for languages order preferences is only available
-// in standard version
-//@if $standard {
-  #languages-order {
-    width:130px;
-    padding: 0.2em;
-    @if $standard {
-      margin: 0 0 0 160px;
+// drag and drop for languages order preferences
+#languages-order {
+  width:130px;
+  padding: 0.2em;
+  @if $standard {
+    margin: 0 0 0 160px;
+  }
+
+  li {
+    list-style-type: none;
+
+    &[id^=lang_] {
+      margin: 0.3em 0;
+      @if $standard {
+        padding: 0.2em 0.2em 0.2em 35px;
+      } @else {
+        padding: 0.6em 0.6em 0.6em 38px;
+      }
+      border: 1px solid #000;
+      @include border-radius(4px);
+      background: -c2c-hashurl('/static/images/picto/drag.gif') no-repeat 5px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #ccc;
+      }
     }
 
-    li {
-      list-style-type: none;
+    &:first-child.sortable-placeholder {
+      margin-top: 0.3em;
+    }
 
-      &[id^=lang_] {
-        margin: 0.3em 0;
-        @if $standard {
-          padding: 0.2em 0.2em 0.2em 35px;
-        } @else {
-          padding: 0.6em 0.6em 0.6em 38px;
-        }
-        border: 1px solid #000;
-        @include border-radius(4px);
-        background: -c2c-datauri('/static/images/picto/drag.gif') no-repeat 5px;
-
-        &:hover {
-          cursor: pointer;
-          background-color: #ccc;
-        }
-      }
-
-      &:first-child.sortable-placeholder {
-        margin-top: 0.3em;
-      }
-
-      &:last-child.sortable-placeholder {
-        margin-bottom: 0.3em;
-      }
+    &:last-child.sortable-placeholder {
+      margin-bottom: 0.3em;
     }
   }
-//}
+}
 
 .bbcodetoolcontainer input, input.bbcodeexample
 {

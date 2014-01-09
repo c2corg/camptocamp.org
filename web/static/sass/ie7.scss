@@ -297,12 +297,6 @@ a.external_link, .htext .hextra a.external_link {
   background: transparent -c2c-hashurl('/static/images/extlink.gif') left center no-repeat;
 }
 
-#order li
-{
-  background: -c2c-hashurl('/static/images/picto/drag.gif') no-repeat 5px;
-}
-
-
 /* following rules are because using classical css sprites to get good looking
    buttons is $^*@! */
 .c2cui_picto.action_create
