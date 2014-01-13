@@ -8,7 +8,7 @@ if (!empty($message) || $sf_user->hasCredential('moderator'))
     ?>
     <div id="edit_me" class="front_message"><?php echo $output_message; ?></div>
     <?php 
-    if ($sf_user->hasCredential('moderator'))
+    if ($sf_user->hasCredential('moderator') && !$mobile_version)
     {
         echo javascript_queue("
           $.ajax({

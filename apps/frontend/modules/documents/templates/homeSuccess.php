@@ -29,11 +29,8 @@ echo start_content_tag('home_article', true);
         <div id="home_background_content">
             <div id="home_left_content">
                 <?php
-                if (!$mobile_version)
-                {
-                    include_partial('common/edit_in_place', array('message' => $sf_data->getRaw('message')));
-                }
-                else
+                include_partial('common/edit_in_place', array('mobile_version' => $mobile_version, 'message' => $sf_data->getRaw('message')));
+                if ($mobile_version)
                 {
                     echo '<div id="last_images">';
                     include_partial('images/latest', array('items' => $latest_images, 'culture' => $culture, 'default_open' => true));

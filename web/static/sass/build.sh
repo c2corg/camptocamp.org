@@ -16,3 +16,8 @@ rm -f ../css/*.css
 
 # compile stylesheets
 compass compile
+
+# optimize generated sprite images
+if hash optipng 2>/dev/null; then
+  optipng ../images/*-sprites-*.png
+fi

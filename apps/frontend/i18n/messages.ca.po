@@ -171,7 +171,6 @@ msgstr "Alineació:"
 msgid "All fields are mandatory"
 msgstr "Tots els camps són obligatoris."
 
-# [WARNING] needs_review
 msgid "All topics"
 msgstr "Tots els temes"
 
@@ -220,7 +219,6 @@ msgstr "Estàs segur de voler suprimir la geometria d'aquest document?"
 
 # [general comment]
 # escape ' by \' if you use them
-# [WARNING] needs_review
 msgid "Are you sure you want to rotate the image?"
 msgstr "Esteu segur de voler girar la imatge?"
 
@@ -266,7 +264,6 @@ msgstr "Articles"
 
 # [general comment]
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
-# [WARNING] needs_review
 msgid "Associate new access"
 msgstr "Crea un nou itinerari d'accés al refugi"
 
@@ -433,7 +430,6 @@ msgstr "Cancel·la"
 
 # [general comment]
 # Infobulle du bouton "Reset georef"
-# [WARNING] needs_review
 msgid "Cancel georef changes"
 msgstr "Reinicia el georeferenciament del document"
 
@@ -915,7 +911,6 @@ msgstr "Altitud"
 msgid "Elevation (m)"
 msgstr "Cota (msnm)"
 
-# [WARNING] needs_review
 msgid "Elevation profile"
 msgstr "Perfil d'alçades"
 
@@ -965,7 +960,6 @@ msgstr "El canvi de nom d'un fitxer a fallat. Si torna a passar, contacteu amb e
 msgid "Failed rasterizing svg file"
 msgstr "No s'ha pogut convertir la imatge vectorial en matricial"
 
-# [WARNING] needs_review
 msgid "Failed to create synchronized summit"
 msgstr "La creació del cim associat al refugi ha fallat"
 
@@ -1015,7 +1009,6 @@ msgstr "La geometria d'aquest document ha estat esborrada"
 
 # [general comment]
 # Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
-# [WARNING] needs_review
 msgid "Georef Tool"
 msgstr "Georeferenciació"
 
@@ -1132,7 +1125,6 @@ msgstr "Cerca de llibres de Google"
 msgid "Guidebook"
 msgstr "Guia de ressenyes"
 
-# [WARNING] needs_review
 msgid "Guidebook / Map"
 msgstr "Guia de ressenyes / Mapa"
 
@@ -1169,7 +1161,6 @@ msgstr "Aquest refugi no existeix"
 msgid "Hut:"
 msgstr "Refugi:"
 
-# [WARNING] needs_review
 msgid "ID or name/nickname"
 msgstr "ID o inici del nom/pseudònim"
 
@@ -1217,21 +1208,17 @@ msgstr "Aquesta imatge no existeix."
 
 # [general comment]
 # assistant image forum
-# [WARNING] needs_review
 msgid "Image on the internet"
 msgstr "Imatge a internet"
 
-# [WARNING] needs_review
 msgid "Image rotated successfully"
 msgstr "La imatge s'ha girat correctament"
 
-# [WARNING] needs_review
 msgid "Image rotation"
 msgstr "Rotació de la imatge"
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
-# [WARNING] needs_review
 msgid "Image under copyright license"
 msgstr "Aquesta imatge mostra la coberta d'un llibre i és propietat de l'editor i/o de l'autor. Només es mostra a títol il·lustratiu"
 
@@ -1241,7 +1228,6 @@ msgstr "Imatge carregada"
 msgid "Images"
 msgstr "Imatges"
 
-# [WARNING] needs_review
 msgid "Images are under license specified in the original document of each image"
 msgstr "Les imatges en aquesta pàgina estan disponibles sota la llicència indicada al document d'origen de cada imatge."
 
@@ -1315,7 +1301,6 @@ msgstr "Sembla que us heu deixat d'indicar un nom o un fitxer."
 msgid "Kesako?"
 msgstr "Qui som?"
 
-# [WARNING] needs_review
 msgid "Keyword or ID"
 msgstr "Contrasenya o ID"
 
@@ -1326,7 +1311,6 @@ msgstr "Per saber-ne més"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] needs_review
 msgid "L# button title"
 msgstr "Dóna format a la descripció d'un llarg d'escalada"
 
@@ -1344,34 +1328,28 @@ msgstr "Últimes sortides fetes amb ecomobilitat"
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] needs_review
 msgid "Latest %1% creations"
 msgstr "Darreres creacions - %1%"
 
-# [WARNING] needs_review
 msgid "Latest %1% creations in %2%"
 msgstr "Darreres creacions - %1% - %2%"
 
-# [WARNING] needs_review
 msgid "Latest %1% editions"
 msgstr "Darreres edicions - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] needs_review
 msgid "Latest %1% editions feed"
 msgstr "%1% - Darreres edicions"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] needs_review
 msgid "Latest %1% editions feed description"
 msgstr "camptocamp.org - darreres edicions dels documents %1%"
 
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
 msgstr "Darreres edicions - %1% - %2%"
 
@@ -1385,7 +1363,6 @@ msgstr "Darrers documents"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
 msgstr "Darreres edicions de \"%1%\" - %2%"
 
@@ -1657,7 +1634,6 @@ msgstr "La meva posició"
 msgid "My preferences"
 msgstr "Preferències personals"
 
-# [WARNING] needs_review
 msgid "My statistics"
 msgstr "Les meves estadístiques"
 
@@ -1691,7 +1667,6 @@ msgstr "Afegeix un itinerari"
 msgid "New routes article"
 msgstr "Crònica de l'obertura"
 
-# [WARNING] needs_review
 msgid "No GPX track, please edit this document to add some"
 msgstr "Cap informació geogràfica disponible: edita aquest document per afegir-ne."
 
@@ -2008,7 +1983,7 @@ msgid "Remember me ?"
 msgstr "Recordar-se de mi?"
 
 msgid "Reorder these languages according to your preferences, using drag-and-drop"
-msgstr "Reordeneu les llengües en funció de les vostres preferències, utilitzant la funció arrossegar-deixar anar del ratolí"
+msgstr "Reordeneu les llengües segons les vostres preferències, arrossegant-les i deixant-les anar amb el ratolí"
 
 msgid "Reply"
 msgstr "Respon"
@@ -2040,9 +2015,8 @@ msgstr "Resultats de Google per \"%1%\""
 msgid "Retrieve Forgotten Password"
 msgstr "Retroba la meva contrasenya perduda"
 
-# [WARNING] needs_update
 msgid "Retype your password:"
-msgstr "Reescriu la contrasenya:"
+msgstr "Reescriviu la vostra nova contrasenya:"
 
 msgid "Rev comment"
 msgstr "Informació sobre les modificacions:"
@@ -4450,9 +4424,9 @@ msgid "cda_prepare_outing_box"
 msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Previsions meteorològiques</a></p>\n"
 "<ul><li><a href=\"http://www.meteo.cat/servmet/index.html\">Méteo Catalunya</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo França</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">Méteo Espanya</a></li><li><a href=\"http://www.meteosuisse.ch\">Méteo Suïssa</a></li><li><a href=\"http://meteolive.leonardo.it\">Méteo Itàlia</a></li></ul>\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#bera\">Allaus</a></p>\n"
-"<ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Butlletí d'allaus (Catalunya)</a></li><li><a href=\"http://www.lauegi.conselharan.org/\">Conselh Generau (Aran)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Butlletí Méteo France</a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA Itàlia</a></li><li><a href=\"/users/mailinglists\">Rebeu els butlletins al correu</a></li></ul>\n"
+"<ul><li><a href=\"http://www.igc.cat/web/ca/allaus_butlleti.php\">Butlletí d'allaus (Catalunya)</a></li><li><a href=\"http://lauegi.conselharan.org/?lang=ca\">Conselh Generau (Aran)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Butlletí Méteo France</a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/index_EN\">SLF Suïssa</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA Itàlia</a></li><li><a href=\"/users/mailinglists\">Rebeu els butlletins al correu</a></li></ul>\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Transport</a></p>\n"
-"<ul><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://www.mobilitat.ad/CA/transport.asp\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>\n"
+"<ul><li><a href=\"http://www20.gencat.cat/portal/site/msi-dgac/menuitem.9326f5fc2f0eab5c95367355b0c0e1a0/?vgnextoid=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextchannel=a22a3aa13b966210VgnVCM1000008d0c1e0aRCRD&vgnextfmt=default\">Rodalies de Catalunya</a></li><li><a href=\"http://www20.gencat.cat/portal/site/mobilitat\">Mobilitat en transport públic (Catalunya)</a></li><li><a href=\"http://http://www.mobilitat.ad/ca/transport-public\">Mobilitat en transport públic (Andorra)</a></li><li><a href=\"http://www.renfe.com/CA/viajeros/index.html\">Renfe (Espanya)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (França)</a></li><li><a href=\"http://itinisere.fr/\">Itinisère (Isère)</a></li><li><a href=\"http://www.mobisavoie.fr/\">Mobisavoie (Savoia)</a></li><li><a href=\"http://www.viamontblanc.com/\">Viamontblanc (Mont-Blanc)</a></li><li><a href=\"http://www.05voyageurs.com/\">05 Voyageurs (Alts Alps)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suïssa)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Itàlia)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europa)</a></li></ul>\n"
 "<p>Altres</p>\n"
 "<ul><li><a href=\"http://senderismeentren.cat/\">Senderisme amb tren</a></li><li><a href=\"http://www.senderismeentransportpublic.blogspot.com/\">Senderisme amb transport públic</a></li><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://transportpublic.org/\">transportpublic.org</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
 
@@ -5378,9 +5352,9 @@ msgstr "Inserir una imatge"
 
 # [general comment]
 # message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
-# [WARNING] needs_update
 msgid "imgur notice %1%"
-msgstr "Les imatges importades des del vostre ordinador seran allotjades a %1%. La perennitat de l'allotjament no és responsabilitat de camptocamp."
+msgstr "Les imatges importades des del vostre ordinador seran allotjades a %1%. La perennitat de l'allotjament no és responsabilitat de camptocamp.<br />\n"
+"Les fotos que feu durant les sortides, pengeu-les preferiblement a la sortida o bé al vostre perfil."
 
 msgid "imported from v4"
 msgstr "Importat des de la versió 4 del web"

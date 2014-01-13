@@ -179,7 +179,6 @@ msgstr "Tous les champs sont obligatoires."
 # - Tous les posts
 # - Tous les messages
 # - Tous
-# [WARNING] needs_review
 msgid "All topics"
 msgstr "Toutes les discussions"
 
@@ -228,7 +227,6 @@ msgstr "Êtes-vous sûr de vouloir effacer la géométrie de ce document ?"
 
 # [general comment]
 # escape ' by \' if you use them
-# [WARNING] needs_review
 msgid "Are you sure you want to rotate the image?"
 msgstr "Êtes-vous sûr de vouloir tourner l'image ?"
 
@@ -274,7 +272,6 @@ msgstr "Articles"
 
 # [general comment]
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
-# [WARNING] needs_review
 msgid "Associate new access"
 msgstr "Créer un nouvel itinéraire d'accès au refuge"
 
@@ -439,7 +436,6 @@ msgstr "Annuler"
 
 # [general comment]
 # Infobulle du bouton "Reset georef"
-# [WARNING] needs_review
 msgid "Cancel georef changes"
 msgstr "Réinitialiser le géoréférencement du document"
 
@@ -924,7 +920,6 @@ msgstr "Altitude (m)"
 # [comment]
 # Google utilise profil d'élévation ?
 # profil topographique ?
-# [WARNING] needs_review
 msgid "Elevation profile"
 msgstr "Profil d'altitude"
 
@@ -974,7 +969,6 @@ msgstr "Le renommage d'un fichier a échoué. Si cela se reproduit, merci de con
 msgid "Failed rasterizing svg file"
 msgstr "L'image vectorielle n'a pas pu être convertie en image matricielle"
 
-# [WARNING] needs_review
 msgid "Failed to create synchronized summit"
 msgstr "La création du sommet associé au refuge a échoué"
 
@@ -1024,7 +1018,6 @@ msgstr "La géométrie de ce document a été effacée"
 
 # [general comment]
 # Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
-# [WARNING] needs_review
 msgid "Georef Tool"
 msgstr "Géoréférencer"
 
@@ -1141,7 +1134,6 @@ msgstr "Google Recherche de Livres"
 msgid "Guidebook"
 msgstr "Topoguide"
 
-# [WARNING] needs_review
 msgid "Guidebook / Map"
 msgstr "Topoguide / Carto"
 
@@ -1178,7 +1170,6 @@ msgstr "Ce refuge n'existe pas."
 msgid "Hut:"
 msgstr "Refuge&nbsp;:"
 
-# [WARNING] needs_review
 msgid "ID or name/nickname"
 msgstr "ID ou début du nom/pseudo"
 
@@ -1226,21 +1217,17 @@ msgstr "Cette image n'existe pas."
 
 # [general comment]
 # assistant image forum
-# [WARNING] needs_review
 msgid "Image on the internet"
 msgstr "Image sur Internet"
 
-# [WARNING] needs_review
 msgid "Image rotated successfully"
 msgstr "L'image a été tournée correctement"
 
-# [WARNING] needs_review
 msgid "Image rotation"
 msgstr "Rotation de l'image"
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
-# [WARNING] needs_review
 msgid "Image under copyright license"
 msgstr "Cette image reprend la couverture d'un livre et est la propriété de son éditeur et/ou de son auteur. Elle n'est présente qu'à titre illustratif."
 
@@ -1250,7 +1237,6 @@ msgstr "Image uploadée"
 msgid "Images"
 msgstr "Images"
 
-# [WARNING] needs_review
 msgid "Images are under license specified in the original document of each image"
 msgstr "Les images associées à cette page sont disponibles sous la licence précisée sur le document d'origine de chaque image."
 
@@ -1324,7 +1310,6 @@ msgstr "Il semble que vous ayez oublié de renseigner un nom ou un fichier."
 msgid "Kesako?"
 msgstr "Késako ?"
 
-# [WARNING] needs_review
 msgid "Keyword or ID"
 msgstr "Mot-clé ou ID"
 
@@ -1335,7 +1320,6 @@ msgstr "En savoir plus"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] needs_review
 msgid "L# button title"
 msgstr "Formater la description d'une longueur d'escalade"
 
@@ -1353,34 +1337,28 @@ msgstr "Dernières sorties réalisées en mobilité douce"
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] needs_review
 msgid "Latest %1% creations"
 msgstr "Dernières créations - %1%"
 
-# [WARNING] needs_review
 msgid "Latest %1% creations in %2%"
 msgstr "Dernières créations - %1% - %2%"
 
-# [WARNING] needs_review
 msgid "Latest %1% editions"
 msgstr "Dernières éditions - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] needs_review
 msgid "Latest %1% editions feed"
 msgstr "%1% - Dernières éditions"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] needs_review
 msgid "Latest %1% editions feed description"
 msgstr "camptocamp.org - dernières éditions des documents %1%"
 
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
 msgstr "Dernières éditions - %1% - %2%"
 
@@ -1394,7 +1372,6 @@ msgstr "Derniers documents"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
 msgstr "Dernières éditions de \"%1%\" - %2%"
 
@@ -1664,7 +1641,6 @@ msgstr "Ma position"
 msgid "My preferences"
 msgstr "Paramètres du compte"
 
-# [WARNING] needs_review
 msgid "My statistics"
 msgstr "Mes statistiques"
 
@@ -1698,7 +1674,6 @@ msgstr "Ajouter un itinéraire"
 msgid "New routes article"
 msgstr "Chroniques des ouvertures"
 
-# [WARNING] needs_review
 msgid "No GPX track, please edit this document to add some"
 msgstr "Pas de trace GPX&nbsp;: modifiez ce document pour en ajouter."
 
@@ -2014,7 +1989,7 @@ msgid "Remember me ?"
 msgstr "Se souvenir de moi&nbsp;?"
 
 msgid "Reorder these languages according to your preferences, using drag-and-drop"
-msgstr "Réordonnez ces langues en fonction de vos préférences, en utilisant le glisser-déposer à la souris"
+msgstr "Réordonnez ces langues en fonction de vos préférences, en utilisant le glisser-déposer"
 
 msgid "Reply"
 msgstr "Répondre"

@@ -185,6 +185,7 @@ if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protec
             echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) {
               document.getElementById('images_tbg').style.display = 'none';
               document.getElementById('images_section_container').style.display = 'none';
+              document.getElementById('images_anchor').style.display = 'none';
             }");
         }
     }

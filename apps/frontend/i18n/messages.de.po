@@ -86,9 +86,9 @@ msgstr "Dokument nicht gefunden"
 msgid "A document can not be linked to itself"
 msgstr "Ein Dokument kann nicht mit sich selbst verbunden werden"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "A gite can not be linked to a route"
-msgstr "A valley accomodation can not be linked to a route"
+msgstr "Eine Herberge kann nicht mit einer Route verbunden werden."
 
 msgid "A new password has been asked for your account."
 msgstr "Ein neues Passwort wurde für ihr camptocamp.org-Profil angefordert. Sie können sich jetzt einloggen, indem sie die untenstehenden Anmeldedaten benutzen."
@@ -105,9 +105,9 @@ msgstr "An access point can not be linked to a route if a main/sub access point 
 msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
 msgstr "An access point can not be linked to a climbing site if a main/sub access point of this access is already linked to this site"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "A site can not be linked to more than one summit"
-msgstr "A climbing site can not be linked to more than one summit"
+msgstr "Ein Klettersektor kann nicht mit mehr als einem Gipfel verbunden werden"
 
 # [WARNING] en translation used
 msgid "A sub parking can not be linked to more than one main parking"
@@ -227,9 +227,8 @@ msgstr "Sind Sie sicher, daß sie die Geometrie dieses Dokumentes entfernen möc
 
 # [general comment]
 # escape ' by \' if you use them
-# [WARNING] en translation used
 msgid "Are you sure you want to rotate the image?"
-msgstr "Are you sure you want to rotate the image?"
+msgstr "Sind sie sicher, dass sie das Bild drehen möchten?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Sind Sie sicher, dass sie die Verbindung mit dem Bild %1% und dem Namen \"%2%\" aufheben wollen?"
@@ -396,9 +395,9 @@ msgstr "Zurück zur Benutzerliste"
 # [general comment]
 # link to the BI version of an image (limited to 800px max)
 # In the context, it is rather big (compared to MI, max 250px)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Big size"
-msgstr "Big size"
+msgstr "Grosses Bild"
 
 msgid "Bookmark"
 msgstr "Zu meinen Lesezeichen hinzufügen "
@@ -482,9 +481,9 @@ msgstr "Den Cache auffrischen"
 
 # [general comment]
 # Infobulle du bouton "Georef Tool"
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Click on the map to locate item"
-msgstr "Click on the map to locate the document"
+msgstr "Klicken sie auf die Karte, um das Dokument zu georeferenzieren"
 
 msgid "Click to display original image"
 msgstr "Auf das Bild klicken, um es in Originalgrösse anzuzeigen"
@@ -680,7 +679,6 @@ msgstr "Dieses Dokument wurde mit einem andern zusammengeschlossen und kann dahe
 msgid "Current document has been merged into document %1%"
 msgstr "Das aktuelle Dokument wurde mit dem Dokument %1% zusammengeschlossen."
 
-# [WARNING] needs_review
 msgid "Current password"
 msgstr "Aktuelles Passwort"
 
@@ -845,13 +843,11 @@ msgstr "Eine Spende an den Camptocamp-Verein leisten, dem Verein beitreten oder 
 # Pour indiquer la durée écoulée
 # 
 # "Durée 2:13:45"
-# [WARNING] en translation used
 msgid "Duration"
-msgstr "Duration"
+msgstr "Dauer"
 
-# [WARNING] en translation used
 msgid "Duration (hrs)"
-msgstr "Duration (h)"
+msgstr "Dauer (h)"
 
 msgid "E"
 msgstr "O"
@@ -937,7 +933,6 @@ msgstr "Höhe"
 msgid "Elevation (m)"
 msgstr "Höhe (m ü. M.)"
 
-# [WARNING] needs_review
 msgid "Elevation profile"
 msgstr "Höhenprofil"
 
@@ -981,14 +976,13 @@ msgstr "Häufig gestellte Fragen"
 msgid "FAQ short"
 msgstr "FAQ"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Failed moving uploaded file"
-msgstr "Die Umbenennung der Datei schlug fehl. Bitte versuchen Sie es erneut."
+msgstr "Die Umbenennung der Datei schlug fehl. Falls dies nochmals geschieht kontaktieren sie die Administratoren."
 
 msgid "Failed rasterizing svg file"
 msgstr "Die Rasterung der Vektordatei ist fehlgeschlagen."
 
-# [WARNING] needs_review
 msgid "Failed to create synchronized summit"
 msgstr "Die Erstellung des mit einer Hütte verbundenen Gipfels ist fehlgeschlagen"
 
@@ -1040,9 +1034,8 @@ msgstr "Die Geometrie dieses Dokumentes wurde entfernt"
 
 # [general comment]
 # Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
-# [WARNING] en translation used
 msgid "Georef Tool"
-msgstr "Georef Tool"
+msgstr "Georeferenzieren"
 
 msgid "Get Help"
 msgstr "Hilfe erhalten"
@@ -1194,7 +1187,6 @@ msgstr "Diese Hütte existiert nicht."
 msgid "Hut:"
 msgstr "Hütte:"
 
-# [WARNING] needs_review
 msgid "ID or name/nickname"
 msgstr "ID oder Anfang des Pseudonyms"
 
@@ -1216,9 +1208,9 @@ msgstr "Bild"
 
 # [general comment]
 # We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Image cannot be rotated anymore"
-msgstr "Image cannot be rotated anymore (It is not directly accessible)"
+msgstr "Das Bild kann nicht gedreht werden, da es nicht mehr direkt zugänglich ist."
 
 msgid "Image could not be loaded"
 msgstr "Es ist unmöglich das Bild anzuzeigen"
@@ -1245,17 +1237,15 @@ msgstr "Dieses Bild existiert nicht."
 
 # [general comment]
 # assistant image forum
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Image on the internet"
-msgstr "Image on the internet"
+msgstr "Bild vom Internet"
 
-# [WARNING] en translation used
 msgid "Image rotated successfully"
-msgstr "Image rotated successfully"
+msgstr "Das Bild wurde erfolgreich gedreht"
 
-# [WARNING] en translation used
 msgid "Image rotation"
-msgstr "Image rotation"
+msgstr "Drehung des Bildes"
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
@@ -1342,9 +1332,8 @@ msgstr "Sie haben vergessen, einen Namen oder eine Datei anzugeben."
 msgid "Kesako?"
 msgstr "Was ist c2c?"
 
-# [WARNING] needs_review
 msgid "Keyword or ID"
-msgstr "Passwort oder ID"
+msgstr "Stichwort oder ID"
 
 msgid "Know more"
 msgstr "Mehr"
@@ -1685,7 +1674,6 @@ msgstr "Mein Standort"
 msgid "My preferences"
 msgstr "Persönliche Einstellungen"
 
-# [WARNING] needs_review
 msgid "My statistics"
 msgstr "Meine Statistiken"
 
@@ -1719,7 +1707,6 @@ msgstr "Eine neue Route hinzufügen"
 msgid "New routes article"
 msgstr "Geschichte der Eröffnungen"
 
-# [WARNING] needs_review
 msgid "No GPX track, please edit this document to add some"
 msgstr "Kein GPS-Track: Bearbeiten sie dieses Dokument, um welche hinzuzufügen."
 
@@ -1832,9 +1819,8 @@ msgstr "Nicht erlaubte Aktion."
 # link to the original image
 # 
 # Try to keep it short
-# [WARNING] en translation used
 msgid "Original image"
-msgstr "Original image"
+msgstr "Ursprungsbild"
 
 msgid "Oups!"
 msgstr "Achtung! Die folgenden Probleme wurden entdeckt:"
@@ -2090,23 +2076,19 @@ msgstr "(Optionale) Informationen über die Änderungen"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
 msgid "Rotate -90"
-msgstr "Rotate left"
+msgstr "Links drehen"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] en translation used
 msgid "Rotate 90"
-msgstr "Rotate right"
+msgstr "Rechts drehen"
 
-# [WARNING] en translation used
 msgid "Rotate the image by -90"
-msgstr "Rotate the image by 90° counter-clockwise"
+msgstr "Das Bild um 90° im Gegenuhrzeigersinn drehen"
 
-# [WARNING] en translation used
 msgid "Rotate the image by 90"
-msgstr "Rotate the image by 90° clockwise"
+msgstr "Das Bild um 90° im Uhrzeigersinn drehen"
 
 msgid "Route not found"
 msgstr "Diese Route existiert nicht."
@@ -2344,9 +2326,9 @@ msgstr "Karte"
 msgid "Statistics"
 msgstr "Statistiken"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Step 1: choose a summit"
-msgstr "Schritt 1: Einen Gipfel auswählen"
+msgstr "Schritt 1: Wählen sie einen Gipel, Pass, See, Kletterfelsen oder ein Klettergebiet"
 
 msgid "Step 2: Create a route"
 msgstr "Schritt 2: Eine Route eintragen"
@@ -2835,9 +2817,8 @@ msgstr "Mit GPS Spur:"
 msgid "Wrong association type"
 msgstr "Dieser Typ von Verbindung ist nicht erlaubt"
 
-# [WARNING] en translation used
 msgid "Wrong current password!"
-msgstr "You typed a wrong password"
+msgstr "Falsches Passwort"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
@@ -2999,13 +2980,12 @@ msgstr "Die von ihnen angegebene Anti-Spam-Zeichenabfolge ist falsch."
 msgid "Your are connected as "
 msgstr "Sie sind eingeloggt als "
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Your current password is needed before modifying these properties"
-msgstr "Your current password is needed before modifying following properties"
+msgstr "Ihr aktuelles Passwort wird benötigt um die folgenden Eigenschaften zu ändern"
 
-# [WARNING] en translation used
 msgid "Your current password is required before applying changes"
-msgstr "Your current password is required"
+msgstr "Ihr aktuelles Passwort wird benötigt"
 
 msgid "Your images have been successfully updated"
 msgstr "Die Bilder wurden erfolgreich aktualisiert"
@@ -4819,9 +4799,8 @@ msgstr "Kulminationspunkt"
 msgid "current version"
 msgstr "aktuelle Version"
 
-# [WARNING] needs_review
 msgid "current_password"
-msgstr "Geben Sie Ihr aktuelles Passwort ein:"
+msgstr "Geben Sie ihr aktuelles Passwort ein:"
 
 msgid "dangerous"
 msgstr "wenig sicher"
@@ -5015,9 +4994,9 @@ msgstr "Ernsthaftigkeitsgrad:"
 msgid "english"
 msgstr "englisch"
 
-# [WARNING] en translation used
+# [WARNING] needs_update
 msgid "enter URL or paste it from clipboard"
-msgstr "enter URL or paste it from clipboard"
+msgstr "URL des Bildes"
 
 msgid "enter place name"
 msgstr "Einen Ortsnamen eingeben"
@@ -5134,9 +5113,8 @@ msgstr "das Bild unterschreitet die minimale Grössen (minimal ist 16x16 px)"
 
 # [general comment]
 # image size in bytes (used in diffs when a new image has been uploaded
-# [WARNING] en translation used
 msgid "file_size"
-msgstr "File size:"
+msgstr "Grösse des Bildes:"
 
 msgid "filename"
 msgstr "Bild:"
@@ -5204,9 +5182,8 @@ msgstr "Im Forum wird ihr Benutzername oder Nickname benutzt, sofern er exisiter
 msgid "forum_code"
 msgstr "Code um ein Bild in das Forum einzufügen:"
 
-# [WARNING] en translation used
 msgid "forums images wizard failure"
-msgstr "Invalid image"
+msgstr "ungültiges Bild"
 
 msgid "francais"
 msgstr "französisch"
@@ -5343,9 +5320,8 @@ msgstr "Heizung"
 msgid "haute_normandie"
 msgstr "Haute-Normandie"
 
-# [WARNING] en translation used
 msgid "height"
-msgstr "Image height:"
+msgstr "Bildhöhe:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -6209,9 +6185,8 @@ msgstr "Information nicht zur Verfügung "
 msgid "novel"
 msgstr "Bericht/Erzählung"
 
-# [WARNING] en translation used
 msgid "objective_risk_rating"
-msgstr "Objective Danger"
+msgstr "Objektive Risiken:"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -6244,9 +6219,9 @@ msgstr "geöffnet, nicht bewirtschaftet"
 msgid "options"
 msgstr "Optionen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "or drag & drop files"
-msgstr "or drag&drop files from computer"
+msgstr "oder drag&drop der Dateien vom Computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
@@ -7020,9 +6995,9 @@ msgstr "<ul class=\"text\"><li>Wählen sie nur diejenigen Aktivitäten aus, welc
 msgid "select an image file"
 msgstr "Wählen sie ein Bild:&nbsp;"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "select image or dragdrop"
-msgstr "Click here to select an image from your computer or drag and drop it"
+msgstr "Klicken sie hier, um ein ein Bild von ihrem Computer auszuwählen oder wählen sie es per drag&drop"
 
 # [WARNING] needs_review
 msgid "selected admin_limits"
@@ -7447,9 +7422,9 @@ msgstr "Tourenführer Name"
 
 # [general comment]
 # exposition ski
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "toponeige_exposition_rating"
-msgstr "Exposition:"
+msgstr "Ausgesetztheit:"
 
 msgid "toponeige_technical_rating"
 msgstr "Technischer Schwierigkeitsgrad:"
@@ -7631,9 +7606,8 @@ msgstr "Vogesen"
 msgid "vtt_approach"
 msgstr "Zugang mit MTB möglich"
 
-# [WARNING] en translation used
 msgid "wait while image is uploaded"
-msgstr "Please wait while the image is being transferred"
+msgstr "Bitte warten sie während das Bild übertragen wird"
 
 msgid "waiting for geolocation"
 msgstr "Warte auf Lokalisierung..."
@@ -7670,9 +7644,8 @@ msgstr "Camptocamp.org bietet die Möglichkeit an ihrer Website oder ihrem Blog 
 
 # [general comment]
 # image width
-# [WARNING] en translation used
 msgid "width"
-msgstr "Image width:"
+msgstr "Bildbreite:"
 
 msgid "with rain"
 msgstr "dem Regen ausgesetzt"
@@ -7685,9 +7658,8 @@ msgstr "Einen internen Link einfügen "
 
 # [general comment]
 # placeholder pour le titre d'une image
-# [WARNING] en translation used
 msgid "write a caption"
-msgstr "Write a caption"
+msgstr "Eine Bildlegende schreiben"
 
 msgid "wrong file type"
 msgstr "Ungültiges Bildformat"

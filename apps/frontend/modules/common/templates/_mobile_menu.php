@@ -37,7 +37,8 @@ $menu_more = array(
     url_for(getMetaArticleRoute('association')) => __('Association'),
     url_for(getMetaArticleRoute('help', false)) => __('Global help'),
     url_for(getMetaArticleRoute('home_guide')) => __('Help').__(' :').' '.__('Guidebook'),
-    url_for(getMetaArticleRoute('help_forum', false)) => __('Help').__(' :').' '.__('Forums')
+    url_for(getMetaArticleRoute('help_forum', false)) => __('Help').__(' :').' '.__('Forums'),
+    url_for('users/sortPreferedLanguages') => __('Set languages preferences')
 );
 if ($is_connected)
 {

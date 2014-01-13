@@ -155,6 +155,7 @@ function get_field_value($field_name, $module, $abstract_value)
         case 'engagement_rating': $conf = 'app_routes_engagement_ratings'; break;
         case 'objective_risk_rating': $conf = 'app_routes_objective_risk_ratings'; break;
         case 'hiking_rating': $conf = 'app_routes_hiking_ratings'; break;
+        case 'snowshoeing_rating': $conf = 'app_routes_snowshoeing_ratings'; break;
         case 'max_rating': $conf = 'mod_sites_rock_free_ratings_list'; break;
         case 'min_rating': $conf = 'mod_sites_rock_free_ratings_list'; break;
         case 'mean_rating': $conf = 'mod_sites_rock_free_ratings_list'; break;

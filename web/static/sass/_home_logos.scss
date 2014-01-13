@@ -1,0 +1,56 @@
+// following logos are only used on home, and are below the fold
+// so it is probably better to include them via a sprite
+
+@import "compass/utilities/sprites";
+@import "static/images/home-sprites/*.png";
+
+@if $standard {
+
+  // social logos
+  #facebook_logo, #googleplus_logo, #twitter_logo {
+    width:28px;
+    height:28px;
+  }
+
+  #facebook_logo {
+    @include  home-sprites-sprite(facebook);
+  }
+
+  #googleplus_logo {
+    @include  home-sprites-sprite(googleplus);
+  }
+
+  #twitter_logo {
+    @include home-sprites-sprite(twitter);
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+
+  // paypal
+  #paypal-button {
+    @include home-sprites-sprite(paypal-button);
+    width: home-sprites-sprite-width(paypal-button);
+    height: home-sprites-sprite-height(paypal-button);
+    background-color: white;
+    color: #013e7c;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+  }
+
+  // generic CC
+  .cc_gen {
+    @include home-sprites-sprite(cc_gen);
+    width: home-sprites-sprite-width(cc_gen);
+    height: home-sprites-sprite-height(cc_gen);
+  }
+
+  .cc_gen.lang_fr {
+    @include home-sprites-sprite(cc_genfr);
+    width: home-sprites-sprite-width(cc_genfr);
+    height: home-sprites-sprite-height(cc_genfr);
+  }
+}
+

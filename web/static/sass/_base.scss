@@ -343,10 +343,8 @@ em.mandatory_asterisk
   margin-bottom: 5px;
 }
 
-// following logos are only used in standard version
 @if $standard {
-  #banner_logo
-  {
+  #banner_logo {
     position: absolute;
     width:180px;
     height:88px;
@@ -355,30 +353,6 @@ em.mandatory_asterisk
     left: 10px;
     top: 5px;
     z-index: 2;
-  }
-
-  #facebook_logo, #twitter_logo, #googleplus_logo
-  {
-    width:28px;
-    height:28px;
-  }
-
-  #twitter_logo
-  {
-    margin-right: 4px;
-    margin-left: 4px;
-  }
-
-  #facebook_logo {
-    background: -c2c-datauri('/static/images/facebook.png') no-repeat 0;
-  }
-
-  #twitter_logo {
-    background: -c2c-datauri('/static/images/twitter.png') no-repeat 0;
-  }
-
-  #googleplus_logo {
-    background: -c2c-datauri('/static/images/googleplus.png') no-repeat 0;
   }
 }
 
@@ -1384,22 +1358,6 @@ a.close_btn {
 {
   width: 80px;
   height: 15px;
-}
-
-@if $standard {
-  .cc_gen
-  {
-    background: -c2c-datauri('/static/images/cc_gen.png') no-repeat 0;
-    width: 88px;
-    height: 31px;
-  }
-
-  .cc_gen.lang_fr
-  {
-    background: -c2c-datauri('/static/images/cc_genfr.png') no-repeat 0;
-    width: 99px;
-    height: 33px;
-  }
 }
 
 /* content language selector */
@@ -2549,37 +2507,40 @@ ul.docs_changes li img
   border: 1px solid #ff0031;
 }
 
-// drag and drop for languages order preferences is only available
-// in standard version
-@if $standard {
-  #languages-order {
-    width:130px;
-    padding: 0.2em;
+// drag and drop for languages order preferences
+#languages-order {
+  width:130px;
+  padding: 0.2em;
+  @if $standard {
     margin: 0 0 0 160px;
+  }
 
-    li {
-      list-style-type: none;
+  li {
+    list-style-type: none;
 
-      &[id^=lang_] {
-        margin: 0.3em 0;
+    &[id^=lang_] {
+      margin: 0.3em 0;
+      @if $standard {
         padding: 0.2em 0.2em 0.2em 35px;
-        border: 1px solid #000;
-        @include border-radius(4px);
-        background: -c2c-datauri('/static/images/picto/drag.gif') no-repeat 5px;
-
-        &:hover {
-          cursor: pointer;
-          background-color: #ccc;
-        }
+      } @else {
+        padding: 0.6em 0.6em 0.6em 38px;
       }
+      border: 1px solid #000;
+      @include border-radius(4px);
+      background: -c2c-hashurl('/static/images/picto/drag.gif') no-repeat 5px;
 
-      &:first-child.sortable-placeholder {
-        margin-top: 0.3em;
+      &:hover {
+        cursor: pointer;
+        background-color: #ccc;
       }
+    }
 
-      &:last-child.sortable-placeholder {
-        margin-bottom: 0.3em;
-      }
+    &:first-child.sortable-placeholder {
+      margin-top: 0.3em;
+    }
+
+    &:last-child.sortable-placeholder {
+      margin-bottom: 0.3em;
     }
   }
 }
@@ -4415,21 +4376,8 @@ td.history_buttons {
 }
 
 // paypal
+// note that the home big paypal button background is defined in home_logos
 @if $standard {
-  #paypal-button
-  {
-    background: -c2c-datauri('/static/images/paypal-button.png') no-repeat 0;
-    width: 135px;
-    height: 26px;
-    background-color: white;
-    color: #013e7c;
-    font-size: 1.1em;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: middle;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-  }
-
   #pp_button_mini
   {
     background: -c2c-datauri('/static/images/paypal.png') no-repeat 0;
@@ -4567,6 +4515,7 @@ span.cotometre_result {
   background-color: #fff !important;
 }
 
+@import "home_logos";
 @import "feedback";
 @import "thumbnails";
 @import "google_translate";
