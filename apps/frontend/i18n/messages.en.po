@@ -226,7 +226,6 @@ msgstr "Are you sure you want to delete this document's geometry?"
 
 # [general comment]
 # escape ' by \' if you use them
-# [WARNING] needs_review
 msgid "Are you sure you want to rotate the image?"
 msgstr "Are you sure you want to rotate the image?"
 
@@ -272,7 +271,6 @@ msgstr "Articles"
 
 # [general comment]
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
-# [WARNING] needs_review
 msgid "Associate new access"
 msgstr "Create a new access route to the hut"
 
@@ -840,7 +838,6 @@ msgstr "Donate to Camptocamp Association"
 msgid "Duration"
 msgstr "Duration"
 
-# [WARNING] needs_review
 msgid "Duration (hrs)"
 msgstr "Duration (h)"
 
@@ -977,7 +974,6 @@ msgstr "Renaming file failed. Please contact the moderation team if it happens a
 msgid "Failed rasterizing svg file"
 msgstr "Rasterisation of the image failed"
 
-# [WARNING] needs_review
 msgid "Failed to create synchronized summit"
 msgstr "Failed to create synchronized summit"
 
@@ -1028,7 +1024,6 @@ msgstr "Geometry has been deleted"
 
 # [general comment]
 # Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
-# [WARNING] needs_review
 msgid "Georef Tool"
 msgstr "Georef Tool"
 
@@ -1147,7 +1142,6 @@ msgstr "Google Book Search"
 msgid "Guidebook"
 msgstr "Guidebook"
 
-# [WARNING] needs_review
 msgid "Guidebook / Map"
 msgstr "Guidebook / Map"
 
@@ -1185,7 +1179,6 @@ msgstr "This hut doesn’t exist"
 msgid "Hut:"
 msgstr "Hut:"
 
-# [WARNING] needs_review
 msgid "ID or name/nickname"
 msgstr "ID or beginning of the name/nickname"
 
@@ -1237,15 +1230,12 @@ msgstr "This picture doesn’t exist."
 
 # [general comment]
 # assistant image forum
-# [WARNING] needs_review
 msgid "Image on the internet"
 msgstr "Image on the internet"
 
-# [WARNING] needs_review
 msgid "Image rotated successfully"
 msgstr "Image rotated successfully"
 
-# [WARNING] needs_review
 msgid "Image rotation"
 msgstr "Image rotation"
 
@@ -1335,7 +1325,6 @@ msgstr "It seems you have forgotten a name, or a file"
 msgid "Kesako?"
 msgstr "Who are we?"
 
-# [WARNING] needs_review
 msgid "Keyword or ID"
 msgstr "Keyword or ID"
 
@@ -1346,7 +1335,6 @@ msgstr "More"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] needs_review
 msgid "L# button title"
 msgstr "Format the description of a climbing pitch"
 
@@ -1365,34 +1353,28 @@ msgstr "Latest outings carried out by ecomobility"
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] needs_review
 msgid "Latest %1% creations"
 msgstr "Latest creations - %1%"
 
-# [WARNING] needs_review
 msgid "Latest %1% creations in %2%"
 msgstr "Latest creations - %1% - %2%"
 
-# [WARNING] needs_review
 msgid "Latest %1% editions"
 msgstr "Latest changes - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] needs_review
 msgid "Latest %1% editions feed"
 msgstr "%1% - Latest editions"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] needs_review
 msgid "Latest %1% editions feed description"
 msgstr "camptocamp.org - latest document edits %1%"
 
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
 msgstr "Latest changes - %1% - %2%"
 
@@ -1406,7 +1388,6 @@ msgstr "Latest documents"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
 msgstr "Latest changes of \"%1%\" - %2%"
 
@@ -1680,7 +1661,6 @@ msgstr "My position"
 msgid "My preferences"
 msgstr "My preferences"
 
-# [WARNING] needs_review
 msgid "My statistics"
 msgstr "My statistics"
 
@@ -1714,7 +1694,6 @@ msgstr "Add a route"
 msgid "New routes article"
 msgstr "Chronicle of first ascents"
 
-# [WARNING] needs_review
 msgid "No GPX track, please edit this document to add some"
 msgstr "No GPX track: edit this document to add some."
 

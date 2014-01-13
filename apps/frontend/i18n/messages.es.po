@@ -275,7 +275,6 @@ msgstr "Artículos"
 
 # [general comment]
 # Link in a hut page, under the pedestrian access content: allow to create a route associated to this hut
-# [WARNING] needs_review
 msgid "Associate new access"
 msgstr "Crear un nuevo itinerario acceso al refugio"
 
@@ -938,7 +937,6 @@ msgstr "Altitud"
 msgid "Elevation (m)"
 msgstr "Altitud (msnm)"
 
-# [WARNING] needs_review
 msgid "Elevation profile"
 msgstr "Perfil de elevación"
 
@@ -989,7 +987,6 @@ msgstr "No se pudo mover el fichero. Inténtelo de nuevo por favor."
 msgid "Failed rasterizing svg file"
 msgstr "La rasterización de la imagen falló"
 
-# [WARNING] needs_review
 msgid "Failed to create synchronized summit"
 msgstr "Ha fallado la creación de la cumbre asociada con el refugio"
 
@@ -1157,7 +1154,6 @@ msgstr "Búsqueda de libros de Google"
 msgid "Guidebook"
 msgstr "Topo-guía"
 
-# [WARNING] needs_review
 msgid "Guidebook / Map"
 msgstr "Topo-guía / Mapa"
 
@@ -1195,7 +1191,6 @@ msgstr "El refugio no existe"
 msgid "Hut:"
 msgstr "Refugio:"
 
-# [WARNING] needs_review
 msgid "ID or name/nickname"
 msgstr "ID o nom/nom d'usuari"
 
@@ -1258,7 +1253,6 @@ msgstr "Image rotation"
 
 # [general comment]
 # Currently, copyright pictures are only of book covers
-# [WARNING] needs_review
 msgid "Image under copyright license"
 msgstr "Esta imagen representa una cobertura de libro. Es propiedad de la editorial y/o de su autor. Solo se presenta aquí para ilustrar el documento."
 
@@ -1268,7 +1262,6 @@ msgstr "Imagen cargada"
 msgid "Images"
 msgstr "Imágenes"
 
-# [WARNING] needs_review
 msgid "Images are under license specified in the original document of each image"
 msgstr "Las imágenes en esta pagina están disponibles bajo la licencia indicada en el documento de origen de cada imagen."
 
@@ -1355,7 +1348,6 @@ msgstr "sepa más"
 # Info bulle du bouton L# permettant d'insérer les balises de formatage de la description d'une longueur d'escalade.
 # Un clic sur le bouton insère la chaine suivante :
 # L# |  |  |  | 
-# [WARNING] needs_review
 msgid "L# button title"
 msgstr "Aplicar formato a la descripción de un largo de escalada"
 
@@ -1373,34 +1365,28 @@ msgstr "Ultimas salidas realizadas con ecomobilidad"
 # [general comment]
 # titre d'un flux rss
 # %1% -> module
-# [WARNING] needs_review
 msgid "Latest %1% creations"
 msgstr "Últimas creaciones - %1%"
 
-# [WARNING] needs_review
 msgid "Latest %1% creations in %2%"
 msgstr "Últimas creaciones - %1% - %2%"
 
-# [WARNING] needs_review
 msgid "Latest %1% editions"
 msgstr "Últimas ediciones - %1%"
 
 # [general comment]
 # titre flux rss d'éditions
-# [WARNING] needs_review
 msgid "Latest %1% editions feed"
 msgstr "%1% - Últimas ediciones"
 
 # [general comment]
 # description flux rss d'éditions
-# [WARNING] needs_review
 msgid "Latest %1% editions feed description"
 msgstr "camptocamp.org - últimas ediciones de documentos %1%"
 
 # [general comment]
 # %1% -> module
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest %1% editions in %2%"
 msgstr "Últimas ediciones - %1% - %2%"
 
@@ -1414,7 +1400,6 @@ msgstr "Últimos documentos"
 # titre de flux rss
 # %1% -> nom du doc
 # %2% -> langue
-# [WARNING] needs_review
 msgid "Latest editions for \"%1%\" - %2%"
 msgstr "Últimas ediciones de \"%1%\" - %2%"
 
@@ -2043,6 +2028,7 @@ msgstr "Las regiones se detectan automáticamente en función de las coordenadas
 msgid "Remember me ?"
 msgstr "¿Acordarse de mi?"
 
+# [WARNING] needs_update
 msgid "Reorder these languages according to your preferences, using drag-and-drop"
 msgstr "Reordene estos idiomas segun sus preferencias, utilizando el deslizar-poner con el ratón"
 

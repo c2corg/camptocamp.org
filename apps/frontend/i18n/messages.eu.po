@@ -1166,7 +1166,6 @@ msgstr "Google liburu bilaketa"
 msgid "Guidebook"
 msgstr "Ibilbide gida"
 
-# [WARNING] needs_review
 msgid "Guidebook / Map"
 msgstr "Ibilbide gida / Mapa"
 
@@ -2117,6 +2116,7 @@ msgstr "Loturiko eskualdeak automatikoki ezartzen dira hurrengo koordoneen arabe
 msgid "Remember me ?"
 msgstr "Nirekin gogoratu?"
 
+# [WARNING] needs_update
 msgid "Reorder these languages according to your preferences, using drag-and-drop"
 msgstr "Hizkuntzak sailkatu zure preferentzien arabera, arratoiarekin eramanez"
 
