@@ -277,4 +277,8 @@ all:
         id: 79
         image: diamir-colorclip.gif
         alt: "Diamir Color Clip"      
+      diamir_ontour2014:
+        id: 90
+        image: diamir-on-tour2014.gif
+        alt: "Diamir On Tour"
 
