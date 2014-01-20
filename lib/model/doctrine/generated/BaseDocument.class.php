@@ -2969,15 +2969,33 @@ class BaseDocument extends sfDoctrineRecordI18n
             return;
         }
         
-        list($field_1, $field_2) = $field;
+        list($field_a, $field_b) = $field;
+        if (is_array($field_a))
+        {
+            $field_a_1 = $field_a[0] . '.' . $field_a[2];
+            $field_a_2 = $field_a[1] . '.' . $field_a[2];
+        }
+        else
+        {
+            $field_a_1 = $field_a_2 = $field_a;
+        }
+        if (is_array($field_b))
+        {
+            $field_b_1 = $field_b[0] . '.' . $field_b[2];
+            $field_b_2 = $field_b[1] . '.' . $field_b[2];
+        }
+        else
+        {
+            $field_b_1 = $field_b_2 = $field_b;
+        }
         
         if ($param == '-')
         {
-            $conditions[] = "$field_1 = $field_2";
+            $conditions[] = "$field_a_1 = $field_b_1";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field_1 != $field_2";
+            $conditions[] = "$field_a_1 != $field_b_1";
         }
         elseif(preg_match('/^([><]?)(-?)([0-9]*)(~?)([0-9]*)$/', $param, $regs))
         {
@@ -2990,7 +3008,12 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 if (!empty($regs[2]))
                 {
-                    list($field_2, $field_1) = $field;
+                    $field_tmp = $field_a_1;
+                    $field_a_1 = $field_b_1;
+                    $field_b_1 = $field_tmp;
+                    $field_tmp = $field_a_2;
+                    $field_a_2 = $field_b_2;
+                    $field_b_2 = $field_tmp;
                     if ($regs[1] == '>')
                     {
                         $regs[1] = '<';
@@ -3000,14 +3023,14 @@ class BaseDocument extends sfDoctrineRecordI18n
                         $regs[1] = '>';
                     }
                 }
-                $not_null = "$field_1 >= $field_2 AND ";
+                $not_null = "$field_a_1 >= $field_b_1 AND ";
             }
             else
             {
                 $not_null = '';
             }
             
-            $field_compare = $not_null . "($field_1 - $field_2)";
+            $field_compare = $not_null . "($field_a_2 - $field_b_2)";
             $param_compare = $regs[1] . $regs[3] . $regs[4] . $regs[5];
             
             self::buildCompareCondition($conditions, $values, $field_compare, $param_compare, false, false);
