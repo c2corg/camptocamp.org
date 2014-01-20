@@ -77,7 +77,7 @@ abstract class c2cActions extends sfActions
         $toReturn = $this->__('Oups!') . '<ul>';
         foreach($errors as $name => $error)
         {
-            $js .= "$('#error_for_$name').html('" . $arrow . $this->__($error) . $arrow . "').show();";
+            $js .= "$('#error_for_$name').html(" . json_encode($arrow . $this->__($error) . $arrow) . ").show();";
             $toReturn .= '<li>' . $this->__($error) . '</li>';
         }
         $toReturn .= '</ul>';

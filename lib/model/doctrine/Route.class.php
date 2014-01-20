@@ -376,6 +376,8 @@ class Route extends BaseRoute
             {
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'r', 'activities'), 'act', $join);
                 self::buildConditionItem($conditions, $values, $joins, $params_list, 'Georef', null, 'geom', $join);
+                // Don't work because of fucking Doctrine bugs
+                // self::buildConditionItem($conditions, $values, $joins, $params_list, 'Relative', array($m . 'elevation', 'p.elevation'), 'pappr', 'parking');
                 
                 $nb_name = self::buildConditionItem($conditions, $values, $joins_summit, $params_list, 'Mstring', array(array('ls.main_id', 'si.search_name'), array($midi18n, 'ri.search_name')), 'srnam', array(array('summit_idi18n', 'summit_i18n'), array($join_idi18n, $join_i18n)), array('Summit', 'Route'));
                 if ($nb_name === 'no_result')
@@ -461,6 +463,7 @@ class Route extends BaseRoute
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Relative', array($m2 . 'height_diff_down', $m2 . 'height_diff_up'), 'dudif', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.elevation', 'ralt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.difficulties_height', 'dhei', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Relative', array($m2 . 'height_diff_up', $m2 . 'difficulties_height'), 'rappr', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'r', 'configuration'), 'conf', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Facing', $m . '.facing', 'fac', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.route_type', 'rtyp', $join);
