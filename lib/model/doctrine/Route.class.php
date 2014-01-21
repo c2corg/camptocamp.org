@@ -457,6 +457,7 @@ class Route extends BaseRoute
             
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'r', 'activities'), 'ract', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.max_elevation', 'malt', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.min_elevation', 'minalt', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.height_diff_up', 'hdif', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.height_diff_down', 'ddif', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Relative', array($m2 .  'height_diff_down', $m2 . 'height_diff_up'), 'dudif', $join);
