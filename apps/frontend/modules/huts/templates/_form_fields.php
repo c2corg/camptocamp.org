@@ -1,6 +1,6 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm');
-
+ 
 // Here document = hut
 echo '<div>';
 display_document_edit_hidden_tags($document);
@@ -21,10 +21,12 @@ echo object_group_tag($document, 'phone', array('class' => 'long_input', 'type' 
 echo object_group_tag($document, 'url', array('class' => 'long_input', 'type' => 'url'));
 echo object_group_tag($document, 'staffed_capacity', array('class' => 'short_input'));
 echo object_group_tag($document, 'unstaffed_capacity', array('class' => 'short_input'));
-echo object_group_tag($document, 'has_unstaffed_matress', array('callback' => 'object_checkbox_tag'));
-echo object_group_tag($document, 'has_unstaffed_blanket', array('callback' => 'object_checkbox_tag'));
-echo object_group_tag($document, 'has_unstaffed_gas', array('callback' => 'object_checkbox_tag'));
-echo object_group_tag($document, 'has_unstaffed_wood', array('callback' => 'object_checkbox_tag'));
+
+echo object_group_dropdown_tag($document, 'has_unstaffed_matress', 'app_boolean_list');
+echo object_group_dropdown_tag($document, 'has_unstaffed_blanket', 'app_boolean_list');
+echo object_group_dropdown_tag($document, 'has_unstaffed_gas', 'app_boolean_list');
+echo object_group_dropdown_tag($document, 'has_unstaffed_wood', 'app_boolean_list');
+ 
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true), false, null, null, '', '', 'picto_act act_');
 
