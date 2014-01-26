@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_colorclip, portail_glace, camp_e, diamir_vipec, boutique_c2c, google, changerdapproche, diamir_colorclip, camp_e, changerdapproche, cilao, diamir_vipec ]
+    values: [ diamir_colorclip, portail_glace, camp_a, diamir_vipec, boutique_c2c, google, changerdapproche, diamir_colorclip, camp_a, changerdapproche, cilao, diamir_vipec ]
   banners:
     list:
       skalp:
