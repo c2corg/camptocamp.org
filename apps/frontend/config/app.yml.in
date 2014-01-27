@@ -13,8 +13,8 @@ all:
   boolean :
     list : 
       0 : 
-      1 : non
-      8 : oui
+      1 : no
+      8 : yes
       10 : non applicable
   modules: 
     list: 
