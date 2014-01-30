@@ -8,7 +8,7 @@ class BaseHut extends BaseDocument
     public function setTableDefinition()
     {
         parent::setTableDefinition();
-
+ 
         $this->setTableName('huts');
 
         $this->hasColumn('shelter_type', 'integer', 1); 
@@ -17,10 +17,10 @@ class BaseHut extends BaseDocument
         $this->hasColumn('url', 'string', 255);
         $this->hasColumn('staffed_capacity', 'smallint', 3); 
         $this->hasColumn('unstaffed_capacity', 'smallint', 2); 
-        $this->hasColumn('has_unstaffed_matress', 'boolean', null);
-        $this->hasColumn('has_unstaffed_blanket', 'boolean', null);
-        $this->hasColumn('has_unstaffed_gas', 'boolean', null);
-        $this->hasColumn('has_unstaffed_wood', 'boolean', null);
+        $this->hasColumn('has_unstaffed_matress', 'smallint', 1);
+        $this->hasColumn('has_unstaffed_blanket', 'smallint', 1);
+        $this->hasColumn('has_unstaffed_gas', 'smallint', 1);
+        $this->hasColumn('has_unstaffed_wood', 'smallint', 1);
         $this->hasColumn('activities', 'string', null); // array
     }
 
@@ -33,4 +33,4 @@ class BaseHut extends BaseDocument
         $this->hasMany('GeoAssociation as geoassociations', array('local' => 'id', 'foreign' => 'main_id'));
         $this->hasMany('DocumentVersion as versions', array('local' => 'id', 'foreign' => 'document_id'));
     }
-}
+} 

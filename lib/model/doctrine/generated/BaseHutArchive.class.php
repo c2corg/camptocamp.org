@@ -8,7 +8,7 @@ class BaseHutArchive extends BaseDocumentArchive
     public function setTableDefinition()
     {
         parent::setTableDefinition();
-
+ 
         $this->setTableName('app_huts_archives');
 
         $this->hasColumn('hut_archive_id', 'integer', 11);
@@ -17,11 +17,11 @@ class BaseHutArchive extends BaseDocumentArchive
         $this->hasColumn('phone', 'string', 50);
         $this->hasColumn('url', 'string', 255);
         $this->hasColumn('staffed_capacity', 'smallint', 3);
-        $this->hasColumn('unstaffed_capacity', 'smallint', 2);
-        $this->hasColumn('has_unstaffed_matress', 'boolean', null);
-        $this->hasColumn('has_unstaffed_blanket', 'boolean', null);
-        $this->hasColumn('has_unstaffed_gas', 'boolean', null);
-        $this->hasColumn('has_unstaffed_wood', 'boolean', null);
+        $this->hasColumn('unstaffed_capacity', 'smallint',2);
+        $this->hasColumn('has_unstaffed_matress', 'samllint',1);
+        $this->hasColumn('has_unstaffed_blanket', 'samllint',1);
+        $this->hasColumn('has_unstaffed_gas', 'samllint',1);
+        $this->hasColumn('has_unstaffed_wood', 'samllint',1);
         $this->hasColumn('activities', 'string', null); // array
     }
 
@@ -30,3 +30,4 @@ class BaseHutArchive extends BaseDocumentArchive
         $this->hasOne('DocumentVersion as document_version', 'DocumentVersion.document_archive_id');
     }
 }
+ 

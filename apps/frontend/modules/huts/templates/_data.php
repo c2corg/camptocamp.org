@@ -24,10 +24,23 @@ if (isset($nb_comments) && $nb_comments)
     li(field_bool_data($document, 'is_staffed', array('null_equals_no' => true)));
     li(field_data_if_set($document, 'staffed_capacity'));
     li(field_data_if_set($document, 'unstaffed_capacity'));
-    li(field_bool_data($document, 'has_unstaffed_matress', array('null_equals_no' => true)));
-    li(field_bool_data($document, 'has_unstaffed_blanket', array('null_equals_no' => true)));
-    li(field_bool_data($document, 'has_unstaffed_gas', array('null_equals_no' => true)));
-    li(field_bool_data($document, 'has_unstaffed_wood', array('null_equals_no' => true)));
+    
+    
+   
+    // don't show only if not applicable 
+    if ($document->get('has_unstaffed_matress') <> 10 ){ 
+        li(field_data_from_list($document, 'has_unstaffed_matress','app_boolean_list'));
+    }
+    if ($document->get('has_unstaffed_blanket') <> 10 ){
+        li(field_data_from_list($document, 'has_unstaffed_blanket','app_boolean_list'));
+    }
+    if ($document->get('has_unstaffed_gas') <> 10 ){
+        li(field_data_from_list($document, 'has_unstaffed_gas','app_boolean_list'));
+    }
+    if ($document->get('has_unstaffed_wood') <> 10 ){
+        li(field_data_from_list($document, 'has_unstaffed_wood','app_boolean_list'));
+    }
+    
     li(field_phone_if_set($document, 'phone', array('microdata' => 'telephone')));
     li(field_url_data_if_set($document, 'url', array('microdata' => 'url')));
     li(field_activities_data($document)); 
