@@ -2,7 +2,7 @@
 --
 -- $Id: db_huts.sql 1066 2007-07-26 09:12:07Z alex $ --
 --
-
+ 
 
 -- Table app_huts_archives --
 CREATE SEQUENCE huts_archives_seq INCREMENT BY 1 NO MAXVALUE MINVALUE 1 CACHE 1;
@@ -15,10 +15,10 @@ CREATE TABLE app_huts_archives (
     url varchar(255),
     staffed_capacity smallint,
     unstaffed_capacity smallint,
-    has_unstaffed_matress boolean,
-    has_unstaffed_blanket boolean,
-    has_unstaffed_gas boolean,
-    has_unstaffed_wood boolean,
+    has_unstaffed_matress smallint,
+    has_unstaffed_blanket smallint,
+    has_unstaffed_gas smallint, 
+    has_unstaffed_wood smallint,
     activities smallint[]
 ) INHERITS (app_documents_archives);
 
