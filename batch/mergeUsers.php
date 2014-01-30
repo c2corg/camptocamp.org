@@ -61,10 +61,22 @@ $private_data = Doctrine_Query::create()
     ->execute()
     ->getFirst();
 $username_to_remain = addslashes($private_data->get('username'));
+$email_to_remain = $private_data->get('email');
 
 // display infos
-echo "User to wipe is $userid_to_wipe ($username_to_wipe). Its email is $email_to_wipe\n";
-echo "User to remain is $userid_to_remain ($username_to_remain)\n";
+echo "User to wipe is $userid_to_wipe ($username_to_wipe <$email_to_wipe>)\n";
+echo "User to remain is $userid_to_remain ($username_to_remain <$email_to_remain>)\n";
+
+echo "Are you sure you want to merge user $userid_to_wipe into $userid_to_remain? [y/N]: ";
+
+flush();
+ob_flush();
+
+if (trim(fgets(STDIN)) !== 'y')
+{
+    echo "Aborting...\n";
+    exit(0);
+}
 
 // Everything seems ok for merging...
 $conn = sfDoctrine::Connection();
