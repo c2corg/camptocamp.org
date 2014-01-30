@@ -121,9 +121,7 @@ class Hut extends BaseHut
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.unstaffed_capacity', 'hucap', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.has_unstaffed_matress', 'hmat', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.has_unstaffed_blanket', 'hbla', $join);
-            
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.has_unstaffed_gas', 'hgas', $join);
-            
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.has_unstaffed_wood', 'hwoo', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'hi.culture', 'hcult', $join_i18n);
             

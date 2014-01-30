@@ -25,7 +25,7 @@ echo object_group_tag($document, 'unstaffed_capacity', array('class' => 'short_i
 echo object_group_dropdown_tag($document, 'has_unstaffed_matress', 'app_boolean_list');
 echo object_group_dropdown_tag($document, 'has_unstaffed_blanket', 'app_boolean_list');
 echo object_group_dropdown_tag($document, 'has_unstaffed_gas', 'app_boolean_list');
-echo object_group_dropdown_tag($document, 'has_unstaffed_wood', 'app_boolean_list');
+echo object_group_dropdown_tag($document, 'has_unstaffed_wood', 'app_boolean_list'); 
  
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true), false, null, null, '', '', 'picto_act act_');
