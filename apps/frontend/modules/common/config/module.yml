@@ -10,7 +10,7 @@ all:
         alt: "Sk'alp"
       cilao:
         id: 84
-        image: cilao2012.gif
+        image: cilao_moov.jpg
         alt: Cilao
       atelier_escalade:
         id: 3
