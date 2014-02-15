@@ -288,15 +288,21 @@ class sfPunBBCodeParser
         }
         
         $full_url = preg_replace('#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#', '/${2}', $full_url);
+        $is_internal_url = (strpos("#/", $full_url[0]) !== false);
+            
         if ($empty_link = (empty($link) || $link == $url))
         {
             if ($full_url == '/')
             {
                 $link = $url;
             }
-            else
+            elseif ($is_internal_url)
             {
                 $link = $full_url;
+            }
+            else
+            {
+                $link = $url;
             }
         }
         
@@ -326,7 +332,7 @@ class sfPunBBCodeParser
             $full_url = 'http://'.$full_url;
         else if (strpos($full_url, 'ftp.') === 0)    // Else if it starts with ftp, we add ftp://
             $full_url = 'ftp://'.$full_url;
-        else if ((strpos("#/", $full_url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor #, we add http://
+        else if (!$is_internal_url && !preg_match('#^([a-z0-9]{3,6}):/+#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor #, we add http://
             $full_url = 'http://'.$full_url;
         else
         {
@@ -365,8 +371,6 @@ class sfPunBBCodeParser
             }
         }
         
-        $is_internal_url = (strpos("#/", $full_url[0]) !== false);
-            
         if ($empty_link)
         {
             // Truncate link text if its an internal URL
