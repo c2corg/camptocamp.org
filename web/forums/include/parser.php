@@ -159,7 +159,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 //
 function preparse_url($text)
 {
-    $a = array( '#(?<=[^\w]|^)((https?:)?(//)?(w+|m+)\.|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
+    $a = array( '#(?<=[^\w]|^)((ht+ps?)?:*/*w*m*\.|(ht+ps?)?:*/+|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
                 '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
@@ -167,7 +167,7 @@ function preparse_url($text)
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=(\d+)%i'
               );
     
-    $b = array( '$5',
+    $b = array( '$4',
                 '#f$1',
                 '#t$1+',
                 '#t$1',
@@ -378,23 +378,18 @@ function handle_url_tag($url, $link = '', $show_video = false)
 {
     global $showed_post_list, $lang_common, $pun_config;
 
-    // prevent double inclusion of links (happens for example if we use [url=http://example.com]http://example.com[/url]
-    // if we have a <a> tag in link just skip the inner content.
-    if (!empty($link) && strpos($link, '<a') !== false)
-    {
-        $link = '';
-    }
-
     $hreflang = '';
     $rel = '';
     
-    $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
+    $url = str_replace(array('\'', '`', '"'), array('', '', ''), $url);
+    $full_url = str_replace(array(' '), array('%20'), $url);
+    $url = preg_replace('#^(ht+ps?|ftp|news)?:*/*((www|ftp)(\.|$))?\.?#i', '', $url);
     if ($url == '')
     {
-        $url == ' ';
+        return $link;
     }
 
-    $full_url = preg_replace('#^((https?:)?(//)?(w+|m+)\.|(?<!\.))camptocamp\.org/?(.*)#', '/${5}', $full_url);
+    $full_url = preg_replace('#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#', '/${2}', $full_url);
     if ($empty_link = (empty($link) || $link == $url))
     {
         if ($full_url == '/')
