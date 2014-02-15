@@ -327,9 +327,9 @@ class sfPunBBCodeParser
             $full_url = preg_replace($a, $b, $full_url);
             $is_forum_url = true;
         }
-        else if (strpos($url, 'www.') === 0)            // If it starts with www, we add http://
+        else if (strpos($full_url, 'www.') === 0)            // If it starts with www, we add http://
             $full_url = 'http://'.$full_url;
-        else if (strpos($url, 'ftp.') === 0)    // Else if it starts with ftp, we add ftp://
+        else if (strpos($full_url, 'ftp.') === 0)    // Else if it starts with ftp, we add ftp://
             $full_url = 'ftp://'.$full_url;
         else if ((strpos("#/", $full_url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor #, we add http://
             $full_url = 'http://'.$full_url;
@@ -871,6 +871,8 @@ class sfPunBBCodeParser
         $text = ' '.$text;
 
         $pattern[] ='#\[\[http://[\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?/([^\|\]]*)#i';
+        $pattern[] ='#\[url=\]#i';
+        $pattern[] ='#\[url=((?:[^\[]|\[\])*?)\]((https?|ftp|news)?://(www)?|www|ftp)#i';
         $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
         $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
         $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
@@ -879,6 +881,8 @@ class sfPunBBCodeParser
         $pattern[] ='#((?<=["\'\s\(\)\>\]:;,])(?<!\[email\])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
         $replace[] = '[[$3';
+        $replace[] = '[url=]';
+        $replace[] = '[url=$1]';
         $replace[] = '[url]$2://$3[/url]';
         $replace[] = '[url]$2.$3[/url]';
         $replace[] = '[url]$2[/url]';
