@@ -871,6 +871,7 @@ function do_clickable($text)
     
     $text = ' '.$text;
 
+    $pattern[] ='#\[url=((?:[^\[]|\[\])*?)\]((https?|ftp|news)?://(www)?|www|ftp)#i';
     $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
@@ -880,6 +881,7 @@ function do_clickable($text)
 
     if ($pun_config['p_message_bbcode'] == '1')
     {
+        $replace[] = '[url=$1]';
         $replace[] = '[url]$2://$3[/url]';
         $replace[] = '[url]$2.$3[/url]';
         $replace[] = '[url]$2[/url]';
@@ -889,6 +891,7 @@ function do_clickable($text)
     }
     else
     {
+        $replace[] = '';
         $replace[] = '$2://$3 ';
         $replace[] = '$2.$3 ';
         $replace[] = '/$2 ';
