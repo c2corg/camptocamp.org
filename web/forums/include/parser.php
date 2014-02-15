@@ -55,7 +55,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
                 '#\[url(=\]|\])\s*#i',
                 '#\s*\[/url\]#i',
                 '#\[url=(.*?)\]\\1\[/url\]#i',
-                '#\[url(=|\])((https?:)?(//)?(w+|m+)\.|)camptocamp\.org(/([^\[\]]+))#i',
+                '#\[url(=|\])(ht+ps?)?:*/*w*m*\.*camptocamp\.org(/([^\[\]]+))#i',
                 '#\[email=("|\'|)(.*?)\\1\s*\]\s*#i',
                 '#\[email(=\]|\])\s*#i',
                 '#\s*\[/email\]#i',
@@ -78,7 +78,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
                 '[url]',
                 '[/url]',
                 '[url]$1[/url]',
-                '[url$1$6',
+                '[url$1$3',
                 '[email=$2]',
                 '[email]',
                 '[/email]',
@@ -390,15 +390,21 @@ function handle_url_tag($url, $link = '', $show_video = false)
     }
 
     $full_url = preg_replace('#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#', '/${2}', $full_url);
+    $is_internal_url = (strpos("#/", $full_url[0]) !== false);
+        
     if ($empty_link = (empty($link) || $link == $url))
     {
         if ($full_url == '/')
         {
             $link = $url;
         }
-        else
+        elseif ($is_internal_url)
         {
             $link = $full_url;
+        }
+        else
+        {
+            $link = $url;
         }
     }
     
@@ -433,7 +439,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
     {
         $full_url = 'ftp://'.$full_url;
     }
-    elseif ((strpos("#/", $full_url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor / nor #, we add http://
+    elseif (!$is_internal_url && !preg_match('#^([a-z0-9]{3,6}):/+#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor / nor #, we add http://
     {
         $full_url = 'http://'.$full_url;
     }
@@ -474,8 +480,6 @@ function handle_url_tag($url, $link = '', $show_video = false)
         }
     }
     
-    $is_internal_url = (strpos("#/", $full_url[0]) !== false);
-        
     if ($empty_link)
     {
         // Truncate link text if its an internal URL
