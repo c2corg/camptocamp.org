@@ -276,23 +276,18 @@ class sfPunBBCodeParser
      */
     public static function handle_url_tag($url, $link = '', $viewer = true, $target = '')
     {
-        // prevent double inclusion of links (happens for example if we use [url=http://example.com]http://example.com[/url]
-        // if we have a <a> tag in link just skip the inner content.
-        if (!empty($link) && strpos($link, '<a') !== false)
-        {
-            $link = '';
-        }
-
         $hreflang = '';
         $rel = '';
         
-        $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
+        $url = str_replace(array('\'', '`', '"'), array('', '', ''), $url);
+        $full_url = str_replace(array(' '), array('%20'), $url);
+        $url = preg_replace('#^(ht+ps?|ftp|news)?:*/*((www|ftp)(\.|$))?\.?#i', '', $url);
         if ($url == '')
         {
-            $url == ' ';
+            return $link;
         }
         
-        $full_url = preg_replace('#^((http://)?(w+|m+)\.|)camptocamp\.org/?(.*)#', '/${4}', $full_url);
+        $full_url = preg_replace('#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#', '/${2}', $full_url);
         if ($empty_link = (empty($link) || $link == $url))
         {
             if ($full_url == '/')
