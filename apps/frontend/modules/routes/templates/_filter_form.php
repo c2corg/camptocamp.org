@@ -13,9 +13,14 @@ include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected
 include_partial('summits/summits_short_filter');
 $activities_raw = $sf_data->getRaw('activities');
 include_partial('routes_filter', array('autofocus' => true, 'activities' => $activities_raw));
+?>
+<br />
+<fieldset>
+<?php
 include_partial('huts/huts_short_filter');
 include_partial('parkings/parkings_filter');
 ?>
+</fieldset>
 <br />
 <?php
 echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('rcult');
