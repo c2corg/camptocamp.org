@@ -24,7 +24,7 @@ module Sass::Script::Functions
         path = px_path(path, px)
       else
          Sass::Util.sass_warn("Warning: using default pixel ratio file for " + File.basename(real_path) +
-                              " (" + Pathname.new(px_real_path).cleanpath + " not found)")
+                              " (" + Pathname.new(px_real_path).cleanpath.to_s + " not found)")
       end
     end
 
