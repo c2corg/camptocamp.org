@@ -17,13 +17,13 @@ if ($document->get('snow_clearance_rating') != 4)
     $data = array();
     if ($document->get('lowest_elevation') != $document->get('elevation'))
     {
-        $data_temp = field_data_if_set($document, 'lowest_elevation', '', 'meters');
+        $data_temp = field_data_if_set($document, 'lowest_elevation', array('suffix' => 'meters'));
         if (!empty($data_temp))
         {
             $data[] = $data_temp;
         }
     }
-    $data_temp = field_data_from_list_if_set($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list', false, true);
+    $data_temp = field_data_from_list_if_set($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list', array('raw' => true));
     if (!empty($data_temp))
     {
         $data[] = $data_temp;
@@ -35,7 +35,7 @@ if ($document->get('snow_clearance_rating') != 4)
     }
 }
 
-$data = field_data_from_list_if_set($document, 'public_transportation_rating', 'app_parkings_public_transportation_ratings', false, false, '', '', __('public_transportation_rating short'));
+$data = field_data_from_list_if_set($document, 'public_transportation_rating', 'app_parkings_public_transportation_ratings', array('title' => __('public_transportation_rating short')));
 $data .= field_pt_picto_if_set($document, true, ' - ');
 if (!empty($data))
 {

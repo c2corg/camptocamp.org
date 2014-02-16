@@ -14,15 +14,30 @@ if (isset($nb_comments) && $nb_comments)
     <?php
     li(field_activities_data($document));
     li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', array('separator' => 'elevation separator', 'suffix' => 'meters')));
-    li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', array('separator' => 'height diff separator',
+    
+    $min_elevation = $document->get('min_elevation');
+    $difficulties_start_elevation = $document->get('elevation');
+    $has_approach_height = (!empty($min_elevation) && !empty($difficulties_start_elevation));
+    
+    if (array_intersect(array(1,2,3,6,7), $activities) || !$has_approach_height)
+    {
+        li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', array('separator' => 'height diff separator',
         'prefix_min' => '+', 'prefix_max' => '-', 'suffix' => 'meters', 'range_only' => true)));
-    li(field_data_if_set($document, 'route_length', array('suffix' => 'kilometers')));
- 
+    }
+    
+    if (array_intersect(array(1,2,3,4,6,7), $activities)) // ski, snow or mountain or rock or ice_climbing
+    {
+        li(field_data_if_set($document, 'route_length', array('suffix' => 'kilometers')));
+    }
+    
     if (array_intersect(array(1,2,3,4,5), $activities)) // ski, snow or mountain or rock or ice_climbing
     {
-        $value = $document->get('elevation');
-        li(field_data_arg_if_set('difficulties_start_elevation', $value, '', 'meters'));
+        li(field_data_arg_if_set('difficulties_start_elevation', $difficulties_start_elevation, array('suffix' => 'meters')));
         li(field_data_if_set($document, 'difficulties_height', array('suffix' => 'meters')));
+        if ($has_approach_height)
+        {
+            li(field_data_arg('approach_height', ($difficulties_start_elevation - $min_elevation), array('suffix' => 'meters')));
+        }
     }
 
     if (array_intersect(array(1,2,3,4,7), $activities)) // ski, snow or mountain or rock_climbing
