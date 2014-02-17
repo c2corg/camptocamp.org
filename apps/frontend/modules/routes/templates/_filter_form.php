@@ -17,8 +17,11 @@ include_partial('routes_filter', array('autofocus' => true, 'activities' => $act
 <br />
 <fieldset>
 <?php
-echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 6);
-echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 8);
+if (!c2cTools::mobileVersion())
+{
+    echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 6);
+    echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 8);
+}
 include_partial('huts/huts_short_filter');
 include_partial('parkings/parkings_filter');
 ?>
