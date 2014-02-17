@@ -19,8 +19,12 @@ include_partial('routes_filter', array('autofocus' => true, 'activities' => $act
 <?php
 if (!c2cTools::mobileVersion())
 {
-    echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 6);
-    echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 8);
+    echo '<span data-act-filter="1 2 3 4 6 7" style="display:none">'
+       , bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 8)
+       , '</span>';
+    echo '<span data-act-filter="1 3 4 6" style="display:none">'
+       , bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 6)
+       , '</span>';
 }
 include_partial('huts/huts_short_filter');
 include_partial('parkings/parkings_filter');
