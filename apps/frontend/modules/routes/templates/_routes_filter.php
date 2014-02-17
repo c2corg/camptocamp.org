@@ -109,10 +109,5 @@ echo __('hiking_rating') . ' ' . range_selector('hrat', 'app_routes_hiking_ratin
 echo __('route_length') . ' ' . elevation_selector('rlen', 'kilometers');
 ?>
 </div>
-<br />
-<?php 
-echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 6);
-echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 8);
-?>
 </fieldset>
 <?php 
