@@ -44,10 +44,10 @@ echo __('is_on_glacier') . ' ' . bool_selector('glac');
 ?>
 </div>
 </fieldset>
+<div data-act-filter="1 2 3 4 5 6 7" style="display:none">
 <br />
 <fieldset>
 <div data-act-filter="2 3 4 5" style="display:none">
-<br />
 <?php
 echo __('global_rating') . ' ' . range_selector('grat', 'app_routes_global_ratings');
 echo __('engagement_rating') . ' ' . range_selector('erat', 'app_routes_engagement_ratings');
@@ -110,4 +110,5 @@ echo __('route_length') . ' ' . elevation_selector('rlen', 'kilometers');
 ?>
 </div>
 </fieldset>
+</div>
 <?php 
