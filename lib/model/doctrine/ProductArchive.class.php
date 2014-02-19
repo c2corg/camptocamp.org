@@ -6,4 +6,9 @@ class ProductArchive extends BaseProductArchive
     {
         return sfDoctrine::getTable('ProductArchive')->find($id);
     }
+
+    public static function filterGetProduct_type($value)
+    {   
+        return BaseDocument::convertStringToArray($value);
+    }
 }

@@ -241,7 +241,7 @@ function field_value_selector($name, $conf, $options)
     $blank = _option($options, 'blank', false);
     $keepfirst = _option($options, 'keepfirst', true);
     $multiple = _option($options, 'multiple', false);
-    $size = _option($options, 'size', 0);
+    $size = c2cTools::mobileVersion() ? _option($options, 'msize', 1) : _option($options, 'size', 0);
     $filled_options = _option($options, 'filled_options', true);
     $exclude = _option($options, 'exclude', null);
 

@@ -2013,11 +2013,13 @@ fieldset .select_title
 #filterform fieldset
 {
   padding: 0.3em 0.5em;
+  border: 1px solid #CCC;
 }
 #filterform #fs_area
 {
   width: 320px;
   float: right;
+  margin-left: 1em;
   text-align: center;
 }
 #filterform #fs_area select
