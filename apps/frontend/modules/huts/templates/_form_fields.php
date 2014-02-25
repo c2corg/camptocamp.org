@@ -31,7 +31,7 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 echo object_group_tag($document, 'staffed_period', array('class' => 'long_input'));
-echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
+echo object_group_bbcode_tag($document, 'description', null, array('class' => 'medlargetext', 'abstract' => true));
 echo object_group_bbcode_tag($document, 'pedestrian_access', null, array('class' => 'mediumtext'));
 
 include_partial('documents/form_history');

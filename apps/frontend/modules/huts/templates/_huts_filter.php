@@ -9,7 +9,7 @@ echo __('elevation') . ' ' . elevation_selector('halt');
 <br />
 <?php
 echo __('shelter_type') . ' ' . field_value_selector('htyp', 'mod_huts_shelter_types_list', array('keepfirst' => false, 'multiple' => true));
-echo __('is_staffed') . ' ' . bool_selector('hsta');
+echo __('is_staffed') . __('&nbsp;:') . ' ' . bool_selector('hsta');
 ?>
 <br />
 <?php

@@ -182,7 +182,6 @@ msgstr "No es pot associar un usuari a un document col·laboratiu"
 
 # [general comment]
 # Titre de la section des documents annexes.
-# [WARNING] needs_review
 msgid "Annex"
 msgstr "Annexes"
 
@@ -448,7 +447,6 @@ msgstr "El cim secundari és, d'ara endavant, el document "
 # [general comment]
 # Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
 # NOT USED for the moment
-# [WARNING] needs_review
 msgid "Choose maps service..."
 msgstr "Escolliu un servei..."
 
@@ -1790,17 +1788,14 @@ msgstr "Aquesta sortida no existeix"
 
 # [general comment]
 # associated
-# [WARNING] needs_review
 msgid "Outings linked to linked routes"
 msgstr "Sortides associades als <a href=\"#routes\">itineraris associats</a>"
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
-# [WARNING] needs_review
 msgid "Outings linked to these images"
 msgstr "Sortides associades a aquestes imatges"
 
-# [WARNING] needs_review
 msgid "Outings linked to this route"
 msgstr "Sortides associades a l'itinerari d'aquesta pàgina"
 
@@ -2032,21 +2027,17 @@ msgstr "Informació (opcional) sobre les modificacions"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] needs_review
 msgid "Rotate -90"
 msgstr "Gira cap a l'esquerra"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] needs_review
 msgid "Rotate 90"
 msgstr "Gira cap a la dreta"
 
-# [WARNING] needs_review
 msgid "Rotate the image by -90"
 msgstr "Gira la imatge 90º en sentit antihorari"
 
-# [WARNING] needs_review
 msgid "Rotate the image by 90"
 msgstr "Gira la imatge 90º en sentit horari"
 
@@ -2875,16 +2866,14 @@ msgstr "No tens els drets necessaris per associar un usuari a aquest document."
 
 # [general comment]
 # Title of email sent when a user is associated to an outing
-# [WARNING] needs_review
 msgid "You have been associated to an outing"
 msgstr "Heu estat associat/da a una sortida de Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
-# [WARNING] needs_review
 msgid "You have been associated to outing %1% details"
-msgstr "Heu estat associat/da com a participant a una sortida a Camptocamp.org.<br /><br />Aquesta sortida es troba aquí: %1%. Com a autor/a d'aquesta sortida, estàs autoritzat/da a modificar-ne el contingut i a associar-hi altres documents.<br /><br />--<br />\n"
-"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Correu generat automàticament<br />(No responguis aquest missatge)"
+msgstr "Heu estat associat/da com a participant a una sortida a Camptocamp.org.<br /><br />Aquesta sortida es troba a la següent adreça: %1%. Com a participant d'aquesta sortida, esteu autoritzat/da a modificar-ne el contingut i a associar-hi d'altres documents.<br /><br />--<br />\n"
+"<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Correu generat automàticament<br />(No respongueu aquest missatge)"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -3015,6 +3004,12 @@ msgstr "<h3>Activitats</h3>\n"
 
 msgid "_aid_rating_info"
 msgstr "<h3>Grau de dificultat en escalada artificial.</h3><br />El grau de dificultat en artificial correspon a la dificultat màxima de l'escalada artificial en roca, és a dir l'escalada que consisteix en utilitzar punts fixes d'ajuda per progressar en un passatge donat.<br />L'escala va de A0 a A6."
+
+# [WARNING] en translation used
+msgid "_approach_height_info"
+msgstr "<h3>Approach height</h3>\n"
+"Combined elevation of the approach of a route, for a route where approach is distinguished from the route itself.<br />\n"
+"The approach height is calculated from minimum altitude and altitude where difficulties start. Then the value can be wrong for a complex approach."
 
 msgid "_area_type_info"
 msgstr "<h3>Tipus de regió</h3>Tipus de regió: massís muntanyós, regió administrativa o país."
@@ -4000,6 +3995,10 @@ msgstr "i"
 msgid "andalousie"
 msgstr "Andalusia"
 
+# [WARNING] en translation used
+msgid "approach_height"
+msgstr "Approach height:"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -4212,7 +4211,7 @@ msgid "bretagne"
 msgstr "Bretanya"
 
 # [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
+# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 # [WARNING] needs_review
 msgid "building"
@@ -6658,7 +6657,7 @@ msgstr "escola d'escalada"
 # exposition rocher
 # 
 # Faut-il préciser "rocher" dans les trads ?
-# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même itinéraire (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
 # [WARNING] needs_review
 msgid "rock_exposition_rating"
 msgstr "Grau d'exposició en escalada:"
@@ -6932,7 +6931,7 @@ msgid "small pillar"
 msgstr "columnes"
 
 msgid "snow lists explanation"
-msgstr "Els butlletins nivològics a continuació són generalment publicats diàriament en temporada hivernal per l'ENA a Suïssa i per Météo-France a França. Els butlletins nivològics de Météo-France només estan disponibles en francés."
+msgstr "Els butlletins nivològics següents se solen publicar diàriament en temporada hivernal per part de l'Institut Geològic (Catalunya), el Conselh Generau (Val d'Aran), Météo-France (França) i l'ENA (Suïssa). A la tardor i a finals de primavera, la freqüència pot ser setmanal. Els butlletins nivològics de Météo-France només estan disponibles en francès."
 
 # [general comment]
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
