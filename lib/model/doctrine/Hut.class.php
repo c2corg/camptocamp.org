@@ -3,7 +3,7 @@
  * $Id: Hut.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 class Hut extends BaseHut
-{
+{ 
     public static function getAssociatedHutsData($associated_docs)
     {
         $huts = Document::fetchAdditionalFieldsFor(
@@ -33,7 +33,7 @@ class Hut extends BaseHut
     {
         return self::returnNullIfEmpty($value);
     }
-
+            
     public static function filterSetUnstaffed_capacity($value)
     {
         return self::returnNullIfEmpty($value);
@@ -119,10 +119,11 @@ class Hut extends BaseHut
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.is_staffed', 'hsta', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.staffed_capacity', 'hscap', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.unstaffed_capacity', 'hucap', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.has_unstaffed_matress', 'hmat', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.has_unstaffed_blanket', 'hbla', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.has_unstaffed_gas', 'hgas', $join);
-            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.has_unstaffed_wood', 'hwoo', $join);
+           
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.has_unstaffed_matress', 'hmat', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.has_unstaffed_blanket', 'hbla', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.has_unstaffed_gas', 'hgas', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.has_unstaffed_wood', 'hwoo', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', 'hi.culture', 'hcult', $join_i18n);
             
             // book criteria
