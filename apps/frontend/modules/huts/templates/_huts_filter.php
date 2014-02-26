@@ -22,9 +22,9 @@ echo __('unstaffed_capacity') . ' ' . elevation_selector('hucap', null);
 <br />
 <?php
 
-echo __('has_unstaffed_matress') . ' ' . field_value_selector('hmat','app_boolean_list' );
-echo __('has_unstaffed_blanket') . ' ' . field_value_selector('hbla','app_boolean_list' );
-echo __('has_unstaffed_gas') . ' ' . field_value_selector('hgas','app_boolean_list' );
-echo __('has_unstaffed_wood') . ' ' . field_value_selector('hwoo','app_boolean_list' );
+echo __('has_unstaffed_matress') . ' ' . field_value_selector('hmat', 'app_boolean_list');
+echo __('has_unstaffed_blanket') . ' ' . field_value_selector('hbla', 'app_boolean_list');
+echo __('has_unstaffed_gas') . ' ' . field_value_selector('hgas', 'app_boolean_list');
+echo __('has_unstaffed_wood') . ' ' . field_value_selector('hwoo', 'app_boolean_list');
 
   
