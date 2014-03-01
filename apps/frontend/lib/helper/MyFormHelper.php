@@ -497,7 +497,22 @@ function bbcode_textarea_tag($object, $fieldname, $options = null)
     if (isset($options['route_line'])) unset($options['route_line']);
     $options['rows'] = '4';
     $options['cols'] = '20';
-
+    
+    $value = $object->get($fieldname);
+    $height = _option($options, 'class', 'smalltext');
+    if (!empty($value))
+    {
+        switch ($height)
+        {
+            case 'smalltext':       $height_new = 'mediumtext';     break;
+            case 'mediumtext':      $height_new = 'medlargetext';   break;
+            case 'medlargetext':    $height_new = 'largetext';      break;
+            default:                $height_new = $height;
+        }
+        $height = $height_new;
+    }
+    $options['class'] = $height;
+    
     return bbcode_toolbar_tag($object, $fieldname, $bbcode_options) .
            object_textarea_tag($object, $method, $options);
 }

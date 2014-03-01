@@ -276,32 +276,33 @@ class sfPunBBCodeParser
      */
     public static function handle_url_tag($url, $link = '', $viewer = true, $target = '')
     {
-        // prevent double inclusion of links (happens for example if we use [url=http://example.com]http://example.com[/url]
-        // if we have a <a> tag in link just skip the inner content.
-        if (!empty($link) && strpos($link, '<a') !== false)
-        {
-            $link = '';
-        }
-
         $hreflang = '';
         $rel = '';
         
-        $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
+        $url = str_replace(array('\'', '`', '"'), array('', '', ''), $url);
+        $full_url = str_replace(array(' '), array('%20'), $url);
+        $url = preg_replace('#^(ht+ps?|ftp|news)?:*/*((www|ftp)(\.|$))?\.?#i', '', $url);
         if ($url == '')
         {
-            $url == ' ';
+            return $link;
         }
         
-        $full_url = preg_replace('#^((http://)?(w+|m+)\.|)camptocamp\.org/?(.*)#', '/${4}', $full_url);
+        $full_url = preg_replace('#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#', '/${2}', $full_url);
+        $is_internal_url = (strpos("#/", $full_url[0]) !== false);
+            
         if ($empty_link = (empty($link) || $link == $url))
         {
             if ($full_url == '/')
             {
                 $link = $url;
             }
-            else
+            elseif ($is_internal_url)
             {
                 $link = $full_url;
+            }
+            else
+            {
+                $link = $url;
             }
         }
         
@@ -327,11 +328,11 @@ class sfPunBBCodeParser
             $full_url = preg_replace($a, $b, $full_url);
             $is_forum_url = true;
         }
-        else if (strpos($url, 'www.') === 0)            // If it starts with www, we add http://
+        else if (strpos($full_url, 'www.') === 0)            // If it starts with www, we add http://
             $full_url = 'http://'.$full_url;
-        else if (strpos($url, 'ftp.') === 0)    // Else if it starts with ftp, we add ftp://
+        else if (strpos($full_url, 'ftp.') === 0)    // Else if it starts with ftp, we add ftp://
             $full_url = 'ftp://'.$full_url;
-        else if ((strpos("#/", $full_url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor #, we add http://
+        else if (!$is_internal_url && !preg_match('#^([a-z0-9]{3,6}):/+#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor #, we add http://
             $full_url = 'http://'.$full_url;
         else
         {
@@ -370,8 +371,6 @@ class sfPunBBCodeParser
             }
         }
         
-        $is_internal_url = (strpos("#/", $full_url[0]) !== false);
-            
         if ($empty_link)
         {
             // Truncate link text if its an internal URL
@@ -871,6 +870,8 @@ class sfPunBBCodeParser
         $text = ' '.$text;
 
         $pattern[] ='#\[\[http://[\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?/([^\|\]]*)#i';
+        $pattern[] ='#\[url=\]#i';
+        $pattern[] ='#\[url=((?:[^\[]|\[\])*?)\]((https?|ftp|news)?://(www)?|www|ftp)\.#i';
         $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
         $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
         $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[video\]|\d{3}\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
@@ -879,6 +880,8 @@ class sfPunBBCodeParser
         $pattern[] ='#((?<=["\'\s\(\)\>\]:;,])(?<!\[email\])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
         $replace[] = '[[$3';
+        $replace[] = '[url]';
+        $replace[] = '[url=$1]';
         $replace[] = '[url]$2://$3[/url]';
         $replace[] = '[url]$2.$3[/url]';
         $replace[] = '[url]$2[/url]';

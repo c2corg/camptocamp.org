@@ -55,7 +55,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
                 '#\[url(=\]|\])\s*#i',
                 '#\s*\[/url\]#i',
                 '#\[url=(.*?)\]\\1\[/url\]#i',
-                '#\[url(=|\])((https?:)?(//)?(w+|m+)\.|)camptocamp\.org(/([^\[\]]+))#i',
+                '#\[url(=|\])(ht+ps?)?:*/*w*m*\.*camptocamp\.org(/([^\[\]]+))#i',
                 '#\[email=("|\'|)(.*?)\\1\s*\]\s*#i',
                 '#\[email(=\]|\])\s*#i',
                 '#\s*\[/email\]#i',
@@ -78,7 +78,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
                 '[url]',
                 '[/url]',
                 '[url]$1[/url]',
-                '[url$1$6',
+                '[url$1$3',
                 '[email=$2]',
                 '[email]',
                 '[/email]',
@@ -159,7 +159,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 //
 function preparse_url($text)
 {
-    $a = array( '#(?<=[^\w]|^)((https?:)?(//)?(w+|m+)\.|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
+    $a = array( '#(?<=[^\w]|^)((ht+ps?)?:*/*w*m*\.|(ht+ps?)?:*/+|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
                 '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)(&p=\d+)?%i',
@@ -167,7 +167,7 @@ function preparse_url($text)
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?pid=(\d+)%i'
               );
     
-    $b = array( '$5',
+    $b = array( '$4',
                 '#f$1',
                 '#t$1+',
                 '#t$1',
@@ -378,32 +378,33 @@ function handle_url_tag($url, $link = '', $show_video = false)
 {
     global $showed_post_list, $lang_common, $pun_config;
 
-    // prevent double inclusion of links (happens for example if we use [url=http://example.com]http://example.com[/url]
-    // if we have a <a> tag in link just skip the inner content.
-    if (!empty($link) && strpos($link, '<a') !== false)
-    {
-        $link = '';
-    }
-
     $hreflang = '';
     $rel = '';
     
-    $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
+    $url = str_replace(array('\'', '`', '"'), array('', '', ''), $url);
+    $full_url = str_replace(array(' '), array('%20'), $url);
+    $url = preg_replace('#^(ht+ps?|ftp|news)?:*/*((www|ftp)(\.|$))?\.?#i', '', $url);
     if ($url == '')
     {
-        $url == ' ';
+        return $link;
     }
 
-    $full_url = preg_replace('#^((https?:)?(//)?(w+|m+)\.|(?<!\.))camptocamp\.org/?(.*)#', '/${5}', $full_url);
+    $full_url = preg_replace('#^(ht+ps?)?:*/*w*m*\.*camptocamp\.org/?(.*)#', '/${2}', $full_url);
+    $is_internal_url = (strpos("#/", $full_url[0]) !== false);
+        
     if ($empty_link = (empty($link) || $link == $url))
     {
         if ($full_url == '/')
         {
             $link = $url;
         }
-        else
+        elseif ($is_internal_url)
         {
             $link = $full_url;
+        }
+        else
+        {
+            $link = $url;
         }
     }
     
@@ -438,7 +439,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
     {
         $full_url = 'ftp://'.$full_url;
     }
-    elseif ((strpos("#/", $full_url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor / nor #, we add http://
+    elseif (!$is_internal_url && !preg_match('#^([a-z0-9]{3,6}):/+#', $full_url, $bah))     // Else if it doesn't start with abcdef:// nor / nor #, we add http://
     {
         $full_url = 'http://'.$full_url;
     }
@@ -479,8 +480,6 @@ function handle_url_tag($url, $link = '', $show_video = false)
         }
     }
     
-    $is_internal_url = (strpos("#/", $full_url[0]) !== false);
-        
     if ($empty_link)
     {
         // Truncate link text if its an internal URL
@@ -871,6 +870,7 @@ function do_clickable($text)
     
     $text = ' '.$text;
 
+    $pattern[] ='#\[url=((?:[^\[]|\[\])*?)\]((https?|ftp|news)?://(www)?|www|ftp)\.#i';
     $pattern[] ='#((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] ='#((?<=[\s\(\)\>\]:;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]]|[\>\<]\d)*)?)[\>\]]*#i';
     $pattern[] = '/((?<=[\s\(\)\>\]:.;,])(?<!\[url\]|\[img\]|\[video\]|,\d{3}\])|[\<\[]+)(#([fpt])\d+\+?)[\>\]]*/';
@@ -880,6 +880,7 @@ function do_clickable($text)
 
     if ($pun_config['p_message_bbcode'] == '1')
     {
+        $replace[] = '[url=$1]';
         $replace[] = '[url]$2://$3[/url]';
         $replace[] = '[url]$2.$3[/url]';
         $replace[] = '[url]$2[/url]';
@@ -889,6 +890,7 @@ function do_clickable($text)
     }
     else
     {
+        $replace[] = '';
         $replace[] = '$2://$3 ';
         $replace[] = '$2.$3 ';
         $replace[] = '/$2 ';

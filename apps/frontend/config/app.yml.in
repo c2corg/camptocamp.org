@@ -10,12 +10,12 @@
 
 # default values (do not modify unless you know what you are doing):
 all:
-  boolean :
-    list :
-      0 : 
-      1 : no
-      8 : yes
-      10 : non applicable
+  boolean:
+    list:
+      0: 
+      8: 'yes'
+      1: 'no'
+      10: 'non applicable'
   modules: 
     list: 
       3: summits

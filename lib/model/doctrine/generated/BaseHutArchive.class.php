@@ -17,11 +17,11 @@ class BaseHutArchive extends BaseDocumentArchive
         $this->hasColumn('phone', 'string', 50);
         $this->hasColumn('url', 'string', 255);
         $this->hasColumn('staffed_capacity', 'smallint', 3);
-        $this->hasColumn('unstaffed_capacity', 'smallint',2);
-        $this->hasColumn('has_unstaffed_matress', 'samllint',1);
-        $this->hasColumn('has_unstaffed_blanket', 'samllint',1);
-        $this->hasColumn('has_unstaffed_gas', 'samllint',1);
-        $this->hasColumn('has_unstaffed_wood', 'samllint',1);
+        $this->hasColumn('unstaffed_capacity', 'smallint', 2);
+        $this->hasColumn('has_unstaffed_matress', 'samllint', 1);
+        $this->hasColumn('has_unstaffed_blanket', 'samllint', 1);
+        $this->hasColumn('has_unstaffed_gas', 'samllint', 1);
+        $this->hasColumn('has_unstaffed_wood', 'samllint', 1);
         $this->hasColumn('activities', 'string', null); // array
     }
 

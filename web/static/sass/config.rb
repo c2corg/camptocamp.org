@@ -1,5 +1,5 @@
-require "c2c"
-require "md5"
+require "./c2c"
+require "digest/md5"
 
 css_dir = "../css"
 sass_dir = "."
@@ -16,7 +16,7 @@ line_comments = false
 asset_cache_buster do |path, real_path|
   if File.exists?(real_path)
     pathname = Pathname.new(path)
-    hash = MD5.file(real_path.path)
+    hash = Digest::MD5.file(real_path.path).hexdigest
     new_path = "/%s%s" % [hash.to_s[0,8], pathname.cleanpath]
 
     {:path => new_path, :query => nil}

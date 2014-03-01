@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_Scout11, portail_glace, camp_d, diamir_vipec, montania, bd_vector, changerdapproche, diamir_Scout11, camp_d, boutique_c2c, cilao, diamir_vipec ]
+    values: [ diamir_colorclip, portail_glace, camp_c, diamir_ontour2014, boutique_c2c, montania, changerdapproche, diamir_colorclip, camp_c, changerdapproche, cilao, diamir_ontour2014 ]
   banners:
     list:
       skalp:
@@ -10,7 +10,7 @@ all:
         alt: "Sk'alp"
       cilao:
         id: 84
-        image: cilao2012.gif
+        image: cilao_moov.jpg
         alt: Cilao
       atelier_escalade:
         id: 3
@@ -168,24 +168,24 @@ all:
         alt: "Camp gants"
       camp_d:
         id: 81
-        image: camp-chameleon.gif
-        alt: "Camp Chameleon"
+        image: camp2014_D.gif
+        alt: "Camp"
       camp_e:
-        id: 49
-        image: camp-e.gif
-        alt: ""
+        id: 85
+        image: camp2014_E.gif
+        alt: "Camp"
       camp_f:
-        id: 74
-        image: camp-f2.gif
-        alt: ""
+        id: 86
+        image: camp2014_F.gif
+        alt: "Camp"
       camp_g:
-        id: 75
-        image: camp-g2.gif
-        alt: ""
+        id: 87
+        image: camp2014_G.gif
+        alt: "Camp"
       camp_h:
-        id: 76
-        image: camp-h2.gif
-        alt: ""
+        id: 88
+        image: camp2014_H.gif
+        alt: "Camp"
       camp_gravitezero:
         id: 53
         image: camp-gravitezero.gif
@@ -212,7 +212,7 @@ all:
         alt: "Expé"
       montania:
         id: 60
-        image: montania_northface3.gif
+        image: montania_mhw2.gif
         alt: "Montania Sport"
       ibex:
         id: 61
@@ -220,16 +220,16 @@ all:
         alt: "Livres de montagne Ibex Books"
       camp_b:
         id: 83
-        image: camp-rapid.gif
-        alt: "Camp Rapid Race"
+        image: camp2014_B.gif
+        alt: "Camp"
       camp_c:
         id: 80
-        image: camp-skin.gif
-        alt: "Camp Skin"
+        image: camp2014_C.gif
+        alt: "Camp"
       camp_a:
         id: 82
-        image: camp-xdream.gif
-        alt: "Camp X-Dream"
+        image: camp2014_A.gif
+        alt: "Camp"
       rayonrando:
         type: flash
         width: 468
@@ -244,9 +244,9 @@ all:
         image: chamMtnFest2.gif
         alt: "Chamonix Mountain Festival"
       camp_i:
-        id: 73
-        image: camp-i.gif
-        alt: ""
+        id: 89
+        image: camp2014_I.gif
+        alt: "Camp"
       bd_revolt:
         id: 70
         type: flash
@@ -267,7 +267,7 @@ all:
         file: bd_vector_FR.swf
       mdlt:
         id: 77
-        image: mdlt.jpg
+        image: mdlt-hiver.jpg
         alt: "Montagnes de la Terre"
       diamir_vipec:
         id: 79
@@ -277,4 +277,8 @@ all:
         id: 79
         image: diamir-colorclip.gif
         alt: "Diamir Color Clip"      
+      diamir_ontour2014:
+        id: 90
+        image: diamir-on-tour2014.gif
+        alt: "Diamir On Tour"
 

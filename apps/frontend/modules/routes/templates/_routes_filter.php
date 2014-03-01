@@ -13,6 +13,9 @@ $activities_raw = $sf_data->getRaw('activities');
 $paragliding_tag = sfConfig::get('app_tags_paragliding');
 $paragliding_tag = implode('/', $paragliding_tag);
 echo __('activities') . ' ' . activities_selector(true, true, $activities_raw, array(8 => $paragliding_tag));
+?>
+<fieldset>
+<?php
 echo __('max_elevation') . ' ' . elevation_selector('malt');
 echo __('height_diff_up') . ' ' . elevation_selector('hdif');
 ?>
@@ -20,6 +23,7 @@ echo __('height_diff_up') . ' ' . elevation_selector('hdif');
 <?php
 echo __('difficulties_start_elevation') . ' ' . elevation_selector('ralt');
 echo __('difficulties_height') . ' ' . elevation_selector('dhei');
+echo __('approach_height') . ' ' . elevation_selector('rappr');
 ?>
 </div>
 <div data-act-filter="1 2 3 4" style="display:none">
@@ -39,8 +43,11 @@ echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 
 echo __('is_on_glacier') . ' ' . bool_selector('glac');
 ?>
 </div>
-<div data-act-filter="2 3 4 5" style="display:none">
+</fieldset>
+<div data-act-filter="1 2 3 4 5 6 7" style="display:none">
 <br />
+<fieldset>
+<div data-act-filter="2 3 4 5" style="display:none">
 <?php
 echo __('global_rating') . ' ' . range_selector('grat', 'app_routes_global_ratings');
 echo __('engagement_rating') . ' ' . range_selector('erat', 'app_routes_engagement_ratings');
@@ -102,7 +109,6 @@ echo __('hiking_rating') . ' ' . range_selector('hrat', 'app_routes_hiking_ratin
 echo __('route_length') . ' ' . elevation_selector('rlen', 'kilometers');
 ?>
 </div>
-<br />
+</fieldset>
+</div>
 <?php 
-echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 6);
-echo bool_selector_from_list('sub', 'mod_routes_sub_activities_list', 8);

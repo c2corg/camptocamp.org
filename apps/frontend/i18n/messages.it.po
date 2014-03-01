@@ -1228,6 +1228,10 @@ msgstr "Quest’immagine non è stata trovata."
 
 # [general comment]
 # assistant image forum
+<<<<<<< HEAD
+=======
+# [WARNING] needs_review
+>>>>>>> 145f6241dde31b5e1261b0d811d7da7f3a471a1c
 msgid "Image on the internet"
 msgstr "immaggine su internet "
 

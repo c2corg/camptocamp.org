@@ -1,7 +1,7 @@
 <?php
 use_helper('JavascriptQueue', 'Form', 'MyMinify');
 
-if (!empty($message) || $sf_user->hasCredential('moderator'))
+if (!empty($message) || ($sf_user->hasCredential('moderator') && !c2cTools::mobileVersion()))
 {
     $output_message = empty($message) ? __('No message defined. Click to edit')
                                       : $sf_data->getRaw('message'); // unescaped data : we trust moderators ! 

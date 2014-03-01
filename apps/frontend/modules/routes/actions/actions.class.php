@@ -609,6 +609,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'hdif');
         $this->addCompareParam($out, 'ralt');
         $this->addCompareParam($out, 'dhei');
+        $this->addCompareParam($out, 'rappr');
         $this->addListParam($out, 'act');
         $this->addListParam($out, 'sub', '', '', true);
         $this->addListParam($out, 'conf');
