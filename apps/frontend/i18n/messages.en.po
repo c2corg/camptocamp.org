@@ -5141,16 +5141,16 @@ msgid "has_svg"
 msgstr "Picture generated from an SVG file:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Blanket"
+msgstr "Blanket:"
 
 msgid "has_unstaffed_gas"
-msgstr "Cooker / gas"
+msgstr "Cooker / gas:"
 
 msgid "has_unstaffed_matress"
-msgstr "Matress"
+msgstr "Matress:"
 
 msgid "has_unstaffed_wood"
-msgstr "Heating"
+msgstr "Heating:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
