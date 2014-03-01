@@ -3208,6 +3208,12 @@ msgstr "<h3>Jarduerak</h3> Jarduera moetak:.pasa arratoia irudien gainetik hauen
 msgid "_aid_rating_info"
 msgstr "<h3>Eskalada artifizialaren zailtasuna</h3> Eskalada artifizialaren zailtasunen akotazioa.<br />Artif zailtasunak, bidean zehar aurkitutako eskalada artifizialaren zailtasun maximoa adierazten du. Hau da, eskalatzean harkaitzean finkatutako laguntza puntuak erabiltzen dira.<br />Eskala A0-tik A6-ra doa."
 
+# [WARNING] en translation used
+msgid "_approach_height_info"
+msgstr "<h3>Approach height</h3>\n"
+"Combined elevation of the approach of a route, for a route where approach is distinguished from the route itself.<br />\n"
+"The approach height is calculated from minimum altitude and altitude where difficulties start. Then the value can be wrong for a complex approach."
+
 msgid "_area_type_info"
 msgstr "<h3>Eskualde mota</h3>Eskualde mota: mendigunea, eskualde administratiboa edo nazioa."
 
@@ -4057,6 +4063,10 @@ msgstr "eta"
 msgid "andalousie"
 msgstr "Andaluzia"
 
+# [WARNING] en translation used
+msgid "approach_height"
+msgstr "Approach height:"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -4286,7 +4296,7 @@ msgid "bretagne"
 msgstr "Bretainia"
 
 # [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
+# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 # [WARNING] needs_update
 msgid "building"
@@ -5329,17 +5339,17 @@ msgid "has_svg"
 msgstr "Imagen generada a partir de un archivo SVG:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Estalkiak"
+msgstr "Estalkiak:"
 
 # [WARNING] needs_update
 msgid "has_unstaffed_gas"
-msgstr "Gasa"
+msgstr "Gasa:"
 
 msgid "has_unstaffed_matress"
-msgstr "Koltxoiak"
+msgstr "Koltxoiak:"
 
 msgid "has_unstaffed_wood"
-msgstr "Egurra"
+msgstr "Egurra:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -6981,7 +6991,7 @@ msgstr "eskalada (eskola)"
 # exposition rocher
 # 
 # Faut-il préciser "rocher" dans les trads ?
-# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même itinéraire (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
 # [WARNING] needs_update
 msgid "rock_exposition_rating"
 msgstr "Arriskua:"

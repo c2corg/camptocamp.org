@@ -190,7 +190,6 @@ msgstr "Un contributeur ne peut pas être associé à un article collaboratif"
 
 # [general comment]
 # Titre de la section des documents annexes.
-# [WARNING] needs_review
 msgid "Annex"
 msgstr "Annexes"
 
@@ -454,7 +453,6 @@ msgstr "Le sommet fils est désormais le document "
 # [general comment]
 # Title of the menu used to select between Yahoo Maps, Google Maps etc to display the directions between the user location and the parking
 # NOT USED for the moment
-# [WARNING] needs_review
 msgid "Choose maps service..."
 msgstr "Choisissez un service..."
 
@@ -1552,7 +1550,7 @@ msgstr "Cette carte n'existe pas."
 # [general comment]
 # Intitulé du lien vers la page carto
 msgid "Map tool"
-msgstr "Outil carto"
+msgstr "Outil cartographie"
 
 msgid "Mapquest/OSM"
 msgstr "Mapquest et données OpenStreetMap"
@@ -1797,17 +1795,14 @@ msgstr "Cette sortie n'existe pas."
 
 # [general comment]
 # associated
-# [WARNING] needs_review
 msgid "Outings linked to linked routes"
 msgstr "Sorties associées aux <a href=\"#routes\">itinéraires associés</a>"
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
-# [WARNING] needs_review
 msgid "Outings linked to these images"
 msgstr "Sorties associées à ces images"
 
-# [WARNING] needs_review
 msgid "Outings linked to this route"
 msgstr "Sorties associées à l'itinéraire de cette page"
 
@@ -2038,21 +2033,17 @@ msgstr "Informations (optionnelles) sur les modifications"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] needs_review
 msgid "Rotate -90"
-msgstr "Pivoter à gauche"
+msgstr "Pivoter vers la gauche"
 
 # [general comment]
 # Keep this quite short
-# [WARNING] needs_review
 msgid "Rotate 90"
-msgstr "Pivoter à droite"
+msgstr "Pivoter vers la droite"
 
-# [WARNING] needs_review
 msgid "Rotate the image by -90"
 msgstr "Tourner l'image de 90° dans le sens anti-horaire"
 
-# [WARNING] needs_review
 msgid "Rotate the image by 90"
 msgstr "Tourner l'image de 90° dans le sens horaire"
 
@@ -2442,7 +2433,6 @@ msgstr "Changer la licence"
 msgid "Switch to collaborative license"
 msgstr "Passage en licence collaborative"
 
-# [WARNING] needs_review
 msgid "Synchronize summit to associated hut"
 msgstr "Mise à jour automatique du sommet suite à une modification du refuge associé."
 
@@ -2555,7 +2545,7 @@ msgid "This nickname already exists. Please choose another one."
 msgstr "Ce pseudonyme existe déjà. Merci d'en choisir un autre."
 
 msgid "This topo name already exists. Please choose another one."
-msgstr "Ce nom topoguide existe déjà. Merci d'en choisir un autre."
+msgstr "Ce nom de topoguide existe déjà. Merci d'en choisir un autre."
 
 msgid "This user does not have any associated outing."
 msgstr "Cet utilisateur n'a pas encore saisi de sortie."
@@ -2879,13 +2869,11 @@ msgstr "Vous n'avez pas les droits nécessaires pour lier un utilisateur à ce d
 
 # [general comment]
 # Title of email sent when a user is associated to an outing
-# [WARNING] needs_review
 msgid "You have been associated to an outing"
 msgstr "Vous avez été associé à une sortie de Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
-# [WARNING] needs_review
 msgid "You have been associated to outing %1% details"
 msgstr "Vous avez été associé comme participant à une sortie sur Camptocamp.org.<br /><br />Cette sortie est située à l'adresse %1%. En tant qu'auteur de cette sortie, vous possédez désormais des droits de modification et d'association sur celle-ci.<br /><br />--<br />\n"
 "<a href=\"http://www.camptocamp.org\">camptocamp.org</a> Courriel automatique<br />(Ne pas répondre à ce message)"
@@ -3013,6 +3001,11 @@ msgstr "<h3>Activités</h3>\n"
 msgid "_aid_rating_info"
 msgstr "<h3>Cotation escalade artificielle</h3>Cotation des difficultés d'escalade artificielle.<br />La cotation artif correspond à la difficulté maximale de l'escalade artificielle rocheuse, c'est à dire l'escalade consistant à utiliser des points d'aide pour progresser sur un passage donné.<br />L'échelle va de A0 à A6.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/131454/fr\">cotations en artif</a>."
 
+msgid "_approach_height_info"
+msgstr "<h3>Dénivelé de l'approche</h3>\n"
+"Dénivelé cumulé de l'approche d'un itinéraire, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />\n"
+"Le dénivelé de l'approche est calculé à partir de l'altitude minimale et l'altitude du début des difficultés. Il est donc possible que la valeur soit erronée pour une approche complexe."
+
 msgid "_area_type_info"
 msgstr "<h3>Type de région</h3>Type de la région&nbsp;: massif montagneux, région administrative ou pay."
 
@@ -3093,7 +3086,6 @@ msgstr "<h3>Styles d'escalade</h3>Décrit le style général des voies du site/s
 msgid "_code_info"
 msgstr "<h3>Code</h3>Référence de la carte."
 
-# [WARNING] needs_review
 msgid "_conditions_and_equipment_info"
 msgstr "<h3>Conditions de terrain, équipement et qualité du rocher rencontrés</h3>\n"
 "Détails des conditions de terrain rencontrées sur l'approche et dans la voie&nbsp;: quantité et qualité de la neige et de la glace, quantité et qualité de l'équipement en place, qualité du rocher. Il est aussi utile de rapporter les conditions de visu sur les itinéraires voisins.<br />\n"
@@ -3412,7 +3404,6 @@ msgstr "<h3>Latitude</h3>Latitude du lieu géographique en degrés.<br />Pour un
 msgid "_license_info"
 msgstr "Licence d'utilisation du contenu"
 
-# [WARNING] needs_review
 msgid "_lift_approach_info"
 msgstr "<h3>Approche en remontée mécanique possible</h3>\n"
 "Une remontée mécanique peut être utilisée pour l'approche et/ou le retour de cet itinéraire."
@@ -3702,9 +3693,8 @@ msgid "_snowboard_info"
 msgstr "<h3>Adapté au snowboard</h3>\n"
 "Itinéraire comportant très peu de plat ou de traversée."
 
-# [WARNING] needs_review
 msgid "_snowshoeing_rating_info"
-msgstr "<h3>Cotation raquette</h3>\n"
+msgstr "<h3>difficulté raquette</h3>\n"
 "Cotation des difficultés d'un itinéraire de randonnée en raquettes à neige.<br />\n"
 "<br />\n"
 "<strong>R1</strong>&nbsp;: Pentes faibles (< 20°) et balisage serré sur des itinéraires souvent tracés et bénéficiant d'un balisage spécifique rapproché.<br />\n"
@@ -3811,7 +3801,6 @@ msgstr "<h3>URL</h3>Adresse web de l'éditeur du livre, du refuge ou du document
 msgid "_variants_info"
 msgstr "<h3>Itinéraires associés</h3>Les itinéraires associés au présent itinéraire sont des itinéraires empruntant tout ou partie de ses difficultés.<br />Par exemple, une traversée d'un sommet empruntant à la descente un couloir, et méritant d'être décrite dans un itinéraire à part, doit être associée à l'itinéraire du couloir en aller-retour s'il existe.<br />Par contre, les variantes à l'intérieur des difficultés (couloir possédant 2 sorties, pilier se gravissant par le fil ou par des vires, ...) doivent être décrites dans le même itinéraire.<br />La liste des sorties affichée dans cette page contient les sorties associées au présent itinéraire et les sorties associées aux itinéraires associés. Cela permet d'avoir des descriptions d'itinéraire différents mais des infos conditions communes."
 
-# [WARNING] needs_review
 msgid "_vtt_approach_info"
 msgstr "<h3>Approche à VTT possible</h3>\n"
 "Tout ou une partie significative de l'approche et/ou du retour de cet itinéraire peut être accompli facilement à VTT, depuis le plus haut accès autorisé en voiture en été.<br />\n"
@@ -4006,6 +3995,9 @@ msgstr "et"
 msgid "andalousie"
 msgstr "Andalousie"
 
+msgid "approach_height"
+msgstr "Dénivelé de l'approche&nbsp;:"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -4082,10 +4074,9 @@ msgid "author short"
 msgstr "Auteur"
 
 # [comment]
-# il faut un s à correspondant ?
-# [WARNING] needs_review
+# il faut un s à correspondant ?  
 msgid "autocomplete_help"
-msgstr "Tapez le début du nom recherché ci-dessus et les éléments correspondant s'afficheront ici."
+msgstr "Tapez le début du nom recherché ci-dessus et les éléments correspondants s'afficheront ici."
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4128,9 +4119,8 @@ msgstr "Le contenu du sac"
 # C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
 # [comment]
 # Sélection erronée
-# [WARNING] needs_review
 msgid "bad choice error"
-msgstr "la sélection est incorrecte"
+msgstr "sélection incorrecte"
 
 msgid "baleares"
 msgstr "Îles Baléares"
@@ -4222,8 +4212,10 @@ msgid "bretagne"
 msgstr "Bretagne"
 
 # [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
+# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
+# [comment]
+# je pense qu'il vaut meiux préciser de montagne 
 # [WARNING] needs_review
 msgid "building"
 msgstr "refuge"
@@ -4385,7 +4377,6 @@ msgstr "Pour aller plus loin"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
-# [WARNING] needs_review
 msgid "cda map help text"
 msgstr "La carte affiche les départs de randonnées ou de marches d'approche accessibles en transport en commun. Cliquez sur un accès pour voir la liste des itinéraires associés."
 
@@ -4469,9 +4460,8 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Météo</a></p>\n"
 
 # [WARNING] needs_review
 msgid "cda_search_outings_tips"
-msgstr "Critères de recherche de récits de sorties"
+msgstr "Critères de recherche des sorties"
 
-# [WARNING] needs_review
 msgid "cda_search_routes_tips"
 msgstr "Critères de recherche d'itinéraires"
 
@@ -4596,9 +4586,8 @@ msgstr "Conditions rencontrées (approche, voie, et à proximité)&nbsp;:"
 msgid "conditions linked to"
 msgstr "la liste des conditions associées"
 
-# [WARNING] needs_review
 msgid "conditions_and_equipment"
-msgstr "Conditions de terrain, équipement et qualité du rocher rencontrés (approche, voie, et à proximité)&nbsp;:"
+msgstr "Conditions de terrain, équipement et qualité du rocher rencontrées (approche, voie, et à proximité)&nbsp;:"
 
 msgid "conditions_levels"
 msgstr "Enneigement par zones&nbsp;:"
@@ -4645,7 +4634,6 @@ msgstr "Licence des contenus"
 msgid "contest"
 msgstr "concours"
 
-# [WARNING] needs_review
 msgid "copyright image"
 msgstr "image sous copyright"
 
@@ -4688,7 +4676,6 @@ msgstr "craie"
 msgid "create a custom nickname"
 msgstr "créer un pseudo personnalisé"
 
-# [WARNING] needs_review
 msgid "create an account?"
 msgstr "Créer son compte&nbsp;?"
 
@@ -4776,9 +4763,8 @@ msgstr "détail (lieu, itinéraire)"
 msgid "deutsch"
 msgstr "allemand"
 
-# [WARNING] needs_review
 msgid "development environment"
-msgstr "Attention - version de développement"
+msgstr "Attention - version en développement"
 
 msgid "diff"
 msgstr "différence"
@@ -4891,7 +4877,6 @@ msgstr "Adresse e-mail&nbsp;:"
 msgid "emilie_romagne"
 msgstr "Émilie-Romagne"
 
-# [WARNING] needs_review
 msgid "empty choice can't be selected with another choice"
 msgstr "l'option vide ne peut pas être sélectionnée en même temps que d'autres options"
 
@@ -4904,9 +4889,8 @@ msgstr "Engagement&nbsp;:"
 msgid "english"
 msgstr "anglais"
 
-# [WARNING] needs_review
 msgid "enter URL or paste it from clipboard"
-msgstr "URL de l'image"
+msgstr "entrer ou copier l'URL de l'image"
 
 msgid "enter place name"
 msgstr "Saisir un nom de lieu"
@@ -4997,7 +4981,6 @@ msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite 
 
 # [general comment]
 # File failed to get transmitted, most probably because plupload failed to resize it correctly (even when resized, image is too big)
-# [WARNING] needs_review
 msgid "file failed to upload, probable resize error"
 msgstr "Le fichier n'a pas pu être transmis, probablement car nous n'avons pas réussi à le redimensionner correctement. Vous pouvez essayer de le redimensionner vous-même avant de l'envoyer, ou contacter les responsables du site."
 
@@ -5039,7 +5022,6 @@ msgstr "renseigné"
 
 # [general comment]
 # Filter to select only docs available in a specific language
-# [WARNING] needs_review
 msgid "filter language"
 msgstr "Uniquement les documents disponibles en"
 
@@ -5074,7 +5056,7 @@ msgstr "des itinéraires associés"
 # Activités : [pour les sorties]
 # [WARNING] needs_review
 msgid "for outings"
-msgstr "des sorties"
+msgstr "sorties"
 
 msgid "forum and topoguide names"
 msgstr "Nom topoguide et pseudo forum"
@@ -5131,16 +5113,14 @@ msgstr "matériel et techniques"
 msgid "gear_default"
 msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Seul le matériel &quot;exotique&quot; (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles: ARVA, pelle, sonde, crampons, piolets, matériel de glacier (la case &quot;nécessite le matériel de glacier&quot; suffit), coinceurs et sangles sans plus de précision."
 
-# [WARNING] needs_review
 msgid "gear_shop"
-msgstr "magasin de sport, location, réparation"
+msgstr "magasin de sport, location de matériel, réparation"
 
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Les coordonnées géographiques du document peuvent être téléchargées dans l'un des formats suivant&nbsp;:<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML de données géographiques, accepté par de plus en plus de GPS, ou facilement convertible grace à <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en ligne) ou <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de données géographiques utilisé principalement par Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'échange de données JavaScript, utilisé par des applications web"
 
-# [WARNING] needs_review
 msgid "geolocation denied"
-msgstr "Vous devez autoriser l'accès à votre position pour cette fonctionnalité"
+msgstr "Vous devez autoriser l'accès à votre géolocalisation  pour cette fonctionnalité"
 
 msgid "geolocation failed"
 msgstr "Impossible de déterminer la position"
@@ -5165,7 +5145,6 @@ msgstr "gîte"
 msgid "glacier"
 msgstr "glacier"
 
-# [WARNING] needs_review
 msgid "glacier config can't be selected with another config"
 msgstr "la configuration \"parcours glaciaire\" ne peut être sélectionnée que si aucune autre configuration ne correspond"
 
@@ -5214,16 +5193,16 @@ msgid "has_svg"
 msgstr "Image obtenue à partir d'un fichier svg&nbsp;:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Couvertures"
+msgstr "Couvertures&nbsp;:"
 
 msgid "has_unstaffed_gas"
-msgstr "Cuisinière / gaz"
+msgstr "Cuisinière / gaz&nbsp;:"
 
 msgid "has_unstaffed_matress"
-msgstr "Matelas"
+msgstr "Matelas&nbsp;:"
 
 msgid "has_unstaffed_wood"
-msgstr "Chauffage"
+msgstr "Chauffage&nbsp;:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5251,9 +5230,8 @@ msgstr "Dénivelé&nbsp;:"
 
 # [general comment]
 # Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
-# [WARNING] needs_review
 msgid "help pic"
-msgstr "aide du site"
+msgstr "aide d'utilisation du site"
 
 msgid "hide form"
 msgstr "Cacher le formulaire"
@@ -5536,7 +5514,6 @@ msgstr "Totale (cm)"
 msgid "license"
 msgstr "Licence&nbsp;:"
 
-# [WARNING] needs_review
 msgid "lift_approach"
 msgstr "approche en remontée mécanique possible"
 
@@ -5560,7 +5537,6 @@ msgstr "Activités des itinéraires associés&nbsp;:"
 
 # [general comment]
 # Message for the user, asking if he wants to load the draft of the document edition (for exemple because he was no more connected when he submitted the form)
-# [WARNING] needs_review
 msgid "load draft?"
 msgstr "Voulez-vous utiliser le brouillon sauvegardé lors d\\'une édition précédente ? (OK : le brouillon sera copié dans le formulaire - Annuler : le brouillon sera effacé)"
 
@@ -5616,7 +5592,6 @@ msgstr "Communauté de Madrid"
 
 # [general comment]
 # type de livre : revue / magazine
-# [WARNING] needs_review
 msgid "magazine"
 msgstr "revue-magazine"
 
@@ -5646,7 +5621,7 @@ msgstr "cartographie"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "map help text"
 msgstr "<ul class=\\\"map_help\\\">\n"
 "<li>\n"
@@ -6097,7 +6072,6 @@ msgstr "ouvert non gardé"
 msgid "options"
 msgstr "Options"
 
-# [WARNING] needs_review
 msgid "or drag & drop files"
 msgstr "ou glisser-déposer des images depuis l'ordinateur"
 
@@ -6214,7 +6188,6 @@ msgstr "Escalade en grande voie sportive"
 # Était : ski, surf
 # 
 # Autre possibilité : randonnée hivernale
-# [WARNING] needs_review
 msgid "pack_skitouring"
 msgstr "Ski, surf, raquette"
 
@@ -6229,7 +6202,6 @@ msgstr "Déplacer la carte"
 msgid "paragliding"
 msgstr "parapente"
 
-# [WARNING] needs_review
 msgid "paragliding can not be selected alone"
 msgstr "lorsque l'activité \"parapente\" est sélectionnée, l'activité correspondant à la montée doit aussi être sélectionnée"
 
@@ -6710,7 +6682,7 @@ msgstr "escalade (couenne)"
 # exposition rocher
 # 
 # Faut-il préciser "rocher" dans les trads ?
-# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même itinéraire (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
 # [WARNING] needs_review
 msgid "rock_exposition_rating"
 msgstr "Exposition rocher&nbsp;:"
@@ -6871,7 +6843,6 @@ msgstr "<ul class=\"text\"><li><strong>Sélectionnez uniquement les activités p
 msgid "select an image file"
 msgstr "Choisissez une image&nbsp;:&nbsp;"
 
-# [WARNING] needs_review
 msgid "select image or dragdrop"
 msgstr "Cliquez pour sélectionner une image depuis votre ordinateur ou faites un glisser-déposer"
 
@@ -6985,6 +6956,10 @@ msgstr "Pente&nbsp;:"
 msgid "small pillar"
 msgstr "colonnettes"
 
+# [comment]
+# Mention aux bulletins de la Catalogne (disponible en catalan et castillan) et de l'Aran (disponible en catalan, castillan et occitan) ?
+# 
+# Ils ne sont pas disponibles en FR mais ils sont dans la liste... J'ai déjà changé les versions CA et ES.
 msgid "snow lists explanation"
 msgstr "Les bulletins nivologiques ci-dessous sont généralement publiés une fois par jour en saison hivernale par l'ENA en Suisse et Météo-France en France. En automne et au printemps, les bulletins peuvent n'être renouvellés qu'une ou deux fois par semaine, à cause de la fermeture des stations de ski, sources principales des relevés de terrain.<br />Les bulletins nivologiques de Météo-France sont disponibles uniquement en français."
 
@@ -7008,9 +6983,8 @@ msgstr "adapté au snowboard"
 msgid "snowshoeing"
 msgstr "raquette"
 
-# [WARNING] needs_review
 msgid "snowshoeing_rating"
-msgstr "Cotation raquette&nbsp;:"
+msgstr "difficulté raquette&nbsp;:"
 
 msgid "snowshoes"
 msgstr "raquettes"
@@ -7070,7 +7044,7 @@ msgstr "récits, contes, nouvelles"
 msgid "sub-parkings"
 msgstr "sous-accès"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "sub-sites"
 msgstr "sous-sites d'escalade"
 
@@ -7136,7 +7110,6 @@ msgstr "Afficher uniquement l'activité ski, surf"
 msgid "switch_to_snow_ice_mixed"
 msgstr "Afficher uniquement l'activité neige, glace, mixte"
 
-# [WARNING] needs_review
 msgid "switch_to_snowshoeing"
 msgstr "Afficher uniquement l'activité raquette"
 
@@ -7155,9 +7128,8 @@ msgstr "technique"
 msgid "terms of use"
 msgstr "Conditions d'utilisation"
 
-# [WARNING] needs_review
 msgid "thanks for new outing"
-msgstr "Merci pour votre sortie ! N'hésitez pas à également améliorer la description de l'itinéraire associé."
+msgstr "Merci d'avoir publié votre sortie ! N'hésitez pas à également améliorer la description de l'itinéraire associé."
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
@@ -7181,13 +7153,11 @@ msgstr "cette information doit faire moins de 100 caractères"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too long
-# [WARNING] needs_review
 msgid "this isbn is too long (17 charaters maximum)"
 msgstr "Cet ISBN ou ISSN est trop long (maximum 17 caractères)"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too short
-# [WARNING] needs_review
 msgid "this isbn is too short (7 charaters minimum)"
 msgstr "Cet ISBN ou ISSN est trop court (au moins 7 caractères pour un ISSN, 10 pour un ISBN)"
 
@@ -7242,7 +7212,6 @@ msgstr "modérateur du topoguide"
 msgid "topoguide name only"
 msgstr "Nom topoguide uniquement"
 
-# [WARNING] needs_review
 msgid "topoguide supplements"
 msgstr "compléments au topoguide"
 
@@ -7427,13 +7396,11 @@ msgstr "Afficher le document"
 msgid "visual conditions"
 msgstr "conditions de visu"
 
-# [WARNING] needs_review
 msgid "vosges portal"
 msgstr "Vosges"
 
-# [WARNING] needs_review
 msgid "vtt_approach"
-msgstr "approche à VTT possible"
+msgstr "approche en VTT possible"
 
 msgid "wait while image is uploaded"
 msgstr "Patientez pendant le chargement de votre image"
@@ -7486,7 +7453,6 @@ msgstr "Insérer un lien interne"
 
 # [general comment]
 # placeholder pour le titre d'une image
-# [WARNING] needs_review
 msgid "write a caption"
 msgstr "Rédiger une légende"
 
@@ -7522,7 +7488,6 @@ msgstr "hier, à %1%"
 msgid "you cannot select public transportation types without appropriate service rating"
 msgstr "Vous ne pouvez pas sélectionner de transports en commun si le champ 'accessibilité' n'est pas compatible"
 
-# [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"
 msgstr "Vous n'avez pas le droit de modifier le type de cette image collaborative"
 
@@ -7532,13 +7497,11 @@ msgstr "Vous n'avez pas le droit de modifier le type de cet article de collabora
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "Vous n'avez pas le droit de modifier le type de cette image de collaboratif à personnel"
 
-# [WARNING] needs_review
 msgid "you have no right to switch from copyright picture"
 msgstr "Vous n'avez pas le droit de modifier le type de cette image sous copyright"
 
-# [WARNING] needs_review
 msgid "you have no right to switch from personnal to copyright picture"
-msgstr "Vous n'avez pas le droit de modifier le type de cette image de personnel à copyright"
+msgstr "Vous n'avez pas le droit de modifier le type de cette image de \"personnel\" à \"copyright\""
 
 msgid "zoom in"
 msgstr "Zoomer"
