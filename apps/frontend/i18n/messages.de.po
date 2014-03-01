@@ -5313,16 +5313,16 @@ msgid "has_svg"
 msgstr "Das Bild wurde aus einer SVG-Datei generiert:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Decken"
+msgstr "Decken:"
 
 msgid "has_unstaffed_gas"
-msgstr "Kochherd / Gas"
+msgstr "Kochherd / Gas:"
 
 msgid "has_unstaffed_matress"
-msgstr "Matratzen"
+msgstr "Matratzen:"
 
 msgid "has_unstaffed_wood"
-msgstr "Heizung"
+msgstr "Heizung:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

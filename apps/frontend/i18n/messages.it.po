@@ -93,33 +93,26 @@ msgstr "non si puo' legare di rifugio su un itinerario"
 msgid "A new password has been asked for your account."
 msgstr "Una nuova password è stata richiesta per il tuo account camptocamp.org. Puoi identificarti usando le informazioni qui sotto."
 
-# [WARNING] en translation used
 msgid "A parking can not be linked to a hut if a main/sub parking is already linked to it"
-msgstr "An access point can not be linked to a hut if a main/sub access point of this access is already linked to this hut"
+msgstr "Un accesso non può essere associato ad un rifugio se un sopra/sotto accesso di questo accesso è già associato al rifugio "
 
-# [WARNING] en translation used
 msgid "A parking can not be linked to a route if a main/sub parking is already linked to it"
-msgstr "An access point can not be linked to a route if a main/sub access point of this access is already linked to this route"
+msgstr "Un accesso non può essere associato ad un itinerario se un sopra/sotto accesso di questo accesso è già associato al itinerario"
 
-# [WARNING] en translation used
 msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
-msgstr "An access point can not be linked to a climbing site if a main/sub access point of this access is already linked to this site"
+msgstr "Un accesso non può essere associato ad una falesia se un sopra/sotto accesso di questo accesso è già associato alla falesia"
 
-# [WARNING] en translation used
 msgid "A site can not be linked to more than one summit"
-msgstr "A climbing site can not be linked to more than one summit"
+msgstr "Una falesia non può essere associata a più di una cima"
 
-# [WARNING] en translation used
 msgid "A sub parking can not be linked to more than one main parking"
-msgstr "A sub access point can not be linked to more than one main access point"
+msgstr "Un sotto-accesso non può essere associato a più di un sopra-accesso"
 
-# [WARNING] en translation used
 msgid "A sub site can not be linked to more than one main site"
-msgstr "A climbing sector can not be linked to more than one climbing site"
+msgstr "Un settore di falesia non può essere associata a più di una falesia"
 
-# [WARNING] en translation used
 msgid "A sub summit can not be linked to more than one main summit"
-msgstr "A sub summit can not be linked to more than one main summit"
+msgstr "Una sotto-cima non può essere associata a più di una sopra-cima"
 
 # [WARNING] en translation used
 msgid "A summit can not be linked to a sub site"
@@ -1235,7 +1228,6 @@ msgstr "Quest’immagine non è stata trovata."
 
 # [general comment]
 # assistant image forum
-# [WARNING] needs_review
 msgid "Image on the internet"
 msgstr "immaggine su internet "
 
@@ -5174,16 +5166,16 @@ msgid "has_svg"
 msgstr "Immagine ottenuta a partire di un file SVG:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Coperte"
+msgstr "Coperte:"
 
 msgid "has_unstaffed_gas"
-msgstr "Fornello / Gas"
+msgstr "Fornello / Gas:"
 
 msgid "has_unstaffed_matress"
-msgstr "Materassi"
+msgstr "Materassi:"
 
 msgid "has_unstaffed_wood"
-msgstr "Riscaldamento"
+msgstr "Riscaldamento:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

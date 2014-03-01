@@ -5339,17 +5339,17 @@ msgid "has_svg"
 msgstr "Imagen generada a partir de un archivo SVG:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Estalkiak"
+msgstr "Estalkiak:"
 
 # [WARNING] needs_update
 msgid "has_unstaffed_gas"
-msgstr "Gasa"
+msgstr "Gasa:"
 
 msgid "has_unstaffed_matress"
-msgstr "Koltxoiak"
+msgstr "Koltxoiak:"
 
 msgid "has_unstaffed_wood"
-msgstr "Egurra"
+msgstr "Egurra:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
