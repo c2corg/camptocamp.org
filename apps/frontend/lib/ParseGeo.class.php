@@ -62,7 +62,7 @@ class ParseGeo
                         case 4:
                             // converts 2007-07-12T06:55:21Z into absolute unix time for easy storage
                             $wkta[] = (($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0') . ' ' . 
-                                      (($pt->time && strtotime($pt->time) !== false) ? strtotime($pt->time) : '0') ;
+                                      (($pt->time && strtotime($pt->time) !== false) ? strtotime($pt->time) : '0');
                             break;
                     }
                     $i++;
@@ -86,7 +86,7 @@ class ParseGeo
                     case 4:
                         // converts 2007-07-12T06:55:21Z into absolute unix time for easy storage
                         $wkta[] = (($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0') . ' ' .
-                                  (($pt->time) ? strtotime($pt->time) : '0') ;
+                                  (($pt->time && strtotime($pt->time) !== false) ? strtotime($pt->time) : '0');
                         break;
                 }
                 $i++;
