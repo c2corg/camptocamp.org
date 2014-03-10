@@ -3425,26 +3425,21 @@ class documentsActions extends c2cActions
             }
             
             $response = $this->getResponse();
-            
+
             switch ($format)
             {
                 case 'gpx':
-                    $this->points = explode(',', gisQuery::getEWKT($id, true, $module, $version));
+                    $this->points = gisQuery::getEWKT($id, true, $module, $version);
                     $this->setTemplate('../../documents/templates/exportgpx'); 
                     $response->setContentType('application/gpx+xml'); 
-                    // FIXME: application/x-GPS-Exchange-Format or application/graphx or application/gpx+xml ?
-                    // debate: http://tech.groups.yahoo.com/group/gpsxml/message/1649
                     break;
                 case 'kml':
                     $this->points = gisQuery::getEWKT($id, true, $module, $version);
-                    // TODO in exportKML template : add individual points with time coordinates so that time browsing is enabled in GE.
                     $this->setTemplate('../../documents/templates/exportkml'); 
                     $response->setContentType('application/vnd.google-earth.kml+xml');
-                    /* Google Earth reads KML and KMZ files. The MIME type for KML files is application/vnd.google-earth.kml+xml
-                    The MIME type for KMZ files is application/vnd.google-earth.kmz */
                     break;
                 case 'json':
-                    $this->points = explode(',', gisQuery::getEWKT($id, true, $module, $version));
+                    $this->points = gisQuery::getEWKT($id, true, $module, $version);
                     $this->setTemplate('../../documents/templates/exportjson');
                     $response->setContentType('application/json');
                     break;

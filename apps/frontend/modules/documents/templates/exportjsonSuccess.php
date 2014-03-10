@@ -1,14 +1,70 @@
-<?php 
-$points = $sf_data->getRaw('points');
-$nbpts = count($points);
-$id = $sf_params->get('id');
-?>
-{"type": "Feature", "geometry": <?php if ($nbpts > 1): ?>{"type": "LineString", "coordinates": [[<?php 
-    $a = array(); 
+<?php
+// note: it would be great to use geoPHP, but unfortunately it doesn't support 3D nor time at the moment
+$module = $sf_params->get('module');
+
+function make_points($points)
+{
+    $a = array();
     foreach ($points as $point)
     {
-        $_point = explode(' ', trim($point)); 
-        $ll = number_format($_point[0], 6, '.', '').', '. number_format($_point[1], 6, '.', '');
-        $a[] = (count($_point) > 2) ? $ll . ', ' . ((abs($_point[2])<1) ? '0' : round($_point[2])) : $ll;
+        $_point = explode(' ', trim(str_replace(array('(', ')'), array(), $point)));
+        $p = array(floatval($_point[0]), floatval($_point[1]));
+        if (count($_point) > 2)
+        {
+          $p[] = (abs($_point[2]) < 1) ? '0' : round($_point[2]);
+        }
+        $a[] = $p;
     }
-    echo implode('], [', $a) ?>]]}<?php elseif ($nbpts = 1): $_point = explode(' ', trim($points[0])); ?>{"type": "Point", "coordinates": [<?php echo number_format($_point[0], 6, '.', '') ?>, <?php echo number_format($_point[1], 6, '.', ''); if (count($_point) > 2): ?>, <?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); endif ?>]}<?php endif ?>, "properties": { "module": "<?php echo $sf_context->getModuleName() ?>", "id": <?php echo $id ?>, "culture": "<?php echo $sf_params->get('lang') ?>", "name": <?php echo json_encode($sf_data->getRaw('name')) ?>, "description": <?php echo json_encode($sf_data->getRaw('description')) ?>}}
+    return $a;
+}
+
+$polygons = array_map(function($v)
+{
+    return array_map(function ($v)
+    {
+        return make_points(explode(',', $v));
+    }, explode('),(', $v));
+}, explode(')),((', $sf_data->getRaw('points')));
+
+$id = $sf_params->get('id');
+
+if (in_array($module, array('maps', 'areas')))
+{
+    $type = 'MultiPolygon';
+    $geom = $polygons;
+}
+else
+{
+    $lines = $polygons[0];
+    $nblines = count($lines);
+    if ($nblines > 1) // route with multiple lines
+    {
+        $type = 'MultiLineString';
+        $geom = $lines;
+    }
+    elseif (count($lines[0]) > 1) // route or outings, simple line
+    {
+        $type = 'LineString';
+        $geom =  $lines[0];
+    }
+    elseif (count($lines[0]) === 1) // single point
+    {
+        $type = 'Point';
+        $geom = $lines[0][0];
+    }
+}
+
+echo json_encode(array(
+    'type' => 'Feature',
+    'geometry' => array(
+        'type' => $type,
+        'coordinates' => $geom
+    ),
+    'properties' => array(
+        'module' => $module,
+        'id' => $id,
+        'culture' => $sf_params->get('lang'),
+        'name' => $sf_data->getRaw('name'),
+        'description' => $sf_data->getRaw('description')
+    )
+));

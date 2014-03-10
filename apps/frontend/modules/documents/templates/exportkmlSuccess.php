@@ -5,8 +5,7 @@ $module = $sf_params->get('module');
 $points = $sf_data->getRaw('points');
 if (!in_array($module, array('maps', 'areas')))
 {
-    $points = explode(',', $points);
-    $nbpts = count($points);
+    $points = array_map(function($v) { return explode(',', str_replace(array('(', ')'), array(), $v)); }, explode('),(', $points));
 }
 else
 {
@@ -75,7 +74,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             </iframe>
         ]]></description>
         <styleUrl>#allstyle</styleUrl>
-        <?php $_point = explode(' ', trim($points[0])); ?>
+        <?php $_point = explode(' ', trim($points[0][0])); ?>
         <Point>
             <coordinates>
                 <?php echo number_format($_point[0], 6, '.', '') ?>,<?php echo number_format($_point[1], 6, '.', '');
@@ -125,21 +124,26 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
                 <a href="<?php echo $resource_url ?>"><?php echo $sf_data->get('name') ?></a>
                 </iframe>
             ]]></description>
-            <LineString>
+            <MultiGeometry>
+                <?php foreach ($points as $line): ?>
+                <LineString>
                     <coordinates>
-                    <?php foreach ($points as $point):
-                        $_point = explode(' ', trim($point));
-                        echo number_format($_point[0], 6, '.', '') ?>,<?php echo number_format($_point[1], 6, '.', '');
-                        if (count($_point) > 2): ?>,<?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); endif; echo "\n";
-                    endforeach; ?>
+                        <?php foreach ($line as $point):
+                            $_point = explode(' ', trim($point));
+                            echo number_format($_point[0], 6, '.', '') ?>,<?php echo number_format($_point[1], 6, '.', '');
+                            if (count($_point) > 2): ?>,<?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); endif; echo "\n";
+                        endforeach; ?>
                     </coordinates>
-            </LineString>
+                </LineString>
+                <?php endforeach ?>
+            </MultiGeometry>
         </Placemark>
         <Folder>
             <name>Points</name>
             <styleUrl>#allstyle</styleUrl>
         <?php $i = 0;
-        foreach ($points as $point):
+        foreach ($points as $line):
+            foreach ($line as $point):
             $_point = explode(' ', trim($point));
             $lon = number_format($_point[0], 6, '.', '');
             $lat = number_format($_point[1], 6, '.', ''); ?>
@@ -173,7 +177,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
                         <coordinates><?php echo $lon ?>,<?php echo $lat; if (count($_point) > 2): ?>,<?php echo (abs($_point[2])<1) ? '0' : round($_point[2]); endif; ?></coordinates>
                 </Point>
             </Placemark>
-        <?php  $i++; endforeach; ?>
+        <?php  $i++; endforeach; endforeach; ?>
         </Folder>
     </Folder>
 <?php endif ?>
