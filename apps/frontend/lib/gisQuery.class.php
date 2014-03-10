@@ -171,8 +171,8 @@ class gisQuery
         if ($trim) 
         {
             // we just return a string with coordinates
-            $begin = strpos($out, '(') + 1;
-            $end = strrpos($out, ')');
+            $begin = strrpos($out, '(') + 1;
+            $end = strpos($out, ')');
             return substr($out, $begin, $end - $begin);
         }
         else
