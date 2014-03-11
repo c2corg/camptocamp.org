@@ -5,7 +5,7 @@ $module = $sf_params->get('module');
 $points = $sf_data->getRaw('points');
 if (!in_array($module, array('maps', 'areas')))
 {
-    $points = array_map(function($v) { return explode(',', str_replace(array('(', ')'), array(), $v)); }, explode('),(', $points));
+    $points = array_map(function($v) { return explode(',', str_replace(array('(', ')'), '', $v)); }, explode('),(', $points));
 }
 else
 {

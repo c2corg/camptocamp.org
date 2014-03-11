@@ -50,16 +50,21 @@ if ($has_geom || $show_map)
     elseif ($document->get('geom_wkt') && ($module == 'outings' || $module == 'routes'))
     {
         $tolerance = _compute_tolerance(gisQuery::getBox2d($document->id, $module), true);
-        $enc_polyline = _polyline_encode(gisQuery::getEWKT($document->id, true, $module, null, $tolerance));
-        $map_options[] = 'path=weight:2|color:0xffff00cc|enc:'.$enc_polyline;
+        $geoms =  explode('),(', gisQuery::getEWKT($document->id, true, $module, null, $tolerance));
+        foreach($geoms as $geom)
+        {
+            $map_options[] = 'path=weight:2|color:0xffff00cc|enc:'.
+                _polyline_encode(str_replace(array('(', ')'), '', $geom));
+        }
     }
     elseif ($document->get('geom_wkt') && ($module == 'maps' || $module == 'areas'))
     {
+        // we cannot use donut geometries, so we instead create multiple lines
         $tolerance = _compute_tolerance(gisQuery::getBox2d($document->id, $module));
         $geoms = gisQuery::getEWKT($document->id, true, $module, null, $tolerance);
-        $geoms = explode(')),((', $geoms);
+        $geoms = explode('),(', $geoms);
         foreach($geoms as $geom) {
-            $map_options[] = 'path=weight:2|color:0xffff00cc|fillcolor:0xffff0033|enc:'.
+            $map_options[] = 'path=weight:2|color:0xff0000cc|enc:'.
                              _polyline_encode(str_replace(array('(', ')'), '', $geom));
         }
     }

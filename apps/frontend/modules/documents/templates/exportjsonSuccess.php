@@ -7,7 +7,7 @@ function make_points($points)
     $a = array();
     foreach ($points as $point)
     {
-        $_point = explode(' ', trim(str_replace(array('(', ')'), array(), $point)));
+        $_point = explode(' ', trim(str_replace(array('(', ')'), '', $point)));
         $p = array(floatval($_point[0]), floatval($_point[1]));
         if (count($_point) > 2)
         {

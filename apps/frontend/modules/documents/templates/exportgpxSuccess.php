@@ -2,7 +2,7 @@
 // gpx doesn't support polygons, so we transform everything into (multiple) lines
 function make_points($string)
 {
-    $string = str_replace(array(')', '('), array(), $string);
+    $string = str_replace(array(')', '('), '', $string);
     $points = explode(',', $string);
     return array_map(function($point)
     {
