@@ -9,9 +9,9 @@ function make_points($points)
     {
         $_point = explode(' ', trim(str_replace(array('(', ')'), '', $point)));
         $p = array(floatval($_point[0]), floatval($_point[1]));
-        if (count($_point) > 2)
+        if (count($_point) > 2 && abs($_point[2]) >= 1)
         {
-          $p[] = (abs($_point[2]) < 1) ? '0' : round($_point[2]);
+          $p[] = round($_point[2]);
         }
         $a[] = $p;
     }
