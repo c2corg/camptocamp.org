@@ -9,7 +9,7 @@
   };
 
   C2C.switchFormButtonsStatus = function(form, disable) {
-    $(form).find('input[type=submit], input[type=button]').attr('disabled', 'disabled');
+    $(form).find('input[type=submit], input[type=button]').prop('disabled', disable);
   };
 
   // outings wizard: retrieve route ratings
