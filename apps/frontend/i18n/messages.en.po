@@ -3025,6 +3025,12 @@ msgstr "<h3>Activities</h3>Activity type: position your mouse on the pictograms 
 msgid "_aid_rating_info"
 msgstr "<h3>Aid grade</h3>Rating of artificial climbing encountered.<br />The aid rating corresponds to the maximum difficulty encountered for the rock aid climbing, that is climbing consisting in using aid points for moving on a given sequence.<br />The scale goes from A0 to A6.<br /><br />See also the help on <a href=\"/articles/131454/en\">aid rating</a>."
 
+# [WARNING] needs_review
+msgid "_approach_height_info"
+msgstr "<h3>Approach height</h3>\n"
+"Combined elevation of the approach of a route, for a route where approach is distinguished from the route itself.<br />\n"
+"The approach height is calculated from minimum altitude and altitude where difficulties start. Then the value can be wrong for a complex approach."
+
 msgid "_area_type_info"
 msgstr "<h3>Type of area</h3>Type of area: mountain massif, administrative region or country."
 
@@ -3125,8 +3131,9 @@ msgstr "<h3>Date & time</h3>Date and time the picture was taken.<br />This infor
 msgid "_description_info"
 msgstr "<h3>Description</h3>Textual part of the document. For the guidebook, the following rules apply:<br /><br /><strong>Cardinal points</strong>:<br />In the guidebook, any cardinal direction must be mentioned exclusively using international initials in capital letters: N , E , S , W , NW , NE , SW , SE. The only exception is for the name of a summit: for example Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Numerical data and physical quantities</strong>:<br />Numerical data must be written with numbers when possible.<br />Units must be written with their accepted abbreviation:<br />- m , km: meter , kilometer<br />- h , mn , s: hour , minute , second<br />- m/h , km/h: meter per hour , kilometer per hour<br />- kg: kilogram<br />- °C: centigrade degree<br />- °: slope in degrees<br />The number and the units must not be separated by a space in order to avoid carriage return between both: 100m and not hundred meters, nor one hundred or so meters, -15°C and not - 15 °C."
 
+# [WARNING] needs_review
 msgid "_difficulties_height_info"
-msgstr "<h3>Difficulties length</h3>Combined elevation of the main difficulties of a route, for a route where walk-in is distinguished from the route itself.<br />Do not mix up with the route height amplitude: it is always lower."
+msgstr "<h3>Difficulties height</h3>Combined elevation of the main difficulties of a route, for a route where approach is distinguished from the route itself.<br />Do not mix up with the difficulties length: difficulties height is always lower."
 
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitude where difficulties start</h3>Altitude of the base of the route, for an itinerary with a clear distinction between an approach and a route proper.<br />This field should not be used for itineraries where an approach and a route cannot be distinguished."
@@ -3934,6 +3941,9 @@ msgstr "and"
 msgid "andalousie"
 msgstr "Andalusia"
 
+msgid "approach_height"
+msgstr "Approach height:"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -4152,7 +4162,7 @@ msgid "bretagne"
 msgstr "Brittany"
 
 # [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
+# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 # [WARNING] needs_review
 msgid "building"
@@ -4705,7 +4715,7 @@ msgid "difficult crossing"
 msgstr "open - travel is difficult"
 
 msgid "difficulties_height"
-msgstr "Difficulties lenght:"
+msgstr "Difficulties height:"
 
 msgid "difficulties_start_elevation"
 msgstr "Altitude where difficulties start:"
@@ -5131,16 +5141,16 @@ msgid "has_svg"
 msgstr "Picture generated from an SVG file:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Blanket"
+msgstr "Blanket:"
 
 msgid "has_unstaffed_gas"
-msgstr "Cooker / gas"
+msgstr "Cooker / gas:"
 
 msgid "has_unstaffed_matress"
-msgstr "Matress"
+msgstr "Matress:"
 
 msgid "has_unstaffed_wood"
-msgstr "Heating"
+msgstr "Heating:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5169,7 +5179,6 @@ msgstr "Elevation gain / loss:"
 
 # [general comment]
 # Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
-# [WARNING] needs_review
 msgid "help pic"
 msgstr "help"
 
@@ -6163,7 +6172,6 @@ msgstr "Pan the map"
 msgid "paragliding"
 msgstr "paragliding"
 
-# [WARNING] needs_review
 msgid "paragliding can not be selected alone"
 msgstr "when \"paragliding\" activity is selected, the activity corresponding to the rise must be selected"
 
@@ -6658,7 +6666,7 @@ msgstr "rock climbing (single-pitch)"
 # exposition rocher
 # 
 # Faut-il préciser "rocher" dans les trads ?
-# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même itinéraire (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
 msgid "rock_exposition_rating"
 msgstr "Runout grade:"
 

@@ -39,13 +39,17 @@ class ParseGeo
     {
         $xml = c2cTools::simplexmlLoadFile($path);
         // TODO: handle files with only one waypoint for point update ?
-        // TODO: handle multilines geometries ?
         $i = 0;
         $wkta = array();
-        // we merge all tracks and track segments together.
-        // this is useful because some gps generate a new trkseg when gps signal is lost (eg: garmin units) 
+
+        // For 4d geoms (outings), we merge all tracks and track segments together
+        // this is useful because some gps generate a new trkseg when gps signal is lost (eg: garmin units)
+        // For 3d geoms (routes), we only merge track segments together, but each route or track will be
+        // a new line string. This allows to describe several route variants in a single gpx
+
         foreach ($xml->trk as $trk) 
         {
+            $trka = array();
             foreach ($trk->trkseg as $trkseg) 
             {
                 foreach ($trkseg->trkpt as $pt) 
@@ -54,49 +58,68 @@ class ParseGeo
                     switch ($dim)
                     {
                         case 2:
-                            $wkta[] = $_ll;
+                            $trka[] = $_ll;
                             break;
                         case 3:
-                            $wkta[] = ($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0' ;
+                            $trka[] = ($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0' ;
                             break;
                         case 4:
                             // converts 2007-07-12T06:55:21Z into absolute unix time for easy storage
-                            $wkta[] = (($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0') . ' ' . 
-                                      (($pt->time && strtotime($pt->time) !== false) ? strtotime($pt->time) : '0') ;
+                            $trka[] = (($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0') . ' ' . 
+                                      (($pt->time && strtotime($pt->time) !== false) ? strtotime($pt->time) : '0');
                             break;
                     }
                     $i++;
                 }
             }
+            $wkta[] = $trka;
         }
         // we also look for routes
         foreach ($xml->rte as $rte)
         {
+            $rtea = array();
             foreach ($rte->rtept as $pt)
             {
                 $_ll = $pt['lon'] . ' ' . $pt['lat'];
                 switch ($dim)
                 {
                     case 2:
-                        $wkta[] = $_ll;
+                        $rtea[] = $_ll;
                         break;
                     case 3:
-                        $wkta[] = ($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0' ;
+                        $rtea[] = ($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0' ;
                         break;
                     case 4:
                         // converts 2007-07-12T06:55:21Z into absolute unix time for easy storage
-                        $wkta[] = (($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0') . ' ' .
-                                  (($pt->time) ? strtotime($pt->time) : '0') ;
+                        $rtea[] = (($pt->ele) ? $_ll. ' ' . round($pt->ele) : $_ll. ' 0') . ' ' .
+                                  (($pt->time && strtotime($pt->time) !== false) ? strtotime($pt->time) : '0');
                         break;
                 }
                 $i++;
             }
+            $wkta[] = $rtea;
         }
         
         if ($i)
         {
             c2cTools::log("gpx2wkt : WKT has been generated with $i points");
-            return 'LINESTRING(' . implode(',',$wkta) . ')';
+
+            if ($dim === 3 && count($wkta) > 1)
+            {
+                $flatten = function($value)
+                {
+                    return '(' . implode(',', $value) . ')';
+                };
+                return 'MULTILINESTRING(' . implode(',', array_map($flatten, $wkta)) . ')';
+            }
+            else
+            {
+                $flatten = function($value)
+                {
+                    return implode(',', $value);
+                };
+                return 'LINESTRING(' . implode(',', array_map($flatten, $wkta)) . ')';
+            }
         }
         else
         {
@@ -230,6 +253,7 @@ class ParseGeo
      */    
     public static function getCumulatedHeightDiffFromWkt($wkt) 
     {
+        // we don't compute height if not a linestring (can be multilinestring or...)
         if (substr($wkt,0,10) != 'LINESTRING') 
         {
             return array(null, null);

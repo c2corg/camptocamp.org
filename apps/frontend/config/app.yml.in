@@ -5,11 +5,17 @@
 #       level_4: value
 #
 # To emulate more than 4 levels, you can use :
-#     level_3_level_4:
+#     level_3_level_4: 
 #       level_5: value
 
 # default values (do not modify unless you know what you are doing):
 all:
+  boolean:
+    list:
+      0: 
+      8: 'yes'
+      1: 'no'
+      10: 'non applicable'
   modules: 
     list: 
       3: summits

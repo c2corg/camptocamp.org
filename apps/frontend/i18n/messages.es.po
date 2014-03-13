@@ -3039,6 +3039,12 @@ msgstr "<h3>Actividades</h3>Tipo de actividades: pasar el ratón por los pictogr
 msgid "_aid_rating_info"
 msgstr "<h3>Cotación escalada artificial</h3>Cotación de las dificultades en escalada artificial.<br />La cotación de la escalada artificial corresponde a la dificultad máxima de la escalada artificial rocosa, es decir, la escalada que consiste en utilizar puntos de anclaje para progresar en un momento dado.<br />La escala va de A0 a A6.<br /><br />Véase también la ayuda sobre <a href=\"/articles/131454/es\">grados en artificial</a>."
 
+# [WARNING] en translation used
+msgid "_approach_height_info"
+msgstr "<h3>Approach height</h3>\n"
+"Combined elevation of the approach of a route, for a route where approach is distinguished from the route itself.<br />\n"
+"The approach height is calculated from minimum altitude and altitude where difficulties start. Then the value can be wrong for a complex approach."
+
 msgid "_area_type_info"
 msgstr "<h3>Tipo de zona</h3>Tipo de la zona: macizo, departamento/cantón o país."
 
@@ -3909,6 +3915,10 @@ msgstr "y"
 msgid "andalousie"
 msgstr "Andalucía"
 
+# [WARNING] en translation used
+msgid "approach_height"
+msgstr "Approach height:"
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -4125,7 +4135,7 @@ msgid "bretagne"
 msgstr "Bretaña"
 
 # [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
+# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 # [WARNING] needs_review
 msgid "building"
@@ -4253,6 +4263,8 @@ msgstr "Cantabria"
 msgid "cantons_suisses"
 msgstr "Cantones de Suiza"
 
+# [comment]
+# cañon ?
 # [WARNING] en translation used
 msgid "canyon"
 msgstr "canyon"
@@ -5112,16 +5124,16 @@ msgid "has_svg"
 msgstr "Imagen generada a partir de un archivo SVG:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Mantas"
+msgstr "Mantas:"
 
 msgid "has_unstaffed_gas"
-msgstr "Cocina /Gas"
+msgstr "Cocina /Gas:"
 
 msgid "has_unstaffed_matress"
-msgstr "Colchones"
+msgstr "Colchones:"
 
 msgid "has_unstaffed_wood"
-msgstr "Calefacción"
+msgstr "Calefacción:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -6649,7 +6661,7 @@ msgstr "escalada (vías de un largo)"
 # exposition rocher
 # 
 # Faut-il préciser "rocher" dans les trads ?
-# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même itinéraire (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
 # [WARNING] needs_update
 msgid "rock_exposition_rating"
 msgstr "Exposición:"
@@ -6937,7 +6949,7 @@ msgid "small pillar"
 msgstr "columnas"
 
 msgid "snow lists explanation"
-msgstr "Los boletines nivológicos siguientes están generalemente publicados una vez al día durante el período invernal por el ENA en Suiza y Meteo-France en Francia. Los boletines nivológicos de Meteo-France están disponibles unicamente en francés."
+msgstr "Los boletines nivológicos siguientes están generalemente publicados una vez al día durante el período invernal por el Institut Geològic (Catalunya), el Conselh Generau (Val d'Aran), Meteo-France (Francia) y el ENA (Suiza). En otoño y a finales de primavera, la frecuencia puede ser semanal. Los boletines nivológicos de Meteo-France están disponibles unicamente en francés."
 
 # [general comment]
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.

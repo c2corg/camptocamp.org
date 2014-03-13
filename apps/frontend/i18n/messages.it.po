@@ -86,40 +86,33 @@ msgstr "Documento non trovato"
 msgid "A document can not be linked to itself"
 msgstr "Un documento non può essere associato a se stesso"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "A gite can not be linked to a route"
-msgstr "A valley accomodation can not be linked to a route"
+msgstr "non si puo' legare di rifugio su un itinerario"
 
 msgid "A new password has been asked for your account."
 msgstr "Una nuova password è stata richiesta per il tuo account camptocamp.org. Puoi identificarti usando le informazioni qui sotto."
 
-# [WARNING] en translation used
 msgid "A parking can not be linked to a hut if a main/sub parking is already linked to it"
-msgstr "An access point can not be linked to a hut if a main/sub access point of this access is already linked to this hut"
+msgstr "Un accesso non può essere associato ad un rifugio se un sopra/sotto accesso di questo accesso è già associato al rifugio "
 
-# [WARNING] en translation used
 msgid "A parking can not be linked to a route if a main/sub parking is already linked to it"
-msgstr "An access point can not be linked to a route if a main/sub access point of this access is already linked to this route"
+msgstr "Un accesso non può essere associato ad un itinerario se un sopra/sotto accesso di questo accesso è già associato al itinerario"
 
-# [WARNING] en translation used
 msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
-msgstr "An access point can not be linked to a climbing site if a main/sub access point of this access is already linked to this site"
+msgstr "Un accesso non può essere associato ad una falesia se un sopra/sotto accesso di questo accesso è già associato alla falesia"
 
-# [WARNING] en translation used
 msgid "A site can not be linked to more than one summit"
-msgstr "A climbing site can not be linked to more than one summit"
+msgstr "Una falesia non può essere associata a più di una cima"
 
-# [WARNING] en translation used
 msgid "A sub parking can not be linked to more than one main parking"
-msgstr "A sub access point can not be linked to more than one main access point"
+msgstr "Un sotto-accesso non può essere associato a più di un sopra-accesso"
 
-# [WARNING] en translation used
 msgid "A sub site can not be linked to more than one main site"
-msgstr "A climbing sector can not be linked to more than one climbing site"
+msgstr "Un settore di falesia non può essere associata a più di una falesia"
 
-# [WARNING] en translation used
 msgid "A sub summit can not be linked to more than one main summit"
-msgstr "A sub summit can not be linked to more than one main summit"
+msgstr "Una sotto-cima non può essere associata a più di una sopra-cima"
 
 # [WARNING] en translation used
 msgid "A summit can not be linked to a sub site"
@@ -186,9 +179,8 @@ msgstr "Tutti i campi sono obbligatori."
 # - Tutti i post
 # - Tutti i messaggi
 # - Tutto
-# [WARNING] needs_review
 msgid "All topics"
-msgstr "Tutte le discussioni"
+msgstr "Tutti i post "
 
 msgid "All your images are already collaborative"
 msgstr "Tutte le tue immagini sono già di tipo collaborativo."
@@ -260,7 +252,6 @@ msgstr "Non è autorizzata l’unione di oggetti del tipo Regione"
 
 # [general comment]
 # do not forget trailing space
-# [WARNING] needs_review
 msgid "Around: "
 msgstr "Intorno a "
 
@@ -402,9 +393,9 @@ msgstr "Torna alla lista degli utenti"
 # [general comment]
 # link to the BI version of an image (limited to 800px max)
 # In the context, it is rather big (compared to MI, max 250px)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Big size"
-msgstr "Big size"
+msgstr "grande dimensione "
 
 msgid "Bookmark"
 msgstr "Aggiungi ai Segnalibri"
@@ -680,9 +671,9 @@ msgstr "Questo documento è stato unito ad un altro, quindi non può essere spro
 msgid "Current document has been merged into document %1%"
 msgstr "Questo documento è stato unito con il documento %1%."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Current password"
-msgstr "Current password"
+msgstr "password attuale"
 
 msgid "Current version"
 msgstr "Versione attuale"
@@ -758,9 +749,8 @@ msgstr "Sviluppatori"
 
 # [general comment]
 # Suggestion d'email si faute de frappe soupçonnée (par exemple user@hotmqil.com au lieu de user@hotmail.com)
-# [WARNING] needs_review
 msgid "Did you mean %1%?"
-msgstr "Forse cercavi %1%?"
+msgstr "Forse volevi dire %1%?"
 
 msgid "Diffing versions of %1% in %2%."
 msgstr "Differenze tra le versioni di %1% in %2%."
@@ -923,7 +913,7 @@ msgstr "Editore:"
 # 
 # see comments for alternatives ???
 # [comment]
-# Altezza ??
+# quota ??
 # [WARNING] needs_review
 msgid "Elevation"
 msgstr "Altitudine"
@@ -932,7 +922,7 @@ msgstr "Altitudine"
 # ordonnées pour les profils d'altitude GPS
 # [WARNING] needs_review
 msgid "Elevation (m)"
-msgstr "Altezza (m s.l.m.)"
+msgstr "altitudine (m s.l.m.)"
 
 msgid "Elevation profile"
 msgstr "Profilo elevazione"
@@ -979,9 +969,8 @@ msgstr "FAQ"
 
 # [comment]
 # Rinomina fallita. Si prega di contattare la moderazione se succede di nuovo.
-# [WARNING] needs_review
 msgid "Failed moving uploaded file"
-msgstr "Il cambiamento di nome del file non è stato registrato. Provare di nuovo."
+msgstr "Il cambiamento di nome del file non è stato registrato. Prova di nuovo. Si prega di contattare la moderazione se succede di nuovo."
 
 msgid "Failed rasterizing svg file"
 msgstr "L'immagine vettoriale non è stata convertita in immagine matriciale"
@@ -1035,6 +1024,8 @@ msgstr "La geometria di questo documento è stata cancellata"
 
 # [general comment]
 # Texte du bouton permettant de cliquer sur la carte pour geolocaliser un document (par exemple lors de la création d'un sommet). Essayer de garder court
+# [comment]
+# geotaggare ? 
 # [WARNING] en translation used
 msgid "Georef Tool"
 msgstr "Georef Tool"
@@ -1211,7 +1202,6 @@ msgstr "Immagine"
 
 # [general comment]
 # We cannot rotate images that are a bit old, since they have been moved to a different server. In that case, this message is displayed
-# [WARNING] needs_review
 msgid "Image cannot be rotated anymore"
 msgstr "Impossibile ruotare l'immagine. Non sei abilitato ad accedere a questo file."
 
@@ -1238,9 +1228,8 @@ msgstr "Quest’immagine non è stata trovata."
 
 # [general comment]
 # assistant image forum
-# [WARNING] en translation used
 msgid "Image on the internet"
-msgstr "Image on the internet"
+msgstr "immaggine su internet "
 
 msgid "Image rotated successfully"
 msgstr "L'immagine è stata girata"
@@ -1641,7 +1630,6 @@ msgstr "Vedi più risultati su google"
 
 # [general comment]
 # keep it short
-# [WARNING] needs_review
 msgid "More..."
 msgstr "Più..."
 
@@ -1810,7 +1798,6 @@ msgstr "Operazione non autorizzata."
 # link to the original image
 # 
 # Try to keep it short
-# [WARNING] needs_review
 msgid "Original image"
 msgstr "Immagine originale"
 
@@ -1825,13 +1812,11 @@ msgstr "Questa gita non è stata trovata."
 
 # [general comment]
 # associated
-# [WARNING] needs_review
 msgid "Outings linked to linked routes"
 msgstr "Gite associate alle <a href=\"#routes\">varianti</a>"
 
 # [general comment]
 # Cet item est le texte du lien vers les sorties associées aux images associées à un document, situé sous la liste des images en bas du document.
-# [WARNING] needs_review
 msgid "Outings linked to these images"
 msgstr "Gite associate a queste immagini"
 
@@ -1839,9 +1824,8 @@ msgstr "Gite associate a queste immagini"
 msgid "Outings linked to this route"
 msgstr "Gite associate a l'itinerario di questa pagina"
 
-# [WARNING] needs_review
 msgid "Outings with video"
-msgstr "Gita con video"
+msgstr "Gite con video"
 
 msgid "PD"
 msgstr "PD"
@@ -1907,7 +1891,6 @@ msgstr "Immagini"
 
 # [general comment]
 # a place that will be determined via nominatim or geonames (like, locality, address, etc)
-# [WARNING] needs_review
 msgid "Place"
 msgstr "Luogo"
 
@@ -1952,9 +1935,8 @@ msgstr "Proteggi il documento "
 
 # [general comment]
 # [cda]
-# [WARNING] needs_review
 msgid "Questions?"
-msgstr "Domande?"
+msgstr "hai delle domande?"
 
 msgid "Quick creation of a route"
 msgstr "Creazione rapida di un itinerario"
@@ -2023,7 +2005,7 @@ msgstr "Ricordarsi di me?"
 
 # [WARNING] needs_update
 msgid "Reorder these languages according to your preferences, using drag-and-drop"
-msgstr "E' possibile ordinare le lingue secondo le proprie preferenze, è sufficiente spostare con il mouse le etichette"
+msgstr "E' possibile ordinare le lingue secondo le proprie preferenze, è sufficiente usare il drag-and-drop"
 
 msgid "Reply"
 msgstr "Rispondi"
@@ -2055,9 +2037,9 @@ msgstr "Risultati di Google per \"%1%\""
 msgid "Retrieve Forgotten Password"
 msgstr "Ho perso la password"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Retype your password:"
-msgstr "Riscrivi la password:"
+msgstr "Riscrivi il password:"
 
 msgid "Rev comment"
 msgstr "Informazioni sulle modifiche:"
@@ -2312,9 +2294,8 @@ msgstr "Lista delle gite con ecomobilità"
 msgid "Static map"
 msgstr "Mappa"
 
-# [WARNING] needs_review
 msgid "Statistics"
-msgstr "Statistica"
+msgstr "Statistiche"
 
 # [WARNING] needs_update
 msgid "Step 1: choose a summit"
@@ -2589,7 +2570,6 @@ msgstr "Questo nuovo itinerario sarà collegato al la cima '[[summits/%2%|%1%]]'
 msgid "This nickname already exists. Please choose another one."
 msgstr "Questo nickname esiste già. Per favore scegline un altro."
 
-# [WARNING] needs_review
 msgid "This topo name already exists. Please choose another one."
 msgstr "Questo nome topo esiste già. Devi sceglierne un altro."
 
@@ -2604,7 +2584,6 @@ msgstr "Questo nome utente esiste già. Devi sceglierne un altro."
 # 
 # time like in "Time: 12:15"
 # 
-# [WARNING] needs_review
 msgid "Time"
 msgstr "Ora"
 
@@ -2806,9 +2785,9 @@ msgstr "Traccia GPS:"
 msgid "Wrong association type"
 msgstr "Tipo di associazione non autorizzato"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Wrong current password!"
-msgstr "You typed a wrong password"
+msgstr "password incoretto "
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
@@ -2924,7 +2903,6 @@ msgstr "Sei stato associato a una gita di Camptocamp.org"
 
 # [general comment]
 # Details of email sent when a user is associated to an outing
-# [WARNING] needs_review
 msgid "You have been associated to outing %1% details"
 msgstr "Sei stato associato come partecipante a una gita di camptocamp.org.<br /><br />Questa gita si trova qua %1%. Come autore di questa gita, puoi modificarla e associarci altri documenti.<br /><br />--<br />\n"
 "<a href=\"http://www.camptocamp.org\">camptocamp.org</a> email automatica<br />(Non rispondere a questo messaggio)"
@@ -2953,7 +2931,7 @@ msgstr "Specifica un nome utente."
 
 # [WARNING] needs_review
 msgid "You need to login to access to this page"
-msgstr "Per accedere la pagina devi accedere al sito."
+msgstr "Per accedere la pagina devi log in."
 
 msgid "You need to login to create this page"
 msgstr "Per creare questa pagina bisogna accedere al sito."
@@ -2970,13 +2948,13 @@ msgstr "La chiave anti-spam indicata non è valida."
 msgid "Your are connected as "
 msgstr "Sei connesso come "
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Your current password is needed before modifying these properties"
-msgstr "Your current password is needed before modifying following properties"
+msgstr "dovete digitare il vostro password per modificare queste informazioni"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Your current password is required before applying changes"
-msgstr "Your current password is required"
+msgstr "devi digitare il tuo password "
 
 msgid "Your images have been successfully updated"
 msgstr "I dati delle tue immagini sono state correttamente modificate"
@@ -3050,6 +3028,12 @@ msgstr "<h3>Attività</h3>\n"
 
 msgid "_aid_rating_info"
 msgstr "<h3>Valutazione della difficoltà in artificiale</h3>Valutazione delle difficoltà in arrampicata artificiale.<br />La valutazione artificiale corrisponde alla difficoltà massima della scalata artificiale su roccia, cioè la scalata che utilizza dei punti d'aiuto per la progressione su un determinato passaggio.<br />La scala va da A0 a A6.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/131454\">gradi di difficoltà in artificiale</a>."
+
+# [WARNING] en translation used
+msgid "_approach_height_info"
+msgstr "<h3>Approach height</h3>\n"
+"Combined elevation of the approach of a route, for a route where approach is distinguished from the route itself.<br />\n"
+"The approach height is calculated from minimum altitude and altitude where difficulties start. Then the value can be wrong for a complex approach."
 
 msgid "_area_type_info"
 msgstr "<h3>Tipo di regione</h3>Il tipo della regione può essere: massiccio montagnoso, regione amministrativa, paese."
@@ -3126,7 +3110,6 @@ msgstr "<h3>Stile di arrampicata</h3>Stile generale delle vie: placca, verticale
 msgid "_code_info"
 msgstr "<h3>Codice</h3>Codice di riferimento della carta."
 
-# [WARNING] needs_review
 msgid "_conditions_and_equipment_info"
 msgstr "<h3>Condizioni incontrate</h3>\n"
 "Dettagli delle condizioni incontrate lungo l'itinerario e l'avvicinamento. Secondo il stagione e l'attività : quantità e qualità di neve o ghiaccio, quantità e qualità dell'attrezzatura, qualità della roccia per le vie su roccia... E' anche utile indicare le condizioni osservate sugli altri itinerari della zona (in particolare in cascata di ghiaccio)  <br />\n"
@@ -3422,10 +3405,9 @@ msgstr "<h3>Latitudine</h3>Latitudine del luogo geografico in gradi decimali.<br
 msgid "_license_info"
 msgstr "Licenza d'utilizzazione del contenuto"
 
-# [WARNING] needs_review
 msgid "_lift_approach_info"
 msgstr "<h3>Avvicinamento possibile con gli impianti</h3>\n"
-"Gli impianti possono essere utilizzati per l'avvicinamento o il rientro di questo itinerario."
+"Gli impianti possono essere utilizzati per l'avvicinamento e/o il rientro di questo itinerario."
 
 msgid "_lift_status_info"
 msgstr "<h3>Impianti di rissalita</h3>Apertura degli impianti di risalita prossimi all'itinerario."
@@ -3447,7 +3429,7 @@ msgstr "<h3>Cartografia</h3>Riferimenti cartografici supplementari (eccetto IGN 
 
 # [WARNING] needs_update
 msgid "_maps_info_short_info"
-msgstr "Per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: Risulta quindi inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
+msgstr "Per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: quindi  è inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Quota massimale raggiunta dall'itinerario o gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
@@ -3552,9 +3534,9 @@ msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i 
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di raggiungere l'accesso. Indicare solo i mezzi che raggiungono effettivamente questo accesso.<br /><em>Per esempio: se si usa il treno e poi il bus, scegliere unicamente \"bus\".</em><br /><br /><strong>treno</strong>: treno<br /><br /><strong>bus</strong>: bus<br /><br /><strong>servizio a richiesta</strong>: tassi o pulmino da prenotare in modo di raggiungere l'accesso dalla fermata di bus o dalla stazione ferroviere"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "_publication_date_info"
-msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent or the years of the first and latest editions, separated by a hyphen (as in 1983 - 2010). This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\"..."
+msgstr "<h3>data di publicazione</h3>Data nella quale il libro o la rivista è stata pubblicata. Se il documento esiste in diverse edizione, si scegliera la più recente se sone reedizioni con modificazioni o la prima se sono reedizione senza modificazioni. quest'informazione è la stessa per tutte le lingue, dunque si userà dei ciffri (\"2004\", \"03/2009\")<br />Si indicherà solo l'anno per i libri e il mese per le riviste."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pioggia</h3>Esposizione della falesia alla pioggia.<br />Utile se il tempo è incerto !"
@@ -3965,6 +3947,10 @@ msgstr "e"
 msgid "andalousie"
 msgstr "Andalusia"
 
+# [WARNING] needs_review
+msgid "approach_height"
+msgstr "dislivello dell'avvicinamento: "
+
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
@@ -4041,7 +4027,6 @@ msgstr "Autore/i:"
 msgid "author short"
 msgstr "Autore"
 
-# [WARNING] needs_review
 msgid "autocomplete_help"
 msgstr "Digitare l'inizio del nome cercato e gli elementi corrispondenti comparirono."
 
@@ -4062,7 +4047,7 @@ msgstr "pessime"
 
 # [WARNING] needs_review
 msgid "b button title"
-msgstr "grassetto"
+msgstr "mettere il testo selezionato in grassetto"
 
 # [general comment]
 # Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
@@ -4070,12 +4055,14 @@ msgstr "grassetto"
 # A le sens de 'retour' 'annuler'
 # [WARNING] needs_review
 msgid "back"
-msgstr "indietro"
+msgstr "tornare indietro"
 
 # [general comment]
 # label du dropdown de selection des fonds carto
 # [comment]
 # back to background only since it seems it was the 'italian word' for it
+# 
+# sfondo ? 
 # [WARNING] needs_review
 msgid "backgrounds"
 msgstr "Background:"
@@ -4085,7 +4072,7 @@ msgstr "Background:"
 # Inutilisé actuellement.
 # [WARNING] needs_review
 msgid "backpack content"
-msgstr "Il contenuto dello zaino"
+msgstr "contenuto dello zaino"
 
 # [general comment]
 # Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
@@ -4185,7 +4172,7 @@ msgid "bretagne"
 msgstr "Bretagna"
 
 # [general comment]
-# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
+# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à pied ou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 # [WARNING] needs_review
 msgid "building"
@@ -4271,9 +4258,9 @@ msgstr "L'attualità di c2c"
 
 # [general comment]
 # Pour les traductions, je ne suis pas sur car il y a toujours une nuance entre les différents cas, mais bon l'idée, c'est grosso modo téléphériques / télécabines / télésièges
-# [WARNING] needs_review
+# [WARNING] en translation used
 msgid "cable_car"
-msgstr "funivia"
+msgstr "cable car"
 
 # [WARNING] fr translation used
 msgid "cable_car_access"
@@ -4455,11 +4442,11 @@ msgstr "Champagne-Ardenne"
 # nom du portail "Changer d'approche" (pour le menu)
 # [WARNING] needs_review
 msgid "changerdapproche"
-msgstr "Cambiare approccio"
+msgstr "Cambiare avvicinamento"
 
 # [WARNING] needs_review
 msgid "changes"
-msgstr "modifiche"
+msgstr "modificazioni"
 
 msgid "children_proof"
 msgstr "Bambini:"
@@ -4556,7 +4543,7 @@ msgstr "Condizioni"
 
 # [WARNING] needs_update
 msgid "conditions"
-msgstr "Condizioni incontrate:"
+msgstr "Condizioni incontrate (avvicinamento, vie, ...):"
 
 msgid "conditions linked to"
 msgstr "lista delle condizioni associate"
@@ -4611,7 +4598,6 @@ msgstr "Licenza dei contenuti"
 msgid "contest"
 msgstr "concorso"
 
-# [WARNING] needs_review
 msgid "copyright image"
 msgstr "immagine sotto copyright"
 
@@ -4629,7 +4615,6 @@ msgstr "Gradi-metro"
 
 # [general comment]
 # Description de ce qu'est le cotometre (infobulle)
-# [WARNING] needs_review
 msgid "cotometre long"
 msgstr "Stima della difficoltà tecnica di un itinerario sciistico"
 
@@ -4656,7 +4641,6 @@ msgstr "gesso"
 msgid "create a custom nickname"
 msgstr "Crea un nickname personalizzato"
 
-# [WARNING] needs_review
 msgid "create an account?"
 msgstr "Creare il tuo account?"
 
@@ -4678,9 +4662,9 @@ msgstr "punto culminante"
 msgid "current version"
 msgstr "versione attuale"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "current_password"
-msgstr "Enter current password:"
+msgstr "digiti il password attuale: "
 
 msgid "dangerous"
 msgstr "pericoloso"
@@ -4874,9 +4858,9 @@ msgstr "Difficoltà / impegno complessivo:"
 msgid "english"
 msgstr "inglese"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "enter URL or paste it from clipboard"
-msgstr "enter URL or paste it from clipboard"
+msgstr "entrare il link dell'immagine"
 
 msgid "enter place name"
 msgstr "Entra un nome di luogo"
@@ -4993,9 +4977,9 @@ msgstr "l'immagine è troppo piccola (min: 16x16 px)"
 
 # [general comment]
 # image size in bytes (used in diffs when a new image has been uploaded
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "file_size"
-msgstr "File size:"
+msgstr "dimensione dell'immagine: "
 
 msgid "filename"
 msgstr "Immagine:"
@@ -5010,7 +4994,6 @@ msgstr "compilato"
 
 # [general comment]
 # Filter to select only docs available in a specific language
-# [WARNING] needs_review
 msgid "filter language"
 msgstr "Solo documenti disponibile in"
 
@@ -5183,16 +5166,16 @@ msgid "has_svg"
 msgstr "Immagine ottenuta a partire di un file SVG:"
 
 msgid "has_unstaffed_blanket"
-msgstr "Coperte"
+msgstr "Coperte:"
 
 msgid "has_unstaffed_gas"
-msgstr "Fornello / Gas"
+msgstr "Fornello / Gas:"
 
 msgid "has_unstaffed_matress"
-msgstr "Materassi"
+msgstr "Materassi:"
 
 msgid "has_unstaffed_wood"
-msgstr "Riscaldamento"
+msgstr "Riscaldamento:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -5403,7 +5386,7 @@ msgstr "Materiale di sicurezza su ghiacciaio:"
 # précisions moteurs de recherche
 # [WARNING] needs_review
 msgid "is_profile_public"
-msgstr "Autorizzare l'accesso della tuo profilo agli utenti non registrati:"
+msgstr "Autorizzare l'accesso del tuo profilo agli utenti non registrati:"
 
 msgid "is_staffed"
 msgstr "Custodito"
@@ -5511,7 +5494,7 @@ msgstr "Licenza:"
 
 # [WARNING] needs_review
 msgid "lift_approach"
-msgstr "avvicinamento possibile con gli impianti"
+msgstr "avvicinamento possibile con gli impianti di salita"
 
 msgid "lift_status"
 msgstr "Impianti di risalita:"
@@ -5534,7 +5517,6 @@ msgstr "Attività degli itinerari associati:"
 
 # [general comment]
 # Message for the user, asking if he wants to load the draft of the document edition (for exemple because he was no more connected when he submitted the form)
-# [WARNING] needs_review
 msgid "load draft?"
 msgstr "Vuoi usare la bozza salvata durante l\\'edizione precedente ? (OK : la bozza sarà copiata nel modulo - Cancellare : la bozza sarà cancellata)"
 
@@ -5874,12 +5856,11 @@ msgstr "montagna"
 
 # [WARNING] needs_review
 msgid "mountain environment"
-msgstr "ambiente montanaro "
+msgstr "ambiente di montagna"
 
 msgid "mountain_climbing"
 msgstr "roccia alta-montagna"
 
-# [WARNING] needs_review
 msgid "mountaineering"
 msgstr "alpinismo"
 
@@ -6042,9 +6023,9 @@ msgstr "informazione non disponibile"
 msgid "novel"
 msgstr "racconti"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "objective_risk_rating"
-msgstr "Objective Danger"
+msgstr "rischi obbiettivi: "
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
@@ -6077,9 +6058,9 @@ msgstr "aperto senza gestore"
 msgid "options"
 msgstr "Opzioni"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "or drag & drop files"
-msgstr "or drag&drop files from computer"
+msgstr "o drag and drop le immagine dal computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
@@ -6193,7 +6174,7 @@ msgstr "Arrampicata su vie sportive"
 
 # [WARNING] needs_review
 msgid "pack_skitouring"
-msgstr "Sci, surf, ciaspole"
+msgstr "Sci, snowboard, ciaspole"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpinismo su neve, ghiaccio, misto (F a PD+)"
@@ -6265,9 +6246,9 @@ msgstr "Pendenza media (gradi):"
 msgid "people pic"
 msgstr "persone"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "permalink"
-msgstr "Permalink"
+msgstr "permalink"
 
 msgid "personal article"
 msgstr "articolo personale"
@@ -6325,7 +6306,7 @@ msgstr "Questo tipo di file non è autorizzato o il file non può essere ridimen
 # Drag & drop pour l'upload d'images
 # [WARNING] needs_review
 msgid "plupload drop"
-msgstr "Trascina i file qui"
+msgstr "trascini i file qui"
 
 # [WARNING] needs_review
 msgid "plupload extension"
@@ -6338,6 +6319,8 @@ msgstr "Puoi aggiungere delle '%1%'. La dimensione minimale è %4% x %5% px. I f
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
+# [comment]
+# invia in corso...
 # [WARNING] needs_review
 msgid "plupload sending"
 msgstr "Upload..."
@@ -6505,7 +6488,7 @@ msgstr "prodotti locali"
 
 # [WARNING] needs_review
 msgid "product website"
-msgstr "Sito web"
+msgstr "Sito web del commerciante"
 
 # [WARNING] needs_review
 msgid "product_type"
@@ -6688,7 +6671,6 @@ msgstr "arrampicata"
 msgid "rock_climbing (multi-pitch)"
 msgstr "arrampicata (vie lunghe)"
 
-# [WARNING] needs_review
 msgid "rock_climbing (single-pitch)"
 msgstr "arrampicata (monotiri)"
 
@@ -6696,7 +6678,7 @@ msgstr "arrampicata (monotiri)"
 # exposition rocher
 # 
 # Faut-il préciser "rocher" dans les trads ?
-# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même iti (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
+# -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même itinéraire (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
 # [WARNING] needs_update
 msgid "rock_exposition_rating"
 msgstr "Esposizione:"
@@ -6858,9 +6840,9 @@ msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attivit�
 msgid "select an image file"
 msgstr "Scegliere un'immagine:&nbsp;"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "select image or dragdrop"
-msgstr "Click here to select an image from your computer or drag and drop it"
+msgstr "selezionate un'immagine dal vostro computer o drag-drop"
 
 msgid "selected admin_limits"
 msgstr "Regioni amministrative pre-selezionate"
@@ -6992,7 +6974,7 @@ msgstr "alpinismo neve, ghiaccio, misto"
 
 # [WARNING] needs_review
 msgid "snowboard"
-msgstr "snowboard"
+msgstr "adatatto per il snowboard"
 
 # [WARNING] needs_review
 msgid "snowshoeing"
@@ -7130,16 +7112,15 @@ msgstr "Mostrare sollo l'attività alpinismo"
 msgid "switch_to_snowshoeing"
 msgstr "Mostrare solo l'attività ciaspole"
 
-# [WARNING] fr translation used
 msgid "ta portal"
-msgstr "Terrain d'Aventure"
+msgstr "terreno d'avventura"
 
 # [general comment]
 # Option de la catégorie d'un article : tags
 # La catégorie "tags" s'applique aux articles utilisés pour taguer des document afin de les retrouver facilement, et pour faire des recherches complexes.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "tags"
-msgstr "tags"
+msgstr "tag "
 
 msgid "technics"
 msgstr "tecnica"
@@ -7176,11 +7157,10 @@ msgstr "questa informazione deve essere lunga di almeno 100 caratteri"
 # error message when input for ISBN or ISSN is too long
 # [WARNING] needs_review
 msgid "this isbn is too long (17 charaters maximum)"
-msgstr "Questo ISBN o ISSN è troppo lungo (17 caratteri massimo)"
+msgstr "Questo ISBN o ISSN è troppo lungo (17 caratteri al massimo)"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too short
-# [WARNING] needs_review
 msgid "this isbn is too short (7 charaters minimum)"
 msgstr "Questo ISBN o ISSN è troppo corto (almeno 7 caratteri per l'ISSN, 10 per l'ISBN)"
 
@@ -7334,7 +7314,7 @@ msgstr "Inserire un link esterno"
 
 # [WARNING] needs_review
 msgid "us_states"
-msgstr "Stati degli USA"
+msgstr "stati degli Stati-Uniti"
 
 msgid "user"
 msgstr "utente"
@@ -7423,17 +7403,17 @@ msgstr "Mostrare l'ultima versione del documento"
 msgid "visual conditions"
 msgstr "condizioni de visu"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "vosges portal"
-msgstr "Vosges"
+msgstr "Vosgi"
 
 # [WARNING] needs_review
 msgid "vtt_approach"
 msgstr "avvicinamento possibile in mountain bike"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "wait while image is uploaded"
-msgstr "Please wait while the image is being transferred"
+msgstr "aspetti durante la carica dell'immagine"
 
 msgid "waiting for geolocation"
 msgstr "Localizzazione in corso..."
@@ -7469,9 +7449,9 @@ msgstr "Camptocamp ti offre la possibilità di integrare al tuo sito internet o 
 
 # [general comment]
 # image width
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "width"
-msgstr "Image width:"
+msgstr "larghezza dell'immagine: "
 
 msgid "with rain"
 msgstr "bagnato in caso di pioggia"
@@ -7531,13 +7511,11 @@ msgstr "Non sei autorizzato a modificare il tipo di questo articolo"
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "Non sei autorizzato a modificare il tipo di questa immagine"
 
-# [WARNING] needs_review
 msgid "you have no right to switch from copyright picture"
 msgstr "Non sei autorizzato a modificare il tipo di questa immagine sotto copyright"
 
-# [WARNING] needs_review
 msgid "you have no right to switch from personnal to copyright picture"
-msgstr "Non puoi modificare il di questo immagine da \"personale\" a \"copyright\" "
+msgstr "Non puoi modificare il tipo di quest'immagine da \"personale\" a \"copyright\" "
 
 msgid "zoom in"
 msgstr "Zoomare"

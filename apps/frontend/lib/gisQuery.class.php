@@ -170,9 +170,9 @@ class gisQuery
                         
         if ($trim) 
         {
-            // we just return a string with coordinates
-            $begin = strpos($out, '(') + 1;
-            $end = strrpos($out, ')');
+            // we only keep coordinates with parenthesis
+            $begin = strpos($out, '(');
+            $end = strrpos($out, ')') + 1;
             return substr($out, $begin, $end - $begin);
         }
         else
