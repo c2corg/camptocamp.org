@@ -1,6 +1,8 @@
 (function(C2C, $) {
 
   // Mountain wilderness contest stuff
+  var mw_contest_associate = $('#mw_contest_associate');
+
   function mw_associate() {
     var indicator = $('#indicator');
 
@@ -10,7 +12,7 @@
     ).always(function() {
       indicator.hide();
     }).fail(function(data) {
-      mw_contest_associate.attr('checked', false);
+      mw_contest_associate.prop('checked', false);
       C2C.showFailure();
     });
   }
@@ -24,16 +26,15 @@
     ).always(function() {
       indicator.hide();
     }).done(function(data) {
-      $(mw_contest_associate).attr('checked', false);
+      mw_contest_associate.prop('checked', false);
     }).fail(function() {
-      $(mw_contest_associate).attr('checked', true);
+      mw_contest_associate.prop('checked', true);
       C2C.showFailure();
     });
   }
 
   function switch_mw_contest_visibility() {
     var mw_contest = $('#mw_contest');
-    var mw_contest_associate = $('#mw_contest_associate');
 
     if (mw_contest.length) {
       if ($('#outing_with_public_transportation').is(':checked')) {
@@ -42,7 +43,7 @@
         // hide mw div, uncheck contest checkbox
         mw_contest.hide();
 
-        if (!$('#pseudo_id').length && $(mw_contest_associate).is(':checked')) {
+        if (!$('#pseudo_id').length && mw_contest_associate.is(':checked')) {
           // de-associated
           mw_de_associate();
         }
@@ -51,9 +52,6 @@
   }
 
   function switch_mw_contest_association() {
-
-    mw_contest_associate = $('#mw_contest_associate');
-
     if (!$('#pseudo_id').length) {
       if (mw_contest_associate.is(':checked')) {
         // associate
@@ -70,6 +68,6 @@
 
   // register events
   $('#outing_with_public_transportation').on('change', switch_mw_contest_visibility);
-  $('#mw_contest_associate').on('change', switch_mw_contest_association);
+  mw_contest_associate.on('change', switch_mw_contest_association);
 
 })(window.C2C = window.C2C || {}, jQuery);
