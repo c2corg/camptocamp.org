@@ -7,11 +7,9 @@ $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/outings_edit.js', 'last');
 if ($mw_contest_enabled) $response->addJavascript('/static/js/mw.js', 'last');
 
-echo javascript_tag("var confirm_outing_date_message = '" . addslashes(__('Has this outing really been done today?')) . "';
-var outing_date_already_tested = false;
-var confirm_outing_activities_message = '" . addslashes(__('Is really a multi-activity outing?')) . "';
-var confirm_outing_paragliding_message = '" . addslashes(__('paragliding can not be selected alone')) . "';
-var outing_activities_already_tested = false;");
+echo javascript_queue("C2C.confirm_outing_date_message = '" . addslashes(__('Has this outing really been done today?')) . "';
+C2C.confirm_outing_activities_message = '" . addslashes(__('Is really a multi-activity outing?')) . "';
+C2C.alert_outing_paragliding_message = '" . addslashes(__('paragliding can not be selected alone')) . "';");
 
 // Here document = outing
 $link_with = $linked_doc ? $linked_doc->get('id') : 0; 
@@ -19,7 +17,7 @@ echo '<div>';
 echo input_hidden_tag('document_id', $link_with);
 if ($new_document == false && $mw_contest_enabled == true)
 {
-    echo javascript_tag('var mw_contest_article_id=' . sfConfig::get('app_mw_contest_id')); // for use with MW contest
+    echo javascript_queue('C2C.mw_contest_article_id=' . sfConfig::get('app_mw_contest_id')); // for use with MW contest
 }
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
 echo '</div>';

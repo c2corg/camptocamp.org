@@ -32,7 +32,7 @@
 
     // paragliding cannot be the only activity
     if (activities.length == 1 && activities[0] == 8) {
-      alert(confirm_outing_paragliding_message);
+      alert(C2C.alert_outing_paragliding_message);
       return false;
     }
     
@@ -67,7 +67,7 @@
 
     // ask for confirmation if nb activities is > 1
     if (!$('#revision').val() && activities.length > 1) {
-      outing_activities_already_tested = confirm(confirm_outing_activities_message);
+      outing_activities_already_tested = confirm(C2C.confirm_outing_activities_message);
       return outing_activities_already_tested;
     }
   }
@@ -87,7 +87,7 @@
     // ask for confirmation if outing date is today and if it is sooner than 14:00
     if (!$('#revision').val() && year == now.getFullYear() && month == (now.getMonth() + 1) &&
         day == now.getDate() && now.getHours() <= 14) {
-      outing_date_already_tested = confirm(confirm_outing_date_message);
+      outing_date_already_tested = confirm(C2C.confirm_outing_date_message);
       return outing_date_already_tested;
     }
 
