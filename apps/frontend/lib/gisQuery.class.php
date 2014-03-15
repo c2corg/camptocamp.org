@@ -9,11 +9,8 @@
 
 class gisQuery
 {
-    const tolerance_pixels = 11.;
-    
     public static function getDistanceBetween($table, $pt1, $pt2)
     {
-
         $sql = 'SELECT (distance_sphere(setsrid(makepoint(s1.lon, s1.lat), 4326), '.
                 'setsrid(makepoint(s2.lon, s2.lat), 4326))) AS distance '.
                 'FROM '.$table.' AS s1, '.$table.' AS s2 '.
@@ -201,6 +198,21 @@ class gisQuery
                         ->standaloneQuery($sql, $values)
                         ->fetchObject();
         return  $rs->geojson;
+    }
+
+    // translate stored geom_wkt into GeoJSON geometry
+    // FIXME is tehre an easy way to directly get this from primary SQL request?
+    public static function EWKT2GeoJSON($ewkt)
+    {
+        if (!check_not_empty($ewkt))
+        {
+            return "null";
+        }
+        $sql = 'SELECT ST_AsGeoJSON(Transform(ST_GeomFromText(?, 900913), 4326)) AS geojson';
+        return sfDoctrine::connection()
+                         ->standaloneQuery($sql, array($ewkt))
+                         ->fetchObject()
+                         ->geojson;
     }
 
     public static function getBox2d($id, $module = null)

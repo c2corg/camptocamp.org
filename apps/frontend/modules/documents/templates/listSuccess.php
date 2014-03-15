@@ -170,5 +170,3 @@ if ($layout != 'light')
     
     include_partial('common/content_bottom');
 }
-   
-?>

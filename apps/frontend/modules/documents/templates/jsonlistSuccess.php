@@ -33,7 +33,7 @@ if ($hasPreviousPage || $hasNextPage)
 }
 ?>
 {                                                                                          
-  "type": "application/json",
+  "type": "FeatureCollection",
   "totalItems": <?php echo $totalItems; ?>,
   "count": <?php echo $count; ?>,
   "startIndex": <?php echo $startIndex; ?>,
@@ -43,7 +43,7 @@ if ($hasPreviousPage || $hasNextPage)
 <?php endif; if ($hasPreviousPage): ?>
   "previousPage": "<?php echo absolute_link(url_for($uri . $pager->getPreviousPage())); ?>",
 <?php endif; ?>
-  "items": [
+  "features": [
   <?php
   $sep = '';
   foreach ($items as $item)
