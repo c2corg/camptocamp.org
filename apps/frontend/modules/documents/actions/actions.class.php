@@ -1153,51 +1153,6 @@ class documentsActions extends c2cActions
         self::executeList();
     }
 
-    public function executeGeojson()
-    {
-        $timer = new sfTimer('executeGeojson');
-        $model = $this->model_class;
-        $module = $this->getModuleName();
-        $criteria = $this->getListCriteria($model);
-        
-        if ($criteria !== 'no_result' && $module != 'documents')
-        {
-            $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
-            $page = $this->getRequestParameter('page', 1);
-            $infos = call_user_func(array('Document', 'browse'),
-                                    $model,
-                                    $sort,
-                                    $criteria,
-                                    array('json'),
-                                    $page);
-            $nb_results = $infos['nb_results'];
-            $this->pager = $infos['pager'];
-            $this->query = $infos['query'];
-
-            if ($nb_results > 0)
-            {
-                $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
-                $items = Language::parseListItems($items, $model);
-            }
-            else
-            {
-                $items = array();
-            }
-        }
-        else
-        {
-            $nb_results = 0;
-            $items = array();
-        }
-        $this->nb_results = $nb_results;
-        $this->items = $items;
-    
-        $this->setTemplate('../../documents/templates/geojson');
-
-        $this->setJsonResponse();
-        c2cActions::statsdTiming('document.executeGeojson', $timer->getElapsedTime('executeGeojson'));
-    }
-
     /**
      * RSS list of latest created documents.
      */
