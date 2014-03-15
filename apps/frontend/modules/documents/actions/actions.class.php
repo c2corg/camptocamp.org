@@ -1024,7 +1024,7 @@ class documentsActions extends c2cActions
                 }
             }
         }
-        
+
         if ($nb_results > 0 && in_array($module, array('areas', 'articles', 'books', 'maps', 'portals', 'users')))
         {
             $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
@@ -3439,7 +3439,7 @@ class documentsActions extends c2cActions
                     $response->setContentType('application/vnd.google-earth.kml+xml');
                     break;
                 case 'json':
-                    $this->points = gisQuery::getEWKT($id, true, $module, $version);
+                    $this->geojson = gisQuery::getGeoJSON($id, $module, $version, 6);
                     $this->setTemplate('../../documents/templates/exportjson');
                     $response->setContentType('application/json');
                     break;

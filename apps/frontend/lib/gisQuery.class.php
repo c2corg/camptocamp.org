@@ -181,6 +181,28 @@ class gisQuery
         }
     }
 
+    public static function getGeoJSON($id, $module = null, $version = null, $simplify_tolerance = null, $maxdecimaldigits = 15)
+    {
+        $values[] = $id;
+        $table = !empty($module) ? $module : 'documents';
+        $geom = is_int($simplify_tolerance) ? 'Simplify(geom, '.$simplify_tolerance.')' : 'geom';
+        if (!empty($version))
+        {
+            $table = 'app_' . $table . '_archives';
+            $sql = "SELECT ST_AsGeoJSON(Transform($geom, 4326), $maxdecimaldigits) AS geojson FROM $table AS d, app_documents_versions AS v WHERE d.document_archive_id = v.document_archive_id AND d.id = ? AND v.version = ?";
+            $values[] = $version;
+        }
+        else
+        {
+            $sql = "SELECT ST_AsGeoJSON(Transform($geom, 4326), $maxdecimaldigits) AS geojson FROM $table AS d WHERE d.id = ?";
+        }
+
+        $rs = sfDoctrine::connection()
+                        ->standaloneQuery($sql, $values)
+                        ->fetchObject();
+        return  $rs->geojson;
+    }
+
     public static function getBox2d($id, $module = null)
     {
         $values[] = $id;
