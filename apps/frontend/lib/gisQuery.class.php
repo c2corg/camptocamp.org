@@ -178,7 +178,7 @@ class gisQuery
         }
     }
 
-    public static function getGeoJSON($id, $module = null, $version = null, $simplify_tolerance = null, $maxdecimaldigits = 15)
+    public static function getGeoJSON($id, $module = null, $version = null, $simplify_tolerance = null, $maxdecimaldigits = 6)
     {
         $values[] = $id;
         $table = !empty($module) ? $module : 'documents';
@@ -202,13 +202,13 @@ class gisQuery
 
     // translate stored geom_wkt into GeoJSON geometry
     // FIXME is tehre an easy way to directly get this from primary SQL request?
-    public static function EWKT2GeoJSON($ewkt)
+    public static function EWKT2GeoJSON($ewkt, $maxdecimaldigits = 6)
     {
         if (!check_not_empty($ewkt))
         {
             return "null";
         }
-        $sql = 'SELECT ST_AsGeoJSON(Transform(ST_GeomFromText(?, 900913), 4326)) AS geojson';
+        $sql = "SELECT ST_AsGeoJSON(Transform(ST_GeomFromText(?, 900913), 4326), $maxdecimaldigits) AS geojson";
         return sfDoctrine::connection()
                          ->standaloneQuery($sql, array($ewkt))
                          ->fetchObject()
