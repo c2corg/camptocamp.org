@@ -4,9 +4,6 @@ _filter_form:
 _linked_sites:
   enabled: off
 
-_feature:
-  enabled: off
-
 filter:
   enabled: off
 

@@ -15,8 +15,5 @@ _routes_filter:
 _filter_form:
   enabled: off 
 
-_feature:
-  enabled: off
-
 filter:
   enabled: off 

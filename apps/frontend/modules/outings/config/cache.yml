@@ -15,9 +15,6 @@ _routes_filter:
 _linked_outings:
   enabled: off
 
-_feature:
-  enabled: off
-
 filter:
   enabled: off
 
