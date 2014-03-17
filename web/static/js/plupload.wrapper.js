@@ -78,7 +78,7 @@
 
           // other errors
           default:
-            this.displayError(err.file, i18n.unknownerror + ' (' + err.message + ')');
+            this.displayError(err.file, i18n.unknownerror + ' (' + err.message + ' ' + err.status + ')');
             break;
         }
         up.refresh(); // reposition Flash/Silverlight
