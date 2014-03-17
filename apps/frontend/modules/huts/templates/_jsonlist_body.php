@@ -2,6 +2,9 @@
 $item_i18n = $item->getRaw('HutI18n');
 $item_i18n = $item_i18n[0];
 
+$st = sfConfig::get('mod_huts_shelter_types_list');
+$a = sfConfig::get('app_activities_list');
+
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => json_decode(gisQuery::EWKT2GeoJSON($item->getRaw('geom_wkt'))),
@@ -10,12 +13,12 @@ echo json_encode(array(
         'name' => $item_i18n['name'],
         'url' =>  jsonlist_url($item_i18n, 'huts'),
         'elevation' => $item['elevation'],
-        'type' => $item['shelter_type'],
-        'staffedCapacity' => (is_scalar($item['staffed_capacity']) && $item['staffed_capacity'] >= 0) ? $item['staffed_capacity'] : null,
-        'unstaffedCapacity' => (is_scalar($item['unstaffed_capacity']) && $item['unstaffed_capacity'] >= 0) ? $item['unstaffed_capacity'] : null,
-        'activities' => BaseDocument::convertStringToArray($item['activities']),
-        'phone' => (check_not_empty((string) $item['phone'])) ? $item['phone'] : null,
-        'website' => (check_not_empty((string) $item['url'])) ? $item['url'] : null,
+        'type' => $st[$item['shelter_type']],
+        'staffedCapacity' => doctrine_value($item['staffed_capacity']),
+        'unstaffedCapacity' => doctrine_value($item['unstaffed_capacity']),
+        'activities' => BaseDocument::convertStringToArrayTranslate($item['activities'], $a, 0),
+        'phone' => doctrine_value($item['phone']),
+        'website' => doctrine_value($item['url']),
         'nbLinkedImages' => isset($item['nb_images']) ?  $item['nb_images'] : 0,
         'nbLinkedRoutes' => isset($item['nb_linked_docs']) ? $item['nb_linked_docs'] : 0,
         'nbComments' =>  isset($item['nb_comments']) ? $item['nb_comments'] : 0,

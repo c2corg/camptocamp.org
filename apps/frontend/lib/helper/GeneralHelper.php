@@ -188,7 +188,15 @@ function _implode($glue, $items)
 
 function check_not_empty($value)
 {
-    return (!$value instanceof Doctrine_Null && !empty($value));
+    return (!empty($value) &&
+            !$value instanceof Doctrine_Null &&
+            !($value instanceof sfOutputEscaperObjectDecorator && $value->getRawValue() instanceof Doctrine_Null));
+}
+
+// escaped doctrine null is not directly null, which is often annoying
+function doctrine_value($value)
+{
+    return check_not_empty($value) ? $value : null;
 }
 
 function _option(&$options, $name, $default = null)

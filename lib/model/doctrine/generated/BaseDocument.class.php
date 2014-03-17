@@ -2209,7 +2209,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         return '{' . implode(',', $array) . '}';
     }
 
-    public static function convertStringToArray($string)
+    public static function convertStringToArray($string, $emptyval = null)
     {
         if (is_array($string))
         {
@@ -2222,7 +2222,24 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
 
         $string = substr($string, 1, strlen($string) - 2); // removes {}
-        return explode(',', $string);
+        $array = explode(',', $string);
+
+        if ($emptyval !== null && ($key = array_search($emptyval, $array)) !== false)
+        {
+            unset($array[$key]);
+        }
+
+        return $array;
+    }
+
+    public static function convertStringToArrayTranslate($string, $configuration, $emptyval = null)
+    {
+        $f = function($value) use ($configuration)
+        {
+            return $configuration[$value];
+        };
+
+        return array_map($f, self::convertStringToArray($string, $emptyval));
     }
 
     /**  
