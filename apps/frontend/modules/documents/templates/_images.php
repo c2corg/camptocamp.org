@@ -143,33 +143,69 @@ if (!$mobile_version)
     }
 }
 
-if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protected || $moderator)): ?>
-    <div id="add_images_button" class="add_content">
+if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)): ?>
+    <div id="add_images_button" class="add_content"<?php if ($mobile_version) echo 'style="display:none" ' ?>>
     <?php
     $response = sfContext::getInstance()->getResponse();
 
     $add = __('add an image');
 
-    $upload_method = sfConfig::get('app_images_upload_method', 'js');
-    switch ($upload_method)
+    if ($mobile_version)
     {
-        // note: ie<=7 doesn't support jsupload nor plupload
-        case 'js':
-            $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' . url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .
-                  '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';
-            break;
-        case 'plupload':
-            $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' .
-                  url_for("@image_jsupload?mod=$module_name&document_id=$document_id").'?plupload=true' .
-                  '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';
-            break;
-        default:
-            $js = '$.modalbox.show({remote:\''.url_for("@image_upload?mod=$module_name&document_id=$document_id").'\',title:this.title,width:700}); return false;';
-            break;
+        echo link_to(picto_tag('picto_add', $add) . $add,
+                     "@image_jsupload?mod=$module_name&document_id=$document_id",
+                     array('title' => $add));
     }
-    echo link_to(picto_tag('picto_add', $add) . $add,
-                 "@image_upload?mod=$module_name&document_id=$document_id",
-                 array('onclick' => $js, 'title' => $add));
+    else
+    {
+        $upload_method = sfConfig::get('app_images_upload_method', 'js');
+        switch ($upload_method)
+        {
+            // note: ie<=7 doesn't support jsupload nor plupload
+            case 'js':
+                $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' .
+                      url_for("@image_jsupload?mod=$module_name&document_id=$document_id") . '?noplupload=true' .
+                      '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';
+                break;
+            case 'plupload':
+                $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' .
+                      url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .
+                      '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';
+                break;
+            default:
+                $js = '$.modalbox.show({remote:\''.url_for("@image_upload?mod=$module_name&document_id=$document_id") .
+                      '\',title:this.title,width:700}); return false;';
+                break;
+        }
+
+        echo link_to(picto_tag('picto_add', $add) . $add,
+                     "@image_upload?mod=$module_name&document_id=$document_id",
+                     array('onclick' => $js, 'title' => $add));
+    }
+
+
+    // for mobile version we test if file input is enabled, as well
+    // as some xhr support
+    // this should be enough in order to have plupload run in html5 mode
+    // file input test is taken from modernizr
+    if ($mobile_version)
+    {
+        echo javascript_tag("if ((function() {
+          var xhr;
+          if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+            if (!xhr.sendAsBinary && !xhr.upload) return false;
+          } else {
+            return false;
+          }
+          if (navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
+            return false;
+          }
+          var e = document.createElement('input');
+          e.type = 'file';
+          return !e.disabled;
+        })()) { document.getElementById('add_images_button').style.display = ''; }");
+    }
 
     // if user is not the author, and only the author can add images,
     // hide the button for uploading images to the document.

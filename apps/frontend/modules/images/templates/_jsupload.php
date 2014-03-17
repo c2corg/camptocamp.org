@@ -49,7 +49,7 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 </div>
 <?php
 $image_upload_js = minify_get_combined_files_url('/static/js/image_upload.js');
-echo javascript_tag("$.ajax({ url: '$image_upload_js', dataType: 'script', cache: true }).done(function() {
+echo javascript_queue("$.ajax({ url: '$image_upload_js', dataType: 'script', cache: true }).done(function() {
   window.setTimeout(C2C.ImageUpload.init, 1000)});");
 ?>
 </form>

@@ -7,7 +7,7 @@ class myImageValidator extends sfValidator
     public function execute (&$value, &$error)
     {
         // whether the image was sent via plupload or not
-        $plupload = (bool)$this->getContext()->getRequest()->getParameter('plupload', false);
+        $plupload = (bool)!$this->getContext()->getRequest()->getParameter('noplupload', false);
 
         // file upload check
         if ($value['error'])

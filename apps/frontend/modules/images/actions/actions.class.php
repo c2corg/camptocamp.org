@@ -289,7 +289,7 @@ class imagesActions extends documentsActions
         }
         else
         {
-            if ($request->hasParameter('plupload')) $this->plupload = true;
+            $this->plupload = !$request->hasParameter('noplupload');
             // display form
         }
     }

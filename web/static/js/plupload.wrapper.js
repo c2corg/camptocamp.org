@@ -190,7 +190,8 @@
     // used to validate with javascript that image information is correct
     // factorize? (is it worth it?)
     validateImageForms: function() {
-      if (!$('#modalbox').hasClass('in')) { // means modalbox is closed
+      var $modalbox = $('#modalbox');
+      if ($modalbox.length && !$modalbox.hasClass('in')) { // means modalbox is closed
         clearInterval(pe);
         return null;
       }
