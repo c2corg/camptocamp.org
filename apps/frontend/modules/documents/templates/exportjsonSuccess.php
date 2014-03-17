@@ -11,4 +11,4 @@ echo json_encode(array(
         'name' => $sf_data->getRaw('name'),
         'description' => $sf_data->getRaw('description')
     )
-));
+), JSON_PRETTY_PRINT | JSON_UNESCAPE_SLASHES);
