@@ -46,4 +46,4 @@ echo json_encode(array(
     'nextPage' => $hasNextPage ? absolute_link(url_for($uri . $pager->getNextPage())) : null,
     'previousPage' => $hasPreviousPage ? absolute_link(url_for($uri . $pager->getPreviousPage())) : null,
     'features' => $features
-), JSON_PRETTY_PRINT);
+), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
