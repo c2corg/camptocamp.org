@@ -98,6 +98,7 @@ class imagesActions extends documentsActions
      */
     public function executeList()
     {
+        // params in order to add images of linked summits, parkings, etc...
         $request_array = array();
         if ($this->hasRequestParameter('rsummits') && $summit_ids = $this->getRequestParameter('rsummits'))
         {
@@ -134,7 +135,7 @@ class imagesActions extends documentsActions
                 $request_array = array(explode('-', $site_ids), 'to', 'oi', 'ti');
             }
         }
-        
+
         if (!empty($request_array))
         {
             $ids = array_shift($request_array);
@@ -142,7 +143,7 @@ class imagesActions extends documentsActions
                                                                                   : sfConfig::get('app_list_maxline_number')));
             $this->pager = $pager;
             $q = $pager->getQuery();
-            $q->select('DISTINCT i.id, i.image_type, i.filename, ii.name, ii.culture, ii.search_name')
+            $q->select('DISTINCT i.id, i.image_type, i.geom_wkt, i.filename, ii.name, ii.culture, ii.search_name')
               ->from('Image i')
               ->leftJoin('i.associations a ON i.id = a.linked_id')
               ->leftJoin('i.ImageI18n ii')
@@ -153,8 +154,20 @@ class imagesActions extends documentsActions
             
             $nb_results = $pager->getNbResults();
             $this->nb_results = $nb_results;
-            
-            if ($nb_results == 0)
+
+            // deal with format
+            if (isset($this->format))
+            {
+                $format = $this->format;
+            }
+            else
+            {
+                $format = $this->getRequestParameter('format', 'list');
+                $format = explode('-', $format);
+                $this->format = $format;
+            }
+
+            if ($nb_results == 0 && !in_array('json', $format))
             {
                 $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
                 
@@ -184,8 +197,16 @@ class imagesActions extends documentsActions
             
             $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
             $this->items = Language::parseListItems($items, 'Image');
+
             $this->setTemplate('list');
         }
+
+        if (in_array('json', $this->format))
+        {
+            $this->setJsonResponse();
+            $this->setTemplate('../../documents/templates/jsonlist');
+        }
+
     }
 
     /**

@@ -821,7 +821,7 @@ class Image extends BaseImage
     {
         if ($main_query)
         {
-            $data_fields_list = array('m.filename', 'm.date_time', 'm.image_type', 'm.lon', 'm.lat');
+            $data_fields_list = array('m.filename', 'm.date_time', 'm.image_type', 'm.lon', 'm.lat', 'm.geom_wkt');
         }
         else
         {
