@@ -876,14 +876,6 @@ class documentsActions extends c2cActions
         $model = $this->model_class;
         $criteria = $this->getListCriteria($model);
         
-        // deal with layout
-        $layout = $this->getRequestParameter('layout', null);
-        $this->layout = $layout;
-        if ($layout == 'light')
-        {
-            $this->setLayout('layout_light');
-        }
-
         // deal with format 
         if (isset($this->format))
         {
