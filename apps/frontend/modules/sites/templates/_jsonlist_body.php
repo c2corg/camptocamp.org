@@ -7,7 +7,7 @@ $rt = sfConfig::get('mod_sites_rock_types_list');
 
 echo json_encode(array(
     'type' => 'Feature',
-    'geometry' => json_decode(gisQuery::EWKT2GeoJSON($item->getRaw('geom_wkt'))),
+    'geometry' => geojson_geometry($item),
     'properties' => array(
         'module' => 'sites',
         'name' => $item_i18n['name'],

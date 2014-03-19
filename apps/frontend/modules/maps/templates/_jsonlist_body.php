@@ -6,7 +6,7 @@ $ms = sfConfig::get('mod_maps_scales_list');
 $me = sfConfig::get('mod_maps_editors_list');
 
 echo json_encode(array(
-    'geometry' => json_decode(gisQuery::EWKT2GeoJSON($item->getRaw('geom_wkt'))),
+    'geometry' => geojson_geometry($item),
     'properties' => array(
         'module' => 'maps',
         'name' => $item_i18n['name'],

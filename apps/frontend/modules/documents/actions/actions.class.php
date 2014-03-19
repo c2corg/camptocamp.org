@@ -890,7 +890,7 @@ class documentsActions extends c2cActions
 
         $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
         $orderby = $this->getRequestParameter('orderby', '');
-        
+
         if ($module == 'outings' && empty($params_list) && in_array($orderby, array('name', 'onam', 'act')))
         {
             $redirect_uri = $module;
@@ -906,13 +906,14 @@ class documentsActions extends c2cActions
         
         $this->show_images = in_array('img', $format);
         $this->setPageTitle($this->__($module . ' list'));
-        if (in_array('full', $format))
+        // full format not working yet
+        /*if (in_array('full', $format))
         {
             $default_npp = empty($criteria) ? 20 : 10;
             $max_npp = sfConfig::get('app_list_full_max_npp');
             $this->setTemplate('../../documents/templates/listfull');
         }
-        elseif (in_array('cond', $format))
+        else*/if ($module == 'outings' && in_array('cond', $format))
         {
             $default_npp = empty($criteria) ? 20 : 10;
             $max_npp = sfConfig::get('app_list_conditions_max_npp');

@@ -2,14 +2,13 @@
 use_helper('Field');
 $item_i18n = $item->getRaw('RouteI18n');
 $item_i18n = $item_i18n[0];
-// TODO #337 cf what is done in list_body
 
 $a = sfConfig::get('app_activities_list');
 $f = sfConfig::get('app_routes_facings');
 
 echo json_encode(array(
     'type' => 'Feature',
-    'geometry' => json_decode(gisQuery::EWKT2GeoJSON($item->getRaw('geom_wkt'))),
+    'geometry' => geojson_geometry($item),
     'properties' => array(
         'module' => 'routes',
         'name' => $item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] .

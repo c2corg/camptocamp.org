@@ -13,6 +13,7 @@
     // regsiter events for starting the swipejs based gallery
     function init() {
       // do not activate swipe gallery if touch is not supported
+      // since swipe doesn't use mouse as fallback
       if (!('ontouchstart' in window) && 
           !(window.DocumentTouch && document instanceof DocumentTouch)) {
         return;
@@ -21,6 +22,7 @@
       images = $('.image a[data-lightbox]');
 
       // gets too laggy when they are too many slides
+      // TODO detect number of images that make ipad crash or find a workaround!!
       if (images.length > 30) return;
 
       i18n = C2C.swipe_i18n;

@@ -1,5 +1,5 @@
 <?php 
-use_helper('Pagination', 'Link');
+use_helper('Pagination', 'GeoJson');
 
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');

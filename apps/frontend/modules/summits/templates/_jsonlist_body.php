@@ -6,7 +6,7 @@ $st = sfConfig::get('app_summits_summit_types');
 
 echo json_encode(array(
     'type' => 'Feature',
-    'geometry' => json_decode(gisQuery::EWKT2GeoJSON($item->getRaw('geom_wkt'))),
+    'geometry' => geojson_geometry($item),
     'properties' => array(
         'module' => 'summits',
         'name' => $item_i18n['name'],

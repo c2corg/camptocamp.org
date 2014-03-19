@@ -7,7 +7,7 @@ $a = sfConfig::get('app_activities_list');
 
 echo json_encode(array(
     'type' => 'Feature',
-    'geometry' => json_decode(gisQuery::EWKT2GeoJSON($item->getRaw('geom_wkt'))),
+    'geometry' => geojson_geometry($item),
     'properties' => array(
         'module' => 'huts',
         'name' => $item_i18n['name'],

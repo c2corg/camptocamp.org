@@ -7,7 +7,7 @@ $it = sfConfig::get('mod_images_type_full_list');
 
 echo json_encode(array(
     'type' => 'Feature',
-    'geometry' => json_decode(gisQuery::EWKT2GeoJSON($item->getRaw('geom_wkt'))),
+    'geometry' => geojson_geometry($item),
     'properties' => array(
         'module' => 'images',
         'name' => $item_i18n['name'],
