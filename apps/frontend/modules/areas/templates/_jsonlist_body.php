@@ -7,6 +7,7 @@ $at = sfCOnfig::get('app_areas_area_types');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => geojson_geometry($item), // NOTE geom_wkt is ST_simplified for areas, see data/sql/tables
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'areas',
         'name' => $item_i18n['name'],

@@ -9,6 +9,7 @@ $c = sfConfig::get('mod_outings_conditions_statuses_list');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => geojson_geometry($item),
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'outings',
         'name' => $item_i18n['name'],

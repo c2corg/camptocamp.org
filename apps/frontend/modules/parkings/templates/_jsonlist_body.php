@@ -9,6 +9,7 @@ $ptt = sfConfig::get('app_parkings_public_transportation_types');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => geojson_geometry($item),
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'parkings',
         'name' => $item_i18n['name'],

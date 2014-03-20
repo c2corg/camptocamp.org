@@ -8,6 +8,7 @@ $a = sfConfig::get('app_activities_list');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => null,
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'books',
         'name' => $item_i18n['name'],

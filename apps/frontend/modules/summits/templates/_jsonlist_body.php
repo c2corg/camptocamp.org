@@ -7,6 +7,7 @@ $st = sfConfig::get('app_summits_summit_types');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => geojson_geometry($item),
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'summits',
         'name' => $item_i18n['name'],

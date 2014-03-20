@@ -8,6 +8,7 @@ $rt = sfConfig::get('mod_sites_rock_types_list');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => geojson_geometry($item),
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'sites',
         'name' => $item_i18n['name'],

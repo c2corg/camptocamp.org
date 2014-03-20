@@ -8,6 +8,7 @@ $it = sfConfig::get('mod_images_type_full_list');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => geojson_geometry($item),
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'images',
         'name' => $item_i18n['name'],

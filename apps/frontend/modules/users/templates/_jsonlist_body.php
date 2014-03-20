@@ -9,6 +9,7 @@ $c = sfConfig::get('mod_users_category_list');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => null,
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'users',
         'name' => $item_i18n['name'],

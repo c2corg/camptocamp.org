@@ -7,6 +7,7 @@ $pt = sfConfig::get('mod_products_types_list');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => geojson_geometry($item),
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'products',
         'name' => $item_i18n['name'],

@@ -9,6 +9,7 @@ $f = sfConfig::get('app_routes_facings');
 echo json_encode(array(
     'type' => 'Feature',
     'geometry' => geojson_geometry($item),
+    'id' => $item['id'],
     'properties' => array(
         'module' => 'routes',
         'name' => $item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] .
