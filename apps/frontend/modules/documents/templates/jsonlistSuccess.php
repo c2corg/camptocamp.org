@@ -39,11 +39,14 @@ foreach ($items as $item)
 }
 echo json_encode(array(
     'type' => 'FeatureCollection',
-    'totalItems' => $totalItems,
-    'nbItems' => $count,
-    'startIndex' => $startIndex,
-    'currentPage' => sfContext::getInstance()->getRequest()->getUri(),
-    'nextPage' => $hasNextPage ? absolute_link(url_for($uri . $pager->getNextPage())) : null,
-    'previousPage' => $hasPreviousPage ? absolute_link(url_for($uri . $pager->getPreviousPage())) : null,
+    'metadata' => array(
+        'totalItems' => $totalItems,
+        'nbItems' => $count,
+        'startIndex' => $startIndex,
+        'currentPage' => sfContext::getInstance()->getRequest()->getUri(),
+        'nextPage' => $hasNextPage ? absolute_link(url_for($uri . $pager->getNextPage())) : null,
+        'previousPage' => $hasPreviousPage ? absolute_link(url_for($uri . $pager->getPreviousPage())) : null,
+        'generated' => date(DATE_RFC2822)
+    ),
     'features' => $features
 ), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);

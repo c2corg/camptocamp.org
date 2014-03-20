@@ -2,6 +2,7 @@
 use_helper('Field');
 $item_i18n = $item->getRaw('RouteI18n');
 $item_i18n = $item_i18n[0];
+$summit = $item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'];
 
 $a = sfConfig::get('app_activities_list');
 $f = sfConfig::get('app_routes_facings');
@@ -12,9 +13,8 @@ echo json_encode(array(
     'id' => $item['id'],
     'properties' => array(
         'module' => 'routes',
-        'name' => $item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] .
-                  __(' :') . $item_i18n['name'],
-        'url' => jsonlist_url($item_i18n, 'routes'),
+        'name' => $summit . __(' :') . ' ' . $item_i18n['name'],
+        'url' => jsonlist_url($item_i18n, 'routes', $summit),
         'activities' => BaseDocument::convertStringToArrayTranslate($item['activities'], $a, 0),
         'ratings' => field_route_ratings_data($item, false, false, false, 'json'),
         'maxElevation' => doctrine_value($item['max_elevation']),
