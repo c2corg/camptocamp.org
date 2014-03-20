@@ -49,6 +49,7 @@ class Portal extends BasePortal
         // portal criteria
         $m = 'm';
         $m2 = 'p';
+        $mid = 'm.id';
         $midi18n = $mid;
         $join = null;
         $join_id = null;
