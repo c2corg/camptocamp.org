@@ -46,6 +46,7 @@ echo json_encode(array(
         'currentPage' => sfContext::getInstance()->getRequest()->getUri(),
         'nextPage' => $hasNextPage ? absolute_link(url_for($uri . $pager->getNextPage())) : null,
         'previousPage' => $hasPreviousPage ? absolute_link(url_for($uri . $pager->getPreviousPage())) : null,
+        'baseLanguage' => __('meta_language'),
         'generated' => date(DATE_RFC2822)
     ),
     'features' => $features
