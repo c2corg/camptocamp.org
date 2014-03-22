@@ -25,7 +25,7 @@ class hutsActions extends documentsActions
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
-            $is_gite = ($this->document->get('shelter_type') == 5);
+            $is_gite_camping = ($this->document->get('shelter_type') == 5) || ($this->document->get('shelter_type') == 6) ;
 
             // retrieve 2-hops parkings
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
@@ -58,7 +58,7 @@ class hutsActions extends documentsActions
             }
 
             // for a gite, routes  and sites are not directly linked. We retrieve the routes linked to the linked parkings
-            if ($is_gite)
+            if ($is_gite_camping)
             {
                 $parking_ids = array();
                 foreach ($associated_parkings as $parking)

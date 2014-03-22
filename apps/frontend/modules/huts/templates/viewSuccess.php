@@ -11,7 +11,7 @@ $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $shelter_type = $document->get('shelter_type');
-$is_gite = ($shelter_type == 5);
+$is_gite_camping = ($shelter_type == 5 || $shelter_type == 6);
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 // if the document is shelter or bivouac, call it simple Place, else LodgingBusiness
@@ -62,7 +62,7 @@ if ($is_not_archive)
                               'module' => 'sites', 
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
-                              'type' => $is_gite ? '' : 'ht', // hut-site, no link available if gite
+                              'type' => $is_gite_camping ? '' : 'ht', // hut-site, no link available if gite or camping
                               'strict' => true ));
     }
     
@@ -77,7 +77,7 @@ if ($is_not_archive)
     {
         if ($show_link_tool)
         {
-            if ($is_gite)
+            if ($is_gite_camping)
             {
                 $modules_list = array('parkings', 'sites', 'books', 'articles');
             }
@@ -116,7 +116,7 @@ include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/ma
 
 if ($is_not_archive && $is_not_merged)
 {
-    if (!$is_gite)
+    if (!$is_gite_camping)
     {
         $doc_module = 'huts';
         $type = 'hr'; // route-hut, reversed
