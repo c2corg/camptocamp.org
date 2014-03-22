@@ -286,16 +286,31 @@ function field_value_selector($name, $conf, $options)
     return select_tag($name, $option_tags, $select_param);
 }
 
-function around_selector($name, $multiline = false)
+function around_selector($name, $coords = array(), $multiline = false)
 {
     // note that all javascript is handled in geocode_autocompleter.js
     // we should separate Geocode.Autocompleter and the code specific to the selector
     // if Geocode.Autocompleter should be used elsewhere
     use_helper('AutoComplete');
-    $option_tags = options_for_select(array('0' => '',
-                                            '1' => __('Place'),
-                                            '2' => __('My position'),
-                                            /*'3' => __('Coordinates')*/));
+    
+    if (count($coords) == 2)
+    {
+        $manual_coords = true;
+        list($lon, $lat) = $coords;
+    }
+    else
+    {
+        $manual_coords = false;
+    }
+    
+    $options_tmp = array('0' => '',
+                         '1' => __('Place'),
+                         '2' => __('My position'));
+    if ($manual_coords)
+    {
+        $options_tmp['3'] = __('Coordinates');
+    }
+    $option_tags = options_for_select($options_tmp);
 
     $out = __('Around: ');
     $out .= select_tag($name . '_sel', $option_tags,
@@ -321,7 +336,18 @@ function around_selector($name, $multiline = false)
     $out .= __('geolocation denied') . '</span>';
 
     // manual coordinates
-    // TODO
+    if ($manual_coords)
+    {
+        $out .= '<span id="' . $name . '_manual">'
+             .  __('lon') . ' ' . $lon . ' / ' . __('lat') . ' ' . $lat
+             .  '</span>'
+             .  input_hidden_tag($name . '_manual_lat', $lat)
+             .  input_hidden_tag($name . '_manual_lon', $lon);
+    }
+    else
+    {
+        $out .= '<span id="' . $name . '_manual" style="display:none"></span>';
+    }
 
     // range input
     $out .= '<span id="' . $name . '_range_span">';
