@@ -24,6 +24,16 @@ else
     $selected_areas = $selected_areas_raw;
 }
 
+if (!isset($coords))
+{
+    $coords = array();
+}
+else
+{
+    $coords_raw = $sf_data->getRaw('coords');
+    $coords = $coords_raw;
+}
+
 echo display_title(__('Search a ' . $module), $module);
 
 if (!c2cTools::mobileVersion()):
@@ -105,7 +115,7 @@ if ($personalization_applied)
 }
 
 if (!isset($ranges)) $ranges = array();
-include_partial("$module/filter_form", array('ranges' => $ranges, 'selected_areas' => $selected_areas, 'activities' => $activities));
+include_partial("$module/filter_form", array('ranges' => $ranges, 'selected_areas' => $selected_areas, 'activities' => $activities, 'coords' => $coords));
 
 echo c2c_reset_tag(__('Cancel'), array('picto' => 'action_cancel'));
 echo c2c_submit_tag(__('Search'), array('picto' => 'action_filter', 'class' => 'main_button'));
