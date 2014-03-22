@@ -6,10 +6,11 @@ $is_connected = $sf_user->isConnected();
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
-$is_gite = ($document->get('shelter_type') == 5);
-$show_link_tool = (!$is_gite && $is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
+$is_gite_camping = ($document->get('shelter_type') == 5) || ($document->get('shelter_type')  == 6) ;
 
-if ($is_gite)
+$show_link_tool = (!$is_gite_camping && $is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
+
+if ($is_gite_camping)
 {
     $access_label = 'access';
 }

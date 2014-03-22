@@ -7,6 +7,7 @@ all:
       2: shelter
       3: camping area
       4: basecamp
+      6: camping
 
   sort:
     criteria:
