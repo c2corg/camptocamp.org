@@ -301,6 +301,7 @@ function around_selector($name, $coords = array(), $multiline = false)
     else
     {
         $manual_coords = false;
+        $lon = $lat = '';
     }
     
     $options_tmp = array('0' => '',
@@ -309,14 +310,19 @@ function around_selector($name, $coords = array(), $multiline = false)
     if ($manual_coords)
     {
         $options_tmp['3'] = __('Coordinates');
+        $selected = '3';
     }
-    $option_tags = options_for_select($options_tmp);
+    else
+    {
+        $selected = '';
+    }
+    $option_tags = options_for_select($options_tmp, $selected);
 
     $out = __('Around: ');
     $out .= select_tag($name . '_sel', $option_tags,
                        array('onchange' => "C2C.update_around_on_select_change('$name')"));
-    $out .= input_hidden_tag($name . '_lat');
-    $out .= input_hidden_tag($name . '_lon');
+    $out .= input_hidden_tag($name . '_lat', $lat);
+    $out .= input_hidden_tag($name . '_lon', $lon);
 
     $out .= '<span id="' . $name . '_span" style="display:none">';
 
