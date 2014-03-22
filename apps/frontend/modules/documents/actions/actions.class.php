@@ -1326,6 +1326,17 @@ class documentsActions extends c2cActions
         }
         $this->activities = $activities;
 
+        $around = $this->getRequestParameter('arnd', null);
+        if (preg_match('/^(-?\d*\.?\d+),(-?\d*\.?\d+)/', $around, $matches))
+        {
+            $coords = array($matches[1], $matches[2]);
+        }
+        else
+        {
+            $coords = null;
+        }
+        $this->coords = $coords;
+
         $this->setPageTitle($this->__('Search a ' . $module));
         $this->setTemplate('../../documents/templates/filter');
     }
