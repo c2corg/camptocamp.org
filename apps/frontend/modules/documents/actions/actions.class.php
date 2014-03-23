@@ -1317,14 +1317,14 @@ class documentsActions extends c2cActions
             {
                 $areas_type = intval($this->getRequest()->getCookie(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
             }
-            $selected_areas = array();
+            $separate_prefs = true;
             if (count($coords))
             {
-                $separate_prefs = false;
+                $selected_areas = array(0);
             }
             else
             {
-                $separate_prefs = true;
+                $selected_areas = array();
             }
         }
         $ranges = $this->getAreas($areas_type, $separate_prefs);
