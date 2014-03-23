@@ -347,7 +347,7 @@ function around_selector($name, $coords = array(), $multiline = false)
     if ($manual_coords)
     {
         $out .= '<span id="' . $name . '_manual">'
-             .  __('lon') . ' ' . $lon . ' / ' . __('lat') . ' ' . $lat
+             .  __('lon') . ' ' . $lon . ' / ' . __('lat') . ' ' . $lat . '<br/>'
              .  '</span>'
              .  input_hidden_tag($name . '_manual_lat', $lat)
              .  input_hidden_tag($name . '_manual_lon', $lon);
