@@ -1291,6 +1291,17 @@ class documentsActions extends c2cActions
     public function executeFilter()
     {
         $module = $this->getModuleName();
+
+        $around = $this->getRequestParameter('arnd', null);
+        if (preg_match('/^(-?\d*\.?\d+),(-?\d*\.?\d+)/', $around, $matches))
+        {
+            $coords = array($matches[1], $matches[2]);
+        }
+        else
+        {
+            $coords = array();
+        }
+        $this->coords = $coords;
         
         $areas_type = $this->getRequestParameter('atyp', 1);
         
@@ -1307,7 +1318,14 @@ class documentsActions extends c2cActions
                 $areas_type = intval($this->getRequest()->getCookie(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
             }
             $selected_areas = array();
-            $separate_prefs = true;
+            if (count($coords))
+            {
+                $separate_prefs = false;
+            }
+            else
+            {
+                $separate_prefs = true;
+            }
         }
         $ranges = $this->getAreas($areas_type, $separate_prefs);
 
@@ -1325,17 +1343,6 @@ class documentsActions extends c2cActions
             $activities = array();
         }
         $this->activities = $activities;
-
-        $around = $this->getRequestParameter('arnd', null);
-        if (preg_match('/^(-?\d*\.?\d+),(-?\d*\.?\d+)/', $around, $matches))
-        {
-            $coords = array($matches[1], $matches[2]);
-        }
-        else
-        {
-            $coords = null;
-        }
-        $this->coords = $coords;
 
         $this->setPageTitle($this->__('Search a ' . $module));
         $this->setTemplate('../../documents/templates/filter');
