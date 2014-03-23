@@ -311,10 +311,12 @@ function around_selector($name, $coords = array(), $multiline = false)
     {
         $options_tmp['3'] = __('Coordinates');
         $selected = '3';
+        $main_display = '';
     }
     else
     {
         $selected = '';
+        $main_display = ' style="display:none"';
     }
     $option_tags = options_for_select($options_tmp, $selected);
 
@@ -324,7 +326,7 @@ function around_selector($name, $coords = array(), $multiline = false)
     $out .= input_hidden_tag($name . '_lat', $lat);
     $out .= input_hidden_tag($name . '_lon', $lon);
 
-    $out .= '<span id="' . $name . '_span" style="display:none">';
+    $out .= '<span id="' . $name . '_span"' . $main_display . '>';
 
     // geocode api
     $out .= '<span id="' . $name . '_geocode" style="display:none">';
