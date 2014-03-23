@@ -2,6 +2,7 @@
 
   C2C.update_around_on_select_change = function(elt) {
     var index = $('#' + elt + '_sel')[0].selectedIndex;
+    var lat, lon;
 
     // reset fields and hide all inner spans
     $('#' + elt + '_lat, #' + elt + '_lon').val('');
@@ -38,8 +39,10 @@
           $('#' + elt + '_geolocation_not_supported').show();
         }
       } else if (index === 3) { // manual coordinates
-        $('#' + elt + '_lat').val($('#' + elt + '_manual_lat').val);
-        $('#' + elt + '_lon').val($('#' + elt + '_manual_lon').val);
+        lat = $('#' + elt + '_manual_lat').val();
+        lon = $('#' + elt + '_manual_lon').val();
+        $('#' + elt + '_lat').val(lat);
+        $('#' + elt + '_lon').val(lon);
         $('#' + elt + '_manual').show();
       }
     }
