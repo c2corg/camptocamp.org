@@ -3676,9 +3676,9 @@ class documentsActions extends c2cActions
         if ($linked_module_new == 'routes')
         {
             $is_gite_camping = ($main_document_new->get('shelter_type') == 5 ) || ($main_document_new->get('shelter_type') == 6);
-            if ($main_module_new == 'summits' && $main_document_new->get('summit_type') == 5 && $linked_module_new->get('duration') <= 2)
+            if (($main_module_new == 'summits') && ($main_document_new->get('summit_type') == 5) && ($linked_document_new->get('duration') <= 2))
             {
-                return $this->ajax_feedback('A "raid summit" can not be linked to a stage route');
+                return $this->ajax_feedback('A raid summit can not be linked to a stage route');
             }
             if ($main_module_new == 'huts' && $is_gite_camping )
             {
@@ -3744,7 +3744,7 @@ class documentsActions extends c2cActions
             {
                 if ($main_document_new->get('summit_type') == 5 || $linked_document_new->get('summit_type') == 5)
                 {
-                    return $this->ajax_feedback('A "raid summit" can not be linked to a real summit');
+                    return $this->ajax_feedback('A raid summit can not be linked to a real summit');
                 }
                 if (Association::countAllMain(array($linked_id_new), 'ss'))
                 {
