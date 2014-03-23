@@ -87,7 +87,7 @@ $mobile_version = c2cTools::mobileVersion();
             $height = '3.8em';
         }
         echo select_tag('areas', 
-                        options_for_select($ranges_raw, $selected_areas_raw),
+                        options_for_select($ranges_raw, $selected_areas_raw, array('include_blank' => true)),
                         array('id' => 'places',
                               'multiple' => true,
                               'style' => 'width:' . $width . '; height:' . $height . ';'));
