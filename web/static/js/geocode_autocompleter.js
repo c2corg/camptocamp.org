@@ -43,7 +43,7 @@
         lon = $('#' + elt + '_manual_lon').val();
         $('#' + elt + '_lat').val(lat);
         $('#' + elt + '_lon').val(lon);
-        $('#' + elt + '_manual').show();
+        $('#' + elt + '_manual, #' + elt + '_range_span').show();
       }
     }
   };
