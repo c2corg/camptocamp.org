@@ -14,6 +14,7 @@ echo json_encode(array(
         'module' => 'outings',
         'name' => $item_i18n['name'],
         'url' => jsonlist_url($item_i18n, 'outings'),
+        'date' => $item['date'],
         'activities' => BaseDocument::convertStringToArrayTranslate($item['activities'], $a),
         'creator' => $item['creator'],
         'maxElevation' => doctrine_value($item['max_elevation']),
