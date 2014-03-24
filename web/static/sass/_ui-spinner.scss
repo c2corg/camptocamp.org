@@ -137,7 +137,7 @@ $default-duration: 3s;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             @include experimental(animation-name, ui-spinner-rotate-left);
-            @include transform-origin(0 50%);
+            @include transform-origin(0, 50%);
         }
     }
 
@@ -149,7 +149,7 @@ $default-duration: 3s;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
             @include experimental(animation-name, ui-spinner-rotate-right);
-            @include transform-origin(100% 50%);
+            @include transform-origin(100%, 50%);
         }
     }
 }
