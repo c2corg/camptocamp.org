@@ -70,6 +70,8 @@
       outing_activities_already_tested = confirm(C2C.confirm_outing_activities_message);
       return outing_activities_already_tested;
     }
+
+    return true;
   }
 
   var outing_date_already_tested = false;
