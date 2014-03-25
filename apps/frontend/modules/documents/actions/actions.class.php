@@ -876,14 +876,6 @@ class documentsActions extends c2cActions
         $model = $this->model_class;
         $criteria = $this->getListCriteria($model);
         
-        // deal with layout
-        $layout = $this->getRequestParameter('layout', null);
-        $this->layout = $layout;
-        if ($layout == 'light')
-        {
-            $this->setLayout('layout_light');
-        }
-
         // deal with format 
         if (isset($this->format))
         {
@@ -898,7 +890,7 @@ class documentsActions extends c2cActions
 
         $params_list = array_keys(c2cTools::getCriteriaRequestParameters());
         $orderby = $this->getRequestParameter('orderby', '');
-        
+
         if ($module == 'outings' && empty($params_list) && in_array($orderby, array('name', 'onam', 'act')))
         {
             $redirect_uri = $module;
@@ -914,13 +906,14 @@ class documentsActions extends c2cActions
         
         $this->show_images = in_array('img', $format);
         $this->setPageTitle($this->__($module . ' list'));
-        if (in_array('full', $format))
+        // full format not working yet
+        /*if (in_array('full', $format))
         {
             $default_npp = empty($criteria) ? 20 : 10;
             $max_npp = sfConfig::get('app_list_full_max_npp');
             $this->setTemplate('../../documents/templates/listfull');
         }
-        elseif (in_array('cond', $format))
+        else*/if ($module == 'outings' && in_array('cond', $format))
         {
             $default_npp = empty($criteria) ? 20 : 10;
             $max_npp = sfConfig::get('app_list_conditions_max_npp');
@@ -1024,7 +1017,7 @@ class documentsActions extends c2cActions
                 }
             }
         }
-        
+
         if ($nb_results > 0 && in_array($module, array('areas', 'articles', 'books', 'maps', 'portals', 'users')))
         {
             $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
@@ -1151,51 +1144,6 @@ class documentsActions extends c2cActions
         $this->format = $format;
         
         self::executeList();
-    }
-
-    public function executeGeojson()
-    {
-        $timer = new sfTimer('executeGeojson');
-        $model = $this->model_class;
-        $module = $this->getModuleName();
-        $criteria = $this->getListCriteria($model);
-        
-        if ($criteria !== 'no_result' && $module != 'documents')
-        {
-            $sort = call_user_func(array('Document', 'getListSortCriteria'), $model);
-            $page = $this->getRequestParameter('page', 1);
-            $infos = call_user_func(array('Document', 'browse'),
-                                    $model,
-                                    $sort,
-                                    $criteria,
-                                    array('json'),
-                                    $page);
-            $nb_results = $infos['nb_results'];
-            $this->pager = $infos['pager'];
-            $this->query = $infos['query'];
-
-            if ($nb_results > 0)
-            {
-                $items = $this->query->execute(array(), Doctrine::FETCH_ARRAY);
-                $items = Language::parseListItems($items, $model);
-            }
-            else
-            {
-                $items = array();
-            }
-        }
-        else
-        {
-            $nb_results = 0;
-            $items = array();
-        }
-        $this->nb_results = $nb_results;
-        $this->items = $items;
-    
-        $this->setTemplate('../../documents/templates/geojson');
-
-        $this->setJsonResponse();
-        c2cActions::statsdTiming('document.executeGeojson', $timer->getElapsedTime('executeGeojson'));
     }
 
     /**
@@ -1343,6 +1291,17 @@ class documentsActions extends c2cActions
     public function executeFilter()
     {
         $module = $this->getModuleName();
+
+        $around = $this->getRequestParameter('arnd', null);
+        if (preg_match('/^(-?\d*\.?\d+),(-?\d*\.?\d+)/', $around, $matches))
+        {
+            $coords = array($matches[1], $matches[2]);
+        }
+        else
+        {
+            $coords = array();
+        }
+        $this->coords = $coords;
         
         $areas_type = $this->getRequestParameter('atyp', 1);
         
@@ -1358,8 +1317,15 @@ class documentsActions extends c2cActions
             {
                 $areas_type = intval($this->getRequest()->getCookie(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
             }
-            $selected_areas = array();
             $separate_prefs = true;
+            if (count($coords))
+            {
+                $selected_areas = array(0);
+            }
+            else
+            {
+                $selected_areas = array();
+            }
         }
         $ranges = $this->getAreas($areas_type, $separate_prefs);
 
@@ -3439,7 +3405,7 @@ class documentsActions extends c2cActions
                     $response->setContentType('application/vnd.google-earth.kml+xml');
                     break;
                 case 'json':
-                    $this->points = gisQuery::getEWKT($id, true, $module, $version);
+                    $this->geojson = gisQuery::getGeoJSON($id, $module, $version, 6);
                     $this->setTemplate('../../documents/templates/exportjson');
                     $response->setContentType('application/json');
                     break;
@@ -3545,6 +3511,8 @@ class documentsActions extends c2cActions
 
         switch ($linked_module)
         {
+            case 'summits': $fields = array('id', 'is_protected', 'summit_type'); break;
+            case 'routes': $fields = array('id', 'is_protected', 'duration'); break;
             case 'huts': $fields = array('id', 'is_protected', 'shelter_type'); break;
             case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
             case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
@@ -3571,6 +3539,8 @@ class documentsActions extends c2cActions
 
         switch ($main_module)
         {
+            case 'summits': $fields = array('id', 'is_protected', 'summit_type'); break;
+            case 'routes': $fields = array('id', 'is_protected', 'duration'); break;
             case 'huts': $fields = array('id', 'is_protected', 'shelter_type'); break;
             case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
             case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
@@ -3705,7 +3675,11 @@ class documentsActions extends c2cActions
         
         if ($linked_module_new == 'routes')
         {
-            if ($main_module_new == 'huts' && $main_document_new->get('shelter_type') == 5)
+            if (($main_module_new == 'summits') && ($main_document_new->get('summit_type') == 5) && ($linked_document_new->get('duration') <= 2))
+            {
+                return $this->ajax_feedback('A raid summit can not be linked to a stage route');
+            }
+            if ($main_module_new == 'huts' && (($main_document_new->get('shelter_type') == 5 ) || ($main_document_new->get('shelter_type') == 6)))
             {
                 return $this->ajax_feedback('A gite can not be linked to a route');
             }
@@ -3767,6 +3741,10 @@ class documentsActions extends c2cActions
         {
             if ($main_module_new == 'summits')
             {
+                if ($main_document_new->get('summit_type') == 5 || $linked_document_new->get('summit_type') == 5)
+                {
+                    return $this->ajax_feedback('A raid summit can not be linked to a real summit');
+                }
                 if (Association::countAllMain(array($linked_id_new), 'ss'))
                 {
                     return $this->ajax_feedback('A sub summit can not be linked to more than one main summit');

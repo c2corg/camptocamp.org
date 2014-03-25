@@ -1,7 +1,17 @@
 <?php
 use_helper('FilterForm');
 
-echo around_selector('sarnd');
+if (!isset($coords))
+{
+    $coords = array();
+}
+else
+{
+    $coords_raw = $sf_data->getRaw('coords');
+    $coords = $coords_raw;
+}
+
+echo around_selector('sarnd', $coords);
 $ranges_raw = $sf_data->getRaw('ranges');
 $selected_areas_raw = $sf_data->getRaw('selected_areas');
 include_partial('areas/areas_selector', array('ranges' => $ranges_raw, 'selected_areas' => $selected_areas_raw, 'use_personalization' => true));

@@ -24,6 +24,16 @@ else
     $selected_areas = $selected_areas_raw;
 }
 
+if (!isset($coords))
+{
+    $coords = array();
+}
+else
+{
+    $coords_raw = $sf_data->getRaw('coords');
+    $coords = $coords_raw;
+}
+
 echo display_title(__('Search a ' . $module), $module);
 
 if (!c2cTools::mobileVersion()):
@@ -53,8 +63,8 @@ echo form_tag("/$module/filterredirect", array('id' => 'filterform'));
 $perso = c2cPersonalization::getInstance();
 $personalization_applied = false;
 $perso_on = $perso->isMainFilterSwitchOn();
-$has_perso_activities = count($perso->getActivitiesFilter());
-$has_perso_areas = count($perso->getPlacesFilter());
+$has_perso_activities = !count($activities) && count($perso->getActivitiesFilter());
+$has_perso_areas = !count($selected_areas) && !count($coords) && count($perso->getPlacesFilter());
 switch($module)
 {
     // We use activities and areas personalization for the following modules
@@ -65,17 +75,17 @@ switch($module)
     case 'users':
         if ($perso_on)
         {
-            if (!count($activities) && $has_perso_activities && !count($selected_areas) && $has_perso_areas)
+            if ($has_perso_activities && $has_perso_areas)
             {
                 $msg = __('activity and area filters applied');
                 $personalization_applied = true;
             }
-            elseif (!count($selected_areas) && $has_perso_areas)
+            elseif ($has_perso_areas)
             {
                 $msg = __('area filters applied');
                 $personalization_applied = true;
             }
-            elseif (!count($activities) && $has_perso_activities)
+            elseif ($has_perso_activities)
             {
                 $msg = __('activity filters applied');
                 $personalization_applied = true;
@@ -88,7 +98,7 @@ switch($module)
     case 'sites':
     case 'summits':
         $msg = __('area filters applied');
-        if ($perso_on && !count($selected_areas) && $has_perso_areas)
+        if ($perso_on && $has_perso_areas)
             $personalization_applied = true;
         break;
     // We do not use personalization for the following modules
@@ -105,7 +115,7 @@ if ($personalization_applied)
 }
 
 if (!isset($ranges)) $ranges = array();
-include_partial("$module/filter_form", array('ranges' => $ranges, 'selected_areas' => $selected_areas, 'activities' => $activities));
+include_partial("$module/filter_form", array('ranges' => $ranges, 'selected_areas' => $selected_areas, 'activities' => $activities, 'coords' => $coords));
 
 echo c2c_reset_tag(__('Cancel'), array('picto' => 'action_cancel'));
 echo c2c_submit_tag(__('Search'), array('picto' => 'action_filter', 'class' => 'main_button'));

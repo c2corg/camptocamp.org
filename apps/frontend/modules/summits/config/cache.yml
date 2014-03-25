@@ -10,9 +10,6 @@ _filter_form:
 _linked_summits:
   enabled: off
 
-_feature:
-  enabled: off
-
 filter:
   enabled: off
 

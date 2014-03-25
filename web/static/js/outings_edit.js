@@ -23,34 +23,27 @@
     }
   }
 
-  function disableForm(e) {
-    e.stopPropagation();
-    C2C.switchFormButtonsStatus($('#editform'), false);
-    return false;
-  }
-
   // if some activities are active, ask the user
   // if it is ok:
   // often routes are multi-activity but the outing shouldn't
-  function check_outing_activities(e) {
+  var outing_activities_already_tested = false;
+  function check_outing_activities() {
     var activities = $('#activities').val();
 
-    // paragliding
+    // paragliding cannot be the only activity
     if (activities.length == 1 && activities[0] == 8) {
-
-      alert(confirm_outing_paragliding_message);
-      disableForm(e);
+      alert(C2C.alert_outing_paragliding_message);
       return false;
     }
     
     if (outing_activities_already_tested) {
       // no need to check activities twice
-      return;
+      return true;
     }
 
     // remove paragliding for next rules
     for (var i = 0; i <activities.length; i++) {
-      if (activities[i] != 8) {
+      if (activities[i] == 8) {
         activities.splice(i, 1);
         break;
       }
@@ -68,40 +61,39 @@
           (act_0 == 3 && act_1 == 6) ||
           (act_0 == 4 && act_1 == 6)) {
         // no need to check activities for these pairs
-        return;
+        return true;
       }
     }
-    
+
     // ask for confirmation if nb activities is > 1
-    if (!$('#revision').val() && activities.length > 1 &&
-        !confirm(confirm_outing_activities_message)) {
-      disableForm(e);
-      outing_activities_already_tested = true;
+    if (!$('#revision').val() && activities.length > 1) {
+      outing_activities_already_tested = confirm(C2C.confirm_outing_activities_message);
+      return outing_activities_already_tested;
     }
+
+    return true;
   }
 
-  function check_outing_date(e) {
+  var outing_date_already_tested = false;
+  function check_outing_date() {
     if (outing_date_already_tested) {
       // no need to check date twice
-      return;
+      return true;
     }
 
     var year = $('#date_year').val();
     var month = $('#date_month').val();
     var day = $('#date_day').val();
-
     var now = new Date();
 
     // ask for confirmation if outing date is today and if it is sooner than 14:00
-    if (!$('#revision').val() &&
-        year == now.getFullYear() &&
-        month == (now.getMonth() + 1) &&
-        day == now.getDate() &&
-        now.getHours() <= 14 &&
-        !confirm(confirm_outing_date_message)) {
-      disableForm(e);
-      outing_date_already_tested = true;
+    if (!$('#revision').val() && year == now.getFullYear() && month == (now.getMonth() + 1) &&
+        day == now.getDate() && now.getHours() <= 14) {
+      outing_date_already_tested = confirm(C2C.confirm_outing_date_message);
+      return outing_date_already_tested;
     }
+
+    return true;
   }
 
   // be sure to hide fields on startup if needed
@@ -110,8 +102,10 @@
   // register events
   $('#activities').on('change', hide_unrelated_fields);
   $('#editform').submit(function(e) {
-    check_outing_activities(e);
-    check_outing_date(e);
+    if (!check_outing_activities() || !check_outing_date()) {
+      C2C.switchFormButtonsStatus($('#editform'), false);
+      e.preventDefault();
+    }
   });
 
 })(window.C2C = window.C2C || {}, jQuery);

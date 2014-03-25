@@ -1,11 +1,19 @@
 <?php
 $item_i18n = $item->getRaw('AreaI18n');
 $item_i18n = $item_i18n[0];
-?>
-{
-  "name": <?php echo json_encode($item_i18n['name']) ?>,
-  "url": "<?php echo jsonlist_url($item_i18n, 'areas') ?>",
-  "type":  <?php echo $item['area_type'] ?>,
-  "nbLinkedImages": <?php echo isset($item['nb_images']) ?  $item['nb_images'] : 0 ?>,
-  "nbComments": <?php echo isset($item['nb_comments']) ? $item['nb_comments'] : 0 ?>
-}
+
+$at = sfCOnfig::get('app_areas_area_types');
+
+echo json_encode(array(
+    'type' => 'Feature',
+    'geometry' => geojson_geometry($item), // NOTE geom_wkt is ST_simplified for areas, see data/sql/tables
+    'id' => $item['id'],
+    'properties' => array(
+        'module' => 'areas',
+        'name' => $item_i18n['name'],
+        'url' => jsonlist_url($item_i18n, 'areas'),
+        'type' =>  $at[$item['area_type']],
+        'nbLinkedImages' => isset($item['nb_images']) ?  $item['nb_images'] : 0,
+        'nbComments' => isset($item['nb_comments']) ? $item['nb_comments'] : 0
+    )
+));

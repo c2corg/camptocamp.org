@@ -89,7 +89,7 @@ msgid "A document can not be linked to itself"
 msgstr "Un document ne peut pas être associé à lui-même"
 
 msgid "A gite can not be linked to a route"
-msgstr "Un gite ne peut pas être associé à un itinéraire"
+msgstr "Un gite ou un camping ne peut pas être associé à un itinéraire"
 
 msgid "A new password has been asked for your account."
 msgstr "La génération d'un nouveau mot de passe a été demandée pour votre compte Camptocamp.org. Vous pouvez à présent vous identifier en utilisant les informations de connexion ci dessous."
@@ -102,6 +102,14 @@ msgstr "Un accès ne peut pas être associé à un itinéraire si un sur/sous ac
 
 msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
 msgstr "Un accès ne peut pas être associé à un site de couenne ou de bloc si un sur/sous accès de cet accès est déjà associé au site"
+
+# [WARNING] needs_review
+msgid "A raid summit can not be linked to a real summit"
+msgstr "Un sommet-raid ne peut pas être associé à un sommet réel"
+
+# [WARNING] needs_review
+msgid "A raid summit can not be linked to a stage route"
+msgstr "Un sommet-raid ne peut pas être associé à une étape d'un raid"
 
 msgid "A site can not be linked to more than one summit"
 msgstr "Un site de couenne/bloc ne peut pas être associé à plus d'un sommet"
@@ -537,6 +545,9 @@ msgstr "Concours"
 
 msgid "Context:"
 msgstr "Contexte&nbsp;:"
+
+msgid "Coordinates"
+msgstr "Coordonnées"
 
 msgid "Copy following string:"
 msgstr "Recopiez la chaine anti-spam suivante&nbsp;:"

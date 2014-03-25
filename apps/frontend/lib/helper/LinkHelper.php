@@ -140,9 +140,3 @@ function list_link($item, $module, $prefix = null)
                    . '&lang=' . $item['culture'] . '&slug=' . make_slug(isset($prefix) ? $prefix . '-' . $item['name'] : $item['name']),
                    array('hreflang' => $item['culture']));
 }
-
-function jsonlist_url($item, $module, $prefix = null)
-{
-    return absolute_link(url_for("@document_by_id_lang_slug?module=$module&id=" . $item['id']
-               . '&lang=' . $item['culture'] . '&slug=' . make_slug(isset($prefix) ? $prefix . '-' . $item['name'] : $item['name'])));
-}

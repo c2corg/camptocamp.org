@@ -86,7 +86,7 @@ msgstr "Documento non trovato"
 msgid "A document can not be linked to itself"
 msgstr "Un documento non può essere associato a se stesso"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "A gite can not be linked to a route"
 msgstr "non si puo' legare di rifugio su un itinerario"
 
@@ -101,6 +101,14 @@ msgstr "Un accesso non può essere associato ad un itinerario se un sopra/sotto 
 
 msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
 msgstr "Un accesso non può essere associato ad una falesia se un sopra/sotto accesso di questo accesso è già associato alla falesia"
+
+# [WARNING] en translation used
+msgid "A raid summit can not be linked to a real summit"
+msgstr "A raid summit can not be linked to a real summit"
+
+# [WARNING] en translation used
+msgid "A raid summit can not be linked to a stage route"
+msgstr "A raid-summit can not be linked to a stage route"
 
 msgid "A site can not be linked to more than one summit"
 msgstr "Una falesia non può essere associata a più di una cima"
@@ -542,6 +550,10 @@ msgstr "Concorso"
 
 msgid "Context:"
 msgstr "Contesto:"
+
+# [WARNING] en translation used
+msgid "Coordinates"
+msgstr "Coordinates"
 
 msgid "Copy following string:"
 msgstr "Copia la seguente stringa:"

@@ -1,24 +1,26 @@
 <?php
 $item_i18n = $item->getRaw('SiteI18n');
 $item_i18n = $item_i18n[0];
-?>
-{
-  "name": <?php echo json_encode($item_i18n['name']) ?>,
-  "url": "<?php echo jsonlist_url($item_i18n, 'sites') ?>",
-  "elevation": <?php echo $item['elevation'] ?>,
-  <?php if (is_scalar($item['lat'])): ?>
-  "latitude": <?php echo $item['lat'] ?>,
-  "longitude": <?php echo $item['lon'] ?>,
-  <?php endif ?>
-  "routes": <?php echo $item['routes_quantity'] ?>,
-  "site_types": <?php echo json_encode(BaseDocument::convertStringToArray($item['site_types'])) ?>,
-  "rock_types": <?php echo json_encode(BaseDocument::convertStringToArray($item['rock_types'])) ?>,
-  "nbLinkedImages": <?php echo isset($item['nb_images']) ?  $item['nb_images'] : 0 ?>,
-  "nbComments": <?php echo isset($item['nb_comments']) ? $item['nb_comments'] : 0 ?>,
-  "nbLinkedOutings": <?php echo isset($item['nb_linked_docs']) ? $item['nb_linked_docs'] : 0 ?>,
-  <?php
-  include_partial('documents/regions4jsonlist', array('geoassociations' => $item['geoassociations']));
-  echo ',';
-  include_partial('parkings/parkings4jsonlist', array('parkings' => (isset($item['linked_docs']) ? $item['linked_docs'] : array())));
-  ?>  
-}
+
+$st = sfConfig::get('app_sites_site_types');
+$rt = sfConfig::get('mod_sites_rock_types_list');
+
+echo json_encode(array(
+    'type' => 'Feature',
+    'geometry' => geojson_geometry($item),
+    'id' => $item['id'],
+    'properties' => array(
+        'module' => 'sites',
+        'name' => $item_i18n['name'],
+        'url' => jsonlist_url($item_i18n, 'sites'),
+        'elevation' => $item['elevation'],
+        'routes_quantity' => doctrine_value($item['routes_quantity']),
+        'site_types' => BaseDocument::convertStringToArrayTranslate($item['site_types'], $st, 0),
+        'rock_types' => BaseDocument::convertStringToArrayTranslate($item['rock_types'], $rt, 0),
+        'nbLinkedImages' => isset($item['nb_images']) ?  $item['nb_images'] : 0,
+        'nbLinkedOutings' => isset($item['nb_linked_docs']) ? $item['nb_linked_docs'] : 0,
+        'nbComments' => isset($item['nb_comments']) ? $item['nb_comments'] : 0,
+        'linkedAreas' => json_decode(get_partial('documents/regions4jsonlist', array('geoassociations' => $item['geoassociations']))),
+        'linkedParkings' => json_decode(get_partial('parkings/parkings4jsonlist', array('parkings' => (isset($item['linked_docs']) ? $item['linked_docs'] : array()))))
+    )
+));

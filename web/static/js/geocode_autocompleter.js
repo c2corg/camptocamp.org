@@ -2,12 +2,12 @@
 
   C2C.update_around_on_select_change = function(elt) {
     var index = $('#' + elt + '_sel')[0].selectedIndex;
+    var lat, lon;
 
     // reset fields and hide all inner spans
     $('#' + elt + '_lat, #' + elt + '_lon').val('');
-    $('#' + elt + '_range_span').show();
-    $('#' + elt + '_geocode, #' + elt + '_geolocation_not_supported, #' + elt +
-           '_geolocation_waiting, #' + elt + '_geolocation_failed').hide();
+    $('#' + elt + '_geocode, #' + elt + '_range_span, #' + elt + '_geolocation_not_supported, #' + elt +
+           '_geolocation_waiting, #' + elt + '_geolocation_failed, #' + elt + '_manual').hide();
 
     if (index === 0) {
       $('#' + elt + '_span').hide();
@@ -17,9 +17,8 @@
 
       // display only relevant inner span
       if (index === 1) { // geocode autocompleter
-        $('#' + elt + '_geocode').show();
+        $('#' + elt + '_geocode, #' + elt + '_range_span').show();
       } else if (index === 2) { // user geolocalization
-        $('#' + elt + '_range_span').hide();
         // detect geolocation correctly
         // https://github.com/Modernizr/Modernizr/blob/633a5ac/modernizr.js#L478-490
         if ('geolocation' in navigator) {
@@ -39,6 +38,12 @@
           // geolocation not supported by browser
           $('#' + elt + '_geolocation_not_supported').show();
         }
+      } else if (index === 3) { // manual coordinates
+        lat = $('#' + elt + '_manual_lat').val();
+        lon = $('#' + elt + '_manual_lon').val();
+        $('#' + elt + '_lat').val(lat);
+        $('#' + elt + '_lon').val(lon);
+        $('#' + elt + '_manual, #' + elt + '_range_span').show();
       }
     }
   };

@@ -1,11 +1,19 @@
 <?php
 $item_i18n = $item->getRaw('UserI18n');
 $item_i18n = $item_i18n[0];
-?>
-{
-  "name": <?php echo json_encode($item_i18n['name']) ?>,
-  "activities": <?php echo json_encode(BaseDocument::convertStringToArray($item['activities'])) ?>,
-  <?php if (check_not_empty($item->getRaw('category'))):  ?>
-  "category": <?php echo $item['category'] ?>,
-  <?php endif ?>
-}
+
+$a = sfConfig::get('app_activities_list');
+$c = sfConfig::get('mod_users_category_list');
+
+// note that only public profiles are listed when no credential is provided
+echo json_encode(array(
+    'type' => 'Feature',
+    'geometry' => null,
+    'id' => $item['id'],
+    'properties' => array(
+        'module' => 'users',
+        'name' => $item_i18n['name'],
+        'activities' => BaseDocument::convertStringToArrayTranslate($item['activities'], $a, 0),
+        'category' => @$c[doctrine_value($item['category'])]
+    )
+));

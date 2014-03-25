@@ -10,11 +10,11 @@ _parkings_filter:
 _filter_form:
   enabled: off
 
-_feature:
-  enabled: off
-
 getdirections:
   enabled: off
 
 _parkings4list:
+  enabled: off
+
+_parkings4jsonlist:
   enabled: off

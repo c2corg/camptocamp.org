@@ -149,9 +149,6 @@ _google_result:
 _home_section_title:
   enabled: off
 
-_feature:
-  enabled: off
-
 _mobile_comments:
   enabled: off
 

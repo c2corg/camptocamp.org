@@ -2,26 +2,29 @@
 use_helper('Field');
 $item_i18n = $item->getRaw('OutingI18n');
 $item_i18n = $item_i18n[0];
-?>
-{
-  "name": <?php echo json_encode($item_i18n['name']) ?>,
-  "url": "<?php echo jsonlist_url($item_i18n, 'outings') ?>",
-  "hasTrack": <?php echo strlen($item['geom_wkt']) > 0 ? 'true' : 'false' ?>,
-  "activities": <?php echo json_encode(BaseDocument::convertStringToArray($item['activities'])) ?>,
-  "creator": <?php echo json_encode($item['creator']) ?>,
-  "date": <?php echo json_encode($item['date']) ?>,
-  <?php if (check_not_empty($item->getRaw('max_elevation'))):  ?>
-  "maxElevation": <?php echo $item['max_elevation'] ?>,
-  <?php endif; if (check_not_empty($item->getRaw('height_diff_up'))): ?>
-  "heightDiffUp": <?php echo $item['height_diff_up'] ?>,
-  <?php endif; if (isset($item['linked_routes'])): ?>
-  "routes_rating": <?php echo json_encode(field_route_ratings_data($item, false, false, false, 'json')) ?>,
-  <?php endif; if (is_int($item['conditions_status'])): ?>
-  "conditions": <?php echo $item['conditions_status'] ?>,
-  <?php endif; if (isset($item['frequentation'])): ?>
-  "frequentation": <?php echo $item['frequentation'] ?>,
-  <?php endif ?>
-  "nbLinkedImages": <?php echo isset($item['nb_images']) ?  $item['nb_images'] : 0 ?>,
-  "nbComments": <?php echo isset($item['nb_comments']) ? $item['nb_comments'] : 0 ?>,
-  <?php include_partial('documents/regions4jsonlist', array('geoassociations' => $item['geoassociations'])) ?>
-}
+
+$a = sfConfig::get('app_activities_list');
+$c = sfConfig::get('mod_outings_conditions_statuses_list');
+
+echo json_encode(array(
+    'type' => 'Feature',
+    'geometry' => geojson_geometry($item),
+    'id' => $item['id'],
+    'properties' => array(
+        'module' => 'outings',
+        'name' => $item_i18n['name'],
+        'url' => jsonlist_url($item_i18n, 'outings'),
+        'date' => $item['date'],
+        'activities' => BaseDocument::convertStringToArrayTranslate($item['activities'], $a),
+        'creator' => $item['creator'],
+        'maxElevation' => doctrine_value($item['max_elevation']),
+        'heightDiffUp' => doctrine_value($item['height_diff_up']),
+        'routes_rating' => isset($item['linked_routes']) ?
+                           field_route_ratings_data($item, false, false, false, 'json') : null,
+        'conditions' => @$c[doctrine_value($item['conditions_status'])],
+        'frequentation' => @$c[doctrine_value($item['frequentation'])],
+        'nbLinkedImages' => isset($item['nb_images']) ?  $item['nb_images'] : 0,
+        'nbComments' => isset($item['nb_comments']) ? $item['nb_comments'] : 0,
+        'linkedAreas' => json_decode(get_partial('documents/regions4jsonlist', array('geoassociations' => $item['geoassociations'])))
+    )
+));

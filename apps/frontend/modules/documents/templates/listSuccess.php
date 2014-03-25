@@ -1,4 +1,4 @@
-<?php 
+<?php
 use_helper('Pagination', 'Viewer', 'FilterForm', 'MyForm');
 
 $id = $sf_params->get('id');
@@ -170,5 +170,3 @@ if ($layout != 'light')
     
     include_partial('common/content_bottom');
 }
-   
-?>

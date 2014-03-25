@@ -1,5 +1,5 @@
 <?php 
-use_helper('Pagination', 'Link');
+use_helper('Pagination', 'GeoJson');
 
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
@@ -31,26 +31,23 @@ if ($hasPreviousPage || $hasNextPage)
     $uri = _addUrlParameters(_getBaseUri(), array('page'));
     $uri .= _getSeparator($uri) . 'page=';
 }
-?>
-{                                                                                          
-  "type": "application/json",
-  "totalItems": <?php echo $totalItems; ?>,
-  "count": <?php echo $count; ?>,
-  "startIndex": <?php echo $startIndex; ?>,
-  "currentPage": "<?php echo sfContext::getInstance()->getRequest()->getUri(); ?>",
-<?php if ($hasNextPage): ?>
-  "nextPage": "<?php echo absolute_link(url_for($uri . $pager->getNextPage())); ?>",
-<?php endif; if ($hasPreviousPage): ?>
-  "previousPage": "<?php echo absolute_link(url_for($uri . $pager->getPreviousPage())); ?>",
-<?php endif; ?>
-  "items": [
-  <?php
-  $sep = '';
-  foreach ($items as $item)
-  {
-      echo $sep;
-      include_partial($module . '/jsonlist_body',  array('item' => $item));
-      $sep = ',';
-  } ?>
-  ]
+
+$features = array();
+foreach ($items as $item)
+{
+    $features[] = json_decode(get_partial($module . '/jsonlist_body',  array('item' => $item)));
 }
+echo json_encode(array(
+    'type' => 'FeatureCollection',
+    'metadata' => array(
+        'totalItems' => $totalItems,
+        'nbItems' => $count,
+        'startIndex' => $startIndex,
+        'currentPage' => sfContext::getInstance()->getRequest()->getUri(),
+        'nextPage' => $hasNextPage ? absolute_link(url_for($uri . $pager->getNextPage())) : null,
+        'previousPage' => $hasPreviousPage ? absolute_link(url_for($uri . $pager->getPreviousPage())) : null,
+        'baseLanguage' => __('meta_language'),
+        'generated' => date(DATE_RFC2822)
+    ),
+    'features' => $features
+), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
