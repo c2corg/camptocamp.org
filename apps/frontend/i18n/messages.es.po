@@ -106,6 +106,14 @@ msgid "A parking can not be linked to a site if a main/sub parking is already li
 msgstr "An access point can not be linked to a climbing site if a main/sub access point of this access is already linked to this site"
 
 # [WARNING] en translation used
+msgid "A raid summit can not be linked to a real summit"
+msgstr "A raid summit can not be linked to a real summit"
+
+# [WARNING] en translation used
+msgid "A raid summit can not be linked to a stage route"
+msgstr "A raid-summit can not be linked to a stage route"
+
+# [WARNING] en translation used
 msgid "A site can not be linked to more than one summit"
 msgstr "A climbing site can not be linked to more than one summit"
 
@@ -548,6 +556,10 @@ msgstr "Concurso"
 
 msgid "Context:"
 msgstr "Contexto:"
+
+# [WARNING] en translation used
+msgid "Coordinates"
+msgstr "Coordinates"
 
 msgid "Copy following string:"
 msgstr "Copia la siguiente secuencia anti-spam:"
