@@ -43,3 +43,6 @@ _temp_image_error:
 
 _linked_images:
   enabled: off
+
+_form_fields_image_type:
+  enabled: off
