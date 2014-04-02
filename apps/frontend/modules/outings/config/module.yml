@@ -9,10 +9,10 @@ all:
   frequentation_statuses:
     list:
       0:
-      1: desert
-      2: some people
-      4: quite crowded
-      3: lots of people
+      2: desert
+      4: some people
+      6: quite crowded
+      8: lots of people
 
   conditions_statuses:
     list:
