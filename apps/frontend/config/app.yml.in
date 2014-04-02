@@ -693,10 +693,14 @@ all:
   equipment_ratings: #this one is common for routes and sites
     list:
       0:
-      1: good equipment
-      2: partial equipment
-      3: few equipment
-      4: 'no equipment'
+      4:  'good equipment'
+      6:  'good equipment +'
+      8:  'partial equipment'
+      10: 'partial equipment +'
+      12: 'few equipment'
+      14: 'few equipment +'
+      16: 'no equipment'
+      18: 'no equipment +'
 
   climbing_styles:
     list:
