@@ -570,6 +570,7 @@ class Outing extends BaseOuting
             case 'hdif': return 'm.height_diff_up';
             case 'ddif': return 'm.height_diff_down';
             case 'cond': return 'm.conditions_status';
+            case 'freq': return 'm.frequentation_status';
             case 'geom': return 'm.geom_wkt';
             case 'time': return 'r.duration';
             case 'fac':  return 'r.facing';
@@ -577,9 +578,11 @@ class Outing extends BaseOuting
             case 'dhei': return 'r.difficulties_height';
             case 'grat': return 'r.global_rating';
             case 'erat': return 'r.engagement_rating';
+            case 'orrat': return 'r.objective_risk_rating';
             case 'prat': return 'r.equipment_rating';
             case 'frat': return 'r.rock_free_rating';
             case 'arat': return 'r.aid_rating';
+            case 'rexpo': return 'r.rock_exposition_rating';
             case 'irat': return 'r.ice_rating';
             case 'mrat': return 'r.mixed_rating';
             case 'trat': return 'r.toponeige_technical_rating';
