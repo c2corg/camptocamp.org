@@ -78,10 +78,12 @@ all:
       'dhei': difficulties_height
       'grat': global_rating
       'erat': engagement_rating
+      'orrat': objective_risk_rating
       'prat': equipment_rating
       'frat': rock_free_rating
       'rrat': rock_required_rating
       'arat': aid_rating
+      'rexpo': rock_exposition_rating
       'irat': ice_rating
       'mrat': mixed_rating
       'trat': toponeige_technical_rating
@@ -91,22 +93,26 @@ all:
       'hrat': hiking_rating
       'wrat': snowshoeing_rating
       'cond': conditions_status
-    route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'rrat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat', 'wrat' ]
+      'freq': frequentation_status
+    route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'orrat', 'prat', 'frat', 'rrat', 'arat', 'rexpo', 'irat', 'mrat', 'trat', 'sexpo', 'lrat', 'srat', 'hrat', 'wrat' ]
     filled_criteria:
       'alt':  oalt
       'hdif': odif
       'ddif': oddif
       'cond': ocond
+      'freq': ofreq
       'fac': ''
       'time': ''
       'ralt': ''
       'dhei': ''
       'grat': ''
       'erat': ''
+      'orrat':
       'prat': ''
       'frat': ''
       'rrat': ''
       'arat': ''
+      'rexpo':
       'irat': ''
       'mrat': ''
       'trat': ''
