@@ -693,14 +693,24 @@ all:
   equipment_ratings: #this one is common for routes and sites
     list:
       0:
+      4:  'P1'
+      6:  'P1+'
+      8:  'P2'
+      10: 'P2+'
+      12: 'P3'
+      14: 'P3+'
+      16: 'P4'
+      18: 'P4+'
+    tooltips:
+      0:
       4:  'good equipment'
-      6:  'good equipment +'
+      6:  'good equipment'
       8:  'partial equipment'
-      10: 'partial equipment +'
+      10: 'partial equipment'
       12: 'few equipment'
-      14: 'few equipment +'
+      14: 'few equipment'
       16: 'no equipment'
-      18: 'no equipment +'
+      18: 'no equipment'
 
   climbing_styles:
     list:
