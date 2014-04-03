@@ -68,10 +68,13 @@ a.close_btn, div.selected_image,
   background-position: -11px -709px;
 }
 
-a.logged_as
+@if $standard
 {
-  background-image: -c2c-hashurl('/static/images/portals/ice_modules_mini.png');
-  background-position: -8px -392px;
+  a.logged_as
+  {
+    background-image: -c2c-hashurl('/static/images/portals/ice_modules_mini.png');
+    background-position: -8px -392px;
+  }
 }
 
 .picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images,
