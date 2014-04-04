@@ -704,13 +704,13 @@ all:
     tooltips:
       0:
       4:  'good equipment'
-      6:  'good equipment'
+      6:  'good equipment +'
       8:  'partial equipment'
-      10: 'partial equipment'
+      10: 'partial equipment +'
       12: 'few equipment'
-      14: 'few equipment'
+      14: 'few equipment +'
       16: 'no equipment'
-      18: 'no equipment'
+      18: 'no equipment +'
 
   climbing_styles:
     list:
