@@ -1,26 +1,70 @@
 (function(C2C, $) {
-  var dropid = 'global-drop-overlay';
 
-  C2C.PlUploadWrapper = {
+  /**
+   * TODO / notes:
+   * - html5 runtime is currently only available for recent browsers, since other browser don't support multipart and image resizing
+   * - silverlight runtime reoved, since it doesn't support exif yet, and html5+flash probably covers more than 99% of users
+   * - add some server side work to enhance image quality?
+   * - better behaviour for SVGs (eg enable chunking for file >2mB)
+   * - use static url for swf file (but we then need crossdomain.xml file)
+  */
 
-    /**
-     * TODO / notes:
-     * - html5 runtime is currently only available for recent browsers, since other browser don't support multipart and image resizing
-     * - silverlight runtime reoved, since it doesn't support exif yet, and html5+flash probably covers more than 99% of users
-     * - add some server side work to enhance image quality?
-     * - better behaviour for SVGs (eg enable chunking for file >2mB)
-     * - use static url for swf file (but we then need crossdomain.xml file)
-     */
+  C2C.PlUploadWrapper = function(upload_url, backup_url, i18n) {
 
-    image_number: 0,
-    pe: null,
+    var dropid = 'global-drop-overlay',
+        ulid = 'files_to_upload',
+        image_number = 0,
+        uploader;
 
-    init: function(upload_url, backup_url, i18n) {
+    function init(upload_url, backup_url, i18n) {
+      // form controls events
+      $('.plupload-cancel').click(function() {
+        if (uploader) {
+          uploader.destroy();
+        }
+        $.modalbox.hide();
+      });
+      $('#files_to_upload').on('focus', 'input[name^=name]', function() {
+        $(this).on('propertychange.pl keyup.pl input.pl paste.pl', isValid);
+      }).on('blur', 'input[name^=name]', function() {
+        $(this).off('.pl');
+      }).on('click', '.plupload-close', function() {
+        var $this = $(this);
+        // loading pictures have data-fileid
+        var fileid = $this.attr('data-fileid');
+        if (fileid) {
+          cancelUpload(fileid);
+        }
+        removeEntry.call(this);
+      });
+      $('#images_validate_form').submit(function(event) {
+        console.log('control before submit');
+        var allow_submit = titlesValid();
+        if (!allow_submit) {
+          // identify faulty images
+          $('.plupload-entry:has(input[name^=name][data-invalid=false])').addClass('invalid');
+          // display tooltip on what is going wrong
+          var tooltip = $('.plupload-submit + .tooltip');
+          tooltip.show().addClass('in');
+          setTimeout(function() {
+            tooltip.removeClass('in');
+          }, 2000);
+          setTimeout(function() {
+            tooltip.hide();
+          }, 3000);
+          // prevent form submission
+          event.preventDefault();
+        } else {
+          $('.plupload-submit').prop('disabled', true);
+          $('#indicator').show();
+        }
+      });
 
-      var uploader = new plupload.Uploader({
+      // plupload init
+      uploader = new plupload.Uploader({
         runtimes: 'html5,flash', // rq: flash is not working well with FF (getFlashObj() null ?) but anyway, html5 is fine with firefox
         browse_button: 'pickfiles',
-        container: 'container', // when using the body as container, flash shim is badly placed when scrolling, so we attach it to the modalbox
+        container: 'plupload-container', // when using the body as container, flash shim is badly placed when scrolling, so we attach it to the modalbox
         drop_element: dropid,
         file_data_name: 'image_file',
         multipart: true,
@@ -34,7 +78,13 @@
       });
 
       uploader.bind('Init', function(up, params) {
-        $('#pickfiles').prop('disabled', false);
+        $('.plupload-pickfiles').prop('disabled', false);
+        $('.plupload-indication').show();
+
+        if (up.runtime === 'flash') {
+          var button = $('.plupload-indication .plupload-pickfiles');
+          button.replaceWith('<span>'+button.val()+'</span>');
+        }
 
         // drag&drop look&feel
         if (up.features.dragdrop) {
@@ -57,48 +107,46 @@
           plupload.addEvent(drop_overlay[0], 'drop', function(e) {
             drop_overlay.removeClass('active');
           });
+        } else {
+          $('.plupload-drag-drop').hide();
         }
-
-        pe = setInterval(C2C.PlUploadWrapper.validateImageForms, 500);
-      }, this);
+      });
 
       uploader.bind('Error', function(up, err) {
         switch(err.code) {
           // no available runtime with all desired features,
           // load needed js and redirect to backup upload system
           case plupload.INIT_ERROR:
-            $.modalbox.show({ remote: backup_url });
+            $.modalbox.show({ remote: backup_url, width: 700 });
             return;
 
           // file is with wrong extension, or too big (svg and gif files cannot be resized)
           case plupload.FILE_SIZE_ERROR:
           case plupload.FILE_EXTENSION_ERROR:
-            this.displayError(err.file, i18n.badselect);
+            displayError(err.file, i18n.badselect);
             break;
 
           // other errors
           default:
-            this.displayError(err.file, i18n.unknownerror + ' (' + err.message + ' ' + err.status + ')');
+            displayError(err.file, i18n.unknownerror + ' (' + err.message + ' ' + err.status + ')');
             break;
         }
         up.refresh(); // reposition Flash/Silverlight
-      }, this);
+      });
 
       uploader.init();
 
-      this.uploader = uploader;
-
       uploader.bind('BeforeUpload', function(up, file) {
         // increment image_number
-        this.image_number++;
+        image_number++;
 
-        var div = $('#'+file.id);
+        var div = $('#pl_'+file.id);
         div.find('b:first').html(i18n.sending);
         div.find('a:first').remove();
 
         up.settings.multipart_params = {
           plupload : true,
-          image_number: this.image_number
+          image_number: image_number
         };
 
         // png and jpg images <2M will get resized only if they exceed c2c limits (8192x2048)
@@ -114,128 +162,158 @@
         else if (/\.(gif|svg)$/i.test(file.name)) {
           up.settings.max_file_size = '2mb';
         }
-      }, this);
+      });
 
       uploader.bind('FilesAdded', function(up, files) {
-        var waiting = i18n.waiting;
-        var cancel = i18n.cancel;
+        var ul = $('#'+ulid), lis = $();
 
+        // hide drop overlay if active
         $('#'+dropid).removeClass('active');
 
         $.each(files, function(i, file) {
           // do not display files that have been rejected
           if (file.status != plupload.FAILED) {
-            $('#files_to_upload').prepend(
-              $('<div id="'+file.id+'"/>')
-                .append(
-                  $('<div class="plupload_progress_bar"><div class="plupload_progress"></div></div>'),
-                  $('<span class="plupload_text">'+file.name+' <b>'+waiting+'</b> </span>'),
-                  $('<a/>', { href: '#', text: cancel, click: function() { C2C.PlUploadWrapper.cancelUpload(file.id); } })
+            lis = lis.add($('<li class="plupload-entry" id="pl_'+file.id+'"/>')
+              .append($('<div class="plupload-loading"/>')
+                .append($('<div/>')
+                  .append(
+                    $('<div>'+file.name+'</div>'),
+                    $('<div class="plupload-progress-bar"><div class="plupload-progress"></div></div>'),
+                    $('<div><b>'+i18n.waiting+'</b></div>')
+                  )
                 )
+                .append('<button type="button" title="'+i18n.cancel+
+                        '" class="plupload-close" data-fileid="'+file.id+'">×</button>')
+              )
             );
           }
         });
+
+        if (!ul.hasClass('mixitup') && files.length) {
+          // it is better to first init mixItUp, and only then add
+          // the elements, else we get one small visual glitch
+          ul.mixItUp({
+            controls: {
+              enable: false
+            },
+            selectors: {
+              target: '.plupload-entry'
+            },
+            layout: {
+              containerClass: 'mixitup',
+              containerClassFail: 'empty'
+            }
+          })
+        }
+        ul.mixItUp('append', lis);
+
         up.refresh();  // Reposition Flash/Silverlight
         window.setTimeout(function() {
           up.start();
         }, 500);
-      }, this);
+      });
 
       // display upload progress
       uploader.bind('UploadProgress', function(up, file) {
-        var div = $('#'+file.id);
+        var li = $('#pl_'+file.id);
+
+        li.find('.plupload-progress:first').width(file.percent + '%');
 
         if (file.percent >= 95) {
-          div.find('b:first').html(i18n.serverop);
+          li.find('b:first').html(i18n.serverop);
         }
-
-        div.find('.plupload_progress:first').width(file.percent);
-      }, this);
+      });
 
       // show server response
       uploader.bind('FileUploaded', function(up, file, response) {
-        $('.images_submit').show();
-        $('#'+file.id).html(response.response)
-          .find('.tmp-image-close').click(C2C.PlUploadWrapper.removeEntry);
+        var content = $('#pl_'+file.id).html(response.response);
+
+        // enable submit button if ok
+        $('.plupload-submit').prop('disabled', !$('.plupload-entry input[name^=name]').length);
+
+        // add timestamp info, then sort
+        content.attr('data-datetime', content.find('img').attr('data-datetime') || 0);
+        sort();
       });
-    },
+    }
 
     // function to display a self-formed error response
-    displayError: function(file, errormsg) {
-      $('#'+file.id).html($('<div class="image_upload_entry"></div>')
+    function displayError(file, errormsg) {
+      var $entry = $('#pl_'+file.id);
+
+      // It is strange if failed images are re-ordered to the beginning, so we rather try to copy
+      // the timestamp of previous 'good image' if any
+      $entry.attr('data-datetime',
+        $entry.prevAll(':has(.plupload-image-container)').first().attr('data-datetime') || '0');
+
+      $entry.html($('<div class="plupload-error"></div>')
+        .append($('<div/>')
+          .append(
+            document.createTextNode(file.name),
+            $('<div class="global_form_error"><ul><li>'+errormsg+'</li></ul></div>')
+          )
+        )
         .append(
-          $('<span class="picto action_cancel tmp-image-close"></span>').click(C2C.PlUploadWrapper.removeEntry),
-          document.createTextNode(file.name),
-          $('<div class="global_form_error"><ul><li>'+errormsg+'</li></ul></div>'))
+          $('<button type="button" class="plupload-close">×</button>')
+        )
       );
-    },
 
-    removeEntry: function() {
-      if (!cssAnimationSupported) {
-        $(this).parent().remove();
-      } else {
-        $(this).parent().addClass('removed')
-          .one('webkitAnimationEnd animationend', function(e) {
-            $(this).remove();
-          });
-      }
-    },
+      // we still need to sort, because we could have a batch of photos where
+      // only the last would get an error
+      sort();
+    }
 
-    cancelUpload: function(file) {
-      this.uploader.removeFile(this.uploader.getFile(file));
-      $('#'+file).remove();
-    },
+    function cancelUpload(fileid) {
+      uploader.removeFile(uploader.getFile(fileid));
+    }
 
-    // same function as in images_upload.js
-    // used to validate with javascript that image information is correct
-    // factorize? (is it worth it?)
-    validateImageForms: function() {
-      var $modalbox = $('#modalbox');
-      if ($modalbox.length && !$modalbox.hasClass('in')) { // means modalbox is closed
-        clearInterval(pe);
-        return null;
-      }
-
-      var images = $('.image_upload_entry input:first');
-      var allow_submit = !!images.length;
-
-      images.each(function() {
-        var form_error = $(this).siblings('.image_form_error:first');
-        if ($(this).val().replace(/^\s+|\s+$/g,"").length < 4) {
-          if (!form_error.is(':visible')) {
-            form_error.show();
-          }
-          allow_submit = false;
-        } else {
-          if (form_error.is(':visible')) {
-            form_error.hide();
-          }
-        }
+    function removeEntry() {
+      var $entry = $(this).closest('.plupload-entry');
+      $entry.addClass('remove');
+      $('#'+ulid).mixItUp('filter', ':not(.remove)', function() {
+        $entry.remove();
+        $('.plupload-submit').prop('disabled', !$('.plupload-entry input[name^=name]').length);
       });
+    }
 
-      if (allow_submit) {
-        $('.images_submit').prop('disabled', false);
+    function isValid() {
+      console.log(this);
+      var $this = $(this);
+      var valid = $this.val().replace(/^\s+|\s+$/g,"").length >= 4;
+      $this.attr('data-invalid', valid);
+      if (valid) {
+        $this.closest('.plupload-entry').removeClass('invalid');
+      }
+      return valid;
+    }
+
+    function titlesValid() {
+      var valid = true;
+      $('.plupload-entry input[name^=name]').each(function() {
+        console.log('plop');
+        valid = isValid.call(this) && valid;
+      });
+      return valid;
+    }
+
+    // set tabindex for title inputs
+    function setTabindex() {
+      $('.plupload-image-entry input[name^=name]').each(function(i) {
+        this.tabIndex = i + 1;
+      });
+    }
+
+    function sort() {
+      // don't sort when images are being uploaded, that would
+      // cause strange behaviours
+      if (!$('.plupload-loading').length) {
+        $('#'+ulid).mixItUp('sort', 'datetime', setTabindex);
       } else {
-        $('.images_submit').prop('disabled', true);
+        setTabindex();
       }
     }
 
+    return init(upload_url, backup_url, i18n);
   };
-
-  // test if css animation and transforms are supported
-  // (all browsers that support animation also support 2d transforms)
-  var cssAnimationSupported = (function() {
-    var animation = false;
-    var props = ['animationName', 'WebkitAnimationName', 'MozAnimationName'];
-    var elt = $('div')[0];
-    for (var i in props) {
-      var prop = props[i];
-      if (elt.style[prop] !== undefined) {
-        animation = true;
-        break;
-      }
-    }
-    return animation;
-  })();
 
 })(window.C2C = window.C2C || {}, jQuery);

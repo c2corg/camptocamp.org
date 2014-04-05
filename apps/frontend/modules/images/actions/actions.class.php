@@ -290,8 +290,8 @@ class imagesActions extends documentsActions
             ksort($images_uniquenames);
             foreach ($images_uniquenames as $key => $filename)
             {
-                $image_type = $images_types[$key];
-                $name = $images_names[$key];
+                $image_type = isset($images_types[$key]) ? $images_types[$key] : 2;
+                $name = !empty($images_names[$key]) ? $images_names[$key] : $this->__('Image name missing');
                 $categories = array_key_exists($key, $images_categories) ?
                               $images_categories[$key] : array();
 
@@ -445,7 +445,7 @@ class imagesActions extends documentsActions
         $this->setlayout(false);
     }
 
-    /** image uplaod with plupload tool */
+    /* image upload with plupload tool */
     public function executeAddpltempimage()
     {
         $document_id = $this->getRequestParameter('document_id');
@@ -511,7 +511,7 @@ class imagesActions extends documentsActions
 
     /**
      * Executes easy upload action
-     * Due to a limitation in flash... online the name of the file is usable
+     * Due to a limitation in flash... only the name of the file is usable
      * so other informations are sent by reference...
      */
     public function executeUpload()

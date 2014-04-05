@@ -94,7 +94,10 @@ $default-width: 500px;
     line-height: 20px;
     border: none;
     @include opacity(.2);
-    @include text-shadow(0 1px 0 white);
+    &, &:hover {
+      background: none;
+      @include box-shadow(none);
+    }
     &:hover, &:focus {
       @include opacity(.4);
     }
@@ -111,6 +114,7 @@ $default-width: 500px;
 .modal-body {
   position: relative;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 15px;
   min-height: 100px;
 }

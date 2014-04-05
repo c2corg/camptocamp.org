@@ -1,6 +1,17 @@
-<div class="image_upload_entry">
-<?php
-include_partial('images/temp_image_error',
-                array('image_name' => $image_name));
-?>
+<?php use_helper('MyForm', 'Javascript'); ?>
+<div class="plupload-error">
+  <div>
+    <?php echo $image_name; ?>
+    <div class="global_form_error">
+      <ul>
+        <?php
+        foreach(sfContext::getInstance()->getRequest()->getErrors() as $name => $error)
+        {
+            echo '<li>' . __($error) . '</li>';
+        }
+        ?>
+      </ul>
+    </div>
+  </div>
+  <button type="button" class="plupload-close">Ã~CÂ~W</button>
 </div>

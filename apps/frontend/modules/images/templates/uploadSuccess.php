@@ -22,7 +22,7 @@ echo global_form_errors_tag();
 echo form_tag('images/upload?mod=' . $sf_params->get('mod') . '&document_id=' . $sf_params->get('document_id'),
               array('multipart' => true));
 ?>
-  <div id="files_to_upload">
+  <div id="files_to_upload" class="legacy">
     <?php include_partial('file_form', array('image_number' => 0, 'default_license' => $default_license == null ? 2 : $default_license)) ?>
   </div>
   <p><?php echo picto_tag('picto_add') ?> <a href="#" id="add_file_link"><?php echo __('add an other file') ?></a></p>

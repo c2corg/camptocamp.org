@@ -2118,7 +2118,7 @@ fieldset .select_title
   margin: 2px 0.3em;
 }
 
-#filterform  input.geonames
+#filterform input.geonames
 {
   width: 15em;
 }
@@ -3247,9 +3247,12 @@ p.abstract em
   cursor: pointer;
 }
 
-#files_to_upload
+#modalbox #files_to_upload.legacy
 {
   max-height: 380px;
+}
+#files_to_upload
+{
   overflow: auto;
 }
 

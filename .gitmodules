@@ -40,3 +40,6 @@
 [submodule "web/static/js/third-parties/slip"]
 	path = web/static/js/third-parties/slip
 	url = https://github.com/pornel/slip.git
+[submodule "web/static/js/third-parties/mixitup"]
+	path = web/static/js/third-parties/mixitup
+	url = https://github.com/patrickkunka/mixitup.git
