@@ -131,7 +131,8 @@
         $('#'+dropid).removeClass('active');
 
         $.each(files, function(i, file) {
-          // do not display files that have been rejected
+          // do not display files that have been rejected, they will be directly handled by displayError
+          // (more than that, the error event may already have fired)
           if (file.status != plupload.FAILED) {
             lis = lis.add($('<li class="plupload-entry" id="pl_'+file.id+'"/>')
               .append($('<div class="plupload-loading"/>')
@@ -149,21 +150,10 @@
           }
         });
 
-        if (!ul.hasClass('mixitup') && files.length) {
+        if (!ul.hasClass('mixitup') && lis.length) {
           // it is better to first init mixItUp, and only then add
           // the elements, else we get one small visual glitch
-          ul.mixItUp({
-            controls: {
-              enable: false
-            },
-            selectors: {
-              target: '.plupload-entry'
-            },
-            layout: {
-              containerClass: 'mixitup',
-              containerClassFail: 'empty'
-            }
-          });
+          mixitup.call(ul);
         }
         ul.mixItUp('append', lis);
 
@@ -268,6 +258,18 @@
     function displayError(file, errormsg) {
       var $entry = $('#pl_'+file.id);
 
+      // If FILE_SIZE_ERROR or plupload.FILE_EXTENSION, this is triggered first, so we
+      // build the entry, instead of retrieving it
+      if (!$entry.length) {
+        // if mixitup not started, let's do it
+        var ul = $('#'+ulid);
+        if (!ul.hasClass('mixitup')) {
+          mixitup.call(ul);
+        }
+        // then create our entry (empty since it will be filled right after this)
+        ul.mixItUp('append', $entry = $('<li class="plupload-entry" id="pl_'+file.id+'"/>'));
+      }
+
       // It is strange if failed images are re-ordered to the beginning, so we rather try to copy
       // the timestamp of previous 'good image' if any
       $entry.attr('data-datetime',
@@ -325,6 +327,21 @@
     function setTabindex() {
       $('.plupload-image-entry input[name^=name]').each(function(i) {
         this.tabIndex = i + 1;
+      });
+    }
+
+    function mixitup() {
+      this.mixItUp({
+        controls: {
+          enable: false
+        },
+        selectors: {
+          target: '.plupload-entry'
+        },
+        layout: {
+          containerClass: 'mixitup',
+          containerClassFail: 'empty'
+        }
       });
     }
 
