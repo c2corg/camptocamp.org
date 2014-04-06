@@ -14,53 +14,11 @@
     var dropid = 'global-drop-overlay',
         ulid = 'files_to_upload',
         image_number = 0,
+        usemodalbox,
         uploader;
 
     function init(upload_url, backup_url, i18n) {
-      // form controls events
-      $('#modalbox').on('hide.modal.pl', function() {
-        if (uploader) {
-          uploader.destroy();
-        }
-        $(this).off('.pl');
-      });
-      $('.plupload-cancel').click($.modalbox.hide);
-
-      $('#files_to_upload').on('focus', 'input[name^=name]', function() {
-        $(this).on('propertychange.pl keyup.pl input.pl paste.pl', isValid);
-      }).on('blur', 'input[name^=name]', function() {
-        $(this).off('.pl');
-      }).on('click', '.plupload-close', function() {
-        var $this = $(this);
-        // loading pictures have data-fileid
-        var fileid = $this.attr('data-fileid');
-        if (fileid) {
-          cancelUpload(fileid);
-        }
-        removeEntry.call(this);
-      });
-
-      $('#images_validate_form').submit(function(event) {
-        var allow_submit = titlesValid();
-        if (!allow_submit) {
-          // identify faulty images
-          $('.plupload-entry:has(input[name^=name][data-invalid=false])').addClass('invalid');
-          // display tooltip on what is going wrong
-          var tooltip = $('.plupload-submit + .tooltip');
-          tooltip.show().addClass('in');
-          setTimeout(function() {
-            tooltip.removeClass('in');
-          }, 2000);
-          setTimeout(function() {
-            tooltip.hide();
-          }, 3000);
-          // prevent form submission
-          event.preventDefault();
-        } else {
-          $('.plupload-submit').prop('disabled', true);
-          $('#indicator').show();
-        }
-      });
+      setControls();
 
       // plupload init
       uploader = new plupload.Uploader({
@@ -81,7 +39,7 @@
 
       uploader.bind('Init', function(up, params) {
         $('.plupload-pickfiles').prop('disabled', false);
-        $('.plupload-indication').show();
+        $('.plupload-indication').toggle(usemodalbox);
 
         if (up.runtime === 'flash') {
           var button = $('.plupload-indication .plupload-pickfiles');
@@ -236,6 +194,62 @@
         // add timestamp info, then sort
         content.attr('data-datetime', content.find('img').attr('data-datetime') || 0);
         sort();
+      });
+    }
+
+    function setControls() {
+
+      var modalbox = $('#modalbox');
+      usemodalbox = modalbox.hasClass('in') && !!modalbox.has('#plupload-container').length;
+      if (usemodalbox) {
+        modalbox.on('hide.modal.pl', function() {
+          if (uploader) {
+            uploader.destroy();
+          }
+          $(this).off('.pl');
+        });
+        $('.plupload-cancel').click($.modalbox.hide);
+      } else {
+        $('.plupload-cancel').click(function() {
+          history.back();
+        });
+      }
+
+      // watch changes on image title inputs
+      $('#files_to_upload').on('focus', 'input[name^=name]', function() {
+        $(this).on('propertychange.pl keyup.pl input.pl paste.pl', isValid);
+      }).on('blur', 'input[name^=name]', function() {
+        $(this).off('.pl');
+      }).on('click', '.plupload-close', function() {
+        var $this = $(this);
+        // loading pictures have data-fileid
+        var fileid = $this.attr('data-fileid');
+        if (fileid) {
+          cancelUpload(fileid);
+        }
+        removeEntry.call(this);
+      });
+
+      $('#images_validate_form').submit(function(event) {
+        var allow_submit = titlesValid();
+        if (!allow_submit) {
+          // identify faulty images
+          $('.plupload-entry:has(input[name^=name][data-invalid=false])').addClass('invalid');
+          // display tooltip on what is going wrong
+          var tooltip = $('.plupload-submit + .tooltip');
+          tooltip.show().addClass('in');
+          setTimeout(function() {
+            tooltip.removeClass('in');
+          }, 2000);
+          setTimeout(function() {
+            tooltip.hide();
+          }, 3000);
+          // prevent form submission
+          event.preventDefault();
+        } else {
+          $('.plupload-submit').prop('disabled', true);
+          $('#indicator').show();
+        }
       });
     }
 

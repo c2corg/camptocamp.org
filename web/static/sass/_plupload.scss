@@ -49,6 +49,7 @@ $image-title-size: 40px;
     vertical-align: middle
   }
 }
+
 #files_to_upload.empty .plupload-indication {
   display: table;
 }
@@ -56,9 +57,7 @@ $image-title-size: 40px;
 // main div
 #plupload-container #files_to_upload {
   height: 100%;
-} // TODO check
-
-
+}
 
 // control buttons
 .plupload-control {
@@ -209,5 +208,12 @@ $image-title-size: 40px;
     &:-ms-input-placeholder {
       color: red;
     }
+  }
+}
+
+// if screen can contain only one entry horizontally, let's center it
+@media (max-width: 580px) {
+  #files_to_upload {
+    text-align:center;
   }
 }
