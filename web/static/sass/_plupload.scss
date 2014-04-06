@@ -56,7 +56,11 @@ $image-title-size: 40px;
 
 // main div
 #plupload-container #files_to_upload {
+  overflow: visible;
+}
+#modalbox #plupload-container #files_to_upload {
   height: 100%;
+  overflow: auto;
 }
 
 // control buttons
