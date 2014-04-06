@@ -54,7 +54,8 @@
       if (!!this.options.backdrop && this.options.backdrop != 'static') {
         $('.modal-backdrop').on('click.dismiss.modal', $.proxy(this.hide, this));
       }
-      this.$element.addClass('in');
+      this.$element.addClass('in')
+        .trigger($.Event('show.modal'));
     },
 
     hide: function() {
@@ -63,7 +64,8 @@
       this.isShown = false;
       this.escape();
       $('.modal-backdrop').off('click.dismiss.modal');
-      this.$element.removeClass('in');
+      this.$element.removeClass('in')
+        .trigger($.Event('hide.modal'));
     },
 
     // set escape key

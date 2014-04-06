@@ -18,12 +18,14 @@
 
     function init(upload_url, backup_url, i18n) {
       // form controls events
-      $('.plupload-cancel').click(function() {
+      $('#modalbox').on('hide.modal.pl', function() {
         if (uploader) {
           uploader.destroy();
         }
-        $.modalbox.hide();
+        $(this).off('.pl');
       });
+      $('.plupload-cancel').click($.modalbox.hide);
+
       $('#files_to_upload').on('focus', 'input[name^=name]', function() {
         $(this).on('propertychange.pl keyup.pl input.pl paste.pl', isValid);
       }).on('blur', 'input[name^=name]', function() {
@@ -37,8 +39,8 @@
         }
         removeEntry.call(this);
       });
+
       $('#images_validate_form').submit(function(event) {
-        console.log('control before submit');
         var allow_submit = titlesValid();
         if (!allow_submit) {
           // identify faulty images
@@ -277,7 +279,6 @@
     }
 
     function isValid() {
-      console.log(this);
       var $this = $(this);
       var valid = $this.val().replace(/^\s+|\s+$/g,"").length >= 4;
       $this.attr('data-invalid', valid);
@@ -290,7 +291,6 @@
     function titlesValid() {
       var valid = true;
       $('.plupload-entry input[name^=name]').each(function() {
-        console.log('plop');
         valid = isValid.call(this) && valid;
       });
       return valid;
