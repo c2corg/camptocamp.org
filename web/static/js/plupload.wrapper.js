@@ -37,7 +37,7 @@
         required_features: 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have all of these features will fail
       });
 
-      uploader.bind('Init', function(up, params) {
+      uploader.bind('Init', function(up) {
         $('.plupload-pickfiles').prop('disabled', false);
         $('.plupload-indication').toggle(usemodalbox);
 
@@ -51,7 +51,7 @@
           $('#'+dropid).remove(); // be sure it is there only once
           var drop_overlay = $('<div id="'+dropid+'"><span>'+i18n.drop+'</span></div>').appendTo('body');
 
-          plupload.addEvent(document, 'dragenter', function(e) {
+          plupload.addEvent(document, 'dragenter', function() {
             if ($('#modalbox').hasClass('in') && $('#image_upload').is(':visible')) {
               drop_overlay.addClass('active');
             }
@@ -64,7 +64,7 @@
           });
 
           // be sure to hide drop_overlay even if no correct file has been dropped
-          plupload.addEvent(drop_overlay[0], 'drop', function(e) {
+          plupload.addEvent(drop_overlay[0], 'drop', function() {
             drop_overlay.removeClass('active');
           });
         } else {
@@ -163,7 +163,7 @@
               containerClass: 'mixitup',
               containerClassFail: 'empty'
             }
-          })
+          });
         }
         ul.mixItUp('append', lis);
 
@@ -202,14 +202,25 @@
       var modalbox = $('#modalbox');
       usemodalbox = modalbox.hasClass('in') && !!modalbox.has('#plupload-container').length;
       if (usemodalbox) {
+        // be sure to destroy plupload when modalbox is closed
         modalbox.on('hide.modal.pl', function() {
           if (uploader) {
             uploader.destroy();
           }
           $(this).off('.pl');
+          $(window).off('.pl');
         });
+
+        // modalbox resize when window resized
+        var tid;
+        $(window).on('resize.pl', function() {
+          clearTimeout(tid);
+          tid = setTimeout(resize, 300);
+        });
+
         $('.plupload-cancel').click($.modalbox.hide);
       } else {
+        // without modalbox, cancel buton should go back in history
         $('.plupload-cancel').click(function() {
           history.back();
         });
@@ -326,6 +337,21 @@
         setTabindex();
       }
     }
+
+    // resize modalbox when window is resized
+    function resize() {
+      var width = $(window).width() - 60,
+          height = $(window).height() - $('.modal-header').outerHeight(true) -
+            $('.plupload-tips').outerHeight(true) - $('.plupload-control').outerHeight(true) -
+            $('.modal-footer').outerHeight(true) - parseInt($('.modal-body').css('paddingBottom'), 10)*2 - 30;
+
+      $('#modalbox').width(width)
+        .css('margin-left', Math.round(width / -2));
+      $('#images_validate_form').height(height);
+
+      uploader.refresh();
+    }
+
 
     return init(upload_url, backup_url, i18n);
   };
