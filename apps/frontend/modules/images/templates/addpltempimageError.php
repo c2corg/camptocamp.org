@@ -13,5 +13,5 @@
       </ul>
     </div>
   </div>
-  <button type="button" class="plupload-close">Ã~CÂ~W</button>
+  <button type="button" class="plupload-close">Ã—</button>
 </div>
