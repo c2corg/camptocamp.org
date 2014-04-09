@@ -239,7 +239,8 @@
           var val = $this.val();
           $this.prev('.count').text(val ? val.length : 0);
         } else { // checkboxes
-          $this.closest('.plupload-dropdown-container').find('.count').text(form.find('[name^=categories]:checked').length);
+          var $entry = $this.closest('.plupload-entry');
+          $entry.find('.count').text($entry.find('[name^=categories]:checked').length);
           $this.parent('label').toggleClass('checked', $this.prop('checked'));
         }
       }).on('change', '[name^=image_type]', function() {
