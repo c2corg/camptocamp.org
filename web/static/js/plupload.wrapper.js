@@ -189,7 +189,8 @@
 
     function setControls() {
 
-      var modalbox = $('#modalbox');
+      var modalbox = $('#modalbox'),
+          form = $('#files_to_upload');
       usemodalbox = modalbox.hasClass('in') && !!modalbox.has('#plupload-container').length;
       if (usemodalbox) {
         // be sure to destroy plupload when modalbox is closed
@@ -198,6 +199,7 @@
             uploader.destroy();
           }
           $(this).off('.pl');
+          $(document).off('.pl');
           $(window).off('.pl');
         });
 
@@ -208,16 +210,16 @@
           tid = setTimeout(resize, 300);
         });
 
-        $('.plupload-cancel').click($.modalbox.hide);
+        form.on('click', '.plupload-cancel', $.modalbox.hide);
       } else {
         // without modalbox, cancel buton should go back in history
-        $('.plupload-cancel').click(function() {
+        form.on('click', '.plupload-cancel', function() {
           history.back();
         });
       }
 
       // watch changes on image title inputs
-      $('#files_to_upload').on('focus', 'input[name^=name]', function() {
+      form.on('focus', 'input[name^=name]', function() {
         $(this).on('propertychange.pl keyup.pl input.pl paste.pl', isValid);
       }).on('blur', 'input[name^=name]', function() {
         $(this).off('.pl');
@@ -231,6 +233,26 @@
         removeEntry.call(this);
       });
 
+      form.on('change', '[name^=categories]', function() {
+        var $this = $(this);
+        if ($this.prop('tagName') == 'SELECT') {
+          var val = $this.val();
+          $this.prev('.count').text(val ? val.length : 0);
+        } else { // checkboxes
+          $this.closest('.plupload-dropdown-container').find('.count').text(form.find('[name^=categories]:checked').length);
+          $this.parent('label').toggleClass('checked', $this.prop('checked'));
+        }
+      }).on('change', '[name^=image_type]', function() {
+        var $this = $(this), val = $this.val();
+        $this.closest('.plupload-entry').find('.plupload-licence')
+          .toggleClass('cc-by-nc-nd-mini', val == 2)
+          .toggleClass('cc-by-sa-mini', val == 1);
+        form.find('label').each(function() {
+          $(this).toggleClass('checked', $(this).find('input').prop('checked'));
+        });
+      });
+
+      // before submitting, check if everything is okay
       $('#images_validate_form').submit(function(event) {
         var allow_submit = titlesValid();
         if (!allow_submit) {

@@ -35,7 +35,9 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 </div>
 </div>
 <?php
-$plupload_js = minify_get_combined_files_url(array('/static/js/mixitup.js', '/static/js/plupload.c2c.js', '/static/js/plupload.wrapper.js'));
+$plupload_js = minify_get_combined_files_url(array(
+    '/static/js/mixitup.js', '/static/js/plupload.dropdown.js',
+    '/static/js/plupload.c2c.js', '/static/js/plupload.wrapper.js'));
 $backup_url = url_for("@image_jsupload?mod=$mod&document_id=$document_id?noplupload=true");
 echo javascript_queue(
 // compute the height that files_to_upload should take. We do it asap in order to prevent flickering

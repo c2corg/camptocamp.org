@@ -1354,7 +1354,7 @@ a.close_btn {
   @include -c2c-hashurl-background('/static/images/copyright.png', no-repeat 0);
 }
 
-.picto.cc-by-sa-mini
+.picto.cc-by-sa-mini, .picto.cc-by-nc-nd-mini
 {
   width: 80px;
   height: 15px;
@@ -4488,7 +4488,7 @@ span.cotometre_result {
   @include -c2c-datauri-background('/static/images/cc-by-sa_mini.png', no-repeat 0);
 }
 
-.thumb_data_img div.license_2, .image_list div.license_2 {
+.picto.cc-by-nc-nd-mini, .thumb_data_img div.license_2, .image_list div.license_2 {
   @include -c2c-datauri-background('/static/images/cc-by-nc-nd_mini.png', no-repeat 0);
 }
 
