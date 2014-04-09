@@ -219,10 +219,12 @@
       }
 
       // watch changes on image title inputs
+      var tid;
       form.on('focus', 'input[name^=name]', function() {
-        $(this).on('propertychange.pl keyup.pl input.pl paste.pl', isValid);
+        var that = this;
+        tid = setInterval(function() { isValid.call(that); }, 100); // TODO use input event once we drop ie8 support
       }).on('blur', 'input[name^=name]', function() {
-        $(this).off('.pl');
+        clearInterval(tid);
       }).on('click', '.plupload-close', function() {
         var $this = $(this);
         // loading pictures have data-fileid
@@ -330,7 +332,7 @@
 
     function isValid() {
       var $this = $(this);
-      var valid = $this.val().replace(/^\s+|\s+$/g,"").length >= 4;
+      var valid = this.value.replace(/^\s+|\s+$/g,"").length >= 4;
       $this.attr('data-invalid', valid);
       if (valid) {
         $this.closest('.plupload-entry').removeClass('invalid');
