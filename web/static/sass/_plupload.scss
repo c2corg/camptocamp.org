@@ -215,6 +215,7 @@ $border-color: #d0d0d0;
   input {
     width: 100%;
     height: $image-title-height;
+    line-height: 40px\9; // ie8 hack
     @include box-sizing(border-box);
     padding: 0 8px;
     background: none;
