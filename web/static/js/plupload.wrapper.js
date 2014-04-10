@@ -367,7 +367,7 @@
 
     // set tabindex for title inputs
     function setTabindex() {
-      $('.plupload-image-entry input[name^=name]').each(function(i) {
+      $('.plupload-entry input[name^=name]').each(function(i) {
         this.tabIndex = i + 1;
       });
     }
