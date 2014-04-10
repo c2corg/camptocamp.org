@@ -222,13 +222,14 @@ $border-color: #d0d0d0;
     padding: 0 8px;
     background: none;
     border: none;
+    @include border-radius(0);
     outline: none;
     color: #999;
-    @include transition(color .3s);
+    @include transition(all .3s);
 
     &:focus {
       color: black;
-      @include box-shadow(none);
+      @include box-shadow(inset 0 0 6px rgba(0, 0, 0, 0.2));
     }
   }
 }
