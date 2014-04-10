@@ -207,7 +207,7 @@
     function setControls() {
 
       var modalbox = $('#modalbox'),
-          form = $('#files_to_upload');
+          form = $('#images_validate_form');
       usemodalbox = modalbox.hasClass('in') && !!modalbox.has('#plupload-container').length;
       if (usemodalbox) {
         // be sure to destroy plupload when modalbox is closed
@@ -229,7 +229,7 @@
 
         form.on('click', '.plupload-cancel', $.modalbox.hide);
       } else {
-        // without modalbox, cancel buton should go back in history
+        // without modalbox, cancel button should go back in history
         form.on('click', '.plupload-cancel', function() {
           history.back();
         });
