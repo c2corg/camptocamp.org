@@ -1,5 +1,10 @@
 // standalone version of plupload specific css
-// used only when using plupload on mobile version
+// used (normally) only when using plupload on mobile version
+
+// we only reference two small external images. Don't try to over optimize and
+// let's fix pixelratio to 2
+$pixelratio: 2;
+$mobile: true;
 
 @import "blob";
 @import "plupload";

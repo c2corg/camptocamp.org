@@ -58,9 +58,10 @@ foreach($home_categories as $cat)
     <?php else: ?>
     <div class="plupload-dropdown-container">
       <div class="plupload-dropdown plupload-licence-button" title="<?php echo __('image_type'); ?>"></div>
-      <div class="content"><ul>
-        <li><label><?php echo $license_choices[1]; ?><input name="image_type[<?php echo $image_number; ?>]" type="radio" value="1" /></label></li>
-        <li><label class="checked"><?php echo $license_choices[2]; ?><input name="image_type[<?php echo $image_number; ?>]" type="radio" value="2" checked /></label></li>
+      <!--[if IE 8]><div class="content keep-open"><ul><![endif]-->
+      <!--[if !IE]> --><div class="content"><ul><!-- <![endif]-->
+        <li><label><input name="image_type[<?php echo $image_number; ?>]" type="radio" value="1" /><?php echo $license_choices[1]; ?></label></li>
+        <li><label class="checked"><input name="image_type[<?php echo $image_number; ?>]" type="radio" value="2" checked /><?php echo $license_choices[2]; ?></label></li>
       </ul></div>
     </div>
     <?php endif; ?>

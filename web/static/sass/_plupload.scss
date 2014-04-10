@@ -70,8 +70,11 @@ $border-color: #d0d0d0;
 
   .tooltip {
     right: 0;
-    bottom: 0;
+    bottom: 26px;
   }
+}
+.modal-body .plupload-control .tooltip {
+  bottom: 0;
 }
 
 .plupload-submit {
@@ -197,7 +200,6 @@ $border-color: #d0d0d0;
     padding: 0;
     border: 0;
     @include opacity(0);
-    cursor: pointer; // not if only for mobile TODO
   }
 }
 
@@ -236,12 +238,12 @@ $button-padding: 8px;
   position: relative;
   float: right;
   height: $image-title-height;
-  @include opacity(.7);
+  opacity: .7;
   @include transition(opacity .3s);
   cursor: pointer;
 
   &:hover, &.active {
-    @include opacity(1);
+    opacity: 1;
   }
 
   & > select { // mobile version with translucid select
@@ -260,7 +262,7 @@ $button-padding: 8px;
 .plupload-categories {
   width: $image-title-height;
   border-left: 1px dashed $border-color;
-  background: -c2c-hashurl('/static/images/picto/tag2.png') center no-repeat;
+  @include -c2c-hashurl-background('/static/images/picto/tag2.png', center no-repeat);
   color: white;
   font-size: 11px;
 
@@ -275,7 +277,7 @@ $button-padding: 8px;
 
 .plupload-licence-button {
   width: 28px;
-  background: -c2c-hashurl('/static/images/picto/cc.png') center no-repeat;
+  @include -c2c-hashurl-background('/static/images/picto/cc.png', center no-repeat);
 }
 
 .plupload-image-bottom.with-licence {
@@ -373,6 +375,7 @@ $button-padding: 8px;
 
         input[type=radio] {
           display: none;
+          display: inline-block\9; // ie8 hack. Labels with hidden input don't change value
         }
       }
     }
