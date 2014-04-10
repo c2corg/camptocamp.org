@@ -36,7 +36,7 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 </div>
 <?php
 $jsfiles = array('/static/js/mixitup.js',
-    '/static/js/plupload.c2c.js',
+    '/static/js/plupload.full.min.js',
     '/static/js/plupload.wrapper.js');
 if (!c2cTools::mobileVersion())
 {

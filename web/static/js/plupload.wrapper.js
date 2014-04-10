@@ -20,6 +20,10 @@
     function init(upload_url, backup_url, i18n) {
       setControls();
 
+      // add drop overlay (won't be used if drag and drop not supported)
+      $('#'+dropid).remove(); // be sure it is there only once
+      var drop_overlay = $('<div id="'+dropid+'"><span>'+i18n.drop+'</span></div>').appendTo('body');
+
       // plupload init
       uploader = new plupload.Uploader({
         runtimes: 'html5,flash', // rq: flash is not working well with FF (getFlashObj() null ?) but anyway, html5 is fine with firefox
@@ -29,12 +33,12 @@
         file_data_name: 'image_file',
         multipart: true,
         url: upload_url,
-        flash_swf_url: '/static/js/plupload/plupload.flash.swf',
+        flash_swf_url: '/static/js/Moxie.swf',
         filters: [{
           title: i18n.extensions,
           extensions: "jpeg,jpg,gif,png,svg"
         }],
-        required_features: 'pngresize,jpgresize,progress,multipart' // a runtime that doesn't have all of these features will fail
+        required_features: 'resize_image,send_multipart'
       });
 
       uploader.bind('Init', function(up) {
@@ -48,9 +52,6 @@
 
         // drag&drop look&feel
         if (up.features.dragdrop) {
-          $('#'+dropid).remove(); // be sure it is there only once
-          var drop_overlay = $('<div id="'+dropid+'"><span>'+i18n.drop+'</span></div>').appendTo('body');
-
           plupload.addEvent(document, 'dragenter', function() {
             if ($('#modalbox').hasClass('in') && $('#image_upload').is(':visible')) {
               drop_overlay.addClass('active');
@@ -69,6 +70,7 @@
           });
         } else {
           $('.plupload-drag-drop').hide();
+          $('#'+dropid).remove();
         }
       });
 
