@@ -24,6 +24,24 @@
       $('#'+dropid).remove(); // be sure it is there only once
       var drop_overlay = $('<div id="'+dropid+'"><span>'+i18n.drop+'</span></div>').appendTo('body');
 
+      // custom max size filter: only for svg and gif
+      plupload.addFileFilter('svg_gif_file_max_size', function(maxSize, file, cb) {
+        var undef;
+        maxSize = plupload.parseSize(maxSize);
+
+        if ((file.type == 'image/svg+xml' || file.type == 'image/gif') &&
+            (file.size !== undef && maxSize && file.size > maxSize)) {
+          this.trigger('Error', {
+            code : plupload.FILE_SIZE_ERROR,
+            message : plupload.translate('File size error.'),
+            file : file
+          });
+          cb(false);
+        } else {
+          cb(true);
+        }
+      });
+
       // plupload init
       uploader = new plupload.Uploader({
         runtimes: 'html5,flash', // rq: flash is not working well with FF (getFlashObj() null ?) but anyway, html5 is fine with firefox
@@ -34,10 +52,10 @@
         multipart: true,
         url: upload_url,
         flash_swf_url: '/static/js/Moxie.swf',
-        filters: [{
-          title: i18n.extensions,
-          extensions: "jpeg,jpg,gif,png,svg"
-        }],
+        filters: {
+          mime_types: [{ title: i18n.extensions, extensions: 'jpeg,jpg,gif,png,svg' }],
+          svg_gif_file_max_size: '2mb'
+        },
         required_features: 'resize_image,send_multipart'
       });
 
@@ -113,16 +131,13 @@
 
         // png and jpg images <2M will get resized only if they exceed c2c limits (8192x2048)
         // images >2M will be resized to max 4096x1024
+        // svg and gifs won't be resized anyway
         if (/\.(png|jpg|jpeg)$/i.test(file.name)) {
           if (file.size >= 2097152) {
-            up.settings.resize = { width : 4096, height : 1024, quality : 90 };
+            up.settings.resize = { width : 4096, height : 1024, quality : 90, enabled: true };
           } else {
-            up.settings.resize = { width : 8192, height : 2048, quality : 90 };
+            up.settings.resize = { width : 8192, height : 2048, quality : 90, enabled: true };
           }
-        }
-        // gif and svg are not resizable, prevent uploading too big files
-        else if (/\.(gif|svg)$/i.test(file.name)) {
-          up.settings.max_file_size = '2mb';
         }
       });
 
