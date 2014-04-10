@@ -15,7 +15,7 @@ set -e # exit on error
 rm -f ../css/*.css
 
 # compile stylesheets
-compass compile
+LANG="en_US.UTF-8" compass compile
 
 # optimize generated sprite images
 if hash optipng 2>/dev/null; then
