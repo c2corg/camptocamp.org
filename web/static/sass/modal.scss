@@ -15,17 +15,17 @@
   left: 0;
   z-index: 9999;
   background-color: black;
-  @include opacity(0);
+  opacity: 0;
   // old safari doesn't proceed transition of visibility, so we have to specify exact parameter and not all
   -webkit-transition: opacity 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
-
   visibility: hidden;
 }
 
-.modal.in ~ .modal-backdrop {
+//.modal.in ~ .modal-backdrop {
+.modal-backdrop.in {
   @include opacity(0.8);
   visibility: visible;
 }
@@ -56,7 +56,7 @@ $default-width: 500px;
   @include background-clip(padding-box);
   // Remove focus outline from opened modal
   outline: none;
-  @include opacity(0);
+  opacity: 0;
 
   // 3d transition effect
   @include rotateX(-60deg);
@@ -75,7 +75,7 @@ $default-width: 500px;
 
   & .modal-content {
     @include rotateX(0deg);
-    @include opacity(1);
+    opacity: 1;
   }
 }
 
