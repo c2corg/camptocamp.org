@@ -30,7 +30,7 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 <input class="plupload-cancel" type="button" value="<?php echo __('cancel') ?>" />
 <input class="plupload-submit" type="submit" value="<?php echo __('save') ?>" disabled="disabled" />
 <div class="tooltip top" style="display:none">
-  <div class="tooltip-inner"><?php echo __('this name is too short (4 characters minimum)') ?></div>
+  <div class="tooltip-inner"><?php echo __('plupload invalid image titles') ?></div>
   <div class="tooltip-arrow"></div>
 </div>
 </div>
