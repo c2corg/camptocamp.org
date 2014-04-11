@@ -72,6 +72,7 @@ if (!$mobile_version)
         {
             $act_url = '&act=4';
         }
+        $orderby = '&orderby=odate&order=desc';
         $text = 'List all images of associated outings';
     }
     elseif (in_array($module_name, array('summits', 'parkings', 'huts')))
