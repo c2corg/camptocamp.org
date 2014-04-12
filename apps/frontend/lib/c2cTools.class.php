@@ -396,7 +396,10 @@ class c2cTools
         foreach ($objects_array as $object)
         {
             // find highest
-            if ($object['elevation'] > $highest_elevation)
+            // if elevations are equals, we need one extra request to check
+            // whether $object os a parent of $highest object (should be a rare case)
+            if ($object['elevation'] > $highest_elevation ||
+                ($object['elevation'] == $highest_elevation && Association::find($object['id'], $highest_object['id'], 'ss', true)))
             {
                 $highest_elevation = $object['elevation'];
                 $highest_object = $object;
