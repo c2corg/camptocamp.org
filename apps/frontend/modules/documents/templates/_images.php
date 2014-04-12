@@ -58,6 +58,7 @@ if (!$mobile_version)
 {
     $images_link = $outings_link = $link = array();
     $module_url = $module_url2 = $module_name;
+    $act_url = '';
     $orderby = '';
     if (!isset($list_ids))
     {
@@ -67,6 +68,11 @@ if (!$mobile_version)
     if (in_array($module_name, array('routes', 'sites')))
     {
         $module_url = 'o' . $module_name;
+        if ($module_name == 'sites')
+        {
+            $act_url = '&act=4';
+        }
+        $orderby = '&orderby=odate&order=desc';
         $text = 'List all images of associated outings';
     }
     elseif (in_array($module_name, array('summits', 'parkings', 'huts')))
@@ -93,7 +99,7 @@ if (!$mobile_version)
     
     if (isset($text))
     {
-        $images_link[] = link_to(__($text), "images/list?$module_url=$list_ids$orderby", array('rel' => 'nofollow'));
+        $images_link[] = link_to(__($text), "images/list?$module_url=$list_ids$act_url$orderby", array('rel' => 'nofollow'));
         
         if ($nb_images && in_array($module_name, array('summits', 'routes', 'sites', 'articles')))
         {
@@ -118,7 +124,7 @@ if (!$mobile_version)
     }
     else
     {
-        $url2 = "images/list?ityp=1&join=outing&$module_name=$list_ids&orderby=odate&order=desc";
+        $url2 = "images/list?ityp=1&join=outing&$module_name=$list_ids$act_url&orderby=odate&order=desc";
     }
     
     if (!empty($url2) && !in_array($module_name, array('images', 'users')))
