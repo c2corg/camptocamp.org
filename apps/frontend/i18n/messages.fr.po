@@ -1221,6 +1221,9 @@ msgstr "Cette image est protégée"
 msgid "Image license"
 msgstr "Licence de l'image&nbsp;:"
 
+msgid "Image name missing"
+msgstr "Nom de l'image non renseigné"
+
 msgid "Image not found"
 msgstr "Cette image n'existe pas."
 
@@ -4966,8 +4969,17 @@ msgstr "Orientations&nbsp;:"
 msgid "fauna pic"
 msgstr "faune"
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3+
+# [WARNING] needs_review
 msgid "few equipment"
 msgstr "P3 (peu équipé)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3
+# [WARNING] needs_review
+msgid "few equipment +"
+msgstr "P3+ (peu équipé)"
 
 msgid "field cannot be left blank"
 msgstr "ce champ ne peut être vide"
@@ -5175,7 +5187,10 @@ msgid "good conditions"
 msgstr "bonnes"
 
 msgid "good equipment"
-msgstr "P1 (bien équipé)"
+msgstr "P1 (très bien équipé)"
+
+msgid "good equipment +"
+msgstr "P1+ (bien équipé)"
 
 msgid "good service"
 msgstr "service régulier"
@@ -6017,6 +6032,9 @@ msgstr "non"
 msgid "no equipment"
 msgstr "P4 (pas équipé)"
 
+msgid "no equipment +"
+msgstr "P4+ (pas du tout équipé)"
+
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
 msgid "no item selected on map"
@@ -6228,8 +6246,16 @@ msgstr "Liste des accès"
 msgid "parkings presentation"
 msgstr "Un accès est un point de départ d'un itinéraire, ou un point d'arrivée pour une traversée. Un accès peut être un parking, un arrêt de bus, une gare ferroviaire, une gare de téléphérique. Il peut être associé à des itinéraires ou à des refuges."
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2+
 msgid "partial equipment"
 msgstr "P2 (partiellement équipé)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2
+# [WARNING] needs_review
+msgid "partial equipment +"
+msgstr "P2+ (partiellement équipé)"
 
 msgid "partial_trip"
 msgstr "Parcours partiel"
@@ -6320,7 +6346,7 @@ msgstr "ce champ doit être numérique"
 # [general comment]
 # Displayed when the user has selected a bad image (bad extension, or too big when not resizable)
 msgid "plupload bad selection"
-msgstr "Le fichier est n\\'est pas d\\'un type autorisé, ou il ne peut être redimensionné et est trop gros."
+msgstr "Le fichier n\\'est pas une image, ou il ne peut être redimensionné automatiquement, et est trop gros."
 
 # [general comment]
 # Drag & drop pour l'upload d'images
@@ -6338,6 +6364,9 @@ msgstr "Fichiers image"
 # tentative de transfert des opérations après téléchargement vers le carré vert
 msgid "plupload introduction text"
 msgstr "Vous pouvez ajouter des '%1%'. Les jpeg et png seront normalement redimensionnés automatiquement, mais les svg et gif doivent faire %3% x %2% px et %4% Mo maximum.<br /><strong>En publiant une image sur camptocamp.org, vous acceptez de la diffuser sous la licence <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> ou <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> selon que vous la diffusez en tant que contenu personnel ou collaboratif.</strong> Les images sous copyright ne sont pas acceptées.<br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span> Voir l'aide sur l'<a href=\"/articles/107005\">album</a>."
+
+msgid "plupload invalid image titles"
+msgstr "Veuillez renseigner un titre pour les images (4 caractères minimum)"
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur

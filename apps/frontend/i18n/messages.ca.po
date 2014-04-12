@@ -86,9 +86,8 @@ msgstr "Document no trobat"
 msgid "A document can not be linked to itself"
 msgstr "No es pot associar un document a sí mateix"
 
-# [WARNING] needs_update
 msgid "A gite can not be linked to a route"
-msgstr "Un hostal no es pot associar a un itinerari"
+msgstr "Un hostal o un càmping no es poden associar a un itinerari"
 
 msgid "A new password has been asked for your account."
 msgstr "Heu demanat la creació d'una nova contrasenya per al vostre compte Camptocamp.org. Ja podeu identificar-vos utilitzant les següents dades de connexió."
@@ -102,13 +101,13 @@ msgstr "No es pot associar un accés \"A\" a un itinerari \"I\" si \"A\" té un 
 msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
 msgstr "No es pot associar un accés \"A\" a un sector de totxo \"T\" si \"A\" té un accés principal o un sub-accés que ja estigui associat a \"T\"."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "A raid summit can not be linked to a real summit"
-msgstr "A raid summit can not be linked to a real summit"
+msgstr "No es pot associar un cim-travessa a un cim real"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "A raid summit can not be linked to a stage route"
-msgstr "A raid-summit can not be linked to a stage route"
+msgstr "No es pot associar un cim-travessa a una etapa d'una travessa"
 
 msgid "A site can not be linked to more than one summit"
 msgstr "Un sector de totxo no es pot associar a més d'un cim"
@@ -541,9 +540,8 @@ msgstr "Concurs"
 msgid "Context:"
 msgstr "Context:"
 
-# [WARNING] en translation used
 msgid "Coordinates"
-msgstr "Coordinates"
+msgstr "Coordenades"
 
 msgid "Copy following string:"
 msgstr "Copieu la següent seqüència anti-spam:"
@@ -1213,6 +1211,9 @@ msgstr "Aquesta imatge està protegida"
 
 msgid "Image license"
 msgstr "Llicència de la imatge:"
+
+msgid "Image name missing"
+msgstr "No s'ha indicat el nom de la imatge"
 
 msgid "Image not found"
 msgstr "Aquesta imatge no existeix."
@@ -2444,7 +2445,6 @@ msgstr "Modifica la llicència"
 msgid "Switch to collaborative license"
 msgstr "Passa a llicència col·laborativa"
 
-# [WARNING] needs_review
 msgid "Synchronize summit to associated hut"
 msgstr "Actualització automàtica del cim després d'una modificació del refugi associat."
 
@@ -3018,11 +3018,10 @@ msgstr "<h3>Activitats</h3>\n"
 msgid "_aid_rating_info"
 msgstr "<h3>Grau de dificultat en escalada artificial.</h3><br />El grau de dificultat en artificial correspon a la dificultat màxima de l'escalada artificial en roca, és a dir l'escalada que consisteix en utilitzar punts fixes d'ajuda per progressar en un passatge donat.<br />L'escala va de A0 a A6."
 
-# [WARNING] en translation used
 msgid "_approach_height_info"
-msgstr "<h3>Approach height</h3>\n"
-"Combined elevation of the approach of a route, for a route where approach is distinguished from the route itself.<br />\n"
-"The approach height is calculated from minimum altitude and altitude where difficulties start. Then the value can be wrong for a complex approach."
+msgstr "<h3>Desnivell de l'aproximació</h3>\n"
+"Desnivell acumulat a l'aproximació a un itinerari, en cas d'un itinerari en què es distingeixi l'aproximació de la via pròpiament dita.<br />\n"
+"El desnivell de l'aproximació es calcula a partir de l'altura mínima i l'altura a l'inici de les dificultats. És possible, doncs que en aproximacions complexes el seu valor sigui erroni."
 
 msgid "_area_type_info"
 msgstr "<h3>Tipus de regió</h3>Tipus de regió: massís muntanyós, regió administrativa o país."
@@ -3426,7 +3425,6 @@ msgstr "<h3>Latitud</h3>Latitud del punt geogràfic en graus decimals.<br />Per 
 msgid "_license_info"
 msgstr "Llicència de l'utilització del contingut"
 
-# [WARNING] needs_review
 msgid "_lift_approach_info"
 msgstr "<h3>Possible aproximació amb mitjans mecànics</h3>\n"
 "Es pot utilitzar un remuntador mecànic per a l'aproximació i/o la tornada d'aquest itinerari."
@@ -3813,7 +3811,6 @@ msgstr "<h3>URL</h3>Adreça web de l'editor del llibre, del refugi o del documen
 msgid "_variants_info"
 msgstr "<h3>Itineraris associats</h3>Els itineraris associats a aquest itinerari són itineraris que recorren tots o part dels seus trams difícils.<br />Per exemple, una travessa d'un cim que a la baixada recorre una canal que mereixi ser descrita en un itinerari a part, s'hauria d'associar a l'itinerari de pujar i baixar per la canal, si existeix.<br />Per contra, les variants a l'interior de les dificultats (un corredor amb dues sortides, una aresta que es fa pel fil o bé per vires laterals, etc.) s'han de descriure dins del mateix itinerari.<br />La llista de sortides mostrada a aquesta pàgina conté sortides associades a aquest itinerari i sortides associades als itineraris associats. Això permet tenir descripcions d'itinerari diferents però informació sobre les condicions trobades comunes."
 
-# [WARNING] needs_review
 msgid "_vtt_approach_info"
 msgstr "<h3>Aproximació amb BTT possible</h3>\n"
 "Tot o una part significativa de l'aproximació i/o de la tornada d'aquest itinerari es pot fer fàcilment amb BTT, des del punt més alt d'accés autoritzat durant l'estiu.<br />\n"
@@ -4008,9 +4005,8 @@ msgstr "i"
 msgid "andalousie"
 msgstr "Andalusia"
 
-# [WARNING] en translation used
 msgid "approach_height"
-msgstr "Approach height:"
+msgstr "Desnivell de l'aproximació:"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4087,7 +4083,6 @@ msgstr "Autor (s):"
 msgid "author short"
 msgstr "Autor"
 
-# [WARNING] needs_review
 msgid "autocomplete_help"
 msgstr "Escrigueu el començament del nom cercat aquí sobre i els elements que s'hi corresponguin es mostraran aquí."
 
@@ -4130,9 +4125,8 @@ msgstr "El contingut de la motxilla"
 # [general comment]
 # Erreur renvoyée à l'enregistrement d'un document si la sélection d'une liste à choix unique ou multiple est incorrecte (option inexistante ou valeur corrompue).
 # C'est l'erreur par défaut, mais elle est peut être différente pour un champ précis (en utilisant un autre msgid).
-# [WARNING] needs_review
 msgid "bad choice error"
-msgstr "la selecció és incorrecta"
+msgstr "selecció incorrecta"
 
 msgid "baleares"
 msgstr "Illes Balears"
@@ -4389,9 +4383,8 @@ msgstr "Per anar més lluny"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
-# [WARNING] needs_review
 msgid "cda map help text"
-msgstr "El mapa mostra els accessos de sortides accessibles amb transport públic. Cliqueu sobre un accés per veure'n la llista d'itineraris associats. <b><a href=\"http://www.camptocamp.org/map?zoom=8&lat=42.12818&lon=1.78699&layerNodes=public_transportations&bgLayer=gmap_physical\">Centreu el mapa en Catalunya</a></b>"
+msgstr "El mapa mostra els accessos de sortides accessibles amb transport públic. Cliqueu sobre un accés per veure'n la llista d'itineraris associats. <b><a href=\"http://www.camptocamp.org/map?zoom=8&lat=42.12818&lon=1.78699&layerNodes=public_transportations&bgLayer=gmap_physical\">Cliqueu aquí per centrar el mapa a Catalunya</a></b>"
 
 # [general comment]
 # Portail "Changer d'approche" : titre de la section comportant la carte.
@@ -4446,7 +4439,6 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Previsions meteoro
 msgid "cda_search_outings_tips"
 msgstr "Criteris de cerca de ressenyes de sortides"
 
-# [WARNING] needs_review
 msgid "cda_search_routes_tips"
 msgstr "Criteris de cerca d'itineraris"
 
@@ -4571,7 +4563,6 @@ msgstr "Condicions trobades (aproximació, via, i a proximitat):"
 msgid "conditions linked to"
 msgstr "llista de les condicions associades"
 
-# [WARNING] needs_review
 msgid "conditions_and_equipment"
 msgstr "Condicions del terreny, equipament i qualitat de la roca trobades (aproximació, via i a proximitat):\n"
 "\n"
@@ -4623,7 +4614,6 @@ msgstr "Llicència dels continguts"
 msgid "contest"
 msgstr "concurs"
 
-# [WARNING] needs_review
 msgid "copyright image"
 msgstr "Imatge sotmesa a copyright"
 
@@ -4670,9 +4660,8 @@ msgstr "creta"
 msgid "create a custom nickname"
 msgstr "crear un pseudònim personalitzat"
 
-# [WARNING] needs_review
 msgid "create an account?"
-msgstr "Vols obrir un compte?"
+msgstr "Vols crear un compte?"
 
 msgid "created_at"
 msgstr "creat el"
@@ -4758,9 +4747,8 @@ msgstr "detall (lloc, itinerari)"
 msgid "deutsch"
 msgstr "alemany"
 
-# [WARNING] needs_review
 msgid "development environment"
-msgstr "Atenció - Versió de desenvolupament"
+msgstr "Atenció - Versió en desenvolupament"
 
 msgid "diff"
 msgstr "diferència"
@@ -4873,7 +4861,6 @@ msgstr "Adreça email:"
 msgid "emilie_romagne"
 msgstr "Emília-Romanya"
 
-# [WARNING] needs_review
 msgid "empty choice can't be selected with another choice"
 msgstr "no es pot seleccionar l'opció buida a la vegada que d'altres opcions"
 
@@ -4886,9 +4873,8 @@ msgstr "Compromís:"
 msgid "english"
 msgstr "anglès"
 
-# [WARNING] needs_review
 msgid "enter URL or paste it from clipboard"
-msgstr "URL de la imatge"
+msgstr "entreu o copieu l'URL de la imatge"
 
 msgid "enter place name"
 msgstr "Entreu un nom de lloc"
@@ -4953,8 +4939,16 @@ msgstr "Orientacions:"
 msgid "fauna pic"
 msgstr "faune"
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3+
 msgid "few equipment"
 msgstr "P3 (poc equipat)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3
+# [WARNING] needs_review
+msgid "few equipment +"
+msgstr "P3+ (poc equipat)"
 
 msgid "field cannot be left blank"
 msgstr "aquest camp no pot quedar buit"
@@ -4979,7 +4973,6 @@ msgstr "El fitxer no s'ha carregat correctament o bé passa de la mida màxima (
 
 # [general comment]
 # File failed to get transmitted, most probably because plupload failed to resize it correctly (even when resized, image is too big)
-# [WARNING] needs_review
 msgid "file failed to upload, probable resize error"
 msgstr "No s'ha pogut carregar la imatge, probablement perquè no s'ha redimensionat correctament. Podeu provar de redimensionar-la manualment abans de carregar-la o contactar els administradors d'aquest lloc."
 
@@ -5021,7 +5014,6 @@ msgstr "tot"
 
 # [general comment]
 # Filter to select only docs available in a specific language
-# [WARNING] needs_review
 msgid "filter language"
 msgstr "Només documents disponibles en"
 
@@ -5113,15 +5105,13 @@ msgstr "material i tècniques"
 msgid "gear_default"
 msgstr "Indiqueu aquí el material específic que cal dur a banda de l'equipament habitual. Només cal mencionar el material &quot;estrany&quot; (en qualitat o en quantitat). Exemples de mencions inútils: ARVA, pells de foca, sonda, grampons, piolets, material de glacera (n'hi ha prou amb marcar la casella &quot;itinerari de glacera&quot;), bagues i friends sense més detall."
 
-# [WARNING] needs_review
 msgid "gear_shop"
-msgstr "botiga d'esports, de lloguer, de reparació"
+msgstr "botiga d'esports, de lloguer de material, de reparació"
 
 msgid "geo_export_info"
 msgstr "<h3>Exportació</h3>Les coordenades geogràfiques del document poden ser telecarregades en un dels formats proposats.\n"
 "<br /><br /><strong>GPX</strong>&nbsp;:<br />format standard XML dedades geogràfiques utilitzat per lamajoria de GPS, o fàcilment convertible gràcies a <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en línea) o <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />format de dades geogràfiques principalment utilitzat per Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />format d'intercanvi de dades JavaScript, utilitzat per aplicacions web"
 
-# [WARNING] needs_review
 msgid "geolocation denied"
 msgstr "Heu de compartir la vostra localització per a aquesta funcionalitat"
 
@@ -5146,9 +5136,8 @@ msgstr "hostal"
 msgid "glacier"
 msgstr "glacera"
 
-# [WARNING] needs_review
 msgid "glacier config can't be selected with another config"
-msgstr "la configuració \"recorregut de glacera\" només es pot seleccionar si cap de les altres configuracions no s'ajusta"
+msgstr "la configuració \"recorregut de glacera\" només es pot seleccionar si cap de les altres configuracions no s'hi correspon"
 
 msgid "glacier gear"
 msgstr "Material de glacera"
@@ -5165,8 +5154,12 @@ msgstr "gneis"
 msgid "good conditions"
 msgstr "bones"
 
+# [WARNING] needs_update
 msgid "good equipment"
 msgstr "P1 (ben equipat)"
+
+msgid "good equipment +"
+msgstr "P1+ (ben equipat)"
 
 msgid "good service"
 msgstr "servei regular"
@@ -5232,7 +5225,6 @@ msgstr "Desnivell:"
 
 # [general comment]
 # Intitulé de la catégorie d'image rassemblant les images illustrant les aides d'utilisation de c2c : schémas, captures d'écran.
-# [WARNING] needs_review
 msgid "help pic"
 msgstr "ajuda"
 
@@ -5515,7 +5507,6 @@ msgstr "Total (cm)"
 msgid "license"
 msgstr "Llicència:"
 
-# [WARNING] needs_review
 msgid "lift_approach"
 msgstr "aproximació amb remuntadors mecànics possible"
 
@@ -5539,7 +5530,6 @@ msgstr "Activitats dels itineraris associats:"
 
 # [general comment]
 # Message for the user, asking if he wants to load the draft of the document edition (for exemple because he was no more connected when he submitted the form)
-# [WARNING] needs_review
 msgid "load draft?"
 msgstr "Voleu utilitzar l'esborrany guardat durant una edició anterior? (D'acord: l'esborrany es copiarà al formulari - Cancel·la: l'esborrany s'eliminarà)"
 
@@ -5595,7 +5585,6 @@ msgstr "Comunitat de Madrid"
 
 # [general comment]
 # type de livre : revue / magazine
-# [WARNING] needs_review
 msgid "magazine"
 msgstr "revista"
 
@@ -6010,6 +5999,10 @@ msgstr "no"
 msgid "no equipment"
 msgstr "P4 (no equipat)"
 
+# [WARNING] needs_review
+msgid "no equipment +"
+msgstr "P4+ (no equipat)"
+
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
 msgid "no item selected on map"
@@ -6076,7 +6069,6 @@ msgstr "obert no guardat"
 msgid "options"
 msgstr "Opcions"
 
-# [WARNING] needs_review
 msgid "or drag & drop files"
 msgstr "o arrossegueu les imatges des de l'ordinador"
 
@@ -6189,7 +6181,6 @@ msgstr "Alpinisme en roca de F a AD"
 msgid "pack_rock_climbing_bolted"
 msgstr "Escalada esportiva de diversos llargs"
 
-# [WARNING] needs_review
 msgid "pack_skitouring"
 msgstr "Esquí, surf de neu i raquetes"
 
@@ -6204,7 +6195,6 @@ msgstr "Desplaça el mapa"
 msgid "paragliding"
 msgstr "parapent"
 
-# [WARNING] needs_review
 msgid "paragliding can not be selected alone"
 msgstr "quan se selecciona l'activitat \"parapent\" cal indicar també la modalitat de pujada"
 
@@ -6220,8 +6210,16 @@ msgstr "Llista de pàrquings"
 msgid "parkings presentation"
 msgstr "Un accés és un punt de partida d'un itinerari o un punt d'arribada d'una travessa. Un accés pot ser un aparcament, una parada d'autobús, una estació ferroviària o d'un telefèric. Es pot associar a itineraris i a refugis."
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2+
 msgid "partial equipment"
 msgstr "P2 (parcialment equipat)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2
+# [WARNING] needs_review
+msgid "partial equipment +"
+msgstr "P2+ (parcialment equipat)"
 
 msgid "partial_trip"
 msgstr "Recorregut parcial"
@@ -6326,6 +6324,10 @@ msgstr "Arxius d\\'imatges"
 # text pour plupload, à rapprocher des items 351 et 1529
 msgid "plupload introduction text"
 msgstr "Podeu adjuntar '%1%'. Normalment, els jpeg i png seran redimensionats automàticament, però els svg i gif han de fer %3% x %2% px i %4% Mb com a màxim.<br /><strong>Quan publiqueu una imatge a camptocamp.org, esteu acceptant-ne la difusió sota la llicència <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> segons si ho feu en tant que contingut personal o col·laboratiu.</strong> No s'accepten imatges sotmeses a copyright.<br /><span style=\"color: red\">La selecció d'almenys una categoria marcada per un asterisc (*) farà aparèixer la foto a la pàgina d'inici.</span> Vegeu l'ajuda a l'<a href=\"/articles/107005\">àlbum</a>."
+
+# [WARNING] en translation used
+msgid "plupload invalid image titles"
+msgstr "please enter a title for your images (4 characters minimum)"
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
@@ -6829,9 +6831,8 @@ msgstr "<ul class=\"text\"><li><strong>Seleccioneu només les activitats practic
 msgid "select an image file"
 msgstr "Escolliu una imatge:&nbsp;"
 
-# [WARNING] needs_review
 msgid "select image or dragdrop"
-msgstr "Cliqueu per seleccionar una imatge des del vostre ordinador o bé arrossegueu-les i deixeu-les anar"
+msgstr "Cliqueu per seleccionar imatges del vostre ordinador o bé arrossegueu-les i deixeu-les anar"
 
 msgid "selected admin_limits"
 msgstr "Regions administratives preseleccionades"
@@ -6966,7 +6967,6 @@ msgstr "adequat per al surf"
 msgid "snowshoeing"
 msgstr "raquetes"
 
-# [WARNING] needs_review
 msgid "snowshoeing_rating"
 msgstr "Grau de dificultat amb raquetes:"
 
@@ -7030,7 +7030,7 @@ msgstr "narracions, contes, relats"
 msgid "sub-parkings"
 msgstr "sub-accés"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "sub-sites"
 msgstr "sub-lloc d'escalada"
 
@@ -7096,7 +7096,6 @@ msgstr "Mostrar únicament l'activitat esquí de muntanya"
 msgid "switch_to_snow_ice_mixed"
 msgstr "Mostrar únicament l'activitat alpinisme"
 
-# [WARNING] needs_review
 msgid "switch_to_snowshoeing"
 msgstr "Mostra només l'activitat raquetes"
 
@@ -7115,7 +7114,6 @@ msgstr "tècnic"
 msgid "terms of use"
 msgstr "Condicions d'utilització"
 
-# [WARNING] needs_review
 msgid "thanks for new outing"
 msgstr "Gràcies per la vostra sortida! No dubteu a millorar la descripció de l'itinerari associat."
 
@@ -7141,13 +7139,11 @@ msgstr "aquesta informació ha d'ocupar menys de 100 caràcters"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too long
-# [WARNING] needs_review
 msgid "this isbn is too long (17 charaters maximum)"
 msgstr "Aquest ISBN o ISSN és massa llarg (màxim 17 caràcters)"
 
 # [general comment]
 # error message when input for ISBN or ISSN is too short
-# [WARNING] needs_review
 msgid "this isbn is too short (7 charaters minimum)"
 msgstr "Aquest ISBN o ISSN és massa curt (almenys 7 caràcters per a un ISSN i 10 per a un ISBN)"
 
@@ -7202,7 +7198,6 @@ msgstr "moderador de la guia de ressenyes"
 msgid "topoguide name only"
 msgstr "Nom a la guia de ressenyes únicament"
 
-# [WARNING] needs_review
 msgid "topoguide supplements"
 msgstr "complements a la guia de ressenyes"
 
@@ -7387,11 +7382,9 @@ msgstr "Mostra la darrera versió del document"
 msgid "visual conditions"
 msgstr "condicions de visu"
 
-# [WARNING] needs_review
 msgid "vosges portal"
 msgstr "Vosges"
 
-# [WARNING] needs_review
 msgid "vtt_approach"
 msgstr "aproximació amb BTT possible"
 
@@ -7446,7 +7439,6 @@ msgstr "Inserir un enllaç intern"
 
 # [general comment]
 # placeholder pour le titre d'une image
-# [WARNING] needs_review
 msgid "write a caption"
 msgstr "Escrigueu un peu de foto"
 
@@ -7482,7 +7474,6 @@ msgstr "ahir, a les %1%"
 msgid "you cannot select public transportation types without appropriate service rating"
 msgstr "No es pot seleccionar cap mode de transport públic si el camp \"accessibilitat\" no hi és compatible"
 
-# [WARNING] needs_review
 msgid "you have no right to switch from collaborative picture"
 msgstr "No tens prou privilegis per modificar el tipus d'aquesta imatge col·laborativa"
 
@@ -7492,13 +7483,11 @@ msgstr "No tens prou privilegis per modificar el tipus d'aquest article de col·
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "No tens prou privilegis per modificar el tipus d'aquesta imatge de col·laborativa a personal"
 
-# [WARNING] needs_review
 msgid "you have no right to switch from copyright picture"
 msgstr "No tens prou privilegis per modificar el tipus d'aquesta imatge sotmesa a copyright"
 
-# [WARNING] needs_review
 msgid "you have no right to switch from personnal to copyright picture"
-msgstr "No podeu canviar les propietats d'aquesta imatge de \"personal\" a \"copyright\""
+msgstr "No teniu prou privilegis per canviar les propietats d'aquesta imatge de \"personal\" a \"copyright\""
 
 msgid "zoom in"
 msgstr "Acosta"
