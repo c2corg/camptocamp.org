@@ -13,7 +13,7 @@
     <?php
     echo fieldset_tag('Current password');
     echo __('Your current password is needed before modifying these properties');
-    echo group_tag('current_password', 'current_password', 'input_password_tag', null, array('class' => 'medium_input'));
+    echo group_tag('current_password', 'current_password', 'input_password_tag', null, array('class' => 'medium_input', 'autocomplete' => 'off'));
     echo end_fieldset_tag();
 
     echo fieldset_tag('Change your password');

@@ -85,8 +85,8 @@ if ($is_not_archive)
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'pr', // parking-route
                               'strict' => true ));
+        echo '</div>';
     }
-    echo '</div>';
     
     echo '<div class="all_associations col_right col_33">';
     $avalanche_bulletin = array_intersect(array(1,2,5), $activities);

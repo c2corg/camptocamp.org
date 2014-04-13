@@ -37,17 +37,6 @@ var rdads=new String(Math.random()).substring (2, 11);
 document.write('<sc'+'ript type="text/javascript" src="http://server1.affiz.net/tracking/ads_display.php?n=323739345f343337315f3135383935_3418e88a4d&rdads='+rdads+'"></sc'+'ript>');
 </script></div>
 
-<?php elseif (isset($banner['type']) && $banner['type'] == 'adserver2'): // ADSERVER ?>
-<div class="ads_323739345f343337315f3135383935">
-<?php
-$rdads = '';
-for ($i = 0; $i < 9; $i++) {
-    $rdads .= rand(0, 9);
-}
-echo javascript_queue("$.getScript('http://server1.affiz.net/tracking/ads_display.php?n=323739345f343337315f3135383935_3418e88a4d&rdads=" . $rdads . "');");
-?>
-</div>
-
 <?php else: //// CUSTOM IMAGE BANNER ////
     $id = isset($banner['id_'.$culture]) ? $banner['id_'.$culture] : $banner['id']; ?>
     <a href="<?php echo $counter_base_url . $id ?>"><?php

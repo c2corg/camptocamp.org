@@ -1003,13 +1003,13 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'rock_exposition_rating', 'app_routes_rock_exposition_ratings', $format, $add_tooltips),
-        _filter_ratings_data($document, 'equipment_rating', 'app_equipment_ratings_list', $format, $add_tooltips, true, 'P'),
+        _filter_ratings_data($document, 'equipment_rating', 'app_equipment_ratings_list', $format, $add_tooltips, false, null, null, 'app_equipment_ratings_tooltips'),
         _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings', $format, $add_tooltips),
         _filter_ratings_data($document, 'snowshoeing_rating', 'app_routes_snowshoeing_ratings', $format, $add_tooltips)
         );
 }
 
-function _filter_ratings_data($document, $name, $config, $format, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null, $alternate_name = null)
+function _filter_ratings_data($document, $name, $config, $format, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null, $alternate_name = null, $tooltip_config = null)
 {
     $raw_value = !empty($document[$name]) ? $document[$name] : $document->get($name, 'ESC_RAW');
     $value = _get_field_value_in_list(sfConfig::get($config), $raw_value);
@@ -1032,7 +1032,15 @@ function _filter_ratings_data($document, $name, $config, $format, $add_tooltips 
     }
     elseif ($add_tooltips)
     {
-        $string_value = '<span title="'.__(empty($alternate_name) ? $name : $alternate_name).' '.$value.'">'.$string_value.'</span>';
+        if (!empty($tooltip_config))
+        {
+            $tooltip_value = _get_field_value_in_list(sfConfig::get($tooltip_config), $raw_value);
+        }
+        else
+        {
+            $tooltip_value = $value;
+        }
+        $string_value = '<span title="'.__(empty($alternate_name) ? $name : $alternate_name).' '.$tooltip_value.'">'.$string_value.'</span>';
     }
     return $string_value;
 }

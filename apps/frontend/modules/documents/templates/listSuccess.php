@@ -10,8 +10,6 @@ $mobile_version = c2cTools::mobileVersion();
 
 echo display_title(__($module . ' list'), $module, false, 'list_nav');
 
-if ($layout != 'light'):
-
 if (!$mobile_version)
 {
     echo '<div id="nav_space">&nbsp;</div>';
@@ -22,38 +20,33 @@ if (!$mobile_version)
 echo display_content_top('list_content');
 echo start_content_tag($module . '_content');
 
-endif;
-
 if ($nb_results == 0):
     echo '<p class="list_header">' . __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
 else:
     $pager_navigation = pager_navigation($pager);
     
-    if ($layout != 'light')
+    if (!$mobile_version)
     {
-        if (!$mobile_version)
-        {
-            echo '<p class="list_header">' . __('to sort by one column, click once or twice in its title') . '</p>';
-        }
-        echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id'));
-        if ($module == 'outings')
-        {
-            $orderby_images = array('orderby' => 'odate', 'order' => 'desc');
-        }
-        else
-        {
-            $orderby_images = array();
-        }
-        echo ' &nbsp; ' . link_to_associated_images(__('List all linked images'), $module, $orderby_images);
-        echo '</p>';
+        echo '<p class="list_header">' . __('to sort by one column, click once or twice in its title') . '</p>';
     }
+    echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id'));
+    if ($module == 'outings')
+    {
+        $orderby_images = array('orderby' => 'odate', 'order' => 'desc');
+    }
+    else
+    {
+        $orderby_images = array();
+    }
+    echo ' &nbsp; ' . link_to_associated_images(__('List all linked images'), $module, $orderby_images);
+    echo '</p>';
     
     $orderby_params = array('orderby', 'orderby2', 'orderby3');
     $order_params = array('order', 'order2', 'order3');
     $orderby_list = c2cTools::getRequestParameterArray($orderby_params, '');
     $order_list = c2cTools::getRequestParameterArray($order_params, '');
     
-    if ($layout != 'light' && !$mobile_version &&
+    if (!$mobile_version &&
         in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
     {
         $result_types = sfConfig::get('app_list_result_types');
@@ -159,14 +152,11 @@ if (!$mobile_version): ?>
     }
 endif;
 
-if ($layout != 'light')
+if (!$mobile_version)
 {
-    if (!$mobile_version)
-    {
-        echo '<p class="list_footer">' . __($module . ' presentation').'</p>';
-    }
-    
-    echo end_content_tag();
-    
-    include_partial('common/content_bottom');
+    echo '<p class="list_footer">' . __($module . ' presentation').'</p>';
 }
+   
+echo end_content_tag();
+ 
+include_partial('common/content_bottom');

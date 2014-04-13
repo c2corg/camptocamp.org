@@ -554,7 +554,8 @@ class Association extends BaseAssociation
         $ids = $keys = array();
         foreach($all_docs as $key => $doc)
         {
-            if ($pos = array_search($doc['id'], $ids))
+            $pos = array_search($doc['id'], $ids);
+            if ($pos !== false)
             {
                 $all_docs[$keys[$pos]]['parent_relation'] = isset($all_docs[$keys[$pos]]['parent_relation']) ?
                     $all_docs[$keys[$pos]]['parent_relation'] + $doc['parent_relation'] :

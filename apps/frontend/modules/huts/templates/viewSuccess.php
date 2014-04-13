@@ -15,7 +15,16 @@ $is_gite_camping = ($shelter_type == 5 || $shelter_type == 6);
 $nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 // if the document is shelter or bivouac, call it simple Place, else LodgingBusiness
-$item_type = in_array($shelter_type, array(2, 3)) ? 'Place' : 'LodgingBusiness';
+switch($shelter_type)
+{
+    case 2:
+    case 3:
+        $item_type = 'Place'; break;
+    case 6:
+        $item_type = 'Campground'; break;
+    default:
+        $item_type = 'Place'; break;
+}
 display_page_header('huts', $document, $id, $metadata, $current_version,
                     array('nav_options' => $section_list, 'item_type' => 'http://schema.org/'.$item_type, 'nb_comments' => $nb_comments));
 

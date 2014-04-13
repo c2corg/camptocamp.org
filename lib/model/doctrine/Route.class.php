@@ -68,19 +68,43 @@ class Route extends BaseRoute
                     ->execute(array(), Doctrine::FETCH_ARRAY);
         
         // foreach items having the same [linked_id] (=route), keep only the highest one ($item[Summit][0][elevation] )
-        $_a = array();
+        $_a = $_c = array();
         foreach ($results as $key => $result)
         {
             if (!array_key_exists($result['linked_id'], $_a))
             {
-                $_a[$result['linked_id']] = array('elevation' => $result['Summit'][0]['elevation'], 'item_nb' => $key);
+                $_a[$result['linked_id']] = array('elevation' => $result['Summit'][0]['elevation'], 'item_key' => $key);
             }
             else
             {
                 // there already exists an associated summit with this route => find highest
-                if ($result['Summit'][0]['elevation'] > $_a[$result['linked_id']]['elevation'])
+                $candidate_so_far = $_a[$result['linked_id']];
+
+                if ($result['Summit'][0]['elevation'] == $candidate_so_far['elevation'])
                 {
-                    $_a[$result['linked_id']] = array('elevation' => $result['Summit'][0]['elevation'], 'item_nb' => $key);
+                    // OK this is a rare case but our summits have the same height. Which one should we keep?
+                    // Apart from very odd cases that probably don't exist, we have here one summit and one sub-summit
+                    // we need some extra db request to check if they are linked, and how 
+                    // As we are considering a list of routes, we do some caching in order to avoid repeating db requests
+                    $cid = $results[$candidate_so_far['item_key']]['main_id'];
+                    $nid = $result['main_id'];
+
+                    $isparent = isset($_c[$nid][$cid]) ? $_c[$nid][$cid] : Association::find($nid, $cid, 'ss', true);
+                    if ($isparent)
+                    {
+                        $_a[$result['linked_id']] = array('elevation' => $result['Summit'][0]['elevation'], 'item_key' => $key);
+                        $_c[$nid][$cid] = true;
+                        $_c[$cid][$nid] = false;
+                    }
+                    else
+                    {
+                        $_c[$nid][$cid] = false;
+                        $_c[$cid][$nid] = true;
+                    }
+                }
+                else if ($result['Summit'][0]['elevation'] > $candidate_so_far['elevation'])
+                {
+                    $_a[$result['linked_id']] = array('elevation' => $result['Summit'][0]['elevation'], 'item_key' => $key);
                 }
             }
         }
@@ -89,7 +113,7 @@ class Route extends BaseRoute
         $_b = array();
         foreach ($_a as $key => $keep)
         {
-           $_b[$key] =  $results[$keep['item_nb']];
+           $_b[$key] =  $results[$keep['item_key']];
         }
         
         // extract best name of summits
