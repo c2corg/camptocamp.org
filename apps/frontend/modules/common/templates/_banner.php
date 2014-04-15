@@ -32,10 +32,7 @@ if (isset($banner['type']) && $banner['type'] == 'flash'): //// CUSTOM FLASH BAN
 <![endif]-->
 
 <?php elseif (isset($banner['type']) && $banner['type'] == 'adserver'): // ADSERVER ?>
-<div class="ads_323739345f343337315f3135383935"><script type="text/javascript">
-var rdads=new String(Math.random()).substring (2, 11);
-document.write('<sc'+'ript type="text/javascript" src="http://server1.affiz.net/tracking/ads_display.php?n=323739345f343337315f3135383935_3418e88a4d&rdads='+rdads+'"></sc'+'ript>');
-</script></div>
+<iframe src="http://server1.affiz.net/tracking/iframe_display.php?n=323739345f343337315f3135383935_3418e88a4d" width="468" height="60" frameborder="0" scrolling="no"></iframe>
 
 <?php else: //// CUSTOM IMAGE BANNER ////
     $id = isset($banner['id_'.$culture]) ? $banner['id_'.$culture] : $banner['id']; ?>
