@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ diamir_colorclip, portail_glace, camp_c, diamir_ontour2014, boutique_c2c, montania, changerdapproche, diamir_colorclip, camp_c, changerdapproche, cilao, diamir_ontour2014 ]
+    values: [ adserver, adserver, camp_b, adserver, adserver, adserver, montania, camp_b, adserver, adserver, cilao, adserver ]
   banners:
     list:
       skalp:
@@ -212,7 +212,7 @@ all:
         alt: "Expé"
       montania:
         id: 60
-        image: montania_mhw2.gif
+        image: montania_mtneq.gif
         alt: "Montania Sport"
       ibex:
         id: 61
@@ -281,4 +281,6 @@ all:
         id: 90
         image: diamir-on-tour2014.gif
         alt: "Diamir On Tour"
+      adserver:
+        type: adserver
 

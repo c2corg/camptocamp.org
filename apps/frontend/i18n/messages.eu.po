@@ -1259,6 +1259,10 @@ msgstr "Irudi hau babestua dago"
 msgid "Image license"
 msgstr "Irudiaren lizentzia:"
 
+# [WARNING] en translation used
+msgid "Image name missing"
+msgstr "Image name missing"
+
 msgid "Image not found"
 msgstr "Ez dago halako irudirik."
 
@@ -5077,8 +5081,16 @@ msgstr "Norabideak:"
 msgid "fauna pic"
 msgstr "fauna"
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3+
 msgid "few equipment"
 msgstr "P3 (ekipamendu gutxi)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3
+# [WARNING] needs_review
+msgid "few equipment +"
+msgstr "P3+ (ekipamendu gutxi)"
 
 msgid "field cannot be left blank"
 msgstr "eremu hau ezin da utzik egon"
@@ -5317,8 +5329,12 @@ msgstr "gneiss"
 msgid "good conditions"
 msgstr "onak"
 
+# [WARNING] needs_update
 msgid "good equipment"
 msgstr "P1 (ekipamendu ona)"
+
+msgid "good equipment +"
+msgstr "P1+ (ekipamendu ona)"
 
 msgid "good service"
 msgstr "ohiko zerbitzua"
@@ -6249,6 +6265,10 @@ msgstr "ez"
 msgid "no equipment"
 msgstr "P4 (ez dago ekipaturik)"
 
+# [WARNING] needs_review
+msgid "no equipment +"
+msgstr "P4+ (ez dago ekipaturik)"
+
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
 # [WARNING] es translation used
@@ -6488,8 +6508,16 @@ msgstr "Abiaguneen zerrenda"
 msgid "parkings presentation"
 msgstr "Un acceso es el lugar donde comienza, o termina, un itinerario. Puede ser un estacionamiento, un parada de transporte publico (bus, tren...), una parada en un teleférico. Puede ser asociado a varios itinerarios y/o refugios."
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2+
 msgid "partial equipment"
 msgstr "P2 (ekipamendu partziala)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2
+# [WARNING] needs_review
+msgid "partial equipment +"
+msgstr "P2+ (ekipamendu partziala)"
 
 msgid "partial_trip"
 msgstr "Ibilaldi partziala"
@@ -6607,6 +6635,10 @@ msgstr "Archivos de imágenes"
 # [WARNING] en translation used
 msgid "plupload introduction text"
 msgstr "You can '%1%'. The minimum size is %4% x %5% px. Jpeg and png files are usually resized automatically but svg and gif files must be less than %3% x %2% px and %4% Mo.<br /><strong>By uploading pictures on camptocamp.org you accept that you are publishing them under a <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> or <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> license, depending on whether you publish it as personal or collaborative content.</strong> Pictures under copyright are not accepted.<br />By clicking on the top right angle of the thumbnail you will access the picture’s page which allows you to: <br />- Modify its title or its description: click on the “modify” tab (on the left).<br />- Associate the picture to other documents: use the tool at the bottom of the page.<br />- Request the deletion of the picture by contacting moderators: click on “report a problem”.<br /><span style=\"color: red\">The selection of at least on category marked with an asterisk (*) will make the picture appear on the home page. </span> For more information, see the <a href=\"/articles/107005\">help on the album</a>."
+
+# [WARNING] en translation used
+msgid "plupload invalid image titles"
+msgstr "please enter a title for your images (4 characters minimum)"
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur

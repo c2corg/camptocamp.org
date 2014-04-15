@@ -1244,6 +1244,10 @@ msgstr "Dieses Bild ist geschützt"
 msgid "Image license"
 msgstr "Lizenz des Bildes:"
 
+# [WARNING] en translation used
+msgid "Image name missing"
+msgstr "Image name missing"
+
 msgid "Image not found"
 msgstr "Dieses Bild existiert nicht."
 
@@ -5083,8 +5087,16 @@ msgstr "Expositionen:"
 msgid "fauna pic"
 msgstr "Fauna"
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3+
 msgid "few equipment"
 msgstr "P3 (wenig ausgerüstet)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3
+# [WARNING] needs_review
+msgid "few equipment +"
+msgstr "P3+ (wenig ausgerüstet)"
 
 msgid "field cannot be left blank"
 msgstr "dieses Feld kann nicht leer sein "
@@ -5295,8 +5307,12 @@ msgstr "Gneis"
 msgid "good conditions"
 msgstr "gut"
 
+# [WARNING] needs_update
 msgid "good equipment"
 msgstr "P1 (gut eingerichtet)"
+
+msgid "good equipment +"
+msgstr "P1+ (gut eingerichtet)"
 
 msgid "good service"
 msgstr "regelmäßiger Dienst"
@@ -6174,6 +6190,10 @@ msgstr "nein"
 msgid "no equipment"
 msgstr "P4 (nicht eingerichtet)"
 
+# [WARNING] needs_review
+msgid "no equipment +"
+msgstr "P4+ (nicht eingerichtet)"
+
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
 msgid "no item selected on map"
@@ -6388,8 +6408,16 @@ msgstr "Liste der Zugangsorte"
 msgid "parkings presentation"
 msgstr "Ein Zugangsort ist ein Start- oder Endpunkt einer Route. Ein Zugangsort kann ein Parkplatz, eine Bushaltestelle, ein Bahnhof oder eine Berg- oder Talstation einer Seilbahn sein. Ein Zugangsort kann mit Routen und/oder Hütten verbunden werden."
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2+
 msgid "partial equipment"
 msgstr "P2 (teilweise eingerichtet)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2
+# [WARNING] needs_review
+msgid "partial equipment +"
+msgstr "P2+ (teilweise eingerichtet)"
 
 msgid "partial_trip"
 msgstr "Teilweise begangen"
@@ -6496,6 +6524,10 @@ msgstr "Bilddateien"
 # text pour plupload, à rapprocher des items 351 et 1529
 msgid "plupload introduction text"
 msgstr "Sie können '%1%' hinzufügen. Die minimale Grösse beträgt %4% x %5% Pixel. Jpeg- und Png-Dateien werden üblicherweise automatisch in der Bildgrösse angepasst. SVG- und GIF-Dateien müssen aber manuell auf maximal %3% x %2% Pixel et %4% Mb verkleinert werden. <br /><strong>Indem sie Bildmaterial auf camptocamp.org veröffentlichen, akzeptieren sie dieses unter einer <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> oder <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> je nach dem, ob sie das Material als persönlichen oder gemeinschaftlichen Inhalt hochladen.</strong>Jegliches Bildmaterial, welches einem Copyright unterliegt ist nicht zugelassen<br/>Sie können die Bildseite aufrufen, indem sie in der obersten, rechten Ecke des Bildfensters klicken. Auf der Bildseite können sie folgende Änderungen vornehmen:<br/>- Den Titel oder die Beschreibung des Bilds ändern: Klicken sie auf das Register \"Ändern\" linkerhand.<br/>- Ein Bild mit einem anderen Dokument verbinden: Verwenden sie dazu das Werkzeug am unteren Rand der Seite.<br/>- Die Löschung eines Bildes durch die Moderatoren beantragen: Klicken sie \"Auf ein Problem hinweisen\".<br/><span style=\"color: red\">Wenn sie mindestens eine mit einem Stern (*) markierte Kategorie ausgewählt haben, wird das Bild auf der Startseite angezeigt.</span>Siehe in der Hilfe zum <a href=\"/articles/107005\">Album</a>."
+
+# [WARNING] en translation used
+msgid "plupload invalid image titles"
+msgstr "please enter a title for your images (4 characters minimum)"
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur

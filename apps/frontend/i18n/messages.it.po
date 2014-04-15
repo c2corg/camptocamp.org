@@ -1235,6 +1235,10 @@ msgstr "L’immagine è protetta"
 msgid "Image license"
 msgstr "Licenza dell'immagine:"
 
+# [WARNING] en translation used
+msgid "Image name missing"
+msgstr "Image name missing"
+
 msgid "Image not found"
 msgstr "Quest’immagine non è stata trovata."
 
@@ -1325,7 +1329,7 @@ msgid "Is parent of summits:"
 msgstr "E collegato alle sotto-cime seguenti:"
 
 msgid "Is really a multi-activity outing?"
-msgstr "Confermi che ci sono più attività per questa gita ?"
+msgstr "Confermi che ci sono più attività per questa gita?"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Si è dimenticato un nome oppure il file"
@@ -4937,8 +4941,16 @@ msgstr "Esposizione:"
 msgid "fauna pic"
 msgstr "fauna"
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3+
 msgid "few equipment"
 msgstr "P3 (poco attrezzato)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P3
+# [WARNING] needs_review
+msgid "few equipment +"
+msgstr "P3+ (poco attrezzato)"
 
 msgid "field cannot be left blank"
 msgstr "Questo campo non può essere vuoto"
@@ -5148,8 +5160,12 @@ msgstr "gneiss"
 msgid "good conditions"
 msgstr "buone"
 
+# [WARNING] needs_update
 msgid "good equipment"
 msgstr "P1 (ben attrezzato)"
+
+msgid "good equipment +"
+msgstr "P1+ (ben attrezzato)"
 
 msgid "good service"
 msgstr "servizio regolare"
@@ -6003,6 +6019,10 @@ msgstr "no"
 msgid "no equipment"
 msgstr "P4 (non attrezzato)"
 
+# [WARNING] needs_review
+msgid "no equipment +"
+msgstr "P4+ (non attrezzato)"
+
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
 msgid "no item selected on map"
@@ -6215,8 +6235,16 @@ msgstr "Lista degli accessi"
 msgid "parkings presentation"
 msgstr "Un accesso è un punto di partenza di un itinerario o un punto di arrivo per una traversata. Un accesso può essere un parcheggio, una fermata di bus, una stazione ferroviere o l'arrivo di una funivia. Può essere associato a degli itinerari o rifugi."
 
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2+
 msgid "partial equipment"
 msgstr "P2 (parzialmente attrezzato)"
+
+# [general comment]
+# A revoir : le texte entre parenthèse est le même que pour P2
+# [WARNING] needs_review
+msgid "partial equipment +"
+msgstr "P2+ (parzialmente attrezzato)"
 
 msgid "partial_trip"
 msgstr "Percorso parziale"
@@ -6328,6 +6356,10 @@ msgstr "File immagine"
 # text pour plupload, à rapprocher des items 351 et 1529
 msgid "plupload introduction text"
 msgstr "Puoi aggiungere delle '%1%'. La dimensione minimale è %4% x %5% px. I file jpeg e png saranno ridimensionati automaticamente ma i files svg e gif devono fare %3% x %2% px et %4% Mo al massimo.<br /><strong>Caricando un immagine su camptocamp.org, accetti la licenze <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che un contenuto personale o collaborativo.</strong> Le immagini sotto copyright non sono accettate.<br />Cliccando nel angolo superiore destra dell'immaginetta, puoi accedere alla pagina dell'immagine per:<br />- Modificare il titolo o la descrizione dell'immagine(Voce \"Modificare\" (nella colonna di sinistra).<br />- Associare l'immagine a altri documenti (usare lo strumento nel basso della pagina).<br />- Chiedere la cancellazione dell'immagine agli moderatori (link \"Segnalare un problema\" a sinistra).<br /><span style=\"color: red\">La selezione di al meno una categoria con asterisco (*) farà comparire l'immagine sulla home.</span> Leggere l'aiuto sulla <a href=\"/articles/107005\">galleria</a>."
+
+# [WARNING] en translation used
+msgid "plupload invalid image titles"
+msgstr "please enter a title for your images (4 characters minimum)"
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
