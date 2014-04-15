@@ -8,7 +8,7 @@
 
   C2C.swipe = function() {
 
-    var images, swipe, overlay, background, meta, timer, img_type, i18n;
+    var images, swipe, overlay, meta, timer, img_type, i18n, pos;
 
     // regsiter events for starting the swipejs based gallery
     function init() {
@@ -41,6 +41,8 @@
 
       // temporarily disable zoom
       disableZoom();
+
+      pos = $(document).scrollTop();
 
       // depending on screen width, we use MI or BI images by default
       // use stored setting if any
@@ -80,16 +82,10 @@
         $('<div/>', { 'class': 'swipe-close' })
       );
 
-      background = $('<div/>', { 'class': 'swipe-background' });
-
-      $('body').append(background, overlay);
-
-      // position the overlay divs correctly on screen
-      background.height($('#holder').height());
-      overlay.css('top', $(document).scrollTop());
+      $('body').append(overlay).addClass('swipe-active');
 
       $('.swipe-close').click(function() {
-        location.hash = '#_'; // use dummy hash since using '' or '#' would cause page scroll to top
+        window.history.back();
         stop();
       });
 
@@ -110,21 +106,17 @@
         .on('touchstart', showMeta)
         .on('touchend', hideMeta);
 
-      // prevent page scroll when touching the information panel
-      // this shouldn't prevent the click event
-      meta.on('touchmove', function(event) {
-        event.preventDefault();
-      });
-
-      // use location hash in order to cancel gallery
+      // use location hash or historty api in order to cancel gallery
       // if user pushes back button
-      // TODO use history api once better supported in the mobile world
-      location.hash = '#swipe';
-      $(window).on('hashchange', function() {
-        if (location.hash !== '#swipe') {
-          stop();
-        }
-      });
+      if (historyapi) {
+        history.pushState('', '', '#swipe');
+        $(window).on('popstate.swipe', stop);
+      } else {
+        location.hash = '#swipe';
+        $(window).on('hashchange.swipe', function() {
+          if (location.hash !== '#swipe') stop();
+        });
+      }
     }
 
     // this function gets executed after a new slide is displayed
@@ -169,7 +161,7 @@
       if (window.localStorage) {
         localStorage.setItem('swipe-quality', img_type == 'MI' ? 'BI' : 'MI');
       }
-      $('.swipe-background, .swipe-overlay').remove();
+      overlay.remove();
       start(swipe.getPos());
     }
 
@@ -194,9 +186,11 @@
       if (!swipe) return;
       swipe.kill();
       overlay.remove();
-      background.remove();
+      $('body').removeClass('swipe-active');
       enableZoom();
-      swipe = overlay = background = null;
+      $(window).off('.swipe');
+      setTimeout(function() { $(document).scrollTop(pos); }, 0);
+      swipe = overlay = null;
     }
 
     // adapted from swipe.js
@@ -228,6 +222,21 @@
     return init();
 
   };
+
+  historyapi = (function () {
+    // test taken from modernizr ( MIT license
+    // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/history.js
+    var ua = navigator.userAgent;
+
+    if ((ua.indexOf('Android 2.') !== -1 ||
+        (ua.indexOf('Android 4.0') !== -1)) &&
+        ua.indexOf('Mobile Safari') !== -1 &&
+        ua.indexOf('Chrome') === -1) {
+      return false;
+    }
+
+    return (window.history && 'pushState' in window.history);
+  })();
 
   C2C.swipe();
 

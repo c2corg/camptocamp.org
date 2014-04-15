@@ -469,7 +469,7 @@ select.menu_select
   padding: 0;
   padding-top: 5px;
   padding-bottom: 5px;
-  @include box-sizing(content-box);
+  @include box-sizing(border-box);
   border: none;
 }
 
