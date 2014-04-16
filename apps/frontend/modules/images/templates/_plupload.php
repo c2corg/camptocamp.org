@@ -4,40 +4,58 @@ use_helper('Ajax', 'Form', 'Javascript', 'MyForm', 'Escaping', 'MyMinify');
 $validation = sfConfig::get('app_images_validation');
 ?>
 <div id="image_upload">
-<div id="plupload_tips" class="tips">
-<div id="plupload_normal">
+<div class="tips plupload-tips">
 <?php echo __('plupload introduction text',
               array('%1%' => implode(', ', $validation['file_extensions']),
                     '%2%' => $validation['max_size']['height'],
                     '%3%' => $validation['max_size']['width'],
                     '%4%' => $validation['weight'] / pow(1024, 2),
                     '%5%' => $validation['min_size']['height'],
-                    '%6%' => $validation['min_size']['width']))
-?>
-</div></div>
-<div id="container">
-<?php
-echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, array('id' => 'form_file_input'));
-?>
-<input type="button" value="<?php echo __('Add images') ?>" id="pickfiles" disabled="disabled" />
-<span class="plupload-drag-drop" style="display:none"><?php echo __('or drag & drop files') ?></span>
-<?php echo button_to_function(__('save'), "$('.images_submit').hide(); $('#images_validate_form').submit()",
-                              array('style' => 'display:none', 'disabled' => 'disabled', 'class' => 'images_submit')); ?>
-</form>
+                    '%6%' => $validation['min_size']['width'])); ?>
+</div>
+<div id="plupload-container">
 <?php
 echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, array('id' => 'images_validate_form'));
 ?>
-<div id="files_to_upload">
+<ul id="files_to_upload" class="empty">
+  <li class="plupload-indication" style="display:none">
+    <div>
+      <input type="button" class="plupload-pickfiles" value="<?php echo __('Add images') ?>" onclick="$('#pickfiles').click()" disabled="disabled" />
+      <span class="plupload-drag-drop"><?php echo __('or drag & drop files') ?></span>
+    </div>
+  </li>
+</ul>
+<div class="plupload-control">
+<input id="pickfiles" class="plupload-pickfiles" type="button" value="<?php echo __('Add images') ?>" disabled="disabled" />
+<input class="plupload-cancel" type="button" value="<?php echo __('cancel') ?>" />
+<input class="plupload-submit" type="submit" value="<?php echo __('save') ?>" disabled="disabled" />
+<div class="tooltip top" style="display:none">
+  <div class="tooltip-inner"><?php echo __('plupload invalid image titles') ?></div>
+  <div class="tooltip-arrow"></div>
 </div>
-<div>
-<?php echo button_to_function(__('save'), "$('.images_submit').hide(); $('#images_validate_form').submit()",
-                              array('style' => 'display:none', 'disabled' => 'disabled', 'class' => 'images_submit')); ?>
 </div>
 <?php
-$plupload_js = minify_get_combined_files_url(array('/static/js/plupload.c2c.js', '/static/js/plupload.wrapper.js'));
-$backup_url = url_for("@image_jsupload?mod=$mod&document_id=$document_id");
-echo javascript_queue("$.ajax({ url: '$plupload_js', dataType: 'script', cache: true })" .
-".done(function() { C2C.PlUploadWrapper.init('/images/addpltempimage/mod/$mod/document_id/$document_id', '$backup_url', {" .
+$jsfiles = array('/static/js/mixitup.js',
+    '/static/js/plupload.full.min.js',
+    '/static/js/plupload.wrapper.js');
+if (!c2cTools::mobileVersion())
+{
+  $jsfiles[] = '/static/js/plupload.dropdown.js';
+}
+
+$plupload_js = minify_get_combined_files_url($jsfiles);
+
+$backup_url = url_for("@image_jsupload?mod=$mod&document_id=$document_id?noplupload=true");
+
+echo javascript_queue(
+// compute the height that files_to_upload should take. We do it asap in order to prevent flickering
+"var height = $(window).height() - $('.modal-header').outerHeight(true) - $('.plupload-tips').outerHeight(true)" .
+"- $('#plupload-container').outerHeight(true) - $('.modal-footer').outerHeight(true)" .
+"- parseInt($('.modal-body').css('paddingBottom'), 10)*2 - 30;" .
+"$('#images_validate_form').height(height);" .
+// load plupload script and init once ready
+"$.ajax({ url: '$plupload_js', dataType: 'script', cache: true })" .
+".done(function() { C2C.PlUploadWrapper('/images/addpltempimage/mod/$mod/document_id/$document_id', '$backup_url', {" .
     "badselect: '".__('plupload bad selection')."', extensions: '".__('plupload extension')."', unknownerror: '".__('plupload unknown')."'," .
     "sending: '".__('plupload sending')."', waiting: '".__('plupload waiting')."', serverop: '".__('plupload serverop')."'," .
     "cancel: '".__('cancel')."', drop: '".__('plupload drop')."'" .

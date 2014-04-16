@@ -1,4 +1,12 @@
-/* plupload specific styles */
+@import "tooltips";
+
+// plupload specific styles
+
+$image-max-size: 250px;
+$image-title-height: 40px;
+$border-color: #d0d0d0;
+
+// drag&drop overlay
 #global-drop-overlay {
   background: none repeat scroll 0 0 black;
   height: 100%;
@@ -8,7 +16,7 @@
   left: 0;
   text-align: center;
   @include opacity(0);
-  @include transition(all .5s linear);
+  @include transition(all .4s linear);
   z-index: -1000;
   display: table;
 
@@ -26,26 +34,101 @@
   }
 }
 
-#plupload_normal {
-  background-color: white;
-}
-
-#plupload_tips {
+// readme
+.plupload-tips {
   position: relative;
 }
 
-.image_upload_entry {
-  padding: 10px;
-  border-top: solid 1px black;
+.plupload-indication {
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  & > div {
+    display: table-cell;
+    vertical-align: middle
+  }
 }
 
-#images_submit {
-  margin-bottom: 5px;
+#files_to_upload.empty .plupload-indication {
+  display: table;
 }
 
-.plupload_progress_bar
-{
-  width: 100px;
+// main div
+#plupload-container #files_to_upload {
+  overflow: visible;
+}
+#modalbox #plupload-container #files_to_upload {
+  height: 100%;
+  overflow: auto;
+}
+
+// control buttons
+.plupload-control {
+  margin-top: 8px;
+
+  .tooltip {
+    right: 0;
+    bottom: 26px;
+  }
+}
+.modal-body .plupload-control .tooltip {
+  bottom: 0;
+}
+
+.plupload-submit {
+  font-weight: bold;
+}
+
+.plupload-submit, .plupload-cancel {
+  float: right;
+}
+
+.plupload-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 2px;
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  @include opacity(.6);
+
+  &:hover {
+    @include opacity(1);
+  }
+
+  &, &:hover {
+    background: none;
+    @include box-shadow(none);
+  }
+}
+
+// loading
+.plupload-loading, .plupload-error {
+  height: $image-max-size + $image-title-height + 1;
+  width: inherit;
+
+  & > div {
+    display: table-cell;
+    width: inherit;
+    height: inherit;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .plupload-close {
+    position: relative;
+    top: -$image-max-size - $image-title-height - 1;
+    float: right;
+  }
+}
+
+.plupload-progress-bar {
+  width: 200px;
   height: 7px;
   border: 1px solid #ccc;
   padding: 0;
@@ -55,8 +138,7 @@
   display: inline-block;
 }
 
-.plupload_progress
-{
+.plupload-progress {
   background-color: #f93;
   height: 100%;
   width: 0;
@@ -65,94 +147,254 @@
   left: 0;
 }
 
-.plupload_text
-{
+.plupload-error .global_form_error {
+  @include box-sizing(border-box);
+  width: 100% !important;
+}
+
+// image entry
+.plupload-entry {
+  display: none; // will be set as inline-block by mixitup
+  width: $image-max-size;
+  height: $image-max-size + $image-title-height + 1;
+  margin: 4px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  border: 1px solid $border-color;
+  @include border-radius(4px);
+}
+
+.plupload-image-container {
+  width: $image-max-size;
+  height: $image-max-size;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.plupload-image-wrapper {
+  display: table-cell;
+  width: inherit;
+  height: inherit;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.plupload-image-overlay {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+}
+
+.plupload-licence {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  select {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    border: 0;
+    @include opacity(0);
+  }
+}
+
+.plupload-image-bottom {
+  width: 100%;
+  height: $image-title-height;
+  border-top: 1px solid $border-color;
+  background-color: white;
+}
+
+.plupload-image-title {
+  float: left;
+  width: $image-max-size - $image-title-height - 1;
+
+  input {
+    width: 100%;
+    height: $image-title-height;
+    line-height: 40px\9; // ie8 hack
+    @include box-sizing(border-box);
+    padding: 0 8px;
+    background: none;
+    border: none;
+    @include border-radius(0);
+    outline: none;
+    color: #999;
+    @include transition(all .3s);
+
+    &:focus {
+      color: black;
+      @include box-shadow(inset 0 0 6px rgba(0, 0, 0, 0.2));
+    }
+  }
+}
+
+$button-padding: 8px;
+.plupload-categories, .plupload-licence-button {
+  position: relative;
+  float: right;
+  height: $image-title-height;
+  opacity: .7;
+  @include transition(opacity .3s);
+  cursor: pointer;
+
+  &:hover, &.active {
+    opacity: 1;
+  }
+
+  & > select { // mobile version with translucid select
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    @include opacity(0);
+  }
+}
+
+.plupload-categories {
+  width: $image-title-height;
+  border-left: 1px dashed $border-color;
+  @include -c2c-hashurl-background('/static/images/picto/tag2.png', center no-repeat);
+  color: white;
+  font-size: 11px;
+
+  .count {
+    display: table-cell;
+    width: inherit;
+    height: inherit;
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
+.plupload-licence-button {
+  width: 28px;
+  @include -c2c-hashurl-background('/static/images/picto/cc.png', center no-repeat);
+}
+
+.plupload-image-bottom.with-licence {
+  .plupload-image-title {
+    width: $image-max-size - $image-title-height - 25;
+  }
+
+  .plupload-categories {
+    width: $image-title-height - 4;
+  }
+}
+
+.plupload-entry.invalid {
+  &, .plupload-image-title {
+    border-color : red;
+  }
+
+  .plupload-image-title input {
+    color: red;
+    &::-moz-placeholder {
+      color: red;
+    }
+    &::-webkit-input-placeholder {
+      color: red;
+    }
+    &:-ms-input-placeholder {
+      color: red;
+    }
+  }
+}
+
+// dropdowns
+.plupload-dropdown-container {
   position: relative;
 }
 
-#form_file_input
-{
-  margin-bottom: 2px;
-}
+.plupload-dropdown {
+  & + .content {
+    min-width: 210px;
+    display: none;
+    position: absolute;
+    right: 7px;
+    bottom: 2px;
+    padding: 4px 0;
+    line-height: 1.6em;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid $border-color;
+    @include border-radius(4px);
+    @include box-shadow(0 -2px 7px 4px rgba(0, 0, 0, 0.2));
 
-// TODO we should create a mixin and use @content for keyframes once our sass version
-// is recent enough
-.image_upload_entry {
-  @include experimental(animation, new-image-animation .25s linear forwards);
+    &:before {
+      position: absolute;
+      bottom: -7px;
+      right: 5px;
+      display: inline-block;
+      border-right: 7px solid transparent;
+      border-top: 7px solid $border-color;
+      border-left: 7px solid transparent;
+      content: '';
+    }
 
-  &.removed {
-    @include experimental(animation, remove-image-animation .25s linear forwards);
+    &:after {
+      position: absolute;
+      bottom: -6px;
+      right: 6px;
+      display: inline-block;
+      border-right: 6px solid transparent;
+      border-top: 6px solid white;
+      border-left: 6px solid transparent;
+      content: '';
+    }
+
+    ul {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    li {
+      &:hover {
+        background-color: #f5f5f5;
+      }
+      label {
+        display: block;
+        line-height: 20 / 12;
+        padding: 3px 10px;
+
+        &.checked {
+          background-color: #428bca;
+        }
+
+        input[type=checkbox] {
+          margin-right: 4px;
+        }
+
+        input[type=radio] {
+          display: none;
+          display: inline-block\9; // ie8 hack. Labels with hidden input don't change value
+        }
+      }
+    }
+  }
+
+  &.open {
+    & + .content {
+      display: block;
+    }
   }
 }
 
-@-moz-keyframes new-image-animation {
-  from {
-    opacity: 0;
-    -moz-transform: scale(0);
-  }
+.plupload-dropdown.plupload-licence-button + .content { right: 1px; }
+.with-licence .plupload-dropdown.plupload-categories + .content { right: 34px; }
 
-  to {
-    opacity: 1;
-    -moz-transform: scale(1);
-  }
-}
-
-@-webkit-keyframes new-image-animation {
-  from {
-    opacity: 0;
-    -webkit-transform: scale(0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes new-image-animation {
-  from {
-    opacity: 0;
-    transform: scale(0);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@-moz-keyframes remove-image-animation {
-  from {
-    opacity: 1;
-    -moz-transform: scale(1);
-  }
-
-  to {
-    opacity: 0;
-    -moz-transform: scale(0);
-  }
-}
-
-@-webkit-keyframes remove-image-animation {
-  from {
-    opacity: 1;
-    -webkit-transform: scale(1);
-  }
-
-  to {
-    opacity: 0;
-    -webkit-transform: scale(0);
-  }
-}
-
-@keyframes remove-image-animation {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: scale(0);
+// if screen can contain only one entry horizontally, let's center it
+@media (max-width: 580px) {
+  #files_to_upload {
+    text-align: center;
   }
 }

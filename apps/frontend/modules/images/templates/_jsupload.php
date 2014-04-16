@@ -42,8 +42,8 @@ echo form_tag('images/jsupload?mod=' . $mod . '&document_id=' . $document_id, ar
 ?>
 <div>
 </div>
-<div id="files_to_upload">
-</div>
+<ul id="files_to_upload" class="legacy">
+</ul>
 <div>
 <?php echo button_to_function(__('save'), "$('.images_submit').hide(); $('#images_validate_form').submit()", array('disabled' => 'disabled', 'class' => 'images_submit')); ?>
 </div>

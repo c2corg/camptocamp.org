@@ -19,7 +19,7 @@
       $('.modal').not('.in').removeAttr('style');
     }
 
-    $('.modal-backdrop').toggle(!!this.options.backdrop);
+    this.$backdrop = $('.modal-backdrop').toggle(!!this.options.backdrop);
 
     this.$element = $('#modalbox')
       .on('click.dismiss.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this));
@@ -52,9 +52,13 @@
       this.isShown = true;
       this.escape();
       if (!!this.options.backdrop && this.options.backdrop != 'static') {
-        $('.modal-backdrop').on('click.dismiss.modal', $.proxy(this.hide, this));
+        this.$backdrop.on('click.dismiss.modal', $.proxy(this.hide, this))
+          .addClass('in');
       }
-      this.$element.addClass('in');
+
+      this.$backdrop.addClass('in');
+      this.$element.addClass('in')
+        .trigger($.Event('show.modal'));
     },
 
     hide: function() {
@@ -62,8 +66,9 @@
       $('#pub object').css('visibility', 'visible');
       this.isShown = false;
       this.escape();
-      $('.modal-backdrop').off('click.dismiss.modal');
-      this.$element.removeClass('in');
+      this.$backdrop.off('click.dismiss.modal').removeClass('in');
+      this.$element.removeClass('in')
+        .trigger($.Event('hide.modal'));
     },
 
     // set escape key
