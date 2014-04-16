@@ -519,14 +519,14 @@ $main-color: #ffba4f;
 {
     background-color: $main-color;
     color: #fff;
-    @include background-image(linear-gradient(top, #ff9834, #ffbe80));
+    @include background-image(linear-gradient(#ff9834, #ffbe80));
 }
 
 /* colors for c2c-association forums */
 .pun.c2c-asso h2, .c2c-asso div.blockpost h2, .c2c-asso #brdmenu
 {
     background-color: #9f77b3;
-    @include background-image(linear-gradient(top, #7b4e90, #b791c8));
+    @include background-image(linear-gradient(#7b4e90, #b791c8));
 }
 .pun.c2c-asso h2 a
 {
