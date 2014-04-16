@@ -416,9 +416,3 @@
   };
 
 })(window.C2C = window.C2C || {}, jQuery);
-
-// ie8 fix which doesn't know HTMLElement
-// hope it doesn't break something elsewhere
-if (!window.HTMLElement) {
-  window.HTMLElement = window.Element;
-}

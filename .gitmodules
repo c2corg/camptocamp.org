@@ -42,7 +42,7 @@
 	url = https://github.com/pornel/slip.git
 [submodule "web/static/js/third-parties/mixitup"]
 	path = web/static/js/third-parties/mixitup
-	url = https://github.com/patrickkunka/mixitup.git
+	url = https://github.com/c2corg/mixitup.git
 [submodule "web/static/js/third-parties/plupload"]
 	path = web/static/js/third-parties/plupload
 	url = https://github.com/moxiecode/plupload.git
