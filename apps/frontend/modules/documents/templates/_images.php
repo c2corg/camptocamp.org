@@ -165,18 +165,19 @@ if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)):
     else
     {
         $upload_method = sfConfig::get('app_images_upload_method', 'js');
+        $js = "var width = $(window).width() - 60;";
         switch ($upload_method)
         {
             // note: ie<=7 doesn't support jsupload nor plupload
             case 'js':
-                $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' .
+                $js .= 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' .
                       url_for("@image_jsupload?mod=$module_name&document_id=$document_id") . '?noplupload=true' .
-                      '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';
+                      '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:width}); return false;';
                 break;
             case 'plupload':
-                $js = 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' .
+                $js .= 'if (!/MSIE [67].0/.exec(navigator.userAgent)) { url = \'' .
                       url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .
-                      '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:700}); return false;';
+                      '\' } else { url = this.href; } $.modalbox.show({remote:url,title:this.title,width:width}); return false;';
                 break;
             default:
                 $js = '$.modalbox.show({remote:\''.url_for("@image_upload?mod=$module_name&document_id=$document_id") .

@@ -2,7 +2,13 @@
 use_helper('Form', 'MyImage', 'Button', 'Javascript');
 
 echo picto_tag('action_cancel', __('close'), array('class' => 'tmp-image-close'));
-echo image_tag(image_url($image_filename, 'small', false, true), array('class' => 'temp'));
+
+$tag_params =  array('class' => 'temp');
+if (isset($image_datetime))
+{
+    $tag_params['data-datetime'] = $image_datetime;
+}
+echo image_tag(image_url($image_filename, 'small', false, true), $tag_params);
 echo __('categories (multiple selection allowed)');
 ?>
 <div class="file_to_upload_categories">

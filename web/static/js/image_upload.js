@@ -130,7 +130,7 @@
         filenames = document.getElementById('image_file').value;
       }
                 
-      $('#files_to_upload').prepend($('<div id="u'+upload_id+'"/>')
+      $('#files_to_upload').prepend($('<li id="u'+upload_id+'"/>')
         .append('<span>'+filenames+' </span>',
                 '<img src="' + $('html').attr('data-static-url') + '/static/images/indicator.gif" />'));
 

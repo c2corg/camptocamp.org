@@ -10,9 +10,11 @@ input[type=submit], input[type=reset], input[type=button], button, .c2cui_btn {
   border: 1px solid #c0c0c0;
   border-bottom-color: #939393;
   border-right-color: #939393;
+  outline: none;
   background: #f4f4f4; /* old browsers */
-  @include background(linear-gradient(top, #f9f9f9 0%,#e3e3e3 100%));
+  @include background(linear-gradient(#f9f9f9, #e3e3e3));
   @include text-shadow(0 1px 0 white);
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   cursor: pointer;
   @include transition(0.1s linear all);
 
@@ -23,14 +25,13 @@ input[type=submit], input[type=reset], input[type=button], button, .c2cui_btn {
 
   &:active {
     border-color: #000;
-    @include background-image(linear-gradient(top, #e3e3e3, #f9f9f9 100%));
+    @include background-image(linear-gradient(#e3e3e3, #f9f9f9));
   }
 
-  // disbabled
+  // disabled
   &:disabled + .c2cui_btno {
     color: gray;
   }
-
 }
 
 // "standalone" buttons, add some padding. c2c buttons inputs have class .c2cui_btnr
@@ -86,10 +87,3 @@ input[type=submit], input[type=reset], input[type=button], button {
   height: 1.5em;
   line-height: 1.5em;
 }
-
-/* disabled buttons */
-/*input[type=submit], input[type=reset], input[type=button] {
-  &:disabled + .c2cui_btno {
-    color: gray;
-  }
-}*/

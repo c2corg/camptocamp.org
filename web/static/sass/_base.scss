@@ -1354,7 +1354,7 @@ a.close_btn {
   @include -c2c-hashurl-background('/static/images/copyright.png', no-repeat 0);
 }
 
-.picto.cc-by-sa-mini
+.picto.cc-by-sa-mini, .picto.cc-by-nc-nd-mini
 {
   width: 80px;
   height: 15px;
@@ -2116,7 +2116,7 @@ fieldset .select_title
   margin: 2px 0.3em;
 }
 
-#filterform  input.geonames
+#filterform input.geonames
 {
   width: 15em;
 }
@@ -3245,9 +3245,12 @@ p.abstract em
   cursor: pointer;
 }
 
-#files_to_upload
+#modalbox #files_to_upload.legacy
 {
   max-height: 380px;
+}
+#files_to_upload
+{
   overflow: auto;
 }
 
@@ -4483,7 +4486,7 @@ span.cotometre_result {
   @include -c2c-datauri-background('/static/images/cc-by-sa_mini.png', no-repeat 0);
 }
 
-.thumb_data_img div.license_2, .image_list div.license_2 {
+.picto.cc-by-nc-nd-mini, .thumb_data_img div.license_2, .image_list div.license_2 {
   @include -c2c-datauri-background('/static/images/cc-by-nc-nd_mini.png', no-repeat 0);
 }
 

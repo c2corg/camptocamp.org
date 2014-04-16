@@ -859,7 +859,7 @@ function c2c_button($value, $options, $btn = null)
     }
     $options['class'] = 'c2cui_btnr';
 
-    $btn = is_null($btn) ? tag('input', array_merge(array('value' => $value), $options))
+    $btn = is_null($btn) ? tag('input', array_merge(array('type' => 'button', 'value' => $value), $options))
                          : $btn;
     
     return '<span class="'. $class . '">' . $btn . '<span class="c2cui_btno">' .

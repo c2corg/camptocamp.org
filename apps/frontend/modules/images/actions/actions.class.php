@@ -290,8 +290,8 @@ class imagesActions extends documentsActions
             ksort($images_uniquenames);
             foreach ($images_uniquenames as $key => $filename)
             {
-                $image_type = $images_types[$key];
-                $name = $images_names[$key];
+                $image_type = isset($images_types[$key]) ? $images_types[$key] : 2;
+                $name = !empty($images_names[$key]) ? $images_names[$key] : $this->__('Image name missing');
                 $categories = array_key_exists($key, $images_categories) ?
                               $images_categories[$key] : array();
 
@@ -422,6 +422,7 @@ class imagesActions extends documentsActions
                     $images[$i]['image_filename'] = $img_data['image_filename'];
                     $images[$i]['default_license'] = $img_data['default_license'];
                     $images[$i]['image_number'] = $img_data['image_number'];
+                    $images[$i]['image_datetime'] = $img_data['image_datetime'];
                     if (!empty($img_data['image_title']))
                     {
                         $images[$i]['image_title'] = $img_data['image_title'];
@@ -444,7 +445,7 @@ class imagesActions extends documentsActions
         $this->setlayout(false);
     }
 
-    /** image uplaod with plupload tool */
+    /* image upload with plupload tool */
     public function executeAddpltempimage()
     {
         $document_id = $this->getRequestParameter('document_id');
@@ -491,6 +492,7 @@ class imagesActions extends documentsActions
 
             $this->image_filename = $img_data['image_filename'];
             $this->default_license = $img_data['default_license'];
+            $this->image_datetime = $img_data['image_datetime'];
             $this->image_number = $img_data['image_number'];
             if (!empty($img_data['image_title']))
             {
@@ -509,7 +511,7 @@ class imagesActions extends documentsActions
 
     /**
      * Executes easy upload action
-     * Due to a limitation in flash... online the name of the file is usable
+     * Due to a limitation in flash... only the name of the file is usable
      * so other informations are sent by reference...
      */
     public function executeUpload()
@@ -684,7 +686,6 @@ class imagesActions extends documentsActions
 
         if ($degrees !== 90 && $degrees !== -90)
         {
-            var_dump($degrees); exit;
             $referer = $this->getRequest()->getReferer();
             $this->setErrorAndRedirect('Bad rotation value', $referer);
         }
@@ -1017,7 +1018,7 @@ class imagesActions extends documentsActions
         // if jpg, check if we need orientation changes
         if ($file_ext == '.jpg')
         {
-            Images::correctOrientation("$temp_dir$unique_filename$file_ext");
+            Images::correctOrientation($new_location);
         }
 
         // generate thumbnails
@@ -1059,11 +1060,23 @@ class imagesActions extends documentsActions
             // if encoding could not be detected, rather not try to put it as prefilled title
         }
 
+        // we are also interested at this point on the exif date in order to reorder images on the client side
+        if ($file_ext == '.jpg' && $exif = exif_read_data($new_location))
+        {
+            if (isset($exif['DateTimeOriginal']))
+            {
+                $image_date = str_replace(' ', ':', $exif['DateTimeOriginal']);
+                $image_date = explode(':', $image_date);
+                $image_date = mktime($image_date[3], $image_date[4], $image_date[5], $image_date[1], $image_date[2], $image_date[0]);
+            }
+        }
+
         return array('image_filename' => $unique_filename . $file_ext,
                      'default_license' => $this->getDefaultImageLicense($this->getRequestParameter('document_id'), 
                                                                         $this->getRequestParameter('mod')),
                      'image_number' => (intval($this->getRequestparameter('image_number'))+1)*1000+$index,
-                     'image_title' => isset($image_title) ? $image_title : null);
+                     'image_title' => isset($image_title) ? $image_title : null,
+                     'image_datetime' => isset($image_date) && $image_date ? $image_date : null);
     }
 
     // check if user has the rights to upload images to the document

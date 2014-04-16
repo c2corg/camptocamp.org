@@ -18,6 +18,7 @@ foreach ($images as $image):
                         array('image_filename' => $image['image_filename'],
                               'default_license' => $image['default_license'],
                               'image_number' => $image['image_number'],
+                              'image_datetime' => $image['image_datetime'],
                               'image_title' => isset($image['image_title']) ? $image['image_title'] : null)
                         );
     }
