@@ -291,7 +291,7 @@ class imagesActions extends documentsActions
             foreach ($images_uniquenames as $key => $filename)
             {
                 $image_type = isset($images_types[$key]) ? $images_types[$key] : 2;
-                $name = !empty($images_names[$key]) ? $images_names[$key] : $this->__('Image name missing');
+                $name = !empty($images_names[$key]) ? substr($images_names[$key], 0, 150) : $this->__('Image name missing');
                 $categories = array_key_exists($key, $images_categories) ?
                               $images_categories[$key] : array();
 
