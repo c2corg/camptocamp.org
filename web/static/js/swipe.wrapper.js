@@ -7,9 +7,6 @@
 // of the slides after a slide change
 // This also prevents preloading too many images
 
-// TODO js async load?
-//      enable for documents embedded images?
-
 (function(C2C, $, window, document) {
 
   C2C.swipe = function() {
@@ -29,14 +26,14 @@
 
       i18n = C2C.swipe_i18n;
 
-      $('.image a[data-lightbox]').each(function(i) {
+      $('a[data-lightbox]').each(function(i) {
         var $this = $(this),
             $img = $this.find('img').first();
 
         imagesData.push({
           href: $this.attr('href'),
           src: $img.attr('src'),
-          title: $img.attr('title'),
+          title: $this.attr('title'),
           width: $img.data('width'),
           height: $img.data('height'),
         });
