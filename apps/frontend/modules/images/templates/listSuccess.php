@@ -1,5 +1,5 @@
 <?php 
-use_helper('Pagination', 'MyImage', 'Lightbox', 'Javascript', 'Link', 'Viewer', 'General');
+use_helper('Pagination', 'MyImage', 'Lightbox', 'JavascriptQueue', 'Link', 'Viewer', 'General');
 
 $mobile_version = c2cTools::mobileVersion();
 $id = $sf_params->get('id');
@@ -10,7 +10,14 @@ if (!$mobile_version)
     // add lightbox ressources
     addLbMinimalRessources();
 }
-
+else
+{
+    echo javascript_queue('C2C.swipe_i18n = {"Big size": "'.__('Big size').'",'.
+                          '"Original image": "'.__('Original image').'",'.
+                          '"Informations": "'.__('Informations').'"};');
+    use_javascript('/static/js/swipe.js', 'last');
+    use_javascript('/static/js/swipe.wrapper.js', 'last');
+}
 echo display_title(__('images list'), $sf_params->get('module'), false, 'list_nav');
 
 if (!c2cTools::mobileVersion())
