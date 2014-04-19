@@ -24,7 +24,7 @@ foreach($images as $image)
     $image_id = $image['id'];
     $image_type = $image['image_type'];
 
-    $tag_attributes = array('alt' => $caption, 'title' => $caption);
+    $tag_attributes = array('alt' => $caption);
     foreach(array('width', 'height', 'file_size') as $prop)
     {
         if (isset($image[$prop]) && check_not_empty($image[$prop]))
