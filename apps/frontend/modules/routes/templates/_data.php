@@ -98,7 +98,7 @@ if (isset($nb_comments) && $nb_comments)
     {
         $equipment_rating = $document->getRaw('equipment_rating');
         $aid_rating = $document->getRaw('aid_rating');
-        if ($equipment_rating == 1 && empty($aid_rating))
+        if ($equipment_rating >= 4 && $equipment_rating <= 6 && empty($aid_rating))
         {
             $suffix = array('', 'A0');
         }
