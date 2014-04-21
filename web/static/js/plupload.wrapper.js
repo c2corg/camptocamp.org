@@ -383,6 +383,9 @@
         layout: {
           containerClass: 'mixitup',
           containerClassFail: 'empty'
+        },
+        animation: {
+          enable: !$('html').hasClass('mobile')
         }
       });
     }
