@@ -2443,7 +2443,7 @@ class documentsActions extends c2cActions
         }
 
         // if module = summit, site, parking or hut, check for similarities and if any, append regions for disambiguation
-        if ($model == 'Summit' || $model == 'Site' || $model == 'Parking' || $model == 'Hut')
+        if (in_array($model, Array('Summit', 'Site', 'Parking', 'Hut')))
         {
             sfLoader::loadHelpers(array('General'));
             $items_copy = $items;
@@ -2453,7 +2453,7 @@ class documentsActions extends c2cActions
                 foreach ($items_copy as $item)
                 {   
                    if (levenshtein(remove_accents($item_cmp[$model . 'I18n'][0]['name']),
-                                   remove_accents($item[$model . 'I18n'][0]['name'])) <= 2)
+                                   remove_accents($item[$model . 'I18n'][0]['name'])) <= 3)
                    {
                        $add_region = true;
                        break 2;
@@ -2909,7 +2909,7 @@ class documentsActions extends c2cActions
         $items = Language::getTheBest($results, $model);
 
         // if module = summit, site, parking or hut, check for similarities and if any, append regions for disambiguation
-        if ($model == 'Summit' || $model == 'Site' || $model == 'Parking' || $model == 'Hut')
+        if (in_array($model, Array('Summit', 'Site', 'Parking', 'Hut')))
         {
             $items_copy = $items;
             for ($i=1; $i<count($items); $i++)
@@ -2918,7 +2918,7 @@ class documentsActions extends c2cActions
                 foreach ($items_copy as $item)
                 {
                    if (levenshtein(remove_accents($item_cmp[$this->model_class . 'I18n'][0]['name']),
-                                   remove_accents($item[$this->model_class . 'I18n'][0]['name'])) <= 2)
+                                   remove_accents($item[$this->model_class . 'I18n'][0]['name'])) <= 3)
                    {
                        $add_region = true;
                        break 2;
@@ -2957,20 +2957,38 @@ class documentsActions extends c2cActions
         foreach ($items as $item)
         {
             $identifier = ($model == 'Document') ? $this->__(substr($item['module'], 0, -1)) . ' ' : '' ; // if module = documents, add the object type inside brackets
-            $postidentifier = ($model == 'Outing') ? ' (' . $item['date'] . ')' : ''; // if outings, we append the date
-            $postidentifier = ($model == 'Summit') ? ' - ' . $item['elevation'] . $this->__('meters') : ''; // if summit, append elevation
-            $postidentifier .= ($model == 'Book') ? ((check_not_empty($item['author']) ? ' - ' . $item['author'] : '') .
-                                                     (check_not_empty($item['publication_date']) ? ' - ' . $item['publication_date'] : ''))
-                                                  : ''; // if book, append author and publication date
+
+            switch($model)
+            {
+                case 'Outing':
+                    $postidentifier = ' (' . $item['date'] . ')';// if outings, we append the date
+                    break;
+                case 'Summit':
+                case 'Hut':
+                    $postidentifier = ' - ' . $item['elevation'] . $this->__('meters'); // if summit or hut, append elevation
+                    break;
+                case 'Book':
+                    $postidentifier = (check_not_empty($item['author']) ? ' - ' . $item['author'] : '') .
+                                      (check_not_empty($item['publication_date']) ? ' - ' . $item['publication_date'] : '');
+                    break;
+                case 'User':
+                    $postidentifier = ' (' . $item['private_data']['username']. ')'; // if user, append forum nickname
+                    break;
+                default:
+                    $postidentifier = '';
+            }
+                
             $postidentifier .= (isset($item['area_name'])) ? ' ('.$item['area_name'].')' : ''; // if region attached, we append it
-            $postidentifier .= ($model == 'User') ? ' (' . $item['private_data']['username']. ')' : ''; // if user, append forum nickname
+
             $html .= '<li id="'.$item['id'].'">'.$item[$this->model_class . 'I18n'][0]['name'].'<span class="informal">'.
                      "<em>$postidentifier</em> <small>[$identifier" . $item['id'] . ']</small></span></li>';
         }
+
         if (isset($exact_matches))
         {
             $html .= '<div class="feedback">'.$this->__('only exact matches. Go on typing').'</div>';
         }
+
         $html .= '</ul>';
 
         // format the response and send back :

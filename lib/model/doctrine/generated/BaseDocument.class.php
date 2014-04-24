@@ -1941,7 +1941,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $select = 'mi.name, m.id, m.module, m.author, m.publication_date';
             $where_vars = array($name);
         }
-        else if ($model == 'Summit') // retrieve elevation
+        else if ($model == 'Summit' || $model == 'Hut') // retrieve elevation
         {
             $select = 'mi.name, m.id, m.module, m.elevation';
             $where_vars = array($name);
