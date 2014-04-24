@@ -49,7 +49,7 @@
         var startDate = time_available ? new Date((points[0].getElementsByTagName("time"))[0].textContent) : null;
         data.push({
           date: startDate,
-          ele: points[0].getElementsByTagName("ele") ? +points[0].getElementsByTagName("ele")[0].textContent : 0,
+          ele: points[0].getElementsByTagName("ele").length ? +points[0].getElementsByTagName("ele")[0].textContent : 0,
           d: 0,
           elapsed: time_available ? 0 : null
         });
@@ -65,7 +65,7 @@
           var date = time_available ? new Date(points[i].getElementsByTagName("time")[0].textContent) : null;
           data.push({
             date: date,
-            ele: points[i].getElementsByTagName("ele") ? +points[i].getElementsByTagName("ele")[0].textContent : 0,
+            ele: points[i].getElementsByTagName("ele").length ? +points[i].getElementsByTagName("ele")[0].textContent : 0,
             d: dtot + d,
             elapsed: time_available ? date - startDate : null
           });
