@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ adserver, adserver, camp_d, adserver, adserver, adserver, montania, camp_d, adserver, adserver, cilao, adserver ]
+    values: [ adserver, adserver, camp_d, adserver, mountainhardwear, adserver, montania, camp_d, adserver, adserver, cilao, adserver ]
   banners:
     list:
       skalp:
@@ -212,7 +212,7 @@ all:
         alt: "Expé"
       montania:
         id: 60
-        image: montania_scarpa.gif
+        image: montania_directalpine.gif
         alt: "Montania Sport"
       ibex:
         id: 61
@@ -283,4 +283,8 @@ all:
         alt: "Diamir On Tour"
       adserver:
         type: adserver
+      mountainhardwear:
+        id: 91
+        image: mountainhardwear.gif
+        alt: "Mountain Hardwear"
 
