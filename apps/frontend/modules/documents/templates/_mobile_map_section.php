@@ -39,7 +39,7 @@ if ($has_geom || $show_map)
                . sfConfig::get('app_google_api_key') . '&amp;';
 
     $map_options = array();
-    
+
     $module = $document->module;
     if ($module == 'summits' || $module == 'parkings' || $module == 'sites' ||
         $module == 'huts' || $module == 'products' || $module == 'users' || $module == 'images')
@@ -81,7 +81,7 @@ if ($has_geom || $show_map)
             {
                 $nb_printed_docs++;
                 $coords = explode(' ', gisQuery::getEWKT($doc['id'], true, $type));
-                $markers[] = substr($coords[1], 0, 6).','.substr($coords[0], 0, 6);
+                $markers[] = sprintf('%6f,%6f', floatval(substr($coords[1], 0)), floatval(substr($coords[0], 1)));
             }
         }
         if (count($markers))
