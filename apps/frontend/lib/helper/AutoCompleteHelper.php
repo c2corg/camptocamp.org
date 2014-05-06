@@ -169,7 +169,7 @@ $('#dropdown_modules').change(function() {
                    . '<span class="assoc_img picto_rm" title="' . __('hide form') . '"></span>';
         $picto_add_rm = link_to_function($picto_add_rm, "C2C.toggleForm('${field_prefix}_form')");
         
-        $title = '<div id="_association_tool" class="section_subtitle extra">' . (in_array('users', $modules_list) ? __('Link an existing user or document') : __('Link an existing document')) . __('&nbsp;:') . '</div> ';
+        $title = '<div id="_association_tool" class="section_subtitle extra" data-tooltip="">' . (in_array('users', $modules_list) ? __('Link an existing user or document') : __('Link an existing document')) . __('&nbsp;:') . '</div> ';
         
         $pictos = ' ';
         foreach ($modules_list as $module)
