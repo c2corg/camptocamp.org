@@ -29,7 +29,7 @@ if (in_array(3, $activities))
 }
 if (in_array(4, $activities))
 {
-    if ($equipment_rating == 1)
+    if ($equipment_rating >= 4 && $equipment_rating <= 6)
     {
         $backpack_content_list[] = 'pack_rock_climbing_bolted';
     }
