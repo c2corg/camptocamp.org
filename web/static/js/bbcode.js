@@ -10,6 +10,21 @@
     var opening_tag, closing_tag, selec_2;
 
     switch (selec) {
+      case 'h2': // sub title 2
+        opening_tag = '## ';
+        closing_tag = '';
+        selec_2 = '#';
+        break;
+      case 'h3': // sub title 3
+        opening_tag = '### ';
+        closing_tag = '';
+        selec_2 = '##';
+        break;
+      case 'h4': // sub title 4
+        opening_tag = '#### ';
+        closing_tag = '';
+        selec_2 = '###';
+        break;
       case 'wl': // wiki link
         opening_tag = '[[|';
         closing_tag = ']]';
