@@ -404,10 +404,10 @@ all:
     cookie_forum_categories_name: punbb_dyncat
  
   gpx:
-    # filter based on distance : 
-    # its value is the minimum distance between two successive points after filtering.
-    filter_distance_switch:   true
-    filter_distance_value:    5
+    # simplify using douglas peuker algorithm (aka crosstrack for gpsbabel)
+    # its value is expressed in meters (epsilon):
+    filter_simplify_switch:   true
+    filter_simplify_value:    5
     # hdop is horizontal dilution of precision in GPX files
     # this filter is useful to remove unprecise points:
     filter_hdop_switch:       true
