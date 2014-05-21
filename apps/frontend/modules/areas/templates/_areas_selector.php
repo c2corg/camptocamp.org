@@ -13,10 +13,10 @@ $mobile_version = c2cTools::mobileVersion();
         {
             echo picto_tag('picto_areas') . ' - ';
         }
-        echo link_to_function(__('ranges'), "$('#indicator').show();
+        echo link_to_function(__('ranges'), "console.log('plop');$('#indicator').show();
                $.ajax('" . url_for('/areas/getmultipleselect?area_type=1') . "')
                  .always(function() { $('#indicator').hide(); })
-                 .done(function(data) { $('#area_selector').html(data); ))") . ' - ' .
+                 .done(function(data) { $('#area_selector').html(data); })") . ' - ' .
              link_to_function(__('regions'), "$('#indicator').show();
                $.ajax('" . url_for('/areas/getmultipleselect?area_type=3') . "')
                  .always(function() { $('#indicator').hide(); })
