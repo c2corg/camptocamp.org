@@ -70,7 +70,7 @@
 
       for (var i = 0; i < nbSlides; i++) {
         wrapper.append($('<div><div class="swipe-img" style="background-image:url(' +
-          imagesData[circleImages(imageIndex - slideIndex + i)].src.replace('SI', imageType) +
+          imagesData[circleImages(imageIndex - slideIndex + i)].src.replace(/(S|M)I/, imageType) +
           ')"></div></div>'));
       }
 
