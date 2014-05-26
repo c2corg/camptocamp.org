@@ -171,6 +171,7 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
             opacity: 0.6,
             singleTile: true,
             isBaseLayer: false,
+            ratio: 1,
             visibility: false
         });
         this.mapPanel.map.addLayer(layer);
