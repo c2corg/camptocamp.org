@@ -2783,9 +2783,9 @@ msgstr "Ver la imagen en su tamaño original"
 
 # [general comment]
 # Bouton pour les modérateurs permettant d'accéder à la liste des associations / désassociations d'un document (infobulle)
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "View the associations history of the document"
-msgstr "Historique des associations et désassociations du document"
+msgstr "History of associations and dissociations to the document"
 
 msgid "View user profile"
 msgstr "Ver el perfil de este usuario"
@@ -3093,7 +3093,7 @@ msgstr "<h3>Boletines de aludes</h3>Enlaces hacia los boletines de aludes recien
 # aide contextuelle du champ liste à choix multiple du type des observations d'avalanche, à l'édition d'une sortie
 # [WARNING] en translation used
 msgid "_avalanche_date_info"
-msgstr "<h3>Type of observations releated to avalanches</h3>\n"
+msgstr "<h3>Type of observations related to avalanches</h3>\n"
 "Type of observations of avalanches or danger signs (multiple choice possible).<br />\n"
 "You can give precisions about observations in the following text area."
 
@@ -3682,6 +3682,16 @@ msgstr "<h3>Tipo de sitio</h3>Clase de sitio o sector:<br /><br /><strong>escuel
 msgid "_slope_info"
 msgstr "<h3>Pendiente</h3>Inclinación máxima y longitud de las pendientes de nieve o hielo encontradas."
 
+# [general comment]
+# pentes >30°, légende (html)
+# [WARNING] en translation used
+msgid "_slopes_info"
+msgstr "Note that this categorization is based on satellite altimeter data which may include a number of artifacts, especially for steeper slopes. This tool should therefore be considered only as an assistance to the choice of routes.\n"
+"<br><span style=\"background-color:rgb(242,229,10);display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
+"<br><span style=\"background-color:rgb(244,11,36);display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
+"<br><span style=\"background-color:rgb(222,5,91);display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
+"<br><span style=\"background-color:rgb(200,137,187);display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
+
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Detalles sobre el limpiado de la nieve </h3>Datos sobre el limpiado de la nieve del acceso en hivierno: ubicación del limpiado mecánico de la nieve, fechas aproximativas del apertura del acceso en caso de no estar limpiado en hivierno."
 
@@ -3941,9 +3951,9 @@ msgstr "Alpes E"
 msgid "alpes_s"
 msgstr "Alpes occidentales - S"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "alpinism big portal"
-msgstr "Alpinisme grandes courses"
+msgstr "Alpinism long routes"
 
 # [general comment]
 # 1ère option pour le critère suivant, dans le filtre d'itinéraires :
@@ -4879,7 +4889,7 @@ msgstr "Bajarse los datos geográficos con el formato %1%"
 msgid "draft"
 msgstr "draft"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "dry tooling portal"
 msgstr "Dry-tooling"
 
@@ -7209,6 +7219,12 @@ msgstr "placa"
 
 msgid "slope"
 msgstr "Pendiente:"
+
+# [general comment]
+# pentes de plus de 30° sur la carto
+# [WARNING] needs_review
+msgid "slopes"
+msgstr "Pendientes más de 30°"
 
 msgid "small pillar"
 msgstr "columnas"

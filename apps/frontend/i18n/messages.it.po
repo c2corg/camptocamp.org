@@ -18,7 +18,7 @@ msgid " loading..."
 msgstr " carica..."
 
 msgid " to point location"
-msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare questo <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">strumento di Swisstopo</a>."
+msgstr " per inserire le coordinate. Per convertire le coordinate svizzere, usare questo <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">strumento di Swisstopo</a>."
 
 msgid "${item}. Click to show info"
 msgstr "${item}. <small>Cliccare per vedere i dettagli</small>"
@@ -35,7 +35,7 @@ msgid "%1% minutes ago"
 msgstr "%1% minuti fa"
 
 msgid "%1% months ago"
-msgstr "%1% mese fa"
+msgstr "%1% mesi fa"
 
 msgid "%1% results"
 msgstr "<b>%1%</b> risultati"
@@ -107,7 +107,7 @@ msgstr "Un cima virtuale 'raid' non può essere associata ad un cima reale"
 
 # [WARNING] needs_review
 msgid "A raid summit can not be linked to a stage route"
-msgstr "Una cima virtuale 'raid' non può essere associata ad una tapa di un raid"
+msgstr "Una cima virtuale 'raid' non può essere associata ad una tappa di un raid"
 
 msgid "A site can not be linked to more than one summit"
 msgstr "Una falesia non può essere associata a più di una cima"
@@ -116,7 +116,7 @@ msgid "A sub parking can not be linked to more than one main parking"
 msgstr "Un sotto-accesso non può essere associato a più di un sopra-accesso"
 
 msgid "A sub site can not be linked to more than one main site"
-msgstr "Un settore di falesia non può essere associata a più di una falesia"
+msgstr "Un settore di falesia non può essere associato a più di una falesia"
 
 msgid "A sub summit can not be linked to more than one main summit"
 msgstr "Una sotto-cima non può essere associata a più di una sopra-cima"
@@ -166,12 +166,12 @@ msgstr "Ricerca avanzata"
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "<b>Dopo aver compilato la scheda seguente, riceverai una Email con la password, per validare l’account dovrai connetterti entro %1% giorni.</b><br />\n"
 "<br />\n"
-"E' importante notare che il contenuto che pubblicherai e i tuoi pseudo (forum / guida interrativa) saranno visibili sul web ed archiviati dai motori di ricerca.<br />\n"
+"E' importante notare che il contenuto che pubblicherai e i tuoi nicknames (forum / guida interrativa) saranno visibili sul web ed archiviati dai motori di ricerca.<br />\n"
 "<br />\n"
 "Invece l'indirizzo e-mail usato per l'inscrizione è visibile solo dai moderatori del sito. <br />\n"
-"Avrai la possibilità di cambiare l'e-mail e i tuoi pseudo. (il cambiamento di pseudo forum non è retroattiva : i vecchi messaggi rimangono firmati con il pseudo originale)\n"
+"Avrai la possibilità di cambiare l'e-mail e i tuoi nicknames. (il cambiamento di nick forum non è retroattiva : i vecchi messaggi rimangono firmati con il pseudo originale)\n"
 "<br />\n"
-"Dopo avere creato l'account, non potrai più cambiare l'identificante. Per default, i nomi che compaiono nella guida e sul forum corrispondono all'identificante, ma potrai modificarli. Nell'identificanti devi evitare i caratteri accentati, di punteggiatura e gli spazzi."
+"Dopo avere creato l'account, non potrai più cambiare l'identificante. Per default, i nomi che compaiono nella guida e sul forum corrispondono all'identificante, ma potrai modificarli. Nell'identificanti devi evitare i caratteri accentati, di punteggiatura e gli spazi."
 
 msgid "Alignment"
 msgstr "Posizione:"
@@ -218,7 +218,7 @@ msgstr "Sei sicuro di volere cancellare la versione basca di questo documento?"
 # [general comment]
 # Msg used in js -> no &nbsp;
 msgid "Are you sure you want to delete this document in every language?"
-msgstr "Sicuro di volere cancellare questo documento in ogni lingua? Verifichi che l'hai unito con un altro documento se ci sono dei documenti associati."
+msgstr "Sicuro di volere cancellare questo documento in ogni lingua? Verifica che l'hai unito con un altro documento se ci sono dei documenti associati."
 
 msgid "Are you sure you want to delete this document in fr"
 msgstr "Sei sicuro di volere cancellare la versione francese di questo documento?"
@@ -305,7 +305,7 @@ msgid "Associations history"
 msgstr "Cronologia delle associazioni"
 
 msgid "At least one file failed to upload"
-msgstr "manca almeno uno filo o non è stato trasferito correttamente"
+msgstr "Almeno un file non è stato trasferito correttamente"
 
 msgid "At least one file has incorrect type"
 msgstr "Almeno un file è di un tipo non autorizzato (sono accettati solo jpeg, gif, png)"
@@ -317,13 +317,13 @@ msgid "At least one file is too large"
 msgstr "Almeno un immagine oltrepassa le dimensioni autorizzate (8192x2048 px)"
 
 msgid "At least one file is too small"
-msgstr "al meno un immagine ha dimensioni troppo piccole (minimo: 16x16 px)"
+msgstr "Almeno un immagine ha dimensioni troppo piccole (minimo: 16x16 px)"
 
 msgid "At least one image type is not given"
-msgstr "Devi precisare il tipo dell'immagine"
+msgstr "Devi precisare il tipo di immagine"
 
 msgid "At least one name field is empty"
-msgstr "Almeno un titolo d'immagine è vuoto"
+msgstr "Almeno un campo è vuoto"
 
 msgid "Author"
 msgstr "Autore"
@@ -364,7 +364,7 @@ msgid "Back to maps list"
 msgstr "Torna alla lista delle mappe"
 
 msgid "Back to my page"
-msgstr "Pagina personale"
+msgstr "Torna alla pagina personale"
 
 msgid "Back to my public homepage"
 msgstr "Torna alla mia pagina pubblica"
@@ -399,9 +399,8 @@ msgstr "Torna alla lista degli utenti"
 # [general comment]
 # link to the BI version of an image (limited to 800px max)
 # In the context, it is rather big (compared to MI, max 250px)
-# [WARNING] needs_review
 msgid "Big size"
-msgstr "grande dimensione "
+msgstr "Grande dimensione "
 
 msgid "Bookmark"
 msgstr "Aggiungi ai Segnalibri"
@@ -474,15 +473,15 @@ msgid "Clear"
 msgstr "Annullare la selezione"
 
 msgid "Clear document cache"
-msgstr "Aggiornare il 'cache' di questo documento"
+msgstr "Aggiornare la 'cache' di questo documento"
 
 msgid "Clear document cache (short)"
-msgstr "Aggiorni il cache"
+msgstr "Aggiorni la cache"
 
 # [general comment]
 # Infobulle du bouton "Georef Tool"
 msgid "Click on the map to locate item"
-msgstr "Cliccare sulla carta per georiferenzare il documento"
+msgstr "Cliccare sulla carta per georeferenziare il documento"
 
 msgid "Click to display original image"
 msgstr "Clicca sull’immagine per vederla nelle dimensioni originali"
@@ -549,7 +548,7 @@ msgid "Context:"
 msgstr "Contesto:"
 
 msgid "Coordinates"
-msgstr "Coordinati"
+msgstr "Coordinate"
 
 msgid "Copy following string:"
 msgstr "Copia la seguente stringa:"
@@ -613,7 +612,7 @@ msgid "Create new portals"
 msgstr "Creare un portale"
 
 msgid "Create new products"
-msgstr "Aggiungere un documento \"prodotto locale\""
+msgstr "Aggiungi un documento \"prodotto locale\""
 
 msgid "Create new routes"
 msgstr "Aggiungi un itinerario"
@@ -679,9 +678,8 @@ msgstr "Questo documento è stato unito ad un altro, quindi non può essere spro
 msgid "Current document has been merged into document %1%"
 msgstr "Questo documento è stato unito con il documento %1%."
 
-# [WARNING] needs_review
 msgid "Current password"
-msgstr "password attuale"
+msgstr "Password attuale"
 
 msgid "Current version"
 msgstr "Versione attuale"
@@ -714,7 +712,7 @@ msgid "Delete culture"
 msgstr "Cancellare la lingua"
 
 msgid "Delete geometry"
-msgstr "Cancella la geometria"
+msgstr "Cancellare la geometria"
 
 msgid "Delete the association with this huts"
 msgstr "Cancellare l'associazione con questo rifugio"
@@ -786,7 +784,7 @@ msgid "Document %1% has been merged into document %2%"
 msgstr "Il documento %1% è stato unito con il documento %2%."
 
 msgid "Document cache has been cleared"
-msgstr "Il cache del documento è stato aggiornato."
+msgstr "La cache del documento è stata aggiornata"
 
 msgid "Document could not be deleted"
 msgstr "Il documento non è stato cancellato"
@@ -794,7 +792,7 @@ msgstr "Il documento non è stato cancellato"
 # [general comment]
 # %1% displays the list of the 'would be' orphean route ID
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "La cima non può essere cancellata perché ci sarebbe degli itinerari orfanelli%1%"
+msgstr "La cima non può essere cancellata perché rimarrebbero degli itinerari orfanelli%1%"
 
 msgid "Document culture deleted"
 msgstr "La versione linguistica di questo documento è stata cancellata"
@@ -830,7 +828,7 @@ msgid "Document title"
 msgstr "Titolo del documento"
 
 msgid "Document types differ, thus cannot be merged"
-msgstr "Sono documenti di diversi tipi. Non possono essere uniti."
+msgstr "Sono documenti di diverso tipo, non possono essere uniti."
 
 # [WARNING] needs_review
 msgid "Donate to Camptocamp Association"
@@ -922,15 +920,13 @@ msgstr "Editore:"
 # see comments for alternatives ???
 # [comment]
 # quota ??
-# [WARNING] needs_review
 msgid "Elevation"
 msgstr "Altitudine"
 
 # [general comment]
 # ordonnées pour les profils d'altitude GPS
-# [WARNING] needs_review
 msgid "Elevation (m)"
-msgstr "altitudine (m s.l.m.)"
+msgstr "Altitudine (m s.l.m.)"
 
 msgid "Elevation profile"
 msgstr "Profilo elevazione"
@@ -942,7 +938,7 @@ msgid "Email:"
 msgstr "Email:"
 
 msgid "Empty coordinates: please update longitude and/or latitude"
-msgstr "Coordinati vuoti: grazie di aggiornare i campi longitudine e latitudine"
+msgstr "Coordinate mancanti: grazie di volere aggiornare i campi longitudine e latitudine"
 
 # [general comment]
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
@@ -953,7 +949,7 @@ msgid "Enlarge the list"
 msgstr "Allungare questa lista"
 
 msgid "Enlarge the text box"
-msgstr "Ingrandire questo blocco"
+msgstr "Ingrandire questo blocco di testo"
 
 msgid "Expand map"
 msgstr "Ingrandire la cartina"
@@ -1002,7 +998,7 @@ msgid "File:"
 msgstr "File:"
 
 msgid "Filter presentation"
-msgstr "Ricerca avanzata:<br />Tutti i criteri sono facoltativi.<br /> Viene ricercato il testo esatto inserito nel campo 'nome', quindi inserire solo la parte discriminante del nome. Per esempio: 'generoso' o 'genero', e non 'Monte generoso'."
+msgstr "Ricerca avanzata:<br />Tutti i criteri sono facoltativi.<br /> Viene ricercato il testo esatto inserito nel campo 'nome', quindi inserire solo la parte discriminante del nome. Per esempio: 'generoso' o 'genero', e non 'Monte Generoso'."
 
 msgid "Forum"
 msgstr "Forum"
@@ -1203,7 +1199,7 @@ msgid "IGN orthos"
 msgstr "ortofoto IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
-msgstr "Questa nuova password verrà attivato solo una volta che l'avrai usata. La password potrà essere in seguito modificata nel profilo personale. Se non hai richiesto la creazione di nuova password, ignora semplicemente questo messaggio e la password non sarà modificata."
+msgstr "Questa nuova password verrà attivata solo una volta che l'avrai usata. La password potrà essere in seguito modificata nel profilo personale. Se non hai richiesto la creazione di nuova password, ignora semplicemente questo messaggio e la password non sarà modificata."
 
 msgid "Image"
 msgstr "Immagine"
@@ -1214,7 +1210,7 @@ msgid "Image cannot be rotated anymore"
 msgstr "Impossibile ruotare l'immagine. Non sei abilitato ad accedere a questo file."
 
 msgid "Image could not be loaded"
-msgstr "Impossibile di vedere l'immagine"
+msgstr "Impossibile vedere l'immagine"
 
 msgid "Image could not be loaded long"
 msgstr "Per essere visibile, l'immagine deve essere associata a questo documento.<br /><a href=\"/articles/151910#images\">Per maggiori informazioni</a>"
@@ -1262,7 +1258,7 @@ msgid "Images"
 msgstr "Immagini"
 
 msgid "Images are under license specified in the original document of each image"
-msgstr "Le immagine di questa pagina sono disponibili con la licenza indicata nel documento di origine di ogni immagine."
+msgstr "Le immagini di questa pagina sono disponibili con la licenza indicata nel documento di origine di ogni immagine."
 
 msgid "Images names are missing"
 msgstr "Mancano i nomi delle immagini registrate"
@@ -1303,7 +1299,7 @@ msgstr "Leggi il sito in:"
 # [general comment]
 # error message when invalid request parametes for cda search
 msgid "Invalid request parameters"
-msgstr "I parametri della ricerca sono invalidi"
+msgstr "I parametri della ricerca non sono validi"
 
 msgid "Is a child of summit:"
 msgstr "E’ una sotto-cima di:"
@@ -1321,7 +1317,7 @@ msgid "Is associated with summits:"
 msgstr "è collegato con queste cime:"
 
 msgid "Is parent of summits:"
-msgstr "E collegato alle sotto-cime seguenti:"
+msgstr "E' collegato alle sotto-cime seguenti:"
 
 msgid "Is really a multi-activity outing?"
 msgstr "Confermi che ci sono più attività per questa gita?"
@@ -1493,7 +1489,7 @@ msgid "List all linked routes"
 msgstr "Vedere la lista"
 
 msgid "List all user collaborative contribs"
-msgstr "Elencare tutti i contributi collaborative"
+msgstr "Elencare tutti i contributi collaborativi"
 
 msgid "List all user contribs"
 msgstr "Elencare tutti i contributi"
@@ -1504,7 +1500,7 @@ msgstr "Elencare tutte le gite di questo utente"
 # [general comment]
 # dans l'interface d'abonnement aux mailing lists
 msgid "Lists you have subscribed to"
-msgstr "Bollettini a cui hai sotto sottoscritto"
+msgstr "Bollettini che hai sottoscritto"
 
 msgid "Localize on map"
 msgstr "Localizza sulla mappa"
@@ -1560,7 +1556,7 @@ msgid "Map URL"
 msgstr "URL della mappa corrente:"
 
 msgid "Map creation is prohibited"
-msgstr "La creazione di mappa non è autorizzata "
+msgstr "La creazione della mappa non è autorizzata"
 
 # [WARNING] needs_review
 msgid "Map data"
@@ -1587,7 +1583,7 @@ msgid "Maps deletion is prohibited"
 msgstr "Non è possibile cancellare una carta"
 
 msgid "Maps merging is prohibited"
-msgstr "Non è autorizzata l’unione di oggetti tipo carta"
+msgstr "Non è autorizzata l’unione di oggetti tipo mappa"
 
 msgid "Maxi:"
 msgstr "Max:"
@@ -1599,7 +1595,7 @@ msgid "Merge"
 msgstr "Unisci"
 
 msgid "Merge this document into another one"
-msgstr "Unisci questo documento con un altro (le associazioni sono trasferite verso l'altro documento)"
+msgstr "Unisci questo documento con un altro (le associazioni saranno trasferite nell'altro documento)"
 
 msgid "Merge two documents"
 msgstr "Unisci due documenti"
@@ -1631,7 +1627,7 @@ msgid "Minsize is %1% x %2%"
 msgstr "La dimensione minimale è %1% x %2% px.<br /><strong>Caricando questa immagine, accetti di diffonderla sotto la licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">Creative Commons by-nc-nd</a> o <a href=\"/articles/106728/it#cc-by-sa\">Creative Commons by-sa</a> a secondo che scegli che sia un contenuto personale o collaborativo.</strong> Le immagini con un copyright non sono accettate.<br />Dopo avere trasferito l'immagine, puoi cliccare nell'angolo superiore destra dell'immaginetta per vedere/modificare le informazioni relative all'immagine. In particolare puoi:<br />- Modificare il titolo o la descrizione dell'immagine.<br />- Associare l'immagine ad altri documenti (gite, itinerari, rifugi...) : lo strumento di associazione si trova in basso della pagina.<br />- Chiedere la cancellazione di un immagine: cliccare su \"Segnala un problema\".<br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span> Leggere l'aiuto sulla<a href=\"/articles/107005\">galleria</a>."
 
 msgid "Missing id parameter"
-msgstr "manca un ID"
+msgstr "Manca un ID"
 
 msgid "More links"
 msgstr "Altri links..."
@@ -1728,7 +1724,7 @@ msgid "No geodata available"
 msgstr "Questo documento non è ancora georeferenziato."
 
 msgid "No geom info, please edit this document to add some"
-msgstr "Modificare questo documento per aggiungerne i coordinati geografici."
+msgstr "Modificare questo documento per aggiungerne le coordinate."
 
 msgid "No image has been edited"
 msgstr "Nessuna immagine è stata modificata"
@@ -1770,7 +1766,7 @@ msgid "No recent images available"
 msgstr "Non esistono immagini recenti"
 
 msgid "No recent videos available"
-msgstr "Non ci sono video recente"
+msgstr "Non ci sono video recenti"
 
 msgid "No result"
 msgstr "Nessun risultato corrisponde ai criteri di ricerca."
@@ -1797,10 +1793,10 @@ msgid "Open all sections"
 msgstr "Aprire tutte le sezioni"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
-msgstr "Vietato: un itinerario deve essere associato almeno ad una cima"
+msgstr "Impossibile: un itinerario deve essere associato almeno ad una cima"
 
 msgid "Operation forbidden: last association"
-msgstr "Operazione non autorizzata: si tratta dell’ultima associazione di questo tipo"
+msgstr "Impossibile: si tratta dell’ultima associazione di questo tipo"
 
 msgid "Operation not allowed"
 msgstr "Operazione non autorizzata."
@@ -1855,19 +1851,19 @@ msgstr "MP"
 # [general comment]
 # Titre de la liste des accès TC : "accès" est au pluriel
 msgid "PT access points"
-msgstr "accessi con i mezzi pubblici"
+msgstr "Accessi con i mezzi pubblici"
 
 msgid "Page under %1% license"
 msgstr "Il testo della pagina è disponibile con la licenza %1%."
 
 msgid "Parent summit removed (was "
-msgstr "Soppressione della cima parente (era il documento "
+msgstr "Soppressione della cima collegata (era il documento "
 
 msgid "Parent summit set to document "
-msgstr "La cima parente è diventata il documento "
+msgstr "La cima collegata è diventata il documento "
 
 msgid "Parking does not exists or has no attached geometry"
-msgstr "Il parcheggio non esiste, o la sua localizzazione non è stata correttamente inserita."
+msgstr "Il parcheggio non esiste, o è privo di coordinate."
 
 msgid "Parking not found"
 msgstr "Questo accesso non è stato trovato."
@@ -1906,10 +1902,10 @@ msgid "Place"
 msgstr "Luogo"
 
 msgid "Please enter a valid summit"
-msgstr "inserire un nome di cima coretto"
+msgstr "inserire un nome di cima valido"
 
 msgid "Prefered language successfully saved"
-msgstr "Le preferenze di lingue sono state registrate."
+msgstr "Le preferenze di lingua sono state registrate."
 
 msgid "Prepare outing"
 msgstr "Prepara la tua gita"
@@ -1921,7 +1917,7 @@ msgid "Preview"
 msgstr "Anteprima"
 
 msgid "Preview warning"
-msgstr "Attenzione: I dati inseriti qui sotto saranno registrati nel momento in cui si clicca \"Aggiornare\"."
+msgstr "Attenzione: I dati inseriti qui sotto saranno registrati cliccando \"Aggiornare\"."
 
 msgid "Print"
 msgstr "Stampa"
@@ -1947,7 +1943,7 @@ msgstr "Proteggi il documento "
 # [general comment]
 # [cda]
 msgid "Questions?"
-msgstr "hai delle domande?"
+msgstr "Hai delle domande?"
 
 msgid "Quick creation of a route"
 msgstr "Creazione rapida di un itinerario"
@@ -1968,7 +1964,7 @@ msgid "RSS list"
 msgstr "Questa lista nel formato RSS"
 
 msgid "Read more"
-msgstr "Leggere la segue"
+msgstr "Leggere il seguito"
 
 msgid "Received merging from document "
 msgstr "I dati del documento sono stati uniti"
@@ -1989,7 +1985,7 @@ msgid "Recent posts"
 msgstr "Messaggi recenti"
 
 msgid "Reduce map"
-msgstr "Ridurre la mappa"
+msgstr "Rimpicciolire la mappa"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
@@ -2009,7 +2005,7 @@ msgid "Refresh the geoassociations of this document"
 msgstr "Aggiornare le regioni (e carte) associate a questo documento e ai documenti figli"
 
 msgid "Regions are detected automatically according to coordinates"
-msgstr "Le regioni sono automaticamente associate usando i coordinati geografici"
+msgstr "Le regioni sono automaticamente associate usando le coordinate geografiche"
 
 msgid "Remember me ?"
 msgstr "Ricordarsi di me?"
@@ -2045,7 +2041,7 @@ msgid "Results from google for %1%"
 msgstr "Risultati di Google per \"%1%\""
 
 msgid "Retrieve Forgotten Password"
-msgstr "Ho perso la password"
+msgstr "Recupero password dimenticata"
 
 # [WARNING] needs_review
 msgid "Retype your password:"
@@ -2135,12 +2131,11 @@ msgstr "Cerca una gita"
 msgid "Search a parkings"
 msgstr "Cerca un accesso"
 
-# [WARNING] needs_review
 msgid "Search a portals"
-msgstr "Cercare un portale"
+msgstr "Cerca un portale"
 
 msgid "Search a products"
-msgstr "Cercare un documento \"prodotti locali\""
+msgstr "Cerca un documento \"prodotti locali\""
 
 msgid "Search a routes"
 msgstr "Cerca un itinerario"
@@ -2274,7 +2269,7 @@ msgid "Show/Hide map"
 msgstr "Mostra/Nascondi la mappa"
 
 msgid "Sign up failed, please try again"
-msgstr "Siamo spiacenti ma la registrazione è fallita. Provare di nuovo."
+msgstr "Registrazione fallita, provare di nuovo."
 
 msgid "Signup"
 msgstr "Iscrizione"
@@ -2286,7 +2281,7 @@ msgid "Site not found"
 msgstr "Questa falesia non è stata trovata."
 
 msgid "Snow elevation is correct?"
-msgstr "Le altitudini di accesso di inizio salita / fine discesa a sci sono corrette ?"
+msgstr "Le altitudini del accesso e del innevamento di inizio salita / fine discesa a sci sono corrette ?"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
@@ -2502,12 +2497,12 @@ msgid "Thanks for using Camptocamp.org!"
 msgstr "Ti ringraziamo per il contributo al sito di Camptocamp.org!"
 
 msgid "The Camptocamp.org team"
-msgstr "<b>E' importante notare che il contenuto che pubblicherai e i tuoi pseudo (forum / guida interrativa) saranno visibili sul web ed archiviati dai motori di ricerca.<br />\n"
+msgstr "<b>E' importante notare che il contenuto che pubblicherai e i tuoi nicknames (forum / guida interrativa) saranno visibili sul web ed archiviati dai motori di ricerca.<br />\n"
 "<br />\n"
-"Consigliamo di comunicare coordinati personali solo via email o MP (messaggi privati) e non sui forum<br />\n"
-"L'indirizzo e-mail usato per l'inscrizione è visibile solo dai moderatori del sito, per default il tuo profilo è visibile solo dai inscritti a camptocamp.org<br />\n"
-"Avrai la possibilità di cambiare l'e-mail e i tuoi pseudo. (il cambiamento di pseudo forum non è retroattiva : i messaggi rimangono firmati con il pseudo originale)<br />\n"
-"Coamptocamp.org non potrà essere costretto ad accettare richieste di cancellazioni di messaggi sui forum mandati di utente che non avrebbero seguito queste raccomandazioni.  <br />\n"
+"Consigliamo di trasmettere dati personali solo via email o MP (messaggi privati) e non sui forum<br />\n"
+"L'indirizzo e-mail usato per l'iscrizione è visibile solo dai moderatori del sito, per default il tuo profilo è visibile solo dagli iscritti a camptocamp.org<br />\n"
+"Avrai la possibilità di cambiare l'e-mail e i tuoi nick. (il cambiamento di nick forum non è retroattiva : i messaggi rimangono firmati con il nick originario)<br />\n"
+"Camptocamp.org non accetterà richieste di cancellazione di messaggi sui forum di utente che non ha seguito queste raccomandazioni.  <br />\n"
 "<br />\n"
 "Grazie in anticipo per le tue future contribuzioni al sito.<br />\n"
 "<br />\n"
@@ -2523,7 +2518,7 @@ msgid "The document is already linked to the current document"
 msgstr "Il documento è già associato a questo documento"
 
 msgid "The field is %1% characters max"
-msgstr "Questo campo può essere, al massimo, di %1% caratteri)"
+msgstr "Questo campo non può contenere più di %1% caratteri"
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
@@ -2541,7 +2536,7 @@ msgid "The other conditions the same day in the same range"
 msgstr "Vedere le condizioni lo stesso giorno nello stesso massiccio"
 
 msgid "The page you are trying to reach is no longer available."
-msgstr "Il documento richiesto non è stato trovato o ha cambiato indirizzo . "
+msgstr "Il documento richiesto non è più disponibile."
 
 msgid "The two passwords do not match"
 msgstr "Le due password non corrispondono."
@@ -2573,28 +2568,28 @@ msgid "This email already exists. Please choose another one."
 msgstr "Questa Email esiste già. Bisogna usarne un’altra."
 
 msgid "This hut is already linked to a summit"
-msgstr "Questo rifugio è già associato a una cima"
+msgstr "Questo rifugio è già associato ad una cima"
 
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Questa nuova gita sarà collegata all'itinerario '[[routes/%2%|%1%]]' (document %2%)"
 
 msgid "This new outings will be linked with sites '[[sites/%2%|%1%]]' (document %2%)"
-msgstr "Questa nuova gita sarà associata alle falesie '[[sites/%2%|%1%]]' (document %2%)"
+msgstr "Questa nuova gita sarà associata alla falesia '[[sites/%2%|%1%]]' (document %2%)"
 
 msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (document %2%)"
-msgstr "Questo nuovo itinerario sarà collegato al la cima '[[summits/%2%|%1%]]' (document %2%)"
+msgstr "Questo nuovo itinerario sarà collegato alla cima '[[summits/%2%|%1%]]' (document %2%)"
 
 msgid "This nickname already exists. Please choose another one."
 msgstr "Questo nickname esiste già. Per favore scegline un altro."
 
 msgid "This topo name already exists. Please choose another one."
-msgstr "Questo nome topo esiste già. Devi sceglierne un altro."
+msgstr "Questo toponimo esiste già. Per favore scegline un altro."
 
 msgid "This user does not have any associated outing."
 msgstr "Questo utente non ha gite associate."
 
 msgid "This username already exists. Please choose another one."
-msgstr "Questo nome utente esiste già. Devi sceglierne un altro."
+msgstr "Questo nome utente esiste già. Per favore scegline un altro."
 
 # [general comment]
 # GPS profile legend
@@ -2771,7 +2766,7 @@ msgid "Warning: you are editing an archive version!"
 msgstr "Attenzione: Si sta modificando una versione precedente, registrando, le modifiche più recenti verranno perse."
 
 msgid "Weather bulletin"
-msgstr "bollettino meteo"
+msgstr "Bollettino meteo"
 
 msgid "Weather forecast"
 msgstr "Previsioni del tempo"
@@ -2802,14 +2797,13 @@ msgstr "Traccia GPS:"
 msgid "Wrong association type"
 msgstr "Tipo di associazione non autorizzato"
 
-# [WARNING] needs_review
 msgid "Wrong current password!"
-msgstr "password incoretto "
+msgstr "Password errata"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
-msgstr "Fra poco, le immagini personale potranno essere inserite in un documento collaborativo.<br /><a href=\"/articles/151910#image\">Più informazioni</a>"
+msgstr "Fra poco le immagini con licenza personale non potranno più essere inserite in un documento collaborativo.<br /><a href=\"/articles/151910#image\">Più informazioni</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
@@ -2850,22 +2844,22 @@ msgid "You cannot create an outing without linking it to an existing route or si
 msgstr "Non è possibile creare una gita senza collegarla ad un itinerario o ad una falesia esistenti"
 
 msgid "You cannot delete this document culture"
-msgstr "Non hai il diritto di cancellare questo documento in questa lingua"
+msgstr "Non sei autorizzato a cancellare questo documento in questa lingua"
 
 msgid "You cannot edit a protected document"
-msgstr "Non si possiedono i diritti per modificare questo documento"
+msgstr "Non sei autorizzato a modificare questo documento"
 
 msgid "You cannot edit another user personal data"
-msgstr "Non si possono modificare i dati personali degli altri utenti"
+msgstr "Non sei autorizzato a modificare i dati personali degli altri utenti"
 
 msgid "You cannot set lat or lon alone"
-msgstr "Non puoi definire la latitudine senza definire anche la longitudine (e vice versa)"
+msgstr "Non puoi inserire la latitudine senza inserire anche la longitudine"
 
 msgid "You do not have enough credentials to perform this operation"
-msgstr "Non hai i diritti richiesti per effettuare quest’operazione"
+msgstr "Non sei autorizzato ad effettuare quest’operazione"
 
 msgid "You do not have the right to access another user personal data"
-msgstr "Non hai i diritti per accedere ai dati personali degli altri utenti"
+msgstr "Non sei autorizzato ad accedere ai dati personali degli altri utenti"
 
 msgid "You do not have the right to change the license of theses images"
 msgstr "Non sei autorizzato a modificare le licenze di queste immagini"
@@ -2874,16 +2868,16 @@ msgid "You do not have the right to edit another user profile"
 msgstr "Non è possibile modificare il profilo di un altro utente."
 
 msgid "You do not have the right to link a document to a personal article"
-msgstr "Non hai il diritto di associare questo documento a un articolo personale"
+msgstr "Non sei autorizzato ad associare questo documento ad un articolo personale"
 
 msgid "You do not have the right to link a route to another user outing"
-msgstr "Non hai il diritto di associare un itinerario a una gita se non sei associato a questa gita."
+msgstr "Non sei autorizzato ad associare un itinerario ad una gita se non sei associato a questa gita."
 
 msgid "You do not have the right to link a site to another user outing"
-msgstr "Non hai il diritto di associare una falesia a una gita se non sei associato a questa gita"
+msgstr "Non sei autorizzato ad associare una falesia ad una gita se non sei associato a questa gita"
 
 msgid "You do not have the right to link an article to another user outing"
-msgstr "Non hai il diritto di associare un articolo a una gita se non sei associato a questa gita"
+msgstr "Non sei autorizzato ad associare un articolo ad una gita se non sei associato a questa gita"
 
 msgid "You do not have the right to link an image to a personal article"
 msgstr "Non sei autorizzato ad associare un'immagine a questo un articolo personale"
@@ -2892,25 +2886,25 @@ msgid "You do not have the right to link an image to a personal image"
 msgstr "Non sei autorizzato ad associare un'immagine a questa immagine personale"
 
 msgid "You do not have the right to link an image to another user outing"
-msgstr "Non sei autorizzato ad associare un'immagine a una gita se non sei associato a questa gita"
+msgstr "Non sei autorizzato ad associare un'immagine ad una gita se non sei associato a questa gita"
 
 msgid "You do not have the right to link an image to another user profile"
 msgstr "Non sei autorizzato ad associare un'immagine alla pagina di questo utente"
 
 msgid "You do not have the right to link an user to another user outing"
-msgstr "Non hai il diritto di associare un utente a una gita se non sei associato a questa gita"
+msgstr "Non sei autorizzato ad associare un utente ad una gita se non sei associato a questa gita"
 
 msgid "You do not have the rights to edit this article"
-msgstr "Non ha i diritti necessari per modificare questo articolo"
+msgstr "Non sei autorizzato a modificare questo articolo"
 
 msgid "You do not have the rights to edit this outing"
-msgstr "Non il diritto di modificare questa gita o di consultare le versioni precedenti"
+msgstr "Non sei autorizzato a modificare questa gita né a consultare le versioni precedenti"
 
 msgid "You do not have the rights to edit this picture"
-msgstr "Non hai il diritto di modificare questa immagine"
+msgstr "Non sei autorizzato a modificare questa immagine"
 
 msgid "You do not have the rights to link a user to this document"
-msgstr "You do not have the rights to link a user to this document"
+msgstr "Non sei autorizzato ad associare un utente a questo documento"
 
 # [general comment]
 # Title of email sent when a user is associated to an outing
@@ -2921,7 +2915,7 @@ msgstr "Sei stato associato a una gita di Camptocamp.org"
 # [general comment]
 # Details of email sent when a user is associated to an outing
 msgid "You have been associated to outing %1% details"
-msgstr "Sei stato associato come partecipante a una gita di camptocamp.org.<br /><br />Questa gita si trova qua %1%. Come autore di questa gita, puoi modificarla e associarci altri documenti.<br /><br />--<br />\n"
+msgstr "Sei stato associato come partecipante a una gita di camptocamp.org.<br /><br />Questa gita si trova qua %1%. Come coautore di questa gita puoi modificarla e associarvi altri documenti.<br /><br />--<br />\n"
 "<a href=\"http://www.camptocamp.org\">camptocamp.org</a> email automatica<br />(Non rispondere a questo messaggio)"
 
 # [general comment]
@@ -2946,9 +2940,8 @@ msgstr "Usa un‘altra email."
 msgid "You must specify an username"
 msgstr "Specifica un nome utente."
 
-# [WARNING] needs_review
 msgid "You need to login to access to this page"
-msgstr "Per accedere la pagina devi log in."
+msgstr "Per accedere a questa pagina devi effettuare il log-in."
 
 msgid "You need to login to create this page"
 msgstr "Per creare questa pagina bisogna accedere al sito."
@@ -2965,16 +2958,14 @@ msgstr "La chiave anti-spam indicata non è valida."
 msgid "Your are connected as "
 msgstr "Sei connesso come "
 
-# [WARNING] needs_review
 msgid "Your current password is needed before modifying these properties"
-msgstr "dovete digitare il vostro password per modificare queste informazioni"
+msgstr "Dovete digitare la vostra password per modificare queste informazioni"
 
-# [WARNING] needs_review
 msgid "Your current password is required before applying changes"
-msgstr "devi digitare il tuo password "
+msgstr "Devi digitare la tua password"
 
 msgid "Your images have been successfully updated"
-msgstr "I dati delle tue immagini sono state correttamente modificate"
+msgstr "Gli immagini sono stati correttamente modificati"
 
 msgid "Your information have been successfully updated"
 msgstr "I dati sono stati inseriti correttamente. "
@@ -3035,13 +3026,13 @@ msgstr "<h3>Attività</h3>\n"
 "<br />\n"
 "<span class=\"picto activity_4\"></span> &nbsp;<strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate o no)<br />\n"
 "<br />\n"
-"<span class=\"picto activity_5\"></span> &nbsp;<strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br />\n"
+"<span class=\"picto activity_5\"></span> &nbsp;<strong>cascate</strong>: cascate, ad eccezione dell'alta montagna, dry-tooling<br />\n"
 "<br />\n"
 "<span class=\"picto activity_6\"></span> &nbsp;<strong>escursionismo</strong>:  gite a piedi in montagna, su sentieri segnalati e non, oppure fuori dai sentieri<br />\n"
 "<br />\n"
-"<span class=\"picto activity_8\"></span> &nbsp;<strong>parapendio</strong>: discesa in parapendio dopo una salita a piedi o a sci<br />\n"
+"<span class=\"picto activity_8\"></span> &nbsp;<strong>parapendio</strong>: discesa in parapendio dopo una salita a piedi o in sci<br />\n"
 "<br />\n"
-"La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio in Europa, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considera necessario conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
+"La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio in Europa, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considerano necessarie conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
 
 msgid "_aid_rating_info"
 msgstr "<h3>Valutazione della difficoltà in artificiale</h3>Valutazione delle difficoltà in arrampicata artificiale.<br />La valutazione artificiale corrisponde alla difficoltà massima della scalata artificiale su roccia, cioè la scalata che utilizza dei punti d'aiuto per la progressione su un determinato passaggio.<br />La scala va da A0 a A6.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/131454\">gradi di difficoltà in artificiale</a>."
@@ -3049,10 +3040,10 @@ msgstr "<h3>Valutazione della difficoltà in artificiale</h3>Valutazione delle d
 msgid "_approach_height_info"
 msgstr "<h3>Dislivello dell'approccio</h3>\n"
 "Dislivello cumulato dell'approccio  per gli itinerari dove si distingue l'approccio della via stessa.<br />\n"
-"Il dislivello dell'approccio è calcolato usando l'altitudine minimale dell'approccio e l'altitudine dell'inizio delle difficoltà. Quindi è possibile che il valore sia falso per un approccio complesso."
+"Il dislivello dell'approccio è calcolato usando l'altitudine minima e l'altitudine dell'inizio delle difficoltà. Quindi è possibile che il valore sia falso per un approccio complesso."
 
 msgid "_area_type_info"
-msgstr "<h3>Tipo di regione</h3>Il tipo della regione può essere: massiccio montagnoso, regione amministrativa, paese."
+msgstr "<h3>Tipo di regione</h3>Il tipo della regione può essere: massiccio montuoso, regione amministrativa, paese."
 
 msgid "_article_type_info"
 msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipedia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato solo dall'autore. E' adatto ad un articolo specifico della categoria <i>raconto</i>."
@@ -3065,7 +3056,7 @@ msgstr "<h3>Associare dei documenti esistenti</h3>\n"
 "- Cliccare sul documento da associare all'interno della lista di proposte.<br />\n"
 "- Cliccare su <input type=\"button\" value=\"Associare\" /> per confermare.<br />\n"
 "<br />\n"
-"Nel caso di errore nell'associazione, chiedere agli moderatori di cancellare l'associazione usando il link <img src=\"/static/images/picto/report.png\" /> <strong>Segnalare un problema</strong> nel menu di sinistra."
+"In caso di errore nell'associazione, chiedere ai moderatori di cancellare l'associazione usando il link <img src=\"/static/images/picto/report.png\" /> <strong>Segnalare un problema</strong> nel menu di sinistra."
 
 msgid "_author_info"
 msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine.<br />Per separe i nomi, usare una virgola. Non usare termini italiani (per esempio non usare \"e\", \"con\" ...)"
@@ -3703,6 +3694,16 @@ msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br 
 
 msgid "_slope_info"
 msgstr "<h3>Pendenza</h3>Inclinazione massima o lunghezza dei pendii di neve o di ghiaccio incontrati."
+
+# [general comment]
+# pentes >30°, légende (html)
+# [WARNING] en translation used
+msgid "_slopes_info"
+msgstr "Note that this categorization is based on satellite altimeter data which may include a number of artifacts, especially for steeper slopes. This tool should therefore be considered only as an assistance to the choice of routes.\n"
+"<br><span style=\"background-color:rgb(242,229,10);display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
+"<br><span style=\"background-color:rgb(244,11,36);display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
+"<br><span style=\"background-color:rgb(222,5,91);display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
+"<br><span style=\"background-color:rgb(200,137,187);display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Precisazioni sullo sgombero della neve</h3>Informazioni sullo sgombero della neve in inverno: spazio lasciato dallo spazzaneve, se non viene pulita in inverno, date approssimative dello sgombero a primavera."
@@ -4490,7 +4491,7 @@ msgstr "<p><a href=\"/articles/107228/fr/liens-utiles#meteo\">Meteo</a></p>\n"
 "<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> \n"
 "<a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li>\n"
 "<li><a href=\"http://www.slf.ch/index_FR\">SLF (Svizzera)</a></li>\n"
-"<li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li>\n"
+"<li><a href=\"http://www.aineva.it\">AINEVA (Italia)</a></li>\n"
 "<li><a href=\"/users/mailinglists\">Ricevere i bollettini via email</a></li></ul>\n"
 "\n"
 "<p><a href=\"/articles/107228/fr/liens-utiles#transport\">Mezzi di trasporto</a></p>\n"
@@ -4916,7 +4917,7 @@ msgstr "Carica i dati geografiche al formato %1%"
 msgid "draft"
 msgstr "bozza"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "dry tooling portal"
 msgstr "Dry-tooling"
 
@@ -6330,7 +6331,7 @@ msgstr "Lunghezza:"
 msgid "outing_route_desc"
 msgstr "Itinerario seguito:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "outing_route_desc_default"
 msgstr "L'itinerario effettivamente percorso deve essere riassunto se ci sono varianti possibili o nel caso in cui uno si è fermato prima della cima."
 
@@ -6905,9 +6906,9 @@ msgstr "arrampicata (monotiri)"
 # 
 # Faut-il préciser "rocher" dans les trads ?
 # -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même itinéraire (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "rock_exposition_rating"
-msgstr "Esposizione:"
+msgstr "Esposizione roccia:"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
@@ -7007,9 +7008,10 @@ msgstr "Un itinerario contiene la descrizione di ascensione in montagna. Un itin
 
 # [general comment]
 # texte affiché dans le champ "description" à l'édition d'un itinéraire, lorsque le champ est vide
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes_description_default"
-msgstr "Organisez la description de l'itinéraire à l'aide des sous-titres (bouton h2) : Approche, Voie, Descente. Décrivez l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée."
+msgstr "Organizzare la descrizione dell'itinerario con l'aiuto dei sottotitoli (h2) : Avvicinamento, Via, Discesa. \n"
+"Le condizioni incontrate e i commenti personali devono essere scritti nel documento 'gita' e non nel itinerario."
 
 msgid "routes_quantity"
 msgstr "Numero di vie:"
@@ -7182,6 +7184,11 @@ msgstr "placca"
 
 msgid "slope"
 msgstr "Pendenza:"
+
+# [general comment]
+# pentes de plus de 30° sur la carto
+msgid "slopes"
+msgstr "Pendenze maggiori di 30°"
 
 # [WARNING] needs_review
 msgid "small pillar"
@@ -7459,9 +7466,9 @@ msgstr "Nome nella guida"
 
 # [general comment]
 # exposition ski
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "toponeige_exposition_rating"
-msgstr "Esposizione:"
+msgstr "Esposizione sci:"
 
 msgid "toponeige_technical_rating"
 msgstr "Difficoltà tecnica:"

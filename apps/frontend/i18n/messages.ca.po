@@ -3737,6 +3737,16 @@ msgstr "<h3>Tipus d'escola o sector</h3>Tipus d'escalada practicable en el lloc/
 msgid "_slope_info"
 msgstr "<h3>Pendent</h3>Inclinació màxima i llargada dels pendents de neu o de gel trobats."
 
+# [general comment]
+# pentes >30°, légende (html)
+# [WARNING] en translation used
+msgid "_slopes_info"
+msgstr "Note that this categorization is based on satellite altimeter data which may include a number of artifacts, especially for steeper slopes. This tool should therefore be considered only as an assistance to the choice of routes.\n"
+"<br><span style=\"background-color:rgb(242,229,10);display:inline-block;width:1.5em;height:1em\"></span> 30-35°\n"
+"<br><span style=\"background-color:rgb(244,11,36);display:inline-block;width:1.5em;height:1em\"></span> 35-40°\n"
+"<br><span style=\"background-color:rgb(222,5,91);display:inline-block;width:1.5em;height:1emx\"></span> 40-45°\n"
+"<br><span style=\"background-color:rgb(200,137,187);display:inline-block;width:1.5em;height:1em\"></span> &gt;45°"
+
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Precisions sobre la retirada de la neu</h3>Informació sobre la retirada de neu de l'accés a l'hivern: lloc fins on es retira la neu, dates aproximades de la neteja de l'accés, en cas no es netegi durant l'hivern."
 
@@ -4914,7 +4924,6 @@ msgstr "Baixar les dades geogràfiques en format %1%"
 msgid "draft"
 msgstr "esborrany"
 
-# [WARNING] fr translation used
 msgid "dry tooling portal"
 msgstr "Dry-tooling"
 
@@ -7125,6 +7134,12 @@ msgstr "llosa"
 
 msgid "slope"
 msgstr "Pendent:"
+
+# [general comment]
+# pentes de plus de 30° sur la carto
+# [WARNING] needs_review
+msgid "slopes"
+msgstr "Pendents més de 30°"
 
 msgid "small pillar"
 msgstr "columnes"
