@@ -52,6 +52,7 @@ OpenLayers.Util.extend(OpenLayers.Lang.<?php echo $culture ?>, {
   "gite": "<?php echo __('gite')?>",
   "products": "<?php echo __('products')?>",
   "slopes": "<?php echo __('slopes')?>",
+  "slopes_info": <?php echo json_encode(__('_slopes_info'), JSON_UNESCAPED_SLASHES)?>,
   //"Backgrounds": "<?php echo __('backgrounds')?>",
   "Gmaps physical": "<?php echo __('relief')?>",
   "Gmaps hybrid": "<?php echo __('hybrid')?>",

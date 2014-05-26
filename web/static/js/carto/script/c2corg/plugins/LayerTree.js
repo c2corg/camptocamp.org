@@ -64,6 +64,45 @@ Ext.preg(c2corg.plugins.LayerTree.prototype.ptype, c2corg.plugins.LayerTree);
 
 Ext.namespace("c2corg.tree");
 
+c2corg.tree.TreeNodeUIWithTooltip = Ext.extend(Ext.tree.TreeNodeUI, {
+    render : function(bulkRender){
+        var n = this.node, a = n.attributes;
+        var targetNode = n.parentNode ?
+              n.parentNode.ui.getContainer() : n.ownerTree.innerCt.dom;
+
+        if (!this.rendered) {
+            this.rendered = true;
+
+            // make sure to have the checkbox
+            a.checked = !!a.checked;
+
+            this.renderElements(n, a, targetNode, bulkRender);
+
+            // add tooltip button
+            Ext.DomHelper
+                .insertAfter(this.anchor, "<span class=\"picto action_help\"></span>", true)
+                .on("click", function() {
+                    new Ext.Window({
+                        title: a.tooltipTitle,
+                        html: a.tooltipHtml,
+                        width: 400,
+                        modal: true
+                    }).show();
+                });
+
+            this.initEvents();
+
+            if(!this.node.expanded){
+                this.updateExpandIcon(true);
+            }
+        } else {
+            if (bulkRender === true) {
+                targetNode.appendChild(this.wrap);
+            }
+        }
+    }
+});
+
 c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
 
     baseCls: "layertree",
@@ -262,7 +301,10 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 nodeType: "gx_layer",
                 layer: this.createWMSLayer({name: "slopes", layers: "slopes"}),
                 iconCls: "picto_blank",
-                leaf: true
+                leaf: true,
+                tooltipHtml: OpenLayers.i18n("slopes_info"),
+                tooltipTitle: OpenLayers.i18n("slopes"),
+                uiProvider: c2corg.tree.TreeNodeUIWithTooltip
             }, {
                 text: OpenLayers.i18n("areas"),
                 expanded: false,
