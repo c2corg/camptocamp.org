@@ -5154,9 +5154,8 @@ msgstr "gneis"
 msgid "good conditions"
 msgstr "bones"
 
-# [WARNING] needs_update
 msgid "good equipment"
-msgstr "P1 (ben equipat)"
+msgstr "P1 (molt ben equipat)"
 
 msgid "good equipment +"
 msgstr "P1+ (ben equipat)"
@@ -5999,9 +5998,8 @@ msgstr "no"
 msgid "no equipment"
 msgstr "P4 (no equipat)"
 
-# [WARNING] needs_review
 msgid "no equipment +"
-msgstr "P4+ (no equipat)"
+msgstr "P4+ (gens equipat)"
 
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
@@ -6325,9 +6323,8 @@ msgstr "Arxius d\\'imatges"
 msgid "plupload introduction text"
 msgstr "Podeu adjuntar '%1%'. Normalment, els jpeg i png seran redimensionats automàticament, però els svg i gif han de fer %3% x %2% px i %4% Mb com a màxim.<br /><strong>Quan publiqueu una imatge a camptocamp.org, esteu acceptant-ne la difusió sota la llicència <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> segons si ho feu en tant que contingut personal o col·laboratiu.</strong> No s'accepten imatges sotmeses a copyright.<br /><span style=\"color: red\">La selecció d'almenys una categoria marcada per un asterisc (*) farà aparèixer la foto a la pàgina d'inici.</span> Vegeu l'ajuda a l'<a href=\"/articles/107005\">àlbum</a>."
 
-# [WARNING] en translation used
 msgid "plupload invalid image titles"
-msgstr "please enter a title for your images (4 characters minimum)"
+msgstr "Doneu un títol a les imatges (mínim 4 caràcters)"
 
 # [general comment]
 # Affiché pendant que le fichier est envoyé au serveur
