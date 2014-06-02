@@ -1871,6 +1871,30 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     /**
+     * Get nearest docs to a point
+     */
+    public static function getNearest($lon, $lat, $model = 'Document')
+    {
+        $module = c2cTools::model2module($model);
+        $distance = sfConfig::get('app_autocomplete_near_max_distance');
+        $limit =  sfConfig::get('app_autocomplete_near_max_results');
+
+        // We have to use raw SQL because of postgis functions
+        // Not that we first filter width ST_DWithin and only after that compute the dstance,
+        // which is more effective
+        $q = new Doctrine_RawSql();
+        $q->select('{d.id}, {m.culture}, {m.name}')
+          ->from('(SELECT id FROM ' . $module . ' ' .
+                 ' WHERE ST_DWithin(geom, ST_Transform(ST_SetSRID(ST_MakePoint(?, ?), 4326), 900913), ?)' .
+                 ' ORDER BY ST_Distance(geom, ST_Transform(ST_SetSRID(ST_MakePoint(?, ?), 4326), 900913))' .
+                 ' LIMIT ?) AS d ' .
+                 'LEFT JOIN ' . $module . '_i18n m ON d.id = m.id')
+          ->addComponent('d', $model . ' d')
+          ->addComponent('m', 'd.' . $model .'I18n m');
+        return $q->execute(array($lon, $lat, $distance, $lon, $lat, $limit), Doctrine::FETCH_ARRAY);
+    }
+
+    /**
      * Gets a list of documents filtering on the name field.
      * Only used for autocomplete
      *
