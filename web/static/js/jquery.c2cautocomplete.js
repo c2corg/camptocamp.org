@@ -1,4 +1,4 @@
-// this jquery plugin aims at being imore or less compatible with the use of prototype's Ajax.Autocompleter within c2c
+// this jquery plugin aims at being imore or less compatible with the obsolete use of prototype's Ajax.Autocompleter within c2c
 // We might use a better one at some point, but that will also require server side work
 
 // heavily inspired and adapted from https://github.com/devbridge/jQuery-Autocomplete
@@ -66,7 +66,7 @@
         style: 'position: absolute; display: none;'
       });
 
-      container = $(that.suggestionsContainer);
+      var container = $(that.suggestionsContainer);
 
       container.appendTo('body');
 
@@ -98,12 +98,16 @@
 
       that.el.on('keydown.autocomplete', function(e) { that.onKeyPress(e); });
       that.el.on('keyup.autocomplete', function(e) { that.onKeyUp(e); });
-      that.el.on('blur.autocomplete', function(e) { that.onBlur(e); });
-      that.el.on('focus.autocomplete', function(e) { that.fixPosition(); });
+      that.el.on('blur.autocomplete', function() { that.onBlur(); });
+      that.el.on('focus.autocomplete', function() { that.fixPosition(); });
       that.el.on('change.autocomplete', function(e) { that.onKeyUp(e); });
+
+      // custom event for programatically select an entry
+      // provide an object with text and id
+      that.el.on('select.autocomplete', function(e, data) { that.onExternalSelect(data); });
     },
 
-    fixPosition: function(e) {
+    fixPosition: function() {
       var that = this,
           offset;
 
@@ -233,8 +237,15 @@
       }
     },
 
-    onBlur: function(e) {
+    onBlur: function() {
       this.enableKillerFn();
+    },
+
+    onExternalSelect: function(data) {
+      this.hide();
+      this.currentValue = data.text;
+      this.el.val(data.text);
+      this.el.trigger('itemselect', data);
     },
 
     getSuggestions: function(q) {
@@ -306,6 +317,7 @@
           text = selected.contents().filter(function() {
             return this.nodeType === 3 || !$(this).hasClass('informal');
           }).text();
+
       that.hide();
 
       that.currentValue = text;
@@ -319,7 +331,7 @@
       var that = this;
 
       that.visible = false;
-      that.selectedInex = -1;
+      that.selectedIndex = -1;
       that.suggestionsContainer.hide();
     },
 
