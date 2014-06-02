@@ -764,7 +764,7 @@ function buildMapJsFiles($refresh = false) {
         !array_key_exists('buildjs', $OPTIONS)) return;
 
     if (!hasCommand('jsbuild --help')) {
-        error('Aborted build of map JS files: jsbuild is not available.');
+        fail('Aborted build of map JS files: jsbuild is not available.');
         return;
     }
 
