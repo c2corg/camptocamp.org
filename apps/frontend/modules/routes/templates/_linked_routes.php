@@ -1,5 +1,5 @@
 <?php
-use_helper('AutoComplete', 'Field', 'General');
+use_helper('AutoComplete', 'Field', 'General', 'JavascriptQueue');
 
 if (count($associated_routes) == 0)
 {
@@ -241,6 +241,6 @@ else
     
     if ($activity_section && !$is_popup)
     {
-        echo javascript_tag('C2C.initRoutes();');
+        echo javascript_queue('C2C.initRoutes();');
     }
 }

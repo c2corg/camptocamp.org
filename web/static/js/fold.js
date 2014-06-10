@@ -182,7 +182,7 @@
    * This function is called to hide routes depending on their activities and the user prefs
    */
   C2C.initRoutes = function() {
-    var activities_to_show = $('#quick_switch').attr('class').split(' ');
+    var activities_to_show = ($('#quick_switch').attr('class') || '').split(' ');
     if (activities_to_show.length) {
       $('.child_routes').each(function() {
         var activity_id = $(this).attr('class').split(' ').pop();

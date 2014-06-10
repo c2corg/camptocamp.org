@@ -443,6 +443,9 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
     $line_tag = isset($options['route_line']);
     
     return start_group_tag('bbcodetoolcontainer ' . $target_id) . 
+           bb_button_tag('h2_button', 'h2', $target_id) .
+           bb_button_tag('h3_button', 'h3', $target_id) .
+           bb_button_tag('h4_button', 'h4', $target_id) .
            bb_button_tag('bold', 'b', $target_id, array('style' => 'font-weight:bold')) .
            bb_button_tag('italic', 'i', $target_id, array('style' => 'font-style:italic')) .
            bb_button_tag('underline', 'u', $target_id, array('style' => 'text-decoration:underline')) .

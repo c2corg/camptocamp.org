@@ -3765,8 +3765,8 @@ class BaseDocument extends sfDoctrineRecordI18n
     /* x y must be with SRID 4326 or 900913 */
     public static function buildXYCondition(&$conditions, &$values, $x, $y, $tolerance, $field = 'geom', $srid = 900913)
     {
-        $conditions[] = ($srid == 900913) ? 'DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), ' . $field . ') < ?'
-                                           : 'DISTANCE(TRANSFORM(SETSRID(MAKEPOINT(?,?), 4326), 900913), ' . $field . ') < ?';
+        $conditions[] = ($srid == 900913) ? 'ST_DWithin(ST_SetSRID(MAKEPOINT(?,?), 900913), ' . $field . ', ?)'
+                                           : 'ST_DWithin(ST_Transform(ST_SetSRID(MAKEPOINT(?,?), 4326), 900913), ' . $field . ', ?)';
         array_push($values, $x, $y, round($tolerance));
     }
 
