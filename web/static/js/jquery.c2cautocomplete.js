@@ -242,9 +242,10 @@
     },
 
     onExternalSelect: function(data) {
+      var text = $(data).text();
       this.hide();
-      this.currentValue = data.text;
-      this.el.val(data.text);
+      this.currentValue = text;
+      this.el.val(text);
       this.el.trigger('itemselect', data);
     },
 
