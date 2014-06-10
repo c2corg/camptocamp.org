@@ -125,7 +125,7 @@ if ($show_link_tool)
     $modules_list = array('users', 'routes', 'sites', 'articles');
     
     echo '<div class="all_associations empty_content col_left col_66">';
-    echo c2c_form_add_multi_module('outings', $id, $modules_list, 2, 'multi_1', true);
+    echo c2c_form_add_multi_module('outings', $id, $modules_list, 2, array('field_prefix' => 'multi_1'));
     echo '</div>';
 }
 

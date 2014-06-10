@@ -2828,6 +2828,43 @@ class documentsActions extends c2cActions
         return true;
     }
 
+    // return a list of docs near to a location (ordered by smallest distance)
+    public function executeNearest()
+    {
+        sfLoader::loadHelpers(array('General', 'Url'));
+
+        $model = $this->hasRequestParameter('module_id') ?
+            c2cTools::module2model(sfConfig::get('app_modules_list')[$this->getRequestParameter('module_id')]) :
+            $this->model_class;
+
+        if (!in_array($model, array('Hut', 'Image', 'Parking', 'Product', 'Site', 'Summit')))
+        {
+            return $this->setErrorAndRedirect('Invalid request');
+        }
+
+        // get lat, lon and excluded values
+        $lon = floatval($this->getRequestParameter('lon'));
+        $lat = floatval($this->getRequestParameter('lat'));
+        $exclude = $this->hasRequestParameter('exclude') ? array_map('intval', explode(',', $this->getRequestParameter('exclude')))
+                                                         : null;
+
+        if (!$lon || !$lat)
+        {
+            return $this->setErrorAndRedirect('Invalid request');
+        }
+        $items = Language::getTheBest(Document::getNearest($lon, $lat, $model, $exclude), $model);
+
+        $output = [];
+        foreach ($items as $item)
+        {
+            array_push($output, array('id' => $item['id'], 'name' => $item[$model.'I18n'][0]['name'],
+                                      'url' => url_for('@document_by_id_lang_slug?module=' . c2cTools::Model2Module($model) . '&id=' .
+                                                       $item['id'] . '&lang=' . $item[$model.'I18n'][0]['culture'] . '&slug=' .
+                                                       make_slug($item[$model.'I18n'][0]['name']))));
+        }
+        return $this->renderText(json_encode($output));
+    }
+
     /**
      * Executes autocomplete action.
      * returns formated list of best matching names and their ids

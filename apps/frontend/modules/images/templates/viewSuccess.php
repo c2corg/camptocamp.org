@@ -102,7 +102,10 @@ if ($is_not_archive && $is_not_merged):
         $linkable_modules = sfConfig::get('app_modules_list');
         unset($linkable_modules[1]); // documents
 
-        echo c2c_form_add_multi_module('images', $id, $linkable_modules, 3, $id_list_associated_docs, false, 'indicator', $id_no_associated_docs);
+        echo c2c_form_add_multi_module('images', $id, $linkable_modules, 3, array(
+            'field_prefix' => $id_list_associated_docs,
+            'hide' => false,
+            'removed_id' =>  $id_no_associated_docs));
 ?>
         </div>
 <?php

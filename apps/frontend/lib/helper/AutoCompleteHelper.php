@@ -116,14 +116,24 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
  * @param modules_list list of modules available for association
  * @param default_selected default selected module in the dropdown list
  * @param field_prefix used to prevent to have ids conflict when multiple forms
- * @param $hide if true, display button to hide/show the form + some text
- * @param $indicator, the ID of the HTML object used to display indications on the ajax status (Loading, Success, ...)
- * @param $removed_id, the ID of the HTML object to hide
+ * @param $options
+ *   $hide if true, display button to hide/show the form + some text
+ *   $indicator, the ID of the HTML object used to display indications on the ajax status (Loading, Success, ...)
+ *   $removed_id, the ID of the HTML object to hide
  */
-function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $field_prefix = 'list_associated_docs', $hide = true, $indicator = 'indicator', $removed_id = null)
+function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $options)
 {
-    $modules_list = array_intersect(sfConfig::get('app_modules_list'), $modules_list);
+    // optional values
+    $field_prefix = _option($options, 'field_prefix', 'list_associated_docs');
+    $hide = _option($options, 'hide', true);
+    $indicator = _option($options, 'indicator', 'indicator');
+    $removed_id = _option($options, 'removed_id');
+    $suggest_near_docs = _option($options, 'suggest_near_docs', false);
+
+    $conf = sfConfig::get('app_modules_list');
+    $modules_list = array_intersect($conf, $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
+    $near_docs_modules_list = array_keys(array_intersect($conf, array('huts', 'parkings', 'sites', 'summits', 'routes')));
 
     // for site-site, parking-parking or summit-summit associations, be explicit about association direction
     if (in_array($module, array('sites', 'parkings', 'summits')))
@@ -139,16 +149,50 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     
     $out = $picto_add . $select_modules;
 
-    $out .= javascript_queue("
-$('#dropdown_modules').change(function() {
-  var value = $(this).val(), indicator = $('#indicator').show();
-  $(this).attr('class', 'picto picto_' + value);
-  $.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix')
-    .always(function() {
-      indicator.hide();
-    })
-    .done(function(data) { $('#${field_prefix}_form').html(data); });
-});");
+    $js = "$('#dropdown_modules').change(function() {" .
+            "var \$this = $(this), value = \$this.val(), indicator = $('#$indicator').show();" .
+            "\$this.attr('class', 'picto picto_' + value);" .
+            // retrieve the autocomplete form for the selected module
+            "$.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix')" .
+              ".always(function() { indicator.hide(); })" .
+              ".done(function(data) { $('#${field_prefix}_form').html(data);";
+
+    if ($suggest_near_docs)
+    {
+        // additional (unpretty) code for suggesting documents in the neighborhood when relevant
+        $js = "function getSuggestions(module_id) {" .
+                "var suggestions_div = $('.autocomplete-suggestions').empty();" .
+                "if (" . json_encode($near_docs_modules_list) . ".indexOf(parseInt(module_id, 10)) > -1) {" .
+                  // special case for routes - we search them via the linked summits FIXME hacky..
+                  "if (module_id == 7) module_id = 3;" .
+                  // retrieve docs in neighborhood
+                  "$.getJSON('/documents/nearest'," .
+                            "'module_id='+module_id+'&lat=" . $suggest_near_docs['lat'] . "&lon=" .  $suggest_near_docs['lon'] . "')" .
+                    ".done(function(data) {" .
+                      "data = $.grep(data, function(obj) { return obj.id != $id; });" . // TODO also look at already linked docs?
+                      "if (data.length) {" .
+                        "suggestions_div.append('" . __('Suggestions: ') . "');" .
+                      "}" .
+                      "$.each(data, function(index, obj) {" .
+                        "suggestions_div.append($('<a href=\"'+obj.url+'\">'+obj.name+'</a>').click(function(e) {" .
+                          "if (e.which !== 1) return;" . // only left click
+                          "e.preventDefault();" .
+                          "$('#${field_prefix}_form input[type=text]').triggerHandler('select.autocomplete'," .
+                                                                                     "$('<span id='+obj.id+'>'+obj.name+'</span>'));" .
+                        "}), ' ');" .
+                      "});" .
+                    "});" .
+                "}" .
+              "}" .
+              "$('#${field_prefix}_form_association a').one('click', function(){ getSuggestions($('#dropdown_modules').val()); });" .
+              $js;
+
+        $js .= "getSuggestions(value);";
+    }
+
+    $js .= "});});";
+
+    $out .= javascript_queue($js);
 
     // form start
     $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix, $indicator, $removed_id);
@@ -158,7 +202,7 @@ $('#dropdown_modules').change(function() {
           . input_hidden_tag('document_id', '0', array('id' => $field_prefix . '_document_id'))
           . input_hidden_tag('document_module', $modules_list[$default_selected], array('id' => $field_prefix . '_document_module'))
           . c2c_auto_complete($modules_list[$default_selected], $field_prefix . '_document_id', $field_prefix, '')
-          . '</div></form>';
+          . '</div></form><div class="autocomplete-suggestions"></div>';
 
     // this is where the linked docs will be displayed after ajax
     $out = '<div class="doc_add">' . $out . '</div>';

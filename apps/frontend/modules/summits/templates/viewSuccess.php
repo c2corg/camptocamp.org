@@ -43,6 +43,7 @@ if ($is_not_archive)
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'ss', // summit-summit
                               'strict' => false )); // no strict looking for main_id in column main of Association table
+
         echo '</div>';
         
         echo '<div class="all_associations col col_33">';
@@ -101,15 +102,24 @@ if ($is_not_archive)
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'sc',
                               'strict' => true));
-        
-        if ($show_link_tool)
-        {
-            $modules_list = array('summits', 'sites', 'books', 'articles');
-            
-            echo c2c_form_add_multi_module('summits', $id, $modules_list, 3, 'multi_1', true);
-        }
     }
     echo '</div>';
+
+    if ($show_link_tool)
+    {
+        echo '<div class="all_associations col_left col_66">';
+
+        $modules_list = array('summits', 'sites', 'books', 'articles');
+        $options = array('field_prefix' => 'multi_1');
+        if (check_not_empty_doc($document, 'lon'))
+        {
+            $options['suggest_near_docs'] = array('lon' => $document['lon'], 'lat' => $document['lat']);
+        }
+
+        echo c2c_form_add_multi_module('summits', $id, $modules_list, 3, $options);
+
+        echo '</div>';
+    }
     
     include_partial('documents/geom_warning', array('document' => $document));
 }

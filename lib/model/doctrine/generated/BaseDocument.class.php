@@ -1873,7 +1873,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     /**
      * Get nearest docs to a point
      */
-    public static function getNearest($lon, $lat, $model = 'Document')
+    public static function getNearest($lon, $lat, $model = 'Document', $exclude = null)
     {
         $module = c2cTools::model2module($model);
         $distance = sfConfig::get('app_autocomplete_near_max_distance');
@@ -1886,6 +1886,8 @@ class BaseDocument extends sfDoctrineRecordI18n
         $q->select('{d.id}, {m.culture}, {m.name}')
           ->from('(SELECT id FROM ' . $module . ' ' .
                  ' WHERE ST_DWithin(geom, ST_Transform(ST_SetSRID(ST_MakePoint(?, ?), 4326), 900913), ?)' .
+                 ' AND redirects_to IS NULL' .
+                 (empty($exclude) ? '' : ' AND id NOT IN (' . implode(',', $exclude) . ')') .
                  ' ORDER BY ST_Distance(geom, ST_Transform(ST_SetSRID(ST_MakePoint(?, ?), 4326), 900913))' .
                  ' LIMIT ?) AS d ' .
                  'LEFT JOIN ' . $module . '_i18n m ON d.id = m.id')
