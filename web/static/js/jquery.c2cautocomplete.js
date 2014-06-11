@@ -251,19 +251,21 @@
 
     getSuggestions: function(q) {
       var that = this,
-          options = that.options;
+          options = that.options,
+          params = options.params;
 
       that.fixPosition(); // needed for mobile version
 
       if ($.isPlainObject(options.params)) {
-        options.params[options.paramName] = q;
+        params[options.paramName] = q;
       } else {
-        options.params = options.paramName + '=' + q + '&' + options.params;
+        params = options.paramName + '=' + q + '&' + options.params;
+        console.log(params);
       }
 
       that.showProgress();
 
-      $.when(options.getService ? options.getService.call(that, q) : $.get(options.url, options.params))
+      $.when(options.getService ? options.getService.call(that, q) : $.get(options.url, params))
       .always(function() {
         that.hideProgress();
         that.visible = true;
