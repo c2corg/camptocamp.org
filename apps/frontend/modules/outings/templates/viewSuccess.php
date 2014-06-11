@@ -123,9 +123,31 @@ include_partial('data', array('document' => $document, 'nb_comments' => $nb_comm
 if ($show_link_tool)
 {
     $modules_list = array('users', 'routes', 'sites', 'articles');
-    
+    $options = array('field_prefix' => 'multi_1');
+
+    // try to get a coordinate for suggesting near docs
+    // If outing has a track, we use the centroid
+    // else we get the highest linked summit that has coordinates
+    if (check_not_empty_doc($document, 'lon'))
+    {
+        $options['suggest_near_docs'] = array('lon' => $document['lon'], 'lat' => $document['lat']);
+    }
+    else
+    {
+        $summits_with_geom = array_filter($sf_data->getRaw('associated_summits'), function ($n) { return isset($n['lon']); });
+        if (count($summits_with_geom))
+        {
+            $ref_summit = c2cTools::extractHighest($summits_with_geom);
+            $options['suggest_near_docs'] = array('lon' => $ref_summit['lon'], 'lat' => $ref_summit['lat']);
+        }
+    }
+                                                                                                                                                                    if (isset($options['suggest_near_docs']))
+    {
+        $options['suggest_near_docs']['exclude'] = array('sites' => get_directly_linked_ids($associated_sites));
+    }
+
     echo '<div class="all_associations empty_content col_left col_66">';
-    echo c2c_form_add_multi_module('outings', $id, $modules_list, 2, array('field_prefix' => 'multi_1'));
+    echo c2c_form_add_multi_module('outings', $id, $modules_list, 2, $options);
     echo '</div>';
 }
 

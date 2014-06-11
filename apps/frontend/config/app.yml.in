@@ -330,7 +330,7 @@ all:
   autocomplete:
     min_chars: 3
     max_results: 15
-    near_max_results: 4
+    near_max_results: 5
     near_max_distance: 10000 # 10km
     geocode_service: geonames # geonames or nominatim
     

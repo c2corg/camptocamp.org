@@ -262,7 +262,8 @@ class Association extends BaseAssociation
     public static function findAllWithBestName($id, $user_prefered_langs, $types = null)
     {
         // we use lon/lat instead of geom_wkt to avoid retrieving heavy routes/areas wkt
-        $fields = 'm.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name, makePointWkt(m.lon, m.lat) as pointwkt';
+        $fields = 'm.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name, ' .
+                  'm.lon, m.lat, makePointWkt(m.lon, m.lat) as pointwkt';
         
         if ($types)
         {
@@ -419,7 +420,7 @@ class Association extends BaseAssociation
             $doc_ids = implode(', ', $where_ids);
         }
 
-        $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' .
+        $query = 'SELECT m.module, m.elevation, m.lon, m.lat, mi.id, mi.culture, mi.name, mi.search_name ' .
                  'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
                  'WHERE mi.id IN '. 
                  "($doc_ids) " .

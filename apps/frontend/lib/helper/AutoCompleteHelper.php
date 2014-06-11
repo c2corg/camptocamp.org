@@ -76,17 +76,17 @@ function c2c_form_remote_add_element($url, $updated_success, $indicator = 'indic
 {
     $url = url_for($url);
 
-    $js = "$('#indicator').show();
-$.post('$url', $(this).serialize())
-  .always(function() { $('#indicator').hide(); })
-  .fail(function(data) { C2C.showFailure(data.responseText); })
-  .success(function(data) {
-    $('#$updated_success').append(data);
-    if ($('#${updated_success}_rsummits_name').val('').length) {
-      $('#${updated_success}_associated_routes". ($removed_id ? ", #$removed_id" : '') ."').hide();
-    }
-  });
-return false;";
+    $js = "$('#indicator').show();" .
+          "$.post('$url', $(this).serialize())" .
+            ".always(function() { $('#indicator').hide(); })" .
+            ".fail(function(data) { C2C.showFailure(data.responseText); })" .
+            ".success(function(data) {" .
+              "$('#$updated_success').append(data);" .
+              "if ($('#${updated_success}_rsummits_name').val('').length) {" .
+                "$('#${updated_success}_associated_routes". ($removed_id ? ", #$removed_id" : '') ."').hide();" .
+              "}" .
+            "});" .
+            "return false;";
 
     $options['action'] = $url;
     $options['method'] = isset($options['method']) ? $options['method'] : 'post';
@@ -133,7 +133,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     $conf = sfConfig::get('app_modules_list');
     $modules_list = array_intersect($conf, $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
-    $near_docs_modules_list = array_keys(array_intersect($conf, array('huts', 'parkings', 'sites', 'summits', 'routes')));
+    $near_docs_modules_list = array_intersect($conf, array('huts', 'parkings', 'sites', 'summits', 'routes'));
 
     // for site-site, parking-parking or summit-summit associations, be explicit about association direction
     if (in_array($module, array('sites', 'parkings', 'summits')))
@@ -160,34 +160,32 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     if ($suggest_near_docs)
     {
         // additional (unpretty) code for suggesting documents in the neighborhood when relevant
-        $js = "function getSuggestions(module_id) {" .
+        $js = "function getSuggestions() {" .
+                "var module = $('#${field_prefix}_form').find('input[autocomplete=off]').attr('name').replace('_name', '');" .
+                "var exclude = " . json_encode($suggest_near_docs['exclude']) . ";" .
                 "var suggestions_div = $('.autocomplete-suggestions').empty();" .
-                "if (" . json_encode($near_docs_modules_list) . ".indexOf(parseInt(module_id, 10)) > -1) {" .
-                  // special case for routes - we search them via the linked summits FIXME hacky..
-                  "if (module_id == 7) module_id = 3;" .
+                "if (['" . implode("','", $near_docs_modules_list) . "'].indexOf(module) > -1) {" .
                   // retrieve docs in neighborhood
-                  "$.getJSON('/documents/nearest'," .
-                            "'module_id='+module_id+'&lat=" . $suggest_near_docs['lat'] . "&lon=" .  $suggest_near_docs['lon'] . "')" .
+                  "var params = {lat:" . $suggest_near_docs['lat'] . ", lon:" .  $suggest_near_docs['lon'] . "};" .
+                  "if (exclude[module]) params['exclude'] = exclude[module].join(',');" .
+                  "$.getJSON('/'+module+'/nearest', params)" .
                     ".done(function(data) {" .
-                      "data = $.grep(data, function(obj) { return obj.id != $id; });" . // TODO also look at already linked docs?
-                      "if (data.length) {" .
-                        "suggestions_div.append('" . __('Suggestions: ') . "');" .
-                      "}" .
+                      "if (data.length) suggestions_div.append('" . __('Suggestions: ') . "');" .
                       "$.each(data, function(index, obj) {" .
                         "suggestions_div.append($('<a href=\"'+obj.url+'\">'+obj.name+'</a>').click(function(e) {" .
                           "if (e.which !== 1) return;" . // only left click
                           "e.preventDefault();" .
                           "$('#${field_prefix}_form input[type=text]').triggerHandler('select.autocomplete'," .
                                                                                      "$('<span id='+obj.id+'>'+obj.name+'</span>'));" .
-                        "}), ' ');" .
+                        "}), ' &nbsp;');" .
                       "});" .
                     "});" .
                 "}" .
               "}" .
-              "$('#${field_prefix}_form_association a').one('click', function(){ getSuggestions($('#dropdown_modules').val()); });" .
+              "$('#${field_prefix}_form_association a').one('click', getSuggestions);" .
               $js;
 
-        $js .= "getSuggestions(value);";
+        $js .= "getSuggestions();";
     }
 
     $js .= "});});";
@@ -234,4 +232,18 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     }
 
     return $out;
+}
+
+function get_directly_linked_ids($docs)
+{
+    $a = array();
+    foreach ($docs as $doc)
+    {
+        if (isset($doc['directly_linked']))
+        {
+            array_push($a, $doc['id']);
+        }
+    }
+
+    return $a;
 }

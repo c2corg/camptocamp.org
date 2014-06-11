@@ -111,9 +111,12 @@ if ($is_not_archive)
 
         $modules_list = array('summits', 'sites', 'books', 'articles');
         $options = array('field_prefix' => 'multi_1');
+
         if (check_not_empty_doc($document, 'lon'))
         {
-            $options['suggest_near_docs'] = array('lon' => $document['lon'], 'lat' => $document['lat']);
+            $options['suggest_near_docs'] = array('lon' => $document['lon'], 'lat' => $document['lat'],
+                                                  'exclude' => array('summits' => array_merge(get_directly_linked_ids($associated_summits), array((int)$id)),
+                                                                     'sites' => get_directly_linked_ids($associated_sites)));
         }
 
         echo c2c_form_add_multi_module('summits', $id, $modules_list, 3, $options);
