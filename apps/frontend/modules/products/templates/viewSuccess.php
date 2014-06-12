@@ -81,7 +81,7 @@ if ($is_not_archive)
         {
             $modules_list = array('parkings', 'articles');
             
-            echo c2c_form_add_multi_module('products', $id, $modules_list, 9, 'multi_1', true);
+            echo c2c_form_add_multi_module('products', $id, $modules_list, 9, array('field_prefix' => 'multi_1'));
         }
     }
     

@@ -9,3 +9,6 @@ json:
 whatsnew:
   is_secure:    on
   credentials:  moderator
+
+nearest:
+  is_secure: on

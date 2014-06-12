@@ -245,7 +245,7 @@ if (!$mobile_version) // Informations section for web version only
             {
                 $modules_list = array('areas');
                 
-                echo c2c_form_add_multi_module('portals', $id, $modules_list, 4, 'multi_1', true);
+                echo c2c_form_add_multi_module('portals', $id, $modules_list, 4, array('field_prefix' => 'multi_1'));
             }
         }
         

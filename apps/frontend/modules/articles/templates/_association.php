@@ -100,9 +100,10 @@ if ($show_link_tool)
         $modules_list[] = 'users';
     }
 
-    echo c2c_form_add_multi_module('articles',
-        $id, $modules_list, 11, 
-        $id_list_associated_docs, false, 'indicator', $id_no_associated_docs);
+    echo c2c_form_add_multi_module('articles', $id, $modules_list, 11, array(
+        'field_prefix' => $id_list_associated_docs,
+        'hide' => false,
+        'removed_id' => $id_no_associated_docs));
 
     if (!$is_moderator && $is_connected && ($document->get('article_type') == 2))
     {
