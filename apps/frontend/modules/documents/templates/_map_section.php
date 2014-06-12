@@ -83,11 +83,11 @@ if ($has_geom || $show_map)
     echo end_section_tag(true);
 // fold_init_map.js ~ 390b ?>
 <script>
-(function(e,t){var n=e.setSectionStatus
-e.setSectionStatus=function(e,o,i){if(n(e,o,i)){var a=e.section_open,c=t.getElementById(e+"_section_container")
-c.style.display="none",c.title=a
-var s=t.getElementById(e+"_toggle")
-s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,t.getElementById("tip_"+e).innerHTML="["+a+"]"}}})(window.C2C=window.C2C||{},document)
+!function(e,t){var n=e.setSectionStatus
+e.setSectionStatus=function(i,o,c){if(n(i,o,c)){var a=e.section_open,l=t.getElementById(i+"_section_container")
+l.style.display="none",l.title=a
+var s=t.getElementById(i+"_toggle")
+s.className=s.className.replace("picto_close","picto_open"),s.alt="+",s.title=a,t.getElementById("tip_"+i).innerHTML="["+a+"]"}}}(window.C2C=window.C2C||{},document)
 </script>
     <?php
         $cookie_position = array_search('map_container', sfConfig::get('app_personalization_cookie_fold_positions'));

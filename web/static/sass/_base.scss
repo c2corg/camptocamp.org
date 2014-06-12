@@ -4168,6 +4168,10 @@ table.list th, table#pagehistory th
   padding: 0.2em 0.3em;
 }
 
+.children_docs.child_routes {
+  display: block;
+}
+
 @if $standard {
   .child_routes td:first-child
   {

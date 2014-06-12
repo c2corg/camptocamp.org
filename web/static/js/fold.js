@@ -144,7 +144,7 @@
 
   function toggleRoutes(activity_id) {
     $('#' + activity_id).toggleClass('picto_open_light picto_close_light'); 
-    $('.child_routes.' + activity_id).toggle(200);
+    $('.child_routes.' + activity_id).slideToggle(200);
   }
 
   C2C.handleRoutes = function() {
@@ -182,8 +182,9 @@
    * This function is called to hide routes depending on their activities and the user prefs
    */
   C2C.initRoutes = function() {
-    var activities_to_show = ($('#quick_switch').attr('class') || '').split(' ');
-    if (activities_to_show.length) {
+    var activities_to_show = $('#quick_switch').attr('class');
+    if (typeof activities_to_show !== 'undefined') {
+      activities_to_show = activities_to_show.split(' ');
       $('.child_routes').each(function() {
         var activity_id = $(this).attr('class').split(' ').pop();
         if ($.inArray(activity_id, activities_to_show)) {
