@@ -2600,6 +2600,12 @@ msgstr "Dokumentu honen azken aldaketak jarraitu"
 msgid "Successfully logged out"
 msgstr "Orain zure kontutik deskonektaturik zaude."
 
+# [general comment]
+# do not forget trailing space
+# [WARNING] en translation used
+msgid "Suggestions: "
+msgstr "Suggestions: "
+
 msgid "Summary"
 msgstr "Zerrenda"
 
@@ -5354,6 +5360,18 @@ msgstr "&gt; edo ="
 msgid "gres"
 msgstr "hareharria"
 
+# [WARNING] en translation used
+msgid "h2 button title"
+msgstr "Level 2 subtitle"
+
+# [WARNING] en translation used
+msgid "h3 button title"
+msgstr "Level 3 subtitle"
+
+# [WARNING] en translation used
+msgid "h4 button title"
+msgstr "Level 4 subtitle"
+
 # [comment]
 # copié-collé de ES
 # [WARNING] es translation used
@@ -6328,6 +6346,12 @@ msgstr "Umbria"
 # [WARNING] es translation used
 msgid "only exact matches. Go on typing"
 msgstr "Demasiado resultados. Solo se muestras correspondencias exactas. Por favor siga tecleando para ver otros resultados..."
+
+# [general comment]
+# see http://c2ci18n.appspot.com/translations/edit/57001
+# [WARNING] fr translation used
+msgid "only near matches. Go on typing"
+msgstr "Résultats trop nombreux. Seuls le ou les résultats proches sont affichés. Continuer à taper pour voir les autres résultats..."
 
 msgid "opened lift"
 msgstr "irekiak"

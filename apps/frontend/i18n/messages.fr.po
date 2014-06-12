@@ -2418,6 +2418,11 @@ msgstr "Suivre les dernières modifications de ce document"
 msgid "Successfully logged out"
 msgstr "Vous êtes à présent déconnecté de votre compte."
 
+# [general comment]
+# do not forget trailing space
+msgid "Suggestions: "
+msgstr "Suggestions&nbsp;: "
+
 msgid "Summary"
 msgstr "Sommaire"
 
@@ -5210,6 +5215,18 @@ msgstr "&gt; ou ="
 msgid "gres"
 msgstr "grès"
 
+# [WARNING] needs_review
+msgid "h2 button title"
+msgstr "Sous-titre de niveau 2"
+
+# [WARNING] needs_review
+msgid "h3 button title"
+msgstr "Sous-titre de niveau 3"
+
+# [WARNING] needs_review
+msgid "h4 button title"
+msgstr "Sous-titre de niveau 4"
+
 msgid "has GPS track"
 msgstr "une trace GPS est associée à ce document"
 
@@ -6088,6 +6105,11 @@ msgstr "Ombrie"
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
 msgid "only exact matches. Go on typing"
 msgstr "Résultats trop nombreux. Seuls le ou les résultats exacts sont affichés. Continuer à taper pour voir les autres résultats..."
+
+# [general comment]
+# see http://c2ci18n.appspot.com/translations/edit/57001
+msgid "only near matches. Go on typing"
+msgstr "Résultats trop nombreux. Seuls le ou les résultats proches sont affichés. Continuer à taper pour voir les autres résultats..."
 
 msgid "opened lift"
 msgstr "ouvertes"

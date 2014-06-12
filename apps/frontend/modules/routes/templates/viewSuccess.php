@@ -116,8 +116,34 @@ if ($is_not_archive)
         if ($show_link_tool && !$mobile_version)
         {
             $modules_list = array('summits', 'sites', 'huts', 'parkings', 'routes', 'books', 'articles');
+            $options = array('field_prefix' => 'multi_1');
+
+            // try to determine the "center" of the route:
+            // - centroid if it has track
+            // - highest linked summits with coordinates
+            if (check_not_empty_doc($document, 'lon'))
+            {
+                $options['suggest_near_docs'] = array('lon' => $document['lon'], 'lat' => $document['lat']);
+            }
+            else
+            {
+                $summits_with_geom = array_filter($sf_data->getRaw('associated_summits'), function ($n) { return isset($n['pointwkt']); });
+                if (count($summits_with_geom))
+                {
+                    $ref_summit = c2cTools::extractHighest($summits_with_geom);
+                    $options['suggest_near_docs'] = array('lon' => $ref_summit['lon'], 'lat' => $ref_summit['lat']);
+                }
+            }
+            if (isset($options['suggest_near_docs']))
+            {
+                $options['suggest_near_docs']['exclude'] = array(
+                    'summits' => get_directly_linked_ids($associated_summits),
+                    'sites' => get_directly_linked_ids($associated_sites),
+                    'huts' => get_directly_linked_ids($associated_huts),
+                    'parkings' => get_directly_linked_ids($associated_parkings));
+            }
             
-            echo c2c_form_add_multi_module('routes', $id, $modules_list, 3, 'multi_1', true);
+            echo c2c_form_add_multi_module('routes', $id, $modules_list, 3, $options);
         }
         echo '</div>';
     }

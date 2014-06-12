@@ -16,15 +16,22 @@ else
     sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'JavascriptQueue', 'General', 'MyMinify'));
 }
 
-function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $size = '45')
+function c2c_input_auto_complete($module, $update_hidden, $options)
 {
+    $field_prefix = _option($options, 'field_prefix', '');
+    $display = _option($options, 'display', '');
+    $size = _option($options, 'size', '45');
+    $extra_params = _option($options, 'extra_params');
+
     $id = $field_prefix.'_'.$module.'_name';
-    $tag = input_tag($module . '_name', $display, array('size' => $size,
-               'id' => $id,
+    $tag = input_tag($module . '_name', $display, array(
+               'size' => $size, 'id' => $id,
                'placeholder' => ($module == 'users') ? __('ID or name/nickname') :  __('Keyword or ID')));
+
     $js = javascript_queue("$('#$id').c2cAutocomplete({
       url: '" . url_for("$module/autocomplete") . "',
-      minChars: " . sfConfig::get('app_autocomplete_min_chars') . "
+      minChars: " . sfConfig::get('app_autocomplete_min_chars') .
+      (isset($extra_params) ? ", params: '$extra_params'" : '') . "
     }).on('itemselect', function(e, item) {
       $('#$update_hidden').val(item.id);
     });");
@@ -32,13 +39,16 @@ function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $d
     return $tag . $js;
 }
 
-function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $display_button = true)
+function c2c_auto_complete($module, $update_hidden, $options)
 {
+    $field_prefix = isset($options['field_prefix']) ? $options['field_prefix'] : '';
+    $display_button = _option($options, 'display_button', true);
+
     // updated field name can be customized so that there is no interference
     // between different autocomplete forms by using field_prefix
     $field = $field_prefix . '_' . $module . '_name';
 
-    $out = c2c_input_auto_complete($module, $update_hidden, $field_prefix, $display);
+    $out = c2c_input_auto_complete($module, $update_hidden, $options);
     $out .= ($display_button) ? c2c_submit_tag(__('Link'), array(
                                     'class' => 'samesize',
                                     'onclick' => "$('#$field').val('');",
@@ -76,17 +86,17 @@ function c2c_form_remote_add_element($url, $updated_success, $indicator = 'indic
 {
     $url = url_for($url);
 
-    $js = "$('#indicator').show();
-$.post('$url', $(this).serialize())
-  .always(function() { $('#indicator').hide(); })
-  .fail(function(data) { C2C.showFailure(data.responseText); })
-  .success(function(data) {
-    $('#$updated_success').append(data);
-    if ($('#${updated_success}_rsummits_name').val('').length) {
-      $('#${updated_success}_associated_routes". ($removed_id ? ", #$removed_id" : '') ."').hide();
-    }
-  });
-return false;";
+    $js = "$('#indicator').show();" .
+          "$.post('$url', $(this).serialize())" .
+            ".always(function() { $('#indicator').hide(); })" .
+            ".fail(function(data) { C2C.showFailure(data.responseText); })" .
+            ".success(function(data) {" .
+              "$('#$updated_success').append(data);" .
+              "if ($('#${updated_success}_rsummits_name').val('').length) {" .
+                "$('#${updated_success}_associated_routes". ($removed_id ? ", #$removed_id" : '') ."').hide();" .
+              "}" .
+            "});" .
+            "return false;";
 
     $options['action'] = $url;
     $options['method'] = isset($options['method']) ? $options['method'] : 'post';
@@ -116,14 +126,24 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
  * @param modules_list list of modules available for association
  * @param default_selected default selected module in the dropdown list
  * @param field_prefix used to prevent to have ids conflict when multiple forms
- * @param $hide if true, display button to hide/show the form + some text
- * @param $indicator, the ID of the HTML object used to display indications on the ajax status (Loading, Success, ...)
- * @param $removed_id, the ID of the HTML object to hide
+ * @param $options
+ *   $hide if true, display button to hide/show the form + some text
+ *   $indicator, the ID of the HTML object used to display indications on the ajax status (Loading, Success, ...)
+ *   $removed_id, the ID of the HTML object to hide
  */
-function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $field_prefix = 'list_associated_docs', $hide = true, $indicator = 'indicator', $removed_id = null)
+function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $options)
 {
-    $modules_list = array_intersect(sfConfig::get('app_modules_list'), $modules_list);
+    // optional values
+    $field_prefix = _option($options, 'field_prefix', 'list_associated_docs');
+    $hide = _option($options, 'hide', true);
+    $indicator = _option($options, 'indicator', 'indicator');
+    $removed_id = _option($options, 'removed_id');
+    $suggest_near_docs = _option($options, 'suggest_near_docs', false);
+
+    $conf = sfConfig::get('app_modules_list');
+    $modules_list = array_intersect($conf, $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
+    $near_docs_modules_list = array_intersect($conf, array('huts', 'parkings', 'sites', 'summits', 'routes'));
 
     // for site-site, parking-parking or summit-summit associations, be explicit about association direction
     if (in_array($module, array('sites', 'parkings', 'summits')))
@@ -139,26 +159,66 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     
     $out = $picto_add . $select_modules;
 
-    $out .= javascript_queue("
-$('#dropdown_modules').change(function() {
-  var value = $(this).val(), indicator = $('#indicator').show();
-  $(this).attr('class', 'picto picto_' + value);
-  $.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix')
-    .always(function() {
-      indicator.hide();
-    })
-    .done(function(data) { $('#${field_prefix}_form').html(data); });
-});");
+    $js = "$('#dropdown_modules').change(function() {" .
+            "var \$this = $(this), value = \$this.val(), indicator = $('#$indicator').show();" .
+            "\$this.attr('class', 'picto picto_' + value);" .
+            // retrieve the autocomplete form for the selected module
+            "$.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix" .
+            ($suggest_near_docs ? "&extra_params=" . urlencode("lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon']) : '') .
+            "')" .
+              ".always(function() { indicator.hide(); })" .
+              ".done(function(data) { $('#${field_prefix}_form').html(data);";
+
+    if ($suggest_near_docs)
+    {
+        // additional (unpretty) code for suggesting documents in the neighborhood when relevant
+        $js = "function getSuggestions() {" .
+                "var module = $('#${field_prefix}_form').find('input[autocomplete=off]').attr('name').replace('_name', '');" .
+                "var exclude = " . json_encode($suggest_near_docs['exclude']) . ";" .
+                "var suggestions_div = $('.autocomplete-suggestions').empty();" .
+                "if (['" . implode("','", $near_docs_modules_list) . "'].indexOf(module) > -1) {" .
+                  // retrieve docs in neighborhood
+                  "var params = {lat:" . $suggest_near_docs['lat'] . ", lon:" . $suggest_near_docs['lon'] . "};" .
+                  "if (exclude[module]) params['exclude'] = exclude[module].join(',');" .
+                  "$.getJSON('/'+module+'/nearest', params)" .
+                    ".done(function(data) {" .
+                      "if (data.length) suggestions_div.append('" . __('Suggestions: ') . "');" .
+                      "$.each(data, function(index, obj) {" .
+                        "suggestions_div.append($('<a href=\"'+obj.url+'\">'+obj.name+'</a>').click(function(e) {" .
+                          "if (e.which !== 1) return;" . // only left click
+                          "e.preventDefault();" .
+                          "$('#${field_prefix}_form input[type=text]').triggerHandler('select.autocomplete'," .
+                                                                                     "$('<span id='+obj.id+'>'+obj.name+'</span>'));" .
+                        "}), ' &nbsp;');" .
+                      "});" .
+                    "});" .
+                "}" .
+              "}" .
+              "$('#${field_prefix}_form_association a').one('click', getSuggestions);" .
+              $js;
+
+        $js .= "getSuggestions();";
+    }
+
+    $js .= "});});";
+
+    $out .= javascript_queue($js);
 
     // form start
     $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix, $indicator, $removed_id);
 
     // default form content
+    $auto_complete_options = array('field_prefix' => $field_prefix);
+    if ($suggest_near_docs && in_array($modules_list[$default_selected], $near_docs_modules_list))
+    {
+        $auto_complete_options['extra_params'] = "lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon'];
+    }
+
     $out .= '<div id="' . $field_prefix . '_form' . '" class="ac_form">'
           . input_hidden_tag('document_id', '0', array('id' => $field_prefix . '_document_id'))
           . input_hidden_tag('document_module', $modules_list[$default_selected], array('id' => $field_prefix . '_document_module'))
-          . c2c_auto_complete($modules_list[$default_selected], $field_prefix . '_document_id', $field_prefix, '')
-          . '</div></form>';
+          . c2c_auto_complete($modules_list[$default_selected], $field_prefix . '_document_id',  $auto_complete_options)
+          . '</div></form><div class="autocomplete-suggestions"></div>';
 
     // this is where the linked docs will be displayed after ajax
     $out = '<div class="doc_add">' . $out . '</div>';
@@ -190,4 +250,18 @@ $('#dropdown_modules').change(function() {
     }
 
     return $out;
+}
+
+function get_directly_linked_ids($docs)
+{
+    $a = array();
+    foreach ($docs as $doc)
+    {
+        if (isset($doc['directly_linked']))
+        {
+            array_push($a, $doc['id']);
+        }
+    }
+
+    return $a;
 }

@@ -2477,6 +2477,12 @@ msgstr "Die letzten Änderungen dieses Dokumentes verfolgen"
 msgid "Successfully logged out"
 msgstr "Sie sind nun abgemeldet"
 
+# [general comment]
+# do not forget trailing space
+# [WARNING] en translation used
+msgid "Suggestions: "
+msgstr "Suggestions: "
+
 msgid "Summary"
 msgstr "Inhaltsverzeichnis"
 
@@ -5332,6 +5338,18 @@ msgstr "&gt; oder ="
 msgid "gres"
 msgstr "Sandstein"
 
+# [WARNING] en translation used
+msgid "h2 button title"
+msgstr "Level 2 subtitle"
+
+# [WARNING] en translation used
+msgid "h3 button title"
+msgstr "Level 3 subtitle"
+
+# [WARNING] en translation used
+msgid "h4 button title"
+msgstr "Level 4 subtitle"
+
 msgid "has GPS track"
 msgstr "Ein GPS-Track ist mit diesem Dokument verbunden"
 
@@ -6248,6 +6266,12 @@ msgstr "Umbrien"
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
 msgid "only exact matches. Go on typing"
 msgstr "Zu viele Resultate. Nur exakte Treffer werden angezeigt. Bitte tippen sie mehr Text ein, um andere Resultate zu erhalten..."
+
+# [general comment]
+# see http://c2ci18n.appspot.com/translations/edit/57001
+# [WARNING] fr translation used
+msgid "only near matches. Go on typing"
+msgstr "Résultats trop nombreux. Seuls le ou les résultats proches sont affichés. Continuer à taper pour voir les autres résultats..."
 
 msgid "opened lift"
 msgstr "in Betrieb"

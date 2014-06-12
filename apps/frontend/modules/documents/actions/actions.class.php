@@ -2828,6 +2828,43 @@ class documentsActions extends c2cActions
         return true;
     }
 
+    // return a list of docs near to a location (ordered by smallest distance)
+    public function executeNearest()
+    {
+        sfLoader::loadHelpers(array('General', 'Url'));
+
+        $model = $this->hasRequestParameter('module_id') ?
+            c2cTools::module2model(sfConfig::get('app_modules_list')[$this->getRequestParameter('module_id')]) :
+            $this->model_class;
+
+        if (!in_array($model, array('Hut', 'Image', 'Parking', 'Product', 'Site', 'Summit')))
+        {
+            return $this->setErrorAndRedirect('Invalid request');
+        }
+
+        // get lat, lon and excluded values
+        $lon = floatval($this->getRequestParameter('lon'));
+        $lat = floatval($this->getRequestParameter('lat'));
+        $exclude = $this->hasRequestParameter('exclude') ? array_map('intval', explode(',', $this->getRequestParameter('exclude')))
+                                                         : null;
+
+        if (!$lon || !$lat)
+        {
+            return $this->setErrorAndRedirect('Invalid request');
+        }
+        $items = Language::getTheBest(Document::getNearest($lon, $lat, $model, $exclude), $model);
+
+        $output = [];
+        foreach ($items as $item)
+        {
+            array_push($output, array('id' => $item['id'], 'name' => $item[$model.'I18n'][0]['name'],
+                                      'url' => url_for('@document_by_id_lang_slug?module=' . c2cTools::Model2Module($model) . '&id=' .
+                                                       $item['id'] . '&lang=' . $item[$model.'I18n'][0]['culture'] . '&slug=' .
+                                                       make_slug($item[$model.'I18n'][0]['name']))));
+        }
+        return $this->renderText(json_encode($output));
+    }
+
     /**
      * Executes autocomplete action.
      * returns formated list of best matching names and their ids
@@ -2862,7 +2899,7 @@ class documentsActions extends c2cActions
 
         if ($nb_results > sfConfig::get('app_autocomplete_max_results') && $nb_results < sfConfig::get('app_list_maxline_number'))
         {
-            // if there are too many results to display, but if there is at least one exact match, it is in the results return by the db query
+            // if there are too many results to display, but if there is at least one exact match, it is in the results returned by the db query
             // we display the exact matches, if any. We translate some special chars and capital letters
             sfLoader::loadHelpers(array('General'));
             $simple_string = remove_accents($string);
@@ -2887,20 +2924,44 @@ class documentsActions extends c2cActions
         }
         elseif ($nb_results == sfConfig::get('app_list_maxline_number'))
         {
-            // we have the maximum number of results returned by the db query, so we assume there are more
-            // we try to make an exact search directly to the db (they might not be in the few returned by the previous query)
-            // Note that in this case, we don't try to simplify accents or capital letters
-            $exact_results = Document::searchByName($string, $model, $user->getId(), $filter_personal_content, true);
-            $nb_exact_results = count($exact_results);
 
-            if ($nb_exact_results)
+            // we have the maximum number of results returned by the db query, so we assume there are more
+            // before giving up and returning "too many results", we can try some extra things
+
+            // if we have lat lon info, we try to limit results to those in the neighboorhood
+            if ($this->hasRequestParameter('lat') && $this->hasRequestParameter('lon') &&
+                in_array($module, array('sites', 'huts', 'parkings', 'summits')))
             {
-                $results = $exact_results;
-                $exact_matches = true;
+                $near_results = Document::searchByName($string, $model, $user->getId(), $filter_personal_content, false,
+                                                       array('lon' => floatval($this->getRequestParameter('lon')),
+                                                             'lat' => floatval($this->getRequestParameter('lat'))));
+                $nb_near_results = count($near_results);
+
+                if ($nb_near_results && $nb_near_results < sfConfig::get('app_autocomplete_max_results'))
+                {
+                    $results = $near_results;
+                }
+                else
+                {
+                    return $this->ajax_feedback_autocomplete('Too many results. Please go on typing...');
+                }
             }
+            // else we try to make an exact search directly to the db (they might not be in the few returned by the previous query)
+            // Note that in this case, we don't try to simplify accents or capital letters
             else
             {
-                return $this->ajax_feedback_autocomplete('Too many results. Please go on typing...');
+                $exact_results = Document::searchByName($string, $model, $user->getId(), $filter_personal_content, true);
+                $nb_exact_results = count($exact_results);
+
+                if ($nb_exact_results)
+                {
+                    $results = $exact_results;
+                    $exact_matches = true;
+                }
+                else
+                {
+                    return $this->ajax_feedback_autocomplete('Too many results. Please go on typing...');
+                }
             }
         }
         
@@ -2988,10 +3049,13 @@ class documentsActions extends c2cActions
         {
             $html .= '<div class="feedback">'.$this->__('only exact matches. Go on typing').'</div>';
         }
+        if (isset($nb_near_results) && $nb_near_results)
+        {
+            $html .= '<div class="feedback">'.$this->__('only near matches. Go on typing').'</div>';
+        }
 
         $html .= '</ul>';
 
-        // format the response and send back :
         return $this->renderText($html);
     }
 
@@ -4114,6 +4178,7 @@ class documentsActions extends c2cActions
         }
  
         $field_prefix = $this->getRequestParameter('field_prefix', '');
+        $extra_params = $this->getRequestParameter('extra_params');
 
         sfLoader::loadHelpers(array('AutoComplete'));
         if ($module_name == 'users' && $this->getModuleName() == 'images'
@@ -4129,7 +4194,8 @@ class documentsActions extends c2cActions
             $display_button = ($this->getRequestParameter('button') != '0');
             $out = input_hidden_tag('document_id', '0', array('id' => $field_prefix . '_document_id'))
                  . input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
-                 . c2c_auto_complete($module_name, $field_prefix.'_document_id', $field_prefix, '', $display_button)
+                 . c2c_auto_complete($module_name, $field_prefix.'_document_id',
+                       array('field_prefix' => $field_prefix, 'display_button' => $display_button, 'extra_params' => $extra_params))
                  . ($display_button ? '</form>' : '');
         }
         else
@@ -4149,6 +4215,7 @@ class documentsActions extends c2cActions
                  "$('#$id').c2cAutocomplete({" .
                    "url: '" . url_for("summits/autocomplete") . "'," .
                    "minChars: " . sfConfig::get('app_autocomplete_min_chars') .
+                   (isset($extra_params) ? ", params: '$extra_params'" : '') .
                  "}).on('itemselect', function(e, item) {" .
                    "indicator.show();" .
                    "$.get('" . url_for('summits/getroutes') . "'," .

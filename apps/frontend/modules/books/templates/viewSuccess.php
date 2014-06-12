@@ -111,7 +111,10 @@ if ($is_not_archive && $is_not_merged)
             
             $modules_list = array('summits', 'sites', 'routes', 'huts', 'articles');
             
-            echo c2c_form_add_multi_module('books', $id, $modules_list, 13, $id_list_associated_docs, false, 'indicator', $id_no_associated_docs);
+            echo c2c_form_add_multi_module('books', $id, $modules_list, 13, array(
+                'field_prefix' => $id_list_associated_docs,
+                'hide' => false,
+                'removed_id' => $id_no_associated_docs));
             
             echo '</div>';
         }
