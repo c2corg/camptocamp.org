@@ -2478,6 +2478,12 @@ msgstr "Seguir las últimas modificaciones de este documento"
 msgid "Successfully logged out"
 msgstr "Está desconectado."
 
+# [general comment]
+# do not forget trailing space
+# [WARNING] en translation used
+msgid "Suggestions: "
+msgstr "Suggestions: "
+
 msgid "Summary"
 msgstr "Resumen"
 
@@ -5143,6 +5149,18 @@ msgstr "&gt; o ="
 msgid "gres"
 msgstr "gres"
 
+# [WARNING] en translation used
+msgid "h2 button title"
+msgstr "Level 2 subtitle"
+
+# [WARNING] en translation used
+msgid "h3 button title"
+msgstr "Level 3 subtitle"
+
+# [WARNING] en translation used
+msgid "h4 button title"
+msgstr "Level 4 subtitle"
+
 msgid "has GPS track"
 msgstr "una traza GPS es asociada al documento"
 
@@ -6054,6 +6072,12 @@ msgstr "Umbría"
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
 msgid "only exact matches. Go on typing"
 msgstr "Demasiado resultados. Solo se muestras correspondencias exactas. Por favor siga tecleando para ver otros resultados..."
+
+# [general comment]
+# see http://c2ci18n.appspot.com/translations/edit/57001
+# [WARNING] fr translation used
+msgid "only near matches. Go on typing"
+msgstr "Résultats trop nombreux. Seuls le ou les résultats proches sont affichés. Continuer à taper pour voir les autres résultats..."
 
 msgid "opened lift"
 msgstr "abiertas"

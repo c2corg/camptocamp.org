@@ -2416,6 +2416,12 @@ msgstr "Mostra les darreres modificacions d'aquest document"
 msgid "Successfully logged out"
 msgstr "Estàs desconnectat."
 
+# [general comment]
+# do not forget trailing space
+# [WARNING] en translation used
+msgid "Suggestions: "
+msgstr "Suggestions: "
+
 msgid "Summary"
 msgstr "Resum"
 
@@ -5178,6 +5184,18 @@ msgstr "&gt; o ="
 msgid "gres"
 msgstr "gres"
 
+# [WARNING] en translation used
+msgid "h2 button title"
+msgstr "Level 2 subtitle"
+
+# [WARNING] en translation used
+msgid "h3 button title"
+msgstr "Level 3 subtitle"
+
+# [WARNING] en translation used
+msgid "h4 button title"
+msgstr "Level 4 subtitle"
+
 msgid "has GPS track"
 msgstr "hi ha una traça GPS associada a aquest document"
 
@@ -6054,6 +6072,12 @@ msgstr "Úmbria"
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
 msgid "only exact matches. Go on typing"
 msgstr "Massa resultats. Només es mostren les correspondències exactes. Seguiu teclejant per veure d'altres resultats..."
+
+# [general comment]
+# see http://c2ci18n.appspot.com/translations/edit/57001
+# [WARNING] fr translation used
+msgid "only near matches. Go on typing"
+msgstr "Résultats trop nombreux. Seuls le ou les résultats proches sont affichés. Continuer à taper pour voir les autres résultats..."
 
 msgid "opened lift"
 msgstr "oberts"

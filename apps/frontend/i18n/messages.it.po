@@ -2446,6 +2446,12 @@ msgstr "Segui le ultime modifiche di questo documento"
 msgid "Successfully logged out"
 msgstr "Disconnessione avvenuta"
 
+# [general comment]
+# do not forget trailing space
+# [WARNING] en translation used
+msgid "Suggestions: "
+msgstr "Suggestions: "
+
 msgid "Summary"
 msgstr "Sommario"
 
@@ -5185,6 +5191,18 @@ msgstr "sup. o uguale"
 msgid "gres"
 msgstr "arenaria"
 
+# [WARNING] en translation used
+msgid "h2 button title"
+msgstr "Level 2 subtitle"
+
+# [WARNING] en translation used
+msgid "h3 button title"
+msgstr "Level 3 subtitle"
+
+# [WARNING] en translation used
+msgid "h4 button title"
+msgstr "Level 4 subtitle"
+
 msgid "has GPS track"
 msgstr "una traccia GPS è associata a questo documento"
 
@@ -6077,6 +6095,12 @@ msgstr "Umbria"
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
 msgid "only exact matches. Go on typing"
 msgstr "Troppi risultati! Solo i risultati esatti sono visibili. Digitare altre lettere per vedere gli altri risultati..."
+
+# [general comment]
+# see http://c2ci18n.appspot.com/translations/edit/57001
+# [WARNING] fr translation used
+msgid "only near matches. Go on typing"
+msgstr "Résultats trop nombreux. Seuls le ou les résultats proches sont affichés. Continuer à taper pour voir les autres résultats..."
 
 msgid "opened lift"
 msgstr "aperti"
