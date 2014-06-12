@@ -16,15 +16,22 @@ else
     sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'JavascriptQueue', 'General', 'MyMinify'));
 }
 
-function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $size = '45')
+function c2c_input_auto_complete($module, $update_hidden, $options)
 {
+    $field_prefix = _option($options, 'field_prefix', '');
+    $display = _option($options, 'display', '');
+    $size = _option($options, 'size', '45');
+    $extra_params = _option($options, 'extra_params');
+
     $id = $field_prefix.'_'.$module.'_name';
-    $tag = input_tag($module . '_name', $display, array('size' => $size,
-               'id' => $id,
+    $tag = input_tag($module . '_name', $display, array(
+               'size' => $size, 'id' => $id,
                'placeholder' => ($module == 'users') ? __('ID or name/nickname') :  __('Keyword or ID')));
+
     $js = javascript_queue("$('#$id').c2cAutocomplete({
       url: '" . url_for("$module/autocomplete") . "',
-      minChars: " . sfConfig::get('app_autocomplete_min_chars') . "
+      minChars: " . sfConfig::get('app_autocomplete_min_chars') .
+      (isset($extra_params) ? ", params: '$extra_params'" : '') . "
     }).on('itemselect', function(e, item) {
       $('#$update_hidden').val(item.id);
     });");
@@ -32,13 +39,16 @@ function c2c_input_auto_complete($module, $update_hidden, $field_prefix = '', $d
     return $tag . $js;
 }
 
-function c2c_auto_complete($module, $update_hidden, $field_prefix = '', $display = '', $display_button = true)
+function c2c_auto_complete($module, $update_hidden, $options)
 {
+    $field_prefix = isset($options['field_prefix']) ? $options['field_prefix'] : '';
+    $display_button = _option($options, 'display_button', true);
+
     // updated field name can be customized so that there is no interference
     // between different autocomplete forms by using field_prefix
     $field = $field_prefix . '_' . $module . '_name';
 
-    $out = c2c_input_auto_complete($module, $update_hidden, $field_prefix, $display);
+    $out = c2c_input_auto_complete($module, $update_hidden, $options);
     $out .= ($display_button) ? c2c_submit_tag(__('Link'), array(
                                     'class' => 'samesize',
                                     'onclick' => "$('#$field').val('');",
@@ -153,7 +163,9 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
             "var \$this = $(this), value = \$this.val(), indicator = $('#$indicator').show();" .
             "\$this.attr('class', 'picto picto_' + value);" .
             // retrieve the autocomplete form for the selected module
-            "$.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix')" .
+            "$.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix" .
+            ($suggest_near_docs ? "&extra_params=" . urlencode("lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon']) : '') .
+            "')" .
               ".always(function() { indicator.hide(); })" .
               ".done(function(data) { $('#${field_prefix}_form').html(data);";
 
@@ -166,7 +178,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
                 "var suggestions_div = $('.autocomplete-suggestions').empty();" .
                 "if (['" . implode("','", $near_docs_modules_list) . "'].indexOf(module) > -1) {" .
                   // retrieve docs in neighborhood
-                  "var params = {lat:" . $suggest_near_docs['lat'] . ", lon:" .  $suggest_near_docs['lon'] . "};" .
+                  "var params = {lat:" . $suggest_near_docs['lat'] . ", lon:" . $suggest_near_docs['lon'] . "};" .
                   "if (exclude[module]) params['exclude'] = exclude[module].join(',');" .
                   "$.getJSON('/'+module+'/nearest', params)" .
                     ".done(function(data) {" .
@@ -196,10 +208,16 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix, $indicator, $removed_id);
 
     // default form content
+    $auto_complete_options = array('field_prefix' => $field_prefix);
+    if ($suggest_near_docs && in_array($modules_list[$default_selected], $near_docs_modules_list))
+    {
+        $auto_complete_options['extra_params'] = "lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon'];
+    }
+
     $out .= '<div id="' . $field_prefix . '_form' . '" class="ac_form">'
           . input_hidden_tag('document_id', '0', array('id' => $field_prefix . '_document_id'))
           . input_hidden_tag('document_module', $modules_list[$default_selected], array('id' => $field_prefix . '_document_module'))
-          . c2c_auto_complete($modules_list[$default_selected], $field_prefix . '_document_id', $field_prefix, '')
+          . c2c_auto_complete($modules_list[$default_selected], $field_prefix . '_document_id',  $auto_complete_options)
           . '</div></form><div class="autocomplete-suggestions"></div>';
 
     // this is where the linked docs will be displayed after ajax

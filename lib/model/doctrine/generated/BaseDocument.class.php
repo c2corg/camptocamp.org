@@ -1899,26 +1899,39 @@ class BaseDocument extends sfDoctrineRecordI18n
     /**
      * Gets a list of documents filtering on the name field.
      * Only used for autocomplete
-     *
-     * If name appears to be an integer, we use it as document id
      */
-    public static function searchByName($name, $model = 'Document', $user_id = 0, $filter_personal_content = false, $exact_match = false)
+    public static function searchByName($name, $model = 'Document', $user_id = 0, $filter_personal_content = false, $exact_match = false, $coords = null)
     {
         $model_i18n = $model . 'I18n';
         $use_docid = (intval($name) > 1);
         $name = $use_docid ? intval($name) : $name;
 
-        // FIXME change the diff between users and other modules once performance problems have been resolved
-        if ($model == 'User')
+        // basic idea is to search documents that contain the string but we may have exceptions
+        // - if string appears to be a document id, directly get it (much faster)
+        // - if a geoloc is given, restrict results to those within 10km (for some docs)
+        // - for personal docs, we restrict to those linked to the user (except if user is a moderator)
+        // - search on topoguide and forum names for users
+        // - ...
+        if ($use_docid)
         {
-            $operator = $exact_match ? '= ?' : "LIKE make_search_name(?)||'%'";
+            $where_clause = 'm.redirects_to IS NULL AND mi.id = ?';
         }
         else
         {
-            $operator = $exact_match ? '= ?' : "LIKE '%'||make_search_name(?)||'%'";
+           // FIXME change the diff between users and other modules once performance problems have been resolved
+           $where_clause = 'm.redirects_to IS NULL AND mi.search_name ' . ($exact_match ? '= ?' :
+                           ($model == 'User' ? "LIKE make_search_name(?)||'%'" : "LIKE '%'||make_search_name(?)||'%'"));
         }
-        $where_clause = $use_docid ? 'm.redirects_to IS NULL AND mi.id = ?'
-                                   : 'm.redirects_to IS NULL AND mi.search_name ' . $operator;
+
+        if (isset($coords))
+        {
+            $where_clause = "ST_DWithin(geom, transform(setsrid(makepoint(?, ?), 4326), 900913), ?) AND " . $where_clause;
+            $where_vars = array($coords['lon'], $coords['lat'], sfConfig::get('app_autocomplete_near_max_distance'));
+        }
+        else
+        {
+            $where_vars = array();
+        }
 
         if ($model == 'Outing')
         {
@@ -1927,12 +1940,12 @@ class BaseDocument extends sfDoctrineRecordI18n
             $select = 'mi.name, m.id, m.module, m.date';
             if ($use_docid && sfContext::getInstance()->getUser()->hasCredential('moderator'))
             {
-                $where_vars = array($name);
+                array_push($where_vars, $name);
             }
             else
             {
                 $where_clause = $where_clause . " AND m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uo' AND a.main_id = ?)";
-                $where_vars = array($name, $user_id);
+                array_push($where_vars, $name, $user_id);
             }
         }
         else if (($model == 'Article') && $filter_personal_content)
@@ -1940,7 +1953,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             // return only collaborative articles, or personal ones linked with user
             $select = 'mi.name, m.id, m.module, m.article_type';
             $where_clause = $where_clause . " AND (m.article_type = 1 OR (m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uc' AND a.main_id = ?)))";
-            $where_vars = array($name, $user_id);
+            array_push($where_vars, $name, $user_id);
         }
         else if (($model == 'Image') && $filter_personal_content)
         {
@@ -1950,32 +1963,34 @@ class BaseDocument extends sfDoctrineRecordI18n
                                           . "(SELECT a.id FROM Image a LEFT JOIN a.versions v ON a.id = v.document_id "
                                           . "LEFT JOIN v.history_metadata a4 ON v.history_metadata_id = a4.history_metadata_id "
                                           . "WHERE a.redirects_to IS NULL AND (v.version = 1 AND a4.user_id = ?))))";
-            $where_vars = array($name, $user_id);
+            array_push($where_vars, $name, $user_id);
         }
         else if ($model == 'User') // search on topoguide and forum names
         {
             $select = 'mi.name, m.id, m.module, mu.username';
             $from = 'User m, m.UserI18n mi, m.private_data mu';
+
+            array_push($where_vars, $name);
             if (!$use_docid)
             {
                 $where_clause = 'm.redirects_to IS NULL AND (mi.search_name ' . $operator . ' OR mu.search_username ' . $operator . ')';
+                array_push($where_vars, $name);
             }
-            $where_vars = $use_docid ? array($name) : array($name, $name);
         }
         else if ($model == 'Book') // retrieve author and publication date
         {
             $select = 'mi.name, m.id, m.module, m.author, m.publication_date';
-            $where_vars = array($name);
+            array_push($where_vars,$name);
         }
         else if ($model == 'Summit' || $model == 'Hut') // retrieve elevation
         {
             $select = 'mi.name, m.id, m.module, m.elevation';
-            $where_vars = array($name);
+            array_push($where_vars, $name);
         }
         else
         {
             $select = 'mi.name, m.id, m.module';
-            $where_vars = array($name);
+            array_push($where_vars, $name);
         }
 
         $results = Doctrine_Query::create()
