@@ -1919,8 +1919,9 @@ class BaseDocument extends sfDoctrineRecordI18n
         else
         {
            // FIXME change the diff between users and other modules once performance problems have been resolved
-           $where_clause = 'm.redirects_to IS NULL AND mi.search_name ' . ($exact_match ? '= ?' :
-                           ($model == 'User' ? "LIKE make_search_name(?)||'%'" : "LIKE '%'||make_search_name(?)||'%'"));
+           $operator = $exact_match ? '= ?' :
+               ($model == 'User' ? "LIKE make_search_name(?)||'%'" : "LIKE '%'||make_search_name(?)||'%'");
+           $where_clause = 'm.redirects_to IS NULL AND mi.search_name ' . $operator;
         }
 
         if (isset($coords))
