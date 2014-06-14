@@ -1877,7 +1877,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         $module = c2cTools::model2module($model);
         $distance = sfConfig::get('app_autocomplete_near_max_distance');
-        $limit =  sfConfig::get('app_autocomplete_near_max_results');
+        $limit =  sfConfig::get('app_autocomplete_suggest_max_results');
 
         // We have to use raw SQL because of postgis functions
         // Not that we first filter width ST_DWithin and only after that compute the dstance,
@@ -1885,15 +1885,15 @@ class BaseDocument extends sfDoctrineRecordI18n
         $q = new Doctrine_RawSql();
         $q->select('{d.id}, {m.culture}, {m.name}')
           ->from('(SELECT id FROM ' . $module . ' ' .
-                 ' WHERE ST_DWithin(geom, ST_Transform(ST_SetSRID(ST_MakePoint(?, ?), 4326), 900913), ?)' .
-                 ' AND redirects_to IS NULL' .
-                 (empty($exclude) ? '' : ' AND id NOT IN (' . implode(',', $exclude) . ')') .
-                 ' ORDER BY ST_Distance(geom, ST_Transform(ST_SetSRID(ST_MakePoint(?, ?), 4326), 900913))' .
-                 ' LIMIT ?) AS d ' .
+                 'WHERE ST_DWithin(geom, ST_Transform(ST_SetSRID(ST_MakePoint(?, ?), 4326), 900913), ?) ' .
+                 'AND redirects_to IS NULL ' .
+                 (empty($exclude) ? '' : ' AND id NOT IN (' . implode(',', array_fill(0, sizeof($exclude), '?')) . ') ') .
+                 'ORDER BY ST_Distance(geom, ST_Transform(ST_SetSRID(ST_MakePoint(?, ?), 4326), 900913)) ' .
+                 'LIMIT ?) AS d ' .
                  'LEFT JOIN ' . $module . '_i18n m ON d.id = m.id')
           ->addComponent('d', $model . ' d')
           ->addComponent('m', 'd.' . $model .'I18n m');
-        return $q->execute(array($lon, $lat, $distance, $lon, $lat, $limit), Doctrine::FETCH_ARRAY);
+        return $q->execute(array_merge(array($lon, $lat, $distance), (array)$exclude, array($lon, $lat, $limit)), Doctrine::FETCH_ARRAY);
     }
 
     /**

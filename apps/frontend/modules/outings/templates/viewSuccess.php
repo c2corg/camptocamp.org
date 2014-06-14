@@ -141,7 +141,8 @@ if ($show_link_tool)
             $options['suggest_near_docs'] = array('lon' => $ref_summit['lon'], 'lat' => $ref_summit['lat']);
         }
     }
-                                                                                                                                                                    if (isset($options['suggest_near_docs']))
+
+    if (isset($options['suggest_near_docs']))
     {
         $options['suggest_near_docs']['exclude'] = array('sites' => get_directly_linked_ids($associated_sites));
     }

@@ -130,6 +130,8 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
  *   $hide if true, display button to hide/show the form + some text
  *   $indicator, the ID of the HTML object used to display indications on the ajax status (Loading, Success, ...)
  *   $removed_id, the ID of the HTML object to hide
+ *   $suggest_near_docs, for suggesting docs based on geolocalization
+ *   $suggest_friends, for suggesting people you go out with most
  */
 function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $options)
 {
@@ -139,6 +141,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     $indicator = _option($options, 'indicator', 'indicator');
     $removed_id = _option($options, 'removed_id');
     $suggest_near_docs = _option($options, 'suggest_near_docs', false);
+    $suggest_friends = _option($options, 'suggest_friends', false);
 
     $conf = sfConfig::get('app_modules_list');
     $modules_list = array_intersect($conf, $modules_list);
@@ -151,6 +154,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
         $modules_list_i18n[array_search($module, $modules_list)] = __('sub-' . $module);
     }
 
+    // dropdown for choosing the type of docs to link
     $select_modules = select_tag('dropdown_modules',
         options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
         array('class' => 'picto picto_' . $default_selected));
@@ -159,28 +163,31 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     
     $out = $picto_add . $select_modules;
 
+    // js code fro autocompletion
     $js = "$('#dropdown_modules').change(function() {" .
             "var \$this = $(this), value = \$this.val(), indicator = $('#$indicator').show();" .
             "\$this.attr('class', 'picto picto_' + value);" .
             // retrieve the autocomplete form for the selected module
             "$.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix" .
-            ($suggest_near_docs ? "&extra_params=" . urlencode("lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon']) : '') .
+            ($suggest_near_docs ? "&extra_params=" . urlencode("lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon']) : '') . // TODO
             "')" .
               ".always(function() { indicator.hide(); })" .
               ".done(function(data) { $('#${field_prefix}_form').html(data);";
 
-    if ($suggest_near_docs)
+    if ($suggest_near_docs || $suggest_friends)
     {
-        // additional (unpretty) code for suggesting documents in the neighborhood when relevant
+        // additional code for suggesting documents in the neighborhood or friends when relevant
+        // FIXME wouldn't it be more clean to move a lot of js code to a separate file?
         $js = "function getSuggestions() {" .
                 "var module = $('#${field_prefix}_form').find('input[autocomplete=off]').attr('name').replace('_name', '');" .
                 "var exclude = " . json_encode($suggest_near_docs['exclude']) . ";" .
                 "var suggestions_div = $('.autocomplete-suggestions').empty();" .
-                "if (['" . implode("','", $near_docs_modules_list) . "'].indexOf(module) > -1) {" .
+                "if (['" . implode("','", $near_docs_modules_list) . "'].indexOf(module) > -1 || module == 'users') {" .
                   // retrieve docs in neighborhood
-                  "var params = {lat:" . $suggest_near_docs['lat'] . ", lon:" . $suggest_near_docs['lon'] . "};" .
-                  "if (exclude[module]) params['exclude'] = exclude[module].join(',');" .
-                  "$.getJSON('/'+module+'/nearest', params)" .
+                  "var params = (module == 'users') ? { id: $('#name_to_use').attr('data-user-id') } :" .
+                    "{ lat:" . $suggest_near_docs['lat'] . ", lon:" . $suggest_near_docs['lon'] . " };" .
+                  "if (exclude[module] && exclude[module].length) params['exclude'] = exclude[module].join(',');" .
+                  "$.getJSON('/'+module+'/suggest', params)" .
                     ".done(function(data) {" .
                       "if (data.length) suggestions_div.append('" . __('Suggestions: ') . "');" .
                       "$.each(data, function(index, obj) {" .

@@ -2828,8 +2828,8 @@ class documentsActions extends c2cActions
         return true;
     }
 
-    // return a list of docs near to a location (ordered by smallest distance)
-    public function executeNearest()
+    // return a list of suggestion (either based on location or friends)
+    public function executeSuggest()
     {
         sfLoader::loadHelpers(array('General', 'Url'));
 
@@ -2837,22 +2837,38 @@ class documentsActions extends c2cActions
             c2cTools::module2model(sfConfig::get('app_modules_list')[$this->getRequestParameter('module_id')]) :
             $this->model_class;
 
-        if (!in_array($model, array('Hut', 'Image', 'Parking', 'Product', 'Site', 'Summit')))
+        if (!in_array($model, array('Hut', 'Image', 'Parking', 'Product', 'Site', 'Summit', 'User')))
         {
             return $this->setErrorAndRedirect('Invalid request');
         }
 
-        // get lat, lon and excluded values
-        $lon = floatval($this->getRequestParameter('lon'));
-        $lat = floatval($this->getRequestParameter('lat'));
-        $exclude = $this->hasRequestParameter('exclude') ? array_map('intval', explode(',', $this->getRequestParameter('exclude')))
-                                                         : null;
+        $exclude = $this->hasRequestParameter('exclude') ?
+            array_map('intval', explode(',', $this->getRequestParameter('exclude'))) : null;
 
-        if (!$lon || !$lat)
+        if ($model == 'User')
         {
-            return $this->setErrorAndRedirect('Invalid request');
+            // get  user id
+            $userid = intval($this->getRequestParameter('id'));
+
+            if ($userid <= 0)
+            {
+                 return $this->setErrorAndRedirect('Invalid request');
+            }
+            $items = Language::getTheBest(User::getFriends($userid, $exclude), $model);
         }
-        $items = Language::getTheBest(Document::getNearest($lon, $lat, $model, $exclude), $model);
+        else
+        {
+            // get lat, lon and excluded values
+            $lon = floatval($this->getRequestParameter('lon'));
+            $lat = floatval($this->getRequestParameter('lat'));
+
+            if (!$lon || !$lat)
+            {
+                return $this->setErrorAndRedirect('Invalid request');
+            }
+
+            $items = Language::getTheBest(Document::getNearest($lon, $lat, $model, $exclude), $model);
+        }
 
         $output = [];
         foreach ($items as $item)
