@@ -74,6 +74,7 @@ class User extends BaseUser
         $limit =  sfConfig::get('app_autocomplete_suggest_max_results');
         $outings_limit = 20;
         $exclude[] = $userid;
+        $exclude = array_unique($exclude);
 
         // get the 5 users we shared most of our last 20 outings with
         // FIXME: any way to get some simplier / better query?
