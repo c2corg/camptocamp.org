@@ -200,7 +200,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
                         "suggestions_div.append($('<a href=\"'+obj.url+'\">'+obj.name+'</a>').click(function(e) {" .
                           "if (e.which !== 1) return;" . // only left click
                           "e.preventDefault();" .
-                          "$('#${field_prefix}_form input[type=text]').triggerHandler('select.autocomplete'," .
+                          "$('#${field_prefix}_form input[type=text]').triggerHandler('forceselect.autocomplete'," .
                                                                                      "$('<span id='+obj.id+'>'+obj.name+'</span>'));" .
                         "}), ' &nbsp;');" .
                       "});" .
