@@ -130,6 +130,10 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
  *   $hide if true, display button to hide/show the form + some text
  *   $indicator, the ID of the HTML object used to display indications on the ajax status (Loading, Success, ...)
  *   $removed_id, the ID of the HTML object to hide
+ *   $suggest_near_docs, for suggesting docs based on geolocalization
+ *   $suggest_friends, for suggesting people you go out with most
+ *
+ * FIXME js code is quite messy, would be great to move most of it into separate js file
  */
 function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $options)
 {
@@ -139,11 +143,14 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     $indicator = _option($options, 'indicator', 'indicator');
     $removed_id = _option($options, 'removed_id');
     $suggest_near_docs = _option($options, 'suggest_near_docs', false);
+    $suggest_friends = _option($options, 'suggest_friends', false);
 
     $conf = sfConfig::get('app_modules_list');
     $modules_list = array_intersect($conf, $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
+    // modules for which lookig for neighboors has some sense
     $near_docs_modules_list = array_intersect($conf, array('huts', 'parkings', 'sites', 'summits', 'routes'));
+    $near_docs_module_ids_list = array_keys($near_docs_modules_list);
 
     // for site-site, parking-parking or summit-summit associations, be explicit about association direction
     if (in_array($module, array('sites', 'parkings', 'summits')))
@@ -151,6 +158,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
         $modules_list_i18n[array_search($module, $modules_list)] = __('sub-' . $module);
     }
 
+    // dropdown for choosing the type of docs to link
     $select_modules = select_tag('dropdown_modules',
         options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
         array('class' => 'picto picto_' . $default_selected));
@@ -159,35 +167,40 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     
     $out = $picto_add . $select_modules;
 
+    // js code fro autocompletion
     $js = "$('#dropdown_modules').change(function() {" .
             "var \$this = $(this), value = \$this.val(), indicator = $('#$indicator').show();" .
             "\$this.attr('class', 'picto picto_' + value);" .
             // retrieve the autocomplete form for the selected module
             "$.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix" .
-            ($suggest_near_docs ? "&extra_params=" . urlencode("lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon']) : '') .
-            "')" .
+            ($suggest_near_docs ? "' + (['" . implode("','", $near_docs_module_ids_list) . "'].indexOf(value) > -1 ?
+              '&extra_params=" . urlencode("lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon']) . "' : '')" : '\'') .
+            ")" .
               ".always(function() { indicator.hide(); })" .
               ".done(function(data) { $('#${field_prefix}_form').html(data);";
 
-    if ($suggest_near_docs)
+    if ($suggest_near_docs || $suggest_friends)
     {
-        // additional (unpretty) code for suggesting documents in the neighborhood when relevant
+        $suggest_exclude = _option($options, 'suggest_exclude', []);
+
+        // additional code for suggesting documents in the neighborhood or friends when relevant
         $js = "function getSuggestions() {" .
                 "var module = $('#${field_prefix}_form').find('input[autocomplete=off]').attr('name').replace('_name', '');" .
-                "var exclude = " . json_encode($suggest_near_docs['exclude']) . ";" .
+                "var exclude = " . json_encode($suggest_exclude) . ";" .
                 "var suggestions_div = $('.autocomplete-suggestions').empty();" .
-                "if (['" . implode("','", $near_docs_modules_list) . "'].indexOf(module) > -1) {" .
+                "if (['" . implode("','", $near_docs_modules_list) . "'].indexOf(module) > -1 || module == 'users') {" .
                   // retrieve docs in neighborhood
-                  "var params = {lat:" . $suggest_near_docs['lat'] . ", lon:" . $suggest_near_docs['lon'] . "};" .
-                  "if (exclude[module]) params['exclude'] = exclude[module].join(',');" .
-                  "$.getJSON('/'+module+'/nearest', params)" .
+                  "var params = (module == 'users') ? { id: $('#name_to_use').attr('data-user-id') } :" .
+                    "{ lat:" . $suggest_near_docs['lat'] . ", lon:" . $suggest_near_docs['lon'] . " };" .
+                  "if (exclude[module] && exclude[module].length) params['exclude'] = exclude[module].join(',');" .
+                  "$.getJSON('/'+module+'/suggest', params)" .
                     ".done(function(data) {" .
                       "if (data.length) suggestions_div.append('" . __('Suggestions: ') . "');" .
                       "$.each(data, function(index, obj) {" .
                         "suggestions_div.append($('<a href=\"'+obj.url+'\">'+obj.name+'</a>').click(function(e) {" .
                           "if (e.which !== 1) return;" . // only left click
                           "e.preventDefault();" .
-                          "$('#${field_prefix}_form input[type=text]').triggerHandler('select.autocomplete'," .
+                          "$('#${field_prefix}_form input[type=text]').triggerHandler('forceselect.autocomplete'," .
                                                                                      "$('<span id='+obj.id+'>'+obj.name+'</span>'));" .
                         "}), ' &nbsp;');" .
                       "});" .

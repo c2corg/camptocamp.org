@@ -66,6 +66,31 @@ class User extends BaseUser
         return ($nb > 0) ? true : false ;
     }
 
+    /* considering the last outings of a user, get the users
+     * he shared most of them with
+     */
+    public static function getFriends($userid, $exclude = null)
+    {
+        $limit =  sfConfig::get('app_autocomplete_suggest_max_results');
+        $outings_limit = 20;
+        $exclude[] = $userid;
+        $exclude = array_unique($exclude);
+
+        // get the 5 users we shared most of our last 20 outings with
+        // FIXME: any way to get some simplier / better query?
+        $q = new Doctrine_RawSql();
+        $q->select('{u.id}, {m.culture}, {m.name}')
+          ->from('(SELECT a.main_id AS id, COUNT(a.main_id) FROM ' .
+                 '(SELECT linked_id FROM app_documents_associations WHERE type=\'uo\' AND main_id = ? ORDER BY linked_id DESC LIMIT ?) o ' .
+                 'LEFT JOIN app_documents_associations a ON a.type=\'uo\' AND a.linked_id = o.linked_id ' .
+                   'AND a.main_id NOT IN (' . implode(',', array_fill(0, sizeof($exclude), '?')) . ') ' .
+                 'GROUP BY main_id ORDER BY COUNT DESC LIMIT ?) AS u LEFT JOIN users_i18n m on m.id = u.id')
+          ->addComponent('u', 'User u')
+          ->addComponent('m', 'u.UserI18n m');
+
+        return $q->execute(array_merge(array($userid, $outings_limit), $exclude, array($limit)), Doctrine::FETCH_ARRAY);
+    }
+
     /**
      * add user to groups
      *

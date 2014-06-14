@@ -104,7 +104,7 @@
 
       // custom event for programatically select an entry
       // provide an object with text and id
-      that.el.on('select.autocomplete', function(e, data) { that.onExternalSelect(data); });
+      that.el.on('forceselect.autocomplete', function(e, data) { that.onExternalSelect(data); });
     },
 
     fixPosition: function() {
