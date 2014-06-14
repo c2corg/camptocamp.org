@@ -132,6 +132,8 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
  *   $removed_id, the ID of the HTML object to hide
  *   $suggest_near_docs, for suggesting docs based on geolocalization
  *   $suggest_friends, for suggesting people you go out with most
+ *
+ * FIXME js code is quite messy, would be great to move most of it into separate js file
  */
 function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $options)
 {
@@ -146,7 +148,9 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     $conf = sfConfig::get('app_modules_list');
     $modules_list = array_intersect($conf, $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
+    // modules for which lookig for neighboors has some sense
     $near_docs_modules_list = array_intersect($conf, array('huts', 'parkings', 'sites', 'summits', 'routes'));
+    $near_docs_module_ids_list = array_keys($near_docs_modules_list);
 
     // for site-site, parking-parking or summit-summit associations, be explicit about association direction
     if (in_array($module, array('sites', 'parkings', 'summits')))
@@ -169,18 +173,20 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
             "\$this.attr('class', 'picto picto_' + value);" .
             // retrieve the autocomplete form for the selected module
             "$.get('" . url_for("/$module/getautocomplete") . "', 'module_id=' + value + '&field_prefix=$field_prefix" .
-            ($suggest_near_docs ? "&extra_params=" . urlencode("lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon']) : '') . // TODO
-            "')" .
+            ($suggest_near_docs ? "' + (['" . implode("','", $near_docs_module_ids_list) . "'].indexOf(value) > -1 ?
+              '&extra_params=" . urlencode("lat=" . $suggest_near_docs['lat'] . "&lon=" . $suggest_near_docs['lon']) . "' : '')" : '\'') .
+            ")" .
               ".always(function() { indicator.hide(); })" .
               ".done(function(data) { $('#${field_prefix}_form').html(data);";
 
     if ($suggest_near_docs || $suggest_friends)
     {
+        $suggest_exclude = _option($options, 'suggest_exclude', []);
+
         // additional code for suggesting documents in the neighborhood or friends when relevant
-        // FIXME wouldn't it be more clean to move a lot of js code to a separate file?
         $js = "function getSuggestions() {" .
                 "var module = $('#${field_prefix}_form').find('input[autocomplete=off]').attr('name').replace('_name', '');" .
-                "var exclude = " . json_encode($suggest_near_docs['exclude']) . ";" .
+                "var exclude = " . json_encode($suggest_exclude) . ";" .
                 "var suggestions_div = $('.autocomplete-suggestions').empty();" .
                 "if (['" . implode("','", $near_docs_modules_list) . "'].indexOf(module) > -1 || module == 'users') {" .
                   // retrieve docs in neighborhood

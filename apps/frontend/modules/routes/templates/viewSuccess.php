@@ -136,7 +136,7 @@ if ($is_not_archive)
             }
             if (isset($options['suggest_near_docs']))
             {
-                $options['suggest_near_docs']['exclude'] = array(
+                $options['suggest_exclude'] = array(
                     'summits' => get_directly_linked_ids($associated_summits),
                     'sites' => get_directly_linked_ids($associated_sites),
                     'huts' => get_directly_linked_ids($associated_huts),

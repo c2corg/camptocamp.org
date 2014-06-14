@@ -102,9 +102,9 @@ if ($is_not_archive)
             $options = array('field_prefix' => 'multi_1');
             if (check_not_empty_doc($document, 'lon'))
             {
-                $options['suggest_near_docs'] = array('lon' => $document['lon'], 'lat' => $document['lat'],
-                                                      'exclude' => array('parkings' => get_directly_linked_ids($associated_parkings),
-                                                                         'sites' => get_directly_linked_ids($associated_sites)));
+                $options['suggest_near_docs'] = array('lon' => $document['lon'], 'lat' => $document['lat']);
+                $options['suggest_exclude'] = array('parkings' => get_directly_linked_ids($associated_parkings),
+                                                    'sites' => get_directly_linked_ids($associated_sites));
             }
             
             echo c2c_form_add_multi_module('huts', $id, $modules_list, 9, $options);

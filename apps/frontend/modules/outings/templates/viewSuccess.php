@@ -144,7 +144,8 @@ if ($show_link_tool)
 
     if (isset($options['suggest_near_docs']))
     {
-        $options['suggest_near_docs']['exclude'] = array('sites' => get_directly_linked_ids($associated_sites));
+        $options['suggest_exclude'] = array('sites' => get_directly_linked_ids($associated_sites),
+                                            'users' => get_directly_linked_ids($associated_users));
     }
 
     echo '<div class="all_associations empty_content col_left col_66">';
