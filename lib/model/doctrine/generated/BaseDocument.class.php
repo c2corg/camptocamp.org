@@ -3880,7 +3880,8 @@ class BaseDocument extends sfDoctrineRecordI18n
                // start of subquery
                '(SELECT a2.id AS id, a2.module AS module, a.culture AS culture FROM app_documents_versions a ' .
                'LEFT JOIN app_documents_archives a2 ON a.document_archive_id = a2.document_archive_id ' .
-               "WHERE (a.version = 1 AND a2.module NOT IN ('outings', 'users', 'images', 'articles') AND a2.redirects_to IS NULL) " .
+               'WHERE a.version = 1 AND a2.module NOT IN (\'outings\', \'users\', \'images\', \'articles\') ' .
+               'AND a2.redirects_to IS NULL AND a2.is_latest_version ' .
                'ORDER BY a.created_at DESC LIMIT 20) AS sub ' .
                // end of subquery
                'LEFT JOIN documents_i18n a3 ON a3.id = sub.id AND sub.culture = a3.culture';
