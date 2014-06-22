@@ -2873,8 +2873,9 @@ class documentsActions extends c2cActions
         $output = [];
         foreach ($items as $item)
         {
+            $routing_rule = $model == 'User' ? '@document_by_id_lang' : '@document_by_id_lang_slug';
             array_push($output, array('id' => $item['id'], 'name' => $item[$model.'I18n'][0]['name'],
-                                      'url' => url_for('@document_by_id_lang_slug?module=' . c2cTools::Model2Module($model) . '&id=' .
+                                      'url' => url_for($routing_rule . '?module=' . c2cTools::Model2Module($model) . '&id=' .
                                                        $item['id'] . '&lang=' . $item[$model.'I18n'][0]['culture'] . '&slug=' .
                                                        make_slug($item[$model.'I18n'][0]['name']))));
         }
