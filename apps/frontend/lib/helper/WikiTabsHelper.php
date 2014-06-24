@@ -59,8 +59,8 @@ function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null
 {
     $instance = sfContext::getInstance();
     $module = $instance->getModuleName();
-    
-    $nbComm = ($nb_comments) ? $nb_comments : PunbbComm::GetNbComments($id.'_'.$lang);
+
+    $nbComm = (isset($nb_comments)) ? $nb_comments : PunbbComm::GetNbComments($id.'_'.$lang);
     
     if ($active_tag)
     {
