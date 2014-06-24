@@ -11,7 +11,6 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 $activities = $document->getRaw('activities');
 $lang = $document->getCulture();
-$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 if (!isset($highest_summit_name)) {
     // TODO: always get summit name even in archive pages

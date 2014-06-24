@@ -10,7 +10,6 @@ $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $lang = $sf_params->get('lang');
-$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('books', $document, $id, $metadata, $current_version,
                     array('nav_options' => $section_list, 'item_type' => 'http://schema.org/Book', 'nb_comments' => $nb_comments));

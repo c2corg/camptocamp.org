@@ -15,7 +15,8 @@ if (isset($nb_comments) && $nb_comments)
     {
         echo '<li><ul itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">';
         li(field_data($document, 'elevation', array('suffix' => 'meters', 'microdata' => 'elevation')));
-        if ($document->get('lowest_elevation') != $document->get('elevation') && $document->get('snow_clearance_rating') != 4)
+        if ($document->get('lowest_elevation') != $document->get('elevation') &&
+            $document->get('snow_clearance_rating') && $document->get('snow_clearance_rating') != 4)
         {
             li(field_data($document, 'lowest_elevation', array('suffix' => 'meters')));
         }

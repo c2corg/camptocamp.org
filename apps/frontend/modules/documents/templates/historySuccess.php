@@ -15,7 +15,7 @@ $slug = make_slug($document[$i18n_archive]['name']);
 
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
 echo '<div id="nav_space">&nbsp;</div>';
-echo tabs_list_tag($id, $lang, $exists_in_lang, 'history', null, $slug);
+echo tabs_list_tag($id, $lang, $exists_in_lang, 'history', null, $slug, $nb_comments);
 
 echo display_content_top('doc_content');
 echo start_content_tag($module . '_content');

@@ -35,6 +35,7 @@ class routesActions extends documentsActions
                     $parent_ids[] = $summit['id'];
                 }
             }
+
             // routes associated with this route (eg because they share most of the route)
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
@@ -439,13 +440,10 @@ class routesActions extends documentsActions
         {
             if ($this->link_with = $this->getRequestParameter('link')) // new route, linked summit id is in link parameter
             {
-                // form viewing => get linked doc
-                $linked_doc = Document::find('Summit', $this->link_with, array('id', 'module'));
-            
-                if ($linked_doc)
+                // linked_doc was already retrieved in filterAdditionalParameters
+                if ($this->linked_doc)
                 {
-                    $linked_doc->setBestCulture($this->getUser()->getCulturesForDocuments());
-                    $this->linked_doc = $linked_doc;
+                    $this->linked_doc->setBestCulture($this->getUser()->getCulturesForDocuments());
                 }
             }
             else // existing route, we try to find the best summit to display
@@ -529,7 +527,8 @@ class routesActions extends documentsActions
         {
             $this->setErrorAndRedirect('You cannot create a route without linking it to an existing summit', '@default_index?module=routes');
         }
-        
+
+        $this->linked_doc = $linked_doc;
     }
 
     /**
@@ -660,11 +659,11 @@ class routesActions extends documentsActions
         // other summit is associated
         // FIXME would be nice to put all in a single request (before), but I didn't manage to do it
         // TODO not working right now
-        if ($this->hasRequestParameter('snam') || $this->hasRequestParameter('srnam') ||
-            $this->hasRequestParameter('salt') || $this->hasRequestParameter('styp'))
-        {
+        //if ($this->hasRequestParameter('snam') || $this->hasRequestParameter('srnam') ||
+        //    $this->hasRequestParameter('salt') || $this->hasRequestParameter('styp'))
+        //{
            // $routes = Route::addBestSummitName($routes, '');
-        }
+        //}
 
         $timer = new sfTimer();
         Parking::addAssociatedParkings($routes, 'pr'); // add associated parkings infos to $routes

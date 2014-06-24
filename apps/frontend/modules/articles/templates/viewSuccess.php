@@ -9,7 +9,6 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
-$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('articles', $document, $id, $metadata, $current_version,
                     array('item_type' => 'http://schema.org/Article', 'nb_comments' => $nb_comments));

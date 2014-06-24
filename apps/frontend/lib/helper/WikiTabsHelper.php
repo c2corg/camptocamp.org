@@ -60,30 +60,28 @@ function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null
     $instance = sfContext::getInstance();
     $module = $instance->getModuleName();
 
-    $nbComm = (isset($nb_comments)) ? $nb_comments : PunbbComm::GetNbComments($id.'_'.$lang);
-    
     if ($active_tag)
     {
-        if ($nbComm == 0)
+        if ($nb_comments == 0)
         {
             // check if anonymous users can create comments
             if (!sfContext::getInstance()->getUser()->isConnected() && !in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
             {
-                $comment_tag = tab_tag('comments', 0, $active_tag, '', 'action_comment', $nbComm);
+                $comment_tag = tab_tag('comments', 0, $active_tag, '', 'action_comment', $nb_comments);
             }
             else
             {
-                $comment_tag = tab_tag('comments', $id, $active_tag, 'post.php?fid=1&subject=' . $id . '_' . $lang, 'action_comment', $nbComm, true);
+                $comment_tag = tab_tag('comments', $id, $active_tag, 'post.php?fid=1&subject=' . $id . '_' . $lang, 'action_comment', $nb_comments, true);
             }
         }
         else
         {
-            $comment_tag = tab_tag('comments', $id, $active_tag, "@document_comment?module=$module&id=$id&lang=$lang", 'action_comment', $nbComm);
+            $comment_tag = tab_tag('comments', $id, $active_tag, "@document_comment?module=$module&id=$id&lang=$lang", 'action_comment', $nb_comments);
         }
     }
     else
     {
-        $comment_tag = tab_tag('comments', $id, $active_tag, '', 'action_comment', $nbComm);
+        $comment_tag = tab_tag('comments', $id, $active_tag, '', 'action_comment', $nb_comments);
     }
     
     // check if it is an old version

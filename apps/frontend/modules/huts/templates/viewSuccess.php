@@ -12,7 +12,6 @@ $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $shelter_type = $document->get('shelter_type');
 $is_gite_camping = ($shelter_type == 5 || $shelter_type == 6);
-$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 // if the document is shelter or bivouac, call it simple Place, else LodgingBusiness
 switch($shelter_type)

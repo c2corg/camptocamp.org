@@ -30,7 +30,7 @@ if (!$new_document)
     if (!$mobile_version)
     {
         echo '<div id="nav_space">&nbsp;</div>';
-        echo tabs_list_tag($id, $lang, $document->isAvailable(), 'edit', $version, get_slug($document));
+        echo tabs_list_tag($id, $lang, $document->isAvailable(), 'edit', $version, get_slug($document), $nb_comments);
     }
 }
 else
@@ -39,7 +39,7 @@ else
     if (!$mobile_version)
     {
         echo '<div id="nav_space">&nbsp;</div>';
-        echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), '', NULL, get_slug($document));
+        echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), '', NULL, get_slug($document), 0);
     }
 }
 

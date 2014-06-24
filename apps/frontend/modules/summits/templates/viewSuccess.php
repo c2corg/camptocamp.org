@@ -10,7 +10,6 @@ $is_not_merged = !$document->get('redirects_to');
 $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
-$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 switch ($document->get('summit_type'))
 {

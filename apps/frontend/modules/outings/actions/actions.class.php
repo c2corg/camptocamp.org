@@ -439,17 +439,14 @@ class outingsActions extends documentsActions
         
         $id = $this->getRequestParameter('link', 0) + $this->getRequestParameter('document_id', 0);
         
-        $linked_doc = Document::find('Route', $id, array('id', 'module'));
-        if ($linked_doc)
+        // linked_doc already retrieved in populateCustomFields()
+        $linked_doc = $this->linked_doc;
+        if ($linked_doc && $linked_doc->get('module') == 'routes')
         {
             if ($this->document)
             {
-	            $linked_doc->set('name', $this->document->get('name'));
+	              $linked_doc->set('name', $this->document->get('name')); // contains highest summit too
             }
-        }
-        else
-        {
-            $linked_doc = Document::find('Site', $id, array('id', 'module'));
         }
         
         if (!$linked_doc)
