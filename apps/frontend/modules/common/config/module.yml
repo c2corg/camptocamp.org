@@ -287,4 +287,8 @@ all:
         id: 91
         image: mountainhardwear.gif
         alt: "Mountain Hardwear"
+      taia:
+        id: 92
+        image: taia.jpg
+        alt: "IFREMMONT TAIA"
 
