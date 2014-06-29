@@ -837,7 +837,7 @@ function field_export($module, $id, $lang, $version = null)
 function field_getdirections($id)
 {
     $title = 'Use %1% to see directions to this parking';
-    return '<div class="no_print">' . content_tag('span', __('Get directions:'), array('class' => 'section_subtitle',
+    return '<div class="no_print">' . content_tag('span', __('Get directions:'), array('class' => 'section_subtitle htext',
                'id' => 'get_directions', 'data-tooltip' => ''))
            . ' ' .
            link_to('Google', "@getdirections?id=$id&service=gmaps",

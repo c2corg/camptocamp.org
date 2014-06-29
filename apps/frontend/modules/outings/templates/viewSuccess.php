@@ -14,7 +14,6 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobil
 $activities = $document->getRaw('activities');
 $has_wkt = (boolean)($document->get('geom_wkt'));
 $section_list = array('map' => $has_wkt, 'elevation_profile' => $has_wkt, 'images' => $is_connected || count($associated_images));
-$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('outings', $document, $id, $metadata, $current_version,
                     array('prepend' => $date, 'separator' => ', ', 'nav_options' => $section_list,

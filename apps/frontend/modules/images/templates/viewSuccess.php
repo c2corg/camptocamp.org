@@ -13,7 +13,6 @@ $section_list = array('map' => (boolean)($document->get('geom_wkt')),
                       'images' => (boolean)count($associated_images));
 $lang = $sf_user->getCulture();
 $module = $sf_context->getModuleName();
-$nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
 display_page_header('images', $document, $id, $metadata, $current_version,
                     array('nav_options' => $section_list, 'item_type' => 'http://schema.org/ImageObject',

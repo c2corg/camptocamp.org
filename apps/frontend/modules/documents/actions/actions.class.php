@@ -649,6 +649,10 @@ class documentsActions extends c2cActions
             }
         }
 
+        // nb comments
+        $this->nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
+
+        // js translation code if needed
         $this->needs_translation = ($lang == $user->getCulture()) ? false : $lang;
         $response = $this->getResponse();
         if ($this->needs_translation && !c2cTools::mobileVersion())
@@ -775,6 +779,9 @@ class documentsActions extends c2cActions
         $this->exists_in_lang = 1;
         $this->document_name = $document[$model . 'I18nArchive']['name'];
 
+        // nb comments
+        $this->nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
+
         // set template and title
         $this->setTemplate('../../documents/templates/history');
         $this->setPageTitle($this->document_name . ' :: ' . $this->__('history'));
@@ -858,6 +865,9 @@ class documentsActions extends c2cActions
         $this->associated_images = Document::fetchAdditionalFieldsFor(
             Association::findAllWithBestName($id, $prefered_cultures, $association_type),
             'Image', array('filename', 'image_type'));
+
+        // nb comments
+        $this->nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
 
         $this->setTemplate('../../documents/templates/diff');
         $this->setPageTitle($this->new_document->get('name') . ' :: ' . $this->__('diff') . ' ' .
@@ -1710,13 +1720,13 @@ class documentsActions extends c2cActions
             // create a new document
             $document = new $this->model_class;
             $this->document = $document;
-            
+
             // we populate here some fields, for instance if we are creating a new outing, already associated with a route.
             $this->populateCustomFields();
 
             // here, filter edits which must require additional parameters (link for instance : outing with route)
             $this->filterAdditionalParameters();
-            
+
             $this->new_document = true;
             $this->setPageTitle($this->__('Creating new ' . $this->getModuleName()));
         }
@@ -2026,10 +2036,16 @@ class documentsActions extends c2cActions
                     $this->getResponse()->setCookie($this->pseudo_id, $id);
                 }
             }
-        }
 
-        // Go through simple heuristics to check for potential vandalism
-        Vandalism::check($this->document);
+            // Go through simple heuristics to check for potential vandalism
+            Vandalism::check($this->document);
+        }
+        else
+        {
+            // We display edit form. Retrieve nb comments
+            $this->nb_comments = $this->new_document ? 0 :
+                PunbbComm::GetNbComments($document->get('id').'_'.$document->getCulture()); 
+        }
 
         // module specific actions
         $this->endEdit();
@@ -2873,8 +2889,9 @@ class documentsActions extends c2cActions
         $output = [];
         foreach ($items as $item)
         {
+            $routing_rule = $model == 'User' ? '@document_by_id_lang' : '@document_by_id_lang_slug';
             array_push($output, array('id' => $item['id'], 'name' => $item[$model.'I18n'][0]['name'],
-                                      'url' => url_for('@document_by_id_lang_slug?module=' . c2cTools::Model2Module($model) . '&id=' .
+                                      'url' => url_for($routing_rule . '?module=' . c2cTools::Model2Module($model) . '&id=' .
                                                        $item['id'] . '&lang=' . $item[$model.'I18n'][0]['culture'] . '&slug=' .
                                                        make_slug($item[$model.'I18n'][0]['name']))));
         }

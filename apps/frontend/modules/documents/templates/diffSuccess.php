@@ -12,7 +12,7 @@ echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$new_d
 if (!$mobile_version)
 {
     echo '<div id="nav_space">&nbsp;</div>';
-    echo tabs_list_tag($id, $lang, 1, 'history', null, get_slug($new_document));
+    echo tabs_list_tag($id, $lang, 1, 'history', null, get_slug($new_document), $nb_comments);
 }
 
 echo display_content_top('doc_content');

@@ -87,7 +87,7 @@ if (!$mobile_version) // left navigation menus are only for web version
     {
         $tabs = tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
                               $is_not_archive ? NULL : $document->getVersion(),
-                              get_slug($document));
+                              get_slug($document), $nb_comments);
         echo $tabs;
     }
     
