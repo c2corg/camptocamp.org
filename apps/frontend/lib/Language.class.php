@@ -88,7 +88,7 @@ class Language
         }
         
         // get nb of comments for all items
-        $pun_msgs = Punbb::getNbMessages($_str);
+        $pun_msgs = PunbbComm::getNbComments($_str);
         // merge this info into $parsed_array
         foreach ($pun_msgs as $pun_msg)
         {
@@ -97,7 +97,7 @@ class Language
             {
                 if ($key == $id)
                 {
-                    $parsed_array[$key]['nb_comments'] = $pun_msg['count'];
+                    $parsed_array[$key]['nb_comments'] = $pun_msg['nb_comments'];
                 }
             }
         }

@@ -5,23 +5,43 @@
 
 class PunbbComm extends BasePunbbComm
 {
+    // Retrieve comments for a document_lang
+    // All doc comments topics are in forum 1
     public static function GetComments($topic_subject)
     {
         return Doctrine_Query::create()
-                             ->select('p.id, p.poster, p.poster_id, p.poster_email, p.message, p.posted, p.topic_id, t.id, t.poster, t.subject, t.num_replies,t.forum_id')
+                             ->select('p.id, p.poster, p.poster_id, p.poster_email, p.message, p.posted, p.topic_id, t.id, t.poster, t.subject, t.num_replies, t.forum_id')
                              ->from('PunbbComm p, p.Topic t')
                              ->where('t.forum_id = 1 AND t.id = p.topic_id AND t.subject = ?', array($topic_subject))
 		                         ->orderby('p.id')
                              ->execute();
     }
-    
+
+    // Retrieve comments count for a document_lang
+    // All doc comments topics are in forum 1
+    // If $topic is a string, we return a number
+    // If $topic is an array, we return an array with topic + count
     public static function GetNbComments($topic_subject)
     {
-        return Doctrine_Query::create()
-                             ->select('COUNT(p.id) num_comments')
-                             ->from('PunbbComm p, p.Topic t')
-                             ->where('t.forum_id = 1 AND t.id = p.topic_id AND t.subject = ?', array($topic_subject))
-                             ->execute()->getFirst()->num_comments;
+        if (is_string($topic_subject))
+        {
+            return Doctrine_Query::create()
+                                 ->select('t.num_replies')
+                                 ->from('PunbbTopics t')
+                                 ->where('t.forum_id = 1 AND t.subject = ?', array($topic_subject))
+                                 ->execute()->getFirst()->num_replies + 1;
+        }
+        else if (is_array($topic_subject))
+        {
+            $sql = 'SELECT num_replies + 1 nb_comments, subject FROM punbb_topics WHERE forum_id = 1 AND subject IN (\'' .
+                   implode($topic_subject, "','") . '\')';
+
+            return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
+        }
+        else
+        {
+            return null;
+        }
     }
     
 }
