@@ -288,7 +288,7 @@ class Association extends BaseAssociation
             $where_array2 = array_merge($where_array, $where_array);
             
             $query = "(SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND $where) ".
-                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND $where)".
+                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND $where)";
 
             $results = sfDoctrine::connection()
                         ->standaloneQuery($query, $where_array2)
