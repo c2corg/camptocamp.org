@@ -13,7 +13,7 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobil
 $section_list = array('map' => (boolean)($document->get('geom_wkt')));
 
 display_page_header('users', $document, $id, $metadata, $current_version,
-                    array('nav_options' => $section_list));
+                    array('nav_options' => $section_list, 'nb_comments' => $nb_comments));
 
 echo start_section_tag('Personal information', 'data');
 
