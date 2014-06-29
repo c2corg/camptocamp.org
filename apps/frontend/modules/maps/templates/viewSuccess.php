@@ -10,7 +10,8 @@ $mobile_version = c2cTools::mobileVersion();
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 
-display_page_header('maps', $document, $id, $metadata, $current_version);
+display_page_header('maps', $document, $id, $metadata, $current_version,
+                    array('nb_comments' => $nb_comments));
 
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');
