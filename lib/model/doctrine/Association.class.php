@@ -264,6 +264,10 @@ class Association extends BaseAssociation
         // we use lon/lat instead of geom_wkt to avoid retrieving heavy routes/areas wkt
         $fields = 'm.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name, ' .
                   'm.lon, m.lat, makePointWkt(m.lon, m.lat) as pointwkt';
+
+        // For some reason, postgresql query planner gives really bad results if we directly put the
+        // subquery with UNION into the main query (using a lot of seq scan on is_latest_version)
+        // Thus, we use two db requests
         
         if ($types)
         {
@@ -283,12 +287,8 @@ class Association extends BaseAssociation
             $where = '( ' . implode(' OR ', $where2 ) . ' )';
             $where_array2 = array_merge($where_array, $where_array);
             
-            $query = "SELECT $fields " . 
-                 'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
-                 'WHERE mi.id IN '. 
-                 "((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND $where) ".
-                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND $where)) ".
-                 'ORDER BY mi.id ASC';
+            $query = "(SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND $where) ".
+                 "UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND $where)".
 
             $results = sfDoctrine::connection()
                         ->standaloneQuery($query, $where_array2)
@@ -296,18 +296,35 @@ class Association extends BaseAssociation
         }
         else
         {
-            $query = "SELECT $fields " .
-                 'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
-                 'WHERE mi.id IN '. 
-                 '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ?) '.
-                 'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ?)) '.
-                 'ORDER BY mi.id ASC';
+            $query = '(SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ?) '.
+                 'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ?)';
 
             $results = sfDoctrine::connection()
                         ->standaloneQuery($query, array($id, $id)) 
                         ->fetchAll();
         }
-        
+
+        if (empty($results))
+        {
+            // no result, no need to run second query
+            return $results;
+        }
+        else
+        {
+            $associated_ids = implode(',', array_map('array_pop', $results));
+        }
+
+        $query = "SELECT $fields " .
+            'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
+            'WHERE mi.id IN ('.
+            $associated_ids .
+            ') ORDER BY mi.id ASC';
+
+        $results = sfDoctrine::connection()
+            ->standaloneQuery($query, array())
+            ->fetchAll();
+
+ 
         $out = self::setBestName($results, $user_prefered_langs);
         return $out;
     }
