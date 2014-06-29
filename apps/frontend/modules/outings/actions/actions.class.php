@@ -331,7 +331,7 @@ class outingsActions extends documentsActions
     protected function populateCustomFields()
     {
         $document = $this->document;
-        
+ 
         if ($this->getRequestParameter('link') && 
             $linked_doc = Document::find('Document', $this->getRequestParameter('link'), array('module')))
         {
@@ -377,7 +377,7 @@ class outingsActions extends documentsActions
             
                     // find associated summits to this route, extract the highest and create document with this name.
                     $associated_summits = array_filter(Association::findAllWithBestName($linked_doc->get('id'), $prefered_cultures), array('c2cTools', 'is_summit'));
-                        
+ 
                     $this->highest_summit_name = c2cTools::extractHighestName($associated_summits);
                     $document->set('name', $this->highest_summit_name . $this->__(' :') . ' ' . $linked_doc->get('name'));
                     
@@ -391,9 +391,8 @@ class outingsActions extends documentsActions
                     $this->linked_doc = $linked_doc;
                     break;
                 default:
-                    $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site', '@default_index?module=outings');
-            }
-            
+                    $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site3', '@default_index?module=outings');
+            }   
         }
         $this->document = $document;
     }
@@ -434,13 +433,26 @@ class outingsActions extends documentsActions
     {
         if (!$this->getRequestParameter('document_id') && !$this->getRequestParameter('link'))
         {
-            $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site', '@default_index?module=outings');
+            $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site2', '@default_index?module=outings');
         }
         
         $id = $this->getRequestParameter('link', 0) + $this->getRequestParameter('document_id', 0);
         
-        // linked_doc already retrieved in populateCustomFields()
-        $linked_doc = $this->linked_doc;
+        // linked_doc already retrieved in populateCustomFields() except when creating a new outing
+        if (isset($this->linked_doc))
+        {
+            $linked_doc = $this->linked_doc;
+        }
+        else
+        {
+            // route (most of the time) or site
+            $linked_doc = Document::find('Route', $id, array('id', 'module'));
+            if (!$linked_doc)
+            {
+                $linked_doc = Document::find('Site', $id, array('id', 'module'));
+            }
+        }
+
         if ($linked_doc && $linked_doc->get('module') == 'routes')
         {
             if ($this->document)
@@ -451,7 +463,7 @@ class outingsActions extends documentsActions
         
         if (!$linked_doc)
         {
-            $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site', '@default_index?module=outings');
+            $this->setErrorAndRedirect('You cannot create an outing without linking it to an existing route or site1', '@default_index?module=outings');
         }
     }
     
