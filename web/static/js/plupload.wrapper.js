@@ -56,7 +56,10 @@
           mime_types: [{ title: i18n.extensions, extensions: 'jpeg,jpg,gif,png,svg' }],
           svg_gif_file_max_size: '2mb'
         },
-        required_features: 'resize_image,send_multipart'
+        // https://core.trac.wordpress.org/ticket/25663?cversion=0&cnum_hist=4
+        // Having send_binary_string ensures flash runtime will send cookies
+        // It could be avoided for IE, but it's probably quite ok
+        required_features: 'resize_image,send_multipart,send_binary_string'
       });
 
       uploader.bind('Init', function(up) {

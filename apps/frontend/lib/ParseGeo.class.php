@@ -100,7 +100,7 @@ class ParseGeo
             $wkta[] = $rtea;
         }
         
-        if ($i)
+        if ($i > 1)
         {
             c2cTools::log("gpx2wkt : WKT has been generated with $i points");
 
