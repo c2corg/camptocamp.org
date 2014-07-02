@@ -650,7 +650,7 @@ class documentsActions extends c2cActions
         }
 
         // nb comments
-        $this->nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
+        $this->nb_comments = PunbbComm::retrieveNbComments($id.'_'.$lang);
 
         // js translation code if needed
         $this->needs_translation = ($lang == $user->getCulture()) ? false : $lang;
@@ -780,7 +780,7 @@ class documentsActions extends c2cActions
         $this->document_name = $document[$model . 'I18nArchive']['name'];
 
         // nb comments
-        $this->nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
+        $this->nb_comments = PunbbComm::retrieveNbComments($id.'_'.$lang);
 
         // set template and title
         $this->setTemplate('../../documents/templates/history');
@@ -815,7 +815,7 @@ class documentsActions extends c2cActions
 
         $this->document_name = $document->get('name');
         $this->search_name = $document->get('search_name');
-        $this->comments =  PunbbComm::GetComments($id.'_'.$lang);
+        $this->comments =  PunbbComm::retrieveComments($id.'_'.$lang);
         // mark topic as read if user connected
         if ($this->getUser()->isConnected())
         {
@@ -867,7 +867,7 @@ class documentsActions extends c2cActions
             'Image', array('filename', 'image_type'));
 
         // nb comments
-        $this->nb_comments = PunbbComm::GetNbComments($id.'_'.$lang);
+        $this->nb_comments = PunbbComm::retrieveNbComments($id.'_'.$lang);
 
         $this->setTemplate('../../documents/templates/diff');
         $this->setPageTitle($this->new_document->get('name') . ' :: ' . $this->__('diff') . ' ' .
@@ -2044,7 +2044,7 @@ class documentsActions extends c2cActions
         {
             // We display edit form. Retrieve nb comments
             $this->nb_comments = $this->new_document ? 0 :
-                PunbbComm::GetNbComments($document->get('id').'_'.$document->getCulture()); 
+                PunbbComm::retrieveNbComments($document->get('id').'_'.$document->getCulture()); 
         }
 
         // module specific actions

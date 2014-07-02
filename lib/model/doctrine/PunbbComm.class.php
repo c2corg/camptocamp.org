@@ -7,7 +7,7 @@ class PunbbComm extends BasePunbbComm
 {
     // Retrieve comments for a document_lang
     // All doc comments topics are in forum 1
-    public static function GetComments($topic_subject)
+    public static function retrieveComments($topic_subject)
     {
         return Doctrine_Query::create()
                              ->select('p.id, p.poster, p.poster_id, p.poster_email, p.message, p.posted, p.topic_id, t.id, t.poster, t.subject, t.num_replies, t.forum_id')
@@ -21,7 +21,7 @@ class PunbbComm extends BasePunbbComm
     // All doc comments topics are in forum 1
     // If $topic is a string, we return a number
     // If $topic is an array, we return an array with topic + count
-    public static function GetNbComments($topic_subject)
+    public static function retrieveNbComments($topic_subject)
     {
         if (is_string($topic_subject))
         {
@@ -34,7 +34,7 @@ class PunbbComm extends BasePunbbComm
         else if (is_array($topic_subject))
         {
             $sql = 'SELECT COUNT(p.id) nb_comments, p2.subject FROM punbb_posts p LEFT JOIN punbb_topics p2 ON p.topic_id = p2.id ' .
-                   'WHERE (p2.forum_id = 1 AND p2.id = p.topic_id AND p2.subject IN ( ' ."'". implode($subjects, "', '") ."'". ')) GROUP BY p2.subject';
+                   'WHERE (p2.forum_id = 1 AND p2.id = p.topic_id AND p2.subject IN ( ' ."'". implode($topic_subject, "', '") ."'". ')) GROUP BY p2.subject';
 
             return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
         }

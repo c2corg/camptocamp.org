@@ -124,7 +124,7 @@ if ($is_not_archive && $is_not_merged)
                                               'is_protected' => $document->get('is_protected')));
 
 
-    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang));
+    if ($mobile_version) include_partial('documents/mobile_comments', array('id' => $id, 'lang' => $lang, 'nb_comments' => $nb_comments));
 }
 
 include_partial('documents/license', array('license' => 'by-nc-nd', 'version' => $current_version, 
