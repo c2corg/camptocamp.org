@@ -26,15 +26,15 @@ class PunbbComm extends BasePunbbComm
         if (is_string($topic_subject))
         {
             return Doctrine_Query::create()
-                                 ->select('t.num_replies')
-                                 ->from('PunbbTopics t')
-                                 ->where('t.forum_id = 1 AND t.subject = ?', array($topic_subject))
-                                 ->execute()->getFirst()->num_replies + 1;
+                                 ->select('COUNT(p.id) nb_comments')
+                                 ->from('PunbbComm p, p.Topic t')
+                                 ->where('t.forum_id = 1 AND t.id = p.topic_id AND t.subject = ?', array($topic_subject))
+                                 ->execute()->getFirst()->nb_comments;
         }
         else if (is_array($topic_subject))
         {
-            $sql = 'SELECT num_replies + 1 nb_comments, subject FROM punbb_topics WHERE forum_id = 1 AND subject IN (\'' .
-                   implode($topic_subject, "','") . '\')';
+            $sql = 'SELECT COUNT(p.id) nb_comments, p2.subject FROM punbb_posts p LEFT JOIN punbb_topics p2 ON p.topic_id = p2.id ' .
+                   'WHERE (p2.forum_id = 1 AND p2.id = p.topic_id AND p2.subject IN ( ' ."'". implode($subjects, "', '") ."'". ')) GROUP BY p2.subject';
 
             return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
         }
