@@ -235,7 +235,7 @@
       $('body').removeClass('swipe-active');
       enableZoom();
       $(window).off('.swipe');
-      setTimeout(function() { $(document).scrollTop(pos); }, 0);
+      setTimeout(function() { $(document).scrollTop(pos); }, 10);
       swipe = overlay = null;
     }
 
