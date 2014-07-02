@@ -36,6 +36,7 @@ class Language
     }
 
     // gets the best lang for each item + for the associated range(s) !
+    // also retrieve comments count for each doc
     public static function parseListItems($array, $modelName, $count_images = true)
     {
         $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
@@ -88,7 +89,7 @@ class Language
         }
         
         // get nb of comments for all items
-        $pun_msgs = PunbbComm::getNbComments($_str);
+        $pun_msgs = PunbbComm::retrieveNbComments($_str);
         // merge this info into $parsed_array
         foreach ($pun_msgs as $pun_msg)
         {

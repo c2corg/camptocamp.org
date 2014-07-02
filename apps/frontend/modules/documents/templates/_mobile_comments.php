@@ -3,7 +3,6 @@ use_helper('Link');
 
 echo start_section_tag('Comments', 'comments');
 
-$nb_comments = isset($nb_comments) ? $nb_comments : PunbbComm::GetNbComments($id.'_'.$lang);
 $module = sfContext::getInstance()->getModuleName();
 
 echo '<p>', picto_tag('action_comment'), ' ',
