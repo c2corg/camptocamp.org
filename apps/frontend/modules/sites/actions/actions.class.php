@@ -261,7 +261,7 @@ class sitesActions extends documentsActions
 
         // check if user is moderator: done in apps/frontend/config/security.yml
 
-        if (!Document::checkExistence($this->model_class, $id))
+        if (!Document::find($this->model_class, $id))
         {
             $this->setErrorAndRedirect('Document does not exist', $referer);
         }
