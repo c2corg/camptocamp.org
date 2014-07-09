@@ -12,14 +12,15 @@
  */
 
 // TODO we should not delete routes and outings if they intersect the olddiff unless they do not intersect the new geom
-
+// check for example a route that is attached to more than one summit not for this script)
+// TODO check if france fullwipe is ok?
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 
 define('SF_ROOT_DIR',    realpath(dirname(__FILE__).'/..'));
 define('SF_APP',         'frontend');
-define('SF_ENVIRONMENT', 'dev');
+define('SF_ENVIRONMENT', 'prod');
 define('SF_DEBUG',       true);
 
 define('GP_DIR', SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'tmp/');
@@ -33,6 +34,13 @@ $conn = sfDoctrine::Connection();
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
+
+function info($msg)
+{
+    echo $msg;
+    ob_flush();
+    flush();
+}
 
 function usage()
 {
@@ -69,7 +77,7 @@ function validate_kml_geometry()
 
     if ($argc != 3 || !file_exists($argv[2]))
     {
-        echo "Kml file does not exist\n\n";
+        info("Kml file does not exist\n\n");
         usage();
     }
 
@@ -77,11 +85,11 @@ function validate_kml_geometry()
 
     if (validate_geometry($newgeomtext))
     {
-        echo "Geometry is valid\n";
+        info("Geometry is valid\n");
     }
     else
     {
-        echo "Geometry is invalid\n";
+        info("Geometry is invalid\n");
     }
 }
 
@@ -100,7 +108,7 @@ function create_new_document()
 
     if (!file_exists($argv[3]))
     {
-        echo "Kml file does not exist\n\n";
+        info("Kml file does not exist\n\n");
         usage();
     }
 
@@ -109,7 +117,7 @@ function create_new_document()
     {
         if (!is_numeric($argv[4]) || intval($argv[4]) > 3 || intval($argv[4]) < 1)
         {
-            echo "Invalid region type\n\n";
+            info("Invalid region type\n\n");
             usage();
         }
         $region_type = $argv[4];
@@ -132,7 +140,7 @@ function create_new_document()
             case 'eu':
             case 'ca': break;
             default:
-                echo "Invalid culture\n\n";
+                info("Invalid culture\n\n");
                 usage();
         }
         $culture = $argv[5];
@@ -149,7 +157,7 @@ function create_new_document()
     {
         if (!is_numeric($argv[4]) || intval($argv[4]) > 3 || intval($argv[4]) < 1)
         {
-            echo "Invalid map scale\n\n";
+            info("Invalid map scale\n\n");
             usage();
         }
         $map_scale =  intval($argv[4]);
@@ -164,7 +172,7 @@ function create_new_document()
     {
         if (!is_numeric($argv[5]))
         {
-            echo "Invalid map editor\n\n";
+            info("Invalid map editor\n\n");
             usage();
         }
         $map_editor = intval($argv[5]);
@@ -199,7 +207,7 @@ function create_new_document()
                 case 'eu':
                 case 'ca': break;
                 default:
-                    echo "Invalid culture\n\n";
+                    info("Invalid culture\n\n");
                     usage();
             }
             $culture = $argv[7];
@@ -219,9 +227,13 @@ function create_new_document()
     $no_oldgeom = true;
     $is_new_document = true;
 
+    info("Create geometry from kml file...\n");
+
     $newgeomtext = text_geometry_from_file($argv[3]);
 
     $newgeom = geometry_from_text($newgeomtext);
+
+    info("Validating geometry...\n");
 
     // check that the new geometry is valid
     if (!validate_geometry($newgeom))
@@ -248,13 +260,13 @@ function update_document()
 
     if (!file_exists($argv[3]))
     {
-        echo "Kml file does not exist\n\n";
+        info("Kml file does not exist\n\n");
         usage();
     }
 
     if (!is_numeric($argv[4]))
     {
-        echo "Invalid region or map id\n\n";
+        info("Invalid region or map id\n\n");
         usage();
     }
 
@@ -265,9 +277,13 @@ function update_document()
 
     $is_new_document = false;
 
+    info("Create geometry from kml file...\n");
+
     $newgeomtext = text_geometry_from_file($argv[3]);
 
     $newgeom = geometry_from_text($newgeomtext);
+
+    info("Validating geometry...\n");
 
     // check that the new geometry is valid
     if (!validate_geometry($newgeom))
@@ -290,7 +306,7 @@ function update_document()
     if (is_null($oldgeom))
     {
         $no_oldgeom = true;
-        echo "Warning: specified {$argv[2]} ($document_id) has no geometry...\n";
+        info("Warning: specified {$argv[2]} ($document_id) has no geometry...\n");
     }
     else
     {
@@ -301,6 +317,7 @@ function update_document()
     // no better way found...
     if (!$no_oldgeom)
     {
+        info("Deleting old geometry...\n");
         try
         {
             $conn->beginTransaction();
@@ -322,7 +339,7 @@ function update_document()
             $conn->rollback();
             throw $e;
         }
-        echo "Old geometry deleted\n";
+        info("Old geometry deleted\n");
     }
 
     // then delete geoassociations
@@ -339,7 +356,7 @@ function update_document()
         $geoassociations = GeoAssociation::findAllAssociations($document_id, null, 'both');
 
         $prgmsg = "Delete all old geoassociations...";
-        echo "$prgmsg";
+        info($prgmsg);
         try
         {
             $conn->beginTransaction();
@@ -357,7 +374,7 @@ function update_document()
             $conn->rollback();
             throw $e;
         }
-        echo "\n";
+        info("\n");
     }
     else
     {
@@ -412,7 +429,7 @@ function update_document()
 
         $tot = count($results);
         $prgmsg = "Delete obsolete geoassociations...";
-        echo "$prgmsg";
+        info($prgmsg);
         try
         {
             $conn->beginTransaction();
@@ -515,7 +532,7 @@ function update_document()
                         break;
                 }
             }
-            echo "\n";
+            info("\n");
             $conn->commit();
             if (isset($deleted)) associations_result($deleted, false);
         }
@@ -537,6 +554,8 @@ function import_new_geometry()
 {
     global $conn, $comment, $is_map, $is_new_document, $culture, $name, $map_editor, $map_scale, $map_code, $keepassociations,
            $region_type, $newgeomtext, $no_oldgeom, $document_id, $a_type, $fullwipe, $oldgeom, $newgeom, $prgmsg;
+
+    info("Importing the new geometry...\n");
 
     try
     {
@@ -577,7 +596,7 @@ function import_new_geometry()
         $doc->set('geom_wkt', $newgeomtext);
         $doc->save();
 
-        echo "Geometry uploaded.\n";
+        info("Geometry uploaded.\n");
 
         if ($keepassociations)
         {
@@ -689,7 +708,7 @@ function import_new_geometry()
         }
 
         $prgmsg = "Create new associations...";
-        echo "$prgmsg";
+        info($prgmsg);
         $tot = count($results);
         foreach ($results as $i => $d)
         {
@@ -797,18 +816,18 @@ function import_new_geometry()
                     break;
             }
         }
-        echo "\n";
+        info("\n");
    
         $conn->commit();
         if (isset($created)) associations_result($created);
 
         if ($is_new_document)
         {
-            echo 'Added new ' . ($is_map ? 'map' : 'area') . " $name ($document_id)\n";
+            info('Added new ' . ($is_map ? 'map' : 'area') . " $name ($document_id)\n");
         }
         else
         {
-            echo 'Updated ' . ($is_map ? 'map' : 'area') . " ($document_id)\n";
+            info('Updated ' . ($is_map ? 'map' : 'area') . " ($document_id)\n");
         }
     }
     catch (Exception $e)
@@ -925,7 +944,7 @@ function progression($i, $tot)
 {
     global $prgmsg;
 
-    echo "\r$prgmsg  " . (int) (($i + 1) * 100.0 / $tot) . '%';
+    info("\r$prgmsg  " . (int) (($i + 1) * 100.0 / $tot) . '%');
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -933,10 +952,10 @@ function progression($i, $tot)
 
 function associations_result($r, $creation = true)
 {
-    echo $creation ? 'Association of ' : 'Deassociation of ';
+    info($creation ? 'Association of ' : 'Deassociation of ');
     foreach ($r as $module => $count)
     {
-        echo "$count $module ";
+        info("$count $module ");
     }
-    echo "\n";
+    info("\n");
 }
