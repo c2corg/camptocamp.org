@@ -163,9 +163,9 @@ if ($show_link_tool)
 
 echo end_section_tag();
 
-if ($is_not_archive && $is_not_merged && $is_connected && !$is_moderator)
+if ($show_link_tool && !$is_moderator)
 {
-    echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('_association_tool').style.display = 'none';");
+    echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('multi_1_form_association').style.display = 'none';");
 }
 
 // lang-dependent content
