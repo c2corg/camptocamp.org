@@ -4240,7 +4240,7 @@ class documentsActions extends c2cActions
             $id = $field_prefix . '_rsummits_name';
             $out = input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
                  . __('Summit : ')
-                 . input_tag('summits_name', '', array('size' => 45, 'id' => $id))
+                 . input_tag('summits_name', '', array('size' => 45, 'id' => $id, 'data-suggest-no-exclude' => 1))
                  . '<div id="'.$field_prefix.'_associated_routes" name="associated_routes" style="display:none;">'
                  . '<div id="' . $div_select . '" name="' . $div_select . '"></div>'
 
