@@ -741,7 +741,7 @@ class documentsActions extends c2cActions
         $id = $this->getRequestParameter('id');
         $model = $this->model_class;
 
-        if (!Document::checkExistence($model, $id))
+        if (!Document::find($model, $id))
         {
             c2cActions::statsdTiming('document.executeHistory.redirect', $timer->getElapsedTime('executeHistory'));
             $this->setNotFoundAndRedirect();

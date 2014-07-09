@@ -1697,42 +1697,6 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     /**
-     * Check if document exist in DB
-     * @return True if document exist, false else
-     */
-    public static function checkExistence($model_class, $id)
-    {
-        if (!is_array($id))
-        {
-            $id = array($id);
-        }
-        else
-        {
-            $id = array_values($id);
-        }
-
-        $doc = new $model_class;
-        $model_class = $doc->getTable()->getTableName();
-        $primary_key = $doc->getTable()->getPrimaryKeys();
-        $selection = $model_class . '.' . $primary_key[0];
-
-        $where  = $model_class . '.' . implode(' = ? AND .' .
-                  $model_class, $primary_key) . ' = ?';
-
-        $query = 'SELECT COUNT(' . $selection . ') AS nb ' .
-                         ' FROM ' . $model_class .
-                         ' WHERE ' . $where;
-
-        $rs = sfDoctrine::connection()
-                    ->standaloneQuery($query, $id)
-                    ->fetchObject();
-
-        $nb = ($rs->nb) ? $rs->nb : 0;
-
-        return $nb > 0;
-    }
-
-    /**
      * Get the history of the document depending on the
      * current session language
      *
