@@ -119,7 +119,6 @@
 
       $('.swipe-close').click(function() {
         window.history.back();
-        stop();
       });
 
       // use location hash or historty api in order to cancel gallery
