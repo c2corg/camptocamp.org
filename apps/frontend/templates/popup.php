@@ -6,7 +6,6 @@ $static_base_url = sfConfig::get('app_static_url');
 <html lang="<?php echo __('meta_language') ?>">
 <head>
     <?php echo include_http_metas(); ?>
-    <link rel="shortcut icon" href="<?php echo $static_base_url ?>/static/images/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="<?php echo minify_get_combined_files_url(array('/static/css/default.css', '/static/css/popup.css')); ?>" />
     <!-- FIXME this is hacky but we don't want to have a min width of 1000px for our popup when embbedded in 3rd party website -->
     <style>

@@ -36,8 +36,6 @@ if (!$mobile_version): ?>
 <!--[if lt IE 9]><script src="<?php echo minify_get_combined_files_url(array('/static/js/html5shiv.js','/static/js/autofocus.js', '/static/js/indexof.js')) ?>"></script><![endif]-->
 <link rel="alternate" media="only screen and (max-width: 640px)" href="http://<?php echo sfConfig::get('app_mobile_version_host').$_SERVER['REQUEST_URI']; ?>" />
 <?php else: ?>
-<link rel="apple-touch-icon" href="<?php echo PUN_STATIC_URL; ?>/static/images/apple-touch-icon.png" />
-<link rel="apple-touch-icon-precomposed" href="<?php echo PUN_STATIC_URL; ?>/static/images/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="<?php echo PUN_STATIC_URL; ?>/apple-touch-icon-precomposed.png"" />
 <link rel="canonical" href="http://<?php echo sfConfig::get('app_classic_version_host').$_SERVER['REQUEST_URI']; ?>" />
 <?php endif; ?>
-<link href="<?php echo PUN_STATIC_URL; ?>/static/images/favicon.ico" rel="shortcut icon" />
