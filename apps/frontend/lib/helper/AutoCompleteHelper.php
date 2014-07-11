@@ -185,14 +185,17 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
 
         // additional code for suggesting documents in the neighborhood or friends when relevant
         $js = "function getSuggestions() {" .
-                "var module = $('#${field_prefix}_form').find('input[autocomplete=off]').attr('name').replace('_name', '');" .
-                "var exclude = " . json_encode($suggest_exclude) . ";" .
-                "var suggestions_div = $('.autocomplete-suggestions').empty();" .
+                "var input = $('#${field_prefix}_form').find('input[autocomplete=off]')," .
+                    "module = input.attr('name').replace('_name', '')," .
+                    "exclude = " . json_encode($suggest_exclude) . "," .
+                    "suggestions_div = $('.autocomplete-suggestions').empty();" .
                 "if (['" . implode("','", $near_docs_modules_list) . "'].indexOf(module) > -1 || module == 'users') {" .
                   // retrieve docs in neighborhood
                   "var params = (module == 'users') ? { id: $('#name_to_use').attr('data-user-id') } :" .
                     "{ lat:" . $suggest_near_docs['lat'] . ", lon:" . $suggest_near_docs['lon'] . " };" .
-                  "if (exclude[module] && exclude[module].length) params['exclude'] = exclude[module].join(',');" .
+                  "if (input.not('[data-suggest-no-exclude]') && exclude[module] && exclude[module].length) {" .
+                    "params['exclude'] = exclude[module].join(',');" .
+                  "}" .
                   "$.getJSON('/'+module+'/suggest', params)" .
                     ".done(function(data) {" .
                       "if (data.length) suggestions_div.append('" . __('Suggestions: ') . "');" .
@@ -242,7 +245,10 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
                    . '<span class="assoc_img picto_rm" title="' . __('hide form') . '"></span>';
         $picto_add_rm = link_to_function($picto_add_rm, "C2C.toggleForm('${field_prefix}_form')");
         
-        $title = '<div id="_association_tool" class="section_subtitle extra" data-tooltip="">' . (in_array('users', $modules_list) ? __('Link an existing user or document') : __('Link an existing document')) . __('&nbsp;:') . '</div> ';
+        $title = '<div id="_association_tool" class="section_subtitle extra" data-tooltip>' .
+            (in_array('users', $modules_list) ? __('Link an existing user or document') :
+                                                __('Link an existing document')) .
+            __('&nbsp;:') . '</div> ';
         
         $pictos = ' ';
         foreach ($modules_list as $module)

@@ -7,7 +7,7 @@ validators:
 fields:
   
   email:
-    required:       yes
+    required:
       msg:          You must specify an email
     sfEmailValidator:
       strict:       true
@@ -18,7 +18,7 @@ fields:
       unique_error: This email already exists. Please choose another one.
   
   login_name:
-    required:       yes
+    required:
       msg:          You must specify an username
     sfStringValidator:
       min:          3
@@ -27,6 +27,6 @@ fields:
       login_unique_error: This username already exists. Please choose another one.
   
   captcha:
-    required:      Yes
+    required:
       msg:         You should specify Turing number
     captchaValidator:

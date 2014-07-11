@@ -126,7 +126,7 @@ if ($show_link_tool)
 
     // try to get a coordinate for suggesting near docs
     // If outing has a track, we use the centroid
-    // else we get the highest linked summit that has coordinates
+    // else we get the highest linked summit that has coordinates or look for the first climbing site
     if (check_not_empty_doc($document, 'lon'))
     {
         $options['suggest_near_docs'] = array('lon' => $document['lon'], 'lat' => $document['lat']);
@@ -139,6 +139,15 @@ if ($show_link_tool)
             $ref_summit = c2cTools::extractHighest($summits_with_geom);
             $options['suggest_near_docs'] = array('lon' => $ref_summit['lon'], 'lat' => $ref_summit['lat']);
         }
+        else // no georefed linked summit. Maybe we have a linked georefed site ?
+        {
+            $sites_with_geom = array_filter($sf_data->getRaw('associated_sites'), function ($n) { return isset($n['lon']); });
+            if (count($sites_with_geom))
+            {
+                $options['suggest_near_docs'] = array('lon' => reset($sites_with_geom)['lon'], 'lat' => reset($sites_with_geom)['lat']);
+            }
+        }
+
     }
 
     if (isset($options['suggest_near_docs']))
@@ -154,9 +163,9 @@ if ($show_link_tool)
 
 echo end_section_tag();
 
-if ($is_not_archive && $is_not_merged && $is_connected && !$is_moderator)
+if ($show_link_tool && !$is_moderator)
 {
-    echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('_association_tool').style.display = 'none';");
+    echo javascript_tag("if (!document.body.hasAttribute('data-user-author')) document.getElementById('multi_1_form_association').style.display = 'none';");
 }
 
 // lang-dependent content

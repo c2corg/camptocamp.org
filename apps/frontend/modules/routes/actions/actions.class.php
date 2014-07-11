@@ -357,9 +357,15 @@ class routesActions extends documentsActions
 
         // check if user is moderator: done in apps/frontend/config/security.yml
 
-        if (!Document::checkExistence($this->model_class, $id))
+        $document = Document::find($this->model_class, $id, array('geom'));
+        if (!$document)
         {
             $this->setErrorAndRedirect('Document does not exist', $referer);
+        }
+
+        if (!$document->geom)
+        {
+            $this->setErrorAndRedirect('Cannot refresh route geoassociations for routes without geom', $referer);
         }
 
         $nb_created = gisQuery::createGeoAssociations($id, true, true);

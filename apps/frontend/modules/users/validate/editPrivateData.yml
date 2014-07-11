@@ -8,13 +8,13 @@ fields:
       compare_error:  The two passwords do not match
 
   current_password:
-    required:       yes
+    required:
       msg:          Your current password is required before applying changes
     myCurrentPasswordValidator:
       bad_password_error: Wrong current password!
   
   email:
-    required:       yes
+    required:
       msg:          You must specify an email
     sfEmailValidator:
       strict:       true
@@ -25,7 +25,7 @@ fields:
       unique_error: This email already exists. Please choose another one.
   
   edit_nickname:
-    required:       yes
+    required:
       msg:          You must specify a nickname
     myForumNameValidator:
       class:        UserPrivateData
@@ -33,7 +33,7 @@ fields:
       nickname_unique_error: This nickname already exists. Please choose another one.
   
   edit_topo_name:
-    required:       yes
+    required:
       msg:          You must specify a topo name
     sfStringValidator:
       min:          3

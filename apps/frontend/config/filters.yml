@@ -11,24 +11,13 @@ security:  ~
 FiltersSwitchFilter:
   class: FiltersSwitchFilter
   
-MyCacheFilter:
+# MyCacheFilter replaces the original filter to enable action caching with user's culture :
+cache:
   class: MyCacheFilter
   param:
     condition: %SF_CACHE%
-# MyCacheFilter replaces the original filter (hence disactivated) to enable action caching with user's culture :
-cache:     ~
-  enabled: false
 
 common:    ~    
-
-# commented until we find why it takes so long on somes requests to minify JS and CSS...
-#sfCombineFilter:
-#  class:   mysfCombineFilter
-#  param:
-#    javascripts:    true
-#    stylesheets:    true
-#    root_js_only:   false
-#    root_css_only:  false
 
 flash:     ~
 
@@ -36,10 +25,8 @@ flash:     ~
 MobileFilter:
   class: MobileFilter
 
-MyExecutionFilter:
+# MyExecutionFilter replaces the original filter to enable action caching with user's culture :execution:
+execution:
   class: MyExecutionFilter
   param:
     type: execution
-# MyExecutionFilter replaces the original filter (hence disactivated) to enable action caching with user's culture :
-execution: ~
-  enabled: false

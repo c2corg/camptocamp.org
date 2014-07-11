@@ -23,7 +23,7 @@ all:
         file: vieux_campeur.swf
       clubaventure:
         type: flash
-        width:468
+        width: 468
         height: 60
         file: voyageur_468.swf
       google:

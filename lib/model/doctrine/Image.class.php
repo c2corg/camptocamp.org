@@ -198,7 +198,7 @@ class Image extends BaseImage
     public static function getLinkedFiles($id)
     {
         $filename_rows = sfDoctrine::Connection()
-                     ->standaloneQuery('SELECT DISTINCT filename FROM app_images_archives WHERE id = '.$id)
+                     ->standaloneQuery('SELECT DISTINCT filename FROM app_images_archives WHERE id = ?', array($id))
                      ->fetchAll();
 
         $filenames = array();

@@ -47,12 +47,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         minify_include_custom_stylesheets($combine, $debug);
         echo include_meta_links();
     ?>
-    <link rel="shortcut icon" href="<?php
-    $favicon = ($footer_type == 'cda') ? 'portals/cda_favicon.ico' : 'favicon.ico';
-    echo $static_base_url . '/static/images/' . $favicon;
-    ?>" />
-    <link rel="apple-touch-icon" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/static/images/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/apple-touch-icon-precomposed.png">
     <link rel="canonical" href="//<?php echo sfConfig::get('app_classic_version_host').
     ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>

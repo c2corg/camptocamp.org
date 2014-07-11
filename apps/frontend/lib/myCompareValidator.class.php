@@ -10,7 +10,18 @@ class myCompareValidator extends sfCompareValidator
     $check_value = $this->getContext()->getRequest()->getParameter($check_param);
     $comparator  = $this->getParameterHolder()->get('comparator');
 
-    if (eval('return !($value ' . $comparator . '$check_value);'))
+    switch($comparator)
+    {
+        case '==': $result = ($value == $check_value); break;
+        case '!=': $result = ($value != $check_value); break;
+        case '>=': $result = ($value >= $check_value); break;
+        case '<=': $result = ($value <= $check_value); break;
+        case '>': $result = ($value > $check_value); break;
+        case '<': $result = ($value < $check_value); break;
+        default: $result = false;
+    }
+
+    if (!$result)
     {   
       $error = $this->getParameterHolder()->get('compare_error');
       return false;

@@ -770,7 +770,7 @@ function buildMapJsFiles($refresh = false) {
 
     chdir('web/static/js/carto/build');
     info('Building mapping JS files (may take some time)...');
-    execWrapper('./build.sh');
+    execWrapper('sh build.sh');
     info('Mapping JS files built.');
     chdir(dirname(__FILE__));
 }
@@ -789,7 +789,7 @@ function buildSassFiles($refresh = false) {
 
     chdir('web/static/sass');
     info('Building CSS files...');
-    execWrapper('./build.sh');
+    execWrapper('sh build.sh');
     info('CSS files built.');
     chdir(dirname(__FILE__));
 }
