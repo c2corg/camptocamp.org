@@ -3615,7 +3615,7 @@ msgid "_routes_quantity_info"
 msgstr "<h3>Cantidad de vías</h3>Cantidad (aproximativa) de vías del sitio/sector."
 
 msgid "_scale_info"
-msgstr "<h3>Echelle</h3>Escala del mapa."
+msgstr "<h3>Escala</h3>Escala del mapa."
 
 # [comment]
 # La palabra "edificio" se uso para no suponer que todos entendimos lo mismo con "refugio" o "casa"...
