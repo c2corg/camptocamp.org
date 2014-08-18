@@ -54,6 +54,11 @@ class Book extends BaseBook
         return self::returnNullIfEmpty($value);
     }
 
+    public static function filterSetNb_pages($value)
+    {
+        return self::returnPosIntOrNull($value);
+    }
+
     public static function buildBookListCriteria(&$criteria, &$params_list, $is_module = false, $prefix = '', $mid = 'm.id')
     {
         if (empty($params_list))
