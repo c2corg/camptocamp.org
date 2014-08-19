@@ -2418,9 +2418,8 @@ msgstr "Estàs desconnectat."
 
 # [general comment]
 # do not forget trailing space
-# [WARNING] en translation used
 msgid "Suggestions: "
-msgstr "Suggestions: "
+msgstr "Suggeriments:"
 
 msgid "Summary"
 msgstr "Resum"
@@ -6075,9 +6074,8 @@ msgstr "Massa resultats. Només es mostren les correspondències exactes. Seguiu
 
 # [general comment]
 # see http://c2ci18n.appspot.com/translations/edit/57001
-# [WARNING] fr translation used
 msgid "only near matches. Go on typing"
-msgstr "Résultats trop nombreux. Seuls le ou les résultats proches sont affichés. Continuer à taper pour voir les autres résultats..."
+msgstr "Resultats massa nombrosos. Només es mostren els més propers. Continueu escrivint per veure els altres resultats..."
 
 msgid "opened lift"
 msgstr "oberts"

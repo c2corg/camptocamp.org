@@ -3064,6 +3064,8 @@ msgstr "<h3>Meilleures périodes</h3>Liste des mois durant lesquels le site/sect
 msgid "_book_types_info"
 msgstr "<h3>Type d'ouvrage</h3>Type du livre.<br />Plusieurs types peuvent être sélectionnés."
 
+# [comment]
+# VS: document accès ?
 # [WARNING] needs_review
 msgid "_cable_car_access_info"
 msgstr "Indique si le document parking est la gare d'arrivée ou intermédiaire d'une remontée mécanique.<br />\n"
@@ -3673,7 +3675,7 @@ msgid "_routes_quantity_info"
 msgstr "<h3>Nombre de voies</h3>Nombre de voies (approximatif) sur le site/secteur."
 
 msgid "_scale_info"
-msgstr "<h3>Echelle</h3>Echelle de la carte."
+msgstr "<h3>Échelle</h3>Échelle de la carte."
 
 msgid "_shelter_type_info"
 msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets.<br /><br /><strong>camping / camp de base</strong>&nbsp;: camping, aire naturelle ou emplacement utilisé chaque année pour un camp de base, comportant éventuellement des bâtiments ou abris en dur non utilisables pour le couchage (toilettes, etc...). Peut être situé en bord de route ou pas.<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable et sans emplacement de couchage. Duvet et tapis de sol seront nécessaires. Les bâtiments ouverts mais peu confortables sont classés dans cette catégorie.<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie, confortable avec emplacement de couchage (matelas, bat-flanc, paillasse, lit, etc...). Un duvet et un tapis de sol peuvent être nécessaires. La plupart des \"bivouacs\" italiens (abris en tôle), bergeries (suivant leur mise à disposition par les propriétaires) et autres bâtiments ouverts et confortables sont classés dans cette catégorie. La catégorie refuge n'est pas accessible en voiture.<br /><br /><strong>gîte</strong>&nbsp;: gîte ou refuge de village / bord de route accessible en voiture, répondant aux critères suivants :<br />- il est possible de réserver une ou plusieurs nuits au gîte (principe des gîtes d'étape, sont exclues les locations à la semaine)<br />- le gîte propose un hébergement en dortoirs, à prix raisonnable.<br />Les cas suivants sont tolérés : les hôtels à prix raisonnable dans les vallées où ce sont les seules possibilités d'hébergement. <br /><br />"
@@ -6869,7 +6871,7 @@ msgid "saving..."
 msgstr "sauvegarde en cours..."
 
 msgid "scale"
-msgstr "Echelle&nbsp;:"
+msgstr "Échelle&nbsp;:"
 
 msgid "schiste"
 msgstr "schiste"

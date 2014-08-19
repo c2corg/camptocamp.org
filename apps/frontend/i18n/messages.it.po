@@ -1235,9 +1235,8 @@ msgstr "L’immagine è protetta"
 msgid "Image license"
 msgstr "Licenza dell'immagine:"
 
-# [WARNING] en translation used
 msgid "Image name missing"
-msgstr "Image name missing"
+msgstr "Nome del imagine mancante"
 
 msgid "Image not found"
 msgstr "Quest’immagine non è stata trovata."
