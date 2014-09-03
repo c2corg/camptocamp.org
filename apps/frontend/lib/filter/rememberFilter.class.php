@@ -39,9 +39,13 @@ class rememberFilter extends sfFilter
                 // and several personnalization functions rely on cookies, that will be sent with the request,
                 // but are not yet 'available' from javascript if the value expired from previous sessions (they will be on next page)
                 // easiest solution is to force the browser to reload the current page
+                // we only do this for GET requests
                 $request = $this->getContext()->getRequest();
-                $this->getContext()->getController()->redirect($request->getUri());
-                exit;
+                if ($request->getMethod() == sfRequest::GET)
+                {
+                    $this->getContext()->getController()->redirect($request->getUri());
+                    exit;
+                }
             }
             else
             {
