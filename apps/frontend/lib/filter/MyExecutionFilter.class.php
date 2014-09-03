@@ -33,7 +33,7 @@ class MyExecutionFilter extends sfExecutionFilter
 
     $viewName = null;
 
-    $statsdPrefix = c2cActions::statsdPrefix(null, $moduleName, $actionName);
+    $statsdPrefix = c2cActions::statsdPrefix($moduleName, $actionName);
 
     if (sfConfig::get('sf_cache'))
     {

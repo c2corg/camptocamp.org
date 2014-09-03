@@ -1765,7 +1765,10 @@ class documentsActions extends c2cActions
                 $this->setNotFoundAndRedirect();
             }
         }
-        
+
+        $this->nb_comments = $this->new_document ? 0 :
+            PunbbComm::retrieveNbComments($this->document->get('id').'_'.$this->document->getCulture());
+
         $this->setTemplate('../../documents/templates/edit');
         return sfView::SUCCESS;
     }
