@@ -59,12 +59,15 @@ else:
         {
             unset($result_types[1]);
         }
-        $result_type_select = select_tag('result_type', options_for_select(array_map('__', $result_types), array(3)));
-        $result_type_select_2 = select_tag('result_type_2', options_for_select(array_map('__', $result_types), array(3)));
+
+        $result_type_options = options_for_select(array_map('__', $result_types), 3);
+        $result_type_select = select_tag('result_type', $result_type_options);
+        $result_type_select_2 = select_tag('result_type_2', $result_type_options);
         
         $linked_docs = sfConfig::get('app_list_linked_docs');
-        $linked_doc_select = select_tag('linked_docs', options_for_select(array_map('__', $linked_docs), array(1)));
-        $linked_doc_select_2 = select_tag('linked_docs_2', options_for_select(array_map('__', $linked_docs), array(1)));
+        $linked_doc_options = options_for_select(array_map('__', $linked_docs), 1);
+        $linked_doc_select = select_tag('linked_docs', $linked_doc_options);
+        $linked_doc_select_2 = select_tag('linked_docs_2', $linked_doc_options);
         
         $result_types_filter = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select
