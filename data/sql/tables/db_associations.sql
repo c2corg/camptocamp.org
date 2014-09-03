@@ -85,8 +85,7 @@ ALTER TABLE app_documents_associations ADD CONSTRAINT documents_associations_pke
 ALTER TABLE app_documents_associations ADD CONSTRAINT fk_app_documents_associations_type FOREIGN KEY (type) REFERENCES app_association_types(type);
 -- This is for speed:
 CREATE INDEX app_documents_associations__type__idx ON app_documents_associations USING btree (type);
--- FIXME: this might be necessary : (we have to benchmark to decide whether or not to decomment this)
---CREATE INDEX app_documents_associations__linked__idx ON app_documents_associations USING btree (linked_id);
+CREATE INDEX app_documents_associations__linked__idx ON app_documents_associations USING btree (linked_id);
 
 
 -- geo associations:
@@ -114,8 +113,4 @@ ALTER TABLE app_geo_associations ADD CONSTRAINT geo_associations_pkey PRIMARY KE
 ALTER TABLE app_geo_associations ADD CONSTRAINT fk_app_geo_associations_type FOREIGN KEY (type) REFERENCES app_geo_association_types(type);
 -- This is for speed:
 CREATE INDEX app_geo_associations__type__idx ON app_geo_associations USING btree (type);
--- FIXME: this might be necessary : (we have to benchmark to decide whether or not to decomment this)
---CREATE INDEX app_documents_associations__linked__idx ON app_documents_associations USING btree (linked_id);
-
-
-
+CREATE INDEX app_geo_associations__linked__idx ON app_geo_associations USING btree (linked_id);
