@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ adserver, adserver, camp_e, adserver, adserver, adserver, montania, adserver, adserver, camp_e, adserver, adserver ]
+    values: [ adserver, altissimo, camp_e, adserver, adserver, adserver, montania, altissimo, adserver, camp_e, adserver, altissimo ]
   banners:
     list:
       skalp:
@@ -291,4 +291,8 @@ all:
         id: 92
         image: taia.jpg
         alt: "IFREMMONT TAIA"
+      altissimo:
+        id: 93
+        image: altissimo.gif
+        alt: "Altissimo"
 
