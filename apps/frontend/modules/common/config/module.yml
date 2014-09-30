@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ adserver, altissimo, camp_f, adserver, adserver, adserver, montania, altissimo, adserver, camp_f, adserver, altissimo ]
+    values: [ adserver, altissimo, camp_g, adserver, adserver, adserver, montania, altissimo, adserver, camp_g, adserver, altissimo ]
   banners:
     list:
       skalp:
