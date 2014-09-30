@@ -1293,17 +1293,18 @@ a.close_btn {
   @include -c2c-datauri-background('/static/images/rhonealpes.gif', no-repeat 0);
   width: 130px;
   height: 26px;
+  margin-top: 2px;
 }
 
 #europa a {
   @include -c2c-datauri-background('/static/images/europe.gif', no-repeat 0);
-  width: 43px;
+  width: 45px;
   height: 30px;
 }
 
 #c2csa a {
-  @include -c2c-datauri-background('/static/images/c2csa.gif', no-repeat 0);
-  width: 51px;
+  @include -c2c-datauri-background('/static/images/c2csa.png', no-repeat 0);
+  width: 42px;
   height: 30px;
 }
 
