@@ -13,7 +13,7 @@ autoload:
   geoPHP:
     name:           "GeoPHP"
     ext:            .inc
-    path:           %SF_LIB_DIR%/geoPHP/
+    path:           %SF_LIB_DIR%/vendor/geoPHP/
 
   # override symfony default to avoid unnecessary loads
   project:

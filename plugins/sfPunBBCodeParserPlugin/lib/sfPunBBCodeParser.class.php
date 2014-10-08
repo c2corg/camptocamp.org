@@ -906,7 +906,7 @@ class sfPunBBCodeParser
         $toc_visible_level = 0;
         $toc_level_max = 5;
 
-        if (preg_match('#\[toc[ ]*(\d*)[ ]*(right)?\]#i', $text, $matches))
+        if (preg_match('#\[toc[ ]*(\d*)[ ]*(right|left)?\]#i', $text, $matches))
         {
             $toc_enable = true;
             if (!empty($matches[1]))
@@ -917,7 +917,10 @@ class sfPunBBCodeParser
             $add_clearer = true;
             if (!empty($matches[2]))
             {
-                $toc_position = ' embedded_right';
+                if ($matches[2] == 'right')
+                {
+                    $toc_position = ' embedded_right';
+                }
                 $add_clearer = false;
             }
             $toc = '</p><table class="toc' . $toc_position . '" id="toc"><tbody><tr><td><div id="toctitle"><h2>' . __('Summary') . '</h2></div><ul class="toc">';
