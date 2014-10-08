@@ -1,7 +1,7 @@
 <?php
 // FIXME this is a bit dirty. We cannot use autoload features since there is no class. Is there a better way for this?
 // compatibility with password_* function from php 5.5
-require_once(sfConfig::get('sf_lib_dir').DIRECTORY_SEPARATOR.'password_compat'.
+require_once(sfConfig::get('sf_lib_dir').DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'password_compat'.
              DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'password.php');
 
 class UserPrivateData extends BaseUserPrivateData
