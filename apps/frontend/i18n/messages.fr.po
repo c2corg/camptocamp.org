@@ -5410,7 +5410,7 @@ msgstr "Insérer une image"
 # message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
 msgid "imgur notice %1%"
 msgstr "Les images importées depuis votre ordinateur seront hébergées sur %1%. La pérennité de l'hebergement n'est pas de la responsabilité de camptocamp.<br />\n"
-"Pour vos photos prises au cours de vos sorties en montagne, préférez les enregistrer sur votre sortie, ou sur votre profil."
+"Pour vos photos prises au cours de vos sorties en montagne, préférez les enregistrer sur <a href=\"/outings/wizard\" target=\"_blank\">votre sortie</a>, sur <a href=\"/users/mypage#images\" target=\"_blank\">votre profil</a> ou sur un document collaboratif (<a href=\"/summits/filter\" target=\"_blank\">sommet</a>, <a href=\"/routes/filter\" target=\"_blank\">itinéraire</a>, ...)."
 
 msgid "imported from v4"
 msgstr "Transféré depuis la version 4 du site"

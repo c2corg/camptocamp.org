@@ -92,17 +92,14 @@ msgstr "Eine Herberge oder ein Campingplatz kann nicht mit einer Route verbunden
 msgid "A new password has been asked for your account."
 msgstr "Ein neues Passwort wurde für ihr camptocamp.org-Profil angefordert. Sie können sich jetzt einloggen, indem sie die untenstehenden Anmeldedaten benutzen."
 
-# [WARNING] needs_review
 msgid "A parking can not be linked to a hut if a main/sub parking is already linked to it"
-msgstr "Ein Zugang kann nicht mit einer Hütte verbunden werden, wenn dieser Zugang einen unter- oder übergeordneter Zugang besitzt, der schon mit der Hütte verbunden wurde."
+msgstr "Ein Zugang kann nicht mit einer Hütte verbunden werden, wenn derselbe Zugang einen über- oder untergeordneten Zugang besitzt, der schon mit der Hütte verbunden wurde."
 
-# [WARNING] needs_review
 msgid "A parking can not be linked to a route if a main/sub parking is already linked to it"
-msgstr "Ein Zugang kann nicht mit einer Route verbunden werden, wenn ein ihm untergeordneter oder übergeordneter Zugang schon mit dieser Route verbunden wurde."
+msgstr "Ein Zugang kann nicht mit einer Route verbunden werden, wenn derselbe Zugang einen über- oder untergeordneten Zugang besitzt, der schon mit dieser Route verbunden wurde."
 
-# [WARNING] needs_review
 msgid "A parking can not be linked to a site if a main/sub parking is already linked to it"
-msgstr "Ein Zugang kann nicht mit einem Klettergebiet verbunden werden, wenn dem Zugang untergeordneter oder übergeordneter Zugang schon mit dem Klettergebiet verbunden wurde"
+msgstr "Ein Zugang kann nicht mit einem Klettergebiet verbunden werden, wenn derselbe Zugang einen über- oder untergeordneten Zugang besitzt, der schon mit dem Klettergebiet verbunden wurde."
 
 msgid "A raid summit can not be linked to a real summit"
 msgstr "Ein Gipfel \"Mehr-Tagestour\" kann nicht mit einem echten Gipfel verbunden werden"
@@ -3023,18 +3020,39 @@ msgstr "<h3>In der Nähe liegende Ess-, Trink- und Übernachtungsmöglichkeiten,
 # "Schneeschuhlaufen" für Österreicher klingt das eigenartig, da man mit Schneeschuhen "geht" und nicht "läuft". Ist Schneeschuhwandern als Kompromiss auch für Deutsche annehmbar?
 # 
 # Schneeschuhwandern ist gut und sogar in der Schweiz verständlich
-# [WARNING] needs_update
 msgid "_activities_info"
-msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren sie mit der Maus darüber.<br />Ein Dokument kann mit mehreren Aktivitäten verbunden sein:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>Ski-, Snowboardtouren</strong>: Ski- und/oder Snowboardtouren<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp<strong>Hochtouren</strong>: Bergsteigen auf Schnee, Eis, Gletscher und kombiniertem Gelände im Hochgebirge<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>Alpinklettern</strong>: Alpines Klettern von Mehrseillängen-Routen im Hochgebirge; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>Sportklettern</strong>: Bouldern, Ein- oder Mehrseillängen-Routen an Felswänden; eingerichtet oder nicht<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>Eisklettern</strong>&nbsp;: Eisklettern ausserhalb des Hochgebirges, Dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Wandern</strong>: Wandern im Gebirge (und nicht im Flachland); auf markierten Wegen oder nicht<br /><br /><img src=\"/static/images/picto/snowshoeing_mini.png\" /> &nbsp;<strong>Schneeschuhwandern</strong>: Wandern im Gebirge mit Schneeschuhen; auf markierten Routen oder nicht.<br /><br />\n"
-"Der Unterschied zwischen den Aktivitäten <strong>Sportklettern</strong> und <strong>Alpinklettern</strong> ist hauptsächlich die Seehöhe der Route, nicht aber die Einrichtung der Route. In Europa gelten folgenden Regeln: <br />- Höhe < 2100m : Sportklettern<br />- Höhe zwischen 2100m und 2400m : Sportklettern oder Alpinklettern, aber hauptsächlich Sportklettern<br />- Höhe zwischen 2400m und 2700m : Sportklettern oder Alpinklettern, aber hauptsächlich Alpinklettern<br />- Höhe > 2700m : Alpinklettern<br />Für eine Höhe zwischen 2100m und 2700m, können beide Aktivitäten gewählt werden."
+msgstr "<h3>Aktivitäten</h3>Aktivitätstyp: Um die Bedeutung der Piktogramme anzuzeigen, fahren sie mit der Maus darüber.<br />\n"
+"Ein Dokument kann mit mehreren Aktivitäten verbunden werden:<br />\n"
+"<br />\n"
+"<span class=\"picto activity_1\"></span> &nbsp;<strong>Ski und Snowboard</strong>: Ski- und/oder Snowboardtouren<br />\n"
+"<br />\n"
+"<span class=\"picto activity_7\"></span> &nbsp;<strong>Schneeschuhwandern</strong>: Wandern mit Schneeschuhen<br />\n"
+"<br />\n"
+"<span class=\"picto activity_2\"></span> &nbsp;<strong>Hochtouren</strong>: Bergsteigen auf Schnee, Eis, Gletscher und kombiniertem Gelände im Hochgebirge<br />\n"
+"<br />\n"
+"<span class=\"picto activity_3\"></span> &nbsp;<strong>Alpinklettern</strong>: Alpines Klettern von Mehrseillängen-Routen im Hochgebirge; eingerichtet oder nicht<br />\n"
+"<br />\n"
+"<span class=\"picto activity_4\"></span> &nbsp;<strong>Sportklettern</strong>: Bouldern, Ein- oder Mehrseillängen-Routen an Felswänden; eingerichtet oder nicht<br />\n"
+"<br />\n"
+"<span class=\"picto activity_5\"></span> &nbsp;<strong>Eisklettern</strong>: Eisklettern außerhalb des Hochgebirges, Dry-tooling<br />\n"
+"<br />\n"
+"<span class=\"picto activity_6\"></span> &nbsp;<strong>Wandern</strong>: Wandern im Gebirge (und nicht im Flachland); auf markierten Wegen oder nicht<br />\n"
+"<br />\n"
+"<span class=\"picto activity_8\"></span> &nbsp;<strong>Gleitschirmfliegen im Gebirge</strong>: Flug mit dem Gleitschirm, nach einem Aufstieg zu Fuß oder mit den Skier<br />\n"
+"<br />\n"
+"Der Unterschied zwischen den Aktivitäten <strong>Sportklettern</strong> und <strong>Alpinklettern</strong> hängt hauptsächlich von der Seehöhe der Route ab, und nicht von deren Ausstattung. In Europa gelten folgende Regeln: <br />\n"
+"- Höhe < 2100m : Sportklettern<br />\n"
+"- Höhe zwischen 2100m und 2400m : Sportklettern oder Alpinklettern, aber hauptsächlich Sportklettern<br />\n"
+"- Höhe zwischen 2400m und 2700m : Sportklettern oder Alpinklettern, aber hauptsächlich Alpinklettern<br />\n"
+"- Höhe > 2700m : Alpinklettern<br />\n"
+"Liegt die Route zwischen 2100m und 2700m, können im Zweifel beide Aktivitäten gewählt werden."
 
 # [comment]
 # Also von küstlicher Klettererwi habe ich in diesem Zusammenhang noch nie gehört. Wir sagen "technisches" Klettern.
 # 
 # VS: anderung gemacht, nachlesen!
-# [WARNING] needs_review
 msgid "_aid_rating_info"
-msgstr "<h3>Schwierigkeitsgrad für technische Kletterei</h3>Bewertung der angetroffenen Schwierigkeiten bezüglich technisches Klettern.<br />Die Bewertung für technische Kletterei bezieht sich auf die höchste angetroffen Schwierigkeit in der technischen Felskletterei. Technische Kletterei bedeutet, dass zur Überwindung einer bestimmten Passage konsequent sämtliche vorhanden Hilfspunkte verwendet werden.<br />Die Skala reicht von A0 bis A6.<br /><br />Siehe auch in der Hilfe unter<a href=\"/articles/131454/en\">Schwierigkeitsgrad (technisches Klettern</a>."
+msgstr "<h3>Schwierigkeitsgrad für technisches Klettern</h3>Bewertung der angetroffenen Schwierigkeiten bezüglich technisches Klettern.<br />Die Bewertung für technisches Klettern bezieht sich auf die höchste angetroffen Schwierigkeit, wobei zur Überwindung einer bestimmten Passage konsequent sämtliche vorhanden Hilfspunkte verwendet werden.<br />Die Skala reicht von A0 bis A6.<br /><br />Siehe auch in der Hilfe unter<a href=\"/articles/131454/en\">Schwierigkeitsgrad (technisches Klettern</a>."
 
 msgid "_approach_height_info"
 msgstr "<h3>Höhenunterschied des Zustieges</h3>\n"
@@ -3096,25 +3114,21 @@ msgstr "<h3>Anti-spam-Test</h3>Schreiben Sie die im Bild sichtbaren Buchstaben a
 # Brouillion: Chaos? Wirres? Baustelle? etwas anderes?
 # 
 # VS: --> In Bearbeitung
-# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Kategorie eines Beitrags</h3>\n"
-"Mehrere Kategorien können ausgewählt werden.<br /><br /><strong>Gebirgsumwelt</strong>: Allgemeine, nicht-ändernde\n"
-"Informationen über das Gebirgsmassiv (Geologie, Ökologie, Schnee und Lawinen etc.)<br />\n"
-"<strong>Material und Technik</strong>: Beiträge über Material\n"
-"(Beschreibung, Verwendung, Wartung, etc.) oder eine Technik\n"
-"(Beschreibung, Training, etc.)<br>\n"
-"<strong>Ergänzungen des Tourenführers</strong>: Beitrag über einen Teil\n"
-"des Tourenführers (z.B. Routen- oder Hüttengeschichte, Geologie eines\n"
-"Massivs oder Gipfels, etc.)<br />\n"
-"<strong>Nachhaltige Mobilität und nachhaltiger Tourismus</strong>:\n"
-"Beiträge zu nachhaltigem Verkehrsverhalten und nachhaltigem Tourismus<br>\n"
-"<strong>Expeditionen und Fernreisen</strong>: Informationen oder\n"
-"Berichte über eine Expedition oder Fernreise<br>\n"
-"<strong>Erlebnisberichte und Erzählungen</strong>: Berichte über wahre\n"
-"oder erfundene Erlebnisse.<br />\n"
+"Mehrere Kategorien können ausgewählt werden.<br />\n"
+"<br />\n"
+"<strong>Gebirgsumwelt</strong>: Allgemeine, dauerhafte Informationen über das Gebirgsmassiv (Geologie, Ökologie, Schnee, Lawinen etc.)<br />\n"
+"<strong>Material und Technik</strong>: Beiträge über ein Material (Beschreibung, Verwendung, Wartung, etc.) oder über eine Technik (Beschreibung, Training, etc.)<br>\n"
+"<strong>Ergänzungen des Tourenführers</strong>: Beitrag über einen Teil des Tourenführers (Geschichte der Route oder der Hütte, Geologie des Massivs oder eines Gipfels, etc.)<br />\n"
+"<strong>Nachhaltige Mobilität und nachhaltiger Tourismus</strong>: Beiträge zum nachhaltigen Verkehrsverhalten und Tourismus<br>\n"
+"<strong>Expeditionen und Fernreisen</strong>: Informationen oder Berichte über eine Expedition oder Fernreise<br>\n"
+"<strong>Erzählungen</strong>: Berichte über wahre oder erfundene Erlebnisse.<br />\n"
+"<strong>G2G Treffen</strong>: Vorbereitungsbeitrag oder Protokoll eines auf camptocamp organisierten Treffens.<br />\n"
+"<strong>Kennzeichnung</strong>: Beitrag um Dokumente zu kennzeichnen, damit diese einfacher gefunden werden können. Diese Art Beitrag erlaubt es auch komplexere Suchen im Topoguide zu startet<br />\n"
 "<strong>Website-Info</strong>: Beiträge über die camptocamp.org-Website<br>(Hilfe, Information)<br />\n"
-"<strong>Verein</strong>: Beiträge über<em>camptocamp-Verein</em> <strong>In Bearbeitung</strong>: Beiträge in Bearbeitung (keine Veröffentlichung auf der Begrüßungsseite)"
+"<strong>Verein</strong>: Beiträge über den <em>camptocamp-Verein</em> <br />\n"
+"<strong>In Bearbeitung</strong>: Beiträge, die in Bearbeitung sind (keine Veröffentlichung auf der Begrüßungsseite)"
 
 msgid "_category_info"
 msgstr "<h3>Benutzerkategorie</h3>Mit diesem optionalen Feld kann der Benutzer einfacher gefunden werden, indem Suchabfragen nach Kategorien gemacht werden können. Dies ist besonders nützlich, wenn nach Clubs oder professionellen Fachleuten (Führer, Instruktoren) einer bestimmten Region (falls sie georeferenziert sind) gesucht wird.<br /><br /><strong>Amateur</strong>:Leute, welche zum Vergnügen in die Berge fahren und nicht zum beruflichen Erwerb. Die meisten Berggänger gehören in diese Kategorie.<br /><br /><strong>Profi</strong>: Leute, welche Bergsportaktivitäten im Rahmen der beruflichen Erwerbsarbeit nachgehen (Führer, Instruktoren) und entsprechend ausgebildet sind. Im Feld <em>Aktivitäten</em> können die beruflich angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Club oder Gruppe, welche Touren organisiert</strong>: Club oder eine Gruppe von Leuten, welche Bergsporttouren (Skitouren, Bergsteigen, Klettern, Wandern, etc) organisiert und durchführt. Im Feld <em>Aktivitäten</em> können die angebotenen Aktivitäten angegeben werden.<br /><br /><strong>Andere Organisation</strong>: Öffentliche oder private Organisation, welche andere bergrelevante Aktivitäten als ein Club anbietet und durchführt, wie z.B. Bergrettung, Hüttenbetrieb, Nationalparkverwaltung, Wetterdienstleistungen, Touristeninformationen, Umweltfürsprache, etc."
@@ -3128,9 +3142,15 @@ msgstr "<h3>Art der Kletterroute</h3>Beschreibt den generellen Kletterstil eines
 msgid "_code_info"
 msgstr "<h3>Nummer</h3>Referenz auf die Karte."
 
-# [WARNING] needs_update
 msgid "_conditions_and_equipment_info"
-msgstr "<h3>Verhältnisse</h3>Informationen über die vorgefundenen Verhältnisse auf einer Tour.<br />Diese Informationen sind schnellebig und verlieren ihre Aktualität schnell, weshalb sie erst das Tourendatum beachten sollten.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br /><br />Bei einer Route im Schnee geben sie bitte auch Lawinenaktivität und –beobachtungen an.<br /><br />Die <em>angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
+msgstr "<h3>Verhältnisse des Gelände, Ausstattung und Felsqualität</h3> \n"
+"Informationen über die vorgefundenen Geländeverhältnisse beim Zustieg und in der Route: Schneesorte, Schneemenge, Eisqualität, Eismenge, Ausstattung der Route, Felsqualität. Es ist nützlich die beobachteten Verhältnisse der Routen in der Nachbarschaft anzugeben.<br />\n"
+"Die Geländeverhältnisse berücksichtigen nicht das Wetter.<br /> \n"
+"Beachten sie das Datum der Tour, da diese Informationen schnelllebig sind und rasch an Aktualität verlieren.<br />\n"
+"<strong>Redaktion:</strong><br />\n"
+"Die wirklich durchgestiegene Route sollte beschrieben werden: enthielt sie Varianten oder nicht beschriebene Teile ? Wurde vor dem Gipfel umgekehrt ?<br />\n"
+"<br />Bei einer verschneiten Route geben sie bitte ihre Beobachtungen über Lawinenaktivitäten oder Spuren älterer Lawinen ein.<br />\n"
+"<br />Die <em>angetroffenen Verhältnisse</em> und die <em> Schneeverhältnisse pro Gebiet </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
 
 msgid "_conditions_info"
 msgstr "<h3>Verhältnisse</h3>Informationen über die vorgefundenen Verhältnisse auf einer Tour.<br />Diese Informationen sind schnellebig und verlieren ihre Aktualität schnell, weshalb sie erst das Tourendatum beachten sollten.<br /><br />Die verwendete Route muss beschrieben werden, falls sie Varianten oder nicht beschriebene Teile enthält oder falls vor dem Gipfel umgekehrt wurde.<br /><br />Bei einer Route im Schnee geben sie bitte auch Lawinenaktivität und –beobachtungen an.<br /><br />Die <em>angetroffenen Verhältnisse</em> und die <em> Einschneiung in einigen Gebieten </em> sind wichtig, um die Verhältnisse für die nächsten Tage zu beurteilen – füllen sie diese deshalb gewissenhaft aus."
@@ -3138,9 +3158,18 @@ msgstr "<h3>Verhältnisse</h3>Informationen über die vorgefundenen Verhältniss
 msgid "_conditions_levels_info"
 msgstr "<h3>Schneeverhältnisse pro Abschnitt</h3>Erlaubt die vorgefundenen Schneeverhältnisse einer Tour zu beschreiben und zwar auf allen Abschnitten. Um einen Abschnitt hinzuzufügen klicken sie auf den Knopf (+).<br /><br /><strong>Lokalisierung / Höhe / Exposition / Zeit</strong>:Charakteristiken des Ortes: seine Lokalisierung, Höhenlage, Exposition, sein Relief (Einschitt, Couloir, etc.), Zeitpunkt der Aufnahme.<br /><br /><strong>Lockerschnee</strong>: Tiefe des Lockerschnee in cm (Einsinken des Skistocks).<br /><br /><strong>Gesamtschneehöhe</strong>: Gesamte Schneehöhe in cm. Bitte leer lassen, falls der Wert unbekannt ist.<br /><br /><strong>Beobachtung</strong>: Schneequalität, grobe Profilbeschreibung oder -analyse, Qualität zum Skifahren."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_conditions_status_info"
-msgstr "<h3>Verhältnisse</h3>Generelle Einschätzung der vorgefundenen Verhältnisse auf einer Tour. Kann zum Filtern von Touren verwendet werden.<br />Im Feld <i>Verhältnisse</i> können zusätzliche Informationen angegeben werden."
+msgstr "<h3>Verhältnisse des Gelände</h3>\n"
+"Generelle Einschätzung der während der Tour vorgefundenen Geländeverhältnisse. Kann zum Filtern von Touren verwendet werden.<br />\n"
+"Die Verhältnisse des Geländes sollten nicht mit den Wetterverhältnisse verwechselt werden. \n"
+"Die Verhältnisse des Geländes werden mit Bezug zu den durchschnittlichen Verhältnisse angegeben, die man auf der Route während der normalen Begehungsperiode vorfinden würde.\n"
+"Dadurch können die realen Schwierigkeiten mit Bezug zu den angegebenen Schwierigkeiten, besser eingeschätzt werden.<br />\n"
+"\n"
+"Die Verhältnisse des Geländes sollten keine Vorhersage für den nächsten Tag sein, sondern die tatsächlich während der Tour vorgefundenen Verhältnisse widerspiegeln.\n"
+"Jeder ist hier frei, das Wechselspiel zwischen Spaß und dem eingegangenen Risiko auf seine Weise einzuschätzen. \n"
+"Zur Hilfe, kann man sich jedoch folgende Frage stellen: Hätte man auf dieser Route noch mehr Spaß gehabt, wären die Verhältnisse weniger gefährlich gewesen ?<br />\n"
+"Im Feld <i>Verhältnisse</i> können zusätzliche Informationen angegeben werden."
 
 # [comment]
 # oder etwas psychologistischer: "Routengestalt"?
@@ -3188,68 +3217,44 @@ msgstr "<h3>Höhe</h3>Die Seehöhe, d.h. die Höhe über dem Meeresspiegel, eine
 msgid "_email_info"
 msgstr "<h3>Email-Adresse</h3>Die Email-Adresse für ihr camptocamp.org-Profil.<br /><br /><em><u>Während der Registrierung</u>:</em><br />Fügen sie eine gültige Email-Adresse ein. Andernfalls wird das Profil nicht bestätigt und nach einigen Wochen gelöscht.<br />Diese Email-Adresse erscheint nie auf camptocamp.org. Sie wird in folgenden Fällen verwendet:<br />- Ein anderes Mitlied sendet ihnen eine Email durch die camptocamp-Website (Ihre Email-Adresse wird dabei nicht angezeigt).<br />- Wenn sie Forendiskussionen abonniert haben und der Server sie über neue Beiträge informieren möchte.<br />- Sie haben sich in der Maillingliste für Lawinenlageberichte eingeschrieben, und diese werden ihnen auf die Email-Adresse zugestellt."
 
-# [WARNING] needs_update
 msgid "_engagement_rating_info"
 msgstr "<h3>Ernsthaftigkeitsgrad</h3>\n"
 "Ernsthaftigkeit einer Route<br />\n"
-"Die Bewertung der Ernsthaftigkeit einer Route stellt die Gefahr dar, welcher ein Alpinist in einer Route zu vergegenwärtigen hat, falls Probleme auftauchen. Dabei werden mehrere Kriterien einbezogen und die Bewertung bleibt zu einem gewissen Grad subjektiv. Die Hauptkriterien sind die Abgeschiedenheit von der Zivilisation (Hütte, Tal, etc.), das Vorhandensein von Flucht- und Abbruchsmöglichkeiten, die Höhe, etc.<br />\n"
+"Falls ein Problem auftaucht, gibt der Ernsthaftigkeitsgrad ein Maß für die Gefahr in der sich ein Alpinist befinden würde. Auch wenn mehrere Kriterien dafür einbezogen werden, bleibt diese Bewertung subjektiv. Die Hauptkriterien sind die Abgeschiedenheit von der Zivilisation (Hütte, Tal, etc.), das Vorhandensein und die Schwierigkeit der Flucht- und Abbruchmöglichkeiten, die Höhe, etc.<br />\n"
 "<br />\n"
-"<strong>I</strong>: Die Route ist kurz und kann schnell begangen\n"
-"werden. Es kann jederzeit umgekehrt werden. Rettung kann einfach\n"
-"alarmiert werden und Rettungskräfte haben unabhängig von der Witterung\n"
-"einfachen Zugang.<br />\n"
+"<strong>I</strong>: Die Route ist kurz und schnell zu begehen. Eine Umkehr ist jederzeit möglich. Rettungskräfte können schnell alarmiert werden. Diese haben zudem einen einfachen Zugang, der nicht von der Witterung abhängt..<br />\n"
 "<br />\n"
-"<strong>II</strong>: Die Route ist nicht so kurz (ca 4h). Es kann\n"
-"jederzeit umgekehrt werden. Rettungskräfte können ziemlich schnell\n"
-"alarmiert werden.<br />\n"
+"<strong>II</strong>: Die Route ist länger (ca 4h). Eine Umkehr ist jederzeit möglich. Rettungskräfte können schnell alarmiert werden.<br />\n"
 "<br />\n"
-"<strong>III</strong>: Die Route nimmt mehr als einen halben Tag in\n"
-"Anspruch und kann von der Hütte und/oder dem Tal nicht unbedingt\n"
-"eingesehen werden. Ein Rückzug ist möglich kann aber bereits mit\n"
-"Schwierigkeiten verbunden sein. Bei schlechter Witterung können die\n"
-"Rettungskräfte bereits Mühe haben zu den Alpinisten zu gelangen. <br />\n"
+"<strong>III</strong>: Die Route nimmt mehr als einen halben Tag in Anspruch und kann von der Hütte und/oder dem Tal nicht unbedingt eingesehen werden. Ein Rückzug ist möglich kann aber bereits mit Schwierigkeiten verbunden sein. Bei schlechter Witterung können die Rettungskräfte bereits große Mühe haben um zu den Alpinisten zu gelangen. <br />\n"
 "<br />\n"
-"<strong>IV</strong>: Die Route nimmt einen ganzen Tag in Anpruch. Die\n"
-"Route ist lange und üblicherweise nicht einsehbar von der Hütte\n"
-"und/oder dem Tal. Ein Rückzug ist heikel und es kann Stellen\n"
-"geben, nach welchen nicht mehr umgekehrt werden kann. Bei schlechter\n"
-"Witterung kann die Route sehr gefährlich werden und die Rettungskräfte\n"
-"könne u.U. nicht helfen.<br />\n"
+"<strong>IV</strong>: Die Route nimmt einen ganzen Tag in Anspruch. Die Route ist lange und üblicherweise nicht von der Hütte und/oder dem Tal einsehbar. Ein Rückzug ist heikel und es kann Stellen geben, ab denen eine Umkehr gar unmöglich war. Bei schlechter Witterung kann die Route sehr gefährlich werden und die Rettungskräfte können unter Umständen nicht mehr helfen.<br />\n"
 "<br />\n"
-"<strong>V</strong>: Die Route ist lang und nimmt zwischen 12 und\n"
-"24 Stunden in Anspruch. Der Zugang ist lang und/oder schwierig, ein\n"
-"Rückzug nach dem Einstieg in die Route ist heikel, Notausstiege sind\n"
-"selten und oft heikel. Bei schlechtem Wetter oder Problemen sind die\n"
-"Alpinisten auf sich alleine gestellt.<br />\n"
+"<strong>V</strong>: Die Route ist lang und nimmt zwischen 12 und 24 Stunden in Anspruch. Der Zugang ist lang und/oder schwierig, ein Rückzug nach dem Einstieg in die Route ist heikel. Sehr schnell gibt es keine Rueckzugsmöglichkeiten. Notausstiege sind selten und heikel. Bei schlechtem Wetter oder Problemen sind die Alpinisten auf sich alleine gestellt.<br />\n"
 "<br />\n"
-"<strong>VI</strong>: Die Route ist sehr lang und kann mehrere Tage in\n"
-"Anspruch nehmen. Der Zustieg ist lang und heikel, die Route ist in sehr\n"
-"isolierter Lage. Einmal eingestiegen, ist ein Rückzug nicht mehr\n"
-"möglich, eventuell vorhandene Notausstiege sind selbst anspruchsvolle\n"
-"Klettereien. Vollständige Unabhängigkeit der Seilschaft ist notwendig."
+"<strong>VI</strong>: Die Route ist sehr lang und kann mehrere Tage in Anspruch nehmen. Der Zustieg ist lang und heikel, die Route ist vollkommen isoliert. Nach dem Einstieg, ist ein Rückzug nicht mehr möglich. Eventuell vorhandene Notausstiege sind selbst anspruchsvolle Klettereien. Ein vollständige Unabhängigkeit der Seilschaft ist notwendig."
 
-# [WARNING] needs_review
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualität des vorhandenen Sicherungsmaterials</h3>\n"
-"Dieses Feld beschreibt das Vorhandensein und die Qualität von Sicherungsmaterial beim Fels- oder Eisklettern.<br />\n"
+"Dieses Feld beschreibt das Vorhandensein und die Qualität des Sicherungsmaterial beim Fels- oder Eisklettern.<br />\n"
 "<br />\n"
-"<strong>P1 (gut eingerichtet)</strong><br />\n"
-"Sportkletterabsicherung mit 10 oder 12mm Bohr- oder Klebehaken, etc. Die Route ist nicht immer zum Abseilen eingerichtet.<br />\n"
-"<em><u>Benötigte Ausrüstung</u>:</em> 12 bis 14 Express davon einige mit langen Schlingen, 1 bis 2 Schlingen um Längen im einfachen Gelände im II. Grad zusätzlich abzusichern.<br />\n"
+"<strong>P1 (gut ausgestattet)</strong><br />\n"
+"Sportkletterabsicherung mit 10 oder 12mm Bohr- oder Klebehaken, usw. Die Route muss jedoch nicht immer fuers Abseilen ausgestattet sein.<br />\n"
+"<em><u>Benötigte Ausrüstung</u>:</em> 12 bis 14 Express, davon einige mit langen Schlingen. 1 bis 2 Schlingen um sich zusätzlich im einfachen Gelände (bis IIer Grad) abzusichern.<br />\n"
 "<strong><br />\n"
-"P2 (teilweise eingerichtet)</strong><br />\n"
-"- Klassische Route mit genügend Sicherungsmaterial von guter Qualität, meistens Normalhaken und einige Bohrhaken. Es kann nötig sein das bestehende Material zu ergänzen oder zu verstärken.<br />\n"
+"P2 (teilweise ausgestattet)</strong><br />\n"
+"- Klassische Route mit genügendem Sicherungsmaterial guter Qualität, das meistens aus Normalhaken und einigen Bohrhaken besteht. Es kann jedoch nötig sein die vorhandene Ausstattung zu ergänzen oder zu verstärken.<br />\n"
 "- Klassische oder moderne Route mit Bohr- oder Normalhaken an den schwierigen und/oder unabsicherbaren Stellen, sowie an den Ständen.<br />\n"
-"- Sportkletterroute mit 8mm Bohrhaken oder anderes alteres Sicherungsmaterial.<br />\n"
-"<em><u>Benötigte Ausrüstung</u>:</em> Ist abhängig von der Route; für eine Route im Schwierigkeitsgrad S oder schwieriger sind üblicherweise mindestens 8 Keile, 5 Friends, 4 Schlingen und lange Express notwendig.<br />\n"
+"- Sportkletterroute mit 8mm Bohrhaken oder anderes älteres Sicherungsmaterial.<br />\n"
+"<em><u>Benötigte Ausrüstung</u>:</em> Hängt stark von der Route ab. Ab dem Schwierigkeitsgrad S sind üblicherweise mindestens 8 Klemmkeile, 5 Friends, 4 Schlingen und mehrere lange Express notwendig.<br />\n"
 "<br />\n"
-"<strong>P3 (wenig eingerichtet)</strong><br />\n"
+"<strong>P3 (wenig ausgestattet)</strong><br />\n"
 "Weniger klassische Route mit wenig Sicherungsmaterial und/oder von sehr schlechter Qualität. Das meiste Sicherungsmaterial muss selbst gelegt werden und die Stände müssen selbst gebaut werden.<br />\n"
-"<em><u>Benötigte Ausrüstung</u>:</em> Ist abhängig von der Route; für eine Route im Schwierigkeitsgrad S oder schwieriger sind üblicherweise mindestens ein komplettes Keilset, Friends durchgehend von Camalot #0.3bis #4, zwei Hämmer, 6 Normalhaken in verschiedenen Formen.<br />\n"
+"<em><u>Benötigte Ausrüstung</u>:</em> Hängt von der Route ab. Ab dem Schwierigkeitsgrad S sind mindestens ein komplettes Klemmkeilset, ein durchgehendes Set an Friends (Camalot #0.3 bis #4), zwei Hämmer, 6 Normalhaken verschiedener Form, üblich.<br />\n"
 "<br />\n"
-"<strong>P4 (nicht eingerichtet)</strong><br />\n"
-"Route ohne vorhandenes Sicherungsmaterial oder mit wenig Sicherungsmaterial von sehr zweifelhafter Qualität.<br />\n"
-"<em><u>Benötigte Ausrüstung</u>:</em> Ist abhängig von der Route; für eine Route im Schwierigkeitsgrad S oder schwieriger ist üblicherweise mindestens die Ausrüstung für eine P3 (wenig eingerichtet) und möglicherweise zusätzliches Material notwendig."
+"<strong>P4 (nicht ausgestattet)</strong><br />\n"
+"Route ohne vorhandenes Sicherungsmaterial oder mit wenig Sicherungsmaterial zweifelhafter Qualität.<br />\n"
+"<em><u>Benötigte Ausrüstung</u>:</em> Hängt von der Route ab. Ab dem Schwierigkeitsgrad S ist mindestens die Ausrüstung für eine P3 Route (wenig eingerichtet) notwendig."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Belichtungszeit</h3>Belichtungszeit der Aufnahme.<br />Diese Information wird aus der EXIF-Datei des hochgeladenen Bilds extrahiert. Sie können diese Informationen mit einem Foto- oder Bildbearbeitungsprogramm entfernen bevor sie das Bild hochladen."
@@ -3323,7 +3328,7 @@ msgstr "<h3>Positive Höhendifferenz</h3><u>Tour</u>: Kummulierter positiver Hö
 
 # [WARNING] needs_update
 msgid "_hiking_rating_info"
-msgstr "Beurteilung der Schwierigkeit von Wanderungen<br /><br/>Zur Beurteilung von Wanderrouten wird die SAC-Wanderskala verwenet.\n"
+msgstr "Beurteilung der Schwierigkeit von Wanderungen<br /><br/>Zur Beurteilung von Wanderrouten wird die SAC-Wanderskala verwendet.\n"
 "Diese besteht aus folgenden Schwierigkeitsbewertungen:<br/><br/><strong>T1-Wandern</strong>\n"
 "<b>Weg/Gelände</b>: Weg gut gebahnt. Falls nach SAW-Normen (Normen der Schweizerischen Wanderwege) markiert: gelb. Gelände flach oder\n"
 "leicht geneigt, keine Absturzgefahr.<br/><b>Anforderungen</b>: Keine, auch mit Turnschuhen geeignet.\n"
@@ -3530,9 +3535,8 @@ msgstr "<h3>Schwierigkeitsskala Mixed-Klettern</h3>\n"
 msgid "_moderator status_info"
 msgstr "<h3>Moderation</h3>: Falls der Benutzer Moderator-Status hat, bedeutet dies, dass er oder sie Moderator von Tourenführern und/oder Foren ist."
 
-# [WARNING] needs_review
 msgid "_name_info"
-msgstr "<h3>Titel</h3>Name oder Titel eines Objekts oder Dokuments.<br /><br /><strong>Himmelsrichtungen</strong>: In allen Dokumenten des Tourenführers werden die Haupthimmelsrichtungen in Grossbuchstaben gemäss den Abkürzungen der internationalen Bezeichnungen angegeben: N, E, S, W, NW, NE, SW, SE. Die einzige Ausnahme davon sind die Gipfelnamen: zum Beispiel Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Routenname</strong>:<br />- beinhaltet auschliesslich den Routennamen. Der Gipfelname wird mit dem Abschliessen der Änderung angezeigt.<br />- muss so neutral und undiskriminierend wie möglich sein.<br />-Sollte nach der Orientierung des Hangs, der Wand, Pfeiler oder Grat erfolgen, an welchem die Hauptschwierigkeiten der Route zu überwinden sind.<br />- Falls die Route einer bekannten Route mit einem Namen folgt, kann dieser Name verwendet werden.<br />- Der Routenname “Normalroute” oder “Normalweg sollte grundsätzlich vermieden werden, weil eine Gipfel mehrere Normalrouten (z.B. von zwei verschiedenen Tälern) haben kann und sogenannte Normalrouten im Verlauf der Saison ändern können. Falls “Normalroute” nichtsdestotrotz genannt wird, dann sollte dies in Klammern nach dem Namen erfolgen: S-Grat (Normalroute).<br /><br /><strong>Tourenname</strong>: Der Name kann frei gewählt werden. Standartmässig wird der Tourenname wie folgt erzeugt: <em>\"Gipfelname: Routenname\"</em>. Bei einer Veränderung oder Löschung des Gipfel- oder Routennamens wird der Tourenname aber nicht angepasst."
+msgstr "<h3>Titel</h3>Name oder Titel eines Objekts oder Dokumentes.<br /><br /><strong>Himmelsrichtungen</strong>: In allen Dokumenten des Tourenführers werden die Haupthimmelsrichtungen in Grossbuchstaben und gemäß den international anerkannten Abkürzungen angegeben: N, E, S, W, NW, NE, SW, SE. Die einzige Ausnahme bilden die Gipfelnamen: zum Beispiel Chulu East or South Howser Tower (and western, eastern, northern and southern...) anstatt E peak oder S tower.<br /><br /><strong>Routenname</strong>:<br />- beinhaltet ausschließlich den Namen der Route. Der Gipfelname wird automatisch angezeigt.<br />- Sollte  neutral und möglichst diskriminierend sein.<br />-Sollte die Orientierung des Hanges, der Wand, des Pfeilers oder des Grates beinhalten, an denen sich die Hauptschwierigkeiten der Route befinden.<br />- Falls die Route einer bekannten Route mit einem Eigennamen folgt (z.B. den der Erstbegeher), kann dieser verwendet werden.<br />- Der Begriff “Normalroute” oder “Normalweg\" sollte vermieden werden, da ein Gipfel mehrere Normalrouten haben kann (z.B. von zwei verschiedenen Tälern aus). Noch dazu können sogenannte Normalrouten sich im Jahresverlauf ändern. Wird der Begriff “Normalroute” trotzdem benutzt, sollte er in Klammern gesetzt werden und hinter dem Routennamen gestellt werden: z.B. S-Grat (Normalroute).<br /><br /><strong>Tourenname</strong>: Der Name kann frei gewählt werden. Standardmäßig wird der Tourenname wie folgt erzeugt: <em>\"Gipfelname: Routenname\"</em>. Der Tourenname wird nicht aktualisiert, wenn die Route modifiziert oder die Tour verschoben wurde."
 
 msgid "_nb_pages_info"
 msgstr "<h3>Seitenanzahl</h3>Die Anzahl der Seiten des Buchs. Falls es mehrere Ausgaben gibt, bezieht sich die Seitenanzahl auf die aktuellste Ausgabe."
@@ -3595,11 +3599,9 @@ msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Notwendige Info
 msgid "_public_transportation_rating_info"
 msgstr "<h3>Erreichbarkeit mit öffentlichen Verkehrsmitteln</h3>Einfachheit der Erreichbarkeit mit öffentlichen Verkehrsmitteln, etvl. durch eine verhältnismässige Gehdistanz.<br />Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> können zusätzliche Informationen angegeben werden.<br /><br /><strong>Regelmässiger Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen und ganzjährig gewährleistet.<br /><br /><strong>Saisonale Erschliessung</strong>: Mindestens eine tägliche Verbindung an sämtlichen Wochentagen gewährleistet, aber nur zu gewissen Jahreszeiten<br /><br /><strong>Eingeschränkte Erschliessung</strong>: Verbindungen nur während gewissen Tagen und eventuell nur während gewissen Jahreszeiten gewährleistet. Details zu der Erschliessung sollten im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> angegeben werden.<br /><br /><strong>Erschliessung in der Nähe</strong>: Der Ort ist nicht direkt erschlossen, kann aber mit einem verhältnismässigen Fussmarsch erreicht werden. Im Feld <em>Erreichbarkeit mit öffentlichen Verkehrsmitteln</em> kann der Fussmarsch und die Haltestelle näher beschrieben werden.<br /><br /><strong>Keine Erschliessung</strong>: Keine Verbindung mit öffentlichen Verkehrsmitteln, d.h. der Ort kann mit öV nicht mit verhältnismässigem Aufwand erreicht werden."
 
-# [WARNING] needs_update
 msgid "_public_transportation_types_info"
 msgstr "<h3>Typ des öffentlichen Verkehrsmittel</h3>\n"
-"Typ des öffentlichen Verkehrsmittels, welches den Zugangsort erschliesst. Dabei ist nur das Verkehrsmittel anzugeben, welches den\n"
-"Zugangsort bedient. <em>Z.B. wenn ein Zugangsort mit einem Bus erschlossen ist, welcher vom 10km entfernten Bahnhof startet, dann wird nur \"Bus\" angegeben.</em><br /><br /><strong>Zug:</strong><span style=\"font-weight: bold;\"></span> Zug<br /><br /><strong>Bus:&nbsp;</strong> Postauto oder Bus<br /><br /><strong>Auf Anfrage</strong>: Taxi, Rufbus, oder Abholdienst"
+"Typ des öffentlichen Verkehrsmittels, um den Zugangsort zu erreichen. Dabei sind nur die Verkehrsmittel anzugeben, welche auch in der Nähe des Zugangsortes halten. <em>Z.B. wenn ein Zugangsort mit einem Bus erreichbar ist, welcher vom einem 10km entfernten Bahnhof startet, dann nur \"Bus\" angegeben.</em><br /><br /><strong>Zug:</strong> Zug<br /><br /><strong>Bus:</strong> Postauto oder Bus<br /><br /><strong>Auf Anfrage:</strong> Taxi, Rufbus, die eine Zug- oder Buslinie fortführen und mit demselben Zug- oder Busticket benutzt werden können.<br /><br /><strong>Schiff:</strong> regelmäßige Schiffslinie mit Passagiertransport."
 
 msgid "_publication_date_info"
 msgstr "<h3>Veröffentlichungsdatum</h3>Datum, an welchem das Buch oder die Zeitschrift veröffentlicht wurde. Falls mehrere Auflagen der Publikation existieren, wird auf die aktuellste Auflage Bezug genommen, oder man gibt die erste und letzte Auflage separiert durch einen Trennstrich (z.B. 1983 – 2010) an. Dieses Feld ist dasselbe in allen Sprachen, weshalb ausschliesslich nummerische Datumsangaben verwendet werden sollten (\"2004\", \"03/2009\", etc.).<br/> Bei Büchern wird beim Publikationsdatum lediglich die Jahrzahl angeben, bei Zeitschriften das Jahr und den Monat."
@@ -3692,12 +3694,8 @@ msgid "_route_length_info"
 msgstr "<h3>Distanz</h3>Gesamtdistanz einer Tour, vor allem bei Wanderungen oder Ski-/Schneeschuh-/Snowboardtouren nützlich.<br />Die Distanz wird automatisch aus dem verbunden GPX-Track berechnet.\n"
 "Falls ein früherer Wert im Feld enthalten ist, wird dieser überschrieben."
 
-# [WARNING] needs_review
 msgid "_route_type_info"
-msgstr "<h3>Routentyp</h3>Das Feld beschreibt, ob und falls ja wie zum Ursprungsort der Tour\n"
-"zurückgekehrt wird. Der Routentyp ist relevant für alle Aktivitäten, hat aber je nach Aktivität eine andere Bedeutung, da bei gewissen Kletterarten zwischen Zustieg und eigentlicher Route unterschieden wird.<br /><br /><strong>Hin und zurück / abseilen</strong>: Aufstieg und Abstieg (etvl. abseilen) mehrheitlich auf derselben Route. Das nicht notwendige Gepäck kann am Einstieg deponiert werden.<br /><br /><strong>Rundtour / Fussabstieg zum Einstieg oder Hütte:</strong> Eine Rundtour über den Gipfel zurück zum Einstieg oder zur Hütte, wobei Aufstieg und Abstieg nicht identisch sind. Das nicht notwendige Gepäck kann am Einstieg deponiert werden.<br />\n"
-"Bei Ski-/Snowboardtouren schliesst das auch eine Abfahrt über ein Couloir oder Flanke ab,&nbsp; aber man im Austieg nicht begangen hat solange die Tour am selben Ort endet wie sie begonnen hat.<br /><br /><strong>Traverse</strong>: Traversierung zwischen zwei unterschiedlichen Orten, wie z.B. Etappen einer Mehrtageswanderung,\n"
-"oder Aufstieg von Tal A mit Abstieg ins Tal B. Samtliches Gepäck muss mitgeführt werden und kann nirgends deponiert werden."
+msgstr "<h3>Routentyp</h3> <br /><br /><strong>Hin und zurück / abseilen</strong>: Aufstieg und Abstieg (etvl. Abseilen) erfolgen mehr oder weniger entlang derselben Route. Ein Teil des Gepäcks kann am Einstieg zurückgelassen werden. <br /><br /><strong>Rundtour / Rückkehr zum Einstieg oder zur Hütte:</strong> Eine Rundtour über den Gipfel zurück zum Einstieg, zur Hütte oder Biwak, wobei Aufstieg und Abstieg nicht identisch sind. Ein Teil des Gepäcks kann am Einstieg, in der Hütte oder am Biwak zurückgelassen werden.<br /> Bei Ski-/Snowboardtouren schließt dies auch eine Abfahrt über ein Couloir oder Flanke ein, die nicht im Aufstieg begangen wurde, solange die Abfahrt durch dasselbe Tal zurückkehrt wie beim Aufstieg (Aufstieg und Abfahrt sind zum großen Teil gleich). <br /><br /><strong>Durchquerung</strong>: Durchquerung zwischen zwei unterschiedlichen Orten (z.B. Etappen einer Mehrtageswanderung), Umrundung mit Rückkehr zum Startpunkt. Sämtliches Gepäck muss mitgeführt werden und kann nirgends deponiert werden."
 
 msgid "_routes_quantity_info"
 msgstr "<h3>Anzahl der Kletterrouten</h3>Ungefähre Anzahl der Routen in einem Gebiet/Sektor."
@@ -3766,7 +3764,6 @@ msgstr "<h3>Kompatibel mit</h3>\n"
 "<strong>Anfänger</strong>: Die Route ist geeignet um eine Aktivität zu erlernen. Für Ski- und Snowboardtouren ist eine Anfängertour unter dem Schwierigkeitsgrad 3.2 (äquivalent mit einer schwarzen Piste in einem Skigebiet), ist nicht ausgesetzt (E1) und es kann vom Gipfel bis zum Zugangsort mit den Skier abgefahren werden (kein Skitragen, wenige flache Abschnitte, kein dicht bewaldeten Abschnitte – oder andere Schindereien). Dies ermöglicht dem Anfänger beim Aufstieg jederzeit die Umkehr.<br />\n"
 "Da die <em>Anfänger</em>-Kategorie eine breite Spannweite an Schwierigkeiten beinhaltet, kann es sinnvoll sein, bei der Routensuche die maximale Schwierigkeit anzugeben."
 
-# [WARNING] needs_review
 msgid "_summit_type_info"
 msgstr "<h3>Gipfeltyp</h3>\n"
 "Typ eines geographischen Punktes, welcher als Tourenziel dienen kann:<br />\n"
@@ -3775,9 +3772,9 @@ msgstr "<h3>Gipfeltyp</h3>\n"
 "<br />\n"
 "<strong>Pass</strong>: Pass, Übergang, Sattel, Scharte<br />\n"
 "<br />\n"
-"<strong>Felswand</strong>: Auffällige Felswand, wie z.B. Wasser-/Eisfall, Monolith, Eisaufwölbung eines Gletschers. Darin enthalten sind auch Felsen in tiefen Lagen, an welchen sich Mehrseillängenklettereien (Fels, Eis oder Mix) befinden.\n"
+"<strong>Felswand</strong>: Gebiet mit Eiskletter- oder Felsklettertouren mit mehreren Seillängen.\n"
 "<br />\n"
-"<strong>Tal</strong>: Auffälliger Punkt im Talgrund<br />\n"
+"<strong>Tal</strong>: Auffälliger Punkt im Talgrund, oder übergeordneter Gipfel unter dem die verschiedenen Felsen in einem Tal zusammenfasst werden<br />\n"
 "<br />\n"
 "<strong>See</strong>: Bergsee<br />\n"
 "<br />\n"
@@ -3836,17 +3833,11 @@ msgstr "<h3>Bild hochgeladen von</h3>Der Benutzer, welcher das Bild auf die Webs
 msgid "_url_info"
 msgstr "<h3>URL</h3>Link auf die Hütte, auf die Website des Autors, oder auf ein herunterladbares Dokument"
 
-# [WARNING] needs_review
 msgid "_variants_info"
-msgstr "<h3>Verbundene Routen</h3> Miteinander verbundene Routen sind Routen, welche einen teilweisen identischen Routenverlauf haben oder über dieselben Schwierigkeiten verlaufen.<br /> <br /> Zum Beispiel, eine Überschreitung eines Gipfels, welche durch ein bestimmtes Couloir abgestiegen wird, muss mit der Route verbunden werden, welche das Couloir an sich beschreibt.<br /> Andererseits werden Varianten innerhalb einer Schwierigkeit (z.B. ein Couloir mit zwei Ausstiegen, ein Pfeiler, welcher über den Hauptgrad oder wenig davon Abweichend in der Flanke begangen werden kann, etc.) in derselben Route beschrieben.<br /> <br /> Die auf dieser Seite angezeigten Liste der Touren enthält die Touren, welche mit der Route verbunden sind, sowie die Touren, welche mit den verbundenen Routen verbunden sind. Dies erlaubt einerseits unterschiedliche, spezifische Routenbeschreibungen, aber andererseits auch gemeinsame Informationen über die Verhältnisse."
+msgstr "<h3>Verbundene Routen</h3> Routen, welche einen teilweisen identischen Verlauf haben, sollte miteinander verbunden werden.<br /> Ein Beispiel: Die Beschreibung einer Gipfelüberschreitung, bei der der Abstieg durch ein bestimmtes Couloir erfolgt. Existiert die Beschreibung des Auf- und Abstieges dieses Couloir in einer anderen Routenbeschreibung, sollten beide Beschreibungen miteinander verbunden werden.<br /> Andererseits sollten Varianten innerhalb einer Route (z.B. ein Couloir mit zwei Ausgaengen, ein Pfeiler, welcher entweder über den Hauptgrad oder über die Flanke begangen werden kann, usw.) in derselben Route beschrieben.<br /> Die auf dieser Seite angezeigten Liste enthält Touren, welche mit der Route verbunden sind, sowie die Touren, welche mit den verbundenen Routen verbunden sind. Dadurch hat man trotz unterschiedlicher Routenbeschreibungen, Zugang zu Informationen wie die Verhältnisse die den Routen gemeinsam sind."
 
-# [WARNING] needs_review
 msgid "_vtt_approach_info"
-msgstr "<h3>Zugang mit MTB möglich</h3>\n"
-"Der ganze oder ein massgeblicher Teil des Zugangs ab dem höchsten, im Sommer mit dem Auto erreichbaren Punkt dieser Route kann einfach mit dem Mountain Bike gemacht werden.<br />\n"
-"Dies betrifft Zugänge, welche mit folgenden Wegtypen beginnen:<br />\n"
-"- Ein Weg oder eine Strasse, welche für Motorfahrzeuge gesperrt ist<br />\n"
-"- Ein breiter, wenig gefährlicher und wenig steiler Weg, auf welchem MTB zugelassen sind. "
+msgstr "<h3>Zugang mit MTB möglich</h3>Der ganze oder ein maßgeblicher Teil des Zugangs kann mit dem Mountain Bike erfolgen (der Startpunkt ist der höchste, mit dem Auto erreichbarer Punkt im Sommer).<br /> Dies betrifft Zugänge, welche mit folgenden Wegtypen beginnen:<br />- Eine Straße oder eine Piste, welche für Motorfahrzeuge gesperrt sind<br />- Ein breiter, ungefährlicher und wenig steiler Weg, auf welchem MTB zugelassen sind. "
 
 msgid "_way_back_info"
 msgstr "<h3>Abstieg der Route</h3>Üblicher Abstieg vom Gipfel der Route und relevante Infos:<br /><br />\n"
@@ -4630,16 +4621,14 @@ msgstr "Den Schwierigkeitsgrad einschätzen"
 msgid "cond short"
 msgstr "Verhältnisse"
 
-# [WARNING] needs_update
 msgid "conditions"
-msgstr "Angetroffene Verhältnisse (Zustieg und Route):"
+msgstr "Angetroffene Verhältnisse (Zustieg, Route und Umfeld):"
 
 msgid "conditions linked to"
 msgstr "Die Liste der verbundenen Verhältnisse"
 
-# [WARNING] needs_update
 msgid "conditions_and_equipment"
-msgstr "Angetroffene Verhältnisse, Ausrüstung und Felsqualität (Zustieg und Route):"
+msgstr "Angetroffene Verhältnisse, Ausstattung und Felsqualität (Zustieg und Route):"
 
 msgid "conditions_levels"
 msgstr "Schneelage:"
@@ -4747,9 +4736,8 @@ msgstr "Erstellungen"
 
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
-# [WARNING] needs_review
 msgid "credits"
-msgstr "Kredite"
+msgstr "Danksagung"
 
 msgid "culmen"
 msgstr "Kulminationspunkt"
@@ -5021,13 +5009,13 @@ msgstr "Fauna"
 # [general comment]
 # A revoir : le texte entre parenthèse est le même que pour P3+
 msgid "few equipment"
-msgstr "P3 (wenig ausgerüstet)"
+msgstr "P3 (wenig ausgestattet)"
 
 # [general comment]
 # A revoir : le texte entre parenthèse est le même que pour P3
 # [WARNING] needs_review
 msgid "few equipment +"
-msgstr "P3+ (wenig ausgerüstet)"
+msgstr "P3+ (wenig ausgestattet)"
 
 msgid "field cannot be left blank"
 msgstr "dieses Feld kann nicht leer sein "
@@ -5180,9 +5168,8 @@ msgstr "Ausrüstung und Technik"
 
 # [general comment]
 # no linebreaks allowed, use &quot; for quotes (")
-# [WARNING] needs_review
 msgid "gear_default"
-msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung benötigt wird. Nur das zusätzliche, &quot;exotische&quot; Material (Qualität und Menge) soll genannt werden. Beispiele von unnötigen Aufzählungen: LVS, Felle, Lawinensonde, etc. (Bei Skitouren in der üblichen Skitourenausrüstung enthalten), Steigeisen, Pickel (Bei Alpintouren mit Gletscherbegehung in entsprechender Standartausrüstung enthalten und dort aufgeführt), Gletscherausrüstung (Bei Gletschertouren - ankreuzen des Felds &quot;benötigt Gletscherausrüstung&quot; genügt), Friends, Keile und Schlingen ohne genauere Angabe des Typs und der Menge (Beim Klettern - bitte Nummern und Anzahl angeben).  "
+msgstr "Führen sie hier lediglich die Ausrüstung auf, welche zusätzlich zur üblichen Ausrüstung fuer die Route benötigt wird. Nur das zusätzliche, außergewöhnliche Material (Qualität und Menge) sollten hier angegeben werden. Beispiele von unnötigen Aufzählungen sind: LVS, Felle, Lawinensonde bei Skitouren (diese sind diese in der üblichen Skitourenausrüstung enthalten); Steigeisen, Pickel, Gletscherausrüstung (Bei Gletschertouren - genügt es das Feld &quot;benötigt Gletscherausrüstung&quot; anzukreuzen), Friends, Keile und Schlingen falls keine genauen Angaben über Anzahl und Typus geliefert werden. "
 
 msgid "gear_shop"
 msgstr "Sportgeschäft"
@@ -5436,9 +5423,8 @@ msgstr "Bilder:"
 msgid "image_new_version"
 msgstr "Neue Version des Bilds"
 
-# [WARNING] needs_review
 msgid "image_type"
-msgstr "Bildtyp:"
+msgstr "Bildtyp (Lizenz):"
 
 msgid "images"
 msgstr "Bilder"
@@ -5454,9 +5440,8 @@ msgstr "Ein Bild einfügen"
 
 # [general comment]
 # message qui prévient l'utilisateur que les images importées depuis sont ordinateur dans l'assistant d'images du forum seront hébergées sur imgur
-# [WARNING] needs_review
 msgid "imgur notice %1%"
-msgstr "Die von ihrem Computer heruntergeladenen Bilder werden auf %1% beherbergt. Camptocamp nimmt keinerlei Verantwortung für deren Fortbestand.<br /> Photos die Sie während einer Tour aufgenommen haben, sollten eher auf dem Tourenbericht oder unter ihrem persönlichem Profil heruntergeladen werden."
+msgstr "Die von ihrem Computer heruntergeladenen Bilder werden auf %1% beherbergt. Camptocamp nimmt keinerlei Verantwortung für deren Fortbestand.<br /> Ihre während einer Tour aufgenommenen Photos  sollten eher auf dem Tourenbericht oder unter ihrem persönlichem Profil heruntergeladen werden."
 
 msgid "imported from v4"
 msgstr "von Version 4 der Website importiert "
@@ -5607,9 +5592,8 @@ msgstr "gesamte Schneehöhe (cm)"
 msgid "license"
 msgstr "Lizenz:"
 
-# [WARNING] needs_review
 msgid "lift_approach"
-msgstr "Zugang mit mechanischen Aufsteighilfen möglich"
+msgstr "Zustieg mit der Bergbahn möglich"
 
 msgid "lift_status"
 msgstr "Liftanlagen:"
@@ -6120,7 +6104,6 @@ msgstr "nein"
 msgid "no equipment"
 msgstr "P4 (nicht eingerichtet)"
 
-# [WARNING] needs_review
 msgid "no equipment +"
 msgstr "P4+ (nicht ausgestattet)"
 
@@ -6198,7 +6181,7 @@ msgstr "Optionen"
 
 # [WARNING] needs_review
 msgid "or drag & drop files"
-msgstr "oder drag&drop der Dateien vom Computer"
+msgstr "oder drag&drop der Bilder vom Computer"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
@@ -6815,9 +6798,8 @@ msgstr "Klettergarten (eine Seillänge)"
 # 
 # Faut-il préciser "rocher" dans les trads ?
 # -> Oui pour ne pas confondre avec l'exposition ski (qui a été renommée aussi), même si on n'a jamais les 2 cotations dans le même itinéraire (mais on peut avoir les 2 cotations dans une même liste d'iti). De plus, pour une itinéraire alpi neige + alpi rocher, ça concerne uniquement l'exposition sur les parties rocheuses.
-# [WARNING] needs_update
 msgid "rock_exposition_rating"
-msgstr "Ausgesetztheit:"
+msgstr "Ausgesetztheit im Felsen:"
 
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
@@ -7095,9 +7077,8 @@ msgstr "Neigung:"
 msgid "small pillar"
 msgstr "kleiner Pfeiler"
 
-# [WARNING] needs_review
 msgid "snow lists explanation"
-msgstr "Die untenstehenden Lawinenbulletins werden in der Wintersaison üblicherweise täglich vom SLF für die Schweiz und von der ENA für Frankreich veröffentlicht. Im Herbst und im Frühling werden die Bulletins lediglich ein- oder zweimal wöchtentlich aktualisiert.<br />Das Lawinenbulletin von Frankreich ist nur in Französisch verfügbar."
+msgstr "In der Wintersaison werden die unten stehenden Lawinenberichte  täglich vom SLF (Schweiz), Météo-France (Frankreich), Institut Geològic (Katalonien) und el Conselh Generau (Val d'Aran) veröffentlicht. Im Herbst und im Frühling werden die Lawinenberichte lediglich ein- oder zweimal pro Woche aktualisiert.<br />Der Lawinenbericht für Frankreich ist nur in Französisch verfügbar. "
 
 # [general comment]
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
@@ -7110,17 +7091,14 @@ msgstr "Details zur Schneeräumung:"
 msgid "snow_clearance_rating"
 msgstr "Schneeräumung:"
 
-# [WARNING] needs_review
 msgid "snow_ice_mixed"
-msgstr "Hochtouren"
+msgstr "Alpinismus Schnee, Eis und Mixt"
 
-# [WARNING] needs_review
 msgid "snowboard"
-msgstr "Snowboard"
+msgstr "zum Snowboarden geeignet"
 
-# [WARNING] needs_review
 msgid "snowshoeing"
-msgstr "Schneeschuhtouren"
+msgstr "Schneeschuhwandern"
 
 # [WARNING] needs_review
 msgid "snowshoeing_rating"
@@ -7138,13 +7116,11 @@ msgstr "Nachhaltige Mobilität"
 msgid "soft mobility outings"
 msgstr "Tour mit nachhaltigen Verkehrsmitteln"
 
-# [WARNING] needs_review
 msgid "some filters active"
-msgstr "Einige Inhaltsfilter sind aktiv. Klicken sie, um diese vorübergehend zu deaktivieren"
+msgstr "Einige Inhaltsfilter sind aktiv. Klicken sie diese an, um sie vorübergehend zu deaktivieren"
 
-# [WARNING] needs_review
 msgid "some filters have been defined but are not activated"
-msgstr "Filter wurden definiert, sie sind aber nicht aktiv. Klicken Sie, um sie zu reaktivieren."
+msgstr "Filter wurden definiert, sie sind aber nicht aktiv. Klicken Sie diese an, um sie zu reaktivieren."
 
 msgid "some people"
 msgstr "wenig besucht"
@@ -7160,16 +7136,14 @@ msgstr "Quelle"
 
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
-# [WARNING] needs_review
 msgid "source file"
 msgstr "Quelldatei (SVG):"
 
 msgid "specific gear"
 msgstr "Spezifische Ausrüstung:"
 
-# [WARNING] needs_review
 msgid "staffed_capacity"
-msgstr "Platzanzahl während der Bewartung:"
+msgstr "Anzahl der Plätze während der Bewartungszeiten:"
 
 # [general comment]
 # Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
@@ -7178,16 +7152,14 @@ msgstr "Platzanzahl während der Bewartung:"
 msgid "staffed_capacity short"
 msgstr "Sommer"
 
-# [WARNING] needs_review
 msgid "staffed_period"
 msgstr "Bewartungszeitraum:"
 
 msgid "steep skiing portal"
 msgstr "Steilwandskifahren"
 
-# [WARNING] needs_review
 msgid "stories"
-msgstr "Erlebnisberichte und Erzählungen"
+msgstr "Erlebnisberichte, Erzählungen"
 
 # [WARNING] needs_review
 msgid "sub-parkings"
@@ -7205,21 +7177,14 @@ msgstr "untergeordnetes Klettergebiet"
 msgid "sub-summits"
 msgstr "untergeordnete Gipfel, Pässe, Seen und Felswände"
 
-# [WARNING] needs_review
 msgid "sub_activities"
 msgstr "Kompatibel mit:"
 
 msgid "summit"
 msgstr "Gipfel"
 
-# [WARNING] needs_review
 msgid "summit form warning"
-msgstr "<strong>Achtung!</strong> Geben sie auf dieser Seite nur Informationen, welcher mit dem Gipfel in direktem Bezug stehen an, wie z.B. Lokalisierung, Geologie, Geschichte, etc. Routenbeschreibungen und ihre Geschichte müssen in der entsprechenden Route erfolgen.<br /><br /><strong>Gipelname:</strong><br>\n"
-"- Ein Gipfel muss eine geographischer Ort sein: Gipfel, Pass, Lücke, Wasserfall, Fels für Mehrseillängenklettereien, etc.<br />\n"
-"- Ein Gipfel kann keine Tour oder eine Traverse sein. Diese müssen als Routen beschrieben und einem Gipfel zugeordnet werden.<br />- Ausnahme: Für eine mehrtägige Wanderung erstellen sie eine Gipfel des\n"
-"Typs \"mehrtägige Wanderung\", dann verbinden sie die Routen für jede Etappe oder erstellen eine Route für alle Etappen.<br>\n"
-"<strong>Georeferenzierung:</strong> Um ein Gipfel einem Gebirgsmassiv oder Regionenzuzuordnen muss der Gipfel georeferenziert sein und die geographischen Koordinaten eingetragen sein.<br /><br />Mehr Informationen über den Aufbau des Tourenführers finden sie in der <a\n"
-"href=\"../../articles/117868/de\">Hilfe</a>."
+msgstr "<strong>Achtung!</strong> Geben sie auf dieser Seite nur Informationen ein, die direkt mit dem Gipfel in Bezug stehen: Lokalisierung, Geologie, Geschichte, usw. Routenbeschreibungen und deren Geschichte erfolgen unter den Seiten der jeweiligen Routen. <br /> Information über die Organisation des Tourenfuehrers finden sie <a href=\"/articles/117868/de\">hier</a>.</li><li><strong>Gipelname:</strong><br/>- Ein Gipfel muss eine geographischer Ort sein: Gipfel, Pass, Scharte, See, Wasserfall, Fels für Mehrseillängenklettereien, etc.<br />- Ein Gipfel stellt keine Umrundung oder Durchquerung dar. Eine Umrundung oder Durchquerung werden als Routen beschrieben und anschließend dem umrundeten oder durchquerten Gipfel zugeordnet. Bei mehreren Gipfel wird die Route mehreren Gipfel zugeordnet.<br />- Ausnahme: Für eine mehrtägige Wanderung erstellen sie eine Gipfel des Typs <em>mehrtägige Wanderung: Name</em>, und verbinden diese dann mit den Routen der jeweiligen Etappe oder erstellen eine Route die alle Etappen beschreibt.</li><li><strong>Georeferenzierung:</strong> Um einen Gipfel einem Gebirgsmassiv oder einer Region zuzuordnen muss der Gipfel georeferenziert sein und dessen geographische Koordinaten eingetragen sein."
 
 msgid "summit_id"
 msgstr "Gipfel:"
@@ -7237,9 +7202,8 @@ msgstr "Gipfel, Pässe, Seen, Felswände "
 msgid "summits list"
 msgstr "Liste der Gipfel, Pässe, Seen, Felswände"
 
-# [WARNING] needs_review
 msgid "summits presentation"
-msgstr "A \"Gipfel\" kann ein Kulminationspunkt, ein Pass, ein See, ein bemerkenswerter Punkt in einem Tal, eine Felswand (nützlich beim Eisklettern und langen Mehrseillängenrouten), oder eine Mehrtagesroute sein."
+msgstr "A \"Gipfel\" kann ein Kulminationspunkt, ein Pass, eine Scharte, ein See, ein bemerkenswerter Punkt in einem Tal, eine Felswand (nützlich für Eiskletter- oder Mehrseillängenrouten), oder eine Mehrtagesroute sein."
 
 msgid "svg file"
 msgstr "SVG-Datei"
@@ -7259,9 +7223,8 @@ msgstr "Nur Eisklettern anzeigen"
 msgid "switch_to_mountain_climbing"
 msgstr "Nur Alpinklettern anzeigen"
 
-# [WARNING] needs_review
 msgid "switch_to_paragliding"
-msgstr "Nur Gleitschirmfliegen anzeigen"
+msgstr "Nur Gleitschirm Aktivitäten anzeigen"
 
 msgid "switch_to_rock_climbing"
 msgstr "Nur Sportklettern anzeigen"
@@ -7292,9 +7255,8 @@ msgstr "Technik"
 msgid "terms of use"
 msgstr "Benutzungsbedingungen"
 
-# [WARNING] needs_review
 msgid "thanks for new outing"
-msgstr "Besten Dank für deine Tour! Beweigere dich nicht die Routenbeschreibung zu verbessern."
+msgstr "Besten Dank für deine Tour! Fühl dich frei die dazugehörige Routenbeschreibung zu verbessern."
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
@@ -7307,9 +7269,8 @@ msgstr "Die Liste ist nach dem Erstellungsdatum der Dokumente geordnet."
 # [general comment]
 # Utilisé dans les formulaire, autour des sélecteurs d'ordre de tri :
 #   Afficher N résultats par page triés par ... puis par ...
-# [WARNING] needs_review
 msgid "then by"
-msgstr "danach bei"
+msgstr "und nach"
 
 msgid "there is no %1% to show"
 msgstr "Es gibt kein Ergebnis in der Liste der %1%. Vielleicht sind ihre Filter zu restriktiv? Haben sie einen Tippfehler gemacht? Versuchen sie es lediglich mit einem charakteristischen Teil des Wortes."
@@ -7348,9 +7309,8 @@ msgstr "Diese Telefonnummer ist zu kurz (minimal 8 Zeichen)"
 msgid "timing"
 msgstr "Zeiten (Abmarsch, Gesamtdauer, etc.):"
 
-# [WARNING] needs_review
 msgid "to sort by one column, click once or twice in its title"
-msgstr "Bei einer Suche nach einer Region oder einem Gebirgsmassiv werden nur georeferenzierte Dokumente gefunden. Die Listen werden entsprechend der eingestellten und aktivierten personalisierten Filter gefiltert. Die Filter können sie über das Menu einstellen.<br />Um nach einer Spalte zu sortieren, klicken sie ein- oder zweimal auf den Spaltentitel."
+msgstr "Bei einer Suche nach einer Region oder einem Gebirgsmassiv werden nur georeferenzierte Dokumente aufgelistet. Die Listen werden entsprechend der im Menü eingestellten und aktivierten Filter gefiltert.<br />Um nach einer Spalte zu sortieren, klicken sie ein- oder zweimal auf den Spaltentitel."
 
 msgid "today, at %1%"
 msgstr "heute, um %1%"
@@ -7572,7 +7532,6 @@ msgstr "Sichtverhältnisse"
 msgid "vosges portal"
 msgstr "Vogesen"
 
-# [WARNING] needs_review
 msgid "vtt_approach"
 msgstr "Zugang mit MTB möglich"
 
@@ -7608,9 +7567,8 @@ msgstr "Dieselben Kriterien wie in dieser Liste verwenden"
 # [general comment]
 # TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN, IT & DE
 # 
-# [WARNING] needs_review
 msgid "widget generator help"
-msgstr "Camptocamp.org bietet die Möglichkeit an ihrer Website oder ihrem Blog ein Widget hinzuzufügen, welches Inhalte des Tourenführers anzeigt. Sie können also zum Beispiel ihre letzten Touren, die kürzlich zum Tourenführer hinzugefügten Gipfel oder Routen, oder irgendeine Liste von Inhalten anzeigen. <br /><br />Geben sie den gewünschten Titel des Widgets an und kopieren sie den unten dargestellten Code in ihre Website. Und das ist schon Alles!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Mehr Informationen</a>"
+msgstr "Camptocamp.org bietet die Möglichkeit auf ihrer Website oder auf ihrem Blog ein Widget hinzuzufügen, welches den Inhalt des Tourenführers anzeigt. Sie können damit ihre letzten Touren,  kürzlich zum Tourenführer hinzugefügten Gipfel, oder irgendeine andere Inhaltsliste, die Ihnen vorschwebt, anzeigen. <br /><br />Geben sie den gewünschten Titel des Widgets an und kopieren sie die unten-stehenden Programmzeilen auf ihre Website. Das war's dann schon!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Mehr Informationen</a>"
 
 # [general comment]
 # image width
