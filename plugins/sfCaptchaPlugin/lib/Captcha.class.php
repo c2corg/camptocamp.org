@@ -1,6 +1,4 @@
 <?php
-  require_once 'jpgraph/jpgraph_antispam.php';
-
   class Captcha extends AntiSpam {
 
     public function plot() {

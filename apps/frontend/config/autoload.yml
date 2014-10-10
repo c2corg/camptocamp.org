@@ -15,6 +15,11 @@ autoload:
     ext:            .inc
     path:           %SF_LIB_DIR%/vendor/geoPHP/
 
+  jpgraphAntispam:
+    name:           "jpgraph antispam class"
+    files:
+      Antispam:     %SF_LIB_DIR%/vendor/jpgraph/jpgraph_antispam.php
+
   # override symfony default to avoid unnecessary loads
   project:
     exclude:        [model, symfony, geoPHP, password_compat]
