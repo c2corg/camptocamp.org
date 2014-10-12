@@ -982,7 +982,7 @@ class sfPunBBCodeParser
                 $toc .= '<div class="clearer"></div>';
             }
             $toc .= '<p>';
-            $text = preg_replace('#\n?\[toc[ ]*\d*[ ]*(right)?\]\n?#i', $toc, $text, 1);
+            $text = preg_replace('#\n?\[toc[ ]*\d*[ ]*(right|left)?\]\n?#i', $toc, $text, 1);
         }
         
         return $text;
@@ -2083,7 +2083,7 @@ class sfPunBBCodeParser
         $text = self::do_bbcode($text, false, false);
         $text = self::do_images($text, null, false, false);
         $text = self::do_videos($text, false);
-        $text = preg_replace(array('/(?<![&LR])#+((c\d?)[ ])?[ ]?/', '#\[toc[ ]*(\d*)[ ]*(right)?\]#i'), array('', ''), $text);
+        $text = preg_replace(array('/(?<![&LR])#+((c\d?)[ ])?[ ]?/', '#\[toc[ ]*(\d*)[ ]*(right|left)?\]#i'), array('', ''), $text);
         $text = self::do_spaces($text, false);
     
         return $text;
