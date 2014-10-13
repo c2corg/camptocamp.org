@@ -1681,7 +1681,7 @@ class sfPunBBCodeParser
             $item = preg_replace($pattern, $replace, $item);
             
             // traitement des références dans l'item
-            $item = _processLineItemLineReference($item);
+            $item = self::processLineItemLineReference($item);
             
             // traitement de l'item
             $pattern_item = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
@@ -1739,13 +1739,13 @@ class sfPunBBCodeParser
         }
         else   // texte multicolonne inter-longueurs
         {
-            $item = _processLineItemLineReference($item);
+            $item = self::processLineItemLineReference($item);
             return '<tr class="interline"><td colspan="' . $nb_col . '">' . $item . '</td></tr>';
         }
     }
     
     // traitement des références dans une case
-    public static function _processLineItemLineReference($item)
+    public static function processLineItemLineReference($item)
     {
         global $doc_module, $is_line, $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix;
         
