@@ -42,6 +42,8 @@ all:
     # 1day session
     timeout:                86400
     prototype_web_dir:      /static
+    # custom function for generating the cache namespace
+    cache_namespace_callable: CacheNamespace::generate
 
     # following settings are defined so that if SF_ENVIRONEMENT in web.index.php isn't an existing target,
     # they will be applied anyway. We use same settings as prod environement

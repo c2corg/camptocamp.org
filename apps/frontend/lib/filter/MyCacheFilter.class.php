@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file comes the symfony package (originally sfCacheFilter.class.php) and has been reworked by me (vdb).
+ * This file comes the symfony package (originally sfCacheFilter.class.php) and has been reworked in order
+ * to tweak the cache uris
  */
 
 class MyCacheFilter extends sfCacheFilter

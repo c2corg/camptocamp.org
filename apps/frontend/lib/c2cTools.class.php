@@ -20,10 +20,10 @@ class c2cTools
         return $result;
     }
 
-    // returns whether the hostname is the one defined for mobile version of the site
+    // returns whether we should deliver content specific for the mobile version
     public static function mobileVersion()
     {
-        return (sfContext::getInstance()->getRequest()->getHost() == sfConfig::get('app_mobile_version_host'));
+        return (sfContext::getInstance()->getUser()->getAttribute('form_factor', 'desktop') === 'mobile');
     }
     
     public static function getRequestParameter($param_name, $alt_value = null)
