@@ -7,23 +7,23 @@ rendering: ~
 web_debug: ~
 security:  ~
 
-# generally, you will want to insert your own filters here :
 FiltersSwitchFilter:
   class: FiltersSwitchFilter
+
+# switch between regular and mobile version of the site
+# this has to be before the cache filter
+MobileFilter:
+  class: MobileFilter
   
-# MyCacheFilter replaces the original filter to enable action caching with user's culture :
+# MyCacheFilter replaces the original filter to enable action caching with user's culture
+# and some optimizations with homepage and portals
 cache:
   class: MyCacheFilter
   param:
     condition: %SF_CACHE%
 
 common:    ~    
-
 flash:     ~
-
-# switch between regular and mobile version of the site
-MobileFilter:
-  class: MobileFilter
 
 # MyExecutionFilter replaces the original filter to enable action caching with user's culture :execution:
 execution:
