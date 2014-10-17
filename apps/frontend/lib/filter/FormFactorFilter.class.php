@@ -4,7 +4,7 @@
  * This filter is intended to switch between regular and mobile
  * version of the site
  */
-class MobileFilter extends sfFilter
+class FormFactorFilter extends sfFilter
 {
     public function execute($filterChain)
     {
