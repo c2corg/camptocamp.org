@@ -57,16 +57,11 @@ else
             <?php echo link_to(__('content license'), getMetaArticleRoute('licenses')) ?> |
             <?php echo link_to(__('Developers'), 'https://trac.dev.camptocamp.org/') ?> |
             <?php echo link_to(__('credits'), getMetaArticleRoute('credits'));
-            if (!empty($mobile_hostname) && !$is_map)
+            if (!$is_map)
             {
-                echo ' | ' . link_to(__('mobile version'), '//'.$mobile_hostname,
-                                     array('id' => 'm-link',
-                                           'onclick' => "document.cookie='nomobile=;expires=Thu, 01-Jan-70 00:00:01 GMT;';"));
+                echo ' | ' . link_to(__('mobile version'), '@default?module=common&action=switchformfactor');
             }
             ?>
-            <script type="text/javascript">
-              document.getElementById('m-link').href = document.location.href.replace('<?php echo $classic_hostname ?>', '<?php echo $mobile_hostname ?>');
-            </script>
             </p>
             <?php if (!$is_map): ?>
             <p><?php echo __('CNIL declaration #') ?>1175560</p>

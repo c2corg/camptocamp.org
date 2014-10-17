@@ -12,8 +12,8 @@ FiltersSwitchFilter:
 
 # switch between regular and mobile version of the site
 # this has to be before the cache filter
-MobileFilter:
-  class: MobileFilter
+FormFactorFilter:
+  class: FormFactorFilter
   
 # MyCacheFilter replaces the original filter to enable action caching with user's culture
 # and some optimizations with homepage and portals

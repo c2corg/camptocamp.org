@@ -44,7 +44,6 @@ class commonActions extends c2cActions
 
     /**
      * Executes edit in place action
-     *
      */
     public function executeEdit()
     {
@@ -64,6 +63,42 @@ class commonActions extends c2cActions
             return $this->renderText($text);
         }
         return $this->renderText($this->__('Message setting failed. This message has not been saved.'));
+    }
+
+    // switch between mobile and standard version of the site
+    public function executeSwitchformfactor()
+    {
+        $user = $this->getUser();
+        if ($user->getAttribute('form_factor', 'desktop') === 'mobile')
+        {
+            $user->setAttribute('form_factor', 'desktop');
+            if (!c2cTools::mobileRegexp())
+            {
+                // delete form_factor cookie (not needed)
+                $this->getResponse()->setCookie('form_factor', null, -1);
+            }
+            else
+            {
+                // set cookie so that we are sure to prevent redirection on next sessions
+                $this->getResponse()->setCookie('form_factor', 'mobile', time() + 60*60*24*30);
+            }
+        }
+        else
+        {
+             $user->setAttribute('form_factor', 'mobile');
+             if (c2cTools::mobileRegexp())
+             {
+                 // delete form_factor cookie (not needed)
+                 $this->getResponse()->setCookie('form_factor', null, -1);
+             }
+             else
+             {
+                 // set cookie so that we are sure to set form factor correctly on next sessions
+                 $this->getResponse()->setCookie('form_factor', 'desktop', time() + 60*60*24*30);
+             }
+        }
+        // redirect to referer
+        return $this->redirect($this->getRequest()->getReferer());
     }
     
     // set/unset main filter switch by AJAX
