@@ -54,7 +54,6 @@ else
 }
 $show_link_to_forum = isset($_GET['forum']) ? '&amp;forum' : '' ;
 $show_link_to_forum_redirect = isset($_GET['forum']) ? '&forum' : '' ;
-$mobile = c2cTools::mobileVersion();
 
 // If a post ID is specified we determine topic ID and page number so we can redirect to the correct message
 if ($pid)
@@ -684,7 +683,7 @@ foreach ($posts_list as $cur_post)
 
 			if (($cur_topic['post_replies'] == '' && $pun_user['g_post_replies'] == '1') || $cur_topic['post_replies'] == '1') 
 			{
-				if ($mobile)
+				if ($mobile_version)
 				{
 					if ($pun_user['is_guest'])
 					{
@@ -716,7 +715,7 @@ foreach ($posts_list as $cur_post)
             $post_actions[] = '<li class="movepost"><a href="movepost.php?id='.$cur_post['id'].'">'.$lang_topic['Move'].'</a>';
         }
         $post_actions[] = '<li class="postedit"><a href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a>';
-        if ($mobile)
+        if ($mobile_version)
         {
             $post_actions[] = '<li class="postquote"><a onmouseover="C2C.get_quote_text();" href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'" onclick="return C2C.paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote short'].'</a>';
         }
@@ -831,7 +830,7 @@ if ($pun_user['g_id'] < PUN_GUEST)
 			</div>
 			<p>
                 <input type="submit" name="preview" value="<?php echo $lang_common['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
-                <?php if ($mobile): ?>
+                <?php if ($mobile_version): ?>
                 <input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" />
             	<?php else: ?>
                 <input type="submit" name="submit" value="<?php echo $lang_common['Submit and topic'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" />

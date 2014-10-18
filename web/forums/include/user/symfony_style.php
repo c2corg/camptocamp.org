@@ -1,6 +1,4 @@
 <?php
-$mobile_version = c2cTools::mobileVersion();
-
 if (!$mobile_version)
 {
     $sf_response->addStylesheet('/static/css/default.css', 'first');

@@ -29,6 +29,7 @@ if (!defined('PUN'))
 // Load the functions script
 require_once PUN_ROOT.'include/functions.php';
 
+$mobile_version = c2cTools::mobileVersion();
 
 // Here you can add additional smilies if you like (please note that you must escape singlequote and backslash)
 $smiley_text = array(':)', '=)', ':|', '=|', ':(', '=(', ':D', '=D', ':o', ':O', ';)', ':/', ':P', ':lol:', ':mad:', ':rolleyes:', ':cool:');
@@ -159,6 +160,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 //
 function preparse_url($text)
 {
+    // make internal c2c links shorter
     $a = array( '#(?<=[^\w]|^)((ht+ps?)?:*/*w*m*\.|(ht+ps?)?:*/+|(?<!\.))camptocamp\.org(/(outings|routes|summits|sites|huts|parkings|images|articles|areas|books|products|map|users|portals|forums|tools))#i',
                 '%(?<=[^\w/]|^)/*forums/viewforum.php\?id=(\d+)(&p=\d+)?%i',
                 '%(?<=[^\w/]|^)/*forums/viewtopic.php\?id=(\d+)&action=new%i',
@@ -497,7 +499,7 @@ function handle_url_tag($url, $link = '', $show_video = false)
     }
 
     // possibility to display pdf or ppt via google doc service
-    if (preg_match('/\.(ppt|pdf)$/i', $full_url) && !c2cTools::mobileVersion())
+    if (preg_match('/\.(ppt|pdf)$/i', $full_url) && !$mobile_version)
     {
         $param_url = str_replace('%', '%25', $full_url);
         if ($is_internal_url)
@@ -929,7 +931,6 @@ function do_video($text)
 {
     if (stripos($text, '[/video]') !== FALSE)
     {
-        $mobile_version = c2cTools::mobileVersion();
         $width = $mobile_version ? 310 : 400;
         $height = $mobile_version ? 232 : 300;
 

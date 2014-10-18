@@ -1,6 +1,4 @@
 <?php
-$mobile_version = c2cTools::mobileVersion();
-
 if (!defined('SF_ROOT_DIR'))
 {
     // include config vars that are needed for symfony

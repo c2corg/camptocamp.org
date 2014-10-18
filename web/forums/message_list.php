@@ -261,7 +261,7 @@ if(isset($_GET['id'])){
 	
 ?>
 
-	<div id="p<?php echo $cur_post['id'] ?>" class="blockpost row_odd firstpost"<?php echo c2cTools::mobileVersion() ? '' : 'style="padding-left: 13em;"' ?>>
+	<div id="p<?php echo $cur_post['id'] ?>" class="blockpost row_odd firstpost"<?php echo $mobile_version ? '' : 'style="padding-left: 13em;"' ?>>
 		<h2><span><?php echo format_time($cur_post['posted']) ?></span></h2>
 		<div class="box">
 			<div class="inbox">

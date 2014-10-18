@@ -107,9 +107,9 @@ class CaptchaBox {
 	 * @access public
 	 */
 	function CaptchaBox() {
-                $mobile_version = c2cTools::mobileVersion();
-                $this->boxX = $mobile_version ? 40 : 20;
-                $this->boxY = $mobile_version ? 40 : 20;
+    $mobile_version = c2cTools::mobileVersion();
+    $this->boxX = $mobile_version ? 40 : 20;
+    $this->boxY = $mobile_version ? 40 : 20;
 		$this->background = Array(255,255,255);
 		$this->foreground = Array(0,0,128);
 		$this->boxPosX = ($_SESSION["x"]?$_SESSION["x"]:null);

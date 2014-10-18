@@ -15,3 +15,5 @@ if (!$sf_user->hasAttribute('form_factor')) // form factor not determined for th
         $sf_user->setAttribute('form_factor', 'desktop');
     }
 }
+
+$mobile_version = c2cTools::mobileVersion();
