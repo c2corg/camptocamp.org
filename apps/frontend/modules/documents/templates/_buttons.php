@@ -1,9 +1,6 @@
 <?php
 use_helper('Button');
-$lang = $sf_user->getCulture();
-$mobile_hostname = sfConfig::get('app_mobile_version_host');
-$classic_hostname = sfConfig::get('app_classic_version_host');
-$lang_class = 'lang_' . $lang;
+$lang_class = 'lang_' . $sf_user->getCulture();
 ?>
 <!--[if IE 7]><div id="nav_buttons" class="nav_box"><![endif]-->
 <form method="post" action="https://www.paypal.com/cgi-bin/webscr">

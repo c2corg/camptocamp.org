@@ -2,9 +2,6 @@
 if (!function_exists('use_helper')) include_once('symfony/helper/HelperHelper.php'); // needed for use_helper
 use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum to work
 
-$mobile_hostname = sfConfig::get('app_mobile_version_host');
-$classic_hostname = sfConfig::get('app_classic_version_host');
-
 $is_map = ($footer_type === 'map');
 $is_cda = ($footer_type === 'cda');
 $display_ac = !$is_map && !$is_cda && (__('meta_language') == 'en');

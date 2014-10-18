@@ -48,8 +48,6 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         echo include_meta_links();
     ?>
     <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/apple-touch-icon-precomposed.png">
-    <link rel="canonical" href="//<?php echo sfConfig::get('app_classic_version_host').
-    ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>
 <body>
     <?php include_partial('common/section_close'); ?>

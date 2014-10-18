@@ -59,8 +59,6 @@ $response = sfContext::getInstance()->getResponse();
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url ?>/static/opensearch/description.xml" title="Camptocamp.org" />
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="msapplication-TileImage" content="<?php echo $static_base_url ?>/mstile-144x144.png">
-    <link rel="alternate" media="only screen and (max-width: 640px)" href="//<?php echo sfConfig::get('app_mobile_version_host').
-    ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
     <?php include_partial('common/section_close'); ?>
