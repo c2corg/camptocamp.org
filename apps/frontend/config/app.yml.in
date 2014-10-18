@@ -485,7 +485,6 @@ all:
      moderator:    moderator
 
   mobile_version:
-     host: @MOBILE_VERSION_HOST@
      ads:  @MOBILE_VERSION_ADS@
   classic_version:
      host: @CLASSIC_VERSION_HOST@
@@ -2064,6 +2063,7 @@ all:
     debug: @MINIFY_DEBUG@
 
   production: @PRODUCTION@
+  https_login: @HTTPS_LOGIN@
 
   portals:
     filled_criteria:
