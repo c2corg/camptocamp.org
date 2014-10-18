@@ -84,7 +84,7 @@ Alias /sf/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/lib/vendor/symfony/data/web/sf/
 
     # robots.txt
     # prod version
-    RewriteCond %{HTTP_HOST} www.camptocamp.org
+    RewriteCond %{HTTP_HOST} =www.camptocamp.org
     RewriteRule ^robots.txt$ /robots/prod.txt [L]
     # dev version, default version (includes s.camptocamp.org in production)
     RewriteRule ^robots.txt$ /robots/dev.txt [L]
