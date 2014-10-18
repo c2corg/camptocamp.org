@@ -28,14 +28,9 @@ SERVER_NAME = <server_name>
 ; web URL port number (leave empty if 80, else add ":" before port number)
 SERVER_PORT =
 
-; Mobile version hostname (eg m.camptocamp.org)
-; do not put the hostname inside ' ' if you want
-; robots.txt to work with apache config
-MOBILE_VERSION_HOST =
 ; enable or disable ads in mobile version
 MOBILE_VERSION_ADS = true
-; Classic version hostname (eg www.camptocamp.org)
-CLASSIC_VERSION_HOST =
+
 ; Static host (eg s.camptocamp.org)
 ; this has to be the same hostname than for STATIC_BASE_URL (FIXME: factorize)
 STATIC_HOST =
@@ -117,7 +112,6 @@ FORUM_MODERATOR_USER_ID = 107261
 
 ; Google Analytics
 GANALYTICS_KEY = 
-MOBILE_GANALYTICS_KEY =
 
 ; Metaengine conection settings
 METAENGINE_URL = http://meta.camptocamp.org/
