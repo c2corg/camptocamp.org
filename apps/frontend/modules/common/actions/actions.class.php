@@ -80,7 +80,7 @@ class commonActions extends c2cActions
             else
             {
                 // set cookie so that we are sure to prevent redirection on next sessions
-                $this->getResponse()->setCookie('form_factor', 'mobile', time() + 60*60*24*30);
+                $this->getResponse()->setCookie('form_factor', 'desktop', time() + 60*60*24*30);
             }
         }
         else
@@ -94,7 +94,7 @@ class commonActions extends c2cActions
              else
              {
                  // set cookie so that we are sure to set form factor correctly on next sessions
-                 $this->getResponse()->setCookie('form_factor', 'desktop', time() + 60*60*24*30);
+                 $this->getResponse()->setCookie('form_factor', 'mobile', time() + 60*60*24*30);
              }
         }
         // redirect to referer
