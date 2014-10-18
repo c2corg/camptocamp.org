@@ -982,7 +982,7 @@ class sfPunBBCodeParser
                 $toc .= '<div class="clearer"></div>';
             }
             $toc .= '<p>';
-            $text = preg_replace('#\n?\[toc[ ]*\d*[ ]*(right)?\]\n?#i', $toc, $text, 1);
+            $text = preg_replace('#\n?\[toc[ ]*\d*[ ]*(right|left)?\]\n?#i', $toc, $text, 1);
         }
         
         return $text;
@@ -1383,7 +1383,7 @@ class sfPunBBCodeParser
             ^([LR])\#                  # line marker = $1
             (\+?)                      # relative index = $2
             (\d*)                      # new line index = $3
-            ([^\d-+!:|\s][^-+!:|\s]*|) # new line suffix = $4
+            ([^\d-+!:|\s][^-+!:,.;|\s]*|) # new line suffix = $4
             (?:-(\+?)(\d+))?           # multi line index = $5 $6
             (!?)                       # reference index flag = $7
             \s*[:|]*                   # first separator
@@ -1393,7 +1393,7 @@ class sfPunBBCodeParser
             }xm',
             array('self', '_processLineItems_callback'), $list);
 
-            // '{\n?^([LR])\#(\+?)(\d*)([^\d-!:|\s][^-!:|\s]*|)(?:-(\+?)(\d+))?(!?)\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
+            // '{\n?^([LR])\#(\+?)(\d*)([^\d-!:|\s][^-!:,.;|\s]*|)(?:-(\+?)(\d+))?(!?)\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
         
         if ($nb_col_max > $nb_col)
         {
@@ -1681,15 +1681,7 @@ class sfPunBBCodeParser
             $item = preg_replace($pattern, $replace, $item);
             
             // traitement des références dans l'item
-            $pattern_item = '{
-                (?<=^|\W)([LR])\#          # line marker = $1
-                (?:(\+|-)(\d+))?           # relative index = $2 $3
-                ([^\d-+!:|\s][^-+!:|\s]*|) # new line suffix = $4
-                (?:-(\+|-)(\d+))?          # multi line index = $5 $6
-                }xm';
-            // '{(?<=^|\W)([LR])\#(?:(\+|-)(\d+))?([^\d-!:|\s][^-!:|\s]*|)(?:-(\+|-)(\d+))?}m'
-            
-            $item = preg_replace_callback($pattern_item, array('self', '_processLineReference'), $item);
+            $item = self::processLineItemLineReference($item);
             
             // traitement de l'item
             $pattern_item = '{\s*((?s:.*?))\s*([|]+|:{2,}|\z)\s*}m';
@@ -1747,13 +1739,31 @@ class sfPunBBCodeParser
         }
         else   // texte multicolonne inter-longueurs
         {
+            $item = self::processLineItemLineReference($item);
             return '<tr class="interline"><td colspan="' . $nb_col . '">' . $item . '</td></tr>';
         }
     }
     
+    // traitement des références dans une case
+    public static function processLineItemLineReference($item)
+    {
+        global $doc_module, $is_line, $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix;
+        
+        $pattern_item = '{
+            (?<=^|\W)([LR])\#          # line marker = $1
+            (?:(\+|-)(\d+))?           # relative index = $2 $3
+            ([^\d-+!:|\s][^-+!:,.;|\s]*|) # new line suffix = $4
+            (?:-(\+|-)(\d+))?          # multi line index = $5 $6
+            }xm';
+        // '{(?<=^|\W)([LR])\#(?:(\+|-)(\d+))?([^\d-!:|\s][^-!:,.;|\s]*|)(?:-(\+|-)(\d+))?}m'
+        
+        return preg_replace_callback($pattern_item, array('self', '_processLineReference'), $item);
+    }
+    
+    // traitement d'une référence
     public static function _processLineReference($matches)
     {
-        global $is_line, $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix;
+        global $doc_module, $is_line, $line_index, $abseil_index, $line_index_old, $abseil_index_old, $line_suffix, $abseil_suffix;
         
         $marker_type = $matches[1];
         $new_marker_relative = $matches[2];
@@ -1766,7 +1776,14 @@ class sfPunBBCodeParser
         {
             if ($marker_type == 'L')
             {
-                $marker_type = __('route_line_prefix');
+                if ($doc_module == 'sites')
+                {
+                    $marker_type = '';
+                }
+                else
+                {
+                    $marker_type = __('route_line_prefix');
+                }
             }
             else
             {
@@ -2083,7 +2100,7 @@ class sfPunBBCodeParser
         $text = self::do_bbcode($text, false, false);
         $text = self::do_images($text, null, false, false);
         $text = self::do_videos($text, false);
-        $text = preg_replace(array('/(?<![&LR])#+((c\d?)[ ])?[ ]?/', '#\[toc[ ]*(\d*)[ ]*(right)?\]#i'), array('', ''), $text);
+        $text = preg_replace(array('/(?<![&LR])#+((c\d?)[ ])?[ ]?/', '#\[toc[ ]*(\d*)[ ]*(right|left)?\]#i'), array('', ''), $text);
         $text = self::do_spaces($text, false);
     
         return $text;
