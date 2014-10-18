@@ -35,30 +35,8 @@ if (!defined('PUN_ROOT'))
 // include symfony
 require PUN_ROOT.'include/user/symfony_start.php';
 
-// This is the same process as we do in our symfony MobileFilter for automatic redirection for mobile version
-// we check if the user agent is one from a smartphone. If so, and if there is no cookie preventing redirection,
-// we redirect
-if (!c2cTools::mobileVersion() && preg_match('/(Mobile|Symbian|Nokia|SAMSUNG|BlackBerry|Mini|Android)/i', $_SERVER['HTTP_USER_AGENT'])) {
-    // we do not redirect if user has a cookie stating that we shouldn't
-    if (!isset($_COOKIE['nomobile']))
-    {
-        // if referer is mobile version, it means that the user deliberatly wanted to have the classic version
-        // we thus do not redirect, and add a cookie to prevent further redirections
-        $mobile_host = sfConfig::get('app_mobile_version_host');
-        if (isset($_SERVER['HTTP_REFERER']) &&
-            !empty($mobile_host) &&
-            preg_match('/'.$mobile_host.'/', $_SERVER['HTTP_REFERER']))
-        {
-            setcookie('nomobile', 1, time() + 60*60*24*30);
-        }
-        else
-        {
-            // redirect to mobile version
-            header('Location: '.'http://'.$mobile_host.$_SERVER['REQUEST_URI']);
-            exit();
-        }
-    }
-}
+// set form factor
+require PUN_ROOT.'include/user/symfony_formfactor.php';
 
 // Load the functions script
 require PUN_ROOT.'include/functions.php';
