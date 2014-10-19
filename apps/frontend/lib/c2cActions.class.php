@@ -167,16 +167,7 @@ abstract class c2cActions extends sfActions
         $this->getResponse()->setTitle($custom . ' - Camptocamp.org');
     }
 
-    protected function removeFromCache($items)
-    {
-        $cacheManager = $this->getContext()->getViewCacheManager();
-        foreach ($items as $item)
-        {
-            c2cTools::log('{cache} removing : ' . $item);
-            $cacheManager->remove($item);
-        }
-    }
-
+    // as we have custom cache namespaces, we should never call sfViewCacheManager->remove directly
     protected function removeGloballyFromCache($items)
     {
         $cache_dir = sfConfig::get('sf_root_cache_dir') . '/frontend/*/template/*/*';

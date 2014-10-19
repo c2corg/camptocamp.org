@@ -6,6 +6,8 @@ Disallow: /frontend_dev.php
 # generic documents
 Disallow: /documents
 Disallow: /documents/
+# personnalisation
+Disallow: /common/
 # documents list
 Disallow: /areas/list/orderby
 Disallow: /articles/list/orderby
@@ -185,6 +187,8 @@ Disallow: /frontend_dev.php/
 # generic documents
 Disallow: /documents
 Disallow: /documents/
+# personnalisation
+Disallow: /common/
 # documents list
 Disallow: /areas/list/orderby
 Disallow: /articles/list/orderby
@@ -365,6 +369,8 @@ Disallow: /frontend_dev.php/
 # generic documents
 Disallow: /documents
 Disallow: /documents/
+# personnalisation
+Disallow: /common/
 # documents list
 Disallow: /areas/list/orderby
 Disallow: /articles/list/orderby
@@ -545,6 +551,8 @@ Disallow: /frontend_dev.php/
 # generic documents
 Disallow: /documents
 Disallow: /documents/
+# personnalisation
+Disallow: /common/
 # documents list
 Disallow: /areas/list/orderby
 Disallow: /articles/list/orderby
