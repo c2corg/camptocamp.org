@@ -179,7 +179,7 @@ abstract class c2cActions extends sfActions
 
     protected function removeGloballyFromCache($items)
     {
-        $cache_dir = sfConfig::get('sf_root_cache_dir') . '/frontend/*/template/*/all';
+        $cache_dir = sfConfig::get('sf_root_cache_dir') . '/frontend/*/template/*/*';
         $cache_dir .= (sfConfig::get('sf_no_script_name')) ? '/' : '/*/';
 
         foreach ($items as $item)
