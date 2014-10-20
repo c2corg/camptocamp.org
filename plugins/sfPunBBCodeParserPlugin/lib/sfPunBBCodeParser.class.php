@@ -1383,7 +1383,7 @@ class sfPunBBCodeParser
             ^([LR])\#                  # line marker = $1
             (\+?)                      # relative index = $2
             (\d*)                      # new line index = $3
-            ([^\d-+!:|\s][^-+!:,.;|\s]*|) # new line suffix = $4
+            ([^\d-+!:|\s][^-+!:|\s]*|) # new line suffix = $4
             (?:-(\+?)(\d+))?           # multi line index = $5 $6
             (!?)                       # reference index flag = $7
             \s*[:|]*                   # first separator
@@ -1393,7 +1393,7 @@ class sfPunBBCodeParser
             }xm',
             array('self', '_processLineItems_callback'), $list);
 
-            // '{\n?^([LR])\#(\+?)(\d*)([^\d-!:|\s][^-!:,.;|\s]*|)(?:-(\+?)(\d+))?(!?)\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
+            // '{\n?^([LR])\#(\+?)(\d*)([^\d-!:|\s][^-!:|\s]*|)(?:-(\+?)(\d+))?(!?)\s*[:|]*((?s:.*?))(?:\n+(?=\n)|\n)(?=\n*(\z|[LR]\#))}m'
         
         if ($nb_col_max > $nb_col)
         {
@@ -1752,10 +1752,10 @@ class sfPunBBCodeParser
         $pattern_item = '{
             (?<=^|\W)([LR])\#          # line marker = $1
             (?:(\+|-)(\d+))?           # relative index = $2 $3
-            ([^\d-+!:|\s][^-+!:,.;|\s]*|) # new line suffix = $4
+            ([^\d-+!:,;|\s][^-+!:,|\s]*|) # new line suffix = $4
             (?:-(\+|-)(\d+))?          # multi line index = $5 $6
             }xm';
-        // '{(?<=^|\W)([LR])\#(?:(\+|-)(\d+))?([^\d-!:|\s][^-!:,.;|\s]*|)(?:-(\+|-)(\d+))?}m'
+        // '{(?<=^|\W)([LR])\#(?:(\+|-)(\d+))?([^\d-!:,;|\s][^-!:,|\s]*|)(?:-(\+|-)(\d+))?}m'
         
         return preg_replace_callback($pattern_item, array('self', '_processLineReference'), $item);
     }
@@ -1990,6 +1990,10 @@ class sfPunBBCodeParser
             $replace = array(' ', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
         }
         $text = str_replace($pattern, $replace, $text);
+        
+        $pattern = array('#(\d) ( *)((mm?(in)?|°|km|h|s)(\W|$))#gi', ' ([?!:])');
+        $replace = array('\1\2\3', '&nbsp;\1');
+        $text = preg_replace($pattern, $replace, $text);
         
         return $text;
     }
