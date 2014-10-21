@@ -91,15 +91,15 @@ function pun_mail($to, $subject, $message, $from = '')
 	if ($pun_config['o_smtp_host'] != '')
 		smtp_mail($to, $subject, $message, $headers);
 	else
-        {
-                // Change the linebreaks used in the headers according to OS
+  {
+    // Change the linebreaks used in the headers according to OS
 		if (strtoupper(substr(PHP_OS, 0, 3)) == 'MAC')
 			$headers = str_replace("\r\n", "\r", $headers);
 		else if (strtoupper(substr(PHP_OS, 0, 3)) != 'WIN')
 			$headers = str_replace("\r\n", "\n", $headers);
 
 		mail($to, $subject, $message, $headers);
-        }
+  }
 }
 
 
