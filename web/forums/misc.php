@@ -162,14 +162,14 @@ else if (isset($_GET['email']))
 
 		require_once PUN_ROOT.'include/email.php';
                 
-                if(!is_valid_email($pun_user['email']))
-                            message($lang_common['Invalid e-mail']);
+    if(!is_valid_email($pun_user['email']))
+        message($lang_common['Invalid e-mail']);
                         
 
 		// Send mail to recipient
-        pun_mail($recipient_email, $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
+    pun_mail($recipient_email, $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
         
-        // Send copy to sender
+    // Send copy to sender
 		// Load the "form e-mail copy" template
 		$mail_tpl = trim(file_get_contents(PUN_ROOT.'lang/'.$pun_user['language'].'/mail_templates/form_email_copy.tpl'));
 
@@ -184,7 +184,7 @@ else if (isset($_GET['email']))
 		$mail_message = str_replace('<mail_message>', $message, $mail_message);
 		$mail_message = str_replace('<board_mailer>', $pun_config['o_board_title'].' '.$lang_common['Mailer'], $mail_message);
 		
-        pun_mail($pun_user['email'], $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
+    pun_mail($pun_user['email'], $mail_subject, $mail_message, '"'.str_replace('"', '', $pun_user['username']).'" <'.$pun_user['email'].'>');
 
 		redirect(htmlspecialchars($_POST['redirect_url']), $lang_misc['E-mail sent redirect']);
 	}

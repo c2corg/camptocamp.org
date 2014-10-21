@@ -4,7 +4,7 @@ if (!defined('SF_ROOT_DIR'))
     // include config vars that are needed for symfony
     define('SF_ROOT_DIR',    realpath(dirname(__file__).'/../../../..'));
     define('SF_APP',         'frontend');
-    define('SF_ENVIRONMENT', 'prod');
+    define('SF_ENVIRONMENT', '@SF_ENVIRONMENT@');
     define('SF_DEBUG',       false);
 
     require_once SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_APP . 
