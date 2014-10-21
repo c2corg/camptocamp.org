@@ -18,7 +18,8 @@ $DIRS_TO_CREATE = array('persistent' => array('web/forums/img/avatars', 'web/upl
 
 // Directories containing server-specific config files
 $CONFIG_DIRS = array('apps/frontend/config', 'batch', 'config', 'data/sql',
-                     'mapdata', 'web');
+                     'mapdata', 'web', 'web/foums/include/user',
+                     'plugins/sfMyMinifyPlugin/web/');
 
 $OPTIONS['debug'] = false;
 $OPTIONS['writableowner'] = 'www-data';

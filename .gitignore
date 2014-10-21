@@ -22,9 +22,12 @@ log/
 mapdata/c2corg-wms.map
 mapdata/c2corg-wms2.map
 mapdata/osm-wms.map
+plugins/sfMyMinifyPlugin/web/sfMinifyPlugin.php
 web/forums/cache/
 web/forums/config.php
 web/forums/img/avatars/
+web/forums/include/user/symfony_footer.php
+web/forums/include/user/symfony_start.php
 web/index.php
 web/static/sass/.sass-cache/
 web/static/css/*.css
