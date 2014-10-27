@@ -2227,3 +2227,10 @@ all:
 
   statistics:
     base_url: @STATISTICS_URL@
+
+  solr:
+    port: @SOLR_PORT@
+    host: @SOLR_HOST@
+    path: @SOLR_PATH@
+    timeout: @SOLR_TIMEOUT@
+    maxrow: @SOLR_MAXROW@

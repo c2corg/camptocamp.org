@@ -127,3 +127,11 @@ MW_CONTEST_ID = 407724
 MW_CONTEST_ENABLED = true
 
 STATISTICS_URL = stats.camptocamp.org
+
+; Solr Configuration
+
+SOLR_PORT = 8080
+SOLR_HOST = localhost
+SOLR_PATH = /solr/db
+SOLR_TIMEOUT = 15
+SOLR_MAXROW = 1000
