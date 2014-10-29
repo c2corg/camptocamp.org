@@ -19,7 +19,7 @@ class routesActions extends documentsActions
     public function executeView()
     {
         parent::executeView();
-        
+
         if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             $user = $this->getUser();
@@ -85,6 +85,7 @@ class routesActions extends documentsActions
             {
                 $associated_summits = $main_associated_summits;
             }
+            $associated_summits = Document::fetchAdditionalFieldsFor($associated_summits, 'Summit', array('summit_type'));
 
             // directly and indirectly linked huts
             $associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
