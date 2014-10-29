@@ -2234,3 +2234,4 @@ all:
     path: @SOLR_PATH@
     timeout: @SOLR_TIMEOUT@
     maxrow: @SOLR_MAXROW@
+    enable: @SOLR_ENABLE@

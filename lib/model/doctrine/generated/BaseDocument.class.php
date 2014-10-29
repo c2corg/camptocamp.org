@@ -1,4 +1,4 @@
-s<?php
+<?php
 /**
  * BaseDocument : This is the base model for documents
  * $Id: BaseDocument.class.php 2535 2007-12-19 18:26:27Z alex $
@@ -2688,78 +2688,72 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $param = urldecode($param);
         
-        
-         
         if (strlen($param) > 2)
         {
-            /* init solr 
-             * 
-             */
-            $max_row = 100000;
-            
-           
-            $options = array
-            (
-                'hostname' => sfConfig::get('app_solr_host'),
-                'port'     => sfConfig::get('app_solr_port'),
-                'path'     => sfConfig::get('app_solr_path'),
-                'timeout'  => sfConfig::get('app_solr_timeout')
-            );
-                
-            $client = new SolrClient($options);
-            
-    
-            try {
-                
-                $client->ping(); 
-                
-             
-                /* query construct */
-                $query_solr = new SolrQuery();
-                
-                
-                
-                // Fuzzy search word > 3 letters
-                $query_words = explode(" ", $param);
-                foreach ($query_words as &$word) {
-                    
-                    if (strlen($word) > 3) {
-                        
-                        $word = $word . '~';
+            if (sfConfig::get('app_solr_enable') == true)
+            {
+                /* init solr 
+                 */
+                $max_row = sfConfig::get('app_solr_maxrow');
+                $options = array
+                (
+                    'hostname' => sfConfig::get('app_solr_host'),
+                    'port'     => sfConfig::get('app_solr_port'),
+                    'path'     => sfConfig::get('app_solr_path'),
+                    'timeout'  => sfConfig::get('app_solr_timeout')
+                );
+
+                $client = new SolrClient($options);
+                try 
+                {
+                    $client->ping(); 
+                    /* query construct */
+                    $query_solr = new SolrQuery();
+
+                    // Fuzzy search word > 3 letters
+                    $query_words = explode(" ", $param);
+                    foreach ($query_words as &$word) 
+                    {
+                        if (strlen($word) > 3) 
+                        {
+                            $word = $word . '~';
+                        }
+                    }
+                    $query_search_fuzzy = implode(' ', $query_words);
+                    $query_search = "($param) OR ($query_search_fuzzy)" ;
+                    c2cTools::log(" solr request : " . $query_search);    
+                    $query_solr->setQuery($query_search);
+                    $query_solr->setRows($max_row);
+
+                    if (($model == 'User') || ($model == 'UserPrivateData' )) 
+                    {
+                        if (!sfContext::getInstance()->getUser()->isConnected()) 
+                        {
+                            $query_solr->addFilterQuery('user_private_public:true');
+                        }
+                    }  
+                    $query_solr->addFilterQuery('module:'.strtolower($model).'s');
+                    $query_solr->addField('name')->addField('module')->addField('id_doc');
+                    $res = $client->query($query_solr)->getResponse();
+
+                    for ($i = 0; $i < $res['response']['numFound']; $i++) 
+                    {
+                        $ids_tmp[]['id'] = $res['response']['docs'][$i]['id_doc'];
                     }
                 }
-                $query_search_fuzzy = implode('+', $query_words);
-                
-                $query_search = '\'('.$param.')^10 OR ('.$query_search_fuzzy.')^5\'' ;
-                c2cTools::log(" solr request : " . $query_search);    
-
-                $query_solr->setQuery($query_search);
-                $query_solr->setRows($max_row);
-
-                if (($model == 'User') || ($model == 'UserPrivateData' )) {
-                    if (!sfContext::getInstance()->getUser()->isConnected()) {
-                        $query_solr->addFilterQuery('user_private_public:true');
-                    }
-                }  
-                
-                $query_solr->addFilterQuery('module:'.strtolower($model).'s');
-                $query_solr->addField('name')->addField('module')->addField('id_doc');
-                $res = $client->query($query_solr)->getResponse();
-             
-                for ($i = 0; $i < $res['response']['numFound']; $i++) {
-                            $ids_tmp[]['id'] = $res['response']['docs'][$i]['id_doc'];
-                        }
-                 }
-            
-            catch (Exception $e)
-            {   
-                c2cTools::log(" exception solr : ".$e );
-                 $ids_tmp = self::idSearchByName($param, $model);
+                catch (Exception $e)
+                {   
+                    c2cTools::log(" exception solr : ".$e );
+                     $ids_tmp = self::idSearchByName($param, $model);
+                }
             }
+            else 
+            {
+                $ids_tmp = self::idSearchByName($param, $model);
+            }    
             if (count($ids_tmp))
             {
                 $ids = array();
-                
                 foreach ($ids_tmp as $id)
                 {
                     $ids[] = $id['id'];
@@ -2793,7 +2787,6 @@ class BaseDocument extends sfDoctrineRecordI18n
                      'join' => $join_result);
     }
 
-    
     public static function buildIstringCondition(&$conditions, &$values, $field, $param)
     {
         if ($param == '-')
