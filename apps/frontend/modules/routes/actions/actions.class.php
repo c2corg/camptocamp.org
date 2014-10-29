@@ -85,7 +85,6 @@ class routesActions extends documentsActions
             {
                 $associated_summits = $main_associated_summits;
             }
-            $associated_summits = Document::fetchAdditionalFieldsFor($associated_summits, 'Summit', array('summit_type'));
 
             // directly and indirectly linked huts
             $associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
@@ -119,8 +118,8 @@ class routesActions extends documentsActions
                     }
                 }
             }
-            $this->associated_huts = array_merge($summit_huts, $associated_huts);
-            $this->associated_summits = $associated_summits;
+            $this->associated_huts = Document::fetchAdditionalFieldsFor(array_merge($summit_huts, $associated_huts), 'Hut', array('shelter_type'));
+            $this->associated_summits = Document::fetchAdditionalFieldsFor($associated_summits, 'Summit', array('summit_type'));
 
             // get all the outings from route and associated routes
             $outing_ids = $associated_routes_outings = array();
