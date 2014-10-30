@@ -160,9 +160,9 @@ class hutsActions extends documentsActions
             // get associated outings
             $latest_outings = array();
             $nb_outings = 0;
-            if (!$is_gite && count($associated_routes) || $is_gite && count($parking_ids))
+            if (!$is_gite_camping && count($associated_routes) || $is_gite_camping && count($parking_ids))
             {
-                if (!$is_gite)
+                if (!$is_gite_camping)
                 {
                     $outing_params = array('huts' => $current_doc_id);
                 }
