@@ -1,7 +1,4 @@
 <?php
-/**
- * $Id: RememberKey.class.php 2469 2007-12-04 13:32:13Z fvanderbiest $
- */
 class RememberKey extends BaseRememberKey
 {
     public static function deleteOtherKeysForUserId($user_id)
@@ -15,11 +12,11 @@ class RememberKey extends BaseRememberKey
     
     public static function deleteOldKeys()
     {
-    	// Get a new date formatter
+        // Get a new date formatter
         $dateFormat = new sfDateFormat();
     
-    	$expiration_age = sfConfig::get('app_remember_key_expiration_age', 31 * 24 * 3600 );
-        $expiration_time_value = $dateFormat->format( time() - $expiration_age, 'I' );
+        $expiration_age = sfConfig::get('app_remember_key_expiration_age', 31 * 24 * 3600 );
+        $expiration_time_value = $dateFormat->format(time() - $expiration_age, 'I');
         Doctrine_Query::create()
                       ->delete('RememberKey')
                       ->from('RememberKey rk')
@@ -35,14 +32,8 @@ class RememberKey extends BaseRememberKey
                              ->where('rk.remember_key = ?', $key)
                              ->execute()
                              ->getFirst()->nb;
-        if ($res)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+
+        return isset($res);
     }
 
     public static function generateRandomKey()
