@@ -11,6 +11,7 @@ class BaseDocumentArchive extends sfDoctrineRecord
 
         $this->hasColumn('id', 'integer', 10);
         $this->hasColumn('is_protected', 'boolean', null, array('default' => false));
+        $this->hasColumn('is_latest_version', 'boolean');
         $this->hasColumn('redirects_to', 'integer', 10);
         $this->hasColumn('lon', 'double', null);
         $this->hasColumn('lat', 'double', null);

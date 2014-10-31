@@ -19,7 +19,7 @@ class routesActions extends documentsActions
     public function executeView()
     {
         parent::executeView();
-        
+
         if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             $user = $this->getUser();
@@ -118,8 +118,8 @@ class routesActions extends documentsActions
                     }
                 }
             }
-            $this->associated_huts = array_merge($summit_huts, $associated_huts);
-            $this->associated_summits = $associated_summits;
+            $this->associated_huts = Document::fetchAdditionalFieldsFor(array_merge($summit_huts, $associated_huts), 'Hut', array('shelter_type'));
+            $this->associated_summits = Document::fetchAdditionalFieldsFor($associated_summits, 'Summit', array('summit_type'));
 
             // get all the outings from route and associated routes
             $outing_ids = $associated_routes_outings = array();

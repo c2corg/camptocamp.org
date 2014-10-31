@@ -70,25 +70,41 @@ if ($has_geom || $show_map)
     }
 
     // display linked summits, parkings and huts, if any
+    $markers = array();
     $nb_printed_docs = 0;
-    foreach(array('summits', 'parkings', 'huts') as $type)
+    foreach(array($document->parkings, $document->summits, $document->huts) as $docs)
     {
-        if (!isset($document->$type)) continue;
-        $markers = array();
-        foreach ($document->$type as $doc)
+        if (!isset($docs)) continue;
+
+        foreach($docs as $doc)
         {
             if (!empty($doc['pointwkt']))
             {
+                switch ($doc['module'])
+                {
+                    case 'parkings':
+                        $marker = _marker_url('parkings');
+                        break;
+                    case 'summits':
+                        $marker = _marker_url('summits', $doc['summit_type']);
+                        break;
+                    case 'huts':
+                        $marker = _marker_url('huts', $doc['shelter_type']);
+                        break;
+                }
+
+                if (!isset($markers[$marker])) $markers[$marker] = [];
                 $nb_printed_docs++;
-                $coords = explode(' ', gisQuery::getEWKT($doc['id'], true, $type));
-                $markers[] = sprintf('%6f,%6f', floatval(substr($coords[1], 0)), floatval(substr($coords[0], 1)));
+                array_push($markers[$marker], sprintf('%6f,%6f', floatval($doc['lat']), floatval($doc['lon'])));
             }
         }
-        if (count($markers))
-        {
-            $map_options[] = 'markers=shadow:false|icon:'._marker_url($type).'|'.implode('|', $markers);
-        }
     }
+
+    foreach($markers as $icon => $items)
+    {
+        $map_options[] = 'markers=shadow:false|icon:'.$icon.'|'.implode('|', $items);
+    }
+
     // if only one linked doc is displayed, without any trace, set zoom
     if ($nb_printed_docs <= 1 && !(boolean)($document->get('geom_wkt')))
     {

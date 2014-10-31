@@ -4,14 +4,27 @@
  * We use an url shortener service
  * TODO hard coded url...
  */
-function _marker_url($module)
+function _marker_url($module, $type = null)
 {
     switch ($module)
     {
-        case 'summits':  $url = 'http://goo.gl/PXBoo'; break; // http://www.camptocamp.org/static/images/modules/summits_mini.png
-        case 'sites':    $url = 'http://goo.gl/FlURV'; break; // http://www.camptocamp.org/static/images/modules/sites_mini.png
+        case 'summits':
+            switch ($type)
+            {
+                case 2:  $url = 'http://goo.gl/90ei2c'; break 2; // http://www.camptocamp.org/static/images/picto/pass.png
+                case 3:  $url = 'http://goo.gl/gl97GZ'; break 2; // http://www.camptocamp.org/static/images/picto/lake.png
+                case 4:  $url = 'http://goo.gl/rYvByO'; break 2; // http://www.camptocamp.org/static/images/picto/crag.png
+                default: $url = 'http://goo.gl/PXBoo'; break 2; // http://www.camptocamp.org/static/images/modules/summits_mini.png
+            }
+        case 'huts':
+            switch ($type)
+            {
+                case 3:  $url = 'http://goo.gl/8RmT2T'; break 2; // http://www.camptocamp.org/static/images/picto/camp.png
+                case 5:  $url = 'http://goo.gl/mziJTt'; break 2; // http://www.camptocamp.org/static/images/picto/gite.png
+                default: $url = 'http://goo.gl/tHrhW'; break 2; // http://www.camptocamp.org/static/images/modules/huts_mini.png
+            }
         case 'parkings': $url = 'http://goo.gl/SgAWw'; break; // http://www.camptocamp.org/static/images/modules/parkings_mini.png
-        case 'huts':     $url = 'http://goo.gl/tHrhW'; break; // http://www.camptocamp.org/static/images/modules/huts_mini.png
+        case 'sites':    $url = 'http://goo.gl/FlURV'; break; // http://www.camptocamp.org/static/images/modules/sites_mini.png
         case 'products': $url = 'http://goo.gl/JQ5IU'; break; // http://www.camptocamp.org/static/images/modules/products_mini.png
         case 'images':   $url = 'http://goo.gl/iVugl'; break; // http://www.camptocamp.org/static/images/modules/images_mini.png
         case 'users':    $url = 'http://goo.gl/RDZBR'; break; // http://www.camptocamp.org/static/images/modules/users_mini.png

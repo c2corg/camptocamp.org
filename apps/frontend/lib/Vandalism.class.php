@@ -44,7 +44,8 @@ class Vandalism
         $email_recipient = UserPrivateData::find(108544)->getEmail(); // for now, topo-fr 108544
         $email_subject = $i18n->__('Potential vandalism');
         $server = $_SERVER['SERVER_NAME'];
-        $link = "http://$server/outings/" . self::$doc->getId();
+        $module = self::$doc->getModule();
+        $link = "http://$server/$module/" . self::$doc->getId();
         $htmlBody = $i18n->__('The document "%1%" has been potentially vandalised',
             array('%1%' => '<a href="'.$link.'">'.self::$doc->getCurrentI18nObject()->getName().'</a>'));
 

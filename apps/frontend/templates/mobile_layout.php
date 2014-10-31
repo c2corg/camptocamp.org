@@ -47,7 +47,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         minify_include_custom_stylesheets($combine, $debug);
         echo include_meta_links();
     ?>
-    <link rel="apple-touch-icon-precomposed" href="<?php echo $static_base_url; ?>/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" href="<?php echo $static_base_url; ?>/apple-touch-icon.png">
 </head>
 <body>
     <?php include_partial('common/section_close'); ?>

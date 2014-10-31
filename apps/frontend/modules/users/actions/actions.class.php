@@ -471,7 +471,7 @@ class usersActions extends documentsActions
 
                     // since the password has been changed, we remove all the remember me keys
                     // attached to this user.
-                    RememberKey::deleteKeys($user_id);
+                    RememberKey::deleteUserKeys($user_id);
                 }
     
                 if (!is_null($email))

@@ -63,7 +63,7 @@
       // MI are ~10-15ko, BI are ~100ko
       // TODO might need tweaking and maybe we should take pixelratio into account too
       imageType = (window.localStorage && localStorage.getItem('swipe-quality')) ||
-                 ($(document).width() > 400 ? 'BI' : 'MI');
+                  ($(document).width() > 400  || window.devicePixelRatio >= 2 ? 'BI' : 'MI');
 
       // build DOM for displaying the images
       var wrapper = $('<div/>', { 'class': 'swipe-wrap' });
