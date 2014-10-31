@@ -1,15 +1,6 @@
 <?php
 class RememberKey extends BaseRememberKey
 {
-    public static function deleteOtherKeysForUserId($user_id)
-    {
-        Doctrine_Query::create()
-                      ->delete('RememberKey')
-                      ->from('RememberKey rk')
-                      ->where('rk.user_id = ?', $user_id)
-                      ->execute();
-    }
-    
     public static function deleteOldKeys()
     {
         // Get a new date formatter
@@ -51,7 +42,7 @@ class RememberKey extends BaseRememberKey
     }
 
     // delete all keys of a user
-    public static function deleteKeys($userid)
+    public static function deleteUserKeys($userid)
     {
         Doctrine_Query::create()
                       ->delete()
