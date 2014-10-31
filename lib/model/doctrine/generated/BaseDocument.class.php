@@ -2716,11 +2716,11 @@ class BaseDocument extends sfDoctrineRecordI18n
                     {
                         if (strlen($word) > 3) 
                         {
-                            $word = $word . '~';
+                            $word = $word . '~1';
                         }
                     }
                     $query_search_fuzzy = implode(' ', $query_words);
-                    $query_search = "($param) OR ($query_search_fuzzy)" ;
+                    $query_search = "($param)^20 OR ($query_search_fuzzy)^5" ;
                     c2cTools::log(" solr request : " . $query_search);    
                     $query_solr->setQuery($query_search);
                     $query_solr->setRows($max_row);
