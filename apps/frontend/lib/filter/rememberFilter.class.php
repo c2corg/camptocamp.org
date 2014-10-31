@@ -17,11 +17,7 @@ class rememberFilter extends sfFilter
         if ($this->isFirstCall() && !$session_user->isConnected() && !is_null($cookie_value))
         {
             c2cTools::log('{rememberFilter} user has a cookie, trying to auto login');
-            $remember_key = Doctrine_Query::create()
-                                          ->from('RememberKey rk')
-                                          ->where('rk.remember_key = ?', $cookie_value)
-                                          ->execute()
-                                          ->getFirst();
+            $remember_key = RememberKey::getKey($cookie_value);
 
             if ($remember_key)
             {
@@ -52,9 +48,9 @@ class rememberFilter extends sfFilter
                 // delete cookie value in client so that no more requests are made to the db
                 sfContext::getInstance()->getResponse()->setCookie($cookie_name, '');
 
-                // log this in statsd
-                c2cActions::statsdIncrement('bad_remember_cookie',
-                    'symfony.' . sfConfig::get('sf_environment') . '.users.');
+                // log this
+                c2cTools::log('{rememberFilter} user has unknown remember key!');
+                c2cActions::statsdIncrement('bad_remember_cookie', 'symfony.' . sfConfig::get('sf_environment') . '.users.');
             }
         }
         

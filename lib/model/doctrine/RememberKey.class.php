@@ -14,17 +14,15 @@ class RememberKey extends BaseRememberKey
                       ->where('rk.created_at < ?', $expiration_time_value )
                       ->execute();
     }
-    
-    public static function existsKey($key)
+
+    // we assume we won't have any collision... 
+    public static function getKey($key)
     {
-        $res = Doctrine_Query::create()
-                             ->select('COUNT(rk.user_id) nb')
+        return Doctrine_Query::create()
                              ->from('RememberKey rk')
                              ->where('rk.remember_key = ?', $key)
                              ->execute()
-                             ->getFirst()->nb;
-
-        return isset($res);
+                             ->getFirst();
     }
 
     public static function generateRandomKey()
@@ -32,12 +30,13 @@ class RememberKey extends BaseRememberKey
         return md5(base64_encode(openssl_random_pseudo_bytes(30)));
     }
 
-    public static function deleteKey($key, $userid)
+    // we assume we won't have any collision...
+    public static function deleteKey($key)
     {
         Doctrine_Query::create()
                       ->delete()
                       ->from('RememberKey rk')
-                      ->where('rk.remember_key = ? AND rk.user_id = ?', array($key, $userid))
+                      ->where('rk.remember_key = ?', $key)
                       ->execute();
     }
 

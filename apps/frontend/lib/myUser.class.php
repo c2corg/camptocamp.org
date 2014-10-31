@@ -252,7 +252,7 @@ class myUser extends sfBasicSecurityUser
                     $remember_key = $context->getRequest()->getCookie($remember_cookie);
                     if ($remember_key)
                     {
-                        RememberKey::deleteKey($remember_key, $user_id);
+                        RememberKey::deleteKey($remember_key);
                     }
 
                     // TODO : move remove old keys in a batch
@@ -326,7 +326,7 @@ class myUser extends sfBasicSecurityUser
         $remember_key = $context->getRequest()->getCookie($remember_cookie);
         if ($remember_key)
         {
-            RememberKey::deleteKey($remember_key, $this->getId());
+            RememberKey::deleteKey($remember_key);
         }
 
         // delete attributes in session == remove credentials
