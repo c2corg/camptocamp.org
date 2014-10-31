@@ -2716,7 +2716,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     {
                         if (strlen($word) > 3) 
                         {
-                            $word = $word . '~';
+                            $word = $word . '~1';
                         }
                     }
                     $query_search_fuzzy = implode(' ', $query_words);
