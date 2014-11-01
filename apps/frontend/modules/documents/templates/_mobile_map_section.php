@@ -72,11 +72,11 @@ if ($has_geom || $show_map)
     // display linked summits, parkings and huts, if any
     $markers = array();
     $nb_printed_docs = 0;
-    foreach(array($document->parkings, $document->summits, $document->huts) as $docs)
+    foreach(array('parkings', 'summits', 'huts') as $type)
     {
-        if (!isset($docs)) continue;
+        if (!isset($document->$type)) continue;
 
-        foreach($docs as $doc)
+        foreach($document->$type as $doc)
         {
             if (!empty($doc['pointwkt']))
             {
