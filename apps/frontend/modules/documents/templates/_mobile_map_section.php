@@ -35,7 +35,7 @@ if ($has_geom || $show_map)
     echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, false);
     echo '<div class="section" id="map_container_section_container">';
 
-    $map_url = '//maps.googleapis.com/maps/api/staticmap?size=310x310&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;key='
+    $map_url = 'http://maps.googleapis.com/maps/api/staticmap?size=310x310&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;key='
                . sfConfig::get('app_google_api_key') . '&amp;';
 
     $map_options = array();
@@ -72,11 +72,11 @@ if ($has_geom || $show_map)
     // display linked summits, parkings and huts, if any
     $markers = array();
     $nb_printed_docs = 0;
-    foreach(array($document->parkings, $document->summits, $document->huts) as $docs)
+    foreach(array('parkings', 'summits', 'huts') as $type)
     {
-        if (!isset($docs)) continue;
+        if (!isset($document->$type)) continue;
 
-        foreach($docs as $doc)
+        foreach($document->$type as $doc)
         {
             if (!empty($doc['pointwkt']))
             {
