@@ -152,7 +152,7 @@ class Route extends BaseRoute
             else
             {
                 $routes[$key]['add_summit_name'] = true;
-                if ($has_sub_summits && (strpos($route_summit_name, $summit_name_prefix) !== 0))
+                if ($has_sub_summits && (strpos($route_summit_name, $summit_name_prefix) === 0))
                 {
                     $route_summit_name = substr($route_summit_name, $summit_name_length);
                 }
