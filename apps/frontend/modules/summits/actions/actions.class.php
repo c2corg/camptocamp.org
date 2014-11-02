@@ -43,7 +43,10 @@ class summitsActions extends documentsActions
 
             // idea here is to display some docs (routes, images, sites), not only if they are directly linked to the summit,
             // but also if they are linked to a sub(-sub)-summit
-            $summit_ids = array();
+            $sub_summit_ids = array();
+            $sub_summit_names = array();
+            $summit_name = $this->document->get('name');
+            $over_summit_name = '';
             if (count($main_associated_summits))
             {
                 $associated_summits = Association::createHierarchyWithBestName($main_associated_summits, $prefered_cultures,
@@ -59,11 +62,12 @@ class summitsActions extends documentsActions
                 $i = next($associated_summits);
                 while($i !== false && $i['level'] > $doc_level)
                 {
-                    $summit_ids[] = $i['id'];
+                    $sub_summit_ids[] = $i['id'];
+                    $sub_summit_names[] = $i['name'];
                     $i = next($associated_summits);
                 }
 
-                if (count($summit_ids))
+                if (count($sub_summit_ids))
                 {
                     $summit_docs = array_filter($this->associated_docs, array('c2cTools', 'is_site_route_image'));
                     $summit_docs_ids = array();
@@ -71,7 +75,7 @@ class summitsActions extends documentsActions
                     {
                         $summit_docs_ids[] = $doc['id'];
                     }
-                    $associated_summit_docs = Association::findLinkedDocsWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'),
+                    $associated_summit_docs = Association::findLinkedDocsWithBestName($sub_summit_ids, $prefered_cultures, array('st', 'sr', 'si'),
                         false, true, $summit_docs_ids);
 
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_docs);
@@ -83,6 +87,17 @@ class summitsActions extends documentsActions
                     }
                     $associated_sites = array_merge($associated_sites, $associated_summit_sites);
                     $this->associated_sites = $associated_sites;
+                    
+                    // Find part of summit name which is used into sub-summit names
+                    foreach ($sub_summit_names as $sub_summit_name)
+                    {
+                        $sub_summit_name_prefix = explode(' - ', $sub_summit_name, -1);
+                        if (count($sub_summit_name_prefix) && (strpos($summit_name, $sub_summit_name_prefix[0]) !== false))
+                        {
+                            $over_summit_name = $sub_summit_name_prefix[0];
+                            break;
+                        }
+                    }
                 }
             }
             else
@@ -91,11 +106,11 @@ class summitsActions extends documentsActions
             }
             
             $this->associated_summits = $associated_summits;
-            array_unshift($summit_ids, $current_doc_id);
-            $this->ids = implode('-', $summit_ids);
+            array_unshift($sub_summit_ids, $current_doc_id);
+            $this->ids = implode('-', $sub_summit_ids);
             
             // second param will not display the summit name before the route when the summit is the one of the document
-            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'), $this->document->get('name'));
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'), $over_summit_name);
             $this->associated_routes = $associated_routes;
 
             $associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
@@ -187,7 +202,7 @@ class summitsActions extends documentsActions
             $summit_type_list = sfConfig::get('app_summits_summit_types');
             $summit_type_list[1] = 'summit';
             $summit_type = $this->__($summit_type_list[$summit_type_index]);
-            $doc_name = $this->document->get('name');
+            $doc_name = $summit_name;
             
             $title = $doc_name;
             if ($this->document->isArchive())
