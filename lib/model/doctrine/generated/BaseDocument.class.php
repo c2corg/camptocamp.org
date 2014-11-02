@@ -2706,39 +2706,63 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $client = new SolrClient($options);
                 try 
                 {
-                    $client->ping(); 
-                    /* query construct */
-                    $query_solr = new SolrQuery();
-
-                    // Fuzzy search word > 3 letters
-                    $query_words = explode(" ", $param);
-                    foreach ($query_words as &$word) 
-                    {
-                        if (strlen($word) > 3) 
-                        {
-                            $word = $word . '~1';
-                        }
-                    }
-                    $query_search_fuzzy = implode(' ', $query_words);
-                    $query_search = "($param)^20 OR ($query_search_fuzzy)^5" ;
-                    c2cTools::log(" solr request : " . $query_search);    
-                    $query_solr->setQuery($query_search);
-                    $query_solr->setRows($max_row);
-
+                    // 1st search : exact search 
+                    $query_solr_exact = new SolrQuery();
+                    $query_solr_exact->setQuery($param);
+                    $query_solr_exact->setRows($max_row);
                     if (($model == 'User') || ($model == 'UserPrivateData' )) 
                     {
                         if (!sfContext::getInstance()->getUser()->isConnected()) 
                         {
-                            $query_solr->addFilterQuery('user_private_public:true');
+                            $query_solr_exact->addFilterQuery('user_private_public:true');
                         }
                     }  
-                    $query_solr->addFilterQuery('module:'.strtolower($model).'s');
-                    $query_solr->addField('name')->addField('module')->addField('id_doc');
-                    $res = $client->query($query_solr)->getResponse();
-
-                    for ($i = 0; $i < $res['response']['numFound']; $i++) 
+                    $query_solr_exact->addFilterQuery('module:'.strtolower($model).'s');
+                    $query_solr_exact->addField('name')->addField('module')->addField('id_doc');
+                    $res_exact = $client->query($query_solr_exact)->getResponse();
+                   
+                    if ($res_exact['response']['numFound'] > 0){
+                        
+                        for ($i = 0; $i < $res_exact['response']['numFound']; $i++) 
+                        {
+                            $ids_tmp[]['id'] = $res_exact['response']['docs'][$i]['id_doc'];  
+                        }
+                    }
+                    else 
                     {
-                        $ids_tmp[]['id'] = $res['response']['docs'][$i]['id_doc'];
+                        // No exact serach ... so try fuzzy search 
+                        
+                        $query_solr = new SolrQuery();
+                        // Fuzzy search word > 3 letters
+                        $query_words = explode(" ", $param);
+                        foreach ($query_words as &$word) 
+                        {
+                           if (strlen($word) > 4) 
+                           {
+                               $word = $word . '~2';
+                           }
+                        }
+                        $query_search_fuzzy = implode(' ', $query_words);
+                        $query_search = "($param)^20 OR ($query_search_fuzzy)^5" ;
+                        c2cTools::log(" solr request : " . $query_search);    
+                        $query_solr->setQuery($query_search);
+                        $query_solr->setRows($max_row);
+
+                        if (($model == 'User') || ($model == 'UserPrivateData' )) 
+                        {
+                           if (!sfContext::getInstance()->getUser()->isConnected()) 
+                           {
+                               $query_solr->addFilterQuery('user_private_public:true');
+                           }
+                        }  
+                        $query_solr->addFilterQuery('module:'.strtolower($model).'s');
+                        $query_solr->addField('name')->addField('module')->addField('id_doc');
+                        $res = $client->query($query_solr)->getResponse();
+
+                        for ($i = 0; $i < $res['response']['numFound']; $i++) 
+                        {
+                           $ids_tmp[]['id'] = $res['response']['docs'][$i]['id_doc'];
+                        }   
                     }
                 }
                 catch (Exception $e)
@@ -2770,7 +2794,8 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
         }
         else
-        {
+        {  
+            
             $conditions[] = $field[1] . ' LIKE make_search_name(?)||\'%\'';
             $values[] = $param;
             
