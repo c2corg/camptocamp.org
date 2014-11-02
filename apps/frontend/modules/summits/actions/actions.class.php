@@ -95,7 +95,7 @@ class summitsActions extends documentsActions
             $this->ids = implode('-', $summit_ids);
             
             // second param will not display the summit name before the route when the summit is the one of the document
-            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'), $this->document->get('name'));
             $this->associated_routes = $associated_routes;
 
             $associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
@@ -208,7 +208,7 @@ class summitsActions extends documentsActions
     public function executePopup()
     {
         parent::executePopup();
-        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'), $this->document->get('name'));
     }
 
     /**
