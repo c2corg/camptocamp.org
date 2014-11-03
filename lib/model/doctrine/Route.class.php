@@ -154,7 +154,7 @@ class Route extends BaseRoute
                 $routes[$key]['add_summit_name'] = true;
                 if ($has_sub_summits && (strpos($route_summit_name, $summit_name_prefix) === 0))
                 {
-                    $route_summit_name = substr($route_summit_name, $summit_name_length);
+                    $route_summit_name = c2cTools::multibyte_ucfirst(substr($route_summit_name, $summit_name_length));
                 }
                 $routes[$key]['name'] = $route_summit_name . $separator . $route['name'];
             }
