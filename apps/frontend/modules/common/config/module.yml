@@ -1,7 +1,7 @@
 all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
-    values: [ adserver, adserver, camp_f, adserver, adserver, adserver, montania, adserver, adserver, camp_f, adserver, adserver ]
+    values: [ diamir_vipec, adserver, camp_c, diamir_vipec, adserver, adserver, montania, diamir_vipec, adserver, camp_c, diamir_vipec, adserver ]
   banners:
     list:
       skalp:
@@ -271,7 +271,7 @@ all:
         alt: "Montagnes de la Terre"
       diamir_vipec:
         id: 79
-        image: diamir-vipec.gif
+        image: diamir-vipec2015.gif
         alt: "Diamir Vipec"
       diamir_colorclip:
         id: 79
