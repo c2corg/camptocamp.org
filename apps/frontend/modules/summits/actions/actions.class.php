@@ -98,6 +98,25 @@ class summitsActions extends documentsActions
                             break;
                         }
                     }
+                    
+                    $over_summit_name_2 = false;
+                    $over_summit_name_3 = false;
+                    foreach ($sub_summit_names as $sub_summit_name)
+                    {
+                        if (!$over_summit_name_3 && strpos($sub_summit_name, $summit_name) === 0)
+                        {
+                            $over_summit_name_2 = true;
+                        }
+                        else if (!empty($over_summit_name) && (strpos($sub_summit_name, $over_summit_name) !== false))
+                        {
+                            $over_summit_name_3 = true;
+                        }
+                    }
+                    
+                    if ($over_summit_name_2)
+                    {
+                        $over_summit_name = $summit_name;
+                    }
                 }
             }
             else
