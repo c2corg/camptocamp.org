@@ -2,10 +2,9 @@
 
 class c2cTools
 {
-    public static function multibyte_ucfirst($str)
+    public static function multibyte_ucfirst($str, $enc = 'utf-8')
     {
-        $fc = mb_strtoupper(mb_substr($str, 0, 1), 'UTF-8');
-        return $fc.mb_substr($str, 1);
+        return mb_strtoupper(mb_substr($str, 0, 1, $enc), $enc).mb_substr($str, 1, mb_strlen($str, $enc), $enc);
     }
     
     public static function getArrayElement($elements_list, $key, $alt_key = null, $alt_value = null)
