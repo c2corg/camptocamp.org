@@ -253,7 +253,6 @@ class Portal extends BasePortal
                 if (   array_intersect(array(2, 3), $route_activities)
                     && !$route['global_rating'] instanceof Doctrine_Null && $route['global_rating'] >= 18
                     && !$route['engagement_rating'] instanceof Doctrine_Null && $route['engagement_rating'] >= 4
-                    && ($route['equipment_rating'] instanceof Doctrine_Null || $route['equipment_rating'] == 0 || $route['equipment_rating'] >= 12)
                     && !$route['difficulties_height'] instanceof Doctrine_Null && $route['difficulties_height'] >= 300)
                 {
                     $has_alpibig_route = true;
