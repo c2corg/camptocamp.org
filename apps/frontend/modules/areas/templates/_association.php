@@ -76,6 +76,7 @@ if ($has_weather || $has_avalanche_bulletin)
         {
             $weather_title_list[] = $title;
             $weather_link_list[] = $link;
+        }
     }
     
     foreach ($associated_docs as $doc)
