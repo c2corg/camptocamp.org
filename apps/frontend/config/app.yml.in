@@ -1658,6 +1658,19 @@ all:
       14384: [ 'www.meteo-valais.ch', 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord' ]
       14397: 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord'
       14405: 'www.meteo-chamonix.org/drupal/p-r-e-v-i-s-i-o-n-s/alpes-du-nord'
+    weather_coord_name:
+      0: 'Meteoblue'
+    weather_coord_url:
+      0: 'www.meteoblue.com/%lang%/meteo/latlon/call?lat=%lat%&lon=%lon%'
+    weather_coord_lang:
+      0:
+        fr: fr
+        it: it
+        de: de
+        en: en
+        es: es
+        ca: es
+        eu: en
     filled_criteria:
       'atype': ''
   
