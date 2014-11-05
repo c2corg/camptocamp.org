@@ -1543,7 +1543,7 @@ function weather_coord_link($lat, $lon, $lang)
         $out = array();
         foreach ($weather_names as $key => $weather_name)
         {
-            $weather_names[$key] = link_to(__($weather_name), 'http://' . $urls[$key]);
+            $weather_names[$key] = link_to(__($weather_name), 'http://' . $urls[$key], array('rel' => 'nofollow'));
         }
         return array('', implode(' ', $weather_names));
     }
