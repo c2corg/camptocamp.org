@@ -78,7 +78,9 @@ if ($is_not_archive)
     include_partial('areas/association',
                     array('associated_docs' => $associated_areas,
                           'module' => 'areas',
-                          'weather' => true));
+                          'weather' => true,
+                          'lat' => $document->get('lat'),
+                          'lon' => $document->get('lon')));
     
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
