@@ -2092,6 +2092,7 @@ all:
       9: montblanc
       10: vosges
       11: firstascent
+      12: accident
     cda:
       id: @CDA_ID@
       name: 'changerdapproche'
@@ -2149,9 +2150,11 @@ all:
     firstascent:
       id: @FIRSTASCENT_ID@
       name: 'New routes article'
+      menu: 1
     accident:
       id: @ACCIDENT_ID@
       name: 'Incidents and accidents database'
+      menu: 1
 
   mw_contest_id: @MW_CONTEST_ID@
 
