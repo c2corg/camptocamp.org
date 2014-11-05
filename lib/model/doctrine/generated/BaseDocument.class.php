@@ -2737,7 +2737,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                         $query_words = explode(" ", $param);
                         foreach ($query_words as &$word) 
                         {
-                           if (strlen($word) > 4) 
+                           if (strlen($word) > 3) 
                            {
                                $word = $word . '~2';
                            }
