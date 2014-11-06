@@ -64,7 +64,7 @@ else
             <p><?php echo __('CNIL declaration #') ?>1175560</p>
             <p id="disclaimer"><?php echo __('disclaimer notice') ?></p>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <p><?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => '<a href="https://trac.dev.camptocamp.org/changeset/' . sfConfig::get('app_versions_head'). '/camptocamp.org" class="footer_rev">' . date('YmdHi', sfConfig::get('app_versions_date')) . '</a>')) ?>
+            <p><?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => '<a href="https://github.com/c2corg/camptocamp.org/commit/' . sfConfig::get('app_versions_head'). '" class="footer_rev">' . date('YmdHi', sfConfig::get('app_versions_date')) . '</a>')) ?>
             <input name="cmd" value="_xclick" type="hidden" />
             <input name="business" value="registration@camptocamp.org" type="hidden" />
             <input name="currency_code" value="EUR" type="hidden" />
