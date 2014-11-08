@@ -25,6 +25,17 @@ class RememberKey extends BaseRememberKey
                              ->getFirst();
     }
 
+    public static function renewKey($key, $newkey)
+    {
+        // we don't renew ip, it is not used anymore anyway
+        Doctrine_Query::create()
+                      ->update('RememberKey rk')
+                      ->set('rk.remember_key', "'$newkey'")
+                      ->set('rk.created_at', 'NOW()')
+                      ->where('rk.remember_key = ?', $key)
+                      ->execute();
+    }
+
     public static function generateRandomKey()
     {
         return md5(base64_encode(openssl_random_pseudo_bytes(30)));
