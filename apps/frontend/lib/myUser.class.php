@@ -246,11 +246,22 @@ class myUser extends sfBasicSecurityUser
 
                     $context = sfContext::getInstance();
                     $remember_cookie = sfConfig::get('app_remember_key_cookie_name', 'c2corg_remember');
+                    $key = RememberKey::generateRandomKey();
 
                     // if remember_cookie was set in the request, it means that we are renewing it
                     $remember_key = $context->getRequest()->getCookie($remember_cookie);
-                    $key = RememberKey::generateRandomKey();
-                    RememberKey::renewKey($remember_key, $key);
+                    if ($remember_key)
+                    {
+                        RememberKey::renewKey($remember_key, $key);
+                    }
+                    else
+                    {
+                        $rk = new RememberKey();
+                        $rk->set('remember_key', $key);
+                        $rk->set('user', $user);
+                        $rk->set('ip_address', isset($_SERVER['HTTP_X_ORIGIN_IP']) ? $_SERVER['HTTP_X_ORIGIN_IP'] : $_SERVER['REMOTE_ADDR']); // TODO remove obsolete field
+                        $rk->save();
+                    }
 
                     // TODO : move remove old keys in a batch
                     // remove old keys
@@ -258,7 +269,7 @@ class myUser extends sfBasicSecurityUser
 
                     // make key as a cookie
                     $expiration_age = sfConfig::get('app_remember_key_expiration_age', 30 * 24 * 3600);
-                    $context->getResponse()->setCookie($remember_cookie, $key, time() + $expiration_age);
+                    $context->getResponse()->setCookie($remember_cookie, $key, time() + $expiration_age, '/', '', false, true);
                 }
                 else
                 {
