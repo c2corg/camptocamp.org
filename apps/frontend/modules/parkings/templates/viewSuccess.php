@@ -69,7 +69,9 @@ if ($is_not_archive)
                     array('associated_docs' => $associated_areas,
                           'module' => 'areas',
                           'weather' => true,
-                          'avalanche_bulletin' => true));
+                          'avalanche_bulletin' => true,
+                          'lat' => $document->get('lat'),
+                          'lon' => $document->get('lon')));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     if ($is_not_merged)

@@ -76,7 +76,9 @@ if ($is_not_archive)
                     array('associated_docs' => $associated_areas,
                           'module' => 'areas',
                           'weather' => true,
-                          'avalanche_bulletin' => true));
+                          'avalanche_bulletin' => true,
+                          'lat' => $document->get('lat'),
+                          'lon' => $document->get('lon')));
     
     if (check_not_empty_doc($document, 'maps_info'))
     {

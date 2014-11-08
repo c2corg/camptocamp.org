@@ -30,7 +30,7 @@ class sitesActions extends documentsActions
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
-            $parent_ids = $sites_ids = $site_docs_ids = $child_types = array();
+            $parent_ids = $sub_site_ids = $site_docs_ids = $child_types = array();
 
             // if we have sub-(sub)-sites, we also want to display the outings and images linked to these sites
             $main_associated_sites = $this->associated_sites;
@@ -48,12 +48,12 @@ class sitesActions extends documentsActions
                 $i = next($associated_sites);
                 while($i !== false && $i['level'] > $doc_level)
                 {
-                    $site_ids[] = $i['id'];
+                    $sub_site_ids[] = $i['id'];
                     $i = next($associated_sites);
                 }
 
                 // we want to display on the page the images and outings of the subsites
-                if (count($site_ids))
+                if (count($sub_site_ids))
                 {
                     $site_docs = array_filter($this->associated_docs, array('c2cTools', 'is_image'));
                     foreach ($site_docs as $doc)
@@ -102,7 +102,7 @@ class sitesActions extends documentsActions
             $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
 
             // all outings (directly or indirectly linked) 
-            $parent_ids = array_merge($parent_ids, $sites_ids);
+            $parent_ids = array_merge($parent_ids, $sub_site_ids);
             if (count($parent_ids)) // "sites" can have no linked doc
             {
                 $associated_childs = Association::findLinkedDocsWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
@@ -115,7 +115,7 @@ class sitesActions extends documentsActions
                         array('type' => 'pp', 'show_sub_docs' => false));
                 }
                 
-                if (count($sites_ids))
+                if (count($sub_site_ids))
                 {
                     $associated_site_outings = array_filter($associated_childs, array('c2cTools', 'is_outing'));
                     if (count($associated_site_outings))
@@ -145,8 +145,8 @@ class sitesActions extends documentsActions
 
             $this->associated_sites = $associated_sites;
             
-            array_unshift($sites_ids, $current_doc_id);
-            $this->ids = implode('-', $sites_ids);
+            array_unshift($sub_site_ids, $current_doc_id);
+            $this->ids = implode('-', $sub_site_ids);
             
             $this->associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             

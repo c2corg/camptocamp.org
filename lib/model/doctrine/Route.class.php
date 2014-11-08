@@ -44,7 +44,7 @@ class Route extends BaseRoute
         return array('lon' => $lon, 'lat' => $lat, 'ele' => $elevation);
     }
 
-    public static function addBestSummitName($routes, $separator = ': ', $summit_name = null)
+    public static function addBestSummitName($routes, $separator = ': ', $summit_id = null, $summit_name = '')
     {
         if (!count($routes))
         {
@@ -123,13 +123,28 @@ class Route extends BaseRoute
         }
 
         // merge highest summit name into array of associated routes names.
-        // if $summit_name is given, do not add summit
+        // if $summit_id is given, do not add summit
+        // if $summit_name is given, there are sub-summits, then $summit_name is removed from each route name which start with "$summit_name - "
         // if there is no associated summit, do nothing
+        if (!empty($summit_name))
+        {
+            $has_sub_summits = true;
+            $summit_name_prefix = $summit_name . ' - ';
+            $summit_name_length = strlen($summit_name_prefix);
+        }
+        else
+        {
+            $has_sub_summits = false;
+        }
+        
         foreach ($routes as $key => $route)
         {
+            $route_summit_name = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'];
+            $routes[$key]['full_name'] = $route_summit_name . '-' . $route['name'];
+
             if (!isset($route['name'])) $route['name'] = '';
-            if ((!empty($summit_name) && ($summit_name == $_b[$route['id']]['Summit'][0]['id']))
-                || (empty($_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'])))
+            if ((!empty($summit_id) && ($summit_id == $_b[$route['id']]['Summit'][0]['id']))
+                || (empty($route_summit_name)))
             {
                 $routes[$key]['add_summit_name'] = false;
                 $routes[$key]['name'] = $route['name'];
@@ -137,16 +152,20 @@ class Route extends BaseRoute
             else
             {
                 $routes[$key]['add_summit_name'] = true;
-                $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . $separator . $route['name'];
+                if ($has_sub_summits && (strpos($route_summit_name, $summit_name_prefix) === 0))
+                {
+                    $route_summit_name = c2cTools::multibyte_ucfirst(substr($route_summit_name, $summit_name_length));
+                }
+                $routes[$key]['name'] = $route_summit_name . $separator . $route['name'];
             }
-
-            $routes[$key]['full_name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . '-' . $route['name'];
         }
         return $routes;
     }
 
-    public static function getAssociatedRoutesData($associated_docs, $separator = ': ', $summit_name = null)
+    public static function getAssociatedRoutesData($associated_docs, $separator = ': ', $summit_id = null, $summit_name = '')
     {
+        sfLoader::loadHelpers(array('General'));
+        
         $routes =  Document::fetchAdditionalFieldsFor(
                                             array_filter($associated_docs, array('c2cTools', 'is_route')), 
                                             'Route', 
@@ -158,17 +177,17 @@ class Route extends BaseRoute
                                                   'max_elevation', 'equipment_rating', 'duration'));
 
         // TODO: do additional fields fetching + summit name fetching at once (one query instead of 2)
-        $routes = self::addBestSummitName($routes, $separator, $summit_name);
+        $routes = self::addBestSummitName($routes, $separator, $summit_id, $summit_name);
 
        if (empty($routes))
            return $routes;
 
         // sort alphabetically by name
-        if (empty($summit_name))
+        if (empty($summit_id))
         {
             foreach ($routes as $key => $row)
             {
-                $name[$key] = mb_strtolower($row['name'], "UTF-8");
+                $name[$key] = remove_accents($row['name']);
             }
             array_multisort($name, SORT_STRING, $routes);
         }
@@ -177,7 +196,7 @@ class Route extends BaseRoute
            foreach ($routes as $key => $row)
             {
                 $add_summit_name[$key] = $row['add_summit_name'];
-                $name[$key] = mb_strtolower($row['name'], "UTF-8");
+                $name[$key] = remove_accents($row['name']);
             }
             array_multisort($add_summit_name, $name, SORT_STRING, $routes);
         }

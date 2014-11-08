@@ -96,7 +96,7 @@ if ($has_associated_docs)
                 $name_list = explode(' - ', $name, $cut_level);
                 $name = array_pop($name_list);
             }
-            $name = ucfirst($name);
+            $name = c2cTools::multibyte_ucfirst($name);
             if (!$is_doc)
             {
                 $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']);

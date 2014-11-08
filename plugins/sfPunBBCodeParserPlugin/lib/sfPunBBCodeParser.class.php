@@ -1991,8 +1991,8 @@ class sfPunBBCodeParser
         }
         $text = str_replace($pattern, $replace, $text);
         
-        $pattern = array('#(\d) ( *)((mm?(i?n)?|°\w?|km|h|s)(\W|$))#i', '#((^|\W)\d+) (\w)#', '# ([?!:])#');
-        $replace = array('\1\2\3', '\1&nbsp;\3', '&nbsp;\1');
+        $pattern = array('#(\d) ( *)((m(i?n)?|[cdhkm]m|hr?|s|°\w?)(\W|$))#i', '#((^|\W)\d+) (\w)#', '# ([?!:])#', '#(?<!(\s|\.))\.\.(?!(\s|\.))#');
+        $replace = array('\1\2\3', '\1&nbsp;\3', '&nbsp;\1', '&nbsp;');
         $text = preg_replace($pattern, $replace, $text);
         
         return $text;
