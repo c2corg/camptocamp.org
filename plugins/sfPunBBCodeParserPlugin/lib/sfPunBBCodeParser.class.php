@@ -50,7 +50,7 @@ class sfPunBBCodeParser
     {
         if ($remove_text)
         {
-            return preg_replace('#\[/\*\](.*?)\[\*/\]#s', '\1', $text);
+            return preg_replace('#\[/\*\](.*?)\[\*/\]#s', '', $text);
         }
         else
         {
@@ -2062,7 +2062,7 @@ class sfPunBBCodeParser
             list($inside, $outside) = self::split_text($text, '[code]', '[/code]');
         
             $outside = array_map('ltrim', $outside);
-            $text = implode('[#code_split#]>', $outside);
+            $text = implode('[#code_split#]\n', $outside);
         }
         
         $text = self::do_clickable($text); // Active links between < > or [ ]
@@ -2088,8 +2088,8 @@ class sfPunBBCodeParser
                 if (isset($inside[$i]))
                 {
                     $num_lines = ((substr_count($inside[$i], "\n")) + 3) * 1.5;
-                    $height_str = ($num_lines > 35) ? '35em' : $num_lines.'em';
-                    $text .= '</p><div class="codebox"><div class="incqbox"><h4>Code :</h4><div class="scrollbox" style="height: '.$height_str.'"><pre>'.$inside[$i].'</pre></div></div></div><p>';
+                    $height_str = $num_lines.'em';
+                    $text .= '</p><div class="codebox"><div class="incqbox"><h5>Code :</h5><div class="scrollbox" style="height: '.$height_str.'"><pre>'.$inside[$i].'</pre></div></div></div><p>';
                 }
             }
         }
