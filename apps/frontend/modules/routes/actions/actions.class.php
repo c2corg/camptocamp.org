@@ -35,6 +35,11 @@ class routesActions extends documentsActions
                     $parent_ids[] = $summit['id'];
                 }
             }
+            
+            // extract coord of highest summit
+            $highest_summit = c2cTools::extractHighest($main_associated_summits);
+            $this->lat = $highest_summit['lat'];
+            $this->lon = $highest_summit['lon'];
 
             // routes associated with this route (eg because they share most of the route)
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
@@ -245,7 +250,7 @@ class routesActions extends documentsActions
             $this->related_portals = $related_portals;
     
             // extract highest associated summit, and prepend its name to display this route's name.
-            $this->highest_summit_name = c2cTools::extractHighestName($main_associated_summits);
+            $this->highest_summit_name = $highest_summit['name'];
             // redefine page title: prepend summit name
             $doc_name = $this->highest_summit_name
                       . $this->__(' :') . ' '
