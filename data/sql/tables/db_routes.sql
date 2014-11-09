@@ -37,7 +37,7 @@ CREATE TABLE app_routes_archives (
     rock_required_rating smallint,
     aid_rating smallint,
     rock_exposition_rating smallint,
-    anowshoeing_rating smallint
+    snowshoeing_rating smallint
 ) INHERITS (app_documents_archives);
 
 ALTER TABLE ONLY app_routes_archives ADD CONSTRAINT routes_archives_pkey PRIMARY KEY (route_archive_id);

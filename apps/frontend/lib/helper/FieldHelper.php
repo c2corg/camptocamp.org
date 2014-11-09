@@ -1518,6 +1518,37 @@ function weather_link($id, $name)
     }
 }
 
+// generate weather links with coordinate criteria
+function weather_coord_link($lat, $lon, $lang)
+{
+    $name_list = sfConfig::get('app_areas_weather_coord_name');
+    $url_list = sfConfig::get('app_areas_weather_coord_url');
+    $lang_list = sfConfig::get('app_areas_weather_coord_lang');
+    $weather_names = $urls = array();
+    
+    foreach ($name_list as $key => $weather_name)
+    {
+        $weather_names[] = $weather_name;
+        $lang = $lang_list[$key][$lang];
+        $url = $url_list[$key];
+        $urls[] = str_replace(array('%lat%', '%lon%', '%lang%'), array($lat, $lon, $lang), $url);
+    }
+    
+    if (empty($weather_names))
+    {
+        return array('', '');
+    }
+    else
+    {
+        $out = array();
+        foreach ($weather_names as $key => $weather_name)
+        {
+            $weather_names[$key] = link_to(__($weather_name), 'http://' . $urls[$key], array('rel' => 'nofollow'));
+        }
+        return array('', implode(' ', $weather_names));
+    }
+}
+
 // insert a microdata as meta tag
 // use sparingly and when info is not displayed
 function microdata_meta($itemprop, $content)

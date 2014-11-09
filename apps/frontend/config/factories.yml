@@ -1,3 +1,9 @@
+all:
+  storage:
+    class: sfSessionStorage
+    param:
+      session_cookie_httponly: true
+
 cli:
   controller:
     class: sfConsoleController
