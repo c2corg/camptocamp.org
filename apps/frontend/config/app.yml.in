@@ -1664,13 +1664,13 @@ all:
       0: 'www.meteoblue.com/%lang%/meteo/latlon/call?lat=%lat%&lon=%lon%'
     weather_coord_lang:
       0:
-        fr: fr
-        it: it
-        de: de
-        en: en
-        es: es
-        ca: es
-        eu: en
+        fr: 'fr/meteo'
+        it: 'it/tempo'
+        de: 'de/wetter'
+        en: 'en/weather'
+        es: 'es/tiempo'
+        ca: 'es/tiempo'
+        eu: 'en/weather'
     filled_criteria:
       'atype': ''
   
