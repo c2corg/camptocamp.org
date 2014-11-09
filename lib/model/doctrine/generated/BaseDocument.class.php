@@ -2708,7 +2708,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 {
                     // 1st search : exact search 
                     $query_solr_exact = new SolrQuery();
-                    $query_solr_exact->setQuery($param);
+                    $query_solr_exact->setQuery('*'.$param.'*');
                     $query_solr_exact->setRows($max_row);
                     if (($model == 'User') || ($model == 'UserPrivateData' )) 
                     {
