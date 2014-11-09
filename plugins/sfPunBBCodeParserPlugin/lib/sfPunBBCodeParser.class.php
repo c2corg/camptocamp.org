@@ -2053,7 +2053,7 @@ class sfPunBBCodeParser
         global $list_level;
         $list_level = 0;
         
-        $text = self::remove_comment($text);
+        $text = self::remove_comment($text, $remove_comment);
         $text = self::parse_linebreaks($text);
         
         // If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
@@ -2062,7 +2062,7 @@ class sfPunBBCodeParser
             list($inside, $outside) = self::split_text($text, '[code]', '[/code]');
         
             $outside = array_map('ltrim', $outside);
-            $text = implode('[#code_split#]\n', $outside);
+            $text = implode("[#code_split#]\n", $outside);
         }
         
         $text = self::do_clickable($text); // Active links between < > or [ ]
