@@ -124,7 +124,7 @@ MINIFY_DEBUG =  false
 PRODUCTION = false
 
 MW_CONTEST_ID = 407724
-MW_CONTEST_ENABLED = true
+MW_CONTEST_ENABLED = false
 
 STATISTICS_URL = stats.camptocamp.org
 
