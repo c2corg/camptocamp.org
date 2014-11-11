@@ -7,7 +7,7 @@
     var indicator = $('#indicator');
 
     indicator.show();
-    $.post('/documents/addAssociation/main_id/' + $('#id').val() +
+    $.post('/outings/addAssociation/main_id/' + $('#id').val() +
            '/document_module/articles/document_id/' + C2C.mw_contest_article_id
     ).always(function() {
       indicator.hide();
@@ -21,7 +21,7 @@
     var indicator = $('#indicator');
 
     indicator.show();
-    $.post('/documents/removeAssociation/main_oc_id/' + $('#id').val() +
+    $.post('/outings/removeAssociation/main_oc_id/' + $('#id').val() +
            '/linked_id/' + C2C.mw_contest_article_id + '/type/oc/strict/1'
     ).always(function() {
       indicator.hide();
