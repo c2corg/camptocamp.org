@@ -3078,6 +3078,19 @@ msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Bollettino valanghe</h3>Link verso i bollettini nivometeo recenti per la zona corrispondente alla georeferenziazione del documento.<br />Per una gita effettuata in Svizzera sono disponibili i bollettini del giorno e del giorno precedente.<br />Attenzione: per gli altri paesi, non si tratta del bollettino del giorno della gita ma solo dell'ultimo disponibile."
 
+# [general comment]
+# aide contextuelle (identique en édition et consultation) du champ liste à choix multiple du type des observations d'avalanche
+# [WARNING] en translation used
+msgid "_avalanche_date_info"
+msgstr "<h3>Type of observations releated to avalanches</h3>\n"
+"Type of observations of avalanche or danger signs (multiple choice possible)."
+
+# [general comment]
+# aide contextuelle (identique en édition et consultation) du champ texte de description des observations d'avalanche
+# [ERROR] no available translation
+msgid "_avalanche_desc_info"
+msgstr "MISSING TRANSLATION"
+
 msgid "_beginner_proof_info"
 msgstr "<h3>Principianti</h3>\n"
 "Itinerario adatto alla scoperta dell'attività di scialpinismo.<br />\n"
@@ -3819,6 +3832,10 @@ msgstr "Quota del punto di accesso:"
 msgid "access_status"
 msgstr "Accesso:"
 
+# [WARNING] en translation used
+msgid "accidental_avalanche"
+msgstr "human-triggered avalanche the day of the outing"
+
 msgid "accommodation"
 msgstr "Alloggi e ristoranti nelle vicinanze:"
 
@@ -4062,6 +4079,26 @@ msgstr "Svizzera (francese)"
 
 msgid "avalanche.en ML title"
 msgstr "Svizzera (inglese)"
+
+# [WARNING] en translation used
+msgid "avalanche_date"
+msgstr "Type of observations releated to avalanches:"
+
+# [WARNING] en translation used
+msgid "avalanche_desc"
+msgstr "Observation description:"
+
+# [general comment]
+# texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
+# [ERROR] no available translation
+msgid "avalanche_desc_tooltip"
+msgstr "MISSING TRANSLATION"
+
+# [general comment]
+# Titre affiché dans la sortie, au dessus du champ chiffré "type des obervations" et "description des obervations".
+# [WARNING] en translation used
+msgid "avalanche_info_title"
+msgstr "Observations releated to avalanches"
 
 msgid "awful conditions"
 msgstr "pessime"
@@ -4686,6 +4723,15 @@ msgstr "versione attuale"
 # [WARNING] needs_review
 msgid "current_password"
 msgstr "digiti il password attuale: "
+
+msgid "danger_sign_avalanche"
+msgstr "Segnali d’allarme"
+
+# [general comment]
+# texte affiché à l'édition uniquement, à côté de l'option "danger_sign_avalanche"
+# [WARNING] en translation used
+msgid "danger_sign_avalanche_tooltip"
+msgstr "other than real avalanche"
 
 msgid "dangerous"
 msgstr "pericoloso"
@@ -5927,6 +5973,10 @@ msgstr "Murcia"
 msgid "name"
 msgstr "Nome:"
 
+# [WARNING] en translation used
+msgid "natural_avalanche"
+msgstr "natural avalanche the day of the outing"
+
 msgid "naturally cleared"
 msgstr "strada non pulita"
 
@@ -6050,6 +6100,10 @@ msgstr "nessun risultato"
 
 msgid "no service"
 msgstr "nessun servizio"
+
+# [WARNING] en translation used
+msgid "no_observation_avalanche"
+msgstr "no danger signs or avalanche observed"
 
 msgid "non applicable"
 msgstr "non applicabile"
@@ -6662,6 +6716,10 @@ msgstr "Gradi"
 
 msgid "recent conditions"
 msgstr "Condizioni recenti"
+
+# [WARNING] en translation used
+msgid "recent_avalanche"
+msgstr "fresh avalanche trace"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents

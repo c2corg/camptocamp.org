@@ -3254,6 +3254,19 @@ msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak.<br />Auto
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Boletines de aludes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
 
+# [general comment]
+# aide contextuelle (identique en édition et consultation) du champ liste à choix multiple du type des observations d'avalanche
+# [WARNING] en translation used
+msgid "_avalanche_date_info"
+msgstr "<h3>Type of observations releated to avalanches</h3>\n"
+"Type of observations of avalanche or danger signs (multiple choice possible)."
+
+# [general comment]
+# aide contextuelle (identique en édition et consultation) du champ texte de description des observations d'avalanche
+# [ERROR] no available translation
+msgid "_avalanche_desc_info"
+msgstr "MISSING TRANSLATION"
+
 msgid "_beginner_proof_info"
 msgstr "<h3>Hastapenerako ibilbidea</h3>\n"
 "Ekintza baten hastapen ikastaroak emateko egokia, ekintza mota auekeratu behar da. Eskian edo surfean, hastapenerako ibilbide batek 3.2 zailtasuna baino errezagoa behar du, expisiziorik gabe (E1) eta ibilbide guztian zehar ondo eskiatzeko aukera duena. Igoeran zehar ibilbidea edozein puntutan utzi behar bada, jetsiera atsegin bat izan dadin.<br />\n"
@@ -3924,6 +3937,10 @@ msgstr "Abiagunearen altitudea:"
 msgid "access_status"
 msgstr "Abiapuntuaren egoera:"
 
+# [WARNING] en translation used
+msgid "accidental_avalanche"
+msgstr "human-triggered avalanche the day of the outing"
+
 msgid "accommodation"
 msgstr "Lo eta jateko aukerak inguruetan:"
 
@@ -4187,6 +4204,26 @@ msgstr "Suitza (frantsesez)"
 
 msgid "avalanche.en ML title"
 msgstr "Suitza (ingelesez)"
+
+# [WARNING] en translation used
+msgid "avalanche_date"
+msgstr "Type of observations releated to avalanches:"
+
+# [WARNING] en translation used
+msgid "avalanche_desc"
+msgstr "Observation description:"
+
+# [general comment]
+# texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
+# [ERROR] no available translation
+msgid "avalanche_desc_tooltip"
+msgstr "MISSING TRANSLATION"
+
+# [general comment]
+# Titre affiché dans la sortie, au dessus du champ chiffré "type des obervations" et "description des obervations".
+# [WARNING] en translation used
+msgid "avalanche_info_title"
+msgstr "Observations releated to avalanches"
 
 msgid "awful conditions"
 msgstr "eskaxak"
@@ -4811,6 +4848,16 @@ msgstr "oraingo bertsioa"
 # [WARNING] en translation used
 msgid "current_password"
 msgstr "Enter current password:"
+
+# [WARNING] en translation used
+msgid "danger_sign_avalanche"
+msgstr "danger signs"
+
+# [general comment]
+# texte affiché à l'édition uniquement, à côté de l'option "danger_sign_avalanche"
+# [WARNING] en translation used
+msgid "danger_sign_avalanche_tooltip"
+msgstr "other than real avalanche"
 
 msgid "dangerous"
 msgstr "gutxi egokitua"
@@ -6152,6 +6199,10 @@ msgstr "Murtziako Eskualdea"
 msgid "name"
 msgstr "Izena:"
 
+# [WARNING] en translation used
+msgid "natural_avalanche"
+msgstr "natural avalanche the day of the outing"
+
 msgid "naturally cleared"
 msgstr "elur garbiketa naturala"
 
@@ -6298,6 +6349,10 @@ msgstr "ez dago emaitzik"
 
 msgid "no service"
 msgstr "zerbitzurik ez"
+
+# [WARNING] en translation used
+msgid "no_observation_avalanche"
+msgstr "no danger signs or avalanche observed"
 
 # [WARNING] es translation used
 msgid "non applicable"
@@ -6970,6 +7025,10 @@ msgstr "Zail."
 
 msgid "recent conditions"
 msgstr "Azken egoerak mendian"
+
+# [WARNING] en translation used
+msgid "recent_avalanche"
+msgstr "fresh avalanche trace"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
