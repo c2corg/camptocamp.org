@@ -3079,6 +3079,19 @@ msgstr "<h3>Author</h3>Name of the author(s) of the book or picture.<br />Use a 
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Avalanche bulletin</h3>Links to the recent avalanche bulletins covering the area where the document is georeferenced.<br />Warning: for an outing, this is not the bulletin from the day of the outing, unless the outing itself is very recent."
 
+# [general comment]
+# aide contextuelle (identique en édition et consultation) du champ liste à choix multiple du type des observations d'avalanche
+# [WARNING] needs_review
+msgid "_avalanche_date_info"
+msgstr "<h3>Type of observations releated to avalanches</h3>\n"
+"Type of observations of avalanche or danger signs (multiple choice possible)."
+
+# [general comment]
+# aide contextuelle (identique en édition et consultation) du champ texte de description des observations d'avalanche
+# [ERROR] no available translation
+msgid "_avalanche_desc_info"
+msgstr "MISSING TRANSLATION"
+
 msgid "_beginner_proof_info"
 msgstr "<h3>Initiation</h3>\n"
 "Route suitable for learning an activity.<br />\n"
@@ -3807,6 +3820,10 @@ msgstr "Altitude of access point:"
 msgid "access_status"
 msgstr "Access:"
 
+# [WARNING] needs_review
+msgid "accidental_avalanche"
+msgstr "human-triggered avalanche the day of the outing"
+
 msgid "accommodation"
 msgstr "Available food and accomodation:"
 
@@ -4054,6 +4071,26 @@ msgstr "Switzerland (french)"
 
 msgid "avalanche.en ML title"
 msgstr "Switzerland (english)"
+
+# [WARNING] needs_review
+msgid "avalanche_date"
+msgstr "Type of observations releated to avalanches:"
+
+# [WARNING] needs_review
+msgid "avalanche_desc"
+msgstr "Observation description:"
+
+# [general comment]
+# texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
+# [ERROR] no available translation
+msgid "avalanche_desc_tooltip"
+msgstr "MISSING TRANSLATION"
+
+# [general comment]
+# Titre affiché dans la sortie, au dessus du champ chiffré "type des obervations" et "description des obervations".
+# [WARNING] needs_review
+msgid "avalanche_info_title"
+msgstr "Observations releated to avalanches"
 
 msgid "awful conditions"
 msgstr "awful"
@@ -4649,6 +4686,14 @@ msgstr "current version"
 
 msgid "current_password"
 msgstr "Enter current password:"
+
+msgid "danger_sign_avalanche"
+msgstr "danger signs"
+
+# [general comment]
+# texte affiché à l'édition uniquement, à côté de l'option "danger_sign_avalanche"
+msgid "danger_sign_avalanche_tooltip"
+msgstr "other than real avalanche"
 
 msgid "dangerous"
 msgstr "unsuitable"
@@ -5907,6 +5952,10 @@ msgstr "Region of Murcia"
 msgid "name"
 msgstr "Name:"
 
+# [WARNING] needs_review
+msgid "natural_avalanche"
+msgstr "natural avalanche the day of the outing"
+
 msgid "naturally cleared"
 msgstr "naturally cleared"
 
@@ -6033,6 +6082,9 @@ msgstr "no results"
 
 msgid "no service"
 msgstr "no service"
+
+msgid "no_observation_avalanche"
+msgstr "no danger signs or avalanche observed"
 
 msgid "non applicable"
 msgstr "non applicable"
@@ -6646,6 +6698,10 @@ msgstr "Grd."
 
 msgid "recent conditions"
 msgstr "Recent conditions"
+
+# [WARNING] needs_review
+msgid "recent_avalanche"
+msgstr "fresh avalanche trace"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents

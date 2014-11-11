@@ -625,7 +625,7 @@ if (isset($_POST['form_sent']))
                                   $mail_message = trim(substr($mail_tpl, $first_crlf));
                                   $mail_message = str_replace('<replier>', $username, $mail_message);
                                   $mail_message = str_replace('<post_url>',
-                                                              'http://'.sfConfig::get('app_classic_version_host')."/documents/comment/$doc_param[0]/$doc_param[1]",
+                                                              $pun_config['o_base_url']."/documents/comment/$doc_param[0]/$doc_param[1]",
                                                               $mail_message); // TODO get module directly instead of 'documents'
                                   $mail_message = str_replace('<unsubscribe_url>', $pun_config['o_base_url'].'/misc.php?unsubscribe='.$new_tid, $mail_message);
                                   $mail_message = str_replace('<board_mailer>', $pun_config['o_board_title'].' '.$lang_common['Mailer'], $mail_message);

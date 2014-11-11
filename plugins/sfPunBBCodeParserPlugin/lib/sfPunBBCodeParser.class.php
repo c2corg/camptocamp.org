@@ -43,7 +43,21 @@ class sfPunBBCodeParser
         return str_replace("\r", "\n", str_replace("\r\n", "\n", $str));
     }
     
-    
+    //
+    // Remove comments inserted in text : comment tag + comment text, or comment tag only
+    //
+    public static function remove_comment($text, $remove_text = true)
+    {
+        if ($remove_text)
+        {
+            return preg_replace('#\[/\*\](.*?)\[\*/\]#s', '', $text);
+        }
+        else
+        {
+            return str_replace(array('[/*]', '[*/]'), '', $text);
+        }
+    }
+
     //
     // Make sure all BBCodes are lower case and do a little cleanup
     //
@@ -2034,11 +2048,12 @@ class sfPunBBCodeParser
     /**
      * Parse message text
      */
-    public static function parse_message($text, $images = null, $collaborative_doc = true, $show_images = true)
+    public static function parse_message($text, $images = null, $collaborative_doc = true, $show_images = true, $remove_comment = true)
     {
         global $list_level;
         $list_level = 0;
         
+        $text = self::remove_comment($text, $remove_comment);
         $text = self::parse_linebreaks($text);
         
         // If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
@@ -2046,17 +2061,11 @@ class sfPunBBCodeParser
         {
             list($inside, $outside) = self::split_text($text, '[code]', '[/code]');
         
-            // Active links between < > or [ ]
-            $outside = array_map('self::do_clickable', $outside);
-            
             $outside = array_map('ltrim', $outside);
-            $text = implode('<">', $outside);
+            $text = implode("[#code_split#]\n", $outside);
         }
-        else
-        {
-            // Active links between < > or [ ]
-            $text = self::do_clickable($text);
-        }
+        
+        $text = self::do_clickable($text); // Active links between < > or [ ]
         $text = self::do_headers($text);
         $text = self::do_lines($text);
         $text = self::do_lists($text);
@@ -2064,11 +2073,11 @@ class sfPunBBCodeParser
         $text = self::do_images($text, $images, $collaborative_doc, $show_images);
         $text = self::do_videos($text, !$collaborative_doc);
         $text = self::do_spaces($text, true);
-    
+
         // If we split up the message before we have to concatenate it together again (code tags)
         if (isset($inside))
         {
-            $outside = explode('<">', $text);
+            $outside = explode('[#code_split#]', $text);
             $text = '';
     
             $num_tokens = count($outside);
@@ -2079,8 +2088,8 @@ class sfPunBBCodeParser
                 if (isset($inside[$i]))
                 {
                     $num_lines = ((substr_count($inside[$i], "\n")) + 3) * 1.5;
-                    $height_str = ($num_lines > 35) ? '35em' : $num_lines.'em';
-                    $text .= '</p><div class="codebox"><div class="incqbox"><h4>Code :</h4><div class="scrollbox" style="height: '.$height_str.'"><pre>'.$inside[$i].'</pre></div></div></div><p>';
+                    $height_str = $num_lines.'em';
+                    $text .= '</p><div class="codebox"><div class="incqbox"><h5>Code :</h5><div class="scrollbox" style="height: '.$height_str.'"><pre>'.$inside[$i].'</pre></div></div></div><p>';
                 }
             }
         }
@@ -2099,6 +2108,7 @@ class sfPunBBCodeParser
 
     public static function parse_message_simple($text)
     {
+        $text = self::remove_comment($text);
         $text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, false, false);
@@ -2112,6 +2122,7 @@ class sfPunBBCodeParser
 
     public static function parse_message_abstract($text)
     {
+        $text = self::remove_comment($text);
         $text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, true);

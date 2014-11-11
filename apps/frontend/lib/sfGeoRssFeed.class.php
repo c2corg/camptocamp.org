@@ -19,7 +19,7 @@ class sfGeoRssFeed extends sfRssFeed
   public function toXml()
   {
     $this->initContext();
-    $resource_url = 'http://'.sfConfig::get('app_static_version_host', sfConfig::get('app_classic_version_host'));
+    $resource_url = 'http://'.sfConfig::get('app_static_version_host', $_SERVER['HTTP_HOST']);
     $xml = array();
     $xml[] = '<?xml version="1.0" encoding="'.$this->getEncoding().'" ?>';
     $xml[] = '<rss version="'.$this->getVersion().'" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"

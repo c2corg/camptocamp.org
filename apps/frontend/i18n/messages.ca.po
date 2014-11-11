@@ -3055,6 +3055,19 @@ msgstr "<h3>Autor</h3>Noms de o dels autor(s) de la imatge. <br />Per separar el
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Butlletins de Neu i Allaus</h3>Enllaços cap als Butlletins de Neu i Allaus recents de la zona on el document està georeferenciat.<br />Per una sortida feta a Suïssa, els butlletins del dia abans i del dia de la sortida també són disponibles.<br />Atenció: per a la resta de països, només hi ha disponible el darrer butlletí, que per tant no correspondrà al dia de la sortida."
 
+# [general comment]
+# aide contextuelle (identique en édition et consultation) du champ liste à choix multiple du type des observations d'avalanche
+# [WARNING] en translation used
+msgid "_avalanche_date_info"
+msgstr "<h3>Type of observations releated to avalanches</h3>\n"
+"Type of observations of avalanche or danger signs (multiple choice possible)."
+
+# [general comment]
+# aide contextuelle (identique en édition et consultation) du champ texte de description des observations d'avalanche
+# [ERROR] no available translation
+msgid "_avalanche_desc_info"
+msgstr "MISSING TRANSLATION"
+
 msgid "_beginner_proof_info"
 msgstr "<h3>Iniciació</h3>\n"
 "Itinerari adequat per a la iniciació.<br />\n"
@@ -3862,6 +3875,10 @@ msgstr "Altitud de l'accés:"
 msgid "access_status"
 msgstr "Accés:"
 
+# [WARNING] en translation used
+msgid "accidental_avalanche"
+msgstr "human-triggered avalanche the day of the outing"
+
 msgid "accommodation"
 msgstr "Allotjament i restauració a proximitat:"
 
@@ -4102,6 +4119,26 @@ msgstr "Suïssa (francès)"
 
 msgid "avalanche.en ML title"
 msgstr "Suïssa (anglés)"
+
+# [WARNING] en translation used
+msgid "avalanche_date"
+msgstr "Type of observations releated to avalanches:"
+
+# [WARNING] en translation used
+msgid "avalanche_desc"
+msgstr "Observation description:"
+
+# [general comment]
+# texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
+# [ERROR] no available translation
+msgid "avalanche_desc_tooltip"
+msgstr "MISSING TRANSLATION"
+
+# [general comment]
+# Titre affiché dans la sortie, au dessus du champ chiffré "type des obervations" et "description des obervations".
+# [WARNING] en translation used
+msgid "avalanche_info_title"
+msgstr "Observations releated to avalanches"
 
 msgid "awful conditions"
 msgstr "execrables"
@@ -4688,6 +4725,16 @@ msgstr "versió actual"
 msgid "current_password"
 msgstr "Escrigueu la vostra contrasenya actual:"
 
+# [WARNING] en translation used
+msgid "danger_sign_avalanche"
+msgstr "danger signs"
+
+# [general comment]
+# texte affiché à l'édition uniquement, à côté de l'option "danger_sign_avalanche"
+# [WARNING] en translation used
+msgid "danger_sign_avalanche_tooltip"
+msgstr "other than real avalanche"
+
 msgid "dangerous"
 msgstr "perillós"
 
@@ -5183,17 +5230,16 @@ msgstr "&gt; o ="
 msgid "gres"
 msgstr "gres"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "h2 button title"
-msgstr "Level 2 subtitle"
+msgstr "Subtítol de nivell 2"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "h3 button title"
-msgstr "Level 3 subtitle"
+msgstr "Subtítol de nivell 3"
 
-# [WARNING] en translation used
 msgid "h4 button title"
-msgstr "Level 4 subtitle"
+msgstr "Subtítol de nivell 4"
 
 msgid "has GPS track"
 msgstr "hi ha una traça GPS associada a aquest document"
@@ -5906,6 +5952,10 @@ msgstr "Regió de Múrcia"
 msgid "name"
 msgstr "Nom:"
 
+# [WARNING] en translation used
+msgid "natural_avalanche"
+msgstr "natural avalanche the day of the outing"
+
 msgid "naturally cleared"
 msgstr "neteja natural"
 
@@ -6028,6 +6078,10 @@ msgstr "cap correspondència"
 
 msgid "no service"
 msgstr "cap servei"
+
+# [WARNING] en translation used
+msgid "no_observation_avalanche"
+msgstr "no danger signs or avalanche observed"
 
 msgid "non applicable"
 msgstr "no aplicable"
@@ -6609,6 +6663,10 @@ msgstr "Cot."
 
 msgid "recent conditions"
 msgstr "Condicions recents"
+
+# [WARNING] en translation used
+msgid "recent_avalanche"
+msgstr "fresh avalanche trace"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents

@@ -1661,16 +1661,16 @@ all:
     weather_coord_name:
       0: 'Meteoblue'
     weather_coord_url:
-      0: 'www.meteoblue.com/%lang%/meteo/latlon/call?lat=%lat%&lon=%lon%'
+      0: 'www.meteoblue.com/%lang%/latlon/call?lat=%lat%&lon=%lon%'
     weather_coord_lang:
       0:
-        fr: fr
-        it: it
-        de: de
-        en: en
-        es: es
-        ca: es
-        eu: en
+        fr: 'fr/meteo'
+        it: 'it/tempo'
+        de: 'de/wetter'
+        en: 'en/weather'
+        es: 'es/tiempo'
+        ca: 'es/tiempo'
+        eu: 'en/weather'
     filled_criteria:
       'atype': ''
   
@@ -2056,18 +2056,18 @@ all:
   
   figures:
     list:
-      summits:  16'400
-      routes:   29'300
-      outings:  132'000
-      images:   300'000
-      sites:    2'700
-      huts:     1'950
-      parkings: 4'350
-      books:    1'280
-      users:    40'650
-      articles: 740
-      topics:   260'000
-      posts:    1'986'000
+      summits:  16'700
+      routes:   30'000
+      outings:  136'000
+      images:   320'000
+      sites:    2'750
+      huts:     2'050
+      parkings: 4'450
+      books:    1'300
+      users:    41'650
+      articles: 750
+      topics:   265'000
+      posts:    2'017'000
 
   profile_cookies:
     list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages' ]
