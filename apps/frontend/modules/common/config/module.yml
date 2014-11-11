@@ -271,7 +271,7 @@ all:
         alt: "Montagnes de la Terre"
       diamir_vipec:
         id: 79
-        image: diamir-vipec2015.gif
+        image: diamir-vipec2015b.gif
         alt: "Diamir Vipec"
       diamir_colorclip:
         id: 79
