@@ -61,11 +61,11 @@
                                           
     var request;
     if (service === 'geonames') {
-      request = 'http://api.geonames.org/searchJSON?maxRows=10&featureClass=P&featureClass=T' +
+      request = '//api.geonames.org/searchJSON?maxRows=10&featureClass=P&featureClass=T' +
                 '&username=c2corg&lang=' + document.documentElement.lang + '&name_startsWith=' +
                 encodeURIComponent(q) + '&callback=?';
     } else {
-      request = 'http://nominatim.openstreetmap.org/search?format=json&limit=10' +
+      request = '//nominatim.openstreetmap.org/search?format=json&limit=10' +
                 '&email=dev@campto' + 'camp.org&q=' + encodeURIComponent(q) + '&json_callback=?';
     }
 
