@@ -4026,13 +4026,13 @@ ul.recent_conditions
   margin-top: 10px;
 }
 
-.recent_conditions ul
+.recent_conditions > li > ul
 {
   margin-left: 20px;
   margin-top: 0.8em;
 }
 
-.recent_conditions ul li
+.recent_conditions > li > ul > li
 {
   list-style-type:square;
   margin-bottom: 0.2em;
