@@ -26,7 +26,9 @@ if (isset($nb_comments) && $nb_comments)
     li(field_data_if_set($document, 'unstaffed_capacity'));
     
     $unstaffed_capacity = $document->get('unstaffed_capacity');
-    $unstaffed_applies = !is_null($unstaffed_capacity) && $unstaffed_capacity > 0;
+    $is_staffed = $document->get('is_staffed');
+    // show unstaff fields if hut is not staffed, or, if staffed, unstaffed_capacity is defined
+    $unstaffed_applies = (!is_null($unstaffed_capacity) && $unstaffed_capacity > 0) || (!is_null($is_staffed) && !$is_staffed);
    
     if ($unstaffed_applies)
     {
