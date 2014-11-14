@@ -75,6 +75,12 @@ fields:
   lift_status:
     myChoiceValidator:
       config_choice: mod_outings_lift_statuses_list
+  avalanche_date:
+    myChoiceValidator:
+      config_choice: mod_outings_avalanche_date_list
+      unique: false
+      array_exclusive: [ 1 ]
+      exclusive_choice_error: no_observation_avalanche can't be selected with another option
   gps_data:
     file: true
     sfFileValidator:
