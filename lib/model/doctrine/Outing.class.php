@@ -81,6 +81,16 @@ class Outing extends BaseOuting
         return self::returnPosIntOrNull($value);
     }
 
+    public static function filterSetAvalanche_date($value)
+    {
+        return self::convertArrayToString($value);
+    }   
+
+    public static function filterGetAvalanche_date($value)
+    {   
+        return self::convertStringToArray($value);
+    }
+
     public static function filterSetV4_id($value)
     {
         return self::returnNullIfEmpty($value);
@@ -271,6 +281,7 @@ class Outing extends BaseOuting
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Bool', $m . '.partial_trip', 'ptri', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'List', $m . '.frequentation_status', 'ofreq', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.conditions_status', 'ocond', $join);
+            self::buildConditionItem($conditions, $values, $joins, $params_list, 'Array', array($m, 'o', 'avalanche_date'), 'avdate', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.glacier_status', 'oglac', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.track_status', 'otrack', $join);
             self::buildConditionItem($conditions, $values, $joins, $params_list, 'Compare', $m . '.access_status', 'opark', $join);
@@ -570,6 +581,7 @@ class Outing extends BaseOuting
             case 'hdif': return 'm.height_diff_up';
             case 'ddif': return 'm.height_diff_down';
             case 'cond': return 'm.conditions_status';
+            case 'avdate': return 'm.avalanche_date';
             case 'freq': return 'm.frequentation_status';
             case 'geom': return 'm.geom_wkt';
             case 'time': return 'r.duration';
@@ -611,8 +623,8 @@ class Outing extends BaseOuting
                                          'm.geom_wkt', 'm.conditions_status', 'm.frequentation_status');
             
             $conditions_fields_list = (array_intersect($format, array('cond', 'full'))) ?
-                                      array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
-                                            'mi.conditions', 'mi.conditions_levels', 'mi.weather', 'mi.timing')
+                                      array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation', 'm.avalanche_date',
+                                            'mi.outing_route_desc', 'mi.conditions', 'mi.conditions_levels', 'mi.avalanche_desc', 'mi.weather', 'mi.timing')
                                       : array();
             
             $full_fields_list = (in_array('full', $format)) ?
