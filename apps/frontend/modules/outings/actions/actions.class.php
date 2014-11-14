@@ -71,7 +71,7 @@ class outingsActions extends documentsActions
                 $associated_routes = c2cTools::sortArray($associated_routes, 'duration');
                 foreach ($associated_routes as $route)
                 {
-                    // pour les docs de 2�me niveau, on retient uniquement les itin�raires de 1 ou 2 jours
+                    // pour les docs de 2?me niveau, on retient uniquement les itin?raires de 1 ou 2 jours
                     if (!$route['duration'] instanceof Doctrine_Null)
                     {
                         if ($route['duration'] <= 4)
@@ -88,8 +88,8 @@ class outingsActions extends documentsActions
                         $default_ids[] = $route['id'];
                     }
                 }
-                // s'il n'y a pas d'itin�raire de 1 ou 2 jours, on utilise les itin�raires qui ont la plus petite dur�e
-                // s'il n'y en a pas non plus, on utilise les itin�raire dont la dur�e est non renseign�e
+                // s'il n'y a pas d'itin?raire de 1 ou 2 jours, on utilise les itin?raires qui ont la plus petite dur?e
+                // s'il n'y en a pas non plus, on utilise les itin?raire dont la dur?e est non renseign?e
                 if (!count($parent_ids))
                 {
                     if (count($other_routes) > 1)
@@ -574,6 +574,8 @@ class outingsActions extends documentsActions
         $this->addCompareParam($out, 'wrat');
         $this->addParam($out, 'glac');
         $this->addDateParam($out, 'date');
+        
+        $this->addParam($out, 'avdate');
 
         $this->addParam($out, 'geom');
         $this->addListParam($out, 'ocult');
