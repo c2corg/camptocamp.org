@@ -18,4 +18,9 @@ class OutingArchive extends BaseOutingArchive
     {
         return round($value / 1000, 1);
     }
+
+    public static function filterGetAvalanche_date($value)
+    {   
+        return BaseDocument::convertStringToArray($value);
+    }
 }
