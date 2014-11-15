@@ -116,7 +116,7 @@ else:
             $conditions_levels = unserialize($i18n->get('conditions_levels', ESC_RAW));
             $has_conditions_levels = !empty($conditions_levels) && count($conditions_levels);
             $avalanche_date = $item['avalanche_date'];
-            $has_avalanche_date = !empty($avalanche_date) && count($avalanche_date) && !array_intersect(array(0, 1), $avalanche_date);
+            $has_avalanche_date = check_not_empty($avalanche_date) && !($avalanche_date instanceof sfOutputEscaperObjectDecorator) && count($avalanche_date) && !array_intersect(array(0, 1), $avalanche_date);
             $avalanche_desc = $i18n['avalanche_desc'];
             $has_avalanche_desc = $has_avalanche_date && check_not_empty($avalanche_desc) && !($avalanche_desc instanceof sfOutputEscaperObjectDecorator);
             if ($has_conditions || $has_conditions_status || $has_conditions_levels || $has_avalanche_date): ?>
@@ -142,11 +142,11 @@ else:
                     {
                         if (preg_match('{^(\s*\n|)(\#{2,6})}s', $conditions, $match))
                         {
-                            $avalanche_title_level = strlen($matches[2]);
+                            $avalanche_title_level = strlen($match[2]);
                         }
                         else
                         {
-                            $conditions_sub_title = '<h' . $avalanche_title_level . ' id="conditions2" class="htext"><a href="#conditions2">' . __('cond short') . '</a></h' . $avalanche_title_level . '>';
+                            $conditions_sub_title = '<h' . $avalanche_title_level . ' id="conditions2" class="htext hfirst"><a href="#conditions2">' . __('cond short') . '</a></h' . $avalanche_title_level . '>';
                         }
                     }
                     
