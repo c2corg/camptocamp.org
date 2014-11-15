@@ -23,6 +23,7 @@ use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Util.js', 'maps'
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Lang.js', 'maps');
 use_javascript('/static/js/carto/cgxp/proj4js/proj4js/lib/proj4js.js', 'maps');
 use_javascript('/static/js/carto/cgxp/proj4js/proj4js/lib/projCode/merc.js', 'maps');
+use_javascript('/static/js/carto/cgxp/proj4js/EPSG3857.js', 'maps');
 use_javascript('/static/js/carto/cgxp/gxp/src/script/widgets/GoogleEarthPanel.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Control.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Events.js', 'maps');
@@ -169,7 +170,7 @@ use_javascript('/static/js/carto/cgxp/core/src/script/CGXP/plugins/GoogleSource.
 use_javascript('/static/js/carto/cgxp/geoext/lib/GeoExt/widgets/tips/LayerOpacitySliderTip.js', 'maps');
 use_javascript('/static/js/carto/cgxp/sandbox/LayerManager/ux/widgets/LayerManagerImportPanel.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Format/WMTSCapabilities.js', 'maps');
-use_javascript('/static/js/carto/cgxp/core/src/script/CGXP/plugins/FeatureGrid.js', 'maps');
+use_javascript('/static/js/carto/cgxp/core/src/script/CGXP/plugins/FeaturesGrid.js', 'maps');
 use_javascript('/static/js/carto/cgxp/sandbox/LayerManager/ux/downloadify/js/downloadify.min.js', 'maps');
 use_javascript('/static/js/carto/cgxp/core/src/script/CGXP/plugins/AddKMLFile.js', 'maps');
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Handler/RegularPolygon.js', 'maps');
@@ -238,13 +239,13 @@ use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Marker.js', 'map
 use_javascript('/static/js/carto/cgxp/openlayers/lib/OpenLayers/Icon.js', 'maps');
 
 // Project-specific plugins
-use_javascript('/static/js/carto/plugins/LayerTree.js', 'maps');
-use_javascript('/static/js/carto/plugins/ShowFeatures.js', 'maps');
-use_javascript('/static/js/carto/plugins/GeoRef.js', 'maps');
-use_javascript('/static/js/carto/plugins/FullScreen.js', 'maps');
+use_javascript('/static/js/carto/script/c2corg/plugins/LayerTree.js', 'maps');
+use_javascript('/static/js/carto/script/c2corg/plugins/ShowFeatures.js', 'maps');
+use_javascript('/static/js/carto/script/c2corg/plugins/GeoRef.js', 'maps');
+use_javascript('/static/js/carto/script/c2corg/plugins/FullScreen.js', 'maps');
 
 // Project-specific configs and tools
-use_javascript('/static/js/carto/config/config.js', 'maps');
-use_javascript('/static/js/carto/config/base.js', 'maps');
-use_javascript('/static/js/carto/config/styles.js', 'maps');
-use_javascript('/static/js/carto/tools/coords.js', 'maps');
+use_javascript('/static/js/carto/script/c2corg/config/config.js', 'maps');
+use_javascript('/static/js/carto/script/c2corg/config/base.js', 'maps');
+use_javascript('/static/js/carto/script/c2corg/config/styles.js', 'maps');
+use_javascript('/static/js/carto/script/c2corg/tools/coords.js', 'maps');
