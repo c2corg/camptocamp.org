@@ -121,7 +121,7 @@ echo file_upload_tag('gps_data');
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 ?>
-<div data-act-filter="1 2 3 6 7">
+<div data-act-filter="1 2 3 6 7 8">
 <?php
 echo object_group_bbcode_tag($document, 'outing_route_desc', null, array('class' => 'smalltext', 'placeholder' => __('outing_route_desc_default')));
 
@@ -191,7 +191,7 @@ echo object_group_dropdown_tag($document, 'avalanche_date', 'mod_outings_avalanc
 ?>
 <div id="avalanche_desc_form">
 <?php
-echo object_group_bbcode_tag($document, 'avalanche_desc', null, array('placeholder' => __('avalanche_desc_tooltip')));
+echo object_group_bbcode_tag($document, 'avalanche_desc', null, array('class' => 'smalltext', 'placeholder' => __('avalanche_desc_tooltip')));
 ?>
 </div>
 </div>
@@ -203,7 +203,7 @@ if (array_intersect($activities, array(3,4,5)) || (in_array(2, $activities) && !
 {
     $field_title = 'conditions_and_equipment';
 }
-echo object_group_bbcode_tag($document, 'conditions', $field_title, array('class' => 'medlargetext'), true, $field_title);
+echo object_group_bbcode_tag($document, 'conditions', $field_title, array('class' => 'mediumtext'), true, $field_title);
 echo object_group_bbcode_tag($document, 'weather', null, array('no_img' => true));
 echo object_group_bbcode_tag($document, 'participants', null, array('class' => 'smalltext', 'no_img' => true));
 ?>
