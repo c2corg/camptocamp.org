@@ -115,7 +115,8 @@ c2corg.tree.LayerTree = Ext.extend(Ext.tree.TreePanel, {
                 url: this.url,
                 maxFeatures: options.maxFeatures || 200,
                 geometryName: "geom",
-                srsName: "EPSG:900913"
+                //srsName: "EPSG:900913"
+                srsName: "EPSG:3857"
             }),
             isBaseLayer: false,
             visibility: false,

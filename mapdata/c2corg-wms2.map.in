@@ -16,13 +16,14 @@ WEB
   METADATA
     "wms_title"     "C2C WMS Server"  ##required
     "wms_onlineresource" "http://@SERVER_NAME@@SERVER_PORT@/cgi-bin/c2corg_wms"   ##required
-    "wms_srs"       "EPSG:4326 EPSG:900913 EPSG:21781"  ##recommended
+    "wms_srs"       "EPSG:4326 EPSG:900913 EPSG:3857 EPSG:21781"  ##recommended
   END
 END
 
 PROJECTION
   #"init=epsg:4326"   ##required
-  "init=epsg:900913"   ##required
+  #"init=epsg:900913"   ##required
+  "init=epsg:3857"   ##required
 END
 
 #
