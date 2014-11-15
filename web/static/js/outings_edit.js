@@ -135,7 +135,7 @@
           && up_snow_elevation   == access_elevation_init
           && down_snow_elevation == access_elevation_init
          ) {
-         if (   (access_elevation < 1200 && month >= 3 && month =< 11)
+         if (   (access_elevation < 1200 && month >= 3 && month <= 11)
              || (access_elevation < 1400 && month == 4)
              || (access_elevation < 1600 && month == 5)
              || (access_elevation < 2000 && month == 6)
