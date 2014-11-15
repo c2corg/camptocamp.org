@@ -89,11 +89,11 @@ if ($has_outing_route_desc || $has_conditions || $has_conditions_levels || $has_
         {
             if (preg_match('{^(\s*\n|)(\#{2,6})}s', $conditions, $match))
             {
-                $avalanche_title_level = strlen($matches[2]);
+                $avalanche_title_level = strlen($match[2]);
             }
             else
             {
-                $conditions_sub_title = '<h' . $avalanche_title_level . ' id="conditions2" class="htext"><a href="#conditions2">' . __('cond short') . '</a></h' . $avalanche_title_level . '>';
+                $conditions_sub_title = '<h' . $avalanche_title_level . ' id="conditions2" class="htext hfirst"><a href="#conditions2">' . __('cond short') . '</a></h' . $avalanche_title_level . '>';
             }
         }
         
