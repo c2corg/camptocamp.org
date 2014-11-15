@@ -2264,6 +2264,9 @@ msgstr "Formulaire d'inscription"
 msgid "Site not found"
 msgstr "Ce site n'existe pas."
 
+msgid "Snow elevation is correct?"
+msgstr "Les altitudes d'accès et de chaussage/déchaussage sont elles correctes ?"
+
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
 msgid "Snow list"
@@ -3553,6 +3556,15 @@ msgstr "<h3>Risques objectifs</h3>\n"
 msgid "_outing_length_info"
 msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire emprunté au cours de la sortie.<br />Si une trace GPX est associée à la sortie, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
+msgid "_outing_route_desc_info"
+msgstr "<h3>Itinéraire emprunté</h3>\n"
+"Décrivez brièvement l'itinéraire que vous avez suivi, surtout pour les cas suivants :<br />\n"
+"- itinéraire différent du topo<br />\n"
+"- topo comportant des variantes<br />\n"
+"- itinéraire en boucle (indiquer les lieux et altitudes de fin de montée et fin de descente)<br />\n"
+"- enchainements de plusieurs itinéraires (les associer à la sortie après sa création)<br />\n"
+"- parcours partiel (préciser le point atteint, et corriger l'altitude maximale dans le champ dédié)"
+
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Sortie en mobilité douce</h3>\n"
 "Indique si la sortie a été réalisée en utilisant des transports en commun ou le vélo pour accéder au point de départ. Les remontées mécaniques ne doivent pas être prises en compte.<br />\n"
@@ -3883,6 +3895,11 @@ msgstr "Accès&nbsp;:"
 msgid "accidental_avalanche"
 msgstr "avalanche accidentelle le jour de la sortie"
 
+# [general comment]
+# option "accidental_avalanche" à l'édition
+msgid "accidental_avalanche_long"
+msgstr "avalanche déclenchée par une personne le jour de la sortie"
+
 msgid "accommodation"
 msgstr "Hébergement et restauration à proximité&nbsp;:"
 
@@ -4134,9 +4151,9 @@ msgstr "Description des observations&nbsp;:"
 
 # [general comment]
 # texte affichée dans le champ texte de saisie de la description des observations d'avalanche, lorsque ce champ est vide
-# [ERROR] no available translation
+# [WARNING] needs_review
 msgid "avalanche_desc_tooltip"
-msgstr "MISSING TRANSLATION"
+msgstr "Décrivez vos observations relatives à la stabilité du manteau neigeux : corniches récentes, \"wouf\", traces d'avalanche récente, avalanches observées en direct. Pour une avalanche, indiquez grossièrement les lieux, altitudes et dimensions des zones de départ et de dépôt."
 
 # [general comment]
 # Titre affiché dans la sortie, au dessus du champ chiffré "type des obervations" et "description des obervations".
@@ -4756,9 +4773,9 @@ msgid "danger_sign_avalanche"
 msgstr "signaux d'alerte"
 
 # [general comment]
-# texte affiché à l'édition uniquement, à côté de l'option "danger_sign_avalanche"
-msgid "danger_sign_avalanche_tooltip"
-msgstr "autres que des traces d'avalanche "
+# option "danger_sign_avalanche" à l'édition
+msgid "danger_sign_avalanche_long"
+msgstr "signaux d'alerte autres que des traces d'avalanche"
 
 msgid "dangerous"
 msgstr "peu adapté"
@@ -5985,6 +6002,11 @@ msgstr "Intitulé&nbsp;:"
 msgid "natural_avalanche"
 msgstr "avalanche naturelle le jour de la sortie"
 
+# [general comment]
+# option "natural_avalanche" à l'édition
+msgid "natural_avalanche_long"
+msgstr "avalanche naturelle le jour de la sortie"
+
 msgid "naturally cleared"
 msgstr "déneigement naturel"
 
@@ -6109,7 +6131,15 @@ msgid "no service"
 msgstr "pas de service"
 
 msgid "no_observation_avalanche"
-msgstr "aucune observation de signaux d'alerte ni d'avalanche"
+msgstr "aucune observation de signaux d'alerte ni de trace d'avalanche récente"
+
+msgid "no_observation_avalanche can't be selected with another option"
+msgstr "l'option \"aucune observation\" ne peut être sélectionnée en même temps qu'une autre option"
+
+# [general comment]
+# option "no_observation_avalanche" à l'édition
+msgid "no_observation_avalanche_long"
+msgstr "aucune observation de signaux d'alerte ni de trace d'avalanche récente"
 
 msgid "non applicable"
 msgstr "non applicable"
@@ -6243,6 +6273,13 @@ msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des inf
 
 msgid "outing_length"
 msgstr "Longueur&nbsp;:"
+
+msgid "outing_route_desc"
+msgstr "Itinéraire emprunté&nbsp;:"
+
+# [WARNING] needs_review
+msgid "outing_route_desc_default"
+msgstr "Décrivez brièvement l'itinéraire que vous avez suivi : s'il est différent de celui du topo, si le topo comporte des variantes, pour décrire une boucle, des enchainements, ou le point atteint pour un parcours partiel."
 
 msgid "outing_with_public_transportation"
 msgstr "Sortie en mobilité douce"
@@ -6713,6 +6750,11 @@ msgstr "Conditions récentes"
 
 msgid "recent_avalanche"
 msgstr "trace d'avalanche récente"
+
+# [general comment]
+# option "recent_avalanche" à l'édition
+msgid "recent_avalanche_long"
+msgstr "trace d'avalanche récente (après la dernière chute de neige, pluie, coup de vent ou redoux)"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
