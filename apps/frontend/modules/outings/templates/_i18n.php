@@ -104,7 +104,7 @@ if ($has_outing_route_desc || $has_conditions || $has_conditions_levels || $has_
         }
         
         $avalanche_title = '<h' . $avalanche_title_level . ' id="avalanche_info" class="htext hfirst"><a href="#avalanche_info">' . __('avalanche_info_title') . '</a></h' . $avalanche_title_level . '>';
-        $avalanche_date_string = field_data_from_list_if_set($document, 'avalanche_date', 'mod_outings_avalanche_date_list', array('multiple' => true, 'raw' => true)));
+        $avalanche_date_string = field_data_from_list_if_set($document, 'avalanche_date', 'mod_outings_avalanche_date_list', array('multiple' => true, 'raw' => true));
         $avalanche_date_string = '<p><em>'
                                . c2cTools::multibyte_ucfirst($avalanche_date_string)
                                . '</em></p>';
