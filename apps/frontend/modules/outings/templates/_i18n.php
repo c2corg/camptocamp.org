@@ -16,8 +16,8 @@ $has_outing_route_desc = !empty($outing_route_desc);
 $has_conditions = !empty($conditions);
 $has_weather_or_timing = (!empty($weather) || !empty($timing));
 $has_access_or_hut = (!empty($access_comments) || !empty($hut_comments));
-$has_avalanche_date = !empty($avalanche_date) && count($avalanche_date) && !array_intersect(array(0, 1), $avalanche_date);
-$has_avalanche_desc = $has_avalanche_date && !empty($avalanche_desc);
+$has_avalanche_date = !empty($avalanche_date) && count($avalanche_date) && !in_array(0, $avalanche_date);
+$has_avalanche_desc = $has_avalanche_date && !in_array(1, $avalanche_date) && !empty($avalanche_desc);
 
 // hide condition levels if ski, snow, ice_climbing or snowshoeing are not among outing activities
 if (!array_intersect(array(1,2,5,7), $activities))
@@ -103,11 +103,11 @@ if ($has_outing_route_desc || $has_conditions || $has_conditions_levels || $has_
             $avalanche_desc_string .= parse_links(parse_bbcode($avalanche_desc, $images, false));
         }
         
-        $avalanche_title_class = 'htext' . ($has_conditions_levels ? '' : ' hfirst');
-        $avalanche_title = '<h' . $avalanche_title_level . ' id="avalanche_info" class="' . $avalanche_title_class . '"><a href="#avalanche_info">' . __('avalanche_info_title') . '</a></h' . $avalanche_title_level . '>';
-        $avalanche_date_string = '<p>'
-                               . c2cTools::multibyte_ucfirst(get_paginated_value_from_list($avalanche_date, 'mod_outings_avalanche_date_list'))
-                               . '</p>';
+        $avalanche_title = '<h' . $avalanche_title_level . ' id="avalanche_info" class="htext hfirst"><a href="#avalanche_info">' . __('avalanche_info_title') . '</a></h' . $avalanche_title_level . '>';
+        $avalanche_date_string = field_data_from_list_if_set($document, 'avalanche_date', 'mod_outings_avalanche_date_list', array('multiple' => true, 'raw' => true)));
+        $avalanche_date_string = '<p><em>'
+                               . c2cTools::multibyte_ucfirst($avalanche_date_string)
+                               . '</em></p>';
 
         $avalanche_string = $avalanche_title
                           . $avalanche_date_string
