@@ -157,9 +157,11 @@ else:
                     }
                     
                     $avalanche_title = '<h' . $avalanche_title_level . ' id="avalanche_info" class="htext hfirst"><a href="#avalanche_info">' . __('avalanche_info_title') . '</a></h' . $avalanche_title_level . '>';
-                    $avalanche_date_string = '<p><em>'
-                                           . c2cTools::multibyte_ucfirst(get_paginated_value_from_list($avalanche_date, 'mod_outings_avalanche_date_list'))
-                                           . '</em></p>';
+                    $avalanche_date_string = get_paginated_value_from_list($avalanche_date, 'mod_outings_avalanche_date_list');
+                    $avalanche_date_string = '<p class="avalanche_date">'
+                                           . c2cTools::multibyte_ucfirst(trim($avalanche_date_string))
+                                           . '.'
+                                           . '</p>';
 
                     $avalanche_string = $avalanche_title
                                       . $avalanche_date_string
