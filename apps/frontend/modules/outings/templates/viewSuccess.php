@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Field', 'SmartFormat', 'sfBBCode');
+use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Field', 'SmartFormat', 'sfBBCode', 'Pagination');
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
