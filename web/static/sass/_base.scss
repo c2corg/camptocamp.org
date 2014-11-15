@@ -3505,7 +3505,7 @@ a .linked_elt
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.2em 0;
 }
-.hfirst:first-child, .article .hfirst:first-child, .htext + .htext, p.img + .htext, .hfirst > .htext:first-child, .article_contenu > .htext:first-child, .hfirst .translatable:first-child .htext, .embedded_right:first-child + .htext, .htext + .embedded_right + .htext
+.hfirst:first-child, .article .hfirst:first-child, #conditions_levels_table + .htext, .htext + .htext, p.img + .htext, .hfirst > .htext:first-child, .article_contenu > .htext:first-child, .hfirst .translatable:first-child .htext, .embedded_right:first-child + .htext, .htext + .embedded_right + .htext
 {
   margin-top: 0 !important;
 }
