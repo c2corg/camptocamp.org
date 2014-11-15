@@ -146,7 +146,7 @@ else:
                         }
                         else
                         {
-                            $conditions_sub_title = '<h' . $avalanche_title_level . ' id="conditions2" class="htext hfirst"><a href="#conditions2">' . __('cond short') . '</a></h' . $avalanche_title_level . '>';
+                            $conditions_sub_title = '<h' . $avalanche_title_level . ' id="conditions2" class="htext"><a href="#conditions2">' . __('cond short') . '</a></h' . $avalanche_title_level . '>';
                         }
                     }
                     
@@ -156,11 +156,10 @@ else:
                         $avalanche_desc_string .= parse_links(parse_bbcode($avalanche_desc, null, false, false));
                     }
                     
-                    $avalanche_title_class = 'htext' . ($has_conditions_levels ? '' : ' hfirst');
-                    $avalanche_title = '<h' . $avalanche_title_level . ' id="avalanche_info" class="' . $avalanche_title_class . '"><a href="#avalanche_info">' . __('avalanche_info_title') . '</a></h' . $avalanche_title_level . '>';
-                    $avalanche_date_string = '<p>'
+                    $avalanche_title = '<h' . $avalanche_title_level . ' id="avalanche_info" class="htext hfirst"><a href="#avalanche_info">' . __('avalanche_info_title') . '</a></h' . $avalanche_title_level . '>';
+                    $avalanche_date_string = '<p><em>'
                                            . c2cTools::multibyte_ucfirst(get_paginated_value_from_list($avalanche_date, 'mod_outings_avalanche_date_list'))
-                                           . '</p>';
+                                           . '</em></p>';
 
                     $avalanche_string = $avalanche_title
                                       . $avalanche_date_string
