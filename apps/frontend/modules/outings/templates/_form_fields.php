@@ -187,7 +187,7 @@ tbody.on('click', '.remove-condition-level', function(e) {
 echo end_group_tag();
 // end of conditions levels fields
 
-echo object_group_dropdown_tag($document, 'avalanche_date', 'mod_outings_avalanche_date_edit_list', array('multiple' => true, 'na' => array(0)));
+echo object_group_dropdown_tag($document, 'avalanche_date', 'mod_outings_avalanche_date_edit_list', array('multiple' => true));
 ?>
 <div id="avalanche_desc_form">
 <?php
