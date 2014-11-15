@@ -31,7 +31,7 @@
     $('#avalanche_desc_form').hide();
     
     // if option 1 ("no observation") is selected in same time than another one, we unselect option 1
-    if (avalanche_date.length >= 2 && (($.inArray("1", avalanche_date) !== -1) || ($.inArray("0", avalanche_date) === -1)) {
+    if (avalanche_date.length >= 2 && (($.inArray("1", avalanche_date) !== -1) || ($.inArray("0", avalanche_date) === -1))) {
       $('#avalanche_date option[value="0"]').prop("selected", false);
       $('#avalanche_date option[value="1"]').prop("selected", false);
       avalanche_date = $('#avalanche_date').val();
