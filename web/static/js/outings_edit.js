@@ -25,7 +25,7 @@
 
   // hide avalanche_desc form according to avalanche_date value
   function manage_avalanche_fields() {
-    // show/hide data-act-filter tags depending on selected activities
+    // show/hide avalanche_desc_form depending on selected avalanche_date
     var avalanche_date = $('#avalanche_date').val();
 
     $('#avalanche_desc_form').hide();
@@ -33,6 +33,7 @@
     // if option 1 ("no observation") is selected in same time than another one, we unselect option 1
     if (avalanche_date.length >= 2 && ($.inArray("1", avalanche_date) !== -1)) {
       $('#avalanche_date option[value="1"]').prop("selected", false);
+      avalanche_date = $('#avalanche_date').val();
     }
 
     if (!!avalanche_date && ($.inArray("0", avalanche_date) === -1) && ($.inArray("1", avalanche_date) === -1)) {
@@ -153,6 +154,7 @@
 
   // be sure to hide fields on startup if needed
   hide_unrelated_fields();
+  manage_avalanche_fields();
 
   // register events
   $('#activities').on('change', hide_unrelated_fields);
