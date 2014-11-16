@@ -30,6 +30,7 @@ class BaseOuting extends BaseDocument
         $this->hasColumn('down_snow_elevation', 'smallint', 4);
         $this->hasColumn('track_status', 'smallint', 1);
         $this->hasColumn('outing_with_public_transportation', 'boolean', null);
+        $this->hasColumn('avalanche_date', 'string', null); // array
         $this->hasColumn('v4_id', 'smallint', 5);
         $this->hasColumn('v4_app', 'string', 3);
     }

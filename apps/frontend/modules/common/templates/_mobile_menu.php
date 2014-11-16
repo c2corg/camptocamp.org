@@ -19,7 +19,7 @@ $menu_search = array(
 $menu_see = array(
     '#' => ' ',
     url_for('@default_index?module=outings&orderby=date&order=desc') => __('outings'),
-    url_for('outings/conditions') =>  __('cond short'),
+    url_for('@default?module=outings&action=conditions&orderby=date&order=desc') =>  __('cond short'),
     url_for('@default_index?module=routes') => __('routes'),
     url_for('@default_index?module=images') => __('images'),
     url_for('@default_index?module=summits') => __('summits'),

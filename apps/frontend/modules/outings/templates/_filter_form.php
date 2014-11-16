@@ -24,8 +24,15 @@ echo __('outing_with_public_transportation') . ' ' . bool_selector('owtp');
 <?php
 echo __('Date') . __('&nbsp;:') . ' ' . date_selector(array('month' => true, 'year' => true, 'day' => true));
 ?>
+<div data-act-filter="1 2 5 7" style="display:none">
+<?php
+echo __('avalanche_info_title') . __('&nbsp;:') . ' ' . select_tag('avdate', options_for_select(array('2-3-4-5' => __('yes'), '1' => __('no'), ' ' => __('filled in'), '-' => __('nonwell informed')),
+                                                                   '', array('include_blank' => true)));
+?>
+</div>
 <br />
-<?php echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('ocult');
+<?php
+echo __('filter language') . __('&nbsp;:') . ' ' . lang_selector('ocult');
 if ($is_connected)
 {
     echo label_for('myoutings', __('Search in my outings')) . ' ' . checkbox_tag('myoutings', 1, false);

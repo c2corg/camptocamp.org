@@ -18,6 +18,8 @@ class BaseOutingI18n extends BaseDocumentI18n
         $this->hasColumn('access_comments', 'string', null);
         $this->hasColumn('conditions', 'string', null);
         $this->hasColumn('conditions_levels', 'string', null);
+        $this->hasColumn('avalanche_desc', 'string', null);
+        $this->hasColumn('outing_route_desc', 'string', null);
     }
 
     public function setUp()

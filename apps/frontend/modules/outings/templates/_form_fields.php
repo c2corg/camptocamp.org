@@ -9,7 +9,8 @@ if ($mw_contest_enabled) $response->addJavascript('/static/js/mw.js', 'last');
 
 echo javascript_queue("C2C.confirm_outing_date_message = '" . addslashes(__('Has this outing really been done today?')) . "';
 C2C.confirm_outing_activities_message = '" . addslashes(__('Is really a multi-activity outing?')) . "';
-C2C.alert_outing_paragliding_message = '" . addslashes(__('paragliding can not be selected alone')) . "';");
+C2C.alert_outing_paragliding_message = '" . addslashes(__('paragliding can not be selected alone')) . "';
+C2C.confirm_snow_elevation_message = '" . addslashes(__('Snow elevation is correct?')) . "';");
 
 // Here document = outing
 $link_with = $linked_doc ? $linked_doc->get('id') : 0; 
@@ -120,6 +121,12 @@ echo file_upload_tag('gps_data');
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 ?>
+<div data-act-filter="1 2 3 6 7 8">
+<?php
+echo object_group_bbcode_tag($document, 'outing_route_desc', null, array('class' => 'smalltext', 'placeholder' => __('outing_route_desc_default')));
+
+?>
+</div>
 <div data-act-filter="1 2 5 7">
 <?php
 // conditions levels fields:
@@ -178,10 +185,17 @@ tbody.on('click', '.remove-condition-level', function(e) {
 });
 ");
 echo end_group_tag();
+// end of conditions levels fields
+
+echo object_group_dropdown_tag($document, 'avalanche_date', 'mod_outings_avalanche_date_edit_list', array('multiple' => true));
+?>
+<div id="avalanche_desc_form">
+<?php
+echo object_group_bbcode_tag($document, 'avalanche_desc', null, array('class' => 'smalltext', 'placeholder' => __('avalanche_desc_tooltip')));
 ?>
 </div>
+</div>
 <?php
-// end of conditions levels fields
 
 $activities = $document->getRaw('activities');
 $field_title = null;
@@ -189,14 +203,14 @@ if (array_intersect($activities, array(3,4,5)) || (in_array(2, $activities) && !
 {
     $field_title = 'conditions_and_equipment';
 }
-echo object_group_bbcode_tag($document, 'conditions', $field_title, array('class' => 'medlargetext'), true, $field_title);
+echo object_group_bbcode_tag($document, 'conditions', $field_title, array('class' => 'mediumtext'), true, $field_title);
 echo object_group_bbcode_tag($document, 'weather', null, array('no_img' => true));
 echo object_group_bbcode_tag($document, 'participants', null, array('class' => 'smalltext', 'no_img' => true));
 ?>
 <p class="edit-tips"><?php echo __('link contributors in view page') ?></p>
 <?php
 echo object_group_bbcode_tag($document, 'timing', null, array('class' => 'smalltext', 'no_img' => true));
-echo object_group_bbcode_tag($document, 'description', __('comments'), array('class' => 'mediumtext'));
+echo object_group_bbcode_tag($document, 'description', __('comments'), array('class' => 'mediumtext', 'placeholder' => __('outings_description_default')));
 echo object_group_bbcode_tag($document, 'hut_comments');
 echo object_group_bbcode_tag($document, 'access_comments');
 

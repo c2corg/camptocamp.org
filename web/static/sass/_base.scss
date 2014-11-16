@@ -728,9 +728,9 @@ h1 .logo_mini
 
 .content_article .recent_conditions .section_subtitle
 {
-  font-weight: normal;
+  font-weight: bold;
   font-style: italic;
-  color: black;
+  color: #888;
   cursor: help;
   display: inline;
   clear: none;
@@ -836,6 +836,11 @@ span.default_text, p.default_text
 {
   margin-top: 0.7em;
 }
+.article p.avalanche_date
+{
+  margin-bottom: 0.7em;
+  font-style: italic;
+}
 
 .switch_lang
 {
@@ -863,9 +868,9 @@ span.default_text, p.default_text
   display: inline;
 }
 
-.article_contenu blockquote
+.article_contenu blockquote, .article_contenu codebox
 {
-  margin-left: 3em;
+  margin-left: 2em;
   padding: 10px;
   background-color: #F0F0F0;
 }
@@ -873,6 +878,30 @@ span.default_text, p.default_text
 .article_contenu .incqbox h4
 {
   margin-bottom: 10px;
+}
+
+.article_contenu .codebox .incqbox
+{
+  overflow: hidden;
+  width: 100%;
+}
+
+.article_contenu .codebox
+{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #888 #ccc #ccc #888;
+}
+
+.article_contenu .codebox .scrollbox
+{
+  overflow: auto;
+  width: 100%;
+}
+
+.article_contenu .codebox pre
+{
+  font-size: 1.2em;
 }
 
 #article_gauche_5050, .article_gauche_5050
@@ -3481,7 +3510,7 @@ a .linked_elt
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.2em 0;
 }
-.hfirst, .article .hfirst, .htext + .htext, p.img + .htext, .hfirst > .htext:first-child, .article_contenu > .htext:first-child, .hfirst .translatable:first-child .htext, .embedded_right:first-child + .htext, .htext + .embedded_right + .htext
+.hfirst:first-child, .article .hfirst:first-child, #conditions_levels_table + .htext, .section_subtitle + .htext, .htext + .htext, p.img + .htext, .hfirst > .htext:first-child, .article_contenu > .htext:first-child, .hfirst .translatable:first-child .htext, .embedded_right:first-child + .htext, .htext + .embedded_right + .htext
 {
   margin-top: 0 !important;
 }
@@ -4002,13 +4031,13 @@ ul.recent_conditions
   margin-top: 10px;
 }
 
-.recent_conditions ul
+.recent_conditions > li > ul
 {
   margin-left: 20px;
   margin-top: 0.8em;
 }
 
-.recent_conditions ul li
+.recent_conditions > li > ul > li
 {
   list-style-type:square;
   margin-bottom: 0.2em;

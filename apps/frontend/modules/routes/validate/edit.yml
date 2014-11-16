@@ -62,7 +62,7 @@ fields:
     myChoiceValidator:
       config_choice: mod_routes_configurations_list
       unique: false
-      array_exclusive: [ 7 ]
+      array_exclusive: [ 0 , 7 ]
       exclusive_choice_error: glacier config can't be selected with another config
   sub_activities:
     myChoiceValidator:
