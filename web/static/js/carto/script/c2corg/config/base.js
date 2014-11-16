@@ -70,7 +70,7 @@ c2corg.base = {
         }
     },
 
-    init: function (lang) {
+    init: function (lang, connected) {
         // Ext global settings
         Ext.BLANK_IMAGE_URL = "/static/js/carto/cgxp/ext/Ext/resources/images/default/s.gif";
         Ext.QuickTips.init();
@@ -130,18 +130,22 @@ c2corg.base = {
                 visibility: false,
                 group : "background"
             }, c2corg.base.ignOptions)]
-        }, {
-            source: "olsource",
-            type: "OpenLayers.Layer.WMTS",
-            group: "background",
-            args: [Ext.applyIf({
-                name: OpenLayers.i18n("swisstopo CN"),
-                layer: "ch.swisstopo.pixelkarte-farbe",
-                ref: "swisstopo_pixelkarte_farbe",
-                visibility: false,
-                group : "background"
-            }, c2corg.base.swisstopoOptions)]
         }];
+        
+        if (connected) {
+            c2corg.base.basemaps.push({
+                source: "olsource",
+                type: "OpenLayers.Layer.WMTS",
+                group: "background",
+                args: [Ext.applyIf({
+                    name: OpenLayers.i18n("Swisstopo maps"),
+                    layer: "ch.swisstopo.pixelkarte-farbe",
+                    ref: "swisstopo_pixelkarte_farbe",
+                    visibility: false,
+                    group : "background"
+                }, c2corg.base.swisstopoOptions)]
+            });
+        }
     },
 
     getControls: function (options) {

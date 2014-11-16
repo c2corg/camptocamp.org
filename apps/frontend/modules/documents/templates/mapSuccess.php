@@ -1,6 +1,7 @@
 <?php
 use_helper('Javascript');
 $lang = $sf_user->getCulture();
+$connected = $sf_user->isConnected() ? 'true' : 'false';
 
 if ($debug)
 {
@@ -17,6 +18,8 @@ use_stylesheet('/static/css/viewer.css', 'custom');
 use_javascript("/static/js/carto/build/lang-$lang.min.js", 'maps');
 use_javascript('/static/js/popup.js', 'maps');
 use_javascript('/static/js/carto/viewer.js', 'maps');
+
+echo javascript_tag("var map_connected = $connected;");
 ?>
 
 <div id="mapPort">

@@ -79,7 +79,7 @@ if ($has_geom || $show_map)
     {
         $center = null;
     }
-    echo show_map('map_container', $document, $sf_user->getCulture(), $layers_list, $height, $center, $has_geom);
+    echo show_map('map_container', $document, $sf_user->getCulture(), $layers_list, $height, $center, $has_geom, $sf_user->isConnected());
     echo end_section_tag(true);
 // fold_init_map.js ~ 390b ?>
 <script>
