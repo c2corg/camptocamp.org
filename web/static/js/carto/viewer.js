@@ -1,7 +1,7 @@
 Ext.onReady(function () {
 
     // Set OpenLayers/GeoExt params + lang
-    c2corg.base.init(document.documentElement.lang);
+    c2corg.base.init(document.documentElement.lang, map_connected || false);
     
     var app = new gxp.Viewer({
         portalConfig: {

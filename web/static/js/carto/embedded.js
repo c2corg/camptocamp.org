@@ -12,11 +12,12 @@ c2corg.Map = function (config) {
         layers: [],
         features: null,
         georef: null,
-        basemap: "google_terrain"
+        basemap: "google_terrain",
+        connected: false
     });
 
     // Set OpenLayers/GeoExt params + lang
-    c2corg.base.init(config.lang);
+    c2corg.base.init(config.lang, config.connected);
 
     var mapConfig = c2corg.base.getMap({
         controls: {

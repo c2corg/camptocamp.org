@@ -58,7 +58,7 @@ OpenLayers.Util.extend(OpenLayers.Lang.<?php echo $culture ?>, {
   "OpenStreetMap": "<?php echo __('OpenStreetMap')?>",
   "IGN maps": "<?php echo __('IGN maps')?>",
   "IGN orthos": "<?php echo __('IGN orthos')?>",
-  //"Swisstopo maps": "<?php echo __('Swisstopo maps')?>",
+  "Swisstopo maps": "<?php echo __('Swisstopo maps')?>",
   //"Clear": "<?php echo __('Clear')?>",
   //"max extent": "<?php echo __('max extent')?>",
   //"pan": "<?php echo __('pan')?>",
