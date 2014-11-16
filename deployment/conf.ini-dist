@@ -123,6 +123,10 @@ MINIFY_DEBUG =  false
 ; Whether this version is the official camptocamp
 PRODUCTION = false
 
+; use https for the login process
+HTTPS_LOGIN = false
+
+; Concours changer d'approche
 MW_CONTEST_ID = 407724
 MW_CONTEST_ENABLED = false
 
