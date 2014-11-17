@@ -26,7 +26,7 @@ echo __('Date') . __('&nbsp;:') . ' ' . date_selector(array('month' => true, 'ye
 ?>
 <div data-act-filter="1 2 5 7" style="display:none">
 <?php
-echo __('avalanche_info_title') . __('&nbsp;:') . ' ' . select_tag('avdate', options_for_select(array('2-3-4-5' => __('yes'), '1' => __('no'), ' ' => __('filled in'), '-' => __('nonwell informed')),
+echo __('avalanche_infos') . ' ' . select_tag('avdate', options_for_select(array('2-3-4-5' => __('yes'), '1' => __('no'), ' ' => __('filled in'), '-' => __('nonwell informed')),
                                                                    '', array('include_blank' => true)));
 ?>
 </div>
