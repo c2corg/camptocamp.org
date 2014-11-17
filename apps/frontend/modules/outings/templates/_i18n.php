@@ -115,22 +115,18 @@ if ($has_outing_route_desc || $has_conditions || $has_conditions_levels || $has_
     {
         if ($has_conditions)
         {
-            $conditions_string = '<div class="col_left col_66">'
+            $conditions_string = '<div class="field_value"' . $lang . '>'
                                . $conditions_string
                                . '</div>';
-        }
-        if ($has_avalanche_date)
-        {
-            $avalanche_string = '<div class="col_left col_66">'
-                              . $avalanche_string
-                              . '</div>';
         }
         $conditions_string = $outing_route_desc_string
                            . $conditions_title
                            . $conditions_levels_string
-                           . $conditions_string
                            . '</div>'
+                           . '<div class="col_left col_66">'
+                           . $conditions_string
                            . $avalanche_string
+                           . '</div>'
                            . $other_conditions;
     }
     else
