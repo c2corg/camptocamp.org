@@ -6989,7 +6989,8 @@ msgstr "Un itinéraire relie plusieurs points géographiques. Un itinéraire doi
 # texte affiché dans le champ "description" à l'édition d'un itinéraire, lorsque le champ est vide
 # [WARNING] needs_review
 msgid "routes_description_default"
-msgstr "Organisez la description de l'itinéraire à l'aide des sous-titres (boutons h2, h3, h4) :\n"
+msgstr "Décrivez ici l'itinéraire en général (informations pérennes). Les conditions rencontrées et les commentaires personnels doivent être reportées dans une page \"sortie\" dédiée.\n"
+"Organisez la description de l'itinéraire à l'aide des sous-titres (boutons h2, h3, h4). Exemple :\n"
 "\n"
 "## Approche # 1h\n"
 "...\n"
