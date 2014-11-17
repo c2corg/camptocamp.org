@@ -28,12 +28,6 @@ $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
                            . link_to(ucfirst(__('outings')), '@default_index?module=outings') ?>
                         <ul>
                             <li><?php
-                                echo picto_tag('action_list')
-                                   . link_to(__('cond short'), '@default?module=outings&action=conditions&orderby=date&order=desc') ?></li>
-                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
-                                echo picto_tag('action_query')
-                                   . link_to(__('Search'), '@filter?module=outings') ?></li>
-                            <li class="lilast"><?php
                                 echo picto_tag('action_create');
                                 if ($is_connected)
                                 {
@@ -49,6 +43,15 @@ $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
                                                    array('width' => 600));
                                 }
                             ?></li>
+                            <li><?php
+                                echo picto_tag('action_query')
+                                   . link_to(__('Search'), '@filter?module=outings') ?></li>
+                            <li><?php
+                                echo picto_tag('action_list')
+                                   . link_to(__('cond short'), '@default?module=outings&action=conditions&orderby=date&order=desc') ?></li>
+                            <li class="lilast"><?php
+                                echo picto_tag('action_list')
+                                   . link_to(__('avalanche_infos_short'), '@default?module=outings&action=conditions&avdate=+&date=2W&perso=areas-cult-ifon&orderby=date&order=desc') ?></li>
                         </ul>
                     </li>
                     <li><?php echo picto_tag('picto_routes')
