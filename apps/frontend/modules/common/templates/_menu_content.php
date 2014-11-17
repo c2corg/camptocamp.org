@@ -51,7 +51,7 @@ $c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
                                    . link_to(__('cond short'), '@default?module=outings&action=conditions&orderby=date&order=desc') ?></li>
                             <li class="lilast"><?php
                                 echo picto_tag('action_list')
-                                   . link_to(__('avalanche_infos_short'), '@default?module=outings&action=conditions&avdate=+&date=2W&perso=areas-cult-ifon&orderby=date&order=desc') ?></li>
+                                   . link_to(__('avalanche_infos_short'), '@default?module=outings&action=conditions&avdate= &date=2W&perso=areas-cult-ifon&orderby=date&order=desc') ?></li>
                         </ul>
                     </li>
                     <li><?php echo picto_tag('picto_routes')
