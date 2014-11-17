@@ -144,10 +144,10 @@ else:
                 <li><div class="section_subtitle" id="_avalanche_infos" data-tooltip=""><?php echo __('avalanche_infos') ?></div>
                 <?php
                 $avalanche_date_string = get_paginated_value_from_list($avalanche_date, 'mod_outings_avalanche_date_list');
-                echo = '<p class="avalanche_date">'
-                     . c2cTools::multibyte_ucfirst(trim($avalanche_date_string))
-                     . '.'
-                     . '</p>';
+                echo '<p class="avalanche_date">'
+                   . c2cTools::multibyte_ucfirst(trim($avalanche_date_string))
+                   . '.'
+                   . '</p>';
 
                 if ($has_avalanche_desc)
                 {
