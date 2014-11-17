@@ -187,6 +187,38 @@ tbody.on('click', '.remove-condition-level', function(e) {
 echo end_group_tag();
 // end of conditions levels fields
 
+?>
+</div>
+<?php
+
+$activities = $document->getRaw('activities');
+if (array_intersect($activities, array(3,4,5)) || (in_array(2, $activities) && !array_intersect($activities, array(1,6,7))))
+{
+    $conditions_title = 'conditions_and_equipment';
+    if (array_intersect($activities, array(2,5)))
+    {
+        $conditions_default = 'conditions_ice_default';
+    }
+    else
+    {
+        $conditions_default = 'conditions_rock_default';
+    }
+}
+else if (array_intersect($activities, array(1,7)))
+{
+    $conditions_title = null;
+    $conditions_default = 'conditions_ski_default';
+}
+else
+{
+    $conditions_title = null;
+    $conditions_default = 'conditions_hike_default';
+}
+
+echo object_group_bbcode_tag($document, 'conditions', $conditions_title, array('class' => 'mediumtext', 'placeholder' => __($conditions_default)), true, $conditions_title);
+?>
+<div data-act-filter="1 2 5 7">
+<?php
 echo object_group_dropdown_tag($document, 'avalanche_date', 'mod_outings_avalanche_date_edit_list', array('multiple' => true));
 ?>
 <div id="avalanche_desc_form">
@@ -196,14 +228,6 @@ echo object_group_bbcode_tag($document, 'avalanche_desc', null, array('class' =>
 </div>
 </div>
 <?php
-
-$activities = $document->getRaw('activities');
-$field_title = null;
-if (array_intersect($activities, array(3,4,5)) || (in_array(2, $activities) && !array_intersect($activities, array(1,6,7))))
-{
-    $field_title = 'conditions_and_equipment';
-}
-echo object_group_bbcode_tag($document, 'conditions', $field_title, array('class' => 'mediumtext'), true, $field_title);
 echo object_group_bbcode_tag($document, 'weather', null, array('no_img' => true));
 echo object_group_bbcode_tag($document, 'participants', null, array('class' => 'smalltext', 'no_img' => true));
 ?>
