@@ -683,14 +683,14 @@ function paginate($num_pages, $cur_page, $link_to, $rel = '', $prev_next = false
 //
 function message($message, $no_back_link = false)
 {
-	global $db, $lang_common, $pun_config, $pun_start, $tpl_main;
+	global $db, $lang_common, $pun_config, $pun_start, $tpl_main, $mobile_version;
 
 	if (!defined('PUN_HEADER'))
 	{
 		global $pun_user;
 
 		$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_common['Info'];
-		require PUN_ROOT.'header.php';
+		require PUN_ROOT.'header.php';//
 	}
 
 ?>
@@ -881,7 +881,7 @@ function pun_trim($str)
 //
 function maintenance_message()
 {
-	global $db, $pun_config, $lang_common, $pun_user;
+	global $db, $pun_config, $lang_common, $pun_user, $mobile_version;
 
 	// Deal with newlines, tabs and multiple spaces
 	$pattern = array("\t", '  ', '  ');
@@ -958,7 +958,7 @@ function maintenance_message()
 //
 function redirect($destination_url, $message)
 {
-	global $db, $pun_config, $lang_common, $pun_user;
+	global $db, $pun_config, $lang_common, $pun_user, $mobile_version;
 
 	if ($destination_url == '')
 		$destination_url = 'index.php';
