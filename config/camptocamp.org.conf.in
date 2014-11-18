@@ -12,6 +12,7 @@ AddType application/gpx+xml                  gpx
 AddType application/json                     json
 AddType text/cache-manifest                  appcache manifest
 AddType image/x-icon                         ico
+AddType image/svg+xml                        svg svgz
 
 # Use UTF-8 encoding for anything served text/plain or text/html
 AddDefaultCharset utf-8
